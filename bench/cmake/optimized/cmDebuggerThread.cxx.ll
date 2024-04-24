@@ -6225,7 +6225,7 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIlSt4pairIKlSt10shared_ptrIN
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds ptr, ptr %5, i64 %16
-  store ptr %2, ptr %18, align 8
+  store ptr %7, ptr %18, align 8
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %1
   %.pre25 = load ptr, ptr %.phi.trans.insert, align 8
@@ -6240,7 +6240,7 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIlSt4pairIKlSt10shared_ptrIN
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %.thread23
-  store ptr %9, ptr %19, align 8
+  store ptr %9, ptr %21, align 8
   br label %25
 
 25:                                               ; preds = %24, %.thread23
@@ -6373,7 +6373,7 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIlSt4pairIKlSt6vectorIN3dap5
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds ptr, ptr %5, i64 %16
-  store ptr %2, ptr %18, align 8
+  store ptr %7, ptr %18, align 8
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %1
   %.pre25 = load ptr, ptr %.phi.trans.insert, align 8
@@ -6388,7 +6388,7 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIlSt4pairIKlSt6vectorIN3dap5
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %.thread23
-  store ptr %9, ptr %19, align 8
+  store ptr %9, ptr %21, align 8
   br label %25
 
 25:                                               ; preds = %24, %.thread23

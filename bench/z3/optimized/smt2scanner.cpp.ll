@@ -1107,7 +1107,7 @@ terminate.lpad.i99:                               ; preds = %.noexc.i100, %_ZN8r
   unreachable
 
 _ZN8rationalD2Ev.exit102:                         ; preds = %.noexc.i100
-  %tobool27 = trunc i8 %is_float.0137 to i1
+  %tobool27 = trunc nuw i8 %is_float.0137 to i1
   br i1 %tobool27, label %if.then28, label %if.end
 
 if.then28:                                        ; preds = %_ZN8rationalD2Ev.exit102
@@ -1225,7 +1225,7 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp37, label %if.then38, label %while.end
 
 if.then38:                                        ; preds = %if.else
-  %tobool39 = trunc i8 %is_float.0137 to i1
+  %tobool39 = trunc nuw i8 %is_float.0137 to i1
   br i1 %tobool39, label %while.end, label %if.end41
 
 if.end41:                                         ; preds = %if.then38
@@ -1240,7 +1240,7 @@ if.end45:                                         ; preds = %if.end41, %if.end
 
 while.end:                                        ; preds = %if.end45, %if.then38, %if.else
   %is_float.0.lcssa.ph = phi i8 [ %is_float.1, %if.end45 ], [ %is_float.0137, %if.then38 ], [ %is_float.0137, %if.else ]
-  %58 = trunc i8 %is_float.0.lcssa.ph to i1
+  %58 = trunc nuw i8 %is_float.0.lcssa.ph to i1
   br i1 %58, label %if.then47, label %if.end51
 
 if.then47:                                        ; preds = %while.end
@@ -3249,7 +3249,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !18
 
 while.end.loopexit.split.loop.exit46:             ; preds = %land.rhs
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit46, %_ZN6vectorIcLb0EjE5resetEv.exit
@@ -3275,7 +3275,7 @@ land.rhs5:                                        ; preds = %while.cond3
   br i1 %tobool10.not, label %while.end13.split.loop.exit48, label %while.cond3, !llvm.loop !19
 
 while.end13.split.loop.exit48:                    ; preds = %land.rhs5
-  %9 = trunc i64 %indvars.iv37 to i32
+  %9 = trunc nuw i64 %indvars.iv37 to i32
   br label %while.end13
 
 while.end13:                                      ; preds = %while.cond3, %while.end13.split.loop.exit48
@@ -3502,7 +3502,8 @@ if.then3:                                         ; preds = %if.end
   %m_den = getelementptr inbounds i8, ptr %b, i64 16
   call void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %m_den, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
   %m_den4 = getelementptr inbounds i8, ptr %a, i64 16
-  call void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %m_den4, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %m_den)
+  %m_den6 = getelementptr inbounds i8, ptr %c, i64 16
+  call void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %m_den4, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %m_den6)
   %bf.load.i.i.i27 = load i8, ptr %m_kind.i, align 4
   %bf.clear.i.i.i28 = and i8 %bf.load.i.i.i27, 1
   %cmp.i.i.i29 = icmp eq i8 %bf.clear.i.i.i28, 0
@@ -3510,14 +3511,15 @@ if.then3:                                         ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %if.then3
   %6 = load i32, ptr %tmp, align 8
-  store i32 %6, ptr %b, align 8
-  %bf.load.i.i = load i8, ptr %m_kind.i.i.i.i, align 4
+  store i32 %6, ptr %c, align 8
+  %m_kind.i.i = getelementptr inbounds i8, ptr %c, i64 4
+  %bf.load.i.i = load i8, ptr %m_kind.i.i, align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, -2
-  store i8 %bf.clear.i.i, ptr %m_kind.i.i.i.i, align 4
+  store i8 %bf.clear.i.i, ptr %m_kind.i.i, align 4
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit
 
 if.else.i.i:                                      ; preds = %if.then3
-  call void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
+  call void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit:       ; preds = %if.then.i.i, %if.else.i.i

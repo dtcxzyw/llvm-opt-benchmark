@@ -860,7 +860,7 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
   %15 = load ptr, ptr %3, align 8
   store ptr %15, ptr %11, align 8
   %.not39.i = icmp eq ptr %15, %4
-  br i1 %.not39.i, label %dom_decode_encode_fast_path.exit, label %.lr.ph.i
+  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14
   %16 = getelementptr inbounds i8, ptr %5, i64 64
@@ -898,22 +898,23 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
   %.not.i = icmp eq ptr %33, %4
   br i1 %.not.i, label %._crit_edge.i, label %17
 
-._crit_edge.i:                                    ; preds = %32
-  %.not35.i = icmp eq ptr %.1.i, %4
+._crit_edge.i:                                    ; preds = %32, %14
+  %.031.lcssa.i = phi ptr [ %15, %14 ], [ %.1.i, %32 ]
+  %.not35.i = icmp eq ptr %.031.lcssa.i, %4
   br i1 %.not35.i, label %dom_decode_encode_fast_path.exit, label %34
 
 34:                                               ; preds = %._crit_edge.i
   %35 = ptrtoint ptr %4 to i64
-  %36 = ptrtoint ptr %.1.i to i64
+  %36 = ptrtoint ptr %.031.lcssa.i to i64
   %37 = sub i64 %35, %36
-  %38 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %37, ptr noundef %.1.i, i64 noundef %37, ptr noundef %6, ptr noundef %7)
+  %38 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %37, ptr noundef %.031.lcssa.i, i64 noundef %37, ptr noundef %6, ptr noundef %7)
   br i1 %38, label %dom_decode_encode_fast_path.exit, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %28, %21, %34
   br label %dom_decode_encode_fast_path.exit
 
-dom_decode_encode_fast_path.exit:                 ; preds = %14, %._crit_edge.i, %34, %.loopexit.i
-  %.0.i = phi i1 [ false, %.loopexit.i ], [ true, %34 ], [ true, %._crit_edge.i ], [ true, %14 ]
+dom_decode_encode_fast_path.exit:                 ; preds = %._crit_edge.i, %34, %.loopexit.i
+  %.0.i = phi i1 [ false, %.loopexit.i ], [ true, %34 ], [ true, %._crit_edge.i ]
   %storemerge.i = load ptr, ptr %11, align 8
   store ptr %storemerge.i, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)

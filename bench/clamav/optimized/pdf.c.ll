@@ -3842,7 +3842,7 @@ find_stream_bounds.exit.thread:                   ; preds = %61, %63, %58, %.thr
   br label %131
 
 129:                                              ; preds = %120
-  %130 = tail call ptr @memchr(ptr noundef %119, i32 noundef 60, i64 noundef %122) #26
+  %130 = tail call ptr @memchr(ptr noundef %.1287450.us, i32 noundef 60, i64 noundef %122) #26
   br label %131
 
 131:                                              ; preds = %129, %125
@@ -3911,7 +3911,7 @@ find_stream_bounds.exit.thread:                   ; preds = %61, %63, %58, %.thr
   br i1 %165, label %166, label %168
 
 166:                                              ; preds = %161
-  %167 = tail call ptr @memchr(ptr noundef %145, i32 noundef 60, i64 noundef %163) #26
+  %167 = tail call ptr @memchr(ptr noundef %.1287450, i32 noundef 60, i64 noundef %163) #26
   br label %172
 
 168:                                              ; preds = %161

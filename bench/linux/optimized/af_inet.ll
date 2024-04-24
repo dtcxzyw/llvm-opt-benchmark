@@ -2016,13 +2016,12 @@ define dso_local void @inet_register_protosw(ptr noundef %0) #0 align 16 {
   br i1 %23, label %28, label %11, !llvm.loop !47
 
 24:                                               ; preds = %15, %11
-  %.lcssa = phi ptr [ %13, %15 ], [ %10, %11 ]
-  store ptr %.lcssa, ptr %0, align 8
+  store ptr %13, ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %12, ptr %25, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !48
   store volatile ptr %0, ptr %12, align 8
-  %26 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %26 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %0, ptr %26, align 8
   br label %27
 

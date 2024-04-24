@@ -856,7 +856,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
-  %__y.addr.0.lcssa.i.i.i9 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %add.ptr.i.i.i, %entry ]
+  %__y.addr.0.lcssa.i.i.i9 = phi ptr [ %__y.addr.1.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %add.ptr.i.i.i, %entry ]
   store ptr %__k, ptr %ref.tmp9, align 8, !alias.scope !7
   %call12 = call ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS5_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i9, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10)
   br label %if.end
@@ -9509,7 +9509,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i964, label %if.then.i968, label %invoke.cont120.i
 
 if.then.i968:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i963, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i957, %invoke.cont118.i
-  %__y.addr.0.lcssa.i.i.i9.i969 = phi ptr [ %add.ptr.i.i.i.i852, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i957 ], [ %__y.addr.1.i.i.i.i952, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i963 ], [ %add.ptr.i.i.i.i852, %invoke.cont118.i ]
+  %__y.addr.0.lcssa.i.i.i9.i969 = phi ptr [ %__y.addr.1.i.i.i.i952, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i957 ], [ %__y.addr.1.i.i.i.i952, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i963 ], [ %add.ptr.i.i.i.i852, %invoke.cont118.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i1461)
   store ptr %vars, ptr %__z.i1461, align 8
   %call5.i.i.i.i.i.i1486 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -9675,7 +9675,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i919, label %if.then.i923, label %invoke.cont132.i
 
 if.then.i923:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i918, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i912, %invoke.cont130.i
-  %__y.addr.0.lcssa.i.i.i9.i924 = phi ptr [ %add.ptr.i.i.i.i852, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i912 ], [ %__y.addr.1.i.i.i.i907, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i918 ], [ %add.ptr.i.i.i.i852, %invoke.cont130.i ]
+  %__y.addr.0.lcssa.i.i.i9.i924 = phi ptr [ %__y.addr.1.i.i.i.i907, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i912 ], [ %__y.addr.1.i.i.i.i907, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i918 ], [ %add.ptr.i.i.i.i852, %invoke.cont130.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i1432)
   store ptr %vars, ptr %__z.i1432, align 8
   %call5.i.i.i.i.i.i1457 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -10100,7 +10100,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i874, label %if.then.i878, label %invoke.cont165.i
 
 if.then.i878:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i873, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i867, %invoke.cont163.i
-  %__y.addr.0.lcssa.i.i.i9.i879 = phi ptr [ %add.ptr.i.i.i.i852, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i867 ], [ %__y.addr.1.i.i.i.i862, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i873 ], [ %add.ptr.i.i.i.i852, %invoke.cont163.i ]
+  %__y.addr.0.lcssa.i.i.i9.i879 = phi ptr [ %__y.addr.1.i.i.i.i862, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i867 ], [ %__y.addr.1.i.i.i.i862, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i873 ], [ %add.ptr.i.i.i.i852, %invoke.cont163.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i1403)
   store ptr %vars, ptr %__z.i1403, align 8
   %call5.i.i.i.i.i.i1428 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -10266,7 +10266,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i829, label %if.then.i833, label %invoke.cont177.i
 
 if.then.i833:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i828, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i822, %invoke.cont175.i
-  %__y.addr.0.lcssa.i.i.i9.i834 = phi ptr [ %add.ptr.i.i.i.i852, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i822 ], [ %__y.addr.1.i.i.i.i817, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i828 ], [ %add.ptr.i.i.i.i852, %invoke.cont175.i ]
+  %__y.addr.0.lcssa.i.i.i9.i834 = phi ptr [ %__y.addr.1.i.i.i.i817, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i822 ], [ %__y.addr.1.i.i.i.i817, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i828 ], [ %add.ptr.i.i.i.i852, %invoke.cont175.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i1374)
   store ptr %vars, ptr %__z.i1374, align 8
   %call5.i.i.i.i.i.i1399 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -10447,7 +10447,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i782, label %if.then.i786, label %invoke.cont189.i
 
 if.then.i786:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i781, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i775, %invoke.cont187.i
-  %__y.addr.0.lcssa.i.i.i9.i787 = phi ptr [ %add.ptr.i.i.i.i852, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i775 ], [ %__y.addr.1.i.i.i.i770, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i781 ], [ %add.ptr.i.i.i.i852, %invoke.cont187.i ]
+  %__y.addr.0.lcssa.i.i.i9.i787 = phi ptr [ %__y.addr.1.i.i.i.i770, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i775 ], [ %__y.addr.1.i.i.i.i770, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i781 ], [ %add.ptr.i.i.i.i852, %invoke.cont187.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i1345)
   store ptr %vars, ptr %__z.i1345, align 8
   %call5.i.i.i.i.i.i1370 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -10613,7 +10613,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i737, label %if.then.i741, label %invoke.cont201.i
 
 if.then.i741:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i736, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i730, %invoke.cont199.i
-  %__y.addr.0.lcssa.i.i.i9.i742 = phi ptr [ %add.ptr.i.i.i.i852, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i730 ], [ %__y.addr.1.i.i.i.i725, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i736 ], [ %add.ptr.i.i.i.i852, %invoke.cont199.i ]
+  %__y.addr.0.lcssa.i.i.i9.i742 = phi ptr [ %__y.addr.1.i.i.i.i725, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i730 ], [ %__y.addr.1.i.i.i.i725, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i736 ], [ %add.ptr.i.i.i.i852, %invoke.cont199.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i1316)
   store ptr %vars, ptr %__z.i1316, align 8
   %call5.i.i.i.i.i.i1341 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -10911,7 +10911,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i692, label %if.then.i696, label %invoke.cont238.i
 
 if.then.i696:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i691, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i685, %invoke.cont236.i
-  %__y.addr.0.lcssa.i.i.i9.i697 = phi ptr [ %add.ptr.i.i.i.i852, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i685 ], [ %__y.addr.1.i.i.i.i680, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i691 ], [ %add.ptr.i.i.i.i852, %invoke.cont236.i ]
+  %__y.addr.0.lcssa.i.i.i9.i697 = phi ptr [ %__y.addr.1.i.i.i.i680, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i685 ], [ %__y.addr.1.i.i.i.i680, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i691 ], [ %add.ptr.i.i.i.i852, %invoke.cont236.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i1287)
   store ptr %vars, ptr %__z.i1287, align 8
   %call5.i.i.i.i.i.i1312 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -11077,7 +11077,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i647, label %if.then.i651, label %invoke.cont250.i
 
 if.then.i651:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i646, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i640, %invoke.cont248.i
-  %__y.addr.0.lcssa.i.i.i9.i652 = phi ptr [ %add.ptr.i.i.i.i852, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i640 ], [ %__y.addr.1.i.i.i.i635, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i646 ], [ %add.ptr.i.i.i.i852, %invoke.cont248.i ]
+  %__y.addr.0.lcssa.i.i.i9.i652 = phi ptr [ %__y.addr.1.i.i.i.i635, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i640 ], [ %__y.addr.1.i.i.i.i635, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i646 ], [ %add.ptr.i.i.i.i852, %invoke.cont248.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i1258)
   store ptr %vars, ptr %__z.i1258, align 8
   %call5.i.i.i.i.i.i1283 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -11258,7 +11258,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i600, label %if.then.i604, label %invoke.cont262.i
 
 if.then.i604:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i599, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i593, %invoke.cont260.i
-  %__y.addr.0.lcssa.i.i.i9.i605 = phi ptr [ %add.ptr.i.i.i.i852, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i593 ], [ %__y.addr.1.i.i.i.i588, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i599 ], [ %add.ptr.i.i.i.i852, %invoke.cont260.i ]
+  %__y.addr.0.lcssa.i.i.i9.i605 = phi ptr [ %__y.addr.1.i.i.i.i588, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i593 ], [ %__y.addr.1.i.i.i.i588, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i599 ], [ %add.ptr.i.i.i.i852, %invoke.cont260.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i1229)
   store ptr %vars, ptr %__z.i1229, align 8
   %call5.i.i.i.i.i.i1254 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -11424,7 +11424,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i555, label %if.then.i559, label %invoke.cont274.i
 
 if.then.i559:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i554, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i548, %invoke.cont272.i
-  %__y.addr.0.lcssa.i.i.i9.i560 = phi ptr [ %add.ptr.i.i.i.i852, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i548 ], [ %__y.addr.1.i.i.i.i543, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i554 ], [ %add.ptr.i.i.i.i852, %invoke.cont272.i ]
+  %__y.addr.0.lcssa.i.i.i9.i560 = phi ptr [ %__y.addr.1.i.i.i.i543, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i548 ], [ %__y.addr.1.i.i.i.i543, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i554 ], [ %add.ptr.i.i.i.i852, %invoke.cont272.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i1200)
   store ptr %vars, ptr %__z.i1200, align 8
   %call5.i.i.i.i.i.i1225 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -11715,7 +11715,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i510, label %if.then.i514, label %invoke.cont313.i
 
 if.then.i514:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i509, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i503, %invoke.cont311.i
-  %__y.addr.0.lcssa.i.i.i9.i515 = phi ptr [ %add.ptr.i.i.i.i852, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i503 ], [ %__y.addr.1.i.i.i.i498, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i509 ], [ %add.ptr.i.i.i.i852, %invoke.cont311.i ]
+  %__y.addr.0.lcssa.i.i.i9.i515 = phi ptr [ %__y.addr.1.i.i.i.i498, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i503 ], [ %__y.addr.1.i.i.i.i498, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i509 ], [ %add.ptr.i.i.i.i852, %invoke.cont311.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i1171)
   store ptr %vars, ptr %__z.i1171, align 8
   %call5.i.i.i.i.i.i1196 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -11881,7 +11881,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i465, label %if.then.i469, label %invoke.cont325.i
 
 if.then.i469:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i464, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i458, %invoke.cont323.i
-  %__y.addr.0.lcssa.i.i.i9.i470 = phi ptr [ %add.ptr.i.i.i.i852, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i458 ], [ %__y.addr.1.i.i.i.i453, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i464 ], [ %add.ptr.i.i.i.i852, %invoke.cont323.i ]
+  %__y.addr.0.lcssa.i.i.i9.i470 = phi ptr [ %__y.addr.1.i.i.i.i453, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i458 ], [ %__y.addr.1.i.i.i.i453, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i464 ], [ %add.ptr.i.i.i.i852, %invoke.cont323.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i1142)
   store ptr %vars, ptr %__z.i1142, align 8
   %call5.i.i.i.i.i.i1167 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -12062,7 +12062,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i419, label %if.then.i423, label %invoke.cont337.i
 
 if.then.i423:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i418, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i412, %invoke.cont335.i
-  %__y.addr.0.lcssa.i.i.i9.i424 = phi ptr [ %add.ptr.i.i.i.i852, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i412 ], [ %__y.addr.1.i.i.i.i407, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i418 ], [ %add.ptr.i.i.i.i852, %invoke.cont335.i ]
+  %__y.addr.0.lcssa.i.i.i9.i424 = phi ptr [ %__y.addr.1.i.i.i.i407, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i412 ], [ %__y.addr.1.i.i.i.i407, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i418 ], [ %add.ptr.i.i.i.i852, %invoke.cont335.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i1113)
   store ptr %vars, ptr %__z.i1113, align 8
   %call5.i.i.i.i.i.i1138 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -12228,7 +12228,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i, label %if.then.i387, label %invoke.cont349.i
 
 if.then.i387:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i, %invoke.cont347.i
-  %__y.addr.0.lcssa.i.i.i9.i = phi ptr [ %add.ptr.i.i.i.i852, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %add.ptr.i.i.i.i852, %invoke.cont347.i ]
+  %__y.addr.0.lcssa.i.i.i9.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %add.ptr.i.i.i.i852, %invoke.cont347.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i)
   store ptr %vars, ptr %__z.i, align 8
   %call5.i.i.i.i.i.i1110 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -15101,7 +15101,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i426, label %if.then.i430, label %invoke.cont80.i
 
 if.then.i430:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i425, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i419, %invoke.cont78.i
-  %__y.addr.0.lcssa.i.i.i9.i431 = phi ptr [ %add.ptr.i.i.i.i359, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i419 ], [ %__y.addr.1.i.i.i.i414, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i425 ], [ %add.ptr.i.i.i.i359, %invoke.cont78.i ]
+  %__y.addr.0.lcssa.i.i.i9.i431 = phi ptr [ %__y.addr.1.i.i.i.i414, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i419 ], [ %__y.addr.1.i.i.i.i414, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i425 ], [ %add.ptr.i.i.i.i359, %invoke.cont78.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i763)
   store ptr %vars, ptr %__z.i763, align 8
   %call5.i.i.i.i.i.i788 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -15447,7 +15447,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i381, label %if.then.i385, label %invoke.cont107.i
 
 if.then.i385:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i380, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i374, %invoke.cont105.i
-  %__y.addr.0.lcssa.i.i.i9.i386 = phi ptr [ %add.ptr.i.i.i.i359, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i374 ], [ %__y.addr.1.i.i.i.i369, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i380 ], [ %add.ptr.i.i.i.i359, %invoke.cont105.i ]
+  %__y.addr.0.lcssa.i.i.i9.i386 = phi ptr [ %__y.addr.1.i.i.i.i369, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i374 ], [ %__y.addr.1.i.i.i.i369, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i380 ], [ %add.ptr.i.i.i.i359, %invoke.cont105.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i734)
   store ptr %vars, ptr %__z.i734, align 8
   %call5.i.i.i.i.i.i759 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -15628,7 +15628,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i334, label %if.then.i338, label %invoke.cont119.i
 
 if.then.i338:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i333, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i327, %invoke.cont117.i
-  %__y.addr.0.lcssa.i.i.i9.i339 = phi ptr [ %add.ptr.i.i.i.i359, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i327 ], [ %__y.addr.1.i.i.i.i322, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i333 ], [ %add.ptr.i.i.i.i359, %invoke.cont117.i ]
+  %__y.addr.0.lcssa.i.i.i9.i339 = phi ptr [ %__y.addr.1.i.i.i.i322, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i327 ], [ %__y.addr.1.i.i.i.i322, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i333 ], [ %add.ptr.i.i.i.i359, %invoke.cont117.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i705)
   store ptr %vars, ptr %__z.i705, align 8
   %call5.i.i.i.i.i.i730 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -15817,7 +15817,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i289, label %if.then.i293, label %invoke.cont133.i
 
 if.then.i293:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i288, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i282, %invoke.cont131.i
-  %__y.addr.0.lcssa.i.i.i9.i294 = phi ptr [ %add.ptr.i.i.i.i359, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i282 ], [ %__y.addr.1.i.i.i.i277, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i288 ], [ %add.ptr.i.i.i.i359, %invoke.cont131.i ]
+  %__y.addr.0.lcssa.i.i.i9.i294 = phi ptr [ %__y.addr.1.i.i.i.i277, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i282 ], [ %__y.addr.1.i.i.i.i277, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i288 ], [ %add.ptr.i.i.i.i359, %invoke.cont131.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i676)
   store ptr %vars, ptr %__z.i676, align 8
   %call5.i.i.i.i.i.i701 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -16080,7 +16080,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i244, label %if.then.i248, label %invoke.cont164.i
 
 if.then.i248:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i243, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i237, %invoke.cont162.i
-  %__y.addr.0.lcssa.i.i.i9.i249 = phi ptr [ %add.ptr.i.i.i.i359, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i237 ], [ %__y.addr.1.i.i.i.i232, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i243 ], [ %add.ptr.i.i.i.i359, %invoke.cont162.i ]
+  %__y.addr.0.lcssa.i.i.i9.i249 = phi ptr [ %__y.addr.1.i.i.i.i232, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i237 ], [ %__y.addr.1.i.i.i.i232, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i243 ], [ %add.ptr.i.i.i.i359, %invoke.cont162.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i647)
   store ptr %vars, ptr %__z.i647, align 8
   %call5.i.i.i.i.i.i672 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -16261,7 +16261,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i197, label %if.then.i201, label %invoke.cont176.i
 
 if.then.i201:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i196, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i190, %invoke.cont174.i
-  %__y.addr.0.lcssa.i.i.i9.i202 = phi ptr [ %add.ptr.i.i.i.i359, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i190 ], [ %__y.addr.1.i.i.i.i185, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i196 ], [ %add.ptr.i.i.i.i359, %invoke.cont174.i ]
+  %__y.addr.0.lcssa.i.i.i9.i202 = phi ptr [ %__y.addr.1.i.i.i.i185, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i190 ], [ %__y.addr.1.i.i.i.i185, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i196 ], [ %add.ptr.i.i.i.i359, %invoke.cont174.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i618)
   store ptr %vars, ptr %__z.i618, align 8
   %call5.i.i.i.i.i.i643 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -16450,7 +16450,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i152, label %if.then.i156, label %invoke.cont191.i
 
 if.then.i156:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i151, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i145, %invoke.cont189.i
-  %__y.addr.0.lcssa.i.i.i9.i157 = phi ptr [ %add.ptr.i.i.i.i359, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i145 ], [ %__y.addr.1.i.i.i.i140, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i151 ], [ %add.ptr.i.i.i.i359, %invoke.cont189.i ]
+  %__y.addr.0.lcssa.i.i.i9.i157 = phi ptr [ %__y.addr.1.i.i.i.i140, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i145 ], [ %__y.addr.1.i.i.i.i140, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i151 ], [ %add.ptr.i.i.i.i359, %invoke.cont189.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i589)
   store ptr %vars, ptr %__z.i589, align 8
   %call5.i.i.i.i.i.i614 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -16706,7 +16706,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i107, label %if.then.i111, label %invoke.cont224.i
 
 if.then.i111:                                     ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i106, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i100, %invoke.cont222.i
-  %__y.addr.0.lcssa.i.i.i9.i112 = phi ptr [ %add.ptr.i.i.i.i359, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i100 ], [ %__y.addr.1.i.i.i.i95, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i106 ], [ %add.ptr.i.i.i.i359, %invoke.cont222.i ]
+  %__y.addr.0.lcssa.i.i.i9.i112 = phi ptr [ %__y.addr.1.i.i.i.i95, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i100 ], [ %__y.addr.1.i.i.i.i95, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i106 ], [ %add.ptr.i.i.i.i359, %invoke.cont222.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i560)
   store ptr %vars, ptr %__z.i560, align 8
   %call5.i.i.i.i.i.i585 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -16887,7 +16887,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i61, label %if.then.i65, label %invoke.cont236.i
 
 if.then.i65:                                      ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i60, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i54, %invoke.cont234.i
-  %__y.addr.0.lcssa.i.i.i9.i66 = phi ptr [ %add.ptr.i.i.i.i359, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i54 ], [ %__y.addr.1.i.i.i.i49, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i60 ], [ %add.ptr.i.i.i.i359, %invoke.cont234.i ]
+  %__y.addr.0.lcssa.i.i.i9.i66 = phi ptr [ %__y.addr.1.i.i.i.i49, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i54 ], [ %__y.addr.1.i.i.i.i49, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i60 ], [ %add.ptr.i.i.i.i359, %invoke.cont234.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i531)
   store ptr %vars, ptr %__z.i531, align 8
   %call5.i.i.i.i.i.i556 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -17076,7 +17076,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i.i, label %if.then.i29, label %invoke.cont251.i
 
 if.then.i29:                                      ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i, %invoke.cont249.i
-  %__y.addr.0.lcssa.i.i.i9.i = phi ptr [ %add.ptr.i.i.i.i359, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %add.ptr.i.i.i.i359, %invoke.cont249.i ]
+  %__y.addr.0.lcssa.i.i.i9.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %add.ptr.i.i.i.i359, %invoke.cont249.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z.i)
   store ptr %vars, ptr %__z.i, align 8
   %call5.i.i.i.i.i.i528 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
@@ -21381,7 +21381,7 @@ while.end.i:                                      ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %if.else
-  %__y.0.lcssa30.i = phi ptr [ %__x.025.i, %while.end.i ], [ %__position.coerce, %if.else ]
+  %__y.0.lcssa30.i = phi ptr [ %__x.025.i, %while.end.i ], [ %add.ptr.i, %if.else ]
   %_M_left.i3.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %_M_left.i3.i, align 8
   %cmp.i.i11 = icmp eq ptr %__y.0.lcssa30.i, %7
@@ -21626,8 +21626,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %return
 
 return:                                           ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105, %if.then.i113, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51, %if.then.i59, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i, %if.then.i, %if.then64, %if.then32, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70, %if.then50, %if.then18, %if.then9
-  %retval.sroa.0.0 = phi ptr [ null, %if.then9 ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ %spec.select, %if.then32 ], [ %spec.select135, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ null, %if.then.i59 ], [ %spec.select.i53, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ null, %if.then.i113 ], [ %spec.select.i107, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ]
-  %retval.sroa.12.0 = phi ptr [ %4, %if.then9 ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ %spec.select134, %if.then32 ], [ %spec.select136, %if.then64 ], [ %__y.0.lcssa30.i, %if.then.i ], [ %spec.select20.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ %__y.0.lcssa30.i60, %if.then.i59 ], [ %spec.select20.i54, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ %__y.0.lcssa30.i114, %if.then.i113 ], [ %spec.select20.i108, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ]
+  %retval.sroa.0.0 = phi ptr [ null, %if.then9 ], [ %12, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ %spec.select, %if.then32 ], [ %spec.select135, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ null, %if.then.i59 ], [ %spec.select.i53, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ null, %if.then.i113 ], [ %spec.select.i107, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ]
+  %retval.sroa.12.0 = phi ptr [ %4, %if.then9 ], [ %12, %if.then18 ], [ %23, %if.then50 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ %spec.select134, %if.then32 ], [ %spec.select136, %if.then64 ], [ %__y.0.lcssa30.i, %if.then.i ], [ %spec.select20.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ %__y.0.lcssa30.i60, %if.then.i59 ], [ %spec.select20.i54, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ %__y.0.lcssa30.i114, %if.then.i113 ], [ %spec.select20.i108, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

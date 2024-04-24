@@ -260,7 +260,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -319,7 +319,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -915,11 +915,11 @@ while.cond.i:                                     ; preds = %while.cond.i, %entr
   %arrayidx.i = getelementptr inbounds i16, ptr %newSpec, i64 %indvars.iv.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %cmp.not.i = icmp eq i16 %0, -1
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %cmp.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %while.cond.i
-  %inc1.i = shl i64 %indvars.iv.i, 1
+  %inc1.i = shl nuw i64 %indvars.iv.i, 1
   %1 = add i64 %inc1.i, 2
   %mul.i = and i64 %1, 4294967294
   %call.i1 = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul.i) #10
@@ -964,11 +964,11 @@ while.cond.i:                                     ; preds = %while.cond.i, %entr
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i
   %1 = load i16, ptr %arrayidx.i, align 2
   %cmp.not.i = icmp eq i16 %1, -1
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %cmp.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %while.cond.i
-  %inc1.i = shl i64 %indvars.iv.i, 1
+  %inc1.i = shl nuw i64 %indvars.iv.i, 1
   %2 = add i64 %inc1.i, 2
   %mul.i = and i64 %2, 4294967294
   %call.i2 = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul.i) #10

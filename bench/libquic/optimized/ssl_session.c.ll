@@ -527,7 +527,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %11 = load i32, ptr %ssl, align 8
   %ssl_version.i = getelementptr inbounds i8, ptr %data.i, i64 4
   store i32 %11, ptr %ssl_version.i, align 4
-  %conv.i = trunc i64 %7 to i32
+  %conv.i = trunc nuw nsw i64 %7 to i32
   %session_id_length.i = getelementptr inbounds i8, ptr %data.i, i64 64
   store i32 %conv.i, ptr %session_id_length.i, align 8
   %session_id3.i = getelementptr inbounds i8, ptr %data.i, i64 68
@@ -564,7 +564,7 @@ if.end17.i:                                       ; preds = %if.end17.critedge.i
 
 if.end22.i:                                       ; preds = %if.end17.i
   store i32 1, ptr %copy.i, align 4
-  %conv25.i = trunc i64 %7 to i32
+  %conv25.i = trunc nuw nsw i64 %7 to i32
   %call26.i = call ptr %17(ptr noundef nonnull %ssl, ptr noundef %6, i32 noundef %conv25.i, ptr noundef nonnull %copy.i) #14
   %cmp27.i = icmp eq ptr %call26.i, null
   br i1 %cmp27.i, label %ssl_lookup_session.exit.thread, label %if.end30.i
@@ -763,25 +763,24 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %cmp6.i, label %if.then7.i, label %if.else.i
 
 if.then7.i:                                       ; preds = %if.then4.i
-  store ptr null, ptr %4, align 8
-  store ptr null, ptr %3, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %session_cache_head.i, i8 0, i64 16, i1 false)
   br label %if.end34.i
 
 if.else.i:                                        ; preds = %if.then4.i
-  store ptr %4, ptr %3, align 8
+  store ptr %4, ptr %session_cache_tail.i, align 8
   %5 = load ptr, ptr %prev.i, align 8
   %next14.i = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr %3, ptr %next14.i, align 8
+  store ptr %session_cache_tail.i, ptr %next14.i, align 8
   br label %if.end34.i
 
 if.else16.i:                                      ; preds = %if.end.i
   br i1 %cmp6.i, label %if.then20.i, label %if.else26.i
 
 if.then20.i:                                      ; preds = %if.else16.i
-  store ptr %3, ptr %4, align 8
+  store ptr %3, ptr %session_cache_head.i, align 8
   %6 = load ptr, ptr %next.i, align 8
   %prev25.i = getelementptr inbounds i8, ptr %6, i64 200
-  store ptr %4, ptr %prev25.i, align 8
+  store ptr %session_cache_head.i, ptr %prev25.i, align 8
   br label %if.end34.i
 
 if.else26.i:                                      ; preds = %if.else16.i
@@ -795,31 +794,29 @@ if.else26.i:                                      ; preds = %if.else16.i
 
 if.end34.i:                                       ; preds = %if.else26.i, %if.then20.i, %if.else.i, %if.then7.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prev.i, i8 0, i64 16, i1 false)
-  %.pre = load ptr, ptr %old_session, align 8
   br label %SSL_SESSION_list_remove.exit
 
 SSL_SESSION_list_remove.exit:                     ; preds = %if.end7, %lor.lhs.false.i, %if.end34.i
-  %9 = phi ptr [ %1, %if.end7 ], [ %1, %lor.lhs.false.i ], [ %.pre, %if.end34.i ]
-  call void @SSL_SESSION_free(ptr noundef %9)
+  call void @SSL_SESSION_free(ptr noundef nonnull %1)
   br label %if.end8
 
 if.end8:                                          ; preds = %SSL_SESSION_list_remove.exit, %if.end
   %next.i16 = getelementptr inbounds i8, ptr %session, i64 208
-  %10 = load ptr, ptr %next.i16, align 8
-  %cmp.not.i17 = icmp eq ptr %10, null
+  %9 = load ptr, ptr %next.i16, align 8
+  %cmp.not.i17 = icmp eq ptr %9, null
   br i1 %cmp.not.i17, label %if.end.i19, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end8
   %prev.i18 = getelementptr inbounds i8, ptr %session, i64 200
-  %11 = load ptr, ptr %prev.i18, align 8
-  %cmp1.not.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %prev.i18, align 8
+  %cmp1.not.i = icmp eq ptr %10, null
   br i1 %cmp1.not.i, label %if.end.i19, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i
   %session_cache_tail.i.i = getelementptr inbounds i8, ptr %ctx, i64 136
-  %cmp3.i.i = icmp eq ptr %10, %session_cache_tail.i.i
+  %cmp3.i.i = icmp eq ptr %9, %session_cache_tail.i.i
   %session_cache_head.i.i = getelementptr inbounds i8, ptr %ctx, i64 128
-  %cmp6.i.i = icmp eq ptr %11, %session_cache_head.i.i
+  %cmp6.i.i = icmp eq ptr %10, %session_cache_head.i.i
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.else16.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
@@ -830,9 +827,9 @@ if.then7.i.i:                                     ; preds = %if.then4.i.i
   br label %SSL_SESSION_list_remove.exit.i
 
 if.else.i.i:                                      ; preds = %if.then4.i.i
-  store ptr %11, ptr %session_cache_tail.i.i, align 8
-  %12 = load ptr, ptr %prev.i18, align 8
-  %next14.i.i = getelementptr inbounds i8, ptr %12, i64 208
+  store ptr %10, ptr %session_cache_tail.i.i, align 8
+  %11 = load ptr, ptr %prev.i18, align 8
+  %next14.i.i = getelementptr inbounds i8, ptr %11, i64 208
   store ptr %session_cache_tail.i.i, ptr %next14.i.i, align 8
   br label %SSL_SESSION_list_remove.exit.i
 
@@ -840,19 +837,19 @@ if.else16.i.i:                                    ; preds = %if.end.i.i
   br i1 %cmp6.i.i, label %if.then20.i.i, label %if.else26.i.i
 
 if.then20.i.i:                                    ; preds = %if.else16.i.i
-  store ptr %10, ptr %session_cache_head.i.i, align 8
-  %13 = load ptr, ptr %next.i16, align 8
-  %prev25.i.i = getelementptr inbounds i8, ptr %13, i64 200
+  store ptr %9, ptr %session_cache_head.i.i, align 8
+  %12 = load ptr, ptr %next.i16, align 8
+  %prev25.i.i = getelementptr inbounds i8, ptr %12, i64 200
   store ptr %session_cache_head.i.i, ptr %prev25.i.i, align 8
   br label %SSL_SESSION_list_remove.exit.i
 
 if.else26.i.i:                                    ; preds = %if.else16.i.i
-  %prev29.i.i = getelementptr inbounds i8, ptr %10, i64 200
-  store ptr %11, ptr %prev29.i.i, align 8
-  %14 = load ptr, ptr %next.i16, align 8
-  %15 = load ptr, ptr %prev.i18, align 8
-  %next32.i.i = getelementptr inbounds i8, ptr %15, i64 208
-  store ptr %14, ptr %next32.i.i, align 8
+  %prev29.i.i = getelementptr inbounds i8, ptr %9, i64 200
+  store ptr %10, ptr %prev29.i.i, align 8
+  %13 = load ptr, ptr %next.i16, align 8
+  %14 = load ptr, ptr %prev.i18, align 8
+  %next32.i.i = getelementptr inbounds i8, ptr %14, i64 208
+  store ptr %13, ptr %next32.i.i, align 8
   br label %SSL_SESSION_list_remove.exit.i
 
 SSL_SESSION_list_remove.exit.i:                   ; preds = %if.else26.i.i, %if.then20.i.i, %if.else.i.i, %if.then7.i.i
@@ -861,8 +858,8 @@ SSL_SESSION_list_remove.exit.i:                   ; preds = %if.else26.i.i, %if.
 
 if.end.i19:                                       ; preds = %SSL_SESSION_list_remove.exit.i, %land.lhs.true.i, %if.end8
   %session_cache_head.i20 = getelementptr inbounds i8, ptr %ctx, i64 128
-  %16 = load ptr, ptr %session_cache_head.i20, align 8
-  %cmp2.i = icmp eq ptr %16, null
+  %15 = load ptr, ptr %session_cache_head.i20, align 8
+  %cmp2.i = icmp eq ptr %15, null
   %prev6.i = getelementptr inbounds i8, ptr %session, i64 200
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i21
 
@@ -875,8 +872,8 @@ if.then3.i:                                       ; preds = %if.end.i19
   br label %SSL_SESSION_list_add.exit
 
 if.else.i21:                                      ; preds = %if.end.i19
-  store ptr %16, ptr %next.i16, align 8
-  %prev12.i = getelementptr inbounds i8, ptr %16, i64 200
+  store ptr %15, ptr %next.i16, align 8
+  %prev12.i = getelementptr inbounds i8, ptr %15, i64 200
   store ptr %session, ptr %prev12.i, align 8
   store ptr %session_cache_head.i20, ptr %prev6.i, align 8
   store ptr %session, ptr %session_cache_head.i20, align 8
@@ -898,8 +895,8 @@ while.cond:                                       ; preds = %while.cond.preheade
   br i1 %cmp14, label %while.body, label %if.end19
 
 while.body:                                       ; preds = %while.cond
-  %17 = load ptr, ptr %session_cache_tail, align 8
-  %call15 = call fastcc i32 @remove_session_lock(ptr noundef nonnull %ctx, ptr noundef %17, i32 noundef 0), !range !7
+  %16 = load ptr, ptr %session_cache_tail, align 8
+  %call15 = call fastcc i32 @remove_session_lock(ptr noundef nonnull %ctx, ptr noundef %16, i32 noundef 0), !range !7
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.end19, label %while.cond, !llvm.loop !8
 
@@ -975,25 +972,24 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %cmp6.i, label %if.then7.i, label %if.else.i
 
 if.then7.i:                                       ; preds = %if.then4.i
-  store ptr null, ptr %4, align 8
-  store ptr null, ptr %3, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %session_cache_head.i, i8 0, i64 16, i1 false)
   br label %if.end34.i
 
 if.else.i:                                        ; preds = %if.then4.i
-  store ptr %4, ptr %3, align 8
+  store ptr %4, ptr %session_cache_tail.i, align 8
   %5 = load ptr, ptr %prev.i, align 8
   %next14.i = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr %3, ptr %next14.i, align 8
+  store ptr %session_cache_tail.i, ptr %next14.i, align 8
   br label %if.end34.i
 
 if.else16.i:                                      ; preds = %if.end.i
   br i1 %cmp6.i, label %if.then20.i, label %if.else26.i
 
 if.then20.i:                                      ; preds = %if.else16.i
-  store ptr %3, ptr %4, align 8
+  store ptr %3, ptr %session_cache_head.i, align 8
   %6 = load ptr, ptr %next.i, align 8
   %prev25.i = getelementptr inbounds i8, ptr %6, i64 200
-  store ptr %4, ptr %prev25.i, align 8
+  store ptr %session_cache_head.i, ptr %prev25.i, align 8
   br label %if.end34.i
 
 if.else26.i:                                      ; preds = %if.else16.i
@@ -1174,25 +1170,24 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %cmp6.i, label %if.then7.i, label %if.else.i
 
 if.then7.i:                                       ; preds = %if.then4.i
-  store ptr null, ptr %6, align 8
-  store ptr null, ptr %5, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %session_cache_head.i, i8 0, i64 16, i1 false)
   br label %if.end34.i
 
 if.else.i:                                        ; preds = %if.then4.i
-  store ptr %6, ptr %5, align 8
+  store ptr %6, ptr %session_cache_tail.i, align 8
   %7 = load ptr, ptr %prev.i, align 8
   %next14.i = getelementptr inbounds i8, ptr %7, i64 208
-  store ptr %5, ptr %next14.i, align 8
+  store ptr %session_cache_tail.i, ptr %next14.i, align 8
   br label %if.end34.i
 
 if.else16.i:                                      ; preds = %if.end.i
   br i1 %cmp6.i, label %if.then20.i, label %if.else26.i
 
 if.then20.i:                                      ; preds = %if.else16.i
-  store ptr %5, ptr %6, align 8
+  store ptr %5, ptr %session_cache_head.i, align 8
   %8 = load ptr, ptr %next.i, align 8
   %prev25.i = getelementptr inbounds i8, ptr %8, i64 200
-  store ptr %6, ptr %prev25.i, align 8
+  store ptr %session_cache_head.i, ptr %prev25.i, align 8
   br label %if.end34.i
 
 if.else26.i:                                      ; preds = %if.else16.i

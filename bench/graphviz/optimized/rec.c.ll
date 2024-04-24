@@ -73,7 +73,7 @@ define ptr @aggetrec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
   br label %.critedge26
 
 .critedge26:                                      ; preds = %6, %11, %27, %23, %18, %17, %20
-  %.0 = phi ptr [ %5, %20 ], [ %.021, %17 ], [ %.021, %18 ], [ %.021, %23 ], [ %.021, %27 ], [ null, %11 ], [ null, %6 ]
+  %.0 = phi ptr [ %.021, %20 ], [ %.021, %17 ], [ %.021, %18 ], [ %.021, %23 ], [ %.021, %27 ], [ null, %11 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -107,144 +107,139 @@ define ptr @agbindrec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nounde
   %17 = load i32, ptr %0, align 8
   %18 = and i32 %17, 4
   %.not23.i = icmp eq i32 %18, 0
-  br i1 %.not23.i, label %19, label %objputrec.exit
+  %19 = icmp ne ptr %.021.i, %7
+  %or.cond32 = select i1 %.not23.i, i1 %19, i1 false
+  br i1 %or.cond32, label %20, label %objputrec.exit
 
-19:                                               ; preds = %.critedge.i
-  %.not32 = icmp eq ptr %.021.i, %7
-  br i1 %.not32, label %aggetrec.exit, label %20
-
-20:                                               ; preds = %19
+20:                                               ; preds = %.critedge.i
   store ptr %.021.i, ptr %6, align 8
   %21 = and i32 %17, 2
   %switch.not.i.i = icmp eq i32 %21, 0
   br i1 %switch.not.i.i, label %objputrec.exit, label %objputrec.exit.sink.split
 
-aggetrec.exit:                                    ; preds = %8, %13, %19
-  %.0.i = phi ptr [ %7, %19 ], [ null, %13 ], [ null, %8 ]
-  %22 = icmp eq ptr %.0.i, null
-  %23 = icmp ne i32 %2, 0
-  %or.cond = and i1 %23, %22
-  br i1 %or.cond, label %24, label %objputrec.exit
+aggetrec.exit:                                    ; preds = %8, %13
+  %.not33 = icmp eq i32 %2, 0
+  br i1 %.not33, label %objputrec.exit, label %22
 
-24:                                               ; preds = %aggetrec.exit
-  %25 = zext i32 %2 to i64
-  %26 = tail call ptr @agalloc(ptr noundef %5, i64 noundef %25) #6
-  %27 = tail call ptr @agstrdup(ptr noundef %5, ptr noundef %1) #6
-  store ptr %27, ptr %26, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %32
+22:                                               ; preds = %aggetrec.exit
+  %23 = zext i32 %2 to i64
+  %24 = tail call ptr @agalloc(ptr noundef %5, i64 noundef %23) #6
+  %25 = tail call ptr @agstrdup(ptr noundef %5, ptr noundef %1) #6
+  store ptr %25, ptr %24, align 8
+  %26 = load ptr, ptr %6, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %30
 
-30:                                               ; preds = %24
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds i8, ptr %24, i64 8
+  store ptr %24, ptr %29, align 8
+  br label %38
+
+30:                                               ; preds = %22
   %31 = getelementptr inbounds i8, ptr %26, i64 8
-  store ptr %26, ptr %31, align 8
-  br label %40
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, %26
+  br i1 %33, label %34, label %36
 
-32:                                               ; preds = %24
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, %28
-  br i1 %35, label %36, label %38
+34:                                               ; preds = %30
+  store ptr %24, ptr %31, align 8
+  %35 = getelementptr inbounds i8, ptr %24, i64 8
+  store ptr %26, ptr %35, align 8
+  br label %38
 
-36:                                               ; preds = %32
-  store ptr %26, ptr %33, align 8
-  %37 = getelementptr inbounds i8, ptr %26, i64 8
-  store ptr %28, ptr %37, align 8
-  br label %40
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds i8, ptr %24, i64 8
+  store ptr %32, ptr %37, align 8
+  store ptr %24, ptr %31, align 8
+  br label %38
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %26, i64 8
-  store ptr %34, ptr %39, align 8
-  store ptr %26, ptr %33, align 8
-  br label %40
+38:                                               ; preds = %36, %34, %28
+  %39 = load i32, ptr %0, align 8
+  %40 = and i32 %39, 4
+  %.not.i18 = icmp eq i32 %40, 0
+  br i1 %.not.i18, label %41, label %objputrec.exit
 
-40:                                               ; preds = %38, %36, %30
-  %41 = load i32, ptr %0, align 8
-  %42 = and i32 %41, 4
-  %.not.i18 = icmp eq i32 %42, 0
-  br i1 %.not.i18, label %43, label %objputrec.exit
-
-43:                                               ; preds = %40
-  store ptr %26, ptr %6, align 8
-  %44 = and i32 %41, 2
-  %switch.not.i.i19 = icmp eq i32 %44, 0
+41:                                               ; preds = %38
+  store ptr %24, ptr %6, align 8
+  %42 = and i32 %39, 2
+  %switch.not.i.i19 = icmp eq i32 %42, 0
   br i1 %switch.not.i.i19, label %objputrec.exit, label %objputrec.exit.sink.split
 
-objputrec.exit.sink.split:                        ; preds = %43, %20
-  %.sink = phi i32 [ %17, %20 ], [ %41, %43 ]
-  %.021.i.lcssa38.sink = phi ptr [ %.021.i, %20 ], [ %26, %43 ]
-  %45 = and i32 %.sink, 3
-  %46 = icmp eq i32 %45, 3
-  %.v.i.i20 = select i1 %46, i64 -64, i64 64
-  %47 = getelementptr inbounds i8, ptr %0, i64 %.v.i.i20
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  store ptr %.021.i.lcssa38.sink, ptr %48, align 8
-  %49 = load i32, ptr %47, align 8
-  %50 = and i32 %49, -5
-  store i32 %50, ptr %47, align 8
+objputrec.exit.sink.split:                        ; preds = %41, %20
+  %.sink = phi i32 [ %17, %20 ], [ %39, %41 ]
+  %.021.i.lcssa39.sink = phi ptr [ %.021.i, %20 ], [ %24, %41 ]
+  %43 = and i32 %.sink, 3
+  %44 = icmp eq i32 %43, 3
+  %.v.i.i20 = select i1 %44, i64 -64, i64 64
+  %45 = getelementptr inbounds i8, ptr %0, i64 %.v.i.i20
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  store ptr %.021.i.lcssa39.sink, ptr %46, align 8
+  %47 = load i32, ptr %45, align 8
+  %48 = and i32 %47, -5
+  store i32 %48, ptr %45, align 8
   br label %objputrec.exit
 
-objputrec.exit:                                   ; preds = %objputrec.exit.sink.split, %.critedge.i, %20, %43, %40, %aggetrec.exit
-  %.0 = phi ptr [ %.0.i, %aggetrec.exit ], [ %26, %40 ], [ %26, %43 ], [ %.021.i, %20 ], [ %.021.i, %.critedge.i ], [ %.021.i.lcssa38.sink, %objputrec.exit.sink.split ]
+objputrec.exit:                                   ; preds = %objputrec.exit.sink.split, %.critedge.i, %20, %41, %38, %aggetrec.exit
+  %.0 = phi ptr [ null, %aggetrec.exit ], [ %24, %38 ], [ %24, %41 ], [ %.021.i, %20 ], [ %.021.i, %.critedge.i ], [ %.021.i.lcssa39.sink, %objputrec.exit.sink.split ]
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %aggetrec.exit29, label %51
+  br i1 %.not, label %aggetrec.exit29, label %49
 
-51:                                               ; preds = %objputrec.exit
-  %52 = load ptr, ptr %6, align 8
-  br label %53
+49:                                               ; preds = %objputrec.exit
+  %50 = load ptr, ptr %6, align 8
+  br label %51
 
-53:                                               ; preds = %58, %51
-  %.021.i21 = phi ptr [ %52, %51 ], [ %60, %58 ]
+51:                                               ; preds = %56, %49
+  %.021.i21 = phi ptr [ %50, %49 ], [ %58, %56 ]
   %.not.i22 = icmp eq ptr %.021.i21, null
-  br i1 %.not.i22, label %aggetrec.exit29, label %54
+  br i1 %.not.i22, label %aggetrec.exit29, label %52
 
-54:                                               ; preds = %53
-  %55 = load ptr, ptr %.021.i21, align 8
-  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %55) #5
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %.critedge.i24, label %58
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %.021.i21, align 8
+  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %53) #5
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %.critedge.i24, label %56
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %.021.i21, i64 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = icmp eq ptr %60, %52
-  br i1 %61, label %aggetrec.exit29, label %53
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds i8, ptr %.021.i21, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %58, %50
+  br i1 %59, label %aggetrec.exit29, label %51
 
-.critedge.i24:                                    ; preds = %54
-  %62 = load i32, ptr %0, align 8
-  %63 = and i32 %62, 4
-  %.not23.i25 = icmp eq i32 %63, 0
-  br i1 %.not23.i25, label %67, label %64
+.critedge.i24:                                    ; preds = %52
+  %60 = load i32, ptr %0, align 8
+  %61 = and i32 %60, 4
+  %.not23.i25 = icmp eq i32 %61, 0
+  br i1 %.not23.i25, label %65, label %62
 
-64:                                               ; preds = %.critedge.i24
-  %.not25.i26 = icmp eq ptr %52, %.021.i21
-  br i1 %.not25.i26, label %aggetrec.exit29, label %65
+62:                                               ; preds = %.critedge.i24
+  %.not25.i26 = icmp eq ptr %50, %.021.i21
+  br i1 %.not25.i26, label %aggetrec.exit29, label %63
 
-65:                                               ; preds = %64
-  %66 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str) #6
+63:                                               ; preds = %62
+  %64 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str) #6
   br label %aggetrec.exit29
 
-67:                                               ; preds = %.critedge.i24
+65:                                               ; preds = %.critedge.i24
   store ptr %.021.i21, ptr %6, align 8
-  %68 = or disjoint i32 %62, 4
-  store i32 %68, ptr %0, align 8
-  %69 = and i32 %62, 2
-  %switch.not.i.i27 = icmp eq i32 %69, 0
-  br i1 %switch.not.i.i27, label %aggetrec.exit29, label %70
+  %66 = or disjoint i32 %60, 4
+  store i32 %66, ptr %0, align 8
+  %67 = and i32 %60, 2
+  %switch.not.i.i27 = icmp eq i32 %67, 0
+  br i1 %switch.not.i.i27, label %aggetrec.exit29, label %68
 
-70:                                               ; preds = %67
-  %71 = and i32 %62, 3
-  %72 = icmp eq i32 %71, 3
-  %.v.i.i28 = select i1 %72, i64 -64, i64 64
-  %73 = getelementptr inbounds i8, ptr %0, i64 %.v.i.i28
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
-  store ptr %.021.i21, ptr %74, align 8
-  %75 = load i32, ptr %73, align 8
-  %76 = or i32 %75, 4
-  store i32 %76, ptr %73, align 8
+68:                                               ; preds = %65
+  %69 = and i32 %60, 3
+  %70 = icmp eq i32 %69, 3
+  %.v.i.i28 = select i1 %70, i64 -64, i64 64
+  %71 = getelementptr inbounds i8, ptr %0, i64 %.v.i.i28
+  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  store ptr %.021.i21, ptr %72, align 8
+  %73 = load i32, ptr %71, align 8
+  %74 = or i32 %73, 4
+  store i32 %74, ptr %71, align 8
   br label %aggetrec.exit29
 
-aggetrec.exit29:                                  ; preds = %58, %53, %70, %67, %65, %64, %objputrec.exit
+aggetrec.exit29:                                  ; preds = %56, %51, %68, %65, %63, %62, %objputrec.exit
   ret ptr %.0
 }
 
@@ -264,7 +259,7 @@ define noundef i32 @agdelrec(ptr noundef %0, ptr nocapture noundef readonly %1) 
 6:                                                ; preds = %11, %2
   %.021.i = phi ptr [ %5, %2 ], [ %13, %11 ]
   %.not.i = icmp eq ptr %.021.i, null
-  br i1 %.not.i, label %aggetrec.exit.thread27, label %7
+  br i1 %.not.i, label %aggetrec.exit, label %7
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr %.021.i, align 8
@@ -276,23 +271,21 @@ define noundef i32 @agdelrec(ptr noundef %0, ptr nocapture noundef readonly %1) 
   %12 = getelementptr inbounds i8, ptr %.021.i, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %5
-  br i1 %14, label %aggetrec.exit.thread27, label %6
+  br i1 %14, label %aggetrec.exit, label %6
 
 .critedge.i:                                      ; preds = %7
   %15 = load i32, ptr %0, align 8
   %16 = and i32 %15, 4
   %.not23.i = icmp eq i32 %16, 0
-  br i1 %.not23.i, label %17, label %aggetrec.exit.thread
+  %17 = icmp ne ptr %.021.i, %5
+  %or.cond = select i1 %.not23.i, i1 %17, i1 false
+  br i1 %or.cond, label %18, label %.preheader
 
-17:                                               ; preds = %.critedge.i
-  %.not30 = icmp eq ptr %.021.i, %5
-  br i1 %.not30, label %aggetrec.exit.thread, label %18
-
-18:                                               ; preds = %17
+18:                                               ; preds = %.critedge.i
   store ptr %.021.i, ptr %4, align 8
   %19 = and i32 %15, 2
   %switch.not.i.i = icmp eq i32 %19, 0
-  br i1 %switch.not.i.i, label %aggetrec.exit.thread, label %20
+  br i1 %switch.not.i.i, label %.preheader, label %20
 
 20:                                               ; preds = %18
   %21 = and i32 %15, 3
@@ -305,23 +298,22 @@ define noundef i32 @agdelrec(ptr noundef %0, ptr nocapture noundef readonly %1) 
   %26 = and i32 %25, -5
   store i32 %26, ptr %23, align 8
   %.val.pre = load ptr, ptr %4, align 8
-  br label %aggetrec.exit.thread
+  br label %.preheader
 
-aggetrec.exit.thread:                             ; preds = %17, %.critedge.i, %20, %18
-  %.val = phi ptr [ %.021.i, %18 ], [ %.val.pre, %20 ], [ %5, %.critedge.i ], [ %5, %17 ]
-  %.0.i25 = phi ptr [ %.021.i, %18 ], [ %.021.i, %20 ], [ %.021.i, %.critedge.i ], [ %5, %17 ]
+.preheader:                                       ; preds = %18, %20, %.critedge.i
+  %.0.i19.ph = phi ptr [ %5, %.critedge.i ], [ %.val.pre, %20 ], [ %.021.i, %18 ]
   br label %27
 
-27:                                               ; preds = %27, %aggetrec.exit.thread
-  %.0.i19 = phi ptr [ %.val, %aggetrec.exit.thread ], [ %29, %27 ]
+27:                                               ; preds = %.preheader, %27
+  %.0.i19 = phi ptr [ %29, %27 ], [ %.0.i19.ph, %.preheader ]
   %28 = getelementptr inbounds i8, ptr %.0.i19, i64 8
   %29 = load ptr, ptr %28, align 8
-  %.not.i20 = icmp eq ptr %29, %.0.i25
+  %.not.i20 = icmp eq ptr %29, %.021.i
   br i1 %.not.i20, label %listdelrec.exit, label %27
 
 listdelrec.exit:                                  ; preds = %27
   %30 = getelementptr inbounds i8, ptr %.0.i19, i64 8
-  %31 = getelementptr inbounds i8, ptr %.0.i25, i64 8
+  %31 = getelementptr inbounds i8, ptr %.021.i, i64 8
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %30, align 8
   %33 = load i32, ptr %0, align 8
@@ -331,11 +323,11 @@ listdelrec.exit:                                  ; preds = %27
 
 35:                                               ; preds = %listdelrec.exit
   %36 = load ptr, ptr %4, align 8
-  %37 = icmp eq ptr %36, %.0.i25
+  %37 = icmp eq ptr %36, %.021.i
   br i1 %37, label %38, label %objdelrec.exit
 
 38:                                               ; preds = %35
-  %39 = icmp eq ptr %32, %.0.i25
+  %39 = icmp eq ptr %32, %.021.i
   %..i = select i1 %39, ptr null, ptr %32
   store ptr %..i, ptr %4, align 8
   %40 = and i32 %33, -8
@@ -344,17 +336,17 @@ listdelrec.exit:                                  ; preds = %27
 
 41:                                               ; preds = %listdelrec.exit
   %42 = tail call ptr @agroot(ptr noundef %3) #6
-  %43 = tail call i32 @agapply(ptr noundef %42, ptr noundef nonnull %0, ptr noundef nonnull @objdelrec, ptr noundef nonnull %.0.i25, i32 noundef 0) #6
+  %43 = tail call i32 @agapply(ptr noundef %42, ptr noundef nonnull %0, ptr noundef nonnull @objdelrec, ptr noundef nonnull %.021.i, i32 noundef 0) #6
   br label %objdelrec.exit
 
 objdelrec.exit:                                   ; preds = %38, %35, %41
-  %44 = load ptr, ptr %.0.i25, align 8
+  %44 = load ptr, ptr %.021.i, align 8
   %45 = tail call i32 @agstrfree(ptr noundef %3, ptr noundef %44) #6
-  tail call void @agfree(ptr noundef %3, ptr noundef nonnull %.0.i25) #6
-  br label %aggetrec.exit.thread27
+  tail call void @agfree(ptr noundef %3, ptr noundef nonnull %.021.i) #6
+  br label %aggetrec.exit
 
-aggetrec.exit.thread27:                           ; preds = %6, %11, %objdelrec.exit
-  %.0 = phi i32 [ 0, %objdelrec.exit ], [ -1, %11 ], [ -1, %6 ]
+aggetrec.exit:                                    ; preds = %11, %6, %objdelrec.exit
+  %.0 = phi i32 [ 0, %objdelrec.exit ], [ -1, %6 ], [ -1, %11 ]
   ret i32 %.0
 }
 
@@ -545,17 +537,15 @@ define void @agclean(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnam
   %24 = load i32, ptr %.022, align 8
   %25 = and i32 %24, 4
   %.not23.i.i = icmp eq i32 %25, 0
-  br i1 %.not23.i.i, label %26, label %aggetrec.exit.thread.i
+  %26 = icmp ne ptr %.021.i.i, %14
+  %or.cond.i = select i1 %.not23.i.i, i1 %26, i1 false
+  br i1 %or.cond.i, label %27, label %.preheader
 
-26:                                               ; preds = %.critedge.i.i
-  %.not30.i = icmp eq ptr %.021.i.i, %14
-  br i1 %.not30.i, label %aggetrec.exit.thread.i, label %27
-
-27:                                               ; preds = %26
+27:                                               ; preds = %.critedge.i.i
   store ptr %.021.i.i, ptr %13, align 8
   %28 = and i32 %24, 2
   %switch.not.i.i.i = icmp eq i32 %28, 0
-  br i1 %switch.not.i.i.i, label %aggetrec.exit.thread.i, label %29
+  br i1 %switch.not.i.i.i, label %.preheader, label %29
 
 29:                                               ; preds = %27
   %30 = and i32 %24, 3
@@ -568,23 +558,22 @@ define void @agclean(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnam
   %35 = and i32 %34, -5
   store i32 %35, ptr %32, align 8
   %.val.pre.i = load ptr, ptr %13, align 8
-  br label %aggetrec.exit.thread.i
+  br label %.preheader
 
-aggetrec.exit.thread.i:                           ; preds = %29, %27, %26, %.critedge.i.i
-  %.val.i = phi ptr [ %.021.i.i, %27 ], [ %.val.pre.i, %29 ], [ %14, %.critedge.i.i ], [ %14, %26 ]
-  %.0.i25.i = phi ptr [ %.021.i.i, %27 ], [ %.021.i.i, %29 ], [ %.021.i.i, %.critedge.i.i ], [ %14, %26 ]
+.preheader:                                       ; preds = %29, %27, %.critedge.i.i
+  %.0.i19.i.ph = phi ptr [ %14, %.critedge.i.i ], [ %.val.pre.i, %29 ], [ %.021.i.i, %27 ]
   br label %36
 
-36:                                               ; preds = %36, %aggetrec.exit.thread.i
-  %.0.i19.i = phi ptr [ %.val.i, %aggetrec.exit.thread.i ], [ %38, %36 ]
+36:                                               ; preds = %.preheader, %36
+  %.0.i19.i = phi ptr [ %38, %36 ], [ %.0.i19.i.ph, %.preheader ]
   %37 = getelementptr inbounds i8, ptr %.0.i19.i, i64 8
   %38 = load ptr, ptr %37, align 8
-  %.not.i20.i = icmp eq ptr %38, %.0.i25.i
+  %.not.i20.i = icmp eq ptr %38, %.021.i.i
   br i1 %.not.i20.i, label %listdelrec.exit.i, label %36
 
 listdelrec.exit.i:                                ; preds = %36
   %39 = getelementptr inbounds i8, ptr %.0.i19.i, i64 8
-  %40 = getelementptr inbounds i8, ptr %.0.i25.i, i64 8
+  %40 = getelementptr inbounds i8, ptr %.021.i.i, i64 8
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %39, align 8
   %42 = load i32, ptr %.022, align 8
@@ -594,11 +583,11 @@ listdelrec.exit.i:                                ; preds = %36
 
 44:                                               ; preds = %listdelrec.exit.i
   %45 = load ptr, ptr %13, align 8
-  %46 = icmp eq ptr %45, %.0.i25.i
+  %46 = icmp eq ptr %45, %.021.i.i
   br i1 %46, label %47, label %objdelrec.exit.i
 
 47:                                               ; preds = %44
-  %48 = icmp eq ptr %41, %.0.i25.i
+  %48 = icmp eq ptr %41, %.021.i.i
   %..i.i = select i1 %48, ptr null, ptr %41
   store ptr %..i.i, ptr %13, align 8
   %49 = and i32 %42, -8
@@ -607,13 +596,13 @@ listdelrec.exit.i:                                ; preds = %36
 
 50:                                               ; preds = %listdelrec.exit.i
   %51 = tail call ptr @agroot(ptr noundef %12) #6
-  %52 = tail call i32 @agapply(ptr noundef %51, ptr noundef nonnull %.022, ptr noundef nonnull @objdelrec, ptr noundef nonnull %.0.i25.i, i32 noundef 0) #6
+  %52 = tail call i32 @agapply(ptr noundef %51, ptr noundef nonnull %.022, ptr noundef nonnull @objdelrec, ptr noundef nonnull %.021.i.i, i32 noundef 0) #6
   br label %objdelrec.exit.i
 
 objdelrec.exit.i:                                 ; preds = %50, %47, %44
-  %53 = load ptr, ptr %.0.i25.i, align 8
+  %53 = load ptr, ptr %.021.i.i, align 8
   %54 = tail call i32 @agstrfree(ptr noundef %12, ptr noundef %53) #6
-  tail call void @agfree(ptr noundef %12, ptr noundef nonnull %.0.i25.i) #6
+  tail call void @agfree(ptr noundef %12, ptr noundef nonnull %.021.i.i) #6
   br label %agdelrec.exit
 
 agdelrec.exit:                                    ; preds = %15, %20, %objdelrec.exit.i

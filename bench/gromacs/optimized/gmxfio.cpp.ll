@@ -377,7 +377,7 @@ _Z12gmx_fio_lockP8t_fileio.exit15.i:              ; preds = %._Z12gmx_fio_lockP8
   br label %_Z14gmx_fio_unlockP8t_fileio.exit.i
 
 _Z14gmx_fio_unlockP8t_fileio.exit.i:              ; preds = %._Z14gmx_fio_unlockP8t_fileio.exit_crit_edge.i, %_Z12gmx_fio_lockP8t_fileio.exit15.i
-  %120 = phi ptr [ %.pre19.i, %._Z14gmx_fio_unlockP8t_fileio.exit_crit_edge.i ], [ %109, %_Z12gmx_fio_lockP8t_fileio.exit15.i ]
+  %120 = phi ptr [ %.pre19.i, %._Z14gmx_fio_unlockP8t_fileio.exit_crit_edge.i ], [ %115, %_Z12gmx_fio_lockP8t_fileio.exit15.i ]
   %121 = getelementptr inbounds i8, ptr %120, i64 88
   invoke void @_Z16tMPI_Lock_unlockP9tMPI_Lock(ptr noundef nonnull %121)
           to label %_Z14gmx_fio_unlockP8t_fileio.exit16.i unwind label %112
@@ -988,7 +988,7 @@ _ZL17gmx_fio_get_firstv.exit:                     ; preds = %12, %.noexc25
   br label %.noexc17
 
 .noexc17:                                         ; preds = %..noexc17_crit_edge, %18
-  %29 = phi ptr [ %.pre, %..noexc17_crit_edge ], [ %0, %18 ]
+  %29 = phi ptr [ %.pre, %..noexc17_crit_edge ], [ %16, %18 ]
   %.not11.i = icmp eq ptr %29, null
   br i1 %.not11.i, label %_ZL20gmx_fio_close_lockedP8t_fileio.exit, label %30
 

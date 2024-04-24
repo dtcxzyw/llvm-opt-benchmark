@@ -42025,9 +42025,8 @@ default.unreachable:                              ; preds = %17
   br i1 %.not36, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13c0e7e59dcaf0f0E.llvm.15931924237846680735.exit.sink.split", label %12
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13c0e7e59dcaf0f0E.llvm.15931924237846680735.exit.sink.split": ; preds = %.backedge, %39, %21, %26, %31
-  %.sink = phi ptr [ %14, %31 ], [ %14, %26 ], [ %14, %21 ], [ %14, %39 ], [ %4, %.backedge ]
   %.lcssa.ph = phi i1 [ true, %31 ], [ true, %26 ], [ true, %21 ], [ true, %39 ], [ false, %.backedge ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !10457
+  store ptr %14, ptr %0, align 8, !alias.scope !10457
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13c0e7e59dcaf0f0E.llvm.15931924237846680735.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13c0e7e59dcaf0f0E.llvm.15931924237846680735.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13c0e7e59dcaf0f0E.llvm.15931924237846680735.exit.sink.split", %2

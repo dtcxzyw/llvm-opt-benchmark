@@ -553,7 +553,7 @@ define void @_ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27Correlatio
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %46, label %3
+  br i1 %.not, label %45, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -634,43 +634,42 @@ _ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE13_M_deallocat
   %.pre28 = load ptr, ptr %4, align 8
   %.pre29 = ptrtoint ptr %.pre26 to i64
   %.pre30 = ptrtoint ptr %.pre27 to i64
+  %.pre32 = sub i64 %.pre29, %.pre30
   br label %_ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit: ; preds = %34, %35
-  %.pre-phi31 = phi i64 [ %14, %34 ], [ %.pre30, %35 ]
-  %.pre-phi = phi i64 [ %14, %34 ], [ %.pre29, %35 ]
+  %.pre-phi33 = phi i64 [ %31, %34 ], [ %.pre32, %35 ]
   %36 = phi ptr [ %5, %34 ], [ %.pre28, %35 ]
-  %37 = phi ptr [ %12, %34 ], [ %.pre26, %35 ]
+  %37 = phi ptr [ %29, %34 ], [ %.pre26, %35 ]
   %38 = phi ptr [ %6, %34 ], [ %.pre, %35 ]
-  %39 = sub i64 %.pre-phi, %.pre-phi31
-  %40 = getelementptr inbounds i8, ptr %38, i64 %39
-  %.not9.i.i.i.i = icmp eq ptr %40, %36
+  %39 = getelementptr inbounds i8, ptr %38, i64 %.pre-phi33
+  %.not9.i.i.i.i = icmp eq ptr %39, %36
   br i1 %.not9.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx20CorrelationBlockData9CoordDataESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i ], [ %37, %_ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit ]
-  %.0810.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i ], [ %40, %_ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit ]
+  %.011.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i ], [ %37, %_ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit ]
+  %.0810.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i ], [ %39, %_ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0810.i.i.i.i, i64 16, i1 false)
-  %41 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 16
-  %42 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %41, %36
+  %40 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 16
+  %41 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %40, %36
   br i1 %.not.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx20CorrelationBlockData9CoordDataESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx20CorrelationBlockData9CoordDataESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit, %33, %32, %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE13_M_deallocateEPS2_m.exit
-  %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 %9
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %44, ptr %45, align 8
-  br label %46
+  %42 = load ptr, ptr %0, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 %9
+  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %43, ptr %44, align 8
+  br label %45
 
-46:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx20CorrelationBlockData9CoordDataESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, %2
+45:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx20CorrelationBlockData9CoordDataESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, %2
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %45, label %3
+  br i1 %.not, label %44, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -747,34 +746,33 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSa
   %.pre28 = load ptr, ptr %4, align 8
   %.pre29 = ptrtoint ptr %.pre26 to i64
   %.pre30 = ptrtoint ptr %.pre27 to i64
+  %.pre32 = sub i64 %.pre29, %.pre30
   br label %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPdS0_ET0_T_S2_S1_.exit:                 ; preds = %31, %32
-  %.pre-phi31 = phi i64 [ %14, %31 ], [ %.pre30, %32 ]
-  %.pre-phi = phi i64 [ %14, %31 ], [ %.pre29, %32 ]
+  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
-  %34 = phi ptr [ %12, %31 ], [ %.pre26, %32 ]
+  %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
-  %36 = sub i64 %.pre-phi, %.pre-phi31
-  %37 = getelementptr inbounds i8, ptr %35, i64 %36
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %33, %37
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit, label %38
+  %36 = getelementptr inbounds i8, ptr %35, i64 %.pre-phi33
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %33, %36
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit, label %37
 
-38:                                               ; preds = %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit
-  %39 = ptrtoint ptr %33 to i64
-  %40 = ptrtoint ptr %37 to i64
-  %41 = sub i64 %39, %40
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %34, ptr align 8 %37, i64 %41, i1 false)
+37:                                               ; preds = %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit
+  %38 = ptrtoint ptr %33 to i64
+  %39 = ptrtoint ptr %36 to i64
+  %40 = sub i64 %38, %39
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %34, ptr align 8 %36, i64 %40, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit: ; preds = %38, %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit, %30, %29, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit
-  %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 %9
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %43, ptr %44, align 8
-  br label %45
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit: ; preds = %37, %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit, %30, %29, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit
+  %41 = load ptr, ptr %0, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 %9
+  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %42, ptr %43, align 8
+  br label %44
 
-45:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit, %2
+44:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit, %2
   ret ptr %0
 }
 
@@ -797,7 +795,7 @@ define void @_ZN3gmx17CorrelationTensor18restoreFromHistoryERKSt6vectorINS_27Cor
   br label %14
 
 14:                                               ; preds = %.lr.ph92, %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit
-  %.sroa.071.090 = phi ptr [ %8, %.lr.ph92 ], [ %154, %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit ]
+  %.sroa.071.090 = phi ptr [ %8, %.lr.ph92 ], [ %153, %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit ]
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 48
   %17 = getelementptr inbounds i8, ptr %15, i64 56
@@ -909,7 +907,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   br label %68
 
 68:                                               ; preds = %.lr.ph, %_ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHistoryERKSt6vectorINS0_9CoordDataESaIS5_EERKS4_IdSaIdEE.exit
-  %69 = phi i64 [ %.pre, %.lr.ph ], [ %148, %_ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHistoryERKSt6vectorINS0_9CoordDataESaIS5_EERKS4_IdSaIdEE.exit ]
+  %69 = phi i64 [ %.pre, %.lr.ph ], [ %147, %_ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHistoryERKSt6vectorINS0_9CoordDataESaIS5_EERKS4_IdSaIdEE.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHistoryERKSt6vectorINS0_9CoordDataESaIS5_EERKS4_IdSaIdEE.exit ]
   %.088 = phi i32 [ 0, %.lr.ph ], [ %spec.select55, %_ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHistoryERKSt6vectorINS0_9CoordDataESaIS5_EERKS4_IdSaIdEE.exit ]
   %.04486 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %_ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHistoryERKSt6vectorINS0_9CoordDataESaIS5_EERKS4_IdSaIdEE.exit ]
@@ -945,7 +943,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
 
 81:                                               ; preds = %79
   invoke void @__cxa_throw(ptr %77, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #14
-          to label %159 unwind label %84
+          to label %158 unwind label %84
 
 .loopexit81:                                      ; preds = %38
   %lpad.loopexit83 = landingpad { ptr, i32 }
@@ -975,12 +973,12 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #17
-  br i1 %.033, label %86, label %155
+  br i1 %.033, label %86, label %154
 
 86:                                               ; preds = %.thread77, %.thread, %84
   %.pn.pn76 = phi { ptr, i32 } [ %82, %.thread ], [ %85, %84 ], [ %83, %.thread77 ]
   call void @__cxa_free_exception(ptr %77) #17
-  br label %155
+  br label %154
 
 87:                                               ; preds = %68
   %88 = getelementptr inbounds %"struct.gmx::CorrelationBlockDataHistory", ptr %71, i64 %69
@@ -1095,52 +1093,51 @@ _ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE13_M_deallocat
   %.pre27.i = load ptr, ptr %55, align 8
   %.pre29.i = ptrtoint ptr %.pre26.i to i64
   %.pre30.i = ptrtoint ptr %.pre27.i to i64
+  %.pre32.i = sub i64 %.pre29.i, %.pre30.i
   br label %_ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit.i: ; preds = %138, %137
-  %.pre-phi31.i = phi i64 [ %123, %137 ], [ %.pre30.i, %138 ]
-  %.pre-phi.i = phi i64 [ %123, %137 ], [ %.pre29.i, %138 ]
-  %139 = phi ptr [ %121, %137 ], [ %.pre26.i, %138 ]
-  %140 = sub i64 %.pre-phi.i, %.pre-phi31.i
-  %141 = getelementptr inbounds i8, ptr %.sroa.0.1, i64 %140
-  %.not9.i.i.i.i.i = icmp eq ptr %141, %.0.lcssa.i.i.i.i.i
+  %.pre-phi33.i = phi i64 [ %134, %137 ], [ %.pre32.i, %138 ]
+  %139 = phi ptr [ %132, %137 ], [ %.pre26.i, %138 ]
+  %140 = getelementptr inbounds i8, ptr %.sroa.0.1, i64 %.pre-phi33.i
+  %.not9.i.i.i.i.i = icmp eq ptr %140, %.0.lcssa.i.i.i.i.i
   br i1 %.not9.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx20CorrelationBlockData9CoordDataESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit.i, %.lr.ph.i.i.i.i.i
-  %.011.i.i.i.i.i = phi ptr [ %143, %.lr.ph.i.i.i.i.i ], [ %139, %_ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit.i ]
-  %.0810.i.i.i.i.i = phi ptr [ %142, %.lr.ph.i.i.i.i.i ], [ %141, %_ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit.i ]
+  %.011.i.i.i.i.i = phi ptr [ %142, %.lr.ph.i.i.i.i.i ], [ %139, %_ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit.i ]
+  %.0810.i.i.i.i.i = phi ptr [ %141, %.lr.ph.i.i.i.i.i ], [ %140, %_ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.011.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0810.i.i.i.i.i, i64 16, i1 false)
-  %142 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i, i64 16
-  %143 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %142, %.0.lcssa.i.i.i.i.i
+  %141 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i, i64 16
+  %142 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %141, %.0.lcssa.i.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx20CorrelationBlockData9CoordDataESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx20CorrelationBlockData9CoordDataESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit.i, %136, %135, %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE13_M_deallocateEPS2_m.exit.i
-  %144 = load ptr, ptr %55, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 %62
-  store ptr %145, ptr %57, align 8
-  %146 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %143 = load ptr, ptr %55, align 8
+  %144 = getelementptr inbounds i8, ptr %143, i64 %62
+  store ptr %144, ptr %57, align 8
+  %145 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHistoryERKSt6vectorINS0_9CoordDataESaIS5_EERKS4_IdSaIdEE.exit unwind label %.loopexit
 
 .loopexit:                                        ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx20CorrelationBlockData9CoordDataESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i, %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE11_M_allocateEm.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %155
+  br label %154
 
 .loopexit.split-lp:                               ; preds = %127
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %155
+  br label %154
 
 _ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHistoryERKSt6vectorINS0_9CoordDataESaIS5_EERKS4_IdSaIdEE.exit: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx20CorrelationBlockData9CoordDataESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i, %87
-  %147 = load i64, ptr %2, align 8
-  %148 = add i64 %147, 1
-  store i64 %148, ptr %2, align 8
-  %149 = add nsw i32 %.04486, 1
+  %146 = load i64, ptr %2, align 8
+  %147 = add i64 %146, 1
+  store i64 %147, ptr %2, align 8
+  %148 = add nsw i32 %.04486, 1
   %.not49 = icmp sge i32 %.04486, %.088
-  %spec.select = select i1 %.not49, i32 0, i32 %149
-  %150 = zext i1 %.not49 to i32
-  %spec.select55 = add nuw nsw i32 %.088, %150
+  %spec.select = select i1 %.not49, i32 0, i32 %148
+  %149 = zext i1 %.not49 to i32
+  %spec.select55 = add nuw nsw i32 %.088, %149
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %68, !llvm.loop !9
@@ -1150,53 +1147,53 @@ _ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHis
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i
-  %151 = phi ptr [ %.pre101, %._crit_edge.loopexit ], [ %47, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ]
-  %.not.i.i.i = icmp eq ptr %151, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %152
+  %150 = phi ptr [ %.pre101, %._crit_edge.loopexit ], [ %47, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ]
+  %.not.i.i.i = icmp eq ptr %150, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %151
 
-152:                                              ; preds = %._crit_edge
-  call void @_ZdlPv(ptr noundef nonnull %151) #16
+151:                                              ; preds = %._crit_edge
+  call void @_ZdlPv(ptr noundef nonnull %150) #16
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
-_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %._crit_edge, %152
+_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %._crit_edge, %151
   %.not.i.i.i63 = icmp eq ptr %.sroa.0.1, null
-  br i1 %.not.i.i.i63, label %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit, label %153
+  br i1 %.not.i.i.i63, label %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit, label %152
 
-153:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
+152:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #16
   br label %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %153
-  %154 = getelementptr inbounds i8, ptr %.sroa.071.090, i64 96
-  %.not80 = icmp eq ptr %154, %10
+_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %152
+  %153 = getelementptr inbounds i8, ptr %.sroa.071.090, i64 96
+  %.not80 = icmp eq ptr %153, %10
   br i1 %.not80, label %._crit_edge93, label %14
 
-155:                                              ; preds = %.loopexit, %.loopexit.split-lp, %84, %86
+154:                                              ; preds = %.loopexit, %.loopexit.split-lp, %84, %86
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn76, %86 ], [ %85, %84 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %156 = load ptr, ptr %4, align 8
-  %.not.i.i.i64 = icmp eq ptr %156, null
-  br i1 %.not.i.i.i64, label %_ZNSt6vectorIdSaIdEED2Ev.exit65, label %157
+  %155 = load ptr, ptr %4, align 8
+  %.not.i.i.i64 = icmp eq ptr %155, null
+  br i1 %.not.i.i.i64, label %_ZNSt6vectorIdSaIdEED2Ev.exit65, label %156
 
-157:                                              ; preds = %155
-  call void @_ZdlPv(ptr noundef nonnull %156) #16
+156:                                              ; preds = %154
+  call void @_ZdlPv(ptr noundef nonnull %155) #16
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit65
 
-_ZNSt6vectorIdSaIdEED2Ev.exit65:                  ; preds = %.loopexit81, %.loopexit.split-lp82, %157, %155
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %155 ], [ %.pn.pn.pn, %157 ], [ %lpad.loopexit83, %.loopexit81 ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp82 ]
+_ZNSt6vectorIdSaIdEED2Ev.exit65:                  ; preds = %.loopexit81, %.loopexit.split-lp82, %156, %154
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %154 ], [ %.pn.pn.pn, %156 ], [ %lpad.loopexit83, %.loopexit81 ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp82 ]
   %.not.i.i.i66 = icmp eq ptr %.sroa.0.1, null
-  br i1 %.not.i.i.i66, label %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit67, label %158
+  br i1 %.not.i.i.i66, label %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit67, label %157
 
-158:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit65
+157:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit65
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #16
   br label %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit67
 
 ._crit_edge93:                                    ; preds = %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit, %3
   ret void
 
-_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit67: ; preds = %158, %_ZNSt6vectorIdSaIdEED2Ev.exit65
+_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit67: ; preds = %157, %_ZNSt6vectorIdSaIdEED2Ev.exit65
   resume { ptr, i32 } %.pn.pn.pn.pn
 
-159:                                              ; preds = %81
+158:                                              ; preds = %81
   unreachable
 }
 

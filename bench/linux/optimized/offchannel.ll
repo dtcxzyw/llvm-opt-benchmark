@@ -765,7 +765,7 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
   %47 = getelementptr inbounds i8, ptr %0, i64 4576
   %48 = load i64, ptr %47, align 8
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %50, label %.thread31
+  br i1 %49, label %50, label %73
 
 50:                                               ; preds = %46
   %51 = tail call zeroext i1 @ieee80211_is_radar_required(ptr noundef %0) #13
@@ -817,10 +817,10 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
   store volatile ptr %24, ptr %71, align 8
   br label %.thread11
 
-73:                                               ; preds = %._crit_edge, %42
-  %74 = phi ptr [ %.pre, %._crit_edge ], [ %44, %42 ]
+73:                                               ; preds = %._crit_edge, %46, %42
+  %74 = phi ptr [ %.pre, %._crit_edge ], [ %44, %46 ], [ %44, %42 ]
   %75 = icmp eq ptr %74, %43
-  br i1 %75, label %.thread31, label %76
+  br i1 %75, label %.loopexit, label %76
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds i8, ptr %0, i64 448
@@ -1005,9 +1005,9 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
   %185 = phi i8 [ %84, %82 ], [ %84, %88 ], [ %84, %99 ], [ 0, %108 ], [ 0, %168 ], [ 0, %163 ]
   %186 = load ptr, ptr %83, align 8
   %187 = icmp eq ptr %186, %43
-  br i1 %187, label %.thread31, label %82, !llvm.loop !49
+  br i1 %187, label %.loopexit, label %82, !llvm.loop !49
 
-.thread31:                                        ; preds = %.thread8, %46, %73
+.loopexit:                                        ; preds = %.thread8, %73
   %188 = getelementptr inbounds i8, ptr %0, i64 5624
   %189 = load ptr, ptr %188, align 8
   store ptr %24, ptr %188, align 8
@@ -1017,8 +1017,8 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
   store volatile ptr %24, ptr %189, align 8
   br label %.thread11
 
-.thread11:                                        ; preds = %120, %157, %.thread, %178, %184, %.thread31, %96, %68, %67, %58, %22, %16, %7
-  %191 = phi i32 [ %65, %67 ], [ -95, %7 ], [ -95, %16 ], [ -12, %22 ], [ 0, %68 ], [ 0, %58 ], [ 0, %.thread31 ], [ 0, %96 ], [ 0, %184 ], [ 0, %178 ], [ 0, %.thread ], [ 0, %157 ], [ 0, %120 ]
+.thread11:                                        ; preds = %120, %157, %.thread, %178, %184, %.loopexit, %96, %68, %67, %58, %22, %16, %7
+  %191 = phi i32 [ %65, %67 ], [ -95, %7 ], [ -95, %16 ], [ -12, %22 ], [ 0, %68 ], [ 0, %58 ], [ 0, %.loopexit ], [ 0, %96 ], [ 0, %184 ], [ 0, %178 ], [ 0, %.thread ], [ 0, %157 ], [ 0, %120 ]
   ret i32 %191
 }
 
@@ -1963,7 +1963,7 @@ define dso_local void @ieee80211_roc_purge(ptr noundef %0, ptr noundef readnone 
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %40
-  %46 = tail call fastcc i32 @drv_cancel_remain_on_channel(ptr noundef %0, ptr noundef nonnull %1)
+  %46 = tail call fastcc i32 @drv_cancel_remain_on_channel(ptr noundef %0, ptr noundef %34)
   tail call fastcc void @ieee80211_roc_notify_destroy(ptr noundef %30)
   br label %50
 

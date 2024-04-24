@@ -183,7 +183,7 @@ _ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit: ; preds = %35, %_ZNKSt1
   br i1 %58, label %59, label %65
 
 59:                                               ; preds = %56
-  %60 = trunc i64 %indvars.iv58 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv58 to i32
   %61 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %60, i64 noundef %48)
   %62 = tail call ptr @__dynamic_cast(ptr nonnull %52, ptr nonnull @_ZTIN5faiss15VectorTransformE, ptr nonnull @_ZTIN5faiss9OPQMatrixE, i64 0) #15
   %.not39 = icmp eq ptr %62, null
@@ -233,7 +233,7 @@ _ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit: ; preds = %35, %_ZNKSt1
   %85 = ptrtoint ptr %.pre62 to i64
   %86 = sub i64 %84, %85
   %87 = ashr exact i64 %86, 3
-  %88 = trunc i64 %indvars.iv58 to i32
+  %88 = trunc nuw nsw i64 %indvars.iv58 to i32
   %89 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %88, i64 noundef %87)
   %.pre = load ptr, ptr %39, align 8
   br label %90
@@ -1915,7 +1915,7 @@ define linkonce_odr ptr @_ZNSt6vectorIPN5faiss15VectorTransformESaIS2_EE6insertE
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %2, align 8
-  store ptr %15, ptr %1, align 8
+  store ptr %15, ptr %9, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %17, ptr %8, align 8

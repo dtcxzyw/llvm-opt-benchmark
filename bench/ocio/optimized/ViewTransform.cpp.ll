@@ -1322,7 +1322,7 @@ if.end.loopexit.i.i:                              ; preds = %for.body.i.i.i.i.i.
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit: ; preds = %if.then16, %if.then.i.i, %if.end.loopexit.i.i
-  %9 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %8, %if.then.i.i ], [ %add.ptr.i.i.i, %if.then16 ]
+  %9 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %8, %if.then.i.i ], [ %8, %if.then16 ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 -32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i) #18
@@ -3092,7 +3092,7 @@ cleanup.critedge:                                 ; preds = %land.rhs.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end.i.i, %for.inc, %invoke.cont3, %cleanup.critedge
-  %retval.sroa.0.1 = phi ptr [ %retval.sroa.0.014, %cleanup.critedge ], [ %2, %invoke.cont3 ], [ %retval.sroa.0.014, %if.end.i.i ], [ %incdec.ptr.i, %for.inc ]
+  %retval.sroa.0.1 = phi ptr [ %retval.sroa.0.014, %cleanup.critedge ], [ %3, %invoke.cont3 ], [ %retval.sroa.0.014, %if.end.i.i ], [ %8, %for.inc ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref) #18
   br label %return
 

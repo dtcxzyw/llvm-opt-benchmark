@@ -9962,7 +9962,7 @@ _ZN7ide_ssr6search10UsageCache4find17hcf85cecd033b06efE.exit17.i.i.i: ; preds = 
   br label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit.i.i"
 
 ._crit_edge.i.i:                                  ; preds = %.backedge.i.i, %"_ZN7ide_ssr6search38_$LT$impl$u20$ide_ssr..MatchFinder$GT$19find_nodes_to_match17he87acd605e47325bE.exit.i.i"
-  %320 = phi ptr [ %.sroa.4.0.copyload.i.i.i, %"_ZN7ide_ssr6search38_$LT$impl$u20$ide_ssr..MatchFinder$GT$19find_nodes_to_match17he87acd605e47325bE.exit.i.i" ], [ %375, %.backedge.i.i ]
+  %320 = phi ptr [ %.sroa.4.0.copyload.i.i.i, %"_ZN7ide_ssr6search38_$LT$impl$u20$ide_ssr..MatchFinder$GT$19find_nodes_to_match17he87acd605e47325bE.exit.i.i" ], [ %376, %.backedge.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !2318
   store ptr %26, ptr %4, align 8, !noalias !2318
   %321 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hc770d99d26744a9dE.llvm.4613852783100018038(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %26)

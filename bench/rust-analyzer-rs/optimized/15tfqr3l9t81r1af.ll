@@ -26800,7 +26800,7 @@ _ZN3ide5hover25show_fn_references_action17h8e47a69d2b25f3b3E.exit: ; preds = %_Z
   br i1 %353, label %._crit_edge.i.loopexit.i, label %330
 
 ._crit_edge.i.loopexit.i:                         ; preds = %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h96c4df781896f438E.exit.i.i"
-  store ptr %320, ptr %322, align 8, !alias.scope !6293, !noalias !6296
+  store ptr %332, ptr %322, align 8, !alias.scope !6293, !noalias !6296
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %319

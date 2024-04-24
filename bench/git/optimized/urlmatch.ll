@@ -450,7 +450,7 @@ while.end161.loopexit:                            ; preds = %strbuf_addch.exit21
 
 while.end161:                                     ; preds = %while.end161.loopexit, %while.cond153.preheader
   %url_len.1.lcssa = phi i64 [ %url_len.0, %while.cond153.preheader ], [ %43, %while.end161.loopexit ]
-  %url.addr.2.lcssa = phi ptr [ %url.addr.1, %while.cond153.preheader ], [ %scevgep, %while.end161.loopexit ]
+  %url.addr.2.lcssa = phi ptr [ %url.addr.1, %while.cond153.preheader ], [ %incdec.ptr157, %while.end161.loopexit ]
   %cmp162 = icmp ult ptr %colon_ptr.1, %add.ptr
   br i1 %cmp162, label %if.then164, label %if.end259
 
@@ -462,10 +462,10 @@ if.then164:                                       ; preds = %while.end161
   br i1 %cmp168, label %land.lhs.true170, label %if.end177
 
 land.lhs.true170:                                 ; preds = %if.then164
-  %arrayidx171 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
+  %arrayidx171 = getelementptr inbounds i8, ptr %add.ptr167, i64 -1
   %44 = load i8, ptr %arrayidx171, align 1
   %cmp173 = icmp eq i8 %44, 48
-  %spec.select = select i1 %cmp173, ptr %arrayidx171, ptr %add.ptr
+  %spec.select = select i1 %cmp173, ptr %arrayidx171, ptr %add.ptr167
   br label %if.end177
 
 if.end177:                                        ; preds = %land.lhs.true170, %if.then164

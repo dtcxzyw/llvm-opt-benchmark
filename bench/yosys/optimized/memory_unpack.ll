@@ -262,7 +262,7 @@ _ZSt8_DestroyIPN5Yosys3MemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = 
   br label %_ZSt8_DestroyIPN5Yosys3MemES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN5Yosys3MemES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %24, %_ZSt8_DestroyIPN5Yosys3MemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %._crit_edge
-  %28 = phi ptr [ %.pr.i22, %_ZSt8_DestroyIPN5Yosys3MemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre40, %._crit_edge ], [ %25, %24 ]
+  %28 = phi ptr [ %.pr.i22, %_ZSt8_DestroyIPN5Yosys3MemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %._crit_edge ], [ %25, %24 ]
   %.not.i.i.i23 = icmp eq ptr %28, null
   br i1 %.not.i.i.i23, label %_ZNSt6vectorIN5Yosys3MemESaIS1_EED2Ev.exit, label %29
 
@@ -1836,7 +1836,7 @@ _ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE7do_hashERKS2_.exit: ; preds = %
   store i32 %65, ptr %44, align 8
   %66 = load ptr, ptr %0, align 8
   %67 = getelementptr inbounds i32, ptr %66, i64 %63
-  %68 = trunc i64 %indvars.iv to i32
+  %68 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %68, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load ptr, ptr %33, align 8

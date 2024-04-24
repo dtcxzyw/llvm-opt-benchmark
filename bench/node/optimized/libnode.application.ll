@@ -1289,10 +1289,10 @@ entry:
   %scevgep.i = getelementptr inbounds i8, ptr %stream_data, i64 32
   %buf.i = getelementptr inbounds i8, ptr %stream_data, i64 288
   %stream.i = getelementptr inbounds i8, ptr %stream_data, i64 296
-  %reason_2.i32 = getelementptr inbounds i8, ptr %ref.tmp113, i64 8
-  %error_4.i35 = getelementptr inbounds i8, ptr %ref.tmp113, i64 40
-  %reason_2.i14 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
-  %error_4.i17 = getelementptr inbounds i8, ptr %ref.tmp16, i64 40
+  %reason_2.i33 = getelementptr inbounds i8, ptr %ref.tmp113, i64 8
+  %error_4.i36 = getelementptr inbounds i8, ptr %ref.tmp113, i64 40
+  %reason_2.i15 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
+  %error_4.i18 = getelementptr inbounds i8, ptr %ref.tmp16, i64 40
   %reason_2.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   %error_4.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 40
   br label %for.cond
@@ -1350,17 +1350,17 @@ _ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit: ; preds = %if.end
   call void @_ZN4node4quic6Packet6CreateEPNS_11EnvironmentEPNS1_8ListenerERKNS_13SocketAddressEmPKc(ptr nonnull sret(%"class.node::BaseObjectPtrImpl.114") align 8 %ref.tmp12, ptr noundef %9, ptr noundef %spec.select.i, ptr noundef nonnull align 8 dereferenceable(136) %remote_address_.i, i64 noundef %call6.i, ptr noundef nonnull @.str.2) #18
   %12 = load i64, ptr %ref.tmp12, align 8
   store ptr null, ptr %ref.tmp12, align 8
-  %cmp.i10.not = icmp eq i64 %12, 0
-  br i1 %cmp.i10.not, label %if.then15, label %if.end22
+  %cmp.i11.not = icmp eq i64 %12, 0
+  br i1 %cmp.i11.not, label %if.then15, label %if.end22
 
 if.then15:                                        ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit
   call void @_ZN4node4quic9QuicError14ForNgtcp2ErrorEiSt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.node::quic::QuicError") align 8 %ref.tmp16, i32 noundef -238, i64 0, ptr nonnull @.str.3) #18
   %13 = load ptr, ptr %session_, align 8
-  %reason_.i13 = getelementptr inbounds i8, ptr %13, i64 2512
-  %call3.i15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i13, ptr noundef nonnull align 8 dereferenceable(32) %reason_2.i14) #18
-  %error_.i16 = getelementptr inbounds i8, ptr %13, i64 2544
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %error_.i16, ptr noundef nonnull align 8 dereferenceable(48) %error_4.i17, i64 48, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %reason_2.i14) #18
+  %reason_.i14 = getelementptr inbounds i8, ptr %13, i64 2512
+  %call3.i16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i14, ptr noundef nonnull align 8 dereferenceable(32) %reason_2.i15) #18
+  %error_.i17 = getelementptr inbounds i8, ptr %13, i64 2544
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %error_.i17, ptr noundef nonnull align 8 dereferenceable(48) %error_4.i18, i64 48, i1 false)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %reason_2.i15) #18
   %14 = load ptr, ptr %session_, align 8
   call void @_ZN4node4quic7Session5CloseENS1_11CloseMethodE(ptr noundef nonnull align 8 dereferenceable(2616) %14, i32 noundef 1) #18
   br label %cleanup
@@ -1404,10 +1404,10 @@ if.end35:                                         ; preds = %if.then31, %sw.bb
   store i64 %20, ptr %agg.tmp36, align 8
   call fastcc void @"_ZZN4node4quic7Session11Application15SendPendingDataEvENK3$_0clINS_17BaseObjectPtrImplINS0_6PacketELb0EEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %congestionLimited, ptr noundef nonnull %agg.tmp36)
   %21 = load ptr, ptr %agg.tmp36, align 8
-  %cmp.not.i19 = icmp eq ptr %21, null
-  br i1 %cmp.not.i19, label %cleanup, label %if.then.i20
+  %cmp.not.i20 = icmp eq ptr %21, null
+  br i1 %cmp.not.i20, label %cleanup, label %if.then.i21
 
-if.then.i20:                                      ; preds = %if.end35
+if.then.i21:                                      ; preds = %if.end35
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #18
   br label %cleanup
 
@@ -1437,10 +1437,10 @@ if.end50:                                         ; preds = %if.then46, %if.then
   store i64 %27, ptr %agg.tmp51, align 8
   call fastcc void @"_ZZN4node4quic7Session11Application15SendPendingDataEvENK3$_0clINS_17BaseObjectPtrImplINS0_6PacketELb0EEEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %congestionLimited, ptr noundef nonnull %agg.tmp51)
   %28 = load ptr, ptr %agg.tmp51, align 8
-  %cmp.not.i23 = icmp eq ptr %28, null
-  br i1 %cmp.not.i23, label %cleanup, label %if.then.i24
+  %cmp.not.i24 = icmp eq ptr %28, null
+  br i1 %cmp.not.i24, label %cleanup, label %if.then.i25
 
-if.then.i24:                                      ; preds = %if.end50
+if.then.i25:                                      ; preds = %if.end50
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #18
   br label %cleanup
 
@@ -1478,16 +1478,16 @@ do.end86:                                         ; preds = %do.body75
   %32 = load ptr, ptr %session_, align 8
   call void @_ZNK4node4quic7Session10FindStreamEl(ptr nonnull sret(%"class.node::BaseObjectPtrImpl.26") align 8 %stream, ptr noundef nonnull align 8 dereferenceable(2616) %32, i64 noundef %30) #18
   %33 = load ptr, ptr %stream, align 8
-  %cmp.i26.not = icmp eq ptr %33, null
-  br i1 %cmp.i26.not, label %cleanup, label %if.end92
+  %cmp.i27.not = icmp eq ptr %33, null
+  br i1 %cmp.i27.not, label %cleanup, label %if.end92
 
 if.end92:                                         ; preds = %do.end86
   call void @_ZN4node4quic6Stream11EndWritableEv(ptr noundef nonnull align 8 dereferenceable(256) %33) #18
   %.pr = load ptr, ptr %stream, align 8
-  %cmp.not.i27 = icmp eq ptr %.pr, null
-  br i1 %cmp.not.i27, label %cleanup, label %if.then.i28
+  %cmp.not.i28 = icmp eq ptr %.pr, null
+  br i1 %cmp.not.i28, label %cleanup, label %if.then.i29
 
-if.then.i28:                                      ; preds = %if.end92
+if.then.i29:                                      ; preds = %if.end92
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %.pr) #18
   br label %cleanup
 
@@ -1525,11 +1525,11 @@ sw.epilog:                                        ; preds = %if.then29
   %conv = trunc i64 %call27 to i32
   call void @_ZN4node4quic9QuicError14ForNgtcp2ErrorEiSt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.node::quic::QuicError") align 8 %ref.tmp113, i32 noundef %conv, i64 0, ptr nonnull @.str.3) #18
   %39 = load ptr, ptr %session_, align 8
-  %reason_.i31 = getelementptr inbounds i8, ptr %39, i64 2512
-  %call3.i33 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i31, ptr noundef nonnull align 8 dereferenceable(32) %reason_2.i32) #18
-  %error_.i34 = getelementptr inbounds i8, ptr %39, i64 2544
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %error_.i34, ptr noundef nonnull align 8 dereferenceable(48) %error_4.i35, i64 48, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %reason_2.i32) #18
+  %reason_.i32 = getelementptr inbounds i8, ptr %39, i64 2512
+  %call3.i34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i32, ptr noundef nonnull align 8 dereferenceable(32) %reason_2.i33) #18
+  %error_.i35 = getelementptr inbounds i8, ptr %39, i64 2544
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %error_.i35, ptr noundef nonnull align 8 dereferenceable(48) %error_4.i36, i64 48, i1 false)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %reason_2.i33) #18
   %40 = load ptr, ptr %session_, align 8
   call void @_ZN4node4quic7Session5CloseENS1_11CloseMethodE(ptr noundef nonnull align 8 dereferenceable(2616) %40, i32 noundef 1) #18
   br label %cleanup
@@ -1550,7 +1550,7 @@ land.lhs.true:                                    ; preds = %if.end119
   br i1 %call124, label %land.lhs.true.if.end128_crit_edge, label %if.then125
 
 land.lhs.true.if.end128_crit_edge:                ; preds = %land.lhs.true
-  %.pre63 = load i64, ptr %ndatalen, align 8
+  %.pre64 = load i64, ptr %ndatalen, align 8
   br label %if.end128
 
 if.then125:                                       ; preds = %land.lhs.true
@@ -1560,7 +1560,7 @@ if.then125:                                       ; preds = %land.lhs.true
   br label %cleanup
 
 if.end128:                                        ; preds = %land.lhs.true.if.end128_crit_edge, %if.end119
-  %45 = phi i64 [ %.pre63, %land.lhs.true.if.end128_crit_edge ], [ %42, %if.end119 ]
+  %45 = phi i64 [ %.pre64, %land.lhs.true.if.end128_crit_edge ], [ %42, %if.end119 ]
   %46 = load i64, ptr %id.i, align 8
   %cmp130 = icmp sgt i64 %46, -1
   %cmp132 = icmp slt i64 %45, 0
@@ -1581,33 +1581,33 @@ if.end137:                                        ; preds = %if.then133, %if.end
   store i64 %49, ptr %agg.tmp140, align 8
   call void @_ZN4node4quic7Session4SendENS_17BaseObjectPtrImplINS0_6PacketELb0EEERKNS0_11PathStorageE(ptr noundef nonnull align 8 dereferenceable(2616) %48, ptr noundef nonnull %agg.tmp140, ptr noundef nonnull align 8 dereferenceable(296) %path) #18
   %50 = load ptr, ptr %agg.tmp140, align 8
-  %cmp.not.i37 = icmp eq ptr %50, null
-  br i1 %cmp.not.i37, label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit39, label %if.then.i38
+  %cmp.not.i38 = icmp eq ptr %50, null
+  br i1 %cmp.not.i38, label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit40, label %if.then.i39
 
-if.then.i38:                                      ; preds = %if.end137
+if.then.i39:                                      ; preds = %if.end137
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %50) #18
-  br label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit39
+  br label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit40
 
-_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit39: ; preds = %if.end137, %if.then.i38
+_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit40: ; preds = %if.end137, %if.then.i39
   store ptr null, ptr %pos, align 8
   %inc = add i64 %packetSendCount.0, 1
   %cmp141 = icmp eq i64 %inc, %.sroa.speculated
   %. = select i1 %cmp141, i32 2, i32 0
   br label %cleanup
 
-cleanup:                                          ; preds = %do.end86, %if.then.i28, %if.end92, %if.then.i24, %if.end50, %if.then.i20, %if.end35, %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit39, %do.body, %if.then125, %sw.epilog, %if.end111, %if.then109, %if.then15, %if.then
-  %packet.sroa.0.2 = phi ptr [ %packet.sroa.0.0, %if.then ], [ %packet.sroa.0.1, %sw.epilog ], [ %packet.sroa.0.1, %if.end111 ], [ %packet.sroa.0.1, %if.then109 ], [ %packet.sroa.0.1, %do.body ], [ null, %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit39 ], [ %packet.sroa.0.1, %if.then125 ], [ null, %if.then15 ], [ null, %if.end35 ], [ null, %if.then.i20 ], [ null, %if.end50 ], [ null, %if.then.i24 ], [ %packet.sroa.0.1, %if.end92 ], [ %packet.sroa.0.1, %if.then.i28 ], [ %packet.sroa.0.1, %do.end86 ]
-  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then ], [ 1, %sw.epilog ], [ 3, %if.end111 ], [ 1, %if.then109 ], [ 3, %do.body ], [ %., %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit39 ], [ 1, %if.then125 ], [ 1, %if.then15 ], [ 1, %if.end35 ], [ 1, %if.then.i20 ], [ 1, %if.end50 ], [ 1, %if.then.i24 ], [ 3, %if.end92 ], [ 3, %if.then.i28 ], [ 3, %do.end86 ]
-  %packetSendCount.1 = phi i64 [ %packetSendCount.0, %if.then ], [ %packetSendCount.0, %sw.epilog ], [ %packetSendCount.0, %if.end111 ], [ %packetSendCount.0, %if.then109 ], [ %packetSendCount.0, %do.body ], [ %inc, %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit39 ], [ %packetSendCount.0, %if.then125 ], [ %packetSendCount.0, %if.then15 ], [ %packetSendCount.0, %if.end35 ], [ %packetSendCount.0, %if.then.i20 ], [ %packetSendCount.0, %if.end50 ], [ %packetSendCount.0, %if.then.i24 ], [ %packetSendCount.0, %if.end92 ], [ %packetSendCount.0, %if.then.i28 ], [ %packetSendCount.0, %do.end86 ]
+cleanup:                                          ; preds = %do.end86, %if.then.i29, %if.end92, %if.then.i25, %if.end50, %if.then.i21, %if.end35, %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit40, %do.body, %if.then125, %sw.epilog, %if.end111, %if.then109, %if.then15, %if.then
+  %packet.sroa.0.2 = phi ptr [ %packet.sroa.0.0, %if.then ], [ %packet.sroa.0.1, %sw.epilog ], [ %packet.sroa.0.1, %if.end111 ], [ %packet.sroa.0.1, %if.then109 ], [ %packet.sroa.0.1, %do.body ], [ null, %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit40 ], [ %packet.sroa.0.1, %if.then125 ], [ null, %if.then15 ], [ null, %if.end35 ], [ null, %if.then.i21 ], [ null, %if.end50 ], [ null, %if.then.i25 ], [ %packet.sroa.0.1, %if.end92 ], [ %packet.sroa.0.1, %if.then.i29 ], [ %packet.sroa.0.1, %do.end86 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then ], [ 1, %sw.epilog ], [ 3, %if.end111 ], [ 1, %if.then109 ], [ 3, %do.body ], [ %., %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit40 ], [ 1, %if.then125 ], [ 1, %if.then15 ], [ 1, %if.end35 ], [ 1, %if.then.i21 ], [ 1, %if.end50 ], [ 1, %if.then.i25 ], [ 3, %if.end92 ], [ 3, %if.then.i29 ], [ 3, %do.end86 ]
+  %packetSendCount.1 = phi i64 [ %packetSendCount.0, %if.then ], [ %packetSendCount.0, %sw.epilog ], [ %packetSendCount.0, %if.end111 ], [ %packetSendCount.0, %if.then109 ], [ %packetSendCount.0, %do.body ], [ %inc, %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit40 ], [ %packetSendCount.0, %if.then125 ], [ %packetSendCount.0, %if.then15 ], [ %packetSendCount.0, %if.end35 ], [ %packetSendCount.0, %if.then.i21 ], [ %packetSendCount.0, %if.end50 ], [ %packetSendCount.0, %if.then.i25 ], [ %packetSendCount.0, %if.end92 ], [ %packetSendCount.0, %if.then.i29 ], [ %packetSendCount.0, %do.end86 ]
   %51 = load ptr, ptr %stream.i, align 8
-  %cmp.not.i.i41 = icmp eq ptr %51, null
-  br i1 %cmp.not.i.i41, label %_ZN4node4quic7Session11Application10StreamDataD2Ev.exit, label %if.then.i.i42
+  %cmp.not.i.i42 = icmp eq ptr %51, null
+  br i1 %cmp.not.i.i42, label %_ZN4node4quic7Session11Application10StreamDataD2Ev.exit, label %if.then.i.i43
 
-if.then.i.i42:                                    ; preds = %cleanup
+if.then.i.i43:                                    ; preds = %cleanup
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %51) #18
   br label %_ZN4node4quic7Session11Application10StreamDataD2Ev.exit
 
-_ZN4node4quic7Session11Application10StreamDataD2Ev.exit: ; preds = %cleanup, %if.then.i.i42
+_ZN4node4quic7Session11Application10StreamDataD2Ev.exit: ; preds = %cleanup, %if.then.i.i43
   switch i32 %cleanup.dest.slot.0, label %cleanup144 [
     i32 0, label %for.cond.backedge
     i32 3, label %for.cond.backedge
@@ -1619,24 +1619,24 @@ for.cond.backedge:                                ; preds = %_ZN4node4quic7Sessi
 
 for.end:                                          ; preds = %_ZN4node4quic7Session11Application10StreamDataD2Ev.exit
   %updateTimer.val = load ptr, ptr %updateTimer, align 8
-  %session_.i43 = getelementptr inbounds i8, ptr %updateTimer.val, i64 8
-  %52 = load ptr, ptr %session_.i43, align 8
+  %session_.i44 = getelementptr inbounds i8, ptr %updateTimer.val, i64 8
+  %52 = load ptr, ptr %session_.i44, align 8
   %call.i = call noundef ptr @_ZNK4node4quic7SessioncvP11ngtcp2_connEv(ptr noundef nonnull align 8 dereferenceable(2616) %52) #18
   %call2.i = call i64 @uv_hrtime() #18
   call void @ngtcp2_conn_update_pkt_tx_time(ptr noundef %call.i, i64 noundef %call2.i) #18
-  %53 = load ptr, ptr %session_.i43, align 8
+  %53 = load ptr, ptr %session_.i44, align 8
   call void @_ZN4node4quic7Session11UpdateTimerEv(ptr noundef nonnull align 8 dereferenceable(2616) %53) #18
   br label %cleanup144
 
 cleanup144:                                       ; preds = %_ZN4node4quic7Session11Application10StreamDataD2Ev.exit, %for.end
-  %cmp.not.i44 = icmp eq ptr %packet.sroa.0.2, null
-  br i1 %cmp.not.i44, label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit46, label %if.then.i45
+  %cmp.not.i45 = icmp eq ptr %packet.sroa.0.2, null
+  br i1 %cmp.not.i45, label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit47, label %if.then.i46
 
-if.then.i45:                                      ; preds = %cleanup144
+if.then.i46:                                      ; preds = %cleanup144
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %packet.sroa.0.2) #18
-  br label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit46
+  br label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit47
 
-_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit46: ; preds = %cleanup144, %if.then.i45
+_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit47: ; preds = %cleanup144, %if.then.i46
   ret void
 }
 
@@ -2207,9 +2207,13 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp.i.i.i, label %_ZN4node8ListHeadINS_4quic6StreamEXadL_ZNS2_13stream_queue_EEEED2Ev.exit, label %while.body.i, !llvm.loop !79
 
 _ZN4node8ListHeadINS_4quic6StreamEXadL_ZNS2_13stream_queue_EEEED2Ev.exit: ; preds = %while.body.i, %entry
+  %.lcssa.i = phi ptr [ %0, %entry ], [ %5, %while.body.i ]
   %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %next_.i.i.i, align 8
-  store ptr %stream_queue_, ptr %6, align 8
+  %next_2.i.i.i = getelementptr inbounds i8, ptr %.lcssa.i, i64 8
+  store ptr %6, ptr %next_2.i.i.i, align 8
+  %7 = load ptr, ptr %stream_queue_, align 8
+  store ptr %7, ptr %6, align 8
   store ptr %stream_queue_, ptr %stream_queue_, align 8
   store ptr %stream_queue_, ptr %next_.i.i.i, align 8
   ret void
@@ -2243,9 +2247,13 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   br i1 %cmp.i.i.i.i, label %_ZN4node4quic18DefaultApplicationD2Ev.exit, label %while.body.i.i, !llvm.loop !79
 
 _ZN4node4quic18DefaultApplicationD2Ev.exit:       ; preds = %while.body.i.i, %entry
+  %.lcssa.i.i = phi ptr [ %0, %entry ], [ %5, %while.body.i.i ]
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %next_.i.i.i.i, align 8
-  store ptr %stream_queue_.i, ptr %6, align 8
+  %next_2.i.i.i.i = getelementptr inbounds i8, ptr %.lcssa.i.i, i64 8
+  store ptr %6, ptr %next_2.i.i.i.i, align 8
+  %7 = load ptr, ptr %stream_queue_.i, align 8
+  store ptr %7, ptr %6, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }

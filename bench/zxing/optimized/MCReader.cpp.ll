@@ -170,25 +170,18 @@ _ZN5ZXing8MaxiCodeL15ExtractPureBitsERKNS_9BitMatrixE.exit.thread: ; preds = %31
   %53 = sdiv i32 %52, 33
   %54 = add nsw i32 %53, %43
   %55 = trunc i32 %.033.i to i1
-  br i1 %55, label %.split.us.i.preheader, label %.split.i.preheader
-
-.split.i.preheader:                               ; preds = %50
   %56 = mul nsw i32 %.033.i, 30
-  br label %.split.i
+  br i1 %55, label %.split.us.i, label %.split.i
 
-.split.us.i.preheader:                            ; preds = %50
-  %.pre32 = load i32, ptr %11, align 8, !noalias !4
-  %57 = mul nsw i32 %.pre32, %54
-  %58 = add i32 %57, %46
-  %59 = mul nsw i32 %.033.i, 30
-  br label %.split.us.i
-
-.split.us.i:                                      ; preds = %.split.us.i.preheader, %77
-  %.01523.us.i = phi i32 [ %78, %77 ], [ 0, %.split.us.i.preheader ]
-  %60 = mul nsw i32 %47, %.01523.us.i
-  %61 = add i32 %reass.add.i, %60
-  %62 = sdiv i32 %61, 30
-  %63 = add i32 %58, %62
+.split.us.i:                                      ; preds = %50, %77
+  %.01523.us.i = phi i32 [ %78, %77 ], [ 0, %50 ]
+  %57 = mul nsw i32 %47, %.01523.us.i
+  %58 = add i32 %reass.add.i, %57
+  %59 = sdiv i32 %58, 30
+  %60 = load i32, ptr %11, align 8, !noalias !4
+  %61 = mul nsw i32 %60, %54
+  %62 = add i32 %61, %46
+  %63 = add i32 %62, %59
   %64 = sext i32 %63 to i64
   %65 = load ptr, ptr %42, align 8, !noalias !4
   %66 = load ptr, ptr %41, align 8, !noalias !4
@@ -205,7 +198,7 @@ _ZN5ZXing8MaxiCodeL15ExtractPureBitsERKNS_9BitMatrixE.exit.thread: ; preds = %31
   br i1 %.not.us.i, label %77, label %73
 
 73:                                               ; preds = %70
-  %74 = add nuw nsw i32 %59, %.01523.us.i
+  %74 = add nuw nsw i32 %56, %.01523.us.i
   %75 = zext nneg i32 %74 to i64
   %.not.i.i.i.i.i.us.i = icmp ult i32 %74, 990
   br i1 %.not.i.i.i.i.i.us.i, label %_ZN5ZXing9BitMatrix3setEiib.exit.us.i, label %.split25.us.invoke.i
@@ -220,8 +213,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit.us.i:            ; preds = %73
   %exitcond52.not.i = icmp eq i32 %78, 30
   br i1 %exitcond52.not.i, label %.split28.us.i, label %.split.us.i, !llvm.loop !7
 
-.split.i:                                         ; preds = %.split.i.preheader, %103
-  %.01523.i = phi i32 [ %104, %103 ], [ 0, %.split.i.preheader ]
+.split.i:                                         ; preds = %50, %103
+  %.01523.i = phi i32 [ %104, %103 ], [ 0, %50 ]
   %79 = mul nsw i32 %47, %.01523.i
   %80 = add nsw i32 %79, %48
   %81 = sdiv i32 %80, 30

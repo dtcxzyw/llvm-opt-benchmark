@@ -698,11 +698,11 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp.i, label %if.end13, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end8
-  %4 = getelementptr i8, ptr %dev, i64 88
+  %4 = getelementptr i8, ptr %1, i64 88
   %.val.i = load ptr, ptr %4, align 8
   %busnr.i = getelementptr inbounds i8, ptr %.val.i, i64 128
   %5 = load i32, ptr %busnr.i, align 8
-  %port.i = getelementptr inbounds i8, ptr %dev, i64 160
+  %port.i = getelementptr inbounds i8, ptr %1, i64 160
   %6 = load ptr, ptr %port.i, align 8
   %7 = load i8, ptr %0, align 8
   %cmp.i.i = icmp ult i32 %3, 6
@@ -1847,7 +1847,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr [15 x %struct.USBEndpoint], ptr %ep_in, i64 0, i64 %indvars.iv
-  %0 = trunc i64 %indvars.iv.next to i8
+  %0 = trunc nuw nsw i64 %indvars.iv.next to i8
   store i8 %0, ptr %arrayidx, align 8
   %arrayidx12 = getelementptr [15 x %struct.USBEndpoint], ptr %ep_out, i64 0, i64 %indvars.iv
   store i8 %0, ptr %arrayidx12, align 8
@@ -1911,7 +1911,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i = getelementptr [15 x %struct.USBEndpoint], ptr %ep_in.i, i64 0, i64 %indvars.iv.i
-  %0 = trunc i64 %indvars.iv.next.i to i8
+  %0 = trunc nuw nsw i64 %indvars.iv.next.i to i8
   store i8 %0, ptr %arrayidx.i, align 8
   %arrayidx12.i = getelementptr [15 x %struct.USBEndpoint], ptr %ep_out.i, i64 0, i64 %indvars.iv.i
   store i8 %0, ptr %arrayidx12.i, align 8
@@ -1987,8 +1987,8 @@ entry:
 for.cond1.preheader:                              ; preds = %entry, %for.inc62
   %indvars.iv35 = phi i64 [ 0, %entry ], [ %indvars.iv.next36, %for.inc62 ]
   %arrayidx15 = getelementptr [16 x i32], ptr %altsetting, i64 0, i64 %indvars.iv35
-  %2 = trunc i64 %indvars.iv35 to i32
-  %3 = trunc i64 %indvars.iv35 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv35 to i32
+  %3 = trunc nuw nsw i64 %indvars.iv35 to i32
   br label %for.body3
 
 for.body3:                                        ; preds = %for.cond1.preheader, %for.inc
@@ -2026,7 +2026,7 @@ if.end:                                           ; preds = %if.then13, %if.then
   %11 = load ptr, ptr %arrayidx22, align 8
   %max_packet_size = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %12 = load i32, ptr %max_packet_size, align 4
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   %call26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.28, i32 noundef %13, ptr noundef %11, i32 noundef %12) #13
   br label %if.end27
 
@@ -2064,7 +2064,7 @@ if.end49:                                         ; preds = %if.then44, %if.then
   %21 = load ptr, ptr %arrayidx55, align 8
   %max_packet_size59 = getelementptr inbounds i8, ptr %arrayidx29, i64 4
   %22 = load i32, ptr %max_packet_size59, align 4
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   %call60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.29, i32 noundef %23, ptr noundef %21, i32 noundef %22) #13
   br label %for.inc
 

@@ -551,7 +551,7 @@ if.then28:                                        ; preds = %cond.end24
   br i1 %cmp29, label %if.then31, label %if.end33
 
 if.then31:                                        ; preds = %if.then28
-  %call32 = call ptr @sdsdup(ptr noundef nonnull %str.addr.0) #10
+  %call32 = call ptr @sdsdup(ptr noundef %cond) #10
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then31, %if.then28

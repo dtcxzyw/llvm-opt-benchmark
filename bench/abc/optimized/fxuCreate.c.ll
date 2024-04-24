@@ -263,7 +263,7 @@ define ptr @Fxu_CreateMatrix(ptr nocapture noundef readonly %0) local_unnamed_ad
 .lr.ph219:                                        ; preds = %.lr.ph219.preheader, %.lr.ph219
   %indvars.iv252 = phi i64 [ 0, %.lr.ph219.preheader ], [ %indvars.iv.next253, %.lr.ph219 ]
   %136 = getelementptr inbounds i32, ptr %111, i64 %indvars.iv252
-  %137 = trunc i64 %indvars.iv252 to i32
+  %137 = trunc nuw nsw i64 %indvars.iv252 to i32
   store i32 %137, ptr %136, align 4
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
   %exitcond256.not = icmp eq i64 %indvars.iv.next253, %wide.trip.count255
@@ -657,14 +657,14 @@ Fxu_CreateCoversFirstCube.exit54:                 ; preds = %38, %39, %32
   br i1 %.not44, label %.critedge, label %47, !llvm.loop !16
 
 55:                                               ; preds = %50
-  %56 = trunc i64 %indvars.iv to i32
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @Fxu_CreateCoversNode(ptr noundef %0, ptr noundef %1, i32 noundef %56, ptr noundef %.04065, ptr noundef %.09.i47)
   %.pre = load i32, ptr %3, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %52, %25, %Fxu_CreateCoversFirstCube.exit54, %55
   %57 = phi i32 [ %26, %Fxu_CreateCoversFirstCube.exit54 ], [ %.pre, %55 ], [ %26, %25 ], [ %26, %52 ]
-  %.141 = phi ptr [ %.04065, %Fxu_CreateCoversFirstCube.exit54 ], [ %.09.i47, %55 ], [ %.04065, %25 ], [ %.09.i47, %52 ]
+  %.141 = phi ptr [ %.09.i47, %Fxu_CreateCoversFirstCube.exit54 ], [ %.09.i47, %55 ], [ %.04065, %25 ], [ %.09.i47, %52 ]
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %.pre74, %58
   br i1 %59, label %25, label %.preheader.loopexit, !llvm.loop !17
@@ -882,7 +882,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %75 = getelementptr inbounds ptr, ptr %70, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 40
-  %78 = trunc i64 %indvars.iv to i32
+  %78 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %78, ptr %77, align 8
   %79 = load ptr, ptr %68, align 8
   %80 = load i32, ptr %71, align 4

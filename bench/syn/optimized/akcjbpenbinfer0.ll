@@ -121,9 +121,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator4fold17ha14e2bc9fc2040ccE.llvm.17896666486873179654.exit.loopexit, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b8d1bdc6493920cE.llvm.17896666486873179654.exit.i"
 
 _ZN4core4iter6traits8iterator8Iterator4fold17ha14e2bc9fc2040ccE.llvm.17896666486873179654.exit.loopexit: ; preds = %12, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b8d1bdc6493920cE.llvm.17896666486873179654.exit.i"
-  %.lcssa = phi ptr [ %7, %12 ], [ %11, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b8d1bdc6493920cE.llvm.17896666486873179654.exit.i" ]
   %.ph = phi i64 [ %14, %12 ], [ %9, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b8d1bdc6493920cE.llvm.17896666486873179654.exit.i" ]
-  store ptr %.lcssa, ptr %4, align 8, !alias.scope !28, !noalias !29
+  store ptr %11, ptr %4, align 8, !alias.scope !28, !noalias !29
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17ha14e2bc9fc2040ccE.llvm.17896666486873179654.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17ha14e2bc9fc2040ccE.llvm.17896666486873179654.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17ha14e2bc9fc2040ccE.llvm.17896666486873179654.exit.loopexit, %2
@@ -211,8 +210,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   resume { ptr, i32 } %12
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hd27f8abe80c8d768E.llvm.17896666486873179654.exit.loopexit: ; preds = %16, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7477aa7a1016da21E.llvm.17896666486873179654.exit.i"
-  %.lcssa = phi ptr [ %9, %16 ], [ %14, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7477aa7a1016da21E.llvm.17896666486873179654.exit.i" ]
-  store ptr %.lcssa, ptr %6, align 8, !alias.scope !55, !noalias !57
+  store ptr %14, ptr %6, align 8, !alias.scope !55, !noalias !57
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17hd27f8abe80c8d768E.llvm.17896666486873179654.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hd27f8abe80c8d768E.llvm.17896666486873179654.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hd27f8abe80c8d768E.llvm.17896666486873179654.exit.loopexit, %2
@@ -354,9 +352,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator4fold17h43e6f7cbec24fb1dE.llvm.17896666486873179654.exit.loopexit, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hec4d61542ab945caE.llvm.17896666486873179654.exit.i"
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h43e6f7cbec24fb1dE.llvm.17896666486873179654.exit.loopexit: ; preds = %12, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hec4d61542ab945caE.llvm.17896666486873179654.exit.i"
-  %.lcssa = phi ptr [ %7, %12 ], [ %11, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hec4d61542ab945caE.llvm.17896666486873179654.exit.i" ]
   %.ph = phi i64 [ %14, %12 ], [ %9, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hec4d61542ab945caE.llvm.17896666486873179654.exit.i" ]
-  store ptr %.lcssa, ptr %4, align 8, !alias.scope !130, !noalias !131
+  store ptr %11, ptr %4, align 8, !alias.scope !130, !noalias !131
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h43e6f7cbec24fb1dE.llvm.17896666486873179654.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h43e6f7cbec24fb1dE.llvm.17896666486873179654.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h43e6f7cbec24fb1dE.llvm.17896666486873179654.exit.loopexit, %2
@@ -417,9 +414,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator4fold17h412abb7a5c61b1caE.llvm.17896666486873179654.exit.loopexit, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb8b261287d34f85fE.llvm.17896666486873179654.exit.i"
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h412abb7a5c61b1caE.llvm.17896666486873179654.exit.loopexit: ; preds = %12, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb8b261287d34f85fE.llvm.17896666486873179654.exit.i"
-  %.lcssa = phi ptr [ %7, %12 ], [ %11, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb8b261287d34f85fE.llvm.17896666486873179654.exit.i" ]
   %.ph = phi i64 [ %14, %12 ], [ %9, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb8b261287d34f85fE.llvm.17896666486873179654.exit.i" ]
-  store ptr %.lcssa, ptr %4, align 8, !alias.scope !167, !noalias !168
+  store ptr %11, ptr %4, align 8, !alias.scope !167, !noalias !168
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h412abb7a5c61b1caE.llvm.17896666486873179654.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h412abb7a5c61b1caE.llvm.17896666486873179654.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h412abb7a5c61b1caE.llvm.17896666486873179654.exit.loopexit, %2

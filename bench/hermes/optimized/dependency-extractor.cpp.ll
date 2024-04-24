@@ -512,7 +512,7 @@ _ZSt8_DestroyIPN6hermes10DependencyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ;
   br label %_ZSt8_DestroyIPN6hermes10DependencyES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN6hermes10DependencyES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %if.end23, %_ZSt8_DestroyIPN6hermes10DependencyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %for.end
-  %33 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN6hermes10DependencyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre104, %for.end ], [ %21, %if.end23 ]
+  %33 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN6hermes10DependencyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre103, %for.end ], [ %21, %if.end23 ]
   %tobool.not.i.i.i = icmp eq ptr %33, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i82, label %if.then.i.i.i
 

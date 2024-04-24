@@ -20200,7 +20200,7 @@ invoke.cont.thread:                               ; preds = %call3.i.i.i.noexc
   %_M_string_length.i29.i.i388 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %5, ptr %_M_string_length.i29.i.i388, align 8, !tbaa !15, !alias.scope !375
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !15
-  store i8 0, ptr %3, align 8, !tbaa !16
+  store i8 0, ptr %4, align 8, !tbaa !16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 invoke.cont:                                      ; preds = %call3.i.i.i.noexc
@@ -22460,7 +22460,7 @@ invoke.cont49.thread:                             ; preds = %call3.i.i.i.noexc33
   %_M_string_length.i29.i.i331514 = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
   store i64 %127, ptr %_M_string_length.i29.i.i331514, align 8, !tbaa !15, !alias.scope !429
   store i64 0, ptr %_M_string_length.i.i.i333, align 8, !tbaa !15
-  store i8 0, ptr %125, align 8, !tbaa !16
+  store i8 0, ptr %126, align 8, !tbaa !16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i343
 
 invoke.cont49:                                    ; preds = %call3.i.i.i.noexc336
@@ -22634,7 +22634,7 @@ invoke.cont64.thread:                             ; preds = %call3.i.i.i.noexc39
   %_M_string_length.i29.i.i391519 = getelementptr inbounds i8, ptr %ref.tmp57, i64 8
   store i64 %151, ptr %_M_string_length.i29.i.i391519, align 8, !tbaa !15, !alias.scope !435
   store i64 0, ptr %_M_string_length.i.i.i393, align 8, !tbaa !15
-  store i8 0, ptr %149, align 8, !tbaa !16
+  store i8 0, ptr %150, align 8, !tbaa !16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i403
 
 invoke.cont64:                                    ; preds = %call3.i.i.i.noexc396
@@ -22808,7 +22808,7 @@ invoke.cont79.thread:                             ; preds = %call3.i.i.i.noexc45
   %_M_string_length.i29.i.i451524 = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
   store i64 %175, ptr %_M_string_length.i29.i.i451524, align 8, !tbaa !15, !alias.scope !441
   store i64 0, ptr %_M_string_length.i.i.i453, align 8, !tbaa !15
-  store i8 0, ptr %173, align 8, !tbaa !16
+  store i8 0, ptr %174, align 8, !tbaa !16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i463
 
 invoke.cont79:                                    ; preds = %call3.i.i.i.noexc456

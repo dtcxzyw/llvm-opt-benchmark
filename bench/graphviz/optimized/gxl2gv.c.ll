@@ -1727,7 +1727,7 @@ define internal fastcc i32 @get_xml_attr(ptr nocapture noundef readonly %0, ptr 
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %.lr.ph
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = or disjoint i32 %8, 1
   br label %.loopexit
 
@@ -1864,7 +1864,7 @@ define internal fastcc void @setGraphAttr(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25
-  %29 = tail call ptr @agattr(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2) #22
+  %29 = tail call ptr @agattr(ptr noundef %26, i32 noundef 0, ptr noundef %1, ptr noundef %2) #22
   br label %33
 
 30:                                               ; preds = %25

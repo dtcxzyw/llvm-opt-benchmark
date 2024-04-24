@@ -547,7 +547,7 @@ invoke.contthread-pre-split.i.i187:               ; preds = %for.body.i.i.i.i.i1
   br label %invoke.cont.i.i189
 
 invoke.cont.i.i189:                               ; preds = %invoke.contthread-pre-split.i.i187, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_14CallD2Ev.exit179
-  %8 = phi ptr [ %.pr.i.i188, %invoke.contthread-pre-split.i.i187 ], [ %.pre231, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_14CallD2Ev.exit179 ]
+  %8 = phi ptr [ %.pr.i.i188, %invoke.contthread-pre-split.i.i187 ], [ %.pre, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_14CallD2Ev.exit179 ]
   %tobool.not.i.i.i.i190 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i190, label %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_14CallD2Ev.exit205, label %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_14CallD2Ev.exit192
 
@@ -3785,7 +3785,7 @@ if.then20:                                        ; preds = %if.else18
   %conv.i32 = zext i8 %0 to i32
   %conv3.i33 = zext i8 %1 to i32
   %mul.i34 = shl nuw nsw i64 %div6.i, 3
-  %sh_prom.i = trunc i64 %mul.i34 to i32
+  %sh_prom.i = trunc nuw i64 %mul.i34 to i32
   %shl.i35 = shl nuw nsw i32 %conv3.i33, %sh_prom.i
   %or.i36 = or i32 %shl.i35, %conv.i32
   %conv5.i = zext i8 %2 to i32

@@ -8222,8 +8222,7 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
   br i1 %317, label %318, label %309, !llvm.loop !124
 
 318:                                              ; preds = %313, %309
-  %.lcssa = phi ptr [ %311, %313 ], [ %308, %309 ]
-  %319 = getelementptr i8, ptr %.lcssa, i64 -16
+  %319 = getelementptr i8, ptr %311, i64 -16
   br label %320
 
 320:                                              ; preds = %318, %303

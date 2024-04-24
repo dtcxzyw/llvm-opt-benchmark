@@ -3471,7 +3471,7 @@ for.body:                                         ; preds = %entry, %_ZSt8_Destr
   %2 = load ptr, ptr %__node.037, align 8
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %_ZSt8_DestroyIN3ue212bytecode_ptrI3NFAEEEvPT_.exit.i.i.i, %for.body
+for.body.i.i.i:                                   ; preds = %for.body, %_ZSt8_DestroyIN3ue212bytecode_ptrI3NFAEEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i.idx = phi i64 [ %__first.addr.04.i.i.i.add, %_ZSt8_DestroyIN3ue212bytecode_ptrI3NFAEEEvPT_.exit.i.i.i ], [ 0, %for.body ]
   %__first.addr.04.i.i.i.ptr = getelementptr inbounds i8, ptr %2, i64 %__first.addr.04.i.i.i.idx
   %3 = load ptr, ptr %__first.addr.04.i.i.i.ptr, align 8
@@ -4878,7 +4878,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i
   store ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i, ptr %body_regions.i.i.i.i.i.i.i, align 8, !alias.scope !54, !noalias !57
-  %9 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !57, !noalias !54
   store ptr %9, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !54, !noalias !57
   br label %if.end.i.i.i.i.i.i.i.i.i.i
 
@@ -4962,7 +4962,7 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN3ue21
 
 if.then.i.i.i.i.i.i.i.i.i.i55:                    ; preds = %for.body.i.i.i19
   store ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i38, ptr %body_regions.i.i.i.i.i.i.i28, align 8, !alias.scope !61, !noalias !64
-  %19 = load ptr, ptr %15, align 8
+  %19 = load ptr, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i.i.i39, align 8, !alias.scope !64, !noalias !61
   store ptr %19, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i38, align 8, !alias.scope !61, !noalias !64
   br label %if.end.i.i.i.i.i.i.i.i.i.i41
 
@@ -5019,7 +5019,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #20
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i59
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i62
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZN3ue217InitialResetEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr) #20
@@ -5031,11 +5031,11 @@ lpad25:                                           ; preds = %invoke.cont27
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i59:                                      ; preds = %lpad
+if.then.i62:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #22
   br label %invoke.cont27
 
-invoke.cont27:                                    ; preds = %if.then.i59, %if.end.thread
+invoke.cont27:                                    ; preds = %if.then.i62, %if.end.thread
   invoke void @__cxa_rethrow() #24
           to label %unreachable unwind label %lpad25
 

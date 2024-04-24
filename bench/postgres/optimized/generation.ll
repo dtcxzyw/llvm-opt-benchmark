@@ -70,7 +70,7 @@ dlist_push_head.exit:                             ; preds = %5
   %34 = getelementptr inbounds i8, ptr %7, i64 88
   store i32 %30, ptr %34, align 8
   %35 = tail call i64 @llvm.umin.i64(i64 %4, i64 1073741823)
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw nsw i64 %35 to i32
   %37 = add i64 %4, -56
   %38 = lshr i64 %37, 3
   br label %39
@@ -125,26 +125,26 @@ define dso_local void @GenerationReset(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr i8, ptr %0, i64 128
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr i8, ptr %0, i64 160
-  %9 = getelementptr i8, ptr %0, i64 164
-  %10 = getelementptr i8, ptr %0, i64 184
-  %11 = getelementptr i8, ptr %0, i64 168
-  br label %12
+  br label %8
 
-12:                                               ; preds = %.lr.ph, %23
+8:                                                ; preds = %.lr.ph, %23
   %.sroa.0.022 = phi ptr [ %5, %.lr.ph ], [ %.sroa.6.023, %23 ]
   %.sroa.6.023.in = getelementptr inbounds i8, ptr %.sroa.0.022, i64 8
   %.sroa.6.023 = load ptr, ptr %.sroa.6.023.in, align 8
-  %13 = icmp eq ptr %.sroa.0.022, %6
-  br i1 %13, label %14, label %15
+  %9 = icmp eq ptr %.sroa.0.022, %6
+  br i1 %9, label %10, label %15
 
-14:                                               ; preds = %12
-  store i32 0, ptr %8, align 8
-  store i32 0, ptr %9, align 4
-  store ptr %10, ptr %11, align 8
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds i8, ptr %.sroa.0.022, i64 32
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %.sroa.0.022, i64 36
+  store i32 0, ptr %12, align 4
+  %13 = getelementptr i8, ptr %.sroa.0.022, i64 56
+  %14 = getelementptr inbounds i8, ptr %.sroa.0.022, i64 40
+  store ptr %13, ptr %14, align 8
   br label %23
 
-15:                                               ; preds = %12
+15:                                               ; preds = %8
   %16 = load ptr, ptr %.sroa.0.022, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %.sroa.6.023, ptr %17, align 8
@@ -158,9 +158,9 @@ define dso_local void @GenerationReset(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @free(ptr noundef nonnull %.sroa.0.022) #14
   br label %23
 
-23:                                               ; preds = %14, %15
+23:                                               ; preds = %10, %15
   %.not18 = icmp eq ptr %.sroa.6.023, %3
-  br i1 %.not18, label %._crit_edge, label %12, !llvm.loop !7
+  br i1 %.not18, label %._crit_edge, label %8, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %23, %1
   %24 = getelementptr i8, ptr %0, i64 128
@@ -188,26 +188,26 @@ define dso_local void @GenerationDelete(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %1
   %6 = getelementptr i8, ptr %0, i64 128
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr i8, ptr %0, i64 160
-  %9 = getelementptr i8, ptr %0, i64 164
-  %10 = getelementptr i8, ptr %0, i64 184
-  %11 = getelementptr i8, ptr %0, i64 168
-  br label %12
+  br label %8
 
-12:                                               ; preds = %23, %.lr.ph.i
+8:                                                ; preds = %23, %.lr.ph.i
   %.sroa.0.022.i = phi ptr [ %5, %.lr.ph.i ], [ %.sroa.6.023.i, %23 ]
   %.sroa.6.023.in.i = getelementptr inbounds i8, ptr %.sroa.0.022.i, i64 8
   %.sroa.6.023.i = load ptr, ptr %.sroa.6.023.in.i, align 8
-  %13 = icmp eq ptr %.sroa.0.022.i, %6
-  br i1 %13, label %14, label %15
+  %9 = icmp eq ptr %.sroa.0.022.i, %6
+  br i1 %9, label %10, label %15
 
-14:                                               ; preds = %12
-  store i32 0, ptr %8, align 8
-  store i32 0, ptr %9, align 4
-  store ptr %10, ptr %11, align 8
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds i8, ptr %.sroa.0.022.i, i64 32
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %.sroa.0.022.i, i64 36
+  store i32 0, ptr %12, align 4
+  %13 = getelementptr i8, ptr %.sroa.0.022.i, i64 56
+  %14 = getelementptr inbounds i8, ptr %.sroa.0.022.i, i64 40
+  store ptr %13, ptr %14, align 8
   br label %23
 
-15:                                               ; preds = %12
+15:                                               ; preds = %8
   %16 = load ptr, ptr %.sroa.0.022.i, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %.sroa.6.023.i, ptr %17, align 8
@@ -221,12 +221,12 @@ define dso_local void @GenerationDelete(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @free(ptr noundef nonnull %.sroa.0.022.i) #14
   br label %23
 
-23:                                               ; preds = %15, %14
+23:                                               ; preds = %15, %10
   %.not18.i = icmp eq ptr %.sroa.6.023.i, %3
-  br i1 %.not18.i, label %GenerationReset.exit, label %12, !llvm.loop !7
+  br i1 %.not18.i, label %GenerationReset.exit, label %8, !llvm.loop !7
 
 GenerationReset.exit:                             ; preds = %23, %1
-  tail call void @free(ptr noundef nonnull %0) #14
+  tail call void @free(ptr noundef %0) #14
   ret void
 }
 

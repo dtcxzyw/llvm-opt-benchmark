@@ -2293,7 +2293,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !12
 
 _ZNK20btAlignedObjectArrayIP17btTypedConstraintE16findLinearSearchERKS1_.exit: ; preds = %for.body.i
-  %3 = trunc i64 %indvars.iv.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp = icmp eq i32 %0, %3
   br i1 %cmp, label %if.then, label %if.end9
 
@@ -2385,9 +2385,9 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit: ; preds = 
   br i1 %cmp7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit
-  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 324
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %13, i64 324
   %15 = load i32, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %13, i64 328
   %16 = load i32, ptr %m_capacity.i.i.i, align 8
   %cmp.i.i8 = icmp eq i32 %15, %16
   br i1 %cmp.i.i8, label %if.then.i.i10, label %if.end9.sink.split
@@ -2417,7 +2417,7 @@ _ZN20btAlignedObjectArrayIPK17btCollisionObjectE8allocateEi.exit.i.i.i: ; preds 
   br i1 %cmp4.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE8allocateEi.exit.i.i.i
-  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 336
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 336
   %wide.trip.count.i.i.i.i = zext nneg i32 %17 to i64
   br label %for.body.i.i.i.i
 
@@ -2433,13 +2433,13 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %exitcond.not.i.i.i.i, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !15
 
 _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i: ; preds = %for.body.i.i.i.i, %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE8allocateEi.exit.i.i.i
-  %m_data.i5.i.i.i = getelementptr inbounds i8, ptr %this, i64 336
+  %m_data.i5.i.i.i = getelementptr inbounds i8, ptr %13, i64 336
   %20 = load ptr, ptr %m_data.i5.i.i.i, align 8
   %tobool.not.i6.i.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i6.i.i.i, label %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i, label %if.then.i7.i.i.i
 
 if.then.i7.i.i.i:                                 ; preds = %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i
-  %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 344
+  %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 344
   %21 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
   %tobool2.i.i.i.i = trunc i8 %21 to i1
   br i1 %tobool2.i.i.i.i, label %if.then3.i.i.i.i, label %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i
@@ -2449,7 +2449,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i7.i.i.i
   br label %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i
 
 _ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i: ; preds = %if.then3.i.i.i.i, %if.then.i7.i.i.i, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i
-  %m_ownsMemory.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 344
+  %m_ownsMemory.i.i.i13 = getelementptr inbounds i8, ptr %13, i64 344
   store i8 1, ptr %m_ownsMemory.i.i.i13, align 8
   store ptr %retval.0.i.i.i.i, ptr %m_data.i5.i.i.i, align 8
   store i32 %cond.i.i.i, ptr %m_capacity.i.i.i, align 8
@@ -2527,20 +2527,20 @@ _ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i45: ; p
   br label %if.end9.sink.split.sink.split
 
 if.end9.sink.split.sink.split:                    ; preds = %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i, %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i45
-  %m_size.i.i.i14.sink72 = phi ptr [ %m_size.i.i.i14, %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i45 ], [ %m_size.i.i.i, %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i ]
-  %.sink71.ph = phi ptr [ %14, %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i45 ], [ %this, %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i ]
+  %m_size.i.i.i14.sink73 = phi ptr [ %m_size.i.i.i14, %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i45 ], [ %m_size.i.i.i, %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i ]
+  %.sink72.ph = phi ptr [ %14, %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i45 ], [ %13, %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i ]
   %.sink.ph = phi ptr [ %13, %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i45 ], [ %14, %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i ]
-  %.pre2.i.i47 = load i32, ptr %m_size.i.i.i14.sink72, align 4
+  %.pre2.i.i47 = load i32, ptr %m_size.i.i.i14.sink73, align 4
   br label %if.end9.sink.split
 
 if.end9.sink.split:                               ; preds = %if.end9.sink.split.sink.split, %if.then.i.i24, %if.else, %if.then.i.i10, %if.then8
-  %.sink71 = phi ptr [ %this, %if.then8 ], [ %this, %if.then.i.i10 ], [ %14, %if.else ], [ %14, %if.then.i.i24 ], [ %.sink71.ph, %if.end9.sink.split.sink.split ]
-  %.sink70 = phi i32 [ %15, %if.then8 ], [ %15, %if.then.i.i10 ], [ %22, %if.else ], [ %22, %if.then.i.i24 ], [ %.pre2.i.i47, %if.end9.sink.split.sink.split ]
+  %.sink72 = phi ptr [ %13, %if.then8 ], [ %13, %if.then.i.i10 ], [ %14, %if.else ], [ %14, %if.then.i.i24 ], [ %.sink72.ph, %if.end9.sink.split.sink.split ]
+  %.sink71 = phi i32 [ %15, %if.then8 ], [ %15, %if.then.i.i10 ], [ %22, %if.else ], [ %22, %if.then.i.i24 ], [ %.pre2.i.i47, %if.end9.sink.split.sink.split ]
   %.sink = phi ptr [ %14, %if.then8 ], [ %14, %if.then.i.i10 ], [ %13, %if.else ], [ %13, %if.then.i.i24 ], [ %.sink.ph, %if.end9.sink.split.sink.split ]
-  %m_size.i.i.i14.sink = phi ptr [ %m_size.i.i.i, %if.then8 ], [ %m_size.i.i.i, %if.then.i.i10 ], [ %m_size.i.i.i14, %if.else ], [ %m_size.i.i.i14, %if.then.i.i24 ], [ %m_size.i.i.i14.sink72, %if.end9.sink.split.sink.split ]
-  %m_data.i.i18 = getelementptr inbounds i8, ptr %.sink71, i64 336
+  %m_size.i.i.i14.sink = phi ptr [ %m_size.i.i.i, %if.then8 ], [ %m_size.i.i.i, %if.then.i.i10 ], [ %m_size.i.i.i14, %if.else ], [ %m_size.i.i.i14, %if.then.i.i24 ], [ %m_size.i.i.i14.sink73, %if.end9.sink.split.sink.split ]
+  %m_data.i.i18 = getelementptr inbounds i8, ptr %.sink72, i64 336
   %29 = load ptr, ptr %m_data.i.i18, align 8
-  %idxprom.i.i19 = sext i32 %.sink70 to i64
+  %idxprom.i.i19 = sext i32 %.sink71 to i64
   %arrayidx.i.i20 = getelementptr inbounds ptr, ptr %29, i64 %idxprom.i.i19
   store ptr %.sink, ptr %arrayidx.i.i20, align 8
   %30 = load i32, ptr %m_size.i.i.i14.sink, align 4
@@ -2548,7 +2548,7 @@ if.end9.sink.split:                               ; preds = %if.end9.sink.split.
   store i32 %inc.i.i, ptr %m_size.i.i.i14.sink, align 4
   %31 = icmp sgt i32 %30, -1
   %32 = zext i1 %31 to i32
-  %m_checkCollideWith.i = getelementptr inbounds i8, ptr %.sink71, i64 312
+  %m_checkCollideWith.i = getelementptr inbounds i8, ptr %.sink72, i64 312
   store i32 %32, ptr %m_checkCollideWith.i, align 8
   br label %if.end9
 
@@ -2583,7 +2583,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.end9, label %for.body.i, !llvm.loop !12
 
 _ZNK20btAlignedObjectArrayIP17btTypedConstraintE16findLinearSearchERKS1_.exit: ; preds = %for.body.i
-  %3 = trunc i64 %indvars.iv.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp = icmp sgt i32 %0, %3
   br i1 %cmp, label %for.body.i.i, label %if.end9
 
@@ -2600,7 +2600,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6removeERKS1_.exit, label %for.body.i.i, !llvm.loop !12
 
 _ZNK20btAlignedObjectArrayIP17btTypedConstraintE16findLinearSearchERKS1_.exit.i: ; preds = %for.body.i.i
-  %5 = trunc i64 %indvars.iv.i.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i.i = icmp sgt i32 %0, %5
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6removeERKS1_.exit
 
@@ -2631,13 +2631,13 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE6removeERKS1_.exit: ; preds = %fo
   br i1 %cmp7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6removeERKS1_.exit
-  %m_size.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 324
+  %m_size.i.i.i4 = getelementptr inbounds i8, ptr %10, i64 324
   %12 = load i32, ptr %m_size.i.i.i4, align 4
   %cmp5.i.i.i = icmp sgt i32 %12, 0
   br i1 %cmp5.i.i.i, label %for.body.lr.ph.i.i.i, label %if.end9.sink.split
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then8
-  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 336
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %10, i64 336
   %13 = load ptr, ptr %m_data.i.i.i, align 8
   %wide.trip.count.i.i.i = zext nneg i32 %12 to i64
   br label %for.body.i.i.i
@@ -2655,7 +2655,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %exitcond.not.i.i.i, label %if.end9.sink.split, label %for.body.i.i.i, !llvm.loop !16
 
 _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i: ; preds = %for.body.i.i.i
-  %15 = trunc i64 %indvars.iv.i.i.i to i32
+  %15 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %cmp.i.i1.i = icmp sgt i32 %12, %15
   br i1 %cmp.i.i1.i, label %if.then.i.i2.i, label %if.end9.sink.split
 
@@ -2693,7 +2693,7 @@ for.inc.i.i.i17:                                  ; preds = %for.body.i.i.i13
   br i1 %exitcond.not.i.i.i19, label %if.end9.sink.split, label %for.body.i.i.i13, !llvm.loop !16
 
 _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20: ; preds = %for.body.i.i.i13
-  %19 = trunc i64 %indvars.iv.i.i.i14 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i.i.i14 to i32
   %cmp.i.i1.i21 = icmp sgt i32 %16, %19
   br i1 %cmp.i.i1.i21, label %if.then.i.i2.i22, label %if.end9.sink.split
 
@@ -2712,13 +2712,13 @@ if.end9.sink.split.sink.split:                    ; preds = %if.then.i.i2.i, %if
   %m_data.i.i.i.sink = phi ptr [ %m_data.i.i.i, %if.then.i.i2.i ], [ %m_data.i.i.i11, %if.then.i.i2.i22 ]
   %idxprom3.i.i.i.i.sink = phi i64 [ %idxprom3.i.i.i.i, %if.then.i.i2.i ], [ %idxprom3.i.i.i.i27, %if.then.i.i2.i22 ]
   %m_size.i.i.i4.sink = phi ptr [ %m_size.i.i.i4, %if.then.i.i2.i ], [ %m_size.i.i.i6, %if.then.i.i2.i22 ]
-  %this.sink.ph = phi ptr [ %this, %if.then.i.i2.i ], [ %11, %if.then.i.i2.i22 ]
-  %.sink = load ptr, ptr %arrayidx.i.i.i3.i.sink, align 8
+  %.sink.ph = phi ptr [ %10, %if.then.i.i2.i ], [ %11, %if.then.i.i2.i22 ]
+  %.sink52 = load ptr, ptr %arrayidx.i.i.i3.i.sink, align 8
   %20 = load ptr, ptr %arrayidx4.i.i.i.i.sink, align 8
   store ptr %20, ptr %arrayidx.i.i.i3.i.sink, align 8
   %21 = load ptr, ptr %m_data.i.i.i.sink, align 8
   %arrayidx10.i.i.i.i = getelementptr inbounds ptr, ptr %21, i64 %idxprom3.i.i.i.i.sink
-  store ptr %.sink, ptr %arrayidx10.i.i.i.i, align 8
+  store ptr %.sink52, ptr %arrayidx10.i.i.i.i, align 8
   %22 = load i32, ptr %m_size.i.i.i4.sink, align 4
   %dec.i.i.i.i30 = add nsw i32 %22, -1
   store i32 %dec.i.i.i.i30, ptr %m_size.i.i.i4.sink, align 4
@@ -2727,9 +2727,9 @@ if.end9.sink.split.sink.split:                    ; preds = %if.then.i.i2.i, %if
   br label %if.end9.sink.split
 
 if.end9.sink.split:                               ; preds = %for.inc.i.i.i17, %for.inc.i.i.i, %if.end9.sink.split.sink.split, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20, %if.else, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i, %if.then8
-  %this.sink = phi ptr [ %this, %if.then8 ], [ %this, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %11, %if.else ], [ %11, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20 ], [ %this.sink.ph, %if.end9.sink.split.sink.split ], [ %this, %for.inc.i.i.i ], [ %11, %for.inc.i.i.i17 ]
+  %.sink = phi ptr [ %10, %if.then8 ], [ %10, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %11, %if.else ], [ %11, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20 ], [ %.sink.ph, %if.end9.sink.split.sink.split ], [ %10, %for.inc.i.i.i ], [ %11, %for.inc.i.i.i17 ]
   %cmp.i.sink = phi i32 [ 0, %if.then8 ], [ 1, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ 0, %if.else ], [ 1, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20 ], [ %24, %if.end9.sink.split.sink.split ], [ 1, %for.inc.i.i.i ], [ 1, %for.inc.i.i.i17 ]
-  %m_checkCollideWith.i = getelementptr inbounds i8, ptr %this.sink, i64 312
+  %m_checkCollideWith.i = getelementptr inbounds i8, ptr %.sink, i64 312
   store i32 %cmp.i.sink, ptr %m_checkCollideWith.i, align 8
   br label %if.end9
 
@@ -3108,7 +3108,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit, label %for.body.i, !llvm.loop !16
 
 for.end.loopexit.split.loop.exit.i:               ; preds = %for.body.i
-  %3 = trunc i64 %indvars.iv.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit
 
 _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit: ; preds = %for.inc.i, %entry, %for.end.loopexit.split.loop.exit.i
@@ -3141,8 +3141,8 @@ entry:
   %2 = load float, ptr %arrayidx15.i.i, align 4, !noalias !19
   %3 = load float, ptr %arrayidx.i.i, align 4, !noalias !19
   %4 = load float, ptr %transform0, align 4, !noalias !19
-  %arrayidx5.i20.i = getelementptr inbounds i8, ptr %transform0, i64 4
-  %5 = load float, ptr %arrayidx5.i20.i, align 4, !noalias !19
+  %arrayidx5.i25.i = getelementptr inbounds i8, ptr %transform0, i64 4
+  %5 = load float, ptr %arrayidx5.i25.i, align 4, !noalias !19
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %transform0, i64 8
   %6 = load float, ptr %arrayidx10.i.i, align 4, !noalias !19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
@@ -3199,18 +3199,18 @@ entry:
   %47 = shufflevector <2 x float> %46, <2 x float> poison, <2 x i32> zeroinitializer
   %48 = fmul <2 x float> %36, %47
   %49 = extractelement <2 x float> %19, i64 0
-  %neg.i33.i = fmul float %0, %49
-  %50 = tail call noundef float @llvm.fmuladd.f32(float %5, float %2, float %neg.i33.i)
+  %neg.i40.i = fmul float %0, %49
+  %50 = tail call noundef float @llvm.fmuladd.f32(float %5, float %2, float %neg.i40.i)
   %mul15.i = fmul float %50, %div.i
   %51 = fmul <2 x float> %26, %47
   %52 = extractelement <2 x float> %40, i64 0
-  %neg.i42.i = fmul float %2, %52
-  %53 = tail call noundef float @llvm.fmuladd.f32(float %6, float %3, float %neg.i42.i)
+  %neg.i55.i = fmul float %2, %52
+  %53 = tail call noundef float @llvm.fmuladd.f32(float %6, float %3, float %neg.i55.i)
   %mul24.i = fmul float %53, %div.i
   %54 = fmul <2 x float> %43, %47
   %55 = extractelement <2 x float> %30, i64 0
-  %neg.i51.i = fmul float %3, %55
-  %56 = tail call noundef float @llvm.fmuladd.f32(float %4, float %0, float %neg.i51.i)
+  %neg.i70.i = fmul float %3, %55
+  %56 = tail call noundef float @llvm.fmuladd.f32(float %4, float %0, float %neg.i70.i)
   %mul33.i = fmul float %56, %div.i
   %57 = insertelement <2 x float> poison, float %8, i64 0
   %58 = shufflevector <2 x float> %57, <2 x float> poison, <2 x i32> zeroinitializer

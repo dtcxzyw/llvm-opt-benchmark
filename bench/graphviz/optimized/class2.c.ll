@@ -842,11 +842,11 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %.not224, label %374, label %interclrep.exit
 
 374:                                              ; preds = %369
-  %375 = getelementptr inbounds i8, ptr %355, i64 16
+  %375 = getelementptr inbounds i8, ptr %368, i64 16
   %376 = load ptr, ptr %375, align 8
   %377 = getelementptr inbounds i8, ptr %376, i64 360
   %378 = load i32, ptr %377, align 8
-  %379 = getelementptr inbounds i8, ptr %362, i64 16
+  %379 = getelementptr inbounds i8, ptr %373, i64 16
   %380 = load ptr, ptr %379, align 8
   %381 = getelementptr inbounds i8, ptr %380, i64 360
   %382 = load i32, ptr %381, align 8
@@ -862,11 +862,11 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %386, label %387, label %388
 
 387:                                              ; preds = %385
-  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef nonnull %355, ptr noundef nonnull %362, ptr noundef nonnull %.1200260)
+  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef nonnull %368, ptr noundef nonnull %373, ptr noundef nonnull %.1200260)
   br label %interclrep.exit
 
 388:                                              ; preds = %385
-  %389 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %362) #9
+  %389 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %373) #9
   %.not225254 = icmp eq ptr %389, null
   br i1 %.not225254, label %.critedge, label %.lr.ph258
 

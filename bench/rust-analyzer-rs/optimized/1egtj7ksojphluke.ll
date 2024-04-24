@@ -41929,7 +41929,7 @@ common.resume:                                    ; preds = %455, %468, %464, %7
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h915e2b6f9c6a7e3bE.exit.thread"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h915e2b6f9c6a7e3bE.exit.thread": ; preds = %333, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h915e2b6f9c6a7e3bE.exit.thread.loopexit.split.loop.exit264", %109
-  %134 = phi ptr [ %.sroa.4.0.copyload.i, %109 ], [ %133, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h915e2b6f9c6a7e3bE.exit.thread.loopexit.split.loop.exit264" ], [ %334, %333 ]
+  %134 = phi ptr [ %.sroa.4.0.copyload.i, %109 ], [ %133, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h915e2b6f9c6a7e3bE.exit.thread.loopexit.split.loop.exit264" ], [ %335, %333 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27), !noalias !9995
   store ptr %55, ptr %27, align 8, !noalias !9995
@@ -43399,7 +43399,7 @@ define internal fastcc void @_ZN3ide5hover6render10closure_ty17h8aa872d5ab4066b5
   br i1 %115, label %._crit_edge.i.loopexit, label %106
 
 ._crit_edge.i.loopexit:                           ; preds = %114
-  store ptr %96, ptr %98, align 8, !alias.scope !10273, !noalias !10276
+  store ptr %108, ptr %98, align 8, !alias.scope !10273, !noalias !10276
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %95
@@ -46890,7 +46890,7 @@ _ZN9text_size5range9TextRange8contains17h0bc92f6f35a83493E.exit.i.i.i: ; preds =
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %"_ZN4core3ptr120drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..SelfParam$C$syntax..ast..generated..nodes..Pat$GT$$GT$17hc092f9473d09694cE.exit.i", %._crit_edge.i.loopexit.split.loop.exit, %714
-  %760 = phi ptr [ %.sroa.4.0.copyload.i.i, %714 ], [ %759, %._crit_edge.i.loopexit.split.loop.exit ], [ %946, %"_ZN4core3ptr120drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..SelfParam$C$syntax..ast..generated..nodes..Pat$GT$$GT$17hc092f9473d09694cE.exit.i" ]
+  %760 = phi ptr [ %.sroa.4.0.copyload.i.i, %714 ], [ %759, %._crit_edge.i.loopexit.split.loop.exit ], [ %947, %"_ZN4core3ptr120drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..SelfParam$C$syntax..ast..generated..nodes..Pat$GT$$GT$17hc092f9473d09694cE.exit.i" ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %157), !noalias !10979
   store ptr %175, ptr %157, align 8, !noalias !10979
   %761 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h6237516fefdc73adE.llvm.17934416572435023626(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %175)

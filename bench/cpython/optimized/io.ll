@@ -2379,8 +2379,8 @@ sw.bb4:                                           ; preds = %if.end, %entry
   br i1 %cmp5, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %sw.bb4
-  %incdec.ptr8 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr8 = getelementptr i8, ptr %s.addr.1, i64 1
+  store i8 46, ptr %s.addr.1, align 1
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %sw.bb4
@@ -2400,8 +2400,8 @@ sw.bb17:                                          ; preds = %if.end9, %entry
   br i1 %cmp18, label %if.then20, label %if.end22
 
 if.then20:                                        ; preds = %sw.bb17
-  %incdec.ptr21 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr21 = getelementptr i8, ptr %s.addr.3, i64 1
+  store i8 46, ptr %s.addr.3, align 1
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then20, %sw.bb17
@@ -2421,8 +2421,8 @@ sw.bb30:                                          ; preds = %if.end22, %entry
   br i1 %cmp31, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %sw.bb30
-  %incdec.ptr34 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr34 = getelementptr i8, ptr %s.addr.5, i64 1
+  store i8 46, ptr %s.addr.5, align 1
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then33, %sw.bb30
@@ -2442,8 +2442,8 @@ sw.bb43:                                          ; preds = %if.end35, %entry
   br i1 %cmp44, label %if.then46, label %if.end48
 
 if.then46:                                        ; preds = %sw.bb43
-  %incdec.ptr47 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr47 = getelementptr i8, ptr %s.addr.7, i64 1
+  store i8 46, ptr %s.addr.7, align 1
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then46, %sw.bb43
@@ -2463,8 +2463,8 @@ sw.bb56:                                          ; preds = %if.end48, %entry
   br i1 %cmp57, label %if.then59, label %if.end61
 
 if.then59:                                        ; preds = %sw.bb56
-  %incdec.ptr60 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr60 = getelementptr i8, ptr %s.addr.9, i64 1
+  store i8 46, ptr %s.addr.9, align 1
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then59, %sw.bb56
@@ -2484,8 +2484,8 @@ sw.bb69:                                          ; preds = %if.end61, %entry
   br i1 %cmp70, label %if.then72, label %if.end74
 
 if.then72:                                        ; preds = %sw.bb69
-  %incdec.ptr73 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr73 = getelementptr i8, ptr %s.addr.11, i64 1
+  store i8 46, ptr %s.addr.11, align 1
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then72, %sw.bb69
@@ -2505,8 +2505,8 @@ sw.bb82:                                          ; preds = %if.end74, %entry
   br i1 %cmp83, label %if.then85, label %if.end87
 
 if.then85:                                        ; preds = %sw.bb82
-  %incdec.ptr86 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr86 = getelementptr i8, ptr %s.addr.13, i64 1
+  store i8 46, ptr %s.addr.13, align 1
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then85, %sw.bb82
@@ -2526,8 +2526,8 @@ sw.bb95:                                          ; preds = %if.end87, %entry
   br i1 %cmp96, label %if.then98, label %if.end100
 
 if.then98:                                        ; preds = %sw.bb95
-  %incdec.ptr99 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr99 = getelementptr i8, ptr %s.addr.15, i64 1
+  store i8 46, ptr %s.addr.15, align 1
   br label %if.end100
 
 if.end100:                                        ; preds = %if.then98, %sw.bb95
@@ -2547,8 +2547,8 @@ sw.bb108:                                         ; preds = %if.end100, %entry
   br i1 %cmp109, label %if.then111, label %if.end113
 
 if.then111:                                       ; preds = %sw.bb108
-  %incdec.ptr112 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr112 = getelementptr i8, ptr %s.addr.17, i64 1
+  store i8 46, ptr %s.addr.17, align 1
   br label %if.end113
 
 if.end113:                                        ; preds = %if.then111, %sw.bb108
@@ -2568,8 +2568,8 @@ sw.bb121:                                         ; preds = %if.end113, %entry
   br i1 %cmp122, label %if.then124, label %if.end126
 
 if.then124:                                       ; preds = %sw.bb121
-  %incdec.ptr125 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr125 = getelementptr i8, ptr %s.addr.19, i64 1
+  store i8 46, ptr %s.addr.19, align 1
   br label %if.end126
 
 if.end126:                                        ; preds = %if.then124, %sw.bb121
@@ -2589,8 +2589,8 @@ sw.bb134:                                         ; preds = %if.end126, %entry
   br i1 %cmp135, label %if.then137, label %if.end139
 
 if.then137:                                       ; preds = %sw.bb134
-  %incdec.ptr138 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr138 = getelementptr i8, ptr %s.addr.21, i64 1
+  store i8 46, ptr %s.addr.21, align 1
   br label %if.end139
 
 if.end139:                                        ; preds = %if.then137, %sw.bb134
@@ -2610,8 +2610,8 @@ sw.bb147:                                         ; preds = %if.end139, %entry
   br i1 %cmp148, label %if.then150, label %if.end152
 
 if.then150:                                       ; preds = %sw.bb147
-  %incdec.ptr151 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr151 = getelementptr i8, ptr %s.addr.23, i64 1
+  store i8 46, ptr %s.addr.23, align 1
   br label %if.end152
 
 if.end152:                                        ; preds = %if.then150, %sw.bb147
@@ -2631,8 +2631,8 @@ sw.bb160:                                         ; preds = %if.end152, %entry
   br i1 %cmp161, label %if.then163, label %if.end165
 
 if.then163:                                       ; preds = %sw.bb160
-  %incdec.ptr164 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr164 = getelementptr i8, ptr %s.addr.25, i64 1
+  store i8 46, ptr %s.addr.25, align 1
   br label %if.end165
 
 if.end165:                                        ; preds = %if.then163, %sw.bb160
@@ -2652,8 +2652,8 @@ sw.bb173:                                         ; preds = %if.end165, %entry
   br i1 %cmp174, label %if.then176, label %if.end178
 
 if.then176:                                       ; preds = %sw.bb173
-  %incdec.ptr177 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr177 = getelementptr i8, ptr %s.addr.27, i64 1
+  store i8 46, ptr %s.addr.27, align 1
   br label %if.end178
 
 if.end178:                                        ; preds = %if.then176, %sw.bb173
@@ -2673,8 +2673,8 @@ sw.bb186:                                         ; preds = %if.end178, %entry
   br i1 %cmp187, label %if.then189, label %if.end191
 
 if.then189:                                       ; preds = %sw.bb186
-  %incdec.ptr190 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr190 = getelementptr i8, ptr %s.addr.29, i64 1
+  store i8 46, ptr %s.addr.29, align 1
   br label %if.end191
 
 if.end191:                                        ; preds = %if.then189, %sw.bb186
@@ -2694,8 +2694,8 @@ sw.bb199:                                         ; preds = %if.end191, %entry
   br i1 %cmp200, label %if.then202, label %if.end204
 
 if.then202:                                       ; preds = %sw.bb199
-  %incdec.ptr203 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr203 = getelementptr i8, ptr %s.addr.31, i64 1
+  store i8 46, ptr %s.addr.31, align 1
   br label %if.end204
 
 if.end204:                                        ; preds = %if.then202, %sw.bb199
@@ -2715,8 +2715,8 @@ sw.bb212:                                         ; preds = %if.end204, %entry
   br i1 %cmp213, label %if.then215, label %if.end217
 
 if.then215:                                       ; preds = %sw.bb212
-  %incdec.ptr216 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr216 = getelementptr i8, ptr %s.addr.33, i64 1
+  store i8 46, ptr %s.addr.33, align 1
   br label %if.end217
 
 if.end217:                                        ; preds = %if.then215, %sw.bb212
@@ -2736,8 +2736,8 @@ sw.bb225:                                         ; preds = %if.end217, %entry
   br i1 %cmp226, label %if.then228, label %if.end230
 
 if.then228:                                       ; preds = %sw.bb225
-  %incdec.ptr229 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr229 = getelementptr i8, ptr %s.addr.35, i64 1
+  store i8 46, ptr %s.addr.35, align 1
   br label %if.end230
 
 if.end230:                                        ; preds = %if.then228, %sw.bb225
@@ -2757,8 +2757,8 @@ sw.default:                                       ; preds = %if.end230, %entry
   br i1 %cmp238, label %if.then240, label %if.end242
 
 if.then240:                                       ; preds = %sw.default
-  %incdec.ptr241 = getelementptr i8, ptr %dot, i64 1
-  store i8 46, ptr %dot, align 1
+  %incdec.ptr241 = getelementptr i8, ptr %s.addr.37, i64 1
+  store i8 46, ptr %s.addr.37, align 1
   br label %if.end242
 
 if.end242:                                        ; preds = %if.then240, %sw.default

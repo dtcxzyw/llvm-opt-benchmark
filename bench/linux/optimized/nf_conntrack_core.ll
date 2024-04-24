@@ -4348,11 +4348,11 @@ define dso_local void @nf_conntrack_cleanup_net_list(ptr noundef readonly %0) lo
   tail call void @synchronize_net() #17
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, %0
-  br i1 %4, label %.loopexit, label %.preheader3
+  br i1 %4, label %.thread, label %.preheader3
 
 .preheader3:                                      ; preds = %1, %.preheader3.backedge
   %5 = phi ptr [ %.be, %.preheader3.backedge ], [ %3, %1 ]
-  %6 = phi i32 [ %.be9, %.preheader3.backedge ], [ 0, %1 ]
+  %6 = phi i32 [ %.be8, %.preheader3.backedge ], [ 0, %1 ]
   %7 = getelementptr i8, ptr %5, i64 -48
   %8 = load i32, ptr @nf_conntrack_net_id, align 4
   tail call void @__rcu_read_lock() #17
@@ -4387,38 +4387,42 @@ define dso_local void @nf_conntrack_cleanup_net_list(ptr noundef readonly %0) lo
   %28 = icmp eq ptr %27, %0
   br i1 %28, label %29, label %.preheader3.backedge
 
-.preheader3.backedge:                             ; preds = %23, %32
-  %.be = phi ptr [ %27, %23 ], [ %33, %32 ]
-  %.be9 = phi i32 [ %26, %23 ], [ 0, %32 ]
+.preheader3.backedge:                             ; preds = %23, %33
+  %.be = phi ptr [ %27, %23 ], [ %34, %33 ]
+  %.be8 = phi i32 [ %26, %23 ], [ 0, %33 ]
   br label %.preheader3, !llvm.loop !93
 
 29:                                               ; preds = %23
   %30 = icmp eq i32 %26, 0
-  br i1 %30, label %.thread, label %32
+  br i1 %30, label %..thread.loopexit_crit_edge, label %33
 
-.thread:                                          ; preds = %29
+..thread.loopexit_crit_edge:                      ; preds = %29
   %.pre.pre = load ptr, ptr %0, align 8
-  %31 = icmp eq ptr %.pre.pre, %0
-  br i1 %31, label %.loopexit, label %.preheader
+  br label %.thread
 
-32:                                               ; preds = %29
+.thread:                                          ; preds = %33, %..thread.loopexit_crit_edge, %1
+  %31 = phi ptr [ %3, %1 ], [ %.pre.pre, %..thread.loopexit_crit_edge ], [ %34, %33 ]
+  %32 = icmp eq ptr %31, %0
+  br i1 %32, label %.loopexit, label %.preheader
+
+33:                                               ; preds = %29
   tail call void @schedule() #17
-  %33 = load ptr, ptr %0, align 8
-  %34 = icmp eq ptr %33, %0
-  br i1 %34, label %.loopexit, label %.preheader3.backedge
+  %34 = load ptr, ptr %0, align 8
+  %35 = icmp eq ptr %34, %0
+  br i1 %35, label %.thread, label %.preheader3.backedge
 
 .preheader:                                       ; preds = %.thread, %.preheader
-  %35 = phi ptr [ %39, %.preheader ], [ %.pre.pre, %.thread ]
-  %36 = getelementptr i8, ptr %35, i64 -48
-  tail call void @nf_conntrack_expect_pernet_fini(ptr noundef %36) #17
-  %37 = getelementptr i8, ptr %35, i64 2392
-  %38 = load ptr, ptr %37, align 8
-  tail call void @free_percpu(ptr noundef %38) #17
-  %39 = load ptr, ptr %35, align 8
-  %40 = icmp eq ptr %39, %0
-  br i1 %40, label %.loopexit, label %.preheader, !llvm.loop !94
+  %36 = phi ptr [ %40, %.preheader ], [ %31, %.thread ]
+  %37 = getelementptr i8, ptr %36, i64 -48
+  tail call void @nf_conntrack_expect_pernet_fini(ptr noundef %37) #17
+  %38 = getelementptr i8, ptr %36, i64 2392
+  %39 = load ptr, ptr %38, align 8
+  tail call void @free_percpu(ptr noundef %39) #17
+  %40 = load ptr, ptr %36, align 8
+  %41 = icmp eq ptr %40, %0
+  br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !94
 
-.loopexit:                                        ; preds = %32, %.preheader, %1, %.thread
+.loopexit:                                        ; preds = %.preheader, %.thread
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #17
   ret void
 }

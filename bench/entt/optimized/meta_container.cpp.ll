@@ -106370,9 +106370,9 @@ terminate.lpad.i.i:                               ; preds = %if.then.i
 
 _ZNSt8_Rb_treeIiSt4pairIKicESt10_Select1stIS2_ESt4lessIiESaIS2_EE5clearEv.exit.i: ; preds = %if.then.i
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !65
-  store ptr %add.ptr.i.i.i.i, ptr %_M_left.i.i, align 8, !tbaa !59
+  store ptr %retval.sroa.3.0.i.i.i, ptr %_M_left.i.i, align 8, !tbaa !59
   %_M_right.i.i.i = getelementptr inbounds i8, ptr %container, i64 32
-  store ptr %add.ptr.i.i.i.i, ptr %_M_right.i.i.i, align 8, !tbaa !63
+  store ptr %retval.sroa.3.0.i.i.i, ptr %_M_right.i.i.i, align 8, !tbaa !63
   store i64 0, ptr %_M_node_count.i.i.i, align 8, !tbaa !64
   br label %_ZNSt8_Rb_treeIiSt4pairIKicESt10_Select1stIS2_ESt4lessIiESaIS2_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS2_ESA_.exit
 
@@ -131967,9 +131967,9 @@ terminate.lpad.i.i:                               ; preds = %if.then.i
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i: ; preds = %if.then.i
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !65
-  store ptr %add.ptr.i.i.i.i, ptr %_M_left.i.i, align 8, !tbaa !59
+  store ptr %retval.sroa.3.0.i.i.i, ptr %_M_left.i.i, align 8, !tbaa !59
   %_M_right.i.i.i = getelementptr inbounds i8, ptr %container, i64 32
-  store ptr %add.ptr.i.i.i.i, ptr %_M_right.i.i.i, align 8, !tbaa !63
+  store ptr %retval.sroa.3.0.i.i.i, ptr %_M_right.i.i.i, align 8, !tbaa !63
   store i64 0, ptr %_M_node_count.i.i.i, align 8, !tbaa !64
   br label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE12_M_erase_auxESt23_Rb_tree_const_iteratorIiES7_.exit
 
@@ -135399,7 +135399,7 @@ _ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE16constrained_find
   br i1 %cmp.i.i.i.not, label %cleanup.cont, label %cleanup29
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE16constrained_findIiEEDaRKT_m.exit, %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE16constrained_findIiEEDaRKT_m.exit.thread
-  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE16constrained_findIiEEDaRKT_m.exit.thread ], [ %arrayidx.i.i.i.i, %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE16constrained_findIiEEDaRKT_m.exit ]
+  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE16constrained_findIiEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE16constrained_findIiEEDaRKT_m.exit ]
   %_M_finish.i.i59 = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !2600
@@ -135575,7 +135575,7 @@ _ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE16constrained_find
   br i1 %cmp.i.i.i.not, label %cleanup.cont, label %cleanup29
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE16constrained_findIiEEDaRKT_m.exit, %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE16constrained_findIiEEDaRKT_m.exit.thread
-  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE16constrained_findIiEEDaRKT_m.exit.thread ], [ %arrayidx.i.i.i.i, %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE16constrained_findIiEEDaRKT_m.exit ]
+  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE16constrained_findIiEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE16constrained_findIiEEDaRKT_m.exit ]
   %_M_finish.i.i59 = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !2600
@@ -137516,7 +137516,7 @@ _ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE16constrained_findIiEEDaRKT_m.
   br i1 %cmp.i.i.i.not, label %cleanup.cont, label %cleanup27
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE16constrained_findIiEEDaRKT_m.exit, %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE16constrained_findIiEEDaRKT_m.exit.thread
-  %6 = phi ptr [ %5, %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE16constrained_findIiEEDaRKT_m.exit.thread ], [ %add.ptr.i.i.i.i, %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE16constrained_findIiEEDaRKT_m.exit ]
+  %6 = phi ptr [ %5, %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE16constrained_findIiEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE16constrained_findIiEEDaRKT_m.exit ]
   %_M_finish.i.i59 = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !2638
@@ -137686,7 +137686,7 @@ _ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE16constrained_findIiEEDaRKT_m.
   br i1 %cmp.i.i.i.not, label %cleanup.cont, label %cleanup27
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE16constrained_findIiEEDaRKT_m.exit, %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE16constrained_findIiEEDaRKT_m.exit.thread
-  %6 = phi ptr [ %5, %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE16constrained_findIiEEDaRKT_m.exit.thread ], [ %add.ptr.i.i.i.i, %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE16constrained_findIiEEDaRKT_m.exit ]
+  %6 = phi ptr [ %5, %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE16constrained_findIiEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE16constrained_findIiEEDaRKT_m.exit ]
   %_M_finish.i.i59 = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !2638

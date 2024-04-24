@@ -7527,7 +7527,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %200, label %._crit_edge.i.loopexit.i.i.i, label %184
 
 ._crit_edge.i.loopexit.i.i.i:                     ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb1a69902cd15f6ccE.exit.i.i.i.i"
-  store ptr %.sroa.4.0.copyload.i104.i.i.i, ptr %71, align 8, !alias.scope !1456, !noalias !1459
+  store ptr %187, ptr %71, align 8, !alias.scope !1456, !noalias !1459
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.i.loopexit.i.i.i, %179
@@ -73903,9 +73903,8 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.i.i: ; preds = %"_ZN5alloc
   br i1 %247, label %.loopexit.i.loopexit.i, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a3b7472984b0413E.exit.i.i"
 
 .loopexit.i.loopexit.i:                           ; preds = %246, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a3b7472984b0413E.exit.i.i"
-  %.lcssa.i = phi ptr [ %71, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a3b7472984b0413E.exit.i.i" ], [ %57, %246 ]
-  %.sroa.024.i.sroa.0.1.ph.i = phi i64 [ %.sroa.024.i.sroa.0.0.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a3b7472984b0413E.exit.i.i" ], [ %.sroa.08.i.sroa.0.0.copyload.i, %246 ]
-  store ptr %.lcssa.i, ptr %56, align 8, !alias.scope !13011, !noalias !13013
+  %.sroa.024.i.sroa.0.1.ph.i = phi i64 [ %.sroa.08.i.sroa.0.0.copyload.i, %246 ], [ %.sroa.024.i.sroa.0.0.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a3b7472984b0413E.exit.i.i" ]
+  store ptr %71, ptr %56, align 8, !alias.scope !13011, !noalias !13013
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.loopexit.i.loopexit.i, %54
@@ -84107,7 +84106,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h755d2051cd10df7bE.exit.i: ; pr
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h490f9391e5e2d5caE.exit.thread"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h490f9391e5e2d5caE.exit.thread": ; preds = %.backedge, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h490f9391e5e2d5caE.exit.thread.loopexit.split.loop.exit492", %248
-  %268 = phi ptr [ %249, %248 ], [ %267, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h490f9391e5e2d5caE.exit.thread.loopexit.split.loop.exit492" ], [ %547, %.backedge ]
+  %268 = phi ptr [ %249, %248 ], [ %267, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h490f9391e5e2d5caE.exit.thread.loopexit.split.loop.exit492" ], [ %548, %.backedge ]
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %.sroa.9341)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !14435
   store ptr %52, ptr %9, align 8, !noalias !14435
@@ -85691,7 +85690,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h490f9391e5e2d5caE.exit.thread"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h490f9391e5e2d5caE.exit.thread": ; preds = %103, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h490f9391e5e2d5caE.exit.thread.loopexit.split.loop.exit75", %64
-  %77 = phi ptr [ %65, %64 ], [ %76, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h490f9391e5e2d5caE.exit.thread.loopexit.split.loop.exit75" ], [ %104, %103 ]
+  %77 = phi ptr [ %65, %64 ], [ %76, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h490f9391e5e2d5caE.exit.thread.loopexit.split.loop.exit75" ], [ %105, %103 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !14675
   store ptr %8, ptr %4, align 8, !noalias !14675
   %78 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha2b9247684ed328eE.llvm.15005499655690089915(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
@@ -97987,7 +97986,7 @@ _ZN13rust_analyzer3lsp10from_proto10file_range17hc057e6857beeb958E.exit: ; preds
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe73a23fa5925f29E.exit.thread"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe73a23fa5925f29E.exit.thread": ; preds = %"_ZN4core3ptr57drop_in_place$LT$rust_analyzer..line_index..LineIndex$GT$17hd4740519ee83a39bE.exit", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe73a23fa5925f29E.exit.thread.loopexit.split.loop.exit249", %89
-  %108 = phi ptr [ %90, %89 ], [ %107, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe73a23fa5925f29E.exit.thread.loopexit.split.loop.exit249" ], [ %253, %"_ZN4core3ptr57drop_in_place$LT$rust_analyzer..line_index..LineIndex$GT$17hd4740519ee83a39bE.exit" ]
+  %108 = phi ptr [ %90, %89 ], [ %107, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe73a23fa5925f29E.exit.thread.loopexit.split.loop.exit249" ], [ %254, %"_ZN4core3ptr57drop_in_place$LT$rust_analyzer..line_index..LineIndex$GT$17hd4740519ee83a39bE.exit" ]
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19), !noalias !16273
   store ptr %29, ptr %19, align 8, !noalias !16273
@@ -99191,7 +99190,7 @@ _ZN13rust_analyzer3lsp10from_proto10file_range17hc057e6857beeb958E.exit: ; preds
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe73a23fa5925f29E.exit.thread"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe73a23fa5925f29E.exit.thread": ; preds = %"_ZN4core3ptr57drop_in_place$LT$rust_analyzer..line_index..LineIndex$GT$17hd4740519ee83a39bE.exit", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe73a23fa5925f29E.exit.thread.loopexit.split.loop.exit249", %89
-  %108 = phi ptr [ %90, %89 ], [ %107, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe73a23fa5925f29E.exit.thread.loopexit.split.loop.exit249" ], [ %253, %"_ZN4core3ptr57drop_in_place$LT$rust_analyzer..line_index..LineIndex$GT$17hd4740519ee83a39bE.exit" ]
+  %108 = phi ptr [ %90, %89 ], [ %107, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe73a23fa5925f29E.exit.thread.loopexit.split.loop.exit249" ], [ %254, %"_ZN4core3ptr57drop_in_place$LT$rust_analyzer..line_index..LineIndex$GT$17hd4740519ee83a39bE.exit" ]
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19), !noalias !16519
   store ptr %29, ptr %19, align 8, !noalias !16519

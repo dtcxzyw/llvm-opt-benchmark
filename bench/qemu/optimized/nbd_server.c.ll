@@ -1841,7 +1841,7 @@ if.else.i:                                        ; preds = %if.end.i
   unreachable
 
 if.end5.i:                                        ; preds = %if.end.i
-  %nr_export_bitmaps.i = getelementptr inbounds i8, ptr %26, i64 168
+  %nr_export_bitmaps.i = getelementptr inbounds i8, ptr %27, i64 168
   %28 = load i64, ptr %nr_export_bitmaps.i, align 8
   %call.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #21
   %contexts7.i = getelementptr inbounds i8, ptr %request, i64 32
@@ -2561,8 +2561,8 @@ land.lhs.true:                                    ; preds = %sw.bb47
   br i1 %tobool58.not, label %if.end63.thread, label %if.then59
 
 if.end63.thread:                                  ; preds = %land.lhs.true
-  %mode.i143197 = getelementptr inbounds i8, ptr %client, i64 156
-  %26 = load i32, ptr %mode.i143197, align 4
+  %mode.i143200 = getelementptr inbounds i8, ptr %client, i64 156
+  %26 = load i32, ptr %mode.i143200, align 4
   br label %if.else.i147
 
 if.then59:                                        ; preds = %land.lhs.true
@@ -2585,9 +2585,9 @@ if.then.i156:                                     ; preds = %if.end63
   br label %return
 
 if.else.i147:                                     ; preds = %if.end63.thread, %if.end63
-  %cmp1.i145202 = phi i1 [ false, %if.end63.thread ], [ %cmp1.i145, %if.end63 ]
+  %cmp1.i145205 = phi i1 [ false, %if.end63.thread ], [ %cmp1.i145, %if.end63 ]
   %29 = phi i32 [ %26, %if.end63.thread ], [ %28, %if.end63 ]
-  %ret.0201 = phi i32 [ %call52, %if.end63.thread ], [ %ret.0, %if.end63 ]
+  %ret.0204 = phi i32 [ %call52, %if.end63.thread ], [ %ret.0, %if.end63 ]
   %cmp3.i148 = icmp ugt i32 %29, 3
   br i1 %cmp3.i148, label %if.then4.i154, label %if.else6.i149
 
@@ -2596,8 +2596,8 @@ if.then4.i154:                                    ; preds = %if.else.i147
   br label %return
 
 if.else6.i149:                                    ; preds = %if.else.i147
-  %sub8.i150 = sub i32 0, %ret.0201
-  %cond.i151 = select i1 %cmp1.i145202, i32 %sub8.i150, i32 0
+  %sub8.i150 = sub i32 0, %ret.0204
+  %cond.i151 = select i1 %cmp1.i145205, i32 %sub8.i150, i32 0
   %call9.i152 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef %cond.i151, ptr noundef null, i64 noundef 0, ptr noundef %errp), !range !17
   br label %return
 
@@ -2646,14 +2646,14 @@ if.then80:                                        ; preds = %if.end77
 
 if.then90:                                        ; preds = %if.then80
   %cmp.i161 = icmp ugt i32 %31, 2
-  br i1 %cmp.i161, label %if.then.i169, label %if.else6.i164
+  br i1 %cmp.i161, label %if.then.i170, label %if.else.i163
 
-if.then.i169:                                     ; preds = %if.then90
-  %call.i170 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef nonnull @.str.76, ptr noundef %errp), !range !17
+if.then.i170:                                     ; preds = %if.then90
+  %call.i171 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef nonnull @.str.76, ptr noundef %errp), !range !17
   br label %return
 
-if.else6.i164:                                    ; preds = %if.then90
-  %call9.i165 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef null, i64 noundef 0, ptr noundef %errp), !range !17
+if.else.i163:                                     ; preds = %if.then90
+  %call9.i166 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef null, i64 noundef 0, ptr noundef %errp), !range !17
   br label %return
 
 if.end92:                                         ; preds = %if.then80
@@ -2698,11 +2698,11 @@ if.then110:                                       ; preds = %if.end107
   br i1 %cmp120, label %return, label %if.then110.if.end124_crit_edge
 
 if.then110.if.end124_crit_edge:                   ; preds = %if.then110
-  %.pre208 = load ptr, ptr %contexts, align 8
+  %.pre211 = load ptr, ptr %contexts, align 8
   br label %if.end124
 
 if.end124:                                        ; preds = %if.then110.if.end124_crit_edge, %if.end107
-  %45 = phi ptr [ %.pre208, %if.then110.if.end124_crit_edge ], [ %40, %if.end107 ]
+  %45 = phi ptr [ %.pre211, %if.then110.if.end124_crit_edge ], [ %40, %if.end107 ]
   %contexts_remaining.1 = phi i32 [ %dec116, %if.then110.if.end124_crit_edge ], [ %contexts_remaining.0, %if.end107 ]
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %exp1, align 8
@@ -2710,10 +2710,10 @@ if.end124:                                        ; preds = %if.then110.if.end12
   br i1 %cmp128, label %for.cond.preheader, label %if.else131
 
 for.cond.preheader:                               ; preds = %if.end124
-  %nr_export_bitmaps204 = getelementptr inbounds i8, ptr %46, i64 168
-  %48 = load i64, ptr %nr_export_bitmaps204, align 8
-  %cmp134205.not = icmp eq i64 %48, 0
-  br i1 %cmp134205.not, label %for.end, label %for.body.lr.ph
+  %nr_export_bitmaps207 = getelementptr inbounds i8, ptr %47, i64 168
+  %48 = load i64, ptr %nr_export_bitmaps207, align 8
+  %cmp134208.not = icmp eq i64 %48, 0
+  br i1 %cmp134208.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %from142 = getelementptr inbounds i8, ptr %request, i64 8
@@ -2724,13 +2724,13 @@ if.else131:                                       ; preds = %if.end124
   unreachable
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %49 = phi ptr [ %46, %for.body.lr.ph ], [ %58, %for.inc ]
-  %contexts_remaining.2207 = phi i32 [ %contexts_remaining.1, %for.body.lr.ph ], [ %contexts_remaining.3, %for.inc ]
-  %i.0206 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %49 = phi ptr [ %47, %for.body.lr.ph ], [ %58, %for.inc ]
+  %contexts_remaining.2210 = phi i32 [ %contexts_remaining.1, %for.body.lr.ph ], [ %contexts_remaining.3, %for.inc ]
+  %i.0209 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %50 = load ptr, ptr %contexts, align 8
   %bitmaps = getelementptr inbounds i8, ptr %50, i64 24
   %51 = load ptr, ptr %bitmaps, align 8
-  %arrayidx = getelementptr i8, ptr %51, i64 %i.0206
+  %arrayidx = getelementptr i8, ptr %51, i64 %i.0209
   %52 = load i8, ptr %arrayidx, align 1
   %tobool137 = trunc i8 %52 to i1
   br i1 %tobool137, label %if.end139, label %for.inc
@@ -2738,26 +2738,26 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.end139:                                        ; preds = %for.body
   %export_bitmaps = getelementptr inbounds i8, ptr %49, i64 160
   %53 = load ptr, ptr %export_bitmaps, align 8
-  %arrayidx141 = getelementptr ptr, ptr %53, i64 %i.0206
+  %arrayidx141 = getelementptr ptr, ptr %53, i64 %i.0209
   %54 = load ptr, ptr %arrayidx141, align 8
   %55 = load i64, ptr %from142, align 8
   %56 = load i64, ptr %len88, align 8
-  %dec145 = add i32 %contexts_remaining.2207, -1
+  %dec145 = add i32 %contexts_remaining.2210, -1
   %tobool146.not = icmp eq i32 %dec145, 0
-  %57 = trunc i64 %i.0206 to i32
+  %57 = trunc i64 %i.0209 to i32
   %conv148 = add i32 %57, 2
   %call149 = tail call i32 @nbd_co_send_bitmap(ptr noundef nonnull %client, ptr noundef nonnull %request, ptr noundef %54, i64 noundef %55, i64 noundef %56, i1 noundef zeroext %tobool84, i1 noundef zeroext %tobool146.not, i32 noundef %conv148, ptr noundef %errp), !range !17
   %cmp150 = icmp slt i32 %call149, 0
   br i1 %cmp150, label %return, label %if.end139.for.inc_crit_edge
 
 if.end139.for.inc_crit_edge:                      ; preds = %if.end139
-  %.pre209 = load ptr, ptr %exp1, align 8
+  %.pre212 = load ptr, ptr %exp1, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end139.for.inc_crit_edge, %for.body
-  %58 = phi ptr [ %.pre209, %if.end139.for.inc_crit_edge ], [ %49, %for.body ]
-  %contexts_remaining.3 = phi i32 [ %dec145, %if.end139.for.inc_crit_edge ], [ %contexts_remaining.2207, %for.body ]
-  %inc = add nuw i64 %i.0206, 1
+  %58 = phi ptr [ %.pre212, %if.end139.for.inc_crit_edge ], [ %49, %for.body ]
+  %contexts_remaining.3 = phi i32 [ %dec145, %if.end139.for.inc_crit_edge ], [ %contexts_remaining.2210, %for.body ]
+  %inc = add nuw i64 %i.0209, 1
   %nr_export_bitmaps = getelementptr inbounds i8, ptr %58, i64 168
   %59 = load i64, ptr %nr_export_bitmaps, align 8
   %cmp134 = icmp ult i64 %inc, %59
@@ -2779,15 +2779,15 @@ if.else158:                                       ; preds = %if.end77
   br i1 %tobool161.not, label %if.else164, label %if.then162
 
 if.then162:                                       ; preds = %if.else158
-  %cmp.i173 = icmp ugt i32 %31, 2
-  br i1 %cmp.i173, label %if.then.i181, label %if.else6.i176
+  %cmp.i174 = icmp ugt i32 %31, 2
+  br i1 %cmp.i174, label %if.then.i183, label %if.else.i176
 
-if.then.i181:                                     ; preds = %if.then162
-  %call.i182 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef nonnull @.str.79, ptr noundef %errp), !range !17
+if.then.i183:                                     ; preds = %if.then162
+  %call.i184 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef nonnull @.str.79, ptr noundef %errp), !range !17
   br label %return
 
-if.else6.i176:                                    ; preds = %if.then162
-  %call9.i177 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef null, i64 noundef 0, ptr noundef %errp), !range !17
+if.else.i176:                                     ; preds = %if.then162
+  %call9.i179 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef null, i64 noundef 0, ptr noundef %errp), !range !17
   br label %return
 
 if.else164:                                       ; preds = %if.else158
@@ -2797,26 +2797,26 @@ if.else164:                                       ; preds = %if.else158
 sw.default:                                       ; preds = %entry
   %conv = zext i16 %1 to i32
   %call168 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.81, i32 noundef %conv) #19
-  %mode.i184 = getelementptr inbounds i8, ptr %client, i64 156
-  %61 = load i32, ptr %mode.i184, align 4
-  %cmp.i185 = icmp ugt i32 %61, 2
-  br i1 %cmp.i185, label %if.then.i193, label %if.else6.i188
+  %mode.i186 = getelementptr inbounds i8, ptr %client, i64 156
+  %61 = load i32, ptr %mode.i186, align 4
+  %cmp.i187 = icmp ugt i32 %61, 2
+  br i1 %cmp.i187, label %if.then.i196, label %if.else.i189
 
-if.then.i193:                                     ; preds = %sw.default
-  %call.i194 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef %call168, ptr noundef %errp), !range !17
-  br label %nbd_send_generic_reply.exit195
+if.then.i196:                                     ; preds = %sw.default
+  %call.i197 = tail call i32 @nbd_co_send_chunk_error(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef %call168, ptr noundef %errp), !range !17
+  br label %nbd_send_generic_reply.exit198
 
-if.else6.i188:                                    ; preds = %sw.default
-  %call9.i189 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef null, i64 noundef 0, ptr noundef %errp), !range !17
-  br label %nbd_send_generic_reply.exit195
+if.else.i189:                                     ; preds = %sw.default
+  %call9.i192 = tail call i32 @nbd_co_send_simple_reply(ptr noundef nonnull %client, ptr noundef nonnull %request, i32 noundef 22, ptr noundef null, i64 noundef 0, ptr noundef %errp), !range !17
+  br label %nbd_send_generic_reply.exit198
 
-nbd_send_generic_reply.exit195:                   ; preds = %if.then.i193, %if.else6.i188
-  %retval.0.i190 = phi i32 [ %call.i194, %if.then.i193 ], [ %call9.i189, %if.else6.i188 ]
+nbd_send_generic_reply.exit198:                   ; preds = %if.then.i196, %if.else.i189
+  %retval.0.i193 = phi i32 [ %call.i197, %if.then.i196 ], [ %call9.i192, %if.else.i189 ]
   tail call void @g_free(ptr noundef %call168) #19
   br label %return
 
-return:                                           ; preds = %if.end139, %if.else6.i176, %if.then.i181, %if.else6.i164, %if.then.i169, %if.else6.i149, %if.then4.i154, %if.then.i156, %if.else6.i132, %if.then4.i137, %if.then.i139, %if.else6.i115, %if.then4.i120, %if.then.i122, %if.else6.i, %if.then4.i, %if.then.i, %for.end, %if.then110, %if.then95, %nbd_send_generic_reply.exit195, %if.else164, %sw.bb2, %sw.bb
-  %retval.0 = phi i32 [ %retval.0.i190, %nbd_send_generic_reply.exit195 ], [ %call165, %if.else164 ], [ %call3, %sw.bb2 ], [ %call, %sw.bb ], [ %call102, %if.then95 ], [ %call119, %if.then110 ], [ 0, %for.end ], [ %call.i, %if.then.i ], [ %call5.i, %if.then4.i ], [ %call9.i, %if.else6.i ], [ %call.i124, %if.then.i122 ], [ %call5.i121, %if.then4.i120 ], [ %call9.i118, %if.else6.i115 ], [ %call.i141, %if.then.i139 ], [ %call5.i138, %if.then4.i137 ], [ %call9.i135, %if.else6.i132 ], [ %call.i158, %if.then.i156 ], [ %call5.i155, %if.then4.i154 ], [ %call9.i152, %if.else6.i149 ], [ %call.i170, %if.then.i169 ], [ %call9.i165, %if.else6.i164 ], [ %call.i182, %if.then.i181 ], [ %call9.i177, %if.else6.i176 ], [ %call149, %if.end139 ]
+return:                                           ; preds = %if.end139, %if.else.i176, %if.then.i183, %if.else.i163, %if.then.i170, %if.else6.i149, %if.then4.i154, %if.then.i156, %if.else6.i132, %if.then4.i137, %if.then.i139, %if.else6.i115, %if.then4.i120, %if.then.i122, %if.else6.i, %if.then4.i, %if.then.i, %for.end, %if.then110, %if.then95, %nbd_send_generic_reply.exit198, %if.else164, %sw.bb2, %sw.bb
+  %retval.0 = phi i32 [ %retval.0.i193, %nbd_send_generic_reply.exit198 ], [ %call165, %if.else164 ], [ %call3, %sw.bb2 ], [ %call, %sw.bb ], [ %call102, %if.then95 ], [ %call119, %if.then110 ], [ 0, %for.end ], [ %call.i, %if.then.i ], [ %call5.i, %if.then4.i ], [ %call9.i, %if.else6.i ], [ %call.i124, %if.then.i122 ], [ %call5.i121, %if.then4.i120 ], [ %call9.i118, %if.else6.i115 ], [ %call.i141, %if.then.i139 ], [ %call5.i138, %if.then4.i137 ], [ %call9.i135, %if.else6.i132 ], [ %call.i158, %if.then.i156 ], [ %call5.i155, %if.then4.i154 ], [ %call9.i152, %if.else6.i149 ], [ %call.i171, %if.then.i170 ], [ %call9.i166, %if.else.i163 ], [ %call.i184, %if.then.i183 ], [ %call9.i179, %if.else.i176 ], [ %call149, %if.end139 ]
   ret i32 %retval.0
 }
 
@@ -3304,7 +3304,7 @@ if.else10.i:                                      ; preds = %if.end.i
   %15 = load i64, ptr %request, align 8
   %16 = call i64 @llvm.bswap.i64(i64 %15)
   store i64 %16, ptr %cookie.i, align 8
-  %conv.i = trunc i64 %add.i to i32
+  %conv.i = trunc nuw nsw i64 %add.i to i32
   %17 = call i32 @llvm.bswap.i32(i32 %conv.i)
   store i32 %17, ptr %offset.i, align 8
   br label %set_be_chunk.exit
@@ -4183,7 +4183,7 @@ if.else10.i:                                      ; preds = %if.end.i
   %20 = load i64, ptr %request, align 8
   %21 = call i64 @llvm.bswap.i64(i64 %20)
   store i64 %21, ptr %cookie.i, align 1
-  %conv.i = trunc i64 %11 to i32
+  %conv.i = trunc nuw nsw i64 %11 to i32
   %22 = call i32 @llvm.bswap.i32(i32 %conv.i)
   store i32 %22, ptr %offset.i, align 1
   br label %set_be_chunk.exit
@@ -4362,7 +4362,7 @@ if.else10.i:                                      ; preds = %if.end.i
   %16 = load i64, ptr %request, align 8
   %17 = call i64 @llvm.bswap.i64(i64 %16)
   store i64 %17, ptr %cookie.i, align 8
-  %conv.i = trunc i64 %add.i to i32
+  %conv.i = trunc nuw nsw i64 %add.i to i32
   %18 = call i32 @llvm.bswap.i32(i32 %conv.i)
   store i32 %18, ptr %offset.i, align 8
   br label %set_be_chunk.exit
@@ -4595,11 +4595,11 @@ if.else15.i:                                      ; preds = %for.body.i22
   unreachable
 
 if.end16.i:                                       ; preds = %for.body.i22
-  %conv21.i = trunc i64 %20 to i32
+  %conv21.i = trunc nuw i64 %20 to i32
   %22 = call noundef i32 @llvm.bswap.i32(i32 %conv21.i)
   %arrayidx24.i = getelementptr %struct.NBDExtent32, ptr %call.i, i64 %idxprom.i23
   store i32 %22, ptr %arrayidx24.i, align 1
-  %conv30.i = trunc i64 %21 to i32
+  %conv30.i = trunc nuw i64 %21 to i32
   %23 = call noundef i32 @llvm.bswap.i32(i32 %conv30.i)
   %flags34.i = getelementptr inbounds i8, ptr %arrayidx24.i, i64 4
   store i32 %23, ptr %flags34.i, align 1
@@ -4713,7 +4713,7 @@ if.else10.i:                                      ; preds = %if.end.i33
   %40 = load i64, ptr %request, align 8
   %41 = call i64 @llvm.bswap.i64(i64 %40)
   store i64 %41, ptr %cookie.i, align 8
-  %conv.i34 = trunc i64 %add.i to i32
+  %conv.i34 = trunc nuw nsw i64 %add.i to i32
   %42 = call i32 @llvm.bswap.i32(i32 %conv.i34)
   store i32 %42, ptr %offset.i, align 8
   br label %set_be_chunk.exit
@@ -5037,7 +5037,7 @@ entry:
   %export_name.i = alloca ptr, align 8
   %local_meta.i = alloca %struct.NBDMetaContexts, align 8
   %nb_queries.i = alloca i32, align 4
-  %_now.i.i134.i = alloca %struct.timeval, align 8
+  %_now.i.i135.i = alloca %struct.timeval, align 8
   %_now.i.i107.i = alloca %struct.timeval, align 8
   %_now.i.i78.i = alloca %struct.timeval, align 8
   %_now.i.i.i177 = alloca %struct.timeval, align 8
@@ -5204,7 +5204,7 @@ while.body.preheader:                             ; preds = %if.end9
   %tv_usec.i.i120.i = getelementptr inbounds i8, ptr %_now.i.i107.i, i64 8
   %arrayidx73.i = getelementptr inbounds i8, ptr %sizes.i, i64 4
   %arrayidx84.i = getelementptr inbounds i8, ptr %sizes.i, i64 8
-  %tv_usec.i.i147.i = getelementptr inbounds i8, ptr %_now.i.i134.i, i64 8
+  %tv_usec.i.i148.i = getelementptr inbounds i8, ptr %_now.i.i135.i, i64 8
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   %errp1.i.i166 = getelementptr inbounds i8, ptr %_auto_errp_prop.i.i162, i64 8
   %spec.select.i.i170 = select i1 %or.cond.i.i, ptr %_auto_errp_prop.i.i162, ptr %errp
@@ -5677,7 +5677,7 @@ if.else.i.i172:                                   ; preds = %trace_nbd_negotiate
 
 if.end17.i.i:                                     ; preds = %trace_nbd_negotiate_send_rep_list.exit.i.i
   %add.i.i = add nuw nsw i64 %call13.i.i, %call.i.i171
-  %78 = trunc i64 %add.i.i to i32
+  %78 = trunc nuw i64 %add.i.i to i32
   %conv.i.i = add nuw nsw i32 %78, 4
   store i32 %conv.i.i, ptr %len.i.i, align 4
   %call19.i.i = call fastcc i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull %client, i32 noundef 2, i32 noundef %conv.i.i, ptr noundef nonnull %spec.select.i.i170), !range !17
@@ -5685,7 +5685,7 @@ if.end17.i.i:                                     ; preds = %trace_nbd_negotiate
   br i1 %cmp20.i.i, label %if.end146.thread, label %if.end23.i.i
 
 if.end23.i.i:                                     ; preds = %if.end17.i.i
-  %conv24.i.i = trunc i64 %call.i.i171 to i32
+  %conv24.i.i = trunc nuw nsw i64 %call.i.i171 to i32
   %79 = call noundef i32 @llvm.bswap.i32(i32 %conv24.i.i)
   store i32 %79, ptr %len.i.i, align 4
   %call.i.i.i = call i32 @qio_channel_write_all(ptr noundef %71, ptr noundef nonnull %len.i.i, i64 noundef 4, ptr noundef nonnull %spec.select.i.i170) #19
@@ -5844,14 +5844,14 @@ if.else.i.i87.i:                                  ; preds = %if.then.i.i85.i
 trace_nbd_negotiate_handle_info_requests.exit.i:  ; preds = %if.else.i.i87.i, %if.then8.i.i88.i, %land.lhs.true5.i.i82.i, %if.end4.i186
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i78.i)
   %97 = load i16, ptr %requests.i, align 2
-  %dec171.i = add i16 %97, -1
-  store i16 %dec171.i, ptr %requests.i, align 2
-  %tobool.not172.i = icmp eq i16 %97, 0
-  br i1 %tobool.not172.i, label %while.end.i, label %while.body.i
+  %dec172.i = add i16 %97, -1
+  store i16 %dec172.i, ptr %requests.i, align 2
+  %tobool.not173.i = icmp eq i16 %97, 0
+  br i1 %tobool.not173.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %trace_nbd_negotiate_handle_info_requests.exit.i, %sw.epilog.i
-  %sendname.0174.i = phi i1 [ %sendname.1.i, %sw.epilog.i ], [ false, %trace_nbd_negotiate_handle_info_requests.exit.i ]
-  %blocksize.0173.i = phi i8 [ %blocksize.1.i, %sw.epilog.i ], [ 0, %trace_nbd_negotiate_handle_info_requests.exit.i ]
+  %sendname.0175.i = phi i1 [ %sendname.1.i, %sw.epilog.i ], [ false, %trace_nbd_negotiate_handle_info_requests.exit.i ]
+  %blocksize.0174.i = phi i8 [ %blocksize.1.i, %sw.epilog.i ], [ 0, %trace_nbd_negotiate_handle_info_requests.exit.i ]
   %98 = load i32, ptr %optlen, align 4
   %cmp.i94.i = icmp ult i32 %98, 2
   br i1 %cmp.i94.i, label %nbd_opt_read.exit106.i, label %if.end.i95.i
@@ -5923,8 +5923,8 @@ sw.bb15.i:                                        ; preds = %trace_nbd_negotiate
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb15.i, %sw.bb.i, %trace_nbd_negotiate_handle_info_request.exit.i
-  %blocksize.1.i = phi i8 [ %blocksize.0173.i, %trace_nbd_negotiate_handle_info_request.exit.i ], [ 1, %sw.bb15.i ], [ %blocksize.0173.i, %sw.bb.i ]
-  %sendname.1.i = phi i1 [ %sendname.0174.i, %trace_nbd_negotiate_handle_info_request.exit.i ], [ %sendname.0174.i, %sw.bb15.i ], [ true, %sw.bb.i ]
+  %blocksize.1.i = phi i8 [ %blocksize.0174.i, %trace_nbd_negotiate_handle_info_request.exit.i ], [ 1, %sw.bb15.i ], [ %blocksize.0174.i, %sw.bb.i ]
+  %sendname.1.i = phi i1 [ %sendname.0175.i, %trace_nbd_negotiate_handle_info_request.exit.i ], [ %sendname.0175.i, %sw.bb15.i ], [ true, %sw.bb.i ]
   %110 = load i16, ptr %requests.i, align 2
   %dec.i = add i16 %110, -1
   store i16 %dec.i, ptr %requests.i, align 2
@@ -5947,33 +5947,33 @@ for.body.i.i:                                     ; preds = %if.end19.i190, %for
   %exp.06.i.i = phi ptr [ %exp.0.i.i, %for.inc.i.i ], [ %exp.04.i.i, %if.end19.i190 ]
   %name1.i.i = getelementptr inbounds i8, ptr %exp.06.i.i, i64 56
   %112 = load ptr, ptr %name1.i.i, align 8
-  %call.i124.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.val.pre.i, ptr noundef nonnull dereferenceable(1) %112) #20
-  %cmp.i125.i = icmp eq i32 %call.i124.i, 0
-  br i1 %cmp.i125.i, label %if.end25.i, label %for.inc.i.i
+  %call.i125.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.val.pre.i, ptr noundef nonnull dereferenceable(1) %112) #20
+  %cmp.i126.i = icmp eq i32 %call.i125.i, 0
+  br i1 %cmp.i126.i, label %if.end25.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %next.i.i = getelementptr inbounds i8, ptr %exp.06.i.i, i64 104
   %exp.0.i.i = load ptr, ptr %next.i.i, align 8
-  %tobool.not.i126.i = icmp eq ptr %exp.0.i.i, null
-  br i1 %tobool.not.i126.i, label %if.then22.i, label %for.body.i.i, !llvm.loop !5
+  %tobool.not.i127.i = icmp eq ptr %exp.0.i.i, null
+  br i1 %tobool.not.i127.i, label %if.then22.i, label %for.body.i.i, !llvm.loop !5
 
 if.then22.i:                                      ; preds = %for.inc.i.i, %if.end19.i190
-  %call.i127.i = call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %name.val.pre.i, i64 noundef 80) #20
-  %cmp.i128.i = icmp ult i64 %call.i127.i, 80
-  br i1 %cmp.i128.i, label %if.then.i.i191, label %if.end.i129.i
+  %call.i128.i = call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %name.val.pre.i, i64 noundef 80) #20
+  %cmp.i129.i = icmp ult i64 %call.i128.i, 80
+  br i1 %cmp.i129.i, label %if.then.i.i191, label %if.end.i130.i
 
 if.then.i.i191:                                   ; preds = %if.then22.i
-  %call1.i131.i = call noalias ptr @g_strdup(ptr noundef %name.val.pre.i) #19
+  %call1.i132.i = call noalias ptr @g_strdup(ptr noundef %name.val.pre.i) #19
   br label %nbd_sanitize_name.exit.i
 
-if.end.i129.i:                                    ; preds = %if.then22.i
+if.end.i130.i:                                    ; preds = %if.then22.i
   %call2.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.179, ptr noundef %name.val.pre.i) #19
   br label %nbd_sanitize_name.exit.i
 
-nbd_sanitize_name.exit.i:                         ; preds = %if.end.i129.i, %if.then.i.i191
-  %retval.0.i130.i = phi ptr [ %call1.i131.i, %if.then.i.i191 ], [ %call2.i.i, %if.end.i129.i ]
-  %call24.i = call i32 (ptr, i32, ptr, ptr, ...) @nbd_negotiate_send_rep_err(ptr noundef %client, i32 noundef -2147483642, ptr noundef %errp, ptr noundef nonnull @.str.168, ptr noundef %retval.0.i130.i), !range !17
-  call void @g_free(ptr noundef %retval.0.i130.i) #19
+nbd_sanitize_name.exit.i:                         ; preds = %if.end.i130.i, %if.then.i.i191
+  %retval.0.i131.i = phi ptr [ %call1.i132.i, %if.then.i.i191 ], [ %call2.i.i, %if.end.i130.i ]
+  %call24.i = call i32 (ptr, i32, ptr, ptr, ...) @nbd_negotiate_send_rep_err(ptr noundef %client, i32 noundef -2147483642, ptr noundef %errp, ptr noundef nonnull @.str.168, ptr noundef %retval.0.i131.i), !range !17
+  call void @g_free(ptr noundef %retval.0.i131.i) #19
   br label %nbd_negotiate_handle_info.exit.thread
 
 if.end25.i:                                       ; preds = %for.body.i.i
@@ -5984,13 +5984,13 @@ if.end25.i:                                       ; preds = %for.body.i.i
 if.then28.i:                                      ; preds = %if.end25.i
   %114 = load ptr, ptr %contexts.i, align 8
   %cmp.not.i.i = icmp eq ptr %114, %exp.06.i.i
-  br i1 %cmp.not.i.i, label %if.end29.i, label %if.then.i132.i
+  br i1 %cmp.not.i.i, label %if.end29.i, label %if.then.i133.i
 
-if.then.i132.i:                                   ; preds = %if.then28.i
+if.then.i133.i:                                   ; preds = %if.then28.i
   store i64 0, ptr %contexts.sroa.gep.i, align 8
   br label %if.end29.i
 
-if.end29.i:                                       ; preds = %if.then.i132.i, %if.then28.i, %if.end25.i
+if.end29.i:                                       ; preds = %if.then.i133.i, %if.then28.i, %if.end25.i
   br i1 %sendname.0.lcssa.i, label %if.then31.i, label %if.end37.i
 
 if.then31.i:                                      ; preds = %if.end29.i
@@ -6015,7 +6015,7 @@ if.else.i193:                                     ; preds = %if.then39.i
   unreachable
 
 if.end45.i:                                       ; preds = %if.then39.i
-  %conv46.i = trunc i64 %call41.i to i32
+  %conv46.i = trunc nuw nsw i64 %call41.i to i32
   %call48.i = call fastcc i32 @nbd_negotiate_send_info(ptr noundef nonnull %client, i16 noundef zeroext 2, i32 noundef %conv46.i, ptr noundef nonnull %116, ptr noundef %errp), !range !17
   %cmp49.i = icmp slt i32 %call48.i, 0
   br i1 %cmp49.i, label %nbd_negotiate_handle_info.exit.thread, label %if.end53.i
@@ -6026,7 +6026,7 @@ if.end53.i:                                       ; preds = %if.end45.i, %if.end
   br i1 %cmp55.i, label %if.end63.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end53.i
-  %tobool57.i = trunc i8 %blocksize.0.lcssa.i to i1
+  %tobool57.i = trunc nuw i8 %blocksize.0.lcssa.i to i1
   br i1 %tobool57.i, label %if.end63.i, label %if.end63.thread.i
 
 if.end63.thread.i:                                ; preds = %lor.lhs.false.i
@@ -6046,46 +6046,46 @@ if.else68.i:                                      ; preds = %if.end63.i
   unreachable
 
 if.end69.i:                                       ; preds = %if.end63.i, %if.end63.thread.i
-  %check_align.0166.i = phi i32 [ 0, %if.end63.thread.i ], [ %call60.i, %if.end63.i ]
+  %check_align.0167.i = phi i32 [ 0, %if.end63.thread.i ], [ %call60.i, %if.end63.i ]
   %119 = phi i32 [ 1, %if.end63.thread.i ], [ %call60.i, %if.end63.i ]
   %cond.i = call i32 @llvm.umax.i32(i32 %119, i32 4096)
   %blk75.i = getelementptr inbounds i8, ptr %exp.06.i.i, i64 32
   %120 = load ptr, ptr %blk75.i, align 8
   %call76.i = call i32 @blk_get_max_transfer(ptr noundef %120) #19
   %cond83.i = call i32 @llvm.umin.i32(i32 %call76.i, i32 33554432)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i134.i)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i135.i)
   %121 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i135.i = icmp ne i32 %121, 0
+  %tobool.i.i136.i = icmp ne i32 %121, 0
   %122 = load i16, ptr @_TRACE_NBD_NEGOTIATE_HANDLE_INFO_BLOCK_SIZE_DSTATE, align 2
-  %tobool4.i.i136.i = icmp ne i16 %122, 0
-  %or.cond.i.i137.i = select i1 %tobool.i.i135.i, i1 %tobool4.i.i136.i, i1 false
-  br i1 %or.cond.i.i137.i, label %land.lhs.true5.i.i138.i, label %trace_nbd_negotiate_handle_info_block_size.exit.i
+  %tobool4.i.i137.i = icmp ne i16 %122, 0
+  %or.cond.i.i138.i = select i1 %tobool.i.i136.i, i1 %tobool4.i.i137.i, i1 false
+  br i1 %or.cond.i.i138.i, label %land.lhs.true5.i.i139.i, label %trace_nbd_negotiate_handle_info_block_size.exit.i
 
-land.lhs.true5.i.i138.i:                          ; preds = %if.end69.i
+land.lhs.true5.i.i139.i:                          ; preds = %if.end69.i
   %123 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i139.i = and i32 %123, 32768
-  %cmp.i.not.i.i140.i = icmp eq i32 %and.i.i.i139.i, 0
-  br i1 %cmp.i.not.i.i140.i, label %trace_nbd_negotiate_handle_info_block_size.exit.i, label %if.then.i.i141.i
+  %and.i.i.i140.i = and i32 %123, 32768
+  %cmp.i.not.i.i141.i = icmp eq i32 %and.i.i.i140.i, 0
+  br i1 %cmp.i.not.i.i141.i, label %trace_nbd_negotiate_handle_info_block_size.exit.i, label %if.then.i.i142.i
 
-if.then.i.i141.i:                                 ; preds = %land.lhs.true5.i.i138.i
+if.then.i.i142.i:                                 ; preds = %land.lhs.true5.i.i139.i
   %124 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i142.i = trunc i8 %124 to i1
-  br i1 %tobool7.i.i142.i, label %if.then8.i.i144.i, label %if.else.i.i143.i
+  %tobool7.i.i143.i = trunc i8 %124 to i1
+  br i1 %tobool7.i.i143.i, label %if.then8.i.i145.i, label %if.else.i.i144.i
 
-if.then8.i.i144.i:                                ; preds = %if.then.i.i141.i
-  %call9.i.i145.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i134.i, ptr noundef null) #19
-  %call10.i.i146.i = call i32 @qemu_get_thread_id() #19
-  %125 = load i64, ptr %_now.i.i134.i, align 8
-  %126 = load i64, ptr %tv_usec.i.i147.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.182, i32 noundef %call10.i.i146.i, i64 noundef %125, i64 noundef %126, i32 noundef %119, i32 noundef %cond.i, i32 noundef %cond83.i) #19
+if.then8.i.i145.i:                                ; preds = %if.then.i.i142.i
+  %call9.i.i146.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i135.i, ptr noundef null) #19
+  %call10.i.i147.i = call i32 @qemu_get_thread_id() #19
+  %125 = load i64, ptr %_now.i.i135.i, align 8
+  %126 = load i64, ptr %tv_usec.i.i148.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.182, i32 noundef %call10.i.i147.i, i64 noundef %125, i64 noundef %126, i32 noundef %119, i32 noundef %cond.i, i32 noundef %cond83.i) #19
   br label %trace_nbd_negotiate_handle_info_block_size.exit.i
 
-if.else.i.i143.i:                                 ; preds = %if.then.i.i141.i
+if.else.i.i144.i:                                 ; preds = %if.then.i.i142.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.183, i32 noundef %119, i32 noundef %cond.i, i32 noundef %cond83.i) #19
   br label %trace_nbd_negotiate_handle_info_block_size.exit.i
 
-trace_nbd_negotiate_handle_info_block_size.exit.i: ; preds = %if.else.i.i143.i, %if.then8.i.i144.i, %land.lhs.true5.i.i138.i, %if.end69.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i134.i)
+trace_nbd_negotiate_handle_info_block_size.exit.i: ; preds = %if.else.i.i144.i, %if.then8.i.i145.i, %land.lhs.true5.i.i139.i, %if.end69.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i135.i)
   %127 = call noundef i32 @llvm.bswap.i32(i32 %119)
   store i32 %127, ptr %sizes.i, align 4
   %128 = call noundef i32 @llvm.bswap.i32(i32 %cond.i)
@@ -6141,7 +6141,7 @@ if.end130.i:                                      ; preds = %if.end120.i
   br i1 %cmp132.i, label %land.lhs.true134.i, label %if.end144.i
 
 land.lhs.true134.i:                               ; preds = %if.end130.i
-  %tobool135.i = trunc i8 %blocksize.0.lcssa.i to i1
+  %tobool135.i = trunc nuw i8 %blocksize.0.lcssa.i to i1
   br i1 %tobool135.i, label %if.end144.i, label %land.lhs.true136.i
 
 land.lhs.true136.i:                               ; preds = %land.lhs.true134.i
@@ -6155,8 +6155,8 @@ if.then142.i:                                     ; preds = %land.lhs.true136.i
   br label %nbd_negotiate_handle_info.exit.thread
 
 if.end144.i:                                      ; preds = %land.lhs.true136.i, %land.lhs.true134.i, %if.end130.i
-  %call.i148.i = call fastcc i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp), !range !17
-  %cmp146.i = icmp slt i32 %call.i148.i, 0
+  %call.i149.i = call fastcc i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp), !range !17
+  %cmp146.i = icmp slt i32 %call.i149.i, 0
   br i1 %cmp146.i, label %nbd_negotiate_handle_info.exit.thread, label %if.end149.i
 
 if.end149.i:                                      ; preds = %if.end144.i
@@ -6168,7 +6168,7 @@ nbd_negotiate_handle_info.exit.thread318:         ; preds = %if.end149.i
   %exp154.i = getelementptr inbounds i8, ptr %client, i64 16
   store ptr %exp.06.i.i, ptr %exp154.i, align 8
   %check_align155.i = getelementptr inbounds i8, ptr %client, i64 152
-  store i32 %check_align.0166.i, ptr %check_align155.i, align 8
+  store i32 %check_align.0167.i, ptr %check_align155.i, align 8
   %next.i194 = getelementptr inbounds i8, ptr %client, i64 128
   store ptr null, ptr %next.i194, align 8
   %tql_prev.i = getelementptr inbounds i8, ptr %exp.06.i.i, i64 96
@@ -6191,7 +6191,7 @@ nbd_negotiate_handle_info.exit.thread318:         ; preds = %if.end149.i
   br label %if.then80
 
 nbd_negotiate_handle_info.exit.thread:            ; preds = %if.end.i95.i, %nbd_opt_read.exit106.i, %if.then142.i, %nbd_sanitize_name.exit.i, %sw.bb77, %nbd_opt_read.exit.i, %if.then31.i, %if.end45.i, %trace_nbd_negotiate_handle_info_block_size.exit.i, %if.end120.i, %if.end144.i, %if.end149.i, %if.end.i.i
-  %retval.0.i185.ph = phi i32 [ -5, %if.end.i.i ], [ 0, %if.end149.i ], [ %call.i148.i, %if.end144.i ], [ %call126.i, %if.end120.i ], [ %call97.i, %trace_nbd_negotiate_handle_info_block_size.exit.i ], [ %call48.i, %if.end45.i ], [ %call32.i, %if.then31.i ], [ %call18.i.i, %nbd_opt_read.exit.i ], [ %call.i178, %sw.bb77 ], [ %call24.i, %nbd_sanitize_name.exit.i ], [ %call143.i, %if.then142.i ], [ -5, %if.end.i95.i ], [ %call18.i105.i, %nbd_opt_read.exit106.i ]
+  %retval.0.i185.ph = phi i32 [ -5, %if.end.i.i ], [ 0, %if.end149.i ], [ %call.i149.i, %if.end144.i ], [ %call126.i, %if.end120.i ], [ %call97.i, %trace_nbd_negotiate_handle_info_block_size.exit.i ], [ %call48.i, %if.end45.i ], [ %call32.i, %if.then31.i ], [ %call18.i.i, %nbd_opt_read.exit.i ], [ %call.i178, %sw.bb77 ], [ %call24.i, %nbd_sanitize_name.exit.i ], [ %call143.i, %if.then142.i ], [ -5, %if.end.i95.i ], [ %call18.i105.i, %nbd_opt_read.exit106.i ]
   call void @g_free(ptr noundef %name.val.pre.i) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %requests.i)
@@ -7778,7 +7778,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_nbd_negotiate_send_rep_err.exit:            ; preds = %if.end6, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %conv = trunc i64 %call3 to i32
+  %conv = trunc nuw nsw i64 %call3 to i32
   %call7 = call fastcc i32 @nbd_negotiate_send_rep_len(ptr noundef %client, i32 noundef %type, i32 noundef %conv, ptr noundef nonnull %spec.select), !range !17
   %cmp8 = icmp slt i32 %call7, 0
   br i1 %cmp8, label %cleanup, label %if.end11
@@ -8170,7 +8170,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_nbd_negotiate_meta_query_reply.exit:        ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %7 = load i32, ptr %opt4, align 8
-  %8 = trunc i64 %call to i32
+  %8 = trunc nuw i64 %call to i32
   %conv = add nuw nsw i32 %8, 4
   store i64 -6240488230670040320, ptr %opt, align 8
   %option1.i = getelementptr inbounds i8, ptr %opt, i64 8

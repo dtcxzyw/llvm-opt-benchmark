@@ -2050,7 +2050,7 @@ define dso_local void @free_percpu(ptr noundef %0) #1 align 16 {
   br label %87
 
 87:                                               ; preds = %91, %82
-  %88 = phi ptr [ %86, %82 ], [ %68, %91 ]
+  %88 = phi ptr [ %86, %82 ], [ %89, %91 ]
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, %86
   br i1 %90, label %204, label %91

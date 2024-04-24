@@ -2272,7 +2272,7 @@ _ZSt4swapIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexEENSt9enable_
   br label %if.end49
 
 if.end49:                                         ; preds = %_ZSt4swapIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_.exit, %if.end40
-  %44 = phi ptr [ %.pre, %_ZSt4swapIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_.exit ], [ %prev.sroa.0.0104.lcssa, %if.end40 ]
+  %44 = phi ptr [ %.pre, %_ZSt4swapIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_.exit ], [ %37, %if.end40 ]
   %45 = load ptr, ptr %this, align 8
   %cmp.i.i53105 = icmp eq ptr %45, %44
   br i1 %cmp.i.i53105, label %return, label %land.rhs

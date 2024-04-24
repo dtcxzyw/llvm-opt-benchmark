@@ -178,9 +178,9 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEEC2ERKS8_.exit: ; pred
           to label %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEEC2ERKS7_.exit.sink.split unwind label %72
 
 _ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEEC2ERKS7_.exit.sink.split: ; preds = %48, %_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEEC2ERKS8_.exit
-  %.sink33 = phi ptr [ null, %_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEEC2ERKS8_.exit ], [ %52, %48 ]
+  %.sink32 = phi ptr [ null, %_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEEC2ERKS8_.exit ], [ %52, %48 ]
   %53 = getelementptr inbounds i8, ptr %0, i64 192
-  store ptr %.sink33, ptr %53, align 16
+  store ptr %.sink32, ptr %53, align 16
   br label %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEEC2ERKS7_.exit
 
 _ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEEC2ERKS7_.exit: ; preds = %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEEC2ERKS7_.exit.sink.split, %42
@@ -300,12 +300,11 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEEC2ERKS7_.exit: ; preds = %_
   br i1 %.not.i.i27, label %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %105, %101
-  %.sink5.i.i = phi ptr [ %36, %101 ], [ %103, %105 ]
-  %.sink4.i.i = phi i64 [ 32, %101 ], [ 40, %105 ]
-  %106 = load ptr, ptr %.sink5.i.i, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 %.sink4.i.i
+  %.sink2.i.i = phi i64 [ 32, %101 ], [ 40, %105 ]
+  %106 = load ptr, ptr %103, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 %.sink2.i.i
   %108 = load ptr, ptr %107, align 8
-  call void %108(ptr noundef nonnull align 8 dereferenceable(8) %.sink5.i.i) #17
+  call void %108(ptr noundef nonnull align 8 dereferenceable(8) %103) #17
   br label %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit
 
 _ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit: ; preds = %.sink.split.i.i, %105, %72
@@ -320,12 +319,11 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit: ; preds = %.sink
   br i1 %.not.i.i28, label %_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit, label %.sink.split.i.i29
 
 .sink.split.i.i29:                                ; preds = %112, %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit
-  %.sink5.i.i30 = phi ptr [ %18, %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit ], [ %110, %112 ]
-  %.sink4.i.i31 = phi i64 [ 32, %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit ], [ 40, %112 ]
-  %113 = load ptr, ptr %.sink5.i.i30, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 %.sink4.i.i31
+  %.sink2.i.i30 = phi i64 [ 32, %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit ], [ 40, %112 ]
+  %113 = load ptr, ptr %110, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 %.sink2.i.i30
   %115 = load ptr, ptr %114, align 8
-  call void %115(ptr noundef nonnull align 8 dereferenceable(8) %.sink5.i.i30) #17
+  call void %115(ptr noundef nonnull align 8 dereferenceable(8) %110) #17
   br label %_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit
 
 _ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit: ; preds = %.sink.split.i.i29, %112, %70
@@ -1106,12 +1104,11 @@ define void @_ZN7mitsuba5Class15static_shutdownEv() local_unnamed_addr #0 align 
   br i1 %.not.i.i.i, label %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit.i, label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %15, %10
-  %.sink5.i.i.i = phi ptr [ %11, %10 ], [ %13, %15 ]
-  %.sink4.i.i.i = phi i64 [ 32, %10 ], [ 40, %15 ]
-  %16 = load ptr, ptr %.sink5.i.i.i, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 %.sink4.i.i.i
+  %.sink2.i.i.i = phi i64 [ 32, %10 ], [ 40, %15 ]
+  %16 = load ptr, ptr %13, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 %.sink2.i.i.i
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %.sink5.i.i.i) #17
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %13) #17
   br label %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit.i
 
 _ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit.i: ; preds = %.sink.split.i.i.i, %15
@@ -1126,12 +1123,11 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit.i: ; preds = %.si
   br i1 %.not.i.i1.i, label %_ZN7mitsuba5ClassD2Ev.exit, label %.sink.split.i.i2.i
 
 .sink.split.i.i2.i:                               ; preds = %23, %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit.i
-  %.sink5.i.i3.i = phi ptr [ %19, %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit.i ], [ %21, %23 ]
-  %.sink4.i.i4.i = phi i64 [ 32, %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit.i ], [ 40, %23 ]
-  %24 = load ptr, ptr %.sink5.i.i3.i, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 %.sink4.i.i4.i
+  %.sink2.i.i3.i = phi i64 [ 32, %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit.i ], [ 40, %23 ]
+  %24 = load ptr, ptr %21, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 %.sink2.i.i3.i
   %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %.sink5.i.i3.i) #17
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %21) #17
   br label %_ZN7mitsuba5ClassD2Ev.exit
 
 _ZN7mitsuba5ClassD2Ev.exit:                       ; preds = %23, %.sink.split.i.i2.i
@@ -1726,41 +1722,41 @@ _ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit: 
   br i1 %56, label %57, label %85
 
 57:                                               ; preds = %53, %52
-  %58 = getelementptr inbounds i8, ptr %.067, i64 16
-  %59 = getelementptr inbounds i8, ptr %7, i64 16
-  %60 = load ptr, ptr %7, align 8
-  %61 = icmp eq ptr %60, %.067
-  br i1 %61, label %62, label %70
+  %58 = getelementptr inbounds i8, ptr %7, i64 16
+  %59 = load ptr, ptr %7, align 8
+  %60 = icmp eq ptr %59, %.067
+  br i1 %60, label %61, label %70
 
-62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %.067, i64 8
-  %64 = load ptr, ptr %63, align 8
-  store ptr %64, ptr %7, align 8
-  %.not.i51 = icmp eq ptr %64, null
-  br i1 %.not.i51, label %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit54, label %65
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds i8, ptr %59, i64 8
+  %63 = load ptr, ptr %62, align 8
+  store ptr %63, ptr %7, align 8
+  %.not.i51 = icmp eq ptr %63, null
+  br i1 %.not.i51, label %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit54, label %64
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %64, i64 16
-  store ptr %7, ptr %66, align 8
-  %.pre = load ptr, ptr %59, align 8
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds i8, ptr %63, i64 16
+  store ptr %7, ptr %65, align 8
+  %.pre = load ptr, ptr %58, align 8
   br label %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit54
 
-_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit54: ; preds = %62, %65
-  %67 = phi ptr [ %13, %62 ], [ %.pre, %65 ]
-  store ptr %67, ptr %58, align 8
-  %68 = load ptr, ptr %67, align 8
+_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit54: ; preds = %61, %64
+  %66 = phi ptr [ %13, %61 ], [ %.pre, %64 ]
+  %67 = getelementptr inbounds i8, ptr %59, i64 16
+  store ptr %66, ptr %67, align 8
+  %68 = load ptr, ptr %66, align 8
   %69 = icmp eq ptr %68, %7
   %.sink.idx.i52 = select i1 %69, i64 0, i64 8
-  %.sink.i53 = getelementptr inbounds i8, ptr %67, i64 %.sink.idx.i52
-  store ptr %.067, ptr %.sink.i53, align 8
-  store ptr %7, ptr %63, align 8
-  store ptr %.067, ptr %59, align 8
-  %.pre73 = load ptr, ptr %58, align 8
+  %.sink.i53 = getelementptr inbounds i8, ptr %66, i64 %.sink.idx.i52
+  store ptr %59, ptr %.sink.i53, align 8
+  store ptr %7, ptr %62, align 8
+  store ptr %59, ptr %58, align 8
+  %.pre73 = load ptr, ptr %67, align 8
   br label %70
 
 70:                                               ; preds = %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit54, %57
   %71 = phi ptr [ %.pre73, %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit54 ], [ %13, %57 ]
-  %72 = phi ptr [ %.067, %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit54 ], [ %7, %57 ]
+  %72 = phi ptr [ %59, %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit54 ], [ %7, %57 ]
   %73 = getelementptr inbounds i8, ptr %72, i64 24
   store i8 1, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %71, i64 24

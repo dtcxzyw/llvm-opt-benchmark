@@ -3583,8 +3583,8 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then9.i.i:                                     ; preds = %if.then.i.i
   %3 = load ptr, ptr %views, align 8
-  store ptr %3, ptr %0, align 8
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %3, ptr %1, align 8
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr null, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %_M_refcount4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %views, i64 8
   %4 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i, align 8
@@ -3617,8 +3617,8 @@ if.then.i.i10:                                    ; preds = %invoke.cont
 
 if.then9.i.i15:                                   ; preds = %if.then.i.i10
   %9 = load ptr, ptr %null_bitmap, align 8
-  store ptr %9, ptr %6, align 8
-  %_M_refcount.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %9, ptr %7, align 8
+  %_M_refcount.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr null, ptr %_M_refcount.i.i.i.i.i.i16, align 8
   %_M_refcount4.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %null_bitmap, i64 8
   %10 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i17, align 8

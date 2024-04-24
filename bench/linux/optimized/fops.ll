@@ -1804,7 +1804,7 @@ define internal void @blkdev_bio_end_io(ptr noundef %0) #0 align 16 {
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %25, i64 24
+  %51 = getelementptr inbounds i8, ptr %48, i64 24
   store volatile i32 0, ptr %51, align 8
   br label %54
 

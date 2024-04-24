@@ -286,24 +286,24 @@ get_rightop.exit:                                 ; preds = %15, %list_length.ex
   br i1 %139, label %140, label %155
 
 140:                                              ; preds = %138
-  %141 = getelementptr inbounds i8, ptr %.5256, i64 32
+  %141 = getelementptr inbounds i8, ptr %.6, i64 32
   %142 = load ptr, ptr %141, align 8
   %143 = call ptr @lappend(ptr noundef %142, ptr noundef %6) #8
   store ptr %143, ptr %141, align 8
-  %144 = getelementptr inbounds i8, ptr %.5256, i64 64
+  %144 = getelementptr inbounds i8, ptr %.6, i64 64
   %145 = load i32, ptr %144, align 8
   %146 = load i32, ptr %9, align 4
   %. = call i32 @llvm.umin.i32(i32 %145, i32 %146)
   store i32 %., ptr %144, align 8
-  %147 = getelementptr inbounds i8, ptr %.5256, i64 68
+  %147 = getelementptr inbounds i8, ptr %.6, i64 68
   %148 = load i32, ptr %147, align 4
   %149 = load i32, ptr %9, align 4
   %150 = call i32 @llvm.umax.i32(i32 %148, i32 %149)
   store i32 %150, ptr %147, align 4
   %151 = getelementptr inbounds i8, ptr %6, i64 152
-  store ptr %.5256, ptr %151, align 8
+  store ptr %.6, ptr %151, align 8
   %152 = getelementptr inbounds i8, ptr %6, i64 160
-  store ptr %.5256, ptr %152, align 8
+  store ptr %.6, ptr %152, align 8
   %153 = getelementptr inbounds i8, ptr %6, i64 168
   store ptr %.6263, ptr %153, align 8
   %154 = getelementptr inbounds i8, ptr %6, i64 176

@@ -17545,7 +17545,7 @@ _ZNSt16allocator_traitsISaIN4entt9basic_anyILm16ELm8EEEEE9constructIS2_JjEEEvRS3
   br label %invoke.cont116
 
 if.else.i954:                                     ; preds = %invoke.cont111
-  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp114)
+  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre1714, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp114)
           to label %invoke.cont116 unwind label %lpad115
 
 invoke.cont116:                                   ; preds = %if.else.i954, %_ZNSt16allocator_traitsISaIN4entt9basic_anyILm16ELm8EEEEE9constructIS2_JjEEEvRS3_PT_DpOT0_.exit.i947
@@ -20969,7 +20969,7 @@ _ZNSt16allocator_traitsISaIN4entt9basic_anyILm16ELm8EEEEE9constructIS2_JRKNS0_6e
   br label %invoke.cont76
 
 if.else.i714:                                     ; preds = %invoke.cont71
-  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJRKNS0_6entityEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre, ptr noundef nonnull align 4 dereferenceable(4) %entity)
+  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJRKNS0_6entityEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre1479, ptr noundef nonnull align 4 dereferenceable(4) %entity)
           to label %if.else.i714.invoke.cont76_crit_edge unwind label %lpad75
 
 if.else.i714.invoke.cont76_crit_edge:             ; preds = %if.else.i714
@@ -24085,7 +24085,7 @@ _ZNSt16allocator_traitsISaIN4entt9basic_anyILm16ELm8EEEEE9constructIS2_JRKNS0_6e
   br label %invoke.cont76
 
 if.else.i625:                                     ; preds = %invoke.cont71
-  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJRKNS0_6entityEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre, ptr noundef nonnull align 4 dereferenceable(4) %entity)
+  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJRKNS0_6entityEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre1240, ptr noundef nonnull align 4 dereferenceable(4) %entity)
           to label %invoke.cont76 unwind label %lpad75
 
 invoke.cont76:                                    ; preds = %if.else.i625, %_ZNSt16allocator_traitsISaIN4entt9basic_anyILm16ELm8EEEEE9constructIS2_JRKNS0_6entityEEEEvRS3_PT_DpOT0_.exit.i
@@ -26697,7 +26697,7 @@ _ZNSt16allocator_traitsISaIN4entt9basic_anyILm16ELm8EEEEE9constructIS2_JNS0_6ent
   br label %invoke.cont77
 
 if.else.i726:                                     ; preds = %invoke.cont71
-  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJNS0_6entityEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp74)
+  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJNS0_6entityEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre1523, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp74)
           to label %if.else.i726.invoke.cont77_crit_edge unwind label %lpad76
 
 if.else.i726.invoke.cont77_crit_edge:             ; preds = %if.else.i726
@@ -31185,7 +31185,7 @@ _ZNSt16allocator_traitsISaIN4entt9basic_anyILm16ELm8EEEEE9constructIS2_JjEEEvRS3
   br label %invoke.cont72
 
 if.else.i408:                                     ; preds = %invoke.cont67
-  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp70)
+  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre877, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp70)
           to label %if.else.i408.invoke.cont72_crit_edge unwind label %lpad71
 
 if.else.i408.invoke.cont72_crit_edge:             ; preds = %if.else.i408
@@ -33967,7 +33967,7 @@ _ZNSt16allocator_traitsISaIN4entt9basic_anyILm16ELm8EEEEE9constructIS2_JjEEEvRS3
   br label %invoke.cont116
 
 if.else.i2812:                                    ; preds = %invoke.cont111
-  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp114)
+  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre4781, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp114)
           to label %invoke.cont116 unwind label %lpad115
 
 invoke.cont116:                                   ; preds = %if.else.i2812, %_ZNSt16allocator_traitsISaIN4entt9basic_anyILm16ELm8EEEEE9constructIS2_JjEEEvRS3_PT_DpOT0_.exit.i2805
@@ -43917,7 +43917,7 @@ _ZNSt16allocator_traitsISaIN4entt9basic_anyILm16ELm8EEEEE9constructIS2_JRKNS0_6e
   br label %invoke.cont156
 
 if.else.i1181:                                    ; preds = %invoke.cont151
-  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJRKNS0_6entityEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre, ptr noundef nonnull align 4 dereferenceable(4) %entity)
+  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJRKNS0_6entityEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre2243, ptr noundef nonnull align 4 dereferenceable(4) %entity)
           to label %if.else.i1181.invoke.cont156_crit_edge unwind label %lpad155
 
 if.else.i1181.invoke.cont156_crit_edge:           ; preds = %if.else.i1181
@@ -48279,7 +48279,7 @@ _ZNSt16allocator_traitsISaIN4entt9basic_anyILm16ELm8EEEEE9constructIS2_JjEEEvRS3
   br label %invoke.cont157
 
 if.else.i921:                                     ; preds = %invoke.cont152
-  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp155)
+  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre1911, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp155)
           to label %if.else.i921.invoke.cont157_crit_edge unwind label %lpad156
 
 if.else.i921.invoke.cont157_crit_edge:            ; preds = %if.else.i921
@@ -52218,7 +52218,7 @@ _ZNSt16allocator_traitsISaIN4entt9basic_anyILm16ELm8EEEEE9constructIS2_JRKNS0_6e
   br label %invoke.cont156
 
 if.else.i1090:                                    ; preds = %invoke.cont151
-  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJRKNS0_6entityEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre, ptr noundef nonnull align 4 dereferenceable(4) %entity)
+  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJRKNS0_6entityEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre2049, ptr noundef nonnull align 4 dereferenceable(4) %entity)
           to label %invoke.cont156 unwind label %lpad155
 
 invoke.cont156:                                   ; preds = %if.else.i1090, %_ZNSt16allocator_traitsISaIN4entt9basic_anyILm16ELm8EEEEE9constructIS2_JRKNS0_6entityEEEEvRS3_PT_DpOT0_.exit.i
@@ -56180,7 +56180,7 @@ _ZNSt16allocator_traitsISaIN4entt9basic_anyILm16ELm8EEEEE9constructIS2_JNS0_6ent
   br label %invoke.cont157
 
 if.else.i1193:                                    ; preds = %invoke.cont151
-  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJNS0_6entityEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp154)
+  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJNS0_6entityEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre2287, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp154)
           to label %if.else.i1193.invoke.cont157_crit_edge unwind label %lpad156
 
 if.else.i1193.invoke.cont157_crit_edge:           ; preds = %if.else.i1193
@@ -61672,7 +61672,7 @@ _ZNSt16allocator_traitsISaIN4entt9basic_anyILm16ELm8EEEEE9constructIS2_JjEEEvRS3
   br label %invoke.cont72
 
 if.else.i591:                                     ; preds = %invoke.cont67
-  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp70)
+  invoke void @_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %data, ptr %.pre1526, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp70)
           to label %if.else.i591.invoke.cont72_crit_edge unwind label %lpad71
 
 if.else.i591.invoke.cont72_crit_edge:             ; preds = %if.else.i591
@@ -66795,7 +66795,7 @@ _ZN4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS
   br i1 %cmp.i.i.i.not, label %cleanup.cont, label %cleanup29
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE16constrained_findIjEEDaRKT_m.exit, %_ZN4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE16constrained_findIjEEDaRKT_m.exit.thread
-  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %arrayidx.i.i.i.i, %_ZN4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE16constrained_findIjEEDaRKT_m.exit ]
+  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE16constrained_findIjEEDaRKT_m.exit ]
   %_M_finish.i.i53 = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp13) #21
   store ptr %key, ptr %ref.tmp13, align 8, !tbaa !23, !alias.scope !412
@@ -81191,7 +81191,7 @@ cleanup.thread:                                   ; preds = %_ZN4entt9dense_mapI
   br label %cleanup32
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_mapIjSt4pairINS_6entityES2_ESt4hashIjESt8equal_toIjESaIS1_IKjS3_EEE16constrained_findIjEEDaRKT_m.exit, %_ZN4entt9dense_mapIjSt4pairINS_6entityES2_ESt4hashIjESt8equal_toIjESaIS1_IKjS3_EEE16constrained_findIjEEDaRKT_m.exit.thread
-  %8 = phi ptr [ %5, %_ZN4entt9dense_mapIjSt4pairINS_6entityES2_ESt4hashIjESt8equal_toIjESaIS1_IKjS3_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %arrayidx.i.i.i.i, %_ZN4entt9dense_mapIjSt4pairINS_6entityES2_ESt4hashIjESt8equal_toIjESaIS1_IKjS3_EEE16constrained_findIjEEDaRKT_m.exit ]
+  %8 = phi ptr [ %5, %_ZN4entt9dense_mapIjSt4pairINS_6entityES2_ESt4hashIjESt8equal_toIjESaIS1_IKjS3_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_mapIjSt4pairINS_6entityES2_ESt4hashIjESt8equal_toIjESaIS1_IKjS3_EEE16constrained_findIjEEDaRKT_m.exit ]
   %_M_finish.i.i57 = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 40
   %9 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !334
@@ -81363,7 +81363,7 @@ _ZN4entt9dense_mapIjSt4pairINS_6entityES2_ESt4hashIjESt8equal_toIjESaIS1_IKjS3_E
   br i1 %cmp.i.i.i.not, label %cleanup.cont, label %cleanup29
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_mapIjSt4pairINS_6entityES2_ESt4hashIjESt8equal_toIjESaIS1_IKjS3_EEE16constrained_findIjEEDaRKT_m.exit, %_ZN4entt9dense_mapIjSt4pairINS_6entityES2_ESt4hashIjESt8equal_toIjESaIS1_IKjS3_EEE16constrained_findIjEEDaRKT_m.exit.thread
-  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIjSt4pairINS_6entityES2_ESt4hashIjESt8equal_toIjESaIS1_IKjS3_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %arrayidx.i.i.i.i, %_ZN4entt9dense_mapIjSt4pairINS_6entityES2_ESt4hashIjESt8equal_toIjESaIS1_IKjS3_EEE16constrained_findIjEEDaRKT_m.exit ]
+  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIjSt4pairINS_6entityES2_ESt4hashIjESt8equal_toIjESaIS1_IKjS3_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_mapIjSt4pairINS_6entityES2_ESt4hashIjESt8equal_toIjESaIS1_IKjS3_EEE16constrained_findIjEEDaRKT_m.exit ]
   %_M_finish.i.i58 = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !334

@@ -998,7 +998,7 @@ _ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.thread.i:
   br i1 %cmp1832.i, label %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3popEv.exit.i, label %cleanup.i
 
 if.else.i.i.i:                                    ; preds = %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.i
-  call void @_ZdlPv(ptr noundef %81) #25
+  call void @_ZdlPv(ptr noundef %83) #25
   %88 = load ptr, ptr %_M_node.i9.i.i.i.i.i, align 8
   %add.ptr.i.i.i17.i = getelementptr inbounds i8, ptr %88, i64 -8
   store ptr %add.ptr.i.i.i17.i, ptr %_M_node.i9.i.i.i.i.i, align 8

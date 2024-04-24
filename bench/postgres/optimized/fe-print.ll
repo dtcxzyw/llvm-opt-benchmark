@@ -127,7 +127,7 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br label %43
 
 39:                                               ; preds = %.lr.ph319, %33
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   %41 = tail call ptr @PQfname(ptr noundef %1, i32 noundef %40) #13
   %42 = getelementptr ptr, ptr %16, i64 %indvars.iv
   store ptr %41, ptr %42, align 8
@@ -273,7 +273,7 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 120:                                              ; preds = %95, %115, %82, %86, %89, %99, %118, %67, %63, %._crit_edge
   %.0215 = phi i1 [ false, %89 ], [ false, %118 ], [ false, %99 ], [ false, %86 ], [ false, %82 ], [ false, %67 ], [ false, %63 ], [ false, %._crit_edge ], [ true, %115 ], [ false, %95 ]
   %.0210 = phi i1 [ false, %89 ], [ false, %118 ], [ false, %99 ], [ false, %86 ], [ false, %82 ], [ false, %67 ], [ false, %63 ], [ false, %._crit_edge ], [ %117, %115 ], [ false, %95 ]
-  %.1 = phi ptr [ %59, %89 ], [ %119, %118 ], [ %59, %99 ], [ %59, %86 ], [ %59, %82 ], [ %59, %67 ], [ %59, %63 ], [ %spec.select293, %._crit_edge ], [ %114, %115 ], [ %59, %95 ]
+  %.1 = phi ptr [ %spec.select293, %89 ], [ %119, %118 ], [ %spec.select293, %99 ], [ %spec.select293, %86 ], [ %spec.select293, %82 ], [ %spec.select293, %67 ], [ %spec.select293, %63 ], [ %spec.select293, %._crit_edge ], [ %114, %115 ], [ %spec.select293, %95 ]
   %121 = getelementptr inbounds i8, ptr %2, i64 4
   %122 = load i8, ptr %121, align 4
   %.not258 = icmp eq i8 %122, 0
@@ -450,7 +450,7 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 201:                                              ; preds = %.lr.ph335, %276
   %indvars.iv362 = phi i64 [ 0, %.lr.ph335 ], [ %indvars.iv.next363, %276 ]
-  %202 = trunc i64 %indvars.iv362 to i32
+  %202 = trunc nuw nsw i64 %indvars.iv362 to i32
   %203 = call i32 @PQgetlength(ptr noundef %1, i32 noundef %.0208337, i32 noundef %202) #13
   %204 = call ptr @PQgetvalue(ptr noundef %1, i32 noundef %.0208337, i32 noundef %202) #13
   %205 = icmp sgt i32 %203, 0
@@ -745,7 +745,7 @@ do_field.exit:                                    ; preds = %237
 
 327:                                              ; preds = %355, %.lr.ph.i302
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i302 ], [ %indvars.iv.next.pre-phi.i, %355 ]
-  %328 = trunc i64 %indvars.iv.i to i32
+  %328 = trunc nuw nsw i64 %indvars.iv.i to i32
   %329 = add i32 %326, %328
   %330 = sext i32 %329 to i64
   %331 = getelementptr ptr, ptr %.0221, i64 %330
@@ -1124,7 +1124,7 @@ define internal fastcc noundef ptr @do_header(ptr noundef %0, ptr nocapture noun
 
 76:                                               ; preds = %.lr.ph147, %108
   %indvars.iv159 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next160.pre-phi, %108 ]
-  %77 = trunc i64 %indvars.iv159 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv159 to i32
   %78 = tail call ptr @PQfname(ptr noundef %7, i32 noundef %77) #13
   %79 = load i8, ptr %9, align 1
   %.not108 = icmp eq i8 %79, 0
@@ -1238,7 +1238,7 @@ define void @PQdisplayTuples(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
 
 .lr.ph.us:                                        ; preds = %.lr.ph100, %._crit_edge.us
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %._crit_edge.us ], [ 0, %.lr.ph100 ]
-  %18 = trunc i64 %indvars.iv124 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv124 to i32
   %19 = tail call ptr @PQfname(ptr noundef %0, i32 noundef %18) #13
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #14
   %21 = trunc i64 %20 to i32
@@ -1275,7 +1275,7 @@ define void @PQdisplayTuples(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
 
 .lr.ph100.split:                                  ; preds = %.lr.ph100, %.lr.ph100.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph100.split ], [ 0, %.lr.ph100 ]
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   %35 = tail call ptr @PQfname(ptr noundef %0, i32 noundef %34) #13
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #14
   %37 = trunc i64 %36 to i32
@@ -1316,7 +1316,7 @@ fill.exit.us:                                     ; preds = %.lr.ph, %fill.exit.
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %fill.exit
   %indvars.iv129 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next130, %fill.exit ]
-  %45 = trunc i64 %indvars.iv129 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv129 to i32
   %46 = tail call ptr @PQfname(ptr noundef %0, i32 noundef %45) #13
   %47 = tail call i32 @fputs(ptr noundef %46, ptr noundef %spec.select)
   %48 = tail call ptr @PQfname(ptr noundef %0, i32 noundef %45) #13
@@ -1423,7 +1423,7 @@ fill.exit95.us.us.us:                             ; preds = %fill.exit95.us.us.u
 
 77:                                               ; preds = %.preheader.us, %fill.exit95.us113
   %indvars.iv142 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next143, %fill.exit95.us113 ]
-  %78 = trunc i64 %indvars.iv142 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv142 to i32
   %79 = tail call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.3109.us, i32 noundef %78) #13
   %80 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.20, ptr noundef %79) #13
   %81 = tail call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.3109.us, i32 noundef %78) #13

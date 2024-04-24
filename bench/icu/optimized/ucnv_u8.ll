@@ -62,7 +62,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %while.body
-  %conv11 = trunc i16 %8 to i8
+  %conv11 = trunc nuw i16 %8 to i8
   %incdec.ptr12 = getelementptr inbounds i8, ptr %myTarget.0, i64 1
   store i8 %conv11, ptr %myTarget.0, align 1
   br label %if.end100
@@ -73,7 +73,7 @@ if.else:                                          ; preds = %while.body
 
 if.then14:                                        ; preds = %if.else
   %shr = lshr i16 %8, 6
-  %9 = trunc i16 %shr to i8
+  %9 = trunc nuw i16 %shr to i8
   %conv15 = or disjoint i8 %9, -64
   %incdec.ptr16 = getelementptr inbounds i8, ptr %myTarget.0, i64 1
   store i8 %conv15, ptr %myTarget.0, align 1
@@ -310,7 +310,7 @@ if.then10:                                        ; preds = %while.body
   %inc = add nsw i32 %offsetNum.0, 1
   %incdec.ptr11 = getelementptr inbounds i8, ptr %myOffsets.0, i64 4
   store i32 %offsetNum.0, ptr %myOffsets.0, align 4
-  %conv12 = trunc i16 %9 to i8
+  %conv12 = trunc nuw i16 %9 to i8
   %incdec.ptr13 = getelementptr inbounds i8, ptr %myTarget.0, i64 1
   store i8 %conv12, ptr %myTarget.0, align 1
   br label %if.end119
@@ -323,7 +323,7 @@ if.then16:                                        ; preds = %if.else14
   %incdec.ptr17 = getelementptr inbounds i8, ptr %myOffsets.0, i64 4
   store i32 %offsetNum.0, ptr %myOffsets.0, align 4
   %shr = lshr i16 %9, 6
-  %10 = trunc i16 %shr to i8
+  %10 = trunc nuw i16 %shr to i8
   %conv18 = or disjoint i8 %10, -64
   %incdec.ptr19 = getelementptr inbounds i8, ptr %myTarget.0, i64 1
   store i8 %conv18, ptr %myTarget.0, align 1
@@ -654,7 +654,7 @@ if.end50.us.us:                                   ; preds = %if.then33.us.us
   %add51.us.us = add i32 %shl.us.us, %conv34.us.us
   %incdec.ptr52.us.us = getelementptr inbounds i8, ptr %mySource.287.us.us, i64 1
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
-  %13 = trunc i64 %indvars.iv.next262 to i32
+  %13 = trunc nuw i64 %indvars.iv.next262 to i32
   %cmp30.us.us = icmp sgt i32 %inBytes.0.fr, %13
   br i1 %cmp30.us.us, label %while.body31.us.us, label %while.end, !llvm.loop !10
 
@@ -673,7 +673,7 @@ if.then33.us:                                     ; preds = %while.body31.us
   br i1 %cmp2.i.us, label %land.lhs.true39.us, label %if.end50.us
 
 land.lhs.true39.us:                               ; preds = %if.then33.us
-  %15 = trunc i64 %indvars.iv264 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv264 to i32
   br label %while.end
 
 if.end50.us:                                      ; preds = %if.then33.us
@@ -682,7 +682,7 @@ if.end50.us:                                      ; preds = %if.then33.us
   %add51.us = add i32 %shl.us, %conv34.us
   %incdec.ptr52.us = getelementptr inbounds i8, ptr %mySource.287.us, i64 1
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
-  %16 = trunc i64 %indvars.iv.next265 to i32
+  %16 = trunc nuw i64 %indvars.iv.next265 to i32
   %cmp30.us = icmp sgt i32 %inBytes.0.fr, %16
   br i1 %cmp30.us, label %while.body31.us, label %while.end, !llvm.loop !10
 
@@ -740,7 +740,7 @@ if.end50.us125:                                   ; preds = %land.lhs.true39.us1
   %add51.us127 = add i32 %shl.us126, %conv34.us109
   %incdec.ptr52.us128 = getelementptr inbounds i8, ptr %mySource.287.us106, i64 1
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
-  %21 = trunc i64 %indvars.iv.next259 to i32
+  %21 = trunc nuw i64 %indvars.iv.next259 to i32
   %cmp30.us130 = icmp slt i32 %21, 3
   br i1 %cmp30.us130, label %while.body31.us103, label %while.end, !llvm.loop !10
 
@@ -769,7 +769,7 @@ if.else.i.us159:                                  ; preds = %if.then33.us154
   %24 = load i8, ptr %arrayidx14.i.us, align 1
   %and16.i.us = and i32 %ch.188.us151, 7
   %shl17.i.us = shl nuw nsw i32 1, %and16.i.us
-  %25 = trunc i32 %shl17.i.us to i8
+  %25 = trunc nuw i32 %shl17.i.us to i8
   %conv19.i.us = and i8 %24, %25
   br label %_ZN6icu_754UTF812isValidTrailEihii.exit.us163
 
@@ -788,7 +788,7 @@ if.end50.us173:                                   ; preds = %_ZN6icu_754UTF812is
   %add51.us175 = add i32 %shl.us174, %conv34.us155
   %incdec.ptr52.us176 = getelementptr inbounds i8, ptr %mySource.287.us152, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = trunc i64 %indvars.iv.next to i32
+  %26 = trunc nuw i64 %indvars.iv.next to i32
   %cmp30.us178 = icmp sgt i32 %inBytes.0.fr, %26
   br i1 %cmp30.us178, label %while.body31.us149, label %while.end, !llvm.loop !10
 
@@ -819,7 +819,7 @@ if.else.i:                                        ; preds = %if.then33
   %29 = load i8, ptr %arrayidx14.i, align 1
   %and16.i = and i32 %ch.188, 7
   %shl17.i = shl nuw nsw i32 1, %and16.i
-  %30 = trunc i32 %shl17.i to i8
+  %30 = trunc nuw i32 %shl17.i to i8
   %conv19.i = and i8 %29, %30
   br label %_ZN6icu_754UTF812isValidTrailEihii.exit
 
@@ -841,7 +841,7 @@ if.end50:                                         ; preds = %land.lhs.true39, %_
   %add51 = add i32 %shl, %conv34
   %incdec.ptr52 = getelementptr inbounds i8, ptr %mySource.287, i64 1
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
-  %31 = trunc i64 %indvars.iv.next256 to i32
+  %31 = trunc nuw i64 %indvars.iv.next256 to i32
   %cmp30 = icmp sgt i32 %inBytes.0.fr, %31
   br i1 %cmp30, label %while.body31, label %while.end, !llvm.loop !10
 
@@ -858,19 +858,19 @@ if.else53:                                        ; preds = %while.body31.us149,
   br label %donefornow
 
 while.end.loopexit268.split.loop.exit:            ; preds = %if.then33.us.us
-  %32 = trunc i64 %indvars.iv261 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv261 to i32
   br label %while.end
 
 while.end.loopexit270.split.loop.exit:            ; preds = %land.lhs.true39.us118
-  %33 = trunc i64 %indvars.iv258 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv258 to i32
   br label %while.end
 
 while.end.loopexit275.split.loop.exit:            ; preds = %land.lhs.true39
-  %34 = trunc i64 %indvars.iv255 to i32
+  %34 = trunc nuw nsw i64 %indvars.iv255 to i32
   br label %while.end
 
 while.end.loopexit280.split.loop.exit:            ; preds = %_ZN6icu_754UTF812isValidTrailEihii.exit.us163
-  %35 = trunc i64 %indvars.iv to i32
+  %35 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %if.end50.us173, %if.end50, %if.end50.us125, %if.end50.us.us, %if.end50.us, %while.end.loopexit280.split.loop.exit, %while.end.loopexit275.split.loop.exit, %while.end.loopexit270.split.loop.exit, %while.end.loopexit268.split.loop.exit, %land.lhs.true39.us, %morebytes
@@ -892,7 +892,7 @@ if.then63:                                        ; preds = %while.end
   br i1 %cmp67, label %if.then68, label %if.else71
 
 if.then68:                                        ; preds = %if.then63
-  %conv69 = trunc i32 %sub66 to i16
+  %conv69 = trunc nuw i32 %sub66 to i16
   %incdec.ptr70 = getelementptr inbounds i8, ptr %myTarget.1, i64 2
   store i16 %conv69, ptr %myTarget.1, align 2
   br label %while.cond.preheader, !llvm.loop !9
@@ -1073,7 +1073,7 @@ if.end51.us.us:                                   ; preds = %if.then34.us.us
   %add52.us.us = add i32 %shl.us.us, %conv35.us.us
   %incdec.ptr53.us.us = getelementptr inbounds i8, ptr %mySource.298.us.us, i64 1
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
-  %14 = trunc i64 %indvars.iv.next273 to i32
+  %14 = trunc nuw i64 %indvars.iv.next273 to i32
   %cmp31.us.us = icmp sgt i32 %inBytes.0.fr, %14
   br i1 %cmp31.us.us, label %while.body32.us.us, label %while.end, !llvm.loop !12
 
@@ -1092,7 +1092,7 @@ if.then34.us:                                     ; preds = %while.body32.us
   br i1 %cmp2.i.us, label %land.lhs.true40.us, label %if.end51.us
 
 land.lhs.true40.us:                               ; preds = %if.then34.us
-  %16 = trunc i64 %indvars.iv275 to i32
+  %16 = trunc nuw nsw i64 %indvars.iv275 to i32
   br label %while.end
 
 if.end51.us:                                      ; preds = %if.then34.us
@@ -1101,7 +1101,7 @@ if.end51.us:                                      ; preds = %if.then34.us
   %add52.us = add i32 %shl.us, %conv35.us
   %incdec.ptr53.us = getelementptr inbounds i8, ptr %mySource.298.us, i64 1
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
-  %17 = trunc i64 %indvars.iv.next276 to i32
+  %17 = trunc nuw i64 %indvars.iv.next276 to i32
   %cmp31.us = icmp sgt i32 %inBytes.0.fr, %17
   br i1 %cmp31.us, label %while.body32.us, label %while.end, !llvm.loop !12
 
@@ -1159,7 +1159,7 @@ if.end51.us136:                                   ; preds = %land.lhs.true40.us1
   %add52.us138 = add i32 %shl.us137, %conv35.us120
   %incdec.ptr53.us139 = getelementptr inbounds i8, ptr %mySource.298.us117, i64 1
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
-  %22 = trunc i64 %indvars.iv.next270 to i32
+  %22 = trunc nuw i64 %indvars.iv.next270 to i32
   %cmp31.us141 = icmp slt i32 %22, 3
   br i1 %cmp31.us141, label %while.body32.us114, label %while.end, !llvm.loop !12
 
@@ -1188,7 +1188,7 @@ if.else.i.us170:                                  ; preds = %if.then34.us165
   %25 = load i8, ptr %arrayidx14.i.us, align 1
   %and16.i.us = and i32 %ch.199.us162, 7
   %shl17.i.us = shl nuw nsw i32 1, %and16.i.us
-  %26 = trunc i32 %shl17.i.us to i8
+  %26 = trunc nuw i32 %shl17.i.us to i8
   %conv19.i.us = and i8 %25, %26
   br label %_ZN6icu_754UTF812isValidTrailEihii.exit.us174
 
@@ -1207,7 +1207,7 @@ if.end51.us184:                                   ; preds = %_ZN6icu_754UTF812is
   %add52.us186 = add i32 %shl.us185, %conv35.us166
   %incdec.ptr53.us187 = getelementptr inbounds i8, ptr %mySource.298.us163, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = trunc i64 %indvars.iv.next to i32
+  %27 = trunc nuw i64 %indvars.iv.next to i32
   %cmp31.us189 = icmp sgt i32 %inBytes.0.fr, %27
   br i1 %cmp31.us189, label %while.body32.us160, label %while.end, !llvm.loop !12
 
@@ -1238,7 +1238,7 @@ if.else.i:                                        ; preds = %if.then34
   %30 = load i8, ptr %arrayidx14.i, align 1
   %and16.i = and i32 %ch.199, 7
   %shl17.i = shl nuw nsw i32 1, %and16.i
-  %31 = trunc i32 %shl17.i to i8
+  %31 = trunc nuw i32 %shl17.i to i8
   %conv19.i = and i8 %30, %31
   br label %_ZN6icu_754UTF812isValidTrailEihii.exit
 
@@ -1260,7 +1260,7 @@ if.end51:                                         ; preds = %land.lhs.true40, %_
   %add52 = add i32 %shl, %conv35
   %incdec.ptr53 = getelementptr inbounds i8, ptr %mySource.298, i64 1
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
-  %32 = trunc i64 %indvars.iv.next267 to i32
+  %32 = trunc nuw i64 %indvars.iv.next267 to i32
   %cmp31 = icmp sgt i32 %inBytes.0.fr, %32
   br i1 %cmp31, label %while.body32, label %while.end, !llvm.loop !12
 
@@ -1277,19 +1277,19 @@ if.else55:                                        ; preds = %while.body32.us160,
   br label %donefornow
 
 while.end.loopexit279.split.loop.exit:            ; preds = %if.then34.us.us
-  %33 = trunc i64 %indvars.iv272 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv272 to i32
   br label %while.end
 
 while.end.loopexit281.split.loop.exit:            ; preds = %land.lhs.true40.us129
-  %34 = trunc i64 %indvars.iv269 to i32
+  %34 = trunc nuw nsw i64 %indvars.iv269 to i32
   br label %while.end
 
 while.end.loopexit286.split.loop.exit:            ; preds = %land.lhs.true40
-  %35 = trunc i64 %indvars.iv266 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv266 to i32
   br label %while.end
 
 while.end.loopexit291.split.loop.exit:            ; preds = %_ZN6icu_754UTF812isValidTrailEihii.exit.us174
-  %36 = trunc i64 %indvars.iv to i32
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %if.end51.us184, %if.end51, %if.end51.us136, %if.end51.us.us, %if.end51.us, %while.end.loopexit291.split.loop.exit, %while.end.loopexit286.split.loop.exit, %while.end.loopexit281.split.loop.exit, %while.end.loopexit279.split.loop.exit, %land.lhs.true40.us, %morebytes
@@ -1311,7 +1311,7 @@ if.then65:                                        ; preds = %while.end
   br i1 %cmp69, label %if.then70, label %if.else74
 
 if.then70:                                        ; preds = %if.then65
-  %conv71 = trunc i32 %sub68 to i16
+  %conv71 = trunc nuw i32 %sub68 to i16
   %incdec.ptr72 = getelementptr inbounds i8, ptr %myTarget.1, i64 2
   store i16 %conv71, ptr %myTarget.1, align 2
   %incdec.ptr73 = getelementptr inbounds i8, ptr %myOffsets.1, i64 4
@@ -2018,7 +2018,7 @@ if.else10.i:                                      ; preds = %if.else.i
   %28 = load i8, ptr %arrayidx14.i, align 1
   %and16.i = and i32 %c.2250, 7
   %shl17.i = shl nuw nsw i32 1, %and16.i
-  %29 = trunc i32 %shl17.i to i8
+  %29 = trunc nuw i32 %shl17.i to i8
   %conv19.i = and i8 %28, %29
   br label %_ZN6icu_754UTF812isValidTrailEihii.exit
 
@@ -2229,6 +2229,7 @@ if.else331.lr.ph:                                 ; preds = %for.cond319.prehead
 if.then326:                                       ; preds = %if.end339, %for.cond319.preheader
   %c.3.lcssa = phi i32 [ %conv287, %for.cond319.preheader ], [ %add342, %if.end339 ]
   %inc321.lcssa = phi i8 [ 1, %for.cond319.preheader ], [ %inc321, %if.end339 ]
+  %incdec.ptr324.lcssa = phi ptr [ %incdec.ptr324237, %for.cond319.preheader ], [ %incdec.ptr324, %if.end339 ]
   %toUnicodeStatus327 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %c.3.lcssa, ptr %toUnicodeStatus327, align 8
   store i8 %inc321.lcssa, ptr %toULength5, align 8
@@ -2271,7 +2272,7 @@ if.else10.i180:                                   ; preds = %if.else.i178
   %43 = load i8, ptr %arrayidx14.i182, align 1
   %and16.i183 = and i32 %c.3239, 7
   %shl17.i184 = shl nuw nsw i32 1, %and16.i183
-  %44 = trunc i32 %shl17.i184 to i8
+  %44 = trunc nuw i32 %shl17.i184 to i8
   %conv19.i185 = and i8 %43, %44
   br label %_ZN6icu_754UTF812isValidTrailEihii.exit196
 
@@ -2302,7 +2303,7 @@ if.else344:                                       ; preds = %cond.end309
   br label %if.end347
 
 if.end347:                                        ; preds = %if.then285, %if.then326, %if.then336, %if.else344, %while.end277
-  %source.7 = phi ptr [ %source.0.lcssa, %if.then285 ], [ %2, %if.then326 ], [ %incdec.ptr324241, %if.then336 ], [ %source.0.lcssa, %if.else344 ], [ %source.0.lcssa, %while.end277 ]
+  %source.7 = phi ptr [ %source.0.lcssa, %if.then285 ], [ %incdec.ptr324.lcssa, %if.then326 ], [ %incdec.ptr324241, %if.then336 ], [ %source.0.lcssa, %if.else344 ], [ %source.0.lcssa, %while.end277 ]
   store ptr %source.7, ptr %source1, align 8
   store ptr %target.0.lcssa, ptr %target3, align 8
   br label %return

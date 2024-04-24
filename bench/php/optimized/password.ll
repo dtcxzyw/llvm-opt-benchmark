@@ -1174,7 +1174,7 @@ define hidden void @zif_password_needs_rehash(ptr noundef %0, ptr nocapture noun
   br label %52
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %37, i64 24
+  %46 = getelementptr inbounds i8, ptr %42, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %3, align 8
   %49 = call zeroext i1 %47(ptr noundef %48, ptr noundef %.2180) #12

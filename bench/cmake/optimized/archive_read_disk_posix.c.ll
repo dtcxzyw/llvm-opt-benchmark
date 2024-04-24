@@ -1063,7 +1063,7 @@ define internal noundef i32 @_archive_read_close(ptr noundef %0) #0 {
   br i1 %or.cond.i.i, label %50, label %47
 
 47:                                               ; preds = %39
-  %48 = getelementptr inbounds i8, ptr %44, i64 16
+  %48 = getelementptr inbounds i8, ptr %45, i64 16
   %49 = load ptr, ptr %48, align 8
   store ptr %49, ptr %28, align 8
   br label %50
@@ -1551,7 +1551,7 @@ tree_append.exit66.i.i:                           ; preds = %139, %135, %.crited
   br i1 %or.cond.i.i.i, label %186, label %183
 
 183:                                              ; preds = %173
-  %184 = getelementptr inbounds i8, ptr %180, i64 16
+  %184 = getelementptr inbounds i8, ptr %181, i64 16
   %185 = load ptr, ptr %184, align 8
   store ptr %185, ptr %27, align 8
   br label %186
@@ -1621,7 +1621,7 @@ tree_pop.exit.i.i:                                ; preds = %193
   br i1 %or.cond.i70.i.i, label %221, label %218
 
 218:                                              ; preds = %209
-  %219 = getelementptr inbounds i8, ptr %215, i64 16
+  %219 = getelementptr inbounds i8, ptr %216, i64 16
   %220 = load ptr, ptr %219, align 8
   store ptr %220, ptr %27, align 8
   br label %221
@@ -1668,7 +1668,7 @@ tree_pop.exit72.i.i:                              ; preds = %228
   br i1 %or.cond.i74.i.i, label %245, label %242
 
 242:                                              ; preds = %234
-  %243 = getelementptr inbounds i8, ptr %239, i64 16
+  %243 = getelementptr inbounds i8, ptr %240, i64 16
   %244 = load ptr, ptr %243, align 8
   store ptr %244, ptr %27, align 8
   br label %245
@@ -3293,7 +3293,7 @@ tree_dup.exit:                                    ; preds = %9, %12
   br i1 %or.cond.i, label %32, label %29
 
 29:                                               ; preds = %16
-  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %30 = getelementptr inbounds i8, ptr %27, i64 16
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %26, align 8
   br label %32

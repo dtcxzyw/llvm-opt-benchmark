@@ -1670,12 +1670,14 @@ entry:
   %_M_left.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_left.i, align 8
   %cmp.i = icmp eq ptr %0, %__first.coerce
+  br i1 %cmp.i, label %land.rhs, label %if.else
+
+land.rhs:                                         ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.i1 = icmp eq ptr %add.ptr.i, %__last.coerce
-  %or.cond = select i1 %cmp.i, i1 %cmp.i1, i1 false
-  br i1 %or.cond, label %if.then, label %if.else
+  br i1 %cmp.i1, label %if.then, label %if.else
 
-if.then:                                          ; preds = %entry
+if.then:                                          ; preds = %land.rhs
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_parent.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %1)
@@ -1690,14 +1692,14 @@ terminate.lpad.i:                                 ; preds = %if.then
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE5clearEv.exit: ; preds = %if.then
   store ptr null, ptr %_M_parent.i.i.i, align 8
-  store ptr %__last.coerce, ptr %_M_left.i, align 8
+  store ptr %add.ptr.i, ptr %_M_left.i, align 8
   %_M_right.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr %__last.coerce, ptr %_M_right.i.i, align 8
+  store ptr %add.ptr.i, ptr %_M_right.i.i, align 8
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %_M_node_count.i.i, align 8
   br label %if.end
 
-if.else:                                          ; preds = %entry
+if.else:                                          ; preds = %entry, %land.rhs
   %cmp.i3.not8 = icmp eq ptr %__first.coerce, %__last.coerce
   br i1 %cmp.i3.not8, label %if.end, label %while.body.lr.ph
 

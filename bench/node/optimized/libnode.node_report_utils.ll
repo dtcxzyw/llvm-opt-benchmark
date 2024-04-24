@@ -2022,7 +2022,7 @@ land.lhs.true:                                    ; preds = %_ZN4node7ReallocIcE
   br i1 %cmp13.not, label %if.end18, label %if.then14
 
 if.then14:                                        ; preds = %land.lhs.true
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i7.i, ptr nonnull align 8 %0, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i7.i, ptr nonnull align 8 %buf_st_.i, i64 %2, i1 false)
   br label %if.end18
 
 if.end18:                                         ; preds = %_ZN4node7ReallocIcEEPT_S2_m.exit, %land.lhs.true, %if.then14, %do.end6

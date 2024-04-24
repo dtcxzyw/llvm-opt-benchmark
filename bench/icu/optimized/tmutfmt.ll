@@ -311,7 +311,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -370,7 +370,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -1242,7 +1242,7 @@ for.body:                                         ; preds = %entry, %for.inc76
   %arrayidx = getelementptr inbounds [7 x ptr], ptr %fTimeUnitToCountToPatterns, i64 0, i64 %indvars.iv201
   %1 = load ptr, ptr %arrayidx, align 8
   store i32 -1, ptr %elemPos, align 4
-  %2 = trunc i64 %indvars.iv201 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv201 to i32
   br label %while.cond
 
 while.cond.loopexit:                              ; preds = %cleanup72
@@ -2039,7 +2039,7 @@ invoke.cont33:                                    ; preds = %invoke.cont31
 
 invoke.cont35:                                    ; preds = %invoke.cont33
   %9 = load ptr, ptr %pluralCountChars, align 8
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZN6icu_7514TimeUnitFormat19searchInLocaleChainE20UTimeUnitFormatStylePKcS3_NS_8TimeUnit15UTimeUnitFieldsERKNS_13UnicodeStringES3_PNS_9HashtableER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(428) %this, i32 noundef %style, ptr noundef %key, ptr noundef %call32, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(64) %call9, ptr noundef %9, ptr noundef nonnull %countToPatterns.0, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %invoke.cont39 unwind label %lpad34
 

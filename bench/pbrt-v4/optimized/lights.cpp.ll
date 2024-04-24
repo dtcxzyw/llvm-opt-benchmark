@@ -1405,7 +1405,7 @@ while.body.i.i.i.i:                               ; preds = %if.end, %while.body
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %if.end
   %h.0.lcssa.i.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end ], [ %mul7.i.i.i.i, %while.body.i.i.i.i ]
-  %key.addr.0.lcssa.i.i.i.i = phi ptr [ %13, %if.end ], [ %add.ptr.i.i.i.i6, %while.body.i.i.i.i ]
+  %key.addr.0.lcssa.i.i.i.i = phi ptr [ %13, %if.end ], [ %add.ptr2.i.i.i.i, %while.body.i.i.i.i ]
   %and.i.i.i.i = and i64 %14, 7
   switch i64 %and.i.i.i.i, label %_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit.i [
     i64 7, label %sw.bb.i.i.i.i
@@ -1555,7 +1555,7 @@ while.body.i.i.i28.i:                             ; preds = %_ZNSt12shared_mutex
 
 while.end.i.i.i40.i:                              ; preds = %while.body.i.i.i28.i, %_ZNSt12shared_mutex4lockEv.exit.i
   %h.0.lcssa.i.i.i41.i = phi i64 [ %mul.i.i.i24.i, %_ZNSt12shared_mutex4lockEv.exit.i ], [ %mul7.i.i.i38.i, %while.body.i.i.i28.i ]
-  %key.addr.0.lcssa.i.i.i42.i = phi ptr [ %30, %_ZNSt12shared_mutex4lockEv.exit.i ], [ %add.ptr.i.i.i26.i, %while.body.i.i.i28.i ]
+  %key.addr.0.lcssa.i.i.i42.i = phi ptr [ %30, %_ZNSt12shared_mutex4lockEv.exit.i ], [ %add.ptr2.i.i.i32.i, %while.body.i.i.i28.i ]
   %and.i.i.i43.i = and i64 %31, 7
   switch i64 %and.i.i.i43.i, label %_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit90.i [
     i64 7, label %sw.bb.i.i.i85.i
@@ -2623,20 +2623,20 @@ entry:
   %mul24 = fmul float %p.sroa.0.0.vec.extract, %9
   %call27 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %10 = extractvalue { ptr, i64 } %call27, 0
-  %arrayidx.i22 = getelementptr inbounds i8, ptr %10, i64 4
-  %11 = load float, ptr %arrayidx.i22, align 4
+  %arrayidx.i23 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = load float, ptr %arrayidx.i23, align 4
   %mul30 = fmul float %p.sroa.0.4.vec.extract, %11
   %add31 = fadd float %mul24, %mul30
   %call34 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %12 = extractvalue { ptr, i64 } %call34, 0
-  %arrayidx.i23 = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load float, ptr %arrayidx.i23, align 4
+  %arrayidx.i24 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load float, ptr %arrayidx.i24, align 4
   %mul37 = fmul float %13, %p.coerce1
   %add38 = fadd float %add31, %mul37
   %call41 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %14 = extractvalue { ptr, i64 } %call41, 0
-  %arrayidx.i24 = getelementptr inbounds i8, ptr %14, i64 12
-  %15 = load float, ptr %arrayidx.i24, align 4
+  %arrayidx.i25 = getelementptr inbounds i8, ptr %14, i64 12
+  %15 = load float, ptr %arrayidx.i25, align 4
   %add43 = fadd float %add38, %15
   %call46 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %16 = extractvalue { ptr, i64 } %call46, 0
@@ -2644,20 +2644,20 @@ entry:
   %mul49 = fmul float %p.sroa.0.0.vec.extract, %17
   %call52 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %18 = extractvalue { ptr, i64 } %call52, 0
-  %arrayidx.i25 = getelementptr inbounds i8, ptr %18, i64 4
-  %19 = load float, ptr %arrayidx.i25, align 4
+  %arrayidx.i27 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = load float, ptr %arrayidx.i27, align 4
   %mul55 = fmul float %p.sroa.0.4.vec.extract, %19
   %add56 = fadd float %mul49, %mul55
   %call59 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %20 = extractvalue { ptr, i64 } %call59, 0
-  %arrayidx.i26 = getelementptr inbounds i8, ptr %20, i64 8
-  %21 = load float, ptr %arrayidx.i26, align 4
+  %arrayidx.i28 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = load float, ptr %arrayidx.i28, align 4
   %mul62 = fmul float %21, %p.coerce1
   %add63 = fadd float %add56, %mul62
   %call66 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %22 = extractvalue { ptr, i64 } %call66, 0
-  %arrayidx.i27 = getelementptr inbounds i8, ptr %22, i64 12
-  %23 = load float, ptr %arrayidx.i27, align 4
+  %arrayidx.i29 = getelementptr inbounds i8, ptr %22, i64 12
+  %23 = load float, ptr %arrayidx.i29, align 4
   %add68 = fadd float %add63, %23
   %call71 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %24 = extractvalue { ptr, i64 } %call71, 0
@@ -2665,20 +2665,20 @@ entry:
   %mul74 = fmul float %p.sroa.0.0.vec.extract, %25
   %call77 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %26 = extractvalue { ptr, i64 } %call77, 0
-  %arrayidx.i28 = getelementptr inbounds i8, ptr %26, i64 4
-  %27 = load float, ptr %arrayidx.i28, align 4
+  %arrayidx.i31 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = load float, ptr %arrayidx.i31, align 4
   %mul80 = fmul float %p.sroa.0.4.vec.extract, %27
   %add81 = fadd float %mul74, %mul80
   %call84 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %28 = extractvalue { ptr, i64 } %call84, 0
-  %arrayidx.i29 = getelementptr inbounds i8, ptr %28, i64 8
-  %29 = load float, ptr %arrayidx.i29, align 4
+  %arrayidx.i32 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = load float, ptr %arrayidx.i32, align 4
   %mul87 = fmul float %29, %p.coerce1
   %add88 = fadd float %add81, %mul87
   %call91 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %30 = extractvalue { ptr, i64 } %call91, 0
-  %arrayidx.i30 = getelementptr inbounds i8, ptr %30, i64 12
-  %31 = load float, ptr %arrayidx.i30, align 4
+  %arrayidx.i33 = getelementptr inbounds i8, ptr %30, i64 12
+  %31 = load float, ptr %arrayidx.i33, align 4
   %add93 = fadd float %add88, %31
   %cmp = fcmp oeq float %add93, 1.000000e+00
   %div.i = fdiv float %add18, %add93
@@ -3439,12 +3439,12 @@ entry:
   %9 = load float, ptr %8, align 4
   %call22 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %10 = extractvalue { ptr, i64 } %call22, 0
-  %arrayidx.i12 = getelementptr inbounds i8, ptr %10, i64 4
-  %11 = load float, ptr %arrayidx.i12, align 4
+  %arrayidx.i13 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = load float, ptr %arrayidx.i13, align 4
   %call29 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %12 = extractvalue { ptr, i64 } %call29, 0
-  %arrayidx.i13 = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load float, ptr %arrayidx.i13, align 4
+  %arrayidx.i14 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load float, ptr %arrayidx.i14, align 4
   %14 = insertelement <2 x float> poison, float %9, i64 0
   %15 = insertelement <2 x float> %14, float %5, i64 1
   %16 = fmul <2 x float> %15, %v.coerce0
@@ -3465,14 +3465,14 @@ entry:
   %mul39 = fmul float %1, %29
   %call42 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %30 = extractvalue { ptr, i64 } %call42, 0
-  %arrayidx.i14 = getelementptr inbounds i8, ptr %30, i64 4
-  %31 = load float, ptr %arrayidx.i14, align 4
+  %arrayidx.i16 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = load float, ptr %arrayidx.i16, align 4
   %mul45 = fmul float %0, %31
   %add46 = fadd float %mul39, %mul45
   %call49 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %32 = extractvalue { ptr, i64 } %call49, 0
-  %arrayidx.i15 = getelementptr inbounds i8, ptr %32, i64 8
-  %33 = load float, ptr %arrayidx.i15, align 4
+  %arrayidx.i17 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = load float, ptr %arrayidx.i17, align 4
   %mul52 = fmul float %33, %v.coerce1
   %add53 = fadd float %add46, %mul52
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %27, 0
@@ -5153,12 +5153,12 @@ entry:
   %9 = load float, ptr %8, align 4
   %call24 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 1)
   %10 = extractvalue { ptr, i64 } %call24, 0
-  %arrayidx.i8 = getelementptr inbounds i8, ptr %10, i64 4
-  %11 = load float, ptr %arrayidx.i8, align 4
+  %arrayidx.i9 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = load float, ptr %arrayidx.i9, align 4
   %call30 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 1)
   %12 = extractvalue { ptr, i64 } %call30, 0
-  %arrayidx.i9 = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load float, ptr %arrayidx.i9, align 4
+  %arrayidx.i10 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load float, ptr %arrayidx.i10, align 4
   %14 = insertelement <2 x float> poison, float %9, i64 0
   %15 = insertelement <2 x float> %14, float %5, i64 1
   %16 = fmul <2 x float> %15, %v.coerce0
@@ -5179,14 +5179,14 @@ entry:
   %mul38 = fmul float %1, %29
   %call41 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 2)
   %30 = extractvalue { ptr, i64 } %call41, 0
-  %arrayidx.i10 = getelementptr inbounds i8, ptr %30, i64 4
-  %31 = load float, ptr %arrayidx.i10, align 4
+  %arrayidx.i12 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = load float, ptr %arrayidx.i12, align 4
   %mul43 = fmul float %0, %31
   %add44 = fadd float %mul38, %mul43
   %call47 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 2)
   %32 = extractvalue { ptr, i64 } %call47, 0
-  %arrayidx.i11 = getelementptr inbounds i8, ptr %32, i64 8
-  %33 = load float, ptr %arrayidx.i11, align 4
+  %arrayidx.i13 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = load float, ptr %arrayidx.i13, align 4
   %mul49 = fmul float %33, %v.coerce1
   %add50 = fadd float %add44, %mul49
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %27, 0
@@ -6067,8 +6067,8 @@ for.body.i:                                       ; preds = %for.body8, %for.inc
   %indvars.iv.i.sroa.phi = phi ptr [ %wrapMode.i.sroa.0, %for.body8 ], [ %wrapMode.i.sroa.4, %for.inc.i ]
   %.sroa.speculated = select i1 %cmp.i.i198, i32 %p.i.sroa.0.4, i32 %v.0488
   %cmp73.i = icmp sgt i32 %.sroa.speculated, -1
-  %.sroa.speculated100.i = select i1 %cmp.i.i198, i32 %ref.tmp3.sroa.0.0.extract.trunc483, i32 %resolution.sroa.9.0.extract.trunc.i
-  %cmp76.i = icmp slt i32 %.sroa.speculated, %.sroa.speculated100.i
+  %.sroa.speculated113.i = select i1 %cmp.i.i198, i32 %ref.tmp3.sroa.0.0.extract.trunc483, i32 %resolution.sroa.9.0.extract.trunc.i
+  %cmp76.i = icmp slt i32 %.sroa.speculated, %.sroa.speculated113.i
   %or.cond.i = select i1 %cmp73.i, i1 %cmp76.i, i1 false
   br i1 %or.cond.i, label %for.inc.i, label %if.end78.i
 
@@ -6081,17 +6081,17 @@ if.end78.i:                                       ; preds = %for.body.i
   ]
 
 sw.bb.i200:                                       ; preds = %if.end78.i
-  %4 = srem i32 %.sroa.speculated, %.sroa.speculated100.i
-  %cmp.i68.i = icmp slt i32 %4, 0
-  %add.i.i201 = select i1 %cmp.i68.i, i32 %.sroa.speculated100.i, i32 0
+  %4 = srem i32 %.sroa.speculated, %.sroa.speculated113.i
+  %cmp.i81.i = icmp slt i32 %4, 0
+  %add.i.i201 = select i1 %cmp.i81.i, i32 %.sroa.speculated113.i, i32 0
   %cond.i.i = add nsw i32 %add.i.i201, %4
   br label %for.inc.sink.split.i
 
 sw.bb85.i:                                        ; preds = %if.end78.i
-  %sub88.i = add nsw i32 %.sroa.speculated100.i, -1
-  %cmp.i78.i = icmp slt i32 %.sroa.speculated, 0
+  %sub88.i = add nsw i32 %.sroa.speculated113.i, -1
+  %cmp.i91.i = icmp slt i32 %.sroa.speculated, 0
   %high.val.i.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated, i32 %sub88.i)
-  %retval.0.i.i = select i1 %cmp.i78.i, i32 0, i32 %high.val.i.i
+  %retval.0.i.i = select i1 %cmp.i91.i, i32 0, i32 %high.val.i.i
   br label %for.inc.sink.split.i
 
 sw.default.i202:                                  ; preds = %if.end78.i
@@ -6241,9 +6241,9 @@ for.body.i208:                                    ; preds = %_ZNK4pbrt5Image10Ge
   %indvars.iv.i210.sroa.phi = phi ptr [ %wrapMode.i203.sroa.0, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit ], [ %wrapMode.i203.sroa.4, %for.inc.i227 ]
   %.sroa.speculated391 = select i1 %cmp.i.i209, i32 %p.i16.sroa.0.4, i32 %v.0488
   %cmp73.i213 = icmp sgt i32 %.sroa.speculated391, -1
-  %.sroa.speculated100.i214.v = select i1 %cmp.i.i209, i64 %agg.tmp.sroa.0.0.copyload.i19, i64 %resolution.sroa.9.0.extract.shift.i205.pre-phi
-  %.sroa.speculated100.i214 = trunc i64 %.sroa.speculated100.i214.v to i32
-  %cmp76.i215 = icmp slt i32 %.sroa.speculated391, %.sroa.speculated100.i214
+  %.sroa.speculated113.i214.v = select i1 %cmp.i.i209, i64 %agg.tmp.sroa.0.0.copyload.i19, i64 %resolution.sroa.9.0.extract.shift.i205.pre-phi
+  %.sroa.speculated113.i214 = trunc i64 %.sroa.speculated113.i214.v to i32
+  %cmp76.i215 = icmp slt i32 %.sroa.speculated391, %.sroa.speculated113.i214
   %or.cond.i216 = select i1 %cmp73.i213, i1 %cmp76.i215, i1 false
   br i1 %or.cond.i216, label %for.inc.i227, label %if.end78.i217
 
@@ -6256,17 +6256,17 @@ if.end78.i217:                                    ; preds = %for.body.i208
   ]
 
 sw.bb.i228:                                       ; preds = %if.end78.i217
-  %27 = srem i32 %.sroa.speculated391, %.sroa.speculated100.i214
-  %cmp.i68.i229 = icmp slt i32 %27, 0
-  %add.i.i230 = select i1 %cmp.i68.i229, i32 %.sroa.speculated100.i214, i32 0
+  %27 = srem i32 %.sroa.speculated391, %.sroa.speculated113.i214
+  %cmp.i81.i229 = icmp slt i32 %27, 0
+  %add.i.i230 = select i1 %cmp.i81.i229, i32 %.sroa.speculated113.i214, i32 0
   %cond.i.i231 = add nsw i32 %add.i.i230, %27
   br label %for.inc.sink.split.i225
 
 sw.bb85.i220:                                     ; preds = %if.end78.i217
-  %sub88.i221 = add nsw i32 %.sroa.speculated100.i214, -1
-  %cmp.i78.i222 = icmp slt i32 %.sroa.speculated391, 0
+  %sub88.i221 = add nsw i32 %.sroa.speculated113.i214, -1
+  %cmp.i91.i222 = icmp slt i32 %.sroa.speculated391, 0
   %high.val.i.i223 = call i32 @llvm.smin.i32(i32 %.sroa.speculated391, i32 %sub88.i221)
-  %retval.0.i.i224 = select i1 %cmp.i78.i222, i32 0, i32 %high.val.i.i223
+  %retval.0.i.i224 = select i1 %cmp.i91.i222, i32 0, i32 %high.val.i.i223
   br label %for.inc.sink.split.i225
 
 sw.default.i232:                                  ; preds = %if.end78.i217
@@ -6419,9 +6419,9 @@ for.body.i279:                                    ; preds = %_ZNK4pbrt5Image10Ge
   %indvars.iv.i281.sroa.phi = phi ptr [ %wrapMode.i274.sroa.0, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit88 ], [ %wrapMode.i274.sroa.4, %for.inc.i298 ]
   %.sroa.speculated418 = select i1 %cmp.i.i280, i32 %p.i91.sroa.0.4, i32 %v.0488
   %cmp73.i284 = icmp sgt i32 %.sroa.speculated418, -1
-  %.sroa.speculated100.i285.v = select i1 %cmp.i.i280, i64 %agg.tmp.sroa.0.0.copyload.i94, i64 %resolution.sroa.9.0.extract.shift.i276.pre-phi
-  %.sroa.speculated100.i285 = trunc i64 %.sroa.speculated100.i285.v to i32
-  %cmp76.i286 = icmp slt i32 %.sroa.speculated418, %.sroa.speculated100.i285
+  %.sroa.speculated113.i285.v = select i1 %cmp.i.i280, i64 %agg.tmp.sroa.0.0.copyload.i94, i64 %resolution.sroa.9.0.extract.shift.i276.pre-phi
+  %.sroa.speculated113.i285 = trunc i64 %.sroa.speculated113.i285.v to i32
+  %cmp76.i286 = icmp slt i32 %.sroa.speculated418, %.sroa.speculated113.i285
   %or.cond.i287 = select i1 %cmp73.i284, i1 %cmp76.i286, i1 false
   br i1 %or.cond.i287, label %for.inc.i298, label %if.end78.i288
 
@@ -6434,17 +6434,17 @@ if.end78.i288:                                    ; preds = %for.body.i279
   ]
 
 sw.bb.i299:                                       ; preds = %if.end78.i288
-  %50 = srem i32 %.sroa.speculated418, %.sroa.speculated100.i285
-  %cmp.i68.i300 = icmp slt i32 %50, 0
-  %add.i.i301 = select i1 %cmp.i68.i300, i32 %.sroa.speculated100.i285, i32 0
+  %50 = srem i32 %.sroa.speculated418, %.sroa.speculated113.i285
+  %cmp.i81.i300 = icmp slt i32 %50, 0
+  %add.i.i301 = select i1 %cmp.i81.i300, i32 %.sroa.speculated113.i285, i32 0
   %cond.i.i302 = add nsw i32 %add.i.i301, %50
   br label %for.inc.sink.split.i296
 
 sw.bb85.i291:                                     ; preds = %if.end78.i288
-  %sub88.i292 = add nsw i32 %.sroa.speculated100.i285, -1
-  %cmp.i78.i293 = icmp slt i32 %.sroa.speculated418, 0
+  %sub88.i292 = add nsw i32 %.sroa.speculated113.i285, -1
+  %cmp.i91.i293 = icmp slt i32 %.sroa.speculated418, 0
   %high.val.i.i294 = call i32 @llvm.smin.i32(i32 %.sroa.speculated418, i32 %sub88.i292)
-  %retval.0.i.i295 = select i1 %cmp.i78.i293, i32 0, i32 %high.val.i.i294
+  %retval.0.i.i295 = select i1 %cmp.i91.i293, i32 0, i32 %high.val.i.i294
   br label %for.inc.sink.split.i296
 
 sw.default.i303:                                  ; preds = %if.end78.i288
@@ -7042,82 +7042,82 @@ _ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit: ; preds = %_ZN4pbrt12FindInter
   %ptr.i = getelementptr inbounds i8, ptr %this, i64 24
   %14 = load ptr, ptr %ptr.i, align 8
   %arrayidx.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %14, i64 %conv6.i
-  %nStored.i.i5 = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
-  %15 = load i64, ptr %nStored.i.i5, align 8
-  %sext.i6 = shl i64 %15, 32
-  %conv2.i7 = ashr exact i64 %sext.i6, 32
-  %sub.i.i8 = add nsw i64 %conv2.i7, -2
-  %cmp11.i.i9 = icmp sgt i64 %conv2.i7, 2
-  %ptr.i.i.i.i43 = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
-  %16 = load ptr, ptr %ptr.i.i.i.i43, align 8
-  br i1 %cmp11.i.i9, label %while.body.i.i44, label %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10
+  %nStored.i.i7 = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
+  %15 = load i64, ptr %nStored.i.i7, align 8
+  %sext.i8 = shl i64 %15, 32
+  %conv2.i9 = ashr exact i64 %sext.i8, 32
+  %sub.i.i10 = add nsw i64 %conv2.i9, -2
+  %cmp11.i.i11 = icmp sgt i64 %conv2.i9, 2
+  %ptr.i.i.i.i45 = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
+  %16 = load ptr, ptr %ptr.i.i.i.i45, align 8
+  br i1 %cmp11.i.i11, label %while.body.i.i46, label %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12
 
-while.body.i.i44:                                 ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit, %while.body.i.i44
-  %size.013.i.i45 = phi i64 [ %cond8.i.i58, %while.body.i.i44 ], [ %sub.i.i8, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
-  %first.012.i.i46 = phi i64 [ %cond.fr20.i.i55, %while.body.i.i44 ], [ 1, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
-  %shr.i.i47 = lshr i64 %size.013.i.i45, 1
-  %add.i.i48 = add i64 %shr.i.i47, %first.012.i.i46
-  %sext.i.i49 = shl i64 %add.i.i48, 32
-  %conv.i.i.i50 = ashr exact i64 %sext.i.i49, 32
-  %arrayidx.i.i.i.i51 = getelementptr inbounds float, ptr %16, i64 %conv.i.i.i50
-  %17 = load float, ptr %arrayidx.i.i.i.i51, align 4
-  %cmp.i.i.i52 = fcmp ole float %17, %1
-  %add1.i.i53 = add i64 %add.i.i48, 1
-  %cond.i.i54 = select i1 %cmp.i.i.i52, i64 %add1.i.i53, i64 %first.012.i.i46
-  %cond.fr20.i.i55 = freeze i64 %cond.i.i54
-  %add4.neg.i.i56 = xor i64 %shr.i.i47, -1
-  %sub5.i.i57 = add nsw i64 %size.013.i.i45, %add4.neg.i.i56
-  %cond8.i.i58 = select i1 %cmp.i.i.i52, i64 %sub5.i.i57, i64 %shr.i.i47
-  %cmp.i.i59 = icmp sgt i64 %cond8.i.i58, 0
-  br i1 %cmp.i.i59, label %while.body.i.i44, label %while.end.i.i60, !llvm.loop !42
+while.body.i.i46:                                 ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit, %while.body.i.i46
+  %size.013.i.i47 = phi i64 [ %cond8.i.i60, %while.body.i.i46 ], [ %sub.i.i10, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
+  %first.012.i.i48 = phi i64 [ %cond.fr20.i.i57, %while.body.i.i46 ], [ 1, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
+  %shr.i.i49 = lshr i64 %size.013.i.i47, 1
+  %add.i.i50 = add i64 %shr.i.i49, %first.012.i.i48
+  %sext.i.i51 = shl i64 %add.i.i50, 32
+  %conv.i.i.i52 = ashr exact i64 %sext.i.i51, 32
+  %arrayidx.i.i.i.i53 = getelementptr inbounds float, ptr %16, i64 %conv.i.i.i52
+  %17 = load float, ptr %arrayidx.i.i.i.i53, align 4
+  %cmp.i.i.i54 = fcmp ole float %17, %1
+  %add1.i.i55 = add i64 %add.i.i50, 1
+  %cond.i.i56 = select i1 %cmp.i.i.i54, i64 %add1.i.i55, i64 %first.012.i.i48
+  %cond.fr20.i.i57 = freeze i64 %cond.i.i56
+  %add4.neg.i.i58 = xor i64 %shr.i.i49, -1
+  %sub5.i.i59 = add nsw i64 %size.013.i.i47, %add4.neg.i.i58
+  %cond8.i.i60 = select i1 %cmp.i.i.i54, i64 %sub5.i.i59, i64 %shr.i.i49
+  %cmp.i.i61 = icmp sgt i64 %cond8.i.i60, 0
+  br i1 %cmp.i.i61, label %while.body.i.i46, label %while.end.i.i62, !llvm.loop !42
 
-while.end.i.i60:                                  ; preds = %while.body.i.i44
-  %sub9.i.i61 = add nsw i64 %cond.fr20.i.i55, -1
-  %high.val.i.i.i62 = tail call i64 @llvm.umin.i64(i64 %sub9.i.i61, i64 %sub.i.i8)
-  %cmp.i10.inv.i.i63 = icmp sgt i64 %cond.fr20.i.i55, 0
-  %spec.select.i.i64 = select i1 %cmp.i10.inv.i.i63, i64 %high.val.i.i.i62, i64 0
-  br label %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10
+while.end.i.i62:                                  ; preds = %while.body.i.i46
+  %sub9.i.i63 = add nsw i64 %cond.fr20.i.i57, -1
+  %high.val.i.i.i64 = tail call i64 @llvm.umin.i64(i64 %sub9.i.i63, i64 %sub.i.i10)
+  %cmp.i10.inv.i.i65 = icmp sgt i64 %cond.fr20.i.i57, 0
+  %spec.select.i.i66 = select i1 %cmp.i10.inv.i.i65, i64 %high.val.i.i.i64, i64 0
+  br label %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12
 
-_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10: ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit, %while.end.i.i60
-  %18 = phi i64 [ %spec.select.i.i64, %while.end.i.i60 ], [ 0, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
-  %sext11.i12 = shl i64 %18, 32
-  %conv6.i13 = ashr exact i64 %sext11.i12, 32
-  %arrayidx.i.i15 = getelementptr inbounds float, ptr %16, i64 %conv6.i13
-  %19 = load float, ptr %arrayidx.i.i15, align 4
-  %sext12.i16 = add i64 %sext11.i12, 4294967296
-  %conv9.i17 = ashr exact i64 %sext12.i16, 32
-  %arrayidx.i14.i18 = getelementptr inbounds float, ptr %16, i64 %conv9.i17
-  %20 = load float, ptr %arrayidx.i14.i18, align 4
-  %funcInt.i19 = getelementptr inbounds i8, ptr %arrayidx.i, i64 72
-  %21 = load float, ptr %funcInt.i19, align 8
-  %cmp27.i20 = fcmp ogt float %21, 0.000000e+00
-  br i1 %cmp27.i20, label %cond.true.i38, label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit65
+_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12: ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit, %while.end.i.i62
+  %18 = phi i64 [ %spec.select.i.i66, %while.end.i.i62 ], [ 0, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
+  %sext11.i14 = shl i64 %18, 32
+  %conv6.i15 = ashr exact i64 %sext11.i14, 32
+  %arrayidx.i.i17 = getelementptr inbounds float, ptr %16, i64 %conv6.i15
+  %19 = load float, ptr %arrayidx.i.i17, align 4
+  %sext12.i18 = add i64 %sext11.i14, 4294967296
+  %conv9.i19 = ashr exact i64 %sext12.i18, 32
+  %arrayidx.i14.i20 = getelementptr inbounds float, ptr %16, i64 %conv9.i19
+  %20 = load float, ptr %arrayidx.i14.i20, align 4
+  %funcInt.i21 = getelementptr inbounds i8, ptr %arrayidx.i, i64 72
+  %21 = load float, ptr %funcInt.i21, align 8
+  %cmp27.i22 = fcmp ogt float %21, 0.000000e+00
+  br i1 %cmp27.i22, label %cond.true.i40, label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit67
 
-cond.true.i38:                                    ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10
-  %ptr.i21.i39 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %22 = load ptr, ptr %ptr.i21.i39, align 8
-  %arrayidx.i22.i40 = getelementptr inbounds float, ptr %22, i64 %conv6.i13
-  %23 = load float, ptr %arrayidx.i22.i40, align 4
-  %div31.i41 = fdiv float %23, %21
-  br label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit65
+cond.true.i40:                                    ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12
+  %ptr.i21.i41 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %22 = load ptr, ptr %ptr.i21.i41, align 8
+  %arrayidx.i22.i42 = getelementptr inbounds float, ptr %22, i64 %conv6.i15
+  %23 = load float, ptr %arrayidx.i22.i42, align 4
+  %div31.i43 = fdiv float %23, %21
+  br label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit67
 
-_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit65: ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10, %cond.true.i38
-  %cond.i21 = phi float [ %div31.i41, %cond.true.i38 ], [ 0.000000e+00, %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10 ]
-  %nStored.i.i.i29 = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
-  %24 = load i64, ptr %nStored.i.i.i29, align 8
-  %min.i32 = getelementptr inbounds i8, ptr %arrayidx.i, i64 64
-  %25 = load float, ptr %min.i32, align 8
-  %max.i33 = getelementptr inbounds i8, ptr %arrayidx.i, i64 68
-  %26 = load float, ptr %max.i33, align 4
+_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit67: ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12, %cond.true.i40
+  %cond.i23 = phi float [ %div31.i43, %cond.true.i40 ], [ 0.000000e+00, %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12 ]
+  %nStored.i.i.i31 = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %24 = load i64, ptr %nStored.i.i.i31, align 8
+  %min.i34 = getelementptr inbounds i8, ptr %arrayidx.i, i64 64
+  %25 = load float, ptr %min.i34, align 8
+  %max.i35 = getelementptr inbounds i8, ptr %arrayidx.i, i64 68
+  %26 = load float, ptr %max.i35, align 4
   %tobool.not = icmp eq ptr %pdf, null
   br i1 %tobool.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit65
-  %mul = fmul float %cond.i, %cond.i21
+if.then:                                          ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit67
+  %mul = fmul float %cond.i, %cond.i23
   store float %mul, ptr %pdf, align 4
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit65
+if.end:                                           ; preds = %if.then, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit67
   %tobool12.not = icmp eq ptr %offset, null
   br i1 %tobool12.not, label %if.end14, label %if.then13
 
@@ -8009,9 +8009,9 @@ for.body.i:                                       ; preds = %invoke.cont229, %fo
   %indvars.iv.i.sroa.phi = phi ptr [ %wrapMode.i.sroa.0, %invoke.cont229 ], [ %wrapMode.i.sroa.4, %for.inc.i ]
   %.sroa.speculated = select i1 %cmp.i.i182, i32 %p.i.sroa.0.4, i32 %y166.0275
   %cmp73.i = icmp sgt i32 %.sroa.speculated, -1
-  %.sroa.speculated100.i.v = select i1 %cmp.i.i182, i64 %agg.tmp.sroa.0.0.copyload.i, i64 %resolution.sroa.9.0.extract.shift.i
-  %.sroa.speculated100.i = trunc i64 %.sroa.speculated100.i.v to i32
-  %cmp76.i = icmp slt i32 %.sroa.speculated, %.sroa.speculated100.i
+  %.sroa.speculated113.i.v = select i1 %cmp.i.i182, i64 %agg.tmp.sroa.0.0.copyload.i, i64 %resolution.sroa.9.0.extract.shift.i
+  %.sroa.speculated113.i = trunc i64 %.sroa.speculated113.i.v to i32
+  %cmp76.i = icmp slt i32 %.sroa.speculated, %.sroa.speculated113.i
   %or.cond.i = select i1 %cmp73.i, i1 %cmp76.i, i1 false
   br i1 %or.cond.i, label %for.inc.i, label %if.end78.i
 
@@ -8024,17 +8024,17 @@ if.end78.i:                                       ; preds = %for.body.i
   ]
 
 sw.bb.i184:                                       ; preds = %if.end78.i
-  %53 = srem i32 %.sroa.speculated, %.sroa.speculated100.i
-  %cmp.i68.i = icmp slt i32 %53, 0
-  %add.i.i185 = select i1 %cmp.i68.i, i32 %.sroa.speculated100.i, i32 0
+  %53 = srem i32 %.sroa.speculated, %.sroa.speculated113.i
+  %cmp.i81.i = icmp slt i32 %53, 0
+  %add.i.i185 = select i1 %cmp.i81.i, i32 %.sroa.speculated113.i, i32 0
   %cond.i.i = add nsw i32 %add.i.i185, %53
   br label %for.inc.sink.split.i
 
 sw.bb85.i:                                        ; preds = %if.end78.i
-  %sub88.i = add nsw i32 %.sroa.speculated100.i, -1
-  %cmp.i78.i = icmp slt i32 %.sroa.speculated, 0
+  %sub88.i = add nsw i32 %.sroa.speculated113.i, -1
+  %cmp.i91.i = icmp slt i32 %.sroa.speculated, 0
   %high.val.i.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated, i32 %sub88.i)
-  %retval.0.i.i = select i1 %cmp.i78.i, i32 0, i32 %high.val.i.i
+  %retval.0.i.i = select i1 %cmp.i91.i, i32 0, i32 %high.val.i.i
   br label %for.inc.sink.split.i
 
 sw.default.i186.invoke:                           ; preds = %if.end.i, %if.end78.i
@@ -9087,8 +9087,8 @@ for.body.i61:                                     ; preds = %for.body10, %for.in
   %indvars.iv.i63.sroa.phi = phi ptr [ %wrapMode.i.sroa.0, %for.body10 ], [ %wrapMode.i.sroa.4, %for.inc.i65 ]
   %.sroa.speculated = select i1 %cmp.i.i62, i32 %p.i.sroa.0.4, i32 %y.0122
   %cmp73.i = icmp sgt i32 %.sroa.speculated, -1
-  %.sroa.speculated100.i = select i1 %cmp.i.i62, i32 %ref.tmp4.sroa.0.0.extract.trunc117, i32 %resolution.sroa.9.0.extract.trunc.i
-  %cmp76.i = icmp slt i32 %.sroa.speculated, %.sroa.speculated100.i
+  %.sroa.speculated113.i = select i1 %cmp.i.i62, i32 %ref.tmp4.sroa.0.0.extract.trunc117, i32 %resolution.sroa.9.0.extract.trunc.i
+  %cmp76.i = icmp slt i32 %.sroa.speculated, %.sroa.speculated113.i
   %or.cond.i = select i1 %cmp73.i, i1 %cmp76.i, i1 false
   br i1 %or.cond.i, label %for.inc.i65, label %if.end78.i
 
@@ -9101,17 +9101,17 @@ if.end78.i:                                       ; preds = %for.body.i61
   ]
 
 sw.bb.i66:                                        ; preds = %if.end78.i
-  %4 = srem i32 %.sroa.speculated, %.sroa.speculated100.i
-  %cmp.i68.i = icmp slt i32 %4, 0
-  %add.i.i67 = select i1 %cmp.i68.i, i32 %.sroa.speculated100.i, i32 0
+  %4 = srem i32 %.sroa.speculated, %.sroa.speculated113.i
+  %cmp.i81.i = icmp slt i32 %4, 0
+  %add.i.i67 = select i1 %cmp.i81.i, i32 %.sroa.speculated113.i, i32 0
   %cond.i.i = add nsw i32 %add.i.i67, %4
   br label %for.inc.sink.split.i
 
 sw.bb85.i:                                        ; preds = %if.end78.i
-  %sub88.i = add nsw i32 %.sroa.speculated100.i, -1
-  %cmp.i78.i = icmp slt i32 %.sroa.speculated, 0
+  %sub88.i = add nsw i32 %.sroa.speculated113.i, -1
+  %cmp.i91.i = icmp slt i32 %.sroa.speculated, 0
   %high.val.i.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated, i32 %sub88.i)
-  %retval.0.i.i = select i1 %cmp.i78.i, i32 0, i32 %high.val.i.i
+  %retval.0.i.i = select i1 %cmp.i91.i, i32 0, i32 %high.val.i.i
   br label %for.inc.sink.split.i
 
 sw.default.i68:                                   ; preds = %if.end78.i
@@ -9477,8 +9477,8 @@ for.body.i:                                       ; preds = %for.body10, %for.in
   %indvars.iv.i.sroa.phi = phi ptr [ %wrapMode.i.sroa.0, %for.body10 ], [ %wrapMode.i.sroa.4, %for.inc.i ]
   %.sroa.speculated = select i1 %cmp.i.i21, i32 %p.i.sroa.0.4, i32 %y.081
   %cmp73.i = icmp sgt i32 %.sroa.speculated, -1
-  %.sroa.speculated100.i = select i1 %cmp.i.i21, i32 %ref.tmp4.sroa.0.0.extract.trunc76, i32 %resolution.sroa.9.0.extract.trunc.i
-  %cmp76.i = icmp slt i32 %.sroa.speculated, %.sroa.speculated100.i
+  %.sroa.speculated113.i = select i1 %cmp.i.i21, i32 %ref.tmp4.sroa.0.0.extract.trunc76, i32 %resolution.sroa.9.0.extract.trunc.i
+  %cmp76.i = icmp slt i32 %.sroa.speculated, %.sroa.speculated113.i
   %or.cond.i = select i1 %cmp73.i, i1 %cmp76.i, i1 false
   br i1 %or.cond.i, label %for.inc.i, label %if.end78.i
 
@@ -9491,17 +9491,17 @@ if.end78.i:                                       ; preds = %for.body.i
   ]
 
 sw.bb.i23:                                        ; preds = %if.end78.i
-  %4 = srem i32 %.sroa.speculated, %.sroa.speculated100.i
-  %cmp.i68.i = icmp slt i32 %4, 0
-  %add.i.i24 = select i1 %cmp.i68.i, i32 %.sroa.speculated100.i, i32 0
+  %4 = srem i32 %.sroa.speculated, %.sroa.speculated113.i
+  %cmp.i81.i = icmp slt i32 %4, 0
+  %add.i.i24 = select i1 %cmp.i81.i, i32 %.sroa.speculated113.i, i32 0
   %cond.i.i = add nsw i32 %add.i.i24, %4
   br label %for.inc.sink.split.i
 
 sw.bb85.i:                                        ; preds = %if.end78.i
-  %sub88.i = add nsw i32 %.sroa.speculated100.i, -1
-  %cmp.i78.i = icmp slt i32 %.sroa.speculated, 0
+  %sub88.i = add nsw i32 %.sroa.speculated113.i, -1
+  %cmp.i91.i = icmp slt i32 %.sroa.speculated, 0
   %high.val.i.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated, i32 %sub88.i)
-  %retval.0.i.i = select i1 %cmp.i78.i, i32 0, i32 %high.val.i.i
+  %retval.0.i.i = select i1 %cmp.i91.i, i32 0, i32 %high.val.i.i
   br label %for.inc.sink.split.i
 
 sw.default.i25:                                   ; preds = %if.end78.i
@@ -10251,12 +10251,12 @@ lpad36.loopexit:                                  ; preds = %for.body9.i.i
   br label %ehcleanup344
 
 lpad36.loopexit.split-lp.loopexit:                ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i
-  %lpad.loopexit247 = landingpad { ptr, i32 }
+  %lpad.loopexit248 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup344
 
-lpad36.loopexit.split-lp.loopexit.split-lp:       ; preds = %sw.default.i205.invoke, %call.i.i.i.i.noexc, %invoke.cont341, %.noexc193, %.noexc192, %if.end339, %invoke.cont340, %invoke.cont278, %if.else, %if.then
-  %lpad.loopexit.split-lp248 = landingpad { ptr, i32 }
+lpad36.loopexit.split-lp.loopexit.split-lp:       ; preds = %sw.default.i206.invoke, %call.i.i.i.i.noexc, %invoke.cont341, %.noexc194, %.noexc193, %if.end339, %invoke.cont340, %invoke.cont278, %if.else, %if.then
+  %lpad.loopexit.split-lp249 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup344
 
@@ -10514,7 +10514,7 @@ ehcleanup147:                                     ; preds = %lpad131, %lpad125, 
   br label %ehcleanup274
 
 lpad158.loopexit:                                 ; preds = %invoke.cont248
-  %lpad.loopexit250 = landingpad { ptr, i32 }
+  %lpad.loopexit251 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup273
 
@@ -10583,11 +10583,11 @@ invoke.cont198:                                   ; preds = %call9.i.noexc
   call void @_ZN4pbrt5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp167) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp178) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp181) #28
-  %retval.sroa.0.0.copyload.i138268 = load i64, ptr %resolution.i, align 4
-  %ref.tmp226.sroa.1.0.extract.shift269 = lshr i64 %retval.sroa.0.0.copyload.i138268, 32
-  %ref.tmp226.sroa.1.0.extract.trunc270 = trunc nuw i64 %ref.tmp226.sroa.1.0.extract.shift269 to i32
-  %cmp231271 = icmp sgt i32 %ref.tmp226.sroa.1.0.extract.trunc270, 0
-  br i1 %cmp231271, label %for.cond233.preheader.lr.ph, label %if.end272
+  %retval.sroa.0.0.copyload.i138269 = load i64, ptr %resolution.i, align 4
+  %ref.tmp226.sroa.1.0.extract.shift270 = lshr i64 %retval.sroa.0.0.copyload.i138269, 32
+  %ref.tmp226.sroa.1.0.extract.trunc271 = trunc nuw i64 %ref.tmp226.sroa.1.0.extract.shift270 to i32
+  %cmp231272 = icmp sgt i32 %ref.tmp226.sroa.1.0.extract.trunc271, 0
+  br i1 %cmp231272, label %for.cond233.preheader.lr.ph, label %if.end272
 
 for.cond233.preheader.lr.ph:                      ; preds = %invoke.cont198
   %nStored.i.i = getelementptr inbounds i8, ptr %ref.tmp243, i64 40
@@ -10597,14 +10597,14 @@ for.cond233.preheader.lr.ph:                      ; preds = %invoke.cont198
   br label %for.cond233.preheader
 
 for.cond233.preheader:                            ; preds = %for.cond233.preheader.lr.ph, %for.inc259
-  %retval.sroa.0.0.copyload.i138297 = phi i64 [ %retval.sroa.0.0.copyload.i138268, %for.cond233.preheader.lr.ph ], [ %retval.sroa.0.0.copyload.i138, %for.inc259 ]
-  %indvars.iv292 = phi i64 [ 0, %for.cond233.preheader.lr.ph ], [ %indvars.iv.next293, %for.inc259 ]
-  %ref.tmp234.sroa.0.0.extract.trunc265 = trunc i64 %retval.sroa.0.0.copyload.i138297 to i32
-  %cmp239266 = icmp sgt i32 %ref.tmp234.sroa.0.0.extract.trunc265, 0
-  br i1 %cmp239266, label %invoke.cont248.lr.ph, label %for.inc259
+  %retval.sroa.0.0.copyload.i138298 = phi i64 [ %retval.sroa.0.0.copyload.i138269, %for.cond233.preheader.lr.ph ], [ %retval.sroa.0.0.copyload.i138, %for.inc259 ]
+  %indvars.iv293 = phi i64 [ 0, %for.cond233.preheader.lr.ph ], [ %indvars.iv.next294, %for.inc259 ]
+  %ref.tmp234.sroa.0.0.extract.trunc266 = trunc i64 %retval.sroa.0.0.copyload.i138298 to i32
+  %cmp239267 = icmp sgt i32 %ref.tmp234.sroa.0.0.extract.trunc266, 0
+  br i1 %cmp239267, label %invoke.cont248.lr.ph, label %for.inc259
 
 invoke.cont248.lr.ph:                             ; preds = %for.cond233.preheader
-  %agg.tmp245.sroa.2.0.insert.shift = shl nuw nsw i64 %indvars.iv292, 32
+  %agg.tmp245.sroa.2.0.insert.shift = shl nuw nsw i64 %indvars.iv293, 32
   br label %invoke.cont248
 
 invoke.cont248:                                   ; preds = %invoke.cont248.lr.ph, %_ZN4pbrt18ImageChannelValuesD2Ev.exit
@@ -10705,10 +10705,10 @@ lpad253:                                          ; preds = %invoke.cont254
   br label %ehcleanup273
 
 for.inc259:                                       ; preds = %_ZN4pbrt18ImageChannelValuesD2Ev.exit, %for.cond233.preheader
-  %retval.sroa.0.0.copyload.i138 = phi i64 [ %retval.sroa.0.0.copyload.i138297, %for.cond233.preheader ], [ %retval.sroa.0.0.copyload.i140, %_ZN4pbrt18ImageChannelValuesD2Ev.exit ]
-  %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
+  %retval.sroa.0.0.copyload.i138 = phi i64 [ %retval.sroa.0.0.copyload.i138298, %for.cond233.preheader ], [ %retval.sroa.0.0.copyload.i140, %_ZN4pbrt18ImageChannelValuesD2Ev.exit ]
+  %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %52 = ashr i64 %retval.sroa.0.0.copyload.i138, 32
-  %cmp231 = icmp slt i64 %indvars.iv.next293, %52
+  %cmp231 = icmp slt i64 %indvars.iv.next294, %52
   br i1 %cmp231, label %for.cond233.preheader, label %if.end272, !llvm.loop !61
 
 invoke.cont263:                                   ; preds = %invoke.cont133
@@ -10783,7 +10783,7 @@ _ZN4pbrt16ImageChannelDescD2Ev.exit163:           ; preds = %_ZN4pbrt16ImageChan
   br label %invoke.cont278
 
 ehcleanup273:                                     ; preds = %lpad158.loopexit, %lpad158.loopexit.split-lp, %ehcleanup214, %lpad253
-  %.pn37 = phi { ptr, i32 } [ %51, %lpad253 ], [ %.pn34.pn, %ehcleanup214 ], [ %lpad.loopexit250, %lpad158.loopexit ], [ %lpad.loopexit.split-lp, %lpad158.loopexit.split-lp ]
+  %.pn37 = phi { ptr, i32 } [ %51, %lpad253 ], [ %.pn34.pn, %ehcleanup214 ], [ %lpad.loopexit251, %lpad158.loopexit ], [ %lpad.loopexit.split-lp, %lpad158.loopexit.split-lp ]
   call void @_ZN4pbrt16ImageChannelDescD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %yDesc) #28
   br label %ehcleanup274
 
@@ -10838,12 +10838,12 @@ invoke.cont286:                                   ; preds = %invoke.cont284
   br i1 %cmp290, label %for.cond293.preheader, label %if.end339
 
 for.cond293.preheader:                            ; preds = %invoke.cont286
-  %retval.sroa.0.0.copyload.i174280 = load i64, ptr %resolution.i, align 4
-  %ref.tmp294.sroa.1.0.extract.shift281 = lshr i64 %retval.sroa.0.0.copyload.i174280, 32
-  %ref.tmp294.sroa.1.0.extract.trunc282 = trunc nuw i64 %ref.tmp294.sroa.1.0.extract.shift281 to i32
-  %cmp299283 = icmp sgt i32 %ref.tmp294.sroa.1.0.extract.trunc282, 0
-  %68 = trunc i64 %retval.sroa.0.0.copyload.i174280 to i32
-  br i1 %cmp299283, label %for.cond302.preheader.lr.ph, label %for.end324
+  %retval.sroa.0.0.copyload.i174281 = load i64, ptr %resolution.i, align 4
+  %ref.tmp294.sroa.1.0.extract.shift282 = lshr i64 %retval.sroa.0.0.copyload.i174281, 32
+  %ref.tmp294.sroa.1.0.extract.trunc283 = trunc nuw i64 %ref.tmp294.sroa.1.0.extract.shift282 to i32
+  %cmp299284 = icmp sgt i32 %ref.tmp294.sroa.1.0.extract.trunc283, 0
+  %68 = trunc i64 %retval.sroa.0.0.copyload.i174281 to i32
+  br i1 %cmp299284, label %for.cond302.preheader.lr.ph, label %for.end324
 
 for.cond302.preheader.lr.ph:                      ; preds = %for.cond293.preheader
   %nStored.i.i.i21.i = getelementptr inbounds i8, ptr %image, i64 40
@@ -10851,92 +10851,92 @@ for.cond302.preheader.lr.ph:                      ; preds = %for.cond293.prehead
   br label %for.cond302.preheader
 
 for.cond302.preheader:                            ; preds = %for.cond302.preheader.lr.ph, %for.inc322
-  %retval.sroa.0.0.copyload.i174301 = phi i64 [ %retval.sroa.0.0.copyload.i174280, %for.cond302.preheader.lr.ph ], [ %retval.sroa.0.0.copyload.i174, %for.inc322 ]
+  %retval.sroa.0.0.copyload.i174302 = phi i64 [ %retval.sroa.0.0.copyload.i174281, %for.cond302.preheader.lr.ph ], [ %retval.sroa.0.0.copyload.i174, %for.inc322 ]
   %69 = phi i32 [ %68, %for.cond302.preheader.lr.ph ], [ %.pre-phi, %for.inc322 ]
-  %sumY.0285 = phi float [ 0.000000e+00, %for.cond302.preheader.lr.ph ], [ %sumY.1.lcssa, %for.inc322 ]
-  %y292.0284 = phi i32 [ 0, %for.cond302.preheader.lr.ph ], [ %inc323, %for.inc322 ]
-  %ref.tmp303.sroa.0.0.extract.trunc274 = trunc i64 %retval.sroa.0.0.copyload.i174301 to i32
-  %cmp308275 = icmp sgt i32 %ref.tmp303.sroa.0.0.extract.trunc274, 0
-  br i1 %cmp308275, label %invoke.cont313, label %for.inc322
+  %sumY.0286 = phi float [ 0.000000e+00, %for.cond302.preheader.lr.ph ], [ %sumY.1.lcssa, %for.inc322 ]
+  %y292.0285 = phi i32 [ 0, %for.cond302.preheader.lr.ph ], [ %inc323, %for.inc322 ]
+  %ref.tmp303.sroa.0.0.extract.trunc275 = trunc i64 %retval.sroa.0.0.copyload.i174302 to i32
+  %cmp308276 = icmp sgt i32 %ref.tmp303.sroa.0.0.extract.trunc275, 0
+  br i1 %cmp308276, label %invoke.cont313, label %for.inc322
 
 invoke.cont313:                                   ; preds = %for.cond302.preheader, %invoke.cont317
-  %retval.sroa.0.0.copyload.i174303 = phi i64 [ %retval.sroa.0.0.copyload.i174304, %invoke.cont317 ], [ %retval.sroa.0.0.copyload.i174301, %for.cond302.preheader ]
-  %retval.sroa.0.0.copyload.i176299 = phi i64 [ %retval.sroa.0.0.copyload.i176, %invoke.cont317 ], [ %retval.sroa.0.0.copyload.i174301, %for.cond302.preheader ]
+  %retval.sroa.0.0.copyload.i174304 = phi i64 [ %retval.sroa.0.0.copyload.i174305, %invoke.cont317 ], [ %retval.sroa.0.0.copyload.i174302, %for.cond302.preheader ]
+  %retval.sroa.0.0.copyload.i176300 = phi i64 [ %retval.sroa.0.0.copyload.i176, %invoke.cont317 ], [ %retval.sroa.0.0.copyload.i174302, %for.cond302.preheader ]
   %70 = phi i32 [ %ref.tmp303.sroa.0.0.extract.trunc, %invoke.cont317 ], [ %69, %for.cond302.preheader ]
-  %ref.tmp303.sroa.0.0.extract.trunc279 = phi i32 [ %ref.tmp303.sroa.0.0.extract.trunc, %invoke.cont317 ], [ %ref.tmp303.sroa.0.0.extract.trunc274, %for.cond302.preheader ]
-  %x301.0277 = phi i32 [ %inc320, %invoke.cont317 ], [ 0, %for.cond302.preheader ]
-  %sumY.1276 = phi float [ %add, %invoke.cont317 ], [ %sumY.0285, %for.cond302.preheader ]
+  %ref.tmp303.sroa.0.0.extract.trunc280 = phi i32 [ %ref.tmp303.sroa.0.0.extract.trunc, %invoke.cont317 ], [ %ref.tmp303.sroa.0.0.extract.trunc275, %for.cond302.preheader ]
+  %x301.0278 = phi i32 [ %inc320, %invoke.cont317 ], [ 0, %for.cond302.preheader ]
+  %sumY.1277 = phi float [ %add, %invoke.cont317 ], [ %sumY.0286, %for.cond302.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %r.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %wrapMode.i.sroa.0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %wrapMode.i.sroa.4)
-  %resolution.sroa.9.0.extract.shift.i = lshr i64 %retval.sroa.0.0.copyload.i176299, 32
+  %resolution.sroa.9.0.extract.shift.i = lshr i64 %retval.sroa.0.0.copyload.i176300, 32
   %resolution.sroa.9.0.extract.trunc.i = trunc nuw i64 %resolution.sroa.9.0.extract.shift.i to i32
   store i32 1, ptr %wrapMode.i.sroa.0, align 4
   store i32 1, ptr %wrapMode.i.sroa.4, align 4
-  br label %for.body.i199
+  br label %for.body.i200
 
-for.body.i199:                                    ; preds = %invoke.cont313, %for.inc.i
-  %p.i.sroa.0.4 = phi i32 [ %x301.0277, %invoke.cont313 ], [ %p.i.sroa.0.6, %for.inc.i ]
-  %cmp.i.i200 = phi i1 [ true, %invoke.cont313 ], [ false, %for.inc.i ]
-  %indvars.iv.i201.sroa.phi = phi ptr [ %wrapMode.i.sroa.0, %invoke.cont313 ], [ %wrapMode.i.sroa.4, %for.inc.i ]
-  %.sroa.speculated = select i1 %cmp.i.i200, i32 %p.i.sroa.0.4, i32 %y292.0284
+for.body.i200:                                    ; preds = %invoke.cont313, %for.inc.i
+  %p.i.sroa.0.4 = phi i32 [ %x301.0278, %invoke.cont313 ], [ %p.i.sroa.0.6, %for.inc.i ]
+  %cmp.i.i201 = phi i1 [ true, %invoke.cont313 ], [ false, %for.inc.i ]
+  %indvars.iv.i202.sroa.phi = phi ptr [ %wrapMode.i.sroa.0, %invoke.cont313 ], [ %wrapMode.i.sroa.4, %for.inc.i ]
+  %.sroa.speculated = select i1 %cmp.i.i201, i32 %p.i.sroa.0.4, i32 %y292.0285
   %cmp73.i = icmp sgt i32 %.sroa.speculated, -1
-  %.sroa.speculated100.i = select i1 %cmp.i.i200, i32 %ref.tmp303.sroa.0.0.extract.trunc279, i32 %resolution.sroa.9.0.extract.trunc.i
-  %cmp76.i = icmp slt i32 %.sroa.speculated, %.sroa.speculated100.i
+  %.sroa.speculated113.i = select i1 %cmp.i.i201, i32 %ref.tmp303.sroa.0.0.extract.trunc280, i32 %resolution.sroa.9.0.extract.trunc.i
+  %cmp76.i = icmp slt i32 %.sroa.speculated, %.sroa.speculated113.i
   %or.cond.i = select i1 %cmp73.i, i1 %cmp76.i, i1 false
   br i1 %or.cond.i, label %for.inc.i, label %if.end78.i
 
-if.end78.i:                                       ; preds = %for.body.i199
-  %71 = load i32, ptr %indvars.iv.i201.sroa.phi, align 4
-  switch i32 %71, label %sw.default.i205.invoke [
-    i32 2, label %sw.bb.i203
+if.end78.i:                                       ; preds = %for.body.i200
+  %71 = load i32, ptr %indvars.iv.i202.sroa.phi, align 4
+  switch i32 %71, label %sw.default.i206.invoke [
+    i32 2, label %sw.bb.i204
     i32 1, label %sw.bb85.i
-    i32 0, label %call.i.noexc183
+    i32 0, label %call.i.noexc184
   ]
 
-sw.bb.i203:                                       ; preds = %if.end78.i
-  %72 = srem i32 %.sroa.speculated, %.sroa.speculated100.i
-  %cmp.i68.i = icmp slt i32 %72, 0
-  %add.i.i204 = select i1 %cmp.i68.i, i32 %.sroa.speculated100.i, i32 0
-  %cond.i.i = add nsw i32 %add.i.i204, %72
+sw.bb.i204:                                       ; preds = %if.end78.i
+  %72 = srem i32 %.sroa.speculated, %.sroa.speculated113.i
+  %cmp.i81.i = icmp slt i32 %72, 0
+  %add.i.i205 = select i1 %cmp.i81.i, i32 %.sroa.speculated113.i, i32 0
+  %cond.i.i = add nsw i32 %add.i.i205, %72
   br label %for.inc.sink.split.i
 
 sw.bb85.i:                                        ; preds = %if.end78.i
-  %sub88.i = add nsw i32 %.sroa.speculated100.i, -1
-  %cmp.i78.i = icmp slt i32 %.sroa.speculated, 0
+  %sub88.i = add nsw i32 %.sroa.speculated113.i, -1
+  %cmp.i91.i = icmp slt i32 %.sroa.speculated, 0
   %high.val.i.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated, i32 %sub88.i)
-  %retval.0.i.i = select i1 %cmp.i78.i, i32 0, i32 %high.val.i.i
+  %retval.0.i.i = select i1 %cmp.i91.i, i32 0, i32 %high.val.i.i
   br label %for.inc.sink.split.i
 
-sw.default.i205.invoke:                           ; preds = %if.end.i, %if.end78.i
+sw.default.i206.invoke:                           ; preds = %if.end.i, %if.end78.i
   %73 = phi i32 [ 142, %if.end78.i ], [ 273, %if.end.i ]
   %74 = phi ptr [ @.str.131, %if.end78.i ], [ @.str.129, %if.end.i ]
   invoke void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.128, i32 noundef %73, ptr noundef nonnull %74) #29
-          to label %sw.default.i205.cont unwind label %lpad36.loopexit.split-lp.loopexit.split-lp
+          to label %sw.default.i206.cont unwind label %lpad36.loopexit.split-lp.loopexit.split-lp
 
-sw.default.i205.cont:                             ; preds = %sw.default.i205.invoke
+sw.default.i206.cont:                             ; preds = %sw.default.i206.invoke
   unreachable
 
-for.inc.sink.split.i:                             ; preds = %sw.bb85.i, %sw.bb.i203
-  %cond.i.sink.i = phi i32 [ %cond.i.i, %sw.bb.i203 ], [ %retval.0.i.i, %sw.bb85.i ]
-  br i1 %cmp.i.i200, label %for.inc.i, label %if.end.i
+for.inc.sink.split.i:                             ; preds = %sw.bb85.i, %sw.bb.i204
+  %cond.i.sink.i = phi i32 [ %cond.i.i, %sw.bb.i204 ], [ %retval.0.i.i, %sw.bb85.i ]
+  br i1 %cmp.i.i201, label %for.inc.i, label %if.end.i
 
-for.inc.i:                                        ; preds = %for.inc.sink.split.i, %for.body.i199
-  %p.i.sroa.0.6 = phi i32 [ %p.i.sroa.0.4, %for.body.i199 ], [ %cond.i.sink.i, %for.inc.sink.split.i ]
-  br i1 %cmp.i.i200, label %for.body.i199, label %if.end.i, !llvm.loop !35
+for.inc.i:                                        ; preds = %for.inc.sink.split.i, %for.body.i200
+  %p.i.sroa.0.6 = phi i32 [ %p.i.sroa.0.4, %for.body.i200 ], [ %cond.i.sink.i, %for.inc.sink.split.i ]
+  br i1 %cmp.i.i201, label %for.body.i200, label %if.end.i, !llvm.loop !35
 
-call.i.noexc183:                                  ; preds = %if.end78.i
+call.i.noexc184:                                  ; preds = %if.end78.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wrapMode.i.sroa.0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wrapMode.i.sroa.4)
   br label %invoke.cont317
 
 if.end.i:                                         ; preds = %for.inc.sink.split.i, %for.inc.i
-  %p.i.sroa.13.5.ph = phi i32 [ %y292.0284, %for.inc.i ], [ %cond.i.sink.i, %for.inc.sink.split.i ]
+  %p.i.sroa.13.5.ph = phi i32 [ %y292.0285, %for.inc.i ], [ %cond.i.sink.i, %for.inc.sink.split.i ]
   %p.i.sroa.0.7.ph = phi i32 [ %p.i.sroa.0.6, %for.inc.i ], [ %p.i.sroa.0.4, %for.inc.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wrapMode.i.sroa.0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wrapMode.i.sroa.4)
   %75 = load i32, ptr %image, align 8
-  switch i32 %75, label %sw.default.i205.invoke [
+  switch i32 %75, label %sw.default.i206.invoke [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb14.i
     i32 2, label %sw.bb22.i
@@ -11034,13 +11034,13 @@ sw.bb22.i:                                        ; preds = %if.end.i
   %93 = load float, ptr %92, align 4
   br label %invoke.cont317
 
-invoke.cont317:                                   ; preds = %sw.bb22.i, %_ZNK4pbrt4HalfcvfEv.exit.i, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i, %call.i.noexc183
-  %retval.sroa.0.0.copyload.i174304 = phi i64 [ %retval.sroa.0.0.copyload.i174303, %sw.bb22.i ], [ %retval.sroa.0.0.copyload.i174303, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %retval.sroa.0.0.copyload.i176.pre, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %retval.sroa.0.0.copyload.i174303, %call.i.noexc183 ]
-  %retval.sroa.0.0.copyload.i176 = phi i64 [ %retval.sroa.0.0.copyload.i176299, %sw.bb22.i ], [ %retval.sroa.0.0.copyload.i176299, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %retval.sroa.0.0.copyload.i176.pre, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %retval.sroa.0.0.copyload.i176299, %call.i.noexc183 ]
-  %retval.0.i = phi float [ %93, %sw.bb22.i ], [ %89, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %82, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ 0.000000e+00, %call.i.noexc183 ]
+invoke.cont317:                                   ; preds = %sw.bb22.i, %_ZNK4pbrt4HalfcvfEv.exit.i, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i, %call.i.noexc184
+  %retval.sroa.0.0.copyload.i174305 = phi i64 [ %retval.sroa.0.0.copyload.i174304, %sw.bb22.i ], [ %retval.sroa.0.0.copyload.i174304, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %retval.sroa.0.0.copyload.i176.pre, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %retval.sroa.0.0.copyload.i174304, %call.i.noexc184 ]
+  %retval.sroa.0.0.copyload.i176 = phi i64 [ %retval.sroa.0.0.copyload.i176300, %sw.bb22.i ], [ %retval.sroa.0.0.copyload.i176300, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %retval.sroa.0.0.copyload.i176.pre, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %retval.sroa.0.0.copyload.i176300, %call.i.noexc184 ]
+  %retval.0.i = phi float [ %93, %sw.bb22.i ], [ %89, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %82, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ 0.000000e+00, %call.i.noexc184 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i)
-  %add = fadd float %sumY.1276, %retval.0.i
-  %inc320 = add nuw nsw i32 %x301.0277, 1
+  %add = fadd float %sumY.1277, %retval.0.i
+  %inc320 = add nuw nsw i32 %x301.0278, 1
   %ref.tmp303.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i176 to i32
   %cmp308 = icmp slt i32 %inc320, %ref.tmp303.sroa.0.0.extract.trunc
   br i1 %cmp308, label %invoke.cont313, label %for.inc322.loopexit, !llvm.loop !62
@@ -11062,14 +11062,14 @@ ehcleanup289:                                     ; preds = %lpad283, %lpad.i167
   br label %ehcleanup344
 
 for.inc322.loopexit:                              ; preds = %invoke.cont317
-  %.pre = trunc i64 %retval.sroa.0.0.copyload.i174304 to i32
+  %.pre = trunc i64 %retval.sroa.0.0.copyload.i174305 to i32
   br label %for.inc322
 
 for.inc322:                                       ; preds = %for.inc322.loopexit, %for.cond302.preheader
-  %.pre-phi = phi i32 [ %.pre, %for.inc322.loopexit ], [ %ref.tmp303.sroa.0.0.extract.trunc274, %for.cond302.preheader ]
-  %retval.sroa.0.0.copyload.i174 = phi i64 [ %retval.sroa.0.0.copyload.i174304, %for.inc322.loopexit ], [ %retval.sroa.0.0.copyload.i174301, %for.cond302.preheader ]
-  %sumY.1.lcssa = phi float [ %add, %for.inc322.loopexit ], [ %sumY.0285, %for.cond302.preheader ]
-  %inc323 = add nuw nsw i32 %y292.0284, 1
+  %.pre-phi = phi i32 [ %.pre, %for.inc322.loopexit ], [ %ref.tmp303.sroa.0.0.extract.trunc275, %for.cond302.preheader ]
+  %retval.sroa.0.0.copyload.i174 = phi i64 [ %retval.sroa.0.0.copyload.i174305, %for.inc322.loopexit ], [ %retval.sroa.0.0.copyload.i174302, %for.cond302.preheader ]
+  %sumY.1.lcssa = phi float [ %add, %for.inc322.loopexit ], [ %sumY.0286, %for.cond302.preheader ]
+  %inc323 = add nuw nsw i32 %y292.0285, 1
   %ref.tmp294.sroa.1.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i174, 32
   %ref.tmp294.sroa.1.0.extract.trunc = trunc nuw i64 %ref.tmp294.sroa.1.0.extract.shift to i32
   %cmp299 = icmp slt i32 %inc323, %ref.tmp294.sroa.1.0.extract.trunc
@@ -11082,7 +11082,7 @@ for.end324.loopexit:                              ; preds = %for.inc322
 for.end324:                                       ; preds = %for.end324.loopexit, %for.cond293.preheader
   %ref.tmp325.sroa.0.0.extract.trunc.pre-phi = phi i32 [ %.pre-phi, %for.end324.loopexit ], [ %68, %for.cond293.preheader ]
   %sumY.0.lcssa = phi float [ %96, %for.end324.loopexit ], [ 0.000000e+00, %for.cond293.preheader ]
-  %ref.tmp294.sroa.1.0.extract.trunc.lcssa = phi i32 [ %ref.tmp294.sroa.1.0.extract.trunc, %for.end324.loopexit ], [ %ref.tmp294.sroa.1.0.extract.trunc282, %for.cond293.preheader ]
+  %ref.tmp294.sroa.1.0.extract.trunc.lcssa = phi i32 [ %ref.tmp294.sroa.1.0.extract.trunc, %for.end324.loopexit ], [ %ref.tmp294.sroa.1.0.extract.trunc283, %for.cond293.preheader ]
   %mul335 = mul nsw i32 %ref.tmp294.sroa.1.0.extract.trunc.lcssa, %ref.tmp325.sroa.0.0.extract.trunc.pre-phi
   %conv = sitofp i32 %mul335 to float
   %div336 = fdiv float %sumY.0.lcssa, %conv
@@ -11102,40 +11102,40 @@ if.end339:                                        ; preds = %for.end324, %invoke
   store float 1.000000e+00, ptr %99, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i)
   invoke void @_ZN4pbrt12SquareMatrixILi4EEC1EPA4_Kf(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull %swapYZ)
-          to label %.noexc192 unwind label %lpad36.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc193 unwind label %lpad36.loopexit.split-lp.loopexit.split-lp
 
-.noexc192:                                        ; preds = %if.end339
+.noexc193:                                        ; preds = %if.end339
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %inv.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %t, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, i64 64, i1 false)
   %mInv.i.i = getelementptr inbounds i8, ptr %t, i64 64
   invoke void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i)
-          to label %.noexc193 unwind label %lpad36.loopexit.split-lp.loopexit.split-lp
-
-.noexc193:                                        ; preds = %.noexc192
-  invoke void @_ZN4pbrt7InverseILi4EEEN4pstd8optionalINS_12SquareMatrixIXT_EEEEERKS4_(ptr nonnull sret(%"class.pstd::optional.56") align 4 %inv.i.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i)
           to label %.noexc194 unwind label %lpad36.loopexit.split-lp.loopexit.split-lp
 
 .noexc194:                                        ; preds = %.noexc193
+  invoke void @_ZN4pbrt7InverseILi4EEEN4pstd8optionalINS_12SquareMatrixIXT_EEEEERKS4_(ptr nonnull sret(%"class.pstd::optional.56") align 4 %inv.i.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i)
+          to label %.noexc195 unwind label %lpad36.loopexit.split-lp.loopexit.split-lp
+
+.noexc195:                                        ; preds = %.noexc194
   %set.i.i.i = getelementptr inbounds i8, ptr %inv.i.i, i64 64
   %100 = load i8, ptr %set.i.i.i, align 4
   %tobool.i.i.i = trunc i8 %100 to i1
   br i1 %tobool.i.i.i, label %invoke.cont3.i.i, label %for.cond7.preheader.i.i
 
-invoke.cont3.i.i:                                 ; preds = %.noexc194
+invoke.cont3.i.i:                                 ; preds = %.noexc195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i, ptr noundef nonnull align 4 dereferenceable(64) %inv.i.i, i64 64, i1 false)
   br label %invoke.cont340
 
-for.cond7.preheader.i.i:                          ; preds = %.noexc194, %for.inc15.i.i
-  %i.013.i.i = phi i32 [ %inc16.i.i, %for.inc15.i.i ], [ 0, %.noexc194 ]
+for.cond7.preheader.i.i:                          ; preds = %.noexc195, %for.inc15.i.i
+  %i.013.i.i = phi i32 [ %inc16.i.i, %for.inc15.i.i ], [ 0, %.noexc195 ]
   br label %for.body9.i.i
 
 for.body9.i.i:                                    ; preds = %call12.i.i.noexc, %for.cond7.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.cond7.preheader.i.i ], [ %indvars.iv.next.i.i, %call12.i.i.noexc ]
-  %call12.i.i195 = invoke { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i, i32 noundef %i.013.i.i)
+  %call12.i.i196 = invoke { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i, i32 noundef %i.013.i.i)
           to label %call12.i.i.noexc unwind label %lpad36.loopexit
 
 call12.i.i.noexc:                                 ; preds = %for.body9.i.i
-  %101 = extractvalue { ptr, i64 } %call12.i.i195, 0
+  %101 = extractvalue { ptr, i64 } %call12.i.i196, 0
   %arrayidx.i.i.i = getelementptr inbounds float, ptr %101, i64 %indvars.iv.i.i
   store float 0x7FF4000000000000, ptr %arrayidx.i.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -11158,20 +11158,20 @@ invoke.cont341:                                   ; preds = %invoke.cont340
   %vtable.i.i.i.i = load ptr, ptr %102, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %103 = load ptr, ptr %vfn.i.i.i.i, align 8
-  %call.i.i.i.i196 = invoke noundef ptr %103(ptr noundef nonnull align 8 dereferenceable(8) %102, i64 noundef 448, i64 noundef 8)
+  %call.i.i.i.i197 = invoke noundef ptr %103(ptr noundef nonnull align 8 dereferenceable(8) %102, i64 noundef 448, i64 noundef 8)
           to label %call.i.i.i.i.noexc unwind label %lpad36.loopexit.split-lp.loopexit.split-lp
 
 call.i.i.i.i.noexc:                               ; preds = %invoke.cont341
-  invoke void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteE9constructIN4pbrt16GoniometricLightEJRNS5_9TransformERNS5_6MediumERNS5_8SpectrumERfNS5_5ImageERS3_EEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %alloc, ptr noundef %call.i.i.i.i196, ptr noundef nonnull align 4 dereferenceable(128) %finalRenderFromLight, ptr noundef nonnull align 8 dereferenceable(8) %medium, ptr noundef nonnull align 8 dereferenceable(8) %I, ptr noundef nonnull align 4 dereferenceable(4) %sc, ptr noundef nonnull align 8 dereferenceable(152) %image, ptr noundef nonnull align 8 dereferenceable(8) %alloc)
+  invoke void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteE9constructIN4pbrt16GoniometricLightEJRNS5_9TransformERNS5_6MediumERNS5_8SpectrumERfNS5_5ImageERS3_EEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %alloc, ptr noundef %call.i.i.i.i197, ptr noundef nonnull align 4 dereferenceable(128) %finalRenderFromLight, ptr noundef nonnull align 8 dereferenceable(8) %medium, ptr noundef nonnull align 8 dereferenceable(8) %I, ptr noundef nonnull align 4 dereferenceable(4) %sc, ptr noundef nonnull align 8 dereferenceable(152) %image, ptr noundef nonnull align 8 dereferenceable(8) %alloc)
           to label %invoke.cont342 unwind label %lpad36.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont342:                                   ; preds = %call.i.i.i.i.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %texname) #28
   call void @_ZN4pbrt5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %image) #28
-  ret ptr %call.i.i.i.i196
+  ret ptr %call.i.i.i.i197
 
 ehcleanup344:                                     ; preds = %lpad36.loopexit, %lpad36.loopexit.split-lp.loopexit.split-lp, %lpad36.loopexit.split-lp.loopexit, %ehcleanup289, %ehcleanup275, %lpad42
-  %.pn44 = phi { ptr, i32 } [ %.pn42, %ehcleanup289 ], [ %.pn40, %ehcleanup275 ], [ %15, %lpad42 ], [ %lpad.loopexit, %lpad36.loopexit ], [ %lpad.loopexit247, %lpad36.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp248, %lpad36.loopexit.split-lp.loopexit.split-lp ]
+  %.pn44 = phi { ptr, i32 } [ %.pn42, %ehcleanup289 ], [ %.pn40, %ehcleanup275 ], [ %15, %lpad42 ], [ %lpad.loopexit, %lpad36.loopexit ], [ %lpad.loopexit248, %lpad36.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp249, %lpad36.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %texname) #28
   br label %ehcleanup345
 
@@ -15021,9 +15021,9 @@ for.body.i:                                       ; preds = %invoke.cont179, %fo
   %indvars.iv.i.sroa.phi = phi ptr [ %wrapMode.i.sroa.0, %invoke.cont179 ], [ %wrapMode.i.sroa.4, %for.inc.i ]
   %.sroa.speculated = select i1 %cmp.i.i157, i32 %p.i.sroa.0.4, i32 %y.0229
   %cmp73.i = icmp sgt i32 %.sroa.speculated, -1
-  %.sroa.speculated100.i.v = select i1 %cmp.i.i157, i64 %agg.tmp.sroa.0.0.copyload.i, i64 %resolution.sroa.9.0.extract.shift.i
-  %.sroa.speculated100.i = trunc i64 %.sroa.speculated100.i.v to i32
-  %cmp76.i = icmp slt i32 %.sroa.speculated, %.sroa.speculated100.i
+  %.sroa.speculated113.i.v = select i1 %cmp.i.i157, i64 %agg.tmp.sroa.0.0.copyload.i, i64 %resolution.sroa.9.0.extract.shift.i
+  %.sroa.speculated113.i = trunc i64 %.sroa.speculated113.i.v to i32
+  %cmp76.i = icmp slt i32 %.sroa.speculated, %.sroa.speculated113.i
   %or.cond.i = select i1 %cmp73.i, i1 %cmp76.i, i1 false
   br i1 %or.cond.i, label %for.inc.i, label %if.end78.i
 
@@ -15036,17 +15036,17 @@ if.end78.i:                                       ; preds = %for.body.i
   ]
 
 sw.bb.i159:                                       ; preds = %if.end78.i
-  %59 = srem i32 %.sroa.speculated, %.sroa.speculated100.i
-  %cmp.i68.i = icmp slt i32 %59, 0
-  %add.i.i160 = select i1 %cmp.i68.i, i32 %.sroa.speculated100.i, i32 0
+  %59 = srem i32 %.sroa.speculated, %.sroa.speculated113.i
+  %cmp.i81.i = icmp slt i32 %59, 0
+  %add.i.i160 = select i1 %cmp.i81.i, i32 %.sroa.speculated113.i, i32 0
   %cond.i.i = add nsw i32 %add.i.i160, %59
   br label %for.inc.sink.split.i
 
 sw.bb85.i:                                        ; preds = %if.end78.i
-  %sub88.i = add nsw i32 %.sroa.speculated100.i, -1
-  %cmp.i78.i = icmp slt i32 %.sroa.speculated, 0
+  %sub88.i = add nsw i32 %.sroa.speculated113.i, -1
+  %cmp.i91.i = icmp slt i32 %.sroa.speculated, 0
   %high.val.i.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated, i32 %sub88.i)
-  %retval.0.i.i = select i1 %cmp.i78.i, i32 0, i32 %high.val.i.i
+  %retval.0.i.i = select i1 %cmp.i91.i, i32 0, i32 %high.val.i.i
   br label %for.inc.sink.split.i
 
 for.inc.sink.split.i:                             ; preds = %sw.bb85.i, %sw.bb.i159
@@ -17447,7 +17447,7 @@ entry:
   %dxdA.i = alloca %class.anon.97, align 8
   %agg.tmp8.i = alloca %"class.std::function.137", align 8
   %agg.tmp.i = alloca %"class.std::function.137", align 8
-  %ref.tmp.i202 = alloca %"class.std::__cxx11::basic_string", align 8
+  %ref.tmp.i204 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %channelDesc = alloca %"struct.pbrt::ImageChannelDesc", align 8
   %ref.tmp12 = alloca [3 x %"class.std::__cxx11::basic_string"], align 8
@@ -17709,12 +17709,12 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont44
   %17 = getelementptr inbounds i8, ptr %channelDesc, i64 16
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %17, ptr %16
   %18 = load i32, ptr %cond.i.i.i, align 4
-  %cmp4.not.i386 = icmp eq i32 %18, 0
-  br i1 %cmp4.not.i386, label %for.cond.i, label %land.rhs
+  %cmp4.not.i388 = icmp eq i32 %18, 0
+  br i1 %cmp4.not.i388, label %for.cond.i, label %land.rhs
 
 for.cond.i:                                       ; preds = %for.body.lr.ph.i, %for.body.i
-  %i.05.i387 = phi i64 [ %inc.i54, %for.body.i ], [ 0, %for.body.lr.ph.i ]
-  %inc.i54 = add nuw nsw i64 %i.05.i387, 1
+  %i.05.i389 = phi i64 [ %inc.i54, %for.body.i ], [ 0, %for.body.lr.ph.i ]
+  %inc.i54 = add nuw nsw i64 %i.05.i389, 1
   %exitcond.i = icmp eq i64 %inc.i54, 3
   br i1 %exitcond.i, label %land.end, label %for.body.i, !llvm.loop !21
 
@@ -17726,7 +17726,7 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp4.not.i, label %for.cond.i, label %invoke.cont49, !llvm.loop !21
 
 invoke.cont49:                                    ; preds = %for.body.i
-  %cmp.i55.not.le = icmp ult i64 %i.05.i387, 2
+  %cmp.i55.not.le = icmp ult i64 %i.05.i389, 2
   br i1 %cmp.i55.not.le, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %for.body.lr.ph.i, %invoke.cont49
@@ -17790,45 +17790,45 @@ invoke.cont147:                                   ; preds = %for.body
   %agg.tmp92.sroa.2.0.call95.sroa_idx = getelementptr inbounds i8, ptr %this, i64 160
   %23 = load <4 x float>, ptr %agg.tmp92.sroa.2.0.call95.sroa_idx, align 8
   %24 = load float, ptr %arrayidx.i69, align 4
-  %y.i70 = getelementptr inbounds i8, ptr %this, i64 168
-  %25 = load float, ptr %y.i70, align 8
-  %z.i71 = getelementptr inbounds i8, ptr %this, i64 172
-  %26 = load float, ptr %z.i71, align 4
-  %arrayidx.i72 = getelementptr inbounds i8, ptr %this, i64 176
+  %y.i71 = getelementptr inbounds i8, ptr %this, i64 168
+  %25 = load float, ptr %y.i71, align 8
+  %z.i72 = getelementptr inbounds i8, ptr %this, i64 172
+  %26 = load float, ptr %z.i72, align 4
+  %arrayidx.i73 = getelementptr inbounds i8, ptr %this, i64 176
   %agg.tmp107.sroa.0.0.copyload = load <2 x float>, ptr %arrayidx.i69, align 4
-  %z.i79 = getelementptr inbounds i8, ptr %this, i64 184
-  %27 = load float, ptr %z.i79, align 8
-  %sub6.i80 = fsub float %27, %26
-  %mul.i2.i.i.i90 = fmul float %sub6.i80, %sub6.i80
-  %arrayidx.i101 = getelementptr inbounds i8, ptr %this, i64 188
-  %agg.tmp123.sroa.0.0.copyload = load <2 x float>, ptr %arrayidx.i101, align 4
+  %z.i80 = getelementptr inbounds i8, ptr %this, i64 184
+  %27 = load float, ptr %z.i80, align 8
+  %sub6.i81 = fsub float %27, %26
+  %mul.i2.i.i.i91 = fmul float %sub6.i81, %sub6.i81
+  %arrayidx.i102 = getelementptr inbounds i8, ptr %this, i64 188
+  %agg.tmp123.sroa.0.0.copyload = load <2 x float>, ptr %arrayidx.i102, align 4
   %agg.tmp123.sroa.2.0.call126.sroa_idx = getelementptr inbounds i8, ptr %this, i64 196
   %agg.tmp123.sroa.2.0.copyload = load float, ptr %agg.tmp123.sroa.2.0.call126.sroa_idx, align 4
-  %sub6.i108 = fsub float %27, %agg.tmp123.sroa.2.0.copyload
-  %mul.i2.i.i.i118 = fmul float %sub6.i108, %sub6.i108
-  %28 = load <2 x float>, ptr %arrayidx.i72, align 8
+  %sub6.i109 = fsub float %27, %agg.tmp123.sroa.2.0.copyload
+  %mul.i2.i.i.i119 = fmul float %sub6.i109, %sub6.i109
+  %28 = load <2 x float>, ptr %arrayidx.i73, align 8
   %29 = fsub <2 x float> %28, %agg.tmp107.sroa.0.0.copyload
   %30 = fmul <2 x float> %29, %29
   %shift = shufflevector <2 x float> %30, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %31 = fadd <2 x float> %30, %shift
-  %add.i.i.i89 = extractelement <2 x float> %31, i64 0
-  %add3.i.i.i91 = fadd float %mul.i2.i.i.i90, %add.i.i.i89
-  %sqrt.i.i92 = call noundef float @llvm.sqrt.f32(float %add3.i.i.i91)
-  %32 = insertelement <2 x float> poison, float %sqrt.i.i92, i64 0
+  %add.i.i.i90 = extractelement <2 x float> %31, i64 0
+  %add3.i.i.i92 = fadd float %mul.i2.i.i.i91, %add.i.i.i90
+  %sqrt.i.i93 = call noundef float @llvm.sqrt.f32(float %add3.i.i.i92)
+  %32 = insertelement <2 x float> poison, float %sqrt.i.i93, i64 0
   %33 = shufflevector <2 x float> %32, <2 x float> poison, <2 x i32> zeroinitializer
   %34 = fdiv <2 x float> %29, %33
-  %div3.i.i95 = fdiv float %sub6.i80, %sqrt.i.i92
+  %div3.i.i96 = fdiv float %sub6.i81, %sqrt.i.i93
   %35 = fsub <2 x float> %28, %agg.tmp123.sroa.0.0.copyload
   %36 = fmul <2 x float> %35, %35
-  %shift396 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %37 = fadd <2 x float> %36, %shift396
-  %add.i.i.i117 = extractelement <2 x float> %37, i64 0
-  %add3.i.i.i119 = fadd float %mul.i2.i.i.i118, %add.i.i.i117
-  %sqrt.i.i120 = call noundef float @llvm.sqrt.f32(float %add3.i.i.i119)
-  %38 = insertelement <2 x float> poison, float %sqrt.i.i120, i64 0
+  %shift398 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %37 = fadd <2 x float> %36, %shift398
+  %add.i.i.i118 = extractelement <2 x float> %37, i64 0
+  %add3.i.i.i120 = fadd float %mul.i2.i.i.i119, %add.i.i.i118
+  %sqrt.i.i121 = call noundef float @llvm.sqrt.f32(float %add3.i.i.i120)
+  %38 = insertelement <2 x float> poison, float %sqrt.i.i121, i64 0
   %39 = shufflevector <2 x float> %38, <2 x float> poison, <2 x i32> zeroinitializer
   %40 = fdiv <2 x float> %35, %39
-  %div3.i.i123 = fdiv float %sub6.i108, %sqrt.i.i120
+  %div3.i.i124 = fdiv float %sub6.i109, %sqrt.i.i121
   %41 = shufflevector <2 x float> %agg.tmp123.sroa.0.0.copyload, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
   %42 = insertelement <2 x float> %41, float %24, i64 0
   %43 = shufflevector <2 x float> %agg.tmp92.sroa.0.0.copyload, <2 x float> poison, <2 x i32> zeroinitializer
@@ -17855,11 +17855,11 @@ invoke.cont147:                                   ; preds = %for.body
   %64 = fdiv <2 x float> %51, %57
   %65 = shufflevector <2 x float> %60, <2 x float> %62, <2 x i32> <i32 3, i32 0>
   %66 = fmul <2 x float> %63, %40
-  %shift397 = shufflevector <2 x float> %66, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %67 = fadd <2 x float> %66, %shift397
+  %shift399 = shufflevector <2 x float> %66, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %67 = fadd <2 x float> %66, %shift399
   %add.i = extractelement <2 x float> %67, i64 0
   %68 = extractelement <2 x float> %64, i64 0
-  %mul6.i = fmul float %68, %div3.i.i123
+  %mul6.i = fmul float %68, %div3.i.i124
   %add7.i = fadd float %mul6.i, %add.i
   %sub = fadd float %add7.i, -1.000000e+00
   %69 = call noundef float @llvm.fabs.f32(float %sub)
@@ -17870,13 +17870,13 @@ invoke.cont147:                                   ; preds = %for.body
 lor.lhs.false:                                    ; preds = %invoke.cont147
   %70 = shufflevector <2 x float> %62, <2 x float> %60, <2 x i32> <i32 1, i32 2>
   %71 = fmul <2 x float> %34, %70
-  %shift398 = shufflevector <2 x float> %71, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %72 = fadd <2 x float> %71, %shift398
-  %add.i161 = extractelement <2 x float> %72, i64 0
+  %shift400 = shufflevector <2 x float> %71, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %72 = fadd <2 x float> %71, %shift400
+  %add.i163 = extractelement <2 x float> %72, i64 0
   %73 = extractelement <2 x float> %64, i64 1
-  %mul6.i162 = fmul float %div3.i.i95, %73
-  %add7.i163 = fadd float %mul6.i162, %add.i161
-  %sub163 = fadd float %add7.i163, -1.000000e+00
+  %mul6.i164 = fmul float %div3.i.i96, %73
+  %add7.i165 = fadd float %mul6.i164, %add.i163
+  %sub163 = fadd float %add7.i165, -1.000000e+00
   %74 = call noundef float @llvm.fabs.f32(float %sub163)
   %conv166 = fpext float %74 to double
   %cmp167 = fcmp ogt double %conv166, 1.000000e-03
@@ -17888,8 +17888,8 @@ if.then168:                                       ; preds = %lor.lhs.false, %inv
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull @.str.76)
           to label %_ZN4pbrt12StringPrintfIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit.i unwind label %lpad.i.i
 
-common.resume.i:                                  ; preds = %lpad.i164, %lpad.i.i
-  %common.resume.op.i = phi { ptr, i32 } [ %75, %lpad.i.i ], [ %76, %lpad.i164 ]
+common.resume.i:                                  ; preds = %lpad.i166, %lpad.i.i
+  %common.resume.op.i = phi { ptr, i32 } [ %75, %lpad.i.i ], [ %76, %lpad.i166 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #28
   br label %ehcleanup322
 
@@ -17901,9 +17901,9 @@ lpad.i.i:                                         ; preds = %if.then168
 _ZN4pbrt12StringPrintfIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit.i: ; preds = %if.then168
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #28
   invoke void @_ZN4pbrt5ErrorEPKNS_7FileLocEPKc(ptr noundef null, ptr noundef %call.i)
-          to label %_ZN4pbrt5ErrorIJEEEvPKcDpOT_.exit unwind label %lpad.i164
+          to label %_ZN4pbrt5ErrorIJEEEvPKcDpOT_.exit unwind label %lpad.i166
 
-lpad.i164:                                        ; preds = %_ZN4pbrt12StringPrintfIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit.i
+lpad.i166:                                        ; preds = %_ZN4pbrt12StringPrintfIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit.i
   %76 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
@@ -17915,24 +17915,24 @@ _ZN4pbrt5ErrorIJEEEvPKcDpOT_.exit:                ; preds = %_ZN4pbrt12StringPri
 
 if.end170:                                        ; preds = %_ZN4pbrt5ErrorIJEEEvPKcDpOT_.exit, %lor.lhs.false
   %77 = fmul <2 x float> %63, %34
-  %shift399 = shufflevector <2 x float> %77, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %78 = fadd <2 x float> %77, %shift399
-  %add.i172 = extractelement <2 x float> %78, i64 0
-  %mul6.i173 = fmul float %68, %div3.i.i95
-  %add7.i174 = fadd float %mul6.i173, %add.i172
-  %79 = call noundef float @llvm.fabs.f32(float %add7.i174)
+  %shift401 = shufflevector <2 x float> %77, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %78 = fadd <2 x float> %77, %shift401
+  %add.i174 = extractelement <2 x float> %78, i64 0
+  %mul6.i175 = fmul float %68, %div3.i.i96
+  %add7.i176 = fadd float %mul6.i175, %add.i174
+  %79 = call noundef float @llvm.fabs.f32(float %add7.i176)
   %conv177 = fpext float %79 to double
   %cmp178 = fcmp ogt double %conv177, 1.000000e-03
   br i1 %cmp178, label %if.then206, label %lor.lhs.false179
 
 lor.lhs.false179:                                 ; preds = %if.end170
   %80 = fmul <2 x float> %34, %40
-  %shift400 = shufflevector <2 x float> %80, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %81 = fadd <2 x float> %80, %shift400
-  %add.i181 = extractelement <2 x float> %81, i64 0
-  %mul6.i182 = fmul float %div3.i.i95, %div3.i.i123
-  %add7.i183 = fadd float %mul6.i182, %add.i181
-  %82 = call noundef float @llvm.fabs.f32(float %add7.i183)
+  %shift402 = shufflevector <2 x float> %80, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %81 = fadd <2 x float> %80, %shift402
+  %add.i183 = extractelement <2 x float> %81, i64 0
+  %mul6.i184 = fmul float %div3.i.i96, %div3.i.i124
+  %add7.i185 = fadd float %mul6.i184, %add.i183
+  %82 = call noundef float @llvm.fabs.f32(float %add7.i185)
   %conv186 = fpext float %82 to double
   %cmp187 = fcmp ogt double %conv186, 1.000000e-03
   br i1 %cmp187, label %if.then206, label %lor.lhs.false188
@@ -17940,13 +17940,13 @@ lor.lhs.false179:                                 ; preds = %if.end170
 lor.lhs.false188:                                 ; preds = %lor.lhs.false179
   %83 = shufflevector <2 x float> %62, <2 x float> %60, <2 x i32> <i32 1, i32 2>
   %84 = fmul <2 x float> %40, %83
-  %shift401 = shufflevector <2 x float> %84, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %85 = fadd <2 x float> %84, %shift401
-  %add.i190 = extractelement <2 x float> %85, i64 0
+  %shift403 = shufflevector <2 x float> %84, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %85 = fadd <2 x float> %84, %shift403
+  %add.i192 = extractelement <2 x float> %85, i64 0
   %86 = extractelement <2 x float> %64, i64 1
-  %mul6.i191 = fmul float %div3.i.i123, %86
-  %add7.i192 = fadd float %mul6.i191, %add.i190
-  %87 = call noundef float @llvm.fabs.f32(float %add7.i192)
+  %mul6.i193 = fmul float %div3.i.i124, %86
+  %add7.i194 = fadd float %mul6.i193, %add.i192
+  %87 = call noundef float @llvm.fabs.f32(float %add7.i194)
   %conv195 = fpext float %87 to double
   %cmp196 = fcmp ogt double %conv195, 1.000000e-03
   br i1 %cmp196, label %if.then206, label %lor.lhs.false197
@@ -17956,47 +17956,47 @@ lor.lhs.false197:                                 ; preds = %lor.lhs.false188
   %89 = shufflevector <2 x float> %64, <2 x float> %60, <2 x i32> <i32 0, i32 3>
   %90 = shufflevector <2 x float> %64, <2 x float> %62, <2 x i32> <i32 1, i32 3>
   %91 = fmul <2 x float> %89, %90
-  %shift402 = shufflevector <2 x float> %91, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %92 = fadd <2 x float> %shift402, %88
+  %shift404 = shufflevector <2 x float> %91, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %92 = fadd <2 x float> %shift404, %88
   %93 = fadd <2 x float> %91, %92
-  %add7.i201 = extractelement <2 x float> %93, i64 0
-  %94 = call noundef float @llvm.fabs.f32(float %add7.i201)
+  %add7.i203 = extractelement <2 x float> %93, i64 0
+  %94 = call noundef float @llvm.fabs.f32(float %add7.i203)
   %conv204 = fpext float %94 to double
   %cmp205 = fcmp ogt double %conv204, 1.000000e-03
   br i1 %cmp205, label %if.then206, label %invoke.cont212
 
 if.then206:                                       ; preds = %lor.lhs.false197, %lor.lhs.false188, %lor.lhs.false179, %if.end170
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i202)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i202) #28
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull %ref.tmp.i202, ptr noundef nonnull @.str.76)
-          to label %_ZN4pbrt12StringPrintfIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit.i206 unwind label %lpad.i.i203
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i204)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i204) #28
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull %ref.tmp.i204, ptr noundef nonnull @.str.76)
+          to label %_ZN4pbrt12StringPrintfIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit.i208 unwind label %lpad.i.i205
 
-common.resume.i204:                               ; preds = %lpad.i208, %lpad.i.i203
-  %common.resume.op.i205 = phi { ptr, i32 } [ %95, %lpad.i.i203 ], [ %96, %lpad.i208 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i202) #28
+common.resume.i206:                               ; preds = %lpad.i210, %lpad.i.i205
+  %common.resume.op.i207 = phi { ptr, i32 } [ %95, %lpad.i.i205 ], [ %96, %lpad.i210 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i204) #28
   br label %ehcleanup322
 
-lpad.i.i203:                                      ; preds = %if.then206
+lpad.i.i205:                                      ; preds = %if.then206
   %95 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.i204
+  br label %common.resume.i206
 
-_ZN4pbrt12StringPrintfIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit.i206: ; preds = %if.then206
-  %call.i207 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i202) #28
-  invoke void @_ZN4pbrt5ErrorEPKNS_7FileLocEPKc(ptr noundef null, ptr noundef %call.i207)
-          to label %_ZN4pbrt5ErrorIJEEEvPKcDpOT_.exit211 unwind label %lpad.i208
+_ZN4pbrt12StringPrintfIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit.i208: ; preds = %if.then206
+  %call.i209 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i204) #28
+  invoke void @_ZN4pbrt5ErrorEPKNS_7FileLocEPKc(ptr noundef null, ptr noundef %call.i209)
+          to label %_ZN4pbrt5ErrorIJEEEvPKcDpOT_.exit213 unwind label %lpad.i210
 
-lpad.i208:                                        ; preds = %_ZN4pbrt12StringPrintfIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit.i206
+lpad.i210:                                        ; preds = %_ZN4pbrt12StringPrintfIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit.i208
   %96 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.i204
+  br label %common.resume.i206
 
-_ZN4pbrt5ErrorIJEEEvPKcDpOT_.exit211:             ; preds = %_ZN4pbrt12StringPrintfIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit.i206
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i202) #28
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i202)
+_ZN4pbrt5ErrorIJEEEvPKcDpOT_.exit213:             ; preds = %_ZN4pbrt12StringPrintfIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit.i208
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i204) #28
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i204)
   br label %invoke.cont212
 
-invoke.cont212:                                   ; preds = %lor.lhs.false197, %_ZN4pbrt5ErrorIJEEEvPKcDpOT_.exit211
+invoke.cont212:                                   ; preds = %lor.lhs.false197, %_ZN4pbrt5ErrorIJEEEvPKcDpOT_.exit213
   %97 = shufflevector <2 x float> %64, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %98 = fmul <2 x float> %97, %62
   %99 = shufflevector <2 x float> %64, <2 x float> %62, <2 x i32> <i32 1, i32 3>
@@ -18023,96 +18023,96 @@ invoke.cont212:                                   ; preds = %lor.lhs.false197, %
   store float %68, ptr %z4.i.i2.i, align 4
   store <2 x float> %105, ptr %z.i, align 8
   store float %add.i18.i.i, ptr %z4.i.i4.i, align 8
-  %retval.sroa.0.0.copyload.i216 = load i64, ptr %resolution.i56, align 4
+  %retval.sroa.0.0.copyload.i218 = load i64, ptr %resolution.i56, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp224) #28
-  %call.i217221 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp221)
-          to label %call.i217.noexc unwind label %lpad225
+  %call.i219223 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp221)
+          to label %call.i219.noexc unwind label %lpad225
 
-call.i217.noexc:                                  ; preds = %invoke.cont212
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp221, ptr noundef %call.i217221, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp224)
-          to label %.noexc222 unwind label %lpad225
+call.i219.noexc:                                  ; preds = %invoke.cont212
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp221, ptr noundef %call.i219223, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp224)
+          to label %.noexc224 unwind label %lpad225
 
-.noexc222:                                        ; preds = %call.i217.noexc
+.noexc224:                                        ; preds = %call.i219.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp221, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.25, i64 0, i64 1))
-          to label %invoke.cont226 unwind label %lpad.i220
+          to label %invoke.cont226 unwind label %lpad.i222
 
-lpad.i220:                                        ; preds = %.noexc222
+lpad.i222:                                        ; preds = %.noexc224
   %113 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp221) #28
   br label %ehcleanup267.thread
 
-invoke.cont226:                                   ; preds = %.noexc222
+invoke.cont226:                                   ; preds = %.noexc224
   %arrayinit.element227 = getelementptr inbounds i8, ptr %ref.tmp221, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp228) #28
-  %call.i225229 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element227)
-          to label %call.i225.noexc unwind label %lpad229
+  %call.i227231 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element227)
+          to label %call.i227.noexc unwind label %lpad229
 
-call.i225.noexc:                                  ; preds = %invoke.cont226
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element227, ptr noundef %call.i225229, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp228)
-          to label %.noexc230 unwind label %lpad229
+call.i227.noexc:                                  ; preds = %invoke.cont226
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element227, ptr noundef %call.i227231, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp228)
+          to label %.noexc232 unwind label %lpad229
 
-.noexc230:                                        ; preds = %call.i225.noexc
+.noexc232:                                        ; preds = %call.i227.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element227, ptr noundef nonnull @.str.26, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.26, i64 0, i64 1))
-          to label %invoke.cont230 unwind label %lpad.i228
+          to label %invoke.cont230 unwind label %lpad.i230
 
-lpad.i228:                                        ; preds = %.noexc230
+lpad.i230:                                        ; preds = %.noexc232
   %114 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %arrayinit.element227) #28
   br label %ehcleanup267
 
-invoke.cont230:                                   ; preds = %.noexc230
+invoke.cont230:                                   ; preds = %.noexc232
   %arrayinit.element231 = getelementptr inbounds i8, ptr %ref.tmp221, i64 64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp232) #28
-  %call.i233237 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element231)
-          to label %call.i233.noexc unwind label %lpad233
+  %call.i235239 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element231)
+          to label %call.i235.noexc unwind label %lpad233
 
-call.i233.noexc:                                  ; preds = %invoke.cont230
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element231, ptr noundef %call.i233237, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp232)
-          to label %.noexc238 unwind label %lpad233
+call.i235.noexc:                                  ; preds = %invoke.cont230
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element231, ptr noundef %call.i235239, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp232)
+          to label %.noexc240 unwind label %lpad233
 
-.noexc238:                                        ; preds = %call.i233.noexc
+.noexc240:                                        ; preds = %call.i235.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element231, ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.27, i64 0, i64 1))
-          to label %invoke.cont242 unwind label %lpad.i236
+          to label %invoke.cont242 unwind label %lpad.i238
 
-lpad.i236:                                        ; preds = %.noexc238
+lpad.i238:                                        ; preds = %.noexc240
   %115 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %arrayinit.element231) #28
   br label %ehcleanup265
 
-invoke.cont242:                                   ; preds = %.noexc238
+invoke.cont242:                                   ; preds = %.noexc240
   call void @llvm.experimental.noalias.scope.decl(metadata !114)
   %encoding.i = getelementptr inbounds i8, ptr %equalAreaImage, i64 48
   %116 = load i64, ptr %encoding.i, align 8, !noalias !114
   store i64 %116, ptr %agg.tmp241, align 8, !alias.scope !114
-  invoke void @_ZN4pbrt5ImageC1ENS_11PixelFormatENS_6Point2IiEEN4pstd4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_13ColorEncodingENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp214, i32 noundef 2, i64 %retval.sroa.0.0.copyload.i216, ptr nonnull %ref.tmp221, i64 3, ptr noundef nonnull %agg.tmp241, i64 %alloc.coerce)
+  invoke void @_ZN4pbrt5ImageC1ENS_11PixelFormatENS_6Point2IiEEN4pstd4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_13ColorEncodingENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp214, i32 noundef 2, i64 %retval.sroa.0.0.copyload.i218, ptr nonnull %ref.tmp221, i64 3, ptr noundef nonnull %agg.tmp241, i64 %alloc.coerce)
           to label %invoke.cont246 unwind label %lpad239
 
 invoke.cont246:                                   ; preds = %invoke.cont242
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %image, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp214, i64 12, i1 false)
   %channelNames3.i = getelementptr inbounds i8, ptr %ref.tmp214, i64 16
-  %call.i243248 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4pstd6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS6_EEEaSEOSA_(ptr noundef nonnull align 8 dereferenceable(32) %channelNames.i, ptr noundef nonnull align 8 dereferenceable(32) %channelNames3.i)
-          to label %call.i243.noexc unwind label %lpad248
+  %call.i245250 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4pstd6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS6_EEEaSEOSA_(ptr noundef nonnull align 8 dereferenceable(32) %channelNames.i, ptr noundef nonnull align 8 dereferenceable(32) %channelNames3.i)
+          to label %call.i245.noexc unwind label %lpad248
 
-call.i243.noexc:                                  ; preds = %invoke.cont246
-  %encoding.i244 = getelementptr inbounds i8, ptr %this, i64 288
+call.i245.noexc:                                  ; preds = %invoke.cont246
+  %encoding.i246 = getelementptr inbounds i8, ptr %this, i64 288
   %encoding4.i = getelementptr inbounds i8, ptr %ref.tmp214, i64 48
   %117 = load i64, ptr %encoding4.i, align 8
-  store i64 %117, ptr %encoding.i244, align 8
+  store i64 %117, ptr %encoding.i246, align 8
   %p86.i = getelementptr inbounds i8, ptr %ref.tmp214, i64 56
-  %call7.i249 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4pstd6vectorIhNS_3pmr21polymorphic_allocatorIhEEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %p8.i, ptr noundef nonnull align 8 dereferenceable(32) %p86.i)
+  %call7.i251 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4pstd6vectorIhNS_3pmr21polymorphic_allocatorIhEEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %p8.i, ptr noundef nonnull align 8 dereferenceable(32) %p86.i)
           to label %call7.i.noexc unwind label %lpad248
 
-call7.i.noexc:                                    ; preds = %call.i243.noexc
+call7.i.noexc:                                    ; preds = %call.i245.noexc
   %p168.i = getelementptr inbounds i8, ptr %ref.tmp214, i64 88
-  %call9.i250 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(32) %p16.i, ptr noundef nonnull align 8 dereferenceable(32) %p168.i)
+  %call9.i252 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(32) %p16.i, ptr noundef nonnull align 8 dereferenceable(32) %p168.i)
           to label %call9.i.noexc unwind label %lpad248
 
 call9.i.noexc:                                    ; preds = %call7.i.noexc
   %p3210.i = getelementptr inbounds i8, ptr %ref.tmp214, i64 120
-  %call11.i251 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %p32.i, ptr noundef nonnull align 8 dereferenceable(32) %p3210.i)
+  %call11.i253 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %p32.i, ptr noundef nonnull align 8 dereferenceable(32) %p3210.i)
           to label %invoke.cont249 unwind label %lpad248
 
 invoke.cont249:                                   ; preds = %call9.i.noexc
@@ -18131,23 +18131,23 @@ arraydestroy.done257:                             ; preds = %arraydestroy.body25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp232) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp228) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp224) #28
-  %retval.sroa.0.0.copyload.i253 = load i64, ptr %resolution.i, align 4
+  %retval.sroa.0.0.copyload.i255 = load i64, ptr %resolution.i, align 4
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp285, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp285, i8 0, i64 32, i1 false)
-  %call.i.i2.i254 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
+  %call.i.i2.i256 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
           to label %invoke.cont287 unwind label %lpad41
 
 invoke.cont287:                                   ; preds = %arraydestroy.done257
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp285, i64 24
-  store ptr %this, ptr %call.i.i2.i254, align 16
-  %ref.tmp286.sroa.2.0.call.i.i2.i254.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i254, i64 8
-  store ptr %renderFromLight, ptr %ref.tmp286.sroa.2.0.call.i.i2.i254.sroa_idx, align 8
-  %ref.tmp286.sroa.3.0.call.i.i2.i254.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i254, i64 16
-  store ptr %equalAreaImage, ptr %ref.tmp286.sroa.3.0.call.i.i2.i254.sroa_idx, align 16
-  store ptr %call.i.i2.i254, ptr %agg.tmp285, align 8
+  store ptr %this, ptr %call.i.i2.i256, align 16
+  %ref.tmp286.sroa.2.0.call.i.i2.i256.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i256, i64 8
+  store ptr %renderFromLight, ptr %ref.tmp286.sroa.2.0.call.i.i2.i256.sroa_idx, align 8
+  %ref.tmp286.sroa.3.0.call.i.i2.i256.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i256, i64 16
+  store ptr %equalAreaImage, ptr %ref.tmp286.sroa.3.0.call.i.i2.i256.sroa_idx, align 16
+  store ptr %call.i.i2.i256, ptr %agg.tmp285, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlEZN4pbrt24PortalImageInfiniteLightC1ERKNS1_9TransformENS1_5ImageEPKNS1_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS1_6Point3IfEESaISK_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0E9_M_invokeERKSt9_Any_dataOl", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlEZN4pbrt24PortalImageInfiniteLightC1ERKNS1_9TransformENS1_5ImageEPKNS1_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS1_6Point3IfEESaISK_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation", ptr %_M_manager.i.i, align 8
-  %conv284 = ashr i64 %retval.sroa.0.0.copyload.i253, 32
+  %conv284 = ashr i64 %retval.sroa.0.0.copyload.i255, 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
@@ -18158,12 +18158,12 @@ invoke.cont287:                                   ; preds = %arraydestroy.done25
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E9_M_invokeERKSt9_Any_dataOlSA_, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
   invoke void @_ZN4pbrt11ParallelForEllSt8functionIFvllEE(i64 noundef 0, i64 noundef %conv284, ptr noundef nonnull %agg.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i255
+          to label %invoke.cont.i unwind label %lpad.i257
 
 invoke.cont.i:                                    ; preds = %invoke.cont287
   %121 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i256 = icmp eq ptr %121, null
-  br i1 %tobool.not.i.i.i256, label %invoke.cont289, label %if.then.i.i.i
+  %tobool.not.i.i.i258 = icmp eq ptr %121, null
+  br i1 %tobool.not.i.i.i258, label %invoke.cont289, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %call.i.i.i = invoke noundef zeroext i1 %121(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
@@ -18176,14 +18176,14 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   call void @__clang_call_terminate(ptr %123) #32
   unreachable
 
-lpad.i255:                                        ; preds = %invoke.cont287
+lpad.i257:                                        ; preds = %invoke.cont287
   %124 = landingpad { ptr, i32 }
           cleanup
   %125 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i3.i = icmp eq ptr %125, null
   br i1 %tobool.not.i.i3.i, label %lpad288.body, label %if.then.i.i4.i
 
-if.then.i.i4.i:                                   ; preds = %lpad.i255
+if.then.i.i4.i:                                   ; preds = %lpad.i257
   %call.i.i5.i = invoke noundef zeroext i1 %125(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
           to label %lpad288.body unwind label %terminate.lpad.i.i6.i
 
@@ -18201,7 +18201,7 @@ invoke.cont289:                                   ; preds = %if.then.i.i.i, %inv
   br i1 %tobool.not.i.i, label %invoke.cont300, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont289
-  %call.i.i259 = invoke noundef zeroext i1 %128(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp285, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp285, i32 noundef 3)
+  %call.i.i261 = invoke noundef zeroext i1 %128(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp285, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp285, i32 noundef 3)
           to label %invoke.cont300 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -18215,7 +18215,7 @@ invoke.cont300:                                   ; preds = %if.then.i.i, %invok
   store <2 x float> zeroinitializer, ptr %ref.tmp293, align 8
   %pMax.i = getelementptr inbounds i8, ptr %ref.tmp293, i64 8
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %pMax.i, align 8
-  %call.i263 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #28
+  %call.i265 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #28
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dxdA.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp8.i)
@@ -18237,50 +18237,50 @@ invoke.cont300:                                   ; preds = %if.then.i.i, %invok
   store i64 %retval.sroa.0.0.insert.insert.i.i.i.i, ptr %d, align 8, !alias.scope !117
   %extent.sroa.3.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %d, i64 8
   store i64 %retval.sroa.0.0.insert.insert.i14.i.i.i, ptr %extent.sroa.3.0.this.sroa_idx.i.i.i, align 8, !alias.scope !117
-  %allocator3.i.i.i265 = getelementptr inbounds i8, ptr %d, i64 16
-  %.cast.i.i.i = ptrtoint ptr %call.i263 to i64
-  store i64 %.cast.i.i.i, ptr %allocator3.i.i.i265, align 8, !alias.scope !117
+  %allocator3.i.i.i267 = getelementptr inbounds i8, ptr %d, i64 16
+  %.cast.i.i.i = ptrtoint ptr %call.i265 to i64
+  store i64 %.cast.i.i.i, ptr %allocator3.i.i.i267, align 8, !alias.scope !117
   %sub.i.i.i.i.i = sub nsw i32 %.sroa.speculated5.i9.i.i.i, %.sroa.speculated5.i.i.i.i
   %sub4.i.i.i.i.i = sub nsw i32 %.sroa.speculated.i10.i.i.i, %.sroa.speculated.i.i.i.i
-  %mul.i.i.i.i266 = mul nsw i32 %sub4.i.i.i.i.i, %sub.i.i.i.i.i
-  %cmp.i.i.i.i.i.i = icmp eq i32 %mul.i.i.i.i266, 0
+  %mul.i.i.i.i268 = mul nsw i32 %sub4.i.i.i.i.i, %sub.i.i.i.i.i
+  %cmp.i.i.i.i.i.i = icmp eq i32 %mul.i.i.i.i268, 0
   br i1 %cmp.i.i.i.i.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.thread.i.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.i.i.i
 
 _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.thread.i.i.i: ; preds = %invoke.cont300
-  %values9.i.i.i276 = getelementptr inbounds i8, ptr %d, i64 24
-  store ptr null, ptr %values9.i.i.i276, align 8, !alias.scope !117
+  %values9.i.i.i278 = getelementptr inbounds i8, ptr %d, i64 24
+  store ptr null, ptr %values9.i.i.i278, align 8, !alias.scope !117
   br label %_ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i
 
 _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.i.i.i: ; preds = %invoke.cont300
-  %conv.i.i.i = sext i32 %mul.i.i.i.i266 to i64
+  %conv.i.i.i = sext i32 %mul.i.i.i.i268 to i64
   %mul.i4.i.i.i = shl nsw i64 %conv.i.i.i, 2
-  %vtable.i.i.i.i.i.i = load ptr, ptr %call.i263, align 8, !noalias !117
+  %vtable.i.i.i.i.i.i = load ptr, ptr %call.i265, align 8, !noalias !117
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %133 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8, !noalias !117
-  %call.i.i.i.i.i.i277 = invoke noundef ptr %133(ptr noundef nonnull align 8 dereferenceable(8) %call.i263, i64 noundef %mul.i4.i.i.i, i64 noundef 4)
+  %call.i.i.i.i.i.i279 = invoke noundef ptr %133(ptr noundef nonnull align 8 dereferenceable(8) %call.i265, i64 noundef %mul.i4.i.i.i, i64 noundef 4)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad41
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.i.i.i
   %values.i.i.i = getelementptr inbounds i8, ptr %d, i64 24
-  store ptr %call.i.i.i.i.i.i277, ptr %values.i.i.i, align 8, !alias.scope !117
-  %cmp5.i.i.i = icmp sgt i32 %mul.i.i.i.i266, 0
+  store ptr %call.i.i.i.i.i.i279, ptr %values.i.i.i, align 8, !alias.scope !117
+  %cmp5.i.i.i = icmp sgt i32 %mul.i.i.i.i268, 0
   br i1 %cmp5.i.i.i, label %for.body.preheader.i.i.i, label %_ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i
 
 for.body.preheader.i.i.i:                         ; preds = %call.i.i.i.i.i.i.noexc
-  %wide.trip.count.i.i.i = zext nneg i32 %mul.i.i.i.i266 to i64
+  %wide.trip.count.i.i.i = zext nneg i32 %mul.i.i.i.i268 to i64
   %134 = shl nuw nsw i64 %wide.trip.count.i.i.i, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %call.i.i.i.i.i.i277, i8 0, i64 %134, i1 false), !noalias !117
+  call void @llvm.memset.p0.i64(ptr align 4 %call.i.i.i.i.i.i279, i8 0, i64 %134, i1 false), !noalias !117
   br label %_ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i
 
 _ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i: ; preds = %for.body.preheader.i.i.i, %call.i.i.i.i.i.i.noexc, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.thread.i.i.i
   %135 = load i32, ptr %y3.i.i.i34, align 8, !noalias !117
-  %_M_manager.i.i.i267 = getelementptr inbounds i8, ptr %agg.tmp8.i, i64 16
+  %_M_manager.i.i.i269 = getelementptr inbounds i8, ptr %agg.tmp8.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8.i, i8 0, i64 32, i1 false), !noalias !117
   %call.i.i2.i3.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #30
-          to label %invoke.cont.i269 unwind label %lpad.i268, !noalias !117
+          to label %invoke.cont.i271 unwind label %lpad.i270, !noalias !117
 
-invoke.cont.i269:                                 ; preds = %_ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i
-  %_M_invoker.i.i270 = getelementptr inbounds i8, ptr %agg.tmp8.i, i64 24
+invoke.cont.i271:                                 ; preds = %_ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i
+  %_M_invoker.i.i272 = getelementptr inbounds i8, ptr %agg.tmp8.i, i64 24
   store ptr %image, ptr %call.i.i2.i3.i, align 16, !noalias !117
   %ref.tmp.sroa.2.0.call.i.i2.i3.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i2.i3.i, i64 8
   store ptr %ref.tmp293, ptr %ref.tmp.sroa.2.0.call.i.i2.i3.sroa_idx.i, align 8, !noalias !117
@@ -18289,37 +18289,37 @@ invoke.cont.i269:                                 ; preds = %_ZN4pbrt7Array2DIfE
   %ref.tmp.sroa.4.0.call.i.i2.i3.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i2.i3.i, i64 24
   store ptr %dxdA.i, ptr %ref.tmp.sroa.4.0.call.i.i2.i3.sroa_idx.i, align 8
   store ptr %call.i.i2.i3.i, ptr %agg.tmp8.i, align 8, !noalias !117
-  store ptr @"_ZNSt17_Function_handlerIFvllEZN4pbrt5Image23GetSamplingDistributionIZNS1_24PortalImageInfiniteLightC1ERKNS1_9TransformES2_PKNS1_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS1_6Point3IfEESaISL_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1EENS1_7Array2DIfEET_RKNS1_7Bounds2IfEESS_EUlllE_E9_M_invokeERKSt9_Any_dataOlS16_", ptr %_M_invoker.i.i270, align 8, !noalias !117
-  store ptr @"_ZNSt17_Function_handlerIFvllEZN4pbrt5Image23GetSamplingDistributionIZNS1_24PortalImageInfiniteLightC1ERKNS1_9TransformES2_PKNS1_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS1_6Point3IfEESaISL_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1EENS1_7Array2DIfEET_RKNS1_7Bounds2IfEESS_EUlllE_E10_M_managerERSt9_Any_dataRKS13_St18_Manager_operation", ptr %_M_manager.i.i.i267, align 8, !noalias !117
-  %conv.i271 = sext i32 %135 to i64
-  invoke void @_ZN4pbrt11ParallelForEllSt8functionIFvllEE(i64 noundef 0, i64 noundef %conv.i271, ptr noundef nonnull %agg.tmp8.i)
+  store ptr @"_ZNSt17_Function_handlerIFvllEZN4pbrt5Image23GetSamplingDistributionIZNS1_24PortalImageInfiniteLightC1ERKNS1_9TransformES2_PKNS1_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS1_6Point3IfEESaISL_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1EENS1_7Array2DIfEET_RKNS1_7Bounds2IfEESS_EUlllE_E9_M_invokeERKSt9_Any_dataOlS16_", ptr %_M_invoker.i.i272, align 8, !noalias !117
+  store ptr @"_ZNSt17_Function_handlerIFvllEZN4pbrt5Image23GetSamplingDistributionIZNS1_24PortalImageInfiniteLightC1ERKNS1_9TransformES2_PKNS1_13RGBColorSpaceEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS1_6Point3IfEESaISL_EEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1EENS1_7Array2DIfEET_RKNS1_7Bounds2IfEESS_EUlllE_E10_M_managerERSt9_Any_dataRKS13_St18_Manager_operation", ptr %_M_manager.i.i.i269, align 8, !noalias !117
+  %conv.i273 = sext i32 %135 to i64
+  invoke void @_ZN4pbrt11ParallelForEllSt8functionIFvllEE(i64 noundef 0, i64 noundef %conv.i273, ptr noundef nonnull %agg.tmp8.i)
           to label %invoke.cont10.i unwind label %lpad9.i
 
-invoke.cont10.i:                                  ; preds = %invoke.cont.i269
-  %136 = load ptr, ptr %_M_manager.i.i.i267, align 8, !noalias !117
-  %tobool.not.i.i.i272 = icmp eq ptr %136, null
-  br i1 %tobool.not.i.i.i272, label %invoke.cont304, label %if.then.i.i.i273
+invoke.cont10.i:                                  ; preds = %invoke.cont.i271
+  %136 = load ptr, ptr %_M_manager.i.i.i269, align 8, !noalias !117
+  %tobool.not.i.i.i274 = icmp eq ptr %136, null
+  br i1 %tobool.not.i.i.i274, label %invoke.cont304, label %if.then.i.i.i275
 
-if.then.i.i.i273:                                 ; preds = %invoke.cont10.i
-  %call.i.i.i274 = invoke noundef zeroext i1 %136(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8.i, i32 noundef 3)
-          to label %invoke.cont304 unwind label %terminate.lpad.i.i.i275
+if.then.i.i.i275:                                 ; preds = %invoke.cont10.i
+  %call.i.i.i276 = invoke noundef zeroext i1 %136(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8.i, i32 noundef 3)
+          to label %invoke.cont304 unwind label %terminate.lpad.i.i.i277
 
-terminate.lpad.i.i.i275:                          ; preds = %if.then.i.i.i273
+terminate.lpad.i.i.i277:                          ; preds = %if.then.i.i.i275
   %137 = landingpad { ptr, i32 }
           catch ptr null
   %138 = extractvalue { ptr, i32 } %137, 0
   call void @__clang_call_terminate(ptr %138) #32
   unreachable
 
-lpad.i268:                                        ; preds = %_ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i
+lpad.i270:                                        ; preds = %_ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i
   %139 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
 
-lpad9.i:                                          ; preds = %invoke.cont.i269
+lpad9.i:                                          ; preds = %invoke.cont.i271
   %140 = landingpad { ptr, i32 }
           cleanup
-  %141 = load ptr, ptr %_M_manager.i.i.i267, align 8, !noalias !117
+  %141 = load ptr, ptr %_M_manager.i.i.i269, align 8, !noalias !117
   %tobool.not.i.i6.i = icmp eq ptr %141, null
   br i1 %tobool.not.i.i6.i, label %ehcleanup.i, label %if.then.i.i7.i
 
@@ -18334,15 +18334,15 @@ terminate.lpad.i.i9.i:                            ; preds = %if.then.i.i7.i
   call void @__clang_call_terminate(ptr %143) #32
   unreachable
 
-ehcleanup.i:                                      ; preds = %if.then.i.i7.i, %lpad9.i, %lpad.i268
-  %.pn.i = phi { ptr, i32 } [ %139, %lpad.i268 ], [ %140, %lpad9.i ], [ %140, %if.then.i.i7.i ]
+ehcleanup.i:                                      ; preds = %if.then.i.i7.i, %lpad9.i, %lpad.i270
+  %.pn.i = phi { ptr, i32 } [ %139, %lpad.i270 ], [ %140, %lpad9.i ], [ %140, %if.then.i.i7.i ]
   call void @_ZN4pbrt7Array2DIfED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %d) #28
   br label %ehcleanup322
 
-invoke.cont304:                                   ; preds = %if.then.i.i.i273, %invoke.cont10.i
+invoke.cont304:                                   ; preds = %if.then.i.i.i275, %invoke.cont10.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dxdA.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp8.i)
-  %call.i280 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #28
+  %call.i282 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #28
   %values.i.i = getelementptr inbounds i8, ptr %d, i64 24
   %144 = load ptr, ptr %values.i.i, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %d, align 8
@@ -18350,71 +18350,71 @@ invoke.cont304:                                   ; preds = %if.then.i.i.i273, %
   %p.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 32
   %p.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i.i.i.i to i32
   %145 = load i32, ptr %extent.sroa.3.0.this.sroa_idx.i.i.i, align 8
-  %sub.i.i.i.i.i281 = sub nsw i32 %145, %p.sroa.0.0.extract.trunc.i.i.i.i.i
+  %sub.i.i.i.i.i283 = sub nsw i32 %145, %p.sroa.0.0.extract.trunc.i.i.i.i.i
   %y.i.i.i.i.i = getelementptr inbounds i8, ptr %d, i64 12
   %146 = load i32, ptr %y.i.i.i.i.i, align 4
-  %sub4.i.i.i.i.i282 = sub nsw i32 %146, %p.sroa.2.0.extract.trunc.i.i.i.i.i
-  %mul.i.i.i.i283 = mul nsw i32 %sub4.i.i.i.i.i282, %sub.i.i.i.i.i281
-  %idx.ext.i.i = sext i32 %mul.i.i.i.i283 to i64
-  %.sroa.speculated5.i.i.i.i284 = call i32 @llvm.smin.i32(i32 %sub.i.i.i.i.i281, i32 0)
-  %.sroa.speculated.i.i.i.i285 = call i32 @llvm.smin.i32(i32 %sub4.i.i.i.i.i282, i32 0)
-  %retval.sroa.2.0.insert.ext.i.i.i.i286 = zext i32 %.sroa.speculated.i.i.i.i285 to i64
-  %retval.sroa.2.0.insert.shift.i.i.i.i287 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i286, 32
-  %retval.sroa.0.0.insert.ext.i.i.i.i288 = zext i32 %.sroa.speculated5.i.i.i.i284 to i64
-  %retval.sroa.0.0.insert.insert.i.i.i.i289 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i287, %retval.sroa.0.0.insert.ext.i.i.i.i288
-  %.sroa.speculated5.i9.i.i.i290 = call i32 @llvm.smax.i32(i32 %sub.i.i.i.i.i281, i32 0)
-  %.sroa.speculated.i10.i.i.i291 = call i32 @llvm.smax.i32(i32 %sub4.i.i.i.i.i282, i32 0)
-  %retval.sroa.2.0.insert.ext.i11.i.i.i292 = zext nneg i32 %.sroa.speculated.i10.i.i.i291 to i64
-  %retval.sroa.2.0.insert.shift.i12.i.i.i293 = shl nuw nsw i64 %retval.sroa.2.0.insert.ext.i11.i.i.i292, 32
-  %retval.sroa.0.0.insert.ext.i13.i.i.i294 = zext nneg i32 %.sroa.speculated5.i9.i.i.i290 to i64
-  %retval.sroa.0.0.insert.insert.i14.i.i.i295 = or disjoint i64 %retval.sroa.2.0.insert.shift.i12.i.i.i293, %retval.sroa.0.0.insert.ext.i13.i.i.i294
-  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i289, ptr %agg.tmp306, align 8
-  %extent.sroa.3.0.this.sroa_idx.i.i.i296 = getelementptr inbounds i8, ptr %agg.tmp306, i64 8
-  store i64 %retval.sroa.0.0.insert.insert.i14.i.i.i295, ptr %extent.sroa.3.0.this.sroa_idx.i.i.i296, align 8
-  %allocator3.i.i.i297 = getelementptr inbounds i8, ptr %agg.tmp306, i64 16
-  %.cast.i.i.i298 = ptrtoint ptr %call.i280 to i64
-  store i64 %.cast.i.i.i298, ptr %allocator3.i.i.i297, align 8
-  %sub.i.i.i.i5.i = sub nsw i32 %.sroa.speculated5.i9.i.i.i290, %.sroa.speculated5.i.i.i.i284
-  %sub4.i.i.i.i6.i = sub nsw i32 %.sroa.speculated.i10.i.i.i291, %.sroa.speculated.i.i.i.i285
+  %sub4.i.i.i.i.i284 = sub nsw i32 %146, %p.sroa.2.0.extract.trunc.i.i.i.i.i
+  %mul.i.i.i.i285 = mul nsw i32 %sub4.i.i.i.i.i284, %sub.i.i.i.i.i283
+  %idx.ext.i.i = sext i32 %mul.i.i.i.i285 to i64
+  %.sroa.speculated5.i.i.i.i286 = call i32 @llvm.smin.i32(i32 %sub.i.i.i.i.i283, i32 0)
+  %.sroa.speculated.i.i.i.i287 = call i32 @llvm.smin.i32(i32 %sub4.i.i.i.i.i284, i32 0)
+  %retval.sroa.2.0.insert.ext.i.i.i.i288 = zext i32 %.sroa.speculated.i.i.i.i287 to i64
+  %retval.sroa.2.0.insert.shift.i.i.i.i289 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i288, 32
+  %retval.sroa.0.0.insert.ext.i.i.i.i290 = zext i32 %.sroa.speculated5.i.i.i.i286 to i64
+  %retval.sroa.0.0.insert.insert.i.i.i.i291 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i289, %retval.sroa.0.0.insert.ext.i.i.i.i290
+  %.sroa.speculated5.i9.i.i.i292 = call i32 @llvm.smax.i32(i32 %sub.i.i.i.i.i283, i32 0)
+  %.sroa.speculated.i10.i.i.i293 = call i32 @llvm.smax.i32(i32 %sub4.i.i.i.i.i284, i32 0)
+  %retval.sroa.2.0.insert.ext.i11.i.i.i294 = zext nneg i32 %.sroa.speculated.i10.i.i.i293 to i64
+  %retval.sroa.2.0.insert.shift.i12.i.i.i295 = shl nuw nsw i64 %retval.sroa.2.0.insert.ext.i11.i.i.i294, 32
+  %retval.sroa.0.0.insert.ext.i13.i.i.i296 = zext nneg i32 %.sroa.speculated5.i9.i.i.i292 to i64
+  %retval.sroa.0.0.insert.insert.i14.i.i.i297 = or disjoint i64 %retval.sroa.2.0.insert.shift.i12.i.i.i295, %retval.sroa.0.0.insert.ext.i13.i.i.i296
+  store i64 %retval.sroa.0.0.insert.insert.i.i.i.i291, ptr %agg.tmp306, align 8
+  %extent.sroa.3.0.this.sroa_idx.i.i.i298 = getelementptr inbounds i8, ptr %agg.tmp306, i64 8
+  store i64 %retval.sroa.0.0.insert.insert.i14.i.i.i297, ptr %extent.sroa.3.0.this.sroa_idx.i.i.i298, align 8
+  %allocator3.i.i.i299 = getelementptr inbounds i8, ptr %agg.tmp306, i64 16
+  %.cast.i.i.i300 = ptrtoint ptr %call.i282 to i64
+  store i64 %.cast.i.i.i300, ptr %allocator3.i.i.i299, align 8
+  %sub.i.i.i.i5.i = sub nsw i32 %.sroa.speculated5.i9.i.i.i292, %.sroa.speculated5.i.i.i.i286
+  %sub4.i.i.i.i6.i = sub nsw i32 %.sroa.speculated.i10.i.i.i293, %.sroa.speculated.i.i.i.i287
   %mul.i.i.i7.i = mul nsw i32 %sub4.i.i.i.i6.i, %sub.i.i.i.i5.i
-  %cmp.i.i.i.i.i.i299 = icmp eq i32 %mul.i.i.i7.i, 0
-  br i1 %cmp.i.i.i.i.i.i299, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.thread.i.i.i313, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.i.i.i300
+  %cmp.i.i.i.i.i.i301 = icmp eq i32 %mul.i.i.i7.i, 0
+  br i1 %cmp.i.i.i.i.i.i301, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.thread.i.i.i315, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.i.i.i302
 
-_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.thread.i.i.i313: ; preds = %invoke.cont304
-  %values9.i.i.i314 = getelementptr inbounds i8, ptr %agg.tmp306, i64 24
-  store ptr null, ptr %values9.i.i.i314, align 8
+_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.thread.i.i.i315: ; preds = %invoke.cont304
+  %values9.i.i.i316 = getelementptr inbounds i8, ptr %agg.tmp306, i64 24
+  store ptr null, ptr %values9.i.i.i316, align 8
   br label %_ZN4pbrt7Array2DIfEC2ENS_7Bounds2IiEEN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i.i
 
-_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.i.i.i300: ; preds = %invoke.cont304
-  %conv.i.i.i301 = sext i32 %mul.i.i.i7.i to i64
-  %mul.i4.i.i.i302 = shl nsw i64 %conv.i.i.i301, 2
-  %vtable.i.i.i.i.i.i303 = load ptr, ptr %call.i280, align 8
-  %vfn.i.i.i.i.i.i304 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i303, i64 16
-  %147 = load ptr, ptr %vfn.i.i.i.i.i.i304, align 8
-  %call.i.i.i.i.i.i316 = invoke noundef ptr %147(ptr noundef nonnull align 8 dereferenceable(8) %call.i280, i64 noundef %mul.i4.i.i.i302, i64 noundef 4)
-          to label %call.i.i.i.i.i.i.noexc315 unwind label %lpad309
+_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.i.i.i302: ; preds = %invoke.cont304
+  %conv.i.i.i303 = sext i32 %mul.i.i.i7.i to i64
+  %mul.i4.i.i.i304 = shl nsw i64 %conv.i.i.i303, 2
+  %vtable.i.i.i.i.i.i305 = load ptr, ptr %call.i282, align 8
+  %vfn.i.i.i.i.i.i306 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i305, i64 16
+  %147 = load ptr, ptr %vfn.i.i.i.i.i.i306, align 8
+  %call.i.i.i.i.i.i318 = invoke noundef ptr %147(ptr noundef nonnull align 8 dereferenceable(8) %call.i282, i64 noundef %mul.i4.i.i.i304, i64 noundef 4)
+          to label %call.i.i.i.i.i.i.noexc317 unwind label %lpad309
 
-call.i.i.i.i.i.i.noexc315:                        ; preds = %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.i.i.i300
+call.i.i.i.i.i.i.noexc317:                        ; preds = %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.i.i.i302
   %values.i.i8.i = getelementptr inbounds i8, ptr %agg.tmp306, i64 24
-  store ptr %call.i.i.i.i.i.i316, ptr %values.i.i8.i, align 8
-  %cmp5.i.i.i305 = icmp sgt i32 %mul.i.i.i7.i, 0
-  br i1 %cmp5.i.i.i305, label %for.body.preheader.i.i.i306, label %_ZN4pbrt7Array2DIfEC2ENS_7Bounds2IiEEN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i.i
+  store ptr %call.i.i.i.i.i.i318, ptr %values.i.i8.i, align 8
+  %cmp5.i.i.i307 = icmp sgt i32 %mul.i.i.i7.i, 0
+  br i1 %cmp5.i.i.i307, label %for.body.preheader.i.i.i308, label %_ZN4pbrt7Array2DIfEC2ENS_7Bounds2IiEEN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i.i
 
-for.body.preheader.i.i.i306:                      ; preds = %call.i.i.i.i.i.i.noexc315
-  %wide.trip.count.i.i.i307 = zext nneg i32 %mul.i.i.i7.i to i64
-  br label %for.body.i.i.i308
+for.body.preheader.i.i.i308:                      ; preds = %call.i.i.i.i.i.i.noexc317
+  %wide.trip.count.i.i.i309 = zext nneg i32 %mul.i.i.i7.i to i64
+  br label %for.body.i.i.i310
 
-for.body.i.i.i308:                                ; preds = %for.body.i.i.i308, %for.body.preheader.i.i.i306
-  %indvars.iv.i.i.i309 = phi i64 [ 0, %for.body.preheader.i.i.i306 ], [ %indvars.iv.next.i.i.i311, %for.body.i.i.i308 ]
-  %add.ptr.i.i.i310 = getelementptr inbounds float, ptr %call.i.i.i.i.i.i316, i64 %indvars.iv.i.i.i309
-  store float 0.000000e+00, ptr %add.ptr.i.i.i310, align 4
-  %indvars.iv.next.i.i.i311 = add nuw nsw i64 %indvars.iv.i.i.i309, 1
-  %exitcond.not.i.i.i312 = icmp eq i64 %indvars.iv.next.i.i.i311, %wide.trip.count.i.i.i307
-  br i1 %exitcond.not.i.i.i312, label %_ZN4pbrt7Array2DIfEC2ENS_7Bounds2IiEEN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i.i, label %for.body.i.i.i308, !llvm.loop !120
+for.body.i.i.i310:                                ; preds = %for.body.i.i.i310, %for.body.preheader.i.i.i308
+  %indvars.iv.i.i.i311 = phi i64 [ 0, %for.body.preheader.i.i.i308 ], [ %indvars.iv.next.i.i.i313, %for.body.i.i.i310 ]
+  %add.ptr.i.i.i312 = getelementptr inbounds float, ptr %call.i.i.i.i.i.i318, i64 %indvars.iv.i.i.i311
+  store float 0.000000e+00, ptr %add.ptr.i.i.i312, align 4
+  %indvars.iv.next.i.i.i313 = add nuw nsw i64 %indvars.iv.i.i.i311, 1
+  %exitcond.not.i.i.i314 = icmp eq i64 %indvars.iv.next.i.i.i313, %wide.trip.count.i.i.i309
+  br i1 %exitcond.not.i.i.i314, label %_ZN4pbrt7Array2DIfEC2ENS_7Bounds2IiEEN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i.i, label %for.body.i.i.i310, !llvm.loop !120
 
-_ZN4pbrt7Array2DIfEC2ENS_7Bounds2IiEEN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i.i: ; preds = %for.body.i.i.i308, %call.i.i.i.i.i.i.noexc315, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.thread.i.i.i313
-  %148 = phi ptr [ %call.i.i.i.i.i.i316, %call.i.i.i.i.i.i.noexc315 ], [ null, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.thread.i.i.i313 ], [ %call.i.i.i.i.i.i316, %for.body.i.i.i308 ]
-  %tobool.not.i.i.i.i.i.i.i = icmp eq i32 %mul.i.i.i.i283, 0
+_ZN4pbrt7Array2DIfEC2ENS_7Bounds2IiEEN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i.i: ; preds = %for.body.i.i.i310, %call.i.i.i.i.i.i.noexc317, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.thread.i.i.i315
+  %148 = phi ptr [ %call.i.i.i.i.i.i318, %call.i.i.i.i.i.i.noexc317 ], [ null, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.thread.i.i.i315 ], [ %call.i.i.i.i.i.i318, %for.body.i.i.i310 ]
+  %tobool.not.i.i.i.i.i.i.i = icmp eq i32 %mul.i.i.i.i285, 0
   br i1 %tobool.not.i.i.i.i.i.i.i, label %invoke.cont310, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN4pbrt7Array2DIfEC2ENS_7Bounds2IiEEN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i.i
@@ -18427,16 +18427,16 @@ invoke.cont310:                                   ; preds = %if.then.i.i.i.i.i.i
           to label %invoke.cont314 unwind label %lpad313
 
 invoke.cont314:                                   ; preds = %invoke.cont310
-  %call.i.i317318 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4pbrt7Array2DIdEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(32) %distribution, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp305)
-          to label %call.i.i317.noexc unwind label %lpad316
+  %call.i.i319320 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4pbrt7Array2DIdEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(32) %distribution, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp305)
+          to label %call.i.i319.noexc unwind label %lpad316
 
-call.i.i317.noexc:                                ; preds = %invoke.cont314
+call.i.i319.noexc:                                ; preds = %invoke.cont314
   %func.i = getelementptr inbounds i8, ptr %this, i64 424
   %func3.i = getelementptr inbounds i8, ptr %ref.tmp305, i64 32
-  %call4.i319 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4pbrt7Array2DIfEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(32) %func.i, ptr noundef nonnull align 8 dereferenceable(32) %func3.i)
+  %call4.i321 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4pbrt7Array2DIfEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(32) %func.i, ptr noundef nonnull align 8 dereferenceable(32) %func3.i)
           to label %invoke.cont317 unwind label %lpad316
 
-invoke.cont317:                                   ; preds = %call.i.i317.noexc
+invoke.cont317:                                   ; preds = %call.i.i319.noexc
   %values3.i.i = getelementptr inbounds i8, ptr %ref.tmp305, i64 56
   %149 = load ptr, ptr %values3.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %149, null
@@ -18453,8 +18453,8 @@ if.end.i.i.i.i.i:                                 ; preds = %invoke.cont317
   %151 = load i32, ptr %pMax.i.i.i, align 8
   %p.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i.i to i32
   %sub.i.i.i.i = sub nsw i32 %151, %p.sroa.0.0.extract.trunc.i.i.i.i
-  %mul.i.i.i321 = mul nsw i32 %sub4.i.i.i.i, %sub.i.i.i.i
-  %conv.i.i = sext i32 %mul.i.i.i321 to i64
+  %mul.i.i.i323 = mul nsw i32 %sub4.i.i.i.i, %sub.i.i.i.i
+  %conv.i.i = sext i32 %mul.i.i.i323 to i64
   %allocator2.i.i = getelementptr inbounds i8, ptr %ref.tmp305, i64 48
   %mul.i4.i.i = shl nsw i64 %conv.i.i, 2
   %152 = load ptr, ptr %allocator2.i.i, align 8
@@ -18462,9 +18462,9 @@ if.end.i.i.i.i.i:                                 ; preds = %invoke.cont317
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
   %153 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %153(ptr noundef nonnull align 8 dereferenceable(8) %152, ptr noundef nonnull %149, i64 noundef %mul.i4.i.i, i64 noundef 4)
-          to label %_ZN4pbrt7Array2DIfED2Ev.exit.i unwind label %terminate.lpad.i.i322
+          to label %_ZN4pbrt7Array2DIfED2Ev.exit.i unwind label %terminate.lpad.i.i324
 
-terminate.lpad.i.i322:                            ; preds = %if.end.i.i.i.i.i
+terminate.lpad.i.i324:                            ; preds = %if.end.i.i.i.i.i
   %154 = landingpad { ptr, i32 }
           catch ptr null
   %155 = extractvalue { ptr, i32 } %154, 0
@@ -18478,28 +18478,28 @@ _ZN4pbrt7Array2DIfED2Ev.exit.i:                   ; preds = %if.end.i.i.i.i.i, %
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN4pbrt27WindowedPiecewiseConstant2DD2Ev.exit, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %_ZN4pbrt7Array2DIfED2Ev.exit.i
-  %y.i.i.i.i.i323 = getelementptr inbounds i8, ptr %ref.tmp305, i64 12
-  %157 = load i32, ptr %y.i.i.i.i.i323, align 4
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i324 = load i64, ptr %ref.tmp305, align 8
-  %p.sroa.2.0.extract.shift.i.i.i.i.i325 = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i324, 32
-  %p.sroa.2.0.extract.trunc.i.i.i.i.i326 = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i.i.i.i325 to i32
-  %sub4.i.i.i.i.i327 = sub nsw i32 %157, %p.sroa.2.0.extract.trunc.i.i.i.i.i326
-  %pMax.i.i.i.i328 = getelementptr inbounds i8, ptr %ref.tmp305, i64 8
-  %158 = load i32, ptr %pMax.i.i.i.i328, align 8
-  %p.sroa.0.0.extract.trunc.i.i.i.i.i329 = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i324 to i32
-  %sub.i.i.i.i.i330 = sub nsw i32 %158, %p.sroa.0.0.extract.trunc.i.i.i.i.i329
-  %mul.i.i.i.i331 = mul nsw i32 %sub4.i.i.i.i.i327, %sub.i.i.i.i.i330
-  %conv.i.i.i332 = sext i32 %mul.i.i.i.i331 to i64
-  %allocator3.i.i.i333 = getelementptr inbounds i8, ptr %ref.tmp305, i64 16
-  %mul.i4.i.i.i334 = shl nsw i64 %conv.i.i.i332, 3
-  %159 = load ptr, ptr %allocator3.i.i.i333, align 8
-  %vtable.i.i.i.i.i.i335 = load ptr, ptr %159, align 8
-  %vfn.i.i.i.i.i.i336 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i335, i64 24
-  %160 = load ptr, ptr %vfn.i.i.i.i.i.i336, align 8
-  invoke void %160(ptr noundef nonnull align 8 dereferenceable(8) %159, ptr noundef nonnull %156, i64 noundef %mul.i4.i.i.i334, i64 noundef 8)
-          to label %_ZN4pbrt27WindowedPiecewiseConstant2DD2Ev.exit unwind label %terminate.lpad.i.i.i337
+  %y.i.i.i.i.i325 = getelementptr inbounds i8, ptr %ref.tmp305, i64 12
+  %157 = load i32, ptr %y.i.i.i.i.i325, align 4
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i326 = load i64, ptr %ref.tmp305, align 8
+  %p.sroa.2.0.extract.shift.i.i.i.i.i327 = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i326, 32
+  %p.sroa.2.0.extract.trunc.i.i.i.i.i328 = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i.i.i.i327 to i32
+  %sub4.i.i.i.i.i329 = sub nsw i32 %157, %p.sroa.2.0.extract.trunc.i.i.i.i.i328
+  %pMax.i.i.i.i330 = getelementptr inbounds i8, ptr %ref.tmp305, i64 8
+  %158 = load i32, ptr %pMax.i.i.i.i330, align 8
+  %p.sroa.0.0.extract.trunc.i.i.i.i.i331 = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i326 to i32
+  %sub.i.i.i.i.i332 = sub nsw i32 %158, %p.sroa.0.0.extract.trunc.i.i.i.i.i331
+  %mul.i.i.i.i333 = mul nsw i32 %sub4.i.i.i.i.i329, %sub.i.i.i.i.i332
+  %conv.i.i.i334 = sext i32 %mul.i.i.i.i333 to i64
+  %allocator3.i.i.i335 = getelementptr inbounds i8, ptr %ref.tmp305, i64 16
+  %mul.i4.i.i.i336 = shl nsw i64 %conv.i.i.i334, 3
+  %159 = load ptr, ptr %allocator3.i.i.i335, align 8
+  %vtable.i.i.i.i.i.i337 = load ptr, ptr %159, align 8
+  %vfn.i.i.i.i.i.i338 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i337, i64 24
+  %160 = load ptr, ptr %vfn.i.i.i.i.i.i338, align 8
+  invoke void %160(ptr noundef nonnull align 8 dereferenceable(8) %159, ptr noundef nonnull %156, i64 noundef %mul.i4.i.i.i336, i64 noundef 8)
+          to label %_ZN4pbrt27WindowedPiecewiseConstant2DD2Ev.exit unwind label %terminate.lpad.i.i.i339
 
-terminate.lpad.i.i.i337:                          ; preds = %if.end.i.i.i.i.i.i
+terminate.lpad.i.i.i339:                          ; preds = %if.end.i.i.i.i.i.i
   %161 = landingpad { ptr, i32 }
           catch ptr null
   %162 = extractvalue { ptr, i32 } %161, 0
@@ -18519,13 +18519,13 @@ if.end.i.i.i.i:                                   ; preds = %_ZN4pbrt27WindowedP
   %p.sroa.2.0.extract.shift.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i, 32
   %p.sroa.2.0.extract.trunc.i.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i.i to i32
   %sub4.i.i.i = sub nsw i32 %164, %p.sroa.2.0.extract.trunc.i.i.i
-  %165 = load i32, ptr %extent.sroa.3.0.this.sroa_idx.i.i.i296, align 8
+  %165 = load i32, ptr %extent.sroa.3.0.this.sroa_idx.i.i.i298, align 8
   %p.sroa.0.0.extract.trunc.i.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i to i32
   %sub.i.i.i = sub nsw i32 %165, %p.sroa.0.0.extract.trunc.i.i.i
   %mul.i.i = mul nsw i32 %sub4.i.i.i, %sub.i.i.i
-  %conv.i338 = sext i32 %mul.i.i to i64
-  %mul.i4.i = shl nsw i64 %conv.i338, 2
-  %166 = load ptr, ptr %allocator3.i.i.i297, align 8
+  %conv.i340 = sext i32 %mul.i.i to i64
+  %mul.i4.i = shl nsw i64 %conv.i340, 2
+  %166 = load ptr, ptr %allocator3.i.i.i299, align 8
   %vtable.i.i.i.i = load ptr, ptr %166, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
   %167 = load ptr, ptr %vfn.i.i.i.i, align 8
@@ -18541,73 +18541,73 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
 
 _ZN4pbrt7Array2DIfED2Ev.exit:                     ; preds = %_ZN4pbrt27WindowedPiecewiseConstant2DD2Ev.exit, %if.end.i.i.i.i
   %170 = load ptr, ptr %values.i.i, align 8
-  %tobool.not.i.i.i.i340 = icmp eq ptr %170, null
-  br i1 %tobool.not.i.i.i.i340, label %_ZN4pbrt7Array2DIfED2Ev.exit357, label %if.end.i.i.i.i341
+  %tobool.not.i.i.i.i342 = icmp eq ptr %170, null
+  br i1 %tobool.not.i.i.i.i342, label %_ZN4pbrt7Array2DIfED2Ev.exit359, label %if.end.i.i.i.i343
 
-if.end.i.i.i.i341:                                ; preds = %_ZN4pbrt7Array2DIfED2Ev.exit
+if.end.i.i.i.i343:                                ; preds = %_ZN4pbrt7Array2DIfED2Ev.exit
   %171 = load i32, ptr %y.i.i.i.i.i, align 4
-  %agg.tmp.sroa.0.0.copyload.i.i343 = load i64, ptr %d, align 8
-  %p.sroa.2.0.extract.shift.i.i.i344 = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i343, 32
-  %p.sroa.2.0.extract.trunc.i.i.i345 = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i.i344 to i32
-  %sub4.i.i.i346 = sub nsw i32 %171, %p.sroa.2.0.extract.trunc.i.i.i345
+  %agg.tmp.sroa.0.0.copyload.i.i345 = load i64, ptr %d, align 8
+  %p.sroa.2.0.extract.shift.i.i.i346 = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i345, 32
+  %p.sroa.2.0.extract.trunc.i.i.i347 = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i.i346 to i32
+  %sub4.i.i.i348 = sub nsw i32 %171, %p.sroa.2.0.extract.trunc.i.i.i347
   %172 = load i32, ptr %extent.sroa.3.0.this.sroa_idx.i.i.i, align 8
-  %p.sroa.0.0.extract.trunc.i.i.i348 = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i343 to i32
-  %sub.i.i.i349 = sub nsw i32 %172, %p.sroa.0.0.extract.trunc.i.i.i348
-  %mul.i.i350 = mul nsw i32 %sub4.i.i.i346, %sub.i.i.i349
-  %conv.i351 = sext i32 %mul.i.i350 to i64
-  %mul.i4.i353 = shl nsw i64 %conv.i351, 2
-  %173 = load ptr, ptr %allocator3.i.i.i265, align 8
-  %vtable.i.i.i.i354 = load ptr, ptr %173, align 8
-  %vfn.i.i.i.i355 = getelementptr inbounds i8, ptr %vtable.i.i.i.i354, i64 24
-  %174 = load ptr, ptr %vfn.i.i.i.i355, align 8
-  invoke void %174(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef nonnull %170, i64 noundef %mul.i4.i353, i64 noundef 4)
-          to label %_ZN4pbrt7Array2DIfED2Ev.exit357 unwind label %terminate.lpad.i356
+  %p.sroa.0.0.extract.trunc.i.i.i350 = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i345 to i32
+  %sub.i.i.i351 = sub nsw i32 %172, %p.sroa.0.0.extract.trunc.i.i.i350
+  %mul.i.i352 = mul nsw i32 %sub4.i.i.i348, %sub.i.i.i351
+  %conv.i353 = sext i32 %mul.i.i352 to i64
+  %mul.i4.i355 = shl nsw i64 %conv.i353, 2
+  %173 = load ptr, ptr %allocator3.i.i.i267, align 8
+  %vtable.i.i.i.i356 = load ptr, ptr %173, align 8
+  %vfn.i.i.i.i357 = getelementptr inbounds i8, ptr %vtable.i.i.i.i356, i64 24
+  %174 = load ptr, ptr %vfn.i.i.i.i357, align 8
+  invoke void %174(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef nonnull %170, i64 noundef %mul.i4.i355, i64 noundef 4)
+          to label %_ZN4pbrt7Array2DIfED2Ev.exit359 unwind label %terminate.lpad.i358
 
-terminate.lpad.i356:                              ; preds = %if.end.i.i.i.i341
+terminate.lpad.i358:                              ; preds = %if.end.i.i.i.i343
   %175 = landingpad { ptr, i32 }
           catch ptr null
   %176 = extractvalue { ptr, i32 } %175, 0
   call void @__clang_call_terminate(ptr %176) #32
   unreachable
 
-_ZN4pbrt7Array2DIfED2Ev.exit357:                  ; preds = %_ZN4pbrt7Array2DIfED2Ev.exit, %if.end.i.i.i.i341
+_ZN4pbrt7Array2DIfED2Ev.exit359:                  ; preds = %_ZN4pbrt7Array2DIfED2Ev.exit, %if.end.i.i.i.i343
   store i64 0, ptr %nStored.i.i.i, align 8
   %177 = load ptr, ptr %ptr.i.i.i, align 8
-  %tobool.not.i.i.i.i.i359 = icmp eq ptr %177, null
-  br i1 %tobool.not.i.i.i.i.i359, label %_ZN4pbrt16ImageChannelDescD2Ev.exit, label %if.end.i.i.i.i.i360
+  %tobool.not.i.i.i.i.i361 = icmp eq ptr %177, null
+  br i1 %tobool.not.i.i.i.i.i361, label %_ZN4pbrt16ImageChannelDescD2Ev.exit, label %if.end.i.i.i.i.i362
 
-if.end.i.i.i.i.i360:                              ; preds = %_ZN4pbrt7Array2DIfED2Ev.exit357
+if.end.i.i.i.i.i362:                              ; preds = %_ZN4pbrt7Array2DIfED2Ev.exit359
   %nAlloc.i.i = getelementptr inbounds i8, ptr %channelDesc, i64 32
   %178 = load i64, ptr %nAlloc.i.i, align 8
-  %mul.i.i.i361 = shl i64 %178, 2
+  %mul.i.i.i363 = shl i64 %178, 2
   %179 = load ptr, ptr %channelDesc, align 8
-  %vtable.i.i.i.i.i362 = load ptr, ptr %179, align 8
-  %vfn.i.i.i.i.i363 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i362, i64 24
-  %180 = load ptr, ptr %vfn.i.i.i.i.i363, align 8
-  invoke void %180(ptr noundef nonnull align 8 dereferenceable(8) %179, ptr noundef nonnull %177, i64 noundef %mul.i.i.i361, i64 noundef 4)
-          to label %_ZN4pbrt16ImageChannelDescD2Ev.exit unwind label %terminate.lpad.i.i364
+  %vtable.i.i.i.i.i364 = load ptr, ptr %179, align 8
+  %vfn.i.i.i.i.i365 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i364, i64 24
+  %180 = load ptr, ptr %vfn.i.i.i.i.i365, align 8
+  invoke void %180(ptr noundef nonnull align 8 dereferenceable(8) %179, ptr noundef nonnull %177, i64 noundef %mul.i.i.i363, i64 noundef 4)
+          to label %_ZN4pbrt16ImageChannelDescD2Ev.exit unwind label %terminate.lpad.i.i366
 
-terminate.lpad.i.i364:                            ; preds = %if.end.i.i.i.i.i360
+terminate.lpad.i.i366:                            ; preds = %if.end.i.i.i.i.i362
   %181 = landingpad { ptr, i32 }
           catch ptr null
   %182 = extractvalue { ptr, i32 } %181, 0
   call void @__clang_call_terminate(ptr %182) #32
   unreachable
 
-_ZN4pbrt16ImageChannelDescD2Ev.exit:              ; preds = %_ZN4pbrt7Array2DIfED2Ev.exit357, %if.end.i.i.i.i.i360
+_ZN4pbrt16ImageChannelDescD2Ev.exit:              ; preds = %_ZN4pbrt7Array2DIfED2Ev.exit359, %if.end.i.i.i.i.i362
   ret void
 
-lpad225:                                          ; preds = %call.i217.noexc, %invoke.cont212
+lpad225:                                          ; preds = %call.i219.noexc, %invoke.cont212
   %183 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup267.thread
 
-lpad229:                                          ; preds = %call.i225.noexc, %invoke.cont226
+lpad229:                                          ; preds = %call.i227.noexc, %invoke.cont226
   %184 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup267
 
-lpad233:                                          ; preds = %call.i233.noexc, %invoke.cont230
+lpad233:                                          ; preds = %call.i235.noexc, %invoke.cont230
   %185 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup265
@@ -18617,7 +18617,7 @@ lpad239:                                          ; preds = %invoke.cont242
           cleanup
   br label %ehcleanup258
 
-lpad248:                                          ; preds = %call9.i.noexc, %call7.i.noexc, %call.i243.noexc, %invoke.cont246
+lpad248:                                          ; preds = %call9.i.noexc, %call7.i.noexc, %call.i245.noexc, %invoke.cont246
   %187 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4pbrt5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp214) #28
@@ -18635,21 +18635,21 @@ arraydestroy.body260:                             ; preds = %arraydestroy.body26
   %arraydestroy.done263 = icmp eq ptr %arraydestroy.element262, %ref.tmp221
   br i1 %arraydestroy.done263, label %ehcleanup265, label %arraydestroy.body260
 
-ehcleanup265:                                     ; preds = %arraydestroy.body260, %lpad233, %lpad.i236
-  %189 = phi i1 [ false, %lpad.i236 ], [ false, %lpad233 ], [ true, %arraydestroy.body260 ]
-  %.pn21.pn = phi { ptr, i32 } [ %115, %lpad.i236 ], [ %185, %lpad233 ], [ %.pn21, %arraydestroy.body260 ]
+ehcleanup265:                                     ; preds = %arraydestroy.body260, %lpad233, %lpad.i238
+  %189 = phi i1 [ false, %lpad.i238 ], [ false, %lpad233 ], [ true, %arraydestroy.body260 ]
+  %.pn21.pn = phi { ptr, i32 } [ %115, %lpad.i238 ], [ %185, %lpad233 ], [ %.pn21, %arraydestroy.body260 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp232) #28
   br label %ehcleanup267
 
-ehcleanup267.thread:                              ; preds = %lpad.i220, %lpad225
-  %.pn21.pn.pn.pn.ph = phi { ptr, i32 } [ %113, %lpad.i220 ], [ %183, %lpad225 ]
+ehcleanup267.thread:                              ; preds = %lpad.i222, %lpad225
+  %.pn21.pn.pn.pn.ph = phi { ptr, i32 } [ %113, %lpad.i222 ], [ %183, %lpad225 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp224) #28
   br label %ehcleanup322
 
-ehcleanup267:                                     ; preds = %ehcleanup265, %lpad.i228, %lpad229
-  %cleanup.isactive235.1 = phi i1 [ %189, %ehcleanup265 ], [ false, %lpad.i228 ], [ false, %lpad229 ]
-  %arrayinit.endOfInit223.0 = phi ptr [ %arrayinit.element231, %ehcleanup265 ], [ %arrayinit.element227, %lpad.i228 ], [ %arrayinit.element227, %lpad229 ]
-  %.pn21.pn.pn = phi { ptr, i32 } [ %.pn21.pn, %ehcleanup265 ], [ %114, %lpad.i228 ], [ %184, %lpad229 ]
+ehcleanup267:                                     ; preds = %ehcleanup265, %lpad.i230, %lpad229
+  %cleanup.isactive235.1 = phi i1 [ %189, %ehcleanup265 ], [ false, %lpad.i230 ], [ false, %lpad229 ]
+  %arrayinit.endOfInit223.0 = phi ptr [ %arrayinit.element231, %ehcleanup265 ], [ %arrayinit.element227, %lpad.i230 ], [ %arrayinit.element227, %lpad229 ]
+  %.pn21.pn.pn = phi { ptr, i32 } [ %.pn21.pn, %ehcleanup265 ], [ %114, %lpad.i230 ], [ %184, %lpad229 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp228) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp224) #28
   br i1 %cleanup.isactive235.1, label %ehcleanup322, label %arraydestroy.body272
@@ -18661,23 +18661,23 @@ arraydestroy.body272:                             ; preds = %ehcleanup267, %arra
   %arraydestroy.done275 = icmp eq ptr %arraydestroy.element274, %ref.tmp221
   br i1 %arraydestroy.done275, label %ehcleanup322, label %arraydestroy.body272
 
-lpad288.body:                                     ; preds = %lpad.i255, %if.then.i.i4.i
+lpad288.body:                                     ; preds = %lpad.i257, %if.then.i.i4.i
   %190 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i366 = icmp eq ptr %190, null
-  br i1 %tobool.not.i.i366, label %ehcleanup322, label %if.then.i.i367
+  %tobool.not.i.i368 = icmp eq ptr %190, null
+  br i1 %tobool.not.i.i368, label %ehcleanup322, label %if.then.i.i369
 
-if.then.i.i367:                                   ; preds = %lpad288.body
-  %call.i.i368 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp285, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp285, i32 noundef 3)
-          to label %ehcleanup322 unwind label %terminate.lpad.i.i369
+if.then.i.i369:                                   ; preds = %lpad288.body
+  %call.i.i370 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp285, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp285, i32 noundef 3)
+          to label %ehcleanup322 unwind label %terminate.lpad.i.i371
 
-terminate.lpad.i.i369:                            ; preds = %if.then.i.i367
+terminate.lpad.i.i371:                            ; preds = %if.then.i.i369
   %191 = landingpad { ptr, i32 }
           catch ptr null
   %192 = extractvalue { ptr, i32 } %191, 0
   call void @__clang_call_terminate(ptr %192) #32
   unreachable
 
-lpad309:                                          ; preds = %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.i.i.i300
+lpad309:                                          ; preds = %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.i.i.i302
   %193 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup321
@@ -18687,7 +18687,7 @@ lpad313:                                          ; preds = %invoke.cont310
           cleanup
   br label %ehcleanup320
 
-lpad316:                                          ; preds = %call.i.i317.noexc, %invoke.cont314
+lpad316:                                          ; preds = %call.i.i319.noexc, %invoke.cont314
   %195 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4pbrt27WindowedPiecewiseConstant2DD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp305) #28
@@ -18703,8 +18703,8 @@ ehcleanup321:                                     ; preds = %ehcleanup320, %lpad
   call void @_ZN4pbrt7Array2DIfED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %d) #28
   br label %ehcleanup322
 
-ehcleanup322:                                     ; preds = %arraydestroy.body272, %if.then.i.i367, %lpad288.body, %ehcleanup267.thread, %common.resume.i, %lpad41, %ehcleanup.i, %common.resume.i204, %ehcleanup267, %ehcleanup321
-  %.pn29 = phi { ptr, i32 } [ %.pn26.pn, %ehcleanup321 ], [ %.pn21.pn.pn, %ehcleanup267 ], [ %common.resume.op.i, %common.resume.i ], [ %common.resume.op.i205, %common.resume.i204 ], [ %15, %lpad41 ], [ %.pn.i, %ehcleanup.i ], [ %.pn21.pn.pn.pn.ph, %ehcleanup267.thread ], [ %124, %lpad288.body ], [ %124, %if.then.i.i367 ], [ %.pn21.pn.pn, %arraydestroy.body272 ]
+ehcleanup322:                                     ; preds = %arraydestroy.body272, %if.then.i.i369, %lpad288.body, %ehcleanup267.thread, %common.resume.i, %lpad41, %ehcleanup.i, %common.resume.i206, %ehcleanup267, %ehcleanup321
+  %.pn29 = phi { ptr, i32 } [ %.pn26.pn, %ehcleanup321 ], [ %.pn21.pn.pn, %ehcleanup267 ], [ %common.resume.op.i, %common.resume.i ], [ %common.resume.op.i207, %common.resume.i206 ], [ %15, %lpad41 ], [ %.pn.i, %ehcleanup.i ], [ %.pn21.pn.pn.pn.ph, %ehcleanup267.thread ], [ %124, %lpad288.body ], [ %124, %if.then.i.i369 ], [ %.pn21.pn.pn, %arraydestroy.body272 ]
   call void @_ZN4pbrt16ImageChannelDescD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %channelDesc) #28
   br label %ehcleanup323
 
@@ -19305,22 +19305,22 @@ for.end59:                                        ; preds = %for.end59.loopexit,
   %mul.i2.i.i.i = fmul float %sub6.i.i, %sub6.i.i
   %add3.i.i.i47 = fadd float %mul.i2.i.i.i, %add.i.i.i46
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %add3.i.i.i47)
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %this, i64 188
-  %34 = load float, ptr %arrayidx.i1.i, align 4
-  %sub.i3.i = fsub float %34, %p.sroa.0.0.vec.extract.i.i
-  %y.i4.i = getelementptr inbounds i8, ptr %this, i64 192
-  %35 = load float, ptr %y.i4.i, align 8
-  %sub4.i6.i = fsub float %35, %p.sroa.0.4.vec.extract.i.i
-  %z.i7.i = getelementptr inbounds i8, ptr %this, i64 196
-  %36 = load float, ptr %z.i7.i, align 4
-  %sub6.i8.i = fsub float %36, %agg.tmp2.sroa.2.0.copyload.i
-  %mul.i.i.i14.i = fmul float %sub.i3.i, %sub.i3.i
-  %mul.i1.i.i16.i = fmul float %sub4.i6.i, %sub4.i6.i
-  %add.i.i17.i = fadd float %mul.i.i.i14.i, %mul.i1.i.i16.i
-  %mul.i2.i.i18.i = fmul float %sub6.i8.i, %sub6.i8.i
-  %add3.i.i19.i = fadd float %mul.i2.i.i18.i, %add.i.i17.i
-  %sqrt.i20.i = call noundef float @llvm.sqrt.f32(float %add3.i.i19.i)
-  %mul.i48 = fmul float %sqrt.i.i, %sqrt.i20.i
+  %arrayidx.i2.i = getelementptr inbounds i8, ptr %this, i64 188
+  %34 = load float, ptr %arrayidx.i2.i, align 4
+  %sub.i5.i = fsub float %34, %p.sroa.0.0.vec.extract.i.i
+  %y.i6.i = getelementptr inbounds i8, ptr %this, i64 192
+  %35 = load float, ptr %y.i6.i, align 8
+  %sub4.i8.i = fsub float %35, %p.sroa.0.4.vec.extract.i.i
+  %z.i9.i = getelementptr inbounds i8, ptr %this, i64 196
+  %36 = load float, ptr %z.i9.i, align 4
+  %sub6.i10.i = fsub float %36, %agg.tmp2.sroa.2.0.copyload.i
+  %mul.i.i.i16.i = fmul float %sub.i5.i, %sub.i5.i
+  %mul.i1.i.i18.i = fmul float %sub4.i8.i, %sub4.i8.i
+  %add.i.i19.i = fadd float %mul.i.i.i16.i, %mul.i1.i.i18.i
+  %mul.i2.i.i20.i = fmul float %sub6.i10.i, %sub6.i10.i
+  %add3.i.i21.i = fadd float %mul.i2.i.i20.i, %add.i.i19.i
+  %sqrt.i22.i = call noundef float @llvm.sqrt.f32(float %add3.i.i21.i)
+  %mul.i48 = fmul float %sqrt.i.i, %sqrt.i22.i
   %mul = fmul float %30, %mul.i48
   br label %for.body.i.i50
 
@@ -21435,7 +21435,7 @@ define dso_local void @_ZNK4pbrt9SpotLight8SampleLeENS_6Point2IfEES2_RNS_18Sampl
 for.body.preheader.i:
   %retval.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %retval.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
-  %agg.tmp3931 = alloca %"class.pbrt::SampledWavelengths", align 8
+  %agg.tmp3932 = alloca %"class.pbrt::SampledWavelengths", align 8
   %o.i = alloca %"class.pbrt::Point3fi", align 16
   %ref.tmp.i = alloca %"class.pbrt::Point3fi", align 8
   %p = alloca [2 x float], align 4
@@ -21518,14 +21518,14 @@ if.then:                                          ; preds = %_ZN4pbrt14SampleDis
   %cmp3.i.i.i = fcmp ogt float %sqrt.i.i, 1.000000e+00
   %conv2.val.i.i.i = select i1 %cmp3.i.i.i, float 1.000000e+00, float %sqrt.i.i
   %call.i.i.i = tail call noundef float @cosf(float noundef %mul7.i) #28
-  %mul.i2.i = fmul float %conv2.val.i.i.i, %call.i.i.i
+  %mul.i3.i = fmul float %conv2.val.i.i.i, %call.i.i.i
   %call.i7.i.i = tail call noundef float @sinf(float noundef %mul7.i) #28
   %mul6.i.i = fmul float %conv2.val.i.i.i, %call.i7.i.i
   %cmp.i8.i.i = fcmp olt float %add.i4, -1.000000e+00
   %cmp3.i9.i.i = fcmp ogt float %add.i4, 1.000000e+00
   %conv2.val.i10.i.i = select i1 %cmp3.i9.i.i, float 1.000000e+00, float %add.i4
   %retval.0.i11.i.i = select i1 %cmp.i8.i.i, float -1.000000e+00, float %conv2.val.i10.i.i
-  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %mul.i2.i, i64 0
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %mul.i3.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %mul6.i.i, i64 1
   %7 = load float, ptr %cosFalloffStart, align 4
   %sub.i5 = fsub float 1.000000e+00, %7
@@ -21546,15 +21546,15 @@ if.else:                                          ; preds = %_ZN4pbrt14SampleDis
   %cmp3.i.i = fcmp ogt float %sqrt.i, 1.000000e+00
   %conv2.val.i.i = select i1 %cmp3.i.i, float 1.000000e+00, float %sqrt.i
   %call.i.i = tail call noundef float @cosf(float noundef %mul7.i) #28
-  %mul.i10 = fmul float %call.i.i, %conv2.val.i.i
+  %mul.i11 = fmul float %call.i.i, %conv2.val.i.i
   %call.i7.i = tail call noundef float @sinf(float noundef %mul7.i) #28
-  %mul6.i11 = fmul float %call.i7.i, %conv2.val.i.i
+  %mul6.i12 = fmul float %call.i7.i, %conv2.val.i.i
   %cmp.i8.i = fcmp olt float %call.i, -1.000000e+00
   %cmp3.i9.i = fcmp ogt float %call.i, 1.000000e+00
   %conv2.val.i10.i = select i1 %cmp3.i9.i, float 1.000000e+00, float %call.i
   %retval.0.i11.i = select i1 %cmp.i8.i, float -1.000000e+00, float %conv2.val.i10.i
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul.i10, i64 0
-  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %mul6.i11, i64 1
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul.i11, i64 0
+  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %mul6.i12, i64 1
   %8 = load float, ptr %cosFalloffEnd, align 8
   %9 = load float, ptr %cosFalloffStart, align 4
   %cmp.i = fcmp olt float %call.i, %8
@@ -21563,32 +21563,32 @@ if.else:                                          ; preds = %_ZN4pbrt14SampleDis
   br i1 %or.cond.i, label %_ZN4pbrt13SmoothStepPDFEfff.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %if.else
-  %sub.i12 = fsub float %9, %8
-  %div.i13 = fdiv float 2.000000e+00, %sub.i12
-  %cmp.i.i14 = fcmp oeq float %8, %9
-  br i1 %cmp.i.i14, label %_ZN4pbrt10SmoothStepEfff.exit.i, label %do.end.i.i
+  %sub.i13 = fsub float %9, %8
+  %div.i14 = fdiv float 2.000000e+00, %sub.i13
+  %cmp.i.i15 = fcmp oeq float %8, %9
+  br i1 %cmp.i.i15, label %_ZN4pbrt10SmoothStepEfff.exit.i, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %do.end.i
   %sub.i.i = fsub float %call.i, %8
-  %div.i.i = fdiv float %sub.i.i, %sub.i12
-  %cmp.i.i.i15 = fcmp olt float %div.i.i, 0.000000e+00
-  %cmp3.i.i.i16 = fcmp ogt float %div.i.i, 1.000000e+00
-  %conv2.val.i.i.i17 = select i1 %cmp3.i.i.i16, float 1.000000e+00, float %div.i.i
-  %retval.0.i.i.i = select i1 %cmp.i.i.i15, float 0.000000e+00, float %conv2.val.i.i.i17
-  %mul.i.i18 = fmul float %retval.0.i.i.i, %retval.0.i.i.i
+  %div.i.i = fdiv float %sub.i.i, %sub.i13
+  %cmp.i.i.i16 = fcmp olt float %div.i.i, 0.000000e+00
+  %cmp3.i.i.i17 = fcmp ogt float %div.i.i, 1.000000e+00
+  %conv2.val.i.i.i18 = select i1 %cmp3.i.i.i17, float 1.000000e+00, float %div.i.i
+  %retval.0.i.i.i = select i1 %cmp.i.i.i16, float 0.000000e+00, float %conv2.val.i.i.i18
+  %mul.i.i19 = fmul float %retval.0.i.i.i, %retval.0.i.i.i
   %mul3.i.i = fmul float %retval.0.i.i.i, 2.000000e+00
   %sub4.i.i = fsub float 3.000000e+00, %mul3.i.i
-  %mul5.i.i = fmul float %mul.i.i18, %sub4.i.i
+  %mul5.i.i = fmul float %mul.i.i19, %sub4.i.i
   br label %_ZN4pbrt10SmoothStepEfff.exit.i
 
 _ZN4pbrt10SmoothStepEfff.exit.i:                  ; preds = %do.end.i.i, %do.end.i
   %retval.0.i.i = phi float [ %mul5.i.i, %do.end.i.i ], [ 1.000000e+00, %do.end.i ]
-  %mul.i19 = fmul float %div.i13, %retval.0.i.i
+  %mul.i20 = fmul float %div.i14, %retval.0.i.i
   br label %_ZN4pbrt13SmoothStepPDFEfff.exit
 
 _ZN4pbrt13SmoothStepPDFEfff.exit:                 ; preds = %if.else, %_ZN4pbrt10SmoothStepEfff.exit.i
-  %retval.0.i20 = phi float [ %mul.i19, %_ZN4pbrt10SmoothStepEfff.exit.i ], [ 0.000000e+00, %if.else ]
-  %mul30 = fmul float %div.i, %retval.0.i20
+  %retval.0.i21 = phi float [ %mul.i20, %_ZN4pbrt10SmoothStepEfff.exit.i ], [ 0.000000e+00, %if.else ]
+  %mul30 = fmul float %div.i, %retval.0.i21
   %div31 = fdiv float %mul30, 0x401921FB60000000
   br label %if.end
 
@@ -21600,18 +21600,18 @@ if.end:                                           ; preds = %_ZN4pbrt13SmoothSte
   %outside = getelementptr inbounds i8, ptr %this, i64 144
   %10 = load i64, ptr %outside, align 8
   store <2 x float> zeroinitializer, ptr %ref.tmp32.sroa.0, align 16
-  %ref.tmp32.sroa.0.8.o3.sroa_idx74 = getelementptr inbounds i8, ptr %ref.tmp32.sroa.0, i64 8
-  store float 0.000000e+00, ptr %ref.tmp32.sroa.0.8.o3.sroa_idx74, align 8
-  %ref.tmp32.sroa.0.12.d4.i.sroa_idx75 = getelementptr inbounds i8, ptr %ref.tmp32.sroa.0, i64 12
-  store <2 x float> %wLight.sroa.0.0, ptr %ref.tmp32.sroa.0.12.d4.i.sroa_idx75, align 4
-  %ref.tmp32.sroa.0.20.d4.sroa_idx76 = getelementptr inbounds i8, ptr %ref.tmp32.sroa.0, i64 20
-  store float %wLight.sroa.6.0, ptr %ref.tmp32.sroa.0.20.d4.sroa_idx76, align 4
+  %ref.tmp32.sroa.0.8.o3.sroa_idx75 = getelementptr inbounds i8, ptr %ref.tmp32.sroa.0, i64 8
+  store float 0.000000e+00, ptr %ref.tmp32.sroa.0.8.o3.sroa_idx75, align 8
+  %ref.tmp32.sroa.0.12.d4.i.sroa_idx76 = getelementptr inbounds i8, ptr %ref.tmp32.sroa.0, i64 12
+  store <2 x float> %wLight.sroa.0.0, ptr %ref.tmp32.sroa.0.12.d4.i.sroa_idx76, align 4
+  %ref.tmp32.sroa.0.20.d4.sroa_idx77 = getelementptr inbounds i8, ptr %ref.tmp32.sroa.0, i64 20
+  store float %wLight.sroa.6.0, ptr %ref.tmp32.sroa.0.20.d4.sroa_idx77, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %o.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %ref.tmp32.sroa.0.0.ref.tmp32.sroa.0.0.ref.tmp32.sroa.0.0.ref.tmp32.sroa.0.0. = load <4 x float>, ptr %ref.tmp32.sroa.0, align 16, !noalias !142
   %agg.tmp.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %ref.tmp32.sroa.0.0.ref.tmp32.sroa.0.0.ref.tmp32.sroa.0.0.ref.tmp32.sroa.0.0., <4 x float> poison, <2 x i32> zeroinitializer
-  %ref.tmp32.sroa.0.4.y.i.i21.sroa_idx73 = getelementptr inbounds i8, ptr %ref.tmp32.sroa.0, i64 4
-  %ref.tmp32.sroa.0.4.ref.tmp32.sroa.0.4.ref.tmp32.sroa.0.4.ref.tmp32.sroa.0.4. = load <4 x float>, ptr %ref.tmp32.sroa.0.4.y.i.i21.sroa_idx73, align 4, !noalias !142
+  %ref.tmp32.sroa.0.4.y.i.i22.sroa_idx74 = getelementptr inbounds i8, ptr %ref.tmp32.sroa.0, i64 4
+  %ref.tmp32.sroa.0.4.ref.tmp32.sroa.0.4.ref.tmp32.sroa.0.4.ref.tmp32.sroa.0.4. = load <4 x float>, ptr %ref.tmp32.sroa.0.4.y.i.i22.sroa_idx74, align 4, !noalias !142
   %agg.tmp2.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %ref.tmp32.sroa.0.4.ref.tmp32.sroa.0.4.ref.tmp32.sroa.0.4.ref.tmp32.sroa.0.4., <4 x float> poison, <2 x i32> zeroinitializer
   %ref.tmp32.sroa.0.8.o3.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp32.sroa.0, i64 8
   %ref.tmp32.sroa.0.8.ref.tmp32.sroa.0.8.ref.tmp32.sroa.0.8.ref.tmp32.sroa.0.8. = load <4 x float>, ptr %ref.tmp32.sroa.0.8.o3.sroa_idx, align 8, !noalias !142
@@ -21622,19 +21622,19 @@ if.end:                                           ; preds = %_ZN4pbrt13SmoothSte
   %z4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i.i, ptr %z4.i.i.i.i, align 8, !noalias !142
   call void @_ZNK4pbrt9TransformclERKNS_8Point3fiE(ptr nonnull sret(%"class.pbrt::Point3fi") align 4 %o.i, ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.i), !noalias !142
-  %call.i23 = call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight, <2 x float> %wLight.sroa.0.0, float %wLight.sroa.6.0), !noalias !142
-  %call.fca.0.extract.i = extractvalue { <2 x float>, float } %call.i23, 0
-  %call.fca.1.extract.i = extractvalue { <2 x float>, float } %call.i23, 1
+  %call.i24 = call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight, <2 x float> %wLight.sroa.0.0, float %wLight.sroa.6.0), !noalias !142
+  %call.fca.0.extract.i = extractvalue { <2 x float>, float } %call.i24, 0
+  %call.fca.1.extract.i = extractvalue { <2 x float>, float } %call.i24, 1
   %11 = fmul <2 x float> %call.fca.0.extract.i, %call.fca.0.extract.i
   %shift = shufflevector <2 x float> %11, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %12 = fadd <2 x float> %11, %shift
   %add.i.i = extractelement <2 x float> %12, i64 0
   %mul.i2.i.i = fmul float %call.fca.1.extract.i, %call.fca.1.extract.i
   %add3.i.i = fadd float %mul.i2.i.i, %add.i.i
-  %cmp.i24 = fcmp ogt float %add3.i.i, 0.000000e+00
-  br i1 %cmp.i24, label %if.then.i25, label %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit
+  %cmp.i25 = fcmp ogt float %add3.i.i, 0.000000e+00
+  br i1 %cmp.i25, label %if.then.i26, label %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit
 
-if.then.i25:                                      ; preds = %if.end
+if.then.i26:                                      ; preds = %if.end
   %13 = insertelement <2 x float> %call.fca.0.extract.i, float %call.fca.1.extract.i, i64 1
   %14 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %13)
   %15 = extractelement <2 x float> %call.fca.0.extract.i, i64 1
@@ -21664,15 +21664,15 @@ if.then.i25:                                      ; preds = %if.end
   %add.i15.i = fadd float %30, %mul4.i.i
   %31 = extractelement <2 x float> %29, i64 1
   %add7.i.i = fadd float %add.i15.i, %31
-  %div.i29 = fdiv float %add7.i.i, %add3.i.i
-  %32 = insertelement <2 x float> poison, float %div.i29, i64 0
+  %div.i30 = fdiv float %add7.i.i, %add3.i.i
+  %32 = insertelement <2 x float> poison, float %div.i30, i64 0
   %33 = shufflevector <2 x float> %32, <2 x float> poison, <2 x i32> zeroinitializer
   %34 = fmul <2 x float> %call.fca.0.extract.i, %33
-  %mul3.i.i30 = fmul float %call.fca.1.extract.i, %div.i29
-  %call20.i = call noundef nonnull align 4 dereferenceable(24) ptr @_ZN4pbrt8Point3fipLIfEERS0_NS_7Vector3IT_EE(ptr noundef nonnull align 4 dereferenceable(24) %o.i, <2 x float> %34, float %mul3.i.i30), !noalias !142
+  %mul3.i.i31 = fmul float %call.fca.1.extract.i, %div.i30
+  %call20.i = call noundef nonnull align 4 dereferenceable(24) ptr @_ZN4pbrt8Point3fipLIfEERS0_NS_7Vector3IT_EE(ptr noundef nonnull align 4 dereferenceable(24) %o.i, <2 x float> %34, float %mul3.i.i31), !noalias !142
   br label %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit
 
-_ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %if.end, %if.then.i25
+_ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %if.end, %if.then.i26
   %35 = load <4 x float>, ptr %o.i, align 16
   %agg.tmp24.sroa.0.sroa.2.0.o.sroa_idx.i = getelementptr inbounds i8, ptr %o.i, i64 4
   %36 = load <2 x float>, ptr %agg.tmp24.sroa.0.sroa.2.0.o.sroa_idx.i, align 4, !noalias !142
@@ -21684,34 +21684,34 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %if.end, %if.then.i2
   %agg.tmp24.sroa.0.sroa.6.0.copyload.i = load float, ptr %agg.tmp24.sroa.0.sroa.6.0.o.sroa_idx.i, align 4, !noalias !142
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %o.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp3931)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3931, ptr noundef nonnull align 4 dereferenceable(32) %lambda, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp3932)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3932, ptr noundef nonnull align 4 dereferenceable(32) %lambda, i64 32, i1 false)
   %37 = load float, ptr %cosFalloffEnd, align 8
   %38 = load float, ptr %cosFalloffStart, align 4
-  %cmp.i.i32 = fcmp oeq float %37, %38
-  br i1 %cmp.i.i32, label %if.then.i.i, label %do.end.i.i33
+  %cmp.i.i33 = fcmp oeq float %37, %38
+  br i1 %cmp.i.i33, label %if.then.i.i, label %do.end.i.i34
 
 if.then.i.i:                                      ; preds = %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit
-  %cmp1.i.i49 = fcmp ule float %37, %wLight.sroa.6.0
-  %conv.i.i = uitofp i1 %cmp1.i.i49 to float
-  br label %_ZN4pbrt10SmoothStepEfff.exit.i44
+  %cmp1.i.i50 = fcmp ule float %37, %wLight.sroa.6.0
+  %conv.i.i = uitofp i1 %cmp1.i.i50 to float
+  br label %_ZN4pbrt10SmoothStepEfff.exit.i45
 
-do.end.i.i33:                                     ; preds = %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit
-  %sub.i.i34 = fsub float %wLight.sroa.6.0, %37
+do.end.i.i34:                                     ; preds = %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit
+  %sub.i.i35 = fsub float %wLight.sroa.6.0, %37
   %sub2.i.i = fsub float %38, %37
-  %div.i.i35 = fdiv float %sub.i.i34, %sub2.i.i
-  %cmp.i.i.i36 = fcmp olt float %div.i.i35, 0.000000e+00
-  %cmp3.i.i.i37 = fcmp ogt float %div.i.i35, 1.000000e+00
-  %conv2.val.i.i.i38 = select i1 %cmp3.i.i.i37, float 1.000000e+00, float %div.i.i35
-  %retval.0.i.i.i39 = select i1 %cmp.i.i.i36, float 0.000000e+00, float %conv2.val.i.i.i38
-  %mul.i.i40 = fmul float %retval.0.i.i.i39, %retval.0.i.i.i39
-  %mul3.i.i41 = fmul float %retval.0.i.i.i39, 2.000000e+00
-  %sub4.i.i42 = fsub float 3.000000e+00, %mul3.i.i41
-  %mul5.i.i43 = fmul float %mul.i.i40, %sub4.i.i42
-  br label %_ZN4pbrt10SmoothStepEfff.exit.i44
+  %div.i.i36 = fdiv float %sub.i.i35, %sub2.i.i
+  %cmp.i.i.i37 = fcmp olt float %div.i.i36, 0.000000e+00
+  %cmp3.i.i.i38 = fcmp ogt float %div.i.i36, 1.000000e+00
+  %conv2.val.i.i.i39 = select i1 %cmp3.i.i.i38, float 1.000000e+00, float %div.i.i36
+  %retval.0.i.i.i40 = select i1 %cmp.i.i.i37, float 0.000000e+00, float %conv2.val.i.i.i39
+  %mul.i.i41 = fmul float %retval.0.i.i.i40, %retval.0.i.i.i40
+  %mul3.i.i42 = fmul float %retval.0.i.i.i40, 2.000000e+00
+  %sub4.i.i43 = fsub float 3.000000e+00, %mul3.i.i42
+  %mul5.i.i44 = fmul float %mul.i.i41, %sub4.i.i43
+  br label %_ZN4pbrt10SmoothStepEfff.exit.i45
 
-_ZN4pbrt10SmoothStepEfff.exit.i44:                ; preds = %do.end.i.i33, %if.then.i.i
-  %retval.0.i.i45 = phi float [ %conv.i.i, %if.then.i.i ], [ %mul5.i.i43, %do.end.i.i33 ]
+_ZN4pbrt10SmoothStepEfff.exit.i45:                ; preds = %do.end.i.i34, %if.then.i.i
+  %retval.0.i.i46 = phi float [ %conv.i.i, %if.then.i.i ], [ %mul5.i.i44, %do.end.i.i34 ]
   %scale.i = getelementptr inbounds i8, ptr %this, i64 160
   %39 = load float, ptr %scale.i, align 8
   %Iemit.i = getelementptr inbounds i8, ptr %this, i64 152
@@ -21722,13 +21722,13 @@ _ZN4pbrt10SmoothStepEfff.exit.i44:                ; preds = %do.end.i.i33, %if.t
   %ptr.i.i.i = getelementptr inbounds i8, ptr %40, i64 16
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.inc.i.i, %_ZN4pbrt10SmoothStepEfff.exit.i44
-  %indvars.iv.i.i = phi i64 [ 0, %_ZN4pbrt10SmoothStepEfff.exit.i44 ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds [4 x float], ptr %agg.tmp3931, i64 0, i64 %indvars.iv.i.i
+for.body.i.i:                                     ; preds = %for.inc.i.i, %_ZN4pbrt10SmoothStepEfff.exit.i45
+  %indvars.iv.i.i = phi i64 [ 0, %_ZN4pbrt10SmoothStepEfff.exit.i45 ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
+  %arrayidx.i.i.i.i = getelementptr inbounds [4 x float], ptr %agg.tmp3932, i64 0, i64 %indvars.iv.i.i
   %41 = load float, ptr %arrayidx.i.i.i.i, align 4
-  %call.i.i.i46 = call noundef i64 @lroundf(float noundef %41) #28
+  %call.i.i.i47 = call noundef i64 @lroundf(float noundef %41) #28
   %42 = load i32, ptr %40, align 8
-  %43 = trunc i64 %call.i.i.i46 to i32
+  %43 = trunc i64 %call.i.i.i47 to i32
   %conv3.i.i = sub i32 %43, %42
   %cmp4.i.i = icmp slt i32 %conv3.i.i, 0
   br i1 %cmp4.i.i, label %for.inc.i.i, label %lor.lhs.false.i.i
@@ -21754,7 +21754,7 @@ for.inc.i.i:                                      ; preds = %if.else.i.i, %lor.l
   br i1 %exitcond.not.i.i, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i, label %for.body.i.i, !llvm.loop !16
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i: ; preds = %for.inc.i.i
-  %mul.i47 = fmul float %retval.0.i.i45, %39
+  %mul.i48 = fmul float %retval.0.i.i46, %39
   %.fca.0.load.i.i = load <2 x float>, ptr %retval.i.i, align 8
   %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %retval.i.i, i64 8
   %.fca.1.load.i.i = load <2 x float>, ptr %.fca.1.gep.i.i, align 8
@@ -21769,8 +21769,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_Z
   %indvars.iv.i.i.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
   %arrayidx.i.i.i1.i = getelementptr inbounds [4 x float], ptr %retval.i.i.i, i64 0, i64 %indvars.iv.i.i.i
   %47 = load float, ptr %arrayidx.i.i.i1.i, align 4
-  %mul.i.i.i48 = fmul float %mul.i47, %47
-  store float %mul.i.i.i48, ptr %arrayidx.i.i.i1.i, align 4
+  %mul.i.i.i49 = fmul float %mul.i48, %47
+  store float %mul.i.i.i49, ptr %arrayidx.i.i.i1.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
   br i1 %exitcond.not.i.i.i, label %_ZN4pbrt13LightLeSampleD2Ev.exit, label %for.body.i.i.i, !llvm.loop !17
@@ -21785,7 +21785,7 @@ _ZN4pbrt13LightLeSampleD2Ev.exit:                 ; preds = %for.body.i.i.i
   %.fca.0.load.i.i.i = load <2 x float>, ptr %retval.i.i.i, align 8
   %.fca.1.load.i.i.i = load <2 x float>, ptr %ref.tmp.sroa.2.0.retval.i.i.sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3931)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3932)
   %set.i = getelementptr inbounds i8, ptr %agg.result, i64 152
   store i8 1, ptr %set.i, align 8
   store <2 x float> %.fca.0.load.i.i.i, ptr %agg.result, align 8
@@ -24159,12 +24159,12 @@ invoke.cont129:                                   ; preds = %invoke.cont128
 
 invoke.cont142:                                   ; preds = %invoke.cont129
   %48 = ptrtoint ptr %call141 to i64
-  %or.i.i178 = or i64 %48, 1008806316530991104
-  store i64 %or.i.i178, ptr %agg.result, align 8
+  %or.i.i180 = or i64 %48, 1008806316530991104
+  store i64 %or.i.i180, ptr %agg.result, align 8
   br label %if.end476
 
 invoke.cont146:                                   ; preds = %if.else117, %land.lhs.true119
-  %call.i.i179 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #28
+  %call.i.i181 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #28
   store i32 0, ptr %imageAndMetadata, align 8
   %resolution.i.i = getelementptr inbounds i8, ptr %imageAndMetadata, i64 4
   store i32 0, ptr %resolution.i.i, align 4
@@ -24176,7 +24176,7 @@ invoke.cont146:                                   ; preds = %if.else117, %land.l
   store i64 %49, ptr %channelNames.i.i, align 8
   %ptr.i.i.i = getelementptr inbounds i8, ptr %imageAndMetadata, i64 24
   %p8.i.i = getelementptr inbounds i8, ptr %imageAndMetadata, i64 56
-  %50 = ptrtoint ptr %call.i.i179 to i64
+  %50 = ptrtoint ptr %call.i.i181 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ptr.i.i.i, i8 0, i64 32, i1 false)
   store i64 %50, ptr %p8.i.i, align 8
   %ptr.i1.i.i = getelementptr inbounds i8, ptr %imageAndMetadata, i64 64
@@ -24232,8 +24232,8 @@ invoke.cont151:                                   ; preds = %invoke.cont146
   %53 = load ptr, ptr %L, align 8
   %54 = load i64, ptr %53, align 8
   %shr.i.mask.i = and i64 %54, -144115188075855872
-  %cmp.i180 = icmp eq i64 %shr.i.mask.i, 864691128455135232
-  br i1 %cmp.i180, label %invoke.cont158, label %if.then153
+  %cmp.i183 = icmp eq i64 %shr.i.mask.i, 864691128455135232
+  br i1 %cmp.i183, label %invoke.cont158, label %if.then153
 
 if.then153:                                       ; preds = %invoke.cont151
   invoke void @_ZN4pbrt7WarningEPKNS_7FileLocEPKc(ptr noundef %loc, ptr noundef nonnull @.str.94)
@@ -24244,12 +24244,12 @@ if.then153.invoke.cont158_crit_edge:              ; preds = %if.then153
   br label %invoke.cont158
 
 lpad150.loopexit:                                 ; preds = %_ZN4pbrt3RGBixEi.exit
-  %lpad.loopexit283 = landingpad { ptr, i32 }
+  %lpad.loopexit287 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup474
 
 lpad150.loopexit.split-lp:                        ; preds = %if.then251.invoke, %if.then153, %invoke.cont158, %if.else233, %invoke.cont244, %if.end253, %if.end260, %invoke.cont159
-  %lpad.loopexit.split-lp284 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp288 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup474
 
@@ -24270,13 +24270,13 @@ invoke.cont159:                                   ; preds = %invoke.cont158
   %coerce.sroa.2.0.xyz.sroa_idx.i = getelementptr inbounds i8, ptr %xyz.i, i64 8
   store float %call160.fca.1.extract, ptr %coerce.sroa.2.0.xyz.sroa_idx.i, align 8
   %RGBFromXYZ.i = getelementptr inbounds i8, ptr %57, i64 108
-  %call.i181182 = invoke { <2 x float>, float } @_ZN4pbrt3MulINS_3RGBELi3ENS_3XYZEEET_RKNS_12SquareMatrixIXT0_EEERKT1_(ptr noundef nonnull align 4 dereferenceable(36) %RGBFromXYZ.i, ptr noundef nonnull align 4 dereferenceable(12) %xyz.i)
+  %call.i185186 = invoke { <2 x float>, float } @_ZN4pbrt3MulINS_3RGBELi3ENS_3XYZEEET_RKNS_12SquareMatrixIXT0_EEERKT1_(ptr noundef nonnull align 4 dereferenceable(36) %RGBFromXYZ.i, ptr noundef nonnull align 4 dereferenceable(12) %xyz.i)
           to label %invoke.cont167 unwind label %lpad150.loopexit.split-lp
 
 invoke.cont167:                                   ; preds = %invoke.cont159
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %xyz.i)
-  %call163.fca.0.extract = extractvalue { <2 x float>, float } %call.i181182, 0
-  %call163.fca.1.extract = extractvalue { <2 x float>, float } %call.i181182, 1
+  %call163.fca.0.extract = extractvalue { <2 x float>, float } %call.i185186, 0
+  %call163.fca.1.extract = extractvalue { <2 x float>, float } %call.i185186, 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp171) #28
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170, ptr noundef nonnull @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp171)
           to label %invoke.cont173 unwind label %ehcleanup203.thread
@@ -24295,8 +24295,8 @@ invoke.cont176:                                   ; preds = %invoke.cont173
 
 invoke.cont184:                                   ; preds = %invoke.cont176
   store i64 0, ptr %agg.tmp183, align 8
-  %call.i183 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #28
-  %coerce.val.pi = ptrtoint ptr %call.i183 to i64
+  %call.i187 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #28
+  %coerce.val.pi = ptrtoint ptr %call.i187 to i64
   invoke void @_ZN4pbrt5ImageC1ENS_11PixelFormatENS_6Point2IiEEN4pstd4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_13ColorEncodingENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp165, i32 noundef 2, i64 4294967297, ptr nonnull %ref.tmp170, i64 3, ptr noundef nonnull %agg.tmp183, i64 %coerce.val.pi)
           to label %invoke.cont188 unwind label %lpad181
 
@@ -24329,8 +24329,8 @@ arraydestroy.done193:                             ; preds = %arraydestroy.body
   br label %invoke.cont222
 
 invoke.cont222:                                   ; preds = %arraydestroy.done193, %for.inc
-  %c.0295 = phi i32 [ 0, %arraydestroy.done193 ], [ %inc, %for.inc ]
-  switch i32 %c.0295, label %if.end4.i [
+  %c.0299 = phi i32 [ 0, %arraydestroy.done193 ], [ %inc, %for.inc ]
+  switch i32 %c.0299, label %if.end4.i [
     i32 0, label %_ZN4pbrt3RGBixEi.exit
     i32 1, label %if.then3.i
   ]
@@ -24343,11 +24343,11 @@ if.end4.i:                                        ; preds = %invoke.cont222
 
 _ZN4pbrt3RGBixEi.exit:                            ; preds = %invoke.cont222, %if.then3.i, %if.end4.i
   %retval.0.i.sroa.speculated = phi float [ %rgb.sroa.0.4.vec.extract, %if.then3.i ], [ %call163.fca.1.extract, %if.end4.i ], [ %rgb.sroa.0.0.vec.extract, %invoke.cont222 ]
-  invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %imageAndMetadata, i64 0, i32 noundef %c.0295, float noundef %retval.0.i.sroa.speculated)
+  invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %imageAndMetadata, i64 0, i32 noundef %c.0299, float noundef %retval.0.i.sroa.speculated)
           to label %for.inc unwind label %lpad150.loopexit
 
 for.inc:                                          ; preds = %_ZN4pbrt3RGBixEi.exit
-  %inc = add nuw nsw i32 %c.0295, 1
+  %inc = add nuw nsw i32 %c.0299, 1
   %exitcond.not = icmp eq i32 %inc, 3
   br i1 %exitcond.not, label %if.end260, label %invoke.cont222, !llvm.loop !180
 
@@ -24452,8 +24452,8 @@ lpad239:                                          ; preds = %invoke.cont240
 lpad243:                                          ; preds = %invoke.cont242
   %69 = landingpad { ptr, i32 }
           cleanup
-  %metadata.i185 = getelementptr inbounds i8, ptr %ref.tmp234, i64 152
-  call void @_ZN4pbrt13ImageMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %metadata.i185) #28
+  %metadata.i189 = getelementptr inbounds i8, ptr %ref.tmp234, i64 152
+  call void @_ZN4pbrt13ImageMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %metadata.i189) #28
   call void @_ZN4pbrt5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp234) #28
   br label %ehcleanup247
 
@@ -24477,64 +24477,64 @@ if.end260:                                        ; preds = %for.inc, %invoke.co
 invoke.cont263:                                   ; preds = %if.end260
   store ptr %call264, ptr %colorSpace261, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp271) #28
-  %call.i186190 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp268)
-          to label %call.i186.noexc unwind label %lpad272
+  %call.i190194 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp268)
+          to label %call.i190.noexc unwind label %lpad272
 
-call.i186.noexc:                                  ; preds = %invoke.cont263
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp268, ptr noundef %call.i186190, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp271)
-          to label %.noexc191 unwind label %lpad272
+call.i190.noexc:                                  ; preds = %invoke.cont263
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp268, ptr noundef %call.i190194, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp271)
+          to label %.noexc195 unwind label %lpad272
 
-.noexc191:                                        ; preds = %call.i186.noexc
+.noexc195:                                        ; preds = %call.i190.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp268, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.25, i64 0, i64 1))
-          to label %invoke.cont273 unwind label %lpad.i189
+          to label %invoke.cont273 unwind label %lpad.i193
 
-lpad.i189:                                        ; preds = %.noexc191
+lpad.i193:                                        ; preds = %.noexc195
   %70 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp268) #28
   br label %ehcleanup304.thread
 
-invoke.cont273:                                   ; preds = %.noexc191
+invoke.cont273:                                   ; preds = %.noexc195
   %arrayinit.element274 = getelementptr inbounds i8, ptr %ref.tmp268, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp275) #28
-  %call.i194198 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element274)
-          to label %call.i194.noexc unwind label %lpad276
+  %call.i198202 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element274)
+          to label %call.i198.noexc unwind label %lpad276
 
-call.i194.noexc:                                  ; preds = %invoke.cont273
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element274, ptr noundef %call.i194198, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp275)
-          to label %.noexc199 unwind label %lpad276
+call.i198.noexc:                                  ; preds = %invoke.cont273
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element274, ptr noundef %call.i198202, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp275)
+          to label %.noexc203 unwind label %lpad276
 
-.noexc199:                                        ; preds = %call.i194.noexc
+.noexc203:                                        ; preds = %call.i198.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element274, ptr noundef nonnull @.str.26, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.26, i64 0, i64 1))
-          to label %invoke.cont277 unwind label %lpad.i197
+          to label %invoke.cont277 unwind label %lpad.i201
 
-lpad.i197:                                        ; preds = %.noexc199
+lpad.i201:                                        ; preds = %.noexc203
   %71 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %arrayinit.element274) #28
   br label %ehcleanup304
 
-invoke.cont277:                                   ; preds = %.noexc199
+invoke.cont277:                                   ; preds = %.noexc203
   %arrayinit.element278 = getelementptr inbounds i8, ptr %ref.tmp268, i64 64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp279) #28
-  %call.i202206 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element278)
-          to label %call.i202.noexc unwind label %lpad280
+  %call.i206210 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element278)
+          to label %call.i206.noexc unwind label %lpad280
 
-call.i202.noexc:                                  ; preds = %invoke.cont277
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element278, ptr noundef %call.i202206, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp279)
-          to label %.noexc207 unwind label %lpad280
+call.i206.noexc:                                  ; preds = %invoke.cont277
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element278, ptr noundef %call.i206210, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp279)
+          to label %.noexc211 unwind label %lpad280
 
-.noexc207:                                        ; preds = %call.i202.noexc
+.noexc211:                                        ; preds = %call.i206.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element278, ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.27, i64 0, i64 1))
-          to label %invoke.cont287 unwind label %lpad.i205
+          to label %invoke.cont287 unwind label %lpad.i209
 
-lpad.i205:                                        ; preds = %.noexc207
+lpad.i209:                                        ; preds = %.noexc211
   %72 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %arrayinit.element278) #28
   br label %ehcleanup302
 
-invoke.cont287:                                   ; preds = %.noexc207
+invoke.cont287:                                   ; preds = %.noexc211
   invoke void @_ZNK4pbrt5Image14GetChannelDescEN4pstd4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nonnull sret(%"struct.pbrt::ImageChannelDesc") align 8 %channelDesc, ptr noundef nonnull align 8 dereferenceable(152) %imageAndMetadata, ptr nonnull %ref.tmp268, i64 3)
           to label %invoke.cont288 unwind label %lpad286
 
@@ -24555,8 +24555,8 @@ invoke.cont316:                                   ; preds = %arraydestroy.body29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp271) #28
   %nStored.i.i.i = getelementptr inbounds i8, ptr %channelDesc, i64 40
   %74 = load i64, ptr %nStored.i.i.i, align 8
-  %cmp.i211.not = icmp eq i64 %74, 0
-  br i1 %cmp.i211.not, label %if.then318, label %invoke.cont323
+  %cmp.i215.not = icmp eq i64 %74, 0
+  br i1 %cmp.i215.not, label %if.then318, label %invoke.cont323
 
 if.then318:                                       ; preds = %invoke.cont316
   invoke void @_ZN4pbrt9ErrorExitIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKNS_7FileLocEPKcDpOT_(ptr noundef %loc, ptr noundef nonnull @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %filename) #29
@@ -24565,17 +24565,17 @@ if.then318:                                       ; preds = %invoke.cont316
 invoke.cont319:                                   ; preds = %if.then318
   unreachable
 
-lpad272:                                          ; preds = %call.i186.noexc, %invoke.cont263
+lpad272:                                          ; preds = %call.i190.noexc, %invoke.cont263
   %75 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup304.thread
 
-lpad276:                                          ; preds = %call.i194.noexc, %invoke.cont273
+lpad276:                                          ; preds = %call.i198.noexc, %invoke.cont273
   %76 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup304
 
-lpad280:                                          ; preds = %call.i202.noexc, %invoke.cont277
+lpad280:                                          ; preds = %call.i206.noexc, %invoke.cont277
   %77 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup302
@@ -24593,21 +24593,21 @@ arraydestroy.body297:                             ; preds = %arraydestroy.body29
   %arraydestroy.done300 = icmp eq ptr %arraydestroy.element299, %ref.tmp268
   br i1 %arraydestroy.done300, label %ehcleanup302, label %arraydestroy.body297
 
-ehcleanup302:                                     ; preds = %arraydestroy.body297, %lpad280, %lpad.i205
-  %80 = phi i1 [ false, %lpad.i205 ], [ false, %lpad280 ], [ true, %arraydestroy.body297 ]
-  %.pn96 = phi { ptr, i32 } [ %72, %lpad.i205 ], [ %77, %lpad280 ], [ %78, %arraydestroy.body297 ]
+ehcleanup302:                                     ; preds = %arraydestroy.body297, %lpad280, %lpad.i209
+  %80 = phi i1 [ false, %lpad.i209 ], [ false, %lpad280 ], [ true, %arraydestroy.body297 ]
+  %.pn96 = phi { ptr, i32 } [ %72, %lpad.i209 ], [ %77, %lpad280 ], [ %78, %arraydestroy.body297 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp279) #28
   br label %ehcleanup304
 
-ehcleanup304.thread:                              ; preds = %lpad.i189, %lpad272
-  %.pn96.pn.pn.ph = phi { ptr, i32 } [ %70, %lpad.i189 ], [ %75, %lpad272 ]
+ehcleanup304.thread:                              ; preds = %lpad.i193, %lpad272
+  %.pn96.pn.pn.ph = phi { ptr, i32 } [ %70, %lpad.i193 ], [ %75, %lpad272 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp271) #28
   br label %ehcleanup474
 
-ehcleanup304:                                     ; preds = %ehcleanup302, %lpad.i197, %lpad276
-  %cleanup.isactive282.1 = phi i1 [ %80, %ehcleanup302 ], [ false, %lpad.i197 ], [ false, %lpad276 ]
-  %arrayinit.endOfInit270.0 = phi ptr [ %arrayinit.element278, %ehcleanup302 ], [ %arrayinit.element274, %lpad.i197 ], [ %arrayinit.element274, %lpad276 ]
-  %.pn96.pn = phi { ptr, i32 } [ %.pn96, %ehcleanup302 ], [ %71, %lpad.i197 ], [ %76, %lpad276 ]
+ehcleanup304:                                     ; preds = %ehcleanup302, %lpad.i201, %lpad276
+  %cleanup.isactive282.1 = phi i1 [ %80, %ehcleanup302 ], [ false, %lpad.i201 ], [ false, %lpad276 ]
+  %arrayinit.endOfInit270.0 = phi ptr [ %arrayinit.element278, %ehcleanup302 ], [ %arrayinit.element274, %lpad.i201 ], [ %arrayinit.element274, %lpad276 ]
+  %.pn96.pn = phi { ptr, i32 } [ %.pn96, %ehcleanup302 ], [ %71, %lpad.i201 ], [ %76, %lpad276 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp275) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp271) #28
   br i1 %cleanup.isactive282.1, label %ehcleanup474, label %arraydestroy.body309
@@ -24620,12 +24620,12 @@ arraydestroy.body309:                             ; preds = %ehcleanup304, %arra
   br i1 %arraydestroy.done312, label %ehcleanup474, label %arraydestroy.body309
 
 lpad315.loopexit:                                 ; preds = %invoke.cont372, %invoke.cont384
-  %lpad.loopexit280 = landingpad { ptr, i32 }
+  %lpad.loopexit284 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup473
 
 lpad315.loopexit.split-lp:                        ; preds = %if.then318, %invoke.cont323, %if.then328, %invoke.cont332, %if.end432
-  %lpad.loopexit.split-lp281 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp285 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup473
 
@@ -24633,8 +24633,8 @@ invoke.cont323:                                   ; preds = %invoke.cont316
   %81 = load ptr, ptr %colorSpace261, align 8
   %illuminant322 = getelementptr inbounds i8, ptr %81, i64 32
   %82 = ptrtoint ptr %illuminant322 to i64
-  %or.i.i212 = or i64 %82, 288230376151711744
-  store i64 %or.i.i212, ptr %agg.tmp321, align 8
+  %or.i.i216 = or i64 %82, 288230376151711744
+  store i64 %or.i.i216, ptr %agg.tmp321, align 8
   %call325 = invoke noundef float @_ZN4pbrt21SpectrumToPhotometricENS_8SpectrumE(ptr noundef nonnull %agg.tmp321)
           to label %invoke.cont324 unwind label %lpad315.loopexit.split-lp
 
@@ -24655,11 +24655,11 @@ invoke.cont332:                                   ; preds = %if.then328
 
 invoke.cont334:                                   ; preds = %invoke.cont332
   %call335.fca.1.extract = extractvalue { <2 x float>, float } %call335, 1
-  %retval.sroa.0.0.copyload.i304 = load i64, ptr %resolution.i.i, align 4
-  %ref.tmp339.sroa.1.0.extract.shift305 = lshr i64 %retval.sroa.0.0.copyload.i304, 32
-  %ref.tmp339.sroa.1.0.extract.trunc306 = trunc nuw i64 %ref.tmp339.sroa.1.0.extract.shift305 to i32
-  %cmp344307 = icmp sgt i32 %ref.tmp339.sroa.1.0.extract.trunc306, 0
-  br i1 %cmp344307, label %for.body345.lr.ph, label %for.end414
+  %retval.sroa.0.0.copyload.i308 = load i64, ptr %resolution.i.i, align 4
+  %ref.tmp339.sroa.1.0.extract.shift309 = lshr i64 %retval.sroa.0.0.copyload.i308, 32
+  %ref.tmp339.sroa.1.0.extract.trunc310 = trunc nuw i64 %ref.tmp339.sroa.1.0.extract.shift309 to i32
+  %cmp344311 = icmp sgt i32 %ref.tmp339.sroa.1.0.extract.trunc310, 0
+  br i1 %cmp344311, label %for.body345.lr.ph, label %for.end414
 
 for.body345.lr.ph:                                ; preds = %invoke.cont334
   %call335.fca.0.extract = extractvalue { <2 x float>, float } %call335, 0
@@ -24672,31 +24672,31 @@ for.body345.lr.ph:                                ; preds = %invoke.cont334
   br label %for.body345
 
 for.body345:                                      ; preds = %for.body345.lr.ph, %for.inc412
-  %retval.sroa.0.0.copyload.i327 = phi i64 [ %retval.sroa.0.0.copyload.i304, %for.body345.lr.ph ], [ %retval.sroa.0.0.copyload.i, %for.inc412 ]
-  %indvars.iv323 = phi i64 [ 0, %for.body345.lr.ph ], [ %indvars.iv.next324, %for.inc412 ]
-  %ref.tmp339.sroa.1.0.extract.trunc310 = phi i32 [ %ref.tmp339.sroa.1.0.extract.trunc306, %for.body345.lr.ph ], [ %ref.tmp339.sroa.1.0.extract.trunc, %for.inc412 ]
-  %illuminance.0309 = phi float [ 0.000000e+00, %for.body345.lr.ph ], [ %illuminance.1.lcssa, %for.inc412 ]
-  %85 = trunc nuw nsw i64 %indvars.iv323 to i32
+  %retval.sroa.0.0.copyload.i331 = phi i64 [ %retval.sroa.0.0.copyload.i308, %for.body345.lr.ph ], [ %retval.sroa.0.0.copyload.i, %for.inc412 ]
+  %indvars.iv327 = phi i64 [ 0, %for.body345.lr.ph ], [ %indvars.iv.next328, %for.inc412 ]
+  %ref.tmp339.sroa.1.0.extract.trunc314 = phi i32 [ %ref.tmp339.sroa.1.0.extract.trunc310, %for.body345.lr.ph ], [ %ref.tmp339.sroa.1.0.extract.trunc, %for.inc412 ]
+  %illuminance.0313 = phi float [ 0.000000e+00, %for.body345.lr.ph ], [ %illuminance.1.lcssa, %for.inc412 ]
+  %85 = trunc nuw nsw i64 %indvars.iv327 to i32
   %conv = uitofp nneg i32 %85 to float
   %add = fadd float %conv, 5.000000e-01
-  %conv351 = sitofp i32 %ref.tmp339.sroa.1.0.extract.trunc310 to float
+  %conv351 = sitofp i32 %ref.tmp339.sroa.1.0.extract.trunc314 to float
   %div352 = fdiv float %add, %conv351
-  %ref.tmp355.sroa.0.0.extract.trunc299 = trunc i64 %retval.sroa.0.0.copyload.i327 to i32
-  %cmp360300 = icmp sgt i32 %ref.tmp355.sroa.0.0.extract.trunc299, 0
-  br i1 %cmp360300, label %invoke.cont372.lr.ph, label %for.inc412
+  %ref.tmp355.sroa.0.0.extract.trunc303 = trunc i64 %retval.sroa.0.0.copyload.i331 to i32
+  %cmp360304 = icmp sgt i32 %ref.tmp355.sroa.0.0.extract.trunc303, 0
+  br i1 %cmp360304, label %invoke.cont372.lr.ph, label %for.inc412
 
 invoke.cont372.lr.ph:                             ; preds = %for.body345
-  %agg.tmp381.sroa.2.0.insert.shift = shl nuw nsw i64 %indvars.iv323, 32
+  %agg.tmp381.sroa.2.0.insert.shift = shl nuw nsw i64 %indvars.iv327, 32
   br label %invoke.cont372
 
 invoke.cont372:                                   ; preds = %invoke.cont372.lr.ph, %for.inc409
-  %indvars.iv320 = phi i64 [ 0, %invoke.cont372.lr.ph ], [ %indvars.iv.next321, %for.inc409 ]
-  %ref.tmp355.sroa.0.0.extract.trunc303 = phi i32 [ %ref.tmp355.sroa.0.0.extract.trunc299, %invoke.cont372.lr.ph ], [ %ref.tmp355.sroa.0.0.extract.trunc, %for.inc409 ]
-  %illuminance.1302 = phi float [ %illuminance.0309, %invoke.cont372.lr.ph ], [ %illuminance.3, %for.inc409 ]
-  %86 = trunc nuw nsw i64 %indvars.iv320 to i32
+  %indvars.iv324 = phi i64 [ 0, %invoke.cont372.lr.ph ], [ %indvars.iv.next325, %for.inc409 ]
+  %ref.tmp355.sroa.0.0.extract.trunc307 = phi i32 [ %ref.tmp355.sroa.0.0.extract.trunc303, %invoke.cont372.lr.ph ], [ %ref.tmp355.sroa.0.0.extract.trunc, %for.inc409 ]
+  %illuminance.1306 = phi float [ %illuminance.0313, %invoke.cont372.lr.ph ], [ %illuminance.3, %for.inc409 ]
+  %86 = trunc nuw nsw i64 %indvars.iv324 to i32
   %conv362 = uitofp nneg i32 %86 to float
   %add363 = fadd float %conv362, 5.000000e-01
-  %conv369 = sitofp i32 %ref.tmp355.sroa.0.0.extract.trunc303 to float
+  %conv369 = sitofp i32 %ref.tmp355.sroa.0.0.extract.trunc307 to float
   %div370 = fdiv float %add363, %conv369
   %agg.tmp371.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %div370, i64 0
   %agg.tmp371.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp371.sroa.0.0.vec.insert, float %div352, i64 1
@@ -24709,7 +24709,7 @@ invoke.cont374:                                   ; preds = %invoke.cont372
   br i1 %cmp378, label %invoke.cont384, label %for.inc409
 
 invoke.cont384:                                   ; preds = %invoke.cont374
-  %agg.tmp381.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp381.sroa.2.0.insert.shift, %indvars.iv320
+  %agg.tmp381.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp381.sroa.2.0.insert.shift, %indvars.iv324
   invoke void @_ZNK4pbrt5Image11GetChannelsENS_6Point2IiEENS_10WrapMode2DE(ptr nonnull sret(%"struct.pbrt::ImageChannelValues") align 8 %values, ptr noundef nonnull align 8 dereferenceable(152) %imageAndMetadata, i64 %agg.tmp381.sroa.0.0.insert.insert, i64 4294967297)
           to label %for.cond390.preheader unwind label %lpad315.loopexit
 
@@ -24719,33 +24719,33 @@ for.cond390.preheader:                            ; preds = %invoke.cont384
   %cond.i.i = select i1 %tobool.not.i.i, ptr %84, ptr %87
   br label %for.body392
 
-for.body392:                                      ; preds = %for.cond390.preheader, %_ZN4pbrt3RGBixEi.exit226
-  %indvars.iv = phi i64 [ 0, %for.cond390.preheader ], [ %indvars.iv.next, %_ZN4pbrt3RGBixEi.exit226 ]
-  %illuminance.2297 = phi float [ %illuminance.1302, %for.cond390.preheader ], [ %add404, %_ZN4pbrt3RGBixEi.exit226 ]
+for.body392:                                      ; preds = %for.cond390.preheader, %_ZN4pbrt3RGBixEi.exit230
+  %indvars.iv = phi i64 [ 0, %for.cond390.preheader ], [ %indvars.iv.next, %_ZN4pbrt3RGBixEi.exit230 ]
+  %illuminance.2301 = phi float [ %illuminance.1306, %for.cond390.preheader ], [ %add404, %_ZN4pbrt3RGBixEi.exit230 ]
   %arrayidx.i = getelementptr inbounds float, ptr %cond.i.i, i64 %indvars.iv
   %88 = load float, ptr %arrayidx.i, align 4
   %89 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %89, label %if.end4.i224 [
-    i32 0, label %_ZN4pbrt3RGBixEi.exit226
-    i32 1, label %if.then3.i221
+  switch i32 %89, label %if.end4.i228 [
+    i32 0, label %_ZN4pbrt3RGBixEi.exit230
+    i32 1, label %if.then3.i225
   ]
 
-if.then3.i221:                                    ; preds = %for.body392
-  br label %_ZN4pbrt3RGBixEi.exit226
+if.then3.i225:                                    ; preds = %for.body392
+  br label %_ZN4pbrt3RGBixEi.exit230
 
-if.end4.i224:                                     ; preds = %for.body392
-  br label %_ZN4pbrt3RGBixEi.exit226
+if.end4.i228:                                     ; preds = %for.body392
+  br label %_ZN4pbrt3RGBixEi.exit230
 
-_ZN4pbrt3RGBixEi.exit226:                         ; preds = %for.body392, %if.then3.i221, %if.end4.i224
-  %retval.0.i223.sroa.speculated = phi float [ %lum.sroa.0.4.vec.extract, %if.then3.i221 ], [ %call335.fca.1.extract, %if.end4.i224 ], [ %lum.sroa.0.0.vec.extract, %for.body392 ]
-  %mul399 = fmul float %88, %retval.0.i223.sroa.speculated
+_ZN4pbrt3RGBixEi.exit230:                         ; preds = %for.body392, %if.then3.i225, %if.end4.i228
+  %retval.0.i227.sroa.speculated = phi float [ %lum.sroa.0.4.vec.extract, %if.then3.i225 ], [ %call335.fca.1.extract, %if.end4.i228 ], [ %lum.sroa.0.0.vec.extract, %for.body392 ]
+  %mul399 = fmul float %88, %retval.0.i227.sroa.speculated
   %mul403 = fmul float %call375.fca.1.extract, %mul399
-  %add404 = fadd float %illuminance.2297, %mul403
+  %add404 = fadd float %illuminance.2301, %mul403
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond319.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond319.not, label %for.end407, label %for.body392, !llvm.loop !181
+  %exitcond323.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond323.not, label %for.end407, label %for.body392, !llvm.loop !181
 
-for.end407:                                       ; preds = %_ZN4pbrt3RGBixEi.exit226
+for.end407:                                       ; preds = %_ZN4pbrt3RGBixEi.exit230
   store i64 0, ptr %nStored.le.i.i.i, align 8
   br i1 %tobool.not.i.i, label %for.inc409, label %if.end.i.i.i.i.i
 
@@ -24767,29 +24767,29 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   unreachable
 
 for.inc409:                                       ; preds = %if.end.i.i.i.i.i, %for.end407, %invoke.cont374
-  %illuminance.3 = phi float [ %illuminance.1302, %invoke.cont374 ], [ %add404, %for.end407 ], [ %add404, %if.end.i.i.i.i.i ]
-  %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
-  %retval.sroa.0.0.copyload.i216 = load i64, ptr %resolution.i.i, align 4
-  %ref.tmp355.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i216 to i32
-  %sext = shl i64 %retval.sroa.0.0.copyload.i216, 32
+  %illuminance.3 = phi float [ %illuminance.1306, %invoke.cont374 ], [ %add404, %for.end407 ], [ %add404, %if.end.i.i.i.i.i ]
+  %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
+  %retval.sroa.0.0.copyload.i220 = load i64, ptr %resolution.i.i, align 4
+  %ref.tmp355.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i220 to i32
+  %sext = shl i64 %retval.sroa.0.0.copyload.i220, 32
   %95 = ashr exact i64 %sext, 32
-  %cmp360 = icmp slt i64 %indvars.iv.next321, %95
+  %cmp360 = icmp slt i64 %indvars.iv.next325, %95
   br i1 %cmp360, label %invoke.cont372, label %for.inc412, !llvm.loop !182
 
 for.inc412:                                       ; preds = %for.inc409, %for.body345
-  %retval.sroa.0.0.copyload.i = phi i64 [ %retval.sroa.0.0.copyload.i327, %for.body345 ], [ %retval.sroa.0.0.copyload.i216, %for.inc409 ]
-  %illuminance.1.lcssa = phi float [ %illuminance.0309, %for.body345 ], [ %illuminance.3, %for.inc409 ]
-  %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
+  %retval.sroa.0.0.copyload.i = phi i64 [ %retval.sroa.0.0.copyload.i331, %for.body345 ], [ %retval.sroa.0.0.copyload.i220, %for.inc409 ]
+  %illuminance.1.lcssa = phi float [ %illuminance.0313, %for.body345 ], [ %illuminance.3, %for.inc409 ]
+  %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
   %ref.tmp339.sroa.1.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i, 32
   %ref.tmp339.sroa.1.0.extract.trunc = trunc nuw i64 %ref.tmp339.sroa.1.0.extract.shift to i32
   %96 = ashr i64 %retval.sroa.0.0.copyload.i, 32
-  %cmp344 = icmp slt i64 %indvars.iv.next324, %96
+  %cmp344 = icmp slt i64 %indvars.iv.next328, %96
   br i1 %cmp344, label %for.body345, label %for.end414, !llvm.loop !183
 
 for.end414:                                       ; preds = %for.inc412, %invoke.cont334
   %illuminance.0.lcssa = phi float [ 0.000000e+00, %invoke.cont334 ], [ %illuminance.1.lcssa, %for.inc412 ]
-  %retval.sroa.0.0.copyload.i.lcssa = phi i64 [ %retval.sroa.0.0.copyload.i304, %invoke.cont334 ], [ %retval.sroa.0.0.copyload.i, %for.inc412 ]
-  %ref.tmp339.sroa.1.0.extract.trunc.lcssa = phi i32 [ %ref.tmp339.sroa.1.0.extract.trunc306, %invoke.cont334 ], [ %ref.tmp339.sroa.1.0.extract.trunc, %for.inc412 ]
+  %retval.sroa.0.0.copyload.i.lcssa = phi i64 [ %retval.sroa.0.0.copyload.i308, %invoke.cont334 ], [ %retval.sroa.0.0.copyload.i, %for.inc412 ]
+  %ref.tmp339.sroa.1.0.extract.trunc.lcssa = phi i32 [ %ref.tmp339.sroa.1.0.extract.trunc310, %invoke.cont334 ], [ %ref.tmp339.sroa.1.0.extract.trunc, %for.inc412 ]
   %ref.tmp415.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i.lcssa to i32
   %mul425 = mul nsw i32 %ref.tmp339.sroa.1.0.extract.trunc.lcssa, %ref.tmp415.sroa.0.0.extract.trunc
   %conv426 = sitofp i32 %mul425 to float
@@ -24808,38 +24808,38 @@ if.end432:                                        ; preds = %for.end414, %invoke
 
 invoke.cont437:                                   ; preds = %if.end432
   %98 = load ptr, ptr %portal, align 8
-  %_M_finish.i.i232 = getelementptr inbounds i8, ptr %portal, i64 8
-  %99 = load ptr, ptr %_M_finish.i.i232, align 8
-  %cmp.i.i233 = icmp eq ptr %98, %99
-  br i1 %cmp.i.i233, label %if.else464, label %for.cond444.preheader
+  %_M_finish.i.i236 = getelementptr inbounds i8, ptr %portal, i64 8
+  %99 = load ptr, ptr %_M_finish.i.i236, align 8
+  %cmp.i.i237 = icmp eq ptr %98, %99
+  br i1 %cmp.i.i237, label %if.else464, label %for.cond444.preheader
 
 for.cond444.preheader:                            ; preds = %invoke.cont437
   %worldFromRender.i = getelementptr inbounds i8, ptr %cameraTransform, i64 696
   br label %for.body446
 
 for.body446:                                      ; preds = %for.cond444.preheader, %invoke.cont451
-  %__begin10.sroa.0.0314 = phi ptr [ %98, %for.cond444.preheader ], [ %incdec.ptr.i, %invoke.cont451 ]
-  %agg.tmp449.sroa.0.0.copyload = load <2 x float>, ptr %__begin10.sroa.0.0314, align 4
-  %agg.tmp449.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin10.sroa.0.0314, i64 8
+  %__begin10.sroa.0.0318 = phi ptr [ %98, %for.cond444.preheader ], [ %incdec.ptr.i, %invoke.cont451 ]
+  %agg.tmp449.sroa.0.0.copyload = load <2 x float>, ptr %__begin10.sroa.0.0318, align 4
+  %agg.tmp449.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin10.sroa.0.0318, i64 8
   %agg.tmp449.sroa.2.0.copyload = load float, ptr %agg.tmp449.sroa.2.0..sroa_idx, align 4
-  %call.i235236 = invoke { <2 x float>, float } @_ZNK4pbrt9Transform12ApplyInverseIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %worldFromRender.i, <2 x float> %agg.tmp449.sroa.0.0.copyload, float %agg.tmp449.sroa.2.0.copyload)
+  %call.i239240 = invoke { <2 x float>, float } @_ZNK4pbrt9Transform12ApplyInverseIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %worldFromRender.i, <2 x float> %agg.tmp449.sroa.0.0.copyload, float %agg.tmp449.sroa.2.0.copyload)
           to label %invoke.cont451 unwind label %lpad450.loopexit
 
 invoke.cont451:                                   ; preds = %for.body446
-  %call452.fca.0.extract = extractvalue { <2 x float>, float } %call.i235236, 0
-  %call452.fca.1.extract = extractvalue { <2 x float>, float } %call.i235236, 1
-  store <2 x float> %call452.fca.0.extract, ptr %__begin10.sroa.0.0314, align 4
+  %call452.fca.0.extract = extractvalue { <2 x float>, float } %call.i239240, 0
+  %call452.fca.1.extract = extractvalue { <2 x float>, float } %call.i239240, 1
+  store <2 x float> %call452.fca.0.extract, ptr %__begin10.sroa.0.0318, align 4
   store float %call452.fca.1.extract, ptr %agg.tmp449.sroa.2.0..sroa_idx, align 4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin10.sroa.0.0314, i64 12
-  %cmp.i234.not = icmp eq ptr %incdec.ptr.i, %99
-  br i1 %cmp.i234.not, label %for.end457, label %for.body446
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin10.sroa.0.0318, i64 12
+  %cmp.i238.not = icmp eq ptr %incdec.ptr.i, %99
+  br i1 %cmp.i238.not, label %for.end457, label %for.body446
 
 lpad450.loopexit:                                 ; preds = %for.body446
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %lpad450
 
-lpad450.loopexit.split-lp:                        ; preds = %for.end457, %call.i.i.i.i.noexc, %if.else464, %call.i.i.i.i.noexc242
+lpad450.loopexit.split-lp:                        ; preds = %for.end457, %call.i.i.i.i.noexc, %if.else464, %call.i.i.i.i.noexc246
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %lpad450
@@ -24854,75 +24854,75 @@ for.end457:                                       ; preds = %invoke.cont451
   %vtable.i.i.i.i = load ptr, ptr %100, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %101 = load ptr, ptr %vfn.i.i.i.i, align 8
-  %call.i.i.i.i237 = invoke noundef ptr %101(ptr noundef nonnull align 8 dereferenceable(8) %100, i64 noundef 520, i64 noundef 8)
+  %call.i.i.i.i241 = invoke noundef ptr %101(ptr noundef nonnull align 8 dereferenceable(8) %100, i64 noundef 520, i64 noundef 8)
           to label %call.i.i.i.i.noexc unwind label %lpad450.loopexit.split-lp
 
 call.i.i.i.i.noexc:                               ; preds = %for.end457
-  invoke void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteE9constructIN4pbrt24PortalImageInfiniteLightEJRKNS5_9TransformENS5_5ImageERPKNS5_13RGBColorSpaceERfRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorINS5_6Point3IfEESaISP_EERS3_EEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %alloc, ptr noundef %call.i.i.i.i237, ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight, ptr noundef nonnull align 8 dereferenceable(152) %image433, ptr noundef nonnull align 8 dereferenceable(8) %colorSpace261, ptr noundef nonnull align 4 dereferenceable(4) %scale, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(24) %portal, ptr noundef nonnull align 8 dereferenceable(8) %alloc)
+  invoke void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteE9constructIN4pbrt24PortalImageInfiniteLightEJRKNS5_9TransformENS5_5ImageERPKNS5_13RGBColorSpaceERfRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorINS5_6Point3IfEESaISP_EERS3_EEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %alloc, ptr noundef %call.i.i.i.i241, ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight, ptr noundef nonnull align 8 dereferenceable(152) %image433, ptr noundef nonnull align 8 dereferenceable(8) %colorSpace261, ptr noundef nonnull align 4 dereferenceable(4) %scale, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(24) %portal, ptr noundef nonnull align 8 dereferenceable(8) %alloc)
           to label %if.end471 unwind label %lpad450.loopexit.split-lp
 
 if.else464:                                       ; preds = %invoke.cont437
   %102 = load ptr, ptr %alloc, align 8
-  %vtable.i.i.i.i240 = load ptr, ptr %102, align 8
-  %vfn.i.i.i.i241 = getelementptr inbounds i8, ptr %vtable.i.i.i.i240, i64 16
-  %103 = load ptr, ptr %vfn.i.i.i.i241, align 8
-  %call.i.i.i.i243 = invoke noundef ptr %103(ptr noundef nonnull align 8 dereferenceable(8) %102, i64 noundef 592, i64 noundef 8)
-          to label %call.i.i.i.i.noexc242 unwind label %lpad450.loopexit.split-lp
+  %vtable.i.i.i.i244 = load ptr, ptr %102, align 8
+  %vfn.i.i.i.i245 = getelementptr inbounds i8, ptr %vtable.i.i.i.i244, i64 16
+  %103 = load ptr, ptr %vfn.i.i.i.i245, align 8
+  %call.i.i.i.i247 = invoke noundef ptr %103(ptr noundef nonnull align 8 dereferenceable(8) %102, i64 noundef 592, i64 noundef 8)
+          to label %call.i.i.i.i.noexc246 unwind label %lpad450.loopexit.split-lp
 
-call.i.i.i.i.noexc242:                            ; preds = %if.else464
-  invoke void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteE9constructIN4pbrt18ImageInfiniteLightEJRKNS5_9TransformENS5_5ImageERPKNS5_13RGBColorSpaceERfRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS3_EEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %alloc, ptr noundef %call.i.i.i.i243, ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight, ptr noundef nonnull align 8 dereferenceable(152) %image433, ptr noundef nonnull align 8 dereferenceable(8) %colorSpace261, ptr noundef nonnull align 4 dereferenceable(4) %scale, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(8) %alloc)
+call.i.i.i.i.noexc246:                            ; preds = %if.else464
+  invoke void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteE9constructIN4pbrt18ImageInfiniteLightEJRKNS5_9TransformENS5_5ImageERPKNS5_13RGBColorSpaceERfRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS3_EEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %alloc, ptr noundef %call.i.i.i.i247, ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight, ptr noundef nonnull align 8 dereferenceable(152) %image433, ptr noundef nonnull align 8 dereferenceable(8) %colorSpace261, ptr noundef nonnull align 4 dereferenceable(4) %scale, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(8) %alloc)
           to label %if.end471 unwind label %lpad450.loopexit.split-lp
 
-if.end471:                                        ; preds = %call.i.i.i.i.noexc242, %call.i.i.i.i.noexc
-  %call.i.i.i.i243.sink = phi ptr [ %call.i.i.i.i237, %call.i.i.i.i.noexc ], [ %call.i.i.i.i243, %call.i.i.i.i.noexc242 ]
-  %.sink333 = phi i64 [ 1297036692682702848, %call.i.i.i.i.noexc ], [ 1152921504606846976, %call.i.i.i.i.noexc242 ]
-  %104 = ptrtoint ptr %call.i.i.i.i243.sink to i64
-  %or.i.i245 = or i64 %.sink333, %104
-  store i64 %or.i.i245, ptr %agg.result, align 8
+if.end471:                                        ; preds = %call.i.i.i.i.noexc246, %call.i.i.i.i.noexc
+  %call.i.i.i.i247.sink = phi ptr [ %call.i.i.i.i241, %call.i.i.i.i.noexc ], [ %call.i.i.i.i247, %call.i.i.i.i.noexc246 ]
+  %.sink337 = phi i64 [ 1297036692682702848, %call.i.i.i.i.noexc ], [ 1152921504606846976, %call.i.i.i.i.noexc246 ]
+  %104 = ptrtoint ptr %call.i.i.i.i247.sink to i64
+  %or.i.i249 = or i64 %.sink337, %104
+  store i64 %or.i.i249, ptr %agg.result, align 8
   call void @_ZN4pbrt5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %image433) #28
   store i64 0, ptr %nStored.i.i.i, align 8
-  %ptr.i.i247 = getelementptr inbounds i8, ptr %channelDesc, i64 8
-  %105 = load ptr, ptr %ptr.i.i247, align 8
-  %tobool.not.i.i.i.i.i248 = icmp eq ptr %105, null
-  br i1 %tobool.not.i.i.i.i.i248, label %_ZN4pbrt16ImageChannelDescD2Ev.exit, label %if.end.i.i.i.i.i249
+  %ptr.i.i251 = getelementptr inbounds i8, ptr %channelDesc, i64 8
+  %105 = load ptr, ptr %ptr.i.i251, align 8
+  %tobool.not.i.i.i.i.i252 = icmp eq ptr %105, null
+  br i1 %tobool.not.i.i.i.i.i252, label %_ZN4pbrt16ImageChannelDescD2Ev.exit, label %if.end.i.i.i.i.i253
 
-if.end.i.i.i.i.i249:                              ; preds = %if.end471
-  %nAlloc.i.i250 = getelementptr inbounds i8, ptr %channelDesc, i64 32
-  %106 = load i64, ptr %nAlloc.i.i250, align 8
-  %mul.i.i.i251 = shl i64 %106, 2
+if.end.i.i.i.i.i253:                              ; preds = %if.end471
+  %nAlloc.i.i254 = getelementptr inbounds i8, ptr %channelDesc, i64 32
+  %106 = load i64, ptr %nAlloc.i.i254, align 8
+  %mul.i.i.i255 = shl i64 %106, 2
   %107 = load ptr, ptr %channelDesc, align 8
-  %vtable.i.i.i.i.i252 = load ptr, ptr %107, align 8
-  %vfn.i.i.i.i.i253 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i252, i64 24
-  %108 = load ptr, ptr %vfn.i.i.i.i.i253, align 8
-  invoke void %108(ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef nonnull %105, i64 noundef %mul.i.i.i251, i64 noundef 4)
-          to label %_ZN4pbrt16ImageChannelDescD2Ev.exit unwind label %terminate.lpad.i.i254
+  %vtable.i.i.i.i.i256 = load ptr, ptr %107, align 8
+  %vfn.i.i.i.i.i257 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i256, i64 24
+  %108 = load ptr, ptr %vfn.i.i.i.i.i257, align 8
+  invoke void %108(ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef nonnull %105, i64 noundef %mul.i.i.i255, i64 noundef 4)
+          to label %_ZN4pbrt16ImageChannelDescD2Ev.exit unwind label %terminate.lpad.i.i258
 
-terminate.lpad.i.i254:                            ; preds = %if.end.i.i.i.i.i249
+terminate.lpad.i.i258:                            ; preds = %if.end.i.i.i.i.i253
   %109 = landingpad { ptr, i32 }
           catch ptr null
   %110 = extractvalue { ptr, i32 } %109, 0
   call void @__clang_call_terminate(ptr %110) #32
   unreachable
 
-_ZN4pbrt16ImageChannelDescD2Ev.exit:              ; preds = %if.end471, %if.end.i.i.i.i.i249
+_ZN4pbrt16ImageChannelDescD2Ev.exit:              ; preds = %if.end471, %if.end.i.i.i.i.i253
   call void @_ZN4pbrt13ImageMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %metadata262) #28
   call void @_ZN4pbrt5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %imageAndMetadata) #28
   br label %if.end476
 
 ehcleanup473:                                     ; preds = %lpad315.loopexit, %lpad315.loopexit.split-lp, %lpad450
-  %.pn100 = phi { ptr, i32 } [ %lpad.phi, %lpad450 ], [ %lpad.loopexit280, %lpad315.loopexit ], [ %lpad.loopexit.split-lp281, %lpad315.loopexit.split-lp ]
+  %.pn100 = phi { ptr, i32 } [ %lpad.phi, %lpad450 ], [ %lpad.loopexit284, %lpad315.loopexit ], [ %lpad.loopexit.split-lp285, %lpad315.loopexit.split-lp ]
   call void @_ZN4pbrt16ImageChannelDescD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %channelDesc) #28
   br label %ehcleanup474
 
 ehcleanup474:                                     ; preds = %arraydestroy.body205, %arraydestroy.body309, %lpad150.loopexit, %lpad150.loopexit.split-lp, %ehcleanup304.thread, %ehcleanup203.thread, %ehcleanup304, %ehcleanup203, %ehcleanup473, %ehcleanup247
-  %.pn102 = phi { ptr, i32 } [ %.pn100, %ehcleanup473 ], [ %.pn96.pn, %ehcleanup304 ], [ %.pn91.pn.pn, %ehcleanup203 ], [ %.pn89, %ehcleanup247 ], [ %60, %ehcleanup203.thread ], [ %.pn96.pn.pn.ph, %ehcleanup304.thread ], [ %lpad.loopexit283, %lpad150.loopexit ], [ %lpad.loopexit.split-lp284, %lpad150.loopexit.split-lp ], [ %.pn96.pn, %arraydestroy.body309 ], [ %.pn91.pn.pn, %arraydestroy.body205 ]
-  %metadata.i256 = getelementptr inbounds i8, ptr %imageAndMetadata, i64 152
-  call void @_ZN4pbrt13ImageMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %metadata.i256) #28
+  %.pn102 = phi { ptr, i32 } [ %.pn100, %ehcleanup473 ], [ %.pn96.pn, %ehcleanup304 ], [ %.pn91.pn.pn, %ehcleanup203 ], [ %.pn89, %ehcleanup247 ], [ %60, %ehcleanup203.thread ], [ %.pn96.pn.pn.ph, %ehcleanup304.thread ], [ %lpad.loopexit287, %lpad150.loopexit ], [ %lpad.loopexit.split-lp288, %lpad150.loopexit.split-lp ], [ %.pn96.pn, %arraydestroy.body309 ], [ %.pn91.pn.pn, %arraydestroy.body205 ]
+  %metadata.i260 = getelementptr inbounds i8, ptr %imageAndMetadata, i64 152
+  call void @_ZN4pbrt13ImageMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %metadata.i260) #28
   call void @_ZN4pbrt5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %imageAndMetadata) #28
   br label %ehcleanup477
 
 if.end476:                                        ; preds = %invoke.cont142, %invoke.cont114, %_ZN4pbrt16ImageChannelDescD2Ev.exit
-  %111 = phi i64 [ %or.i.i178, %invoke.cont142 ], [ %or.i.i173, %invoke.cont114 ], [ %or.i.i245, %_ZN4pbrt16ImageChannelDescD2Ev.exit ]
+  %111 = phi i64 [ %or.i.i180, %invoke.cont142 ], [ %or.i.i173, %invoke.cont114 ], [ %or.i.i249, %_ZN4pbrt16ImageChannelDescD2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename) #28
   %112 = load ptr, ptr %portal, align 8
   %tobool.not.i.i.i = icmp eq ptr %112, null
@@ -24934,10 +24934,10 @@ if.then.i.i.i:                                    ; preds = %if.end476
 
 _ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EED2Ev.exit:  ; preds = %if.end476, %if.then.i.i.i
   %113 = load ptr, ptr %L, align 8
-  %tobool.not.i.i.i257 = icmp eq ptr %113, null
-  br i1 %tobool.not.i.i.i257, label %if.end486, label %if.then.i.i.i258
+  %tobool.not.i.i.i261 = icmp eq ptr %113, null
+  br i1 %tobool.not.i.i.i261, label %if.end486, label %if.then.i.i.i262
 
-if.then.i.i.i258:                                 ; preds = %_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EED2Ev.exit
+if.then.i.i.i262:                                 ; preds = %_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %113) #31
   br label %if.end486
 
@@ -24949,20 +24949,20 @@ ehcleanup477:                                     ; preds = %ehcleanup474, %lpad
 ehcleanup478:                                     ; preds = %ehcleanup477, %ehcleanup87
   %.pn105.pn = phi { ptr, i32 } [ %.pn105, %ehcleanup477 ], [ %.pn83.pn.pn, %ehcleanup87 ]
   %114 = load ptr, ptr %portal, align 8
-  %tobool.not.i.i.i259 = icmp eq ptr %114, null
-  br i1 %tobool.not.i.i.i259, label %ehcleanup479, label %if.then.i.i.i260
+  %tobool.not.i.i.i263 = icmp eq ptr %114, null
+  br i1 %tobool.not.i.i.i263, label %ehcleanup479, label %if.then.i.i.i264
 
-if.then.i.i.i260:                                 ; preds = %ehcleanup478
+if.then.i.i.i264:                                 ; preds = %ehcleanup478
   call void @_ZdlPv(ptr noundef nonnull %114) #31
   br label %ehcleanup479
 
-ehcleanup479:                                     ; preds = %if.then.i.i.i260, %ehcleanup478, %ehcleanup69, %ehcleanup61
-  %.pn105.pn.pn = phi { ptr, i32 } [ %.pn81, %ehcleanup69 ], [ %.pn79, %ehcleanup61 ], [ %.pn105.pn, %ehcleanup478 ], [ %.pn105.pn, %if.then.i.i.i260 ]
+ehcleanup479:                                     ; preds = %if.then.i.i.i264, %ehcleanup478, %ehcleanup69, %ehcleanup61
+  %.pn105.pn.pn = phi { ptr, i32 } [ %.pn81, %ehcleanup69 ], [ %.pn79, %ehcleanup61 ], [ %.pn105.pn, %ehcleanup478 ], [ %.pn105.pn, %if.then.i.i.i264 ]
   %115 = load ptr, ptr %L, align 8
-  %tobool.not.i.i.i262 = icmp eq ptr %115, null
-  br i1 %tobool.not.i.i.i262, label %eh.resume, label %if.then.i.i.i263
+  %tobool.not.i.i.i266 = icmp eq ptr %115, null
+  br i1 %tobool.not.i.i.i266, label %eh.resume, label %if.then.i.i.i267
 
-if.then.i.i.i263:                                 ; preds = %ehcleanup479
+if.then.i.i.i267:                                 ; preds = %ehcleanup479
   call void @_ZdlPv(ptr noundef nonnull %115) #31
   br label %eh.resume
 
@@ -24970,11 +24970,11 @@ if.else480:                                       ; preds = %if.else43
   tail call void @_ZN4pbrt9ErrorExitIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKNS_7FileLocEPKcDpOT_(ptr noundef %loc, ptr noundef nonnull @.str.96, ptr noundef nonnull align 8 dereferenceable(32) %name) #29
   unreachable
 
-if.end486:                                        ; preds = %if.then.i.i.i258, %_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EED2Ev.exit, %if.then7, %if.then27, %if.then36, %if.then17, %if.then
-  %116 = phi i64 [ %111, %if.then.i.i.i258 ], [ %111, %_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EED2Ev.exit ], [ %or.i.i113, %if.then7 ], [ %or.i.i120, %if.then27 ], [ %or.i.i124, %if.then36 ], [ %or.i.i117, %if.then17 ], [ %or.i.i, %if.then ]
+if.end486:                                        ; preds = %if.then.i.i.i262, %_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EED2Ev.exit, %if.then7, %if.then27, %if.then36, %if.then17, %if.then
+  %116 = phi i64 [ %111, %if.then.i.i.i262 ], [ %111, %_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EED2Ev.exit ], [ %or.i.i113, %if.then7 ], [ %or.i.i120, %if.then27 ], [ %or.i.i124, %if.then36 ], [ %or.i.i117, %if.then17 ], [ %or.i.i, %if.then ]
   %and.i = and i64 %116, 144115188075855871
-  %cmp.i265.not = icmp eq i64 %and.i, 0
-  br i1 %cmp.i265.not, label %if.then488, label %if.end489
+  %cmp.i269.not = icmp eq i64 %and.i, 0
+  br i1 %cmp.i269.not, label %if.then488, label %if.end489
 
 if.then488:                                       ; preds = %if.end486
   call void @_ZN4pbrt9ErrorExitIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKNS_7FileLocEPKcDpOT_(ptr noundef %loc, ptr noundef nonnull @.str.97, ptr noundef nonnull align 8 dereferenceable(32) %name) #29
@@ -24984,8 +24984,8 @@ if.end489:                                        ; preds = %if.end486
   call void @_ZNK4pbrt19ParameterDictionary12ReportUnusedEv(ptr noundef nonnull align 8 dereferenceable(108) %parameters)
   ret void
 
-eh.resume:                                        ; preds = %if.then.i.i.i263, %ehcleanup479, %ehcleanup
-  %.pn105.pn.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %.pn105.pn.pn, %ehcleanup479 ], [ %.pn105.pn.pn, %if.then.i.i.i263 ]
+eh.resume:                                        ; preds = %if.then.i.i.i267, %ehcleanup479, %ehcleanup
+  %.pn105.pn.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %.pn105.pn.pn, %ehcleanup479 ], [ %.pn105.pn.pn, %if.then.i.i.i267 ]
   resume { ptr, i32 } %.pn105.pn.pn.pn
 }
 
@@ -26964,8 +26964,8 @@ entry:
   %5 = load float, ptr %4, align 4
   %call9 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %6 = extractvalue { ptr, i64 } %call9, 0
-  %arrayidx.i160 = getelementptr inbounds i8, ptr %6, i64 4
-  %7 = load float, ptr %arrayidx.i160, align 4
+  %arrayidx.i161 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = load float, ptr %arrayidx.i161, align 4
   %mul.i = fmul float %5, %7
   %fneg.i = fneg float %mul.i
   %8 = tail call noundef float @llvm.fma.f32(float %1, float %3, float %fneg.i)
@@ -26977,199 +26977,199 @@ entry:
   %11 = load float, ptr %10, align 4
   %call16 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %12 = extractvalue { ptr, i64 } %call16, 0
-  %arrayidx.i161 = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load float, ptr %arrayidx.i161, align 4
+  %arrayidx.i163 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load float, ptr %arrayidx.i163, align 4
   %call19 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %14 = extractvalue { ptr, i64 } %call19, 0
   %15 = load float, ptr %14, align 4
   %call22 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %16 = extractvalue { ptr, i64 } %call22, 0
-  %arrayidx.i162 = getelementptr inbounds i8, ptr %16, i64 8
-  %17 = load float, ptr %arrayidx.i162, align 4
-  %mul.i163 = fmul float %15, %17
-  %fneg.i164 = fneg float %mul.i163
-  %18 = tail call noundef float @llvm.fma.f32(float %11, float %13, float %fneg.i164)
-  %fneg1.i165 = fneg float %15
-  %19 = tail call noundef float @llvm.fma.f32(float %fneg1.i165, float %17, float %mul.i163)
-  %add.i166 = fadd float %18, %19
+  %arrayidx.i165 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = load float, ptr %arrayidx.i165, align 4
+  %mul.i166 = fmul float %15, %17
+  %fneg.i167 = fneg float %mul.i166
+  %18 = tail call noundef float @llvm.fma.f32(float %11, float %13, float %fneg.i167)
+  %fneg1.i168 = fneg float %15
+  %19 = tail call noundef float @llvm.fma.f32(float %fneg1.i168, float %17, float %mul.i166)
+  %add.i169 = fadd float %18, %19
   %call26 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %20 = extractvalue { ptr, i64 } %call26, 0
   %21 = load float, ptr %20, align 4
   %call29 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %22 = extractvalue { ptr, i64 } %call29, 0
-  %arrayidx.i167 = getelementptr inbounds i8, ptr %22, i64 12
-  %23 = load float, ptr %arrayidx.i167, align 4
+  %arrayidx.i171 = getelementptr inbounds i8, ptr %22, i64 12
+  %23 = load float, ptr %arrayidx.i171, align 4
   %call32 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %24 = extractvalue { ptr, i64 } %call32, 0
   %25 = load float, ptr %24, align 4
   %call35 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %26 = extractvalue { ptr, i64 } %call35, 0
-  %arrayidx.i168 = getelementptr inbounds i8, ptr %26, i64 12
-  %27 = load float, ptr %arrayidx.i168, align 4
-  %mul.i169 = fmul float %25, %27
-  %fneg.i170 = fneg float %mul.i169
-  %28 = tail call noundef float @llvm.fma.f32(float %21, float %23, float %fneg.i170)
-  %fneg1.i171 = fneg float %25
-  %29 = tail call noundef float @llvm.fma.f32(float %fneg1.i171, float %27, float %mul.i169)
-  %add.i172 = fadd float %28, %29
+  %arrayidx.i173 = getelementptr inbounds i8, ptr %26, i64 12
+  %27 = load float, ptr %arrayidx.i173, align 4
+  %mul.i174 = fmul float %25, %27
+  %fneg.i175 = fneg float %mul.i174
+  %28 = tail call noundef float @llvm.fma.f32(float %21, float %23, float %fneg.i175)
+  %fneg1.i176 = fneg float %25
+  %29 = tail call noundef float @llvm.fma.f32(float %fneg1.i176, float %27, float %mul.i174)
+  %add.i177 = fadd float %28, %29
   %call39 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %30 = extractvalue { ptr, i64 } %call39, 0
-  %arrayidx.i173 = getelementptr inbounds i8, ptr %30, i64 4
-  %31 = load float, ptr %arrayidx.i173, align 4
+  %arrayidx.i178 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = load float, ptr %arrayidx.i178, align 4
   %call42 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %32 = extractvalue { ptr, i64 } %call42, 0
-  %arrayidx.i174 = getelementptr inbounds i8, ptr %32, i64 8
-  %33 = load float, ptr %arrayidx.i174, align 4
+  %arrayidx.i179 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = load float, ptr %arrayidx.i179, align 4
   %call45 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %34 = extractvalue { ptr, i64 } %call45, 0
-  %arrayidx.i175 = getelementptr inbounds i8, ptr %34, i64 4
-  %35 = load float, ptr %arrayidx.i175, align 4
+  %arrayidx.i180 = getelementptr inbounds i8, ptr %34, i64 4
+  %35 = load float, ptr %arrayidx.i180, align 4
   %call48 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %36 = extractvalue { ptr, i64 } %call48, 0
-  %arrayidx.i176 = getelementptr inbounds i8, ptr %36, i64 8
-  %37 = load float, ptr %arrayidx.i176, align 4
-  %mul.i177 = fmul float %35, %37
-  %fneg.i178 = fneg float %mul.i177
-  %38 = tail call noundef float @llvm.fma.f32(float %31, float %33, float %fneg.i178)
-  %fneg1.i179 = fneg float %35
-  %39 = tail call noundef float @llvm.fma.f32(float %fneg1.i179, float %37, float %mul.i177)
-  %add.i180 = fadd float %38, %39
+  %arrayidx.i181 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = load float, ptr %arrayidx.i181, align 4
+  %mul.i182 = fmul float %35, %37
+  %fneg.i183 = fneg float %mul.i182
+  %38 = tail call noundef float @llvm.fma.f32(float %31, float %33, float %fneg.i183)
+  %fneg1.i184 = fneg float %35
+  %39 = tail call noundef float @llvm.fma.f32(float %fneg1.i184, float %37, float %mul.i182)
+  %add.i185 = fadd float %38, %39
   %call52 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %40 = extractvalue { ptr, i64 } %call52, 0
-  %arrayidx.i181 = getelementptr inbounds i8, ptr %40, i64 4
-  %41 = load float, ptr %arrayidx.i181, align 4
+  %arrayidx.i186 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = load float, ptr %arrayidx.i186, align 4
   %call55 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %42 = extractvalue { ptr, i64 } %call55, 0
-  %arrayidx.i182 = getelementptr inbounds i8, ptr %42, i64 12
-  %43 = load float, ptr %arrayidx.i182, align 4
+  %arrayidx.i187 = getelementptr inbounds i8, ptr %42, i64 12
+  %43 = load float, ptr %arrayidx.i187, align 4
   %call58 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %44 = extractvalue { ptr, i64 } %call58, 0
-  %arrayidx.i183 = getelementptr inbounds i8, ptr %44, i64 4
-  %45 = load float, ptr %arrayidx.i183, align 4
+  %arrayidx.i188 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = load float, ptr %arrayidx.i188, align 4
   %call61 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %46 = extractvalue { ptr, i64 } %call61, 0
-  %arrayidx.i184 = getelementptr inbounds i8, ptr %46, i64 12
-  %47 = load float, ptr %arrayidx.i184, align 4
-  %mul.i185 = fmul float %45, %47
-  %fneg.i186 = fneg float %mul.i185
-  %48 = tail call noundef float @llvm.fma.f32(float %41, float %43, float %fneg.i186)
-  %fneg1.i187 = fneg float %45
-  %49 = tail call noundef float @llvm.fma.f32(float %fneg1.i187, float %47, float %mul.i185)
-  %add.i188 = fadd float %48, %49
+  %arrayidx.i189 = getelementptr inbounds i8, ptr %46, i64 12
+  %47 = load float, ptr %arrayidx.i189, align 4
+  %mul.i190 = fmul float %45, %47
+  %fneg.i191 = fneg float %mul.i190
+  %48 = tail call noundef float @llvm.fma.f32(float %41, float %43, float %fneg.i191)
+  %fneg1.i192 = fneg float %45
+  %49 = tail call noundef float @llvm.fma.f32(float %fneg1.i192, float %47, float %mul.i190)
+  %add.i193 = fadd float %48, %49
   %call65 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %50 = extractvalue { ptr, i64 } %call65, 0
-  %arrayidx.i189 = getelementptr inbounds i8, ptr %50, i64 8
-  %51 = load float, ptr %arrayidx.i189, align 4
+  %arrayidx.i194 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = load float, ptr %arrayidx.i194, align 4
   %call68 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %52 = extractvalue { ptr, i64 } %call68, 0
-  %arrayidx.i190 = getelementptr inbounds i8, ptr %52, i64 12
-  %53 = load float, ptr %arrayidx.i190, align 4
+  %arrayidx.i195 = getelementptr inbounds i8, ptr %52, i64 12
+  %53 = load float, ptr %arrayidx.i195, align 4
   %call71 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %54 = extractvalue { ptr, i64 } %call71, 0
-  %arrayidx.i191 = getelementptr inbounds i8, ptr %54, i64 8
-  %55 = load float, ptr %arrayidx.i191, align 4
+  %arrayidx.i196 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = load float, ptr %arrayidx.i196, align 4
   %call74 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %56 = extractvalue { ptr, i64 } %call74, 0
-  %arrayidx.i192 = getelementptr inbounds i8, ptr %56, i64 12
-  %57 = load float, ptr %arrayidx.i192, align 4
-  %mul.i193 = fmul float %55, %57
-  %fneg.i194 = fneg float %mul.i193
-  %58 = tail call noundef float @llvm.fma.f32(float %51, float %53, float %fneg.i194)
-  %fneg1.i195 = fneg float %55
-  %59 = tail call noundef float @llvm.fma.f32(float %fneg1.i195, float %57, float %mul.i193)
-  %add.i196 = fadd float %58, %59
+  %arrayidx.i197 = getelementptr inbounds i8, ptr %56, i64 12
+  %57 = load float, ptr %arrayidx.i197, align 4
+  %mul.i198 = fmul float %55, %57
+  %fneg.i199 = fneg float %mul.i198
+  %58 = tail call noundef float @llvm.fma.f32(float %51, float %53, float %fneg.i199)
+  %fneg1.i200 = fneg float %55
+  %59 = tail call noundef float @llvm.fma.f32(float %fneg1.i200, float %57, float %mul.i198)
+  %add.i201 = fadd float %58, %59
   %call78 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %60 = extractvalue { ptr, i64 } %call78, 0
   %61 = load float, ptr %60, align 4
   %call81 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %62 = extractvalue { ptr, i64 } %call81, 0
-  %arrayidx.i197 = getelementptr inbounds i8, ptr %62, i64 4
-  %63 = load float, ptr %arrayidx.i197, align 4
+  %arrayidx.i203 = getelementptr inbounds i8, ptr %62, i64 4
+  %63 = load float, ptr %arrayidx.i203, align 4
   %call84 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %64 = extractvalue { ptr, i64 } %call84, 0
   %65 = load float, ptr %64, align 4
   %call87 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %66 = extractvalue { ptr, i64 } %call87, 0
-  %arrayidx.i198 = getelementptr inbounds i8, ptr %66, i64 4
-  %67 = load float, ptr %arrayidx.i198, align 4
-  %mul.i199 = fmul float %65, %67
-  %fneg.i200 = fneg float %mul.i199
-  %68 = tail call noundef float @llvm.fma.f32(float %61, float %63, float %fneg.i200)
-  %fneg1.i201 = fneg float %65
-  %69 = tail call noundef float @llvm.fma.f32(float %fneg1.i201, float %67, float %mul.i199)
-  %add.i202 = fadd float %68, %69
+  %arrayidx.i205 = getelementptr inbounds i8, ptr %66, i64 4
+  %67 = load float, ptr %arrayidx.i205, align 4
+  %mul.i206 = fmul float %65, %67
+  %fneg.i207 = fneg float %mul.i206
+  %68 = tail call noundef float @llvm.fma.f32(float %61, float %63, float %fneg.i207)
+  %fneg1.i208 = fneg float %65
+  %69 = tail call noundef float @llvm.fma.f32(float %fneg1.i208, float %67, float %mul.i206)
+  %add.i209 = fadd float %68, %69
   %call91 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %70 = extractvalue { ptr, i64 } %call91, 0
   %71 = load float, ptr %70, align 4
   %call94 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %72 = extractvalue { ptr, i64 } %call94, 0
-  %arrayidx.i203 = getelementptr inbounds i8, ptr %72, i64 8
-  %73 = load float, ptr %arrayidx.i203, align 4
+  %arrayidx.i211 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = load float, ptr %arrayidx.i211, align 4
   %call97 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %74 = extractvalue { ptr, i64 } %call97, 0
   %75 = load float, ptr %74, align 4
   %call100 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %76 = extractvalue { ptr, i64 } %call100, 0
-  %arrayidx.i204 = getelementptr inbounds i8, ptr %76, i64 8
-  %77 = load float, ptr %arrayidx.i204, align 4
-  %mul.i205 = fmul float %75, %77
-  %fneg.i206 = fneg float %mul.i205
-  %78 = tail call noundef float @llvm.fma.f32(float %71, float %73, float %fneg.i206)
-  %fneg1.i207 = fneg float %75
-  %79 = tail call noundef float @llvm.fma.f32(float %fneg1.i207, float %77, float %mul.i205)
-  %add.i208 = fadd float %78, %79
+  %arrayidx.i213 = getelementptr inbounds i8, ptr %76, i64 8
+  %77 = load float, ptr %arrayidx.i213, align 4
+  %mul.i214 = fmul float %75, %77
+  %fneg.i215 = fneg float %mul.i214
+  %78 = tail call noundef float @llvm.fma.f32(float %71, float %73, float %fneg.i215)
+  %fneg1.i216 = fneg float %75
+  %79 = tail call noundef float @llvm.fma.f32(float %fneg1.i216, float %77, float %mul.i214)
+  %add.i217 = fadd float %78, %79
   %call104 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %80 = extractvalue { ptr, i64 } %call104, 0
   %81 = load float, ptr %80, align 4
   %call107 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %82 = extractvalue { ptr, i64 } %call107, 0
-  %arrayidx.i209 = getelementptr inbounds i8, ptr %82, i64 12
-  %83 = load float, ptr %arrayidx.i209, align 4
+  %arrayidx.i219 = getelementptr inbounds i8, ptr %82, i64 12
+  %83 = load float, ptr %arrayidx.i219, align 4
   %call110 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %84 = extractvalue { ptr, i64 } %call110, 0
   %85 = load float, ptr %84, align 4
   %call113 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %86 = extractvalue { ptr, i64 } %call113, 0
-  %arrayidx.i210 = getelementptr inbounds i8, ptr %86, i64 12
-  %87 = load float, ptr %arrayidx.i210, align 4
-  %mul.i211 = fmul float %85, %87
-  %fneg.i212 = fneg float %mul.i211
-  %88 = tail call noundef float @llvm.fma.f32(float %81, float %83, float %fneg.i212)
-  %fneg1.i213 = fneg float %85
-  %89 = tail call noundef float @llvm.fma.f32(float %fneg1.i213, float %87, float %mul.i211)
-  %add.i214 = fadd float %88, %89
+  %arrayidx.i221 = getelementptr inbounds i8, ptr %86, i64 12
+  %87 = load float, ptr %arrayidx.i221, align 4
+  %mul.i222 = fmul float %85, %87
+  %fneg.i223 = fneg float %mul.i222
+  %88 = tail call noundef float @llvm.fma.f32(float %81, float %83, float %fneg.i223)
+  %fneg1.i224 = fneg float %85
+  %89 = tail call noundef float @llvm.fma.f32(float %fneg1.i224, float %87, float %mul.i222)
+  %add.i225 = fadd float %88, %89
   %call117 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %90 = extractvalue { ptr, i64 } %call117, 0
-  %arrayidx.i215 = getelementptr inbounds i8, ptr %90, i64 4
-  %91 = load float, ptr %arrayidx.i215, align 4
+  %arrayidx.i226 = getelementptr inbounds i8, ptr %90, i64 4
+  %91 = load float, ptr %arrayidx.i226, align 4
   %call120 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %92 = extractvalue { ptr, i64 } %call120, 0
-  %arrayidx.i216 = getelementptr inbounds i8, ptr %92, i64 8
-  %93 = load float, ptr %arrayidx.i216, align 4
+  %arrayidx.i227 = getelementptr inbounds i8, ptr %92, i64 8
+  %93 = load float, ptr %arrayidx.i227, align 4
   %call123 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %94 = extractvalue { ptr, i64 } %call123, 0
-  %arrayidx.i217 = getelementptr inbounds i8, ptr %94, i64 4
-  %95 = load float, ptr %arrayidx.i217, align 4
+  %arrayidx.i228 = getelementptr inbounds i8, ptr %94, i64 4
+  %95 = load float, ptr %arrayidx.i228, align 4
   %call126 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %96 = extractvalue { ptr, i64 } %call126, 0
-  %arrayidx.i218 = getelementptr inbounds i8, ptr %96, i64 8
-  %97 = load float, ptr %arrayidx.i218, align 4
+  %arrayidx.i229 = getelementptr inbounds i8, ptr %96, i64 8
+  %97 = load float, ptr %arrayidx.i229, align 4
   %call130 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %98 = extractvalue { ptr, i64 } %call130, 0
-  %arrayidx.i223 = getelementptr inbounds i8, ptr %98, i64 4
-  %99 = load float, ptr %arrayidx.i223, align 4
+  %arrayidx.i234 = getelementptr inbounds i8, ptr %98, i64 4
+  %99 = load float, ptr %arrayidx.i234, align 4
   %call133 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %100 = extractvalue { ptr, i64 } %call133, 0
-  %arrayidx.i224 = getelementptr inbounds i8, ptr %100, i64 12
-  %101 = load float, ptr %arrayidx.i224, align 4
+  %arrayidx.i235 = getelementptr inbounds i8, ptr %100, i64 12
+  %101 = load float, ptr %arrayidx.i235, align 4
   %call136 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %102 = extractvalue { ptr, i64 } %call136, 0
-  %arrayidx.i225 = getelementptr inbounds i8, ptr %102, i64 4
-  %103 = load float, ptr %arrayidx.i225, align 4
+  %arrayidx.i236 = getelementptr inbounds i8, ptr %102, i64 4
+  %103 = load float, ptr %arrayidx.i236, align 4
   %call139 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %104 = extractvalue { ptr, i64 } %call139, 0
-  %arrayidx.i226 = getelementptr inbounds i8, ptr %104, i64 12
-  %105 = load float, ptr %arrayidx.i226, align 4
+  %arrayidx.i237 = getelementptr inbounds i8, ptr %104, i64 12
+  %105 = load float, ptr %arrayidx.i237, align 4
   %106 = insertelement <2 x float> poison, float %95, i64 0
   %107 = insertelement <2 x float> %106, float %103, i64 1
   %108 = insertelement <2 x float> poison, float %97, i64 0
@@ -27186,48 +27186,48 @@ entry:
   %119 = fadd <2 x float> %116, %118
   %call143 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %120 = extractvalue { ptr, i64 } %call143, 0
-  %arrayidx.i231 = getelementptr inbounds i8, ptr %120, i64 8
-  %121 = load float, ptr %arrayidx.i231, align 4
+  %arrayidx.i242 = getelementptr inbounds i8, ptr %120, i64 8
+  %121 = load float, ptr %arrayidx.i242, align 4
   %call146 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %122 = extractvalue { ptr, i64 } %call146, 0
-  %arrayidx.i232 = getelementptr inbounds i8, ptr %122, i64 12
-  %123 = load float, ptr %arrayidx.i232, align 4
+  %arrayidx.i243 = getelementptr inbounds i8, ptr %122, i64 12
+  %123 = load float, ptr %arrayidx.i243, align 4
   %call149 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %124 = extractvalue { ptr, i64 } %call149, 0
-  %arrayidx.i233 = getelementptr inbounds i8, ptr %124, i64 8
-  %125 = load float, ptr %arrayidx.i233, align 4
+  %arrayidx.i244 = getelementptr inbounds i8, ptr %124, i64 8
+  %125 = load float, ptr %arrayidx.i244, align 4
   %call152 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %126 = extractvalue { ptr, i64 } %call152, 0
-  %arrayidx.i234 = getelementptr inbounds i8, ptr %126, i64 12
-  %127 = load float, ptr %arrayidx.i234, align 4
-  %mul.i235 = fmul float %125, %127
-  %fneg.i236 = fneg float %mul.i235
-  %128 = tail call noundef float @llvm.fma.f32(float %121, float %123, float %fneg.i236)
-  %fneg1.i237 = fneg float %125
-  %129 = tail call noundef float @llvm.fma.f32(float %fneg1.i237, float %127, float %mul.i235)
-  %add.i238 = fadd float %128, %129
-  %fneg = fneg float %add.i166
-  %fneg155 = fneg float %add.i188
-  %mul.i.i.i = fmul float %add.i, %add.i238
+  %arrayidx.i245 = getelementptr inbounds i8, ptr %126, i64 12
+  %127 = load float, ptr %arrayidx.i245, align 4
+  %mul.i246 = fmul float %125, %127
+  %fneg.i247 = fneg float %mul.i246
+  %128 = tail call noundef float @llvm.fma.f32(float %121, float %123, float %fneg.i247)
+  %fneg1.i248 = fneg float %125
+  %129 = tail call noundef float @llvm.fma.f32(float %fneg1.i248, float %127, float %mul.i246)
+  %add.i249 = fadd float %128, %129
+  %fneg = fneg float %add.i169
+  %fneg155 = fneg float %add.i193
+  %mul.i.i.i = fmul float %add.i, %add.i249
   %fneg.i.i.i = fneg float %mul.i.i.i
-  %130 = tail call noundef float @llvm.fma.f32(float %add.i, float %add.i238, float %fneg.i.i.i)
+  %130 = tail call noundef float @llvm.fma.f32(float %add.i, float %add.i249, float %fneg.i.i.i)
   %131 = extractelement <2 x float> %119, i64 1
   %mul.i.i.i.i = fmul float %131, %fneg
   %fneg.i.i.i.i = fneg float %mul.i.i.i.i
   %132 = tail call noundef float @llvm.fma.f32(float %fneg, float %131, float %fneg.i.i.i.i)
   %133 = extractelement <2 x float> %119, i64 0
-  %mul.i.i.i.i.i = fmul float %add.i172, %133
+  %mul.i.i.i.i.i = fmul float %add.i177, %133
   %fneg.i.i.i.i.i = fneg float %mul.i.i.i.i.i
-  %134 = tail call noundef float @llvm.fma.f32(float %add.i172, float %133, float %fneg.i.i.i.i.i)
-  %mul.i.i.i.i.i.i = fmul float %add.i180, %add.i214
+  %134 = tail call noundef float @llvm.fma.f32(float %add.i177, float %133, float %fneg.i.i.i.i.i)
+  %mul.i.i.i.i.i.i = fmul float %add.i185, %add.i225
   %fneg.i.i.i.i.i.i = fneg float %mul.i.i.i.i.i.i
-  %135 = tail call noundef float @llvm.fma.f32(float %add.i180, float %add.i214, float %fneg.i.i.i.i.i.i)
-  %mul.i.i.i.i.i.i.i = fmul float %add.i196, %add.i202
+  %135 = tail call noundef float @llvm.fma.f32(float %add.i185, float %add.i225, float %fneg.i.i.i.i.i.i)
+  %mul.i.i.i.i.i.i.i = fmul float %add.i201, %add.i209
   %fneg.i.i.i.i.i.i.i = fneg float %mul.i.i.i.i.i.i.i
-  %136 = tail call noundef float @llvm.fma.f32(float %add.i196, float %add.i202, float %fneg.i.i.i.i.i.i.i)
-  %mul.i.i.i.i.i.i.i.i = fmul float %add.i208, %fneg155
+  %136 = tail call noundef float @llvm.fma.f32(float %add.i201, float %add.i209, float %fneg.i.i.i.i.i.i.i)
+  %mul.i.i.i.i.i.i.i.i = fmul float %add.i217, %fneg155
   %fneg.i.i.i.i.i.i.i.i = fneg float %mul.i.i.i.i.i.i.i.i
-  %137 = tail call noundef float @llvm.fma.f32(float %fneg155, float %add.i208, float %fneg.i.i.i.i.i.i.i.i)
+  %137 = tail call noundef float @llvm.fma.f32(float %fneg155, float %add.i217, float %fneg.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i = fadd float %mul.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i = fsub float %add.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i
   %sub1.i.i.i.i.i.i.i = fsub float %add.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i
@@ -27280,33 +27280,33 @@ if.end:                                           ; preds = %entry
   %div = fdiv float 1.000000e+00, %add.i1.i
   %call159 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %138 = extractvalue { ptr, i64 } %call159, 0
-  %arrayidx.i239 = getelementptr inbounds i8, ptr %138, i64 4
-  %139 = load float, ptr %arrayidx.i239, align 4
+  %arrayidx.i250 = getelementptr inbounds i8, ptr %138, i64 4
+  %139 = load float, ptr %arrayidx.i250, align 4
   %call162 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %140 = extractvalue { ptr, i64 } %call162, 0
-  %arrayidx.i240 = getelementptr inbounds i8, ptr %140, i64 12
-  %141 = load float, ptr %arrayidx.i240, align 4
+  %arrayidx.i251 = getelementptr inbounds i8, ptr %140, i64 12
+  %141 = load float, ptr %arrayidx.i251, align 4
   %call165 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %142 = extractvalue { ptr, i64 } %call165, 0
-  %arrayidx.i241 = getelementptr inbounds i8, ptr %142, i64 8
-  %143 = load float, ptr %arrayidx.i241, align 4
+  %arrayidx.i252 = getelementptr inbounds i8, ptr %142, i64 8
+  %143 = load float, ptr %arrayidx.i252, align 4
   %call170 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %144 = extractvalue { ptr, i64 } %call170, 0
-  %arrayidx.i263 = getelementptr inbounds i8, ptr %144, i64 4
-  %145 = load float, ptr %arrayidx.i263, align 4
+  %arrayidx.i274 = getelementptr inbounds i8, ptr %144, i64 4
+  %145 = load float, ptr %arrayidx.i274, align 4
   %fneg172 = fneg float %145
   %call174 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %146 = extractvalue { ptr, i64 } %call174, 0
-  %arrayidx.i264 = getelementptr inbounds i8, ptr %146, i64 8
-  %147 = load float, ptr %arrayidx.i264, align 4
+  %arrayidx.i275 = getelementptr inbounds i8, ptr %146, i64 8
+  %147 = load float, ptr %arrayidx.i275, align 4
   %call177 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %148 = extractvalue { ptr, i64 } %call177, 0
-  %arrayidx.i265 = getelementptr inbounds i8, ptr %148, i64 12
-  %149 = load float, ptr %arrayidx.i265, align 4
+  %arrayidx.i276 = getelementptr inbounds i8, ptr %148, i64 12
+  %149 = load float, ptr %arrayidx.i276, align 4
   %150 = insertelement <2 x float> poison, float %143, i64 0
   %151 = insertelement <2 x float> %150, float %149, i64 1
   %152 = fneg <2 x float> %151
-  %153 = insertelement <2 x float> poison, float %add.i238, i64 0
+  %153 = insertelement <2 x float> poison, float %add.i249, i64 0
   %154 = shufflevector <2 x float> %153, <2 x float> poison, <2 x i32> zeroinitializer
   %155 = insertelement <2 x float> poison, float %139, i64 0
   %156 = insertelement <2 x float> %155, float %fneg172, i64 1
@@ -27346,87 +27346,87 @@ if.end:                                           ; preds = %entry
   %arrayinit.element182 = getelementptr inbounds i8, ptr %inv, i64 8
   %call184 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %189 = extractvalue { ptr, i64 } %call184, 0
-  %arrayidx.i289 = getelementptr inbounds i8, ptr %189, i64 4
-  %190 = load float, ptr %arrayidx.i289, align 4
+  %arrayidx.i300 = getelementptr inbounds i8, ptr %189, i64 4
+  %190 = load float, ptr %arrayidx.i300, align 4
   %call187 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %191 = extractvalue { ptr, i64 } %call187, 0
-  %arrayidx.i290 = getelementptr inbounds i8, ptr %191, i64 12
-  %192 = load float, ptr %arrayidx.i290, align 4
+  %arrayidx.i301 = getelementptr inbounds i8, ptr %191, i64 12
+  %192 = load float, ptr %arrayidx.i301, align 4
   %call190 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %193 = extractvalue { ptr, i64 } %call190, 0
-  %arrayidx.i291 = getelementptr inbounds i8, ptr %193, i64 8
-  %194 = load float, ptr %arrayidx.i291, align 4
+  %arrayidx.i302 = getelementptr inbounds i8, ptr %193, i64 8
+  %194 = load float, ptr %arrayidx.i302, align 4
   %fneg192 = fneg float %194
-  %mul.i.i.i292 = fmul float %add.i196, %190
-  %fneg.i.i.i293 = fneg float %mul.i.i.i292
-  %195 = tail call noundef float @llvm.fma.f32(float %190, float %add.i196, float %fneg.i.i.i293)
-  %mul.i.i.i.i294 = fmul float %add.i180, %192
-  %fneg.i.i.i.i295 = fneg float %mul.i.i.i.i294
-  %196 = tail call noundef float @llvm.fma.f32(float %192, float %add.i180, float %fneg.i.i.i.i295)
-  %mul.i.i.i.i.i296 = fmul float %add.i188, %fneg192
-  %fneg.i.i.i.i.i297 = fneg float %mul.i.i.i.i.i296
-  %197 = tail call noundef float @llvm.fma.f32(float %fneg192, float %add.i188, float %fneg.i.i.i.i.i297)
-  %add.i.i.i.i298 = fadd float %mul.i.i.i.i294, %mul.i.i.i.i.i296
-  %sub.i.i.i.i299 = fsub float %add.i.i.i.i298, %mul.i.i.i.i294
-  %sub1.i.i.i.i300 = fsub float %add.i.i.i.i298, %sub.i.i.i.i299
-  %sub2.i.i.i.i301 = fsub float %mul.i.i.i.i294, %sub1.i.i.i.i300
-  %sub3.i.i.i.i302 = fsub float %mul.i.i.i.i.i296, %sub.i.i.i.i299
-  %add4.i.i.i.i303 = fadd float %sub3.i.i.i.i302, %sub2.i.i.i.i301
-  %add.i.i.i304 = fadd float %197, %add4.i.i.i.i303
-  %add9.i.i.i305 = fadd float %196, %add.i.i.i304
-  %add.i3.i.i306 = fadd float %mul.i.i.i292, %add.i.i.i.i298
-  %sub.i.i.i307 = fsub float %add.i3.i.i306, %mul.i.i.i292
-  %sub1.i.i.i308 = fsub float %add.i3.i.i306, %sub.i.i.i307
-  %sub2.i.i.i309 = fsub float %mul.i.i.i292, %sub1.i.i.i308
-  %sub3.i.i.i310 = fsub float %add.i.i.i.i298, %sub.i.i.i307
-  %add4.i.i.i311 = fadd float %sub3.i.i.i310, %sub2.i.i.i309
-  %add.i.i312 = fadd float %add4.i.i.i311, %add9.i.i.i305
-  %add13.i.i313 = fadd float %195, %add.i.i312
-  %add.i1.i314 = fadd float %add.i3.i.i306, %add13.i.i313
-  %mul194 = fmul float %div, %add.i1.i314
+  %mul.i.i.i303 = fmul float %add.i201, %190
+  %fneg.i.i.i304 = fneg float %mul.i.i.i303
+  %195 = tail call noundef float @llvm.fma.f32(float %190, float %add.i201, float %fneg.i.i.i304)
+  %mul.i.i.i.i305 = fmul float %add.i185, %192
+  %fneg.i.i.i.i306 = fneg float %mul.i.i.i.i305
+  %196 = tail call noundef float @llvm.fma.f32(float %192, float %add.i185, float %fneg.i.i.i.i306)
+  %mul.i.i.i.i.i307 = fmul float %add.i193, %fneg192
+  %fneg.i.i.i.i.i308 = fneg float %mul.i.i.i.i.i307
+  %197 = tail call noundef float @llvm.fma.f32(float %fneg192, float %add.i193, float %fneg.i.i.i.i.i308)
+  %add.i.i.i.i309 = fadd float %mul.i.i.i.i305, %mul.i.i.i.i.i307
+  %sub.i.i.i.i310 = fsub float %add.i.i.i.i309, %mul.i.i.i.i305
+  %sub1.i.i.i.i311 = fsub float %add.i.i.i.i309, %sub.i.i.i.i310
+  %sub2.i.i.i.i312 = fsub float %mul.i.i.i.i305, %sub1.i.i.i.i311
+  %sub3.i.i.i.i313 = fsub float %mul.i.i.i.i.i307, %sub.i.i.i.i310
+  %add4.i.i.i.i314 = fadd float %sub3.i.i.i.i313, %sub2.i.i.i.i312
+  %add.i.i.i315 = fadd float %197, %add4.i.i.i.i314
+  %add9.i.i.i316 = fadd float %196, %add.i.i.i315
+  %add.i3.i.i317 = fadd float %mul.i.i.i303, %add.i.i.i.i309
+  %sub.i.i.i318 = fsub float %add.i3.i.i317, %mul.i.i.i303
+  %sub1.i.i.i319 = fsub float %add.i3.i.i317, %sub.i.i.i318
+  %sub2.i.i.i320 = fsub float %mul.i.i.i303, %sub1.i.i.i319
+  %sub3.i.i.i321 = fsub float %add.i.i.i.i309, %sub.i.i.i318
+  %add4.i.i.i322 = fadd float %sub3.i.i.i321, %sub2.i.i.i320
+  %add.i.i323 = fadd float %add4.i.i.i322, %add9.i.i.i316
+  %add13.i.i324 = fadd float %195, %add.i.i323
+  %add.i1.i325 = fadd float %add.i3.i.i317, %add13.i.i324
+  %mul194 = fmul float %div, %add.i1.i325
   store float %mul194, ptr %arrayinit.element182, align 8
   %arrayinit.element195 = getelementptr inbounds i8, ptr %inv, i64 12
   %call197 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %198 = extractvalue { ptr, i64 } %call197, 0
-  %arrayidx.i315 = getelementptr inbounds i8, ptr %198, i64 4
-  %199 = load float, ptr %arrayidx.i315, align 4
+  %arrayidx.i326 = getelementptr inbounds i8, ptr %198, i64 4
+  %199 = load float, ptr %arrayidx.i326, align 4
   %fneg199 = fneg float %199
   %call201 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %200 = extractvalue { ptr, i64 } %call201, 0
-  %arrayidx.i316 = getelementptr inbounds i8, ptr %200, i64 8
-  %201 = load float, ptr %arrayidx.i316, align 4
+  %arrayidx.i327 = getelementptr inbounds i8, ptr %200, i64 8
+  %201 = load float, ptr %arrayidx.i327, align 4
   %call204 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %202 = extractvalue { ptr, i64 } %call204, 0
-  %arrayidx.i317 = getelementptr inbounds i8, ptr %202, i64 12
-  %203 = load float, ptr %arrayidx.i317, align 4
+  %arrayidx.i328 = getelementptr inbounds i8, ptr %202, i64 12
+  %203 = load float, ptr %arrayidx.i328, align 4
   %fneg206 = fneg float %203
-  %mul.i.i.i318 = fmul float %add.i196, %fneg199
-  %fneg.i.i.i319 = fneg float %mul.i.i.i318
-  %204 = tail call noundef float @llvm.fma.f32(float %fneg199, float %add.i196, float %fneg.i.i.i319)
-  %mul.i.i.i.i320 = fmul float %add.i188, %201
-  %fneg.i.i.i.i321 = fneg float %mul.i.i.i.i320
-  %205 = tail call noundef float @llvm.fma.f32(float %201, float %add.i188, float %fneg.i.i.i.i321)
-  %mul.i.i.i.i.i322 = fmul float %add.i180, %fneg206
-  %fneg.i.i.i.i.i323 = fneg float %mul.i.i.i.i.i322
-  %206 = tail call noundef float @llvm.fma.f32(float %fneg206, float %add.i180, float %fneg.i.i.i.i.i323)
-  %add.i.i.i.i324 = fadd float %mul.i.i.i.i320, %mul.i.i.i.i.i322
-  %sub.i.i.i.i325 = fsub float %add.i.i.i.i324, %mul.i.i.i.i320
-  %sub1.i.i.i.i326 = fsub float %add.i.i.i.i324, %sub.i.i.i.i325
-  %sub2.i.i.i.i327 = fsub float %mul.i.i.i.i320, %sub1.i.i.i.i326
-  %sub3.i.i.i.i328 = fsub float %mul.i.i.i.i.i322, %sub.i.i.i.i325
-  %add4.i.i.i.i329 = fadd float %sub3.i.i.i.i328, %sub2.i.i.i.i327
-  %add.i.i.i330 = fadd float %206, %add4.i.i.i.i329
-  %add9.i.i.i331 = fadd float %205, %add.i.i.i330
-  %add.i3.i.i332 = fadd float %mul.i.i.i318, %add.i.i.i.i324
-  %sub.i.i.i333 = fsub float %add.i3.i.i332, %mul.i.i.i318
-  %sub1.i.i.i334 = fsub float %add.i3.i.i332, %sub.i.i.i333
-  %sub2.i.i.i335 = fsub float %mul.i.i.i318, %sub1.i.i.i334
-  %sub3.i.i.i336 = fsub float %add.i.i.i.i324, %sub.i.i.i333
-  %add4.i.i.i337 = fadd float %sub3.i.i.i336, %sub2.i.i.i335
-  %add.i.i338 = fadd float %add4.i.i.i337, %add9.i.i.i331
-  %add13.i.i339 = fadd float %204, %add.i.i338
-  %add.i1.i340 = fadd float %add.i3.i.i332, %add13.i.i339
-  %mul208 = fmul float %div, %add.i1.i340
+  %mul.i.i.i329 = fmul float %add.i201, %fneg199
+  %fneg.i.i.i330 = fneg float %mul.i.i.i329
+  %204 = tail call noundef float @llvm.fma.f32(float %fneg199, float %add.i201, float %fneg.i.i.i330)
+  %mul.i.i.i.i331 = fmul float %add.i193, %201
+  %fneg.i.i.i.i332 = fneg float %mul.i.i.i.i331
+  %205 = tail call noundef float @llvm.fma.f32(float %201, float %add.i193, float %fneg.i.i.i.i332)
+  %mul.i.i.i.i.i333 = fmul float %add.i185, %fneg206
+  %fneg.i.i.i.i.i334 = fneg float %mul.i.i.i.i.i333
+  %206 = tail call noundef float @llvm.fma.f32(float %fneg206, float %add.i185, float %fneg.i.i.i.i.i334)
+  %add.i.i.i.i335 = fadd float %mul.i.i.i.i331, %mul.i.i.i.i.i333
+  %sub.i.i.i.i336 = fsub float %add.i.i.i.i335, %mul.i.i.i.i331
+  %sub1.i.i.i.i337 = fsub float %add.i.i.i.i335, %sub.i.i.i.i336
+  %sub2.i.i.i.i338 = fsub float %mul.i.i.i.i331, %sub1.i.i.i.i337
+  %sub3.i.i.i.i339 = fsub float %mul.i.i.i.i.i333, %sub.i.i.i.i336
+  %add4.i.i.i.i340 = fadd float %sub3.i.i.i.i339, %sub2.i.i.i.i338
+  %add.i.i.i341 = fadd float %206, %add4.i.i.i.i340
+  %add9.i.i.i342 = fadd float %205, %add.i.i.i341
+  %add.i3.i.i343 = fadd float %mul.i.i.i329, %add.i.i.i.i335
+  %sub.i.i.i344 = fsub float %add.i3.i.i343, %mul.i.i.i329
+  %sub1.i.i.i345 = fsub float %add.i3.i.i343, %sub.i.i.i344
+  %sub2.i.i.i346 = fsub float %mul.i.i.i329, %sub1.i.i.i345
+  %sub3.i.i.i347 = fsub float %add.i.i.i.i335, %sub.i.i.i344
+  %add4.i.i.i348 = fadd float %sub3.i.i.i347, %sub2.i.i.i346
+  %add.i.i349 = fadd float %add4.i.i.i348, %add9.i.i.i342
+  %add13.i.i350 = fadd float %204, %add.i.i349
+  %add.i1.i351 = fadd float %add.i3.i.i343, %add13.i.i350
+  %mul208 = fmul float %div, %add.i1.i351
   store float %mul208, ptr %arrayinit.element195, align 4
   %arrayinit.element209 = getelementptr inbounds i8, ptr %inv, i64 16
   %call212 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
@@ -27435,40 +27435,40 @@ if.end:                                           ; preds = %entry
   %fneg214 = fneg float %208
   %call216 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %209 = extractvalue { ptr, i64 } %call216, 0
-  %arrayidx.i341 = getelementptr inbounds i8, ptr %209, i64 8
-  %210 = load float, ptr %arrayidx.i341, align 4
+  %arrayidx.i353 = getelementptr inbounds i8, ptr %209, i64 8
+  %210 = load float, ptr %arrayidx.i353, align 4
   %call219 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %211 = extractvalue { ptr, i64 } %call219, 0
-  %arrayidx.i342 = getelementptr inbounds i8, ptr %211, i64 12
-  %212 = load float, ptr %arrayidx.i342, align 4
+  %arrayidx.i354 = getelementptr inbounds i8, ptr %211, i64 12
+  %212 = load float, ptr %arrayidx.i354, align 4
   %fneg221 = fneg float %212
-  %mul.i.i.i343 = fmul float %add.i238, %fneg214
-  %fneg.i.i.i344 = fneg float %mul.i.i.i343
-  %213 = tail call noundef float @llvm.fma.f32(float %fneg214, float %add.i238, float %fneg.i.i.i344)
-  %mul.i.i.i.i345 = fmul float %add.i214, %210
-  %fneg.i.i.i.i346 = fneg float %mul.i.i.i.i345
-  %214 = tail call noundef float @llvm.fma.f32(float %210, float %add.i214, float %fneg.i.i.i.i346)
-  %mul.i.i.i.i.i347 = fmul float %add.i208, %fneg221
-  %fneg.i.i.i.i.i348 = fneg float %mul.i.i.i.i.i347
-  %215 = tail call noundef float @llvm.fma.f32(float %fneg221, float %add.i208, float %fneg.i.i.i.i.i348)
-  %add.i.i.i.i349 = fadd float %mul.i.i.i.i345, %mul.i.i.i.i.i347
-  %sub.i.i.i.i350 = fsub float %add.i.i.i.i349, %mul.i.i.i.i345
-  %sub1.i.i.i.i351 = fsub float %add.i.i.i.i349, %sub.i.i.i.i350
-  %sub2.i.i.i.i352 = fsub float %mul.i.i.i.i345, %sub1.i.i.i.i351
-  %sub3.i.i.i.i353 = fsub float %mul.i.i.i.i.i347, %sub.i.i.i.i350
-  %add4.i.i.i.i354 = fadd float %sub3.i.i.i.i353, %sub2.i.i.i.i352
-  %add.i.i.i355 = fadd float %215, %add4.i.i.i.i354
-  %add9.i.i.i356 = fadd float %214, %add.i.i.i355
-  %add.i3.i.i357 = fadd float %mul.i.i.i343, %add.i.i.i.i349
-  %sub.i.i.i358 = fsub float %add.i3.i.i357, %mul.i.i.i343
-  %sub1.i.i.i359 = fsub float %add.i3.i.i357, %sub.i.i.i358
-  %sub2.i.i.i360 = fsub float %mul.i.i.i343, %sub1.i.i.i359
-  %sub3.i.i.i361 = fsub float %add.i.i.i.i349, %sub.i.i.i358
-  %add4.i.i.i362 = fadd float %sub3.i.i.i361, %sub2.i.i.i360
-  %add.i.i363 = fadd float %add4.i.i.i362, %add9.i.i.i356
-  %add13.i.i364 = fadd float %213, %add.i.i363
-  %add.i1.i365 = fadd float %add.i3.i.i357, %add13.i.i364
-  %mul223 = fmul float %div, %add.i1.i365
+  %mul.i.i.i355 = fmul float %add.i249, %fneg214
+  %fneg.i.i.i356 = fneg float %mul.i.i.i355
+  %213 = tail call noundef float @llvm.fma.f32(float %fneg214, float %add.i249, float %fneg.i.i.i356)
+  %mul.i.i.i.i357 = fmul float %add.i225, %210
+  %fneg.i.i.i.i358 = fneg float %mul.i.i.i.i357
+  %214 = tail call noundef float @llvm.fma.f32(float %210, float %add.i225, float %fneg.i.i.i.i358)
+  %mul.i.i.i.i.i359 = fmul float %add.i217, %fneg221
+  %fneg.i.i.i.i.i360 = fneg float %mul.i.i.i.i.i359
+  %215 = tail call noundef float @llvm.fma.f32(float %fneg221, float %add.i217, float %fneg.i.i.i.i.i360)
+  %add.i.i.i.i361 = fadd float %mul.i.i.i.i357, %mul.i.i.i.i.i359
+  %sub.i.i.i.i362 = fsub float %add.i.i.i.i361, %mul.i.i.i.i357
+  %sub1.i.i.i.i363 = fsub float %add.i.i.i.i361, %sub.i.i.i.i362
+  %sub2.i.i.i.i364 = fsub float %mul.i.i.i.i357, %sub1.i.i.i.i363
+  %sub3.i.i.i.i365 = fsub float %mul.i.i.i.i.i359, %sub.i.i.i.i362
+  %add4.i.i.i.i366 = fadd float %sub3.i.i.i.i365, %sub2.i.i.i.i364
+  %add.i.i.i367 = fadd float %215, %add4.i.i.i.i366
+  %add9.i.i.i368 = fadd float %214, %add.i.i.i367
+  %add.i3.i.i369 = fadd float %mul.i.i.i355, %add.i.i.i.i361
+  %sub.i.i.i370 = fsub float %add.i3.i.i369, %mul.i.i.i355
+  %sub1.i.i.i371 = fsub float %add.i3.i.i369, %sub.i.i.i370
+  %sub2.i.i.i372 = fsub float %mul.i.i.i355, %sub1.i.i.i371
+  %sub3.i.i.i373 = fsub float %add.i.i.i.i361, %sub.i.i.i370
+  %add4.i.i.i374 = fadd float %sub3.i.i.i373, %sub2.i.i.i372
+  %add.i.i375 = fadd float %add4.i.i.i374, %add9.i.i.i368
+  %add13.i.i376 = fadd float %213, %add.i.i375
+  %add.i1.i377 = fadd float %add.i3.i.i369, %add13.i.i376
+  %mul223 = fmul float %div, %add.i1.i377
   store float %mul223, ptr %arrayinit.element209, align 16
   %arrayinit.element224 = getelementptr inbounds i8, ptr %inv, i64 20
   %call226 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
@@ -27476,40 +27476,40 @@ if.end:                                           ; preds = %entry
   %217 = load float, ptr %216, align 4
   %call229 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %218 = extractvalue { ptr, i64 } %call229, 0
-  %arrayidx.i366 = getelementptr inbounds i8, ptr %218, i64 12
-  %219 = load float, ptr %arrayidx.i366, align 4
+  %arrayidx.i379 = getelementptr inbounds i8, ptr %218, i64 12
+  %219 = load float, ptr %arrayidx.i379, align 4
   %call232 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %220 = extractvalue { ptr, i64 } %call232, 0
-  %arrayidx.i367 = getelementptr inbounds i8, ptr %220, i64 8
-  %221 = load float, ptr %arrayidx.i367, align 4
+  %arrayidx.i380 = getelementptr inbounds i8, ptr %220, i64 8
+  %221 = load float, ptr %arrayidx.i380, align 4
   %fneg234 = fneg float %221
-  %mul.i.i.i368 = fmul float %add.i238, %217
-  %fneg.i.i.i369 = fneg float %mul.i.i.i368
-  %222 = tail call noundef float @llvm.fma.f32(float %217, float %add.i238, float %fneg.i.i.i369)
-  %mul.i.i.i.i370 = fmul float %add.i208, %219
-  %fneg.i.i.i.i371 = fneg float %mul.i.i.i.i370
-  %223 = tail call noundef float @llvm.fma.f32(float %219, float %add.i208, float %fneg.i.i.i.i371)
-  %mul.i.i.i.i.i372 = fmul float %add.i214, %fneg234
-  %fneg.i.i.i.i.i373 = fneg float %mul.i.i.i.i.i372
-  %224 = tail call noundef float @llvm.fma.f32(float %fneg234, float %add.i214, float %fneg.i.i.i.i.i373)
-  %add.i.i.i.i374 = fadd float %mul.i.i.i.i370, %mul.i.i.i.i.i372
-  %sub.i.i.i.i375 = fsub float %add.i.i.i.i374, %mul.i.i.i.i370
-  %sub1.i.i.i.i376 = fsub float %add.i.i.i.i374, %sub.i.i.i.i375
-  %sub2.i.i.i.i377 = fsub float %mul.i.i.i.i370, %sub1.i.i.i.i376
-  %sub3.i.i.i.i378 = fsub float %mul.i.i.i.i.i372, %sub.i.i.i.i375
-  %add4.i.i.i.i379 = fadd float %sub3.i.i.i.i378, %sub2.i.i.i.i377
-  %add.i.i.i380 = fadd float %224, %add4.i.i.i.i379
-  %add9.i.i.i381 = fadd float %223, %add.i.i.i380
-  %add.i3.i.i382 = fadd float %mul.i.i.i368, %add.i.i.i.i374
-  %sub.i.i.i383 = fsub float %add.i3.i.i382, %mul.i.i.i368
-  %sub1.i.i.i384 = fsub float %add.i3.i.i382, %sub.i.i.i383
-  %sub2.i.i.i385 = fsub float %mul.i.i.i368, %sub1.i.i.i384
-  %sub3.i.i.i386 = fsub float %add.i.i.i.i374, %sub.i.i.i383
-  %add4.i.i.i387 = fadd float %sub3.i.i.i386, %sub2.i.i.i385
-  %add.i.i388 = fadd float %add4.i.i.i387, %add9.i.i.i381
-  %add13.i.i389 = fadd float %222, %add.i.i388
-  %add.i1.i390 = fadd float %add.i3.i.i382, %add13.i.i389
-  %mul236 = fmul float %div, %add.i1.i390
+  %mul.i.i.i381 = fmul float %add.i249, %217
+  %fneg.i.i.i382 = fneg float %mul.i.i.i381
+  %222 = tail call noundef float @llvm.fma.f32(float %217, float %add.i249, float %fneg.i.i.i382)
+  %mul.i.i.i.i383 = fmul float %add.i217, %219
+  %fneg.i.i.i.i384 = fneg float %mul.i.i.i.i383
+  %223 = tail call noundef float @llvm.fma.f32(float %219, float %add.i217, float %fneg.i.i.i.i384)
+  %mul.i.i.i.i.i385 = fmul float %add.i225, %fneg234
+  %fneg.i.i.i.i.i386 = fneg float %mul.i.i.i.i.i385
+  %224 = tail call noundef float @llvm.fma.f32(float %fneg234, float %add.i225, float %fneg.i.i.i.i.i386)
+  %add.i.i.i.i387 = fadd float %mul.i.i.i.i383, %mul.i.i.i.i.i385
+  %sub.i.i.i.i388 = fsub float %add.i.i.i.i387, %mul.i.i.i.i383
+  %sub1.i.i.i.i389 = fsub float %add.i.i.i.i387, %sub.i.i.i.i388
+  %sub2.i.i.i.i390 = fsub float %mul.i.i.i.i383, %sub1.i.i.i.i389
+  %sub3.i.i.i.i391 = fsub float %mul.i.i.i.i.i385, %sub.i.i.i.i388
+  %add4.i.i.i.i392 = fadd float %sub3.i.i.i.i391, %sub2.i.i.i.i390
+  %add.i.i.i393 = fadd float %224, %add4.i.i.i.i392
+  %add9.i.i.i394 = fadd float %223, %add.i.i.i393
+  %add.i3.i.i395 = fadd float %mul.i.i.i381, %add.i.i.i.i387
+  %sub.i.i.i396 = fsub float %add.i3.i.i395, %mul.i.i.i381
+  %sub1.i.i.i397 = fsub float %add.i3.i.i395, %sub.i.i.i396
+  %sub2.i.i.i398 = fsub float %mul.i.i.i381, %sub1.i.i.i397
+  %sub3.i.i.i399 = fsub float %add.i.i.i.i387, %sub.i.i.i396
+  %add4.i.i.i400 = fadd float %sub3.i.i.i399, %sub2.i.i.i398
+  %add.i.i401 = fadd float %add4.i.i.i400, %add9.i.i.i394
+  %add13.i.i402 = fadd float %222, %add.i.i401
+  %add.i1.i403 = fadd float %add.i3.i.i395, %add13.i.i402
+  %mul236 = fmul float %div, %add.i1.i403
   store float %mul236, ptr %arrayinit.element224, align 4
   %arrayinit.element237 = getelementptr inbounds i8, ptr %inv, i64 24
   %call239 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
@@ -27518,40 +27518,40 @@ if.end:                                           ; preds = %entry
   %fneg241 = fneg float %226
   %call243 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %227 = extractvalue { ptr, i64 } %call243, 0
-  %arrayidx.i391 = getelementptr inbounds i8, ptr %227, i64 8
-  %228 = load float, ptr %arrayidx.i391, align 4
+  %arrayidx.i405 = getelementptr inbounds i8, ptr %227, i64 8
+  %228 = load float, ptr %arrayidx.i405, align 4
   %call246 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %229 = extractvalue { ptr, i64 } %call246, 0
-  %arrayidx.i392 = getelementptr inbounds i8, ptr %229, i64 12
-  %230 = load float, ptr %arrayidx.i392, align 4
+  %arrayidx.i406 = getelementptr inbounds i8, ptr %229, i64 12
+  %230 = load float, ptr %arrayidx.i406, align 4
   %fneg248 = fneg float %230
-  %mul.i.i.i393 = fmul float %add.i196, %fneg241
-  %fneg.i.i.i394 = fneg float %mul.i.i.i393
-  %231 = tail call noundef float @llvm.fma.f32(float %fneg241, float %add.i196, float %fneg.i.i.i394)
-  %mul.i.i.i.i395 = fmul float %add.i172, %228
-  %fneg.i.i.i.i396 = fneg float %mul.i.i.i.i395
-  %232 = tail call noundef float @llvm.fma.f32(float %228, float %add.i172, float %fneg.i.i.i.i396)
-  %mul.i.i.i.i.i397 = fmul float %add.i166, %fneg248
-  %fneg.i.i.i.i.i398 = fneg float %mul.i.i.i.i.i397
-  %233 = tail call noundef float @llvm.fma.f32(float %fneg248, float %add.i166, float %fneg.i.i.i.i.i398)
-  %add.i.i.i.i399 = fadd float %mul.i.i.i.i395, %mul.i.i.i.i.i397
-  %sub.i.i.i.i400 = fsub float %add.i.i.i.i399, %mul.i.i.i.i395
-  %sub1.i.i.i.i401 = fsub float %add.i.i.i.i399, %sub.i.i.i.i400
-  %sub2.i.i.i.i402 = fsub float %mul.i.i.i.i395, %sub1.i.i.i.i401
-  %sub3.i.i.i.i403 = fsub float %mul.i.i.i.i.i397, %sub.i.i.i.i400
-  %add4.i.i.i.i404 = fadd float %sub3.i.i.i.i403, %sub2.i.i.i.i402
-  %add.i.i.i405 = fadd float %233, %add4.i.i.i.i404
-  %add9.i.i.i406 = fadd float %232, %add.i.i.i405
-  %add.i3.i.i407 = fadd float %mul.i.i.i393, %add.i.i.i.i399
-  %sub.i.i.i408 = fsub float %add.i3.i.i407, %mul.i.i.i393
-  %sub1.i.i.i409 = fsub float %add.i3.i.i407, %sub.i.i.i408
-  %sub2.i.i.i410 = fsub float %mul.i.i.i393, %sub1.i.i.i409
-  %sub3.i.i.i411 = fsub float %add.i.i.i.i399, %sub.i.i.i408
-  %add4.i.i.i412 = fadd float %sub3.i.i.i411, %sub2.i.i.i410
-  %add.i.i413 = fadd float %add4.i.i.i412, %add9.i.i.i406
-  %add13.i.i414 = fadd float %231, %add.i.i413
-  %add.i1.i415 = fadd float %add.i3.i.i407, %add13.i.i414
-  %mul250 = fmul float %div, %add.i1.i415
+  %mul.i.i.i407 = fmul float %add.i201, %fneg241
+  %fneg.i.i.i408 = fneg float %mul.i.i.i407
+  %231 = tail call noundef float @llvm.fma.f32(float %fneg241, float %add.i201, float %fneg.i.i.i408)
+  %mul.i.i.i.i409 = fmul float %add.i177, %228
+  %fneg.i.i.i.i410 = fneg float %mul.i.i.i.i409
+  %232 = tail call noundef float @llvm.fma.f32(float %228, float %add.i177, float %fneg.i.i.i.i410)
+  %mul.i.i.i.i.i411 = fmul float %add.i169, %fneg248
+  %fneg.i.i.i.i.i412 = fneg float %mul.i.i.i.i.i411
+  %233 = tail call noundef float @llvm.fma.f32(float %fneg248, float %add.i169, float %fneg.i.i.i.i.i412)
+  %add.i.i.i.i413 = fadd float %mul.i.i.i.i409, %mul.i.i.i.i.i411
+  %sub.i.i.i.i414 = fsub float %add.i.i.i.i413, %mul.i.i.i.i409
+  %sub1.i.i.i.i415 = fsub float %add.i.i.i.i413, %sub.i.i.i.i414
+  %sub2.i.i.i.i416 = fsub float %mul.i.i.i.i409, %sub1.i.i.i.i415
+  %sub3.i.i.i.i417 = fsub float %mul.i.i.i.i.i411, %sub.i.i.i.i414
+  %add4.i.i.i.i418 = fadd float %sub3.i.i.i.i417, %sub2.i.i.i.i416
+  %add.i.i.i419 = fadd float %233, %add4.i.i.i.i418
+  %add9.i.i.i420 = fadd float %232, %add.i.i.i419
+  %add.i3.i.i421 = fadd float %mul.i.i.i407, %add.i.i.i.i413
+  %sub.i.i.i422 = fsub float %add.i3.i.i421, %mul.i.i.i407
+  %sub1.i.i.i423 = fsub float %add.i3.i.i421, %sub.i.i.i422
+  %sub2.i.i.i424 = fsub float %mul.i.i.i407, %sub1.i.i.i423
+  %sub3.i.i.i425 = fsub float %add.i.i.i.i413, %sub.i.i.i422
+  %add4.i.i.i426 = fadd float %sub3.i.i.i425, %sub2.i.i.i424
+  %add.i.i427 = fadd float %add4.i.i.i426, %add9.i.i.i420
+  %add13.i.i428 = fadd float %231, %add.i.i427
+  %add.i1.i429 = fadd float %add.i3.i.i421, %add13.i.i428
+  %mul250 = fmul float %div, %add.i1.i429
   store float %mul250, ptr %arrayinit.element237, align 8
   %arrayinit.element251 = getelementptr inbounds i8, ptr %inv, i64 28
   %call253 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
@@ -27559,40 +27559,40 @@ if.end:                                           ; preds = %entry
   %235 = load float, ptr %234, align 4
   %call256 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %236 = extractvalue { ptr, i64 } %call256, 0
-  %arrayidx.i416 = getelementptr inbounds i8, ptr %236, i64 12
-  %237 = load float, ptr %arrayidx.i416, align 4
+  %arrayidx.i431 = getelementptr inbounds i8, ptr %236, i64 12
+  %237 = load float, ptr %arrayidx.i431, align 4
   %call259 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %238 = extractvalue { ptr, i64 } %call259, 0
-  %arrayidx.i417 = getelementptr inbounds i8, ptr %238, i64 8
-  %239 = load float, ptr %arrayidx.i417, align 4
+  %arrayidx.i432 = getelementptr inbounds i8, ptr %238, i64 8
+  %239 = load float, ptr %arrayidx.i432, align 4
   %fneg261 = fneg float %239
-  %mul.i.i.i418 = fmul float %add.i196, %235
-  %fneg.i.i.i419 = fneg float %mul.i.i.i418
-  %240 = tail call noundef float @llvm.fma.f32(float %235, float %add.i196, float %fneg.i.i.i419)
-  %mul.i.i.i.i420 = fmul float %add.i166, %237
-  %fneg.i.i.i.i421 = fneg float %mul.i.i.i.i420
-  %241 = tail call noundef float @llvm.fma.f32(float %237, float %add.i166, float %fneg.i.i.i.i421)
-  %mul.i.i.i.i.i422 = fmul float %add.i172, %fneg261
-  %fneg.i.i.i.i.i423 = fneg float %mul.i.i.i.i.i422
-  %242 = tail call noundef float @llvm.fma.f32(float %fneg261, float %add.i172, float %fneg.i.i.i.i.i423)
-  %add.i.i.i.i424 = fadd float %mul.i.i.i.i420, %mul.i.i.i.i.i422
-  %sub.i.i.i.i425 = fsub float %add.i.i.i.i424, %mul.i.i.i.i420
-  %sub1.i.i.i.i426 = fsub float %add.i.i.i.i424, %sub.i.i.i.i425
-  %sub2.i.i.i.i427 = fsub float %mul.i.i.i.i420, %sub1.i.i.i.i426
-  %sub3.i.i.i.i428 = fsub float %mul.i.i.i.i.i422, %sub.i.i.i.i425
-  %add4.i.i.i.i429 = fadd float %sub3.i.i.i.i428, %sub2.i.i.i.i427
-  %add.i.i.i430 = fadd float %242, %add4.i.i.i.i429
-  %add9.i.i.i431 = fadd float %241, %add.i.i.i430
-  %add.i3.i.i432 = fadd float %mul.i.i.i418, %add.i.i.i.i424
-  %sub.i.i.i433 = fsub float %add.i3.i.i432, %mul.i.i.i418
-  %sub1.i.i.i434 = fsub float %add.i3.i.i432, %sub.i.i.i433
-  %sub2.i.i.i435 = fsub float %mul.i.i.i418, %sub1.i.i.i434
-  %sub3.i.i.i436 = fsub float %add.i.i.i.i424, %sub.i.i.i433
-  %add4.i.i.i437 = fadd float %sub3.i.i.i436, %sub2.i.i.i435
-  %add.i.i438 = fadd float %add4.i.i.i437, %add9.i.i.i431
-  %add13.i.i439 = fadd float %240, %add.i.i438
-  %add.i1.i440 = fadd float %add.i3.i.i432, %add13.i.i439
-  %mul263 = fmul float %div, %add.i1.i440
+  %mul.i.i.i433 = fmul float %add.i201, %235
+  %fneg.i.i.i434 = fneg float %mul.i.i.i433
+  %240 = tail call noundef float @llvm.fma.f32(float %235, float %add.i201, float %fneg.i.i.i434)
+  %mul.i.i.i.i435 = fmul float %add.i169, %237
+  %fneg.i.i.i.i436 = fneg float %mul.i.i.i.i435
+  %241 = tail call noundef float @llvm.fma.f32(float %237, float %add.i169, float %fneg.i.i.i.i436)
+  %mul.i.i.i.i.i437 = fmul float %add.i177, %fneg261
+  %fneg.i.i.i.i.i438 = fneg float %mul.i.i.i.i.i437
+  %242 = tail call noundef float @llvm.fma.f32(float %fneg261, float %add.i177, float %fneg.i.i.i.i.i438)
+  %add.i.i.i.i439 = fadd float %mul.i.i.i.i435, %mul.i.i.i.i.i437
+  %sub.i.i.i.i440 = fsub float %add.i.i.i.i439, %mul.i.i.i.i435
+  %sub1.i.i.i.i441 = fsub float %add.i.i.i.i439, %sub.i.i.i.i440
+  %sub2.i.i.i.i442 = fsub float %mul.i.i.i.i435, %sub1.i.i.i.i441
+  %sub3.i.i.i.i443 = fsub float %mul.i.i.i.i.i437, %sub.i.i.i.i440
+  %add4.i.i.i.i444 = fadd float %sub3.i.i.i.i443, %sub2.i.i.i.i442
+  %add.i.i.i445 = fadd float %242, %add4.i.i.i.i444
+  %add9.i.i.i446 = fadd float %241, %add.i.i.i445
+  %add.i3.i.i447 = fadd float %mul.i.i.i433, %add.i.i.i.i439
+  %sub.i.i.i448 = fsub float %add.i3.i.i447, %mul.i.i.i433
+  %sub1.i.i.i449 = fsub float %add.i3.i.i447, %sub.i.i.i448
+  %sub2.i.i.i450 = fsub float %mul.i.i.i433, %sub1.i.i.i449
+  %sub3.i.i.i451 = fsub float %add.i.i.i.i439, %sub.i.i.i448
+  %add4.i.i.i452 = fadd float %sub3.i.i.i451, %sub2.i.i.i450
+  %add.i.i453 = fadd float %add4.i.i.i452, %add9.i.i.i446
+  %add13.i.i454 = fadd float %240, %add.i.i453
+  %add.i1.i455 = fadd float %add.i3.i.i447, %add13.i.i454
+  %mul263 = fmul float %div, %add.i1.i455
   store float %mul263, ptr %arrayinit.element251, align 4
   %arrayinit.element264 = getelementptr inbounds i8, ptr %inv, i64 32
   %call267 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
@@ -27600,40 +27600,40 @@ if.end:                                           ; preds = %entry
   %244 = load float, ptr %243, align 4
   %call270 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %245 = extractvalue { ptr, i64 } %call270, 0
-  %arrayidx.i441 = getelementptr inbounds i8, ptr %245, i64 12
-  %246 = load float, ptr %arrayidx.i441, align 4
+  %arrayidx.i457 = getelementptr inbounds i8, ptr %245, i64 12
+  %246 = load float, ptr %arrayidx.i457, align 4
   %call273 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %247 = extractvalue { ptr, i64 } %call273, 0
-  %arrayidx.i442 = getelementptr inbounds i8, ptr %247, i64 4
-  %248 = load float, ptr %arrayidx.i442, align 4
+  %arrayidx.i458 = getelementptr inbounds i8, ptr %247, i64 4
+  %248 = load float, ptr %arrayidx.i458, align 4
   %fneg275 = fneg float %248
-  %mul.i.i.i443 = fmul float %131, %244
-  %fneg.i.i.i444 = fneg float %mul.i.i.i443
-  %249 = tail call noundef float @llvm.fma.f32(float %244, float %131, float %fneg.i.i.i444)
-  %mul.i.i.i.i445 = fmul float %add.i202, %246
-  %fneg.i.i.i.i446 = fneg float %mul.i.i.i.i445
-  %250 = tail call noundef float @llvm.fma.f32(float %246, float %add.i202, float %fneg.i.i.i.i446)
-  %mul.i.i.i.i.i447 = fmul float %add.i214, %fneg275
-  %fneg.i.i.i.i.i448 = fneg float %mul.i.i.i.i.i447
-  %251 = tail call noundef float @llvm.fma.f32(float %fneg275, float %add.i214, float %fneg.i.i.i.i.i448)
-  %add.i.i.i.i449 = fadd float %mul.i.i.i.i445, %mul.i.i.i.i.i447
-  %sub.i.i.i.i450 = fsub float %add.i.i.i.i449, %mul.i.i.i.i445
-  %sub1.i.i.i.i451 = fsub float %add.i.i.i.i449, %sub.i.i.i.i450
-  %sub2.i.i.i.i452 = fsub float %mul.i.i.i.i445, %sub1.i.i.i.i451
-  %sub3.i.i.i.i453 = fsub float %mul.i.i.i.i.i447, %sub.i.i.i.i450
-  %add4.i.i.i.i454 = fadd float %sub3.i.i.i.i453, %sub2.i.i.i.i452
-  %add.i.i.i455 = fadd float %251, %add4.i.i.i.i454
-  %add9.i.i.i456 = fadd float %250, %add.i.i.i455
-  %add.i3.i.i457 = fadd float %mul.i.i.i443, %add.i.i.i.i449
-  %sub.i.i.i458 = fsub float %add.i3.i.i457, %mul.i.i.i443
-  %sub1.i.i.i459 = fsub float %add.i3.i.i457, %sub.i.i.i458
-  %sub2.i.i.i460 = fsub float %mul.i.i.i443, %sub1.i.i.i459
-  %sub3.i.i.i461 = fsub float %add.i.i.i.i449, %sub.i.i.i458
-  %add4.i.i.i462 = fadd float %sub3.i.i.i461, %sub2.i.i.i460
-  %add.i.i463 = fadd float %add4.i.i.i462, %add9.i.i.i456
-  %add13.i.i464 = fadd float %249, %add.i.i463
-  %add.i1.i465 = fadd float %add.i3.i.i457, %add13.i.i464
-  %mul277 = fmul float %div, %add.i1.i465
+  %mul.i.i.i459 = fmul float %131, %244
+  %fneg.i.i.i460 = fneg float %mul.i.i.i459
+  %249 = tail call noundef float @llvm.fma.f32(float %244, float %131, float %fneg.i.i.i460)
+  %mul.i.i.i.i461 = fmul float %add.i209, %246
+  %fneg.i.i.i.i462 = fneg float %mul.i.i.i.i461
+  %250 = tail call noundef float @llvm.fma.f32(float %246, float %add.i209, float %fneg.i.i.i.i462)
+  %mul.i.i.i.i.i463 = fmul float %add.i225, %fneg275
+  %fneg.i.i.i.i.i464 = fneg float %mul.i.i.i.i.i463
+  %251 = tail call noundef float @llvm.fma.f32(float %fneg275, float %add.i225, float %fneg.i.i.i.i.i464)
+  %add.i.i.i.i465 = fadd float %mul.i.i.i.i461, %mul.i.i.i.i.i463
+  %sub.i.i.i.i466 = fsub float %add.i.i.i.i465, %mul.i.i.i.i461
+  %sub1.i.i.i.i467 = fsub float %add.i.i.i.i465, %sub.i.i.i.i466
+  %sub2.i.i.i.i468 = fsub float %mul.i.i.i.i461, %sub1.i.i.i.i467
+  %sub3.i.i.i.i469 = fsub float %mul.i.i.i.i.i463, %sub.i.i.i.i466
+  %add4.i.i.i.i470 = fadd float %sub3.i.i.i.i469, %sub2.i.i.i.i468
+  %add.i.i.i471 = fadd float %251, %add4.i.i.i.i470
+  %add9.i.i.i472 = fadd float %250, %add.i.i.i471
+  %add.i3.i.i473 = fadd float %mul.i.i.i459, %add.i.i.i.i465
+  %sub.i.i.i474 = fsub float %add.i3.i.i473, %mul.i.i.i459
+  %sub1.i.i.i475 = fsub float %add.i3.i.i473, %sub.i.i.i474
+  %sub2.i.i.i476 = fsub float %mul.i.i.i459, %sub1.i.i.i475
+  %sub3.i.i.i477 = fsub float %add.i.i.i.i465, %sub.i.i.i474
+  %add4.i.i.i478 = fadd float %sub3.i.i.i477, %sub2.i.i.i476
+  %add.i.i479 = fadd float %add4.i.i.i478, %add9.i.i.i472
+  %add13.i.i480 = fadd float %249, %add.i.i479
+  %add.i1.i481 = fadd float %add.i3.i.i473, %add13.i.i480
+  %mul277 = fmul float %div, %add.i1.i481
   store float %mul277, ptr %arrayinit.element264, align 16
   %arrayinit.element278 = getelementptr inbounds i8, ptr %inv, i64 36
   %call280 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
@@ -27642,40 +27642,40 @@ if.end:                                           ; preds = %entry
   %fneg282 = fneg float %253
   %call284 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %254 = extractvalue { ptr, i64 } %call284, 0
-  %arrayidx.i466 = getelementptr inbounds i8, ptr %254, i64 4
-  %255 = load float, ptr %arrayidx.i466, align 4
+  %arrayidx.i483 = getelementptr inbounds i8, ptr %254, i64 4
+  %255 = load float, ptr %arrayidx.i483, align 4
   %call287 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %256 = extractvalue { ptr, i64 } %call287, 0
-  %arrayidx.i467 = getelementptr inbounds i8, ptr %256, i64 12
-  %257 = load float, ptr %arrayidx.i467, align 4
+  %arrayidx.i484 = getelementptr inbounds i8, ptr %256, i64 12
+  %257 = load float, ptr %arrayidx.i484, align 4
   %fneg289 = fneg float %257
-  %mul.i.i.i468 = fmul float %131, %fneg282
-  %fneg.i.i.i469 = fneg float %mul.i.i.i468
-  %258 = tail call noundef float @llvm.fma.f32(float %fneg282, float %131, float %fneg.i.i.i469)
-  %mul.i.i.i.i470 = fmul float %add.i214, %255
-  %fneg.i.i.i.i471 = fneg float %mul.i.i.i.i470
-  %259 = tail call noundef float @llvm.fma.f32(float %255, float %add.i214, float %fneg.i.i.i.i471)
-  %mul.i.i.i.i.i472 = fmul float %add.i202, %fneg289
-  %fneg.i.i.i.i.i473 = fneg float %mul.i.i.i.i.i472
-  %260 = tail call noundef float @llvm.fma.f32(float %fneg289, float %add.i202, float %fneg.i.i.i.i.i473)
-  %add.i.i.i.i474 = fadd float %mul.i.i.i.i470, %mul.i.i.i.i.i472
-  %sub.i.i.i.i475 = fsub float %add.i.i.i.i474, %mul.i.i.i.i470
-  %sub1.i.i.i.i476 = fsub float %add.i.i.i.i474, %sub.i.i.i.i475
-  %sub2.i.i.i.i477 = fsub float %mul.i.i.i.i470, %sub1.i.i.i.i476
-  %sub3.i.i.i.i478 = fsub float %mul.i.i.i.i.i472, %sub.i.i.i.i475
-  %add4.i.i.i.i479 = fadd float %sub3.i.i.i.i478, %sub2.i.i.i.i477
-  %add.i.i.i480 = fadd float %260, %add4.i.i.i.i479
-  %add9.i.i.i481 = fadd float %259, %add.i.i.i480
-  %add.i3.i.i482 = fadd float %mul.i.i.i468, %add.i.i.i.i474
-  %sub.i.i.i483 = fsub float %add.i3.i.i482, %mul.i.i.i468
-  %sub1.i.i.i484 = fsub float %add.i3.i.i482, %sub.i.i.i483
-  %sub2.i.i.i485 = fsub float %mul.i.i.i468, %sub1.i.i.i484
-  %sub3.i.i.i486 = fsub float %add.i.i.i.i474, %sub.i.i.i483
-  %add4.i.i.i487 = fadd float %sub3.i.i.i486, %sub2.i.i.i485
-  %add.i.i488 = fadd float %add4.i.i.i487, %add9.i.i.i481
-  %add13.i.i489 = fadd float %258, %add.i.i488
-  %add.i1.i490 = fadd float %add.i3.i.i482, %add13.i.i489
-  %mul291 = fmul float %div, %add.i1.i490
+  %mul.i.i.i485 = fmul float %131, %fneg282
+  %fneg.i.i.i486 = fneg float %mul.i.i.i485
+  %258 = tail call noundef float @llvm.fma.f32(float %fneg282, float %131, float %fneg.i.i.i486)
+  %mul.i.i.i.i487 = fmul float %add.i225, %255
+  %fneg.i.i.i.i488 = fneg float %mul.i.i.i.i487
+  %259 = tail call noundef float @llvm.fma.f32(float %255, float %add.i225, float %fneg.i.i.i.i488)
+  %mul.i.i.i.i.i489 = fmul float %add.i209, %fneg289
+  %fneg.i.i.i.i.i490 = fneg float %mul.i.i.i.i.i489
+  %260 = tail call noundef float @llvm.fma.f32(float %fneg289, float %add.i209, float %fneg.i.i.i.i.i490)
+  %add.i.i.i.i491 = fadd float %mul.i.i.i.i487, %mul.i.i.i.i.i489
+  %sub.i.i.i.i492 = fsub float %add.i.i.i.i491, %mul.i.i.i.i487
+  %sub1.i.i.i.i493 = fsub float %add.i.i.i.i491, %sub.i.i.i.i492
+  %sub2.i.i.i.i494 = fsub float %mul.i.i.i.i487, %sub1.i.i.i.i493
+  %sub3.i.i.i.i495 = fsub float %mul.i.i.i.i.i489, %sub.i.i.i.i492
+  %add4.i.i.i.i496 = fadd float %sub3.i.i.i.i495, %sub2.i.i.i.i494
+  %add.i.i.i497 = fadd float %260, %add4.i.i.i.i496
+  %add9.i.i.i498 = fadd float %259, %add.i.i.i497
+  %add.i3.i.i499 = fadd float %mul.i.i.i485, %add.i.i.i.i491
+  %sub.i.i.i500 = fsub float %add.i3.i.i499, %mul.i.i.i485
+  %sub1.i.i.i501 = fsub float %add.i3.i.i499, %sub.i.i.i500
+  %sub2.i.i.i502 = fsub float %mul.i.i.i485, %sub1.i.i.i501
+  %sub3.i.i.i503 = fsub float %add.i.i.i.i491, %sub.i.i.i500
+  %add4.i.i.i504 = fadd float %sub3.i.i.i503, %sub2.i.i.i502
+  %add.i.i505 = fadd float %add4.i.i.i504, %add9.i.i.i498
+  %add13.i.i506 = fadd float %258, %add.i.i505
+  %add.i1.i507 = fadd float %add.i3.i.i499, %add13.i.i506
+  %mul291 = fmul float %div, %add.i1.i507
   store float %mul291, ptr %arrayinit.element278, align 4
   %arrayinit.element292 = getelementptr inbounds i8, ptr %inv, i64 40
   %call294 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
@@ -27683,40 +27683,40 @@ if.end:                                           ; preds = %entry
   %262 = load float, ptr %261, align 4
   %call297 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %263 = extractvalue { ptr, i64 } %call297, 0
-  %arrayidx.i491 = getelementptr inbounds i8, ptr %263, i64 12
-  %264 = load float, ptr %arrayidx.i491, align 4
+  %arrayidx.i509 = getelementptr inbounds i8, ptr %263, i64 12
+  %264 = load float, ptr %arrayidx.i509, align 4
   %call300 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %265 = extractvalue { ptr, i64 } %call300, 0
-  %arrayidx.i492 = getelementptr inbounds i8, ptr %265, i64 4
-  %266 = load float, ptr %arrayidx.i492, align 4
+  %arrayidx.i510 = getelementptr inbounds i8, ptr %265, i64 4
+  %266 = load float, ptr %arrayidx.i510, align 4
   %fneg302 = fneg float %266
-  %mul.i.i.i493 = fmul float %add.i188, %262
-  %fneg.i.i.i494 = fneg float %mul.i.i.i493
-  %267 = tail call noundef float @llvm.fma.f32(float %262, float %add.i188, float %fneg.i.i.i494)
-  %mul.i.i.i.i495 = fmul float %add.i, %264
-  %fneg.i.i.i.i496 = fneg float %mul.i.i.i.i495
-  %268 = tail call noundef float @llvm.fma.f32(float %264, float %add.i, float %fneg.i.i.i.i496)
-  %mul.i.i.i.i.i497 = fmul float %add.i172, %fneg302
-  %fneg.i.i.i.i.i498 = fneg float %mul.i.i.i.i.i497
-  %269 = tail call noundef float @llvm.fma.f32(float %fneg302, float %add.i172, float %fneg.i.i.i.i.i498)
-  %add.i.i.i.i499 = fadd float %mul.i.i.i.i495, %mul.i.i.i.i.i497
-  %sub.i.i.i.i500 = fsub float %add.i.i.i.i499, %mul.i.i.i.i495
-  %sub1.i.i.i.i501 = fsub float %add.i.i.i.i499, %sub.i.i.i.i500
-  %sub2.i.i.i.i502 = fsub float %mul.i.i.i.i495, %sub1.i.i.i.i501
-  %sub3.i.i.i.i503 = fsub float %mul.i.i.i.i.i497, %sub.i.i.i.i500
-  %add4.i.i.i.i504 = fadd float %sub3.i.i.i.i503, %sub2.i.i.i.i502
-  %add.i.i.i505 = fadd float %269, %add4.i.i.i.i504
-  %add9.i.i.i506 = fadd float %268, %add.i.i.i505
-  %add.i3.i.i507 = fadd float %mul.i.i.i493, %add.i.i.i.i499
-  %sub.i.i.i508 = fsub float %add.i3.i.i507, %mul.i.i.i493
-  %sub1.i.i.i509 = fsub float %add.i3.i.i507, %sub.i.i.i508
-  %sub2.i.i.i510 = fsub float %mul.i.i.i493, %sub1.i.i.i509
-  %sub3.i.i.i511 = fsub float %add.i.i.i.i499, %sub.i.i.i508
-  %add4.i.i.i512 = fadd float %sub3.i.i.i511, %sub2.i.i.i510
-  %add.i.i513 = fadd float %add4.i.i.i512, %add9.i.i.i506
-  %add13.i.i514 = fadd float %267, %add.i.i513
-  %add.i1.i515 = fadd float %add.i3.i.i507, %add13.i.i514
-  %mul304 = fmul float %div, %add.i1.i515
+  %mul.i.i.i511 = fmul float %add.i193, %262
+  %fneg.i.i.i512 = fneg float %mul.i.i.i511
+  %267 = tail call noundef float @llvm.fma.f32(float %262, float %add.i193, float %fneg.i.i.i512)
+  %mul.i.i.i.i513 = fmul float %add.i, %264
+  %fneg.i.i.i.i514 = fneg float %mul.i.i.i.i513
+  %268 = tail call noundef float @llvm.fma.f32(float %264, float %add.i, float %fneg.i.i.i.i514)
+  %mul.i.i.i.i.i515 = fmul float %add.i177, %fneg302
+  %fneg.i.i.i.i.i516 = fneg float %mul.i.i.i.i.i515
+  %269 = tail call noundef float @llvm.fma.f32(float %fneg302, float %add.i177, float %fneg.i.i.i.i.i516)
+  %add.i.i.i.i517 = fadd float %mul.i.i.i.i513, %mul.i.i.i.i.i515
+  %sub.i.i.i.i518 = fsub float %add.i.i.i.i517, %mul.i.i.i.i513
+  %sub1.i.i.i.i519 = fsub float %add.i.i.i.i517, %sub.i.i.i.i518
+  %sub2.i.i.i.i520 = fsub float %mul.i.i.i.i513, %sub1.i.i.i.i519
+  %sub3.i.i.i.i521 = fsub float %mul.i.i.i.i.i515, %sub.i.i.i.i518
+  %add4.i.i.i.i522 = fadd float %sub3.i.i.i.i521, %sub2.i.i.i.i520
+  %add.i.i.i523 = fadd float %269, %add4.i.i.i.i522
+  %add9.i.i.i524 = fadd float %268, %add.i.i.i523
+  %add.i3.i.i525 = fadd float %mul.i.i.i511, %add.i.i.i.i517
+  %sub.i.i.i526 = fsub float %add.i3.i.i525, %mul.i.i.i511
+  %sub1.i.i.i527 = fsub float %add.i3.i.i525, %sub.i.i.i526
+  %sub2.i.i.i528 = fsub float %mul.i.i.i511, %sub1.i.i.i527
+  %sub3.i.i.i529 = fsub float %add.i.i.i.i517, %sub.i.i.i526
+  %add4.i.i.i530 = fadd float %sub3.i.i.i529, %sub2.i.i.i528
+  %add.i.i531 = fadd float %add4.i.i.i530, %add9.i.i.i524
+  %add13.i.i532 = fadd float %267, %add.i.i531
+  %add.i1.i533 = fadd float %add.i3.i.i525, %add13.i.i532
+  %mul304 = fmul float %div, %add.i1.i533
   store float %mul304, ptr %arrayinit.element292, align 8
   %arrayinit.element305 = getelementptr inbounds i8, ptr %inv, i64 44
   %call307 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
@@ -27725,40 +27725,40 @@ if.end:                                           ; preds = %entry
   %fneg309 = fneg float %271
   %call311 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %272 = extractvalue { ptr, i64 } %call311, 0
-  %arrayidx.i516 = getelementptr inbounds i8, ptr %272, i64 4
-  %273 = load float, ptr %arrayidx.i516, align 4
+  %arrayidx.i535 = getelementptr inbounds i8, ptr %272, i64 4
+  %273 = load float, ptr %arrayidx.i535, align 4
   %call314 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %274 = extractvalue { ptr, i64 } %call314, 0
-  %arrayidx.i517 = getelementptr inbounds i8, ptr %274, i64 12
-  %275 = load float, ptr %arrayidx.i517, align 4
+  %arrayidx.i536 = getelementptr inbounds i8, ptr %274, i64 12
+  %275 = load float, ptr %arrayidx.i536, align 4
   %fneg316 = fneg float %275
-  %mul.i.i.i518 = fmul float %add.i188, %fneg309
-  %fneg.i.i.i519 = fneg float %mul.i.i.i518
-  %276 = tail call noundef float @llvm.fma.f32(float %fneg309, float %add.i188, float %fneg.i.i.i519)
-  %mul.i.i.i.i520 = fmul float %add.i172, %273
-  %fneg.i.i.i.i521 = fneg float %mul.i.i.i.i520
-  %277 = tail call noundef float @llvm.fma.f32(float %273, float %add.i172, float %fneg.i.i.i.i521)
-  %mul.i.i.i.i.i522 = fmul float %add.i, %fneg316
-  %fneg.i.i.i.i.i523 = fneg float %mul.i.i.i.i.i522
-  %278 = tail call noundef float @llvm.fma.f32(float %fneg316, float %add.i, float %fneg.i.i.i.i.i523)
-  %add.i.i.i.i524 = fadd float %mul.i.i.i.i520, %mul.i.i.i.i.i522
-  %sub.i.i.i.i525 = fsub float %add.i.i.i.i524, %mul.i.i.i.i520
-  %sub1.i.i.i.i526 = fsub float %add.i.i.i.i524, %sub.i.i.i.i525
-  %sub2.i.i.i.i527 = fsub float %mul.i.i.i.i520, %sub1.i.i.i.i526
-  %sub3.i.i.i.i528 = fsub float %mul.i.i.i.i.i522, %sub.i.i.i.i525
-  %add4.i.i.i.i529 = fadd float %sub3.i.i.i.i528, %sub2.i.i.i.i527
-  %add.i.i.i530 = fadd float %278, %add4.i.i.i.i529
-  %add9.i.i.i531 = fadd float %277, %add.i.i.i530
-  %add.i3.i.i532 = fadd float %mul.i.i.i518, %add.i.i.i.i524
-  %sub.i.i.i533 = fsub float %add.i3.i.i532, %mul.i.i.i518
-  %sub1.i.i.i534 = fsub float %add.i3.i.i532, %sub.i.i.i533
-  %sub2.i.i.i535 = fsub float %mul.i.i.i518, %sub1.i.i.i534
-  %sub3.i.i.i536 = fsub float %add.i.i.i.i524, %sub.i.i.i533
-  %add4.i.i.i537 = fadd float %sub3.i.i.i536, %sub2.i.i.i535
-  %add.i.i538 = fadd float %add4.i.i.i537, %add9.i.i.i531
-  %add13.i.i539 = fadd float %276, %add.i.i538
-  %add.i1.i540 = fadd float %add.i3.i.i532, %add13.i.i539
-  %mul318 = fmul float %div, %add.i1.i540
+  %mul.i.i.i537 = fmul float %add.i193, %fneg309
+  %fneg.i.i.i538 = fneg float %mul.i.i.i537
+  %276 = tail call noundef float @llvm.fma.f32(float %fneg309, float %add.i193, float %fneg.i.i.i538)
+  %mul.i.i.i.i539 = fmul float %add.i177, %273
+  %fneg.i.i.i.i540 = fneg float %mul.i.i.i.i539
+  %277 = tail call noundef float @llvm.fma.f32(float %273, float %add.i177, float %fneg.i.i.i.i540)
+  %mul.i.i.i.i.i541 = fmul float %add.i, %fneg316
+  %fneg.i.i.i.i.i542 = fneg float %mul.i.i.i.i.i541
+  %278 = tail call noundef float @llvm.fma.f32(float %fneg316, float %add.i, float %fneg.i.i.i.i.i542)
+  %add.i.i.i.i543 = fadd float %mul.i.i.i.i539, %mul.i.i.i.i.i541
+  %sub.i.i.i.i544 = fsub float %add.i.i.i.i543, %mul.i.i.i.i539
+  %sub1.i.i.i.i545 = fsub float %add.i.i.i.i543, %sub.i.i.i.i544
+  %sub2.i.i.i.i546 = fsub float %mul.i.i.i.i539, %sub1.i.i.i.i545
+  %sub3.i.i.i.i547 = fsub float %mul.i.i.i.i.i541, %sub.i.i.i.i544
+  %add4.i.i.i.i548 = fadd float %sub3.i.i.i.i547, %sub2.i.i.i.i546
+  %add.i.i.i549 = fadd float %278, %add4.i.i.i.i548
+  %add9.i.i.i550 = fadd float %277, %add.i.i.i549
+  %add.i3.i.i551 = fadd float %mul.i.i.i537, %add.i.i.i.i543
+  %sub.i.i.i552 = fsub float %add.i3.i.i551, %mul.i.i.i537
+  %sub1.i.i.i553 = fsub float %add.i3.i.i551, %sub.i.i.i552
+  %sub2.i.i.i554 = fsub float %mul.i.i.i537, %sub1.i.i.i553
+  %sub3.i.i.i555 = fsub float %add.i.i.i.i543, %sub.i.i.i552
+  %add4.i.i.i556 = fadd float %sub3.i.i.i555, %sub2.i.i.i554
+  %add.i.i557 = fadd float %add4.i.i.i556, %add9.i.i.i550
+  %add13.i.i558 = fadd float %276, %add.i.i557
+  %add.i1.i559 = fadd float %add.i3.i.i551, %add13.i.i558
+  %mul318 = fmul float %div, %add.i1.i559
   store float %mul318, ptr %arrayinit.element305, align 4
   %arrayinit.element319 = getelementptr inbounds i8, ptr %inv, i64 48
   %call322 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
@@ -27767,40 +27767,40 @@ if.end:                                           ; preds = %entry
   %fneg324 = fneg float %280
   %call326 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %281 = extractvalue { ptr, i64 } %call326, 0
-  %arrayidx.i541 = getelementptr inbounds i8, ptr %281, i64 4
-  %282 = load float, ptr %arrayidx.i541, align 4
+  %arrayidx.i561 = getelementptr inbounds i8, ptr %281, i64 4
+  %282 = load float, ptr %arrayidx.i561, align 4
   %call329 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %283 = extractvalue { ptr, i64 } %call329, 0
-  %arrayidx.i542 = getelementptr inbounds i8, ptr %283, i64 8
-  %284 = load float, ptr %arrayidx.i542, align 4
+  %arrayidx.i562 = getelementptr inbounds i8, ptr %283, i64 8
+  %284 = load float, ptr %arrayidx.i562, align 4
   %fneg331 = fneg float %284
-  %mul.i.i.i543 = fmul float %133, %fneg324
-  %fneg.i.i.i544 = fneg float %mul.i.i.i543
-  %285 = tail call noundef float @llvm.fma.f32(float %fneg324, float %133, float %fneg.i.i.i544)
-  %mul.i.i.i.i545 = fmul float %add.i208, %282
-  %fneg.i.i.i.i546 = fneg float %mul.i.i.i.i545
-  %286 = tail call noundef float @llvm.fma.f32(float %282, float %add.i208, float %fneg.i.i.i.i546)
-  %mul.i.i.i.i.i547 = fmul float %add.i202, %fneg331
-  %fneg.i.i.i.i.i548 = fneg float %mul.i.i.i.i.i547
-  %287 = tail call noundef float @llvm.fma.f32(float %fneg331, float %add.i202, float %fneg.i.i.i.i.i548)
-  %add.i.i.i.i549 = fadd float %mul.i.i.i.i545, %mul.i.i.i.i.i547
-  %sub.i.i.i.i550 = fsub float %add.i.i.i.i549, %mul.i.i.i.i545
-  %sub1.i.i.i.i551 = fsub float %add.i.i.i.i549, %sub.i.i.i.i550
-  %sub2.i.i.i.i552 = fsub float %mul.i.i.i.i545, %sub1.i.i.i.i551
-  %sub3.i.i.i.i553 = fsub float %mul.i.i.i.i.i547, %sub.i.i.i.i550
-  %add4.i.i.i.i554 = fadd float %sub3.i.i.i.i553, %sub2.i.i.i.i552
-  %add.i.i.i555 = fadd float %287, %add4.i.i.i.i554
-  %add9.i.i.i556 = fadd float %286, %add.i.i.i555
-  %add.i3.i.i557 = fadd float %mul.i.i.i543, %add.i.i.i.i549
-  %sub.i.i.i558 = fsub float %add.i3.i.i557, %mul.i.i.i543
-  %sub1.i.i.i559 = fsub float %add.i3.i.i557, %sub.i.i.i558
-  %sub2.i.i.i560 = fsub float %mul.i.i.i543, %sub1.i.i.i559
-  %sub3.i.i.i561 = fsub float %add.i.i.i.i549, %sub.i.i.i558
-  %add4.i.i.i562 = fadd float %sub3.i.i.i561, %sub2.i.i.i560
-  %add.i.i563 = fadd float %add4.i.i.i562, %add9.i.i.i556
-  %add13.i.i564 = fadd float %285, %add.i.i563
-  %add.i1.i565 = fadd float %add.i3.i.i557, %add13.i.i564
-  %mul333 = fmul float %div, %add.i1.i565
+  %mul.i.i.i563 = fmul float %133, %fneg324
+  %fneg.i.i.i564 = fneg float %mul.i.i.i563
+  %285 = tail call noundef float @llvm.fma.f32(float %fneg324, float %133, float %fneg.i.i.i564)
+  %mul.i.i.i.i565 = fmul float %add.i217, %282
+  %fneg.i.i.i.i566 = fneg float %mul.i.i.i.i565
+  %286 = tail call noundef float @llvm.fma.f32(float %282, float %add.i217, float %fneg.i.i.i.i566)
+  %mul.i.i.i.i.i567 = fmul float %add.i209, %fneg331
+  %fneg.i.i.i.i.i568 = fneg float %mul.i.i.i.i.i567
+  %287 = tail call noundef float @llvm.fma.f32(float %fneg331, float %add.i209, float %fneg.i.i.i.i.i568)
+  %add.i.i.i.i569 = fadd float %mul.i.i.i.i565, %mul.i.i.i.i.i567
+  %sub.i.i.i.i570 = fsub float %add.i.i.i.i569, %mul.i.i.i.i565
+  %sub1.i.i.i.i571 = fsub float %add.i.i.i.i569, %sub.i.i.i.i570
+  %sub2.i.i.i.i572 = fsub float %mul.i.i.i.i565, %sub1.i.i.i.i571
+  %sub3.i.i.i.i573 = fsub float %mul.i.i.i.i.i567, %sub.i.i.i.i570
+  %add4.i.i.i.i574 = fadd float %sub3.i.i.i.i573, %sub2.i.i.i.i572
+  %add.i.i.i575 = fadd float %287, %add4.i.i.i.i574
+  %add9.i.i.i576 = fadd float %286, %add.i.i.i575
+  %add.i3.i.i577 = fadd float %mul.i.i.i563, %add.i.i.i.i569
+  %sub.i.i.i578 = fsub float %add.i3.i.i577, %mul.i.i.i563
+  %sub1.i.i.i579 = fsub float %add.i3.i.i577, %sub.i.i.i578
+  %sub2.i.i.i580 = fsub float %mul.i.i.i563, %sub1.i.i.i579
+  %sub3.i.i.i581 = fsub float %add.i.i.i.i569, %sub.i.i.i578
+  %add4.i.i.i582 = fadd float %sub3.i.i.i581, %sub2.i.i.i580
+  %add.i.i583 = fadd float %add4.i.i.i582, %add9.i.i.i576
+  %add13.i.i584 = fadd float %285, %add.i.i583
+  %add.i1.i585 = fadd float %add.i3.i.i577, %add13.i.i584
+  %mul333 = fmul float %div, %add.i1.i585
   store float %mul333, ptr %arrayinit.element319, align 16
   %arrayinit.element334 = getelementptr inbounds i8, ptr %inv, i64 52
   %call336 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
@@ -27808,40 +27808,40 @@ if.end:                                           ; preds = %entry
   %289 = load float, ptr %288, align 4
   %call339 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %290 = extractvalue { ptr, i64 } %call339, 0
-  %arrayidx.i566 = getelementptr inbounds i8, ptr %290, i64 8
-  %291 = load float, ptr %arrayidx.i566, align 4
+  %arrayidx.i587 = getelementptr inbounds i8, ptr %290, i64 8
+  %291 = load float, ptr %arrayidx.i587, align 4
   %call342 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %292 = extractvalue { ptr, i64 } %call342, 0
-  %arrayidx.i567 = getelementptr inbounds i8, ptr %292, i64 4
-  %293 = load float, ptr %arrayidx.i567, align 4
+  %arrayidx.i588 = getelementptr inbounds i8, ptr %292, i64 4
+  %293 = load float, ptr %arrayidx.i588, align 4
   %fneg344 = fneg float %293
-  %mul.i.i.i568 = fmul float %133, %289
-  %fneg.i.i.i569 = fneg float %mul.i.i.i568
-  %294 = tail call noundef float @llvm.fma.f32(float %289, float %133, float %fneg.i.i.i569)
-  %mul.i.i.i.i570 = fmul float %add.i202, %291
-  %fneg.i.i.i.i571 = fneg float %mul.i.i.i.i570
-  %295 = tail call noundef float @llvm.fma.f32(float %291, float %add.i202, float %fneg.i.i.i.i571)
-  %mul.i.i.i.i.i572 = fmul float %add.i208, %fneg344
-  %fneg.i.i.i.i.i573 = fneg float %mul.i.i.i.i.i572
-  %296 = tail call noundef float @llvm.fma.f32(float %fneg344, float %add.i208, float %fneg.i.i.i.i.i573)
-  %add.i.i.i.i574 = fadd float %mul.i.i.i.i570, %mul.i.i.i.i.i572
-  %sub.i.i.i.i575 = fsub float %add.i.i.i.i574, %mul.i.i.i.i570
-  %sub1.i.i.i.i576 = fsub float %add.i.i.i.i574, %sub.i.i.i.i575
-  %sub2.i.i.i.i577 = fsub float %mul.i.i.i.i570, %sub1.i.i.i.i576
-  %sub3.i.i.i.i578 = fsub float %mul.i.i.i.i.i572, %sub.i.i.i.i575
-  %add4.i.i.i.i579 = fadd float %sub3.i.i.i.i578, %sub2.i.i.i.i577
-  %add.i.i.i580 = fadd float %296, %add4.i.i.i.i579
-  %add9.i.i.i581 = fadd float %295, %add.i.i.i580
-  %add.i3.i.i582 = fadd float %mul.i.i.i568, %add.i.i.i.i574
-  %sub.i.i.i583 = fsub float %add.i3.i.i582, %mul.i.i.i568
-  %sub1.i.i.i584 = fsub float %add.i3.i.i582, %sub.i.i.i583
-  %sub2.i.i.i585 = fsub float %mul.i.i.i568, %sub1.i.i.i584
-  %sub3.i.i.i586 = fsub float %add.i.i.i.i574, %sub.i.i.i583
-  %add4.i.i.i587 = fadd float %sub3.i.i.i586, %sub2.i.i.i585
-  %add.i.i588 = fadd float %add4.i.i.i587, %add9.i.i.i581
-  %add13.i.i589 = fadd float %294, %add.i.i588
-  %add.i1.i590 = fadd float %add.i3.i.i582, %add13.i.i589
-  %mul346 = fmul float %div, %add.i1.i590
+  %mul.i.i.i589 = fmul float %133, %289
+  %fneg.i.i.i590 = fneg float %mul.i.i.i589
+  %294 = tail call noundef float @llvm.fma.f32(float %289, float %133, float %fneg.i.i.i590)
+  %mul.i.i.i.i591 = fmul float %add.i209, %291
+  %fneg.i.i.i.i592 = fneg float %mul.i.i.i.i591
+  %295 = tail call noundef float @llvm.fma.f32(float %291, float %add.i209, float %fneg.i.i.i.i592)
+  %mul.i.i.i.i.i593 = fmul float %add.i217, %fneg344
+  %fneg.i.i.i.i.i594 = fneg float %mul.i.i.i.i.i593
+  %296 = tail call noundef float @llvm.fma.f32(float %fneg344, float %add.i217, float %fneg.i.i.i.i.i594)
+  %add.i.i.i.i595 = fadd float %mul.i.i.i.i591, %mul.i.i.i.i.i593
+  %sub.i.i.i.i596 = fsub float %add.i.i.i.i595, %mul.i.i.i.i591
+  %sub1.i.i.i.i597 = fsub float %add.i.i.i.i595, %sub.i.i.i.i596
+  %sub2.i.i.i.i598 = fsub float %mul.i.i.i.i591, %sub1.i.i.i.i597
+  %sub3.i.i.i.i599 = fsub float %mul.i.i.i.i.i593, %sub.i.i.i.i596
+  %add4.i.i.i.i600 = fadd float %sub3.i.i.i.i599, %sub2.i.i.i.i598
+  %add.i.i.i601 = fadd float %296, %add4.i.i.i.i600
+  %add9.i.i.i602 = fadd float %295, %add.i.i.i601
+  %add.i3.i.i603 = fadd float %mul.i.i.i589, %add.i.i.i.i595
+  %sub.i.i.i604 = fsub float %add.i3.i.i603, %mul.i.i.i589
+  %sub1.i.i.i605 = fsub float %add.i3.i.i603, %sub.i.i.i604
+  %sub2.i.i.i606 = fsub float %mul.i.i.i589, %sub1.i.i.i605
+  %sub3.i.i.i607 = fsub float %add.i.i.i.i595, %sub.i.i.i604
+  %add4.i.i.i608 = fadd float %sub3.i.i.i607, %sub2.i.i.i606
+  %add.i.i609 = fadd float %add4.i.i.i608, %add9.i.i.i602
+  %add13.i.i610 = fadd float %294, %add.i.i609
+  %add.i1.i611 = fadd float %add.i3.i.i603, %add13.i.i610
+  %mul346 = fmul float %div, %add.i1.i611
   store float %mul346, ptr %arrayinit.element334, align 4
   %arrayinit.element347 = getelementptr inbounds i8, ptr %inv, i64 56
   %call349 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
@@ -27850,40 +27850,40 @@ if.end:                                           ; preds = %entry
   %fneg351 = fneg float %298
   %call353 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %299 = extractvalue { ptr, i64 } %call353, 0
-  %arrayidx.i591 = getelementptr inbounds i8, ptr %299, i64 4
-  %300 = load float, ptr %arrayidx.i591, align 4
+  %arrayidx.i613 = getelementptr inbounds i8, ptr %299, i64 4
+  %300 = load float, ptr %arrayidx.i613, align 4
   %call356 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 3)
   %301 = extractvalue { ptr, i64 } %call356, 0
-  %arrayidx.i592 = getelementptr inbounds i8, ptr %301, i64 8
-  %302 = load float, ptr %arrayidx.i592, align 4
+  %arrayidx.i614 = getelementptr inbounds i8, ptr %301, i64 8
+  %302 = load float, ptr %arrayidx.i614, align 4
   %fneg358 = fneg float %302
-  %mul.i.i.i593 = fmul float %add.i180, %fneg351
-  %fneg.i.i.i594 = fneg float %mul.i.i.i593
-  %303 = tail call noundef float @llvm.fma.f32(float %fneg351, float %add.i180, float %fneg.i.i.i594)
-  %mul.i.i.i.i595 = fmul float %add.i166, %300
-  %fneg.i.i.i.i596 = fneg float %mul.i.i.i.i595
-  %304 = tail call noundef float @llvm.fma.f32(float %300, float %add.i166, float %fneg.i.i.i.i596)
-  %mul.i.i.i.i.i597 = fmul float %add.i, %fneg358
-  %fneg.i.i.i.i.i598 = fneg float %mul.i.i.i.i.i597
-  %305 = tail call noundef float @llvm.fma.f32(float %fneg358, float %add.i, float %fneg.i.i.i.i.i598)
-  %add.i.i.i.i599 = fadd float %mul.i.i.i.i595, %mul.i.i.i.i.i597
-  %sub.i.i.i.i600 = fsub float %add.i.i.i.i599, %mul.i.i.i.i595
-  %sub1.i.i.i.i601 = fsub float %add.i.i.i.i599, %sub.i.i.i.i600
-  %sub2.i.i.i.i602 = fsub float %mul.i.i.i.i595, %sub1.i.i.i.i601
-  %sub3.i.i.i.i603 = fsub float %mul.i.i.i.i.i597, %sub.i.i.i.i600
-  %add4.i.i.i.i604 = fadd float %sub3.i.i.i.i603, %sub2.i.i.i.i602
-  %add.i.i.i605 = fadd float %305, %add4.i.i.i.i604
-  %add9.i.i.i606 = fadd float %304, %add.i.i.i605
-  %add.i3.i.i607 = fadd float %mul.i.i.i593, %add.i.i.i.i599
-  %sub.i.i.i608 = fsub float %add.i3.i.i607, %mul.i.i.i593
-  %sub1.i.i.i609 = fsub float %add.i3.i.i607, %sub.i.i.i608
-  %sub2.i.i.i610 = fsub float %mul.i.i.i593, %sub1.i.i.i609
-  %sub3.i.i.i611 = fsub float %add.i.i.i.i599, %sub.i.i.i608
-  %add4.i.i.i612 = fadd float %sub3.i.i.i611, %sub2.i.i.i610
-  %add.i.i613 = fadd float %add4.i.i.i612, %add9.i.i.i606
-  %add13.i.i614 = fadd float %303, %add.i.i613
-  %add.i1.i615 = fadd float %add.i3.i.i607, %add13.i.i614
-  %mul360 = fmul float %div, %add.i1.i615
+  %mul.i.i.i615 = fmul float %add.i185, %fneg351
+  %fneg.i.i.i616 = fneg float %mul.i.i.i615
+  %303 = tail call noundef float @llvm.fma.f32(float %fneg351, float %add.i185, float %fneg.i.i.i616)
+  %mul.i.i.i.i617 = fmul float %add.i169, %300
+  %fneg.i.i.i.i618 = fneg float %mul.i.i.i.i617
+  %304 = tail call noundef float @llvm.fma.f32(float %300, float %add.i169, float %fneg.i.i.i.i618)
+  %mul.i.i.i.i.i619 = fmul float %add.i, %fneg358
+  %fneg.i.i.i.i.i620 = fneg float %mul.i.i.i.i.i619
+  %305 = tail call noundef float @llvm.fma.f32(float %fneg358, float %add.i, float %fneg.i.i.i.i.i620)
+  %add.i.i.i.i621 = fadd float %mul.i.i.i.i617, %mul.i.i.i.i.i619
+  %sub.i.i.i.i622 = fsub float %add.i.i.i.i621, %mul.i.i.i.i617
+  %sub1.i.i.i.i623 = fsub float %add.i.i.i.i621, %sub.i.i.i.i622
+  %sub2.i.i.i.i624 = fsub float %mul.i.i.i.i617, %sub1.i.i.i.i623
+  %sub3.i.i.i.i625 = fsub float %mul.i.i.i.i.i619, %sub.i.i.i.i622
+  %add4.i.i.i.i626 = fadd float %sub3.i.i.i.i625, %sub2.i.i.i.i624
+  %add.i.i.i627 = fadd float %305, %add4.i.i.i.i626
+  %add9.i.i.i628 = fadd float %304, %add.i.i.i627
+  %add.i3.i.i629 = fadd float %mul.i.i.i615, %add.i.i.i.i621
+  %sub.i.i.i630 = fsub float %add.i3.i.i629, %mul.i.i.i615
+  %sub1.i.i.i631 = fsub float %add.i3.i.i629, %sub.i.i.i630
+  %sub2.i.i.i632 = fsub float %mul.i.i.i615, %sub1.i.i.i631
+  %sub3.i.i.i633 = fsub float %add.i.i.i.i621, %sub.i.i.i630
+  %add4.i.i.i634 = fadd float %sub3.i.i.i633, %sub2.i.i.i632
+  %add.i.i635 = fadd float %add4.i.i.i634, %add9.i.i.i628
+  %add13.i.i636 = fadd float %303, %add.i.i635
+  %add.i1.i637 = fadd float %add.i3.i.i629, %add13.i.i636
+  %mul360 = fmul float %div, %add.i1.i637
   store float %mul360, ptr %arrayinit.element347, align 8
   %arrayinit.element361 = getelementptr inbounds i8, ptr %inv, i64 60
   %call363 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
@@ -27891,44 +27891,44 @@ if.end:                                           ; preds = %entry
   %307 = load float, ptr %306, align 4
   %call366 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %308 = extractvalue { ptr, i64 } %call366, 0
-  %arrayidx.i616 = getelementptr inbounds i8, ptr %308, i64 8
-  %309 = load float, ptr %arrayidx.i616, align 4
+  %arrayidx.i639 = getelementptr inbounds i8, ptr %308, i64 8
+  %309 = load float, ptr %arrayidx.i639, align 4
   %call369 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %310 = extractvalue { ptr, i64 } %call369, 0
-  %arrayidx.i617 = getelementptr inbounds i8, ptr %310, i64 4
-  %311 = load float, ptr %arrayidx.i617, align 4
+  %arrayidx.i640 = getelementptr inbounds i8, ptr %310, i64 4
+  %311 = load float, ptr %arrayidx.i640, align 4
   %fneg371 = fneg float %311
-  %mul.i.i.i618 = fmul float %add.i180, %307
-  %fneg.i.i.i619 = fneg float %mul.i.i.i618
-  %312 = tail call noundef float @llvm.fma.f32(float %307, float %add.i180, float %fneg.i.i.i619)
-  %mul.i.i.i.i620 = fmul float %add.i, %309
-  %fneg.i.i.i.i621 = fneg float %mul.i.i.i.i620
-  %313 = tail call noundef float @llvm.fma.f32(float %309, float %add.i, float %fneg.i.i.i.i621)
-  %mul.i.i.i.i.i622 = fmul float %add.i166, %fneg371
-  %fneg.i.i.i.i.i623 = fneg float %mul.i.i.i.i.i622
-  %314 = tail call noundef float @llvm.fma.f32(float %fneg371, float %add.i166, float %fneg.i.i.i.i.i623)
-  %add.i.i.i.i624 = fadd float %mul.i.i.i.i620, %mul.i.i.i.i.i622
-  %sub.i.i.i.i625 = fsub float %add.i.i.i.i624, %mul.i.i.i.i620
-  %sub1.i.i.i.i626 = fsub float %add.i.i.i.i624, %sub.i.i.i.i625
-  %sub2.i.i.i.i627 = fsub float %mul.i.i.i.i620, %sub1.i.i.i.i626
-  %sub3.i.i.i.i628 = fsub float %mul.i.i.i.i.i622, %sub.i.i.i.i625
-  %add4.i.i.i.i629 = fadd float %sub3.i.i.i.i628, %sub2.i.i.i.i627
-  %add.i.i.i630 = fadd float %314, %add4.i.i.i.i629
-  %add9.i.i.i631 = fadd float %313, %add.i.i.i630
-  %add.i3.i.i632 = fadd float %mul.i.i.i618, %add.i.i.i.i624
-  %sub.i.i.i633 = fsub float %add.i3.i.i632, %mul.i.i.i618
-  %sub1.i.i.i634 = fsub float %add.i3.i.i632, %sub.i.i.i633
-  %sub2.i.i.i635 = fsub float %mul.i.i.i618, %sub1.i.i.i634
-  %sub3.i.i.i636 = fsub float %add.i.i.i.i624, %sub.i.i.i633
-  %add4.i.i.i637 = fadd float %sub3.i.i.i636, %sub2.i.i.i635
-  %add.i.i638 = fadd float %add4.i.i.i637, %add9.i.i.i631
-  %add13.i.i639 = fadd float %312, %add.i.i638
-  %add.i1.i640 = fadd float %add.i3.i.i632, %add13.i.i639
-  %mul373 = fmul float %div, %add.i1.i640
+  %mul.i.i.i641 = fmul float %add.i185, %307
+  %fneg.i.i.i642 = fneg float %mul.i.i.i641
+  %312 = tail call noundef float @llvm.fma.f32(float %307, float %add.i185, float %fneg.i.i.i642)
+  %mul.i.i.i.i643 = fmul float %add.i, %309
+  %fneg.i.i.i.i644 = fneg float %mul.i.i.i.i643
+  %313 = tail call noundef float @llvm.fma.f32(float %309, float %add.i, float %fneg.i.i.i.i644)
+  %mul.i.i.i.i.i645 = fmul float %add.i169, %fneg371
+  %fneg.i.i.i.i.i646 = fneg float %mul.i.i.i.i.i645
+  %314 = tail call noundef float @llvm.fma.f32(float %fneg371, float %add.i169, float %fneg.i.i.i.i.i646)
+  %add.i.i.i.i647 = fadd float %mul.i.i.i.i643, %mul.i.i.i.i.i645
+  %sub.i.i.i.i648 = fsub float %add.i.i.i.i647, %mul.i.i.i.i643
+  %sub1.i.i.i.i649 = fsub float %add.i.i.i.i647, %sub.i.i.i.i648
+  %sub2.i.i.i.i650 = fsub float %mul.i.i.i.i643, %sub1.i.i.i.i649
+  %sub3.i.i.i.i651 = fsub float %mul.i.i.i.i.i645, %sub.i.i.i.i648
+  %add4.i.i.i.i652 = fadd float %sub3.i.i.i.i651, %sub2.i.i.i.i650
+  %add.i.i.i653 = fadd float %314, %add4.i.i.i.i652
+  %add9.i.i.i654 = fadd float %313, %add.i.i.i653
+  %add.i3.i.i655 = fadd float %mul.i.i.i641, %add.i.i.i.i647
+  %sub.i.i.i656 = fsub float %add.i3.i.i655, %mul.i.i.i641
+  %sub1.i.i.i657 = fsub float %add.i3.i.i655, %sub.i.i.i656
+  %sub2.i.i.i658 = fsub float %mul.i.i.i641, %sub1.i.i.i657
+  %sub3.i.i.i659 = fsub float %add.i.i.i.i647, %sub.i.i.i656
+  %add4.i.i.i660 = fadd float %sub3.i.i.i659, %sub2.i.i.i658
+  %add.i.i661 = fadd float %add4.i.i.i660, %add9.i.i.i654
+  %add13.i.i662 = fadd float %312, %add.i.i661
+  %add.i1.i663 = fadd float %add.i3.i.i655, %add13.i.i662
+  %mul373 = fmul float %div, %add.i1.i663
   store float %mul373, ptr %arrayinit.element361, align 4
   call void @_ZN4pbrt12SquareMatrixILi4EEC1EPA4_Kf(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp374, ptr noundef nonnull %inv)
-  %set.i641 = getelementptr inbounds i8, ptr %agg.result, i64 64
-  store i8 1, ptr %set.i641, align 4
+  %set.i664 = getelementptr inbounds i8, ptr %agg.result, i64 64
+  store i8 1, ptr %set.i664, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp374, i64 64, i1 false)
   br label %return
 
@@ -31943,8 +31943,8 @@ if.else:                                          ; preds = %land.end
   br i1 %cmp18.not, label %if.else.if.end30_crit_edge, label %if.then19
 
 if.else.if.end30_crit_edge:                       ; preds = %if.else
-  %cond-lvalue.i44.phi.trans.insert = getelementptr inbounds i8, ptr %pp, i64 4
-  %.pre = load i32, ptr %cond-lvalue.i44.phi.trans.insert, align 4
+  %cond-lvalue.i49.phi.trans.insert = getelementptr inbounds i8, ptr %pp, i64 4
+  %.pre = load i32, ptr %cond-lvalue.i49.phi.trans.insert, align 4
   br label %if.end30
 
 if.then19:                                        ; preds = %if.else
@@ -31952,17 +31952,17 @@ if.then19:                                        ; preds = %if.else
   %4 = xor i32 %1, -1
   %sub23 = add i32 %mul, %4
   store i32 %sub23, ptr %pp, align 4
-  %cond-lvalue.i42 = getelementptr inbounds i8, ptr %pp, i64 4
-  %5 = load i32, ptr %cond-lvalue.i42, align 4
+  %cond-lvalue.i47 = getelementptr inbounds i8, ptr %pp, i64 4
+  %5 = load i32, ptr %cond-lvalue.i47, align 4
   %6 = xor i32 %5, -1
   %sub28 = add i32 %6, %resolution.sroa.9.0.extract.trunc
-  store i32 %sub28, ptr %cond-lvalue.i42, align 4
+  store i32 %sub28, ptr %cond-lvalue.i47, align 4
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else.if.end30_crit_edge, %if.then19, %if.then8
   %7 = phi i32 [ %1, %if.else.if.end30_crit_edge ], [ %sub23, %if.then19 ], [ %sub, %if.then8 ]
   %8 = phi i32 [ %.pre, %if.else.if.end30_crit_edge ], [ %sub28, %if.then19 ], [ %sub14, %if.then8 ]
-  %cond-lvalue.i44 = getelementptr inbounds i8, ptr %pp, i64 4
+  %cond-lvalue.i49 = getelementptr inbounds i8, ptr %pp, i64 4
   %cmp32 = icmp slt i32 %8, 0
   br i1 %cmp32, label %if.then33, label %if.else42
 
@@ -31988,7 +31988,7 @@ if.then46:                                        ; preds = %if.else42
 
 if.end59.sink.split:                              ; preds = %if.then33, %if.then46
   %sub56.sink = phi i32 [ %sub56, %if.then46 ], [ %sub40, %if.then33 ]
-  store i32 %sub56.sink, ptr %cond-lvalue.i44, align 4
+  store i32 %sub56.sink, ptr %cond-lvalue.i49, align 4
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end59.sink.split, %if.else42
@@ -32004,18 +32004,18 @@ if.end64:                                         ; preds = %if.then62, %if.end5
   br i1 %cmp66, label %if.then67, label %return
 
 if.then67:                                        ; preds = %if.end64
-  store i32 0, ptr %cond-lvalue.i44, align 4
+  store i32 0, ptr %cond-lvalue.i49, align 4
   br label %return
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp.i = phi i1 [ false, %for.inc ], [ true, %entry ]
   %indvars.iv.sroa.phi = phi ptr [ %wrapMode.sroa.2, %for.inc ], [ %wrapMode.sroa.0, %entry ]
   %cond-lvalue.idx.i = select i1 %cmp.i, i64 0, i64 4
-  %cond-lvalue.i54 = getelementptr inbounds i8, ptr %pp, i64 %cond-lvalue.idx.i
-  %12 = load i32, ptr %cond-lvalue.i54, align 4
+  %cond-lvalue.i67 = getelementptr inbounds i8, ptr %pp, i64 %cond-lvalue.idx.i
+  %12 = load i32, ptr %cond-lvalue.i67, align 4
   %cmp73 = icmp sgt i32 %12, -1
-  %.sroa.speculated100 = select i1 %cmp.i, i32 %resolution.sroa.0.0.extract.trunc, i32 %resolution.sroa.9.0.extract.trunc
-  %cmp76 = icmp slt i32 %12, %.sroa.speculated100
+  %.sroa.speculated113 = select i1 %cmp.i, i32 %resolution.sroa.0.0.extract.trunc, i32 %resolution.sroa.9.0.extract.trunc
+  %cmp76 = icmp slt i32 %12, %.sroa.speculated113
   %or.cond = select i1 %cmp73, i1 %cmp76, i1 false
   br i1 %or.cond, label %for.inc, label %if.end78
 
@@ -32028,17 +32028,17 @@ if.end78:                                         ; preds = %for.body
   ]
 
 sw.bb:                                            ; preds = %if.end78
-  %14 = srem i32 %12, %.sroa.speculated100
-  %cmp.i68 = icmp slt i32 %14, 0
-  %add.i = select i1 %cmp.i68, i32 %.sroa.speculated100, i32 0
+  %14 = srem i32 %12, %.sroa.speculated113
+  %cmp.i81 = icmp slt i32 %14, 0
+  %add.i = select i1 %cmp.i81, i32 %.sroa.speculated113, i32 0
   %cond.i = add nsw i32 %add.i, %14
   br label %for.inc.sink.split
 
 sw.bb85:                                          ; preds = %if.end78
-  %sub88 = add nsw i32 %.sroa.speculated100, -1
-  %cmp.i78 = icmp slt i32 %12, 0
+  %sub88 = add nsw i32 %.sroa.speculated113, -1
+  %cmp.i91 = icmp slt i32 %12, 0
   %high.val.i = tail call i32 @llvm.smin.i32(i32 %12, i32 %sub88)
-  %retval.0.i = select i1 %cmp.i78, i32 0, i32 %high.val.i
+  %retval.0.i = select i1 %cmp.i91, i32 0, i32 %high.val.i
   br label %for.inc.sink.split
 
 sw.default:                                       ; preds = %if.end78
@@ -32047,7 +32047,7 @@ sw.default:                                       ; preds = %if.end78
 
 for.inc.sink.split:                               ; preds = %sw.bb85, %sw.bb
   %cond.i.sink = phi i32 [ %cond.i, %sw.bb ], [ %retval.0.i, %sw.bb85 ]
-  store i32 %cond.i.sink, ptr %cond-lvalue.i54, align 4
+  store i32 %cond.i.sink, ptr %cond-lvalue.i67, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.body
@@ -32304,19 +32304,19 @@ entry:
   %mul29 = fmul float %11, %20
   %call32 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %21 = extractvalue { ptr, i64 } %call32, 0
-  %arrayidx.i54 = getelementptr inbounds i8, ptr %21, i64 4
-  %22 = load float, ptr %arrayidx.i54, align 4
+  %arrayidx.i55 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = load float, ptr %arrayidx.i55, align 4
   %mul34 = fmul float %14, %22
   %add35 = fadd float %mul29, %mul34
   %call38 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %23 = extractvalue { ptr, i64 } %call38, 0
-  %arrayidx.i55 = getelementptr inbounds i8, ptr %23, i64 8
-  %24 = load float, ptr %arrayidx.i55, align 4
+  %arrayidx.i56 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = load float, ptr %arrayidx.i56, align 4
   %mul40 = fmul float %div.i.i51, %24
   %call43 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %25 = extractvalue { ptr, i64 } %call43, 0
-  %arrayidx.i56 = getelementptr inbounds i8, ptr %25, i64 12
-  %26 = load float, ptr %arrayidx.i56, align 4
+  %arrayidx.i57 = getelementptr inbounds i8, ptr %25, i64 12
+  %26 = load float, ptr %arrayidx.i57, align 4
   %add45 = fadd float %mul40, %26
   %add46 = fadd float %add35, %add45
   %call49 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
@@ -32325,19 +32325,19 @@ entry:
   %mul51 = fmul float %11, %28
   %call54 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %29 = extractvalue { ptr, i64 } %call54, 0
-  %arrayidx.i57 = getelementptr inbounds i8, ptr %29, i64 4
-  %30 = load float, ptr %arrayidx.i57, align 4
+  %arrayidx.i59 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = load float, ptr %arrayidx.i59, align 4
   %mul56 = fmul float %14, %30
   %add57 = fadd float %mul51, %mul56
   %call60 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %31 = extractvalue { ptr, i64 } %call60, 0
-  %arrayidx.i58 = getelementptr inbounds i8, ptr %31, i64 8
-  %32 = load float, ptr %arrayidx.i58, align 4
+  %arrayidx.i60 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = load float, ptr %arrayidx.i60, align 4
   %mul62 = fmul float %div.i.i51, %32
   %call65 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %33 = extractvalue { ptr, i64 } %call65, 0
-  %arrayidx.i59 = getelementptr inbounds i8, ptr %33, i64 12
-  %34 = load float, ptr %arrayidx.i59, align 4
+  %arrayidx.i61 = getelementptr inbounds i8, ptr %33, i64 12
+  %34 = load float, ptr %arrayidx.i61, align 4
   %add67 = fadd float %mul62, %34
   %add68 = fadd float %add57, %add67
   %call71 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
@@ -32346,19 +32346,19 @@ entry:
   %mul73 = fmul float %11, %36
   %call76 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %37 = extractvalue { ptr, i64 } %call76, 0
-  %arrayidx.i60 = getelementptr inbounds i8, ptr %37, i64 4
-  %38 = load float, ptr %arrayidx.i60, align 4
+  %arrayidx.i63 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = load float, ptr %arrayidx.i63, align 4
   %mul78 = fmul float %14, %38
   %add79 = fadd float %mul73, %mul78
   %call82 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %39 = extractvalue { ptr, i64 } %call82, 0
-  %arrayidx.i61 = getelementptr inbounds i8, ptr %39, i64 8
-  %40 = load float, ptr %arrayidx.i61, align 4
+  %arrayidx.i64 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = load float, ptr %arrayidx.i64, align 4
   %mul84 = fmul float %div.i.i51, %40
   %call87 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %41 = extractvalue { ptr, i64 } %call87, 0
-  %arrayidx.i62 = getelementptr inbounds i8, ptr %41, i64 12
-  %42 = load float, ptr %arrayidx.i62, align 4
+  %arrayidx.i65 = getelementptr inbounds i8, ptr %41, i64 12
+  %42 = load float, ptr %arrayidx.i65, align 4
   %add89 = fadd float %mul84, %42
   %add90 = fadd float %add79, %add89
   %43 = load float, ptr %high.i.i, align 4
@@ -32366,21 +32366,21 @@ entry:
   %sub.i.i = fsub float %43, %44
   %cmp.i = fcmp oeq float %sub.i.i, 0.000000e+00
   %.pre = load float, ptr %high.i.i46, align 4
-  %.pre201 = load float, ptr %y3, align 4
+  %.pre213 = load float, ptr %y3, align 4
   br i1 %cmp.i, label %land.lhs.true.i, label %entry.if.else_crit_edge
 
 entry.if.else_crit_edge:                          ; preds = %entry
-  %.pre202 = load float, ptr %high.i.i49, align 4
-  %.pre204 = load float, ptr %z5, align 4
-  %.pre206 = fsub float %.pre, %.pre201
+  %.pre214 = load float, ptr %high.i.i49, align 4
+  %.pre216 = load float, ptr %z5, align 4
+  %.pre218 = fsub float %.pre, %.pre213
   br label %if.else
 
 land.lhs.true.i:                                  ; preds = %entry
-  %sub.i2.i = fsub float %.pre, %.pre201
+  %sub.i2.i = fsub float %.pre, %.pre213
   %cmp3.i = fcmp oeq float %sub.i2.i, 0.000000e+00
-  %.pre203 = load float, ptr %high.i.i49, align 4
-  %.pre205 = load float, ptr %z5, align 4
-  %sub.i4.i = fsub float %.pre203, %.pre205
+  %.pre215 = load float, ptr %high.i.i49, align 4
+  %.pre217 = load float, ptr %z5, align 4
+  %sub.i4.i = fsub float %.pre215, %.pre217
   %cmp5.i = fcmp oeq float %sub.i4.i, 0.000000e+00
   %or.cond = select i1 %cmp3.i, i1 %cmp5.i, i1 false
   br i1 %or.cond, label %if.then, label %if.else
@@ -32393,37 +32393,37 @@ if.then:                                          ; preds = %land.lhs.true.i
   %47 = tail call noundef float @llvm.fabs.f32(float %mul97)
   %call101 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %48 = extractvalue { ptr, i64 } %call101, 0
-  %arrayidx.i64 = getelementptr inbounds i8, ptr %48, i64 4
-  %49 = load float, ptr %arrayidx.i64, align 4
+  %arrayidx.i68 = getelementptr inbounds i8, ptr %48, i64 4
+  %49 = load float, ptr %arrayidx.i68, align 4
   %mul103 = fmul float %14, %49
   %50 = tail call noundef float @llvm.fabs.f32(float %mul103)
   %call108 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %51 = extractvalue { ptr, i64 } %call108, 0
-  %arrayidx.i65 = getelementptr inbounds i8, ptr %51, i64 8
-  %52 = load float, ptr %arrayidx.i65, align 4
+  %arrayidx.i69 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = load float, ptr %arrayidx.i69, align 4
   %call115 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %53 = extractvalue { ptr, i64 } %call115, 0
-  %arrayidx.i66 = getelementptr inbounds i8, ptr %53, i64 12
-  %54 = load float, ptr %arrayidx.i66, align 4
+  %arrayidx.i70 = getelementptr inbounds i8, ptr %53, i64 12
+  %54 = load float, ptr %arrayidx.i70, align 4
   %call124 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %55 = extractvalue { ptr, i64 } %call124, 0
   %56 = load float, ptr %55, align 4
   %call130 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %57 = extractvalue { ptr, i64 } %call130, 0
-  %arrayidx.i67 = getelementptr inbounds i8, ptr %57, i64 4
-  %58 = load float, ptr %arrayidx.i67, align 4
+  %arrayidx.i72 = getelementptr inbounds i8, ptr %57, i64 4
+  %58 = load float, ptr %arrayidx.i72, align 4
   %59 = insertelement <2 x float> poison, float %56, i64 0
   %60 = insertelement <2 x float> %59, float %58, i64 1
   %61 = fmul <2 x float> %6, %60
   %62 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %61)
   %call137 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %63 = extractvalue { ptr, i64 } %call137, 0
-  %arrayidx.i68 = getelementptr inbounds i8, ptr %63, i64 8
-  %64 = load float, ptr %arrayidx.i68, align 4
+  %arrayidx.i73 = getelementptr inbounds i8, ptr %63, i64 8
+  %64 = load float, ptr %arrayidx.i73, align 4
   %call144 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %65 = extractvalue { ptr, i64 } %call144, 0
-  %arrayidx.i69 = getelementptr inbounds i8, ptr %65, i64 12
-  %66 = load float, ptr %arrayidx.i69, align 4
+  %arrayidx.i74 = getelementptr inbounds i8, ptr %65, i64 12
+  %66 = load float, ptr %arrayidx.i74, align 4
   %67 = shufflevector <2 x float> %62, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
   %68 = insertelement <2 x float> %67, float %47, i64 0
   %69 = insertelement <2 x float> %62, float %50, i64 0
@@ -32445,8 +32445,8 @@ if.then:                                          ; preds = %land.lhs.true.i
   %84 = load float, ptr %83, align 4
   %call159 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %85 = extractvalue { ptr, i64 } %call159, 0
-  %arrayidx.i70 = getelementptr inbounds i8, ptr %85, i64 4
-  %86 = load float, ptr %arrayidx.i70, align 4
+  %arrayidx.i76 = getelementptr inbounds i8, ptr %85, i64 4
+  %86 = load float, ptr %arrayidx.i76, align 4
   %87 = insertelement <2 x float> poison, float %84, i64 0
   %88 = insertelement <2 x float> %87, float %86, i64 1
   %89 = fmul <2 x float> %6, %88
@@ -32456,28 +32456,28 @@ if.then:                                          ; preds = %land.lhs.true.i
   %add163 = extractelement <2 x float> %91, i64 0
   %call166 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %92 = extractvalue { ptr, i64 } %call166, 0
-  %arrayidx.i71 = getelementptr inbounds i8, ptr %92, i64 8
-  %93 = load float, ptr %arrayidx.i71, align 4
+  %arrayidx.i77 = getelementptr inbounds i8, ptr %92, i64 8
+  %93 = load float, ptr %arrayidx.i77, align 4
   %mul168 = fmul float %div.i.i51, %93
   %94 = tail call noundef float @llvm.fabs.f32(float %mul168)
   %add170 = fadd float %add163, %94
   %call173 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %95 = extractvalue { ptr, i64 } %call173, 0
-  %arrayidx.i72 = getelementptr inbounds i8, ptr %95, i64 12
-  %96 = load float, ptr %arrayidx.i72, align 4
+  %arrayidx.i78 = getelementptr inbounds i8, ptr %95, i64 12
+  %96 = load float, ptr %arrayidx.i78, align 4
   %97 = tail call noundef float @llvm.fabs.f32(float %96)
   %add176 = fadd float %add170, %97
   %mul177 = fmul float %add176, 0x3E88000040000000
   br label %if.end
 
 if.else:                                          ; preds = %entry.if.else_crit_edge, %land.lhs.true.i
-  %sub.i2.i77.pre-phi = phi float [ %.pre206, %entry.if.else_crit_edge ], [ %sub.i2.i, %land.lhs.true.i ]
-  %98 = phi float [ %.pre204, %entry.if.else_crit_edge ], [ %.pre205, %land.lhs.true.i ]
-  %99 = phi float [ %.pre202, %entry.if.else_crit_edge ], [ %.pre203, %land.lhs.true.i ]
+  %sub.i2.i83.pre-phi = phi float [ %.pre218, %entry.if.else_crit_edge ], [ %sub.i2.i, %land.lhs.true.i ]
+  %98 = phi float [ %.pre216, %entry.if.else_crit_edge ], [ %.pre217, %land.lhs.true.i ]
+  %99 = phi float [ %.pre214, %entry.if.else_crit_edge ], [ %.pre215, %land.lhs.true.i ]
   %div.i = fmul float %sub.i.i, 5.000000e-01
-  %div3.i = fmul float %sub.i2.i77.pre-phi, 5.000000e-01
-  %sub.i4.i80 = fsub float %99, %98
-  %div5.i = fmul float %sub.i4.i80, 5.000000e-01
+  %div3.i = fmul float %sub.i2.i83.pre-phi, 5.000000e-01
+  %sub.i4.i86 = fsub float %99, %98
+  %div5.i = fmul float %sub.i4.i86, 5.000000e-01
   %call184 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %100 = extractvalue { ptr, i64 } %call184, 0
   %101 = load float, ptr %100, align 4
@@ -32485,37 +32485,37 @@ if.else:                                          ; preds = %entry.if.else_crit_
   %mul188 = fmul float %div.i, %102
   %call191 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %103 = extractvalue { ptr, i64 } %call191, 0
-  %arrayidx.i81 = getelementptr inbounds i8, ptr %103, i64 4
-  %104 = load float, ptr %arrayidx.i81, align 4
+  %arrayidx.i88 = getelementptr inbounds i8, ptr %103, i64 4
+  %104 = load float, ptr %arrayidx.i88, align 4
   %105 = tail call noundef float @llvm.fabs.f32(float %104)
   %mul195 = fmul float %div3.i, %105
   %add196 = fadd float %mul188, %mul195
   %call199 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %106 = extractvalue { ptr, i64 } %call199, 0
-  %arrayidx.i82 = getelementptr inbounds i8, ptr %106, i64 8
-  %107 = load float, ptr %arrayidx.i82, align 4
+  %arrayidx.i89 = getelementptr inbounds i8, ptr %106, i64 8
+  %107 = load float, ptr %arrayidx.i89, align 4
   %call209 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %108 = extractvalue { ptr, i64 } %call209, 0
   %109 = load float, ptr %108, align 4
   %call215 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %110 = extractvalue { ptr, i64 } %call215, 0
-  %arrayidx.i83 = getelementptr inbounds i8, ptr %110, i64 4
-  %111 = load float, ptr %arrayidx.i83, align 4
+  %arrayidx.i91 = getelementptr inbounds i8, ptr %110, i64 4
+  %111 = load float, ptr %arrayidx.i91, align 4
   %112 = insertelement <2 x float> poison, float %109, i64 0
   %113 = insertelement <2 x float> %112, float %111, i64 1
   %114 = fmul <2 x float> %6, %113
   %115 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %114)
-  %shift207 = shufflevector <2 x float> %115, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %116 = fadd <2 x float> %115, %shift207
+  %shift219 = shufflevector <2 x float> %115, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %116 = fadd <2 x float> %115, %shift219
   %call222 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %117 = extractvalue { ptr, i64 } %call222, 0
-  %arrayidx.i84 = getelementptr inbounds i8, ptr %117, i64 8
-  %118 = load float, ptr %arrayidx.i84, align 4
+  %arrayidx.i92 = getelementptr inbounds i8, ptr %117, i64 8
+  %118 = load float, ptr %arrayidx.i92, align 4
   %mul224 = fmul float %div.i.i51, %118
   %call229 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %119 = extractvalue { ptr, i64 } %call229, 0
-  %arrayidx.i85 = getelementptr inbounds i8, ptr %119, i64 12
-  %120 = load float, ptr %arrayidx.i85, align 4
+  %arrayidx.i93 = getelementptr inbounds i8, ptr %119, i64 12
+  %120 = load float, ptr %arrayidx.i93, align 4
   %121 = tail call noundef float @llvm.fabs.f32(float %120)
   %call240 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %122 = extractvalue { ptr, i64 } %call240, 0
@@ -32524,37 +32524,37 @@ if.else:                                          ; preds = %entry.if.else_crit_
   %mul244 = fmul float %div.i, %124
   %call247 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %125 = extractvalue { ptr, i64 } %call247, 0
-  %arrayidx.i86 = getelementptr inbounds i8, ptr %125, i64 4
-  %126 = load float, ptr %arrayidx.i86, align 4
+  %arrayidx.i95 = getelementptr inbounds i8, ptr %125, i64 4
+  %126 = load float, ptr %arrayidx.i95, align 4
   %127 = tail call noundef float @llvm.fabs.f32(float %126)
   %mul251 = fmul float %div3.i, %127
   %add252 = fadd float %mul244, %mul251
   %call255 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %128 = extractvalue { ptr, i64 } %call255, 0
-  %arrayidx.i87 = getelementptr inbounds i8, ptr %128, i64 8
-  %129 = load float, ptr %arrayidx.i87, align 4
+  %arrayidx.i96 = getelementptr inbounds i8, ptr %128, i64 8
+  %129 = load float, ptr %arrayidx.i96, align 4
   %call265 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %130 = extractvalue { ptr, i64 } %call265, 0
   %131 = load float, ptr %130, align 4
   %call271 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %132 = extractvalue { ptr, i64 } %call271, 0
-  %arrayidx.i88 = getelementptr inbounds i8, ptr %132, i64 4
-  %133 = load float, ptr %arrayidx.i88, align 4
+  %arrayidx.i98 = getelementptr inbounds i8, ptr %132, i64 4
+  %133 = load float, ptr %arrayidx.i98, align 4
   %134 = insertelement <2 x float> poison, float %131, i64 0
   %135 = insertelement <2 x float> %134, float %133, i64 1
   %136 = fmul <2 x float> %6, %135
   %137 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %136)
-  %shift208 = shufflevector <2 x float> %137, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %138 = fadd <2 x float> %137, %shift208
+  %shift220 = shufflevector <2 x float> %137, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %138 = fadd <2 x float> %137, %shift220
   %call278 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %139 = extractvalue { ptr, i64 } %call278, 0
-  %arrayidx.i89 = getelementptr inbounds i8, ptr %139, i64 8
-  %140 = load float, ptr %arrayidx.i89, align 4
+  %arrayidx.i99 = getelementptr inbounds i8, ptr %139, i64 8
+  %140 = load float, ptr %arrayidx.i99, align 4
   %mul280 = fmul float %div.i.i51, %140
   %call285 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %141 = extractvalue { ptr, i64 } %call285, 0
-  %arrayidx.i90 = getelementptr inbounds i8, ptr %141, i64 12
-  %142 = load float, ptr %arrayidx.i90, align 4
+  %arrayidx.i100 = getelementptr inbounds i8, ptr %141, i64 12
+  %142 = load float, ptr %arrayidx.i100, align 4
   %143 = tail call noundef float @llvm.fabs.f32(float %142)
   %144 = insertelement <2 x float> poison, float %mul224, i64 0
   %145 = insertelement <2 x float> %144, float %129, i64 1
@@ -32587,15 +32587,15 @@ if.else:                                          ; preds = %entry.if.else_crit_
   %mul300 = fmul float %div.i, %170
   %call303 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %171 = extractvalue { ptr, i64 } %call303, 0
-  %arrayidx.i91 = getelementptr inbounds i8, ptr %171, i64 4
-  %172 = load float, ptr %arrayidx.i91, align 4
+  %arrayidx.i102 = getelementptr inbounds i8, ptr %171, i64 4
+  %172 = load float, ptr %arrayidx.i102, align 4
   %173 = tail call noundef float @llvm.fabs.f32(float %172)
   %mul307 = fmul float %div3.i, %173
   %add308 = fadd float %mul300, %mul307
   %call311 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %174 = extractvalue { ptr, i64 } %call311, 0
-  %arrayidx.i92 = getelementptr inbounds i8, ptr %174, i64 8
-  %175 = load float, ptr %arrayidx.i92, align 4
+  %arrayidx.i103 = getelementptr inbounds i8, ptr %174, i64 8
+  %175 = load float, ptr %arrayidx.i103, align 4
   %176 = tail call noundef float @llvm.fabs.f32(float %175)
   %mul315 = fmul float %div5.i, %176
   %add316 = fadd float %add308, %mul315
@@ -32605,26 +32605,26 @@ if.else:                                          ; preds = %entry.if.else_crit_
   %178 = load float, ptr %177, align 4
   %call327 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %179 = extractvalue { ptr, i64 } %call327, 0
-  %arrayidx.i93 = getelementptr inbounds i8, ptr %179, i64 4
-  %180 = load float, ptr %arrayidx.i93, align 4
+  %arrayidx.i105 = getelementptr inbounds i8, ptr %179, i64 4
+  %180 = load float, ptr %arrayidx.i105, align 4
   %181 = insertelement <2 x float> poison, float %178, i64 0
   %182 = insertelement <2 x float> %181, float %180, i64 1
   %183 = fmul <2 x float> %6, %182
   %184 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %183)
-  %shift209 = shufflevector <2 x float> %184, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %185 = fadd <2 x float> %184, %shift209
+  %shift221 = shufflevector <2 x float> %184, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %185 = fadd <2 x float> %184, %shift221
   %add331 = extractelement <2 x float> %185, i64 0
   %call334 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %186 = extractvalue { ptr, i64 } %call334, 0
-  %arrayidx.i94 = getelementptr inbounds i8, ptr %186, i64 8
-  %187 = load float, ptr %arrayidx.i94, align 4
+  %arrayidx.i106 = getelementptr inbounds i8, ptr %186, i64 8
+  %187 = load float, ptr %arrayidx.i106, align 4
   %mul336 = fmul float %div.i.i51, %187
   %188 = tail call noundef float @llvm.fabs.f32(float %mul336)
   %add338 = fadd float %add331, %188
   %call341 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %189 = extractvalue { ptr, i64 } %call341, 0
-  %arrayidx.i95 = getelementptr inbounds i8, ptr %189, i64 12
-  %190 = load float, ptr %arrayidx.i95, align 4
+  %arrayidx.i107 = getelementptr inbounds i8, ptr %189, i64 12
+  %190 = load float, ptr %arrayidx.i107, align 4
   %191 = tail call noundef float @llvm.fabs.f32(float %190)
   %add344 = fadd float %add338, %191
   %mul345 = fmul float %add344, 0x3E88000040000000
@@ -32789,157 +32789,157 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %if.then.i54.i
   br label %return
 
 if.else350:                                       ; preds = %if.end
-  br i1 %cmp.i.i, label %if.then.i.i185, label %if.else.i.i101
+  br i1 %cmp.i.i, label %if.then.i.i197, label %if.else.i.i113
 
-if.then.i.i185:                                   ; preds = %if.else350
+if.then.i.i197:                                   ; preds = %if.else350
   %agg.tmp353.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add24, i64 0
-  %retval.sroa.0.0.vec.insert.i.i186 = shufflevector <2 x float> %agg.tmp353.sroa.0.0.vec.insert, <2 x float> poison, <2 x i32> zeroinitializer
-  br label %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i124
+  %retval.sroa.0.0.vec.insert.i.i198 = shufflevector <2 x float> %agg.tmp353.sroa.0.0.vec.insert, <2 x float> poison, <2 x i32> zeroinitializer
+  br label %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i136
 
-if.else.i.i101:                                   ; preds = %if.else350
-  %add.i.i.i.i102 = fsub float %add24, %e.sroa.0.0.vec.extract.i
-  %or.cond.i.i.i.i.i103 = fcmp oeq float %add.i.i.i.i102, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i.i.i103, label %_ZN4pbrt12SubRoundDownEff.exit.i.i110, label %if.end.i.i.i.i.i104
+if.else.i.i113:                                   ; preds = %if.else350
+  %add.i.i.i.i114 = fsub float %add24, %e.sroa.0.0.vec.extract.i
+  %or.cond.i.i.i.i.i115 = fcmp oeq float %add.i.i.i.i114, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i.i.i115, label %_ZN4pbrt12SubRoundDownEff.exit.i.i122, label %if.end.i.i.i.i.i116
 
-if.end.i.i.i.i.i104:                              ; preds = %if.else.i.i101
-  %cmp1.i.i.i.i.i105 = fcmp oeq float %add.i.i.i.i102, 0.000000e+00
-  %v.addr.0.i.i.i.i.i106 = select i1 %cmp1.i.i.i.i.i105, float -0.000000e+00, float %add.i.i.i.i102
-  %206 = bitcast float %v.addr.0.i.i.i.i.i106 to i32
-  %cmp5.i.i.i.i.i107 = fcmp ogt float %v.addr.0.i.i.i.i.i106, 0.000000e+00
-  %ui.0.v.i.i.i.i.i108 = select i1 %cmp5.i.i.i.i.i107, i32 -1, i32 1
-  %ui.0.i.i.i.i.i109 = add i32 %ui.0.v.i.i.i.i.i108, %206
-  %207 = bitcast i32 %ui.0.i.i.i.i.i109 to float
-  br label %_ZN4pbrt12SubRoundDownEff.exit.i.i110
+if.end.i.i.i.i.i116:                              ; preds = %if.else.i.i113
+  %cmp1.i.i.i.i.i117 = fcmp oeq float %add.i.i.i.i114, 0.000000e+00
+  %v.addr.0.i.i.i.i.i118 = select i1 %cmp1.i.i.i.i.i117, float -0.000000e+00, float %add.i.i.i.i114
+  %206 = bitcast float %v.addr.0.i.i.i.i.i118 to i32
+  %cmp5.i.i.i.i.i119 = fcmp ogt float %v.addr.0.i.i.i.i.i118, 0.000000e+00
+  %ui.0.v.i.i.i.i.i120 = select i1 %cmp5.i.i.i.i.i119, i32 -1, i32 1
+  %ui.0.i.i.i.i.i121 = add i32 %ui.0.v.i.i.i.i.i120, %206
+  %207 = bitcast i32 %ui.0.i.i.i.i.i121 to float
+  br label %_ZN4pbrt12SubRoundDownEff.exit.i.i122
 
-_ZN4pbrt12SubRoundDownEff.exit.i.i110:            ; preds = %if.end.i.i.i.i.i104, %if.else.i.i101
-  %retval.0.i.i.i.i.i111 = phi float [ %207, %if.end.i.i.i.i.i104 ], [ 0xFFF0000000000000, %if.else.i.i101 ]
-  %retval.sroa.0.0.vec.insert7.i.i112 = insertelement <2 x float> poison, float %retval.0.i.i.i.i.i111, i64 0
-  %add.i.i.i113 = fadd float %add24, %e.sroa.0.0.vec.extract.i
-  %or.cond.i.i.i.i114 = fcmp oeq float %add.i.i.i113, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i.i114, label %_ZN4pbrt10AddRoundUpEff.exit.i.i121, label %if.end.i.i.i.i115
+_ZN4pbrt12SubRoundDownEff.exit.i.i122:            ; preds = %if.end.i.i.i.i.i116, %if.else.i.i113
+  %retval.0.i.i.i.i.i123 = phi float [ %207, %if.end.i.i.i.i.i116 ], [ 0xFFF0000000000000, %if.else.i.i113 ]
+  %retval.sroa.0.0.vec.insert7.i.i124 = insertelement <2 x float> poison, float %retval.0.i.i.i.i.i123, i64 0
+  %add.i.i.i125 = fadd float %add24, %e.sroa.0.0.vec.extract.i
+  %or.cond.i.i.i.i126 = fcmp oeq float %add.i.i.i125, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i.i126, label %_ZN4pbrt10AddRoundUpEff.exit.i.i133, label %if.end.i.i.i.i127
 
-if.end.i.i.i.i115:                                ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i.i110
-  %cmp1.i.i.i.i116 = fcmp oeq float %add.i.i.i113, 0.000000e+00
-  %v.addr.0.i.i.i.i117 = select i1 %cmp1.i.i.i.i116, float 0.000000e+00, float %add.i.i.i113
-  %208 = bitcast float %v.addr.0.i.i.i.i117 to i32
-  %cmp5.i.i.i.i118 = fcmp ult float %v.addr.0.i.i.i.i117, 0.000000e+00
-  %ui.0.v.i.i.i.i119 = select i1 %cmp5.i.i.i.i118, i32 -1, i32 1
-  %ui.0.i.i.i.i120 = add i32 %ui.0.v.i.i.i.i119, %208
-  %209 = bitcast i32 %ui.0.i.i.i.i120 to float
-  br label %_ZN4pbrt10AddRoundUpEff.exit.i.i121
+if.end.i.i.i.i127:                                ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i.i122
+  %cmp1.i.i.i.i128 = fcmp oeq float %add.i.i.i125, 0.000000e+00
+  %v.addr.0.i.i.i.i129 = select i1 %cmp1.i.i.i.i128, float 0.000000e+00, float %add.i.i.i125
+  %208 = bitcast float %v.addr.0.i.i.i.i129 to i32
+  %cmp5.i.i.i.i130 = fcmp ult float %v.addr.0.i.i.i.i129, 0.000000e+00
+  %ui.0.v.i.i.i.i131 = select i1 %cmp5.i.i.i.i130, i32 -1, i32 1
+  %ui.0.i.i.i.i132 = add i32 %ui.0.v.i.i.i.i131, %208
+  %209 = bitcast i32 %ui.0.i.i.i.i132 to float
+  br label %_ZN4pbrt10AddRoundUpEff.exit.i.i133
 
-_ZN4pbrt10AddRoundUpEff.exit.i.i121:              ; preds = %if.end.i.i.i.i115, %_ZN4pbrt12SubRoundDownEff.exit.i.i110
-  %retval.0.i.i.i.i122 = phi float [ %209, %if.end.i.i.i.i115 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i.i110 ]
-  %retval.sroa.0.4.vec.insert9.i.i123 = insertelement <2 x float> %retval.sroa.0.0.vec.insert7.i.i112, float %retval.0.i.i.i.i122, i64 1
-  br label %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i124
+_ZN4pbrt10AddRoundUpEff.exit.i.i133:              ; preds = %if.end.i.i.i.i127, %_ZN4pbrt12SubRoundDownEff.exit.i.i122
+  %retval.0.i.i.i.i134 = phi float [ %209, %if.end.i.i.i.i127 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i.i122 ]
+  %retval.sroa.0.4.vec.insert9.i.i135 = insertelement <2 x float> %retval.sroa.0.0.vec.insert7.i.i124, float %retval.0.i.i.i.i134, i64 1
+  br label %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i136
 
-_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i124: ; preds = %_ZN4pbrt10AddRoundUpEff.exit.i.i121, %if.then.i.i185
-  %retval.sroa.0.0.i.i125 = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i.i186, %if.then.i.i185 ], [ %retval.sroa.0.4.vec.insert9.i.i123, %_ZN4pbrt10AddRoundUpEff.exit.i.i121 ]
-  %e.sroa.0.4.vec.extract.i127 = extractelement <2 x float> %pError.sroa.0.0, i64 1
-  %cmp.i1.i128 = fcmp oeq float %e.sroa.0.4.vec.extract.i127, 0.000000e+00
-  br i1 %cmp.i1.i128, label %if.then.i26.i183, label %if.else.i2.i129
+_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i136: ; preds = %_ZN4pbrt10AddRoundUpEff.exit.i.i133, %if.then.i.i197
+  %retval.sroa.0.0.i.i137 = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i.i198, %if.then.i.i197 ], [ %retval.sroa.0.4.vec.insert9.i.i135, %_ZN4pbrt10AddRoundUpEff.exit.i.i133 ]
+  %e.sroa.0.4.vec.extract.i139 = extractelement <2 x float> %pError.sroa.0.0, i64 1
+  %cmp.i1.i140 = fcmp oeq float %e.sroa.0.4.vec.extract.i139, 0.000000e+00
+  br i1 %cmp.i1.i140, label %if.then.i26.i195, label %if.else.i2.i141
 
-if.then.i26.i183:                                 ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i124
+if.then.i26.i195:                                 ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i136
   %210 = insertelement <2 x float> poison, float %add46, i64 0
-  %retval.sroa.0.0.vec.insert.i27.i184 = shufflevector <2 x float> %210, <2 x float> poison, <2 x i32> zeroinitializer
-  br label %_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i152
+  %retval.sroa.0.0.vec.insert.i27.i196 = shufflevector <2 x float> %210, <2 x float> poison, <2 x i32> zeroinitializer
+  br label %_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i164
 
-if.else.i2.i129:                                  ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i124
-  %add.i.i.i3.i130 = fsub float %add46, %e.sroa.0.4.vec.extract.i127
-  %or.cond.i.i.i.i4.i131 = fcmp oeq float %add.i.i.i3.i130, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i.i4.i131, label %_ZN4pbrt12SubRoundDownEff.exit.i11.i138, label %if.end.i.i.i.i5.i132
+if.else.i2.i141:                                  ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i136
+  %add.i.i.i3.i142 = fsub float %add46, %e.sroa.0.4.vec.extract.i139
+  %or.cond.i.i.i.i4.i143 = fcmp oeq float %add.i.i.i3.i142, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i.i4.i143, label %_ZN4pbrt12SubRoundDownEff.exit.i11.i150, label %if.end.i.i.i.i5.i144
 
-if.end.i.i.i.i5.i132:                             ; preds = %if.else.i2.i129
-  %cmp1.i.i.i.i6.i133 = fcmp oeq float %add.i.i.i3.i130, 0.000000e+00
-  %v.addr.0.i.i.i.i7.i134 = select i1 %cmp1.i.i.i.i6.i133, float -0.000000e+00, float %add.i.i.i3.i130
-  %211 = bitcast float %v.addr.0.i.i.i.i7.i134 to i32
-  %cmp5.i.i.i.i8.i135 = fcmp ogt float %v.addr.0.i.i.i.i7.i134, 0.000000e+00
-  %ui.0.v.i.i.i.i9.i136 = select i1 %cmp5.i.i.i.i8.i135, i32 -1, i32 1
-  %ui.0.i.i.i.i10.i137 = add i32 %ui.0.v.i.i.i.i9.i136, %211
-  %212 = bitcast i32 %ui.0.i.i.i.i10.i137 to float
-  br label %_ZN4pbrt12SubRoundDownEff.exit.i11.i138
+if.end.i.i.i.i5.i144:                             ; preds = %if.else.i2.i141
+  %cmp1.i.i.i.i6.i145 = fcmp oeq float %add.i.i.i3.i142, 0.000000e+00
+  %v.addr.0.i.i.i.i7.i146 = select i1 %cmp1.i.i.i.i6.i145, float -0.000000e+00, float %add.i.i.i3.i142
+  %211 = bitcast float %v.addr.0.i.i.i.i7.i146 to i32
+  %cmp5.i.i.i.i8.i147 = fcmp ogt float %v.addr.0.i.i.i.i7.i146, 0.000000e+00
+  %ui.0.v.i.i.i.i9.i148 = select i1 %cmp5.i.i.i.i8.i147, i32 -1, i32 1
+  %ui.0.i.i.i.i10.i149 = add i32 %ui.0.v.i.i.i.i9.i148, %211
+  %212 = bitcast i32 %ui.0.i.i.i.i10.i149 to float
+  br label %_ZN4pbrt12SubRoundDownEff.exit.i11.i150
 
-_ZN4pbrt12SubRoundDownEff.exit.i11.i138:          ; preds = %if.end.i.i.i.i5.i132, %if.else.i2.i129
-  %retval.0.i.i.i.i12.i139 = phi float [ %212, %if.end.i.i.i.i5.i132 ], [ 0xFFF0000000000000, %if.else.i2.i129 ]
-  %retval.sroa.0.0.vec.insert7.i13.i140 = insertelement <2 x float> poison, float %retval.0.i.i.i.i12.i139, i64 0
-  %add.i.i14.i141 = fadd float %add46, %e.sroa.0.4.vec.extract.i127
-  %or.cond.i.i.i15.i142 = fcmp oeq float %add.i.i14.i141, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i15.i142, label %_ZN4pbrt10AddRoundUpEff.exit.i22.i149, label %if.end.i.i.i16.i143
+_ZN4pbrt12SubRoundDownEff.exit.i11.i150:          ; preds = %if.end.i.i.i.i5.i144, %if.else.i2.i141
+  %retval.0.i.i.i.i12.i151 = phi float [ %212, %if.end.i.i.i.i5.i144 ], [ 0xFFF0000000000000, %if.else.i2.i141 ]
+  %retval.sroa.0.0.vec.insert7.i13.i152 = insertelement <2 x float> poison, float %retval.0.i.i.i.i12.i151, i64 0
+  %add.i.i14.i153 = fadd float %add46, %e.sroa.0.4.vec.extract.i139
+  %or.cond.i.i.i15.i154 = fcmp oeq float %add.i.i14.i153, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i15.i154, label %_ZN4pbrt10AddRoundUpEff.exit.i22.i161, label %if.end.i.i.i16.i155
 
-if.end.i.i.i16.i143:                              ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i11.i138
-  %cmp1.i.i.i17.i144 = fcmp oeq float %add.i.i14.i141, 0.000000e+00
-  %v.addr.0.i.i.i18.i145 = select i1 %cmp1.i.i.i17.i144, float 0.000000e+00, float %add.i.i14.i141
-  %213 = bitcast float %v.addr.0.i.i.i18.i145 to i32
-  %cmp5.i.i.i19.i146 = fcmp ult float %v.addr.0.i.i.i18.i145, 0.000000e+00
-  %ui.0.v.i.i.i20.i147 = select i1 %cmp5.i.i.i19.i146, i32 -1, i32 1
-  %ui.0.i.i.i21.i148 = add i32 %ui.0.v.i.i.i20.i147, %213
-  %214 = bitcast i32 %ui.0.i.i.i21.i148 to float
-  br label %_ZN4pbrt10AddRoundUpEff.exit.i22.i149
+if.end.i.i.i16.i155:                              ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i11.i150
+  %cmp1.i.i.i17.i156 = fcmp oeq float %add.i.i14.i153, 0.000000e+00
+  %v.addr.0.i.i.i18.i157 = select i1 %cmp1.i.i.i17.i156, float 0.000000e+00, float %add.i.i14.i153
+  %213 = bitcast float %v.addr.0.i.i.i18.i157 to i32
+  %cmp5.i.i.i19.i158 = fcmp ult float %v.addr.0.i.i.i18.i157, 0.000000e+00
+  %ui.0.v.i.i.i20.i159 = select i1 %cmp5.i.i.i19.i158, i32 -1, i32 1
+  %ui.0.i.i.i21.i160 = add i32 %ui.0.v.i.i.i20.i159, %213
+  %214 = bitcast i32 %ui.0.i.i.i21.i160 to float
+  br label %_ZN4pbrt10AddRoundUpEff.exit.i22.i161
 
-_ZN4pbrt10AddRoundUpEff.exit.i22.i149:            ; preds = %if.end.i.i.i16.i143, %_ZN4pbrt12SubRoundDownEff.exit.i11.i138
-  %retval.0.i.i.i23.i150 = phi float [ %214, %if.end.i.i.i16.i143 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i11.i138 ]
-  %retval.sroa.0.4.vec.insert9.i24.i151 = insertelement <2 x float> %retval.sroa.0.0.vec.insert7.i13.i140, float %retval.0.i.i.i23.i150, i64 1
-  br label %_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i152
+_ZN4pbrt10AddRoundUpEff.exit.i22.i161:            ; preds = %if.end.i.i.i16.i155, %_ZN4pbrt12SubRoundDownEff.exit.i11.i150
+  %retval.0.i.i.i23.i162 = phi float [ %214, %if.end.i.i.i16.i155 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i11.i150 ]
+  %retval.sroa.0.4.vec.insert9.i24.i163 = insertelement <2 x float> %retval.sroa.0.0.vec.insert7.i13.i152, float %retval.0.i.i.i23.i162, i64 1
+  br label %_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i164
 
-_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i152: ; preds = %_ZN4pbrt10AddRoundUpEff.exit.i22.i149, %if.then.i26.i183
-  %retval.sroa.0.0.i25.i153 = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i27.i184, %if.then.i26.i183 ], [ %retval.sroa.0.4.vec.insert9.i24.i151, %_ZN4pbrt10AddRoundUpEff.exit.i22.i149 ]
-  %cmp.i29.i154 = fcmp oeq float %pError.sroa.8.0, 0.000000e+00
-  br i1 %cmp.i29.i154, label %if.then.i54.i181, label %if.else.i30.i155
+_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i164: ; preds = %_ZN4pbrt10AddRoundUpEff.exit.i22.i161, %if.then.i26.i195
+  %retval.sroa.0.0.i25.i165 = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i27.i196, %if.then.i26.i195 ], [ %retval.sroa.0.4.vec.insert9.i24.i163, %_ZN4pbrt10AddRoundUpEff.exit.i22.i161 ]
+  %cmp.i29.i166 = fcmp oeq float %pError.sroa.8.0, 0.000000e+00
+  br i1 %cmp.i29.i166, label %if.then.i54.i193, label %if.else.i30.i167
 
-if.then.i54.i181:                                 ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i152
+if.then.i54.i193:                                 ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i164
   %215 = insertelement <2 x float> poison, float %add68, i64 0
-  %retval.sroa.0.0.vec.insert.i55.i182 = shufflevector <2 x float> %215, <2 x float> poison, <2 x i32> zeroinitializer
-  br label %_ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit187
+  %retval.sroa.0.0.vec.insert.i55.i194 = shufflevector <2 x float> %215, <2 x float> poison, <2 x i32> zeroinitializer
+  br label %_ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit199
 
-if.else.i30.i155:                                 ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i152
-  %add.i.i.i31.i156 = fsub float %add68, %pError.sroa.8.0
-  %or.cond.i.i.i.i32.i157 = fcmp oeq float %add.i.i.i31.i156, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i.i32.i157, label %_ZN4pbrt12SubRoundDownEff.exit.i39.i164, label %if.end.i.i.i.i33.i158
+if.else.i30.i167:                                 ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i164
+  %add.i.i.i31.i168 = fsub float %add68, %pError.sroa.8.0
+  %or.cond.i.i.i.i32.i169 = fcmp oeq float %add.i.i.i31.i168, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i.i32.i169, label %_ZN4pbrt12SubRoundDownEff.exit.i39.i176, label %if.end.i.i.i.i33.i170
 
-if.end.i.i.i.i33.i158:                            ; preds = %if.else.i30.i155
-  %cmp1.i.i.i.i34.i159 = fcmp oeq float %add.i.i.i31.i156, 0.000000e+00
-  %v.addr.0.i.i.i.i35.i160 = select i1 %cmp1.i.i.i.i34.i159, float -0.000000e+00, float %add.i.i.i31.i156
-  %216 = bitcast float %v.addr.0.i.i.i.i35.i160 to i32
-  %cmp5.i.i.i.i36.i161 = fcmp ogt float %v.addr.0.i.i.i.i35.i160, 0.000000e+00
-  %ui.0.v.i.i.i.i37.i162 = select i1 %cmp5.i.i.i.i36.i161, i32 -1, i32 1
-  %ui.0.i.i.i.i38.i163 = add i32 %ui.0.v.i.i.i.i37.i162, %216
-  %217 = bitcast i32 %ui.0.i.i.i.i38.i163 to float
-  br label %_ZN4pbrt12SubRoundDownEff.exit.i39.i164
+if.end.i.i.i.i33.i170:                            ; preds = %if.else.i30.i167
+  %cmp1.i.i.i.i34.i171 = fcmp oeq float %add.i.i.i31.i168, 0.000000e+00
+  %v.addr.0.i.i.i.i35.i172 = select i1 %cmp1.i.i.i.i34.i171, float -0.000000e+00, float %add.i.i.i31.i168
+  %216 = bitcast float %v.addr.0.i.i.i.i35.i172 to i32
+  %cmp5.i.i.i.i36.i173 = fcmp ogt float %v.addr.0.i.i.i.i35.i172, 0.000000e+00
+  %ui.0.v.i.i.i.i37.i174 = select i1 %cmp5.i.i.i.i36.i173, i32 -1, i32 1
+  %ui.0.i.i.i.i38.i175 = add i32 %ui.0.v.i.i.i.i37.i174, %216
+  %217 = bitcast i32 %ui.0.i.i.i.i38.i175 to float
+  br label %_ZN4pbrt12SubRoundDownEff.exit.i39.i176
 
-_ZN4pbrt12SubRoundDownEff.exit.i39.i164:          ; preds = %if.end.i.i.i.i33.i158, %if.else.i30.i155
-  %retval.0.i.i.i.i40.i165 = phi float [ %217, %if.end.i.i.i.i33.i158 ], [ 0xFFF0000000000000, %if.else.i30.i155 ]
-  %retval.sroa.0.0.vec.insert7.i41.i166 = insertelement <2 x float> poison, float %retval.0.i.i.i.i40.i165, i64 0
-  %add.i.i42.i167 = fadd float %add68, %pError.sroa.8.0
-  %or.cond.i.i.i43.i168 = fcmp oeq float %add.i.i42.i167, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i43.i168, label %_ZN4pbrt10AddRoundUpEff.exit.i50.i175, label %if.end.i.i.i44.i169
+_ZN4pbrt12SubRoundDownEff.exit.i39.i176:          ; preds = %if.end.i.i.i.i33.i170, %if.else.i30.i167
+  %retval.0.i.i.i.i40.i177 = phi float [ %217, %if.end.i.i.i.i33.i170 ], [ 0xFFF0000000000000, %if.else.i30.i167 ]
+  %retval.sroa.0.0.vec.insert7.i41.i178 = insertelement <2 x float> poison, float %retval.0.i.i.i.i40.i177, i64 0
+  %add.i.i42.i179 = fadd float %add68, %pError.sroa.8.0
+  %or.cond.i.i.i43.i180 = fcmp oeq float %add.i.i42.i179, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i43.i180, label %_ZN4pbrt10AddRoundUpEff.exit.i50.i187, label %if.end.i.i.i44.i181
 
-if.end.i.i.i44.i169:                              ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i39.i164
-  %cmp1.i.i.i45.i170 = fcmp oeq float %add.i.i42.i167, 0.000000e+00
-  %v.addr.0.i.i.i46.i171 = select i1 %cmp1.i.i.i45.i170, float 0.000000e+00, float %add.i.i42.i167
-  %218 = bitcast float %v.addr.0.i.i.i46.i171 to i32
-  %cmp5.i.i.i47.i172 = fcmp ult float %v.addr.0.i.i.i46.i171, 0.000000e+00
-  %ui.0.v.i.i.i48.i173 = select i1 %cmp5.i.i.i47.i172, i32 -1, i32 1
-  %ui.0.i.i.i49.i174 = add i32 %ui.0.v.i.i.i48.i173, %218
-  %219 = bitcast i32 %ui.0.i.i.i49.i174 to float
-  br label %_ZN4pbrt10AddRoundUpEff.exit.i50.i175
+if.end.i.i.i44.i181:                              ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i39.i176
+  %cmp1.i.i.i45.i182 = fcmp oeq float %add.i.i42.i179, 0.000000e+00
+  %v.addr.0.i.i.i46.i183 = select i1 %cmp1.i.i.i45.i182, float 0.000000e+00, float %add.i.i42.i179
+  %218 = bitcast float %v.addr.0.i.i.i46.i183 to i32
+  %cmp5.i.i.i47.i184 = fcmp ult float %v.addr.0.i.i.i46.i183, 0.000000e+00
+  %ui.0.v.i.i.i48.i185 = select i1 %cmp5.i.i.i47.i184, i32 -1, i32 1
+  %ui.0.i.i.i49.i186 = add i32 %ui.0.v.i.i.i48.i185, %218
+  %219 = bitcast i32 %ui.0.i.i.i49.i186 to float
+  br label %_ZN4pbrt10AddRoundUpEff.exit.i50.i187
 
-_ZN4pbrt10AddRoundUpEff.exit.i50.i175:            ; preds = %if.end.i.i.i44.i169, %_ZN4pbrt12SubRoundDownEff.exit.i39.i164
-  %retval.0.i.i.i51.i176 = phi float [ %219, %if.end.i.i.i44.i169 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i39.i164 ]
-  %retval.sroa.0.4.vec.insert9.i52.i177 = insertelement <2 x float> %retval.sroa.0.0.vec.insert7.i41.i166, float %retval.0.i.i.i51.i176, i64 1
-  br label %_ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit187
+_ZN4pbrt10AddRoundUpEff.exit.i50.i187:            ; preds = %if.end.i.i.i44.i181, %_ZN4pbrt12SubRoundDownEff.exit.i39.i176
+  %retval.0.i.i.i51.i188 = phi float [ %219, %if.end.i.i.i44.i181 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i39.i176 ]
+  %retval.sroa.0.4.vec.insert9.i52.i189 = insertelement <2 x float> %retval.sroa.0.0.vec.insert7.i41.i178, float %retval.0.i.i.i51.i188, i64 1
+  br label %_ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit199
 
-_ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit187: ; preds = %if.then.i54.i181, %_ZN4pbrt10AddRoundUpEff.exit.i50.i175
-  %retval.sroa.0.0.i53.i178 = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i55.i182, %if.then.i54.i181 ], [ %retval.sroa.0.4.vec.insert9.i52.i177, %_ZN4pbrt10AddRoundUpEff.exit.i50.i175 ]
-  store <2 x float> %retval.sroa.0.0.i.i125, ptr %ref.tmp352, align 8
-  %y3.i.i.i179 = getelementptr inbounds i8, ptr %ref.tmp352, i64 8
-  store <2 x float> %retval.sroa.0.0.i25.i153, ptr %y3.i.i.i179, align 8
-  %z4.i.i.i180 = getelementptr inbounds i8, ptr %ref.tmp352, i64 16
-  store <2 x float> %retval.sroa.0.0.i53.i178, ptr %z4.i.i.i180, align 8
+_ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit199: ; preds = %if.then.i54.i193, %_ZN4pbrt10AddRoundUpEff.exit.i50.i187
+  %retval.sroa.0.0.i53.i190 = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i55.i194, %if.then.i54.i193 ], [ %retval.sroa.0.4.vec.insert9.i52.i189, %_ZN4pbrt10AddRoundUpEff.exit.i50.i187 ]
+  store <2 x float> %retval.sroa.0.0.i.i137, ptr %ref.tmp352, align 8
+  %y3.i.i.i191 = getelementptr inbounds i8, ptr %ref.tmp352, i64 8
+  store <2 x float> %retval.sroa.0.0.i25.i165, ptr %y3.i.i.i191, align 8
+  %z4.i.i.i192 = getelementptr inbounds i8, ptr %ref.tmp352, i64 16
+  store <2 x float> %retval.sroa.0.0.i53.i190, ptr %z4.i.i.i192, align 8
   call void @_ZNK4pbrt6Tuple3INS_6Point3ENS_8IntervalEEdvIfEENS1_IDTdvtlS2_EtlT_EEEES5_(ptr nonnull sret(%"class.pbrt::Point3") align 4 %agg.tmp351, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp352, float noundef %add90)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp351, i64 24, i1 false)
   br label %return
 
-return:                                           ; preds = %_ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit187, %_ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit
+return:                                           ; preds = %_ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit199, %_ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit
   ret void
 }
 
@@ -35059,8 +35059,8 @@ invoke.cont27:                                    ; preds = %if.then
   %sub6.i = fsub float %div.i.i6.i.i, %div.i.i6.i.i45
   %26 = fsub <2 x float> %21, %25
   %27 = fmul <2 x float> %26, %26
-  %shift345 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %28 = fadd <2 x float> %27, %shift345
+  %shift346 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %28 = fadd <2 x float> %27, %shift346
   %add.i = extractelement <2 x float> %28, i64 0
   %mul.i2.i = fmul float %sub6.i, %sub6.i
   %add3.i = fadd float %add.i, %mul.i2.i
@@ -35093,8 +35093,8 @@ invoke.cont74:                                    ; preds = %invoke.cont27
   %38 = fsub <2 x float> %25, %21
   %sub6.i.i122 = fsub float %div.i.i6.i.i45, %div.i.i6.i.i
   %39 = fmul <2 x float> %38, %38
-  %shift346 = shufflevector <2 x float> %39, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %40 = fadd <2 x float> %39, %shift346
+  %shift347 = shufflevector <2 x float> %39, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %40 = fadd <2 x float> %39, %shift347
   %add.i.i125 = extractelement <2 x float> %40, i64 0
   %mul.i2.i.i126 = fmul float %sub6.i.i122, %sub6.i.i122
   %add3.i.i127 = fadd float %add.i.i125, %mul.i2.i.i126
@@ -35138,8 +35138,8 @@ if.end79:                                         ; preds = %entry
   %50 = fmul <2 x float> %49, <float 5.000000e-01, float 5.000000e-01>
   %51 = fsub <2 x float> %50, %call.fca.0.extract
   %52 = fmul <2 x float> %51, %51
-  %shift347 = shufflevector <2 x float> %52, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %53 = fadd <2 x float> %52, %shift347
+  %shift348 = shufflevector <2 x float> %52, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %53 = fadd <2 x float> %52, %shift348
   %add.i.i.i176 = extractelement <2 x float> %53, i64 0
   %mul.i2.i.i.i177 = fmul float %sub6.i.i173, %sub6.i.i173
   %add3.i.i.i178 = fadd float %add.i.i.i176, %mul.i2.i.i.i177
@@ -35197,40 +35197,40 @@ if.end102:                                        ; preds = %if.then96, %if.end7
   %retval.0.i11.i = select i1 %cmp.i8.i, float -1.000000e+00, float %conv2.val.i10.i
   %54 = load <4 x float>, ptr %ctx, align 4
   %55 = shufflevector <4 x float> %54, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %agg.tmp.sroa.0.sroa.4.0.copyload.i201 = load float, ptr %agg.tmp.sroa.0.sroa.4.0.this.sroa_idx.i.i, align 4
-  %agg.tmp.sroa.0.sroa.5.0.copyload.i203 = load float, ptr %agg.tmp.sroa.0.sroa.5.0.this.sroa_idx.i.i, align 4
-  %agg.tmp.sroa.0.sroa.6.0.copyload.i205 = load float, ptr %agg.tmp.sroa.0.sroa.6.0.this.sroa_idx.i.i, align 4
-  %add.i.i5.i.i210 = fadd float %agg.tmp.sroa.0.sroa.5.0.copyload.i203, %agg.tmp.sroa.0.sroa.6.0.copyload.i205
-  %div.i.i6.i.i211 = fmul float %add.i.i5.i.i210, 5.000000e-01
-  %sub6.i222 = fsub float %call.fca.1.extract, %div.i.i6.i.i211
-  %mul.i2.i.i.i232 = fmul float %sub6.i222, %sub6.i222
+  %agg.tmp.sroa.0.sroa.4.0.copyload.i202 = load float, ptr %agg.tmp.sroa.0.sroa.4.0.this.sroa_idx.i.i, align 4
+  %agg.tmp.sroa.0.sroa.5.0.copyload.i204 = load float, ptr %agg.tmp.sroa.0.sroa.5.0.this.sroa_idx.i.i, align 4
+  %agg.tmp.sroa.0.sroa.6.0.copyload.i206 = load float, ptr %agg.tmp.sroa.0.sroa.6.0.this.sroa_idx.i.i, align 4
+  %add.i.i5.i.i211 = fadd float %agg.tmp.sroa.0.sroa.5.0.copyload.i204, %agg.tmp.sroa.0.sroa.6.0.copyload.i206
+  %div.i.i6.i.i212 = fmul float %add.i.i5.i.i211, 5.000000e-01
+  %sub6.i223 = fsub float %call.fca.1.extract, %div.i.i6.i.i212
+  %mul.i2.i.i.i233 = fmul float %sub6.i223, %sub6.i223
   %56 = fneg float %conv2.val.i.i
   %57 = load float, ptr %this, align 8
   %reverseOrientation = getelementptr inbounds i8, ptr %this, i64 40
   %58 = load i8, ptr %reverseOrientation, align 8
   %tobool = trunc i8 %58 to i1
   %59 = load <2 x float>, ptr %agg.tmp.sroa.0.sroa.2.0.this.sroa_idx.i.i, align 4
-  %60 = insertelement <2 x float> %55, float %agg.tmp.sroa.0.sroa.4.0.copyload.i201, i64 1
+  %60 = insertelement <2 x float> %55, float %agg.tmp.sroa.0.sroa.4.0.copyload.i202, i64 1
   %61 = fadd <2 x float> %59, %60
   %62 = fmul <2 x float> %61, <float 5.000000e-01, float 5.000000e-01>
   %63 = fsub <2 x float> %call.fca.0.extract, %62
   %64 = fmul <2 x float> %63, %63
-  %shift348 = shufflevector <2 x float> %64, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %65 = fadd <2 x float> %64, %shift348
-  %add.i.i.i231 = extractelement <2 x float> %65, i64 0
-  %add3.i.i.i233 = fadd float %add.i.i.i231, %mul.i2.i.i.i232
-  %sqrt.i.i234 = tail call noundef float @llvm.sqrt.f32(float %add3.i.i.i233)
-  %66 = insertelement <2 x float> poison, float %sqrt.i.i234, i64 0
+  %shift349 = shufflevector <2 x float> %64, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %65 = fadd <2 x float> %64, %shift349
+  %add.i.i.i232 = extractelement <2 x float> %65, i64 0
+  %add3.i.i.i234 = fadd float %add.i.i.i232, %mul.i2.i.i.i233
+  %sqrt.i.i235 = tail call noundef float @llvm.sqrt.f32(float %add3.i.i.i234)
+  %66 = insertelement <2 x float> poison, float %sqrt.i.i235, i64 0
   %67 = shufflevector <2 x float> %66, <2 x float> poison, <2 x i32> zeroinitializer
   %68 = fdiv <2 x float> %63, %67
-  %div3.i.i237 = fdiv float %sub6.i222, %sqrt.i.i234
-  %69 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %div3.i.i237)
-  %add.i.i242 = fadd float %div3.i.i237, %69
-  %div.i.i243 = fdiv float -1.000000e+00, %add.i.i242
+  %div3.i.i238 = fdiv float %sub6.i223, %sqrt.i.i235
+  %69 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %div3.i.i238)
+  %add.i.i243 = fadd float %div3.i.i238, %69
+  %div.i.i244 = fdiv float -1.000000e+00, %add.i.i243
   %70 = extractelement <2 x float> %68, i64 0
   %71 = extractelement <2 x float> %68, i64 1
-  %mul.i.i244 = fmul float %70, %71
-  %mul2.i.i = fmul float %mul.i.i244, %div.i.i243
+  %mul.i.i245 = fmul float %70, %71
+  %mul2.i.i = fmul float %mul.i.i245, %div.i.i244
   %72 = fmul <2 x float> %68, %68
   %mul8.i.i = fmul float %69, %mul2.i.i
   %fneg.i.i = fneg float %69
@@ -35238,7 +35238,7 @@ if.end102:                                        ; preds = %if.then96, %if.end7
   %73 = insertelement <2 x float> %68, float %69, i64 0
   %74 = shufflevector <2 x float> %72, <2 x float> %68, <2 x i32> <i32 0, i32 3>
   %75 = fmul <2 x float> %73, %74
-  %76 = insertelement <2 x float> poison, float %div.i.i243, i64 0
+  %76 = insertelement <2 x float> poison, float %div.i.i244, i64 0
   %77 = shufflevector <2 x float> %76, <2 x float> poison, <2 x i32> zeroinitializer
   %78 = fmul <2 x float> %75, %77
   %79 = insertelement <2 x float> <float 1.000000e+00, float poison>, float %69, i64 1
@@ -35263,54 +35263,54 @@ if.end102:                                        ; preds = %if.then96, %if.end7
   %96 = shufflevector <2 x float> %95, <2 x float> poison, <2 x i32> zeroinitializer
   %97 = fmul <2 x float> %96, %68
   %98 = fsub <2 x float> %92, %97
-  %99 = fmul float %retval.0.i11.i, %div3.i.i237
+  %99 = fmul float %retval.0.i11.i, %div3.i.i238
   %add6.i25.i = fsub float %add6.i.i, %99
   %100 = extractelement <2 x float> %98, i64 0
-  %mul.i.i265 = fmul float %57, %100
+  %mul.i.i266 = fmul float %57, %100
   %101 = extractelement <2 x float> %98, i64 1
-  %mul2.i.i266 = fmul float %57, %101
+  %mul2.i.i267 = fmul float %57, %101
   %mul3.i.i = fmul float %57, %add6.i25.i
   %102 = extractelement <2 x float> %call.fca.0.extract, i64 0
-  %add.i271 = fadd float %102, %mul.i.i265
+  %add.i272 = fadd float %102, %mul.i.i266
   %103 = extractelement <2 x float> %call.fca.0.extract, i64 1
-  %add4.i = fadd float %103, %mul2.i.i266
+  %add4.i = fadd float %103, %mul2.i.i267
   %add6.i = fadd float %call.fca.1.extract, %mul3.i.i
-  %retval.sroa.0.0.vec.insert.i274 = insertelement <2 x float> poison, float %add.i271, i64 0
-  %retval.sroa.0.4.vec.insert.i275 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i274, float %add4.i, i64 1
+  %retval.sroa.0.0.vec.insert.i275 = insertelement <2 x float> poison, float %add.i272, i64 0
+  %retval.sroa.0.4.vec.insert.i276 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i275, float %add4.i, i64 1
   %104 = fneg <2 x float> %98
   %mul5.i = fneg float %add6.i25.i
   %n131.sroa.0.0 = select i1 %tobool, <2 x float> %104, <2 x float> %98
   %n131.sroa.9.0 = select i1 %tobool, float %mul5.i, float %add6.i25.i
-  %105 = tail call noundef float @llvm.fabs.f32(float %add.i271)
+  %105 = tail call noundef float @llvm.fabs.f32(float %add.i272)
   %106 = tail call noundef float @llvm.fabs.f32(float %add4.i)
   %107 = tail call noundef float @llvm.fabs.f32(float %add6.i)
-  %mul.i.i292 = fmul float %105, 0x3E94000060000000
-  %mul2.i.i294 = fmul float %106, 0x3E94000060000000
-  %mul3.i.i295 = fmul float %107, 0x3E94000060000000
+  %mul.i.i293 = fmul float %105, 0x3E94000060000000
+  %mul2.i.i295 = fmul float %106, 0x3E94000060000000
+  %mul3.i.i296 = fmul float %107, 0x3E94000060000000
   %objectFromRender = getelementptr inbounds i8, ptr %this, i64 32
   %108 = load ptr, ptr %objectFromRender, align 8
-  %call166 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %108, <2 x float> %retval.sroa.0.4.vec.insert.i275, float %add6.i)
+  %call166 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %108, <2 x float> %retval.sroa.0.4.vec.insert.i276, float %add6.i)
   %call166.fca.0.extract = extractvalue { <2 x float>, float } %call166, 0
   %call166.fca.1.extract = extractvalue { <2 x float>, float } %call166, 1
   %109 = load float, ptr %this, align 8
   %div171 = fdiv float %call166.fca.1.extract, %109
-  %cmp.i.i300 = fcmp olt float %div171, -1.000000e+00
-  %cmp3.i.i301 = fcmp ogt float %div171, 1.000000e+00
-  %conv2.val.i.i302 = select i1 %cmp3.i.i301, float 1.000000e+00, float %div171
-  %retval.0.i.i = select i1 %cmp.i.i300, float -1.000000e+00, float %conv2.val.i.i302
-  %call.i.i303 = tail call noundef float @acosf(float noundef %retval.0.i.i) #28
+  %cmp.i.i301 = fcmp olt float %div171, -1.000000e+00
+  %cmp3.i.i302 = fcmp ogt float %div171, 1.000000e+00
+  %conv2.val.i.i303 = select i1 %cmp3.i.i302, float 1.000000e+00, float %div171
+  %retval.0.i.i = select i1 %cmp.i.i301, float -1.000000e+00, float %conv2.val.i.i303
+  %call.i.i304 = tail call noundef float @acosf(float noundef %retval.0.i.i) #28
   %pObj.sroa.0.4.vec.extract = extractelement <2 x float> %call166.fca.0.extract, i64 1
   %pObj.sroa.0.0.vec.extract = extractelement <2 x float> %call166.fca.0.extract, i64 0
-  %call.i304 = tail call noundef float @atan2f(float noundef %pObj.sroa.0.4.vec.extract, float noundef %pObj.sroa.0.0.vec.extract) #28
-  %cmp176 = fcmp olt float %call.i304, 0.000000e+00
-  %add178 = fadd float %call.i304, 0x401921FB60000000
-  %spherePhi.0 = select i1 %cmp176, float %add178, float %call.i304
+  %call.i305 = tail call noundef float @atan2f(float noundef %pObj.sroa.0.4.vec.extract, float noundef %pObj.sroa.0.0.vec.extract) #28
+  %cmp176 = fcmp olt float %call.i305, 0.000000e+00
+  %add178 = fadd float %call.i305, 0x401921FB60000000
+  %spherePhi.0 = select i1 %cmp176, float %add178, float %call.i305
   %phiMax = getelementptr inbounds i8, ptr %this, i64 20
   %110 = load <4 x float>, ptr %phiMax, align 4
   %111 = shufflevector <4 x float> %110, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %thetaZMin = getelementptr inbounds i8, ptr %this, i64 12
   %112 = load float, ptr %thetaZMin, align 4
-  %sub181 = fsub float %call.i.i303, %112
+  %sub181 = fsub float %call.i.i304, %112
   %thetaZMax = getelementptr inbounds i8, ptr %this, i64 16
   %113 = load float, ptr %thetaZMax, align 8
   %sub183 = fsub float %113, %112
@@ -35318,21 +35318,21 @@ if.end102:                                        ; preds = %if.then96, %if.end7
   %115 = insertelement <2 x float> %114, float %sub181, i64 1
   %116 = insertelement <2 x float> %111, float %sub183, i64 1
   %117 = fdiv <2 x float> %115, %116
-  %cmp.i.i307 = fcmp oeq float %mul.i.i292, 0.000000e+00
-  br i1 %cmp.i.i307, label %if.then.i.i, label %if.else.i.i
+  %cmp.i.i308 = fcmp oeq float %mul.i.i293, 0.000000e+00
+  br i1 %cmp.i.i308, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end102
-  %retval.sroa.0.0.vec.insert.i.i311 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i274, <2 x float> poison, <2 x i32> zeroinitializer
+  %retval.sroa.0.0.vec.insert.i.i312 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i275, <2 x float> poison, <2 x i32> zeroinitializer
   br label %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i
 
 if.else.i.i:                                      ; preds = %if.end102
-  %add.i.i.i.i308 = fsub float %add.i271, %mul.i.i292
-  %or.cond.i.i.i.i.i = fcmp oeq float %add.i.i.i.i308, 0xFFF0000000000000
+  %add.i.i.i.i309 = fsub float %add.i272, %mul.i.i293
+  %or.cond.i.i.i.i.i = fcmp oeq float %add.i.i.i.i309, 0xFFF0000000000000
   br i1 %or.cond.i.i.i.i.i, label %_ZN4pbrt12SubRoundDownEff.exit.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else.i.i
-  %cmp1.i.i.i.i.i = fcmp oeq float %add.i.i.i.i308, 0.000000e+00
-  %v.addr.0.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i, float -0.000000e+00, float %add.i.i.i.i308
+  %cmp1.i.i.i.i.i = fcmp oeq float %add.i.i.i.i309, 0.000000e+00
+  %v.addr.0.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i, float -0.000000e+00, float %add.i.i.i.i309
   %118 = bitcast float %v.addr.0.i.i.i.i.i to i32
   %cmp5.i.i.i.i.i = fcmp ogt float %v.addr.0.i.i.i.i.i, 0.000000e+00
   %ui.0.v.i.i.i.i.i = select i1 %cmp5.i.i.i.i.i, i32 -1, i32 1
@@ -35343,13 +35343,13 @@ if.end.i.i.i.i.i:                                 ; preds = %if.else.i.i
 _ZN4pbrt12SubRoundDownEff.exit.i.i:               ; preds = %if.end.i.i.i.i.i, %if.else.i.i
   %retval.0.i.i.i.i.i = phi float [ %119, %if.end.i.i.i.i.i ], [ 0xFFF0000000000000, %if.else.i.i ]
   %retval.sroa.0.0.vec.insert7.i.i = insertelement <2 x float> poison, float %retval.0.i.i.i.i.i, i64 0
-  %add.i.i.i309 = fadd float %add.i271, %mul.i.i292
-  %or.cond.i.i.i.i = fcmp oeq float %add.i.i.i309, 0x7FF0000000000000
+  %add.i.i.i310 = fadd float %add.i272, %mul.i.i293
+  %or.cond.i.i.i.i = fcmp oeq float %add.i.i.i310, 0x7FF0000000000000
   br i1 %or.cond.i.i.i.i, label %_ZN4pbrt10AddRoundUpEff.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i.i
-  %cmp1.i.i.i.i = fcmp oeq float %add.i.i.i309, 0.000000e+00
-  %v.addr.0.i.i.i.i = select i1 %cmp1.i.i.i.i, float 0.000000e+00, float %add.i.i.i309
+  %cmp1.i.i.i.i = fcmp oeq float %add.i.i.i310, 0.000000e+00
+  %v.addr.0.i.i.i.i = select i1 %cmp1.i.i.i.i, float 0.000000e+00, float %add.i.i.i310
   %120 = bitcast float %v.addr.0.i.i.i.i to i32
   %cmp5.i.i.i.i = fcmp ult float %v.addr.0.i.i.i.i, 0.000000e+00
   %ui.0.v.i.i.i.i = select i1 %cmp5.i.i.i.i, i32 -1, i32 1
@@ -35363,16 +35363,16 @@ _ZN4pbrt10AddRoundUpEff.exit.i.i:                 ; preds = %if.end.i.i.i.i, %_Z
   br label %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i
 
 _ZN4pbrt8Interval17FromValueAndErrorEff.exit.i:   ; preds = %_ZN4pbrt10AddRoundUpEff.exit.i.i, %if.then.i.i
-  %retval.sroa.0.0.i.i = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i.i311, %if.then.i.i ], [ %retval.sroa.0.4.vec.insert9.i.i, %_ZN4pbrt10AddRoundUpEff.exit.i.i ]
-  %cmp.i1.i = fcmp oeq float %mul2.i.i294, 0.000000e+00
+  %retval.sroa.0.0.i.i = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i.i312, %if.then.i.i ], [ %retval.sroa.0.4.vec.insert9.i.i, %_ZN4pbrt10AddRoundUpEff.exit.i.i ]
+  %cmp.i1.i = fcmp oeq float %mul2.i.i295, 0.000000e+00
   br i1 %cmp.i1.i, label %if.then.i26.i, label %if.else.i2.i
 
 if.then.i26.i:                                    ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i
-  %retval.sroa.0.0.vec.insert.i27.i = shufflevector <2 x float> %retval.sroa.0.4.vec.insert.i275, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %retval.sroa.0.0.vec.insert.i27.i = shufflevector <2 x float> %retval.sroa.0.4.vec.insert.i276, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   br label %_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i
 
 if.else.i2.i:                                     ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i
-  %add.i.i.i3.i = fsub float %add4.i, %mul2.i.i294
+  %add.i.i.i3.i = fsub float %add4.i, %mul2.i.i295
   %or.cond.i.i.i.i4.i = fcmp oeq float %add.i.i.i3.i, 0xFFF0000000000000
   br i1 %or.cond.i.i.i.i4.i, label %_ZN4pbrt12SubRoundDownEff.exit.i11.i, label %if.end.i.i.i.i5.i
 
@@ -35389,7 +35389,7 @@ if.end.i.i.i.i5.i:                                ; preds = %if.else.i2.i
 _ZN4pbrt12SubRoundDownEff.exit.i11.i:             ; preds = %if.end.i.i.i.i5.i, %if.else.i2.i
   %retval.0.i.i.i.i12.i = phi float [ %123, %if.end.i.i.i.i5.i ], [ 0xFFF0000000000000, %if.else.i2.i ]
   %retval.sroa.0.0.vec.insert7.i13.i = insertelement <2 x float> poison, float %retval.0.i.i.i.i12.i, i64 0
-  %add.i.i14.i = fadd float %add4.i, %mul2.i.i294
+  %add.i.i14.i = fadd float %add4.i, %mul2.i.i295
   %or.cond.i.i.i15.i = fcmp oeq float %add.i.i14.i, 0x7FF0000000000000
   br i1 %or.cond.i.i.i15.i, label %_ZN4pbrt10AddRoundUpEff.exit.i22.i, label %if.end.i.i.i16.i
 
@@ -35410,7 +35410,7 @@ _ZN4pbrt10AddRoundUpEff.exit.i22.i:               ; preds = %if.end.i.i.i16.i, %
 
 _ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i: ; preds = %_ZN4pbrt10AddRoundUpEff.exit.i22.i, %if.then.i26.i
   %retval.sroa.0.0.i25.i = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i27.i, %if.then.i26.i ], [ %retval.sroa.0.4.vec.insert9.i24.i, %_ZN4pbrt10AddRoundUpEff.exit.i22.i ]
-  %cmp.i29.i = fcmp oeq float %mul3.i.i295, 0.000000e+00
+  %cmp.i29.i = fcmp oeq float %mul3.i.i296, 0.000000e+00
   br i1 %cmp.i29.i, label %if.then.i54.i, label %if.else.i30.i
 
 if.then.i54.i:                                    ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i
@@ -35419,7 +35419,7 @@ if.then.i54.i:                                    ; preds = %_ZN4pbrt8Interval17
   br label %_ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit
 
 if.else.i30.i:                                    ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i
-  %add.i.i.i31.i = fsub float %add6.i, %mul3.i.i295
+  %add.i.i.i31.i = fsub float %add6.i, %mul3.i.i296
   %or.cond.i.i.i.i32.i = fcmp oeq float %add.i.i.i31.i, 0xFFF0000000000000
   br i1 %or.cond.i.i.i.i32.i, label %_ZN4pbrt12SubRoundDownEff.exit.i39.i, label %if.end.i.i.i.i33.i
 
@@ -35436,7 +35436,7 @@ if.end.i.i.i.i33.i:                               ; preds = %if.else.i30.i
 _ZN4pbrt12SubRoundDownEff.exit.i39.i:             ; preds = %if.end.i.i.i.i33.i, %if.else.i30.i
   %retval.0.i.i.i.i40.i = phi float [ %128, %if.end.i.i.i.i33.i ], [ 0xFFF0000000000000, %if.else.i30.i ]
   %retval.sroa.0.0.vec.insert7.i41.i = insertelement <2 x float> poison, float %retval.0.i.i.i.i40.i, i64 0
-  %add.i.i42.i = fadd float %add6.i, %mul3.i.i295
+  %add.i.i42.i = fadd float %add6.i, %mul3.i.i296
   %or.cond.i.i.i43.i = fcmp oeq float %add.i.i42.i, 0x7FF0000000000000
   br i1 %or.cond.i.i.i43.i, label %_ZN4pbrt10AddRoundUpEff.exit.i50.i, label %if.end.i.i.i44.i
 
@@ -35461,8 +35461,8 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %if.then.i54.i
   %131 = load float, ptr %time194, align 4
   %mul198 = fmul float %oneMinusCosThetaMax.0, 0x401921FB60000000
   %div199 = fdiv float 1.000000e+00, %mul198
-  %set.i312 = getelementptr inbounds i8, ptr %agg.result, i64 88
-  store i8 1, ptr %set.i312, align 8
+  %set.i313 = getelementptr inbounds i8, ptr %agg.result, i64 88
+  store i8 1, ptr %set.i313, align 8
   store <2 x float> %retval.sroa.0.0.i.i, ptr %agg.result, align 8
   %ref.tmp188.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store <2 x float> %retval.sroa.0.0.i25.i, ptr %ref.tmp188.sroa.2.0.agg.result.sroa_idx, align 8
@@ -35481,9 +35481,9 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %if.then.i54.i
   %ref.tmp188.sroa.10.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 52
   store <2 x float> %117, ptr %ref.tmp188.sroa.10.0.agg.result.sroa_idx, align 4
   %ref.tmp188.sroa.11.sroa.1.0.ref.tmp188.sroa.11.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 64
-  %pdf.i.i315 = getelementptr inbounds i8, ptr %agg.result, i64 80
+  %pdf.i.i316 = getelementptr inbounds i8, ptr %agg.result, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp188.sroa.11.sroa.1.0.ref.tmp188.sroa.11.0.agg.result.sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
-  store float %div199, ptr %pdf.i.i315, align 8
+  store float %div199, ptr %pdf.i.i316, align 8
   br label %return
 
 return:                                           ; preds = %cleanup, %cleanup.thread, %_ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit
@@ -36485,8 +36485,8 @@ invoke.cont80:                                    ; preds = %invoke.cont33
   %42 = fsub <2 x float> %29, %25
   %sub6.i.i = fsub float %div.i.i6.i.i85, %div.i.i6.i.i64
   %43 = fmul <2 x float> %42, %42
-  %shift728 = shufflevector <2 x float> %43, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %44 = fadd <2 x float> %43, %shift728
+  %shift743 = shufflevector <2 x float> %43, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %44 = fadd <2 x float> %43, %shift743
   %add.i.i = extractelement <2 x float> %44, i64 0
   %mul.i2.i.i = fmul float %sub6.i.i, %sub6.i.i
   %add3.i.i = fadd float %add.i.i, %mul.i2.i.i
@@ -36526,8 +36526,8 @@ if.end85:                                         ; preds = %entry
   %z.i175 = getelementptr inbounds i8, ptr %ctx, i64 44
   %51 = load float, ptr %z.i175, align 4
   %cmp6.i = fcmp une float %51, 0.000000e+00
-  %or.cond712 = select i1 %or.cond.i, i1 true, i1 %cmp6.i
-  br i1 %or.cond712, label %if.then89, label %if.end170
+  %or.cond727 = select i1 %or.cond.i, i1 true, i1 %cmp6.i
+  br i1 %or.cond727, label %if.then89, label %if.end170
 
 if.then89:                                        ; preds = %if.end85
   %52 = load <4 x float>, ptr %ctx, align 4
@@ -36544,8 +36544,8 @@ if.then89:                                        ; preds = %if.end85
   %57 = fmul <2 x float> %56, <float 5.000000e-01, float 5.000000e-01>
   %58 = fsub <2 x float> %p1.sroa.0.0.copyload, %57
   %59 = fmul <2 x float> %58, %58
-  %shift729 = shufflevector <2 x float> %59, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %60 = fadd <2 x float> %59, %shift729
+  %shift744 = shufflevector <2 x float> %59, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %60 = fadd <2 x float> %59, %shift744
   %add.i.i.i238 = extractelement <2 x float> %60, i64 0
   %mul.i2.i.i.i239 = fmul float %sub6.i229, %sub6.i229
   %add3.i.i.i240 = fadd float %add.i.i.i238, %mul.i2.i.i.i239
@@ -36566,7 +36566,7 @@ if.then89:                                        ; preds = %if.end85
   %65 = tail call noundef float @llvm.fma.f32(float %n.sroa.0.0.vec.extract.i.i275, float %div.i.i242, float %add.i.i.i281)
   %66 = tail call noundef float @llvm.fabs.f32(float %65)
   %cmp.i282 = fcmp ogt float %66, 0x3F847AE140000000
-  %.sroa.speculated685 = select i1 %cmp.i282, float %66, float 0x3F847AE140000000
+  %.sroa.speculated700 = select i1 %cmp.i282, float %66, float 0x3F847AE140000000
   %67 = shufflevector <2 x float> %p0.sroa.0.0.copyload, <2 x float> %p2.sroa.0.0.copyload, <2 x i32> <i32 0, i32 2>
   %68 = shufflevector <2 x float> %57, <2 x float> poison, <2 x i32> zeroinitializer
   %69 = fsub <2 x float> %67, %68
@@ -36601,15 +36601,15 @@ if.then89:                                        ; preds = %if.end85
   %98 = fcmp ogt <2 x float> %97, <float 0x3F847AE140000000, float 0x3F847AE140000000>
   %99 = select <2 x i1> %98, <2 x float> %97, <2 x float> <float 0x3F847AE140000000, float 0x3F847AE140000000>
   %u.sroa.0.4.vec.extract.i = extractelement <2 x float> %u.coerce, i64 1
-  %add.i311 = fadd float %.sroa.speculated685, %.sroa.speculated685
+  %add.i311 = fadd float %.sroa.speculated700, %.sroa.speculated700
   %cmp.i.i = fcmp oeq float %u.sroa.0.4.vec.extract.i, 0.000000e+00
   %cmp1.i.i = fcmp oeq float %add.i311, 0.000000e+00
   %or.cond.i.i = and i1 %cmp.i.i, %cmp1.i.i
   br i1 %or.cond.i.i, label %_ZN4pbrt12SampleLinearEfff.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then89
-  %shift730 = shufflevector <2 x float> %99, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %100 = fadd <2 x float> %99, %shift730
+  %shift745 = shufflevector <2 x float> %99, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %100 = fadd <2 x float> %99, %shift745
   %add5.i = extractelement <2 x float> %100, i64 0
   %add.i.i312 = fadd float %add.i311, %add5.i
   %mul.i.i313 = fmul float %u.sroa.0.4.vec.extract.i, %add.i.i312
@@ -36631,45 +36631,45 @@ _ZN4pbrt12SampleLinearEfff.exit.i:                ; preds = %if.end.i.i, %if.the
   %retval.0.i.i = phi float [ %.sroa.speculated.i.i, %if.end.i.i ], [ 0.000000e+00, %if.then89 ]
   %u.sroa.0.0.vec.extract.i = extractelement <2 x float> %u.coerce, i64 0
   %sub.i.i317 = fsub float 1.000000e+00, %retval.0.i.i
-  %mul.i4.i = fmul float %.sroa.speculated685, %sub.i.i317
+  %mul.i6.i = fmul float %.sroa.speculated700, %sub.i.i317
   %102 = extractelement <2 x float> %99, i64 0
   %mul1.i.i = fmul float %retval.0.i.i, %102
-  %add.i5.i = fadd float %mul.i4.i, %mul1.i.i
-  %cmp.i12.i = fcmp oeq float %u.sroa.0.0.vec.extract.i, 0.000000e+00
-  %cmp1.i13.i = fcmp oeq float %add.i5.i, 0.000000e+00
-  %or.cond.i14.i = and i1 %cmp.i12.i, %cmp1.i13.i
-  br i1 %or.cond.i14.i, label %_ZN4pbrt14SampleBilinearENS_6Point2IfEEN4pstd4spanIKfEE.exit, label %if.end.i15.i
+  %add.i7.i = fadd float %mul.i6.i, %mul1.i.i
+  %cmp.i14.i = fcmp oeq float %u.sroa.0.0.vec.extract.i, 0.000000e+00
+  %cmp1.i15.i = fcmp oeq float %add.i7.i, 0.000000e+00
+  %or.cond.i16.i = and i1 %cmp.i14.i, %cmp1.i15.i
+  br i1 %or.cond.i16.i, label %_ZN4pbrt14SampleBilinearENS_6Point2IfEEN4pstd4spanIKfEE.exit, label %if.end.i17.i
 
-if.end.i15.i:                                     ; preds = %_ZN4pbrt12SampleLinearEfff.exit.i
+if.end.i17.i:                                     ; preds = %_ZN4pbrt12SampleLinearEfff.exit.i
   %103 = extractelement <2 x float> %99, i64 1
-  %mul1.i10.i = fmul float %retval.0.i.i, %103
-  %add.i11.i = fadd float %mul.i4.i, %mul1.i10.i
-  %add.i16.i = fadd float %add.i5.i, %add.i11.i
-  %mul.i17.i = fmul float %u.sroa.0.0.vec.extract.i, %add.i16.i
-  %mul.i.i18.i = fmul float %add.i5.i, %add.i5.i
-  %mul.i7.i19.i = fmul float %add.i11.i, %add.i11.i
-  %sub.i.i20.i = fsub float 1.000000e+00, %u.sroa.0.0.vec.extract.i
-  %mul.i8.i21.i = fmul float %sub.i.i20.i, %mul.i.i18.i
-  %mul1.i.i22.i = fmul float %u.sroa.0.0.vec.extract.i, %mul.i7.i19.i
-  %add.i.i23.i = fadd float %mul.i8.i21.i, %mul1.i.i22.i
-  %call.i.i24.i = tail call noundef float @sqrtf(float noundef %add.i.i23.i) #28
-  %add5.i25.i = fadd float %add.i5.i, %call.i.i24.i
-  %div.i26.i = fdiv float %mul.i17.i, %add5.i25.i
-  %cmp.i.i27.i = fcmp ogt float %div.i26.i, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i28.i = select i1 %cmp.i.i27.i, float 0x3FEFFFFFE0000000, float %div.i26.i
+  %mul1.i12.i = fmul float %retval.0.i.i, %103
+  %add.i13.i = fadd float %mul.i6.i, %mul1.i12.i
+  %add.i18.i = fadd float %add.i7.i, %add.i13.i
+  %mul.i19.i = fmul float %u.sroa.0.0.vec.extract.i, %add.i18.i
+  %mul.i.i20.i = fmul float %add.i7.i, %add.i7.i
+  %mul.i7.i21.i = fmul float %add.i13.i, %add.i13.i
+  %sub.i.i22.i = fsub float 1.000000e+00, %u.sroa.0.0.vec.extract.i
+  %mul.i8.i23.i = fmul float %sub.i.i22.i, %mul.i.i20.i
+  %mul1.i.i24.i = fmul float %u.sroa.0.0.vec.extract.i, %mul.i7.i21.i
+  %add.i.i25.i = fadd float %mul.i8.i23.i, %mul1.i.i24.i
+  %call.i.i26.i = tail call noundef float @sqrtf(float noundef %add.i.i25.i) #28
+  %add5.i27.i = fadd float %add.i7.i, %call.i.i26.i
+  %div.i28.i = fdiv float %mul.i19.i, %add5.i27.i
+  %cmp.i.i29.i = fcmp ogt float %div.i28.i, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i30.i = select i1 %cmp.i.i29.i, float 0x3FEFFFFFE0000000, float %div.i28.i
   br label %_ZN4pbrt14SampleBilinearENS_6Point2IfEEN4pstd4spanIKfEE.exit
 
-_ZN4pbrt14SampleBilinearENS_6Point2IfEEN4pstd4spanIKfEE.exit: ; preds = %_ZN4pbrt12SampleLinearEfff.exit.i, %if.end.i15.i
-  %retval.0.i29.i = phi float [ %.sroa.speculated.i28.i, %if.end.i15.i ], [ 0.000000e+00, %_ZN4pbrt12SampleLinearEfff.exit.i ]
-  %104 = insertelement <2 x float> poison, float %retval.0.i29.i, i64 0
+_ZN4pbrt14SampleBilinearENS_6Point2IfEEN4pstd4spanIKfEE.exit: ; preds = %_ZN4pbrt12SampleLinearEfff.exit.i, %if.end.i17.i
+  %retval.0.i31.i = phi float [ %.sroa.speculated.i30.i, %if.end.i17.i ], [ 0.000000e+00, %_ZN4pbrt12SampleLinearEfff.exit.i ]
+  %104 = insertelement <2 x float> poison, float %retval.0.i31.i, i64 0
   %retval.sroa.0.0.vec.insert.i318 = insertelement <2 x float> %104, float %retval.0.i.i, i64 1
-  %cmp.i320 = fcmp olt float %retval.0.i29.i, 0.000000e+00
-  %cmp2.i = fcmp ogt float %retval.0.i29.i, 1.000000e+00
-  %or.cond.i321 = or i1 %cmp.i320, %cmp2.i
-  %cmp4.i322 = fcmp olt float %retval.0.i.i, 0.000000e+00
+  %cmp.i321 = fcmp olt float %retval.0.i31.i, 0.000000e+00
+  %cmp2.i = fcmp ogt float %retval.0.i31.i, 1.000000e+00
+  %or.cond.i322 = or i1 %cmp.i321, %cmp2.i
+  %cmp4.i324 = fcmp olt float %retval.0.i.i, 0.000000e+00
   %cmp7.i = fcmp ogt float %retval.0.i.i, 1.000000e+00
-  %105 = or i1 %cmp4.i322, %cmp7.i
-  %or.cond2.i = or i1 %105, %or.cond.i321
+  %105 = or i1 %cmp4.i324, %cmp7.i
+  %or.cond2.i = or i1 %105, %or.cond.i322
   br i1 %or.cond2.i, label %if.end170, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN4pbrt14SampleBilinearENS_6Point2IfEEN4pstd4spanIKfEE.exit
@@ -36680,16 +36680,16 @@ if.end.i:                                         ; preds = %_ZN4pbrt14SampleBil
   br i1 %cmp13.i, label %if.end170, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end.i
-  %sub.i325 = fsub float 1.000000e+00, %retval.0.i29.i
-  %mul.i = fmul float %sub.i.i317, %sub.i325
-  %mul20.i = fmul float %.sroa.speculated685, %mul.i
-  %mul24.i = fmul float %sub.i.i317, %retval.0.i29.i
-  %mul26.i = fmul float %.sroa.speculated685, %mul24.i
+  %sub.i327 = fsub float 1.000000e+00, %retval.0.i31.i
+  %mul.i = fmul float %sub.i.i317, %sub.i327
+  %mul20.i = fmul float %.sroa.speculated700, %mul.i
+  %mul24.i = fmul float %sub.i.i317, %retval.0.i31.i
+  %mul26.i = fmul float %.sroa.speculated700, %mul24.i
   %add27.i = fadd float %mul26.i, %mul20.i
   %107 = insertelement <2 x float> poison, float %retval.0.i.i, i64 0
   %108 = shufflevector <2 x float> %107, <2 x float> poison, <2 x i32> zeroinitializer
-  %109 = insertelement <2 x float> poison, float %sub.i325, i64 0
-  %110 = insertelement <2 x float> %109, float %retval.0.i29.i, i64 1
+  %109 = insertelement <2 x float> poison, float %sub.i327, i64 0
+  %110 = insertelement <2 x float> %109, float %retval.0.i31.i, i64 1
   %111 = fmul <2 x float> %108, %110
   %112 = fmul <2 x float> %99, %111
   %113 = extractelement <2 x float> %112, i64 0
@@ -36716,16 +36716,16 @@ if.end170:                                        ; preds = %if.end85, %if.end15
   store float %p2.sroa.8.0.copyload, ptr %ref.tmp173.sroa.6.0.ref.tmp171.sroa_idx, align 8
   %115 = load <4 x float>, ptr %ctx, align 4
   %116 = shufflevector <4 x float> %115, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %agg.tmp.sroa.0.sroa.4.0.copyload.i340 = load float, ptr %agg.tmp.sroa.0.sroa.4.0.this.sroa_idx.i, align 4
-  %agg.tmp.sroa.0.sroa.5.0.copyload.i342 = load float, ptr %agg.tmp.sroa.0.sroa.5.0.this.sroa_idx.i, align 4
-  %agg.tmp.sroa.0.sroa.6.0.copyload.i344 = load float, ptr %agg.tmp.sroa.0.sroa.6.0.this.sroa_idx.i, align 4
+  %agg.tmp.sroa.0.sroa.4.0.copyload.i342 = load float, ptr %agg.tmp.sroa.0.sroa.4.0.this.sroa_idx.i, align 4
+  %agg.tmp.sroa.0.sroa.5.0.copyload.i344 = load float, ptr %agg.tmp.sroa.0.sroa.5.0.this.sroa_idx.i, align 4
+  %agg.tmp.sroa.0.sroa.6.0.copyload.i346 = load float, ptr %agg.tmp.sroa.0.sroa.6.0.this.sroa_idx.i, align 4
   %117 = load <2 x float>, ptr %agg.tmp.sroa.0.sroa.2.0.this.sroa_idx.i, align 4
-  %118 = insertelement <2 x float> %116, float %agg.tmp.sroa.0.sroa.4.0.copyload.i340, i64 1
+  %118 = insertelement <2 x float> %116, float %agg.tmp.sroa.0.sroa.4.0.copyload.i342, i64 1
   %119 = fadd <2 x float> %117, %118
   %120 = fmul <2 x float> %119, <float 5.000000e-01, float 5.000000e-01>
-  %add.i.i5.i.i349 = fadd float %agg.tmp.sroa.0.sroa.5.0.copyload.i342, %agg.tmp.sroa.0.sroa.6.0.copyload.i344
-  %div.i.i6.i.i350 = fmul float %add.i.i5.i.i349, 5.000000e-01
-  %call186 = call { <2 x float>, float } @_ZN4pbrt23SampleSphericalTriangleERKN4pstd5arrayINS_6Point3IfEELi3EEES3_NS_6Point2IfEEPf(ptr noundef nonnull align 4 dereferenceable(36) %ref.tmp171, <2 x float> %120, float %div.i.i6.i.i350, <2 x float> %u.sroa.0.0, ptr noundef nonnull %triPDF)
+  %add.i.i5.i.i351 = fadd float %agg.tmp.sroa.0.sroa.5.0.copyload.i344, %agg.tmp.sroa.0.sroa.6.0.copyload.i346
+  %div.i.i6.i.i352 = fmul float %add.i.i5.i.i351, 5.000000e-01
+  %call186 = call { <2 x float>, float } @_ZN4pbrt23SampleSphericalTriangleERKN4pstd5arrayINS_6Point3IfEELi3EEES3_NS_6Point2IfEEPf(ptr noundef nonnull align 4 dereferenceable(36) %ref.tmp171, <2 x float> %120, float %div.i.i6.i.i352, <2 x float> %u.sroa.0.0, ptr noundef nonnull %triPDF)
   %call186.fca.1.extract = extractvalue { <2 x float>, float } %call186, 1
   %121 = load float, ptr %triPDF, align 4
   %cmp189 = fcmp oeq float %121, 0.000000e+00
@@ -36740,52 +36740,52 @@ if.end191:                                        ; preds = %if.end170
   %mul192 = fmul float %pdf86.0, %121
   %122 = extractelement <2 x float> %call186.fca.0.extract, i64 0
   %123 = fmul <2 x float> %p0.sroa.0.0.copyload, %call186.fca.0.extract
-  %mul.i.i356 = extractelement <2 x float> %123, i64 0
-  %shift731 = shufflevector <2 x float> %p0.sroa.0.0.copyload, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %124 = fmul <2 x float> %shift731, %call186.fca.0.extract
+  %mul.i.i359 = extractelement <2 x float> %123, i64 0
+  %shift746 = shufflevector <2 x float> %p0.sroa.0.0.copyload, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %124 = fmul <2 x float> %shift746, %call186.fca.0.extract
   %mul2.i.i = extractelement <2 x float> %124, i64 0
   %mul3.i.i = fmul float %p0.sroa.8.0.copyload, %122
-  %125 = call noundef float @llvm.fabs.f32(float %mul.i.i356)
+  %125 = call noundef float @llvm.fabs.f32(float %mul.i.i359)
   %126 = call noundef float @llvm.fabs.f32(float %mul2.i.i)
   %127 = call noundef float @llvm.fabs.f32(float %mul3.i.i)
-  %t.sroa.0.0.vec.extract.i368 = extractelement <2 x float> %p1.sroa.0.0.copyload, i64 0
+  %t.sroa.0.0.vec.extract.i371 = extractelement <2 x float> %p1.sroa.0.0.copyload, i64 0
   %128 = extractelement <2 x float> %call186.fca.0.extract, i64 1
-  %mul.i.i369 = fmul float %t.sroa.0.0.vec.extract.i368, %128
+  %mul.i.i372 = fmul float %t.sroa.0.0.vec.extract.i371, %128
   %129 = fmul <2 x float> %p1.sroa.0.0.copyload, %call186.fca.0.extract
-  %mul2.i.i371 = extractelement <2 x float> %129, i64 1
-  %mul3.i.i372 = fmul float %p1.sroa.8.0.copyload, %128
-  %130 = call noundef float @llvm.fabs.f32(float %mul.i.i369)
-  %131 = call noundef float @llvm.fabs.f32(float %mul2.i.i371)
-  %132 = call noundef float @llvm.fabs.f32(float %mul3.i.i372)
-  %add.i384 = fadd float %130, %125
+  %mul2.i.i374 = extractelement <2 x float> %129, i64 1
+  %mul3.i.i375 = fmul float %p1.sroa.8.0.copyload, %128
+  %130 = call noundef float @llvm.fabs.f32(float %mul.i.i372)
+  %131 = call noundef float @llvm.fabs.f32(float %mul2.i.i374)
+  %132 = call noundef float @llvm.fabs.f32(float %mul3.i.i375)
+  %add.i387 = fadd float %130, %125
   %add4.i = fadd float %131, %126
   %add6.i = fadd float %127, %132
   %sub = fsub float 1.000000e+00, %122
   %sub224 = fsub float %sub, %128
-  %t.sroa.0.0.vec.extract.i393 = extractelement <2 x float> %p2.sroa.0.0.copyload, i64 0
-  %mul.i.i394 = fmul float %t.sroa.0.0.vec.extract.i393, %sub224
-  %t.sroa.0.4.vec.extract.i395 = extractelement <2 x float> %p2.sroa.0.0.copyload, i64 1
-  %mul2.i.i396 = fmul float %t.sroa.0.4.vec.extract.i395, %sub224
-  %mul3.i.i397 = fmul float %p2.sroa.8.0.copyload, %sub224
-  %133 = call noundef float @llvm.fabs.f32(float %mul.i.i394)
-  %134 = call noundef float @llvm.fabs.f32(float %mul2.i.i396)
-  %135 = call noundef float @llvm.fabs.f32(float %mul3.i.i397)
-  %add.i409 = fadd float %add.i384, %133
-  %add4.i412 = fadd float %add4.i, %134
-  %add6.i414 = fadd float %add6.i, %135
-  %mul.i.i420 = fmul float %add.i409, 0x3E980000A0000000
-  %mul2.i.i422 = fmul float %add4.i412, 0x3E980000A0000000
-  %mul3.i.i423 = fmul float %add6.i414, 0x3E980000A0000000
-  %add.i452 = fadd float %mul.i.i369, %mul.i.i356
-  %add4.i455 = fadd float %mul2.i.i371, %mul2.i.i
-  %add6.i457 = fadd float %mul3.i.i, %mul3.i.i372
-  %mul.i.i464 = fmul float %t.sroa.0.0.vec.extract.i393, %call186.fca.1.extract
-  %mul2.i.i466 = fmul float %t.sroa.0.4.vec.extract.i395, %call186.fca.1.extract
-  %mul3.i.i467 = fmul float %p2.sroa.8.0.copyload, %call186.fca.1.extract
-  %add.i473 = fadd float %mul.i.i464, %add.i452
-  %add4.i476 = fadd float %mul2.i.i466, %add4.i455
-  %add6.i478 = fadd float %mul3.i.i467, %add6.i457
-  %retval.sroa.0.0.vec.insert.i479 = insertelement <2 x float> poison, float %add.i473, i64 0
+  %t.sroa.0.0.vec.extract.i397 = extractelement <2 x float> %p2.sroa.0.0.copyload, i64 0
+  %mul.i.i398 = fmul float %t.sroa.0.0.vec.extract.i397, %sub224
+  %t.sroa.0.4.vec.extract.i399 = extractelement <2 x float> %p2.sroa.0.0.copyload, i64 1
+  %mul2.i.i400 = fmul float %t.sroa.0.4.vec.extract.i399, %sub224
+  %mul3.i.i401 = fmul float %p2.sroa.8.0.copyload, %sub224
+  %133 = call noundef float @llvm.fabs.f32(float %mul.i.i398)
+  %134 = call noundef float @llvm.fabs.f32(float %mul2.i.i400)
+  %135 = call noundef float @llvm.fabs.f32(float %mul3.i.i401)
+  %add.i413 = fadd float %add.i387, %133
+  %add4.i416 = fadd float %add4.i, %134
+  %add6.i418 = fadd float %add6.i, %135
+  %mul.i.i424 = fmul float %add.i413, 0x3E980000A0000000
+  %mul2.i.i426 = fmul float %add4.i416, 0x3E980000A0000000
+  %mul3.i.i427 = fmul float %add6.i418, 0x3E980000A0000000
+  %add.i457 = fadd float %mul.i.i372, %mul.i.i359
+  %add4.i460 = fadd float %mul2.i.i374, %mul2.i.i
+  %add6.i462 = fadd float %mul3.i.i, %mul3.i.i375
+  %mul.i.i469 = fmul float %t.sroa.0.0.vec.extract.i397, %call186.fca.1.extract
+  %mul2.i.i471 = fmul float %t.sroa.0.4.vec.extract.i399, %call186.fca.1.extract
+  %mul3.i.i472 = fmul float %p2.sroa.8.0.copyload, %call186.fca.1.extract
+  %add.i478 = fadd float %mul.i.i469, %add.i457
+  %add4.i481 = fadd float %mul2.i.i471, %add4.i460
+  %add6.i483 = fadd float %mul3.i.i472, %add6.i462
+  %retval.sroa.0.0.vec.insert.i484 = insertelement <2 x float> poison, float %add.i478, i64 0
   %136 = insertelement <2 x float> poison, float %p1.sroa.8.0.copyload, i64 0
   %137 = insertelement <2 x float> %136, float %p2.sroa.8.0.copyload, i64 1
   %138 = insertelement <2 x float> poison, float %p0.sroa.8.0.copyload, i64 0
@@ -36813,18 +36813,18 @@ if.end191:                                        ; preds = %if.end170
   %158 = call noundef float @llvm.fma.f32(float %156, float %157, float %fneg.i16.i)
   %fneg1.i17.i = fneg float %155
   %159 = call noundef float @llvm.fma.f32(float %fneg1.i17.i, float %154, float %mul.i15.i)
-  %add.i18.i = fadd float %158, %159
+  %add.i18.i515 = fadd float %158, %159
   %160 = fmul <2 x float> %153, %153
-  %shift732 = shufflevector <2 x float> %160, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %161 = fadd <2 x float> %shift732, %160
-  %add.i.i.i519 = extractelement <2 x float> %161, i64 0
-  %mul.i2.i.i.i520 = fmul float %add.i18.i, %add.i18.i
-  %add3.i.i.i521 = fadd float %mul.i2.i.i.i520, %add.i.i.i519
-  %sqrt.i.i522 = call noundef float @llvm.sqrt.f32(float %add3.i.i.i521)
-  %162 = insertelement <2 x float> poison, float %sqrt.i.i522, i64 0
+  %shift747 = shufflevector <2 x float> %160, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %161 = fadd <2 x float> %shift747, %160
+  %add.i.i.i526 = extractelement <2 x float> %161, i64 0
+  %mul.i2.i.i.i527 = fmul float %add.i18.i515, %add.i18.i515
+  %add3.i.i.i528 = fadd float %mul.i2.i.i.i527, %add.i.i.i526
+  %sqrt.i.i529 = call noundef float @llvm.sqrt.f32(float %add3.i.i.i528)
+  %162 = insertelement <2 x float> poison, float %sqrt.i.i529, i64 0
   %163 = shufflevector <2 x float> %162, <2 x float> poison, <2 x i32> zeroinitializer
   %164 = fdiv <2 x float> %153, %163
-  %div3.i.i525 = fdiv float %add.i18.i, %sqrt.i.i522
+  %div3.i.i532 = fdiv float %add.i18.i515, %sqrt.i.i529
   %165 = shufflevector <2 x float> %164, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %n286 = getelementptr inbounds i8, ptr %3, i64 24
   %166 = load ptr, ptr %n286, align 8
@@ -36839,52 +36839,52 @@ if.then287:                                       ; preds = %if.end191
   %agg.tmp292.sroa.2.0.arrayidx296.sroa_idx = getelementptr inbounds i8, ptr %arrayidx296, i64 8
   %agg.tmp292.sroa.2.0.copyload = load float, ptr %agg.tmp292.sroa.2.0.arrayidx296.sroa_idx, align 4
   %168 = fmul <2 x float> %call186.fca.0.extract, %agg.tmp292.sroa.0.0.copyload
-  %mul.i.i531 = extractelement <2 x float> %168, i64 0
-  %mul3.i.i534 = fmul float %122, %agg.tmp292.sroa.2.0.copyload
+  %mul.i.i539 = extractelement <2 x float> %168, i64 0
+  %mul3.i.i542 = fmul float %122, %agg.tmp292.sroa.2.0.copyload
   %169 = load i32, ptr %arrayidx6, align 4
   %idxprom305 = sext i32 %169 to i64
   %arrayidx306 = getelementptr inbounds %"class.pbrt::Normal3", ptr %166, i64 %idxprom305
   %agg.tmp302.sroa.0.0.copyload = load <2 x float>, ptr %arrayidx306, align 4
   %agg.tmp302.sroa.2.0.arrayidx306.sroa_idx = getelementptr inbounds i8, ptr %arrayidx306, i64 8
   %agg.tmp302.sroa.2.0.copyload = load float, ptr %agg.tmp302.sroa.2.0.arrayidx306.sroa_idx, align 4
-  %t.sroa.0.0.vec.extract.i540 = extractelement <2 x float> %agg.tmp302.sroa.0.0.copyload, i64 0
-  %mul.i.i541 = fmul float %128, %t.sroa.0.0.vec.extract.i540
+  %t.sroa.0.0.vec.extract.i548 = extractelement <2 x float> %agg.tmp302.sroa.0.0.copyload, i64 0
+  %mul.i.i549 = fmul float %128, %t.sroa.0.0.vec.extract.i548
   %170 = shufflevector <2 x float> %agg.tmp292.sroa.0.0.copyload, <2 x float> %agg.tmp302.sroa.0.0.copyload, <2 x i32> <i32 1, i32 3>
   %171 = fmul <2 x float> %call186.fca.0.extract, %170
-  %mul3.i.i544 = fmul float %128, %agg.tmp302.sroa.2.0.copyload
-  %add.i550 = fadd float %mul.i.i531, %mul.i.i541
-  %shift733 = shufflevector <2 x float> %171, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %172 = fadd <2 x float> %171, %shift733
-  %add4.i553 = extractelement <2 x float> %172, i64 0
-  %add6.i555 = fadd float %mul3.i.i534, %mul3.i.i544
+  %mul3.i.i552 = fmul float %128, %agg.tmp302.sroa.2.0.copyload
+  %add.i558 = fadd float %mul.i.i539, %mul.i.i549
+  %shift748 = shufflevector <2 x float> %171, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %172 = fadd <2 x float> %171, %shift748
+  %add4.i561 = extractelement <2 x float> %172, i64 0
+  %add6.i563 = fadd float %mul3.i.i542, %mul3.i.i552
   %173 = load i32, ptr %arrayidx10, align 4
   %idxprom321 = sext i32 %173 to i64
   %arrayidx322 = getelementptr inbounds %"class.pbrt::Normal3", ptr %166, i64 %idxprom321
   %agg.tmp318.sroa.0.0.copyload = load <2 x float>, ptr %arrayidx322, align 4
   %agg.tmp318.sroa.2.0.arrayidx322.sroa_idx = getelementptr inbounds i8, ptr %arrayidx322, i64 8
   %agg.tmp318.sroa.2.0.copyload = load float, ptr %agg.tmp318.sroa.2.0.arrayidx322.sroa_idx, align 4
-  %t.sroa.0.0.vec.extract.i561 = extractelement <2 x float> %agg.tmp318.sroa.0.0.copyload, i64 0
-  %mul.i.i562 = fmul float %sub224, %t.sroa.0.0.vec.extract.i561
-  %t.sroa.0.4.vec.extract.i563 = extractelement <2 x float> %agg.tmp318.sroa.0.0.copyload, i64 1
-  %mul2.i.i564 = fmul float %sub224, %t.sroa.0.4.vec.extract.i563
-  %mul3.i.i565 = fmul float %sub224, %agg.tmp318.sroa.2.0.copyload
-  %add.i571 = fadd float %add.i550, %mul.i.i562
-  %add4.i574 = fadd float %add4.i553, %mul2.i.i564
-  %add6.i576 = fadd float %add6.i555, %mul3.i.i565
-  %mul.i.i.i581 = fmul float %div3.i.i525, %add6.i576
+  %t.sroa.0.0.vec.extract.i570 = extractelement <2 x float> %agg.tmp318.sroa.0.0.copyload, i64 0
+  %mul.i.i571 = fmul float %sub224, %t.sroa.0.0.vec.extract.i570
+  %t.sroa.0.4.vec.extract.i572 = extractelement <2 x float> %agg.tmp318.sroa.0.0.copyload, i64 1
+  %mul2.i.i573 = fmul float %sub224, %t.sroa.0.4.vec.extract.i572
+  %mul3.i.i574 = fmul float %sub224, %agg.tmp318.sroa.2.0.copyload
+  %add.i580 = fadd float %add.i558, %mul.i.i571
+  %add4.i583 = fadd float %add4.i561, %mul2.i.i573
+  %add6.i585 = fadd float %add6.i563, %mul3.i.i574
+  %mul.i.i.i590 = fmul float %div3.i.i532, %add6.i585
   %174 = extractelement <2 x float> %164, i64 0
-  %175 = call noundef float @llvm.fma.f32(float %174, float %add4.i574, float %mul.i.i.i581)
-  %fneg.i.i.i582 = fneg float %mul.i.i.i581
-  %176 = call noundef float @llvm.fma.f32(float %div3.i.i525, float %add6.i576, float %fneg.i.i.i582)
-  %add.i.i.i583 = fadd float %175, %176
+  %175 = call noundef float @llvm.fma.f32(float %174, float %add4.i583, float %mul.i.i.i590)
+  %fneg.i.i.i591 = fneg float %mul.i.i.i590
+  %176 = call noundef float @llvm.fma.f32(float %div3.i.i532, float %add6.i585, float %fneg.i.i.i591)
+  %add.i.i.i592 = fadd float %175, %176
   %177 = extractelement <2 x float> %164, i64 1
-  %178 = call noundef float @llvm.fma.f32(float %177, float %add.i571, float %add.i.i.i583)
-  %cmp.i584 = fcmp olt float %178, 0.000000e+00
-  %fneg3.i.i = fneg float %div3.i.i525
+  %178 = call noundef float @llvm.fma.f32(float %177, float %add.i580, float %add.i.i.i592)
+  %cmp.i593 = fcmp olt float %178, 0.000000e+00
+  %fneg3.i.i = fneg float %div3.i.i532
   %179 = shufflevector <2 x float> %164, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %180 = fneg <2 x float> %179
-  %retval.sroa.0.0.i = select i1 %cmp.i584, <2 x float> %180, <2 x float> %165
-  %retval.sroa.3.0.i = select i1 %cmp.i584, float %fneg3.i.i, float %div3.i.i525
+  %retval.sroa.0.0.i = select i1 %cmp.i593, <2 x float> %180, <2 x float> %165
+  %retval.sroa.3.0.i = select i1 %cmp.i593, float %fneg3.i.i, float %div3.i.i532
   br label %if.end342
 
 if.else:                                          ; preds = %if.end191
@@ -36900,12 +36900,12 @@ if.else:                                          ; preds = %if.end191
 if.then339:                                       ; preds = %if.else
   %184 = shufflevector <2 x float> %164, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %185 = fneg <2 x float> %184
-  %mul5.i = fneg float %div3.i.i525
+  %mul5.i = fneg float %div3.i.i532
   br label %if.end342
 
 if.end342:                                        ; preds = %if.else, %if.then339, %if.then287
   %n267.sroa.0.0 = phi <2 x float> [ %165, %if.else ], [ %185, %if.then339 ], [ %retval.sroa.0.0.i, %if.then287 ]
-  %n267.sroa.8.0 = phi float [ %div3.i.i525, %if.else ], [ %mul5.i, %if.then339 ], [ %retval.sroa.3.0.i, %if.then287 ]
+  %n267.sroa.8.0 = phi float [ %div3.i.i532, %if.else ], [ %mul5.i, %if.then339 ], [ %retval.sroa.3.0.i, %if.then287 ]
   %uv343 = getelementptr inbounds i8, ptr %3, i64 40
   %186 = load ptr, ptr %uv343, align 8
   %tobool344.not = icmp eq ptr %186, null
@@ -36939,21 +36939,21 @@ cond.end:                                         ; preds = %if.end342, %cond.tr
   %199 = shufflevector <2 x float> %198, <2 x float> poison, <2 x i32> zeroinitializer
   %200 = fmul <2 x float> %199, %uv.sroa.10.0
   %201 = fadd <2 x float> %200, %197
-  %cmp.i.i646 = fcmp oeq float %mul.i.i420, 0.000000e+00
-  br i1 %cmp.i.i646, label %if.then.i.i, label %if.else.i.i
+  %cmp.i.i661 = fcmp oeq float %mul.i.i424, 0.000000e+00
+  br i1 %cmp.i.i661, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %cond.end
-  %retval.sroa.0.0.vec.insert.i.i650 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i479, <2 x float> poison, <2 x i32> zeroinitializer
+  %retval.sroa.0.0.vec.insert.i.i665 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i484, <2 x float> poison, <2 x i32> zeroinitializer
   br label %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i
 
 if.else.i.i:                                      ; preds = %cond.end
-  %add.i.i.i.i647 = fsub float %add.i473, %mul.i.i420
-  %or.cond.i.i.i.i.i = fcmp oeq float %add.i.i.i.i647, 0xFFF0000000000000
+  %add.i.i.i.i662 = fsub float %add.i478, %mul.i.i424
+  %or.cond.i.i.i.i.i = fcmp oeq float %add.i.i.i.i662, 0xFFF0000000000000
   br i1 %or.cond.i.i.i.i.i, label %_ZN4pbrt12SubRoundDownEff.exit.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else.i.i
-  %cmp1.i.i.i.i.i = fcmp oeq float %add.i.i.i.i647, 0.000000e+00
-  %v.addr.0.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i, float -0.000000e+00, float %add.i.i.i.i647
+  %cmp1.i.i.i.i.i = fcmp oeq float %add.i.i.i.i662, 0.000000e+00
+  %v.addr.0.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i, float -0.000000e+00, float %add.i.i.i.i662
   %202 = bitcast float %v.addr.0.i.i.i.i.i to i32
   %cmp5.i.i.i.i.i = fcmp ogt float %v.addr.0.i.i.i.i.i, 0.000000e+00
   %ui.0.v.i.i.i.i.i = select i1 %cmp5.i.i.i.i.i, i32 -1, i32 1
@@ -36964,13 +36964,13 @@ if.end.i.i.i.i.i:                                 ; preds = %if.else.i.i
 _ZN4pbrt12SubRoundDownEff.exit.i.i:               ; preds = %if.end.i.i.i.i.i, %if.else.i.i
   %retval.0.i.i.i.i.i = phi float [ %203, %if.end.i.i.i.i.i ], [ 0xFFF0000000000000, %if.else.i.i ]
   %retval.sroa.0.0.vec.insert7.i.i = insertelement <2 x float> poison, float %retval.0.i.i.i.i.i, i64 0
-  %add.i.i.i648 = fadd float %add.i473, %mul.i.i420
-  %or.cond.i.i.i.i = fcmp oeq float %add.i.i.i648, 0x7FF0000000000000
+  %add.i.i.i663 = fadd float %add.i478, %mul.i.i424
+  %or.cond.i.i.i.i = fcmp oeq float %add.i.i.i663, 0x7FF0000000000000
   br i1 %or.cond.i.i.i.i, label %_ZN4pbrt10AddRoundUpEff.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i.i
-  %cmp1.i.i.i.i = fcmp oeq float %add.i.i.i648, 0.000000e+00
-  %v.addr.0.i.i.i.i = select i1 %cmp1.i.i.i.i, float 0.000000e+00, float %add.i.i.i648
+  %cmp1.i.i.i.i = fcmp oeq float %add.i.i.i663, 0.000000e+00
+  %v.addr.0.i.i.i.i = select i1 %cmp1.i.i.i.i, float 0.000000e+00, float %add.i.i.i663
   %204 = bitcast float %v.addr.0.i.i.i.i to i32
   %cmp5.i.i.i.i = fcmp ult float %v.addr.0.i.i.i.i, 0.000000e+00
   %ui.0.v.i.i.i.i = select i1 %cmp5.i.i.i.i, i32 -1, i32 1
@@ -36984,17 +36984,17 @@ _ZN4pbrt10AddRoundUpEff.exit.i.i:                 ; preds = %if.end.i.i.i.i, %_Z
   br label %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i
 
 _ZN4pbrt8Interval17FromValueAndErrorEff.exit.i:   ; preds = %_ZN4pbrt10AddRoundUpEff.exit.i.i, %if.then.i.i
-  %retval.sroa.0.0.i.i = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i.i650, %if.then.i.i ], [ %retval.sroa.0.4.vec.insert9.i.i, %_ZN4pbrt10AddRoundUpEff.exit.i.i ]
-  %cmp.i1.i = fcmp oeq float %mul2.i.i422, 0.000000e+00
+  %retval.sroa.0.0.i.i = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i.i665, %if.then.i.i ], [ %retval.sroa.0.4.vec.insert9.i.i, %_ZN4pbrt10AddRoundUpEff.exit.i.i ]
+  %cmp.i1.i = fcmp oeq float %mul2.i.i426, 0.000000e+00
   br i1 %cmp.i1.i, label %if.then.i26.i, label %if.else.i2.i
 
 if.then.i26.i:                                    ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i
-  %206 = insertelement <2 x float> poison, float %add4.i476, i64 0
+  %206 = insertelement <2 x float> poison, float %add4.i481, i64 0
   %retval.sroa.0.0.vec.insert.i27.i = shufflevector <2 x float> %206, <2 x float> poison, <2 x i32> zeroinitializer
   br label %_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i
 
 if.else.i2.i:                                     ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i
-  %add.i.i.i3.i = fsub float %add4.i476, %mul2.i.i422
+  %add.i.i.i3.i = fsub float %add4.i481, %mul2.i.i426
   %or.cond.i.i.i.i4.i = fcmp oeq float %add.i.i.i3.i, 0xFFF0000000000000
   br i1 %or.cond.i.i.i.i4.i, label %_ZN4pbrt12SubRoundDownEff.exit.i11.i, label %if.end.i.i.i.i5.i
 
@@ -37011,7 +37011,7 @@ if.end.i.i.i.i5.i:                                ; preds = %if.else.i2.i
 _ZN4pbrt12SubRoundDownEff.exit.i11.i:             ; preds = %if.end.i.i.i.i5.i, %if.else.i2.i
   %retval.0.i.i.i.i12.i = phi float [ %208, %if.end.i.i.i.i5.i ], [ 0xFFF0000000000000, %if.else.i2.i ]
   %retval.sroa.0.0.vec.insert7.i13.i = insertelement <2 x float> poison, float %retval.0.i.i.i.i12.i, i64 0
-  %add.i.i14.i = fadd float %add4.i476, %mul2.i.i422
+  %add.i.i14.i = fadd float %add4.i481, %mul2.i.i426
   %or.cond.i.i.i15.i = fcmp oeq float %add.i.i14.i, 0x7FF0000000000000
   br i1 %or.cond.i.i.i15.i, label %_ZN4pbrt10AddRoundUpEff.exit.i22.i, label %if.end.i.i.i16.i
 
@@ -37032,16 +37032,16 @@ _ZN4pbrt10AddRoundUpEff.exit.i22.i:               ; preds = %if.end.i.i.i16.i, %
 
 _ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i: ; preds = %_ZN4pbrt10AddRoundUpEff.exit.i22.i, %if.then.i26.i
   %retval.sroa.0.0.i25.i = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i27.i, %if.then.i26.i ], [ %retval.sroa.0.4.vec.insert9.i24.i, %_ZN4pbrt10AddRoundUpEff.exit.i22.i ]
-  %cmp.i29.i = fcmp oeq float %mul3.i.i423, 0.000000e+00
+  %cmp.i29.i = fcmp oeq float %mul3.i.i427, 0.000000e+00
   br i1 %cmp.i29.i, label %if.then.i54.i, label %if.else.i30.i
 
 if.then.i54.i:                                    ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i
-  %211 = insertelement <2 x float> poison, float %add6.i478, i64 0
+  %211 = insertelement <2 x float> poison, float %add6.i483, i64 0
   %retval.sroa.0.0.vec.insert.i55.i = shufflevector <2 x float> %211, <2 x float> poison, <2 x i32> zeroinitializer
   br label %_ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit
 
 if.else.i30.i:                                    ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i
-  %add.i.i.i31.i = fsub float %add6.i478, %mul3.i.i423
+  %add.i.i.i31.i = fsub float %add6.i483, %mul3.i.i427
   %or.cond.i.i.i.i32.i = fcmp oeq float %add.i.i.i31.i, 0xFFF0000000000000
   br i1 %or.cond.i.i.i.i32.i, label %_ZN4pbrt12SubRoundDownEff.exit.i39.i, label %if.end.i.i.i.i33.i
 
@@ -37058,7 +37058,7 @@ if.end.i.i.i.i33.i:                               ; preds = %if.else.i30.i
 _ZN4pbrt12SubRoundDownEff.exit.i39.i:             ; preds = %if.end.i.i.i.i33.i, %if.else.i30.i
   %retval.0.i.i.i.i40.i = phi float [ %213, %if.end.i.i.i.i33.i ], [ 0xFFF0000000000000, %if.else.i30.i ]
   %retval.sroa.0.0.vec.insert7.i41.i = insertelement <2 x float> poison, float %retval.0.i.i.i.i40.i, i64 0
-  %add.i.i42.i = fadd float %add6.i478, %mul3.i.i423
+  %add.i.i42.i = fadd float %add6.i483, %mul3.i.i427
   %or.cond.i.i.i43.i = fcmp oeq float %add.i.i42.i, 0x7FF0000000000000
   br i1 %or.cond.i.i.i43.i, label %_ZN4pbrt10AddRoundUpEff.exit.i50.i, label %if.end.i.i.i44.i
 
@@ -37081,8 +37081,8 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %if.then.i54.i
   %retval.sroa.0.0.i53.i = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i55.i, %if.then.i54.i ], [ %retval.sroa.0.4.vec.insert9.i52.i, %_ZN4pbrt10AddRoundUpEff.exit.i50.i ]
   %time404 = getelementptr inbounds i8, ptr %ctx, i64 48
   %216 = load float, ptr %time404, align 4
-  %set.i651 = getelementptr inbounds i8, ptr %agg.result, i64 88
-  store i8 1, ptr %set.i651, align 8
+  %set.i666 = getelementptr inbounds i8, ptr %agg.result, i64 88
+  store i8 1, ptr %set.i666, align 8
   store <2 x float> %retval.sroa.0.0.i.i, ptr %agg.result, align 8
   %ref.tmp398.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store <2 x float> %retval.sroa.0.0.i25.i, ptr %ref.tmp398.sroa.2.0.agg.result.sroa_idx, align 8
@@ -37101,9 +37101,9 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %if.then.i54.i
   %ref.tmp398.sroa.10.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 52
   store <2 x float> %201, ptr %ref.tmp398.sroa.10.0.agg.result.sroa_idx, align 4
   %ref.tmp398.sroa.11.sroa.1.0.ref.tmp398.sroa.11.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 64
-  %pdf.i.i654 = getelementptr inbounds i8, ptr %agg.result, i64 80
+  %pdf.i.i669 = getelementptr inbounds i8, ptr %agg.result, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp398.sroa.11.sroa.1.0.ref.tmp398.sroa.11.0.agg.result.sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
-  store float %mul192, ptr %pdf.i.i654, align 8
+  store float %mul192, ptr %pdf.i.i669, align 8
   br label %return
 
 return:                                           ; preds = %cleanup, %cleanup.thread, %_ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit, %if.then190
@@ -37372,49 +37372,49 @@ if.then:                                          ; preds = %entry
   %agg.tmp63.sroa.0.0.copyload = load <2 x float>, ptr %arrayidx67, align 4
   %agg.tmp63.sroa.2.0.arrayidx67.sroa_idx = getelementptr inbounds i8, ptr %arrayidx67, i64 8
   %agg.tmp63.sroa.2.0.copyload = load float, ptr %agg.tmp63.sroa.2.0.arrayidx67.sroa_idx, align 4
-  %t.sroa.0.0.vec.extract.i89 = extractelement <2 x float> %agg.tmp63.sroa.0.0.copyload, i64 0
-  %mul.i.i90 = fmul float %b0.0.i, %t.sroa.0.0.vec.extract.i89
-  %t.sroa.0.4.vec.extract.i91 = extractelement <2 x float> %agg.tmp63.sroa.0.0.copyload, i64 1
-  %mul2.i.i92 = fmul float %b0.0.i, %t.sroa.0.4.vec.extract.i91
-  %mul3.i.i93 = fmul float %b0.0.i, %agg.tmp63.sroa.2.0.copyload
+  %t.sroa.0.0.vec.extract.i90 = extractelement <2 x float> %agg.tmp63.sroa.0.0.copyload, i64 0
+  %mul.i.i91 = fmul float %b0.0.i, %t.sroa.0.0.vec.extract.i90
+  %t.sroa.0.4.vec.extract.i92 = extractelement <2 x float> %agg.tmp63.sroa.0.0.copyload, i64 1
+  %mul2.i.i93 = fmul float %b0.0.i, %t.sroa.0.4.vec.extract.i92
+  %mul3.i.i94 = fmul float %b0.0.i, %agg.tmp63.sroa.2.0.copyload
   %arrayidx77 = getelementptr inbounds %"class.pbrt::Normal3", ptr %42, i64 %idxprom7
   %agg.tmp73.sroa.0.0.copyload = load <2 x float>, ptr %arrayidx77, align 4
   %agg.tmp73.sroa.2.0.arrayidx77.sroa_idx = getelementptr inbounds i8, ptr %arrayidx77, i64 8
   %agg.tmp73.sroa.2.0.copyload = load float, ptr %agg.tmp73.sroa.2.0.arrayidx77.sroa_idx, align 4
-  %t.sroa.0.0.vec.extract.i99 = extractelement <2 x float> %agg.tmp73.sroa.0.0.copyload, i64 0
-  %mul.i.i100 = fmul float %b1.0.i, %t.sroa.0.0.vec.extract.i99
-  %t.sroa.0.4.vec.extract.i101 = extractelement <2 x float> %agg.tmp73.sroa.0.0.copyload, i64 1
-  %mul2.i.i102 = fmul float %b1.0.i, %t.sroa.0.4.vec.extract.i101
-  %mul3.i.i103 = fmul float %b1.0.i, %agg.tmp73.sroa.2.0.copyload
-  %add.i109 = fadd float %mul.i.i90, %mul.i.i100
-  %add4.i112 = fadd float %mul2.i.i92, %mul2.i.i102
-  %add6.i114 = fadd float %mul3.i.i93, %mul3.i.i103
+  %t.sroa.0.0.vec.extract.i100 = extractelement <2 x float> %agg.tmp73.sroa.0.0.copyload, i64 0
+  %mul.i.i101 = fmul float %b1.0.i, %t.sroa.0.0.vec.extract.i100
+  %t.sroa.0.4.vec.extract.i102 = extractelement <2 x float> %agg.tmp73.sroa.0.0.copyload, i64 1
+  %mul2.i.i103 = fmul float %b1.0.i, %t.sroa.0.4.vec.extract.i102
+  %mul3.i.i104 = fmul float %b1.0.i, %agg.tmp73.sroa.2.0.copyload
+  %add.i110 = fadd float %mul.i.i91, %mul.i.i101
+  %add4.i113 = fadd float %mul2.i.i93, %mul2.i.i103
+  %add6.i115 = fadd float %mul3.i.i94, %mul3.i.i104
   %arrayidx92 = getelementptr inbounds %"class.pbrt::Normal3", ptr %42, i64 %idxprom11
   %agg.tmp88.sroa.0.0.copyload = load <2 x float>, ptr %arrayidx92, align 4
   %agg.tmp88.sroa.2.0.arrayidx92.sroa_idx = getelementptr inbounds i8, ptr %arrayidx92, i64 8
   %agg.tmp88.sroa.2.0.copyload = load float, ptr %agg.tmp88.sroa.2.0.arrayidx92.sroa_idx, align 4
-  %t.sroa.0.0.vec.extract.i120 = extractelement <2 x float> %agg.tmp88.sroa.0.0.copyload, i64 0
-  %mul.i.i121 = fmul float %sub10.i, %t.sroa.0.0.vec.extract.i120
-  %t.sroa.0.4.vec.extract.i122 = extractelement <2 x float> %agg.tmp88.sroa.0.0.copyload, i64 1
-  %mul2.i.i123 = fmul float %sub10.i, %t.sroa.0.4.vec.extract.i122
-  %mul3.i.i124 = fmul float %sub10.i, %agg.tmp88.sroa.2.0.copyload
-  %add.i130 = fadd float %add.i109, %mul.i.i121
-  %add4.i133 = fadd float %add4.i112, %mul2.i.i123
-  %add6.i135 = fadd float %add6.i114, %mul3.i.i124
-  %mul.i.i.i = fmul float %div3.i.i, %add6.i135
+  %t.sroa.0.0.vec.extract.i122 = extractelement <2 x float> %agg.tmp88.sroa.0.0.copyload, i64 0
+  %mul.i.i123 = fmul float %sub10.i, %t.sroa.0.0.vec.extract.i122
+  %t.sroa.0.4.vec.extract.i124 = extractelement <2 x float> %agg.tmp88.sroa.0.0.copyload, i64 1
+  %mul2.i.i125 = fmul float %sub10.i, %t.sroa.0.4.vec.extract.i124
+  %mul3.i.i126 = fmul float %sub10.i, %agg.tmp88.sroa.2.0.copyload
+  %add.i132 = fadd float %add.i110, %mul.i.i123
+  %add4.i135 = fadd float %add4.i113, %mul2.i.i125
+  %add6.i137 = fadd float %add6.i115, %mul3.i.i126
+  %mul.i.i.i = fmul float %div3.i.i, %add6.i137
   %43 = extractelement <2 x float> %40, i64 0
-  %44 = tail call noundef float @llvm.fma.f32(float %43, float %add4.i133, float %mul.i.i.i)
+  %44 = tail call noundef float @llvm.fma.f32(float %43, float %add4.i135, float %mul.i.i.i)
   %fneg.i.i.i = fneg float %mul.i.i.i
-  %45 = tail call noundef float @llvm.fma.f32(float %div3.i.i, float %add6.i135, float %fneg.i.i.i)
-  %add.i.i.i140 = fadd float %44, %45
+  %45 = tail call noundef float @llvm.fma.f32(float %div3.i.i, float %add6.i137, float %fneg.i.i.i)
+  %add.i.i.i142 = fadd float %44, %45
   %46 = extractelement <2 x float> %40, i64 1
-  %47 = tail call noundef float @llvm.fma.f32(float %46, float %add.i130, float %add.i.i.i140)
-  %cmp.i141 = fcmp olt float %47, 0.000000e+00
+  %47 = tail call noundef float @llvm.fma.f32(float %46, float %add.i132, float %add.i.i.i142)
+  %cmp.i143 = fcmp olt float %47, 0.000000e+00
   %fneg3.i.i = fneg float %div3.i.i
   %48 = shufflevector <2 x float> %40, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %49 = fneg <2 x float> %48
-  %retval.sroa.0.0.i = select i1 %cmp.i141, <2 x float> %49, <2 x float> %41
-  %retval.sroa.3.0.i = select i1 %cmp.i141, float %fneg3.i.i, float %div3.i.i
+  %retval.sroa.0.0.i = select i1 %cmp.i143, <2 x float> %49, <2 x float> %41
+  %retval.sroa.3.0.i = select i1 %cmp.i143, float %fneg3.i.i, float %div3.i.i
   br label %if.end111
 
 if.else:                                          ; preds = %entry
@@ -37460,27 +37460,27 @@ cond.end:                                         ; preds = %if.end111, %cond.tr
   %62 = tail call noundef float @llvm.fabs.f32(float %mul.i.i27)
   %63 = tail call noundef float @llvm.fabs.f32(float %mul2.i.i29)
   %64 = tail call noundef float @llvm.fabs.f32(float %mul3.i.i30)
-  %add.i226 = fadd float %59, %62
-  %add4.i229 = fadd float %60, %63
-  %add6.i231 = fadd float %61, %64
+  %add.i235 = fadd float %59, %62
+  %add4.i238 = fadd float %60, %63
+  %add6.i240 = fadd float %61, %64
   %65 = tail call noundef float @llvm.fabs.f32(float %mul.i.i41)
   %66 = tail call noundef float @llvm.fabs.f32(float %mul2.i.i43)
   %67 = tail call noundef float @llvm.fabs.f32(float %mul3.i.i44)
-  %add.i253 = fadd float %add.i226, %65
-  %add4.i256 = fadd float %add4.i229, %66
-  %add6.i258 = fadd float %add6.i231, %67
-  %mul.i.i264 = fmul float %add.i253, 0x3E980000A0000000
-  %mul2.i.i266 = fmul float %add4.i256, 0x3E980000A0000000
-  %mul3.i.i267 = fmul float %add6.i258, 0x3E980000A0000000
-  %cmp.i.i = fcmp oeq float %mul.i.i264, 0.000000e+00
+  %add.i263 = fadd float %add.i235, %65
+  %add4.i266 = fadd float %add4.i238, %66
+  %add6.i268 = fadd float %add6.i240, %67
+  %mul.i.i274 = fmul float %add.i263, 0x3E980000A0000000
+  %mul2.i.i276 = fmul float %add4.i266, 0x3E980000A0000000
+  %mul3.i.i277 = fmul float %add6.i268, 0x3E980000A0000000
+  %cmp.i.i = fcmp oeq float %mul.i.i274, 0.000000e+00
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %cond.end
-  %retval.sroa.0.0.vec.insert.i.i279 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i56, <2 x float> poison, <2 x i32> zeroinitializer
+  %retval.sroa.0.0.vec.insert.i.i289 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i56, <2 x float> poison, <2 x i32> zeroinitializer
   br label %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i
 
 if.else.i.i:                                      ; preds = %cond.end
-  %add.i.i.i.i = fsub float %add.i50, %mul.i.i264
+  %add.i.i.i.i = fsub float %add.i50, %mul.i.i274
   %or.cond.i.i.i.i.i = fcmp oeq float %add.i.i.i.i, 0xFFF0000000000000
   br i1 %or.cond.i.i.i.i.i, label %_ZN4pbrt12SubRoundDownEff.exit.i.i, label %if.end.i.i.i.i.i
 
@@ -37497,13 +37497,13 @@ if.end.i.i.i.i.i:                                 ; preds = %if.else.i.i
 _ZN4pbrt12SubRoundDownEff.exit.i.i:               ; preds = %if.end.i.i.i.i.i, %if.else.i.i
   %retval.0.i.i.i.i.i = phi float [ %69, %if.end.i.i.i.i.i ], [ 0xFFF0000000000000, %if.else.i.i ]
   %retval.sroa.0.0.vec.insert7.i.i = insertelement <2 x float> poison, float %retval.0.i.i.i.i.i, i64 0
-  %add.i.i.i277 = fadd float %add.i50, %mul.i.i264
-  %or.cond.i.i.i.i = fcmp oeq float %add.i.i.i277, 0x7FF0000000000000
+  %add.i.i.i287 = fadd float %add.i50, %mul.i.i274
+  %or.cond.i.i.i.i = fcmp oeq float %add.i.i.i287, 0x7FF0000000000000
   br i1 %or.cond.i.i.i.i, label %_ZN4pbrt10AddRoundUpEff.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i.i
-  %cmp1.i.i.i.i = fcmp oeq float %add.i.i.i277, 0.000000e+00
-  %v.addr.0.i.i.i.i = select i1 %cmp1.i.i.i.i, float 0.000000e+00, float %add.i.i.i277
+  %cmp1.i.i.i.i = fcmp oeq float %add.i.i.i287, 0.000000e+00
+  %v.addr.0.i.i.i.i = select i1 %cmp1.i.i.i.i, float 0.000000e+00, float %add.i.i.i287
   %70 = bitcast float %v.addr.0.i.i.i.i to i32
   %cmp5.i.i.i.i = fcmp ult float %v.addr.0.i.i.i.i, 0.000000e+00
   %ui.0.v.i.i.i.i = select i1 %cmp5.i.i.i.i, i32 -1, i32 1
@@ -37517,8 +37517,8 @@ _ZN4pbrt10AddRoundUpEff.exit.i.i:                 ; preds = %if.end.i.i.i.i, %_Z
   br label %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i
 
 _ZN4pbrt8Interval17FromValueAndErrorEff.exit.i:   ; preds = %_ZN4pbrt10AddRoundUpEff.exit.i.i, %if.then.i.i
-  %retval.sroa.0.0.i.i = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i.i279, %if.then.i.i ], [ %retval.sroa.0.4.vec.insert9.i.i, %_ZN4pbrt10AddRoundUpEff.exit.i.i ]
-  %cmp.i1.i = fcmp oeq float %mul2.i.i266, 0.000000e+00
+  %retval.sroa.0.0.i.i = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i.i289, %if.then.i.i ], [ %retval.sroa.0.4.vec.insert9.i.i, %_ZN4pbrt10AddRoundUpEff.exit.i.i ]
+  %cmp.i1.i = fcmp oeq float %mul2.i.i276, 0.000000e+00
   br i1 %cmp.i1.i, label %if.then.i26.i, label %if.else.i2.i
 
 if.then.i26.i:                                    ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i
@@ -37527,7 +37527,7 @@ if.then.i26.i:                                    ; preds = %_ZN4pbrt8Interval17
   br label %_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i
 
 if.else.i2.i:                                     ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit.i
-  %add.i.i.i3.i = fsub float %add4.i53, %mul2.i.i266
+  %add.i.i.i3.i = fsub float %add4.i53, %mul2.i.i276
   %or.cond.i.i.i.i4.i = fcmp oeq float %add.i.i.i3.i, 0xFFF0000000000000
   br i1 %or.cond.i.i.i.i4.i, label %_ZN4pbrt12SubRoundDownEff.exit.i11.i, label %if.end.i.i.i.i5.i
 
@@ -37544,7 +37544,7 @@ if.end.i.i.i.i5.i:                                ; preds = %if.else.i2.i
 _ZN4pbrt12SubRoundDownEff.exit.i11.i:             ; preds = %if.end.i.i.i.i5.i, %if.else.i2.i
   %retval.0.i.i.i.i12.i = phi float [ %74, %if.end.i.i.i.i5.i ], [ 0xFFF0000000000000, %if.else.i2.i ]
   %retval.sroa.0.0.vec.insert7.i13.i = insertelement <2 x float> poison, float %retval.0.i.i.i.i12.i, i64 0
-  %add.i.i14.i = fadd float %add4.i53, %mul2.i.i266
+  %add.i.i14.i = fadd float %add4.i53, %mul2.i.i276
   %or.cond.i.i.i15.i = fcmp oeq float %add.i.i14.i, 0x7FF0000000000000
   br i1 %or.cond.i.i.i15.i, label %_ZN4pbrt10AddRoundUpEff.exit.i22.i, label %if.end.i.i.i16.i
 
@@ -37565,7 +37565,7 @@ _ZN4pbrt10AddRoundUpEff.exit.i22.i:               ; preds = %if.end.i.i.i16.i, %
 
 _ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i: ; preds = %_ZN4pbrt10AddRoundUpEff.exit.i22.i, %if.then.i26.i
   %retval.sroa.0.0.i25.i = phi <2 x float> [ %retval.sroa.0.0.vec.insert.i27.i, %if.then.i26.i ], [ %retval.sroa.0.4.vec.insert9.i24.i, %_ZN4pbrt10AddRoundUpEff.exit.i22.i ]
-  %cmp.i29.i = fcmp oeq float %mul3.i.i267, 0.000000e+00
+  %cmp.i29.i = fcmp oeq float %mul3.i.i277, 0.000000e+00
   br i1 %cmp.i29.i, label %if.then.i54.i, label %if.else.i30.i
 
 if.then.i54.i:                                    ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i
@@ -37574,7 +37574,7 @@ if.then.i54.i:                                    ; preds = %_ZN4pbrt8Interval17
   br label %_ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit
 
 if.else.i30.i:                                    ; preds = %_ZN4pbrt8Interval17FromValueAndErrorEff.exit28.i
-  %add.i.i.i31.i = fsub float %add6.i55, %mul3.i.i267
+  %add.i.i.i31.i = fsub float %add6.i55, %mul3.i.i277
   %or.cond.i.i.i.i32.i = fcmp oeq float %add.i.i.i31.i, 0xFFF0000000000000
   br i1 %or.cond.i.i.i.i32.i, label %_ZN4pbrt12SubRoundDownEff.exit.i39.i, label %if.end.i.i.i.i33.i
 
@@ -37591,7 +37591,7 @@ if.end.i.i.i.i33.i:                               ; preds = %if.else.i30.i
 _ZN4pbrt12SubRoundDownEff.exit.i39.i:             ; preds = %if.end.i.i.i.i33.i, %if.else.i30.i
   %retval.0.i.i.i.i40.i = phi float [ %79, %if.end.i.i.i.i33.i ], [ 0xFFF0000000000000, %if.else.i30.i ]
   %retval.sroa.0.0.vec.insert7.i41.i = insertelement <2 x float> poison, float %retval.0.i.i.i.i40.i, i64 0
-  %add.i.i42.i = fadd float %add6.i55, %mul3.i.i267
+  %add.i.i42.i = fadd float %add6.i55, %mul3.i.i277
   %or.cond.i.i.i43.i = fcmp oeq float %add.i.i42.i, 0x7FF0000000000000
   br i1 %or.cond.i.i.i43.i, label %_ZN4pbrt10AddRoundUpEff.exit.i50.i, label %if.end.i.i.i44.i
 
@@ -37628,16 +37628,16 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %if.then.i54.i
   %94 = load ptr, ptr %arrayidx.i.i.i, align 8
   %vertexIndices.i = getelementptr inbounds i8, ptr %94, i64 8
   %95 = load ptr, ptr %vertexIndices.i, align 8
-  %arrayidx.i281 = getelementptr inbounds i32, ptr %95, i64 %idxprom
+  %arrayidx.i291 = getelementptr inbounds i32, ptr %95, i64 %idxprom
   %p.i = getelementptr inbounds i8, ptr %94, i64 16
   %96 = load ptr, ptr %p.i, align 8
-  %97 = load i32, ptr %arrayidx.i281, align 4
+  %97 = load i32, ptr %arrayidx.i291, align 4
   %idxprom3.i = sext i32 %97 to i64
   %arrayidx4.i = getelementptr inbounds %"class.pbrt::Point3.8", ptr %96, i64 %idxprom3.i
   %p0.sroa.0.0.copyload.i = load <2 x float>, ptr %arrayidx4.i, align 4
   %p0.sroa.3.0.arrayidx4.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx4.i, i64 8
   %p0.sroa.3.0.copyload.i = load float, ptr %p0.sroa.3.0.arrayidx4.sroa_idx.i, align 4
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i281, i64 4
+  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i291, i64 4
   %98 = load i32, ptr %arrayidx6.i, align 4
   %idxprom7.i = sext i32 %98 to i64
   %arrayidx8.i = getelementptr inbounds %"class.pbrt::Point3.8", ptr %96, i64 %idxprom7.i
@@ -37646,7 +37646,7 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %if.then.i54.i
   %p1.sroa.2.0.copyload.i = load float, ptr %p1.sroa.2.0.arrayidx8.sroa_idx.i, align 4
   %p1.sroa.3.0.arrayidx8.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx8.i, i64 8
   %p1.sroa.3.0.copyload.i = load float, ptr %p1.sroa.3.0.arrayidx8.sroa_idx.i, align 4
-  %arrayidx10.i = getelementptr inbounds i8, ptr %arrayidx.i281, i64 8
+  %arrayidx10.i = getelementptr inbounds i8, ptr %arrayidx.i291, i64 8
   %99 = load i32, ptr %arrayidx10.i, align 4
   %idxprom11.i = sext i32 %99 to i64
   %arrayidx12.i = getelementptr inbounds %"class.pbrt::Point3.8", ptr %96, i64 %idxprom11.i
@@ -37663,12 +37663,12 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %if.then.i54.i
   %sub.i8.i = fsub float %p2.sroa.0.0.copyload.i, %p.sroa.0.0.vec.extract.i.i
   %sub4.i11.i = fsub float %p2.sroa.2.0.copyload.i, %p.sroa.0.4.vec.extract.i.i
   %sub6.i13.i = fsub float %p2.sroa.3.0.copyload.i, %p0.sroa.3.0.copyload.i
-  %mul.i.i.i282 = fmul float %sub6.i.i, %sub4.i11.i
-  %fneg.i.i.i283 = fneg float %mul.i.i.i282
-  %100 = tail call noundef float @llvm.fma.f32(float %sub4.i.i, float %sub6.i13.i, float %fneg.i.i.i283)
+  %mul.i.i.i292 = fmul float %sub6.i.i, %sub4.i11.i
+  %fneg.i.i.i293 = fneg float %mul.i.i.i292
+  %100 = tail call noundef float @llvm.fma.f32(float %sub4.i.i, float %sub6.i13.i, float %fneg.i.i.i293)
   %fneg1.i.i.i = fneg float %sub6.i.i
-  %101 = tail call noundef float @llvm.fma.f32(float %fneg1.i.i.i, float %sub4.i11.i, float %mul.i.i.i282)
-  %add.i.i.i284 = fadd float %100, %101
+  %101 = tail call noundef float @llvm.fma.f32(float %fneg1.i.i.i, float %sub4.i11.i, float %mul.i.i.i292)
+  %add.i.i.i294 = fadd float %100, %101
   %mul.i11.i.i = fmul float %sub.i.i, %sub6.i13.i
   %fneg.i12.i.i = fneg float %mul.i11.i.i
   %102 = tail call noundef float @llvm.fma.f32(float %sub6.i.i, float %sub.i8.i, float %fneg.i12.i.i)
@@ -37681,13 +37681,13 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %if.then.i54.i
   %fneg1.i17.i.i = fneg float %sub4.i.i
   %105 = tail call noundef float @llvm.fma.f32(float %fneg1.i17.i.i, float %sub.i8.i, float %mul.i15.i.i)
   %add.i18.i.i = fadd float %104, %105
-  %mul.i.i.i.i285 = fmul float %add.i.i.i284, %add.i.i.i284
-  %mul.i1.i.i.i286 = fmul float %add.i14.i.i, %add.i14.i.i
-  %add.i.i22.i = fadd float %mul.i.i.i.i285, %mul.i1.i.i.i286
-  %mul.i2.i.i.i287 = fmul float %add.i18.i.i, %add.i18.i.i
-  %add3.i.i.i288 = fadd float %mul.i2.i.i.i287, %add.i.i22.i
-  %sqrt.i.i289 = tail call noundef float @llvm.sqrt.f32(float %add3.i.i.i288)
-  %mul25.i = fmul float %sqrt.i.i289, 5.000000e-01
+  %mul.i.i.i.i295 = fmul float %add.i.i.i294, %add.i.i.i294
+  %mul.i1.i.i.i296 = fmul float %add.i14.i.i, %add.i14.i.i
+  %add.i.i22.i = fadd float %mul.i.i.i.i295, %mul.i1.i.i.i296
+  %mul.i2.i.i.i297 = fmul float %add.i18.i.i, %add.i18.i.i
+  %add3.i.i.i298 = fadd float %mul.i2.i.i.i297, %add.i.i22.i
+  %sqrt.i.i299 = tail call noundef float @llvm.sqrt.f32(float %add3.i.i.i298)
+  %mul25.i = fmul float %sqrt.i.i299, 5.000000e-01
   %div = fdiv float 1.000000e+00, %mul25.i
   %set.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store i8 1, ptr %set.i, align 8
@@ -37977,7 +37977,7 @@ return:                                           ; preds = %_ZN4pstd8optionalIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK4pbrt6Sphere14BasicIntersectERKNS_3RayEf(ptr noalias sret(%"class.pstd::optional.161") align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(42) %this, ptr noundef nonnull align 8 dereferenceable(40) %r, float noundef %tMax) local_unnamed_addr #12 comdat align 2 {
 entry:
-  %agg.tmp64553 = alloca %"class.pbrt::Vector3.164", align 8
+  %agg.tmp64562 = alloca %"class.pbrt::Vector3.164", align 8
   %s.i.i = alloca %"class.pbrt::Interval", align 8
   %oi = alloca %"class.pbrt::Point3fi", align 16
   %ref.tmp = alloca %"class.pbrt::Point3fi", align 8
@@ -38058,39 +38058,39 @@ _ZN4pbrt10MulRoundUpEff.exit.i:                   ; preds = %if.end.i.i.i, %if.t
 if.end7.i:                                        ; preds = %entry
   %alow.0.i = select i1 %cmp.i, float %8, float %7
   %mul.i1.i = fmul float %alow.0.i, %alow.0.i
-  %cmp1.i.i3.i = fcmp oeq float %mul.i1.i, 0.000000e+00
-  %v.addr.0.i.i4.i = select i1 %cmp1.i.i3.i, float -0.000000e+00, float %mul.i1.i
-  %19 = bitcast float %v.addr.0.i.i4.i to i32
-  %cmp5.i.i5.i = fcmp ogt float %v.addr.0.i.i4.i, 0.000000e+00
-  %ui.0.v.i.i6.i = select i1 %cmp5.i.i5.i, i32 -1, i32 1
-  %ui.0.i.i7.i = add i32 %ui.0.v.i.i6.i, %19
-  %20 = bitcast i32 %ui.0.i.i7.i to float
-  %mul.i9.i = fmul float %ahigh.0.i, %ahigh.0.i
-  %or.cond.i.i10.i = fcmp oeq float %mul.i9.i, 0x7FF0000000000000
-  br i1 %or.cond.i.i10.i, label %_ZN4pbrt10MulRoundUpEff.exit18.i, label %if.end.i.i11.i
+  %cmp1.i.i4.i = fcmp oeq float %mul.i1.i, 0.000000e+00
+  %v.addr.0.i.i5.i = select i1 %cmp1.i.i4.i, float -0.000000e+00, float %mul.i1.i
+  %19 = bitcast float %v.addr.0.i.i5.i to i32
+  %cmp5.i.i6.i = fcmp ogt float %v.addr.0.i.i5.i, 0.000000e+00
+  %ui.0.v.i.i7.i = select i1 %cmp5.i.i6.i, i32 -1, i32 1
+  %ui.0.i.i8.i = add i32 %ui.0.v.i.i7.i, %19
+  %20 = bitcast i32 %ui.0.i.i8.i to float
+  %mul.i10.i = fmul float %ahigh.0.i, %ahigh.0.i
+  %or.cond.i.i11.i = fcmp oeq float %mul.i10.i, 0x7FF0000000000000
+  br i1 %or.cond.i.i11.i, label %_ZN4pbrt10MulRoundUpEff.exit19.i, label %if.end.i.i12.i
 
-if.end.i.i11.i:                                   ; preds = %if.end7.i
-  %cmp1.i.i12.i = fcmp oeq float %mul.i9.i, 0.000000e+00
-  %v.addr.0.i.i13.i = select i1 %cmp1.i.i12.i, float 0.000000e+00, float %mul.i9.i
-  %21 = bitcast float %v.addr.0.i.i13.i to i32
-  %cmp5.i.i14.i = fcmp ult float %v.addr.0.i.i13.i, 0.000000e+00
-  %ui.0.v.i.i15.i = select i1 %cmp5.i.i14.i, i32 -1, i32 1
-  %ui.0.i.i16.i = add i32 %ui.0.v.i.i15.i, %21
-  %22 = bitcast i32 %ui.0.i.i16.i to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit18.i
+if.end.i.i12.i:                                   ; preds = %if.end7.i
+  %cmp1.i.i13.i = fcmp oeq float %mul.i10.i, 0.000000e+00
+  %v.addr.0.i.i14.i = select i1 %cmp1.i.i13.i, float 0.000000e+00, float %mul.i10.i
+  %21 = bitcast float %v.addr.0.i.i14.i to i32
+  %cmp5.i.i15.i = fcmp ult float %v.addr.0.i.i14.i, 0.000000e+00
+  %ui.0.v.i.i16.i = select i1 %cmp5.i.i15.i, i32 -1, i32 1
+  %ui.0.i.i17.i = add i32 %ui.0.v.i.i16.i, %21
+  %22 = bitcast i32 %ui.0.i.i17.i to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit19.i
 
-_ZN4pbrt10MulRoundUpEff.exit18.i:                 ; preds = %if.end.i.i11.i, %if.end7.i
-  %retval.0.i.i17.i = phi float [ %22, %if.end.i.i11.i ], [ 0x7FF0000000000000, %if.end7.i ]
-  %cmp.i.i19.i = fcmp olt float %retval.0.i.i17.i, %20
-  %.sroa.speculated6.i20.i = select i1 %cmp.i.i19.i, float %retval.0.i.i17.i, float %20
-  %retval.sroa.0.0.vec.insert31.i = insertelement <2 x float> poison, float %.sroa.speculated6.i20.i, i64 0
-  %cmp.i1.i22.i = fcmp ogt float %retval.0.i.i17.i, %20
-  %.sroa.speculated.i23.i = select i1 %cmp.i1.i22.i, float %retval.0.i.i17.i, float %20
-  %retval.sroa.0.4.vec.insert33.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i, float %.sroa.speculated.i23.i, i64 1
+_ZN4pbrt10MulRoundUpEff.exit19.i:                 ; preds = %if.end.i.i12.i, %if.end7.i
+  %retval.0.i.i18.i = phi float [ %22, %if.end.i.i12.i ], [ 0x7FF0000000000000, %if.end7.i ]
+  %cmp.i.i20.i = fcmp olt float %retval.0.i.i18.i, %20
+  %.sroa.speculated6.i21.i = select i1 %cmp.i.i20.i, float %retval.0.i.i18.i, float %20
+  %retval.sroa.0.0.vec.insert32.i = insertelement <2 x float> poison, float %.sroa.speculated6.i21.i, i64 0
+  %cmp.i1.i23.i = fcmp ogt float %retval.0.i.i18.i, %20
+  %.sroa.speculated.i24.i = select i1 %cmp.i1.i23.i, float %retval.0.i.i18.i, float %20
+  %retval.sroa.0.4.vec.insert34.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert32.i, float %.sroa.speculated.i24.i, i64 1
   br label %_ZN4pbrt3SqrENS_8IntervalE.exit
 
-_ZN4pbrt3SqrENS_8IntervalE.exit:                  ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i, %_ZN4pbrt10MulRoundUpEff.exit18.i
-  %retval.sroa.0.0.i = phi <2 x float> [ %18, %_ZN4pbrt10MulRoundUpEff.exit.i ], [ %retval.sroa.0.4.vec.insert33.i, %_ZN4pbrt10MulRoundUpEff.exit18.i ]
+_ZN4pbrt3SqrENS_8IntervalE.exit:                  ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i, %_ZN4pbrt10MulRoundUpEff.exit19.i
+  %retval.sroa.0.0.i = phi <2 x float> [ %18, %_ZN4pbrt10MulRoundUpEff.exit.i ], [ %retval.sroa.0.4.vec.insert34.i, %_ZN4pbrt10MulRoundUpEff.exit19.i ]
   %y = getelementptr inbounds i8, ptr %di, i64 8
   %agg.tmp8.sroa.0.0.copyload = load <2 x float>, ptr %y, align 8
   %23 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %agg.tmp8.sroa.0.0.copyload)
@@ -38132,39 +38132,39 @@ _ZN4pbrt10MulRoundUpEff.exit.i70:                 ; preds = %if.end.i.i.i64, %if
 if.end7.i36:                                      ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit
   %alow.0.i37 = select i1 %cmp.i32, float %25, float %24
   %mul.i1.i38 = fmul float %alow.0.i37, %alow.0.i37
-  %cmp1.i.i3.i39 = fcmp oeq float %mul.i1.i38, 0.000000e+00
-  %v.addr.0.i.i4.i40 = select i1 %cmp1.i.i3.i39, float -0.000000e+00, float %mul.i1.i38
-  %36 = bitcast float %v.addr.0.i.i4.i40 to i32
-  %cmp5.i.i5.i41 = fcmp ogt float %v.addr.0.i.i4.i40, 0.000000e+00
-  %ui.0.v.i.i6.i42 = select i1 %cmp5.i.i5.i41, i32 -1, i32 1
-  %ui.0.i.i7.i43 = add i32 %ui.0.v.i.i6.i42, %36
-  %37 = bitcast i32 %ui.0.i.i7.i43 to float
-  %mul.i9.i44 = fmul float %ahigh.0.i33, %ahigh.0.i33
-  %or.cond.i.i10.i45 = fcmp oeq float %mul.i9.i44, 0x7FF0000000000000
-  br i1 %or.cond.i.i10.i45, label %_ZN4pbrt10MulRoundUpEff.exit18.i52, label %if.end.i.i11.i46
+  %cmp1.i.i4.i39 = fcmp oeq float %mul.i1.i38, 0.000000e+00
+  %v.addr.0.i.i5.i40 = select i1 %cmp1.i.i4.i39, float -0.000000e+00, float %mul.i1.i38
+  %36 = bitcast float %v.addr.0.i.i5.i40 to i32
+  %cmp5.i.i6.i41 = fcmp ogt float %v.addr.0.i.i5.i40, 0.000000e+00
+  %ui.0.v.i.i7.i42 = select i1 %cmp5.i.i6.i41, i32 -1, i32 1
+  %ui.0.i.i8.i43 = add i32 %ui.0.v.i.i7.i42, %36
+  %37 = bitcast i32 %ui.0.i.i8.i43 to float
+  %mul.i10.i44 = fmul float %ahigh.0.i33, %ahigh.0.i33
+  %or.cond.i.i11.i45 = fcmp oeq float %mul.i10.i44, 0x7FF0000000000000
+  br i1 %or.cond.i.i11.i45, label %_ZN4pbrt10MulRoundUpEff.exit19.i52, label %if.end.i.i12.i46
 
-if.end.i.i11.i46:                                 ; preds = %if.end7.i36
-  %cmp1.i.i12.i47 = fcmp oeq float %mul.i9.i44, 0.000000e+00
-  %v.addr.0.i.i13.i48 = select i1 %cmp1.i.i12.i47, float 0.000000e+00, float %mul.i9.i44
-  %38 = bitcast float %v.addr.0.i.i13.i48 to i32
-  %cmp5.i.i14.i49 = fcmp ult float %v.addr.0.i.i13.i48, 0.000000e+00
-  %ui.0.v.i.i15.i50 = select i1 %cmp5.i.i14.i49, i32 -1, i32 1
-  %ui.0.i.i16.i51 = add i32 %ui.0.v.i.i15.i50, %38
-  %39 = bitcast i32 %ui.0.i.i16.i51 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit18.i52
+if.end.i.i12.i46:                                 ; preds = %if.end7.i36
+  %cmp1.i.i13.i47 = fcmp oeq float %mul.i10.i44, 0.000000e+00
+  %v.addr.0.i.i14.i48 = select i1 %cmp1.i.i13.i47, float 0.000000e+00, float %mul.i10.i44
+  %38 = bitcast float %v.addr.0.i.i14.i48 to i32
+  %cmp5.i.i15.i49 = fcmp ult float %v.addr.0.i.i14.i48, 0.000000e+00
+  %ui.0.v.i.i16.i50 = select i1 %cmp5.i.i15.i49, i32 -1, i32 1
+  %ui.0.i.i17.i51 = add i32 %ui.0.v.i.i16.i50, %38
+  %39 = bitcast i32 %ui.0.i.i17.i51 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit19.i52
 
-_ZN4pbrt10MulRoundUpEff.exit18.i52:               ; preds = %if.end.i.i11.i46, %if.end7.i36
-  %retval.0.i.i17.i53 = phi float [ %39, %if.end.i.i11.i46 ], [ 0x7FF0000000000000, %if.end7.i36 ]
-  %cmp.i.i19.i54 = fcmp olt float %retval.0.i.i17.i53, %37
-  %.sroa.speculated6.i20.i55 = select i1 %cmp.i.i19.i54, float %retval.0.i.i17.i53, float %37
-  %retval.sroa.0.0.vec.insert31.i56 = insertelement <2 x float> poison, float %.sroa.speculated6.i20.i55, i64 0
-  %cmp.i1.i22.i57 = fcmp ogt float %retval.0.i.i17.i53, %37
-  %.sroa.speculated.i23.i58 = select i1 %cmp.i1.i22.i57, float %retval.0.i.i17.i53, float %37
-  %retval.sroa.0.4.vec.insert33.i59 = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i56, float %.sroa.speculated.i23.i58, i64 1
+_ZN4pbrt10MulRoundUpEff.exit19.i52:               ; preds = %if.end.i.i12.i46, %if.end7.i36
+  %retval.0.i.i18.i53 = phi float [ %39, %if.end.i.i12.i46 ], [ 0x7FF0000000000000, %if.end7.i36 ]
+  %cmp.i.i20.i54 = fcmp olt float %retval.0.i.i18.i53, %37
+  %.sroa.speculated6.i21.i55 = select i1 %cmp.i.i20.i54, float %retval.0.i.i18.i53, float %37
+  %retval.sroa.0.0.vec.insert32.i56 = insertelement <2 x float> poison, float %.sroa.speculated6.i21.i55, i64 0
+  %cmp.i1.i23.i57 = fcmp ogt float %retval.0.i.i18.i53, %37
+  %.sroa.speculated.i24.i58 = select i1 %cmp.i1.i23.i57, float %retval.0.i.i18.i53, float %37
+  %retval.sroa.0.4.vec.insert34.i59 = insertelement <2 x float> %retval.sroa.0.0.vec.insert32.i56, float %.sroa.speculated.i24.i58, i64 1
   br label %_ZN4pbrt3SqrENS_8IntervalE.exit78
 
-_ZN4pbrt3SqrENS_8IntervalE.exit78:                ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i70, %_ZN4pbrt10MulRoundUpEff.exit18.i52
-  %retval.sroa.0.0.i60 = phi <2 x float> [ %35, %_ZN4pbrt10MulRoundUpEff.exit.i70 ], [ %retval.sroa.0.4.vec.insert33.i59, %_ZN4pbrt10MulRoundUpEff.exit18.i52 ]
+_ZN4pbrt3SqrENS_8IntervalE.exit78:                ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i70, %_ZN4pbrt10MulRoundUpEff.exit19.i52
+  %retval.sroa.0.0.i60 = phi <2 x float> [ %35, %_ZN4pbrt10MulRoundUpEff.exit.i70 ], [ %retval.sroa.0.4.vec.insert34.i59, %_ZN4pbrt10MulRoundUpEff.exit19.i52 ]
   %40 = fadd <2 x float> %retval.sroa.0.0.i, %retval.sroa.0.0.i60
   %add.i.i = extractelement <2 x float> %40, i64 0
   %or.cond.i.i.i80 = fcmp oeq float %add.i.i, 0xFFF0000000000000
@@ -38188,236 +38188,236 @@ _ZN4pbrt12AddRoundDownEff.exit.i:                 ; preds = %if.end.i.i.i81, %_Z
   br i1 %or.cond.i.i2.i, label %_ZNK4pbrt8IntervalplES0_.exit, label %if.end.i.i3.i
 
 if.end.i.i3.i:                                    ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i
-  %cmp1.i.i4.i = fcmp oeq float %add.i1.i, 0.000000e+00
-  %v.addr.0.i.i5.i = select i1 %cmp1.i.i4.i, float 0.000000e+00, float %add.i1.i
-  %44 = bitcast float %v.addr.0.i.i5.i to i32
-  %cmp5.i.i6.i = fcmp ult float %v.addr.0.i.i5.i, 0.000000e+00
-  %ui.0.v.i.i7.i = select i1 %cmp5.i.i6.i, i32 -1, i32 1
-  %ui.0.i.i8.i = add i32 %ui.0.v.i.i7.i, %44
-  %45 = bitcast i32 %ui.0.i.i8.i to float
+  %cmp1.i.i4.i89 = fcmp oeq float %add.i1.i, 0.000000e+00
+  %v.addr.0.i.i5.i90 = select i1 %cmp1.i.i4.i89, float 0.000000e+00, float %add.i1.i
+  %44 = bitcast float %v.addr.0.i.i5.i90 to i32
+  %cmp5.i.i6.i91 = fcmp ult float %v.addr.0.i.i5.i90, 0.000000e+00
+  %ui.0.v.i.i7.i92 = select i1 %cmp5.i.i6.i91, i32 -1, i32 1
+  %ui.0.i.i8.i93 = add i32 %ui.0.v.i.i7.i92, %44
+  %45 = bitcast i32 %ui.0.i.i8.i93 to float
   br label %_ZNK4pbrt8IntervalplES0_.exit
 
 _ZNK4pbrt8IntervalplES0_.exit:                    ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i, %if.end.i.i3.i
   %retval.0.i.i9.i = phi float [ %45, %if.end.i.i3.i ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i ]
-  %cmp.i.i.i89 = fcmp olt float %retval.0.i.i9.i, %retval.0.i.i.i87
-  %.sroa.speculated6.i.i90 = select i1 %cmp.i.i.i89, float %retval.0.i.i9.i, float %retval.0.i.i.i87
-  %cmp.i1.i.i92 = fcmp olt float %retval.0.i.i.i87, %retval.0.i.i9.i
-  %.sroa.speculated.i.i93 = select i1 %cmp.i1.i.i92, float %retval.0.i.i9.i, float %retval.0.i.i.i87
+  %cmp.i.i.i94 = fcmp olt float %retval.0.i.i9.i, %retval.0.i.i.i87
+  %.sroa.speculated6.i.i95 = select i1 %cmp.i.i.i94, float %retval.0.i.i9.i, float %retval.0.i.i.i87
+  %cmp.i1.i.i97 = fcmp olt float %retval.0.i.i.i87, %retval.0.i.i9.i
+  %.sroa.speculated.i.i98 = select i1 %cmp.i1.i.i97, float %retval.0.i.i9.i, float %retval.0.i.i.i87
   %z = getelementptr inbounds i8, ptr %di, i64 16
   %agg.tmp12.sroa.0.0.copyload = load <2 x float>, ptr %z, align 16
   %46 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %agg.tmp12.sroa.0.0.copyload)
   %47 = extractelement <2 x float> %46, i64 0
   %48 = extractelement <2 x float> %46, i64 1
-  %cmp.i97 = fcmp ogt float %47, %48
-  %ahigh.0.i98 = select i1 %cmp.i97, float %47, float %48
+  %cmp.i102 = fcmp ogt float %47, %48
+  %ahigh.0.i103 = select i1 %cmp.i102, float %47, float %48
   %49 = extractelement <2 x float> %agg.tmp12.sroa.0.0.copyload, i64 0
-  %cmp.i.i99 = fcmp ole float %49, 0.000000e+00
+  %cmp.i.i104 = fcmp ole float %49, 0.000000e+00
   %50 = extractelement <2 x float> %agg.tmp12.sroa.0.0.copyload, i64 1
-  %cmp2.i.i100 = fcmp oge float %50, 0.000000e+00
-  %51 = select i1 %cmp.i.i99, i1 %cmp2.i.i100, i1 false
-  br i1 %51, label %if.then5.i126, label %if.end7.i101
+  %cmp2.i.i105 = fcmp oge float %50, 0.000000e+00
+  %51 = select i1 %cmp.i.i104, i1 %cmp2.i.i105, i1 false
+  br i1 %51, label %if.then5.i131, label %if.end7.i106
 
-if.then5.i126:                                    ; preds = %_ZNK4pbrt8IntervalplES0_.exit
-  %mul.i.i127 = fmul float %ahigh.0.i98, %ahigh.0.i98
-  %or.cond.i.i.i128 = fcmp oeq float %mul.i.i127, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i128, label %_ZN4pbrt10MulRoundUpEff.exit.i135, label %if.end.i.i.i129
+if.then5.i131:                                    ; preds = %_ZNK4pbrt8IntervalplES0_.exit
+  %mul.i.i132 = fmul float %ahigh.0.i103, %ahigh.0.i103
+  %or.cond.i.i.i133 = fcmp oeq float %mul.i.i132, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i133, label %_ZN4pbrt10MulRoundUpEff.exit.i140, label %if.end.i.i.i134
 
-if.end.i.i.i129:                                  ; preds = %if.then5.i126
-  %cmp1.i.i.i130 = fcmp oeq float %mul.i.i127, 0.000000e+00
-  %v.addr.0.i.i.i131 = select i1 %cmp1.i.i.i130, float 0.000000e+00, float %mul.i.i127
-  %52 = bitcast float %v.addr.0.i.i.i131 to i32
-  %cmp5.i.i.i132 = fcmp ult float %v.addr.0.i.i.i131, 0.000000e+00
-  %ui.0.v.i.i.i133 = select i1 %cmp5.i.i.i132, i32 -1, i32 1
-  %ui.0.i.i.i134 = add i32 %ui.0.v.i.i.i133, %52
-  %53 = bitcast i32 %ui.0.i.i.i134 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit.i135
+if.end.i.i.i134:                                  ; preds = %if.then5.i131
+  %cmp1.i.i.i135 = fcmp oeq float %mul.i.i132, 0.000000e+00
+  %v.addr.0.i.i.i136 = select i1 %cmp1.i.i.i135, float 0.000000e+00, float %mul.i.i132
+  %52 = bitcast float %v.addr.0.i.i.i136 to i32
+  %cmp5.i.i.i137 = fcmp ult float %v.addr.0.i.i.i136, 0.000000e+00
+  %ui.0.v.i.i.i138 = select i1 %cmp5.i.i.i137, i32 -1, i32 1
+  %ui.0.i.i.i139 = add i32 %ui.0.v.i.i.i138, %52
+  %53 = bitcast i32 %ui.0.i.i.i139 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit.i140
 
-_ZN4pbrt10MulRoundUpEff.exit.i135:                ; preds = %if.end.i.i.i129, %if.then5.i126
-  %retval.0.i.i.i136 = phi float [ %53, %if.end.i.i.i129 ], [ 0x7FF0000000000000, %if.then5.i126 ]
-  %54 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i136, i64 0
-  %55 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i136, i64 1
+_ZN4pbrt10MulRoundUpEff.exit.i140:                ; preds = %if.end.i.i.i134, %if.then5.i131
+  %retval.0.i.i.i141 = phi float [ %53, %if.end.i.i.i134 ], [ 0x7FF0000000000000, %if.then5.i131 ]
+  %54 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i141, i64 0
+  %55 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i141, i64 1
   %56 = fcmp olt <2 x float> %54, %55
   %57 = shufflevector <2 x float> %54, <2 x float> poison, <2 x i32> zeroinitializer
   %58 = select <2 x i1> %56, <2 x float> %57, <2 x float> zeroinitializer
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit143
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit148
 
-if.end7.i101:                                     ; preds = %_ZNK4pbrt8IntervalplES0_.exit
-  %alow.0.i102 = select i1 %cmp.i97, float %48, float %47
-  %mul.i1.i103 = fmul float %alow.0.i102, %alow.0.i102
-  %cmp1.i.i3.i104 = fcmp oeq float %mul.i1.i103, 0.000000e+00
-  %v.addr.0.i.i4.i105 = select i1 %cmp1.i.i3.i104, float -0.000000e+00, float %mul.i1.i103
-  %59 = bitcast float %v.addr.0.i.i4.i105 to i32
-  %cmp5.i.i5.i106 = fcmp ogt float %v.addr.0.i.i4.i105, 0.000000e+00
-  %ui.0.v.i.i6.i107 = select i1 %cmp5.i.i5.i106, i32 -1, i32 1
-  %ui.0.i.i7.i108 = add i32 %ui.0.v.i.i6.i107, %59
-  %60 = bitcast i32 %ui.0.i.i7.i108 to float
-  %mul.i9.i109 = fmul float %ahigh.0.i98, %ahigh.0.i98
-  %or.cond.i.i10.i110 = fcmp oeq float %mul.i9.i109, 0x7FF0000000000000
-  br i1 %or.cond.i.i10.i110, label %_ZN4pbrt10MulRoundUpEff.exit18.i117, label %if.end.i.i11.i111
+if.end7.i106:                                     ; preds = %_ZNK4pbrt8IntervalplES0_.exit
+  %alow.0.i107 = select i1 %cmp.i102, float %48, float %47
+  %mul.i1.i108 = fmul float %alow.0.i107, %alow.0.i107
+  %cmp1.i.i4.i109 = fcmp oeq float %mul.i1.i108, 0.000000e+00
+  %v.addr.0.i.i5.i110 = select i1 %cmp1.i.i4.i109, float -0.000000e+00, float %mul.i1.i108
+  %59 = bitcast float %v.addr.0.i.i5.i110 to i32
+  %cmp5.i.i6.i111 = fcmp ogt float %v.addr.0.i.i5.i110, 0.000000e+00
+  %ui.0.v.i.i7.i112 = select i1 %cmp5.i.i6.i111, i32 -1, i32 1
+  %ui.0.i.i8.i113 = add i32 %ui.0.v.i.i7.i112, %59
+  %60 = bitcast i32 %ui.0.i.i8.i113 to float
+  %mul.i10.i114 = fmul float %ahigh.0.i103, %ahigh.0.i103
+  %or.cond.i.i11.i115 = fcmp oeq float %mul.i10.i114, 0x7FF0000000000000
+  br i1 %or.cond.i.i11.i115, label %_ZN4pbrt10MulRoundUpEff.exit19.i122, label %if.end.i.i12.i116
 
-if.end.i.i11.i111:                                ; preds = %if.end7.i101
-  %cmp1.i.i12.i112 = fcmp oeq float %mul.i9.i109, 0.000000e+00
-  %v.addr.0.i.i13.i113 = select i1 %cmp1.i.i12.i112, float 0.000000e+00, float %mul.i9.i109
-  %61 = bitcast float %v.addr.0.i.i13.i113 to i32
-  %cmp5.i.i14.i114 = fcmp ult float %v.addr.0.i.i13.i113, 0.000000e+00
-  %ui.0.v.i.i15.i115 = select i1 %cmp5.i.i14.i114, i32 -1, i32 1
-  %ui.0.i.i16.i116 = add i32 %ui.0.v.i.i15.i115, %61
-  %62 = bitcast i32 %ui.0.i.i16.i116 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit18.i117
+if.end.i.i12.i116:                                ; preds = %if.end7.i106
+  %cmp1.i.i13.i117 = fcmp oeq float %mul.i10.i114, 0.000000e+00
+  %v.addr.0.i.i14.i118 = select i1 %cmp1.i.i13.i117, float 0.000000e+00, float %mul.i10.i114
+  %61 = bitcast float %v.addr.0.i.i14.i118 to i32
+  %cmp5.i.i15.i119 = fcmp ult float %v.addr.0.i.i14.i118, 0.000000e+00
+  %ui.0.v.i.i16.i120 = select i1 %cmp5.i.i15.i119, i32 -1, i32 1
+  %ui.0.i.i17.i121 = add i32 %ui.0.v.i.i16.i120, %61
+  %62 = bitcast i32 %ui.0.i.i17.i121 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit19.i122
 
-_ZN4pbrt10MulRoundUpEff.exit18.i117:              ; preds = %if.end.i.i11.i111, %if.end7.i101
-  %retval.0.i.i17.i118 = phi float [ %62, %if.end.i.i11.i111 ], [ 0x7FF0000000000000, %if.end7.i101 ]
-  %cmp.i.i19.i119 = fcmp olt float %retval.0.i.i17.i118, %60
-  %.sroa.speculated6.i20.i120 = select i1 %cmp.i.i19.i119, float %retval.0.i.i17.i118, float %60
-  %retval.sroa.0.0.vec.insert31.i121 = insertelement <2 x float> poison, float %.sroa.speculated6.i20.i120, i64 0
-  %cmp.i1.i22.i122 = fcmp ogt float %retval.0.i.i17.i118, %60
-  %.sroa.speculated.i23.i123 = select i1 %cmp.i1.i22.i122, float %retval.0.i.i17.i118, float %60
-  %retval.sroa.0.4.vec.insert33.i124 = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i121, float %.sroa.speculated.i23.i123, i64 1
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit143
+_ZN4pbrt10MulRoundUpEff.exit19.i122:              ; preds = %if.end.i.i12.i116, %if.end7.i106
+  %retval.0.i.i18.i123 = phi float [ %62, %if.end.i.i12.i116 ], [ 0x7FF0000000000000, %if.end7.i106 ]
+  %cmp.i.i20.i124 = fcmp olt float %retval.0.i.i18.i123, %60
+  %.sroa.speculated6.i21.i125 = select i1 %cmp.i.i20.i124, float %retval.0.i.i18.i123, float %60
+  %retval.sroa.0.0.vec.insert32.i126 = insertelement <2 x float> poison, float %.sroa.speculated6.i21.i125, i64 0
+  %cmp.i1.i23.i127 = fcmp ogt float %retval.0.i.i18.i123, %60
+  %.sroa.speculated.i24.i128 = select i1 %cmp.i1.i23.i127, float %retval.0.i.i18.i123, float %60
+  %retval.sroa.0.4.vec.insert34.i129 = insertelement <2 x float> %retval.sroa.0.0.vec.insert32.i126, float %.sroa.speculated.i24.i128, i64 1
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit148
 
-_ZN4pbrt3SqrENS_8IntervalE.exit143:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i135, %_ZN4pbrt10MulRoundUpEff.exit18.i117
-  %retval.sroa.0.0.i125 = phi <2 x float> [ %58, %_ZN4pbrt10MulRoundUpEff.exit.i135 ], [ %retval.sroa.0.4.vec.insert33.i124, %_ZN4pbrt10MulRoundUpEff.exit18.i117 ]
-  %i.sroa.0.0.vec.extract.i144 = extractelement <2 x float> %retval.sroa.0.0.i125, i64 0
-  %add.i.i145 = fadd float %.sroa.speculated6.i.i90, %i.sroa.0.0.vec.extract.i144
-  %or.cond.i.i.i146 = fcmp oeq float %add.i.i145, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i146, label %_ZN4pbrt12AddRoundDownEff.exit.i153, label %if.end.i.i.i147
+_ZN4pbrt3SqrENS_8IntervalE.exit148:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i140, %_ZN4pbrt10MulRoundUpEff.exit19.i122
+  %retval.sroa.0.0.i130 = phi <2 x float> [ %58, %_ZN4pbrt10MulRoundUpEff.exit.i140 ], [ %retval.sroa.0.4.vec.insert34.i129, %_ZN4pbrt10MulRoundUpEff.exit19.i122 ]
+  %i.sroa.0.0.vec.extract.i149 = extractelement <2 x float> %retval.sroa.0.0.i130, i64 0
+  %add.i.i150 = fadd float %.sroa.speculated6.i.i95, %i.sroa.0.0.vec.extract.i149
+  %or.cond.i.i.i151 = fcmp oeq float %add.i.i150, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i151, label %_ZN4pbrt12AddRoundDownEff.exit.i158, label %if.end.i.i.i152
 
-if.end.i.i.i147:                                  ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit143
-  %cmp1.i.i.i148 = fcmp oeq float %add.i.i145, 0.000000e+00
-  %v.addr.0.i.i.i149 = select i1 %cmp1.i.i.i148, float -0.000000e+00, float %add.i.i145
-  %63 = bitcast float %v.addr.0.i.i.i149 to i32
-  %cmp5.i.i.i150 = fcmp ogt float %v.addr.0.i.i.i149, 0.000000e+00
-  %ui.0.v.i.i.i151 = select i1 %cmp5.i.i.i150, i32 -1, i32 1
-  %ui.0.i.i.i152 = add i32 %ui.0.v.i.i.i151, %63
-  %64 = bitcast i32 %ui.0.i.i.i152 to float
-  br label %_ZN4pbrt12AddRoundDownEff.exit.i153
+if.end.i.i.i152:                                  ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit148
+  %cmp1.i.i.i153 = fcmp oeq float %add.i.i150, 0.000000e+00
+  %v.addr.0.i.i.i154 = select i1 %cmp1.i.i.i153, float -0.000000e+00, float %add.i.i150
+  %63 = bitcast float %v.addr.0.i.i.i154 to i32
+  %cmp5.i.i.i155 = fcmp ogt float %v.addr.0.i.i.i154, 0.000000e+00
+  %ui.0.v.i.i.i156 = select i1 %cmp5.i.i.i155, i32 -1, i32 1
+  %ui.0.i.i.i157 = add i32 %ui.0.v.i.i.i156, %63
+  %64 = bitcast i32 %ui.0.i.i.i157 to float
+  br label %_ZN4pbrt12AddRoundDownEff.exit.i158
 
-_ZN4pbrt12AddRoundDownEff.exit.i153:              ; preds = %if.end.i.i.i147, %_ZN4pbrt3SqrENS_8IntervalE.exit143
-  %retval.0.i.i.i154 = phi float [ %64, %if.end.i.i.i147 ], [ 0xFFF0000000000000, %_ZN4pbrt3SqrENS_8IntervalE.exit143 ]
-  %i.sroa.0.4.vec.extract.i156 = extractelement <2 x float> %retval.sroa.0.0.i125, i64 1
-  %add.i1.i157 = fadd float %.sroa.speculated.i.i93, %i.sroa.0.4.vec.extract.i156
-  %or.cond.i.i2.i158 = fcmp oeq float %add.i1.i157, 0x7FF0000000000000
-  br i1 %or.cond.i.i2.i158, label %_ZNK4pbrt8IntervalplES0_.exit172, label %if.end.i.i3.i159
+_ZN4pbrt12AddRoundDownEff.exit.i158:              ; preds = %if.end.i.i.i152, %_ZN4pbrt3SqrENS_8IntervalE.exit148
+  %retval.0.i.i.i159 = phi float [ %64, %if.end.i.i.i152 ], [ 0xFFF0000000000000, %_ZN4pbrt3SqrENS_8IntervalE.exit148 ]
+  %i.sroa.0.4.vec.extract.i161 = extractelement <2 x float> %retval.sroa.0.0.i130, i64 1
+  %add.i1.i162 = fadd float %.sroa.speculated.i.i98, %i.sroa.0.4.vec.extract.i161
+  %or.cond.i.i2.i163 = fcmp oeq float %add.i1.i162, 0x7FF0000000000000
+  br i1 %or.cond.i.i2.i163, label %_ZNK4pbrt8IntervalplES0_.exit177, label %if.end.i.i3.i164
 
-if.end.i.i3.i159:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i153
-  %cmp1.i.i4.i160 = fcmp oeq float %add.i1.i157, 0.000000e+00
-  %v.addr.0.i.i5.i161 = select i1 %cmp1.i.i4.i160, float 0.000000e+00, float %add.i1.i157
-  %65 = bitcast float %v.addr.0.i.i5.i161 to i32
-  %cmp5.i.i6.i162 = fcmp ult float %v.addr.0.i.i5.i161, 0.000000e+00
-  %ui.0.v.i.i7.i163 = select i1 %cmp5.i.i6.i162, i32 -1, i32 1
-  %ui.0.i.i8.i164 = add i32 %ui.0.v.i.i7.i163, %65
-  %66 = bitcast i32 %ui.0.i.i8.i164 to float
-  br label %_ZNK4pbrt8IntervalplES0_.exit172
+if.end.i.i3.i164:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i158
+  %cmp1.i.i4.i165 = fcmp oeq float %add.i1.i162, 0.000000e+00
+  %v.addr.0.i.i5.i166 = select i1 %cmp1.i.i4.i165, float 0.000000e+00, float %add.i1.i162
+  %65 = bitcast float %v.addr.0.i.i5.i166 to i32
+  %cmp5.i.i6.i167 = fcmp ult float %v.addr.0.i.i5.i166, 0.000000e+00
+  %ui.0.v.i.i7.i168 = select i1 %cmp5.i.i6.i167, i32 -1, i32 1
+  %ui.0.i.i8.i169 = add i32 %ui.0.v.i.i7.i168, %65
+  %66 = bitcast i32 %ui.0.i.i8.i169 to float
+  br label %_ZNK4pbrt8IntervalplES0_.exit177
 
-_ZNK4pbrt8IntervalplES0_.exit172:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i153, %if.end.i.i3.i159
-  %retval.0.i.i9.i165 = phi float [ %66, %if.end.i.i3.i159 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i153 ]
-  %cmp.i.i.i166 = fcmp olt float %retval.0.i.i9.i165, %retval.0.i.i.i154
-  %.sroa.speculated6.i.i167 = select i1 %cmp.i.i.i166, float %retval.0.i.i9.i165, float %retval.0.i.i.i154
-  %retval.sroa.0.0.vec.insert.i168 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i167, i64 0
-  %cmp.i1.i.i169 = fcmp olt float %retval.0.i.i.i154, %retval.0.i.i9.i165
-  %.sroa.speculated.i.i170 = select i1 %cmp.i1.i.i169, float %retval.0.i.i9.i165, float %retval.0.i.i.i154
-  %retval.sroa.0.4.vec.insert.i171 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i168, float %.sroa.speculated.i.i170, i64 1
+_ZNK4pbrt8IntervalplES0_.exit177:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i158, %if.end.i.i3.i164
+  %retval.0.i.i9.i170 = phi float [ %66, %if.end.i.i3.i164 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i158 ]
+  %cmp.i.i.i171 = fcmp olt float %retval.0.i.i9.i170, %retval.0.i.i.i159
+  %.sroa.speculated6.i.i172 = select i1 %cmp.i.i.i171, float %retval.0.i.i9.i170, float %retval.0.i.i.i159
+  %retval.sroa.0.0.vec.insert.i173 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i172, i64 0
+  %cmp.i1.i.i174 = fcmp olt float %retval.0.i.i.i159, %retval.0.i.i9.i170
+  %.sroa.speculated.i.i175 = select i1 %cmp.i1.i.i174, float %retval.0.i.i9.i170, float %retval.0.i.i.i159
+  %retval.sroa.0.4.vec.insert.i176 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i173, float %.sroa.speculated.i.i175, i64 1
   %agg.tmp19.sroa.0.0.copyload = load <2 x float>, ptr %oi, align 16
   %call21 = call <2 x float> @_ZNK4pbrt8IntervalmlES0_(ptr noundef nonnull align 4 dereferenceable(8) %di, <2 x float> %agg.tmp19.sroa.0.0.copyload)
   %y25 = getelementptr inbounds i8, ptr %oi, i64 8
   %agg.tmp24.sroa.0.0.copyload = load <2 x float>, ptr %y25, align 8
   %call26 = call <2 x float> @_ZNK4pbrt8IntervalmlES0_(ptr noundef nonnull align 4 dereferenceable(8) %y, <2 x float> %agg.tmp24.sroa.0.0.copyload)
   %67 = fadd <2 x float> %call21, %call26
-  %add.i.i174 = extractelement <2 x float> %67, i64 0
-  %or.cond.i.i.i175 = fcmp oeq float %add.i.i174, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i175, label %_ZN4pbrt12AddRoundDownEff.exit.i182, label %if.end.i.i.i176
+  %add.i.i179 = extractelement <2 x float> %67, i64 0
+  %or.cond.i.i.i180 = fcmp oeq float %add.i.i179, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i180, label %_ZN4pbrt12AddRoundDownEff.exit.i187, label %if.end.i.i.i181
 
-if.end.i.i.i176:                                  ; preds = %_ZNK4pbrt8IntervalplES0_.exit172
-  %cmp1.i.i.i177 = fcmp oeq float %add.i.i174, 0.000000e+00
-  %v.addr.0.i.i.i178 = select i1 %cmp1.i.i.i177, float -0.000000e+00, float %add.i.i174
-  %68 = bitcast float %v.addr.0.i.i.i178 to i32
-  %cmp5.i.i.i179 = fcmp ogt float %v.addr.0.i.i.i178, 0.000000e+00
-  %ui.0.v.i.i.i180 = select i1 %cmp5.i.i.i179, i32 -1, i32 1
-  %ui.0.i.i.i181 = add i32 %ui.0.v.i.i.i180, %68
-  %69 = bitcast i32 %ui.0.i.i.i181 to float
-  br label %_ZN4pbrt12AddRoundDownEff.exit.i182
+if.end.i.i.i181:                                  ; preds = %_ZNK4pbrt8IntervalplES0_.exit177
+  %cmp1.i.i.i182 = fcmp oeq float %add.i.i179, 0.000000e+00
+  %v.addr.0.i.i.i183 = select i1 %cmp1.i.i.i182, float -0.000000e+00, float %add.i.i179
+  %68 = bitcast float %v.addr.0.i.i.i183 to i32
+  %cmp5.i.i.i184 = fcmp ogt float %v.addr.0.i.i.i183, 0.000000e+00
+  %ui.0.v.i.i.i185 = select i1 %cmp5.i.i.i184, i32 -1, i32 1
+  %ui.0.i.i.i186 = add i32 %ui.0.v.i.i.i185, %68
+  %69 = bitcast i32 %ui.0.i.i.i186 to float
+  br label %_ZN4pbrt12AddRoundDownEff.exit.i187
 
-_ZN4pbrt12AddRoundDownEff.exit.i182:              ; preds = %if.end.i.i.i176, %_ZNK4pbrt8IntervalplES0_.exit172
-  %retval.0.i.i.i183 = phi float [ %69, %if.end.i.i.i176 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit172 ]
+_ZN4pbrt12AddRoundDownEff.exit.i187:              ; preds = %if.end.i.i.i181, %_ZNK4pbrt8IntervalplES0_.exit177
+  %retval.0.i.i.i188 = phi float [ %69, %if.end.i.i.i181 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit177 ]
   %70 = fadd <2 x float> %call21, %call26
-  %add.i1.i186 = extractelement <2 x float> %70, i64 1
-  %or.cond.i.i2.i187 = fcmp oeq float %add.i1.i186, 0x7FF0000000000000
-  br i1 %or.cond.i.i2.i187, label %_ZNK4pbrt8IntervalplES0_.exit201, label %if.end.i.i3.i188
+  %add.i1.i191 = extractelement <2 x float> %70, i64 1
+  %or.cond.i.i2.i192 = fcmp oeq float %add.i1.i191, 0x7FF0000000000000
+  br i1 %or.cond.i.i2.i192, label %_ZNK4pbrt8IntervalplES0_.exit206, label %if.end.i.i3.i193
 
-if.end.i.i3.i188:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i182
-  %cmp1.i.i4.i189 = fcmp oeq float %add.i1.i186, 0.000000e+00
-  %v.addr.0.i.i5.i190 = select i1 %cmp1.i.i4.i189, float 0.000000e+00, float %add.i1.i186
-  %71 = bitcast float %v.addr.0.i.i5.i190 to i32
-  %cmp5.i.i6.i191 = fcmp ult float %v.addr.0.i.i5.i190, 0.000000e+00
-  %ui.0.v.i.i7.i192 = select i1 %cmp5.i.i6.i191, i32 -1, i32 1
-  %ui.0.i.i8.i193 = add i32 %ui.0.v.i.i7.i192, %71
-  %72 = bitcast i32 %ui.0.i.i8.i193 to float
-  br label %_ZNK4pbrt8IntervalplES0_.exit201
+if.end.i.i3.i193:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i187
+  %cmp1.i.i4.i194 = fcmp oeq float %add.i1.i191, 0.000000e+00
+  %v.addr.0.i.i5.i195 = select i1 %cmp1.i.i4.i194, float 0.000000e+00, float %add.i1.i191
+  %71 = bitcast float %v.addr.0.i.i5.i195 to i32
+  %cmp5.i.i6.i196 = fcmp ult float %v.addr.0.i.i5.i195, 0.000000e+00
+  %ui.0.v.i.i7.i197 = select i1 %cmp5.i.i6.i196, i32 -1, i32 1
+  %ui.0.i.i8.i198 = add i32 %ui.0.v.i.i7.i197, %71
+  %72 = bitcast i32 %ui.0.i.i8.i198 to float
+  br label %_ZNK4pbrt8IntervalplES0_.exit206
 
-_ZNK4pbrt8IntervalplES0_.exit201:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i182, %if.end.i.i3.i188
-  %retval.0.i.i9.i194 = phi float [ %72, %if.end.i.i3.i188 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i182 ]
-  %cmp.i.i.i195 = fcmp olt float %retval.0.i.i9.i194, %retval.0.i.i.i183
-  %.sroa.speculated6.i.i196 = select i1 %cmp.i.i.i195, float %retval.0.i.i9.i194, float %retval.0.i.i.i183
-  %cmp.i1.i.i198 = fcmp olt float %retval.0.i.i.i183, %retval.0.i.i9.i194
-  %.sroa.speculated.i.i199 = select i1 %cmp.i1.i.i198, float %retval.0.i.i9.i194, float %retval.0.i.i.i183
+_ZNK4pbrt8IntervalplES0_.exit206:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i187, %if.end.i.i3.i193
+  %retval.0.i.i9.i199 = phi float [ %72, %if.end.i.i3.i193 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i187 ]
+  %cmp.i.i.i200 = fcmp olt float %retval.0.i.i9.i199, %retval.0.i.i.i188
+  %.sroa.speculated6.i.i201 = select i1 %cmp.i.i.i200, float %retval.0.i.i9.i199, float %retval.0.i.i.i188
+  %cmp.i1.i.i203 = fcmp olt float %retval.0.i.i.i188, %retval.0.i.i9.i199
+  %.sroa.speculated.i.i204 = select i1 %cmp.i1.i.i203, float %retval.0.i.i9.i199, float %retval.0.i.i.i188
   %z31 = getelementptr inbounds i8, ptr %oi, i64 16
   %agg.tmp30.sroa.0.0.copyload = load <2 x float>, ptr %z31, align 16
   %call32 = call <2 x float> @_ZNK4pbrt8IntervalmlES0_(ptr noundef nonnull align 4 dereferenceable(8) %z, <2 x float> %agg.tmp30.sroa.0.0.copyload)
-  %i.sroa.0.0.vec.extract.i202 = extractelement <2 x float> %call32, i64 0
-  %add.i.i203 = fadd float %.sroa.speculated6.i.i196, %i.sroa.0.0.vec.extract.i202
-  %or.cond.i.i.i204 = fcmp oeq float %add.i.i203, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i204, label %_ZN4pbrt12AddRoundDownEff.exit.i211, label %if.end.i.i.i205
+  %i.sroa.0.0.vec.extract.i207 = extractelement <2 x float> %call32, i64 0
+  %add.i.i208 = fadd float %.sroa.speculated6.i.i201, %i.sroa.0.0.vec.extract.i207
+  %or.cond.i.i.i209 = fcmp oeq float %add.i.i208, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i209, label %_ZN4pbrt12AddRoundDownEff.exit.i216, label %if.end.i.i.i210
 
-if.end.i.i.i205:                                  ; preds = %_ZNK4pbrt8IntervalplES0_.exit201
-  %cmp1.i.i.i206 = fcmp oeq float %add.i.i203, 0.000000e+00
-  %v.addr.0.i.i.i207 = select i1 %cmp1.i.i.i206, float -0.000000e+00, float %add.i.i203
-  %73 = bitcast float %v.addr.0.i.i.i207 to i32
-  %cmp5.i.i.i208 = fcmp ogt float %v.addr.0.i.i.i207, 0.000000e+00
-  %ui.0.v.i.i.i209 = select i1 %cmp5.i.i.i208, i32 -1, i32 1
-  %ui.0.i.i.i210 = add i32 %ui.0.v.i.i.i209, %73
-  %74 = bitcast i32 %ui.0.i.i.i210 to float
-  br label %_ZN4pbrt12AddRoundDownEff.exit.i211
+if.end.i.i.i210:                                  ; preds = %_ZNK4pbrt8IntervalplES0_.exit206
+  %cmp1.i.i.i211 = fcmp oeq float %add.i.i208, 0.000000e+00
+  %v.addr.0.i.i.i212 = select i1 %cmp1.i.i.i211, float -0.000000e+00, float %add.i.i208
+  %73 = bitcast float %v.addr.0.i.i.i212 to i32
+  %cmp5.i.i.i213 = fcmp ogt float %v.addr.0.i.i.i212, 0.000000e+00
+  %ui.0.v.i.i.i214 = select i1 %cmp5.i.i.i213, i32 -1, i32 1
+  %ui.0.i.i.i215 = add i32 %ui.0.v.i.i.i214, %73
+  %74 = bitcast i32 %ui.0.i.i.i215 to float
+  br label %_ZN4pbrt12AddRoundDownEff.exit.i216
 
-_ZN4pbrt12AddRoundDownEff.exit.i211:              ; preds = %if.end.i.i.i205, %_ZNK4pbrt8IntervalplES0_.exit201
-  %retval.0.i.i.i212 = phi float [ %74, %if.end.i.i.i205 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit201 ]
-  %i.sroa.0.4.vec.extract.i214 = extractelement <2 x float> %call32, i64 1
-  %add.i1.i215 = fadd float %.sroa.speculated.i.i199, %i.sroa.0.4.vec.extract.i214
-  %or.cond.i.i2.i216 = fcmp oeq float %add.i1.i215, 0x7FF0000000000000
-  br i1 %or.cond.i.i2.i216, label %_ZNK4pbrt8IntervalplES0_.exit230, label %if.end.i.i3.i217
+_ZN4pbrt12AddRoundDownEff.exit.i216:              ; preds = %if.end.i.i.i210, %_ZNK4pbrt8IntervalplES0_.exit206
+  %retval.0.i.i.i217 = phi float [ %74, %if.end.i.i.i210 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit206 ]
+  %i.sroa.0.4.vec.extract.i219 = extractelement <2 x float> %call32, i64 1
+  %add.i1.i220 = fadd float %.sroa.speculated.i.i204, %i.sroa.0.4.vec.extract.i219
+  %or.cond.i.i2.i221 = fcmp oeq float %add.i1.i220, 0x7FF0000000000000
+  br i1 %or.cond.i.i2.i221, label %_ZNK4pbrt8IntervalplES0_.exit235, label %if.end.i.i3.i222
 
-if.end.i.i3.i217:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i211
-  %cmp1.i.i4.i218 = fcmp oeq float %add.i1.i215, 0.000000e+00
-  %v.addr.0.i.i5.i219 = select i1 %cmp1.i.i4.i218, float 0.000000e+00, float %add.i1.i215
-  %75 = bitcast float %v.addr.0.i.i5.i219 to i32
-  %cmp5.i.i6.i220 = fcmp ult float %v.addr.0.i.i5.i219, 0.000000e+00
-  %ui.0.v.i.i7.i221 = select i1 %cmp5.i.i6.i220, i32 -1, i32 1
-  %ui.0.i.i8.i222 = add i32 %ui.0.v.i.i7.i221, %75
-  %76 = bitcast i32 %ui.0.i.i8.i222 to float
-  br label %_ZNK4pbrt8IntervalplES0_.exit230
+if.end.i.i3.i222:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i216
+  %cmp1.i.i4.i223 = fcmp oeq float %add.i1.i220, 0.000000e+00
+  %v.addr.0.i.i5.i224 = select i1 %cmp1.i.i4.i223, float 0.000000e+00, float %add.i1.i220
+  %75 = bitcast float %v.addr.0.i.i5.i224 to i32
+  %cmp5.i.i6.i225 = fcmp ult float %v.addr.0.i.i5.i224, 0.000000e+00
+  %ui.0.v.i.i7.i226 = select i1 %cmp5.i.i6.i225, i32 -1, i32 1
+  %ui.0.i.i8.i227 = add i32 %ui.0.v.i.i7.i226, %75
+  %76 = bitcast i32 %ui.0.i.i8.i227 to float
+  br label %_ZNK4pbrt8IntervalplES0_.exit235
 
-_ZNK4pbrt8IntervalplES0_.exit230:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i211, %if.end.i.i3.i217
-  %retval.0.i.i9.i223 = phi float [ %76, %if.end.i.i3.i217 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i211 ]
-  %cmp.i.i.i224 = fcmp olt float %retval.0.i.i9.i223, %retval.0.i.i.i212
-  %.sroa.speculated6.i.i225 = select i1 %cmp.i.i.i224, float %retval.0.i.i9.i223, float %retval.0.i.i.i212
-  %cmp.i1.i.i227 = fcmp olt float %retval.0.i.i.i212, %retval.0.i.i9.i223
-  %.sroa.speculated.i.i228 = select i1 %cmp.i1.i.i227, float %retval.0.i.i9.i223, float %retval.0.i.i.i212
-  %mul.i.i231 = fmul float %.sroa.speculated6.i.i225, 2.000000e+00
-  %or.cond.i.i.i232 = fcmp oeq float %mul.i.i231, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i232, label %_ZN4pbrt12MulRoundDownEff.exit.i, label %if.end.i.i.i233
+_ZNK4pbrt8IntervalplES0_.exit235:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i216, %if.end.i.i3.i222
+  %retval.0.i.i9.i228 = phi float [ %76, %if.end.i.i3.i222 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i216 ]
+  %cmp.i.i.i229 = fcmp olt float %retval.0.i.i9.i228, %retval.0.i.i.i217
+  %.sroa.speculated6.i.i230 = select i1 %cmp.i.i.i229, float %retval.0.i.i9.i228, float %retval.0.i.i.i217
+  %cmp.i1.i.i232 = fcmp olt float %retval.0.i.i.i217, %retval.0.i.i9.i228
+  %.sroa.speculated.i.i233 = select i1 %cmp.i1.i.i232, float %retval.0.i.i9.i228, float %retval.0.i.i.i217
+  %mul.i.i237 = fmul float %.sroa.speculated6.i.i230, 2.000000e+00
+  %or.cond.i.i.i238 = fcmp oeq float %mul.i.i237, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i238, label %_ZN4pbrt12MulRoundDownEff.exit.i, label %if.end.i.i.i239
 
-if.end.i.i.i233:                                  ; preds = %_ZNK4pbrt8IntervalplES0_.exit230
-  %cmp1.i.i.i234 = fcmp oeq float %mul.i.i231, 0.000000e+00
-  %v.addr.0.i.i.i235 = select i1 %cmp1.i.i.i234, float -0.000000e+00, float %mul.i.i231
-  %77 = bitcast float %v.addr.0.i.i.i235 to i32
-  %cmp5.i.i.i236 = fcmp ogt float %v.addr.0.i.i.i235, 0.000000e+00
-  %ui.0.v.i.i.i237 = select i1 %cmp5.i.i.i236, i32 -1, i32 1
-  %ui.0.i.i.i238 = add i32 %ui.0.v.i.i.i237, %77
-  %78 = bitcast i32 %ui.0.i.i.i238 to float
+if.end.i.i.i239:                                  ; preds = %_ZNK4pbrt8IntervalplES0_.exit235
+  %cmp1.i.i.i240 = fcmp oeq float %mul.i.i237, 0.000000e+00
+  %v.addr.0.i.i.i241 = select i1 %cmp1.i.i.i240, float -0.000000e+00, float %mul.i.i237
+  %77 = bitcast float %v.addr.0.i.i.i241 to i32
+  %cmp5.i.i.i242 = fcmp ogt float %v.addr.0.i.i.i241, 0.000000e+00
+  %ui.0.v.i.i.i243 = select i1 %cmp5.i.i.i242, i32 -1, i32 1
+  %ui.0.i.i.i244 = add i32 %ui.0.v.i.i.i243, %77
+  %78 = bitcast i32 %ui.0.i.i.i244 to float
   br label %_ZN4pbrt12MulRoundDownEff.exit.i
 
-_ZN4pbrt12MulRoundDownEff.exit.i:                 ; preds = %if.end.i.i.i233, %_ZNK4pbrt8IntervalplES0_.exit230
-  %retval.0.i.i.i239 = phi float [ %78, %if.end.i.i.i233 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit230 ]
-  %mul.i5.i = fmul float %.sroa.speculated.i.i228, 2.000000e+00
+_ZN4pbrt12MulRoundDownEff.exit.i:                 ; preds = %if.end.i.i.i239, %_ZNK4pbrt8IntervalplES0_.exit235
+  %retval.0.i.i.i245 = phi float [ %78, %if.end.i.i.i239 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit235 ]
+  %mul.i5.i = fmul float %.sroa.speculated.i.i233, 2.000000e+00
   %or.cond.i.i6.i = fcmp oeq float %mul.i5.i, 0x7FF0000000000000
   br i1 %or.cond.i.i6.i, label %_ZN4pbrtmlEfNS_8IntervalE.exit, label %if.end.i.i7.i
 
@@ -38433,372 +38433,372 @@ if.end.i.i7.i:                                    ; preds = %_ZN4pbrt12MulRoundD
 
 _ZN4pbrtmlEfNS_8IntervalE.exit:                   ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i, %if.end.i.i7.i
   %retval.0.i.i13.i = phi float [ %80, %if.end.i.i7.i ], [ 0x7FF0000000000000, %_ZN4pbrt12MulRoundDownEff.exit.i ]
-  %cmp.i.i.i241 = fcmp olt float %retval.0.i.i13.i, %retval.0.i.i.i239
-  %.sroa.speculated6.i.i242 = select i1 %cmp.i.i.i241, float %retval.0.i.i13.i, float %retval.0.i.i.i239
-  %retval.sroa.0.0.vec.insert.i243 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i242, i64 0
-  %cmp.i1.i.i244 = fcmp olt float %retval.0.i.i.i239, %retval.0.i.i13.i
-  %.sroa.speculated.i.i245 = select i1 %cmp.i1.i.i244, float %retval.0.i.i13.i, float %retval.0.i.i.i239
-  %retval.sroa.0.4.vec.insert.i246 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i243, float %.sroa.speculated.i.i245, i64 1
-  store <2 x float> %retval.sroa.0.4.vec.insert.i246, ptr %b, align 8
+  %cmp.i.i.i248 = fcmp olt float %retval.0.i.i13.i, %retval.0.i.i.i245
+  %.sroa.speculated6.i.i249 = select i1 %cmp.i.i.i248, float %retval.0.i.i13.i, float %retval.0.i.i.i245
+  %retval.sroa.0.0.vec.insert.i250 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i249, i64 0
+  %cmp.i1.i.i251 = fcmp olt float %retval.0.i.i.i245, %retval.0.i.i13.i
+  %.sroa.speculated.i.i252 = select i1 %cmp.i1.i.i251, float %retval.0.i.i13.i, float %retval.0.i.i.i245
+  %retval.sroa.0.4.vec.insert.i253 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i250, float %.sroa.speculated.i.i252, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i253, ptr %b, align 8
   %agg.tmp38.sroa.0.0.copyload = load <2 x float>, ptr %oi, align 16
   %81 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %agg.tmp38.sroa.0.0.copyload)
   %82 = extractelement <2 x float> %81, i64 0
   %83 = extractelement <2 x float> %81, i64 1
-  %cmp.i250 = fcmp ogt float %82, %83
-  %ahigh.0.i251 = select i1 %cmp.i250, float %82, float %83
+  %cmp.i257 = fcmp ogt float %82, %83
+  %ahigh.0.i258 = select i1 %cmp.i257, float %82, float %83
   %84 = extractelement <2 x float> %agg.tmp38.sroa.0.0.copyload, i64 0
-  %cmp.i.i252 = fcmp ole float %84, 0.000000e+00
+  %cmp.i.i259 = fcmp ole float %84, 0.000000e+00
   %85 = extractelement <2 x float> %agg.tmp38.sroa.0.0.copyload, i64 1
-  %cmp2.i.i253 = fcmp oge float %85, 0.000000e+00
-  %86 = select i1 %cmp.i.i252, i1 %cmp2.i.i253, i1 false
-  br i1 %86, label %if.then5.i279, label %if.end7.i254
+  %cmp2.i.i260 = fcmp oge float %85, 0.000000e+00
+  %86 = select i1 %cmp.i.i259, i1 %cmp2.i.i260, i1 false
+  br i1 %86, label %if.then5.i286, label %if.end7.i261
 
-if.then5.i279:                                    ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit
-  %mul.i.i280 = fmul float %ahigh.0.i251, %ahigh.0.i251
-  %or.cond.i.i.i281 = fcmp oeq float %mul.i.i280, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i281, label %_ZN4pbrt10MulRoundUpEff.exit.i288, label %if.end.i.i.i282
+if.then5.i286:                                    ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit
+  %mul.i.i287 = fmul float %ahigh.0.i258, %ahigh.0.i258
+  %or.cond.i.i.i288 = fcmp oeq float %mul.i.i287, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i288, label %_ZN4pbrt10MulRoundUpEff.exit.i295, label %if.end.i.i.i289
 
-if.end.i.i.i282:                                  ; preds = %if.then5.i279
-  %cmp1.i.i.i283 = fcmp oeq float %mul.i.i280, 0.000000e+00
-  %v.addr.0.i.i.i284 = select i1 %cmp1.i.i.i283, float 0.000000e+00, float %mul.i.i280
-  %87 = bitcast float %v.addr.0.i.i.i284 to i32
-  %cmp5.i.i.i285 = fcmp ult float %v.addr.0.i.i.i284, 0.000000e+00
-  %ui.0.v.i.i.i286 = select i1 %cmp5.i.i.i285, i32 -1, i32 1
-  %ui.0.i.i.i287 = add i32 %ui.0.v.i.i.i286, %87
-  %88 = bitcast i32 %ui.0.i.i.i287 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit.i288
+if.end.i.i.i289:                                  ; preds = %if.then5.i286
+  %cmp1.i.i.i290 = fcmp oeq float %mul.i.i287, 0.000000e+00
+  %v.addr.0.i.i.i291 = select i1 %cmp1.i.i.i290, float 0.000000e+00, float %mul.i.i287
+  %87 = bitcast float %v.addr.0.i.i.i291 to i32
+  %cmp5.i.i.i292 = fcmp ult float %v.addr.0.i.i.i291, 0.000000e+00
+  %ui.0.v.i.i.i293 = select i1 %cmp5.i.i.i292, i32 -1, i32 1
+  %ui.0.i.i.i294 = add i32 %ui.0.v.i.i.i293, %87
+  %88 = bitcast i32 %ui.0.i.i.i294 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit.i295
 
-_ZN4pbrt10MulRoundUpEff.exit.i288:                ; preds = %if.end.i.i.i282, %if.then5.i279
-  %retval.0.i.i.i289 = phi float [ %88, %if.end.i.i.i282 ], [ 0x7FF0000000000000, %if.then5.i279 ]
-  %89 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i289, i64 0
-  %90 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i289, i64 1
+_ZN4pbrt10MulRoundUpEff.exit.i295:                ; preds = %if.end.i.i.i289, %if.then5.i286
+  %retval.0.i.i.i296 = phi float [ %88, %if.end.i.i.i289 ], [ 0x7FF0000000000000, %if.then5.i286 ]
+  %89 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i296, i64 0
+  %90 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i296, i64 1
   %91 = fcmp olt <2 x float> %89, %90
   %92 = shufflevector <2 x float> %89, <2 x float> poison, <2 x i32> zeroinitializer
   %93 = select <2 x i1> %91, <2 x float> %92, <2 x float> zeroinitializer
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit296
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit303
 
-if.end7.i254:                                     ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit
-  %alow.0.i255 = select i1 %cmp.i250, float %83, float %82
-  %mul.i1.i256 = fmul float %alow.0.i255, %alow.0.i255
-  %cmp1.i.i3.i257 = fcmp oeq float %mul.i1.i256, 0.000000e+00
-  %v.addr.0.i.i4.i258 = select i1 %cmp1.i.i3.i257, float -0.000000e+00, float %mul.i1.i256
-  %94 = bitcast float %v.addr.0.i.i4.i258 to i32
-  %cmp5.i.i5.i259 = fcmp ogt float %v.addr.0.i.i4.i258, 0.000000e+00
-  %ui.0.v.i.i6.i260 = select i1 %cmp5.i.i5.i259, i32 -1, i32 1
-  %ui.0.i.i7.i261 = add i32 %ui.0.v.i.i6.i260, %94
-  %95 = bitcast i32 %ui.0.i.i7.i261 to float
-  %mul.i9.i262 = fmul float %ahigh.0.i251, %ahigh.0.i251
-  %or.cond.i.i10.i263 = fcmp oeq float %mul.i9.i262, 0x7FF0000000000000
-  br i1 %or.cond.i.i10.i263, label %_ZN4pbrt10MulRoundUpEff.exit18.i270, label %if.end.i.i11.i264
+if.end7.i261:                                     ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit
+  %alow.0.i262 = select i1 %cmp.i257, float %83, float %82
+  %mul.i1.i263 = fmul float %alow.0.i262, %alow.0.i262
+  %cmp1.i.i4.i264 = fcmp oeq float %mul.i1.i263, 0.000000e+00
+  %v.addr.0.i.i5.i265 = select i1 %cmp1.i.i4.i264, float -0.000000e+00, float %mul.i1.i263
+  %94 = bitcast float %v.addr.0.i.i5.i265 to i32
+  %cmp5.i.i6.i266 = fcmp ogt float %v.addr.0.i.i5.i265, 0.000000e+00
+  %ui.0.v.i.i7.i267 = select i1 %cmp5.i.i6.i266, i32 -1, i32 1
+  %ui.0.i.i8.i268 = add i32 %ui.0.v.i.i7.i267, %94
+  %95 = bitcast i32 %ui.0.i.i8.i268 to float
+  %mul.i10.i269 = fmul float %ahigh.0.i258, %ahigh.0.i258
+  %or.cond.i.i11.i270 = fcmp oeq float %mul.i10.i269, 0x7FF0000000000000
+  br i1 %or.cond.i.i11.i270, label %_ZN4pbrt10MulRoundUpEff.exit19.i277, label %if.end.i.i12.i271
 
-if.end.i.i11.i264:                                ; preds = %if.end7.i254
-  %cmp1.i.i12.i265 = fcmp oeq float %mul.i9.i262, 0.000000e+00
-  %v.addr.0.i.i13.i266 = select i1 %cmp1.i.i12.i265, float 0.000000e+00, float %mul.i9.i262
-  %96 = bitcast float %v.addr.0.i.i13.i266 to i32
-  %cmp5.i.i14.i267 = fcmp ult float %v.addr.0.i.i13.i266, 0.000000e+00
-  %ui.0.v.i.i15.i268 = select i1 %cmp5.i.i14.i267, i32 -1, i32 1
-  %ui.0.i.i16.i269 = add i32 %ui.0.v.i.i15.i268, %96
-  %97 = bitcast i32 %ui.0.i.i16.i269 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit18.i270
+if.end.i.i12.i271:                                ; preds = %if.end7.i261
+  %cmp1.i.i13.i272 = fcmp oeq float %mul.i10.i269, 0.000000e+00
+  %v.addr.0.i.i14.i273 = select i1 %cmp1.i.i13.i272, float 0.000000e+00, float %mul.i10.i269
+  %96 = bitcast float %v.addr.0.i.i14.i273 to i32
+  %cmp5.i.i15.i274 = fcmp ult float %v.addr.0.i.i14.i273, 0.000000e+00
+  %ui.0.v.i.i16.i275 = select i1 %cmp5.i.i15.i274, i32 -1, i32 1
+  %ui.0.i.i17.i276 = add i32 %ui.0.v.i.i16.i275, %96
+  %97 = bitcast i32 %ui.0.i.i17.i276 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit19.i277
 
-_ZN4pbrt10MulRoundUpEff.exit18.i270:              ; preds = %if.end.i.i11.i264, %if.end7.i254
-  %retval.0.i.i17.i271 = phi float [ %97, %if.end.i.i11.i264 ], [ 0x7FF0000000000000, %if.end7.i254 ]
-  %cmp.i.i19.i272 = fcmp olt float %retval.0.i.i17.i271, %95
-  %.sroa.speculated6.i20.i273 = select i1 %cmp.i.i19.i272, float %retval.0.i.i17.i271, float %95
-  %retval.sroa.0.0.vec.insert31.i274 = insertelement <2 x float> poison, float %.sroa.speculated6.i20.i273, i64 0
-  %cmp.i1.i22.i275 = fcmp ogt float %retval.0.i.i17.i271, %95
-  %.sroa.speculated.i23.i276 = select i1 %cmp.i1.i22.i275, float %retval.0.i.i17.i271, float %95
-  %retval.sroa.0.4.vec.insert33.i277 = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i274, float %.sroa.speculated.i23.i276, i64 1
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit296
+_ZN4pbrt10MulRoundUpEff.exit19.i277:              ; preds = %if.end.i.i12.i271, %if.end7.i261
+  %retval.0.i.i18.i278 = phi float [ %97, %if.end.i.i12.i271 ], [ 0x7FF0000000000000, %if.end7.i261 ]
+  %cmp.i.i20.i279 = fcmp olt float %retval.0.i.i18.i278, %95
+  %.sroa.speculated6.i21.i280 = select i1 %cmp.i.i20.i279, float %retval.0.i.i18.i278, float %95
+  %retval.sroa.0.0.vec.insert32.i281 = insertelement <2 x float> poison, float %.sroa.speculated6.i21.i280, i64 0
+  %cmp.i1.i23.i282 = fcmp ogt float %retval.0.i.i18.i278, %95
+  %.sroa.speculated.i24.i283 = select i1 %cmp.i1.i23.i282, float %retval.0.i.i18.i278, float %95
+  %retval.sroa.0.4.vec.insert34.i284 = insertelement <2 x float> %retval.sroa.0.0.vec.insert32.i281, float %.sroa.speculated.i24.i283, i64 1
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit303
 
-_ZN4pbrt3SqrENS_8IntervalE.exit296:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i288, %_ZN4pbrt10MulRoundUpEff.exit18.i270
-  %retval.sroa.0.0.i278 = phi <2 x float> [ %93, %_ZN4pbrt10MulRoundUpEff.exit.i288 ], [ %retval.sroa.0.4.vec.insert33.i277, %_ZN4pbrt10MulRoundUpEff.exit18.i270 ]
+_ZN4pbrt3SqrENS_8IntervalE.exit303:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i295, %_ZN4pbrt10MulRoundUpEff.exit19.i277
+  %retval.sroa.0.0.i285 = phi <2 x float> [ %93, %_ZN4pbrt10MulRoundUpEff.exit.i295 ], [ %retval.sroa.0.4.vec.insert34.i284, %_ZN4pbrt10MulRoundUpEff.exit19.i277 ]
   %agg.tmp42.sroa.0.0.copyload = load <2 x float>, ptr %y25, align 8
   %98 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %agg.tmp42.sroa.0.0.copyload)
   %99 = extractelement <2 x float> %98, i64 0
   %100 = extractelement <2 x float> %98, i64 1
-  %cmp.i299 = fcmp ogt float %99, %100
-  %ahigh.0.i300 = select i1 %cmp.i299, float %99, float %100
+  %cmp.i306 = fcmp ogt float %99, %100
+  %ahigh.0.i307 = select i1 %cmp.i306, float %99, float %100
   %101 = extractelement <2 x float> %agg.tmp42.sroa.0.0.copyload, i64 0
-  %cmp.i.i301 = fcmp ole float %101, 0.000000e+00
+  %cmp.i.i308 = fcmp ole float %101, 0.000000e+00
   %102 = extractelement <2 x float> %agg.tmp42.sroa.0.0.copyload, i64 1
-  %cmp2.i.i302 = fcmp oge float %102, 0.000000e+00
-  %103 = select i1 %cmp.i.i301, i1 %cmp2.i.i302, i1 false
-  br i1 %103, label %if.then5.i328, label %if.end7.i303
+  %cmp2.i.i309 = fcmp oge float %102, 0.000000e+00
+  %103 = select i1 %cmp.i.i308, i1 %cmp2.i.i309, i1 false
+  br i1 %103, label %if.then5.i335, label %if.end7.i310
 
-if.then5.i328:                                    ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit296
-  %mul.i.i329 = fmul float %ahigh.0.i300, %ahigh.0.i300
-  %or.cond.i.i.i330 = fcmp oeq float %mul.i.i329, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i330, label %_ZN4pbrt10MulRoundUpEff.exit.i337, label %if.end.i.i.i331
+if.then5.i335:                                    ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit303
+  %mul.i.i336 = fmul float %ahigh.0.i307, %ahigh.0.i307
+  %or.cond.i.i.i337 = fcmp oeq float %mul.i.i336, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i337, label %_ZN4pbrt10MulRoundUpEff.exit.i344, label %if.end.i.i.i338
 
-if.end.i.i.i331:                                  ; preds = %if.then5.i328
-  %cmp1.i.i.i332 = fcmp oeq float %mul.i.i329, 0.000000e+00
-  %v.addr.0.i.i.i333 = select i1 %cmp1.i.i.i332, float 0.000000e+00, float %mul.i.i329
-  %104 = bitcast float %v.addr.0.i.i.i333 to i32
-  %cmp5.i.i.i334 = fcmp ult float %v.addr.0.i.i.i333, 0.000000e+00
-  %ui.0.v.i.i.i335 = select i1 %cmp5.i.i.i334, i32 -1, i32 1
-  %ui.0.i.i.i336 = add i32 %ui.0.v.i.i.i335, %104
-  %105 = bitcast i32 %ui.0.i.i.i336 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit.i337
+if.end.i.i.i338:                                  ; preds = %if.then5.i335
+  %cmp1.i.i.i339 = fcmp oeq float %mul.i.i336, 0.000000e+00
+  %v.addr.0.i.i.i340 = select i1 %cmp1.i.i.i339, float 0.000000e+00, float %mul.i.i336
+  %104 = bitcast float %v.addr.0.i.i.i340 to i32
+  %cmp5.i.i.i341 = fcmp ult float %v.addr.0.i.i.i340, 0.000000e+00
+  %ui.0.v.i.i.i342 = select i1 %cmp5.i.i.i341, i32 -1, i32 1
+  %ui.0.i.i.i343 = add i32 %ui.0.v.i.i.i342, %104
+  %105 = bitcast i32 %ui.0.i.i.i343 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit.i344
 
-_ZN4pbrt10MulRoundUpEff.exit.i337:                ; preds = %if.end.i.i.i331, %if.then5.i328
-  %retval.0.i.i.i338 = phi float [ %105, %if.end.i.i.i331 ], [ 0x7FF0000000000000, %if.then5.i328 ]
-  %106 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i338, i64 0
-  %107 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i338, i64 1
+_ZN4pbrt10MulRoundUpEff.exit.i344:                ; preds = %if.end.i.i.i338, %if.then5.i335
+  %retval.0.i.i.i345 = phi float [ %105, %if.end.i.i.i338 ], [ 0x7FF0000000000000, %if.then5.i335 ]
+  %106 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i345, i64 0
+  %107 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i345, i64 1
   %108 = fcmp olt <2 x float> %106, %107
   %109 = shufflevector <2 x float> %106, <2 x float> poison, <2 x i32> zeroinitializer
   %110 = select <2 x i1> %108, <2 x float> %109, <2 x float> zeroinitializer
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit345
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit352
 
-if.end7.i303:                                     ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit296
-  %alow.0.i304 = select i1 %cmp.i299, float %100, float %99
-  %mul.i1.i305 = fmul float %alow.0.i304, %alow.0.i304
-  %cmp1.i.i3.i306 = fcmp oeq float %mul.i1.i305, 0.000000e+00
-  %v.addr.0.i.i4.i307 = select i1 %cmp1.i.i3.i306, float -0.000000e+00, float %mul.i1.i305
-  %111 = bitcast float %v.addr.0.i.i4.i307 to i32
-  %cmp5.i.i5.i308 = fcmp ogt float %v.addr.0.i.i4.i307, 0.000000e+00
-  %ui.0.v.i.i6.i309 = select i1 %cmp5.i.i5.i308, i32 -1, i32 1
-  %ui.0.i.i7.i310 = add i32 %ui.0.v.i.i6.i309, %111
-  %112 = bitcast i32 %ui.0.i.i7.i310 to float
-  %mul.i9.i311 = fmul float %ahigh.0.i300, %ahigh.0.i300
-  %or.cond.i.i10.i312 = fcmp oeq float %mul.i9.i311, 0x7FF0000000000000
-  br i1 %or.cond.i.i10.i312, label %_ZN4pbrt10MulRoundUpEff.exit18.i319, label %if.end.i.i11.i313
+if.end7.i310:                                     ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit303
+  %alow.0.i311 = select i1 %cmp.i306, float %100, float %99
+  %mul.i1.i312 = fmul float %alow.0.i311, %alow.0.i311
+  %cmp1.i.i4.i313 = fcmp oeq float %mul.i1.i312, 0.000000e+00
+  %v.addr.0.i.i5.i314 = select i1 %cmp1.i.i4.i313, float -0.000000e+00, float %mul.i1.i312
+  %111 = bitcast float %v.addr.0.i.i5.i314 to i32
+  %cmp5.i.i6.i315 = fcmp ogt float %v.addr.0.i.i5.i314, 0.000000e+00
+  %ui.0.v.i.i7.i316 = select i1 %cmp5.i.i6.i315, i32 -1, i32 1
+  %ui.0.i.i8.i317 = add i32 %ui.0.v.i.i7.i316, %111
+  %112 = bitcast i32 %ui.0.i.i8.i317 to float
+  %mul.i10.i318 = fmul float %ahigh.0.i307, %ahigh.0.i307
+  %or.cond.i.i11.i319 = fcmp oeq float %mul.i10.i318, 0x7FF0000000000000
+  br i1 %or.cond.i.i11.i319, label %_ZN4pbrt10MulRoundUpEff.exit19.i326, label %if.end.i.i12.i320
 
-if.end.i.i11.i313:                                ; preds = %if.end7.i303
-  %cmp1.i.i12.i314 = fcmp oeq float %mul.i9.i311, 0.000000e+00
-  %v.addr.0.i.i13.i315 = select i1 %cmp1.i.i12.i314, float 0.000000e+00, float %mul.i9.i311
-  %113 = bitcast float %v.addr.0.i.i13.i315 to i32
-  %cmp5.i.i14.i316 = fcmp ult float %v.addr.0.i.i13.i315, 0.000000e+00
-  %ui.0.v.i.i15.i317 = select i1 %cmp5.i.i14.i316, i32 -1, i32 1
-  %ui.0.i.i16.i318 = add i32 %ui.0.v.i.i15.i317, %113
-  %114 = bitcast i32 %ui.0.i.i16.i318 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit18.i319
+if.end.i.i12.i320:                                ; preds = %if.end7.i310
+  %cmp1.i.i13.i321 = fcmp oeq float %mul.i10.i318, 0.000000e+00
+  %v.addr.0.i.i14.i322 = select i1 %cmp1.i.i13.i321, float 0.000000e+00, float %mul.i10.i318
+  %113 = bitcast float %v.addr.0.i.i14.i322 to i32
+  %cmp5.i.i15.i323 = fcmp ult float %v.addr.0.i.i14.i322, 0.000000e+00
+  %ui.0.v.i.i16.i324 = select i1 %cmp5.i.i15.i323, i32 -1, i32 1
+  %ui.0.i.i17.i325 = add i32 %ui.0.v.i.i16.i324, %113
+  %114 = bitcast i32 %ui.0.i.i17.i325 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit19.i326
 
-_ZN4pbrt10MulRoundUpEff.exit18.i319:              ; preds = %if.end.i.i11.i313, %if.end7.i303
-  %retval.0.i.i17.i320 = phi float [ %114, %if.end.i.i11.i313 ], [ 0x7FF0000000000000, %if.end7.i303 ]
-  %cmp.i.i19.i321 = fcmp olt float %retval.0.i.i17.i320, %112
-  %.sroa.speculated6.i20.i322 = select i1 %cmp.i.i19.i321, float %retval.0.i.i17.i320, float %112
-  %retval.sroa.0.0.vec.insert31.i323 = insertelement <2 x float> poison, float %.sroa.speculated6.i20.i322, i64 0
-  %cmp.i1.i22.i324 = fcmp ogt float %retval.0.i.i17.i320, %112
-  %.sroa.speculated.i23.i325 = select i1 %cmp.i1.i22.i324, float %retval.0.i.i17.i320, float %112
-  %retval.sroa.0.4.vec.insert33.i326 = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i323, float %.sroa.speculated.i23.i325, i64 1
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit345
+_ZN4pbrt10MulRoundUpEff.exit19.i326:              ; preds = %if.end.i.i12.i320, %if.end7.i310
+  %retval.0.i.i18.i327 = phi float [ %114, %if.end.i.i12.i320 ], [ 0x7FF0000000000000, %if.end7.i310 ]
+  %cmp.i.i20.i328 = fcmp olt float %retval.0.i.i18.i327, %112
+  %.sroa.speculated6.i21.i329 = select i1 %cmp.i.i20.i328, float %retval.0.i.i18.i327, float %112
+  %retval.sroa.0.0.vec.insert32.i330 = insertelement <2 x float> poison, float %.sroa.speculated6.i21.i329, i64 0
+  %cmp.i1.i23.i331 = fcmp ogt float %retval.0.i.i18.i327, %112
+  %.sroa.speculated.i24.i332 = select i1 %cmp.i1.i23.i331, float %retval.0.i.i18.i327, float %112
+  %retval.sroa.0.4.vec.insert34.i333 = insertelement <2 x float> %retval.sroa.0.0.vec.insert32.i330, float %.sroa.speculated.i24.i332, i64 1
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit352
 
-_ZN4pbrt3SqrENS_8IntervalE.exit345:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i337, %_ZN4pbrt10MulRoundUpEff.exit18.i319
-  %retval.sroa.0.0.i327 = phi <2 x float> [ %110, %_ZN4pbrt10MulRoundUpEff.exit.i337 ], [ %retval.sroa.0.4.vec.insert33.i326, %_ZN4pbrt10MulRoundUpEff.exit18.i319 ]
-  %115 = fadd <2 x float> %retval.sroa.0.0.i278, %retval.sroa.0.0.i327
-  %add.i.i347 = extractelement <2 x float> %115, i64 0
-  %or.cond.i.i.i348 = fcmp oeq float %add.i.i347, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i348, label %_ZN4pbrt12AddRoundDownEff.exit.i355, label %if.end.i.i.i349
+_ZN4pbrt3SqrENS_8IntervalE.exit352:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i344, %_ZN4pbrt10MulRoundUpEff.exit19.i326
+  %retval.sroa.0.0.i334 = phi <2 x float> [ %110, %_ZN4pbrt10MulRoundUpEff.exit.i344 ], [ %retval.sroa.0.4.vec.insert34.i333, %_ZN4pbrt10MulRoundUpEff.exit19.i326 ]
+  %115 = fadd <2 x float> %retval.sroa.0.0.i285, %retval.sroa.0.0.i334
+  %add.i.i354 = extractelement <2 x float> %115, i64 0
+  %or.cond.i.i.i355 = fcmp oeq float %add.i.i354, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i355, label %_ZN4pbrt12AddRoundDownEff.exit.i362, label %if.end.i.i.i356
 
-if.end.i.i.i349:                                  ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit345
-  %cmp1.i.i.i350 = fcmp oeq float %add.i.i347, 0.000000e+00
-  %v.addr.0.i.i.i351 = select i1 %cmp1.i.i.i350, float -0.000000e+00, float %add.i.i347
-  %116 = bitcast float %v.addr.0.i.i.i351 to i32
-  %cmp5.i.i.i352 = fcmp ogt float %v.addr.0.i.i.i351, 0.000000e+00
-  %ui.0.v.i.i.i353 = select i1 %cmp5.i.i.i352, i32 -1, i32 1
-  %ui.0.i.i.i354 = add i32 %ui.0.v.i.i.i353, %116
-  %117 = bitcast i32 %ui.0.i.i.i354 to float
-  br label %_ZN4pbrt12AddRoundDownEff.exit.i355
+if.end.i.i.i356:                                  ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit352
+  %cmp1.i.i.i357 = fcmp oeq float %add.i.i354, 0.000000e+00
+  %v.addr.0.i.i.i358 = select i1 %cmp1.i.i.i357, float -0.000000e+00, float %add.i.i354
+  %116 = bitcast float %v.addr.0.i.i.i358 to i32
+  %cmp5.i.i.i359 = fcmp ogt float %v.addr.0.i.i.i358, 0.000000e+00
+  %ui.0.v.i.i.i360 = select i1 %cmp5.i.i.i359, i32 -1, i32 1
+  %ui.0.i.i.i361 = add i32 %ui.0.v.i.i.i360, %116
+  %117 = bitcast i32 %ui.0.i.i.i361 to float
+  br label %_ZN4pbrt12AddRoundDownEff.exit.i362
 
-_ZN4pbrt12AddRoundDownEff.exit.i355:              ; preds = %if.end.i.i.i349, %_ZN4pbrt3SqrENS_8IntervalE.exit345
-  %retval.0.i.i.i356 = phi float [ %117, %if.end.i.i.i349 ], [ 0xFFF0000000000000, %_ZN4pbrt3SqrENS_8IntervalE.exit345 ]
-  %118 = fadd <2 x float> %retval.sroa.0.0.i278, %retval.sroa.0.0.i327
-  %add.i1.i359 = extractelement <2 x float> %118, i64 1
-  %or.cond.i.i2.i360 = fcmp oeq float %add.i1.i359, 0x7FF0000000000000
-  br i1 %or.cond.i.i2.i360, label %_ZNK4pbrt8IntervalplES0_.exit374, label %if.end.i.i3.i361
+_ZN4pbrt12AddRoundDownEff.exit.i362:              ; preds = %if.end.i.i.i356, %_ZN4pbrt3SqrENS_8IntervalE.exit352
+  %retval.0.i.i.i363 = phi float [ %117, %if.end.i.i.i356 ], [ 0xFFF0000000000000, %_ZN4pbrt3SqrENS_8IntervalE.exit352 ]
+  %118 = fadd <2 x float> %retval.sroa.0.0.i285, %retval.sroa.0.0.i334
+  %add.i1.i366 = extractelement <2 x float> %118, i64 1
+  %or.cond.i.i2.i367 = fcmp oeq float %add.i1.i366, 0x7FF0000000000000
+  br i1 %or.cond.i.i2.i367, label %_ZNK4pbrt8IntervalplES0_.exit381, label %if.end.i.i3.i368
 
-if.end.i.i3.i361:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i355
-  %cmp1.i.i4.i362 = fcmp oeq float %add.i1.i359, 0.000000e+00
-  %v.addr.0.i.i5.i363 = select i1 %cmp1.i.i4.i362, float 0.000000e+00, float %add.i1.i359
-  %119 = bitcast float %v.addr.0.i.i5.i363 to i32
-  %cmp5.i.i6.i364 = fcmp ult float %v.addr.0.i.i5.i363, 0.000000e+00
-  %ui.0.v.i.i7.i365 = select i1 %cmp5.i.i6.i364, i32 -1, i32 1
-  %ui.0.i.i8.i366 = add i32 %ui.0.v.i.i7.i365, %119
-  %120 = bitcast i32 %ui.0.i.i8.i366 to float
-  br label %_ZNK4pbrt8IntervalplES0_.exit374
+if.end.i.i3.i368:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i362
+  %cmp1.i.i4.i369 = fcmp oeq float %add.i1.i366, 0.000000e+00
+  %v.addr.0.i.i5.i370 = select i1 %cmp1.i.i4.i369, float 0.000000e+00, float %add.i1.i366
+  %119 = bitcast float %v.addr.0.i.i5.i370 to i32
+  %cmp5.i.i6.i371 = fcmp ult float %v.addr.0.i.i5.i370, 0.000000e+00
+  %ui.0.v.i.i7.i372 = select i1 %cmp5.i.i6.i371, i32 -1, i32 1
+  %ui.0.i.i8.i373 = add i32 %ui.0.v.i.i7.i372, %119
+  %120 = bitcast i32 %ui.0.i.i8.i373 to float
+  br label %_ZNK4pbrt8IntervalplES0_.exit381
 
-_ZNK4pbrt8IntervalplES0_.exit374:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i355, %if.end.i.i3.i361
-  %retval.0.i.i9.i367 = phi float [ %120, %if.end.i.i3.i361 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i355 ]
-  %cmp.i.i.i368 = fcmp olt float %retval.0.i.i9.i367, %retval.0.i.i.i356
-  %.sroa.speculated6.i.i369 = select i1 %cmp.i.i.i368, float %retval.0.i.i9.i367, float %retval.0.i.i.i356
-  %cmp.i1.i.i371 = fcmp olt float %retval.0.i.i.i356, %retval.0.i.i9.i367
-  %.sroa.speculated.i.i372 = select i1 %cmp.i1.i.i371, float %retval.0.i.i9.i367, float %retval.0.i.i.i356
+_ZNK4pbrt8IntervalplES0_.exit381:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i362, %if.end.i.i3.i368
+  %retval.0.i.i9.i374 = phi float [ %120, %if.end.i.i3.i368 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i362 ]
+  %cmp.i.i.i375 = fcmp olt float %retval.0.i.i9.i374, %retval.0.i.i.i363
+  %.sroa.speculated6.i.i376 = select i1 %cmp.i.i.i375, float %retval.0.i.i9.i374, float %retval.0.i.i.i363
+  %cmp.i1.i.i378 = fcmp olt float %retval.0.i.i.i363, %retval.0.i.i9.i374
+  %.sroa.speculated.i.i379 = select i1 %cmp.i1.i.i378, float %retval.0.i.i9.i374, float %retval.0.i.i.i363
   %agg.tmp47.sroa.0.0.copyload = load <2 x float>, ptr %z31, align 16
   %121 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %agg.tmp47.sroa.0.0.copyload)
   %122 = extractelement <2 x float> %121, i64 0
   %123 = extractelement <2 x float> %121, i64 1
-  %cmp.i377 = fcmp ogt float %122, %123
-  %ahigh.0.i378 = select i1 %cmp.i377, float %122, float %123
+  %cmp.i384 = fcmp ogt float %122, %123
+  %ahigh.0.i385 = select i1 %cmp.i384, float %122, float %123
   %124 = extractelement <2 x float> %agg.tmp47.sroa.0.0.copyload, i64 0
-  %cmp.i.i379 = fcmp ole float %124, 0.000000e+00
+  %cmp.i.i386 = fcmp ole float %124, 0.000000e+00
   %125 = extractelement <2 x float> %agg.tmp47.sroa.0.0.copyload, i64 1
-  %cmp2.i.i380 = fcmp oge float %125, 0.000000e+00
-  %126 = select i1 %cmp.i.i379, i1 %cmp2.i.i380, i1 false
-  br i1 %126, label %if.then5.i406, label %if.end7.i381
+  %cmp2.i.i387 = fcmp oge float %125, 0.000000e+00
+  %126 = select i1 %cmp.i.i386, i1 %cmp2.i.i387, i1 false
+  br i1 %126, label %if.then5.i413, label %if.end7.i388
 
-if.then5.i406:                                    ; preds = %_ZNK4pbrt8IntervalplES0_.exit374
-  %mul.i.i407 = fmul float %ahigh.0.i378, %ahigh.0.i378
-  %or.cond.i.i.i408 = fcmp oeq float %mul.i.i407, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i408, label %_ZN4pbrt10MulRoundUpEff.exit.i415, label %if.end.i.i.i409
+if.then5.i413:                                    ; preds = %_ZNK4pbrt8IntervalplES0_.exit381
+  %mul.i.i414 = fmul float %ahigh.0.i385, %ahigh.0.i385
+  %or.cond.i.i.i415 = fcmp oeq float %mul.i.i414, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i415, label %_ZN4pbrt10MulRoundUpEff.exit.i422, label %if.end.i.i.i416
 
-if.end.i.i.i409:                                  ; preds = %if.then5.i406
-  %cmp1.i.i.i410 = fcmp oeq float %mul.i.i407, 0.000000e+00
-  %v.addr.0.i.i.i411 = select i1 %cmp1.i.i.i410, float 0.000000e+00, float %mul.i.i407
-  %127 = bitcast float %v.addr.0.i.i.i411 to i32
-  %cmp5.i.i.i412 = fcmp ult float %v.addr.0.i.i.i411, 0.000000e+00
-  %ui.0.v.i.i.i413 = select i1 %cmp5.i.i.i412, i32 -1, i32 1
-  %ui.0.i.i.i414 = add i32 %ui.0.v.i.i.i413, %127
-  %128 = bitcast i32 %ui.0.i.i.i414 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit.i415
+if.end.i.i.i416:                                  ; preds = %if.then5.i413
+  %cmp1.i.i.i417 = fcmp oeq float %mul.i.i414, 0.000000e+00
+  %v.addr.0.i.i.i418 = select i1 %cmp1.i.i.i417, float 0.000000e+00, float %mul.i.i414
+  %127 = bitcast float %v.addr.0.i.i.i418 to i32
+  %cmp5.i.i.i419 = fcmp ult float %v.addr.0.i.i.i418, 0.000000e+00
+  %ui.0.v.i.i.i420 = select i1 %cmp5.i.i.i419, i32 -1, i32 1
+  %ui.0.i.i.i421 = add i32 %ui.0.v.i.i.i420, %127
+  %128 = bitcast i32 %ui.0.i.i.i421 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit.i422
 
-_ZN4pbrt10MulRoundUpEff.exit.i415:                ; preds = %if.end.i.i.i409, %if.then5.i406
-  %retval.0.i.i.i416 = phi float [ %128, %if.end.i.i.i409 ], [ 0x7FF0000000000000, %if.then5.i406 ]
-  %129 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i416, i64 0
-  %130 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i416, i64 1
+_ZN4pbrt10MulRoundUpEff.exit.i422:                ; preds = %if.end.i.i.i416, %if.then5.i413
+  %retval.0.i.i.i423 = phi float [ %128, %if.end.i.i.i416 ], [ 0x7FF0000000000000, %if.then5.i413 ]
+  %129 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i423, i64 0
+  %130 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i423, i64 1
   %131 = fcmp olt <2 x float> %129, %130
   %132 = shufflevector <2 x float> %129, <2 x float> poison, <2 x i32> zeroinitializer
   %133 = select <2 x i1> %131, <2 x float> %132, <2 x float> zeroinitializer
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit423
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit430
 
-if.end7.i381:                                     ; preds = %_ZNK4pbrt8IntervalplES0_.exit374
-  %alow.0.i382 = select i1 %cmp.i377, float %123, float %122
-  %mul.i1.i383 = fmul float %alow.0.i382, %alow.0.i382
-  %cmp1.i.i3.i384 = fcmp oeq float %mul.i1.i383, 0.000000e+00
-  %v.addr.0.i.i4.i385 = select i1 %cmp1.i.i3.i384, float -0.000000e+00, float %mul.i1.i383
-  %134 = bitcast float %v.addr.0.i.i4.i385 to i32
-  %cmp5.i.i5.i386 = fcmp ogt float %v.addr.0.i.i4.i385, 0.000000e+00
-  %ui.0.v.i.i6.i387 = select i1 %cmp5.i.i5.i386, i32 -1, i32 1
-  %ui.0.i.i7.i388 = add i32 %ui.0.v.i.i6.i387, %134
-  %135 = bitcast i32 %ui.0.i.i7.i388 to float
-  %mul.i9.i389 = fmul float %ahigh.0.i378, %ahigh.0.i378
-  %or.cond.i.i10.i390 = fcmp oeq float %mul.i9.i389, 0x7FF0000000000000
-  br i1 %or.cond.i.i10.i390, label %_ZN4pbrt10MulRoundUpEff.exit18.i397, label %if.end.i.i11.i391
+if.end7.i388:                                     ; preds = %_ZNK4pbrt8IntervalplES0_.exit381
+  %alow.0.i389 = select i1 %cmp.i384, float %123, float %122
+  %mul.i1.i390 = fmul float %alow.0.i389, %alow.0.i389
+  %cmp1.i.i4.i391 = fcmp oeq float %mul.i1.i390, 0.000000e+00
+  %v.addr.0.i.i5.i392 = select i1 %cmp1.i.i4.i391, float -0.000000e+00, float %mul.i1.i390
+  %134 = bitcast float %v.addr.0.i.i5.i392 to i32
+  %cmp5.i.i6.i393 = fcmp ogt float %v.addr.0.i.i5.i392, 0.000000e+00
+  %ui.0.v.i.i7.i394 = select i1 %cmp5.i.i6.i393, i32 -1, i32 1
+  %ui.0.i.i8.i395 = add i32 %ui.0.v.i.i7.i394, %134
+  %135 = bitcast i32 %ui.0.i.i8.i395 to float
+  %mul.i10.i396 = fmul float %ahigh.0.i385, %ahigh.0.i385
+  %or.cond.i.i11.i397 = fcmp oeq float %mul.i10.i396, 0x7FF0000000000000
+  br i1 %or.cond.i.i11.i397, label %_ZN4pbrt10MulRoundUpEff.exit19.i404, label %if.end.i.i12.i398
 
-if.end.i.i11.i391:                                ; preds = %if.end7.i381
-  %cmp1.i.i12.i392 = fcmp oeq float %mul.i9.i389, 0.000000e+00
-  %v.addr.0.i.i13.i393 = select i1 %cmp1.i.i12.i392, float 0.000000e+00, float %mul.i9.i389
-  %136 = bitcast float %v.addr.0.i.i13.i393 to i32
-  %cmp5.i.i14.i394 = fcmp ult float %v.addr.0.i.i13.i393, 0.000000e+00
-  %ui.0.v.i.i15.i395 = select i1 %cmp5.i.i14.i394, i32 -1, i32 1
-  %ui.0.i.i16.i396 = add i32 %ui.0.v.i.i15.i395, %136
-  %137 = bitcast i32 %ui.0.i.i16.i396 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit18.i397
+if.end.i.i12.i398:                                ; preds = %if.end7.i388
+  %cmp1.i.i13.i399 = fcmp oeq float %mul.i10.i396, 0.000000e+00
+  %v.addr.0.i.i14.i400 = select i1 %cmp1.i.i13.i399, float 0.000000e+00, float %mul.i10.i396
+  %136 = bitcast float %v.addr.0.i.i14.i400 to i32
+  %cmp5.i.i15.i401 = fcmp ult float %v.addr.0.i.i14.i400, 0.000000e+00
+  %ui.0.v.i.i16.i402 = select i1 %cmp5.i.i15.i401, i32 -1, i32 1
+  %ui.0.i.i17.i403 = add i32 %ui.0.v.i.i16.i402, %136
+  %137 = bitcast i32 %ui.0.i.i17.i403 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit19.i404
 
-_ZN4pbrt10MulRoundUpEff.exit18.i397:              ; preds = %if.end.i.i11.i391, %if.end7.i381
-  %retval.0.i.i17.i398 = phi float [ %137, %if.end.i.i11.i391 ], [ 0x7FF0000000000000, %if.end7.i381 ]
-  %cmp.i.i19.i399 = fcmp olt float %retval.0.i.i17.i398, %135
-  %.sroa.speculated6.i20.i400 = select i1 %cmp.i.i19.i399, float %retval.0.i.i17.i398, float %135
-  %retval.sroa.0.0.vec.insert31.i401 = insertelement <2 x float> poison, float %.sroa.speculated6.i20.i400, i64 0
-  %cmp.i1.i22.i402 = fcmp ogt float %retval.0.i.i17.i398, %135
-  %.sroa.speculated.i23.i403 = select i1 %cmp.i1.i22.i402, float %retval.0.i.i17.i398, float %135
-  %retval.sroa.0.4.vec.insert33.i404 = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i401, float %.sroa.speculated.i23.i403, i64 1
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit423
+_ZN4pbrt10MulRoundUpEff.exit19.i404:              ; preds = %if.end.i.i12.i398, %if.end7.i388
+  %retval.0.i.i18.i405 = phi float [ %137, %if.end.i.i12.i398 ], [ 0x7FF0000000000000, %if.end7.i388 ]
+  %cmp.i.i20.i406 = fcmp olt float %retval.0.i.i18.i405, %135
+  %.sroa.speculated6.i21.i407 = select i1 %cmp.i.i20.i406, float %retval.0.i.i18.i405, float %135
+  %retval.sroa.0.0.vec.insert32.i408 = insertelement <2 x float> poison, float %.sroa.speculated6.i21.i407, i64 0
+  %cmp.i1.i23.i409 = fcmp ogt float %retval.0.i.i18.i405, %135
+  %.sroa.speculated.i24.i410 = select i1 %cmp.i1.i23.i409, float %retval.0.i.i18.i405, float %135
+  %retval.sroa.0.4.vec.insert34.i411 = insertelement <2 x float> %retval.sroa.0.0.vec.insert32.i408, float %.sroa.speculated.i24.i410, i64 1
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit430
 
-_ZN4pbrt3SqrENS_8IntervalE.exit423:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i415, %_ZN4pbrt10MulRoundUpEff.exit18.i397
-  %retval.sroa.0.0.i405 = phi <2 x float> [ %133, %_ZN4pbrt10MulRoundUpEff.exit.i415 ], [ %retval.sroa.0.4.vec.insert33.i404, %_ZN4pbrt10MulRoundUpEff.exit18.i397 ]
-  %i.sroa.0.0.vec.extract.i424 = extractelement <2 x float> %retval.sroa.0.0.i405, i64 0
-  %add.i.i425 = fadd float %.sroa.speculated6.i.i369, %i.sroa.0.0.vec.extract.i424
-  %or.cond.i.i.i426 = fcmp oeq float %add.i.i425, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i426, label %_ZN4pbrt12AddRoundDownEff.exit.i433, label %if.end.i.i.i427
+_ZN4pbrt3SqrENS_8IntervalE.exit430:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i422, %_ZN4pbrt10MulRoundUpEff.exit19.i404
+  %retval.sroa.0.0.i412 = phi <2 x float> [ %133, %_ZN4pbrt10MulRoundUpEff.exit.i422 ], [ %retval.sroa.0.4.vec.insert34.i411, %_ZN4pbrt10MulRoundUpEff.exit19.i404 ]
+  %i.sroa.0.0.vec.extract.i431 = extractelement <2 x float> %retval.sroa.0.0.i412, i64 0
+  %add.i.i432 = fadd float %.sroa.speculated6.i.i376, %i.sroa.0.0.vec.extract.i431
+  %or.cond.i.i.i433 = fcmp oeq float %add.i.i432, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i433, label %_ZN4pbrt12AddRoundDownEff.exit.i440, label %if.end.i.i.i434
 
-if.end.i.i.i427:                                  ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit423
-  %cmp1.i.i.i428 = fcmp oeq float %add.i.i425, 0.000000e+00
-  %v.addr.0.i.i.i429 = select i1 %cmp1.i.i.i428, float -0.000000e+00, float %add.i.i425
-  %138 = bitcast float %v.addr.0.i.i.i429 to i32
-  %cmp5.i.i.i430 = fcmp ogt float %v.addr.0.i.i.i429, 0.000000e+00
-  %ui.0.v.i.i.i431 = select i1 %cmp5.i.i.i430, i32 -1, i32 1
-  %ui.0.i.i.i432 = add i32 %ui.0.v.i.i.i431, %138
-  %139 = bitcast i32 %ui.0.i.i.i432 to float
-  br label %_ZN4pbrt12AddRoundDownEff.exit.i433
+if.end.i.i.i434:                                  ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit430
+  %cmp1.i.i.i435 = fcmp oeq float %add.i.i432, 0.000000e+00
+  %v.addr.0.i.i.i436 = select i1 %cmp1.i.i.i435, float -0.000000e+00, float %add.i.i432
+  %138 = bitcast float %v.addr.0.i.i.i436 to i32
+  %cmp5.i.i.i437 = fcmp ogt float %v.addr.0.i.i.i436, 0.000000e+00
+  %ui.0.v.i.i.i438 = select i1 %cmp5.i.i.i437, i32 -1, i32 1
+  %ui.0.i.i.i439 = add i32 %ui.0.v.i.i.i438, %138
+  %139 = bitcast i32 %ui.0.i.i.i439 to float
+  br label %_ZN4pbrt12AddRoundDownEff.exit.i440
 
-_ZN4pbrt12AddRoundDownEff.exit.i433:              ; preds = %if.end.i.i.i427, %_ZN4pbrt3SqrENS_8IntervalE.exit423
-  %retval.0.i.i.i434 = phi float [ %139, %if.end.i.i.i427 ], [ 0xFFF0000000000000, %_ZN4pbrt3SqrENS_8IntervalE.exit423 ]
-  %i.sroa.0.4.vec.extract.i436 = extractelement <2 x float> %retval.sroa.0.0.i405, i64 1
-  %add.i1.i437 = fadd float %.sroa.speculated.i.i372, %i.sroa.0.4.vec.extract.i436
-  %or.cond.i.i2.i438 = fcmp oeq float %add.i1.i437, 0x7FF0000000000000
-  br i1 %or.cond.i.i2.i438, label %_ZNK4pbrt8IntervalplES0_.exit452, label %if.end.i.i3.i439
+_ZN4pbrt12AddRoundDownEff.exit.i440:              ; preds = %if.end.i.i.i434, %_ZN4pbrt3SqrENS_8IntervalE.exit430
+  %retval.0.i.i.i441 = phi float [ %139, %if.end.i.i.i434 ], [ 0xFFF0000000000000, %_ZN4pbrt3SqrENS_8IntervalE.exit430 ]
+  %i.sroa.0.4.vec.extract.i443 = extractelement <2 x float> %retval.sroa.0.0.i412, i64 1
+  %add.i1.i444 = fadd float %.sroa.speculated.i.i379, %i.sroa.0.4.vec.extract.i443
+  %or.cond.i.i2.i445 = fcmp oeq float %add.i1.i444, 0x7FF0000000000000
+  br i1 %or.cond.i.i2.i445, label %_ZNK4pbrt8IntervalplES0_.exit459, label %if.end.i.i3.i446
 
-if.end.i.i3.i439:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i433
-  %cmp1.i.i4.i440 = fcmp oeq float %add.i1.i437, 0.000000e+00
-  %v.addr.0.i.i5.i441 = select i1 %cmp1.i.i4.i440, float 0.000000e+00, float %add.i1.i437
-  %140 = bitcast float %v.addr.0.i.i5.i441 to i32
-  %cmp5.i.i6.i442 = fcmp ult float %v.addr.0.i.i5.i441, 0.000000e+00
-  %ui.0.v.i.i7.i443 = select i1 %cmp5.i.i6.i442, i32 -1, i32 1
-  %ui.0.i.i8.i444 = add i32 %ui.0.v.i.i7.i443, %140
-  %141 = bitcast i32 %ui.0.i.i8.i444 to float
-  br label %_ZNK4pbrt8IntervalplES0_.exit452
+if.end.i.i3.i446:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i440
+  %cmp1.i.i4.i447 = fcmp oeq float %add.i1.i444, 0.000000e+00
+  %v.addr.0.i.i5.i448 = select i1 %cmp1.i.i4.i447, float 0.000000e+00, float %add.i1.i444
+  %140 = bitcast float %v.addr.0.i.i5.i448 to i32
+  %cmp5.i.i6.i449 = fcmp ult float %v.addr.0.i.i5.i448, 0.000000e+00
+  %ui.0.v.i.i7.i450 = select i1 %cmp5.i.i6.i449, i32 -1, i32 1
+  %ui.0.i.i8.i451 = add i32 %ui.0.v.i.i7.i450, %140
+  %141 = bitcast i32 %ui.0.i.i8.i451 to float
+  br label %_ZNK4pbrt8IntervalplES0_.exit459
 
-_ZNK4pbrt8IntervalplES0_.exit452:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i433, %if.end.i.i3.i439
-  %retval.0.i.i9.i445 = phi float [ %141, %if.end.i.i3.i439 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i433 ]
-  %cmp.i.i.i446 = fcmp olt float %retval.0.i.i9.i445, %retval.0.i.i.i434
-  %.sroa.speculated6.i.i447 = select i1 %cmp.i.i.i446, float %retval.0.i.i9.i445, float %retval.0.i.i.i434
-  %cmp.i1.i.i449 = fcmp olt float %retval.0.i.i.i434, %retval.0.i.i9.i445
-  %.sroa.speculated.i.i450 = select i1 %cmp.i1.i.i449, float %retval.0.i.i9.i445, float %retval.0.i.i.i434
+_ZNK4pbrt8IntervalplES0_.exit459:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i440, %if.end.i.i3.i446
+  %retval.0.i.i9.i452 = phi float [ %141, %if.end.i.i3.i446 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i440 ]
+  %cmp.i.i.i453 = fcmp olt float %retval.0.i.i9.i452, %retval.0.i.i.i441
+  %.sroa.speculated6.i.i454 = select i1 %cmp.i.i.i453, float %retval.0.i.i9.i452, float %retval.0.i.i.i441
+  %cmp.i1.i.i456 = fcmp olt float %retval.0.i.i.i441, %retval.0.i.i9.i452
+  %.sroa.speculated.i.i457 = select i1 %cmp.i1.i.i456, float %retval.0.i.i9.i452, float %retval.0.i.i.i441
   %142 = load float, ptr %this, align 8
   %143 = fcmp oeq float %142, 0.000000e+00
-  %mul.i.i486 = fmul float %142, %142
-  br i1 %143, label %if.then5.i485, label %if.end7.i460
+  %mul.i.i493 = fmul float %142, %142
+  br i1 %143, label %if.then5.i492, label %if.end7.i467
 
-if.then5.i485:                                    ; preds = %_ZNK4pbrt8IntervalplES0_.exit452
-  %or.cond.i.i.i487 = fcmp oeq float %mul.i.i486, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i487, label %_ZN4pbrt10MulRoundUpEff.exit.i494, label %if.end.i.i.i488
+if.then5.i492:                                    ; preds = %_ZNK4pbrt8IntervalplES0_.exit459
+  %or.cond.i.i.i494 = fcmp oeq float %mul.i.i493, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i494, label %_ZN4pbrt10MulRoundUpEff.exit.i501, label %if.end.i.i.i495
 
-if.end.i.i.i488:                                  ; preds = %if.then5.i485
-  %cmp1.i.i.i489 = fcmp oeq float %mul.i.i486, 0.000000e+00
-  %v.addr.0.i.i.i490 = select i1 %cmp1.i.i.i489, float 0.000000e+00, float %mul.i.i486
-  %144 = bitcast float %v.addr.0.i.i.i490 to i32
-  %ui.0.i.i.i493 = add i32 %144, 1
-  %145 = bitcast i32 %ui.0.i.i.i493 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit.i494
+if.end.i.i.i495:                                  ; preds = %if.then5.i492
+  %cmp1.i.i.i496 = fcmp oeq float %mul.i.i493, 0.000000e+00
+  %v.addr.0.i.i.i497 = select i1 %cmp1.i.i.i496, float 0.000000e+00, float %mul.i.i493
+  %144 = bitcast float %v.addr.0.i.i.i497 to i32
+  %ui.0.i.i.i500 = add i32 %144, 1
+  %145 = bitcast i32 %ui.0.i.i.i500 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit.i501
 
-_ZN4pbrt10MulRoundUpEff.exit.i494:                ; preds = %if.end.i.i.i488, %if.then5.i485
-  %retval.0.i.i.i495 = phi float [ %145, %if.end.i.i.i488 ], [ 0x7FF0000000000000, %if.then5.i485 ]
-  %146 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i495, i64 0
-  %147 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i495, i64 1
+_ZN4pbrt10MulRoundUpEff.exit.i501:                ; preds = %if.end.i.i.i495, %if.then5.i492
+  %retval.0.i.i.i502 = phi float [ %145, %if.end.i.i.i495 ], [ 0x7FF0000000000000, %if.then5.i492 ]
+  %146 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i502, i64 0
+  %147 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i502, i64 1
   %148 = fcmp olt <2 x float> %146, %147
   %149 = shufflevector <2 x float> %146, <2 x float> poison, <2 x i32> zeroinitializer
   %150 = select <2 x i1> %148, <2 x float> %149, <2 x float> zeroinitializer
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit502
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit509
 
-if.end7.i460:                                     ; preds = %_ZNK4pbrt8IntervalplES0_.exit452
-  %cmp1.i.i3.i463 = fcmp oeq float %mul.i.i486, 0.000000e+00
-  %v.addr.0.i.i4.i464 = select i1 %cmp1.i.i3.i463, float -0.000000e+00, float %mul.i.i486
-  %151 = bitcast float %v.addr.0.i.i4.i464 to i32
-  %cmp5.i.i5.i465 = fcmp ogt float %v.addr.0.i.i4.i464, 0.000000e+00
-  %ui.0.v.i.i6.i466 = select i1 %cmp5.i.i5.i465, i32 -1, i32 1
-  %ui.0.i.i7.i467 = add i32 %ui.0.v.i.i6.i466, %151
-  %152 = bitcast i32 %ui.0.i.i7.i467 to float
-  %or.cond.i.i10.i469 = fcmp oeq float %mul.i.i486, 0x7FF0000000000000
-  br i1 %or.cond.i.i10.i469, label %_ZN4pbrt10MulRoundUpEff.exit18.i476, label %if.end.i.i11.i470
+if.end7.i467:                                     ; preds = %_ZNK4pbrt8IntervalplES0_.exit459
+  %cmp1.i.i4.i470 = fcmp oeq float %mul.i.i493, 0.000000e+00
+  %v.addr.0.i.i5.i471 = select i1 %cmp1.i.i4.i470, float -0.000000e+00, float %mul.i.i493
+  %151 = bitcast float %v.addr.0.i.i5.i471 to i32
+  %cmp5.i.i6.i472 = fcmp ogt float %v.addr.0.i.i5.i471, 0.000000e+00
+  %ui.0.v.i.i7.i473 = select i1 %cmp5.i.i6.i472, i32 -1, i32 1
+  %ui.0.i.i8.i474 = add i32 %ui.0.v.i.i7.i473, %151
+  %152 = bitcast i32 %ui.0.i.i8.i474 to float
+  %or.cond.i.i11.i476 = fcmp oeq float %mul.i.i493, 0x7FF0000000000000
+  br i1 %or.cond.i.i11.i476, label %_ZN4pbrt10MulRoundUpEff.exit19.i483, label %if.end.i.i12.i477
 
-if.end.i.i11.i470:                                ; preds = %if.end7.i460
-  %v.addr.0.i.i13.i472 = select i1 %cmp1.i.i3.i463, float 0.000000e+00, float %mul.i.i486
-  %153 = bitcast float %v.addr.0.i.i13.i472 to i32
-  %cmp5.i.i14.i473 = fcmp ult float %v.addr.0.i.i13.i472, 0.000000e+00
-  %ui.0.v.i.i15.i474 = select i1 %cmp5.i.i14.i473, i32 -1, i32 1
-  %ui.0.i.i16.i475 = add i32 %ui.0.v.i.i15.i474, %153
-  %154 = bitcast i32 %ui.0.i.i16.i475 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit18.i476
+if.end.i.i12.i477:                                ; preds = %if.end7.i467
+  %v.addr.0.i.i14.i479 = select i1 %cmp1.i.i4.i470, float 0.000000e+00, float %mul.i.i493
+  %153 = bitcast float %v.addr.0.i.i14.i479 to i32
+  %cmp5.i.i15.i480 = fcmp ult float %v.addr.0.i.i14.i479, 0.000000e+00
+  %ui.0.v.i.i16.i481 = select i1 %cmp5.i.i15.i480, i32 -1, i32 1
+  %ui.0.i.i17.i482 = add i32 %ui.0.v.i.i16.i481, %153
+  %154 = bitcast i32 %ui.0.i.i17.i482 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit19.i483
 
-_ZN4pbrt10MulRoundUpEff.exit18.i476:              ; preds = %if.end.i.i11.i470, %if.end7.i460
-  %retval.0.i.i17.i477 = phi float [ %154, %if.end.i.i11.i470 ], [ 0x7FF0000000000000, %if.end7.i460 ]
-  %cmp.i.i19.i478 = fcmp olt float %retval.0.i.i17.i477, %152
-  %.sroa.speculated6.i20.i479 = select i1 %cmp.i.i19.i478, float %retval.0.i.i17.i477, float %152
-  %retval.sroa.0.0.vec.insert31.i480 = insertelement <2 x float> poison, float %.sroa.speculated6.i20.i479, i64 0
-  %cmp.i1.i22.i481 = fcmp ogt float %retval.0.i.i17.i477, %152
-  %.sroa.speculated.i23.i482 = select i1 %cmp.i1.i22.i481, float %retval.0.i.i17.i477, float %152
-  %retval.sroa.0.4.vec.insert33.i483 = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i480, float %.sroa.speculated.i23.i482, i64 1
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit502
+_ZN4pbrt10MulRoundUpEff.exit19.i483:              ; preds = %if.end.i.i12.i477, %if.end7.i467
+  %retval.0.i.i18.i484 = phi float [ %154, %if.end.i.i12.i477 ], [ 0x7FF0000000000000, %if.end7.i467 ]
+  %cmp.i.i20.i485 = fcmp olt float %retval.0.i.i18.i484, %152
+  %.sroa.speculated6.i21.i486 = select i1 %cmp.i.i20.i485, float %retval.0.i.i18.i484, float %152
+  %retval.sroa.0.0.vec.insert32.i487 = insertelement <2 x float> poison, float %.sroa.speculated6.i21.i486, i64 0
+  %cmp.i1.i23.i488 = fcmp ogt float %retval.0.i.i18.i484, %152
+  %.sroa.speculated.i24.i489 = select i1 %cmp.i1.i23.i488, float %retval.0.i.i18.i484, float %152
+  %retval.sroa.0.4.vec.insert34.i490 = insertelement <2 x float> %retval.sroa.0.0.vec.insert32.i487, float %.sroa.speculated.i24.i489, i64 1
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit509
 
-_ZN4pbrt3SqrENS_8IntervalE.exit502:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i494, %_ZN4pbrt10MulRoundUpEff.exit18.i476
-  %retval.sroa.0.0.i484 = phi <2 x float> [ %150, %_ZN4pbrt10MulRoundUpEff.exit.i494 ], [ %retval.sroa.0.4.vec.insert33.i483, %_ZN4pbrt10MulRoundUpEff.exit18.i476 ]
-  %i.sroa.0.4.vec.extract.i503 = extractelement <2 x float> %retval.sroa.0.0.i484, i64 1
-  %add.i.i.i = fsub float %.sroa.speculated6.i.i447, %i.sroa.0.4.vec.extract.i503
+_ZN4pbrt3SqrENS_8IntervalE.exit509:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i501, %_ZN4pbrt10MulRoundUpEff.exit19.i483
+  %retval.sroa.0.0.i491 = phi <2 x float> [ %150, %_ZN4pbrt10MulRoundUpEff.exit.i501 ], [ %retval.sroa.0.4.vec.insert34.i490, %_ZN4pbrt10MulRoundUpEff.exit19.i483 ]
+  %i.sroa.0.4.vec.extract.i510 = extractelement <2 x float> %retval.sroa.0.0.i491, i64 1
+  %add.i.i.i = fsub float %.sroa.speculated6.i.i454, %i.sroa.0.4.vec.extract.i510
   %or.cond.i.i.i.i = fcmp oeq float %add.i.i.i, 0xFFF0000000000000
   br i1 %or.cond.i.i.i.i, label %_ZN4pbrt12SubRoundDownEff.exit.i, label %if.end.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit502
+if.end.i.i.i.i:                                   ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit509
   %cmp1.i.i.i.i = fcmp oeq float %add.i.i.i, 0.000000e+00
   %v.addr.0.i.i.i.i = select i1 %cmp1.i.i.i.i, float -0.000000e+00, float %add.i.i.i
   %155 = bitcast float %v.addr.0.i.i.i.i to i32
@@ -38808,10 +38808,10 @@ if.end.i.i.i.i:                                   ; preds = %_ZN4pbrt3SqrENS_8In
   %156 = bitcast i32 %ui.0.i.i.i.i to float
   br label %_ZN4pbrt12SubRoundDownEff.exit.i
 
-_ZN4pbrt12SubRoundDownEff.exit.i:                 ; preds = %if.end.i.i.i.i, %_ZN4pbrt3SqrENS_8IntervalE.exit502
-  %retval.0.i.i.i.i = phi float [ %156, %if.end.i.i.i.i ], [ 0xFFF0000000000000, %_ZN4pbrt3SqrENS_8IntervalE.exit502 ]
-  %i.sroa.0.0.vec.extract.i504 = extractelement <2 x float> %retval.sroa.0.0.i484, i64 0
-  %add.i.i1.i = fsub float %.sroa.speculated.i.i450, %i.sroa.0.0.vec.extract.i504
+_ZN4pbrt12SubRoundDownEff.exit.i:                 ; preds = %if.end.i.i.i.i, %_ZN4pbrt3SqrENS_8IntervalE.exit509
+  %retval.0.i.i.i.i = phi float [ %156, %if.end.i.i.i.i ], [ 0xFFF0000000000000, %_ZN4pbrt3SqrENS_8IntervalE.exit509 ]
+  %i.sroa.0.0.vec.extract.i511 = extractelement <2 x float> %retval.sroa.0.0.i491, i64 0
+  %add.i.i1.i = fsub float %.sroa.speculated.i.i457, %i.sroa.0.0.vec.extract.i511
   %or.cond.i.i.i2.i = fcmp oeq float %add.i.i1.i, 0x7FF0000000000000
   br i1 %or.cond.i.i.i2.i, label %_ZNK4pbrt8IntervalmiES0_.exit, label %if.end.i.i.i3.i
 
@@ -38827,52 +38827,52 @@ if.end.i.i.i3.i:                                  ; preds = %_ZN4pbrt12SubRoundD
 
 _ZNK4pbrt8IntervalmiES0_.exit:                    ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i, %if.end.i.i.i3.i
   %retval.0.i.i.i9.i = phi float [ %158, %if.end.i.i.i3.i ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i ]
-  %cmp.i.i.i505 = fcmp olt float %retval.0.i.i.i9.i, %retval.0.i.i.i.i
-  %.sroa.speculated6.i.i506 = select i1 %cmp.i.i.i505, float %retval.0.i.i.i9.i, float %retval.0.i.i.i.i
-  %retval.sroa.0.0.vec.insert.i507 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i506, i64 0
-  %cmp.i1.i.i508 = fcmp olt float %retval.0.i.i.i.i, %retval.0.i.i.i9.i
-  %.sroa.speculated.i.i509 = select i1 %cmp.i1.i.i508, float %retval.0.i.i.i9.i, float %retval.0.i.i.i.i
-  %retval.sroa.0.4.vec.insert.i510 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i507, float %.sroa.speculated.i.i509, i64 1
-  store <2 x float> %retval.sroa.0.4.vec.insert.i510, ptr %c, align 8
-  %mul.i.i511 = fmul float %.sroa.speculated6.i.i167, 2.000000e+00
-  %or.cond.i.i.i512 = fcmp oeq float %mul.i.i511, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i512, label %_ZN4pbrt12MulRoundDownEff.exit.i519, label %if.end.i.i.i513
+  %cmp.i.i.i512 = fcmp olt float %retval.0.i.i.i9.i, %retval.0.i.i.i.i
+  %.sroa.speculated6.i.i513 = select i1 %cmp.i.i.i512, float %retval.0.i.i.i9.i, float %retval.0.i.i.i.i
+  %retval.sroa.0.0.vec.insert.i514 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i513, i64 0
+  %cmp.i1.i.i515 = fcmp olt float %retval.0.i.i.i.i, %retval.0.i.i.i9.i
+  %.sroa.speculated.i.i516 = select i1 %cmp.i1.i.i515, float %retval.0.i.i.i9.i, float %retval.0.i.i.i.i
+  %retval.sroa.0.4.vec.insert.i517 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i514, float %.sroa.speculated.i.i516, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i517, ptr %c, align 8
+  %mul.i.i519 = fmul float %.sroa.speculated6.i.i172, 2.000000e+00
+  %or.cond.i.i.i520 = fcmp oeq float %mul.i.i519, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i520, label %_ZN4pbrt12MulRoundDownEff.exit.i527, label %if.end.i.i.i521
 
-if.end.i.i.i513:                                  ; preds = %_ZNK4pbrt8IntervalmiES0_.exit
-  %cmp1.i.i.i514 = fcmp oeq float %mul.i.i511, 0.000000e+00
-  %v.addr.0.i.i.i515 = select i1 %cmp1.i.i.i514, float -0.000000e+00, float %mul.i.i511
-  %159 = bitcast float %v.addr.0.i.i.i515 to i32
-  %cmp5.i.i.i516 = fcmp ogt float %v.addr.0.i.i.i515, 0.000000e+00
-  %ui.0.v.i.i.i517 = select i1 %cmp5.i.i.i516, i32 -1, i32 1
-  %ui.0.i.i.i518 = add i32 %ui.0.v.i.i.i517, %159
-  %160 = bitcast i32 %ui.0.i.i.i518 to float
-  br label %_ZN4pbrt12MulRoundDownEff.exit.i519
+if.end.i.i.i521:                                  ; preds = %_ZNK4pbrt8IntervalmiES0_.exit
+  %cmp1.i.i.i522 = fcmp oeq float %mul.i.i519, 0.000000e+00
+  %v.addr.0.i.i.i523 = select i1 %cmp1.i.i.i522, float -0.000000e+00, float %mul.i.i519
+  %159 = bitcast float %v.addr.0.i.i.i523 to i32
+  %cmp5.i.i.i524 = fcmp ogt float %v.addr.0.i.i.i523, 0.000000e+00
+  %ui.0.v.i.i.i525 = select i1 %cmp5.i.i.i524, i32 -1, i32 1
+  %ui.0.i.i.i526 = add i32 %ui.0.v.i.i.i525, %159
+  %160 = bitcast i32 %ui.0.i.i.i526 to float
+  br label %_ZN4pbrt12MulRoundDownEff.exit.i527
 
-_ZN4pbrt12MulRoundDownEff.exit.i519:              ; preds = %if.end.i.i.i513, %_ZNK4pbrt8IntervalmiES0_.exit
-  %retval.0.i.i.i520 = phi float [ %160, %if.end.i.i.i513 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalmiES0_.exit ]
-  %mul.i5.i521 = fmul float %.sroa.speculated.i.i170, 2.000000e+00
-  %or.cond.i.i6.i522 = fcmp oeq float %mul.i5.i521, 0x7FF0000000000000
-  br i1 %or.cond.i.i6.i522, label %_ZN4pbrtmlEfNS_8IntervalE.exit538, label %if.end.i.i7.i523
+_ZN4pbrt12MulRoundDownEff.exit.i527:              ; preds = %if.end.i.i.i521, %_ZNK4pbrt8IntervalmiES0_.exit
+  %retval.0.i.i.i528 = phi float [ %160, %if.end.i.i.i521 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalmiES0_.exit ]
+  %mul.i5.i530 = fmul float %.sroa.speculated.i.i175, 2.000000e+00
+  %or.cond.i.i6.i531 = fcmp oeq float %mul.i5.i530, 0x7FF0000000000000
+  br i1 %or.cond.i.i6.i531, label %_ZN4pbrtmlEfNS_8IntervalE.exit547, label %if.end.i.i7.i532
 
-if.end.i.i7.i523:                                 ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i519
-  %cmp1.i.i8.i524 = fcmp oeq float %mul.i5.i521, 0.000000e+00
-  %v.addr.0.i.i9.i525 = select i1 %cmp1.i.i8.i524, float 0.000000e+00, float %mul.i5.i521
-  %161 = bitcast float %v.addr.0.i.i9.i525 to i32
-  %cmp5.i.i10.i526 = fcmp ult float %v.addr.0.i.i9.i525, 0.000000e+00
-  %ui.0.v.i.i11.i527 = select i1 %cmp5.i.i10.i526, i32 -1, i32 1
-  %ui.0.i.i12.i528 = add i32 %ui.0.v.i.i11.i527, %161
-  %162 = bitcast i32 %ui.0.i.i12.i528 to float
-  br label %_ZN4pbrtmlEfNS_8IntervalE.exit538
+if.end.i.i7.i532:                                 ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i527
+  %cmp1.i.i8.i533 = fcmp oeq float %mul.i5.i530, 0.000000e+00
+  %v.addr.0.i.i9.i534 = select i1 %cmp1.i.i8.i533, float 0.000000e+00, float %mul.i5.i530
+  %161 = bitcast float %v.addr.0.i.i9.i534 to i32
+  %cmp5.i.i10.i535 = fcmp ult float %v.addr.0.i.i9.i534, 0.000000e+00
+  %ui.0.v.i.i11.i536 = select i1 %cmp5.i.i10.i535, i32 -1, i32 1
+  %ui.0.i.i12.i537 = add i32 %ui.0.v.i.i11.i536, %161
+  %162 = bitcast i32 %ui.0.i.i12.i537 to float
+  br label %_ZN4pbrtmlEfNS_8IntervalE.exit547
 
-_ZN4pbrtmlEfNS_8IntervalE.exit538:                ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i519, %if.end.i.i7.i523
-  %retval.0.i.i13.i530 = phi float [ %162, %if.end.i.i7.i523 ], [ 0x7FF0000000000000, %_ZN4pbrt12MulRoundDownEff.exit.i519 ]
-  %cmp.i.i.i531 = fcmp olt float %retval.0.i.i13.i530, %retval.0.i.i.i520
-  %.sroa.speculated6.i.i532 = select i1 %cmp.i.i.i531, float %retval.0.i.i13.i530, float %retval.0.i.i.i520
-  %retval.sroa.0.0.vec.insert.i533 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i532, i64 0
-  %cmp.i1.i.i534 = fcmp olt float %retval.0.i.i.i520, %retval.0.i.i13.i530
-  %.sroa.speculated.i.i535 = select i1 %cmp.i1.i.i534, float %retval.0.i.i13.i530, float %retval.0.i.i.i520
-  %retval.sroa.0.4.vec.insert.i536 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i533, float %.sroa.speculated.i.i535, i64 1
-  %call62 = call <2 x float> @_ZNK4pbrt8IntervaldvES0_(ptr noundef nonnull align 4 dereferenceable(8) %b, <2 x float> %retval.sroa.0.4.vec.insert.i536)
+_ZN4pbrtmlEfNS_8IntervalE.exit547:                ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i527, %if.end.i.i7.i532
+  %retval.0.i.i13.i539 = phi float [ %162, %if.end.i.i7.i532 ], [ 0x7FF0000000000000, %_ZN4pbrt12MulRoundDownEff.exit.i527 ]
+  %cmp.i.i.i540 = fcmp olt float %retval.0.i.i13.i539, %retval.0.i.i.i528
+  %.sroa.speculated6.i.i541 = select i1 %cmp.i.i.i540, float %retval.0.i.i13.i539, float %retval.0.i.i.i528
+  %retval.sroa.0.0.vec.insert.i542 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i541, i64 0
+  %cmp.i1.i.i543 = fcmp olt float %retval.0.i.i.i528, %retval.0.i.i13.i539
+  %.sroa.speculated.i.i544 = select i1 %cmp.i1.i.i543, float %retval.0.i.i13.i539, float %retval.0.i.i.i528
+  %retval.sroa.0.4.vec.insert.i545 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i542, float %.sroa.speculated.i.i544, i64 1
+  %call62 = call <2 x float> @_ZNK4pbrt8IntervaldvES0_(ptr noundef nonnull align 4 dereferenceable(8) %b, <2 x float> %retval.sroa.0.4.vec.insert.i545)
   %agg.tmp63.sroa.0.0.copyload = load <2 x float>, ptr %di, align 16
   %agg.tmp63.sroa.2.0.copyload = load <2 x float>, ptr %y, align 8
   %agg.tmp63.sroa.3.0.copyload = load <2 x float>, ptr %z, align 16
@@ -38888,7 +38888,7 @@ _ZN4pbrtmlEfNS_8IntervalE.exit538:                ; preds = %_ZN4pbrt12MulRoundD
   %or.cond.i.i.i.i.i = fcmp oeq float %add.i.i.i.i, 0xFFF0000000000000
   br i1 %or.cond.i.i.i.i.i, label %_ZN4pbrt12SubRoundDownEff.exit.i.i, label %if.end.i.i.i.i.i
 
-if.end.i.i.i.i.i:                                 ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit538
+if.end.i.i.i.i.i:                                 ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit547
   %cmp1.i.i.i.i.i = fcmp oeq float %add.i.i.i.i, 0.000000e+00
   %v.addr.0.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i, float -0.000000e+00, float %add.i.i.i.i
   %164 = bitcast float %v.addr.0.i.i.i.i.i to i32
@@ -38898,8 +38898,8 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZN4pbrtmlEfNS_8Int
   %165 = bitcast i32 %ui.0.i.i.i.i.i to float
   br label %_ZN4pbrt12SubRoundDownEff.exit.i.i
 
-_ZN4pbrt12SubRoundDownEff.exit.i.i:               ; preds = %if.end.i.i.i.i.i, %_ZN4pbrtmlEfNS_8IntervalE.exit538
-  %retval.0.i.i.i.i.i = phi float [ %165, %if.end.i.i.i.i.i ], [ 0xFFF0000000000000, %_ZN4pbrtmlEfNS_8IntervalE.exit538 ]
+_ZN4pbrt12SubRoundDownEff.exit.i.i:               ; preds = %if.end.i.i.i.i.i, %_ZN4pbrtmlEfNS_8IntervalE.exit547
+  %retval.0.i.i.i.i.i = phi float [ %165, %if.end.i.i.i.i.i ], [ 0xFFF0000000000000, %_ZN4pbrtmlEfNS_8IntervalE.exit547 ]
   %high2.i.i = getelementptr inbounds i8, ptr %oi, i64 4
   %166 = load float, ptr %high2.i.i, align 4, !noalias !217
   %i.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %call.i.i, i64 0
@@ -39011,30 +39011,30 @@ _ZNK4pbrt8Point3fimiINS_8IntervalEEES0_NS_7Vector3IT_EE.exit: ; preds = %_ZN4pbr
   %cmp.i1.i.i55.i = fcmp olt float %retval.0.i.i.i.i40.i, %retval.0.i.i.i9.i51.i
   %.sroa.speculated.i.i56.i = select i1 %cmp.i1.i.i55.i, float %retval.0.i.i.i9.i51.i, float %retval.0.i.i.i.i40.i
   %retval.sroa.0.4.vec.insert.i57.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i54.i, float %.sroa.speculated.i.i56.i, i64 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp64553)
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %agg.tmp64553, align 8
-  %agg.tmp64.sroa.0.sroa.2.0.agg.tmp64553.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp64553, i64 8
-  store <2 x float> %retval.sroa.0.4.vec.insert.i28.i, ptr %agg.tmp64.sroa.0.sroa.2.0.agg.tmp64553.sroa_idx, align 8
-  %agg.tmp64.sroa.0.sroa.3.0.agg.tmp64553.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp64553, i64 16
-  store <2 x float> %retval.sroa.0.4.vec.insert.i57.i, ptr %agg.tmp64.sroa.0.sroa.3.0.agg.tmp64553.sroa_idx, align 8
-  %call.i = call <2 x float> @_ZN4pbrt13LengthSquaredINS_8IntervalEEET_NS_7Vector3IS2_EE(ptr noundef nonnull byval(%"class.pbrt::Vector3.164") align 8 %agg.tmp64553)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp64562)
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %agg.tmp64562, align 8
+  %agg.tmp64.sroa.0.sroa.2.0.agg.tmp64562.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp64562, i64 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i28.i, ptr %agg.tmp64.sroa.0.sroa.2.0.agg.tmp64562.sroa_idx, align 8
+  %agg.tmp64.sroa.0.sroa.3.0.agg.tmp64562.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp64562, i64 16
+  store <2 x float> %retval.sroa.0.4.vec.insert.i57.i, ptr %agg.tmp64.sroa.0.sroa.3.0.agg.tmp64562.sroa_idx, align 8
+  %call.i = call <2 x float> @_ZN4pbrt13LengthSquaredINS_8IntervalEEET_NS_7Vector3IS2_EE(ptr noundef nonnull byval(%"class.pbrt::Vector3.164") align 8 %agg.tmp64562)
   %i.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %call.i, i64 0
   %call.i.i.i.i.i = call noundef float @sqrtf(float noundef %i.sroa.0.0.vec.extract.i.i.i) #28
-  %or.cond.i.i.i.i.i554 = fcmp oeq float %call.i.i.i.i.i, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i.i.i554, label %_ZN4pbrt13SqrtRoundDownEf.exit.i.i.i, label %if.end.i.i.i.i.i555
+  %or.cond.i.i.i.i.i563 = fcmp oeq float %call.i.i.i.i.i, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i.i.i563, label %_ZN4pbrt13SqrtRoundDownEf.exit.i.i.i, label %if.end.i.i.i.i.i564
 
-if.end.i.i.i.i.i555:                              ; preds = %_ZNK4pbrt8Point3fimiINS_8IntervalEEES0_NS_7Vector3IT_EE.exit
-  %cmp1.i.i.i.i.i556 = fcmp oeq float %call.i.i.i.i.i, 0.000000e+00
-  %v.addr.0.i.i.i.i.i557 = select i1 %cmp1.i.i.i.i.i556, float -0.000000e+00, float %call.i.i.i.i.i
-  %181 = bitcast float %v.addr.0.i.i.i.i.i557 to i32
-  %cmp5.i.i.i.i.i558 = fcmp ogt float %v.addr.0.i.i.i.i.i557, 0.000000e+00
-  %ui.0.v.i.i.i.i.i559 = select i1 %cmp5.i.i.i.i.i558, i32 -1, i32 1
-  %ui.0.i.i.i.i.i560 = add i32 %ui.0.v.i.i.i.i.i559, %181
-  %182 = bitcast i32 %ui.0.i.i.i.i.i560 to float
+if.end.i.i.i.i.i564:                              ; preds = %_ZNK4pbrt8Point3fimiINS_8IntervalEEES0_NS_7Vector3IT_EE.exit
+  %cmp1.i.i.i.i.i565 = fcmp oeq float %call.i.i.i.i.i, 0.000000e+00
+  %v.addr.0.i.i.i.i.i566 = select i1 %cmp1.i.i.i.i.i565, float -0.000000e+00, float %call.i.i.i.i.i
+  %181 = bitcast float %v.addr.0.i.i.i.i.i566 to i32
+  %cmp5.i.i.i.i.i567 = fcmp ogt float %v.addr.0.i.i.i.i.i566, 0.000000e+00
+  %ui.0.v.i.i.i.i.i568 = select i1 %cmp5.i.i.i.i.i567, i32 -1, i32 1
+  %ui.0.i.i.i.i.i569 = add i32 %ui.0.v.i.i.i.i.i568, %181
+  %182 = bitcast i32 %ui.0.i.i.i.i.i569 to float
   br label %_ZN4pbrt13SqrtRoundDownEf.exit.i.i.i
 
-_ZN4pbrt13SqrtRoundDownEf.exit.i.i.i:             ; preds = %if.end.i.i.i.i.i555, %_ZNK4pbrt8Point3fimiINS_8IntervalEEES0_NS_7Vector3IT_EE.exit
-  %retval.0.i.i.i.i.i561 = phi float [ %182, %if.end.i.i.i.i.i555 ], [ 0xFFF0000000000000, %_ZNK4pbrt8Point3fimiINS_8IntervalEEES0_NS_7Vector3IT_EE.exit ]
+_ZN4pbrt13SqrtRoundDownEf.exit.i.i.i:             ; preds = %if.end.i.i.i.i.i564, %_ZNK4pbrt8Point3fimiINS_8IntervalEEES0_NS_7Vector3IT_EE.exit
+  %retval.0.i.i.i.i.i570 = phi float [ %182, %if.end.i.i.i.i.i564 ], [ 0xFFF0000000000000, %_ZNK4pbrt8Point3fimiINS_8IntervalEEES0_NS_7Vector3IT_EE.exit ]
   %i.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %call.i, i64 1
   %call.i.i1.i.i.i = call noundef float @sqrtf(float noundef %i.sroa.0.4.vec.extract.i.i.i) #28
   %or.cond.i.i2.i.i.i = fcmp oeq float %call.i.i1.i.i.i, 0x7FF0000000000000
@@ -39052,231 +39052,231 @@ if.end.i.i3.i.i.i:                                ; preds = %_ZN4pbrt13SqrtRound
 
 _ZN4pbrt6LengthINS_8IntervalEEENS_12_GLOBAL__N_111TupleLengthIT_E4typeENS_7Vector3IS4_EE.exit: ; preds = %_ZN4pbrt13SqrtRoundDownEf.exit.i.i.i, %if.end.i.i3.i.i.i
   %retval.0.i.i9.i.i.i = phi float [ %184, %if.end.i.i3.i.i.i ], [ 0x7FF0000000000000, %_ZN4pbrt13SqrtRoundDownEf.exit.i.i.i ]
-  %cmp.i.i.i.i.i = fcmp ogt float %retval.0.i.i.i.i.i561, 0.000000e+00
-  %.sroa.speculated.i.i.i.i = select i1 %cmp.i.i.i.i.i, float %retval.0.i.i.i.i.i561, float 0.000000e+00
+  %cmp.i.i.i.i.i = fcmp ogt float %retval.0.i.i.i.i.i570, 0.000000e+00
+  %.sroa.speculated.i.i.i.i = select i1 %cmp.i.i.i.i.i, float %retval.0.i.i.i.i.i570, float 0.000000e+00
   %cmp.i.i10.i.i.i = fcmp olt float %retval.0.i.i9.i.i.i, %.sroa.speculated.i.i.i.i
   %.sroa.speculated6.i.i.i.i = select i1 %cmp.i.i10.i.i.i, float %retval.0.i.i9.i.i.i, float %.sroa.speculated.i.i.i.i
   %cmp.i1.i.i.i.i = fcmp olt float %.sroa.speculated.i.i.i.i, %retval.0.i.i9.i.i.i
   %.sroa.speculated.i11.i.i.i = select i1 %cmp.i1.i.i.i.i, float %retval.0.i.i9.i.i.i, float %.sroa.speculated.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp64553)
-  %mul.i.i562 = fmul float %.sroa.speculated6.i.i167, 4.000000e+00
-  %or.cond.i.i.i563 = fcmp oeq float %mul.i.i562, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i563, label %_ZN4pbrt12MulRoundDownEff.exit.i570, label %if.end.i.i.i564
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp64562)
+  %mul.i.i572 = fmul float %.sroa.speculated6.i.i172, 4.000000e+00
+  %or.cond.i.i.i573 = fcmp oeq float %mul.i.i572, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i573, label %_ZN4pbrt12MulRoundDownEff.exit.i580, label %if.end.i.i.i574
 
-if.end.i.i.i564:                                  ; preds = %_ZN4pbrt6LengthINS_8IntervalEEENS_12_GLOBAL__N_111TupleLengthIT_E4typeENS_7Vector3IS4_EE.exit
-  %cmp1.i.i.i565 = fcmp oeq float %mul.i.i562, 0.000000e+00
-  %v.addr.0.i.i.i566 = select i1 %cmp1.i.i.i565, float -0.000000e+00, float %mul.i.i562
-  %185 = bitcast float %v.addr.0.i.i.i566 to i32
-  %cmp5.i.i.i567 = fcmp ogt float %v.addr.0.i.i.i566, 0.000000e+00
-  %ui.0.v.i.i.i568 = select i1 %cmp5.i.i.i567, i32 -1, i32 1
-  %ui.0.i.i.i569 = add i32 %ui.0.v.i.i.i568, %185
-  %186 = bitcast i32 %ui.0.i.i.i569 to float
-  br label %_ZN4pbrt12MulRoundDownEff.exit.i570
+if.end.i.i.i574:                                  ; preds = %_ZN4pbrt6LengthINS_8IntervalEEENS_12_GLOBAL__N_111TupleLengthIT_E4typeENS_7Vector3IS4_EE.exit
+  %cmp1.i.i.i575 = fcmp oeq float %mul.i.i572, 0.000000e+00
+  %v.addr.0.i.i.i576 = select i1 %cmp1.i.i.i575, float -0.000000e+00, float %mul.i.i572
+  %185 = bitcast float %v.addr.0.i.i.i576 to i32
+  %cmp5.i.i.i577 = fcmp ogt float %v.addr.0.i.i.i576, 0.000000e+00
+  %ui.0.v.i.i.i578 = select i1 %cmp5.i.i.i577, i32 -1, i32 1
+  %ui.0.i.i.i579 = add i32 %ui.0.v.i.i.i578, %185
+  %186 = bitcast i32 %ui.0.i.i.i579 to float
+  br label %_ZN4pbrt12MulRoundDownEff.exit.i580
 
-_ZN4pbrt12MulRoundDownEff.exit.i570:              ; preds = %if.end.i.i.i564, %_ZN4pbrt6LengthINS_8IntervalEEENS_12_GLOBAL__N_111TupleLengthIT_E4typeENS_7Vector3IS4_EE.exit
-  %retval.0.i.i.i571 = phi float [ %186, %if.end.i.i.i564 ], [ 0xFFF0000000000000, %_ZN4pbrt6LengthINS_8IntervalEEENS_12_GLOBAL__N_111TupleLengthIT_E4typeENS_7Vector3IS4_EE.exit ]
-  %mul.i5.i572 = fmul float %.sroa.speculated.i.i170, 4.000000e+00
-  %or.cond.i.i6.i573 = fcmp oeq float %mul.i5.i572, 0x7FF0000000000000
-  br i1 %or.cond.i.i6.i573, label %_ZN4pbrtmlEfNS_8IntervalE.exit589, label %if.end.i.i7.i574
+_ZN4pbrt12MulRoundDownEff.exit.i580:              ; preds = %if.end.i.i.i574, %_ZN4pbrt6LengthINS_8IntervalEEENS_12_GLOBAL__N_111TupleLengthIT_E4typeENS_7Vector3IS4_EE.exit
+  %retval.0.i.i.i581 = phi float [ %186, %if.end.i.i.i574 ], [ 0xFFF0000000000000, %_ZN4pbrt6LengthINS_8IntervalEEENS_12_GLOBAL__N_111TupleLengthIT_E4typeENS_7Vector3IS4_EE.exit ]
+  %mul.i5.i583 = fmul float %.sroa.speculated.i.i175, 4.000000e+00
+  %or.cond.i.i6.i584 = fcmp oeq float %mul.i5.i583, 0x7FF0000000000000
+  br i1 %or.cond.i.i6.i584, label %_ZN4pbrtmlEfNS_8IntervalE.exit600, label %if.end.i.i7.i585
 
-if.end.i.i7.i574:                                 ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i570
-  %cmp1.i.i8.i575 = fcmp oeq float %mul.i5.i572, 0.000000e+00
-  %v.addr.0.i.i9.i576 = select i1 %cmp1.i.i8.i575, float 0.000000e+00, float %mul.i5.i572
-  %187 = bitcast float %v.addr.0.i.i9.i576 to i32
-  %cmp5.i.i10.i577 = fcmp ult float %v.addr.0.i.i9.i576, 0.000000e+00
-  %ui.0.v.i.i11.i578 = select i1 %cmp5.i.i10.i577, i32 -1, i32 1
-  %ui.0.i.i12.i579 = add i32 %ui.0.v.i.i11.i578, %187
-  %188 = bitcast i32 %ui.0.i.i12.i579 to float
-  br label %_ZN4pbrtmlEfNS_8IntervalE.exit589
+if.end.i.i7.i585:                                 ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i580
+  %cmp1.i.i8.i586 = fcmp oeq float %mul.i5.i583, 0.000000e+00
+  %v.addr.0.i.i9.i587 = select i1 %cmp1.i.i8.i586, float 0.000000e+00, float %mul.i5.i583
+  %187 = bitcast float %v.addr.0.i.i9.i587 to i32
+  %cmp5.i.i10.i588 = fcmp ult float %v.addr.0.i.i9.i587, 0.000000e+00
+  %ui.0.v.i.i11.i589 = select i1 %cmp5.i.i10.i588, i32 -1, i32 1
+  %ui.0.i.i12.i590 = add i32 %ui.0.v.i.i11.i589, %187
+  %188 = bitcast i32 %ui.0.i.i12.i590 to float
+  br label %_ZN4pbrtmlEfNS_8IntervalE.exit600
 
-_ZN4pbrtmlEfNS_8IntervalE.exit589:                ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i570, %if.end.i.i7.i574
-  %retval.0.i.i13.i581 = phi float [ %188, %if.end.i.i7.i574 ], [ 0x7FF0000000000000, %_ZN4pbrt12MulRoundDownEff.exit.i570 ]
-  %cmp.i.i.i582 = fcmp olt float %retval.0.i.i13.i581, %retval.0.i.i.i571
-  %.sroa.speculated6.i.i583 = select i1 %cmp.i.i.i582, float %retval.0.i.i13.i581, float %retval.0.i.i.i571
-  %retval.sroa.0.0.vec.insert.i584 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i583, i64 0
-  %cmp.i1.i.i585 = fcmp olt float %retval.0.i.i.i571, %retval.0.i.i13.i581
-  %.sroa.speculated.i.i586 = select i1 %cmp.i1.i.i585, float %retval.0.i.i13.i581, float %retval.0.i.i.i571
-  %retval.sroa.0.4.vec.insert.i587 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i584, float %.sroa.speculated.i.i586, i64 1
-  store <2 x float> %retval.sroa.0.4.vec.insert.i587, ptr %ref.tmp67, align 8
+_ZN4pbrtmlEfNS_8IntervalE.exit600:                ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i580, %if.end.i.i7.i585
+  %retval.0.i.i13.i592 = phi float [ %188, %if.end.i.i7.i585 ], [ 0x7FF0000000000000, %_ZN4pbrt12MulRoundDownEff.exit.i580 ]
+  %cmp.i.i.i593 = fcmp olt float %retval.0.i.i13.i592, %retval.0.i.i.i581
+  %.sroa.speculated6.i.i594 = select i1 %cmp.i.i.i593, float %retval.0.i.i13.i592, float %retval.0.i.i.i581
+  %retval.sroa.0.0.vec.insert.i595 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i594, i64 0
+  %cmp.i1.i.i596 = fcmp olt float %retval.0.i.i.i581, %retval.0.i.i13.i592
+  %.sroa.speculated.i.i597 = select i1 %cmp.i1.i.i596, float %retval.0.i.i13.i592, float %retval.0.i.i.i581
+  %retval.sroa.0.4.vec.insert.i598 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i595, float %.sroa.speculated.i.i597, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i598, ptr %ref.tmp67, align 8
   %189 = load float, ptr %this, align 8
-  %add.i.i591 = fadd float %.sroa.speculated6.i.i.i.i, %189
-  %or.cond.i.i.i592 = fcmp oeq float %add.i.i591, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i592, label %_ZN4pbrt12AddRoundDownEff.exit.i599, label %if.end.i.i.i593
+  %add.i.i603 = fadd float %.sroa.speculated6.i.i.i.i, %189
+  %or.cond.i.i.i604 = fcmp oeq float %add.i.i603, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i604, label %_ZN4pbrt12AddRoundDownEff.exit.i611, label %if.end.i.i.i605
 
-if.end.i.i.i593:                                  ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit589
-  %cmp1.i.i.i594 = fcmp oeq float %add.i.i591, 0.000000e+00
-  %v.addr.0.i.i.i595 = select i1 %cmp1.i.i.i594, float -0.000000e+00, float %add.i.i591
-  %190 = bitcast float %v.addr.0.i.i.i595 to i32
-  %cmp5.i.i.i596 = fcmp ogt float %v.addr.0.i.i.i595, 0.000000e+00
-  %ui.0.v.i.i.i597 = select i1 %cmp5.i.i.i596, i32 -1, i32 1
-  %ui.0.i.i.i598 = add i32 %ui.0.v.i.i.i597, %190
-  %191 = bitcast i32 %ui.0.i.i.i598 to float
-  br label %_ZN4pbrt12AddRoundDownEff.exit.i599
+if.end.i.i.i605:                                  ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit600
+  %cmp1.i.i.i606 = fcmp oeq float %add.i.i603, 0.000000e+00
+  %v.addr.0.i.i.i607 = select i1 %cmp1.i.i.i606, float -0.000000e+00, float %add.i.i603
+  %190 = bitcast float %v.addr.0.i.i.i607 to i32
+  %cmp5.i.i.i608 = fcmp ogt float %v.addr.0.i.i.i607, 0.000000e+00
+  %ui.0.v.i.i.i609 = select i1 %cmp5.i.i.i608, i32 -1, i32 1
+  %ui.0.i.i.i610 = add i32 %ui.0.v.i.i.i609, %190
+  %191 = bitcast i32 %ui.0.i.i.i610 to float
+  br label %_ZN4pbrt12AddRoundDownEff.exit.i611
 
-_ZN4pbrt12AddRoundDownEff.exit.i599:              ; preds = %if.end.i.i.i593, %_ZN4pbrtmlEfNS_8IntervalE.exit589
-  %retval.0.i.i.i600 = phi float [ %191, %if.end.i.i.i593 ], [ 0xFFF0000000000000, %_ZN4pbrtmlEfNS_8IntervalE.exit589 ]
-  %add.i1.i602 = fadd float %.sroa.speculated.i11.i.i.i, %189
-  %or.cond.i.i2.i603 = fcmp oeq float %add.i1.i602, 0x7FF0000000000000
-  br i1 %or.cond.i.i2.i603, label %_ZNK4pbrt8IntervalplES0_.exit617, label %if.end.i.i3.i604
+_ZN4pbrt12AddRoundDownEff.exit.i611:              ; preds = %if.end.i.i.i605, %_ZN4pbrtmlEfNS_8IntervalE.exit600
+  %retval.0.i.i.i612 = phi float [ %191, %if.end.i.i.i605 ], [ 0xFFF0000000000000, %_ZN4pbrtmlEfNS_8IntervalE.exit600 ]
+  %add.i1.i615 = fadd float %.sroa.speculated.i11.i.i.i, %189
+  %or.cond.i.i2.i616 = fcmp oeq float %add.i1.i615, 0x7FF0000000000000
+  br i1 %or.cond.i.i2.i616, label %_ZNK4pbrt8IntervalplES0_.exit630, label %if.end.i.i3.i617
 
-if.end.i.i3.i604:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i599
-  %cmp1.i.i4.i605 = fcmp oeq float %add.i1.i602, 0.000000e+00
-  %v.addr.0.i.i5.i606 = select i1 %cmp1.i.i4.i605, float 0.000000e+00, float %add.i1.i602
-  %192 = bitcast float %v.addr.0.i.i5.i606 to i32
-  %cmp5.i.i6.i607 = fcmp ult float %v.addr.0.i.i5.i606, 0.000000e+00
-  %ui.0.v.i.i7.i608 = select i1 %cmp5.i.i6.i607, i32 -1, i32 1
-  %ui.0.i.i8.i609 = add i32 %ui.0.v.i.i7.i608, %192
-  %193 = bitcast i32 %ui.0.i.i8.i609 to float
-  br label %_ZNK4pbrt8IntervalplES0_.exit617
+if.end.i.i3.i617:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i611
+  %cmp1.i.i4.i618 = fcmp oeq float %add.i1.i615, 0.000000e+00
+  %v.addr.0.i.i5.i619 = select i1 %cmp1.i.i4.i618, float 0.000000e+00, float %add.i1.i615
+  %192 = bitcast float %v.addr.0.i.i5.i619 to i32
+  %cmp5.i.i6.i620 = fcmp ult float %v.addr.0.i.i5.i619, 0.000000e+00
+  %ui.0.v.i.i7.i621 = select i1 %cmp5.i.i6.i620, i32 -1, i32 1
+  %ui.0.i.i8.i622 = add i32 %ui.0.v.i.i7.i621, %192
+  %193 = bitcast i32 %ui.0.i.i8.i622 to float
+  br label %_ZNK4pbrt8IntervalplES0_.exit630
 
-_ZNK4pbrt8IntervalplES0_.exit617:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i599, %if.end.i.i3.i604
-  %retval.0.i.i9.i610 = phi float [ %193, %if.end.i.i3.i604 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i599 ]
-  %cmp.i.i.i611 = fcmp olt float %retval.0.i.i9.i610, %retval.0.i.i.i600
-  %.sroa.speculated6.i.i612 = select i1 %cmp.i.i.i611, float %retval.0.i.i9.i610, float %retval.0.i.i.i600
-  %retval.sroa.0.0.vec.insert.i613 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i612, i64 0
-  %cmp.i1.i.i614 = fcmp olt float %retval.0.i.i.i600, %retval.0.i.i9.i610
-  %.sroa.speculated.i.i615 = select i1 %cmp.i1.i.i614, float %retval.0.i.i9.i610, float %retval.0.i.i.i600
-  %retval.sroa.0.4.vec.insert.i616 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i613, float %.sroa.speculated.i.i615, i64 1
-  %call75 = call <2 x float> @_ZNK4pbrt8IntervalmlES0_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp67, <2 x float> %retval.sroa.0.4.vec.insert.i616)
+_ZNK4pbrt8IntervalplES0_.exit630:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i611, %if.end.i.i3.i617
+  %retval.0.i.i9.i623 = phi float [ %193, %if.end.i.i3.i617 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i611 ]
+  %cmp.i.i.i624 = fcmp olt float %retval.0.i.i9.i623, %retval.0.i.i.i612
+  %.sroa.speculated6.i.i625 = select i1 %cmp.i.i.i624, float %retval.0.i.i9.i623, float %retval.0.i.i.i612
+  %retval.sroa.0.0.vec.insert.i626 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i625, i64 0
+  %cmp.i1.i.i627 = fcmp olt float %retval.0.i.i.i612, %retval.0.i.i9.i623
+  %.sroa.speculated.i.i628 = select i1 %cmp.i1.i.i627, float %retval.0.i.i9.i623, float %retval.0.i.i.i612
+  %retval.sroa.0.4.vec.insert.i629 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i626, float %.sroa.speculated.i.i628, i64 1
+  %call75 = call <2 x float> @_ZNK4pbrt8IntervalmlES0_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp67, <2 x float> %retval.sroa.0.4.vec.insert.i629)
   store <2 x float> %call75, ptr %ref.tmp66, align 8
   %194 = load float, ptr %this, align 8
-  %add.i.i.i619 = fsub float %194, %.sroa.speculated.i11.i.i.i
-  %or.cond.i.i.i.i620 = fcmp oeq float %add.i.i.i619, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i.i620, label %_ZN4pbrt12SubRoundDownEff.exit.i627, label %if.end.i.i.i.i621
+  %add.i.i.i633 = fsub float %194, %.sroa.speculated.i11.i.i.i
+  %or.cond.i.i.i.i634 = fcmp oeq float %add.i.i.i633, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i.i634, label %_ZN4pbrt12SubRoundDownEff.exit.i641, label %if.end.i.i.i.i635
 
-if.end.i.i.i.i621:                                ; preds = %_ZNK4pbrt8IntervalplES0_.exit617
-  %cmp1.i.i.i.i622 = fcmp oeq float %add.i.i.i619, 0.000000e+00
-  %v.addr.0.i.i.i.i623 = select i1 %cmp1.i.i.i.i622, float -0.000000e+00, float %add.i.i.i619
-  %195 = bitcast float %v.addr.0.i.i.i.i623 to i32
-  %cmp5.i.i.i.i624 = fcmp ogt float %v.addr.0.i.i.i.i623, 0.000000e+00
-  %ui.0.v.i.i.i.i625 = select i1 %cmp5.i.i.i.i624, i32 -1, i32 1
-  %ui.0.i.i.i.i626 = add i32 %ui.0.v.i.i.i.i625, %195
-  %196 = bitcast i32 %ui.0.i.i.i.i626 to float
-  br label %_ZN4pbrt12SubRoundDownEff.exit.i627
+if.end.i.i.i.i635:                                ; preds = %_ZNK4pbrt8IntervalplES0_.exit630
+  %cmp1.i.i.i.i636 = fcmp oeq float %add.i.i.i633, 0.000000e+00
+  %v.addr.0.i.i.i.i637 = select i1 %cmp1.i.i.i.i636, float -0.000000e+00, float %add.i.i.i633
+  %195 = bitcast float %v.addr.0.i.i.i.i637 to i32
+  %cmp5.i.i.i.i638 = fcmp ogt float %v.addr.0.i.i.i.i637, 0.000000e+00
+  %ui.0.v.i.i.i.i639 = select i1 %cmp5.i.i.i.i638, i32 -1, i32 1
+  %ui.0.i.i.i.i640 = add i32 %ui.0.v.i.i.i.i639, %195
+  %196 = bitcast i32 %ui.0.i.i.i.i640 to float
+  br label %_ZN4pbrt12SubRoundDownEff.exit.i641
 
-_ZN4pbrt12SubRoundDownEff.exit.i627:              ; preds = %if.end.i.i.i.i621, %_ZNK4pbrt8IntervalplES0_.exit617
-  %retval.0.i.i.i.i628 = phi float [ %196, %if.end.i.i.i.i621 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit617 ]
-  %add.i.i1.i630 = fsub float %194, %.sroa.speculated6.i.i.i.i
-  %or.cond.i.i.i2.i631 = fcmp oeq float %add.i.i1.i630, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i2.i631, label %_ZNK4pbrt8IntervalmiES0_.exit645, label %if.end.i.i.i3.i632
+_ZN4pbrt12SubRoundDownEff.exit.i641:              ; preds = %if.end.i.i.i.i635, %_ZNK4pbrt8IntervalplES0_.exit630
+  %retval.0.i.i.i.i642 = phi float [ %196, %if.end.i.i.i.i635 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit630 ]
+  %add.i.i1.i645 = fsub float %194, %.sroa.speculated6.i.i.i.i
+  %or.cond.i.i.i2.i646 = fcmp oeq float %add.i.i1.i645, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i2.i646, label %_ZNK4pbrt8IntervalmiES0_.exit660, label %if.end.i.i.i3.i647
 
-if.end.i.i.i3.i632:                               ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i627
-  %cmp1.i.i.i4.i633 = fcmp oeq float %add.i.i1.i630, 0.000000e+00
-  %v.addr.0.i.i.i5.i634 = select i1 %cmp1.i.i.i4.i633, float 0.000000e+00, float %add.i.i1.i630
-  %197 = bitcast float %v.addr.0.i.i.i5.i634 to i32
-  %cmp5.i.i.i6.i635 = fcmp ult float %v.addr.0.i.i.i5.i634, 0.000000e+00
-  %ui.0.v.i.i.i7.i636 = select i1 %cmp5.i.i.i6.i635, i32 -1, i32 1
-  %ui.0.i.i.i8.i637 = add i32 %ui.0.v.i.i.i7.i636, %197
-  %198 = bitcast i32 %ui.0.i.i.i8.i637 to float
-  br label %_ZNK4pbrt8IntervalmiES0_.exit645
+if.end.i.i.i3.i647:                               ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i641
+  %cmp1.i.i.i4.i648 = fcmp oeq float %add.i.i1.i645, 0.000000e+00
+  %v.addr.0.i.i.i5.i649 = select i1 %cmp1.i.i.i4.i648, float 0.000000e+00, float %add.i.i1.i645
+  %197 = bitcast float %v.addr.0.i.i.i5.i649 to i32
+  %cmp5.i.i.i6.i650 = fcmp ult float %v.addr.0.i.i.i5.i649, 0.000000e+00
+  %ui.0.v.i.i.i7.i651 = select i1 %cmp5.i.i.i6.i650, i32 -1, i32 1
+  %ui.0.i.i.i8.i652 = add i32 %ui.0.v.i.i.i7.i651, %197
+  %198 = bitcast i32 %ui.0.i.i.i8.i652 to float
+  br label %_ZNK4pbrt8IntervalmiES0_.exit660
 
-_ZNK4pbrt8IntervalmiES0_.exit645:                 ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i627, %if.end.i.i.i3.i632
-  %retval.0.i.i.i9.i638 = phi float [ %198, %if.end.i.i.i3.i632 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i627 ]
-  %cmp.i.i.i639 = fcmp olt float %retval.0.i.i.i9.i638, %retval.0.i.i.i.i628
-  %.sroa.speculated6.i.i640 = select i1 %cmp.i.i.i639, float %retval.0.i.i.i9.i638, float %retval.0.i.i.i.i628
-  %retval.sroa.0.0.vec.insert.i641 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i640, i64 0
-  %cmp.i1.i.i642 = fcmp olt float %retval.0.i.i.i.i628, %retval.0.i.i.i9.i638
-  %.sroa.speculated.i.i643 = select i1 %cmp.i1.i.i642, float %retval.0.i.i.i9.i638, float %retval.0.i.i.i.i628
-  %retval.sroa.0.4.vec.insert.i644 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i641, float %.sroa.speculated.i.i643, i64 1
-  %call81 = call <2 x float> @_ZNK4pbrt8IntervalmlES0_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp66, <2 x float> %retval.sroa.0.4.vec.insert.i644)
+_ZNK4pbrt8IntervalmiES0_.exit660:                 ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i641, %if.end.i.i.i3.i647
+  %retval.0.i.i.i9.i653 = phi float [ %198, %if.end.i.i.i3.i647 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i641 ]
+  %cmp.i.i.i654 = fcmp olt float %retval.0.i.i.i9.i653, %retval.0.i.i.i.i642
+  %.sroa.speculated6.i.i655 = select i1 %cmp.i.i.i654, float %retval.0.i.i.i9.i653, float %retval.0.i.i.i.i642
+  %retval.sroa.0.0.vec.insert.i656 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i655, i64 0
+  %cmp.i1.i.i657 = fcmp olt float %retval.0.i.i.i.i642, %retval.0.i.i.i9.i653
+  %.sroa.speculated.i.i658 = select i1 %cmp.i1.i.i657, float %retval.0.i.i.i9.i653, float %retval.0.i.i.i.i642
+  %retval.sroa.0.4.vec.insert.i659 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i656, float %.sroa.speculated.i.i658, i64 1
+  %call81 = call <2 x float> @_ZNK4pbrt8IntervalmlES0_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp66, <2 x float> %retval.sroa.0.4.vec.insert.i659)
   %discrim.sroa.0.0.vec.extract = extractelement <2 x float> %call81, i64 0
   %cmp = fcmp olt float %discrim.sroa.0.0.vec.extract, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
 
-if.then:                                          ; preds = %_ZNK4pbrt8IntervalmiES0_.exit645
+if.then:                                          ; preds = %_ZNK4pbrt8IntervalmiES0_.exit660
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   br label %return
 
-if.end:                                           ; preds = %_ZNK4pbrt8IntervalmiES0_.exit645
+if.end:                                           ; preds = %_ZNK4pbrt8IntervalmiES0_.exit660
   %call.i.i.i = call noundef float @sqrtf(float noundef %discrim.sroa.0.0.vec.extract) #28
-  %or.cond.i.i.i647 = fcmp oeq float %call.i.i.i, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i647, label %_ZN4pbrt13SqrtRoundDownEf.exit.i, label %if.end.i.i.i648
+  %or.cond.i.i.i662 = fcmp oeq float %call.i.i.i, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i662, label %_ZN4pbrt13SqrtRoundDownEf.exit.i, label %if.end.i.i.i663
 
-if.end.i.i.i648:                                  ; preds = %if.end
-  %cmp1.i.i.i649 = fcmp oeq float %call.i.i.i, 0.000000e+00
-  %v.addr.0.i.i.i650 = select i1 %cmp1.i.i.i649, float -0.000000e+00, float %call.i.i.i
-  %199 = bitcast float %v.addr.0.i.i.i650 to i32
-  %cmp5.i.i.i651 = fcmp ogt float %v.addr.0.i.i.i650, 0.000000e+00
-  %ui.0.v.i.i.i652 = select i1 %cmp5.i.i.i651, i32 -1, i32 1
-  %ui.0.i.i.i653 = add i32 %ui.0.v.i.i.i652, %199
-  %200 = bitcast i32 %ui.0.i.i.i653 to float
+if.end.i.i.i663:                                  ; preds = %if.end
+  %cmp1.i.i.i664 = fcmp oeq float %call.i.i.i, 0.000000e+00
+  %v.addr.0.i.i.i665 = select i1 %cmp1.i.i.i664, float -0.000000e+00, float %call.i.i.i
+  %199 = bitcast float %v.addr.0.i.i.i665 to i32
+  %cmp5.i.i.i666 = fcmp ogt float %v.addr.0.i.i.i665, 0.000000e+00
+  %ui.0.v.i.i.i667 = select i1 %cmp5.i.i.i666, i32 -1, i32 1
+  %ui.0.i.i.i668 = add i32 %ui.0.v.i.i.i667, %199
+  %200 = bitcast i32 %ui.0.i.i.i668 to float
   br label %_ZN4pbrt13SqrtRoundDownEf.exit.i
 
-_ZN4pbrt13SqrtRoundDownEf.exit.i:                 ; preds = %if.end.i.i.i648, %if.end
-  %retval.0.i.i.i654 = phi float [ %200, %if.end.i.i.i648 ], [ 0xFFF0000000000000, %if.end ]
-  %i.sroa.0.4.vec.extract.i655 = extractelement <2 x float> %call81, i64 1
-  %call.i.i1.i = call noundef float @sqrtf(float noundef %i.sroa.0.4.vec.extract.i655) #28
-  %or.cond.i.i2.i656 = fcmp oeq float %call.i.i1.i, 0x7FF0000000000000
-  br i1 %or.cond.i.i2.i656, label %_ZN4pbrt4SqrtENS_8IntervalE.exit, label %if.end.i.i3.i657
+_ZN4pbrt13SqrtRoundDownEf.exit.i:                 ; preds = %if.end.i.i.i663, %if.end
+  %retval.0.i.i.i669 = phi float [ %200, %if.end.i.i.i663 ], [ 0xFFF0000000000000, %if.end ]
+  %i.sroa.0.4.vec.extract.i670 = extractelement <2 x float> %call81, i64 1
+  %call.i.i1.i = call noundef float @sqrtf(float noundef %i.sroa.0.4.vec.extract.i670) #28
+  %or.cond.i.i2.i671 = fcmp oeq float %call.i.i1.i, 0x7FF0000000000000
+  br i1 %or.cond.i.i2.i671, label %_ZN4pbrt4SqrtENS_8IntervalE.exit, label %if.end.i.i3.i672
 
-if.end.i.i3.i657:                                 ; preds = %_ZN4pbrt13SqrtRoundDownEf.exit.i
-  %cmp1.i.i4.i658 = fcmp oeq float %call.i.i1.i, 0.000000e+00
-  %v.addr.0.i.i5.i659 = select i1 %cmp1.i.i4.i658, float 0.000000e+00, float %call.i.i1.i
-  %201 = bitcast float %v.addr.0.i.i5.i659 to i32
-  %cmp5.i.i6.i660 = fcmp ult float %v.addr.0.i.i5.i659, 0.000000e+00
-  %ui.0.v.i.i7.i661 = select i1 %cmp5.i.i6.i660, i32 -1, i32 1
-  %ui.0.i.i8.i662 = add i32 %ui.0.v.i.i7.i661, %201
-  %202 = bitcast i32 %ui.0.i.i8.i662 to float
+if.end.i.i3.i672:                                 ; preds = %_ZN4pbrt13SqrtRoundDownEf.exit.i
+  %cmp1.i.i4.i673 = fcmp oeq float %call.i.i1.i, 0.000000e+00
+  %v.addr.0.i.i5.i674 = select i1 %cmp1.i.i4.i673, float 0.000000e+00, float %call.i.i1.i
+  %201 = bitcast float %v.addr.0.i.i5.i674 to i32
+  %cmp5.i.i6.i675 = fcmp ult float %v.addr.0.i.i5.i674, 0.000000e+00
+  %ui.0.v.i.i7.i676 = select i1 %cmp5.i.i6.i675, i32 -1, i32 1
+  %ui.0.i.i8.i677 = add i32 %ui.0.v.i.i7.i676, %201
+  %202 = bitcast i32 %ui.0.i.i8.i677 to float
   br label %_ZN4pbrt4SqrtENS_8IntervalE.exit
 
-_ZN4pbrt4SqrtENS_8IntervalE.exit:                 ; preds = %_ZN4pbrt13SqrtRoundDownEf.exit.i, %if.end.i.i3.i657
-  %retval.0.i.i9.i663 = phi float [ %202, %if.end.i.i3.i657 ], [ 0x7FF0000000000000, %_ZN4pbrt13SqrtRoundDownEf.exit.i ]
-  %cmp.i.i.i664 = fcmp ogt float %retval.0.i.i.i654, 0.000000e+00
-  %.sroa.speculated.i.i665 = select i1 %cmp.i.i.i664, float %retval.0.i.i.i654, float 0.000000e+00
-  %cmp.i.i10.i = fcmp olt float %retval.0.i.i9.i663, %.sroa.speculated.i.i665
-  %.sroa.speculated6.i.i666 = select i1 %cmp.i.i10.i, float %retval.0.i.i9.i663, float %.sroa.speculated.i.i665
-  %cmp.i1.i.i668 = fcmp olt float %.sroa.speculated.i.i665, %retval.0.i.i9.i663
-  %.sroa.speculated.i11.i = select i1 %cmp.i1.i.i668, float %retval.0.i.i9.i663, float %.sroa.speculated.i.i665
+_ZN4pbrt4SqrtENS_8IntervalE.exit:                 ; preds = %_ZN4pbrt13SqrtRoundDownEf.exit.i, %if.end.i.i3.i672
+  %retval.0.i.i9.i678 = phi float [ %202, %if.end.i.i3.i672 ], [ 0x7FF0000000000000, %_ZN4pbrt13SqrtRoundDownEf.exit.i ]
+  %cmp.i.i.i679 = fcmp ogt float %retval.0.i.i.i669, 0.000000e+00
+  %.sroa.speculated.i.i680 = select i1 %cmp.i.i.i679, float %retval.0.i.i.i669, float 0.000000e+00
+  %cmp.i.i10.i = fcmp olt float %retval.0.i.i9.i678, %.sroa.speculated.i.i680
+  %.sroa.speculated6.i.i681 = select i1 %cmp.i.i10.i, float %retval.0.i.i9.i678, float %.sroa.speculated.i.i680
+  %cmp.i1.i.i683 = fcmp olt float %.sroa.speculated.i.i680, %retval.0.i.i9.i678
+  %.sroa.speculated.i11.i = select i1 %cmp.i1.i.i683, float %retval.0.i.i9.i678, float %.sroa.speculated.i.i680
   %203 = load float, ptr %b, align 8
   %high.i.i = getelementptr inbounds i8, ptr %b, i64 4
   %204 = load float, ptr %high.i.i, align 4
-  %add.i.i670 = fadd float %203, %204
-  %div.i.i = fmul float %add.i.i670, 5.000000e-01
+  %add.i.i685 = fadd float %203, %204
+  %div.i.i = fmul float %add.i.i685, 5.000000e-01
   %cmp86 = fcmp olt float %div.i.i, 0.000000e+00
   br i1 %cmp86, label %if.then87, label %if.else
 
 if.then87:                                        ; preds = %_ZN4pbrt4SqrtENS_8IntervalE.exit
-  %add.i.i.i671 = fsub float %203, %.sroa.speculated.i11.i
-  %or.cond.i.i.i.i672 = fcmp oeq float %add.i.i.i671, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i.i672, label %_ZN4pbrt12SubRoundDownEff.exit.i679, label %if.end.i.i.i.i673
+  %add.i.i.i687 = fsub float %203, %.sroa.speculated.i11.i
+  %or.cond.i.i.i.i688 = fcmp oeq float %add.i.i.i687, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i.i688, label %_ZN4pbrt12SubRoundDownEff.exit.i695, label %if.end.i.i.i.i689
 
-if.end.i.i.i.i673:                                ; preds = %if.then87
-  %cmp1.i.i.i.i674 = fcmp oeq float %add.i.i.i671, 0.000000e+00
-  %v.addr.0.i.i.i.i675 = select i1 %cmp1.i.i.i.i674, float -0.000000e+00, float %add.i.i.i671
-  %205 = bitcast float %v.addr.0.i.i.i.i675 to i32
-  %cmp5.i.i.i.i676 = fcmp ogt float %v.addr.0.i.i.i.i675, 0.000000e+00
-  %ui.0.v.i.i.i.i677 = select i1 %cmp5.i.i.i.i676, i32 -1, i32 1
-  %ui.0.i.i.i.i678 = add i32 %ui.0.v.i.i.i.i677, %205
-  %206 = bitcast i32 %ui.0.i.i.i.i678 to float
-  br label %_ZN4pbrt12SubRoundDownEff.exit.i679
+if.end.i.i.i.i689:                                ; preds = %if.then87
+  %cmp1.i.i.i.i690 = fcmp oeq float %add.i.i.i687, 0.000000e+00
+  %v.addr.0.i.i.i.i691 = select i1 %cmp1.i.i.i.i690, float -0.000000e+00, float %add.i.i.i687
+  %205 = bitcast float %v.addr.0.i.i.i.i691 to i32
+  %cmp5.i.i.i.i692 = fcmp ogt float %v.addr.0.i.i.i.i691, 0.000000e+00
+  %ui.0.v.i.i.i.i693 = select i1 %cmp5.i.i.i.i692, i32 -1, i32 1
+  %ui.0.i.i.i.i694 = add i32 %ui.0.v.i.i.i.i693, %205
+  %206 = bitcast i32 %ui.0.i.i.i.i694 to float
+  br label %_ZN4pbrt12SubRoundDownEff.exit.i695
 
-_ZN4pbrt12SubRoundDownEff.exit.i679:              ; preds = %if.end.i.i.i.i673, %if.then87
-  %retval.0.i.i.i.i680 = phi float [ %206, %if.end.i.i.i.i673 ], [ 0xFFF0000000000000, %if.then87 ]
-  %add.i.i1.i682 = fsub float %204, %.sroa.speculated6.i.i666
-  %or.cond.i.i.i2.i683 = fcmp oeq float %add.i.i1.i682, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i2.i683, label %_ZNK4pbrt8IntervalmiES0_.exit697, label %if.end.i.i.i3.i684
+_ZN4pbrt12SubRoundDownEff.exit.i695:              ; preds = %if.end.i.i.i.i689, %if.then87
+  %retval.0.i.i.i.i696 = phi float [ %206, %if.end.i.i.i.i689 ], [ 0xFFF0000000000000, %if.then87 ]
+  %add.i.i1.i699 = fsub float %204, %.sroa.speculated6.i.i681
+  %or.cond.i.i.i2.i700 = fcmp oeq float %add.i.i1.i699, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i2.i700, label %_ZNK4pbrt8IntervalmiES0_.exit714, label %if.end.i.i.i3.i701
 
-if.end.i.i.i3.i684:                               ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i679
-  %cmp1.i.i.i4.i685 = fcmp oeq float %add.i.i1.i682, 0.000000e+00
-  %v.addr.0.i.i.i5.i686 = select i1 %cmp1.i.i.i4.i685, float 0.000000e+00, float %add.i.i1.i682
-  %207 = bitcast float %v.addr.0.i.i.i5.i686 to i32
-  %cmp5.i.i.i6.i687 = fcmp ult float %v.addr.0.i.i.i5.i686, 0.000000e+00
-  %ui.0.v.i.i.i7.i688 = select i1 %cmp5.i.i.i6.i687, i32 -1, i32 1
-  %ui.0.i.i.i8.i689 = add i32 %ui.0.v.i.i.i7.i688, %207
-  %208 = bitcast i32 %ui.0.i.i.i8.i689 to float
-  br label %_ZNK4pbrt8IntervalmiES0_.exit697
+if.end.i.i.i3.i701:                               ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i695
+  %cmp1.i.i.i4.i702 = fcmp oeq float %add.i.i1.i699, 0.000000e+00
+  %v.addr.0.i.i.i5.i703 = select i1 %cmp1.i.i.i4.i702, float 0.000000e+00, float %add.i.i1.i699
+  %207 = bitcast float %v.addr.0.i.i.i5.i703 to i32
+  %cmp5.i.i.i6.i704 = fcmp ult float %v.addr.0.i.i.i5.i703, 0.000000e+00
+  %ui.0.v.i.i.i7.i705 = select i1 %cmp5.i.i.i6.i704, i32 -1, i32 1
+  %ui.0.i.i.i8.i706 = add i32 %ui.0.v.i.i.i7.i705, %207
+  %208 = bitcast i32 %ui.0.i.i.i8.i706 to float
+  br label %_ZNK4pbrt8IntervalmiES0_.exit714
 
-_ZNK4pbrt8IntervalmiES0_.exit697:                 ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i679, %if.end.i.i.i3.i684
-  %retval.0.i.i.i9.i690 = phi float [ %208, %if.end.i.i.i3.i684 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i679 ]
-  %cmp.i.i.i691 = fcmp olt float %retval.0.i.i.i9.i690, %retval.0.i.i.i.i680
-  %.sroa.speculated6.i.i692 = select i1 %cmp.i.i.i691, float %retval.0.i.i.i9.i690, float %retval.0.i.i.i.i680
-  %cmp.i1.i.i694 = fcmp olt float %retval.0.i.i.i.i680, %retval.0.i.i.i9.i690
-  %.sroa.speculated.i.i695 = select i1 %cmp.i1.i.i694, float %retval.0.i.i.i9.i690, float %retval.0.i.i.i.i680
-  %mul.i15.i = fmul float %.sroa.speculated.i.i695, -5.000000e-01
+_ZNK4pbrt8IntervalmiES0_.exit714:                 ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i695, %if.end.i.i.i3.i701
+  %retval.0.i.i.i9.i707 = phi float [ %208, %if.end.i.i.i3.i701 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i695 ]
+  %cmp.i.i.i708 = fcmp olt float %retval.0.i.i.i9.i707, %retval.0.i.i.i.i696
+  %.sroa.speculated6.i.i709 = select i1 %cmp.i.i.i708, float %retval.0.i.i.i9.i707, float %retval.0.i.i.i.i696
+  %cmp.i1.i.i711 = fcmp olt float %retval.0.i.i.i.i696, %retval.0.i.i.i9.i707
+  %.sroa.speculated.i.i712 = select i1 %cmp.i1.i.i711, float %retval.0.i.i.i9.i707, float %retval.0.i.i.i.i696
+  %mul.i15.i = fmul float %.sroa.speculated.i.i712, -5.000000e-01
   %or.cond.i.i16.i = fcmp oeq float %mul.i15.i, 0xFFF0000000000000
   br i1 %or.cond.i.i16.i, label %_ZN4pbrt12MulRoundDownEff.exit24.i, label %if.end.i.i17.i
 
-if.end.i.i17.i:                                   ; preds = %_ZNK4pbrt8IntervalmiES0_.exit697
+if.end.i.i17.i:                                   ; preds = %_ZNK4pbrt8IntervalmiES0_.exit714
   %cmp1.i.i18.i = fcmp oeq float %mul.i15.i, 0.000000e+00
   %v.addr.0.i.i19.i = select i1 %cmp1.i.i18.i, float -0.000000e+00, float %mul.i15.i
   %209 = bitcast float %v.addr.0.i.i19.i to i32
@@ -39286,11 +39286,11 @@ if.end.i.i17.i:                                   ; preds = %_ZNK4pbrt8Intervalm
   %210 = bitcast i32 %ui.0.i.i22.i to float
   br label %_ZN4pbrt12MulRoundDownEff.exit24.i
 
-_ZN4pbrt12MulRoundDownEff.exit24.i:               ; preds = %if.end.i.i17.i, %_ZNK4pbrt8IntervalmiES0_.exit697
-  %retval.0.i.i23.i = phi float [ %210, %if.end.i.i17.i ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalmiES0_.exit697 ]
-  %mul.i25.i = fmul float %.sroa.speculated6.i.i692, -5.000000e-01
+_ZN4pbrt12MulRoundDownEff.exit24.i:               ; preds = %if.end.i.i17.i, %_ZNK4pbrt8IntervalmiES0_.exit714
+  %retval.0.i.i23.i = phi float [ %210, %if.end.i.i17.i ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalmiES0_.exit714 ]
+  %mul.i25.i = fmul float %.sroa.speculated6.i.i709, -5.000000e-01
   %or.cond.i.i26.i = fcmp oeq float %mul.i25.i, 0x7FF0000000000000
-  br i1 %or.cond.i.i26.i, label %_ZN4pbrtmlEfNS_8IntervalE.exit699, label %if.end.i.i27.i
+  br i1 %or.cond.i.i26.i, label %_ZN4pbrtmlEfNS_8IntervalE.exit716, label %if.end.i.i27.i
 
 if.end.i.i27.i:                                   ; preds = %_ZN4pbrt12MulRoundDownEff.exit24.i
   %cmp1.i.i28.i = fcmp oeq float %mul.i25.i, 0.000000e+00
@@ -39300,9 +39300,9 @@ if.end.i.i27.i:                                   ; preds = %_ZN4pbrt12MulRoundD
   %ui.0.v.i.i31.i = select i1 %cmp5.i.i30.i, i32 -1, i32 1
   %ui.0.i.i32.i = add i32 %ui.0.v.i.i31.i, %211
   %212 = bitcast i32 %ui.0.i.i32.i to float
-  br label %_ZN4pbrtmlEfNS_8IntervalE.exit699
+  br label %_ZN4pbrtmlEfNS_8IntervalE.exit716
 
-_ZN4pbrtmlEfNS_8IntervalE.exit699:                ; preds = %_ZN4pbrt12MulRoundDownEff.exit24.i, %if.end.i.i27.i
+_ZN4pbrtmlEfNS_8IntervalE.exit716:                ; preds = %_ZN4pbrt12MulRoundDownEff.exit24.i, %if.end.i.i27.i
   %retval.0.i.i33.i = phi float [ %212, %if.end.i.i27.i ], [ 0x7FF0000000000000, %_ZN4pbrt12MulRoundDownEff.exit24.i ]
   %cmp.i.i35.i = fcmp olt float %retval.0.i.i33.i, %retval.0.i.i23.i
   %.sroa.speculated6.i36.i = select i1 %cmp.i.i35.i, float %retval.0.i.i33.i, float %retval.0.i.i23.i
@@ -39313,86 +39313,86 @@ _ZN4pbrtmlEfNS_8IntervalE.exit699:                ; preds = %_ZN4pbrt12MulRoundD
   br label %if.end98
 
 if.else:                                          ; preds = %_ZN4pbrt4SqrtENS_8IntervalE.exit
-  %add.i.i700 = fadd float %203, %.sroa.speculated6.i.i666
-  %or.cond.i.i.i701 = fcmp oeq float %add.i.i700, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i701, label %_ZN4pbrt12AddRoundDownEff.exit.i708, label %if.end.i.i.i702
+  %add.i.i718 = fadd float %203, %.sroa.speculated6.i.i681
+  %or.cond.i.i.i719 = fcmp oeq float %add.i.i718, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i719, label %_ZN4pbrt12AddRoundDownEff.exit.i726, label %if.end.i.i.i720
 
-if.end.i.i.i702:                                  ; preds = %if.else
-  %cmp1.i.i.i703 = fcmp oeq float %add.i.i700, 0.000000e+00
-  %v.addr.0.i.i.i704 = select i1 %cmp1.i.i.i703, float -0.000000e+00, float %add.i.i700
-  %213 = bitcast float %v.addr.0.i.i.i704 to i32
-  %cmp5.i.i.i705 = fcmp ogt float %v.addr.0.i.i.i704, 0.000000e+00
-  %ui.0.v.i.i.i706 = select i1 %cmp5.i.i.i705, i32 -1, i32 1
-  %ui.0.i.i.i707 = add i32 %ui.0.v.i.i.i706, %213
-  %214 = bitcast i32 %ui.0.i.i.i707 to float
-  br label %_ZN4pbrt12AddRoundDownEff.exit.i708
+if.end.i.i.i720:                                  ; preds = %if.else
+  %cmp1.i.i.i721 = fcmp oeq float %add.i.i718, 0.000000e+00
+  %v.addr.0.i.i.i722 = select i1 %cmp1.i.i.i721, float -0.000000e+00, float %add.i.i718
+  %213 = bitcast float %v.addr.0.i.i.i722 to i32
+  %cmp5.i.i.i723 = fcmp ogt float %v.addr.0.i.i.i722, 0.000000e+00
+  %ui.0.v.i.i.i724 = select i1 %cmp5.i.i.i723, i32 -1, i32 1
+  %ui.0.i.i.i725 = add i32 %ui.0.v.i.i.i724, %213
+  %214 = bitcast i32 %ui.0.i.i.i725 to float
+  br label %_ZN4pbrt12AddRoundDownEff.exit.i726
 
-_ZN4pbrt12AddRoundDownEff.exit.i708:              ; preds = %if.end.i.i.i702, %if.else
-  %retval.0.i.i.i709 = phi float [ %214, %if.end.i.i.i702 ], [ 0xFFF0000000000000, %if.else ]
-  %add.i1.i711 = fadd float %.sroa.speculated.i11.i, %204
-  %or.cond.i.i2.i712 = fcmp oeq float %add.i1.i711, 0x7FF0000000000000
-  br i1 %or.cond.i.i2.i712, label %_ZNK4pbrt8IntervalplES0_.exit726, label %if.end.i.i3.i713
+_ZN4pbrt12AddRoundDownEff.exit.i726:              ; preds = %if.end.i.i.i720, %if.else
+  %retval.0.i.i.i727 = phi float [ %214, %if.end.i.i.i720 ], [ 0xFFF0000000000000, %if.else ]
+  %add.i1.i730 = fadd float %.sroa.speculated.i11.i, %204
+  %or.cond.i.i2.i731 = fcmp oeq float %add.i1.i730, 0x7FF0000000000000
+  br i1 %or.cond.i.i2.i731, label %_ZNK4pbrt8IntervalplES0_.exit745, label %if.end.i.i3.i732
 
-if.end.i.i3.i713:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i708
-  %cmp1.i.i4.i714 = fcmp oeq float %add.i1.i711, 0.000000e+00
-  %v.addr.0.i.i5.i715 = select i1 %cmp1.i.i4.i714, float 0.000000e+00, float %add.i1.i711
-  %215 = bitcast float %v.addr.0.i.i5.i715 to i32
-  %cmp5.i.i6.i716 = fcmp ult float %v.addr.0.i.i5.i715, 0.000000e+00
-  %ui.0.v.i.i7.i717 = select i1 %cmp5.i.i6.i716, i32 -1, i32 1
-  %ui.0.i.i8.i718 = add i32 %ui.0.v.i.i7.i717, %215
-  %216 = bitcast i32 %ui.0.i.i8.i718 to float
-  br label %_ZNK4pbrt8IntervalplES0_.exit726
+if.end.i.i3.i732:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i726
+  %cmp1.i.i4.i733 = fcmp oeq float %add.i1.i730, 0.000000e+00
+  %v.addr.0.i.i5.i734 = select i1 %cmp1.i.i4.i733, float 0.000000e+00, float %add.i1.i730
+  %215 = bitcast float %v.addr.0.i.i5.i734 to i32
+  %cmp5.i.i6.i735 = fcmp ult float %v.addr.0.i.i5.i734, 0.000000e+00
+  %ui.0.v.i.i7.i736 = select i1 %cmp5.i.i6.i735, i32 -1, i32 1
+  %ui.0.i.i8.i737 = add i32 %ui.0.v.i.i7.i736, %215
+  %216 = bitcast i32 %ui.0.i.i8.i737 to float
+  br label %_ZNK4pbrt8IntervalplES0_.exit745
 
-_ZNK4pbrt8IntervalplES0_.exit726:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i708, %if.end.i.i3.i713
-  %retval.0.i.i9.i719 = phi float [ %216, %if.end.i.i3.i713 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i708 ]
-  %cmp.i.i.i720 = fcmp olt float %retval.0.i.i9.i719, %retval.0.i.i.i709
-  %.sroa.speculated6.i.i721 = select i1 %cmp.i.i.i720, float %retval.0.i.i9.i719, float %retval.0.i.i.i709
-  %cmp.i1.i.i723 = fcmp olt float %retval.0.i.i.i709, %retval.0.i.i9.i719
-  %.sroa.speculated.i.i724 = select i1 %cmp.i1.i.i723, float %retval.0.i.i9.i719, float %retval.0.i.i.i709
-  %mul.i15.i727 = fmul float %.sroa.speculated.i.i724, -5.000000e-01
-  %or.cond.i.i16.i728 = fcmp oeq float %mul.i15.i727, 0xFFF0000000000000
-  br i1 %or.cond.i.i16.i728, label %_ZN4pbrt12MulRoundDownEff.exit24.i735, label %if.end.i.i17.i729
+_ZNK4pbrt8IntervalplES0_.exit745:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i726, %if.end.i.i3.i732
+  %retval.0.i.i9.i738 = phi float [ %216, %if.end.i.i3.i732 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i726 ]
+  %cmp.i.i.i739 = fcmp olt float %retval.0.i.i9.i738, %retval.0.i.i.i727
+  %.sroa.speculated6.i.i740 = select i1 %cmp.i.i.i739, float %retval.0.i.i9.i738, float %retval.0.i.i.i727
+  %cmp.i1.i.i742 = fcmp olt float %retval.0.i.i.i727, %retval.0.i.i9.i738
+  %.sroa.speculated.i.i743 = select i1 %cmp.i1.i.i742, float %retval.0.i.i9.i738, float %retval.0.i.i.i727
+  %mul.i15.i746 = fmul float %.sroa.speculated.i.i743, -5.000000e-01
+  %or.cond.i.i16.i747 = fcmp oeq float %mul.i15.i746, 0xFFF0000000000000
+  br i1 %or.cond.i.i16.i747, label %_ZN4pbrt12MulRoundDownEff.exit24.i754, label %if.end.i.i17.i748
 
-if.end.i.i17.i729:                                ; preds = %_ZNK4pbrt8IntervalplES0_.exit726
-  %cmp1.i.i18.i730 = fcmp oeq float %mul.i15.i727, 0.000000e+00
-  %v.addr.0.i.i19.i731 = select i1 %cmp1.i.i18.i730, float -0.000000e+00, float %mul.i15.i727
-  %217 = bitcast float %v.addr.0.i.i19.i731 to i32
-  %cmp5.i.i20.i732 = fcmp ogt float %v.addr.0.i.i19.i731, 0.000000e+00
-  %ui.0.v.i.i21.i733 = select i1 %cmp5.i.i20.i732, i32 -1, i32 1
-  %ui.0.i.i22.i734 = add i32 %ui.0.v.i.i21.i733, %217
-  %218 = bitcast i32 %ui.0.i.i22.i734 to float
-  br label %_ZN4pbrt12MulRoundDownEff.exit24.i735
+if.end.i.i17.i748:                                ; preds = %_ZNK4pbrt8IntervalplES0_.exit745
+  %cmp1.i.i18.i749 = fcmp oeq float %mul.i15.i746, 0.000000e+00
+  %v.addr.0.i.i19.i750 = select i1 %cmp1.i.i18.i749, float -0.000000e+00, float %mul.i15.i746
+  %217 = bitcast float %v.addr.0.i.i19.i750 to i32
+  %cmp5.i.i20.i751 = fcmp ogt float %v.addr.0.i.i19.i750, 0.000000e+00
+  %ui.0.v.i.i21.i752 = select i1 %cmp5.i.i20.i751, i32 -1, i32 1
+  %ui.0.i.i22.i753 = add i32 %ui.0.v.i.i21.i752, %217
+  %218 = bitcast i32 %ui.0.i.i22.i753 to float
+  br label %_ZN4pbrt12MulRoundDownEff.exit24.i754
 
-_ZN4pbrt12MulRoundDownEff.exit24.i735:            ; preds = %if.end.i.i17.i729, %_ZNK4pbrt8IntervalplES0_.exit726
-  %retval.0.i.i23.i736 = phi float [ %218, %if.end.i.i17.i729 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit726 ]
-  %mul.i25.i737 = fmul float %.sroa.speculated6.i.i721, -5.000000e-01
-  %or.cond.i.i26.i738 = fcmp oeq float %mul.i25.i737, 0x7FF0000000000000
-  br i1 %or.cond.i.i26.i738, label %_ZN4pbrtmlEfNS_8IntervalE.exit753, label %if.end.i.i27.i739
+_ZN4pbrt12MulRoundDownEff.exit24.i754:            ; preds = %if.end.i.i17.i748, %_ZNK4pbrt8IntervalplES0_.exit745
+  %retval.0.i.i23.i755 = phi float [ %218, %if.end.i.i17.i748 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit745 ]
+  %mul.i25.i756 = fmul float %.sroa.speculated6.i.i740, -5.000000e-01
+  %or.cond.i.i26.i757 = fcmp oeq float %mul.i25.i756, 0x7FF0000000000000
+  br i1 %or.cond.i.i26.i757, label %_ZN4pbrtmlEfNS_8IntervalE.exit772, label %if.end.i.i27.i758
 
-if.end.i.i27.i739:                                ; preds = %_ZN4pbrt12MulRoundDownEff.exit24.i735
-  %cmp1.i.i28.i740 = fcmp oeq float %mul.i25.i737, 0.000000e+00
-  %v.addr.0.i.i29.i741 = select i1 %cmp1.i.i28.i740, float 0.000000e+00, float %mul.i25.i737
-  %219 = bitcast float %v.addr.0.i.i29.i741 to i32
-  %cmp5.i.i30.i742 = fcmp ult float %v.addr.0.i.i29.i741, 0.000000e+00
-  %ui.0.v.i.i31.i743 = select i1 %cmp5.i.i30.i742, i32 -1, i32 1
-  %ui.0.i.i32.i744 = add i32 %ui.0.v.i.i31.i743, %219
-  %220 = bitcast i32 %ui.0.i.i32.i744 to float
-  br label %_ZN4pbrtmlEfNS_8IntervalE.exit753
+if.end.i.i27.i758:                                ; preds = %_ZN4pbrt12MulRoundDownEff.exit24.i754
+  %cmp1.i.i28.i759 = fcmp oeq float %mul.i25.i756, 0.000000e+00
+  %v.addr.0.i.i29.i760 = select i1 %cmp1.i.i28.i759, float 0.000000e+00, float %mul.i25.i756
+  %219 = bitcast float %v.addr.0.i.i29.i760 to i32
+  %cmp5.i.i30.i761 = fcmp ult float %v.addr.0.i.i29.i760, 0.000000e+00
+  %ui.0.v.i.i31.i762 = select i1 %cmp5.i.i30.i761, i32 -1, i32 1
+  %ui.0.i.i32.i763 = add i32 %ui.0.v.i.i31.i762, %219
+  %220 = bitcast i32 %ui.0.i.i32.i763 to float
+  br label %_ZN4pbrtmlEfNS_8IntervalE.exit772
 
-_ZN4pbrtmlEfNS_8IntervalE.exit753:                ; preds = %_ZN4pbrt12MulRoundDownEff.exit24.i735, %if.end.i.i27.i739
-  %retval.0.i.i33.i745 = phi float [ %220, %if.end.i.i27.i739 ], [ 0x7FF0000000000000, %_ZN4pbrt12MulRoundDownEff.exit24.i735 ]
-  %cmp.i.i35.i746 = fcmp olt float %retval.0.i.i33.i745, %retval.0.i.i23.i736
-  %.sroa.speculated6.i36.i747 = select i1 %cmp.i.i35.i746, float %retval.0.i.i33.i745, float %retval.0.i.i23.i736
-  %retval.sroa.0.0.vec.insert46.i748 = insertelement <2 x float> poison, float %.sroa.speculated6.i36.i747, i64 0
-  %cmp.i1.i38.i749 = fcmp olt float %retval.0.i.i23.i736, %retval.0.i.i33.i745
-  %.sroa.speculated.i39.i750 = select i1 %cmp.i1.i38.i749, float %retval.0.i.i33.i745, float %retval.0.i.i23.i736
-  %retval.sroa.0.4.vec.insert48.i751 = insertelement <2 x float> %retval.sroa.0.0.vec.insert46.i748, float %.sroa.speculated.i39.i750, i64 1
+_ZN4pbrtmlEfNS_8IntervalE.exit772:                ; preds = %_ZN4pbrt12MulRoundDownEff.exit24.i754, %if.end.i.i27.i758
+  %retval.0.i.i33.i764 = phi float [ %220, %if.end.i.i27.i758 ], [ 0x7FF0000000000000, %_ZN4pbrt12MulRoundDownEff.exit24.i754 ]
+  %cmp.i.i35.i765 = fcmp olt float %retval.0.i.i33.i764, %retval.0.i.i23.i755
+  %.sroa.speculated6.i36.i766 = select i1 %cmp.i.i35.i765, float %retval.0.i.i33.i764, float %retval.0.i.i23.i755
+  %retval.sroa.0.0.vec.insert46.i767 = insertelement <2 x float> poison, float %.sroa.speculated6.i36.i766, i64 0
+  %cmp.i1.i38.i768 = fcmp olt float %retval.0.i.i23.i755, %retval.0.i.i33.i764
+  %.sroa.speculated.i39.i769 = select i1 %cmp.i1.i38.i768, float %retval.0.i.i33.i764, float %retval.0.i.i23.i755
+  %retval.sroa.0.4.vec.insert48.i770 = insertelement <2 x float> %retval.sroa.0.0.vec.insert46.i767, float %.sroa.speculated.i39.i769, i64 1
   br label %if.end98
 
-if.end98:                                         ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit753, %_ZN4pbrtmlEfNS_8IntervalE.exit699
-  %storemerge = phi <2 x float> [ %retval.sroa.0.4.vec.insert48.i751, %_ZN4pbrtmlEfNS_8IntervalE.exit753 ], [ %retval.sroa.0.4.vec.insert48.i, %_ZN4pbrtmlEfNS_8IntervalE.exit699 ]
+if.end98:                                         ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit772, %_ZN4pbrtmlEfNS_8IntervalE.exit716
+  %storemerge = phi <2 x float> [ %retval.sroa.0.4.vec.insert48.i770, %_ZN4pbrtmlEfNS_8IntervalE.exit772 ], [ %retval.sroa.0.4.vec.insert48.i, %_ZN4pbrtmlEfNS_8IntervalE.exit716 ]
   store <2 x float> %storemerge, ptr %q, align 8
-  %call101 = call <2 x float> @_ZNK4pbrt8IntervaldvES0_(ptr noundef nonnull align 4 dereferenceable(8) %q, <2 x float> %retval.sroa.0.4.vec.insert.i171)
+  %call101 = call <2 x float> @_ZNK4pbrt8IntervaldvES0_(ptr noundef nonnull align 4 dereferenceable(8) %q, <2 x float> %retval.sroa.0.4.vec.insert.i176)
   %agg.tmp103.sroa.0.0.copyload = load <2 x float>, ptr %q, align 8
   %call104 = call <2 x float> @_ZNK4pbrt8IntervaldvES0_(ptr noundef nonnull align 4 dereferenceable(8) %c, <2 x float> %agg.tmp103.sroa.0.0.copyload)
   %221 = fcmp ogt <2 x float> %call101, %call104
@@ -39404,8 +39404,8 @@ if.end98:                                         ; preds = %_ZN4pbrtmlEfNS_8Int
   br i1 %cmp111, label %if.then114, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end98
-  %t1.sroa.0.0.vec.extract895 = extractelement <2 x float> %t1.sroa.0.0, i64 0
-  %cmp113 = fcmp ugt float %t1.sroa.0.0.vec.extract895, 0.000000e+00
+  %t1.sroa.0.0.vec.extract914 = extractelement <2 x float> %t1.sroa.0.0, i64 0
+  %cmp113 = fcmp ugt float %t1.sroa.0.0.vec.extract914, 0.000000e+00
   br i1 %cmp113, label %if.end115, label %if.then114
 
 if.then114:                                       ; preds = %lor.lhs.false, %if.end98
@@ -39413,13 +39413,13 @@ if.then114:                                       ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end115:                                        ; preds = %lor.lhs.false
-  %t0.sroa.0.0.vec.extract907 = extractelement <2 x float> %t0.sroa.0.0, i64 0
-  %cmp117 = fcmp ugt float %t0.sroa.0.0.vec.extract907, 0.000000e+00
+  %t0.sroa.0.0.vec.extract926 = extractelement <2 x float> %t0.sroa.0.0, i64 0
+  %cmp117 = fcmp ugt float %t0.sroa.0.0.vec.extract926, 0.000000e+00
   br i1 %cmp117, label %if.end123, label %if.then118
 
 if.then118:                                       ; preds = %if.end115
-  %t1.sroa.0.4.vec.extract903 = extractelement <2 x float> %t1.sroa.0.0, i64 1
-  %cmp120 = fcmp ogt float %t1.sroa.0.4.vec.extract903, %tMax
+  %t1.sroa.0.4.vec.extract922 = extractelement <2 x float> %t1.sroa.0.0, i64 1
+  %cmp120 = fcmp ogt float %t1.sroa.0.4.vec.extract922, %tMax
   br i1 %cmp120, label %if.then121, label %if.end123
 
 if.then121:                                       ; preds = %if.then118
@@ -39427,8 +39427,8 @@ if.then121:                                       ; preds = %if.then118
   br label %return
 
 if.end123:                                        ; preds = %if.then118, %if.end115
-  %tShapeHit.sroa.0.0 = phi float [ %t0.sroa.0.0.vec.extract907, %if.end115 ], [ %t1.sroa.0.0.vec.extract895, %if.then118 ]
-  %tShapeHit.sroa.8.0 = phi float [ %t0.sroa.0.4.vec.extract, %if.end115 ], [ %t1.sroa.0.4.vec.extract903, %if.then118 ]
+  %tShapeHit.sroa.0.0 = phi float [ %t0.sroa.0.0.vec.extract926, %if.end115 ], [ %t1.sroa.0.0.vec.extract914, %if.then118 ]
+  %tShapeHit.sroa.8.0 = phi float [ %t0.sroa.0.4.vec.extract, %if.end115 ], [ %t1.sroa.0.4.vec.extract922, %if.then118 ]
   %222 = load <4 x float>, ptr %oi, align 16
   %223 = shufflevector <4 x float> %222, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %agg.tmp126.sroa.0.sroa.4.0.copyload = load float, ptr %high2.i12.i, align 4
@@ -39436,8 +39436,8 @@ if.end123:                                        ; preds = %if.then118, %if.end
   %agg.tmp126.sroa.0.sroa.6.0.copyload = load float, ptr %high2.i41.i, align 4
   %add.i.i5.i = fadd float %agg.tmp126.sroa.0.sroa.5.0.copyload, %agg.tmp126.sroa.0.sroa.6.0.copyload
   %div.i.i6.i = fmul float %add.i.i5.i, 5.000000e-01
-  %add.i.i763 = fadd float %tShapeHit.sroa.0.0, %tShapeHit.sroa.8.0
-  %div.i.i764 = fmul float %add.i.i763, 5.000000e-01
+  %add.i.i782 = fadd float %tShapeHit.sroa.0.0, %tShapeHit.sroa.8.0
+  %div.i.i783 = fmul float %add.i.i782, 5.000000e-01
   %224 = load <4 x float>, ptr %di, align 16
   %225 = shufflevector <4 x float> %224, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %agg.tmp131.sroa.0.sroa.2.0.di.sroa_idx = getelementptr inbounds i8, ptr %di, i64 4
@@ -39446,9 +39446,9 @@ if.end123:                                        ; preds = %if.then118, %if.end
   %agg.tmp131.sroa.0.sroa.5.0.copyload = load float, ptr %z, align 16
   %agg.tmp131.sroa.0.sroa.6.0.di.sroa_idx = getelementptr inbounds i8, ptr %di, i64 20
   %agg.tmp131.sroa.0.sroa.6.0.copyload = load float, ptr %agg.tmp131.sroa.0.sroa.6.0.di.sroa_idx, align 4
-  %add.i.i5.i775 = fadd float %agg.tmp131.sroa.0.sroa.5.0.copyload, %agg.tmp131.sroa.0.sroa.6.0.copyload
-  %div.i.i6.i776 = fmul float %add.i.i5.i775, 5.000000e-01
-  %mul3.i.i = fmul float %div.i.i764, %div.i.i6.i776
+  %add.i.i5.i794 = fadd float %agg.tmp131.sroa.0.sroa.5.0.copyload, %agg.tmp131.sroa.0.sroa.6.0.copyload
+  %div.i.i6.i795 = fmul float %add.i.i5.i794, 5.000000e-01
+  %mul3.i.i = fmul float %div.i.i783, %div.i.i6.i795
   %add6.i = fadd float %div.i.i6.i, %mul3.i.i
   %226 = load float, ptr %this, align 8
   %mul.i2.i.i.i = fmul float %add6.i, %add6.i
@@ -39460,15 +39460,15 @@ if.end123:                                        ; preds = %if.then118, %if.end
   %232 = insertelement <2 x float> %225, float %agg.tmp131.sroa.0.sroa.4.0.copyload, i64 1
   %233 = fadd <2 x float> %231, %232
   %234 = fmul <2 x float> %233, <float 5.000000e-01, float 5.000000e-01>
-  %235 = insertelement <2 x float> poison, float %div.i.i764, i64 0
+  %235 = insertelement <2 x float> poison, float %div.i.i783, i64 0
   %236 = shufflevector <2 x float> %235, <2 x float> poison, <2 x i32> zeroinitializer
   %237 = fmul <2 x float> %236, %234
   %238 = fadd <2 x float> %230, %237
   %239 = fmul <2 x float> %238, %238
   %shift = shufflevector <2 x float> %239, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %240 = fadd <2 x float> %239, %shift
-  %add.i.i.i788 = extractelement <2 x float> %240, i64 0
-  %add3.i.i.i = fadd float %add.i.i.i788, %mul.i2.i.i.i
+  %add.i.i.i807 = extractelement <2 x float> %240, i64 0
+  %add3.i.i.i = fadd float %add.i.i.i807, %mul.i2.i.i.i
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %add3.i.i.i)
   %div = fdiv float %226, %sqrt.i.i
   %241 = insertelement <2 x float> poison, float %div, i64 0
@@ -39483,9 +39483,9 @@ if.end123:                                        ; preds = %if.then118, %if.end
   %mul = fmul float %226, 0x3EE4F8B580000000
   %pHit.sroa.0.0.vec.insert = insertelement <2 x float> %243, float %mul, i64 0
   %pHit.sroa.0.0 = select i1 %or.cond, <2 x float> %pHit.sroa.0.0.vec.insert, <2 x float> %243
-  %pHit.sroa.0.4.vec.extract934 = extractelement <2 x float> %pHit.sroa.0.0, i64 1
-  %pHit.sroa.0.0.vec.extract914 = extractelement <2 x float> %pHit.sroa.0.0, i64 0
-  %call.i791 = call noundef float @atan2f(float noundef %pHit.sroa.0.4.vec.extract934, float noundef %pHit.sroa.0.0.vec.extract914) #28
+  %pHit.sroa.0.4.vec.extract953 = extractelement <2 x float> %pHit.sroa.0.0, i64 1
+  %pHit.sroa.0.0.vec.extract933 = extractelement <2 x float> %pHit.sroa.0.0, i64 0
+  %call.i810 = call noundef float @atan2f(float noundef %pHit.sroa.0.4.vec.extract953, float noundef %pHit.sroa.0.0.vec.extract933) #28
   %zMin = getelementptr inbounds i8, ptr %this, i64 4
   %246 = load float, ptr %zMin, align 4
   %247 = load float, ptr %this, align 8
@@ -39496,9 +39496,9 @@ if.end123:                                        ; preds = %if.then118, %if.end
   br i1 %or.cond18, label %if.then170, label %lor.lhs.false161
 
 lor.lhs.false161:                                 ; preds = %if.end123
-  %cmp152 = fcmp olt float %call.i791, 0.000000e+00
-  %add = fadd float %call.i791, 0x401921FB60000000
-  %phi.0 = select i1 %cmp152, float %add, float %call.i791
+  %cmp152 = fcmp olt float %call.i810, 0.000000e+00
+  %add = fadd float %call.i810, 0x401921FB60000000
+  %phi.0 = select i1 %cmp152, float %add, float %call.i810
   %zMax = getelementptr inbounds i8, ptr %this, i64 8
   %248 = load float, ptr %zMax, align 8
   %cmp163 = fcmp olt float %248, %247
@@ -39511,10 +39511,10 @@ lor.lhs.false161:                                 ; preds = %if.end123
   br i1 %or.cond20, label %if.then170, label %if.end237
 
 if.then170:                                       ; preds = %lor.lhs.false161, %if.end123
-  %cmp.i793 = fcmp oeq float %tShapeHit.sroa.0.0, %t1.sroa.0.0.vec.extract895
-  %i.sroa.0.4.vec.extract.i795 = extractelement <2 x float> %t1.sroa.0.0, i64 1
-  %cmp4.i = fcmp oeq float %tShapeHit.sroa.8.0, %i.sroa.0.4.vec.extract.i795
-  %250 = select i1 %cmp.i793, i1 %cmp4.i, i1 false
+  %cmp.i812 = fcmp oeq float %tShapeHit.sroa.0.0, %t1.sroa.0.0.vec.extract914
+  %i.sroa.0.4.vec.extract.i814 = extractelement <2 x float> %t1.sroa.0.0, i64 1
+  %cmp4.i = fcmp oeq float %tShapeHit.sroa.8.0, %i.sroa.0.4.vec.extract.i814
+  %250 = select i1 %cmp.i812, i1 %cmp4.i, i1 false
   br i1 %250, label %if.then173, label %if.end174
 
 if.then173:                                       ; preds = %if.then170
@@ -39522,7 +39522,7 @@ if.then173:                                       ; preds = %if.then170
   br label %return
 
 if.end174:                                        ; preds = %if.then170
-  %cmp176 = fcmp ogt float %i.sroa.0.4.vec.extract.i795, %tMax
+  %cmp176 = fcmp ogt float %i.sroa.0.4.vec.extract.i814, %tMax
   br i1 %cmp176, label %if.then177, label %if.end178
 
 if.then177:                                       ; preds = %if.end174
@@ -39535,20 +39535,20 @@ if.end178:                                        ; preds = %if.end174
   %agg.tmp181.sroa.0.sroa.4.0.copyload = load float, ptr %high2.i12.i, align 4
   %agg.tmp181.sroa.0.sroa.5.0.copyload = load float, ptr %z31, align 16
   %agg.tmp181.sroa.0.sroa.6.0.copyload = load float, ptr %high2.i41.i, align 4
-  %add.i.i5.i809 = fadd float %agg.tmp181.sroa.0.sroa.5.0.copyload, %agg.tmp181.sroa.0.sroa.6.0.copyload
-  %div.i.i6.i810 = fmul float %add.i.i5.i809, 5.000000e-01
-  %add.i.i814 = fadd float %t1.sroa.0.0.vec.extract895, %i.sroa.0.4.vec.extract.i795
-  %div.i.i815 = fmul float %add.i.i814, 5.000000e-01
+  %add.i.i5.i828 = fadd float %agg.tmp181.sroa.0.sroa.5.0.copyload, %agg.tmp181.sroa.0.sroa.6.0.copyload
+  %div.i.i6.i829 = fmul float %add.i.i5.i828, 5.000000e-01
+  %add.i.i833 = fadd float %t1.sroa.0.0.vec.extract914, %i.sroa.0.4.vec.extract.i814
+  %div.i.i834 = fmul float %add.i.i833, 5.000000e-01
   %253 = load <4 x float>, ptr %di, align 16
   %254 = shufflevector <4 x float> %253, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %agg.tmp186.sroa.0.sroa.4.0.copyload = load float, ptr %agg.tmp131.sroa.0.sroa.4.0.di.sroa_idx, align 4
   %agg.tmp186.sroa.0.sroa.5.0.copyload = load float, ptr %z, align 16
   %agg.tmp186.sroa.0.sroa.6.0.copyload = load float, ptr %agg.tmp131.sroa.0.sroa.6.0.di.sroa_idx, align 4
-  %add.i.i5.i826 = fadd float %agg.tmp186.sroa.0.sroa.5.0.copyload, %agg.tmp186.sroa.0.sroa.6.0.copyload
-  %div.i.i6.i827 = fmul float %add.i.i5.i826, 5.000000e-01
-  %mul3.i.i834 = fmul float %div.i.i815, %div.i.i6.i827
-  %add6.i845 = fadd float %div.i.i6.i810, %mul3.i.i834
-  %mul.i2.i.i.i862 = fmul float %add6.i845, %add6.i845
+  %add.i.i5.i845 = fadd float %agg.tmp186.sroa.0.sroa.5.0.copyload, %agg.tmp186.sroa.0.sroa.6.0.copyload
+  %div.i.i6.i846 = fmul float %add.i.i5.i845, 5.000000e-01
+  %mul3.i.i853 = fmul float %div.i.i834, %div.i.i6.i846
+  %add6.i864 = fadd float %div.i.i6.i829, %mul3.i.i853
+  %mul.i2.i.i.i881 = fmul float %add6.i864, %add6.i864
   %255 = load <2 x float>, ptr %high2.i.i, align 4
   %256 = insertelement <2 x float> %252, float %agg.tmp181.sroa.0.sroa.4.0.copyload, i64 1
   %257 = fadd <2 x float> %255, %256
@@ -39557,48 +39557,48 @@ if.end178:                                        ; preds = %if.end174
   %260 = insertelement <2 x float> %254, float %agg.tmp186.sroa.0.sroa.4.0.copyload, i64 1
   %261 = fadd <2 x float> %259, %260
   %262 = fmul <2 x float> %261, <float 5.000000e-01, float 5.000000e-01>
-  %263 = insertelement <2 x float> poison, float %div.i.i815, i64 0
+  %263 = insertelement <2 x float> poison, float %div.i.i834, i64 0
   %264 = shufflevector <2 x float> %263, <2 x float> poison, <2 x i32> zeroinitializer
   %265 = fmul <2 x float> %264, %262
   %266 = fadd <2 x float> %258, %265
   %267 = fmul <2 x float> %266, %266
-  %shift951 = shufflevector <2 x float> %267, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %268 = fadd <2 x float> %267, %shift951
-  %add.i.i.i861 = extractelement <2 x float> %268, i64 0
-  %add3.i.i.i863 = fadd float %add.i.i.i861, %mul.i2.i.i.i862
-  %sqrt.i.i864 = call noundef float @llvm.sqrt.f32(float %add3.i.i.i863)
-  %div197 = fdiv float %247, %sqrt.i.i864
+  %shift970 = shufflevector <2 x float> %267, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %268 = fadd <2 x float> %267, %shift970
+  %add.i.i.i880 = extractelement <2 x float> %268, i64 0
+  %add3.i.i.i882 = fadd float %add.i.i.i880, %mul.i2.i.i.i881
+  %sqrt.i.i883 = call noundef float @llvm.sqrt.f32(float %add3.i.i.i882)
+  %div197 = fdiv float %247, %sqrt.i.i883
   %269 = insertelement <2 x float> poison, float %div197, i64 0
   %270 = shufflevector <2 x float> %269, <2 x float> poison, <2 x i32> zeroinitializer
   %271 = fmul <2 x float> %266, %270
-  %mul3.i869 = fmul float %add6.i845, %div197
+  %mul3.i888 = fmul float %add6.i864, %div197
   %272 = extractelement <2 x float> %271, i64 0
   %cmp200 = fcmp oeq float %272, 0.000000e+00
   %273 = extractelement <2 x float> %271, i64 1
   %cmp203 = fcmp oeq float %273, 0.000000e+00
   %or.cond1 = select i1 %cmp200, i1 %cmp203, i1 false
   %mul206 = fmul float %247, 0x3EE4F8B580000000
-  %pHit.sroa.0.0.vec.insert918 = insertelement <2 x float> %271, float %mul206, i64 0
-  %pHit.sroa.0.1 = select i1 %or.cond1, <2 x float> %pHit.sroa.0.0.vec.insert918, <2 x float> %271
+  %pHit.sroa.0.0.vec.insert937 = insertelement <2 x float> %271, float %mul206, i64 0
+  %pHit.sroa.0.1 = select i1 %or.cond1, <2 x float> %pHit.sroa.0.0.vec.insert937, <2 x float> %271
   %pHit.sroa.0.4.vec.extract = extractelement <2 x float> %pHit.sroa.0.1, i64 1
-  %pHit.sroa.0.0.vec.extract920 = extractelement <2 x float> %pHit.sroa.0.1, i64 0
-  %call.i870 = call noundef float @atan2f(float noundef %pHit.sroa.0.4.vec.extract, float noundef %pHit.sroa.0.0.vec.extract920) #28
+  %pHit.sroa.0.0.vec.extract939 = extractelement <2 x float> %pHit.sroa.0.1, i64 0
+  %call.i889 = call noundef float @atan2f(float noundef %pHit.sroa.0.4.vec.extract, float noundef %pHit.sroa.0.0.vec.extract939) #28
   %274 = load float, ptr %zMin, align 4
   %275 = load float, ptr %this, align 8
   %fneg218 = fneg float %275
   %cmp219 = fcmp ogt float %274, %fneg218
-  %cmp223 = fcmp olt float %mul3.i869, %274
+  %cmp223 = fcmp olt float %mul3.i888, %274
   %or.cond21 = select i1 %cmp219, i1 %cmp223, i1 false
   br i1 %or.cond21, label %if.then235, label %lor.lhs.false224
 
 lor.lhs.false224:                                 ; preds = %if.end178
-  %cmp212 = fcmp olt float %call.i870, 0.000000e+00
-  %add214 = fadd float %call.i870, 0x401921FB60000000
-  %phi.1 = select i1 %cmp212, float %add214, float %call.i870
+  %cmp212 = fcmp olt float %call.i889, 0.000000e+00
+  %add214 = fadd float %call.i889, 0x401921FB60000000
+  %phi.1 = select i1 %cmp212, float %add214, float %call.i889
   %zMax225 = getelementptr inbounds i8, ptr %this, i64 8
   %276 = load float, ptr %zMax225, align 8
   %cmp227 = fcmp olt float %276, %275
-  %cmp231 = fcmp ogt float %mul3.i869, %276
+  %cmp231 = fcmp ogt float %mul3.i888, %276
   %or.cond22 = select i1 %cmp227, i1 %cmp231, i1 false
   %phiMax233 = getelementptr inbounds i8, ptr %this, i64 20
   %277 = load float, ptr %phiMax233, align 4
@@ -39611,13 +39611,13 @@ if.then235:                                       ; preds = %lor.lhs.false224, %
   br label %return
 
 if.end237:                                        ; preds = %lor.lhs.false224, %lor.lhs.false161
-  %div.i.i874.pre-phi = phi float [ %div.i.i815, %lor.lhs.false224 ], [ %div.i.i764, %lor.lhs.false161 ]
+  %div.i.i893.pre-phi = phi float [ %div.i.i834, %lor.lhs.false224 ], [ %div.i.i783, %lor.lhs.false161 ]
   %pHit.sroa.0.2 = phi <2 x float> [ %pHit.sroa.0.1, %lor.lhs.false224 ], [ %pHit.sroa.0.0, %lor.lhs.false161 ]
-  %pHit.sroa.23.0 = phi float [ %mul3.i869, %lor.lhs.false224 ], [ %mul3.i, %lor.lhs.false161 ]
+  %pHit.sroa.23.0 = phi float [ %mul3.i888, %lor.lhs.false224 ], [ %mul3.i, %lor.lhs.false161 ]
   %phi.2 = phi float [ %phi.1, %lor.lhs.false224 ], [ %phi.0, %lor.lhs.false161 ]
-  %set.i875 = getelementptr inbounds i8, ptr %agg.result, i64 20
-  store i8 1, ptr %set.i875, align 4
-  store float %div.i.i874.pre-phi, ptr %agg.result, align 4
+  %set.i894 = getelementptr inbounds i8, ptr %agg.result, i64 20
+  store i8 1, ptr %set.i894, align 4
+  store float %div.i.i893.pre-phi, ptr %agg.result, align 4
   %ref.tmp238.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
   store <2 x float> %pHit.sroa.0.2, ptr %ref.tmp238.sroa.2.0.agg.result.sroa_idx, align 4
   %ref.tmp238.sroa.2.sroa.2.0.ref.tmp238.sroa.2.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 12
@@ -40089,8 +40089,8 @@ entry:
   %or.cond = select i1 %cmp.i, i1 %cmp3.i, i1 false
   %sub.i4.i = fsub float %8, %7
   %cmp5.i = fcmp oeq float %sub.i4.i, 0.000000e+00
-  %or.cond87 = select i1 %or.cond, i1 %cmp5.i, i1 false
-  br i1 %or.cond87, label %if.then, label %if.else
+  %or.cond98 = select i1 %or.cond, i1 %cmp5.i, i1 false
+  br i1 %or.cond98, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %call9 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
@@ -40115,16 +40115,16 @@ if.then:                                          ; preds = %entry
   %22 = load float, ptr %21, align 4
   %call36 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %23 = extractvalue { ptr, i64 } %call36, 0
-  %arrayidx.i47 = getelementptr inbounds i8, ptr %23, i64 4
-  %24 = load float, ptr %arrayidx.i47, align 4
+  %arrayidx.i48 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = load float, ptr %arrayidx.i48, align 4
   %25 = insertelement <2 x float> poison, float %22, i64 0
   %26 = insertelement <2 x float> %25, float %24, i64 1
   %27 = fmul <2 x float> %6, %26
   %28 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %27)
   %call43 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %29 = extractvalue { ptr, i64 } %call43, 0
-  %arrayidx.i48 = getelementptr inbounds i8, ptr %29, i64 8
-  %30 = load float, ptr %arrayidx.i48, align 4
+  %arrayidx.i49 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = load float, ptr %arrayidx.i49, align 4
   %31 = shufflevector <2 x float> %28, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
   %32 = insertelement <2 x float> %31, float %14, i64 0
   %33 = insertelement <2 x float> %28, float %18, i64 0
@@ -40142,8 +40142,8 @@ if.then:                                          ; preds = %entry
   %44 = load float, ptr %43, align 4
   %call59 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %45 = extractvalue { ptr, i64 } %call59, 0
-  %arrayidx.i49 = getelementptr inbounds i8, ptr %45, i64 4
-  %46 = load float, ptr %arrayidx.i49, align 4
+  %arrayidx.i51 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = load float, ptr %arrayidx.i51, align 4
   %47 = insertelement <2 x float> poison, float %44, i64 0
   %48 = insertelement <2 x float> %47, float %46, i64 1
   %49 = fmul <2 x float> %6, %48
@@ -40153,8 +40153,8 @@ if.then:                                          ; preds = %entry
   %add63 = extractelement <2 x float> %51, i64 0
   %call66 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %52 = extractvalue { ptr, i64 } %call66, 0
-  %arrayidx.i50 = getelementptr inbounds i8, ptr %52, i64 8
-  %53 = load float, ptr %arrayidx.i50, align 4
+  %arrayidx.i52 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = load float, ptr %arrayidx.i52, align 4
   %mul68 = fmul float %div.i.i44, %53
   %54 = tail call noundef float @llvm.fabs.f32(float %mul68)
   %add70 = fadd float %add63, %54
@@ -40164,8 +40164,8 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %div.i = fmul float %sub.i.i, 5.000000e-01
   %div3.i = fmul float %sub.i2.i, 5.000000e-01
-  %sub.i4.i58 = fsub float %8, %7
-  %div5.i = fmul float %sub.i4.i58, 5.000000e-01
+  %sub.i4.i60 = fsub float %8, %7
+  %div5.i = fmul float %sub.i4.i60, 5.000000e-01
   %call78 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %55 = extractvalue { ptr, i64 } %call78, 0
   %56 = load float, ptr %55, align 4
@@ -40173,14 +40173,14 @@ if.else:                                          ; preds = %entry
   %mul82 = fmul float %div.i, %57
   %call85 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %58 = extractvalue { ptr, i64 } %call85, 0
-  %arrayidx.i59 = getelementptr inbounds i8, ptr %58, i64 4
-  %59 = load float, ptr %arrayidx.i59, align 4
+  %arrayidx.i62 = getelementptr inbounds i8, ptr %58, i64 4
+  %59 = load float, ptr %arrayidx.i62, align 4
   %60 = tail call noundef float @llvm.fabs.f32(float %59)
   %mul89 = fmul float %div3.i, %60
   %call93 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %61 = extractvalue { ptr, i64 } %call93, 0
-  %arrayidx.i60 = getelementptr inbounds i8, ptr %61, i64 8
-  %62 = load float, ptr %arrayidx.i60, align 4
+  %arrayidx.i63 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = load float, ptr %arrayidx.i63, align 4
   %63 = tail call noundef float @llvm.fabs.f32(float %62)
   %mul97 = fmul float %div5.i, %63
   %call103 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
@@ -40190,15 +40190,15 @@ if.else:                                          ; preds = %entry
   %mul105 = fmul float %66, %65
   %call109 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %67 = extractvalue { ptr, i64 } %call109, 0
-  %arrayidx.i61 = getelementptr inbounds i8, ptr %67, i64 4
-  %68 = load float, ptr %arrayidx.i61, align 4
+  %arrayidx.i65 = getelementptr inbounds i8, ptr %67, i64 4
+  %68 = load float, ptr %arrayidx.i65, align 4
   %69 = extractelement <2 x float> %6, i64 1
   %mul111 = fmul float %69, %68
   %70 = tail call noundef float @llvm.fabs.f32(float %mul111)
   %call116 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %71 = extractvalue { ptr, i64 } %call116, 0
-  %arrayidx.i62 = getelementptr inbounds i8, ptr %71, i64 8
-  %72 = load float, ptr %arrayidx.i62, align 4
+  %arrayidx.i66 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = load float, ptr %arrayidx.i66, align 4
   %mul118 = fmul float %div.i.i44, %72
   %73 = tail call noundef float @llvm.fabs.f32(float %mul118)
   %call128 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
@@ -40208,30 +40208,30 @@ if.else:                                          ; preds = %entry
   %mul132 = fmul float %div.i, %76
   %call135 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %77 = extractvalue { ptr, i64 } %call135, 0
-  %arrayidx.i63 = getelementptr inbounds i8, ptr %77, i64 4
-  %78 = load float, ptr %arrayidx.i63, align 4
+  %arrayidx.i68 = getelementptr inbounds i8, ptr %77, i64 4
+  %78 = load float, ptr %arrayidx.i68, align 4
   %79 = tail call noundef float @llvm.fabs.f32(float %78)
   %mul139 = fmul float %div3.i, %79
   %add140 = fadd float %mul132, %mul139
   %call143 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %80 = extractvalue { ptr, i64 } %call143, 0
-  %arrayidx.i64 = getelementptr inbounds i8, ptr %80, i64 8
-  %81 = load float, ptr %arrayidx.i64, align 4
+  %arrayidx.i69 = getelementptr inbounds i8, ptr %80, i64 8
+  %81 = load float, ptr %arrayidx.i69, align 4
   %call153 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %82 = extractvalue { ptr, i64 } %call153, 0
   %83 = load float, ptr %82, align 4
   %call159 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %84 = extractvalue { ptr, i64 } %call159, 0
-  %arrayidx.i65 = getelementptr inbounds i8, ptr %84, i64 4
-  %85 = load float, ptr %arrayidx.i65, align 4
+  %arrayidx.i71 = getelementptr inbounds i8, ptr %84, i64 4
+  %85 = load float, ptr %arrayidx.i71, align 4
   %86 = insertelement <2 x float> poison, float %83, i64 0
   %87 = insertelement <2 x float> %86, float %85, i64 1
   %88 = fmul <2 x float> %6, %87
   %89 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %88)
   %call166 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %90 = extractvalue { ptr, i64 } %call166, 0
-  %arrayidx.i66 = getelementptr inbounds i8, ptr %90, i64 8
-  %91 = load float, ptr %arrayidx.i66, align 4
+  %arrayidx.i72 = getelementptr inbounds i8, ptr %90, i64 8
+  %91 = load float, ptr %arrayidx.i72, align 4
   %mul168 = fmul float %div.i.i44, %91
   %92 = tail call noundef float @llvm.fabs.f32(float %mul168)
   %93 = insertelement <2 x float> poison, float %mul105, i64 0
@@ -40262,15 +40262,15 @@ if.else:                                          ; preds = %entry
   %mul182 = fmul float %div.i, %116
   %call185 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %117 = extractvalue { ptr, i64 } %call185, 0
-  %arrayidx.i67 = getelementptr inbounds i8, ptr %117, i64 4
-  %118 = load float, ptr %arrayidx.i67, align 4
+  %arrayidx.i74 = getelementptr inbounds i8, ptr %117, i64 4
+  %118 = load float, ptr %arrayidx.i74, align 4
   %119 = tail call noundef float @llvm.fabs.f32(float %118)
   %mul189 = fmul float %div3.i, %119
   %add190 = fadd float %mul182, %mul189
   %call193 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %120 = extractvalue { ptr, i64 } %call193, 0
-  %arrayidx.i68 = getelementptr inbounds i8, ptr %120, i64 8
-  %121 = load float, ptr %arrayidx.i68, align 4
+  %arrayidx.i75 = getelementptr inbounds i8, ptr %120, i64 8
+  %121 = load float, ptr %arrayidx.i75, align 4
   %122 = tail call noundef float @llvm.fabs.f32(float %121)
   %mul197 = fmul float %div5.i, %122
   %add198 = fadd float %add190, %mul197
@@ -40280,19 +40280,19 @@ if.else:                                          ; preds = %entry
   %124 = load float, ptr %123, align 4
   %call209 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %125 = extractvalue { ptr, i64 } %call209, 0
-  %arrayidx.i69 = getelementptr inbounds i8, ptr %125, i64 4
-  %126 = load float, ptr %arrayidx.i69, align 4
+  %arrayidx.i77 = getelementptr inbounds i8, ptr %125, i64 4
+  %126 = load float, ptr %arrayidx.i77, align 4
   %127 = insertelement <2 x float> poison, float %124, i64 0
   %128 = insertelement <2 x float> %127, float %126, i64 1
   %129 = fmul <2 x float> %6, %128
   %130 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %129)
-  %shift88 = shufflevector <2 x float> %130, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %131 = fadd <2 x float> %130, %shift88
+  %shift99 = shufflevector <2 x float> %130, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %131 = fadd <2 x float> %130, %shift99
   %add213 = extractelement <2 x float> %131, i64 0
   %call216 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %132 = extractvalue { ptr, i64 } %call216, 0
-  %arrayidx.i70 = getelementptr inbounds i8, ptr %132, i64 8
-  %133 = load float, ptr %arrayidx.i70, align 4
+  %arrayidx.i78 = getelementptr inbounds i8, ptr %132, i64 8
+  %133 = load float, ptr %arrayidx.i78, align 4
   %mul218 = fmul float %div.i.i44, %133
   %134 = tail call noundef float @llvm.fabs.f32(float %mul218)
   %add220 = fadd float %add213, %134
@@ -40310,15 +40310,15 @@ if.end:                                           ; preds = %if.else, %if.then
   %mul228 = fmul float %137, %136
   %call231 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %138 = extractvalue { ptr, i64 } %call231, 0
-  %arrayidx.i71 = getelementptr inbounds i8, ptr %138, i64 4
-  %139 = load float, ptr %arrayidx.i71, align 4
+  %arrayidx.i80 = getelementptr inbounds i8, ptr %138, i64 4
+  %139 = load float, ptr %arrayidx.i80, align 4
   %140 = extractelement <2 x float> %6, i64 1
   %mul233 = fmul float %140, %139
   %add234 = fadd float %mul228, %mul233
   %call237 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %141 = extractvalue { ptr, i64 } %call237, 0
-  %arrayidx.i72 = getelementptr inbounds i8, ptr %141, i64 8
-  %142 = load float, ptr %arrayidx.i72, align 4
+  %arrayidx.i81 = getelementptr inbounds i8, ptr %141, i64 8
+  %142 = load float, ptr %arrayidx.i81, align 4
   %mul239 = fmul float %div.i.i44, %142
   %add240 = fadd float %add234, %mul239
   %call243 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
@@ -40327,14 +40327,14 @@ if.end:                                           ; preds = %if.else, %if.then
   %mul245 = fmul float %137, %144
   %call248 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %145 = extractvalue { ptr, i64 } %call248, 0
-  %arrayidx.i73 = getelementptr inbounds i8, ptr %145, i64 4
-  %146 = load float, ptr %arrayidx.i73, align 4
+  %arrayidx.i83 = getelementptr inbounds i8, ptr %145, i64 4
+  %146 = load float, ptr %arrayidx.i83, align 4
   %mul250 = fmul float %140, %146
   %add251 = fadd float %mul245, %mul250
   %call254 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %147 = extractvalue { ptr, i64 } %call254, 0
-  %arrayidx.i74 = getelementptr inbounds i8, ptr %147, i64 8
-  %148 = load float, ptr %arrayidx.i74, align 4
+  %arrayidx.i84 = getelementptr inbounds i8, ptr %147, i64 8
+  %148 = load float, ptr %arrayidx.i84, align 4
   %mul256 = fmul float %div.i.i44, %148
   %add257 = fadd float %add251, %mul256
   %call260 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
@@ -40343,14 +40343,14 @@ if.end:                                           ; preds = %if.else, %if.then
   %mul262 = fmul float %137, %150
   %call265 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %151 = extractvalue { ptr, i64 } %call265, 0
-  %arrayidx.i75 = getelementptr inbounds i8, ptr %151, i64 4
-  %152 = load float, ptr %arrayidx.i75, align 4
+  %arrayidx.i86 = getelementptr inbounds i8, ptr %151, i64 4
+  %152 = load float, ptr %arrayidx.i86, align 4
   %mul267 = fmul float %140, %152
   %add268 = fadd float %mul262, %mul267
   %call271 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %153 = extractvalue { ptr, i64 } %call271, 0
-  %arrayidx.i76 = getelementptr inbounds i8, ptr %153, i64 8
-  %154 = load float, ptr %arrayidx.i76, align 4
+  %arrayidx.i87 = getelementptr inbounds i8, ptr %153, i64 8
+  %154 = load float, ptr %arrayidx.i87, align 4
   %mul273 = fmul float %div.i.i44, %154
   %add274 = fadd float %add268, %mul273
   %e.sroa.0.0.vec.extract.i = extractelement <2 x float> %vOutError.sroa.0.0, i64 0
@@ -40939,39 +40939,39 @@ _ZN4pbrt10MulRoundUpEff.exit.i:                   ; preds = %if.end.i.i.i, %if.t
 if.end7.i:                                        ; preds = %entry
   %alow.0.i = select i1 %cmp.i, float %2, float %1
   %mul.i1.i = fmul float %alow.0.i, %alow.0.i
-  %cmp1.i.i3.i = fcmp oeq float %mul.i1.i, 0.000000e+00
-  %v.addr.0.i.i4.i = select i1 %cmp1.i.i3.i, float -0.000000e+00, float %mul.i1.i
-  %13 = bitcast float %v.addr.0.i.i4.i to i32
-  %cmp5.i.i5.i = fcmp ogt float %v.addr.0.i.i4.i, 0.000000e+00
-  %ui.0.v.i.i6.i = select i1 %cmp5.i.i5.i, i32 -1, i32 1
-  %ui.0.i.i7.i = add i32 %ui.0.v.i.i6.i, %13
-  %14 = bitcast i32 %ui.0.i.i7.i to float
-  %mul.i9.i = fmul float %ahigh.0.i, %ahigh.0.i
-  %or.cond.i.i10.i = fcmp oeq float %mul.i9.i, 0x7FF0000000000000
-  br i1 %or.cond.i.i10.i, label %_ZN4pbrt10MulRoundUpEff.exit18.i, label %if.end.i.i11.i
+  %cmp1.i.i4.i = fcmp oeq float %mul.i1.i, 0.000000e+00
+  %v.addr.0.i.i5.i = select i1 %cmp1.i.i4.i, float -0.000000e+00, float %mul.i1.i
+  %13 = bitcast float %v.addr.0.i.i5.i to i32
+  %cmp5.i.i6.i = fcmp ogt float %v.addr.0.i.i5.i, 0.000000e+00
+  %ui.0.v.i.i7.i = select i1 %cmp5.i.i6.i, i32 -1, i32 1
+  %ui.0.i.i8.i = add i32 %ui.0.v.i.i7.i, %13
+  %14 = bitcast i32 %ui.0.i.i8.i to float
+  %mul.i10.i = fmul float %ahigh.0.i, %ahigh.0.i
+  %or.cond.i.i11.i = fcmp oeq float %mul.i10.i, 0x7FF0000000000000
+  br i1 %or.cond.i.i11.i, label %_ZN4pbrt10MulRoundUpEff.exit19.i, label %if.end.i.i12.i
 
-if.end.i.i11.i:                                   ; preds = %if.end7.i
-  %cmp1.i.i12.i = fcmp oeq float %mul.i9.i, 0.000000e+00
-  %v.addr.0.i.i13.i = select i1 %cmp1.i.i12.i, float 0.000000e+00, float %mul.i9.i
-  %15 = bitcast float %v.addr.0.i.i13.i to i32
-  %cmp5.i.i14.i = fcmp ult float %v.addr.0.i.i13.i, 0.000000e+00
-  %ui.0.v.i.i15.i = select i1 %cmp5.i.i14.i, i32 -1, i32 1
-  %ui.0.i.i16.i = add i32 %ui.0.v.i.i15.i, %15
-  %16 = bitcast i32 %ui.0.i.i16.i to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit18.i
+if.end.i.i12.i:                                   ; preds = %if.end7.i
+  %cmp1.i.i13.i = fcmp oeq float %mul.i10.i, 0.000000e+00
+  %v.addr.0.i.i14.i = select i1 %cmp1.i.i13.i, float 0.000000e+00, float %mul.i10.i
+  %15 = bitcast float %v.addr.0.i.i14.i to i32
+  %cmp5.i.i15.i = fcmp ult float %v.addr.0.i.i14.i, 0.000000e+00
+  %ui.0.v.i.i16.i = select i1 %cmp5.i.i15.i, i32 -1, i32 1
+  %ui.0.i.i17.i = add i32 %ui.0.v.i.i16.i, %15
+  %16 = bitcast i32 %ui.0.i.i17.i to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit19.i
 
-_ZN4pbrt10MulRoundUpEff.exit18.i:                 ; preds = %if.end.i.i11.i, %if.end7.i
-  %retval.0.i.i17.i = phi float [ %16, %if.end.i.i11.i ], [ 0x7FF0000000000000, %if.end7.i ]
-  %cmp.i.i19.i = fcmp olt float %retval.0.i.i17.i, %14
-  %.sroa.speculated6.i20.i = select i1 %cmp.i.i19.i, float %retval.0.i.i17.i, float %14
-  %retval.sroa.0.0.vec.insert31.i = insertelement <2 x float> poison, float %.sroa.speculated6.i20.i, i64 0
-  %cmp.i1.i22.i = fcmp ogt float %retval.0.i.i17.i, %14
-  %.sroa.speculated.i23.i = select i1 %cmp.i1.i22.i, float %retval.0.i.i17.i, float %14
-  %retval.sroa.0.4.vec.insert33.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i, float %.sroa.speculated.i23.i, i64 1
+_ZN4pbrt10MulRoundUpEff.exit19.i:                 ; preds = %if.end.i.i12.i, %if.end7.i
+  %retval.0.i.i18.i = phi float [ %16, %if.end.i.i12.i ], [ 0x7FF0000000000000, %if.end7.i ]
+  %cmp.i.i20.i = fcmp olt float %retval.0.i.i18.i, %14
+  %.sroa.speculated6.i21.i = select i1 %cmp.i.i20.i, float %retval.0.i.i18.i, float %14
+  %retval.sroa.0.0.vec.insert32.i = insertelement <2 x float> poison, float %.sroa.speculated6.i21.i, i64 0
+  %cmp.i1.i23.i = fcmp ogt float %retval.0.i.i18.i, %14
+  %.sroa.speculated.i24.i = select i1 %cmp.i1.i23.i, float %retval.0.i.i18.i, float %14
+  %retval.sroa.0.4.vec.insert34.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert32.i, float %.sroa.speculated.i24.i, i64 1
   br label %_ZN4pbrt3SqrENS_8IntervalE.exit
 
-_ZN4pbrt3SqrENS_8IntervalE.exit:                  ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i, %_ZN4pbrt10MulRoundUpEff.exit18.i
-  %retval.sroa.0.0.i = phi <2 x float> [ %12, %_ZN4pbrt10MulRoundUpEff.exit.i ], [ %retval.sroa.0.4.vec.insert33.i, %_ZN4pbrt10MulRoundUpEff.exit18.i ]
+_ZN4pbrt3SqrENS_8IntervalE.exit:                  ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i, %_ZN4pbrt10MulRoundUpEff.exit19.i
+  %retval.sroa.0.0.i = phi <2 x float> [ %12, %_ZN4pbrt10MulRoundUpEff.exit.i ], [ %retval.sroa.0.4.vec.insert34.i, %_ZN4pbrt10MulRoundUpEff.exit19.i ]
   %y = getelementptr inbounds i8, ptr %v, i64 8
   %agg.tmp3.sroa.0.0.copyload = load <2 x float>, ptr %y, align 8
   %17 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %agg.tmp3.sroa.0.0.copyload)
@@ -41013,39 +41013,39 @@ _ZN4pbrt10MulRoundUpEff.exit.i41:                 ; preds = %if.end.i.i.i35, %if
 if.end7.i7:                                       ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit
   %alow.0.i8 = select i1 %cmp.i3, float %19, float %18
   %mul.i1.i9 = fmul float %alow.0.i8, %alow.0.i8
-  %cmp1.i.i3.i10 = fcmp oeq float %mul.i1.i9, 0.000000e+00
-  %v.addr.0.i.i4.i11 = select i1 %cmp1.i.i3.i10, float -0.000000e+00, float %mul.i1.i9
-  %30 = bitcast float %v.addr.0.i.i4.i11 to i32
-  %cmp5.i.i5.i12 = fcmp ogt float %v.addr.0.i.i4.i11, 0.000000e+00
-  %ui.0.v.i.i6.i13 = select i1 %cmp5.i.i5.i12, i32 -1, i32 1
-  %ui.0.i.i7.i14 = add i32 %ui.0.v.i.i6.i13, %30
-  %31 = bitcast i32 %ui.0.i.i7.i14 to float
-  %mul.i9.i15 = fmul float %ahigh.0.i4, %ahigh.0.i4
-  %or.cond.i.i10.i16 = fcmp oeq float %mul.i9.i15, 0x7FF0000000000000
-  br i1 %or.cond.i.i10.i16, label %_ZN4pbrt10MulRoundUpEff.exit18.i23, label %if.end.i.i11.i17
+  %cmp1.i.i4.i10 = fcmp oeq float %mul.i1.i9, 0.000000e+00
+  %v.addr.0.i.i5.i11 = select i1 %cmp1.i.i4.i10, float -0.000000e+00, float %mul.i1.i9
+  %30 = bitcast float %v.addr.0.i.i5.i11 to i32
+  %cmp5.i.i6.i12 = fcmp ogt float %v.addr.0.i.i5.i11, 0.000000e+00
+  %ui.0.v.i.i7.i13 = select i1 %cmp5.i.i6.i12, i32 -1, i32 1
+  %ui.0.i.i8.i14 = add i32 %ui.0.v.i.i7.i13, %30
+  %31 = bitcast i32 %ui.0.i.i8.i14 to float
+  %mul.i10.i15 = fmul float %ahigh.0.i4, %ahigh.0.i4
+  %or.cond.i.i11.i16 = fcmp oeq float %mul.i10.i15, 0x7FF0000000000000
+  br i1 %or.cond.i.i11.i16, label %_ZN4pbrt10MulRoundUpEff.exit19.i23, label %if.end.i.i12.i17
 
-if.end.i.i11.i17:                                 ; preds = %if.end7.i7
-  %cmp1.i.i12.i18 = fcmp oeq float %mul.i9.i15, 0.000000e+00
-  %v.addr.0.i.i13.i19 = select i1 %cmp1.i.i12.i18, float 0.000000e+00, float %mul.i9.i15
-  %32 = bitcast float %v.addr.0.i.i13.i19 to i32
-  %cmp5.i.i14.i20 = fcmp ult float %v.addr.0.i.i13.i19, 0.000000e+00
-  %ui.0.v.i.i15.i21 = select i1 %cmp5.i.i14.i20, i32 -1, i32 1
-  %ui.0.i.i16.i22 = add i32 %ui.0.v.i.i15.i21, %32
-  %33 = bitcast i32 %ui.0.i.i16.i22 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit18.i23
+if.end.i.i12.i17:                                 ; preds = %if.end7.i7
+  %cmp1.i.i13.i18 = fcmp oeq float %mul.i10.i15, 0.000000e+00
+  %v.addr.0.i.i14.i19 = select i1 %cmp1.i.i13.i18, float 0.000000e+00, float %mul.i10.i15
+  %32 = bitcast float %v.addr.0.i.i14.i19 to i32
+  %cmp5.i.i15.i20 = fcmp ult float %v.addr.0.i.i14.i19, 0.000000e+00
+  %ui.0.v.i.i16.i21 = select i1 %cmp5.i.i15.i20, i32 -1, i32 1
+  %ui.0.i.i17.i22 = add i32 %ui.0.v.i.i16.i21, %32
+  %33 = bitcast i32 %ui.0.i.i17.i22 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit19.i23
 
-_ZN4pbrt10MulRoundUpEff.exit18.i23:               ; preds = %if.end.i.i11.i17, %if.end7.i7
-  %retval.0.i.i17.i24 = phi float [ %33, %if.end.i.i11.i17 ], [ 0x7FF0000000000000, %if.end7.i7 ]
-  %cmp.i.i19.i25 = fcmp olt float %retval.0.i.i17.i24, %31
-  %.sroa.speculated6.i20.i26 = select i1 %cmp.i.i19.i25, float %retval.0.i.i17.i24, float %31
-  %retval.sroa.0.0.vec.insert31.i27 = insertelement <2 x float> poison, float %.sroa.speculated6.i20.i26, i64 0
-  %cmp.i1.i22.i28 = fcmp ogt float %retval.0.i.i17.i24, %31
-  %.sroa.speculated.i23.i29 = select i1 %cmp.i1.i22.i28, float %retval.0.i.i17.i24, float %31
-  %retval.sroa.0.4.vec.insert33.i30 = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i27, float %.sroa.speculated.i23.i29, i64 1
+_ZN4pbrt10MulRoundUpEff.exit19.i23:               ; preds = %if.end.i.i12.i17, %if.end7.i7
+  %retval.0.i.i18.i24 = phi float [ %33, %if.end.i.i12.i17 ], [ 0x7FF0000000000000, %if.end7.i7 ]
+  %cmp.i.i20.i25 = fcmp olt float %retval.0.i.i18.i24, %31
+  %.sroa.speculated6.i21.i26 = select i1 %cmp.i.i20.i25, float %retval.0.i.i18.i24, float %31
+  %retval.sroa.0.0.vec.insert32.i27 = insertelement <2 x float> poison, float %.sroa.speculated6.i21.i26, i64 0
+  %cmp.i1.i23.i28 = fcmp ogt float %retval.0.i.i18.i24, %31
+  %.sroa.speculated.i24.i29 = select i1 %cmp.i1.i23.i28, float %retval.0.i.i18.i24, float %31
+  %retval.sroa.0.4.vec.insert34.i30 = insertelement <2 x float> %retval.sroa.0.0.vec.insert32.i27, float %.sroa.speculated.i24.i29, i64 1
   br label %_ZN4pbrt3SqrENS_8IntervalE.exit49
 
-_ZN4pbrt3SqrENS_8IntervalE.exit49:                ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i41, %_ZN4pbrt10MulRoundUpEff.exit18.i23
-  %retval.sroa.0.0.i31 = phi <2 x float> [ %29, %_ZN4pbrt10MulRoundUpEff.exit.i41 ], [ %retval.sroa.0.4.vec.insert33.i30, %_ZN4pbrt10MulRoundUpEff.exit18.i23 ]
+_ZN4pbrt3SqrENS_8IntervalE.exit49:                ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i41, %_ZN4pbrt10MulRoundUpEff.exit19.i23
+  %retval.sroa.0.0.i31 = phi <2 x float> [ %29, %_ZN4pbrt10MulRoundUpEff.exit.i41 ], [ %retval.sroa.0.4.vec.insert34.i30, %_ZN4pbrt10MulRoundUpEff.exit19.i23 ]
   %34 = fadd <2 x float> %retval.sroa.0.0.i, %retval.sroa.0.0.i31
   %add.i.i = extractelement <2 x float> %34, i64 0
   %or.cond.i.i.i51 = fcmp oeq float %add.i.i, 0xFFF0000000000000
@@ -41069,136 +41069,136 @@ _ZN4pbrt12AddRoundDownEff.exit.i:                 ; preds = %if.end.i.i.i52, %_Z
   br i1 %or.cond.i.i2.i, label %_ZNK4pbrt8IntervalplES0_.exit, label %if.end.i.i3.i
 
 if.end.i.i3.i:                                    ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i
-  %cmp1.i.i4.i = fcmp oeq float %add.i1.i, 0.000000e+00
-  %v.addr.0.i.i5.i = select i1 %cmp1.i.i4.i, float 0.000000e+00, float %add.i1.i
-  %38 = bitcast float %v.addr.0.i.i5.i to i32
-  %cmp5.i.i6.i = fcmp ult float %v.addr.0.i.i5.i, 0.000000e+00
-  %ui.0.v.i.i7.i = select i1 %cmp5.i.i6.i, i32 -1, i32 1
-  %ui.0.i.i8.i = add i32 %ui.0.v.i.i7.i, %38
-  %39 = bitcast i32 %ui.0.i.i8.i to float
+  %cmp1.i.i4.i60 = fcmp oeq float %add.i1.i, 0.000000e+00
+  %v.addr.0.i.i5.i61 = select i1 %cmp1.i.i4.i60, float 0.000000e+00, float %add.i1.i
+  %38 = bitcast float %v.addr.0.i.i5.i61 to i32
+  %cmp5.i.i6.i62 = fcmp ult float %v.addr.0.i.i5.i61, 0.000000e+00
+  %ui.0.v.i.i7.i63 = select i1 %cmp5.i.i6.i62, i32 -1, i32 1
+  %ui.0.i.i8.i64 = add i32 %ui.0.v.i.i7.i63, %38
+  %39 = bitcast i32 %ui.0.i.i8.i64 to float
   br label %_ZNK4pbrt8IntervalplES0_.exit
 
 _ZNK4pbrt8IntervalplES0_.exit:                    ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i, %if.end.i.i3.i
   %retval.0.i.i9.i = phi float [ %39, %if.end.i.i3.i ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i ]
-  %cmp.i.i.i60 = fcmp olt float %retval.0.i.i9.i, %retval.0.i.i.i58
-  %.sroa.speculated6.i.i61 = select i1 %cmp.i.i.i60, float %retval.0.i.i9.i, float %retval.0.i.i.i58
-  %cmp.i1.i.i63 = fcmp olt float %retval.0.i.i.i58, %retval.0.i.i9.i
-  %.sroa.speculated.i.i64 = select i1 %cmp.i1.i.i63, float %retval.0.i.i9.i, float %retval.0.i.i.i58
+  %cmp.i.i.i65 = fcmp olt float %retval.0.i.i9.i, %retval.0.i.i.i58
+  %.sroa.speculated6.i.i66 = select i1 %cmp.i.i.i65, float %retval.0.i.i9.i, float %retval.0.i.i.i58
+  %cmp.i1.i.i68 = fcmp olt float %retval.0.i.i.i58, %retval.0.i.i9.i
+  %.sroa.speculated.i.i69 = select i1 %cmp.i1.i.i68, float %retval.0.i.i9.i, float %retval.0.i.i.i58
   %z = getelementptr inbounds i8, ptr %v, i64 16
   %agg.tmp7.sroa.0.0.copyload = load <2 x float>, ptr %z, align 8
   %40 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %agg.tmp7.sroa.0.0.copyload)
   %41 = extractelement <2 x float> %40, i64 0
   %42 = extractelement <2 x float> %40, i64 1
-  %cmp.i68 = fcmp ogt float %41, %42
-  %ahigh.0.i69 = select i1 %cmp.i68, float %41, float %42
+  %cmp.i73 = fcmp ogt float %41, %42
+  %ahigh.0.i74 = select i1 %cmp.i73, float %41, float %42
   %43 = extractelement <2 x float> %agg.tmp7.sroa.0.0.copyload, i64 0
-  %cmp.i.i70 = fcmp ole float %43, 0.000000e+00
+  %cmp.i.i75 = fcmp ole float %43, 0.000000e+00
   %44 = extractelement <2 x float> %agg.tmp7.sroa.0.0.copyload, i64 1
-  %cmp2.i.i71 = fcmp oge float %44, 0.000000e+00
-  %45 = select i1 %cmp.i.i70, i1 %cmp2.i.i71, i1 false
-  br i1 %45, label %if.then5.i97, label %if.end7.i72
+  %cmp2.i.i76 = fcmp oge float %44, 0.000000e+00
+  %45 = select i1 %cmp.i.i75, i1 %cmp2.i.i76, i1 false
+  br i1 %45, label %if.then5.i102, label %if.end7.i77
 
-if.then5.i97:                                     ; preds = %_ZNK4pbrt8IntervalplES0_.exit
-  %mul.i.i98 = fmul float %ahigh.0.i69, %ahigh.0.i69
-  %or.cond.i.i.i99 = fcmp oeq float %mul.i.i98, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i99, label %_ZN4pbrt10MulRoundUpEff.exit.i106, label %if.end.i.i.i100
+if.then5.i102:                                    ; preds = %_ZNK4pbrt8IntervalplES0_.exit
+  %mul.i.i103 = fmul float %ahigh.0.i74, %ahigh.0.i74
+  %or.cond.i.i.i104 = fcmp oeq float %mul.i.i103, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i104, label %_ZN4pbrt10MulRoundUpEff.exit.i111, label %if.end.i.i.i105
 
-if.end.i.i.i100:                                  ; preds = %if.then5.i97
-  %cmp1.i.i.i101 = fcmp oeq float %mul.i.i98, 0.000000e+00
-  %v.addr.0.i.i.i102 = select i1 %cmp1.i.i.i101, float 0.000000e+00, float %mul.i.i98
-  %46 = bitcast float %v.addr.0.i.i.i102 to i32
-  %cmp5.i.i.i103 = fcmp ult float %v.addr.0.i.i.i102, 0.000000e+00
-  %ui.0.v.i.i.i104 = select i1 %cmp5.i.i.i103, i32 -1, i32 1
-  %ui.0.i.i.i105 = add i32 %ui.0.v.i.i.i104, %46
-  %47 = bitcast i32 %ui.0.i.i.i105 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit.i106
+if.end.i.i.i105:                                  ; preds = %if.then5.i102
+  %cmp1.i.i.i106 = fcmp oeq float %mul.i.i103, 0.000000e+00
+  %v.addr.0.i.i.i107 = select i1 %cmp1.i.i.i106, float 0.000000e+00, float %mul.i.i103
+  %46 = bitcast float %v.addr.0.i.i.i107 to i32
+  %cmp5.i.i.i108 = fcmp ult float %v.addr.0.i.i.i107, 0.000000e+00
+  %ui.0.v.i.i.i109 = select i1 %cmp5.i.i.i108, i32 -1, i32 1
+  %ui.0.i.i.i110 = add i32 %ui.0.v.i.i.i109, %46
+  %47 = bitcast i32 %ui.0.i.i.i110 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit.i111
 
-_ZN4pbrt10MulRoundUpEff.exit.i106:                ; preds = %if.end.i.i.i100, %if.then5.i97
-  %retval.0.i.i.i107 = phi float [ %47, %if.end.i.i.i100 ], [ 0x7FF0000000000000, %if.then5.i97 ]
-  %48 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i107, i64 0
-  %49 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i107, i64 1
+_ZN4pbrt10MulRoundUpEff.exit.i111:                ; preds = %if.end.i.i.i105, %if.then5.i102
+  %retval.0.i.i.i112 = phi float [ %47, %if.end.i.i.i105 ], [ 0x7FF0000000000000, %if.then5.i102 ]
+  %48 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i112, i64 0
+  %49 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i112, i64 1
   %50 = fcmp olt <2 x float> %48, %49
   %51 = shufflevector <2 x float> %48, <2 x float> poison, <2 x i32> zeroinitializer
   %52 = select <2 x i1> %50, <2 x float> %51, <2 x float> zeroinitializer
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit114
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit119
 
-if.end7.i72:                                      ; preds = %_ZNK4pbrt8IntervalplES0_.exit
-  %alow.0.i73 = select i1 %cmp.i68, float %42, float %41
-  %mul.i1.i74 = fmul float %alow.0.i73, %alow.0.i73
-  %cmp1.i.i3.i75 = fcmp oeq float %mul.i1.i74, 0.000000e+00
-  %v.addr.0.i.i4.i76 = select i1 %cmp1.i.i3.i75, float -0.000000e+00, float %mul.i1.i74
-  %53 = bitcast float %v.addr.0.i.i4.i76 to i32
-  %cmp5.i.i5.i77 = fcmp ogt float %v.addr.0.i.i4.i76, 0.000000e+00
-  %ui.0.v.i.i6.i78 = select i1 %cmp5.i.i5.i77, i32 -1, i32 1
-  %ui.0.i.i7.i79 = add i32 %ui.0.v.i.i6.i78, %53
-  %54 = bitcast i32 %ui.0.i.i7.i79 to float
-  %mul.i9.i80 = fmul float %ahigh.0.i69, %ahigh.0.i69
-  %or.cond.i.i10.i81 = fcmp oeq float %mul.i9.i80, 0x7FF0000000000000
-  br i1 %or.cond.i.i10.i81, label %_ZN4pbrt10MulRoundUpEff.exit18.i88, label %if.end.i.i11.i82
+if.end7.i77:                                      ; preds = %_ZNK4pbrt8IntervalplES0_.exit
+  %alow.0.i78 = select i1 %cmp.i73, float %42, float %41
+  %mul.i1.i79 = fmul float %alow.0.i78, %alow.0.i78
+  %cmp1.i.i4.i80 = fcmp oeq float %mul.i1.i79, 0.000000e+00
+  %v.addr.0.i.i5.i81 = select i1 %cmp1.i.i4.i80, float -0.000000e+00, float %mul.i1.i79
+  %53 = bitcast float %v.addr.0.i.i5.i81 to i32
+  %cmp5.i.i6.i82 = fcmp ogt float %v.addr.0.i.i5.i81, 0.000000e+00
+  %ui.0.v.i.i7.i83 = select i1 %cmp5.i.i6.i82, i32 -1, i32 1
+  %ui.0.i.i8.i84 = add i32 %ui.0.v.i.i7.i83, %53
+  %54 = bitcast i32 %ui.0.i.i8.i84 to float
+  %mul.i10.i85 = fmul float %ahigh.0.i74, %ahigh.0.i74
+  %or.cond.i.i11.i86 = fcmp oeq float %mul.i10.i85, 0x7FF0000000000000
+  br i1 %or.cond.i.i11.i86, label %_ZN4pbrt10MulRoundUpEff.exit19.i93, label %if.end.i.i12.i87
 
-if.end.i.i11.i82:                                 ; preds = %if.end7.i72
-  %cmp1.i.i12.i83 = fcmp oeq float %mul.i9.i80, 0.000000e+00
-  %v.addr.0.i.i13.i84 = select i1 %cmp1.i.i12.i83, float 0.000000e+00, float %mul.i9.i80
-  %55 = bitcast float %v.addr.0.i.i13.i84 to i32
-  %cmp5.i.i14.i85 = fcmp ult float %v.addr.0.i.i13.i84, 0.000000e+00
-  %ui.0.v.i.i15.i86 = select i1 %cmp5.i.i14.i85, i32 -1, i32 1
-  %ui.0.i.i16.i87 = add i32 %ui.0.v.i.i15.i86, %55
-  %56 = bitcast i32 %ui.0.i.i16.i87 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit18.i88
+if.end.i.i12.i87:                                 ; preds = %if.end7.i77
+  %cmp1.i.i13.i88 = fcmp oeq float %mul.i10.i85, 0.000000e+00
+  %v.addr.0.i.i14.i89 = select i1 %cmp1.i.i13.i88, float 0.000000e+00, float %mul.i10.i85
+  %55 = bitcast float %v.addr.0.i.i14.i89 to i32
+  %cmp5.i.i15.i90 = fcmp ult float %v.addr.0.i.i14.i89, 0.000000e+00
+  %ui.0.v.i.i16.i91 = select i1 %cmp5.i.i15.i90, i32 -1, i32 1
+  %ui.0.i.i17.i92 = add i32 %ui.0.v.i.i16.i91, %55
+  %56 = bitcast i32 %ui.0.i.i17.i92 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit19.i93
 
-_ZN4pbrt10MulRoundUpEff.exit18.i88:               ; preds = %if.end.i.i11.i82, %if.end7.i72
-  %retval.0.i.i17.i89 = phi float [ %56, %if.end.i.i11.i82 ], [ 0x7FF0000000000000, %if.end7.i72 ]
-  %cmp.i.i19.i90 = fcmp olt float %retval.0.i.i17.i89, %54
-  %.sroa.speculated6.i20.i91 = select i1 %cmp.i.i19.i90, float %retval.0.i.i17.i89, float %54
-  %retval.sroa.0.0.vec.insert31.i92 = insertelement <2 x float> poison, float %.sroa.speculated6.i20.i91, i64 0
-  %cmp.i1.i22.i93 = fcmp ogt float %retval.0.i.i17.i89, %54
-  %.sroa.speculated.i23.i94 = select i1 %cmp.i1.i22.i93, float %retval.0.i.i17.i89, float %54
-  %retval.sroa.0.4.vec.insert33.i95 = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i92, float %.sroa.speculated.i23.i94, i64 1
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit114
+_ZN4pbrt10MulRoundUpEff.exit19.i93:               ; preds = %if.end.i.i12.i87, %if.end7.i77
+  %retval.0.i.i18.i94 = phi float [ %56, %if.end.i.i12.i87 ], [ 0x7FF0000000000000, %if.end7.i77 ]
+  %cmp.i.i20.i95 = fcmp olt float %retval.0.i.i18.i94, %54
+  %.sroa.speculated6.i21.i96 = select i1 %cmp.i.i20.i95, float %retval.0.i.i18.i94, float %54
+  %retval.sroa.0.0.vec.insert32.i97 = insertelement <2 x float> poison, float %.sroa.speculated6.i21.i96, i64 0
+  %cmp.i1.i23.i98 = fcmp ogt float %retval.0.i.i18.i94, %54
+  %.sroa.speculated.i24.i99 = select i1 %cmp.i1.i23.i98, float %retval.0.i.i18.i94, float %54
+  %retval.sroa.0.4.vec.insert34.i100 = insertelement <2 x float> %retval.sroa.0.0.vec.insert32.i97, float %.sroa.speculated.i24.i99, i64 1
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit119
 
-_ZN4pbrt3SqrENS_8IntervalE.exit114:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i106, %_ZN4pbrt10MulRoundUpEff.exit18.i88
-  %retval.sroa.0.0.i96 = phi <2 x float> [ %52, %_ZN4pbrt10MulRoundUpEff.exit.i106 ], [ %retval.sroa.0.4.vec.insert33.i95, %_ZN4pbrt10MulRoundUpEff.exit18.i88 ]
-  %i.sroa.0.0.vec.extract.i115 = extractelement <2 x float> %retval.sroa.0.0.i96, i64 0
-  %add.i.i116 = fadd float %.sroa.speculated6.i.i61, %i.sroa.0.0.vec.extract.i115
-  %or.cond.i.i.i117 = fcmp oeq float %add.i.i116, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i117, label %_ZN4pbrt12AddRoundDownEff.exit.i124, label %if.end.i.i.i118
+_ZN4pbrt3SqrENS_8IntervalE.exit119:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i111, %_ZN4pbrt10MulRoundUpEff.exit19.i93
+  %retval.sroa.0.0.i101 = phi <2 x float> [ %52, %_ZN4pbrt10MulRoundUpEff.exit.i111 ], [ %retval.sroa.0.4.vec.insert34.i100, %_ZN4pbrt10MulRoundUpEff.exit19.i93 ]
+  %i.sroa.0.0.vec.extract.i120 = extractelement <2 x float> %retval.sroa.0.0.i101, i64 0
+  %add.i.i121 = fadd float %.sroa.speculated6.i.i66, %i.sroa.0.0.vec.extract.i120
+  %or.cond.i.i.i122 = fcmp oeq float %add.i.i121, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i122, label %_ZN4pbrt12AddRoundDownEff.exit.i129, label %if.end.i.i.i123
 
-if.end.i.i.i118:                                  ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit114
-  %cmp1.i.i.i119 = fcmp oeq float %add.i.i116, 0.000000e+00
-  %v.addr.0.i.i.i120 = select i1 %cmp1.i.i.i119, float -0.000000e+00, float %add.i.i116
-  %57 = bitcast float %v.addr.0.i.i.i120 to i32
-  %cmp5.i.i.i121 = fcmp ogt float %v.addr.0.i.i.i120, 0.000000e+00
-  %ui.0.v.i.i.i122 = select i1 %cmp5.i.i.i121, i32 -1, i32 1
-  %ui.0.i.i.i123 = add i32 %ui.0.v.i.i.i122, %57
-  %58 = bitcast i32 %ui.0.i.i.i123 to float
-  br label %_ZN4pbrt12AddRoundDownEff.exit.i124
+if.end.i.i.i123:                                  ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit119
+  %cmp1.i.i.i124 = fcmp oeq float %add.i.i121, 0.000000e+00
+  %v.addr.0.i.i.i125 = select i1 %cmp1.i.i.i124, float -0.000000e+00, float %add.i.i121
+  %57 = bitcast float %v.addr.0.i.i.i125 to i32
+  %cmp5.i.i.i126 = fcmp ogt float %v.addr.0.i.i.i125, 0.000000e+00
+  %ui.0.v.i.i.i127 = select i1 %cmp5.i.i.i126, i32 -1, i32 1
+  %ui.0.i.i.i128 = add i32 %ui.0.v.i.i.i127, %57
+  %58 = bitcast i32 %ui.0.i.i.i128 to float
+  br label %_ZN4pbrt12AddRoundDownEff.exit.i129
 
-_ZN4pbrt12AddRoundDownEff.exit.i124:              ; preds = %if.end.i.i.i118, %_ZN4pbrt3SqrENS_8IntervalE.exit114
-  %retval.0.i.i.i125 = phi float [ %58, %if.end.i.i.i118 ], [ 0xFFF0000000000000, %_ZN4pbrt3SqrENS_8IntervalE.exit114 ]
-  %i.sroa.0.4.vec.extract.i127 = extractelement <2 x float> %retval.sroa.0.0.i96, i64 1
-  %add.i1.i128 = fadd float %.sroa.speculated.i.i64, %i.sroa.0.4.vec.extract.i127
-  %or.cond.i.i2.i129 = fcmp oeq float %add.i1.i128, 0x7FF0000000000000
-  br i1 %or.cond.i.i2.i129, label %_ZNK4pbrt8IntervalplES0_.exit143, label %if.end.i.i3.i130
+_ZN4pbrt12AddRoundDownEff.exit.i129:              ; preds = %if.end.i.i.i123, %_ZN4pbrt3SqrENS_8IntervalE.exit119
+  %retval.0.i.i.i130 = phi float [ %58, %if.end.i.i.i123 ], [ 0xFFF0000000000000, %_ZN4pbrt3SqrENS_8IntervalE.exit119 ]
+  %i.sroa.0.4.vec.extract.i132 = extractelement <2 x float> %retval.sroa.0.0.i101, i64 1
+  %add.i1.i133 = fadd float %.sroa.speculated.i.i69, %i.sroa.0.4.vec.extract.i132
+  %or.cond.i.i2.i134 = fcmp oeq float %add.i1.i133, 0x7FF0000000000000
+  br i1 %or.cond.i.i2.i134, label %_ZNK4pbrt8IntervalplES0_.exit148, label %if.end.i.i3.i135
 
-if.end.i.i3.i130:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i124
-  %cmp1.i.i4.i131 = fcmp oeq float %add.i1.i128, 0.000000e+00
-  %v.addr.0.i.i5.i132 = select i1 %cmp1.i.i4.i131, float 0.000000e+00, float %add.i1.i128
-  %59 = bitcast float %v.addr.0.i.i5.i132 to i32
-  %cmp5.i.i6.i133 = fcmp ult float %v.addr.0.i.i5.i132, 0.000000e+00
-  %ui.0.v.i.i7.i134 = select i1 %cmp5.i.i6.i133, i32 -1, i32 1
-  %ui.0.i.i8.i135 = add i32 %ui.0.v.i.i7.i134, %59
-  %60 = bitcast i32 %ui.0.i.i8.i135 to float
-  br label %_ZNK4pbrt8IntervalplES0_.exit143
+if.end.i.i3.i135:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i129
+  %cmp1.i.i4.i136 = fcmp oeq float %add.i1.i133, 0.000000e+00
+  %v.addr.0.i.i5.i137 = select i1 %cmp1.i.i4.i136, float 0.000000e+00, float %add.i1.i133
+  %59 = bitcast float %v.addr.0.i.i5.i137 to i32
+  %cmp5.i.i6.i138 = fcmp ult float %v.addr.0.i.i5.i137, 0.000000e+00
+  %ui.0.v.i.i7.i139 = select i1 %cmp5.i.i6.i138, i32 -1, i32 1
+  %ui.0.i.i8.i140 = add i32 %ui.0.v.i.i7.i139, %59
+  %60 = bitcast i32 %ui.0.i.i8.i140 to float
+  br label %_ZNK4pbrt8IntervalplES0_.exit148
 
-_ZNK4pbrt8IntervalplES0_.exit143:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i124, %if.end.i.i3.i130
-  %retval.0.i.i9.i136 = phi float [ %60, %if.end.i.i3.i130 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i124 ]
-  %cmp.i.i.i137 = fcmp olt float %retval.0.i.i9.i136, %retval.0.i.i.i125
-  %.sroa.speculated6.i.i138 = select i1 %cmp.i.i.i137, float %retval.0.i.i9.i136, float %retval.0.i.i.i125
-  %retval.sroa.0.0.vec.insert.i139 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i138, i64 0
-  %cmp.i1.i.i140 = fcmp olt float %retval.0.i.i.i125, %retval.0.i.i9.i136
-  %.sroa.speculated.i.i141 = select i1 %cmp.i1.i.i140, float %retval.0.i.i9.i136, float %retval.0.i.i.i125
-  %retval.sroa.0.4.vec.insert.i142 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i139, float %.sroa.speculated.i.i141, i64 1
-  ret <2 x float> %retval.sroa.0.4.vec.insert.i142
+_ZNK4pbrt8IntervalplES0_.exit148:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i129, %if.end.i.i3.i135
+  %retval.0.i.i9.i141 = phi float [ %60, %if.end.i.i3.i135 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i129 ]
+  %cmp.i.i.i142 = fcmp olt float %retval.0.i.i9.i141, %retval.0.i.i.i130
+  %.sroa.speculated6.i.i143 = select i1 %cmp.i.i.i142, float %retval.0.i.i9.i141, float %retval.0.i.i.i130
+  %retval.sroa.0.0.vec.insert.i144 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i143, i64 0
+  %cmp.i1.i.i145 = fcmp olt float %retval.0.i.i.i130, %retval.0.i.i9.i141
+  %.sroa.speculated.i.i146 = select i1 %cmp.i1.i.i145, float %retval.0.i.i9.i141, float %retval.0.i.i.i130
+  %retval.sroa.0.4.vec.insert.i147 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i144, float %.sroa.speculated.i.i146, i64 1
+  ret <2 x float> %retval.sroa.0.4.vec.insert.i147
 }
 
 declare void @_ZNK4pbrt9TransformclERKNS_18SurfaceInteractionE(ptr sret(%"class.pbrt::SurfaceInteraction") align 8, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #0
@@ -41428,39 +41428,39 @@ _ZN4pbrt10MulRoundUpEff.exit.i:                   ; preds = %if.end.i.i.i, %if.t
 if.end7.i:                                        ; preds = %entry
   %alow.0.i = select i1 %cmp.i, float %8, float %7
   %mul.i1.i = fmul float %alow.0.i, %alow.0.i
-  %cmp1.i.i3.i = fcmp oeq float %mul.i1.i, 0.000000e+00
-  %v.addr.0.i.i4.i = select i1 %cmp1.i.i3.i, float -0.000000e+00, float %mul.i1.i
-  %19 = bitcast float %v.addr.0.i.i4.i to i32
-  %cmp5.i.i5.i = fcmp ogt float %v.addr.0.i.i4.i, 0.000000e+00
-  %ui.0.v.i.i6.i = select i1 %cmp5.i.i5.i, i32 -1, i32 1
-  %ui.0.i.i7.i = add i32 %ui.0.v.i.i6.i, %19
-  %20 = bitcast i32 %ui.0.i.i7.i to float
-  %mul.i9.i = fmul float %ahigh.0.i, %ahigh.0.i
-  %or.cond.i.i10.i = fcmp oeq float %mul.i9.i, 0x7FF0000000000000
-  br i1 %or.cond.i.i10.i, label %_ZN4pbrt10MulRoundUpEff.exit18.i, label %if.end.i.i11.i
+  %cmp1.i.i4.i = fcmp oeq float %mul.i1.i, 0.000000e+00
+  %v.addr.0.i.i5.i = select i1 %cmp1.i.i4.i, float -0.000000e+00, float %mul.i1.i
+  %19 = bitcast float %v.addr.0.i.i5.i to i32
+  %cmp5.i.i6.i = fcmp ogt float %v.addr.0.i.i5.i, 0.000000e+00
+  %ui.0.v.i.i7.i = select i1 %cmp5.i.i6.i, i32 -1, i32 1
+  %ui.0.i.i8.i = add i32 %ui.0.v.i.i7.i, %19
+  %20 = bitcast i32 %ui.0.i.i8.i to float
+  %mul.i10.i = fmul float %ahigh.0.i, %ahigh.0.i
+  %or.cond.i.i11.i = fcmp oeq float %mul.i10.i, 0x7FF0000000000000
+  br i1 %or.cond.i.i11.i, label %_ZN4pbrt10MulRoundUpEff.exit19.i, label %if.end.i.i12.i
 
-if.end.i.i11.i:                                   ; preds = %if.end7.i
-  %cmp1.i.i12.i = fcmp oeq float %mul.i9.i, 0.000000e+00
-  %v.addr.0.i.i13.i = select i1 %cmp1.i.i12.i, float 0.000000e+00, float %mul.i9.i
-  %21 = bitcast float %v.addr.0.i.i13.i to i32
-  %cmp5.i.i14.i = fcmp ult float %v.addr.0.i.i13.i, 0.000000e+00
-  %ui.0.v.i.i15.i = select i1 %cmp5.i.i14.i, i32 -1, i32 1
-  %ui.0.i.i16.i = add i32 %ui.0.v.i.i15.i, %21
-  %22 = bitcast i32 %ui.0.i.i16.i to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit18.i
+if.end.i.i12.i:                                   ; preds = %if.end7.i
+  %cmp1.i.i13.i = fcmp oeq float %mul.i10.i, 0.000000e+00
+  %v.addr.0.i.i14.i = select i1 %cmp1.i.i13.i, float 0.000000e+00, float %mul.i10.i
+  %21 = bitcast float %v.addr.0.i.i14.i to i32
+  %cmp5.i.i15.i = fcmp ult float %v.addr.0.i.i14.i, 0.000000e+00
+  %ui.0.v.i.i16.i = select i1 %cmp5.i.i15.i, i32 -1, i32 1
+  %ui.0.i.i17.i = add i32 %ui.0.v.i.i16.i, %21
+  %22 = bitcast i32 %ui.0.i.i17.i to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit19.i
 
-_ZN4pbrt10MulRoundUpEff.exit18.i:                 ; preds = %if.end.i.i11.i, %if.end7.i
-  %retval.0.i.i17.i = phi float [ %22, %if.end.i.i11.i ], [ 0x7FF0000000000000, %if.end7.i ]
-  %cmp.i.i19.i = fcmp olt float %retval.0.i.i17.i, %20
-  %.sroa.speculated6.i20.i = select i1 %cmp.i.i19.i, float %retval.0.i.i17.i, float %20
-  %retval.sroa.0.0.vec.insert31.i = insertelement <2 x float> poison, float %.sroa.speculated6.i20.i, i64 0
-  %cmp.i1.i22.i = fcmp ogt float %retval.0.i.i17.i, %20
-  %.sroa.speculated.i23.i = select i1 %cmp.i1.i22.i, float %retval.0.i.i17.i, float %20
-  %retval.sroa.0.4.vec.insert33.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i, float %.sroa.speculated.i23.i, i64 1
+_ZN4pbrt10MulRoundUpEff.exit19.i:                 ; preds = %if.end.i.i12.i, %if.end7.i
+  %retval.0.i.i18.i = phi float [ %22, %if.end.i.i12.i ], [ 0x7FF0000000000000, %if.end7.i ]
+  %cmp.i.i20.i = fcmp olt float %retval.0.i.i18.i, %20
+  %.sroa.speculated6.i21.i = select i1 %cmp.i.i20.i, float %retval.0.i.i18.i, float %20
+  %retval.sroa.0.0.vec.insert32.i = insertelement <2 x float> poison, float %.sroa.speculated6.i21.i, i64 0
+  %cmp.i1.i23.i = fcmp ogt float %retval.0.i.i18.i, %20
+  %.sroa.speculated.i24.i = select i1 %cmp.i1.i23.i, float %retval.0.i.i18.i, float %20
+  %retval.sroa.0.4.vec.insert34.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert32.i, float %.sroa.speculated.i24.i, i64 1
   br label %_ZN4pbrt3SqrENS_8IntervalE.exit
 
-_ZN4pbrt3SqrENS_8IntervalE.exit:                  ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i, %_ZN4pbrt10MulRoundUpEff.exit18.i
-  %retval.sroa.0.0.i = phi <2 x float> [ %18, %_ZN4pbrt10MulRoundUpEff.exit.i ], [ %retval.sroa.0.4.vec.insert33.i, %_ZN4pbrt10MulRoundUpEff.exit18.i ]
+_ZN4pbrt3SqrENS_8IntervalE.exit:                  ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i, %_ZN4pbrt10MulRoundUpEff.exit19.i
+  %retval.sroa.0.0.i = phi <2 x float> [ %18, %_ZN4pbrt10MulRoundUpEff.exit.i ], [ %retval.sroa.0.4.vec.insert34.i, %_ZN4pbrt10MulRoundUpEff.exit19.i ]
   %y = getelementptr inbounds i8, ptr %di, i64 8
   %agg.tmp7.sroa.0.0.copyload = load <2 x float>, ptr %y, align 8
   %23 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %agg.tmp7.sroa.0.0.copyload)
@@ -41502,39 +41502,39 @@ _ZN4pbrt10MulRoundUpEff.exit.i66:                 ; preds = %if.end.i.i.i60, %if
 if.end7.i32:                                      ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit
   %alow.0.i33 = select i1 %cmp.i28, float %25, float %24
   %mul.i1.i34 = fmul float %alow.0.i33, %alow.0.i33
-  %cmp1.i.i3.i35 = fcmp oeq float %mul.i1.i34, 0.000000e+00
-  %v.addr.0.i.i4.i36 = select i1 %cmp1.i.i3.i35, float -0.000000e+00, float %mul.i1.i34
-  %36 = bitcast float %v.addr.0.i.i4.i36 to i32
-  %cmp5.i.i5.i37 = fcmp ogt float %v.addr.0.i.i4.i36, 0.000000e+00
-  %ui.0.v.i.i6.i38 = select i1 %cmp5.i.i5.i37, i32 -1, i32 1
-  %ui.0.i.i7.i39 = add i32 %ui.0.v.i.i6.i38, %36
-  %37 = bitcast i32 %ui.0.i.i7.i39 to float
-  %mul.i9.i40 = fmul float %ahigh.0.i29, %ahigh.0.i29
-  %or.cond.i.i10.i41 = fcmp oeq float %mul.i9.i40, 0x7FF0000000000000
-  br i1 %or.cond.i.i10.i41, label %_ZN4pbrt10MulRoundUpEff.exit18.i48, label %if.end.i.i11.i42
+  %cmp1.i.i4.i35 = fcmp oeq float %mul.i1.i34, 0.000000e+00
+  %v.addr.0.i.i5.i36 = select i1 %cmp1.i.i4.i35, float -0.000000e+00, float %mul.i1.i34
+  %36 = bitcast float %v.addr.0.i.i5.i36 to i32
+  %cmp5.i.i6.i37 = fcmp ogt float %v.addr.0.i.i5.i36, 0.000000e+00
+  %ui.0.v.i.i7.i38 = select i1 %cmp5.i.i6.i37, i32 -1, i32 1
+  %ui.0.i.i8.i39 = add i32 %ui.0.v.i.i7.i38, %36
+  %37 = bitcast i32 %ui.0.i.i8.i39 to float
+  %mul.i10.i40 = fmul float %ahigh.0.i29, %ahigh.0.i29
+  %or.cond.i.i11.i41 = fcmp oeq float %mul.i10.i40, 0x7FF0000000000000
+  br i1 %or.cond.i.i11.i41, label %_ZN4pbrt10MulRoundUpEff.exit19.i48, label %if.end.i.i12.i42
 
-if.end.i.i11.i42:                                 ; preds = %if.end7.i32
-  %cmp1.i.i12.i43 = fcmp oeq float %mul.i9.i40, 0.000000e+00
-  %v.addr.0.i.i13.i44 = select i1 %cmp1.i.i12.i43, float 0.000000e+00, float %mul.i9.i40
-  %38 = bitcast float %v.addr.0.i.i13.i44 to i32
-  %cmp5.i.i14.i45 = fcmp ult float %v.addr.0.i.i13.i44, 0.000000e+00
-  %ui.0.v.i.i15.i46 = select i1 %cmp5.i.i14.i45, i32 -1, i32 1
-  %ui.0.i.i16.i47 = add i32 %ui.0.v.i.i15.i46, %38
-  %39 = bitcast i32 %ui.0.i.i16.i47 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit18.i48
+if.end.i.i12.i42:                                 ; preds = %if.end7.i32
+  %cmp1.i.i13.i43 = fcmp oeq float %mul.i10.i40, 0.000000e+00
+  %v.addr.0.i.i14.i44 = select i1 %cmp1.i.i13.i43, float 0.000000e+00, float %mul.i10.i40
+  %38 = bitcast float %v.addr.0.i.i14.i44 to i32
+  %cmp5.i.i15.i45 = fcmp ult float %v.addr.0.i.i14.i44, 0.000000e+00
+  %ui.0.v.i.i16.i46 = select i1 %cmp5.i.i15.i45, i32 -1, i32 1
+  %ui.0.i.i17.i47 = add i32 %ui.0.v.i.i16.i46, %38
+  %39 = bitcast i32 %ui.0.i.i17.i47 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit19.i48
 
-_ZN4pbrt10MulRoundUpEff.exit18.i48:               ; preds = %if.end.i.i11.i42, %if.end7.i32
-  %retval.0.i.i17.i49 = phi float [ %39, %if.end.i.i11.i42 ], [ 0x7FF0000000000000, %if.end7.i32 ]
-  %cmp.i.i19.i50 = fcmp olt float %retval.0.i.i17.i49, %37
-  %.sroa.speculated6.i20.i51 = select i1 %cmp.i.i19.i50, float %retval.0.i.i17.i49, float %37
-  %retval.sroa.0.0.vec.insert31.i52 = insertelement <2 x float> poison, float %.sroa.speculated6.i20.i51, i64 0
-  %cmp.i1.i22.i53 = fcmp ogt float %retval.0.i.i17.i49, %37
-  %.sroa.speculated.i23.i54 = select i1 %cmp.i1.i22.i53, float %retval.0.i.i17.i49, float %37
-  %retval.sroa.0.4.vec.insert33.i55 = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i52, float %.sroa.speculated.i23.i54, i64 1
+_ZN4pbrt10MulRoundUpEff.exit19.i48:               ; preds = %if.end.i.i12.i42, %if.end7.i32
+  %retval.0.i.i18.i49 = phi float [ %39, %if.end.i.i12.i42 ], [ 0x7FF0000000000000, %if.end7.i32 ]
+  %cmp.i.i20.i50 = fcmp olt float %retval.0.i.i18.i49, %37
+  %.sroa.speculated6.i21.i51 = select i1 %cmp.i.i20.i50, float %retval.0.i.i18.i49, float %37
+  %retval.sroa.0.0.vec.insert32.i52 = insertelement <2 x float> poison, float %.sroa.speculated6.i21.i51, i64 0
+  %cmp.i1.i23.i53 = fcmp ogt float %retval.0.i.i18.i49, %37
+  %.sroa.speculated.i24.i54 = select i1 %cmp.i1.i23.i53, float %retval.0.i.i18.i49, float %37
+  %retval.sroa.0.4.vec.insert34.i55 = insertelement <2 x float> %retval.sroa.0.0.vec.insert32.i52, float %.sroa.speculated.i24.i54, i64 1
   br label %_ZN4pbrt3SqrENS_8IntervalE.exit74
 
-_ZN4pbrt3SqrENS_8IntervalE.exit74:                ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i66, %_ZN4pbrt10MulRoundUpEff.exit18.i48
-  %retval.sroa.0.0.i56 = phi <2 x float> [ %35, %_ZN4pbrt10MulRoundUpEff.exit.i66 ], [ %retval.sroa.0.4.vec.insert33.i55, %_ZN4pbrt10MulRoundUpEff.exit18.i48 ]
+_ZN4pbrt3SqrENS_8IntervalE.exit74:                ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i66, %_ZN4pbrt10MulRoundUpEff.exit19.i48
+  %retval.sroa.0.0.i56 = phi <2 x float> [ %35, %_ZN4pbrt10MulRoundUpEff.exit.i66 ], [ %retval.sroa.0.4.vec.insert34.i55, %_ZN4pbrt10MulRoundUpEff.exit19.i48 ]
   %40 = fadd <2 x float> %retval.sroa.0.0.i, %retval.sroa.0.0.i56
   %add.i.i = extractelement <2 x float> %40, i64 0
   %or.cond.i.i.i76 = fcmp oeq float %add.i.i, 0xFFF0000000000000
@@ -41558,83 +41558,83 @@ _ZN4pbrt12AddRoundDownEff.exit.i:                 ; preds = %if.end.i.i.i77, %_Z
   br i1 %or.cond.i.i2.i, label %_ZNK4pbrt8IntervalplES0_.exit, label %if.end.i.i3.i
 
 if.end.i.i3.i:                                    ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i
-  %cmp1.i.i4.i = fcmp oeq float %add.i1.i, 0.000000e+00
-  %v.addr.0.i.i5.i = select i1 %cmp1.i.i4.i, float 0.000000e+00, float %add.i1.i
-  %44 = bitcast float %v.addr.0.i.i5.i to i32
-  %cmp5.i.i6.i = fcmp ult float %v.addr.0.i.i5.i, 0.000000e+00
-  %ui.0.v.i.i7.i = select i1 %cmp5.i.i6.i, i32 -1, i32 1
-  %ui.0.i.i8.i = add i32 %ui.0.v.i.i7.i, %44
-  %45 = bitcast i32 %ui.0.i.i8.i to float
+  %cmp1.i.i4.i85 = fcmp oeq float %add.i1.i, 0.000000e+00
+  %v.addr.0.i.i5.i86 = select i1 %cmp1.i.i4.i85, float 0.000000e+00, float %add.i1.i
+  %44 = bitcast float %v.addr.0.i.i5.i86 to i32
+  %cmp5.i.i6.i87 = fcmp ult float %v.addr.0.i.i5.i86, 0.000000e+00
+  %ui.0.v.i.i7.i88 = select i1 %cmp5.i.i6.i87, i32 -1, i32 1
+  %ui.0.i.i8.i89 = add i32 %ui.0.v.i.i7.i88, %44
+  %45 = bitcast i32 %ui.0.i.i8.i89 to float
   br label %_ZNK4pbrt8IntervalplES0_.exit
 
 _ZNK4pbrt8IntervalplES0_.exit:                    ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i, %if.end.i.i3.i
   %retval.0.i.i9.i = phi float [ %45, %if.end.i.i3.i ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i ]
-  %cmp.i.i.i85 = fcmp olt float %retval.0.i.i9.i, %retval.0.i.i.i83
-  %.sroa.speculated6.i.i86 = select i1 %cmp.i.i.i85, float %retval.0.i.i9.i, float %retval.0.i.i.i83
-  %retval.sroa.0.0.vec.insert.i87 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i86, i64 0
-  %cmp.i1.i.i88 = fcmp olt float %retval.0.i.i.i83, %retval.0.i.i9.i
-  %.sroa.speculated.i.i89 = select i1 %cmp.i1.i.i88, float %retval.0.i.i9.i, float %retval.0.i.i.i83
-  %retval.sroa.0.4.vec.insert.i90 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i87, float %.sroa.speculated.i.i89, i64 1
+  %cmp.i.i.i90 = fcmp olt float %retval.0.i.i9.i, %retval.0.i.i.i83
+  %.sroa.speculated6.i.i91 = select i1 %cmp.i.i.i90, float %retval.0.i.i9.i, float %retval.0.i.i.i83
+  %retval.sroa.0.0.vec.insert.i92 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i91, i64 0
+  %cmp.i1.i.i93 = fcmp olt float %retval.0.i.i.i83, %retval.0.i.i9.i
+  %.sroa.speculated.i.i94 = select i1 %cmp.i1.i.i93, float %retval.0.i.i9.i, float %retval.0.i.i.i83
+  %retval.sroa.0.4.vec.insert.i95 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i92, float %.sroa.speculated.i.i94, i64 1
   %agg.tmp13.sroa.0.0.copyload = load <2 x float>, ptr %oi, align 16
   %call15 = call <2 x float> @_ZNK4pbrt8IntervalmlES0_(ptr noundef nonnull align 4 dereferenceable(8) %di, <2 x float> %agg.tmp13.sroa.0.0.copyload)
   %y19 = getelementptr inbounds i8, ptr %oi, i64 8
   %agg.tmp18.sroa.0.0.copyload = load <2 x float>, ptr %y19, align 8
   %call20 = call <2 x float> @_ZNK4pbrt8IntervalmlES0_(ptr noundef nonnull align 4 dereferenceable(8) %y, <2 x float> %agg.tmp18.sroa.0.0.copyload)
   %46 = fadd <2 x float> %call15, %call20
-  %add.i.i92 = extractelement <2 x float> %46, i64 0
-  %or.cond.i.i.i93 = fcmp oeq float %add.i.i92, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i93, label %_ZN4pbrt12AddRoundDownEff.exit.i100, label %if.end.i.i.i94
+  %add.i.i97 = extractelement <2 x float> %46, i64 0
+  %or.cond.i.i.i98 = fcmp oeq float %add.i.i97, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i98, label %_ZN4pbrt12AddRoundDownEff.exit.i105, label %if.end.i.i.i99
 
-if.end.i.i.i94:                                   ; preds = %_ZNK4pbrt8IntervalplES0_.exit
-  %cmp1.i.i.i95 = fcmp oeq float %add.i.i92, 0.000000e+00
-  %v.addr.0.i.i.i96 = select i1 %cmp1.i.i.i95, float -0.000000e+00, float %add.i.i92
-  %47 = bitcast float %v.addr.0.i.i.i96 to i32
-  %cmp5.i.i.i97 = fcmp ogt float %v.addr.0.i.i.i96, 0.000000e+00
-  %ui.0.v.i.i.i98 = select i1 %cmp5.i.i.i97, i32 -1, i32 1
-  %ui.0.i.i.i99 = add i32 %ui.0.v.i.i.i98, %47
-  %48 = bitcast i32 %ui.0.i.i.i99 to float
-  br label %_ZN4pbrt12AddRoundDownEff.exit.i100
+if.end.i.i.i99:                                   ; preds = %_ZNK4pbrt8IntervalplES0_.exit
+  %cmp1.i.i.i100 = fcmp oeq float %add.i.i97, 0.000000e+00
+  %v.addr.0.i.i.i101 = select i1 %cmp1.i.i.i100, float -0.000000e+00, float %add.i.i97
+  %47 = bitcast float %v.addr.0.i.i.i101 to i32
+  %cmp5.i.i.i102 = fcmp ogt float %v.addr.0.i.i.i101, 0.000000e+00
+  %ui.0.v.i.i.i103 = select i1 %cmp5.i.i.i102, i32 -1, i32 1
+  %ui.0.i.i.i104 = add i32 %ui.0.v.i.i.i103, %47
+  %48 = bitcast i32 %ui.0.i.i.i104 to float
+  br label %_ZN4pbrt12AddRoundDownEff.exit.i105
 
-_ZN4pbrt12AddRoundDownEff.exit.i100:              ; preds = %if.end.i.i.i94, %_ZNK4pbrt8IntervalplES0_.exit
-  %retval.0.i.i.i101 = phi float [ %48, %if.end.i.i.i94 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit ]
+_ZN4pbrt12AddRoundDownEff.exit.i105:              ; preds = %if.end.i.i.i99, %_ZNK4pbrt8IntervalplES0_.exit
+  %retval.0.i.i.i106 = phi float [ %48, %if.end.i.i.i99 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit ]
   %49 = fadd <2 x float> %call15, %call20
-  %add.i1.i104 = extractelement <2 x float> %49, i64 1
-  %or.cond.i.i2.i105 = fcmp oeq float %add.i1.i104, 0x7FF0000000000000
-  br i1 %or.cond.i.i2.i105, label %_ZNK4pbrt8IntervalplES0_.exit119, label %if.end.i.i3.i106
+  %add.i1.i109 = extractelement <2 x float> %49, i64 1
+  %or.cond.i.i2.i110 = fcmp oeq float %add.i1.i109, 0x7FF0000000000000
+  br i1 %or.cond.i.i2.i110, label %_ZNK4pbrt8IntervalplES0_.exit124, label %if.end.i.i3.i111
 
-if.end.i.i3.i106:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i100
-  %cmp1.i.i4.i107 = fcmp oeq float %add.i1.i104, 0.000000e+00
-  %v.addr.0.i.i5.i108 = select i1 %cmp1.i.i4.i107, float 0.000000e+00, float %add.i1.i104
-  %50 = bitcast float %v.addr.0.i.i5.i108 to i32
-  %cmp5.i.i6.i109 = fcmp ult float %v.addr.0.i.i5.i108, 0.000000e+00
-  %ui.0.v.i.i7.i110 = select i1 %cmp5.i.i6.i109, i32 -1, i32 1
-  %ui.0.i.i8.i111 = add i32 %ui.0.v.i.i7.i110, %50
-  %51 = bitcast i32 %ui.0.i.i8.i111 to float
-  br label %_ZNK4pbrt8IntervalplES0_.exit119
+if.end.i.i3.i111:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i105
+  %cmp1.i.i4.i112 = fcmp oeq float %add.i1.i109, 0.000000e+00
+  %v.addr.0.i.i5.i113 = select i1 %cmp1.i.i4.i112, float 0.000000e+00, float %add.i1.i109
+  %50 = bitcast float %v.addr.0.i.i5.i113 to i32
+  %cmp5.i.i6.i114 = fcmp ult float %v.addr.0.i.i5.i113, 0.000000e+00
+  %ui.0.v.i.i7.i115 = select i1 %cmp5.i.i6.i114, i32 -1, i32 1
+  %ui.0.i.i8.i116 = add i32 %ui.0.v.i.i7.i115, %50
+  %51 = bitcast i32 %ui.0.i.i8.i116 to float
+  br label %_ZNK4pbrt8IntervalplES0_.exit124
 
-_ZNK4pbrt8IntervalplES0_.exit119:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i100, %if.end.i.i3.i106
-  %retval.0.i.i9.i112 = phi float [ %51, %if.end.i.i3.i106 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i100 ]
-  %cmp.i.i.i113 = fcmp olt float %retval.0.i.i9.i112, %retval.0.i.i.i101
-  %.sroa.speculated6.i.i114 = select i1 %cmp.i.i.i113, float %retval.0.i.i9.i112, float %retval.0.i.i.i101
-  %cmp.i1.i.i116 = fcmp olt float %retval.0.i.i.i101, %retval.0.i.i9.i112
-  %.sroa.speculated.i.i117 = select i1 %cmp.i1.i.i116, float %retval.0.i.i9.i112, float %retval.0.i.i.i101
-  %mul.i.i120 = fmul float %.sroa.speculated6.i.i114, 2.000000e+00
-  %or.cond.i.i.i121 = fcmp oeq float %mul.i.i120, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i121, label %_ZN4pbrt12MulRoundDownEff.exit.i, label %if.end.i.i.i122
+_ZNK4pbrt8IntervalplES0_.exit124:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i105, %if.end.i.i3.i111
+  %retval.0.i.i9.i117 = phi float [ %51, %if.end.i.i3.i111 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i105 ]
+  %cmp.i.i.i118 = fcmp olt float %retval.0.i.i9.i117, %retval.0.i.i.i106
+  %.sroa.speculated6.i.i119 = select i1 %cmp.i.i.i118, float %retval.0.i.i9.i117, float %retval.0.i.i.i106
+  %cmp.i1.i.i121 = fcmp olt float %retval.0.i.i.i106, %retval.0.i.i9.i117
+  %.sroa.speculated.i.i122 = select i1 %cmp.i1.i.i121, float %retval.0.i.i9.i117, float %retval.0.i.i.i106
+  %mul.i.i126 = fmul float %.sroa.speculated6.i.i119, 2.000000e+00
+  %or.cond.i.i.i127 = fcmp oeq float %mul.i.i126, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i127, label %_ZN4pbrt12MulRoundDownEff.exit.i, label %if.end.i.i.i128
 
-if.end.i.i.i122:                                  ; preds = %_ZNK4pbrt8IntervalplES0_.exit119
-  %cmp1.i.i.i123 = fcmp oeq float %mul.i.i120, 0.000000e+00
-  %v.addr.0.i.i.i124 = select i1 %cmp1.i.i.i123, float -0.000000e+00, float %mul.i.i120
-  %52 = bitcast float %v.addr.0.i.i.i124 to i32
-  %cmp5.i.i.i125 = fcmp ogt float %v.addr.0.i.i.i124, 0.000000e+00
-  %ui.0.v.i.i.i126 = select i1 %cmp5.i.i.i125, i32 -1, i32 1
-  %ui.0.i.i.i127 = add i32 %ui.0.v.i.i.i126, %52
-  %53 = bitcast i32 %ui.0.i.i.i127 to float
+if.end.i.i.i128:                                  ; preds = %_ZNK4pbrt8IntervalplES0_.exit124
+  %cmp1.i.i.i129 = fcmp oeq float %mul.i.i126, 0.000000e+00
+  %v.addr.0.i.i.i130 = select i1 %cmp1.i.i.i129, float -0.000000e+00, float %mul.i.i126
+  %52 = bitcast float %v.addr.0.i.i.i130 to i32
+  %cmp5.i.i.i131 = fcmp ogt float %v.addr.0.i.i.i130, 0.000000e+00
+  %ui.0.v.i.i.i132 = select i1 %cmp5.i.i.i131, i32 -1, i32 1
+  %ui.0.i.i.i133 = add i32 %ui.0.v.i.i.i132, %52
+  %53 = bitcast i32 %ui.0.i.i.i133 to float
   br label %_ZN4pbrt12MulRoundDownEff.exit.i
 
-_ZN4pbrt12MulRoundDownEff.exit.i:                 ; preds = %if.end.i.i.i122, %_ZNK4pbrt8IntervalplES0_.exit119
-  %retval.0.i.i.i128 = phi float [ %53, %if.end.i.i.i122 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit119 ]
-  %mul.i5.i = fmul float %.sroa.speculated.i.i117, 2.000000e+00
+_ZN4pbrt12MulRoundDownEff.exit.i:                 ; preds = %if.end.i.i.i128, %_ZNK4pbrt8IntervalplES0_.exit124
+  %retval.0.i.i.i134 = phi float [ %53, %if.end.i.i.i128 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit124 ]
+  %mul.i5.i = fmul float %.sroa.speculated.i.i122, 2.000000e+00
   %or.cond.i.i6.i = fcmp oeq float %mul.i5.i, 0x7FF0000000000000
   br i1 %or.cond.i.i6.i, label %_ZN4pbrtmlEfNS_8IntervalE.exit, label %if.end.i.i7.i
 
@@ -41650,262 +41650,262 @@ if.end.i.i7.i:                                    ; preds = %_ZN4pbrt12MulRoundD
 
 _ZN4pbrtmlEfNS_8IntervalE.exit:                   ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i, %if.end.i.i7.i
   %retval.0.i.i13.i = phi float [ %55, %if.end.i.i7.i ], [ 0x7FF0000000000000, %_ZN4pbrt12MulRoundDownEff.exit.i ]
-  %cmp.i.i.i130 = fcmp olt float %retval.0.i.i13.i, %retval.0.i.i.i128
-  %.sroa.speculated6.i.i131 = select i1 %cmp.i.i.i130, float %retval.0.i.i13.i, float %retval.0.i.i.i128
-  %retval.sroa.0.0.vec.insert.i132 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i131, i64 0
-  %cmp.i1.i.i133 = fcmp olt float %retval.0.i.i.i128, %retval.0.i.i13.i
-  %.sroa.speculated.i.i134 = select i1 %cmp.i1.i.i133, float %retval.0.i.i13.i, float %retval.0.i.i.i128
-  %retval.sroa.0.4.vec.insert.i135 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i132, float %.sroa.speculated.i.i134, i64 1
-  store <2 x float> %retval.sroa.0.4.vec.insert.i135, ptr %b, align 8
+  %cmp.i.i.i137 = fcmp olt float %retval.0.i.i13.i, %retval.0.i.i.i134
+  %.sroa.speculated6.i.i138 = select i1 %cmp.i.i.i137, float %retval.0.i.i13.i, float %retval.0.i.i.i134
+  %retval.sroa.0.0.vec.insert.i139 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i138, i64 0
+  %cmp.i1.i.i140 = fcmp olt float %retval.0.i.i.i134, %retval.0.i.i13.i
+  %.sroa.speculated.i.i141 = select i1 %cmp.i1.i.i140, float %retval.0.i.i13.i, float %retval.0.i.i.i134
+  %retval.sroa.0.4.vec.insert.i142 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i139, float %.sroa.speculated.i.i141, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i142, ptr %b, align 8
   %agg.tmp25.sroa.0.0.copyload = load <2 x float>, ptr %oi, align 16
   %56 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %agg.tmp25.sroa.0.0.copyload)
   %57 = extractelement <2 x float> %56, i64 0
   %58 = extractelement <2 x float> %56, i64 1
-  %cmp.i139 = fcmp ogt float %57, %58
-  %ahigh.0.i140 = select i1 %cmp.i139, float %57, float %58
+  %cmp.i146 = fcmp ogt float %57, %58
+  %ahigh.0.i147 = select i1 %cmp.i146, float %57, float %58
   %59 = extractelement <2 x float> %agg.tmp25.sroa.0.0.copyload, i64 0
-  %cmp.i.i141 = fcmp ole float %59, 0.000000e+00
+  %cmp.i.i148 = fcmp ole float %59, 0.000000e+00
   %60 = extractelement <2 x float> %agg.tmp25.sroa.0.0.copyload, i64 1
-  %cmp2.i.i142 = fcmp oge float %60, 0.000000e+00
-  %61 = select i1 %cmp.i.i141, i1 %cmp2.i.i142, i1 false
-  br i1 %61, label %if.then5.i168, label %if.end7.i143
+  %cmp2.i.i149 = fcmp oge float %60, 0.000000e+00
+  %61 = select i1 %cmp.i.i148, i1 %cmp2.i.i149, i1 false
+  br i1 %61, label %if.then5.i175, label %if.end7.i150
 
-if.then5.i168:                                    ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit
-  %mul.i.i169 = fmul float %ahigh.0.i140, %ahigh.0.i140
-  %or.cond.i.i.i170 = fcmp oeq float %mul.i.i169, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i170, label %_ZN4pbrt10MulRoundUpEff.exit.i177, label %if.end.i.i.i171
+if.then5.i175:                                    ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit
+  %mul.i.i176 = fmul float %ahigh.0.i147, %ahigh.0.i147
+  %or.cond.i.i.i177 = fcmp oeq float %mul.i.i176, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i177, label %_ZN4pbrt10MulRoundUpEff.exit.i184, label %if.end.i.i.i178
 
-if.end.i.i.i171:                                  ; preds = %if.then5.i168
-  %cmp1.i.i.i172 = fcmp oeq float %mul.i.i169, 0.000000e+00
-  %v.addr.0.i.i.i173 = select i1 %cmp1.i.i.i172, float 0.000000e+00, float %mul.i.i169
-  %62 = bitcast float %v.addr.0.i.i.i173 to i32
-  %cmp5.i.i.i174 = fcmp ult float %v.addr.0.i.i.i173, 0.000000e+00
-  %ui.0.v.i.i.i175 = select i1 %cmp5.i.i.i174, i32 -1, i32 1
-  %ui.0.i.i.i176 = add i32 %ui.0.v.i.i.i175, %62
-  %63 = bitcast i32 %ui.0.i.i.i176 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit.i177
+if.end.i.i.i178:                                  ; preds = %if.then5.i175
+  %cmp1.i.i.i179 = fcmp oeq float %mul.i.i176, 0.000000e+00
+  %v.addr.0.i.i.i180 = select i1 %cmp1.i.i.i179, float 0.000000e+00, float %mul.i.i176
+  %62 = bitcast float %v.addr.0.i.i.i180 to i32
+  %cmp5.i.i.i181 = fcmp ult float %v.addr.0.i.i.i180, 0.000000e+00
+  %ui.0.v.i.i.i182 = select i1 %cmp5.i.i.i181, i32 -1, i32 1
+  %ui.0.i.i.i183 = add i32 %ui.0.v.i.i.i182, %62
+  %63 = bitcast i32 %ui.0.i.i.i183 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit.i184
 
-_ZN4pbrt10MulRoundUpEff.exit.i177:                ; preds = %if.end.i.i.i171, %if.then5.i168
-  %retval.0.i.i.i178 = phi float [ %63, %if.end.i.i.i171 ], [ 0x7FF0000000000000, %if.then5.i168 ]
-  %64 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i178, i64 0
-  %65 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i178, i64 1
+_ZN4pbrt10MulRoundUpEff.exit.i184:                ; preds = %if.end.i.i.i178, %if.then5.i175
+  %retval.0.i.i.i185 = phi float [ %63, %if.end.i.i.i178 ], [ 0x7FF0000000000000, %if.then5.i175 ]
+  %64 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i185, i64 0
+  %65 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i185, i64 1
   %66 = fcmp olt <2 x float> %64, %65
   %67 = shufflevector <2 x float> %64, <2 x float> poison, <2 x i32> zeroinitializer
   %68 = select <2 x i1> %66, <2 x float> %67, <2 x float> zeroinitializer
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit185
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit192
 
-if.end7.i143:                                     ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit
-  %alow.0.i144 = select i1 %cmp.i139, float %58, float %57
-  %mul.i1.i145 = fmul float %alow.0.i144, %alow.0.i144
-  %cmp1.i.i3.i146 = fcmp oeq float %mul.i1.i145, 0.000000e+00
-  %v.addr.0.i.i4.i147 = select i1 %cmp1.i.i3.i146, float -0.000000e+00, float %mul.i1.i145
-  %69 = bitcast float %v.addr.0.i.i4.i147 to i32
-  %cmp5.i.i5.i148 = fcmp ogt float %v.addr.0.i.i4.i147, 0.000000e+00
-  %ui.0.v.i.i6.i149 = select i1 %cmp5.i.i5.i148, i32 -1, i32 1
-  %ui.0.i.i7.i150 = add i32 %ui.0.v.i.i6.i149, %69
-  %70 = bitcast i32 %ui.0.i.i7.i150 to float
-  %mul.i9.i151 = fmul float %ahigh.0.i140, %ahigh.0.i140
-  %or.cond.i.i10.i152 = fcmp oeq float %mul.i9.i151, 0x7FF0000000000000
-  br i1 %or.cond.i.i10.i152, label %_ZN4pbrt10MulRoundUpEff.exit18.i159, label %if.end.i.i11.i153
+if.end7.i150:                                     ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit
+  %alow.0.i151 = select i1 %cmp.i146, float %58, float %57
+  %mul.i1.i152 = fmul float %alow.0.i151, %alow.0.i151
+  %cmp1.i.i4.i153 = fcmp oeq float %mul.i1.i152, 0.000000e+00
+  %v.addr.0.i.i5.i154 = select i1 %cmp1.i.i4.i153, float -0.000000e+00, float %mul.i1.i152
+  %69 = bitcast float %v.addr.0.i.i5.i154 to i32
+  %cmp5.i.i6.i155 = fcmp ogt float %v.addr.0.i.i5.i154, 0.000000e+00
+  %ui.0.v.i.i7.i156 = select i1 %cmp5.i.i6.i155, i32 -1, i32 1
+  %ui.0.i.i8.i157 = add i32 %ui.0.v.i.i7.i156, %69
+  %70 = bitcast i32 %ui.0.i.i8.i157 to float
+  %mul.i10.i158 = fmul float %ahigh.0.i147, %ahigh.0.i147
+  %or.cond.i.i11.i159 = fcmp oeq float %mul.i10.i158, 0x7FF0000000000000
+  br i1 %or.cond.i.i11.i159, label %_ZN4pbrt10MulRoundUpEff.exit19.i166, label %if.end.i.i12.i160
 
-if.end.i.i11.i153:                                ; preds = %if.end7.i143
-  %cmp1.i.i12.i154 = fcmp oeq float %mul.i9.i151, 0.000000e+00
-  %v.addr.0.i.i13.i155 = select i1 %cmp1.i.i12.i154, float 0.000000e+00, float %mul.i9.i151
-  %71 = bitcast float %v.addr.0.i.i13.i155 to i32
-  %cmp5.i.i14.i156 = fcmp ult float %v.addr.0.i.i13.i155, 0.000000e+00
-  %ui.0.v.i.i15.i157 = select i1 %cmp5.i.i14.i156, i32 -1, i32 1
-  %ui.0.i.i16.i158 = add i32 %ui.0.v.i.i15.i157, %71
-  %72 = bitcast i32 %ui.0.i.i16.i158 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit18.i159
+if.end.i.i12.i160:                                ; preds = %if.end7.i150
+  %cmp1.i.i13.i161 = fcmp oeq float %mul.i10.i158, 0.000000e+00
+  %v.addr.0.i.i14.i162 = select i1 %cmp1.i.i13.i161, float 0.000000e+00, float %mul.i10.i158
+  %71 = bitcast float %v.addr.0.i.i14.i162 to i32
+  %cmp5.i.i15.i163 = fcmp ult float %v.addr.0.i.i14.i162, 0.000000e+00
+  %ui.0.v.i.i16.i164 = select i1 %cmp5.i.i15.i163, i32 -1, i32 1
+  %ui.0.i.i17.i165 = add i32 %ui.0.v.i.i16.i164, %71
+  %72 = bitcast i32 %ui.0.i.i17.i165 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit19.i166
 
-_ZN4pbrt10MulRoundUpEff.exit18.i159:              ; preds = %if.end.i.i11.i153, %if.end7.i143
-  %retval.0.i.i17.i160 = phi float [ %72, %if.end.i.i11.i153 ], [ 0x7FF0000000000000, %if.end7.i143 ]
-  %cmp.i.i19.i161 = fcmp olt float %retval.0.i.i17.i160, %70
-  %.sroa.speculated6.i20.i162 = select i1 %cmp.i.i19.i161, float %retval.0.i.i17.i160, float %70
-  %retval.sroa.0.0.vec.insert31.i163 = insertelement <2 x float> poison, float %.sroa.speculated6.i20.i162, i64 0
-  %cmp.i1.i22.i164 = fcmp ogt float %retval.0.i.i17.i160, %70
-  %.sroa.speculated.i23.i165 = select i1 %cmp.i1.i22.i164, float %retval.0.i.i17.i160, float %70
-  %retval.sroa.0.4.vec.insert33.i166 = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i163, float %.sroa.speculated.i23.i165, i64 1
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit185
+_ZN4pbrt10MulRoundUpEff.exit19.i166:              ; preds = %if.end.i.i12.i160, %if.end7.i150
+  %retval.0.i.i18.i167 = phi float [ %72, %if.end.i.i12.i160 ], [ 0x7FF0000000000000, %if.end7.i150 ]
+  %cmp.i.i20.i168 = fcmp olt float %retval.0.i.i18.i167, %70
+  %.sroa.speculated6.i21.i169 = select i1 %cmp.i.i20.i168, float %retval.0.i.i18.i167, float %70
+  %retval.sroa.0.0.vec.insert32.i170 = insertelement <2 x float> poison, float %.sroa.speculated6.i21.i169, i64 0
+  %cmp.i1.i23.i171 = fcmp ogt float %retval.0.i.i18.i167, %70
+  %.sroa.speculated.i24.i172 = select i1 %cmp.i1.i23.i171, float %retval.0.i.i18.i167, float %70
+  %retval.sroa.0.4.vec.insert34.i173 = insertelement <2 x float> %retval.sroa.0.0.vec.insert32.i170, float %.sroa.speculated.i24.i172, i64 1
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit192
 
-_ZN4pbrt3SqrENS_8IntervalE.exit185:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i177, %_ZN4pbrt10MulRoundUpEff.exit18.i159
-  %retval.sroa.0.0.i167 = phi <2 x float> [ %68, %_ZN4pbrt10MulRoundUpEff.exit.i177 ], [ %retval.sroa.0.4.vec.insert33.i166, %_ZN4pbrt10MulRoundUpEff.exit18.i159 ]
+_ZN4pbrt3SqrENS_8IntervalE.exit192:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i184, %_ZN4pbrt10MulRoundUpEff.exit19.i166
+  %retval.sroa.0.0.i174 = phi <2 x float> [ %68, %_ZN4pbrt10MulRoundUpEff.exit.i184 ], [ %retval.sroa.0.4.vec.insert34.i173, %_ZN4pbrt10MulRoundUpEff.exit19.i166 ]
   %agg.tmp29.sroa.0.0.copyload = load <2 x float>, ptr %y19, align 8
   %73 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %agg.tmp29.sroa.0.0.copyload)
   %74 = extractelement <2 x float> %73, i64 0
   %75 = extractelement <2 x float> %73, i64 1
-  %cmp.i188 = fcmp ogt float %74, %75
-  %ahigh.0.i189 = select i1 %cmp.i188, float %74, float %75
+  %cmp.i195 = fcmp ogt float %74, %75
+  %ahigh.0.i196 = select i1 %cmp.i195, float %74, float %75
   %76 = extractelement <2 x float> %agg.tmp29.sroa.0.0.copyload, i64 0
-  %cmp.i.i190 = fcmp ole float %76, 0.000000e+00
+  %cmp.i.i197 = fcmp ole float %76, 0.000000e+00
   %77 = extractelement <2 x float> %agg.tmp29.sroa.0.0.copyload, i64 1
-  %cmp2.i.i191 = fcmp oge float %77, 0.000000e+00
-  %78 = select i1 %cmp.i.i190, i1 %cmp2.i.i191, i1 false
-  br i1 %78, label %if.then5.i217, label %if.end7.i192
+  %cmp2.i.i198 = fcmp oge float %77, 0.000000e+00
+  %78 = select i1 %cmp.i.i197, i1 %cmp2.i.i198, i1 false
+  br i1 %78, label %if.then5.i224, label %if.end7.i199
 
-if.then5.i217:                                    ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit185
-  %mul.i.i218 = fmul float %ahigh.0.i189, %ahigh.0.i189
-  %or.cond.i.i.i219 = fcmp oeq float %mul.i.i218, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i219, label %_ZN4pbrt10MulRoundUpEff.exit.i226, label %if.end.i.i.i220
+if.then5.i224:                                    ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit192
+  %mul.i.i225 = fmul float %ahigh.0.i196, %ahigh.0.i196
+  %or.cond.i.i.i226 = fcmp oeq float %mul.i.i225, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i226, label %_ZN4pbrt10MulRoundUpEff.exit.i233, label %if.end.i.i.i227
 
-if.end.i.i.i220:                                  ; preds = %if.then5.i217
-  %cmp1.i.i.i221 = fcmp oeq float %mul.i.i218, 0.000000e+00
-  %v.addr.0.i.i.i222 = select i1 %cmp1.i.i.i221, float 0.000000e+00, float %mul.i.i218
-  %79 = bitcast float %v.addr.0.i.i.i222 to i32
-  %cmp5.i.i.i223 = fcmp ult float %v.addr.0.i.i.i222, 0.000000e+00
-  %ui.0.v.i.i.i224 = select i1 %cmp5.i.i.i223, i32 -1, i32 1
-  %ui.0.i.i.i225 = add i32 %ui.0.v.i.i.i224, %79
-  %80 = bitcast i32 %ui.0.i.i.i225 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit.i226
+if.end.i.i.i227:                                  ; preds = %if.then5.i224
+  %cmp1.i.i.i228 = fcmp oeq float %mul.i.i225, 0.000000e+00
+  %v.addr.0.i.i.i229 = select i1 %cmp1.i.i.i228, float 0.000000e+00, float %mul.i.i225
+  %79 = bitcast float %v.addr.0.i.i.i229 to i32
+  %cmp5.i.i.i230 = fcmp ult float %v.addr.0.i.i.i229, 0.000000e+00
+  %ui.0.v.i.i.i231 = select i1 %cmp5.i.i.i230, i32 -1, i32 1
+  %ui.0.i.i.i232 = add i32 %ui.0.v.i.i.i231, %79
+  %80 = bitcast i32 %ui.0.i.i.i232 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit.i233
 
-_ZN4pbrt10MulRoundUpEff.exit.i226:                ; preds = %if.end.i.i.i220, %if.then5.i217
-  %retval.0.i.i.i227 = phi float [ %80, %if.end.i.i.i220 ], [ 0x7FF0000000000000, %if.then5.i217 ]
-  %81 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i227, i64 0
-  %82 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i227, i64 1
+_ZN4pbrt10MulRoundUpEff.exit.i233:                ; preds = %if.end.i.i.i227, %if.then5.i224
+  %retval.0.i.i.i234 = phi float [ %80, %if.end.i.i.i227 ], [ 0x7FF0000000000000, %if.then5.i224 ]
+  %81 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i234, i64 0
+  %82 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i234, i64 1
   %83 = fcmp olt <2 x float> %81, %82
   %84 = shufflevector <2 x float> %81, <2 x float> poison, <2 x i32> zeroinitializer
   %85 = select <2 x i1> %83, <2 x float> %84, <2 x float> zeroinitializer
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit234
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit241
 
-if.end7.i192:                                     ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit185
-  %alow.0.i193 = select i1 %cmp.i188, float %75, float %74
-  %mul.i1.i194 = fmul float %alow.0.i193, %alow.0.i193
-  %cmp1.i.i3.i195 = fcmp oeq float %mul.i1.i194, 0.000000e+00
-  %v.addr.0.i.i4.i196 = select i1 %cmp1.i.i3.i195, float -0.000000e+00, float %mul.i1.i194
-  %86 = bitcast float %v.addr.0.i.i4.i196 to i32
-  %cmp5.i.i5.i197 = fcmp ogt float %v.addr.0.i.i4.i196, 0.000000e+00
-  %ui.0.v.i.i6.i198 = select i1 %cmp5.i.i5.i197, i32 -1, i32 1
-  %ui.0.i.i7.i199 = add i32 %ui.0.v.i.i6.i198, %86
-  %87 = bitcast i32 %ui.0.i.i7.i199 to float
-  %mul.i9.i200 = fmul float %ahigh.0.i189, %ahigh.0.i189
-  %or.cond.i.i10.i201 = fcmp oeq float %mul.i9.i200, 0x7FF0000000000000
-  br i1 %or.cond.i.i10.i201, label %_ZN4pbrt10MulRoundUpEff.exit18.i208, label %if.end.i.i11.i202
+if.end7.i199:                                     ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit192
+  %alow.0.i200 = select i1 %cmp.i195, float %75, float %74
+  %mul.i1.i201 = fmul float %alow.0.i200, %alow.0.i200
+  %cmp1.i.i4.i202 = fcmp oeq float %mul.i1.i201, 0.000000e+00
+  %v.addr.0.i.i5.i203 = select i1 %cmp1.i.i4.i202, float -0.000000e+00, float %mul.i1.i201
+  %86 = bitcast float %v.addr.0.i.i5.i203 to i32
+  %cmp5.i.i6.i204 = fcmp ogt float %v.addr.0.i.i5.i203, 0.000000e+00
+  %ui.0.v.i.i7.i205 = select i1 %cmp5.i.i6.i204, i32 -1, i32 1
+  %ui.0.i.i8.i206 = add i32 %ui.0.v.i.i7.i205, %86
+  %87 = bitcast i32 %ui.0.i.i8.i206 to float
+  %mul.i10.i207 = fmul float %ahigh.0.i196, %ahigh.0.i196
+  %or.cond.i.i11.i208 = fcmp oeq float %mul.i10.i207, 0x7FF0000000000000
+  br i1 %or.cond.i.i11.i208, label %_ZN4pbrt10MulRoundUpEff.exit19.i215, label %if.end.i.i12.i209
 
-if.end.i.i11.i202:                                ; preds = %if.end7.i192
-  %cmp1.i.i12.i203 = fcmp oeq float %mul.i9.i200, 0.000000e+00
-  %v.addr.0.i.i13.i204 = select i1 %cmp1.i.i12.i203, float 0.000000e+00, float %mul.i9.i200
-  %88 = bitcast float %v.addr.0.i.i13.i204 to i32
-  %cmp5.i.i14.i205 = fcmp ult float %v.addr.0.i.i13.i204, 0.000000e+00
-  %ui.0.v.i.i15.i206 = select i1 %cmp5.i.i14.i205, i32 -1, i32 1
-  %ui.0.i.i16.i207 = add i32 %ui.0.v.i.i15.i206, %88
-  %89 = bitcast i32 %ui.0.i.i16.i207 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit18.i208
+if.end.i.i12.i209:                                ; preds = %if.end7.i199
+  %cmp1.i.i13.i210 = fcmp oeq float %mul.i10.i207, 0.000000e+00
+  %v.addr.0.i.i14.i211 = select i1 %cmp1.i.i13.i210, float 0.000000e+00, float %mul.i10.i207
+  %88 = bitcast float %v.addr.0.i.i14.i211 to i32
+  %cmp5.i.i15.i212 = fcmp ult float %v.addr.0.i.i14.i211, 0.000000e+00
+  %ui.0.v.i.i16.i213 = select i1 %cmp5.i.i15.i212, i32 -1, i32 1
+  %ui.0.i.i17.i214 = add i32 %ui.0.v.i.i16.i213, %88
+  %89 = bitcast i32 %ui.0.i.i17.i214 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit19.i215
 
-_ZN4pbrt10MulRoundUpEff.exit18.i208:              ; preds = %if.end.i.i11.i202, %if.end7.i192
-  %retval.0.i.i17.i209 = phi float [ %89, %if.end.i.i11.i202 ], [ 0x7FF0000000000000, %if.end7.i192 ]
-  %cmp.i.i19.i210 = fcmp olt float %retval.0.i.i17.i209, %87
-  %.sroa.speculated6.i20.i211 = select i1 %cmp.i.i19.i210, float %retval.0.i.i17.i209, float %87
-  %retval.sroa.0.0.vec.insert31.i212 = insertelement <2 x float> poison, float %.sroa.speculated6.i20.i211, i64 0
-  %cmp.i1.i22.i213 = fcmp ogt float %retval.0.i.i17.i209, %87
-  %.sroa.speculated.i23.i214 = select i1 %cmp.i1.i22.i213, float %retval.0.i.i17.i209, float %87
-  %retval.sroa.0.4.vec.insert33.i215 = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i212, float %.sroa.speculated.i23.i214, i64 1
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit234
+_ZN4pbrt10MulRoundUpEff.exit19.i215:              ; preds = %if.end.i.i12.i209, %if.end7.i199
+  %retval.0.i.i18.i216 = phi float [ %89, %if.end.i.i12.i209 ], [ 0x7FF0000000000000, %if.end7.i199 ]
+  %cmp.i.i20.i217 = fcmp olt float %retval.0.i.i18.i216, %87
+  %.sroa.speculated6.i21.i218 = select i1 %cmp.i.i20.i217, float %retval.0.i.i18.i216, float %87
+  %retval.sroa.0.0.vec.insert32.i219 = insertelement <2 x float> poison, float %.sroa.speculated6.i21.i218, i64 0
+  %cmp.i1.i23.i220 = fcmp ogt float %retval.0.i.i18.i216, %87
+  %.sroa.speculated.i24.i221 = select i1 %cmp.i1.i23.i220, float %retval.0.i.i18.i216, float %87
+  %retval.sroa.0.4.vec.insert34.i222 = insertelement <2 x float> %retval.sroa.0.0.vec.insert32.i219, float %.sroa.speculated.i24.i221, i64 1
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit241
 
-_ZN4pbrt3SqrENS_8IntervalE.exit234:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i226, %_ZN4pbrt10MulRoundUpEff.exit18.i208
-  %retval.sroa.0.0.i216 = phi <2 x float> [ %85, %_ZN4pbrt10MulRoundUpEff.exit.i226 ], [ %retval.sroa.0.4.vec.insert33.i215, %_ZN4pbrt10MulRoundUpEff.exit18.i208 ]
-  %90 = fadd <2 x float> %retval.sroa.0.0.i167, %retval.sroa.0.0.i216
-  %add.i.i236 = extractelement <2 x float> %90, i64 0
-  %or.cond.i.i.i237 = fcmp oeq float %add.i.i236, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i237, label %_ZN4pbrt12AddRoundDownEff.exit.i244, label %if.end.i.i.i238
+_ZN4pbrt3SqrENS_8IntervalE.exit241:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i233, %_ZN4pbrt10MulRoundUpEff.exit19.i215
+  %retval.sroa.0.0.i223 = phi <2 x float> [ %85, %_ZN4pbrt10MulRoundUpEff.exit.i233 ], [ %retval.sroa.0.4.vec.insert34.i222, %_ZN4pbrt10MulRoundUpEff.exit19.i215 ]
+  %90 = fadd <2 x float> %retval.sroa.0.0.i174, %retval.sroa.0.0.i223
+  %add.i.i243 = extractelement <2 x float> %90, i64 0
+  %or.cond.i.i.i244 = fcmp oeq float %add.i.i243, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i244, label %_ZN4pbrt12AddRoundDownEff.exit.i251, label %if.end.i.i.i245
 
-if.end.i.i.i238:                                  ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit234
-  %cmp1.i.i.i239 = fcmp oeq float %add.i.i236, 0.000000e+00
-  %v.addr.0.i.i.i240 = select i1 %cmp1.i.i.i239, float -0.000000e+00, float %add.i.i236
-  %91 = bitcast float %v.addr.0.i.i.i240 to i32
-  %cmp5.i.i.i241 = fcmp ogt float %v.addr.0.i.i.i240, 0.000000e+00
-  %ui.0.v.i.i.i242 = select i1 %cmp5.i.i.i241, i32 -1, i32 1
-  %ui.0.i.i.i243 = add i32 %ui.0.v.i.i.i242, %91
-  %92 = bitcast i32 %ui.0.i.i.i243 to float
-  br label %_ZN4pbrt12AddRoundDownEff.exit.i244
+if.end.i.i.i245:                                  ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit241
+  %cmp1.i.i.i246 = fcmp oeq float %add.i.i243, 0.000000e+00
+  %v.addr.0.i.i.i247 = select i1 %cmp1.i.i.i246, float -0.000000e+00, float %add.i.i243
+  %91 = bitcast float %v.addr.0.i.i.i247 to i32
+  %cmp5.i.i.i248 = fcmp ogt float %v.addr.0.i.i.i247, 0.000000e+00
+  %ui.0.v.i.i.i249 = select i1 %cmp5.i.i.i248, i32 -1, i32 1
+  %ui.0.i.i.i250 = add i32 %ui.0.v.i.i.i249, %91
+  %92 = bitcast i32 %ui.0.i.i.i250 to float
+  br label %_ZN4pbrt12AddRoundDownEff.exit.i251
 
-_ZN4pbrt12AddRoundDownEff.exit.i244:              ; preds = %if.end.i.i.i238, %_ZN4pbrt3SqrENS_8IntervalE.exit234
-  %retval.0.i.i.i245 = phi float [ %92, %if.end.i.i.i238 ], [ 0xFFF0000000000000, %_ZN4pbrt3SqrENS_8IntervalE.exit234 ]
-  %93 = fadd <2 x float> %retval.sroa.0.0.i167, %retval.sroa.0.0.i216
-  %add.i1.i248 = extractelement <2 x float> %93, i64 1
-  %or.cond.i.i2.i249 = fcmp oeq float %add.i1.i248, 0x7FF0000000000000
-  br i1 %or.cond.i.i2.i249, label %_ZNK4pbrt8IntervalplES0_.exit263, label %if.end.i.i3.i250
+_ZN4pbrt12AddRoundDownEff.exit.i251:              ; preds = %if.end.i.i.i245, %_ZN4pbrt3SqrENS_8IntervalE.exit241
+  %retval.0.i.i.i252 = phi float [ %92, %if.end.i.i.i245 ], [ 0xFFF0000000000000, %_ZN4pbrt3SqrENS_8IntervalE.exit241 ]
+  %93 = fadd <2 x float> %retval.sroa.0.0.i174, %retval.sroa.0.0.i223
+  %add.i1.i255 = extractelement <2 x float> %93, i64 1
+  %or.cond.i.i2.i256 = fcmp oeq float %add.i1.i255, 0x7FF0000000000000
+  br i1 %or.cond.i.i2.i256, label %_ZNK4pbrt8IntervalplES0_.exit270, label %if.end.i.i3.i257
 
-if.end.i.i3.i250:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i244
-  %cmp1.i.i4.i251 = fcmp oeq float %add.i1.i248, 0.000000e+00
-  %v.addr.0.i.i5.i252 = select i1 %cmp1.i.i4.i251, float 0.000000e+00, float %add.i1.i248
-  %94 = bitcast float %v.addr.0.i.i5.i252 to i32
-  %cmp5.i.i6.i253 = fcmp ult float %v.addr.0.i.i5.i252, 0.000000e+00
-  %ui.0.v.i.i7.i254 = select i1 %cmp5.i.i6.i253, i32 -1, i32 1
-  %ui.0.i.i8.i255 = add i32 %ui.0.v.i.i7.i254, %94
-  %95 = bitcast i32 %ui.0.i.i8.i255 to float
-  br label %_ZNK4pbrt8IntervalplES0_.exit263
+if.end.i.i3.i257:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i251
+  %cmp1.i.i4.i258 = fcmp oeq float %add.i1.i255, 0.000000e+00
+  %v.addr.0.i.i5.i259 = select i1 %cmp1.i.i4.i258, float 0.000000e+00, float %add.i1.i255
+  %94 = bitcast float %v.addr.0.i.i5.i259 to i32
+  %cmp5.i.i6.i260 = fcmp ult float %v.addr.0.i.i5.i259, 0.000000e+00
+  %ui.0.v.i.i7.i261 = select i1 %cmp5.i.i6.i260, i32 -1, i32 1
+  %ui.0.i.i8.i262 = add i32 %ui.0.v.i.i7.i261, %94
+  %95 = bitcast i32 %ui.0.i.i8.i262 to float
+  br label %_ZNK4pbrt8IntervalplES0_.exit270
 
-_ZNK4pbrt8IntervalplES0_.exit263:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i244, %if.end.i.i3.i250
-  %retval.0.i.i9.i256 = phi float [ %95, %if.end.i.i3.i250 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i244 ]
-  %cmp.i.i.i257 = fcmp olt float %retval.0.i.i9.i256, %retval.0.i.i.i245
-  %.sroa.speculated6.i.i258 = select i1 %cmp.i.i.i257, float %retval.0.i.i9.i256, float %retval.0.i.i.i245
-  %cmp.i1.i.i260 = fcmp olt float %retval.0.i.i.i245, %retval.0.i.i9.i256
-  %.sroa.speculated.i.i261 = select i1 %cmp.i1.i.i260, float %retval.0.i.i9.i256, float %retval.0.i.i.i245
+_ZNK4pbrt8IntervalplES0_.exit270:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i251, %if.end.i.i3.i257
+  %retval.0.i.i9.i263 = phi float [ %95, %if.end.i.i3.i257 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i251 ]
+  %cmp.i.i.i264 = fcmp olt float %retval.0.i.i9.i263, %retval.0.i.i.i252
+  %.sroa.speculated6.i.i265 = select i1 %cmp.i.i.i264, float %retval.0.i.i9.i263, float %retval.0.i.i.i252
+  %cmp.i1.i.i267 = fcmp olt float %retval.0.i.i.i252, %retval.0.i.i9.i263
+  %.sroa.speculated.i.i268 = select i1 %cmp.i1.i.i267, float %retval.0.i.i9.i263, float %retval.0.i.i.i252
   %radius = getelementptr inbounds i8, ptr %this, i64 20
   %96 = load float, ptr %radius, align 4
   %97 = fcmp oeq float %96, 0.000000e+00
-  %mul.i.i297 = fmul float %96, %96
-  br i1 %97, label %if.then5.i296, label %if.end7.i271
+  %mul.i.i304 = fmul float %96, %96
+  br i1 %97, label %if.then5.i303, label %if.end7.i278
 
-if.then5.i296:                                    ; preds = %_ZNK4pbrt8IntervalplES0_.exit263
-  %or.cond.i.i.i298 = fcmp oeq float %mul.i.i297, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i298, label %_ZN4pbrt10MulRoundUpEff.exit.i305, label %if.end.i.i.i299
+if.then5.i303:                                    ; preds = %_ZNK4pbrt8IntervalplES0_.exit270
+  %or.cond.i.i.i305 = fcmp oeq float %mul.i.i304, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i305, label %_ZN4pbrt10MulRoundUpEff.exit.i312, label %if.end.i.i.i306
 
-if.end.i.i.i299:                                  ; preds = %if.then5.i296
-  %cmp1.i.i.i300 = fcmp oeq float %mul.i.i297, 0.000000e+00
-  %v.addr.0.i.i.i301 = select i1 %cmp1.i.i.i300, float 0.000000e+00, float %mul.i.i297
-  %98 = bitcast float %v.addr.0.i.i.i301 to i32
-  %ui.0.i.i.i304 = add i32 %98, 1
-  %99 = bitcast i32 %ui.0.i.i.i304 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit.i305
+if.end.i.i.i306:                                  ; preds = %if.then5.i303
+  %cmp1.i.i.i307 = fcmp oeq float %mul.i.i304, 0.000000e+00
+  %v.addr.0.i.i.i308 = select i1 %cmp1.i.i.i307, float 0.000000e+00, float %mul.i.i304
+  %98 = bitcast float %v.addr.0.i.i.i308 to i32
+  %ui.0.i.i.i311 = add i32 %98, 1
+  %99 = bitcast i32 %ui.0.i.i.i311 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit.i312
 
-_ZN4pbrt10MulRoundUpEff.exit.i305:                ; preds = %if.end.i.i.i299, %if.then5.i296
-  %retval.0.i.i.i306 = phi float [ %99, %if.end.i.i.i299 ], [ 0x7FF0000000000000, %if.then5.i296 ]
-  %100 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i306, i64 0
-  %101 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i306, i64 1
+_ZN4pbrt10MulRoundUpEff.exit.i312:                ; preds = %if.end.i.i.i306, %if.then5.i303
+  %retval.0.i.i.i313 = phi float [ %99, %if.end.i.i.i306 ], [ 0x7FF0000000000000, %if.then5.i303 ]
+  %100 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i313, i64 0
+  %101 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i313, i64 1
   %102 = fcmp olt <2 x float> %100, %101
   %103 = shufflevector <2 x float> %100, <2 x float> poison, <2 x i32> zeroinitializer
   %104 = select <2 x i1> %102, <2 x float> %103, <2 x float> zeroinitializer
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit313
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit320
 
-if.end7.i271:                                     ; preds = %_ZNK4pbrt8IntervalplES0_.exit263
-  %cmp1.i.i3.i274 = fcmp oeq float %mul.i.i297, 0.000000e+00
-  %v.addr.0.i.i4.i275 = select i1 %cmp1.i.i3.i274, float -0.000000e+00, float %mul.i.i297
-  %105 = bitcast float %v.addr.0.i.i4.i275 to i32
-  %cmp5.i.i5.i276 = fcmp ogt float %v.addr.0.i.i4.i275, 0.000000e+00
-  %ui.0.v.i.i6.i277 = select i1 %cmp5.i.i5.i276, i32 -1, i32 1
-  %ui.0.i.i7.i278 = add i32 %ui.0.v.i.i6.i277, %105
-  %106 = bitcast i32 %ui.0.i.i7.i278 to float
-  %or.cond.i.i10.i280 = fcmp oeq float %mul.i.i297, 0x7FF0000000000000
-  br i1 %or.cond.i.i10.i280, label %_ZN4pbrt10MulRoundUpEff.exit18.i287, label %if.end.i.i11.i281
+if.end7.i278:                                     ; preds = %_ZNK4pbrt8IntervalplES0_.exit270
+  %cmp1.i.i4.i281 = fcmp oeq float %mul.i.i304, 0.000000e+00
+  %v.addr.0.i.i5.i282 = select i1 %cmp1.i.i4.i281, float -0.000000e+00, float %mul.i.i304
+  %105 = bitcast float %v.addr.0.i.i5.i282 to i32
+  %cmp5.i.i6.i283 = fcmp ogt float %v.addr.0.i.i5.i282, 0.000000e+00
+  %ui.0.v.i.i7.i284 = select i1 %cmp5.i.i6.i283, i32 -1, i32 1
+  %ui.0.i.i8.i285 = add i32 %ui.0.v.i.i7.i284, %105
+  %106 = bitcast i32 %ui.0.i.i8.i285 to float
+  %or.cond.i.i11.i287 = fcmp oeq float %mul.i.i304, 0x7FF0000000000000
+  br i1 %or.cond.i.i11.i287, label %_ZN4pbrt10MulRoundUpEff.exit19.i294, label %if.end.i.i12.i288
 
-if.end.i.i11.i281:                                ; preds = %if.end7.i271
-  %v.addr.0.i.i13.i283 = select i1 %cmp1.i.i3.i274, float 0.000000e+00, float %mul.i.i297
-  %107 = bitcast float %v.addr.0.i.i13.i283 to i32
-  %cmp5.i.i14.i284 = fcmp ult float %v.addr.0.i.i13.i283, 0.000000e+00
-  %ui.0.v.i.i15.i285 = select i1 %cmp5.i.i14.i284, i32 -1, i32 1
-  %ui.0.i.i16.i286 = add i32 %ui.0.v.i.i15.i285, %107
-  %108 = bitcast i32 %ui.0.i.i16.i286 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit18.i287
+if.end.i.i12.i288:                                ; preds = %if.end7.i278
+  %v.addr.0.i.i14.i290 = select i1 %cmp1.i.i4.i281, float 0.000000e+00, float %mul.i.i304
+  %107 = bitcast float %v.addr.0.i.i14.i290 to i32
+  %cmp5.i.i15.i291 = fcmp ult float %v.addr.0.i.i14.i290, 0.000000e+00
+  %ui.0.v.i.i16.i292 = select i1 %cmp5.i.i15.i291, i32 -1, i32 1
+  %ui.0.i.i17.i293 = add i32 %ui.0.v.i.i16.i292, %107
+  %108 = bitcast i32 %ui.0.i.i17.i293 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit19.i294
 
-_ZN4pbrt10MulRoundUpEff.exit18.i287:              ; preds = %if.end.i.i11.i281, %if.end7.i271
-  %retval.0.i.i17.i288 = phi float [ %108, %if.end.i.i11.i281 ], [ 0x7FF0000000000000, %if.end7.i271 ]
-  %cmp.i.i19.i289 = fcmp olt float %retval.0.i.i17.i288, %106
-  %.sroa.speculated6.i20.i290 = select i1 %cmp.i.i19.i289, float %retval.0.i.i17.i288, float %106
-  %retval.sroa.0.0.vec.insert31.i291 = insertelement <2 x float> poison, float %.sroa.speculated6.i20.i290, i64 0
-  %cmp.i1.i22.i292 = fcmp ogt float %retval.0.i.i17.i288, %106
-  %.sroa.speculated.i23.i293 = select i1 %cmp.i1.i22.i292, float %retval.0.i.i17.i288, float %106
-  %retval.sroa.0.4.vec.insert33.i294 = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i291, float %.sroa.speculated.i23.i293, i64 1
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit313
+_ZN4pbrt10MulRoundUpEff.exit19.i294:              ; preds = %if.end.i.i12.i288, %if.end7.i278
+  %retval.0.i.i18.i295 = phi float [ %108, %if.end.i.i12.i288 ], [ 0x7FF0000000000000, %if.end7.i278 ]
+  %cmp.i.i20.i296 = fcmp olt float %retval.0.i.i18.i295, %106
+  %.sroa.speculated6.i21.i297 = select i1 %cmp.i.i20.i296, float %retval.0.i.i18.i295, float %106
+  %retval.sroa.0.0.vec.insert32.i298 = insertelement <2 x float> poison, float %.sroa.speculated6.i21.i297, i64 0
+  %cmp.i1.i23.i299 = fcmp ogt float %retval.0.i.i18.i295, %106
+  %.sroa.speculated.i24.i300 = select i1 %cmp.i1.i23.i299, float %retval.0.i.i18.i295, float %106
+  %retval.sroa.0.4.vec.insert34.i301 = insertelement <2 x float> %retval.sroa.0.0.vec.insert32.i298, float %.sroa.speculated.i24.i300, i64 1
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit320
 
-_ZN4pbrt3SqrENS_8IntervalE.exit313:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i305, %_ZN4pbrt10MulRoundUpEff.exit18.i287
-  %retval.sroa.0.0.i295 = phi <2 x float> [ %104, %_ZN4pbrt10MulRoundUpEff.exit.i305 ], [ %retval.sroa.0.4.vec.insert33.i294, %_ZN4pbrt10MulRoundUpEff.exit18.i287 ]
-  %i.sroa.0.4.vec.extract.i314 = extractelement <2 x float> %retval.sroa.0.0.i295, i64 1
-  %add.i.i.i = fsub float %.sroa.speculated6.i.i258, %i.sroa.0.4.vec.extract.i314
+_ZN4pbrt3SqrENS_8IntervalE.exit320:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i312, %_ZN4pbrt10MulRoundUpEff.exit19.i294
+  %retval.sroa.0.0.i302 = phi <2 x float> [ %104, %_ZN4pbrt10MulRoundUpEff.exit.i312 ], [ %retval.sroa.0.4.vec.insert34.i301, %_ZN4pbrt10MulRoundUpEff.exit19.i294 ]
+  %i.sroa.0.4.vec.extract.i321 = extractelement <2 x float> %retval.sroa.0.0.i302, i64 1
+  %add.i.i.i = fsub float %.sroa.speculated6.i.i265, %i.sroa.0.4.vec.extract.i321
   %or.cond.i.i.i.i = fcmp oeq float %add.i.i.i, 0xFFF0000000000000
   br i1 %or.cond.i.i.i.i, label %_ZN4pbrt12SubRoundDownEff.exit.i, label %if.end.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit313
+if.end.i.i.i.i:                                   ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit320
   %cmp1.i.i.i.i = fcmp oeq float %add.i.i.i, 0.000000e+00
   %v.addr.0.i.i.i.i = select i1 %cmp1.i.i.i.i, float -0.000000e+00, float %add.i.i.i
   %109 = bitcast float %v.addr.0.i.i.i.i to i32
@@ -41915,10 +41915,10 @@ if.end.i.i.i.i:                                   ; preds = %_ZN4pbrt3SqrENS_8In
   %110 = bitcast i32 %ui.0.i.i.i.i to float
   br label %_ZN4pbrt12SubRoundDownEff.exit.i
 
-_ZN4pbrt12SubRoundDownEff.exit.i:                 ; preds = %if.end.i.i.i.i, %_ZN4pbrt3SqrENS_8IntervalE.exit313
-  %retval.0.i.i.i.i = phi float [ %110, %if.end.i.i.i.i ], [ 0xFFF0000000000000, %_ZN4pbrt3SqrENS_8IntervalE.exit313 ]
-  %i.sroa.0.0.vec.extract.i315 = extractelement <2 x float> %retval.sroa.0.0.i295, i64 0
-  %add.i.i1.i = fsub float %.sroa.speculated.i.i261, %i.sroa.0.0.vec.extract.i315
+_ZN4pbrt12SubRoundDownEff.exit.i:                 ; preds = %if.end.i.i.i.i, %_ZN4pbrt3SqrENS_8IntervalE.exit320
+  %retval.0.i.i.i.i = phi float [ %110, %if.end.i.i.i.i ], [ 0xFFF0000000000000, %_ZN4pbrt3SqrENS_8IntervalE.exit320 ]
+  %i.sroa.0.0.vec.extract.i322 = extractelement <2 x float> %retval.sroa.0.0.i302, i64 0
+  %add.i.i1.i = fsub float %.sroa.speculated.i.i268, %i.sroa.0.0.vec.extract.i322
   %or.cond.i.i.i2.i = fcmp oeq float %add.i.i1.i, 0x7FF0000000000000
   br i1 %or.cond.i.i.i2.i, label %_ZNK4pbrt8IntervalmiES0_.exit, label %if.end.i.i.i3.i
 
@@ -41934,571 +41934,571 @@ if.end.i.i.i3.i:                                  ; preds = %_ZN4pbrt12SubRoundD
 
 _ZNK4pbrt8IntervalmiES0_.exit:                    ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i, %if.end.i.i.i3.i
   %retval.0.i.i.i9.i = phi float [ %112, %if.end.i.i.i3.i ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i ]
-  %cmp.i.i.i316 = fcmp olt float %retval.0.i.i.i9.i, %retval.0.i.i.i.i
-  %.sroa.speculated6.i.i317 = select i1 %cmp.i.i.i316, float %retval.0.i.i.i9.i, float %retval.0.i.i.i.i
-  %retval.sroa.0.0.vec.insert.i318 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i317, i64 0
-  %cmp.i1.i.i319 = fcmp olt float %retval.0.i.i.i.i, %retval.0.i.i.i9.i
-  %.sroa.speculated.i.i320 = select i1 %cmp.i1.i.i319, float %retval.0.i.i.i9.i, float %retval.0.i.i.i.i
-  %retval.sroa.0.4.vec.insert.i321 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i318, float %.sroa.speculated.i.i320, i64 1
-  store <2 x float> %retval.sroa.0.4.vec.insert.i321, ptr %c, align 8
-  %mul.i.i322 = fmul float %.sroa.speculated6.i.i86, 2.000000e+00
-  %or.cond.i.i.i323 = fcmp oeq float %mul.i.i322, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i323, label %_ZN4pbrt12MulRoundDownEff.exit.i330, label %if.end.i.i.i324
+  %cmp.i.i.i323 = fcmp olt float %retval.0.i.i.i9.i, %retval.0.i.i.i.i
+  %.sroa.speculated6.i.i324 = select i1 %cmp.i.i.i323, float %retval.0.i.i.i9.i, float %retval.0.i.i.i.i
+  %retval.sroa.0.0.vec.insert.i325 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i324, i64 0
+  %cmp.i1.i.i326 = fcmp olt float %retval.0.i.i.i.i, %retval.0.i.i.i9.i
+  %.sroa.speculated.i.i327 = select i1 %cmp.i1.i.i326, float %retval.0.i.i.i9.i, float %retval.0.i.i.i.i
+  %retval.sroa.0.4.vec.insert.i328 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i325, float %.sroa.speculated.i.i327, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i328, ptr %c, align 8
+  %mul.i.i330 = fmul float %.sroa.speculated6.i.i91, 2.000000e+00
+  %or.cond.i.i.i331 = fcmp oeq float %mul.i.i330, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i331, label %_ZN4pbrt12MulRoundDownEff.exit.i338, label %if.end.i.i.i332
 
-if.end.i.i.i324:                                  ; preds = %_ZNK4pbrt8IntervalmiES0_.exit
-  %cmp1.i.i.i325 = fcmp oeq float %mul.i.i322, 0.000000e+00
-  %v.addr.0.i.i.i326 = select i1 %cmp1.i.i.i325, float -0.000000e+00, float %mul.i.i322
-  %113 = bitcast float %v.addr.0.i.i.i326 to i32
-  %cmp5.i.i.i327 = fcmp ogt float %v.addr.0.i.i.i326, 0.000000e+00
-  %ui.0.v.i.i.i328 = select i1 %cmp5.i.i.i327, i32 -1, i32 1
-  %ui.0.i.i.i329 = add i32 %ui.0.v.i.i.i328, %113
-  %114 = bitcast i32 %ui.0.i.i.i329 to float
-  br label %_ZN4pbrt12MulRoundDownEff.exit.i330
+if.end.i.i.i332:                                  ; preds = %_ZNK4pbrt8IntervalmiES0_.exit
+  %cmp1.i.i.i333 = fcmp oeq float %mul.i.i330, 0.000000e+00
+  %v.addr.0.i.i.i334 = select i1 %cmp1.i.i.i333, float -0.000000e+00, float %mul.i.i330
+  %113 = bitcast float %v.addr.0.i.i.i334 to i32
+  %cmp5.i.i.i335 = fcmp ogt float %v.addr.0.i.i.i334, 0.000000e+00
+  %ui.0.v.i.i.i336 = select i1 %cmp5.i.i.i335, i32 -1, i32 1
+  %ui.0.i.i.i337 = add i32 %ui.0.v.i.i.i336, %113
+  %114 = bitcast i32 %ui.0.i.i.i337 to float
+  br label %_ZN4pbrt12MulRoundDownEff.exit.i338
 
-_ZN4pbrt12MulRoundDownEff.exit.i330:              ; preds = %if.end.i.i.i324, %_ZNK4pbrt8IntervalmiES0_.exit
-  %retval.0.i.i.i331 = phi float [ %114, %if.end.i.i.i324 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalmiES0_.exit ]
-  %mul.i5.i332 = fmul float %.sroa.speculated.i.i89, 2.000000e+00
-  %or.cond.i.i6.i333 = fcmp oeq float %mul.i5.i332, 0x7FF0000000000000
-  br i1 %or.cond.i.i6.i333, label %_ZN4pbrtmlEfNS_8IntervalE.exit349, label %if.end.i.i7.i334
+_ZN4pbrt12MulRoundDownEff.exit.i338:              ; preds = %if.end.i.i.i332, %_ZNK4pbrt8IntervalmiES0_.exit
+  %retval.0.i.i.i339 = phi float [ %114, %if.end.i.i.i332 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalmiES0_.exit ]
+  %mul.i5.i341 = fmul float %.sroa.speculated.i.i94, 2.000000e+00
+  %or.cond.i.i6.i342 = fcmp oeq float %mul.i5.i341, 0x7FF0000000000000
+  br i1 %or.cond.i.i6.i342, label %_ZN4pbrtmlEfNS_8IntervalE.exit358, label %if.end.i.i7.i343
 
-if.end.i.i7.i334:                                 ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i330
-  %cmp1.i.i8.i335 = fcmp oeq float %mul.i5.i332, 0.000000e+00
-  %v.addr.0.i.i9.i336 = select i1 %cmp1.i.i8.i335, float 0.000000e+00, float %mul.i5.i332
-  %115 = bitcast float %v.addr.0.i.i9.i336 to i32
-  %cmp5.i.i10.i337 = fcmp ult float %v.addr.0.i.i9.i336, 0.000000e+00
-  %ui.0.v.i.i11.i338 = select i1 %cmp5.i.i10.i337, i32 -1, i32 1
-  %ui.0.i.i12.i339 = add i32 %ui.0.v.i.i11.i338, %115
-  %116 = bitcast i32 %ui.0.i.i12.i339 to float
-  br label %_ZN4pbrtmlEfNS_8IntervalE.exit349
+if.end.i.i7.i343:                                 ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i338
+  %cmp1.i.i8.i344 = fcmp oeq float %mul.i5.i341, 0.000000e+00
+  %v.addr.0.i.i9.i345 = select i1 %cmp1.i.i8.i344, float 0.000000e+00, float %mul.i5.i341
+  %115 = bitcast float %v.addr.0.i.i9.i345 to i32
+  %cmp5.i.i10.i346 = fcmp ult float %v.addr.0.i.i9.i345, 0.000000e+00
+  %ui.0.v.i.i11.i347 = select i1 %cmp5.i.i10.i346, i32 -1, i32 1
+  %ui.0.i.i12.i348 = add i32 %ui.0.v.i.i11.i347, %115
+  %116 = bitcast i32 %ui.0.i.i12.i348 to float
+  br label %_ZN4pbrtmlEfNS_8IntervalE.exit358
 
-_ZN4pbrtmlEfNS_8IntervalE.exit349:                ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i330, %if.end.i.i7.i334
-  %retval.0.i.i13.i341 = phi float [ %116, %if.end.i.i7.i334 ], [ 0x7FF0000000000000, %_ZN4pbrt12MulRoundDownEff.exit.i330 ]
-  %cmp.i.i.i342 = fcmp olt float %retval.0.i.i13.i341, %retval.0.i.i.i331
-  %.sroa.speculated6.i.i343 = select i1 %cmp.i.i.i342, float %retval.0.i.i13.i341, float %retval.0.i.i.i331
-  %retval.sroa.0.0.vec.insert.i344 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i343, i64 0
-  %cmp.i1.i.i345 = fcmp olt float %retval.0.i.i.i331, %retval.0.i.i13.i341
-  %.sroa.speculated.i.i346 = select i1 %cmp.i1.i.i345, float %retval.0.i.i13.i341, float %retval.0.i.i.i331
-  %retval.sroa.0.4.vec.insert.i347 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i344, float %.sroa.speculated.i.i346, i64 1
-  %call40 = call <2 x float> @_ZNK4pbrt8IntervaldvES0_(ptr noundef nonnull align 4 dereferenceable(8) %b, <2 x float> %retval.sroa.0.4.vec.insert.i347)
+_ZN4pbrtmlEfNS_8IntervalE.exit358:                ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i338, %if.end.i.i7.i343
+  %retval.0.i.i13.i350 = phi float [ %116, %if.end.i.i7.i343 ], [ 0x7FF0000000000000, %_ZN4pbrt12MulRoundDownEff.exit.i338 ]
+  %cmp.i.i.i351 = fcmp olt float %retval.0.i.i13.i350, %retval.0.i.i.i339
+  %.sroa.speculated6.i.i352 = select i1 %cmp.i.i.i351, float %retval.0.i.i13.i350, float %retval.0.i.i.i339
+  %retval.sroa.0.0.vec.insert.i353 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i352, i64 0
+  %cmp.i1.i.i354 = fcmp olt float %retval.0.i.i.i339, %retval.0.i.i13.i350
+  %.sroa.speculated.i.i355 = select i1 %cmp.i1.i.i354, float %retval.0.i.i13.i350, float %retval.0.i.i.i339
+  %retval.sroa.0.4.vec.insert.i356 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i353, float %.sroa.speculated.i.i355, i64 1
+  %call40 = call <2 x float> @_ZNK4pbrt8IntervaldvES0_(ptr noundef nonnull align 4 dereferenceable(8) %b, <2 x float> %retval.sroa.0.4.vec.insert.i356)
   store <2 x float> %call40, ptr %f, align 8
   %agg.tmp43.sroa.0.0.copyload = load <2 x float>, ptr %di, align 16
   %call45 = call <2 x float> @_ZNK4pbrt8IntervalmlES0_(ptr noundef nonnull align 4 dereferenceable(8) %f, <2 x float> %agg.tmp43.sroa.0.0.copyload)
   %117 = load float, ptr %oi, align 16
-  %i.sroa.0.4.vec.extract.i350 = extractelement <2 x float> %call45, i64 1
-  %add.i.i.i351 = fsub float %117, %i.sroa.0.4.vec.extract.i350
-  %or.cond.i.i.i.i352 = fcmp oeq float %add.i.i.i351, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i.i352, label %_ZN4pbrt12SubRoundDownEff.exit.i359, label %if.end.i.i.i.i353
+  %i.sroa.0.4.vec.extract.i359 = extractelement <2 x float> %call45, i64 1
+  %add.i.i.i360 = fsub float %117, %i.sroa.0.4.vec.extract.i359
+  %or.cond.i.i.i.i361 = fcmp oeq float %add.i.i.i360, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i.i361, label %_ZN4pbrt12SubRoundDownEff.exit.i368, label %if.end.i.i.i.i362
 
-if.end.i.i.i.i353:                                ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit349
-  %cmp1.i.i.i.i354 = fcmp oeq float %add.i.i.i351, 0.000000e+00
-  %v.addr.0.i.i.i.i355 = select i1 %cmp1.i.i.i.i354, float -0.000000e+00, float %add.i.i.i351
-  %118 = bitcast float %v.addr.0.i.i.i.i355 to i32
-  %cmp5.i.i.i.i356 = fcmp ogt float %v.addr.0.i.i.i.i355, 0.000000e+00
-  %ui.0.v.i.i.i.i357 = select i1 %cmp5.i.i.i.i356, i32 -1, i32 1
-  %ui.0.i.i.i.i358 = add i32 %ui.0.v.i.i.i.i357, %118
-  %119 = bitcast i32 %ui.0.i.i.i.i358 to float
-  br label %_ZN4pbrt12SubRoundDownEff.exit.i359
+if.end.i.i.i.i362:                                ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit358
+  %cmp1.i.i.i.i363 = fcmp oeq float %add.i.i.i360, 0.000000e+00
+  %v.addr.0.i.i.i.i364 = select i1 %cmp1.i.i.i.i363, float -0.000000e+00, float %add.i.i.i360
+  %118 = bitcast float %v.addr.0.i.i.i.i364 to i32
+  %cmp5.i.i.i.i365 = fcmp ogt float %v.addr.0.i.i.i.i364, 0.000000e+00
+  %ui.0.v.i.i.i.i366 = select i1 %cmp5.i.i.i.i365, i32 -1, i32 1
+  %ui.0.i.i.i.i367 = add i32 %ui.0.v.i.i.i.i366, %118
+  %119 = bitcast i32 %ui.0.i.i.i.i367 to float
+  br label %_ZN4pbrt12SubRoundDownEff.exit.i368
 
-_ZN4pbrt12SubRoundDownEff.exit.i359:              ; preds = %if.end.i.i.i.i353, %_ZN4pbrtmlEfNS_8IntervalE.exit349
-  %retval.0.i.i.i.i360 = phi float [ %119, %if.end.i.i.i.i353 ], [ 0xFFF0000000000000, %_ZN4pbrtmlEfNS_8IntervalE.exit349 ]
-  %high2.i361 = getelementptr inbounds i8, ptr %oi, i64 4
-  %120 = load float, ptr %high2.i361, align 4
-  %i.sroa.0.0.vec.extract.i362 = extractelement <2 x float> %call45, i64 0
-  %add.i.i1.i363 = fsub float %120, %i.sroa.0.0.vec.extract.i362
-  %or.cond.i.i.i2.i364 = fcmp oeq float %add.i.i1.i363, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i2.i364, label %_ZNK4pbrt8IntervalmiES0_.exit378, label %if.end.i.i.i3.i365
+_ZN4pbrt12SubRoundDownEff.exit.i368:              ; preds = %if.end.i.i.i.i362, %_ZN4pbrtmlEfNS_8IntervalE.exit358
+  %retval.0.i.i.i.i369 = phi float [ %119, %if.end.i.i.i.i362 ], [ 0xFFF0000000000000, %_ZN4pbrtmlEfNS_8IntervalE.exit358 ]
+  %high2.i370 = getelementptr inbounds i8, ptr %oi, i64 4
+  %120 = load float, ptr %high2.i370, align 4
+  %i.sroa.0.0.vec.extract.i371 = extractelement <2 x float> %call45, i64 0
+  %add.i.i1.i372 = fsub float %120, %i.sroa.0.0.vec.extract.i371
+  %or.cond.i.i.i2.i373 = fcmp oeq float %add.i.i1.i372, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i2.i373, label %_ZNK4pbrt8IntervalmiES0_.exit387, label %if.end.i.i.i3.i374
 
-if.end.i.i.i3.i365:                               ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i359
-  %cmp1.i.i.i4.i366 = fcmp oeq float %add.i.i1.i363, 0.000000e+00
-  %v.addr.0.i.i.i5.i367 = select i1 %cmp1.i.i.i4.i366, float 0.000000e+00, float %add.i.i1.i363
-  %121 = bitcast float %v.addr.0.i.i.i5.i367 to i32
-  %cmp5.i.i.i6.i368 = fcmp ult float %v.addr.0.i.i.i5.i367, 0.000000e+00
-  %ui.0.v.i.i.i7.i369 = select i1 %cmp5.i.i.i6.i368, i32 -1, i32 1
-  %ui.0.i.i.i8.i370 = add i32 %ui.0.v.i.i.i7.i369, %121
-  %122 = bitcast i32 %ui.0.i.i.i8.i370 to float
-  br label %_ZNK4pbrt8IntervalmiES0_.exit378
+if.end.i.i.i3.i374:                               ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i368
+  %cmp1.i.i.i4.i375 = fcmp oeq float %add.i.i1.i372, 0.000000e+00
+  %v.addr.0.i.i.i5.i376 = select i1 %cmp1.i.i.i4.i375, float 0.000000e+00, float %add.i.i1.i372
+  %121 = bitcast float %v.addr.0.i.i.i5.i376 to i32
+  %cmp5.i.i.i6.i377 = fcmp ult float %v.addr.0.i.i.i5.i376, 0.000000e+00
+  %ui.0.v.i.i.i7.i378 = select i1 %cmp5.i.i.i6.i377, i32 -1, i32 1
+  %ui.0.i.i.i8.i379 = add i32 %ui.0.v.i.i.i7.i378, %121
+  %122 = bitcast i32 %ui.0.i.i.i8.i379 to float
+  br label %_ZNK4pbrt8IntervalmiES0_.exit387
 
-_ZNK4pbrt8IntervalmiES0_.exit378:                 ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i359, %if.end.i.i.i3.i365
-  %retval.0.i.i.i9.i371 = phi float [ %122, %if.end.i.i.i3.i365 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i359 ]
-  %cmp.i.i.i372 = fcmp olt float %retval.0.i.i.i9.i371, %retval.0.i.i.i.i360
-  %.sroa.speculated6.i.i373 = select i1 %cmp.i.i.i372, float %retval.0.i.i.i9.i371, float %retval.0.i.i.i.i360
-  %cmp.i1.i.i375 = fcmp olt float %retval.0.i.i.i.i360, %retval.0.i.i.i9.i371
-  %.sroa.speculated.i.i376 = select i1 %cmp.i1.i.i375, float %retval.0.i.i.i9.i371, float %retval.0.i.i.i.i360
+_ZNK4pbrt8IntervalmiES0_.exit387:                 ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i368, %if.end.i.i.i3.i374
+  %retval.0.i.i.i9.i380 = phi float [ %122, %if.end.i.i.i3.i374 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i368 ]
+  %cmp.i.i.i381 = fcmp olt float %retval.0.i.i.i9.i380, %retval.0.i.i.i.i369
+  %.sroa.speculated6.i.i382 = select i1 %cmp.i.i.i381, float %retval.0.i.i.i9.i380, float %retval.0.i.i.i.i369
+  %cmp.i1.i.i384 = fcmp olt float %retval.0.i.i.i.i369, %retval.0.i.i.i9.i380
+  %.sroa.speculated.i.i385 = select i1 %cmp.i1.i.i384, float %retval.0.i.i.i9.i380, float %retval.0.i.i.i.i369
   %agg.tmp49.sroa.0.0.copyload = load <2 x float>, ptr %y, align 8
   %call51 = call <2 x float> @_ZNK4pbrt8IntervalmlES0_(ptr noundef nonnull align 4 dereferenceable(8) %f, <2 x float> %agg.tmp49.sroa.0.0.copyload)
   %123 = load float, ptr %y19, align 8
-  %i.sroa.0.4.vec.extract.i379 = extractelement <2 x float> %call51, i64 1
-  %add.i.i.i380 = fsub float %123, %i.sroa.0.4.vec.extract.i379
-  %or.cond.i.i.i.i381 = fcmp oeq float %add.i.i.i380, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i.i381, label %_ZN4pbrt12SubRoundDownEff.exit.i388, label %if.end.i.i.i.i382
+  %i.sroa.0.4.vec.extract.i388 = extractelement <2 x float> %call51, i64 1
+  %add.i.i.i389 = fsub float %123, %i.sroa.0.4.vec.extract.i388
+  %or.cond.i.i.i.i390 = fcmp oeq float %add.i.i.i389, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i.i390, label %_ZN4pbrt12SubRoundDownEff.exit.i397, label %if.end.i.i.i.i391
 
-if.end.i.i.i.i382:                                ; preds = %_ZNK4pbrt8IntervalmiES0_.exit378
-  %cmp1.i.i.i.i383 = fcmp oeq float %add.i.i.i380, 0.000000e+00
-  %v.addr.0.i.i.i.i384 = select i1 %cmp1.i.i.i.i383, float -0.000000e+00, float %add.i.i.i380
-  %124 = bitcast float %v.addr.0.i.i.i.i384 to i32
-  %cmp5.i.i.i.i385 = fcmp ogt float %v.addr.0.i.i.i.i384, 0.000000e+00
-  %ui.0.v.i.i.i.i386 = select i1 %cmp5.i.i.i.i385, i32 -1, i32 1
-  %ui.0.i.i.i.i387 = add i32 %ui.0.v.i.i.i.i386, %124
-  %125 = bitcast i32 %ui.0.i.i.i.i387 to float
-  br label %_ZN4pbrt12SubRoundDownEff.exit.i388
+if.end.i.i.i.i391:                                ; preds = %_ZNK4pbrt8IntervalmiES0_.exit387
+  %cmp1.i.i.i.i392 = fcmp oeq float %add.i.i.i389, 0.000000e+00
+  %v.addr.0.i.i.i.i393 = select i1 %cmp1.i.i.i.i392, float -0.000000e+00, float %add.i.i.i389
+  %124 = bitcast float %v.addr.0.i.i.i.i393 to i32
+  %cmp5.i.i.i.i394 = fcmp ogt float %v.addr.0.i.i.i.i393, 0.000000e+00
+  %ui.0.v.i.i.i.i395 = select i1 %cmp5.i.i.i.i394, i32 -1, i32 1
+  %ui.0.i.i.i.i396 = add i32 %ui.0.v.i.i.i.i395, %124
+  %125 = bitcast i32 %ui.0.i.i.i.i396 to float
+  br label %_ZN4pbrt12SubRoundDownEff.exit.i397
 
-_ZN4pbrt12SubRoundDownEff.exit.i388:              ; preds = %if.end.i.i.i.i382, %_ZNK4pbrt8IntervalmiES0_.exit378
-  %retval.0.i.i.i.i389 = phi float [ %125, %if.end.i.i.i.i382 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalmiES0_.exit378 ]
-  %high2.i390 = getelementptr inbounds i8, ptr %oi, i64 12
-  %126 = load float, ptr %high2.i390, align 4
-  %i.sroa.0.0.vec.extract.i391 = extractelement <2 x float> %call51, i64 0
-  %add.i.i1.i392 = fsub float %126, %i.sroa.0.0.vec.extract.i391
-  %or.cond.i.i.i2.i393 = fcmp oeq float %add.i.i1.i392, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i2.i393, label %_ZNK4pbrt8IntervalmiES0_.exit407, label %if.end.i.i.i3.i394
+_ZN4pbrt12SubRoundDownEff.exit.i397:              ; preds = %if.end.i.i.i.i391, %_ZNK4pbrt8IntervalmiES0_.exit387
+  %retval.0.i.i.i.i398 = phi float [ %125, %if.end.i.i.i.i391 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalmiES0_.exit387 ]
+  %high2.i399 = getelementptr inbounds i8, ptr %oi, i64 12
+  %126 = load float, ptr %high2.i399, align 4
+  %i.sroa.0.0.vec.extract.i400 = extractelement <2 x float> %call51, i64 0
+  %add.i.i1.i401 = fsub float %126, %i.sroa.0.0.vec.extract.i400
+  %or.cond.i.i.i2.i402 = fcmp oeq float %add.i.i1.i401, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i2.i402, label %_ZNK4pbrt8IntervalmiES0_.exit416, label %if.end.i.i.i3.i403
 
-if.end.i.i.i3.i394:                               ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i388
-  %cmp1.i.i.i4.i395 = fcmp oeq float %add.i.i1.i392, 0.000000e+00
-  %v.addr.0.i.i.i5.i396 = select i1 %cmp1.i.i.i4.i395, float 0.000000e+00, float %add.i.i1.i392
-  %127 = bitcast float %v.addr.0.i.i.i5.i396 to i32
-  %cmp5.i.i.i6.i397 = fcmp ult float %v.addr.0.i.i.i5.i396, 0.000000e+00
-  %ui.0.v.i.i.i7.i398 = select i1 %cmp5.i.i.i6.i397, i32 -1, i32 1
-  %ui.0.i.i.i8.i399 = add i32 %ui.0.v.i.i.i7.i398, %127
-  %128 = bitcast i32 %ui.0.i.i.i8.i399 to float
-  br label %_ZNK4pbrt8IntervalmiES0_.exit407
+if.end.i.i.i3.i403:                               ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i397
+  %cmp1.i.i.i4.i404 = fcmp oeq float %add.i.i1.i401, 0.000000e+00
+  %v.addr.0.i.i.i5.i405 = select i1 %cmp1.i.i.i4.i404, float 0.000000e+00, float %add.i.i1.i401
+  %127 = bitcast float %v.addr.0.i.i.i5.i405 to i32
+  %cmp5.i.i.i6.i406 = fcmp ult float %v.addr.0.i.i.i5.i405, 0.000000e+00
+  %ui.0.v.i.i.i7.i407 = select i1 %cmp5.i.i.i6.i406, i32 -1, i32 1
+  %ui.0.i.i.i8.i408 = add i32 %ui.0.v.i.i.i7.i407, %127
+  %128 = bitcast i32 %ui.0.i.i.i8.i408 to float
+  br label %_ZNK4pbrt8IntervalmiES0_.exit416
 
-_ZNK4pbrt8IntervalmiES0_.exit407:                 ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i388, %if.end.i.i.i3.i394
-  %retval.0.i.i.i9.i400 = phi float [ %128, %if.end.i.i.i3.i394 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i388 ]
-  %cmp.i.i.i401 = fcmp olt float %retval.0.i.i.i9.i400, %retval.0.i.i.i.i389
-  %.sroa.speculated6.i.i402 = select i1 %cmp.i.i.i401, float %retval.0.i.i.i9.i400, float %retval.0.i.i.i.i389
-  %cmp.i1.i.i404 = fcmp olt float %retval.0.i.i.i.i389, %retval.0.i.i.i9.i400
-  %.sroa.speculated.i.i405 = select i1 %cmp.i1.i.i404, float %retval.0.i.i.i9.i400, float %retval.0.i.i.i.i389
-  %129 = call noundef float @llvm.fabs.f32(float %.sroa.speculated6.i.i373)
-  %130 = call noundef float @llvm.fabs.f32(float %.sroa.speculated.i.i376)
-  %cmp.i408 = fcmp ogt float %129, %130
-  %ahigh.0.i409 = select i1 %cmp.i408, float %129, float %130
-  %cmp.i.i410 = fcmp ole float %.sroa.speculated6.i.i373, 0.000000e+00
-  %cmp2.i.i411 = fcmp oge float %.sroa.speculated.i.i376, 0.000000e+00
-  %131 = select i1 %cmp.i.i410, i1 %cmp2.i.i411, i1 false
-  br i1 %131, label %if.then5.i437, label %if.end7.i412
+_ZNK4pbrt8IntervalmiES0_.exit416:                 ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i397, %if.end.i.i.i3.i403
+  %retval.0.i.i.i9.i409 = phi float [ %128, %if.end.i.i.i3.i403 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i397 ]
+  %cmp.i.i.i410 = fcmp olt float %retval.0.i.i.i9.i409, %retval.0.i.i.i.i398
+  %.sroa.speculated6.i.i411 = select i1 %cmp.i.i.i410, float %retval.0.i.i.i9.i409, float %retval.0.i.i.i.i398
+  %cmp.i1.i.i413 = fcmp olt float %retval.0.i.i.i.i398, %retval.0.i.i.i9.i409
+  %.sroa.speculated.i.i414 = select i1 %cmp.i1.i.i413, float %retval.0.i.i.i9.i409, float %retval.0.i.i.i.i398
+  %129 = call noundef float @llvm.fabs.f32(float %.sroa.speculated6.i.i382)
+  %130 = call noundef float @llvm.fabs.f32(float %.sroa.speculated.i.i385)
+  %cmp.i419 = fcmp ogt float %129, %130
+  %ahigh.0.i420 = select i1 %cmp.i419, float %129, float %130
+  %cmp.i.i421 = fcmp ole float %.sroa.speculated6.i.i382, 0.000000e+00
+  %cmp2.i.i422 = fcmp oge float %.sroa.speculated.i.i385, 0.000000e+00
+  %131 = select i1 %cmp.i.i421, i1 %cmp2.i.i422, i1 false
+  br i1 %131, label %if.then5.i448, label %if.end7.i423
 
-if.then5.i437:                                    ; preds = %_ZNK4pbrt8IntervalmiES0_.exit407
-  %mul.i.i438 = fmul float %ahigh.0.i409, %ahigh.0.i409
-  %or.cond.i.i.i439 = fcmp oeq float %mul.i.i438, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i439, label %_ZN4pbrt10MulRoundUpEff.exit.i446, label %if.end.i.i.i440
+if.then5.i448:                                    ; preds = %_ZNK4pbrt8IntervalmiES0_.exit416
+  %mul.i.i449 = fmul float %ahigh.0.i420, %ahigh.0.i420
+  %or.cond.i.i.i450 = fcmp oeq float %mul.i.i449, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i450, label %_ZN4pbrt10MulRoundUpEff.exit.i457, label %if.end.i.i.i451
 
-if.end.i.i.i440:                                  ; preds = %if.then5.i437
-  %cmp1.i.i.i441 = fcmp oeq float %mul.i.i438, 0.000000e+00
-  %v.addr.0.i.i.i442 = select i1 %cmp1.i.i.i441, float 0.000000e+00, float %mul.i.i438
-  %132 = bitcast float %v.addr.0.i.i.i442 to i32
-  %cmp5.i.i.i443 = fcmp ult float %v.addr.0.i.i.i442, 0.000000e+00
-  %ui.0.v.i.i.i444 = select i1 %cmp5.i.i.i443, i32 -1, i32 1
-  %ui.0.i.i.i445 = add i32 %ui.0.v.i.i.i444, %132
-  %133 = bitcast i32 %ui.0.i.i.i445 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit.i446
+if.end.i.i.i451:                                  ; preds = %if.then5.i448
+  %cmp1.i.i.i452 = fcmp oeq float %mul.i.i449, 0.000000e+00
+  %v.addr.0.i.i.i453 = select i1 %cmp1.i.i.i452, float 0.000000e+00, float %mul.i.i449
+  %132 = bitcast float %v.addr.0.i.i.i453 to i32
+  %cmp5.i.i.i454 = fcmp ult float %v.addr.0.i.i.i453, 0.000000e+00
+  %ui.0.v.i.i.i455 = select i1 %cmp5.i.i.i454, i32 -1, i32 1
+  %ui.0.i.i.i456 = add i32 %ui.0.v.i.i.i455, %132
+  %133 = bitcast i32 %ui.0.i.i.i456 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit.i457
 
-_ZN4pbrt10MulRoundUpEff.exit.i446:                ; preds = %if.end.i.i.i440, %if.then5.i437
-  %retval.0.i.i.i447 = phi float [ %133, %if.end.i.i.i440 ], [ 0x7FF0000000000000, %if.then5.i437 ]
-  %134 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i447, i64 0
-  %135 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i447, i64 1
+_ZN4pbrt10MulRoundUpEff.exit.i457:                ; preds = %if.end.i.i.i451, %if.then5.i448
+  %retval.0.i.i.i458 = phi float [ %133, %if.end.i.i.i451 ], [ 0x7FF0000000000000, %if.then5.i448 ]
+  %134 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i458, i64 0
+  %135 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i458, i64 1
   %136 = fcmp olt <2 x float> %134, %135
   %137 = shufflevector <2 x float> %134, <2 x float> poison, <2 x i32> zeroinitializer
   %138 = select <2 x i1> %136, <2 x float> %137, <2 x float> zeroinitializer
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit454
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit465
 
-if.end7.i412:                                     ; preds = %_ZNK4pbrt8IntervalmiES0_.exit407
-  %alow.0.i413 = select i1 %cmp.i408, float %130, float %129
-  %mul.i1.i414 = fmul float %alow.0.i413, %alow.0.i413
-  %cmp1.i.i3.i415 = fcmp oeq float %mul.i1.i414, 0.000000e+00
-  %v.addr.0.i.i4.i416 = select i1 %cmp1.i.i3.i415, float -0.000000e+00, float %mul.i1.i414
-  %139 = bitcast float %v.addr.0.i.i4.i416 to i32
-  %cmp5.i.i5.i417 = fcmp ogt float %v.addr.0.i.i4.i416, 0.000000e+00
-  %ui.0.v.i.i6.i418 = select i1 %cmp5.i.i5.i417, i32 -1, i32 1
-  %ui.0.i.i7.i419 = add i32 %ui.0.v.i.i6.i418, %139
-  %140 = bitcast i32 %ui.0.i.i7.i419 to float
-  %mul.i9.i420 = fmul float %ahigh.0.i409, %ahigh.0.i409
-  %or.cond.i.i10.i421 = fcmp oeq float %mul.i9.i420, 0x7FF0000000000000
-  br i1 %or.cond.i.i10.i421, label %_ZN4pbrt10MulRoundUpEff.exit18.i428, label %if.end.i.i11.i422
+if.end7.i423:                                     ; preds = %_ZNK4pbrt8IntervalmiES0_.exit416
+  %alow.0.i424 = select i1 %cmp.i419, float %130, float %129
+  %mul.i1.i425 = fmul float %alow.0.i424, %alow.0.i424
+  %cmp1.i.i4.i426 = fcmp oeq float %mul.i1.i425, 0.000000e+00
+  %v.addr.0.i.i5.i427 = select i1 %cmp1.i.i4.i426, float -0.000000e+00, float %mul.i1.i425
+  %139 = bitcast float %v.addr.0.i.i5.i427 to i32
+  %cmp5.i.i6.i428 = fcmp ogt float %v.addr.0.i.i5.i427, 0.000000e+00
+  %ui.0.v.i.i7.i429 = select i1 %cmp5.i.i6.i428, i32 -1, i32 1
+  %ui.0.i.i8.i430 = add i32 %ui.0.v.i.i7.i429, %139
+  %140 = bitcast i32 %ui.0.i.i8.i430 to float
+  %mul.i10.i431 = fmul float %ahigh.0.i420, %ahigh.0.i420
+  %or.cond.i.i11.i432 = fcmp oeq float %mul.i10.i431, 0x7FF0000000000000
+  br i1 %or.cond.i.i11.i432, label %_ZN4pbrt10MulRoundUpEff.exit19.i439, label %if.end.i.i12.i433
 
-if.end.i.i11.i422:                                ; preds = %if.end7.i412
-  %cmp1.i.i12.i423 = fcmp oeq float %mul.i9.i420, 0.000000e+00
-  %v.addr.0.i.i13.i424 = select i1 %cmp1.i.i12.i423, float 0.000000e+00, float %mul.i9.i420
-  %141 = bitcast float %v.addr.0.i.i13.i424 to i32
-  %cmp5.i.i14.i425 = fcmp ult float %v.addr.0.i.i13.i424, 0.000000e+00
-  %ui.0.v.i.i15.i426 = select i1 %cmp5.i.i14.i425, i32 -1, i32 1
-  %ui.0.i.i16.i427 = add i32 %ui.0.v.i.i15.i426, %141
-  %142 = bitcast i32 %ui.0.i.i16.i427 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit18.i428
+if.end.i.i12.i433:                                ; preds = %if.end7.i423
+  %cmp1.i.i13.i434 = fcmp oeq float %mul.i10.i431, 0.000000e+00
+  %v.addr.0.i.i14.i435 = select i1 %cmp1.i.i13.i434, float 0.000000e+00, float %mul.i10.i431
+  %141 = bitcast float %v.addr.0.i.i14.i435 to i32
+  %cmp5.i.i15.i436 = fcmp ult float %v.addr.0.i.i14.i435, 0.000000e+00
+  %ui.0.v.i.i16.i437 = select i1 %cmp5.i.i15.i436, i32 -1, i32 1
+  %ui.0.i.i17.i438 = add i32 %ui.0.v.i.i16.i437, %141
+  %142 = bitcast i32 %ui.0.i.i17.i438 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit19.i439
 
-_ZN4pbrt10MulRoundUpEff.exit18.i428:              ; preds = %if.end.i.i11.i422, %if.end7.i412
-  %retval.0.i.i17.i429 = phi float [ %142, %if.end.i.i11.i422 ], [ 0x7FF0000000000000, %if.end7.i412 ]
-  %cmp.i.i19.i430 = fcmp olt float %retval.0.i.i17.i429, %140
-  %.sroa.speculated6.i20.i431 = select i1 %cmp.i.i19.i430, float %retval.0.i.i17.i429, float %140
-  %retval.sroa.0.0.vec.insert31.i432 = insertelement <2 x float> poison, float %.sroa.speculated6.i20.i431, i64 0
-  %cmp.i1.i22.i433 = fcmp ogt float %retval.0.i.i17.i429, %140
-  %.sroa.speculated.i23.i434 = select i1 %cmp.i1.i22.i433, float %retval.0.i.i17.i429, float %140
-  %retval.sroa.0.4.vec.insert33.i435 = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i432, float %.sroa.speculated.i23.i434, i64 1
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit454
+_ZN4pbrt10MulRoundUpEff.exit19.i439:              ; preds = %if.end.i.i12.i433, %if.end7.i423
+  %retval.0.i.i18.i440 = phi float [ %142, %if.end.i.i12.i433 ], [ 0x7FF0000000000000, %if.end7.i423 ]
+  %cmp.i.i20.i441 = fcmp olt float %retval.0.i.i18.i440, %140
+  %.sroa.speculated6.i21.i442 = select i1 %cmp.i.i20.i441, float %retval.0.i.i18.i440, float %140
+  %retval.sroa.0.0.vec.insert32.i443 = insertelement <2 x float> poison, float %.sroa.speculated6.i21.i442, i64 0
+  %cmp.i1.i23.i444 = fcmp ogt float %retval.0.i.i18.i440, %140
+  %.sroa.speculated.i24.i445 = select i1 %cmp.i1.i23.i444, float %retval.0.i.i18.i440, float %140
+  %retval.sroa.0.4.vec.insert34.i446 = insertelement <2 x float> %retval.sroa.0.0.vec.insert32.i443, float %.sroa.speculated.i24.i445, i64 1
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit465
 
-_ZN4pbrt3SqrENS_8IntervalE.exit454:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i446, %_ZN4pbrt10MulRoundUpEff.exit18.i428
-  %retval.sroa.0.0.i436 = phi <2 x float> [ %138, %_ZN4pbrt10MulRoundUpEff.exit.i446 ], [ %retval.sroa.0.4.vec.insert33.i435, %_ZN4pbrt10MulRoundUpEff.exit18.i428 ]
-  %143 = call noundef float @llvm.fabs.f32(float %.sroa.speculated6.i.i402)
-  %144 = call noundef float @llvm.fabs.f32(float %.sroa.speculated.i.i405)
-  %cmp.i455 = fcmp ogt float %143, %144
-  %ahigh.0.i456 = select i1 %cmp.i455, float %143, float %144
-  %cmp.i.i457 = fcmp ole float %.sroa.speculated6.i.i402, 0.000000e+00
-  %cmp2.i.i458 = fcmp oge float %.sroa.speculated.i.i405, 0.000000e+00
-  %145 = select i1 %cmp.i.i457, i1 %cmp2.i.i458, i1 false
-  br i1 %145, label %if.then5.i484, label %if.end7.i459
+_ZN4pbrt3SqrENS_8IntervalE.exit465:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i457, %_ZN4pbrt10MulRoundUpEff.exit19.i439
+  %retval.sroa.0.0.i447 = phi <2 x float> [ %138, %_ZN4pbrt10MulRoundUpEff.exit.i457 ], [ %retval.sroa.0.4.vec.insert34.i446, %_ZN4pbrt10MulRoundUpEff.exit19.i439 ]
+  %143 = call noundef float @llvm.fabs.f32(float %.sroa.speculated6.i.i411)
+  %144 = call noundef float @llvm.fabs.f32(float %.sroa.speculated.i.i414)
+  %cmp.i468 = fcmp ogt float %143, %144
+  %ahigh.0.i469 = select i1 %cmp.i468, float %143, float %144
+  %cmp.i.i470 = fcmp ole float %.sroa.speculated6.i.i411, 0.000000e+00
+  %cmp2.i.i471 = fcmp oge float %.sroa.speculated.i.i414, 0.000000e+00
+  %145 = select i1 %cmp.i.i470, i1 %cmp2.i.i471, i1 false
+  br i1 %145, label %if.then5.i497, label %if.end7.i472
 
-if.then5.i484:                                    ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit454
-  %mul.i.i485 = fmul float %ahigh.0.i456, %ahigh.0.i456
-  %or.cond.i.i.i486 = fcmp oeq float %mul.i.i485, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i486, label %_ZN4pbrt10MulRoundUpEff.exit.i493, label %if.end.i.i.i487
+if.then5.i497:                                    ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit465
+  %mul.i.i498 = fmul float %ahigh.0.i469, %ahigh.0.i469
+  %or.cond.i.i.i499 = fcmp oeq float %mul.i.i498, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i499, label %_ZN4pbrt10MulRoundUpEff.exit.i506, label %if.end.i.i.i500
 
-if.end.i.i.i487:                                  ; preds = %if.then5.i484
-  %cmp1.i.i.i488 = fcmp oeq float %mul.i.i485, 0.000000e+00
-  %v.addr.0.i.i.i489 = select i1 %cmp1.i.i.i488, float 0.000000e+00, float %mul.i.i485
-  %146 = bitcast float %v.addr.0.i.i.i489 to i32
-  %cmp5.i.i.i490 = fcmp ult float %v.addr.0.i.i.i489, 0.000000e+00
-  %ui.0.v.i.i.i491 = select i1 %cmp5.i.i.i490, i32 -1, i32 1
-  %ui.0.i.i.i492 = add i32 %ui.0.v.i.i.i491, %146
-  %147 = bitcast i32 %ui.0.i.i.i492 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit.i493
+if.end.i.i.i500:                                  ; preds = %if.then5.i497
+  %cmp1.i.i.i501 = fcmp oeq float %mul.i.i498, 0.000000e+00
+  %v.addr.0.i.i.i502 = select i1 %cmp1.i.i.i501, float 0.000000e+00, float %mul.i.i498
+  %146 = bitcast float %v.addr.0.i.i.i502 to i32
+  %cmp5.i.i.i503 = fcmp ult float %v.addr.0.i.i.i502, 0.000000e+00
+  %ui.0.v.i.i.i504 = select i1 %cmp5.i.i.i503, i32 -1, i32 1
+  %ui.0.i.i.i505 = add i32 %ui.0.v.i.i.i504, %146
+  %147 = bitcast i32 %ui.0.i.i.i505 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit.i506
 
-_ZN4pbrt10MulRoundUpEff.exit.i493:                ; preds = %if.end.i.i.i487, %if.then5.i484
-  %retval.0.i.i.i494 = phi float [ %147, %if.end.i.i.i487 ], [ 0x7FF0000000000000, %if.then5.i484 ]
-  %148 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i494, i64 0
-  %149 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i494, i64 1
+_ZN4pbrt10MulRoundUpEff.exit.i506:                ; preds = %if.end.i.i.i500, %if.then5.i497
+  %retval.0.i.i.i507 = phi float [ %147, %if.end.i.i.i500 ], [ 0x7FF0000000000000, %if.then5.i497 ]
+  %148 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %retval.0.i.i.i507, i64 0
+  %149 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %retval.0.i.i.i507, i64 1
   %150 = fcmp olt <2 x float> %148, %149
   %151 = shufflevector <2 x float> %148, <2 x float> poison, <2 x i32> zeroinitializer
   %152 = select <2 x i1> %150, <2 x float> %151, <2 x float> zeroinitializer
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit501
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit514
 
-if.end7.i459:                                     ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit454
-  %alow.0.i460 = select i1 %cmp.i455, float %144, float %143
-  %mul.i1.i461 = fmul float %alow.0.i460, %alow.0.i460
-  %cmp1.i.i3.i462 = fcmp oeq float %mul.i1.i461, 0.000000e+00
-  %v.addr.0.i.i4.i463 = select i1 %cmp1.i.i3.i462, float -0.000000e+00, float %mul.i1.i461
-  %153 = bitcast float %v.addr.0.i.i4.i463 to i32
-  %cmp5.i.i5.i464 = fcmp ogt float %v.addr.0.i.i4.i463, 0.000000e+00
-  %ui.0.v.i.i6.i465 = select i1 %cmp5.i.i5.i464, i32 -1, i32 1
-  %ui.0.i.i7.i466 = add i32 %ui.0.v.i.i6.i465, %153
-  %154 = bitcast i32 %ui.0.i.i7.i466 to float
-  %mul.i9.i467 = fmul float %ahigh.0.i456, %ahigh.0.i456
-  %or.cond.i.i10.i468 = fcmp oeq float %mul.i9.i467, 0x7FF0000000000000
-  br i1 %or.cond.i.i10.i468, label %_ZN4pbrt10MulRoundUpEff.exit18.i475, label %if.end.i.i11.i469
+if.end7.i472:                                     ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit465
+  %alow.0.i473 = select i1 %cmp.i468, float %144, float %143
+  %mul.i1.i474 = fmul float %alow.0.i473, %alow.0.i473
+  %cmp1.i.i4.i475 = fcmp oeq float %mul.i1.i474, 0.000000e+00
+  %v.addr.0.i.i5.i476 = select i1 %cmp1.i.i4.i475, float -0.000000e+00, float %mul.i1.i474
+  %153 = bitcast float %v.addr.0.i.i5.i476 to i32
+  %cmp5.i.i6.i477 = fcmp ogt float %v.addr.0.i.i5.i476, 0.000000e+00
+  %ui.0.v.i.i7.i478 = select i1 %cmp5.i.i6.i477, i32 -1, i32 1
+  %ui.0.i.i8.i479 = add i32 %ui.0.v.i.i7.i478, %153
+  %154 = bitcast i32 %ui.0.i.i8.i479 to float
+  %mul.i10.i480 = fmul float %ahigh.0.i469, %ahigh.0.i469
+  %or.cond.i.i11.i481 = fcmp oeq float %mul.i10.i480, 0x7FF0000000000000
+  br i1 %or.cond.i.i11.i481, label %_ZN4pbrt10MulRoundUpEff.exit19.i488, label %if.end.i.i12.i482
 
-if.end.i.i11.i469:                                ; preds = %if.end7.i459
-  %cmp1.i.i12.i470 = fcmp oeq float %mul.i9.i467, 0.000000e+00
-  %v.addr.0.i.i13.i471 = select i1 %cmp1.i.i12.i470, float 0.000000e+00, float %mul.i9.i467
-  %155 = bitcast float %v.addr.0.i.i13.i471 to i32
-  %cmp5.i.i14.i472 = fcmp ult float %v.addr.0.i.i13.i471, 0.000000e+00
-  %ui.0.v.i.i15.i473 = select i1 %cmp5.i.i14.i472, i32 -1, i32 1
-  %ui.0.i.i16.i474 = add i32 %ui.0.v.i.i15.i473, %155
-  %156 = bitcast i32 %ui.0.i.i16.i474 to float
-  br label %_ZN4pbrt10MulRoundUpEff.exit18.i475
+if.end.i.i12.i482:                                ; preds = %if.end7.i472
+  %cmp1.i.i13.i483 = fcmp oeq float %mul.i10.i480, 0.000000e+00
+  %v.addr.0.i.i14.i484 = select i1 %cmp1.i.i13.i483, float 0.000000e+00, float %mul.i10.i480
+  %155 = bitcast float %v.addr.0.i.i14.i484 to i32
+  %cmp5.i.i15.i485 = fcmp ult float %v.addr.0.i.i14.i484, 0.000000e+00
+  %ui.0.v.i.i16.i486 = select i1 %cmp5.i.i15.i485, i32 -1, i32 1
+  %ui.0.i.i17.i487 = add i32 %ui.0.v.i.i16.i486, %155
+  %156 = bitcast i32 %ui.0.i.i17.i487 to float
+  br label %_ZN4pbrt10MulRoundUpEff.exit19.i488
 
-_ZN4pbrt10MulRoundUpEff.exit18.i475:              ; preds = %if.end.i.i11.i469, %if.end7.i459
-  %retval.0.i.i17.i476 = phi float [ %156, %if.end.i.i11.i469 ], [ 0x7FF0000000000000, %if.end7.i459 ]
-  %cmp.i.i19.i477 = fcmp olt float %retval.0.i.i17.i476, %154
-  %.sroa.speculated6.i20.i478 = select i1 %cmp.i.i19.i477, float %retval.0.i.i17.i476, float %154
-  %retval.sroa.0.0.vec.insert31.i479 = insertelement <2 x float> poison, float %.sroa.speculated6.i20.i478, i64 0
-  %cmp.i1.i22.i480 = fcmp ogt float %retval.0.i.i17.i476, %154
-  %.sroa.speculated.i23.i481 = select i1 %cmp.i1.i22.i480, float %retval.0.i.i17.i476, float %154
-  %retval.sroa.0.4.vec.insert33.i482 = insertelement <2 x float> %retval.sroa.0.0.vec.insert31.i479, float %.sroa.speculated.i23.i481, i64 1
-  br label %_ZN4pbrt3SqrENS_8IntervalE.exit501
+_ZN4pbrt10MulRoundUpEff.exit19.i488:              ; preds = %if.end.i.i12.i482, %if.end7.i472
+  %retval.0.i.i18.i489 = phi float [ %156, %if.end.i.i12.i482 ], [ 0x7FF0000000000000, %if.end7.i472 ]
+  %cmp.i.i20.i490 = fcmp olt float %retval.0.i.i18.i489, %154
+  %.sroa.speculated6.i21.i491 = select i1 %cmp.i.i20.i490, float %retval.0.i.i18.i489, float %154
+  %retval.sroa.0.0.vec.insert32.i492 = insertelement <2 x float> poison, float %.sroa.speculated6.i21.i491, i64 0
+  %cmp.i1.i23.i493 = fcmp ogt float %retval.0.i.i18.i489, %154
+  %.sroa.speculated.i24.i494 = select i1 %cmp.i1.i23.i493, float %retval.0.i.i18.i489, float %154
+  %retval.sroa.0.4.vec.insert34.i495 = insertelement <2 x float> %retval.sroa.0.0.vec.insert32.i492, float %.sroa.speculated.i24.i494, i64 1
+  br label %_ZN4pbrt3SqrENS_8IntervalE.exit514
 
-_ZN4pbrt3SqrENS_8IntervalE.exit501:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i493, %_ZN4pbrt10MulRoundUpEff.exit18.i475
-  %retval.sroa.0.0.i483 = phi <2 x float> [ %152, %_ZN4pbrt10MulRoundUpEff.exit.i493 ], [ %retval.sroa.0.4.vec.insert33.i482, %_ZN4pbrt10MulRoundUpEff.exit18.i475 ]
-  %157 = fadd <2 x float> %retval.sroa.0.0.i436, %retval.sroa.0.0.i483
-  %add.i.i503 = extractelement <2 x float> %157, i64 0
-  %or.cond.i.i.i504 = fcmp oeq float %add.i.i503, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i504, label %_ZN4pbrt12AddRoundDownEff.exit.i511, label %if.end.i.i.i505
+_ZN4pbrt3SqrENS_8IntervalE.exit514:               ; preds = %_ZN4pbrt10MulRoundUpEff.exit.i506, %_ZN4pbrt10MulRoundUpEff.exit19.i488
+  %retval.sroa.0.0.i496 = phi <2 x float> [ %152, %_ZN4pbrt10MulRoundUpEff.exit.i506 ], [ %retval.sroa.0.4.vec.insert34.i495, %_ZN4pbrt10MulRoundUpEff.exit19.i488 ]
+  %157 = fadd <2 x float> %retval.sroa.0.0.i447, %retval.sroa.0.0.i496
+  %add.i.i516 = extractelement <2 x float> %157, i64 0
+  %or.cond.i.i.i517 = fcmp oeq float %add.i.i516, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i517, label %_ZN4pbrt12AddRoundDownEff.exit.i524, label %if.end.i.i.i518
 
-if.end.i.i.i505:                                  ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit501
-  %cmp1.i.i.i506 = fcmp oeq float %add.i.i503, 0.000000e+00
-  %v.addr.0.i.i.i507 = select i1 %cmp1.i.i.i506, float -0.000000e+00, float %add.i.i503
-  %158 = bitcast float %v.addr.0.i.i.i507 to i32
-  %cmp5.i.i.i508 = fcmp ogt float %v.addr.0.i.i.i507, 0.000000e+00
-  %ui.0.v.i.i.i509 = select i1 %cmp5.i.i.i508, i32 -1, i32 1
-  %ui.0.i.i.i510 = add i32 %ui.0.v.i.i.i509, %158
-  %159 = bitcast i32 %ui.0.i.i.i510 to float
-  br label %_ZN4pbrt12AddRoundDownEff.exit.i511
+if.end.i.i.i518:                                  ; preds = %_ZN4pbrt3SqrENS_8IntervalE.exit514
+  %cmp1.i.i.i519 = fcmp oeq float %add.i.i516, 0.000000e+00
+  %v.addr.0.i.i.i520 = select i1 %cmp1.i.i.i519, float -0.000000e+00, float %add.i.i516
+  %158 = bitcast float %v.addr.0.i.i.i520 to i32
+  %cmp5.i.i.i521 = fcmp ogt float %v.addr.0.i.i.i520, 0.000000e+00
+  %ui.0.v.i.i.i522 = select i1 %cmp5.i.i.i521, i32 -1, i32 1
+  %ui.0.i.i.i523 = add i32 %ui.0.v.i.i.i522, %158
+  %159 = bitcast i32 %ui.0.i.i.i523 to float
+  br label %_ZN4pbrt12AddRoundDownEff.exit.i524
 
-_ZN4pbrt12AddRoundDownEff.exit.i511:              ; preds = %if.end.i.i.i505, %_ZN4pbrt3SqrENS_8IntervalE.exit501
-  %retval.0.i.i.i512 = phi float [ %159, %if.end.i.i.i505 ], [ 0xFFF0000000000000, %_ZN4pbrt3SqrENS_8IntervalE.exit501 ]
-  %160 = fadd <2 x float> %retval.sroa.0.0.i436, %retval.sroa.0.0.i483
-  %add.i1.i515 = extractelement <2 x float> %160, i64 1
-  %or.cond.i.i2.i516 = fcmp oeq float %add.i1.i515, 0x7FF0000000000000
-  br i1 %or.cond.i.i2.i516, label %_ZNK4pbrt8IntervalplES0_.exit530, label %if.end.i.i3.i517
+_ZN4pbrt12AddRoundDownEff.exit.i524:              ; preds = %if.end.i.i.i518, %_ZN4pbrt3SqrENS_8IntervalE.exit514
+  %retval.0.i.i.i525 = phi float [ %159, %if.end.i.i.i518 ], [ 0xFFF0000000000000, %_ZN4pbrt3SqrENS_8IntervalE.exit514 ]
+  %160 = fadd <2 x float> %retval.sroa.0.0.i447, %retval.sroa.0.0.i496
+  %add.i1.i528 = extractelement <2 x float> %160, i64 1
+  %or.cond.i.i2.i529 = fcmp oeq float %add.i1.i528, 0x7FF0000000000000
+  br i1 %or.cond.i.i2.i529, label %_ZNK4pbrt8IntervalplES0_.exit543, label %if.end.i.i3.i530
 
-if.end.i.i3.i517:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i511
-  %cmp1.i.i4.i518 = fcmp oeq float %add.i1.i515, 0.000000e+00
-  %v.addr.0.i.i5.i519 = select i1 %cmp1.i.i4.i518, float 0.000000e+00, float %add.i1.i515
-  %161 = bitcast float %v.addr.0.i.i5.i519 to i32
-  %cmp5.i.i6.i520 = fcmp ult float %v.addr.0.i.i5.i519, 0.000000e+00
-  %ui.0.v.i.i7.i521 = select i1 %cmp5.i.i6.i520, i32 -1, i32 1
-  %ui.0.i.i8.i522 = add i32 %ui.0.v.i.i7.i521, %161
-  %162 = bitcast i32 %ui.0.i.i8.i522 to float
-  br label %_ZNK4pbrt8IntervalplES0_.exit530
+if.end.i.i3.i530:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i524
+  %cmp1.i.i4.i531 = fcmp oeq float %add.i1.i528, 0.000000e+00
+  %v.addr.0.i.i5.i532 = select i1 %cmp1.i.i4.i531, float 0.000000e+00, float %add.i1.i528
+  %161 = bitcast float %v.addr.0.i.i5.i532 to i32
+  %cmp5.i.i6.i533 = fcmp ult float %v.addr.0.i.i5.i532, 0.000000e+00
+  %ui.0.v.i.i7.i534 = select i1 %cmp5.i.i6.i533, i32 -1, i32 1
+  %ui.0.i.i8.i535 = add i32 %ui.0.v.i.i7.i534, %161
+  %162 = bitcast i32 %ui.0.i.i8.i535 to float
+  br label %_ZNK4pbrt8IntervalplES0_.exit543
 
-_ZNK4pbrt8IntervalplES0_.exit530:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i511, %if.end.i.i3.i517
-  %retval.0.i.i9.i523 = phi float [ %162, %if.end.i.i3.i517 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i511 ]
-  %cmp.i.i.i524 = fcmp olt float %retval.0.i.i9.i523, %retval.0.i.i.i512
-  %.sroa.speculated6.i.i525 = select i1 %cmp.i.i.i524, float %retval.0.i.i9.i523, float %retval.0.i.i.i512
-  %cmp.i1.i.i527 = fcmp olt float %retval.0.i.i.i512, %retval.0.i.i9.i523
-  %.sroa.speculated.i.i528 = select i1 %cmp.i1.i.i527, float %retval.0.i.i9.i523, float %retval.0.i.i.i512
-  %call.i.i.i = call noundef float @sqrtf(float noundef %.sroa.speculated6.i.i525) #28
-  %or.cond.i.i.i531 = fcmp oeq float %call.i.i.i, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i531, label %_ZN4pbrt13SqrtRoundDownEf.exit.i, label %if.end.i.i.i532
+_ZNK4pbrt8IntervalplES0_.exit543:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i524, %if.end.i.i3.i530
+  %retval.0.i.i9.i536 = phi float [ %162, %if.end.i.i3.i530 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i524 ]
+  %cmp.i.i.i537 = fcmp olt float %retval.0.i.i9.i536, %retval.0.i.i.i525
+  %.sroa.speculated6.i.i538 = select i1 %cmp.i.i.i537, float %retval.0.i.i9.i536, float %retval.0.i.i.i525
+  %cmp.i1.i.i540 = fcmp olt float %retval.0.i.i.i525, %retval.0.i.i9.i536
+  %.sroa.speculated.i.i541 = select i1 %cmp.i1.i.i540, float %retval.0.i.i9.i536, float %retval.0.i.i.i525
+  %call.i.i.i = call noundef float @sqrtf(float noundef %.sroa.speculated6.i.i538) #28
+  %or.cond.i.i.i545 = fcmp oeq float %call.i.i.i, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i545, label %_ZN4pbrt13SqrtRoundDownEf.exit.i, label %if.end.i.i.i546
 
-if.end.i.i.i532:                                  ; preds = %_ZNK4pbrt8IntervalplES0_.exit530
-  %cmp1.i.i.i533 = fcmp oeq float %call.i.i.i, 0.000000e+00
-  %v.addr.0.i.i.i534 = select i1 %cmp1.i.i.i533, float -0.000000e+00, float %call.i.i.i
-  %163 = bitcast float %v.addr.0.i.i.i534 to i32
-  %cmp5.i.i.i535 = fcmp ogt float %v.addr.0.i.i.i534, 0.000000e+00
-  %ui.0.v.i.i.i536 = select i1 %cmp5.i.i.i535, i32 -1, i32 1
-  %ui.0.i.i.i537 = add i32 %ui.0.v.i.i.i536, %163
-  %164 = bitcast i32 %ui.0.i.i.i537 to float
+if.end.i.i.i546:                                  ; preds = %_ZNK4pbrt8IntervalplES0_.exit543
+  %cmp1.i.i.i547 = fcmp oeq float %call.i.i.i, 0.000000e+00
+  %v.addr.0.i.i.i548 = select i1 %cmp1.i.i.i547, float -0.000000e+00, float %call.i.i.i
+  %163 = bitcast float %v.addr.0.i.i.i548 to i32
+  %cmp5.i.i.i549 = fcmp ogt float %v.addr.0.i.i.i548, 0.000000e+00
+  %ui.0.v.i.i.i550 = select i1 %cmp5.i.i.i549, i32 -1, i32 1
+  %ui.0.i.i.i551 = add i32 %ui.0.v.i.i.i550, %163
+  %164 = bitcast i32 %ui.0.i.i.i551 to float
   br label %_ZN4pbrt13SqrtRoundDownEf.exit.i
 
-_ZN4pbrt13SqrtRoundDownEf.exit.i:                 ; preds = %if.end.i.i.i532, %_ZNK4pbrt8IntervalplES0_.exit530
-  %retval.0.i.i.i538 = phi float [ %164, %if.end.i.i.i532 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit530 ]
-  %call.i.i1.i = call noundef float @sqrtf(float noundef %.sroa.speculated.i.i528) #28
-  %or.cond.i.i2.i539 = fcmp oeq float %call.i.i1.i, 0x7FF0000000000000
-  br i1 %or.cond.i.i2.i539, label %_ZN4pbrt4SqrtENS_8IntervalE.exit, label %if.end.i.i3.i540
+_ZN4pbrt13SqrtRoundDownEf.exit.i:                 ; preds = %if.end.i.i.i546, %_ZNK4pbrt8IntervalplES0_.exit543
+  %retval.0.i.i.i552 = phi float [ %164, %if.end.i.i.i546 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit543 ]
+  %call.i.i1.i = call noundef float @sqrtf(float noundef %.sroa.speculated.i.i541) #28
+  %or.cond.i.i2.i554 = fcmp oeq float %call.i.i1.i, 0x7FF0000000000000
+  br i1 %or.cond.i.i2.i554, label %_ZN4pbrt4SqrtENS_8IntervalE.exit, label %if.end.i.i3.i555
 
-if.end.i.i3.i540:                                 ; preds = %_ZN4pbrt13SqrtRoundDownEf.exit.i
-  %cmp1.i.i4.i541 = fcmp oeq float %call.i.i1.i, 0.000000e+00
-  %v.addr.0.i.i5.i542 = select i1 %cmp1.i.i4.i541, float 0.000000e+00, float %call.i.i1.i
-  %165 = bitcast float %v.addr.0.i.i5.i542 to i32
-  %cmp5.i.i6.i543 = fcmp ult float %v.addr.0.i.i5.i542, 0.000000e+00
-  %ui.0.v.i.i7.i544 = select i1 %cmp5.i.i6.i543, i32 -1, i32 1
-  %ui.0.i.i8.i545 = add i32 %ui.0.v.i.i7.i544, %165
-  %166 = bitcast i32 %ui.0.i.i8.i545 to float
+if.end.i.i3.i555:                                 ; preds = %_ZN4pbrt13SqrtRoundDownEf.exit.i
+  %cmp1.i.i4.i556 = fcmp oeq float %call.i.i1.i, 0.000000e+00
+  %v.addr.0.i.i5.i557 = select i1 %cmp1.i.i4.i556, float 0.000000e+00, float %call.i.i1.i
+  %165 = bitcast float %v.addr.0.i.i5.i557 to i32
+  %cmp5.i.i6.i558 = fcmp ult float %v.addr.0.i.i5.i557, 0.000000e+00
+  %ui.0.v.i.i7.i559 = select i1 %cmp5.i.i6.i558, i32 -1, i32 1
+  %ui.0.i.i8.i560 = add i32 %ui.0.v.i.i7.i559, %165
+  %166 = bitcast i32 %ui.0.i.i8.i560 to float
   br label %_ZN4pbrt4SqrtENS_8IntervalE.exit
 
-_ZN4pbrt4SqrtENS_8IntervalE.exit:                 ; preds = %_ZN4pbrt13SqrtRoundDownEf.exit.i, %if.end.i.i3.i540
-  %retval.0.i.i9.i546 = phi float [ %166, %if.end.i.i3.i540 ], [ 0x7FF0000000000000, %_ZN4pbrt13SqrtRoundDownEf.exit.i ]
-  %cmp.i.i.i547 = fcmp ogt float %retval.0.i.i.i538, 0.000000e+00
-  %.sroa.speculated.i.i548 = select i1 %cmp.i.i.i547, float %retval.0.i.i.i538, float 0.000000e+00
-  %cmp.i.i10.i = fcmp olt float %retval.0.i.i9.i546, %.sroa.speculated.i.i548
-  %.sroa.speculated6.i.i549 = select i1 %cmp.i.i10.i, float %retval.0.i.i9.i546, float %.sroa.speculated.i.i548
-  %cmp.i1.i.i551 = fcmp olt float %.sroa.speculated.i.i548, %retval.0.i.i9.i546
-  %.sroa.speculated.i11.i = select i1 %cmp.i1.i.i551, float %retval.0.i.i9.i546, float %.sroa.speculated.i.i548
-  %mul.i.i553 = fmul float %.sroa.speculated6.i.i86, 4.000000e+00
-  %or.cond.i.i.i554 = fcmp oeq float %mul.i.i553, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i554, label %_ZN4pbrt12MulRoundDownEff.exit.i561, label %if.end.i.i.i555
+_ZN4pbrt4SqrtENS_8IntervalE.exit:                 ; preds = %_ZN4pbrt13SqrtRoundDownEf.exit.i, %if.end.i.i3.i555
+  %retval.0.i.i9.i561 = phi float [ %166, %if.end.i.i3.i555 ], [ 0x7FF0000000000000, %_ZN4pbrt13SqrtRoundDownEf.exit.i ]
+  %cmp.i.i.i562 = fcmp ogt float %retval.0.i.i.i552, 0.000000e+00
+  %.sroa.speculated.i.i563 = select i1 %cmp.i.i.i562, float %retval.0.i.i.i552, float 0.000000e+00
+  %cmp.i.i10.i = fcmp olt float %retval.0.i.i9.i561, %.sroa.speculated.i.i563
+  %.sroa.speculated6.i.i564 = select i1 %cmp.i.i10.i, float %retval.0.i.i9.i561, float %.sroa.speculated.i.i563
+  %cmp.i1.i.i566 = fcmp olt float %.sroa.speculated.i.i563, %retval.0.i.i9.i561
+  %.sroa.speculated.i11.i = select i1 %cmp.i1.i.i566, float %retval.0.i.i9.i561, float %.sroa.speculated.i.i563
+  %mul.i.i569 = fmul float %.sroa.speculated6.i.i91, 4.000000e+00
+  %or.cond.i.i.i570 = fcmp oeq float %mul.i.i569, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i570, label %_ZN4pbrt12MulRoundDownEff.exit.i577, label %if.end.i.i.i571
 
-if.end.i.i.i555:                                  ; preds = %_ZN4pbrt4SqrtENS_8IntervalE.exit
-  %cmp1.i.i.i556 = fcmp oeq float %mul.i.i553, 0.000000e+00
-  %v.addr.0.i.i.i557 = select i1 %cmp1.i.i.i556, float -0.000000e+00, float %mul.i.i553
-  %167 = bitcast float %v.addr.0.i.i.i557 to i32
-  %cmp5.i.i.i558 = fcmp ogt float %v.addr.0.i.i.i557, 0.000000e+00
-  %ui.0.v.i.i.i559 = select i1 %cmp5.i.i.i558, i32 -1, i32 1
-  %ui.0.i.i.i560 = add i32 %ui.0.v.i.i.i559, %167
-  %168 = bitcast i32 %ui.0.i.i.i560 to float
-  br label %_ZN4pbrt12MulRoundDownEff.exit.i561
+if.end.i.i.i571:                                  ; preds = %_ZN4pbrt4SqrtENS_8IntervalE.exit
+  %cmp1.i.i.i572 = fcmp oeq float %mul.i.i569, 0.000000e+00
+  %v.addr.0.i.i.i573 = select i1 %cmp1.i.i.i572, float -0.000000e+00, float %mul.i.i569
+  %167 = bitcast float %v.addr.0.i.i.i573 to i32
+  %cmp5.i.i.i574 = fcmp ogt float %v.addr.0.i.i.i573, 0.000000e+00
+  %ui.0.v.i.i.i575 = select i1 %cmp5.i.i.i574, i32 -1, i32 1
+  %ui.0.i.i.i576 = add i32 %ui.0.v.i.i.i575, %167
+  %168 = bitcast i32 %ui.0.i.i.i576 to float
+  br label %_ZN4pbrt12MulRoundDownEff.exit.i577
 
-_ZN4pbrt12MulRoundDownEff.exit.i561:              ; preds = %if.end.i.i.i555, %_ZN4pbrt4SqrtENS_8IntervalE.exit
-  %retval.0.i.i.i562 = phi float [ %168, %if.end.i.i.i555 ], [ 0xFFF0000000000000, %_ZN4pbrt4SqrtENS_8IntervalE.exit ]
-  %mul.i5.i563 = fmul float %.sroa.speculated.i.i89, 4.000000e+00
-  %or.cond.i.i6.i564 = fcmp oeq float %mul.i5.i563, 0x7FF0000000000000
-  br i1 %or.cond.i.i6.i564, label %_ZN4pbrtmlEfNS_8IntervalE.exit580, label %if.end.i.i7.i565
+_ZN4pbrt12MulRoundDownEff.exit.i577:              ; preds = %if.end.i.i.i571, %_ZN4pbrt4SqrtENS_8IntervalE.exit
+  %retval.0.i.i.i578 = phi float [ %168, %if.end.i.i.i571 ], [ 0xFFF0000000000000, %_ZN4pbrt4SqrtENS_8IntervalE.exit ]
+  %mul.i5.i580 = fmul float %.sroa.speculated.i.i94, 4.000000e+00
+  %or.cond.i.i6.i581 = fcmp oeq float %mul.i5.i580, 0x7FF0000000000000
+  br i1 %or.cond.i.i6.i581, label %_ZN4pbrtmlEfNS_8IntervalE.exit597, label %if.end.i.i7.i582
 
-if.end.i.i7.i565:                                 ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i561
-  %cmp1.i.i8.i566 = fcmp oeq float %mul.i5.i563, 0.000000e+00
-  %v.addr.0.i.i9.i567 = select i1 %cmp1.i.i8.i566, float 0.000000e+00, float %mul.i5.i563
-  %169 = bitcast float %v.addr.0.i.i9.i567 to i32
-  %cmp5.i.i10.i568 = fcmp ult float %v.addr.0.i.i9.i567, 0.000000e+00
-  %ui.0.v.i.i11.i569 = select i1 %cmp5.i.i10.i568, i32 -1, i32 1
-  %ui.0.i.i12.i570 = add i32 %ui.0.v.i.i11.i569, %169
-  %170 = bitcast i32 %ui.0.i.i12.i570 to float
-  br label %_ZN4pbrtmlEfNS_8IntervalE.exit580
+if.end.i.i7.i582:                                 ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i577
+  %cmp1.i.i8.i583 = fcmp oeq float %mul.i5.i580, 0.000000e+00
+  %v.addr.0.i.i9.i584 = select i1 %cmp1.i.i8.i583, float 0.000000e+00, float %mul.i5.i580
+  %169 = bitcast float %v.addr.0.i.i9.i584 to i32
+  %cmp5.i.i10.i585 = fcmp ult float %v.addr.0.i.i9.i584, 0.000000e+00
+  %ui.0.v.i.i11.i586 = select i1 %cmp5.i.i10.i585, i32 -1, i32 1
+  %ui.0.i.i12.i587 = add i32 %ui.0.v.i.i11.i586, %169
+  %170 = bitcast i32 %ui.0.i.i12.i587 to float
+  br label %_ZN4pbrtmlEfNS_8IntervalE.exit597
 
-_ZN4pbrtmlEfNS_8IntervalE.exit580:                ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i561, %if.end.i.i7.i565
-  %retval.0.i.i13.i572 = phi float [ %170, %if.end.i.i7.i565 ], [ 0x7FF0000000000000, %_ZN4pbrt12MulRoundDownEff.exit.i561 ]
-  %cmp.i.i.i573 = fcmp olt float %retval.0.i.i13.i572, %retval.0.i.i.i562
-  %.sroa.speculated6.i.i574 = select i1 %cmp.i.i.i573, float %retval.0.i.i13.i572, float %retval.0.i.i.i562
-  %retval.sroa.0.0.vec.insert.i575 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i574, i64 0
-  %cmp.i1.i.i576 = fcmp olt float %retval.0.i.i.i562, %retval.0.i.i13.i572
-  %.sroa.speculated.i.i577 = select i1 %cmp.i1.i.i576, float %retval.0.i.i13.i572, float %retval.0.i.i.i562
-  %retval.sroa.0.4.vec.insert.i578 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i575, float %.sroa.speculated.i.i577, i64 1
-  store <2 x float> %retval.sroa.0.4.vec.insert.i578, ptr %ref.tmp63, align 8
+_ZN4pbrtmlEfNS_8IntervalE.exit597:                ; preds = %_ZN4pbrt12MulRoundDownEff.exit.i577, %if.end.i.i7.i582
+  %retval.0.i.i13.i589 = phi float [ %170, %if.end.i.i7.i582 ], [ 0x7FF0000000000000, %_ZN4pbrt12MulRoundDownEff.exit.i577 ]
+  %cmp.i.i.i590 = fcmp olt float %retval.0.i.i13.i589, %retval.0.i.i.i578
+  %.sroa.speculated6.i.i591 = select i1 %cmp.i.i.i590, float %retval.0.i.i13.i589, float %retval.0.i.i.i578
+  %retval.sroa.0.0.vec.insert.i592 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i591, i64 0
+  %cmp.i1.i.i593 = fcmp olt float %retval.0.i.i.i578, %retval.0.i.i13.i589
+  %.sroa.speculated.i.i594 = select i1 %cmp.i1.i.i593, float %retval.0.i.i13.i589, float %retval.0.i.i.i578
+  %retval.sroa.0.4.vec.insert.i595 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i592, float %.sroa.speculated.i.i594, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i595, ptr %ref.tmp63, align 8
   %171 = load float, ptr %radius, align 4
-  %add.i.i582 = fadd float %.sroa.speculated6.i.i549, %171
-  %or.cond.i.i.i583 = fcmp oeq float %add.i.i582, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i583, label %_ZN4pbrt12AddRoundDownEff.exit.i590, label %if.end.i.i.i584
+  %add.i.i600 = fadd float %.sroa.speculated6.i.i564, %171
+  %or.cond.i.i.i601 = fcmp oeq float %add.i.i600, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i601, label %_ZN4pbrt12AddRoundDownEff.exit.i608, label %if.end.i.i.i602
 
-if.end.i.i.i584:                                  ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit580
-  %cmp1.i.i.i585 = fcmp oeq float %add.i.i582, 0.000000e+00
-  %v.addr.0.i.i.i586 = select i1 %cmp1.i.i.i585, float -0.000000e+00, float %add.i.i582
-  %172 = bitcast float %v.addr.0.i.i.i586 to i32
-  %cmp5.i.i.i587 = fcmp ogt float %v.addr.0.i.i.i586, 0.000000e+00
-  %ui.0.v.i.i.i588 = select i1 %cmp5.i.i.i587, i32 -1, i32 1
-  %ui.0.i.i.i589 = add i32 %ui.0.v.i.i.i588, %172
-  %173 = bitcast i32 %ui.0.i.i.i589 to float
-  br label %_ZN4pbrt12AddRoundDownEff.exit.i590
+if.end.i.i.i602:                                  ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit597
+  %cmp1.i.i.i603 = fcmp oeq float %add.i.i600, 0.000000e+00
+  %v.addr.0.i.i.i604 = select i1 %cmp1.i.i.i603, float -0.000000e+00, float %add.i.i600
+  %172 = bitcast float %v.addr.0.i.i.i604 to i32
+  %cmp5.i.i.i605 = fcmp ogt float %v.addr.0.i.i.i604, 0.000000e+00
+  %ui.0.v.i.i.i606 = select i1 %cmp5.i.i.i605, i32 -1, i32 1
+  %ui.0.i.i.i607 = add i32 %ui.0.v.i.i.i606, %172
+  %173 = bitcast i32 %ui.0.i.i.i607 to float
+  br label %_ZN4pbrt12AddRoundDownEff.exit.i608
 
-_ZN4pbrt12AddRoundDownEff.exit.i590:              ; preds = %if.end.i.i.i584, %_ZN4pbrtmlEfNS_8IntervalE.exit580
-  %retval.0.i.i.i591 = phi float [ %173, %if.end.i.i.i584 ], [ 0xFFF0000000000000, %_ZN4pbrtmlEfNS_8IntervalE.exit580 ]
-  %add.i1.i593 = fadd float %.sroa.speculated.i11.i, %171
-  %or.cond.i.i2.i594 = fcmp oeq float %add.i1.i593, 0x7FF0000000000000
-  br i1 %or.cond.i.i2.i594, label %_ZNK4pbrt8IntervalplES0_.exit608, label %if.end.i.i3.i595
+_ZN4pbrt12AddRoundDownEff.exit.i608:              ; preds = %if.end.i.i.i602, %_ZN4pbrtmlEfNS_8IntervalE.exit597
+  %retval.0.i.i.i609 = phi float [ %173, %if.end.i.i.i602 ], [ 0xFFF0000000000000, %_ZN4pbrtmlEfNS_8IntervalE.exit597 ]
+  %add.i1.i612 = fadd float %.sroa.speculated.i11.i, %171
+  %or.cond.i.i2.i613 = fcmp oeq float %add.i1.i612, 0x7FF0000000000000
+  br i1 %or.cond.i.i2.i613, label %_ZNK4pbrt8IntervalplES0_.exit627, label %if.end.i.i3.i614
 
-if.end.i.i3.i595:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i590
-  %cmp1.i.i4.i596 = fcmp oeq float %add.i1.i593, 0.000000e+00
-  %v.addr.0.i.i5.i597 = select i1 %cmp1.i.i4.i596, float 0.000000e+00, float %add.i1.i593
-  %174 = bitcast float %v.addr.0.i.i5.i597 to i32
-  %cmp5.i.i6.i598 = fcmp ult float %v.addr.0.i.i5.i597, 0.000000e+00
-  %ui.0.v.i.i7.i599 = select i1 %cmp5.i.i6.i598, i32 -1, i32 1
-  %ui.0.i.i8.i600 = add i32 %ui.0.v.i.i7.i599, %174
-  %175 = bitcast i32 %ui.0.i.i8.i600 to float
-  br label %_ZNK4pbrt8IntervalplES0_.exit608
+if.end.i.i3.i614:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i608
+  %cmp1.i.i4.i615 = fcmp oeq float %add.i1.i612, 0.000000e+00
+  %v.addr.0.i.i5.i616 = select i1 %cmp1.i.i4.i615, float 0.000000e+00, float %add.i1.i612
+  %174 = bitcast float %v.addr.0.i.i5.i616 to i32
+  %cmp5.i.i6.i617 = fcmp ult float %v.addr.0.i.i5.i616, 0.000000e+00
+  %ui.0.v.i.i7.i618 = select i1 %cmp5.i.i6.i617, i32 -1, i32 1
+  %ui.0.i.i8.i619 = add i32 %ui.0.v.i.i7.i618, %174
+  %175 = bitcast i32 %ui.0.i.i8.i619 to float
+  br label %_ZNK4pbrt8IntervalplES0_.exit627
 
-_ZNK4pbrt8IntervalplES0_.exit608:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i590, %if.end.i.i3.i595
-  %retval.0.i.i9.i601 = phi float [ %175, %if.end.i.i3.i595 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i590 ]
-  %cmp.i.i.i602 = fcmp olt float %retval.0.i.i9.i601, %retval.0.i.i.i591
-  %.sroa.speculated6.i.i603 = select i1 %cmp.i.i.i602, float %retval.0.i.i9.i601, float %retval.0.i.i.i591
-  %retval.sroa.0.0.vec.insert.i604 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i603, i64 0
-  %cmp.i1.i.i605 = fcmp olt float %retval.0.i.i.i591, %retval.0.i.i9.i601
-  %.sroa.speculated.i.i606 = select i1 %cmp.i1.i.i605, float %retval.0.i.i9.i601, float %retval.0.i.i.i591
-  %retval.sroa.0.4.vec.insert.i607 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i604, float %.sroa.speculated.i.i606, i64 1
-  %call71 = call <2 x float> @_ZNK4pbrt8IntervalmlES0_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp63, <2 x float> %retval.sroa.0.4.vec.insert.i607)
+_ZNK4pbrt8IntervalplES0_.exit627:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i608, %if.end.i.i3.i614
+  %retval.0.i.i9.i620 = phi float [ %175, %if.end.i.i3.i614 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i608 ]
+  %cmp.i.i.i621 = fcmp olt float %retval.0.i.i9.i620, %retval.0.i.i.i609
+  %.sroa.speculated6.i.i622 = select i1 %cmp.i.i.i621, float %retval.0.i.i9.i620, float %retval.0.i.i.i609
+  %retval.sroa.0.0.vec.insert.i623 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i622, i64 0
+  %cmp.i1.i.i624 = fcmp olt float %retval.0.i.i.i609, %retval.0.i.i9.i620
+  %.sroa.speculated.i.i625 = select i1 %cmp.i1.i.i624, float %retval.0.i.i9.i620, float %retval.0.i.i.i609
+  %retval.sroa.0.4.vec.insert.i626 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i623, float %.sroa.speculated.i.i625, i64 1
+  %call71 = call <2 x float> @_ZNK4pbrt8IntervalmlES0_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp63, <2 x float> %retval.sroa.0.4.vec.insert.i626)
   store <2 x float> %call71, ptr %ref.tmp62, align 8
   %176 = load float, ptr %radius, align 4
-  %add.i.i.i610 = fsub float %176, %.sroa.speculated.i11.i
-  %or.cond.i.i.i.i611 = fcmp oeq float %add.i.i.i610, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i.i611, label %_ZN4pbrt12SubRoundDownEff.exit.i618, label %if.end.i.i.i.i612
+  %add.i.i.i630 = fsub float %176, %.sroa.speculated.i11.i
+  %or.cond.i.i.i.i631 = fcmp oeq float %add.i.i.i630, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i.i631, label %_ZN4pbrt12SubRoundDownEff.exit.i638, label %if.end.i.i.i.i632
 
-if.end.i.i.i.i612:                                ; preds = %_ZNK4pbrt8IntervalplES0_.exit608
-  %cmp1.i.i.i.i613 = fcmp oeq float %add.i.i.i610, 0.000000e+00
-  %v.addr.0.i.i.i.i614 = select i1 %cmp1.i.i.i.i613, float -0.000000e+00, float %add.i.i.i610
-  %177 = bitcast float %v.addr.0.i.i.i.i614 to i32
-  %cmp5.i.i.i.i615 = fcmp ogt float %v.addr.0.i.i.i.i614, 0.000000e+00
-  %ui.0.v.i.i.i.i616 = select i1 %cmp5.i.i.i.i615, i32 -1, i32 1
-  %ui.0.i.i.i.i617 = add i32 %ui.0.v.i.i.i.i616, %177
-  %178 = bitcast i32 %ui.0.i.i.i.i617 to float
-  br label %_ZN4pbrt12SubRoundDownEff.exit.i618
+if.end.i.i.i.i632:                                ; preds = %_ZNK4pbrt8IntervalplES0_.exit627
+  %cmp1.i.i.i.i633 = fcmp oeq float %add.i.i.i630, 0.000000e+00
+  %v.addr.0.i.i.i.i634 = select i1 %cmp1.i.i.i.i633, float -0.000000e+00, float %add.i.i.i630
+  %177 = bitcast float %v.addr.0.i.i.i.i634 to i32
+  %cmp5.i.i.i.i635 = fcmp ogt float %v.addr.0.i.i.i.i634, 0.000000e+00
+  %ui.0.v.i.i.i.i636 = select i1 %cmp5.i.i.i.i635, i32 -1, i32 1
+  %ui.0.i.i.i.i637 = add i32 %ui.0.v.i.i.i.i636, %177
+  %178 = bitcast i32 %ui.0.i.i.i.i637 to float
+  br label %_ZN4pbrt12SubRoundDownEff.exit.i638
 
-_ZN4pbrt12SubRoundDownEff.exit.i618:              ; preds = %if.end.i.i.i.i612, %_ZNK4pbrt8IntervalplES0_.exit608
-  %retval.0.i.i.i.i619 = phi float [ %178, %if.end.i.i.i.i612 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit608 ]
-  %add.i.i1.i621 = fsub float %176, %.sroa.speculated6.i.i549
-  %or.cond.i.i.i2.i622 = fcmp oeq float %add.i.i1.i621, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i2.i622, label %_ZNK4pbrt8IntervalmiES0_.exit636, label %if.end.i.i.i3.i623
+_ZN4pbrt12SubRoundDownEff.exit.i638:              ; preds = %if.end.i.i.i.i632, %_ZNK4pbrt8IntervalplES0_.exit627
+  %retval.0.i.i.i.i639 = phi float [ %178, %if.end.i.i.i.i632 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit627 ]
+  %add.i.i1.i642 = fsub float %176, %.sroa.speculated6.i.i564
+  %or.cond.i.i.i2.i643 = fcmp oeq float %add.i.i1.i642, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i2.i643, label %_ZNK4pbrt8IntervalmiES0_.exit657, label %if.end.i.i.i3.i644
 
-if.end.i.i.i3.i623:                               ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i618
-  %cmp1.i.i.i4.i624 = fcmp oeq float %add.i.i1.i621, 0.000000e+00
-  %v.addr.0.i.i.i5.i625 = select i1 %cmp1.i.i.i4.i624, float 0.000000e+00, float %add.i.i1.i621
-  %179 = bitcast float %v.addr.0.i.i.i5.i625 to i32
-  %cmp5.i.i.i6.i626 = fcmp ult float %v.addr.0.i.i.i5.i625, 0.000000e+00
-  %ui.0.v.i.i.i7.i627 = select i1 %cmp5.i.i.i6.i626, i32 -1, i32 1
-  %ui.0.i.i.i8.i628 = add i32 %ui.0.v.i.i.i7.i627, %179
-  %180 = bitcast i32 %ui.0.i.i.i8.i628 to float
-  br label %_ZNK4pbrt8IntervalmiES0_.exit636
+if.end.i.i.i3.i644:                               ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i638
+  %cmp1.i.i.i4.i645 = fcmp oeq float %add.i.i1.i642, 0.000000e+00
+  %v.addr.0.i.i.i5.i646 = select i1 %cmp1.i.i.i4.i645, float 0.000000e+00, float %add.i.i1.i642
+  %179 = bitcast float %v.addr.0.i.i.i5.i646 to i32
+  %cmp5.i.i.i6.i647 = fcmp ult float %v.addr.0.i.i.i5.i646, 0.000000e+00
+  %ui.0.v.i.i.i7.i648 = select i1 %cmp5.i.i.i6.i647, i32 -1, i32 1
+  %ui.0.i.i.i8.i649 = add i32 %ui.0.v.i.i.i7.i648, %179
+  %180 = bitcast i32 %ui.0.i.i.i8.i649 to float
+  br label %_ZNK4pbrt8IntervalmiES0_.exit657
 
-_ZNK4pbrt8IntervalmiES0_.exit636:                 ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i618, %if.end.i.i.i3.i623
-  %retval.0.i.i.i9.i629 = phi float [ %180, %if.end.i.i.i3.i623 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i618 ]
-  %cmp.i.i.i630 = fcmp olt float %retval.0.i.i.i9.i629, %retval.0.i.i.i.i619
-  %.sroa.speculated6.i.i631 = select i1 %cmp.i.i.i630, float %retval.0.i.i.i9.i629, float %retval.0.i.i.i.i619
-  %retval.sroa.0.0.vec.insert.i632 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i631, i64 0
-  %cmp.i1.i.i633 = fcmp olt float %retval.0.i.i.i.i619, %retval.0.i.i.i9.i629
-  %.sroa.speculated.i.i634 = select i1 %cmp.i1.i.i633, float %retval.0.i.i.i9.i629, float %retval.0.i.i.i.i619
-  %retval.sroa.0.4.vec.insert.i635 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i632, float %.sroa.speculated.i.i634, i64 1
-  %call77 = call <2 x float> @_ZNK4pbrt8IntervalmlES0_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp62, <2 x float> %retval.sroa.0.4.vec.insert.i635)
+_ZNK4pbrt8IntervalmiES0_.exit657:                 ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i638, %if.end.i.i.i3.i644
+  %retval.0.i.i.i9.i650 = phi float [ %180, %if.end.i.i.i3.i644 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i638 ]
+  %cmp.i.i.i651 = fcmp olt float %retval.0.i.i.i9.i650, %retval.0.i.i.i.i639
+  %.sroa.speculated6.i.i652 = select i1 %cmp.i.i.i651, float %retval.0.i.i.i9.i650, float %retval.0.i.i.i.i639
+  %retval.sroa.0.0.vec.insert.i653 = insertelement <2 x float> poison, float %.sroa.speculated6.i.i652, i64 0
+  %cmp.i1.i.i654 = fcmp olt float %retval.0.i.i.i.i639, %retval.0.i.i.i9.i650
+  %.sroa.speculated.i.i655 = select i1 %cmp.i1.i.i654, float %retval.0.i.i.i9.i650, float %retval.0.i.i.i.i639
+  %retval.sroa.0.4.vec.insert.i656 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i653, float %.sroa.speculated.i.i655, i64 1
+  %call77 = call <2 x float> @_ZNK4pbrt8IntervalmlES0_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp62, <2 x float> %retval.sroa.0.4.vec.insert.i656)
   %discrim.sroa.0.0.vec.extract = extractelement <2 x float> %call77, i64 0
   %cmp = fcmp olt float %discrim.sroa.0.0.vec.extract, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
 
-if.then:                                          ; preds = %_ZNK4pbrt8IntervalmiES0_.exit636
+if.then:                                          ; preds = %_ZNK4pbrt8IntervalmiES0_.exit657
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   br label %return
 
-if.end:                                           ; preds = %_ZNK4pbrt8IntervalmiES0_.exit636
-  %call.i.i.i638 = call noundef float @sqrtf(float noundef %discrim.sroa.0.0.vec.extract) #28
-  %or.cond.i.i.i639 = fcmp oeq float %call.i.i.i638, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i639, label %_ZN4pbrt13SqrtRoundDownEf.exit.i646, label %if.end.i.i.i640
+if.end:                                           ; preds = %_ZNK4pbrt8IntervalmiES0_.exit657
+  %call.i.i.i659 = call noundef float @sqrtf(float noundef %discrim.sroa.0.0.vec.extract) #28
+  %or.cond.i.i.i660 = fcmp oeq float %call.i.i.i659, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i660, label %_ZN4pbrt13SqrtRoundDownEf.exit.i667, label %if.end.i.i.i661
 
-if.end.i.i.i640:                                  ; preds = %if.end
-  %cmp1.i.i.i641 = fcmp oeq float %call.i.i.i638, 0.000000e+00
-  %v.addr.0.i.i.i642 = select i1 %cmp1.i.i.i641, float -0.000000e+00, float %call.i.i.i638
-  %181 = bitcast float %v.addr.0.i.i.i642 to i32
-  %cmp5.i.i.i643 = fcmp ogt float %v.addr.0.i.i.i642, 0.000000e+00
-  %ui.0.v.i.i.i644 = select i1 %cmp5.i.i.i643, i32 -1, i32 1
-  %ui.0.i.i.i645 = add i32 %ui.0.v.i.i.i644, %181
-  %182 = bitcast i32 %ui.0.i.i.i645 to float
-  br label %_ZN4pbrt13SqrtRoundDownEf.exit.i646
+if.end.i.i.i661:                                  ; preds = %if.end
+  %cmp1.i.i.i662 = fcmp oeq float %call.i.i.i659, 0.000000e+00
+  %v.addr.0.i.i.i663 = select i1 %cmp1.i.i.i662, float -0.000000e+00, float %call.i.i.i659
+  %181 = bitcast float %v.addr.0.i.i.i663 to i32
+  %cmp5.i.i.i664 = fcmp ogt float %v.addr.0.i.i.i663, 0.000000e+00
+  %ui.0.v.i.i.i665 = select i1 %cmp5.i.i.i664, i32 -1, i32 1
+  %ui.0.i.i.i666 = add i32 %ui.0.v.i.i.i665, %181
+  %182 = bitcast i32 %ui.0.i.i.i666 to float
+  br label %_ZN4pbrt13SqrtRoundDownEf.exit.i667
 
-_ZN4pbrt13SqrtRoundDownEf.exit.i646:              ; preds = %if.end.i.i.i640, %if.end
-  %retval.0.i.i.i647 = phi float [ %182, %if.end.i.i.i640 ], [ 0xFFF0000000000000, %if.end ]
-  %i.sroa.0.4.vec.extract.i648 = extractelement <2 x float> %call77, i64 1
-  %call.i.i1.i649 = call noundef float @sqrtf(float noundef %i.sroa.0.4.vec.extract.i648) #28
-  %or.cond.i.i2.i650 = fcmp oeq float %call.i.i1.i649, 0x7FF0000000000000
-  br i1 %or.cond.i.i2.i650, label %_ZN4pbrt4SqrtENS_8IntervalE.exit666, label %if.end.i.i3.i651
+_ZN4pbrt13SqrtRoundDownEf.exit.i667:              ; preds = %if.end.i.i.i661, %if.end
+  %retval.0.i.i.i668 = phi float [ %182, %if.end.i.i.i661 ], [ 0xFFF0000000000000, %if.end ]
+  %i.sroa.0.4.vec.extract.i669 = extractelement <2 x float> %call77, i64 1
+  %call.i.i1.i670 = call noundef float @sqrtf(float noundef %i.sroa.0.4.vec.extract.i669) #28
+  %or.cond.i.i2.i671 = fcmp oeq float %call.i.i1.i670, 0x7FF0000000000000
+  br i1 %or.cond.i.i2.i671, label %_ZN4pbrt4SqrtENS_8IntervalE.exit687, label %if.end.i.i3.i672
 
-if.end.i.i3.i651:                                 ; preds = %_ZN4pbrt13SqrtRoundDownEf.exit.i646
-  %cmp1.i.i4.i652 = fcmp oeq float %call.i.i1.i649, 0.000000e+00
-  %v.addr.0.i.i5.i653 = select i1 %cmp1.i.i4.i652, float 0.000000e+00, float %call.i.i1.i649
-  %183 = bitcast float %v.addr.0.i.i5.i653 to i32
-  %cmp5.i.i6.i654 = fcmp ult float %v.addr.0.i.i5.i653, 0.000000e+00
-  %ui.0.v.i.i7.i655 = select i1 %cmp5.i.i6.i654, i32 -1, i32 1
-  %ui.0.i.i8.i656 = add i32 %ui.0.v.i.i7.i655, %183
-  %184 = bitcast i32 %ui.0.i.i8.i656 to float
-  br label %_ZN4pbrt4SqrtENS_8IntervalE.exit666
+if.end.i.i3.i672:                                 ; preds = %_ZN4pbrt13SqrtRoundDownEf.exit.i667
+  %cmp1.i.i4.i673 = fcmp oeq float %call.i.i1.i670, 0.000000e+00
+  %v.addr.0.i.i5.i674 = select i1 %cmp1.i.i4.i673, float 0.000000e+00, float %call.i.i1.i670
+  %183 = bitcast float %v.addr.0.i.i5.i674 to i32
+  %cmp5.i.i6.i675 = fcmp ult float %v.addr.0.i.i5.i674, 0.000000e+00
+  %ui.0.v.i.i7.i676 = select i1 %cmp5.i.i6.i675, i32 -1, i32 1
+  %ui.0.i.i8.i677 = add i32 %ui.0.v.i.i7.i676, %183
+  %184 = bitcast i32 %ui.0.i.i8.i677 to float
+  br label %_ZN4pbrt4SqrtENS_8IntervalE.exit687
 
-_ZN4pbrt4SqrtENS_8IntervalE.exit666:              ; preds = %_ZN4pbrt13SqrtRoundDownEf.exit.i646, %if.end.i.i3.i651
-  %retval.0.i.i9.i657 = phi float [ %184, %if.end.i.i3.i651 ], [ 0x7FF0000000000000, %_ZN4pbrt13SqrtRoundDownEf.exit.i646 ]
-  %cmp.i.i.i658 = fcmp ogt float %retval.0.i.i.i647, 0.000000e+00
-  %.sroa.speculated.i.i659 = select i1 %cmp.i.i.i658, float %retval.0.i.i.i647, float 0.000000e+00
-  %cmp.i.i10.i660 = fcmp olt float %retval.0.i.i9.i657, %.sroa.speculated.i.i659
-  %.sroa.speculated6.i.i661 = select i1 %cmp.i.i10.i660, float %retval.0.i.i9.i657, float %.sroa.speculated.i.i659
-  %cmp.i1.i.i663 = fcmp olt float %.sroa.speculated.i.i659, %retval.0.i.i9.i657
-  %.sroa.speculated.i11.i664 = select i1 %cmp.i1.i.i663, float %retval.0.i.i9.i657, float %.sroa.speculated.i.i659
+_ZN4pbrt4SqrtENS_8IntervalE.exit687:              ; preds = %_ZN4pbrt13SqrtRoundDownEf.exit.i667, %if.end.i.i3.i672
+  %retval.0.i.i9.i678 = phi float [ %184, %if.end.i.i3.i672 ], [ 0x7FF0000000000000, %_ZN4pbrt13SqrtRoundDownEf.exit.i667 ]
+  %cmp.i.i.i679 = fcmp ogt float %retval.0.i.i.i668, 0.000000e+00
+  %.sroa.speculated.i.i680 = select i1 %cmp.i.i.i679, float %retval.0.i.i.i668, float 0.000000e+00
+  %cmp.i.i10.i681 = fcmp olt float %retval.0.i.i9.i678, %.sroa.speculated.i.i680
+  %.sroa.speculated6.i.i682 = select i1 %cmp.i.i10.i681, float %retval.0.i.i9.i678, float %.sroa.speculated.i.i680
+  %cmp.i1.i.i684 = fcmp olt float %.sroa.speculated.i.i680, %retval.0.i.i9.i678
+  %.sroa.speculated.i11.i685 = select i1 %cmp.i1.i.i684, float %retval.0.i.i9.i678, float %.sroa.speculated.i.i680
   %185 = load float, ptr %b, align 8
   %high.i.i = getelementptr inbounds i8, ptr %b, i64 4
   %186 = load float, ptr %high.i.i, align 4
-  %add.i.i667 = fadd float %185, %186
-  %div.i.i = fmul float %add.i.i667, 5.000000e-01
+  %add.i.i688 = fadd float %185, %186
+  %div.i.i = fmul float %add.i.i688, 5.000000e-01
   %cmp82 = fcmp olt float %div.i.i, 0.000000e+00
   br i1 %cmp82, label %if.then83, label %if.else
 
-if.then83:                                        ; preds = %_ZN4pbrt4SqrtENS_8IntervalE.exit666
-  %add.i.i.i668 = fsub float %185, %.sroa.speculated.i11.i664
-  %or.cond.i.i.i.i669 = fcmp oeq float %add.i.i.i668, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i.i669, label %_ZN4pbrt12SubRoundDownEff.exit.i676, label %if.end.i.i.i.i670
+if.then83:                                        ; preds = %_ZN4pbrt4SqrtENS_8IntervalE.exit687
+  %add.i.i.i690 = fsub float %185, %.sroa.speculated.i11.i685
+  %or.cond.i.i.i.i691 = fcmp oeq float %add.i.i.i690, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i.i691, label %_ZN4pbrt12SubRoundDownEff.exit.i698, label %if.end.i.i.i.i692
 
-if.end.i.i.i.i670:                                ; preds = %if.then83
-  %cmp1.i.i.i.i671 = fcmp oeq float %add.i.i.i668, 0.000000e+00
-  %v.addr.0.i.i.i.i672 = select i1 %cmp1.i.i.i.i671, float -0.000000e+00, float %add.i.i.i668
-  %187 = bitcast float %v.addr.0.i.i.i.i672 to i32
-  %cmp5.i.i.i.i673 = fcmp ogt float %v.addr.0.i.i.i.i672, 0.000000e+00
-  %ui.0.v.i.i.i.i674 = select i1 %cmp5.i.i.i.i673, i32 -1, i32 1
-  %ui.0.i.i.i.i675 = add i32 %ui.0.v.i.i.i.i674, %187
-  %188 = bitcast i32 %ui.0.i.i.i.i675 to float
-  br label %_ZN4pbrt12SubRoundDownEff.exit.i676
+if.end.i.i.i.i692:                                ; preds = %if.then83
+  %cmp1.i.i.i.i693 = fcmp oeq float %add.i.i.i690, 0.000000e+00
+  %v.addr.0.i.i.i.i694 = select i1 %cmp1.i.i.i.i693, float -0.000000e+00, float %add.i.i.i690
+  %187 = bitcast float %v.addr.0.i.i.i.i694 to i32
+  %cmp5.i.i.i.i695 = fcmp ogt float %v.addr.0.i.i.i.i694, 0.000000e+00
+  %ui.0.v.i.i.i.i696 = select i1 %cmp5.i.i.i.i695, i32 -1, i32 1
+  %ui.0.i.i.i.i697 = add i32 %ui.0.v.i.i.i.i696, %187
+  %188 = bitcast i32 %ui.0.i.i.i.i697 to float
+  br label %_ZN4pbrt12SubRoundDownEff.exit.i698
 
-_ZN4pbrt12SubRoundDownEff.exit.i676:              ; preds = %if.end.i.i.i.i670, %if.then83
-  %retval.0.i.i.i.i677 = phi float [ %188, %if.end.i.i.i.i670 ], [ 0xFFF0000000000000, %if.then83 ]
-  %add.i.i1.i679 = fsub float %186, %.sroa.speculated6.i.i661
-  %or.cond.i.i.i2.i680 = fcmp oeq float %add.i.i1.i679, 0x7FF0000000000000
-  br i1 %or.cond.i.i.i2.i680, label %_ZNK4pbrt8IntervalmiES0_.exit694, label %if.end.i.i.i3.i681
+_ZN4pbrt12SubRoundDownEff.exit.i698:              ; preds = %if.end.i.i.i.i692, %if.then83
+  %retval.0.i.i.i.i699 = phi float [ %188, %if.end.i.i.i.i692 ], [ 0xFFF0000000000000, %if.then83 ]
+  %add.i.i1.i702 = fsub float %186, %.sroa.speculated6.i.i682
+  %or.cond.i.i.i2.i703 = fcmp oeq float %add.i.i1.i702, 0x7FF0000000000000
+  br i1 %or.cond.i.i.i2.i703, label %_ZNK4pbrt8IntervalmiES0_.exit717, label %if.end.i.i.i3.i704
 
-if.end.i.i.i3.i681:                               ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i676
-  %cmp1.i.i.i4.i682 = fcmp oeq float %add.i.i1.i679, 0.000000e+00
-  %v.addr.0.i.i.i5.i683 = select i1 %cmp1.i.i.i4.i682, float 0.000000e+00, float %add.i.i1.i679
-  %189 = bitcast float %v.addr.0.i.i.i5.i683 to i32
-  %cmp5.i.i.i6.i684 = fcmp ult float %v.addr.0.i.i.i5.i683, 0.000000e+00
-  %ui.0.v.i.i.i7.i685 = select i1 %cmp5.i.i.i6.i684, i32 -1, i32 1
-  %ui.0.i.i.i8.i686 = add i32 %ui.0.v.i.i.i7.i685, %189
-  %190 = bitcast i32 %ui.0.i.i.i8.i686 to float
-  br label %_ZNK4pbrt8IntervalmiES0_.exit694
+if.end.i.i.i3.i704:                               ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i698
+  %cmp1.i.i.i4.i705 = fcmp oeq float %add.i.i1.i702, 0.000000e+00
+  %v.addr.0.i.i.i5.i706 = select i1 %cmp1.i.i.i4.i705, float 0.000000e+00, float %add.i.i1.i702
+  %189 = bitcast float %v.addr.0.i.i.i5.i706 to i32
+  %cmp5.i.i.i6.i707 = fcmp ult float %v.addr.0.i.i.i5.i706, 0.000000e+00
+  %ui.0.v.i.i.i7.i708 = select i1 %cmp5.i.i.i6.i707, i32 -1, i32 1
+  %ui.0.i.i.i8.i709 = add i32 %ui.0.v.i.i.i7.i708, %189
+  %190 = bitcast i32 %ui.0.i.i.i8.i709 to float
+  br label %_ZNK4pbrt8IntervalmiES0_.exit717
 
-_ZNK4pbrt8IntervalmiES0_.exit694:                 ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i676, %if.end.i.i.i3.i681
-  %retval.0.i.i.i9.i687 = phi float [ %190, %if.end.i.i.i3.i681 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i676 ]
-  %cmp.i.i.i688 = fcmp olt float %retval.0.i.i.i9.i687, %retval.0.i.i.i.i677
-  %.sroa.speculated6.i.i689 = select i1 %cmp.i.i.i688, float %retval.0.i.i.i9.i687, float %retval.0.i.i.i.i677
-  %cmp.i1.i.i691 = fcmp olt float %retval.0.i.i.i.i677, %retval.0.i.i.i9.i687
-  %.sroa.speculated.i.i692 = select i1 %cmp.i1.i.i691, float %retval.0.i.i.i9.i687, float %retval.0.i.i.i.i677
-  %mul.i15.i = fmul float %.sroa.speculated.i.i692, -5.000000e-01
+_ZNK4pbrt8IntervalmiES0_.exit717:                 ; preds = %_ZN4pbrt12SubRoundDownEff.exit.i698, %if.end.i.i.i3.i704
+  %retval.0.i.i.i9.i710 = phi float [ %190, %if.end.i.i.i3.i704 ], [ 0x7FF0000000000000, %_ZN4pbrt12SubRoundDownEff.exit.i698 ]
+  %cmp.i.i.i711 = fcmp olt float %retval.0.i.i.i9.i710, %retval.0.i.i.i.i699
+  %.sroa.speculated6.i.i712 = select i1 %cmp.i.i.i711, float %retval.0.i.i.i9.i710, float %retval.0.i.i.i.i699
+  %cmp.i1.i.i714 = fcmp olt float %retval.0.i.i.i.i699, %retval.0.i.i.i9.i710
+  %.sroa.speculated.i.i715 = select i1 %cmp.i1.i.i714, float %retval.0.i.i.i9.i710, float %retval.0.i.i.i.i699
+  %mul.i15.i = fmul float %.sroa.speculated.i.i715, -5.000000e-01
   %or.cond.i.i16.i = fcmp oeq float %mul.i15.i, 0xFFF0000000000000
   br i1 %or.cond.i.i16.i, label %_ZN4pbrt12MulRoundDownEff.exit24.i, label %if.end.i.i17.i
 
-if.end.i.i17.i:                                   ; preds = %_ZNK4pbrt8IntervalmiES0_.exit694
+if.end.i.i17.i:                                   ; preds = %_ZNK4pbrt8IntervalmiES0_.exit717
   %cmp1.i.i18.i = fcmp oeq float %mul.i15.i, 0.000000e+00
   %v.addr.0.i.i19.i = select i1 %cmp1.i.i18.i, float -0.000000e+00, float %mul.i15.i
   %191 = bitcast float %v.addr.0.i.i19.i to i32
@@ -42508,11 +42508,11 @@ if.end.i.i17.i:                                   ; preds = %_ZNK4pbrt8Intervalm
   %192 = bitcast i32 %ui.0.i.i22.i to float
   br label %_ZN4pbrt12MulRoundDownEff.exit24.i
 
-_ZN4pbrt12MulRoundDownEff.exit24.i:               ; preds = %if.end.i.i17.i, %_ZNK4pbrt8IntervalmiES0_.exit694
-  %retval.0.i.i23.i = phi float [ %192, %if.end.i.i17.i ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalmiES0_.exit694 ]
-  %mul.i25.i = fmul float %.sroa.speculated6.i.i689, -5.000000e-01
+_ZN4pbrt12MulRoundDownEff.exit24.i:               ; preds = %if.end.i.i17.i, %_ZNK4pbrt8IntervalmiES0_.exit717
+  %retval.0.i.i23.i = phi float [ %192, %if.end.i.i17.i ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalmiES0_.exit717 ]
+  %mul.i25.i = fmul float %.sroa.speculated6.i.i712, -5.000000e-01
   %or.cond.i.i26.i = fcmp oeq float %mul.i25.i, 0x7FF0000000000000
-  br i1 %or.cond.i.i26.i, label %_ZN4pbrtmlEfNS_8IntervalE.exit696, label %if.end.i.i27.i
+  br i1 %or.cond.i.i26.i, label %_ZN4pbrtmlEfNS_8IntervalE.exit719, label %if.end.i.i27.i
 
 if.end.i.i27.i:                                   ; preds = %_ZN4pbrt12MulRoundDownEff.exit24.i
   %cmp1.i.i28.i = fcmp oeq float %mul.i25.i, 0.000000e+00
@@ -42522,9 +42522,9 @@ if.end.i.i27.i:                                   ; preds = %_ZN4pbrt12MulRoundD
   %ui.0.v.i.i31.i = select i1 %cmp5.i.i30.i, i32 -1, i32 1
   %ui.0.i.i32.i = add i32 %ui.0.v.i.i31.i, %193
   %194 = bitcast i32 %ui.0.i.i32.i to float
-  br label %_ZN4pbrtmlEfNS_8IntervalE.exit696
+  br label %_ZN4pbrtmlEfNS_8IntervalE.exit719
 
-_ZN4pbrtmlEfNS_8IntervalE.exit696:                ; preds = %_ZN4pbrt12MulRoundDownEff.exit24.i, %if.end.i.i27.i
+_ZN4pbrtmlEfNS_8IntervalE.exit719:                ; preds = %_ZN4pbrt12MulRoundDownEff.exit24.i, %if.end.i.i27.i
   %retval.0.i.i33.i = phi float [ %194, %if.end.i.i27.i ], [ 0x7FF0000000000000, %_ZN4pbrt12MulRoundDownEff.exit24.i ]
   %cmp.i.i35.i = fcmp olt float %retval.0.i.i33.i, %retval.0.i.i23.i
   %.sroa.speculated6.i36.i = select i1 %cmp.i.i35.i, float %retval.0.i.i33.i, float %retval.0.i.i23.i
@@ -42534,87 +42534,87 @@ _ZN4pbrtmlEfNS_8IntervalE.exit696:                ; preds = %_ZN4pbrt12MulRoundD
   %retval.sroa.0.4.vec.insert48.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert46.i, float %.sroa.speculated.i39.i, i64 1
   br label %if.end94
 
-if.else:                                          ; preds = %_ZN4pbrt4SqrtENS_8IntervalE.exit666
-  %add.i.i697 = fadd float %185, %.sroa.speculated6.i.i661
-  %or.cond.i.i.i698 = fcmp oeq float %add.i.i697, 0xFFF0000000000000
-  br i1 %or.cond.i.i.i698, label %_ZN4pbrt12AddRoundDownEff.exit.i705, label %if.end.i.i.i699
+if.else:                                          ; preds = %_ZN4pbrt4SqrtENS_8IntervalE.exit687
+  %add.i.i721 = fadd float %185, %.sroa.speculated6.i.i682
+  %or.cond.i.i.i722 = fcmp oeq float %add.i.i721, 0xFFF0000000000000
+  br i1 %or.cond.i.i.i722, label %_ZN4pbrt12AddRoundDownEff.exit.i729, label %if.end.i.i.i723
 
-if.end.i.i.i699:                                  ; preds = %if.else
-  %cmp1.i.i.i700 = fcmp oeq float %add.i.i697, 0.000000e+00
-  %v.addr.0.i.i.i701 = select i1 %cmp1.i.i.i700, float -0.000000e+00, float %add.i.i697
-  %195 = bitcast float %v.addr.0.i.i.i701 to i32
-  %cmp5.i.i.i702 = fcmp ogt float %v.addr.0.i.i.i701, 0.000000e+00
-  %ui.0.v.i.i.i703 = select i1 %cmp5.i.i.i702, i32 -1, i32 1
-  %ui.0.i.i.i704 = add i32 %ui.0.v.i.i.i703, %195
-  %196 = bitcast i32 %ui.0.i.i.i704 to float
-  br label %_ZN4pbrt12AddRoundDownEff.exit.i705
+if.end.i.i.i723:                                  ; preds = %if.else
+  %cmp1.i.i.i724 = fcmp oeq float %add.i.i721, 0.000000e+00
+  %v.addr.0.i.i.i725 = select i1 %cmp1.i.i.i724, float -0.000000e+00, float %add.i.i721
+  %195 = bitcast float %v.addr.0.i.i.i725 to i32
+  %cmp5.i.i.i726 = fcmp ogt float %v.addr.0.i.i.i725, 0.000000e+00
+  %ui.0.v.i.i.i727 = select i1 %cmp5.i.i.i726, i32 -1, i32 1
+  %ui.0.i.i.i728 = add i32 %ui.0.v.i.i.i727, %195
+  %196 = bitcast i32 %ui.0.i.i.i728 to float
+  br label %_ZN4pbrt12AddRoundDownEff.exit.i729
 
-_ZN4pbrt12AddRoundDownEff.exit.i705:              ; preds = %if.end.i.i.i699, %if.else
-  %retval.0.i.i.i706 = phi float [ %196, %if.end.i.i.i699 ], [ 0xFFF0000000000000, %if.else ]
-  %add.i1.i708 = fadd float %.sroa.speculated.i11.i664, %186
-  %or.cond.i.i2.i709 = fcmp oeq float %add.i1.i708, 0x7FF0000000000000
-  br i1 %or.cond.i.i2.i709, label %_ZNK4pbrt8IntervalplES0_.exit723, label %if.end.i.i3.i710
+_ZN4pbrt12AddRoundDownEff.exit.i729:              ; preds = %if.end.i.i.i723, %if.else
+  %retval.0.i.i.i730 = phi float [ %196, %if.end.i.i.i723 ], [ 0xFFF0000000000000, %if.else ]
+  %add.i1.i733 = fadd float %.sroa.speculated.i11.i685, %186
+  %or.cond.i.i2.i734 = fcmp oeq float %add.i1.i733, 0x7FF0000000000000
+  br i1 %or.cond.i.i2.i734, label %_ZNK4pbrt8IntervalplES0_.exit748, label %if.end.i.i3.i735
 
-if.end.i.i3.i710:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i705
-  %cmp1.i.i4.i711 = fcmp oeq float %add.i1.i708, 0.000000e+00
-  %v.addr.0.i.i5.i712 = select i1 %cmp1.i.i4.i711, float 0.000000e+00, float %add.i1.i708
-  %197 = bitcast float %v.addr.0.i.i5.i712 to i32
-  %cmp5.i.i6.i713 = fcmp ult float %v.addr.0.i.i5.i712, 0.000000e+00
-  %ui.0.v.i.i7.i714 = select i1 %cmp5.i.i6.i713, i32 -1, i32 1
-  %ui.0.i.i8.i715 = add i32 %ui.0.v.i.i7.i714, %197
-  %198 = bitcast i32 %ui.0.i.i8.i715 to float
-  br label %_ZNK4pbrt8IntervalplES0_.exit723
+if.end.i.i3.i735:                                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i729
+  %cmp1.i.i4.i736 = fcmp oeq float %add.i1.i733, 0.000000e+00
+  %v.addr.0.i.i5.i737 = select i1 %cmp1.i.i4.i736, float 0.000000e+00, float %add.i1.i733
+  %197 = bitcast float %v.addr.0.i.i5.i737 to i32
+  %cmp5.i.i6.i738 = fcmp ult float %v.addr.0.i.i5.i737, 0.000000e+00
+  %ui.0.v.i.i7.i739 = select i1 %cmp5.i.i6.i738, i32 -1, i32 1
+  %ui.0.i.i8.i740 = add i32 %ui.0.v.i.i7.i739, %197
+  %198 = bitcast i32 %ui.0.i.i8.i740 to float
+  br label %_ZNK4pbrt8IntervalplES0_.exit748
 
-_ZNK4pbrt8IntervalplES0_.exit723:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i705, %if.end.i.i3.i710
-  %retval.0.i.i9.i716 = phi float [ %198, %if.end.i.i3.i710 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i705 ]
-  %cmp.i.i.i717 = fcmp olt float %retval.0.i.i9.i716, %retval.0.i.i.i706
-  %.sroa.speculated6.i.i718 = select i1 %cmp.i.i.i717, float %retval.0.i.i9.i716, float %retval.0.i.i.i706
-  %cmp.i1.i.i720 = fcmp olt float %retval.0.i.i.i706, %retval.0.i.i9.i716
-  %.sroa.speculated.i.i721 = select i1 %cmp.i1.i.i720, float %retval.0.i.i9.i716, float %retval.0.i.i.i706
-  %mul.i15.i724 = fmul float %.sroa.speculated.i.i721, -5.000000e-01
-  %or.cond.i.i16.i725 = fcmp oeq float %mul.i15.i724, 0xFFF0000000000000
-  br i1 %or.cond.i.i16.i725, label %_ZN4pbrt12MulRoundDownEff.exit24.i732, label %if.end.i.i17.i726
+_ZNK4pbrt8IntervalplES0_.exit748:                 ; preds = %_ZN4pbrt12AddRoundDownEff.exit.i729, %if.end.i.i3.i735
+  %retval.0.i.i9.i741 = phi float [ %198, %if.end.i.i3.i735 ], [ 0x7FF0000000000000, %_ZN4pbrt12AddRoundDownEff.exit.i729 ]
+  %cmp.i.i.i742 = fcmp olt float %retval.0.i.i9.i741, %retval.0.i.i.i730
+  %.sroa.speculated6.i.i743 = select i1 %cmp.i.i.i742, float %retval.0.i.i9.i741, float %retval.0.i.i.i730
+  %cmp.i1.i.i745 = fcmp olt float %retval.0.i.i.i730, %retval.0.i.i9.i741
+  %.sroa.speculated.i.i746 = select i1 %cmp.i1.i.i745, float %retval.0.i.i9.i741, float %retval.0.i.i.i730
+  %mul.i15.i749 = fmul float %.sroa.speculated.i.i746, -5.000000e-01
+  %or.cond.i.i16.i750 = fcmp oeq float %mul.i15.i749, 0xFFF0000000000000
+  br i1 %or.cond.i.i16.i750, label %_ZN4pbrt12MulRoundDownEff.exit24.i757, label %if.end.i.i17.i751
 
-if.end.i.i17.i726:                                ; preds = %_ZNK4pbrt8IntervalplES0_.exit723
-  %cmp1.i.i18.i727 = fcmp oeq float %mul.i15.i724, 0.000000e+00
-  %v.addr.0.i.i19.i728 = select i1 %cmp1.i.i18.i727, float -0.000000e+00, float %mul.i15.i724
-  %199 = bitcast float %v.addr.0.i.i19.i728 to i32
-  %cmp5.i.i20.i729 = fcmp ogt float %v.addr.0.i.i19.i728, 0.000000e+00
-  %ui.0.v.i.i21.i730 = select i1 %cmp5.i.i20.i729, i32 -1, i32 1
-  %ui.0.i.i22.i731 = add i32 %ui.0.v.i.i21.i730, %199
-  %200 = bitcast i32 %ui.0.i.i22.i731 to float
-  br label %_ZN4pbrt12MulRoundDownEff.exit24.i732
+if.end.i.i17.i751:                                ; preds = %_ZNK4pbrt8IntervalplES0_.exit748
+  %cmp1.i.i18.i752 = fcmp oeq float %mul.i15.i749, 0.000000e+00
+  %v.addr.0.i.i19.i753 = select i1 %cmp1.i.i18.i752, float -0.000000e+00, float %mul.i15.i749
+  %199 = bitcast float %v.addr.0.i.i19.i753 to i32
+  %cmp5.i.i20.i754 = fcmp ogt float %v.addr.0.i.i19.i753, 0.000000e+00
+  %ui.0.v.i.i21.i755 = select i1 %cmp5.i.i20.i754, i32 -1, i32 1
+  %ui.0.i.i22.i756 = add i32 %ui.0.v.i.i21.i755, %199
+  %200 = bitcast i32 %ui.0.i.i22.i756 to float
+  br label %_ZN4pbrt12MulRoundDownEff.exit24.i757
 
-_ZN4pbrt12MulRoundDownEff.exit24.i732:            ; preds = %if.end.i.i17.i726, %_ZNK4pbrt8IntervalplES0_.exit723
-  %retval.0.i.i23.i733 = phi float [ %200, %if.end.i.i17.i726 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit723 ]
-  %mul.i25.i734 = fmul float %.sroa.speculated6.i.i718, -5.000000e-01
-  %or.cond.i.i26.i735 = fcmp oeq float %mul.i25.i734, 0x7FF0000000000000
-  br i1 %or.cond.i.i26.i735, label %_ZN4pbrtmlEfNS_8IntervalE.exit750, label %if.end.i.i27.i736
+_ZN4pbrt12MulRoundDownEff.exit24.i757:            ; preds = %if.end.i.i17.i751, %_ZNK4pbrt8IntervalplES0_.exit748
+  %retval.0.i.i23.i758 = phi float [ %200, %if.end.i.i17.i751 ], [ 0xFFF0000000000000, %_ZNK4pbrt8IntervalplES0_.exit748 ]
+  %mul.i25.i759 = fmul float %.sroa.speculated6.i.i743, -5.000000e-01
+  %or.cond.i.i26.i760 = fcmp oeq float %mul.i25.i759, 0x7FF0000000000000
+  br i1 %or.cond.i.i26.i760, label %_ZN4pbrtmlEfNS_8IntervalE.exit775, label %if.end.i.i27.i761
 
-if.end.i.i27.i736:                                ; preds = %_ZN4pbrt12MulRoundDownEff.exit24.i732
-  %cmp1.i.i28.i737 = fcmp oeq float %mul.i25.i734, 0.000000e+00
-  %v.addr.0.i.i29.i738 = select i1 %cmp1.i.i28.i737, float 0.000000e+00, float %mul.i25.i734
-  %201 = bitcast float %v.addr.0.i.i29.i738 to i32
-  %cmp5.i.i30.i739 = fcmp ult float %v.addr.0.i.i29.i738, 0.000000e+00
-  %ui.0.v.i.i31.i740 = select i1 %cmp5.i.i30.i739, i32 -1, i32 1
-  %ui.0.i.i32.i741 = add i32 %ui.0.v.i.i31.i740, %201
-  %202 = bitcast i32 %ui.0.i.i32.i741 to float
-  br label %_ZN4pbrtmlEfNS_8IntervalE.exit750
+if.end.i.i27.i761:                                ; preds = %_ZN4pbrt12MulRoundDownEff.exit24.i757
+  %cmp1.i.i28.i762 = fcmp oeq float %mul.i25.i759, 0.000000e+00
+  %v.addr.0.i.i29.i763 = select i1 %cmp1.i.i28.i762, float 0.000000e+00, float %mul.i25.i759
+  %201 = bitcast float %v.addr.0.i.i29.i763 to i32
+  %cmp5.i.i30.i764 = fcmp ult float %v.addr.0.i.i29.i763, 0.000000e+00
+  %ui.0.v.i.i31.i765 = select i1 %cmp5.i.i30.i764, i32 -1, i32 1
+  %ui.0.i.i32.i766 = add i32 %ui.0.v.i.i31.i765, %201
+  %202 = bitcast i32 %ui.0.i.i32.i766 to float
+  br label %_ZN4pbrtmlEfNS_8IntervalE.exit775
 
-_ZN4pbrtmlEfNS_8IntervalE.exit750:                ; preds = %_ZN4pbrt12MulRoundDownEff.exit24.i732, %if.end.i.i27.i736
-  %retval.0.i.i33.i742 = phi float [ %202, %if.end.i.i27.i736 ], [ 0x7FF0000000000000, %_ZN4pbrt12MulRoundDownEff.exit24.i732 ]
-  %cmp.i.i35.i743 = fcmp olt float %retval.0.i.i33.i742, %retval.0.i.i23.i733
-  %.sroa.speculated6.i36.i744 = select i1 %cmp.i.i35.i743, float %retval.0.i.i33.i742, float %retval.0.i.i23.i733
-  %retval.sroa.0.0.vec.insert46.i745 = insertelement <2 x float> poison, float %.sroa.speculated6.i36.i744, i64 0
-  %cmp.i1.i38.i746 = fcmp olt float %retval.0.i.i23.i733, %retval.0.i.i33.i742
-  %.sroa.speculated.i39.i747 = select i1 %cmp.i1.i38.i746, float %retval.0.i.i33.i742, float %retval.0.i.i23.i733
-  %retval.sroa.0.4.vec.insert48.i748 = insertelement <2 x float> %retval.sroa.0.0.vec.insert46.i745, float %.sroa.speculated.i39.i747, i64 1
+_ZN4pbrtmlEfNS_8IntervalE.exit775:                ; preds = %_ZN4pbrt12MulRoundDownEff.exit24.i757, %if.end.i.i27.i761
+  %retval.0.i.i33.i767 = phi float [ %202, %if.end.i.i27.i761 ], [ 0x7FF0000000000000, %_ZN4pbrt12MulRoundDownEff.exit24.i757 ]
+  %cmp.i.i35.i768 = fcmp olt float %retval.0.i.i33.i767, %retval.0.i.i23.i758
+  %.sroa.speculated6.i36.i769 = select i1 %cmp.i.i35.i768, float %retval.0.i.i33.i767, float %retval.0.i.i23.i758
+  %retval.sroa.0.0.vec.insert46.i770 = insertelement <2 x float> poison, float %.sroa.speculated6.i36.i769, i64 0
+  %cmp.i1.i38.i771 = fcmp olt float %retval.0.i.i23.i758, %retval.0.i.i33.i767
+  %.sroa.speculated.i39.i772 = select i1 %cmp.i1.i38.i771, float %retval.0.i.i33.i767, float %retval.0.i.i23.i758
+  %retval.sroa.0.4.vec.insert48.i773 = insertelement <2 x float> %retval.sroa.0.0.vec.insert46.i770, float %.sroa.speculated.i39.i772, i64 1
   br label %if.end94
 
-if.end94:                                         ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit750, %_ZN4pbrtmlEfNS_8IntervalE.exit696
-  %storemerge = phi <2 x float> [ %retval.sroa.0.4.vec.insert48.i748, %_ZN4pbrtmlEfNS_8IntervalE.exit750 ], [ %retval.sroa.0.4.vec.insert48.i, %_ZN4pbrtmlEfNS_8IntervalE.exit696 ]
+if.end94:                                         ; preds = %_ZN4pbrtmlEfNS_8IntervalE.exit775, %_ZN4pbrtmlEfNS_8IntervalE.exit719
+  %storemerge = phi <2 x float> [ %retval.sroa.0.4.vec.insert48.i773, %_ZN4pbrtmlEfNS_8IntervalE.exit775 ], [ %retval.sroa.0.4.vec.insert48.i, %_ZN4pbrtmlEfNS_8IntervalE.exit719 ]
   store <2 x float> %storemerge, ptr %q, align 8
-  %call97 = call <2 x float> @_ZNK4pbrt8IntervaldvES0_(ptr noundef nonnull align 4 dereferenceable(8) %q, <2 x float> %retval.sroa.0.4.vec.insert.i90)
+  %call97 = call <2 x float> @_ZNK4pbrt8IntervaldvES0_(ptr noundef nonnull align 4 dereferenceable(8) %q, <2 x float> %retval.sroa.0.4.vec.insert.i95)
   %agg.tmp99.sroa.0.0.copyload = load <2 x float>, ptr %q, align 8
   %call100 = call <2 x float> @_ZNK4pbrt8IntervaldvES0_(ptr noundef nonnull align 4 dereferenceable(8) %c, <2 x float> %agg.tmp99.sroa.0.0.copyload)
   %203 = fcmp ogt <2 x float> %call97, %call100
@@ -42626,8 +42626,8 @@ if.end94:                                         ; preds = %_ZN4pbrtmlEfNS_8Int
   br i1 %cmp107, label %if.then110, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end94
-  %t1.sroa.0.0.vec.extract867 = extractelement <2 x float> %t1.sroa.0.0, i64 0
-  %cmp109 = fcmp ugt float %t1.sroa.0.0.vec.extract867, 0.000000e+00
+  %t1.sroa.0.0.vec.extract892 = extractelement <2 x float> %t1.sroa.0.0, i64 0
+  %cmp109 = fcmp ugt float %t1.sroa.0.0.vec.extract892, 0.000000e+00
   br i1 %cmp109, label %if.end111, label %if.then110
 
 if.then110:                                       ; preds = %lor.lhs.false, %if.end94
@@ -42635,13 +42635,13 @@ if.then110:                                       ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end111:                                        ; preds = %lor.lhs.false
-  %t0.sroa.0.0.vec.extract879 = extractelement <2 x float> %t0.sroa.0.0, i64 0
-  %cmp113 = fcmp ugt float %t0.sroa.0.0.vec.extract879, 0.000000e+00
+  %t0.sroa.0.0.vec.extract904 = extractelement <2 x float> %t0.sroa.0.0, i64 0
+  %cmp113 = fcmp ugt float %t0.sroa.0.0.vec.extract904, 0.000000e+00
   br i1 %cmp113, label %if.end119, label %if.then114
 
 if.then114:                                       ; preds = %if.end111
-  %t1.sroa.0.4.vec.extract875 = extractelement <2 x float> %t1.sroa.0.0, i64 1
-  %cmp116 = fcmp ogt float %t1.sroa.0.4.vec.extract875, %tMax
+  %t1.sroa.0.4.vec.extract900 = extractelement <2 x float> %t1.sroa.0.0, i64 1
+  %cmp116 = fcmp ogt float %t1.sroa.0.4.vec.extract900, %tMax
   br i1 %cmp116, label %if.then117, label %if.end119
 
 if.then117:                                       ; preds = %if.then114
@@ -42649,19 +42649,19 @@ if.then117:                                       ; preds = %if.then114
   br label %return
 
 if.end119:                                        ; preds = %if.then114, %if.end111
-  %tShapeHit.sroa.0.0 = phi float [ %t0.sroa.0.0.vec.extract879, %if.end111 ], [ %t1.sroa.0.0.vec.extract867, %if.then114 ]
-  %tShapeHit.sroa.8.0 = phi float [ %t0.sroa.0.4.vec.extract, %if.end111 ], [ %t1.sroa.0.4.vec.extract875, %if.then114 ]
+  %tShapeHit.sroa.0.0 = phi float [ %t0.sroa.0.0.vec.extract904, %if.end111 ], [ %t1.sroa.0.0.vec.extract892, %if.then114 ]
+  %tShapeHit.sroa.8.0 = phi float [ %t0.sroa.0.4.vec.extract, %if.end111 ], [ %t1.sroa.0.4.vec.extract900, %if.then114 ]
   %204 = load <4 x float>, ptr %oi, align 16
   %205 = shufflevector <4 x float> %204, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %agg.tmp122.sroa.0.sroa.4.0.copyload = load float, ptr %high2.i390, align 4
+  %agg.tmp122.sroa.0.sroa.4.0.copyload = load float, ptr %high2.i399, align 4
   %agg.tmp122.sroa.0.sroa.5.0.oi.sroa_idx = getelementptr inbounds i8, ptr %oi, i64 16
   %agg.tmp122.sroa.0.sroa.5.0.copyload = load float, ptr %agg.tmp122.sroa.0.sroa.5.0.oi.sroa_idx, align 16
   %agg.tmp122.sroa.0.sroa.6.0.oi.sroa_idx = getelementptr inbounds i8, ptr %oi, i64 20
   %agg.tmp122.sroa.0.sroa.6.0.copyload = load float, ptr %agg.tmp122.sroa.0.sroa.6.0.oi.sroa_idx, align 4
   %add.i.i5.i = fadd float %agg.tmp122.sroa.0.sroa.5.0.copyload, %agg.tmp122.sroa.0.sroa.6.0.copyload
   %div.i.i6.i = fmul float %add.i.i5.i, 5.000000e-01
-  %add.i.i760 = fadd float %tShapeHit.sroa.0.0, %tShapeHit.sroa.8.0
-  %div.i.i761 = fmul float %add.i.i760, 5.000000e-01
+  %add.i.i785 = fadd float %tShapeHit.sroa.0.0, %tShapeHit.sroa.8.0
+  %div.i.i786 = fmul float %add.i.i785, 5.000000e-01
   %206 = load <4 x float>, ptr %di, align 16
   %207 = shufflevector <4 x float> %206, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %agg.tmp127.sroa.0.sroa.2.0.di.sroa_idx = getelementptr inbounds i8, ptr %di, i64 4
@@ -42671,11 +42671,11 @@ if.end119:                                        ; preds = %if.then114, %if.end
   %agg.tmp127.sroa.0.sroa.5.0.copyload = load float, ptr %agg.tmp127.sroa.0.sroa.5.0.di.sroa_idx, align 16
   %agg.tmp127.sroa.0.sroa.6.0.di.sroa_idx = getelementptr inbounds i8, ptr %di, i64 20
   %agg.tmp127.sroa.0.sroa.6.0.copyload = load float, ptr %agg.tmp127.sroa.0.sroa.6.0.di.sroa_idx, align 4
-  %add.i.i5.i772 = fadd float %agg.tmp127.sroa.0.sroa.5.0.copyload, %agg.tmp127.sroa.0.sroa.6.0.copyload
-  %div.i.i6.i773 = fmul float %add.i.i5.i772, 5.000000e-01
-  %mul3.i.i = fmul float %div.i.i761, %div.i.i6.i773
+  %add.i.i5.i797 = fadd float %agg.tmp127.sroa.0.sroa.5.0.copyload, %agg.tmp127.sroa.0.sroa.6.0.copyload
+  %div.i.i6.i798 = fmul float %add.i.i5.i797, 5.000000e-01
+  %mul3.i.i = fmul float %div.i.i786, %div.i.i6.i798
   %add6.i = fadd float %div.i.i6.i, %mul3.i.i
-  %208 = load <2 x float>, ptr %high2.i361, align 4
+  %208 = load <2 x float>, ptr %high2.i370, align 4
   %209 = insertelement <2 x float> %205, float %agg.tmp122.sroa.0.sroa.4.0.copyload, i64 1
   %210 = fadd <2 x float> %208, %209
   %211 = fmul <2 x float> %210, <float 5.000000e-01, float 5.000000e-01>
@@ -42683,7 +42683,7 @@ if.end119:                                        ; preds = %if.then114, %if.end
   %213 = insertelement <2 x float> %207, float %agg.tmp127.sroa.0.sroa.4.0.copyload, i64 1
   %214 = fadd <2 x float> %212, %213
   %215 = fmul <2 x float> %214, <float 5.000000e-01, float 5.000000e-01>
-  %216 = insertelement <2 x float> poison, float %div.i.i761, i64 0
+  %216 = insertelement <2 x float> poison, float %div.i.i786, i64 0
   %217 = shufflevector <2 x float> %216, <2 x float> poison, <2 x i32> zeroinitializer
   %218 = fmul <2 x float> %217, %215
   %219 = fadd <2 x float> %211, %218
@@ -42699,10 +42699,10 @@ if.end119:                                        ; preds = %if.then114, %if.end
   %225 = fmul <2 x float> %219, %224
   %226 = extractelement <2 x float> %225, i64 0
   %227 = extractelement <2 x float> %225, i64 1
-  %call.i782 = call noundef float @atan2f(float noundef %227, float noundef %226) #28
-  %cmp146 = fcmp olt float %call.i782, 0.000000e+00
-  %add148 = fadd float %call.i782, 0x401921FB60000000
-  %phi.0 = select i1 %cmp146, float %add148, float %call.i782
+  %call.i807 = call noundef float @atan2f(float noundef %227, float noundef %226) #28
+  %cmp146 = fcmp olt float %call.i807, 0.000000e+00
+  %add148 = fadd float %call.i807, 0x401921FB60000000
+  %phi.0 = select i1 %cmp146, float %add148, float %call.i807
   %zMin = getelementptr inbounds i8, ptr %this, i64 24
   %228 = load float, ptr %zMin, align 8
   %cmp150 = fcmp olt float %add6.i, %228
@@ -42717,10 +42717,10 @@ if.end119:                                        ; preds = %if.then114, %if.end
   br i1 %or.cond17, label %if.then156, label %if.end213
 
 if.then156:                                       ; preds = %if.end119
-  %cmp.i784 = fcmp oeq float %tShapeHit.sroa.0.0, %t1.sroa.0.0.vec.extract867
-  %i.sroa.0.4.vec.extract.i786 = extractelement <2 x float> %t1.sroa.0.0, i64 1
-  %cmp4.i = fcmp oeq float %tShapeHit.sroa.8.0, %i.sroa.0.4.vec.extract.i786
-  %231 = select i1 %cmp.i784, i1 %cmp4.i, i1 false
+  %cmp.i809 = fcmp oeq float %tShapeHit.sroa.0.0, %t1.sroa.0.0.vec.extract892
+  %i.sroa.0.4.vec.extract.i811 = extractelement <2 x float> %t1.sroa.0.0, i64 1
+  %cmp4.i = fcmp oeq float %tShapeHit.sroa.8.0, %i.sroa.0.4.vec.extract.i811
+  %231 = select i1 %cmp.i809, i1 %cmp4.i, i1 false
   br i1 %231, label %if.then159, label %if.end160
 
 if.then159:                                       ; preds = %if.then156
@@ -42728,7 +42728,7 @@ if.then159:                                       ; preds = %if.then156
   br label %return
 
 if.end160:                                        ; preds = %if.then156
-  %cmp162 = fcmp ogt float %i.sroa.0.4.vec.extract.i786, %tMax
+  %cmp162 = fcmp ogt float %i.sroa.0.4.vec.extract.i811, %tMax
   br i1 %cmp162, label %if.then163, label %if.end164
 
 if.then163:                                       ; preds = %if.end160
@@ -42738,23 +42738,23 @@ if.then163:                                       ; preds = %if.end160
 if.end164:                                        ; preds = %if.end160
   %232 = load <4 x float>, ptr %oi, align 16
   %233 = shufflevector <4 x float> %232, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %agg.tmp167.sroa.0.sroa.4.0.copyload = load float, ptr %high2.i390, align 4
+  %agg.tmp167.sroa.0.sroa.4.0.copyload = load float, ptr %high2.i399, align 4
   %agg.tmp167.sroa.0.sroa.5.0.copyload = load float, ptr %agg.tmp122.sroa.0.sroa.5.0.oi.sroa_idx, align 16
   %agg.tmp167.sroa.0.sroa.6.0.copyload = load float, ptr %agg.tmp122.sroa.0.sroa.6.0.oi.sroa_idx, align 4
-  %add.i.i5.i800 = fadd float %agg.tmp167.sroa.0.sroa.5.0.copyload, %agg.tmp167.sroa.0.sroa.6.0.copyload
-  %div.i.i6.i801 = fmul float %add.i.i5.i800, 5.000000e-01
-  %add.i.i805 = fadd float %t1.sroa.0.0.vec.extract867, %i.sroa.0.4.vec.extract.i786
-  %div.i.i806 = fmul float %add.i.i805, 5.000000e-01
+  %add.i.i5.i825 = fadd float %agg.tmp167.sroa.0.sroa.5.0.copyload, %agg.tmp167.sroa.0.sroa.6.0.copyload
+  %div.i.i6.i826 = fmul float %add.i.i5.i825, 5.000000e-01
+  %add.i.i830 = fadd float %t1.sroa.0.0.vec.extract892, %i.sroa.0.4.vec.extract.i811
+  %div.i.i831 = fmul float %add.i.i830, 5.000000e-01
   %234 = load <4 x float>, ptr %di, align 16
   %235 = shufflevector <4 x float> %234, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %agg.tmp172.sroa.0.sroa.4.0.copyload = load float, ptr %agg.tmp127.sroa.0.sroa.4.0.di.sroa_idx, align 4
   %agg.tmp172.sroa.0.sroa.5.0.copyload = load float, ptr %agg.tmp127.sroa.0.sroa.5.0.di.sroa_idx, align 16
   %agg.tmp172.sroa.0.sroa.6.0.copyload = load float, ptr %agg.tmp127.sroa.0.sroa.6.0.di.sroa_idx, align 4
-  %add.i.i5.i817 = fadd float %agg.tmp172.sroa.0.sroa.5.0.copyload, %agg.tmp172.sroa.0.sroa.6.0.copyload
-  %div.i.i6.i818 = fmul float %add.i.i5.i817, 5.000000e-01
-  %mul3.i.i825 = fmul float %div.i.i806, %div.i.i6.i818
-  %add6.i836 = fadd float %div.i.i6.i801, %mul3.i.i825
-  %236 = load <2 x float>, ptr %high2.i361, align 4
+  %add.i.i5.i842 = fadd float %agg.tmp172.sroa.0.sroa.5.0.copyload, %agg.tmp172.sroa.0.sroa.6.0.copyload
+  %div.i.i6.i843 = fmul float %add.i.i5.i842, 5.000000e-01
+  %mul3.i.i850 = fmul float %div.i.i831, %div.i.i6.i843
+  %add6.i861 = fadd float %div.i.i6.i826, %mul3.i.i850
+  %236 = load <2 x float>, ptr %high2.i370, align 4
   %237 = insertelement <2 x float> %233, float %agg.tmp167.sroa.0.sroa.4.0.copyload, i64 1
   %238 = fadd <2 x float> %236, %237
   %239 = fmul <2 x float> %238, <float 5.000000e-01, float 5.000000e-01>
@@ -42762,30 +42762,30 @@ if.end164:                                        ; preds = %if.end160
   %241 = insertelement <2 x float> %235, float %agg.tmp172.sroa.0.sroa.4.0.copyload, i64 1
   %242 = fadd <2 x float> %240, %241
   %243 = fmul <2 x float> %242, <float 5.000000e-01, float 5.000000e-01>
-  %244 = insertelement <2 x float> poison, float %div.i.i806, i64 0
+  %244 = insertelement <2 x float> poison, float %div.i.i831, i64 0
   %245 = shufflevector <2 x float> %244, <2 x float> poison, <2 x i32> zeroinitializer
   %246 = fmul <2 x float> %245, %243
   %247 = fadd <2 x float> %239, %246
   %248 = fmul <2 x float> %247, %247
-  %shift908 = shufflevector <2 x float> %248, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %249 = fadd <2 x float> %248, %shift908
+  %shift933 = shufflevector <2 x float> %248, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %249 = fadd <2 x float> %248, %shift933
   %add184 = extractelement <2 x float> %249, i64 0
-  %sqrt907 = call float @llvm.sqrt.f32(float %add184)
+  %sqrt932 = call float @llvm.sqrt.f32(float %add184)
   %250 = load float, ptr %radius, align 4
-  %div187 = fdiv float %250, %sqrt907
+  %div187 = fdiv float %250, %sqrt932
   %251 = insertelement <2 x float> poison, float %div187, i64 0
   %252 = shufflevector <2 x float> %251, <2 x float> poison, <2 x i32> zeroinitializer
   %253 = fmul <2 x float> %247, %252
   %254 = extractelement <2 x float> %253, i64 0
   %255 = extractelement <2 x float> %253, i64 1
-  %call.i844 = call noundef float @atan2f(float noundef %255, float noundef %254) #28
-  %cmp197 = fcmp olt float %call.i844, 0.000000e+00
-  %add199 = fadd float %call.i844, 0x401921FB60000000
-  %phi.1 = select i1 %cmp197, float %add199, float %call.i844
+  %call.i869 = call noundef float @atan2f(float noundef %255, float noundef %254) #28
+  %cmp197 = fcmp olt float %call.i869, 0.000000e+00
+  %add199 = fadd float %call.i869, 0x401921FB60000000
+  %phi.1 = select i1 %cmp197, float %add199, float %call.i869
   %256 = load float, ptr %zMin, align 8
-  %cmp203 = fcmp olt float %add6.i836, %256
+  %cmp203 = fcmp olt float %add6.i861, %256
   %257 = load float, ptr %zMax, align 4
-  %cmp207 = fcmp ogt float %add6.i836, %257
+  %cmp207 = fcmp ogt float %add6.i861, %257
   %or.cond18 = select i1 %cmp203, i1 true, i1 %cmp207
   %258 = load float, ptr %phiMax, align 8
   %cmp210 = fcmp ogt float %phi.1, %258
@@ -42797,13 +42797,13 @@ if.then211:                                       ; preds = %if.end164
   br label %return
 
 if.end213:                                        ; preds = %if.end164, %if.end119
-  %div.i.i848.pre-phi = phi float [ %div.i.i806, %if.end164 ], [ %div.i.i761, %if.end119 ]
+  %div.i.i873.pre-phi = phi float [ %div.i.i831, %if.end164 ], [ %div.i.i786, %if.end119 ]
   %pHit.sroa.0.0 = phi <2 x float> [ %253, %if.end164 ], [ %225, %if.end119 ]
-  %pHit.sroa.17.0 = phi float [ %add6.i836, %if.end164 ], [ %add6.i, %if.end119 ]
+  %pHit.sroa.17.0 = phi float [ %add6.i861, %if.end164 ], [ %add6.i, %if.end119 ]
   %phi.2 = phi float [ %phi.1, %if.end164 ], [ %phi.0, %if.end119 ]
-  %set.i849 = getelementptr inbounds i8, ptr %agg.result, i64 20
-  store i8 1, ptr %set.i849, align 4
-  store float %div.i.i848.pre-phi, ptr %agg.result, align 4
+  %set.i874 = getelementptr inbounds i8, ptr %agg.result, i64 20
+  store i8 1, ptr %set.i874, align 4
+  store float %div.i.i873.pre-phi, ptr %agg.result, align 4
   %ref.tmp214.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
   store <2 x float> %pHit.sroa.0.0, ptr %ref.tmp214.sroa.2.0.agg.result.sroa_idx, align 4
   %ref.tmp214.sroa.2.sroa.2.0.ref.tmp214.sroa.2.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 12
@@ -45771,77 +45771,77 @@ _ZNK4pbrt15SummedAreaTable9LookupIntEii.exit:     ; preds = %entry, %if.end.i
   %retval.0.i = phi float [ %conv.i, %if.end.i ], [ 0.000000e+00, %entry ]
   %cmp.i21 = icmp eq i32 %conv6, -1
   %or.cond.i23 = or i1 %cmp.i21, %cmp2.i
-  br i1 %or.cond.i23, label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit43, label %if.end.i24
+  br i1 %or.cond.i23, label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit44, label %if.end.i24
 
 if.end.i24:                                       ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit
-  %sub4.i27 = add nsw i32 %sub.i, -1
-  %.sroa.speculated10.i28 = tail call i32 @llvm.smin.i32(i32 %sub4.i27, i32 %conv6)
-  %sub7.i29 = add nsw i32 %conv7, -1
+  %sub4.i28 = add nsw i32 %sub.i, -1
+  %.sroa.speculated10.i29 = tail call i32 @llvm.smin.i32(i32 %sub4.i28, i32 %conv6)
+  %sub7.i30 = add nsw i32 %conv7, -1
   %7 = xor i32 %3, -1
-  %sub11.i32 = add i32 %2, %7
-  %.sroa.speculated.i33 = tail call i32 @llvm.smin.i32(i32 %sub11.i32, i32 %sub7.i29)
-  %sub.i.i.i34 = sub i32 %.sroa.speculated10.i28, %1
-  %sub6.i.i.i35 = sub nsw i32 %.sroa.speculated.i33, %3
-  %values.i.i.i36 = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load ptr, ptr %values.i.i.i36, align 8
-  %mul.i.i.i37 = mul nsw i32 %sub6.i.i.i35, %sub.i
-  %add.i.i.i38 = add nsw i32 %sub.i.i.i34, %mul.i.i.i37
-  %idxprom.i.i.i39 = sext i32 %add.i.i.i38 to i64
-  %arrayidx.i.i.i40 = getelementptr inbounds double, ptr %8, i64 %idxprom.i.i.i39
-  %9 = load double, ptr %arrayidx.i.i.i40, align 8
-  %conv.i41 = fptrunc double %9 to float
-  br label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit43
+  %sub11.i33 = add i32 %2, %7
+  %.sroa.speculated.i34 = tail call i32 @llvm.smin.i32(i32 %sub11.i33, i32 %sub7.i30)
+  %sub.i.i.i35 = sub i32 %.sroa.speculated10.i29, %1
+  %sub6.i.i.i36 = sub nsw i32 %.sroa.speculated.i34, %3
+  %values.i.i.i37 = getelementptr inbounds i8, ptr %this, i64 24
+  %8 = load ptr, ptr %values.i.i.i37, align 8
+  %mul.i.i.i38 = mul nsw i32 %sub6.i.i.i36, %sub.i
+  %add.i.i.i39 = add nsw i32 %sub.i.i.i35, %mul.i.i.i38
+  %idxprom.i.i.i40 = sext i32 %add.i.i.i39 to i64
+  %arrayidx.i.i.i41 = getelementptr inbounds double, ptr %8, i64 %idxprom.i.i.i40
+  %9 = load double, ptr %arrayidx.i.i.i41, align 8
+  %conv.i42 = fptrunc double %9 to float
+  br label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit44
 
-_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit43:   ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit, %if.end.i24
-  %retval.0.i42 = phi float [ %conv.i41, %if.end.i24 ], [ 0.000000e+00, %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit ]
-  %cmp2.i45 = icmp eq i32 %conv7, -1
-  %or.cond.i46 = or i1 %cmp.i, %cmp2.i45
-  br i1 %or.cond.i46, label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit66, label %if.end.i47
+_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit44:   ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit, %if.end.i24
+  %retval.0.i43 = phi float [ %conv.i42, %if.end.i24 ], [ 0.000000e+00, %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit ]
+  %cmp2.i46 = icmp eq i32 %conv7, -1
+  %or.cond.i47 = or i1 %cmp.i, %cmp2.i46
+  br i1 %or.cond.i47, label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit68, label %if.end.i48
 
-if.end.i47:                                       ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit43
-  %sub.i48 = add nsw i32 %conv6, -1
-  %sub4.i51 = add nsw i32 %sub.i, -1
-  %.sroa.speculated10.i52 = tail call i32 @llvm.smin.i32(i32 %sub4.i51, i32 %sub.i48)
+if.end.i48:                                       ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit44
+  %sub.i49 = add nsw i32 %conv6, -1
+  %sub4.i52 = add nsw i32 %sub.i, -1
+  %.sroa.speculated10.i53 = tail call i32 @llvm.smin.i32(i32 %sub4.i52, i32 %sub.i49)
   %10 = xor i32 %3, -1
-  %sub11.i55 = add i32 %2, %10
-  %.sroa.speculated.i56 = tail call i32 @llvm.smin.i32(i32 %sub11.i55, i32 %conv7)
-  %sub.i.i.i57 = sub i32 %.sroa.speculated10.i52, %1
-  %sub6.i.i.i58 = sub nsw i32 %.sroa.speculated.i56, %3
-  %values.i.i.i59 = getelementptr inbounds i8, ptr %this, i64 24
-  %11 = load ptr, ptr %values.i.i.i59, align 8
-  %mul.i.i.i60 = mul nsw i32 %sub6.i.i.i58, %sub.i
-  %add.i.i.i61 = add nsw i32 %sub.i.i.i57, %mul.i.i.i60
-  %idxprom.i.i.i62 = sext i32 %add.i.i.i61 to i64
-  %arrayidx.i.i.i63 = getelementptr inbounds double, ptr %11, i64 %idxprom.i.i.i62
-  %12 = load double, ptr %arrayidx.i.i.i63, align 8
-  %conv.i64 = fptrunc double %12 to float
-  br label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit66
+  %sub11.i57 = add i32 %2, %10
+  %.sroa.speculated.i58 = tail call i32 @llvm.smin.i32(i32 %sub11.i57, i32 %conv7)
+  %sub.i.i.i59 = sub i32 %.sroa.speculated10.i53, %1
+  %sub6.i.i.i60 = sub nsw i32 %.sroa.speculated.i58, %3
+  %values.i.i.i61 = getelementptr inbounds i8, ptr %this, i64 24
+  %11 = load ptr, ptr %values.i.i.i61, align 8
+  %mul.i.i.i62 = mul nsw i32 %sub6.i.i.i60, %sub.i
+  %add.i.i.i63 = add nsw i32 %sub.i.i.i59, %mul.i.i.i62
+  %idxprom.i.i.i64 = sext i32 %add.i.i.i63 to i64
+  %arrayidx.i.i.i65 = getelementptr inbounds double, ptr %11, i64 %idxprom.i.i.i64
+  %12 = load double, ptr %arrayidx.i.i.i65, align 8
+  %conv.i66 = fptrunc double %12 to float
+  br label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit68
 
-_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit66:   ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit43, %if.end.i47
-  %retval.0.i65 = phi float [ %conv.i64, %if.end.i47 ], [ 0.000000e+00, %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit43 ]
-  %or.cond.i69 = or i1 %cmp.i21, %cmp2.i45
-  br i1 %or.cond.i69, label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit88, label %if.end.i70
+_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit68:   ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit44, %if.end.i48
+  %retval.0.i67 = phi float [ %conv.i66, %if.end.i48 ], [ 0.000000e+00, %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit44 ]
+  %or.cond.i71 = or i1 %cmp.i21, %cmp2.i46
+  br i1 %or.cond.i71, label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit92, label %if.end.i72
 
-if.end.i70:                                       ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit66
-  %sub4.i73 = add nsw i32 %sub.i, -1
-  %.sroa.speculated10.i74 = tail call i32 @llvm.smin.i32(i32 %sub4.i73, i32 %conv6)
+if.end.i72:                                       ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit68
+  %sub4.i76 = add nsw i32 %sub.i, -1
+  %.sroa.speculated10.i77 = tail call i32 @llvm.smin.i32(i32 %sub4.i76, i32 %conv6)
   %13 = xor i32 %3, -1
-  %sub11.i77 = add i32 %2, %13
-  %.sroa.speculated.i78 = tail call i32 @llvm.smin.i32(i32 %sub11.i77, i32 %conv7)
-  %sub.i.i.i79 = sub i32 %.sroa.speculated10.i74, %1
-  %sub6.i.i.i80 = sub nsw i32 %.sroa.speculated.i78, %3
-  %values.i.i.i81 = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %values.i.i.i81, align 8
-  %mul.i.i.i82 = mul nsw i32 %sub6.i.i.i80, %sub.i
-  %add.i.i.i83 = add nsw i32 %sub.i.i.i79, %mul.i.i.i82
-  %idxprom.i.i.i84 = sext i32 %add.i.i.i83 to i64
-  %arrayidx.i.i.i85 = getelementptr inbounds double, ptr %14, i64 %idxprom.i.i.i84
-  %15 = load double, ptr %arrayidx.i.i.i85, align 8
-  %conv.i86 = fptrunc double %15 to float
-  br label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit88
+  %sub11.i81 = add i32 %2, %13
+  %.sroa.speculated.i82 = tail call i32 @llvm.smin.i32(i32 %sub11.i81, i32 %conv7)
+  %sub.i.i.i83 = sub i32 %.sroa.speculated10.i77, %1
+  %sub6.i.i.i84 = sub nsw i32 %.sroa.speculated.i82, %3
+  %values.i.i.i85 = getelementptr inbounds i8, ptr %this, i64 24
+  %14 = load ptr, ptr %values.i.i.i85, align 8
+  %mul.i.i.i86 = mul nsw i32 %sub6.i.i.i84, %sub.i
+  %add.i.i.i87 = add nsw i32 %sub.i.i.i83, %mul.i.i.i86
+  %idxprom.i.i.i88 = sext i32 %add.i.i.i87 to i64
+  %arrayidx.i.i.i89 = getelementptr inbounds double, ptr %14, i64 %idxprom.i.i.i88
+  %15 = load double, ptr %arrayidx.i.i.i89, align 8
+  %conv.i90 = fptrunc double %15 to float
+  br label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit92
 
-_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit88:   ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit66, %if.end.i70
-  %retval.0.i87 = phi float [ %conv.i86, %if.end.i70 ], [ 0.000000e+00, %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit66 ]
+_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit92:   ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit68, %if.end.i72
+  %retval.0.i91 = phi float [ %conv.i90, %if.end.i72 ], [ 0.000000e+00, %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit68 ]
   %conv16 = sitofp i32 %conv6 to float
   %sub = fsub float %mul, %conv16
   %conv18 = sitofp i32 %conv7 to float
@@ -45851,13 +45851,13 @@ _ZNK4pbrt15SummedAreaTable9LookupIntEii.exit88:   ; preds = %_ZNK4pbrt15SummedAr
   %mul22 = fmul float %sub20, %sub21
   %mul23 = fmul float %mul22, %retval.0.i
   %mul25 = fmul float %sub20, %sub19
-  %mul26 = fmul float %mul25, %retval.0.i65
+  %mul26 = fmul float %mul25, %retval.0.i67
   %add27 = fadd float %mul23, %mul26
   %mul29 = fmul float %sub, %sub21
-  %mul30 = fmul float %mul29, %retval.0.i42
+  %mul30 = fmul float %mul29, %retval.0.i43
   %add31 = fadd float %mul30, %add27
   %mul32 = fmul float %sub, %sub19
-  %mul33 = fmul float %mul32, %retval.0.i87
+  %mul33 = fmul float %mul32, %retval.0.i91
   %add34 = fadd float %add31, %mul33
   ret float %add34
 }
@@ -46504,50 +46504,50 @@ entry:
   %9 = load float, ptr %8, align 4
   %call29 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 1)
   %10 = extractvalue { ptr, i64 } %call29, 0
-  %arrayidx.i17 = getelementptr inbounds i8, ptr %10, i64 4
-  %11 = load float, ptr %arrayidx.i17, align 4
+  %arrayidx.i18 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = load float, ptr %arrayidx.i18, align 4
   %call35 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 1)
   %12 = extractvalue { ptr, i64 } %call35, 0
-  %arrayidx.i18 = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load float, ptr %arrayidx.i18, align 4
+  %arrayidx.i19 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load float, ptr %arrayidx.i19, align 4
   %call40 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 1)
   %14 = extractvalue { ptr, i64 } %call40, 0
-  %arrayidx.i19 = getelementptr inbounds i8, ptr %14, i64 12
-  %15 = load float, ptr %arrayidx.i19, align 4
+  %arrayidx.i20 = getelementptr inbounds i8, ptr %14, i64 12
+  %15 = load float, ptr %arrayidx.i20, align 4
   %call46 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 2)
   %16 = extractvalue { ptr, i64 } %call46, 0
   %17 = load float, ptr %16, align 4
   %call51 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 2)
   %18 = extractvalue { ptr, i64 } %call51, 0
-  %arrayidx.i20 = getelementptr inbounds i8, ptr %18, i64 4
-  %19 = load float, ptr %arrayidx.i20, align 4
+  %arrayidx.i22 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = load float, ptr %arrayidx.i22, align 4
   %call57 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 2)
   %20 = extractvalue { ptr, i64 } %call57, 0
-  %arrayidx.i21 = getelementptr inbounds i8, ptr %20, i64 8
-  %21 = load float, ptr %arrayidx.i21, align 4
+  %arrayidx.i23 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = load float, ptr %arrayidx.i23, align 4
   %call62 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 2)
   %22 = extractvalue { ptr, i64 } %call62, 0
-  %arrayidx.i22 = getelementptr inbounds i8, ptr %22, i64 12
-  %23 = load float, ptr %arrayidx.i22, align 4
+  %arrayidx.i24 = getelementptr inbounds i8, ptr %22, i64 12
+  %23 = load float, ptr %arrayidx.i24, align 4
   %call68 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 3)
   %24 = extractvalue { ptr, i64 } %call68, 0
   %25 = load float, ptr %24, align 4
   %mul70 = fmul float %p.sroa.0.0.vec.extract, %25
   %call73 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 3)
   %26 = extractvalue { ptr, i64 } %call73, 0
-  %arrayidx.i23 = getelementptr inbounds i8, ptr %26, i64 4
-  %27 = load float, ptr %arrayidx.i23, align 4
+  %arrayidx.i26 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = load float, ptr %arrayidx.i26, align 4
   %mul75 = fmul float %p.sroa.0.4.vec.extract, %27
   %add76 = fadd float %mul70, %mul75
   %call79 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 3)
   %28 = extractvalue { ptr, i64 } %call79, 0
-  %arrayidx.i24 = getelementptr inbounds i8, ptr %28, i64 8
-  %29 = load float, ptr %arrayidx.i24, align 4
+  %arrayidx.i27 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = load float, ptr %arrayidx.i27, align 4
   %mul81 = fmul float %29, %p.coerce1
   %call84 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 3)
   %30 = extractvalue { ptr, i64 } %call84, 0
-  %arrayidx.i25 = getelementptr inbounds i8, ptr %30, i64 12
-  %31 = load float, ptr %arrayidx.i25, align 4
+  %arrayidx.i28 = getelementptr inbounds i8, ptr %30, i64 12
+  %31 = load float, ptr %arrayidx.i28, align 4
   %add86 = fadd float %mul81, %31
   %add87 = fadd float %add76, %add86
   store float %add87, ptr %va, align 4
@@ -49599,7 +49599,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %entry
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
-  %key.addr.0.lcssa.i.i.i = phi ptr [ %0, %entry ], [ %add.ptr.i.i.i, %while.body.i.i.i ]
+  %key.addr.0.lcssa.i.i.i = phi ptr [ %0, %entry ], [ %add.ptr2.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %1, 7
   switch i64 %and.i.i.i, label %_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit [
     i64 7, label %sw.bb.i.i.i

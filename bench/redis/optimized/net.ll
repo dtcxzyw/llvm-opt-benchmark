@@ -625,34 +625,37 @@ if.end13:                                         ; preds = %if.then, %entry
 
 if.then14:                                        ; preds = %if.end13
   %cmp.i = icmp eq ptr %4, %timeout
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+  br i1 %cmp.i, label %if.end20, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then14
   %cmp2.i = icmp eq ptr %4, null
-  br i1 %cmp2.i, label %if.then3.i, label %if.end20
+  br i1 %cmp2.i, label %if.then3.i, label %if.end9.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %5 = load ptr, ptr @hiredisAllocFns, align 8
   %call.i.i = tail call ptr %5(i64 noundef 16) #10
   store ptr %call.i.i, ptr %connect_timeout, align 8
   %cmp6.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp6.i, label %oom, label %if.end20
+  br i1 %cmp6.i, label %oom, label %if.end9.i
+
+if.end9.i:                                        ; preds = %if.then3.i, %if.end.i
+  %6 = phi ptr [ %call.i.i, %if.then3.i ], [ %4, %if.end.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %timeout, i64 16, i1 false)
+  %.pre = load ptr, ptr %connect_timeout, align 8
+  br label %if.end20
 
 if.end20.thread:                                  ; preds = %if.end13
-  %6 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
-  tail call void %6(ptr noundef %4) #10
+  %7 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  tail call void %7(ptr noundef %4) #10
   store ptr null, ptr %connect_timeout, align 8
   br label %if.end24
 
-if.end20:                                         ; preds = %if.end.i, %if.then3.i
-  %7 = phi ptr [ %call.i.i, %if.then3.i ], [ %4, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %timeout, i64 16, i1 false)
-  %.pre = load ptr, ptr %connect_timeout, align 8
-  %cmp.not.i = icmp eq ptr %.pre, null
+if.end20:                                         ; preds = %if.then14, %if.end9.i
+  %8 = phi ptr [ %4, %if.then14 ], [ %.pre, %if.end9.i ]
+  %cmp.not.i = icmp eq ptr %8, null
   br i1 %cmp.not.i, label %if.end24, label %if.then.i
 
-if.then.i:                                        ; preds = %if.then14, %if.end20
-  %8 = phi ptr [ %.pre, %if.end20 ], [ %timeout, %if.then14 ]
+if.then.i:                                        ; preds = %if.end20
   %tv_usec.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %tv_usec.i, align 8
   %cmp1.i = icmp sgt i64 %9, 1000000
@@ -1049,34 +1052,37 @@ if.end18:                                         ; preds = %if.then7, %if.end4
 
 if.then19:                                        ; preds = %if.end18
   %cmp.i30 = icmp eq ptr %5, %timeout
-  br i1 %cmp.i30, label %if.then.i35, label %if.end.i31
+  br i1 %cmp.i30, label %if.end25, label %if.end.i31
 
 if.end.i31:                                       ; preds = %if.then19
   %cmp2.i = icmp eq ptr %5, null
-  br i1 %cmp2.i, label %if.then3.i, label %if.end25
+  br i1 %cmp2.i, label %if.then3.i, label %if.end9.i
 
 if.then3.i:                                       ; preds = %if.end.i31
   %6 = load ptr, ptr @hiredisAllocFns, align 8
   %call.i.i33 = tail call ptr %6(i64 noundef 16) #10
   store ptr %call.i.i33, ptr %connect_timeout, align 8
   %cmp6.i = icmp eq ptr %call.i.i33, null
-  br i1 %cmp6.i, label %oom, label %if.end25
+  br i1 %cmp6.i, label %oom, label %if.end9.i
+
+if.end9.i:                                        ; preds = %if.then3.i, %if.end.i31
+  %7 = phi ptr [ %call.i.i33, %if.then3.i ], [ %5, %if.end.i31 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %timeout, i64 16, i1 false)
+  %.pre = load ptr, ptr %connect_timeout, align 8
+  br label %if.end25
 
 if.end25.thread:                                  ; preds = %if.end18
-  %7 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
-  tail call void %7(ptr noundef %5) #10
+  %8 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  tail call void %8(ptr noundef %5) #10
   store ptr null, ptr %connect_timeout, align 8
   br label %if.end29
 
-if.end25:                                         ; preds = %if.end.i31, %if.then3.i
-  %8 = phi ptr [ %call.i.i33, %if.then3.i ], [ %5, %if.end.i31 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %timeout, i64 16, i1 false)
-  %.pre = load ptr, ptr %connect_timeout, align 8
-  %cmp.not.i = icmp eq ptr %.pre, null
+if.end25:                                         ; preds = %if.then19, %if.end9.i
+  %9 = phi ptr [ %5, %if.then19 ], [ %.pre, %if.end9.i ]
+  %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %if.end29, label %if.then.i35
 
-if.then.i35:                                      ; preds = %if.then19, %if.end25
-  %9 = phi ptr [ %.pre, %if.end25 ], [ %timeout, %if.then19 ]
+if.then.i35:                                      ; preds = %if.end25
   %tv_usec.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %tv_usec.i, align 8
   %cmp1.i = icmp sgt i64 %10, 1000000

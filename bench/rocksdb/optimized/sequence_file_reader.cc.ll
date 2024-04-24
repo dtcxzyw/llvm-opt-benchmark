@@ -2690,7 +2690,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %invoke.cont32, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_123ReadaheadSequentialFile4SkipEm(ptr noalias writeonly sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %n) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_123ReadaheadSequentialFile4SkipEm(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %n) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8
   %lock_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -2750,14 +2750,9 @@ if.then22:                                        ; preds = %if.end20
 
 invoke.cont25:                                    ; preds = %if.then22
   %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
-  br i1 %cmp.not.i, label %invoke.cont27.thread, label %invoke.cont27
+  br i1 %cmp.not.i, label %_ZN7rocksdb8IOStatusaSEOS0_.exit, label %_ZN7rocksdb8IOStatusaSEOS0_.exit.thread
 
-invoke.cont27.thread:                             ; preds = %invoke.cont25
-  %state_.i.i30 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr null, ptr %state_.i.i30, align 8
-  br label %if.then29
-
-invoke.cont27:                                    ; preds = %invoke.cont25
+_ZN7rocksdb8IOStatusaSEOS0_.exit.thread:          ; preds = %invoke.cont25
   %5 = load i8, ptr %ref.tmp, align 8
   store i8 %5, ptr %agg.result, align 8
   store i8 0, ptr %ref.tmp, align 8
@@ -2782,11 +2777,33 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   store i8 0, ptr %scope_.i, align 1
   %state_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %10 = load ptr, ptr %state_.i, align 8
+  store ptr null, ptr %state_.i, align 8
   store ptr %10, ptr %state_.i.i.i.i, align 8
-  %11 = icmp eq i8 %5, 0
+  %state_.i.i29 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  br label %invoke.cont27
+
+_ZN7rocksdb8IOStatusaSEOS0_.exit:                 ; preds = %invoke.cont25
+  %state_.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %.pre = load ptr, ptr %state_.i.i.phi.trans.insert, align 8
   %state_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %cmp.not.i.i.i = icmp eq ptr %.pre, null
+  br i1 %cmp.not.i.i.i, label %invoke.cont27.thread, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
+
+invoke.cont27.thread:                             ; preds = %_ZN7rocksdb8IOStatusaSEOS0_.exit
   store ptr null, ptr %state_.i.i, align 8
-  br i1 %11, label %if.then29, label %if.end32
+  br label %if.then29
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %_ZN7rocksdb8IOStatusaSEOS0_.exit
+  call void @_ZdaPv(ptr noundef nonnull %.pre) #16
+  %.pre28 = load i8, ptr %agg.result, align 8
+  br label %invoke.cont27
+
+invoke.cont27:                                    ; preds = %_ZN7rocksdb8IOStatusaSEOS0_.exit.thread, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
+  %state_.i.i31 = phi ptr [ %state_.i.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i ], [ %state_.i.i29, %_ZN7rocksdb8IOStatusaSEOS0_.exit.thread ]
+  %11 = phi i8 [ %.pre28, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i ], [ %5, %_ZN7rocksdb8IOStatusaSEOS0_.exit.thread ]
+  store ptr null, ptr %state_.i.i31, align 8
+  %cmp.i = icmp eq i8 %11, 0
+  br i1 %cmp.i, label %if.then29, label %if.end32
 
 if.then29:                                        ; preds = %invoke.cont27.thread, %invoke.cont27
   %read_offset_30 = getelementptr inbounds i8, ptr %this, i64 120

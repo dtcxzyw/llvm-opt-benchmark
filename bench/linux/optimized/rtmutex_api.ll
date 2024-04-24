@@ -728,7 +728,7 @@ define internal fastcc noundef i32 @try_to_take_rt_mutex(ptr noundef %0, ptr nou
   %130 = load i64, ptr %129, align 8
   %131 = sub i64 %128, %130
   %132 = lshr i64 %131, 63
-  %133 = trunc i64 %132 to i32
+  %133 = trunc nuw nsw i64 %132 to i32
   br label %134
 
 134:                                              ; preds = %127, %.split
@@ -873,7 +873,7 @@ define internal fastcc noundef i32 @task_blocks_on_rt_mutex(ptr noundef %0, ptr 
   %55 = load i64, ptr %54, align 8
   %56 = sub i64 %21, %55
   %57 = lshr i64 %56, 63
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nuw nsw i64 %57 to i32
   br label %59
 
 59:                                               ; preds = %53, %.split
@@ -1007,7 +1007,7 @@ define internal fastcc noundef i32 @task_blocks_on_rt_mutex(ptr noundef %0, ptr 
   %130 = load i64, ptr %129, align 8
   %131 = sub i64 %128, %130
   %132 = lshr i64 %131, 63
-  %133 = trunc i64 %132 to i32
+  %133 = trunc nuw nsw i64 %132 to i32
   br label %134
 
 134:                                              ; preds = %127, %.split29
@@ -1297,7 +1297,7 @@ define internal fastcc void @remove_waiter(ptr noundef %0, ptr noundef %1) unnam
   %88 = load i64, ptr %87, align 8
   %89 = sub i64 %86, %88
   %90 = lshr i64 %89, 63
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nuw nsw i64 %90 to i32
   br label %92
 
 92:                                               ; preds = %85, %.split
@@ -1839,7 +1839,7 @@ define internal fastcc noundef i32 @rt_mutex_adjust_prio_chain(ptr noundef %0, i
 
 .thread36:                                        ; preds = %66, %82
   %87 = phi i8 [ %86, %82 ], [ %67, %66 ]
-  %88 = tail call i32 @_raw_spin_trylock(ptr noundef %18) #11
+  %88 = tail call i32 @_raw_spin_trylock(ptr noundef %54) #11
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %90, label %93
 
@@ -1857,7 +1857,7 @@ define internal fastcc noundef i32 @rt_mutex_adjust_prio_chain(ptr noundef %0, i
   br i1 %95, label %103, label %96
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %18, i64 24
+  %97 = getelementptr inbounds i8, ptr %54, i64 24
   %98 = load volatile ptr, ptr %97, align 8
   %99 = ptrtoint ptr %98 to i64
   %100 = and i64 %99, -2
@@ -1866,8 +1866,7 @@ define internal fastcc noundef i32 @rt_mutex_adjust_prio_chain(ptr noundef %0, i
   br i1 %102, label %103, label %104
 
 103:                                              ; preds = %96, %93
-  %.lcssa.lcssa = phi ptr [ %18, %96 ], [ %2, %93 ]
-  tail call void @_raw_spin_unlock(ptr noundef %.lcssa.lcssa) #11
+  tail call void @_raw_spin_unlock(ptr noundef %54) #11
   br label %.loopexit
 
 104:                                              ; preds = %96
@@ -1901,7 +1900,7 @@ define internal fastcc noundef i32 @rt_mutex_adjust_prio_chain(ptr noundef %0, i
   br i1 %116, label %117, label %118
 
 117:                                              ; preds = %.thread38
-  tail call void @_raw_spin_unlock_irq(ptr noundef %18) #11
+  tail call void @_raw_spin_unlock_irq(ptr noundef %54) #11
   br label %.thread
 
 118:                                              ; preds = %.thread38
@@ -1940,7 +1939,7 @@ define internal fastcc noundef i32 @rt_mutex_adjust_prio_chain(ptr noundef %0, i
 
 140:                                              ; preds = %137, %132
   %141 = phi ptr [ %139, %137 ], [ null, %132 ]
-  %142 = getelementptr inbounds i8, ptr %18, i64 16
+  %142 = getelementptr inbounds i8, ptr %54, i64 16
   %143 = load ptr, ptr %142, align 8
   %144 = icmp eq ptr %143, null
   br i1 %144, label %150, label %145
@@ -1958,7 +1957,7 @@ define internal fastcc noundef i32 @rt_mutex_adjust_prio_chain(ptr noundef %0, i
 
 150:                                              ; preds = %145, %140
   tail call void @_raw_spin_unlock(ptr noundef %133) #11
-  tail call void @_raw_spin_unlock_irq(ptr noundef %18) #11
+  tail call void @_raw_spin_unlock_irq(ptr noundef %54) #11
   %151 = icmp eq ptr %141, null
   br i1 %151, label %.loopexit47, label %152
 
@@ -1972,7 +1971,7 @@ define internal fastcc noundef i32 @rt_mutex_adjust_prio_chain(ptr noundef %0, i
   br i1 %158, label %.loopexit48, label %13
 
 159:                                              ; preds = %104
-  %160 = getelementptr inbounds i8, ptr %18, i64 16
+  %160 = getelementptr inbounds i8, ptr %54, i64 16
   %161 = load ptr, ptr %160, align 8
   %162 = icmp eq ptr %161, null
   br i1 %162, label %168, label %163
@@ -1995,7 +1994,7 @@ define internal fastcc noundef i32 @rt_mutex_adjust_prio_chain(ptr noundef %0, i
   br i1 %171, label %178, label %172
 
 172:                                              ; preds = %168
-  %173 = getelementptr inbounds i8, ptr %18, i64 8
+  %173 = getelementptr inbounds i8, ptr %54, i64 8
   %174 = icmp eq ptr %161, %47
   br i1 %174, label %175, label %177
 
@@ -2018,7 +2017,7 @@ define internal fastcc noundef i32 @rt_mutex_adjust_prio_chain(ptr noundef %0, i
   %182 = load i64, ptr %28, align 8
   %183 = getelementptr inbounds i8, ptr %47, i64 32
   store i64 %182, ptr %183, align 8
-  %184 = getelementptr inbounds i8, ptr %18, i64 8
+  %184 = getelementptr inbounds i8, ptr %54, i64 8
   %185 = load ptr, ptr %184, align 8
   %186 = icmp eq ptr %185, null
   br i1 %186, label %.thread39, label %187
@@ -2058,7 +2057,7 @@ define internal fastcc noundef i32 @rt_mutex_adjust_prio_chain(ptr noundef %0, i
   %205 = load i64, ptr %204, align 8
   %206 = sub i64 %182, %205
   %207 = lshr i64 %206, 63
-  %208 = trunc i64 %207 to i32
+  %208 = trunc nuw nsw i64 %207 to i32
   br label %209
 
 209:                                              ; preds = %203, %.split
@@ -2144,7 +2143,7 @@ define internal fastcc noundef i32 @rt_mutex_adjust_prio_chain(ptr noundef %0, i
   br label %249
 
 249:                                              ; preds = %243, %241
-  tail call void @_raw_spin_unlock_irq(ptr noundef %18) #11
+  tail call void @_raw_spin_unlock_irq(ptr noundef %54) #11
   br label %.thread
 
 250:                                              ; preds = %.thread41
@@ -2240,7 +2239,7 @@ define internal fastcc noundef i32 @rt_mutex_adjust_prio_chain(ptr noundef %0, i
   %303 = load i64, ptr %302, align 8
   %304 = sub i64 %285, %303
   %305 = lshr i64 %304, 63
-  %306 = trunc i64 %305 to i32
+  %306 = trunc nuw nsw i64 %305 to i32
   br label %307
 
 307:                                              ; preds = %301, %293
@@ -2348,7 +2347,7 @@ define internal fastcc noundef i32 @rt_mutex_adjust_prio_chain(ptr noundef %0, i
   %366 = load i64, ptr %365, align 8
   %367 = sub i64 %348, %366
   %368 = lshr i64 %367, 63
-  %369 = trunc i64 %368 to i32
+  %369 = trunc nuw nsw i64 %368 to i32
   br label %370
 
 370:                                              ; preds = %364, %356
@@ -2428,7 +2427,7 @@ define internal fastcc noundef i32 @rt_mutex_adjust_prio_chain(ptr noundef %0, i
 
 415:                                              ; preds = %410, %406
   tail call void @_raw_spin_unlock(ptr noundef %265) #11
-  tail call void @_raw_spin_unlock_irq(ptr noundef %18) #11
+  tail call void @_raw_spin_unlock_irq(ptr noundef %54) #11
   %416 = icmp ne ptr %407, null
   %417 = icmp eq ptr %399, %408
   %418 = or i1 %7, %417

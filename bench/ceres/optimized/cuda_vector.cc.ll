@@ -1153,7 +1153,7 @@ define hidden void @_ZN5ceres8internal10CudaVector5AxpbyEdRKS1_d(ptr noundef non
 
 17:                                               ; preds = %4
   %18 = fadd double %1, %3
-  tail call void @_ZN5ceres8internal10CudaVector5ScaleEd(ptr noundef nonnull align 8 dereferenceable(48) %2, double noundef %18)
+  tail call void @_ZN5ceres8internal10CudaVector5ScaleEd(ptr noundef nonnull align 8 dereferenceable(48) %0, double noundef %18)
   br label %_ZN6google12Check_EQImplI14cublasStatus_tS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit9.thread
 
 19:                                               ; preds = %4

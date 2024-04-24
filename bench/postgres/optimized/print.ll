@@ -304,7 +304,7 @@ declare ptr @pqsignal(i32 noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @restore_sigpipe_trap() local_unnamed_addr #2 {
   %1 = load i8, ptr @always_ignore_sigpipe, align 1
-  %2 = trunc i8 %1 to i1
+  %2 = trunc nuw i8 %1 to i1
   %3 = select i1 %2, ptr inttoptr (i64 1 to ptr), ptr null
   %4 = tail call ptr @pqsignal(i32 noundef 13, ptr noundef %3) #18
   ret void
@@ -400,7 +400,7 @@ define dso_local ptr @PageOutput(i32 noundef %0, ptr noundef readonly %1) local_
 
 43:                                               ; preds = %39
   %44 = load i8, ptr @always_ignore_sigpipe, align 1
-  %45 = trunc i8 %44 to i1
+  %45 = trunc nuw i8 %44 to i1
   %46 = select i1 %45, ptr inttoptr (i64 1 to ptr), ptr null
   %47 = call ptr @pqsignal(i32 noundef 13, ptr noundef %46) #18
   br label %48
@@ -458,7 +458,7 @@ define dso_local void @ClosePager(ptr noundef %0) local_unnamed_addr #2 {
 7:                                                ; preds = %5, %3
   %8 = tail call i32 @pclose(ptr noundef nonnull %0)
   %9 = load i8, ptr @always_ignore_sigpipe, align 1
-  %10 = trunc i8 %9 to i1
+  %10 = trunc nuw i8 %9 to i1
   %11 = select i1 %10, ptr inttoptr (i64 1 to ptr), ptr null
   %12 = tail call ptr @pqsignal(i32 noundef 13, ptr noundef %11) #18
   br label %13
@@ -1042,7 +1042,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %11, %
 102:                                              ; preds = %100, %98
   %103 = tail call i32 @pclose(ptr noundef nonnull %.1)
   %104 = load i8, ptr @always_ignore_sigpipe, align 1
-  %105 = trunc i8 %104 to i1
+  %105 = trunc nuw i8 %104 to i1
   %106 = select i1 %105, ptr inttoptr (i64 1 to ptr), ptr null
   %107 = tail call ptr @pqsignal(i32 noundef 13, ptr noundef %106) #18
   br label %ClosePager.exit
@@ -1360,7 +1360,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   br i1 %149, label %150, label %153
 
 150:                                              ; preds = %147
-  %151 = call i32 @fileno(ptr noundef %1) #18
+  %151 = call i32 @fileno(ptr noundef %148) #18
   %152 = call i32 @isatty(i32 noundef %151) #18
   %.not524 = icmp ne i32 %152, 0
   %brmerge628 = or i1 %.not524, %2
@@ -1444,7 +1444,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   br i1 %189, label %190, label %192
 
 190:                                              ; preds = %181
-  %191 = trunc i64 %indvars.iv757 to i32
+  %191 = trunc nuw nsw i64 %indvars.iv757 to i32
   br label %192
 
 192:                                              ; preds = %.lr.ph665, %175, %190, %181
@@ -2300,7 +2300,7 @@ footers_with_default.exit:                        ; preds = %541, %545, %549
 582:                                              ; preds = %580, %578
   %583 = call i32 @pclose(ptr noundef nonnull %.3619845)
   %584 = load i8, ptr @always_ignore_sigpipe, align 1
-  %585 = trunc i8 %584 to i1
+  %585 = trunc nuw i8 %584 to i1
   %586 = select i1 %585, ptr inttoptr (i64 1 to ptr), ptr null
   %587 = call ptr @pqsignal(i32 noundef 13, ptr noundef %586) #18
   br label %ClosePager.exit
@@ -2355,7 +2355,7 @@ define internal fastcc void @print_unaligned_vertical(ptr nocapture noundef read
   %.170 = phi i8 [ %.043, %.lr.ph ], [ %.3, %print_separator.exit60 ]
   %.04469 = phi ptr [ %19, %.lr.ph ], [ %85, %print_separator.exit60 ]
   %.04568 = phi i32 [ 0, %.lr.ph ], [ %70, %print_separator.exit60 ]
-  %24 = trunc i8 %.170 to i1
+  %24 = trunc nuw i8 %.170 to i1
   br i1 %24, label %25, label %49
 
 25:                                               ; preds = %23
@@ -2549,7 +2549,7 @@ print_separator.exit64:                           ; preds = %114, %116, %117
   br i1 %.not53, label %.loopexit, label %.lr.ph75, !llvm.loop !30
 
 .loopexit:                                        ; preds = %print_separator.exit64, %print_separator.exit62, %95, %92, %91
-  %122 = trunc i8 %.4 to i1
+  %122 = trunc nuw i8 %.4 to i1
   br i1 %122, label %.sink.split, label %128
 
 .sink.split:                                      ; preds = %.loopexit
@@ -2671,7 +2671,7 @@ print_separator.exit65:                           ; preds = %42, %41, %39, %.lr.
   %.04881 = phi i32 [ 0, %.lr.ph82 ], [ %71, %print_separator.exit69 ]
   %.180 = phi i8 [ %.049, %.lr.ph82 ], [ %.3, %print_separator.exit69 ]
   %.15179 = phi ptr [ %49, %.lr.ph82 ], [ %86, %print_separator.exit69 ]
-  %54 = trunc i8 %.180 to i1
+  %54 = trunc nuw i8 %.180 to i1
   br i1 %54, label %55, label %68
 
 55:                                               ; preds = %52
@@ -2784,7 +2784,7 @@ footers_with_default.exit:                        ; preds = %92, %100
   br i1 %.not, label %.preheader.preheader, label %footers_with_default.exit.thread
 
 .preheader.preheader:                             ; preds = %110
-  %112 = trunc i8 %.4 to i1
+  %112 = trunc nuw i8 %.4 to i1
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %print_separator.exit71
@@ -2822,7 +2822,7 @@ print_separator.exit71:                           ; preds = %123, %122, %120, %.
   br i1 %.not62, label %footers_with_default.exit.thread.thread, label %.preheader, !llvm.loop !33
 
 footers_with_default.exit.thread:                 ; preds = %96, %110, %footers_with_default.exit
-  %129 = trunc i8 %.4 to i1
+  %129 = trunc nuw i8 %.4 to i1
   br i1 %129, label %footers_with_default.exit.thread.thread, label %135
 
 footers_with_default.exit.thread.thread:          ; preds = %print_separator.exit71, %footers_with_default.exit.thread
@@ -3094,7 +3094,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   br i1 %134, label %135, label %138
 
 135:                                              ; preds = %132
-  %136 = call i32 @fileno(ptr noundef %.1470) #18
+  %136 = call i32 @fileno(ptr noundef %133) #18
   %137 = call i32 @isatty(i32 noundef %136) #18
   %.not369 = icmp ne i32 %137, 0
   %brmerge496 = select i1 %.not369, i1 true, i1 %.0468
@@ -3139,7 +3139,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   br i1 %157, label %158, label %160
 
 158:                                              ; preds = %156
-  %159 = trunc i8 %.0323.lcssa to i1
+  %159 = trunc nuw i8 %.0323.lcssa to i1
   %spec.select396 = select i1 %159, i32 2, i32 1
   br label %165
 
@@ -3148,7 +3148,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   br i1 %161, label %162, label %165
 
 162:                                              ; preds = %160
-  %163 = trunc i8 %.0323.lcssa to i1
+  %163 = trunc nuw i8 %.0323.lcssa to i1
   %164 = icmp eq ptr %pg_asciiformat..i.fr, @pg_asciiformat_old
   %or.cond3 = and i1 %164, %163
   %spec.select397 = select i1 %or.cond3, i32 4, i32 3
@@ -3156,7 +3156,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
 
 165:                                              ; preds = %162, %158, %160
   %.0313 = phi i32 [ %spec.select396, %158 ], [ %spec.select397, %162 ], [ 7, %160 ]
-  %166 = trunc i8 %.0320.lcssa to i1
+  %166 = trunc nuw i8 %.0320.lcssa to i1
   %167 = icmp ult i16 %.fr, 2
   %or.cond6 = and i1 %167, %166
   %168 = icmp ne ptr %pg_asciiformat..i.fr, @pg_asciiformat_old
@@ -3244,7 +3244,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   %spec.select399.us525 = call i32 @llvm.umax.i32(i32 %200, i32 %.1312)
   %.0310.us527 = sub i32 %spec.select399.us525, %199
   %201 = icmp uge i32 %.0310.us527, %.0338.lcssa
-  %202 = trunc i8 %.2322.us523 to i1
+  %202 = trunc nuw i8 %.2322.us523 to i1
   %203 = add i32 %.2315.us524, 1
   %or.cond553.not = select i1 %201, i1 true, i1 %202
   br i1 %or.cond553.not, label %.loopexit498, label %.split.split.us
@@ -3262,7 +3262,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   %spec.select399.pn = select i1 %.not371, i32 %spec.select400..0319, i32 %spec.select399
   %.0310 = sub i32 %spec.select399.pn, %204
   %207 = icmp uge i32 %.0310, %.0338.lcssa
-  %208 = trunc i8 %.2322 to i1
+  %208 = trunc nuw i8 %.2322 to i1
   %209 = add i32 %.2315, 1
   %or.cond555.not = select i1 %207, i1 true, i1 %208
   br i1 %or.cond555.not, label %.loopexit498, label %.split.split
@@ -3277,7 +3277,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
 
 .lr.ph543:                                        ; preds = %.loopexit498
   %212 = icmp ult i16 %.fr, 2
-  %213 = trunc i8 %.0323.lcssa to i1
+  %213 = trunc nuw i8 %.0323.lcssa to i1
   %214 = icmp eq ptr %pg_asciiformat..i.fr, @pg_asciiformat_old
   %215 = select i1 %212, i1 %213, i1 false
   %or.cond402 = and i1 %215, %214
@@ -3306,7 +3306,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   %227 = getelementptr inbounds i8, ptr %pg_asciiformat..i.fr, i64 168
   %228 = getelementptr i8, ptr %pg_asciiformat..i.fr, i64 128
   %229 = getelementptr inbounds i8, ptr %pg_asciiformat..i.fr, i64 192
-  %230 = trunc i8 %.3 to i1
+  %230 = trunc nuw i8 %.3 to i1
   %or.cond31 = and i1 %224, %230
   %or.cond413 = select i1 %220, i1 true, i1 %or.cond31
   %231 = getelementptr inbounds i8, ptr %pg_asciiformat..i.fr, i64 200
@@ -3759,7 +3759,7 @@ strlen_max_width.exit426:                         ; preds = %strlen_max_width.ex
 423:                                              ; preds = %421, %419
   %424 = call i32 @pclose(ptr noundef nonnull %.1470)
   %425 = load i8, ptr @always_ignore_sigpipe, align 1
-  %426 = trunc i8 %425 to i1
+  %426 = trunc nuw i8 %425 to i1
   %427 = select i1 %426, ptr inttoptr (i64 1 to ptr), ptr null
   %428 = call ptr @pqsignal(i32 noundef 13, ptr noundef %427) #18
   br label %ClosePager.exit
@@ -6515,7 +6515,7 @@ printTableAddHeader.exit:                         ; preds = %column_type_alignme
   %67 = phi i64 [ %.promoted66, %.lr.ph76 ], [ %186, %printTableAddCell.exit ]
   %68 = phi ptr [ %.promoted69, %.lr.ph76 ], [ %185, %printTableAddCell.exit ]
   %69 = phi ptr [ %.promoted72, %.lr.ph76 ], [ %184, %printTableAddCell.exit ]
-  %70 = trunc i64 %indvars.iv to i32
+  %70 = trunc nuw nsw i64 %indvars.iv to i32
   %71 = tail call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.04380, i32 noundef %70) #18
   %.not50 = icmp eq i32 %71, 0
   br i1 %.not50, label %74, label %72

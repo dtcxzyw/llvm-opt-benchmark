@@ -12432,7 +12432,7 @@ define hidden void @_ZN9itertools9Itertools4join17h17d2663a6c708d15E(ptr noalias
   br i1 %25, label %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc31b92447401f8edE.llvm.2850111032254419090.exit.thread_crit_edge.split.us.i.i", label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h5c88d67b44a6db56E.exit.thread.us.i.i"
 
 "._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc31b92447401f8edE.llvm.2850111032254419090.exit.thread_crit_edge.split.us.i.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h5c88d67b44a6db56E.exit.thread.us.i.i"
-  store ptr %16, ptr %1, align 8, !alias.scope !2113, !noalias !2116
+  store ptr %24, ptr %1, align 8, !alias.scope !2113, !noalias !2116
   br label %.loopexit28
 
 .lr.ph.splitthread-pre-split.i.i:                 ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h5c88d67b44a6db56E.exit.thread.i.i"
@@ -12576,7 +12576,7 @@ define hidden void @_ZN9itertools9Itertools4join17h17d2663a6c708d15E(ptr noalias
   br i1 %66, label %._crit_edge.split.us.i.i.i, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a9d9e9d2d31724aE.exit.us.i.i.i"
 
 ._crit_edge.split.us.i.i.i:                       ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a9d9e9d2d31724aE.exit.us.i.i.i"
-  store ptr %16, ptr %1, align 8, !alias.scope !2187, !noalias !2190
+  store ptr %65, ptr %1, align 8, !alias.scope !2187, !noalias !2190
   br label %"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$9spec_fold17h9594e237743f24e3E.exit"
 
 .lr.ph.split.i.ithread-pre-split.i:               ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a9d9e9d2d31724aE.exit.i.i.i"

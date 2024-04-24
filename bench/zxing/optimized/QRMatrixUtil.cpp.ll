@@ -432,10 +432,11 @@ _ZN5ZXing6QRCodeL16CalculateBCHCodeEii.exit.i.i:  ; preds = %.lr.ph.i.i.i, %_ZN5
   br i1 %202, label %.invoke.i.i, label %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i.i31.i.i
 
 .invoke.i.i:                                      ; preds = %165, %198
-  %storemerge54.i = phi ptr [ %191, %198 ], [ %158, %165 ]
+  %storemerge54.i = phi ptr [ %192, %198 ], [ %159, %165 ]
+  %storemerge53.i = phi ptr [ %191, %198 ], [ %158, %165 ]
   %storemerge.i = phi ptr [ %190, %198 ], [ %157, %165 ]
   store ptr %storemerge54.i, ptr %155, align 8, !alias.scope !13
-  store ptr %storemerge54.i, ptr %154, align 8, !alias.scope !13
+  store ptr %storemerge53.i, ptr %154, align 8, !alias.scope !13
   store ptr %storemerge.i, ptr %16, align 8, !alias.scope !13
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #16
           to label %.cont.i.i unwind label %.loopexit.split-lp66.loopexit.split-lp.i.i, !noalias !13
@@ -612,7 +613,7 @@ _ZN5ZXing8BitArray10appendBitsEii.exit56.i.i:     ; preds = %_ZNSt6vectorIhSaIhE
 .loopexit65.i.i:                                  ; preds = %207
   %lpad.loopexit67.i.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %191, ptr %155, align 8, !alias.scope !13
+  store ptr %192, ptr %155, align 8, !alias.scope !13
   store ptr %191, ptr %154, align 8, !alias.scope !13
   store ptr %190, ptr %16, align 8, !alias.scope !13
   br label %_ZN5ZXing8BitArrayD2Ev.exit59.i.i
@@ -620,7 +621,7 @@ _ZN5ZXing8BitArray10appendBitsEii.exit56.i.i:     ; preds = %_ZNSt6vectorIhSaIhE
 .loopexit.split-lp66.loopexit.i.i:                ; preds = %174
   %lpad.loopexit70.i.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %158, ptr %155, align 8, !alias.scope !13
+  store ptr %159, ptr %155, align 8, !alias.scope !13
   store ptr %158, ptr %154, align 8, !alias.scope !13
   store ptr %157, ptr %16, align 8, !alias.scope !13
   br label %_ZN5ZXing8BitArrayD2Ev.exit59.i.i

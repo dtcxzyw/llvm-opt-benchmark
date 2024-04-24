@@ -541,7 +541,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv1 = trunc i16 %c to i8
+  %conv1 = trunc nuw i16 %c to i8
   store i8 %conv1, ptr %p, align 1
   br label %if.end29
 
@@ -551,7 +551,7 @@ if.else:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.else
   %shr = lshr i16 %c, 6
-  %0 = trunc i16 %shr to i8
+  %0 = trunc nuw i16 %shr to i8
   %conv6 = or disjoint i8 %0, -64
   store i8 %conv6, ptr %p, align 1
   %1 = trunc i16 %c to i8
@@ -563,7 +563,7 @@ if.then4:                                         ; preds = %if.else
 
 if.else12:                                        ; preds = %if.else
   %shr14 = lshr i16 %c, 12
-  %3 = trunc i16 %shr14 to i8
+  %3 = trunc nuw nsw i16 %shr14 to i8
   %conv16 = or disjoint i8 %3, -32
   store i8 %conv16, ptr %p, align 1
   %shr19 = lshr i16 %c, 6
@@ -591,7 +591,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i32 %c to i8
+  %conv = trunc nuw nsw i32 %c to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %p, i64 1
   store i8 %conv, ptr %p, align 1
   br label %if.end44
@@ -602,7 +602,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %shr = lshr i32 %c, 6
-  %0 = trunc i32 %shr to i8
+  %0 = trunc nuw i32 %shr to i8
   %conv3 = or disjoint i8 %0, -64
   %incdec.ptr4 = getelementptr inbounds i8, ptr %p, i64 1
   store i8 %conv3, ptr %p, align 1
@@ -621,7 +621,7 @@ if.else8:                                         ; preds = %if.else
 
 if.then10:                                        ; preds = %if.else8
   %shr11 = lshr i32 %c, 12
-  %3 = trunc i32 %shr11 to i8
+  %3 = trunc nuw i32 %shr11 to i8
   %conv13 = or disjoint i8 %3, -32
   store i8 %conv13, ptr %p, align 1
   %shr15 = lshr i32 %c, 6
@@ -894,7 +894,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %add = add i64 %call1, 1
-  %0 = shl i64 %add, 1
+  %0 = shl nuw i64 %add, 1
   %.inv = icmp sgt i64 %add, -1
   %1 = select i1 %.inv, i64 %0, i64 -1
   %call3 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %1, ptr noundef nonnull @.str.2, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -911,7 +911,7 @@ if.end:                                           ; preds = %if.else, %if.then2
 
 if.then9:                                         ; preds = %if.end
   %add10 = add i64 %call7, 1
-  %2 = shl i64 %add10, 1
+  %2 = shl nuw i64 %add10, 1
   %.inv13 = icmp sgt i64 %add10, -1
   %3 = select i1 %.inv13, i64 %2, i64 -1
   %call11 = call noundef ptr @_ZnamPKcijS0_i(i64 noundef %3, ptr noundef nonnull @.str.3, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -1025,7 +1025,7 @@ if.else:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.else
   %add = add i64 %call1, 1
   %0 = icmp ugt i64 %add, 4611686018427387903
-  %1 = shl i64 %add, 2
+  %1 = shl nuw i64 %add, 2
   %2 = select i1 %0, i64 -1, i64 %1
   %call3 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %2, ptr noundef nonnull @.str.4, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   br label %if.end
@@ -1042,7 +1042,7 @@ if.end:                                           ; preds = %if.else, %if.then2
 if.then9:                                         ; preds = %if.end
   %add10 = add i64 %call7, 1
   %3 = icmp ugt i64 %add10, 4611686018427387903
-  %4 = shl i64 %add10, 2
+  %4 = shl nuw i64 %add10, 2
   %5 = select i1 %3, i64 -1, i64 %4
   %call11 = call noundef ptr @_ZnamPKcijS0_i(i64 noundef %5, ptr noundef nonnull @.str.5, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   br label %if.end14
@@ -1325,19 +1325,12 @@ define dso_local noundef zeroext i1 @_ZN2EA4StdC18ParseDelimitedTextEPKcS2_cRS2_
 entry:
   store ptr %pText, ptr %pToken, align 8
   %cmp48 = icmp ult ptr %pText, %pTextEnd
-  br i1 %cmp48, label %for.body.preheader, label %for.end
+  br i1 %cmp48, label %for.body, label %for.end
 
-for.body.preheader:                               ; preds = %entry
-  %pTextEnd68 = ptrtoint ptr %pTextEnd to i64
-  %pText69 = ptrtoint ptr %pText to i64
-  %0 = sub i64 %pTextEnd68, %pText69
-  %scevgep = getelementptr i8, ptr %pText, i64 %0
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %storemerge49 = phi ptr [ %incdec.ptr, %for.inc ], [ %pText, %for.body.preheader ]
-  %1 = load i8, ptr %storemerge49, align 1
-  switch i8 %1, label %for.end [
+for.body:                                         ; preds = %entry, %for.inc
+  %storemerge49 = phi ptr [ %incdec.ptr, %for.inc ], [ %pText, %entry ]
+  %0 = load i8, ptr %storemerge49, align 1
+  switch i8 %0, label %for.end [
     i8 32, label %for.inc
     i8 9, label %for.inc
   ]
@@ -1349,7 +1342,7 @@ for.inc:                                          ; preds = %for.body, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %for.body, %entry
-  %storemerge.lcssa = phi ptr [ %pText, %entry ], [ %storemerge49, %for.body ], [ %scevgep, %for.inc ]
+  %storemerge.lcssa = phi ptr [ %pText, %entry ], [ %storemerge49, %for.body ], [ %incdec.ptr, %for.inc ]
   store ptr %storemerge.lcssa, ptr %pTokenEnd, align 8
   %cmp553 = icmp ult ptr %storemerge.lcssa, %pTextEnd
   br i1 %cmp553, label %for.body6.lr.ph, label %for.end72
@@ -1363,29 +1356,29 @@ for.body6.us:                                     ; preds = %for.body6.lr.ph, %f
   %storemerge4254.us = phi ptr [ %incdec.ptr71.us, %for.inc70.us ], [ %storemerge.lcssa, %for.body6.lr.ph ]
   %add.ptr.us = getelementptr i8, ptr %storemerge4254.us, i64 1
   %cmp7.us = icmp eq ptr %add.ptr.us, %pTextEnd
-  %2 = load i8, ptr %storemerge4254.us, align 1
+  %1 = load i8, ptr %storemerge4254.us, align 1
   br i1 %cmp7.us, label %if.then22.us, label %switch.early.test
 
 switch.early.test:                                ; preds = %for.body6.us
-  switch i8 %2, label %if.else64.us [
+  switch i8 %1, label %if.else64.us [
     i8 32, label %if.end26.us
     i8 9, label %if.end26.us
   ]
 
 if.else64.us:                                     ; preds = %switch.early.test
-  %cmp66.us = icmp eq i8 %2, 34
+  %cmp66.us = icmp eq i8 %1, 34
   %inc.us = zext i1 %cmp66.us to i32
   %spec.select44.us = add nsw i32 %nQuoteLevel.055.us, %inc.us
   br label %for.inc70.us
 
 if.then22.us:                                     ; preds = %for.body6.us
-  switch i8 %2, label %if.then24.us [
+  switch i8 %1, label %if.then24.us [
     i8 32, label %if.then32
     i8 9, label %if.then32
   ]
 
 if.then24.us:                                     ; preds = %if.then22.us
-  store ptr %pTextEnd, ptr %pTokenEnd, align 8
+  store ptr %add.ptr.us, ptr %pTokenEnd, align 8
   br label %if.then32
 
 if.end26.us:                                      ; preds = %switch.early.test, %switch.early.test
@@ -1406,8 +1399,8 @@ for.body6:                                        ; preds = %for.body6.lr.ph, %f
   %storemerge4254 = phi ptr [ %incdec.ptr71, %for.inc70 ], [ %storemerge.lcssa, %for.body6.lr.ph ]
   %add.ptr = getelementptr inbounds i8, ptr %storemerge4254, i64 1
   %cmp7 = icmp eq ptr %add.ptr, %pTextEnd
-  %3 = load i8, ptr %storemerge4254, align 1
-  %cmp18 = icmp eq i8 %3, %cDelimiter
+  %2 = load i8, ptr %storemerge4254, align 1
+  %cmp18 = icmp eq i8 %2, %cDelimiter
   %brmerge = select i1 %cmp18, i1 true, i1 %cmp7
   br i1 %brmerge, label %if.then22, label %if.else64
 
@@ -1426,69 +1419,67 @@ if.end26:                                         ; preds = %if.then24, %if.then
   br i1 %brmerge43, label %if.then32, label %for.inc70
 
 if.then32:                                        ; preds = %if.end26, %if.end26.us, %if.then24.us, %if.then22.us, %if.then22.us
-  %4 = phi ptr [ %storemerge4254.us, %if.then22.us ], [ %storemerge4254.us, %if.then22.us ], [ %pTextEnd, %if.then24.us ], [ %storemerge4254.us, %if.end26.us ], [ %storemerge4252, %if.end26 ]
+  %3 = phi ptr [ %storemerge4254.us, %if.then22.us ], [ %storemerge4254.us, %if.then22.us ], [ %add.ptr.us, %if.then24.us ], [ %storemerge4254.us, %if.end26.us ], [ %storemerge4252, %if.end26 ]
   %tobool33.not = icmp eq ptr %ppNewText, null
   br i1 %tobool33.not, label %if.end35, label %if.then34
 
 if.then34:                                        ; preds = %if.then32
-  store ptr %4, ptr %ppNewText, align 8
+  store ptr %3, ptr %ppNewText, align 8
   %.pre = load ptr, ptr %pTokenEnd, align 8
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then34, %if.then32
-  %5 = phi ptr [ %.pre, %if.then34 ], [ %4, %if.then32 ]
-  %cmp39.not = icmp eq ptr %5, %pTextEnd
+  %4 = phi ptr [ %.pre, %if.then34 ], [ %3, %if.then32 ]
+  %cmp39.not = icmp eq ptr %4, %pTextEnd
   %or.cond = select i1 %cmp9, i1 true, i1 %cmp39.not
   %.pre70 = load ptr, ptr %pToken, align 8
-  br i1 %or.cond, label %if.end50, label %while.cond.preheader
+  %cmp41.not62 = icmp eq ptr %4, %.pre70
+  %or.cond85 = select i1 %or.cond, i1 true, i1 %cmp41.not62
+  br i1 %or.cond85, label %if.end50, label %land.rhs
 
-while.cond.preheader:                             ; preds = %if.end35
-  %cmp41.not62 = icmp eq ptr %5, %.pre70
-  br i1 %cmp41.not62, label %if.end50, label %land.rhs
-
-land.rhs:                                         ; preds = %while.cond.preheader, %while.body
-  %6 = phi ptr [ %9, %while.body ], [ %.pre70, %while.cond.preheader ]
-  %7 = phi ptr [ %arrayidx, %while.body ], [ %5, %while.cond.preheader ]
-  %arrayidx = getelementptr inbounds i8, ptr %7, i64 -1
-  %8 = load i8, ptr %arrayidx, align 1
-  switch i8 %8, label %if.end50 [
+land.rhs:                                         ; preds = %if.end35, %while.body
+  %5 = phi ptr [ %8, %while.body ], [ %.pre70, %if.end35 ]
+  %6 = phi ptr [ %arrayidx, %while.body ], [ %4, %if.end35 ]
+  %arrayidx = getelementptr inbounds i8, ptr %6, i64 -1
+  %7 = load i8, ptr %arrayidx, align 1
+  switch i8 %7, label %if.end50 [
     i8 32, label %while.body
     i8 9, label %while.body
   ]
 
 while.body:                                       ; preds = %land.rhs, %land.rhs
   store ptr %arrayidx, ptr %pTokenEnd, align 8
-  %9 = load ptr, ptr %pToken, align 8
-  %cmp41.not = icmp eq ptr %arrayidx, %9
+  %8 = load ptr, ptr %pToken, align 8
+  %cmp41.not = icmp eq ptr %arrayidx, %8
   br i1 %cmp41.not, label %if.end50, label %land.rhs, !llvm.loop !19
 
-if.end50:                                         ; preds = %while.body, %land.rhs, %while.cond.preheader, %if.end35
-  %10 = phi ptr [ %5, %while.cond.preheader ], [ %5, %if.end35 ], [ %arrayidx, %while.body ], [ %7, %land.rhs ]
-  %11 = phi ptr [ %5, %while.cond.preheader ], [ %.pre70, %if.end35 ], [ %arrayidx, %while.body ], [ %6, %land.rhs ]
-  %cmp51.not = icmp eq ptr %11, %pTextEnd
+if.end50:                                         ; preds = %while.body, %land.rhs, %if.end35
+  %9 = phi ptr [ %4, %if.end35 ], [ %arrayidx, %while.body ], [ %6, %land.rhs ]
+  %10 = phi ptr [ %.pre70, %if.end35 ], [ %8, %while.body ], [ %5, %land.rhs ]
+  %cmp51.not = icmp eq ptr %10, %pTextEnd
   br i1 %cmp51.not, label %return, label %land.lhs.true52
 
 land.lhs.true52:                                  ; preds = %if.end50
-  %12 = load i8, ptr %11, align 1
-  %cmp54 = icmp eq i8 %12, 34
+  %11 = load i8, ptr %10, align 1
+  %cmp54 = icmp eq i8 %11, 34
   br i1 %cmp54, label %land.lhs.true55, label %return
 
 land.lhs.true55:                                  ; preds = %land.lhs.true52
-  %arrayidx56 = getelementptr inbounds i8, ptr %10, i64 -1
-  %13 = load i8, ptr %arrayidx56, align 1
-  %cmp58 = icmp eq i8 %13, 34
+  %arrayidx56 = getelementptr inbounds i8, ptr %9, i64 -1
+  %12 = load i8, ptr %arrayidx56, align 1
+  %cmp58 = icmp eq i8 %12, 34
   br i1 %cmp58, label %if.then59, label %return
 
 if.then59:                                        ; preds = %land.lhs.true55
-  %incdec.ptr60 = getelementptr inbounds i8, ptr %11, i64 1
+  %incdec.ptr60 = getelementptr inbounds i8, ptr %10, i64 1
   store ptr %incdec.ptr60, ptr %pToken, align 8
-  %14 = load ptr, ptr %pTokenEnd, align 8
-  %incdec.ptr61 = getelementptr inbounds i8, ptr %14, i64 -1
+  %13 = load ptr, ptr %pTokenEnd, align 8
+  %incdec.ptr61 = getelementptr inbounds i8, ptr %13, i64 -1
   store ptr %incdec.ptr61, ptr %pTokenEnd, align 8
   br label %return
 
 if.else64:                                        ; preds = %for.body6
-  %cmp66 = icmp eq i8 %3, 34
+  %cmp66 = icmp eq i8 %2, 34
   %inc = zext i1 %cmp66 to i32
   %spec.select44 = add nsw i32 %nQuoteLevel.055, %inc
   br label %for.inc70
@@ -1573,7 +1564,7 @@ if.then22.us:                                     ; preds = %for.body6.us
   ]
 
 if.then24.us:                                     ; preds = %if.then22.us
-  store ptr %pTextEnd, ptr %pTokenEnd, align 8
+  store ptr %add.ptr.us, ptr %pTokenEnd, align 8
   br label %if.then32
 
 if.end26.us:                                      ; preds = %switch.early.test, %switch.early.test
@@ -1614,7 +1605,7 @@ if.end26:                                         ; preds = %if.then24, %if.then
   br i1 %brmerge43, label %if.then32, label %for.inc70
 
 if.then32:                                        ; preds = %if.end26, %if.end26.us, %if.then24.us, %if.then22.us, %if.then22.us
-  %3 = phi ptr [ %storemerge4254.us, %if.then22.us ], [ %storemerge4254.us, %if.then22.us ], [ %pTextEnd, %if.then24.us ], [ %storemerge4254.us, %if.end26.us ], [ %storemerge4252, %if.end26 ]
+  %3 = phi ptr [ %storemerge4254.us, %if.then22.us ], [ %storemerge4254.us, %if.then22.us ], [ %add.ptr.us, %if.then24.us ], [ %storemerge4254.us, %if.end26.us ], [ %storemerge4252, %if.end26 ]
   %tobool33.not = icmp eq ptr %ppNewText, null
   br i1 %tobool33.not, label %if.end35, label %if.then34
 
@@ -1628,15 +1619,13 @@ if.end35:                                         ; preds = %if.then34, %if.then
   %cmp39.not = icmp eq ptr %4, %pTextEnd
   %or.cond = select i1 %cmp9, i1 true, i1 %cmp39.not
   %.pre68 = load ptr, ptr %pToken, align 8
-  br i1 %or.cond, label %if.end50, label %while.cond.preheader
-
-while.cond.preheader:                             ; preds = %if.end35
   %cmp41.not62 = icmp eq ptr %4, %.pre68
-  br i1 %cmp41.not62, label %if.end50, label %land.rhs
+  %or.cond83 = select i1 %or.cond, i1 true, i1 %cmp41.not62
+  br i1 %or.cond83, label %if.end50, label %land.rhs
 
-land.rhs:                                         ; preds = %while.cond.preheader, %while.body
-  %5 = phi ptr [ %8, %while.body ], [ %.pre68, %while.cond.preheader ]
-  %6 = phi ptr [ %arrayidx, %while.body ], [ %4, %while.cond.preheader ]
+land.rhs:                                         ; preds = %if.end35, %while.body
+  %5 = phi ptr [ %8, %while.body ], [ %.pre68, %if.end35 ]
+  %6 = phi ptr [ %arrayidx, %while.body ], [ %4, %if.end35 ]
   %arrayidx = getelementptr inbounds i8, ptr %6, i64 -2
   %7 = load i16, ptr %arrayidx, align 2
   switch i16 %7, label %if.end50 [
@@ -1650,9 +1639,9 @@ while.body:                                       ; preds = %land.rhs, %land.rhs
   %cmp41.not = icmp eq ptr %arrayidx, %8
   br i1 %cmp41.not, label %if.end50, label %land.rhs, !llvm.loop !22
 
-if.end50:                                         ; preds = %while.body, %land.rhs, %while.cond.preheader, %if.end35
-  %9 = phi ptr [ %4, %while.cond.preheader ], [ %4, %if.end35 ], [ %arrayidx, %while.body ], [ %6, %land.rhs ]
-  %10 = phi ptr [ %4, %while.cond.preheader ], [ %.pre68, %if.end35 ], [ %arrayidx, %while.body ], [ %5, %land.rhs ]
+if.end50:                                         ; preds = %while.body, %land.rhs, %if.end35
+  %9 = phi ptr [ %4, %if.end35 ], [ %arrayidx, %while.body ], [ %6, %land.rhs ]
+  %10 = phi ptr [ %.pre68, %if.end35 ], [ %8, %while.body ], [ %5, %land.rhs ]
   %cmp51.not = icmp eq ptr %10, %pTextEnd
   br i1 %cmp51.not, label %return, label %land.lhs.true52
 
@@ -1761,7 +1750,7 @@ if.then16.us:                                     ; preds = %for.body5.us
   ]
 
 if.then18.us:                                     ; preds = %if.then16.us
-  store ptr %pTextEnd, ptr %pTokenEnd, align 8
+  store ptr %add.ptr.us, ptr %pTokenEnd, align 8
   br label %if.then26
 
 if.end20.us:                                      ; preds = %switch.early.test, %switch.early.test
@@ -1802,7 +1791,7 @@ if.end20:                                         ; preds = %if.then18, %if.then
   br i1 %brmerge46, label %if.then26, label %for.inc58
 
 if.then26:                                        ; preds = %if.end20, %if.end20.us, %if.then18.us, %if.then16.us, %if.then16.us
-  %3 = phi ptr [ %storemerge4557.us, %if.then16.us ], [ %storemerge4557.us, %if.then16.us ], [ %pTextEnd, %if.then18.us ], [ %storemerge4557.us, %if.end20.us ], [ %storemerge4555, %if.end20 ]
+  %3 = phi ptr [ %storemerge4557.us, %if.then16.us ], [ %storemerge4557.us, %if.then16.us ], [ %add.ptr.us, %if.then18.us ], [ %storemerge4557.us, %if.end20.us ], [ %storemerge4555, %if.end20 ]
   %tobool27.not = icmp eq ptr %ppNewText, null
   br i1 %tobool27.not, label %if.end29, label %if.then28
 
@@ -1816,15 +1805,13 @@ if.end29:                                         ; preds = %if.then28, %if.then
   %cmp32.not = icmp eq ptr %4, %pTextEnd
   %or.cond = select i1 %cmp7, i1 true, i1 %cmp32.not
   %.pre71 = load ptr, ptr %pToken, align 8
-  br i1 %or.cond, label %if.end41, label %while.cond.preheader
-
-while.cond.preheader:                             ; preds = %if.end29
   %cmp34.not65 = icmp eq ptr %4, %.pre71
-  br i1 %cmp34.not65, label %if.end41, label %land.rhs
+  %or.cond86 = select i1 %or.cond, i1 true, i1 %cmp34.not65
+  br i1 %or.cond86, label %if.end41, label %land.rhs
 
-land.rhs:                                         ; preds = %while.cond.preheader, %while.body
-  %5 = phi ptr [ %8, %while.body ], [ %.pre71, %while.cond.preheader ]
-  %6 = phi ptr [ %arrayidx, %while.body ], [ %4, %while.cond.preheader ]
+land.rhs:                                         ; preds = %if.end29, %while.body
+  %5 = phi ptr [ %8, %while.body ], [ %.pre71, %if.end29 ]
+  %6 = phi ptr [ %arrayidx, %while.body ], [ %4, %if.end29 ]
   %arrayidx = getelementptr inbounds i8, ptr %6, i64 -4
   %7 = load i32, ptr %arrayidx, align 4
   switch i32 %7, label %if.end41 [
@@ -1838,9 +1825,9 @@ while.body:                                       ; preds = %land.rhs, %land.rhs
   %cmp34.not = icmp eq ptr %arrayidx, %8
   br i1 %cmp34.not, label %if.end41, label %land.rhs, !llvm.loop !25
 
-if.end41:                                         ; preds = %while.body, %land.rhs, %while.cond.preheader, %if.end29
-  %9 = phi ptr [ %4, %while.cond.preheader ], [ %4, %if.end29 ], [ %arrayidx, %while.body ], [ %6, %land.rhs ]
-  %10 = phi ptr [ %4, %while.cond.preheader ], [ %.pre71, %if.end29 ], [ %arrayidx, %while.body ], [ %5, %land.rhs ]
+if.end41:                                         ; preds = %while.body, %land.rhs, %if.end29
+  %9 = phi ptr [ %4, %if.end29 ], [ %arrayidx, %while.body ], [ %6, %land.rhs ]
+  %10 = phi ptr [ %.pre71, %if.end29 ], [ %8, %while.body ], [ %5, %land.rhs ]
   %cmp42.not = icmp eq ptr %10, %pTextEnd
   br i1 %cmp42.not, label %return, label %land.lhs.true43
 
@@ -2570,7 +2557,7 @@ if.then15.us:                                     ; preds = %land.lhs.true13.us
   br label %if.end22.us
 
 if.else18.us:                                     ; preds = %if.then5.us
-  %tobool19.us = trunc i8 %bFoundToken.020.us to i1
+  %tobool19.us = trunc nuw i8 %bFoundToken.020.us to i1
   %spec.select.us = select i1 %tobool19.us, i1 true, i1 %bReadToken.021.us
   br label %if.end22.us
 
@@ -2618,7 +2605,7 @@ if.then15:                                        ; preds = %land.lhs.true13
   br label %if.end22
 
 if.else18:                                        ; preds = %if.then5
-  %tobool19 = trunc i8 %bFoundToken.020 to i1
+  %tobool19 = trunc nuw i8 %bFoundToken.020 to i1
   %spec.select = select i1 %tobool19, i1 true, i1 %bReadToken.021
   br label %if.end22
 
@@ -2637,7 +2624,7 @@ if.end22:                                         ; preds = %if.else18, %if.then
 
 for.end:                                          ; preds = %if.end22, %for.body, %if.end22.us, %for.body.us, %for.cond.preheader
   %bFoundToken.0.lcssa = phi i8 [ 0, %for.cond.preheader ], [ %bFoundToken.020.us, %for.body.us ], [ %bFoundToken.1.us, %if.end22.us ], [ %bFoundToken.020, %for.body ], [ %bFoundToken.1, %if.end22 ]
-  %tobool31 = trunc i8 %bFoundToken.0.lcssa to i1
+  %tobool31 = trunc nuw i8 %bFoundToken.0.lcssa to i1
   br label %return
 
 return:                                           ; preds = %if.then9, %if.then9.us, %if.end, %for.end
@@ -2703,7 +2690,7 @@ if.then15.us:                                     ; preds = %land.lhs.true13.us
   br label %if.end22.us
 
 if.else18.us:                                     ; preds = %if.then5.us
-  %tobool19.us = trunc i8 %bFoundToken.020.us to i1
+  %tobool19.us = trunc nuw i8 %bFoundToken.020.us to i1
   %spec.select.us = select i1 %tobool19.us, i1 true, i1 %bReadToken.021.us
   br label %if.end22.us
 
@@ -2751,7 +2738,7 @@ if.then15:                                        ; preds = %land.lhs.true13
   br label %if.end22
 
 if.else18:                                        ; preds = %if.then5
-  %tobool19 = trunc i8 %bFoundToken.020 to i1
+  %tobool19 = trunc nuw i8 %bFoundToken.020 to i1
   %spec.select = select i1 %tobool19, i1 true, i1 %bReadToken.021
   br label %if.end22
 
@@ -2770,7 +2757,7 @@ if.end22:                                         ; preds = %if.else18, %if.then
 
 for.end:                                          ; preds = %if.end22, %for.body, %if.end22.us, %for.body.us, %for.cond.preheader
   %bFoundToken.0.lcssa = phi i8 [ 0, %for.cond.preheader ], [ %bFoundToken.020.us, %for.body.us ], [ %bFoundToken.1.us, %if.end22.us ], [ %bFoundToken.020, %for.body ], [ %bFoundToken.1, %if.end22 ]
-  %tobool31 = trunc i8 %bFoundToken.0.lcssa to i1
+  %tobool31 = trunc nuw i8 %bFoundToken.0.lcssa to i1
   br label %return
 
 return:                                           ; preds = %if.then9, %if.then9.us, %if.end, %for.end
@@ -2836,7 +2823,7 @@ if.then13.us:                                     ; preds = %land.lhs.true11.us
   br label %if.end20.us
 
 if.else16.us:                                     ; preds = %if.then5.us
-  %tobool17.us = trunc i8 %bFoundToken.020.us to i1
+  %tobool17.us = trunc nuw i8 %bFoundToken.020.us to i1
   %spec.select.us = select i1 %tobool17.us, i1 true, i1 %bReadToken.021.us
   br label %if.end20.us
 
@@ -2884,7 +2871,7 @@ if.then13:                                        ; preds = %land.lhs.true11
   br label %if.end20
 
 if.else16:                                        ; preds = %if.then5
-  %tobool17 = trunc i8 %bFoundToken.020 to i1
+  %tobool17 = trunc nuw i8 %bFoundToken.020 to i1
   %spec.select = select i1 %tobool17, i1 true, i1 %bReadToken.021
   br label %if.end20
 
@@ -2903,7 +2890,7 @@ if.end20:                                         ; preds = %if.else16, %if.then
 
 for.end:                                          ; preds = %if.end20, %for.body, %if.end20.us, %for.body.us, %for.cond.preheader
   %bFoundToken.0.lcssa = phi i8 [ 0, %for.cond.preheader ], [ %bFoundToken.020.us, %for.body.us ], [ %bFoundToken.1.us, %if.end20.us ], [ %bFoundToken.020, %for.body ], [ %bFoundToken.1, %if.end20 ]
-  %tobool29 = trunc i8 %bFoundToken.0.lcssa to i1
+  %tobool29 = trunc nuw i8 %bFoundToken.0.lcssa to i1
   br label %return
 
 return:                                           ; preds = %if.then7, %if.then7.us, %if.end, %for.end
@@ -2943,7 +2930,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp3.i, label %land.lhs.true.i, label %for.body.if.else_crit_edge.i
 
 for.body.if.else_crit_edge.i:                     ; preds = %for.body.i
-  %.pre.i = trunc i64 %indvars.iv83.i to i32
+  %.pre.i = trunc nuw nsw i64 %indvars.iv83.i to i32
   br label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
@@ -2974,7 +2961,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %indvars.iv81.i = phi i64 [ %smin.i, %land.rhs.lr.ph.i ], [ %indvars.iv.next82.i, %while.body.i ]
   %arrayidx21.i = getelementptr inbounds i8, ptr %pPattern, i64 %indvars.iv81.i
   %7 = load i8, ptr %arrayidx21.i, align 1
-  %8 = trunc i64 %indvars.iv81.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv81.i to i32
   %sub24.i = add i32 %add22.i, %8
   %idxprom25.i = sext i32 %sub24.i to i64
   %arrayidx26.i = getelementptr inbounds i8, ptr %pPattern, i64 %idxprom25.i
@@ -3067,7 +3054,7 @@ for.inc65.i:                                      ; preds = %if.then59.i, %for.b
   br i1 %exitcond96.not.i, label %for.inc69.i.loopexit, label %for.body55.i, !llvm.loop !44
 
 for.inc69.i.loopexit:                             ; preds = %for.inc65.i
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.inc69.i
 
 for.inc69.i:                                      ; preds = %for.inc69.i.loopexit, %if.then50.i, %lor.lhs.false.i
@@ -3116,7 +3103,7 @@ for.body.i57:                                     ; preds = %for.body.i57, %for.
 
 for.body3.i:                                      ; preds = %for.body3.i, %for.body3.preheader.i
   %indvars.iv15.i = phi i64 [ 0, %for.body3.preheader.i ], [ %indvars.iv.next16.i, %for.body3.i ]
-  %18 = trunc i64 %indvars.iv15.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv15.i to i32
   %19 = xor i32 %18, -1
   %sub5.i53 = add nsw i32 %19, %nPatternLength
   %arrayidx7.i54 = getelementptr inbounds i8, ptr %pPattern, i64 %indvars.iv15.i
@@ -3193,7 +3180,7 @@ while.body.us84:                                  ; preds = %land.rhs.us74
   br i1 %cmp2.us86, label %land.rhs.us74, label %return, !llvm.loop !50
 
 if.else.us.loopexit:                              ; preds = %land.rhs.us.us
-  %25 = trunc i64 %indvars.iv99 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv99 to i32
   %.pre = and i64 %indvars.iv99, 4294967295
   %.pre103 = add nsw i32 %j.073.us, %25
   %.pre104 = sext i32 %.pre103 to i64

@@ -42,7 +42,7 @@ define noundef zeroext i1 @ws_strtoi64(ptr noundef %0, ptr noundef writeonly %1,
   br i1 %.not24, label %18, label %17
 
 17:                                               ; preds = %16
-  store ptr %0, ptr %1, align 8
+  store ptr %10, ptr %1, align 8
   br label %18
 
 18:                                               ; preds = %.thread, %17, %16
@@ -118,7 +118,7 @@ define noundef zeroext i1 @ws_strtoi32(ptr noundef %0, ptr noundef writeonly %1,
   br i1 %.not24.i, label %.thread, label %15
 
 15:                                               ; preds = %14
-  store ptr %0, ptr %1, align 8
+  store ptr %9, ptr %1, align 8
   br label %.thread
 
 16:                                               ; preds = %12, %11
@@ -193,7 +193,7 @@ define noundef zeroext i1 @ws_strtoi32(ptr noundef %0, ptr noundef writeonly %1,
   br label %39
 
 37:                                               ; preds = %34
-  %38 = trunc i64 %7 to i32
+  %38 = trunc nsw i64 %7 to i32
   store i32 %38, ptr %2, align 4
   br label %39
 
@@ -232,7 +232,7 @@ define noundef zeroext i1 @ws_strtoi16(ptr noundef %0, ptr noundef writeonly %1,
   br i1 %.not24.i, label %.thread, label %15
 
 15:                                               ; preds = %14
-  store ptr %0, ptr %1, align 8
+  store ptr %9, ptr %1, align 8
   br label %.thread
 
 16:                                               ; preds = %12, %11
@@ -307,7 +307,7 @@ define noundef zeroext i1 @ws_strtoi16(ptr noundef %0, ptr noundef writeonly %1,
   br label %39
 
 37:                                               ; preds = %34
-  %38 = trunc i64 %7 to i16
+  %38 = trunc nsw i64 %7 to i16
   store i16 %38, ptr %2, align 2
   br label %39
 
@@ -346,7 +346,7 @@ define noundef zeroext i1 @ws_strtoi8(ptr noundef %0, ptr noundef writeonly %1, 
   br i1 %.not24.i, label %.thread, label %15
 
 15:                                               ; preds = %14
-  store ptr %0, ptr %1, align 8
+  store ptr %9, ptr %1, align 8
   br label %.thread
 
 16:                                               ; preds = %12, %11
@@ -421,7 +421,7 @@ define noundef zeroext i1 @ws_strtoi8(ptr noundef %0, ptr noundef writeonly %1, 
   br label %39
 
 37:                                               ; preds = %34
-  %38 = trunc i64 %7 to i8
+  %38 = trunc nsw i64 %7 to i8
   store i8 %38, ptr %2, align 1
   br label %39
 
@@ -460,7 +460,7 @@ define noundef zeroext i1 @ws_strtoi(ptr noundef %0, ptr noundef writeonly %1, p
   br i1 %.not24.i, label %.thread, label %15
 
 15:                                               ; preds = %14
-  store ptr %0, ptr %1, align 8
+  store ptr %9, ptr %1, align 8
   br label %.thread
 
 16:                                               ; preds = %12, %11
@@ -535,7 +535,7 @@ define noundef zeroext i1 @ws_strtoi(ptr noundef %0, ptr noundef writeonly %1, p
   br label %39
 
 37:                                               ; preds = %34
-  %38 = trunc i64 %7 to i32
+  %38 = trunc nsw i64 %7 to i32
   store i32 %38, ptr %2, align 4
   br label %39
 
@@ -605,7 +605,7 @@ define noundef zeroext i1 @ws_basestrtou64(ptr noundef %0, ptr noundef writeonly
   br i1 %.not31, label %26, label %25
 
 25:                                               ; preds = %24
-  store ptr %0, ptr %1, align 8
+  store ptr %18, ptr %1, align 8
   br label %26
 
 26:                                               ; preds = %.thread, %25, %24
@@ -685,7 +685,7 @@ define noundef zeroext i1 @ws_basestrtou32(ptr noundef %0, ptr noundef %1, ptr n
   br label %18
 
 16:                                               ; preds = %11
-  %17 = trunc i64 %12 to i32
+  %17 = trunc nuw i64 %12 to i32
   store i32 %17, ptr %2, align 4
   br label %18
 
@@ -721,7 +721,7 @@ define noundef zeroext i1 @ws_strtou32(ptr noundef %0, ptr noundef %1, ptr nocap
   br label %ws_basestrtou32.exit
 
 15:                                               ; preds = %10
-  %16 = trunc i64 %11 to i32
+  %16 = trunc nuw i64 %11 to i32
   store i32 %16, ptr %2, align 4
   br label %ws_basestrtou32.exit
 
@@ -758,7 +758,7 @@ define noundef zeroext i1 @ws_hexstrtou32(ptr noundef %0, ptr noundef %1, ptr no
   br label %ws_basestrtou32.exit
 
 15:                                               ; preds = %10
-  %16 = trunc i64 %11 to i32
+  %16 = trunc nuw i64 %11 to i32
   store i32 %16, ptr %2, align 4
   br label %ws_basestrtou32.exit
 
@@ -794,7 +794,7 @@ define noundef zeroext i1 @ws_basestrtou16(ptr noundef %0, ptr noundef %1, ptr n
   br label %18
 
 16:                                               ; preds = %11
-  %17 = trunc i64 %12 to i16
+  %17 = trunc nuw i64 %12 to i16
   store i16 %17, ptr %2, align 2
   br label %18
 
@@ -830,7 +830,7 @@ define noundef zeroext i1 @ws_strtou16(ptr noundef %0, ptr noundef %1, ptr nocap
   br label %ws_basestrtou16.exit
 
 15:                                               ; preds = %10
-  %16 = trunc i64 %11 to i16
+  %16 = trunc nuw i64 %11 to i16
   store i16 %16, ptr %2, align 2
   br label %ws_basestrtou16.exit
 
@@ -867,7 +867,7 @@ define noundef zeroext i1 @ws_hexstrtou16(ptr noundef %0, ptr noundef %1, ptr no
   br label %ws_basestrtou16.exit
 
 15:                                               ; preds = %10
-  %16 = trunc i64 %11 to i16
+  %16 = trunc nuw i64 %11 to i16
   store i16 %16, ptr %2, align 2
   br label %ws_basestrtou16.exit
 
@@ -903,7 +903,7 @@ define noundef zeroext i1 @ws_basestrtou8(ptr noundef %0, ptr noundef %1, ptr no
   br label %18
 
 16:                                               ; preds = %11
-  %17 = trunc i64 %12 to i8
+  %17 = trunc nuw i64 %12 to i8
   store i8 %17, ptr %2, align 1
   br label %18
 
@@ -939,7 +939,7 @@ define noundef zeroext i1 @ws_strtou8(ptr noundef %0, ptr noundef %1, ptr nocapt
   br label %ws_basestrtou8.exit
 
 15:                                               ; preds = %10
-  %16 = trunc i64 %11 to i8
+  %16 = trunc nuw i64 %11 to i8
   store i8 %16, ptr %2, align 1
   br label %ws_basestrtou8.exit
 
@@ -976,7 +976,7 @@ define noundef zeroext i1 @ws_hexstrtou8(ptr noundef %0, ptr noundef %1, ptr noc
   br label %ws_basestrtou8.exit
 
 15:                                               ; preds = %10
-  %16 = trunc i64 %11 to i8
+  %16 = trunc nuw i64 %11 to i8
   store i8 %16, ptr %2, align 1
   br label %ws_basestrtou8.exit
 
@@ -1012,7 +1012,7 @@ define noundef zeroext i1 @ws_basestrtou(ptr noundef %0, ptr noundef %1, ptr noc
   br label %18
 
 16:                                               ; preds = %11
-  %17 = trunc i64 %12 to i32
+  %17 = trunc nuw i64 %12 to i32
   store i32 %17, ptr %2, align 4
   br label %18
 
@@ -1048,7 +1048,7 @@ define noundef zeroext i1 @ws_strtou(ptr noundef %0, ptr noundef %1, ptr nocaptu
   br label %ws_basestrtou.exit
 
 15:                                               ; preds = %10
-  %16 = trunc i64 %11 to i32
+  %16 = trunc nuw i64 %11 to i32
   store i32 %16, ptr %2, align 4
   br label %ws_basestrtou.exit
 
@@ -1085,7 +1085,7 @@ define noundef zeroext i1 @ws_hexstrtou(ptr noundef %0, ptr noundef %1, ptr noca
   br label %ws_basestrtou.exit
 
 15:                                               ; preds = %10
-  %16 = trunc i64 %11 to i32
+  %16 = trunc nuw i64 %11 to i32
   store i32 %16, ptr %2, align 4
   br label %ws_basestrtou.exit
 

@@ -1158,7 +1158,7 @@ define void @mprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %104
-  %108 = call i32 @fflush(ptr noundef %.2)
+  %108 = call i32 @fflush(ptr noundef %105)
   br label %109
 
 109:                                              ; preds = %107, %104

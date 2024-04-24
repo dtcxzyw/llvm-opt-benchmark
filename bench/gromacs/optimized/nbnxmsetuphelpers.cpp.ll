@@ -777,7 +777,7 @@ _ZNSt6vectorIfSaIfEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %42, label %43, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i
 
 43:                                               ; preds = %38
-  store ptr %28, ptr %19, align 8
+  store ptr %29, ptr %19, align 8
   store ptr %30, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #20
           to label %.noexc24 unwind label %.loopexit.split-lp51
@@ -862,7 +862,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit:           ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %74, label %75, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i27
 
 75:                                               ; preds = %70
-  store ptr %60, ptr %19, align 8
+  store ptr %62, ptr %19, align 8
   store ptr %61, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #20
           to label %.noexc34 unwind label %.loopexit.split-lp56

@@ -327,7 +327,7 @@ _ZN4llvh13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EE
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.not117 = icmp eq ptr %2, %3
-  br i1 %cmp.not117, label %_ZN12_GLOBAL__N_113StatisticInfo4sortEv.exit, label %for.body.lr.ph
+  br i1 %cmp.not117, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
   %add.ptr.i.i = getelementptr inbounds i8, ptr %Buffer.i, i64 21
@@ -362,7 +362,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %BufPtr.110.i = phi ptr [ %incdec.ptr3.i, %while.body.i ], [ %add.ptr.i.i, %while.body.i.preheader ]
   %X.addr.09.i = phi i64 [ %div.i, %while.body.i ], [ %conv, %while.body.i.preheader ]
   %rem.i = urem i64 %X.addr.09.i, 10
-  %conv.i = trunc i64 %rem.i to i8
+  %conv.i = trunc nuw nsw i64 %rem.i to i8
   %add.i = or disjoint i8 %conv.i, 48
   %incdec.ptr3.i = getelementptr inbounds i8, ptr %BufPtr.110.i, i64 -1
   store i8 %add.i, ptr %incdec.ptr3.i, align 1, !noalias !4
@@ -393,16 +393,23 @@ _ZN4llvh6utostrB5cxx11Emb.exit:                   ; preds = %while.body.i, %if.e
   %.sroa.speculated = call i32 @llvm.umax.i32(i32 %MaxDebugTypeLen.0119, i32 %conv15)
   %inc = add i64 %i.0120, 1
   %cmp.not = icmp eq i64 %inc, %sub.ptr.div.i
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !9
 
-for.end:                                          ; preds = %_ZN4llvh6utostrB5cxx11Emb.exit
+for.end.loopexit:                                 ; preds = %_ZN4llvh6utostrB5cxx11Emb.exit
   %call.val18.pre = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %7, %call.val18.pre
+  br label %for.end
+
+for.end:                                          ; preds = %for.end.loopexit, %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
+  %call.val18 = phi ptr [ %2, %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit ], [ %call.val18.pre, %for.end.loopexit ]
+  %call.val = phi ptr [ %3, %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit ], [ %7, %for.end.loopexit ]
+  %MaxValLen.0.lcssa = phi i32 [ 0, %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit ], [ %.sroa.speculated109, %for.end.loopexit ]
+  %MaxDebugTypeLen.0.lcssa = phi i32 [ 0, %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit ], [ %.sroa.speculated, %for.end.loopexit ]
+  %cmp.i.i.i.i = icmp eq ptr %call.val, %call.val18
   br i1 %cmp.i.i.i.i, label %_ZN12_GLOBAL__N_113StatisticInfo4sortEv.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.end
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %call.val18.pre to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %call.val18 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %call.val to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %cmp16.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
@@ -422,11 +429,11 @@ if.end4.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.
   br i1 %cmp1.not.i.i.i.i.i, label %if.then5.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !10
 
 if.then5.i.i.i:                                   ; preds = %if.end4.i.i.i.i.i, %if.end.i.i.i
-  call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_SG_T0_"(ptr %7, ptr %call.val18.pre)
+  call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_SG_T0_"(ptr %call.val, ptr %call.val18)
   br label %if.end18.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i.i.i
-  call fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_SG_T0_T1_T2_"(ptr %7, ptr %call.val18.pre, ptr noundef nonnull %call.i.i.i.i.i, i64 noundef %storemerge27.i.i.i.i.i)
+  call fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN4llvh9StatisticESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_SG_T0_T1_T2_"(ptr %call.val, ptr %call.val18, ptr noundef nonnull %call.i.i.i.i.i, i64 noundef %storemerge27.i.i.i.i.i)
   br label %if.end18.i.i.i
 
 if.end18.i.i.i:                                   ; preds = %if.else.i.i.i, %if.then5.i.i.i
@@ -434,9 +441,7 @@ if.end18.i.i.i:                                   ; preds = %if.else.i.i.i, %if.
   call void @_ZdlPv(ptr noundef %__buf.sroa.4.013.i.i.i) #20
   br label %_ZN12_GLOBAL__N_113StatisticInfo4sortEv.exit
 
-_ZN12_GLOBAL__N_113StatisticInfo4sortEv.exit:     ; preds = %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit, %for.end, %if.end18.i.i.i
-  %MaxDebugTypeLen.0.lcssa135 = phi i32 [ %.sroa.speculated, %for.end ], [ %.sroa.speculated, %if.end18.i.i.i ], [ 0, %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit ]
-  %MaxValLen.0.lcssa134 = phi i32 [ %.sroa.speculated109, %for.end ], [ %.sroa.speculated109, %if.end18.i.i.i ], [ 0, %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit ]
+_ZN12_GLOBAL__N_113StatisticInfo4sortEv.exit:     ; preds = %for.end, %if.end18.i.i.i
   %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %OS, i64 16
   %10 = load ptr, ptr %OutBufEnd.i5.i, align 8
   %OutBufCur.i6.i = getelementptr inbounds i8, ptr %OS, i64 24
@@ -605,9 +610,9 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJjjjPKcS2_EEE, i64 0, i32 0, i64 2), ptr %ref.tmp35, align 8, !alias.scope !11
   store ptr %35, ptr %Vals.i.i, align 8, !alias.scope !11
   store ptr %34, ptr %27, align 8, !alias.scope !11
-  store i32 %MaxDebugTypeLen.0.lcssa135, ptr %28, align 8, !alias.scope !11
+  store i32 %MaxDebugTypeLen.0.lcssa, ptr %28, align 8, !alias.scope !11
   store i32 %33, ptr %29, align 4, !alias.scope !11
-  store i32 %MaxValLen.0.lcssa134, ptr %30, align 8, !alias.scope !11
+  store i32 %MaxValLen.0.lcssa, ptr %30, align 8, !alias.scope !11
   %call48 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp35) #20
   %inc50 = add i64 %i28.0123, 1
   %cmp33.not = icmp eq i64 %inc50, %sub.ptr.div.i95
@@ -2792,7 +2797,7 @@ delete.notnull:                                   ; preds = %entry
 
 lor.lhs.false.i:                                  ; preds = %delete.notnull
   %1 = load i8, ptr @_ZL11PrintOnExit, align 1
-  %tobool.i = trunc i8 %1 to i1
+  %tobool.i = trunc nuw i8 %1 to i1
   br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i

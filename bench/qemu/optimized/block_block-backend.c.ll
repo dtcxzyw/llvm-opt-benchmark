@@ -1133,7 +1133,7 @@ do.end:                                           ; preds = %bdrv_first_blk.exit
   br i1 %tobool23.not, label %if.end26, label %if.then24
 
 if.then24:                                        ; preds = %do.end
-  %refcnt.i = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+  %refcnt.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %refcnt.i, align 8
   %cmp.i38 = icmp sgt i32 %11, 0
   br i1 %cmp.i38, label %do.body.i, label %if.else.i39

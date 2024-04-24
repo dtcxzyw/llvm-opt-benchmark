@@ -2548,7 +2548,7 @@ x64_get_fp_type_at_offset.exit139:                ; preds = %203, %200, %190
   br label %x64_get_fp_type_at_offset.exit118.thread
 
 x64_get_fp_type_at_offset.exit118.thread:         ; preds = %128, %113, %x64_get_fp_type_at_offset.exit, %x64_get_fp_type_at_offset.exit.thread, %262, %259, %x64_get_fp_type_at_offset.exit139, %169
-  %.063 = phi ptr [ %170, %169 ], [ %241, %x64_get_fp_type_at_offset.exit139 ], [ %261, %259 ], [ %263, %262 ], [ %15, %x64_get_fp_type_at_offset.exit.thread ], [ %.tr.i, %x64_get_fp_type_at_offset.exit ], [ %.tr.i, %113 ], [ %.tr.i, %128 ]
+  %.063 = phi ptr [ %170, %169 ], [ %241, %x64_get_fp_type_at_offset.exit139 ], [ %261, %259 ], [ %263, %262 ], [ %15, %x64_get_fp_type_at_offset.exit.thread ], [ %52, %x64_get_fp_type_at_offset.exit ], [ %.tr.i, %113 ], [ %.tr.i, %128 ]
   ret ptr %.063
 }
 

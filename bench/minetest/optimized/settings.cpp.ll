@@ -1047,7 +1047,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %7 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %7 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %7, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -4128,7 +4128,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %64, %62
   %spec.select6.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -4165,7 +4165,7 @@ if.then.i.i.i.i.i301:                             ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i = sub i64 %62, %66
   %spec.select6.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i to i32
   br label %invoke.cont159
 
 invoke.cont159:                                   ; preds = %if.then.i.i.i.i.i301, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
@@ -4937,7 +4937,7 @@ if.then.i.i.i128:                                 ; preds = %while.end.i.i.i
   br label %_Z4itosB5cxx11i.exit
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %14 = trunc i32 %__val.addr.0.lcssa.i.i.i to i8
+  %14 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %14, 48
   br label %_Z4itosB5cxx11i.exit
 
@@ -5289,7 +5289,7 @@ if.then.i.i.i.i.i.i206:                           ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %55, %53
   %spec.select6.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i206, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -5324,7 +5324,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i = sub i64 %53, %57
   %spec.select6.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i to i32
   br label %invoke.cont41
 
 invoke.cont41:                                    ; preds = %if.then.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
@@ -6502,7 +6502,7 @@ entry:
   %conv.i.i = trunc i64 %call.i.i to i32
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %conv.i.i, i32 0)
   %1 = tail call i32 @llvm.umin.i32(i32 %spec.select.i, i32 65535)
-  %conv = trunc i32 %1 to i16
+  %conv = trunc nuw i32 %1 to i16
   ret i16 %conv
 }
 
@@ -6515,7 +6515,7 @@ entry:
   %conv.i.i = trunc i64 %call.i.i to i32
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %conv.i.i, i32 -32768)
   %i.1.i = tail call noundef i32 @llvm.smin.i32(i32 %spec.select.i, i32 32767)
-  %conv = trunc i32 %i.1.i to i16
+  %conv = trunc nsw i32 %i.1.i to i16
   ret i16 %conv
 }
 
@@ -7680,7 +7680,7 @@ invoke.cont.i232:                                 ; preds = %_ZNSt7__cxx1112basi
   %conv.i.i.i.i234 = trunc i64 %call.i.i.i.i233 to i32
   %spec.select.i.i.i = call i32 @llvm.smax.i32(i32 %conv.i.i.i.i234, i32 0)
   %44 = call i32 @llvm.umin.i32(i32 %spec.select.i.i.i, i32 65535)
-  %conv.i.i = trunc i32 %44 to i16
+  %conv.i.i = trunc nuw i32 %44 to i16
   store i16 %conv.i.i, ptr %octaves, align 4, !tbaa !151
   br label %invoke.cont46
 
@@ -9242,7 +9242,7 @@ invoke.cont:                                      ; preds = %entry
   %conv.i.i.i = trunc i64 %call.i.i.i to i32
   %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %conv.i.i.i, i32 0)
   %1 = tail call i32 @llvm.umin.i32(i32 %spec.select.i.i, i32 65535)
-  %conv.i = trunc i32 %1 to i16
+  %conv.i = trunc nuw i32 %1 to i16
   store i16 %conv.i, ptr %val, align 2, !tbaa !151
   br label %return
 
@@ -9728,7 +9728,7 @@ invoke.cont:                                      ; preds = %entry
   %conv.i.i.i = trunc i64 %call.i.i.i to i32
   %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %conv.i.i.i, i32 -32768)
   %i.1.i.i = tail call noundef i32 @llvm.smin.i32(i32 %spec.select.i.i, i32 32767)
-  %conv.i = trunc i32 %i.1.i.i to i16
+  %conv.i = trunc nsw i32 %i.1.i.i to i16
   store i16 %conv.i, ptr %val, align 2, !tbaa !151
   br label %return
 
@@ -10333,7 +10333,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i.i
   br label %_Z4itosB5cxx11i.exit
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i.i.i to i8
+  %6 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %6, 48
   br label %_Z4itosB5cxx11i.exit
 
@@ -10477,7 +10477,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i.i
   br label %_Z4itosB5cxx11i.exit
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i.i.i to i8
+  %6 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %6, 48
   br label %_Z4itosB5cxx11i.exit
 
@@ -10644,7 +10644,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i.i
   br label %_Z4itosB5cxx11i.exit
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %7 = trunc i32 %__val.addr.0.lcssa.i.i.i to i8
+  %7 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %7, 48
   br label %_Z4itosB5cxx11i.exit
 
@@ -12654,7 +12654,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyINSt7_
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %entry
-  %6 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %for.cond.cleanup ], [ %0, %entry ]
+  %6 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre61, %for.cond.cleanup ], [ %0, %entry ]
   %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
@@ -15131,7 +15131,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i = sub i64 %2, %3
   %spec.select6.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i: ; preds = %if.then.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -15192,7 +15192,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i = sub i64 %0, %2
   %spec.select6.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i = trunc i64 %retval.07.i.i.i.i to i32
+  %retval.0.i12.i.i.i = trunc nsw i64 %retval.07.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit: ; preds = %if.then.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
@@ -15244,7 +15244,7 @@ if.then.i.i.i36:                                  ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i37 = sub i64 %6, %5
   %spec.select6.i.i.i.i38 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i37, i64 -2147483648)
   %retval.07.i.i.i.i39 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i38, i64 2147483647)
-  %retval.0.i12.i.i.i40 = trunc i64 %retval.07.i.i.i.i39 to i32
+  %retval.0.i12.i.i.i40 = trunc nsw i64 %retval.07.i.i.i.i39 to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit41
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit41: ; preds = %if.then.i.i.i36, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i31

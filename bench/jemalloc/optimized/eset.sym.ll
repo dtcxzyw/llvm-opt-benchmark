@@ -83,7 +83,7 @@ if.end.i:                                         ; preds = %entry
   tail call void @llvm.assume(i1 %cmp.i.i)
   %1 = add nsw i64 %call1, -1
   %2 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !6
-  %3 = trunc i64 %2 to i32
+  %3 = trunc nuw nsw i64 %2 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %3)
   %cmp4.i = icmp ugt i32 %3, 49
   %add.i = add nuw nsw i32 %cond.i, 11
@@ -222,7 +222,7 @@ if.end.i:                                         ; preds = %entry
   tail call void @llvm.assume(i1 %cmp.i.i)
   %1 = add nsw i64 %call1, -1
   %2 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !6
-  %3 = trunc i64 %2 to i32
+  %3 = trunc nuw nsw i64 %2 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %3)
   %cmp4.i = icmp ugt i32 %3, 49
   %add.i = add nuw nsw i32 %cond.i, 11
@@ -306,7 +306,7 @@ if.end25:                                         ; preds = %if.else, %if.then14
   br i1 %cmp.i43, label %if.then.i, label %if.end.i44
 
 if.then.i:                                        ; preds = %if.end25
-  %19 = getelementptr inbounds i8, ptr %edata, i64 64
+  %19 = getelementptr inbounds i8, ptr %18, i64 64
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %lru, align 8
   br label %if.end.i44
@@ -379,7 +379,7 @@ if.end.i.i:                                       ; preds = %if.end
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %0 = add nsw i64 %call.i, -1
   %1 = tail call i64 @llvm.ctlz.i64(i64 %0, i1 false), !range !6
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %2)
   %cmp4.i.i = icmp ugt i32 %2, 49
   %add.i.i = add nuw nsw i32 %cond.i.i, 11
@@ -547,7 +547,7 @@ if.end.i48.i:                                     ; preds = %if.then4
   tail call void @llvm.assume(i1 %cmp.i.i.i10)
   %16 = add nsw i64 %call.i9, -1
   %17 = tail call i64 @llvm.ctlz.i64(i64 %16, i1 false), !range !6
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %cond.i54.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %18)
   %cmp4.i55.i = icmp ugt i32 %18, 49
   %add.i58.i = add nuw nsw i32 %cond.i54.i, 11
@@ -572,7 +572,7 @@ if.end.i.i13:                                     ; preds = %sz_psz2ind.exit71.i
   tail call void @llvm.assume(i1 %cmp.i.i27.i)
   %21 = add nsw i64 %call2.i11, -1
   %22 = tail call i64 @llvm.ctlz.i64(i64 %21, i1 false), !range !6
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %cond.i.i14 = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %23)
   %cmp4.i.i15 = icmp ugt i32 %23, 49
   %add.i.i16 = add nuw nsw i32 %cond.i.i14, 11

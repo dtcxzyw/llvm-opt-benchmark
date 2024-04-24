@@ -5259,7 +5259,7 @@ invoke.cont:                                      ; preds = %entry
   %bufs_ = getelementptr inbounds i8, ptr %this, i64 112
   %__begin2.sroa.0.04 = load ptr, ptr %bufs_, align 8
   %cmp.i.not5 = icmp eq ptr %__begin2.sroa.0.04, %bufs_
-  br i1 %cmp.i.not5, label %_ZNSt7__cxx114listIPN7rocksdb16CacheWriteBufferESaIS3_EE5clearEv.exit, label %for.body
+  br i1 %cmp.i.not5, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont, %for.inc
   %__begin2.sroa.0.06 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.04, %invoke.cont ]
@@ -5278,21 +5278,25 @@ delete.notnull:                                   ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %delete.notnull
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.06, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %bufs_
-  br i1 %cmp.i.not, label %for.end, label %for.body
+  br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
 
-for.end:                                          ; preds = %for.inc
+for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load ptr, ptr %bufs_, align 8
-  %cmp.not4.i.i = icmp eq ptr %.pre, %bufs_
+  br label %for.end
+
+for.end:                                          ; preds = %for.end.loopexit, %invoke.cont
+  %2 = phi ptr [ %.pre, %for.end.loopexit ], [ %__begin2.sroa.0.04, %invoke.cont ]
+  %cmp.not4.i.i = icmp eq ptr %2, %bufs_
   br i1 %cmp.not4.i.i, label %_ZNSt7__cxx114listIPN7rocksdb16CacheWriteBufferESaIS3_EE5clearEv.exit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %for.end, %while.body.i.i
-  %__cur.05.i.i = phi ptr [ %2, %while.body.i.i ], [ %.pre, %for.end ]
-  %2 = load ptr, ptr %__cur.05.i.i, align 8
+  %__cur.05.i.i = phi ptr [ %3, %while.body.i.i ], [ %2, %for.end ]
+  %3 = load ptr, ptr %__cur.05.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %__cur.05.i.i) #14
-  %cmp.not.i.i = icmp eq ptr %2, %bufs_
+  %cmp.not.i.i = icmp eq ptr %3, %bufs_
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx114listIPN7rocksdb16CacheWriteBufferESaIS3_EE5clearEv.exit, label %while.body.i.i, !llvm.loop !53
 
-_ZNSt7__cxx114listIPN7rocksdb16CacheWriteBufferESaIS3_EE5clearEv.exit: ; preds = %while.body.i.i, %invoke.cont, %for.end
+_ZNSt7__cxx114listIPN7rocksdb16CacheWriteBufferESaIS3_EE5clearEv.exit: ; preds = %while.body.i.i, %for.end
   %_M_prev.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %bufs_, ptr %_M_prev.i.i.i, align 8
   store ptr %bufs_, ptr %bufs_, align 8
@@ -5302,22 +5306,22 @@ _ZNSt7__cxx114listIPN7rocksdb16CacheWriteBufferESaIS3_EE5clearEv.exit: ; preds =
           to label %_ZN7rocksdb9MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %_ZNSt7__cxx114listIPN7rocksdb16CacheWriteBufferESaIS3_EE5clearEv.exit
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #17
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %_ZNSt7__cxx114listIPN7rocksdb16CacheWriteBufferESaIS3_EE5clearEv.exit
-  %5 = load ptr, ptr %bufs_, align 8
-  %cmp.not4.i.i.i = icmp eq ptr %5, %bufs_
+  %6 = load ptr, ptr %bufs_, align 8
+  %cmp.not4.i.i.i = icmp eq ptr %6, %bufs_
   br i1 %cmp.not4.i.i.i, label %_ZNSt7__cxx114listIPN7rocksdb16CacheWriteBufferESaIS3_EED2Ev.exit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZN7rocksdb9MutexLockD2Ev.exit, %while.body.i.i.i
-  %__cur.05.i.i.i = phi ptr [ %6, %while.body.i.i.i ], [ %5, %_ZN7rocksdb9MutexLockD2Ev.exit ]
-  %6 = load ptr, ptr %__cur.05.i.i.i, align 8
+  %__cur.05.i.i.i = phi ptr [ %7, %while.body.i.i.i ], [ %6, %_ZN7rocksdb9MutexLockD2Ev.exit ]
+  %7 = load ptr, ptr %__cur.05.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #14
-  %cmp.not.i.i.i = icmp eq ptr %6, %bufs_
+  %cmp.not.i.i.i = icmp eq ptr %7, %bufs_
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIPN7rocksdb16CacheWriteBufferESaIS3_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !53
 
 _ZNSt7__cxx114listIPN7rocksdb16CacheWriteBufferESaIS3_EED2Ev.exit: ; preds = %while.body.i.i.i, %_ZN7rocksdb9MutexLockD2Ev.exit
@@ -5327,10 +5331,10 @@ _ZNSt7__cxx114listIPN7rocksdb16CacheWriteBufferESaIS3_EED2Ev.exit: ; preds = %wh
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #17
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #17
   unreachable
 }
 

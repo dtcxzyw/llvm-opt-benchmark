@@ -3872,7 +3872,7 @@ if.then.i:                                        ; preds = %if.end11
   br i1 %cmp.i6.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  %call2.i.i.i = call ptr @_PyObject_GC_New(ptr noundef %type) #15
+  %call2.i.i.i = call ptr @_PyObject_GC_New(ptr noundef %10) #15
   br label %if.end.i7.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i
@@ -3978,7 +3978,7 @@ if.end.i33.i:                                     ; preds = %land.lhs.true.i.i, 
   br i1 %cmp.i12.i.i, label %if.then.i.i53.i, label %if.else.i.i37.i
 
 if.then.i.i53.i:                                  ; preds = %if.end.i33.i
-  %call2.i.i54.i = call ptr @_PyObject_GC_New(ptr noundef %type) #15
+  %call2.i.i54.i = call ptr @_PyObject_GC_New(ptr noundef %22) #15
   br label %if.end.i13.i.i
 
 if.else.i.i37.i:                                  ; preds = %if.end.i33.i
@@ -4327,7 +4327,7 @@ if.end8:                                          ; preds = %if.then.i39, %if.en
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
 
 if.then.i66:                                      ; preds = %if.end8
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %23) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %25) #15
   br label %if.end.i65
 
 if.else.i:                                        ; preds = %if.end8
@@ -4622,7 +4622,7 @@ if.end8:                                          ; preds = %if.then.i39, %if.en
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
 
 if.then.i66:                                      ; preds = %if.end8
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %23) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %25) #15
   br label %if.end.i65
 
 if.else.i:                                        ; preds = %if.end8
@@ -4917,7 +4917,7 @@ if.end8:                                          ; preds = %if.then.i39, %if.en
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
 
 if.then.i66:                                      ; preds = %if.end8
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %23) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %25) #15
   br label %if.end.i65
 
 if.else.i:                                        ; preds = %if.end8
@@ -5212,7 +5212,7 @@ if.end8:                                          ; preds = %if.then.i39, %if.en
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
 
 if.then.i66:                                      ; preds = %if.end8
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %23) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %25) #15
   br label %if.end.i65
 
 if.else.i:                                        ; preds = %if.end8
@@ -5507,7 +5507,7 @@ if.end8:                                          ; preds = %if.then.i60, %if.en
   br i1 %cmp.i83, label %if.then.i86, label %if.else.i
 
 if.then.i86:                                      ; preds = %if.end8
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %23) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %25) #15
   br label %if.end.i85
 
 if.else.i:                                        ; preds = %if.end8
@@ -5575,7 +5575,7 @@ if.end12:                                         ; preds = %if.end.i85
   br i1 %cmp.i90, label %if.then.i104, label %if.else.i91
 
 if.then.i104:                                     ; preds = %if.end12
-  %call2.i105 = tail call ptr @_PyObject_GC_New(ptr noundef %31) #15
+  %call2.i105 = tail call ptr @_PyObject_GC_New(ptr noundef %33) #15
   br label %if.end.i94
 
 if.else.i91:                                      ; preds = %if.end12
@@ -6024,7 +6024,7 @@ if.end15:                                         ; preds = %if.then.i80, %if.en
   br i1 %cmp.i103, label %if.then.i106, label %if.else.i
 
 if.then.i106:                                     ; preds = %if.end15
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %35) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %37) #15
   br label %if.end.i105
 
 if.else.i:                                        ; preds = %if.end15
@@ -6232,7 +6232,7 @@ Py_DECREF.exit19:                                 ; preds = %if.end, %if.then1.i
   br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %Py_DECREF.exit19
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %4) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %6) #15
   br label %if.end.i13
 
 if.else.i:                                        ; preds = %Py_DECREF.exit19
@@ -6329,7 +6329,7 @@ Py_DECREF.exit19:                                 ; preds = %if.end, %if.then1.i
   br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %Py_DECREF.exit19
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %4) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %6) #15
   br label %if.end.i13
 
 if.else.i:                                        ; preds = %Py_DECREF.exit19
@@ -6426,7 +6426,7 @@ Py_DECREF.exit19:                                 ; preds = %if.end, %if.then1.i
   br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %Py_DECREF.exit19
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %4) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %6) #15
   br label %if.end.i13
 
 if.else.i:                                        ; preds = %Py_DECREF.exit19
@@ -6765,7 +6765,7 @@ if.end8:                                          ; preds = %if.then.i39, %if.en
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
 
 if.then.i66:                                      ; preds = %if.end8
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %23) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %25) #15
   br label %if.end.i65
 
 if.else.i:                                        ; preds = %if.end8
@@ -7060,7 +7060,7 @@ if.end8:                                          ; preds = %if.then.i39, %if.en
   br i1 %cmp.i63, label %if.then.i66, label %if.else.i
 
 if.then.i66:                                      ; preds = %if.end8
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %23) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %25) #15
   br label %if.end.i65
 
 if.else.i:                                        ; preds = %if.end8
@@ -7522,7 +7522,7 @@ if.then15:                                        ; preds = %if.end12
   br i1 %cmp.i75, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then15
-  %call2.i77 = tail call ptr @_PyObject_GC_New(ptr noundef %type) #15
+  %call2.i77 = tail call ptr @_PyObject_GC_New(ptr noundef %9) #15
   br label %if.end.i76
 
 if.else.i:                                        ; preds = %if.then15
@@ -7915,7 +7915,7 @@ if.end11:                                         ; preds = %if.end6
   br i1 %cmp.i28, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end11
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %7) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %9) #15
   br label %if.end.i29
 
 if.else.i:                                        ; preds = %if.end11
@@ -8024,7 +8024,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %type) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %1) #15
   br label %if.end.i
 
 if.else.i:                                        ; preds = %entry
@@ -8203,7 +8203,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
-  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %8) #15
+  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %10) #15
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
@@ -8333,7 +8333,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
-  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %8) #15
+  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %10) #15
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
@@ -8463,7 +8463,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
-  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %8) #15
+  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %10) #15
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
@@ -8593,7 +8593,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
-  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %8) #15
+  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %10) #15
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
@@ -8723,7 +8723,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
-  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %8) #15
+  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %10) #15
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
@@ -8853,7 +8853,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
-  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %8) #15
+  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %10) #15
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
@@ -9053,7 +9053,7 @@ if.end24:                                         ; preds = %if.end18, %if.end12
   br i1 %cmp.i15, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end24
-  %call2.i17 = call ptr @_PyObject_GC_New(ptr noundef %17) #15
+  %call2.i17 = call ptr @_PyObject_GC_New(ptr noundef %19) #15
   br label %if.end.i16
 
 if.else.i:                                        ; preds = %if.end24
@@ -9251,7 +9251,7 @@ if.end24:                                         ; preds = %if.end18, %if.end12
   br i1 %cmp.i15, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end24
-  %call2.i17 = call ptr @_PyObject_GC_New(ptr noundef %17) #15
+  %call2.i17 = call ptr @_PyObject_GC_New(ptr noundef %19) #15
   br label %if.end.i16
 
 if.else.i:                                        ; preds = %if.end24
@@ -9379,7 +9379,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
-  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %8) #15
+  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %10) #15
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
@@ -9628,7 +9628,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   br i1 %cmp.i52, label %if.then.i55, label %if.else.i
 
 if.then.i55:                                      ; preds = %if.end20
-  %call2.i56 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i56 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i54
 
 if.else.i:                                        ; preds = %if.end20
@@ -9942,7 +9942,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   br i1 %cmp.i52, label %if.then.i55, label %if.else.i
 
 if.then.i55:                                      ; preds = %if.end20
-  %call2.i56 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i56 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i54
 
 if.else.i:                                        ; preds = %if.end20
@@ -10256,7 +10256,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
-  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
@@ -10570,7 +10570,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
-  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
@@ -10884,7 +10884,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
-  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
@@ -11198,7 +11198,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
-  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
@@ -11512,7 +11512,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
-  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
@@ -11900,7 +11900,7 @@ if.end32:                                         ; preds = %if.then.i37, %if.en
   br i1 %cmp.i58, label %if.then.i60, label %if.else.i
 
 if.then.i60:                                      ; preds = %if.end32
-  %call2.i61 = call ptr @_PyObject_GC_New(ptr noundef %41) #15
+  %call2.i61 = call ptr @_PyObject_GC_New(ptr noundef %43) #15
   br label %if.end.i59
 
 if.else.i:                                        ; preds = %if.end32
@@ -12212,7 +12212,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
-  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
@@ -12611,7 +12611,7 @@ if.end24:                                         ; preds = %if.then.i66, %if.en
   br i1 %cmp.i87, label %if.then.i89, label %if.else.i
 
 if.then.i89:                                      ; preds = %if.end24
-  %call2.i90 = call ptr @_PyObject_GC_New(ptr noundef %48) #15
+  %call2.i90 = call ptr @_PyObject_GC_New(ptr noundef %50) #15
   br label %if.end.i88
 
 if.else.i:                                        ; preds = %if.end24
@@ -13283,7 +13283,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %2) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %4) #15
   br label %if.end.i
 
 if.else.i:                                        ; preds = %entry
@@ -13342,7 +13342,7 @@ entry:
   br i1 %cmp.i6, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %2) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %4) #15
   br label %if.end.i7
 
 if.else.i:                                        ; preds = %entry
@@ -13421,7 +13421,7 @@ entry:
   br i1 %cmp.i6, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %2) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %4) #15
   br label %if.end.i7
 
 if.else.i:                                        ; preds = %entry
@@ -13552,7 +13552,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
-  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %8) #15
+  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %10) #15
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
@@ -13682,7 +13682,7 @@ if.end12:                                         ; preds = %if.else, %PyObject_
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
-  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %8) #15
+  %call2.i12 = call ptr @_PyObject_GC_New(ptr noundef %10) #15
   br label %if.end.i11
 
 if.else.i:                                        ; preds = %if.end12
@@ -14115,7 +14115,7 @@ if.end20:                                         ; preds = %if.then.i28, %if.en
   br i1 %cmp.i49, label %if.then.i51, label %if.else.i
 
 if.then.i51:                                      ; preds = %if.end20
-  %call2.i52 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i52 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i50
 
 if.else.i:                                        ; preds = %if.end20
@@ -14402,7 +14402,7 @@ if.end20:                                         ; preds = %if.then.i28, %if.en
   br i1 %cmp.i49, label %if.then.i51, label %if.else.i
 
 if.then.i51:                                      ; preds = %if.end20
-  %call2.i52 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i52 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i50
 
 if.else.i:                                        ; preds = %if.end20
@@ -14691,7 +14691,7 @@ if.end20:                                         ; preds = %if.then.i32, %if.en
   br i1 %cmp.i53, label %if.then.i55, label %if.else.i
 
 if.then.i55:                                      ; preds = %if.end20
-  %call2.i56 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i56 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i54
 
 if.else.i:                                        ; preds = %if.end20
@@ -15246,7 +15246,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
-  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
@@ -15560,7 +15560,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
-  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
@@ -15874,7 +15874,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
-  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
@@ -16188,7 +16188,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
-  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
@@ -16502,7 +16502,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
-  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
@@ -16816,7 +16816,7 @@ if.end20:                                         ; preds = %if.then.i31, %if.en
   br i1 %cmp.i52, label %if.then.i54, label %if.else.i
 
 if.then.i54:                                      ; preds = %if.end20
-  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i55 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i53
 
 if.else.i:                                        ; preds = %if.end20
@@ -17272,7 +17272,7 @@ Py_DECREF.exit168:                                ; preds = %if.end10, %if.then1
   br i1 %cmp.i74, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %Py_DECREF.exit168
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %6) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %8) #15
   br label %if.end.i75
 
 if.else.i:                                        ; preds = %Py_DECREF.exit168
@@ -18346,7 +18346,7 @@ if.end18:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp.i18, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end18
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %9) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %11) #15
   br label %if.end.i19
 
 if.else.i:                                        ; preds = %if.end18
@@ -18999,7 +18999,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %2) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %4) #15
   br label %if.end.i
 
 if.else.i:                                        ; preds = %entry
@@ -19344,7 +19344,7 @@ entry:
   br i1 %cmp.i7, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %type) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %1) #15
   br label %if.end.i8
 
 if.else.i:                                        ; preds = %entry
@@ -20230,7 +20230,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call2 = tail call ptr @_PyObject_GC_New(ptr noundef %type) #15
+  %call2 = tail call ptr @_PyObject_GC_New(ptr noundef %1) #15
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -20405,7 +20405,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %11) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %13) #15
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
@@ -20562,7 +20562,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %11) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %13) #15
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
@@ -20719,7 +20719,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %11) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %13) #15
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
@@ -20876,7 +20876,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %11) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %13) #15
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
@@ -21033,7 +21033,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %11) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %13) #15
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
@@ -21190,7 +21190,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %11) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %13) #15
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
@@ -21347,7 +21347,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %11) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %13) #15
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
@@ -21504,7 +21504,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %11) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %13) #15
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
@@ -21661,7 +21661,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %11) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %13) #15
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
@@ -21818,7 +21818,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %11) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %13) #15
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
@@ -21975,7 +21975,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %11) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %13) #15
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
@@ -22132,7 +22132,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %11) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %13) #15
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
@@ -22363,7 +22363,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -22627,7 +22627,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -22891,7 +22891,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -23155,7 +23155,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -23419,7 +23419,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -23683,7 +23683,7 @@ if.end8:                                          ; preds = %if.then.i52, %if.en
   br i1 %cmp.i73, label %if.then.i75, label %if.else.i
 
 if.then.i75:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i74
 
 if.else.i:                                        ; preds = %if.end8
@@ -23751,7 +23751,7 @@ if.end13:                                         ; preds = %if.end.i74
   br i1 %cmp.i79, label %if.then.i93, label %if.else.i80
 
 if.then.i93:                                      ; preds = %if.end13
-  %call2.i94 = call ptr @_PyObject_GC_New(ptr noundef %32) #15
+  %call2.i94 = call ptr @_PyObject_GC_New(ptr noundef %34) #15
   br label %if.end.i83
 
 if.else.i80:                                      ; preds = %if.end13
@@ -24080,7 +24080,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -24344,7 +24344,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -24608,7 +24608,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -24872,7 +24872,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -25136,7 +25136,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -25400,7 +25400,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -25664,7 +25664,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -25928,7 +25928,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -26192,7 +26192,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -26456,7 +26456,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -26808,7 +26808,7 @@ if.end14:                                         ; preds = %if.then.i69, %if.en
   br i1 %cmp.i90, label %if.then.i92, label %if.else.i
 
 if.then.i92:                                      ; preds = %if.end14
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %38) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %40) #15
   br label %if.end.i91
 
 if.else.i:                                        ; preds = %if.end14
@@ -27201,7 +27201,7 @@ if.end12:                                         ; preds = %if.then.i68, %if.en
   br i1 %cmp.i89, label %if.then.i91, label %if.else.i
 
 if.then.i91:                                      ; preds = %if.end12
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %38) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %40) #15
   br label %if.end.i90
 
 if.else.i:                                        ; preds = %if.end12
@@ -28521,7 +28521,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   br i1 %cmp.i18, label %if.then.i20, label %if.else.i
 
 if.then.i20:                                      ; preds = %if.end
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %11) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %13) #15
   br label %if.end.i19
 
 if.else.i:                                        ; preds = %if.end
@@ -28737,7 +28737,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   br i1 %cmp.i18, label %if.then.i20, label %if.else.i
 
 if.then.i20:                                      ; preds = %if.end
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %11) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %13) #15
   br label %if.end.i19
 
 if.else.i:                                        ; preds = %if.end
@@ -28893,7 +28893,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %11) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %13) #15
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
@@ -29050,7 +29050,7 @@ if.end:                                           ; preds = %if.then.i, %if.end.
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i
 
 if.then.i19:                                      ; preds = %if.end
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %11) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %13) #15
   br label %if.end.i18
 
 if.else.i:                                        ; preds = %if.end
@@ -29603,7 +29603,7 @@ if.end8:                                          ; preds = %if.then.i25, %if.en
   br i1 %cmp.i46, label %if.then.i49, label %if.else.i
 
 if.then.i49:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i48
 
 if.else.i:                                        ; preds = %if.end8
@@ -29842,7 +29842,7 @@ if.end8:                                          ; preds = %if.then.i25, %if.en
   br i1 %cmp.i46, label %if.then.i49, label %if.else.i
 
 if.then.i49:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i48
 
 if.else.i:                                        ; preds = %if.end8
@@ -30083,7 +30083,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -30346,7 +30346,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -30610,7 +30610,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -30874,7 +30874,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -31138,7 +31138,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -31593,7 +31593,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -31857,7 +31857,7 @@ if.end8:                                          ; preds = %if.then.i30, %if.en
   br i1 %cmp.i51, label %if.then.i53, label %if.else.i
 
 if.then.i53:                                      ; preds = %if.end8
-  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %24) #15
+  %call2.i = call ptr @_PyObject_GC_New(ptr noundef %26) #15
   br label %if.end.i52
 
 if.else.i:                                        ; preds = %if.end8
@@ -32200,7 +32200,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp.i7.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  %call2.i.i.i = call ptr @_PyObject_GC_New(ptr noundef %3) #15
+  %call2.i.i.i = call ptr @_PyObject_GC_New(ptr noundef %5) #15
   br label %if.end.i8.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i
@@ -32299,7 +32299,7 @@ if.end.i:                                         ; preds = %if.then12.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %call2.i41.i = call ptr @_PyObject_GC_New(ptr noundef %14) #15
+  %call2.i41.i = call ptr @_PyObject_GC_New(ptr noundef %16) #15
   br label %if.end.i40.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -32560,7 +32560,7 @@ entry:
   br i1 %cmp.i13, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %2) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %4) #15
   br label %if.end.i14
 
 if.else.i:                                        ; preds = %entry
@@ -32687,7 +32687,7 @@ entry:
   br i1 %cmp.i7, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %type) #15
+  %call2.i = tail call ptr @_PyObject_GC_New(ptr noundef %1) #15
   br label %if.end.i8
 
 if.else.i:                                        ; preds = %entry

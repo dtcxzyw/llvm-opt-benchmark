@@ -2284,7 +2284,7 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
 
 376:                                              ; preds = %368, %372, %299
   %.10505 = phi i32 [ %.8503, %299 ], [ %.9504, %372 ], [ %.9504, %368 ]
-  %.3468 = phi ptr [ %.0472, %299 ], [ %375, %372 ], [ %.2467, %368 ]
+  %.3468 = phi ptr [ %.1476, %299 ], [ %375, %372 ], [ %.2467, %368 ]
   store ptr %.3468, ptr %209, align 8
   %377 = ptrtoint ptr %.2471 to i64
   %378 = and i64 %377, -2

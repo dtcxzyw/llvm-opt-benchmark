@@ -220,14 +220,14 @@ define dso_local void @exit_creds(ptr nocapture noundef %0) local_unnamed_addr #
   br i1 %7, label %90, label %9
 
 9:                                                ; preds = %8
-  %10 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 2, ptr nonnull elementtype(i64) %3) #10, !srcloc !16
+  %10 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 2, ptr nonnull elementtype(i64) %5) #10, !srcloc !16
   %11 = icmp ult i8 %10, 2
   tail call void @llvm.assume(i1 %11)
   %12 = icmp eq i8 %10, 0
   br i1 %12, label %90, label %13
 
 13:                                               ; preds = %9
-  %14 = load volatile i64, ptr %3, align 8
+  %14 = load volatile i64, ptr %5, align 8
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %17, label %16, !prof !5
 
@@ -261,7 +261,7 @@ define dso_local void @exit_creds(ptr nocapture noundef %0) local_unnamed_addr #
   unreachable
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %3, i64 168
+  %30 = getelementptr inbounds i8, ptr %5, i64 168
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %34, label %33

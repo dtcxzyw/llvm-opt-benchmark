@@ -758,7 +758,7 @@ _ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimatio
 
 ._crit_edge.i:                                    ; preds = %.noexc156, %294
   %.1.lcssa.i = phi float [ %.0.i, %294 ], [ %349, %.noexc156 ]
-  %.lcssa.i = phi ptr [ %295, %294 ], [ %351, %.noexc156 ]
+  %.lcssa.i = phi ptr [ %296, %294 ], [ %351, %.noexc156 ]
   %358 = getelementptr inbounds i8, ptr %.lcssa.i, i64 -16
   %359 = load float, ptr %358, align 4
   %360 = fsub float %359, %83
@@ -1049,7 +1049,7 @@ _ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimatio
 
 ._crit_edge.i167:                                 ; preds = %.noexc176, %404
   %.1.lcssa.i168 = phi float [ %.0.i164, %404 ], [ %459, %.noexc176 ]
-  %.lcssa.i169 = phi ptr [ %405, %404 ], [ %461, %.noexc176 ]
+  %.lcssa.i169 = phi ptr [ %406, %404 ], [ %461, %.noexc176 ]
   %468 = getelementptr inbounds i8, ptr %.lcssa.i169, i64 -20
   %469 = load float, ptr %468, align 4
   %470 = fsub float %469, %83
@@ -1348,7 +1348,7 @@ _ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimatio
 
 ._crit_edge.i190:                                 ; preds = %.noexc200, %514
   %.1.lcssa.i191 = phi float [ %.0.i185, %514 ], [ %570, %.noexc200 ]
-  %.lcssa.i192 = phi ptr [ %515, %514 ], [ %572, %.noexc200 ]
+  %.lcssa.i192 = phi ptr [ %516, %514 ], [ %572, %.noexc200 ]
   %579 = getelementptr inbounds i8, ptr %.lcssa.i192, i64 -16
   %580 = load float, ptr %579, align 4
   %581 = fsub float %580, %83
@@ -3579,17 +3579,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEE
   %1367 = load float, ptr %.sroa.010.0.i.i.i.i, align 4
   %1368 = load float, ptr %1365, align 4
   %1369 = fcmp oeq float %1367, %1368
-  br i1 %1369, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.thread21.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !41
+  br i1 %1369, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !41
 
-_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.thread21.i.i.i: ; preds = %1366
+_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.i.i.i: ; preds = %1366
   %1370 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i.i, i64 8
   %.not18.i.i.i = icmp eq ptr %1370, %1363
   br i1 %.not18.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEEET_S9_S9_.exit.i, label %.lr.ph.i.i.i435
 
-.lr.ph.i.i.i435:                                  ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.thread21.i.i.i, %1377
-  %1371 = phi float [ %1378, %1377 ], [ %1367, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.thread21.i.i.i ]
-  %1372 = phi ptr [ %1379, %1377 ], [ %1370, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.thread21.i.i.i ]
-  %.sroa.0.019.i.i.i = phi ptr [ %.sroa.0.1.i.i.i, %1377 ], [ %.sroa.010.0.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.thread21.i.i.i ]
+.lr.ph.i.i.i435:                                  ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.i.i.i, %1377
+  %1371 = phi float [ %1378, %1377 ], [ %1367, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.i.i.i ]
+  %1372 = phi ptr [ %1379, %1377 ], [ %1370, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.i.i.i ]
+  %.sroa.0.019.i.i.i = phi ptr [ %.sroa.0.1.i.i.i, %1377 ], [ %.sroa.010.0.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.i.i.i ]
   %1373 = load float, ptr %1372, align 4
   %1374 = fcmp oeq float %1371, %1373
   br i1 %1374, label %1377, label %1375
@@ -3611,10 +3611,10 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllo
   %.pre.pre = load ptr, ptr %69, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEEET_S9_S9_.exit.i
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEEET_S9_S9_.exit.i: ; preds = %._crit_edge.i.i.loopexit.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.thread21.i.i.i
-  %.pre = phi ptr [ %1362, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.thread21.i.i.i ], [ %.pre.pre, %._crit_edge.i.i.loopexit.i ]
-  %.pre.i437 = phi ptr [ %1363, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.thread21.i.i.i ], [ %.pre.pre.i, %._crit_edge.i.i.loopexit.i ]
-  %.sroa.0.0.lcssa.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.thread21.i.i.i ], [ %.sroa.0.1.i.i.i, %._crit_edge.i.i.loopexit.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEEET_S9_S9_.exit.i: ; preds = %._crit_edge.i.i.loopexit.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.i.i.i
+  %.pre = phi ptr [ %1362, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.i.i.i ], [ %.pre.pre, %._crit_edge.i.i.loopexit.i ]
+  %.pre.i437 = phi ptr [ %1363, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.i.i.i ], [ %.pre.pre.i, %._crit_edge.i.i.loopexit.i ]
+  %.sroa.0.0.lcssa.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3ozz12StdAllocatorIfEEEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.i.i.i ], [ %.sroa.0.1.i.i.i, %._crit_edge.i.i.loopexit.i ]
   %1380 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i, i64 4
   %.not.i.i39.i = icmp eq ptr %1380, %.pre.i437
   br i1 %.not.i.i39.i, label %_ZN3ozz9animation7offline12_GLOBAL__N_115BuildTimePointsERSt6vectorINS2_10SortingKeyINS1_12RawAnimation14TranslationKeyEEENS_12StdAllocatorIS7_EEERS3_INS4_INS5_11RotationKeyEEENS8_ISD_EEERS3_INS4_INS5_8ScaleKeyEEENS8_ISI_EEE.exit, label %._crit_edge.i.i40.i

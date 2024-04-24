@@ -276,7 +276,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -335,7 +335,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -893,7 +893,7 @@ if.else:                                          ; preds = %entry
 if.else4:                                         ; preds = %if.else
   %rem = srem i32 %magnitude, %conv
   %add = add nsw i32 %rem, %conv
-  %rem5.lhs.trunc = trunc i32 %add to i16
+  %rem5.lhs.trunc = trunc nsw i32 %add to i16
   %rem5.rhs.trunc = zext nneg i8 %0 to i16
   %rem56 = srem i16 %rem5.lhs.trunc, %rem5.rhs.trunc
   %rem5.sext = sext i16 %rem56 to i32
@@ -925,7 +925,7 @@ if.else.i:                                        ; preds = %entry
 if.else4.i:                                       ; preds = %if.else.i
   %rem.i = srem i32 %magnitude, %conv.i
   %add.i = add nsw i32 %rem.i, %conv.i
-  %rem5.lhs.trunc.i = trunc i32 %add.i to i16
+  %rem5.lhs.trunc.i = trunc nsw i32 %add.i to i16
   %rem5.rhs.trunc.i = zext nneg i8 %0 to i16
   %rem56.i = srem i16 %rem5.lhs.trunc.i, %rem5.rhs.trunc.i
   %rem5.sext.i = sext i16 %rem56.i to i32

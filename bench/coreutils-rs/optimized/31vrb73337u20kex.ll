@@ -2299,7 +2299,7 @@ _ZN4core3str11validations15next_code_point17h24423c71b47f8f25E.exit.thread.threa
 
 239:                                              ; preds = %_ZN4core3str11validations15next_code_point17h24423c71b47f8f25E.exit.thread.thread.i, %_ZN4core3str11validations15next_code_point17h24423c71b47f8f25E.exit.thread.i
   %240 = phi i32 [ 1114112, %_ZN4core3str11validations15next_code_point17h24423c71b47f8f25E.exit.thread.thread.i ], [ %236, %_ZN4core3str11validations15next_code_point17h24423c71b47f8f25E.exit.thread.i ]
-  %.sroa.0.4101116.i = phi ptr [ %196, %_ZN4core3str11validations15next_code_point17h24423c71b47f8f25E.exit.thread.thread.i ], [ %.sroa.0.4101.i, %_ZN4core3str11validations15next_code_point17h24423c71b47f8f25E.exit.thread.i ]
+  %.sroa.0.4101116.i = phi ptr [ %.sroa.0.0.i, %_ZN4core3str11validations15next_code_point17h24423c71b47f8f25E.exit.thread.thread.i ], [ %.sroa.0.4101.i, %_ZN4core3str11validations15next_code_point17h24423c71b47f8f25E.exit.thread.i ]
   %241 = getelementptr inbounds i8, ptr %.sroa.095.0.i, i64 1
   %242 = load i8, ptr %.sroa.095.0.i, align 1, !alias.scope !242, !noalias !247, !noundef !4
   %243 = icmp sgt i8 %242, -1

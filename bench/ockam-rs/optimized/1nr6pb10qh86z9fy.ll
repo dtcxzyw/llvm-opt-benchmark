@@ -6871,7 +6871,7 @@ _ZN4core3ops8function5FnMut8call_mut17h4ab2666f95892e59E.exit.i: ; preds = %31
   unreachable
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he76b9bab2756071cE.exit.i.thread": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he76b9bab2756071cE.exit.i", %_ZN4core3ops8function5FnMut8call_mut17h4ab2666f95892e59E.exit.i, %26
-  %37 = phi ptr [ %.sroa.06.0.copyload, %26 ], [ %30, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he76b9bab2756071cE.exit.i" ], [ %28, %_ZN4core3ops8function5FnMut8call_mut17h4ab2666f95892e59E.exit.i ]
+  %37 = phi ptr [ %.sroa.06.0.copyload, %26 ], [ %30, %_ZN4core3ops8function5FnMut8call_mut17h4ab2666f95892e59E.exit.i ], [ %30, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he76b9bab2756071cE.exit.i" ]
   %.sroa.7.032 = phi ptr [ %.sroa.06.0.copyload, %26 ], [ %.sroa.7.035, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he76b9bab2756071cE.exit.i" ], [ %28, %_ZN4core3ops8function5FnMut8call_mut17h4ab2666f95892e59E.exit.i ]
   store ptr %37, ptr %.sroa.510.0..sroa_idx, align 8, !alias.scope !1753, !noalias !1762
   %38 = ptrtoint ptr %.sroa.7.032 to i64

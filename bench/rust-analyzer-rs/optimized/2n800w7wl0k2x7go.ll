@@ -1657,8 +1657,7 @@ common.resume:                                    ; preds = %86, %.body, %"_ZN4c
   unreachable
 
 .loopexit.i.i.loopexit:                           ; preds = %"_ZN98_$LT$alloc..vec..splice..Splice$LT$I$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbfe1037677b4b1b9E.exit.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf13958a079ae5a70E.exit.i.i"
-  %.lcssa = phi ptr [ %52, %"_ZN98_$LT$alloc..vec..splice..Splice$LT$I$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbfe1037677b4b1b9E.exit.i.i" ], [ %44, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf13958a079ae5a70E.exit.i.i" ]
-  store ptr %.lcssa, ptr %42, align 8, !alias.scope !674, !noalias !675
+  store ptr %52, ptr %42, align 8, !alias.scope !674, !noalias !675
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.loopexit.i.i.loopexit, %38
@@ -13299,7 +13298,7 @@ define internal fastcc { i32, ptr } @"_ZN114_$LT$core..iter..adapters..flatten..
   br i1 %21, label %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f9cab0d380e1455E.exit.thread_crit_edge.split.us.i.i.i.i.i.i", label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1b85a53d91985b9dE.exit.thread.us.i.i.i.i.i.i"
 
 "._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f9cab0d380e1455E.exit.thread_crit_edge.split.us.i.i.i.i.i.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1b85a53d91985b9dE.exit.thread.us.i.i.i.i.i.i"
-  store ptr %11, ptr %..i.i, align 8, !alias.scope !4114, !noalias !4112
+  store ptr %20, ptr %..i.i, align 8, !alias.scope !4114, !noalias !4112
   br label %.loopexit.i.i
 
 .lr.ph.splitthread-pre-split.i.i.i.i.i.i:         ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1b85a53d91985b9dE.exit.thread.i.i.i.i.i.i"
@@ -13394,7 +13393,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h36be605367e8fdb6E.exit.i: ; 
   br i1 %62, label %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f9cab0d380e1455E.exit.thread_crit_edge.split.us.i.i.i.i.i19.i", label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1b85a53d91985b9dE.exit.thread.us.i.i.i.i.i18.i"
 
 "._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f9cab0d380e1455E.exit.thread_crit_edge.split.us.i.i.i.i.i19.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1b85a53d91985b9dE.exit.thread.us.i.i.i.i.i18.i"
-  store ptr %51, ptr %..i4.i, align 8, !alias.scope !4182, !noalias !4180
+  store ptr %61, ptr %..i4.i, align 8, !alias.scope !4182, !noalias !4180
   br label %.loopexit.i14.i
 
 .lr.ph.splitthread-pre-split.i.i.i.i.i16.i:       ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1b85a53d91985b9dE.exit.thread.i.i.i.i.i15.i"
@@ -16892,7 +16891,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17ha168bd1c76a656e8E.exit.threa
   br label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$ide_db..search..FileReference$GT$$GT$17hfa432b638203edf3E.exit.i.i.i.i.i.i.i"
 
 102:                                              ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7821b9561ba931dbE.exit.i.i.i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h7821b9561ba931dbE.exit.thread.i.i.i.i.i.i.i.i
-  %103 = phi ptr [ %98, %_ZN4core3ops8function6FnOnce9call_once17h7821b9561ba931dbE.exit.thread.i.i.i.i.i.i.i.i ], [ %101, %_ZN4core3ops8function6FnOnce9call_once17h7821b9561ba931dbE.exit.i.i.i.i.i.i.i.i ]
+  %103 = phi ptr [ %99, %_ZN4core3ops8function6FnOnce9call_once17h7821b9561ba931dbE.exit.thread.i.i.i.i.i.i.i.i ], [ %101, %_ZN4core3ops8function6FnOnce9call_once17h7821b9561ba931dbE.exit.i.i.i.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !5505
   store ptr %91, ptr %5, align 8, !noalias !5505
   %104 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h368897b7e5f5130dE.llvm.17934416572435023626(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %91)
@@ -17009,7 +17008,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7821b9561ba931dbE.exit.i1.i.i.i.i.i.i.i
   br label %176
 
 130:                                              ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7821b9561ba931dbE.exit.i1.i.i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h7821b9561ba931dbE.exit.thread.i8.i.i.i.i.i.i.i
-  %131 = phi ptr [ %125, %_ZN4core3ops8function6FnOnce9call_once17h7821b9561ba931dbE.exit.thread.i8.i.i.i.i.i.i.i ], [ %129, %_ZN4core3ops8function6FnOnce9call_once17h7821b9561ba931dbE.exit.i1.i.i.i.i.i.i.i ]
+  %131 = phi ptr [ %127, %_ZN4core3ops8function6FnOnce9call_once17h7821b9561ba931dbE.exit.thread.i8.i.i.i.i.i.i.i ], [ %129, %_ZN4core3ops8function6FnOnce9call_once17h7821b9561ba931dbE.exit.i1.i.i.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !5546
   store ptr %120, ptr %3, align 8, !noalias !5546
   %132 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h368897b7e5f5130dE.llvm.17934416572435023626(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %120)
@@ -19270,7 +19269,7 @@ _ZN4core3ops8function6FnOnce9call_once17h05e670628bb22eb4E.exit.i: ; preds = %"_
   br label %.noexc6
 
 53:                                               ; preds = %"_ZN4core3ptr236drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ide..runnables..Runnable$GT$$C$ide..runnables..runnables..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc9ad86a46d6452b2E.exit.i.i", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9f913962dafab8fE.exit.i.i.i"
-  %54 = phi ptr [ %51, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9f913962dafab8fE.exit.i.i.i" ], [ %48, %"_ZN4core3ptr236drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ide..runnables..Runnable$GT$$C$ide..runnables..runnables..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc9ad86a46d6452b2E.exit.i.i" ]
+  %54 = phi ptr [ %51, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9f913962dafab8fE.exit.i.i.i" ], [ %49, %"_ZN4core3ptr236drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ide..runnables..Runnable$GT$$C$ide..runnables..runnables..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc9ad86a46d6452b2E.exit.i.i" ]
   store i64 6, ptr %4, align 8, !alias.scope !6331, !noalias !6332
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !6333
   store ptr %10, ptr %3, align 8, !noalias !6333
@@ -22060,7 +22059,8 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br i1 %41, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7155368ace9a2ac2E.exit.thread.i", label %51
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7155368ace9a2ac2E.exit.thread.i.loopexit": ; preds = %18, %2
-  store ptr %15, ptr %16, align 8, !alias.scope !6798, !noalias !6801
+  %.lcssa13 = phi ptr [ %.promoted.i.i.i.i.i, %2 ], [ %21, %18 ]
+  store ptr %.lcssa13, ptr %16, align 8, !alias.scope !6798, !noalias !6801
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7155368ace9a2ac2E.exit.thread.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7155368ace9a2ac2E.exit.thread.i": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7155368ace9a2ac2E.exit.thread.i.loopexit", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7155368ace9a2ac2E.exit.i"
@@ -22277,7 +22277,7 @@ common.resume.i:                                  ; preds = %108, %.body6.i, %45
   unreachable
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7155368ace9a2ac2E.exit.thread.i.i.i": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he7f7da63453360f1E.exit.i.i.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7155368ace9a2ac2E.exit.i.i.i", %66, %53
-  %storemerge.i = phi ptr [ %62, %53 ], [ %62, %66 ], [ %70, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7155368ace9a2ac2E.exit.i.i.i" ], [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he7f7da63453360f1E.exit.i.i.i" ]
+  %storemerge.i = phi ptr [ %.promoted.i.i, %53 ], [ %70, %66 ], [ %70, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7155368ace9a2ac2E.exit.i.i.i" ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he7f7da63453360f1E.exit.i.i.i" ]
   store ptr %storemerge.i, ptr %58, align 8, !alias.scope !6837, !noalias !6848
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.9.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !6870

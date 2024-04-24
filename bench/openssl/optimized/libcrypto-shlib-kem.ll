@@ -80,22 +80,19 @@ if.end11:                                         ; preds = %land.lhs.true, %if.
   %cmp13 = icmp eq ptr %4, null
   %keymgmt22.phi.trans.insert = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre = load ptr, ptr %keymgmt22.phi.trans.insert, align 8
-  br i1 %cmp13, label %if.end21, label %lor.rhs
-
-lor.rhs:                                          ; preds = %if.end11
   %cmp17 = icmp eq ptr %4, %.pre
-  br i1 %cmp17, label %if.end21, label %if.then20
+  %or.cond104 = select i1 %cmp13, i1 true, i1 %cmp17
+  br i1 %or.cond104, label %if.end21, label %if.then20
 
-if.then20:                                        ; preds = %lor.rhs
+if.then20:                                        ; preds = %if.end11
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 52, ptr noundef nonnull @__func__.evp_kem_init) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786691, ptr noundef null) #4
   br label %if.then150
 
-if.end21:                                         ; preds = %if.end11, %lor.rhs
-  %5 = phi ptr [ %4, %lor.rhs ], [ %.pre, %if.end11 ]
+if.end21:                                         ; preds = %if.end11
   %keymgmt22 = getelementptr inbounds i8, ptr %ctx, i64 32
-  %call = tail call ptr @evp_keymgmt_util_query_operation_name(ptr noundef %5, i32 noundef 14) #4
+  %call = tail call ptr @evp_keymgmt_util_query_operation_name(ptr noundef %.pre, i32 noundef 14) #4
   %cmp23 = icmp eq ptr %call, null
   br i1 %cmp23, label %if.then25, label %for.cond.preheader
 
@@ -119,8 +116,8 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.end.i:                                         ; preds = %for.body
   %refcnt.i = getelementptr inbounds i8, ptr %kem.0101, i64 32
-  %6 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
-  %cmp.i.i = icmp eq i32 %6, 1
+  %5 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
+  %cmp.i.i = icmp eq i32 %5, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
 
 CRYPTO_DOWN_REF.exit.thread.i:                    ; preds = %if.end.i
@@ -128,42 +125,42 @@ CRYPTO_DOWN_REF.exit.thread.i:                    ; preds = %if.end.i
   br label %if.end3.i
 
 CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
-  %cmp1.i = icmp sgt i32 %6, 1
+  %cmp1.i = icmp sgt i32 %5, 1
   br i1 %cmp1.i, label %EVP_KEM_free.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
   %type_name.i = getelementptr inbounds i8, ptr %kem.0101, i64 8
-  %7 = load ptr, ptr %type_name.i, align 8
-  call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 431) #4
+  %6 = load ptr, ptr %type_name.i, align 8
+  call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 431) #4
   %prov.i = getelementptr inbounds i8, ptr %kem.0101, i64 24
-  %8 = load ptr, ptr %prov.i, align 8
-  call void @ossl_provider_free(ptr noundef %8) #4
+  %7 = load ptr, ptr %prov.i, align 8
+  call void @ossl_provider_free(ptr noundef %7) #4
   call void @CRYPTO_free(ptr noundef nonnull %kem.0101, ptr noundef nonnull @.str, i32 noundef 434) #4
   br label %EVP_KEM_free.exit
 
 EVP_KEM_free.exit:                                ; preds = %for.body, %CRYPTO_DOWN_REF.exit.i, %if.end3.i
-  %9 = load ptr, ptr %tmp_keymgmt, align 8
-  call void @EVP_KEYMGMT_free(ptr noundef %9) #4
+  %8 = load ptr, ptr %tmp_keymgmt, align 8
+  call void @EVP_KEYMGMT_free(ptr noundef %8) #4
   %switch = icmp eq i32 %iter.0103, 1
   br i1 %switch, label %sw.bb, label %sw.bb37
 
 sw.bb:                                            ; preds = %EVP_KEM_free.exit
-  %10 = load ptr, ptr %libctx, align 8
-  %11 = load ptr, ptr %propquery40, align 8
-  %call.i = call ptr @evp_generic_fetch(ptr noundef %10, i32 noundef 14, ptr noundef nonnull %call, ptr noundef %11, ptr noundef nonnull @evp_kem_from_algorithm, ptr noundef nonnull @EVP_KEM_up_ref, ptr noundef nonnull @EVP_KEM_free) #4
+  %9 = load ptr, ptr %libctx, align 8
+  %10 = load ptr, ptr %propquery40, align 8
+  %call.i = call ptr @evp_generic_fetch(ptr noundef %9, i32 noundef 14, ptr noundef nonnull %call, ptr noundef %10, ptr noundef nonnull @evp_kem_from_algorithm, ptr noundef nonnull @EVP_KEM_up_ref, ptr noundef nonnull @EVP_KEM_free) #4
   %cmp32.not = icmp eq ptr %call.i, null
   br i1 %cmp32.not, label %for.inc, label %if.then34
 
 if.then34:                                        ; preds = %sw.bb
   %prov.i79 = getelementptr inbounds i8, ptr %call.i, i64 24
-  %12 = load ptr, ptr %prov.i79, align 8
+  %11 = load ptr, ptr %prov.i79, align 8
   br label %if.end49
 
 sw.bb37:                                          ; preds = %EVP_KEM_free.exit
-  %13 = load ptr, ptr %keymgmt22, align 8
-  %call39 = call ptr @EVP_KEYMGMT_get0_provider(ptr noundef %13) #4
-  %14 = load ptr, ptr %propquery40, align 8
-  %call.i80 = call ptr @evp_generic_fetch_from_prov(ptr noundef %call39, i32 noundef 14, ptr noundef nonnull %call, ptr noundef %14, ptr noundef nonnull @evp_kem_from_algorithm, ptr noundef nonnull @EVP_KEM_up_ref, ptr noundef nonnull @EVP_KEM_free) #4
+  %12 = load ptr, ptr %keymgmt22, align 8
+  %call39 = call ptr @EVP_KEYMGMT_get0_provider(ptr noundef %12) #4
+  %13 = load ptr, ptr %propquery40, align 8
+  %call.i80 = call ptr @evp_generic_fetch_from_prov(ptr noundef %call39, i32 noundef 14, ptr noundef nonnull %call, ptr noundef %13, ptr noundef nonnull @evp_kem_from_algorithm, ptr noundef nonnull @EVP_KEM_up_ref, ptr noundef nonnull @EVP_KEM_free) #4
   %cmp42 = icmp eq ptr %call.i80, null
   br i1 %cmp42, label %if.then44, label %if.end49
 
@@ -175,28 +172,28 @@ if.then44:                                        ; preds = %sw.bb37
 
 if.end49:                                         ; preds = %sw.bb37, %if.then34
   %kem.1.ph = phi ptr [ %call.i, %if.then34 ], [ %call.i80, %sw.bb37 ]
-  %tmp_prov.1.ph = phi ptr [ %12, %if.then34 ], [ %call39, %sw.bb37 ]
-  %15 = load ptr, ptr %keymgmt22, align 8
-  %call51 = call ptr @EVP_KEYMGMT_get0_name(ptr noundef %15) #4
-  %16 = load ptr, ptr %propquery40, align 8
-  %call53 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %tmp_prov.1.ph, ptr noundef %call51, ptr noundef %16) #4
+  %tmp_prov.1.ph = phi ptr [ %11, %if.then34 ], [ %call39, %sw.bb37 ]
+  %14 = load ptr, ptr %keymgmt22, align 8
+  %call51 = call ptr @EVP_KEYMGMT_get0_name(ptr noundef %14) #4
+  %15 = load ptr, ptr %propquery40, align 8
+  %call53 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %tmp_prov.1.ph, ptr noundef %call51, ptr noundef %15) #4
   store ptr %call53, ptr %tmp_keymgmt, align 8
   %cmp54.not = icmp eq ptr %call53, null
   br i1 %cmp54.not, label %if.then78, label %if.then56
 
 if.then56:                                        ; preds = %if.end49
-  %17 = load ptr, ptr %pkey, align 8
-  %18 = load ptr, ptr %libctx, align 8
-  %19 = load ptr, ptr %propquery40, align 8
-  %call60 = call ptr @evp_pkey_export_to_provider(ptr noundef %17, ptr noundef %18, ptr noundef nonnull %tmp_keymgmt, ptr noundef %19) #4
+  %16 = load ptr, ptr %pkey, align 8
+  %17 = load ptr, ptr %libctx, align 8
+  %18 = load ptr, ptr %propquery40, align 8
+  %call60 = call ptr @evp_pkey_export_to_provider(ptr noundef %16, ptr noundef %17, ptr noundef nonnull %tmp_keymgmt, ptr noundef %18) #4
   %cmp61 = icmp ne ptr %call60, null
   %or.cond = and i1 %cmp6, %cmp61
   br i1 %or.cond, label %if.then66, label %if.end75
 
 if.then66:                                        ; preds = %if.then56
-  %20 = load ptr, ptr %libctx, align 8
-  %21 = load ptr, ptr %propquery40, align 8
-  %call69 = call ptr @evp_pkey_export_to_provider(ptr noundef nonnull %authkey, ptr noundef %20, ptr noundef nonnull %tmp_keymgmt, ptr noundef %21) #4
+  %19 = load ptr, ptr %libctx, align 8
+  %20 = load ptr, ptr %propquery40, align 8
+  %call69 = call ptr @evp_pkey_export_to_provider(ptr noundef nonnull %authkey, ptr noundef %19, ptr noundef nonnull %tmp_keymgmt, ptr noundef %20) #4
   %cmp70 = icmp eq ptr %call69, null
   br i1 %cmp70, label %if.then72, label %if.end75
 
@@ -226,8 +223,8 @@ for.inc:                                          ; preds = %sw.bb, %if.end75, %
   %inc = add nuw nsw i32 %iter.0103, 1
   %cmp27 = icmp ult i32 %iter.0103, 2
   %cmp29 = icmp eq ptr %provkey.2, null
-  %22 = and i1 %cmp29, %cmp27
-  br i1 %22, label %for.body, label %for.end, !llvm.loop !5
+  %21 = and i1 %cmp29, %cmp27
+  br i1 %21, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc
   br i1 %cmp29, label %if.then82, label %if.end83
@@ -243,11 +240,11 @@ if.end83:                                         ; preds = %for.end
   %op = getelementptr inbounds i8, ptr %ctx, i64 40
   store ptr %kem.185, ptr %op, align 8
   %newctx = getelementptr inbounds i8, ptr %kem.185, i64 40
-  %23 = load ptr, ptr %newctx, align 8
+  %22 = load ptr, ptr %newctx, align 8
   %prov = getelementptr inbounds i8, ptr %kem.185, i64 24
-  %24 = load ptr, ptr %prov, align 8
-  %call85 = call ptr @ossl_provider_ctx(ptr noundef %24) #4
-  %call86 = call ptr %23(ptr noundef %call85) #4
+  %23 = load ptr, ptr %prov, align 8
+  %call85 = call ptr @ossl_provider_ctx(ptr noundef %23) #4
+  %call86 = call ptr %22(ptr noundef %call85) #4
   %algctx = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %call86, ptr %algctx, align 8
   %cmp90 = icmp eq ptr %call86, null
@@ -271,22 +268,22 @@ sw.bb94:                                          ; preds = %if.end93
 
 land.lhs.true97:                                  ; preds = %sw.bb94
   %auth_encapsulate_init = getelementptr inbounds i8, ptr %kem.185, i64 128
-  %25 = load ptr, ptr %auth_encapsulate_init, align 8
-  %cmp98.not = icmp eq ptr %25, null
+  %24 = load ptr, ptr %auth_encapsulate_init, align 8
+  %cmp98.not = icmp eq ptr %24, null
   br i1 %cmp98.not, label %if.else115, label %if.then100
 
 if.then100:                                       ; preds = %land.lhs.true97
-  %call104 = call i32 %25(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.2, ptr noundef nonnull %provauthkey.2, ptr noundef %params) #4
+  %call104 = call i32 %24(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.2, ptr noundef nonnull %provauthkey.2, ptr noundef %params) #4
   br label %sw.epilog143
 
 land.lhs.true107:                                 ; preds = %sw.bb94
   %encapsulate_init = getelementptr inbounds i8, ptr %kem.185, i64 48
-  %26 = load ptr, ptr %encapsulate_init, align 8
-  %cmp108.not = icmp eq ptr %26, null
+  %25 = load ptr, ptr %encapsulate_init, align 8
+  %cmp108.not = icmp eq ptr %25, null
   br i1 %cmp108.not, label %if.else115, label %if.then110
 
 if.then110:                                       ; preds = %land.lhs.true107
-  %call114 = call i32 %26(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.2, ptr noundef %params) #4
+  %call114 = call i32 %25(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.2, ptr noundef %params) #4
   br label %sw.epilog143
 
 if.else115:                                       ; preds = %land.lhs.true97, %land.lhs.true107
@@ -301,24 +298,24 @@ sw.bb118:                                         ; preds = %if.end93
 
 land.lhs.true121:                                 ; preds = %sw.bb118
   %auth_decapsulate_init = getelementptr inbounds i8, ptr %kem.185, i64 136
-  %27 = load ptr, ptr %auth_decapsulate_init, align 8
-  %cmp122.not = icmp eq ptr %27, null
+  %26 = load ptr, ptr %auth_decapsulate_init, align 8
+  %cmp122.not = icmp eq ptr %26, null
   br i1 %cmp122.not, label %if.else140, label %if.then124
 
 if.then124:                                       ; preds = %land.lhs.true121
-  %call128 = call i32 %27(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.2, ptr noundef nonnull %provauthkey.2, ptr noundef %params) #4
+  %call128 = call i32 %26(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.2, ptr noundef nonnull %provauthkey.2, ptr noundef %params) #4
   br label %sw.epilog143
 
 land.lhs.true132:                                 ; preds = %sw.bb118
   %encapsulate_init133 = getelementptr inbounds i8, ptr %kem.185, i64 48
-  %28 = load ptr, ptr %encapsulate_init133, align 8
-  %cmp134.not = icmp eq ptr %28, null
+  %27 = load ptr, ptr %encapsulate_init133, align 8
+  %cmp134.not = icmp eq ptr %27, null
   br i1 %cmp134.not, label %if.else140, label %if.then136
 
 if.then136:                                       ; preds = %land.lhs.true132
   %decapsulate_init = getelementptr inbounds i8, ptr %kem.185, i64 64
-  %29 = load ptr, ptr %decapsulate_init, align 8
-  %call139 = call i32 %29(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.2, ptr noundef %params) #4
+  %28 = load ptr, ptr %decapsulate_init, align 8
+  %call139 = call i32 %28(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.2, ptr noundef %params) #4
   br label %sw.epilog143
 
 if.else140:                                       ; preds = %land.lhs.true121, %land.lhs.true132
@@ -335,8 +332,8 @@ sw.default:                                       ; preds = %if.end93
 
 sw.epilog143:                                     ; preds = %if.then124, %if.then136, %if.then100, %if.then110
   %ret.0 = phi i32 [ %call128, %if.then124 ], [ %call139, %if.then136 ], [ %call104, %if.then100 ], [ %call114, %if.then110 ]
-  %30 = load ptr, ptr %tmp_keymgmt, align 8
-  call void @EVP_KEYMGMT_free(ptr noundef %30) #4
+  %29 = load ptr, ptr %tmp_keymgmt, align 8
+  call void @EVP_KEYMGMT_free(ptr noundef %29) #4
   store ptr null, ptr %tmp_keymgmt, align 8
   %cmp144 = icmp sgt i32 %ret.0, 0
   br i1 %cmp144, label %return, label %if.then150
@@ -345,8 +342,8 @@ if.then150:                                       ; preds = %if.then4, %if.then2
   %ret.1 = phi i32 [ 0, %if.then4 ], [ 0, %if.then25 ], [ 0, %if.then72 ], [ -2, %if.then44 ], [ 0, %if.then82 ], [ 0, %if.then92 ], [ 0, %sw.default ], [ %ret.0, %sw.epilog143 ], [ -2, %if.else140 ], [ -2, %if.else115 ], [ 0, %if.then20 ]
   call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %ctx) #4
   store i32 0, ptr %ctx, align 8
-  %31 = load ptr, ptr %tmp_keymgmt, align 8
-  call void @EVP_KEYMGMT_free(ptr noundef %31) #4
+  %30 = load ptr, ptr %tmp_keymgmt, align 8
+  call void @EVP_KEYMGMT_free(ptr noundef %30) #4
   br label %return
 
 return:                                           ; preds = %sw.epilog143, %if.then150, %if.then10, %if.then

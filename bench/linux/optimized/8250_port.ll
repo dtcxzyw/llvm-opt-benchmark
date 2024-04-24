@@ -3885,40 +3885,40 @@ define dso_local void @serial8250_console_write(ptr noundef %0, ptr noundef %1, 
   %177 = load i32, ptr %29, align 8
   %178 = and i32 %177, 131328
   %179 = icmp eq i32 %178, 256
-  br i1 %179, label %180, label %256
+  br i1 %179, label %180, label %258
 
 180:                                              ; preds = %.loopexit18
   %181 = getelementptr inbounds i8, ptr %0, i64 592
   %182 = load i32, ptr %181, align 8
   %183 = icmp ugt i32 %182, 1
-  br i1 %183, label %184, label %256
+  br i1 %183, label %184, label %258
 
 184:                                              ; preds = %180
   %185 = getelementptr inbounds i8, ptr %0, i64 597
   %186 = load i8, ptr %185, align 1
   %187 = and i8 %186, 1
   %188 = icmp eq i8 %187, 0
-  br i1 %188, label %256, label %189
+  br i1 %188, label %258, label %189
 
 189:                                              ; preds = %184
   %190 = getelementptr inbounds i8, ptr %0, i64 208
   %191 = load ptr, ptr %190, align 8
   %192 = icmp eq ptr %191, null
-  br i1 %192, label %256, label %193
+  br i1 %192, label %258, label %193
 
 193:                                              ; preds = %189
   %194 = getelementptr inbounds i8, ptr %191, i64 240
   %195 = load volatile i64, ptr %194, align 8
   %196 = and i64 %195, 1
   %197 = icmp eq i64 %196, 0
-  br i1 %197, label %256, label %198
+  br i1 %197, label %258, label %198
 
 198:                                              ; preds = %193
   %199 = getelementptr inbounds i8, ptr %0, i64 272
   %200 = load i64, ptr %199, align 8
   %201 = and i64 %200, 8388608
   %202 = icmp eq i64 %201, 0
-  br i1 %202, label %203, label %256, !prof !9
+  br i1 %202, label %203, label %258, !prof !9
 
 203:                                              ; preds = %198
   %204 = zext i32 %2 to i64
@@ -3929,133 +3929,135 @@ define dso_local void @serial8250_console_write(ptr noundef %0, ptr noundef %1, 
 207:                                              ; preds = %203
   %208 = getelementptr inbounds i8, ptr %0, i64 624
   %209 = getelementptr inbounds i8, ptr %0, i64 626
-  br label %211
+  br label %213
 
-.loopexit14:                                      ; preds = %.preheader
-  %210 = icmp eq ptr %248, %205
-  br i1 %210, label %.loopexit17, label %211, !llvm.loop !28
+.loopexit14:                                      ; preds = %.preheader, %.loopexit16
+  %210 = phi ptr [ %215, %.loopexit16 ], [ %250, %.preheader ]
+  %211 = phi i8 [ %214, %.loopexit16 ], [ %252, %.preheader ]
+  %212 = icmp eq ptr %210, %205
+  br i1 %212, label %.loopexit17, label %213, !llvm.loop !28
 
-211:                                              ; preds = %.loopexit14, %207
-  %212 = phi i8 [ 0, %207 ], [ %250, %.loopexit14 ]
-  %213 = phi ptr [ %1, %207 ], [ %248, %.loopexit14 ]
-  %214 = load i16, ptr %208, align 8
-  %215 = load ptr, ptr %26, align 8
-  %216 = call i32 %215(ptr noundef %0, i32 noundef 5) #14
-  %217 = trunc i32 %216 to i16
-  %218 = or i16 %214, %217
-  %219 = load i16, ptr %209, align 2
-  %220 = and i16 %218, %219
-  store i16 %220, ptr %208, align 8
-  %221 = and i16 %218, 32
-  %222 = icmp eq i16 %221, 0
-  br i1 %222, label %.preheader15, label %.loopexit16
+213:                                              ; preds = %.loopexit14, %207
+  %214 = phi i8 [ 0, %207 ], [ %211, %.loopexit14 ]
+  %215 = phi ptr [ %1, %207 ], [ %210, %.loopexit14 ]
+  %216 = load i16, ptr %208, align 8
+  %217 = load ptr, ptr %26, align 8
+  %218 = call i32 %217(ptr noundef %0, i32 noundef 5) #14
+  %219 = trunc i32 %218 to i16
+  %220 = or i16 %216, %219
+  %221 = load i16, ptr %209, align 2
+  %222 = and i16 %220, %221
+  store i16 %222, ptr %208, align 8
+  %223 = and i16 %220, 32
+  %224 = icmp eq i16 %223, 0
+  br i1 %224, label %.preheader15, label %.loopexit16
 
-.preheader15:                                     ; preds = %211, %226
-  %223 = phi i32 [ %224, %226 ], [ 10000, %211 ]
-  %224 = add nsw i32 %223, -1
-  %225 = icmp eq i32 %224, 0
-  br i1 %225, label %.loopexit16, label %226
+.preheader15:                                     ; preds = %213, %228
+  %225 = phi i32 [ %226, %228 ], [ 10000, %213 ]
+  %226 = add nsw i32 %225, -1
+  %227 = icmp eq i32 %226, 0
+  br i1 %227, label %.loopexit16, label %228
 
-226:                                              ; preds = %.preheader15
+228:                                              ; preds = %.preheader15
   call void @__const_udelay(i64 noundef 4295) #14
-  %227 = load i16, ptr %208, align 8
-  %228 = load ptr, ptr %26, align 8
-  %229 = call i32 %228(ptr noundef %0, i32 noundef 5) #14
-  %230 = trunc i32 %229 to i16
-  %231 = or i16 %227, %230
-  %232 = load i16, ptr %209, align 2
-  %233 = and i16 %231, %232
-  store i16 %233, ptr %208, align 8
-  %234 = and i16 %231, 32
-  %235 = icmp eq i16 %234, 0
-  br i1 %235, label %.preheader15, label %.loopexit16, !llvm.loop !21
+  %229 = load i16, ptr %208, align 8
+  %230 = load ptr, ptr %26, align 8
+  %231 = call i32 %230(ptr noundef %0, i32 noundef 5) #14
+  %232 = trunc i32 %231 to i16
+  %233 = or i16 %229, %232
+  %234 = load i16, ptr %209, align 2
+  %235 = and i16 %233, %234
+  store i16 %235, ptr %208, align 8
+  %236 = and i16 %233, 32
+  %237 = icmp eq i16 %236, 0
+  br i1 %237, label %.preheader15, label %.loopexit16, !llvm.loop !21
 
-.loopexit16:                                      ; preds = %226, %.preheader15, %211
-  %236 = icmp eq ptr %213, %205
-  br i1 %236, label %.loopexit17, label %.preheader
+.loopexit16:                                      ; preds = %228, %.preheader15, %213
+  %238 = icmp eq ptr %215, %205
+  br i1 %238, label %.loopexit14, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit16, %.preheader
-  %237 = phi i8 [ %250, %.preheader ], [ %212, %.loopexit16 ]
-  %238 = phi i32 [ %252, %.preheader ], [ 0, %.loopexit16 ]
-  %239 = phi ptr [ %248, %.preheader ], [ %213, %.loopexit16 ]
-  %240 = load i8, ptr %239, align 1
-  %241 = icmp ne i8 %240, 10
-  %242 = and i8 %237, 1
-  %243 = icmp ne i8 %242, 0
-  %244 = or i1 %241, %243
-  %245 = zext i8 %240 to i32
-  %246 = select i1 %244, i32 %245, i32 13
-  %247 = zext i1 %244 to i64
-  %248 = getelementptr i8, ptr %239, i64 %247
-  %249 = xor i1 %244, true
-  %250 = zext i1 %249 to i8
-  %251 = load ptr, ptr %31, align 8
-  call void %251(ptr noundef %0, i32 noundef 0, i32 noundef %246) #14
-  %252 = add nuw i32 %238, 1
-  %253 = icmp ult i32 %252, %182
-  %254 = icmp ne ptr %248, %205
-  %255 = and i1 %253, %254
-  br i1 %255, label %.preheader, label %.loopexit14, !llvm.loop !29
+  %239 = phi i8 [ %252, %.preheader ], [ %214, %.loopexit16 ]
+  %240 = phi i32 [ %254, %.preheader ], [ 0, %.loopexit16 ]
+  %241 = phi ptr [ %250, %.preheader ], [ %215, %.loopexit16 ]
+  %242 = load i8, ptr %241, align 1
+  %243 = icmp ne i8 %242, 10
+  %244 = and i8 %239, 1
+  %245 = icmp ne i8 %244, 0
+  %246 = select i1 %243, i1 true, i1 %245
+  %247 = zext i8 %242 to i32
+  %248 = select i1 %246, i32 %247, i32 13
+  %249 = zext i1 %246 to i64
+  %250 = getelementptr i8, ptr %241, i64 %249
+  %251 = xor i1 %246, true
+  %252 = zext i1 %251 to i8
+  %253 = load ptr, ptr %31, align 8
+  call void %253(ptr noundef %0, i32 noundef 0, i32 noundef %248) #14
+  %254 = add nuw i32 %240, 1
+  %255 = icmp ult i32 %254, %182
+  %256 = icmp ne ptr %250, %205
+  %257 = and i1 %255, %256
+  br i1 %257, label %.preheader, label %.loopexit14, !llvm.loop !29
 
-256:                                              ; preds = %198, %193, %189, %184, %180, %.loopexit18
+258:                                              ; preds = %198, %193, %189, %184, %180, %.loopexit18
   call void @uart_console_write(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @serial8250_console_putchar) #14
   br label %.loopexit17
 
-.loopexit17:                                      ; preds = %.loopexit14, %.loopexit16, %256, %203
+.loopexit17:                                      ; preds = %.loopexit14, %258, %203
   call fastcc void @wait_for_xmitr(ptr noundef %0, i32 noundef 96)
-  br i1 %158, label %274, label %257
+  br i1 %158, label %276, label %259
 
-257:                                              ; preds = %.loopexit17
-  %258 = getelementptr inbounds i8, ptr %0, i64 408
-  %259 = load i32, ptr %258, align 8
-  %260 = icmp eq i32 %259, 0
-  br i1 %260, label %.loopexit, label %261
+259:                                              ; preds = %.loopexit17
+  %260 = getelementptr inbounds i8, ptr %0, i64 408
+  %261 = load i32, ptr %260, align 8
+  %262 = icmp eq i32 %261, 0
+  br i1 %262, label %.loopexit, label %263
 
-261:                                              ; preds = %257
-  %262 = zext i32 %259 to i64
-  br label %263
+263:                                              ; preds = %259
+  %264 = zext i32 %261 to i64
+  br label %265
 
-263:                                              ; preds = %263, %261
-  %264 = phi i64 [ %265, %263 ], [ %262, %261 ]
-  %265 = add nsw i64 %264, -1
+265:                                              ; preds = %265, %263
+  %266 = phi i64 [ %267, %265 ], [ %264, %263 ]
+  %267 = add nsw i64 %266, -1
   call void @__const_udelay(i64 noundef 4295000) #14
-  %266 = icmp eq i64 %265, 0
-  br i1 %266, label %.loopexit, label %263, !llvm.loop !30
+  %268 = icmp eq i64 %267, 0
+  br i1 %268, label %.loopexit, label %265, !llvm.loop !30
 
-.loopexit:                                        ; preds = %263, %257
-  %267 = getelementptr inbounds i8, ptr %8, i64 144
-  %268 = load i8, ptr %267, align 8
-  %269 = and i8 %268, 1
-  %270 = icmp eq i8 %269, 0
-  br i1 %270, label %274, label %271
+.loopexit:                                        ; preds = %265, %259
+  %269 = getelementptr inbounds i8, ptr %8, i64 144
+  %270 = load i8, ptr %269, align 8
+  %271 = and i8 %270, 1
+  %272 = icmp eq i8 %271, 0
+  br i1 %272, label %276, label %273
 
-271:                                              ; preds = %.loopexit
-  %272 = getelementptr inbounds i8, ptr %0, i64 680
-  %273 = load ptr, ptr %272, align 8
-  call void %273(ptr noundef %0) #14
-  br label %274
+273:                                              ; preds = %.loopexit
+  %274 = getelementptr inbounds i8, ptr %0, i64 680
+  %275 = load ptr, ptr %274, align 8
+  call void %275(ptr noundef %0) #14
+  br label %276
 
-274:                                              ; preds = %271, %.loopexit, %.loopexit17
-  %275 = load ptr, ptr %31, align 8
-  call void %275(ptr noundef %0, i32 noundef 1, i32 noundef %28) #14
-  %276 = getelementptr inbounds i8, ptr %0, i64 628
-  %277 = load i8, ptr %276, align 4
-  %278 = icmp eq i8 %277, 0
-  br i1 %278, label %281, label %279
+276:                                              ; preds = %273, %.loopexit, %.loopexit17
+  %277 = load ptr, ptr %31, align 8
+  call void %277(ptr noundef %0, i32 noundef 1, i32 noundef %28) #14
+  %278 = getelementptr inbounds i8, ptr %0, i64 628
+  %279 = load i8, ptr %278, align 4
+  %280 = icmp eq i8 %279, 0
+  br i1 %280, label %283, label %281
 
-279:                                              ; preds = %274
-  %280 = call i32 @serial8250_modem_status(ptr noundef %0)
-  br label %281
+281:                                              ; preds = %276
+  %282 = call i32 @serial8250_modem_status(ptr noundef %0)
+  br label %283
 
-281:                                              ; preds = %279, %274
-  %282 = icmp eq i32 %25, 0
-  br i1 %282, label %284, label %283
+283:                                              ; preds = %281, %276
+  %284 = icmp eq i32 %25, 0
+  br i1 %284, label %286, label %285
 
-283:                                              ; preds = %281
+285:                                              ; preds = %283
   call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %24) #14
-  br label %284
+  br label %286
 
-284:                                              ; preds = %283, %281
+286:                                              ; preds = %285, %283
   ret void
 }
 
@@ -4852,7 +4854,7 @@ define internal void @serial8250_start_tx(ptr noundef %0) #0 align 16 {
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %35
-  %42 = tail call i32 @hrtimer_try_to_cancel(ptr noundef %38) #14
+  %42 = tail call i32 @hrtimer_try_to_cancel(ptr noundef %39) #14
   br label %43
 
 43:                                               ; preds = %41, %35

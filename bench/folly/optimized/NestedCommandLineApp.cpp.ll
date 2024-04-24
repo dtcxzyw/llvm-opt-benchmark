@@ -4357,7 +4357,7 @@ if.end18:                                         ; preds = %if.end11
   br i1 %cmp.i.i, label %if.end.i.i.thread, label %_ZN5folly9FormatArgC2ENS_5RangeIPKcEE.exit
 
 if.end.i.i.thread:                                ; preds = %if.end18
-  %add.ptr20283 = getelementptr inbounds i8, ptr %call3, i64 2
+  %add.ptr20283 = getelementptr inbounds i8, ptr %call15, i64 1
   br label %if.end.i.i.if.then23_crit_edge
 
 _ZN5folly9FormatArgC2ENS_5RangeIPKcEE.exit:       ; preds = %if.end18

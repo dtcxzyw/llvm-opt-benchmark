@@ -8947,28 +8947,24 @@ RemoveGUCFromLists.exit:                          ; preds = %44, %48
   %79 = load ptr, ptr %78, align 8
   store ptr null, ptr %78, align 8
   %.not.i34 = icmp eq ptr %79, null
-  br i1 %.not.i34, label %set_string_field.exit, label %80
+  br i1 %.not.i34, label %set_string_field.exitthread-pre-split, label %80
 
 80:                                               ; preds = %77
   %81 = load ptr, ptr %63, align 8
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, %79
-  br i1 %83, label %set_string_field.exit, label %84
+  br i1 %83, label %set_string_field.exitthread-pre-split, label %84
 
 84:                                               ; preds = %80
   %85 = load ptr, ptr %50, align 8
   %86 = icmp eq ptr %85, %79
-  br i1 %86, label %set_string_field.exit.thread, label %87
-
-set_string_field.exit.thread:                     ; preds = %84
-  store ptr null, ptr %50, align 8
-  br label %99
+  br i1 %86, label %set_string_field.exit, label %87
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds i8, ptr %18, i64 152
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, %79
-  br i1 %90, label %set_string_field.exit, label %.preheader44
+  br i1 %90, label %set_string_field.exitthread-pre-split, label %.preheader44
 
 .preheader44:                                     ; preds = %87, %95
   %.0.in.i.i = phi ptr [ %.0.i.i, %95 ], [ %40, %87 ]
@@ -8980,35 +8976,38 @@ set_string_field.exit.thread:                     ; preds = %84
   %92 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, %79
-  br i1 %94, label %set_string_field.exit, label %95
+  br i1 %94, label %set_string_field.exitthread-pre-split, label %95
 
 95:                                               ; preds = %91
   %96 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, %79
-  br i1 %98, label %set_string_field.exit, label %.preheader44, !llvm.loop !34
+  br i1 %98, label %set_string_field.exitthread-pre-split, label %.preheader44, !llvm.loop !34
 
 guc_free.exit.i:                                  ; preds = %.preheader44
   call void @pfree(ptr noundef nonnull %79) #28
+  br label %set_string_field.exitthread-pre-split
+
+set_string_field.exitthread-pre-split:            ; preds = %95, %91, %guc_free.exit.i, %87, %80, %77
+  %.pr = load ptr, ptr %50, align 8
   br label %set_string_field.exit
 
-set_string_field.exit:                            ; preds = %91, %95, %77, %80, %87, %guc_free.exit.i
-  %.pr = load ptr, ptr %50, align 8
+set_string_field.exit:                            ; preds = %set_string_field.exitthread-pre-split, %84
+  %99 = phi ptr [ %.pr, %set_string_field.exitthread-pre-split ], [ %85, %84 ]
   store ptr null, ptr %50, align 8
-  %.not.i35 = icmp eq ptr %.pr, null
-  br i1 %.not.i35, label %set_string_field.exit40.thread, label %99
+  %.not.i35 = icmp eq ptr %99, null
+  br i1 %.not.i35, label %set_string_field.exit40.thread, label %100
 
-99:                                               ; preds = %set_string_field.exit.thread, %set_string_field.exit
-  %100 = phi ptr [ %79, %set_string_field.exit.thread ], [ %.pr, %set_string_field.exit ]
+100:                                              ; preds = %set_string_field.exit
   %101 = load ptr, ptr %63, align 8
   %102 = load ptr, ptr %101, align 8
-  %103 = icmp eq ptr %102, %100
+  %103 = icmp eq ptr %102, %99
   br i1 %103, label %set_string_field.exit40.thread, label %104
 
-104:                                              ; preds = %99
+104:                                              ; preds = %100
   %105 = getelementptr inbounds i8, ptr %18, i64 152
   %106 = load ptr, ptr %105, align 8
-  %107 = icmp eq ptr %106, %100
+  %107 = icmp eq ptr %106, %99
   br i1 %107, label %set_string_field.exit40.thread, label %.preheader
 
 .preheader:                                       ; preds = %104, %112
@@ -9020,24 +9019,24 @@ set_string_field.exit:                            ; preds = %91, %95, %77, %80, 
 108:                                              ; preds = %.preheader
   %109 = getelementptr inbounds i8, ptr %.0.i.i37, i64 40
   %110 = load ptr, ptr %109, align 8
-  %111 = icmp eq ptr %110, %100
+  %111 = icmp eq ptr %110, %99
   br i1 %111, label %set_string_field.exit40, label %112
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds i8, ptr %.0.i.i37, i64 56
   %114 = load ptr, ptr %113, align 8
-  %115 = icmp eq ptr %114, %100
+  %115 = icmp eq ptr %114, %99
   br i1 %115, label %set_string_field.exit40, label %.preheader, !llvm.loop !34
 
 guc_free.exit.i39:                                ; preds = %.preheader
-  call void @pfree(ptr noundef nonnull %100) #28
+  call void @pfree(ptr noundef nonnull %99) #28
   br label %set_string_field.exit40
 
 set_string_field.exit40:                          ; preds = %108, %112, %guc_free.exit.i39
   %.not.i41 = icmp eq ptr %18, null
   br i1 %.not.i41, label %guc_free.exit, label %set_string_field.exit40.thread
 
-set_string_field.exit40.thread:                   ; preds = %104, %99, %set_string_field.exit, %set_string_field.exit40
+set_string_field.exit40.thread:                   ; preds = %104, %100, %set_string_field.exit, %set_string_field.exit40
   call void @pfree(ptr noundef nonnull %18) #28
   br label %guc_free.exit
 

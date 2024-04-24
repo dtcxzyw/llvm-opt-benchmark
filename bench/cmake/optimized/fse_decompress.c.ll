@@ -396,7 +396,7 @@ BIT_reloadDStreamFast.exit.i:                     ; preds = %.lr.ph
   %.0266.i.lcssa = phi ptr [ %0, %61 ], [ %.0266.i35, %93 ], [ %.0266.i35, %80 ], [ %151, %99 ]
   %.lcssa457.promoted636.i = phi i32 [ %.promoted.i, %61 ], [ %.lcssa457.promoted.i, %93 ], [ %74, %80 ], [ %147, %99 ]
   %.val.i.i461635.i = phi i64 [ %.promoted459.i, %61 ], [ %.val.i, %93 ], [ %.val.i.i460.i34, %80 ], [ %.val.i, %99 ]
-  %.promoted492634.i = phi ptr [ %.promoted466.i, %61 ], [ %.sink.i, %93 ], [ %67, %80 ], [ %.sink.i, %99 ]
+  %.promoted492634.i = phi ptr [ %.promoted466.i, %61 ], [ %.sink.i, %93 ], [ %77, %80 ], [ %.sink.i, %99 ]
   store ptr %.promoted492634.i, ptr %63, align 8
   store i32 %.lcssa457.promoted636.i, ptr %62, align 8
   store i64 %.val.i.i461635.i, ptr %12, align 8
@@ -556,7 +556,7 @@ BIT_reloadDStreamFast.exit347.i:                  ; preds = %171
   br label %188
 
 188:                                              ; preds = %.sink.split.i, %174
-  %189 = phi ptr [ %67, %174 ], [ %.sink682.i, %.sink.split.i ]
+  %189 = phi ptr [ %153, %174 ], [ %.sink682.i, %.sink.split.i ]
   %190 = phi i32 [ %166, %174 ], [ %.ph681.i, %.sink.split.i ]
   %.val.i362474.i = phi i64 [ %.val.i362472480.i, %174 ], [ %.val.i345.i, %.sink.split.i ]
   %191 = icmp ugt ptr %169, %97
@@ -622,7 +622,7 @@ BIT_reloadDStreamFast.exit364.i:                  ; preds = %207
   br label %223
 
 223:                                              ; preds = %.sink.split683.i, %210
-  %224 = phi ptr [ %67, %210 ], [ %.sink686.i, %.sink.split683.i ]
+  %224 = phi ptr [ %189, %210 ], [ %.sink686.i, %.sink.split683.i ]
   %225 = phi i32 [ %202, %210 ], [ %.ph685.i, %.sink.split683.i ]
   %.val.i362473.i = phi i64 [ %.val.i362474.i, %210 ], [ %.val313.i, %.sink.split683.i ]
   %226 = icmp ugt ptr %205, %97
@@ -724,7 +724,7 @@ BIT_reloadDStreamFast.exit374.i:                  ; preds = %.lr.ph56
   %.0264.i.lcssa = phi ptr [ %0, %236 ], [ %.0264.i55, %269 ], [ %.0264.i55, %256 ], [ %328, %276 ]
   %.lcssa447.promoted643.i = phi i32 [ %.promoted497.i, %236 ], [ %.lcssa447.promoted.i, %269 ], [ %249, %256 ], [ %318, %276 ]
   %273 = phi i64 [ %.promoted499.i, %236 ], [ %.val314.i, %269 ], [ %250, %256 ], [ %.val314.i, %276 ]
-  %.promoted533642.i = phi ptr [ %.promoted505.i, %236 ], [ %.sink687.i, %269 ], [ %242, %256 ], [ %.sink687.i, %276 ]
+  %.promoted533642.i = phi ptr [ %.promoted505.i, %236 ], [ %.sink687.i, %269 ], [ %253, %256 ], [ %.sink687.i, %276 ]
   store ptr %.promoted533642.i, ptr %238, align 8
   store i32 %.lcssa447.promoted643.i, ptr %237, align 8
   store i64 %273, ptr %9, align 8
@@ -889,7 +889,7 @@ BIT_reloadDStreamFast.exit406.i:                  ; preds = %348
   br label %365
 
 365:                                              ; preds = %.sink.split688.i, %351
-  %366 = phi ptr [ %242, %351 ], [ %.sink691.i, %.sink.split688.i ]
+  %366 = phi ptr [ %330, %351 ], [ %.sink691.i, %.sink.split688.i ]
   %367 = phi i32 [ %337, %351 ], [ %.ph690.i, %.sink.split688.i ]
   %.val.i419513.i = phi i64 [ %.val.i419511519.i, %351 ], [ %.val.i404.i, %.sink.split688.i ]
   %368 = icmp ugt ptr %346, %274
@@ -956,7 +956,7 @@ BIT_reloadDStreamFast.exit421.i:                  ; preds = %384
   br label %400
 
 400:                                              ; preds = %.sink.split692.i, %387
-  %401 = phi ptr [ %242, %387 ], [ %.sink695.i, %.sink.split692.i ]
+  %401 = phi ptr [ %366, %387 ], [ %.sink695.i, %.sink.split692.i ]
   %402 = phi i32 [ %373, %387 ], [ %.ph694.i, %.sink.split692.i ]
   %.val.i419512.i = phi i64 [ %.val.i419513.i, %387 ], [ %.val316.i, %.sink.split692.i ]
   %403 = icmp ugt ptr %382, %274

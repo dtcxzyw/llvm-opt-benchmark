@@ -1289,7 +1289,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then3.i.i.i.i.i,
   br i1 %cmp8.i.i.i.i.i, label %if.then9.i.i.i.i.i, label %if.end11.i.i.i.i.i
 
 if.then9.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  store ptr %10, ptr %12, align 8
+  store ptr %10, ptr %_M_before_begin.i.i.i.i.i, align 8
   br label %if.end11.i.i.i.i.i
 
 if.end11.i.i.i.i.i:                               ; preds = %if.then9.i.i.i.i.i, %if.end.i.i.i.i.i
@@ -2278,7 +2278,7 @@ if.then.i.i.i:                                    ; preds = %for.end
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i:                                    ; preds = %for.end
-  tail call void @_ZdlPv(ptr noundef %35) #26
+  tail call void @_ZdlPv(ptr noundef %36) #26
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %37 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i25 = getelementptr inbounds i8, ptr %37, i64 -8
@@ -8791,7 +8791,7 @@ if.then.i.i.i35:                                  ; preds = %do.end36
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i37:                                  ; preds = %do.end36
-  call void @_ZdlPv(ptr noundef %31) #26
+  call void @_ZdlPv(ptr noundef %39) #26
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %40 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i38 = getelementptr inbounds i8, ptr %40, i64 -8

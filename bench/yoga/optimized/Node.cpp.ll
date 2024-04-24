@@ -4514,7 +4514,7 @@ if.then:                                          ; preds = %entry
 
 if.then9:                                         ; preds = %if.then
   %3 = load ptr, ptr %__x, align 8
-  store ptr %3, ptr %__position.coerce, align 8
+  store ptr %3, ptr %1, align 8
   %4 = load ptr, ptr %_M_finish, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr, ptr %_M_finish, align 8
@@ -4891,7 +4891,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN8facebook4yoga4NodeESt6vectorIS5_SaI
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit: ; preds = %entry, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i
-  %2 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i ], [ %add.ptr.i.i.i, %entry ]
+  %2 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i ], [ %1, %entry ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i, align 8
   ret void

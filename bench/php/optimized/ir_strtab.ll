@@ -343,7 +343,7 @@ ir_strtab_grow_buf.exit.loopexit:                 ; preds = %.lr.ph.i69
   br label %ir_strtab_grow_buf.exit
 
 ir_strtab_grow_buf.exit:                          ; preds = %ir_strtab_grow_buf.exit.loopexit, %106, %103, %88
-  %117 = phi ptr [ %.pre, %ir_strtab_grow_buf.exit.loopexit ], [ %105, %106 ], [ %87, %103 ], [ %87, %88 ]
+  %117 = phi ptr [ %.pre, %ir_strtab_grow_buf.exit.loopexit ], [ %105, %106 ], [ %105, %103 ], [ %87, %88 ]
   %118 = load i32, ptr %91, align 4
   %119 = zext i32 %118 to i64
   %120 = getelementptr inbounds i8, ptr %117, i64 %119

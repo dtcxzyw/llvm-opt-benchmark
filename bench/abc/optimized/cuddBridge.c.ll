@@ -838,7 +838,7 @@ define internal ptr @ddBddToAddRecur(ptr noundef %0, ptr noundef %1) #0 {
   br label %67
 
 67:                                               ; preds = %17, %15, %12, %8, %66, %56, %41, %30
-  %.055 = phi ptr [ null, %30 ], [ null, %41 ], [ null, %56 ], [ %.1, %66 ], [ %14, %12 ], [ %1, %8 ], [ %16, %15 ], [ null, %17 ]
+  %.055 = phi ptr [ null, %30 ], [ null, %41 ], [ null, %56 ], [ %.1, %66 ], [ %14, %12 ], [ %10, %8 ], [ %16, %15 ], [ null, %17 ]
   ret ptr %.055
 }
 

@@ -886,7 +886,7 @@ define ptr @cli_memstr(ptr noundef readonly %0, i64 noundef %1, ptr noundef read
   br i1 %.not, label %.loopexit, label %21
 
 .loopexit:                                        ; preds = %30, %28, %6, %4, %11
-  %.035 = phi ptr [ %13, %11 ], [ null, %4 ], [ %2, %6 ], [ null, %30 ], [ %22, %28 ]
+  %.035 = phi ptr [ %13, %11 ], [ null, %4 ], [ %0, %6 ], [ null, %30 ], [ %22, %28 ]
   ret ptr %.035
 }
 
@@ -2259,7 +2259,7 @@ define noundef i32 @cli_basename(ptr noundef %0, i64 noundef %1, ptr noundef wri
   br i1 %.not, label %16, label %19
 
 16:                                               ; preds = %15
-  %17 = load i8, ptr %0, align 1
+  %17 = load i8, ptr %.0, align 1
   %18 = icmp eq i8 %17, 47
   br i1 %18, label %19, label %20
 
@@ -2267,7 +2267,7 @@ define noundef i32 @cli_basename(ptr noundef %0, i64 noundef %1, ptr noundef wri
   br label %20
 
 20:                                               ; preds = %19, %16
-  %.1 = phi ptr [ %.pn, %19 ], [ %0, %16 ]
+  %.1 = phi ptr [ %.pn, %19 ], [ %.0, %16 ]
   %21 = ptrtoint ptr %.1 to i64
   %22 = ptrtoint ptr %0 to i64
   %.neg = sub i64 %22, %21

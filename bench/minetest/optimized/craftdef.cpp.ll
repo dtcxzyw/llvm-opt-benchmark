@@ -9186,7 +9186,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyINSt7_
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %cleanup
-  %33 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %28, %cleanup ]
+  %33 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %29, %cleanup ]
   %tobool.not.i.i.i = icmp eq ptr %33, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
@@ -10316,7 +10316,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyINSt7_
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %cleanup
-  %33 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %28, %cleanup ]
+  %33 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %29, %cleanup ]
   %tobool.not.i.i.i = icmp eq ptr %33, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
@@ -24874,7 +24874,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   %add.i = add nuw nsw i64 %4, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i, i1 false)
   store i64 0, ptr %_M_string_length.i.i, align 8, !tbaa !24
-  store i8 0, ptr %2, align 1, !tbaa !10
+  store i8 0, ptr %3, align 1, !tbaa !10
   store ptr %1, ptr %agg.tmp6, align 8, !tbaa !33
   br label %if.then.i28
 
@@ -26297,7 +26297,7 @@ if.end29.thread.i:                                ; preds = %if.end.i
   store ptr %13, ptr %__last.sroa.0.0, align 8, !tbaa !21
   store i64 %7, ptr %_M_string_length.i.i14, align 8, !tbaa !24
   %21 = load i64, ptr %14, align 8, !tbaa !10
-  store i64 %21, ptr %10, align 8, !tbaa !10
+  store i64 %21, ptr %11, align 8, !tbaa !10
   br label %if.else34.i
 
 if.end29.i:                                       ; preds = %if.end.thread.i

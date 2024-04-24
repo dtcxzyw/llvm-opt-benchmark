@@ -400,7 +400,7 @@ land.lhs.true:                                    ; preds = %_ZN4node7ReallocIcE
   br i1 %cmp13.not, label %if.end18, label %if.then14
 
 if.then14:                                        ; preds = %land.lhs.true
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i7.i, ptr nonnull align 8 %0, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i7.i, ptr nonnull align 8 %buf_st_.i, i64 %2, i1 false)
   br label %if.end18
 
 if.end18:                                         ; preds = %_ZN4node7ReallocIcEEPT_S2_m.exit, %land.lhs.true, %if.then14, %do.end6
@@ -4212,7 +4212,7 @@ cond.end.i:                                       ; preds = %if.then.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
   %arrayidx5.i.i = getelementptr inbounds ptr, ptr %9, i64 %rem.i.i.i.i
-  store ptr %__prev_n.0, ptr %arrayidx5.i.i, align 8
+  store ptr %10, ptr %arrayidx5.i.i, align 8
   %.pre.i = load ptr, ptr %this, align 8
   %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %__bkt.0
   %.pre24.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8

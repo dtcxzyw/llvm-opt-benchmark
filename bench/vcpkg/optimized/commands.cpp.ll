@@ -144,7 +144,7 @@ define dso_local void @_ZN5vcpkg25get_all_commands_metadataEv(ptr dead_on_unwind
 
 15:                                               ; preds = %10
   store ptr %5, ptr %2, align 8
-  store ptr %5, ptr %3, align 8
+  store ptr %6, ptr %3, align 8
   store ptr %7, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #12
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -204,7 +204,7 @@ _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit: ; preds = 
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store ptr %68, ptr %2, align 8
-  store ptr %68, ptr %3, align 8
+  store ptr %69, ptr %3, align 8
   store ptr %70, ptr %0, align 8
   br label %.loopexit.split-lp
 
@@ -212,7 +212,7 @@ _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit: ; preds = 
   %lpad.loopexit50 = landingpad { ptr, i32 }
           cleanup
   store ptr %38, ptr %2, align 8
-  store ptr %38, ptr %3, align 8
+  store ptr %39, ptr %3, align 8
   store ptr %40, ptr %0, align 8
   br label %.loopexit.split-lp
 
@@ -220,7 +220,7 @@ _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit: ; preds = 
   %lpad.loopexit53 = landingpad { ptr, i32 }
           cleanup
   store ptr %5, ptr %2, align 8
-  store ptr %5, ptr %3, align 8
+  store ptr %6, ptr %3, align 8
   store ptr %7, ptr %0, align 8
   br label %.loopexit.split-lp
 
@@ -272,7 +272,7 @@ _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EED2Ev.exit: ; preds = %.loopexit.
 
 48:                                               ; preds = %43
   store ptr %38, ptr %2, align 8
-  store ptr %38, ptr %3, align 8
+  store ptr %39, ptr %3, align 8
   store ptr %40, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #12
           to label %.noexc30 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -351,7 +351,7 @@ _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit32: ; preds 
 
 78:                                               ; preds = %73
   store ptr %68, ptr %2, align 8
-  store ptr %68, ptr %3, align 8
+  store ptr %69, ptr %3, align 8
   store ptr %70, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #12
           to label %.noexc41 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

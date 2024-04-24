@@ -2062,7 +2062,7 @@ _ZSt8_DestroyIPN4LIEF5MachO16BuildToolVersionES2_EvT_S4_RSaIT0_E.exitthread-pre-
   br label %_ZSt8_DestroyIPN4LIEF5MachO16BuildToolVersionES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN4LIEF5MachO16BuildToolVersionES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZN4LIEF4Hash7processIjLm3EEERS0_RKSt5arrayIT_XT0_EE.exit19, %_ZSt8_DestroyIPN4LIEF5MachO16BuildToolVersionES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %_ZN4LIEF4Hash7processIN9__gnu_cxx17__normal_iteratorIPNS_5MachO16BuildToolVersionESt6vectorIS5_SaIS5_EEEEEERS0_T_SC_.exit
-  %45 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN4LIEF5MachO16BuildToolVersionES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %.pre26, %_ZN4LIEF4Hash7processIN9__gnu_cxx17__normal_iteratorIPNS_5MachO16BuildToolVersionESt6vectorIS5_SaIS5_EEEEEERS0_T_SC_.exit ], [ %33, %_ZN4LIEF4Hash7processIjLm3EEERS0_RKSt5arrayIT_XT0_EE.exit19 ]
+  %45 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN4LIEF5MachO16BuildToolVersionES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %_ZN4LIEF4Hash7processIN9__gnu_cxx17__normal_iteratorIPNS_5MachO16BuildToolVersionESt6vectorIS5_SaIS5_EEEEEERS0_T_SC_.exit ], [ %33, %_ZN4LIEF4Hash7processIjLm3EEERS0_RKSt5arrayIT_XT0_EE.exit19 ]
   %.not.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EED2Ev.exit, label %46
 

@@ -625,41 +625,41 @@ ieee80211_set_sdata_offload_flags.exit:           ; preds = %73, %167, %162, %15
 
 186:                                              ; preds = %ieee80211_set_sdata_offload_flags.exit
   %187 = getelementptr inbounds i8, ptr %10, i64 1904
-  %188 = getelementptr i8, ptr %10, i64 4056
-  %189 = getelementptr i8, ptr %10, i64 5100
-  br label %190
+  br label %188
 
-190:                                              ; preds = %224, %186
-  %191 = phi ptr [ %184, %186 ], [ %225, %224 ]
-  %192 = getelementptr inbounds i8, ptr %191, i64 4056
-  %193 = load i32, ptr %192, align 8
-  %194 = icmp eq i32 %193, 4
-  br i1 %194, label %195, label %224
+188:                                              ; preds = %224, %186
+  %189 = phi ptr [ %184, %186 ], [ %225, %224 ]
+  %190 = getelementptr inbounds i8, ptr %189, i64 4056
+  %191 = load i32, ptr %190, align 8
+  %192 = icmp eq i32 %191, 4
+  br i1 %192, label %193, label %224
 
-195:                                              ; preds = %190
-  %196 = getelementptr inbounds i8, ptr %191, i64 1672
-  %197 = load ptr, ptr %196, align 8
-  %.not10 = icmp eq ptr %197, %187
-  br i1 %.not10, label %198, label %224
+193:                                              ; preds = %188
+  %194 = getelementptr inbounds i8, ptr %189, i64 1672
+  %195 = load ptr, ptr %194, align 8
+  %.not10 = icmp eq ptr %195, %187
+  br i1 %.not10, label %196, label %224
 
-198:                                              ; preds = %195
-  %199 = getelementptr inbounds i8, ptr %191, i64 1256
-  %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 88
-  %202 = load volatile i64, ptr %201, align 8
-  %203 = and i64 %202, 562949953421312
-  %204 = icmp eq i64 %203, 0
-  br i1 %204, label %224, label %205
+196:                                              ; preds = %193
+  %197 = getelementptr inbounds i8, ptr %189, i64 1256
+  %198 = load ptr, ptr %197, align 8
+  %199 = getelementptr inbounds i8, ptr %198, i64 88
+  %200 = load volatile i64, ptr %199, align 8
+  %201 = and i64 %200, 562949953421312
+  %202 = icmp eq i64 %201, 0
+  br i1 %202, label %224, label %203
 
-205:                                              ; preds = %198
-  %206 = load i32, ptr %188, align 8
-  %207 = and i32 %206, -2
-  %208 = icmp eq i32 %207, 2
-  br i1 %208, label %209, label %224
+203:                                              ; preds = %196
+  %204 = getelementptr i8, ptr %195, i64 2152
+  %205 = load i32, ptr %204, align 8
+  %206 = and i32 %205, -2
+  %207 = icmp eq i32 %206, 2
+  br i1 %207, label %208, label %224
 
-209:                                              ; preds = %205
-  %210 = load i32, ptr %189, align 4
-  %211 = getelementptr inbounds i8, ptr %191, i64 81
+208:                                              ; preds = %203
+  %209 = getelementptr i8, ptr %195, i64 3196
+  %210 = load i32, ptr %209, align 4
+  %211 = getelementptr inbounds i8, ptr %189, i64 81
   %212 = load i8, ptr %211, align 1, !range !6, !noundef !7
   %213 = icmp ne i8 %212, 0
   %214 = and i32 %210, 2
@@ -669,16 +669,16 @@ ieee80211_set_sdata_offload_flags.exit:           ; preds = %73, %167, %162, %15
   %218 = icmp eq i32 %217, 0
   %219 = select i1 %216, i1 true, i1 %218
   %220 = select i1 %219, ptr @ieee80211_dataif_ops, ptr @ieee80211_dataif_8023_ops
-  %221 = getelementptr inbounds i8, ptr %191, i64 1248
+  %221 = getelementptr inbounds i8, ptr %189, i64 1248
   %222 = load ptr, ptr %221, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 8
   store ptr %220, ptr %223, align 8
   br label %224
 
-224:                                              ; preds = %209, %205, %198, %195, %190
-  %225 = load ptr, ptr %191, align 8
+224:                                              ; preds = %208, %203, %196, %193, %188
+  %225 = load ptr, ptr %189, align 8
   %226 = icmp eq ptr %225, %183
-  br i1 %226, label %.loopexit, label %190, !llvm.loop !27
+  br i1 %226, label %.loopexit, label %188, !llvm.loop !27
 
 .loopexit:                                        ; preds = %224, %ieee80211_set_sdata_offload_flags.exit, %.preheader
   %227 = load ptr, ptr %10, align 8

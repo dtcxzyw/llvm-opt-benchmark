@@ -430,7 +430,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  store ptr %opoint, ptr %arrayidx5, align 8
+  store ptr %0, ptr %arrayidx5, align 8
   %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %arrayidx7, align 8
   store ptr %1, ptr %points_, align 8
@@ -443,7 +443,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp14, label %if.then15, label %if.else26
 
 if.then15:                                        ; preds = %if.else
-  store ptr %opoint, ptr %arrayidx19, align 8
+  store ptr %2, ptr %arrayidx19, align 8
   store ptr %0, ptr %arrayidx5, align 8
   br label %if.end43.sink.split
 
@@ -453,7 +453,7 @@ if.else26:                                        ; preds = %if.else
   br i1 %cmp29, label %if.then30, label %if.end43
 
 if.then30:                                        ; preds = %if.else26
-  store ptr %opoint, ptr %points_, align 8
+  store ptr %3, ptr %points_, align 8
   store ptr %2, ptr %arrayidx19, align 8
   br label %if.end43.sink.split
 

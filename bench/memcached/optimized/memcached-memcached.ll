@@ -1980,7 +1980,7 @@ if.then34.i:                                      ; preds = %if.then17.i
 if.end38.i:                                       ; preds = %if.then34.i, %if.then17.if.end38_crit_edge.i
   %idx.ext43.pre-phi.i = phi i64 [ %.pre124.i, %if.then17.if.end38_crit_edge.i ], [ %conv37.i, %if.then34.i ]
   %192 = phi i32 [ %190, %if.then17.if.end38_crit_edge.i ], [ %.pre123.i, %if.then34.i ]
-  %193 = phi ptr [ %187, %if.then17.if.end38_crit_edge.i ], [ %.pre122.i, %if.then34.i ]
+  %193 = phi ptr [ %191, %if.then17.if.end38_crit_edge.i ], [ %.pre122.i, %if.then34.i ]
   %194 = phi i32 [ %181, %if.then17.if.end38_crit_edge.i ], [ %.pre121.i, %if.then34.i ]
   %sub41.i = sub nsw i32 %194, %cond30.i
   store i32 %sub41.i, ptr %rlbytes, align 8
@@ -2722,7 +2722,7 @@ if.then.i34.i:                                    ; preds = %if.end3.i
   %inc.i.i = zext i1 %tobool2.not.i.i to i32
   %spec.select.i.i = add nsw i32 %div.i.i, %inc.i.i
   %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %spec.select.i.i, i32 65535)
-  %conv.i.i = trunc i32 %spec.store.select.i.i to i16
+  %conv.i.i = trunc nuw i32 %spec.store.select.i.i to i16
   store i16 %conv.i.i, ptr %udp_total.i.i, align 4
   br label %build_udp_header.exit.i
 
@@ -2731,19 +2731,19 @@ build_udp_header.exit.i:                          ; preds = %if.then.i34.i, %if.
   %request_id.i.i = getelementptr inbounds i8, ptr %315, i64 120
   %331 = load i16, ptr %request_id.i.i, align 8
   %332 = lshr i16 %331, 8
-  %conv10.i.i = trunc i16 %332 to i8
+  %conv10.i.i = trunc nuw i16 %332 to i8
   store i8 %conv10.i.i, ptr %udp_hdr.i, align 1
   %conv14.i.i = trunc i16 %331 to i8
   store i8 %conv14.i.i, ptr %incdec.ptr.i.i, align 1
   %udp_sequence.i.i = getelementptr inbounds i8, ptr %315, i64 122
   %333 = load i16, ptr %udp_sequence.i.i, align 2
   %334 = lshr i16 %333, 8
-  %conv18.i.i = trunc i16 %334 to i8
+  %conv18.i.i = trunc nuw i16 %334 to i8
   store i8 %conv18.i.i, ptr %incdec.ptr15.i.i, align 1
   %conv23.i.i = trunc i16 %333 to i8
   store i8 %conv23.i.i, ptr %incdec.ptr19.i.i, align 1
   %335 = lshr i16 %330, 8
-  %conv28.i.i = trunc i16 %335 to i8
+  %conv28.i.i = trunc nuw i16 %335 to i8
   store i8 %conv28.i.i, ptr %incdec.ptr24.i.i, align 1
   %conv33.i.i = trunc i16 %330 to i8
   store i8 %conv33.i.i, ptr %incdec.ptr29.i.i, align 1
@@ -2770,7 +2770,7 @@ for.body.i:                                       ; preds = %if.else.i579, %for.
   br i1 %cmp11.i, label %if.then13.i580, label %if.else.i579
 
 if.then13.i580:                                   ; preds = %for.body.i
-  %337 = trunc i64 %indvars.iv.i to i32
+  %337 = trunc nuw nsw i64 %indvars.iv.i to i32
   %sub.i581 = sub nuw nsw i32 1400, %len.049.i
   %conv14.i = zext nneg i32 %sub.i581 to i64
   store i64 %conv14.i, ptr %iov_len10.i, align 8
@@ -2778,7 +2778,7 @@ if.then13.i580:                                   ; preds = %for.body.i
   br label %for.end.i
 
 if.else.i579:                                     ; preds = %for.body.i
-  %conv24.i = trunc i64 %add.i578 to i32
+  %conv24.i = trunc nuw nsw i64 %add.i578 to i32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
@@ -4537,7 +4537,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.05 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %for.cond ]
   %add = add nuw nsw i32 %i.05, %conv3
-  %.lhs.trunc = trunc i32 %add to i16
+  %.lhs.trunc = trunc nuw nsw i32 %add to i16
   %2 = urem i16 %.lhs.trunc, 13
   %idxprom = zext nneg i16 %2 to i64
   %arrayidx = getelementptr inbounds [0 x %struct._mc_resp], ptr %r, i64 0, i64 %idxprom
@@ -4547,7 +4547,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool, label %if.then15, label %for.cond
 
 if.then15:                                        ; preds = %for.body
-  %4 = trunc i16 %2 to i8
+  %4 = trunc nuw nsw i16 %2 to i8
   %conv11 = add nuw nsw i8 %4, 1
   store i8 %conv11, ptr %next_check, align 1
   %5 = load i8, ptr %0, align 8
@@ -6292,7 +6292,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %key_str, i64 noundef 128, ptr noundef nonnull @.str.196, i32 noundef %5, ptr noundef nonnull @.str.197) #33
   store i32 5260373, ptr %val_str, align 16
   %conv = trunc i32 %call to i16
@@ -6369,7 +6369,7 @@ conn_to_str.exit:                                 ; preds = %if.end11.i, %land.l
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %local_addr_len.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %svr_sock_addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %svr_addr_len.i)
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %call19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %key_str, i64 noundef 128, ptr noundef nonnull @.str.196, i32 noundef %16, ptr noundef nonnull @.str.198) #33
   %call21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %val_str, i64 noundef 128, ptr noundef nonnull @.str.29, ptr noundef nonnull %vla34) #33
   %conv23 = trunc i32 %call19 to i16
@@ -8126,7 +8126,7 @@ sw.bb446:                                         ; preds = %while.body206
   br label %sw.epilog
 
 sw.bb448:                                         ; preds = %while.body206
-  %tobool449 = trunc i8 %slab_chunk_size_changed.11229 to i1
+  %tobool449 = trunc nuw i8 %slab_chunk_size_changed.11229 to i1
   br i1 %tobool449, label %if.end451, label %if.then450
 
 if.then450:                                       ; preds = %sw.bb448
@@ -8275,7 +8275,7 @@ if.end500:                                        ; preds = %if.end495
   br i1 %cmp501, label %if.then503, label %if.end508
 
 if.then503:                                       ; preds = %if.end500
-  %tobool504 = trunc i8 %slab_chunk_size_changed.0 to i1
+  %tobool504 = trunc nuw i8 %slab_chunk_size_changed.0 to i1
   br i1 %tobool504, label %if.end508, label %if.then505
 
 if.then505:                                       ; preds = %if.then503
@@ -8462,7 +8462,7 @@ if.end556:                                        ; preds = %if.end550
   br i1 %tobool557, label %land.lhs.true, label %if.end562
 
 land.lhs.true:                                    ; preds = %if.end556
-  %tobool559 = trunc i8 %start_lru_maintainer.0 to i1
+  %tobool559 = trunc nuw i8 %start_lru_maintainer.0 to i1
   br i1 %tobool559, label %if.end562, label %if.then560
 
 if.then560:                                       ; preds = %land.lhs.true
@@ -8504,7 +8504,7 @@ if.end576:                                        ; preds = %land.lhs.true571, %
   br i1 %tobool577, label %if.then578, label %if.end592
 
 if.then578:                                       ; preds = %if.end576
-  %tobool579 = trunc i8 %protocol_specified.0 to i1
+  %tobool579 = trunc nuw i8 %protocol_specified.0 to i1
   br i1 %tobool579, label %if.else581, label %if.then580
 
 if.then580:                                       ; preds = %if.then578
@@ -8539,7 +8539,7 @@ if.end592:                                        ; preds = %if.end587, %if.end5
   br i1 %tobool593.not, label %if.end604, label %if.then594
 
 if.then594:                                       ; preds = %if.end592
-  %tobool595 = trunc i8 %protocol_specified.0 to i1
+  %tobool595 = trunc nuw i8 %protocol_specified.0 to i1
   br i1 %tobool595, label %if.else597, label %if.then596
 
 if.then596:                                       ; preds = %if.then594
@@ -8897,7 +8897,7 @@ if.end763:                                        ; preds = %if.then760, %conn_i
   br i1 %storage_enabled.0, label %land.lhs.true766, label %if.end771
 
 land.lhs.true766:                                 ; preds = %if.end763
-  %tobool767 = trunc i8 %reuse_mem.0 to i1
+  %tobool767 = trunc nuw i8 %reuse_mem.0 to i1
   br i1 %tobool767, label %if.then769, label %if.end771
 
 if.then769:                                       ; preds = %land.lhs.true766
@@ -8911,7 +8911,7 @@ if.end771:                                        ; preds = %if.then769, %land.l
   %269 = load double, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 12), align 8
   %cond = select i1 %cmp529.not.not, ptr null, ptr %slab_sizes
   %270 = load ptr, ptr %mem_base, align 8
-  %tobool776 = trunc i8 %reuse_mem.1 to i1
+  %tobool776 = trunc nuw i8 %reuse_mem.1 to i1
   call void @slabs_init(i64 noundef %268, double noundef %269, i1 noundef zeroext %preallocate.2, ptr noundef %cond, ptr noundef %270, i1 noundef zeroext %tobool776) #33
   br i1 %storage_enabled.0, label %if.then778, label %if.end784
 
@@ -9020,7 +9020,7 @@ if.then836:                                       ; preds = %land.lhs.true832
   unreachable
 
 if.end838:                                        ; preds = %if.end822, %land.lhs.true832
-  %tobool839 = trunc i8 %start_lru_maintainer.0 to i1
+  %tobool839 = trunc nuw i8 %start_lru_maintainer.0 to i1
   br i1 %tobool839, label %land.lhs.true841, label %if.end847
 
 land.lhs.true841:                                 ; preds = %if.end838
@@ -9865,7 +9865,7 @@ if.then:                                          ; preds = %while.body7
   br i1 %cmp, label %while.body, label %while.end135, !llvm.loop !30
 
 if.end:                                           ; preds = %land.rhs
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %inc12 = add nuw nsw i32 %lines_seen.0.ph30, 1
   %4 = load ptr, ptr %val, align 8
   %call13 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(6) @.str.471) #40
@@ -10990,15 +10990,15 @@ if.else97:                                        ; preds = %for.body
   br label %if.end113
 
 if.end113.loopexit:                               ; preds = %if.then62.us106
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nsw i64 %indvars.iv to i32
   br label %if.end113
 
 if.end113.loopexit194:                            ; preds = %if.then68.us
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nsw i64 %indvars.iv to i32
   br label %if.end113
 
 if.end113.loopexit199:                            ; preds = %if.else
-  %26 = trunc i64 %indvars.iv.next to i32
+  %26 = trunc nsw i64 %indvars.iv.next to i32
   br label %if.end113
 
 if.end113:                                        ; preds = %if.end113.loopexit199, %if.end113.loopexit194, %if.end113.loopexit, %if.then40, %if.else97
@@ -11229,7 +11229,7 @@ if.then14:                                        ; preds = %for.body
   br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !39
 
 if.else:                                          ; preds = %for.body
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   %chunked_data_iov = getelementptr inbounds i8, ptr %resp.088, i64 117
   %29 = load i8, ptr %chunked_data_iov, align 1
   %tobool23.not = icmp ne i8 %29, 0
@@ -11385,7 +11385,7 @@ if.end5:                                          ; preds = %if.then3, %while.bo
 for.body:                                         ; preds = %if.end5, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end5 ]
   %oldest_last_cmd.020 = phi i32 [ %oldest_last_cmd.1, %for.inc ], [ %4, %if.end5 ]
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %rem = urem i32 %6, 100
   %cmp7 = icmp eq i32 %rem, 0
   br i1 %cmp7, label %if.then8, label %if.end14

@@ -237,7 +237,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -296,7 +296,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -566,7 +566,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %shr.i.i.i.i55 = sext i16 %10 to i32
   %11 = load i32, ptr %fLength.i.i.i56, align 4
   %cond.i.i.i57 = select i1 %cmp.i.i.i.i54, i32 %11, i32 %shr.i.i.i.i55
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nsw i64 %indvars.iv to i32
   %cmp.i.i58 = icmp ugt i32 %cond.i.i.i57, %12
   br i1 %cmp.i.i58, label %if.then.i.i60, label %_ZNK6icu_7513UnicodeString6charAtEi.exit67
 

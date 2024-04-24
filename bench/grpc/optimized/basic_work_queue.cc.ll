@@ -205,7 +205,7 @@ if.else.i:                                        ; preds = %if.end
   %5 = load ptr, ptr %add.ptr.i.i, align 8
   %incdec.ptr.i.i5 = getelementptr inbounds i8, ptr %5, i64 504
   %6 = load ptr, ptr %incdec.ptr.i.i5, align 8
-  tail call void @_ZdlPv(ptr noundef %0) #16
+  tail call void @_ZdlPv(ptr noundef %2) #16
   %7 = load ptr, ptr %_M_node5.i.i.i, align 8
   %add.ptr.i.i3 = getelementptr inbounds i8, ptr %7, i64 -8
   store ptr %add.ptr.i.i3, ptr %_M_node5.i.i.i, align 8

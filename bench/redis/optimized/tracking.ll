@@ -1080,22 +1080,26 @@ if.end22:                                         ; preds = %lor.lhs.false
   br i1 %or.cond18, label %while.cond.backedge, label %if.end29
 
 if.end29:                                         ; preds = %if.end22
-  %and33 = and i64 %11, 536870912
-  %tobool34.not = icmp ne i64 %and33, 0
-  %or.cond40.not = and i1 %tobool34.not, %cmp27
-  br i1 %or.cond40.not, label %if.then35, label %if.else
+  br i1 %cmp27, label %land.lhs.true31, label %if.else
 
-if.then35:                                        ; preds = %if.end29
+land.lhs.true31:                                  ; preds = %if.end29
+  %flags32 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load i64, ptr %flags32, align 8
+  %and33 = and i64 %14, 536870912
+  %tobool34.not = icmp eq i64 %and33, 0
+  br i1 %tobool34.not, label %if.else, label %if.then35
+
+if.then35:                                        ; preds = %land.lhs.true31
   call void @incrRefCount(ptr noundef %keyobj) #8
-  %14 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 331), align 8
-  %call36 = call ptr @listAddNodeTail(ptr noundef %14, ptr noundef %keyobj) #8
+  %15 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 331), align 8
+  %call36 = call ptr @listAddNodeTail(ptr noundef %15, ptr noundef %keyobj) #8
   br label %while.cond.backedge
 
-if.else:                                          ; preds = %if.end29
-  %15 = load ptr, ptr %ptr, align 8
-  %arrayidx.i19 = getelementptr inbounds i8, ptr %15, i64 -1
-  %16 = load i8, ptr %arrayidx.i19, align 1
-  %conv.i20 = zext i8 %16 to i32
+if.else:                                          ; preds = %land.lhs.true31, %if.end29
+  %16 = load ptr, ptr %ptr, align 8
+  %arrayidx.i19 = getelementptr inbounds i8, ptr %16, i64 -1
+  %17 = load i8, ptr %arrayidx.i19, align 1
+  %conv.i20 = zext i8 %17 to i32
   %and.i21 = and i32 %conv.i20, 7
   switch i32 %and.i21, label %sdslen.exit37 [
     i32 0, label %sw.bb.i34
@@ -1111,42 +1115,42 @@ sw.bb.i34:                                        ; preds = %if.else
   br label %sdslen.exit37
 
 sw.bb3.i31:                                       ; preds = %if.else
-  %add.ptr.i32 = getelementptr inbounds i8, ptr %15, i64 -3
-  %17 = load i8, ptr %add.ptr.i32, align 1
-  %conv4.i33 = zext i8 %17 to i64
+  %add.ptr.i32 = getelementptr inbounds i8, ptr %16, i64 -3
+  %18 = load i8, ptr %add.ptr.i32, align 1
+  %conv4.i33 = zext i8 %18 to i64
   br label %sdslen.exit37
 
 sw.bb5.i28:                                       ; preds = %if.else
-  %add.ptr6.i29 = getelementptr inbounds i8, ptr %15, i64 -5
-  %18 = load i16, ptr %add.ptr6.i29, align 1
-  %conv8.i30 = zext i16 %18 to i64
+  %add.ptr6.i29 = getelementptr inbounds i8, ptr %16, i64 -5
+  %19 = load i16, ptr %add.ptr6.i29, align 1
+  %conv8.i30 = zext i16 %19 to i64
   br label %sdslen.exit37
 
 sw.bb9.i25:                                       ; preds = %if.else
-  %add.ptr10.i26 = getelementptr inbounds i8, ptr %15, i64 -9
-  %19 = load i32, ptr %add.ptr10.i26, align 1
-  %conv12.i27 = zext i32 %19 to i64
+  %add.ptr10.i26 = getelementptr inbounds i8, ptr %16, i64 -9
+  %20 = load i32, ptr %add.ptr10.i26, align 1
+  %conv12.i27 = zext i32 %20 to i64
   br label %sdslen.exit37
 
 sw.bb13.i22:                                      ; preds = %if.else
-  %add.ptr14.i23 = getelementptr inbounds i8, ptr %15, i64 -17
-  %20 = load i64, ptr %add.ptr14.i23, align 1
+  %add.ptr14.i23 = getelementptr inbounds i8, ptr %16, i64 -17
+  %21 = load i64, ptr %add.ptr14.i23, align 1
   br label %sdslen.exit37
 
 sdslen.exit37:                                    ; preds = %if.else, %sw.bb.i34, %sw.bb3.i31, %sw.bb5.i28, %sw.bb9.i25, %sw.bb13.i22
-  %retval.0.i24 = phi i64 [ %20, %sw.bb13.i22 ], [ %conv12.i27, %sw.bb9.i25 ], [ %conv8.i30, %sw.bb5.i28 ], [ %conv4.i33, %sw.bb3.i31 ], [ %conv2.i36, %sw.bb.i34 ], [ 0, %if.else ]
-  call void @sendTrackingMessage(ptr noundef nonnull %call14, ptr noundef nonnull %15, i64 noundef %retval.0.i24, i32 noundef 0)
+  %retval.0.i24 = phi i64 [ %21, %sw.bb13.i22 ], [ %conv12.i27, %sw.bb9.i25 ], [ %conv8.i30, %sw.bb5.i28 ], [ %conv4.i33, %sw.bb3.i31 ], [ %conv2.i36, %sw.bb.i34 ], [ 0, %if.else ]
+  call void @sendTrackingMessage(ptr noundef nonnull %call14, ptr noundef nonnull %16, i64 noundef %retval.0.i24, i32 noundef 0)
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond.backedge, %if.end9
   call void @raxStop(ptr noundef nonnull %ri) #8
   %call41 = call i64 @raxSize(ptr noundef %9) #8
-  %21 = load i64, ptr @TrackingTableTotalItems, align 8
-  %sub = sub i64 %21, %call41
+  %22 = load i64, ptr @TrackingTableTotalItems, align 8
+  %sub = sub i64 %22, %call41
   store i64 %sub, ptr @TrackingTableTotalItems, align 8
   call void @raxFree(ptr noundef %9) #8
-  %22 = load ptr, ptr @TrackingTable, align 8
-  %call42 = call i32 @raxRemove(ptr noundef %22, ptr noundef %1, i64 noundef %retval.0.i, ptr noundef null) #8
+  %23 = load ptr, ptr @TrackingTable, align 8
+  %call42 = call i32 @raxRemove(ptr noundef %23, ptr noundef %1, i64 noundef %retval.0.i, ptr noundef null) #8
   br label %return
 
 return:                                           ; preds = %if.end5, %entry, %while.end

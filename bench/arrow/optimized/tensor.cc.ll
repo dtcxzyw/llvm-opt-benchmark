@@ -4616,19 +4616,18 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit
   %.pre30 = load ptr, ptr %this, align 8
   %.pre31 = ptrtoint ptr %.pre29 to i64
   %.pre32 = ptrtoint ptr %.pre30 to i64
+  %.pre33 = sub i64 %.pre31, %.pre32
+  %.pre34 = ashr exact i64 %.pre33, 3
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit.loopexit, %if.then6
-  %sub.ptr.rhs.cast.i16.pre-phi = phi i64 [ %.pre32, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit.loopexit ], [ %sub.ptr.rhs.cast.i, %if.then6 ]
-  %sub.ptr.lhs.cast.i15.pre-phi = phi i64 [ %.pre31, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit.loopexit ], [ %sub.ptr.rhs.cast.i, %if.then6 ]
-  %5 = phi ptr [ %.pre29, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit.loopexit ], [ %1, %if.then6 ]
-  %sub.ptr.sub.i17 = sub i64 %sub.ptr.lhs.cast.i15.pre-phi, %sub.ptr.rhs.cast.i16.pre-phi
-  %sub.ptr.div.i18 = ashr exact i64 %sub.ptr.sub.i17, 3
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.div.i18, %__n
+  %sub.ptr.div.i18.pre-phi = phi i64 [ %.pre34, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit.loopexit ], [ %sub.ptr.div.i11, %if.then6 ]
+  %5 = phi ptr [ %.pre29, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit.loopexit ], [ %3, %if.then6 ]
+  %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.div.i18.pre-phi, %__n
   br i1 %cmp.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPlmllET_S1_T0_RKT1_RSaIT2_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit
-  %sub = sub i64 %__n, %sub.ptr.div.i18
+  %sub = sub i64 %__n, %sub.ptr.div.i18.pre-phi
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %5, i64 %sub
   %6 = load i64, ptr %__val, align 8
   br label %for.body.i.i.i.i.i.i.i

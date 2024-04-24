@@ -1148,7 +1148,7 @@ define hidden ptr @xmpp_xml_frame_to_element_t(ptr noundef %0, ptr nocapture nou
   br i1 %75, label %76, label %.thread
 
 76:                                               ; preds = %61
-  %77 = getelementptr i8, ptr %73, i64 5
+  %77 = getelementptr i8, ptr %74, i64 5
   %78 = load i8, ptr %77, align 1
   switch i8 %78, label %.thread [
     i8 58, label %79
@@ -1156,13 +1156,13 @@ define hidden ptr @xmpp_xml_frame_to_element_t(ptr noundef %0, ptr nocapture nou
   ]
 
 79:                                               ; preds = %76
-  %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #9
+  %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #9
   %81 = icmp ugt i64 %80, 6
   br i1 %81, label %82, label %.thread
 
 82:                                               ; preds = %79
   %83 = load ptr, ptr %19, align 8
-  %84 = getelementptr i8, ptr %73, i64 6
+  %84 = getelementptr i8, ptr %74, i64 6
   %85 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %84) #8
   %86 = load ptr, ptr %47, align 8
   %87 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %86) #8
@@ -1694,7 +1694,7 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
   %48 = getelementptr inbounds i8, ptr %20, i64 20
   %49 = load i32, ptr %48, align 4
   %50 = load ptr, ptr %20, align 8
-  %51 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %45, ptr noundef %1, i32 noundef %47, i32 noundef %49, ptr noundef %50, ptr noundef nonnull @.str.18, ptr noundef nonnull %40, ptr noundef %50) #8
+  %51 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %45, ptr noundef %1, i32 noundef %47, i32 noundef %49, ptr noundef %50, ptr noundef nonnull @.str.18, ptr noundef %42, ptr noundef %50) #8
   br label %64
 
 52:                                               ; preds = %41, %39

@@ -1708,13 +1708,12 @@ define internal noundef i32 @spi_dv_device_compare_inquiry(ptr noundef %0, ptr n
   %22 = getelementptr inbounds i8, ptr %6, i64 32
   %23 = getelementptr inbounds i8, ptr %5, i64 1
   %24 = getelementptr inbounds i8, ptr %0, i64 2016
-  %25 = getelementptr i8, ptr %1, i64 %18
-  br label %26
+  br label %25
 
-26:                                               ; preds = %55, %17
-  %27 = phi i32 [ 0, %17 ], [ %58, %55 ]
-  %28 = phi ptr [ %2, %17 ], [ %56, %55 ]
-  call void @llvm.memset.p0.i64(ptr align 1 %28, i8 0, i64 %18, i1 false)
+25:                                               ; preds = %55, %17
+  %26 = phi i32 [ 0, %17 ], [ %58, %55 ]
+  %27 = phi ptr [ %2, %17 ], [ %56, %55 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %27, i8 0, i64 %18, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   store i64 0, ptr %5, align 8, !annotation !8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #16
@@ -1723,70 +1722,71 @@ define internal noundef i32 @spi_dv_device_compare_inquiry(ptr noundef %0, ptr n
   store i32 4, ptr %20, align 8
   store i32 0, ptr %21, align 4
   store ptr null, ptr %22, align 8
-  br label %29
+  br label %28
 
-29:                                               ; preds = %37, %26
-  %30 = phi i32 [ 0, %26 ], [ %40, %37 ]
-  %31 = call i32 @scsi_execute_cmd(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1826, ptr noundef %28, i32 noundef %10, i32 noundef 10000, i32 noundef 1, ptr noundef nonnull %6) #16
-  %32 = icmp slt i32 %31, 0
-  br i1 %32, label %.thread, label %33
+28:                                               ; preds = %36, %25
+  %29 = phi i32 [ 0, %25 ], [ %39, %36 ]
+  %30 = call i32 @scsi_execute_cmd(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1826, ptr noundef %27, i32 noundef %10, i32 noundef 10000, i32 noundef 1, ptr noundef nonnull %6) #16
+  %31 = icmp slt i32 %30, 0
+  br i1 %31, label %.thread, label %32
 
-.thread:                                          ; preds = %29
+.thread:                                          ; preds = %28
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   br label %.loopexit
 
-33:                                               ; preds = %29
-  %34 = load i8, ptr %5, align 8
-  %35 = and i8 %34, 112
-  %36 = icmp eq i8 %35, 112
-  br i1 %36, label %37, label %43
+32:                                               ; preds = %28
+  %33 = load i8, ptr %5, align 8
+  %34 = and i8 %33, 112
+  %35 = icmp eq i8 %34, 112
+  br i1 %35, label %36, label %42
 
-37:                                               ; preds = %33
-  %38 = load i8, ptr %23, align 1
-  %39 = icmp ne i8 %38, 6
-  %40 = add nuw nsw i32 %30, 1
-  %41 = icmp eq i32 %40, 3
-  %42 = select i1 %39, i1 true, i1 %41
-  br i1 %42, label %43, label %29, !llvm.loop !9
+36:                                               ; preds = %32
+  %37 = load i8, ptr %23, align 1
+  %38 = icmp ne i8 %37, 6
+  %39 = add nuw nsw i32 %29, 1
+  %40 = icmp eq i32 %39, 3
+  %41 = select i1 %38, i1 true, i1 %40
+  br i1 %41, label %42, label %28, !llvm.loop !9
 
-43:                                               ; preds = %37, %33
+42:                                               ; preds = %36, %32
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  %44 = icmp eq i32 %31, 0
-  br i1 %44, label %45, label %.loopexit
+  %43 = icmp eq i32 %30, 0
+  br i1 %43, label %44, label %.loopexit
 
-45:                                               ; preds = %43
-  %46 = load i32, ptr %24, align 8
-  switch i32 %46, label %48 [
+44:                                               ; preds = %42
+  %45 = load i32, ptr %24, align 8
+  switch i32 %45, label %47 [
     i32 7, label %.loopexit
     i32 6, label %.loopexit
     i32 4, label %.loopexit
   ]
 
-.loopexit:                                        ; preds = %45, %45, %45, %43, %.thread
-  %47 = call i32 @scsi_device_set_state(ptr noundef %0, i32 noundef 5) #16
+.loopexit:                                        ; preds = %44, %44, %44, %42, %.thread
+  %46 = call i32 @scsi_device_set_state(ptr noundef %0, i32 noundef 5) #16
   br label %.loopexit5
 
-48:                                               ; preds = %45
-  %49 = icmp eq ptr %28, %1
-  br i1 %49, label %50, label %52
+47:                                               ; preds = %44
+  %48 = icmp eq ptr %27, %1
+  br i1 %48, label %49, label %52
 
-50:                                               ; preds = %48
-  %51 = add i32 %27, -1
+49:                                               ; preds = %47
+  %50 = getelementptr i8, ptr %27, i64 %18
+  %51 = add i32 %26, -1
   br label %55
 
-52:                                               ; preds = %48
-  %53 = call i32 @bcmp(ptr %1, ptr %28, i64 %18)
+52:                                               ; preds = %47
+  %53 = call i32 @bcmp(ptr %1, ptr %27, i64 %18)
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %.loopexit5
 
-55:                                               ; preds = %52, %50
-  %56 = phi ptr [ %25, %50 ], [ %28, %52 ]
-  %57 = phi i32 [ %51, %50 ], [ %27, %52 ]
+55:                                               ; preds = %52, %49
+  %56 = phi ptr [ %50, %49 ], [ %27, %52 ]
+  %57 = phi i32 [ %51, %49 ], [ %26, %52 ]
   %58 = add i32 %57, 1
   %59 = icmp slt i32 %58, %3
-  br i1 %59, label %26, label %.loopexit5, !llvm.loop !19
+  br i1 %59, label %25, label %.loopexit5, !llvm.loop !19
 
 .loopexit5:                                       ; preds = %55, %52, %.loopexit, %4
   %60 = phi i32 [ 1, %.loopexit ], [ 0, %4 ], [ 1, %52 ], [ 0, %55 ]

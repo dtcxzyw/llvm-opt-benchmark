@@ -27964,7 +27964,7 @@ define hidden void @_ZN3ide11annotations11annotations17he7afe1bf6a889a93E(ptr no
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9f913962dafab8fE.exit.thread"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9f913962dafab8fE.exit.thread": ; preds = %.backedge, %.backedge.us, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9f913962dafab8fE.exit.thread.loopexit73.split.loop.exit75", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9f913962dafab8fE.exit.thread.loopexit.split.loop.exit77", %30
-  %57 = phi ptr [ %.sroa.4.0.copyload.i, %30 ], [ %55, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9f913962dafab8fE.exit.thread.loopexit.split.loop.exit77" ], [ %56, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9f913962dafab8fE.exit.thread.loopexit73.split.loop.exit75" ], [ %46, %.backedge.us ], [ %128, %.backedge ]
+  %57 = phi ptr [ %.sroa.4.0.copyload.i, %30 ], [ %55, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9f913962dafab8fE.exit.thread.loopexit.split.loop.exit77" ], [ %56, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9f913962dafab8fE.exit.thread.loopexit73.split.loop.exit75" ], [ %47, %.backedge.us ], [ %129, %.backedge ]
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !6623
   store ptr %20, ptr %10, align 8, !noalias !6623
@@ -31247,7 +31247,7 @@ default.unreachable269:                           ; preds = %395
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr40drop_in_place$LT$hir..ClosureCapture$GT$17h54ef959ea7341cf4E.exit", %._crit_edge.loopexit.split.loop.exit270, %271
-  %307 = phi ptr [ %.sroa.4201.0.copyload, %271 ], [ %306, %._crit_edge.loopexit.split.loop.exit270 ], [ %507, %"_ZN4core3ptr40drop_in_place$LT$hir..ClosureCapture$GT$17h54ef959ea7341cf4E.exit" ]
+  %307 = phi ptr [ %.sroa.4201.0.copyload, %271 ], [ %306, %._crit_edge.loopexit.split.loop.exit270 ], [ %508, %"_ZN4core3ptr40drop_in_place$LT$hir..ClosureCapture$GT$17h54ef959ea7341cf4E.exit" ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !7268
   store ptr %28, ptr %13, align 8, !noalias !7268

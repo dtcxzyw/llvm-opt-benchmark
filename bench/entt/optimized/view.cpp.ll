@@ -74257,7 +74257,7 @@ cond.end.i.i1651:                                 ; preds = %if.end.i.i.i1819
   br i1 %cmp5.i.i1653, label %cond.true6.i.i1724, label %cond.end9.i.i1654
 
 cond.true6.i.i1724:                               ; preds = %cond.end.i.i1651, %cond.true.i.i1794, %cond.true.i1648
-  %594 = phi ptr [ %.pre.i.i1822, %cond.end.i.i1651 ], [ %572, %cond.true.i.i1794 ], [ %572, %cond.true.i1648 ]
+  %594 = phi ptr [ %.pre, %cond.end.i.i1651 ], [ %572, %cond.true.i.i1794 ], [ %572, %cond.true.i1648 ]
   %packed.i.i.i24.i.i1725 = getelementptr inbounds i8, ptr %594, i64 32
   %_M_finish.i.i.i.i25.i.i1726 = getelementptr inbounds i8, ptr %594, i64 40
   %595 = load ptr, ptr %_M_finish.i.i.i.i25.i.i1726, align 8, !tbaa !39, !noalias !2041
@@ -104802,20 +104802,20 @@ for.end:                                          ; preds = %while.body.i.i.i131
   br i1 %or.cond.i, label %cond.true.i.i1415, label %"_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageINS_6entityES4_SaIS4_EvEENS_14basic_registryIS4_S5_EEEEEEENS_9exclude_tIJNS2_INS3_IiS4_SaIiEvEES8_EEEEEvE4eachIZN48MultiComponentView_StorageEntityExcludeOnly_Test8TestBodyEvE3$_0EEvT_.exit"
 
 cond.true.i.i1415:                                ; preds = %for.end
-  %mode.i.i.i.i.i = getelementptr inbounds i8, ptr %365, i64 64
+  %mode.i.i.i.i.i = getelementptr inbounds i8, ptr %366, i64 64
   %368 = load i8, ptr %mode.i.i.i.i.i, align 8, !tbaa !186, !noalias !2780
   %cmp.i.i.i.i.i1416 = icmp eq i8 %368, 2
-  %packed.i.i.i.i.i.i = getelementptr inbounds i8, ptr %365, i64 32
+  %packed.i.i.i.i.i.i = getelementptr inbounds i8, ptr %366, i64 32
   br i1 %cmp.i.i.i.i.i1416, label %cond.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %cond.true.i.i1415
-  %head.i.i.i.i.i = getelementptr inbounds i8, ptr %365, i64 68
+  %head.i.i.i.i.i = getelementptr inbounds i8, ptr %366, i64 68
   %369 = load i32, ptr %head.i.i.i.i.i, align 4, !tbaa !28, !noalias !2780
   %conv.i.i.i.i.i1437 = zext i32 %369 to i64
   br label %_ZN4entt13basic_storageINS_6entityES1_SaIS1_EvE4eachEv.exit.i.i.i
 
 cond.false.i.i.i.i.i:                             ; preds = %cond.true.i.i1415
-  %_M_finish.i.i.i.i.i.i.i1417 = getelementptr inbounds i8, ptr %365, i64 40
+  %_M_finish.i.i.i.i.i.i.i1417 = getelementptr inbounds i8, ptr %366, i64 40
   %370 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i1417, align 8, !tbaa !39, !noalias !2780
   %371 = load ptr, ptr %packed.i.i.i.i.i.i, align 8, !tbaa !40, !noalias !2780
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i1418 = ptrtoint ptr %370 to i64
@@ -109622,7 +109622,7 @@ _ZN4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS
   br i1 %cmp.i.i.i.not, label %cleanup.cont, label %cleanup29
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE16constrained_findIjEEDaRKT_m.exit, %_ZN4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE16constrained_findIjEEDaRKT_m.exit.thread
-  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %arrayidx.i.i.i.i, %_ZN4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE16constrained_findIjEEDaRKT_m.exit ]
+  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE16constrained_findIjEEDaRKT_m.exit ]
   %_M_finish.i.i53 = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp13) #20
   store ptr %key, ptr %ref.tmp13, align 8, !tbaa !20, !alias.scope !2880

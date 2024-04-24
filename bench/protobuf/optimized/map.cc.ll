@@ -1492,7 +1492,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %120, ptr %cached_blocks_19.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %conv.i, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %if.end26
 
@@ -1867,7 +1867,7 @@ if.then20:                                        ; preds = %if.else18
   %conv.i32 = zext i8 %0 to i32
   %conv3.i33 = zext i8 %1 to i32
   %mul.i34 = shl nuw nsw i64 %div6.i, 3
-  %sh_prom.i = trunc i64 %mul.i34 to i32
+  %sh_prom.i = trunc nuw i64 %mul.i34 to i32
   %shl.i35 = shl nuw nsw i32 %conv3.i33, %sh_prom.i
   %or.i36 = or i32 %shl.i35, %conv.i32
   %conv5.i = zext i8 %2 to i32
@@ -2076,7 +2076,7 @@ entry:
 if.then:                                          ; preds = %if.end16, %entry
   %res.sroa.10.0.lcssa = phi i32 [ %iter.coerce1, %entry ], [ %res.sroa.10.1, %if.end16 ]
   %res.sroa.0.0.lcssa = phi ptr [ %iter.coerce0, %entry ], [ %res.sroa.0.1, %if.end16 ]
-  %.lcssa = phi ptr [ %iter.coerce0, %entry ], [ %13, %if.end16 ]
+  %.lcssa = phi ptr [ %1, %entry ], [ %14, %if.end16 ]
   %arrayidx.i.i.i = getelementptr i8, ptr %.lcssa, i64 10
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.not.i = icmp eq i8 %2, 0
@@ -2307,9 +2307,9 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
 
 if.then62:                                        ; preds = %lor.lhs.false, %land.lhs.true
   %sub68 = sub nsw i32 %conv44, %conv41
-  %div.lhs.trunc = trunc i32 %sub68 to i16
+  %div.lhs.trunc = trunc nsw i32 %sub68 to i16
   %div84 = sdiv i16 %div.lhs.trunc, 2
-  %conv69 = trunc i16 %div84 to i8
+  %conv69 = trunc nsw i16 %div84 to i8
   %sub72 = add i8 %11, -1
   %.sroa.speculated81 = tail call i8 @llvm.umin.i8(i8 %sub72, i8 %conv69)
   %rightmost_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2348,7 +2348,7 @@ if.then107:                                       ; preds = %lor.lhs.false101, %
   %conv113 = zext i8 %16 to i16
   %sub114 = sub nsw i16 %conv110, %conv113
   %div11585 = sdiv i16 %sub114, 2
-  %conv116 = trunc i16 %div11585 to i8
+  %conv116 = trunc nsw i16 %div11585 to i8
   %sub120 = add i8 %15, -1
   %.sroa.speculated = tail call i8 @llvm.umin.i8(i8 %sub120, i8 %conv116)
   %rightmost_.i77 = getelementptr inbounds i8, ptr %this, i64 8
@@ -2457,7 +2457,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %7 = load i8, ptr %arrayidx.i, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = trunc i64 %indvars.iv.next to i8
+  %8 = trunc nuw i64 %indvars.iv.next to i8
   %add40 = add i8 %7, %8
   %arrayidx.i62 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i61, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx.i62, align 8
@@ -2604,7 +2604,7 @@ for.body60.lr.ph:                                 ; preds = %for.cond56.preheade
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %9, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %11 = trunc i64 %indvars.iv to i8
+  %11 = trunc nuw i64 %indvars.iv to i8
   %sub44 = add i8 %11, -1
   %conv47 = add i8 %sub44, %to_move
   %idxprom.i = zext i8 %sub44 to i64
@@ -2625,7 +2625,7 @@ for.body60:                                       ; preds = %for.body60.lr.ph, %
   %indvars.iv75 = phi i64 [ 1, %for.body60.lr.ph ], [ %indvars.iv.next76, %for.body60 ]
   %14 = add nsw i64 %indvars.iv75, -1
   %15 = load i8, ptr %arrayidx.i, align 1
-  %16 = trunc i64 %indvars.iv75 to i8
+  %16 = trunc nuw i64 %indvars.iv75 to i8
   %sub67 = sub i8 %16, %to_move
   %add69 = add i8 %sub67, %15
   %idxprom.i58 = zext i8 %add69 to i64
@@ -2634,7 +2634,7 @@ for.body60:                                       ; preds = %for.body60.lr.ph, %
   %arrayidx.i4.i.i.i62 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i60, i64 %14
   store ptr %17, ptr %arrayidx.i4.i.i.i62, align 8
   %add.ptr.i.i.i.i.i63 = getelementptr i8, ptr %17, i64 8
-  %18 = trunc i64 %14 to i8
+  %18 = trunc nuw i64 %14 to i8
   store i8 %18, ptr %add.ptr.i.i.i.i.i63, align 1
   store ptr %right, ptr %17, align 8
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1

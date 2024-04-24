@@ -48,7 +48,7 @@ if.end19:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp.i29, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %if.end19, %land.lhs.true, %if.end
-  %4 = phi ptr [ %baseDir.coerce0, %if.end19 ], [ null, %if.end ], [ null, %land.lhs.true ]
+  %4 = phi ptr [ %baseDir.coerce1, %if.end19 ], [ null, %if.end ], [ null, %land.lhs.true ]
   %5 = phi ptr [ %subDir.coerce1, %if.end19 ], [ null, %if.end ], [ %subDir.coerce1, %land.lhs.true ]
   %6 = phi ptr [ %subDir.coerce0, %if.end19 ], [ null, %if.end ], [ %subDir.coerce0, %land.lhs.true ]
   store ptr %6, ptr %this, align 8, !tbaa !7

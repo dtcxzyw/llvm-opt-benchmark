@@ -697,21 +697,21 @@ Curl_splay.exit:                                  ; preds = %if.then24.i, %if.th
   br i1 %cmp32.not, label %if.end34, label %return
 
 if.end34:                                         ; preds = %Curl_splay.exit
-  %samen35 = getelementptr inbounds i8, ptr %removenode, i64 16
+  %samen35 = getelementptr inbounds i8, ptr %t.addr.4.i, i64 16
   %23 = load ptr, ptr %samen35, align 8
   %cmp36.not = icmp eq ptr %23, %removenode
   br i1 %cmp36.not, label %if.else, label %if.then37
 
 if.then37:                                        ; preds = %if.end34
   %key38 = getelementptr inbounds i8, ptr %23, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key38, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 16, i1 false)
-  %larger = getelementptr inbounds i8, ptr %removenode, i64 8
-  %24 = load ptr, ptr %larger, align 8
+  %key39 = getelementptr inbounds i8, ptr %t.addr.4.i, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key38, ptr noundef nonnull align 8 dereferenceable(16) %key39, i64 16, i1 false)
+  %24 = load ptr, ptr %larger143.i, align 8
   %larger40 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %24, ptr %larger40, align 8
-  %25 = load ptr, ptr %removenode, align 8
+  %25 = load ptr, ptr %t.addr.4.i, align 8
   store ptr %25, ptr %23, align 8
-  %samep42 = getelementptr inbounds i8, ptr %removenode, i64 24
+  %samep42 = getelementptr inbounds i8, ptr %t.addr.4.i, i64 24
   %26 = load ptr, ptr %samep42, align 8
   %samep43 = getelementptr inbounds i8, ptr %23, i64 24
   store ptr %26, ptr %samep43, align 8
@@ -720,13 +720,12 @@ if.then37:                                        ; preds = %if.end34
   br label %return.sink.split
 
 if.else:                                          ; preds = %if.end34
-  %27 = load ptr, ptr %removenode, align 8
+  %27 = load ptr, ptr %t.addr.4.i, align 8
   %tobool47.not = icmp eq ptr %27, null
   br i1 %tobool47.not, label %if.then48, label %if.end.i45
 
 if.then48:                                        ; preds = %if.else
-  %larger49 = getelementptr inbounds i8, ptr %removenode, i64 8
-  %28 = load ptr, ptr %larger49, align 8
+  %28 = load ptr, ptr %larger143.i, align 8
   br label %return.sink.split
 
 if.end.i45:                                       ; preds = %if.else
@@ -853,8 +852,7 @@ Curl_splay.exit103:                               ; preds = %if.then24.i88, %if.
   %46 = load ptr, ptr %N.i43, align 8
   store ptr %46, ptr %larger143.i63, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %N.i43)
-  %larger54 = getelementptr inbounds i8, ptr %removenode, i64 8
-  %47 = load ptr, ptr %larger54, align 8
+  %47 = load ptr, ptr %larger143.i, align 8
   store ptr %47, ptr %larger143.i63, align 8
   br label %return.sink.split
 

@@ -646,7 +646,7 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
 20:                                               ; preds = %0
   %21 = tail call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1300) #12
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %779, label %23
+  br i1 %22, label %780, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %13, i64 792
@@ -888,12 +888,12 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
   %138 = getelementptr inbounds i8, ptr %13, i64 868
   %139 = load i32, ptr %138, align 4
   %140 = icmp eq i32 %139, 0
-  br i1 %140, label %489, label %141
+  br i1 %140, label %490, label %141
 
 141:                                              ; preds = %.loopexit73
   %142 = tail call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef %139) #12
   %143 = icmp eq ptr %142, null
-  br i1 %143, label %489, label %144
+  br i1 %143, label %490, label %144
 
 144:                                              ; preds = %141
   %145 = load i32, ptr %138, align 4
@@ -908,9 +908,9 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
     i32 1323, label %266
     i32 1337, label %271
     i32 1309, label %278
-    i32 1330, label %438
-    i32 1333, label %444
-    i32 1332, label %444
+    i32 1330, label %439
+    i32 1333, label %445
+    i32 1332, label %445
   ]
 
 146:                                              ; preds = %144
@@ -987,7 +987,7 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
   call void @audit_log_end(ptr noundef nonnull %142) #12
   %187 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1311) #12
   %188 = icmp eq ptr %187, null
-  br i1 %188, label %489, label %189, !prof !23
+  br i1 %188, label %490, label %189, !prof !23
 
 189:                                              ; preds = %186
   %190 = getelementptr inbounds i8, ptr %13, i64 904
@@ -1146,7 +1146,7 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
 
 286:                                              ; preds = %278
   tail call void @audit_panic(ptr noundef nonnull @.str.58) #12
-  br label %436
+  br label %437
 
 287:                                              ; preds = %278
   %288 = inttoptr i64 %282 to ptr
@@ -1157,17 +1157,17 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
   br label %292
 
 292:                                              ; preds = %.thread, %287
-  %293 = phi ptr [ %142, %287 ], [ %427, %.thread ]
-  %294 = phi i64 [ 0, %287 ], [ %426, %.thread ]
-  %295 = phi i8 [ 1, %287 ], [ %428, %.thread ]
-  %296 = phi i8 [ 0, %287 ], [ %429, %.thread ]
-  %297 = phi i32 [ 0, %287 ], [ %430, %.thread ]
-  %298 = phi i32 [ 0, %287 ], [ %431, %.thread ]
-  %299 = phi ptr [ %284, %287 ], [ %425, %.thread ]
-  %300 = phi ptr [ %288, %287 ], [ %357, %.thread ]
-  %301 = phi i64 [ 0, %287 ], [ %424, %.thread ]
-  %302 = phi i64 [ 0, %287 ], [ %432, %.thread ]
-  %303 = phi i64 [ 7500, %287 ], [ %423, %.thread ]
+  %293 = phi ptr [ %142, %287 ], [ %428, %.thread ]
+  %294 = phi i64 [ 0, %287 ], [ %427, %.thread ]
+  %295 = phi i8 [ 1, %287 ], [ %429, %.thread ]
+  %296 = phi i8 [ 0, %287 ], [ %430, %.thread ]
+  %297 = phi i32 [ 0, %287 ], [ %431, %.thread ]
+  %298 = phi i32 [ 0, %287 ], [ %432, %.thread ]
+  %299 = phi ptr [ %284, %287 ], [ %426, %.thread ]
+  %300 = phi ptr [ %288, %287 ], [ %358, %.thread ]
+  %301 = phi i64 [ 0, %287 ], [ %425, %.thread ]
+  %302 = phi i64 [ 0, %287 ], [ %433, %.thread ]
+  %303 = phi i64 [ 7500, %287 ], [ %424, %.thread ]
   %304 = icmp eq i64 %302, 0
   br i1 %304, label %305, label %308
 
@@ -1180,7 +1180,7 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
   %309 = phi i64 [ %307, %305 ], [ %302, %292 ]
   %310 = and i8 %295, 1
   %311 = icmp eq i8 %310, 0
-  br i1 %311, label %352, label %312
+  br i1 %311, label %353, label %312
 
 312:                                              ; preds = %308
   %313 = icmp eq ptr %299, %284
@@ -1191,857 +1191,858 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
   br label %315
 
 315:                                              ; preds = %314, %312
-  %316 = getelementptr i8, ptr %284, i64 %301
-  %317 = sub i64 7500, %301
-  %318 = call i64 @strncpy_from_user(ptr noundef %316, ptr noundef %300, i64 noundef %317) #12
-  %319 = icmp eq i64 %318, -14
-  br i1 %319, label %320, label %322
+  %316 = phi ptr [ %284, %314 ], [ %299, %312 ]
+  %317 = getelementptr i8, ptr %284, i64 %301
+  %318 = sub i64 7500, %301
+  %319 = call i64 @strncpy_from_user(ptr noundef %317, ptr noundef %300, i64 noundef %318) #12
+  %320 = icmp eq i64 %319, -14
+  br i1 %320, label %321, label %323
 
-320:                                              ; preds = %315
-  %321 = call i32 @send_sig(i32 noundef 9, ptr noundef %11, i32 noundef 0) #12
+321:                                              ; preds = %315
+  %322 = call i32 @send_sig(i32 noundef 9, ptr noundef %11, i32 noundef 0) #12
   br label %.loopexit68
 
-322:                                              ; preds = %315
-  %323 = icmp eq i64 %318, %317
-  br i1 %323, label %324, label %326
+323:                                              ; preds = %315
+  %324 = icmp eq i64 %319, %318
+  br i1 %324, label %325, label %327
 
-324:                                              ; preds = %322
-  %325 = shl i64 %309, 1
-  br label %339
+325:                                              ; preds = %323
+  %326 = shl i64 %309, 1
+  br label %340
 
-326:                                              ; preds = %322
-  %327 = and i8 %296, 1
-  %328 = icmp eq i8 %327, 0
-  br i1 %328, label %329, label %332
+327:                                              ; preds = %323
+  %328 = and i8 %296, 1
+  %329 = icmp eq i8 %328, 0
+  br i1 %329, label %330, label %333
 
-329:                                              ; preds = %326
-  %330 = call zeroext i1 @audit_string_contains_control(ptr noundef nonnull %284, i64 noundef %318) #12
-  %331 = zext i1 %330 to i8
-  br label %332
+330:                                              ; preds = %327
+  %331 = call zeroext i1 @audit_string_contains_control(ptr noundef %316, i64 noundef %319) #12
+  %332 = zext i1 %331 to i8
+  br label %333
 
-332:                                              ; preds = %329, %326
-  %.pre-phi = phi i8 [ %331, %329 ], [ 1, %326 ]
-  %333 = phi i8 [ %331, %329 ], [ %296, %326 ]
-  %334 = icmp slt i64 %309, 7500
-  %335 = zext nneg i8 %.pre-phi to i64
-  %336 = shl i64 %318, %335
-  %337 = select i1 %334, i64 %336, i64 %309
-  %338 = add i64 %318, 1
-  br label %339
+333:                                              ; preds = %330, %327
+  %.pre-phi = phi i8 [ %332, %330 ], [ 1, %327 ]
+  %334 = phi i8 [ %332, %330 ], [ %296, %327 ]
+  %335 = icmp slt i64 %309, 7500
+  %336 = zext nneg i8 %.pre-phi to i64
+  %337 = shl i64 %319, %336
+  %338 = select i1 %335, i64 %337, i64 %309
+  %339 = add i64 %319, 1
+  br label %340
 
-339:                                              ; preds = %332, %324
-  %340 = phi i8 [ 1, %324 ], [ 0, %332 ]
-  %341 = phi i8 [ 1, %324 ], [ %333, %332 ]
-  %342 = phi i64 [ %317, %324 ], [ %338, %332 ]
-  %343 = phi i64 [ %325, %324 ], [ %337, %332 ]
-  %344 = getelementptr i8, ptr %300, i64 %342
-  %345 = add i64 %318, %301
-  %346 = getelementptr i8, ptr %284, i64 %345
-  store i8 0, ptr %346, align 1
-  %347 = and i8 %341, 1
-  %348 = icmp eq i8 %347, 0
-  %349 = shl i64 %345, 1
-  %350 = add i64 %345, 2
-  %351 = select i1 %348, i64 %350, i64 %349
-  br label %352
+340:                                              ; preds = %333, %325
+  %341 = phi i8 [ 1, %325 ], [ 0, %333 ]
+  %342 = phi i8 [ 1, %325 ], [ %334, %333 ]
+  %343 = phi i64 [ %318, %325 ], [ %339, %333 ]
+  %344 = phi i64 [ %326, %325 ], [ %338, %333 ]
+  %345 = getelementptr i8, ptr %300, i64 %343
+  %346 = add i64 %319, %301
+  %347 = getelementptr i8, ptr %284, i64 %346
+  store i8 0, ptr %347, align 1
+  %348 = and i8 %342, 1
+  %349 = icmp eq i8 %348, 0
+  %350 = shl i64 %346, 1
+  %351 = add i64 %346, 2
+  %352 = select i1 %349, i64 %351, i64 %350
+  br label %353
 
-352:                                              ; preds = %339, %308
-  %353 = phi i64 [ %351, %339 ], [ %294, %308 ]
-  %354 = phi i8 [ %340, %339 ], [ %295, %308 ]
-  %355 = phi i8 [ %341, %339 ], [ %296, %308 ]
-  %356 = phi ptr [ %284, %339 ], [ %299, %308 ]
-  %357 = phi ptr [ %344, %339 ], [ %300, %308 ]
-  %358 = phi i64 [ %345, %339 ], [ %301, %308 ]
-  %359 = phi i64 [ %343, %339 ], [ %309, %308 ]
-  %360 = icmp sgt i64 %358, -1
-  br i1 %360, label %361, label %.thread
+353:                                              ; preds = %340, %308
+  %354 = phi i64 [ %352, %340 ], [ %294, %308 ]
+  %355 = phi i8 [ %341, %340 ], [ %295, %308 ]
+  %356 = phi i8 [ %342, %340 ], [ %296, %308 ]
+  %357 = phi ptr [ %316, %340 ], [ %299, %308 ]
+  %358 = phi ptr [ %345, %340 ], [ %300, %308 ]
+  %359 = phi i64 [ %346, %340 ], [ %301, %308 ]
+  %360 = phi i64 [ %344, %340 ], [ %309, %308 ]
+  %361 = icmp sgt i64 %359, -1
+  br i1 %361, label %362, label %.thread
 
-361:                                              ; preds = %352
-  %362 = icmp ult i64 %303, 104
-  br i1 %362, label %363, label %366
+362:                                              ; preds = %353
+  %363 = icmp ult i64 %303, 104
+  br i1 %363, label %364, label %367
 
-363:                                              ; preds = %361
+364:                                              ; preds = %362
   call void @audit_log_end(ptr noundef %293) #12
-  %364 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1309) #12
-  %365 = icmp eq ptr %364, null
-  br i1 %365, label %.loopexit68, label %366
+  %365 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1309) #12
+  %366 = icmp eq ptr %365, null
+  br i1 %366, label %.loopexit68, label %367
 
-366:                                              ; preds = %363, %361
-  %367 = phi ptr [ %364, %363 ], [ %293, %361 ]
-  %368 = phi i64 [ 7500, %363 ], [ %303, %361 ]
-  %369 = and i8 %354, 1
-  %370 = icmp ne i8 %369, 0
-  %371 = icmp ne i32 %297, 0
-  %372 = select i1 %370, i1 true, i1 %371
-  %373 = add i64 %353, 96
-  %374 = icmp ugt i64 %373, %368
-  %375 = select i1 %372, i1 true, i1 %374
-  br i1 %375, label %376, label %389
+367:                                              ; preds = %364, %362
+  %368 = phi ptr [ %365, %364 ], [ %293, %362 ]
+  %369 = phi i64 [ 7500, %364 ], [ %303, %362 ]
+  %370 = and i8 %355, 1
+  %371 = icmp ne i8 %370, 0
+  %372 = icmp ne i32 %297, 0
+  %373 = select i1 %371, i1 true, i1 %372
+  %374 = add i64 %354, 96
+  %375 = icmp ugt i64 %374, %369
+  %376 = select i1 %373, i1 true, i1 %375
+  br i1 %376, label %377, label %390
 
-376:                                              ; preds = %366
-  %377 = icmp eq i32 %297, 0
-  br i1 %377, label %378, label %381
+377:                                              ; preds = %367
+  %378 = icmp eq i32 %297, 0
+  br i1 %378, label %379, label %382
 
-378:                                              ; preds = %376
-  %379 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 96, ptr noundef nonnull @.str.60, i32 noundef %298, i64 noundef %359) #12
-  %380 = sext i32 %379 to i64
-  br label %381
+379:                                              ; preds = %377
+  %380 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 96, ptr noundef nonnull @.str.60, i32 noundef %298, i64 noundef %360) #12
+  %381 = sext i32 %380 to i64
+  br label %382
 
-381:                                              ; preds = %378, %376
-  %382 = phi i64 [ %380, %378 ], [ 0, %376 ]
-  %383 = getelementptr [96 x i8], ptr %7, i64 0, i64 %382
-  %384 = sub nsw i64 96, %382
-  %385 = add i32 %297, 1
-  %386 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %383, i64 noundef %384, ptr noundef nonnull @.str.61, i32 noundef %298, i32 noundef %297) #12
-  %387 = sext i32 %386 to i64
-  %388 = add nsw i64 %382, %387
-  br label %392
+382:                                              ; preds = %379, %377
+  %383 = phi i64 [ %381, %379 ], [ 0, %377 ]
+  %384 = getelementptr [96 x i8], ptr %7, i64 0, i64 %383
+  %385 = sub nsw i64 96, %383
+  %386 = add i32 %297, 1
+  %387 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %384, i64 noundef %385, ptr noundef nonnull @.str.61, i32 noundef %298, i32 noundef %297) #12
+  %388 = sext i32 %387 to i64
+  %389 = add nsw i64 %383, %388
+  br label %393
 
-389:                                              ; preds = %366
-  %390 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 96, ptr noundef nonnull @.str.62, i32 noundef %298) #12
-  %391 = sext i32 %390 to i64
-  br label %392
+390:                                              ; preds = %367
+  %391 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 96, ptr noundef nonnull @.str.62, i32 noundef %298) #12
+  %392 = sext i32 %391 to i64
+  br label %393
 
-392:                                              ; preds = %389, %381
-  %393 = phi i64 [ %388, %381 ], [ %391, %389 ]
-  %394 = phi i32 [ %385, %381 ], [ 0, %389 ]
-  %395 = icmp ugt i64 %393, 95
-  br i1 %395, label %396, label %397, !prof !23
+393:                                              ; preds = %390, %382
+  %394 = phi i64 [ %389, %382 ], [ %392, %390 ]
+  %395 = phi i32 [ %386, %382 ], [ 0, %390 ]
+  %396 = icmp ugt i64 %394, 95
+  br i1 %396, label %397, label %398, !prof !23
 
-396:                                              ; preds = %392
+397:                                              ; preds = %393
   call void asm sideeffect "497: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 497b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 497) #12, !srcloc !24
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1257, i32 2305, i64 12) #12, !srcloc !25
   call void asm sideeffect "498: nop\0A\09.pushsection .discard.instr_end\0A\09.long 498b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 498) #12, !srcloc !26
-  br label %397
+  br label %398
 
-397:                                              ; preds = %396, %392
+398:                                              ; preds = %397, %393
   store i8 0, ptr %291, align 1
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef %367, ptr noundef nonnull @.str.63, ptr noundef nonnull %7) #12
-  %398 = sub i64 %368, %393
-  %399 = and i8 %355, 1
-  %400 = icmp eq i8 %399, 0
-  %401 = icmp sgt i64 %353, %398
-  br i1 %400, label %406, label %402
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef %368, ptr noundef nonnull @.str.63, ptr noundef nonnull %7) #12
+  %399 = sub i64 %369, %394
+  %400 = and i8 %356, 1
+  %401 = icmp eq i8 %400, 0
+  %402 = icmp sgt i64 %354, %399
+  br i1 %401, label %407, label %403
 
-402:                                              ; preds = %397
-  %403 = sdiv i64 %398, 2
-  %404 = select i1 %401, i64 %403, i64 %358
-  call void @audit_log_n_hex(ptr noundef %367, ptr noundef %356, i64 noundef %404) #12
-  %405 = shl i64 %404, 1
-  br label %410
+403:                                              ; preds = %398
+  %404 = sdiv i64 %399, 2
+  %405 = select i1 %402, i64 %404, i64 %359
+  call void @audit_log_n_hex(ptr noundef %368, ptr noundef %357, i64 noundef %405) #12
+  %406 = shl i64 %405, 1
+  br label %411
 
-406:                                              ; preds = %397
-  %407 = add i64 %398, -2
-  %408 = select i1 %401, i64 %407, i64 %358
-  call void @audit_log_n_string(ptr noundef %367, ptr noundef %356, i64 noundef %408) #12
-  %409 = add i64 %408, 2
-  br label %410
+407:                                              ; preds = %398
+  %408 = add i64 %399, -2
+  %409 = select i1 %402, i64 %408, i64 %359
+  call void @audit_log_n_string(ptr noundef %368, ptr noundef %357, i64 noundef %409) #12
+  %410 = add i64 %409, 2
+  br label %411
 
-410:                                              ; preds = %402, %406
-  %411 = phi i64 [ %405, %402 ], [ %408, %406 ]
-  %412 = phi i64 [ %404, %402 ], [ %408, %406 ]
-  %413 = phi i64 [ %405, %402 ], [ %409, %406 ]
-  %414 = sub i64 %398, %413
-  %415 = sub i64 %353, %411
-  %416 = sub i64 %358, %412
-  %417 = getelementptr i8, ptr %356, i64 %412
-  %418 = icmp eq i64 %416, 0
-  %419 = icmp eq i8 %369, 0
-  %420 = and i1 %418, %419
-  br i1 %420, label %421, label %.thread
+411:                                              ; preds = %403, %407
+  %412 = phi i64 [ %406, %403 ], [ %409, %407 ]
+  %413 = phi i64 [ %405, %403 ], [ %409, %407 ]
+  %414 = phi i64 [ %406, %403 ], [ %410, %407 ]
+  %415 = sub i64 %399, %414
+  %416 = sub i64 %354, %412
+  %417 = sub i64 %359, %413
+  %418 = getelementptr i8, ptr %357, i64 %413
+  %419 = icmp eq i64 %417, 0
+  %420 = icmp eq i8 %370, 0
+  %421 = and i1 %419, %420
+  br i1 %421, label %422, label %.thread
 
-421:                                              ; preds = %410
-  %422 = add nuw i32 %298, 1
+422:                                              ; preds = %411
+  %423 = add nuw i32 %298, 1
   br label %.thread
 
-.thread:                                          ; preds = %352, %421, %410
-  %423 = phi i64 [ %414, %421 ], [ %414, %410 ], [ %303, %352 ]
-  %424 = phi i64 [ 0, %421 ], [ %416, %410 ], [ %358, %352 ]
-  %425 = phi ptr [ %417, %421 ], [ %417, %410 ], [ %356, %352 ]
-  %426 = phi i64 [ %415, %421 ], [ %415, %410 ], [ %353, %352 ]
-  %427 = phi ptr [ %367, %421 ], [ %367, %410 ], [ %293, %352 ]
-  %428 = phi i8 [ 1, %421 ], [ %354, %410 ], [ %354, %352 ]
-  %429 = phi i8 [ 0, %421 ], [ %355, %410 ], [ %355, %352 ]
-  %430 = phi i32 [ 0, %421 ], [ %394, %410 ], [ %297, %352 ]
-  %431 = phi i32 [ %422, %421 ], [ %298, %410 ], [ %298, %352 ]
-  %432 = phi i64 [ 0, %421 ], [ %359, %410 ], [ %359, %352 ]
-  %433 = load i32, ptr %289, align 8
-  %434 = icmp ult i32 %431, %433
-  br i1 %434, label %292, label %.loopexit68, !llvm.loop !27
+.thread:                                          ; preds = %353, %422, %411
+  %424 = phi i64 [ %415, %422 ], [ %415, %411 ], [ %303, %353 ]
+  %425 = phi i64 [ 0, %422 ], [ %417, %411 ], [ %359, %353 ]
+  %426 = phi ptr [ %418, %422 ], [ %418, %411 ], [ %357, %353 ]
+  %427 = phi i64 [ %416, %422 ], [ %416, %411 ], [ %354, %353 ]
+  %428 = phi ptr [ %368, %422 ], [ %368, %411 ], [ %293, %353 ]
+  %429 = phi i8 [ 1, %422 ], [ %355, %411 ], [ %355, %353 ]
+  %430 = phi i8 [ 0, %422 ], [ %356, %411 ], [ %356, %353 ]
+  %431 = phi i32 [ 0, %422 ], [ %395, %411 ], [ %297, %353 ]
+  %432 = phi i32 [ %423, %422 ], [ %298, %411 ], [ %298, %353 ]
+  %433 = phi i64 [ 0, %422 ], [ %360, %411 ], [ %360, %353 ]
+  %434 = load i32, ptr %289, align 8
+  %435 = icmp ult i32 %432, %434
+  br i1 %435, label %292, label %.loopexit68, !llvm.loop !27
 
-.loopexit68:                                      ; preds = %.thread, %363, %320
-  %435 = phi ptr [ %293, %320 ], [ %427, %.thread ], [ null, %363 ]
+.loopexit68:                                      ; preds = %.thread, %364, %321
+  %436 = phi ptr [ %293, %321 ], [ %428, %.thread ], [ null, %364 ]
   call void @kfree(ptr noundef nonnull %284) #12
-  br label %436
+  br label %437
 
-436:                                              ; preds = %.loopexit68, %286
-  %437 = phi ptr [ %142, %286 ], [ %435, %.loopexit68 ]
+437:                                              ; preds = %.loopexit68, %286
+  %438 = phi ptr [ %142, %286 ], [ %436, %.loopexit68 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #12
   br label %.loopexit67
 
-438:                                              ; preds = %144
+439:                                              ; preds = %144
   tail call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %142, ptr noundef nonnull @.str.56) #12
-  %439 = getelementptr inbounds i8, ptr %13, i64 872
-  %440 = load ptr, ptr %439, align 8
-  %441 = icmp eq ptr %440, null
-  br i1 %441, label %443, label %442
+  %440 = getelementptr inbounds i8, ptr %13, i64 872
+  %441 = load ptr, ptr %440, align 8
+  %442 = icmp eq ptr %441, null
+  br i1 %442, label %444, label %443
 
-442:                                              ; preds = %438
-  tail call void @audit_log_untrustedstring(ptr noundef nonnull %142, ptr noundef nonnull %440) #12
+443:                                              ; preds = %439
+  tail call void @audit_log_untrustedstring(ptr noundef nonnull %142, ptr noundef nonnull %441) #12
   br label %.loopexit67
 
-443:                                              ; preds = %438
+444:                                              ; preds = %439
   tail call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %142, ptr noundef nonnull @.str.57) #12
   br label %.loopexit67
 
-444:                                              ; preds = %144, %144
-  %445 = getelementptr inbounds i8, ptr %13, i64 872
-  %446 = getelementptr inbounds i8, ptr %13, i64 968
-  %447 = icmp eq i32 %145, 1333
-  br i1 %447, label %.preheader69, label %.loopexit71
+445:                                              ; preds = %144, %144
+  %446 = getelementptr inbounds i8, ptr %13, i64 872
+  %447 = getelementptr inbounds i8, ptr %13, i64 968
+  %448 = icmp eq i32 %145, 1333
+  br i1 %448, label %.preheader69, label %.loopexit71
 
-.preheader69:                                     ; preds = %444, %466
-  %448 = phi ptr [ %467, %466 ], [ %142, %444 ]
-  %449 = phi i64 [ %468, %466 ], [ 0, %444 ]
-  %450 = getelementptr [6 x %struct.audit_ntp_val], ptr %445, i64 0, i64 %449
-  %451 = getelementptr inbounds i8, ptr %450, i64 8
-  %452 = load i64, ptr %451, align 8
-  %453 = load i64, ptr %450, align 8
-  %454 = icmp eq i64 %452, %453
-  br i1 %454, label %466, label %455
+.preheader69:                                     ; preds = %445, %467
+  %449 = phi ptr [ %468, %467 ], [ %142, %445 ]
+  %450 = phi i64 [ %469, %467 ], [ 0, %445 ]
+  %451 = getelementptr [6 x %struct.audit_ntp_val], ptr %446, i64 0, i64 %450
+  %452 = getelementptr inbounds i8, ptr %451, i64 8
+  %453 = load i64, ptr %452, align 8
+  %454 = load i64, ptr %451, align 8
+  %455 = icmp eq i64 %453, %454
+  br i1 %455, label %467, label %456
 
-455:                                              ; preds = %.preheader69
-  %456 = icmp eq ptr %448, null
-  br i1 %456, label %457, label %460
+456:                                              ; preds = %.preheader69
+  %457 = icmp eq ptr %449, null
+  br i1 %457, label %458, label %461
 
-457:                                              ; preds = %455
-  %458 = tail call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1333) #12
-  %459 = icmp eq ptr %458, null
-  br i1 %459, label %.loopexit67, label %._crit_edge
+458:                                              ; preds = %456
+  %459 = tail call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1333) #12
+  %460 = icmp eq ptr %459, null
+  br i1 %460, label %.loopexit67, label %._crit_edge
 
-._crit_edge:                                      ; preds = %457
-  %.pre = load i64, ptr %450, align 8
-  %.pre87 = load i64, ptr %451, align 8
-  br label %460
+._crit_edge:                                      ; preds = %458
+  %.pre = load i64, ptr %451, align 8
+  %.pre87 = load i64, ptr %452, align 8
+  br label %461
 
-460:                                              ; preds = %._crit_edge, %455
-  %461 = phi i64 [ %.pre87, %._crit_edge ], [ %452, %455 ]
-  %462 = phi i64 [ %.pre, %._crit_edge ], [ %453, %455 ]
-  %463 = phi ptr [ %458, %._crit_edge ], [ %448, %455 ]
-  %464 = getelementptr [6 x ptr], ptr @audit_log_time.ntp_name, i64 0, i64 %449
-  %465 = load ptr, ptr %464, align 8
-  tail call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %463, ptr noundef nonnull @.str.70, ptr noundef %465, i64 noundef %462, i64 noundef %461) #12
-  tail call void @audit_log_end(ptr noundef nonnull %463) #12
-  br label %466
+461:                                              ; preds = %._crit_edge, %456
+  %462 = phi i64 [ %.pre87, %._crit_edge ], [ %453, %456 ]
+  %463 = phi i64 [ %.pre, %._crit_edge ], [ %454, %456 ]
+  %464 = phi ptr [ %459, %._crit_edge ], [ %449, %456 ]
+  %465 = getelementptr [6 x ptr], ptr @audit_log_time.ntp_name, i64 0, i64 %450
+  %466 = load ptr, ptr %465, align 8
+  tail call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %464, ptr noundef nonnull @.str.70, ptr noundef %466, i64 noundef %463, i64 noundef %462) #12
+  tail call void @audit_log_end(ptr noundef nonnull %464) #12
+  br label %467
 
-466:                                              ; preds = %460, %.preheader69
-  %467 = phi ptr [ %448, %.preheader69 ], [ null, %460 ]
-  %468 = add nuw nsw i64 %449, 1
-  %469 = icmp eq i64 %468, 6
-  br i1 %469, label %.loopexit71, label %.preheader69, !llvm.loop !28
+467:                                              ; preds = %461, %.preheader69
+  %468 = phi ptr [ %449, %.preheader69 ], [ null, %461 ]
+  %469 = add nuw nsw i64 %450, 1
+  %470 = icmp eq i64 %469, 6
+  br i1 %470, label %.loopexit71, label %.preheader69, !llvm.loop !28
 
-.loopexit71:                                      ; preds = %466, %444
-  %470 = phi ptr [ %142, %444 ], [ %467, %466 ]
-  %471 = load i64, ptr %446, align 8
-  %472 = icmp eq i64 %471, 0
-  br i1 %472, label %473, label %477
+.loopexit71:                                      ; preds = %467, %445
+  %471 = phi ptr [ %142, %445 ], [ %468, %467 ]
+  %472 = load i64, ptr %447, align 8
+  %473 = icmp eq i64 %472, 0
+  br i1 %473, label %474, label %478
 
-473:                                              ; preds = %.loopexit71
-  %474 = getelementptr inbounds i8, ptr %13, i64 976
-  %475 = load i64, ptr %474, align 8
-  %476 = icmp eq i64 %475, 0
-  br i1 %476, label %.loopexit67, label %477
+474:                                              ; preds = %.loopexit71
+  %475 = getelementptr inbounds i8, ptr %13, i64 976
+  %476 = load i64, ptr %475, align 8
+  %477 = icmp eq i64 %476, 0
+  br i1 %477, label %.loopexit67, label %478
 
-477:                                              ; preds = %473, %.loopexit71
-  %478 = icmp eq ptr %470, null
-  br i1 %478, label %479, label %482
+478:                                              ; preds = %474, %.loopexit71
+  %479 = icmp eq ptr %471, null
+  br i1 %479, label %480, label %483
 
-479:                                              ; preds = %477
-  %480 = tail call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1332) #12
-  %481 = icmp eq ptr %480, null
-  br i1 %481, label %.loopexit67, label %._crit_edge88
+480:                                              ; preds = %478
+  %481 = tail call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1332) #12
+  %482 = icmp eq ptr %481, null
+  br i1 %482, label %.loopexit67, label %._crit_edge88
 
-._crit_edge88:                                    ; preds = %479
-  %.pre89 = load i64, ptr %446, align 8
-  br label %482
+._crit_edge88:                                    ; preds = %480
+  %.pre89 = load i64, ptr %447, align 8
+  br label %483
 
-482:                                              ; preds = %._crit_edge88, %477
-  %483 = phi i64 [ %.pre89, %._crit_edge88 ], [ %471, %477 ]
-  %484 = phi ptr [ %480, %._crit_edge88 ], [ %470, %477 ]
-  %485 = getelementptr inbounds i8, ptr %13, i64 976
-  %486 = load i64, ptr %485, align 8
-  tail call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %484, ptr noundef nonnull @.str.71, i64 noundef %483, i64 noundef %486) #12
-  tail call void @audit_log_end(ptr noundef nonnull %484) #12
+483:                                              ; preds = %._crit_edge88, %478
+  %484 = phi i64 [ %.pre89, %._crit_edge88 ], [ %472, %478 ]
+  %485 = phi ptr [ %481, %._crit_edge88 ], [ %471, %478 ]
+  %486 = getelementptr inbounds i8, ptr %13, i64 976
+  %487 = load i64, ptr %486, align 8
+  tail call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %485, ptr noundef nonnull @.str.71, i64 noundef %484, i64 noundef %487) #12
+  tail call void @audit_log_end(ptr noundef nonnull %485) #12
   br label %.loopexit67
 
-.loopexit67:                                      ; preds = %457, %153, %482, %479, %473, %443, %442, %436, %271, %266, %265, %264, %229, %224, %213, %199, %189, %181, %146, %144
-  %487 = phi i32 [ 0, %144 ], [ 0, %473 ], [ 0, %479 ], [ 0, %482 ], [ 0, %443 ], [ 0, %442 ], [ 0, %436 ], [ 0, %271 ], [ 0, %266 ], [ 0, %264 ], [ 0, %265 ], [ 0, %229 ], [ 0, %224 ], [ 0, %213 ], [ 0, %199 ], [ %182, %181 ], [ %182, %189 ], [ 0, %146 ], [ 0, %153 ], [ 0, %457 ]
-  %488 = phi ptr [ %142, %144 ], [ %470, %473 ], [ null, %479 ], [ null, %482 ], [ %142, %443 ], [ %142, %442 ], [ %437, %436 ], [ %142, %271 ], [ %142, %266 ], [ %142, %264 ], [ %142, %265 ], [ %142, %229 ], [ %142, %224 ], [ %142, %213 ], [ %142, %199 ], [ %142, %181 ], [ %187, %189 ], [ %142, %146 ], [ %142, %153 ], [ null, %457 ]
-  call void @audit_log_end(ptr noundef %488) #12
-  br label %489
+.loopexit67:                                      ; preds = %458, %153, %483, %480, %474, %444, %443, %437, %271, %266, %265, %264, %229, %224, %213, %199, %189, %181, %146, %144
+  %488 = phi i32 [ 0, %144 ], [ 0, %474 ], [ 0, %480 ], [ 0, %483 ], [ 0, %444 ], [ 0, %443 ], [ 0, %437 ], [ 0, %271 ], [ 0, %266 ], [ 0, %264 ], [ 0, %265 ], [ 0, %229 ], [ 0, %224 ], [ 0, %213 ], [ 0, %199 ], [ %182, %181 ], [ %182, %189 ], [ 0, %146 ], [ 0, %153 ], [ 0, %458 ]
+  %489 = phi ptr [ %142, %144 ], [ %471, %474 ], [ null, %480 ], [ null, %483 ], [ %142, %444 ], [ %142, %443 ], [ %438, %437 ], [ %142, %271 ], [ %142, %266 ], [ %142, %264 ], [ %142, %265 ], [ %142, %229 ], [ %142, %224 ], [ %142, %213 ], [ %142, %199 ], [ %142, %181 ], [ %187, %189 ], [ %142, %146 ], [ %142, %153 ], [ null, %458 ]
+  call void @audit_log_end(ptr noundef %489) #12
+  br label %490
 
-489:                                              ; preds = %.loopexit67, %186, %141, %.loopexit73
-  %490 = phi i32 [ 0, %.loopexit73 ], [ 0, %141 ], [ %487, %.loopexit67 ], [ %182, %186 ]
-  %491 = getelementptr inbounds i8, ptr %13, i64 984
-  %492 = load i32, ptr %491, align 8
-  %493 = icmp sgt i32 %492, -1
-  br i1 %493, label %494, label %501
+490:                                              ; preds = %.loopexit67, %186, %141, %.loopexit73
+  %491 = phi i32 [ 0, %.loopexit73 ], [ 0, %141 ], [ %488, %.loopexit67 ], [ %182, %186 ]
+  %492 = getelementptr inbounds i8, ptr %13, i64 984
+  %493 = load i32, ptr %492, align 8
+  %494 = icmp sgt i32 %493, -1
+  br i1 %494, label %495, label %502
 
-494:                                              ; preds = %489
-  %495 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1317) #12
-  %496 = icmp eq ptr %495, null
-  br i1 %496, label %501, label %497
+495:                                              ; preds = %490
+  %496 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1317) #12
+  %497 = icmp eq ptr %496, null
+  br i1 %497, label %502, label %498
 
-497:                                              ; preds = %494
-  %498 = load i32, ptr %491, align 8
-  %499 = getelementptr i8, ptr %13, i64 988
-  %500 = load i32, ptr %499, align 4
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %495, ptr noundef nonnull @.str.33, i32 noundef %498, i32 noundef %500) #12
-  call void @audit_log_end(ptr noundef nonnull %495) #12
-  br label %501
+498:                                              ; preds = %495
+  %499 = load i32, ptr %492, align 8
+  %500 = getelementptr i8, ptr %13, i64 988
+  %501 = load i32, ptr %500, align 4
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %496, ptr noundef nonnull @.str.33, i32 noundef %499, i32 noundef %501) #12
+  call void @audit_log_end(ptr noundef nonnull %496) #12
+  br label %502
 
-501:                                              ; preds = %497, %494, %489
-  %502 = getelementptr inbounds i8, ptr %13, i64 736
-  %503 = load i64, ptr %502, align 8
-  %504 = icmp eq i64 %503, 0
-  br i1 %504, label %512, label %505
+502:                                              ; preds = %498, %495, %490
+  %503 = getelementptr inbounds i8, ptr %13, i64 736
+  %504 = load i64, ptr %503, align 8
+  %505 = icmp eq i64 %504, 0
+  br i1 %505, label %513, label %506
 
-505:                                              ; preds = %501
-  %506 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1306) #12
-  %507 = icmp eq ptr %506, null
-  br i1 %507, label %512, label %508
+506:                                              ; preds = %502
+  %507 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1306) #12
+  %508 = icmp eq ptr %507, null
+  br i1 %508, label %513, label %509
 
-508:                                              ; preds = %505
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %506, ptr noundef nonnull @.str.34) #12
-  %509 = getelementptr inbounds i8, ptr %13, i64 728
-  %510 = load ptr, ptr %509, align 8
-  %511 = load i64, ptr %502, align 8
-  call void @audit_log_n_hex(ptr noundef nonnull %506, ptr noundef %510, i64 noundef %511) #12
-  call void @audit_log_end(ptr noundef nonnull %506) #12
-  br label %512
+509:                                              ; preds = %506
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %507, ptr noundef nonnull @.str.34) #12
+  %510 = getelementptr inbounds i8, ptr %13, i64 728
+  %511 = load ptr, ptr %510, align 8
+  %512 = load i64, ptr %503, align 8
+  call void @audit_log_n_hex(ptr noundef nonnull %507, ptr noundef %511, i64 noundef %512) #12
+  call void @audit_log_end(ptr noundef nonnull %507) #12
+  br label %513
 
-512:                                              ; preds = %508, %505, %501
-  %513 = getelementptr inbounds i8, ptr %13, i64 720
-  %514 = load ptr, ptr %513, align 8
-  %515 = icmp eq ptr %514, null
-  br i1 %515, label %.loopexit66, label %.preheader65
+513:                                              ; preds = %509, %506, %502
+  %514 = getelementptr inbounds i8, ptr %13, i64 720
+  %515 = load ptr, ptr %514, align 8
+  %516 = icmp eq ptr %515, null
+  br i1 %516, label %.loopexit66, label %.preheader65
 
-.loopexit64:                                      ; preds = %556, %.preheader65
-  %516 = phi i32 [ %520, %.preheader65 ], [ %557, %556 ]
-  %517 = load ptr, ptr %519, align 8
-  %518 = icmp eq ptr %517, null
-  br i1 %518, label %.loopexit66, label %.preheader65, !llvm.loop !29
+.loopexit64:                                      ; preds = %557, %.preheader65
+  %517 = phi i32 [ %521, %.preheader65 ], [ %558, %557 ]
+  %518 = load ptr, ptr %520, align 8
+  %519 = icmp eq ptr %518, null
+  br i1 %519, label %.loopexit66, label %.preheader65, !llvm.loop !29
 
-.preheader65:                                     ; preds = %512, %.loopexit64
-  %519 = phi ptr [ %517, %.loopexit64 ], [ %514, %512 ]
-  %520 = phi i32 [ %516, %.loopexit64 ], [ %490, %512 ]
-  %521 = getelementptr inbounds i8, ptr %519, i64 592
-  %522 = load i32, ptr %521, align 8
-  %523 = icmp sgt i32 %522, 0
-  br i1 %523, label %524, label %.loopexit64
+.preheader65:                                     ; preds = %513, %.loopexit64
+  %520 = phi ptr [ %518, %.loopexit64 ], [ %515, %513 ]
+  %521 = phi i32 [ %517, %.loopexit64 ], [ %491, %513 ]
+  %522 = getelementptr inbounds i8, ptr %520, i64 592
+  %523 = load i32, ptr %522, align 8
+  %524 = icmp sgt i32 %523, 0
+  br i1 %524, label %525, label %.loopexit64
 
-524:                                              ; preds = %.preheader65
-  %525 = getelementptr inbounds i8, ptr %519, i64 16
-  %526 = getelementptr inbounds i8, ptr %519, i64 80
-  %527 = getelementptr inbounds i8, ptr %519, i64 144
-  %528 = getelementptr inbounds i8, ptr %519, i64 208
-  %529 = getelementptr inbounds i8, ptr %519, i64 272
-  %530 = getelementptr inbounds i8, ptr %519, i64 336
-  br label %531
+525:                                              ; preds = %.preheader65
+  %526 = getelementptr inbounds i8, ptr %520, i64 16
+  %527 = getelementptr inbounds i8, ptr %520, i64 80
+  %528 = getelementptr inbounds i8, ptr %520, i64 144
+  %529 = getelementptr inbounds i8, ptr %520, i64 208
+  %530 = getelementptr inbounds i8, ptr %520, i64 272
+  %531 = getelementptr inbounds i8, ptr %520, i64 336
+  br label %532
 
-531:                                              ; preds = %556, %524
-  %532 = phi i64 [ 0, %524 ], [ %558, %556 ]
-  %533 = phi i32 [ %520, %524 ], [ %557, %556 ]
-  %534 = getelementptr [16 x i32], ptr %525, i64 0, i64 %532
-  %535 = load i32, ptr %534, align 4
-  %536 = getelementptr [16 x %struct.kuid_t], ptr %526, i64 0, i64 %532
-  %537 = getelementptr [16 x %struct.kuid_t], ptr %527, i64 0, i64 %532
-  %538 = getelementptr [16 x i32], ptr %528, i64 0, i64 %532
-  %539 = load i32, ptr %538, align 4
-  %540 = getelementptr [16 x i32], ptr %529, i64 0, i64 %532
-  %541 = load i32, ptr %540, align 4
-  %542 = getelementptr [16 x [16 x i8]], ptr %530, i64 0, i64 %532
-  %543 = load i32, ptr %536, align 4
+532:                                              ; preds = %557, %525
+  %533 = phi i64 [ 0, %525 ], [ %559, %557 ]
+  %534 = phi i32 [ %521, %525 ], [ %558, %557 ]
+  %535 = getelementptr [16 x i32], ptr %526, i64 0, i64 %533
+  %536 = load i32, ptr %535, align 4
+  %537 = getelementptr [16 x %struct.kuid_t], ptr %527, i64 0, i64 %533
+  %538 = getelementptr [16 x %struct.kuid_t], ptr %528, i64 0, i64 %533
+  %539 = getelementptr [16 x i32], ptr %529, i64 0, i64 %533
+  %540 = load i32, ptr %539, align 4
+  %541 = getelementptr [16 x i32], ptr %530, i64 0, i64 %533
+  %542 = load i32, ptr %541, align 4
+  %543 = getelementptr [16 x [16 x i8]], ptr %531, i64 0, i64 %533
   %544 = load i32, ptr %537, align 4
+  %545 = load i32, ptr %538, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   store ptr null, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
-  %545 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1318) #12
-  %546 = icmp eq ptr %545, null
-  br i1 %546, label %audit_log_pid_context.exit.thread, label %547
+  %546 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1318) #12
+  %547 = icmp eq ptr %546, null
+  br i1 %547, label %audit_log_pid_context.exit.thread, label %548
 
-audit_log_pid_context.exit.thread:                ; preds = %531
+audit_log_pid_context.exit.thread:                ; preds = %532
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  br label %556
+  br label %557
 
-547:                                              ; preds = %531
+548:                                              ; preds = %532
   store i32 0, ptr %4, align 4, !annotation !5
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %545, ptr noundef nonnull @.str.72, i32 noundef %535, i32 noundef %543, i32 noundef %544, i32 noundef %539) #12
-  %548 = icmp eq i32 %541, 0
-  br i1 %548, label %audit_log_pid_context.exit, label %549
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %546, ptr noundef nonnull @.str.72, i32 noundef %536, i32 noundef %544, i32 noundef %545, i32 noundef %540) #12
+  %549 = icmp eq i32 %542, 0
+  br i1 %549, label %audit_log_pid_context.exit, label %550
 
-549:                                              ; preds = %547
-  %550 = call i32 @security_secid_to_secctx(i32 noundef %541, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
-  %551 = icmp eq i32 %550, 0
-  br i1 %551, label %552, label %.critedge
+550:                                              ; preds = %548
+  %551 = call i32 @security_secid_to_secctx(i32 noundef %542, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
+  %552 = icmp eq i32 %551, 0
+  br i1 %552, label %553, label %.critedge
 
-.critedge:                                        ; preds = %549
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %545, ptr noundef nonnull @.str.73) #12
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %545, ptr noundef nonnull @.str.74) #12
-  call void @audit_log_untrustedstring(ptr noundef nonnull %545, ptr noundef %542) #12
-  call void @audit_log_end(ptr noundef nonnull %545) #12
+.critedge:                                        ; preds = %550
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %546, ptr noundef nonnull @.str.73) #12
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %546, ptr noundef nonnull @.str.74) #12
+  call void @audit_log_untrustedstring(ptr noundef nonnull %546, ptr noundef %543) #12
+  call void @audit_log_end(ptr noundef nonnull %546) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  br label %556
+  br label %557
 
-552:                                              ; preds = %549
-  %553 = load ptr, ptr %3, align 8
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %545, ptr noundef nonnull @.str.43, ptr noundef %553) #12
+553:                                              ; preds = %550
   %554 = load ptr, ptr %3, align 8
-  %555 = load i32, ptr %4, align 4
-  call void @security_release_secctx(ptr noundef %554, i32 noundef %555) #12
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %546, ptr noundef nonnull @.str.43, ptr noundef %554) #12
+  %555 = load ptr, ptr %3, align 8
+  %556 = load i32, ptr %4, align 4
+  call void @security_release_secctx(ptr noundef %555, i32 noundef %556) #12
   br label %audit_log_pid_context.exit
 
-audit_log_pid_context.exit:                       ; preds = %547, %552
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %545, ptr noundef nonnull @.str.74) #12
-  call void @audit_log_untrustedstring(ptr noundef nonnull %545, ptr noundef %542) #12
-  call void @audit_log_end(ptr noundef nonnull %545) #12
+audit_log_pid_context.exit:                       ; preds = %548, %553
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %546, ptr noundef nonnull @.str.74) #12
+  call void @audit_log_untrustedstring(ptr noundef nonnull %546, ptr noundef %543) #12
+  call void @audit_log_end(ptr noundef nonnull %546) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  br label %556
+  br label %557
 
-556:                                              ; preds = %audit_log_pid_context.exit.thread, %audit_log_pid_context.exit, %.critedge
-  %557 = phi i32 [ 1, %.critedge ], [ %533, %audit_log_pid_context.exit ], [ %533, %audit_log_pid_context.exit.thread ]
-  %558 = add nuw nsw i64 %532, 1
-  %559 = load i32, ptr %521, align 8
-  %560 = sext i32 %559 to i64
-  %561 = icmp slt i64 %558, %560
-  br i1 %561, label %531, label %.loopexit64, !llvm.loop !30
+557:                                              ; preds = %audit_log_pid_context.exit.thread, %audit_log_pid_context.exit, %.critedge
+  %558 = phi i32 [ 1, %.critedge ], [ %534, %audit_log_pid_context.exit ], [ %534, %audit_log_pid_context.exit.thread ]
+  %559 = add nuw nsw i64 %533, 1
+  %560 = load i32, ptr %522, align 8
+  %561 = sext i32 %560 to i64
+  %562 = icmp slt i64 %559, %561
+  br i1 %562, label %532, label %.loopexit64, !llvm.loop !30
 
-.loopexit66:                                      ; preds = %.loopexit64, %512
-  %562 = phi i32 [ %490, %512 ], [ %516, %.loopexit64 ]
-  %563 = getelementptr inbounds i8, ptr %13, i64 796
-  %564 = load i32, ptr %563, align 4
-  %565 = icmp eq i32 %564, 0
-  br i1 %565, label %587, label %566
+.loopexit66:                                      ; preds = %.loopexit64, %513
+  %563 = phi i32 [ %491, %513 ], [ %517, %.loopexit64 ]
+  %564 = getelementptr inbounds i8, ptr %13, i64 796
+  %565 = load i32, ptr %564, align 4
+  %566 = icmp eq i32 %565, 0
+  br i1 %566, label %588, label %567
 
-566:                                              ; preds = %.loopexit66
-  %567 = getelementptr inbounds i8, ptr %13, i64 800
-  %568 = getelementptr inbounds i8, ptr %13, i64 804
-  %569 = getelementptr inbounds i8, ptr %13, i64 808
-  %570 = load i32, ptr %569, align 8
-  %571 = getelementptr inbounds i8, ptr %13, i64 812
-  %572 = load i32, ptr %571, align 4
-  %573 = getelementptr inbounds i8, ptr %13, i64 816
-  %574 = load i32, ptr %567, align 8
-  %575 = load i32, ptr %568, align 4
+567:                                              ; preds = %.loopexit66
+  %568 = getelementptr inbounds i8, ptr %13, i64 800
+  %569 = getelementptr inbounds i8, ptr %13, i64 804
+  %570 = getelementptr inbounds i8, ptr %13, i64 808
+  %571 = load i32, ptr %570, align 8
+  %572 = getelementptr inbounds i8, ptr %13, i64 812
+  %573 = load i32, ptr %572, align 4
+  %574 = getelementptr inbounds i8, ptr %13, i64 816
+  %575 = load i32, ptr %568, align 8
+  %576 = load i32, ptr %569, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #12
   store ptr null, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
-  %576 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1318) #12
-  %577 = icmp eq ptr %576, null
-  br i1 %577, label %audit_log_pid_context.exit62.thread, label %578
+  %577 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1318) #12
+  %578 = icmp eq ptr %577, null
+  br i1 %578, label %audit_log_pid_context.exit62.thread, label %579
 
-audit_log_pid_context.exit62.thread:              ; preds = %566
+audit_log_pid_context.exit62.thread:              ; preds = %567
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
-  br label %587
+  br label %588
 
-578:                                              ; preds = %566
+579:                                              ; preds = %567
   store i32 0, ptr %2, align 4, !annotation !5
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %576, ptr noundef nonnull @.str.72, i32 noundef %564, i32 noundef %574, i32 noundef %575, i32 noundef %570) #12
-  %579 = icmp eq i32 %572, 0
-  br i1 %579, label %audit_log_pid_context.exit62, label %580
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %577, ptr noundef nonnull @.str.72, i32 noundef %565, i32 noundef %575, i32 noundef %576, i32 noundef %571) #12
+  %580 = icmp eq i32 %573, 0
+  br i1 %580, label %audit_log_pid_context.exit62, label %581
 
-580:                                              ; preds = %578
-  %581 = call i32 @security_secid_to_secctx(i32 noundef %572, ptr noundef nonnull %1, ptr noundef nonnull %2) #12
-  %582 = icmp eq i32 %581, 0
-  br i1 %582, label %583, label %.critedge63
+581:                                              ; preds = %579
+  %582 = call i32 @security_secid_to_secctx(i32 noundef %573, ptr noundef nonnull %1, ptr noundef nonnull %2) #12
+  %583 = icmp eq i32 %582, 0
+  br i1 %583, label %584, label %.critedge63
 
-.critedge63:                                      ; preds = %580
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %576, ptr noundef nonnull @.str.73) #12
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %576, ptr noundef nonnull @.str.74) #12
-  call void @audit_log_untrustedstring(ptr noundef nonnull %576, ptr noundef %573) #12
-  call void @audit_log_end(ptr noundef nonnull %576) #12
+.critedge63:                                      ; preds = %581
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %577, ptr noundef nonnull @.str.73) #12
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %577, ptr noundef nonnull @.str.74) #12
+  call void @audit_log_untrustedstring(ptr noundef nonnull %577, ptr noundef %574) #12
+  call void @audit_log_end(ptr noundef nonnull %577) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
-  br label %587
+  br label %588
 
-583:                                              ; preds = %580
-  %584 = load ptr, ptr %1, align 8
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %576, ptr noundef nonnull @.str.43, ptr noundef %584) #12
+584:                                              ; preds = %581
   %585 = load ptr, ptr %1, align 8
-  %586 = load i32, ptr %2, align 4
-  call void @security_release_secctx(ptr noundef %585, i32 noundef %586) #12
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %577, ptr noundef nonnull @.str.43, ptr noundef %585) #12
+  %586 = load ptr, ptr %1, align 8
+  %587 = load i32, ptr %2, align 4
+  call void @security_release_secctx(ptr noundef %586, i32 noundef %587) #12
   br label %audit_log_pid_context.exit62
 
-audit_log_pid_context.exit62:                     ; preds = %578, %583
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %576, ptr noundef nonnull @.str.74) #12
-  call void @audit_log_untrustedstring(ptr noundef nonnull %576, ptr noundef %573) #12
-  call void @audit_log_end(ptr noundef nonnull %576) #12
+audit_log_pid_context.exit62:                     ; preds = %579, %584
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %577, ptr noundef nonnull @.str.74) #12
+  call void @audit_log_untrustedstring(ptr noundef nonnull %577, ptr noundef %574) #12
+  call void @audit_log_end(ptr noundef nonnull %577) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
-  br label %587
+  br label %588
 
-587:                                              ; preds = %audit_log_pid_context.exit62.thread, %audit_log_pid_context.exit62, %.critedge63, %.loopexit66
-  %588 = phi i32 [ %562, %.loopexit66 ], [ 1, %.critedge63 ], [ %562, %audit_log_pid_context.exit62 ], [ %562, %audit_log_pid_context.exit62.thread ]
-  %589 = getelementptr inbounds i8, ptr %13, i64 696
-  %590 = getelementptr inbounds i8, ptr %13, i64 704
-  %591 = load ptr, ptr %590, align 8
-  %592 = icmp eq ptr %591, null
-  br i1 %592, label %600, label %593
+588:                                              ; preds = %audit_log_pid_context.exit62.thread, %audit_log_pid_context.exit62, %.critedge63, %.loopexit66
+  %589 = phi i32 [ %563, %.loopexit66 ], [ 1, %.critedge63 ], [ %563, %audit_log_pid_context.exit62 ], [ %563, %audit_log_pid_context.exit62.thread ]
+  %590 = getelementptr inbounds i8, ptr %13, i64 696
+  %591 = getelementptr inbounds i8, ptr %13, i64 704
+  %592 = load ptr, ptr %591, align 8
+  %593 = icmp eq ptr %592, null
+  br i1 %593, label %601, label %594
 
-593:                                              ; preds = %587
-  %594 = load ptr, ptr %589, align 8
-  %595 = icmp eq ptr %594, null
-  br i1 %595, label %600, label %596
+594:                                              ; preds = %588
+  %595 = load ptr, ptr %590, align 8
+  %596 = icmp eq ptr %595, null
+  br i1 %596, label %601, label %597
 
-596:                                              ; preds = %593
-  %597 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1307) #12
-  %598 = icmp eq ptr %597, null
-  br i1 %598, label %600, label %599
+597:                                              ; preds = %594
+  %598 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1307) #12
+  %599 = icmp eq ptr %598, null
+  br i1 %599, label %601, label %600
 
-599:                                              ; preds = %596
-  call void @audit_log_d_path(ptr noundef nonnull %597, ptr noundef nonnull @.str.35, ptr noundef %589) #12
-  call void @audit_log_end(ptr noundef nonnull %597) #12
-  br label %600
+600:                                              ; preds = %597
+  call void @audit_log_d_path(ptr noundef nonnull %598, ptr noundef nonnull @.str.35, ptr noundef %590) #12
+  call void @audit_log_end(ptr noundef nonnull %598) #12
+  br label %601
 
-600:                                              ; preds = %599, %596, %593, %587
-  %601 = getelementptr inbounds i8, ptr %13, i64 672
-  %602 = load ptr, ptr %601, align 8
-  %603 = icmp eq ptr %602, %601
-  br i1 %603, label %.loopexit, label %.preheader
+601:                                              ; preds = %600, %597, %594, %588
+  %602 = getelementptr inbounds i8, ptr %13, i64 672
+  %603 = load ptr, ptr %602, align 8
+  %604 = icmp eq ptr %603, %602
+  br i1 %604, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %600, %706
-  %604 = phi ptr [ %709, %706 ], [ %602, %600 ]
-  %605 = phi i32 [ %708, %706 ], [ 0, %600 ]
-  %606 = phi i32 [ %707, %706 ], [ %588, %600 ]
-  %607 = getelementptr inbounds i8, ptr %604, i64 28
-  %608 = load i8, ptr %607, align 4, !range !11, !noundef !12
-  %609 = icmp eq i8 %608, 0
-  br i1 %609, label %610, label %706
+.preheader:                                       ; preds = %601, %707
+  %605 = phi ptr [ %710, %707 ], [ %603, %601 ]
+  %606 = phi i32 [ %709, %707 ], [ 0, %601 ]
+  %607 = phi i32 [ %708, %707 ], [ %589, %601 ]
+  %608 = getelementptr inbounds i8, ptr %605, i64 28
+  %609 = load i8, ptr %608, align 4, !range !11, !noundef !12
+  %610 = icmp eq i8 %609, 0
+  br i1 %610, label %611, label %707
 
-610:                                              ; preds = %.preheader
-  %611 = add i32 %605, 1
-  %612 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1302) #12
-  %613 = icmp eq ptr %612, null
-  br i1 %613, label %706, label %614
+611:                                              ; preds = %.preheader
+  %612 = add i32 %606, 1
+  %613 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1302) #12
+  %614 = icmp eq ptr %613, null
+  br i1 %614, label %707, label %615
 
-614:                                              ; preds = %610
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.75, i32 noundef %605) #12
-  %615 = getelementptr inbounds i8, ptr %604, i64 16
-  %616 = load ptr, ptr %615, align 8
-  %617 = icmp eq ptr %616, null
-  br i1 %617, label %637, label %618
+615:                                              ; preds = %611
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %613, ptr noundef nonnull @.str.75, i32 noundef %606) #12
+  %616 = getelementptr inbounds i8, ptr %605, i64 16
+  %617 = load ptr, ptr %616, align 8
+  %618 = icmp eq ptr %617, null
+  br i1 %618, label %638, label %619
 
-618:                                              ; preds = %614
-  %619 = getelementptr inbounds i8, ptr %604, i64 24
-  %620 = load i32, ptr %619, align 8
-  switch i32 %620, label %632 [
-    i32 -1, label %621
-    i32 0, label %624
+619:                                              ; preds = %615
+  %620 = getelementptr inbounds i8, ptr %605, i64 24
+  %621 = load i32, ptr %620, align 8
+  switch i32 %621, label %633 [
+    i32 -1, label %622
+    i32 0, label %625
   ]
 
-621:                                              ; preds = %618
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.76) #12
-  %622 = load ptr, ptr %615, align 8
-  %623 = load ptr, ptr %622, align 8
-  call void @audit_log_untrustedstring(ptr noundef nonnull %612, ptr noundef %623) #12
-  br label %638
+622:                                              ; preds = %619
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %613, ptr noundef nonnull @.str.76) #12
+  %623 = load ptr, ptr %616, align 8
+  %624 = load ptr, ptr %623, align 8
+  call void @audit_log_untrustedstring(ptr noundef nonnull %613, ptr noundef %624) #12
+  br label %639
 
-624:                                              ; preds = %618
-  %625 = load ptr, ptr %590, align 8
-  %626 = icmp eq ptr %625, null
-  br i1 %626, label %631, label %627
+625:                                              ; preds = %619
+  %626 = load ptr, ptr %591, align 8
+  %627 = icmp eq ptr %626, null
+  br i1 %627, label %632, label %628
 
-627:                                              ; preds = %624
-  %628 = load ptr, ptr %589, align 8
-  %629 = icmp eq ptr %628, null
-  br i1 %629, label %631, label %630
+628:                                              ; preds = %625
+  %629 = load ptr, ptr %590, align 8
+  %630 = icmp eq ptr %629, null
+  br i1 %630, label %632, label %631
 
-630:                                              ; preds = %627
-  call void @audit_log_d_path(ptr noundef nonnull %612, ptr noundef nonnull @.str.76, ptr noundef %589) #12
-  br label %638
+631:                                              ; preds = %628
+  call void @audit_log_d_path(ptr noundef nonnull %613, ptr noundef nonnull @.str.76, ptr noundef %590) #12
+  br label %639
 
-631:                                              ; preds = %627, %624
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.77) #12
-  br label %638
+632:                                              ; preds = %628, %625
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %613, ptr noundef nonnull @.str.77) #12
+  br label %639
 
-632:                                              ; preds = %618
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.76) #12
-  %633 = load ptr, ptr %615, align 8
-  %634 = load ptr, ptr %633, align 8
-  %635 = load i32, ptr %619, align 8
-  %636 = sext i32 %635 to i64
-  call void @audit_log_n_untrustedstring(ptr noundef nonnull %612, ptr noundef %634, i64 noundef %636) #12
-  br label %638
+633:                                              ; preds = %619
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %613, ptr noundef nonnull @.str.76) #12
+  %634 = load ptr, ptr %616, align 8
+  %635 = load ptr, ptr %634, align 8
+  %636 = load i32, ptr %620, align 8
+  %637 = sext i32 %636 to i64
+  call void @audit_log_n_untrustedstring(ptr noundef nonnull %613, ptr noundef %635, i64 noundef %637) #12
+  br label %639
 
-637:                                              ; preds = %614
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.77) #12
-  br label %638
+638:                                              ; preds = %615
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %613, ptr noundef nonnull @.str.77) #12
+  br label %639
 
-638:                                              ; preds = %637, %632, %631, %630, %621
-  %639 = getelementptr inbounds i8, ptr %604, i64 32
-  %640 = load i64, ptr %639, align 8
-  %641 = icmp eq i64 %640, -1
-  br i1 %641, label %658, label %642
+639:                                              ; preds = %638, %633, %632, %631, %622
+  %640 = getelementptr inbounds i8, ptr %605, i64 32
+  %641 = load i64, ptr %640, align 8
+  %642 = icmp eq i64 %641, -1
+  br i1 %642, label %659, label %643
 
-642:                                              ; preds = %638
-  %643 = getelementptr inbounds i8, ptr %604, i64 40
-  %644 = load i32, ptr %643, align 8
-  %645 = lshr i32 %644, 20
-  %646 = and i32 %644, 1048575
-  %647 = getelementptr inbounds i8, ptr %604, i64 44
-  %648 = load i16, ptr %647, align 4
-  %649 = zext i16 %648 to i32
-  %650 = getelementptr inbounds i8, ptr %604, i64 48
-  %651 = load i32, ptr %650, align 8
-  %652 = getelementptr inbounds i8, ptr %604, i64 52
-  %653 = load i32, ptr %652, align 4
-  %654 = getelementptr inbounds i8, ptr %604, i64 56
-  %655 = load i32, ptr %654, align 8
-  %656 = lshr i32 %655, 20
-  %657 = and i32 %655, 1048575
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.78, i64 noundef %640, i32 noundef %645, i32 noundef %646, i32 noundef %649, i32 noundef %651, i32 noundef %653, i32 noundef %656, i32 noundef %657) #12
-  br label %658
+643:                                              ; preds = %639
+  %644 = getelementptr inbounds i8, ptr %605, i64 40
+  %645 = load i32, ptr %644, align 8
+  %646 = lshr i32 %645, 20
+  %647 = and i32 %645, 1048575
+  %648 = getelementptr inbounds i8, ptr %605, i64 44
+  %649 = load i16, ptr %648, align 4
+  %650 = zext i16 %649 to i32
+  %651 = getelementptr inbounds i8, ptr %605, i64 48
+  %652 = load i32, ptr %651, align 8
+  %653 = getelementptr inbounds i8, ptr %605, i64 52
+  %654 = load i32, ptr %653, align 4
+  %655 = getelementptr inbounds i8, ptr %605, i64 56
+  %656 = load i32, ptr %655, align 8
+  %657 = lshr i32 %656, 20
+  %658 = and i32 %656, 1048575
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %613, ptr noundef nonnull @.str.78, i64 noundef %641, i32 noundef %646, i32 noundef %647, i32 noundef %650, i32 noundef %652, i32 noundef %654, i32 noundef %657, i32 noundef %658) #12
+  br label %659
 
-658:                                              ; preds = %642, %638
-  %659 = getelementptr inbounds i8, ptr %604, i64 60
-  %660 = load i32, ptr %659, align 4
-  %661 = icmp eq i32 %660, 0
-  br i1 %661, label %673, label %662
+659:                                              ; preds = %643, %639
+  %660 = getelementptr inbounds i8, ptr %605, i64 60
+  %661 = load i32, ptr %660, align 4
+  %662 = icmp eq i32 %661, 0
+  br i1 %662, label %674, label %663
 
-662:                                              ; preds = %658
+663:                                              ; preds = %659
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   store ptr null, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
   store i32 0, ptr %6, align 4, !annotation !5
-  %663 = call i32 @security_secid_to_secctx(i32 noundef %660, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
-  %664 = icmp eq i32 %663, 0
-  br i1 %664, label %667, label %665
+  %664 = call i32 @security_secid_to_secctx(i32 noundef %661, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
+  %665 = icmp eq i32 %664, 0
+  br i1 %665, label %668, label %666
 
-665:                                              ; preds = %662
-  %666 = load i32, ptr %659, align 4
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.42, i32 noundef %666) #12
-  br label %671
+666:                                              ; preds = %663
+  %667 = load i32, ptr %660, align 4
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %613, ptr noundef nonnull @.str.42, i32 noundef %667) #12
+  br label %672
 
-667:                                              ; preds = %662
-  %668 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.43, ptr noundef %668) #12
+668:                                              ; preds = %663
   %669 = load ptr, ptr %5, align 8
-  %670 = load i32, ptr %6, align 4
-  call void @security_release_secctx(ptr noundef %669, i32 noundef %670) #12
-  br label %671
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %613, ptr noundef nonnull @.str.43, ptr noundef %669) #12
+  %670 = load ptr, ptr %5, align 8
+  %671 = load i32, ptr %6, align 4
+  call void @security_release_secctx(ptr noundef %670, i32 noundef %671) #12
+  br label %672
 
-671:                                              ; preds = %667, %665
-  %672 = phi i32 [ %606, %667 ], [ 2, %665 ]
+672:                                              ; preds = %668, %666
+  %673 = phi i32 [ %607, %668 ], [ 2, %666 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
-  br label %673
+  br label %674
 
-673:                                              ; preds = %671, %658
-  %674 = phi i32 [ %606, %658 ], [ %672, %671 ]
-  %675 = getelementptr inbounds i8, ptr %604, i64 108
-  %676 = load i8, ptr %675, align 4
-  switch i8 %676, label %680 [
-    i8 1, label %681
-    i8 2, label %677
-    i8 3, label %678
-    i8 4, label %679
+674:                                              ; preds = %672, %659
+  %675 = phi i32 [ %607, %659 ], [ %673, %672 ]
+  %676 = getelementptr inbounds i8, ptr %605, i64 108
+  %677 = load i8, ptr %676, align 4
+  switch i8 %677, label %681 [
+    i8 1, label %682
+    i8 2, label %678
+    i8 3, label %679
+    i8 4, label %680
   ]
 
-677:                                              ; preds = %673
-  br label %681
+678:                                              ; preds = %674
+  br label %682
 
-678:                                              ; preds = %673
-  br label %681
+679:                                              ; preds = %674
+  br label %682
 
-679:                                              ; preds = %673
-  br label %681
+680:                                              ; preds = %674
+  br label %682
 
-680:                                              ; preds = %673
-  br label %681
+681:                                              ; preds = %674
+  br label %682
 
-681:                                              ; preds = %680, %679, %678, %677, %673
-  %682 = phi ptr [ @.str.83, %680 ], [ @.str.82, %679 ], [ @.str.81, %678 ], [ @.str.80, %677 ], [ @.str.79, %673 ]
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull %682) #12
-  %683 = getelementptr inbounds i8, ptr %604, i64 104
-  %684 = load i32, ptr %683, align 8
-  %685 = icmp eq i32 %684, -1
-  br i1 %685, label %686, label %687
+682:                                              ; preds = %681, %680, %679, %678, %674
+  %683 = phi ptr [ @.str.83, %681 ], [ @.str.82, %680 ], [ @.str.81, %679 ], [ @.str.80, %678 ], [ @.str.79, %674 ]
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %613, ptr noundef nonnull %683) #12
+  %684 = getelementptr inbounds i8, ptr %605, i64 104
+  %685 = load i32, ptr %684, align 8
+  %686 = icmp eq i32 %685, -1
+  br i1 %686, label %687, label %688
 
-686:                                              ; preds = %681
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.84) #12
-  br label %705
-
-687:                                              ; preds = %681
-  %688 = getelementptr inbounds i8, ptr %604, i64 64
-  %689 = load i64, ptr %688, align 8
-  %690 = icmp eq i64 %689, 0
-  br i1 %690, label %691, label %692
-
-691:                                              ; preds = %687
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.85) #12
-  br label %693
-
-692:                                              ; preds = %687
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.85, i64 noundef %689) #12
-  br label %693
-
-693:                                              ; preds = %692, %691
-  %694 = getelementptr inbounds i8, ptr %604, i64 72
-  %695 = load i64, ptr %694, align 8
-  %696 = icmp eq i64 %695, 0
-  br i1 %696, label %697, label %698
-
-697:                                              ; preds = %693
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.86) #12
-  br label %699
-
-698:                                              ; preds = %693
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.86, i64 noundef %695) #12
-  br label %699
-
-699:                                              ; preds = %698, %697
-  %700 = getelementptr inbounds i8, ptr %604, i64 80
-  %701 = load i32, ptr %700, align 8
-  %702 = load i32, ptr %683, align 8
-  %703 = getelementptr inbounds i8, ptr %604, i64 96
-  %704 = load i32, ptr %703, align 8
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.87, i32 noundef %701, i32 noundef %702, i32 noundef %704) #12
-  br label %705
-
-705:                                              ; preds = %699, %686
-  call void @audit_log_end(ptr noundef nonnull %612) #12
+687:                                              ; preds = %682
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %613, ptr noundef nonnull @.str.84) #12
   br label %706
 
-706:                                              ; preds = %705, %610, %.preheader
-  %707 = phi i32 [ %606, %.preheader ], [ %606, %610 ], [ %674, %705 ]
-  %708 = phi i32 [ %605, %.preheader ], [ %611, %610 ], [ %611, %705 ]
-  %709 = load ptr, ptr %604, align 8
-  %710 = icmp eq ptr %709, %601
-  br i1 %710, label %.loopexit, label %.preheader, !llvm.loop !31
+688:                                              ; preds = %682
+  %689 = getelementptr inbounds i8, ptr %605, i64 64
+  %690 = load i64, ptr %689, align 8
+  %691 = icmp eq i64 %690, 0
+  br i1 %691, label %692, label %693
 
-.loopexit:                                        ; preds = %706, %600
-  %711 = phi i32 [ %588, %600 ], [ %707, %706 ]
-  %712 = load i32, ptr %18, align 4
-  %713 = icmp eq i32 %712, 1
-  br i1 %713, label %714, label %772
+692:                                              ; preds = %688
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %613, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.85) #12
+  br label %694
 
-714:                                              ; preds = %.loopexit
-  %715 = load ptr, ptr %12, align 8
-  %716 = call ptr @audit_log_start(ptr noundef %715, i32 noundef 3264, i32 noundef 1327) #12
-  %717 = icmp eq ptr %716, null
-  br i1 %717, label %772, label %718
+693:                                              ; preds = %688
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %613, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.85, i64 noundef %690) #12
+  br label %694
 
-718:                                              ; preds = %714
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %716, ptr noundef nonnull @.str.88) #12
-  %719 = getelementptr inbounds i8, ptr %715, i64 992
-  %720 = getelementptr inbounds i8, ptr %715, i64 1000
-  %721 = load ptr, ptr %720, align 8
-  %722 = icmp eq ptr %721, null
-  br i1 %722, label %723, label %._crit_edge90
+694:                                              ; preds = %693, %692
+  %695 = getelementptr inbounds i8, ptr %605, i64 72
+  %696 = load i64, ptr %695, align 8
+  %697 = icmp eq i64 %696, 0
+  br i1 %697, label %698, label %699
 
-._crit_edge90:                                    ; preds = %718
-  %.pre91 = load i32, ptr %719, align 8
-  br label %765
+698:                                              ; preds = %694
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %613, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.86) #12
+  br label %700
 
-723:                                              ; preds = %718
-  %724 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
-  %725 = call noalias align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %724, i32 noundef 3264, i64 noundef 128) #13
-  %726 = icmp eq ptr %725, null
-  br i1 %726, label %769, label %727
+699:                                              ; preds = %694
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %613, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.86, i64 noundef %696) #12
+  br label %700
 
-727:                                              ; preds = %723
-  %728 = call i32 @get_cmdline(ptr noundef %11, ptr noundef nonnull %725, i32 noundef 128) #12
-  %729 = icmp eq i32 %728, 0
-  br i1 %729, label %730, label %731
+700:                                              ; preds = %699, %698
+  %701 = getelementptr inbounds i8, ptr %605, i64 80
+  %702 = load i32, ptr %701, align 8
+  %703 = load i32, ptr %684, align 8
+  %704 = getelementptr inbounds i8, ptr %605, i64 96
+  %705 = load i32, ptr %704, align 8
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %613, ptr noundef nonnull @.str.87, i32 noundef %702, i32 noundef %703, i32 noundef %705) #12
+  br label %706
 
-730:                                              ; preds = %727
-  call void @kfree(ptr noundef nonnull %725) #12
-  br label %769
+706:                                              ; preds = %700, %687
+  call void @audit_log_end(ptr noundef nonnull %613) #12
+  br label %707
 
-731:                                              ; preds = %727
-  %732 = sext i32 %728 to i64
-  %733 = getelementptr i8, ptr %725, i64 %732
-  br label %734
+707:                                              ; preds = %706, %611, %.preheader
+  %708 = phi i32 [ %607, %.preheader ], [ %607, %611 ], [ %675, %706 ]
+  %709 = phi i32 [ %606, %.preheader ], [ %612, %611 ], [ %612, %706 ]
+  %710 = load ptr, ptr %605, align 8
+  %711 = icmp eq ptr %710, %602
+  br i1 %711, label %.loopexit, label %.preheader, !llvm.loop !31
 
-734:                                              ; preds = %738, %731
-  %735 = phi ptr [ %733, %731 ], [ %736, %738 ]
-  %736 = getelementptr i8, ptr %735, i64 -1
-  %737 = icmp ugt ptr %736, %725
-  br i1 %737, label %738, label %745
+.loopexit:                                        ; preds = %707, %601
+  %712 = phi i32 [ %589, %601 ], [ %708, %707 ]
+  %713 = load i32, ptr %18, align 4
+  %714 = icmp eq i32 %713, 1
+  br i1 %714, label %715, label %773
 
-738:                                              ; preds = %734
-  %739 = load i8, ptr %736, align 1
-  %740 = zext i8 %739 to i64
-  %741 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %740
-  %742 = load i8, ptr %741, align 1
-  %743 = and i8 %742, -105
-  %744 = icmp eq i8 %743, 0
-  br i1 %744, label %734, label %745, !llvm.loop !32
+715:                                              ; preds = %.loopexit
+  %716 = load ptr, ptr %12, align 8
+  %717 = call ptr @audit_log_start(ptr noundef %716, i32 noundef 3264, i32 noundef 1327) #12
+  %718 = icmp eq ptr %717, null
+  br i1 %718, label %773, label %719
 
-745:                                              ; preds = %738, %734
-  %746 = ptrtoint ptr %736 to i64
-  %747 = ptrtoint ptr %725 to i64
-  %748 = sub i64 %746, %747
-  %749 = trunc i64 %748 to i32
-  %750 = add i32 %749, 1
-  %751 = shl i64 %748, 32
-  %752 = ashr exact i64 %751, 32
-  %753 = getelementptr i8, ptr %725, i64 %752
-  %754 = load i8, ptr %753, align 1
-  %755 = zext i8 %754 to i64
-  %756 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %755
-  %757 = load i8, ptr %756, align 1
-  %758 = and i8 %757, -105
-  %759 = icmp eq i8 %758, 0
-  %760 = sext i1 %759 to i32
-  %761 = add i32 %750, %760
-  %762 = icmp eq i32 %761, 0
-  br i1 %762, label %763, label %764
+719:                                              ; preds = %715
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %717, ptr noundef nonnull @.str.88) #12
+  %720 = getelementptr inbounds i8, ptr %716, i64 992
+  %721 = getelementptr inbounds i8, ptr %716, i64 1000
+  %722 = load ptr, ptr %721, align 8
+  %723 = icmp eq ptr %722, null
+  br i1 %723, label %724, label %._crit_edge90
 
-763:                                              ; preds = %745
-  call void @kfree(ptr noundef nonnull %725) #12
-  br label %769
+._crit_edge90:                                    ; preds = %719
+  %.pre91 = load i32, ptr %720, align 8
+  br label %766
 
-764:                                              ; preds = %745
-  store ptr %725, ptr %720, align 8
-  store i32 %761, ptr %719, align 8
-  br label %765
+724:                                              ; preds = %719
+  %725 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %726 = call noalias align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %725, i32 noundef 3264, i64 noundef 128) #13
+  %727 = icmp eq ptr %726, null
+  br i1 %727, label %770, label %728
 
-765:                                              ; preds = %._crit_edge90, %764
-  %766 = phi i32 [ %761, %764 ], [ %.pre91, %._crit_edge90 ]
-  %767 = phi ptr [ %725, %764 ], [ %721, %._crit_edge90 ]
-  %768 = sext i32 %766 to i64
-  br label %769
+728:                                              ; preds = %724
+  %729 = call i32 @get_cmdline(ptr noundef %11, ptr noundef nonnull %726, i32 noundef 128) #12
+  %730 = icmp eq i32 %729, 0
+  br i1 %730, label %731, label %732
 
-769:                                              ; preds = %765, %763, %730, %723
-  %770 = phi ptr [ %767, %765 ], [ @.str.57, %730 ], [ @.str.57, %763 ], [ @.str.57, %723 ]
-  %771 = phi i64 [ %768, %765 ], [ 6, %730 ], [ 6, %763 ], [ 6, %723 ]
-  call void @audit_log_n_untrustedstring(ptr noundef nonnull %716, ptr noundef %770, i64 noundef %771) #12
-  call void @audit_log_end(ptr noundef nonnull %716) #12
-  br label %772
+731:                                              ; preds = %728
+  call void @kfree(ptr noundef nonnull %726) #12
+  br label %770
 
-772:                                              ; preds = %769, %714, %.loopexit
-  %773 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1320) #12
-  %774 = icmp eq ptr %773, null
-  br i1 %774, label %776, label %775
+732:                                              ; preds = %728
+  %733 = sext i32 %729 to i64
+  %734 = getelementptr i8, ptr %726, i64 %733
+  br label %735
 
-775:                                              ; preds = %772
-  call void @audit_log_end(ptr noundef nonnull %773) #12
-  br label %776
+735:                                              ; preds = %739, %732
+  %736 = phi ptr [ %734, %732 ], [ %737, %739 ]
+  %737 = getelementptr i8, ptr %736, i64 -1
+  %738 = icmp ugt ptr %737, %726
+  br i1 %738, label %739, label %746
 
-776:                                              ; preds = %775, %772
-  %777 = icmp eq i32 %711, 0
-  br i1 %777, label %779, label %778
+739:                                              ; preds = %735
+  %740 = load i8, ptr %737, align 1
+  %741 = zext i8 %740 to i64
+  %742 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %741
+  %743 = load i8, ptr %742, align 1
+  %744 = and i8 %743, -105
+  %745 = icmp eq i8 %744, 0
+  br i1 %745, label %735, label %746, !llvm.loop !32
 
-778:                                              ; preds = %776
+746:                                              ; preds = %739, %735
+  %747 = ptrtoint ptr %737 to i64
+  %748 = ptrtoint ptr %726 to i64
+  %749 = sub i64 %747, %748
+  %750 = trunc i64 %749 to i32
+  %751 = add i32 %750, 1
+  %752 = shl i64 %749, 32
+  %753 = ashr exact i64 %752, 32
+  %754 = getelementptr i8, ptr %726, i64 %753
+  %755 = load i8, ptr %754, align 1
+  %756 = zext i8 %755 to i64
+  %757 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %756
+  %758 = load i8, ptr %757, align 1
+  %759 = and i8 %758, -105
+  %760 = icmp eq i8 %759, 0
+  %761 = sext i1 %760 to i32
+  %762 = add i32 %751, %761
+  %763 = icmp eq i32 %762, 0
+  br i1 %763, label %764, label %765
+
+764:                                              ; preds = %746
+  call void @kfree(ptr noundef nonnull %726) #12
+  br label %770
+
+765:                                              ; preds = %746
+  store ptr %726, ptr %721, align 8
+  store i32 %762, ptr %720, align 8
+  br label %766
+
+766:                                              ; preds = %._crit_edge90, %765
+  %767 = phi i32 [ %762, %765 ], [ %.pre91, %._crit_edge90 ]
+  %768 = phi ptr [ %726, %765 ], [ %722, %._crit_edge90 ]
+  %769 = sext i32 %767 to i64
+  br label %770
+
+770:                                              ; preds = %766, %764, %731, %724
+  %771 = phi ptr [ %768, %766 ], [ @.str.57, %731 ], [ @.str.57, %764 ], [ @.str.57, %724 ]
+  %772 = phi i64 [ %769, %766 ], [ 6, %731 ], [ 6, %764 ], [ 6, %724 ]
+  call void @audit_log_n_untrustedstring(ptr noundef nonnull %717, ptr noundef %771, i64 noundef %772) #12
+  call void @audit_log_end(ptr noundef nonnull %717) #12
+  br label %773
+
+773:                                              ; preds = %770, %715, %.loopexit
+  %774 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1320) #12
+  %775 = icmp eq ptr %774, null
+  br i1 %775, label %777, label %776
+
+776:                                              ; preds = %773
+  call void @audit_log_end(ptr noundef nonnull %774) #12
+  br label %777
+
+777:                                              ; preds = %776, %773
+  %778 = icmp eq i32 %712, 0
+  br i1 %778, label %780, label %779
+
+779:                                              ; preds = %777
   call void @audit_panic(ptr noundef nonnull @.str.36) #12
-  br label %779
+  br label %780
 
-779:                                              ; preds = %778, %776, %20
+780:                                              ; preds = %779, %777, %20
   ret void
 }
 
@@ -6794,7 +6795,7 @@ define internal fastcc void @unroll_tree_refs(ptr nocapture noundef %0, ptr noun
   br label %29
 
 .loopexit8:                                       ; preds = %.loopexit7, %9
-  %21 = phi ptr [ %10, %9 ], [ %36, %.loopexit7 ]
+  %21 = phi ptr [ %10, %9 ], [ %37, %.loopexit7 ]
   %22 = phi i32 [ %11, %9 ], [ 31, %.loopexit7 ]
   %23 = getelementptr inbounds i8, ptr %0, i64 864
   %24 = load i32, ptr %23, align 8

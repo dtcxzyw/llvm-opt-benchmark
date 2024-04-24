@@ -71,7 +71,7 @@ define dso_local void @mpi_mul(ptr noundef %0, ptr nocapture noundef readonly %1
 
 45:                                               ; preds = %45, %43
   %46 = phi i64 [ 0, %43 ], [ %50, %45 ]
-  %47 = getelementptr i64, ptr %21, i64 %46
+  %47 = getelementptr i64, ptr %24, i64 %46
   %48 = load i64, ptr %47, align 8
   %49 = getelementptr i64, ptr %39, i64 %46
   store i64 %48, ptr %49, align 8
@@ -94,7 +94,7 @@ define dso_local void @mpi_mul(ptr noundef %0, ptr nocapture noundef readonly %1
 
 59:                                               ; preds = %59, %57
   %60 = phi i64 [ 0, %57 ], [ %64, %59 ]
-  %61 = getelementptr i64, ptr %19, i64 %60
+  %61 = getelementptr i64, ptr %24, i64 %60
   %62 = load i64, ptr %61, align 8
   %63 = getelementptr i64, ptr %55, i64 %60
   store i64 %62, ptr %63, align 8
@@ -105,7 +105,7 @@ define dso_local void @mpi_mul(ptr noundef %0, ptr nocapture noundef readonly %1
 .loopexit:                                        ; preds = %59, %45, %54, %52, %38, %34, %32
   %66 = phi ptr [ %21, %32 ], [ %21, %34 ], [ %21, %52 ], [ %39, %38 ], [ %21, %54 ], [ %39, %45 ], [ %21, %59 ]
   %67 = phi ptr [ %19, %32 ], [ %19, %34 ], [ %19, %52 ], [ %41, %38 ], [ %55, %54 ], [ %41, %45 ], [ %55, %59 ]
-  %68 = phi ptr [ %33, %32 ], [ %36, %34 ], [ %24, %52 ], [ %21, %38 ], [ %19, %54 ], [ %21, %45 ], [ %19, %59 ]
+  %68 = phi ptr [ %33, %32 ], [ %36, %34 ], [ %24, %52 ], [ %24, %38 ], [ %24, %54 ], [ %24, %45 ], [ %24, %59 ]
   %69 = phi i1 [ false, %32 ], [ true, %34 ], [ true, %52 ], [ true, %38 ], [ true, %54 ], [ true, %45 ], [ true, %59 ]
   %70 = phi ptr [ null, %32 ], [ null, %34 ], [ null, %52 ], [ %39, %38 ], [ %55, %54 ], [ %39, %45 ], [ %55, %59 ]
   %71 = icmp eq i32 %11, 0

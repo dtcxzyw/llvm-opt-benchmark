@@ -275,7 +275,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared6define17h5aa7021602ab0dcf
           to label %97 unwind label %.thread48.loopexit.split-lp.i, !noalias !3
 
 94:                                               ; preds = %._crit_edge.i, %79
-  %95 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %81, %79 ]
+  %95 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %82, %79 ]
   %96 = getelementptr inbounds i8, ptr %95, i64 16
   invoke void @_ZN22cranelift_codegen_meta4cdsl7formats17InstructionFormat9structure17h97497efc21f41bc1E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, i64, i64, i8, [7 x i8] }) align 8 %13, ptr nonnull align 8 %96)
           to label %99 unwind label %.thread48.loopexit.i, !noalias !3

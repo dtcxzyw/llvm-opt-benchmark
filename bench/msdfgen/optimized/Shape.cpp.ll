@@ -304,71 +304,72 @@ invoke.cont.i.i:                                  ; preds = %for.body.i.i.i.i.i
   br label %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit: ; preds = %if.then, %invoke.cont.i.i
-  %7 = load ptr, ptr %parts, align 16
-  store ptr %7, ptr %ref.tmp18, align 8
+  %7 = phi ptr [ %6, %if.then ], [ %5, %invoke.cont.i.i ]
+  %8 = load ptr, ptr %parts, align 16
+  store ptr %8, ptr %ref.tmp18, align 8
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.070, i64 16
-  %8 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %5, %8
+  %9 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %7, %9
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit
-  invoke void @_ZN7msdfgen10EdgeHolderC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18)
+  invoke void @_ZN7msdfgen10EdgeHolderC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i
-  %9 = load ptr, ptr %_M_finish.i3, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %_M_finish.i3, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i3, align 8
   br label %invoke.cont
 
 if.else.i.i:                                      ; preds = %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit
-  invoke void @_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %contour.sroa.0.070, ptr %5, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18)
+  invoke void @_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %contour.sroa.0.070, ptr %7, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc, %if.else.i.i
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18) #19
-  %10 = load ptr, ptr %arrayidx12, align 8
-  store ptr %10, ptr %ref.tmp22, align 8
-  %11 = load ptr, ptr %_M_finish.i3, align 8
-  %12 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.not.i.i8 = icmp eq ptr %11, %12
+  %11 = load ptr, ptr %arrayidx12, align 8
+  store ptr %11, ptr %ref.tmp22, align 8
+  %12 = load ptr, ptr %_M_finish.i3, align 8
+  %13 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %cmp.not.i.i8 = icmp eq ptr %12, %13
   br i1 %cmp.not.i.i8, label %if.else.i.i11, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %invoke.cont
-  invoke void @_ZN7msdfgen10EdgeHolderC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22)
+  invoke void @_ZN7msdfgen10EdgeHolderC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22)
           to label %.noexc12 unwind label %lpad24
 
 .noexc12:                                         ; preds = %if.then.i.i9
-  %13 = load ptr, ptr %_M_finish.i3, align 8
-  %incdec.ptr.i.i10 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load ptr, ptr %_M_finish.i3, align 8
+  %incdec.ptr.i.i10 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %incdec.ptr.i.i10, ptr %_M_finish.i3, align 8
   br label %invoke.cont25
 
 if.else.i.i11:                                    ; preds = %invoke.cont
-  invoke void @_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %contour.sroa.0.070, ptr %11, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22)
+  invoke void @_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %contour.sroa.0.070, ptr %12, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %.noexc12, %if.else.i.i11
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22) #19
-  %14 = load ptr, ptr %arrayidx13, align 16
-  store ptr %14, ptr %ref.tmp28, align 8
-  %15 = load ptr, ptr %_M_finish.i3, align 8
-  %16 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.not.i.i17 = icmp eq ptr %15, %16
+  %15 = load ptr, ptr %arrayidx13, align 16
+  store ptr %15, ptr %ref.tmp28, align 8
+  %16 = load ptr, ptr %_M_finish.i3, align 8
+  %17 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %cmp.not.i.i17 = icmp eq ptr %16, %17
   br i1 %cmp.not.i.i17, label %if.else.i.i20, label %if.then.i.i18
 
 if.then.i.i18:                                    ; preds = %invoke.cont25
-  invoke void @_ZN7msdfgen10EdgeHolderC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28)
+  invoke void @_ZN7msdfgen10EdgeHolderC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28)
           to label %.noexc21 unwind label %lpad30
 
 .noexc21:                                         ; preds = %if.then.i.i18
-  %17 = load ptr, ptr %_M_finish.i3, align 8
-  %incdec.ptr.i.i19 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load ptr, ptr %_M_finish.i3, align 8
+  %incdec.ptr.i.i19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %incdec.ptr.i.i19, ptr %_M_finish.i3, align 8
   br label %invoke.cont31
 
 if.else.i.i20:                                    ; preds = %invoke.cont25
-  invoke void @_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %contour.sroa.0.070, ptr %15, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28)
+  invoke void @_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %contour.sroa.0.070, ptr %16, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %.noexc21, %if.else.i.i20
@@ -376,17 +377,17 @@ invoke.cont31:                                    ; preds = %.noexc21, %if.else.
   br label %for.inc68
 
 lpad:                                             ; preds = %if.else.i.i, %if.then.i.i
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  br label %common.resume
-
-lpad24:                                           ; preds = %if.else.i.i11, %if.then.i.i9
   %19 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-lpad30:                                           ; preds = %if.else.i.i20, %if.then.i.i18
+lpad24:                                           ; preds = %if.else.i.i11, %if.then.i.i9
   %20 = landingpad { ptr, i32 }
+          cleanup
+  br label %common.resume
+
+lpad30:                                           ; preds = %if.else.i.i20, %if.then.i.i18
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -404,40 +405,40 @@ for.body46:                                       ; preds = %for.body46.preheade
   %call48 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %prevEdge.068)
   %vtable49 = load ptr, ptr %call48, align 8
   %vfn50 = getelementptr inbounds i8, ptr %vtable49, i64 48
-  %21 = load ptr, ptr %vfn50, align 8
-  %call51 = call { double, double } %21(ptr noundef nonnull align 8 dereferenceable(12) %call48, double noundef 1.000000e+00)
-  %22 = extractvalue { double, double } %call51, 0
-  %23 = extractvalue { double, double } %call51, 1
+  %22 = load ptr, ptr %vfn50, align 8
+  %call51 = call { double, double } %22(ptr noundef nonnull align 8 dereferenceable(12) %call48, double noundef 1.000000e+00)
+  %23 = extractvalue { double, double } %call51, 0
+  %24 = extractvalue { double, double } %call51, 1
   %call55 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.067)
   %vtable56 = load ptr, ptr %call55, align 8
   %vfn57 = getelementptr inbounds i8, ptr %vtable56, i64 48
-  %24 = load ptr, ptr %vfn57, align 8
-  %call58 = call { double, double } %24(ptr noundef nonnull align 8 dereferenceable(12) %call55, double noundef 0.000000e+00)
-  %25 = extractvalue { double, double } %call58, 0
-  %26 = extractvalue { double, double } %call58, 1
-  %27 = insertelement <2 x double> poison, double %23, i64 0
-  %28 = insertelement <2 x double> %27, double %26, i64 1
-  %29 = fmul <2 x double> %28, %28
-  %30 = insertelement <2 x double> poison, double %22, i64 0
-  %31 = insertelement <2 x double> %30, double %25, i64 1
-  %32 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %31, <2 x double> %31, <2 x double> %29)
-  %33 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %32)
-  %34 = extractelement <2 x double> %33, i64 0
-  %div.i = fdiv double %22, %34
-  %35 = fcmp une <2 x double> %33, zeroinitializer
-  %36 = extractelement <2 x i1> %35, i64 0
-  %retval.sroa.0.0.i = select i1 %36, double %div.i, double 0.000000e+00
-  %37 = extractelement <2 x double> %33, i64 1
-  %div.i31 = fdiv double %25, %37
-  %38 = fdiv <2 x double> %28, %33
-  %39 = select <2 x i1> %35, <2 x double> %38, <2 x double> <double 1.000000e+00, double 1.000000e+00>
-  %40 = extractelement <2 x i1> %35, i64 1
-  %retval.sroa.0.0.i34 = select i1 %40, double %div.i31, double 0.000000e+00
-  %shift = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %41 = fmul <2 x double> %39, %shift
-  %mul3.i = extractelement <2 x double> %41, i64 0
-  %42 = call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i, double %retval.sroa.0.0.i34, double %mul3.i)
-  %cmp62 = fcmp olt double %42, 0xBFEFFFFDE7210BE9
+  %25 = load ptr, ptr %vfn57, align 8
+  %call58 = call { double, double } %25(ptr noundef nonnull align 8 dereferenceable(12) %call55, double noundef 0.000000e+00)
+  %26 = extractvalue { double, double } %call58, 0
+  %27 = extractvalue { double, double } %call58, 1
+  %28 = insertelement <2 x double> poison, double %24, i64 0
+  %29 = insertelement <2 x double> %28, double %27, i64 1
+  %30 = fmul <2 x double> %29, %29
+  %31 = insertelement <2 x double> poison, double %23, i64 0
+  %32 = insertelement <2 x double> %31, double %26, i64 1
+  %33 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %32, <2 x double> %32, <2 x double> %30)
+  %34 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %33)
+  %35 = extractelement <2 x double> %34, i64 0
+  %div.i = fdiv double %23, %35
+  %36 = fcmp une <2 x double> %34, zeroinitializer
+  %37 = extractelement <2 x i1> %36, i64 0
+  %retval.sroa.0.0.i = select i1 %37, double %div.i, double 0.000000e+00
+  %38 = extractelement <2 x double> %34, i64 1
+  %div.i31 = fdiv double %26, %38
+  %39 = fdiv <2 x double> %29, %34
+  %40 = select <2 x i1> %36, <2 x double> %39, <2 x double> <double 1.000000e+00, double 1.000000e+00>
+  %41 = extractelement <2 x i1> %36, i64 1
+  %retval.sroa.0.0.i34 = select i1 %41, double %div.i31, double 0.000000e+00
+  %shift = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %42 = fmul <2 x double> %40, %shift
+  %mul3.i = extractelement <2 x double> %42, i64 0
+  %43 = call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i, double %retval.sroa.0.0.i34, double %mul3.i)
+  %cmp62 = fcmp olt double %43, 0xBFEFFFFDE7210BE9
   br i1 %cmp62, label %if.then63, label %if.end
 
 if.then63:                                        ; preds = %for.body46
@@ -445,8 +446,8 @@ if.then63:                                        ; preds = %for.body46
   %call.i = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %prevEdge.068)
   %vtable.i = load ptr, ptr %call.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
-  %43 = load ptr, ptr %vfn.i, align 8
-  %call1.i = call noundef i32 %43(ptr noundef nonnull align 8 dereferenceable(12) %call.i)
+  %44 = load ptr, ptr %vfn.i, align 8
+  %call1.i = call noundef i32 %44(ptr noundef nonnull align 8 dereferenceable(12) %call.i)
   switch i32 %call1.i, label %_ZN7msdfgenL14deconvergeEdgeERNS_10EdgeHolderEi.exit [
     i32 2, label %sw.bb.i
     i32 3, label %sw.bb5.i
@@ -470,12 +471,12 @@ sw.bb5.i:                                         ; preds = %invoke.cont.i, %if.
 
 common.resume:                                    ; preds = %lpad, %lpad24, %lpad30, %lpad.i48, %lpad.i
   %ref.tmp18.sink = phi ptr [ %ref.tmp18, %lpad ], [ %ref.tmp22, %lpad24 ], [ %ref.tmp28, %lpad30 ], [ %ref.tmp.i37, %lpad.i48 ], [ %ref.tmp.i, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %18, %lpad ], [ %19, %lpad24 ], [ %20, %lpad30 ], [ %46, %lpad.i48 ], [ %44, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %lpad ], [ %20, %lpad24 ], [ %21, %lpad30 ], [ %47, %lpad.i48 ], [ %45, %lpad.i ]
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18.sink) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %sw.bb.i
-  %44 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -485,8 +486,8 @@ _ZN7msdfgenL14deconvergeEdgeERNS_10EdgeHolderEi.exit: ; preds = %if.then63, %sw.
   %call.i38 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.067)
   %vtable.i39 = load ptr, ptr %call.i38, align 8
   %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 24
-  %45 = load ptr, ptr %vfn.i40, align 8
-  %call1.i41 = call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(12) %call.i38)
+  %46 = load ptr, ptr %vfn.i40, align 8
+  %call1.i41 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(12) %call.i38)
   switch i32 %call1.i41, label %_ZN7msdfgenL14deconvergeEdgeERNS_10EdgeHolderEi.exit50 [
     i32 2, label %sw.bb.i44
     i32 3, label %sw.bb5.i42
@@ -509,7 +510,7 @@ sw.bb5.i42:                                       ; preds = %invoke.cont.i49, %_
   br label %_ZN7msdfgenL14deconvergeEdgeERNS_10EdgeHolderEi.exit50
 
 lpad.i48:                                         ; preds = %sw.bb.i44
-  %46 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -519,14 +520,14 @@ _ZN7msdfgenL14deconvergeEdgeERNS_10EdgeHolderEi.exit50: ; preds = %_ZN7msdfgenL1
 
 if.end:                                           ; preds = %_ZN7msdfgenL14deconvergeEdgeERNS_10EdgeHolderEi.exit50, %for.body46
   %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.067, i64 8
-  %47 = load ptr, ptr %_M_finish.i3, align 8
-  %cmp.i26.not = icmp eq ptr %incdec.ptr.i, %47
+  %48 = load ptr, ptr %_M_finish.i3, align 8
+  %cmp.i26.not = icmp eq ptr %incdec.ptr.i, %48
   br i1 %cmp.i26.not, label %for.inc68, label %for.body46, !llvm.loop !10
 
 for.inc68:                                        ; preds = %if.end, %if.else, %invoke.cont31
   %incdec.ptr.i51 = getelementptr inbounds i8, ptr %contour.sroa.0.070, i64 24
-  %48 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i51, %48
+  %49 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i51, %49
   br i1 %cmp.i.not, label %for.end70, label %for.body, !llvm.loop !11
 
 for.end70:                                        ; preds = %for.inc68, %entry
@@ -910,12 +911,12 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %orientations.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i55, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %conv240 = trunc i64 %sub.ptr.div.i to i32
-  %cmp241 = icmp sgt i32 %conv240, 0
-  br i1 %cmp241, label %for.body.preheader, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit122
+  %conv241 = trunc i64 %sub.ptr.div.i to i32
+  %cmp242 = icmp sgt i32 %conv241, 0
+  br i1 %cmp242, label %for.body.preheader, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123
 
 for.body.preheader:                               ; preds = %if.then.i.i.i.i.i, %invoke.cont
-  %orientations.sroa.0.0297 = phi ptr [ %orientations.sroa.0.0, %invoke.cont ], [ %call5.i.i.i.i2.i.i55, %if.then.i.i.i.i.i ]
+  %orientations.sroa.0.0298 = phi ptr [ %orientations.sroa.0.0, %invoke.cont ], [ %call5.i.i.i.i2.i.i55, %if.then.i.i.i.i.i ]
   br label %for.body
 
 for.cond195.preheader:                            ; preds = %for.inc191
@@ -924,18 +925,18 @@ for.cond195.preheader:                            ; preds = %for.inc191
   br i1 %3, label %for.body200, label %for.end212
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc191
-  %indvars.iv282 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next283, %for.inc191 ]
+  %indvars.iv283 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next284, %for.inc191 ]
   %4 = phi ptr [ %1, %for.body.preheader ], [ %54, %for.inc191 ]
-  %intersections.sroa.0.0244 = phi ptr [ null, %for.body.preheader ], [ %intersections.sroa.0.6, %for.inc191 ]
-  %intersections.sroa.18.0243 = phi ptr [ null, %for.body.preheader ], [ %intersections.sroa.18.6, %for.inc191 ]
-  %intersections.sroa.28.0242 = phi ptr [ null, %for.body.preheader ], [ %intersections.sroa.28.5, %for.inc191 ]
-  %add.ptr.i = getelementptr inbounds i32, ptr %orientations.sroa.0.0297, i64 %indvars.iv282
+  %intersections.sroa.0.0245 = phi ptr [ null, %for.body.preheader ], [ %intersections.sroa.0.6, %for.inc191 ]
+  %intersections.sroa.18.0244 = phi ptr [ null, %for.body.preheader ], [ %intersections.sroa.18.6, %for.inc191 ]
+  %intersections.sroa.28.0243 = phi ptr [ null, %for.body.preheader ], [ %intersections.sroa.28.5, %for.inc191 ]
+  %add.ptr.i = getelementptr inbounds i32, ptr %orientations.sroa.0.0298, i64 %indvars.iv283
   %5 = load i32, ptr %add.ptr.i, align 4
   %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %land.lhs.true, label %for.inc191
 
 land.lhs.true:                                    ; preds = %for.body
-  %add.ptr.i61 = getelementptr inbounds %"class.msdfgen::Contour", ptr %4, i64 %indvars.iv282
+  %add.ptr.i61 = getelementptr inbounds %"class.msdfgen::Contour", ptr %4, i64 %indvars.iv283
   %6 = load ptr, ptr %add.ptr.i61, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %add.ptr.i61, i64 8
   %7 = load ptr, ptr %_M_finish.i.i, align 8
@@ -956,18 +957,18 @@ invoke.cont18:                                    ; preds = %if.then
 invoke.cont20:                                    ; preds = %invoke.cont18
   %9 = extractvalue { double, double } %call21, 1
   %10 = load ptr, ptr %this, align 8
-  %add.ptr.i64 = getelementptr inbounds %"class.msdfgen::Contour", ptr %10, i64 %indvars.iv282
+  %add.ptr.i64 = getelementptr inbounds %"class.msdfgen::Contour", ptr %10, i64 %indvars.iv283
   %11 = load ptr, ptr %add.ptr.i64, align 8
-  %_M_finish.i66191 = getelementptr inbounds i8, ptr %add.ptr.i64, i64 8
-  %12 = load ptr, ptr %_M_finish.i66191, align 8
-  %cmp.i192 = icmp ne ptr %11, %12
-  %cmp37193 = fcmp ord double %9, 0.000000e+00
-  %13 = select i1 %cmp.i192, i1 %cmp37193, i1 false
+  %_M_finish.i66192 = getelementptr inbounds i8, ptr %add.ptr.i64, i64 8
+  %12 = load ptr, ptr %_M_finish.i66192, align 8
+  %cmp.i193 = icmp ne ptr %11, %12
+  %cmp37194 = fcmp ord double %9, 0.000000e+00
+  %13 = select i1 %cmp.i193, i1 %cmp37194, i1 false
   br i1 %13, label %for.body38, label %for.end
 
 for.body38:                                       ; preds = %invoke.cont20, %invoke.cont45
-  %edge.sroa.0.0194 = phi ptr [ %incdec.ptr.i, %invoke.cont45 ], [ %11, %invoke.cont20 ]
-  %call42 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.0194)
+  %edge.sroa.0.0195 = phi ptr [ %incdec.ptr.i, %invoke.cont45 ], [ %11, %invoke.cont20 ]
+  %call42 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.0195)
           to label %invoke.cont41 unwind label %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont41:                                    ; preds = %for.body38
@@ -979,9 +980,9 @@ invoke.cont41:                                    ; preds = %for.body38
 
 invoke.cont45:                                    ; preds = %invoke.cont41
   %15 = extractvalue { double, double } %call46, 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.0194, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.0195, i64 8
   %16 = load ptr, ptr %this, align 8
-  %add.ptr.i65 = getelementptr inbounds %"class.msdfgen::Contour", ptr %16, i64 %indvars.iv282
+  %add.ptr.i65 = getelementptr inbounds %"class.msdfgen::Contour", ptr %16, i64 %indvars.iv283
   %_M_finish.i66 = getelementptr inbounds i8, ptr %add.ptr.i65, i64 8
   %17 = load ptr, ptr %_M_finish.i66, align 8
   %cmp.i = icmp ne ptr %incdec.ptr.i, %17
@@ -995,39 +996,39 @@ lpad17.loopexit:                                  ; preds = %if.then204
   br label %lpad17
 
 lpad17.loopexit.split-lp.loopexit:                ; preds = %cond.true.i.i.i
-  %lpad.loopexit144 = landingpad { ptr, i32 }
+  %lpad.loopexit145 = landingpad { ptr, i32 }
           cleanup
   br label %lpad17
 
 lpad17.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body108, %invoke.cont110
-  %lpad.loopexit147 = landingpad { ptr, i32 }
+  %lpad.loopexit148 = landingpad { ptr, i32 }
           cleanup
   br label %lpad17
 
 lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %invoke.cont72, %for.body69
-  %lpad.loopexit149 = landingpad { ptr, i32 }
+  %lpad.loopexit150 = landingpad { ptr, i32 }
           cleanup
   br label %lpad17
 
 lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body38, %invoke.cont41
-  %lpad.loopexit152 = landingpad { ptr, i32 }
+  %lpad.loopexit153 = landingpad { ptr, i32 }
           cleanup
   br label %lpad17
 
 lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then133, %invoke.cont18, %if.then
-  %intersections.sroa.0.1.ph.ph.ph.ph.ph.ph = phi ptr [ %intersections.sroa.0.2.lcssa, %if.then133 ], [ %intersections.sroa.0.0244, %invoke.cont18 ], [ %intersections.sroa.0.0244, %if.then ]
-  %lpad.loopexit154 = landingpad { ptr, i32 }
+  %intersections.sroa.0.1.ph.ph.ph.ph.ph.ph = phi ptr [ %intersections.sroa.0.2.lcssa, %if.then133 ], [ %intersections.sroa.0.0245, %invoke.cont18 ], [ %intersections.sroa.0.0245, %if.then ]
+  %lpad.loopexit155 = landingpad { ptr, i32 }
           cleanup
   br label %lpad17
 
 lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i87
-  %lpad.loopexit.split-lp155 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp156 = landingpad { ptr, i32 }
           cleanup
   br label %lpad17
 
 lpad17:                                           ; preds = %lpad17.loopexit.split-lp.loopexit, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad17.loopexit
-  %intersections.sroa.0.1 = phi ptr [ %intersections.sroa.0.6, %lpad17.loopexit ], [ %intersections.sroa.0.4204, %lpad17.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.3214, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.0244, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.0244, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.1.ph.ph.ph.ph.ph.ph, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.4204, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad17.loopexit ], [ %lpad.loopexit144, %lpad17.loopexit.split-lp.loopexit ], [ %lpad.loopexit147, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit149, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit152, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit154, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp155, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %intersections.sroa.0.1 = phi ptr [ %intersections.sroa.0.6, %lpad17.loopexit ], [ %intersections.sroa.0.4205, %lpad17.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.3215, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.0245, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.0245, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.1.ph.ph.ph.ph.ph.ph, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.4205, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad17.loopexit ], [ %lpad.loopexit145, %lpad17.loopexit.split-lp.loopexit ], [ %lpad.loopexit148, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit150, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit153, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit155, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp156, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i.i = icmp eq ptr %intersections.sroa.0.1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit, label %if.then.i.i.i
 
@@ -1036,11 +1037,11 @@ if.then.i.i.i:                                    ; preds = %lpad17
   br label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit
 
 _ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit: ; preds = %lpad17, %if.then.i.i.i
-  %tobool.not.i.i.i67 = icmp eq ptr %orientations.sroa.0.0297, null
+  %tobool.not.i.i.i67 = icmp eq ptr %orientations.sroa.0.0298, null
   br i1 %tobool.not.i.i.i67, label %eh.resume, label %if.then.i.i.i68
 
 if.then.i.i.i68:                                  ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %orientations.sroa.0.0297) #20
+  call void @_ZdlPv(ptr noundef nonnull %orientations.sroa.0.0298) #20
   br label %eh.resume
 
 for.end.loopexit:                                 ; preds = %invoke.cont45
@@ -1051,16 +1052,16 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %19 = phi ptr [ %10, %invoke.cont20 ], [ %16, %for.end.loopexit ]
   %20 = phi ptr [ %11, %invoke.cont20 ], [ %.pre, %for.end.loopexit ]
   %y1.0.lcssa = phi double [ %9, %invoke.cont20 ], [ %15, %for.end.loopexit ]
-  %_M_finish.i71196 = getelementptr inbounds %"class.msdfgen::Contour", ptr %19, i64 %indvars.iv282, i32 0, i32 0, i32 0, i32 0, i32 1
-  %21 = load ptr, ptr %_M_finish.i71196, align 8
-  %cmp.i72197 = icmp ne ptr %20, %21
-  %cmp67198 = fcmp oeq double %9, %y1.0.lcssa
-  %22 = select i1 %cmp.i72197, i1 %cmp67198, i1 false
+  %_M_finish.i71197 = getelementptr inbounds %"class.msdfgen::Contour", ptr %19, i64 %indvars.iv283, i32 0, i32 0, i32 0, i32 0, i32 1
+  %21 = load ptr, ptr %_M_finish.i71197, align 8
+  %cmp.i72198 = icmp ne ptr %20, %21
+  %cmp67199 = fcmp oeq double %9, %y1.0.lcssa
+  %22 = select i1 %cmp.i72198, i1 %cmp67199, i1 false
   br i1 %22, label %for.body69, label %for.end81
 
 for.body69:                                       ; preds = %for.end, %invoke.cont76
-  %edge49.sroa.0.0199 = phi ptr [ %incdec.ptr.i73, %invoke.cont76 ], [ %20, %for.end ]
-  %call73 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge49.sroa.0.0199)
+  %edge49.sroa.0.0200 = phi ptr [ %incdec.ptr.i73, %invoke.cont76 ], [ %20, %for.end ]
+  %call73 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge49.sroa.0.0200)
           to label %invoke.cont72 unwind label %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont72:                                    ; preds = %for.body69
@@ -1072,9 +1073,9 @@ invoke.cont72:                                    ; preds = %for.body69
 
 invoke.cont76:                                    ; preds = %invoke.cont72
   %24 = extractvalue { double, double } %call77, 1
-  %incdec.ptr.i73 = getelementptr inbounds i8, ptr %edge49.sroa.0.0199, i64 8
+  %incdec.ptr.i73 = getelementptr inbounds i8, ptr %edge49.sroa.0.0200, i64 8
   %25 = load ptr, ptr %this, align 8
-  %_M_finish.i71 = getelementptr inbounds %"class.msdfgen::Contour", ptr %25, i64 %indvars.iv282, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i71 = getelementptr inbounds %"class.msdfgen::Contour", ptr %25, i64 %indvars.iv283, i32 0, i32 0, i32 0, i32 0, i32 1
   %26 = load ptr, ptr %_M_finish.i71, align 8
   %cmp.i72 = icmp ne ptr %incdec.ptr.i73, %26
   %cmp67 = fcmp oeq double %9, %24
@@ -1087,39 +1088,39 @@ for.end81:                                        ; preds = %invoke.cont76, %for
   %mul1.i = fmul double %y1.1.lcssa, 0x3FE3C6EF372FE950
   %29 = call noundef double @llvm.fmuladd.f64(double %9, double 0x3FD8722191A02D60, double %mul1.i)
   %30 = load ptr, ptr %_M_finish.i, align 8
-  %sub.ptr.lhs.cast.i75218 = ptrtoint ptr %30 to i64
-  %sub.ptr.rhs.cast.i76219 = ptrtoint ptr %28 to i64
-  %sub.ptr.sub.i77220 = sub i64 %sub.ptr.lhs.cast.i75218, %sub.ptr.rhs.cast.i76219
-  %sub.ptr.div.i78221 = sdiv exact i64 %sub.ptr.sub.i77220, 24
-  %conv88222 = trunc i64 %sub.ptr.div.i78221 to i32
-  %cmp89223 = icmp sgt i32 %conv88222, 0
-  br i1 %cmp89223, label %for.body90, label %for.end131
+  %sub.ptr.lhs.cast.i75219 = ptrtoint ptr %30 to i64
+  %sub.ptr.rhs.cast.i76220 = ptrtoint ptr %28 to i64
+  %sub.ptr.sub.i77221 = sub i64 %sub.ptr.lhs.cast.i75219, %sub.ptr.rhs.cast.i76220
+  %sub.ptr.div.i78222 = sdiv exact i64 %sub.ptr.sub.i77221, 24
+  %conv88223 = trunc i64 %sub.ptr.div.i78222 to i32
+  %cmp89224 = icmp sgt i32 %conv88223, 0
+  br i1 %cmp89224, label %for.body90, label %for.end131
 
 for.body90:                                       ; preds = %for.end81, %for.inc129
   %31 = phi ptr [ %43, %for.inc129 ], [ %28, %for.end81 ]
   %32 = phi ptr [ %44, %for.inc129 ], [ %30, %for.end81 ]
-  %indvars.iv268 = phi i64 [ %indvars.iv.next269, %for.inc129 ], [ 0, %for.end81 ]
-  %intersections.sroa.0.2226 = phi ptr [ %intersections.sroa.0.3.lcssa, %for.inc129 ], [ %intersections.sroa.0.0244, %for.end81 ]
-  %intersections.sroa.18.1225 = phi ptr [ %intersections.sroa.18.2.lcssa, %for.inc129 ], [ %intersections.sroa.18.0243, %for.end81 ]
-  %intersections.sroa.28.1224 = phi ptr [ %intersections.sroa.28.2.lcssa, %for.inc129 ], [ %intersections.sroa.28.0242, %for.end81 ]
-  %add.ptr.i79 = getelementptr inbounds %"class.msdfgen::Contour", ptr %31, i64 %indvars.iv268
+  %indvars.iv269 = phi i64 [ %indvars.iv.next270, %for.inc129 ], [ 0, %for.end81 ]
+  %intersections.sroa.0.2227 = phi ptr [ %intersections.sroa.0.3.lcssa, %for.inc129 ], [ %intersections.sroa.0.0245, %for.end81 ]
+  %intersections.sroa.18.1226 = phi ptr [ %intersections.sroa.18.2.lcssa, %for.inc129 ], [ %intersections.sroa.18.0244, %for.end81 ]
+  %intersections.sroa.28.1225 = phi ptr [ %intersections.sroa.28.2.lcssa, %for.inc129 ], [ %intersections.sroa.28.0243, %for.end81 ]
+  %add.ptr.i79 = getelementptr inbounds %"class.msdfgen::Contour", ptr %31, i64 %indvars.iv269
   %33 = load ptr, ptr %add.ptr.i79, align 8
-  %_M_finish.i81209 = getelementptr inbounds %"class.msdfgen::Contour", ptr %31, i64 %indvars.iv268, i32 0, i32 0, i32 0, i32 0, i32 1
-  %34 = load ptr, ptr %_M_finish.i81209, align 8
-  %cmp.i82.not210 = icmp eq ptr %33, %34
-  br i1 %cmp.i82.not210, label %for.inc129, label %for.body108.preheader
+  %_M_finish.i81210 = getelementptr inbounds %"class.msdfgen::Contour", ptr %31, i64 %indvars.iv269, i32 0, i32 0, i32 0, i32 0, i32 1
+  %34 = load ptr, ptr %_M_finish.i81210, align 8
+  %cmp.i82.not211 = icmp eq ptr %33, %34
+  br i1 %cmp.i82.not211, label %for.inc129, label %for.body108.preheader
 
 for.body108.preheader:                            ; preds = %for.body90
-  %35 = trunc i64 %indvars.iv268 to i32
-  %36 = trunc i64 %indvars.iv268 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv269 to i32
+  %36 = trunc nuw nsw i64 %indvars.iv269 to i32
   br label %for.body108
 
 for.body108:                                      ; preds = %for.body108.preheader, %for.inc126
-  %intersections.sroa.0.3214 = phi ptr [ %intersections.sroa.0.4.lcssa, %for.inc126 ], [ %intersections.sroa.0.2226, %for.body108.preheader ]
-  %intersections.sroa.18.2213 = phi ptr [ %intersections.sroa.18.3.lcssa, %for.inc126 ], [ %intersections.sroa.18.1225, %for.body108.preheader ]
-  %edge91.sroa.0.0212 = phi ptr [ %incdec.ptr.i90, %for.inc126 ], [ %33, %for.body108.preheader ]
-  %intersections.sroa.28.2211 = phi ptr [ %intersections.sroa.28.3.lcssa, %for.inc126 ], [ %intersections.sroa.28.1224, %for.body108.preheader ]
-  %call111 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge91.sroa.0.0212)
+  %intersections.sroa.0.3215 = phi ptr [ %intersections.sroa.0.4.lcssa, %for.inc126 ], [ %intersections.sroa.0.2227, %for.body108.preheader ]
+  %intersections.sroa.18.2214 = phi ptr [ %intersections.sroa.18.3.lcssa, %for.inc126 ], [ %intersections.sroa.18.1226, %for.body108.preheader ]
+  %edge91.sroa.0.0213 = phi ptr [ %incdec.ptr.i90, %for.inc126 ], [ %33, %for.body108.preheader ]
+  %intersections.sroa.28.2212 = phi ptr [ %intersections.sroa.28.3.lcssa, %for.inc126 ], [ %intersections.sroa.28.1225, %for.body108.preheader ]
+  %call111 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge91.sroa.0.0213)
           to label %invoke.cont110 unwind label %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont110:                                   ; preds = %for.body108
@@ -1130,8 +1131,8 @@ invoke.cont110:                                   ; preds = %for.body108
           to label %for.cond117.preheader unwind label %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.cond117.preheader:                            ; preds = %invoke.cont110
-  %cmp118201 = icmp sgt i32 %call116, 0
-  br i1 %cmp118201, label %for.body119.preheader, label %for.inc126
+  %cmp118202 = icmp sgt i32 %call116, 0
+  br i1 %cmp118202, label %for.body119.preheader, label %for.inc126
 
 for.body119.preheader:                            ; preds = %for.cond117.preheader
   %wide.trip.count = zext nneg i32 %call116 to i64
@@ -1139,27 +1140,27 @@ for.body119.preheader:                            ; preds = %for.cond117.prehead
 
 for.body119:                                      ; preds = %for.body119.preheader, %for.inc124
   %indvars.iv = phi i64 [ 0, %for.body119.preheader ], [ %indvars.iv.next, %for.inc124 ]
-  %intersections.sroa.0.4204 = phi ptr [ %intersections.sroa.0.3214, %for.body119.preheader ], [ %intersections.sroa.0.5, %for.inc124 ]
-  %intersections.sroa.18.3203 = phi ptr [ %intersections.sroa.18.2213, %for.body119.preheader ], [ %intersections.sroa.18.4, %for.inc124 ]
-  %intersections.sroa.28.3202 = phi ptr [ %intersections.sroa.28.2211, %for.body119.preheader ], [ %intersections.sroa.28.4, %for.inc124 ]
+  %intersections.sroa.0.4205 = phi ptr [ %intersections.sroa.0.3215, %for.body119.preheader ], [ %intersections.sroa.0.5, %for.inc124 ]
+  %intersections.sroa.18.3204 = phi ptr [ %intersections.sroa.18.2214, %for.body119.preheader ], [ %intersections.sroa.18.4, %for.inc124 ]
+  %intersections.sroa.28.3203 = phi ptr [ %intersections.sroa.28.2212, %for.body119.preheader ], [ %intersections.sroa.28.4, %for.inc124 ]
   %arrayidx = getelementptr inbounds [3 x double], ptr %x, i64 0, i64 %indvars.iv
   %38 = load double, ptr %arrayidx, align 8
   %arrayidx122 = getelementptr inbounds [3 x i32], ptr %dy, i64 0, i64 %indvars.iv
   %39 = load i32, ptr %arrayidx122, align 4
-  %cmp.not.i = icmp eq ptr %intersections.sroa.18.3203, %intersections.sroa.28.3202
+  %cmp.not.i = icmp eq ptr %intersections.sroa.18.3204, %intersections.sroa.28.3203
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body119
-  store double %38, ptr %intersections.sroa.18.3203, align 8
-  %intersection.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %intersections.sroa.18.3203, i64 8
+  store double %38, ptr %intersections.sroa.18.3204, align 8
+  %intersection.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %intersections.sroa.18.3204, i64 8
   store i32 %39, ptr %intersection.sroa.3.0..sroa_idx, align 8
-  %intersection.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %intersections.sroa.18.3203, i64 12
+  %intersection.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %intersections.sroa.18.3204, i64 12
   store i32 %35, ptr %intersection.sroa.4.0..sroa_idx, align 4
   br label %for.inc124
 
 if.else.i:                                        ; preds = %for.body119
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %intersections.sroa.18.3203 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %intersections.sroa.0.4204 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %intersections.sroa.18.3204 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %intersections.sroa.0.4205 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775792
   br i1 %cmp.i.i.i, label %if.then.i.i.i87, label %_ZNKSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -1173,7 +1174,7 @@ if.then.i.i.i87:                                  ; preds = %if.else.i
 
 _ZNKSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
-  %cmp.i.i.i.i = icmp eq ptr %intersections.sroa.18.3203, %intersections.sroa.0.4204
+  %cmp.i.i.i.i = icmp eq ptr %intersections.sroa.18.3204, %intersections.sroa.0.4205
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
@@ -1199,16 +1200,16 @@ _ZNSt12_Vector_baseIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i86, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
 
 if.then.i.i.i.i.i86:                              ; preds = %_ZNSt12_Vector_baseIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i, ptr align 8 %intersections.sroa.0.4204, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i, ptr align 8 %intersections.sroa.0.4205, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
 
 _ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %if.then.i.i.i.i.i86, %_ZNSt12_Vector_baseIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i12.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i.i85 = icmp eq ptr %intersections.sroa.0.4204, null
+  %tobool.not.i.i.i85 = icmp eq ptr %intersections.sroa.0.4205, null
   br i1 %tobool.not.i.i.i85, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i20.i.i
 
 if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
-  call void @_ZdlPv(ptr noundef nonnull %intersections.sroa.0.4204) #20
+  call void @_ZdlPv(ptr noundef nonnull %intersections.sroa.0.4205) #20
   br label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
@@ -1216,195 +1217,195 @@ _ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_reall
   br label %for.inc124
 
 for.inc124:                                       ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i
-  %intersections.sroa.28.4 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %intersections.sroa.28.3202, %if.then.i ]
-  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %intersections.sroa.18.3203, %if.then.i ]
-  %intersections.sroa.0.5 = phi ptr [ %cond.i12.i.i, %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %intersections.sroa.0.4204, %if.then.i ]
+  %intersections.sroa.28.4 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %intersections.sroa.28.3203, %if.then.i ]
+  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %intersections.sroa.18.3204, %if.then.i ]
+  %intersections.sroa.0.5 = phi ptr [ %cond.i12.i.i, %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %intersections.sroa.0.4205, %if.then.i ]
   %intersections.sroa.18.4 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.inc126, label %for.body119, !llvm.loop !20
 
 for.inc126:                                       ; preds = %for.inc124, %for.cond117.preheader
-  %intersections.sroa.28.3.lcssa = phi ptr [ %intersections.sroa.28.2211, %for.cond117.preheader ], [ %intersections.sroa.28.4, %for.inc124 ]
-  %intersections.sroa.18.3.lcssa = phi ptr [ %intersections.sroa.18.2213, %for.cond117.preheader ], [ %intersections.sroa.18.4, %for.inc124 ]
-  %intersections.sroa.0.4.lcssa = phi ptr [ %intersections.sroa.0.3214, %for.cond117.preheader ], [ %intersections.sroa.0.5, %for.inc124 ]
-  %incdec.ptr.i90 = getelementptr inbounds i8, ptr %edge91.sroa.0.0212, i64 8
+  %intersections.sroa.28.3.lcssa = phi ptr [ %intersections.sroa.28.2212, %for.cond117.preheader ], [ %intersections.sroa.28.4, %for.inc124 ]
+  %intersections.sroa.18.3.lcssa = phi ptr [ %intersections.sroa.18.2214, %for.cond117.preheader ], [ %intersections.sroa.18.4, %for.inc124 ]
+  %intersections.sroa.0.4.lcssa = phi ptr [ %intersections.sroa.0.3215, %for.cond117.preheader ], [ %intersections.sroa.0.5, %for.inc124 ]
+  %incdec.ptr.i90 = getelementptr inbounds i8, ptr %edge91.sroa.0.0213, i64 8
   %41 = load ptr, ptr %this, align 8
-  %_M_finish.i81 = getelementptr inbounds %"class.msdfgen::Contour", ptr %41, i64 %indvars.iv268, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i81 = getelementptr inbounds %"class.msdfgen::Contour", ptr %41, i64 %indvars.iv269, i32 0, i32 0, i32 0, i32 0, i32 1
   %42 = load ptr, ptr %_M_finish.i81, align 8
   %cmp.i82.not = icmp eq ptr %incdec.ptr.i90, %42
   br i1 %cmp.i82.not, label %for.inc129.loopexit, label %for.body108, !llvm.loop !21
 
 for.inc129.loopexit:                              ; preds = %for.inc126
-  %.pre288 = load ptr, ptr %_M_finish.i, align 8
+  %.pre289 = load ptr, ptr %_M_finish.i, align 8
   br label %for.inc129
 
 for.inc129:                                       ; preds = %for.inc129.loopexit, %for.body90
   %43 = phi ptr [ %31, %for.body90 ], [ %41, %for.inc129.loopexit ]
-  %44 = phi ptr [ %32, %for.body90 ], [ %.pre288, %for.inc129.loopexit ]
-  %intersections.sroa.28.2.lcssa = phi ptr [ %intersections.sroa.28.1224, %for.body90 ], [ %intersections.sroa.28.3.lcssa, %for.inc129.loopexit ]
-  %intersections.sroa.18.2.lcssa = phi ptr [ %intersections.sroa.18.1225, %for.body90 ], [ %intersections.sroa.18.3.lcssa, %for.inc129.loopexit ]
-  %intersections.sroa.0.3.lcssa = phi ptr [ %intersections.sroa.0.2226, %for.body90 ], [ %intersections.sroa.0.4.lcssa, %for.inc129.loopexit ]
-  %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
+  %44 = phi ptr [ %32, %for.body90 ], [ %.pre289, %for.inc129.loopexit ]
+  %intersections.sroa.28.2.lcssa = phi ptr [ %intersections.sroa.28.1225, %for.body90 ], [ %intersections.sroa.28.3.lcssa, %for.inc129.loopexit ]
+  %intersections.sroa.18.2.lcssa = phi ptr [ %intersections.sroa.18.1226, %for.body90 ], [ %intersections.sroa.18.3.lcssa, %for.inc129.loopexit ]
+  %intersections.sroa.0.3.lcssa = phi ptr [ %intersections.sroa.0.2227, %for.body90 ], [ %intersections.sroa.0.4.lcssa, %for.inc129.loopexit ]
+  %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %sub.ptr.lhs.cast.i75 = ptrtoint ptr %44 to i64
   %sub.ptr.rhs.cast.i76 = ptrtoint ptr %43 to i64
   %sub.ptr.sub.i77 = sub i64 %sub.ptr.lhs.cast.i75, %sub.ptr.rhs.cast.i76
   %sub.ptr.div.i78 = sdiv exact i64 %sub.ptr.sub.i77, 24
   %sext = shl i64 %sub.ptr.div.i78, 32
   %45 = ashr exact i64 %sext, 32
-  %cmp89 = icmp slt i64 %indvars.iv.next269, %45
+  %cmp89 = icmp slt i64 %indvars.iv.next270, %45
   br i1 %cmp89, label %for.body90, label %for.end131, !llvm.loop !22
 
 for.end131:                                       ; preds = %for.inc129, %for.end81
-  %intersections.sroa.28.1.lcssa = phi ptr [ %intersections.sroa.28.0242, %for.end81 ], [ %intersections.sroa.28.2.lcssa, %for.inc129 ]
-  %intersections.sroa.18.1.lcssa = phi ptr [ %intersections.sroa.18.0243, %for.end81 ], [ %intersections.sroa.18.2.lcssa, %for.inc129 ]
-  %intersections.sroa.0.2.lcssa = phi ptr [ %intersections.sroa.0.0244, %for.end81 ], [ %intersections.sroa.0.3.lcssa, %for.inc129 ]
+  %intersections.sroa.28.1.lcssa = phi ptr [ %intersections.sroa.28.0243, %for.end81 ], [ %intersections.sroa.28.2.lcssa, %for.inc129 ]
+  %intersections.sroa.18.1.lcssa = phi ptr [ %intersections.sroa.18.0244, %for.end81 ], [ %intersections.sroa.18.2.lcssa, %for.inc129 ]
+  %intersections.sroa.0.2.lcssa = phi ptr [ %intersections.sroa.0.0245, %for.end81 ], [ %intersections.sroa.0.3.lcssa, %for.inc129 ]
   %cmp.i.i91 = icmp eq ptr %intersections.sroa.0.2.lcssa, %intersections.sroa.18.1.lcssa
   br i1 %cmp.i.i91, label %for.inc191, label %if.then133
 
 if.then133:                                       ; preds = %for.end131
-  %sub.ptr.lhs.cast.i92 = ptrtoint ptr %intersections.sroa.18.1.lcssa to i64
-  %sub.ptr.rhs.cast.i93 = ptrtoint ptr %intersections.sroa.0.2.lcssa to i64
-  %sub.ptr.sub.i94 = sub i64 %sub.ptr.lhs.cast.i92, %sub.ptr.rhs.cast.i93
-  %sub.ptr.div.i95 = ashr exact i64 %sub.ptr.sub.i94, 4
-  invoke void @qsort(ptr noundef nonnull %intersections.sroa.0.2.lcssa, i64 noundef %sub.ptr.div.i95, i64 noundef 16, ptr noundef nonnull @_ZZN7msdfgen5Shape14orientContoursEvEN12Intersection7compareEPKvS3_)
+  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %intersections.sroa.18.1.lcssa to i64
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %intersections.sroa.0.2.lcssa to i64
+  %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
+  %sub.ptr.div.i96 = ashr exact i64 %sub.ptr.sub.i95, 4
+  invoke void @qsort(ptr noundef nonnull %intersections.sroa.0.2.lcssa, i64 noundef %sub.ptr.div.i96, i64 noundef 16, ptr noundef nonnull @_ZZN7msdfgen5Shape14orientContoursEvEN12Intersection7compareEPKvS3_)
           to label %for.cond138.preheader unwind label %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.cond138.preheader:                            ; preds = %if.then133
-  %conv140 = trunc i64 %sub.ptr.div.i95 to i32
-  %cmp141231 = icmp sgt i32 %conv140, 1
-  br i1 %cmp141231, label %for.body142.preheader, label %for.cond163.preheader
+  %conv140 = trunc i64 %sub.ptr.div.i96 to i32
+  %cmp141232 = icmp sgt i32 %conv140, 1
+  br i1 %cmp141232, label %for.body142.preheader, label %for.cond163.preheader
 
 for.body142.preheader:                            ; preds = %for.cond138.preheader
-  %wide.trip.count275 = and i64 %sub.ptr.div.i95, 2147483647
-  %.pre289 = load double, ptr %intersections.sroa.0.2.lcssa, align 8
+  %wide.trip.count276 = and i64 %sub.ptr.div.i96, 2147483647
+  %.pre290 = load double, ptr %intersections.sroa.0.2.lcssa, align 8
   br label %for.body142
 
 for.cond163.preheader:                            ; preds = %for.inc159, %for.cond138.preheader
-  %cmp166234 = icmp sgt i32 %conv140, 0
-  br i1 %cmp166234, label %for.body167.preheader, label %for.inc191
+  %cmp166235 = icmp sgt i32 %conv140, 0
+  br i1 %cmp166235, label %for.body167.preheader, label %for.inc191
 
 for.body167.preheader:                            ; preds = %for.cond163.preheader
-  %wide.trip.count280 = and i64 %sub.ptr.div.i95, 2147483647
+  %wide.trip.count281 = and i64 %sub.ptr.div.i96, 2147483647
   br label %for.body167
 
 for.body142:                                      ; preds = %for.body142.preheader, %for.inc159
-  %46 = phi double [ %.pre289, %for.body142.preheader ], [ %47, %for.inc159 ]
-  %indvars.iv271 = phi i64 [ 1, %for.body142.preheader ], [ %indvars.iv.next272, %for.inc159 ]
-  %add.ptr.i100 = getelementptr inbounds %struct.Intersection, ptr %intersections.sroa.0.2.lcssa, i64 %indvars.iv271
-  %47 = load double, ptr %add.ptr.i100, align 8
+  %46 = phi double [ %.pre290, %for.body142.preheader ], [ %47, %for.inc159 ]
+  %indvars.iv272 = phi i64 [ 1, %for.body142.preheader ], [ %indvars.iv.next273, %for.inc159 ]
+  %add.ptr.i101 = getelementptr inbounds %struct.Intersection, ptr %intersections.sroa.0.2.lcssa, i64 %indvars.iv272
+  %47 = load double, ptr %add.ptr.i101, align 8
   %cmp150 = fcmp oeq double %47, %46
   br i1 %cmp150, label %if.then151, label %for.inc159
 
 if.then151:                                       ; preds = %for.body142
-  %48 = add nsw i64 %indvars.iv271, -1
+  %48 = add nsw i64 %indvars.iv272, -1
   %direction155 = getelementptr inbounds %struct.Intersection, ptr %intersections.sroa.0.2.lcssa, i64 %48, i32 1
   store i32 0, ptr %direction155, align 8
-  %direction158 = getelementptr inbounds i8, ptr %add.ptr.i100, i64 8
+  %direction158 = getelementptr inbounds i8, ptr %add.ptr.i101, i64 8
   store i32 0, ptr %direction158, align 8
   br label %for.inc159
 
 for.inc159:                                       ; preds = %for.body142, %if.then151
-  %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
-  %exitcond276.not = icmp eq i64 %indvars.iv.next272, %wide.trip.count275
-  br i1 %exitcond276.not, label %for.cond163.preheader, label %for.body142, !llvm.loop !23
+  %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
+  %exitcond277.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count276
+  br i1 %exitcond277.not, label %for.cond163.preheader, label %for.body142, !llvm.loop !23
 
 for.body167:                                      ; preds = %for.body167.preheader, %for.inc186
-  %indvars.iv277 = phi i64 [ 0, %for.body167.preheader ], [ %indvars.iv.next278, %for.inc186 ]
-  %add.ptr.i108 = getelementptr inbounds %struct.Intersection, ptr %intersections.sroa.0.2.lcssa, i64 %indvars.iv277
-  %direction170 = getelementptr inbounds i8, ptr %add.ptr.i108, i64 8
+  %indvars.iv278 = phi i64 [ 0, %for.body167.preheader ], [ %indvars.iv.next279, %for.inc186 ]
+  %add.ptr.i109 = getelementptr inbounds %struct.Intersection, ptr %intersections.sroa.0.2.lcssa, i64 %indvars.iv278
+  %direction170 = getelementptr inbounds i8, ptr %add.ptr.i109, i64 8
   %49 = load i32, ptr %direction170, align 8
   %tobool171.not = icmp eq i32 %49, 0
   br i1 %tobool171.not, label %for.inc186, label %if.then172
 
 if.then172:                                       ; preds = %for.body167
-  %50 = trunc i64 %indvars.iv277 to i32
+  %50 = trunc nuw nsw i64 %indvars.iv278 to i32
   %and = and i32 %50, 1
   %cmp176 = icmp sgt i32 %49, 0
   %conv177 = zext i1 %cmp176 to i32
   %xor = xor i32 %and, %conv177
   %mul178 = shl nuw nsw i32 %xor, 1
   %sub179 = add nsw i32 %mul178, -1
-  %contourIndex182 = getelementptr inbounds i8, ptr %add.ptr.i108, i64 12
+  %contourIndex182 = getelementptr inbounds i8, ptr %add.ptr.i109, i64 12
   %51 = load i32, ptr %contourIndex182, align 4
   %conv183 = sext i32 %51 to i64
-  %add.ptr.i111 = getelementptr inbounds i32, ptr %orientations.sroa.0.0297, i64 %conv183
-  %52 = load i32, ptr %add.ptr.i111, align 4
+  %add.ptr.i112 = getelementptr inbounds i32, ptr %orientations.sroa.0.0298, i64 %conv183
+  %52 = load i32, ptr %add.ptr.i112, align 4
   %add = add nsw i32 %sub179, %52
-  store i32 %add, ptr %add.ptr.i111, align 4
+  store i32 %add, ptr %add.ptr.i112, align 4
   br label %for.inc186
 
 for.inc186:                                       ; preds = %for.body167, %if.then172
-  %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
-  %exitcond281.not = icmp eq i64 %indvars.iv.next278, %wide.trip.count280
-  br i1 %exitcond281.not, label %for.inc191, label %for.body167, !llvm.loop !24
+  %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
+  %exitcond282.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count281
+  br i1 %exitcond282.not, label %for.inc191, label %for.body167, !llvm.loop !24
 
 for.inc191:                                       ; preds = %for.inc186, %for.cond163.preheader, %for.body, %land.lhs.true, %for.end131
-  %intersections.sroa.28.5 = phi ptr [ %intersections.sroa.28.0242, %land.lhs.true ], [ %intersections.sroa.28.1.lcssa, %for.end131 ], [ %intersections.sroa.28.0242, %for.body ], [ %intersections.sroa.28.1.lcssa, %for.cond163.preheader ], [ %intersections.sroa.28.1.lcssa, %for.inc186 ]
-  %intersections.sroa.18.6 = phi ptr [ %intersections.sroa.18.0243, %land.lhs.true ], [ %intersections.sroa.18.1.lcssa, %for.end131 ], [ %intersections.sroa.18.0243, %for.body ], [ %intersections.sroa.0.2.lcssa, %for.cond163.preheader ], [ %intersections.sroa.0.2.lcssa, %for.inc186 ]
-  %intersections.sroa.0.6 = phi ptr [ %intersections.sroa.0.0244, %land.lhs.true ], [ %intersections.sroa.18.1.lcssa, %for.end131 ], [ %intersections.sroa.0.0244, %for.body ], [ %intersections.sroa.0.2.lcssa, %for.cond163.preheader ], [ %intersections.sroa.0.2.lcssa, %for.inc186 ]
-  %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
+  %intersections.sroa.28.5 = phi ptr [ %intersections.sroa.28.0243, %land.lhs.true ], [ %intersections.sroa.28.1.lcssa, %for.end131 ], [ %intersections.sroa.28.0243, %for.body ], [ %intersections.sroa.28.1.lcssa, %for.cond163.preheader ], [ %intersections.sroa.28.1.lcssa, %for.inc186 ]
+  %intersections.sroa.18.6 = phi ptr [ %intersections.sroa.18.0244, %land.lhs.true ], [ %intersections.sroa.18.1.lcssa, %for.end131 ], [ %intersections.sroa.18.0244, %for.body ], [ %intersections.sroa.0.2.lcssa, %for.cond163.preheader ], [ %intersections.sroa.0.2.lcssa, %for.inc186 ]
+  %intersections.sroa.0.6 = phi ptr [ %intersections.sroa.0.0245, %land.lhs.true ], [ %intersections.sroa.0.2.lcssa, %for.end131 ], [ %intersections.sroa.0.0245, %for.body ], [ %intersections.sroa.0.2.lcssa, %for.cond163.preheader ], [ %intersections.sroa.0.2.lcssa, %for.inc186 ]
+  %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %53 = load ptr, ptr %_M_finish.i, align 8
   %54 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i57 = ptrtoint ptr %53 to i64
   %sub.ptr.rhs.cast.i58 = ptrtoint ptr %54 to i64
   %sub.ptr.sub.i59 = sub i64 %sub.ptr.lhs.cast.i57, %sub.ptr.rhs.cast.i58
   %sub.ptr.div.i60 = sdiv exact i64 %sub.ptr.sub.i59, 24
-  %sext292 = shl i64 %sub.ptr.div.i60, 32
-  %55 = ashr exact i64 %sext292, 32
-  %cmp = icmp slt i64 %indvars.iv.next283, %55
+  %sext293 = shl i64 %sub.ptr.div.i60, 32
+  %55 = ashr exact i64 %sext293, 32
+  %cmp = icmp slt i64 %indvars.iv.next284, %55
   br i1 %cmp, label %for.body, label %for.cond195.preheader, !llvm.loop !25
 
 for.body200:                                      ; preds = %for.cond195.preheader, %for.inc210
   %56 = phi ptr [ %59, %for.inc210 ], [ %54, %for.cond195.preheader ]
   %57 = phi ptr [ %60, %for.inc210 ], [ %53, %for.cond195.preheader ]
-  %indvars.iv285 = phi i64 [ %indvars.iv.next286, %for.inc210 ], [ 0, %for.cond195.preheader ]
-  %add.ptr.i118 = getelementptr inbounds i32, ptr %orientations.sroa.0.0297, i64 %indvars.iv285
-  %58 = load i32, ptr %add.ptr.i118, align 4
+  %indvars.iv286 = phi i64 [ %indvars.iv.next287, %for.inc210 ], [ 0, %for.cond195.preheader ]
+  %add.ptr.i119 = getelementptr inbounds i32, ptr %orientations.sroa.0.0298, i64 %indvars.iv286
+  %58 = load i32, ptr %add.ptr.i119, align 4
   %cmp203 = icmp slt i32 %58, 0
   br i1 %cmp203, label %if.then204, label %for.inc210
 
 if.then204:                                       ; preds = %for.body200
-  %add.ptr.i119 = getelementptr inbounds %"class.msdfgen::Contour", ptr %56, i64 %indvars.iv285
-  invoke void @_ZN7msdfgen7Contour7reverseEv(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i119)
+  %add.ptr.i120 = getelementptr inbounds %"class.msdfgen::Contour", ptr %56, i64 %indvars.iv286
+  invoke void @_ZN7msdfgen7Contour7reverseEv(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i120)
           to label %if.then204.for.inc210_crit_edge unwind label %lpad17.loopexit
 
 if.then204.for.inc210_crit_edge:                  ; preds = %if.then204
-  %.pre290 = load ptr, ptr %_M_finish.i, align 8
-  %.pre291 = load ptr, ptr %this, align 8
+  %.pre291 = load ptr, ptr %_M_finish.i, align 8
+  %.pre292 = load ptr, ptr %this, align 8
   br label %for.inc210
 
 for.inc210:                                       ; preds = %if.then204.for.inc210_crit_edge, %for.body200
-  %59 = phi ptr [ %.pre291, %if.then204.for.inc210_crit_edge ], [ %56, %for.body200 ]
-  %60 = phi ptr [ %.pre290, %if.then204.for.inc210_crit_edge ], [ %57, %for.body200 ]
-  %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
-  %sub.ptr.lhs.cast.i114 = ptrtoint ptr %60 to i64
-  %sub.ptr.rhs.cast.i115 = ptrtoint ptr %59 to i64
-  %sub.ptr.sub.i116 = sub i64 %sub.ptr.lhs.cast.i114, %sub.ptr.rhs.cast.i115
-  %sub.ptr.div.i117 = sdiv exact i64 %sub.ptr.sub.i116, 24
-  %sext293 = shl i64 %sub.ptr.div.i117, 32
-  %61 = ashr exact i64 %sext293, 32
-  %cmp199 = icmp slt i64 %indvars.iv.next286, %61
+  %59 = phi ptr [ %.pre292, %if.then204.for.inc210_crit_edge ], [ %56, %for.body200 ]
+  %60 = phi ptr [ %.pre291, %if.then204.for.inc210_crit_edge ], [ %57, %for.body200 ]
+  %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
+  %sub.ptr.lhs.cast.i115 = ptrtoint ptr %60 to i64
+  %sub.ptr.rhs.cast.i116 = ptrtoint ptr %59 to i64
+  %sub.ptr.sub.i117 = sub i64 %sub.ptr.lhs.cast.i115, %sub.ptr.rhs.cast.i116
+  %sub.ptr.div.i118 = sdiv exact i64 %sub.ptr.sub.i117, 24
+  %sext294 = shl i64 %sub.ptr.div.i118, 32
+  %61 = ashr exact i64 %sext294, 32
+  %cmp199 = icmp slt i64 %indvars.iv.next287, %61
   br i1 %cmp199, label %for.body200, label %for.end212, !llvm.loop !26
 
 for.end212:                                       ; preds = %for.inc210, %for.cond195.preheader
-  %tobool.not.i.i.i120 = icmp eq ptr %intersections.sroa.0.6, null
-  br i1 %tobool.not.i.i.i120, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit122, label %if.then.i.i.i121
+  %tobool.not.i.i.i121 = icmp eq ptr %intersections.sroa.0.6, null
+  br i1 %tobool.not.i.i.i121, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123, label %if.then.i.i.i122
 
-if.then.i.i.i121:                                 ; preds = %for.end212
+if.then.i.i.i122:                                 ; preds = %for.end212
   call void @_ZdlPv(ptr noundef nonnull %intersections.sroa.0.6) #20
-  br label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit122
+  br label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123
 
-_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit122: ; preds = %invoke.cont, %for.end212, %if.then.i.i.i121
-  %orientations.sroa.0.0299303308 = phi ptr [ %orientations.sroa.0.0297, %for.end212 ], [ %orientations.sroa.0.0297, %if.then.i.i.i121 ], [ %orientations.sroa.0.0, %invoke.cont ]
-  %tobool.not.i.i.i123 = icmp eq ptr %orientations.sroa.0.0299303308, null
-  br i1 %tobool.not.i.i.i123, label %_ZNSt6vectorIiSaIiEED2Ev.exit125, label %if.then.i.i.i124
+_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123: ; preds = %invoke.cont, %for.end212, %if.then.i.i.i122
+  %orientations.sroa.0.0300304309 = phi ptr [ %orientations.sroa.0.0298, %for.end212 ], [ %orientations.sroa.0.0298, %if.then.i.i.i122 ], [ %orientations.sroa.0.0, %invoke.cont ]
+  %tobool.not.i.i.i124 = icmp eq ptr %orientations.sroa.0.0300304309, null
+  br i1 %tobool.not.i.i.i124, label %_ZNSt6vectorIiSaIiEED2Ev.exit126, label %if.then.i.i.i125
 
-if.then.i.i.i124:                                 ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit122
-  call void @_ZdlPv(ptr noundef nonnull %orientations.sroa.0.0299303308) #20
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit125
+if.then.i.i.i125:                                 ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123
+  call void @_ZdlPv(ptr noundef nonnull %orientations.sroa.0.0300304309) #20
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit126
 
-_ZNSt6vectorIiSaIiEED2Ev.exit125:                 ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit122, %if.then.i.i.i124
+_ZNSt6vectorIiSaIiEED2Ev.exit126:                 ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123, %if.then.i.i.i125
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i68, %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit
@@ -1548,7 +1549,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = tail call ptr @__cxa_begin_catch(ptr %8) #19
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i33
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i36
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZNSt16allocator_traitsISaIN7msdfgen7ContourEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr) #19
@@ -1560,11 +1561,11 @@ lpad17:                                           ; preds = %invoke.cont19
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i33:                                      ; preds = %lpad
+if.then.i36:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #20
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.then.i33, %if.end.thread
+invoke.cont19:                                    ; preds = %if.then.i36, %if.end.thread
   invoke void @__cxa_rethrow() #21
           to label %unreachable unwind label %lpad17
 

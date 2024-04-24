@@ -6844,7 +6844,7 @@ _ZL14yy_stack_printPsS_.exit1398:                 ; preds = %.lr.ph.i1394, %2686
   br i1 %.not1205, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2697
-  %.lcssa = phi ptr [ %2698, %2697 ], [ %2711, %.lr.ph ]
+  %.lcssa = phi ptr [ %2700, %2697 ], [ %2714, %.lr.ph ]
   %2715 = getelementptr inbounds i8, ptr %0, i64 12
   %.not1206 = icmp eq ptr %.lcssa, %2715
   br i1 %.not1206, label %2717, label %2716

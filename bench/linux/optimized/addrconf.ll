@@ -1052,7 +1052,7 @@ define internal fastcc ptr @__ipv6_chk_addr_and_flags(ptr nocapture noundef read
   br i1 %117, label %.loopexit, label %.split.split, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.split.split.us, %79, %111, %107, %105, %52, %.split.us, %6
-  %118 = phi ptr [ null, %6 ], [ %36, %.split.us ], [ null, %52 ], [ %89, %107 ], [ %19, %105 ], [ null, %111 ], [ null, %79 ], [ %19, %.split.split.us ]
+  %118 = phi ptr [ null, %6 ], [ %36, %.split.us ], [ null, %52 ], [ %89, %107 ], [ %89, %105 ], [ null, %111 ], [ null, %79 ], [ %62, %.split.split.us ]
   tail call void @__rcu_read_unlock() #20
   ret ptr %118
 }
@@ -8389,11 +8389,10 @@ define internal fastcc void @ipv6_link_dev_addr(ptr noundef readonly %0, ptr nou
   br i1 %18, label %8, label %19
 
 19:                                               ; preds = %12, %8
-  %.lcssa = phi ptr [ %10, %12 ], [ %7, %8 ]
   %20 = getelementptr inbounds i8, ptr %1, i64 200
-  %21 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %21 = getelementptr inbounds i8, ptr %10, i64 8
   %22 = load ptr, ptr %21, align 8
-  store ptr %.lcssa, ptr %20, align 8
+  store ptr %10, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %1, i64 208
   store ptr %22, ptr %23, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !117
@@ -11963,7 +11962,7 @@ define internal i32 @addrconf_sysctl_forward(ptr nocapture noundef readonly %0, 
   br i1 %32, label %33, label %.thread5
 
 33:                                               ; preds = %29
-  call void @inet6_netconf_notify_devconf(ptr noundef %24, i32 noundef 80, i32 noundef 2, i32 noundef -2, ptr noundef %9)
+  call void @inet6_netconf_notify_devconf(ptr noundef %24, i32 noundef 80, i32 noundef 2, i32 noundef -2, ptr noundef %27)
   br label %.thread5
 
 .thread5:                                         ; preds = %29, %33

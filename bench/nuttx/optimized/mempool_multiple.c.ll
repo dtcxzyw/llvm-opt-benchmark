@@ -122,7 +122,7 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %exitcond145.not, label %._crit_edge132.loopexit, label %.lr.ph131, !llvm.loop !9
 
 ._crit_edge132.loopexit:                          ; preds = %56
-  %57 = trunc i64 %2 to i32
+  %57 = trunc nuw i64 %2 to i32
   br label %._crit_edge132
 
 ._crit_edge132:                                   ; preds = %._crit_edge132.loopexit, %31
@@ -154,7 +154,7 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
   br label %82
 
 .loopexit.loopexit:                               ; preds = %.lr.ph131
-  %75 = trunc i64 %indvars.iv142 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv142 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge132
@@ -850,7 +850,7 @@ mempool_multiple_alloc.exit46:                    ; preds = %105
 mempool_multiple_get_dict.exit.i:                 ; preds = %131
   %135 = getelementptr inbounds i8, ptr %0, i64 24
   %136 = load i64, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %115, i64 %136
+  %137 = getelementptr inbounds i8, ptr %130, i64 %136
   %138 = ptrtoint ptr %137 to i64
   %139 = sub i64 %46, %138
   %140 = load ptr, ptr %128, align 8
@@ -919,7 +919,7 @@ define noundef i32 @mempool_multiple_free(ptr noundef readonly %0, ptr noundef %
 mempool_multiple_get_dict.exit:                   ; preds = %30
   %34 = getelementptr inbounds i8, ptr %0, i64 24
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %11, i64 %35
+  %36 = getelementptr inbounds i8, ptr %29, i64 %35
   %37 = ptrtoint ptr %36 to i64
   %38 = sub i64 %6, %37
   %39 = load ptr, ptr %27, align 8
@@ -1234,7 +1234,7 @@ define i64 @mempool_multiple_info_task(ptr nocapture noundef readonly %0, ptr no
   %7 = tail call i64 @mempool_info_task(ptr noundef %6, ptr noundef %1) #6
   %.sroa.01.0.extract.trunc = trunc i64 %7 to i32
   %.sroa.2.0.extract.shift = lshr i64 %7, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %8 = add nsw i32 %.sroa.06.013, %.sroa.01.0.extract.trunc
   %9 = add nsw i32 %.sroa.4.012, %.sroa.2.0.extract.trunc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

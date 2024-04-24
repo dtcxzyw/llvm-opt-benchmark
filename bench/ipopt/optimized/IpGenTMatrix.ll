@@ -921,7 +921,7 @@ define void @_ZNK5Ipopt10GenTMatrix15PrintImplOffsetERKNS_10JournalistENS_13EJou
   %51 = load ptr, ptr %1, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
-  %54 = trunc i64 %indvars.iv to i32
+  %54 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, i32, i32, i32, ptr, ...) %53(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, i32 noundef %5, ptr noundef nonnull @.str.2, ptr noundef %36, ptr noundef %37, i32 noundef %43, i32 noundef %47, double noundef %50, i32 noundef %54)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load ptr, ptr %20, align 8
@@ -1278,7 +1278,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_E
   br label %64
 
 64:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i, %.noexc
-  %65 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i ], [ %59, %.noexc ]
+  %65 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i ], [ %60, %.noexc ]
   %66 = getelementptr inbounds i8, ptr %65, i64 -8
   store ptr %66, ptr %9, align 8
   %67 = getelementptr inbounds i8, ptr %.sroa.02.014, i64 8

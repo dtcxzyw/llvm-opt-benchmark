@@ -797,7 +797,7 @@ define hidden noundef align 8 ptr @"_ZN102_$LT$core..iter..adapters..map..Map$LT
   br i1 %41, label %..loopexit_crit_edge.i.i.i.i.i, label %15
 
 ..loopexit_crit_edge.i.i.i.i.i:                   ; preds = %40
-  store ptr %8, ptr %7, align 8, !alias.scope !144, !noalias !129
+  store ptr %17, ptr %7, align 8, !alias.scope !144, !noalias !129
   br label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98912d686d6b6d7eE.llvm.14223331465801898566.exit.thread"
 
 "_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98912d686d6b6d7eE.llvm.14223331465801898566.exit": ; preds = %21, %35
@@ -2030,7 +2030,7 @@ define hidden { ptr, ptr } @"_ZN115_$LT$core..iter..adapters..filter_map..Filter
   br i1 %41, label %..loopexit_crit_edge.i.i.i.i, label %15
 
 ..loopexit_crit_edge.i.i.i.i:                     ; preds = %40
-  store ptr %8, ptr %7, align 8, !alias.scope !299, !noalias !286
+  store ptr %17, ptr %7, align 8, !alias.scope !299, !noalias !286
   br label %_ZN4core4iter6traits8iterator8Iterator8find_map17h975c288297107c7dE.llvm.14223331465801898566.exit
 
 42:                                               ; preds = %35, %21
@@ -12327,7 +12327,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8find_map17h97
   br i1 %41, label %..loopexit_crit_edge.i.i.i, label %15
 
 ..loopexit_crit_edge.i.i.i:                       ; preds = %40
-  store ptr %8, ptr %7, align 8, !alias.scope !1805, !noalias !1792
+  store ptr %17, ptr %7, align 8, !alias.scope !1805, !noalias !1792
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h6674eff9a76b73a4E.exit"
 
 42:                                               ; preds = %35, %21
@@ -34806,7 +34806,7 @@ define hidden void @"_ZN9addr2line30LoopingLookup$LT$T$C$L$C$F$GT$10new_lookup17
   %.sroa.1047.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 80
   %.sroa.1148.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 88
   %.promoted = load i8, ptr %12, align 8, !alias.scope !6442, !noalias !6453
-  %.promoted186 = load ptr, ptr %14, align 8, !alias.scope !6458, !noalias !6465
+  %.promoted183 = load ptr, ptr %14, align 8, !alias.scope !6458, !noalias !6465
   %.sroa.2.0.copyload.pre = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.sroa.0.0.copyload.pre = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.3.sroa.2.0.copyload.pre = load i64, ptr %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx, align 8
@@ -34831,11 +34831,11 @@ define hidden void @"_ZN9addr2line30LoopingLookup$LT$T$C$L$C$F$GT$10new_lookup17
   %.sroa.3.sroa.2.0.copyload = phi i64 [ %.sroa.3.sroa.2.0.copyload.pre, %.lr.ph ], [ %.sroa.10.sroa.9.0.copyload, %137 ]
   %.sroa.3.sroa.0.0.copyload = phi i32 [ %.sroa.3.sroa.0.0.copyload.pre, %.lr.ph ], [ %142, %137 ]
   %.sroa.2.0.copyload = phi i32 [ %.sroa.2.0.copyload.pre, %.lr.ph ], [ %141, %137 ]
-  %.lcssa122187 = phi ptr [ %.promoted186, %.lr.ph ], [ %106, %137 ]
+  %.lcssa122184 = phi ptr [ %.promoted183, %.lr.ph ], [ %106, %137 ]
   %33 = phi i8 [ %.promoted, %.lr.ph ], [ %127, %137 ]
-  %.sroa.485.i.sroa.8.0185 = phi i64 [ undef, %.lr.ph ], [ %.sroa.485.i.sroa.8.1, %137 ]
-  %.sroa.485.i.sroa.7.0184 = phi ptr [ undef, %.lr.ph ], [ %.sroa.485.i.sroa.7.1, %137 ]
-  %.sroa.485.i.sroa.5.0183 = phi i64 [ undef, %.lr.ph ], [ %.sroa.485.i.sroa.5.1, %137 ]
+  %.sroa.485.i.sroa.8.0182 = phi i64 [ undef, %.lr.ph ], [ %.sroa.485.i.sroa.8.1, %137 ]
+  %.sroa.485.i.sroa.7.0181 = phi ptr [ undef, %.lr.ph ], [ %.sroa.485.i.sroa.7.1, %137 ]
+  %.sroa.485.i.sroa.5.0180 = phi i64 [ undef, %.lr.ph ], [ %.sroa.485.i.sroa.5.1, %137 ]
   %34 = phi <2 x ptr> [ undef, %.lr.ph ], [ %138, %137 ]
   %.sroa.027.0.copyload = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6470)
@@ -35016,11 +35016,11 @@ define hidden void @"_ZN9addr2line30LoopingLookup$LT$T$C$L$C$F$GT$10new_lookup17
 103:                                              ; preds = %101
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6496)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6497)
-  %104 = icmp eq ptr %15, %.lcssa122187
+  %104 = icmp eq ptr %15, %.lcssa122184
   br i1 %104, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %103, %125
-  %105 = phi ptr [ %106, %125 ], [ %.lcssa122187, %103 ]
+  %105 = phi ptr [ %106, %125 ], [ %.lcssa122184, %103 ]
   %106 = getelementptr inbounds i8, ptr %105, i64 -32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.75.i.i.i.i.i.i.i)
@@ -35076,7 +35076,7 @@ define hidden void @"_ZN9addr2line30LoopingLookup$LT$T$C$L$C$F$GT$10new_lookup17
   br i1 %126, label %..loopexit_crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 ..loopexit_crit_edge.i.i.i.i.i.i.i:               ; preds = %125
-  store ptr %15, ptr %14, align 8, !alias.scope !6505, !noalias !6465
+  store ptr %106, ptr %14, align 8, !alias.scope !6505, !noalias !6465
   br label %.loopexit
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35d8466560df3bfeE.llvm.14223331465801898566.exit.i": ; preds = %121, %110
@@ -35117,9 +35117,9 @@ define hidden void @"_ZN9addr2line30LoopingLookup$LT$T$C$L$C$F$GT$10new_lookup17
   br label %137
 
 137:                                              ; preds = %136, %134
-  %.sroa.485.i.sroa.5.1 = phi i64 [ %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, %134 ], [ %.sroa.485.i.sroa.5.0183, %136 ]
-  %.sroa.485.i.sroa.7.1 = phi ptr [ %26, %134 ], [ %.sroa.485.i.sroa.7.0184, %136 ]
-  %.sroa.485.i.sroa.8.1 = phi i64 [ %24, %134 ], [ %.sroa.485.i.sroa.8.0185, %136 ]
+  %.sroa.485.i.sroa.5.1 = phi i64 [ %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, %134 ], [ %.sroa.485.i.sroa.5.0180, %136 ]
+  %.sroa.485.i.sroa.7.1 = phi ptr [ %26, %134 ], [ %.sroa.485.i.sroa.7.0181, %136 ]
+  %.sroa.485.i.sroa.8.1 = phi i64 [ %24, %134 ], [ %.sroa.485.i.sroa.8.0182, %136 ]
   %138 = phi <2 x ptr> [ %135, %134 ], [ %34, %136 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !6491
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !6491
@@ -35145,7 +35145,7 @@ define hidden void @"_ZN9addr2line30LoopingLookup$LT$T$C$L$C$F$GT$10new_lookup17
   br i1 %133, label %32, label %._crit_edge
 
 .loopexit:                                        ; preds = %101, %103, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35d8466560df3bfeE.llvm.14223331465801898566.exit.i", %..loopexit_crit_edge.i.i.i.i.i.i.i, %129, %"_ZN9addr2line8function17Function$LT$R$GT$22find_inlined_functions17hdad3077c68011fd7E.exit.i", %38
-  %.sroa.027.0.copyload255 = phi ptr [ null, %..loopexit_crit_edge.i.i.i.i.i.i.i ], [ %.sroa.027.0.copyload, %"_ZN9addr2line8function17Function$LT$R$GT$22find_inlined_functions17hdad3077c68011fd7E.exit.i" ], [ null, %129 ], [ %.sroa.027.0.copyload, %38 ], [ null, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35d8466560df3bfeE.llvm.14223331465801898566.exit.i" ], [ null, %103 ], [ null, %101 ]
+  %.sroa.027.0.copyload252 = phi ptr [ null, %..loopexit_crit_edge.i.i.i.i.i.i.i ], [ %.sroa.027.0.copyload, %"_ZN9addr2line8function17Function$LT$R$GT$22find_inlined_functions17hdad3077c68011fd7E.exit.i" ], [ null, %129 ], [ %.sroa.027.0.copyload, %38 ], [ null, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35d8466560df3bfeE.llvm.14223331465801898566.exit.i" ], [ null, %103 ], [ null, %101 ]
   %.sroa.10.sroa.7.0.ph = phi i32 [ undef, %..loopexit_crit_edge.i.i.i.i.i.i.i ], [ %.sroa.626.sroa.5.4.extract.trunc54, %"_ZN9addr2line8function17Function$LT$R$GT$22find_inlined_functions17hdad3077c68011fd7E.exit.i" ], [ %.sroa.2.0.copyload, %129 ], [ %.sroa.626.sroa.5.4.extract.trunc, %38 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35d8466560df3bfeE.llvm.14223331465801898566.exit.i" ], [ undef, %103 ], [ undef, %101 ]
   %.sroa.10.sroa.8.0.ph = phi i32 [ undef, %..loopexit_crit_edge.i.i.i.i.i.i.i ], [ %.sroa.626.sroa.5.8.extract.trunc57, %"_ZN9addr2line8function17Function$LT$R$GT$22find_inlined_functions17hdad3077c68011fd7E.exit.i" ], [ %.sroa.3.sroa.0.0.copyload, %129 ], [ %.sroa.626.sroa.5.8.extract.trunc, %38 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35d8466560df3bfeE.llvm.14223331465801898566.exit.i" ], [ undef, %103 ], [ undef, %101 ]
   %.sroa.10.sroa.9.0.ph = phi i64 [ undef, %..loopexit_crit_edge.i.i.i.i.i.i.i ], [ %.sroa.428.0.copyload, %"_ZN9addr2line8function17Function$LT$R$GT$22find_inlined_functions17hdad3077c68011fd7E.exit.i" ], [ %.sroa.3.sroa.2.0.copyload, %129 ], [ %.sroa.428.0.copyload, %38 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35d8466560df3bfeE.llvm.14223331465801898566.exit.i" ], [ undef, %103 ], [ undef, %101 ]
@@ -35173,7 +35173,7 @@ define hidden void @"_ZN9addr2line30LoopingLookup$LT$T$C$L$C$F$GT$10new_lookup17
   %.sroa.533.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %.sroa.13.0.ph, ptr %.sroa.533.0..sroa_idx, align 8
   %.sroa.634.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %.sroa.027.0.copyload255, ptr %.sroa.634.0..sroa_idx, align 8
+  store ptr %.sroa.027.0.copyload252, ptr %.sroa.634.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.18.0.ph, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.835.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64

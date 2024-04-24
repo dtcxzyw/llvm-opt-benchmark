@@ -1063,7 +1063,7 @@ if.then.i.i276:                                   ; preds = %invoke.cont87
   br label %invoke.cont89
 
 if.else.i.i278:                                   ; preds = %invoke.cont87
-  invoke void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %children84, ptr %.pre, ptr noundef nonnull align 8 dereferenceable(8) %lower)
+  invoke void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %children84, ptr %.pre492, ptr noundef nonnull align 8 dereferenceable(8) %lower)
           to label %if.else.i.i278.invoke.cont89_crit_edge unwind label %lpad86
 
 if.else.i.i278.invoke.cont89_crit_edge:           ; preds = %if.else.i.i278
@@ -2778,7 +2778,7 @@ if.then.i.i133:                                   ; preds = %invoke.cont37
   br label %invoke.cont39
 
 if.else.i.i135:                                   ; preds = %invoke.cont37
-  invoke void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %children, ptr %.pre242, ptr noundef nonnull align 8 dereferenceable(8) %right)
+  invoke void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %children, ptr %.pre243, ptr noundef nonnull align 8 dereferenceable(8) %right)
           to label %if.else.i.i135.invoke.cont39_crit_edge unwind label %lpad36
 
 if.else.i.i135.invoke.cont39_crit_edge:           ; preds = %if.else.i.i135
@@ -2963,7 +2963,7 @@ if.then.i.i176:                                   ; preds = %invoke.cont56
   br label %invoke.cont58
 
 if.else.i.i178:                                   ; preds = %invoke.cont56
-  invoke void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %children53, ptr %.pre, ptr noundef nonnull align 8 dereferenceable(8) %right)
+  invoke void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %children53, ptr %.pre240, ptr noundef nonnull align 8 dereferenceable(8) %right)
           to label %if.else.i.i178.invoke.cont58_crit_edge unwind label %lpad55
 
 if.else.i.i178.invoke.cont58_crit_edge:           ; preds = %if.else.i.i178

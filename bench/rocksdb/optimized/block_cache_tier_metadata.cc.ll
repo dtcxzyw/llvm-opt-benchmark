@@ -485,7 +485,7 @@ entry:
   %shr.i = lshr i64 %mul.i, 31
   %and.i = and i64 %mul.i, 2147483647
   %add.i = add nuw nsw i64 %shr.i, %and.i
-  %conv2.i = trunc i64 %add.i to i32
+  %conv2.i = trunc nuw i64 %add.i to i32
   %cmp.i = icmp slt i32 %conv2.i, 0
   %sub.i = add i32 %conv2.i, -2147483647
   %spec.select.i = select i1 %cmp.i, i32 %sub.i, i32 %conv2.i
@@ -502,15 +502,15 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %fn, i64 24
   br label %land.rhs
 
-land.rhs:                                         ; preds = %_ZN7rocksdb9WriteLockD2Ev.exit14, %entry
-  %i.023 = phi i64 [ 0, %entry ], [ %inc, %_ZN7rocksdb9WriteLockD2Ev.exit14 ]
+land.rhs:                                         ; preds = %_ZN7rocksdb9WriteLockD2Ev.exit15, %entry
+  %i.024 = phi i64 [ 0, %entry ], [ %inc, %_ZN7rocksdb9WriteLockD2Ev.exit15 ]
   %2 = load i32, ptr %nlocks_, align 8
   %conv4 = zext i32 %2 to i64
-  %cmp = icmp ult i64 %i.023, %conv4
+  %cmp = icmp ult i64 %i.024, %conv4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.rhs
-  %add = add nuw nsw i64 %i.023, %conv
+  %add = add nuw nsw i64 %i.024, %conv
   %rem7 = urem i64 %add, %conv4
   %3 = load ptr, ptr %locks_, align 8
   %arrayidx.i = getelementptr inbounds %"class.rocksdb::port::RWMutex", ptr %3, i64 %rem7
@@ -554,8 +554,8 @@ invoke.cont16:                                    ; preds = %invoke.cont11
   %cache_id_.i.i = getelementptr inbounds i8, ptr %call12, i64 128
   %10 = load i32, ptr %cache_id_.i.i, align 8
   %11 = load i32, ptr %nbuckets_.i, align 8
-  %rem.i19 = urem i32 %10, %11
-  %rem.i.zext = zext i32 %rem.i19 to i64
+  %rem.i20 = urem i32 %10, %11
+  %rem.i.zext = zext i32 %rem.i20 to i64
   %12 = load ptr, ptr %buckets_.i, align 8
   %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::HashTable<rocksdb::BlockCacheFile *, rocksdb::BlockCacheTierMetadata::BlockCacheFileHash, rocksdb::BlockCacheTierMetadata::BlockCacheFileEqual>::Bucket", ptr %12, i64 %rem.i.zext
   br label %for.cond.i.i
@@ -619,23 +619,23 @@ cleanup:                                          ; preds = %_ZNKSt8functionIFvP
   %t.1 = phi ptr [ null, %invoke.cont ], [ null, %invoke.cont11 ], [ %call12, %_ZNKSt8functionIFvPN7rocksdb14BlockCacheFileEEEclES2_.exit ], [ %call12, %invoke.cont18 ]
   %switch = phi i1 [ true, %invoke.cont ], [ true, %invoke.cont11 ], [ false, %_ZNKSt8functionIFvPN7rocksdb14BlockCacheFileEEEclES2_.exit ], [ false, %invoke.cont18 ]
   invoke void @_ZN7rocksdb4port7RWMutex11WriteUnlockEv(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx.i)
-          to label %_ZN7rocksdb9WriteLockD2Ev.exit14 unwind label %terminate.lpad.i13
+          to label %_ZN7rocksdb9WriteLockD2Ev.exit15 unwind label %terminate.lpad.i14
 
-terminate.lpad.i13:                               ; preds = %cleanup
+terminate.lpad.i14:                               ; preds = %cleanup
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
   call void @__clang_call_terminate(ptr %22) #13
   unreachable
 
-_ZN7rocksdb9WriteLockD2Ev.exit14:                 ; preds = %cleanup
-  %inc = add nuw nsw i64 %i.023, 1
+_ZN7rocksdb9WriteLockD2Ev.exit15:                 ; preds = %cleanup
+  %inc = add nuw nsw i64 %i.024, 1
   %tobool.not = icmp eq ptr %t.1, null
   %or.cond = and i1 %switch, %tobool.not
   br i1 %or.cond, label %land.rhs, label %for.end, !llvm.loop !7
 
-for.end:                                          ; preds = %_ZN7rocksdb9WriteLockD2Ev.exit14, %land.rhs
-  %t.2 = phi ptr [ %t.1, %_ZN7rocksdb9WriteLockD2Ev.exit14 ], [ null, %land.rhs ]
+for.end:                                          ; preds = %_ZN7rocksdb9WriteLockD2Ev.exit15, %land.rhs
+  %t.2 = phi ptr [ %t.1, %_ZN7rocksdb9WriteLockD2Ev.exit15 ], [ null, %land.rhs ]
   ret ptr %t.2
 }
 
@@ -657,7 +657,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
 for.body.i:                                       ; preds = %_ZN7rocksdb9WriteLockD2Ev.exit13.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %_ZN7rocksdb9WriteLockD2Ev.exit13.i ]
   %1 = load i32, ptr %nlocks_.i, align 8
-  %2 = trunc i64 %indvars.iv.i to i32
+  %2 = trunc nuw i64 %indvars.iv.i to i32
   %rem.i = urem i32 %2, %1
   %conv.i = zext i32 %rem.i to i64
   %3 = load ptr, ptr %locks_.i, align 8
@@ -672,7 +672,7 @@ for.body.i:                                       ; preds = %_ZN7rocksdb9WriteLo
   %head_.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i8.i, i64 48
   %__begin0.sroa.0.0.i38 = load ptr, ptr %arrayidx.i9.i, align 8
   %cmp.i.not.i39 = icmp eq ptr %__begin0.sroa.0.0.i38, %arrayidx.i9.i
-  br i1 %cmp.i.not.i39, label %_ZNSt7__cxx114listIPN7rocksdb14BlockCacheFileESaIS3_EE5clearEv.exit.i, label %for.body11.i
+  br i1 %cmp.i.not.i39, label %for.end.i, label %for.body11.i
 
 for.body11.i:                                     ; preds = %for.body.i, %"_ZZN7rocksdb22BlockCacheTierMetadata5ClearEvEN3$_08__invokeEPNS_14BlockCacheFileE.exit"
   %__begin0.sroa.0.0.i40 = phi ptr [ %__begin0.sroa.0.0.i, %"_ZZN7rocksdb22BlockCacheTierMetadata5ClearEvEN3$_08__invokeEPNS_14BlockCacheFileE.exit" ], [ %__begin0.sroa.0.0.i38, %for.body.i ]
@@ -714,7 +714,8 @@ if.end10.i.i.i:                                   ; preds = %if.then6.i.i.i, %if
   br i1 %cmp.i.i.i, label %if.then11.i.i.i, label %if.end15.i.i.i
 
 if.then11.i.i.i:                                  ; preds = %if.end10.i.i.i
-  %10 = load ptr, ptr %prev_.i.i.i, align 8
+  %prev_13.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = load ptr, ptr %prev_13.i.i.i, align 8
   store ptr %10, ptr %tail_.i.i.i, align 8
   br label %if.end15.i.i.i
 
@@ -724,7 +725,8 @@ if.end15.i.i.i:                                   ; preds = %if.then11.i.i.i, %i
   br i1 %cmp16.i.i.i, label %if.then17.i.i.i, label %invoke.cont.i.i
 
 if.then17.i.i.i:                                  ; preds = %if.end15.i.i.i
-  %12 = load ptr, ptr %next_4.phi.trans.insert.i.i.i, align 8
+  %next_19.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = load ptr, ptr %next_19.i.i.i, align 8
   store ptr %12, ptr %head_.i.i.i, align 8
   br label %invoke.cont.i.i
 
@@ -760,7 +762,7 @@ terminate.lpad.i1.i.i:                            ; preds = %lpad.i.i
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(160) %6) #12
   %__begin0.sroa.0.0.i = load ptr, ptr %__begin0.sroa.0.0.i40, align 8
   %cmp.i.not.i = icmp eq ptr %__begin0.sroa.0.0.i, %arrayidx.i9.i
-  br i1 %cmp.i.not.i, label %for.end.i, label %for.body11.i
+  br i1 %cmp.i.not.i, label %for.end.i.loopexit, label %for.body11.i
 
 lpad.i:                                           ; preds = %for.body11.i
   %19 = landingpad { ptr, i32 }
@@ -782,19 +784,23 @@ terminate.lpad.i.i:                               ; preds = %lpad.body.i
 _ZN7rocksdb9WriteLockD2Ev.exit.i:                 ; preds = %lpad.body.i
   resume { ptr, i32 } %eh.lpad-body.i
 
-for.end.i:                                        ; preds = %"_ZZN7rocksdb22BlockCacheTierMetadata5ClearEvEN3$_08__invokeEPNS_14BlockCacheFileE.exit"
+for.end.i.loopexit:                               ; preds = %"_ZZN7rocksdb22BlockCacheTierMetadata5ClearEvEN3$_08__invokeEPNS_14BlockCacheFileE.exit"
   %.pre = load ptr, ptr %arrayidx.i9.i, align 8
-  %cmp.not4.i.i.i = icmp eq ptr %.pre, %arrayidx.i9.i
+  br label %for.end.i
+
+for.end.i:                                        ; preds = %for.end.i.loopexit, %for.body.i
+  %22 = phi ptr [ %.pre, %for.end.i.loopexit ], [ %__begin0.sroa.0.0.i38, %for.body.i ]
+  %cmp.not4.i.i.i = icmp eq ptr %22, %arrayidx.i9.i
   br i1 %cmp.not4.i.i.i, label %_ZNSt7__cxx114listIPN7rocksdb14BlockCacheFileESaIS3_EE5clearEv.exit.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %for.end.i, %while.body.i.i.i
-  %__cur.05.i.i.i = phi ptr [ %22, %while.body.i.i.i ], [ %.pre, %for.end.i ]
-  %22 = load ptr, ptr %__cur.05.i.i.i, align 8
+  %__cur.05.i.i.i = phi ptr [ %23, %while.body.i.i.i ], [ %22, %for.end.i ]
+  %23 = load ptr, ptr %__cur.05.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #14
-  %cmp.not.i.i.i = icmp eq ptr %22, %arrayidx.i9.i
+  %cmp.not.i.i.i = icmp eq ptr %23, %arrayidx.i9.i
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIPN7rocksdb14BlockCacheFileESaIS3_EE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !8
 
-_ZNSt7__cxx114listIPN7rocksdb14BlockCacheFileESaIS3_EE5clearEv.exit.i: ; preds = %while.body.i.i.i, %for.body.i, %for.end.i
+_ZNSt7__cxx114listIPN7rocksdb14BlockCacheFileESaIS3_EE5clearEv.exit.i: ; preds = %while.body.i.i.i, %for.end.i
   %_M_prev.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i9.i, i64 8
   store ptr %arrayidx.i9.i, ptr %_M_prev.i.i.i.i, align 8
   store ptr %arrayidx.i9.i, ptr %arrayidx.i9.i, align 8
@@ -804,23 +810,23 @@ _ZNSt7__cxx114listIPN7rocksdb14BlockCacheFileESaIS3_EE5clearEv.exit.i: ; preds =
           to label %_ZN7rocksdb9WriteLockD2Ev.exit13.i unwind label %terminate.lpad.i11.i
 
 terminate.lpad.i11.i:                             ; preds = %_ZNSt7__cxx114listIPN7rocksdb14BlockCacheFileESaIS3_EE5clearEv.exit.i
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #13
+  %25 = extractvalue { ptr, i32 } %24, 0
+  tail call void @__clang_call_terminate(ptr %25) #13
   unreachable
 
 _ZN7rocksdb9WriteLockD2Ev.exit13.i:               ; preds = %_ZNSt7__cxx114listIPN7rocksdb14BlockCacheFileESaIS3_EE5clearEv.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %25 = load i32, ptr %nbuckets_.i, align 8
-  %26 = zext i32 %25 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %26
+  %26 = load i32, ptr %nbuckets_.i, align 8
+  %27 = zext i32 %26 to i64
+  %cmp.i = icmp ult i64 %indvars.iv.next.i, %27
   br i1 %cmp.i, label %for.body.i, label %_ZN7rocksdb18EvictableHashTableINS_14BlockCacheFileENS_22BlockCacheTierMetadata18BlockCacheFileHashENS2_19BlockCacheFileEqualEE5ClearEPFvPS1_E.exit, !llvm.loop !9
 
 _ZN7rocksdb18EvictableHashTableINS_14BlockCacheFileENS_22BlockCacheTierMetadata18BlockCacheFileHashENS2_19BlockCacheFileEqualEE5ClearEPFvPS1_E.exit: ; preds = %_ZN7rocksdb9WriteLockD2Ev.exit13.i, %entry
   %nbuckets_.i1 = getelementptr inbounds i8, ptr %this, i64 64
-  %27 = load i32, ptr %nbuckets_.i1, align 8
-  %cmp14.not.i = icmp eq i32 %27, 0
+  %28 = load i32, ptr %nbuckets_.i1, align 8
+  %cmp14.not.i = icmp eq i32 %28, 0
   br i1 %cmp14.not.i, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE5ClearEPFvS2_E.exit, label %for.body.lr.ph.i2
 
 for.body.lr.ph.i2:                                ; preds = %_ZN7rocksdb18EvictableHashTableINS_14BlockCacheFileENS_22BlockCacheTierMetadata18BlockCacheFileHashENS2_19BlockCacheFileEqualEE5ClearEPFvPS1_E.exit
@@ -831,15 +837,15 @@ for.body.lr.ph.i2:                                ; preds = %_ZN7rocksdb18Evicta
 
 for.body.i6:                                      ; preds = %_ZN7rocksdb9WriteLockD2Ev.exit9.i, %for.body.lr.ph.i2
   %indvars.iv.i7 = phi i64 [ 0, %for.body.lr.ph.i2 ], [ %indvars.iv.next.i25, %_ZN7rocksdb9WriteLockD2Ev.exit9.i ]
-  %28 = load i32, ptr %nlocks_.i3, align 8
-  %29 = trunc i64 %indvars.iv.i7 to i32
-  %rem.i8 = urem i32 %29, %28
+  %29 = load i32, ptr %nlocks_.i3, align 8
+  %30 = trunc nuw i64 %indvars.iv.i7 to i32
+  %rem.i8 = urem i32 %30, %29
   %conv.i9 = zext i32 %rem.i8 to i64
-  %30 = load ptr, ptr %locks_.i4, align 8
-  %arrayidx.i.i10 = getelementptr inbounds %"class.rocksdb::port::RWMutex", ptr %30, i64 %conv.i9
+  %31 = load ptr, ptr %locks_.i4, align 8
+  %arrayidx.i.i10 = getelementptr inbounds %"class.rocksdb::port::RWMutex", ptr %31, i64 %conv.i9
   tail call void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx.i.i10)
-  %31 = load ptr, ptr %buckets_.i5, align 8
-  %arrayidx.i6.i = getelementptr inbounds %"struct.rocksdb::HashTable<rocksdb::BlockInfo *, rocksdb::BlockCacheTierMetadata::Hash, rocksdb::BlockCacheTierMetadata::Equal>::Bucket", ptr %31, i64 %indvars.iv.i7
+  %32 = load ptr, ptr %buckets_.i5, align 8
+  %arrayidx.i6.i = getelementptr inbounds %"struct.rocksdb::HashTable<rocksdb::BlockInfo *, rocksdb::BlockCacheTierMetadata::Hash, rocksdb::BlockCacheTierMetadata::Equal>::Bucket", ptr %32, i64 %indvars.iv.i7
   %__begin0.sroa.0.0.i1241 = load ptr, ptr %arrayidx.i6.i, align 8
   %cmp.i.not.i1342 = icmp eq ptr %__begin0.sroa.0.0.i1241, %arrayidx.i6.i
   br i1 %cmp.i.not.i1342, label %for.end.i18, label %for.body9.i
@@ -847,13 +853,13 @@ for.body.i6:                                      ; preds = %_ZN7rocksdb9WriteLo
 for.body9.i:                                      ; preds = %for.body.i6, %"_ZZN7rocksdb22BlockCacheTierMetadata5ClearEvEN3$_18__invokeEPNS_9BlockInfoE.exit"
   %__begin0.sroa.0.0.i1243 = phi ptr [ %__begin0.sroa.0.0.i12, %"_ZZN7rocksdb22BlockCacheTierMetadata5ClearEvEN3$_18__invokeEPNS_9BlockInfoE.exit" ], [ %__begin0.sroa.0.0.i1241, %for.body.i6 ]
   %_M_storage.i.i.i14 = getelementptr inbounds i8, ptr %__begin0.sroa.0.0.i1243, i64 16
-  %32 = load ptr, ptr %_M_storage.i.i.i14, align 8
-  %isnull.i.i27 = icmp eq ptr %32, null
+  %33 = load ptr, ptr %_M_storage.i.i.i14, align 8
+  %isnull.i.i27 = icmp eq ptr %33, null
   br i1 %isnull.i.i27, label %"_ZZN7rocksdb22BlockCacheTierMetadata5ClearEvEN3$_18__invokeEPNS_9BlockInfoE.exit", label %delete.notnull.i.i28
 
 delete.notnull.i.i28:                             ; preds = %for.body9.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %32) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %33) #14
   br label %"_ZZN7rocksdb22BlockCacheTierMetadata5ClearEvEN3$_18__invokeEPNS_9BlockInfoE.exit"
 
 "_ZZN7rocksdb22BlockCacheTierMetadata5ClearEvEN3$_18__invokeEPNS_9BlockInfoE.exit": ; preds = %for.body9.i, %delete.notnull.i.i28
@@ -868,17 +874,17 @@ for.end.i18.loopexit:                             ; preds = %"_ZZN7rocksdb22Bloc
   br label %for.end.i18
 
 for.end.i18:                                      ; preds = %for.end.i18.loopexit, %for.body.i6
-  %33 = phi ptr [ %.pre54, %for.end.i18.loopexit ], [ %arrayidx.i6.i, %for.body.i6 ]
-  %34 = phi ptr [ %.pre53, %for.end.i18.loopexit ], [ %31, %for.body.i6 ]
-  %arrayidx.i7.i = getelementptr inbounds %"struct.rocksdb::HashTable<rocksdb::BlockInfo *, rocksdb::BlockCacheTierMetadata::Hash, rocksdb::BlockCacheTierMetadata::Equal>::Bucket", ptr %34, i64 %indvars.iv.i7
-  %cmp.not4.i.i.i19 = icmp eq ptr %33, %arrayidx.i7.i
+  %34 = phi ptr [ %.pre54, %for.end.i18.loopexit ], [ %__begin0.sroa.0.0.i1241, %for.body.i6 ]
+  %35 = phi ptr [ %.pre53, %for.end.i18.loopexit ], [ %32, %for.body.i6 ]
+  %arrayidx.i7.i = getelementptr inbounds %"struct.rocksdb::HashTable<rocksdb::BlockInfo *, rocksdb::BlockCacheTierMetadata::Hash, rocksdb::BlockCacheTierMetadata::Equal>::Bucket", ptr %35, i64 %indvars.iv.i7
+  %cmp.not4.i.i.i19 = icmp eq ptr %34, %arrayidx.i7.i
   br i1 %cmp.not4.i.i.i19, label %_ZNSt7__cxx114listIPN7rocksdb9BlockInfoESaIS3_EE5clearEv.exit.i, label %while.body.i.i.i20
 
 while.body.i.i.i20:                               ; preds = %for.end.i18, %while.body.i.i.i20
-  %__cur.05.i.i.i21 = phi ptr [ %35, %while.body.i.i.i20 ], [ %33, %for.end.i18 ]
-  %35 = load ptr, ptr %__cur.05.i.i.i21, align 8
+  %__cur.05.i.i.i21 = phi ptr [ %36, %while.body.i.i.i20 ], [ %34, %for.end.i18 ]
+  %36 = load ptr, ptr %__cur.05.i.i.i21, align 8
   tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i21) #14
-  %cmp.not.i.i.i22 = icmp eq ptr %35, %arrayidx.i7.i
+  %cmp.not.i.i.i22 = icmp eq ptr %36, %arrayidx.i7.i
   br i1 %cmp.not.i.i.i22, label %_ZNSt7__cxx114listIPN7rocksdb9BlockInfoESaIS3_EE5clearEv.exit.i, label %while.body.i.i.i20, !llvm.loop !6
 
 _ZNSt7__cxx114listIPN7rocksdb9BlockInfoESaIS3_EE5clearEv.exit.i: ; preds = %while.body.i.i.i20, %for.end.i18
@@ -891,17 +897,17 @@ _ZNSt7__cxx114listIPN7rocksdb9BlockInfoESaIS3_EE5clearEv.exit.i: ; preds = %whil
           to label %_ZN7rocksdb9WriteLockD2Ev.exit9.i unwind label %terminate.lpad.i8.i
 
 terminate.lpad.i8.i:                              ; preds = %_ZNSt7__cxx114listIPN7rocksdb9BlockInfoESaIS3_EE5clearEv.exit.i
-  %36 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #13
+  %38 = extractvalue { ptr, i32 } %37, 0
+  tail call void @__clang_call_terminate(ptr %38) #13
   unreachable
 
 _ZN7rocksdb9WriteLockD2Ev.exit9.i:                ; preds = %_ZNSt7__cxx114listIPN7rocksdb9BlockInfoESaIS3_EE5clearEv.exit.i
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i7, 1
-  %38 = load i32, ptr %nbuckets_.i1, align 8
-  %39 = zext i32 %38 to i64
-  %cmp.i26 = icmp ult i64 %indvars.iv.next.i25, %39
+  %39 = load i32, ptr %nbuckets_.i1, align 8
+  %40 = zext i32 %39 to i64
+  %cmp.i26 = icmp ult i64 %indvars.iv.next.i25, %40
   br i1 %cmp.i26, label %for.body.i6, label %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE5ClearEPFvS2_E.exit, !llvm.loop !10
 
 _ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE5ClearEPFvS2_E.exit: ; preds = %_ZN7rocksdb9WriteLockD2Ev.exit9.i, %_ZN7rocksdb18EvictableHashTableINS_14BlockCacheFileENS_22BlockCacheTierMetadata18BlockCacheFileHashENS2_19BlockCacheFileEqualEE5ClearEPFvPS1_E.exit
@@ -982,7 +988,7 @@ _ZNK7rocksdb22BlockCacheTierMetadata4HashclEPNS_9BlockInfoE.exit: ; preds = %ent
   %3 = load i32, ptr %nbuckets_, align 8
   %conv = zext i32 %3 to i64
   %rem = urem i64 %call.i2.i.i, %conv
-  %conv2 = trunc i64 %rem to i32
+  %conv2 = trunc nuw i64 %rem to i32
   %nlocks_ = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i32, ptr %nlocks_, align 8
   %rem3 = urem i32 %conv2, %4
@@ -1122,7 +1128,7 @@ _ZNK7rocksdb22BlockCacheTierMetadata4HashclEPNS_9BlockInfoE.exit: ; preds = %ent
   %3 = load i32, ptr %nbuckets_, align 8
   %conv = zext i32 %3 to i64
   %rem = urem i64 %call.i2.i.i, %conv
-  %conv2 = trunc i64 %rem to i32
+  %conv2 = trunc nuw i64 %rem to i32
   %nlocks_ = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i32, ptr %nlocks_, align 8
   %rem3 = urem i32 %conv2, %4
@@ -1204,7 +1210,7 @@ _ZNK7rocksdb22BlockCacheTierMetadata4HashclEPNS_9BlockInfoE.exit: ; preds = %ent
   %3 = load i32, ptr %nbuckets_, align 8
   %conv = zext i32 %3 to i64
   %rem = urem i64 %call.i2.i.i, %conv
-  %conv2 = trunc i64 %rem to i32
+  %conv2 = trunc nuw i64 %rem to i32
   %nlocks_ = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i32, ptr %nlocks_, align 8
   %rem3 = urem i32 %conv2, %4
@@ -1258,7 +1264,7 @@ entry:
   %block_infos_.i = getelementptr inbounds i8, ptr %f, i64 136
   %__begin1.sroa.0.06 = load ptr, ptr %block_infos_.i, align 8
   %cmp.i.not7 = icmp eq ptr %__begin1.sroa.0.06, %block_infos_.i
-  br i1 %cmp.i.not7, label %_ZNSt7__cxx114listIPN7rocksdb9BlockInfoESaIS3_EE5clearEv.exit, label %for.body.lr.ph
+  br i1 %cmp.i.not7, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %block_index_ = getelementptr inbounds i8, ptr %this, i64 56
@@ -1283,21 +1289,25 @@ delete.notnull:                                   ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %delete.notnull
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.08, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %block_infos_.i
-  br i1 %cmp.i.not, label %for.end, label %for.body
+  br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
 
-for.end:                                          ; preds = %for.inc
+for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load ptr, ptr %block_infos_.i, align 8
-  %cmp.not4.i.i = icmp eq ptr %.pre, %block_infos_.i
+  br label %for.end
+
+for.end:                                          ; preds = %for.end.loopexit, %entry
+  %2 = phi ptr [ %.pre, %for.end.loopexit ], [ %__begin1.sroa.0.06, %entry ]
+  %cmp.not4.i.i = icmp eq ptr %2, %block_infos_.i
   br i1 %cmp.not4.i.i, label %_ZNSt7__cxx114listIPN7rocksdb9BlockInfoESaIS3_EE5clearEv.exit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %for.end, %while.body.i.i
-  %__cur.05.i.i = phi ptr [ %2, %while.body.i.i ], [ %.pre, %for.end ]
-  %2 = load ptr, ptr %__cur.05.i.i, align 8
+  %__cur.05.i.i = phi ptr [ %3, %while.body.i.i ], [ %2, %for.end ]
+  %3 = load ptr, ptr %__cur.05.i.i, align 8
   call void @_ZdlPv(ptr noundef %__cur.05.i.i) #14
-  %cmp.not.i.i = icmp eq ptr %2, %block_infos_.i
+  %cmp.not.i.i = icmp eq ptr %3, %block_infos_.i
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx114listIPN7rocksdb9BlockInfoESaIS3_EE5clearEv.exit, label %while.body.i.i, !llvm.loop !6
 
-_ZNSt7__cxx114listIPN7rocksdb9BlockInfoESaIS3_EE5clearEv.exit: ; preds = %while.body.i.i, %entry, %for.end
+_ZNSt7__cxx114listIPN7rocksdb9BlockInfoESaIS3_EE5clearEv.exit: ; preds = %while.body.i.i, %for.end
   %_M_prev.i.i.i = getelementptr inbounds i8, ptr %f, i64 144
   store ptr %block_infos_.i, ptr %_M_prev.i.i.i, align 8
   store ptr %block_infos_.i, ptr %block_infos_.i, align 8
@@ -1981,7 +1991,8 @@ if.end10.i:                                       ; preds = %if.then6.i, %if.end
   br i1 %cmp.i, label %if.then11.i, label %if.end15.i
 
 if.then11.i:                                      ; preds = %if.end10.i
-  %3 = load ptr, ptr %prev_.i, align 8
+  %prev_13.i = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = load ptr, ptr %prev_13.i, align 8
   store ptr %3, ptr %tail_.i, align 8
   br label %if.end15.i
 
@@ -1992,7 +2003,8 @@ if.end15.i:                                       ; preds = %if.then11.i, %if.en
   br i1 %cmp16.i, label %if.then17.i, label %invoke.cont
 
 if.then17.i:                                      ; preds = %if.end15.i
-  %5 = load ptr, ptr %next_4.phi.trans.insert.i, align 8
+  %next_19.i = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load ptr, ptr %next_19.i, align 8
   store ptr %5, ptr %head_.i, align 8
   br label %invoke.cont
 
@@ -2116,7 +2128,8 @@ if.end10.i:                                       ; preds = %if.then6.i, %if.end
   br i1 %cmp.i, label %if.then11.i, label %if.end15.i
 
 if.then11.i:                                      ; preds = %if.end10.i
-  %4 = load ptr, ptr %prev_.i, align 8
+  %prev_13.i = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = load ptr, ptr %prev_13.i, align 8
   store ptr %4, ptr %tail_.i, align 8
   br label %if.end15.i
 
@@ -2126,7 +2139,8 @@ if.end15.i:                                       ; preds = %if.then11.i, %if.en
   br i1 %cmp16.i, label %if.then17.i, label %_ZN7rocksdb7LRUListINS_14BlockCacheFileEE10UnlinkImplEPS1_.exit
 
 if.then17.i:                                      ; preds = %if.end15.i
-  %6 = load ptr, ptr %next_4.phi.trans.insert.i, align 8
+  %next_19.i = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load ptr, ptr %next_19.i, align 8
   store ptr %6, ptr %head_, align 8
   br label %_ZN7rocksdb7LRUListINS_14BlockCacheFileEE10UnlinkImplEPS1_.exit
 
@@ -2294,8 +2308,8 @@ if.end:                                           ; preds = %for.inc.i, %entry, 
   br label %return
 
 return:                                           ; preds = %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE4FindEPNSt7__cxx114listIS2_SaIS2_EEERKS2_.exit, %if.end
-  %cmp.i7 = phi i1 [ false, %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE4FindEPNSt7__cxx114listIS2_SaIS2_EEERKS2_.exit ], [ true, %if.end ]
-  ret i1 %cmp.i7
+  %retval.0 = phi i1 [ false, %_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTierMetadata4HashENS3_5EqualEE4FindEPNSt7__cxx114listIS2_SaIS2_EEERKS2_.exit ], [ true, %if.end ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind

@@ -4885,7 +4885,7 @@ _ZN8nanobind6detail16nb_inst_destructEP7_object.exit: ; preds = %12, %_ZN8nanobi
   br i1 %36, label %37, label %.critedge.i
 
 37:                                               ; preds = %_ZN8nanobind6detail16nb_inst_destructEP7_object.exit
-  %38 = getelementptr inbounds i8, ptr %30, i64 892
+  %38 = getelementptr inbounds i8, ptr %34, i64 892
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 1024
   %41 = icmp eq i32 %40, 0
@@ -4935,7 +4935,7 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit21.i: ; preds = %62, %_ZN8nanobi
   br i1 %.not.i9, label %69, label %66
 
 66:                                               ; preds = %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit21.i
-  %67 = getelementptr inbounds i8, ptr %30, i64 944
+  %67 = getelementptr inbounds i8, ptr %34, i64 944
   %68 = load ptr, ptr %67, align 8
   tail call void %68(ptr noundef %64, ptr noundef %54) #26
   br label %_ZN8nanobind6detail12nb_inst_moveEP7_objectPKS1_.exit
@@ -5028,7 +5028,7 @@ _ZN8nanobind6detail16nb_inst_destructEP7_object.exit: ; preds = %12, %_ZN8nanobi
   br i1 %36, label %37, label %.critedge.i
 
 37:                                               ; preds = %_ZN8nanobind6detail16nb_inst_destructEP7_object.exit
-  %38 = getelementptr inbounds i8, ptr %30, i64 892
+  %38 = getelementptr inbounds i8, ptr %34, i64 892
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 512
   %41 = icmp eq i32 %40, 0
@@ -5078,7 +5078,7 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit19.i: ; preds = %62, %_ZN8nanobi
   br i1 %.not.i9, label %69, label %66
 
 66:                                               ; preds = %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit19.i
-  %67 = getelementptr inbounds i8, ptr %30, i64 936
+  %67 = getelementptr inbounds i8, ptr %34, i64 936
   %68 = load ptr, ptr %67, align 8
   invoke void %68(ptr noundef %64, ptr noundef %54)
           to label %_ZN8nanobind6detail12nb_inst_copyEP7_objectPKS1_.exit unwind label %72

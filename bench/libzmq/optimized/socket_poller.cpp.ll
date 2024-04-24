@@ -780,14 +780,14 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %b_.sroa.0.04.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
-  br i1 %cmp.i.not.i, label %if.then, label %for.body.i, !llvm.loop !11
+  br i1 %cmp.i.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPKNS2_13socket_base_tEPFbRKS4_SC_EET_SH_SH_RKT0_T1_.exit, label %for.body.i, !llvm.loop !11
 
-_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPKNS2_13socket_base_tEPFbRKS4_SC_EET_SH_SH_RKT0_T1_.exit: ; preds = %for.body.i, %entry
-  %b_.sroa.0.0.lcssa.i = phi ptr [ %0, %entry ], [ %b_.sroa.0.04.i, %for.body.i ]
+_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPKNS2_13socket_base_tEPFbRKS4_SC_EET_SH_SH_RKT0_T1_.exit: ; preds = %for.body.i, %for.inc.i, %entry
+  %b_.sroa.0.0.lcssa.i = phi ptr [ %0, %entry ], [ %incdec.ptr.i.i, %for.inc.i ], [ %b_.sroa.0.04.i, %for.body.i ]
   %cmp.i = icmp eq ptr %b_.sroa.0.0.lcssa.i, %1
   br i1 %cmp.i, label %if.then, label %if.end
 
-if.then:                                          ; preds = %for.inc.i, %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPKNS2_13socket_base_tEPFbRKS4_SC_EET_SH_SH_RKT0_T1_.exit
+if.then:                                          ; preds = %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPKNS2_13socket_base_tEPFbRKS4_SC_EET_SH_SH_RKT0_T1_.exit
   %call14 = tail call ptr @__errno_location() #23
   store i32 22, ptr %call14, align 4
   br label %return
@@ -827,14 +827,14 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %b_.sroa.0.04.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
-  br i1 %cmp.i.not.i, label %if.then, label %for.body.i, !llvm.loop !10
+  br i1 %cmp.i.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit, label %for.body.i, !llvm.loop !10
 
-_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit: ; preds = %for.body.i, %entry
-  %b_.sroa.0.0.lcssa.i = phi ptr [ %0, %entry ], [ %b_.sroa.0.04.i, %for.body.i ]
+_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit: ; preds = %for.body.i, %for.inc.i, %entry
+  %b_.sroa.0.0.lcssa.i = phi ptr [ %0, %entry ], [ %incdec.ptr.i.i, %for.inc.i ], [ %b_.sroa.0.04.i, %for.body.i ]
   %cmp.i = icmp eq ptr %b_.sroa.0.0.lcssa.i, %1
   br i1 %cmp.i, label %if.then, label %if.end
 
-if.then:                                          ; preds = %for.inc.i, %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit
+if.then:                                          ; preds = %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit
   %call14 = tail call ptr @__errno_location() #23
   store i32 22, ptr %call14, align 4
   br label %return
@@ -1273,7 +1273,7 @@ while.body:                                       ; preds = %_ZN3zmq15socket_pol
   %.mux = sext i1 %not.tobool21 to i32
   %sub = sub i64 %end.0, %now.0
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 2147483647)
-  %conv28 = trunc i64 %.sroa.speculated to i32
+  %conv28 = trunc nuw nsw i64 %.sroa.speculated to i32
   %timeout.0 = select i1 %brmerge, i32 %.mux, i32 %conv28
   %5 = load ptr, ptr %_pollfds, align 8
   %6 = load i32, ptr %_pollset_size, align 4

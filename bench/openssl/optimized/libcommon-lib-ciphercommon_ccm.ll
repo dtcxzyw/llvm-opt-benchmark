@@ -505,7 +505,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = trunc i32 %enc to i8
+  %0 = trunc nuw nsw i32 %enc to i8
   %bf.load = load i8, ptr %vctx, align 8
   %bf.value = and i8 %0, 1
   %bf.clear = and i8 %bf.load, -2
@@ -634,23 +634,19 @@ if.end5.i:                                        ; preds = %lor.lhs.false2.i
   %bf.load.i = load i8, ptr %ctx, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool6.not.i = icmp eq i8 %bf.clear.i, 0
-  br i1 %tobool6.not.i, label %if.end5.if.end8_crit_edge.i, label %if.then7.i
-
-if.end5.if.end8_crit_edge.i:                      ; preds = %if.end5.i
-  %.pre.i = load i64, ptr %in, align 1
-  br label %if.end8.i
+  br i1 %tobool6.not.i, label %if.end8.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end5.i
   %buf.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %4 = load i64, ptr %buf.i, align 8
-  store i64 %4, ptr %in, align 1
-  %.pre42.i = load i64, ptr %m.i, align 8
+  store i64 %4, ptr %out, align 1
+  %.pre.i = load i64, ptr %m.i, align 8
   br label %if.end8.i
 
-if.end8.i:                                        ; preds = %if.then7.i, %if.end5.if.end8_crit_edge.i
-  %5 = phi i64 [ %3, %if.end5.if.end8_crit_edge.i ], [ %.pre42.i, %if.then7.i ]
-  %6 = phi i64 [ %.pre.i, %if.end5.if.end8_crit_edge.i ], [ %4, %if.then7.i ]
+if.end8.i:                                        ; preds = %if.then7.i, %if.end5.i
+  %5 = phi i64 [ %.pre.i, %if.then7.i ], [ %3, %if.end5.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %ctx, i64 52
+  %6 = load i64, ptr %in, align 1
   store i64 %6, ptr %add.ptr.i, align 1
   %add11.neg.i = add i64 %len, -8
   %sub.i = sub i64 %add11.neg.i, %5
@@ -680,18 +676,19 @@ if.end15.i:                                       ; preds = %if.end8.i
 
 if.end21.i:                                       ; preds = %if.end15.i
   %add.ptr22.i = getelementptr inbounds i8, ptr %in, i64 8
+  %add.ptr23.i = getelementptr inbounds i8, ptr %out, i64 8
   %bf.load24.i = load i8, ptr %ctx, align 8
   %bf.clear25.i = and i8 %bf.load24.i, 1
   %tobool27.not.i = icmp eq i8 %bf.clear25.i, 0
   %13 = load ptr, ptr %hw1, align 8
-  %add.ptr40.i = getelementptr inbounds i8, ptr %add.ptr22.i, i64 %sub.i
   %14 = load i64, ptr %m.i, align 8
   br i1 %tobool27.not.i, label %if.else.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %if.end21.i
   %auth_encrypt.i = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load ptr, ptr %auth_encrypt.i, align 8
-  %call32.i = tail call i32 %15(ptr noundef nonnull %ctx, ptr noundef nonnull %add.ptr22.i, ptr noundef nonnull %add.ptr22.i, i64 noundef %sub.i, ptr noundef nonnull %add.ptr40.i, i64 noundef %14) #4
+  %add.ptr30.i = getelementptr inbounds i8, ptr %add.ptr23.i, i64 %sub.i
+  %call32.i = tail call i32 %15(ptr noundef nonnull %ctx, ptr noundef nonnull %add.ptr22.i, ptr noundef nonnull %add.ptr23.i, i64 noundef %sub.i, ptr noundef nonnull %add.ptr30.i, i64 noundef %14) #4
   %tobool33.not.i = icmp eq i32 %call32.i, 0
   br i1 %tobool33.not.i, label %return.sink.split, label %if.end35.i
 
@@ -704,7 +701,8 @@ if.end35.i:                                       ; preds = %if.then28.i
 if.else.i:                                        ; preds = %if.end21.i
   %auth_decrypt.i = getelementptr inbounds i8, ptr %13, i64 32
   %17 = load ptr, ptr %auth_decrypt.i, align 8
-  %call42.i = tail call i32 %17(ptr noundef nonnull %ctx, ptr noundef nonnull %add.ptr22.i, ptr noundef nonnull %add.ptr22.i, i64 noundef %sub.i, ptr noundef nonnull %add.ptr40.i, i64 noundef %14) #4
+  %add.ptr40.i = getelementptr inbounds i8, ptr %add.ptr22.i, i64 %sub.i
+  %call42.i = tail call i32 %17(ptr noundef nonnull %ctx, ptr noundef nonnull %add.ptr22.i, ptr noundef nonnull %add.ptr23.i, i64 noundef %sub.i, ptr noundef nonnull %add.ptr40.i, i64 noundef %14) #4
   %tobool43.not.i = icmp ne i32 %call42.i, 0
   %spec.select38.i = select i1 %tobool43.not.i, i64 %sub.i, i64 0
   br label %return.sink.split

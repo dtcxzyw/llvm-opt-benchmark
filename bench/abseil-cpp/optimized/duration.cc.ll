@@ -2575,7 +2575,7 @@ for.inc38.i:                                      ; preds = %if.then32.i, %if.en
   br i1 %cmp21.not.i, label %for.end40.i, label %for.body22.i, !llvm.loop !9
 
 for.end40.i:                                      ; preds = %for.inc38.i, %for.body22.i
-  %start.4 = phi ptr [ %start.3, %for.body22.i ], [ %add.ptr, %for.inc38.i ]
+  %start.4 = phi ptr [ %start.3, %for.body22.i ], [ %storemerge.i, %for.inc38.i ]
   %frac_part.2 = phi i64 [ %frac_part.0, %for.body22.i ], [ %frac_part.1, %for.inc38.i ]
   %frac_scale.2 = phi i64 [ %frac_scale.0, %for.body22.i ], [ %frac_scale.1, %for.inc38.i ]
   %cmp42.i = icmp ne i64 %frac_scale.2, 1
@@ -2592,7 +2592,7 @@ lor.lhs.false:                                    ; preds = %for.end40.i.thread,
   %frac_scale.3223 = phi i64 [ 1, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ 1, %for.end.thread.i ], [ %frac_scale.2, %for.end40.i ], [ 1, %for.end40.i.thread ]
   %frac_part.3222 = phi i64 [ 0, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ 0, %for.end.thread.i ], [ %frac_part.2, %for.end40.i ], [ 0, %for.end40.i.thread ]
   %int_part.2221 = phi i64 [ %int_part.1, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ %add.i, %for.end.thread.i ], [ %int_part.1, %for.end40.i ], [ %int_part.1, %for.end40.i.thread ]
-  %start.5220 = phi ptr [ %start.2, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ %add.ptr, %for.end.thread.i ], [ %start.4, %for.end40.i ], [ %add.ptr, %for.end40.i.thread ]
+  %start.5220 = phi ptr [ %start.2, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ %add.ptr.i, %for.end.thread.i ], [ %start.4, %for.end40.i ], [ %storemerge36.i, %for.end40.i.thread ]
   %sub.ptr.rhs.cast.i = ptrtoint ptr %start.5220 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   switch i64 %sub.ptr.sub.i, label %sw.default.i [

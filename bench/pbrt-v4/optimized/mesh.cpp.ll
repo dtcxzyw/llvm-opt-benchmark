@@ -920,7 +920,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %entry
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
-  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr.i.i.i, %while.body.i.i.i ]
+  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr2.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %buf.coerce1, 7
   switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit [
     i64 7, label %sw.bb.i.i.i
@@ -1126,7 +1126,7 @@ while.body.i.i.i38:                               ; preds = %if.end65, %while.bo
 
 while.end.i.i.i50:                                ; preds = %while.body.i.i.i38, %if.end65
   %h.0.lcssa.i.i.i51 = phi i64 [ %mul.i.i.i, %if.end65 ], [ %mul7.i.i.i48, %while.body.i.i.i38 ]
-  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr.i.i.i36, %while.body.i.i.i38 ]
+  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr2.i.i.i42, %while.body.i.i.i38 ]
   switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit101 [
     i64 7, label %sw.bb.i.i.i96
     i64 6, label %sw.bb9.i.i.i90
@@ -1254,20 +1254,20 @@ entry:
   %mul24 = fmul float %p.sroa.0.0.vec.extract, %9
   %call27 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %10 = extractvalue { ptr, i64 } %call27, 0
-  %arrayidx.i22 = getelementptr inbounds i8, ptr %10, i64 4
-  %11 = load float, ptr %arrayidx.i22, align 4
+  %arrayidx.i23 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = load float, ptr %arrayidx.i23, align 4
   %mul30 = fmul float %p.sroa.0.4.vec.extract, %11
   %add31 = fadd float %mul24, %mul30
   %call34 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %12 = extractvalue { ptr, i64 } %call34, 0
-  %arrayidx.i23 = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load float, ptr %arrayidx.i23, align 4
+  %arrayidx.i24 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load float, ptr %arrayidx.i24, align 4
   %mul37 = fmul float %13, %p.coerce1
   %add38 = fadd float %add31, %mul37
   %call41 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %14 = extractvalue { ptr, i64 } %call41, 0
-  %arrayidx.i24 = getelementptr inbounds i8, ptr %14, i64 12
-  %15 = load float, ptr %arrayidx.i24, align 4
+  %arrayidx.i25 = getelementptr inbounds i8, ptr %14, i64 12
+  %15 = load float, ptr %arrayidx.i25, align 4
   %add43 = fadd float %add38, %15
   %call46 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %16 = extractvalue { ptr, i64 } %call46, 0
@@ -1275,20 +1275,20 @@ entry:
   %mul49 = fmul float %p.sroa.0.0.vec.extract, %17
   %call52 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %18 = extractvalue { ptr, i64 } %call52, 0
-  %arrayidx.i25 = getelementptr inbounds i8, ptr %18, i64 4
-  %19 = load float, ptr %arrayidx.i25, align 4
+  %arrayidx.i27 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = load float, ptr %arrayidx.i27, align 4
   %mul55 = fmul float %p.sroa.0.4.vec.extract, %19
   %add56 = fadd float %mul49, %mul55
   %call59 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %20 = extractvalue { ptr, i64 } %call59, 0
-  %arrayidx.i26 = getelementptr inbounds i8, ptr %20, i64 8
-  %21 = load float, ptr %arrayidx.i26, align 4
+  %arrayidx.i28 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = load float, ptr %arrayidx.i28, align 4
   %mul62 = fmul float %21, %p.coerce1
   %add63 = fadd float %add56, %mul62
   %call66 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %22 = extractvalue { ptr, i64 } %call66, 0
-  %arrayidx.i27 = getelementptr inbounds i8, ptr %22, i64 12
-  %23 = load float, ptr %arrayidx.i27, align 4
+  %arrayidx.i29 = getelementptr inbounds i8, ptr %22, i64 12
+  %23 = load float, ptr %arrayidx.i29, align 4
   %add68 = fadd float %add63, %23
   %call71 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %24 = extractvalue { ptr, i64 } %call71, 0
@@ -1296,20 +1296,20 @@ entry:
   %mul74 = fmul float %p.sroa.0.0.vec.extract, %25
   %call77 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %26 = extractvalue { ptr, i64 } %call77, 0
-  %arrayidx.i28 = getelementptr inbounds i8, ptr %26, i64 4
-  %27 = load float, ptr %arrayidx.i28, align 4
+  %arrayidx.i31 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = load float, ptr %arrayidx.i31, align 4
   %mul80 = fmul float %p.sroa.0.4.vec.extract, %27
   %add81 = fadd float %mul74, %mul80
   %call84 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %28 = extractvalue { ptr, i64 } %call84, 0
-  %arrayidx.i29 = getelementptr inbounds i8, ptr %28, i64 8
-  %29 = load float, ptr %arrayidx.i29, align 4
+  %arrayidx.i32 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = load float, ptr %arrayidx.i32, align 4
   %mul87 = fmul float %29, %p.coerce1
   %add88 = fadd float %add81, %mul87
   %call91 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %30 = extractvalue { ptr, i64 } %call91, 0
-  %arrayidx.i30 = getelementptr inbounds i8, ptr %30, i64 12
-  %31 = load float, ptr %arrayidx.i30, align 4
+  %arrayidx.i33 = getelementptr inbounds i8, ptr %30, i64 12
+  %31 = load float, ptr %arrayidx.i33, align 4
   %add93 = fadd float %add88, %31
   %cmp = fcmp oeq float %add93, 1.000000e+00
   %div.i = fdiv float %add18, %add93
@@ -1360,7 +1360,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %entry
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
-  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr.i.i.i, %while.body.i.i.i ]
+  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr2.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %buf.coerce1, 7
   switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit [
     i64 7, label %sw.bb.i.i.i
@@ -1566,7 +1566,7 @@ while.body.i.i.i38:                               ; preds = %if.end65, %while.bo
 
 while.end.i.i.i50:                                ; preds = %while.body.i.i.i38, %if.end65
   %h.0.lcssa.i.i.i51 = phi i64 [ %mul.i.i.i, %if.end65 ], [ %mul7.i.i.i48, %while.body.i.i.i38 ]
-  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr.i.i.i36, %while.body.i.i.i38 ]
+  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr2.i.i.i42, %while.body.i.i.i38 ]
   switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit101 [
     i64 7, label %sw.bb.i.i.i96
     i64 6, label %sw.bb9.i.i.i90
@@ -1728,7 +1728,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %entry
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
-  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr.i.i.i, %while.body.i.i.i ]
+  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr2.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %buf.coerce1, 7
   switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit [
     i64 7, label %sw.bb.i.i.i
@@ -1934,7 +1934,7 @@ while.body.i.i.i38:                               ; preds = %if.end65, %while.bo
 
 while.end.i.i.i50:                                ; preds = %while.body.i.i.i38, %if.end65
   %h.0.lcssa.i.i.i51 = phi i64 [ %mul.i.i.i, %if.end65 ], [ %mul7.i.i.i48, %while.body.i.i.i38 ]
-  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr.i.i.i36, %while.body.i.i.i38 ]
+  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr2.i.i.i42, %while.body.i.i.i38 ]
   switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit101 [
     i64 7, label %sw.bb.i.i.i96
     i64 6, label %sw.bb9.i.i.i90
@@ -2157,7 +2157,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %entry
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
-  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr.i.i.i, %while.body.i.i.i ]
+  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr2.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %buf.coerce1, 7
   switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit [
     i64 7, label %sw.bb.i.i.i
@@ -2363,7 +2363,7 @@ while.body.i.i.i38:                               ; preds = %if.end65, %while.bo
 
 while.end.i.i.i50:                                ; preds = %while.body.i.i.i38, %if.end65
   %h.0.lcssa.i.i.i51 = phi i64 [ %mul.i.i.i, %if.end65 ], [ %mul7.i.i.i48, %while.body.i.i.i38 ]
-  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr.i.i.i36, %while.body.i.i.i38 ]
+  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr2.i.i.i42, %while.body.i.i.i38 ]
   switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit101 [
     i64 7, label %sw.bb.i.i.i96
     i64 6, label %sw.bb9.i.i.i90
@@ -2477,12 +2477,12 @@ entry:
   %9 = load float, ptr %8, align 4
   %call22 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %10 = extractvalue { ptr, i64 } %call22, 0
-  %arrayidx.i12 = getelementptr inbounds i8, ptr %10, i64 4
-  %11 = load float, ptr %arrayidx.i12, align 4
+  %arrayidx.i13 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = load float, ptr %arrayidx.i13, align 4
   %call29 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %12 = extractvalue { ptr, i64 } %call29, 0
-  %arrayidx.i13 = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load float, ptr %arrayidx.i13, align 4
+  %arrayidx.i14 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load float, ptr %arrayidx.i14, align 4
   %14 = insertelement <2 x float> poison, float %9, i64 0
   %15 = insertelement <2 x float> %14, float %5, i64 1
   %16 = fmul <2 x float> %15, %v.coerce0
@@ -2503,14 +2503,14 @@ entry:
   %mul39 = fmul float %1, %29
   %call42 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %30 = extractvalue { ptr, i64 } %call42, 0
-  %arrayidx.i14 = getelementptr inbounds i8, ptr %30, i64 4
-  %31 = load float, ptr %arrayidx.i14, align 4
+  %arrayidx.i16 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = load float, ptr %arrayidx.i16, align 4
   %mul45 = fmul float %0, %31
   %add46 = fadd float %mul39, %mul45
   %call49 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %32 = extractvalue { ptr, i64 } %call49, 0
-  %arrayidx.i15 = getelementptr inbounds i8, ptr %32, i64 8
-  %33 = load float, ptr %arrayidx.i15, align 4
+  %arrayidx.i17 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = load float, ptr %arrayidx.i17, align 4
   %mul52 = fmul float %33, %v.coerce1
   %add53 = fadd float %add46, %mul52
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %27, 0
@@ -2553,7 +2553,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %entry
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
-  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr.i.i.i, %while.body.i.i.i ]
+  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr2.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %buf.coerce1, 7
   switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit [
     i64 7, label %sw.bb.i.i.i
@@ -2759,7 +2759,7 @@ while.body.i.i.i38:                               ; preds = %if.end65, %while.bo
 
 while.end.i.i.i50:                                ; preds = %while.body.i.i.i38, %if.end65
   %h.0.lcssa.i.i.i51 = phi i64 [ %mul.i.i.i, %if.end65 ], [ %mul7.i.i.i48, %while.body.i.i.i38 ]
-  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr.i.i.i36, %while.body.i.i.i38 ]
+  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr2.i.i.i42, %while.body.i.i.i38 ]
   switch i64 %and.i.i.i, label %_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit101 [
     i64 7, label %sw.bb.i.i.i96
     i64 6, label %sw.bb9.i.i.i90

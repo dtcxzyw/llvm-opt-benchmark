@@ -68,7 +68,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa02e17ab953c9b5E.exit.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa02e17ab953c9b5E.exit.i": ; preds = %24, %19
-  %27 = phi ptr [ %25, %24 ], [ %.val13.i.i, %19 ]
+  %27 = phi ptr [ %25, %24 ], [ %21, %19 ]
   %.0.i.i = phi i8 [ %26, %24 ], [ 20, %19 ]
   %28 = icmp ne i8 %.0.i.i, 20
   tail call void @llvm.assume(i1 %28)
@@ -85,7 +85,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e1bf2cb5b8719b3E.exit.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e1bf2cb5b8719b3E.exit.i": ; preds = %30, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa02e17ab953c9b5E.exit.i"
-  %32 = phi ptr [ %31, %30 ], [ %.val15.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa02e17ab953c9b5E.exit.i" ]
+  %32 = phi ptr [ %31, %30 ], [ %20, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa02e17ab953c9b5E.exit.i" ]
   %.sroa.017.0.i = phi i64 [ %.sroa.017.0.copyload18.i, %30 ], [ -9223372036854775807, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa02e17ab953c9b5E.exit.i" ]
   %33 = icmp ne i64 %.sroa.017.0.i, -9223372036854775807
   tail call void @llvm.assume(i1 %33)
@@ -329,7 +329,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %36 = ptrtoint ptr %28 to i64
   %.sroa.4.0.extract.trunc = trunc i64 %36 to i8
   %.sroa.4.1.extract.shift = lshr i64 %36, 8
-  %.sroa.4.1.extract.trunc = trunc i64 %.sroa.4.1.extract.shift to i56
+  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.214.0..sroa_idx, align 8
@@ -357,7 +357,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %99
 
 43:                                               ; preds = %31
-  %trunc = trunc i8 %32 to i1
+  %trunc = trunc nuw i8 %32 to i1
   %44 = getelementptr inbounds i8, ptr %1, i64 24
   %45 = getelementptr inbounds i8, ptr %1, i64 40
   br i1 %trunc, label %55, label %46
@@ -563,7 +563,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %27 = ptrtoint ptr %19 to i64
   %.sroa.4.0.extract.trunc = trunc i64 %27 to i8
   %.sroa.4.1.extract.shift = lshr i64 %27, 8
-  %.sroa.4.1.extract.trunc = trunc i64 %.sroa.4.1.extract.shift to i56
+  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.214.0..sroa_idx, align 8
@@ -592,7 +592,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %90
 
 34:                                               ; preds = %22
-  %trunc = trunc i8 %23 to i1
+  %trunc = trunc nuw i8 %23 to i1
   %35 = getelementptr inbounds i8, ptr %1, i64 24
   %36 = getelementptr inbounds i8, ptr %1, i64 40
   br i1 %trunc, label %46, label %37
@@ -1214,7 +1214,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN9hashbrown11r
   %16 = getelementptr inbounds i8, ptr %15, i64 %9
   %17 = load i8, ptr %16, align 1, !noalias !242, !noundef !9
   %18 = lshr i64 %6, 57
-  %19 = trunc i64 %18 to i8
+  %19 = trunc nuw nsw i64 %18 to i8
   %20 = add i64 %9, -16
   %21 = getelementptr inbounds i8, ptr %5, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !245, !noalias !242, !noundef !9

@@ -868,7 +868,7 @@ invoke.cont26:                                    ; preds = %_ZNK15ref_vector_co
 
 invoke.cont28:                                    ; preds = %invoke.cont26
   %27 = load ptr, ptr %m, align 8
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw i64 %indvars.iv to i32
   %call32 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %27, i32 noundef %28, ptr noundef %call29)
           to label %invoke.cont31 unwind label %lpad23.loopexit.split-lp.loopexit
 
@@ -3035,10 +3035,10 @@ land.rhs.i.i.i.i.i:                               ; preds = %invoke.cont3, %whil
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit, label %land.rhs.i.i.i.i.i, !llvm.loop !14
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont6, label %land.rhs.i.i.i.i.i, !llvm.loop !14
 
-invoke.cont6:                                     ; preds = %land.rhs.i.i.i.i.i, %invoke.cont3
-  %retval.sroa.0.1.i.i.i = phi ptr [ %1, %invoke.cont3 ], [ %retval.sroa.0.0.i.i.i, %land.rhs.i.i.i.i.i ]
+invoke.cont6:                                     ; preds = %land.rhs.i.i.i.i.i, %while.body.i.i.i.i.i, %invoke.cont3
+  %retval.sroa.0.1.i.i.i = phi ptr [ %1, %invoke.cont3 ], [ %incdec.ptr.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %land.rhs.i.i.i.i.i ]
   %cmp.i.not172 = icmp eq ptr %retval.sroa.0.1.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.not172, label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit, label %invoke.cont12.lr.ph
 
@@ -3048,7 +3048,7 @@ invoke.cont12.lr.ph:                              ; preds = %invoke.cont6
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %invoke.cont12.lr.ph, %_ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorIN7datalog4ruleEEE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE8iteratorppEv.exit
-  %it.sroa.0.0173 = phi ptr [ %retval.sroa.0.1.i.i.i, %invoke.cont12.lr.ph ], [ %it.sroa.0.1, %_ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorIN7datalog4ruleEEE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE8iteratorppEv.exit ]
+  %it.sroa.0.0173 = phi ptr [ %retval.sroa.0.1.i.i.i, %invoke.cont12.lr.ph ], [ %it.sroa.0.2, %_ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorIN7datalog4ruleEEE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE8iteratorppEv.exit ]
   %4 = load ptr, ptr %rm, align 8
   %m_value = getelementptr inbounds i8, ptr %it.sroa.0.0173, i64 8
   %5 = load ptr, ptr %m_value, align 8
@@ -3090,10 +3090,10 @@ if.then.i:                                        ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp18.i)
   %call.i108 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-          to label %call.i.noexc unwind label %ehcleanup.thread206
+          to label %call.i.noexc unwind label %ehcleanup.thread202
 
-ehcleanup.thread206:                              ; preds = %if.then.i
-  %lpad.loopexit.split-lp148208 = landingpad { ptr, i32 }
+ehcleanup.thread202:                              ; preds = %if.then.i
+  %lpad.loopexit.split-lp148204 = landingpad { ptr, i32 }
           cleanup
   br label %if.end.i.i101
 
@@ -3150,10 +3150,10 @@ cleanup.action.i:                                 ; preds = %if.then17.i
 if.end.i106:                                      ; preds = %lor.lhs.false.i
   %conv24.i = zext i32 %add13.i to i64
   %call25.i109 = invoke noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx4.i.i.i, i64 noundef %conv24.i)
-          to label %call25.i.noexc unwind label %ehcleanup.thread210
+          to label %call25.i.noexc unwind label %ehcleanup.thread206
 
-ehcleanup.thread210:                              ; preds = %if.end.i106
-  %lpad.loopexit.split-lp148212 = landingpad { ptr, i32 }
+ehcleanup.thread206:                              ; preds = %if.end.i106
+  %lpad.loopexit.split-lp148208 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i80
 
@@ -3194,12 +3194,12 @@ invoke.cont23.thread.lr.ph:                       ; preds = %_ZN15ref_vector_cor
   %arrayidx.i.i = getelementptr inbounds i8, ptr %d_rules.sroa.7.2, i64 -4
   %15 = load i32, ptr %arrayidx.i.i, align 4
   %16 = zext i32 %15 to i64
-  %cmp140288.not = icmp eq i32 %15, 0
-  br i1 %cmp140288.not, label %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i, label %invoke.cont26
+  %cmp140274.not = icmp eq i32 %15, 0
+  br i1 %cmp140274.not, label %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i, label %invoke.cont26
 
 invoke.cont26:                                    ; preds = %invoke.cont23.thread.lr.ph, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74
-  %indvars.iv289 = phi i64 [ %indvars.iv.next, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74 ], [ 0, %invoke.cont23.thread.lr.ph ]
-  %arrayidx.i.i26 = getelementptr inbounds ptr, ptr %d_rules.sroa.7.2, i64 %indvars.iv289
+  %indvars.iv275 = phi i64 [ %indvars.iv.next, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74 ], [ 0, %invoke.cont23.thread.lr.ph ]
+  %arrayidx.i.i26 = getelementptr inbounds ptr, ptr %d_rules.sroa.7.2, i64 %indvars.iv275
   %17 = load ptr, ptr %arrayidx.i.i26, align 8
   %18 = load ptr, ptr %rm, align 8
   store ptr %17, ptr %r1, align 8
@@ -3212,14 +3212,14 @@ if.then.i.i:                                      ; preds = %invoke.cont26
           to label %invoke.cont31 unwind label %lpad11.loopexit
 
 invoke.cont31:                                    ; preds = %invoke.cont26, %if.then.i.i
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv289, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv275, 1
   %19 = load i32, ptr %arrayidx.i.i, align 4
   %20 = zext i32 %19 to i64
   %cmp36169 = icmp ult i64 %indvars.iv.next, %20
   br i1 %cmp36169, label %invoke.cont40.preheader, label %for.end
 
 invoke.cont40.preheader:                          ; preds = %invoke.cont31
-  %21 = trunc i64 %indvars.iv.next to i32
+  %21 = trunc nuw i64 %indvars.iv.next to i32
   br label %invoke.cont40
 
 invoke.cont40:                                    ; preds = %invoke.cont40.preheader, %for.inc
@@ -3390,10 +3390,10 @@ _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74: ; preds = %invoke.co
   br i1 %cmp140, label %invoke.cont26, label %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i: ; preds = %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74, %invoke.cont23.thread.lr.ph
-  %.lcssa267 = phi i32 [ %15, %invoke.cont23.thread.lr.ph ], [ %55, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74 ]
+  %.lcssa256 = phi i32 [ %15, %invoke.cont23.thread.lr.ph ], [ %55, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74 ]
   %.lcssa = phi i64 [ %16, %invoke.cont23.thread.lr.ph ], [ %56, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74 ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %d_rules.sroa.7.2, i64 %.lcssa
-  %cmp3.i.not.i.i = icmp eq i32 %.lcssa267, 0
+  %cmp3.i.not.i.i = icmp eq i32 %.lcssa256, 0
   br i1 %cmp3.i.not.i.i, label %if.then.i.i.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i, %.noexc.i.i
@@ -3429,7 +3429,7 @@ terminate.lpad.i.i:                               ; preds = %for.body.i.i.i
 _ZN10ref_vectorIN7datalog4ruleENS0_12rule_managerEED2Ev.exit: ; preds = %invoke.cont12, %invoke.cont16, %if.then.i.i.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.0173, i64 16
   %cmp.not2.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i
-  br i1 %cmp.not2.i.i, label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit, label %land.rhs.i.i
+  br i1 %cmp.not2.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorIN7datalog4ruleEEE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE8iteratorppEv.exit, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %_ZN10ref_vectorIN7datalog4ruleENS0_12rule_managerEED2Ev.exit, %while.body.i.i
   %it.sroa.0.1 = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %incdec.ptr.i, %_ZN10ref_vectorIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ]
@@ -3440,10 +3440,11 @@ land.rhs.i.i:                                     ; preds = %_ZN10ref_vectorIN7d
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.1, i64 16
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i, label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit, label %land.rhs.i.i, !llvm.loop !14
+  br i1 %cmp.not.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorIN7datalog4ruleEEE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE8iteratorppEv.exit, label %land.rhs.i.i, !llvm.loop !14
 
-_ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorIN7datalog4ruleEEE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE8iteratorppEv.exit: ; preds = %land.rhs.i.i
-  %cmp.i.not = icmp eq ptr %it.sroa.0.1, %add.ptr.i.i.i
+_ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorIN7datalog4ruleEEE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE8iteratorppEv.exit: ; preds = %land.rhs.i.i, %while.body.i.i, %_ZN10ref_vectorIN7datalog4ruleENS0_12rule_managerEED2Ev.exit
+  %it.sroa.0.2 = phi ptr [ %incdec.ptr.i, %_ZN10ref_vectorIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ], [ %it.sroa.0.1, %land.rhs.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
+  %cmp.i.not = icmp eq ptr %it.sroa.0.2, %add.ptr.i.i.i
   br i1 %cmp.i.not, label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit, label %invoke.cont12
 
 ehcleanup:                                        ; preds = %for.body.i
@@ -3452,9 +3453,9 @@ ehcleanup:                                        ; preds = %for.body.i
   %cmp.i.i.i79 = icmp eq ptr %d_rules.sroa.7.0, null
   br i1 %cmp.i.i.i79, label %if.end.i.i101, label %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i80
 
-_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i80: ; preds = %lpad11.loopexit, %if.then.i.i69, %lpad33, %ehcleanup.thread210, %ehcleanup.i, %cleanup.action.i, %ehcleanup
-  %.pn145 = phi { ptr, i32 } [ %lpad.loopexit.split-lp148, %ehcleanup ], [ %12, %cleanup.action.i ], [ %11, %ehcleanup.i ], [ %lpad.loopexit.split-lp148212, %ehcleanup.thread210 ], [ %lpad.loopexit147, %lpad11.loopexit ], [ %lpad.phi, %if.then.i.i69 ], [ %lpad.phi, %lpad33 ]
-  %d_rules.sroa.7.6144 = phi ptr [ %d_rules.sroa.7.0, %ehcleanup ], [ %d_rules.sroa.7.0, %cleanup.action.i ], [ %d_rules.sroa.7.0, %ehcleanup.i ], [ %d_rules.sroa.7.0, %ehcleanup.thread210 ], [ %d_rules.sroa.7.2, %lpad11.loopexit ], [ %d_rules.sroa.7.2, %if.then.i.i69 ], [ %d_rules.sroa.7.2, %lpad33 ]
+_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i80: ; preds = %lpad11.loopexit, %if.then.i.i69, %lpad33, %ehcleanup.thread206, %ehcleanup.i, %cleanup.action.i, %ehcleanup
+  %.pn145 = phi { ptr, i32 } [ %lpad.loopexit.split-lp148, %ehcleanup ], [ %12, %cleanup.action.i ], [ %11, %ehcleanup.i ], [ %lpad.loopexit.split-lp148208, %ehcleanup.thread206 ], [ %lpad.loopexit147, %lpad11.loopexit ], [ %lpad.phi, %if.then.i.i69 ], [ %lpad.phi, %lpad33 ]
+  %d_rules.sroa.7.6144 = phi ptr [ %d_rules.sroa.7.0, %ehcleanup ], [ %d_rules.sroa.7.0, %cleanup.action.i ], [ %d_rules.sroa.7.0, %ehcleanup.i ], [ %d_rules.sroa.7.0, %ehcleanup.thread206 ], [ %d_rules.sroa.7.2, %lpad11.loopexit ], [ %d_rules.sroa.7.2, %if.then.i.i69 ], [ %d_rules.sroa.7.2, %lpad33 ]
   %arrayidx.i.i.i81 = getelementptr inbounds i8, ptr %d_rules.sroa.7.6144, i64 -4
   %63 = load i32, ptr %arrayidx.i.i.i81, align 4
   %64 = zext i32 %63 to i64
@@ -3492,11 +3493,11 @@ terminate.lpad.i.i86:                             ; preds = %for.body.i.i.i84
   call void @__clang_call_terminate(ptr %69) #14
   unreachable
 
-_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit:    ; preds = %while.body.i.i.i.i.i, %_ZN10ref_vectorIN7datalog4ruleENS0_12rule_managerEED2Ev.exit, %_ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorIN7datalog4ruleEEE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE8iteratorppEv.exit, %while.body.i.i, %invoke.cont6
+_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit:    ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorIN7datalog4ruleEEE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE8iteratorppEv.exit, %invoke.cont6
   ret ptr %call
 
-if.end.i.i101:                                    ; preds = %ehcleanup.thread206, %lpad, %ehcleanup, %if.then.i.i.i.i.i93
-  %.pn.pn = phi { ptr, i32 } [ %45, %lpad ], [ %lpad.loopexit.split-lp148, %ehcleanup ], [ %.pn145, %if.then.i.i.i.i.i93 ], [ %lpad.loopexit.split-lp148208, %ehcleanup.thread206 ]
+if.end.i.i101:                                    ; preds = %ehcleanup.thread202, %lpad, %ehcleanup, %if.then.i.i.i.i.i93
+  %.pn.pn = phi { ptr, i32 } [ %45, %lpad ], [ %lpad.loopexit.split-lp148, %ehcleanup ], [ %.pn145, %if.then.i.i.i.i.i93 ], [ %lpad.loopexit.split-lp148204, %ehcleanup.thread202 ]
   call void @_ZN7datalog8rule_setD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %call) #15
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call)
           to label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit103 unwind label %terminate.lpad.i102

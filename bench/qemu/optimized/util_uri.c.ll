@@ -2638,7 +2638,7 @@ lor.lhs.false138:                                 ; preds = %lor.lhs.false133
   ]
 
 while.body94.outer.backedge:                      ; preds = %lor.lhs.false138, %land.lhs.true120, %lor.lhs.false133, %lor.lhs.false, %while.cond182, %land.rhs185
-  %cur.6.ph.be = phi ptr [ %cur.7, %land.rhs185 ], [ %cur.7, %while.cond182 ], [ %incdec.ptr115, %lor.lhs.false ], [ %incdec.ptr115, %lor.lhs.false133 ], [ %add.ptr126, %land.lhs.true120 ], [ %incdec.ptr115, %lor.lhs.false138 ]
+  %cur.6.ph.be = phi ptr [ %cur.7, %land.rhs185 ], [ %cur.7, %while.cond182 ], [ %incdec.ptr115, %lor.lhs.false ], [ %incdec.ptr115, %lor.lhs.false133 ], [ %incdec.ptr115, %land.lhs.true120 ], [ %incdec.ptr115, %lor.lhs.false138 ]
   br label %while.body94.outer
 
 while.body94.outer:                               ; preds = %while.cond79, %while.body94.outer.backedge
@@ -2716,14 +2716,14 @@ land.rhs216:                                      ; preds = %land.lhs.true211
   %19 = load i8, ptr %arrayidx217, align 1
   switch i8 %19, label %while.end228 [
     i8 47, label %land.lhs.true206
-    i8 0, label %while.end228.loopexit23
+    i8 0, label %while.end228.loopexit25
   ]
 
-while.end228.loopexit23:                          ; preds = %land.rhs216
+while.end228.loopexit25:                          ; preds = %land.rhs216
   br label %while.end228
 
-while.end228:                                     ; preds = %land.rhs216, %land.lhs.true211, %land.lhs.true206, %while.end228.loopexit23
-  %cur.8.lcssa = phi ptr [ %arrayidx217, %while.end228.loopexit23 ], [ %cur.893, %land.lhs.true206 ], [ %cur.893, %land.lhs.true211 ], [ %cur.893, %land.rhs216 ]
+while.end228:                                     ; preds = %land.rhs216, %land.lhs.true211, %land.lhs.true206, %while.end228.loopexit25
+  %cur.8.lcssa = phi ptr [ %arrayidx217, %while.end228.loopexit25 ], [ %cur.893, %land.lhs.true206 ], [ %cur.893, %land.lhs.true211 ], [ %cur.893, %land.rhs216 ]
   %cmp229.not = icmp eq ptr %cur.8.lcssa, %path
   br i1 %cmp229.not, label %return, label %while.cond232.preheader
 
@@ -4210,7 +4210,7 @@ rfc3986_parse_host.exit:                          ; preds = %while.cond.i17
   br label %return
 
 if.end7:                                          ; preds = %if.else228.i, %if.else.i16, %if.then218.i, %found.if.end231_crit_edge.i
-  %cur.1.ph = phi ptr [ %38, %if.then218.i ], [ %38, %if.else.i16 ], [ %storemerge, %if.else228.i ], [ %.pre67.i, %found.if.end231_crit_edge.i ]
+  %cur.1.ph = phi ptr [ %38, %if.then218.i ], [ %38, %if.else.i16 ], [ %38, %if.else228.i ], [ %.pre67.i, %found.if.end231_crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cur.i)
   %40 = load i8, ptr %cur.1.ph, align 1
   %cmp9 = icmp eq i8 %40, 58

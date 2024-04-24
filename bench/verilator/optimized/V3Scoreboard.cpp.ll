@@ -353,7 +353,7 @@ _ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit28.thread: ; preds = %99
   br i1 %.not12.i29, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit35.thread, label %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i33
 
 _ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i33: ; preds = %109, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i33
-  %111 = phi ptr [ %.013.i31, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i33 ], [ %3, %109 ]
+  %111 = phi ptr [ %.013.i31, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i33 ], [ %.pr59, %109 ]
   %.013.i31 = phi ptr [ %112, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i33 ], [ %110, %109 ]
   %112 = load ptr, ptr %.013.i31, align 8
   %113 = getelementptr inbounds i8, ptr %.013.i31, i64 16
@@ -372,7 +372,7 @@ _ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i33: ; preds = %109, %_ZN11Pairin
   br i1 %.not.i34, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit35.thread, label %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i33, !llvm.loop !5
 
 _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit35.thread: ; preds = %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i33, %109
-  %119 = phi ptr [ %3, %109 ], [ %.013.i31, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i33 ]
+  %119 = phi ptr [ %.pr59, %109 ], [ %.013.i31, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i33 ]
   %120 = load ptr, ptr %119, align 8
   %.not11.i.i37 = icmp eq ptr %120, null
   br i1 %.not11.i.i37, label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit40, label %121

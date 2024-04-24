@@ -295,11 +295,10 @@ define dso_local noundef i32 @agp_3_5_enable(ptr nocapture noundef readonly %0) 
   br i1 %153, label %154, label %146, !llvm.loop !11
 
 154:                                              ; preds = %150, %146
-  %.lcssa62 = phi ptr [ %148, %150 ], [ %25, %146 ]
-  %155 = getelementptr inbounds i8, ptr %.lcssa62, i64 8
+  %155 = getelementptr inbounds i8, ptr %148, i64 8
   %156 = load ptr, ptr %155, align 8
   store ptr %133, ptr %155, align 8
-  store ptr %.lcssa62, ptr %133, align 8
+  store ptr %148, ptr %133, align 8
   %157 = getelementptr inbounds i8, ptr %133, i64 8
   store ptr %156, ptr %157, align 8
   store volatile ptr %133, ptr %156, align 8
@@ -371,7 +370,7 @@ define dso_local noundef i32 @agp_3_5_enable(ptr nocapture noundef readonly %0) 
   %207 = call i32 @pci_read_config_word(ptr noundef %125, i32 noundef %206, ptr noundef nonnull %7) #7
   %208 = load i16, ptr %7, align 2
   %209 = and i16 %208, -193
-  %210 = trunc i32 %204 to i16
+  %210 = trunc nuw nsw i32 %204 to i16
   %211 = shl nuw nsw i16 %210, 6
   %212 = or i16 %209, %211
   store i16 %212, ptr %7, align 2

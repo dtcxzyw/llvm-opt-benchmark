@@ -6411,7 +6411,7 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit:     ; preds = %._ZNSt5stackIiSt5de
   br label %_ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit
 
 61:                                               ; preds = %._crit_edge
-  call void @_ZdlPv(ptr noundef %38) #20
+  call void @_ZdlPv(ptr noundef %58) #20
   %62 = load ptr, ptr %33, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %33, align 8

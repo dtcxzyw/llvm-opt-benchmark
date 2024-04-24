@@ -4267,13 +4267,13 @@ define dso_local void @RollbackToSavepoint(ptr noundef %0) local_unnamed_addr #1
   br i1 %56, label %._crit_edge.loopexit, label %.lr.ph42
 
 ._crit_edge.loopexit:                             ; preds = %54
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.02739, i64 32
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.0, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %57 = phi i32 [ %11, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
-  %.0.lcssa = phi ptr [ %2, %.preheader ], [ %.02739, %._crit_edge.loopexit ]
+  %.0.lcssa = phi ptr [ %2, %.preheader ], [ %.0, %._crit_edge.loopexit ]
   %58 = getelementptr inbounds i8, ptr %.0.lcssa, i64 32
   switch i32 %57, label %60 [
     i32 12, label %65

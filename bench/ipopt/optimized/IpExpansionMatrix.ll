@@ -1513,7 +1513,7 @@ define void @_ZN5Ipopt20ExpansionMatrixSpaceC2EiiPKii(ptr nocapture noundef nonn
   %42 = sub nsw i32 %41, %4
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i32, ptr %40, i64 %43
-  %45 = trunc i64 %indvars.iv22 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv22 to i32
   store i32 %45, ptr %44, align 4
   br label %46
 
@@ -1803,7 +1803,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_E
   br label %64
 
 64:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i, %.noexc
-  %65 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i ], [ %59, %.noexc ]
+  %65 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i ], [ %60, %.noexc ]
   %66 = getelementptr inbounds i8, ptr %65, i64 -8
   store ptr %66, ptr %9, align 8
   %67 = getelementptr inbounds i8, ptr %.sroa.02.014, i64 8

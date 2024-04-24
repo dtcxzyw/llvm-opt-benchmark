@@ -3170,7 +3170,7 @@ land.rhs106:                                      ; preds = %while.cond103
   br i1 %cmp108, label %while.cond103, label %while.cond114.preheader, !llvm.loop !24
 
 while.cond114.preheader:                          ; preds = %while.cond103, %land.rhs106
-  %p3.2.ph = phi ptr [ %minP2.0, %while.cond103 ], [ %incdec.ptr107, %land.rhs106 ]
+  %p3.2.ph = phi ptr [ %p3.0, %while.cond103 ], [ %incdec.ptr107, %land.rhs106 ]
   br label %while.cond114
 
 while.cond114:                                    ; preds = %while.cond114.preheader, %land.rhs117
@@ -3185,23 +3185,22 @@ land.rhs117:                                      ; preds = %while.cond114
   br i1 %cmp119.not, label %while.end125, label %while.cond114, !llvm.loop !25
 
 while.end125:                                     ; preds = %while.cond114, %land.rhs117
-  %p3.2.lcssa = phi ptr [ %minP2.0, %while.cond114 ], [ %p3.2, %land.rhs117 ]
   %cmp126 = icmp eq ptr %p2.1, %minP2.0
   br i1 %cmp126, label %if.then140, label %lor.lhs.false128
 
 lor.lhs.false128:                                 ; preds = %while.end125
-  %13 = load i32, ptr %p3.2.lcssa, align 4
+  %13 = load i32, ptr %p3.2, align 4
   %cmp130 = icmp eq i32 %13, 46
   br i1 %cmp130, label %land.lhs.true132, label %if.else143
 
 land.lhs.true132:                                 ; preds = %lor.lhs.false128
-  %arrayidx133 = getelementptr i8, ptr %p3.2.lcssa, i64 4
+  %arrayidx133 = getelementptr i8, ptr %p3.2, i64 4
   %14 = load i32, ptr %arrayidx133, align 4
   %cmp134 = icmp eq i32 %14, 46
   br i1 %cmp134, label %land.lhs.true136, label %if.else143
 
 land.lhs.true136:                                 ; preds = %land.lhs.true132
-  %arrayidx137 = getelementptr i8, ptr %p3.2.lcssa, i64 8
+  %arrayidx137 = getelementptr i8, ptr %p3.2, i64 8
   %15 = load i32, ptr %arrayidx137, align 4
   %cmp138 = icmp eq i32 %15, 47
   br i1 %cmp138, label %if.then140, label %if.else143
@@ -3216,7 +3215,7 @@ if.then140:                                       ; preds = %land.lhs.true136, %
 if.else143:                                       ; preds = %land.lhs.true136, %land.lhs.true132, %lor.lhs.false128
   %cmp145 = icmp eq i32 %13, 47
   %spec.select.idx = select i1 %cmp145, i64 4, i64 0
-  %spec.select = getelementptr i8, ptr %p3.2.lcssa, i64 %spec.select.idx
+  %spec.select = getelementptr i8, ptr %p3.2, i64 %spec.select.idx
   br label %for.inc
 
 if.else156:                                       ; preds = %lor.rhs80, %land.lhs.true98
@@ -3244,15 +3243,15 @@ for.inc:                                          ; preds = %if.else143, %if.the
 for.end:                                          ; preds = %cond.true41, %cond.end48
   store i32 0, ptr %p2.1, align 4
   %cmp172.not = icmp eq ptr %p2.1, %minP2.0
-  br i1 %cmp172.not, label %if.else186, label %while.cond175.preheader
+  %incdec.ptr187 = getelementptr i8, ptr %p2.1, i64 -4
+  br i1 %cmp172.not, label %if.end188, label %while.cond175.preheader
 
 while.cond175.preheader:                          ; preds = %for.end
-  %incdec.ptr17684 = getelementptr i8, ptr %p2.1, i64 -4
-  %cmp177.not85 = icmp eq ptr %incdec.ptr17684, %minP2.0
+  %cmp177.not85 = icmp eq ptr %incdec.ptr187, %minP2.0
   br i1 %cmp177.not85, label %if.end188, label %land.rhs179
 
 land.rhs179:                                      ; preds = %while.cond175.preheader, %while.body184
-  %incdec.ptr17686 = phi ptr [ %incdec.ptr176, %while.body184 ], [ %incdec.ptr17684, %while.cond175.preheader ]
+  %incdec.ptr17686 = phi ptr [ %incdec.ptr176, %while.body184 ], [ %incdec.ptr187, %while.cond175.preheader ]
   %16 = load i32, ptr %incdec.ptr17686, align 4
   %cmp180 = icmp eq i32 %16, 47
   br i1 %cmp180, label %while.body184, label %if.end188
@@ -3263,12 +3262,8 @@ while.body184:                                    ; preds = %land.rhs179
   %cmp177.not = icmp eq ptr %incdec.ptr176, %minP2.0
   br i1 %cmp177.not, label %if.end188, label %land.rhs179, !llvm.loop !27
 
-if.else186:                                       ; preds = %for.end
-  %incdec.ptr187 = getelementptr i8, ptr %minP2.0, i64 -4
-  br label %if.end188
-
-if.end188:                                        ; preds = %while.body184, %land.rhs179, %while.cond175.preheader, %if.else186
-  %p2.5 = phi ptr [ %incdec.ptr187, %if.else186 ], [ %minP2.0, %while.cond175.preheader ], [ %minP2.0, %while.body184 ], [ %incdec.ptr17686, %land.rhs179 ]
+if.end188:                                        ; preds = %while.body184, %land.rhs179, %for.end, %while.cond175.preheader
+  %p2.5 = phi ptr [ %minP2.0, %while.cond175.preheader ], [ %incdec.ptr187, %for.end ], [ %minP2.0, %while.body184 ], [ %incdec.ptr17686, %land.rhs179 ]
   %sub.ptr.lhs.cast = ptrtoint ptr %p2.5 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %path.addr.1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast

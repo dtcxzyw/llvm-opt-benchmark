@@ -307,7 +307,7 @@ return:                                           ; preds = %if.end4.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @iova_tree_alloc_traverse(ptr noundef readnone %key, ptr noundef readnone %value, ptr nocapture noundef %pargs) #0 {
+define internal i32 @iova_tree_alloc_traverse(ptr noundef readnone %key, ptr noundef %value, ptr nocapture noundef %pargs) #0 {
 entry:
   %cmp = icmp eq ptr %key, %value
   br i1 %cmp, label %if.end, label %if.else
@@ -321,13 +321,13 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %this.i, align 8
   %prev.i = getelementptr inbounds i8, ptr %pargs, i64 16
   store ptr %0, ptr %prev.i, align 8
-  store ptr %key, ptr %this.i, align 8
+  store ptr %value, ptr %this.i, align 8
   %tobool.not.i = icmp eq ptr %key, null
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %1 = load i64, ptr %key, align 1
-  %size.i = getelementptr inbounds i8, ptr %key, i64 16
+  %1 = load i64, ptr %value, align 1
+  %size.i = getelementptr inbounds i8, ptr %value, i64 16
   %2 = load i64, ptr %size.i, align 1
   %add.i = add i64 %2, %1
   %iova_begin.i = getelementptr inbounds i8, ptr %pargs, i64 8
@@ -355,7 +355,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %if.en
   br i1 %tobool.not.i, label %cond.end18.i, label %cond.true15.i
 
 cond.true15.i:                                    ; preds = %cond.end.i
-  %7 = load i64, ptr %key, align 1
+  %7 = load i64, ptr %value, align 1
   br label %cond.end18.i
 
 cond.end18.i:                                     ; preds = %cond.true15.i, %cond.end.i

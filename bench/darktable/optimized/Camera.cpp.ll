@@ -2102,7 +2102,7 @@ define hidden void @_ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE(ptr no
   %35 = getelementptr inbounds i8, ptr %0, i64 296
   %36 = load i64, ptr %35, align 8, !tbaa.struct !76
   %37 = lshr i64 %36, 32
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw i64 %37 to i32
   %39 = icmp slt i32 %31, %38
   br i1 %39, label %44, label %40
 
@@ -2501,7 +2501,7 @@ define hidden void @_ZN8rawspeed6Camera10parseColorERKN4pugi8xml_nodeE(ptr nound
 46:                                               ; preds = %42
   %47 = load i64, ptr %34, align 8, !tbaa.struct !76
   %48 = lshr i64 %47, 32
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw i64 %48 to i32
   %50 = icmp slt i32 %44, %49
   br i1 %50, label %55, label %51
 
@@ -4586,7 +4586,7 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   br label %109
 
 109:                                              ; preds = %107, %91, %82
-  %110 = phi ptr [ %108, %107 ], [ %92, %91 ], [ %83, %82 ]
+  %110 = phi ptr [ %108, %107 ], [ %93, %91 ], [ %83, %82 ]
   %111 = icmp eq ptr %110, null
   br i1 %111, label %113, label %112
 
@@ -5424,7 +5424,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %310
 
 310:                                              ; preds = %308, %292, %251
-  %311 = phi ptr [ %309, %308 ], [ %293, %292 ], [ %231, %251 ]
+  %311 = phi ptr [ %309, %308 ], [ %294, %292 ], [ %231, %251 ]
   %312 = icmp eq ptr %311, null
   br i1 %312, label %314, label %313
 
@@ -8575,7 +8575,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3mapINSt7__cxx1112basic_stringIcSt1
   %27 = sub i64 %18, %12
   %28 = tail call i64 @llvm.smax.i64(i64 %27, i64 -2147483648)
   %29 = tail call i64 @llvm.smin.i64(i64 %28, i64 2147483647)
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nsw i64 %29 to i32
   br label %31
 
 31:                                               ; preds = %26, %21
@@ -8610,7 +8610,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3mapINSt7__cxx1112basic_stringIcSt1
   %52 = sub i64 %12, %43
   %53 = tail call i64 @llvm.smax.i64(i64 %52, i64 -2147483648)
   %54 = tail call i64 @llvm.smin.i64(i64 %53, i64 2147483647)
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nsw i64 %54 to i32
   br label %56
 
 56:                                               ; preds = %51, %46
@@ -8726,7 +8726,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   %51 = sub i64 %39, %41
   %52 = call i64 @llvm.smax.i64(i64 %51, i64 -2147483648)
   %53 = call i64 @llvm.smin.i64(i64 %52, i64 2147483647)
-  %54 = trunc i64 %53 to i32
+  %54 = trunc nsw i64 %53 to i32
   br label %55
 
 55:                                               ; preds = %50, %44
@@ -8830,7 +8830,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   %26 = sub i64 %14, %16
   %27 = tail call i64 @llvm.smax.i64(i64 %26, i64 -2147483648)
   %28 = tail call i64 @llvm.smin.i64(i64 %27, i64 2147483647)
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nsw i64 %28 to i32
   br label %30
 
 30:                                               ; preds = %25, %19
@@ -8907,7 +8907,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   %81 = sub i64 %71, %39
   %82 = tail call i64 @llvm.smax.i64(i64 %81, i64 -2147483648)
   %83 = tail call i64 @llvm.smin.i64(i64 %82, i64 2147483647)
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nsw i64 %83 to i32
   br label %85
 
 85:                                               ; preds = %80, %74
@@ -8938,7 +8938,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   %102 = sub i64 %41, %39
   %103 = tail call i64 @llvm.smax.i64(i64 %102, i64 -2147483648)
   %104 = tail call i64 @llvm.smin.i64(i64 %103, i64 2147483647)
-  %105 = trunc i64 %104 to i32
+  %105 = trunc nsw i64 %104 to i32
   br label %106
 
 106:                                              ; preds = %101, %98
@@ -8972,7 +8972,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   %126 = sub i64 %39, %116
   %127 = tail call i64 @llvm.smax.i64(i64 %126, i64 -2147483648)
   %128 = tail call i64 @llvm.smin.i64(i64 %127, i64 2147483647)
-  %129 = trunc i64 %128 to i32
+  %129 = trunc nsw i64 %128 to i32
   br label %130
 
 130:                                              ; preds = %125, %119
@@ -9227,7 +9227,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   %23 = sub i64 %9, %14
   %24 = tail call i64 @llvm.smax.i64(i64 %23, i64 -2147483648)
   %25 = tail call i64 @llvm.smin.i64(i64 %24, i64 2147483647)
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nsw i64 %25 to i32
   br label %27
 
 27:                                               ; preds = %22, %17
@@ -9279,7 +9279,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   %55 = sub i64 %44, %43
   %56 = tail call i64 @llvm.smax.i64(i64 %55, i64 -2147483648)
   %57 = tail call i64 @llvm.smin.i64(i64 %56, i64 2147483647)
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nsw i64 %57 to i32
   br label %59
 
 59:                                               ; preds = %54, %48

@@ -69,7 +69,7 @@ for.end.loopexit:                                 ; preds = %for.body, %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %6 = phi ptr [ %0, %entry ], [ %.pre13.pre, %for.end.loopexit ]
+  %6 = phi ptr [ %1, %entry ], [ %.pre13.pre, %for.end.loopexit ]
   %7 = phi ptr [ %0, %entry ], [ %.pre, %for.end.loopexit ]
   %where.sroa.0.0 = phi ptr [ %0, %entry ], [ %where.sroa.0.0.ph, %for.end.loopexit ]
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %where.sroa.0.0 to i64

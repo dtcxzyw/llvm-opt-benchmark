@@ -184,10 +184,9 @@ define dso_local void @pin_kill(ptr noundef %0) local_unnamed_addr #0 align 16 {
   br i1 %31, label %32, label %23, !llvm.loop !8
 
 32:                                               ; preds = %27, %23
-  %.lcssa = phi ptr [ %25, %27 ], [ %22, %23 ]
-  %33 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %33 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %10, ptr %33, align 8
-  store ptr %.lcssa, ptr %10, align 8
+  store ptr %25, ptr %10, align 8
   store ptr %24, ptr %11, align 8
   store volatile ptr %10, ptr %24, align 8
   %34 = getelementptr inbounds i8, ptr %7, i64 24

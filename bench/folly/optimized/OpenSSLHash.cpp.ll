@@ -546,7 +546,7 @@ if.end18:                                         ; preds = %if.end11
   br i1 %cmp.i.i, label %if.end.i.i.thread, label %_ZN5folly9FormatArgC2ENS_5RangeIPKcEE.exit
 
 if.end.i.i.thread:                                ; preds = %if.end18
-  %add.ptr20283 = getelementptr inbounds i8, ptr %call3, i64 2
+  %add.ptr20283 = getelementptr inbounds i8, ptr %call15, i64 1
   br label %if.end.i.i.if.then23_crit_edge
 
 _ZN5folly9FormatArgC2ENS_5RangeIPKcEE.exit:       ; preds = %if.end18
@@ -748,7 +748,7 @@ if.then.i167:                                     ; preds = %for.body.i.i.i.i.i,
 
 _ZNR5folly8ExpectedIiNS_14ConversionCodeEEdeEv.exit: ; preds = %for.cond.i.i.i.i.i, %if.then.i.i.i165
   %result.sroa.6178.0.extract.shift = lshr i64 %call.i.i.i163, 32
-  %result.sroa.6178.0.extract.trunc = trunc i64 %result.sroa.6178.0.extract.shift to i32
+  %result.sroa.6178.0.extract.trunc = trunc nuw i64 %result.sroa.6178.0.extract.shift to i32
   %cmp55 = icmp slt i64 %call.i.i.i163, 0
   br i1 %cmp55, label %if.then.i172, label %if.end57, !prof !50
 
@@ -2074,7 +2074,7 @@ if.then.i7:                                       ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %24 = lshr i16 %23, 8
-  %conv8.i = trunc i16 %24 to i8
+  %conv8.i = trunc nuw i16 %24 to i8
   store i8 %conv8.i, ptr %outb, align 1, !tbaa !26
   br label %_ZN5folly6detail19to_ascii_with_routeILm10ENS_17to_ascii_alphabetILb0EEEEEmPcPKcm.exit
 
@@ -2141,7 +2141,7 @@ if.then26:                                        ; preds = %if.end8
   %2 = load i8, ptr %fill27, align 8, !tbaa !90
   %cmp29 = icmp eq i8 %2, 0
   %spec.select = select i1 %cmp29, i8 32, i8 %2
-  %3 = trunc i64 %.pre123 to i32
+  %3 = trunc nuw i64 %.pre123 to i32
   %conv34 = sub nsw i32 %0, %3
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %conv34, i32 128)
   %conv37 = sext i32 %.sroa.speculated to i64
@@ -2909,7 +2909,7 @@ if.then.i4.i:                                     ; preds = %while.end.i.i
 
 if.else.i.i:                                      ; preds = %while.end.i.i
   %22 = lshr i16 %21, 8
-  %conv8.i.i = trunc i16 %22 to i8
+  %conv8.i.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i.i, ptr %out, align 1, !tbaa !26
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit
 

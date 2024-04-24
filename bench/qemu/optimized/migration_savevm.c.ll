@@ -1533,7 +1533,6 @@ entry:
 
 land.rhs.preheader:                               ; preds = %entry
   %tobool.not.i.i = icmp eq ptr %vmsd, null
-  %priority.i.i = getelementptr inbounds i8, ptr %vmsd, i64 20
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %for.inc
@@ -1554,6 +1553,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %tobool.not.i.i, label %save_state_priority.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
+  %priority.i.i = getelementptr inbounds i8, ptr %2, i64 20
   %4 = load i32, ptr %priority.i.i, align 4
   br label %save_state_priority.exit.i
 

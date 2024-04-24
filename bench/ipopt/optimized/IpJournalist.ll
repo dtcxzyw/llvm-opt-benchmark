@@ -155,7 +155,7 @@ _ZSt8_DestroyIPN5Ipopt8SmartPtrINS0_7JournalEEES3_EvT_S5_RSaIT0_E.exitthread-pre
   br label %_ZSt8_DestroyIPN5Ipopt8SmartPtrINS0_7JournalEEES3_EvT_S5_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN5Ipopt8SmartPtrINS0_7JournalEEES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %1, %_ZSt8_DestroyIPN5Ipopt8SmartPtrINS0_7JournalEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorIN5Ipopt8SmartPtrINS0_7JournalEEESaIS3_EE5clearEv.exit
-  %34 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5Ipopt8SmartPtrINS0_7JournalEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %3, %_ZNSt6vectorIN5Ipopt8SmartPtrINS0_7JournalEEESaIS3_EE5clearEv.exit ], [ %3, %1 ]
+  %34 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5Ipopt8SmartPtrINS0_7JournalEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %_ZNSt6vectorIN5Ipopt8SmartPtrINS0_7JournalEEESaIS3_EE5clearEv.exit ], [ %3, %1 ]
   %.not.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5Ipopt8SmartPtrINS0_7JournalEEESaIS3_EED2Ev.exit, label %35
 
@@ -239,7 +239,7 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !6
 
 .critedge.loopexit.split.loop.exit77:             ; preds = %.lr.ph
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %.critedge.loopexit.split.loop.exit77, %.preheader53

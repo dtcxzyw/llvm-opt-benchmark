@@ -624,7 +624,7 @@ land.lhs.true48:                                  ; preds = %for.end
   br i1 %cmp, label %land.lhs.true50, label %if.end54
 
 land.lhs.true50:                                  ; preds = %land.lhs.true48
-  %call51 = tail call ptr @BN_copy(ptr noundef %in, ptr noundef %estimate.0) #2
+  %call51 = tail call ptr @BN_copy(ptr noundef %out_sqrt, ptr noundef %estimate.0) #2
   %tobool52.not = icmp ne ptr %call51, null
   %spec.select = zext i1 %tobool52.not to i32
   br label %if.end54

@@ -982,7 +982,7 @@ define internal fastcc i64 @__se_sys_rseq(i64 noundef %0, i64 noundef %1, i64 no
 
 29:                                               ; preds = %25
   %30 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %31 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, i32 0, i64 4, i64 %30) #10, !srcloc !51
+  %31 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %17, i32 0, i64 4, i64 %30) #10, !srcloc !51
   %32 = extractvalue { ptr, i64 } %31, 0
   %33 = extractvalue { ptr, i64 } %31, 1
   %34 = ptrtoint ptr %32 to i64

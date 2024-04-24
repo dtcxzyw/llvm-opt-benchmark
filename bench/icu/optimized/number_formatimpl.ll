@@ -398,7 +398,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -457,7 +457,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -1053,8 +1053,8 @@ if.else18:                                        ; preds = %if.else
 if.then24:                                        ; preds = %if.else18
   %fUnion.i = getelementptr inbounds i8, ptr %micros, i64 32
   %7 = load i16, ptr %fUnion.i, align 8
-  %conv2.i62 = and i16 %7, 1
-  %tobool.not = icmp eq i16 %conv2.i62, 0
+  %conv2.i65 = and i16 %7, 1
+  %tobool.not = icmp eq i16 %conv2.i65, 0
   br i1 %tobool.not, label %if.then26, label %if.else33
 
 if.then26:                                        ; preds = %if.then24
@@ -1170,7 +1170,7 @@ if.then63:                                        ; preds = %_ZN6icu_756number4i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then63
-  %call3.i61 = call noundef i32 @_ZN6icu_7522FormattedStringBuilder15insertCodePointEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %string, i32 noundef %index, i32 noundef %16, i8 32, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call3.i63 = call noundef i32 @_ZN6icu_7522FormattedStringBuilder15insertCodePointEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %string, i32 noundef %index, i32 noundef %16, i8 32, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end71
 
 if.end.i:                                         ; preds = %if.then63
@@ -1179,7 +1179,7 @@ if.end.i:                                         ; preds = %if.then63
   br label %if.end71
 
 if.end71:                                         ; preds = %if.end.i, %if.then.i, %invoke.cont15, %_ZN6icu_756number4impl19NumberFormatterImpl19writeFractionDigitsERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode.exit, %invoke.cont1
-  %length.1 = phi i32 [ %call2, %invoke.cont1 ], [ %call16, %invoke.cont15 ], [ %add61, %_ZN6icu_756number4impl19NumberFormatterImpl19writeFractionDigitsERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode.exit ], [ %call3.i61, %if.then.i ], [ %call8.i, %if.end.i ]
+  %length.1 = phi i32 [ %call2, %invoke.cont1 ], [ %call16, %invoke.cont15 ], [ %add61, %_ZN6icu_756number4impl19NumberFormatterImpl19writeFractionDigitsERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode.exit ], [ %call3.i63, %if.then.i ], [ %call8.i, %if.end.i ]
   ret i32 %length.1
 
 eh.resume:                                        ; preds = %lpad51, %lpad40, %lpad12, %lpad
@@ -3806,7 +3806,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %exhausted = getelementptr inbounds i8, ptr %this, i64 488
+  %exhausted = getelementptr inbounds i8, ptr %micros, i64 488
   store i8 1, ptr %exhausted, align 8
   br label %if.end
 

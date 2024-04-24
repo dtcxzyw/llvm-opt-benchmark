@@ -3626,7 +3626,7 @@ define internal fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point1
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit13"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit13": ; preds = %10, %14
-  %16 = phi ptr [ %15, %14 ], [ %3, %10 ]
+  %16 = phi ptr [ %15, %14 ], [ %7, %10 ]
   %.0.i12 = phi ptr [ %7, %14 ], [ null, %10 ]
   %17 = icmp ne ptr %.0.i12, null
   tail call void @llvm.assume(i1 %17)
@@ -3652,7 +3652,7 @@ define internal fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point1
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit15"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit15": ; preds = %26, %28
-  %30 = phi ptr [ %29, %28 ], [ %3, %26 ]
+  %30 = phi ptr [ %29, %28 ], [ %16, %26 ]
   %.0.i14 = phi ptr [ %16, %28 ], [ null, %26 ]
   %31 = icmp ne ptr %.0.i14, null
   tail call void @llvm.assume(i1 %31)

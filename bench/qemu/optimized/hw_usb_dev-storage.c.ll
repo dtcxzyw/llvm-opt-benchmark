@@ -655,7 +655,7 @@ if.then:                                          ; preds = %trace_usb_msd_cmd_c
   store i32 %10, ptr %tag6, align 4
   %status = getelementptr inbounds i8, ptr %1, i64 5892
   store i8 1, ptr %status, align 4
-  tail call void @scsi_req_unref(ptr noundef nonnull %req) #7
+  tail call void @scsi_req_unref(ptr noundef %9) #7
   store ptr null, ptr %req2, align 8
   %scsi_len = getelementptr inbounds i8, ptr %1, i64 5872
   store i32 0, ptr %scsi_len, align 8

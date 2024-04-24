@@ -1873,9 +1873,8 @@ _ZN6rustls4msgs9handshake19HelloRetryExtension8ext_type17hf33d2846287d81f7E.exit
   br i1 %.not17, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h517271da40a775c0E.llvm.15934541666227088301.exit.sink.split", label %.lr.ph
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h517271da40a775c0E.llvm.15934541666227088301.exit.sink.split": ; preds = %"_ZN6rustls4msgs9handshake17HelloRetryRequest21has_unknown_extension28_$u7b$$u7b$closure$u7d$$u7d$17hdc4277869126cc40E.llvm.15934541666227088301.exit.backedge", %_ZN6rustls4msgs9handshake19HelloRetryExtension8ext_type17hf33d2846287d81f7E.exit.i
-  %.sink = phi ptr [ %5, %_ZN6rustls4msgs9handshake19HelloRetryExtension8ext_type17hf33d2846287d81f7E.exit.i ], [ %3, %"_ZN6rustls4msgs9handshake17HelloRetryRequest21has_unknown_extension28_$u7b$$u7b$closure$u7d$$u7d$17hdc4277869126cc40E.llvm.15934541666227088301.exit.backedge" ]
   %.lcssa.ph = phi i1 [ true, %_ZN6rustls4msgs9handshake19HelloRetryExtension8ext_type17hf33d2846287d81f7E.exit.i ], [ false, %"_ZN6rustls4msgs9handshake17HelloRetryRequest21has_unknown_extension28_$u7b$$u7b$closure$u7d$$u7d$17hdc4277869126cc40E.llvm.15934541666227088301.exit.backedge" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !438
+  store ptr %5, ptr %0, align 8, !alias.scope !438
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h517271da40a775c0E.llvm.15934541666227088301.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h517271da40a775c0E.llvm.15934541666227088301.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h517271da40a775c0E.llvm.15934541666227088301.exit.sink.split", %1
@@ -1968,9 +1967,8 @@ _ZN6rustls4msgs9handshake19HelloRetryExtension8ext_type17hf33d2846287d81f7E.exit
   br i1 %25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h517271da40a775c0E.llvm.15934541666227088301.exit.thread.sink.split", label %10
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h517271da40a775c0E.llvm.15934541666227088301.exit.thread.sink.split": ; preds = %"_ZN6rustls4msgs9handshake17HelloRetryRequest14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17h291d0eb62af29a23E.exit.thread9", %_ZN6rustls4msgs9handshake19HelloRetryExtension8ext_type17hf33d2846287d81f7E.exit.i
-  %.sink = phi ptr [ %12, %_ZN6rustls4msgs9handshake19HelloRetryExtension8ext_type17hf33d2846287d81f7E.exit.i ], [ %4, %"_ZN6rustls4msgs9handshake17HelloRetryRequest14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17h291d0eb62af29a23E.exit.thread9" ]
   %.0.ph = phi ptr [ %11, %_ZN6rustls4msgs9handshake19HelloRetryExtension8ext_type17hf33d2846287d81f7E.exit.i ], [ null, %"_ZN6rustls4msgs9handshake17HelloRetryRequest14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17h291d0eb62af29a23E.exit.thread9" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !452
+  store ptr %12, ptr %0, align 8, !alias.scope !452
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h517271da40a775c0E.llvm.15934541666227088301.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h517271da40a775c0E.llvm.15934541666227088301.exit.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h517271da40a775c0E.llvm.15934541666227088301.exit.thread.sink.split", %2
@@ -2086,9 +2084,8 @@ _ZN6rustls4msgs9handshake15ClientExtension8ext_type17h9e184a34ef0da354E.exit.i: 
   br i1 %36, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h71ea778f50f82195E.llvm.15934541666227088301.exit.thread.sink.split", label %10
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h71ea778f50f82195E.llvm.15934541666227088301.exit.thread.sink.split": ; preds = %"_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17h4eb5595beb4347f9E.llvm.15934541666227088301.exit.thread10", %_ZN6rustls4msgs9handshake15ClientExtension8ext_type17h9e184a34ef0da354E.exit.i
-  %.sink = phi ptr [ %12, %_ZN6rustls4msgs9handshake15ClientExtension8ext_type17h9e184a34ef0da354E.exit.i ], [ %4, %"_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17h4eb5595beb4347f9E.llvm.15934541666227088301.exit.thread10" ]
   %.0.ph = phi ptr [ %11, %_ZN6rustls4msgs9handshake15ClientExtension8ext_type17h9e184a34ef0da354E.exit.i ], [ null, %"_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17h4eb5595beb4347f9E.llvm.15934541666227088301.exit.thread10" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !458
+  store ptr %12, ptr %0, align 8, !alias.scope !458
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h71ea778f50f82195E.llvm.15934541666227088301.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h71ea778f50f82195E.llvm.15934541666227088301.exit.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h71ea778f50f82195E.llvm.15934541666227088301.exit.thread.sink.split", %2
@@ -2135,9 +2132,8 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..
   br i1 %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6fd728ba771376c3E.exit.thread.sink.split", label %10
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6fd728ba771376c3E.exit.thread.sink.split": ; preds = %"_ZN6rustls4msgs9handshake28NewSessionTicketPayloadTls1314find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7b18128df1bba16E.exit.thread9", %18
-  %.lcssa21.sink = phi ptr [ %12, %18 ], [ %4, %"_ZN6rustls4msgs9handshake28NewSessionTicketPayloadTls1314find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7b18128df1bba16E.exit.thread9" ]
   %.0.ph = phi ptr [ %11, %18 ], [ null, %"_ZN6rustls4msgs9handshake28NewSessionTicketPayloadTls1314find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7b18128df1bba16E.exit.thread9" ]
-  store ptr %.lcssa21.sink, ptr %0, align 8, !alias.scope !468
+  store ptr %12, ptr %0, align 8, !alias.scope !468
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6fd728ba771376c3E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6fd728ba771376c3E.exit.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6fd728ba771376c3E.exit.thread.sink.split", %2
@@ -2199,9 +2195,8 @@ _ZN6rustls4msgs9handshake16CertReqExtension8ext_type17hb413f1cee989e952E.llvm.15
   br i1 %24, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha131b712d54311b6E.exit.thread.sink.split", label %10
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha131b712d54311b6E.exit.thread.sink.split": ; preds = %"_ZN6rustls4msgs9handshake30CertificateRequestPayloadTls1314find_extension28_$u7b$$u7b$closure$u7d$$u7d$17h5fb16413bd7e430cE.exit.thread9", %_ZN6rustls4msgs9handshake16CertReqExtension8ext_type17hb413f1cee989e952E.llvm.15934541666227088301.exit.i
-  %.sink = phi ptr [ %12, %_ZN6rustls4msgs9handshake16CertReqExtension8ext_type17hb413f1cee989e952E.llvm.15934541666227088301.exit.i ], [ %4, %"_ZN6rustls4msgs9handshake30CertificateRequestPayloadTls1314find_extension28_$u7b$$u7b$closure$u7d$$u7d$17h5fb16413bd7e430cE.exit.thread9" ]
   %.0.ph = phi ptr [ %11, %_ZN6rustls4msgs9handshake16CertReqExtension8ext_type17hb413f1cee989e952E.llvm.15934541666227088301.exit.i ], [ null, %"_ZN6rustls4msgs9handshake30CertificateRequestPayloadTls1314find_extension28_$u7b$$u7b$closure$u7d$$u7d$17h5fb16413bd7e430cE.exit.thread9" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !474
+  store ptr %12, ptr %0, align 8, !alias.scope !474
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha131b712d54311b6E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha131b712d54311b6E.exit.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha131b712d54311b6E.exit.thread.sink.split", %2
@@ -2297,7 +2292,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br i1 %10, label %12, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$rustls_pki_types..server_name..DnsName$GT$$GT$17h762252d387c475caE.llvm.15934541666227088301.exit"
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$rustls_pki_types..server_name..DnsName$GT$$GT$17h762252d387c475caE.llvm.15934541666227088301.exit"
-  store ptr %5, ptr %1, align 8, !alias.scope !480
+  store ptr %8, ptr %1, align 8, !alias.scope !480
   br label %11
 
 11:                                               ; preds = %._crit_edge, %3

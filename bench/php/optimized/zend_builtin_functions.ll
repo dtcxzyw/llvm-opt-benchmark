@@ -4061,7 +4061,7 @@ define internal fastcc void @class_exists_impl(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_class_exists_1(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) #0 {
+define hidden void @zflf_class_exists_1(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4161,7 +4161,8 @@ define hidden void @zflf_class_exists_1(ptr nocapture noundef writeonly %0, ptr 
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %.thread, %47
-  call void @zval_ptr_dtor(ptr noundef nonnull %3) #13
+  %.136 = phi ptr [ %3, %.thread ], [ %.033, %47 ]
+  call void @zval_ptr_dtor(ptr noundef nonnull %.136) #13
   br label %51
 
 51:                                               ; preds = %50, %47
@@ -4298,7 +4299,7 @@ define internal fastcc void @_class_exists_impl(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_class_exists_2(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef %2) #0 {
+define hidden void @zflf_class_exists_2(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
@@ -4388,7 +4389,8 @@ define hidden void @zflf_class_exists_2(ptr nocapture noundef writeonly %0, ptr 
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %.thread, %37
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #13
+  %.163 = phi ptr [ %4, %.thread ], [ %.057, %37 ]
+  call void @zval_ptr_dtor(ptr noundef nonnull %.163) #13
   br label %40
 
 40:                                               ; preds = %39, %37

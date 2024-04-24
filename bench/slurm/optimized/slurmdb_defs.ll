@@ -1320,7 +1320,7 @@ define void @slurmdb_free_assoc_rec_members(ptr noundef %0) local_unnamed_addr #
   br label %37
 
 37:                                               ; preds = %36, %30
-  %38 = phi ptr [ %.pre, %36 ], [ %33, %30 ]
+  %38 = phi ptr [ %.pre, %36 ], [ %35, %30 ]
   store ptr null, ptr %32, align 8
   tail call void @slurmdb_destroy_assoc_usage(ptr noundef %38)
   %39 = getelementptr inbounds i8, ptr %0, i64 328

@@ -285,7 +285,7 @@ define noundef i32 @_ZNK11BigUnsigned13toUnsignedIntEv(ptr nocapture noundef non
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %4
-  %10 = trunc i64 %7 to i32
+  %10 = trunc nuw i64 %7 to i32
   br label %_ZNK11BigUnsigned18convertToPrimitiveIjEET_v.exit
 
 11:                                               ; preds = %4, %1
@@ -316,7 +316,7 @@ define noundef zeroext i16 @_ZNK11BigUnsigned15toUnsignedShortEv(ptr nocapture n
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %4
-  %10 = trunc i64 %7 to i16
+  %10 = trunc nuw i64 %7 to i16
   br label %_ZNK11BigUnsigned18convertToPrimitiveItEET_v.exit
 
 11:                                               ; preds = %4, %1
@@ -931,7 +931,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %106, %118
   br label %135
 
 .preheader83:                                     ; preds = %148
-  %128 = trunc i64 %indvars.iv.next to i32
+  %128 = trunc nuw i64 %indvars.iv.next to i32
   %129 = load i32, ptr %107, align 4
   %130 = icmp ugt i32 %129, %128
   %131 = select i1 %130, i1 %.055.in, i1 false
@@ -975,7 +975,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %106, %118
   br i1 %153, label %135, label %.preheader83, !llvm.loop !13
 
 .preheader.loopexit:                              ; preds = %160
-  %154 = trunc i64 %indvars.iv.next101 to i32
+  %154 = trunc nuw i64 %indvars.iv.next101 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader83.thread, %.preheader.loopexit, %.preheader83
@@ -1023,7 +1023,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %106, %118
   br i1 %180, label %172, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %172
-  %181 = trunc i64 %indvars.iv.next104 to i32
+  %181 = trunc nuw i64 %indvars.iv.next104 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -1256,7 +1256,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %82, %91
   br label %107
 
 .preheader64:                                     ; preds = %120
-  %100 = trunc i64 %indvars.iv.next to i32
+  %100 = trunc nuw i64 %indvars.iv.next to i32
   %101 = load i32, ptr %51, align 4
   %102 = icmp ugt i32 %101, %100
   %103 = select i1 %102, i1 %.046.in, i1 false
@@ -1317,7 +1317,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %82, %91
   br i1 %137, label %126, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %126
-  %138 = trunc i64 %indvars.iv.next80 to i32
+  %138 = trunc nuw i64 %indvars.iv.next80 to i32
   br i1 %130, label %144, label %.preheader
 
 ._crit_edge:                                      ; preds = %.preheader64
@@ -1567,7 +1567,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %57, %67
 
 .preheader59:                                     ; preds = %.preheader59.lr.ph, %138
   %indvars.iv75 = phi i64 [ 0, %.preheader59.lr.ph ], [ %indvars.iv.next76, %138 ]
-  %84 = trunc i64 %indvars.iv75 to i32
+  %84 = trunc nuw i64 %indvars.iv75 to i32
   br label %85
 
 85:                                               ; preds = %.preheader59, %.loopexit
@@ -1896,7 +1896,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %_ZN15NumberlikeArra
   %93 = and i64 %indvars.iv.next131, 4294967295
   %94 = getelementptr inbounds i64, ptr %92, i64 %93
   store i64 0, ptr %94, align 8
-  %95 = trunc i64 %indvars.iv130 to i32
+  %95 = trunc nuw i64 %indvars.iv130 to i32
   br label %96
 
 96:                                               ; preds = %91, %.loopexit
@@ -1983,7 +1983,7 @@ _Z15getShiftedBlockRK11BigUnsignedjj.exit:        ; preds = %115, %118
   br i1 %137, label %130, label %._crit_edge.loopexit, !llvm.loop !28
 
 ._crit_edge.loopexit:                             ; preds = %130
-  %138 = trunc i64 %indvars.iv.next122 to i32
+  %138 = trunc nuw i64 %indvars.iv.next122 to i32
   br i1 %133, label %.loopexit, label %139
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -2407,7 +2407,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %47, %61
   br label %76
 
 .preheader.loopexit:                              ; preds = %76
-  %70 = trunc i64 %indvars.iv.next to i32
+  %70 = trunc nuw i64 %indvars.iv.next to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %_ZN15NumberlikeArrayImE8allocateEj.exit
@@ -2607,7 +2607,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %47, %61
   br label %76
 
 .preheader.loopexit:                              ; preds = %76
-  %70 = trunc i64 %indvars.iv.next to i32
+  %70 = trunc nuw i64 %indvars.iv.next to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %_ZN15NumberlikeArrayImE8allocateEj.exit
@@ -2694,7 +2694,7 @@ define void @_ZN11BigUnsigned12bitShiftLeftERKS_i(ptr noundef nonnull align 8 de
 
 6:                                                ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  invoke void @_ZN11BigUnsigned12bitShiftLeftERKS_i(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %2)
+  invoke void @_ZN11BigUnsigned12bitShiftLeftERKS_i(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2)
           to label %7 unwind label %40
 
 7:                                                ; preds = %6
@@ -2955,7 +2955,7 @@ define void @_ZN11BigUnsigned13bitShiftRightERKS_i(ptr noundef nonnull align 8 d
 
 6:                                                ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  invoke void @_ZN11BigUnsigned13bitShiftRightERKS_i(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %2)
+  invoke void @_ZN11BigUnsigned13bitShiftRightERKS_i(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2)
           to label %7 unwind label %40
 
 7:                                                ; preds = %6

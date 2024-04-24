@@ -540,24 +540,25 @@ Vec_PtrFree.exit:                                 ; preds = %41
   %92 = load ptr, ptr %8, align 8
   store ptr %92, ptr %3, align 8
   tail call void @free(ptr noundef nonnull %5) #22
-  %93 = load i8, ptr %.161, align 1
+  %93 = load i8, ptr %.2, align 1
   switch i8 %93, label %.loopexit [
     i8 59, label %94
     i8 35, label %.preheader
   ]
 
 94:                                               ; preds = %Vec_PtrFree.exit
+  %95 = getelementptr inbounds i8, ptr %.2, i64 1
   br label %.loopexit
 
 .preheader:                                       ; preds = %Vec_PtrFree.exit, %.preheader
-  %.379 = phi ptr [ %95, %.preheader ], [ %.161, %Vec_PtrFree.exit ]
-  %95 = getelementptr inbounds i8, ptr %.379, i64 1
-  %.pr = load i8, ptr %95, align 1
+  %.379 = phi ptr [ %96, %.preheader ], [ %.2, %Vec_PtrFree.exit ]
+  %96 = getelementptr inbounds i8, ptr %.379, i64 1
+  %.pr = load i8, ptr %96, align 1
   %.not72 = icmp eq i8 %.pr, 0
   br i1 %.not72, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %Vec_PtrFree.exit, %94
-  %.4 = phi ptr [ %19, %94 ], [ %.161, %Vec_PtrFree.exit ], [ %95, %.preheader ]
+  %.4 = phi ptr [ %95, %94 ], [ %.2, %Vec_PtrFree.exit ], [ %96, %.preheader ]
   ret ptr %.4
 }
 
@@ -1021,7 +1022,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #22
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #22
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1040,7 +1041,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1155,7 +1156,7 @@ define void @CmdCommandPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   br i1 %.not.us, label %._crit_edge, label %.critedge.us, !llvm.loop !20
 
 ._crit_edge.loopexit151:                          ; preds = %.critedge
-  %26 = trunc i64 %indvars.iv.next to i32
+  %26 = trunc nuw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24, %._crit_edge.loopexit151, %3
@@ -1293,7 +1294,7 @@ define void @CmdCommandPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   %fputc119 = call i32 @fputc(i32 10, ptr %78)
   %79 = load ptr, ptr %39, align 8
   %80 = call i64 @fwrite(ptr nonnull @.str.26, i64 73, i64 1, ptr %79)
-  %81 = trunc i64 %indvars.iv161 to i32
+  %81 = trunc nuw nsw i64 %indvars.iv161 to i32
   %.pre173 = load ptr, ptr %39, align 8
   br label %82
 
@@ -1460,7 +1461,7 @@ define void @CmdPrintTable(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   br i1 %.not22, label %._crit_edge, label %.critedge
 
 ._crit_edge.loopexit:                             ; preds = %.critedge
-  %12 = trunc i64 %indvars.iv.next to i32
+  %12 = trunc nuw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
@@ -1852,19 +1853,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #5
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #16
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #16
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr, i32) local_unnamed_addr #17

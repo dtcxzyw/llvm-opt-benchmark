@@ -327,8 +327,7 @@ define void @_ZN21RenderPluginContainer25RenderPluginRangeIterator5beginEv(ptr d
   br i1 %33, label %_ZN19ConstPluginIteratorI12RenderPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit.loopexit, label %.preheader.i.i, !llvm.loop !7
 
 _ZN19ConstPluginIteratorI12RenderPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit.loopexit: ; preds = %25, %.preheader.i.i
-  %.lcssa = phi ptr [ %24, %25 ], [ %13, %.preheader.i.i ]
-  store ptr %.lcssa, ptr %9, align 8
+  store ptr %24, ptr %9, align 8
   br label %_ZN19ConstPluginIteratorI12RenderPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit
 
 _ZN19ConstPluginIteratorI12RenderPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit: ; preds = %_ZN19ConstPluginIteratorI12RenderPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit.loopexit, %2, %14

@@ -324,10 +324,10 @@ if.end41:                                         ; preds = %if.then38, %if.end3
   %add.ptr = getelementptr inbounds i8, ptr %dictBuffer, i64 %call42
   %sub43 = sub i64 %dictBufferCapacity, %call42
   %call45 = call i64 @ZDICT_finalizeDictionary(ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %add.ptr, i64 noundef %sub43, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %zParams) #23
-  %cmp.i25 = icmp ult i64 %call45, -119
+  %cmp.i26 = icmp ult i64 %call45, -119
   %31 = load i32, ptr @g_displayLevel, align 4
   %cmp49 = icmp sgt i32 %31, 1
-  %or.cond = select i1 %cmp.i25, i1 %cmp49, i1 false
+  %or.cond = select i1 %cmp.i26, i1 %cmp49, i1 false
   br i1 %or.cond, label %if.then50, label %if.end54
 
 if.then50:                                        ; preds = %if.end41
@@ -339,48 +339,48 @@ if.then50:                                        ; preds = %if.end41
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then50, %if.end41
-  %suffix.i28 = getelementptr inbounds i8, ptr %ctx, i64 48
-  %34 = load ptr, ptr %suffix.i28, align 8
-  %tobool1.not.i29 = icmp eq ptr %34, null
-  br i1 %tobool1.not.i29, label %if.end5.i31, label %if.then2.i30
+  %suffix.i30 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %34 = load ptr, ptr %suffix.i30, align 8
+  %tobool1.not.i31 = icmp eq ptr %34, null
+  br i1 %tobool1.not.i31, label %if.end5.i33, label %if.then2.i32
 
-if.then2.i30:                                     ; preds = %if.end54
+if.then2.i32:                                     ; preds = %if.end54
   call void @free(ptr noundef nonnull %34) #23
-  store ptr null, ptr %suffix.i28, align 8
-  br label %if.end5.i31
+  store ptr null, ptr %suffix.i30, align 8
+  br label %if.end5.i33
 
-if.end5.i31:                                      ; preds = %if.then2.i30, %if.end54
+if.end5.i33:                                      ; preds = %if.then2.i32, %if.end54
   %35 = load ptr, ptr %freqs, align 8
-  %tobool6.not.i33 = icmp eq ptr %35, null
-  br i1 %tobool6.not.i33, label %if.end10.i35, label %if.then7.i34
+  %tobool6.not.i35 = icmp eq ptr %35, null
+  br i1 %tobool6.not.i35, label %if.end10.i37, label %if.then7.i36
 
-if.then7.i34:                                     ; preds = %if.end5.i31
+if.then7.i36:                                     ; preds = %if.end5.i33
   call void @free(ptr noundef nonnull %35) #23
   store ptr null, ptr %freqs, align 8
-  br label %if.end10.i35
+  br label %if.end10.i37
 
-if.end10.i35:                                     ; preds = %if.then7.i34, %if.end5.i31
-  %dmerAt.i36 = getelementptr inbounds i8, ptr %ctx, i64 72
-  %36 = load ptr, ptr %dmerAt.i36, align 8
-  %tobool11.not.i37 = icmp eq ptr %36, null
-  br i1 %tobool11.not.i37, label %if.end15.i39, label %if.then12.i38
+if.end10.i37:                                     ; preds = %if.then7.i36, %if.end5.i33
+  %dmerAt.i38 = getelementptr inbounds i8, ptr %ctx, i64 72
+  %36 = load ptr, ptr %dmerAt.i38, align 8
+  %tobool11.not.i39 = icmp eq ptr %36, null
+  br i1 %tobool11.not.i39, label %if.end15.i41, label %if.then12.i40
 
-if.then12.i38:                                    ; preds = %if.end10.i35
+if.then12.i40:                                    ; preds = %if.end10.i37
   call void @free(ptr noundef nonnull %36) #23
-  store ptr null, ptr %dmerAt.i36, align 8
-  br label %if.end15.i39
+  store ptr null, ptr %dmerAt.i38, align 8
+  br label %if.end15.i41
 
-if.end15.i39:                                     ; preds = %if.then12.i38, %if.end10.i35
-  %offsets.i40 = getelementptr inbounds i8, ptr %ctx, i64 8
-  %37 = load ptr, ptr %offsets.i40, align 8
-  %tobool16.not.i41 = icmp eq ptr %37, null
-  br i1 %tobool16.not.i41, label %COVER_map_destroy.exit, label %if.then17.i42
+if.end15.i41:                                     ; preds = %if.then12.i40, %if.end10.i37
+  %offsets.i42 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %37 = load ptr, ptr %offsets.i42, align 8
+  %tobool16.not.i43 = icmp eq ptr %37, null
+  br i1 %tobool16.not.i43, label %COVER_map_destroy.exit, label %if.then17.i44
 
-if.then17.i42:                                    ; preds = %if.end15.i39
+if.then17.i44:                                    ; preds = %if.end15.i41
   call void @free(ptr noundef nonnull %37) #23
   br label %COVER_map_destroy.exit
 
-COVER_map_destroy.exit:                           ; preds = %if.end15.i39, %if.then17.i42
+COVER_map_destroy.exit:                           ; preds = %if.end15.i41, %if.then17.i44
   call void @free(ptr noundef nonnull %call5.i) #23
   br label %return
 
@@ -799,7 +799,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   br i1 %cmp.not.i.i.i, label %COVER_lower_bound.exit.i.i, label %while.body.i.i.i, !llvm.loop !12
 
 COVER_lower_bound.exit.i.i:                       ; preds = %while.body.i.i.i, %if.then11.i.i
-  %first.addr.0.lcssa.i.i.i = phi ptr [ %add.ptr.i.i, %if.then11.i.i ], [ %first.addr.1.i.i.i, %while.body.i.i.i ]
+  %first.addr.0.lcssa.i.i.i = phi ptr [ %curOffsetPtr.018.i.i, %if.then11.i.i ], [ %first.addr.1.i.i.i, %while.body.i.i.i ]
   %56 = load i64, ptr %first.addr.0.lcssa.i.i.i, align 8
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %first.addr.0.lcssa.i.i.i, i64 8
   br label %for.inc.i.i
@@ -1791,8 +1791,8 @@ entry:
   %sub = select i1 %cmp17, i32 1950, i32 0
   %div = udiv i32 %sub, %cond35
   %cond42 = tail call i32 @llvm.umax.i32(i32 %div, i32 1)
-  %div46.lhs.trunc = trunc i32 %sub to i16
-  %div46.rhs.trunc = trunc i32 %cond42 to i16
+  %div46.lhs.trunc = trunc nuw nsw i32 %sub to i16
+  %div46.rhs.trunc = trunc nuw nsw i32 %cond42 to i16
   %div46140 = udiv i16 %div46.lhs.trunc, %div46.rhs.trunc
   %narrow = add nuw nsw i16 %div46140, 1
   %add47 = zext nneg i16 %narrow to i32

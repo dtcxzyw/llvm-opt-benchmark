@@ -412,7 +412,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -471,7 +471,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -3764,8 +3764,8 @@ invoke.cont38:                                    ; preds = %if.else36
 invoke.cont40:                                    ; preds = %invoke.cont38
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp37) #26
   %add = add nuw nsw i32 %call2.i6566, 1
-  %sub.i67 = sub nuw nsw i32 2147483646, %call2.i6566
-  invoke void @_ZNK6icu_7513UnicodeString13tempSubStringEii(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.tmp41, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef %add, i32 noundef %sub.i67)
+  %sub.i68 = sub nuw nsw i32 2147483646, %call2.i6566
+  invoke void @_ZNK6icu_7513UnicodeString13tempSubStringEii(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.tmp41, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef %add, i32 noundef %sub.i68)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %invoke.cont40
@@ -3854,8 +3854,8 @@ invoke.cont75:                                    ; preds = %invoke.cont72
           to label %while.cond.preheader unwind label %lpad74.loopexit.split-lp
 
 while.cond.preheader:                             ; preds = %invoke.cont75
-  %cmp7969 = fcmp ugt double %call76, %call78
-  br i1 %cmp7969, label %while.end, label %while.body.lr.ph
+  %cmp7970 = fcmp ugt double %call76, %call78
+  br i1 %cmp7970, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %sub = sub nsw i32 0, %call63
@@ -3869,10 +3869,10 @@ while.body.preheader:                             ; preds = %while.body.lr.ph
   br label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %_ZN6icu_756number4impl6DecNumD2Ev.exit.us
-  %dblValue73.071.us = phi double [ %call117.us, %_ZN6icu_756number4impl6DecNumD2Ev.exit.us ], [ %call76, %while.body.lr.ph ]
-  %sampleCount.270.us = phi i32 [ %sampleCount.3.us, %_ZN6icu_756number4impl6DecNumD2Ev.exit.us ], [ %sampleCount.0, %while.body.lr.ph ]
-  %21 = call double @llvm.floor.f64(double %dblValue73.071.us)
-  %cmp82.us = fcmp oeq double %dblValue73.071.us, %21
+  %dblValue73.072.us = phi double [ %call117.us, %_ZN6icu_756number4impl6DecNumD2Ev.exit.us ], [ %call76, %while.body.lr.ph ]
+  %sampleCount.271.us = phi i32 [ %sampleCount.3.us, %_ZN6icu_756number4impl6DecNumD2Ev.exit.us ], [ %sampleCount.0, %while.body.lr.ph ]
+  %21 = call double @llvm.floor.f64(double %dblValue73.072.us)
+  %cmp82.us = fcmp oeq double %dblValue73.072.us, %21
   br i1 %cmp82.us, label %land.lhs.true83.us, label %if.then87.us
 
 land.lhs.true83.us:                               ; preds = %while.body.us
@@ -3884,14 +3884,14 @@ invoke.cont84.us:                                 ; preds = %land.lhs.true83.us
   br i1 %cmp86.us, label %if.end98.us, label %if.then87.us
 
 if.then87.us:                                     ; preds = %invoke.cont84.us, %while.body.us
-  %inc88.us = add nsw i32 %sampleCount.270.us, 1
-  %idxprom89.us = sext i32 %sampleCount.270.us to i64
+  %inc88.us = add nsw i32 %sampleCount.271.us, 1
+  %idxprom89.us = sext i32 %sampleCount.271.us to i64
   %arrayidx90.us = getelementptr inbounds double, ptr %destDbl, i64 %idxprom89.us
-  store double %dblValue73.071.us, ptr %arrayidx90.us, align 8
+  store double %dblValue73.072.us, ptr %arrayidx90.us, align 8
   br label %if.end98.us
 
 if.end98.us:                                      ; preds = %if.then87.us, %invoke.cont84.us
-  %sampleCount.3.us = phi i32 [ %sampleCount.270.us, %invoke.cont84.us ], [ %inc88.us, %if.then87.us ]
+  %sampleCount.3.us = phi i32 [ %sampleCount.271.us, %invoke.cont84.us ], [ %inc88.us, %if.then87.us ]
   %cmp99.not.us = icmp slt i32 %sampleCount.3.us, %destCapacity
   br i1 %cmp99.not.us, label %if.end101.us, label %while.end
 
@@ -3900,7 +3900,7 @@ if.end101.us:                                     ; preds = %if.end98.us
           to label %invoke.cont103.us unwind label %lpad74.loopexit.split.us
 
 invoke.cont103.us:                                ; preds = %if.end101.us
-  %add102.us = fadd double %call70, %dblValue73.071.us
+  %add102.us = fadd double %call70, %dblValue73.072.us
   invoke void @_ZN6icu_756number4impl6DecNum5setToEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(92) %newDqDecNum, double noundef %add102.us, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont105.us unwind label %lpad104.split.us
 
@@ -3973,7 +3973,7 @@ terminate.lpad.i.i.split.us:                      ; preds = %if.then.i.i.i.us
 
 while.body:                                       ; preds = %while.body.preheader, %_ZN6icu_756number4impl6DecNumD2Ev.exit
   %indvars.iv = phi i64 [ %19, %while.body.preheader ], [ %indvars.iv.next, %_ZN6icu_756number4impl6DecNumD2Ev.exit ]
-  %dblValue73.071 = phi double [ %call76, %while.body.preheader ], [ %call117, %_ZN6icu_756number4impl6DecNumD2Ev.exit ]
+  %dblValue73.072 = phi double [ %call76, %while.body.preheader ], [ %call117, %_ZN6icu_756number4impl6DecNumD2Ev.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx95 = getelementptr inbounds %"class.icu_75::number::impl::DecimalQuantity", ptr %destDq, i64 %indvars.iv
   %call97 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %arrayidx95, ptr noundef nonnull align 8 dereferenceable(66) %dq71)
@@ -4003,7 +4003,7 @@ if.end101:                                        ; preds = %if.end98
           to label %invoke.cont103 unwind label %lpad74.loopexit.split
 
 invoke.cont103:                                   ; preds = %if.end101
-  %add102 = fadd double %call70, %dblValue73.071
+  %add102 = fadd double %call70, %dblValue73.072
   invoke void @_ZN6icu_756number4impl6DecNum5setToEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(92) %newDqDecNum, double noundef %add102, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont105 unwind label %lpad104.split
 
@@ -4056,14 +4056,14 @@ terminate.lpad.i.i.split:                         ; preds = %if.then.i.i.i
   br label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %terminate.lpad.i.i.split.us, %terminate.lpad.i.i.split
-  %.us-phi76 = phi { ptr, i32 } [ %30, %terminate.lpad.i.i.split ], [ %26, %terminate.lpad.i.i.split.us ]
-  %31 = extractvalue { ptr, i32 } %.us-phi76, 0
+  %.us-phi77 = phi { ptr, i32 } [ %30, %terminate.lpad.i.i.split ], [ %26, %terminate.lpad.i.i.split.us ]
+  %31 = extractvalue { ptr, i32 } %.us-phi77, 0
   call void @__clang_call_terminate(ptr %31) #28
   unreachable
 
 _ZN6icu_756number4impl6DecNumD2Ev.exit:           ; preds = %invoke.cont118, %if.then.i.i.i
   %cmp79 = fcmp ugt double %call117, %call78
-  br i1 %cmp79, label %while.end.loopexit87.split.loop.exit91, label %while.body, !llvm.loop !41
+  br i1 %cmp79, label %while.end.loopexit88.split.loop.exit92, label %while.body, !llvm.loop !41
 
 lpad104.split:                                    ; preds = %invoke.cont105, %invoke.cont103
   %32 = landingpad { ptr, i32 }
@@ -4076,21 +4076,21 @@ lpad107.split:                                    ; preds = %invoke.cont116, %in
   br label %lpad107
 
 lpad107:                                          ; preds = %lpad107.split.us, %lpad107.split
-  %.us-phi75 = phi { ptr, i32 } [ %33, %lpad107.split ], [ %25, %lpad107.split.us ]
+  %.us-phi76 = phi { ptr, i32 } [ %33, %lpad107.split ], [ %25, %lpad107.split.us ]
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %newDq) #26
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad104.split, %lpad104.split.us, %lpad107
-  %.pn = phi { ptr, i32 } [ %.us-phi75, %lpad107 ], [ %32, %lpad104.split ], [ %24, %lpad104.split.us ]
+  %.pn = phi { ptr, i32 } [ %.us-phi76, %lpad107 ], [ %32, %lpad104.split ], [ %24, %lpad104.split.us ]
   call void @_ZN6icu_756number4impl6DecNumD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %newDqDecNum) #26
   br label %ehcleanup120
 
-while.end.loopexit87.split.loop.exit91:           ; preds = %_ZN6icu_756number4impl6DecNumD2Ev.exit
+while.end.loopexit88.split.loop.exit92:           ; preds = %_ZN6icu_756number4impl6DecNumD2Ev.exit
   %34 = trunc nsw i64 %indvars.iv.next to i32
   br label %while.end
 
-while.end:                                        ; preds = %if.end98, %_ZN6icu_756number4impl6DecNumD2Ev.exit.us, %if.end98.us, %while.end.loopexit87.split.loop.exit91, %while.cond.preheader
-  %sampleCount.4 = phi i32 [ %sampleCount.0, %while.cond.preheader ], [ %34, %while.end.loopexit87.split.loop.exit91 ], [ %sampleCount.3.us, %if.end98.us ], [ %sampleCount.3.us, %_ZN6icu_756number4impl6DecNumD2Ev.exit.us ], [ %smax, %if.end98 ]
+while.end:                                        ; preds = %if.end98, %_ZN6icu_756number4impl6DecNumD2Ev.exit.us, %if.end98.us, %while.end.loopexit88.split.loop.exit92, %while.cond.preheader
+  %sampleCount.4 = phi i32 [ %sampleCount.0, %while.cond.preheader ], [ %34, %while.end.loopexit88.split.loop.exit92 ], [ %sampleCount.3.us, %if.end98.us ], [ %sampleCount.3.us, %_ZN6icu_756number4impl6DecNumD2Ev.exit.us ], [ %smax, %if.end98 ]
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %dq71) #26
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %incrementDq) #26
   br label %cleanup

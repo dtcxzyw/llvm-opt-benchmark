@@ -224,7 +224,7 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
   store i32 %78, ptr %79, align 4
   %80 = getelementptr inbounds i8, ptr %1, i64 32
   store i32 0, ptr %80, align 8
-  store ptr %9, ptr %1, align 8
+  store ptr %36, ptr %1, align 8
   br label %cast_is_allowed.exit.thread
 
 81:                                               ; preds = %63

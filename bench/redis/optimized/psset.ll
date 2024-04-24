@@ -207,7 +207,7 @@ if.end.i:                                         ; preds = %if.else5
   tail call void @llvm.assume(i1 %cmp.i.i)
   %2 = add nsw i64 %call7, -1
   %3 = tail call i64 @llvm.ctlz.i64(i64 %2, i1 false), !range !8
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw nsw i64 %3 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %4)
   %cmp4.i = icmp ugt i32 %4, 49
   %add.i = add nuw nsw i32 %cond.i, 11
@@ -288,7 +288,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i15, label %if.then.i, label %if.end.i16
 
 if.then.i:                                        ; preds = %if.then
-  %2 = getelementptr inbounds i8, ptr %ps, i64 40
+  %2 = getelementptr inbounds i8, ptr %1, i64 40
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %empty, align 8
   br label %if.end.i16
@@ -341,7 +341,7 @@ if.end.i:                                         ; preds = %if.else3
   tail call void @llvm.assume(i1 %cmp.i.i)
   %20 = add nsw i64 %call5, -1
   %21 = tail call i64 @llvm.ctlz.i64(i64 %20, i1 false), !range !8
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw nsw i64 %21 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %22)
   %cmp4.i = icmp ugt i32 %22, 49
   %add.i = add nuw nsw i32 %cond.i, 11
@@ -413,7 +413,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %4 = add nsw i64 %call4.i, -1
   %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 false), !range !8
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %6)
   %cmp4.i.i = icmp ugt i32 %6, 49
   %add.i.i = add nuw nsw i32 %cond.i.i, 11
@@ -447,7 +447,7 @@ psset_purge_list_ind.exit:                        ; preds = %if.then.i, %sz_psz2
   br i1 %cmp.i6, label %if.then.i8, label %if.end.i7
 
 if.then.i8:                                       ; preds = %psset_purge_list_ind.exit
-  %ql_link_purge.i = getelementptr inbounds i8, ptr %ps, i64 64
+  %ql_link_purge.i = getelementptr inbounds i8, ptr %15, i64 64
   %16 = load ptr, ptr %ql_link_purge.i, align 8
   store ptr %16, ptr %arrayidx, align 8
   br label %if.end.i7
@@ -582,7 +582,7 @@ if.then9:                                         ; preds = %land.lhs.true7
   br i1 %cmp.i27, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then9
-  %ql_link_hugify.i29 = getelementptr inbounds i8, ptr %ps, i64 80
+  %ql_link_hugify.i29 = getelementptr inbounds i8, ptr %12, i64 80
   %13 = load ptr, ptr %ql_link_hugify.i29, align 8
   store ptr %13, ptr %to_hugify10, align 8
   br label %if.end.i
@@ -657,7 +657,7 @@ if.end.i:                                         ; preds = %if.else5
   tail call void @llvm.assume(i1 %cmp.i.i)
   %2 = add nsw i64 %call7, -1
   %3 = tail call i64 @llvm.ctlz.i64(i64 %2, i1 false), !range !8
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw nsw i64 %3 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %4)
   %cmp4.i = icmp ugt i32 %4, 49
   %add.i = add nuw nsw i32 %cond.i, 11
@@ -779,7 +779,7 @@ if.end.i:                                         ; preds = %if.else3
   tail call void @llvm.assume(i1 %cmp.i.i)
   %14 = add nsw i64 %call5, -1
   %15 = tail call i64 @llvm.ctlz.i64(i64 %14, i1 false), !range !8
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw nsw i64 %15 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %16)
   %cmp4.i = icmp ugt i32 %16, 49
   %add.i = add nuw nsw i32 %cond.i, 11
@@ -853,7 +853,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %4 = add nsw i64 %call4.i, -1
   %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 false), !range !8
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %6)
   %cmp4.i.i = icmp ugt i32 %6, 49
   %add.i.i = add nuw nsw i32 %cond.i.i, 11
@@ -949,7 +949,7 @@ if.end.i:                                         ; preds = %entry
   tail call void @llvm.assume(i1 %cmp.i.i)
   %0 = add nsw i64 %call, -1
   %1 = tail call i64 @llvm.ctlz.i64(i64 %0, i1 false), !range !8
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %2)
   %cmp4.i = icmp ugt i32 %2, 49
   %add.i = add nuw nsw i32 %cond.i, 11
@@ -1149,7 +1149,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then2
-  %ql_link_hugify.i = getelementptr inbounds i8, ptr %ps, i64 80
+  %ql_link_hugify.i = getelementptr inbounds i8, ptr %2, i64 80
   %3 = load ptr, ptr %ql_link_hugify.i, align 8
   store ptr %3, ptr %to_hugify, align 8
   br label %if.end.i

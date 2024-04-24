@@ -2363,13 +2363,13 @@ if.else:                                          ; preds = %for.body
 if.then.i.i:                                      ; preds = %if.else
   %15 = load i32, ptr %NumNonEmpty.i.i.i, align 4, !noalias !6
   %idx.ext.i.i = zext i32 %15 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %13, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %14, i64 %idx.ext.i.i
   %cmp.not26.i.i = icmp eq i32 %15, 0
   br i1 %cmp.not26.i.i, label %if.end16.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %if.end.i.i
   %LastTombstone.028.i.i = phi ptr [ %spec.select.i.i, %if.end.i.i ], [ null, %if.then.i.i ]
-  %APtr.027.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %13, %if.then.i.i ]
+  %APtr.027.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %14, %if.then.i.i ]
   %16 = load ptr, ptr %APtr.027.i.i, align 8, !noalias !6
   %cmp3.i.i = icmp eq ptr %16, %12
   br i1 %cmp3.i.i, label %_ZN4llvh15SmallPtrSetImplIPN6hermes7LiteralEE6insertES3_.exit, label %if.end.i.i

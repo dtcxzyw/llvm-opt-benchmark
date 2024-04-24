@@ -761,7 +761,7 @@ define dso_local i64 @clocksource_stop_suspend_timing(ptr noundef readnone %0, i
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.pre = phi ptr [ %.pre.pre, %7 ], [ %0, %5 ]
+  %.pre = phi ptr [ %.pre.pre, %7 ], [ %3, %5 ]
   %11 = phi i64 [ %9, %7 ], [ %1, %5 ]
   %12 = load i64, ptr @suspend_start, align 8
   %13 = icmp ugt i64 %11, %12
@@ -1006,7 +1006,7 @@ define dso_local void @__clocksource_update_freq_scale(ptr nocapture noundef %0,
   %65 = zext i32 %64 to i64
   %66 = mul nuw nsw i64 %65, 11
   %67 = udiv i64 %66, 100
-  %68 = trunc i64 %67 to i32
+  %68 = trunc nuw nsw i64 %67 to i32
   br label %.loopexit
 
 .thread.thread:                                   ; preds = %.loopexit6, %.thread, %56
@@ -1026,7 +1026,7 @@ define dso_local void @__clocksource_update_freq_scale(ptr nocapture noundef %0,
   %75 = zext i32 %74 to i64
   %76 = mul nuw nsw i64 %75, 11
   %77 = udiv i64 %76, 100
-  %78 = trunc i64 %77 to i32
+  %78 = trunc nuw nsw i64 %77 to i32
   br i1 %.not, label %.loopexit, label %79
 
 79:                                               ; preds = %72
@@ -1049,7 +1049,7 @@ define dso_local void @__clocksource_update_freq_scale(ptr nocapture noundef %0,
   %90 = zext nneg i32 %88 to i64
   %91 = mul nuw nsw i64 %90, 11
   %92 = udiv i64 %91, 100
-  %93 = trunc i64 %92 to i32
+  %93 = trunc nuw nsw i64 %92 to i32
   %94 = icmp ult i32 %88, %93
   br i1 %94, label %85, label %..loopexit_crit_edge
 

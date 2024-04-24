@@ -2493,7 +2493,7 @@ _ZN7QStringD2Ev.exit12:                           ; preds = %_ZN7QStringD2Ev.exi
   br i1 %31, label %41, label %60
 
 41:                                               ; preds = %_ZN7QStringD2Ev.exit12
-  %42 = trunc i64 %indvars.iv to i32
+  %42 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 -1, ptr %8, align 8
   %43 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 -1, ptr %43, align 4
@@ -2662,7 +2662,7 @@ _ZN7QStringD2Ev.exit12:                           ; preds = %_ZN7QStringD2Ev.exi
   br i1 %31, label %41, label %60
 
 41:                                               ; preds = %_ZN7QStringD2Ev.exit12
-  %42 = trunc i64 %indvars.iv to i32
+  %42 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 -1, ptr %8, align 8
   %43 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 -1, ptr %43, align 4
@@ -2817,32 +2817,30 @@ _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i:     ; preds = %33, %_ZN17QArrayDat
   %36 = icmp ne ptr %.pre.i.i, %30
   %37 = getelementptr inbounds i8, ptr %0, i64 40
   %38 = load i64, ptr %37, align 8
-  %39 = and i64 %38, 2305843009213693951
-  %.not.i.i.i = icmp eq i64 %39, 1
-  %or.cond.i1 = select i1 %36, i1 true, i1 %.not.i.i.i
-  br i1 %or.cond.i1, label %_ZSt7destroyIP7QStringEvT_S2_.exit._crit_edge.i.i.i, label %40
+  %39 = getelementptr %class.QString, ptr %.pre.i.i, i64 %38
+  %.not.i.i.i = icmp eq ptr %35, %39
+  %or.cond.i.i.i = select i1 %36, i1 true, i1 %.not.i.i.i
+  br i1 %or.cond.i.i.i, label %_ZSt7destroyIP7QStringEvT_S2_.exit._crit_edge.i.i.i, label %40
 
 40:                                               ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i
   store ptr %35, ptr %28, align 8
   br label %_ZN5QListI7QStringE8removeAtEx.exit
 
 _ZSt7destroyIP7QStringEvT_S2_.exit._crit_edge.i.i.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i
-  %41 = getelementptr %class.QString, ptr %.pre.i.i, i64 %38
-  %.not12.i.i.i = icmp eq ptr %35, %41
-  br i1 %.not12.i.i.i, label %_ZN5QListI7QStringE8removeAtEx.exit, label %42
+  br i1 %.not.i.i.i, label %_ZN5QListI7QStringE8removeAtEx.exit, label %41
 
-42:                                               ; preds = %_ZSt7destroyIP7QStringEvT_S2_.exit._crit_edge.i.i.i
-  %43 = ptrtoint ptr %41 to i64
-  %44 = ptrtoint ptr %35 to i64
-  %45 = sub i64 %43, %44
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %35, i64 %45, i1 false)
+41:                                               ; preds = %_ZSt7destroyIP7QStringEvT_S2_.exit._crit_edge.i.i.i
+  %42 = ptrtoint ptr %39 to i64
+  %43 = ptrtoint ptr %35 to i64
+  %44 = sub i64 %42, %43
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %35, i64 %44, i1 false)
   %.pre14.i.i.i = load i64, ptr %37, align 8
   br label %_ZN5QListI7QStringE8removeAtEx.exit
 
-_ZN5QListI7QStringE8removeAtEx.exit:              ; preds = %40, %_ZSt7destroyIP7QStringEvT_S2_.exit._crit_edge.i.i.i, %42
-  %46 = phi i64 [ %38, %_ZSt7destroyIP7QStringEvT_S2_.exit._crit_edge.i.i.i ], [ %.pre14.i.i.i, %42 ], [ %38, %40 ]
-  %47 = add i64 %46, -1
-  store i64 %47, ptr %37, align 8
+_ZN5QListI7QStringE8removeAtEx.exit:              ; preds = %40, %_ZSt7destroyIP7QStringEvT_S2_.exit._crit_edge.i.i.i, %41
+  %45 = phi i64 [ %38, %_ZSt7destroyIP7QStringEvT_S2_.exit._crit_edge.i.i.i ], [ %.pre14.i.i.i, %41 ], [ %38, %40 ]
+  %46 = add i64 %45, -1
+  store i64 %46, ptr %37, align 8
   call void @_ZN18QAbstractItemModel13endRemoveRowsEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   br label %.critedge
 

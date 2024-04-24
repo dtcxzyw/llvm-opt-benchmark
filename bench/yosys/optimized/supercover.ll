@@ -729,7 +729,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   store i32 %261, ptr %236, align 8
   %262 = load ptr, ptr %13, align 8
   %263 = getelementptr inbounds i32, ptr %262, i64 %259
-  %264 = trunc i64 %indvars.iv.i346 to i32
+  %264 = trunc nuw nsw i64 %indvars.iv.i346 to i32
   store i32 %264, ptr %263, align 4
   %indvars.iv.next.i352 = add nuw nsw i64 %indvars.iv.i346, 1
   %265 = load ptr, ptr %59, align 8
@@ -788,7 +788,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i281: ; preds 
 ._crit_edge.i.i270:                               ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i281, %.noexc283, %143
   %297 = phi ptr [ %150, %143 ], [ %273, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i281 ], [ %273, %.noexc283 ]
   %298 = phi ptr [ %151, %143 ], [ %274, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i281 ], [ %274, %.noexc283 ]
-  %299 = phi ptr [ %127, %143 ], [ %276, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i281 ], [ %275, %.noexc283 ]
+  %299 = phi ptr [ %127, %143 ], [ %276, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i281 ], [ %276, %.noexc283 ]
   %300 = phi i32 [ %149, %143 ], [ %296, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i281 ], [ 0, %.noexc283 ]
   %301 = sext i32 %300 to i64
   %302 = getelementptr inbounds i32, ptr %299, i64 %301
@@ -1305,7 +1305,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   store i32 %509, ptr %484, align 8
   %510 = load ptr, ptr %14, align 8
   %511 = getelementptr inbounds i32, ptr %510, i64 %507
-  %512 = trunc i64 %indvars.iv.i246 to i32
+  %512 = trunc nuw nsw i64 %indvars.iv.i246 to i32
   store i32 %512, ptr %511, align 4
   %indvars.iv.next.i249 = add nuw nsw i64 %indvars.iv.i246, 1
   %513 = load ptr, ptr %72, align 8
@@ -1360,7 +1360,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i: ; preds = %
 
 ._crit_edge.i.i:                                  ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i, %.noexc103, %386
   %542 = phi ptr [ %399, %386 ], [ %521, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i ], [ %521, %.noexc103 ]
-  %543 = phi ptr [ %383, %386 ], [ %523, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i ], [ %522, %.noexc103 ]
+  %543 = phi ptr [ %383, %386 ], [ %523, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i ], [ %523, %.noexc103 ]
   %544 = phi i32 [ %397, %386 ], [ %541, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i ], [ 0, %.noexc103 ]
   %545 = sext i32 %544 to i64
   %546 = getelementptr inbounds i32, ptr %543, i64 %545
@@ -2047,7 +2047,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   store i32 %809, ptr %784, align 8
   %810 = load ptr, ptr %14, align 8
   %811 = getelementptr inbounds i32, ptr %810, i64 %807
-  %812 = trunc i64 %indvars.iv.i256 to i32
+  %812 = trunc nuw nsw i64 %indvars.iv.i256 to i32
   store i32 %812, ptr %811, align 4
   %indvars.iv.next.i262 = add nuw nsw i64 %indvars.iv.i256, 1
   %813 = load ptr, ptr %72, align 8
@@ -3928,7 +3928,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   store i32 %69, ptr %44, align 8
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %67
-  %72 = trunc i64 %indvars.iv to i32
+  %72 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %72, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = load ptr, ptr %33, align 8
@@ -4852,7 +4852,7 @@ _ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE7do_hashERKS2_.exit: ; preds = %
   store i32 %65, ptr %44, align 8
   %66 = load ptr, ptr %0, align 8
   %67 = getelementptr inbounds i32, ptr %66, i64 %63
-  %68 = trunc i64 %indvars.iv to i32
+  %68 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %68, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load ptr, ptr %33, align 8

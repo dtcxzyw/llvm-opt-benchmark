@@ -439,7 +439,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
 
 103:                                              ; preds = %101, %93, %.lr.ph82.i
   %104 = phi i64 [ %91, %.lr.ph82.i ], [ %.pre.i, %101 ], [ %91, %93 ]
-  %.153.i = phi ptr [ %.05280.i, %.lr.ph82.i ], [ %100, %101 ], [ %.05280.i, %93 ]
+  %.153.i = phi ptr [ %.05280.i, %.lr.ph82.i ], [ %100, %101 ], [ %100, %93 ]
   %.1.i = phi i32 [ %.05181.i, %.lr.ph82.i ], [ %92, %101 ], [ %92, %93 ]
   %105 = getelementptr inbounds i8, ptr %89, i64 724
   %106 = load i32, ptr %105, align 4
@@ -724,7 +724,7 @@ define dso_local void @TrimCLOG() local_unnamed_addr #0 {
   %29 = getelementptr i8, ptr %26, i64 %28
   %notmask = shl nsw i32 -1, %19
   %30 = load i8, ptr %29, align 1
-  %31 = trunc i32 %notmask to i8
+  %31 = trunc nsw i32 %notmask to i8
   %32 = xor i8 %31, -1
   %33 = and i8 %30, %32
   store i8 %33, ptr %29, align 1
@@ -950,26 +950,26 @@ define internal fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, 
   br i1 %11, label %.lr.ph, label %.preheader..split24_crit_edge
 
 .preheader..split24_crit_edge:                    ; preds = %.preheader
-  %.pre60 = load ptr, ptr @XactCtlData, align 8
-  %.pre61 = sext i32 %8 to i64
+  %.pre63 = load ptr, ptr @XactCtlData, align 8
+  %.pre64 = sext i32 %8 to i64
   br label %.split24
 
 .lr.ph:                                           ; preds = %.preheader
   %12 = sext i32 %8 to i64
   %13 = shl i32 %8, 10
-  %wide.trip.count43 = zext nneg i32 %1 to i64
-  %.pre57 = load ptr, ptr @XactCtlData, align 8
+  %wide.trip.count46 = zext nneg i32 %1 to i64
+  %.pre60 = load ptr, ptr @XactCtlData, align 8
   br i1 %7, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %.pre59 = load i8, ptr @InRecovery, align 1
+  %.pre62 = load i8, ptr @InRecovery, align 1
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %TransactionIdSetStatusBit.exit30.us
-  %14 = phi i8 [ %.pre59, %.lr.ph.split.us.preheader ], [ %38, %TransactionIdSetStatusBit.exit30.us ]
-  %15 = phi ptr [ %.pre57, %.lr.ph.split.us.preheader ], [ %39, %TransactionIdSetStatusBit.exit30.us ]
-  %indvars.iv40 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next41, %TransactionIdSetStatusBit.exit30.us ]
-  %16 = getelementptr i32, ptr %2, i64 %indvars.iv40
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %TransactionIdSetStatusBit.exit33.us
+  %14 = phi i8 [ %.pre62, %.lr.ph.split.us.preheader ], [ %38, %TransactionIdSetStatusBit.exit33.us ]
+  %15 = phi ptr [ %.pre60, %.lr.ph.split.us.preheader ], [ %39, %TransactionIdSetStatusBit.exit33.us ]
+  %indvars.iv43 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next44, %TransactionIdSetStatusBit.exit33.us ]
+  %16 = getelementptr i32, ptr %2, i64 %indvars.iv43
   %17 = load i32, ptr %16, align 4
   %18 = lshr i32 %17, 2
   %19 = and i32 %18, 8191
@@ -987,24 +987,24 @@ define internal fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, 
   %31 = and i32 %30, 3
   %32 = trunc i8 %14 to i1
   %33 = icmp eq i32 %31, 1
-  %or.cond4.i29.us = select i1 %32, i1 %33, i1 false
-  br i1 %or.cond4.i29.us, label %TransactionIdSetStatusBit.exit30.us, label %34
+  %or.cond4.i32.us = select i1 %32, i1 %33, i1 false
+  br i1 %or.cond4.i32.us, label %TransactionIdSetStatusBit.exit33.us, label %34
 
 34:                                               ; preds = %.lr.ph.split.us
   %35 = shl nuw nsw i32 3, %21
-  %36 = trunc i32 %35 to i8
+  %36 = trunc nuw i32 %35 to i8
   %37 = or i8 %28, %36
   store i8 %37, ptr %27, align 1
-  %.pre56 = load ptr, ptr @XactCtlData, align 8
-  %.pre58 = load i8, ptr @InRecovery, align 1
-  br label %TransactionIdSetStatusBit.exit30.us
+  %.pre59 = load ptr, ptr @XactCtlData, align 8
+  %.pre61 = load i8, ptr @InRecovery, align 1
+  br label %TransactionIdSetStatusBit.exit33.us
 
-TransactionIdSetStatusBit.exit30.us:              ; preds = %34, %.lr.ph.split.us
-  %38 = phi i8 [ %.pre58, %34 ], [ %14, %.lr.ph.split.us ]
-  %39 = phi ptr [ %.pre56, %34 ], [ %15, %.lr.ph.split.us ]
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
-  br i1 %exitcond44.not, label %.split24, label %.lr.ph.split.us, !llvm.loop !14
+TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.us
+  %38 = phi i8 [ %.pre61, %34 ], [ %14, %.lr.ph.split.us ]
+  %39 = phi ptr [ %.pre59, %34 ], [ %15, %.lr.ph.split.us ]
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
+  br i1 %exitcond47.not, label %.split24, label %.lr.ph.split.us, !llvm.loop !14
 
 .split:                                           ; preds = %9
   %40 = and i32 %0, 32767
@@ -1033,7 +1033,7 @@ TransactionIdSetStatusBit.exit30.us:              ; preds = %34, %.lr.ph.split.u
 
 60:                                               ; preds = %.split
   %61 = shl nuw nsw i32 3, %43
-  %62 = trunc i32 %61 to i8
+  %62 = trunc nuw i32 %61 to i8
   %63 = xor i8 %62, -1
   %64 = and i8 %52, %63
   %65 = shl i32 %3, %43
@@ -1055,9 +1055,9 @@ TransactionIdSetStatusBit.exit30.us:              ; preds = %34, %.lr.ph.split.u
   %78 = icmp ult i64 %77, %4
   br i1 %78, label %TransactionIdSetStatusBit.exit.sink.split, label %TransactionIdSetStatusBit.exit
 
-.split24:                                         ; preds = %TransactionIdSetStatusBit.exit30, %TransactionIdSetStatusBit.exit30.us, %.preheader..split24_crit_edge
-  %.pre-phi = phi i64 [ %.pre61, %.preheader..split24_crit_edge ], [ %12, %TransactionIdSetStatusBit.exit30.us ], [ %12, %TransactionIdSetStatusBit.exit30 ]
-  %79 = phi ptr [ %.pre60, %.preheader..split24_crit_edge ], [ %39, %TransactionIdSetStatusBit.exit30.us ], [ %143, %TransactionIdSetStatusBit.exit30 ]
+.split24:                                         ; preds = %TransactionIdSetStatusBit.exit33, %TransactionIdSetStatusBit.exit33.us, %.preheader..split24_crit_edge
+  %.pre-phi = phi i64 [ %.pre64, %.preheader..split24_crit_edge ], [ %12, %TransactionIdSetStatusBit.exit33.us ], [ %12, %TransactionIdSetStatusBit.exit33 ]
+  %79 = phi ptr [ %.pre63, %.preheader..split24_crit_edge ], [ %39, %TransactionIdSetStatusBit.exit33.us ], [ %143, %TransactionIdSetStatusBit.exit33 ]
   %80 = and i32 %0, 32767
   %81 = lshr i32 %80, 2
   %82 = shl i32 %0, 1
@@ -1070,11 +1070,11 @@ TransactionIdSetStatusBit.exit30.us:              ; preds = %34, %.lr.ph.split.u
   %89 = getelementptr i8, ptr %87, i64 %88
   %90 = load i8, ptr %89, align 1
   %91 = shl nuw nsw i32 3, %83
-  %92 = trunc i32 %91 to i8
+  %92 = trunc nuw i32 %91 to i8
   %93 = xor i8 %92, -1
   %94 = and i8 %90, %93
   %95 = shl nuw nsw i32 1, %83
-  %96 = trunc i32 %95 to i8
+  %96 = trunc nuw nsw i32 %95 to i8
   %97 = or i8 %94, %96
   store i8 %97, ptr %89, align 1
   br i1 %7, label %TransactionIdSetStatusBit.exit, label %98
@@ -1092,9 +1092,9 @@ TransactionIdSetStatusBit.exit30.us:              ; preds = %34, %.lr.ph.split.u
   %108 = icmp ult i64 %107, %4
   br i1 %108, label %TransactionIdSetStatusBit.exit.sink.split, label %TransactionIdSetStatusBit.exit
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %TransactionIdSetStatusBit.exit30
-  %109 = phi ptr [ %143, %TransactionIdSetStatusBit.exit30 ], [ %.pre57, %.lr.ph ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %TransactionIdSetStatusBit.exit30 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %TransactionIdSetStatusBit.exit33
+  %109 = phi ptr [ %143, %TransactionIdSetStatusBit.exit33 ], [ %.pre60, %.lr.ph ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %TransactionIdSetStatusBit.exit33 ], [ 0, %.lr.ph ]
   %110 = getelementptr i32, ptr %2, i64 %indvars.iv
   %111 = load i32, ptr %110, align 4
   %112 = and i32 %111, 32767
@@ -1114,12 +1114,12 @@ TransactionIdSetStatusBit.exit30.us:              ; preds = %34, %.lr.ph.split.u
   %126 = load i8, ptr @InRecovery, align 1
   %127 = trunc i8 %126 to i1
   %128 = icmp eq i32 %125, 1
-  %or.cond4.i29 = select i1 %127, i1 %128, i1 false
-  br i1 %or.cond4.i29, label %TransactionIdSetStatusBit.exit30, label %129
+  %or.cond4.i32 = select i1 %127, i1 %128, i1 false
+  br i1 %or.cond4.i32, label %TransactionIdSetStatusBit.exit33, label %129
 
 129:                                              ; preds = %.lr.ph.split
   %130 = shl nuw nsw i32 3, %115
-  %131 = trunc i32 %130 to i8
+  %131 = trunc nuw i32 %130 to i8
   %132 = or i8 %122, %131
   store i8 %132, ptr %121, align 1
   %133 = lshr i32 %112, 5
@@ -1131,17 +1131,17 @@ TransactionIdSetStatusBit.exit30.us:              ; preds = %34, %.lr.ph.split.u
   %139 = getelementptr i64, ptr %137, i64 %138
   %140 = load i64, ptr %139, align 8
   %141 = icmp ult i64 %140, %4
-  br i1 %141, label %142, label %TransactionIdSetStatusBit.exit30
+  br i1 %141, label %142, label %TransactionIdSetStatusBit.exit33
 
 142:                                              ; preds = %129
   store i64 %4, ptr %139, align 8
   %.pre = load ptr, ptr @XactCtlData, align 8
-  br label %TransactionIdSetStatusBit.exit30
+  br label %TransactionIdSetStatusBit.exit33
 
-TransactionIdSetStatusBit.exit30:                 ; preds = %.lr.ph.split, %129, %142
+TransactionIdSetStatusBit.exit33:                 ; preds = %.lr.ph.split, %129, %142
   %143 = phi ptr [ %109, %.lr.ph.split ], [ %135, %129 ], [ %.pre, %142 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count43
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
   br i1 %exitcond.not, label %.split24, label %.lr.ph.split, !llvm.loop !14
 
 TransactionIdSetStatusBit.exit.sink.split:        ; preds = %98, %68
@@ -1151,30 +1151,30 @@ TransactionIdSetStatusBit.exit.sink.split:        ; preds = %98, %68
 
 TransactionIdSetStatusBit.exit:                   ; preds = %TransactionIdSetStatusBit.exit.sink.split, %98, %.split24, %68, %60, %.split, %6
   %144 = icmp sgt i32 %1, 0
-  br i1 %144, label %.lr.ph36, label %TransactionIdSetStatusBit.exit.._crit_edge_crit_edge
+  br i1 %144, label %.lr.ph39, label %TransactionIdSetStatusBit.exit.._crit_edge_crit_edge
 
 TransactionIdSetStatusBit.exit.._crit_edge_crit_edge: ; preds = %TransactionIdSetStatusBit.exit
-  %.pre68 = load ptr, ptr @XactCtlData, align 8
-  %.pre69 = sext i32 %8 to i64
+  %.pre71 = load ptr, ptr @XactCtlData, align 8
+  %.pre72 = sext i32 %8 to i64
   br label %._crit_edge
 
-.lr.ph36:                                         ; preds = %TransactionIdSetStatusBit.exit
+.lr.ph39:                                         ; preds = %TransactionIdSetStatusBit.exit
   %145 = sext i32 %8 to i64
   %146 = icmp eq i32 %3, 3
   %147 = shl i32 %8, 10
-  %wide.trip.count53 = zext nneg i32 %1 to i64
-  %.pre65 = load ptr, ptr @XactCtlData, align 8
-  br i1 %7, label %.lr.ph36.split.us.preheader, label %.lr.ph36.split
+  %wide.trip.count56 = zext nneg i32 %1 to i64
+  %.pre68 = load ptr, ptr @XactCtlData, align 8
+  br i1 %7, label %.lr.ph39.split.us.preheader, label %.lr.ph39.split
 
-.lr.ph36.split.us.preheader:                      ; preds = %.lr.ph36
-  %.pre67 = load i8, ptr @InRecovery, align 1
-  br label %.lr.ph36.split.us
+.lr.ph39.split.us.preheader:                      ; preds = %.lr.ph39
+  %.pre70 = load i8, ptr @InRecovery, align 1
+  br label %.lr.ph39.split.us
 
-.lr.ph36.split.us:                                ; preds = %.lr.ph36.split.us.preheader, %TransactionIdSetStatusBit.exit33.us
-  %148 = phi i8 [ %.pre67, %.lr.ph36.split.us.preheader ], [ %176, %TransactionIdSetStatusBit.exit33.us ]
-  %149 = phi ptr [ %.pre65, %.lr.ph36.split.us.preheader ], [ %177, %TransactionIdSetStatusBit.exit33.us ]
-  %indvars.iv50 = phi i64 [ 0, %.lr.ph36.split.us.preheader ], [ %indvars.iv.next51, %TransactionIdSetStatusBit.exit33.us ]
-  %150 = getelementptr i32, ptr %2, i64 %indvars.iv50
+.lr.ph39.split.us:                                ; preds = %.lr.ph39.split.us.preheader, %TransactionIdSetStatusBit.exit36.us
+  %148 = phi i8 [ %.pre70, %.lr.ph39.split.us.preheader ], [ %176, %TransactionIdSetStatusBit.exit36.us ]
+  %149 = phi ptr [ %.pre68, %.lr.ph39.split.us.preheader ], [ %177, %TransactionIdSetStatusBit.exit36.us ]
+  %indvars.iv53 = phi i64 [ 0, %.lr.ph39.split.us.preheader ], [ %indvars.iv.next54, %TransactionIdSetStatusBit.exit36.us ]
+  %150 = getelementptr i32, ptr %2, i64 %indvars.iv53
   %151 = load i32, ptr %150, align 4
   %152 = lshr i32 %151, 2
   %153 = and i32 %152, 8191
@@ -1191,35 +1191,35 @@ TransactionIdSetStatusBit.exit.._crit_edge_crit_edge: ; preds = %TransactionIdSe
   %164 = ashr i32 %163, %155
   %165 = and i32 %164, 3
   %166 = trunc i8 %148 to i1
-  %or.cond.i31.us = and i1 %146, %166
+  %or.cond.i34.us = and i1 %146, %166
   %167 = icmp eq i32 %165, 1
-  %or.cond4.i32.us = select i1 %or.cond.i31.us, i1 %167, i1 false
-  br i1 %or.cond4.i32.us, label %TransactionIdSetStatusBit.exit33.us, label %168
+  %or.cond4.i35.us = select i1 %or.cond.i34.us, i1 %167, i1 false
+  br i1 %or.cond4.i35.us, label %TransactionIdSetStatusBit.exit36.us, label %168
 
-168:                                              ; preds = %.lr.ph36.split.us
+168:                                              ; preds = %.lr.ph39.split.us
   %169 = shl nuw nsw i32 3, %155
-  %170 = trunc i32 %169 to i8
+  %170 = trunc nuw i32 %169 to i8
   %171 = xor i8 %170, -1
   %172 = and i8 %162, %171
   %173 = shl i32 %3, %155
   %174 = trunc i32 %173 to i8
   %175 = or i8 %172, %174
   store i8 %175, ptr %161, align 1
-  %.pre64 = load ptr, ptr @XactCtlData, align 8
-  %.pre66 = load i8, ptr @InRecovery, align 1
-  br label %TransactionIdSetStatusBit.exit33.us
+  %.pre67 = load ptr, ptr @XactCtlData, align 8
+  %.pre69 = load i8, ptr @InRecovery, align 1
+  br label %TransactionIdSetStatusBit.exit36.us
 
-TransactionIdSetStatusBit.exit33.us:              ; preds = %168, %.lr.ph36.split.us
-  %176 = phi i8 [ %.pre66, %168 ], [ %148, %.lr.ph36.split.us ]
-  %177 = phi ptr [ %.pre64, %168 ], [ %149, %.lr.ph36.split.us ]
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
-  br i1 %exitcond54.not, label %._crit_edge, label %.lr.ph36.split.us, !llvm.loop !15
+TransactionIdSetStatusBit.exit36.us:              ; preds = %168, %.lr.ph39.split.us
+  %176 = phi i8 [ %.pre69, %168 ], [ %148, %.lr.ph39.split.us ]
+  %177 = phi ptr [ %.pre67, %168 ], [ %149, %.lr.ph39.split.us ]
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph39.split.us, !llvm.loop !15
 
-.lr.ph36.split:                                   ; preds = %.lr.ph36, %TransactionIdSetStatusBit.exit33
-  %178 = phi ptr [ %216, %TransactionIdSetStatusBit.exit33 ], [ %.pre65, %.lr.ph36 ]
-  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %TransactionIdSetStatusBit.exit33 ], [ 0, %.lr.ph36 ]
-  %179 = getelementptr i32, ptr %2, i64 %indvars.iv45
+.lr.ph39.split:                                   ; preds = %.lr.ph39, %TransactionIdSetStatusBit.exit36
+  %178 = phi ptr [ %216, %TransactionIdSetStatusBit.exit36 ], [ %.pre68, %.lr.ph39 ]
+  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %TransactionIdSetStatusBit.exit36 ], [ 0, %.lr.ph39 ]
+  %179 = getelementptr i32, ptr %2, i64 %indvars.iv48
   %180 = load i32, ptr %179, align 4
   %181 = and i32 %180, 32767
   %182 = lshr i32 %181, 2
@@ -1237,14 +1237,14 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %168, %.lr.ph36.spli
   %194 = and i32 %193, 3
   %195 = load i8, ptr @InRecovery, align 1
   %196 = trunc i8 %195 to i1
-  %or.cond.i31 = and i1 %146, %196
+  %or.cond.i34 = and i1 %146, %196
   %197 = icmp eq i32 %194, 1
-  %or.cond4.i32 = select i1 %or.cond.i31, i1 %197, i1 false
-  br i1 %or.cond4.i32, label %TransactionIdSetStatusBit.exit33, label %198
+  %or.cond4.i35 = select i1 %or.cond.i34, i1 %197, i1 false
+  br i1 %or.cond4.i35, label %TransactionIdSetStatusBit.exit36, label %198
 
-198:                                              ; preds = %.lr.ph36.split
+198:                                              ; preds = %.lr.ph39.split
   %199 = shl nuw nsw i32 3, %184
-  %200 = trunc i32 %199 to i8
+  %200 = trunc nuw i32 %199 to i8
   %201 = xor i8 %200, -1
   %202 = and i8 %191, %201
   %203 = shl i32 %3, %184
@@ -1260,25 +1260,25 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %168, %.lr.ph36.spli
   %212 = getelementptr i64, ptr %210, i64 %211
   %213 = load i64, ptr %212, align 8
   %214 = icmp ult i64 %213, %4
-  br i1 %214, label %215, label %TransactionIdSetStatusBit.exit33
+  br i1 %214, label %215, label %TransactionIdSetStatusBit.exit36
 
 215:                                              ; preds = %198
   store i64 %4, ptr %212, align 8
-  %.pre62 = load ptr, ptr @XactCtlData, align 8
-  br label %TransactionIdSetStatusBit.exit33
+  %.pre65 = load ptr, ptr @XactCtlData, align 8
+  br label %TransactionIdSetStatusBit.exit36
 
-TransactionIdSetStatusBit.exit33:                 ; preds = %.lr.ph36.split, %198, %215
-  %216 = phi ptr [ %178, %.lr.ph36.split ], [ %208, %198 ], [ %.pre62, %215 ]
-  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count53
-  br i1 %exitcond49.not, label %._crit_edge, label %.lr.ph36.split, !llvm.loop !15
+TransactionIdSetStatusBit.exit36:                 ; preds = %.lr.ph39.split, %198, %215
+  %216 = phi ptr [ %178, %.lr.ph39.split ], [ %208, %198 ], [ %.pre65, %215 ]
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count56
+  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph39.split, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %TransactionIdSetStatusBit.exit33, %TransactionIdSetStatusBit.exit33.us, %TransactionIdSetStatusBit.exit.._crit_edge_crit_edge
-  %.pre-phi70 = phi i64 [ %.pre69, %TransactionIdSetStatusBit.exit.._crit_edge_crit_edge ], [ %145, %TransactionIdSetStatusBit.exit33.us ], [ %145, %TransactionIdSetStatusBit.exit33 ]
-  %217 = phi ptr [ %.pre68, %TransactionIdSetStatusBit.exit.._crit_edge_crit_edge ], [ %177, %TransactionIdSetStatusBit.exit33.us ], [ %216, %TransactionIdSetStatusBit.exit33 ]
+._crit_edge:                                      ; preds = %TransactionIdSetStatusBit.exit36, %TransactionIdSetStatusBit.exit36.us, %TransactionIdSetStatusBit.exit.._crit_edge_crit_edge
+  %.pre-phi73 = phi i64 [ %.pre72, %TransactionIdSetStatusBit.exit.._crit_edge_crit_edge ], [ %145, %TransactionIdSetStatusBit.exit36.us ], [ %145, %TransactionIdSetStatusBit.exit36 ]
+  %217 = phi ptr [ %.pre71, %TransactionIdSetStatusBit.exit.._crit_edge_crit_edge ], [ %177, %TransactionIdSetStatusBit.exit36.us ], [ %216, %TransactionIdSetStatusBit.exit36 ]
   %218 = getelementptr inbounds i8, ptr %217, i64 24
   %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr i8, ptr %219, i64 %.pre-phi70
+  %220 = getelementptr i8, ptr %219, i64 %.pre-phi73
   store i8 1, ptr %220, align 1
   ret void
 }

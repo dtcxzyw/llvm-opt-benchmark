@@ -234,7 +234,7 @@ define dso_local void @xhci_ring_free(ptr nocapture noundef readonly %0, ptr nou
   br i1 %50, label %.loopexit9, label %.preheader, !llvm.loop !19
 
 .loopexit9:                                       ; preds = %46, %36, %28
-  %51 = phi ptr [ %.pre, %36 ], [ %26, %28 ], [ %48, %46 ]
+  %51 = phi ptr [ %.pre, %36 ], [ %26, %28 ], [ %49, %46 ]
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, %51
@@ -827,7 +827,7 @@ define dso_local i32 @xhci_ring_expansion(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %112, label %.thread10, label %113
 
 113:                                              ; preds = %110
-  %114 = load ptr, ptr %106, align 8
+  %114 = load ptr, ptr %108, align 8
   %115 = getelementptr i8, ptr %114, i64 4092
   %116 = load i32, ptr %115, align 4
   %117 = and i32 %116, -3
@@ -1342,7 +1342,7 @@ define dso_local noundef ptr @xhci_alloc_stream_info(ptr nocapture noundef %0, i
 
 82:                                               ; preds = %.preheader
   %83 = getelementptr inbounds i8, ptr %80, i64 68
-  %84 = trunc i64 %indvars.iv to i32
+  %84 = trunc nuw i64 %indvars.iv to i32
   store i32 %84, ptr %83, align 4
   %85 = getelementptr inbounds i8, ptr %80, i64 96
   store ptr %69, ptr %85, align 8
@@ -4487,7 +4487,7 @@ define internal fastcc noundef i32 @xhci_add_interrupter(ptr noundef %0, ptr nou
   %49 = or disjoint i32 %48, %42
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %49, ptr elementtype(i32) %46) #18, !srcloc !82
   %50 = lshr i64 %44, 32
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw i64 %50 to i32
   %52 = getelementptr i8, ptr %45, i64 20
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %51, ptr elementtype(i32) %52) #18, !srcloc !82
   %53 = load ptr, ptr %1, align 8
@@ -4513,7 +4513,7 @@ define internal fastcc noundef i32 @xhci_add_interrupter(ptr noundef %0, ptr nou
   %67 = and i32 %66, -16
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %67, ptr elementtype(i32) %65) #18, !srcloc !82
   %68 = lshr i64 %58, 32
-  %69 = trunc i64 %68 to i32
+  %69 = trunc nuw i64 %68 to i32
   %70 = getelementptr i8, ptr %64, i64 28
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %69, ptr elementtype(i32) %70) #18, !srcloc !82
   br label %71
@@ -4616,7 +4616,7 @@ define dso_local noundef i32 @xhci_mem_init(ptr noundef %0, i32 noundef %1) loca
   %60 = trunc i64 %57 to i32
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %60, ptr elementtype(i32) %59) #18, !srcloc !82
   %61 = lshr i64 %57, 32
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw i64 %61 to i32
   %63 = getelementptr i8, ptr %58, i64 52
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %62, ptr elementtype(i32) %63) #18, !srcloc !82
   %64 = getelementptr inbounds i8, ptr %0, i64 2488
@@ -4700,7 +4700,7 @@ define dso_local noundef i32 @xhci_mem_init(ptr noundef %0, i32 noundef %1) loca
   %122 = trunc i64 %119 to i32
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %122, ptr elementtype(i32) %121) #18, !srcloc !82
   %123 = lshr i64 %113, 32
-  %124 = trunc i64 %123 to i32
+  %124 = trunc nuw i64 %123 to i32
   %125 = getelementptr i8, ptr %120, i64 28
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %124, ptr elementtype(i32) %125) #18, !srcloc !82
   %126 = getelementptr inbounds i8, ptr %0, i64 184
@@ -5156,7 +5156,7 @@ define internal fastcc noundef i32 @xhci_setup_port_arrays(ptr noundef %0, i32 n
   %150 = load ptr, ptr %149, align 8
   %151 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %147) #18, !srcloc !81
   %152 = lshr i32 %151, 24
-  %153 = trunc i32 %152 to i8
+  %153 = trunc nuw i32 %152 to i8
   %154 = lshr i32 %151, 16
   %155 = trunc i32 %154 to i8
   %156 = icmp eq i32 %152, 3
@@ -5217,7 +5217,7 @@ define internal fastcc noundef i32 @xhci_setup_port_arrays(ptr noundef %0, i32 n
 
 195:                                              ; preds = %188
   %196 = lshr i32 %179, 28
-  %197 = trunc i32 %196 to i8
+  %197 = trunc nuw nsw i32 %196 to i8
   %198 = getelementptr inbounds i8, ptr %193, i64 8
   store i8 %197, ptr %198, align 8
   %199 = icmp eq i8 %197, 0

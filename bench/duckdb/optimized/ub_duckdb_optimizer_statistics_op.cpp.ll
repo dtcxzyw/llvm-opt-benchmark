@@ -6937,7 +6937,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN6duc
   br label %invoke.cont.i295
 
 invoke.cont.i295:                                 ; preds = %invoke.contthread-pre-split.i, %cleanup, %if.end61
-  %93 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %cleanup ], [ %61, %if.end61 ]
+  %93 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre325, %cleanup ], [ %61, %if.end61 ]
   %tobool.not.i.i.i = icmp eq ptr %93, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
@@ -13127,6 +13127,7 @@ cond.end.i:                                       ; preds = %if.then.i, %if.end1
   %23 = phi ptr [ %10, %if.end13.thread ], [ %19, %if.then.i ]
   %__n.16473 = phi ptr [ %12, %if.end13.thread ], [ %__n.1, %if.then.i ]
   %__bkt.06571 = phi i64 [ %rem.i.i.i29, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
+  %__prev_n.06769 = phi ptr [ %11, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
   %24 = phi ptr [ %14, %if.end13.thread ], [ %20, %if.then.i ]
   %add.ptr.i36 = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load i64, ptr %add.ptr.i36, align 8, !tbaa !91
@@ -13145,7 +13146,7 @@ if.then3.i.i:                                     ; preds = %cond.end.i
 if.end.i.i:                                       ; preds = %if.then3.i.i, %if.then.i, %if.end13.thread
   %__n.16474 = phi ptr [ %__n.1, %if.then.i ], [ %__n.16473, %if.then3.i.i ], [ %12, %if.end13.thread ]
   %__bkt.06572 = phi i64 [ %__bkt.0, %if.then.i ], [ %__bkt.06571, %if.then3.i.i ], [ %rem.i.i.i29, %if.end13.thread ]
-  %__prev_n.06770 = phi ptr [ %18, %if.then.i ], [ %22, %if.then3.i.i ], [ %11, %if.end13.thread ]
+  %__prev_n.06770 = phi ptr [ %__prev_n.0, %if.then.i ], [ %__prev_n.06769, %if.then3.i.i ], [ %11, %if.end13.thread ]
   %26 = phi ptr [ null, %if.then.i ], [ %24, %if.then3.i.i ], [ null, %if.end13.thread ]
   %27 = phi ptr [ %18, %if.then.i ], [ %.pre42.i, %if.then3.i.i ], [ %11, %if.end13.thread ]
   %28 = phi ptr [ %19, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %10, %if.end13.thread ]
@@ -13178,7 +13179,7 @@ if.then11.i:                                      ; preds = %if.then6.i
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then11.i, %if.then6.i, %if.else.i, %if.end11.i.i, %cond.end.i
-  %__prev_n.066 = phi ptr [ %__prev_n.0, %if.then11.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.06770, %if.end11.i.i ], [ %22, %cond.end.i ]
+  %__prev_n.066 = phi ptr [ %__prev_n.0, %if.then11.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.06770, %if.end11.i.i ], [ %__prev_n.06769, %cond.end.i ]
   %__n.163 = phi ptr [ %__n.1, %if.then11.i ], [ %__n.1, %if.then6.i ], [ %__n.1, %if.else.i ], [ %__n.16474, %if.end11.i.i ], [ %__n.16473, %cond.end.i ]
   %30 = load ptr, ptr %__n.163, align 8, !tbaa !101
   store ptr %30, ptr %__prev_n.066, align 8, !tbaa !101

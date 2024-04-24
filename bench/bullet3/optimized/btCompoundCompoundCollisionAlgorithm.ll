@@ -603,7 +603,7 @@ if.end.i:                                         ; preds = %if.then39
   %m_collisionObject.i6.i = getelementptr inbounds i8, ptr %37, i64 16
   %38 = load ptr, ptr %m_collisionObject.i6.i, align 8
   %. = select i1 %cmp.not.i, ptr %38, ptr %36
-  %.424 = select i1 %cmp.not.i, ptr %34, ptr %38
+  %.424 = select i1 %cmp.not.i, ptr %36, ptr %38
   %m_worldTransform.i5.sink.i = getelementptr inbounds i8, ptr %.424, i64 8
   %m_worldTransform.i7.i = getelementptr inbounds i8, ptr %., i64 8
   invoke void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %31, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i5.sink.i, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i7.i)
@@ -1038,7 +1038,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 
 if.then.i7.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.then.i.i.i123
   %retval.0.i.i.i101107.i = phi ptr [ null, %if.then.i.i.i123 ], [ %call.i.i.i.i47.i, %for.body.i.i.i.i ]
-  %tobool2.i.i.i42.i = trunc i8 %148 to i1
+  %tobool2.i.i.i42.i = trunc nuw i8 %148 to i1
   br i1 %tobool2.i.i.i42.i, label %if.then3.i.i.i44.i, label %if.end.i.i
 
 if.then3.i.i.i44.i:                               ; preds = %if.then.i7.i.i.i
@@ -1177,7 +1177,7 @@ do.end.i:                                         ; preds = %do.cond.i
   br i1 %tobool.not.i.i.i88.i, label %invoke.cont68, label %if.then.i.i.i89.i
 
 if.then.i.i.i89.i:                                ; preds = %do.end.i
-  %tobool2.i.i.i91.i = trunc i8 %226 to i1
+  %tobool2.i.i.i91.i = trunc nuw i8 %226 to i1
   br i1 %tobool2.i.i.i91.i, label %if.then3.i.i.i95.i, label %invoke.cont68
 
 if.then3.i.i.i95.i:                               ; preds = %if.then.i.i.i89.i

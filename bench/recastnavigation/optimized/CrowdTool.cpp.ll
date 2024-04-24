@@ -218,69 +218,70 @@ define dso_local void @_ZN14CrowdToolState4initEP6Sample(ptr nocapture noundef n
   br label %7
 
 7:                                                ; preds = %6, %2
-  %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 120
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(200) %1)
-  %12 = load ptr, ptr %4, align 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 136
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(200) %12)
-  %17 = icmp ne ptr %11, null
-  %18 = icmp ne ptr %16, null
-  %or.cond = and i1 %17, %18
-  br i1 %or.cond, label %19, label %36
+  %8 = phi ptr [ %1, %6 ], [ %5, %2 ]
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 120
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(200) %8)
+  %13 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 136
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(200) %13)
+  %18 = icmp ne ptr %12, null
+  %19 = icmp ne ptr %17, null
+  %or.cond = and i1 %18, %19
+  br i1 %or.cond, label %20, label %37
 
-19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %.not20 = icmp eq ptr %21, %11
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %.not21 = icmp eq ptr %23, %16
+20:                                               ; preds = %7
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %.not20 = icmp eq ptr %22, %12
+  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = load ptr, ptr %23, align 8
+  %.not21 = icmp eq ptr %24, %17
   %or.cond23 = select i1 %.not20, i1 %.not21, i1 false
-  br i1 %or.cond23, label %36, label %24
+  br i1 %or.cond23, label %37, label %25
 
-24:                                               ; preds = %19
-  store ptr %11, ptr %20, align 8
-  store ptr %16, ptr %22, align 8
-  %25 = load ptr, ptr %4, align 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 144
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef float %28(ptr noundef nonnull align 8 dereferenceable(200) %25)
-  %30 = tail call noundef zeroext i1 @_ZN7dtCrowd4initEifP9dtNavMesh(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef 128, float noundef %29, ptr noundef nonnull %11)
-  %31 = getelementptr inbounds i8, ptr %16, i64 1154
-  store i16 16, ptr %31, align 2
-  %32 = tail call noundef ptr @_ZNK7dtCrowd26getObstacleAvoidanceParamsEi(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef 0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(28) %32, i64 28, i1 false)
+25:                                               ; preds = %20
+  store ptr %12, ptr %21, align 8
+  store ptr %17, ptr %23, align 8
+  %26 = load ptr, ptr %4, align 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 144
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call noundef float %29(ptr noundef nonnull align 8 dereferenceable(200) %26)
+  %31 = tail call noundef zeroext i1 @_ZN7dtCrowd4initEifP9dtNavMesh(ptr noundef nonnull align 8 dereferenceable(5072) %17, i32 noundef 128, float noundef %30, ptr noundef nonnull %12)
+  %32 = getelementptr inbounds i8, ptr %17, i64 1154
+  store i16 16, ptr %32, align 2
+  %33 = tail call noundef ptr @_ZNK7dtCrowd26getObstacleAvoidanceParamsEi(ptr noundef nonnull align 8 dereferenceable(5072) %17, i32 noundef 0)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(28) %33, i64 28, i1 false)
   store float 5.000000e-01, ptr %3, align 4
-  %33 = getelementptr inbounds i8, ptr %3, i64 25
-  store i8 5, ptr %33, align 1
-  %34 = getelementptr inbounds i8, ptr %3, i64 26
-  store i8 2, ptr %34, align 2
-  %35 = getelementptr inbounds i8, ptr %3, i64 27
-  store i8 1, ptr %35, align 1
-  call void @_ZN7dtCrowd26setObstacleAvoidanceParamsEiPK25dtObstacleAvoidanceParams(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef 0, ptr noundef nonnull %3)
+  %34 = getelementptr inbounds i8, ptr %3, i64 25
+  store i8 5, ptr %34, align 1
+  %35 = getelementptr inbounds i8, ptr %3, i64 26
+  store i8 2, ptr %35, align 2
+  %36 = getelementptr inbounds i8, ptr %3, i64 27
+  store i8 1, ptr %36, align 1
+  call void @_ZN7dtCrowd26setObstacleAvoidanceParamsEiPK25dtObstacleAvoidanceParams(ptr noundef nonnull align 8 dereferenceable(5072) %17, i32 noundef 0, ptr noundef nonnull %3)
   store float 5.000000e-01, ptr %3, align 4
-  store i8 5, ptr %33, align 1
-  store i8 2, ptr %34, align 2
-  store i8 2, ptr %35, align 1
-  call void @_ZN7dtCrowd26setObstacleAvoidanceParamsEiPK25dtObstacleAvoidanceParams(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef 1, ptr noundef nonnull %3)
+  store i8 5, ptr %34, align 1
+  store i8 2, ptr %35, align 2
+  store i8 2, ptr %36, align 1
+  call void @_ZN7dtCrowd26setObstacleAvoidanceParamsEiPK25dtObstacleAvoidanceParams(ptr noundef nonnull align 8 dereferenceable(5072) %17, i32 noundef 1, ptr noundef nonnull %3)
   store float 5.000000e-01, ptr %3, align 4
-  store i8 7, ptr %33, align 1
-  store i8 2, ptr %34, align 2
-  store i8 3, ptr %35, align 1
-  call void @_ZN7dtCrowd26setObstacleAvoidanceParamsEiPK25dtObstacleAvoidanceParams(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef 2, ptr noundef nonnull %3)
+  store i8 7, ptr %34, align 1
+  store i8 2, ptr %35, align 2
+  store i8 3, ptr %36, align 1
+  call void @_ZN7dtCrowd26setObstacleAvoidanceParamsEiPK25dtObstacleAvoidanceParams(ptr noundef nonnull align 8 dereferenceable(5072) %17, i32 noundef 2, ptr noundef nonnull %3)
   store float 5.000000e-01, ptr %3, align 4
-  store i8 7, ptr %33, align 1
-  store i8 3, ptr %34, align 2
-  store i8 3, ptr %35, align 1
-  call void @_ZN7dtCrowd26setObstacleAvoidanceParamsEiPK25dtObstacleAvoidanceParams(ptr noundef nonnull align 8 dereferenceable(5072) %16, i32 noundef 3, ptr noundef nonnull %3)
-  br label %36
+  store i8 7, ptr %34, align 1
+  store i8 3, ptr %35, align 2
+  store i8 3, ptr %36, align 1
+  call void @_ZN7dtCrowd26setObstacleAvoidanceParamsEiPK25dtObstacleAvoidanceParams(ptr noundef nonnull align 8 dereferenceable(5072) %17, i32 noundef 3, ptr noundef nonnull %3)
+  br label %37
 
-36:                                               ; preds = %19, %24, %7
+37:                                               ; preds = %20, %25, %7
   ret void
 }
 

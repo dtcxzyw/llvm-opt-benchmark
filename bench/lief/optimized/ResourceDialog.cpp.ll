@@ -1568,9 +1568,9 @@ define void @_ZNK4LIEF2PE14ResourceDialog19extended_style_listEv(ptr dead_on_unw
 _ZNSt8_Rb_treeIN4LIEF2PE22EXTENDED_WINDOW_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i.i: ; preds = %19, %17
   %23 = phi i1 [ true, %17 ], [ %22, %19 ]
   %24 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-          to label %.noexc7 unwind label %30
+          to label %.noexc8 unwind label %30
 
-.noexc7:                                          ; preds = %_ZNSt8_Rb_treeIN4LIEF2PE22EXTENDED_WINDOW_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i.i
+.noexc8:                                          ; preds = %_ZNSt8_Rb_treeIN4LIEF2PE22EXTENDED_WINDOW_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %24, i64 32
   store i64 %10, ptr %25, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %23, ptr noundef nonnull %24, ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(32) %3) #22
@@ -1579,8 +1579,8 @@ _ZNSt8_Rb_treeIN4LIEF2PE22EXTENDED_WINDOW_STYLESES2_St9_IdentityIS2_ESt4lessIS2_
   store i64 %27, ptr %7, align 8
   br label %_ZNSt15insert_iteratorISt3setIN4LIEF2PE22EXTENDED_WINDOW_STYLESESt4lessIS3_ESaIS3_EEEaSERKS3_.exit.i
 
-_ZNSt15insert_iteratorISt3setIN4LIEF2PE22EXTENDED_WINDOW_STYLESESt4lessIS3_ESaIS3_EEEaSERKS3_.exit.i: ; preds = %.noexc7, %.noexc
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %24, %.noexc7 ], [ %15, %.noexc ]
+_ZNSt15insert_iteratorISt3setIN4LIEF2PE22EXTENDED_WINDOW_STYLESESt4lessIS3_ESaIS3_EEEaSERKS3_.exit.i: ; preds = %.noexc8, %.noexc
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %24, %.noexc8 ], [ %15, %.noexc ]
   %28 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0.0.i.i.i.i.i) #24
   br label %29
 
@@ -1686,9 +1686,9 @@ define void @_ZNK4LIEF2PE14ResourceDialog10style_listEv(ptr dead_on_unwind noali
 _ZNSt8_Rb_treeIN4LIEF2PE13WINDOW_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i.i: ; preds = %19, %17
   %23 = phi i1 [ true, %17 ], [ %22, %19 ]
   %24 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-          to label %.noexc7 unwind label %30
+          to label %.noexc8 unwind label %30
 
-.noexc7:                                          ; preds = %_ZNSt8_Rb_treeIN4LIEF2PE13WINDOW_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i.i
+.noexc8:                                          ; preds = %_ZNSt8_Rb_treeIN4LIEF2PE13WINDOW_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %24, i64 32
   store i64 %10, ptr %25, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %23, ptr noundef nonnull %24, ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(32) %3) #22
@@ -1697,8 +1697,8 @@ _ZNSt8_Rb_treeIN4LIEF2PE13WINDOW_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE
   store i64 %27, ptr %7, align 8
   br label %_ZNSt15insert_iteratorISt3setIN4LIEF2PE13WINDOW_STYLESESt4lessIS3_ESaIS3_EEEaSERKS3_.exit.i
 
-_ZNSt15insert_iteratorISt3setIN4LIEF2PE13WINDOW_STYLESESt4lessIS3_ESaIS3_EEEaSERKS3_.exit.i: ; preds = %.noexc7, %.noexc
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %24, %.noexc7 ], [ %15, %.noexc ]
+_ZNSt15insert_iteratorISt3setIN4LIEF2PE13WINDOW_STYLESESt4lessIS3_ESaIS3_EEEaSERKS3_.exit.i: ; preds = %.noexc8, %.noexc
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %24, %.noexc8 ], [ %15, %.noexc ]
   %28 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0.0.i.i.i.i.i) #24
   br label %29
 
@@ -1797,9 +1797,9 @@ define void @_ZNK4LIEF2PE14ResourceDialog20dialogbox_style_listEv(ptr dead_on_un
 _ZNSt8_Rb_treeIN4LIEF2PE17DIALOG_BOX_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i.i: ; preds = %19, %17
   %23 = phi i1 [ true, %17 ], [ %22, %19 ]
   %24 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-          to label %.noexc7 unwind label %30
+          to label %.noexc8 unwind label %30
 
-.noexc7:                                          ; preds = %_ZNSt8_Rb_treeIN4LIEF2PE17DIALOG_BOX_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i.i
+.noexc8:                                          ; preds = %_ZNSt8_Rb_treeIN4LIEF2PE17DIALOG_BOX_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %24, i64 32
   store i64 %10, ptr %25, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %23, ptr noundef nonnull %24, ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(32) %3) #22
@@ -1808,8 +1808,8 @@ _ZNSt8_Rb_treeIN4LIEF2PE17DIALOG_BOX_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS
   store i64 %27, ptr %7, align 8
   br label %_ZNSt15insert_iteratorISt3setIN4LIEF2PE17DIALOG_BOX_STYLESESt4lessIS3_ESaIS3_EEEaSERKS3_.exit.i
 
-_ZNSt15insert_iteratorISt3setIN4LIEF2PE17DIALOG_BOX_STYLESESt4lessIS3_ESaIS3_EEEaSERKS3_.exit.i: ; preds = %.noexc7, %.noexc
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %24, %.noexc7 ], [ %15, %.noexc ]
+_ZNSt15insert_iteratorISt3setIN4LIEF2PE17DIALOG_BOX_STYLESESt4lessIS3_ESaIS3_EEEaSERKS3_.exit.i: ; preds = %.noexc8, %.noexc
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %24, %.noexc8 ], [ %15, %.noexc ]
   %28 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0.0.i.i.i.i.i) #24
   br label %29
 
@@ -3529,7 +3529,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4LIEF2PE22EXTENDED_WIND
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %1, %16 ]
+  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %.019.lcssa28.i, %24
@@ -3688,8 +3688,8 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4LIEF2PE22EXTENDED_WIND
   br label %_ZNSt8_Rb_treeIN4LIEF2PE22EXTENDED_WINDOW_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE24_M_get_insert_unique_posERKS2_.exit
 
 _ZNSt8_Rb_treeIN4LIEF2PE22EXTENDED_WINDOW_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE24_M_get_insert_unique_posERKS2_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %1, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %1, %37 ], [ %1, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %39, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -3753,7 +3753,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4LIEF2PE13WINDOW_STYLES
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %1, %16 ]
+  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %.019.lcssa28.i, %24
@@ -3912,8 +3912,8 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4LIEF2PE13WINDOW_STYLES
   br label %_ZNSt8_Rb_treeIN4LIEF2PE13WINDOW_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE24_M_get_insert_unique_posERKS2_.exit
 
 _ZNSt8_Rb_treeIN4LIEF2PE13WINDOW_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE24_M_get_insert_unique_posERKS2_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %1, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %1, %37 ], [ %1, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %39, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -3965,7 +3965,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4LIEF2PE17DIALOG_BOX_ST
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %1, %16 ]
+  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %.019.lcssa28.i, %24
@@ -4124,8 +4124,8 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4LIEF2PE17DIALOG_BOX_ST
   br label %_ZNSt8_Rb_treeIN4LIEF2PE17DIALOG_BOX_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE24_M_get_insert_unique_posERKS2_.exit
 
 _ZNSt8_Rb_treeIN4LIEF2PE17DIALOG_BOX_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE24_M_get_insert_unique_posERKS2_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %1, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %1, %37 ], [ %1, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %39, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -4294,7 +4294,7 @@ _ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEE10deallocateEv.exit.i.i: ; preds = 
 24:                                               ; preds = %_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEE10deallocateEv.exit.i.i
   store ptr %13, ptr %11, align 8
   store i64 %20, ptr %23, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %16, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %21, i64 %18, i1 false)
   br label %26
 
 25:                                               ; preds = %_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEE10deallocateEv.exit.i.i

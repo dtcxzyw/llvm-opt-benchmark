@@ -5044,9 +5044,9 @@ define internal fastcc i32 @tdefl_compress_normal(ptr noundef %0) unnamed_addr #
   %28 = ptrtoint ptr %26 to i64
   br label %29
 
-29:                                               ; preds = %.backedge689, %1
-  %.0366 = phi ptr [ %3, %1 ], [ %.3369593, %.backedge689 ]
-  %.0363 = phi i64 [ %5, %1 ], [ %.2365594, %.backedge689 ]
+29:                                               ; preds = %.backedge691, %1
+  %.0366 = phi ptr [ %3, %1 ], [ %.3369593, %.backedge691 ]
+  %.0363 = phi i64 [ %5, %1 ], [ %.2365594, %.backedge691 ]
   %.not = icmp eq i64 %.0363, 0
   br i1 %.not, label %30, label %.critedge.thread
 
@@ -5231,7 +5231,7 @@ define internal fastcc i32 @tdefl_compress_normal(ptr noundef %0) unnamed_addr #
 .critedge4:                                       ; preds = %127, %73, %40
   %129 = phi i32 [ %41, %40 ], [ %41, %73 ], [ %39, %127 ]
   %130 = phi i32 [ %59, %40 ], [ %59, %73 ], [ %103, %127 ]
-  %.3369 = phi ptr [ %.0366, %40 ], [ %57, %73 ], [ %89, %127 ]
+  %.3369 = phi ptr [ %.0366, %40 ], [ %64, %73 ], [ %89, %127 ]
   %.2365 = phi i64 [ %58, %40 ], [ %58, %73 ], [ 0, %127 ]
   %131 = sub i32 32768, %130
   %. = tail call i32 @llvm.umin.i32(i32 %131, i32 %129)
@@ -5437,7 +5437,7 @@ define internal fastcc i32 @tdefl_compress_normal(ptr noundef %0) unnamed_addr #
   %227 = getelementptr inbounds i8, ptr %.0361, i64 2
   %228 = load i16, ptr %227, align 2
   %229 = icmp eq i16 %226, %228
-  br i1 %229, label %230, label %.split.loop.exit.split.loop.exit618
+  br i1 %229, label %230, label %.split.loop.exit.split.loop.exit619
 
 230:                                              ; preds = %224
   %231 = getelementptr inbounds i8, ptr %.0358, i64 4
@@ -5445,7 +5445,7 @@ define internal fastcc i32 @tdefl_compress_normal(ptr noundef %0) unnamed_addr #
   %233 = getelementptr inbounds i8, ptr %.0361, i64 4
   %234 = load i16, ptr %233, align 2
   %235 = icmp eq i16 %232, %234
-  br i1 %235, label %236, label %.split.loop.exit.split.loop.exit622
+  br i1 %235, label %236, label %.split.loop.exit.split.loop.exit623
 
 236:                                              ; preds = %230
   %237 = getelementptr inbounds i8, ptr %.0358, i64 6
@@ -5453,7 +5453,7 @@ define internal fastcc i32 @tdefl_compress_normal(ptr noundef %0) unnamed_addr #
   %239 = getelementptr inbounds i8, ptr %.0361, i64 6
   %240 = load i16, ptr %239, align 2
   %241 = icmp eq i16 %238, %240
-  br i1 %241, label %242, label %.split.loop.exit.split.loop.exit626
+  br i1 %241, label %242, label %.split.loop.exit.split.loop.exit627
 
 242:                                              ; preds = %236
   %243 = getelementptr inbounds i8, ptr %.0358, i64 8
@@ -5472,22 +5472,22 @@ define internal fastcc i32 @tdefl_compress_normal(ptr noundef %0) unnamed_addr #
   %250 = tail call i32 @llvm.umin.i32(i32 %134, i32 258)
   br label %.loopexit
 
-.split.loop.exit.split.loop.exit618:              ; preds = %224
+.split.loop.exit.split.loop.exit619:              ; preds = %224
   %251 = getelementptr inbounds i8, ptr %.0358, i64 2
   br label %.split.loop.exit
 
-.split.loop.exit.split.loop.exit622:              ; preds = %230
+.split.loop.exit.split.loop.exit623:              ; preds = %230
   %252 = getelementptr inbounds i8, ptr %.0358, i64 4
   br label %.split.loop.exit
 
-.split.loop.exit.split.loop.exit626:              ; preds = %236
+.split.loop.exit.split.loop.exit627:              ; preds = %236
   %253 = getelementptr inbounds i8, ptr %.0358, i64 6
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %242, %.split.loop.exit.split.loop.exit626, %.split.loop.exit.split.loop.exit622, %.split.loop.exit.split.loop.exit618
-  %.in = phi i16 [ %228, %.split.loop.exit.split.loop.exit618 ], [ %234, %.split.loop.exit.split.loop.exit622 ], [ %240, %.split.loop.exit.split.loop.exit626 ], [ %246, %242 ]
-  %.in582 = phi i16 [ %226, %.split.loop.exit.split.loop.exit618 ], [ %232, %.split.loop.exit.split.loop.exit622 ], [ %238, %.split.loop.exit.split.loop.exit626 ], [ %244, %242 ]
-  %.1359.ph = phi ptr [ %251, %.split.loop.exit.split.loop.exit618 ], [ %252, %.split.loop.exit.split.loop.exit622 ], [ %253, %.split.loop.exit.split.loop.exit626 ], [ %243, %242 ]
+.split.loop.exit:                                 ; preds = %242, %.split.loop.exit.split.loop.exit627, %.split.loop.exit.split.loop.exit623, %.split.loop.exit.split.loop.exit619
+  %.in = phi i16 [ %228, %.split.loop.exit.split.loop.exit619 ], [ %234, %.split.loop.exit.split.loop.exit623 ], [ %240, %.split.loop.exit.split.loop.exit627 ], [ %246, %242 ]
+  %.in582 = phi i16 [ %226, %.split.loop.exit.split.loop.exit619 ], [ %232, %.split.loop.exit.split.loop.exit623 ], [ %238, %.split.loop.exit.split.loop.exit627 ], [ %244, %242 ]
+  %.1359.ph = phi ptr [ %251, %.split.loop.exit.split.loop.exit619 ], [ %252, %.split.loop.exit.split.loop.exit623 ], [ %253, %.split.loop.exit.split.loop.exit627 ], [ %243, %242 ]
   %254 = trunc i16 %.in582 to i8
   %255 = trunc i16 %.in to i8
   %256 = ptrtoint ptr %.1359.ph to i64
@@ -5883,7 +5883,7 @@ define internal fastcc i32 @tdefl_compress_normal(ptr noundef %0) unnamed_addr #
 491:                                              ; preds = %482
   %492 = load i32, ptr %18, align 4
   %493 = icmp ugt i32 %492, 31744
-  br i1 %493, label %494, label %.backedge689
+  br i1 %493, label %494, label %.backedge691
 
 494:                                              ; preds = %491
   %495 = ptrtoint ptr %489 to i64
@@ -5898,16 +5898,16 @@ define internal fastcc i32 @tdefl_compress_normal(ptr noundef %0) unnamed_addr #
   %501 = load i32, ptr %15, align 8
   %502 = and i32 %501, 524288
   %.not457 = icmp eq i32 %502, 0
-  br i1 %.not457, label %.backedge689, label %503
+  br i1 %.not457, label %.backedge691, label %503
 
 503:                                              ; preds = %500, %494, %482
   store ptr %.3369593, ptr %2, align 8
   store i64 %.2365594, ptr %4, align 8
   %504 = tail call fastcc i32 @tdefl_flush_block(ptr noundef nonnull %0, i32 noundef 0)
   %.not458 = icmp eq i32 %504, 0
-  br i1 %.not458, label %.backedge689, label %505
+  br i1 %.not458, label %.backedge691, label %505
 
-.backedge689:                                     ; preds = %503, %500, %491
+.backedge691:                                     ; preds = %503, %500, %491
   br label %29
 
 505:                                              ; preds = %503
@@ -18014,10 +18014,10 @@ define noundef i32 @mz_zip_add_mem_to_archive_file_in_place_v2(ptr noundef %0, p
 17:                                               ; preds = %14
   %18 = icmp ne i16 %5, 0
   %19 = icmp eq ptr %4, null
-  %or.cond5.not93 = and i1 %19, %18
+  %or.cond5.not95 = and i1 %19, %18
   %20 = and i32 %spec.store.select, 15
   %21 = icmp ugt i32 %20, 10
-  %or.cond75 = or i1 %or.cond5.not93, %21
+  %or.cond75 = or i1 %or.cond5.not95, %21
   br i1 %or.cond75, label %22, label %24
 
 22:                                               ; preds = %17, %14, %8
@@ -18094,21 +18094,21 @@ mz_zip_writer_validate_archive_name.exit:         ; preds = %.preheader.i
   %47 = getelementptr inbounds i8, ptr %9, i64 72
   %48 = load ptr, ptr %47, align 8
   %.not56.i = icmp eq ptr %48, null
-  %or.cond89 = select i1 %.not.i, i1 %.not56.i, i1 false
-  br i1 %or.cond89, label %mz_zip_writer_init_v2.exit.thread, label %49
+  %or.cond91 = select i1 %.not.i, i1 %.not56.i, i1 false
+  br i1 %or.cond91, label %mz_zip_writer_init_v2.exit.thread, label %49
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %9, i64 32
   %51 = load i64, ptr %50, align 8
   %52 = call i64 @llvm.ctpop.i64(i64 %51), !range !14
-  %.not58.i80 = icmp ult i64 %52, 2
-  br i1 %.not58.i80, label %53, label %mz_zip_writer_init_v2.exit.thread
+  %.not58.i82 = icmp ult i64 %52, 2
+  br i1 %.not58.i82, label %53, label %mz_zip_writer_init_v2.exit.thread
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds i8, ptr %9, i64 40
   %55 = load ptr, ptr %54, align 8
-  %.not59.i81 = icmp eq ptr %55, null
-  br i1 %.not59.i81, label %56, label %57
+  %.not59.i83 = icmp eq ptr %55, null
+  br i1 %.not59.i83, label %56, label %57
 
 56:                                               ; preds = %53
   store ptr @miniz_def_alloc_func, ptr %54, align 8
@@ -18240,8 +18240,8 @@ mz_zip_writer_init_v2.exit.thread:                ; preds = %66, %49, %46, %38, 
   %115 = getelementptr inbounds i8, ptr %9, i64 40
   %116 = load ptr, ptr %115, align 8
   %.not58.i = icmp eq ptr %116, null
-  %or.cond91 = select i1 %.not57.i, i1 true, i1 %.not58.i
-  br i1 %or.cond91, label %124, label %117
+  %or.cond93 = select i1 %.not57.i, i1 true, i1 %.not58.i
+  br i1 %or.cond93, label %124, label %117
 
 117:                                              ; preds = %106
   %118 = getelementptr inbounds i8, ptr %9, i64 48
@@ -18338,15 +18338,15 @@ mz_zip_writer_end_internal.exit:                  ; preds = %151, %155, %158
   call void %161(ptr noundef %162, ptr noundef nonnull %114) #31
   store i32 0, ptr %121, align 4
   %.pre = load i32, ptr %108, align 4
-  %spec.select100 = select i1 %.1.i, i32 0, i32 %.051
+  %spec.select102 = select i1 %.1.i, i32 0, i32 %.051
   br label %mz_zip_writer_end_internal.exit.thread
 
 mz_zip_writer_end_internal.exit.thread:           ; preds = %125, %124, %mz_zip_writer_end_internal.exit
-  %.051.i96 = phi i1 [ %.1.i, %mz_zip_writer_end_internal.exit ], [ true, %124 ], [ true, %125 ]
+  %.051.i98 = phi i1 [ %.1.i, %mz_zip_writer_end_internal.exit ], [ true, %124 ], [ true, %125 ]
   %163 = phi i32 [ %.pre, %mz_zip_writer_end_internal.exit ], [ %111, %124 ], [ 24, %125 ]
-  %164 = phi i32 [ %spec.select100, %mz_zip_writer_end_internal.exit ], [ 0, %124 ], [ 0, %125 ]
-  %.not7198 = icmp eq i32 %.1, 0
-  %165 = select i1 %.051.i96, i1 %.not7198, i1 false
+  %164 = phi i32 [ %spec.select102, %mz_zip_writer_end_internal.exit ], [ 0, %124 ], [ 0, %125 ]
+  %.not71100 = icmp eq i32 %.1, 0
+  %165 = select i1 %.051.i98, i1 %.not71100, i1 false
   %.3 = select i1 %165, i32 %163, i32 %.1
   %166 = icmp eq i32 %164, 0
   %or.cond7 = and i1 %.not61, %166

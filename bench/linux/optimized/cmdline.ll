@@ -201,7 +201,7 @@ thread-pre-split:                                 ; preds = %.loopexit, %36
   br label %.thread9
 
 .thread9:                                         ; preds = %thread-pre-split, %31, %.lr.ph, %16, %3, %..thread9_crit_edge
-  %65 = phi ptr [ %.pre, %..thread9_crit_edge ], [ %0, %3 ], [ %.pre1020, %16 ], [ null, %.lr.ph ], [ %27, %31 ], [ %.pre10.pr, %thread-pre-split ]
+  %65 = phi ptr [ %.pre, %..thread9_crit_edge ], [ %0, %3 ], [ %.pre1020, %16 ], [ null, %.lr.ph ], [ %32, %31 ], [ %.pre10.pr, %thread-pre-split ]
   %66 = phi i32 [ %64, %..thread9_crit_edge ], [ 1, %3 ], [ %11, %16 ], [ %11, %.lr.ph ], [ %11, %31 ], [ %8, %thread-pre-split ]
   %67 = add i32 %66, -1
   store i32 %67, ptr %2, align 4

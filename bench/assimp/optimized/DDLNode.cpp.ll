@@ -271,7 +271,7 @@ for.inc:                                          ; preds = %for.body, %delete.n
   br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %if.end
-  %.lcssa = phi ptr [ %7, %if.end ], [ %12, %for.inc ]
+  %.lcssa = phi ptr [ %8, %if.end ], [ %12, %for.inc ]
   %tobool.not.i.i.i = icmp eq ptr %.lcssa, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit, label %if.then.i.i.i
 

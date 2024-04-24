@@ -386,7 +386,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -445,7 +445,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -5928,12 +5928,12 @@ if.end:                                           ; preds = %entry
   store i32 %storemerge, ptr %fFields.i, align 4
   store i32 1, ptr %fStamp.i, align 4
   store i8 1, ptr %fIsSet.i, align 4
-  %arrayidx.i36 = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %eyear.0, ptr %arrayidx.i36, align 8
-  %arrayidx3.i38 = getelementptr inbounds i8, ptr %this, i64 136
-  store i32 1, ptr %arrayidx3.i38, align 8
-  %arrayidx5.i40 = getelementptr inbounds i8, ptr %this, i64 109
-  store i8 1, ptr %arrayidx5.i40, align 1
+  %arrayidx.i42 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 %eyear.0, ptr %arrayidx.i42, align 8
+  %arrayidx3.i44 = getelementptr inbounds i8, ptr %this, i64 136
+  store i32 1, ptr %arrayidx3.i44, align 8
+  %arrayidx5.i46 = getelementptr inbounds i8, ptr %this, i64 109
+  store i8 1, ptr %arrayidx5.i46, align 1
   br label %return
 
 return:                                           ; preds = %entry, %if.end

@@ -371,17 +371,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i.i.i
   %69 = load i32, ptr %.sroa.010.0.i.i.i.i.i.i.i.i.i.i, align 4
   %70 = load i32, ptr %67, align 4
   %71 = icmp eq i32 %69, %70
-  br i1 %71, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %71, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i, !llvm.loop !7
 
-_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i.i.i.i.i.i.i: ; preds = %68
+_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %68
   %72 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i.i.i.i.i.i.i.i, i64 8
   %.not18.i.i.i.i.i.i.i.i.i = icmp eq ptr %72, %64
   br i1 %.not18.i.i.i.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i.i.i.i.i.i.i, %79
-  %73 = phi i32 [ %75, %79 ], [ %69, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i.i.i.i.i.i.i ]
-  %74 = phi ptr [ %80, %79 ], [ %72, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i.i.i.i.i.i.i ]
-  %.sroa.0.019.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i.i.i.i.i.i.i, %79 ], [ %.sroa.010.0.i.i.i.i.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i.i.i.i.i.i.i, %79
+  %73 = phi i32 [ %75, %79 ], [ %69, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i.i.i.i.i.i.i ]
+  %74 = phi ptr [ %80, %79 ], [ %72, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i.i.i.i.i.i.i ]
+  %.sroa.0.019.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i.i.i.i.i.i.i, %79 ], [ %.sroa.010.0.i.i.i.i.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i.i.i.i.i.i.i ]
   %75 = load i32, ptr %74, align 4
   %76 = icmp eq i32 %73, %75
   br i1 %76, label %79, label %77
@@ -402,17 +402,17 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5_
   %.pre47.pre.pre.i.i.i.i.i.i.i = load ptr, ptr %18, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i.i.i.i.i.i.i
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i.i.i.i.i.i.i
-  %.pre47.pre.i.i.i.i.i.i.i = phi ptr [ %65, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i.i.i.i.i.i.i ], [ %.pre47.pre.pre.i.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i.i.i.i.i.i.i ]
-  %.pre.i.i.i.i.i.i.i = phi ptr [ %64, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i.i.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i.i.i.i.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i.i.i.i.i.i.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i.i.i.i.i.i.i
+  %.pre47.pre.i.i.i.i.i.i.i = phi ptr [ %65, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i.i.i.i.i.i.i ], [ %.pre47.pre.pre.i.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i.i.i.i.i.i.i ]
+  %.pre.i.i.i.i.i.i.i = phi ptr [ %64, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i.i.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i.i.i.i.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i.i.i.i.i.i.i ]
   %81 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i, i64 4
   %.not.i.i26.i.i.i.i.i.i.i = icmp eq ptr %81, %.pre.i.i.i.i.i.i.i
   br i1 %.not.i.i26.i.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i.i.i.i.i.i.i, label %._crit_edge.i.i27.i.i.i.i.i.i.i
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i.i.i.i.i.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i.i.i.i.i.i.i
   %82 = phi ptr [ %.pre.i.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i.i.i.i.i.i.i ], [ %64, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i.i.i.i.i.i.i ], [ %64, %.preheader.i.i.i.i.i.i.i.i.i.i ]
-  %.pre4759.i.i.i.i.i.i.i = phi ptr [ %.pre47.pre.i.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i.i.i.i.i.i.i ], [ %64, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i.i.i.i.i.i.i ], [ %65, %.preheader.i.i.i.i.i.i.i.i.i.i ]
+  %.pre4759.i.i.i.i.i.i.i = phi ptr [ %.pre47.pre.i.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i.i.i.i.i.i.i ], [ %65, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i.i.i.i.i.i.i ], [ %65, %.preheader.i.i.i.i.i.i.i.i.i.i ]
   %.pre53.i.i.i.i.i.i.i = ptrtoint ptr %.pre4759.i.i.i.i.i.i.i to i64
   br label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit.i.i.i.i.i.i.i
 
@@ -651,17 +651,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i37.i
   %171 = load i32, ptr %.sroa.010.0.i.i.i.i39.i.i.i.i.i.i, align 4
   %172 = load i32, ptr %169, align 4
   %173 = icmp eq i32 %171, %172
-  br i1 %173, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i41.i.i.i.i.i.i, label %.preheader.i.i.i.i38.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %173, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i41.i.i.i.i.i.i, label %.preheader.i.i.i.i38.i.i.i.i.i.i, !llvm.loop !7
 
-_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i41.i.i.i.i.i.i: ; preds = %170
+_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i41.i.i.i.i.i.i: ; preds = %170
   %174 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i.i39.i.i.i.i.i.i, i64 8
   %.not18.i.i.i42.i.i.i.i.i.i = icmp eq ptr %174, %166
   br i1 %.not18.i.i.i42.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i50.i.i.i.i.i.i, label %.lr.ph.i.i.i43.i.i.i.i.i.i
 
-.lr.ph.i.i.i43.i.i.i.i.i.i:                       ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i41.i.i.i.i.i.i, %181
-  %175 = phi i32 [ %177, %181 ], [ %171, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i41.i.i.i.i.i.i ]
-  %176 = phi ptr [ %182, %181 ], [ %174, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i41.i.i.i.i.i.i ]
-  %.sroa.0.019.i.i.i44.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i45.i.i.i.i.i.i, %181 ], [ %.sroa.010.0.i.i.i.i39.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i41.i.i.i.i.i.i ]
+.lr.ph.i.i.i43.i.i.i.i.i.i:                       ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i41.i.i.i.i.i.i, %181
+  %175 = phi i32 [ %177, %181 ], [ %171, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i41.i.i.i.i.i.i ]
+  %176 = phi ptr [ %182, %181 ], [ %174, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i41.i.i.i.i.i.i ]
+  %.sroa.0.019.i.i.i44.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i45.i.i.i.i.i.i, %181 ], [ %.sroa.010.0.i.i.i.i39.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i41.i.i.i.i.i.i ]
   %177 = load i32, ptr %176, align 4
   %178 = icmp eq i32 %175, %177
   br i1 %178, label %181, label %179
@@ -682,17 +682,17 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5_
   %.pre47.pre.pre.i49.i.i.i.i.i.i = load ptr, ptr %17, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i50.i.i.i.i.i.i
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i50.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i47.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i41.i.i.i.i.i.i
-  %.pre47.pre.i51.i.i.i.i.i.i = phi ptr [ %167, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i41.i.i.i.i.i.i ], [ %.pre47.pre.pre.i49.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i47.i.i.i.i.i.i ]
-  %.pre.i52.i.i.i.i.i.i = phi ptr [ %166, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i41.i.i.i.i.i.i ], [ %.pre.pre.i48.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i47.i.i.i.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i53.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i39.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i41.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i45.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i47.i.i.i.i.i.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i50.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i47.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i41.i.i.i.i.i.i
+  %.pre47.pre.i51.i.i.i.i.i.i = phi ptr [ %167, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i41.i.i.i.i.i.i ], [ %.pre47.pre.pre.i49.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i47.i.i.i.i.i.i ]
+  %.pre.i52.i.i.i.i.i.i = phi ptr [ %166, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i41.i.i.i.i.i.i ], [ %.pre.pre.i48.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i47.i.i.i.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i53.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i39.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i41.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i45.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i47.i.i.i.i.i.i ]
   %183 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i53.i.i.i.i.i.i, i64 4
   %.not.i.i26.i54.i.i.i.i.i.i = icmp eq ptr %183, %.pre.i52.i.i.i.i.i.i
   br i1 %.not.i.i26.i54.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i73.i.i.i.i.i.i, label %._crit_edge.i.i27.i55.i.i.i.i.i.i
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i73.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i38.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i50.i.i.i.i.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i37.i.i.i.i.i.i
   %184 = phi ptr [ %.pre.i52.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i50.i.i.i.i.i.i ], [ %166, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i37.i.i.i.i.i.i ], [ %166, %.preheader.i.i.i.i38.i.i.i.i.i.i ]
-  %.pre4758.i74.i.i.i.i.i.i = phi ptr [ %.pre47.pre.i51.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i50.i.i.i.i.i.i ], [ %166, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i37.i.i.i.i.i.i ], [ %167, %.preheader.i.i.i.i38.i.i.i.i.i.i ]
+  %.pre4758.i74.i.i.i.i.i.i = phi ptr [ %.pre47.pre.i51.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i50.i.i.i.i.i.i ], [ %167, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i37.i.i.i.i.i.i ], [ %167, %.preheader.i.i.i.i38.i.i.i.i.i.i ]
   %.pre52.i.i.i.i.i.i.i = ptrtoint ptr %.pre4758.i74.i.i.i.i.i.i to i64
   br label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit.i56.i.i.i.i.i.i
 
@@ -925,17 +925,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i91.i
   %274 = load i32, ptr %.sroa.010.0.i.i.i.i93.i.i.i.i.i.i, align 4
   %275 = load i32, ptr %272, align 4
   %276 = icmp eq i32 %274, %275
-  br i1 %276, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i95.i.i.i.i.i.i, label %.preheader.i.i.i.i92.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %276, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i95.i.i.i.i.i.i, label %.preheader.i.i.i.i92.i.i.i.i.i.i, !llvm.loop !7
 
-_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i95.i.i.i.i.i.i: ; preds = %273
+_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i95.i.i.i.i.i.i: ; preds = %273
   %277 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i.i93.i.i.i.i.i.i, i64 8
   %.not18.i.i.i96.i.i.i.i.i.i = icmp eq ptr %277, %269
   br i1 %.not18.i.i.i96.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i103.i.i.i.i.i.i, label %.lr.ph.i.i.i97.i.i.i.i.i.i
 
-.lr.ph.i.i.i97.i.i.i.i.i.i:                       ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i95.i.i.i.i.i.i, %284
-  %278 = phi i32 [ %280, %284 ], [ %274, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i95.i.i.i.i.i.i ]
-  %279 = phi ptr [ %285, %284 ], [ %277, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i95.i.i.i.i.i.i ]
-  %.sroa.0.019.i.i.i98.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i99.i.i.i.i.i.i, %284 ], [ %.sroa.010.0.i.i.i.i93.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i95.i.i.i.i.i.i ]
+.lr.ph.i.i.i97.i.i.i.i.i.i:                       ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i95.i.i.i.i.i.i, %284
+  %278 = phi i32 [ %280, %284 ], [ %274, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i95.i.i.i.i.i.i ]
+  %279 = phi ptr [ %285, %284 ], [ %277, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i95.i.i.i.i.i.i ]
+  %.sroa.0.019.i.i.i98.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i99.i.i.i.i.i.i, %284 ], [ %.sroa.010.0.i.i.i.i93.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i95.i.i.i.i.i.i ]
   %280 = load i32, ptr %279, align 4
   %281 = icmp eq i32 %278, %280
   br i1 %281, label %284, label %282
@@ -956,17 +956,17 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5_
   %.pre43.pre.pre.i.i.i.i.i.i.i = load ptr, ptr %16, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i103.i.i.i.i.i.i
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i103.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i101.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i95.i.i.i.i.i.i
-  %.pre43.pre.i.i.i.i.i.i.i = phi ptr [ %270, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i95.i.i.i.i.i.i ], [ %.pre43.pre.pre.i.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i101.i.i.i.i.i.i ]
-  %.pre.i104.i.i.i.i.i.i = phi ptr [ %269, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i95.i.i.i.i.i.i ], [ %.pre.pre.i102.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i101.i.i.i.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i105.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i93.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i95.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i99.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i101.i.i.i.i.i.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i103.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i101.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i95.i.i.i.i.i.i
+  %.pre43.pre.i.i.i.i.i.i.i = phi ptr [ %270, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i95.i.i.i.i.i.i ], [ %.pre43.pre.pre.i.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i101.i.i.i.i.i.i ]
+  %.pre.i104.i.i.i.i.i.i = phi ptr [ %269, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i95.i.i.i.i.i.i ], [ %.pre.pre.i102.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i101.i.i.i.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i105.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i93.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i95.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i99.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i101.i.i.i.i.i.i ]
   %286 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i105.i.i.i.i.i.i, i64 4
   %.not.i.i26.i106.i.i.i.i.i.i = icmp eq ptr %286, %.pre.i104.i.i.i.i.i.i
   br i1 %.not.i.i26.i106.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i113.i.i.i.i.i.i, label %._crit_edge.i.i27.i107.i.i.i.i.i.i
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i113.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i92.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i103.i.i.i.i.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i91.i.i.i.i.i.i
   %287 = phi ptr [ %.pre.i104.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i103.i.i.i.i.i.i ], [ %269, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i91.i.i.i.i.i.i ], [ %269, %.preheader.i.i.i.i92.i.i.i.i.i.i ]
-  %.pre4354.i.i.i.i.i.i.i = phi ptr [ %.pre43.pre.i.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i103.i.i.i.i.i.i ], [ %269, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i91.i.i.i.i.i.i ], [ %270, %.preheader.i.i.i.i92.i.i.i.i.i.i ]
+  %.pre4354.i.i.i.i.i.i.i = phi ptr [ %.pre43.pre.i.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i103.i.i.i.i.i.i ], [ %270, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i91.i.i.i.i.i.i ], [ %270, %.preheader.i.i.i.i92.i.i.i.i.i.i ]
   %.pre48.i114.i.i.i.i.i.i = ptrtoint ptr %.pre4354.i.i.i.i.i.i.i to i64
   br label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit.i108.i.i.i.i.i.i
 
@@ -1121,17 +1121,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i135.
   %342 = load i32, ptr %.sroa.010.0.i.i.i.i137.i.i.i.i.i.i, align 4
   %343 = load i32, ptr %340, align 4
   %344 = icmp eq i32 %342, %343
-  br i1 %344, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i139.i.i.i.i.i.i, label %.preheader.i.i.i.i136.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %344, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i139.i.i.i.i.i.i, label %.preheader.i.i.i.i136.i.i.i.i.i.i, !llvm.loop !7
 
-_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i139.i.i.i.i.i.i: ; preds = %341
+_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i139.i.i.i.i.i.i: ; preds = %341
   %345 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i.i137.i.i.i.i.i.i, i64 8
   %.not18.i.i.i140.i.i.i.i.i.i = icmp eq ptr %345, %337
   br i1 %.not18.i.i.i140.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i148.i.i.i.i.i.i, label %.lr.ph.i.i.i141.i.i.i.i.i.i
 
-.lr.ph.i.i.i141.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i139.i.i.i.i.i.i, %352
-  %346 = phi i32 [ %348, %352 ], [ %342, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i139.i.i.i.i.i.i ]
-  %347 = phi ptr [ %353, %352 ], [ %345, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i139.i.i.i.i.i.i ]
-  %.sroa.0.019.i.i.i142.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i143.i.i.i.i.i.i, %352 ], [ %.sroa.010.0.i.i.i.i137.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i139.i.i.i.i.i.i ]
+.lr.ph.i.i.i141.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i139.i.i.i.i.i.i, %352
+  %346 = phi i32 [ %348, %352 ], [ %342, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i139.i.i.i.i.i.i ]
+  %347 = phi ptr [ %353, %352 ], [ %345, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i139.i.i.i.i.i.i ]
+  %.sroa.0.019.i.i.i142.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i143.i.i.i.i.i.i, %352 ], [ %.sroa.010.0.i.i.i.i137.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i139.i.i.i.i.i.i ]
   %348 = load i32, ptr %347, align 4
   %349 = icmp eq i32 %346, %348
   br i1 %349, label %352, label %350
@@ -1152,17 +1152,17 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5_
   %.pre43.pre.pre.i147.i.i.i.i.i.i = load ptr, ptr %15, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i148.i.i.i.i.i.i
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i148.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i145.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i139.i.i.i.i.i.i
-  %.pre43.pre.i149.i.i.i.i.i.i = phi ptr [ %338, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i139.i.i.i.i.i.i ], [ %.pre43.pre.pre.i147.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i145.i.i.i.i.i.i ]
-  %.pre.i150.i.i.i.i.i.i = phi ptr [ %337, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i139.i.i.i.i.i.i ], [ %.pre.pre.i146.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i145.i.i.i.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i151.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i137.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i139.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i143.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i145.i.i.i.i.i.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i148.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i145.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i139.i.i.i.i.i.i
+  %.pre43.pre.i149.i.i.i.i.i.i = phi ptr [ %338, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i139.i.i.i.i.i.i ], [ %.pre43.pre.pre.i147.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i145.i.i.i.i.i.i ]
+  %.pre.i150.i.i.i.i.i.i = phi ptr [ %337, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i139.i.i.i.i.i.i ], [ %.pre.pre.i146.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i145.i.i.i.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i151.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i137.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i139.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i143.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i145.i.i.i.i.i.i ]
   %354 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i151.i.i.i.i.i.i, i64 4
   %.not.i.i26.i152.i.i.i.i.i.i = icmp eq ptr %354, %.pre.i150.i.i.i.i.i.i
   br i1 %.not.i.i26.i152.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i167.i.i.i.i.i.i, label %._crit_edge.i.i27.i153.i.i.i.i.i.i
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i167.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i136.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i148.i.i.i.i.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i135.i.i.i.i.i.i
   %355 = phi ptr [ %.pre.i150.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i148.i.i.i.i.i.i ], [ %337, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i135.i.i.i.i.i.i ], [ %337, %.preheader.i.i.i.i136.i.i.i.i.i.i ]
-  %.pre4354.i168.i.i.i.i.i.i = phi ptr [ %.pre43.pre.i149.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i148.i.i.i.i.i.i ], [ %337, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i135.i.i.i.i.i.i ], [ %338, %.preheader.i.i.i.i136.i.i.i.i.i.i ]
+  %.pre4354.i168.i.i.i.i.i.i = phi ptr [ %.pre43.pre.i149.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i148.i.i.i.i.i.i ], [ %338, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i135.i.i.i.i.i.i ], [ %338, %.preheader.i.i.i.i136.i.i.i.i.i.i ]
   %.pre48.i169.i.i.i.i.i.i = ptrtoint ptr %.pre4354.i168.i.i.i.i.i.i to i64
   br label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit.i154.i.i.i.i.i.i
 
@@ -1317,17 +1317,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i190.
   %410 = load i32, ptr %.sroa.010.0.i.i.i.i192.i.i.i.i.i.i, align 4
   %411 = load i32, ptr %408, align 4
   %412 = icmp eq i32 %410, %411
-  br i1 %412, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i194.i.i.i.i.i.i, label %.preheader.i.i.i.i191.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %412, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i194.i.i.i.i.i.i, label %.preheader.i.i.i.i191.i.i.i.i.i.i, !llvm.loop !7
 
-_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i194.i.i.i.i.i.i: ; preds = %409
+_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i194.i.i.i.i.i.i: ; preds = %409
   %413 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i.i192.i.i.i.i.i.i, i64 8
   %.not18.i.i.i195.i.i.i.i.i.i = icmp eq ptr %413, %405
   br i1 %.not18.i.i.i195.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i203.i.i.i.i.i.i, label %.lr.ph.i.i.i196.i.i.i.i.i.i
 
-.lr.ph.i.i.i196.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i194.i.i.i.i.i.i, %420
-  %414 = phi i32 [ %416, %420 ], [ %410, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i194.i.i.i.i.i.i ]
-  %415 = phi ptr [ %421, %420 ], [ %413, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i194.i.i.i.i.i.i ]
-  %.sroa.0.019.i.i.i197.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i198.i.i.i.i.i.i, %420 ], [ %.sroa.010.0.i.i.i.i192.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i194.i.i.i.i.i.i ]
+.lr.ph.i.i.i196.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i194.i.i.i.i.i.i, %420
+  %414 = phi i32 [ %416, %420 ], [ %410, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i194.i.i.i.i.i.i ]
+  %415 = phi ptr [ %421, %420 ], [ %413, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i194.i.i.i.i.i.i ]
+  %.sroa.0.019.i.i.i197.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i198.i.i.i.i.i.i, %420 ], [ %.sroa.010.0.i.i.i.i192.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i194.i.i.i.i.i.i ]
   %416 = load i32, ptr %415, align 4
   %417 = icmp eq i32 %414, %416
   br i1 %417, label %420, label %418
@@ -1348,17 +1348,17 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5_
   %.pre47.pre.pre.i202.i.i.i.i.i.i = load ptr, ptr %14, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i203.i.i.i.i.i.i
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i203.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i200.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i194.i.i.i.i.i.i
-  %.pre47.pre.i204.i.i.i.i.i.i = phi ptr [ %406, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i194.i.i.i.i.i.i ], [ %.pre47.pre.pre.i202.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i200.i.i.i.i.i.i ]
-  %.pre.i205.i.i.i.i.i.i = phi ptr [ %405, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i194.i.i.i.i.i.i ], [ %.pre.pre.i201.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i200.i.i.i.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i206.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i192.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i194.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i198.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i200.i.i.i.i.i.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i203.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i200.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i194.i.i.i.i.i.i
+  %.pre47.pre.i204.i.i.i.i.i.i = phi ptr [ %406, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i194.i.i.i.i.i.i ], [ %.pre47.pre.pre.i202.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i200.i.i.i.i.i.i ]
+  %.pre.i205.i.i.i.i.i.i = phi ptr [ %405, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i194.i.i.i.i.i.i ], [ %.pre.pre.i201.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i200.i.i.i.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i206.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i192.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i194.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i198.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i200.i.i.i.i.i.i ]
   %422 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i206.i.i.i.i.i.i, i64 4
   %.not.i.i26.i207.i.i.i.i.i.i = icmp eq ptr %422, %.pre.i205.i.i.i.i.i.i
   br i1 %.not.i.i26.i207.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i229.i.i.i.i.i.i, label %._crit_edge.i.i27.i208.i.i.i.i.i.i
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i229.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i191.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i203.i.i.i.i.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i190.i.i.i.i.i.i
   %423 = phi ptr [ %.pre.i205.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i203.i.i.i.i.i.i ], [ %405, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i190.i.i.i.i.i.i ], [ %405, %.preheader.i.i.i.i191.i.i.i.i.i.i ]
-  %.pre4759.i230.i.i.i.i.i.i = phi ptr [ %.pre47.pre.i204.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i203.i.i.i.i.i.i ], [ %405, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i190.i.i.i.i.i.i ], [ %406, %.preheader.i.i.i.i191.i.i.i.i.i.i ]
+  %.pre4759.i230.i.i.i.i.i.i = phi ptr [ %.pre47.pre.i204.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i203.i.i.i.i.i.i ], [ %406, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i190.i.i.i.i.i.i ], [ %406, %.preheader.i.i.i.i191.i.i.i.i.i.i ]
   %.pre53.i231.i.i.i.i.i.i = ptrtoint ptr %.pre4759.i230.i.i.i.i.i.i to i64
   br label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit.i209.i.i.i.i.i.i
 
@@ -1591,17 +1591,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i249.
   %512 = load i32, ptr %.sroa.010.0.i.i.i.i251.i.i.i.i.i.i, align 4
   %513 = load i32, ptr %510, align 4
   %514 = icmp eq i32 %512, %513
-  br i1 %514, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i253.i.i.i.i.i.i, label %.preheader.i.i.i.i250.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %514, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i253.i.i.i.i.i.i, label %.preheader.i.i.i.i250.i.i.i.i.i.i, !llvm.loop !7
 
-_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i253.i.i.i.i.i.i: ; preds = %511
+_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i253.i.i.i.i.i.i: ; preds = %511
   %515 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i.i251.i.i.i.i.i.i, i64 8
   %.not18.i.i.i254.i.i.i.i.i.i = icmp eq ptr %515, %507
   br i1 %.not18.i.i.i254.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i261.i.i.i.i.i.i, label %.lr.ph.i.i.i255.i.i.i.i.i.i
 
-.lr.ph.i.i.i255.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i253.i.i.i.i.i.i, %522
-  %516 = phi i32 [ %518, %522 ], [ %512, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i253.i.i.i.i.i.i ]
-  %517 = phi ptr [ %523, %522 ], [ %515, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i253.i.i.i.i.i.i ]
-  %.sroa.0.019.i.i.i256.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i257.i.i.i.i.i.i, %522 ], [ %.sroa.010.0.i.i.i.i251.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i253.i.i.i.i.i.i ]
+.lr.ph.i.i.i255.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i253.i.i.i.i.i.i, %522
+  %516 = phi i32 [ %518, %522 ], [ %512, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i253.i.i.i.i.i.i ]
+  %517 = phi ptr [ %523, %522 ], [ %515, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i253.i.i.i.i.i.i ]
+  %.sroa.0.019.i.i.i256.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i257.i.i.i.i.i.i, %522 ], [ %.sroa.010.0.i.i.i.i251.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i253.i.i.i.i.i.i ]
   %518 = load i32, ptr %517, align 4
   %519 = icmp eq i32 %516, %518
   br i1 %519, label %522, label %520
@@ -1622,17 +1622,17 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5_
   %.pre49.pre.pre.i.i.i.i.i.i.i = load ptr, ptr %13, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i261.i.i.i.i.i.i
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i261.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i259.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i253.i.i.i.i.i.i
-  %.pre49.pre.i.i.i.i.i.i.i = phi ptr [ %508, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i253.i.i.i.i.i.i ], [ %.pre49.pre.pre.i.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i259.i.i.i.i.i.i ]
-  %.pre.i262.i.i.i.i.i.i = phi ptr [ %507, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i253.i.i.i.i.i.i ], [ %.pre.pre.i260.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i259.i.i.i.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i263.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i251.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i253.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i257.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i259.i.i.i.i.i.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i261.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i259.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i253.i.i.i.i.i.i
+  %.pre49.pre.i.i.i.i.i.i.i = phi ptr [ %508, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i253.i.i.i.i.i.i ], [ %.pre49.pre.pre.i.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i259.i.i.i.i.i.i ]
+  %.pre.i262.i.i.i.i.i.i = phi ptr [ %507, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i253.i.i.i.i.i.i ], [ %.pre.pre.i260.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i259.i.i.i.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i263.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i251.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i253.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i257.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i259.i.i.i.i.i.i ]
   %524 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i263.i.i.i.i.i.i, i64 4
   %.not.i.i26.i264.i.i.i.i.i.i = icmp eq ptr %524, %.pre.i262.i.i.i.i.i.i
   br i1 %.not.i.i26.i264.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i276.i.i.i.i.i.i, label %._crit_edge.i.i27.i265.i.i.i.i.i.i
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i276.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i250.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i261.i.i.i.i.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i249.i.i.i.i.i.i
   %525 = phi ptr [ %.pre.i262.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i261.i.i.i.i.i.i ], [ %507, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i249.i.i.i.i.i.i ], [ %507, %.preheader.i.i.i.i250.i.i.i.i.i.i ]
-  %.pre4961.i.i.i.i.i.i.i = phi ptr [ %.pre49.pre.i.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i261.i.i.i.i.i.i ], [ %507, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i249.i.i.i.i.i.i ], [ %508, %.preheader.i.i.i.i250.i.i.i.i.i.i ]
+  %.pre4961.i.i.i.i.i.i.i = phi ptr [ %.pre49.pre.i.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i261.i.i.i.i.i.i ], [ %508, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i249.i.i.i.i.i.i ], [ %508, %.preheader.i.i.i.i250.i.i.i.i.i.i ]
   %.pre55.i.i.i.i.i.i.i = ptrtoint ptr %.pre4961.i.i.i.i.i.i.i to i64
   br label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit.i266.i.i.i.i.i.i
 
@@ -1867,17 +1867,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i297.
   %612 = load i32, ptr %.sroa.010.0.i.i.i.i299.i.i.i.i.i.i, align 4
   %613 = load i32, ptr %610, align 4
   %614 = icmp eq i32 %612, %613
-  br i1 %614, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i301.i.i.i.i.i.i, label %.preheader.i.i.i.i298.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %614, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i301.i.i.i.i.i.i, label %.preheader.i.i.i.i298.i.i.i.i.i.i, !llvm.loop !7
 
-_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i301.i.i.i.i.i.i: ; preds = %611
+_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i301.i.i.i.i.i.i: ; preds = %611
   %615 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i.i299.i.i.i.i.i.i, i64 8
   %.not18.i.i.i302.i.i.i.i.i.i = icmp eq ptr %615, %607
   br i1 %.not18.i.i.i302.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i310.i.i.i.i.i.i, label %.lr.ph.i.i.i303.i.i.i.i.i.i
 
-.lr.ph.i.i.i303.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i301.i.i.i.i.i.i, %622
-  %616 = phi i32 [ %618, %622 ], [ %612, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i301.i.i.i.i.i.i ]
-  %617 = phi ptr [ %623, %622 ], [ %615, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i301.i.i.i.i.i.i ]
-  %.sroa.0.019.i.i.i304.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i305.i.i.i.i.i.i, %622 ], [ %.sroa.010.0.i.i.i.i299.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i301.i.i.i.i.i.i ]
+.lr.ph.i.i.i303.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i301.i.i.i.i.i.i, %622
+  %616 = phi i32 [ %618, %622 ], [ %612, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i301.i.i.i.i.i.i ]
+  %617 = phi ptr [ %623, %622 ], [ %615, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i301.i.i.i.i.i.i ]
+  %.sroa.0.019.i.i.i304.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i305.i.i.i.i.i.i, %622 ], [ %.sroa.010.0.i.i.i.i299.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i301.i.i.i.i.i.i ]
   %618 = load i32, ptr %617, align 4
   %619 = icmp eq i32 %616, %618
   br i1 %619, label %622, label %620
@@ -1898,17 +1898,17 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5_
   %.pre47.pre.pre.i309.i.i.i.i.i.i = load ptr, ptr %12, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i310.i.i.i.i.i.i
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i310.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i307.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i301.i.i.i.i.i.i
-  %.pre47.pre.i311.i.i.i.i.i.i = phi ptr [ %608, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i301.i.i.i.i.i.i ], [ %.pre47.pre.pre.i309.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i307.i.i.i.i.i.i ]
-  %.pre.i312.i.i.i.i.i.i = phi ptr [ %607, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i301.i.i.i.i.i.i ], [ %.pre.pre.i308.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i307.i.i.i.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i313.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i299.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i301.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i305.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i307.i.i.i.i.i.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i310.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i307.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i301.i.i.i.i.i.i
+  %.pre47.pre.i311.i.i.i.i.i.i = phi ptr [ %608, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i301.i.i.i.i.i.i ], [ %.pre47.pre.pre.i309.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i307.i.i.i.i.i.i ]
+  %.pre.i312.i.i.i.i.i.i = phi ptr [ %607, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i301.i.i.i.i.i.i ], [ %.pre.pre.i308.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i307.i.i.i.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i313.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i299.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i301.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i305.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i307.i.i.i.i.i.i ]
   %624 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i313.i.i.i.i.i.i, i64 4
   %.not.i.i26.i314.i.i.i.i.i.i = icmp eq ptr %624, %.pre.i312.i.i.i.i.i.i
   br i1 %.not.i.i26.i314.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i336.i.i.i.i.i.i, label %._crit_edge.i.i27.i315.i.i.i.i.i.i
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i336.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i298.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i310.i.i.i.i.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i297.i.i.i.i.i.i
   %625 = phi ptr [ %.pre.i312.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i310.i.i.i.i.i.i ], [ %607, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i297.i.i.i.i.i.i ], [ %607, %.preheader.i.i.i.i298.i.i.i.i.i.i ]
-  %.pre4759.i337.i.i.i.i.i.i = phi ptr [ %.pre47.pre.i311.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i310.i.i.i.i.i.i ], [ %607, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i297.i.i.i.i.i.i ], [ %608, %.preheader.i.i.i.i298.i.i.i.i.i.i ]
+  %.pre4759.i337.i.i.i.i.i.i = phi ptr [ %.pre47.pre.i311.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i310.i.i.i.i.i.i ], [ %608, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i297.i.i.i.i.i.i ], [ %608, %.preheader.i.i.i.i298.i.i.i.i.i.i ]
   %.pre53.i338.i.i.i.i.i.i = ptrtoint ptr %.pre4759.i337.i.i.i.i.i.i to i64
   br label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit.i316.i.i.i.i.i.i
 
@@ -2142,17 +2142,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i359.
   %715 = load i32, ptr %.sroa.010.0.i.i.i.i361.i.i.i.i.i.i, align 4
   %716 = load i32, ptr %713, align 4
   %717 = icmp eq i32 %715, %716
-  br i1 %717, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i363.i.i.i.i.i.i, label %.preheader.i.i.i.i360.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %717, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i363.i.i.i.i.i.i, label %.preheader.i.i.i.i360.i.i.i.i.i.i, !llvm.loop !7
 
-_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i363.i.i.i.i.i.i: ; preds = %714
+_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i363.i.i.i.i.i.i: ; preds = %714
   %718 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i.i361.i.i.i.i.i.i, i64 8
   %.not18.i.i.i364.i.i.i.i.i.i = icmp eq ptr %718, %710
   br i1 %.not18.i.i.i364.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i372.i.i.i.i.i.i, label %.lr.ph.i.i.i365.i.i.i.i.i.i
 
-.lr.ph.i.i.i365.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i363.i.i.i.i.i.i, %725
-  %719 = phi i32 [ %721, %725 ], [ %715, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i363.i.i.i.i.i.i ]
-  %720 = phi ptr [ %726, %725 ], [ %718, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i363.i.i.i.i.i.i ]
-  %.sroa.0.019.i.i.i366.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i367.i.i.i.i.i.i, %725 ], [ %.sroa.010.0.i.i.i.i361.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i363.i.i.i.i.i.i ]
+.lr.ph.i.i.i365.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i363.i.i.i.i.i.i, %725
+  %719 = phi i32 [ %721, %725 ], [ %715, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i363.i.i.i.i.i.i ]
+  %720 = phi ptr [ %726, %725 ], [ %718, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i363.i.i.i.i.i.i ]
+  %.sroa.0.019.i.i.i366.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i367.i.i.i.i.i.i, %725 ], [ %.sroa.010.0.i.i.i.i361.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i363.i.i.i.i.i.i ]
   %721 = load i32, ptr %720, align 4
   %722 = icmp eq i32 %719, %721
   br i1 %722, label %725, label %723
@@ -2173,17 +2173,17 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5_
   %.pre43.pre.pre.i371.i.i.i.i.i.i = load ptr, ptr %11, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i372.i.i.i.i.i.i
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i372.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i369.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i363.i.i.i.i.i.i
-  %.pre43.pre.i373.i.i.i.i.i.i = phi ptr [ %711, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i363.i.i.i.i.i.i ], [ %.pre43.pre.pre.i371.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i369.i.i.i.i.i.i ]
-  %.pre.i374.i.i.i.i.i.i = phi ptr [ %710, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i363.i.i.i.i.i.i ], [ %.pre.pre.i370.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i369.i.i.i.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i375.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i361.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i363.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i367.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i369.i.i.i.i.i.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i372.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i369.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i363.i.i.i.i.i.i
+  %.pre43.pre.i373.i.i.i.i.i.i = phi ptr [ %711, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i363.i.i.i.i.i.i ], [ %.pre43.pre.pre.i371.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i369.i.i.i.i.i.i ]
+  %.pre.i374.i.i.i.i.i.i = phi ptr [ %710, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i363.i.i.i.i.i.i ], [ %.pre.pre.i370.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i369.i.i.i.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i375.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i361.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i363.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i367.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i369.i.i.i.i.i.i ]
   %727 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i375.i.i.i.i.i.i, i64 4
   %.not.i.i26.i376.i.i.i.i.i.i = icmp eq ptr %727, %.pre.i374.i.i.i.i.i.i
   br i1 %.not.i.i26.i376.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i391.i.i.i.i.i.i, label %._crit_edge.i.i27.i377.i.i.i.i.i.i
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i391.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i360.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i372.i.i.i.i.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i359.i.i.i.i.i.i
   %728 = phi ptr [ %.pre.i374.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i372.i.i.i.i.i.i ], [ %710, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i359.i.i.i.i.i.i ], [ %710, %.preheader.i.i.i.i360.i.i.i.i.i.i ]
-  %.pre4354.i392.i.i.i.i.i.i = phi ptr [ %.pre43.pre.i373.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i372.i.i.i.i.i.i ], [ %710, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i359.i.i.i.i.i.i ], [ %711, %.preheader.i.i.i.i360.i.i.i.i.i.i ]
+  %.pre4354.i392.i.i.i.i.i.i = phi ptr [ %.pre43.pre.i373.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i372.i.i.i.i.i.i ], [ %711, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i359.i.i.i.i.i.i ], [ %711, %.preheader.i.i.i.i360.i.i.i.i.i.i ]
   %.pre48.i393.i.i.i.i.i.i = ptrtoint ptr %.pre4354.i392.i.i.i.i.i.i to i64
   br label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit.i378.i.i.i.i.i.i
 
@@ -2338,17 +2338,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i414.
   %783 = load i32, ptr %.sroa.010.0.i.i.i.i416.i.i.i.i.i.i, align 4
   %784 = load i32, ptr %781, align 4
   %785 = icmp eq i32 %783, %784
-  br i1 %785, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i418.i.i.i.i.i.i, label %.preheader.i.i.i.i415.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %785, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i418.i.i.i.i.i.i, label %.preheader.i.i.i.i415.i.i.i.i.i.i, !llvm.loop !7
 
-_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i418.i.i.i.i.i.i: ; preds = %782
+_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i418.i.i.i.i.i.i: ; preds = %782
   %786 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i.i416.i.i.i.i.i.i, i64 8
   %.not18.i.i.i419.i.i.i.i.i.i = icmp eq ptr %786, %778
   br i1 %.not18.i.i.i419.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i427.i.i.i.i.i.i, label %.lr.ph.i.i.i420.i.i.i.i.i.i
 
-.lr.ph.i.i.i420.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i418.i.i.i.i.i.i, %793
-  %787 = phi i32 [ %789, %793 ], [ %783, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i418.i.i.i.i.i.i ]
-  %788 = phi ptr [ %794, %793 ], [ %786, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i418.i.i.i.i.i.i ]
-  %.sroa.0.019.i.i.i421.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i422.i.i.i.i.i.i, %793 ], [ %.sroa.010.0.i.i.i.i416.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i418.i.i.i.i.i.i ]
+.lr.ph.i.i.i420.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i418.i.i.i.i.i.i, %793
+  %787 = phi i32 [ %789, %793 ], [ %783, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i418.i.i.i.i.i.i ]
+  %788 = phi ptr [ %794, %793 ], [ %786, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i418.i.i.i.i.i.i ]
+  %.sroa.0.019.i.i.i421.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i422.i.i.i.i.i.i, %793 ], [ %.sroa.010.0.i.i.i.i416.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i418.i.i.i.i.i.i ]
   %789 = load i32, ptr %788, align 4
   %790 = icmp eq i32 %787, %789
   br i1 %790, label %793, label %791
@@ -2369,17 +2369,17 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5_
   %.pre43.pre.pre.i426.i.i.i.i.i.i = load ptr, ptr %10, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i427.i.i.i.i.i.i
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i427.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i424.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i418.i.i.i.i.i.i
-  %.pre43.pre.i428.i.i.i.i.i.i = phi ptr [ %779, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i418.i.i.i.i.i.i ], [ %.pre43.pre.pre.i426.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i424.i.i.i.i.i.i ]
-  %.pre.i429.i.i.i.i.i.i = phi ptr [ %778, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i418.i.i.i.i.i.i ], [ %.pre.pre.i425.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i424.i.i.i.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i430.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i416.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i418.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i422.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i424.i.i.i.i.i.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i427.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i424.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i418.i.i.i.i.i.i
+  %.pre43.pre.i428.i.i.i.i.i.i = phi ptr [ %779, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i418.i.i.i.i.i.i ], [ %.pre43.pre.pre.i426.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i424.i.i.i.i.i.i ]
+  %.pre.i429.i.i.i.i.i.i = phi ptr [ %778, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i418.i.i.i.i.i.i ], [ %.pre.pre.i425.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i424.i.i.i.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i430.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i416.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i418.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i422.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i424.i.i.i.i.i.i ]
   %795 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i430.i.i.i.i.i.i, i64 4
   %.not.i.i26.i431.i.i.i.i.i.i = icmp eq ptr %795, %.pre.i429.i.i.i.i.i.i
   br i1 %.not.i.i26.i431.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i446.i.i.i.i.i.i, label %._crit_edge.i.i27.i432.i.i.i.i.i.i
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i446.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i415.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i427.i.i.i.i.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i414.i.i.i.i.i.i
   %796 = phi ptr [ %.pre.i429.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i427.i.i.i.i.i.i ], [ %778, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i414.i.i.i.i.i.i ], [ %778, %.preheader.i.i.i.i415.i.i.i.i.i.i ]
-  %.pre4354.i447.i.i.i.i.i.i = phi ptr [ %.pre43.pre.i428.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i427.i.i.i.i.i.i ], [ %778, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i414.i.i.i.i.i.i ], [ %779, %.preheader.i.i.i.i415.i.i.i.i.i.i ]
+  %.pre4354.i447.i.i.i.i.i.i = phi ptr [ %.pre43.pre.i428.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i427.i.i.i.i.i.i ], [ %779, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i414.i.i.i.i.i.i ], [ %779, %.preheader.i.i.i.i415.i.i.i.i.i.i ]
   %.pre48.i448.i.i.i.i.i.i = ptrtoint ptr %.pre4354.i447.i.i.i.i.i.i to i64
   br label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit.i433.i.i.i.i.i.i
 
@@ -2534,17 +2534,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i469.
   %851 = load i32, ptr %.sroa.010.0.i.i.i.i471.i.i.i.i.i.i, align 4
   %852 = load i32, ptr %849, align 4
   %853 = icmp eq i32 %851, %852
-  br i1 %853, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i473.i.i.i.i.i.i, label %.preheader.i.i.i.i470.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %853, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i473.i.i.i.i.i.i, label %.preheader.i.i.i.i470.i.i.i.i.i.i, !llvm.loop !7
 
-_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i473.i.i.i.i.i.i: ; preds = %850
+_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i473.i.i.i.i.i.i: ; preds = %850
   %854 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i.i471.i.i.i.i.i.i, i64 8
   %.not18.i.i.i474.i.i.i.i.i.i = icmp eq ptr %854, %846
   br i1 %.not18.i.i.i474.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i482.i.i.i.i.i.i, label %.lr.ph.i.i.i475.i.i.i.i.i.i
 
-.lr.ph.i.i.i475.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i473.i.i.i.i.i.i, %861
-  %855 = phi i32 [ %857, %861 ], [ %851, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i473.i.i.i.i.i.i ]
-  %856 = phi ptr [ %862, %861 ], [ %854, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i473.i.i.i.i.i.i ]
-  %.sroa.0.019.i.i.i476.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i477.i.i.i.i.i.i, %861 ], [ %.sroa.010.0.i.i.i.i471.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i473.i.i.i.i.i.i ]
+.lr.ph.i.i.i475.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i473.i.i.i.i.i.i, %861
+  %855 = phi i32 [ %857, %861 ], [ %851, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i473.i.i.i.i.i.i ]
+  %856 = phi ptr [ %862, %861 ], [ %854, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i473.i.i.i.i.i.i ]
+  %.sroa.0.019.i.i.i476.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i477.i.i.i.i.i.i, %861 ], [ %.sroa.010.0.i.i.i.i471.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i473.i.i.i.i.i.i ]
   %857 = load i32, ptr %856, align 4
   %858 = icmp eq i32 %855, %857
   br i1 %858, label %861, label %859
@@ -2565,17 +2565,17 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5_
   %.pre47.pre.pre.i481.i.i.i.i.i.i = load ptr, ptr %9, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i482.i.i.i.i.i.i
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i482.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i479.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i473.i.i.i.i.i.i
-  %.pre47.pre.i483.i.i.i.i.i.i = phi ptr [ %847, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i473.i.i.i.i.i.i ], [ %.pre47.pre.pre.i481.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i479.i.i.i.i.i.i ]
-  %.pre.i484.i.i.i.i.i.i = phi ptr [ %846, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i473.i.i.i.i.i.i ], [ %.pre.pre.i480.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i479.i.i.i.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i485.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i471.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i473.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i477.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i479.i.i.i.i.i.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i482.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i479.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i473.i.i.i.i.i.i
+  %.pre47.pre.i483.i.i.i.i.i.i = phi ptr [ %847, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i473.i.i.i.i.i.i ], [ %.pre47.pre.pre.i481.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i479.i.i.i.i.i.i ]
+  %.pre.i484.i.i.i.i.i.i = phi ptr [ %846, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i473.i.i.i.i.i.i ], [ %.pre.pre.i480.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i479.i.i.i.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i485.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i471.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i473.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i477.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i479.i.i.i.i.i.i ]
   %863 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i485.i.i.i.i.i.i, i64 4
   %.not.i.i26.i486.i.i.i.i.i.i = icmp eq ptr %863, %.pre.i484.i.i.i.i.i.i
   br i1 %.not.i.i26.i486.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i507.i.i.i.i.i.i, label %._crit_edge.i.i27.i487.i.i.i.i.i.i
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i507.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i470.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i482.i.i.i.i.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i469.i.i.i.i.i.i
   %864 = phi ptr [ %.pre.i484.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i482.i.i.i.i.i.i ], [ %846, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i469.i.i.i.i.i.i ], [ %846, %.preheader.i.i.i.i470.i.i.i.i.i.i ]
-  %.pre4758.i508.i.i.i.i.i.i = phi ptr [ %.pre47.pre.i483.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i482.i.i.i.i.i.i ], [ %846, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i469.i.i.i.i.i.i ], [ %847, %.preheader.i.i.i.i470.i.i.i.i.i.i ]
+  %.pre4758.i508.i.i.i.i.i.i = phi ptr [ %.pre47.pre.i483.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i482.i.i.i.i.i.i ], [ %847, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i469.i.i.i.i.i.i ], [ %847, %.preheader.i.i.i.i470.i.i.i.i.i.i ]
   %.pre52.i509.i.i.i.i.i.i = ptrtoint ptr %.pre4758.i508.i.i.i.i.i.i to i64
   br label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit.i488.i.i.i.i.i.i
 
@@ -2808,17 +2808,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i530.
   %954 = load i32, ptr %.sroa.010.0.i.i.i.i532.i.i.i.i.i.i, align 4
   %955 = load i32, ptr %952, align 4
   %956 = icmp eq i32 %954, %955
-  br i1 %956, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i534.i.i.i.i.i.i, label %.preheader.i.i.i.i531.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %956, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i534.i.i.i.i.i.i, label %.preheader.i.i.i.i531.i.i.i.i.i.i, !llvm.loop !7
 
-_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i534.i.i.i.i.i.i: ; preds = %953
+_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i534.i.i.i.i.i.i: ; preds = %953
   %957 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i.i532.i.i.i.i.i.i, i64 8
   %.not18.i.i.i535.i.i.i.i.i.i = icmp eq ptr %957, %949
   br i1 %.not18.i.i.i535.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i543.i.i.i.i.i.i, label %.lr.ph.i.i.i536.i.i.i.i.i.i
 
-.lr.ph.i.i.i536.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i534.i.i.i.i.i.i, %964
-  %958 = phi i32 [ %960, %964 ], [ %954, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i534.i.i.i.i.i.i ]
-  %959 = phi ptr [ %965, %964 ], [ %957, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i534.i.i.i.i.i.i ]
-  %.sroa.0.019.i.i.i537.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i538.i.i.i.i.i.i, %964 ], [ %.sroa.010.0.i.i.i.i532.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i534.i.i.i.i.i.i ]
+.lr.ph.i.i.i536.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i534.i.i.i.i.i.i, %964
+  %958 = phi i32 [ %960, %964 ], [ %954, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i534.i.i.i.i.i.i ]
+  %959 = phi ptr [ %965, %964 ], [ %957, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i534.i.i.i.i.i.i ]
+  %.sroa.0.019.i.i.i537.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i538.i.i.i.i.i.i, %964 ], [ %.sroa.010.0.i.i.i.i532.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i534.i.i.i.i.i.i ]
   %960 = load i32, ptr %959, align 4
   %961 = icmp eq i32 %958, %960
   br i1 %961, label %964, label %962
@@ -2839,17 +2839,17 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5_
   %.pre43.pre.pre.i542.i.i.i.i.i.i = load ptr, ptr %8, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i543.i.i.i.i.i.i
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i543.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i540.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i534.i.i.i.i.i.i
-  %.pre43.pre.i544.i.i.i.i.i.i = phi ptr [ %950, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i534.i.i.i.i.i.i ], [ %.pre43.pre.pre.i542.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i540.i.i.i.i.i.i ]
-  %.pre.i545.i.i.i.i.i.i = phi ptr [ %949, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i534.i.i.i.i.i.i ], [ %.pre.pre.i541.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i540.i.i.i.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i546.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i532.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i534.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i538.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i540.i.i.i.i.i.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i543.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i540.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i534.i.i.i.i.i.i
+  %.pre43.pre.i544.i.i.i.i.i.i = phi ptr [ %950, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i534.i.i.i.i.i.i ], [ %.pre43.pre.pre.i542.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i540.i.i.i.i.i.i ]
+  %.pre.i545.i.i.i.i.i.i = phi ptr [ %949, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i534.i.i.i.i.i.i ], [ %.pre.pre.i541.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i540.i.i.i.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i546.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i532.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i534.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i538.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i540.i.i.i.i.i.i ]
   %966 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i546.i.i.i.i.i.i, i64 4
   %.not.i.i26.i547.i.i.i.i.i.i = icmp eq ptr %966, %.pre.i545.i.i.i.i.i.i
   br i1 %.not.i.i26.i547.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i562.i.i.i.i.i.i, label %._crit_edge.i.i27.i548.i.i.i.i.i.i
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i562.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i531.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i543.i.i.i.i.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i530.i.i.i.i.i.i
   %967 = phi ptr [ %.pre.i545.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i543.i.i.i.i.i.i ], [ %949, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i530.i.i.i.i.i.i ], [ %949, %.preheader.i.i.i.i531.i.i.i.i.i.i ]
-  %.pre4354.i563.i.i.i.i.i.i = phi ptr [ %.pre43.pre.i544.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i543.i.i.i.i.i.i ], [ %949, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i530.i.i.i.i.i.i ], [ %950, %.preheader.i.i.i.i531.i.i.i.i.i.i ]
+  %.pre4354.i563.i.i.i.i.i.i = phi ptr [ %.pre43.pre.i544.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i543.i.i.i.i.i.i ], [ %950, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i530.i.i.i.i.i.i ], [ %950, %.preheader.i.i.i.i531.i.i.i.i.i.i ]
   %.pre48.i564.i.i.i.i.i.i = ptrtoint ptr %.pre4354.i563.i.i.i.i.i.i to i64
   br label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit.i549.i.i.i.i.i.i
 
@@ -3004,17 +3004,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i585.
   %1022 = load i32, ptr %.sroa.010.0.i.i.i.i587.i.i.i.i.i.i, align 4
   %1023 = load i32, ptr %1020, align 4
   %1024 = icmp eq i32 %1022, %1023
-  br i1 %1024, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i589.i.i.i.i.i.i, label %.preheader.i.i.i.i586.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %1024, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i589.i.i.i.i.i.i, label %.preheader.i.i.i.i586.i.i.i.i.i.i, !llvm.loop !7
 
-_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i589.i.i.i.i.i.i: ; preds = %1021
+_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i589.i.i.i.i.i.i: ; preds = %1021
   %1025 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i.i587.i.i.i.i.i.i, i64 8
   %.not18.i.i.i590.i.i.i.i.i.i = icmp eq ptr %1025, %1017
   br i1 %.not18.i.i.i590.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i598.i.i.i.i.i.i, label %.lr.ph.i.i.i591.i.i.i.i.i.i
 
-.lr.ph.i.i.i591.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i589.i.i.i.i.i.i, %1032
-  %1026 = phi i32 [ %1028, %1032 ], [ %1022, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i589.i.i.i.i.i.i ]
-  %1027 = phi ptr [ %1033, %1032 ], [ %1025, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i589.i.i.i.i.i.i ]
-  %.sroa.0.019.i.i.i592.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i593.i.i.i.i.i.i, %1032 ], [ %.sroa.010.0.i.i.i.i587.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i589.i.i.i.i.i.i ]
+.lr.ph.i.i.i591.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i589.i.i.i.i.i.i, %1032
+  %1026 = phi i32 [ %1028, %1032 ], [ %1022, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i589.i.i.i.i.i.i ]
+  %1027 = phi ptr [ %1033, %1032 ], [ %1025, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i589.i.i.i.i.i.i ]
+  %.sroa.0.019.i.i.i592.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i593.i.i.i.i.i.i, %1032 ], [ %.sroa.010.0.i.i.i.i587.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i589.i.i.i.i.i.i ]
   %1028 = load i32, ptr %1027, align 4
   %1029 = icmp eq i32 %1026, %1028
   br i1 %1029, label %1032, label %1030
@@ -3035,17 +3035,17 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5_
   %.pre43.pre.pre.i597.i.i.i.i.i.i = load ptr, ptr %7, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i598.i.i.i.i.i.i
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i598.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i595.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i589.i.i.i.i.i.i
-  %.pre43.pre.i599.i.i.i.i.i.i = phi ptr [ %1018, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i589.i.i.i.i.i.i ], [ %.pre43.pre.pre.i597.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i595.i.i.i.i.i.i ]
-  %.pre.i600.i.i.i.i.i.i = phi ptr [ %1017, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i589.i.i.i.i.i.i ], [ %.pre.pre.i596.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i595.i.i.i.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i601.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i587.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i589.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i593.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i595.i.i.i.i.i.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i598.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i595.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i589.i.i.i.i.i.i
+  %.pre43.pre.i599.i.i.i.i.i.i = phi ptr [ %1018, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i589.i.i.i.i.i.i ], [ %.pre43.pre.pre.i597.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i595.i.i.i.i.i.i ]
+  %.pre.i600.i.i.i.i.i.i = phi ptr [ %1017, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i589.i.i.i.i.i.i ], [ %.pre.pre.i596.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i595.i.i.i.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i601.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i587.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i589.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i593.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i595.i.i.i.i.i.i ]
   %1034 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i601.i.i.i.i.i.i, i64 4
   %.not.i.i26.i602.i.i.i.i.i.i = icmp eq ptr %1034, %.pre.i600.i.i.i.i.i.i
   br i1 %.not.i.i26.i602.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i617.i.i.i.i.i.i, label %._crit_edge.i.i27.i603.i.i.i.i.i.i
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i617.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i586.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i598.i.i.i.i.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i585.i.i.i.i.i.i
   %1035 = phi ptr [ %.pre.i600.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i598.i.i.i.i.i.i ], [ %1017, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i585.i.i.i.i.i.i ], [ %1017, %.preheader.i.i.i.i586.i.i.i.i.i.i ]
-  %.pre4354.i618.i.i.i.i.i.i = phi ptr [ %.pre43.pre.i599.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i598.i.i.i.i.i.i ], [ %1017, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i585.i.i.i.i.i.i ], [ %1018, %.preheader.i.i.i.i586.i.i.i.i.i.i ]
+  %.pre4354.i618.i.i.i.i.i.i = phi ptr [ %.pre43.pre.i599.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i598.i.i.i.i.i.i ], [ %1018, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i585.i.i.i.i.i.i ], [ %1018, %.preheader.i.i.i.i586.i.i.i.i.i.i ]
   %.pre48.i619.i.i.i.i.i.i = ptrtoint ptr %.pre4354.i618.i.i.i.i.i.i to i64
   br label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit.i604.i.i.i.i.i.i
 
@@ -3200,17 +3200,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i640.
   %1090 = load i32, ptr %.sroa.010.0.i.i.i.i642.i.i.i.i.i.i, align 4
   %1091 = load i32, ptr %1088, align 4
   %1092 = icmp eq i32 %1090, %1091
-  br i1 %1092, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i644.i.i.i.i.i.i, label %.preheader.i.i.i.i641.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %1092, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i644.i.i.i.i.i.i, label %.preheader.i.i.i.i641.i.i.i.i.i.i, !llvm.loop !7
 
-_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i644.i.i.i.i.i.i: ; preds = %1089
+_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i644.i.i.i.i.i.i: ; preds = %1089
   %1093 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i.i642.i.i.i.i.i.i, i64 8
   %.not18.i.i.i645.i.i.i.i.i.i = icmp eq ptr %1093, %1085
   br i1 %.not18.i.i.i645.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i653.i.i.i.i.i.i, label %.lr.ph.i.i.i646.i.i.i.i.i.i
 
-.lr.ph.i.i.i646.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i644.i.i.i.i.i.i, %1100
-  %1094 = phi i32 [ %1096, %1100 ], [ %1090, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i644.i.i.i.i.i.i ]
-  %1095 = phi ptr [ %1101, %1100 ], [ %1093, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i644.i.i.i.i.i.i ]
-  %.sroa.0.019.i.i.i647.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i648.i.i.i.i.i.i, %1100 ], [ %.sroa.010.0.i.i.i.i642.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i644.i.i.i.i.i.i ]
+.lr.ph.i.i.i646.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i644.i.i.i.i.i.i, %1100
+  %1094 = phi i32 [ %1096, %1100 ], [ %1090, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i644.i.i.i.i.i.i ]
+  %1095 = phi ptr [ %1101, %1100 ], [ %1093, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i644.i.i.i.i.i.i ]
+  %.sroa.0.019.i.i.i647.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i648.i.i.i.i.i.i, %1100 ], [ %.sroa.010.0.i.i.i.i642.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i644.i.i.i.i.i.i ]
   %1096 = load i32, ptr %1095, align 4
   %1097 = icmp eq i32 %1094, %1096
   br i1 %1097, label %1100, label %1098
@@ -3231,17 +3231,17 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5_
   %.pre47.pre.pre.i652.i.i.i.i.i.i = load ptr, ptr %6, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i653.i.i.i.i.i.i
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i653.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i650.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i644.i.i.i.i.i.i
-  %.pre47.pre.i654.i.i.i.i.i.i = phi ptr [ %1086, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i644.i.i.i.i.i.i ], [ %.pre47.pre.pre.i652.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i650.i.i.i.i.i.i ]
-  %.pre.i655.i.i.i.i.i.i = phi ptr [ %1085, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i644.i.i.i.i.i.i ], [ %.pre.pre.i651.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i650.i.i.i.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i656.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i642.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i644.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i648.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i650.i.i.i.i.i.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i653.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i650.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i644.i.i.i.i.i.i
+  %.pre47.pre.i654.i.i.i.i.i.i = phi ptr [ %1086, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i644.i.i.i.i.i.i ], [ %.pre47.pre.pre.i652.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i650.i.i.i.i.i.i ]
+  %.pre.i655.i.i.i.i.i.i = phi ptr [ %1085, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i644.i.i.i.i.i.i ], [ %.pre.pre.i651.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i650.i.i.i.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i656.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i642.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i644.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i648.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i650.i.i.i.i.i.i ]
   %1102 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i656.i.i.i.i.i.i, i64 4
   %.not.i.i26.i657.i.i.i.i.i.i = icmp eq ptr %1102, %.pre.i655.i.i.i.i.i.i
   br i1 %.not.i.i26.i657.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i679.i.i.i.i.i.i, label %._crit_edge.i.i27.i658.i.i.i.i.i.i
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i679.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i641.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i653.i.i.i.i.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i640.i.i.i.i.i.i
   %1103 = phi ptr [ %.pre.i655.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i653.i.i.i.i.i.i ], [ %1085, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i640.i.i.i.i.i.i ], [ %1085, %.preheader.i.i.i.i641.i.i.i.i.i.i ]
-  %.pre4759.i680.i.i.i.i.i.i = phi ptr [ %.pre47.pre.i654.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i653.i.i.i.i.i.i ], [ %1085, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i640.i.i.i.i.i.i ], [ %1086, %.preheader.i.i.i.i641.i.i.i.i.i.i ]
+  %.pre4759.i680.i.i.i.i.i.i = phi ptr [ %.pre47.pre.i654.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i653.i.i.i.i.i.i ], [ %1086, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i640.i.i.i.i.i.i ], [ %1086, %.preheader.i.i.i.i641.i.i.i.i.i.i ]
   %.pre53.i681.i.i.i.i.i.i = ptrtoint ptr %.pre4759.i680.i.i.i.i.i.i to i64
   br label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit.i659.i.i.i.i.i.i
 
@@ -3468,17 +3468,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i702.
   %1190 = load i32, ptr %.sroa.010.0.i.i.i.i704.i.i.i.i.i.i, align 4
   %1191 = load i32, ptr %1188, align 4
   %1192 = icmp eq i32 %1190, %1191
-  br i1 %1192, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i706.i.i.i.i.i.i, label %.preheader.i.i.i.i703.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %1192, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i706.i.i.i.i.i.i, label %.preheader.i.i.i.i703.i.i.i.i.i.i, !llvm.loop !7
 
-_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i706.i.i.i.i.i.i: ; preds = %1189
+_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i706.i.i.i.i.i.i: ; preds = %1189
   %1193 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i.i704.i.i.i.i.i.i, i64 8
   %.not18.i.i.i707.i.i.i.i.i.i = icmp eq ptr %1193, %1185
   br i1 %.not18.i.i.i707.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i715.i.i.i.i.i.i, label %.lr.ph.i.i.i708.i.i.i.i.i.i
 
-.lr.ph.i.i.i708.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i706.i.i.i.i.i.i, %1200
-  %1194 = phi i32 [ %1196, %1200 ], [ %1190, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i706.i.i.i.i.i.i ]
-  %1195 = phi ptr [ %1201, %1200 ], [ %1193, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i706.i.i.i.i.i.i ]
-  %.sroa.0.019.i.i.i709.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i710.i.i.i.i.i.i, %1200 ], [ %.sroa.010.0.i.i.i.i704.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i706.i.i.i.i.i.i ]
+.lr.ph.i.i.i708.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i706.i.i.i.i.i.i, %1200
+  %1194 = phi i32 [ %1196, %1200 ], [ %1190, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i706.i.i.i.i.i.i ]
+  %1195 = phi ptr [ %1201, %1200 ], [ %1193, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i706.i.i.i.i.i.i ]
+  %.sroa.0.019.i.i.i709.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i710.i.i.i.i.i.i, %1200 ], [ %.sroa.010.0.i.i.i.i704.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i706.i.i.i.i.i.i ]
   %1196 = load i32, ptr %1195, align 4
   %1197 = icmp eq i32 %1194, %1196
   br i1 %1197, label %1200, label %1198
@@ -3499,17 +3499,17 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5_
   %.pre43.pre.pre.i714.i.i.i.i.i.i = load ptr, ptr %5, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i715.i.i.i.i.i.i
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i715.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i712.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i706.i.i.i.i.i.i
-  %.pre43.pre.i716.i.i.i.i.i.i = phi ptr [ %1186, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i706.i.i.i.i.i.i ], [ %.pre43.pre.pre.i714.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i712.i.i.i.i.i.i ]
-  %.pre.i717.i.i.i.i.i.i = phi ptr [ %1185, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i706.i.i.i.i.i.i ], [ %.pre.pre.i713.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i712.i.i.i.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i718.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i704.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i706.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i710.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i712.i.i.i.i.i.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i715.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i712.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i706.i.i.i.i.i.i
+  %.pre43.pre.i716.i.i.i.i.i.i = phi ptr [ %1186, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i706.i.i.i.i.i.i ], [ %.pre43.pre.pre.i714.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i712.i.i.i.i.i.i ]
+  %.pre.i717.i.i.i.i.i.i = phi ptr [ %1185, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i706.i.i.i.i.i.i ], [ %.pre.pre.i713.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i712.i.i.i.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i718.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i704.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i706.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i710.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i712.i.i.i.i.i.i ]
   %1202 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i718.i.i.i.i.i.i, i64 4
   %.not.i.i26.i719.i.i.i.i.i.i = icmp eq ptr %1202, %.pre.i717.i.i.i.i.i.i
   br i1 %.not.i.i26.i719.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i734.i.i.i.i.i.i, label %._crit_edge.i.i27.i720.i.i.i.i.i.i
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i734.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i703.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i715.i.i.i.i.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i702.i.i.i.i.i.i
   %1203 = phi ptr [ %.pre.i717.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i715.i.i.i.i.i.i ], [ %1185, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i702.i.i.i.i.i.i ], [ %1185, %.preheader.i.i.i.i703.i.i.i.i.i.i ]
-  %.pre4354.i735.i.i.i.i.i.i = phi ptr [ %.pre43.pre.i716.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i715.i.i.i.i.i.i ], [ %1185, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i702.i.i.i.i.i.i ], [ %1186, %.preheader.i.i.i.i703.i.i.i.i.i.i ]
+  %.pre4354.i735.i.i.i.i.i.i = phi ptr [ %.pre43.pre.i716.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i715.i.i.i.i.i.i ], [ %1186, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i702.i.i.i.i.i.i ], [ %1186, %.preheader.i.i.i.i703.i.i.i.i.i.i ]
   %.pre48.i736.i.i.i.i.i.i = ptrtoint ptr %.pre4354.i735.i.i.i.i.i.i to i64
   br label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit.i721.i.i.i.i.i.i
 
@@ -3664,17 +3664,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i753.
   %1258 = load i32, ptr %.sroa.010.0.i.i.i.i755.i.i.i.i.i.i, align 4
   %1259 = load i32, ptr %1256, align 4
   %1260 = icmp eq i32 %1258, %1259
-  br i1 %1260, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i757.i.i.i.i.i.i, label %.preheader.i.i.i.i754.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %1260, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i757.i.i.i.i.i.i, label %.preheader.i.i.i.i754.i.i.i.i.i.i, !llvm.loop !7
 
-_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i757.i.i.i.i.i.i: ; preds = %1257
+_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i757.i.i.i.i.i.i: ; preds = %1257
   %1261 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i.i755.i.i.i.i.i.i, i64 8
   %.not18.i.i.i758.i.i.i.i.i.i = icmp eq ptr %1261, %1253
   br i1 %.not18.i.i.i758.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i765.i.i.i.i.i.i, label %.lr.ph.i.i.i759.i.i.i.i.i.i
 
-.lr.ph.i.i.i759.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i757.i.i.i.i.i.i, %1268
-  %1262 = phi i32 [ %1264, %1268 ], [ %1258, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i757.i.i.i.i.i.i ]
-  %1263 = phi ptr [ %1269, %1268 ], [ %1261, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i757.i.i.i.i.i.i ]
-  %.sroa.0.019.i.i.i760.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i761.i.i.i.i.i.i, %1268 ], [ %.sroa.010.0.i.i.i.i755.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i757.i.i.i.i.i.i ]
+.lr.ph.i.i.i759.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i757.i.i.i.i.i.i, %1268
+  %1262 = phi i32 [ %1264, %1268 ], [ %1258, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i757.i.i.i.i.i.i ]
+  %1263 = phi ptr [ %1269, %1268 ], [ %1261, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i757.i.i.i.i.i.i ]
+  %.sroa.0.019.i.i.i760.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i761.i.i.i.i.i.i, %1268 ], [ %.sroa.010.0.i.i.i.i755.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i757.i.i.i.i.i.i ]
   %1264 = load i32, ptr %1263, align 4
   %1265 = icmp eq i32 %1262, %1264
   br i1 %1265, label %1268, label %1266
@@ -3694,9 +3694,9 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5_
   %.pre.pre.i764.i.i.i.i.i.i = load ptr, ptr %1252, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i765.i.i.i.i.i.i
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i765.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i763.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i757.i.i.i.i.i.i
-  %.pre.i766.i.i.i.i.i.i = phi ptr [ %1253, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i757.i.i.i.i.i.i ], [ %.pre.pre.i764.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i763.i.i.i.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i767.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i755.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i757.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i761.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i763.i.i.i.i.i.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i765.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i763.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i757.i.i.i.i.i.i
+  %.pre.i766.i.i.i.i.i.i = phi ptr [ %1253, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i757.i.i.i.i.i.i ], [ %.pre.pre.i764.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i763.i.i.i.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i767.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i755.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i757.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i761.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i763.i.i.i.i.i.i ]
   %1270 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i767.i.i.i.i.i.i, i64 4
   %.not.i.i26.i768.i.i.i.i.i.i = icmp eq ptr %1270, %.pre.i766.i.i.i.i.i.i
   br i1 %.not.i.i26.i768.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit.i770.i.i.i.i.i.i, label %._crit_edge.i.i27.i769.i.i.i.i.i.i
@@ -3825,17 +3825,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i792.
   %1316 = load i32, ptr %.sroa.010.0.i.i.i.i794.i.i.i.i.i.i, align 4
   %1317 = load i32, ptr %1314, align 4
   %1318 = icmp eq i32 %1316, %1317
-  br i1 %1318, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i796.i.i.i.i.i.i, label %.preheader.i.i.i.i793.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %1318, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i796.i.i.i.i.i.i, label %.preheader.i.i.i.i793.i.i.i.i.i.i, !llvm.loop !7
 
-_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i796.i.i.i.i.i.i: ; preds = %1315
+_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i796.i.i.i.i.i.i: ; preds = %1315
   %1319 = getelementptr inbounds i8, ptr %.sroa.010.0.i.i.i.i794.i.i.i.i.i.i, i64 8
   %.not18.i.i.i797.i.i.i.i.i.i = icmp eq ptr %1319, %1311
   br i1 %.not18.i.i.i797.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i805.i.i.i.i.i.i, label %.lr.ph.i.i.i798.i.i.i.i.i.i
 
-.lr.ph.i.i.i798.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i796.i.i.i.i.i.i, %1326
-  %1320 = phi i32 [ %1322, %1326 ], [ %1316, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i796.i.i.i.i.i.i ]
-  %1321 = phi ptr [ %1327, %1326 ], [ %1319, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i796.i.i.i.i.i.i ]
-  %.sroa.0.019.i.i.i799.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i800.i.i.i.i.i.i, %1326 ], [ %.sroa.010.0.i.i.i.i794.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i796.i.i.i.i.i.i ]
+.lr.ph.i.i.i798.i.i.i.i.i.i:                      ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i796.i.i.i.i.i.i, %1326
+  %1320 = phi i32 [ %1322, %1326 ], [ %1316, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i796.i.i.i.i.i.i ]
+  %1321 = phi ptr [ %1327, %1326 ], [ %1319, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i796.i.i.i.i.i.i ]
+  %.sroa.0.019.i.i.i799.i.i.i.i.i.i = phi ptr [ %.sroa.0.1.i.i.i800.i.i.i.i.i.i, %1326 ], [ %.sroa.010.0.i.i.i.i794.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i796.i.i.i.i.i.i ]
   %1322 = load i32, ptr %1321, align 4
   %1323 = icmp eq i32 %1320, %1322
   br i1 %1323, label %1326, label %1324
@@ -3856,17 +3856,17 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5_
   %.pre43.pre.pre.i804.i.i.i.i.i.i = load ptr, ptr %3, align 8
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i805.i.i.i.i.i.i
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i805.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i802.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i796.i.i.i.i.i.i
-  %.pre43.pre.i806.i.i.i.i.i.i = phi ptr [ %1312, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i796.i.i.i.i.i.i ], [ %.pre43.pre.pre.i804.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i802.i.i.i.i.i.i ]
-  %.pre.i807.i.i.i.i.i.i = phi ptr [ %1311, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i796.i.i.i.i.i.i ], [ %.pre.pre.i803.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i802.i.i.i.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i808.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i794.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.thread21.i.i.i796.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i800.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i802.i.i.i.i.i.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i805.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.loopexit.i802.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i796.i.i.i.i.i.i
+  %.pre43.pre.i806.i.i.i.i.i.i = phi ptr [ %1312, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i796.i.i.i.i.i.i ], [ %.pre43.pre.pre.i804.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i802.i.i.i.i.i.i ]
+  %.pre.i807.i.i.i.i.i.i = phi ptr [ %1311, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i796.i.i.i.i.i.i ], [ %.pre.pre.i803.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i802.i.i.i.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i808.i.i.i.i.i.i = phi ptr [ %.sroa.010.0.i.i.i.i794.i.i.i.i.i.i, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops19_Iter_equal_to_iterEET_S9_S9_T0_.exit.i.i.i796.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i800.i.i.i.i.i.i, %._crit_edge.i.i.loopexit.i802.i.i.i.i.i.i ]
   %1328 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i808.i.i.i.i.i.i, i64 4
   %.not.i.i26.i809.i.i.i.i.i.i = icmp eq ptr %1328, %.pre.i807.i.i.i.i.i.i
   br i1 %.not.i.i26.i809.i.i.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i824.i.i.i.i.i.i, label %._crit_edge.i.i27.i810.i.i.i.i.i.i
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit._ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit_crit_edge.i824.i.i.i.i.i.i: ; preds = %.preheader.i.i.i.i793.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i805.i.i.i.i.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i792.i.i.i.i.i.i
   %1329 = phi ptr [ %.pre.i807.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i805.i.i.i.i.i.i ], [ %1311, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i792.i.i.i.i.i.i ], [ %1311, %.preheader.i.i.i.i793.i.i.i.i.i.i ]
-  %.pre4354.i825.i.i.i.i.i.i = phi ptr [ %.pre43.pre.i806.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i805.i.i.i.i.i.i ], [ %1311, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i792.i.i.i.i.i.i ], [ %1312, %.preheader.i.i.i.i793.i.i.i.i.i.i ]
+  %.pre4354.i825.i.i.i.i.i.i = phi ptr [ %.pre43.pre.i806.i.i.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.i805.i.i.i.i.i.i ], [ %1312, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit.i792.i.i.i.i.i.i ], [ %1312, %.preheader.i.i.i.i793.i.i.i.i.i.i ]
   %.pre48.i826.i.i.i.i.i.i = ptrtoint ptr %.pre4354.i825.i.i.i.i.i.i to i64
   br label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit.i811.i.i.i.i.i.i
 

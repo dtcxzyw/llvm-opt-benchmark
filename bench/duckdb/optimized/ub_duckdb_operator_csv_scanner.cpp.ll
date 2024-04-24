@@ -12214,7 +12214,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 invoke.cont.i.i1377:                              ; preds = %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueEEEE8allocateERSA_m.exit.i.i.i.i.i, %for.cond.cleanup520, %if.then512
   %sub.ptr.div.i.i.i13752097 = phi i64 [ %sub.ptr.div.i.i.i1375, %for.cond.cleanup520 ], [ %sub.ptr.div.i.i.i1375, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ 0, %if.then512 ]
   %336 = phi ptr [ %.pre2070, %for.cond.cleanup520 ], [ %.pre2070, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %if.then512 ]
-  %337 = phi ptr [ %.pre2070, %for.cond.cleanup520 ], [ %.pre2071, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %if.then512 ]
+  %337 = phi ptr [ %.pre2071, %for.cond.cleanup520 ], [ %.pre2071, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %if.then512 ]
   %cond.i.i.i.i.i = phi ptr [ null, %for.cond.cleanup520 ], [ %call5.i.i.i.i4.i20.i.i1382, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %if.then512 ]
   store ptr %cond.i.i.i.i.i, ptr %agg.tmp582, align 8, !tbaa !395
   store ptr %cond.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !397
@@ -35192,7 +35192,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyINSt7_
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup574, %invoke.cont567
-  %322 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %for.cond.cleanup574 ], [ %317, %invoke.cont567 ]
+  %322 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre1611, %for.cond.cleanup574 ], [ %317, %invoke.cont567 ]
   %tobool.not.i.i.i1172 = icmp eq ptr %322, null
   br i1 %tobool.not.i.i.i1172, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i1173
 

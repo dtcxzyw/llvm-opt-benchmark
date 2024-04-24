@@ -523,7 +523,7 @@ ruby_nonempty_memcpy.exit.split.us:               ; preds = %ruby_nonempty_memcp
   br i1 %72, label %.lr.ph.us, label %.critedge.us, !llvm.loop !10
 
 .critedge.us:                                     ; preds = %.lr.ph.us, %65, %68
-  %.5.us = phi ptr [ %.3145.us152, %.lr.ph.us ], [ %.us-phi143, %65 ], [ %71, %68 ]
+  %.5.us = phi ptr [ %.3145.us152, %.lr.ph.us ], [ %66, %65 ], [ %71, %68 ]
   %73 = ptrtoint ptr %.5.us to i64
   %74 = ptrtoint ptr %54 to i64
   %75 = sub i64 %73, %74

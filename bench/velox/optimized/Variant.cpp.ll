@@ -2055,7 +2055,7 @@ _ZNK8facebook5velox7variant5valueILNS0_8TypeKindE10EEERKDav.exit: ; preds = %dyn
   %52 = load i128, ptr %0, align 16
   %coerce.sroa.0.0.extract.trunc = trunc i128 %52 to i64
   %coerce.sroa.2.0.extract.shift = lshr i128 %52, 64
-  %coerce.sroa.2.0.extract.trunc = trunc i128 %coerce.sroa.2.0.extract.shift to i64
+  %coerce.sroa.2.0.extract.trunc = trunc nuw i128 %coerce.sroa.2.0.extract.shift to i64
   tail call void @_ZN8facebook5velox11DecimalUtil8toStringB5cxx11EnRKSt10shared_ptrIKNS0_4TypeEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 noundef %coerce.sroa.0.0.extract.trunc, i64 noundef %coerce.sroa.2.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(16) %type)
   br label %return
 
@@ -3623,7 +3623,7 @@ _ZNK8facebook5velox7variant5valueILNS0_8TypeKindE10EEERKDav.exit: ; preds = %dyn
   %70 = load i128, ptr %0, align 16
   %coerce.sroa.0.0.extract.trunc = trunc i128 %70 to i64
   %coerce.sroa.2.0.extract.shift = lshr i128 %70, 64
-  %coerce.sroa.2.0.extract.trunc = trunc i128 %coerce.sroa.2.0.extract.shift to i64
+  %coerce.sroa.2.0.extract.trunc = trunc nuw i128 %coerce.sroa.2.0.extract.shift to i64
   tail call void @_ZN8facebook5velox11DecimalUtil8toStringB5cxx11EnRKSt10shared_ptrIKNS0_4TypeEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 noundef %coerce.sroa.0.0.extract.trunc, i64 noundef %coerce.sroa.2.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(16) %type)
   br label %return
 
@@ -6905,7 +6905,7 @@ _ZNKSt4lessIN8facebook5velox7variantEEclERKS2_S5_.exit: ; preds = %if.then.i.i.i
   br i1 %cmp.i6.i.i.i.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry, %if.else6.i.i.i, %if.then4.i.i.i, %if.then.i.i, %_ZNSt3mapIN8facebook5velox7variantES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE11lower_boundERS6_.exit, %_ZNKSt4lessIN8facebook5velox7variantEEclERKS2_S5_.exit
-  %__y.addr.0.lcssa.i.i.i10 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapIN8facebook5velox7variantES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE11lower_boundERS6_.exit ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessIN8facebook5velox7variantEEclERKS2_S5_.exit ], [ %__y.addr.1.i.i.i, %if.then.i.i ], [ %__y.addr.1.i.i.i, %if.then4.i.i.i ], [ %__y.addr.1.i.i.i, %if.else6.i.i.i ], [ %add.ptr.i.i.i, %entry ]
+  %__y.addr.0.lcssa.i.i.i10 = phi ptr [ %__y.addr.1.i.i.i, %_ZNSt3mapIN8facebook5velox7variantES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE11lower_boundERS6_.exit ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessIN8facebook5velox7variantEEclERKS2_S5_.exit ], [ %__y.addr.1.i.i.i, %if.then.i.i ], [ %__y.addr.1.i.i.i, %if.then4.i.i.i ], [ %__y.addr.1.i.i.i, %if.else6.i.i.i ], [ %add.ptr.i.i.i, %entry ]
   %call.i = call ptr @_ZNSt8_Rb_treeIN8facebook5velox7variantESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE22_M_emplace_hint_uniqueIJS3_IS2_S2_EEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i10, ptr noundef nonnull align 8 dereferenceable(32) %__x)
   br label %return
 
@@ -7370,7 +7370,7 @@ sw.bb7.i:                                         ; preds = %entry
   %u_.i.i.i5.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i8, ptr %u_.i.i.i5.i, align 8
   %3 = and i8 %2, 1
-  %conv.i.i.i.i = uitofp i8 %3 to double
+  %conv.i.i.i.i = uitofp nneg i8 %3 to double
   br label %_ZNK5folly7dynamic6asImplIdEET_v.exit
 
 sw.bb10.i:                                        ; preds = %entry
@@ -7469,7 +7469,7 @@ _ZNK8facebook5velox7variant5valueILNS0_8TypeKindE4EEERKDav.exit: ; preds = %if.e
 _ZNK8facebook5velox7variant5valueILNS0_8TypeKindE10EEERKDav.exit: ; preds = %if.end
   %7 = load i128, ptr %0, align 16
   %retval.sroa.2.0.extract.shift.i.i.i = lshr i128 %7, 64
-  %retval.sroa.2.0.extract.trunc.i.i.i = trunc i128 %retval.sroa.2.0.extract.shift.i.i.i to i64
+  %retval.sroa.2.0.extract.trunc.i.i.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i.i.i to i64
   %xor.i2.i.i = xor i128 %retval.sroa.2.0.extract.shift.i.i.i, %7
   %xor.i.i.i17 = trunc i128 %xor.i2.i.i to i64
   %mul.i.i.i = mul i64 %xor.i.i.i17, -7070675565921424023
@@ -11032,7 +11032,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %8 = lshr i16 %7, 8
-  %conv4.i.i.i.i.i = trunc i16 %8 to i8
+  %conv4.i.i.i.i.i = trunc nuw i16 %8 to i8
   store i8 %conv4.i.i.i.i.i, ptr %buffer.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEENSt9enable_ifIXaaaaaa13is_integral_vIT0_E11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -11137,7 +11137,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i.i
   %10 = lshr i16 %9, 8
-  %conv4.i.i.i.i.i.i = trunc i16 %10 to i8
+  %conv4.i.i.i.i.i.i = trunc nuw i16 %10 to i8
   store i8 %conv4.i.i.i.i.i.i, ptr %buffer.i.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -13038,7 +13038,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i.i
   %6 = lshr i16 %5, 8
-  %conv4.i.i.i.i.i.i = trunc i16 %6 to i8
+  %conv4.i.i.i.i.i.i = trunc nuw i16 %6 to i8
   store i8 %conv4.i.i.i.i.i.i, ptr %buffer.i.i, align 16
   br label %_ZN5folly6detail15toAppendStrImplIlPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr12IsSomeStringINSt14remove_pointerIT0_E4typeEEE5valueEvE4typeERKT_SB_.exit
 
@@ -16264,7 +16264,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i.i
   %9 = lshr i16 %8, 8
-  %conv4.i.i.i.i.i.i = trunc i16 %9 to i8
+  %conv4.i.i.i.i.i.i = trunc nuw i16 %9 to i8
   store i8 %conv4.i.i.i.i.i.i, ptr %buffer.i.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEaEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -16373,7 +16373,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i.i
   %9 = lshr i16 %8, 8
-  %conv4.i.i.i.i.i.i = trunc i16 %9 to i8
+  %conv4.i.i.i.i.i.i = trunc nuw i16 %9 to i8
   store i8 %conv4.i.i.i.i.i.i, ptr %buffer.i.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEsEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -16483,7 +16483,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %10 = lshr i16 %9, 8
-  %conv4.i.i.i.i.i = trunc i16 %10 to i8
+  %conv4.i.i.i.i.i = trunc nuw i16 %10 to i8
   store i8 %conv4.i.i.i.i.i, ptr %buffer.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEENSt9enable_ifIXaaaaaa13is_integral_vIT0_E11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -16682,7 +16682,7 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %cmp4, label %while.cond, label %while.end.split.loop.exit45, !llvm.loop !214
 
 while.end.split.loop.exit45:                      ; preds = %land.rhs
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.cond, %while.end.split.loop.exit45
@@ -17325,8 +17325,8 @@ if.else74:                                        ; preds = %if.else6.i.i.i97, %
   br label %return
 
 return:                                           ; preds = %if.then64, %if.then32, %_ZNKSt4lessIN8facebook5velox7variantEEclERKS2_S5_.exit75, %if.then.i.i59, %_ZNKSt4lessIN8facebook5velox7variantEEclERKS2_S5_.exit75.thread, %if.then4.i.i.i63, %if.else6.i.i.i73, %if.then50, %if.then18, %if.else74, %if.else42, %if.else, %if.then9
-  %retval.sroa.0.0 = phi ptr [ %8, %if.else ], [ null, %if.then9 ], [ %22, %if.else42 ], [ %36, %if.else74 ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else6.i.i.i73 ], [ %__position.coerce, %if.then4.i.i.i63 ], [ %__position.coerce, %_ZNKSt4lessIN8facebook5velox7variantEEclERKS2_S5_.exit75.thread ], [ %__position.coerce, %if.then.i.i59 ], [ %__position.coerce, %_ZNKSt4lessIN8facebook5velox7variantEEclERKS2_S5_.exit75 ], [ %spec.select, %if.then32 ], [ %spec.select123, %if.then64 ]
-  %retval.sroa.12.0 = phi ptr [ %9, %if.else ], [ %7, %if.then9 ], [ %23, %if.else42 ], [ %37, %if.else74 ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else6.i.i.i73 ], [ null, %if.then4.i.i.i63 ], [ null, %_ZNKSt4lessIN8facebook5velox7variantEEclERKS2_S5_.exit75.thread ], [ null, %if.then.i.i59 ], [ null, %_ZNKSt4lessIN8facebook5velox7variantEEclERKS2_S5_.exit75 ], [ %spec.select122, %if.then32 ], [ %spec.select124, %if.then64 ]
+  %retval.sroa.0.0 = phi ptr [ %8, %if.else ], [ null, %if.then9 ], [ %22, %if.else42 ], [ %36, %if.else74 ], [ %15, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else6.i.i.i73 ], [ %__position.coerce, %if.then4.i.i.i63 ], [ %__position.coerce, %_ZNKSt4lessIN8facebook5velox7variantEEclERKS2_S5_.exit75.thread ], [ %__position.coerce, %if.then.i.i59 ], [ %__position.coerce, %_ZNKSt4lessIN8facebook5velox7variantEEclERKS2_S5_.exit75 ], [ %spec.select, %if.then32 ], [ %spec.select123, %if.then64 ]
+  %retval.sroa.12.0 = phi ptr [ %9, %if.else ], [ %7, %if.then9 ], [ %23, %if.else42 ], [ %37, %if.else74 ], [ %15, %if.then18 ], [ %29, %if.then50 ], [ null, %if.else6.i.i.i73 ], [ null, %if.then4.i.i.i63 ], [ null, %_ZNKSt4lessIN8facebook5velox7variantEEclERKS2_S5_.exit75.thread ], [ null, %if.then.i.i59 ], [ null, %_ZNKSt4lessIN8facebook5velox7variantEEclERKS2_S5_.exit75 ], [ %spec.select122, %if.then32 ], [ %spec.select124, %if.then64 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

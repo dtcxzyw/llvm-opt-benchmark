@@ -765,15 +765,20 @@ if.end.i35.i:                                     ; preds = %if.else.i
 if.end27.i:                                       ; preds = %do.body.i.i.i, %if.end.i35.i
   %iv_state.i42.i = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 2, ptr %iv_state.i42.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %out, i64 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %in, i64 8
+  %add.ptr28.i = getelementptr inbounds i8, ptr %out, i64 8
   %sub.i = add i64 %len, -24
-  %cond.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %sub.i
+  %bf.load30.i = load i8, ptr %key_set.i, align 4
+  %bf.clear31.i = and i8 %bf.load30.i, 1
+  %tobool33.not.i = icmp eq i8 %bf.clear31.i, 0
+  %cond.v.i = select i1 %tobool33.not.i, ptr %add.ptr.i, ptr %add.ptr28.i
+  %cond.i = getelementptr inbounds i8, ptr %cond.v.i, i64 %sub.i
   %17 = load ptr, ptr %hw1, align 8
   %oneshot.i = getelementptr inbounds i8, ptr %17, i64 40
   %18 = load ptr, ptr %oneshot.i, align 8
   %buf.i = getelementptr inbounds i8, ptr %ctx, i64 213
   %19 = load i64, ptr %tls_aad_len, align 8
-  %call36.i = tail call i32 %18(ptr noundef nonnull %ctx, ptr noundef nonnull %buf.i, i64 noundef %19, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %cond.i, i64 noundef 16) #4
+  %call36.i = tail call i32 %18(ptr noundef nonnull %ctx, ptr noundef nonnull %buf.i, i64 noundef %19, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull %add.ptr28.i, ptr noundef nonnull %cond.i, i64 noundef 16) #4
   %tobool37.not.i = icmp eq i32 %call36.i, 0
   %bf.load40.i = load i8, ptr %key_set.i, align 4
   %bf.clear41.i = and i8 %bf.load40.i, 1
@@ -784,7 +789,7 @@ if.then38.i:                                      ; preds = %if.end27.i
   br i1 %tobool43.not.i, label %if.then44.i, label %gcm_tls_cipher.exit
 
 if.then44.i:                                      ; preds = %if.then38.i
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #4
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %add.ptr28.i, i64 noundef %sub.i) #4
   br label %gcm_tls_cipher.exit
 
 if.end46.i:                                       ; preds = %if.end27.i

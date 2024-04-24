@@ -266,7 +266,7 @@ parse_cmdline.exit.thread:                        ; preds = %for.body.i.i, %for.
   br label %return
 
 if.end13:                                         ; preds = %while.end.i
-  %10 = trunc i64 %indvars.iv.i to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buf.i)
   %cmp.not63.i = icmp sgt i32 %10, 0
@@ -410,7 +410,7 @@ if.then10.i:                                      ; preds = %if.then8.i
   br i1 %exitcond.not.i, label %for.cond.preheader.i, label %for.cond2.preheader.i
 
 if.else.i:                                        ; preds = %if.then8.i
-  %28 = trunc i64 %indvars.iv.i14 to i32
+  %28 = trunc nsw i64 %indvars.iv.i14 to i32
   %call.i.i31.i = call zeroext i1 @phase_check(i32 noundef 4) #19
   br i1 %call.i.i31.i, label %for.cond.preheader.i38.i, label %lor.rhs.i.i32.i
 
@@ -1430,8 +1430,8 @@ if.else.i.i27:                                    ; preds = %lor.lhs.false.i.i
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
   %dec.i.i = add i64 %104, -1
   store i64 %dec.i.i, ptr %refcnt.i.i, align 8
-  %cmp.i105.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i105.i, label %if.then5.i.i, label %monitor_parse_arguments.exit.thread
+  %cmp.i106.i = icmp eq i64 %dec.i.i, 0
+  br i1 %cmp.i106.i, label %if.then5.i.i, label %monitor_parse_arguments.exit.thread
 
 if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
   call void @qobject_destroy(ptr noundef nonnull %call.i) #19
@@ -1956,7 +1956,7 @@ parse_cmdline.exit.thread:                        ; preds = %for.body.i.i, %for.
   br label %return
 
 if.end:                                           ; preds = %while.end.i
-  %6 = trunc i64 %indvars.iv.i to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buf.i)
   %call1 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cmdline) #20
@@ -2132,7 +2132,7 @@ if.end28.i:                                       ; preds = %for.end24.i
   br i1 %tobool29.not.i, label %if.end33.i, label %if.then30.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %32 = trunc i64 %indvars.iv179.i to i32
+  %32 = trunc nuw i64 %indvars.iv179.i to i32
   %arrayidx32.i = getelementptr i8, ptr %args.tr121.i, i64 8
   %sub.i = add nsw i32 %32, -1
   %cmp120.i = icmp slt i32 %32, 3
@@ -2145,7 +2145,7 @@ if.end33.i:                                       ; preds = %if.end28.i
   br i1 %tobool34.not.i, label %if.end40.i, label %if.then35.i
 
 if.then35.i:                                      ; preds = %if.end33.i
-  %34 = trunc i64 %indvars.iv179.i to i32
+  %34 = trunc nuw i64 %indvars.iv179.i to i32
   %rs37.i = getelementptr inbounds i8, ptr %opaque, i64 176
   %35 = load ptr, ptr %rs37.i, align 8
   %36 = and i64 %indvars.iv179.i, 4294967295
@@ -2162,7 +2162,7 @@ if.end40.i:                                       ; preds = %if.end33.i
   %cmp.not.i.i = icmp eq ptr %call.i62.i, null
   %incdec.ptr.i63.i = getelementptr i8, ptr %call.i62.i, i64 1
   %cond.i.i = select i1 %cmp.not.i.i, ptr %39, ptr %incdec.ptr.i63.i
-  %40 = trunc i64 %indvars.iv179.i to i32
+  %40 = trunc nuw i64 %indvars.iv179.i to i32
   %cmp44113.i = icmp sgt i32 %40, 2
   %.pre.i = load i8, ptr %cond.i.i, align 1
   br i1 %cmp44113.i, label %for.body46.i, label %for.end58.i
@@ -3397,7 +3397,7 @@ while.cond85.preheader:                           ; preds = %if.end79
   br label %while.cond85
 
 if.then82:                                        ; preds = %if.end79
-  %44 = load i8, ptr %41, align 1
+  %44 = load i8, ptr %42, align 1
   %conv83 = sext i8 %44 to i32
   tail call void (ptr, ptr, ...) @expr_error(ptr noundef %mon, ptr noundef nonnull @.str.53, i32 noundef %conv83) #26
   unreachable
@@ -3508,7 +3508,7 @@ for.cond.preheader:                               ; preds = %if.end8
 
 if.end17.lr.ph:                                   ; preds = %for.cond.preheader
   %add.ptr42 = getelementptr i8, ptr %file, i64 %input_path_len.0
-  %1 = trunc i64 %input_path_len.0 to i32
+  %1 = trunc nuw nsw i64 %input_path_len.0 to i32
   %conv44 = sub nuw nsw i32 1024, %1
   %st_mode = getelementptr inbounds i8, ptr %sb, i64 24
   %rs = getelementptr inbounds i8, ptr %mon, i64 176

@@ -5206,7 +5206,7 @@ define internal fastcc i32 @snd_pcm_action_group(ptr nocapture noundef readonly 
 .loopexit20:                                      ; preds = %31, %26, %4
   %36 = phi ptr [ %6, %4 ], [ %28, %26 ], [ %33, %31 ]
   %37 = phi i32 [ 0, %4 ], [ %24, %26 ], [ %53, %31 ]
-  %38 = phi ptr [ %7, %4 ], [ %27, %26 ], [ %32, %31 ]
+  %38 = phi ptr [ %7, %4 ], [ %29, %26 ], [ %34, %31 ]
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 40
   %41 = icmp eq ptr %39, %40
@@ -5245,7 +5245,7 @@ define internal fastcc i32 @snd_pcm_action_group(ptr nocapture noundef readonly 
 .loopexit17:                                      ; preds = %55, %.loopexit20
   %60 = phi ptr [ %36, %.loopexit20 ], [ %57, %55 ]
   %61 = phi i32 [ %37, %.loopexit20 ], [ %73, %55 ]
-  %62 = phi ptr [ %39, %.loopexit20 ], [ %56, %55 ]
+  %62 = phi ptr [ %40, %.loopexit20 ], [ %58, %55 ]
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr i8, ptr %63, i64 -232
   %65 = getelementptr inbounds i8, ptr %60, i64 40

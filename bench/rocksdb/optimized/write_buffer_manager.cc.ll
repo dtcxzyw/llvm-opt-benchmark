@@ -967,7 +967,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit14:          ; preds = %invoke.cont4, %lor.
   %call1.i.i.i.i13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mu_) #14
   %11 = load ptr, ptr %new_node, align 8
   %cmp.i = icmp eq ptr %11, %new_node
-  br i1 %cmp.i, label %_ZNSt7__cxx114listIPN7rocksdb14StallInterfaceESaIS3_EED2Ev.exit, label %if.then13
+  br i1 %cmp.i, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit14
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
@@ -976,28 +976,32 @@ if.then13:                                        ; preds = %_ZNSt11unique_lockI
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %13 = load ptr, ptr %vfn, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %if.end16 unwind label %lpad3
+          to label %if.then13.if.end16_crit_edge unwind label %lpad3
 
-if.end16:                                         ; preds = %if.then13
+if.then13.if.end16_crit_edge:                     ; preds = %if.then13
   %.pre = load ptr, ptr %new_node, align 8
-  %cmp.not4.i.i.i15 = icmp eq ptr %.pre, %new_node
+  br label %if.end16
+
+if.end16:                                         ; preds = %if.then13.if.end16_crit_edge, %_ZNSt11unique_lockISt5mutexED2Ev.exit14
+  %14 = phi ptr [ %.pre, %if.then13.if.end16_crit_edge ], [ %11, %_ZNSt11unique_lockISt5mutexED2Ev.exit14 ]
+  %cmp.not4.i.i.i15 = icmp eq ptr %14, %new_node
   br i1 %cmp.not4.i.i.i15, label %_ZNSt7__cxx114listIPN7rocksdb14StallInterfaceESaIS3_EED2Ev.exit, label %while.body.i.i.i16
 
 while.body.i.i.i16:                               ; preds = %if.end16, %while.body.i.i.i16
-  %__cur.05.i.i.i17 = phi ptr [ %14, %while.body.i.i.i16 ], [ %.pre, %if.end16 ]
-  %14 = load ptr, ptr %__cur.05.i.i.i17, align 8
+  %__cur.05.i.i.i17 = phi ptr [ %15, %while.body.i.i.i16 ], [ %14, %if.end16 ]
+  %15 = load ptr, ptr %__cur.05.i.i.i17, align 8
   call void @_ZdlPv(ptr noundef %__cur.05.i.i.i17) #12
-  %cmp.not.i.i.i18 = icmp eq ptr %14, %new_node
+  %cmp.not.i.i.i18 = icmp eq ptr %15, %new_node
   br i1 %cmp.not.i.i.i18, label %_ZNSt7__cxx114listIPN7rocksdb14StallInterfaceESaIS3_EED2Ev.exit, label %while.body.i.i.i16, !llvm.loop !4
 
-_ZNSt7__cxx114listIPN7rocksdb14StallInterfaceESaIS3_EED2Ev.exit: ; preds = %while.body.i.i.i16, %_ZNSt11unique_lockISt5mutexED2Ev.exit14, %if.end16
+_ZNSt7__cxx114listIPN7rocksdb14StallInterfaceESaIS3_EED2Ev.exit: ; preds = %while.body.i.i.i16, %if.end16
   ret void
 
 while.body.i.i.i21:                               ; preds = %lpad3, %while.body.i.i.i21
-  %__cur.05.i.i.i22 = phi ptr [ %15, %while.body.i.i.i21 ], [ %10, %lpad3 ]
-  %15 = load ptr, ptr %__cur.05.i.i.i22, align 8
+  %__cur.05.i.i.i22 = phi ptr [ %16, %while.body.i.i.i21 ], [ %10, %lpad3 ]
+  %16 = load ptr, ptr %__cur.05.i.i.i22, align 8
   call void @_ZdlPv(ptr noundef %__cur.05.i.i.i22) #12
-  %cmp.not.i.i.i23 = icmp eq ptr %15, %new_node
+  %cmp.not.i.i.i23 = icmp eq ptr %16, %new_node
   br i1 %cmp.not.i.i.i23, label %eh.resume, label %while.body.i.i.i21, !llvm.loop !4
 
 eh.resume:                                        ; preds = %while.body.i.i.i21, %lpad3

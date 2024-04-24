@@ -5386,7 +5386,7 @@ invoke.cont257:                                   ; preds = %for.body254
 
 for.cond262.preheader:                            ; preds = %invoke.cont257
   %cmp263230 = icmp sgt i32 %call261, 0
-  %tobool265231 = trunc i8 %toRemove242.0236 to i1
+  %tobool265231 = trunc nuw i8 %toRemove242.0236 to i1
   %85 = select i1 %cmp263230, i1 %tobool265231, i1 false
   br i1 %85, label %for.body267, label %for.inc291
 
@@ -5419,7 +5419,7 @@ invoke.cont280:                                   ; preds = %invoke.cont278
   %spec.select68 = select i1 %call281, i8 0, i8 %toRemove242.1232
   %inc289 = add nuw nsw i32 %viewIdx.0233, 1
   %cmp263 = icmp slt i32 %inc289, %call261
-  %tobool265 = trunc i8 %spec.select68 to i1
+  %tobool265 = trunc nuw i8 %spec.select68 to i1
   %87 = select i1 %cmp263, i1 %tobool265, i1 false
   br i1 %87, label %for.body267, label %for.inc291, !llvm.loop !16
 
@@ -7474,7 +7474,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit, %invoke.contthread-pre-split.i, %if.end50
-  %47 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %45, %if.end50 ], [ %38, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit ]
+  %47 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %46, %if.end50 ], [ %38, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit ]
   %tobool.not.i.i.i = icmp eq ptr %47, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i53
 

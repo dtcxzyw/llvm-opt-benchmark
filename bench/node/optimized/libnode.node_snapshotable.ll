@@ -7562,7 +7562,7 @@ if.else6.i:                                       ; preds = %if.else.i
 _ZN4nodeL10FormatSizeB5cxx11Em.exit:              ; preds = %for.body, %if.then2.i, %if.else6.i
   %div7.sink.i = phi i64 [ %div7.i, %if.then2.i ], [ %div96.i, %if.else6.i ], [ %4, %for.body ]
   %.str.218.sink.i = phi ptr [ @.str.218, %if.then2.i ], [ @.str.219, %if.else6.i ], [ @.str.217, %for.body ]
-  %conv4.i = uitofp i64 %div7.sink.i to double
+  %conv4.i = uitofp nneg i64 %div7.sink.i to double
   %call5.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 64, ptr noundef nonnull %.str.218.sink.i, double noundef %conv4.i) #23, !noalias !261
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #23, !noalias !261
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %size_str) #23
@@ -10852,7 +10852,7 @@ if.then.i.i.i35:                                  ; preds = %do.end36
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i37:                                  ; preds = %do.end36
-  call void @_ZdlPv(ptr noundef %31) #27
+  call void @_ZdlPv(ptr noundef %39) #27
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %40 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i38 = getelementptr inbounds i8, ptr %40, i64 -8

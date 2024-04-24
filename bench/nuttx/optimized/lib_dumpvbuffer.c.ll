@@ -110,7 +110,7 @@ define void @lib_dumpvhandler(ptr noundef %0, ptr noundef readonly %1, i32 nound
 
 .loopexit:                                        ; preds = %54, %45
   %.346 = phi i32 [ 0, %45 ], [ %.245, %54 ]
-  %.3 = phi ptr [ %14, %45 ], [ %.2, %54 ]
+  %.3 = phi ptr [ %43, %45 ], [ %.2, %54 ]
   %55 = add i32 %.04167, 1
   %56 = shl i32 %.04167, 4
   call void (ptr, ptr, ...) %3(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef %56, ptr noundef nonnull %6) #4

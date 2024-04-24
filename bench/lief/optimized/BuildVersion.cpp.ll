@@ -863,14 +863,14 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4LIEF5MachO12BuildVer
   %.sroa.22.0.copyload.i = load i32, ptr %.sroa.22.0..sroa_idx.i, align 4
   %.sroa.027.0.extract.trunc = trunc i64 %.sroa.01.0.copyload.i to i32
   %.sroa.228.0.extract.shift = lshr i64 %.sroa.01.0.copyload.i, 32
-  %.sroa.228.0.extract.trunc = trunc i64 %.sroa.228.0.extract.shift to i32
+  %.sroa.228.0.extract.trunc = trunc nuw i64 %.sroa.228.0.extract.shift to i32
   %6 = getelementptr inbounds i8, ptr %0, i64 72
   %.sroa.01.0.copyload.i18 = load i64, ptr %6, align 8
   %.sroa.22.0..sroa_idx.i19 = getelementptr inbounds i8, ptr %0, i64 80
   %.sroa.22.0.copyload.i20 = load i32, ptr %.sroa.22.0..sroa_idx.i19, align 8
   %.sroa.026.0.extract.trunc = trunc i64 %.sroa.01.0.copyload.i18 to i32
   %.sroa.2.0.extract.shift = lshr i64 %.sroa.01.0.copyload.i18, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 10)
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str)
   %9 = getelementptr inbounds i8, ptr %0, i64 56
@@ -925,7 +925,7 @@ _ZSt8_DestroyIPN4LIEF5MachO16BuildToolVersionES2_EvT_S4_RSaIT0_E.exitthread-pre-
   br label %_ZSt8_DestroyIPN4LIEF5MachO16BuildToolVersionES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN4LIEF5MachO16BuildToolVersionES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %2, %_ZSt8_DestroyIPN4LIEF5MachO16BuildToolVersionES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %._crit_edge
-  %40 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN4LIEF5MachO16BuildToolVersionES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %.pre32, %._crit_edge ], [ %33, %2 ]
+  %40 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN4LIEF5MachO16BuildToolVersionES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %._crit_edge ], [ %33, %2 ]
   %.not.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4LIEF5MachO16BuildToolVersionESaIS2_EED2Ev.exit, label %41
 

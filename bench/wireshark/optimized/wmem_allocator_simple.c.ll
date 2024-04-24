@@ -90,7 +90,7 @@ define internal ptr @wmem_simple_realloc(ptr nocapture noundef readonly %0, ptr 
   br i1 %16, label %17, label %8, !llvm.loop !4
 
 17:                                               ; preds = %11
-  %18 = tail call noalias ptr @wmem_realloc(ptr noundef null, ptr noundef %1, i64 noundef %2) #4
+  %18 = tail call noalias ptr @wmem_realloc(ptr noundef null, ptr noundef %15, i64 noundef %2) #4
   %19 = load ptr, ptr %6, align 8
   %20 = getelementptr ptr, ptr %19, i64 %13
   store ptr %18, ptr %20, align 8

@@ -2560,82 +2560,81 @@ if.then20.i:                                      ; preds = %if.end8.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then20.i, %if.end8.i
-  %12 = phi ptr [ %11, %if.then20.i ], [ %8, %if.end8.i ]
-  store ptr %12, ptr %buffer.i.i.i, align 8, !noalias !25
-  %13 = load i64, ptr %length.i, align 8, !noalias !25
+  store ptr %11, ptr %buffer.i.i.i, align 8, !noalias !25
+  %12 = load i64, ptr %length.i, align 8, !noalias !25
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %parser.i)
-  %cmp.i9 = icmp eq i64 %13, 0
-  br i1 %cmp.i9, label %if.then.i15, label %if.end.i10
+  %cmp.i10 = icmp eq i64 %12, 0
+  br i1 %cmp.i10, label %if.then.i16, label %if.end.i11
 
-if.then.i15:                                      ; preds = %if.end21.i
-  %offset.i.i.i16 = getelementptr inbounds i8, ptr %parse_result, i64 8
+if.then.i16:                                      ; preds = %if.end21.i
+  %offset.i.i.i17 = getelementptr inbounds i8, ptr %parse_result, i64 8
   store i32 16, ptr %parse_result, align 8, !alias.scope !31
-  store i64 0, ptr %offset.i.i.i16, align 8, !alias.scope !31
-  br label %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread20
+  store i64 0, ptr %offset.i.i.i17, align 8, !alias.scope !31
+  br label %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread21
 
-if.end.i10:                                       ; preds = %if.end21.i
+if.end.i11:                                       ; preds = %if.end21.i
   %first_child.i = getelementptr inbounds i8, ptr %call14, i64 88
-  %14 = load ptr, ptr %first_child.i, align 8, !noalias !28
-  %tobool1.not.i = icmp eq ptr %14, null
+  %13 = load ptr, ptr %first_child.i, align 8, !noalias !28
+  %tobool1.not.i = icmp eq ptr %13, null
   br i1 %tobool1.not.i, label %cond.end.i, label %cond.true.i
 
-cond.true.i:                                      ; preds = %if.end.i10
-  %prev_sibling_c.i = getelementptr inbounds i8, ptr %14, i64 40
-  %15 = load ptr, ptr %prev_sibling_c.i, align 8, !noalias !28
+cond.true.i:                                      ; preds = %if.end.i11
+  %prev_sibling_c.i = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = load ptr, ptr %prev_sibling_c.i, align 8, !noalias !28
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %cond.true.i, %if.end.i10
-  %cond3.i = phi ptr [ %15, %cond.true.i ], [ null, %if.end.i10 ]
+cond.end.i:                                       ; preds = %cond.true.i, %if.end.i11
+  %cond3.i = phi ptr [ %14, %cond.true.i ], [ null, %if.end.i11 ]
   store ptr %7, ptr %parser.i, align 8, !noalias !28
   %error_offset.i.i = getelementptr inbounds i8, ptr %parser.i, i64 8
   store ptr null, ptr %error_offset.i.i, align 8, !noalias !28
   %error_status.i.i = getelementptr inbounds i8, ptr %parser.i, i64 16
   store i32 0, ptr %error_status.i.i, align 8, !noalias !28
-  %sub.i = add i64 %13, -1
-  %arrayidx.i = getelementptr inbounds i8, ptr %12, i64 %sub.i
-  %16 = load i8, ptr %arrayidx.i, align 1, !noalias !28
+  %sub.i = add i64 %12, -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %11, i64 %sub.i
+  %15 = load i8, ptr %arrayidx.i, align 1, !noalias !28
   store i8 0, ptr %arrayidx.i, align 1, !noalias !28
-  %17 = load i8, ptr %12, align 1, !noalias !28
-  %cmp.i.i = icmp eq i8 %17, -17
+  %16 = load i8, ptr %11, align 1, !noalias !28
+  %cmp.i.i = icmp eq i8 %16, -17
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %_ZN4pugi4impl10xml_parser14parse_skip_bomEPc.exit.i
 
 land.lhs.true.i.i:                                ; preds = %cond.end.i
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr %12, i64 1
-  %18 = load i8, ptr %arrayidx1.i.i, align 1, !noalias !28
-  %cmp3.i.i = icmp eq i8 %18, -69
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = load i8, ptr %arrayidx1.i.i, align 1, !noalias !28
+  %cmp3.i.i = icmp eq i8 %17, -69
   br i1 %cmp3.i.i, label %land.lhs.true4.i.i, label %_ZN4pugi4impl10xml_parser14parse_skip_bomEPc.exit.i
 
 land.lhs.true4.i.i:                               ; preds = %land.lhs.true.i.i
-  %arrayidx5.i.i = getelementptr inbounds i8, ptr %12, i64 2
-  %19 = load i8, ptr %arrayidx5.i.i, align 1, !noalias !28
-  %cmp7.i.i = icmp eq i8 %19, -65
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %11, i64 2
+  %18 = load i8, ptr %arrayidx5.i.i, align 1, !noalias !28
+  %cmp7.i.i = icmp eq i8 %18, -65
   %spec.select.idx.i.i = select i1 %cmp7.i.i, i64 3, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %12, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds i8, ptr %11, i64 %spec.select.idx.i.i
   br label %_ZN4pugi4impl10xml_parser14parse_skip_bomEPc.exit.i
 
 _ZN4pugi4impl10xml_parser14parse_skip_bomEPc.exit.i: ; preds = %land.lhs.true4.i.i, %land.lhs.true.i.i, %cond.end.i
-  %cond.i.i = phi ptr [ %12, %land.lhs.true.i.i ], [ %12, %cond.end.i ], [ %spec.select.i.i, %land.lhs.true4.i.i ]
-  %call7.i = call noundef ptr @_ZN4pugi4impl10xml_parser10parse_treeEPcPNS_15xml_node_structEjc(ptr noundef nonnull align 8 dereferenceable(20) %parser.i, ptr noundef nonnull %cond.i.i, ptr noundef nonnull %add.ptr.i.i, i32 noundef 887, i8 noundef signext %16), !noalias !28
-  %20 = load i32, ptr %error_status.i.i, align 8, !noalias !28
-  %21 = load ptr, ptr %error_offset.i.i, align 8, !noalias !28
-  %tobool8.not.i = icmp eq ptr %21, null
-  %sub.ptr.lhs.cast.i11 = ptrtoint ptr %21 to i64
-  %sub.ptr.rhs.cast.i12 = ptrtoint ptr %12 to i64
-  %sub.ptr.sub.i13 = sub i64 %sub.ptr.lhs.cast.i11, %sub.ptr.rhs.cast.i12
-  %cond13.i = select i1 %tobool8.not.i, i64 0, i64 %sub.ptr.sub.i13
-  %cmp.i20.i = icmp eq i32 %20, 0
+  %cond.i.i = phi ptr [ %11, %land.lhs.true.i.i ], [ %11, %cond.end.i ], [ %spec.select.i.i, %land.lhs.true4.i.i ]
+  %call7.i = call noundef ptr @_ZN4pugi4impl10xml_parser10parse_treeEPcPNS_15xml_node_structEjc(ptr noundef nonnull align 8 dereferenceable(20) %parser.i, ptr noundef nonnull %cond.i.i, ptr noundef nonnull %add.ptr.i.i, i32 noundef 887, i8 noundef signext %15), !noalias !28
+  %19 = load i32, ptr %error_status.i.i, align 8, !noalias !28
+  %20 = load ptr, ptr %error_offset.i.i, align 8, !noalias !28
+  %tobool8.not.i = icmp eq ptr %20, null
+  %sub.ptr.lhs.cast.i12 = ptrtoint ptr %20 to i64
+  %sub.ptr.rhs.cast.i13 = ptrtoint ptr %11 to i64
+  %sub.ptr.sub.i14 = sub i64 %sub.ptr.lhs.cast.i12, %sub.ptr.rhs.cast.i13
+  %cond13.i = select i1 %tobool8.not.i, i64 0, i64 %sub.ptr.sub.i14
+  %cmp.i20.i = icmp eq i32 %19, 0
   br i1 %cmp.i20.i, label %if.then15.i, label %if.else.i
 
 if.then15.i:                                      ; preds = %_ZN4pugi4impl10xml_parser14parse_skip_bomEPc.exit.i
-  %cmp16.i = icmp eq i8 %16, 60
+  %cmp16.i = icmp eq i8 %15, 60
   br i1 %cmp16.i, label %if.then17.i, label %if.end19.i
 
 if.then17.i:                                      ; preds = %if.then15.i
   %offset.i.i21.i = getelementptr inbounds i8, ptr %parse_result, i64 8
   store i32 5, ptr %parse_result, align 8, !alias.scope !34
   store i64 %sub.i, ptr %offset.i.i21.i, align 8, !alias.scope !34
-  br label %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread20
+  br label %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread21
 
 if.end19.i:                                       ; preds = %if.then15.i
   %tobool20.not.i = icmp eq ptr %cond3.i, null
@@ -2646,35 +2645,35 @@ if.end19.i:                                       ; preds = %if.then15.i
   br i1 %tobool.not4.not.i.i, label %if.then31.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end19.i, %if.end.i.i
-  %node.addr.05.i.i = phi ptr [ %23, %if.end.i.i ], [ %cond27.i, %if.end19.i ]
-  %22 = load i64, ptr %node.addr.05.i.i, align 8, !noalias !28
-  %conv3.i.i = and i64 %22, 15
+  %node.addr.05.i.i = phi ptr [ %22, %if.end.i.i ], [ %cond27.i, %if.end19.i ]
+  %21 = load i64, ptr %node.addr.05.i.i, align 8, !noalias !28
+  %conv3.i.i = and i64 %21, 15
   %cmp.i23.i = icmp eq i64 %conv3.i.i, 2
   br i1 %cmp.i23.i, label %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
   %next_sibling.i.i = getelementptr inbounds i8, ptr %node.addr.05.i.i, i64 48
-  %23 = load ptr, ptr %next_sibling.i.i, align 8, !noalias !28
-  %tobool.not.not.i.i = icmp eq ptr %23, null
+  %22 = load ptr, ptr %next_sibling.i.i, align 8, !noalias !28
+  %tobool.not.not.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.not.i.i, label %if.then31.i, label %while.body.i.i, !llvm.loop !37
 
 if.then31.i:                                      ; preds = %if.end.i.i, %if.end19.i
   %offset.i.i24.i = getelementptr inbounds i8, ptr %parse_result, i64 8
   store i32 16, ptr %parse_result, align 8, !alias.scope !38
   store i64 %sub.i, ptr %offset.i.i24.i, align 8, !alias.scope !38
-  br label %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread20
+  br label %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread21
 
 if.else.i:                                        ; preds = %_ZN4pugi4impl10xml_parser14parse_skip_bomEPc.exit.i
   %cmp34.i = icmp sgt i64 %cond13.i, 0
-  br i1 %cmp34.i, label %land.lhs.true35.i, label %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread25
+  br i1 %cmp34.i, label %land.lhs.true35.i, label %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread26
 
 land.lhs.true35.i:                                ; preds = %if.else.i
   %cmp38.i = icmp eq i64 %cond13.i, %sub.i
-  %cmp41.i = icmp eq i8 %16, 0
-  %or.cond.i14 = select i1 %cmp38.i, i1 %cmp41.i, i1 false
+  %cmp41.i = icmp eq i8 %15, 0
+  %or.cond.i15 = select i1 %cmp38.i, i1 %cmp41.i, i1 false
   %dec.i = add nsw i64 %cond13.i, -1
-  %spec.select28.i = select i1 %or.cond.i14, i64 %dec.i, i64 %sub.ptr.sub.i13
-  br label %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread25
+  %spec.select28.i = select i1 %or.cond.i15, i64 %dec.i, i64 %sub.ptr.sub.i14
+  br label %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread26
 
 _ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread: ; preds = %if.end.i, %_ZN4pugi12xml_document11load_bufferEPKvmjNS_12xml_encodingE.exit
   %storemerge = phi i32 [ 2, %_ZN4pugi12xml_document11load_bufferEPKvmjNS_12xml_encodingE.exit ], [ 3, %if.end.i ]
@@ -2687,23 +2686,23 @@ _ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_struct
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %length.i)
   br label %if.end22
 
-_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread20: ; preds = %if.then31.i, %if.then17.i, %if.then.i15
-  %24 = phi i32 [ 16, %if.then31.i ], [ 5, %if.then17.i ], [ 16, %if.then.i15 ]
+_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread21: ; preds = %if.then31.i, %if.then17.i, %if.then.i16
+  %23 = phi i32 [ 16, %if.then31.i ], [ 5, %if.then17.i ], [ 16, %if.then.i16 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %parser.i)
-  %encoding24.i22 = getelementptr inbounds i8, ptr %parse_result, i64 16
-  store i32 %call13.i.i, ptr %encoding24.i22, align 8, !alias.scope !25
+  %encoding24.i23 = getelementptr inbounds i8, ptr %parse_result, i64 16
+  store i32 %call13.i.i, ptr %encoding24.i23, align 8, !alias.scope !25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %length.i)
   br label %if.end22
 
-_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread25: ; preds = %if.else.i, %land.lhs.true35.i
+_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread26: ; preds = %if.else.i, %land.lhs.true35.i
   %result.sroa.326.0.i.ph = phi i64 [ %spec.select28.i, %land.lhs.true35.i ], [ %cond13.i, %if.else.i ]
-  store i32 %20, ptr %parse_result, align 8, !alias.scope !28
-  %result.sroa.326.0.agg.result.sroa_idx.i27 = getelementptr inbounds i8, ptr %parse_result, i64 8
-  store i64 %result.sroa.326.0.i.ph, ptr %result.sroa.326.0.agg.result.sroa_idx.i27, align 8, !alias.scope !28
-  %result.sroa.6.0.agg.result.sroa_idx.i28 = getelementptr inbounds i8, ptr %parse_result, i64 16
+  store i32 %19, ptr %parse_result, align 8, !alias.scope !28
+  %result.sroa.326.0.agg.result.sroa_idx.i28 = getelementptr inbounds i8, ptr %parse_result, i64 8
+  store i64 %result.sroa.326.0.i.ph, ptr %result.sroa.326.0.agg.result.sroa_idx.i28, align 8, !alias.scope !28
+  %result.sroa.6.0.agg.result.sroa_idx.i29 = getelementptr inbounds i8, ptr %parse_result, i64 16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %parser.i)
-  store i32 %call13.i.i, ptr %result.sroa.6.0.agg.result.sroa_idx.i28, align 8, !alias.scope !25
+  store i32 %call13.i.i, ptr %result.sroa.6.0.agg.result.sroa_idx.i29, align 8, !alias.scope !25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %length.i)
   br label %if.end22
@@ -2714,27 +2713,27 @@ _ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_struct
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %length.i)
   br label %return
 
-if.end22:                                         ; preds = %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread25, %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread20, %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread
-  %25 = phi i32 [ %20, %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread25 ], [ %24, %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread20 ], [ %storemerge, %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread ]
+if.end22:                                         ; preds = %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread26, %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread21, %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread
+  %24 = phi i32 [ %19, %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread26 ], [ %23, %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread21 ], [ %storemerge, %_ZN4pugi4impl16load_buffer_implEPNS0_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.exit.thread ]
   %call23 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-  %26 = icmp ult i32 %25, 17
-  br i1 %26, label %switch.lookup, label %_ZNK4pugi16xml_parse_result11descriptionEv.exit
+  %25 = icmp ult i32 %24, 17
+  br i1 %25, label %switch.lookup, label %_ZNK4pugi16xml_parse_result11descriptionEv.exit
 
 switch.lookup:                                    ; preds = %if.end22
-  %switch.tableidx = add nsw i32 %25, -1
-  %27 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE5parseEPNS_8IOStreamE, i64 0, i64 %27
+  %switch.tableidx = add nsw i32 %24, -1
+  %26 = sext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE5parseEPNS_8IOStreamE, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK4pugi16xml_parse_result11descriptionEv.exit
 
 _ZNK4pugi16xml_parse_result11descriptionEv.exit:  ; preds = %if.end22, %switch.lookup
   %retval.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.76, %if.end22 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25) #26
-  %call.i7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  %call.i8 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call.i.noexc unwind label %lpad26
 
 call.i.noexc:                                     ; preds = %_ZNK4pugi16xml_parse_result11descriptionEv.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25)
           to label %.noexc unwind label %lpad26
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -2744,7 +2743,7 @@ call.i.noexc:                                     ; preds = %_ZNK4pugi16xml_pars
           to label %invoke.cont27 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %28 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
   br label %ehcleanup
@@ -2760,18 +2759,18 @@ invoke.cont29:                                    ; preds = %invoke.cont27
   br label %return
 
 lpad26:                                           ; preds = %call.i.noexc, %_ZNK4pugi16xml_parse_result11descriptionEv.exit
-  %29 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad28:                                           ; preds = %invoke.cont27
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad26, %lpad.i, %lpad28
-  %.pn = phi { ptr, i32 } [ %30, %lpad28 ], [ %29, %lpad26 ], [ %28, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %29, %lpad28 ], [ %28, %lpad26 ], [ %27, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25) #26
   resume { ptr, i32 } %.pn
 

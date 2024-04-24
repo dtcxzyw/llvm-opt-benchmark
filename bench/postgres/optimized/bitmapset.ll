@@ -331,7 +331,7 @@ bms_copy.exit33:                                  ; preds = %5
   %28 = and i64 %27, %25
   store i64 %28, ptr %26, align 8
   %.not31 = icmp eq i64 %28, 0
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %.not31, i32 %.025, i32 %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -443,7 +443,7 @@ bms_copy.exit33:                                  ; preds = %18, %12
   %50 = and i64 %49, %47
   store i64 %50, ptr %48, align 8
   %.not = icmp eq i64 %50, 0
-  %51 = trunc i64 %indvars.iv to i32
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %.not, i32 %.0, i32 %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %30, align 4
@@ -895,10 +895,10 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly %0) local_unname
   unreachable
 
 19:                                               ; preds = %13
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = shl i32 %20, 6
   %22 = tail call i64 @llvm.cttz.i64(i64 %12, i1 true), !range !18
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = or disjoint i32 %21, %23
   br label %25
 
@@ -941,10 +941,10 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
   br i1 %or.cond, label %14, label %.loopexit
 
 14:                                               ; preds = %11
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = shl i32 %15, 6
   %17 = tail call i64 @llvm.cttz.i64(i64 %10, i1 true), !range !18
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %19 = or disjoint i32 %16, %18
   br label %20
 
@@ -1180,7 +1180,7 @@ define dso_local noundef ptr @bms_del_member(ptr noundef %0, i32 noundef %1) loc
   br i1 %.not28, label %.preheader, label %32, !llvm.loop !24
 
 32:                                               ; preds = %29
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %33, ptr %11, align 4
   br label %35
 
@@ -1263,7 +1263,7 @@ bms_copy.exit27:                                  ; preds = %14
   br label %bms_copy.exit
 
 bms_copy.exit:                                    ; preds = %6, %5, %34, %35, %13
-  %.021 = phi ptr [ %0, %13 ], [ %.023, %35 ], [ %0, %34 ], [ %12, %6 ], [ null, %5 ]
+  %.021 = phi ptr [ %0, %13 ], [ %.023, %35 ], [ %.023, %34 ], [ %12, %6 ], [ null, %5 ]
   ret ptr %.021
 }
 
@@ -1496,7 +1496,7 @@ define dso_local noundef ptr @bms_int_members(ptr noundef %0, ptr noundef readon
   %19 = and i64 %18, %16
   store i64 %19, ptr %17, align 8
   %.not = icmp eq i64 %19, 0
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %.not, i32 %.022, i32 %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1570,7 +1570,7 @@ define dso_local noundef ptr @bms_del_members(ptr noundef %0, ptr noundef readon
   %29 = and i64 %28, %26
   store i64 %29, ptr %27, align 8
   %.not = icmp eq i64 %29, 0
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %.not, i32 %.0, i32 %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1677,7 +1677,7 @@ define dso_local i32 @bms_next_member(ptr noundef readonly %0, i32 noundef %1) l
 19:                                               ; preds = %14
   %20 = shl i32 %.01822, 6
   %21 = tail call i64 @llvm.cttz.i64(i64 %18, i1 true), !range !18
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw nsw i64 %21 to i32
   %23 = or disjoint i32 %20, %22
   br label %.loopexit
 
@@ -1736,7 +1736,7 @@ define dso_local i32 @bms_prev_member(ptr noundef readonly %0, i32 noundef %1) l
 24:                                               ; preds = %19
   %25 = shl nuw nsw i32 %.02227, 6
   %26 = tail call i64 @llvm.ctlz.i64(i64 %23, i1 true), !range !18
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw nsw i64 %26 to i32
   %28 = or disjoint i32 %25, %27
   %29 = xor i32 %28, 63
   br label %.loopexit

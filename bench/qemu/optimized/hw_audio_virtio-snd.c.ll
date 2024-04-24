@@ -1943,7 +1943,7 @@ if.end28.i.i:                                     ; preds = %if.end6.i.i
 
 for.body.i.i:                                     ; preds = %if.end28.i.i, %if.end40.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %if.end40.i.i ], [ 0, %if.end28.i.i ]
-  %35 = trunc i64 %indvars.iv.i.i to i32
+  %35 = trunc nuw i64 %indvars.iv.i.i to i32
   %add33.i.i = add i32 %27, %35
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i)
   %36 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2435,10 +2435,10 @@ sw.epilog.i:                                      ; preds = %sw.default.i, %trac
 land.lhs.true1.i139.i:                            ; preds = %sw.epilog.i
   %iov_len.i140.i = getelementptr inbounds i8, ptr %118, i64 8
   %120 = load i64, ptr %iov_len.i140.i, align 8
-  %cmp5.not.i141.i = icmp ult i64 %120, 4
-  br i1 %cmp5.not.i141.i, label %if.else.i136.i, label %if.then.i142.i
+  %cmp5.not.i142.i = icmp ult i64 %120, 4
+  br i1 %cmp5.not.i142.i, label %if.else.i136.i, label %if.then.i143.i
 
-if.then.i142.i:                                   ; preds = %land.lhs.true1.i139.i
+if.then.i143.i:                                   ; preds = %land.lhs.true1.i139.i
   %121 = load ptr, ptr %118, align 8
   %122 = load i32, ptr %resp49.i, align 1
   store i32 %122, ptr %121, align 1
@@ -2448,14 +2448,14 @@ if.else.i136.i:                                   ; preds = %land.lhs.true1.i139
   %call.i137.i = call i64 @iov_from_buf_full(ptr noundef %118, i32 noundef %119, i64 noundef 0, ptr noundef nonnull %resp49.i, i64 noundef 4) #11
   br label %iov_from_buf.exit.i
 
-iov_from_buf.exit.i:                              ; preds = %if.else.i136.i, %if.then.i142.i
+iov_from_buf.exit.i:                              ; preds = %if.else.i136.i, %if.then.i143.i
   %vq.i = getelementptr inbounds i8, ptr %4, i64 8
   %123 = load ptr, ptr %vq.i, align 8
   %124 = load ptr, ptr %4, align 8
   call void @virtqueue_push(ptr noundef %123, ptr noundef %124, i32 noundef 4) #11
-  %call.i143.i = call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
+  %call.i144.i = call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
   %125 = load ptr, ptr %vq.i, align 8
-  call void @virtio_notify(ptr noundef %call.i143.i, ptr noundef %125) #11
+  call void @virtio_notify(ptr noundef %call.i144.i, ptr noundef %125) #11
   br label %process_cmd.exit
 
 process_cmd.exit:                                 ; preds = %do.body.i, %if.then4.i, %iov_from_buf.exit.i
@@ -2516,7 +2516,7 @@ iov_to_buf.exit.thread:                           ; preds = %land.lhs.true1.i
   %5 = load i64, ptr %4, align 1
   store i64 %5, ptr %req, align 8
   %6 = lshr i64 %5, 32
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw i64 %6 to i32
   br label %if.end6
 
 iov_to_buf.exit:                                  ; preds = %entry, %land.lhs.true1.i
@@ -2708,7 +2708,7 @@ iov_from_buf.exit:                                ; preds = %if.then.i, %if.else
   br i1 %cmp, label %do.body8, label %while.cond
 
 do.body8:                                         ; preds = %iov_from_buf.exit
-  %12 = load ptr, ptr %buffer, align 8
+  %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %queue, align 8
   %cmp14 = icmp eq ptr %12, null
   br i1 %cmp14, label %do.end47.sink.split, label %do.end47
@@ -2720,19 +2720,21 @@ while.cond:                                       ; preds = %iov_from_buf.exit, 
   br i1 %cmp26.not, label %while.end, label %while.cond, !llvm.loop !16
 
 while.end:                                        ; preds = %while.cond
-  %14 = load ptr, ptr %buffer, align 8
+  %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %curelm.0, align 8
   %cmp36 = icmp eq ptr %14, null
   br i1 %cmp36, label %do.end47.sink.split, label %do.end47
 
 do.end47.sink.split:                              ; preds = %while.end, %do.body8
   %curelm.0.lcssa.sink = phi ptr [ %queue, %do.body8 ], [ %curelm.0, %while.end ]
+  %.sink.ph = phi ptr [ %11, %do.body8 ], [ %buffer, %while.end ]
   %sqh_last42 = getelementptr inbounds i8, ptr %stream, i64 192
   store ptr %curelm.0.lcssa.sink, ptr %sqh_last42, align 8
   br label %do.end47
 
 do.end47:                                         ; preds = %do.end47.sink.split, %while.end, %do.body8
-  store ptr null, ptr %buffer, align 8
+  %.sink = phi ptr [ %11, %do.body8 ], [ %buffer, %while.end ], [ %.sink.ph, %do.end47.sink.split ]
+  store ptr null, ptr %.sink, align 8
   %15 = load ptr, ptr %elem, align 8
   call void @g_free(ptr noundef %15) #11
   call void @g_free(ptr noundef nonnull %buffer) #11
@@ -2761,29 +2763,29 @@ entry:
   %6 = load i32, ptr %in_num6, align 8
   %7 = load i64, ptr %size, align 8
   %tobool.i29.not = icmp eq i32 %6, 0
-  br i1 %tobool.i29.not, label %if.else.i30, label %land.lhs.true1.i33
+  br i1 %tobool.i29.not, label %if.else.i31, label %land.lhs.true1.i34
 
-land.lhs.true1.i33:                               ; preds = %entry
-  %iov_len.i34 = getelementptr inbounds i8, ptr %5, i64 8
-  %8 = load i64, ptr %iov_len.i34, align 8
+land.lhs.true1.i34:                               ; preds = %entry
+  %iov_len.i35 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = load i64, ptr %iov_len.i35, align 8
   %cmp.not.i = icmp ult i64 %8, %7
   %sub.i = sub i64 %8, %7
-  %cmp5.not.i35 = icmp ult i64 %sub.i, 8
-  %or.cond13.i = or i1 %cmp.not.i, %cmp5.not.i35
-  br i1 %or.cond13.i, label %if.else.i30, label %if.then.i36
+  %cmp5.not.i36 = icmp ult i64 %sub.i, 8
+  %or.cond13.i = or i1 %cmp.not.i, %cmp5.not.i36
+  br i1 %or.cond13.i, label %if.else.i31, label %if.then.i37
 
-if.then.i36:                                      ; preds = %land.lhs.true1.i33
+if.then.i37:                                      ; preds = %land.lhs.true1.i34
   %9 = load ptr, ptr %5, align 8
   %add.ptr.i = getelementptr i8, ptr %9, i64 %7
   %10 = load i64, ptr %resp, align 8
   store i64 %10, ptr %add.ptr.i, align 1
-  br label %iov_from_buf.exit37
+  br label %iov_from_buf.exit38
 
-if.else.i30:                                      ; preds = %land.lhs.true1.i33, %entry
-  %call.i31 = call i64 @iov_from_buf_full(ptr noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef nonnull %resp, i64 noundef 8) #11
-  br label %iov_from_buf.exit37
+if.else.i31:                                      ; preds = %land.lhs.true1.i34, %entry
+  %call.i32 = call i64 @iov_from_buf_full(ptr noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef nonnull %resp, i64 noundef 8) #11
+  br label %iov_from_buf.exit38
 
-iov_from_buf.exit37:                              ; preds = %if.then.i36, %if.else.i30
+iov_from_buf.exit38:                              ; preds = %if.then.i37, %if.else.i31
   %vq = getelementptr inbounds i8, ptr %buffer, i64 16
   %11 = load ptr, ptr %vq, align 8
   %12 = load ptr, ptr %elem, align 8
@@ -2793,40 +2795,42 @@ iov_from_buf.exit37:                              ; preds = %if.then.i36, %if.el
   call void @virtqueue_push(ptr noundef %11, ptr noundef %12, i32 noundef %conv) #11
   %s = getelementptr inbounds i8, ptr %stream, i64 88
   %15 = load ptr, ptr %s, align 8
-  %call.i38 = call ptr @object_dynamic_cast_assert(ptr noundef %15, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
+  %call.i39 = call ptr @object_dynamic_cast_assert(ptr noundef %15, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
   %16 = load ptr, ptr %vq, align 8
-  call void @virtio_notify(ptr noundef %call.i38, ptr noundef %16) #11
+  call void @virtio_notify(ptr noundef %call.i39, ptr noundef %16) #11
   %queue = getelementptr inbounds i8, ptr %stream, i64 184
   %17 = load ptr, ptr %queue, align 8
   %cmp = icmp eq ptr %17, %buffer
   br i1 %cmp, label %do.body14, label %while.cond
 
-do.body14:                                        ; preds = %iov_from_buf.exit37
-  %18 = load ptr, ptr %buffer, align 8
+do.body14:                                        ; preds = %iov_from_buf.exit38
+  %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %queue, align 8
   %cmp20 = icmp eq ptr %18, null
   br i1 %cmp20, label %do.end53.sink.split, label %do.end53
 
-while.cond:                                       ; preds = %iov_from_buf.exit37, %while.cond
-  %curelm.0 = phi ptr [ %19, %while.cond ], [ %17, %iov_from_buf.exit37 ]
+while.cond:                                       ; preds = %iov_from_buf.exit38, %while.cond
+  %curelm.0 = phi ptr [ %19, %while.cond ], [ %17, %iov_from_buf.exit38 ]
   %19 = load ptr, ptr %curelm.0, align 8
   %cmp32.not = icmp eq ptr %19, %buffer
   br i1 %cmp32.not, label %while.end, label %while.cond, !llvm.loop !17
 
 while.end:                                        ; preds = %while.cond
-  %20 = load ptr, ptr %buffer, align 8
+  %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %curelm.0, align 8
   %cmp42 = icmp eq ptr %20, null
   br i1 %cmp42, label %do.end53.sink.split, label %do.end53
 
 do.end53.sink.split:                              ; preds = %while.end, %do.body14
   %curelm.0.lcssa.sink = phi ptr [ %queue, %do.body14 ], [ %curelm.0, %while.end ]
+  %.sink.ph = phi ptr [ %17, %do.body14 ], [ %buffer, %while.end ]
   %sqh_last48 = getelementptr inbounds i8, ptr %stream, i64 192
   store ptr %curelm.0.lcssa.sink, ptr %sqh_last48, align 8
   br label %do.end53
 
 do.end53:                                         ; preds = %do.end53.sink.split, %while.end, %do.body14
-  store ptr null, ptr %buffer, align 8
+  %.sink = phi ptr [ %17, %do.body14 ], [ %buffer, %while.end ], [ %.sink.ph, %do.end53.sink.split ]
+  store ptr null, ptr %.sink, align 8
   %21 = load ptr, ptr %elem, align 8
   call void @g_free(ptr noundef %21) #11
   call void @g_free(ptr noundef nonnull %buffer) #11

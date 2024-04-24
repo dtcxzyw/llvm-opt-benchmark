@@ -12903,7 +12903,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #27
 define dso_local void @rb_gc_adjust_memory_usage(i64 noundef %0) local_unnamed_addr #28 {
   %2 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %objspace_malloc_increase_body.exit25, label %3
+  br i1 %.not, label %objspace_malloc_increase_body.exit18, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %2, i64 1304
@@ -12916,40 +12916,40 @@ objspace_malloc_increase_body.exit:               ; preds = %3
   %8 = atomicrmw volatile add ptr %7, i64 %0 seq_cst, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 1536
   %10 = atomicrmw volatile add ptr %9, i64 %0 seq_cst, align 8
-  br label %objspace_malloc_increase_body.exit25
+  br label %objspace_malloc_increase_body.exit18
 
 11:                                               ; preds = %3
   %12 = icmp slt i64 %0, 0
-  br i1 %12, label %.critedge17, label %objspace_malloc_increase_body.exit25
+  br i1 %12, label %.critedge17, label %objspace_malloc_increase_body.exit18
 
 .critedge17:                                      ; preds = %11
   %13 = sub i64 0, %0
   %14 = getelementptr inbounds i8, ptr %5, i64 8
-  br label %.preheader.i.i18
+  br label %.preheader.i.i
 
-.preheader.i.i18:                                 ; preds = %.critedge17, %.preheader.i.i18
-  %.0.i.i19 = phi i64 [ %spec.select.i.i20, %.preheader.i.i18 ], [ %13, %.critedge17 ]
+.preheader.i.i:                                   ; preds = %.critedge17, %.preheader.i.i
+  %.0.i.i = phi i64 [ %spec.select.i.i, %.preheader.i.i ], [ %13, %.critedge17 ]
   %15 = load i64, ptr %14, align 8
-  %spec.select.i.i20 = tail call i64 @llvm.umin.i64(i64 %15, i64 %.0.i.i19)
-  %16 = sub i64 %15, %spec.select.i.i20
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %.0.i.i)
+  %16 = sub i64 %15, %spec.select.i.i
   %17 = cmpxchg volatile ptr %14, i64 %15, i64 %16 seq_cst seq_cst, align 8
   %18 = extractvalue { i64, i1 } %17, 1
-  br i1 %18, label %atomic_sub_nounderflow.exit.i21, label %.preheader.i.i18
+  br i1 %18, label %atomic_sub_nounderflow.exit.i, label %.preheader.i.i
 
-atomic_sub_nounderflow.exit.i21:                  ; preds = %.preheader.i.i18
+atomic_sub_nounderflow.exit.i:                    ; preds = %.preheader.i.i
   %19 = getelementptr inbounds i8, ptr %5, i64 1536
-  br label %.preheader.i24.i22
+  br label %.preheader.i24.i
 
-.preheader.i24.i22:                               ; preds = %.preheader.i24.i22, %atomic_sub_nounderflow.exit.i21
-  %.0.i25.i23 = phi i64 [ %spec.select.i26.i24, %.preheader.i24.i22 ], [ %13, %atomic_sub_nounderflow.exit.i21 ]
+.preheader.i24.i:                                 ; preds = %.preheader.i24.i, %atomic_sub_nounderflow.exit.i
+  %.0.i25.i = phi i64 [ %spec.select.i26.i, %.preheader.i24.i ], [ %13, %atomic_sub_nounderflow.exit.i ]
   %20 = load i64, ptr %19, align 8
-  %spec.select.i26.i24 = tail call i64 @llvm.umin.i64(i64 %20, i64 %.0.i25.i23)
-  %21 = sub i64 %20, %spec.select.i26.i24
+  %spec.select.i26.i = tail call i64 @llvm.umin.i64(i64 %20, i64 %.0.i25.i)
+  %21 = sub i64 %20, %spec.select.i26.i
   %22 = cmpxchg volatile ptr %19, i64 %20, i64 %21 seq_cst seq_cst, align 8
   %23 = extractvalue { i64, i1 } %22, 1
-  br i1 %23, label %objspace_malloc_increase_body.exit25, label %.preheader.i24.i22
+  br i1 %23, label %objspace_malloc_increase_body.exit18, label %.preheader.i24.i
 
-objspace_malloc_increase_body.exit25:             ; preds = %.preheader.i24.i22, %objspace_malloc_increase_body.exit, %11, %1
+objspace_malloc_increase_body.exit18:             ; preds = %.preheader.i24.i, %objspace_malloc_increase_body.exit, %11, %1
   ret void
 }
 
@@ -16894,7 +16894,7 @@ has_sweeping_pages.exit:                          ; preds = %82
   %86 = load i16, ptr %12, align 8
   %87 = and i16 %86, 4096
   %.not.i.i13 = icmp eq i16 %87, 0
-  br i1 %.not.i.i13, label %gc_sweeping_enter.exit.i, label %88
+  br i1 %.not.i.i13, label %gc_sweeping_enter.exit.i.preheader, label %88
 
 88:                                               ; preds = %.critedge
   %89 = getelementptr inbounds i8, ptr %0, i64 1432
@@ -16926,205 +16926,205 @@ has_sweeping_pages.exit:                          ; preds = %82
 
 current_process_time.exit.thread.i.i.i29:         ; preds = %96, %90
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
-  br label %gc_sweeping_enter.exit.i
+  br label %gc_sweeping_enter.exit.i.preheader
 
 99:                                               ; preds = %93
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false)
+  br label %gc_sweeping_enter.exit.i.preheader
+
+gc_sweeping_enter.exit.i.preheader:               ; preds = %99, %current_process_time.exit.thread.i.i.i29, %.critedge
   br label %gc_sweeping_enter.exit.i
 
-gc_sweeping_enter.exit.i:                         ; preds = %99, %current_process_time.exit.thread.i.i.i29, %.critedge
-  %100 = getelementptr inbounds i8, ptr %1, i64 8
-  br label %101
+gc_sweeping_enter.exit.i:                         ; preds = %gc_sweeping_enter.exit.i.preheader, %114
+  %indvars.iv.i15 = phi i64 [ %indvars.iv.next.i17, %114 ], [ 0, %gc_sweeping_enter.exit.i.preheader ]
+  %100 = getelementptr [5 x %struct.rb_size_pool_struct], ptr %79, i64 0, i64 %indvars.iv.i15
+  %101 = getelementptr inbounds i8, ptr %100, i64 80
+  %102 = call fastcc i32 @gc_sweep_step(ptr noundef %0, ptr noundef %100, ptr noundef nonnull %101), !range !15
+  %.not.i16 = icmp eq i32 %102, 0
+  %103 = icmp eq ptr %100, %1
+  %or.cond.i = and i1 %103, %.not.i16
+  br i1 %or.cond.i, label %104, label %114
 
-101:                                              ; preds = %115, %gc_sweeping_enter.exit.i
-  %indvars.iv.i15 = phi i64 [ 0, %gc_sweeping_enter.exit.i ], [ %indvars.iv.next.i17, %115 ]
-  %102 = getelementptr [5 x %struct.rb_size_pool_struct], ptr %79, i64 0, i64 %indvars.iv.i15
-  %103 = getelementptr inbounds i8, ptr %102, i64 80
-  %104 = call fastcc i32 @gc_sweep_step(ptr noundef %0, ptr noundef %102, ptr noundef nonnull %103), !range !15
-  %.not.i16 = icmp eq i32 %104, 0
-  %105 = icmp eq ptr %102, %1
-  %or.cond.i = and i1 %105, %.not.i16
-  br i1 %or.cond.i, label %106, label %115
-
-106:                                              ; preds = %101
-  %107 = load i64, ptr %100, align 8
-  %.not16.i = icmp eq i64 %107, 0
+104:                                              ; preds = %gc_sweeping_enter.exit.i
+  %105 = getelementptr inbounds i8, ptr %100, i64 8
+  %106 = load i64, ptr %105, align 8
+  %.not16.i = icmp eq i64 %106, 0
   br i1 %.not16.i, label %.preheader.i, label %heap_increment.exit.i
 
-heap_increment.exit.i:                            ; preds = %106
-  call fastcc void @heap_assign_page(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
-  br label %115
+heap_increment.exit.i:                            ; preds = %104
+  call fastcc void @heap_assign_page(ptr noundef nonnull %0, ptr noundef nonnull %100, ptr noundef nonnull %2)
+  br label %114
 
-.preheader.i:                                     ; preds = %106, %._crit_edge.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ 0, %106 ]
-  %108 = getelementptr [5 x %struct.rb_size_pool_struct], ptr %79, i64 0, i64 %indvars.iv.i.i
-  %109 = getelementptr inbounds i8, ptr %108, i64 104
-  %110 = load ptr, ptr %109, align 8
-  %.not7.i.i = icmp eq ptr %110, null
+.preheader.i:                                     ; preds = %104, %._crit_edge.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ 0, %104 ]
+  %107 = getelementptr [5 x %struct.rb_size_pool_struct], ptr %79, i64 0, i64 %indvars.iv.i.i
+  %108 = getelementptr inbounds i8, ptr %107, i64 104
+  %109 = load ptr, ptr %108, align 8
+  %.not7.i.i = icmp eq ptr %109, null
   br i1 %.not7.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i
-  %111 = getelementptr inbounds i8, ptr %108, i64 80
-  br label %112
+  %110 = getelementptr inbounds i8, ptr %107, i64 80
+  br label %111
 
-112:                                              ; preds = %112, %.lr.ph.i.i
-  %113 = call fastcc i32 @gc_sweep_step(ptr noundef nonnull %0, ptr noundef %108, ptr noundef nonnull %111), !range !15
-  %114 = load ptr, ptr %109, align 8
-  %.not.i18.i = icmp eq ptr %114, null
-  br i1 %.not.i18.i, label %._crit_edge.i.i, label %112, !llvm.loop !63
+111:                                              ; preds = %111, %.lr.ph.i.i
+  %112 = call fastcc i32 @gc_sweep_step(ptr noundef nonnull %0, ptr noundef %107, ptr noundef nonnull %110), !range !15
+  %113 = load ptr, ptr %108, align 8
+  %.not.i18.i = icmp eq ptr %113, null
+  br i1 %.not.i18.i, label %._crit_edge.i.i, label %111, !llvm.loop !63
 
-._crit_edge.i.i:                                  ; preds = %112, %.preheader.i
+._crit_edge.i.i:                                  ; preds = %111, %.preheader.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
   br i1 %exitcond.not.i.i, label %gc_sweep_rest.exit.i, label %.preheader.i, !llvm.loop !64
 
-115:                                              ; preds = %heap_increment.exit.i, %101
+114:                                              ; preds = %heap_increment.exit.i, %gc_sweeping_enter.exit.i
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i15, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, 5
-  br i1 %exitcond.not.i18, label %gc_sweep_rest.exit.i, label %101, !llvm.loop !100
+  br i1 %exitcond.not.i18, label %gc_sweep_rest.exit.i, label %gc_sweeping_enter.exit.i, !llvm.loop !100
 
-gc_sweep_rest.exit.i:                             ; preds = %115, %._crit_edge.i.i
-  %116 = load i16, ptr %12, align 8
-  %117 = and i16 %116, 4096
-  %.not.i19.i = icmp eq i16 %117, 0
-  br i1 %.not.i19.i, label %gc_sweep_continue.exit, label %118
+gc_sweep_rest.exit.i:                             ; preds = %114, %._crit_edge.i.i
+  %115 = load i16, ptr %12, align 8
+  %116 = and i16 %115, 4096
+  %.not.i19.i = icmp eq i16 %116, 0
+  br i1 %.not.i19.i, label %gc_sweep_continue.exit, label %117
 
-118:                                              ; preds = %gc_sweep_rest.exit.i
-  %119 = getelementptr inbounds i8, ptr %0, i64 1432
+117:                                              ; preds = %gc_sweep_rest.exit.i
+  %118 = getelementptr inbounds i8, ptr %0, i64 1432
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %120 = load i64, ptr %119, align 8
-  %121 = icmp sgt i64 %120, 0
-  br i1 %121, label %126, label %122
+  %119 = load i64, ptr %118, align 8
+  %120 = icmp sgt i64 %119, 0
+  br i1 %120, label %125, label %121
 
-122:                                              ; preds = %118
-  %123 = getelementptr inbounds i8, ptr %0, i64 1440
-  %124 = load i64, ptr %123, align 8
-  %125 = icmp sgt i64 %124, 0
-  br i1 %125, label %126, label %gc_clock_end.exit.i.i19
+121:                                              ; preds = %117
+  %122 = getelementptr inbounds i8, ptr %0, i64 1440
+  %123 = load i64, ptr %122, align 8
+  %124 = icmp sgt i64 %123, 0
+  br i1 %124, label %125, label %gc_clock_end.exit.i.i19
 
-126:                                              ; preds = %122, %118
+125:                                              ; preds = %121, %117
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   %.b.i.i.i20.i = load i1, ptr @current_process_time.try_clock_gettime, align 4
-  br i1 %.b.i.i.i20.i, label %130, label %127
+  br i1 %.b.i.i.i20.i, label %129, label %126
 
-127:                                              ; preds = %126
-  %128 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %6) #37
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %._crit_edge.i.i.i23, label %130
+126:                                              ; preds = %125
+  %127 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %6) #37
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %._crit_edge.i.i.i23, label %129
 
-._crit_edge.i.i.i23:                              ; preds = %127
+._crit_edge.i.i.i23:                              ; preds = %126
   %.pre.i.i.i24 = load i64, ptr %6, align 8
-  br label %136
+  br label %135
 
-130:                                              ; preds = %127, %126
+129:                                              ; preds = %126, %125
   store i1 true, ptr @current_process_time.try_clock_gettime, align 4
-  %131 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %5) #37
-  %132 = icmp eq i32 %131, 0
-  br i1 %132, label %133, label %current_process_time.exit.i.i.i21
+  %130 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %5) #37
+  %131 = icmp eq i32 %130, 0
+  br i1 %131, label %132, label %current_process_time.exit.i.i.i21
 
-133:                                              ; preds = %130
+132:                                              ; preds = %129
   %.sroa.0.0.copyload.i.i.i21.i = load i64, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i.i.i22.i = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.2.0.copyload.i.i.i23.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i22.i, align 8
   %sext.i.i.i24.i = mul i64 %.sroa.2.0.copyload.i.i.i23.i, 4294967296000
-  %134 = ashr exact i64 %sext.i.i.i24.i, 32
-  %135 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %134, ptr %135, align 8
-  br label %136
+  %133 = ashr exact i64 %sext.i.i.i24.i, 32
+  %134 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %133, ptr %134, align 8
+  br label %135
 
-current_process_time.exit.i.i.i21:                ; preds = %130
+current_process_time.exit.i.i.i21:                ; preds = %129
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   br label %gc_clock_end.exit.i.i19
 
-136:                                              ; preds = %133, %._crit_edge.i.i.i23
-  %137 = phi i64 [ %.pre.i.i.i24, %._crit_edge.i.i.i23 ], [ %.sroa.0.0.copyload.i.i.i21.i, %133 ]
+135:                                              ; preds = %132, %._crit_edge.i.i.i23
+  %136 = phi i64 [ %.pre.i.i.i24, %._crit_edge.i.i.i23 ], [ %.sroa.0.0.copyload.i.i.i21.i, %132 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
-  %138 = load i64, ptr %119, align 8
-  %.not.i.i.i22 = icmp slt i64 %137, %138
-  br i1 %.not.i.i.i22, label %gc_clock_end.exit.i.i19, label %139
+  %137 = load i64, ptr %118, align 8
+  %.not.i.i.i22 = icmp slt i64 %136, %137
+  br i1 %.not.i.i.i22, label %gc_clock_end.exit.i.i19, label %138
 
-139:                                              ; preds = %136
-  %140 = sub i64 %137, %138
-  %141 = mul i64 %140, 1000000000
-  %142 = getelementptr inbounds i8, ptr %6, i64 8
-  %143 = load i64, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 1440
-  %145 = load i64, ptr %144, align 8
-  %146 = add i64 %143, %141
-  %147 = sub i64 %146, %145
+138:                                              ; preds = %135
+  %139 = sub i64 %136, %137
+  %140 = mul i64 %139, 1000000000
+  %141 = getelementptr inbounds i8, ptr %6, i64 8
+  %142 = load i64, ptr %141, align 8
+  %143 = getelementptr inbounds i8, ptr %0, i64 1440
+  %144 = load i64, ptr %143, align 8
+  %145 = add i64 %142, %140
+  %146 = sub i64 %145, %144
   br label %gc_clock_end.exit.i.i19
 
-gc_clock_end.exit.i.i19:                          ; preds = %139, %136, %current_process_time.exit.i.i.i21, %122
-  %.0.i.i.i20 = phi i64 [ %147, %139 ], [ 0, %136 ], [ 0, %current_process_time.exit.i.i.i21 ], [ 0, %122 ]
+gc_clock_end.exit.i.i19:                          ; preds = %138, %135, %current_process_time.exit.i.i.i21, %121
+  %.0.i.i.i20 = phi i64 [ %146, %138 ], [ 0, %135 ], [ 0, %current_process_time.exit.i.i.i21 ], [ 0, %121 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %148 = getelementptr inbounds i8, ptr %0, i64 1424
-  %149 = load i64, ptr %148, align 8
-  %150 = add i64 %149, %.0.i.i.i20
-  store i64 %150, ptr %148, align 8
+  %147 = getelementptr inbounds i8, ptr %0, i64 1424
+  %148 = load i64, ptr %147, align 8
+  %149 = add i64 %148, %.0.i.i.i20
+  store i64 %149, ptr %147, align 8
   br label %gc_sweep_continue.exit
 
 gc_sweep_continue.exit:                           ; preds = %.lr.ph, %gc_clock_end.exit.i.i19, %gc_sweep_rest.exit.i, %has_sweeping_pages.exit, %75
-  %151 = getelementptr inbounds i8, ptr %0, i64 20
-  %152 = load i32, ptr %151, align 4
-  %153 = and i32 %152, 67108864
-  %.not.i30 = icmp eq i32 %153, 0
-  br i1 %.not.i30, label %gc_event_hook_body.exit.i, label %154
+  %150 = getelementptr inbounds i8, ptr %0, i64 20
+  %151 = load i32, ptr %150, align 4
+  %152 = and i32 %151, 67108864
+  %.not.i30 = icmp eq i32 %152, 0
+  br i1 %.not.i30, label %gc_event_hook_body.exit.i, label %153
 
-154:                                              ; preds = %gc_sweep_continue.exit
-  %155 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 16
-  %158 = load ptr, ptr %157, align 8
-  %.not.i.i31 = icmp eq ptr %158, null
+153:                                              ; preds = %gc_sweep_continue.exit
+  %154 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 16
+  %157 = load ptr, ptr %156, align 8
+  %.not.i.i31 = icmp eq ptr %157, null
   br i1 %.not.i.i31, label %gc_event_hook_body.exit.i, label %rb_ec_ractor_hooks.exit.i.i
 
-rb_ec_ractor_hooks.exit.i.i:                      ; preds = %154
-  %159 = getelementptr i8, ptr %156, i64 48
-  %.val.i.i = load ptr, ptr %159, align 8, !nonnull !16, !noundef !16
-  %160 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 24
-  %163 = load i32, ptr %162, align 8
-  %164 = and i32 %163, 67108864
-  %.not9.i.i = icmp eq i32 %164, 0
-  br i1 %.not9.i.i, label %gc_event_hook_body.exit.i, label %165
+rb_ec_ractor_hooks.exit.i.i:                      ; preds = %153
+  %158 = getelementptr i8, ptr %155, i64 48
+  %.val.i.i = load ptr, ptr %158, align 8, !nonnull !16, !noundef !16
+  %159 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 24
+  %162 = load i32, ptr %161, align 8
+  %163 = and i32 %162, 67108864
+  %.not9.i.i = icmp eq i32 %163, 0
+  br i1 %.not9.i.i, label %gc_event_hook_body.exit.i, label %164
 
-165:                                              ; preds = %rb_ec_ractor_hooks.exit.i.i
-  %166 = getelementptr inbounds i8, ptr %161, i64 16
-  %167 = getelementptr inbounds i8, ptr %158, i64 24
-  %168 = load i64, ptr %167, align 8
+164:                                              ; preds = %rb_ec_ractor_hooks.exit.i.i
+  %165 = getelementptr inbounds i8, ptr %160, i64 16
+  %166 = getelementptr inbounds i8, ptr %157, i64 24
+  %167 = load i64, ptr %166, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
   store i32 67108864, ptr %4, align 8
-  %169 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %156, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %158, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 %168, ptr %171, align 8
-  %172 = getelementptr inbounds i8, ptr %4, i64 32
-  %173 = getelementptr inbounds i8, ptr %4, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %172, i8 0, i64 32, i1 false)
-  store i64 36, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %4, i64 64
-  store i32 0, ptr %174, align 8
-  call void @rb_exec_event_hooks(ptr noundef nonnull %4, ptr noundef nonnull %166, i32 noundef 0) #37
+  %168 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %155, ptr %168, align 8
+  %169 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %157, ptr %169, align 8
+  %170 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 %167, ptr %170, align 8
+  %171 = getelementptr inbounds i8, ptr %4, i64 32
+  %172 = getelementptr inbounds i8, ptr %4, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %171, i8 0, i64 32, i1 false)
+  store i64 36, ptr %172, align 8
+  %173 = getelementptr inbounds i8, ptr %4, i64 64
+  store i32 0, ptr %173, align 8
+  call void @rb_exec_event_hooks(ptr noundef nonnull %4, ptr noundef nonnull %165, i32 noundef 0) #37
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   br label %gc_event_hook_body.exit.i
 
-gc_event_hook_body.exit.i:                        ; preds = %165, %rb_ec_ractor_hooks.exit.i.i, %154, %gc_sweep_continue.exit
-  %175 = load i16, ptr %12, align 8
-  %176 = and i16 %175, -33
-  store i16 %176, ptr %12, align 8
-  %177 = load ptr, ptr @ruby_single_main_ractor, align 8
-  %.not.i.i.i32 = icmp eq ptr %177, null
-  br i1 %.not.i.i.i32, label %178, label %gc_exit.exit
+gc_event_hook_body.exit.i:                        ; preds = %164, %rb_ec_ractor_hooks.exit.i.i, %153, %gc_sweep_continue.exit
+  %174 = load i16, ptr %12, align 8
+  %175 = and i16 %174, -33
+  store i16 %175, ptr %12, align 8
+  %176 = load ptr, ptr @ruby_single_main_ractor, align 8
+  %.not.i.i.i32 = icmp eq ptr %176, null
+  br i1 %.not.i.i.i32, label %177, label %gc_exit.exit
 
-178:                                              ; preds = %gc_event_hook_body.exit.i
+177:                                              ; preds = %gc_event_hook_body.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %11) #37
   br label %gc_exit.exit
 
-gc_exit.exit:                                     ; preds = %gc_event_hook_body.exit.i, %178
+gc_exit.exit:                                     ; preds = %gc_event_hook_body.exit.i, %177
   ret void
 }
 
@@ -22499,7 +22499,7 @@ gc_is_moveable_obj.exit:                          ; preds = %34, %34, %34, %34, 
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %80, %78, %76, %72, %68
-  %.067.i = phi ptr [ %63, %78 ], [ %2, %76 ], [ %63, %72 ], [ %spec.select.i23, %80 ], [ %63, %68 ]
+  %.067.i = phi ptr [ %63, %78 ], [ %63, %76 ], [ %63, %72 ], [ %spec.select.i23, %80 ], [ %63, %68 ]
   %.066.i = phi ptr [ null, %78 ], [ null, %76 ], [ null, %72 ], [ %87, %80 ], [ null, %68 ]
   %.065.i = phi ptr [ %77, %78 ], [ %77, %76 ], [ null, %72 ], [ %77, %80 ], [ null, %68 ]
   %88 = and i64 %.017, -65536

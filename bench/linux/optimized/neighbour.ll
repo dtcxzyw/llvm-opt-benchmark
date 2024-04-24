@@ -339,46 +339,46 @@ define dso_local noundef zeroext i1 @neigh_remove_one(ptr noundef %0, ptr nocapt
   br i1 %24, label %25, label %19, !llvm.loop !6
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds i8, ptr %21, i64 40
   tail call void @_raw_write_lock(ptr noundef %26) #21
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  %27 = getelementptr inbounds i8, ptr %21, i64 48
   %28 = load volatile i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 1
   br i1 %29, label %30, label %52
 
 30:                                               ; preds = %25
-  %31 = load ptr, ptr %0, align 8
+  %31 = load ptr, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !9
   store volatile ptr %31, ptr %20, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 134
+  %32 = getelementptr inbounds i8, ptr %21, i64 134
   store i8 1, ptr %32, align 2
-  %33 = getelementptr inbounds i8, ptr %0, i64 312
+  %33 = getelementptr inbounds i8, ptr %21, i64 312
   %34 = load volatile ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, %33
   br i1 %35, label %43, label %36
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %0, i64 320
+  %37 = getelementptr inbounds i8, ptr %21, i64 320
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %34, i64 8
   store ptr %38, ptr %39, align 8
   store volatile ptr %34, ptr %38, align 8
   store volatile ptr %33, ptr %33, align 8
   store volatile ptr %33, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds i8, ptr %21, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 524
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42, ptr elementtype(i32) %42) #21, !srcloc !10
   br label %43
 
 43:                                               ; preds = %36, %30
-  %44 = getelementptr inbounds i8, ptr %0, i64 328
+  %44 = getelementptr inbounds i8, ptr %21, i64 328
   %45 = load volatile ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, %44
   br i1 %46, label %51, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %0, i64 336
+  %48 = getelementptr inbounds i8, ptr %21, i64 336
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %45, i64 8
   store ptr %49, ptr %50, align 8
@@ -389,7 +389,7 @@ define dso_local noundef zeroext i1 @neigh_remove_one(ptr noundef %0, ptr nocapt
 
 51:                                               ; preds = %47, %43
   tail call void @_raw_write_unlock(ptr noundef %26) #21
-  tail call fastcc void @neigh_cleanup_and_release(ptr noundef nonnull %0)
+  tail call fastcc void @neigh_cleanup_and_release(ptr noundef nonnull %21)
   br label %.loopexit
 
 52:                                               ; preds = %25
@@ -2729,12 +2729,12 @@ condstore.split:                                  ; preds = %45
   %53 = xor i32 %47, %52
   %54 = and i32 %53, 16
   %.lobit = lshr exact i32 %54, 4
-  %55 = trunc i32 %.lobit to i8
+  %55 = trunc nuw nsw i32 %.lobit to i8
   %.lobit37 = lshr exact i32 %54, 4
   %56 = and i32 %53, 256
   %.not40 = icmp eq i32 %56, 0
   %.lobit38 = lshr exact i32 %56, 8
-  %.ph = trunc i32 %.lobit38 to i8
+  %.ph = trunc nuw nsw i32 %.lobit38 to i8
   %.ph36 = select i1 %.not40, i32 %.lobit37, i32 1
   %57 = and i32 %53, 272
   %.not = icmp eq i32 %57, 0

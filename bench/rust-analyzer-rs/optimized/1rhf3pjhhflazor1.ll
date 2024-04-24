@@ -34363,7 +34363,7 @@ default.unreachable:                              ; preds = %27
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %2
   %60 = phi ptr [ %12, %2 ], [ %.pre31, %.loopexit.loopexit ]
-  %61 = phi ptr [ %12, %2 ], [ %.pre, %.loopexit.loopexit ]
+  %61 = phi ptr [ %13, %2 ], [ %.pre, %.loopexit.loopexit ]
   %.sroa.7.021.i.i.i = phi ptr [ %9, %2 ], [ %.sroa.7.021.i.i.i.ph, %.loopexit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 252, ptr nonnull %.sroa.2.i.i.i)
   %62 = ptrtoint ptr %.sroa.7.021.i.i.i to i64

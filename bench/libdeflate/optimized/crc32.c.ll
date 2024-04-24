@@ -95,7 +95,7 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %cmp7.not37, label %for.cond73.preheader, label %for.body9
 
 for.cond73.preheader:                             ; preds = %for.body9, %for.end
-  %p.addr.1.lcssa = phi ptr [ %p.addr.0.lcssa, %for.end ], [ %add.ptr5, %for.body9 ]
+  %p.addr.1.lcssa = phi ptr [ %p.addr.0.lcssa, %for.end ], [ %add.ptr71, %for.body9 ]
   %crc.addr.1.lcssa = phi i32 [ %crc.addr.0.lcssa, %for.end ], [ %xor69, %for.body9 ]
   %cmp74.not42 = icmp eq ptr %p.addr.1.lcssa, %add.ptr
   br i1 %cmp74.not42, label %for.end87, label %for.body76

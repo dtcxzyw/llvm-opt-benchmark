@@ -153,7 +153,7 @@ for.inc:                                          ; preds = %for.body, %delete.n
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %entry
-  %7 = phi ptr [ %0, %entry ], [ %5, %for.inc ]
+  %7 = phi ptr [ %1, %entry ], [ %5, %for.inc ]
   %prefilter_tree_ = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %prefilter_tree_, align 8
   %cmp.not.i = icmp eq ptr %8, null
@@ -826,7 +826,7 @@ for.inc:                                          ; preds = %invoke.cont10
   br i1 %cmp, label %for.body, label %cleanup, !llvm.loop !9
 
 cleanup:                                          ; preds = %for.inc, %for.cond.preheader
-  %.pr = phi ptr [ %4, %for.cond.preheader ], [ %14, %for.inc ]
+  %.pr = phi ptr [ %5, %for.cond.preheader ], [ %14, %for.inc ]
   %tobool.not.i.i.i9 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i9, label %return, label %if.then.i.i.i10
 
@@ -1000,7 +1000,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %.lcssa = phi ptr [ %3, %for.cond.preheader ], [ %19, %for.inc ]
+  %.lcssa = phi ptr [ %4, %for.cond.preheader ], [ %19, %for.inc ]
   %20 = load ptr, ptr %matching_regexps, align 8
   %21 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i.i14 = icmp eq ptr %.lcssa, null

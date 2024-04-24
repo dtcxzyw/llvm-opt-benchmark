@@ -8541,7 +8541,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup
-  %4 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre2198, %for.cond.cleanup ]
+  %4 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre2199, %for.cond.cleanup ]
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
@@ -12837,7 +12837,7 @@ while.end:                                        ; preds = %invoke.cont122
 if.then141:                                       ; preds = %invoke.cont.i.i461, %invoke.cont.i.i461.thread
   %add.ptr.i.i.i.i4621176.ph = phi ptr [ %add.ptr.i.i.i.i4621173, %invoke.cont.i.i461.thread ], [ %add.ptr.i.i.i.i462, %invoke.cont.i.i461 ]
   %cond.i.i.i.i.i1175.ph = phi ptr [ null, %invoke.cont.i.i461.thread ], [ %call5.i.i.i.i4.i20.i.i466, %invoke.cont.i.i461 ]
-  %.ph = phi ptr [ %108, %invoke.cont.i.i461.thread ], [ %.pre, %invoke.cont.i.i461 ]
+  %.ph = phi ptr [ %108, %invoke.cont.i.i461.thread ], [ %.pre1161, %invoke.cont.i.i461 ]
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 56
   store ptr %cond.i.i.i.i.i1175.ph, ptr %second.i, align 8, !tbaa !86
   store ptr %cond.i.i.i.i.i1175.ph, ptr %_M_finish.i.i.i459, align 8, !tbaa !87
@@ -12845,7 +12845,7 @@ if.then141:                                       ; preds = %invoke.cont.i.i461,
   br label %invoke.cont.i595
 
 if.then143:                                       ; preds = %if.end139, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE8pop_backEv.exit, %while.end, %_ZN6duckdb6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEC2ERKS7_.exit
-  %158 = phi ptr [ %.pre1167.pre, %while.end ], [ %.pre1162, %_ZN6duckdb6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEC2ERKS7_.exit ], [ %.pre1165, %if.end139 ], [ %146, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE8pop_backEv.exit ]
+  %158 = phi ptr [ %.pre1168.pre, %while.end ], [ %.pre1163, %_ZN6duckdb6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEC2ERKS7_.exit ], [ %.pre1165, %if.end139 ], [ %146, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE8pop_backEv.exit ]
   %_M_end_of_storage.i.i.i1209 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 56
   store ptr %call5.i.i.i.i4.i20.i.i466, ptr %second.i, align 8, !tbaa !86
   store ptr %incdec.ptr.i824, ptr %_M_finish.i.i.i459, align 8, !tbaa !87

@@ -403,7 +403,7 @@ while.body.i6.i14.i16.i:                          ; preds = %land.rhs.i4.i11.i13
   br i1 %cmp.not.i7.i16.i18.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes11InstructionEZNS2_25InstructionEscapeAnalysis8addRangeENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS3_Lb0ELb0EvEELb0ELb0EEEEEE6EscapeNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E5beginEv.exit, label %land.rhs.i4.i11.i13.i, !llvm.loop !11
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes11InstructionEZNS2_25InstructionEscapeAnalysis8addRangeENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS3_Lb0ELb0EvEELb0ELb0EEEEEE6EscapeNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E5beginEv.exit: ; preds = %land.rhs.i4.i11.i13.i, %while.body.i6.i14.i16.i, %if.end8.i
-  %add.ptr.i.i.pn23.i = phi ptr [ %this.val7.i, %if.end8.i ], [ %add.ptr.i.i.i47, %while.body.i6.i14.i16.i ], [ %retval.sroa.0.2.i14.i, %land.rhs.i4.i11.i13.i ]
+  %add.ptr.i.i.pn23.i = phi ptr [ %this.val7.i, %if.end8.i ], [ %incdec.ptr.i.i15.i17.i, %while.body.i6.i14.i16.i ], [ %retval.sroa.0.2.i14.i, %land.rhs.i4.i11.i13.i ]
   %second34 = getelementptr inbounds i8, ptr %add.ptr.i.i.pn23.i, i64 8
   %29 = load i32, ptr %second34, align 4
   br label %cond.end
@@ -465,7 +465,7 @@ land.rhs:                                         ; preds = %lor.rhs
   %agg.tmp45.sroa.0.0.copyload = load i64, ptr %second47, align 4
   %offset.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp45.sroa.0.0.copyload to i32
   %offset.sroa.3.0.extract.shift.i = lshr i64 %agg.tmp45.sroa.0.0.copyload, 32
-  %tobool.i.i = trunc i8 %escapeOffset.sroa.6.0 to i1
+  %tobool.i.i = trunc nuw i8 %escapeOffset.sroa.6.0 to i1
   br i1 %tobool.i.i, label %if.end.i75, label %if.then.i74
 
 if.then.i74:                                      ; preds = %land.rhs
@@ -805,7 +805,7 @@ if.then.i:                                        ; preds = %if.end5
   %or6.i.i.i = or i64 %shr5.i.i.i, %or4.i.i.i
   %shr7.i.i.i = lshr i64 %or6.i.i.i, 16
   %or8.i.i.i = or i64 %shr7.i.i.i, %or6.i.i.i
-  %5 = trunc i64 %or8.i.i.i to i32
+  %5 = trunc nuw nsw i64 %or8.i.i.i to i32
   %conv2.i.i = add nuw i32 %5, 1
   store i32 %conv2.i.i, ptr %NumBuckets, align 8
   %conv.i3.i = zext i32 %conv2.i.i to i64
@@ -857,7 +857,7 @@ entry:
   %or6.i.i = or i64 %shr5.i.i, %or4.i.i
   %shr7.i.i = lshr i64 %or6.i.i, 16
   %or8.i.i = or i64 %shr7.i.i, %or6.i.i
-  %2 = trunc i64 %or8.i.i to i32
+  %2 = trunc nuw i64 %or8.i.i to i32
   %conv3.i = add i32 %2, 1
   %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %conv3.i, i32 64)
   store i32 %.sroa.speculated.i, ptr %NumBuckets.i, align 8
@@ -1143,7 +1143,7 @@ _ZN4llvh8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMa
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8

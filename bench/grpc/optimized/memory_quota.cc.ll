@@ -7194,7 +7194,7 @@ for.end.loopexit:                                 ; preds = %_ZNSt10shared_ptrIN
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %37 = phi ptr [ %.pre34, %for.end.loopexit ], [ null, %entry ]
-  %38 = phi ptr [ %.pre31, %for.end.loopexit ], [ %0, %entry ]
+  %38 = phi ptr [ %.pre31, %for.end.loopexit ], [ %1, %entry ]
   %39 = phi ptr [ %.pre, %for.end.loopexit ], [ %0, %entry ]
   %40 = phi <2 x ptr> [ %36, %for.end.loopexit ], [ zeroinitializer, %entry ]
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -7254,7 +7254,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt8we
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.end
-  %47 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %38, %for.end ]
+  %47 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %39, %for.end ]
   %tobool.not.i.i.i24 = icmp eq ptr %47, null
   br i1 %tobool.not.i.i.i24, label %_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EED2Ev.exit, label %if.then.i.i.i25
 

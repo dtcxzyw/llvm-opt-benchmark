@@ -231,7 +231,7 @@ lexbor_avl_node_height.exit46:                    ; preds = %lexbor_avl_node_hei
   %15 = sext i16 %8 to i32
   %16 = sext i16 %14 to i32
   %17 = tail call i32 @llvm.smax.i32(i32 %15, i32 %16)
-  %18 = trunc i32 %17 to i16
+  %18 = trunc nsw i32 %17 to i16
   %19 = add i16 %18, 1
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %19, ptr %20, align 8
@@ -1271,7 +1271,7 @@ define hidden i32 @lexbor_avl_foreach(ptr noundef %0, ptr noundef %1, ptr nocapt
 
 .loopexit97:                                      ; preds = %38, %35, %39, %30, %28, %25, %21
   %.255 = phi ptr [ %.154, %21 ], [ %22, %25 ], [ %13, %38 ], [ %29, %35 ], [ %.154, %28 ], [ %.154, %30 ], [ %32, %39 ]
-  %.1 = phi ptr [ %.154, %21 ], [ %22, %25 ], [ %.0.ph, %28 ], [ %.0.ph, %30 ], [ %.0.ph, %39 ], [ %.0.ph, %35 ], [ %.0.ph, %38 ]
+  %.1 = phi ptr [ %.0.ph, %21 ], [ %22, %25 ], [ %.0.ph, %28 ], [ %.0.ph, %30 ], [ %.0.ph, %39 ], [ %.0.ph, %35 ], [ %.0.ph, %38 ]
   %41 = getelementptr inbounds i8, ptr %.255, i64 32
   %42 = load ptr, ptr %41, align 8
   %.not79 = icmp eq ptr %42, null

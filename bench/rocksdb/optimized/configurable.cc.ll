@@ -250,7 +250,7 @@ invoke.cont.us.us:                                ; preds = %if.else5.i.us.us
 
 if.then18.us.us:                                  ; preds = %invoke.cont.us.us, %if.else5.i.us.us
   %9 = load ptr, ptr %opt_ptr.us, align 8
-  invoke void @_ZNK7rocksdb14OptionTypeInfo7PrepareERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPv(ptr nonnull sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(180) %second.us.us, ptr noundef nonnull align 8 dereferenceable(80) %opts, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.us.us, ptr noundef %9)
+  invoke void @_ZNK7rocksdb14OptionTypeInfo7PrepareERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPv(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(180) %second.us.us, ptr noundef nonnull align 8 dereferenceable(80) %opts, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.us.us, ptr noundef %9)
           to label %invoke.cont19.us.us unwind label %lpad.split.us.split.us
 
 invoke.cont19.us.us:                              ; preds = %if.then18.us.us
@@ -536,7 +536,7 @@ invoke.cont.us.us:                                ; preds = %if.else.i.us.us
 
 if.then18.us.us:                                  ; preds = %invoke.cont.us.us, %if.else.i.us.us
   %8 = load ptr, ptr %opt_ptr.us, align 8
-  invoke void @_ZNK7rocksdb14OptionTypeInfo8ValidateERKNS_9DBOptionsERKNS_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKv(ptr nonnull sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(180) %second.us.us, ptr noundef nonnull align 8 dereferenceable(688) %db_opts, ptr noundef nonnull align 8 dereferenceable(820) %cf_opts, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.us.us, ptr noundef %8)
+  invoke void @_ZNK7rocksdb14OptionTypeInfo8ValidateERKNS_9DBOptionsERKNS_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKv(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(180) %second.us.us, ptr noundef nonnull align 8 dereferenceable(688) %db_opts, ptr noundef nonnull align 8 dereferenceable(820) %cf_opts, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.us.us, ptr noundef %8)
           to label %invoke.cont19.us.us unwind label %lpad.split.us.split.us
 
 invoke.cont19.us.us:                              ; preds = %if.then18.us.us
@@ -6507,7 +6507,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #15
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i31
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i34
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #15
@@ -6519,11 +6519,11 @@ lpad17:                                           ; preds = %invoke.cont19
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i31:                                      ; preds = %lpad
+if.then.i34:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #16
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.then.i31, %if.end.thread
+invoke.cont19:                                    ; preds = %if.then.i34, %if.end.thread
   invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad17
 

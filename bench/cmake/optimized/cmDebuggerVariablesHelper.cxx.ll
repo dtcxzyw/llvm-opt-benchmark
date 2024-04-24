@@ -6977,7 +6977,7 @@ _ZNSt6vectorIP9cmFileSetSaIS1_EE7reserveEm.exit:  ; preds = %_ZNSt12_Vector_base
   br i1 %1175, label %1176, label %_ZNKSt6vectorIP9cmFileSetSaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 1176:                                             ; preds = %1171
-  store ptr %1163, ptr %150, align 8
+  store ptr %1164, ptr %150, align 8
   store ptr %1165, ptr %83, align 8
   br label %.invoke
 
@@ -7760,7 +7760,7 @@ _ZNSt6vectorIP9cmFileSetSaIS1_EE7reserveEm.exit429: ; preds = %_ZNSt12_Vector_ba
   br i1 %1406, label %1407, label %_ZNKSt6vectorIP9cmFileSetSaIS1_EE12_M_check_lenEmPKc.exit.i.i431
 
 1407:                                             ; preds = %1402
-  store ptr %1394, ptr %154, align 8
+  store ptr %1395, ptr %154, align 8
   store ptr %1396, ptr %88, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.42) #24
           to label %.noexc438 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -13537,7 +13537,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN10cmPolicies12Policy
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %1, %16 ]
+  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %.019.lcssa28.i, %24
@@ -13696,8 +13696,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN10cmPolicies12Policy
   br label %_ZNSt8_Rb_treeIN10cmPolicies12PolicyStatusESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE24_M_get_insert_unique_posERS3_.exit
 
 _ZNSt8_Rb_treeIN10cmPolicies12PolicyStatusESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE24_M_get_insert_unique_posERS3_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %1, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %1, %37 ], [ %1, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %39, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

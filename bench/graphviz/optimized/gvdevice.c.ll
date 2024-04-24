@@ -537,7 +537,7 @@ define noundef i64 @gvwrite(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
   unreachable
 
 52:                                               ; preds = %42, %39
-  %53 = phi ptr [ %.pre, %42 ], [ %40, %39 ]
+  %53 = phi ptr [ %.pre, %42 ], [ %41, %39 ]
   %.pr = load i32, ptr getelementptr inbounds (%struct.z_stream_s, ptr @z_strm, i64 0, i32 1), align 8
   %.not45 = icmp eq i32 %.pr, 0
   br i1 %.not45, label %.loopexit, label %.lr.ph

@@ -236,7 +236,7 @@ mountptrename.exit:                               ; preds = %33, %102, %104
   br i1 %112, label %113, label %114
 
 113:                                              ; preds = %.lr.ph.i26
-  call void @inode_release(ptr noundef %25) #6
+  call void @inode_release(ptr noundef %111) #6
   br label %169
 
 114:                                              ; preds = %.lr.ph.i26

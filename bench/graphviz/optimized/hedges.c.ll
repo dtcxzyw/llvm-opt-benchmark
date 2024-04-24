@@ -560,15 +560,15 @@ ELgethash.exit.thread:                            ; preds = %19, %ELgethash.exit
 
 79:                                               ; preds = %ELgethash.exit.thread
   %.not45 = icmp eq ptr %.1, %.pre72
-  br i1 %.not45, label %.preheader77, label %80
+  br i1 %.not45, label %.preheader79, label %80
 
-.preheader77:                                     ; preds = %80, %79
+.preheader79:                                     ; preds = %80, %79
   br label %88
 
 80:                                               ; preds = %79
   %81 = tail call i32 @right_of(ptr noundef nonnull %.1, ptr noundef nonnull %0), !range !4
   %.not46 = icmp eq i32 %81, 0
-  br i1 %.not46, label %.preheader77, label %.preheader
+  br i1 %.not46, label %.preheader79, label %.preheader
 
 .preheader:                                       ; preds = %80, %ELgethash.exit.thread
   br label %82
@@ -589,8 +589,8 @@ ELgethash.exit.thread:                            ; preds = %19, %ELgethash.exit
   %87 = load ptr, ptr %84, align 8
   br label %.critedge2
 
-88:                                               ; preds = %.preheader77, %90
-  %.3 = phi ptr [ %89, %90 ], [ %.1, %.preheader77 ]
+88:                                               ; preds = %.preheader79, %90
+  %.3 = phi ptr [ %89, %90 ], [ %.1, %.preheader79 ]
   %89 = load ptr, ptr %.3, align 8
   %.not47 = icmp eq ptr %89, %77
   br i1 %.not47, label %.critedge2, label %90
@@ -601,7 +601,7 @@ ELgethash.exit.thread:                            ; preds = %19, %ELgethash.exit
   br i1 %.not48, label %88, label %.critedge2
 
 .critedge2:                                       ; preds = %88, %90, %.critedge
-  %.4 = phi ptr [ %87, %.critedge ], [ %77, %88 ], [ %89, %90 ]
+  %.4 = phi ptr [ %87, %.critedge ], [ %89, %90 ], [ %89, %88 ]
   %92 = icmp sgt i32 %spec.select, 0
   %93 = add nsw i32 %74, -1
   %94 = icmp slt i32 %spec.select, %93

@@ -108,7 +108,7 @@ define internal i32 @crypto_cbc_encrypt(ptr nocapture noundef readonly %0, ptr n
 
 18:                                               ; preds = %18, %16
   %19 = phi i32 [ %24, %18 ], [ %3, %16 ]
-  %20 = phi ptr [ %23, %18 ], [ %1, %16 ]
+  %20 = phi ptr [ %23, %18 ], [ %2, %16 ]
   %21 = phi ptr [ %20, %18 ], [ %4, %16 ]
   tail call void @__crypto_xor(ptr noundef %20, ptr noundef %20, ptr noundef %21, i32 noundef %13) #7
   %22 = tail call i32 @crypto_lskcipher_encrypt(ptr noundef %8, ptr noundef %20, ptr noundef %20, i32 noundef %13, ptr noundef null) #7
@@ -174,7 +174,7 @@ define internal i32 @crypto_cbc_decrypt(ptr nocapture noundef readonly %0, ptr n
   %19 = and i32 %18, %3
   %20 = sub i32 %19, %14
   %21 = zext i32 %20 to i64
-  %22 = getelementptr i8, ptr %1, i64 %21
+  %22 = getelementptr i8, ptr %2, i64 %21
   %23 = zext i32 %14 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %22, i64 %23, i1 false)
   %24 = tail call i32 @crypto_lskcipher_decrypt(ptr noundef %9, ptr noundef %22, ptr noundef %22, i32 noundef %14, ptr noundef null) #7

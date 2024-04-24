@@ -487,7 +487,7 @@ define ptr @Extra_bddNodePathsUnderCut(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %14
-  %19 = tail call i32 @st__insert(ptr noundef %8, ptr noundef %1, ptr noundef %1) #11
+  %19 = tail call i32 @st__insert(ptr noundef %8, ptr noundef %16, ptr noundef %16) #11
   %20 = load ptr, ptr %15, align 8
   tail call void @Cudd_Ref(ptr noundef %20) #11
   %21 = load ptr, ptr %15, align 8
@@ -746,7 +746,7 @@ define i32 @Extra_bddNodePathsUnderCutArray(ptr noundef %0, ptr nocapture nounde
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %20
-  store ptr %14, ptr %4, align 8
+  store ptr %22, ptr %4, align 8
   %25 = load ptr, ptr %21, align 8
   tail call void @Cudd_Ref(ptr noundef %25) #11
   %26 = load ptr, ptr %2, align 8
@@ -1206,149 +1206,143 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   %spec.select = tail call i32 @llvm.smin.i32(i32 %33, i32 %51)
   %.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %55)
   %56 = icmp eq i32 %.1, %33
-  br i1 %56, label %57, label %74
+  br i1 %56, label %57, label %71
 
 57:                                               ; preds = %50
   %.not104 = icmp eq ptr %7, %1
-  br i1 %.not104, label %69, label %58
+  %58 = getelementptr inbounds i8, ptr %7, i64 16
+  %59 = getelementptr inbounds i8, ptr %7, i64 24
+  %60 = load ptr, ptr %59, align 8
+  br i1 %.not104, label %69, label %61
 
-58:                                               ; preds = %57
-  %59 = getelementptr inbounds i8, ptr %7, i64 16
-  %60 = getelementptr inbounds i8, ptr %7, i64 24
-  %61 = load ptr, ptr %60, align 8
-  %62 = ptrtoint ptr %61 to i64
+61:                                               ; preds = %57
+  %62 = ptrtoint ptr %60 to i64
   %63 = xor i64 %62, 1
   %64 = inttoptr i64 %63 to ptr
-  %65 = load ptr, ptr %59, align 8
+  %65 = load ptr, ptr %58, align 8
   %66 = ptrtoint ptr %65 to i64
   %67 = xor i64 %66, 1
   %68 = inttoptr i64 %67 to ptr
-  br label %74
+  br label %71
 
 69:                                               ; preds = %57
-  %70 = getelementptr inbounds i8, ptr %1, i64 16
-  %71 = getelementptr inbounds i8, ptr %1, i64 24
-  %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %70, align 8
-  br label %74
+  %70 = load ptr, ptr %58, align 8
+  br label %71
 
-74:                                               ; preds = %50, %58, %69
-  %.088 = phi ptr [ %68, %58 ], [ %73, %69 ], [ %1, %50 ]
-  %.085 = phi ptr [ %64, %58 ], [ %72, %69 ], [ %1, %50 ]
-  %75 = icmp eq i32 %.1, %51
-  br i1 %75, label %76, label %110
+71:                                               ; preds = %50, %61, %69
+  %.088 = phi ptr [ %68, %61 ], [ %70, %69 ], [ %1, %50 ]
+  %.085 = phi ptr [ %64, %61 ], [ %60, %69 ], [ %1, %50 ]
+  %72 = icmp eq i32 %.1, %51
+  br i1 %72, label %73, label %104
 
-76:                                               ; preds = %74
+73:                                               ; preds = %71
   %.not105 = icmp eq ptr %43, %2
-  br i1 %.not105, label %88, label %77
+  %74 = getelementptr inbounds i8, ptr %43, i64 16
+  %75 = getelementptr inbounds i8, ptr %43, i64 24
+  %76 = load ptr, ptr %75, align 8
+  br i1 %.not105, label %85, label %77
 
-77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %43, i64 16
-  %79 = getelementptr inbounds i8, ptr %43, i64 24
-  %80 = load ptr, ptr %79, align 8
-  %81 = ptrtoint ptr %80 to i64
-  %82 = xor i64 %81, 1
-  %83 = inttoptr i64 %82 to ptr
-  %84 = load ptr, ptr %78, align 8
-  %85 = ptrtoint ptr %84 to i64
-  %86 = xor i64 %85, 1
-  %87 = inttoptr i64 %86 to ptr
-  br label %93
+77:                                               ; preds = %73
+  %78 = ptrtoint ptr %76 to i64
+  %79 = xor i64 %78, 1
+  %80 = inttoptr i64 %79 to ptr
+  %81 = load ptr, ptr %74, align 8
+  %82 = ptrtoint ptr %81 to i64
+  %83 = xor i64 %82, 1
+  %84 = inttoptr i64 %83 to ptr
+  br label %87
 
-88:                                               ; preds = %76
-  %89 = getelementptr inbounds i8, ptr %2, i64 16
-  %90 = getelementptr inbounds i8, ptr %2, i64 24
-  %91 = load ptr, ptr %90, align 8
-  %92 = load ptr, ptr %89, align 8
-  br label %93
+85:                                               ; preds = %73
+  %86 = load ptr, ptr %74, align 8
+  br label %87
 
-93:                                               ; preds = %77, %88
-  %.090.ph = phi ptr [ %91, %88 ], [ %83, %77 ]
-  %.089.ph = phi ptr [ %92, %88 ], [ %87, %77 ]
-  %94 = getelementptr inbounds i8, ptr %0, i64 40
-  %95 = load ptr, ptr %94, align 8
-  %96 = ptrtoint ptr %95 to i64
-  %97 = xor i64 %96, 1
-  %98 = inttoptr i64 %97 to ptr
-  %99 = icmp eq ptr %.089.ph, %98
-  br i1 %99, label %100, label %105
+87:                                               ; preds = %77, %85
+  %.090.ph = phi ptr [ %76, %85 ], [ %80, %77 ]
+  %.089.ph = phi ptr [ %86, %85 ], [ %84, %77 ]
+  %88 = getelementptr inbounds i8, ptr %0, i64 40
+  %89 = load ptr, ptr %88, align 8
+  %90 = ptrtoint ptr %89 to i64
+  %91 = xor i64 %90, 1
+  %92 = inttoptr i64 %91 to ptr
+  %93 = icmp eq ptr %.089.ph, %92
+  br i1 %93, label %94, label %99
 
-100:                                              ; preds = %93
+94:                                               ; preds = %87
   %.not109 = icmp eq ptr %.085, %.089.ph
-  br i1 %.not109, label %126, label %101
+  br i1 %.not109, label %120, label %95
 
-101:                                              ; preds = %100
-  %102 = getelementptr inbounds i8, ptr %3, i64 16
-  %103 = load ptr, ptr %102, align 8
-  %104 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef nonnull %0, ptr noundef %.085, ptr noundef %.090.ph, ptr noundef %103)
-  br label %126
+95:                                               ; preds = %94
+  %96 = getelementptr inbounds i8, ptr %3, i64 16
+  %97 = load ptr, ptr %96, align 8
+  %98 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef nonnull %0, ptr noundef %.085, ptr noundef %.090.ph, ptr noundef %97)
+  br label %120
 
-105:                                              ; preds = %93
-  %.not108 = icmp eq ptr %.088, %98
-  br i1 %.not108, label %126, label %106
+99:                                               ; preds = %87
+  %.not108 = icmp eq ptr %.088, %92
+  br i1 %.not108, label %120, label %100
 
-106:                                              ; preds = %105
-  %107 = getelementptr inbounds i8, ptr %3, i64 16
-  %108 = load ptr, ptr %107, align 8
-  %109 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef nonnull %0, ptr noundef %.088, ptr noundef %.089.ph, ptr noundef %108)
-  br label %126
+100:                                              ; preds = %99
+  %101 = getelementptr inbounds i8, ptr %3, i64 16
+  %102 = load ptr, ptr %101, align 8
+  %103 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef nonnull %0, ptr noundef %.088, ptr noundef %.089.ph, ptr noundef %102)
+  br label %120
 
-110:                                              ; preds = %74
-  %111 = getelementptr inbounds i8, ptr %0, i64 40
+104:                                              ; preds = %71
+  %105 = getelementptr inbounds i8, ptr %0, i64 40
+  %106 = load ptr, ptr %105, align 8
+  %107 = ptrtoint ptr %106 to i64
+  %108 = xor i64 %107, 1
+  %109 = inttoptr i64 %108 to ptr
+  %.not106 = icmp eq ptr %.085, %109
+  br i1 %.not106, label %114, label %110
+
+110:                                              ; preds = %104
+  %111 = getelementptr inbounds i8, ptr %3, i64 16
   %112 = load ptr, ptr %111, align 8
-  %113 = ptrtoint ptr %112 to i64
-  %114 = xor i64 %113, 1
-  %115 = inttoptr i64 %114 to ptr
-  %.not106 = icmp eq ptr %.085, %115
-  br i1 %.not106, label %120, label %116
-
-116:                                              ; preds = %110
-  %117 = getelementptr inbounds i8, ptr %3, i64 16
-  %118 = load ptr, ptr %117, align 8
-  %119 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef nonnull %0, ptr noundef %.085, ptr noundef %2, ptr noundef %118)
-  %.pre = load ptr, ptr %111, align 8
+  %113 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef nonnull %0, ptr noundef %.085, ptr noundef %2, ptr noundef %112)
+  %.pre = load ptr, ptr %105, align 8
   %.pre128 = ptrtoint ptr %.pre to i64
   %.pre129 = xor i64 %.pre128, 1
   %.pre131 = inttoptr i64 %.pre129 to ptr
+  br label %114
+
+114:                                              ; preds = %110, %104
+  %.pre-phi132 = phi ptr [ %.pre131, %110 ], [ %109, %104 ]
+  %.086 = phi i32 [ %113, %110 ], [ 0, %104 ]
+  %.not107 = icmp eq ptr %.088, %.pre-phi132
+  br i1 %.not107, label %120, label %115
+
+115:                                              ; preds = %114
+  %116 = getelementptr inbounds i8, ptr %3, i64 16
+  %117 = load ptr, ptr %116, align 8
+  %118 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef nonnull %0, ptr noundef %.088, ptr noundef %2, ptr noundef %117)
+  %119 = add i32 %118, %.086
   br label %120
 
-120:                                              ; preds = %116, %110
-  %.pre-phi132 = phi ptr [ %.pre131, %116 ], [ %115, %110 ]
-  %.086 = phi i32 [ %119, %116 ], [ 0, %110 ]
-  %.not107 = icmp eq ptr %.088, %.pre-phi132
-  br i1 %.not107, label %126, label %121
+120:                                              ; preds = %114, %115, %95, %94, %100, %99
+  %.187 = phi i32 [ %98, %95 ], [ 0, %94 ], [ %103, %100 ], [ 0, %99 ], [ %119, %115 ], [ %.086, %114 ]
+  %121 = load i32, ptr @s_Signature, align 4
+  %122 = zext nneg i32 %.083.lcssa to i64
+  %123 = getelementptr inbounds [51113 x %struct._HashEntry_cof], ptr @HHTable1, i64 0, i64 %122
+  %124 = load i32, ptr %123, align 16
+  %125 = icmp eq i32 %124, %121
+  br i1 %125, label %.lr.ph122, label %._crit_edge123
 
-121:                                              ; preds = %120
-  %122 = getelementptr inbounds i8, ptr %3, i64 16
-  %123 = load ptr, ptr %122, align 8
-  %124 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef nonnull %0, ptr noundef %.088, ptr noundef %2, ptr noundef %123)
-  %125 = add i32 %124, %.086
-  br label %126
-
-126:                                              ; preds = %120, %121, %101, %100, %106, %105
-  %.187 = phi i32 [ %104, %101 ], [ 0, %100 ], [ %109, %106 ], [ 0, %105 ], [ %125, %121 ], [ %.086, %120 ]
-  %127 = load i32, ptr @s_Signature, align 4
-  %128 = zext nneg i32 %.083.lcssa to i64
+.lr.ph122:                                        ; preds = %120, %.lr.ph122
+  %.184120 = phi i32 [ %127, %.lr.ph122 ], [ %.083.lcssa, %120 ]
+  %126 = add nuw nsw i32 %.184120, 1
+  %127 = urem i32 %126, 51113
+  %128 = zext nneg i32 %127 to i64
   %129 = getelementptr inbounds [51113 x %struct._HashEntry_cof], ptr @HHTable1, i64 0, i64 %128
   %130 = load i32, ptr %129, align 16
-  %131 = icmp eq i32 %130, %127
-  br i1 %131, label %.lr.ph122, label %._crit_edge123
+  %131 = icmp eq i32 %130, %121
+  br i1 %131, label %.lr.ph122, label %._crit_edge123, !llvm.loop !22
 
-.lr.ph122:                                        ; preds = %126, %.lr.ph122
-  %.184120 = phi i32 [ %133, %.lr.ph122 ], [ %.083.lcssa, %126 ]
-  %132 = add nuw nsw i32 %.184120, 1
-  %133 = urem i32 %132, 51113
-  %134 = zext nneg i32 %133 to i64
-  %135 = getelementptr inbounds [51113 x %struct._HashEntry_cof], ptr @HHTable1, i64 0, i64 %134
-  %136 = load i32, ptr %135, align 16
-  %137 = icmp eq i32 %136, %127
-  br i1 %137, label %.lr.ph122, label %._crit_edge123, !llvm.loop !22
-
-._crit_edge123:                                   ; preds = %.lr.ph122, %126
-  %.lcssa114 = phi ptr [ %129, %126 ], [ %135, %.lr.ph122 ]
-  store i32 %127, ptr %.lcssa114, align 16
-  %138 = getelementptr inbounds i8, ptr %.lcssa114, i64 8
-  store ptr %1, ptr %138, align 8
+._crit_edge123:                                   ; preds = %.lr.ph122, %120
+  %.lcssa114 = phi ptr [ %123, %120 ], [ %129, %.lr.ph122 ]
+  store i32 %121, ptr %.lcssa114, align 16
+  %132 = getelementptr inbounds i8, ptr %.lcssa114, i64 8
+  store ptr %1, ptr %132, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge123, %35

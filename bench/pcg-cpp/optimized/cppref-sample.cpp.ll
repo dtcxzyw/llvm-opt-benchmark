@@ -143,7 +143,7 @@ if.then.i.i:                                      ; preds = %for.end.i.i.i.i.i
   %add.i.i.i.i.i.i = add i64 %mul.i.i.i.i.i.i, %or.i.i.i.i
   store i64 %add.i.i.i.i.i.i, ptr %state_.i.i.i, align 8
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 59
-  %conv5.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i to i32
+  %conv5.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i to i32
   %3 = lshr i64 %add.i.i.i.i, 45
   %4 = lshr i64 %add.i.i.i.i, 27
   %shr7.i.i.i.i.i = xor i64 %3, %4
@@ -160,7 +160,7 @@ while.body.i.i.i:                                 ; preds = %if.then.i.i, %while
   %mul.i.i.i10.i.i.i = mul i64 %6, 6364136223846793005
   %add.i.i.i11.i.i.i = add i64 %mul.i.i.i10.i.i.i, %or.i.i.i.i
   %shr.i.i12.i.i.i = lshr i64 %6, 59
-  %conv5.i.i13.i.i.i = trunc i64 %shr.i.i12.i.i.i to i32
+  %conv5.i.i13.i.i.i = trunc nuw nsw i64 %shr.i.i12.i.i.i to i32
   %7 = lshr i64 %6, 45
   %8 = lshr i64 %6, 27
   %shr7.i.i14.i.i.i = xor i64 %7, %8
@@ -179,7 +179,7 @@ while.cond.if.end.loopexit_crit_edge.i.i.i:       ; preds = %while.body.i.i.i
 invoke.cont2:                                     ; preds = %while.cond.if.end.loopexit_crit_edge.i.i.i, %if.then.i.i
   %__product.1.i.i.i = phi i64 [ %mul.i.i.i, %if.then.i.i ], [ %mul7.i.i.i, %while.cond.if.end.loopexit_crit_edge.i.i.i ]
   %shr.i.i.i = lshr i64 %__product.1.i.i.i, 32
-  %conv9.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv9.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %add17.i.i = add nuw nsw i32 %conv9.i.i.i, 1
   %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str)
           to label %invoke.cont3 unwind label %lpad.loopexit.split-lp
@@ -534,7 +534,7 @@ lor.rhs:                                          ; preds = %_ZNSt3mapIiiSt4less
   br i1 %cmp.i3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit, %lor.rhs
-  %__y.addr.0.lcssa.i.i.i13 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
+  %__y.addr.0.lcssa.i.i.i13 = phi ptr [ %__y.addr.1.i.i.i, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   %_M_storage.i.i.i.i.i4 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 32
   store i32 %.pre, ptr %_M_storage.i.i.i.i.i4, align 4
@@ -865,7 +865,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %do.b
   %mul.i.i.i.i.i = mul i64 %add.i.i.i1112.i.i, 6364136223846793005
   %add.i.i.i.i.i = add i64 %mul.i.i.i.i.i, %2
   %shr.i.i.i.i = lshr i64 %add.i.i.i1112.i.i, 59
-  %conv5.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv5.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %3 = lshr i64 %add.i.i.i1112.i.i, 45
   %4 = lshr i64 %add.i.i.i1112.i.i, 27
   %shr7.i.i.i.i = xor i64 %3, %4
@@ -911,7 +911,7 @@ for.body.i.i20:                                   ; preds = %for.body.i.i20, %_Z
   %mul.i.i.i.i.i25 = mul i64 %add.i.i.i1112.i.i24, 6364136223846793005
   %add.i.i.i.i.i26 = add i64 %mul.i.i.i.i.i25, %6
   %shr.i.i.i.i27 = lshr i64 %add.i.i.i1112.i.i24, 59
-  %conv5.i.i.i.i28 = trunc i64 %shr.i.i.i.i27 to i32
+  %conv5.i.i.i.i28 = trunc nuw nsw i64 %shr.i.i.i.i27 to i32
   %7 = lshr i64 %add.i.i.i1112.i.i24, 45
   %8 = lshr i64 %add.i.i.i1112.i.i24, 27
   %shr7.i.i.i.i29 = xor i64 %7, %8
@@ -1030,7 +1030,7 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %if.else
-  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %__position.coerce, %if.else ]
+  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
   %_M_left.i3.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %_M_left.i3.i, align 8
   %cmp.i4.i = icmp eq ptr %__y.0.lcssa25.i, %6
@@ -1189,8 +1189,8 @@ if.end12.i78:                                     ; preds = %if.else.i93, %while
   br label %return
 
 return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %11, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa25.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

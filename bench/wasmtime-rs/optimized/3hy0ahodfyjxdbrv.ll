@@ -1148,7 +1148,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %16, label %._crit_edge13.i.loopexit, label %.lr.ph.i
 
 ._crit_edge13.i.loopexit:                         ; preds = %.lr.ph.i
-  store ptr %7, ptr %6, align 8, !alias.scope !216, !noalias !203
+  store ptr %12, ptr %6, align 8, !alias.scope !216, !noalias !203
   br label %._crit_edge13.i
 
 ._crit_edge13.i:                                  ; preds = %._crit_edge13.i.loopexit, %2
@@ -2360,7 +2360,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   br i1 %13, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  store ptr %6, ptr %7, align 8, !alias.scope !618, !noalias !621
+  store ptr %10, ptr %7, align 8, !alias.scope !618, !noalias !621
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hb278ff4037287fd2E.llvm.17595789031839490487.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hb278ff4037287fd2E.llvm.17595789031839490487.exit: ; preds = %4, %._crit_edge.i
@@ -8192,7 +8192,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb2
   br i1 %14, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  store ptr %7, ptr %8, align 8, !alias.scope !2559, !noalias !2562
+  store ptr %11, ptr %8, align 8, !alias.scope !2559, !noalias !2562
   br label %15
 
 15:                                               ; preds = %._crit_edge, %5
@@ -25782,10 +25782,10 @@ common.resume:                                    ; preds = %53, %23
 
 _ZN17cranelift_codegen8machinst3abi21missing_struct_return17h4ca3f883cd817cbaE.exit: ; preds = %50
   %55 = getelementptr inbounds [0 x { { i32, [1 x i32] }, i16, i8, [1 x i8] }], ptr %36, i64 0, i64 %43
-  %.sroa.0.0.copyload5 = load i32, ptr %55, align 4, !noalias !6973
-  %.sroa.7.0..sroa_idx6 = getelementptr inbounds i8, ptr %55, i64 4
-  %.sroa.7.0.copyload7 = load i64, ptr %.sroa.7.0..sroa_idx6, align 4, !noalias !6973
-  %.not = icmp eq i32 %.sroa.0.0.copyload5, 5
+  %.sroa.0.0.copyload4 = load i32, ptr %55, align 4, !noalias !6973
+  %.sroa.7.0..sroa_idx5 = getelementptr inbounds i8, ptr %55, i64 4
+  %.sroa.7.0.copyload6 = load i64, ptr %.sroa.7.0..sroa_idx5, align 4, !noalias !6973
+  %.not = icmp eq i32 %.sroa.0.0.copyload4, 5
   br i1 %.not, label %_ZN17cranelift_codegen8machinst3abi21missing_struct_return17h4ca3f883cd817cbaE.exit.thread, label %56
 
 56:                                               ; preds = %_ZN17cranelift_codegen8machinst3abi21missing_struct_return17h4ca3f883cd817cbaE.exit
@@ -25800,8 +25800,8 @@ _ZN17cranelift_codegen8machinst3abi21missing_struct_return17h4ca3f883cd817cbaE.e
 
 .noexc3:                                          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h60ec8b4da8aa8268E.llvm.14502953478370073462.exit.i", %56
   %60 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !6988, !noalias !6991, !nonnull !9, !noundef !9
-  %.not12 = icmp eq i64 %57, 0
-  br i1 %.not12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h96fe31cfa28ab91eE.exit", label %61
+  %.not11 = icmp eq i64 %57, 0
+  br i1 %.not11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h96fe31cfa28ab91eE.exit", label %61
 
 61:                                               ; preds = %.noexc3
   %62 = getelementptr inbounds i8, ptr %60, i64 12
@@ -25810,9 +25810,9 @@ _ZN17cranelift_codegen8machinst3abi21missing_struct_return17h4ca3f883cd817cbaE.e
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h96fe31cfa28ab91eE.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h96fe31cfa28ab91eE.exit": ; preds = %.noexc3, %61
-  store i32 %.sroa.0.0.copyload5, ptr %60, align 4
+  store i32 %.sroa.0.0.copyload4, ptr %60, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %60, i64 4
-  store i64 %.sroa.7.0.copyload7, ptr %.sroa.2.0..sroa_idx, align 4
+  store i64 %.sroa.7.0.copyload6, ptr %.sroa.2.0..sroa_idx, align 4
   %64 = add i64 %57, 1
   store i64 %64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !6988, !noalias !6991
   br label %_ZN17cranelift_codegen8machinst3abi21missing_struct_return17h4ca3f883cd817cbaE.exit.thread

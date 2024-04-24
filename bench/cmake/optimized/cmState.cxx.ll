@@ -4436,7 +4436,7 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11c
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %13
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %16 = load ptr, ptr %9, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 32
   store ptr %17, ptr %9, align 8
@@ -5984,7 +5984,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit: ; preds = %.noexc18._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit_crit_edge, %._crit_edge45
-  %42 = phi ptr [ %.pre46, %.noexc18._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit_crit_edge ], [ %31, %._crit_edge45 ]
+  %42 = phi ptr [ %.pre46, %.noexc18._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit_crit_edge ], [ %33, %._crit_edge45 ]
   %43 = phi ptr [ %.pre, %.noexc18._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit_crit_edge ], [ %31, %._crit_edge45 ]
   %44 = invoke ptr @_ZSt8__uniqueIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops19_Iter_equal_to_iterEET_SF_SF_T0_(ptr %43, ptr %42)
           to label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEET_SD_SD_.exit unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -10598,9 +10598,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 .thread:                                          ; preds = %33
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #24
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -10608,9 +10608,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 39:                                               ; preds = %33
   tail call void @_ZdlPv(ptr noundef nonnull %23) #27
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35: ; preds = %39, %.thread
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %39, %.thread
   invoke void @__cxa_rethrow() #28
           to label %44 unwind label %37
 
@@ -10624,7 +10624,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   tail call void @__clang_call_terminate(ptr %43) #26
   unreachable
 
-44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   unreachable
 }
 
@@ -11053,7 +11053,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(56) ptr @_
 
 24:                                               ; preds = %7
   store ptr %20, ptr %4, align 8
-  %25 = load ptr, ptr %21, align 8
+  %25 = load ptr, ptr %22, align 8
   store ptr %25, ptr %20, align 8
   br label %26
 
@@ -11167,7 +11167,7 @@ _ZNSt12_Vector_baseI13cmDefinitionsSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNK
 
 40:                                               ; preds = %_ZNSt12_Vector_baseI13cmDefinitionsSaIS0_EE11_M_allocateEm.exit
   store ptr %37, ptr %24, align 8
-  %41 = load ptr, ptr %25, align 8
+  %41 = load ptr, ptr %38, align 8
   store ptr %41, ptr %37, align 8
   br label %42
 
@@ -11237,7 +11237,7 @@ _ZNSt16allocator_traitsISaI13cmDefinitionsEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.
 
 68:                                               ; preds = %.lr.ph.i.i.i
   store ptr %65, ptr %.013.i.i.i, align 8, !alias.scope !151, !noalias !154
-  %69 = load ptr, ptr %53, align 8
+  %69 = load ptr, ptr %66, align 8, !alias.scope !154, !noalias !151
   store ptr %69, ptr %65, align 8, !alias.scope !151, !noalias !154
   br label %70
 
@@ -11315,7 +11315,7 @@ _ZNSt6vectorI13cmDefinitionsSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds =
 
 99:                                               ; preds = %.lr.ph.i.i.i17
   store ptr %96, ptr %.013.i.i.i18, align 8, !alias.scope !158, !noalias !161
-  %100 = load ptr, ptr %84, align 8
+  %100 = load ptr, ptr %97, align 8, !alias.scope !161, !noalias !158
   store ptr %100, ptr %96, align 8, !alias.scope !158, !noalias !161
   br label %101
 
@@ -14057,7 +14057,7 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIc
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds ptr, ptr %5, i64 %16
-  store ptr %2, ptr %18, align 8
+  store ptr %7, ptr %18, align 8
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %1
   %.pre25 = load ptr, ptr %.phi.trans.insert, align 8
@@ -14072,7 +14072,7 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIc
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %.thread23
-  store ptr %9, ptr %19, align 8
+  store ptr %9, ptr %21, align 8
   br label %25
 
 25:                                               ; preds = %24, %.thread23
@@ -14693,7 +14693,7 @@ define linkonce_odr dso_local void @_ZN13cmStateDetail29BuildsystemDirectoryStat
 
 90:                                               ; preds = %2
   store ptr %86, ptr %72, align 8
-  %91 = load ptr, ptr %87, align 8
+  %91 = load ptr, ptr %88, align 8
   store ptr %91, ptr %86, align 8
   br label %92
 

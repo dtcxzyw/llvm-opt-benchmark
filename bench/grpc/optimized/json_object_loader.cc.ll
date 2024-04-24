@@ -337,7 +337,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK9grpc_core11json_detail12LoadDuration8LoadIntoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvPNS_16ValidationErrorsE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr nocapture noundef writeonly %dst, ptr noundef %errors) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %val.i.i21 = alloca i64, align 8
+  %val.i.i25 = alloca i64, align 8
   %val.i.i = alloca i32, align 4
   %call = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %value) #18
   %0 = extractvalue { i64, ptr } %call, 0
@@ -391,10 +391,10 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.the
   %sub.i = sub i64 %4, %add
   %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %add
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i)
-  %call.i.i16 = call noundef zeroext i1 @_ZN4absl12lts_2023080216numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %sub.i, ptr nonnull %add.ptr.i, ptr noundef nonnull %val.i.i, i32 noundef 10)
+  %call.i.i20 = call noundef zeroext i1 @_ZN4absl12lts_2023080216numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %sub.i, ptr nonnull %add.ptr.i, ptr noundef nonnull %val.i.i, i32 noundef 10)
   %6 = load i32, ptr %val.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i)
-  br i1 %call.i.i16, label %if.end15, label %if.then13
+  br i1 %call.i.i20, label %if.end15, label %if.then13
 
 if.then13:                                        ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   call void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 44, ptr nonnull @.str.5)
@@ -405,8 +405,8 @@ if.end15:                                         ; preds = %_ZNKSt17basic_strin
   br i1 %cmp17, label %if.then18, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end15
-  %cmp2242.not = icmp eq i64 %sub.i, 9
-  br i1 %cmp2242.not, label %if.end23, label %for.body.preheader
+  %cmp2246.not = icmp eq i64 %sub.i, 9
+  br i1 %cmp2246.not, label %if.end23, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.cond.preheader
   %sub = sub nuw nsw i64 9, %sub.i
@@ -417,21 +417,21 @@ if.then18:                                        ; preds = %if.end15
   br label %return
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %i.044 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %nanos.043 = phi i32 [ %mul, %for.body ], [ %6, %for.body.preheader ]
-  %mul = mul nsw i32 %nanos.043, 10
-  %inc = add nuw i64 %i.044, 1
+  %i.048 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
+  %nanos.047 = phi i32 [ %mul, %for.body ], [ %6, %for.body.preheader ]
+  %mul = mul nsw i32 %nanos.047, 10
+  %inc = add nuw i64 %i.048, 1
   %exitcond.not = icmp eq i64 %inc, %sub
   br i1 %exitcond.not, label %if.end23, label %for.body, !llvm.loop !4
 
 if.end23:                                         ; preds = %for.body, %for.cond.preheader, %if.end, %if.then.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
   %nanos.1 = phi i32 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit ], [ 0, %if.then.i ], [ 0, %if.end ], [ %6, %for.cond.preheader ], [ %mul, %for.body ]
   %buf.sroa.0.1 = phi i64 [ %4, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit ], [ %4, %if.then.i ], [ 0, %if.end ], [ %sub.ptr.sub.i, %for.cond.preheader ], [ %sub.ptr.sub.i, %for.body ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i21)
-  %call.i.i22 = call noundef zeroext i1 @_ZN4absl12lts_2023080216numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %buf.sroa.0.1, ptr %5, ptr noundef nonnull %val.i.i21, i32 noundef 10)
-  %7 = load i64, ptr %val.i.i21, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i21)
-  br i1 %call.i.i22, label %if.end28, label %if.then26
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i25)
+  %call.i.i26 = call noundef zeroext i1 @_ZN4absl12lts_2023080216numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %buf.sroa.0.1, ptr %5, ptr noundef nonnull %val.i.i25, i32 noundef 10)
+  %7 = load i64, ptr %val.i.i25, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i25)
+  br i1 %call.i.i26, label %if.end28, label %if.then26
 
 if.then26:                                        ; preds = %if.end23
   call void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 40, ptr nonnull @.str.7)
@@ -4393,7 +4393,7 @@ if.then.i85:                                      ; preds = %_ZSt4copyISt13_Bit_
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %idx.neg.i = sub nsw i64 0, %sub.ptr.div.i
-  %add.ptr.i = getelementptr inbounds i64, ptr %0, i64 %idx.neg.i
+  %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i) #21
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 

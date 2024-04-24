@@ -6154,7 +6154,7 @@ default.unreachable251:                           ; preds = %265, %259
           to label %.thread204 unwind label %146
 
 ._crit_edge241:                                   ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0bf91cc41ef94479E.llvm.13396924176064657314.exit.i", %137, %._crit_edge.thread
-  %121 = phi ptr [ %.sroa.4185.0.copyload258, %._crit_edge.thread ], [ %119, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0bf91cc41ef94479E.llvm.13396924176064657314.exit.i" ], [ %138, %137 ]
+  %121 = phi ptr [ %.sroa.4185.0.copyload258, %._crit_edge.thread ], [ %119, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0bf91cc41ef94479E.llvm.13396924176064657314.exit.i" ], [ %139, %137 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20), !noalias !1010
   store ptr %24, ptr %20, align 8, !noalias !1010
   %122 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hacd39fb2eb5dfcfdE.llvm.4073844125802496097(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %24)
@@ -7212,7 +7212,7 @@ default.unreachable251:                           ; preds = %265, %259
           to label %.thread204 unwind label %146
 
 ._crit_edge241:                                   ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0bf91cc41ef94479E.llvm.13396924176064657314.exit.i", %137, %._crit_edge.thread
-  %121 = phi ptr [ %.sroa.4185.0.copyload258, %._crit_edge.thread ], [ %119, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0bf91cc41ef94479E.llvm.13396924176064657314.exit.i" ], [ %138, %137 ]
+  %121 = phi ptr [ %.sroa.4185.0.copyload258, %._crit_edge.thread ], [ %119, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0bf91cc41ef94479E.llvm.13396924176064657314.exit.i" ], [ %139, %137 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20), !noalias !1258
   store ptr %24, ptr %20, align 8, !noalias !1258
   %122 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hacd39fb2eb5dfcfdE.llvm.4073844125802496097(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %24)
@@ -12488,7 +12488,7 @@ define internal fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold1
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h925e4035f6d03368E.exit.sink.split.i.i.i.i": ; preds = %84, %48
   %86 = phi i64 [ %20, %48 ], [ %61, %84 ]
   %87 = phi i64 [ %21, %48 ], [ %61, %84 ]
-  %.lcssa.sink.i.i.i.i = phi ptr [ %50, %48 ], [ %5, %84 ]
+  %.lcssa.sink.i.i.i.i = phi ptr [ %50, %48 ], [ %.sink.in.i.i.i.i.i.i, %84 ]
   store ptr %.lcssa.sink.i.i.i.i, ptr %3, align 8, !alias.scope !2204, !noalias !2186
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h925e4035f6d03368E.exit.i.i.i.i"
 
@@ -12496,7 +12496,7 @@ define internal fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold1
   %88 = phi i64 [ %86, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h925e4035f6d03368E.exit.sink.split.i.i.i.i" ], [ %13, %18 ]
   %.lcssa.sink.i.i.i.i21 = phi ptr [ %.lcssa.sink.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h925e4035f6d03368E.exit.sink.split.i.i.i.i" ], [ %.lcssa.sink.i.i.i.i22, %18 ]
   %89 = phi i64 [ %87, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h925e4035f6d03368E.exit.sink.split.i.i.i.i" ], [ %15, %18 ]
-  %.lcssa.sink.i.i27.i.i = phi ptr [ %.lcssa.sink.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h925e4035f6d03368E.exit.sink.split.i.i.i.i" ], [ %5, %18 ]
+  %.lcssa.sink.i.i27.i.i = phi ptr [ %.lcssa.sink.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h925e4035f6d03368E.exit.sink.split.i.i.i.i" ], [ %.lcssa.sink.i.i28.i.i, %18 ]
   store i8 1, ptr %2, align 1, !alias.scope !2205
   %.not.i.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i.i, %.pre.i.i.i24.i.i
   %or.cond.not.i.i.i.i.i = select i1 %8, i1 true, i1 %.not.i.i.i.i.i

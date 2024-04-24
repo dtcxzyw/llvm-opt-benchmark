@@ -201,51 +201,51 @@ invoke.cont:                                      ; preds = %entry
   %hasBothBranches = getelementptr inbounds i8, ptr %this, i64 136
   %hasBothBranches5 = getelementptr inbounds i8, ptr %other, i64 136
   %2 = load i8, ptr %hasBothBranches5, align 8
-  %3 = and i8 %2, 1
-  store i8 %3, ptr %hasBothBranches, align 8
-  %4 = load i32, ptr %kind, align 8
-  %cmp = icmp eq i32 %4, 2
+  %frombool = and i8 %2, 1
+  store i8 %frombool, ptr %hasBothBranches, align 8
+  %3 = load i32, ptr %kind, align 8
+  %cmp = icmp eq i32 %3, 2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
   %assertion8 = getelementptr inbounds i8, ptr %other, i64 128
-  %5 = load ptr, ptr %assertion8, align 8
-  %vtable = load ptr, ptr %5, align 8
+  %4 = load ptr, ptr %assertion8, align 8
+  %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %6 = load ptr, ptr %vfn, align 8
-  %call11 = invoke noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %5 = load ptr, ptr %vfn, align 8
+  %call11 = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %if.then
-  %7 = load ptr, ptr %assertion, align 8
+  %6 = load ptr, ptr %assertion, align 8
   store ptr %call11, ptr %assertion, align 8
-  %tobool.not.i.i = icmp eq ptr %7, null
+  %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %if.end, label %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i.i: ; preds = %invoke.cont10
-  %vtable.i.i.i = load ptr, ptr %7, align 8
+  %vtable.i.i.i = load ptr, ptr %6, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
-  %8 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
+  %7 = load ptr, ptr %vfn.i.i.i, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad9:                                            ; preds = %if.then
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %11 = load ptr, ptr %assertion, align 8
-  %cmp.not.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %assertion, align 8
+  %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i: ; preds = %lpad9
-  %vtable.i.i = load ptr, ptr %11, align 8
+  %vtable.i.i = load ptr, ptr %10, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %12 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %11) #13
+  %11 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %10) #13
   br label %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit: ; preds = %lpad9, %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i
@@ -257,7 +257,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
   ret void
 
 ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit, %lpad
-  %.pn = phi { ptr, i32 } [ %10, %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit ], [ %9, %lpad ]
+  %.pn = phi { ptr, i32 } [ %9, %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit ], [ %8, %lpad ]
   tail call void @_ZN3ue217ComponentSequenceD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #13
   resume { ptr, i32 } %.pn
 }
@@ -365,7 +365,7 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end16
-  %12 = phi ptr [ %.pre36, %for.end.loopexit ], [ %6, %if.end16 ]
+  %12 = phi ptr [ %.pre36, %for.end.loopexit ], [ %7, %if.end16 ]
   %13 = phi ptr [ %.pre, %for.end.loopexit ], [ %6, %if.end16 ]
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %13 to i64

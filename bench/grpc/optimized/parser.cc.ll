@@ -1741,7 +1741,7 @@ while.body51.i.i.i:                               ; preds = %land.rhs45.i.i.i, %
 
 do.body54.i.i.i:                                  ; preds = %while.body51.i.i.i, %land.rhs45.i.i.i, %_ZL7buf2strPvm.exit.i.i.i
   %cur.0.ptr.pn.lcssa.i.i.i = phi ptr [ %cur.0.ptr103.i.lcssa55.i.i, %_ZL7buf2strPvm.exit.i.i.i ], [ %scevgep.i.i.i, %while.body51.i.i.i ], [ %cur.0.ptr.pn106.i.i.i, %land.rhs45.i.i.i ]
-  %cur.1.lcssa.i.i.i = phi ptr [ %add.ptr.ptr.i.i.i, %_ZL7buf2strPvm.exit.i.i.i ], [ %add.ptr.ptr.i.i.i, %while.body51.i.i.i ], [ %cur.1107.i.i.i, %land.rhs45.i.i.i ]
+  %cur.1.lcssa.i.i.i = phi ptr [ %cur.1104.i.i.i, %_ZL7buf2strPvm.exit.i.i.i ], [ %add.ptr.ptr.i.i.i, %while.body51.i.i.i ], [ %cur.1107.i.i.i, %land.rhs45.i.i.i ]
   %sub.ptr.lhs.cast55.i.i.i = ptrtoint ptr %add.ptr.ptr.i.i.i to i64
   %sub.ptr.rhs.cast56.i.i.i = ptrtoint ptr %cur.1.lcssa.i.i.i to i64
   %sub.ptr.sub57.i.i.i = sub i64 %sub.ptr.lhs.cast55.i.i.i, %sub.ptr.rhs.cast56.i.i.i

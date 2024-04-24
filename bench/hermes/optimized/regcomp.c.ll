@@ -2136,7 +2136,7 @@ while.body.i190:                                  ; preds = %land.lhs.true.i176
   br i1 %exitcond.not.i197, label %while.end.i185, label %land.lhs.true.i176, !llvm.loop !14
 
 while.end.i185:                                   ; preds = %while.body.i190, %land.lhs.true.i176
-  %166 = phi ptr [ %110, %while.body.i190 ], [ %incdec.ptr1012.i179, %land.lhs.true.i176 ]
+  %166 = phi ptr [ %incdec.ptr.i192, %while.body.i190 ], [ %incdec.ptr1012.i179, %land.lhs.true.i176 ]
   %count.0.lcssa.ph.i186 = phi i32 [ %add.i195, %while.body.i190 ], [ %count.013.i178, %land.lhs.true.i176 ]
   %ndigits.0.lcssa.ph.i187 = phi i32 [ 1, %while.body.i190 ], [ %ndigits.014.i177, %land.lhs.true.i176 ]
   %167 = icmp ne i32 %ndigits.0.lcssa.ph.i187, 0
@@ -3626,7 +3626,7 @@ while.body.i125:                                  ; preds = %land.lhs.true.i111
   br i1 %exitcond.not.i132, label %while.end.i120, label %land.lhs.true.i111, !llvm.loop !14
 
 while.end.i120:                                   ; preds = %while.body.i125, %land.lhs.true.i111
-  %120 = phi ptr [ %97, %while.body.i125 ], [ %incdec.ptr1012.i114, %land.lhs.true.i111 ]
+  %120 = phi ptr [ %incdec.ptr.i127, %while.body.i125 ], [ %incdec.ptr1012.i114, %land.lhs.true.i111 ]
   %count.0.lcssa.ph.i121 = phi i32 [ %add.i130, %while.body.i125 ], [ %count.013.i113, %land.lhs.true.i111 ]
   %ndigits.0.lcssa.ph.i122 = phi i32 [ 1, %while.body.i125 ], [ %ndigits.014.i112, %land.lhs.true.i111 ]
   %121 = icmp ne i32 %ndigits.0.lcssa.ph.i122, 0

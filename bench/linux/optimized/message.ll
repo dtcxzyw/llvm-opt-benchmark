@@ -630,7 +630,7 @@ define dso_local noundef i32 @usb_sg_init(ptr noundef %0, ptr noundef %1, i32 no
 74:                                               ; preds = %48
   %75 = zext i32 %72 to i64
   %76 = tail call i64 @llvm.umin.i64(i64 %45, i64 %75)
-  %77 = trunc i64 %76 to i32
+  %77 = trunc nuw i64 %76 to i32
   %78 = sub i64 %45, %76
   %79 = icmp eq i64 %78, 0
   br i1 %79, label %80, label %.thread11.us
@@ -1656,7 +1656,7 @@ define dso_local noundef i32 @usb_get_status(ptr noundef %0, i32 noundef %1, i32
   %17 = trunc i32 %1 to i8
   %18 = or i8 %17, -128
   %19 = trunc i32 %3 to i16
-  %20 = trunc i32 %9 to i16
+  %20 = trunc nuw nsw i32 %9 to i16
   %21 = tail call i32 @usb_control_msg(ptr noundef %0, i32 noundef %16, i8 noundef zeroext 0, i8 noundef zeroext %18, i16 noundef zeroext 0, i16 noundef zeroext %19, ptr noundef nonnull %11, i16 noundef zeroext %20, i32 noundef 5000)
   switch i32 %21, label %30 [
     i32 4, label %22
@@ -1697,7 +1697,7 @@ define dso_local i32 @usb_clear_halt(ptr noundef %0, i32 noundef %1) #0 align 16
   %4 = and i32 %3, 15
   %5 = and i32 %1, 128
   %6 = or disjoint i32 %4, %5
-  %7 = trunc i32 %6 to i16
+  %7 = trunc nuw nsw i32 %6 to i16
   %8 = load i32, ptr %0, align 8
   %9 = shl i32 %8, 8
   %10 = or i32 %9, -2147483648
@@ -2579,7 +2579,7 @@ define dso_local i32 @usb_set_interface(ptr noundef %0, i32 noundef %1, i32 noun
   br label %129
 
 129:                                              ; preds = %128, %103
-  %130 = phi ptr [ %.pre24, %128 ], [ %18, %103 ]
+  %130 = phi ptr [ %.pre24, %128 ], [ %106, %103 ]
   %131 = getelementptr inbounds i8, ptr %130, i64 4
   %132 = load i8, ptr %131, align 4
   %133 = icmp eq i8 %132, 0
@@ -2670,7 +2670,7 @@ define dso_local i32 @usb_set_interface(ptr noundef %0, i32 noundef %1, i32 noun
   %186 = and i8 %178, -128
   %187 = zext i8 %186 to i32
   %188 = or disjoint i32 %185, %187
-  %189 = trunc i32 %188 to i16
+  %189 = trunc nuw nsw i32 %188 to i16
   %190 = or i32 %181, -2147483648
   %191 = tail call i32 @usb_control_msg(ptr noundef %0, i32 noundef %190, i8 noundef zeroext 1, i8 noundef zeroext 2, i16 noundef zeroext 0, i16 noundef zeroext %189, ptr noundef null, i16 noundef zeroext 0, i32 noundef 5000)
   tail call void @kfree(ptr noundef null) #12

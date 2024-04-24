@@ -6268,8 +6268,8 @@ do.body157:                                       ; preds = %_ZNK2v820FunctionCa
 if.end161:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit482
   %add.ptr148 = getelementptr inbounds i8, ptr %call147, i64 %call137
   %add.ptr162 = getelementptr inbounds i8, ptr %add.ptr, i64 %start.0.ph.ph
-  %.sroa.speculated186 = tail call i64 @llvm.umin.i64(i64 %sub, i64 %call139)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr162, ptr align 1 %add.ptr148, i64 %.sroa.speculated186, i1 false)
+  %.sroa.speculated187 = tail call i64 @llvm.umin.i64(i64 %sub, i64 %call139)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr162, ptr align 1 %add.ptr148, i64 %.sroa.speculated187, i1 false)
   br label %start_fill
 
 lor.lhs.false.i453:                               ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit518
@@ -6431,8 +6431,8 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit392: ; preds = %if.end.i384, %
   %add.ptr241 = getelementptr inbounds i8, ptr %add.ptr, i64 %start.0.ph.ph
   %buf_.i = getelementptr inbounds i8, ptr %str, i64 16
   %125 = load ptr, ptr %buf_.i, align 8
-  %.sroa.speculated183 = call i64 @llvm.umin.i64(i64 %sub, i64 %conv)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr241, ptr align 1 %125, i64 %.sroa.speculated183, i1 false)
+  %.sroa.speculated184 = call i64 @llvm.umin.i64(i64 %sub, i64 %conv)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr241, ptr align 1 %125, i64 %.sroa.speculated184, i1 false)
   %cmp.i.i.i.i164 = icmp ne ptr %125, null
   %buf_st_.i.i.i = getelementptr inbounds i8, ptr %str, i64 24
   %cmp.i.i.i165 = icmp ne ptr %125, %buf_st_.i.i.i
@@ -6471,17 +6471,17 @@ if.end262:                                        ; preds = %if.then.i373, %if.e
   %retval.i369.sroa.0.0 = phi ptr [ %132, %if.then.i373 ], [ %add.ptr.i, %if.end.i ]
   call void @_ZN4node12TwoByteValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(2072) %str249, ptr noundef %127, ptr %retval.i369.sroa.0.0) #22
   %add.ptr263 = getelementptr inbounds i8, ptr %add.ptr, i64 %start.0.ph.ph
-  %buf_.i168 = getelementptr inbounds i8, ptr %str249, i64 16
-  %134 = load ptr, ptr %buf_.i168, align 8
+  %buf_.i169 = getelementptr inbounds i8, ptr %str249, i64 16
+  %134 = load ptr, ptr %buf_.i169, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 %mul)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr263, ptr align 2 %134, i64 %.sroa.speculated, i1 false)
-  %cmp.i.i.i.i172 = icmp ne ptr %134, null
-  %buf_st_.i.i.i173 = getelementptr inbounds i8, ptr %str249, i64 24
-  %cmp.i.i.i174 = icmp ne ptr %134, %buf_st_.i.i.i173
-  %135 = select i1 %cmp.i.i.i.i172, i1 %cmp.i.i.i174, i1 false
-  br i1 %135, label %if.then.i.i175, label %start_fill
+  %cmp.i.i.i.i173 = icmp ne ptr %134, null
+  %buf_st_.i.i.i174 = getelementptr inbounds i8, ptr %str249, i64 24
+  %cmp.i.i.i175 = icmp ne ptr %134, %buf_st_.i.i.i174
+  %135 = select i1 %cmp.i.i.i.i173, i1 %cmp.i.i.i175, i1 false
+  br i1 %135, label %if.then.i.i176, label %start_fill
 
-if.then.i.i175:                                   ; preds = %if.end262
+if.then.i.i176:                                   ; preds = %if.end262
   call void @free(ptr noundef nonnull %134) #22
   br label %start_fill
 
@@ -6491,8 +6491,8 @@ if.else266:                                       ; preds = %_ZNK2v820FunctionCa
   %call277 = tail call noundef i64 @_ZN4node11StringBytes5WriteEPN2v87IsolateEPcmNS1_5LocalINS1_5ValueEEENS_8encodingE(ptr noundef %136, ptr noundef %add.ptr268, i64 noundef %sub, ptr %call208, i32 noundef %call226) #22
   br label %start_fill
 
-start_fill:                                       ; preds = %if.then.i.i175, %if.end262, %if.then.i.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit392, %if.else266, %if.end161
-  %str_length.0 = phi i64 [ %call139, %if.end161 ], [ %call277, %if.else266 ], [ %conv, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit392 ], [ %conv, %if.then.i.i ], [ %mul, %if.end262 ], [ %mul, %if.then.i.i175 ]
+start_fill:                                       ; preds = %if.then.i.i176, %if.end262, %if.then.i.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit392, %if.else266, %if.end161
+  %str_length.0 = phi i64 [ %call139, %if.end161 ], [ %call277, %if.else266 ], [ %conv, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit392 ], [ %conv, %if.then.i.i ], [ %mul, %if.end262 ], [ %mul, %if.then.i.i176 ]
   %cmp280.not = icmp ult i64 %str_length.0, %sub
   br i1 %cmp280.not, label %if.end282, label %if.end300
 
@@ -6509,16 +6509,16 @@ if.then.i1347:                                    ; preds = %if.end282
 if.end288:                                        ; preds = %if.end282
   %add.ptr289 = getelementptr inbounds i8, ptr %add.ptr, i64 %start.0.ph.ph
   %add.ptr290 = getelementptr inbounds i8, ptr %add.ptr289, i64 %str_length.0
-  %sub291229 = sub i64 %sub, %str_length.0
-  %cmp292230 = icmp ult i64 %str_length.0, %sub291229
-  br i1 %cmp292230, label %while.body, label %while.end
+  %sub291230 = sub i64 %sub, %str_length.0
+  %cmp292231 = icmp ult i64 %str_length.0, %sub291230
+  br i1 %cmp292231, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end288, %while.body
-  %ptr.0232 = phi ptr [ %add.ptr294, %while.body ], [ %add.ptr290, %if.end288 ]
-  %in_there.0231 = phi i64 [ %mul295, %while.body ], [ %str_length.0, %if.end288 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ptr.0232, ptr align 1 %add.ptr289, i64 %in_there.0231, i1 false)
-  %add.ptr294 = getelementptr inbounds i8, ptr %ptr.0232, i64 %in_there.0231
-  %mul295 = shl i64 %in_there.0231, 1
+  %ptr.0233 = phi ptr [ %add.ptr294, %while.body ], [ %add.ptr290, %if.end288 ]
+  %in_there.0232 = phi i64 [ %mul295, %while.body ], [ %str_length.0, %if.end288 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ptr.0233, ptr align 1 %add.ptr289, i64 %in_there.0232, i1 false)
+  %add.ptr294 = getelementptr inbounds i8, ptr %ptr.0233, i64 %in_there.0232
+  %mul295 = shl i64 %in_there.0232, 1
   %sub291 = sub i64 %sub, %mul295
   %cmp292 = icmp ult i64 %mul295, %sub291
   br i1 %cmp292, label %while.body, label %while.end, !llvm.loop !7
@@ -6526,7 +6526,7 @@ while.body:                                       ; preds = %if.end288, %while.b
 while.end:                                        ; preds = %while.body, %if.end288
   %in_there.0.lcssa = phi i64 [ %str_length.0, %if.end288 ], [ %mul295, %while.body ]
   %ptr.0.lcssa = phi ptr [ %add.ptr290, %if.end288 ], [ %add.ptr294, %while.body ]
-  %sub291.lcssa = phi i64 [ %sub291229, %if.end288 ], [ %sub291, %while.body ]
+  %sub291.lcssa = phi i64 [ %sub291230, %if.end288 ], [ %sub291, %while.body ]
   %cmp296 = icmp ult i64 %in_there.0.lcssa, %sub
   br i1 %cmp296, label %if.then297, label %if.end300
 
@@ -14700,7 +14700,7 @@ cond.end.i:                                       ; preds = %if.then.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
   %arrayidx5.i.i = getelementptr inbounds ptr, ptr %15, i64 %rem.i.i.i.i21
-  store ptr %__prev_n.0, ptr %arrayidx5.i.i, align 8
+  store ptr %16, ptr %arrayidx5.i.i, align 8
   %.pre.i22 = load ptr, ptr %this, align 8
   %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i22, i64 %__bkt.0
   %.pre24.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8
@@ -16484,7 +16484,7 @@ entry:
   %add = add i64 %sub, 1
   %conv1.i = trunc i16 %3 to i8
   %5 = lshr i16 %3, 8
-  %conv4.i = trunc i16 %5 to i8
+  %conv4.i = trunc nuw i16 %5 to i8
   %.sroa.speculated.i = tail call noundef i8 @llvm.umax.i8(i8 %conv1.i, i8 %conv4.i)
   %is_forward_.i20 = getelementptr inbounds i8, ptr %subject, i64 16
   %6 = load i8, ptr %is_forward_.i20, align 8

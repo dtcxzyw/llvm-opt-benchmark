@@ -695,7 +695,7 @@ for.inc.i.i:                                      ; preds = %delete.notnull.i.i,
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !4
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %invoke.cont66
-  %.lcssa.i.i = phi ptr [ %33, %invoke.cont66 ], [ %38, %for.inc.i.i ]
+  %.lcssa.i.i = phi ptr [ %34, %invoke.cont66 ], [ %38, %for.inc.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_storageBlocks.i, i8 0, i64 24, i1 false)
   store i64 16384, ptr %tempAllocator, align 8
   store i64 67108864, ptr %m_subIndex.i, align 8
@@ -977,7 +977,7 @@ for.inc.i:                                        ; preds = %delete.notnull.i, %
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.inc.i, %entry
-  %.lcssa.i = phi ptr [ %0, %entry ], [ %5, %for.inc.i ]
+  %.lcssa.i = phi ptr [ %1, %entry ], [ %5, %for.inc.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_storageBlocks.i, i8 0, i64 24, i1 false)
   store i64 16384, ptr %this, align 8
   %m_subIndex.i = getelementptr inbounds i8, ptr %this, i64 8

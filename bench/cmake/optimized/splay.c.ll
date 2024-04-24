@@ -536,7 +536,7 @@ define dso_local noundef i32 @Curl_splayremove(ptr noundef %0, ptr noundef %1, p
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %or.cond = and i1 %6, %7
-  br i1 %or.cond, label %8, label %150
+  br i1 %or.cond, label %8, label %148
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %1, i64 32
@@ -552,7 +552,7 @@ define dso_local noundef i32 @Curl_splayremove(ptr noundef %0, ptr noundef %1, p
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %1
-  br i1 %16, label %150, label %17
+  br i1 %16, label %148, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %1, i64 24
@@ -690,24 +690,24 @@ Curl_splay.exit:                                  ; preds = %36, %.critedge.i, %
   store ptr %75, ptr %72, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   %.not52 = icmp eq ptr %.4.i, %1
-  br i1 %.not52, label %76, label %150
+  br i1 %.not52, label %76, label %148
 
 76:                                               ; preds = %Curl_splay.exit
-  %77 = getelementptr inbounds i8, ptr %1, i64 16
+  %77 = getelementptr inbounds i8, ptr %.4.i, i64 16
   %78 = load ptr, ptr %77, align 8
   %.not53 = icmp eq ptr %78, %1
   br i1 %.not53, label %89, label %79
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds i8, ptr %78, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  %81 = getelementptr inbounds i8, ptr %1, i64 8
-  %82 = load ptr, ptr %81, align 8
+  %81 = getelementptr inbounds i8, ptr %.4.i, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false)
+  %82 = load ptr, ptr %72, align 8
   %83 = getelementptr inbounds i8, ptr %78, i64 8
   store ptr %82, ptr %83, align 8
-  %84 = load ptr, ptr %1, align 8
+  %84 = load ptr, ptr %.4.i, align 8
   store ptr %84, ptr %78, align 8
-  %85 = getelementptr inbounds i8, ptr %1, i64 24
+  %85 = getelementptr inbounds i8, ptr %.4.i, i64 24
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %78, i64 24
   store ptr %86, ptr %87, align 8
@@ -716,150 +716,148 @@ Curl_splay.exit:                                  ; preds = %36, %.critedge.i, %
   br label %.sink.split
 
 89:                                               ; preds = %76
-  %90 = load ptr, ptr %1, align 8
+  %90 = load ptr, ptr %.4.i, align 8
   %.not54 = icmp eq ptr %90, null
-  br i1 %.not54, label %91, label %94
+  br i1 %.not54, label %91, label %93
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %1, i64 8
-  %93 = load ptr, ptr %92, align 8
+  %92 = load ptr, ptr %72, align 8
   br label %.sink.split
 
-94:                                               ; preds = %89
-  %95 = load i64, ptr %9, align 8
-  %96 = load i32, ptr %24, align 8
+93:                                               ; preds = %89
+  %94 = load i64, ptr %9, align 8
+  %95 = load i32, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
-  %97 = getelementptr inbounds i8, ptr %4, i64 8
+  %96 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  br label %98
+  br label %97
 
-98:                                               ; preds = %141, %94
-  %.060.i57 = phi ptr [ %90, %94 ], [ %.3.i70, %141 ]
-  %.058.i58 = phi ptr [ %4, %94 ], [ %.159.i68, %141 ]
-  %.057.i59 = phi ptr [ %4, %94 ], [ %.1.i69, %141 ]
-  %99 = getelementptr inbounds i8, ptr %.060.i57, i64 32
-  %100 = load i64, ptr %99, align 8
-  %101 = icmp sgt i64 %100, %95
-  br i1 %101, label %108, label %102
+97:                                               ; preds = %140, %93
+  %.060.i57 = phi ptr [ %90, %93 ], [ %.3.i70, %140 ]
+  %.058.i58 = phi ptr [ %4, %93 ], [ %.159.i68, %140 ]
+  %.057.i59 = phi ptr [ %4, %93 ], [ %.1.i69, %140 ]
+  %98 = getelementptr inbounds i8, ptr %.060.i57, i64 32
+  %99 = load i64, ptr %98, align 8
+  %100 = icmp sgt i64 %99, %94
+  br i1 %100, label %107, label %101
 
-102:                                              ; preds = %98
-  %103 = icmp slt i64 %100, %95
-  br i1 %103, label %.thread91.i63, label %104
+101:                                              ; preds = %97
+  %102 = icmp slt i64 %99, %94
+  br i1 %102, label %.thread91.i63, label %103
 
-104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %.060.i57, i64 40
-  %106 = load i32, ptr %105, align 8
-  %107 = icmp sgt i32 %106, %96
-  br i1 %107, label %108, label %123
+103:                                              ; preds = %101
+  %104 = getelementptr inbounds i8, ptr %.060.i57, i64 40
+  %105 = load i32, ptr %104, align 8
+  %106 = icmp sgt i32 %105, %95
+  br i1 %106, label %107, label %122
 
-108:                                              ; preds = %104, %98
-  %109 = load ptr, ptr %.060.i57, align 8
-  %.not82.i73 = icmp eq ptr %109, null
-  br i1 %.not82.i73, label %Curl_splay.exit78, label %110
+107:                                              ; preds = %103, %97
+  %108 = load ptr, ptr %.060.i57, align 8
+  %.not82.i73 = icmp eq ptr %108, null
+  br i1 %.not82.i73, label %Curl_splay.exit78, label %109
 
-110:                                              ; preds = %108
-  %111 = getelementptr inbounds i8, ptr %109, i64 32
-  %112 = load i64, ptr %111, align 8
-  %113 = icmp sgt i64 %112, %95
-  br i1 %113, label %.critedge.i76, label %114
+109:                                              ; preds = %107
+  %110 = getelementptr inbounds i8, ptr %108, i64 32
+  %111 = load i64, ptr %110, align 8
+  %112 = icmp sgt i64 %111, %94
+  br i1 %112, label %.critedge.i76, label %113
 
-114:                                              ; preds = %110
-  %115 = icmp slt i64 %112, %95
-  br i1 %115, label %.critedge85.i74, label %116
+113:                                              ; preds = %109
+  %114 = icmp slt i64 %111, %94
+  br i1 %114, label %.critedge85.i74, label %115
 
-116:                                              ; preds = %114
-  %117 = getelementptr inbounds i8, ptr %109, i64 40
-  %118 = load i32, ptr %117, align 8
-  %119 = icmp sgt i32 %118, %96
-  br i1 %119, label %.critedge.i76, label %.critedge85.i74
+115:                                              ; preds = %113
+  %116 = getelementptr inbounds i8, ptr %108, i64 40
+  %117 = load i32, ptr %116, align 8
+  %118 = icmp sgt i32 %117, %95
+  br i1 %118, label %.critedge.i76, label %.critedge85.i74
 
-.critedge.i76:                                    ; preds = %116, %110
-  %120 = getelementptr inbounds i8, ptr %109, i64 8
-  %121 = load ptr, ptr %120, align 8
-  store ptr %121, ptr %.060.i57, align 8
-  store ptr %.060.i57, ptr %120, align 8
-  %122 = load ptr, ptr %109, align 8
-  %.not83.i77 = icmp eq ptr %122, null
+.critedge.i76:                                    ; preds = %115, %109
+  %119 = getelementptr inbounds i8, ptr %108, i64 8
+  %120 = load ptr, ptr %119, align 8
+  store ptr %120, ptr %.060.i57, align 8
+  store ptr %.060.i57, ptr %119, align 8
+  %121 = load ptr, ptr %108, align 8
+  %.not83.i77 = icmp eq ptr %121, null
   br i1 %.not83.i77, label %Curl_splay.exit78, label %.critedge85.i74
 
-.critedge85.i74:                                  ; preds = %.critedge.i76, %116, %114
-  %.161.i75 = phi ptr [ %109, %.critedge.i76 ], [ %.060.i57, %116 ], [ %.060.i57, %114 ]
+.critedge85.i74:                                  ; preds = %.critedge.i76, %115, %113
+  %.161.i75 = phi ptr [ %108, %.critedge.i76 ], [ %.060.i57, %115 ], [ %.060.i57, %113 ]
   store ptr %.161.i75, ptr %.057.i59, align 8
-  br label %141
+  br label %140
 
-123:                                              ; preds = %104
-  %.not93.i60 = icmp slt i32 %106, %96
+122:                                              ; preds = %103
+  %.not93.i60 = icmp slt i32 %105, %95
   br i1 %.not93.i60, label %.thread91.i63, label %Curl_splay.exit78
 
-.thread91.i63:                                    ; preds = %123, %102
-  %124 = getelementptr inbounds i8, ptr %.060.i57, i64 8
-  %125 = load ptr, ptr %124, align 8
-  %.not80.i64 = icmp eq ptr %125, null
-  br i1 %.not80.i64, label %Curl_splay.exit78, label %126
+.thread91.i63:                                    ; preds = %122, %101
+  %123 = getelementptr inbounds i8, ptr %.060.i57, i64 8
+  %124 = load ptr, ptr %123, align 8
+  %.not80.i64 = icmp eq ptr %124, null
+  br i1 %.not80.i64, label %Curl_splay.exit78, label %125
 
-126:                                              ; preds = %.thread91.i63
-  %127 = getelementptr inbounds i8, ptr %125, i64 32
-  %128 = load i64, ptr %127, align 8
-  %129 = icmp sgt i64 %128, %95
-  br i1 %129, label %.critedge88.i65, label %130
+125:                                              ; preds = %.thread91.i63
+  %126 = getelementptr inbounds i8, ptr %124, i64 32
+  %127 = load i64, ptr %126, align 8
+  %128 = icmp sgt i64 %127, %94
+  br i1 %128, label %.critedge88.i65, label %129
 
-130:                                              ; preds = %126
-  %131 = icmp slt i64 %128, %95
-  br i1 %131, label %.critedge90.i71, label %132
+129:                                              ; preds = %125
+  %130 = icmp slt i64 %127, %94
+  br i1 %130, label %.critedge90.i71, label %131
 
-132:                                              ; preds = %130
-  %133 = getelementptr inbounds i8, ptr %125, i64 40
-  %134 = load i32, ptr %133, align 8
-  %135 = icmp slt i32 %134, %96
-  br i1 %135, label %.critedge90.i71, label %.critedge88.i65
+131:                                              ; preds = %129
+  %132 = getelementptr inbounds i8, ptr %124, i64 40
+  %133 = load i32, ptr %132, align 8
+  %134 = icmp slt i32 %133, %95
+  br i1 %134, label %.critedge90.i71, label %.critedge88.i65
 
-.critedge90.i71:                                  ; preds = %132, %130
-  %136 = load ptr, ptr %125, align 8
-  store ptr %136, ptr %124, align 8
-  store ptr %.060.i57, ptr %125, align 8
-  %137 = getelementptr inbounds i8, ptr %125, i64 8
-  %138 = load ptr, ptr %137, align 8
-  %.not81.i72 = icmp eq ptr %138, null
+.critedge90.i71:                                  ; preds = %131, %129
+  %135 = load ptr, ptr %124, align 8
+  store ptr %135, ptr %123, align 8
+  store ptr %.060.i57, ptr %124, align 8
+  %136 = getelementptr inbounds i8, ptr %124, i64 8
+  %137 = load ptr, ptr %136, align 8
+  %.not81.i72 = icmp eq ptr %137, null
   br i1 %.not81.i72, label %Curl_splay.exit78, label %.critedge88.i65
 
-.critedge88.i65:                                  ; preds = %.critedge90.i71, %132, %126
-  %.2.i66 = phi ptr [ %125, %.critedge90.i71 ], [ %.060.i57, %132 ], [ %.060.i57, %126 ]
-  %139 = getelementptr inbounds i8, ptr %.058.i58, i64 8
-  store ptr %.2.i66, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %.2.i66, i64 8
-  br label %141
+.critedge88.i65:                                  ; preds = %.critedge90.i71, %131, %125
+  %.2.i66 = phi ptr [ %124, %.critedge90.i71 ], [ %.060.i57, %131 ], [ %.060.i57, %125 ]
+  %138 = getelementptr inbounds i8, ptr %.058.i58, i64 8
+  store ptr %.2.i66, ptr %138, align 8
+  %139 = getelementptr inbounds i8, ptr %.2.i66, i64 8
+  br label %140
 
-141:                                              ; preds = %.critedge88.i65, %.critedge85.i74
-  %.3.in.i67 = phi ptr [ %.161.i75, %.critedge85.i74 ], [ %140, %.critedge88.i65 ]
+140:                                              ; preds = %.critedge88.i65, %.critedge85.i74
+  %.3.in.i67 = phi ptr [ %.161.i75, %.critedge85.i74 ], [ %139, %.critedge88.i65 ]
   %.159.i68 = phi ptr [ %.058.i58, %.critedge85.i74 ], [ %.2.i66, %.critedge88.i65 ]
   %.1.i69 = phi ptr [ %.161.i75, %.critedge85.i74 ], [ %.057.i59, %.critedge88.i65 ]
   %.3.i70 = load ptr, ptr %.3.in.i67, align 8
-  br label %98
+  br label %97
 
-Curl_splay.exit78:                                ; preds = %108, %.critedge.i76, %123, %.thread91.i63, %.critedge90.i71
-  %.4.i61 = phi ptr [ %109, %.critedge.i76 ], [ %.060.i57, %108 ], [ %125, %.critedge90.i71 ], [ %.060.i57, %.thread91.i63 ], [ %.060.i57, %123 ]
-  %142 = load ptr, ptr %.4.i61, align 8
-  %143 = getelementptr inbounds i8, ptr %.058.i58, i64 8
-  store ptr %142, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %.4.i61, i64 8
-  %145 = load ptr, ptr %144, align 8
-  store ptr %145, ptr %.057.i59, align 8
-  %146 = load ptr, ptr %97, align 8
-  store ptr %146, ptr %.4.i61, align 8
-  %147 = load ptr, ptr %4, align 8
-  store ptr %147, ptr %144, align 8
+Curl_splay.exit78:                                ; preds = %107, %.critedge.i76, %122, %.thread91.i63, %.critedge90.i71
+  %.4.i61 = phi ptr [ %108, %.critedge.i76 ], [ %.060.i57, %107 ], [ %124, %.critedge90.i71 ], [ %.060.i57, %.thread91.i63 ], [ %.060.i57, %122 ]
+  %141 = load ptr, ptr %.4.i61, align 8
+  %142 = getelementptr inbounds i8, ptr %.058.i58, i64 8
+  store ptr %141, ptr %142, align 8
+  %143 = getelementptr inbounds i8, ptr %.4.i61, i64 8
+  %144 = load ptr, ptr %143, align 8
+  store ptr %144, ptr %.057.i59, align 8
+  %145 = load ptr, ptr %96, align 8
+  store ptr %145, ptr %.4.i61, align 8
+  %146 = load ptr, ptr %4, align 8
+  store ptr %146, ptr %143, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  %148 = getelementptr inbounds i8, ptr %1, i64 8
-  %149 = load ptr, ptr %148, align 8
-  store ptr %149, ptr %144, align 8
+  %147 = load ptr, ptr %72, align 8
+  store ptr %147, ptr %143, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %79, %Curl_splay.exit78, %91, %17
-  %.0.sink = phi ptr [ %0, %17 ], [ %78, %79 ], [ %.4.i61, %Curl_splay.exit78 ], [ %93, %91 ]
+  %.0.sink = phi ptr [ %0, %17 ], [ %78, %79 ], [ %.4.i61, %Curl_splay.exit78 ], [ %92, %91 ]
   store ptr %.0.sink, ptr %2, align 8
-  br label %150
+  br label %148
 
-150:                                              ; preds = %.sink.split, %Curl_splay.exit, %13, %3
+148:                                              ; preds = %.sink.split, %Curl_splay.exit, %13, %3
   %.042 = phi i32 [ 1, %3 ], [ 3, %13 ], [ 2, %Curl_splay.exit ], [ 0, %.sink.split ]
   ret i32 %.042
 }

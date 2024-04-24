@@ -2370,7 +2370,7 @@ _ZSt8_DestroyIPN19VirtualSiteTopology16VirtualSiteAngleES1_EvT_S3_RSaIT0_E.exitt
   br label %_ZSt8_DestroyIPN19VirtualSiteTopology16VirtualSiteAngleES1_EvT_S3_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN19VirtualSiteTopology16VirtualSiteAngleES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN19VirtualSiteTopology16VirtualSiteAngleES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt6vectorI19VirtualSiteTopologySaIS0_EE9push_backEOS0_.exit.i
-  %728 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN19VirtualSiteTopology16VirtualSiteAngleES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %.pre3494, %_ZNSt6vectorI19VirtualSiteTopologySaIS0_EE9push_backEOS0_.exit.i ]
+  %728 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN19VirtualSiteTopology16VirtualSiteAngleES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %.pre, %_ZNSt6vectorI19VirtualSiteTopologySaIS0_EE9push_backEOS0_.exit.i ]
   %.not.i.i.i.i957 = icmp eq ptr %728, null
   br i1 %.not.i.i.i.i957, label %_ZNSt6vectorIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EED2Ev.exit.i, label %729
 
@@ -16705,7 +16705,7 @@ declare void @_Z16add_vsite3_atomsP18InteractionsOfTypeiiiib(ptr noundef, i32 no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %48, label %3
+  br i1 %.not, label %47, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -16789,36 +16789,35 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit: ; 
   %.pre29 = load ptr, ptr %4, align 8
   %.pre30 = ptrtoint ptr %.pre27 to i64
   %.pre31 = ptrtoint ptr %.pre28 to i64
+  %.pre33 = sub i64 %.pre30, %.pre31
   br label %_ZSt4copyIPN3gmx11BasicVectorIfEES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPN3gmx11BasicVectorIfEES3_ET0_T_S5_S4_.exit: ; preds = %36, %37
-  %.pre-phi32 = phi i64 [ %14, %36 ], [ %.pre31, %37 ]
-  %.pre-phi = phi i64 [ %14, %36 ], [ %.pre30, %37 ]
+  %.pre-phi34 = phi i64 [ %33, %36 ], [ %.pre33, %37 ]
   %38 = phi ptr [ %5, %36 ], [ %.pre29, %37 ]
-  %39 = phi ptr [ %12, %36 ], [ %.pre27, %37 ]
+  %39 = phi ptr [ %31, %36 ], [ %.pre27, %37 ]
   %40 = phi ptr [ %6, %36 ], [ %.pre, %37 ]
-  %41 = sub i64 %.pre-phi, %.pre-phi32
-  %42 = getelementptr inbounds i8, ptr %40, i64 %41
-  %.not9.i.i.i.i = icmp eq ptr %42, %38
+  %41 = getelementptr inbounds i8, ptr %40, i64 %.pre-phi34
+  %.not9.i.i.i.i = icmp eq ptr %41, %38
   br i1 %.not9.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt4copyIPN3gmx11BasicVectorIfEES3_ET0_T_S5_S4_.exit, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i ], [ %39, %_ZSt4copyIPN3gmx11BasicVectorIfEES3_ET0_T_S5_S4_.exit ]
-  %.0810.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i ], [ %42, %_ZSt4copyIPN3gmx11BasicVectorIfEES3_ET0_T_S5_S4_.exit ]
+  %.011.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i ], [ %39, %_ZSt4copyIPN3gmx11BasicVectorIfEES3_ET0_T_S5_S4_.exit ]
+  %.0810.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i ], [ %41, %_ZSt4copyIPN3gmx11BasicVectorIfEES3_ET0_T_S5_S4_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.011.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0810.i.i.i.i, i64 12, i1 false)
-  %43 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 12
-  %44 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 12
-  %.not.i.i.i.i = icmp eq ptr %43, %38
+  %42 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 12
+  %43 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 12
+  %.not.i.i.i.i = icmp eq ptr %42, %38
   br i1 %.not.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !75
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt4copyIPN3gmx11BasicVectorIfEES3_ET0_T_S5_S4_.exit, %35, %34, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit
-  %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 %9
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %46, ptr %47, align 8
-  br label %48
+  %44 = load ptr, ptr %0, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 %9
+  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %45, ptr %46, align 8
+  br label %47
 
-48:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, %2
+47:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, %2
   ret ptr %0
 }
 
@@ -17105,13 +17104,13 @@ _ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit
   %60 = extractvalue { ptr, i32 } %59, 0
   %61 = tail call ptr @__cxa_begin_catch(ptr %60) #22
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %.thread, label %.thread44
+  br i1 %.not, label %.thread, label %.thread46
 
 .thread:                                          ; preds = %.body
   tail call void @_ZNSt16allocator_traitsISaI24VirtualSiteConfigurationEE7destroyIS0_EEvRS1_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %24) #22
-  br label %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit35
+  br label %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit37
 
-62:                                               ; preds = %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit35
+62:                                               ; preds = %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit37
   %63 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -17122,13 +17121,13 @@ _ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #22
   %65 = extractvalue { ptr, i32 } %.pn.i.i.i, 0
   %66 = tail call ptr @__cxa_begin_catch(ptr %65) #22
-  br label %.thread44
+  br label %.thread46
 
-.thread44:                                        ; preds = %.body, %64
+.thread46:                                        ; preds = %.body, %64
   tail call void @_ZdlPv(ptr noundef nonnull %23) #26
-  br label %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit35
+  br label %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit37
 
-_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit35: ; preds = %.thread44, %.thread
+_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %.thread46, %.thread
   invoke void @__cxa_rethrow() #24
           to label %71 unwind label %62
 
@@ -17142,7 +17141,7 @@ _ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit
   tail call void @__clang_call_terminate(ptr %70) #25
   unreachable
 
-71:                                               ; preds = %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit35
+71:                                               ; preds = %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit37
   unreachable
 }
 
@@ -17462,9 +17461,9 @@ _ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_dealloc
   %56 = getelementptr inbounds i8, ptr %26, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #22
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #22
-  br label %_ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_deallocateEPS1_m.exit37
+  br label %_ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_deallocateEPS1_m.exit39
 
-57:                                               ; preds = %_ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_deallocateEPS1_m.exit37
+57:                                               ; preds = %_ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_deallocateEPS1_m.exit39
   %58 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -17472,9 +17471,9 @@ _ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_dealloc
 
 59:                                               ; preds = %.body
   tail call void @_ZdlPv(ptr noundef nonnull %25) #26
-  br label %_ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_deallocateEPS1_m.exit37
+  br label %_ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_deallocateEPS1_m.exit39
 
-_ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %59, %.thread
+_ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_deallocateEPS1_m.exit39: ; preds = %59, %.thread
   invoke void @__cxa_rethrow() #24
           to label %64 unwind label %57
 
@@ -17488,7 +17487,7 @@ _ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_dealloc
   tail call void @__clang_call_terminate(ptr %63) #25
   unreachable
 
-64:                                               ; preds = %_ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_deallocateEPS1_m.exit37
+64:                                               ; preds = %_ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_deallocateEPS1_m.exit39
   unreachable
 }
 
@@ -17650,9 +17649,9 @@ _ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallo
 
 .thread:                                          ; preds = %.body
   tail call void @_ZNSt16allocator_traitsISaIN19VirtualSiteTopology16VirtualSiteAngleEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %27) #22
-  br label %_ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallocateEPS1_m.exit38
+  br label %_ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallocateEPS1_m.exit40
 
-66:                                               ; preds = %_ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallocateEPS1_m.exit38
+66:                                               ; preds = %_ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallocateEPS1_m.exit40
   %67 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -17660,9 +17659,9 @@ _ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallo
 
 68:                                               ; preds = %.body
   tail call void @_ZdlPv(ptr noundef nonnull %26) #26
-  br label %_ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallocateEPS1_m.exit38
+  br label %_ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallocateEPS1_m.exit40
 
-_ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %68, %.thread
+_ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallocateEPS1_m.exit40: ; preds = %68, %.thread
   invoke void @__cxa_rethrow() #24
           to label %73 unwind label %66
 
@@ -17676,7 +17675,7 @@ _ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallo
   tail call void @__clang_call_terminate(ptr %72) #25
   unreachable
 
-73:                                               ; preds = %_ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallocateEPS1_m.exit38
+73:                                               ; preds = %_ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallocateEPS1_m.exit40
   unreachable
 }
 

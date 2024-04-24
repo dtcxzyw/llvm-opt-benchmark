@@ -700,7 +700,7 @@ if.end:                                           ; preds = %invoke.cont14, %inv
 
 while.end:                                        ; preds = %if.end, %land.rhs, %land.rhs.lr.ph, %entry
   %22 = phi ptr [ null, %entry ], [ null, %land.rhs.lr.ph ], [ %19, %land.rhs ], [ %19, %if.end ]
-  %23 = phi ptr [ %0, %entry ], [ %1, %land.rhs.lr.ph ], [ %21, %land.rhs ], [ %21, %if.end ]
+  %23 = phi ptr [ %1, %entry ], [ %1, %land.rhs.lr.ph ], [ %21, %land.rhs ], [ %21, %if.end ]
   %24 = phi ptr [ %0, %entry ], [ %0, %land.rhs.lr.ph ], [ %20, %land.rhs ], [ %20, %if.end ]
   %right_it.0.lcssa = phi i32 [ 0, %entry ], [ 0, %land.rhs.lr.ph ], [ %right_it.1, %land.rhs ], [ %right_it.1, %if.end ]
   %left_it.0.lcssa = phi i32 [ 0, %entry ], [ 0, %land.rhs.lr.ph ], [ %left_it.1, %land.rhs ], [ %left_it.1, %if.end ]

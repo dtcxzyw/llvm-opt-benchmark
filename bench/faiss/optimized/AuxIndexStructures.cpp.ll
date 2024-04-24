@@ -337,7 +337,7 @@ define void @_ZN5faiss10BufferListD2Ev(ptr nocapture noundef nonnull readonly al
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %17, %1
-  %.lcssa = phi ptr [ %4, %1 ], [ %18, %17 ]
+  %.lcssa = phi ptr [ %5, %1 ], [ %18, %17 ]
   %.not.i.i.i = icmp eq ptr %.lcssa, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EED2Ev.exit, label %25
 
@@ -1244,7 +1244,7 @@ _ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i: ; preds = %108, %105
   br i1 %131, label %.lr.ph.i.i41, label %._crit_edge.i.i, !llvm.loop !7
 
 ._crit_edge.i.i:                                  ; preds = %124, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i
-  %.lcssa.i.i = phi ptr [ %111, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i ], [ %125, %124 ]
+  %.lcssa.i.i = phi ptr [ %112, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i ], [ %125, %124 ]
   %.not.i.i.i.i.i = icmp eq ptr %.lcssa.i.i, null
   br i1 %.not.i.i.i.i.i, label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, label %132
 

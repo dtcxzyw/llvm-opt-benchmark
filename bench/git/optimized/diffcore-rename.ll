@@ -453,7 +453,7 @@ for.body.i:                                       ; preds = %insert_file_table.e
   %49 = load ptr, ptr %48, align 8
   %call.i.i = call ptr @mem_pool_alloc(ptr noundef nonnull %local_pool, i64 noundef 32) #14
   %index2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %50 = trunc i64 %indvars.iv.next.i to i32
+  %50 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   store i32 %50, ptr %index2.i.i, align 8
   %filespec3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %49, ptr %filespec3.i.i, align 8
@@ -1174,7 +1174,7 @@ for.end31.i:                                      ; preds = %for.inc29.i, %for.c
   br i1 %cmp33.i, label %land.lhs.true.i, label %if.end38.i
 
 land.lhs.true.i:                                  ; preds = %for.end31.i
-  %call35.i = call i32 @repo_has_promisor_remote(ptr noundef %162) #14
+  %call35.i = call i32 @repo_has_promisor_remote(ptr noundef %163) #14
   %tobool36.not.i = icmp eq i32 %call35.i, 0
   br i1 %tobool36.not.i, label %if.end38.i, label %if.then37.i
 
@@ -1594,7 +1594,7 @@ if.then8.i.i:                                     ; preds = %if.else.i64.i
 if.else10.i.i:                                    ; preds = %if.else.i64.i
   %conv11.i.i = sext i32 %second.011.i.i to i64
   %cmp12.not.i.i = icmp slt i64 %230, %conv11.i.i
-  %conv15.i.i = trunc i64 %230 to i32
+  %conv15.i.i = trunc nsw i64 %230 to i32
   %spec.select.i.i = select i1 %cmp12.not.i.i, i32 %second.011.i.i, i32 %conv15.i.i
   br label %for.inc.i.i235
 
@@ -1888,7 +1888,7 @@ if.end147:                                        ; preds = %_.exit, %sw.epilog
   br i1 %cmp150, label %land.lhs.true152, label %if.end156
 
 land.lhs.true152:                                 ; preds = %if.end147
-  %call153 = call i32 @repo_has_promisor_remote(ptr noundef %260) #14
+  %call153 = call i32 @repo_has_promisor_remote(ptr noundef %261) #14
   %tobool154.not = icmp eq i32 %call153, 0
   br i1 %tobool154.not, label %if.end156, label %if.then155
 
@@ -1947,7 +1947,7 @@ for.cond186.preheader:                            ; preds = %for.body180
 
 for.body189.lr.ph:                                ; preds = %for.cond186.preheader
   %269 = getelementptr i8, ptr %266, i64 40
-  %270 = trunc i64 %indvars.iv435 to i32
+  %270 = trunc nuw nsw i64 %indvars.iv435 to i32
   br label %for.body189
 
 for.body180:                                      ; preds = %if.end173, %for.body180
@@ -2085,7 +2085,7 @@ score_compare.exit.i:                             ; preds = %if.end17.i.i, %if.t
   %retval.0.i.i302 = phi i32 [ %conv.i.i309, %if.then.i.i308 ], [ %sub.i.i, %if.then13.i.i ], [ %sub22.i.i, %if.end17.i.i ]
   %retval.0.i.fr.i = freeze i32 %retval.0.i.i302
   %cmp3.i303 = icmp sgt i32 %retval.0.i.fr.i, 0
-  %295 = trunc i64 %indvars.iv.i297 to i32
+  %295 = trunc nuw nsw i64 %indvars.iv.i297 to i32
   %spec.select.i304 = select i1 %cmp3.i303, i32 %295, i32 %worst.040.i
   br label %score_compare.exit.thread.i
 
@@ -2130,7 +2130,7 @@ score_compare.exit33.i:                           ; preds = %if.end17.i19.i, %if
   br i1 %cmp7.i, label %if.then8.i, label %record_if_better.exit
 
 if.then8.i:                                       ; preds = %for.end.i307, %score_compare.exit33.i
-  %300 = trunc i64 %indvars.iv432 to i32
+  %300 = trunc nuw nsw i64 %indvars.iv432 to i32
   store i32 %300, ptr %arrayidx5.i, align 4
   store i32 %270, ptr %dst.i10.i, align 4
   %this_src.sroa.4.0.arrayidx5.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx5.i, i64 8
@@ -2529,7 +2529,7 @@ for.body34.i363:                                  ; preds = %for.cond31.preheade
   %arrayidx.i365 = getelementptr inbounds %struct.string_list_item, ptr %353, i64 %indvars.iv.i364
   %354 = load ptr, ptr %arrayidx.i365, align 8
   call void @strmap_remove(ptr noundef %352, ptr noundef %354, i32 noundef 1) #14
-  %indvars.iv.next.i366 = add nuw i64 %indvars.iv.i364, 1
+  %indvars.iv.next.i366 = add nuw nsw i64 %indvars.iv.i364, 1
   %355 = load i64, ptr %nr.phi.trans.insert.i, align 8
   %cmp32.i367 = icmp ugt i64 %355, %indvars.iv.next.i366
   br i1 %cmp32.i367, label %for.body34.i363, label %for.end37.i, !llvm.loop !34

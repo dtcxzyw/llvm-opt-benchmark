@@ -372,7 +372,7 @@ if.end94:                                         ; preds = %if.then92, %if.end8
   br i1 %cmp95, label %if.then96, label %if.end98
 
 if.then96:                                        ; preds = %if.end94
-  %isCopyLocal97 = getelementptr inbounds i8, ptr %stackBuffer.addr.066, i64 61
+  %isCopyLocal97 = getelementptr inbounds i8, ptr %localConverter.170, i64 61
   store i8 1, ptr %isCopyLocal97, align 1
   br label %if.end98
 
@@ -729,7 +729,7 @@ if.then23:                                        ; preds = %if.then19
   br i1 %cmp27, label %if.then28, label %if.end32
 
 if.then28:                                        ; preds = %if.then23
-  store ptr %7, ptr %subChars20, align 8
+  store ptr %subUChars, ptr %subChars20, align 8
   store i32 7, ptr %err, align 4
   br label %return
 
@@ -1609,7 +1609,7 @@ do.body:                                          ; preds = %do.body.preheader, 
 do.end:                                           ; preds = %do.body
   %conv8 = trunc i64 %indvars.iv.next40 to i8
   store i8 %conv8, ptr %charErrorBufferLength, align 1
-  store ptr %targetLimit, ptr %target, align 8
+  store ptr %t.029, ptr %target, align 8
   %cmp10.not = icmp eq ptr %offsets.128, null
   br i1 %cmp10.not, label %if.end12, label %if.then11
 
@@ -2191,7 +2191,7 @@ do.body:                                          ; preds = %do.body.preheader, 
 do.end:                                           ; preds = %do.body
   %conv8 = trunc i64 %indvars.iv.next41 to i8
   store i8 %conv8, ptr %UCharErrorBufferLength, align 1
-  store ptr %targetLimit, ptr %target, align 8
+  store ptr %t.029, ptr %target, align 8
   %cmp10.not = icmp eq ptr %offsets.128, null
   br i1 %cmp10.not, label %if.end12, label %if.then11
 

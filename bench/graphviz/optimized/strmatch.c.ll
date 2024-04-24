@@ -355,7 +355,7 @@ define i32 @strmatch(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %16, %.split64.us.i
-  %19 = phi ptr [ %.pre, %16 ], [ %5, %.split64.us.i ]
+  %19 = phi ptr [ %.pre, %16 ], [ %14, %.split64.us.i ]
   %.not46.i = icmp eq ptr %19, %5
   %spec.select = zext i1 %.not46.i to i32
   br label %strgrpmatch.exit

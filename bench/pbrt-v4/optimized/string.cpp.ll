@@ -603,11 +603,11 @@ entry:
 
 do.body:                                          ; preds = %invoke.cont16, %entry
   %start.0 = phi ptr [ %str.coerce1, %entry ], [ %end.0.lcssa, %invoke.cont16 ]
+  %start.036 = ptrtoint ptr %start.0 to i64
   %cmp.not23 = icmp eq ptr %start.0, %add.ptr.i
-  br i1 %cmp.not23, label %while.end13, label %land.rhs.preheader
+  br i1 %cmp.not23, label %while.end, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %do.body
-  %start.036 = ptrtoint ptr %start.0 to i64
   %scevgep = getelementptr i8, ptr %start.0, i64 %0
   %1 = sub i64 0, %start.036
   %scevgep37 = getelementptr i8, ptr %scevgep, i64 %1
@@ -619,22 +619,27 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %conv = sext i8 %2 to i32
   %call2 = call i32 @isspace(i32 noundef %conv) #22
   %tobool.not = icmp eq i32 %call2, 0
-  br i1 %tobool.not, label %while.end, label %while.body
+  br i1 %tobool.not, label %while.end.loopexit, label %while.body
 
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %start.124, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %while.end, label %land.rhs, !llvm.loop !5
+  br i1 %cmp.not, label %while.end.loopexit, label %land.rhs, !llvm.loop !5
 
-while.end:                                        ; preds = %land.rhs, %while.body
-  %start.1.lcssa = phi ptr [ %start.124, %land.rhs ], [ %scevgep37, %while.body ]
+while.end.loopexit:                               ; preds = %while.body, %land.rhs
+  %start.1.lcssa.ph = phi ptr [ %start.124, %land.rhs ], [ %scevgep37, %while.body ]
+  %.pre = ptrtoint ptr %start.1.lcssa.ph to i64
+  br label %while.end
+
+while.end:                                        ; preds = %while.end.loopexit, %do.body
+  %start.1.lcssa39.pre-phi = phi i64 [ %.pre, %while.end.loopexit ], [ %start.036, %do.body ]
+  %start.1.lcssa = phi ptr [ %start.1.lcssa.ph, %while.end.loopexit ], [ %start.0, %do.body ]
   %cmp5.not28 = icmp eq ptr %start.1.lcssa, %add.ptr.i
   br i1 %cmp5.not28, label %while.end13, label %land.rhs6.preheader
 
 land.rhs6.preheader:                              ; preds = %while.end
-  %start.1.lcssa39 = ptrtoint ptr %start.1.lcssa to i64
   %scevgep38 = getelementptr i8, ptr %start.1.lcssa, i64 %0
-  %3 = sub i64 0, %start.1.lcssa39
+  %3 = sub i64 0, %start.1.lcssa39.pre-phi
   %scevgep40 = getelementptr i8, ptr %scevgep38, i64 %3
   br label %land.rhs6
 
@@ -651,10 +656,9 @@ while.body11:                                     ; preds = %land.rhs6
   %cmp5.not = icmp eq ptr %incdec.ptr12, %add.ptr.i
   br i1 %cmp5.not, label %while.end13, label %land.rhs6, !llvm.loop !7
 
-while.end13:                                      ; preds = %land.rhs6, %while.body11, %do.body, %while.end
-  %start.1.lcssa43 = phi ptr [ %start.1.lcssa, %while.end ], [ %add.ptr.i, %do.body ], [ %start.1.lcssa, %while.body11 ], [ %start.1.lcssa, %land.rhs6 ]
-  %end.0.lcssa = phi ptr [ %add.ptr.i, %while.end ], [ %add.ptr.i, %do.body ], [ %end.029, %land.rhs6 ], [ %scevgep40, %while.body11 ]
-  %cmp5.not.lcssa = phi i1 [ true, %while.end ], [ true, %do.body ], [ %tobool9.not, %while.body11 ], [ %tobool9.not, %land.rhs6 ]
+while.end13:                                      ; preds = %land.rhs6, %while.body11, %while.end
+  %end.0.lcssa = phi ptr [ %start.1.lcssa, %while.end ], [ %scevgep40, %while.body11 ], [ %end.029, %land.rhs6 ]
+  %cmp5.not.lcssa = phi i1 [ true, %while.end ], [ %tobool9.not, %while.body11 ], [ %tobool9.not, %land.rhs6 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #19
   %call.i14 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call.i.noexc unwind label %lpad
@@ -665,7 +669,7 @@ call.i.noexc:                                     ; preds = %while.end13
 
 .noexc:                                           ; preds = %call.i.noexc
   store i64 0, ptr %_M_string_length.i, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %start.1.lcssa43, ptr noundef %end.0.lcssa)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %start.1.lcssa, ptr noundef %end.0.lcssa)
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -795,7 +799,7 @@ while.body6:                                      ; preds = %land.rhs
   br i1 %cmp.not, label %while.end, label %land.rhs, !llvm.loop !10
 
 while.end:                                        ; preds = %land.rhs, %while.body6, %while.cond
-  %end.0.lcssa = phi ptr [ %add.ptr.i, %while.cond ], [ %scevgep25, %while.body6 ], [ %end.018, %land.rhs ]
+  %end.0.lcssa = phi ptr [ %begin.0, %while.cond ], [ %scevgep25, %while.body6 ], [ %end.018, %land.rhs ]
   %cmp.not.lcssa = phi i1 [ true, %while.cond ], [ %cmp5.not.not, %while.body6 ], [ %cmp5.not.not, %land.rhs ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #19
   %call.i9 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)

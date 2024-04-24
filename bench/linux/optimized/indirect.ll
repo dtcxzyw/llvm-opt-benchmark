@@ -1319,7 +1319,7 @@ define dso_local void @ext4_ind_truncate(ptr noundef %0, ptr noundef %1) local_u
   %127 = sdiv exact i64 %126, 24
   %128 = trunc i64 %127 to i32
   call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %5, ptr noundef %120, i32 noundef %128)
-  %129 = load ptr, ptr %4, align 16
+  %129 = load ptr, ptr %114, align 8
   store i32 0, ptr %129, align 4
   br label %143
 
@@ -1521,7 +1521,7 @@ define internal fastcc ptr @ext4_find_shared(ptr noundef %0, i32 noundef %1, ptr
 
 49:                                               ; preds = %48
   %50 = getelementptr i8, ptr %37, i64 -4
-  store ptr %50, ptr %22, align 8
+  store ptr %50, ptr %32, align 8
   br label %55
 
 51:                                               ; preds = %.thread, %48
@@ -2148,7 +2148,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %202 = sdiv exact i64 %201, 24
   %203 = trunc i64 %202 to i32
   call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %9, ptr noundef %195, i32 noundef %203)
-  %204 = load ptr, ptr %7, align 16
+  %204 = load ptr, ptr %189, align 8
   store i32 0, ptr %204, align 4
   br label %218
 
@@ -2288,7 +2288,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %304 = sdiv exact i64 %303, 24
   %305 = trunc i64 %304 to i32
   call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %9, ptr noundef %298, i32 noundef %305)
-  %306 = load ptr, ptr %7, align 16
+  %306 = load ptr, ptr %269, align 8
   store i32 0, ptr %306, align 4
   br label %.loopexit72
 

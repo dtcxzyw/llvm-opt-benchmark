@@ -778,7 +778,7 @@ define dso_local i32 @audit_exe_compare(ptr noundef readnone %0, ptr noundef %1)
   br i1 %5, label %6, label %23
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1192
+  %7 = getelementptr inbounds i8, ptr %4, i64 1192
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %23, label %10

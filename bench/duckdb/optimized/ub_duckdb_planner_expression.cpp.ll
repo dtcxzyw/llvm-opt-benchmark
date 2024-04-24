@@ -8190,7 +8190,7 @@ invoke.cont8.thread:                              ; preds = %_ZN6duckdb10unique_
   br label %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit.i
 
 if.else.i.i:                                      ; preds = %_ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEaSEOS4_.exit15
-  invoke void @_ZNSt6vectorIN6duckdb14BoundCaseCheckESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %case_checks, ptr %.pre, ptr noundef nonnull align 8 dereferenceable(16) %check)
+  invoke void @_ZNSt6vectorIN6duckdb14BoundCaseCheckESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %case_checks, ptr %.pre29, ptr noundef nonnull align 8 dereferenceable(16) %check)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %if.else.i.i
@@ -13091,7 +13091,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %8 = trunc i64 %__val.addr.0.lcssa.i.i to i8
+  %8 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %8, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
@@ -13281,7 +13281,7 @@ if.then.i.i66:                                    ; preds = %while.end.i.i60
   br label %invoke.cont9
 
 if.else.i.i63:                                    ; preds = %while.end.i.i60
-  %30 = trunc i64 %__val.addr.0.lcssa.i.i61 to i8
+  %30 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i61 to i8
   %conv.i.i64 = or disjoint i8 %30, 48
   br label %invoke.cont9
 
@@ -14358,7 +14358,7 @@ if.then.i.i8:                                     ; preds = %invoke.cont
   br label %invoke.cont3
 
 if.else.i.i10:                                    ; preds = %invoke.cont
-  invoke void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %children.i, ptr %.pre, ptr noundef nonnull align 8 dereferenceable(8) %right)
+  invoke void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %children.i, ptr %.pre13, ptr noundef nonnull align 8 dereferenceable(8) %right)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.else.i.i10, %if.then.i.i8
@@ -21387,7 +21387,7 @@ if.then.i.i50:                                    ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %16 = trunc i64 %__val.addr.0.lcssa.i.i to i8
+  %16 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %16, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
@@ -21577,7 +21577,7 @@ if.then.i.i92:                                    ; preds = %while.end.i.i86
   br label %invoke.cont13
 
 if.else.i.i89:                                    ; preds = %while.end.i.i86
-  %38 = trunc i64 %__val.addr.0.lcssa.i.i87 to i8
+  %38 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i87 to i8
   %conv.i.i90 = or disjoint i8 %38, 48
   br label %invoke.cont13
 
@@ -21856,7 +21856,7 @@ if.then.i.i186:                                   ; preds = %while.end.i.i180
   br label %invoke.cont20
 
 if.else.i.i183:                                   ; preds = %while.end.i.i180
-  %73 = trunc i64 %__val.addr.0.lcssa.i.i181 to i8
+  %73 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i181 to i8
   %conv.i.i184 = or disjoint i8 %73, 48
   br label %invoke.cont20
 
@@ -28761,7 +28761,7 @@ if.then.i.i7:                                     ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %16 = trunc i64 %__val.addr.0.lcssa.i.i to i8
+  %16 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %16, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
@@ -29382,7 +29382,7 @@ invoke.cont.thread:                               ; preds = %call3.i.i.i.noexc
   %_M_string_length.i29.i.i45 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %4, ptr %_M_string_length.i29.i.i45, align 8, !tbaa !15, !alias.scope !616
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !15
-  store i8 0, ptr %2, align 8, !tbaa !16
+  store i8 0, ptr %3, align 8, !tbaa !16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 invoke.cont:                                      ; preds = %call3.i.i.i.noexc

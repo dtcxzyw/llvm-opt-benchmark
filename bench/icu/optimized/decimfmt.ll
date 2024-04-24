@@ -342,7 +342,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -401,7 +401,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -1341,17 +1341,17 @@ invoke.cont21:                                    ; preds = %new.notnull
 cleanup.done.critedge:                            ; preds = %if.then16
   %6 = load i32, ptr %status, align 4
   %cmp.i.i32 = icmp sgt i32 %6, 0
-  br i1 %cmp.i.i32, label %invoke.cont44, label %if.then.i33
+  br i1 %cmp.i.i32, label %invoke.cont44, label %if.then.i34
 
-if.then.i33:                                      ; preds = %cleanup.done.critedge
+if.then.i34:                                      ; preds = %cleanup.done.critedge
   store i32 7, ptr %status, align 4
   br label %invoke.cont44
 
 cleanup.done:                                     ; preds = %invoke.cont21
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #16
   %.pr = load i32, ptr %status, align 4
-  %cmp.i35 = icmp sgt i32 %.pr, 0
-  br i1 %cmp.i35, label %_ZN6icu_7512LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread, label %if.end37
+  %cmp.i36 = icmp sgt i32 %.pr, 0
+  br i1 %cmp.i36, label %_ZN6icu_7512LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread, label %if.end37
 
 lpad18:                                           ; preds = %new.notnull
   %7 = landingpad { ptr, i32 }
@@ -1374,31 +1374,31 @@ if.end37:                                         ; preds = %cleanup.done
   %currencyPluralInfo = getelementptr inbounds i8, ptr %9, i64 56
   %10 = load ptr, ptr %currencyPluralInfo, align 8
   %isnull.i = icmp eq ptr %10, null
-  br i1 %isnull.i, label %_ZN6icu_7512LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread52, label %delete.notnull.i
+  br i1 %isnull.i, label %_ZN6icu_7512LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread53, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.end37
   %vtable.i = load ptr, ptr %10, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %11 = load ptr, ptr %vfn.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(36) %10) #16
-  br label %_ZN6icu_7512LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread52
+  br label %_ZN6icu_7512LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread53
 
-_ZN6icu_7512LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread52: ; preds = %delete.notnull.i, %if.end37
+_ZN6icu_7512LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread53: ; preds = %delete.notnull.i, %if.end37
   store ptr %call17, ptr %currencyPluralInfo, align 8
   br label %if.end43
 
 _ZN6icu_7512LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread: ; preds = %cleanup.done
-  %vtable.i39 = load ptr, ptr %call17, align 8
-  %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 8
-  %12 = load ptr, ptr %vfn.i40, align 8
+  %vtable.i40 = load ptr, ptr %call17, align 8
+  %vfn.i41 = getelementptr inbounds i8, ptr %vtable.i40, i64 8
+  %12 = load ptr, ptr %vfn.i41, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(36) %call17) #16
   br label %invoke.cont44
 
-if.end43:                                         ; preds = %if.then.i23, %_ZN6icu_7512LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread52, %if.end14
+if.end43:                                         ; preds = %if.then.i23, %_ZN6icu_7512LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread53, %if.end14
   invoke void @_ZN6icu_7513DecimalFormat5touchER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont44 unwind label %lpad
 
-invoke.cont44:                                    ; preds = %cleanup.done.critedge, %if.then.i33, %_ZN6icu_7512LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread, %entry, %if.end43
+invoke.cont44:                                    ; preds = %cleanup.done.critedge, %if.then.i34, %_ZN6icu_7512LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread, %entry, %if.end43
   ret void
 
 ehcleanup45:                                      ; preds = %cleanup.action30, %lpad
@@ -4418,7 +4418,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %or.cond4.not.i, label %_ZNK6icu_7513DecimalFormat15fastFormatInt64ElRNS_13UnicodeStringE.exit.thread, label %if.end5
 
 _ZNK6icu_7513DecimalFormat15fastFormatInt64ElRNS_13UnicodeStringE.exit.thread: ; preds = %land.lhs.true
-  %conv.i = trunc i64 %number to i32
+  %conv.i = trunc nsw i64 %number to i32
   %cmp5.i = icmp slt i64 %number, 0
   tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %conv.i, i1 noundef zeroext %cmp5.i, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
   br label %return
@@ -4561,7 +4561,7 @@ entry:
   br i1 %or.cond4.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %entry
-  %conv = trunc i64 %input to i32
+  %conv = trunc nsw i64 %input to i32
   %cmp5 = icmp slt i64 %input, 0
   tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %conv, i1 noundef zeroext %cmp5, ptr noundef nonnull align 8 dereferenceable(64) %output)
   br label %return
@@ -4609,7 +4609,7 @@ land.lhs.true:                                    ; preds = %if.end3
   br i1 %or.cond4.not.i, label %_ZNK6icu_7513DecimalFormat15fastFormatInt64ElRNS_13UnicodeStringE.exit.thread, label %if.end8
 
 _ZNK6icu_7513DecimalFormat15fastFormatInt64ElRNS_13UnicodeStringE.exit.thread: ; preds = %land.lhs.true
-  %conv.i15 = trunc i64 %number to i32
+  %conv.i15 = trunc nsw i64 %number to i32
   %cmp5.i = icmp slt i64 %number, 0
   tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %conv.i15, i1 noundef zeroext %cmp5.i, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
   br label %return
@@ -4772,7 +4772,7 @@ land.lhs.true:                                    ; preds = %if.end3
   br i1 %or.cond4.not.i, label %_ZNK6icu_7513DecimalFormat15fastFormatInt64ElRNS_13UnicodeStringE.exit.thread, label %if.end7
 
 _ZNK6icu_7513DecimalFormat15fastFormatInt64ElRNS_13UnicodeStringE.exit.thread: ; preds = %land.lhs.true
-  %conv.i15 = trunc i64 %number to i32
+  %conv.i15 = trunc nsw i64 %number to i32
   %cmp5.i = icmp slt i64 %number, 0
   tail call void @_ZNK6icu_7513DecimalFormat17doFastFormatInt32EibRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %conv.i15, i1 noundef zeroext %cmp5.i, ptr noundef nonnull align 8 dereferenceable(64) %appendTo)
   br label %return
@@ -8495,7 +8495,7 @@ if.then80:                                        ; preds = %if.end72
 
 if.end83:                                         ; preds = %if.end72
   store i8 1, ptr %canUseFastFormat85, align 8
-  %conv86 = trunc i32 %26 to i16
+  %conv86 = trunc nuw i32 %26 to i16
   %30 = load ptr, ptr %fields, align 8
   %fastData = getelementptr inbounds i8, ptr %30, i64 4530
   store i16 %conv86, ptr %fastData, align 2
@@ -8560,7 +8560,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit69:       ; preds = %cond.end, %if.then.
   %minInt112 = getelementptr inbounds i8, ptr %45, i64 4536
   store i8 %conv109, ptr %minInt112, align 2
   %conv12220 = tail call i32 @llvm.umin.i32(i32 %24, i32 127)
-  %conv122 = trunc i32 %conv12220 to i8
+  %conv122 = trunc nuw nsw i32 %conv12220 to i8
   %46 = load ptr, ptr %fields, align 8
   %maxInt125 = getelementptr inbounds i8, ptr %46, i64 4537
   store i8 %conv122, ptr %maxInt125, align 1

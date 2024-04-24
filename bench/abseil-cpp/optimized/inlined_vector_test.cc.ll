@@ -22278,7 +22278,7 @@ for.inc.i.i33.i:                                  ; preds = %call5.i.i.i.i29.i.n
   br i1 %exitcond.not.i.i38.i, label %invoke.cont22.i, label %for.inc.i.i33.i, !llvm.loop !12
 
 invoke.cont22.i:                                  ; preds = %for.inc.i.i33.i, %call5.i.i.i.i29.i.noexc
-  %move_values.sroa.0.1.i = phi ptr [ %add.ptr, %call5.i.i.i.i29.i.noexc ], [ %incdec.ptr.i.i.i.i36.i, %for.inc.i.i33.i ]
+  %move_values.sroa.0.1.i = phi ptr [ %cond.i.i.i, %call5.i.i.i.i29.i.noexc ], [ %incdec.ptr.i.i.i.i36.i, %for.inc.i.i33.i ]
   %add.ptr24.i = getelementptr i32, ptr %call5.i.i.i.i29.i1246, i64 %add.i
   %sub.i = sub nsw i64 %shr.i.sink.i.i1225, %pos.03481
   %cmp6.not.i.i = icmp eq i64 %shr.i.sink.i.i1225, %pos.03481
@@ -23125,7 +23125,7 @@ for.inc.i.i.i1354:                                ; preds = %invoke.cont19.i, %f
   br i1 %exitcond.not.i.i32.i, label %invoke.cont21.i, label %for.inc.i.i.i1354, !llvm.loop !12
 
 invoke.cont21.i:                                  ; preds = %for.inc.i.i.i1354, %invoke.cont19.i
-  %move_values.sroa.0.1.i1358 = phi ptr [ %add.ptr85, %invoke.cont19.i ], [ %incdec.ptr.i.i.i.i.i1357, %for.inc.i.i.i1354 ]
+  %move_values.sroa.0.1.i1358 = phi ptr [ %cond.i.i.i220, %invoke.cont19.i ], [ %incdec.ptr.i.i.i.i.i1357, %for.inc.i.i.i1354 ]
   %add.ptr23.i = getelementptr i32, ptr %call5.i.i.i.i29.i1379, i64 %add.i1329
   %sub.i1359 = sub nsw i64 %shr.i.sink.i.i1324, %pos.03481
   %cmp6.not.i.i1360 = icmp eq i64 %shr.i.sink.i.i1324, %pos.03481
@@ -23972,7 +23972,7 @@ for.inc.i.i.i1523:                                ; preds = %invoke.cont20.i1521
   br i1 %exitcond.not.i.i34.i, label %invoke.cont22.i1526, label %for.inc.i.i.i1523, !llvm.loop !12
 
 invoke.cont22.i1526:                              ; preds = %for.inc.i.i.i1523, %invoke.cont20.i1521
-  %move_values.sroa.0.1.i1527 = phi ptr [ %add.ptr176, %invoke.cont20.i1521 ], [ %incdec.ptr.i.i.i.i32.i, %for.inc.i.i.i1523 ]
+  %move_values.sroa.0.1.i1527 = phi ptr [ %cond.i.i.i413, %invoke.cont20.i1521 ], [ %incdec.ptr.i.i.i.i32.i, %for.inc.i.i.i1523 ]
   %add.ptr24.i1528 = getelementptr i32, ptr %call5.i.i.i.i29.i1550, i64 %add.i1481
   %sub.i1529 = sub nsw i64 %shr.i.sink.i.i1476, %pos.03481
   %cmp6.not.i.i1530 = icmp eq i64 %shr.i.sink.i.i1476, %pos.03481
@@ -24953,7 +24953,7 @@ for.inc.i.i.i1708:                                ; preds = %invoke.cont20.i1706
   br i1 %exitcond.not.i.i33.i, label %invoke.cont22.i1713, label %for.inc.i.i.i1708, !llvm.loop !12
 
 invoke.cont22.i1713:                              ; preds = %for.inc.i.i.i1708, %invoke.cont20.i1706
-  %move_values.sroa.0.1.i1714 = phi ptr [ %add.ptr281, %invoke.cont20.i1706 ], [ %incdec.ptr.i.i.i.i.i1712, %for.inc.i.i.i1708 ]
+  %move_values.sroa.0.1.i1714 = phi ptr [ %cond.i.i.i616, %invoke.cont20.i1706 ], [ %incdec.ptr.i.i.i.i.i1712, %for.inc.i.i.i1708 ]
   %add.ptr24.i1715 = getelementptr i32, ptr %call5.i.i.i.i29.i1737, i64 %add.i1660
   %sub.i1716 = sub nsw i64 %shr.i.sink.i.i1655, %pos.03481
   %cmp6.not.i.i1717 = icmp eq i64 %shr.i.sink.i.i1655, %pos.03481
@@ -25910,7 +25910,7 @@ for.inc.i.i33.i1914:                              ; preds = %call5.i.i.i.i29.i.n
   br i1 %exitcond.not.i.i38.i1920, label %invoke.cont22.i1921, label %for.inc.i.i33.i1914, !llvm.loop !12
 
 invoke.cont22.i1921:                              ; preds = %for.inc.i.i33.i1914, %call5.i.i.i.i29.i.noexc1944
-  %move_values.sroa.0.1.i1922 = phi ptr [ %add.ptr.i836, %call5.i.i.i.i29.i.noexc1944 ], [ %incdec.ptr.i.i.i.i36.i1918, %for.inc.i.i33.i1914 ]
+  %move_values.sroa.0.1.i1922 = phi ptr [ %cond.i.i835, %call5.i.i.i.i29.i.noexc1944 ], [ %incdec.ptr.i.i.i.i36.i1918, %for.inc.i.i33.i1914 ]
   %add.ptr24.i1923 = getelementptr i32, ptr %call5.i.i.i.i29.i1945, i64 %add.i1849
   %sub.i1924 = sub i64 %shr.i.sink.i.i1844, %i.0.i3480
   %cmp6.not.i.i1925 = icmp eq i64 %shr.i.sink.i.i1844, %i.0.i3480
@@ -26838,7 +26838,7 @@ for.inc.i.i.i2141:                                ; preds = %call5.i.i.i.i29.i.n
   br i1 %exitcond.not.i.i33.i2147, label %invoke.cont21.i2148, label %for.inc.i.i.i2141, !llvm.loop !12
 
 invoke.cont21.i2148:                              ; preds = %for.inc.i.i.i2141, %call5.i.i.i.i29.i.noexc2170
-  %move_values.sroa.0.1.i2149 = phi ptr [ %add.ptr467, %call5.i.i.i.i29.i.noexc2170 ], [ %incdec.ptr.i.i.i.i.i2145, %for.inc.i.i.i2141 ]
+  %move_values.sroa.0.1.i2149 = phi ptr [ %cond.i.i.i1043, %call5.i.i.i.i29.i.noexc2170 ], [ %incdec.ptr.i.i.i.i.i2145, %for.inc.i.i.i2141 ]
   %add.ptr23.i2150 = getelementptr i32, ptr %call5.i.i.i.i29.i2171, i64 %add.i2088
   %sub.i2151 = sub nsw i64 %shr.i.sink.i.i2083, %pos.03481
   %cmp6.not.i.i2152 = icmp eq i64 %shr.i.sink.i.i2083, %pos.03481

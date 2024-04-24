@@ -882,7 +882,7 @@ _ZN4core3ops8function6FnOnce9call_once17h68b199e59bba1b40E.exit.i1.i.i.i.i.i.i.i
   br label %.loopexit.i.i.i.i.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i:                      ; preds = %.loopexit.i.i.i.i.i.i.i.i.i.loopexit, %_ZN4core3ops8function6FnOnce9call_once17h68b199e59bba1b40E.exit.thread.i8.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %220 = phi ptr [ %214, %_ZN4core3ops8function6FnOnce9call_once17h68b199e59bba1b40E.exit.thread.i8.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %219, %.loopexit.i.i.i.i.i.i.i.i.i.loopexit ]
+  %220 = phi ptr [ %215, %_ZN4core3ops8function6FnOnce9call_once17h68b199e59bba1b40E.exit.thread.i8.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %219, %.loopexit.i.i.i.i.i.i.i.i.i.loopexit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18), !noalias !299
   store ptr %93, ptr %18, align 8, !noalias !299
   %221 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h6069646817f5b166E.llvm.6495244519870129094(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %93)
@@ -1339,8 +1339,8 @@ _ZN4core3ops8function6FnOnce9call_once17h68b199e59bba1b40E.exit.i1.i.i.i.i.i.i.i
   unreachable
 
 ._crit_edge.i.i.i.i.i.i.i.i.i:                    ; preds = %385
-  %.sroa.0.0.copyload254.i.i.i.i.i.i.i = load i64, ptr %33, align 8, !noalias !418
-  %.sroa.8.0.copyload256.i.i.i.i.i.i.i = load ptr, ptr %76, align 8, !noalias !418
+  %.sroa.0.0.copyload252.i.i.i.i.i.i.i = load i64, ptr %33, align 8, !noalias !418
+  %.sroa.8.0.copyload254.i.i.i.i.i.i.i = load ptr, ptr %76, align 8, !noalias !418
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33), !noalias !85
   br label %371
 
@@ -1393,8 +1393,8 @@ _ZN4core3ops8function6FnOnce9call_once17h68b199e59bba1b40E.exit.i1.i.i.i.i.i.i.i
 
 371:                                              ; preds = %"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$uu_pr..FileLine$GT$$GT$17h7e958a49f9a1bf83E.exit.i.i.i.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i.i.i.i
   %.sroa.9.1.i.i.i.i.i.i.i = phi i64 [ %.sroa.9.0.i.i.i.i.i.i.i, %"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$uu_pr..FileLine$GT$$GT$17h7e958a49f9a1bf83E.exit.i.i.i.i.i.i.i.i.i" ], [ %390, %._crit_edge.i.i.i.i.i.i.i.i.i ]
-  %.sroa.8.1.i.i.i.i.i.i.i = phi ptr [ %.sroa.8.0.i.i.i.i.i.i.i, %"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$uu_pr..FileLine$GT$$GT$17h7e958a49f9a1bf83E.exit.i.i.i.i.i.i.i.i.i" ], [ %.sroa.8.0.copyload256.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i.i.i.i = phi i64 [ -9223372036854775808, %"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$uu_pr..FileLine$GT$$GT$17h7e958a49f9a1bf83E.exit.i.i.i.i.i.i.i.i.i" ], [ %.sroa.0.0.copyload254.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
+  %.sroa.8.1.i.i.i.i.i.i.i = phi ptr [ %.sroa.8.0.i.i.i.i.i.i.i, %"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$uu_pr..FileLine$GT$$GT$17h7e958a49f9a1bf83E.exit.i.i.i.i.i.i.i.i.i" ], [ %.sroa.8.0.copyload254.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
+  %.sroa.0.0.i.i.i.i.i.i.i = phi i64 [ -9223372036854775808, %"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$uu_pr..FileLine$GT$$GT$17h7e958a49f9a1bf83E.exit.i.i.i.i.i.i.i.i.i" ], [ %.sroa.0.0.copyload252.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34), !noalias !85
   br label %"_ZN101_$LT$itertools..adaptors..Batching$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd2dfa2dd98a8c69bE.exit.i.i.i.i.i.i.i"
 

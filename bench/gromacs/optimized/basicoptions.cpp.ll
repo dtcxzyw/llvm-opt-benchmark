@@ -6133,7 +6133,7 @@ _ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_
   br label %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %65
-  %71 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre40, %65 ]
+  %71 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre39, %65 ]
   %.not.i.i.i = icmp eq ptr %71, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx3AnyESaIS1_EED2Ev.exit, label %72
 
@@ -7154,7 +7154,7 @@ _ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_
   br label %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %64
-  %70 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre40, %64 ]
+  %70 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre39, %64 ]
   %.not.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx3AnyESaIS1_EED2Ev.exit, label %71
 
@@ -8134,7 +8134,7 @@ _ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_
   br label %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %64
-  %70 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre40, %64 ]
+  %70 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre39, %64 ]
   %.not.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx3AnyESaIS1_EED2Ev.exit, label %71
 
@@ -9083,7 +9083,7 @@ _ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_
   br label %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %64
-  %70 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre40, %64 ]
+  %70 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre39, %64 ]
   %.not.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx3AnyESaIS1_EED2Ev.exit, label %71
 
@@ -10021,7 +10021,7 @@ _ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_
   br label %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %64
-  %70 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre40, %64 ]
+  %70 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre39, %64 ]
   %.not.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx3AnyESaIS1_EED2Ev.exit, label %71
 
@@ -11048,7 +11048,7 @@ _ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_
   br label %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %64
-  %70 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre41, %64 ]
+  %70 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3gmx3AnyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %64 ]
   %.not.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx3AnyESaIS1_EED2Ev.exit, label %71
 
@@ -13488,7 +13488,7 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZSt4copyISt13_Bit_
   %141 = sub i64 %11, %140
   %142 = ashr exact i64 %141, 3
   %143 = sub nsw i64 0, %142
-  %144 = getelementptr inbounds i64, ptr %6, i64 %143
+  %144 = getelementptr inbounds i64, ptr %8, i64 %143
   tail call void @_ZdlPv(ptr noundef %144) #24
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
@@ -16928,7 +16928,7 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit:      ; preds = %32
   br i1 %36, label %.critedge, label %38
 
 .critedge:                                        ; preds = %2, %._crit_edge.i.i.i, %_ZNSt3mapISt10type_indexSt8functionIFbRKN3gmx3AnyEEESt4lessIS0_ESaISt4pairIKS0_S7_EEE11lower_boundERSB_.exit, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit
-  %.08.lcssa.i.i.i11 = phi ptr [ %7, %_ZNSt3mapISt10type_indexSt8functionIFbRKN3gmx3AnyEEESt4lessIS0_ESaISt4pairIKS0_S7_EEE11lower_boundERSB_.exit ], [ %.19.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %.19.i.i.i, %._crit_edge.i.i.i ], [ %7, %2 ]
+  %.08.lcssa.i.i.i11 = phi ptr [ %.19.i.i.i, %_ZNSt3mapISt10type_indexSt8functionIFbRKN3gmx3AnyEEESt4lessIS0_ESaISt4pairIKS0_S7_EEE11lower_boundERSB_.exit ], [ %.19.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %.19.i.i.i, %._crit_edge.i.i.i ], [ %7, %2 ]
   store ptr %1, ptr %3, align 8, !alias.scope !138
   %37 = call ptr @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFbRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS0_EESL_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i11, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
   br label %38
@@ -17209,8 +17209,8 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit29:    ; preds = %79
   br label %92
 
 92:                                               ; preds = %84, %57, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24, %._crit_edge.i.i.i21, %69, %43, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit, %._crit_edge.i.i.i, %88, %61, %25
-  %.sroa.050.0 = phi ptr [ %27, %25 ], [ %63, %61 ], [ %90, %88 ], [ null, %._crit_edge.i.i.i ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %1, %43 ], [ null, %69 ], [ %1, %._crit_edge.i.i.i21 ], [ %1, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select, %57 ], [ %spec.select56, %84 ]
-  %.sroa.12.0 = phi ptr [ %28, %25 ], [ %64, %61 ], [ %91, %88 ], [ %11, %._crit_edge.i.i.i ], [ %11, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %1, %43 ], [ %1, %69 ], [ null, %._crit_edge.i.i.i21 ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select53, %57 ], [ %spec.select57, %84 ]
+  %.sroa.050.0 = phi ptr [ %27, %25 ], [ %63, %61 ], [ %90, %88 ], [ null, %._crit_edge.i.i.i ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %45, %43 ], [ null, %69 ], [ %1, %._crit_edge.i.i.i21 ], [ %1, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select, %57 ], [ %spec.select56, %84 ]
+  %.sroa.12.0 = phi ptr [ %28, %25 ], [ %64, %61 ], [ %91, %88 ], [ %11, %._crit_edge.i.i.i ], [ %11, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %45, %43 ], [ %71, %69 ], [ null, %._crit_edge.i.i.i21 ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select53, %57 ], [ %spec.select57, %84 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.050.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -17667,7 +17667,7 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit:      ; preds = %32
   br i1 %36, label %.critedge, label %38
 
 .critedge:                                        ; preds = %2, %._crit_edge.i.i.i, %_ZNSt3mapISt10type_indexSt8functionIFiRKN3gmx3AnyEEESt4lessIS0_ESaISt4pairIKS0_S7_EEE11lower_boundERSB_.exit, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit
-  %.08.lcssa.i.i.i11 = phi ptr [ %7, %_ZNSt3mapISt10type_indexSt8functionIFiRKN3gmx3AnyEEESt4lessIS0_ESaISt4pairIKS0_S7_EEE11lower_boundERSB_.exit ], [ %.19.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %.19.i.i.i, %._crit_edge.i.i.i ], [ %7, %2 ]
+  %.08.lcssa.i.i.i11 = phi ptr [ %.19.i.i.i, %_ZNSt3mapISt10type_indexSt8functionIFiRKN3gmx3AnyEEESt4lessIS0_ESaISt4pairIKS0_S7_EEE11lower_boundERSB_.exit ], [ %.19.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %.19.i.i.i, %._crit_edge.i.i.i ], [ %7, %2 ]
   store ptr %1, ptr %3, align 8, !alias.scope !143
   %37 = call ptr @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFiRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS0_EESL_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i11, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
   br label %38
@@ -17945,8 +17945,8 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit29:    ; preds = %79
   br label %92
 
 92:                                               ; preds = %84, %57, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24, %._crit_edge.i.i.i21, %69, %43, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit, %._crit_edge.i.i.i, %88, %61, %25
-  %.sroa.050.0 = phi ptr [ %27, %25 ], [ %63, %61 ], [ %90, %88 ], [ null, %._crit_edge.i.i.i ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %1, %43 ], [ null, %69 ], [ %1, %._crit_edge.i.i.i21 ], [ %1, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select, %57 ], [ %spec.select56, %84 ]
-  %.sroa.12.0 = phi ptr [ %28, %25 ], [ %64, %61 ], [ %91, %88 ], [ %11, %._crit_edge.i.i.i ], [ %11, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %1, %43 ], [ %1, %69 ], [ null, %._crit_edge.i.i.i21 ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select53, %57 ], [ %spec.select57, %84 ]
+  %.sroa.050.0 = phi ptr [ %27, %25 ], [ %63, %61 ], [ %90, %88 ], [ null, %._crit_edge.i.i.i ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %45, %43 ], [ null, %69 ], [ %1, %._crit_edge.i.i.i21 ], [ %1, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select, %57 ], [ %spec.select56, %84 ]
+  %.sroa.12.0 = phi ptr [ %28, %25 ], [ %64, %61 ], [ %91, %88 ], [ %11, %._crit_edge.i.i.i ], [ %11, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %45, %43 ], [ %71, %69 ], [ null, %._crit_edge.i.i.i21 ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select53, %57 ], [ %spec.select57, %84 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.050.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -18561,7 +18561,7 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit:      ; preds = %32
   br i1 %36, label %.critedge, label %38
 
 .critedge:                                        ; preds = %2, %._crit_edge.i.i.i, %_ZNSt3mapISt10type_indexSt8functionIFlRKN3gmx3AnyEEESt4lessIS0_ESaISt4pairIKS0_S7_EEE11lower_boundERSB_.exit, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit
-  %.08.lcssa.i.i.i11 = phi ptr [ %7, %_ZNSt3mapISt10type_indexSt8functionIFlRKN3gmx3AnyEEESt4lessIS0_ESaISt4pairIKS0_S7_EEE11lower_boundERSB_.exit ], [ %.19.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %.19.i.i.i, %._crit_edge.i.i.i ], [ %7, %2 ]
+  %.08.lcssa.i.i.i11 = phi ptr [ %.19.i.i.i, %_ZNSt3mapISt10type_indexSt8functionIFlRKN3gmx3AnyEEESt4lessIS0_ESaISt4pairIKS0_S7_EEE11lower_boundERSB_.exit ], [ %.19.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %.19.i.i.i, %._crit_edge.i.i.i ], [ %7, %2 ]
   store ptr %1, ptr %3, align 8, !alias.scope !149
   %37 = call ptr @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFlRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS0_EESL_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i11, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
   br label %38
@@ -18839,8 +18839,8 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit29:    ; preds = %79
   br label %92
 
 92:                                               ; preds = %84, %57, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24, %._crit_edge.i.i.i21, %69, %43, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit, %._crit_edge.i.i.i, %88, %61, %25
-  %.sroa.050.0 = phi ptr [ %27, %25 ], [ %63, %61 ], [ %90, %88 ], [ null, %._crit_edge.i.i.i ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %1, %43 ], [ null, %69 ], [ %1, %._crit_edge.i.i.i21 ], [ %1, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select, %57 ], [ %spec.select56, %84 ]
-  %.sroa.12.0 = phi ptr [ %28, %25 ], [ %64, %61 ], [ %91, %88 ], [ %11, %._crit_edge.i.i.i ], [ %11, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %1, %43 ], [ %1, %69 ], [ null, %._crit_edge.i.i.i21 ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select53, %57 ], [ %spec.select57, %84 ]
+  %.sroa.050.0 = phi ptr [ %27, %25 ], [ %63, %61 ], [ %90, %88 ], [ null, %._crit_edge.i.i.i ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %45, %43 ], [ null, %69 ], [ %1, %._crit_edge.i.i.i21 ], [ %1, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select, %57 ], [ %spec.select56, %84 ]
+  %.sroa.12.0 = phi ptr [ %28, %25 ], [ %64, %61 ], [ %91, %88 ], [ %11, %._crit_edge.i.i.i ], [ %11, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %45, %43 ], [ %71, %69 ], [ null, %._crit_edge.i.i.i21 ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select53, %57 ], [ %spec.select57, %84 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.050.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -20382,7 +20382,7 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit:      ; preds = %32
   br i1 %36, label %.critedge, label %38
 
 .critedge:                                        ; preds = %2, %._crit_edge.i.i.i, %_ZNSt3mapISt10type_indexSt8functionIFdRKN3gmx3AnyEEESt4lessIS0_ESaISt4pairIKS0_S7_EEE11lower_boundERSB_.exit, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit
-  %.08.lcssa.i.i.i11 = phi ptr [ %7, %_ZNSt3mapISt10type_indexSt8functionIFdRKN3gmx3AnyEEESt4lessIS0_ESaISt4pairIKS0_S7_EEE11lower_boundERSB_.exit ], [ %.19.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %.19.i.i.i, %._crit_edge.i.i.i ], [ %7, %2 ]
+  %.08.lcssa.i.i.i11 = phi ptr [ %.19.i.i.i, %_ZNSt3mapISt10type_indexSt8functionIFdRKN3gmx3AnyEEESt4lessIS0_ESaISt4pairIKS0_S7_EEE11lower_boundERSB_.exit ], [ %.19.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %.19.i.i.i, %._crit_edge.i.i.i ], [ %7, %2 ]
   store ptr %1, ptr %3, align 8, !alias.scope !157
   %37 = call ptr @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFdRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS0_EESL_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i11, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
   br label %38
@@ -20660,8 +20660,8 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit29:    ; preds = %79
   br label %92
 
 92:                                               ; preds = %84, %57, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24, %._crit_edge.i.i.i21, %69, %43, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit, %._crit_edge.i.i.i, %88, %61, %25
-  %.sroa.050.0 = phi ptr [ %27, %25 ], [ %63, %61 ], [ %90, %88 ], [ null, %._crit_edge.i.i.i ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %1, %43 ], [ null, %69 ], [ %1, %._crit_edge.i.i.i21 ], [ %1, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select, %57 ], [ %spec.select56, %84 ]
-  %.sroa.12.0 = phi ptr [ %28, %25 ], [ %64, %61 ], [ %91, %88 ], [ %11, %._crit_edge.i.i.i ], [ %11, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %1, %43 ], [ %1, %69 ], [ null, %._crit_edge.i.i.i21 ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select53, %57 ], [ %spec.select57, %84 ]
+  %.sroa.050.0 = phi ptr [ %27, %25 ], [ %63, %61 ], [ %90, %88 ], [ null, %._crit_edge.i.i.i ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %45, %43 ], [ null, %69 ], [ %1, %._crit_edge.i.i.i21 ], [ %1, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select, %57 ], [ %spec.select56, %84 ]
+  %.sroa.12.0 = phi ptr [ %28, %25 ], [ %64, %61 ], [ %91, %88 ], [ %11, %._crit_edge.i.i.i ], [ %11, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %45, %43 ], [ %71, %69 ], [ null, %._crit_edge.i.i.i21 ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select53, %57 ], [ %spec.select57, %84 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.050.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -22442,7 +22442,7 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit:      ; preds = %32
   br i1 %36, label %.critedge, label %38
 
 .critedge:                                        ; preds = %2, %._crit_edge.i.i.i, %_ZNSt3mapISt10type_indexSt8functionIFfRKN3gmx3AnyEEESt4lessIS0_ESaISt4pairIKS0_S7_EEE11lower_boundERSB_.exit, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit
-  %.08.lcssa.i.i.i11 = phi ptr [ %7, %_ZNSt3mapISt10type_indexSt8functionIFfRKN3gmx3AnyEEESt4lessIS0_ESaISt4pairIKS0_S7_EEE11lower_boundERSB_.exit ], [ %.19.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %.19.i.i.i, %._crit_edge.i.i.i ], [ %7, %2 ]
+  %.08.lcssa.i.i.i11 = phi ptr [ %.19.i.i.i, %_ZNSt3mapISt10type_indexSt8functionIFfRKN3gmx3AnyEEESt4lessIS0_ESaISt4pairIKS0_S7_EEE11lower_boundERSB_.exit ], [ %.19.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %.19.i.i.i, %._crit_edge.i.i.i ], [ %7, %2 ]
   store ptr %1, ptr %3, align 8, !alias.scope !166
   %37 = call ptr @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFfRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS0_EESL_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i11, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
   br label %38
@@ -22720,8 +22720,8 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit29:    ; preds = %79
   br label %92
 
 92:                                               ; preds = %84, %57, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24, %._crit_edge.i.i.i21, %69, %43, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit, %._crit_edge.i.i.i, %88, %61, %25
-  %.sroa.050.0 = phi ptr [ %27, %25 ], [ %63, %61 ], [ %90, %88 ], [ null, %._crit_edge.i.i.i ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %1, %43 ], [ null, %69 ], [ %1, %._crit_edge.i.i.i21 ], [ %1, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select, %57 ], [ %spec.select56, %84 ]
-  %.sroa.12.0 = phi ptr [ %28, %25 ], [ %64, %61 ], [ %91, %88 ], [ %11, %._crit_edge.i.i.i ], [ %11, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %1, %43 ], [ %1, %69 ], [ null, %._crit_edge.i.i.i21 ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select53, %57 ], [ %spec.select57, %84 ]
+  %.sroa.050.0 = phi ptr [ %27, %25 ], [ %63, %61 ], [ %90, %88 ], [ null, %._crit_edge.i.i.i ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %45, %43 ], [ null, %69 ], [ %1, %._crit_edge.i.i.i21 ], [ %1, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select, %57 ], [ %spec.select56, %84 ]
+  %.sroa.12.0 = phi ptr [ %28, %25 ], [ %64, %61 ], [ %91, %88 ], [ %11, %._crit_edge.i.i.i ], [ %11, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit ], [ %45, %43 ], [ %71, %69 ], [ null, %._crit_edge.i.i.i21 ], [ null, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit24 ], [ %spec.select53, %57 ], [ %spec.select57, %84 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.050.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -24101,9 +24101,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 .thread:                                          ; preds = %33
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #21
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -24111,9 +24111,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 39:                                               ; preds = %33
   tail call void @_ZdlPv(ptr noundef nonnull %23) #24
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35: ; preds = %39, %.thread
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %39, %.thread
   invoke void @__cxa_rethrow() #25
           to label %44 unwind label %37
 
@@ -24127,7 +24127,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   tail call void @__clang_call_terminate(ptr %43) #22
   unreachable
 
-44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   unreachable
 }
 
@@ -24476,9 +24476,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 .thread:                                          ; preds = %33
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #21
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -24486,9 +24486,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 39:                                               ; preds = %33
   tail call void @_ZdlPv(ptr noundef nonnull %23) #24
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35: ; preds = %39, %.thread
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %39, %.thread
   invoke void @__cxa_rethrow() #25
           to label %44 unwind label %37
 
@@ -24502,7 +24502,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   tail call void @__clang_call_terminate(ptr %43) #22
   unreachable
 
-44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   unreachable
 }
 

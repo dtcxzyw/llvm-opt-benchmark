@@ -496,7 +496,7 @@ define internal ptr @gss_create(ptr nocapture noundef readonly %0, ptr noundef %
   br label %.thread18
 
 .thread18:                                        ; preds = %17, %136, %133, %130, %14
-  %138 = phi ptr [ %131, %130 ], [ %15, %14 ], [ %134, %136 ], [ %131, %133 ], [ inttoptr (i64 -12 to ptr), %17 ]
+  %138 = phi ptr [ %131, %130 ], [ %15, %14 ], [ %134, %136 ], [ %134, %133 ], [ inttoptr (i64 -12 to ptr), %17 ]
   %139 = icmp ugt ptr %138, inttoptr (i64 -4096 to ptr)
   %140 = select i1 %139, i64 0, i64 24
   %141 = getelementptr inbounds i8, ptr %138, i64 %140
@@ -1813,7 +1813,7 @@ define internal fastcc ptr @gss_fill_context(ptr noundef %0, ptr noundef %1, ptr
   br i1 %94, label %.thread, label %95
 
 95:                                               ; preds = %91, %89
-  %96 = phi ptr [ %93, %91 ], [ %1, %89 ]
+  %96 = phi ptr [ %93, %91 ], [ %78, %89 ]
   %97 = load i64, ptr %19, align 8
   %98 = getelementptr inbounds i8, ptr %2, i64 48
   %99 = load i32, ptr %98, align 8
@@ -4954,7 +4954,7 @@ define internal fastcc ptr @gss_setup_upcall(ptr noundef %0, i32 %.88.val.32.val
 68:                                               ; preds = %65, %45, %43
   %69 = phi ptr [ %67, %65 ], [ %3, %45 ], [ %3, %43 ]
   %70 = icmp ugt ptr %69, inttoptr (i64 -4096 to ptr)
-  br i1 %70, label %147, label %71
+  br i1 %70, label %148, label %71
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds i8, ptr %69, i64 88
@@ -5047,54 +5047,55 @@ define internal fastcc ptr @gss_setup_upcall(ptr noundef %0, i32 %.88.val.32.val
 123:                                              ; preds = %109
   tail call void @_raw_spin_unlock(ptr noundef %74) #18
   %124 = icmp eq ptr %97, %69
-  br i1 %124, label %125, label %146
+  br i1 %124, label %125, label %147
 
 125:                                              ; preds = %.thread2, %123
-  %126 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %69, i32 1, ptr elementtype(i32) %69) #18, !srcloc !6
-  %127 = icmp eq i32 %126, 0
-  br i1 %127, label %132, label %128, !prof !7
+  %126 = phi ptr [ %69, %.thread2 ], [ %97, %123 ]
+  %127 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %126, i32 1, ptr elementtype(i32) %126) #18, !srcloc !6
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %133, label %129, !prof !7
 
-128:                                              ; preds = %125
-  %129 = add i32 %126, 1
-  %130 = or i32 %129, %126
-  %131 = icmp sgt i32 %130, -1
-  br i1 %131, label %134, label %132, !prof !8
+129:                                              ; preds = %125
+  %130 = add i32 %127, 1
+  %131 = or i32 %130, %127
+  %132 = icmp sgt i32 %131, -1
+  br i1 %132, label %135, label %133, !prof !8
 
-132:                                              ; preds = %128, %125
-  %133 = phi i32 [ 2, %125 ], [ 1, %128 ]
-  tail call void @refcount_warn_saturate(ptr noundef %69, i32 noundef %133) #18
-  br label %134
+133:                                              ; preds = %129, %125
+  %134 = phi i32 [ 2, %125 ], [ 1, %129 ]
+  tail call void @refcount_warn_saturate(ptr noundef %126, i32 noundef %134) #18
+  br label %135
 
-134:                                              ; preds = %132, %128
-  %135 = load ptr, ptr %72, align 8
-  %136 = getelementptr inbounds i8, ptr %69, i64 16
-  %137 = tail call i32 @rpc_queue_upcall(ptr noundef %135, ptr noundef %136) #18
-  %138 = icmp eq i32 %137, 0
-  br i1 %138, label %147, label %139
+135:                                              ; preds = %133, %129
+  %136 = load ptr, ptr %72, align 8
+  %137 = getelementptr inbounds i8, ptr %69, i64 16
+  %138 = tail call i32 @rpc_queue_upcall(ptr noundef %136, ptr noundef %137) #18
+  %139 = icmp eq i32 %138, 0
+  br i1 %139, label %148, label %140
 
-139:                                              ; preds = %134
+140:                                              ; preds = %135
   tail call fastcc void @gss_unhash_msg(ptr noundef %69)
-  %140 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %69, i32 -1, ptr elementtype(i32) %69) #18, !srcloc !10
-  %141 = icmp slt i32 %140, 2
-  br i1 %141, label %142, label %143, !prof !7
+  %141 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %126, i32 -1, ptr elementtype(i32) %126) #18, !srcloc !10
+  %142 = icmp slt i32 %141, 2
+  br i1 %142, label %143, label %144, !prof !7
 
-142:                                              ; preds = %139
-  tail call void @refcount_warn_saturate(ptr noundef %69, i32 noundef 4) #18
-  br label %143
+143:                                              ; preds = %140
+  tail call void @refcount_warn_saturate(ptr noundef %126, i32 noundef 4) #18
+  br label %144
 
-143:                                              ; preds = %142, %139
+144:                                              ; preds = %143, %140
   tail call fastcc void @gss_release_msg(ptr noundef %69)
-  %144 = sext i32 %137 to i64
-  %145 = inttoptr i64 %144 to ptr
-  br label %147
+  %145 = sext i32 %138 to i64
+  %146 = inttoptr i64 %145 to ptr
+  br label %148
 
-146:                                              ; preds = %123
+147:                                              ; preds = %123
   tail call fastcc void @gss_release_msg(ptr noundef %69)
-  br label %147
+  br label %148
 
-147:                                              ; preds = %146, %143, %134, %68
-  %148 = phi ptr [ %69, %68 ], [ %97, %146 ], [ %145, %143 ], [ %69, %134 ]
-  ret ptr %148
+148:                                              ; preds = %147, %144, %135, %68
+  %149 = phi ptr [ %69, %68 ], [ %97, %147 ], [ %146, %144 ], [ %126, %135 ]
+  ret ptr %149
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -1471,7 +1471,7 @@ _ZN7QStringD2Ev.exit168:                          ; preds = %_ZN7QStringD2Ev.exi
   br label %346
 
 346:                                              ; preds = %._crit_edge247, %._crit_edge
-  %347 = phi ptr [ %.pre248, %._crit_edge247 ], [ %.pre246, %._crit_edge ]
+  %347 = phi ptr [ %.pre248, %._crit_edge247 ], [ %.pre, %._crit_edge ]
   %348 = load ptr, ptr %335, align 8
   %.not4.i.i.i.i = icmp eq ptr %347, %348
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIP7QStringS0_EvT_S2_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i

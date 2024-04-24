@@ -10652,7 +10652,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParamete
 
 49:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
   %.sroa.050.076 = phi ptr [ %45, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
-  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.050.076, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
+  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %50 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
   %51 = load ptr, ptr %46, align 8
   %52 = load ptr, ptr %47, align 8
@@ -10770,26 +10770,27 @@ _ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_25HarmonicBondTypeParameterEEE
   br label %_ZNSt6vectorISt5tupleIJN5nblib23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEmEESaIS5_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_25HarmonicBondTypeParameterEEESaIS3_EE9push_backERKS3_.exit
-  %.not71 = icmp eq ptr %.sroa.050.076, %scevgep.i.i.i.i.i
+  %.sroa.051.1.lcssa = phi ptr [ %.sroa.051.075, %_ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_25HarmonicBondTypeParameterEEESaIS3_EE9push_backERKS3_.exit ], [ %92, %.lr.ph ]
+  %.not71 = icmp eq ptr %.sroa.051.1.lcssa, %scevgep.i.i.i.i.i
   br i1 %.not71, label %._crit_edge78, label %96
 
 96:                                               ; preds = %._crit_edge
-  %97 = ptrtoint ptr %.sroa.050.076 to i64
+  %97 = ptrtoint ptr %.sroa.051.1.lcssa to i64
   %98 = sub i64 %48, %97
   %99 = ashr exact i64 %98, 4
   %100 = icmp sgt i64 %99, 0
   br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 8
-  %102 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 12
+  %101 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 8
+  %102 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 12
   %103 = load float, ptr %101, align 4
   %104 = load float, ptr %102, align 4
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_25HarmonicBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.014.i.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_25HarmonicBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
-  %.sroa.011.013.i.i = phi ptr [ %.sroa.050.076, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_25HarmonicBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
+  %.sroa.011.013.i.i = phi ptr [ %.sroa.051.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_25HarmonicBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
   %105 = lshr i64 %.014.i.i, 1
   %106 = getelementptr inbounds %"class.std::tuple.502", ptr %.sroa.011.013.i.i, i64 %105
   %107 = getelementptr inbounds i8, ptr %106, i64 8
@@ -10820,7 +10821,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %118, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, !llvm.loop !80
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_25HarmonicBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %96
-  %.sroa.050.1 = phi ptr [ %.sroa.050.076, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_25HarmonicBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
+  %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_25HarmonicBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
   br i1 %.not71, label %._crit_edge78, label %49, !llvm.loop !81
 
 ._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
@@ -12662,7 +12663,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondType
 
 49:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
   %.sroa.050.076 = phi ptr [ %45, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
-  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.050.076, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
+  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %50 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
   %51 = load ptr, ptr %46, align 8
   %52 = load ptr, ptr %47, align 8
@@ -12780,26 +12781,27 @@ _ZNSt6vectorIN5nblib11G96BondTypeESaIS1_EE9push_backERKS1_.exit: ; preds = %53, 
   br label %_ZNSt6vectorISt5tupleIJN5nblib11G96BondTypeEmEESaIS3_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib11G96BondTypeESaIS1_EE9push_backERKS1_.exit
-  %.not71 = icmp eq ptr %.sroa.050.076, %scevgep.i.i.i.i.i
+  %.sroa.051.1.lcssa = phi ptr [ %.sroa.051.075, %_ZNSt6vectorIN5nblib11G96BondTypeESaIS1_EE9push_backERKS1_.exit ], [ %92, %.lr.ph ]
+  %.not71 = icmp eq ptr %.sroa.051.1.lcssa, %scevgep.i.i.i.i.i
   br i1 %.not71, label %._crit_edge78, label %96
 
 96:                                               ; preds = %._crit_edge
-  %97 = ptrtoint ptr %.sroa.050.076 to i64
+  %97 = ptrtoint ptr %.sroa.051.1.lcssa to i64
   %98 = sub i64 %48, %97
   %99 = ashr exact i64 %98, 4
   %100 = icmp sgt i64 %99, 0
   br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 8
-  %102 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 12
+  %101 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 8
+  %102 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 12
   %103 = load float, ptr %101, align 4
   %104 = load float, ptr %102, align 4
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_11G96BondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.014.i.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_11G96BondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  %.sroa.011.013.i.i = phi ptr [ %.sroa.050.076, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_11G96BondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.011.013.i.i = phi ptr [ %.sroa.051.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_11G96BondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   %105 = lshr i64 %.014.i.i, 1
   %106 = getelementptr inbounds %"class.std::tuple.539", ptr %.sroa.011.013.i.i, i64 %105
   %107 = getelementptr inbounds i8, ptr %106, i64 8
@@ -12830,7 +12832,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %118, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, !llvm.loop !102
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_11G96BondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %96
-  %.sroa.050.1 = phi ptr [ %.sroa.050.076, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_11G96BondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_11G96BondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   br i1 %.not71, label %._crit_edge78, label %49, !llvm.loop !103
 
 ._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
@@ -14570,7 +14572,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTy
 
 47:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
   %.sroa.049.076 = phi ptr [ %43, %.lr.ph77 ], [ %.sroa.049.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
-  %.sroa.050.075 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.049.076, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
+  %.sroa.050.075 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.050.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %48 = getelementptr inbounds i8, ptr %.sroa.050.075, i64 8
   %49 = load ptr, ptr %44, align 8
   %50 = load ptr, ptr %45, align 8
@@ -14685,20 +14687,21 @@ _ZNSt6vectorIN5nblib13CubicBondTypeESaIS1_EE9push_backERKS1_.exit: ; preds = %51
   br label %_ZNSt6vectorISt5tupleIJN5nblib13CubicBondTypeEmEESaIS3_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib13CubicBondTypeESaIS1_EE9push_backERKS1_.exit
-  %.not71 = icmp eq ptr %.sroa.049.076, %35
+  %.sroa.050.1.lcssa = phi ptr [ %.sroa.050.075, %_ZNSt6vectorIN5nblib13CubicBondTypeESaIS1_EE9push_backERKS1_.exit ], [ %87, %.lr.ph ]
+  %.not71 = icmp eq ptr %.sroa.050.1.lcssa, %35
   br i1 %.not71, label %._crit_edge78, label %91
 
 91:                                               ; preds = %._crit_edge
-  %92 = ptrtoint ptr %.sroa.049.076 to i64
+  %92 = ptrtoint ptr %.sroa.050.1.lcssa to i64
   %93 = sub i64 %46, %92
   %94 = icmp sgt i64 %93, 0
   br i1 %94, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %91
   %95 = udiv exact i64 %93, 24
-  %96 = getelementptr inbounds i8, ptr %.sroa.049.076, i64 8
-  %97 = getelementptr inbounds i8, ptr %.sroa.049.076, i64 12
-  %98 = getelementptr inbounds i8, ptr %.sroa.049.076, i64 16
+  %96 = getelementptr inbounds i8, ptr %.sroa.050.1.lcssa, i64 8
+  %97 = getelementptr inbounds i8, ptr %.sroa.050.1.lcssa, i64 12
+  %98 = getelementptr inbounds i8, ptr %.sroa.050.1.lcssa, i64 16
   %99 = load float, ptr %96, align 4
   %100 = load float, ptr %97, align 4
   %101 = load float, ptr %98, align 4
@@ -14706,7 +14709,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmE
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CubicBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.015.i.i = phi i64 [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CubicBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  %.sroa.011.014.i.i = phi ptr [ %.sroa.049.076, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CubicBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.011.014.i.i = phi ptr [ %.sroa.050.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CubicBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   %102 = lshr i64 %.015.i.i, 1
   %103 = getelementptr inbounds %"class.std::tuple.568", ptr %.sroa.011.014.i.i, i64 %102
   %104 = getelementptr inbounds i8, ptr %103, i64 8
@@ -14747,7 +14750,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %121, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, !llvm.loop !124
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CubicBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %91
-  %.sroa.049.1 = phi ptr [ %.sroa.049.076, %91 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CubicBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.049.1 = phi ptr [ %.sroa.050.1.lcssa, %91 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CubicBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   br i1 %.not71, label %._crit_edge78, label %47, !llvm.loop !125
 
 ._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
@@ -16774,7 +16777,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTy
 
 47:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
   %.sroa.049.076 = phi ptr [ %43, %.lr.ph77 ], [ %.sroa.049.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
-  %.sroa.050.075 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.049.076, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
+  %.sroa.050.075 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.050.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %48 = getelementptr inbounds i8, ptr %.sroa.050.075, i64 8
   %49 = load ptr, ptr %44, align 8
   %50 = load ptr, ptr %45, align 8
@@ -16889,20 +16892,21 @@ _ZNSt6vectorIN5nblib13MorseBondTypeESaIS1_EE9push_backERKS1_.exit: ; preds = %51
   br label %_ZNSt6vectorISt5tupleIJN5nblib13MorseBondTypeEmEESaIS3_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib13MorseBondTypeESaIS1_EE9push_backERKS1_.exit
-  %.not71 = icmp eq ptr %.sroa.049.076, %35
+  %.sroa.050.1.lcssa = phi ptr [ %.sroa.050.075, %_ZNSt6vectorIN5nblib13MorseBondTypeESaIS1_EE9push_backERKS1_.exit ], [ %87, %.lr.ph ]
+  %.not71 = icmp eq ptr %.sroa.050.1.lcssa, %35
   br i1 %.not71, label %._crit_edge78, label %91
 
 91:                                               ; preds = %._crit_edge
-  %92 = ptrtoint ptr %.sroa.049.076 to i64
+  %92 = ptrtoint ptr %.sroa.050.1.lcssa to i64
   %93 = sub i64 %46, %92
   %94 = icmp sgt i64 %93, 0
   br i1 %94, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %91
   %95 = udiv exact i64 %93, 24
-  %96 = getelementptr inbounds i8, ptr %.sroa.049.076, i64 8
-  %97 = getelementptr inbounds i8, ptr %.sroa.049.076, i64 12
-  %98 = getelementptr inbounds i8, ptr %.sroa.049.076, i64 16
+  %96 = getelementptr inbounds i8, ptr %.sroa.050.1.lcssa, i64 8
+  %97 = getelementptr inbounds i8, ptr %.sroa.050.1.lcssa, i64 12
+  %98 = getelementptr inbounds i8, ptr %.sroa.050.1.lcssa, i64 16
   %99 = load float, ptr %96, align 4
   %100 = load float, ptr %97, align 4
   %101 = load float, ptr %98, align 4
@@ -16910,7 +16914,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmE
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13MorseBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.015.i.i = phi i64 [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13MorseBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  %.sroa.011.014.i.i = phi ptr [ %.sroa.049.076, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13MorseBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.011.014.i.i = phi ptr [ %.sroa.050.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13MorseBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   %102 = lshr i64 %.015.i.i, 1
   %103 = getelementptr inbounds %"class.std::tuple.602", ptr %.sroa.011.014.i.i, i64 %102
   %104 = getelementptr inbounds i8, ptr %103, i64 8
@@ -16951,7 +16955,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %121, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, !llvm.loop !146
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13MorseBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %91
-  %.sroa.049.1 = phi ptr [ %.sroa.049.076, %91 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13MorseBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.049.1 = phi ptr [ %.sroa.050.1.lcssa, %91 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13MorseBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   br i1 %.not71, label %._crit_edge78, label %47, !llvm.loop !147
 
 ._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
@@ -18964,7 +18968,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParamete
 
 49:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
   %.sroa.050.076 = phi ptr [ %45, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
-  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.050.076, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
+  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %50 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
   %51 = load ptr, ptr %46, align 8
   %52 = load ptr, ptr %47, align 8
@@ -19082,26 +19086,27 @@ _ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_21FENEBondTypeParameterEEESaIS
   br label %_ZNSt6vectorISt5tupleIJN5nblib23TwoParameterInteractionINS1_21FENEBondTypeParameterEEEmEESaIS5_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_21FENEBondTypeParameterEEESaIS3_EE9push_backERKS3_.exit
-  %.not71 = icmp eq ptr %.sroa.050.076, %scevgep.i.i.i.i.i
+  %.sroa.051.1.lcssa = phi ptr [ %.sroa.051.075, %_ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_21FENEBondTypeParameterEEESaIS3_EE9push_backERKS3_.exit ], [ %92, %.lr.ph ]
+  %.not71 = icmp eq ptr %.sroa.051.1.lcssa, %scevgep.i.i.i.i.i
   br i1 %.not71, label %._crit_edge78, label %96
 
 96:                                               ; preds = %._crit_edge
-  %97 = ptrtoint ptr %.sroa.050.076 to i64
+  %97 = ptrtoint ptr %.sroa.051.1.lcssa to i64
   %98 = sub i64 %48, %97
   %99 = ashr exact i64 %98, 4
   %100 = icmp sgt i64 %99, 0
   br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 8
-  %102 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 12
+  %101 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 8
+  %102 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 12
   %103 = load float, ptr %101, align 4
   %104 = load float, ptr %102, align 4
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_21FENEBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.014.i.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_21FENEBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
-  %.sroa.011.013.i.i = phi ptr [ %.sroa.050.076, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_21FENEBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
+  %.sroa.011.013.i.i = phi ptr [ %.sroa.051.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_21FENEBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
   %105 = lshr i64 %.014.i.i, 1
   %106 = getelementptr inbounds %"class.std::tuple.634", ptr %.sroa.011.013.i.i, i64 %105
   %107 = getelementptr inbounds i8, ptr %106, i64 8
@@ -19132,7 +19137,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %118, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, !llvm.loop !167
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_21FENEBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %96
-  %.sroa.050.1 = phi ptr [ %.sroa.050.076, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_21FENEBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
+  %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_21FENEBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
   br i1 %.not71, label %._crit_edge78, label %49, !llvm.loop !168
 
 ._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
@@ -20858,7 +20863,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParamete
 
 49:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
   %.sroa.050.076 = phi ptr [ %45, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
-  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.050.076, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
+  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %50 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
   %51 = load ptr, ptr %46, align 8
   %52 = load ptr, ptr %47, align 8
@@ -20976,26 +20981,27 @@ _ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_38HalfAttractiveQuarticBondTyp
   br label %_ZNSt6vectorISt5tupleIJN5nblib23TwoParameterInteractionINS1_38HalfAttractiveQuarticBondTypeParameterEEEmEESaIS5_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_38HalfAttractiveQuarticBondTypeParameterEEESaIS3_EE9push_backERKS3_.exit
-  %.not71 = icmp eq ptr %.sroa.050.076, %scevgep.i.i.i.i.i
+  %.sroa.051.1.lcssa = phi ptr [ %.sroa.051.075, %_ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_38HalfAttractiveQuarticBondTypeParameterEEESaIS3_EE9push_backERKS3_.exit ], [ %92, %.lr.ph ]
+  %.not71 = icmp eq ptr %.sroa.051.1.lcssa, %scevgep.i.i.i.i.i
   br i1 %.not71, label %._crit_edge78, label %96
 
 96:                                               ; preds = %._crit_edge
-  %97 = ptrtoint ptr %.sroa.050.076 to i64
+  %97 = ptrtoint ptr %.sroa.051.1.lcssa to i64
   %98 = sub i64 %48, %97
   %99 = ashr exact i64 %98, 4
   %100 = icmp sgt i64 %99, 0
   br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 8
-  %102 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 12
+  %101 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 8
+  %102 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 12
   %103 = load float, ptr %101, align 4
   %104 = load float, ptr %102, align 4
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_38HalfAttractiveQuarticBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.014.i.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_38HalfAttractiveQuarticBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
-  %.sroa.011.013.i.i = phi ptr [ %.sroa.050.076, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_38HalfAttractiveQuarticBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
+  %.sroa.011.013.i.i = phi ptr [ %.sroa.051.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_38HalfAttractiveQuarticBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
   %105 = lshr i64 %.014.i.i, 1
   %106 = getelementptr inbounds %"class.std::tuple.664", ptr %.sroa.011.013.i.i, i64 %105
   %107 = getelementptr inbounds i8, ptr %106, i64 8
@@ -21026,7 +21032,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %118, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, !llvm.loop !188
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_38HalfAttractiveQuarticBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %96
-  %.sroa.050.1 = phi ptr [ %.sroa.050.076, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_38HalfAttractiveQuarticBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
+  %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_38HalfAttractiveQuarticBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
   br i1 %.not71, label %._crit_edge78, label %49, !llvm.loop !189
 
 ._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
@@ -22760,7 +22766,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeE
 
 49:                                               ; preds = %.lr.ph78, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
   %.sroa.051.077 = phi ptr [ %45, %.lr.ph78 ], [ %.sroa.051.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
-  %.sroa.052.076 = phi ptr [ %44, %.lr.ph78 ], [ %.sroa.051.077, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
+  %.sroa.052.076 = phi ptr [ %44, %.lr.ph78 ], [ %.sroa.052.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %50 = getelementptr inbounds i8, ptr %.sroa.052.076, i64 8
   %51 = load ptr, ptr %46, align 8
   %52 = load ptr, ptr %47, align 8
@@ -22886,26 +22892,27 @@ _ZNSt6vectorIN5nblib10PairLJTypeESaIS1_EE9push_backERKS1_.exit: ; preds = %53, %
   br label %_ZNSt6vectorISt5tupleIJN5nblib10PairLJTypeEmEESaIS3_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib10PairLJTypeESaIS1_EE9push_backERKS1_.exit
-  %.not72 = icmp eq ptr %.sroa.051.077, %scevgep.i.i.i.i.i
+  %.sroa.052.1.lcssa = phi ptr [ %.sroa.052.076, %_ZNSt6vectorIN5nblib10PairLJTypeESaIS1_EE9push_backERKS1_.exit ], [ %92, %.lr.ph ]
+  %.not72 = icmp eq ptr %.sroa.052.1.lcssa, %scevgep.i.i.i.i.i
   br i1 %.not72, label %._crit_edge79, label %96
 
 96:                                               ; preds = %._crit_edge
-  %97 = ptrtoint ptr %.sroa.051.077 to i64
+  %97 = ptrtoint ptr %.sroa.052.1.lcssa to i64
   %98 = sub i64 %48, %97
   %99 = ashr exact i64 %98, 4
   %100 = icmp sgt i64 %99, 0
   br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %.sroa.051.077, i64 8
-  %102 = getelementptr inbounds i8, ptr %.sroa.051.077, i64 12
+  %101 = getelementptr inbounds i8, ptr %.sroa.052.1.lcssa, i64 8
+  %102 = getelementptr inbounds i8, ptr %.sroa.052.1.lcssa, i64 12
   %103 = load float, ptr %101, align 4
   %104 = load float, ptr %102, align 4
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_10PairLJTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.014.i.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_10PairLJTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  %.sroa.011.013.i.i = phi ptr [ %.sroa.051.077, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_10PairLJTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.011.013.i.i = phi ptr [ %.sroa.052.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_10PairLJTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   %105 = lshr i64 %.014.i.i, 1
   %106 = getelementptr inbounds %"class.std::tuple.693", ptr %.sroa.011.013.i.i, i64 %105
   %107 = getelementptr inbounds i8, ptr %106, i64 8
@@ -22936,7 +22943,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %118, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, !llvm.loop !220
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_10PairLJTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %96
-  %.sroa.051.1 = phi ptr [ %.sroa.051.077, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_10PairLJTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.051.1 = phi ptr [ %.sroa.052.1.lcssa, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_10PairLJTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   br i1 %.not72, label %._crit_edge79, label %49, !llvm.loop !221
 
 ._crit_edge79:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
@@ -24665,7 +24672,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleIntera
 
 49:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
   %.sroa.050.076 = phi ptr [ %45, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
-  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.050.076, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
+  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %50 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
   %51 = load ptr, ptr %46, align 8
   %52 = load ptr, ptr %47, align 8
@@ -24783,26 +24790,27 @@ _ZNSt6vectorIN5nblib20AngleInteractionTypeINS0_22HarmonicAngleParameterEEESaIS3_
   br label %_ZNSt6vectorISt5tupleIJN5nblib20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEmEESaIS5_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib20AngleInteractionTypeINS0_22HarmonicAngleParameterEEESaIS3_EE9push_backERKS3_.exit
-  %.not71 = icmp eq ptr %.sroa.050.076, %scevgep.i.i.i.i.i
+  %.sroa.051.1.lcssa = phi ptr [ %.sroa.051.075, %_ZNSt6vectorIN5nblib20AngleInteractionTypeINS0_22HarmonicAngleParameterEEESaIS3_EE9push_backERKS3_.exit ], [ %92, %.lr.ph ]
+  %.not71 = icmp eq ptr %.sroa.051.1.lcssa, %scevgep.i.i.i.i.i
   br i1 %.not71, label %._crit_edge78, label %96
 
 96:                                               ; preds = %._crit_edge
-  %97 = ptrtoint ptr %.sroa.050.076 to i64
+  %97 = ptrtoint ptr %.sroa.051.1.lcssa to i64
   %98 = sub i64 %48, %97
   %99 = ashr exact i64 %98, 4
   %100 = icmp sgt i64 %99, 0
   br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 8
-  %102 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 12
+  %101 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 8
+  %102 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 12
   %103 = load float, ptr %101, align 4
   %104 = load float, ptr %102, align 4
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_20AngleInteractionTypeINS2_22HarmonicAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.014.i.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_20AngleInteractionTypeINS2_22HarmonicAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
-  %.sroa.011.013.i.i = phi ptr [ %.sroa.050.076, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_20AngleInteractionTypeINS2_22HarmonicAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
+  %.sroa.011.013.i.i = phi ptr [ %.sroa.051.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_20AngleInteractionTypeINS2_22HarmonicAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
   %105 = lshr i64 %.014.i.i, 1
   %106 = getelementptr inbounds %"class.std::tuple.729", ptr %.sroa.011.013.i.i, i64 %105
   %107 = getelementptr inbounds i8, ptr %106, i64 8
@@ -24833,7 +24841,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %118, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, !llvm.loop !242
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_20AngleInteractionTypeINS2_22HarmonicAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %96
-  %.sroa.050.1 = phi ptr [ %.sroa.050.076, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_20AngleInteractionTypeINS2_22HarmonicAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
+  %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_20AngleInteractionTypeINS2_22HarmonicAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
   br i1 %.not71, label %._crit_edge78, label %49, !llvm.loop !243
 
 ._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
@@ -26678,7 +26686,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParam
 
 49:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
   %.sroa.050.076 = phi ptr [ %45, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
-  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.050.076, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
+  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %50 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
   %51 = load ptr, ptr %46, align 8
   %52 = load ptr, ptr %47, align 8
@@ -26796,26 +26804,27 @@ _ZNSt6vectorIN5nblib16CosineParamAngleINS0_17G96AngleParameterEEESaIS3_EE9push_b
   br label %_ZNSt6vectorISt5tupleIJN5nblib16CosineParamAngleINS1_17G96AngleParameterEEEmEESaIS5_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib16CosineParamAngleINS0_17G96AngleParameterEEESaIS3_EE9push_backERKS3_.exit
-  %.not71 = icmp eq ptr %.sroa.050.076, %scevgep.i.i.i.i.i
+  %.sroa.051.1.lcssa = phi ptr [ %.sroa.051.075, %_ZNSt6vectorIN5nblib16CosineParamAngleINS0_17G96AngleParameterEEESaIS3_EE9push_backERKS3_.exit ], [ %92, %.lr.ph ]
+  %.not71 = icmp eq ptr %.sroa.051.1.lcssa, %scevgep.i.i.i.i.i
   br i1 %.not71, label %._crit_edge78, label %96
 
 96:                                               ; preds = %._crit_edge
-  %97 = ptrtoint ptr %.sroa.050.076 to i64
+  %97 = ptrtoint ptr %.sroa.051.1.lcssa to i64
   %98 = sub i64 %48, %97
   %99 = ashr exact i64 %98, 4
   %100 = icmp sgt i64 %99, 0
   br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 8
-  %102 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 12
+  %101 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 8
+  %102 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 12
   %103 = load float, ptr %101, align 4
   %104 = load float, ptr %102, align 4
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_17G96AngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.014.i.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_17G96AngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
-  %.sroa.011.013.i.i = phi ptr [ %.sroa.050.076, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_17G96AngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
+  %.sroa.011.013.i.i = phi ptr [ %.sroa.051.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_17G96AngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
   %105 = lshr i64 %.014.i.i, 1
   %106 = getelementptr inbounds %"class.std::tuple.762", ptr %.sroa.011.013.i.i, i64 %105
   %107 = getelementptr inbounds i8, ptr %106, i64 8
@@ -26846,7 +26855,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %118, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, !llvm.loop !264
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_17G96AngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %96
-  %.sroa.050.1 = phi ptr [ %.sroa.050.076, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_17G96AngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
+  %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_17G96AngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
   br i1 %.not71, label %._crit_edge78, label %49, !llvm.loop !265
 
 ._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
@@ -28603,7 +28612,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngl
 
 49:                                               ; preds = %.lr.ph78, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
   %.sroa.051.077 = phi ptr [ %45, %.lr.ph78 ], [ %.sroa.051.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
-  %.sroa.052.076 = phi ptr [ %44, %.lr.ph78 ], [ %.sroa.051.077, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
+  %.sroa.052.076 = phi ptr [ %44, %.lr.ph78 ], [ %.sroa.052.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %50 = getelementptr inbounds i8, ptr %.sroa.052.076, i64 8
   %51 = load ptr, ptr %46, align 8
   %52 = load ptr, ptr %47, align 8
@@ -28723,25 +28732,26 @@ _ZNSt6vectorIN5nblib12QuarticAngleESaIS1_EE9push_backERKS1_.exit: ; preds = %53,
   br label %_ZNSt6vectorISt5tupleIJN5nblib12QuarticAngleEmEESaIS3_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib12QuarticAngleESaIS1_EE9push_backERKS1_.exit
-  %.not72 = icmp eq ptr %.sroa.051.077, %scevgep.i.i.i.i.i
+  %.sroa.052.1.lcssa = phi ptr [ %.sroa.052.076, %_ZNSt6vectorIN5nblib12QuarticAngleESaIS1_EE9push_backERKS1_.exit ], [ %88, %.lr.ph ]
+  %.not72 = icmp eq ptr %.sroa.052.1.lcssa, %scevgep.i.i.i.i.i
   br i1 %.not72, label %._crit_edge79, label %92
 
 92:                                               ; preds = %._crit_edge
-  %93 = ptrtoint ptr %.sroa.051.077 to i64
+  %93 = ptrtoint ptr %.sroa.052.1.lcssa to i64
   %94 = sub i64 %48, %93
   %95 = ashr exact i64 %94, 5
   %96 = icmp sgt i64 %95, 0
   br i1 %96, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %.sroa.051.077, i64 8
-  %98 = getelementptr inbounds i8, ptr %.sroa.051.077, i64 28
+  %97 = getelementptr inbounds i8, ptr %.sroa.052.1.lcssa, i64 8
+  %98 = getelementptr inbounds i8, ptr %.sroa.052.1.lcssa, i64 28
   %.sroa.0.0.copyload.i.i.i.i.i.i = load float, ptr %98, align 4
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i: ; preds = %112, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.013.i.i = phi i64 [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %112 ]
-  %.sroa.011.012.i.i = phi ptr [ %.sroa.051.077, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %112 ]
+  %.sroa.011.012.i.i = phi ptr [ %.sroa.052.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %112 ]
   %99 = lshr i64 %.013.i.i, 1
   %100 = getelementptr inbounds %"class.std::tuple.793", ptr %.sroa.011.012.i.i, i64 %99
   %101 = getelementptr inbounds i8, ptr %100, i64 8
@@ -28782,7 +28792,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %113, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, !llvm.loop !295
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %112, %92
-  %.sroa.051.1 = phi ptr [ %.sroa.051.077, %92 ], [ %.sroa.011.1.i.i, %112 ]
+  %.sroa.051.1 = phi ptr [ %.sroa.052.1.lcssa, %92 ], [ %.sroa.011.1.i.i, %112 ]
   br i1 %.not72, label %._crit_edge79, label %49, !llvm.loop !296
 
 ._crit_edge79:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
@@ -30791,7 +30801,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParam
 
 49:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
   %.sroa.050.076 = phi ptr [ %45, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
-  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.050.076, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
+  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %50 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
   %51 = load ptr, ptr %46, align 8
   %52 = load ptr, ptr %47, align 8
@@ -30909,26 +30919,27 @@ _ZNSt6vectorIN5nblib16CosineParamAngleINS0_24RestrictedAngleParameterEEESaIS3_EE
   br label %_ZNSt6vectorISt5tupleIJN5nblib16CosineParamAngleINS1_24RestrictedAngleParameterEEEmEESaIS5_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib16CosineParamAngleINS0_24RestrictedAngleParameterEEESaIS3_EE9push_backERKS3_.exit
-  %.not71 = icmp eq ptr %.sroa.050.076, %scevgep.i.i.i.i.i
+  %.sroa.051.1.lcssa = phi ptr [ %.sroa.051.075, %_ZNSt6vectorIN5nblib16CosineParamAngleINS0_24RestrictedAngleParameterEEESaIS3_EE9push_backERKS3_.exit ], [ %92, %.lr.ph ]
+  %.not71 = icmp eq ptr %.sroa.051.1.lcssa, %scevgep.i.i.i.i.i
   br i1 %.not71, label %._crit_edge78, label %96
 
 96:                                               ; preds = %._crit_edge
-  %97 = ptrtoint ptr %.sroa.050.076 to i64
+  %97 = ptrtoint ptr %.sroa.051.1.lcssa to i64
   %98 = sub i64 %48, %97
   %99 = ashr exact i64 %98, 4
   %100 = icmp sgt i64 %99, 0
   br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 8
-  %102 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 12
+  %101 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 8
+  %102 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 12
   %103 = load float, ptr %101, align 4
   %104 = load float, ptr %102, align 4
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_24RestrictedAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.014.i.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_24RestrictedAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
-  %.sroa.011.013.i.i = phi ptr [ %.sroa.050.076, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_24RestrictedAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
+  %.sroa.011.013.i.i = phi ptr [ %.sroa.051.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_24RestrictedAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
   %105 = lshr i64 %.014.i.i, 1
   %106 = getelementptr inbounds %"class.std::tuple.824", ptr %.sroa.011.013.i.i, i64 %105
   %107 = getelementptr inbounds i8, ptr %106, i64 8
@@ -30959,7 +30970,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %118, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, !llvm.loop !317
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_24RestrictedAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %96
-  %.sroa.050.1 = phi ptr [ %.sroa.050.076, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_24RestrictedAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
+  %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_24RestrictedAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
   br i1 %.not71, label %._crit_edge78, label %49, !llvm.loop !318
 
 ._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
@@ -32709,7 +32720,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBo
 
 47:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
   %.sroa.049.076 = phi ptr [ %43, %.lr.ph77 ], [ %.sroa.049.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
-  %.sroa.050.075 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.049.076, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
+  %.sroa.050.075 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.050.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %48 = getelementptr inbounds i8, ptr %.sroa.050.075, i64 8
   %49 = load ptr, ptr %44, align 8
   %50 = load ptr, ptr %45, align 8
@@ -32824,20 +32835,21 @@ _ZNSt6vectorIN5nblib13CrossBondBondESaIS1_EE9push_backERKS1_.exit: ; preds = %51
   br label %_ZNSt6vectorISt5tupleIJN5nblib13CrossBondBondEmEESaIS3_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib13CrossBondBondESaIS1_EE9push_backERKS1_.exit
-  %.not71 = icmp eq ptr %.sroa.049.076, %35
+  %.sroa.050.1.lcssa = phi ptr [ %.sroa.050.075, %_ZNSt6vectorIN5nblib13CrossBondBondESaIS1_EE9push_backERKS1_.exit ], [ %87, %.lr.ph ]
+  %.not71 = icmp eq ptr %.sroa.050.1.lcssa, %35
   br i1 %.not71, label %._crit_edge78, label %91
 
 91:                                               ; preds = %._crit_edge
-  %92 = ptrtoint ptr %.sroa.049.076 to i64
+  %92 = ptrtoint ptr %.sroa.050.1.lcssa to i64
   %93 = sub i64 %46, %92
   %94 = icmp sgt i64 %93, 0
   br i1 %94, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %91
   %95 = udiv exact i64 %93, 24
-  %96 = getelementptr inbounds i8, ptr %.sroa.049.076, i64 8
-  %97 = getelementptr inbounds i8, ptr %.sroa.049.076, i64 12
-  %98 = getelementptr inbounds i8, ptr %.sroa.049.076, i64 16
+  %96 = getelementptr inbounds i8, ptr %.sroa.050.1.lcssa, i64 8
+  %97 = getelementptr inbounds i8, ptr %.sroa.050.1.lcssa, i64 12
+  %98 = getelementptr inbounds i8, ptr %.sroa.050.1.lcssa, i64 16
   %99 = load float, ptr %96, align 4
   %100 = load float, ptr %97, align 4
   %101 = load float, ptr %98, align 4
@@ -32845,7 +32857,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmE
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CrossBondBondEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.015.i.i = phi i64 [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CrossBondBondEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  %.sroa.011.014.i.i = phi ptr [ %.sroa.049.076, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CrossBondBondEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.011.014.i.i = phi ptr [ %.sroa.050.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CrossBondBondEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   %102 = lshr i64 %.015.i.i, 1
   %103 = getelementptr inbounds %"class.std::tuple.853", ptr %.sroa.011.014.i.i, i64 %102
   %104 = getelementptr inbounds i8, ptr %103, i64 8
@@ -32886,7 +32898,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %121, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, !llvm.loop !339
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CrossBondBondEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %91
-  %.sroa.049.1 = phi ptr [ %.sroa.049.076, %91 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CrossBondBondEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.049.1 = phi ptr [ %.sroa.050.1.lcssa, %91 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CrossBondBondEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   br i1 %.not71, label %._crit_edge78, label %47, !llvm.loop !340
 
 ._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
@@ -34919,7 +34931,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAn
 
 45:                                               ; preds = %.lr.ph76, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
   %.sroa.049.075 = phi ptr [ %41, %.lr.ph76 ], [ %.sroa.049.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
-  %.sroa.050.074 = phi ptr [ %40, %.lr.ph76 ], [ %.sroa.049.075, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
+  %.sroa.050.074 = phi ptr [ %40, %.lr.ph76 ], [ %.sroa.050.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %46 = getelementptr inbounds i8, ptr %.sroa.050.074, i64 8
   %47 = load ptr, ptr %42, align 8
   %48 = load ptr, ptr %43, align 8
@@ -35034,21 +35046,22 @@ _ZNSt6vectorIN5nblib14CrossBondAngleESaIS1_EE9push_backERKS1_.exit: ; preds = %4
   br label %_ZNSt6vectorISt5tupleIJN5nblib14CrossBondAngleEmEESaIS3_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib14CrossBondAngleESaIS1_EE9push_backERKS1_.exit
-  %.not70 = icmp eq ptr %.sroa.049.075, %scevgep.i.i.i.i.i
+  %.sroa.050.1.lcssa = phi ptr [ %.sroa.050.074, %_ZNSt6vectorIN5nblib14CrossBondAngleESaIS1_EE9push_backERKS1_.exit ], [ %85, %.lr.ph ]
+  %.not70 = icmp eq ptr %.sroa.050.1.lcssa, %scevgep.i.i.i.i.i
   br i1 %.not70, label %._crit_edge77, label %89
 
 89:                                               ; preds = %._crit_edge
-  %90 = ptrtoint ptr %.sroa.049.075 to i64
+  %90 = ptrtoint ptr %.sroa.050.1.lcssa to i64
   %91 = sub i64 %44, %90
   %92 = icmp sgt i64 %91, 0
   br i1 %92, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %89
   %93 = udiv exact i64 %91, 24
-  %94 = getelementptr inbounds i8, ptr %.sroa.049.075, i64 8
-  %95 = getelementptr inbounds i8, ptr %.sroa.049.075, i64 12
-  %96 = getelementptr inbounds i8, ptr %.sroa.049.075, i64 16
-  %97 = getelementptr inbounds i8, ptr %.sroa.049.075, i64 20
+  %94 = getelementptr inbounds i8, ptr %.sroa.050.1.lcssa, i64 8
+  %95 = getelementptr inbounds i8, ptr %.sroa.050.1.lcssa, i64 12
+  %96 = getelementptr inbounds i8, ptr %.sroa.050.1.lcssa, i64 16
+  %97 = getelementptr inbounds i8, ptr %.sroa.050.1.lcssa, i64 20
   %98 = load float, ptr %94, align 4
   %99 = load float, ptr %95, align 4
   %100 = load float, ptr %96, align 4
@@ -35057,7 +35070,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEm
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14CrossBondAngleEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.015.i.i = phi i64 [ %93, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14CrossBondAngleEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  %.sroa.011.014.i.i = phi ptr [ %.sroa.049.075, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14CrossBondAngleEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.011.014.i.i = phi ptr [ %.sroa.050.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14CrossBondAngleEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   %102 = lshr i64 %.015.i.i, 1
   %103 = getelementptr inbounds %"class.std::tuple.884", ptr %.sroa.011.014.i.i, i64 %102
   %104 = getelementptr inbounds i8, ptr %103, i64 8
@@ -35108,7 +35121,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %127, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, !llvm.loop !360
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14CrossBondAngleEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %89
-  %.sroa.049.1 = phi ptr [ %.sroa.049.075, %89 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14CrossBondAngleEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.049.1 = phi ptr [ %.sroa.050.1.lcssa, %89 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14CrossBondAngleEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   br i1 %.not70, label %._crit_edge77, label %45, !llvm.loop !361
 
 ._crit_edge77:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
@@ -37191,7 +37204,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParamete
 
 49:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
   %.sroa.050.076 = phi ptr [ %45, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
-  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.050.076, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
+  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit ]
   %50 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
   %51 = load ptr, ptr %46, align 8
   %52 = load ptr, ptr %47, align 8
@@ -37309,26 +37322,27 @@ _ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_20LinearAngleParameterEEESaIS3
   br label %_ZNSt6vectorISt5tupleIJN5nblib23TwoParameterInteractionINS1_20LinearAngleParameterEEEmEESaIS5_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_20LinearAngleParameterEEESaIS3_EE9push_backERKS3_.exit
-  %.not71 = icmp eq ptr %.sroa.050.076, %scevgep.i.i.i.i.i
+  %.sroa.051.1.lcssa = phi ptr [ %.sroa.051.075, %_ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_20LinearAngleParameterEEESaIS3_EE9push_backERKS3_.exit ], [ %92, %.lr.ph ]
+  %.not71 = icmp eq ptr %.sroa.051.1.lcssa, %scevgep.i.i.i.i.i
   br i1 %.not71, label %._crit_edge78, label %96
 
 96:                                               ; preds = %._crit_edge
-  %97 = ptrtoint ptr %.sroa.050.076 to i64
+  %97 = ptrtoint ptr %.sroa.051.1.lcssa to i64
   %98 = sub i64 %48, %97
   %99 = ashr exact i64 %98, 4
   %100 = icmp sgt i64 %99, 0
   br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 8
-  %102 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 12
+  %101 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 8
+  %102 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 12
   %103 = load float, ptr %101, align 4
   %104 = load float, ptr %102, align 4
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_20LinearAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.014.i.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_20LinearAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
-  %.sroa.011.013.i.i = phi ptr [ %.sroa.050.076, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_20LinearAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
+  %.sroa.011.013.i.i = phi ptr [ %.sroa.051.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_20LinearAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
   %105 = lshr i64 %.014.i.i, 1
   %106 = getelementptr inbounds %"class.std::tuple.920", ptr %.sroa.011.013.i.i, i64 %105
   %107 = getelementptr inbounds i8, ptr %106, i64 8
@@ -37359,7 +37373,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %118, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, !llvm.loop !381
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_20LinearAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i, %96
-  %.sroa.050.1 = phi ptr [ %.sroa.050.076, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_20LinearAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
+  %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_20LinearAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclIKS8_IJS7_mEENS_17__normal_iteratorIPSQ_S9_ISQ_SaISQ_EEEEEEbRSC_SK_.exit.thread.i.i ]
   br i1 %.not71, label %._crit_edge78, label %49, !llvm.loop !382
 
 ._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESH_SH_SH_SR_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEES7_ZNS3_6detail30eliminateDuplicateInteractionsIS6_EES2_IJS9_ImSaImEES9_IT_SaISH_EEEERKSJ_EUlRKSH_RKT0_E_ESt4pairISH_SH_ESH_SH_SR_T1_.exit
@@ -39109,7 +39123,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihed
 
 47:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
   %.sroa.049.076 = phi ptr [ %43, %.lr.ph77 ], [ %.sroa.049.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
-  %.sroa.050.075 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.049.076, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
+  %.sroa.050.075 = phi ptr [ %42, %.lr.ph77 ], [ %.sroa.050.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %48 = getelementptr inbounds i8, ptr %.sroa.050.075, i64 8
   %49 = load ptr, ptr %44, align 8
   %50 = load ptr, ptr %45, align 8
@@ -39224,20 +39238,21 @@ _ZNSt6vectorIN5nblib14ProperDihedralESaIS1_EE9push_backERKS1_.exit: ; preds = %5
   br label %_ZNSt6vectorISt5tupleIJN5nblib14ProperDihedralEmEESaIS3_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib14ProperDihedralESaIS1_EE9push_backERKS1_.exit
-  %.not71 = icmp eq ptr %.sroa.049.076, %35
+  %.sroa.050.1.lcssa = phi ptr [ %.sroa.050.075, %_ZNSt6vectorIN5nblib14ProperDihedralESaIS1_EE9push_backERKS1_.exit ], [ %87, %.lr.ph ]
+  %.not71 = icmp eq ptr %.sroa.050.1.lcssa, %35
   br i1 %.not71, label %._crit_edge78, label %91
 
 91:                                               ; preds = %._crit_edge
-  %92 = ptrtoint ptr %.sroa.049.076 to i64
+  %92 = ptrtoint ptr %.sroa.050.1.lcssa to i64
   %93 = sub i64 %46, %92
   %94 = icmp sgt i64 %93, 0
   br i1 %94, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %91
   %95 = udiv exact i64 %93, 24
-  %96 = getelementptr inbounds i8, ptr %.sroa.049.076, i64 8
-  %97 = getelementptr inbounds i8, ptr %.sroa.049.076, i64 12
-  %98 = getelementptr inbounds i8, ptr %.sroa.049.076, i64 16
+  %96 = getelementptr inbounds i8, ptr %.sroa.050.1.lcssa, i64 8
+  %97 = getelementptr inbounds i8, ptr %.sroa.050.1.lcssa, i64 12
+  %98 = getelementptr inbounds i8, ptr %.sroa.050.1.lcssa, i64 16
   %99 = load float, ptr %96, align 4
   %100 = load float, ptr %97, align 4
   %101 = load i32, ptr %98, align 4
@@ -39245,7 +39260,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEm
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14ProperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.015.i.i = phi i64 [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14ProperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  %.sroa.011.014.i.i = phi ptr [ %.sroa.049.076, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14ProperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.011.014.i.i = phi ptr [ %.sroa.050.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14ProperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   %102 = lshr i64 %.015.i.i, 1
   %103 = getelementptr inbounds %"class.std::tuple.950", ptr %.sroa.011.014.i.i, i64 %102
   %104 = getelementptr inbounds i8, ptr %103, i64 8
@@ -39286,7 +39301,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %121, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, !llvm.loop !403
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14ProperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %91
-  %.sroa.049.1 = phi ptr [ %.sroa.049.076, %91 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14ProperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.049.1 = phi ptr [ %.sroa.050.1.lcssa, %91 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14ProperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   br i1 %.not71, label %._crit_edge78, label %47, !llvm.loop !404
 
 ._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
@@ -41426,7 +41441,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDih
 
 49:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
   %.sroa.050.076 = phi ptr [ %45, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
-  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.050.076, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
+  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %50 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
   %51 = load ptr, ptr %46, align 8
   %52 = load ptr, ptr %47, align 8
@@ -41544,26 +41559,27 @@ _ZNSt6vectorIN5nblib16ImproperDihedralESaIS1_EE9push_backERKS1_.exit: ; preds = 
   br label %_ZNSt6vectorISt5tupleIJN5nblib16ImproperDihedralEmEESaIS3_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib16ImproperDihedralESaIS1_EE9push_backERKS1_.exit
-  %.not71 = icmp eq ptr %.sroa.050.076, %scevgep.i.i.i.i.i
+  %.sroa.051.1.lcssa = phi ptr [ %.sroa.051.075, %_ZNSt6vectorIN5nblib16ImproperDihedralESaIS1_EE9push_backERKS1_.exit ], [ %92, %.lr.ph ]
+  %.not71 = icmp eq ptr %.sroa.051.1.lcssa, %scevgep.i.i.i.i.i
   br i1 %.not71, label %._crit_edge78, label %96
 
 96:                                               ; preds = %._crit_edge
-  %97 = ptrtoint ptr %.sroa.050.076 to i64
+  %97 = ptrtoint ptr %.sroa.051.1.lcssa to i64
   %98 = sub i64 %48, %97
   %99 = ashr exact i64 %98, 4
   %100 = icmp sgt i64 %99, 0
   br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 8
-  %102 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 12
+  %101 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 8
+  %102 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 12
   %103 = load float, ptr %101, align 4
   %104 = load float, ptr %102, align 4
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16ImproperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.014.i.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16ImproperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  %.sroa.011.013.i.i = phi ptr [ %.sroa.050.076, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16ImproperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.011.013.i.i = phi ptr [ %.sroa.051.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16ImproperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   %105 = lshr i64 %.014.i.i, 1
   %106 = getelementptr inbounds %"class.std::tuple.990", ptr %.sroa.011.013.i.i, i64 %105
   %107 = getelementptr inbounds i8, ptr %106, i64 8
@@ -41594,7 +41610,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %118, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, !llvm.loop !425
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16ImproperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %96
-  %.sroa.050.1 = phi ptr [ %.sroa.050.076, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16ImproperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %96 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16ImproperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   br i1 %.not71, label %._crit_edge78, label %49, !llvm.loop !426
 
 ._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
@@ -43354,7 +43370,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBel
 
 49:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
   %.sroa.050.076 = phi ptr [ %45, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
-  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.050.076, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
+  %.sroa.051.075 = phi ptr [ %44, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %50 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
   %51 = load ptr, ptr %46, align 8
   %52 = load ptr, ptr %47, align 8
@@ -43469,23 +43485,24 @@ _ZNSt6vectorIN5nblib24RyckaertBellemanDihedralESaIS1_EE9push_backERKS1_.exit: ; 
   br label %_ZNSt6vectorISt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESaIS3_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib24RyckaertBellemanDihedralESaIS1_EE9push_backERKS1_.exit
-  %.not71 = icmp eq ptr %.sroa.050.076, %scevgep.i.i.i.i.i
+  %.sroa.051.1.lcssa = phi ptr [ %.sroa.051.075, %_ZNSt6vectorIN5nblib24RyckaertBellemanDihedralESaIS1_EE9push_backERKS1_.exit ], [ %89, %.lr.ph ]
+  %.not71 = icmp eq ptr %.sroa.051.1.lcssa, %scevgep.i.i.i.i.i
   br i1 %.not71, label %._crit_edge78, label %93
 
 93:                                               ; preds = %._crit_edge
-  %94 = ptrtoint ptr %.sroa.050.076 to i64
+  %94 = ptrtoint ptr %.sroa.051.1.lcssa to i64
   %95 = sub i64 %48, %94
   %96 = ashr exact i64 %95, 5
   %97 = icmp sgt i64 %96, 0
   br i1 %97, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 8
+  %98 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 8
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_24RyckaertBellemanDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.013.i.i = phi i64 [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_24RyckaertBellemanDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  %.sroa.011.012.i.i = phi ptr [ %.sroa.050.076, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_24RyckaertBellemanDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.011.012.i.i = phi ptr [ %.sroa.051.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_24RyckaertBellemanDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   %99 = lshr i64 %.013.i.i, 1
   %100 = getelementptr inbounds %"class.std::tuple.1020", ptr %.sroa.011.012.i.i, i64 %99
   %101 = getelementptr inbounds i8, ptr %100, i64 8
@@ -43520,7 +43537,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %110, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, !llvm.loop !446
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_24RyckaertBellemanDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %93
-  %.sroa.050.1 = phi ptr [ %.sroa.050.076, %93 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_24RyckaertBellemanDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %93 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_24RyckaertBellemanDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   br i1 %.not71, label %._crit_edge78, label %49, !llvm.loop !447
 
 ._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
@@ -45397,7 +45414,7 @@ _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5Cen
 
 45:                                               ; preds = %.lr.ph77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
   %.sroa.050.076 = phi ptr [ %41, %.lr.ph77 ], [ %.sroa.050.1, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
-  %.sroa.051.075 = phi ptr [ %40, %.lr.ph77 ], [ %.sroa.050.076, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
+  %.sroa.051.075 = phi ptr [ %40, %.lr.ph77 ], [ %.sroa.051.1.lcssa, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit ]
   %46 = getelementptr inbounds i8, ptr %.sroa.051.075, i64 8
   %47 = load ptr, ptr %42, align 8
   %48 = load ptr, ptr %43, align 8
@@ -45517,21 +45534,22 @@ _ZNSt6vectorIN5nblib14Default5CenterESaIS1_EE9push_backERKS1_.exit: ; preds = %4
   br label %_ZNSt6vectorISt5tupleIJN5nblib14Default5CenterEmEESaIS3_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5nblib14Default5CenterESaIS1_EE9push_backERKS1_.exit
-  %.not71 = icmp eq ptr %.sroa.050.076, %scevgep.i.i.i.i.i
+  %.sroa.051.1.lcssa = phi ptr [ %.sroa.051.075, %_ZNSt6vectorIN5nblib14Default5CenterESaIS1_EE9push_backERKS1_.exit ], [ %84, %.lr.ph ]
+  %.not71 = icmp eq ptr %.sroa.051.1.lcssa, %scevgep.i.i.i.i.i
   br i1 %.not71, label %._crit_edge78, label %88
 
 88:                                               ; preds = %._crit_edge
-  %89 = ptrtoint ptr %.sroa.050.076 to i64
+  %89 = ptrtoint ptr %.sroa.051.1.lcssa to i64
   %90 = sub i64 %44, %89
   %91 = icmp sgt i64 %90, 0
   br i1 %91, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %88
   %92 = udiv exact i64 %90, 24
-  %93 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 8
-  %94 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 12
-  %95 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 16
-  %96 = getelementptr inbounds i8, ptr %.sroa.050.076, i64 20
+  %93 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 8
+  %94 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 12
+  %95 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 16
+  %96 = getelementptr inbounds i8, ptr %.sroa.051.1.lcssa, i64 20
   %97 = load float, ptr %93, align 4
   %98 = load float, ptr %94, align 4
   %99 = load float, ptr %95, align 4
@@ -45540,7 +45558,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEm
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14Default5CenterEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.015.i.i = phi i64 [ %92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14Default5CenterEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
-  %.sroa.011.014.i.i = phi ptr [ %.sroa.050.076, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14Default5CenterEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.011.014.i.i = phi ptr [ %.sroa.051.1.lcssa, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14Default5CenterEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   %101 = lshr i64 %.015.i.i, 1
   %102 = getelementptr inbounds %"class.std::tuple.1050", ptr %.sroa.011.014.i.i, i64 %101
   %103 = getelementptr inbounds i8, ptr %102, i64 8
@@ -45591,7 +45609,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteracti
   br i1 %126, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, !llvm.loop !476
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14Default5CenterEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i, %88
-  %.sroa.050.1 = phi ptr [ %.sroa.050.076, %88 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14Default5CenterEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
+  %.sroa.050.1 = phi ptr [ %.sroa.051.1.lcssa, %88 ], [ %.sroa.011.1.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14Default5CenterEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclIKS6_IJS5_mEENS_17__normal_iteratorIPSO_S7_ISO_SaISO_EEEEEEbRSA_SI_.exit.thread.i.i ]
   br i1 %.not71, label %._crit_edge78, label %45, !llvm.loop !477
 
 ._crit_edge78:                                    ; preds = %._crit_edge, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESF_SF_SF_SP_T1_.exit, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEES5_ZNS3_6detail30eliminateDuplicateInteractionsIS4_EES2_IJS7_ImSaImEES7_IT_SaISF_EEEERKSH_EUlRKSF_RKT0_E_ESt4pairISF_SF_ESF_SF_SP_T1_.exit
@@ -49287,9 +49305,9 @@ _ZNSt12_Vector_baseIN5nblib12ParticleTypeESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
 
 .thread:                                          ; preds = %43
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #19
-  br label %_ZNSt12_Vector_baseIN5nblib12ParticleTypeESaIS1_EE13_M_deallocateEPS1_m.exit35
+  br label %_ZNSt12_Vector_baseIN5nblib12ParticleTypeESaIS1_EE13_M_deallocateEPS1_m.exit37
 
-47:                                               ; preds = %_ZNSt12_Vector_baseIN5nblib12ParticleTypeESaIS1_EE13_M_deallocateEPS1_m.exit35
+47:                                               ; preds = %_ZNSt12_Vector_baseIN5nblib12ParticleTypeESaIS1_EE13_M_deallocateEPS1_m.exit37
   %48 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -49297,9 +49315,9 @@ _ZNSt12_Vector_baseIN5nblib12ParticleTypeESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
 
 49:                                               ; preds = %43
   tail call void @_ZdlPv(ptr noundef nonnull %23) #20
-  br label %_ZNSt12_Vector_baseIN5nblib12ParticleTypeESaIS1_EE13_M_deallocateEPS1_m.exit35
+  br label %_ZNSt12_Vector_baseIN5nblib12ParticleTypeESaIS1_EE13_M_deallocateEPS1_m.exit37
 
-_ZNSt12_Vector_baseIN5nblib12ParticleTypeESaIS1_EE13_M_deallocateEPS1_m.exit35: ; preds = %49, %.thread
+_ZNSt12_Vector_baseIN5nblib12ParticleTypeESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %49, %.thread
   invoke void @__cxa_rethrow() #22
           to label %54 unwind label %47
 
@@ -49313,7 +49331,7 @@ _ZNSt12_Vector_baseIN5nblib12ParticleTypeESaIS1_EE13_M_deallocateEPS1_m.exit35: 
   tail call void @__clang_call_terminate(ptr %53) #21
   unreachable
 
-54:                                               ; preds = %_ZNSt12_Vector_baseIN5nblib12ParticleTypeESaIS1_EE13_M_deallocateEPS1_m.exit35
+54:                                               ; preds = %_ZNSt12_Vector_baseIN5nblib12ParticleTypeESaIS1_EE13_M_deallocateEPS1_m.exit37
   unreachable
 }
 
@@ -49736,7 +49754,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 18:                                               ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St13unordered_mapIiS8_IS5_S8_IS5_iSt4hashIS5_ESt8equal_toIS5_ESaIS6_IS7_iEEESA_SC_SaIS6_IS7_SF_EEES9_IiESB_IiESaIS6_IKiSI_EEEESaISP_ENSt8__detail10_Select1stESC_SA_NSR_18_Mod_range_hashingENSR_20_Default_ranged_hashENSR_20_Prime_rehash_policyENSR_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit.i
   store ptr %9, ptr %0, align 8
-  %19 = load ptr, ptr %14, align 8
+  %19 = load ptr, ptr %15, align 8
   store ptr %19, ptr %9, align 8
   br label %20
 
@@ -58409,7 +58427,7 @@ define linkonce_odr void @_ZN5nblib8MoleculeC2EOS0_(ptr noundef nonnull align 8 
 
 30:                                               ; preds = %2
   store ptr %26, ptr %12, align 8
-  %31 = load ptr, ptr %27, align 8
+  %31 = load ptr, ptr %28, align 8
   store ptr %31, ptr %26, align 8
   br label %32
 

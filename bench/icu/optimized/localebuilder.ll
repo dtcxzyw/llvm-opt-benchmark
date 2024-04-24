@@ -248,7 +248,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -307,7 +307,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -1705,7 +1705,7 @@ while.body.lr.ph:                                 ; preds = %_ZN6icu_7510CharStr
 while.body:                                       ; preds = %while.body.lr.ph, %invoke.cont114
   %inserted.066 = phi i8 [ 0, %while.body.lr.ph ], [ %inserted.1, %invoke.cont114 ]
   %start.065 = phi ptr [ %30, %while.body.lr.ph ], [ %add.ptr117, %invoke.cont114 ]
-  %tobool74 = trunc i8 %inserted.066 to i1
+  %tobool74 = trunc nuw i8 %inserted.066 to i1
   br i1 %tobool74, label %if.end102, label %if.then75
 
 if.then75:                                        ; preds = %while.body
@@ -1785,7 +1785,7 @@ invoke.cont114:                                   ; preds = %invoke.cont112
   br i1 %cmp73, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %invoke.cont114
-  %42 = trunc i8 %inserted.1 to i1
+  %42 = trunc nuw i8 %inserted.1 to i1
   br i1 %42, label %if.end135, label %if.then119
 
 if.then119:                                       ; preds = %_ZN6icu_7510CharStringC2Ev.exit39, %while.end

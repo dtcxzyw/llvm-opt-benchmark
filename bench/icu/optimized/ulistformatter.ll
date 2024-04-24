@@ -249,7 +249,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -308,7 +308,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -1051,7 +1051,7 @@ for.body28:                                       ; preds = %for.body28.preheade
   %arrayidx32 = getelementptr inbounds i32, ptr %stringLengths, i64 %indvars.iv
   %14 = load i32, ptr %arrayidx32, align 4
   %.lobit = lshr i32 %14, 31
-  %conv34 = trunc i32 %.lobit to i8
+  %conv34 = trunc nuw nsw i32 %.lobit to i8
   %arrayidx37 = getelementptr inbounds ptr, ptr %strings, i64 %indvars.iv
   %15 = load ptr, ptr %arrayidx37, align 8
   store ptr %15, ptr %agg.tmp35, align 8

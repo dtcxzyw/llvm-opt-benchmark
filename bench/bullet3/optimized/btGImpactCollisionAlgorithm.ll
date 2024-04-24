@@ -3489,7 +3489,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store ptr %childtrans1, ptr %m_worldTransform.i14, align 8
   store ptr null, ptr %m_preTransform.i, align 8
   store i32 -1, ptr %m_partId.i, align 8
-  %64 = trunc i64 %indvars.iv.next to i32
+  %64 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %64, ptr %m_index.i, align 4
   %65 = load ptr, ptr %m_resultOut, align 8
   %m_body0Wrap.i = getelementptr inbounds i8, ptr %65, i64 16
@@ -3852,7 +3852,7 @@ if.end.i:                                         ; preds = %if.then20
   %m_collisionObject.i6.i = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load ptr, ptr %m_collisionObject.i6.i, align 8
   %. = select i1 %cmp.not.i, ptr %20, ptr %18
-  %.25 = select i1 %cmp.not.i, ptr %16, ptr %20
+  %.25 = select i1 %cmp.not.i, ptr %18, ptr %20
   %m_worldTransform.i5.sink.i = getelementptr inbounds i8, ptr %.25, i64 8
   %m_worldTransform.i7.i = getelementptr inbounds i8, ptr %., i64 8
   tail call void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %14, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i5.sink.i, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i7.i)

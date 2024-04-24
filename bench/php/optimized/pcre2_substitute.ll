@@ -655,7 +655,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %.critedge10
 
 .critedge10:                                      ; preds = %.lr.ph892, %267, %283, %.preheader829, %261, %.thread789
-  %305 = phi ptr [ %296, %.thread789 ], [ %264, %261 ], [ %281, %.preheader829 ], [ %281, %283 ], [ %.promoted898, %.lr.ph892 ], [ %scevgep, %267 ]
+  %305 = phi ptr [ %296, %.thread789 ], [ %264, %261 ], [ %281, %.preheader829 ], [ %281, %283 ], [ %.promoted898, %.lr.ph892 ], [ %268, %267 ]
   %.1544 = phi i32 [ -1, %.thread789 ], [ %263, %261 ], [ %275, %.preheader829 ], [ %275, %283 ], [ %.0543890, %.lr.ph892 ], [ %275, %267 ]
   %.4526 = phi i8 [ %.3525840, %.thread789 ], [ %.0522, %261 ], [ %269, %.preheader829 ], [ %269, %283 ], [ %269, %267 ], [ %269, %.lr.ph892 ]
   br i1 %.not716, label %306, label %337

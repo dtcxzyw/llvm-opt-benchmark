@@ -359,7 +359,7 @@ define void @_ZNK4LIEF5MachO10ExportInfo10flags_listEv(ptr dead_on_unwind noalia
   br i1 %19, label %20, label %_ZNKSt6vectorIN4LIEF5MachO19EXPORT_SYMBOL_FLAGSESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
 20:                                               ; preds = %15
-  store ptr %8, ptr %4, align 8
+  store ptr %9, ptr %4, align 8
   store ptr %8, ptr %5, align 8
   store ptr %7, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #18
@@ -419,7 +419,7 @@ _ZNSt20back_insert_iteratorISt6vectorIN4LIEF5MachO19EXPORT_SYMBOL_FLAGSESaIS3_EE
 .loopexit:                                        ; preds = %26
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %8, ptr %4, align 8
+  store ptr %9, ptr %4, align 8
   store ptr %8, ptr %5, align 8
   store ptr %7, ptr %0, align 8
   br label %40

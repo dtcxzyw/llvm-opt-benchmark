@@ -366,7 +366,7 @@ if.then:                                          ; preds = %entry
   %strt.i = getelementptr inbounds i8, ptr %0, i64 48
   %seed.i = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load i32, ptr %seed.i, align 8
-  %conv.i.i = trunc i64 %l to i32
+  %conv.i.i = trunc nuw i64 %l to i32
   %xor.i.i = xor i32 %1, %conv.i.i
   %invariant.gep.i.i = getelementptr i8, ptr %str, i64 -1
   %cmp.not7.i.i = icmp eq i64 %l, 0
@@ -490,7 +490,7 @@ if.end25.i:                                       ; preds = %growstrtab.exit.i, 
   %contents.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %arrayidx.i.i = getelementptr inbounds [1 x i8], ptr %contents.i.i, i64 0, i64 %l
   store i8 0, ptr %arrayidx.i.i, align 1
-  %conv27.i = trunc i64 %l to i8
+  %conv27.i = trunc nuw nsw i64 %l to i8
   %shrlen28.i = getelementptr inbounds i8, ptr %call.i.i, i64 11
   store i8 %conv27.i, ptr %shrlen28.i, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %contents.i.i, ptr align 1 %str, i64 %l, i1 false)
@@ -587,8 +587,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   br i1 %cmp.not, label %while.end, label %while.cond, !llvm.loop !13
 
 while.end:                                        ; preds = %while.cond
-  %u2 = getelementptr inbounds i8, ptr %ts, i64 16
-  %5 = load ptr, ptr %u2, align 8
+  %5 = load ptr, ptr %u, align 8
   store ptr %5, ptr %p.0, align 8
   %nuse = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i32, ptr %nuse, align 8

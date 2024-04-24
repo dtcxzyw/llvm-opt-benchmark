@@ -1110,7 +1110,7 @@ if.then.i147:                                     ; preds = %invoke.cont
   br label %invoke.cont10
 
 if.else.i153:                                     ; preds = %invoke.cont
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %.pre, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %.pre393, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8)
           to label %if.else.i153.invoke.cont10_crit_edge unwind label %lpad9
 
 if.else.i153.invoke.cont10_crit_edge:             ; preds = %if.else.i153
@@ -2032,7 +2032,7 @@ if.then.i107:                                     ; preds = %invoke.cont
   br label %invoke.cont10
 
 if.else.i113:                                     ; preds = %invoke.cont
-  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %.pre, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8)
+  invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %.pre279, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8)
           to label %if.else.i113.invoke.cont10_crit_edge unwind label %lpad9
 
 if.else.i113.invoke.cont10_crit_edge:             ; preds = %if.else.i113
@@ -3017,7 +3017,7 @@ if.else:                                          ; preds = %lor.lhs.false27
 
 if.end49:                                         ; preds = %if.else, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106
   %38 = call i32 @llvm.umin.i32(i32 %id.0, i32 255)
-  %conv56 = trunc i32 %38 to i8
+  %conv56 = trunc nuw i32 %38 to i8
   %m_joystick_id = getelementptr inbounds i8, ptr %this, i64 104
   store i8 %conv56, ptr %m_joystick_id, align 8, !tbaa !54
   %39 = load ptr, ptr %layout, align 8, !tbaa !26

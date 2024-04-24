@@ -287,7 +287,7 @@ define dso_local void @_ZN23cmComputeComponentGraph7ComputeEv(ptr noundef nonnul
   br label %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit
 
 _ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit: ; preds = %1, %6
-  %7 = phi ptr [ %4, %1 ], [ %.pre2, %6 ]
+  %7 = phi ptr [ %5, %1 ], [ %.pre2, %6 ]
   %8 = phi ptr [ %4, %1 ], [ %.pre, %6 ]
   %9 = getelementptr inbounds i8, ptr %0, i64 104
   %10 = getelementptr inbounds i8, ptr %0, i64 112
@@ -883,7 +883,7 @@ _ZNSt6vectorI15cmGraphNodeListSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit: ; preds
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 504
   %103 = load i64, ptr %102, align 8
-  call void @_ZdlPv(ptr noundef %92) #18
+  call void @_ZdlPv(ptr noundef %93) #18
   %104 = load ptr, ptr %88, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 -8
   store ptr %105, ptr %88, align 8

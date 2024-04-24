@@ -365,7 +365,7 @@ entry:
   br i1 %cmp.i.i, label %_ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %1 = trunc i64 %rem.i.i to i32
+  %1 = trunc nuw nsw i64 %rem.i.i to i32
   %conv6.i.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i.i = getelementptr inbounds i8, ptr %visitor, i64 48
   %outputHasher_.i.i.i.i = getelementptr inbounds i8, ptr %visitor, i64 64
@@ -406,7 +406,7 @@ _ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv.exit: ; preds = %_ZN6h
   br i1 %cmp.i.i18, label %_ZN6hermes3hbc18BytecodeSerializer24visitFunctionSourceTableEv.exit, label %if.end.i.i19
 
 if.end.i.i19:                                     ; preds = %_ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv.exit
-  %8 = trunc i64 %rem.i.i17 to i32
+  %8 = trunc nuw nsw i64 %rem.i.i17 to i32
   %conv6.i.i20 = sub nuw nsw i32 4, %8
   %isLayout_.i.i.i.i21 = getelementptr inbounds i8, ptr %visitor, i64 48
   %outputHasher_.i.i.i.i22 = getelementptr inbounds i8, ptr %visitor, i64 64
@@ -572,7 +572,7 @@ if.then40:                                        ; preds = %_ZN6hermes3hbc18Byt
   br i1 %cmp.i16, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then40
-  %24 = trunc i64 %rem.i to i32
+  %24 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %24
   br label %for.body.i
 
@@ -674,7 +674,7 @@ while.end:                                        ; preds = %_ZN6hermes3hbc18Byt
   br i1 %cmp.i33, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit48, label %if.end.i34
 
 if.end.i34:                                       ; preds = %while.end
-  %42 = trunc i64 %rem.i32 to i32
+  %42 = trunc nuw nsw i64 %rem.i32 to i32
   %conv6.i35 = sub nuw nsw i32 4, %42
   br label %for.body.i38
 
@@ -760,7 +760,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3
-  %6 = trunc i64 %rem.i to i32
+  %6 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %6
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
@@ -829,7 +829,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -1326,7 +1326,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -1450,7 +1450,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -1530,7 +1530,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i3, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %3 = trunc i64 %rem.i to i32
+  %3 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %3
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -1732,7 +1732,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %5 = trunc i64 %rem.i to i32
+  %5 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %5
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -1803,7 +1803,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -1905,7 +1905,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -1978,7 +1978,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -2052,7 +2052,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -2172,7 +2172,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -2316,7 +2316,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -2389,7 +2389,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -2462,7 +2462,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -2535,7 +2535,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -2608,7 +2608,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -2681,7 +2681,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -2754,7 +2754,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -2827,7 +2827,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -2900,7 +2900,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -2949,7 +2949,7 @@ entry:
   br i1 %cmp.i, label %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
   %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -3121,7 +3121,7 @@ if.end19.i.us63:                                  ; preds = %while.body.us52
   br i1 %cmp.not.i.i.i.us66, label %if.end.i.i.i.us67, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit28.us68
 
 if.end.i.i.i.us67:                                ; preds = %if.end19.i.us63
-  %bcmp.i.i.i.i.i.i.i.us = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -2 to ptr), ptr %agg.tmp6.sroa.0.0.copyload.us59, i64 %agg.tmp.sroa.2.0.copyload.fr)
+  %bcmp.i.i.i.i.i.i.i.us = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload.fr, ptr %agg.tmp6.sroa.0.0.copyload.us59, i64 %agg.tmp.sroa.2.0.copyload.fr)
   %tobool1.not.i.i.i.i.i.i.i.us = icmp eq i32 %bcmp.i.i.i.i.i.i.i.us, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.us, label %return, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit28.us68
 
@@ -3162,7 +3162,7 @@ if.end19.i.us96:                                  ; preds = %while.body.us85
   br i1 %cmp.not.i.i.i.us99, label %if.end.i.i.i.us100, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit28.us103
 
 if.end.i.i.i.us100:                               ; preds = %if.end19.i.us96
-  %bcmp.i.i.i.i.i.i.i.us101 = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -1 to ptr), ptr %agg.tmp6.sroa.0.0.copyload.us92, i64 %agg.tmp.sroa.2.0.copyload.fr)
+  %bcmp.i.i.i.i.i.i.i.us101 = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload.fr, ptr %agg.tmp6.sroa.0.0.copyload.us92, i64 %agg.tmp.sroa.2.0.copyload.fr)
   %tobool1.not.i.i.i.i.i.i.i.us102 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.us101, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.us102, label %return, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit28.us103
 
@@ -3818,7 +3818,7 @@ _ZN4llvh8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPa
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8

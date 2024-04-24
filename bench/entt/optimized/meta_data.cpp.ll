@@ -9312,7 +9312,7 @@ ehcleanup451:                                     ; preds = %_ZNKSt14default_del
 
 cleanup.cont457:                                  ; preds = %invoke.cont421, %invoke.cont421.thread
   %message_.i12911628 = phi ptr [ %message_.i12911627, %invoke.cont421.thread ], [ %message_.i1291, %invoke.cont421 ]
-  %362 = phi ptr [ %342, %invoke.cont421.thread ], [ %arrayidx.i.i.i.i.i.i, %invoke.cont421 ]
+  %362 = phi ptr [ %342, %invoke.cont421.thread ], [ %.pre.i, %invoke.cont421 ]
   store ptr null, ptr %message_.i12911628, align 8, !tbaa !64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_417) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_459) #26
@@ -12867,7 +12867,7 @@ ehcleanup428:                                     ; preds = %_ZNKSt14default_del
 
 cleanup.cont434:                                  ; preds = %_ZNK4entt9meta_data4propEj.exit, %_ZNK4entt9meta_data4propEj.exit.thread
   %message_.i12651595 = phi ptr [ %message_.i12651594, %_ZNK4entt9meta_data4propEj.exit.thread ], [ %message_.i1265, %_ZNK4entt9meta_data4propEj.exit ]
-  %375 = phi ptr [ %355, %_ZNK4entt9meta_data4propEj.exit.thread ], [ %arrayidx.i.i.i.i.i.i, %_ZNK4entt9meta_data4propEj.exit ]
+  %375 = phi ptr [ %355, %_ZNK4entt9meta_data4propEj.exit.thread ], [ %.pre.i, %_ZNK4entt9meta_data4propEj.exit ]
   store ptr null, ptr %message_.i12651595, align 8, !tbaa !64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_399) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_436) #26
@@ -16386,7 +16386,7 @@ ehcleanup428:                                     ; preds = %_ZNKSt14default_del
 
 cleanup.cont434:                                  ; preds = %_ZNK4entt9meta_data4propEj.exit, %_ZNK4entt9meta_data4propEj.exit.thread
   %message_.i12651595 = phi ptr [ %message_.i12651594, %_ZNK4entt9meta_data4propEj.exit.thread ], [ %message_.i1265, %_ZNK4entt9meta_data4propEj.exit ]
-  %372 = phi ptr [ %352, %_ZNK4entt9meta_data4propEj.exit.thread ], [ %arrayidx.i.i.i.i.i.i, %_ZNK4entt9meta_data4propEj.exit ]
+  %372 = phi ptr [ %352, %_ZNK4entt9meta_data4propEj.exit.thread ], [ %.pre.i, %_ZNK4entt9meta_data4propEj.exit ]
   store ptr null, ptr %message_.i12651595, align 8, !tbaa !64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_399) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_436) #26
@@ -70066,7 +70066,7 @@ _ZN4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIjESaIS
   br i1 %cmp.i.i.i.not, label %cleanup.cont, label %cleanup29
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit, %_ZN4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread
-  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %arrayidx.i.i.i.i, %_ZN4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit ]
+  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit ]
   %_M_finish.i.i53 = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp13) #26
   store ptr %key, ptr %ref.tmp13, align 8, !tbaa !64, !alias.scope !1311
@@ -70617,7 +70617,7 @@ _ZN4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIjESaIS
   br i1 %cmp.i.i.i.not, label %cleanup.cont, label %cleanup29
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit, %_ZN4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread
-  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %arrayidx.i.i.i.i, %_ZN4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit ]
+  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit ]
   %_M_finish.i.i53 = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp13) #26
   store ptr %key, ptr %ref.tmp13, align 8, !tbaa !64, !alias.scope !1347
@@ -73331,7 +73331,7 @@ _ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_prop_nodeEEESaIS4_EE14_
   br label %cleanup32
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_mapIjNS_8internal14meta_data_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit, %_ZN4entt9dense_mapIjNS_8internal14meta_data_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread
-  %21 = phi ptr [ %5, %_ZN4entt9dense_mapIjNS_8internal14meta_data_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %arrayidx.i.i.i.i, %_ZN4entt9dense_mapIjNS_8internal14meta_data_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit ]
+  %21 = phi ptr [ %5, %_ZN4entt9dense_mapIjNS_8internal14meta_data_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_mapIjNS_8internal14meta_data_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit ]
   %_M_finish.i.i60 = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 40
   %22 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !1451
@@ -79896,7 +79896,7 @@ cleanup.thread:                                   ; preds = %_ZN4entt9dense_mapI
   br label %cleanup31
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_mapIjNS_8internal14meta_base_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit, %_ZN4entt9dense_mapIjNS_8internal14meta_base_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread
-  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIjNS_8internal14meta_base_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %arrayidx.i.i.i.i, %_ZN4entt9dense_mapIjNS_8internal14meta_base_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit ]
+  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIjNS_8internal14meta_base_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_mapIjNS_8internal14meta_base_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit ]
   %_M_finish.i.i57 = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !1566
@@ -80604,7 +80604,7 @@ _ZN4entt9dense_mapIjNS_8internal14meta_prop_nodeENS_8identityESt8equal_toIjESaIS
   br i1 %cmp.i.i.i.not, label %cleanup.cont, label %cleanup29
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_mapIjNS_8internal14meta_prop_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit, %_ZN4entt9dense_mapIjNS_8internal14meta_prop_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread
-  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIjNS_8internal14meta_prop_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %arrayidx.i.i.i.i, %_ZN4entt9dense_mapIjNS_8internal14meta_prop_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit ]
+  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIjNS_8internal14meta_prop_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_mapIjNS_8internal14meta_prop_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit ]
   %_M_finish.i.i53 = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp13) #26
   store ptr %key, ptr %ref.tmp13, align 8, !tbaa !64, !alias.scope !1586
@@ -81822,7 +81822,7 @@ cleanup.thread:                                   ; preds = %_ZN4entt9dense_mapI
   br label %cleanup31
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_mapIjNS_8internal14meta_conv_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit, %_ZN4entt9dense_mapIjNS_8internal14meta_conv_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread
-  %7 = phi ptr [ %5, %_ZN4entt9dense_mapIjNS_8internal14meta_conv_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %arrayidx.i.i.i.i, %_ZN4entt9dense_mapIjNS_8internal14meta_conv_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit ]
+  %7 = phi ptr [ %5, %_ZN4entt9dense_mapIjNS_8internal14meta_conv_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_mapIjNS_8internal14meta_conv_nodeENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE16constrained_findIjEEDaRKT_m.exit ]
   %_M_finish.i.i57 = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !1636

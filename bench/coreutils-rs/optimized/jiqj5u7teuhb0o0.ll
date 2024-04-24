@@ -1555,7 +1555,7 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17h4e61e3e52b2b9
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h297efa434cf95227E.exit.thread, label %9
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h297efa434cf95227E.exit: ; preds = %9, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21fede03d139ed2fE.exit.i"
-  %14 = phi ptr [ %8, %9 ], [ %13, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21fede03d139ed2fE.exit.i" ]
+  %14 = phi ptr [ %10, %9 ], [ %13, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21fede03d139ed2fE.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !306
   %15 = icmp eq i64 %.sroa.01.013.i, %2
   br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h297efa434cf95227E.exit.thread, label %22

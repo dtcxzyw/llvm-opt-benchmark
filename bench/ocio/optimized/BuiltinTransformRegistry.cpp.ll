@@ -752,7 +752,7 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEED2Ev.exit
-  %15 = phi ptr [ %.pre, %for.end.loopexit ], [ %9, %_ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEED2Ev.exit ]
+  %15 = phi ptr [ %.pre, %for.end.loopexit ], [ %10, %_ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEED2Ev.exit ]
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %15, %16

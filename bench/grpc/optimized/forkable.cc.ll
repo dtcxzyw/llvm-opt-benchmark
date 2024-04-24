@@ -146,7 +146,7 @@ lpad.i:                                           ; preds = %if.end.i.i
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEv.exit: ; preds = %entry, %init.check.i, %invoke.cont.i
   %5 = load i8, ptr @_ZZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEvE7enabled, align 1
-  %tobool3.i = trunc i8 %5 to i1
+  %tobool3.i = trunc nuw i8 %5 to i1
   br i1 %tobool3.i, label %do.body, label %if.end28
 
 do.body:                                          ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEv.exit
@@ -321,7 +321,7 @@ if.end.loopexit.i.i:                              ; preds = %_ZNSt8weak_ptrIN17g
   br label %if.end.i.i2
 
 if.end.i.i2:                                      ; preds = %if.end.loopexit.i.i, %if.then.i.i, %if.else
-  %27 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %20, %if.then.i.i ], [ %add.ptr.i.i.i, %if.else ]
+  %27 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %20, %if.then.i.i ], [ %20, %if.else ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %27, i64 -16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 -8
@@ -568,7 +568,7 @@ lpad.i:                                           ; preds = %if.end.i.i
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEv.exit: ; preds = %entry, %init.check.i, %invoke.cont.i
   %5 = load i8, ptr @_ZZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEvE7enabled, align 1
-  %tobool3.i = trunc i8 %5 to i1
+  %tobool3.i = trunc nuw i8 %5 to i1
   br i1 %tobool3.i, label %do.body, label %if.end26
 
 do.body:                                          ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEv.exit
@@ -742,7 +742,7 @@ if.end.loopexit.i.i:                              ; preds = %_ZNSt8weak_ptrIN17g
   br label %if.end.i.i2
 
 if.end.i.i2:                                      ; preds = %if.end.loopexit.i.i, %if.then.i.i, %if.else
-  %27 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %20, %if.then.i.i ], [ %add.ptr.i.i.i, %if.else ]
+  %27 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %20, %if.then.i.i ], [ %20, %if.else ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %27, i64 -16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 -8
@@ -909,7 +909,7 @@ lpad.i:                                           ; preds = %if.end.i.i
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEv.exit: ; preds = %entry, %init.check.i, %invoke.cont.i
   %5 = load i8, ptr @_ZZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEvE7enabled, align 1
-  %tobool3.i = trunc i8 %5 to i1
+  %tobool3.i = trunc nuw i8 %5 to i1
   br i1 %tobool3.i, label %do.body, label %if.end26
 
 do.body:                                          ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEv.exit
@@ -1083,7 +1083,7 @@ if.end.loopexit.i.i:                              ; preds = %_ZNSt8weak_ptrIN17g
   br label %if.end.i.i2
 
 if.end.i.i2:                                      ; preds = %if.end.loopexit.i.i, %if.then.i.i, %if.else
-  %27 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %20, %if.then.i.i ], [ %add.ptr.i.i.i, %if.else ]
+  %27 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %20, %if.then.i.i ], [ %20, %if.else ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %27, i64 -16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 -8

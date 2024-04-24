@@ -2032,7 +2032,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %520, %._crit_edge.loopexit.split.loop.exit665, %"_ZN4core3ptr39drop_in_place$LT$vfs..loader..Entry$GT$17h88da3e558dac5d79E.exit.i._crit_edge"
-  %445 = phi ptr [ %.sroa.4249.0.copyload, %"_ZN4core3ptr39drop_in_place$LT$vfs..loader..Entry$GT$17h88da3e558dac5d79E.exit.i._crit_edge" ], [ %444, %._crit_edge.loopexit.split.loop.exit665 ], [ %521, %520 ]
+  %445 = phi ptr [ %.sroa.4249.0.copyload, %"_ZN4core3ptr39drop_in_place$LT$vfs..loader..Entry$GT$17h88da3e558dac5d79E.exit.i._crit_edge" ], [ %444, %._crit_edge.loopexit.split.loop.exit665 ], [ %522, %520 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27), !noalias !379
   store ptr %59, ptr %27, align 8, !noalias !379

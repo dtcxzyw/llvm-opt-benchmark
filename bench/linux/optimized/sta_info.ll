@@ -7498,18 +7498,18 @@ define internal fastcc noundef i32 @rhltable_remove(ptr noundef %0, ptr noundef 
   %68 = icmp ult i8 %67, 2
   call void @llvm.assume(i1 %68)
   %69 = icmp eq i8 %67, 0
-  br i1 %69, label %.preheader107, label %70, !prof !9
+  br i1 %69, label %.preheader115, label %70, !prof !9
 
 70:                                               ; preds = %.preheader17
   %71 = call i64 @llvm.read_register.i64(metadata !0)
   %72 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %71) #18, !srcloc !275
   call void @llvm.write_register.i64(metadata !0, i64 %72)
-  br label %.preheader107
+  br label %.preheader115
 
-.preheader107:                                    ; preds = %70, %.preheader17
+.preheader115:                                    ; preds = %70, %.preheader17
   br label %73
 
-73:                                               ; preds = %.preheader107, %73
+73:                                               ; preds = %.preheader115, %73
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !276
   %74 = load volatile i64, ptr %60, align 8
   %75 = and i64 %74, 1
@@ -7564,10 +7564,11 @@ define internal fastcc noundef i32 @rhltable_remove(ptr noundef %0, ptr noundef 
 
 ._crit_edge:                                      ; preds = %90, %93
   %.lcssa26 = phi ptr [ %95, %93 ], [ null, %90 ]
+  %.lcssa23 = phi ptr [ %139, %93 ], [ %91, %90 ]
   %.lcssa29.in = and i64 %63, 512
   %.lcssa29 = icmp eq i64 %.lcssa29.in, 0
   %104 = load ptr, ptr %1, align 8
-  %105 = getelementptr inbounds i8, ptr %1, i64 8
+  %105 = getelementptr inbounds i8, ptr %.lcssa23, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, null
   br i1 %107, label %109, label %108

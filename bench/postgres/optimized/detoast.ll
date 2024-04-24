@@ -246,13 +246,13 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
   br i1 %26, label %27, label %toast_decompress_datum.exit57
 
 27:                                               ; preds = %23
-  %28 = load i8, ptr %.sroa.0.0.copyload, align 1
+  %28 = load i8, ptr %25, align 1
   %29 = zext i8 %28 to i32
   %30 = icmp eq i8 %28, 1
   br i1 %30, label %31, label %40
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 1
+  %32 = getelementptr inbounds i8, ptr %25, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 1
   %35 = and i8 %33, -2
@@ -273,7 +273,7 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
   br label %47
 
 44:                                               ; preds = %40
-  %45 = load i32, ptr %.sroa.0.0.copyload, align 4
+  %45 = load i32, ptr %25, align 4
   %46 = lshr i32 %45, 2
   br label %47
 
@@ -285,13 +285,13 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
 50:                                               ; preds = %47, %31
   %51 = phi i64 [ %39, %31 ], [ %49, %47 ]
   %52 = tail call ptr @palloc(i64 noundef %51) #6
-  %53 = load i8, ptr %.sroa.0.0.copyload, align 1
+  %53 = load i8, ptr %25, align 1
   %54 = zext i8 %53 to i32
   %55 = icmp eq i8 %53, 1
   br i1 %55, label %56, label %65
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 1
+  %57 = getelementptr inbounds i8, ptr %25, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %58, 1
   %60 = and i8 %58, -2
@@ -312,7 +312,7 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
   br label %72
 
 69:                                               ; preds = %65
-  %70 = load i32, ptr %.sroa.0.0.copyload, align 4
+  %70 = load i32, ptr %25, align 4
   %71 = lshr i32 %70, 2
   br label %72
 
@@ -323,7 +323,7 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
 
 75:                                               ; preds = %72, %56
   %76 = phi i64 [ %64, %56 ], [ %74, %72 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr nonnull align 1 %.sroa.0.0.copyload, i64 %76, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr nonnull align 1 %25, i64 %76, i1 false)
   br label %toast_decompress_datum.exit57
 
 77:                                               ; preds = %4
@@ -377,7 +377,7 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
   %102 = add nsw i64 %101, -1
   %103 = add nuw nsw i64 %101, 3
   %104 = tail call ptr @palloc(i64 noundef %103) #6
-  %105 = trunc i64 %103 to i32
+  %105 = trunc nuw nsw i64 %103 to i32
   %106 = shl nuw nsw i32 %105, 2
   store i32 %106, ptr %104, align 4
   %107 = getelementptr inbounds i8, ptr %104, i64 4

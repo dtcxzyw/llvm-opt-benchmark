@@ -465,7 +465,7 @@ entry:
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   store ptr %_M_single_bucket.i.i.i.i.i, ptr %values_.i.i, align 8, !noalias !9
-  %4 = load ptr, ptr %0, align 8, !noalias !9
+  %4 = load ptr, ptr %_M_single_bucket.i.i.i.i.i.i.i, align 8, !noalias !9
   store ptr %4, ptr %_M_single_bucket.i.i.i.i.i, align 8, !noalias !9
   br label %if.end.i.i.i.i.i
 
@@ -524,7 +524,7 @@ entry:
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   store ptr %_M_single_bucket.i.i.i.i.i, ptr %values_.i.i, align 8, !noalias !12
-  %4 = load ptr, ptr %0, align 8, !noalias !12
+  %4 = load ptr, ptr %_M_single_bucket.i.i.i.i.i.i.i, align 8, !noalias !12
   store ptr %4, ptr %_M_single_bucket.i.i.i.i.i, align 8, !noalias !12
   br label %if.end.i.i.i.i.i
 

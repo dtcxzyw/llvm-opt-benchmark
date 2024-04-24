@@ -1440,7 +1440,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %tobool2.not.i, label %create_hostcache_id.exit, label %while.body.i, !llvm.loop !6
 
 create_hostcache_id.exit:                         ; preds = %while.body.i
-  %conv32 = trunc i64 %call13 to i32
+  %conv32 = trunc nuw i64 %call13 to i32
   %call5.i = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %incdec.ptr4.i, i64 noundef 7, ptr noundef nonnull @.str.21, i32 noundef %conv32) #11
   %conv.i = sext i32 %call5.i to i64
   %6 = load ptr, ptr %share146, align 8
@@ -1492,7 +1492,7 @@ lor.lhs.false69:                                  ; preds = %lor.lhs.false66
   br i1 %cmp71.not, label %if.end74, label %if.then141
 
 if.end74:                                         ; preds = %lor.lhs.false69
-  %conv75 = trunc i64 %call63 to i32
+  %conv75 = trunc nuw nsw i64 %call63 to i32
   %add.ptr76 = getelementptr inbounds i8, ptr %9, i64 1
   br label %while.cond.outer.outer
 
@@ -1590,8 +1590,7 @@ err:                                              ; preds = %while.cond
   br i1 %tobool137.not, label %if.then141, label %if.end143
 
 if.then141.loopexit.loopexit:                     ; preds = %lor.lhs.false91, %if.then88
-  %addr_end.0.lcssa = phi ptr [ %addr_end.0, %lor.lhs.false91 ], [ %add.ptr78, %if.then88 ]
-  store ptr %addr_end.0.lcssa, ptr %end_ptr, align 8
+  store ptr %addr_end.0, ptr %end_ptr, align 8
   br label %if.then141
 
 if.then141:                                       ; preds = %if.else, %lor.lhs.false69, %lor.lhs.false66, %if.end59, %err, %if.end106, %if.then141.loopexit.loopexit, %land.lhs.true119, %if.then127

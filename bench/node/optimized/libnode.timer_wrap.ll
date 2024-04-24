@@ -788,7 +788,7 @@ cond.end.i:                                       ; preds = %if.then.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
   %arrayidx5.i.i = getelementptr inbounds ptr, ptr %15, i64 %rem.i.i.i.i21
-  store ptr %__prev_n.0, ptr %arrayidx5.i.i, align 8
+  store ptr %16, ptr %arrayidx5.i.i, align 8
   %.pre.i22 = load ptr, ptr %this, align 8
   %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i22, i64 %__bkt.0
   %.pre24.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8
@@ -1056,7 +1056,7 @@ if.then.i.i.i35:                                  ; preds = %do.end36
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i37:                                  ; preds = %do.end36
-  call void @_ZdlPv(ptr noundef %31) #15
+  call void @_ZdlPv(ptr noundef %39) #15
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %40 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i38 = getelementptr inbounds i8, ptr %40, i64 -8

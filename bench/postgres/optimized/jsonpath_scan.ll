@@ -1698,7 +1698,7 @@ jsonpath_yyrealloc.exit.i249:                     ; preds = %650, %648
   br i1 %exitcond103.not.i, label %.critedge.i246, label %667, !llvm.loop !12
 
 .critedge.split.loop.exit.i:                      ; preds = %667, %667
-  %680 = trunc i64 %indvars.iv.i to i32
+  %680 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i246
 
 .critedge.i246:                                   ; preds = %670, %.critedge.split.loop.exit.i
@@ -2099,42 +2099,45 @@ jsonpath_yy_flush_buffer.exit.i.thread:           ; preds = %12
   store ptr %0, ptr %3, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 52
   store i32 1, ptr %28, align 4
-  br label %35
+  br label %38
 
 jsonpath_yy_flush_buffer.exit.thread.i:           ; preds = %23
-  %29 = load i32, ptr %16, align 4
-  store i32 %29, ptr @yy_n_chars, align 4
-  store ptr %19, ptr @yy_c_buf_p, align 8
-  store ptr %19, ptr @jsonpath_yytext, align 8
-  %30 = load ptr, ptr %25, align 8
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr @jsonpath_yyin, align 8
-  %32 = load i8, ptr %19, align 1
-  store i8 %32, ptr @yy_hold_char, align 1
+  %29 = getelementptr inbounds i8, ptr %26, i64 28
+  %30 = load i32, ptr %29, align 4
+  store i32 %30, ptr @yy_n_chars, align 4
+  %31 = getelementptr inbounds i8, ptr %26, i64 16
+  %32 = load ptr, ptr %31, align 8
+  store ptr %32, ptr @yy_c_buf_p, align 8
+  store ptr %32, ptr @jsonpath_yytext, align 8
+  %33 = load ptr, ptr %25, align 8
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr @jsonpath_yyin, align 8
+  %35 = load i8, ptr %32, align 1
+  store i8 %35, ptr @yy_hold_char, align 1
   br label %jsonpath_yy_flush_buffer.exit.i
 
 jsonpath_yy_flush_buffer.exit.i:                  ; preds = %23, %jsonpath_yy_flush_buffer.exit.thread.i
   store ptr %0, ptr %3, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 52
-  store i32 1, ptr %33, align 4
-  %34 = load ptr, ptr %25, align 8
-  br label %35
+  %36 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %36, align 4
+  %37 = load ptr, ptr %25, align 8
+  br label %38
 
-35:                                               ; preds = %jsonpath_yy_flush_buffer.exit.i.thread, %jsonpath_yy_flush_buffer.exit.i
-  %36 = phi ptr [ %34, %jsonpath_yy_flush_buffer.exit.i ], [ null, %jsonpath_yy_flush_buffer.exit.i.thread ]
-  %.not9.i = icmp eq ptr %36, %3
-  br i1 %.not9.i, label %jsonpath_yy_init_buffer.exit, label %37
+38:                                               ; preds = %jsonpath_yy_flush_buffer.exit.i.thread, %jsonpath_yy_flush_buffer.exit.i
+  %39 = phi ptr [ %37, %jsonpath_yy_flush_buffer.exit.i ], [ null, %jsonpath_yy_flush_buffer.exit.i.thread ]
+  %.not9.i = icmp eq ptr %39, %3
+  br i1 %.not9.i, label %jsonpath_yy_init_buffer.exit, label %40
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %3, i64 44
-  store i32 1, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 0, ptr %39, align 8
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds i8, ptr %3, i64 44
+  store i32 1, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 0, ptr %42, align 8
   br label %jsonpath_yy_init_buffer.exit
 
-jsonpath_yy_init_buffer.exit:                     ; preds = %35, %37
-  %40 = getelementptr inbounds i8, ptr %3, i64 36
-  store i32 0, ptr %40, align 4
+jsonpath_yy_init_buffer.exit:                     ; preds = %38, %40
+  %43 = getelementptr inbounds i8, ptr %3, i64 36
+  store i32 0, ptr %43, align 4
   store i32 %15, ptr %14, align 4
   ret ptr %3
 }
@@ -2215,7 +2218,7 @@ hexval.exit:                                      ; preds = %23
   br i1 %33, label %.lr.ph81, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %25
-  %34 = trunc i64 %indvars.iv97 to i32
+  %34 = trunc nsw i64 %indvars.iv97 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -2262,7 +2265,7 @@ hexval.exit38:                                    ; preds = %42
   br i1 %51, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !15
 
 .loopexit.loopexit:                               ; preds = %44
-  %52 = trunc i64 %indvars.iv.next to i32
+  %52 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge

@@ -969,10 +969,10 @@ _ZN7QStringD2Ev.exit:                             ; preds = %25, %_ZN17QArrayDat
   store i64 %36, ptr %35, align 8
   %37 = trunc i64 %34 to i32
   %38 = lshr i64 %34, 32
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw i64 %38 to i32
   %40 = trunc i64 %36 to i32
   %41 = lshr i64 %36, 32
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw i64 %41 to i32
   invoke void @_ZN12QStyleOptionC1Eii(ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef 1, i32 noundef 0)
           to label %43 unwind label %88
 
@@ -2132,8 +2132,7 @@ define linkonce_odr void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveIPN10Labe
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.0 = phi ptr [ %2, %3 ], [ %24, %.lr.ph ]
-  %26 = phi ptr [ %2, %3 ], [ %8, %.lr.ph ]
+  %26 = phi ptr [ %2, %3 ], [ %24, %.lr.ph ]
   %.lcssa = phi ptr [ %0, %3 ], [ %25, %.lr.ph ]
   %27 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %26, ptr %27, align 8
@@ -2142,59 +2141,58 @@ define linkonce_odr void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveIPN10Labe
   br i1 %.not615, label %._crit_edge18, label %.lr.ph17
 
 .lr.ph17:                                         ; preds = %._crit_edge, %.lr.ph17
-  %.1 = phi ptr [ %43, %.lr.ph17 ], [ %.0, %._crit_edge ]
-  %28 = phi ptr [ %43, %.lr.ph17 ], [ %26, %._crit_edge ]
-  %29 = phi ptr [ %44, %.lr.ph17 ], [ %.lcssa, %._crit_edge ]
+  %.1 = phi ptr [ %42, %.lr.ph17 ], [ %26, %._crit_edge ]
+  %28 = phi ptr [ %43, %.lr.ph17 ], [ %.lcssa, %._crit_edge ]
+  %29 = load ptr, ptr %.1, align 8
   %30 = load ptr, ptr %28, align 8
-  %31 = load ptr, ptr %29, align 8
-  store ptr %31, ptr %28, align 8
-  store ptr %30, ptr %29, align 8
+  store ptr %30, ptr %.1, align 8
+  store ptr %29, ptr %28, align 8
+  %31 = getelementptr inbounds i8, ptr %.1, i64 8
   %32 = getelementptr inbounds i8, ptr %28, i64 8
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = load ptr, ptr %31, align 8
   %34 = load ptr, ptr %32, align 8
-  %35 = load ptr, ptr %33, align 8
-  store ptr %35, ptr %32, align 8
-  store ptr %34, ptr %33, align 8
+  store ptr %34, ptr %31, align 8
+  store ptr %33, ptr %32, align 8
+  %35 = getelementptr inbounds i8, ptr %.1, i64 16
   %36 = getelementptr inbounds i8, ptr %28, i64 16
-  %37 = getelementptr inbounds i8, ptr %29, i64 16
+  %37 = load i64, ptr %35, align 8
   %38 = load i64, ptr %36, align 8
-  %39 = load i64, ptr %37, align 8
-  store i64 %39, ptr %36, align 8
-  store i64 %38, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %29, i64 24
-  %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %28, i64 24
-  store i32 %41, ptr %42, align 8
-  %43 = getelementptr i8, ptr %.1, i64 32
-  %44 = getelementptr i8, ptr %29, i64 32
-  %.not6 = icmp eq ptr %43, %6
+  store i64 %38, ptr %35, align 8
+  store i64 %37, ptr %36, align 8
+  %39 = getelementptr inbounds i8, ptr %28, i64 24
+  %40 = load i32, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %.1, i64 24
+  store i32 %40, ptr %41, align 8
+  %42 = getelementptr i8, ptr %.1, i64 32
+  %43 = getelementptr i8, ptr %28, i64 32
+  %.not6 = icmp eq ptr %42, %6
   br i1 %.not6, label %._crit_edge18, label %.lr.ph17, !llvm.loop !22
 
 ._crit_edge18:                                    ; preds = %.lr.ph17, %._crit_edge
-  %.lcssa14 = phi ptr [ %.lcssa, %._crit_edge ], [ %44, %.lr.ph17 ]
+  %.lcssa14 = phi ptr [ %.lcssa, %._crit_edge ], [ %43, %.lr.ph17 ]
   store ptr %5, ptr %4, align 8
   %.not720 = icmp eq ptr %.lcssa14, %9
   br i1 %.not720, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge18, %_ZN10LabelStack10_StackItemD2Ev.exit
-  %45 = phi ptr [ %46, %_ZN10LabelStack10_StackItemD2Ev.exit ], [ %.lcssa14, %._crit_edge18 ]
-  %46 = getelementptr i8, ptr %45, i64 -32
-  %47 = load ptr, ptr %46, align 8
-  %.not.i.i.i.i = icmp eq ptr %47, null
+  %44 = phi ptr [ %45, %_ZN10LabelStack10_StackItemD2Ev.exit ], [ %.lcssa14, %._crit_edge18 ]
+  %45 = getelementptr i8, ptr %44, i64 -32
+  %46 = load ptr, ptr %45, align 8
+  %.not.i.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i.i, label %_ZN10LabelStack10_StackItemD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %.lr.ph22
-  %48 = atomicrmw sub ptr %47, i32 1 seq_cst, align 4
-  %.not.i.i.i = icmp eq i32 %48, 1
-  br i1 %.not.i.i.i, label %49, label %_ZN10LabelStack10_StackItemD2Ev.exit
+  %47 = atomicrmw sub ptr %46, i32 1 seq_cst, align 4
+  %.not.i.i.i = icmp eq i32 %47, 1
+  br i1 %.not.i.i.i, label %48, label %_ZN10LabelStack10_StackItemD2Ev.exit
 
-49:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i
-  %50 = load ptr, ptr %46, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %50, i64 noundef 2, i64 noundef 8) #16
+48:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i
+  %49 = load ptr, ptr %45, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %49, i64 noundef 2, i64 noundef 8) #16
   br label %_ZN10LabelStack10_StackItemD2Ev.exit
 
-_ZN10LabelStack10_StackItemD2Ev.exit:             ; preds = %.lr.ph22, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %49
-  %.not7 = icmp eq ptr %46, %9
+_ZN10LabelStack10_StackItemD2Ev.exit:             ; preds = %.lr.ph22, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %48
+  %.not7 = icmp eq ptr %45, %9
   br i1 %.not7, label %._crit_edge23.loopexit, label %.lr.ph22, !llvm.loop !23
 
 ._crit_edge23.loopexit:                           ; preds = %_ZN10LabelStack10_StackItemD2Ev.exit
@@ -2202,44 +2200,44 @@ _ZN10LabelStack10_StackItemD2Ev.exit:             ; preds = %.lr.ph22, %_ZN17QAr
   br label %._crit_edge23
 
 ._crit_edge23:                                    ; preds = %._crit_edge23.loopexit, %._crit_edge18
-  %51 = phi ptr [ %.pre, %._crit_edge23.loopexit ], [ %5, %._crit_edge18 ]
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %5, align 8
-  %.not1.i = icmp eq ptr %52, %53
+  %50 = phi ptr [ %.pre, %._crit_edge23.loopexit ], [ %5, %._crit_edge18 ]
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %5, align 8
+  %.not1.i = icmp eq ptr %51, %52
   br i1 %.not1.i, label %_ZZN9QtPrivate30q_relocate_overlap_n_left_moveIPN10LabelStack10_StackItemExEEvT_T0_S4_EN10DestructorD2Ev.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge23
-  %54 = icmp ult ptr %52, %53
-  %55 = select i1 %54, i64 1, i64 -1
-  br label %56
+  %53 = icmp ult ptr %51, %52
+  %54 = select i1 %53, i64 1, i64 -1
+  br label %55
 
-56:                                               ; preds = %.lr.ph.i, %_ZN10LabelStack10_StackItemD2Ev.exit.i
-  %57 = phi ptr [ %52, %.lr.ph.i ], [ %67, %_ZN10LabelStack10_StackItemD2Ev.exit.i ]
-  %58 = phi ptr [ %51, %.lr.ph.i ], [ %66, %_ZN10LabelStack10_StackItemD2Ev.exit.i ]
-  %59 = getelementptr %"struct.LabelStack::_StackItem", ptr %57, i64 %55
-  store ptr %59, ptr %58, align 8
-  %60 = load ptr, ptr %4, align 8
+55:                                               ; preds = %.lr.ph.i, %_ZN10LabelStack10_StackItemD2Ev.exit.i
+  %56 = phi ptr [ %51, %.lr.ph.i ], [ %66, %_ZN10LabelStack10_StackItemD2Ev.exit.i ]
+  %57 = phi ptr [ %50, %.lr.ph.i ], [ %65, %_ZN10LabelStack10_StackItemD2Ev.exit.i ]
+  %58 = getelementptr %"struct.LabelStack::_StackItem", ptr %56, i64 %54
+  store ptr %58, ptr %57, align 8
+  %59 = load ptr, ptr %4, align 8
+  %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %60, align 8
-  %62 = load ptr, ptr %61, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %62, null
+  %.not.i.i.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i.i.i, label %_ZN10LabelStack10_StackItemD2Ev.exit.i, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i:  ; preds = %56
-  %63 = atomicrmw sub ptr %62, i32 1 seq_cst, align 4
-  %.not.i.i.i.i8 = icmp eq i32 %63, 1
-  br i1 %.not.i.i.i.i8, label %64, label %_ZN10LabelStack10_StackItemD2Ev.exit.i
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i:  ; preds = %55
+  %62 = atomicrmw sub ptr %61, i32 1 seq_cst, align 4
+  %.not.i.i.i.i8 = icmp eq i32 %62, 1
+  br i1 %.not.i.i.i.i8, label %63, label %_ZN10LabelStack10_StackItemD2Ev.exit.i
 
-64:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i
-  %65 = load ptr, ptr %61, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %65, i64 noundef 2, i64 noundef 8) #16
+63:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i
+  %64 = load ptr, ptr %60, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %64, i64 noundef 2, i64 noundef 8) #16
   br label %_ZN10LabelStack10_StackItemD2Ev.exit.i
 
-_ZN10LabelStack10_StackItemD2Ev.exit.i:           ; preds = %64, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i, %56
-  %66 = load ptr, ptr %4, align 8
-  %67 = load ptr, ptr %66, align 8
-  %68 = load ptr, ptr %5, align 8
-  %.not.i = icmp eq ptr %67, %68
-  br i1 %.not.i, label %_ZZN9QtPrivate30q_relocate_overlap_n_left_moveIPN10LabelStack10_StackItemExEEvT_T0_S4_EN10DestructorD2Ev.exit, label %56, !llvm.loop !24
+_ZN10LabelStack10_StackItemD2Ev.exit.i:           ; preds = %63, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i, %55
+  %65 = load ptr, ptr %4, align 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %5, align 8
+  %.not.i = icmp eq ptr %66, %67
+  br i1 %.not.i, label %_ZZN9QtPrivate30q_relocate_overlap_n_left_moveIPN10LabelStack10_StackItemExEEvT_T0_S4_EN10DestructorD2Ev.exit, label %55, !llvm.loop !24
 
 _ZZN9QtPrivate30q_relocate_overlap_n_left_moveIPN10LabelStack10_StackItemExEEvT_T0_S4_EN10DestructorD2Ev.exit: ; preds = %_ZN10LabelStack10_StackItemD2Ev.exit.i, %._crit_edge23
   ret void
@@ -2298,9 +2296,8 @@ define linkonce_odr void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveISt16reve
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %35 = phi ptr [ %10, %3 ], [ %33, %.lr.ph ]
-  %36 = phi ptr [ %6, %3 ], [ %12, %.lr.ph ]
-  %.in = phi ptr [ %6, %3 ], [ %34, %.lr.ph ]
-  %37 = ptrtoint ptr %.in to i64
+  %36 = phi ptr [ %6, %3 ], [ %34, %.lr.ph ]
+  %37 = ptrtoint ptr %36 to i64
   store i64 %37, ptr %7, align 8
   store ptr %7, ptr %4, align 8
   %.not69 = icmp eq ptr %36, %9
@@ -2442,25 +2439,22 @@ _ZN17QArrayDataPointerIN10LabelStack10_StackItemEE6detachEPS2_.exit: ; preds = %
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr %"struct.LabelStack::_StackItem", ptr %10, i64 %1
-  %.idx.i = shl i64 %2, 5
-  %12 = getelementptr i8, ptr %11, i64 %.idx.i
+  %12 = getelementptr %"struct.LabelStack::_StackItem", ptr %11, i64 %2
   %.idx.mask = and i64 %1, 576460752303423487
   %13 = icmp ne i64 %.idx.mask, 0
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
-  %.idx26.i = shl i64 %15, 5
-  %.not.i = icmp eq i64 %.idx.i, %.idx26.i
+  %16 = getelementptr %"struct.LabelStack::_StackItem", ptr %10, i64 %15
+  %.not.i = icmp eq ptr %12, %16
   %or.cond.i = select i1 %13, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %._crit_edge.i, label %16
+  br i1 %or.cond.i, label %._crit_edge.i, label %17
 
-16:                                               ; preds = %_ZN17QArrayDataPointerIN10LabelStack10_StackItemEE6detachEPS2_.exit
+17:                                               ; preds = %_ZN17QArrayDataPointerIN10LabelStack10_StackItemEE6detachEPS2_.exit
   store ptr %12, ptr %9, align 8
   br label %.loopexit.i
 
 ._crit_edge.i:                                    ; preds = %_ZN17QArrayDataPointerIN10LabelStack10_StackItemEE6detachEPS2_.exit
-  %17 = getelementptr %"struct.LabelStack::_StackItem", ptr %10, i64 %15
-  %.not1819.i = icmp eq ptr %12, %17
-  br i1 %.not1819.i, label %.loopexit.i, label %.lr.ph.i
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph.i
   %.021.i = phi ptr [ %31, %.lr.ph.i ], [ %11, %._crit_edge.i ]
@@ -2487,17 +2481,17 @@ _ZN17QArrayDataPointerIN10LabelStack10_StackItemEE6detachEPS2_.exit: ; preds = %
   store i32 %29, ptr %30, align 8
   %31 = getelementptr i8, ptr %.021.i, i64 32
   %32 = getelementptr i8, ptr %.01420.i, i64 32
-  %.not18.i = icmp eq ptr %32, %17
+  %.not18.i = icmp eq ptr %32, %16
   br i1 %.not18.i, label %.loopexit.loopexit.i, label %.lr.ph.i, !llvm.loop !29
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i
   %.pre25.i = load i64, ptr %14, align 8
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %._crit_edge.i, %16
-  %33 = phi i64 [ %15, %16 ], [ %15, %._crit_edge.i ], [ %.pre25.i, %.loopexit.loopexit.i ]
-  %.115.i = phi ptr [ %12, %16 ], [ %12, %._crit_edge.i ], [ %17, %.loopexit.loopexit.i ]
-  %.1.i = phi ptr [ %11, %16 ], [ %11, %._crit_edge.i ], [ %31, %.loopexit.loopexit.i ]
+.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %._crit_edge.i, %17
+  %33 = phi i64 [ %15, %17 ], [ %15, %._crit_edge.i ], [ %.pre25.i, %.loopexit.loopexit.i ]
+  %.115.i = phi ptr [ %12, %17 ], [ %12, %._crit_edge.i ], [ %16, %.loopexit.loopexit.i ]
+  %.1.i = phi ptr [ %11, %17 ], [ %11, %._crit_edge.i ], [ %31, %.loopexit.loopexit.i ]
   %34 = sub i64 %33, %2
   store i64 %34, ptr %14, align 8
   %.not4.i.i.i.i = icmp eq ptr %.1.i, %.115.i

@@ -43,7 +43,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %or.i.i.i.i = or i32 %k, 1
-  store i32 %or.i.i.i.i, ptr %0, align 4
+  store i32 %or.i.i.i.i, ptr %1, align 4
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 4
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8

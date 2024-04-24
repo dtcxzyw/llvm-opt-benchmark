@@ -50571,7 +50571,7 @@ define hidden void @"_ZN5tokio4util17idle_notified_set24IdleNotifiedSet$LT$T$GT$
 
 ._crit_edge:                                      ; preds = %30, %.lr.ph.i
   %.lcssa29 = phi ptr [ %.promoted28, %.lr.ph.i ], [ %spec.select, %30 ]
-  %.lcssa26 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %36, %30 ]
+  %.lcssa26 = phi ptr [ %.val7.i.pre.i, %.lr.ph.i ], [ %38, %30 ]
   %.lcssa24 = phi ptr [ %26, %.lr.ph.i ], [ %32, %30 ]
   store ptr %.lcssa26, ptr %7, align 8, !alias.scope !9132, !noalias !9124
   store ptr %.lcssa29, ptr %12, align 8, !alias.scope !9132, !noalias !9124
@@ -50660,7 +50660,7 @@ _ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.380
 
 ._crit_edge48:                                    ; preds = %53, %.lr.ph.i5
   %.lcssa41 = phi ptr [ %.promoted40, %.lr.ph.i5 ], [ %spec.select52, %53 ]
-  %.lcssa38 = phi ptr [ %.promoted.i4, %.lr.ph.i5 ], [ %59, %53 ]
+  %.lcssa38 = phi ptr [ %.val7.i.pre.i6, %.lr.ph.i5 ], [ %61, %53 ]
   %.lcssa = phi ptr [ %49, %.lr.ph.i5 ], [ %55, %53 ]
   store ptr %.lcssa38, ptr %7, align 8, !alias.scope !9154, !noalias !9146
   store ptr %.lcssa41, ptr %12, align 8, !alias.scope !9154, !noalias !9146
@@ -50726,7 +50726,7 @@ _ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.380
   br label %18
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %20, %43
-  %lpad.loopexit.split-lp86 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp78 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #58
   unreachable
@@ -50847,7 +50847,7 @@ define hidden void @"_ZN5tokio4util17idle_notified_set24IdleNotifiedSet$LT$T$GT$
 
 ._crit_edge:                                      ; preds = %30, %.lr.ph.i
   %.lcssa29 = phi ptr [ %.promoted28, %.lr.ph.i ], [ %spec.select, %30 ]
-  %.lcssa26 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %36, %30 ]
+  %.lcssa26 = phi ptr [ %.val7.i.pre.i, %.lr.ph.i ], [ %38, %30 ]
   %.lcssa24 = phi ptr [ %26, %.lr.ph.i ], [ %32, %30 ]
   store ptr %.lcssa26, ptr %7, align 8, !alias.scope !9176, !noalias !9168
   store ptr %.lcssa29, ptr %12, align 8, !alias.scope !9176, !noalias !9168
@@ -50936,7 +50936,7 @@ _ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.380
 
 ._crit_edge48:                                    ; preds = %53, %.lr.ph.i5
   %.lcssa41 = phi ptr [ %.promoted40, %.lr.ph.i5 ], [ %spec.select52, %53 ]
-  %.lcssa38 = phi ptr [ %.promoted.i4, %.lr.ph.i5 ], [ %59, %53 ]
+  %.lcssa38 = phi ptr [ %.val7.i.pre.i6, %.lr.ph.i5 ], [ %61, %53 ]
   %.lcssa = phi ptr [ %49, %.lr.ph.i5 ], [ %55, %53 ]
   store ptr %.lcssa38, ptr %7, align 8, !alias.scope !9198, !noalias !9190
   store ptr %.lcssa41, ptr %12, align 8, !alias.scope !9198, !noalias !9190
@@ -51002,7 +51002,7 @@ _ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.380
   br label %18
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %20, %43
-  %lpad.loopexit.split-lp86 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp78 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #58
   unreachable

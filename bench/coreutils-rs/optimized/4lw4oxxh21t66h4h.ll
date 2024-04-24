@@ -158,7 +158,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
           to label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0906004a6b1bcdb6E.llvm.16133818723342207735.exit.i" unwind label %9, !noalias !32
 
 15:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0906004a6b1bcdb6E.llvm.16133818723342207735.exit.i"
-  store ptr %7, ptr %6, align 8, !alias.scope !35, !noalias !38
+  store ptr %8, ptr %6, align 8, !alias.scope !35, !noalias !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !41
   store ptr %4, ptr %3, align 8, !noalias !41
   %16 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hd6a0b64667057f63E.llvm.17160738934229394523(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)

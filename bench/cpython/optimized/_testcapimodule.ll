@@ -1216,12 +1216,12 @@ if.end.i41:                                       ; preds = %if.then11
   br i1 %cmp.i43, label %return.sink.split, label %return
 
 for.cond13:                                       ; preds = %cond.end
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %exitcond34.not = icmp eq i64 %indvars.iv.next31, 30
-  br i1 %exitcond34.not, label %for.end28, label %for.body16, !llvm.loop !6
+  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+  %exitcond35.not = icmp eq i64 %indvars.iv.next32, 30
+  br i1 %exitcond35.not, label %for.end28, label %for.body16, !llvm.loop !6
 
 for.body16:                                       ; preds = %for.end, %for.cond13
-  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %for.cond13 ], [ 0, %for.end ]
+  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %for.cond13 ], [ 0, %for.end ]
   %call.val = load ptr, ptr %0, align 8
   %9 = getelementptr i8, ptr %call.val, i64 168
   %call18.val = load i64, ptr %9, align 8
@@ -1235,10 +1235,10 @@ cond.false:                                       ; preds = %for.body16
 
 cond.end:                                         ; preds = %for.body16
   %11 = load ptr, ptr %ob_item.i, align 8
-  %arrayidx = getelementptr ptr, ptr %11, i64 %indvars.iv30
+  %arrayidx = getelementptr ptr, ptr %11, i64 %indvars.iv31
   %12 = load ptr, ptr %arrayidx, align 8
   %call20 = tail call i64 @PyLong_AsLong(ptr noundef %12) #15
-  %13 = sub nuw nsw i64 29, %indvars.iv30
+  %13 = sub nuw nsw i64 29, %indvars.iv31
   %cmp22.not = icmp eq i64 %call20, %13
   br i1 %cmp22.not, label %for.cond13, label %if.then24
 
@@ -2906,16 +2906,46 @@ if.then6:                                         ; preds = %if.end4
 if.end8:                                          ; preds = %if.end4
   %call.val = load i64, ptr %call, align 8
   %cmp10.not = icmp eq i64 %call.val, 2
-  br i1 %cmp10.not, label %Py_DECREF.exit, label %if.then11
+  br i1 %cmp10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.end8
   %2 = load ptr, ptr @TestError, align 8
   %call.i14 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.202, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.241) #15
   br label %return
 
-Py_DECREF.exit:                                   ; preds = %if.end8
-  store i64 0, ptr %call, align 8
+if.end13:                                         ; preds = %if.end8
+  %3 = load i64, ptr %call1, align 8
+  %4 = and i64 %3, 2147483648
+  %cmp.i48.not = icmp eq i64 %4, 0
+  br i1 %cmp.i48.not, label %if.end.i41, label %Py_DECREF.exit46
+
+if.end.i41:                                       ; preds = %if.end13
+  %dec.i42 = add i64 %3, -1
+  store i64 %dec.i42, ptr %call1, align 8
+  %cmp.i43 = icmp eq i64 %dec.i42, 0
+  br i1 %cmp.i43, label %if.then1.i44, label %Py_DECREF.exit46
+
+if.then1.i44:                                     ; preds = %if.end.i41
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call1) #15
+  br label %Py_DECREF.exit46
+
+Py_DECREF.exit46:                                 ; preds = %if.end13, %if.then1.i44, %if.end.i41
+  %5 = load i64, ptr %call, align 8
+  %6 = and i64 %5, 2147483648
+  %cmp.i51.not = icmp eq i64 %6, 0
+  br i1 %cmp.i51.not, label %if.end.i35, label %Py_DECREF.exit
+
+if.end.i35:                                       ; preds = %Py_DECREF.exit46
+  %dec.i = add i64 %5, -1
+  store i64 %dec.i, ptr %call, align 8
+  %cmp.i36 = icmp eq i64 %dec.i, 0
+  br i1 %cmp.i36, label %if.then1.i, label %Py_DECREF.exit
+
+if.then1.i:                                       ; preds = %if.end.i35
   tail call void @_Py_Dealloc(ptr noundef nonnull %call) #15
+  br label %Py_DECREF.exit
+
+Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit46, %if.then1.i, %if.end.i35
   %call14 = tail call fastcc i32 @test_buildvalue_N_error(ptr noundef nonnull @.str.242), !range !14
   %cmp15 = icmp slt i32 %call14, 0
   br i1 %cmp15, label %return, label %if.end17
@@ -5430,14 +5460,29 @@ cond.false6:                                      ; preds = %cond.end
 cond.end7:                                        ; preds = %cond.end
   %call.val17 = load i64, ptr %call, align 8
   %cmp9 = icmp eq i64 %call.val17, 2
-  br i1 %cmp9, label %Py_DECREF.exit45, label %cond.false11
+  br i1 %cmp9, label %cond.end12, label %cond.false11
 
 cond.false11:                                     ; preds = %cond.end7
   tail call void @__assert_fail(ptr noundef nonnull @.str.358, ptr noundef nonnull @.str.158, i32 noundef 2324, ptr noundef nonnull @__PRETTY_FUNCTION__.test_refcount_funcs) #14
   unreachable
 
-Py_DECREF.exit45:                                 ; preds = %cond.end7
-  store i64 1, ptr %call, align 8
+cond.end12:                                       ; preds = %cond.end7
+  %0 = load i64, ptr %call3, align 8
+  %1 = and i64 %0, 2147483648
+  %cmp.i47.not = icmp eq i64 %1, 0
+  br i1 %cmp.i47.not, label %if.end.i40, label %Py_DECREF.exit45
+
+if.end.i40:                                       ; preds = %cond.end12
+  %dec.i41 = add i64 %0, -1
+  store i64 %dec.i41, ptr %call3, align 8
+  %cmp.i42 = icmp eq i64 %dec.i41, 0
+  br i1 %cmp.i42, label %if.then1.i43, label %Py_DECREF.exit45
+
+if.then1.i43:                                     ; preds = %if.end.i40
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call3) #15
+  br label %Py_DECREF.exit45
+
+Py_DECREF.exit45:                                 ; preds = %cond.end12, %if.then1.i43, %if.end.i40
   %call13 = tail call ptr @Py_XNewRef(ptr noundef nonnull %call) #15
   %cmp14 = icmp eq ptr %call13, %call
   br i1 %cmp14, label %cond.end17, label %cond.false16
@@ -5449,14 +5494,29 @@ cond.false16:                                     ; preds = %Py_DECREF.exit45
 cond.end17:                                       ; preds = %Py_DECREF.exit45
   %call.val18 = load i64, ptr %call, align 8
   %cmp19 = icmp eq i64 %call.val18, 2
-  br i1 %cmp19, label %Py_DECREF.exit36, label %cond.false21
+  br i1 %cmp19, label %cond.end22, label %cond.false21
 
 cond.false21:                                     ; preds = %cond.end17
   tail call void @__assert_fail(ptr noundef nonnull @.str.358, ptr noundef nonnull @.str.158, i32 noundef 2324, ptr noundef nonnull @__PRETTY_FUNCTION__.test_refcount_funcs) #14
   unreachable
 
-Py_DECREF.exit36:                                 ; preds = %cond.end17
-  store i64 1, ptr %call, align 8
+cond.end22:                                       ; preds = %cond.end17
+  %2 = load i64, ptr %call13, align 8
+  %3 = and i64 %2, 2147483648
+  %cmp.i50.not = icmp eq i64 %3, 0
+  br i1 %cmp.i50.not, label %if.end.i31, label %Py_DECREF.exit36
+
+if.end.i31:                                       ; preds = %cond.end22
+  %dec.i32 = add i64 %2, -1
+  store i64 %dec.i32, ptr %call13, align 8
+  %cmp.i33 = icmp eq i64 %dec.i32, 0
+  br i1 %cmp.i33, label %if.then1.i34, label %Py_DECREF.exit36
+
+if.then1.i34:                                     ; preds = %if.end.i31
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call13) #15
+  br label %Py_DECREF.exit36
+
+Py_DECREF.exit36:                                 ; preds = %cond.end22, %if.then1.i34, %if.end.i31
   %call23 = tail call ptr @Py_XNewRef(ptr noundef null) #15
   %cmp24 = icmp eq ptr %call23, null
   br i1 %cmp24, label %cond.end27, label %cond.false26
@@ -5466,13 +5526,13 @@ cond.false26:                                     ; preds = %Py_DECREF.exit36
   unreachable
 
 cond.end27:                                       ; preds = %Py_DECREF.exit36
-  %0 = load i64, ptr %call, align 8
-  %1 = and i64 %0, 2147483648
-  %cmp.i54.not = icmp eq i64 %1, 0
+  %4 = load i64, ptr %call, align 8
+  %5 = and i64 %4, 2147483648
+  %cmp.i54.not = icmp eq i64 %5, 0
   br i1 %cmp.i54.not, label %if.end.i, label %do.end
 
 if.end.i:                                         ; preds = %cond.end27
-  %dec.i = add i64 %0, -1
+  %dec.i = add i64 %4, -1
   store i64 %dec.i, ptr %call, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %do.end
@@ -7083,18 +7143,19 @@ cond.false43:                                     ; preds = %cond.end39
   unreachable
 
 cond.end44:                                       ; preds = %cond.end39
-  %6 = and i64 %call1.val42, 2147483648
-  %cmp.i192.not = icmp eq i64 %6, 0
+  %6 = load i64, ptr %5, align 8
+  %7 = and i64 %6, 2147483648
+  %cmp.i192.not = icmp eq i64 %7, 0
   br i1 %cmp.i192.not, label %if.end.i160, label %Py_DECREF.exit165
 
 if.end.i160:                                      ; preds = %cond.end44
-  %dec.i161 = add i64 %call1.val42, -1
-  store i64 %dec.i161, ptr %call1, align 8
+  %dec.i161 = add i64 %6, -1
+  store i64 %dec.i161, ptr %5, align 8
   %cmp.i162 = icmp eq i64 %dec.i161, 0
   br i1 %cmp.i162, label %if.then1.i163, label %Py_DECREF.exit165
 
 if.then1.i163:                                    ; preds = %if.end.i160
-  call void @_Py_Dealloc(ptr noundef nonnull %call1) #15
+  call void @_Py_Dealloc(ptr noundef nonnull %5) #15
   br label %Py_DECREF.exit165
 
 Py_DECREF.exit165:                                ; preds = %cond.end44, %if.then1.i163, %if.end.i160
@@ -7130,10 +7191,10 @@ cond.false.i:                                     ; preds = %lor.lhs.false.i
 
 PyWeakref_GET_OBJECT.exit:                        ; preds = %cond.end49, %PyObject_TypeCheck.exit.i, %lor.lhs.false.i
   %wr_object.i = getelementptr inbounds i8, ptr %call6, i64 16
-  %7 = load ptr, ptr %wr_object.i, align 8
-  %.val.i = load i64, ptr %7, align 8
+  %8 = load ptr, ptr %wr_object.i, align 8
+  %.val.i = load i64, ptr %8, align 8
   %cmp.i59 = icmp sgt i64 %.val.i, 0
-  %._Py_NoneStruct.i = select i1 %cmp.i59, ptr %7, ptr @_Py_NoneStruct
+  %._Py_NoneStruct.i = select i1 %cmp.i59, ptr %8, ptr @_Py_NoneStruct
   store ptr %._Py_NoneStruct.i, ptr %ref, align 8
   %cmp51 = icmp eq ptr %._Py_NoneStruct.i, %call1
   br i1 %cmp51, label %cond.end54, label %cond.false53
@@ -7175,10 +7236,10 @@ cond.false.i75:                                   ; preds = %lor.lhs.false.i70
   unreachable
 
 PyWeakref_GET_OBJECT.exit76:                      ; preds = %Py_DECREF.exit156, %PyObject_TypeCheck.exit.i63, %lor.lhs.false.i70
-  %8 = load ptr, ptr %wr_object.i, align 8
-  %.val.i67 = load i64, ptr %8, align 8
+  %9 = load ptr, ptr %wr_object.i, align 8
+  %.val.i67 = load i64, ptr %9, align 8
   %cmp.i68 = icmp slt i64 %.val.i67, 1
-  %cmp6195 = icmp eq ptr %8, @_Py_NoneStruct
+  %cmp6195 = icmp eq ptr %9, @_Py_NoneStruct
   %cmp61 = or i1 %cmp6195, %cmp.i68
   br i1 %cmp61, label %cond.end64, label %cond.false63
 
@@ -7197,8 +7258,8 @@ cond.false68:                                     ; preds = %cond.end64
   unreachable
 
 cond.end69:                                       ; preds = %cond.end64
-  %9 = load ptr, ptr %ref, align 8
-  %cmp70 = icmp eq ptr %9, null
+  %10 = load ptr, ptr %ref, align 8
+  %cmp70 = icmp eq ptr %10, null
   br i1 %cmp70, label %cond.end73, label %cond.false72
 
 cond.false72:                                     ; preds = %cond.end69
@@ -7254,8 +7315,8 @@ cond.false103:                                    ; preds = %cond.end99
   unreachable
 
 cond.end104:                                      ; preds = %cond.end99
-  %10 = load ptr, ptr @PyExc_TypeError, align 8
-  %call105 = call i32 @PyErr_ExceptionMatches(ptr noundef %10) #15
+  %11 = load ptr, ptr @PyExc_TypeError, align 8
+  %call105 = call i32 @PyErr_ExceptionMatches(ptr noundef %11) #15
   %tobool106.not = icmp eq i32 %call105, 0
   br i1 %tobool106.not, label %cond.false108, label %cond.end109
 
@@ -7265,8 +7326,8 @@ cond.false108:                                    ; preds = %cond.end104
 
 cond.end109:                                      ; preds = %cond.end104
   call void @PyErr_Clear() #15
-  %11 = load ptr, ptr %ref, align 8
-  %cmp110 = icmp eq ptr %11, null
+  %12 = load ptr, ptr %ref, align 8
+  %cmp110 = icmp eq ptr %12, null
   br i1 %cmp110, label %cond.end113, label %cond.false112
 
 cond.false112:                                    ; preds = %cond.end109
@@ -7283,8 +7344,8 @@ cond.false117:                                    ; preds = %cond.end113
   unreachable
 
 cond.end118:                                      ; preds = %cond.end113
-  %12 = load ptr, ptr @PyExc_SystemError, align 8
-  %call119 = call i32 @PyErr_ExceptionMatches(ptr noundef %12) #15
+  %13 = load ptr, ptr @PyExc_SystemError, align 8
+  %call119 = call i32 @PyErr_ExceptionMatches(ptr noundef %13) #15
   %tobool120.not = icmp eq i32 %call119, 0
   br i1 %tobool120.not, label %cond.false122, label %cond.end123
 
@@ -7304,8 +7365,8 @@ cond.false127:                                    ; preds = %cond.end123
   unreachable
 
 cond.end128:                                      ; preds = %cond.end123
-  %13 = load ptr, ptr @PyExc_SystemError, align 8
-  %call129 = call i32 @PyErr_ExceptionMatches(ptr noundef %13) #15
+  %14 = load ptr, ptr @PyExc_SystemError, align 8
+  %call129 = call i32 @PyErr_ExceptionMatches(ptr noundef %14) #15
   %tobool130.not = icmp eq i32 %call129, 0
   br i1 %tobool130.not, label %cond.false132, label %cond.end133
 
@@ -7314,8 +7375,8 @@ cond.false132:                                    ; preds = %cond.end128
   unreachable
 
 cond.end133:                                      ; preds = %cond.end128
-  %14 = load ptr, ptr %ref, align 8
-  %cmp134 = icmp eq ptr %14, null
+  %15 = load ptr, ptr %ref, align 8
+  %cmp134 = icmp eq ptr %15, null
   br i1 %cmp134, label %cond.end137, label %cond.false136
 
 cond.false136:                                    ; preds = %cond.end133
@@ -7333,8 +7394,8 @@ cond.false141:                                    ; preds = %cond.end137
   unreachable
 
 cond.end142:                                      ; preds = %cond.end137
-  %15 = load ptr, ptr @PyExc_SystemError, align 8
-  %call143 = call i32 @PyErr_ExceptionMatches(ptr noundef %15) #15
+  %16 = load ptr, ptr @PyExc_SystemError, align 8
+  %call143 = call i32 @PyErr_ExceptionMatches(ptr noundef %16) #15
   %tobool144.not = icmp eq i32 %call143, 0
   br i1 %tobool144.not, label %cond.false146, label %cond.end147
 
@@ -7344,13 +7405,13 @@ cond.false146:                                    ; preds = %cond.end142
 
 cond.end147:                                      ; preds = %cond.end142
   call void @PyErr_Clear() #15
-  %16 = load i64, ptr %call6, align 8
-  %17 = and i64 %16, 2147483648
-  %cmp.i200.not = icmp eq i64 %17, 0
+  %17 = load i64, ptr %call6, align 8
+  %18 = and i64 %17, 2147483648
+  %cmp.i200.not = icmp eq i64 %18, 0
   br i1 %cmp.i200.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %cond.end147
-  %dec.i = add i64 %16, -1
+  %dec.i = add i64 %17, -1
   store i64 %dec.i, ptr %call6, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return

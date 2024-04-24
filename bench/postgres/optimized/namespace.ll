@@ -2334,7 +2334,7 @@ MatchNamedCall.exit:                              ; preds = %197, %._crit_edge.i
   br i1 %297, label %298, label %.preheader
 
 298:                                              ; preds = %.thread257.thread
-  %299 = load ptr, ptr %.0171303, align 8
+  %299 = load ptr, ptr %.1, align 8
   br label %.loopexit
 
 .preheader:                                       ; preds = %.thread257.thread, %300

@@ -710,9 +710,8 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   br i1 %.not19.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf835f85f4941e861E.exit.sink.split.i", label %8
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf835f85f4941e861E.exit.sink.split.i": ; preds = %.critedge.backedge.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit.i.i.i.i.i"
-  %.lcssa20.sink.i = phi ptr [ %4, %.critedge.backedge.i ], [ %10, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit.i.i.i.i.i" ]
   %.lcssa.ph.i = phi i1 [ false, %.critedge.backedge.i ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit.i.i.i.i.i" ]
-  store ptr %.lcssa20.sink.i, ptr %0, align 8, !alias.scope !266, !noalias !264
+  store ptr %10, ptr %0, align 8, !alias.scope !266, !noalias !264
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h922932abf775a9e7E.llvm.16954148956069160696.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h922932abf775a9e7E.llvm.16954148956069160696.exit: ; preds = %2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf835f85f4941e861E.exit.sink.split.i"
@@ -2873,9 +2872,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %.not19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf835f85f4941e861E.exit.sink.split", label %9
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf835f85f4941e861E.exit.sink.split": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit.i.i.i.i", %.critedge.backedge
-  %.lcssa20.sink = phi ptr [ %5, %.critedge.backedge ], [ %11, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit.i.i.i.i" ]
   %.lcssa.ph = phi i1 [ false, %.critedge.backedge ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit.i.i.i.i" ]
-  store ptr %.lcssa20.sink, ptr %0, align 8, !alias.scope !808
+  store ptr %11, ptr %0, align 8, !alias.scope !808
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf835f85f4941e861E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf835f85f4941e861E.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf835f85f4941e861E.exit.sink.split", %3
@@ -3707,7 +3705,8 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   br label %34
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h80de51019999a6e1E.llvm.16954148956069160696.exit.i: ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hab6b05135fcdda18E.exit.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1c4d93da2b009a3fE.exit"
-  store ptr %24, ptr %23, align 8, !alias.scope !992, !noalias !995
+  %.lcssa = phi ptr [ %.promoted.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1c4d93da2b009a3fE.exit" ], [ %30, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hab6b05135fcdda18E.exit.i.i" ]
+  store ptr %.lcssa, ptr %23, align 8, !alias.scope !992, !noalias !995
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !1005
   store ptr %6, ptr %4, align 8, !noalias !1005
   call void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ce437e4f0df4273E.llvm.3307611119196902081"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)

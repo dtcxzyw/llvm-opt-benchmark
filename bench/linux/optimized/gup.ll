@@ -5203,7 +5203,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   br i1 %345, label %346, label %373
 
 346:                                              ; preds = %337
-  %347 = getelementptr inbounds i8, ptr %339, i64 104
+  %347 = getelementptr inbounds i8, ptr %342, i64 104
   %348 = load ptr, ptr %347, align 8
   %349 = icmp eq ptr %348, @secretmem_aops
   br i1 %349, label %350, label %373, !prof !5

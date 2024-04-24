@@ -1190,7 +1190,7 @@ if.end.i56:                                       ; preds = %if.then34
   br label %_ZN3re23NFA6DecrefEPNS0_6ThreadE.exit58
 
 _ZN3re23NFA6DecrefEPNS0_6ThreadE.exit58:          ; preds = %if.then34, %if.end.i56
-  %i.1136 = getelementptr inbounds i8, ptr %2, i64 16
+  %i.1136 = getelementptr inbounds i8, ptr %i.0128, i64 16
   %25 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %26 = load i32, ptr %runq, align 8
   %idx.ext.i60137 = sext i32 %26 to i64
@@ -1200,7 +1200,7 @@ _ZN3re23NFA6DecrefEPNS0_6ThreadE.exit58:          ; preds = %if.then34, %if.end.
 
 for.body41:                                       ; preds = %_ZN3re23NFA6DecrefEPNS0_6ThreadE.exit58, %for.inc
   %i.1141 = phi ptr [ %i.1, %for.inc ], [ %i.1136, %_ZN3re23NFA6DecrefEPNS0_6ThreadE.exit58 ]
-  %i.0.pn49140 = phi ptr [ %i.1141, %for.inc ], [ %2, %_ZN3re23NFA6DecrefEPNS0_6ThreadE.exit58 ]
+  %i.0.pn49140 = phi ptr [ %i.1141, %for.inc ], [ %i.0128, %_ZN3re23NFA6DecrefEPNS0_6ThreadE.exit58 ]
   %value_.i62 = getelementptr inbounds i8, ptr %i.0.pn49140, i64 24
   %27 = load ptr, ptr %value_.i62, align 8
   %cmp43.not = icmp eq ptr %27, null
@@ -1865,7 +1865,7 @@ _ZN3re24Prog11PrefixAccelEPKvm.exit:              ; preds = %if.then.i, %if.then
   br label %if.end143
 
 if.end143:                                        ; preds = %lor.lhs.false121, %_ZN3re24Prog11PrefixAccelEPKvm.exit, %land.lhs.true132, %land.lhs.true126
-  %p.1 = phi ptr [ %p.0, %land.lhs.true132 ], [ %p.0, %land.lhs.true126 ], [ %spec.select, %_ZN3re24Prog11PrefixAccelEPKvm.exit ], [ %text.coerce0, %lor.lhs.false121 ]
+  %p.1 = phi ptr [ %p.0, %land.lhs.true132 ], [ %p.0, %land.lhs.true126 ], [ %spec.select, %_ZN3re24Prog11PrefixAccelEPKvm.exit ], [ %p.0, %lor.lhs.false121 ]
   %31 = load ptr, ptr %freelist_.i, align 8
   %cmp.not.i69 = icmp eq ptr %31, null
   br i1 %cmp.not.i69, label %if.end.i, label %if.then.i70

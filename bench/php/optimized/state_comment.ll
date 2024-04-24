@@ -686,7 +686,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %201
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %221 = phi ptr [ %1, %3 ], [ %.pre155, %._crit_edge.loopexit ]
-  %.076.lcssa = phi ptr [ %1, %3 ], [ %2, %._crit_edge.loopexit ]
+  %.076.lcssa = phi ptr [ %1, %3 ], [ %220, %._crit_edge.loopexit ]
   %222 = ptrtoint ptr %.076.lcssa to i64
   %223 = ptrtoint ptr %221 to i64
   %224 = sub i64 %222, %223

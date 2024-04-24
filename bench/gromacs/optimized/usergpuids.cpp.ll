@@ -1334,7 +1334,7 @@ _ZN3gmx13formatAndJoinISt6vectorIiSaIiEENS_15StringFormatterEEENSt7__cxx1112basi
   br i1 %.not.i.i.i52, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %135
 
 135:                                              ; preds = %134
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.7.2) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.067.2) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 136:                                              ; preds = %.loopexit, %.loopexit.split-lp, %133, %127

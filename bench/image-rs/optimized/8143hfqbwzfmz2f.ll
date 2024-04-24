@@ -1440,7 +1440,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %17, label %._crit_edge6.i.loopexit, label %.lr.ph.i
 
 ._crit_edge6.i.loopexit:                          ; preds = %.lr.ph.i
-  store ptr %8, ptr %5, align 8, !alias.scope !348, !noalias !334
+  store ptr %12, ptr %5, align 8, !alias.scope !348, !noalias !334
   br label %._crit_edge6.i
 
 ._crit_edge6.i:                                   ; preds = %._crit_edge6.i.loopexit, %2
@@ -2043,7 +2043,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %17, label %_ZN4core4iter6traits8iterator8Iterator4fold17h27a3f56286a3d315E.llvm.17892916829254103521.exit.loopexit, label %.lr.ph.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h27a3f56286a3d315E.llvm.17892916829254103521.exit.loopexit: ; preds = %.lr.ph.i
-  store ptr %7, ptr %4, align 8, !alias.scope !525, !noalias !505
+  store ptr %11, ptr %4, align 8, !alias.scope !525, !noalias !505
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h27a3f56286a3d315E.llvm.17892916829254103521.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h27a3f56286a3d315E.llvm.17892916829254103521.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h27a3f56286a3d315E.llvm.17892916829254103521.exit.loopexit, %2
@@ -3351,7 +3351,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h4e3a97d969c4da15E.llvm.17892916829254103521.exit
 
 ._crit_edge.i:                                    ; preds = %19
-  store ptr %10, ptr %8, align 8, !alias.scope !798, !noalias !801
+  store ptr %13, ptr %8, align 8, !alias.scope !798, !noalias !801
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h4e3a97d969c4da15E.llvm.17892916829254103521.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h4e3a97d969c4da15E.llvm.17892916829254103521.exit: ; preds = %6, %23, %._crit_edge.i
@@ -3592,7 +3592,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   br i1 %15, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  store ptr %7, ptr %5, align 8, !alias.scope !908
+  store ptr %10, ptr %5, align 8, !alias.scope !908
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h92ff4000e72f6638E.llvm.17892916829254103521.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h92ff4000e72f6638E.llvm.17892916829254103521.exit: ; preds = %4, %._crit_edge.i
@@ -3916,7 +3916,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hbaee0021a86c43b3E.llvm.17892916829254103521.exit
 
 ._crit_edge.i:                                    ; preds = %19
-  store ptr %10, ptr %8, align 8, !alias.scope !999, !noalias !1002
+  store ptr %13, ptr %8, align 8, !alias.scope !999, !noalias !1002
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hbaee0021a86c43b3E.llvm.17892916829254103521.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hbaee0021a86c43b3E.llvm.17892916829254103521.exit: ; preds = %6, %23, %._crit_edge.i
@@ -4049,7 +4049,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h33983b50fea82ebfE.llvm.17892916829254103521.exit
 
 ._crit_edge.i:                                    ; preds = %19
-  store ptr %10, ptr %8, align 8, !alias.scope !1040, !noalias !1043
+  store ptr %13, ptr %8, align 8, !alias.scope !1040, !noalias !1043
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h33983b50fea82ebfE.llvm.17892916829254103521.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h33983b50fea82ebfE.llvm.17892916829254103521.exit: ; preds = %6, %23, %._crit_edge.i
@@ -4126,7 +4126,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h73a4338da9966dc4E.llvm.17892916829254103521.exit
 
 ._crit_edge.i:                                    ; preds = %19
-  store ptr %10, ptr %8, align 8, !alias.scope !1064, !noalias !1067
+  store ptr %13, ptr %8, align 8, !alias.scope !1064, !noalias !1067
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h73a4338da9966dc4E.llvm.17892916829254103521.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h73a4338da9966dc4E.llvm.17892916829254103521.exit: ; preds = %6, %23, %._crit_edge.i
@@ -4196,7 +4196,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h85ee4946a9c8ade7E.llvm.17892916829254103521.exit
 
 ._crit_edge.i:                                    ; preds = %19
-  store ptr %10, ptr %8, align 8, !alias.scope !1088, !noalias !1091
+  store ptr %13, ptr %8, align 8, !alias.scope !1088, !noalias !1091
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h85ee4946a9c8ade7E.llvm.17892916829254103521.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h85ee4946a9c8ade7E.llvm.17892916829254103521.exit: ; preds = %6, %23, %._crit_edge.i
@@ -4273,7 +4273,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3e39e5246aabb812E.llvm.17892916829254103521.exit
 
 ._crit_edge.i:                                    ; preds = %19
-  store ptr %10, ptr %8, align 8, !alias.scope !1112, !noalias !1115
+  store ptr %13, ptr %8, align 8, !alias.scope !1112, !noalias !1115
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3e39e5246aabb812E.llvm.17892916829254103521.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h3e39e5246aabb812E.llvm.17892916829254103521.exit: ; preds = %6, %23, %._crit_edge.i
@@ -13480,7 +13480,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h33983b50fe
   ret void
 
 ._crit_edge:                                      ; preds = %19
-  store ptr %8, ptr %6, align 8, !alias.scope !3197
+  store ptr %11, ptr %6, align 8, !alias.scope !3197
   br label %24
 }
 
@@ -13558,7 +13558,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3e39e5246a
   ret void
 
 ._crit_edge:                                      ; preds = %19
-  store ptr %8, ptr %6, align 8, !alias.scope !3211
+  store ptr %11, ptr %6, align 8, !alias.scope !3211
   br label %24
 }
 
@@ -13629,7 +13629,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4e3a97d969
   ret void
 
 ._crit_edge:                                      ; preds = %19
-  store ptr %8, ptr %6, align 8, !alias.scope !3225
+  store ptr %11, ptr %6, align 8, !alias.scope !3225
   br label %24
 }
 
@@ -13846,7 +13846,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h73a4338da9
   ret void
 
 ._crit_edge:                                      ; preds = %19
-  store ptr %8, ptr %6, align 8, !alias.scope !3288
+  store ptr %11, ptr %6, align 8, !alias.scope !3288
   br label %24
 }
 
@@ -13917,7 +13917,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h85ee4946a9
   ret void
 
 ._crit_edge:                                      ; preds = %19
-  store ptr %8, ptr %6, align 8, !alias.scope !3302
+  store ptr %11, ptr %6, align 8, !alias.scope !3302
   br label %24
 }
 
@@ -14286,7 +14286,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h92
   br i1 %17, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %10
-  store ptr %8, ptr %6, align 8, !alias.scope !3424
+  store ptr %12, ptr %6, align 8, !alias.scope !3424
   br label %18
 
 18:                                               ; preds = %._crit_edge, %5
@@ -14805,7 +14805,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hbaee0021a8
   ret void
 
 ._crit_edge:                                      ; preds = %19
-  store ptr %8, ptr %6, align 8, !alias.scope !3572
+  store ptr %11, ptr %6, align 8, !alias.scope !3572
   br label %24
 }
 

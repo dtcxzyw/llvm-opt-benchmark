@@ -2517,20 +2517,20 @@ define internal fastcc i64 @__se_sys_setpgid(i64 noundef %0, i64 noundef %1) unn
   %14 = icmp eq i32 %4, 0
   %15 = select i1 %14, i32 %13, i32 %4
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %82, label %17
+  br i1 %16, label %83, label %17
 
 17:                                               ; preds = %12
   tail call void @__rcu_read_lock() #13
   tail call void @_raw_write_lock_irq(ptr noundef nonnull @tasklist_lock) #13
   %18 = tail call ptr @find_task_by_vpid(i32 noundef %13) #13
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %79, label %20
+  br i1 %19, label %80, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %18, i64 1224
   %22 = load i32, ptr %21, align 8
   %23 = icmp sgt i32 %22, -1
-  br i1 %23, label %24, label %79
+  br i1 %23, label %24, label %80
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %18, i64 1328
@@ -2547,80 +2547,85 @@ define internal fastcc i64 @__se_sys_setpgid(i64 noundef %0, i64 noundef %1) unn
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr i8, ptr %34, i64 384
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr i8, ptr %28, i64 384
+  %37 = getelementptr i8, ptr %30, i64 384
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %36, %38
-  br i1 %39, label %40, label %79
+  br i1 %39, label %40, label %80
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds i8, ptr %18, i64 44
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 64
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %79, label %._crit_edge
+  br i1 %44, label %80, label %47
 
 45:                                               ; preds = %24
   %46 = icmp eq ptr %18, %8
-  br i1 %46, label %._crit_edge, label %79
+  br i1 %46, label %._crit_edge, label %80
 
-._crit_edge:                                      ; preds = %45, %40
-  %47 = phi ptr [ %34, %40 ], [ %30, %45 ]
-  %48 = getelementptr inbounds i8, ptr %18, i64 1880
-  %49 = getelementptr inbounds i8, ptr %47, i64 400
-  %50 = load i32, ptr %49, align 8
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %79
+._crit_edge:                                      ; preds = %45
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %18, i64 1880
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  br label %47
 
-52:                                               ; preds = %._crit_edge
-  %53 = getelementptr inbounds i8, ptr %18, i64 1416
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq i32 %15, %13
-  br i1 %55, label %69, label %56
+47:                                               ; preds = %._crit_edge, %40
+  %48 = phi ptr [ %.pre, %._crit_edge ], [ %34, %40 ]
+  %49 = getelementptr inbounds i8, ptr %18, i64 1880
+  %50 = getelementptr inbounds i8, ptr %48, i64 400
+  %51 = load i32, ptr %50, align 8
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %80
 
-56:                                               ; preds = %52
-  %57 = tail call ptr @find_vpid(i32 noundef %15) #13
-  %58 = tail call ptr @pid_task(ptr noundef %57, i32 noundef 2) #13
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %79, label %60
+53:                                               ; preds = %47
+  %54 = getelementptr inbounds i8, ptr %18, i64 1416
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp eq i32 %15, %13
+  br i1 %56, label %70, label %57
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %58, i64 1880
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr i8, ptr %62, i64 384
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr %29, align 8
-  %66 = getelementptr i8, ptr %65, i64 384
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %64, %67
-  br i1 %68, label %69, label %79
+57:                                               ; preds = %53
+  %58 = tail call ptr @find_vpid(i32 noundef %15) #13
+  %59 = tail call ptr @pid_task(ptr noundef %58, i32 noundef 2) #13
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %80, label %61
 
-69:                                               ; preds = %60, %52
-  %70 = phi ptr [ %57, %60 ], [ %54, %52 ]
-  %71 = tail call i32 @security_task_setpgid(ptr noundef nonnull %18, i32 noundef %15) #13
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %79
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds i8, ptr %59, i64 1880
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr i8, ptr %63, i64 384
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %29, align 8
+  %67 = getelementptr i8, ptr %66, i64 384
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %65, %68
+  br i1 %69, label %70, label %80
 
-73:                                               ; preds = %69
-  %74 = load ptr, ptr %48, align 8
-  %75 = getelementptr i8, ptr %74, i64 376
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp eq ptr %76, %70
-  br i1 %77, label %79, label %78
+70:                                               ; preds = %61, %53
+  %71 = phi ptr [ %58, %61 ], [ %55, %53 ]
+  %72 = tail call i32 @security_task_setpgid(ptr noundef nonnull %18, i32 noundef %15) #13
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %80
 
-78:                                               ; preds = %73
-  tail call void @change_pid(ptr noundef nonnull %18, i32 noundef 2, ptr noundef %70) #13
-  br label %79
+74:                                               ; preds = %70
+  %75 = load ptr, ptr %49, align 8
+  %76 = getelementptr i8, ptr %75, i64 376
+  %77 = load ptr, ptr %76, align 8
+  %78 = icmp eq ptr %77, %71
+  br i1 %78, label %80, label %79
 
-79:                                               ; preds = %78, %73, %69, %60, %56, %._crit_edge, %45, %40, %32, %20, %17
-  %80 = phi i32 [ -1, %32 ], [ -1, %._crit_edge ], [ -1, %60 ], [ %71, %69 ], [ -13, %40 ], [ -3, %45 ], [ -22, %20 ], [ -3, %17 ], [ 0, %78 ], [ 0, %73 ], [ -1, %56 ]
+79:                                               ; preds = %74
+  tail call void @change_pid(ptr noundef nonnull %18, i32 noundef 2, ptr noundef %71) #13
+  br label %80
+
+80:                                               ; preds = %79, %74, %70, %61, %57, %47, %45, %40, %32, %20, %17
+  %81 = phi i32 [ -1, %32 ], [ -1, %47 ], [ -1, %61 ], [ %72, %70 ], [ -13, %40 ], [ -3, %45 ], [ -22, %20 ], [ -3, %17 ], [ 0, %79 ], [ 0, %74 ], [ -1, %57 ]
   tail call void @_raw_write_unlock_irq(ptr noundef nonnull @tasklist_lock) #13
   tail call void @__rcu_read_unlock() #13
-  %81 = sext i32 %80 to i64
-  br label %82
+  %82 = sext i32 %81 to i64
+  br label %83
 
-82:                                               ; preds = %79, %12
-  %83 = phi i64 [ %81, %79 ], [ -22, %12 ]
-  ret i64 %83
+83:                                               ; preds = %80, %12
+  %84 = phi i64 [ %82, %80 ], [ -22, %12 ]
+  ret i64 %84
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

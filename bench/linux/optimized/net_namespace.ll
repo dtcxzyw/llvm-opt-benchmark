@@ -2225,57 +2225,58 @@ define dso_local void @unregister_pernet_device(ptr noundef %0) #0 align 16 {
   tail call void @down_write(ptr noundef nonnull @pernet_ops_rwsem) #16
   %3 = load ptr, ptr @first_device, align 8
   %4 = icmp eq ptr %3, %0
-  %.pre = load ptr, ptr %0, align 8
-  br i1 %4, label %5, label %6
+  br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  store ptr %.pre, ptr @first_device, align 8
-  br label %6
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr @first_device, align 8
+  br label %7
 
-6:                                                ; preds = %5, %1
+7:                                                ; preds = %5, %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
   store ptr %2, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %.pre, i64 8
-  store ptr %9, ptr %10, align 8
-  store volatile ptr %.pre, ptr %9, align 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %2, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %0, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %10, ptr %12, align 8
+  store volatile ptr %11, ptr %10, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %8, align 8
-  %11 = load ptr, ptr @net_namespace_list, align 8
-  %12 = icmp eq ptr %11, @net_namespace_list
-  br i1 %12, label %.loopexit, label %.preheader
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %9, align 8
+  %13 = load ptr, ptr @net_namespace_list, align 8
+  %14 = icmp eq ptr %13, @net_namespace_list
+  br i1 %14, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %6, %.preheader
-  %13 = phi ptr [ %17, %.preheader ], [ %11, %6 ]
-  %14 = getelementptr i8, ptr %13, i64 16
-  %15 = load ptr, ptr %7, align 8
-  store ptr %14, ptr %7, align 8
-  store ptr %2, ptr %14, align 8
-  %16 = getelementptr i8, ptr %13, i64 24
-  store ptr %15, ptr %16, align 8
-  store volatile ptr %14, ptr %15, align 8
-  %17 = load ptr, ptr %13, align 8
-  %18 = icmp eq ptr %17, @net_namespace_list
-  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !42
+.preheader:                                       ; preds = %7, %.preheader
+  %15 = phi ptr [ %19, %.preheader ], [ %13, %7 ]
+  %16 = getelementptr i8, ptr %15, i64 16
+  %17 = load ptr, ptr %8, align 8
+  store ptr %16, ptr %8, align 8
+  store ptr %2, ptr %16, align 8
+  %18 = getelementptr i8, ptr %15, i64 24
+  store ptr %17, ptr %18, align 8
+  store volatile ptr %16, ptr %17, align 8
+  %19 = load ptr, ptr %15, align 8
+  %20 = icmp eq ptr %19, @net_namespace_list
+  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !42
 
-.loopexit:                                        ; preds = %.preheader, %6
+.loopexit:                                        ; preds = %.preheader, %7
   call fastcc void @free_exit_list(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   call void @rcu_barrier() #16
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %24, label %22
+  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %26, label %24
 
-22:                                               ; preds = %.loopexit
-  %23 = load i32, ptr %20, align 4
-  call void @ida_free(ptr noundef nonnull @net_generic_ids, i32 noundef %23) #16
-  br label %24
+24:                                               ; preds = %.loopexit
+  %25 = load i32, ptr %22, align 4
+  call void @ida_free(ptr noundef nonnull @net_generic_ids, i32 noundef %25) #16
+  br label %26
 
-24:                                               ; preds = %22, %.loopexit
+26:                                               ; preds = %24, %.loopexit
   call void @up_write(ptr noundef nonnull @pernet_ops_rwsem) #16
   ret void
 }

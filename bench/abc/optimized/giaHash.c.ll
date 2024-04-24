@@ -64,11 +64,11 @@ define i32 @Gia_ManHashLookupInt(ptr nocapture noundef readonly %0, i32 noundef 
 
 37:                                               ; preds = %25
   %38 = lshr i64 %.val24.i, 32
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw i64 %38 to i32
   %40 = and i32 %39, 536870911
   %41 = sub nsw i32 %26, %40
   %42 = lshr i64 %.val24.i, 61
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw nsw i64 %42 to i32
   %44 = and i32 %43, 1
   %45 = shl nsw i32 %41, 1
   %46 = or disjoint i32 %45, %44
@@ -155,11 +155,11 @@ define internal fastcc noundef ptr @Gia_ManHashFind(ptr nocapture noundef readon
 
 39:                                               ; preds = %27
   %40 = lshr i64 %.val24, 32
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw i64 %40 to i32
   %42 = and i32 %41, 536870911
   %43 = sub nsw i32 %28, %42
   %44 = lshr i64 %.val24, 61
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw nsw i64 %44 to i32
   %46 = and i32 %45, 1
   %47 = shl nsw i32 %43, 1
   %48 = or disjoint i32 %47, %46
@@ -261,11 +261,11 @@ define i32 @Gia_ManHashLookup(ptr nocapture noundef readonly %0, ptr noundef %1,
 
 56:                                               ; preds = %44
   %57 = lshr i64 %.val24.i.i, 32
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nuw i64 %57 to i32
   %59 = and i32 %58, 536870911
   %60 = sub nsw i32 %45, %59
   %61 = lshr i64 %.val24.i.i, 61
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw nsw i64 %61 to i32
   %63 = and i32 %62, 1
   %64 = shl nsw i32 %60, 1
   %65 = or disjoint i32 %64, %63
@@ -527,18 +527,18 @@ define void @Gia_ManHashStart(ptr nocapture noundef %0) local_unnamed_addr #1 {
 17:                                               ; preds = %12
   %18 = trunc i64 %.val19 to i32
   %19 = and i32 %18, 536870911
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = sub nsw i32 %20, %19
   %22 = lshr i32 %18, 29
   %23 = and i32 %22, 1
   %24 = shl nsw i32 %21, 1
   %25 = or disjoint i32 %24, %23
   %26 = lshr i64 %.val19, 32
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   %28 = and i32 %27, 536870911
   %29 = sub nsw i32 %20, %28
   %30 = lshr i64 %.val19, 61
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw nsw i64 %30 to i32
   %32 = and i32 %31, 1
   %33 = shl nsw i32 %29, 1
   %34 = or disjoint i32 %33, %32
@@ -596,11 +596,11 @@ Gia_ObjFaninLit2.exit:                            ; preds = %17, %35
 
 65:                                               ; preds = %.lr.ph.i.split.us
   %66 = lshr i64 %.val24.i.us, 32
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   %68 = and i32 %67, 536870911
   %69 = sub nsw i32 %54, %68
   %70 = lshr i64 %.val24.i.us, 61
-  %71 = trunc i64 %70 to i32
+  %71 = trunc nuw nsw i64 %70 to i32
   %72 = and i32 %71, 1
   %73 = shl nsw i32 %69, 1
   %74 = or disjoint i32 %73, %72
@@ -632,11 +632,11 @@ Gia_ObjFaninLit2.exit:                            ; preds = %17, %35
 
 90:                                               ; preds = %.lr.ph.i.split
   %91 = lshr i64 %.val24.i, 32
-  %92 = trunc i64 %91 to i32
+  %92 = trunc nuw i64 %91 to i32
   %93 = and i32 %92, 536870911
   %94 = sub nsw i32 %79, %93
   %95 = lshr i64 %.val24.i, 61
-  %96 = trunc i64 %95 to i32
+  %96 = trunc nuw nsw i64 %95 to i32
   %97 = and i32 %96, 1
   %98 = shl nsw i32 %94, 1
   %99 = or disjoint i32 %98, %97
@@ -828,11 +828,11 @@ Vec_IntFill.exit:                                 ; preds = %26, %Abc_PrimeCudd.
   %46 = shl nsw i32 %43, 1
   %47 = or disjoint i32 %46, %45
   %48 = lshr i64 %.val32, 32
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw i64 %48 to i32
   %50 = and i32 %49, 536870911
   %51 = sub nsw i32 %.02856, %50
   %52 = lshr i64 %.val32, 61
-  %53 = trunc i64 %52 to i32
+  %53 = trunc nuw nsw i64 %52 to i32
   %54 = and i32 %53, 1
   %55 = shl nsw i32 %51, 1
   %56 = or disjoint i32 %55, %54
@@ -898,11 +898,11 @@ Gia_ObjFaninLit2p.exit:                           ; preds = %.lr.ph, %58
 
 93:                                               ; preds = %.lr.ph.i43.split.us
   %94 = lshr i64 %.val24.i.us, 32
-  %95 = trunc i64 %94 to i32
+  %95 = trunc nuw i64 %94 to i32
   %96 = and i32 %95, 536870911
   %97 = sub nsw i32 %82, %96
   %98 = lshr i64 %.val24.i.us, 61
-  %99 = trunc i64 %98 to i32
+  %99 = trunc nuw nsw i64 %98 to i32
   %100 = and i32 %99, 1
   %101 = shl nsw i32 %97, 1
   %102 = or disjoint i32 %101, %100
@@ -934,11 +934,11 @@ Gia_ObjFaninLit2p.exit:                           ; preds = %.lr.ph, %58
 
 118:                                              ; preds = %.lr.ph.i43.split
   %119 = lshr i64 %.val24.i, 32
-  %120 = trunc i64 %119 to i32
+  %120 = trunc nuw i64 %119 to i32
   %121 = and i32 %120, 536870911
   %122 = sub nsw i32 %107, %121
   %123 = lshr i64 %.val24.i, 61
-  %124 = trunc i64 %123 to i32
+  %124 = trunc nuw nsw i64 %123 to i32
   %125 = and i32 %124, 1
   %126 = shl nsw i32 %122, 1
   %127 = or disjoint i32 %126, %125
@@ -1172,11 +1172,11 @@ define i32 @Gia_ManHashXorReal(ptr nocapture noundef %0, i32 noundef %1, i32 nou
 
 62:                                               ; preds = %51
   %63 = lshr i64 %.val24.i, 32
-  %64 = trunc i64 %63 to i32
+  %64 = trunc nuw i64 %63 to i32
   %65 = and i32 %64, 536870911
   %66 = sub nsw i32 %.pr, %65
   %67 = lshr i64 %.val24.i, 61
-  %68 = trunc i64 %67 to i32
+  %68 = trunc nuw nsw i64 %67 to i32
   %69 = and i32 %68, 1
   %70 = shl nsw i32 %66, 1
   %71 = or disjoint i32 %70, %69
@@ -2141,7 +2141,7 @@ define internal fastcc ptr @Gia_ManAddStrash(ptr noundef %0, ptr noundef %1, ptr
   %141 = ptrtoint ptr %55 to i64
   %142 = xor i64 %141, 1
   %143 = inttoptr i64 %142 to ptr
-  %144 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %143, ptr noundef %1)
+  %144 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %143, ptr noundef %56)
   br label %273
 
 145:                                              ; preds = %138
@@ -2152,7 +2152,7 @@ define internal fastcc ptr @Gia_ManAddStrash(ptr noundef %0, ptr noundef %1, ptr
   %148 = ptrtoint ptr %56 to i64
   %149 = xor i64 %148, 1
   %150 = inttoptr i64 %149 to ptr
-  %151 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %150, ptr noundef %1)
+  %151 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %150, ptr noundef %55)
   br label %273
 
 152:                                              ; preds = %131
@@ -2445,11 +2445,11 @@ define i32 @Gia_ManHashAndTry(ptr nocapture noundef readonly %0, i32 noundef %1,
 
 49:                                               ; preds = %38
   %50 = lshr i64 %.val24.i, 32
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw i64 %50 to i32
   %52 = and i32 %51, 536870911
   %53 = sub nsw i32 %.pr, %52
   %54 = lshr i64 %.val24.i, 61
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw nsw i64 %54 to i32
   %56 = and i32 %55, 1
   %57 = shl nsw i32 %53, 1
   %58 = or disjoint i32 %57, %56
@@ -2653,7 +2653,7 @@ Abc_UtilStrsav.exit43:                            ; preds = %Abc_UtilStrsav.exit
   %42 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %26, i64 %41, i32 1
   %43 = load i32, ptr %42, align 4
   %44 = lshr i64 %.val37, 61
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw nsw i64 %44 to i32
   %46 = and i32 %45, 1
   %47 = xor i32 %43, %46
   %48 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %4, i32 noundef %38, i32 noundef %47)
@@ -3015,7 +3015,7 @@ define i32 @Gia_ManHashAndMulti(ptr noundef %0, ptr nocapture noundef %1) local_
   br label %.lr.ph, !llvm.loop !16
 
 .critedge:                                        ; preds = %.lr.ph
-  %17 = trunc i64 %indvars.iv.next42 to i32
+  %17 = trunc nuw i64 %indvars.iv.next42 to i32
   %18 = and i32 %.val25, 1
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %27, label %19
@@ -3176,7 +3176,7 @@ define noalias noundef ptr @Gia_ManGenPerm(i32 noundef %0) local_unnamed_addr #1
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %7 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %8, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3314,7 +3314,7 @@ define i32 @Gia_ManMultiInputPerm(ptr noundef %0, ptr nocapture noundef %1, i32 
   br i1 %exitcond144.not, label %._crit_edge115.thread, label %.lr.ph114, !llvm.loop !25
 
 ._crit_edge115.loopexit:                          ; preds = %.lr.ph114
-  %18 = trunc i64 %indvars.iv140 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv140 to i32
   br label %._crit_edge115
 
 ._crit_edge115:                                   ; preds = %._crit_edge115.loopexit, %11
@@ -3393,9 +3393,9 @@ define i32 @Gia_ManMultiInputPerm(ptr noundef %0, ptr nocapture noundef %1, i32 
   %57 = getelementptr inbounds i32, ptr %1, i64 %53
   store i32 %56, ptr %57, align 4
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %58 = trunc i64 %indvars.iv.next146 to i32
+  %58 = trunc nuw i64 %indvars.iv.next146 to i32
   %59 = icmp sgt i32 %.0, %58
-  %60 = trunc i64 %indvars.iv145 to i32
+  %60 = trunc nuw i64 %indvars.iv145 to i32
   br i1 %59, label %.lr.ph122, label %._crit_edge123, !llvm.loop !26
 
 ._crit_edge123:                                   ; preds = %.lr.ph122, %48
@@ -3576,7 +3576,7 @@ define i32 @Gia_ManCube(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noca
   %.011 = phi i32 [ 1, %.lr.ph ], [ %14, %7 ]
   %8 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = lshr i32 %6, %10
   %12 = and i32 %11, 1
   %13 = xor i32 %9, %12
@@ -3673,7 +3673,7 @@ define void @Gia_ManUsePerm(ptr nocapture noundef %0, i32 noundef %1, ptr nocapt
   %23 = load i32, ptr %22, align 4
   store i32 %23, ptr %20, align 4
   store i32 %21, ptr %22, align 4
-  %24 = trunc i64 %indvars.iv109 to i32
+  %24 = trunc nuw nsw i64 %indvars.iv109 to i32
   %25 = shl nuw i32 1, %24
   %26 = shl nuw i32 1, %.085.lcssa.us
   %27 = xor i32 %26, %25
@@ -3681,7 +3681,7 @@ define void @Gia_ManUsePerm(ptr nocapture noundef %0, i32 noundef %1, ptr nocapt
 
 28:                                               ; preds = %.lr.ph94.us, %45
   %indvars.iv104 = phi i64 [ 0, %.lr.ph94.us ], [ %indvars.iv.next105, %45 ]
-  %29 = trunc i64 %indvars.iv104 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv104 to i32
   %30 = and i32 %25, %29
   %.not.us = icmp ne i32 %30, 0
   %31 = and i32 %26, %29
@@ -3836,7 +3836,7 @@ define i32 @Gia_ManLatest(ptr nocapture noundef readonly %0, i32 noundef %1, i32
   %.not20 = icmp eq i64 %indvars.iv, %7
   %or.cond22 = or i1 %.not20, %or.cond21
   %.116 = select i1 %or.cond22, i32 %.01524, i32 %11
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   %.1 = select i1 %or.cond22, i32 %.025, i32 %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3864,7 +3864,7 @@ define i32 @Gia_ManEarliest(ptr nocapture noundef readonly %0, i32 noundef %1) l
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %.0915, %5
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.0915, i32 %5)
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select13 = select i1 %6, i32 %7, i32 %.016
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3903,7 +3903,7 @@ define i32 @Gia_ManDecompOne(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
   %.011.i = phi i32 [ 1, %.lr.ph.i ], [ %27, %20 ]
   %21 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4
-  %23 = trunc i64 %indvars.iv.i to i32
+  %23 = trunc nuw nsw i64 %indvars.iv.i to i32
   %24 = lshr i32 %19, %23
   %25 = and i32 %24, 1
   %26 = xor i32 %25, %22
@@ -3960,7 +3960,7 @@ Gia_ManCube.exit50.thread:                        ; preds = %6
   %.011.i = phi i32 [ 1, %.lr.ph.i ], [ %38, %31 ]
   %32 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
   %33 = load i32, ptr %32, align 4
-  %34 = trunc i64 %indvars.iv.i to i32
+  %34 = trunc nuw nsw i64 %indvars.iv.i to i32
   %35 = lshr i32 %30, %34
   %36 = and i32 %35, 1
   %37 = xor i32 %36, %33
@@ -3978,7 +3978,7 @@ Gia_ManCube.exit50.thread:                        ; preds = %6
   %.011.i47 = phi i32 [ 1, %.lr.ph.i44 ], [ %47, %40 ]
   %41 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i46
   %42 = load i32, ptr %41, align 4
-  %43 = trunc i64 %indvars.iv.i46 to i32
+  %43 = trunc nuw nsw i64 %indvars.iv.i46 to i32
   %44 = lshr i32 %39, %43
   %45 = and i32 %44, 1
   %46 = xor i32 %45, %42
@@ -4075,7 +4075,7 @@ define i32 @Gia_ManDecompThree(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %.011.i = phi i32 [ 1, %.lr.ph.i ], [ %47, %40 ]
   %41 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
   %42 = load i32, ptr %41, align 4
-  %43 = trunc i64 %indvars.iv.i to i32
+  %43 = trunc nuw nsw i64 %indvars.iv.i to i32
   %44 = lshr i32 %39, %43
   %45 = and i32 %44, 1
   %46 = xor i32 %45, %42
@@ -4093,7 +4093,7 @@ define i32 @Gia_ManDecompThree(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %.011.i65 = phi i32 [ 1, %.lr.ph.i62 ], [ %56, %49 ]
   %50 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i64
   %51 = load i32, ptr %50, align 4
-  %52 = trunc i64 %indvars.iv.i64 to i32
+  %52 = trunc nuw nsw i64 %indvars.iv.i64 to i32
   %53 = lshr i32 %48, %52
   %54 = and i32 %53, 1
   %55 = xor i32 %54, %51
@@ -4111,7 +4111,7 @@ define i32 @Gia_ManDecompThree(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %.011.i73 = phi i32 [ 1, %.lr.ph.i70 ], [ %65, %58 ]
   %59 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i72
   %60 = load i32, ptr %59, align 4
-  %61 = trunc i64 %indvars.iv.i72 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv.i72 to i32
   %62 = lshr i32 %57, %61
   %63 = and i32 %62, 1
   %64 = xor i32 %63, %60
@@ -4174,7 +4174,7 @@ Gia_ManEarliest.exit.thread:                      ; preds = %9
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %.0915.i, %16
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %.0915.i, i32 %16)
-  %18 = trunc i64 %indvars.iv.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   %spec.select13.i = select i1 %17, i32 %18, i32 %.016.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -4197,7 +4197,7 @@ Gia_ManEarliest.exit.thread:                      ; preds = %9
   %.not.i = icmp eq i64 %indvars.iv.i95, 4294967295
   %or.cond.i = or i1 %.not.i, %25
   %.116.i = select i1 %or.cond.i, i32 %.01524.i, i32 %24
-  %26 = trunc i64 %indvars.iv.i95 to i32
+  %26 = trunc nuw nsw i64 %indvars.iv.i95 to i32
   %.1.i = select i1 %or.cond.i, i32 %.025.i, i32 %26
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i95, 1
   %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, %wide.trip.count.i
@@ -4219,7 +4219,7 @@ Gia_ManEarliest.exit.thread:                      ; preds = %9
   %.not19.i107 = icmp eq i64 %indvars.iv.i102, 4294967295
   %or.cond21.i = or i1 %.not19.i107, %or.cond.i106
   %.116.i109 = select i1 %or.cond21.i, i32 %.01524.i104, i32 %29
-  %31 = trunc i64 %indvars.iv.i102 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv.i102 to i32
   %.1.i110 = select i1 %or.cond21.i, i32 %.025.i103, i32 %31
   %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i102, 1
   %exitcond.not.i112 = icmp eq i64 %indvars.iv.next.i111, %wide.trip.count.i
@@ -4243,7 +4243,7 @@ Gia_ManEarliest.exit.thread:                      ; preds = %9
   %.not20.i125 = icmp eq i64 %indvars.iv.i118, 4294967295
   %or.cond22.i = or i1 %.not20.i125, %or.cond21.i124
   %.116.i126 = select i1 %or.cond22.i, i32 %.01524.i120, i32 %34
-  %36 = trunc i64 %indvars.iv.i118 to i32
+  %36 = trunc nuw nsw i64 %indvars.iv.i118 to i32
   %.1.i127 = select i1 %or.cond22.i, i32 %.025.i119, i32 %36
   %indvars.iv.next.i128 = add nuw nsw i64 %indvars.iv.i118, 1
   %exitcond.not.i129 = icmp eq i64 %indvars.iv.next.i128, %wide.trip.count.i
@@ -4267,7 +4267,7 @@ Gia_ManEarliest.exit.thread:                      ; preds = %9
   %.not20.i142 = icmp eq i64 %indvars.iv.i135, %37
   %or.cond22.i143 = or i1 %.not20.i142, %or.cond21.i141
   %.116.i144 = select i1 %or.cond22.i143, i32 %.01524.i137, i32 %39
-  %41 = trunc i64 %indvars.iv.i135 to i32
+  %41 = trunc nuw nsw i64 %indvars.iv.i135 to i32
   %.1.i145 = select i1 %or.cond22.i143, i32 %.025.i136, i32 %41
   %indvars.iv.next.i146 = add nuw nsw i64 %indvars.iv.i135, 1
   %exitcond.not.i147 = icmp eq i64 %indvars.iv.next.i146, %wide.trip.count.i
@@ -4354,7 +4354,7 @@ Gia_ManLatest.exit148:                            ; preds = %.lr.ph.i134, %Gia_M
   %.011.i.i = phi i32 [ 1, %.lr.ph.i.i ], [ %97, %90 ]
   %91 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i.i
   %92 = load i32, ptr %91, align 4
-  %93 = trunc i64 %indvars.iv.i.i to i32
+  %93 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %94 = lshr i32 %89, %93
   %95 = and i32 %94, 1
   %96 = xor i32 %95, %92
@@ -4430,7 +4430,7 @@ Gia_ManCollectLiterals.exit:                      ; preds = %.lr.ph.i, %1
 .lr.ph.i35:                                       ; preds = %.lr.ph.i35, %.lr.ph.preheader.i33
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.preheader.i33 ], [ %indvars.iv.next.i37, %.lr.ph.i35 ]
   %16 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.i36
-  %17 = trunc i64 %indvars.iv.i36 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i36 to i32
   store i32 %17, ptr %16, align 4
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i34

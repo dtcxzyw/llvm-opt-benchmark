@@ -1238,7 +1238,7 @@ dissect_command.exit:                             ; preds = %estimated_command_p
   br label %377
 
 377:                                              ; preds = %.critedge2, %352, %339
-  %.1 = phi ptr [ %341, %339 ], [ %.0.lcssa, %352 ], [ %341, %.critedge2 ]
+  %.1 = phi ptr [ %341, %339 ], [ %.0.lcssa, %352 ], [ %.0.lcssa, %.critedge2 ]
   %378 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
   %379 = icmp sgt i32 %378, 0
   br i1 %379, label %.lr.ph148, label %.thread

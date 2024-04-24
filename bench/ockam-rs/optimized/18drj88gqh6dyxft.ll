@@ -9479,8 +9479,7 @@ define hidden void @_ZN25ockam_transport_websocket6router6handle21WebSocketRoute
   br i1 %43, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4599ec7a379e0316E.exit.thread.sink.split.i", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4599ec7a379e0316E.exit.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4599ec7a379e0316E.exit.thread.sink.split.i": ; preds = %42, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4599ec7a379e0316E.exit.i"
-  %.lcssa.sink.i = phi ptr [ %38, %42 ], [ %41, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4599ec7a379e0316E.exit.i" ]
-  store ptr %.lcssa.sink.i, ptr %36, align 8, !alias.scope !1737, !noalias !1740
+  store ptr %41, ptr %36, align 8, !alias.scope !1737, !noalias !1740
   br label %53
 
 44:                                               ; preds = %33

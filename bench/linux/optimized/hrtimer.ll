@@ -623,70 +623,70 @@ define dso_local void @hrtimer_start_range_ns(ptr noundef %0, i64 noundef %1, i6
 .thread:                                          ; preds = %58, %65, %63
   %72 = phi ptr [ %71, %65 ], [ %62, %63 ], [ %62, %58 ]
   %73 = sext i32 %60 to i64
-  %74 = getelementptr inbounds i8, ptr %15, i64 56
-  br label %75
+  br label %74
 
-75:                                               ; preds = %.backedge, %.thread
-  %76 = phi ptr [ %72, %.thread ], [ %62, %.backedge ]
-  %77 = getelementptr inbounds i8, ptr %76, i64 64
-  %78 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %77, i64 0, i64 %73
-  %79 = icmp eq ptr %78, %15
-  br i1 %79, label %101, label %80
+74:                                               ; preds = %.backedge, %.thread
+  %75 = phi ptr [ %72, %.thread ], [ %62, %.backedge ]
+  %76 = getelementptr inbounds i8, ptr %75, i64 64
+  %77 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %76, i64 0, i64 %73
+  %78 = icmp eq ptr %77, %15
+  br i1 %78, label %100, label %79
 
-80:                                               ; preds = %75
-  %81 = load ptr, ptr %13, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 24
-  %83 = load ptr, ptr %82, align 8
-  %84 = icmp eq ptr %83, %0
-  br i1 %84, label %.loopexit, label %85, !prof !26
+79:                                               ; preds = %74
+  %80 = load ptr, ptr %13, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 24
+  %82 = load ptr, ptr %81, align 8
+  %83 = icmp eq ptr %82, %0
+  br i1 %83, label %.loopexit, label %84, !prof !26
 
-85:                                               ; preds = %80
+84:                                               ; preds = %79
   store volatile ptr getelementptr inbounds (%struct.hrtimer_cpu_base, ptr @migration_cpu_base, i64 0, i32 13), ptr %13, align 8
-  %86 = load ptr, ptr %15, align 64
-  tail call void @_raw_spin_unlock(ptr noundef %86) #13
-  %87 = load ptr, ptr %78, align 64
-  tail call void @_raw_spin_lock(ptr noundef %87) #13
-  %88 = icmp eq ptr %76, %62
-  br i1 %88, label %100, label %89
+  %85 = load ptr, ptr %15, align 64
+  tail call void @_raw_spin_unlock(ptr noundef %85) #13
+  %86 = load ptr, ptr %77, align 64
+  tail call void @_raw_spin_lock(ptr noundef %86) #13
+  %87 = icmp eq ptr %75, %62
+  br i1 %87, label %99, label %88
 
-89:                                               ; preds = %85
-  %90 = load i64, ptr %57, align 8
-  %91 = getelementptr inbounds i8, ptr %78, i64 56
-  %92 = load i64, ptr %91, align 8
-  %93 = sub i64 %90, %92
-  %94 = load ptr, ptr %78, align 64
-  %95 = getelementptr inbounds i8, ptr %94, i64 32
-  %96 = load i64, ptr %95, align 32
-  %97 = icmp slt i64 %93, %96
-  br i1 %97, label %98, label %100
+88:                                               ; preds = %84
+  %89 = load i64, ptr %57, align 8
+  %90 = getelementptr inbounds i8, ptr %77, i64 56
+  %91 = load i64, ptr %90, align 8
+  %92 = sub i64 %89, %91
+  %93 = load ptr, ptr %77, align 64
+  %94 = getelementptr inbounds i8, ptr %93, i64 32
+  %95 = load i64, ptr %94, align 32
+  %96 = icmp slt i64 %92, %95
+  br i1 %96, label %97, label %99
 
-98:                                               ; preds = %89
-  tail call void @_raw_spin_unlock(ptr noundef %94) #13
-  %99 = load ptr, ptr %15, align 64
-  tail call void @_raw_spin_lock(ptr noundef %99) #13
+97:                                               ; preds = %88
+  tail call void @_raw_spin_unlock(ptr noundef %93) #13
+  %98 = load ptr, ptr %15, align 64
+  tail call void @_raw_spin_lock(ptr noundef %98) #13
   store volatile ptr %15, ptr %13, align 8
   br label %.backedge
 
-100:                                              ; preds = %89, %85
-  store volatile ptr %78, ptr %13, align 8
+99:                                               ; preds = %88, %84
+  store volatile ptr %77, ptr %13, align 8
   br label %.loopexit
 
-101:                                              ; preds = %75
-  %102 = icmp eq ptr %76, %62
-  br i1 %102, label %.loopexit, label %103
+100:                                              ; preds = %74
+  %101 = icmp eq ptr %75, %62
+  br i1 %101, label %.loopexit, label %102
 
-103:                                              ; preds = %101
-  %104 = load i64, ptr %57, align 8
-  %105 = load i64, ptr %74, align 8
-  %106 = sub i64 %104, %105
-  %107 = load ptr, ptr %15, align 64
+102:                                              ; preds = %100
+  %103 = load i64, ptr %57, align 8
+  %104 = getelementptr inbounds i8, ptr %77, i64 56
+  %105 = load i64, ptr %104, align 8
+  %106 = sub i64 %103, %105
+  %107 = load ptr, ptr %77, align 64
   %108 = getelementptr inbounds i8, ptr %107, i64 32
   %109 = load i64, ptr %108, align 32
   %110 = icmp slt i64 %106, %109
   br i1 %110, label %.backedge, label %.loopexit
 
-.backedge:                                        ; preds = %103, %98
-  br label %75
+.backedge:                                        ; preds = %102, %97
+  br label %74
 
 111:                                              ; preds = %47
   %112 = tail call fastcc i32 @enqueue_hrtimer(ptr noundef %0, ptr noundef %15, i32 noundef %3), !range !33
@@ -709,8 +709,8 @@ define dso_local void @hrtimer_start_range_ns(ptr noundef %0, i64 noundef %1, i6
   %124 = tail call i32 @tick_program_event(i64 noundef %114, i32 noundef 1) #13
   br label %.thread4
 
-.loopexit:                                        ; preds = %80, %101, %103, %100
-  %125 = phi ptr [ %78, %100 ], [ %15, %103 ], [ %15, %101 ], [ %15, %80 ]
+.loopexit:                                        ; preds = %79, %100, %102, %99
+  %125 = phi ptr [ %77, %99 ], [ %77, %102 ], [ %77, %100 ], [ %15, %79 ]
   %126 = tail call fastcc i32 @enqueue_hrtimer(ptr noundef %0, ptr noundef %125, i32 noundef %3), !range !33
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %.thread4, label %128
@@ -836,16 +836,16 @@ define dso_local noundef i32 @hrtimer_try_to_cancel(ptr noundef %0) #5 align 16 
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !41
   %14 = load i8, ptr %3, align 8
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %16, label %.preheader14
+  br i1 %15, label %16, label %.preheader16
 
-.preheader14:                                     ; preds = %16, %.loopexit
+.preheader16:                                     ; preds = %16, %.loopexit
   br label %26
 
 16:                                               ; preds = %.loopexit
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %0
-  br i1 %19, label %.preheader14, label %20
+  br i1 %19, label %.preheader16, label %20
 
 20:                                               ; preds = %16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !42
@@ -861,7 +861,7 @@ define dso_local noundef i32 @hrtimer_try_to_cancel(ptr noundef %0) #5 align 16 
 .backedge:                                        ; preds = %23, %20
   br label %4, !llvm.loop !43
 
-26:                                               ; preds = %.preheader14, %36
+26:                                               ; preds = %.preheader16, %36
   %27 = load volatile ptr, ptr %2, align 8
   %28 = icmp eq ptr %27, getelementptr inbounds (%struct.hrtimer_cpu_base, ptr @migration_cpu_base, i64 0, i32 13)
   br i1 %28, label %36, label %29, !prof !26
@@ -883,7 +883,7 @@ define dso_local noundef i32 @hrtimer_try_to_cancel(ptr noundef %0) #5 align 16 
   br label %26, !llvm.loop !31
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds i8, ptr %27, i64 24
+  %38 = getelementptr inbounds i8, ptr %32, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %0
   br i1 %40, label %43, label %41
@@ -894,7 +894,7 @@ define dso_local noundef i32 @hrtimer_try_to_cancel(ptr noundef %0) #5 align 16 
   br label %43
 
 43:                                               ; preds = %41, %37
-  %44 = phi ptr [ %27, %37 ], [ %.pre, %41 ]
+  %44 = phi ptr [ %32, %37 ], [ %.pre, %41 ]
   %45 = phi i32 [ -1, %37 ], [ %42, %41 ]
   %46 = load ptr, ptr %44, align 64
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %46, i64 noundef %31) #13
@@ -1122,7 +1122,7 @@ define dso_local i64 @__hrtimer_get_remaining(ptr noundef %0, i1 zeroext %1) #5 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 48
+  %18 = getelementptr inbounds i8, ptr %10, i64 48
   %19 = load ptr, ptr %18, align 16
   %20 = tail call i64 %19() #13
   %21 = sub i64 %17, %20
@@ -1350,7 +1350,7 @@ define dso_local i64 @hrtimer_next_event_without(ptr noundef readnone %0) local_
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %32
-  %37 = tail call ptr @timerqueue_iterate_next(ptr noundef nonnull %0) #13
+  %37 = tail call ptr @timerqueue_iterate_next(ptr noundef %34) #13
   %38 = icmp eq ptr %37, null
   br i1 %38, label %19, label %39, !llvm.loop !54
 
@@ -1464,7 +1464,7 @@ define dso_local i64 @hrtimer_next_event_without(ptr noundef readnone %0) local_
   br i1 %108, label %109, label %112
 
 109:                                              ; preds = %105
-  %110 = tail call ptr @timerqueue_iterate_next(ptr noundef nonnull %0) #13
+  %110 = tail call ptr @timerqueue_iterate_next(ptr noundef %107) #13
   %111 = icmp eq ptr %110, null
   br i1 %111, label %92, label %112, !llvm.loop !54
 
@@ -1619,7 +1619,7 @@ define dso_local void @hrtimer_init(ptr noundef %0, i32 noundef %1, i32 noundef 
   %40 = phi i32 [ %33, %30 ], [ 0, %38 ]
   %41 = and i32 %2, 4
   %42 = lshr exact i32 %41, 2
-  %43 = trunc i32 %42 to i8
+  %43 = trunc nuw nsw i32 %42 to i8
   %44 = inttoptr i64 %25 to ptr
   %45 = add i32 %40, %41
   %46 = getelementptr inbounds i8, ptr %0, i64 58
@@ -2419,7 +2419,7 @@ define dso_local void @hrtimer_init_sleeper(ptr noundef %0, i32 noundef %1, i32 
   %40 = phi i32 [ %33, %30 ], [ 0, %38 ]
   %41 = and i32 %2, 4
   %42 = lshr exact i32 %41, 2
-  %43 = trunc i32 %42 to i8
+  %43 = trunc nuw nsw i32 %42 to i8
   %44 = inttoptr i64 %25 to ptr
   %45 = add i32 %40, %41
   %46 = getelementptr inbounds i8, ptr %0, i64 58
@@ -2603,16 +2603,16 @@ define internal fastcc noundef i32 @do_nanosleep(ptr noundef %0, i32 noundef %1)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !41
   %34 = load i8, ptr %11, align 8
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %36, label %.preheader14
+  br i1 %35, label %36, label %.preheader18
 
-.preheader14:                                     ; preds = %36, %.loopexit.i
+.preheader18:                                     ; preds = %36, %.loopexit.i
   br label %46
 
 36:                                               ; preds = %.loopexit.i
   %37 = getelementptr inbounds i8, ptr %25, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, %0
-  br i1 %39, label %.preheader14, label %40
+  br i1 %39, label %.preheader18, label %40
 
 40:                                               ; preds = %36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !42
@@ -2628,7 +2628,7 @@ define internal fastcc noundef i32 @do_nanosleep(ptr noundef %0, i32 noundef %1)
 .backedge:                                        ; preds = %43, %40
   br label %24, !llvm.loop !43
 
-46:                                               ; preds = %.preheader14, %56
+46:                                               ; preds = %.preheader18, %56
   %47 = load volatile ptr, ptr %10, align 8
   %48 = icmp eq ptr %47, getelementptr inbounds (%struct.hrtimer_cpu_base, ptr @migration_cpu_base, i64 0, i32 13)
   br i1 %48, label %56, label %49, !prof !26
@@ -2650,7 +2650,7 @@ define internal fastcc noundef i32 @do_nanosleep(ptr noundef %0, i32 noundef %1)
   br label %46, !llvm.loop !31
 
 57:                                               ; preds = %49
-  %58 = getelementptr inbounds i8, ptr %47, i64 24
+  %58 = getelementptr inbounds i8, ptr %52, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, %0
   br i1 %60, label %hrtimer_try_to_cancel.exit, label %61
@@ -2763,7 +2763,7 @@ hrtimer_try_to_cancel.exit.thread1:               ; preds = %120, %115, %110, %1
   br label %hrtimer_try_to_cancel.exit.thread
 
 hrtimer_try_to_cancel.exit:                       ; preds = %57
-  %123 = load ptr, ptr %47, align 64
+  %123 = load ptr, ptr %52, align 64
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %123, i64 noundef %51) #13
   br label %.preheader, !llvm.loop !52
 

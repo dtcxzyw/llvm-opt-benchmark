@@ -660,7 +660,7 @@ _ZL4initiPPcP9pack_info.exit:                     ; preds = %143, %144
 
 197:                                              ; preds = %.sink.split.i, %195
   %198 = load i8, ptr @_ZL6doPack, align 1, !noalias !7
-  %199 = trunc i8 %198 to i1
+  %199 = trunc nuw i8 %198 to i1
   invoke fastcc void @_ZL10init_graphP8Agraph_sbP5GVC_s(ptr noundef nonnull %157, i1 noundef zeroext %199, ptr noundef %152)
           to label %200 unwind label %.loopexit.loopexit.split-lp.i, !noalias !7
 
@@ -762,7 +762,7 @@ _ZL10readGraphsP5GVC_s.exit:                      ; preds = %158
 
 226:                                              ; preds = %_ZL10readGraphsP5GVC_s.exit
   %227 = load i8, ptr @_ZL6doPack, align 1
-  %228 = trunc i8 %227 to i1
+  %228 = trunc nuw i8 %227 to i1
   br i1 %228, label %229, label %239
 
 229:                                              ; preds = %226
@@ -1470,7 +1470,7 @@ _ZL9gv_callocmm.exit.i:                           ; preds = %509
   br i1 %.not76.not.i, label %.lr.ph122.i, label %._crit_edge123.loopexit.i, !llvm.loop !14
 
 ._crit_edge123.loopexit.i:                        ; preds = %.lr.ph122.i
-  %546 = trunc i64 %indvars.iv.next.i to i32
+  %546 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %._crit_edge123.i
 
 ._crit_edge123.i:                                 ; preds = %._crit_edge123.loopexit.i, %.lr.ph127.i
@@ -1515,7 +1515,7 @@ _ZNSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ES
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   %557 = load i8, ptr @_ZL6doPack, align 1
-  %558 = trunc i8 %557 to i1
+  %558 = trunc nuw i8 %557 to i1
   br i1 %558, label %559, label %586
 
 559:                                              ; preds = %556
@@ -2023,7 +2023,7 @@ define internal fastcc void @_ZL9cloneSubgP8Agraph_sS0_P7Agsym_sRSt8multisetINSt
   tail call fastcc void @_ZL14cloneDfltAttrsP8Agraph_sS0_i(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   tail call fastcc void @_ZL14cloneDfltAttrsP8Agraph_sS0_i(ptr noundef %0, ptr noundef %1, i32 noundef 2)
   %6 = load i8, ptr @_ZL6doPack, align 1
-  %7 = trunc i8 %6 to i1
+  %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
@@ -2775,7 +2775,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 52:                                               ; preds = %._crit_edge.i
-  %53 = trunc i64 %.0.lcssa.i to i8
+  %53 = trunc nuw i64 %.0.lcssa.i to i8
   %54 = or disjoint i8 %53, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -2966,7 +2966,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit: ; preds = %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE23_M_get_insert_equal_posERKS5_.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i5
-  %.0.lcssa.i10 = phi ptr [ %4, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE23_M_get_insert_equal_posERKS5_.exit ], [ %.0712.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i5 ], [ %4, %2 ]
+  %.0.lcssa.i10 = phi ptr [ %.0712.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE23_M_get_insert_equal_posERKS5_.exit ], [ %.0712.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i5 ], [ %4, %2 ]
   %18 = phi i1 [ true, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE23_M_get_insert_equal_posERKS5_.exit ], [ %17, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i5 ], [ true, %2 ]
   %19 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
   %20 = getelementptr inbounds i8, ptr %19, i64 32

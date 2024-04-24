@@ -330,7 +330,7 @@ define dso_local void @iomap_dio_bio_end_io(ptr noundef %0) #0 align 16 {
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %26, i64 24
+  %31 = getelementptr inbounds i8, ptr %28, i64 24
   store volatile i32 0, ptr %31, align 8
   br label %65
 

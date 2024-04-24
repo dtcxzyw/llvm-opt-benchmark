@@ -561,7 +561,7 @@ if.then4.i.i.i:                                   ; preds = %_ZNSt10_HashtableIP
 
 if.else.i.i.i:                                    ; preds = %_ZNSt10_HashtableIPKhSt4pairIKS1_tESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit.i.i.i
   store ptr %_M_single_bucket.i.i.i.i.i.i, ptr %call.i, align 8
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %_M_single_bucket.i.i.i.i.i, align 8
   store ptr %13, ptr %_M_single_bucket.i.i.i.i.i.i, align 8
   br label %if.end9.i.i.i
 
@@ -3445,7 +3445,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   br i1 %cmp.i1, label %for.body.i, label %_ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit, !llvm.loop !38
 
 _ZN6hermes3hbc13decodeOperandItEEvPKhPT_.exit:    ; preds = %for.body.i
-  %conv2.i = trunc i64 %or.i to i16
+  %conv2.i = trunc nuw i64 %or.i to i16
   %hasSeenProfileInst_10 = getelementptr inbounds i8, ptr %this, i64 28
   %14 = load i8, ptr %hasSeenProfileInst_10, align 4
   %tobool = trunc i8 %14 to i1

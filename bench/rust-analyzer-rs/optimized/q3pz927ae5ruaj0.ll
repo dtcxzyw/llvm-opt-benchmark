@@ -545,7 +545,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   br i1 %82, label %43, label %._crit_edge
 
 "_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67ef97d28e53b6f8E.exit.thread": ; preds = %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67ef97d28e53b6f8E.exit", %43
-  %storemerge = phi ptr [ %42, %43 ], [ %78, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67ef97d28e53b6f8E.exit" ]
+  %storemerge = phi ptr [ %44, %43 ], [ %78, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67ef97d28e53b6f8E.exit" ]
   store ptr %storemerge, ptr %5, align 8, !alias.scope !109, !noalias !114
   store i64 %.sroa.7.052, ptr %.sink2.i, align 8
   call void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h676a326654838a6eE.llvm.3275366238967248396"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)

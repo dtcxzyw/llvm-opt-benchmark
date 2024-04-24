@@ -70,7 +70,7 @@ if.then.i.i:                                      ; preds = %if.then
 
 if.then9.i.i:                                     ; preds = %if.then.i.i
   %3 = load i64, ptr %mapper, align 8
-  store i64 %3, ptr %0, align 8
+  store i64 %3, ptr %1, align 8
   store ptr null, ptr %mapper, align 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 8

@@ -2374,7 +2374,7 @@ _ZN6casadi2MXaSERKS0_.exit89:                     ; preds = %73
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr %11, align 8
   %.not165 = icmp eq ptr %98, %99
-  br i1 %.not165, label %_ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i, label %.preheader
+  br i1 %.not165, label %._crit_edge162, label %.preheader
 
 .preheader:                                       ; preds = %.preheader127, %._crit_edge160
   %100 = phi ptr [ %153, %._crit_edge160 ], [ %99, %.preheader127 ]
@@ -2525,12 +2525,14 @@ _ZN6casadi17GenericExpressionINS_2MXEEpLERKS1_.exit: ; preds = %.noexc98
   %160 = icmp ult i64 %155, %159
   br i1 %160, label %.preheader, label %._crit_edge162, !llvm.loop !24
 
-._crit_edge162:                                   ; preds = %._crit_edge160
-  %.not4.i.i.i.i = icmp eq ptr %153, %154
+._crit_edge162:                                   ; preds = %._crit_edge160, %.preheader127
+  %.lcssa139 = phi ptr [ %98, %.preheader127 ], [ %154, %._crit_edge160 ]
+  %.lcssa = phi ptr [ %99, %.preheader127 ], [ %153, %._crit_edge160 ]
+  %.not4.i.i.i.i = icmp eq ptr %.lcssa, %.lcssa139
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge162, %_ZSt8_DestroyISt6vectorIN6casadi2MXESaIS2_EEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %167, %_ZSt8_DestroyISt6vectorIN6casadi2MXESaIS2_EEEvPT_.exit.i.i.i.i ], [ %153, %._crit_edge162 ]
+  %.05.i.i.i.i = phi ptr [ %167, %_ZSt8_DestroyISt6vectorIN6casadi2MXESaIS2_EEEvPT_.exit.i.i.i.i ], [ %.lcssa, %._crit_edge162 ]
   %161 = load ptr, ptr %.05.i.i.i.i, align 8
   %162 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
   %163 = load ptr, ptr %162, align 8
@@ -2559,15 +2561,15 @@ _ZSt8_DestroyIPN6casadi2MXES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i: ; preds = %_ZSt8
 
 _ZSt8_DestroyISt6vectorIN6casadi2MXESaIS2_EEEvPT_.exit.i.i.i.i: ; preds = %166, %_ZSt8_DestroyIPN6casadi2MXES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i
   %167 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 24
-  %.not.i.i.i.i = icmp eq ptr %167, %154
+  %.not.i.i.i.i = icmp eq ptr %167, %.lcssa139
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !25
 
 _ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt6vectorIN6casadi2MXESaIS2_EEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %11, align 8
   br label %_ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i: ; preds = %.preheader127, %_ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, %._crit_edge162
-  %168 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i ], [ %154, %._crit_edge162 ], [ %98, %.preheader127 ]
+_ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, %._crit_edge162
+  %168 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i ], [ %.lcssa, %._crit_edge162 ]
   %.not.i.i.i99 = icmp eq ptr %168, null
   br i1 %.not.i.i.i99, label %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EED2Ev.exit, label %169
 

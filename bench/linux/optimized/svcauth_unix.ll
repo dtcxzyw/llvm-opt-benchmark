@@ -99,7 +99,7 @@ define dso_local ptr @unix_domain_find(ptr noundef %0) #0 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %1, %6, %4
-  %8 = phi ptr [ %23, %6 ], [ %14, %4 ], [ %2, %1 ]
+  %8 = phi ptr [ %23, %6 ], [ %23, %4 ], [ %2, %1 ]
   %9 = getelementptr inbounds i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, @svcauth_unix
@@ -702,7 +702,7 @@ define dso_local noundef i32 @svcauth_unix_set_client(ptr noundef %0) #0 align 1
   %197 = zext i32 %184 to i64
   %198 = mul i64 %197, 7046029254386353131
   %199 = lshr i64 %198, 56
-  %200 = trunc i64 %199 to i32
+  %200 = trunc nuw nsw i64 %199 to i32
   %201 = call ptr @sunrpc_cache_lookup_rcu(ptr noundef %195, ptr noundef nonnull %2, i32 noundef %200) #19
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #19
   %202 = icmp eq ptr %201, null
@@ -1588,7 +1588,7 @@ define internal noundef i32 @unix_gid_parse(ptr noundef %0, ptr noundef %1, i32 
   %80 = zext i32 %30 to i64
   %81 = mul i64 %80, 7046029254386353131
   %82 = lshr i64 %81, 56
-  %83 = trunc i64 %82 to i32
+  %83 = trunc nuw nsw i64 %82 to i32
   %84 = call ptr @sunrpc_cache_lookup_rcu(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %83) #19
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #19
   %85 = icmp eq ptr %84, null

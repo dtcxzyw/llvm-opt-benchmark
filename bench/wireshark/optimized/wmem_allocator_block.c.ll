@@ -37,7 +37,7 @@ define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_u
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 328, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.1) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 328, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.1) #6
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -54,7 +54,7 @@ define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_u
   br i1 %.not21, label %15, label %14
 
 14:                                               ; preds = %13
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 333, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.2) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 333, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.2) #6
   br label %15
 
 15:                                               ; preds = %13, %14
@@ -64,7 +64,7 @@ define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_u
   br i1 %.not22, label %152, label %18
 
 18:                                               ; preds = %15
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 334, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.3) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 334, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.3) #6
   br label %152
 
 19:                                               ; preds = %6
@@ -77,7 +77,7 @@ define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_u
   br i1 %23, label %.preheader48, label %24
 
 24:                                               ; preds = %20
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 264, ptr noundef nonnull @__func__.wmem_block_verify_master_list, ptr noundef nonnull @.str.7) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 264, ptr noundef nonnull @__func__.wmem_block_verify_master_list, ptr noundef nonnull @.str.7) #6
   br label %.preheader48
 
 .preheader48:                                     ; preds = %24, %20
@@ -95,7 +95,7 @@ define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_u
   br i1 %.not21.i, label %32, label %31
 
 31:                                               ; preds = %25
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 271, ptr noundef nonnull @__func__.wmem_block_verify_master_list, ptr noundef nonnull @.str.8) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 271, ptr noundef nonnull @__func__.wmem_block_verify_master_list, ptr noundef nonnull @.str.8) #6
   br label %32
 
 32:                                               ; preds = %31, %25
@@ -111,7 +111,7 @@ define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_u
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %35
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 274, ptr noundef nonnull @__func__.wmem_block_verify_master_list, ptr noundef nonnull @.str.9) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 274, ptr noundef nonnull @__func__.wmem_block_verify_master_list, ptr noundef nonnull @.str.9) #6
   br label %40
 
 40:                                               ; preds = %39, %35, %32
@@ -126,7 +126,7 @@ define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_u
   br i1 %44, label %46, label %45
 
 45:                                               ; preds = %42
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 278, ptr noundef nonnull @__func__.wmem_block_verify_master_list, ptr noundef nonnull @.str.10) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 278, ptr noundef nonnull @__func__.wmem_block_verify_master_list, ptr noundef nonnull @.str.10) #6
   br label %46
 
 46:                                               ; preds = %45, %42, %40
@@ -154,7 +154,7 @@ wmem_block_verify_master_list.exit:               ; preds = %46, %19
   br i1 %.not20.i24, label %57, label %56
 
 56:                                               ; preds = %.preheader.i
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 304, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.8) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 304, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.8) #6
   br label %57
 
 57:                                               ; preds = %56, %.preheader.i
@@ -163,7 +163,7 @@ wmem_block_verify_master_list.exit:               ; preds = %46, %19
   br i1 %.not21.i25, label %59, label %60
 
 59:                                               ; preds = %57
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 306, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.11) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 306, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.11) #6
   br label %60
 
 60:                                               ; preds = %59, %57
@@ -173,7 +173,7 @@ wmem_block_verify_master_list.exit:               ; preds = %46, %19
   br i1 %.not22.i26, label %63, label %64
 
 63:                                               ; preds = %60
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 307, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.12) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 307, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.12) #6
   br label %64
 
 64:                                               ; preds = %63, %60
@@ -184,7 +184,7 @@ wmem_block_verify_master_list.exit:               ; preds = %46, %19
   br i1 %68, label %70, label %69
 
 69:                                               ; preds = %64
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 309, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.13) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 309, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.13) #6
   br label %70
 
 70:                                               ; preds = %69, %64
@@ -195,7 +195,7 @@ wmem_block_verify_master_list.exit:               ; preds = %46, %19
   br i1 %74, label %76, label %75
 
 75:                                               ; preds = %70
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 310, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.9) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 310, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.9) #6
   %.pre.i = load ptr, ptr %61, align 8
   br label %76
 
@@ -213,7 +213,7 @@ wmem_block_verify_recycler.exit:                  ; preds = %76, %wmem_block_ver
   br i1 %81, label %.preheader45, label %82
 
 82:                                               ; preds = %wmem_block_verify_recycler.exit
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.4) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.4) #6
   br label %.preheader45
 
 .preheader45:                                     ; preds = %82, %wmem_block_verify_recycler.exit
@@ -233,7 +233,7 @@ wmem_block_verify_recycler.exit:                  ; preds = %76, %wmem_block_ver
   br i1 %88, label %90, label %89
 
 89:                                               ; preds = %86
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 345, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.5) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 345, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.5) #6
   br label %90
 
 90:                                               ; preds = %86, %89, %83
@@ -250,7 +250,7 @@ wmem_block_verify_recycler.exit:                  ; preds = %76, %wmem_block_ver
   br i1 %97, label %.preheader, label %98
 
 98:                                               ; preds = %95
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 221, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.14) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 221, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.14) #6
   br label %.preheader
 
 .preheader:                                       ; preds = %98, %95
@@ -268,7 +268,7 @@ wmem_block_verify_recycler.exit:                  ; preds = %76, %wmem_block_ver
   br i1 %104, label %106, label %105
 
 105:                                              ; preds = %99
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 226, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.15) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 226, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.15) #6
   %.pre.i31 = load i32, ptr %100, align 4
   br label %106
 
@@ -279,7 +279,7 @@ wmem_block_verify_recycler.exit:                  ; preds = %76, %wmem_block_ver
   br i1 %.not32.i, label %110, label %109
 
 109:                                              ; preds = %106
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 227, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.16) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 227, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.16) #6
   %.pre43.i = load i32, ptr %100, align 4
   br label %110
 
@@ -302,7 +302,7 @@ wmem_block_verify_recycler.exit:                  ; preds = %76, %wmem_block_ver
   br i1 %119, label %121, label %120
 
 120:                                              ; preds = %117
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 230, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.17) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 230, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.17) #6
   %.pre44.i = load i32, ptr %100, align 4
   br label %121
 
@@ -330,7 +330,7 @@ wmem_block_verify_recycler.exit:                  ; preds = %76, %wmem_block_ver
   br i1 %.not38.i, label %133, label %134
 
 133:                                              ; preds = %129
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.18) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.18) #6
   br label %134
 
 134:                                              ; preds = %133, %129
@@ -339,7 +339,7 @@ wmem_block_verify_recycler.exit:                  ; preds = %76, %wmem_block_ver
   br i1 %.not39.i, label %136, label %137
 
 136:                                              ; preds = %134
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 240, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.19) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 240, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.19) #6
   br label %137
 
 137:                                              ; preds = %136, %134, %125, %121
@@ -359,7 +359,7 @@ wmem_block_verify_recycler.exit:                  ; preds = %76, %wmem_block_ver
   br i1 %144, label %wmem_block_verify_block.exit, label %145
 
 145:                                              ; preds = %143
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 247, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.20) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 247, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.20) #6
   br label %wmem_block_verify_block.exit
 
 wmem_block_verify_block.exit:                     ; preds = %90, %143, %145
@@ -375,7 +375,7 @@ wmem_block_verify_block.exit:                     ; preds = %90, %143, %145
   br i1 %150, label %152, label %151
 
 151:                                              ; preds = %148
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 351, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.6) #7
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 351, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.6) #6
   br label %152
 
 152:                                              ; preds = %151, %148, %15, %18
@@ -386,7 +386,7 @@ declare void @g_assertion_message(ptr noundef, ptr noundef, i32 noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define hidden void @wmem_block_allocator_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
-  %2 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 24) #7
+  %2 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 24) #6
   store ptr @wmem_block_alloc, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @wmem_block_realloc, ptr %3, align 8
@@ -413,7 +413,7 @@ define internal noundef ptr @wmem_block_alloc(ptr nocapture noundef %0, i64 noun
 
 4:                                                ; preds = %2
   %5 = add i64 %1, 32
-  %6 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %5) #7
+  %6 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %5) #6
   store ptr null, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
@@ -523,7 +523,7 @@ wmem_block_add_to_recycler.exit:                  ; preds = %.sink.split.i, %44,
   br i1 %.not30, label %wmem_block_add_to_recycler.exit.thread, label %69
 
 wmem_block_add_to_recycler.exit.thread:           ; preds = %22, %wmem_block_add_to_recycler.exit
-  %58 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 8388608) #7
+  %58 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 8388608) #6
   store ptr null, ptr %58, align 8
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds i8, ptr %58, i64 8
@@ -625,7 +625,7 @@ define internal ptr @wmem_block_realloc(ptr nocapture noundef %0, ptr noundef %1
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %1, i64 -32
   %10 = add i64 %2, 32
-  %11 = tail call noalias ptr @wmem_realloc(ptr noundef null, ptr noundef %9, i64 noundef %10) #7
+  %11 = tail call noalias ptr @wmem_realloc(ptr noundef null, ptr noundef %9, i64 noundef %10) #6
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
@@ -773,7 +773,7 @@ wmem_block_realloc_jumbo.exit:                    ; preds = %8, %14
   br label %wmem_block_free_jumbo.exit.i
 
 wmem_block_free_jumbo.exit.i:                     ; preds = %92, %86
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %87) #7
+  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %87) #6
   br label %wmem_block_cycle_recycler.exit
 
 94:                                               ; preds = %78
@@ -939,7 +939,7 @@ define internal void @wmem_block_free(ptr nocapture noundef %0, ptr noundef %1) 
   br label %wmem_block_free_jumbo.exit
 
 wmem_block_free_jumbo.exit:                       ; preds = %6, %12
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %7) #7
+  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %7) #6
   br label %wmem_block_cycle_recycler.exit
 
 14:                                               ; preds = %2
@@ -1026,7 +1026,7 @@ define internal void @wmem_block_free_all(ptr nocapture noundef %0) #0 {
 
 wmem_block_remove_from_block_list.exit:           ; preds = %7, %12
   %14 = phi ptr [ null, %7 ], [ %.pre, %12 ]
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %.016) #7
+  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %.016) #6
   br label %24
 
 15:                                               ; preds = %.lr.ph
@@ -1136,7 +1136,7 @@ define internal void @wmem_block_gc(ptr nocapture noundef %0) #0 {
   br label %35
 
 35:                                               ; preds = %30, %33, %28, %29
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %.042) #7
+  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %.042) #6
   br label %39
 
 36:                                               ; preds = %5
@@ -1237,7 +1237,7 @@ define internal void @wmem_block_allocator_cleanup(ptr noundef %0) #0 {
   br label %35
 
 35:                                               ; preds = %33, %30, %29, %28
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %.042.i) #7
+  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %.042.i) #6
   br label %39
 
 36:                                               ; preds = %5
@@ -1260,11 +1260,11 @@ wmem_block_add_to_block_list.exit.i:              ; preds = %38, %36
   br i1 %.not.i, label %wmem_block_gc.exit, label %5, !llvm.loop !10
 
 wmem_block_gc.exit:                               ; preds = %39, %1
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %0) #7
+  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %0) #6
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @wmem_block_split_free_chunk(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 {
   %4 = add nuw i64 %2, 15
   %5 = and i64 %4, -16
@@ -1284,7 +1284,7 @@ define internal fastcc void @wmem_block_split_free_chunk(ptr nocapture noundef %
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %13
-  %18 = getelementptr i8, ptr %1, i64 24
+  %18 = getelementptr i8, ptr %15, i64 24
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %14, align 8
   %.not.i = icmp eq ptr %19, null
@@ -1432,7 +1432,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noalias ptr @wmem_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1
@@ -1668,19 +1668,18 @@ wmem_block_add_to_recycler.exit:                  ; preds = %wmem_block_add_to_r
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #6
+declare i64 @llvm.usub.sat.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

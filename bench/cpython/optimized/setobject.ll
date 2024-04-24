@@ -1414,17 +1414,16 @@ if.else:                                          ; preds = %entry
 
 if.then7:                                         ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %small_copy, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 128, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %smalltable, i8 0, i64 128, i1 false)
   br label %if.end10.sink.split
 
 if.end10.sink.split:                              ; preds = %if.then, %if.then7
   %fill3.sink = phi ptr [ %fill3, %if.then7 ], [ %fill.i, %if.then ]
-  %.sink = phi ptr [ %0, %if.then7 ], [ %smalltable, %if.then ]
   %table.0.ph = phi ptr [ %small_copy, %if.then7 ], [ %0, %if.then ]
   %mask.i19 = getelementptr inbounds i8, ptr %so, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill3.sink, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i19, align 8
-  store ptr %.sink, ptr %table2, align 8
+  store ptr %smalltable, ptr %table2, align 8
   %hash.i21 = getelementptr inbounds i8, ptr %so, i64 48
   store i64 -1, ptr %hash.i21, align 8
   br label %if.end10
@@ -1747,13 +1746,12 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.then7, %if.then7.i
-  %.sink = phi ptr [ %3, %if.then7.i ], [ %smalltable.i, %if.then7 ]
   %table.0.ph.i = phi ptr [ %small_copy.i, %if.then7.i ], [ %3, %if.then7 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sink, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %smalltable.i, i8 0, i64 128, i1 false)
   %mask.i19.i = getelementptr inbounds i8, ptr %self, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i19.i, align 8
-  store ptr %.sink, ptr %table2.i, align 8
+  store ptr %smalltable.i, ptr %table2.i, align 8
   %hash.i21.i = getelementptr inbounds i8, ptr %self, i64 48
   store i64 -1, ptr %hash.i21.i, align 8
   br label %if.end10.i
@@ -2284,17 +2282,16 @@ if.else.i:                                        ; preds = %if.end
 
 if.then7.i:                                       ; preds = %if.else.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %small_copy.i, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %smalltable.i, i8 0, i64 128, i1 false)
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.then7.i, %if.then.i
   %fill3.sink.i = phi ptr [ %fill3.i, %if.then7.i ], [ %fill.i.i, %if.then.i ]
-  %.sink.i = phi ptr [ %1, %if.then7.i ], [ %smalltable.i, %if.then.i ]
   %table.0.ph.i = phi ptr [ %small_copy.i, %if.then7.i ], [ %1, %if.then.i ]
   %mask.i19.i = getelementptr inbounds i8, ptr %set, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill3.sink.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i19.i, align 8
-  store ptr %.sink.i, ptr %table2.i, align 8
+  store ptr %smalltable.i, ptr %table2.i, align 8
   %hash.i21.i = getelementptr inbounds i8, ptr %set, i64 48
   store i64 -1, ptr %hash.i21.i, align 8
   br label %if.end10.i
@@ -4537,7 +4534,7 @@ if.else:                                          ; preds = %if.end
   br label %if.end43
 
 if.end43:                                         ; preds = %if.else, %if.end37
-  %16 = phi ptr [ %9, %if.end37 ], [ %4, %if.else ]
+  %16 = phi ptr [ %13, %if.end37 ], [ %4, %if.else ]
   %mask.2 = phi i64 [ %15, %if.end37 ], [ %mask.1, %if.else ]
   %freeslot.2 = phi ptr [ %freeslot.1, %if.end37 ], [ %spec.select, %if.else ]
   %incdec.ptr = getelementptr i8, ptr %entry1.0, i64 16
@@ -4720,17 +4717,16 @@ if.else.i:                                        ; preds = %if.then
 
 if.then7.i:                                       ; preds = %if.else.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %small_copy.i, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 128, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %smalltable.i, i8 0, i64 128, i1 false)
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.then7.i, %if.then.i
   %fill3.sink.i = phi ptr [ %fill3.i, %if.then7.i ], [ %fill.i.i, %if.then.i ]
-  %.sink.i = phi ptr [ %0, %if.then7.i ], [ %smalltable.i, %if.then.i ]
   %table.0.ph.i = phi ptr [ %small_copy.i, %if.then7.i ], [ %0, %if.then.i ]
   %mask.i19.i = getelementptr inbounds i8, ptr %so, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill3.sink.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i19.i, align 8
-  store ptr %.sink.i, ptr %table2.i, align 8
+  store ptr %smalltable.i, ptr %table2.i, align 8
   %hash.i21.i = getelementptr inbounds i8, ptr %so, i64 48
   store i64 -1, ptr %hash.i21.i, align 8
   br label %if.end10.i
@@ -5621,7 +5617,7 @@ if.then20:                                        ; preds = %if.else, %cond.end
   br label %return
 
 if.end23:                                         ; preds = %cond.end, %if.then, %if.end
-  %newtable.0 = phi ptr [ %1, %if.end ], [ %smalltable, %if.then ], [ %call, %cond.end ]
+  %newtable.0 = phi ptr [ %smalltable, %if.end ], [ %smalltable, %if.then ], [ %call, %cond.end ]
   %oldtable.0 = phi ptr [ %small_copy, %if.end ], [ %1, %if.then ], [ %1, %cond.end ]
   %mul24 = shl nuw nsw i64 %newsize.0, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %newtable.0, i8 0, i64 %mul24, i1 false)
@@ -5904,7 +5900,7 @@ if.end38:                                         ; preds = %if.end35
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end38, %if.end
-  %15 = phi ptr [ %8, %if.end38 ], [ %3, %if.end ]
+  %15 = phi ptr [ %12, %if.end38 ], [ %3, %if.end ]
   %mask.2 = phi i64 [ %14, %if.end38 ], [ %mask.1, %if.end ]
   %incdec.ptr = getelementptr i8, ptr %entry1.0, i64 16
   %dec = add nsw i32 %probes.0, -1
@@ -6068,17 +6064,16 @@ if.else.i.i:                                      ; preds = %if.then
 
 if.then7.i.i:                                     ; preds = %if.else.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %small_copy.i.i, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 128, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %smalltable.i.i, i8 0, i64 128, i1 false)
   br label %if.end10.sink.split.i.i
 
 if.end10.sink.split.i.i:                          ; preds = %if.then7.i.i, %if.then.i.i
   %fill3.sink.i.i = phi ptr [ %fill3.i.i, %if.then7.i.i ], [ %fill.i.i.i, %if.then.i.i ]
-  %.sink.i.i = phi ptr [ %0, %if.then7.i.i ], [ %smalltable.i.i, %if.then.i.i ]
   %table.0.ph.i.i = phi ptr [ %small_copy.i.i, %if.then7.i.i ], [ %0, %if.then.i.i ]
   %mask.i19.i.i = getelementptr inbounds i8, ptr %so, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill3.sink.i.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i19.i.i, align 8
-  store ptr %.sink.i.i, ptr %table2.i.i, align 8
+  store ptr %smalltable.i.i, ptr %table2.i.i, align 8
   %hash.i21.i.i = getelementptr inbounds i8, ptr %so, i64 48
   store i64 -1, ptr %hash.i21.i.i, align 8
   br label %if.end10.i.i
@@ -6504,17 +6499,16 @@ if.else.i:                                        ; preds = %entry
 
 if.then7.i:                                       ; preds = %if.else.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %small_copy.i, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 128, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %smalltable.i, i8 0, i64 128, i1 false)
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.then7.i, %if.then.i
   %fill3.sink.i = phi ptr [ %fill3.i, %if.then7.i ], [ %fill.i.i, %if.then.i ]
-  %.sink.i = phi ptr [ %0, %if.then7.i ], [ %smalltable.i, %if.then.i ]
   %table.0.ph.i = phi ptr [ %small_copy.i, %if.then7.i ], [ %0, %if.then.i ]
   %mask.i19.i = getelementptr inbounds i8, ptr %so, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill3.sink.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i19.i, align 8
-  store ptr %.sink.i, ptr %table2.i, align 8
+  store ptr %smalltable.i, ptr %table2.i, align 8
   %hash.i21.i = getelementptr inbounds i8, ptr %so, i64 48
   store i64 -1, ptr %hash.i21.i, align 8
   br label %if.end10.i

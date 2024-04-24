@@ -125,10 +125,9 @@ define hidden { i64, i64 } @"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT
   br i1 %19, label %.sink.split.i, label %.lr.ph.i.i
 
 .sink.split.i:                                    ; preds = %17, %.lr.ph.i.i
-  %.lcssa23.sink.i = phi ptr [ %13, %.lr.ph.i.i ], [ %8, %17 ]
   %.017.i.ph.i = phi i64 [ 0, %.lr.ph.i.i ], [ %18, %17 ]
   %switch.ph.i = phi i64 [ 0, %.lr.ph.i.i ], [ 1, %17 ]
-  store ptr %.lcssa23.sink.i, ptr %9, align 8, !alias.scope !13, !noalias !16
+  store ptr %13, ptr %9, align 8, !alias.scope !13, !noalias !16
   br label %20
 
 20:                                               ; preds = %.sink.split.i, %6
@@ -475,10 +474,9 @@ define hidden { i64, i64 } @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT
   br i1 %19, label %.sink.split, label %.lr.ph.i
 
 .sink.split:                                      ; preds = %17, %.lr.ph.i
-  %.lcssa23.sink = phi ptr [ %13, %.lr.ph.i ], [ %8, %17 ]
   %.017.i.ph = phi i64 [ 0, %.lr.ph.i ], [ %18, %17 ]
   %switch.ph = phi i64 [ 0, %.lr.ph.i ], [ 1, %17 ]
-  store ptr %.lcssa23.sink, ptr %9, align 8, !alias.scope !84, !noalias !87
+  store ptr %13, ptr %9, align 8, !alias.scope !84, !noalias !87
   br label %20
 
 20:                                               ; preds = %.sink.split, %6
@@ -12631,10 +12629,9 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   br i1 %20, label %.sink.split.i.i.i, label %.lr.ph.i.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %18, %.lr.ph.i.i.i.i
-  %.lcssa23.sink.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i ], [ %9, %18 ]
   %.017.i.ph.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %19, %18 ]
   %switch.ph.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ 1, %18 ]
-  store ptr %.lcssa23.sink.i.i.i, ptr %10, align 8, !alias.scope !4286, !noalias !4289
+  store ptr %14, ptr %10, align 8, !alias.scope !4286, !noalias !4289
   br label %21
 
 21:                                               ; preds = %.sink.split.i.i.i, %7
@@ -14883,10 +14880,9 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   br i1 %20, label %.sink.split.i.i, label %.lr.ph.i.i.i
 
 .sink.split.i.i:                                  ; preds = %18, %.lr.ph.i.i.i
-  %.lcssa23.sink.i.i = phi ptr [ %14, %.lr.ph.i.i.i ], [ %9, %18 ]
   %.017.i.ph.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %19, %18 ]
   %switch.ph.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ 1, %18 ]
-  store ptr %.lcssa23.sink.i.i, ptr %10, align 8, !alias.scope !4970, !noalias !4973
+  store ptr %14, ptr %10, align 8, !alias.scope !4970, !noalias !4973
   br label %21
 
 21:                                               ; preds = %.sink.split.i.i, %7

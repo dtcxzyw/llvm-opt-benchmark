@@ -42,7 +42,7 @@ define i32 @ompi_fcoll_base_coll_allgatherv_array(ptr noundef %0, i32 noundef %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.split.loop.exit78:                    ; preds = %.lr.ph
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18, %._crit_edge.split.loop.exit78
@@ -395,7 +395,7 @@ define i32 @ompi_fcoll_base_coll_scatterv_array(ptr noundef %0, ptr nocapture no
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
   %36 = mul nsw i64 %27, %35
-  %37 = getelementptr inbounds i8, ptr inttoptr (i64 1 to ptr), i64 %36
+  %37 = getelementptr inbounds i8, ptr %0, i64 %36
   %38 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv93
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, %.val
@@ -411,7 +411,7 @@ define i32 @ompi_fcoll_base_coll_scatterv_array(ptr noundef %0, ptr nocapture no
   %46 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
   %47 = zext nneg i32 %43 to i64
   %48 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv93
-  %49 = tail call i32 %46(ptr noundef nonnull %37, i64 noundef %47, ptr noundef %3, i32 noundef %39, i32 noundef 103, i32 noundef 4, ptr noundef %10, ptr noundef nonnull %48) #4
+  %49 = tail call i32 %46(ptr noundef %37, i64 noundef %47, ptr noundef %3, i32 noundef %39, i32 noundef 103, i32 noundef 4, ptr noundef %10, ptr noundef nonnull %48) #4
   %.not72.us = icmp eq i32 %49, 0
   br i1 %.not72.us, label %51, label %.split.us
 

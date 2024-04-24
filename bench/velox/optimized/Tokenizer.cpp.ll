@@ -713,7 +713,7 @@ land.rhs.lr.ph:                                   ; preds = %entry
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end22
   %escaped.039 = phi i8 [ 0, %land.rhs.lr.ph ], [ %escaped.1, %if.end22 ]
-  %tobool = trunc i8 %escaped.039 to i1
+  %tobool = trunc nuw i8 %escaped.039 to i1
   %1 = load i32, ptr %index_.i, align 8
   %conv.i7 = sext i32 %1 to i64
   %call.i8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i7) #20
@@ -790,7 +790,7 @@ if.end22:                                         ; preds = %if.else, %sw.bb, %i
 
 while.end:                                        ; preds = %lor.rhs, %if.end22
   %escaped.0.lcssa.ph = phi i8 [ %escaped.039, %lor.rhs ], [ %escaped.1, %if.end22 ]
-  %14 = trunc i8 %escaped.0.lcssa.ph to i1
+  %14 = trunc nuw i8 %escaped.0.lcssa.ph to i1
   br i1 %14, label %if.then24, label %if.end26
 
 if.then24:                                        ; preds = %while.end
@@ -1800,7 +1800,7 @@ if.end16.i:                                       ; preds = %if.end12.i
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
   %retval.0.i = phi i32 [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ %add15.i, %if.then14.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
   %__val.lobit = lshr i64 %__val, 63
-  %conv = trunc i64 %__val.lobit to i32
+  %conv = trunc nuw nsw i64 %__val.lobit to i32
   %add2 = add i32 %retval.0.i, %conv
   %conv3 = zext i32 %add2 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
@@ -1873,7 +1873,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -2243,8 +2243,8 @@ lpad:                                             ; preds = %lpad.loopexit.split
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
   resume { ptr, i32 } %lpad.phi
 
-invoke.cont46:                                    ; preds = %invoke.cont28, %for.body.lr.ph.i, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_EaSINSF_ISD_EEEERSI_T_.exit, %for.inc28.i, %entry
-  %LastMatch.sroa.0.0.lcssa = phi ptr [ %call.i.i, %entry ], [ %M.sroa.4.042, %for.inc28.i ], [ %M.sroa.4.042, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_EaSINSF_ISD_EEEERSI_T_.exit ], [ %M.sroa.4.042, %for.body.lr.ph.i ], [ %M.sroa.4.042, %invoke.cont28 ]
+invoke.cont46:                                    ; preds = %for.body.lr.ph.i, %invoke.cont28, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_EaSINSF_ISD_EEEERSI_T_.exit, %for.inc28.i, %entry
+  %LastMatch.sroa.0.0.lcssa = phi ptr [ %call.i.i, %entry ], [ %M.sroa.4.042, %for.inc28.i ], [ %M.sroa.4.042, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_EaSINSF_ISD_EEEERSI_T_.exit ], [ %M.sroa.4.042, %invoke.cont28 ], [ %M.sroa.4.042, %for.body.lr.ph.i ]
   %call.i.i17 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
   %call.i.i18 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %Input) #20
   %call.i.i19 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20

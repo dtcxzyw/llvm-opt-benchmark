@@ -1061,7 +1061,7 @@ _ZN5Ipopt8SmartPtrIKNS_10JournalistEEC2EPS2_.exit: ; preds = %_ZN5Ipopt8SmartPtr
   %42 = load ptr, ptr %1, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8
-  %45 = trunc i64 %indvars.iv to i32
+  %45 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, i32, i32, i32, ptr, ...) %44(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, i32 noundef %5, ptr noundef nonnull @.str.5, ptr noundef %38, i32 noundef %45, double noundef %41)
   %46 = call noundef i32 (ptr, i64, ptr, ...) @_ZN5Ipopt8SnprintfEPclPKcz(ptr noundef nonnull %8, i64 noundef 255, ptr noundef nonnull @.str.6, i32 noundef %45)
   %47 = load ptr, ptr %35, align 8
@@ -1186,8 +1186,8 @@ define void @_ZN5Ipopt14SumMatrixSpace12SetTermSpaceEiRKNS_11MatrixSpaceE(ptr no
   %11 = sub i64 %9, %10
   %12 = lshr exact i64 %11, 3
   %13 = trunc i64 %12 to i32
-  %.not9 = icmp sgt i32 %13, %1
-  br i1 %.not9, label %._crit_edge, label %.lr.ph
+  %.not10 = icmp sgt i32 %13, %1
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %14 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1717,7 +1717,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_E
   br label %64
 
 64:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i, %.noexc
-  %65 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i ], [ %59, %.noexc ]
+  %65 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i ], [ %60, %.noexc ]
   %66 = getelementptr inbounds i8, ptr %65, i64 -8
   store ptr %66, ptr %9, align 8
   %67 = getelementptr inbounds i8, ptr %.sroa.02.014, i64 8

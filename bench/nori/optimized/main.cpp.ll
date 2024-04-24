@@ -3084,16 +3084,16 @@ define linkonce_odr hidden ptr @_ZNSt6vectorIN10filesystem4pathESaIS1_EE6insertE
 
 15:                                               ; preds = %13
   %16 = load i32, ptr %2, align 8
-  store i32 %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %16, ptr %10, align 8
+  %17 = getelementptr inbounds i8, ptr %10, i64 8
   %18 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds i8, ptr %10, i64 32
   %20 = getelementptr inbounds i8, ptr %2, i64 32
   %21 = load i8, ptr %20, align 8
   %22 = and i8 %21, 1
   store i8 %22, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 33
+  %23 = getelementptr inbounds i8, ptr %10, i64 33
   %24 = getelementptr inbounds i8, ptr %2, i64 33
   %25 = load i8, ptr %24, align 1
   %26 = and i8 %25, 1
@@ -3950,9 +3950,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 .thread:                                          ; preds = %33
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #21
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -3960,9 +3960,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 39:                                               ; preds = %33
   tail call void @_ZdlPv(ptr noundef nonnull %23) #24
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35: ; preds = %39, %.thread
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %39, %.thread
   invoke void @__cxa_rethrow() #22
           to label %44 unwind label %37
 
@@ -3976,7 +3976,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   tail call void @__clang_call_terminate(ptr %43) #26
   unreachable
 
-44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   unreachable
 }
 
@@ -4729,11 +4729,11 @@ define internal fastcc void @"_ZN3tbb10interface98internal9start_forINS_13blocke
   %56 = load i64, ptr %32, align 8
   %.sroa.024.0.extract.trunc.i.i = trunc i64 %56 to i32
   %.sroa.225.0.extract.shift.i.i = lshr i64 %56, 32
-  %.sroa.225.0.extract.trunc.i.i = trunc i64 %.sroa.225.0.extract.shift.i.i to i32
+  %.sroa.225.0.extract.trunc.i.i = trunc nuw i64 %.sroa.225.0.extract.shift.i.i to i32
   %57 = load i64, ptr %33, align 8
   %.sroa.022.0.extract.trunc.i.i = trunc i64 %57 to i32
   %.sroa.223.0.extract.shift.i.i = lshr i64 %57, 32
-  %.sroa.223.0.extract.trunc.i.i = trunc i64 %.sroa.223.0.extract.shift.i.i to i32
+  %.sroa.223.0.extract.trunc.i.i = trunc nuw i64 %.sroa.223.0.extract.shift.i.i to i32
   %58 = load i64, ptr %34, align 8
   %59 = load i64, ptr %35, align 8
   %60 = mul i64 %59, %58

@@ -1155,7 +1155,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   %.sroa.052.0267 = phi i32 [ %13, %.lr.ph274.preheader ], [ %.sroa.0.0.lcssa, %119 ]
   %.sroa.9.0266 = phi i32 [ %13, %.lr.ph274.preheader ], [ %.sroa.7.0.lcssa, %119 ]
   %.sroa.988.0265 = phi ptr [ null, %.lr.ph274.preheader ], [ %.sroa.6.1.lcssa, %119 ]
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = ashr i32 %6, %25
   %27 = and i32 %.0179271, %2
   %28 = icmp ne i32 %27, 1
@@ -1171,7 +1171,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph274
   %36 = sub nsw i64 %23, %indvars.iv
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nsw i64 %36 to i32
   %38 = shl nuw i32 1, %37
   %39 = sub nsw i32 0, %38
   %40 = getelementptr inbounds ptr, ptr %4, i64 %36
@@ -1484,7 +1484,7 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %.sroa.055.0282 = phi i32 [ %14, %.lr.ph289 ], [ %.sroa.0.0.lcssa, %126 ]
   %.sroa.9.0281 = phi i32 [ %14, %.lr.ph289 ], [ %.sroa.7.0.lcssa, %126 ]
   %.sroa.991.0280 = phi ptr [ null, %.lr.ph289 ], [ %.sroa.6.1.lcssa, %126 ]
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = ashr i32 %7, %27
   %29 = add nsw i32 %28, 2
   %30 = ashr i32 %6, %27
@@ -1501,7 +1501,7 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 .lr.ph:                                           ; preds = %26
   %38 = add nsw i32 %34, -1
   %39 = sub nsw i64 %24, %indvars.iv
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nsw i64 %39 to i32
   %41 = shl nuw i32 1, %40
   %42 = sub nsw i32 0, %41
   %43 = icmp eq i64 %indvars.iv, 1
@@ -3167,7 +3167,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
   br label %284
 
 284:                                              ; preds = %88, %38, %24, %18, %4, %281, %267, %226, %216, %184, %174, %151, %141, %132
-  %.0 = phi ptr [ null, %132 ], [ null, %141 ], [ null, %151 ], [ null, %174 ], [ null, %184 ], [ null, %216 ], [ null, %226 ], [ null, %267 ], [ %.0209, %281 ], [ %11, %4 ], [ %11, %18 ], [ %2, %24 ], [ %39, %38 ], [ null, %88 ]
+  %.0 = phi ptr [ null, %132 ], [ null, %141 ], [ null, %151 ], [ null, %174 ], [ null, %184 ], [ null, %216 ], [ null, %226 ], [ null, %267 ], [ %.0209, %281 ], [ %11, %4 ], [ %11, %18 ], [ %9, %24 ], [ %39, %38 ], [ null, %88 ]
   ret ptr %.0
 }
 

@@ -697,14 +697,15 @@ if.end34:                                         ; preds = %if.end26
   br i1 %cmp35, label %land.lhs.true37, label %if.end41
 
 land.lhs.true37:                                  ; preds = %if.end26, %if.end34
-  %textconv_two.045 = phi ptr [ %call30, %if.end34 ], [ null, %if.end26 ]
+  %textconv_two.045 = phi ptr [ %call33, %if.end34 ], [ null, %if.end26 ]
+  %textconv_one.043 = phi ptr [ %call30, %if.end34 ], [ null, %if.end26 ]
   %call38 = tail call i32 @diff_unmodified_pair(ptr noundef nonnull %p) #9
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %if.end41, label %return
 
 if.end41:                                         ; preds = %land.lhs.true37, %if.end34
   %textconv_two.044 = phi ptr [ %textconv_two.045, %land.lhs.true37 ], [ %call33, %if.end34 ]
-  %textconv_one.042 = phi ptr [ %textconv_two.045, %land.lhs.true37 ], [ %call30, %if.end34 ]
+  %textconv_one.042 = phi ptr [ %textconv_one.043, %land.lhs.true37 ], [ %call30, %if.end34 ]
   %pickaxe_opts = getelementptr inbounds i8, ptr %o, i64 32
   %14 = load i32, ptr %pickaxe_opts, align 8
   %and = and i32 %14, 8

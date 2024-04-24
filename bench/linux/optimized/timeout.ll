@@ -1017,7 +1017,7 @@ select.unfold:                                    ; preds = %45, %38, %.preheade
   br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !31
 
 .loopexit:                                        ; preds = %45, %select.unfold, %21, %18
-  %53 = phi ptr [ %20, %18 ], [ %30, %21 ], [ %34, %45 ], [ %30, %select.unfold ]
+  %53 = phi ptr [ %20, %18 ], [ %32, %21 ], [ %34, %45 ], [ %51, %select.unfold ]
   %54 = getelementptr inbounds i8, ptr %0, i64 24
   %55 = load ptr, ptr %53, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 8

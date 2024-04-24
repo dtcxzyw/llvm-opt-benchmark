@@ -287,7 +287,7 @@ land.lhs.true.i:                                  ; preds = %if.then8.i
   br i1 %cmp13.not.i, label %_ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm.exit, label %if.then14.i
 
 if.then14.i:                                      ; preds = %land.lhs.true.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call10.i, ptr nonnull align 8 %2, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call10.i, ptr nonnull align 8 %buf_st_.i.i, i64 %4, i1 false)
   %.pre = load ptr, ptr %buf_.i.i, align 8
   br label %_ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm.exit
 
@@ -702,23 +702,23 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %in.coerce1, i64 %in.coerce0
   %cmp323.not = icmp eq i64 %in.coerce0, 0
-  br i1 %cmp323.not, label %nrvo.skipdtor, label %for.cond1.preheader.lr.ph.i.lr.ph
+  br i1 %cmp323.not, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.cond1.preheader.lr.ph.i.lr.ph:                ; preds = %entry
+for.body.lr.ph:                                   ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %delim.coerce1, i64 %delim.coerce0
   %cmp2.not9.i = icmp eq i64 %delim.coerce0, 0
   %_M_finish.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  br label %for.cond1.preheader.lr.ph.i
+  br label %for.body
 
-for.cond1.preheader.lr.ph.i:                      ; preds = %for.cond1.preheader.lr.ph.i.lr.ph, %for.inc
-  %0 = phi ptr [ null, %for.cond1.preheader.lr.ph.i.lr.ph ], [ %5, %for.inc ]
-  %first.025 = phi ptr [ %in.coerce1, %for.cond1.preheader.lr.ph.i.lr.ph ], [ %add.ptr9, %for.inc ]
-  %cond.i10.i.i2124 = phi ptr [ null, %for.cond1.preheader.lr.ph.i.lr.ph ], [ %cond.i10.i.i20, %for.inc ]
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %0 = phi ptr [ null, %for.body.lr.ph ], [ %5, %for.inc ]
+  %first.025 = phi ptr [ %in.coerce1, %for.body.lr.ph ], [ %add.ptr9, %for.inc ]
+  %cond.i10.i.i2124 = phi ptr [ null, %for.body.lr.ph ], [ %cond.i10.i.i20, %for.inc ]
   br i1 %cmp2.not9.i, label %_ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_.exit, label %for.cond1.preheader.i
 
-for.cond1.preheader.i:                            ; preds = %for.cond1.preheader.lr.ph.i, %for.cond1.for.inc6_crit_edge.i
-  %__first1.addr.012.i = phi ptr [ %incdec.ptr7.i, %for.cond1.for.inc6_crit_edge.i ], [ %first.025, %for.cond1.preheader.lr.ph.i ]
+for.cond1.preheader.i:                            ; preds = %for.body, %for.cond1.for.inc6_crit_edge.i
+  %__first1.addr.012.i = phi ptr [ %incdec.ptr7.i, %for.cond1.for.inc6_crit_edge.i ], [ %first.025, %for.body ]
   %1 = load i8, ptr %__first1.addr.012.i, align 1
   br label %for.body3.i
 
@@ -738,8 +738,8 @@ for.cond1.for.inc6_crit_edge.i:                   ; preds = %for.cond1.i
   %cmp.not.i = icmp eq ptr %incdec.ptr7.i, %add.ptr
   br i1 %cmp.not.i, label %_ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_.exit, label %for.cond1.preheader.i, !llvm.loop !8
 
-_ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_.exit:   ; preds = %for.cond1.for.inc6_crit_edge.i, %for.body3.i, %for.cond1.preheader.lr.ph.i
-  %retval.0.i = phi ptr [ %add.ptr, %for.cond1.preheader.lr.ph.i ], [ %__first1.addr.012.i, %for.body3.i ], [ %add.ptr, %for.cond1.for.inc6_crit_edge.i ]
+_ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_.exit:   ; preds = %for.cond1.for.inc6_crit_edge.i, %for.body3.i, %for.body
+  %retval.0.i = phi ptr [ %add.ptr, %for.body ], [ %__first1.addr.012.i, %for.body3.i ], [ %add.ptr, %for.cond1.for.inc6_crit_edge.i ]
   %cmp7.not = icmp eq ptr %first.025, %retval.0.i
   br i1 %cmp7.not, label %for.inc, label %if.then
 
@@ -827,7 +827,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorISt17ba
   %cmp = icmp ne ptr %retval.0.i, %add.ptr
   %cmp3 = icmp ne ptr %add.ptr9, %add.ptr
   %6 = select i1 %cmp, i1 %cmp3, i1 false
-  br i1 %6, label %for.cond1.preheader.lr.ph.i, label %nrvo.skipdtor, !llvm.loop !14
+  br i1 %6, label %for.body, label %nrvo.skipdtor, !llvm.loop !14
 
 nrvo.skipdtor:                                    ; preds = %for.inc, %entry
   ret void
@@ -2780,7 +2780,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

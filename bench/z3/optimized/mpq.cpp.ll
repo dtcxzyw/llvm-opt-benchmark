@@ -3862,7 +3862,8 @@ if.then3:                                         ; preds = %if.end
   %m_den = getelementptr inbounds i8, ptr %b, i64 16
   call void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %m_den, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
   %m_den4 = getelementptr inbounds i8, ptr %a, i64 16
-  call void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %m_den4, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %m_den)
+  %m_den6 = getelementptr inbounds i8, ptr %c, i64 16
+  call void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %m_den4, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %m_den6)
   %bf.load.i.i.i27 = load i8, ptr %m_kind.i, align 4
   %bf.clear.i.i.i28 = and i8 %bf.load.i.i.i27, 1
   %cmp.i.i.i29 = icmp eq i8 %bf.clear.i.i.i28, 0
@@ -3870,14 +3871,15 @@ if.then3:                                         ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %if.then3
   %6 = load i32, ptr %tmp, align 8
-  store i32 %6, ptr %b, align 8
-  %bf.load.i.i = load i8, ptr %m_kind.i.i.i.i, align 4
+  store i32 %6, ptr %c, align 8
+  %m_kind.i.i = getelementptr inbounds i8, ptr %c, i64 4
+  %bf.load.i.i = load i8, ptr %m_kind.i.i, align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, -2
-  store i8 %bf.clear.i.i, ptr %m_kind.i.i.i.i, align 4
+  store i8 %bf.clear.i.i, ptr %m_kind.i.i, align 4
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit
 
 if.else.i.i:                                      ; preds = %if.then3
-  call void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
+  call void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit:       ; preds = %if.then.i.i, %if.else.i.i
@@ -5135,7 +5137,7 @@ entry:
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %conv.i.i.i = trunc i64 %n to i32
+  %conv.i.i.i = trunc nsw i64 %n to i32
   store i32 %conv.i.i.i, ptr %a, align 8
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %a, i64 4
   %bf.load.i.i.i = load i8, ptr %m_kind.i.i.i, align 4
@@ -5153,7 +5155,7 @@ _ZN11mpq_managerILb1EE3setER3mpzl.exit:           ; preds = %if.then.i.i.i, %if.
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN11mpq_managerILb1EE3setER3mpzl.exit
-  %conv.i.i = trunc i64 %d to i32
+  %conv.i.i = trunc nuw nsw i64 %d to i32
   store i32 %conv.i.i, ptr %m_den, align 8
   %m_kind.i.i = getelementptr inbounds i8, ptr %a, i64 20
   %bf.load.i.i = load i8, ptr %m_kind.i.i, align 4
@@ -5200,7 +5202,7 @@ entry:
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %conv.i.i = trunc i64 %val to i32
+  %conv.i.i = trunc nsw i64 %val to i32
   store i32 %conv.i.i, ptr %a, align 8
   %m_kind.i.i = getelementptr inbounds i8, ptr %a, i64 4
   %bf.load.i.i = load i8, ptr %m_kind.i.i, align 4
@@ -5223,7 +5225,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %conv.i = trunc i64 %val to i32
+  %conv.i = trunc nuw nsw i64 %val to i32
   store i32 %conv.i, ptr %a, align 8
   %m_kind.i = getelementptr inbounds i8, ptr %a, i64 4
   %bf.load.i = load i8, ptr %m_kind.i, align 4
@@ -5846,7 +5848,7 @@ invoke.cont242:                                   ; preds = %if.end237
 
 invoke.cont244:                                   ; preds = %invoke.cont242
   store i32 1, ptr %m_den.i.i142, align 8
-  %conv248 = trunc i64 %exp.2197203 to i32
+  %conv248 = trunc nuw i64 %exp.2197203 to i32
   invoke void @_ZN11mpq_managerILb1EE5powerERK3mpqjRS1_(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i137, i32 noundef %conv248, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i127)
           to label %invoke.cont251 unwind label %lpad243
 
@@ -6323,7 +6325,7 @@ entry:
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %conv.i.i.i = trunc i64 %val to i32
+  %conv.i.i.i = trunc nsw i64 %val to i32
   store i32 %conv.i.i.i, ptr %a, align 8
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %a, i64 4
   %bf.load.i.i.i = load i8, ptr %m_kind.i.i.i, align 4
@@ -6349,7 +6351,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %conv.i.i = trunc i64 %val to i32
+  %conv.i.i = trunc nuw nsw i64 %val to i32
   store i32 %conv.i.i, ptr %a, align 8
   %m_kind.i.i = getelementptr inbounds i8, ptr %a, i64 4
   %bf.load.i.i = load i8, ptr %m_kind.i.i, align 4
@@ -10171,7 +10173,8 @@ if.then3:                                         ; preds = %if.end
   %m_den = getelementptr inbounds i8, ptr %b, i64 16
   call void @_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %m_den, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
   %m_den4 = getelementptr inbounds i8, ptr %a, i64 16
-  call void @_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %m_den4, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %m_den)
+  %m_den6 = getelementptr inbounds i8, ptr %c, i64 16
+  call void @_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %m_den4, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %m_den6)
   %bf.load.i.i.i27 = load i8, ptr %m_kind.i, align 4
   %bf.clear.i.i.i28 = and i8 %bf.load.i.i.i27, 1
   %cmp.i.i.i29 = icmp eq i8 %bf.clear.i.i.i28, 0
@@ -10179,14 +10182,15 @@ if.then3:                                         ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %if.then3
   %6 = load i32, ptr %tmp, align 8
-  store i32 %6, ptr %b, align 8
-  %bf.load.i.i = load i8, ptr %m_kind.i.i.i.i, align 4
+  store i32 %6, ptr %c, align 8
+  %m_kind.i.i = getelementptr inbounds i8, ptr %c, i64 4
+  %bf.load.i.i = load i8, ptr %m_kind.i.i, align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, -2
-  store i8 %bf.clear.i.i, ptr %m_kind.i.i.i.i, align 4
+  store i8 %bf.clear.i.i, ptr %m_kind.i.i, align 4
   br label %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit
 
 if.else.i.i:                                      ; preds = %if.then3
-  call void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
+  call void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
   br label %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit
 
 _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %if.then.i.i, %if.else.i.i
@@ -11410,7 +11414,7 @@ entry:
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %conv.i.i.i = trunc i64 %n to i32
+  %conv.i.i.i = trunc nsw i64 %n to i32
   store i32 %conv.i.i.i, ptr %a, align 8
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %a, i64 4
   %bf.load.i.i.i = load i8, ptr %m_kind.i.i.i, align 4
@@ -11428,7 +11432,7 @@ _ZN11mpq_managerILb0EE3setER3mpzl.exit:           ; preds = %if.then.i.i.i, %if.
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN11mpq_managerILb0EE3setER3mpzl.exit
-  %conv.i.i = trunc i64 %d to i32
+  %conv.i.i = trunc nuw nsw i64 %d to i32
   store i32 %conv.i.i, ptr %m_den, align 8
   %m_kind.i.i = getelementptr inbounds i8, ptr %a, i64 20
   %bf.load.i.i = load i8, ptr %m_kind.i.i, align 4
@@ -11469,7 +11473,7 @@ entry:
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %conv.i.i = trunc i64 %val to i32
+  %conv.i.i = trunc nsw i64 %val to i32
   store i32 %conv.i.i, ptr %a, align 8
   %m_kind.i.i = getelementptr inbounds i8, ptr %a, i64 4
   %bf.load.i.i = load i8, ptr %m_kind.i.i, align 4
@@ -11492,7 +11496,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %conv.i = trunc i64 %val to i32
+  %conv.i = trunc nuw nsw i64 %val to i32
   store i32 %conv.i, ptr %a, align 8
   %m_kind.i = getelementptr inbounds i8, ptr %a, i64 4
   %bf.load.i = load i8, ptr %m_kind.i, align 4
@@ -12107,7 +12111,7 @@ invoke.cont242:                                   ; preds = %if.end237
 
 invoke.cont244:                                   ; preds = %invoke.cont242
   store i32 1, ptr %m_den.i.i142, align 8
-  %conv248 = trunc i64 %exp.2188194 to i32
+  %conv248 = trunc nuw i64 %exp.2188194 to i32
   invoke void @_ZN11mpq_managerILb0EE5powerERK3mpqjRS1_(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i137, i32 noundef %conv248, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i127)
           to label %invoke.cont251 unwind label %lpad243
 
@@ -12445,7 +12449,7 @@ entry:
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %conv.i.i.i = trunc i64 %val to i32
+  %conv.i.i.i = trunc nsw i64 %val to i32
   store i32 %conv.i.i.i, ptr %a, align 8
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %a, i64 4
   %bf.load.i.i.i = load i8, ptr %m_kind.i.i.i, align 4
@@ -12471,7 +12475,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %conv.i.i = trunc i64 %val to i32
+  %conv.i.i = trunc nuw nsw i64 %val to i32
   store i32 %conv.i.i, ptr %a, align 8
   %m_kind.i.i = getelementptr inbounds i8, ptr %a, i64 4
   %bf.load.i.i = load i8, ptr %m_kind.i.i, align 4

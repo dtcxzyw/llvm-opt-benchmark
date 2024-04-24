@@ -1383,7 +1383,7 @@ invoke.contthread-pre-split.i.i326:               ; preds = %for.body.i.i.i.i.i3
   br label %invoke.cont.i.i328
 
 invoke.cont.i.i328:                               ; preds = %invoke.contthread-pre-split.i.i326, %invoke.cont137
-  %29 = phi ptr [ %.pr.i.i327, %invoke.contthread-pre-split.i.i326 ], [ %25, %invoke.cont137 ]
+  %29 = phi ptr [ %.pr.i.i327, %invoke.contthread-pre-split.i.i326 ], [ %26, %invoke.cont137 ]
   %tobool.not.i.i.i.i329 = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i.i329, label %_ZN8nlohmann16json_abi_v3_11_311ordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEED2Ev.exit331, label %if.then.i.i.i.i330
 
@@ -7526,13 +7526,13 @@ for.inc.i1229:                                    ; preds = %_ZNKSt8equal_toINSt
   br i1 %cmp.i.not.i1231, label %invoke.cont2261.loopexit, label %for.body.i1225, !llvm.loop !16
 
 invoke.cont2261.loopexit:                         ; preds = %land.rhs.i.i.i1232, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1237, %for.inc.i1229
-  %retval.sroa.0.1.i.ph = phi ptr [ %retval.sroa.0.07.i, %land.rhs.i.i.i1232 ], [ %incdec.ptr.i.i1230, %for.inc.i1229 ], [ %retval.sroa.0.07.i, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1237 ]
+  %retval.sroa.0.1.i.ph = phi ptr [ %retval.sroa.0.07.i, %land.rhs.i.i.i1232 ], [ %630, %for.inc.i1229 ], [ %retval.sroa.0.07.i, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1237 ]
   %.pre = load ptr, ptr %om2200, align 8
   br label %invoke.cont2261
 
 invoke.cont2261:                                  ; preds = %invoke.cont2261.loopexit, %invoke.cont2256
   %631 = phi ptr [ %627, %invoke.cont2256 ], [ %.pre, %invoke.cont2261.loopexit ]
-  %retval.sroa.0.1.i = phi ptr [ %627, %invoke.cont2256 ], [ %retval.sroa.0.1.i.ph, %invoke.cont2261.loopexit ]
+  %retval.sroa.0.1.i = phi ptr [ %628, %invoke.cont2256 ], [ %retval.sroa.0.1.i.ph, %invoke.cont2261.loopexit ]
   %632 = load i32, ptr %ref.tmp2249, align 4
   store ptr %retval.sroa.0.1.i, ptr %ref.tmp2248, align 8
   %633 = getelementptr inbounds i8, ptr %ref.tmp2248, i64 8
@@ -7590,13 +7590,13 @@ for.inc.i1249:                                    ; preds = %_ZNKSt8equal_toINSt
   br i1 %cmp.i.not.i1251, label %invoke.cont2286.loopexit, label %for.body.i1244, !llvm.loop !16
 
 invoke.cont2286.loopexit:                         ; preds = %land.rhs.i.i.i1253, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1258, %for.inc.i1249
-  %retval.sroa.0.1.i1252.ph = phi ptr [ %retval.sroa.0.07.i1245, %land.rhs.i.i.i1253 ], [ %incdec.ptr.i.i1250, %for.inc.i1249 ], [ %retval.sroa.0.07.i1245, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1258 ]
+  %retval.sroa.0.1.i1252.ph = phi ptr [ %retval.sroa.0.07.i1245, %land.rhs.i.i.i1253 ], [ %637, %for.inc.i1249 ], [ %retval.sroa.0.07.i1245, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1258 ]
   %.pre1659 = load ptr, ptr %om2200, align 8
   br label %invoke.cont2286
 
 invoke.cont2286:                                  ; preds = %invoke.cont2286.loopexit, %invoke.cont2281
   %638 = phi ptr [ %634, %invoke.cont2281 ], [ %.pre1659, %invoke.cont2286.loopexit ]
-  %retval.sroa.0.1.i1252 = phi ptr [ %634, %invoke.cont2281 ], [ %retval.sroa.0.1.i1252.ph, %invoke.cont2286.loopexit ]
+  %retval.sroa.0.1.i1252 = phi ptr [ %635, %invoke.cont2281 ], [ %retval.sroa.0.1.i1252.ph, %invoke.cont2286.loopexit ]
   %639 = load i32, ptr %ref.tmp2275, align 4
   store ptr %retval.sroa.0.1.i1252, ptr %ref.tmp2274, align 8
   %640 = getelementptr inbounds i8, ptr %ref.tmp2274, i64 8
@@ -7649,13 +7649,13 @@ for.inc.i1271:                                    ; preds = %_ZNKSt8equal_toINSt
   br i1 %cmp.i.not.i1273, label %invoke.cont2306.loopexit, label %for.body.i1266, !llvm.loop !16
 
 invoke.cont2306.loopexit:                         ; preds = %land.rhs.i.i.i1275, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1280, %for.inc.i1271
-  %retval.sroa.0.1.i1274.ph = phi ptr [ %retval.sroa.0.07.i1267, %land.rhs.i.i.i1275 ], [ %incdec.ptr.i.i1272, %for.inc.i1271 ], [ %retval.sroa.0.07.i1267, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1280 ]
+  %retval.sroa.0.1.i1274.ph = phi ptr [ %retval.sroa.0.07.i1267, %land.rhs.i.i.i1275 ], [ %644, %for.inc.i1271 ], [ %retval.sroa.0.07.i1267, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1280 ]
   %.pre1660 = load ptr, ptr %om2200, align 8
   br label %invoke.cont2306
 
 invoke.cont2306:                                  ; preds = %invoke.cont2306.loopexit, %invoke.cont2301
   %645 = phi ptr [ %641, %invoke.cont2301 ], [ %.pre1660, %invoke.cont2306.loopexit ]
-  %retval.sroa.0.1.i1274 = phi ptr [ %641, %invoke.cont2301 ], [ %retval.sroa.0.1.i1274.ph, %invoke.cont2306.loopexit ]
+  %retval.sroa.0.1.i1274 = phi ptr [ %642, %invoke.cont2301 ], [ %retval.sroa.0.1.i1274.ph, %invoke.cont2306.loopexit ]
   %646 = load i32, ptr %ref.tmp2300, align 4
   store ptr %retval.sroa.0.1.i1274, ptr %ref.tmp2299, align 8
   %647 = getelementptr inbounds i8, ptr %ref.tmp2299, i64 8
@@ -7711,13 +7711,13 @@ for.inc.i1293:                                    ; preds = %_ZNKSt8equal_toINSt
   br i1 %cmp.i.not.i1295, label %invoke.cont2329.loopexit, label %for.body.i1288, !llvm.loop !16
 
 invoke.cont2329.loopexit:                         ; preds = %land.rhs.i.i.i1297, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1302, %for.inc.i1293
-  %retval.sroa.0.1.i1296.ph = phi ptr [ %retval.sroa.0.07.i1289, %land.rhs.i.i.i1297 ], [ %incdec.ptr.i.i1294, %for.inc.i1293 ], [ %retval.sroa.0.07.i1289, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1302 ]
+  %retval.sroa.0.1.i1296.ph = phi ptr [ %retval.sroa.0.07.i1289, %land.rhs.i.i.i1297 ], [ %651, %for.inc.i1293 ], [ %retval.sroa.0.07.i1289, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1302 ]
   %.pre1661 = load ptr, ptr %_M_finish.i.i.i1199, align 8
   br label %invoke.cont2329
 
 invoke.cont2329:                                  ; preds = %invoke.cont2329.loopexit, %invoke.cont2324
-  %652 = phi ptr [ %648, %invoke.cont2324 ], [ %.pre1661, %invoke.cont2329.loopexit ]
-  %retval.sroa.0.1.i1296 = phi ptr [ %648, %invoke.cont2324 ], [ %retval.sroa.0.1.i1296.ph, %invoke.cont2329.loopexit ]
+  %652 = phi ptr [ %649, %invoke.cont2324 ], [ %.pre1661, %invoke.cont2329.loopexit ]
+  %retval.sroa.0.1.i1296 = phi ptr [ %649, %invoke.cont2324 ], [ %retval.sroa.0.1.i1296.ph, %invoke.cont2329.loopexit ]
   %653 = load i32, ptr %ref.tmp2318, align 4
   store ptr %retval.sroa.0.1.i1296, ptr %ref.tmp2317, align 8
   %654 = getelementptr inbounds i8, ptr %ref.tmp2317, i64 8
@@ -7775,13 +7775,13 @@ for.inc.i1316:                                    ; preds = %_ZNKSt8equal_toINSt
   br i1 %cmp.i.not.i1318, label %invoke.cont2354.loopexit, label %for.body.i1311, !llvm.loop !16
 
 invoke.cont2354.loopexit:                         ; preds = %land.rhs.i.i.i1320, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1325, %for.inc.i1316
-  %retval.sroa.0.1.i1319.ph = phi ptr [ %retval.sroa.0.07.i1312, %land.rhs.i.i.i1320 ], [ %incdec.ptr.i.i1317, %for.inc.i1316 ], [ %retval.sroa.0.07.i1312, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1325 ]
+  %retval.sroa.0.1.i1319.ph = phi ptr [ %retval.sroa.0.07.i1312, %land.rhs.i.i.i1320 ], [ %658, %for.inc.i1316 ], [ %retval.sroa.0.07.i1312, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1325 ]
   %.pre1662 = load ptr, ptr %_M_finish.i.i.i1199, align 8
   br label %invoke.cont2354
 
 invoke.cont2354:                                  ; preds = %invoke.cont2354.loopexit, %invoke.cont2349
-  %659 = phi ptr [ %655, %invoke.cont2349 ], [ %.pre1662, %invoke.cont2354.loopexit ]
-  %retval.sroa.0.1.i1319 = phi ptr [ %655, %invoke.cont2349 ], [ %retval.sroa.0.1.i1319.ph, %invoke.cont2354.loopexit ]
+  %659 = phi ptr [ %656, %invoke.cont2349 ], [ %.pre1662, %invoke.cont2354.loopexit ]
+  %retval.sroa.0.1.i1319 = phi ptr [ %656, %invoke.cont2349 ], [ %retval.sroa.0.1.i1319.ph, %invoke.cont2354.loopexit ]
   %660 = load i32, ptr %ref.tmp2343, align 4
   store ptr %retval.sroa.0.1.i1319, ptr %ref.tmp2342, align 8
   %661 = getelementptr inbounds i8, ptr %ref.tmp2342, i64 8
@@ -7834,13 +7834,13 @@ for.inc.i1339:                                    ; preds = %_ZNKSt8equal_toINSt
   br i1 %cmp.i.not.i1341, label %invoke.cont2374.loopexit, label %for.body.i1334, !llvm.loop !16
 
 invoke.cont2374.loopexit:                         ; preds = %land.rhs.i.i.i1343, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1348, %for.inc.i1339
-  %retval.sroa.0.1.i1342.ph = phi ptr [ %retval.sroa.0.07.i1335, %land.rhs.i.i.i1343 ], [ %incdec.ptr.i.i1340, %for.inc.i1339 ], [ %retval.sroa.0.07.i1335, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1348 ]
+  %retval.sroa.0.1.i1342.ph = phi ptr [ %retval.sroa.0.07.i1335, %land.rhs.i.i.i1343 ], [ %665, %for.inc.i1339 ], [ %retval.sroa.0.07.i1335, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1348 ]
   %.pre1663 = load ptr, ptr %_M_finish.i.i.i1199, align 8
   br label %invoke.cont2374
 
 invoke.cont2374:                                  ; preds = %invoke.cont2374.loopexit, %invoke.cont2369
-  %666 = phi ptr [ %662, %invoke.cont2369 ], [ %.pre1663, %invoke.cont2374.loopexit ]
-  %retval.sroa.0.1.i1342 = phi ptr [ %662, %invoke.cont2369 ], [ %retval.sroa.0.1.i1342.ph, %invoke.cont2374.loopexit ]
+  %666 = phi ptr [ %663, %invoke.cont2369 ], [ %.pre1663, %invoke.cont2374.loopexit ]
+  %retval.sroa.0.1.i1342 = phi ptr [ %663, %invoke.cont2369 ], [ %retval.sroa.0.1.i1342.ph, %invoke.cont2374.loopexit ]
   %667 = load i32, ptr %ref.tmp2368, align 4
   store ptr %retval.sroa.0.1.i1342, ptr %ref.tmp2367, align 8
   %668 = getelementptr inbounds i8, ptr %ref.tmp2367, i64 8
@@ -7893,7 +7893,7 @@ for.inc.i1362:                                    ; preds = %_ZNKSt8equal_toINSt
   br i1 %cmp.i.not.i1364, label %invoke.cont2397, label %for.body.i1357, !llvm.loop !17
 
 invoke.cont2397:                                  ; preds = %for.inc.i1362, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1371, %land.rhs.i.i.i1366, %invoke.cont2392
-  %retval.sroa.0.1.i1365 = phi ptr [ %625, %invoke.cont2392 ], [ %retval.sroa.0.07.i1358, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1371 ], [ %call.i.i.i8.i.i1213, %for.inc.i1362 ], [ %retval.sroa.0.07.i1358, %land.rhs.i.i.i1366 ]
+  %retval.sroa.0.1.i1365 = phi ptr [ %call.i.i.i8.i.i1213, %invoke.cont2392 ], [ %retval.sroa.0.07.i1358, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1371 ], [ %call.i.i.i8.i.i1213, %for.inc.i1362 ], [ %retval.sroa.0.07.i1358, %land.rhs.i.i.i1366 ]
   %670 = load i32, ptr %ref.tmp2386, align 4
   store ptr %retval.sroa.0.1.i1365, ptr %ref.tmp2385, align 8
   %671 = getelementptr inbounds i8, ptr %ref.tmp2385, i64 8
@@ -7947,7 +7947,7 @@ for.inc.i1383:                                    ; preds = %_ZNKSt8equal_toINSt
   br i1 %cmp.i.not.i1385, label %invoke.cont2422, label %for.body.i1378, !llvm.loop !17
 
 invoke.cont2422:                                  ; preds = %for.inc.i1383, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1392, %land.rhs.i.i.i1387, %invoke.cont2417
-  %retval.sroa.0.1.i1386 = phi ptr [ %625, %invoke.cont2417 ], [ %retval.sroa.0.07.i1379, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1392 ], [ %call.i.i.i8.i.i1213, %for.inc.i1383 ], [ %retval.sroa.0.07.i1379, %land.rhs.i.i.i1387 ]
+  %retval.sroa.0.1.i1386 = phi ptr [ %call.i.i.i8.i.i1213, %invoke.cont2417 ], [ %retval.sroa.0.07.i1379, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1392 ], [ %call.i.i.i8.i.i1213, %for.inc.i1383 ], [ %retval.sroa.0.07.i1379, %land.rhs.i.i.i1387 ]
   %673 = load i32, ptr %ref.tmp2411, align 4
   store ptr %retval.sroa.0.1.i1386, ptr %ref.tmp2410, align 8
   %674 = getelementptr inbounds i8, ptr %ref.tmp2410, i64 8
@@ -7996,7 +7996,7 @@ for.inc.i1405:                                    ; preds = %_ZNKSt8equal_toINSt
   br i1 %cmp.i.not.i1407, label %invoke.cont2442, label %for.body.i1400, !llvm.loop !17
 
 invoke.cont2442:                                  ; preds = %for.inc.i1405, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1414, %land.rhs.i.i.i1409, %invoke.cont2437
-  %retval.sroa.0.1.i1408 = phi ptr [ %625, %invoke.cont2437 ], [ %retval.sroa.0.07.i1401, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1414 ], [ %call.i.i.i8.i.i1213, %for.inc.i1405 ], [ %retval.sroa.0.07.i1401, %land.rhs.i.i.i1409 ]
+  %retval.sroa.0.1.i1408 = phi ptr [ %call.i.i.i8.i.i1213, %invoke.cont2437 ], [ %retval.sroa.0.07.i1401, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1414 ], [ %call.i.i.i8.i.i1213, %for.inc.i1405 ], [ %retval.sroa.0.07.i1401, %land.rhs.i.i.i1409 ]
   %676 = load i32, ptr %ref.tmp2436, align 4
   store ptr %retval.sroa.0.1.i1408, ptr %ref.tmp2435, align 8
   %677 = getelementptr inbounds i8, ptr %ref.tmp2435, i64 8
@@ -8048,7 +8048,7 @@ for.inc.i1427:                                    ; preds = %_ZNKSt8equal_toINSt
   br i1 %cmp.i.not.i1429, label %invoke.cont2465, label %for.body.i1422, !llvm.loop !17
 
 invoke.cont2465:                                  ; preds = %for.inc.i1427, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1436, %land.rhs.i.i.i1431, %invoke.cont2460
-  %retval.sroa.0.1.i1430 = phi ptr [ %625, %invoke.cont2460 ], [ %retval.sroa.0.07.i1423, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1436 ], [ %call.i.i.i8.i.i1213, %for.inc.i1427 ], [ %retval.sroa.0.07.i1423, %land.rhs.i.i.i1431 ]
+  %retval.sroa.0.1.i1430 = phi ptr [ %call.i.i.i8.i.i1213, %invoke.cont2460 ], [ %retval.sroa.0.07.i1423, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1436 ], [ %call.i.i.i8.i.i1213, %for.inc.i1427 ], [ %retval.sroa.0.07.i1423, %land.rhs.i.i.i1431 ]
   %679 = load i32, ptr %ref.tmp2454, align 4
   store ptr %retval.sroa.0.1.i1430, ptr %ref.tmp2453, align 8
   %680 = getelementptr inbounds i8, ptr %ref.tmp2453, i64 8
@@ -8102,7 +8102,7 @@ for.inc.i1450:                                    ; preds = %_ZNKSt8equal_toINSt
   br i1 %cmp.i.not.i1452, label %invoke.cont2490, label %for.body.i1445, !llvm.loop !17
 
 invoke.cont2490:                                  ; preds = %for.inc.i1450, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1459, %land.rhs.i.i.i1454, %invoke.cont2485
-  %retval.sroa.0.1.i1453 = phi ptr [ %625, %invoke.cont2485 ], [ %retval.sroa.0.07.i1446, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1459 ], [ %call.i.i.i8.i.i1213, %for.inc.i1450 ], [ %retval.sroa.0.07.i1446, %land.rhs.i.i.i1454 ]
+  %retval.sroa.0.1.i1453 = phi ptr [ %call.i.i.i8.i.i1213, %invoke.cont2485 ], [ %retval.sroa.0.07.i1446, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1459 ], [ %call.i.i.i8.i.i1213, %for.inc.i1450 ], [ %retval.sroa.0.07.i1446, %land.rhs.i.i.i1454 ]
   %682 = load i32, ptr %ref.tmp2479, align 4
   store ptr %retval.sroa.0.1.i1453, ptr %ref.tmp2478, align 8
   %683 = getelementptr inbounds i8, ptr %ref.tmp2478, i64 8
@@ -8151,7 +8151,7 @@ for.inc.i1473:                                    ; preds = %_ZNKSt8equal_toINSt
   br i1 %cmp.i.not.i1475, label %invoke.cont2510, label %for.body.i1468, !llvm.loop !17
 
 invoke.cont2510:                                  ; preds = %for.inc.i1473, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1482, %land.rhs.i.i.i1477, %invoke.cont2505
-  %retval.sroa.0.1.i1476 = phi ptr [ %625, %invoke.cont2505 ], [ %retval.sroa.0.07.i1469, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1482 ], [ %call.i.i.i8.i.i1213, %for.inc.i1473 ], [ %retval.sroa.0.07.i1469, %land.rhs.i.i.i1477 ]
+  %retval.sroa.0.1.i1476 = phi ptr [ %call.i.i.i8.i.i1213, %invoke.cont2505 ], [ %retval.sroa.0.07.i1469, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i1482 ], [ %call.i.i.i8.i.i1213, %for.inc.i1473 ], [ %retval.sroa.0.07.i1469, %land.rhs.i.i.i1477 ]
   %685 = load i32, ptr %ref.tmp2504, align 4
   store ptr %retval.sroa.0.1.i1476, ptr %ref.tmp2503, align 8
   %686 = getelementptr inbounds i8, ptr %ref.tmp2503, i64 8
@@ -10046,7 +10046,7 @@ for.body13:                                       ; preds = %if.then, %for.body1
   br i1 %cmp.i2.not, label %for.end, label %for.body13, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body13, %if.then
-  %.lcssa = phi ptr [ %incdec.ptr.i20, %if.then ], [ %incdec.ptr.i, %for.body13 ]
+  %.lcssa = phi ptr [ %3, %if.then ], [ %4, %for.body13 ]
   %incdec.ptr.i6 = getelementptr inbounds i8, ptr %.lcssa, i64 -64
   store ptr %incdec.ptr.i6, ptr %_M_finish.i, align 8
   %second.i.i.i.i = getelementptr inbounds i8, ptr %.lcssa, i64 -32
@@ -10366,7 +10366,7 @@ for.inc:                                          ; preds = %for.body, %_ZNKSt8e
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !23
 
 for.end:                                          ; preds = %for.inc, %entry
-  %.lcssa = phi ptr [ %0, %entry ], [ %incdec.ptr.i, %for.inc ]
+  %.lcssa = phi ptr [ %1, %entry ], [ %3, %for.inc ]
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %.lcssa, %4
@@ -10604,7 +10604,7 @@ while.end.i:                                      ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %if.else
-  %__y.0.lcssa30.i = phi ptr [ %__x.025.i, %while.end.i ], [ %__position.coerce, %if.else ]
+  %__y.0.lcssa30.i = phi ptr [ %__x.025.i, %while.end.i ], [ %add.ptr.i, %if.else ]
   %_M_left.i3.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %_M_left.i3.i, align 8
   %cmp.i.i11 = icmp eq ptr %__y.0.lcssa30.i, %7
@@ -10849,8 +10849,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %return
 
 return:                                           ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105, %if.then.i113, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51, %if.then.i59, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i, %if.then.i, %if.then64, %if.then32, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70, %if.then50, %if.then18, %if.then9
-  %retval.sroa.0.0 = phi ptr [ null, %if.then9 ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ %spec.select, %if.then32 ], [ %spec.select135, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ null, %if.then.i59 ], [ %spec.select.i53, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ null, %if.then.i113 ], [ %spec.select.i107, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ]
-  %retval.sroa.12.0 = phi ptr [ %4, %if.then9 ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ %spec.select134, %if.then32 ], [ %spec.select136, %if.then64 ], [ %__y.0.lcssa30.i, %if.then.i ], [ %spec.select20.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ %__y.0.lcssa30.i60, %if.then.i59 ], [ %spec.select20.i54, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ %__y.0.lcssa30.i114, %if.then.i113 ], [ %spec.select20.i108, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ]
+  %retval.sroa.0.0 = phi ptr [ null, %if.then9 ], [ %12, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ %spec.select, %if.then32 ], [ %spec.select135, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ null, %if.then.i59 ], [ %spec.select.i53, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ null, %if.then.i113 ], [ %spec.select.i107, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ]
+  %retval.sroa.12.0 = phi ptr [ %4, %if.then9 ], [ %12, %if.then18 ], [ %23, %if.then50 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ %spec.select134, %if.then32 ], [ %spec.select136, %if.then64 ], [ %__y.0.lcssa30.i, %if.then.i ], [ %spec.select20.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ %__y.0.lcssa30.i60, %if.then.i59 ], [ %spec.select20.i54, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ %__y.0.lcssa30.i114, %if.then.i113 ], [ %spec.select20.i108, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -11354,7 +11354,7 @@ for.inc:                                          ; preds = %for.body, %_ZNKSt8e
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !35
 
 for.end:                                          ; preds = %for.inc, %entry
-  %.lcssa = phi ptr [ %0, %entry ], [ %incdec.ptr.i, %for.inc ]
+  %.lcssa = phi ptr [ %1, %entry ], [ %3, %for.inc ]
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %.lcssa, %4

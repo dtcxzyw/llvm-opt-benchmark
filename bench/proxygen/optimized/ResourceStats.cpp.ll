@@ -1782,7 +1782,7 @@ _ZNK5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCach
   %idxprom.i.i.i.i = zext nneg i32 %bf.clear.i.i.i.i to i64
   %node.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %6, i64 %idxprom.i.i.i.i, i32 3
   %cmp.not5.i.i.i.i = icmp eq ptr %node.i.i.i.i, %node.i.i
-  br i1 %cmp.not5.i.i.i.i, label %for.end, label %land.rhs.i.i.i.i
+  br i1 %cmp.not5.i.i.i.i, label %invoke.cont2, label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %_ZNK5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE16accessAllThreadsEv.exit, %for.inc.i.i.i.i
   %ref.tmp.sroa.3.0.i = phi ptr [ %node.i.i.i.i.i, %for.inc.i.i.i.i ], [ %node.i.i.i.i, %_ZNK5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE16accessAllThreadsEv.exit ]
@@ -1803,10 +1803,11 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
   %idxprom.i.i.i.i.i = zext nneg i32 %bf.clear.i.i.i.i.i to i64
   %node.i.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %11, i64 %idxprom.i.i.i.i.i, i32 3
   %cmp.not.i.i.i.i = icmp eq ptr %node.i.i.i.i.i, %node.i.i
-  br i1 %cmp.not.i.i.i.i, label %for.end, label %land.rhs.i.i.i.i, !llvm.loop !20
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont2, label %land.rhs.i.i.i.i, !llvm.loop !20
 
-invoke.cont2:                                     ; preds = %land.rhs.i.i.i.i
-  %cmp5.i.i.not33 = icmp eq ptr %ref.tmp.sroa.3.0.i, %node.i.i
+invoke.cont2:                                     ; preds = %land.rhs.i.i.i.i, %for.inc.i.i.i.i, %_ZNK5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE16accessAllThreadsEv.exit
+  %ref.tmp.sroa.3.1.i = phi ptr [ %node.i.i.i.i, %_ZNK5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE16accessAllThreadsEv.exit ], [ %node.i.i.i.i.i, %for.inc.i.i.i.i ], [ %ref.tmp.sroa.3.0.i, %land.rhs.i.i.i.i ]
+  %cmp5.i.i.not33 = icmp eq ptr %ref.tmp.sroa.3.1.i, %node.i.i
   br i1 %cmp5.i.i.not33, label %for.end, label %invoke.cont6.lr.ph
 
 invoke.cont6.lr.ph:                               ; preds = %invoke.cont2
@@ -1815,7 +1816,7 @@ invoke.cont6.lr.ph:                               ; preds = %invoke.cont2
 
 invoke.cont6:                                     ; preds = %invoke.cont6.lr.ph, %_ZN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit
   %12 = phi i32 [ %retval.0.i.i, %invoke.cont6.lr.ph ], [ %24, %_ZN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit ]
-  %__begin2.sroa.4.034 = phi ptr [ %ref.tmp.sroa.3.0.i, %invoke.cont6.lr.ph ], [ %__begin2.sroa.4.2, %_ZN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit ]
+  %__begin2.sroa.4.034 = phi ptr [ %ref.tmp.sroa.3.1.i, %invoke.cont6.lr.ph ], [ %__begin2.sroa.4.2, %_ZN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit ]
   %parent.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.4.034, i64 8
   %13 = load ptr, ptr %parent.i.i.i, align 8
   %14 = load ptr, ptr %13, align 8
@@ -1890,7 +1891,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit, label %land.rhs.i.i.i, !llvm.loop !20
 
 _ZN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit: ; preds = %land.rhs.i.i.i, %for.inc.i.i.i, %for.inc
-  %__begin2.sroa.4.2 = phi ptr [ %node.i.i.i, %for.inc ], [ %__begin2.sroa.4.1, %land.rhs.i.i.i ], [ %node4.i.i.i, %for.inc.i.i.i ]
+  %__begin2.sroa.4.2 = phi ptr [ %node.i.i.i, %for.inc ], [ %__begin2.sroa.4.1, %land.rhs.i.i.i ], [ %node.i.i.i.i23, %for.inc.i.i.i ]
   %cmp5.i.i.not = icmp eq ptr %__begin2.sroa.4.2, %node.i.i
   br i1 %cmp5.i.i.not, label %for.end, label %invoke.cont6
 
@@ -1900,7 +1901,7 @@ lpad:                                             ; preds = %for.end
   call void @_ZN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE8AccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %acc) #15
   resume { ptr, i32 } %30
 
-for.end:                                          ; preds = %for.inc.i.i.i.i, %_ZN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit, %_ZNK5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE16accessAllThreadsEv.exit, %invoke.cont2
+for.end:                                          ; preds = %_ZN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit, %invoke.cont2
   %mutex_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv(ptr noundef nonnull align 4 dereferenceable(4) %mutex_.i.i)
           to label %invoke.cont13 unwind label %lpad
@@ -2077,8 +2078,8 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %invoke.cont5, label %land.rhs.i.i.i.i, !llvm.loop !24
 
 invoke.cont5:                                     ; preds = %land.rhs.i.i.i.i, %for.inc.i.i.i.i, %_ZNK5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE16accessAllThreadsEv.exit
-  %ref.tmp.sroa.3.1.i = phi ptr [ %node.i.i, %_ZNK5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE16accessAllThreadsEv.exit ], [ %node.i.i, %for.inc.i.i.i.i ], [ %ref.tmp.sroa.3.0.i, %land.rhs.i.i.i.i ]
-  %call.i.i.i.i8 = invoke { ptr, ptr } @_ZSt9__find_ifIN5folly14ThreadLocalPtrINS0_6detail19ThreadCachedReaders10EpochCountENS2_15ThreadCachedTagEvE8Accessor8IteratorEN9__gnu_cxx5__ops10_Iter_predIZNS3_12epochIsClearEhEUlRT_E_EEESC_SC_SC_T0_St18input_iterator_tag(ptr nonnull %access, ptr %ref.tmp.sroa.3.1.i, ptr nonnull %access, ptr nonnull %node.i.i, ptr nonnull %epoch.addr)
+  %ref.tmp.sroa.3.1.i = phi ptr [ %node.i.i.i.i, %_ZNK5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE16accessAllThreadsEv.exit ], [ %node.i.i.i.i.i, %for.inc.i.i.i.i ], [ %ref.tmp.sroa.3.0.i, %land.rhs.i.i.i.i ]
+  %call.i.i.i.i8 = invoke { ptr, ptr } @_ZSt9__find_ifIN5folly14ThreadLocalPtrINS0_6detail19ThreadCachedReaders10EpochCountENS2_15ThreadCachedTagEvE8Accessor8IteratorEN9__gnu_cxx5__ops10_Iter_predIZNS3_12epochIsClearEhEUlRT_E_EEESC_SC_SC_T0_St18input_iterator_tag(ptr nonnull %access, ptr nonnull %ref.tmp.sroa.3.1.i, ptr nonnull %access, ptr nonnull %node.i.i, ptr nonnull %epoch.addr)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont5
@@ -2573,7 +2574,7 @@ for.inc.i.i.i.us:                                 ; preds = %land.rhs.i.i.i.us
   br i1 %cmp.not.i.i.i.us, label %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit.us, label %land.rhs.i.i.i.us, !llvm.loop !24
 
 _ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit.us: ; preds = %land.rhs.i.i.i.us, %for.inc.i.i.i.us, %while.body.us
-  %__first.sroa.5.2.us = phi ptr [ %node4.i.i.i.us, %while.body.us ], [ %__first.sroa.5.1.us, %land.rhs.i.i.i.us ], [ %node4.i.i.i.us, %for.inc.i.i.i.us ]
+  %__first.sroa.5.2.us = phi ptr [ %node.i.i.i.us, %while.body.us ], [ %__first.sroa.5.1.us, %land.rhs.i.i.i.us ], [ %node.i.i.i.i.us, %for.inc.i.i.i.us ]
   %parent.i.i.i.i.us = getelementptr inbounds i8, ptr %__first.sroa.5.2.us, i64 8
   %18 = load ptr, ptr %parent.i.i.i.i.us, align 8
   %19 = load ptr, ptr %18, align 8
@@ -2645,12 +2646,12 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit, label %land.rhs.i.i.i, !llvm.loop !24
 
 _ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit: ; preds = %land.rhs.i.i.i, %for.inc.i.i.i, %while.body
-  %__first.sroa.5.2 = phi ptr [ %node.i.i.i, %while.body ], [ %__first.sroa.5.1, %land.rhs.i.i.i ], [ %node4.i.i.i, %for.inc.i.i.i ]
+  %__first.sroa.5.2 = phi ptr [ %node.i.i.i, %while.body ], [ %__first.sroa.5.1, %land.rhs.i.i.i ], [ %node.i.i.i.i, %for.inc.i.i.i ]
   %cmp5.i.i.not = icmp eq ptr %__first.sroa.5.2, %__last.coerce1
   br i1 %cmp5.i.i.not, label %while.end, label %land.rhs, !llvm.loop !27
 
 while.end:                                        ; preds = %land.rhs, %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit, %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit.us, %land.rhs.lr.ph.split.us, %entry
-  %__first.sroa.5.0.lcssa = phi ptr [ %__first.coerce1, %entry ], [ %__first.coerce1, %land.rhs.lr.ph.split.us ], [ %__first.sroa.5.2.us, %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit.us ], [ %__last.coerce1, %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit ], [ %__first.sroa.5.08, %land.rhs ]
+  %__first.sroa.5.0.lcssa = phi ptr [ %__first.coerce1, %entry ], [ %__first.coerce1, %land.rhs.lr.ph.split.us ], [ %__first.sroa.5.2.us, %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit.us ], [ %__first.sroa.5.2, %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit ], [ %__first.sroa.5.08, %land.rhs ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %__first.coerce0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %__first.sroa.5.0.lcssa, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -3758,16 +3759,15 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   %.pre44 = load ptr, ptr %_M_finish.i, align 8
   %.pre45 = ptrtoint ptr %.pre42 to i64
   %.pre46 = ptrtoint ptr %.pre43 to i64
+  %.pre47 = sub i64 %.pre45, %.pre46
   br label %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPdS0_ET0_T_S2_S1_.exit:                 ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.rhs.cast.i39.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i15, %if.else49 ], [ %.pre46, %if.then.i.i.i.i.i35 ]
-  %sub.ptr.lhs.cast.i38.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i15, %if.else49 ], [ %.pre45, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
-  %6 = phi ptr [ %3, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
+  %6 = phi ptr [ %4, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
-  %sub.ptr.sub.i40 = sub i64 %sub.ptr.lhs.cast.i38.pre-phi, %sub.ptr.rhs.cast.i39.pre-phi
-  %add.ptr62 = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i40
+  %add.ptr62 = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i40.pre-phi
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, %add.ptr62
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.end69, label %if.then.i.i.i.i.i.i.i.i
 

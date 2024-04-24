@@ -2614,10 +2614,12 @@ if.end33.i:                                       ; preds = %lor.lhs.false21.i
   br i1 %cmp35.i, label %if.then36.i, label %if.then50.i
 
 if.then36.i:                                      ; preds = %if.end33.i, %if.end33.thread.i
-  %18 = phi ptr [ %17, %if.end33.thread.i ], [ %last_name.0113.i, %if.end33.i ]
-  %19 = phi ptr [ %16, %if.end33.thread.i ], [ %last_file.0111.i, %if.end33.i ]
+  %18 = phi ptr [ %17, %if.end33.thread.i ], [ %13, %if.end33.i ]
+  %19 = phi ptr [ %16, %if.end33.thread.i ], [ %12, %if.end33.i ]
   %inc3484.i = phi i64 [ 1, %if.end33.thread.i ], [ %inc34.i, %if.end33.i ]
+  %last_name.182.i = phi ptr [ %17, %if.end33.thread.i ], [ %last_name.0113.i, %if.end33.i ]
   %last_line.180.i = phi i32 [ %tb_lineno.0.i, %if.end33.thread.i ], [ %last_line.0112.i, %if.end33.i ]
+  %last_file.178.i = phi ptr [ %16, %if.end33.thread.i ], [ %last_file.0111.i, %if.end33.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %truncation.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %source_line.i.i)
   %cmp.i41.i = icmp eq ptr %19, null
@@ -2719,9 +2721,9 @@ if.end43.i:                                       ; preds = %tb_displayline.exit
 
 if.then50.i:                                      ; preds = %if.end43.i, %if.end33.i
   %inc3483.i = phi i64 [ %inc34.i, %if.end33.i ], [ %inc3484.i, %if.end43.i ]
-  %last_name.181.i = phi ptr [ %last_name.0113.i, %if.end33.i ], [ %18, %if.end43.i ]
+  %last_name.181.i = phi ptr [ %last_name.0113.i, %if.end33.i ], [ %last_name.182.i, %if.end43.i ]
   %last_line.179.i = phi i32 [ %last_line.0112.i, %if.end33.i ], [ %last_line.180.i, %if.end43.i ]
-  %last_file.177.i = phi ptr [ %last_file.0111.i, %if.end33.i ], [ %19, %if.end43.i ]
+  %last_file.177.i = phi ptr [ %last_file.0111.i, %if.end33.i ], [ %last_file.178.i, %if.end43.i ]
   %27 = load i64, ptr %call.i, align 8
   %28 = and i64 %27, 2147483648
   %cmp.i62.not.i = icmp eq i64 %28, 0
@@ -3382,7 +3384,6 @@ if.end23:                                         ; preds = %if.end19
   %call24 = tail call ptr @PyInterpreterState_ThreadHead(ptr noundef %interp.addr.0) #10
   %arrayidx.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 16
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %arrayidx.i.i to i64
-  %interp37 = getelementptr inbounds i8, ptr %current_tstate.addr.02841, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %if.end41, %if.end23
@@ -3443,6 +3444,7 @@ write_thread_id.exit:                             ; preds = %do.body.i.i
   br i1 %cmp33.not, label %land.lhs.true36, label %if.end41
 
 land.lhs.true36:                                  ; preds = %write_thread_id.exit
+  %interp37 = getelementptr inbounds i8, ptr %tstate.0, i64 16
   %6 = load ptr, ptr %interp37, align 8
   %collecting = getelementptr inbounds i8, ptr %6, i64 1200
   %7 = load i32, ptr %collecting, align 8

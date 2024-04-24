@@ -12656,7 +12656,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN5fol
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %invoke.cont
-  %3 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %for.cond.cleanup ], [ %0, %invoke.cont ]
+  %3 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre19, %for.cond.cleanup ], [ %0, %invoke.cont ]
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN5folly8FunctionIFvvEEESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
@@ -18840,7 +18840,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v919basic_memory_bufferIcLm500ESaIcEEEEaSERKc.
   br i1 %cmp.i.i.i.i.i.i316, label %for.body.i.i.i.i.i.i306, label %if.end109, !llvm.loop !625
 
 if.end109:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v919basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i.i.i311, %if.then108, %while.end, %entry
-  %ptr.0.lcssa348 = phi ptr [ %ptr.0.lcssa, %if.then108 ], [ %begin.addr.0.lcssa, %while.end ], [ %begin, %entry ], [ %ptr.0.lcssa, %_ZNSt20back_insert_iteratorIN3fmt2v919basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i.i.i311 ]
+  %ptr.0.lcssa348 = phi ptr [ %ptr.0.lcssa, %if.then108 ], [ %ptr.0.lcssa, %while.end ], [ %begin, %entry ], [ %ptr.0.lcssa, %_ZNSt20back_insert_iteratorIN3fmt2v919basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i.i.i.i311 ]
   ret ptr %ptr.0.lcssa348
 }
 
@@ -23585,7 +23585,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyINSt7_
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %invoke.cont
-  %7 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %for.cond.cleanup ], [ %1, %invoke.cont ]
+  %7 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre97, %for.cond.cleanup ], [ %1, %invoke.cont ]
   %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 

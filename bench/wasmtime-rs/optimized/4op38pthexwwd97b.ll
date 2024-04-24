@@ -51279,7 +51279,7 @@ define hidden void @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph21overwrite_inst
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph25make_inst_results_reusing17h716635fd1e4e7e5dE(ptr noalias noundef align 8 dereferenceable(416) %0, i32 noundef %1, i16 noundef %2, ptr noundef nonnull readonly %3, ptr noundef readonly %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph25make_inst_results_reusing17h716635fd1e4e7e5dE(ptr noalias noundef align 8 dereferenceable(416) %0, i32 noundef %1, i16 noundef %2, ptr noundef nonnull readonly %3, ptr noundef readnone %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { {} }, align 1
   %7 = alloca { i16, [11 x i16] }, align 8
   %8 = alloca { { [4 x i64] }, i64 }, align 8
@@ -51498,7 +51498,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %.not, label %"_ZN128_$LT$cranelift_codegen..ir..dfg..ValueDataPacked$u20$as$u20$core..convert..From$LT$cranelift_codegen..ir..dfg..ValueData$GT$$GT$4from17he9f26a0a242f9a2fE.exit.i", label %113
 
 "_ZN128_$LT$cranelift_codegen..ir..dfg..ValueDataPacked$u20$as$u20$core..convert..From$LT$cranelift_codegen..ir..dfg..ValueData$GT$$GT$4from17he9f26a0a242f9a2fE.exit.i": ; preds = %90, %88, %92
-  %.sroa.0.1105 = phi ptr [ %93, %92 ], [ null, %88 ], [ %4, %90 ]
+  %.sroa.0.1105 = phi ptr [ %93, %92 ], [ null, %88 ], [ %.sroa.0.0, %90 ]
   %97 = zext i16 %79 to i64
   %98 = shl nuw i64 %97, 48
   %99 = zext i16 %.sroa.57.0 to i64

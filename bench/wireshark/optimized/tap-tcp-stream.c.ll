@@ -1198,10 +1198,12 @@ define hidden void @rtt_delete_unack_from_list(ptr nocapture noundef %0, ptr nou
   br i1 %10, label %.loopexit.sink.split, label %.preheader, !llvm.loop !13
 
 .loopexit.sink.split:                             ; preds = %8, %6
+  %.lcssa.sink = phi ptr [ %3, %6 ], [ %9, %8 ]
   %.0.lcssa22.sink = phi ptr [ %0, %6 ], [ %.0, %8 ]
-  %11 = load ptr, ptr %1, align 8
+  %.sink = phi ptr [ %3, %6 ], [ %1, %8 ]
+  %11 = load ptr, ptr %.lcssa.sink, align 8
   store ptr %11, ptr %.0.lcssa22.sink, align 8
-  tail call void @g_free(ptr noundef nonnull %1) #14
+  tail call void @g_free(ptr noundef nonnull %.sink) #14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %2

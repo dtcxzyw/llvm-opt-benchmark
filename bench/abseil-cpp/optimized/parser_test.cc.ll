@@ -4377,7 +4377,7 @@ if.end10.i65:                                     ; preds = %if.end7.i62
 
 _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit71: ; preds = %if.end.i56, %if.end7.i62, %if.end10.i65, %if.then45
   %c.2 = phi i8 [ %c.1224, %if.then45 ], [ %13, %if.end10.i65 ], [ %13, %if.end7.i62 ], [ %13, %if.end.i56 ]
-  %pos.addr.2 = phi ptr [ %end, %if.then45 ], [ %incdec.ptr.i59, %if.end.i56 ], [ %scevgep261, %if.end7.i62 ], [ %scevgep, %if.end10.i65 ]
+  %pos.addr.2 = phi ptr [ %pos.addr.1221, %if.then45 ], [ %incdec.ptr.i59, %if.end.i56 ], [ %scevgep261, %if.end7.i62 ], [ %scevgep, %if.end10.i65 ]
   %digits.0.lcssa.i70 = phi i32 [ %digits.08.i54, %if.then45 ], [ %digits.011.i57, %if.end.i56 ], [ %digits.011.i57, %if.end7.i62 ], [ %digits.0.i68, %if.end10.i65 ]
   %flags47 = getelementptr inbounds i8, ptr %conv, i64 12
   %15 = load i8, ptr %flags47, align 4
@@ -4510,7 +4510,7 @@ if.end10.i106:                                    ; preds = %if.end7.i103
 
 _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit112: ; preds = %if.end.i97, %if.end7.i103, %if.end10.i106, %if.then107
   %c.5 = phi i8 [ %25, %if.then107 ], [ %29, %if.end10.i106 ], [ %29, %if.end7.i103 ], [ %29, %if.end.i97 ]
-  %pos.addr.5 = phi ptr [ %end, %if.then107 ], [ %incdec.ptr.i100, %if.end.i97 ], [ %scevgep264, %if.end7.i103 ], [ %scevgep263, %if.end10.i106 ]
+  %pos.addr.5 = phi ptr [ %incdec.ptr101, %if.then107 ], [ %incdec.ptr.i100, %if.end.i97 ], [ %scevgep264, %if.end7.i103 ], [ %scevgep263, %if.end10.i106 ]
   %digits.0.lcssa.i111 = phi i32 [ %digits.08.i95, %if.then107 ], [ %digits.011.i98, %if.end.i97 ], [ %digits.011.i98, %if.end7.i103 ], [ %digits.0.i109, %if.end10.i106 ]
   store i32 %digits.0.lcssa.i111, ptr %precision, align 4
   br label %if.end147
@@ -4801,7 +4801,7 @@ if.end33:                                         ; preds = %if.then29
 
 if.end35:                                         ; preds = %if.end10.i, %if.end7.i, %if.then25, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit
   %digits.0.lcssa.i118 = phi i32 [ %digits.011.i, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ %digits.08.i, %if.then25 ], [ %digits.0.i, %if.end10.i ], [ %digits.011.i, %if.end7.i ]
-  %pos.addr.1117 = phi ptr [ %incdec.ptr.i, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ %end, %if.then25 ], [ %scevgep148, %if.end10.i ], [ %scevgep, %if.end7.i ]
+  %pos.addr.1117 = phi ptr [ %incdec.ptr.i, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ %pos.addr.0129, %if.then25 ], [ %scevgep148, %if.end10.i ], [ %scevgep, %if.end7.i ]
   %c.1116 = phi i8 [ %7, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ %c.0132, %if.then25 ], [ %7, %if.end7.i ], [ %7, %if.end10.i ]
   %flags36 = getelementptr inbounds i8, ptr %conv, i64 12
   %10 = load i8, ptr %flags36, align 4
@@ -4889,7 +4889,7 @@ if.end10.i66:                                     ; preds = %if.end7.i63
 
 _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit72: ; preds = %if.end.i57, %if.end7.i63, %if.end10.i66, %if.then74
   %c.3 = phi i8 [ %15, %if.then74 ], [ %19, %if.end10.i66 ], [ %19, %if.end7.i63 ], [ %19, %if.end.i57 ]
-  %pos.addr.3 = phi ptr [ %end, %if.then74 ], [ %incdec.ptr.i60, %if.end.i57 ], [ %scevgep151, %if.end7.i63 ], [ %scevgep150, %if.end10.i66 ]
+  %pos.addr.3 = phi ptr [ %incdec.ptr68, %if.then74 ], [ %incdec.ptr.i60, %if.end.i57 ], [ %scevgep151, %if.end7.i63 ], [ %scevgep150, %if.end10.i66 ]
   %digits.0.lcssa.i71 = phi i32 [ %digits.08.i55, %if.then74 ], [ %digits.011.i58, %if.end.i57 ], [ %digits.011.i58, %if.end7.i63 ], [ %digits.0.i69, %if.end10.i66 ]
   store i32 %digits.0.lcssa.i71, ptr %precision, align 4
   br label %if.end94
@@ -17424,7 +17424,7 @@ for.body4:                                        ; preds = %for.cond2.preheader
 
 for.body7:                                        ; preds = %for.body4, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body4 ], [ %indvars.iv.next, %for.inc ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %1 = shl nuw nsw i32 1, %0
   %2 = and i32 %1, %i.0175
   %tobool.not = icmp eq i32 %2, 0
@@ -22836,16 +22836,15 @@ if.then.i.i.i.i.i35.i:                            ; preds = %if.else49.i
   %.pre44.i = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %.pre45.i = ptrtoint ptr %.pre42.i to i64
   %.pre46.i = ptrtoint ptr %.pre43.i to i64
+  %.pre47.i = sub i64 %.pre45.i, %.pre46.i
   br label %_ZSt4copyIPN4absl19str_format_internal16ParsedFormatBase14ConversionItemES4_ET0_T_S6_S5_.exit.i
 
 _ZSt4copyIPN4absl19str_format_internal16ParsedFormatBase14ConversionItemES4_ET0_T_S6_S5_.exit.i: ; preds = %if.then.i.i.i.i.i35.i, %if.else49.i
-  %sub.ptr.rhs.cast.i39.pre-phi.i = phi i64 [ %sub.ptr.rhs.cast.i15.i, %if.else49.i ], [ %.pre46.i, %if.then.i.i.i.i.i35.i ]
-  %sub.ptr.lhs.cast.i38.pre-phi.i = phi i64 [ %sub.ptr.rhs.cast.i15.i, %if.else49.i ], [ %.pre45.i, %if.then.i.i.i.i.i35.i ]
+  %sub.ptr.sub.i40.pre-phi.i = phi i64 [ %sub.ptr.sub.i22.i, %if.else49.i ], [ %.pre47.i, %if.then.i.i.i.i.i35.i ]
   %94 = phi ptr [ %88, %if.else49.i ], [ %.pre44.i, %if.then.i.i.i.i.i35.i ]
-  %95 = phi ptr [ %.pre.i175, %if.else49.i ], [ %.pre42.i, %if.then.i.i.i.i.i35.i ]
+  %95 = phi ptr [ %.pre35.i177, %if.else49.i ], [ %.pre42.i, %if.then.i.i.i.i.i35.i ]
   %96 = phi ptr [ %87, %if.else49.i ], [ %.pre.i265, %if.then.i.i.i.i.i35.i ]
-  %sub.ptr.sub.i40.i = sub i64 %sub.ptr.lhs.cast.i38.pre-phi.i, %sub.ptr.rhs.cast.i39.pre-phi.i
-  %add.ptr62.i = getelementptr inbounds i8, ptr %96, i64 %sub.ptr.sub.i40.i
+  %add.ptr62.i = getelementptr inbounds i8, ptr %96, i64 %sub.ptr.sub.i40.pre-phi.i
   %cmp.not5.i.i.i.i.i = icmp eq ptr %add.ptr62.i, %94
   br i1 %cmp.not5.i.i.i.i.i, label %call.i.noexc, label %for.body.i.i.i.i.i
 
@@ -23772,7 +23771,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -24086,16 +24085,15 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   %.pre44 = load ptr, ptr %_M_finish.i, align 8
   %.pre45 = ptrtoint ptr %.pre42 to i64
   %.pre46 = ptrtoint ptr %.pre43 to i64
+  %.pre47 = sub i64 %.pre45, %.pre46
   br label %_ZSt4copyIPN4absl19str_format_internal16ParsedFormatBase14ConversionItemES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPN4absl19str_format_internal16ParsedFormatBase14ConversionItemES4_ET0_T_S6_S5_.exit: ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.rhs.cast.i39.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i15, %if.else49 ], [ %.pre46, %if.then.i.i.i.i.i35 ]
-  %sub.ptr.lhs.cast.i38.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i15, %if.else49 ], [ %.pre45, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %9 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
-  %10 = phi ptr [ %3, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
+  %10 = phi ptr [ %8, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %11 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
-  %sub.ptr.sub.i40 = sub i64 %sub.ptr.lhs.cast.i38.pre-phi, %sub.ptr.rhs.cast.i39.pre-phi
-  %add.ptr62 = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i40
+  %add.ptr62 = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i40.pre-phi
   %cmp.not5.i.i.i.i = icmp eq ptr %add.ptr62, %9
   br i1 %cmp.not5.i.i.i.i, label %if.end69, label %for.body.i.i.i.i
 

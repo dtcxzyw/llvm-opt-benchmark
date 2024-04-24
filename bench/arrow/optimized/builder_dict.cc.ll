@@ -21132,7 +21132,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !1491
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
-  %conv.i.i.i = trunc i64 %length to i32
+  %conv.i.i.i = trunc nuw i64 %length to i32
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %data, i64 %length
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   %add.ptr13.val.i.i.i = load i64, ptr %add.ptr13.i.i.i, align 1, !alias.scope !1490
@@ -43042,7 +43042,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %15 = load <2 x i64>, ptr %retval.sroa.0.i.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.sroa.0.i.i.i)
   %16 = lshr <2 x i64> %15, <i64 32, i64 32>
-  %17 = trunc <2 x i64> %16 to <2 x i32>
+  %17 = trunc nuw <2 x i64> %16 to <2 x i32>
   br label %_ZN5arrow4util12ToBinaryViewEPKviii.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i
@@ -56596,7 +56596,7 @@ if.then.i85:                                      ; preds = %_ZSt4copyISt13_Bit_
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %idx.neg.i = sub nsw i64 0, %sub.ptr.div.i
-  %add.ptr.i = getelementptr inbounds i64, ptr %0, i64 %idx.neg.i
+  %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i) #22
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 

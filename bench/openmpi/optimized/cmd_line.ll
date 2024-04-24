@@ -1320,7 +1320,7 @@ opal_obj_new.exit.thread267:                      ; preds = %.lr.ph.i.i217, %206
   br i1 %242, label %327, label %243
 
 243:                                              ; preds = %240, %238
-  %244 = trunc i64 %indvars.iv to i32
+  %244 = trunc nsw i64 %indvars.iv to i32
   %245 = load ptr, ptr @stderr, align 8
   %246 = load ptr, ptr %16, align 8
   %247 = load ptr, ptr %246, align 8
@@ -1388,7 +1388,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i220, %267
   br i1 %280, label %281, label %315
 
 281:                                              ; preds = %275
-  %282 = trunc i64 %indvars.iv to i32
+  %282 = trunc nsw i64 %indvars.iv to i32
   %283 = load ptr, ptr @stderr, align 8
   %284 = load ptr, ptr %276, align 8
   %285 = getelementptr inbounds ptr, ptr %276, i64 %67
@@ -1487,7 +1487,7 @@ opal_obj_run_destructors.exit228:                 ; preds = %.lr.ph.i225, %307
   br i1 %330, label %229, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %327
-  %331 = trunc i64 %indvars.iv.next to i32
+  %331 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %opal_obj_new.exit.thread267
@@ -1566,7 +1566,7 @@ opal_obj_run_destructors.exit228:                 ; preds = %.lr.ph.i225, %307
   br i1 %365, label %.lr.ph320, label %.loopexit283.loopexit, !llvm.loop !16
 
 .loopexit283.loopexit:                            ; preds = %.lr.ph320
-  %366 = trunc i64 %indvars.iv.next365 to i32
+  %366 = trunc nsw i64 %indvars.iv.next365 to i32
   br label %.loopexit283
 
 .loopexit283:                                     ; preds = %..loopexit283_crit_edge, %.loopexit283.loopexit, %355
@@ -2317,8 +2317,8 @@ build_parsable.exit:                              ; preds = %86, %92
   br i1 %202, label %203, label %223
 
 203:                                              ; preds = %.loopexit121
-  %204 = getelementptr inbounds i8, ptr %.097145, i64 50
-  %205 = getelementptr inbounds i8, ptr %200, i64 %166
+  %204 = getelementptr inbounds i8, ptr %.1101, i64 51
+  %205 = getelementptr inbounds i8, ptr %.1101, i64 %166
   br i1 %169, label %.lr.ph148, label %.loopexit
 
 .lr.ph148:                                        ; preds = %203
@@ -2339,7 +2339,7 @@ build_parsable.exit:                              ; preds = %86, %92
   store i8 0, ptr %.198146, align 1
   %214 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
   %215 = sub i64 152, %214
-  %216 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull %200, i64 noundef %215) #21
+  %216 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull %.1101, i64 noundef %215) #21
   %217 = call i32 @opal_argv_append(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #21
   %218 = getelementptr inbounds i8, ptr %.198146, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %4, i8 32, i64 25, i1 false)
@@ -2353,7 +2353,7 @@ build_parsable.exit:                              ; preds = %86, %92
 
 .loopexit:                                        ; preds = %219, %203, %213
   %.198132 = phi ptr [ %.198146, %213 ], [ %204, %203 ], [ %220, %219 ]
-  %.3 = phi ptr [ %218, %213 ], [ %200, %203 ], [ %200, %219 ]
+  %.3 = phi ptr [ %218, %213 ], [ %.1101, %203 ], [ %.1101, %219 ]
   %222 = getelementptr inbounds i8, ptr %.3, i64 %166
   %.not119 = icmp ult ptr %.198132, %222
   br i1 %.not119, label %223, label %.loopexit122.sink.split
@@ -2364,10 +2364,10 @@ build_parsable.exit:                              ; preds = %86, %92
   br i1 %224, label %170, label %.sink.split, !llvm.loop !25
 
 .loopexit122.sink.split:                          ; preds = %.loopexit, %183
-  %.3.lcssa.sink = phi ptr [ %.1101, %183 ], [ %.3, %.loopexit ]
+  %.1101.sink = phi ptr [ %.1101, %183 ], [ %.3, %.loopexit ]
   %225 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
   %226 = sub i64 152, %225
-  %227 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull %.3.lcssa.sink, i64 noundef %226) #21
+  %227 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull %.1101.sink, i64 noundef %226) #21
   %228 = call i32 @opal_argv_append(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #21
   br label %.sink.split
 

@@ -185,7 +185,7 @@ define internal fastcc noundef zeroext i1 @__ep_remove(ptr noundef %0, ptr nound
   br i1 %31, label %32, label %46
 
 32:                                               ; preds = %26
-  %33 = load ptr, ptr %29, align 8
+  %33 = load ptr, ptr %30, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %37, label %.thread
 
@@ -3453,7 +3453,7 @@ define internal fastcc i32 @do_epoll_wait(i32 noundef %0, ptr noundef %1, i32 no
 
 .thread25:                                        ; preds = %.thread25.backedge, %64
   %78 = phi i32 [ %65, %64 ], [ %.be, %.thread25.backedge ]
-  %79 = phi i32 [ %49, %64 ], [ %.be70, %.thread25.backedge ]
+  %79 = phi i32 [ %49, %64 ], [ %.be72, %.thread25.backedge ]
   %80 = icmp eq i32 %78, 0
   br i1 %80, label %191, label %81
 
@@ -3508,8 +3508,8 @@ define internal fastcc i32 @do_epoll_wait(i32 noundef %0, ptr noundef %1, i32 no
   store volatile ptr null, ptr %70, align 8
   call void @_raw_write_unlock_irq(ptr noundef %68) #11
   %101 = load ptr, ptr %5, align 8
-  %.not60 = icmp eq ptr %101, %5
-  br i1 %.not60, label %.thread22, label %.lr.ph
+  %.not61 = icmp eq ptr %101, %5
+  br i1 %.not61, label %.thread22, label %.lr.ph
 
 .lr.ph:                                           ; preds = %100, %184
   %102 = phi ptr [ %186, %184 ], [ %1, %100 ]
@@ -3701,7 +3701,7 @@ define internal fastcc i32 @do_epoll_wait(i32 noundef %0, ptr noundef %1, i32 no
 
 .thread25.backedge:                               ; preds = %202, %199, %205, %256, %249
   %.be = phi i32 [ 1, %249 ], [ %258, %256 ], [ 1, %205 ], [ 1, %199 ], [ 1, %202 ]
-  %.be70 = phi i32 [ %246, %249 ], [ %246, %256 ], [ 0, %205 ], [ 0, %199 ], [ 0, %202 ]
+  %.be72 = phi i32 [ %246, %249 ], [ %246, %256 ], [ 0, %205 ], [ 0, %199 ], [ 0, %202 ]
   br label %.thread25, !llvm.loop !56
 
 205:                                              ; preds = %202
@@ -3771,10 +3771,9 @@ define internal fastcc i32 @do_epoll_wait(i32 noundef %0, ptr noundef %1, i32 no
   br i1 %239, label %240, label %231, !llvm.loop !57
 
 240:                                              ; preds = %235, %231
-  %.lcssa48 = phi ptr [ %233, %235 ], [ %77, %231 ]
-  %241 = getelementptr inbounds i8, ptr %.lcssa48, i64 8
+  %241 = getelementptr inbounds i8, ptr %233, i64 8
   store ptr %75, ptr %241, align 8
-  store ptr %.lcssa48, ptr %75, align 8
+  store ptr %233, ptr %75, align 8
   store ptr %232, ptr %76, align 8
   store volatile ptr %75, ptr %232, align 8
   call void @_raw_write_unlock_irq(ptr noundef %68) #11

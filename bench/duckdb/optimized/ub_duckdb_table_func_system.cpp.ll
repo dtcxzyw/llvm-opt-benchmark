@@ -8621,7 +8621,7 @@ for.body583.preheader:                            ; preds = %if.end575, %if.end5
   br label %for.body583
 
 for.cond.cleanup582:                              ; preds = %invoke.cont600, %if.end575, %if.end575.thread
-  %column_index_list.sroa.0.94861 = phi ptr [ %column_index_list.sroa.15.9, %if.end575 ], [ null, %if.end575.thread ], [ %column_index_list.sroa.0.94871, %invoke.cont600 ]
+  %column_index_list.sroa.0.94861 = phi ptr [ %column_index_list.sroa.0.9, %if.end575 ], [ null, %if.end575.thread ], [ %column_index_list.sroa.0.94871, %invoke.cont600 ]
   %index_list.sroa.0.2.lcssa = phi ptr [ null, %if.end575 ], [ null, %if.end575.thread ], [ %index_list.sroa.0.3, %invoke.cont600 ]
   %index_list.sroa.12.2.lcssa = phi ptr [ null, %if.end575 ], [ null, %if.end575.thread ], [ %index_list.sroa.12.3, %invoke.cont600 ]
   %index_list.sroa.20.2.lcssa = phi ptr [ null, %if.end575 ], [ null, %if.end575.thread ], [ %index_list.sroa.20.3, %invoke.cont600 ]
@@ -46961,7 +46961,7 @@ if.then.i1734:                                    ; preds = %invoke.cont
   br label %invoke.cont1
 
 if.else.i1736:                                    ; preds = %invoke.cont
-  invoke void @_ZNSt6vectorIN6duckdb8TestTypeESaIS1_EE17_M_realloc_insertIJRKNS0_13LogicalTypeIdERA8_KcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %.pre, ptr noundef nonnull align 1 dereferenceable(1) @_ZN6duckdb11LogicalType7TINYINTE, ptr noundef nonnull align 1 dereferenceable(8) @.str.47)
+  invoke void @_ZNSt6vectorIN6duckdb8TestTypeESaIS1_EE17_M_realloc_insertIJRKNS0_13LogicalTypeIdERA8_KcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %.pre4551, ptr noundef nonnull align 1 dereferenceable(1) @_ZN6duckdb11LogicalType7TINYINTE, ptr noundef nonnull align 1 dereferenceable(8) @.str.47)
           to label %if.else.i1736.invoke.cont1_crit_edge unwind label %lpad
 
 if.else.i1736.invoke.cont1_crit_edge:             ; preds = %if.else.i1736
@@ -73875,7 +73875,7 @@ if.then.i425:                                     ; preds = %invoke.cont198
   br label %invoke.cont201
 
 if.else.i427:                                     ; preds = %invoke.cont198
-  invoke void @_ZNSt6vectorIN6duckdb5ValueESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %.pre587, ptr noundef nonnull align 8 dereferenceable(64) %max_value)
+  invoke void @_ZNSt6vectorIN6duckdb5ValueESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %.pre588, ptr noundef nonnull align 8 dereferenceable(64) %max_value)
           to label %if.else.i427.invoke.cont201_crit_edge unwind label %lpad197
 
 if.else.i427.invoke.cont201_crit_edge:            ; preds = %if.else.i427

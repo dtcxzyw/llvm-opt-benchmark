@@ -483,12 +483,13 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #5 {
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %9, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
+  %.086.lcssa = phi ptr [ %11, %1 ], [ %12, %.lr.ph ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.086.lcssa, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 2
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %9, i64 1
+  %17 = getelementptr inbounds i8, ptr %.086.lcssa, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = sub nsw i32 %16, %19
@@ -510,7 +511,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #5 {
   br label %34
 
 34:                                               ; preds = %56, %._crit_edge
-  %.187 = phi ptr [ %9, %._crit_edge ], [ %35, %56 ]
+  %.187 = phi ptr [ %.086.lcssa, %._crit_edge ], [ %35, %56 ]
   %.084 = phi i32 [ %20, %._crit_edge ], [ %39, %56 ]
   %.083 = phi i32 [ %28, %._crit_edge ], [ %43, %56 ]
   %.0 = phi i32 [ %33, %._crit_edge ], [ %57, %56 ]
@@ -550,8 +551,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #5 {
   br i1 %55, label %50, label %.critedge
 
 .critedge:                                        ; preds = %50, %52
-  %.lcssa110 = phi ptr [ %9, %50 ], [ %51, %52 ]
-  store i8 %.sroa.011.0.copyload, ptr %.lcssa110, align 2
+  store i8 %.sroa.011.0.copyload, ptr %51, align 2
   %.sroa.213.0..sroa_idx14 = getelementptr inbounds i8, ptr %.089, i64 -5
   store i8 %42, ptr %.sroa.213.0..sroa_idx14, align 1
   %.sroa.3.0..sroa_idx16 = getelementptr inbounds i8, ptr %.089, i64 -4
@@ -597,7 +597,8 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #5 {
 
 78:                                               ; preds = %70
   %.sroa.0.0.copyload = load i8, ptr %9, align 2
-  %.sroa.2.0.copyload = load i8, ptr %17, align 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 1
+  %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 2
   %79 = load i32, ptr %.sroa.5.0..sroa_idx, align 2
   br label %80
@@ -756,13 +757,13 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #5 {
 
 .sink.split.i:                                    ; preds = %144, %165, %142
   %.pre-phi.i.i.sink = phi i64 [ %143, %142 ], [ %167, %165 ], [ %161, %144 ]
-  %.sink125 = phi ptr [ %9, %142 ], [ %156, %165 ], [ %156, %144 ]
+  %.sink127 = phi ptr [ %9, %142 ], [ %156, %165 ], [ %156, %144 ]
   %.034.ph.i = phi ptr [ %129, %142 ], [ %9, %165 ], [ %9, %144 ]
   %184 = getelementptr inbounds [38 x i32], ptr %122, i64 0, i64 %.pre-phi.i.i.sink
   %185 = load i32, ptr %184, align 4
-  store i32 %185, ptr %.sink125, align 4
+  store i32 %185, ptr %.sink127, align 4
   %186 = load ptr, ptr %3, align 8
-  %187 = ptrtoint ptr %.sink125 to i64
+  %187 = ptrtoint ptr %.sink127 to i64
   %188 = ptrtoint ptr %186 to i64
   %189 = sub i64 %187, %188
   %190 = trunc i64 %189 to i32

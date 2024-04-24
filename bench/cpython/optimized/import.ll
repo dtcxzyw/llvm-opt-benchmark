@@ -2357,7 +2357,7 @@ declare i32 @PyList_SetSlice(ptr noundef, i64 noundef, i64 noundef, ptr noundef)
 
 declare void @PyErr_FormatUnraisable(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
 define hidden ptr @_PyImport_ResolveNameWithPackageContext(ptr noundef readonly %name) local_unnamed_addr #7 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @pkgcontext)
@@ -2394,7 +2394,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden ptr @_PyImport_SwapPackageContext(ptr noundef %newcontext) local_unnamed_addr #10 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @pkgcontext)
@@ -2751,12 +2751,12 @@ if.then11:                                        ; preds = %if.end9
   br i1 %cmp.i23, label %if.then.i26, label %if.then15
 
 if.then.i26:                                      ; preds = %if.then11
-  %call.i27 = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %filename, ptr noundef nonnull @.str.49) #19
+  %call.i27 = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %name, ptr noundef nonnull @.str.49) #19
   %cmp1.i = icmp eq i32 %call.i27, 0
   br i1 %cmp1.i, label %if.end37, label %if.end.i28
 
 if.end.i28:                                       ; preds = %if.then.i26
-  %call3.i = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %filename, ptr noundef nonnull @.str.30) #19
+  %call3.i = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %name, ptr noundef nonnull @.str.30) #19
   %cmp4.i = icmp eq i32 %call3.i, 0
   br i1 %cmp4.i, label %if.end37, label %if.then15
 
@@ -7087,12 +7087,12 @@ if.then11:                                        ; preds = %if.then8
   br i1 %cmp.i43, label %if.then.i45, label %return
 
 if.then.i45:                                      ; preds = %if.then11
-  %call.i46 = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %filename, ptr noundef nonnull @.str.49) #19
+  %call.i46 = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %name, ptr noundef nonnull @.str.49) #19
   %cmp1.i47 = icmp eq i32 %call.i46, 0
   br i1 %cmp1.i47, label %get_core_module_dict.exit, label %if.end.i48
 
 if.end.i48:                                       ; preds = %if.then.i45
-  %call3.i = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %filename, ptr noundef nonnull @.str.30) #19
+  %call3.i = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %name, ptr noundef nonnull @.str.30) #19
   %cmp4.i = icmp eq i32 %call3.i, 0
   br i1 %cmp4.i, label %get_core_module_dict.exit, label %return
 
@@ -8862,10 +8862,10 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

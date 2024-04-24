@@ -2614,7 +2614,7 @@ _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i.i: ; preds = %_ZN3
   br label %65
 
 65:                                               ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i.i, %.noexc
-  %66 = phi ptr [ %60, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i.i ], [ %46, %.noexc ]
+  %66 = phi ptr [ %60, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i.i ], [ %47, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %7)
   %67 = getelementptr inbounds i8, ptr %0, i64 584

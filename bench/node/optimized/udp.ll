@@ -769,7 +769,7 @@ write_queue_drain.preheader:                      ; preds = %entry
   br label %write_queue_drain
 
 write_queue_drain:                                ; preds = %write_queue_drain.preheader, %for.end118
-  %q.075 = phi ptr [ %0, %write_queue_drain.preheader ], [ %q.2, %for.end118 ]
+  %q.075 = phi ptr [ %0, %write_queue_drain.preheader ], [ %23, %for.end118 ]
   %cmp476.not = icmp eq ptr %q.075, %write_queue
   br i1 %cmp476.not, label %do.body.preheader, label %for.body
 
@@ -850,7 +850,7 @@ do.end:                                           ; preds = %do.body
 for.cond98.preheader:                             ; preds = %do.end
   %q.281 = load ptr, ptr %write_queue, align 8
   %cmp10383.not = icmp eq ptr %q.281, %write_queue
-  br i1 %cmp10383.not, label %return.sink.split, label %for.body106
+  br i1 %cmp10383.not, label %for.end118, label %for.body106
 
 if.then61.loopexit65:                             ; preds = %do.end
   %.pre = tail call ptr @__errno_location() #11
@@ -927,15 +927,16 @@ for.body106:                                      ; preds = %for.cond98.preheade
   %22 = select i1 %cmp99, i1 %cmp103, i1 false
   br i1 %22, label %for.body106, label %for.end118
 
-for.end118:                                       ; preds = %for.body106
-  %cmp.i62.not = icmp eq ptr %q.2, %write_queue
+for.end118:                                       ; preds = %for.body106, %for.cond98.preheader
+  %23 = phi ptr [ %q.281, %for.cond98.preheader ], [ %q.2, %for.body106 ]
+  %cmp.i62.not = icmp eq ptr %23, %write_queue
   br i1 %cmp.i62.not, label %return.sink.split, label %write_queue_drain
 
-return.sink.split:                                ; preds = %for.end118, %for.cond98.preheader, %for.body84, %for.cond76.preheader
+return.sink.split:                                ; preds = %for.end118, %for.body84, %for.cond76.preheader
   %io_watcher.le80.le86.sink = getelementptr inbounds i8, ptr %handle, i64 128
   %loop124 = getelementptr inbounds i8, ptr %handle, i64 8
-  %23 = load ptr, ptr %loop124, align 8
-  call void @uv__io_feed(ptr noundef %23, ptr noundef nonnull %io_watcher.le80.le86.sink) #10
+  %24 = load ptr, ptr %loop124, align 8
+  call void @uv__io_feed(ptr noundef %24, ptr noundef nonnull %io_watcher.le80.le86.sink) #10
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then61, %if.then61, %entry
@@ -1197,7 +1198,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp152.not.i.i, label %do.body.preheader.i.i, label %for.body.i.i
 
 do.body.preheader.i.i:                            ; preds = %for.body.i.i, %if.then3.i
-  %conv.i.i = trunc i64 %spec.store.select.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %spec.store.select.i.i to i32
   br label %do.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then3.i, %for.body.i.i

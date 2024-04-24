@@ -6729,9 +6729,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7a16277dd2b39acdE.llvm.6030771845222660662.exit.sink.split", label %9
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7a16277dd2b39acdE.llvm.6030771845222660662.exit.sink.split": ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h819187352c005850E.llvm.6030771845222660662.exit.backedge", %15, %14
-  %.sink = phi ptr [ %11, %14 ], [ %11, %15 ], [ %4, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h819187352c005850E.llvm.6030771845222660662.exit.backedge" ]
   %.lcssa.ph = phi i1 [ true, %14 ], [ true, %15 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h819187352c005850E.llvm.6030771845222660662.exit.backedge" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !758
+  store ptr %11, ptr %0, align 8, !alias.scope !758
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7a16277dd2b39acdE.llvm.6030771845222660662.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7a16277dd2b39acdE.llvm.6030771845222660662.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7a16277dd2b39acdE.llvm.6030771845222660662.exit.sink.split", %2
@@ -6778,9 +6777,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hebc5ea5a340cada3E.llvm.6030771845222660662.exit.sink.split", label %9
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hebc5ea5a340cada3E.llvm.6030771845222660662.exit.sink.split": ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd3b2cc457f460e88E.llvm.6030771845222660662.exit.backedge", %15, %14
-  %.sink = phi ptr [ %11, %14 ], [ %11, %15 ], [ %4, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd3b2cc457f460e88E.llvm.6030771845222660662.exit.backedge" ]
   %.lcssa.ph = phi i1 [ true, %14 ], [ true, %15 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd3b2cc457f460e88E.llvm.6030771845222660662.exit.backedge" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !773
+  store ptr %11, ptr %0, align 8, !alias.scope !773
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hebc5ea5a340cada3E.llvm.6030771845222660662.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hebc5ea5a340cada3E.llvm.6030771845222660662.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hebc5ea5a340cada3E.llvm.6030771845222660662.exit.sink.split", %2
@@ -6827,9 +6825,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3c2f90d66d61387E.llvm.6030771845222660662.exit.sink.split", label %9
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3c2f90d66d61387E.llvm.6030771845222660662.exit.sink.split": ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h3525501ee28bb85cE.llvm.6030771845222660662.exit.backedge", %15, %14
-  %.sink = phi ptr [ %11, %14 ], [ %11, %15 ], [ %4, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h3525501ee28bb85cE.llvm.6030771845222660662.exit.backedge" ]
   %.lcssa.ph = phi i1 [ true, %14 ], [ true, %15 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h3525501ee28bb85cE.llvm.6030771845222660662.exit.backedge" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !788
+  store ptr %11, ptr %0, align 8, !alias.scope !788
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3c2f90d66d61387E.llvm.6030771845222660662.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3c2f90d66d61387E.llvm.6030771845222660662.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3c2f90d66d61387E.llvm.6030771845222660662.exit.sink.split", %2
@@ -6876,9 +6873,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split", label %9
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split": ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h67eeaace2da4c153E.llvm.6030771845222660662.exit.backedge", %15, %14
-  %.sink = phi ptr [ %11, %14 ], [ %11, %15 ], [ %4, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h67eeaace2da4c153E.llvm.6030771845222660662.exit.backedge" ]
   %.lcssa.ph = phi i1 [ true, %14 ], [ true, %15 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h67eeaace2da4c153E.llvm.6030771845222660662.exit.backedge" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !803
+  store ptr %11, ptr %0, align 8, !alias.scope !803
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split", %2
@@ -6925,9 +6921,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd0db19990126b3c1E.llvm.6030771845222660662.exit.sink.split", label %9
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd0db19990126b3c1E.llvm.6030771845222660662.exit.sink.split": ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17ha33f29a6b54a3e51E.llvm.6030771845222660662.exit.backedge", %15, %14
-  %.sink = phi ptr [ %11, %14 ], [ %11, %15 ], [ %4, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17ha33f29a6b54a3e51E.llvm.6030771845222660662.exit.backedge" ]
   %.lcssa.ph = phi i1 [ true, %14 ], [ true, %15 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17ha33f29a6b54a3e51E.llvm.6030771845222660662.exit.backedge" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !818
+  store ptr %11, ptr %0, align 8, !alias.scope !818
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd0db19990126b3c1E.llvm.6030771845222660662.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd0db19990126b3c1E.llvm.6030771845222660662.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd0db19990126b3c1E.llvm.6030771845222660662.exit.sink.split", %2
@@ -6974,9 +6969,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd936e8402ad62c6E.llvm.6030771845222660662.exit.sink.split", label %9
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd936e8402ad62c6E.llvm.6030771845222660662.exit.sink.split": ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hc7dad6d6874aa2e8E.llvm.6030771845222660662.exit.backedge", %15, %14
-  %.sink = phi ptr [ %11, %14 ], [ %11, %15 ], [ %4, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hc7dad6d6874aa2e8E.llvm.6030771845222660662.exit.backedge" ]
   %.lcssa.ph = phi i1 [ true, %14 ], [ true, %15 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hc7dad6d6874aa2e8E.llvm.6030771845222660662.exit.backedge" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !833
+  store ptr %11, ptr %0, align 8, !alias.scope !833
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd936e8402ad62c6E.llvm.6030771845222660662.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd936e8402ad62c6E.llvm.6030771845222660662.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd936e8402ad62c6E.llvm.6030771845222660662.exit.sink.split", %2
@@ -7023,9 +7017,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6679f48d484217acE.llvm.6030771845222660662.exit.sink.split", label %9
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6679f48d484217acE.llvm.6030771845222660662.exit.sink.split": ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hef1ba8bdfad1140dE.llvm.6030771845222660662.exit.backedge", %15, %14
-  %.sink = phi ptr [ %11, %14 ], [ %11, %15 ], [ %4, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hef1ba8bdfad1140dE.llvm.6030771845222660662.exit.backedge" ]
   %.lcssa.ph = phi i1 [ true, %14 ], [ true, %15 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hef1ba8bdfad1140dE.llvm.6030771845222660662.exit.backedge" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !848
+  store ptr %11, ptr %0, align 8, !alias.scope !848
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6679f48d484217acE.llvm.6030771845222660662.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6679f48d484217acE.llvm.6030771845222660662.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6679f48d484217acE.llvm.6030771845222660662.exit.sink.split", %2
@@ -7079,28 +7072,28 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %17 = getelementptr inbounds i8, ptr %16, i64 4
   %18 = load i16, ptr %16, align 2, !range !41, !alias.scope !867, !noalias !872, !noundef !7
   %19 = icmp ult i16 %18, 13
-  br i1 %19, label %switch.hole_check55, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge"
+  br i1 %19, label %switch.hole_check56, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge"
 
-switch.hole_check55:                              ; preds = %.lr.ph.split
-  %switch.shifted57 = lshr i16 8189, %18
-  %switch.lobit58 = trunc i16 %switch.shifted57 to i1
-  br i1 %switch.lobit58, label %switch.lookup56, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge"
+switch.hole_check56:                              ; preds = %.lr.ph.split
+  %switch.shifted58 = lshr i16 8189, %18
+  %switch.lobit59 = trunc i16 %switch.shifted58 to i1
+  br i1 %switch.lobit59, label %switch.lookup57, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge"
 
-switch.lookup56:                                  ; preds = %switch.hole_check55
+switch.lookup57:                                  ; preds = %switch.hole_check56
   %20 = zext nneg i16 %18 to i64
-  %switch.gep59 = getelementptr inbounds [13 x i8], ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 0, i64 %20
-  %switch.load60 = load i8, ptr %switch.gep59, align 1
-  %21 = icmp eq i8 %switch.load60, %5
+  %switch.gep60 = getelementptr inbounds [13 x i8], ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 0, i64 %20
+  %switch.load61 = load i8, ptr %switch.gep60, align 1
+  %21 = icmp eq i8 %switch.load61, %5
   br i1 %21, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split", label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge"
 
-"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge": ; preds = %switch.hole_check55, %.lr.ph.split, %switch.lookup56
+"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge": ; preds = %switch.hole_check56, %.lr.ph.split, %switch.lookup57
   %.not42 = icmp eq ptr %17, %4
   br i1 %.not42, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split", label %.lr.ph.split
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split": ; preds = %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge", %switch.lookup56, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us", %switch.lookup, %.lr.ph.split.us, %switch.hole_check
-  %.sink = phi ptr [ %11, %switch.hole_check ], [ %11, %.lr.ph.split.us ], [ %11, %switch.lookup ], [ %4, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us" ], [ %17, %switch.lookup56 ], [ %4, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge" ]
-  %.lcssa.ph = phi i1 [ true, %switch.hole_check ], [ true, %.lr.ph.split.us ], [ true, %switch.lookup ], [ false, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us" ], [ true, %switch.lookup56 ], [ false, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !863
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split": ; preds = %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge", %switch.lookup57, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us", %switch.lookup, %.lr.ph.split.us, %switch.hole_check
+  %.us-phi20.sink = phi ptr [ %11, %switch.hole_check ], [ %11, %.lr.ph.split.us ], [ %11, %switch.lookup ], [ %11, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us" ], [ %17, %switch.lookup57 ], [ %17, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge" ]
+  %.lcssa.ph = phi i1 [ false, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us" ], [ true, %switch.lookup ], [ true, %.lr.ph.split.us ], [ true, %switch.hole_check ], [ false, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge" ], [ true, %switch.lookup57 ]
+  store ptr %.us-phi20.sink, ptr %0, align 8, !alias.scope !863
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split", %2
@@ -7219,9 +7212,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not40, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbbea8ca01f364ea3E.llvm.6030771845222660662.exit.sink.split", label %.lr.ph.split
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbbea8ca01f364ea3E.llvm.6030771845222660662.exit.sink.split": ; preds = %.lr.ph.split, %"_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit", %switch.lookup, %.lr.ph.split.us, %"_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit.us", %.lr.ph.split.us.i.i.i.us
-  %.sink = phi ptr [ %11, %.lr.ph.split.us.i.i.i.us ], [ %4, %"_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit.us" ], [ %11, %.lr.ph.split.us ], [ %25, %switch.lookup ], [ %4, %"_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit" ], [ %25, %.lr.ph.split ]
+  %.us-phi23.sink = phi ptr [ %11, %.lr.ph.split.us.i.i.i.us ], [ %11, %"_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit.us" ], [ %11, %.lr.ph.split.us ], [ %25, %switch.lookup ], [ %25, %"_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit" ], [ %25, %.lr.ph.split ]
   %.ph = phi i1 [ true, %.lr.ph.split.us.i.i.i.us ], [ %trunc.i.i.us, %"_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit.us" ], [ %trunc.i.i.us, %.lr.ph.split.us ], [ true, %switch.lookup ], [ %trunc.i.i, %"_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit" ], [ %trunc.i.i, %.lr.ph.split ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !874
+  store ptr %.us-phi23.sink, ptr %0, align 8, !alias.scope !874
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbbea8ca01f364ea3E.llvm.6030771845222660662.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbbea8ca01f364ea3E.llvm.6030771845222660662.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbbea8ca01f364ea3E.llvm.6030771845222660662.exit.sink.split", %2
@@ -7325,9 +7318,8 @@ _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i: 
   br i1 %33, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a7d9cf6308a1214E.llvm.6030771845222660662.exit.thread.sink.split", label %10
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a7d9cf6308a1214E.llvm.6030771845222660662.exit.thread.sink.split": ; preds = %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha144432073f7f198E.llvm.6030771845222660662.exit.thread10", %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i
-  %.sink = phi ptr [ %12, %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i ], [ %4, %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha144432073f7f198E.llvm.6030771845222660662.exit.thread10" ]
   %.0.ph = phi ptr [ %11, %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i ], [ null, %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha144432073f7f198E.llvm.6030771845222660662.exit.thread10" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !896
+  store ptr %12, ptr %0, align 8, !alias.scope !896
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a7d9cf6308a1214E.llvm.6030771845222660662.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a7d9cf6308a1214E.llvm.6030771845222660662.exit.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a7d9cf6308a1214E.llvm.6030771845222660662.exit.thread.sink.split", %2

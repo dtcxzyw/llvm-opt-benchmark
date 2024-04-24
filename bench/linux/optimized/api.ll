@@ -503,7 +503,7 @@ define dso_local ptr @crypto_alg_mod_lookup(ptr noundef %0, i32 noundef %1, i32 
   br label %.thread
 
 .thread:                                          ; preds = %31, %.thread18, %65, %60, %58, %40, %36
-  %68 = phi ptr [ %27, %36 ], [ %53, %60 ], [ %38, %58 ], [ %38, %40 ], [ %67, %65 ], [ %38, %.thread18 ], [ %27, %31 ]
+  %68 = phi ptr [ %27, %36 ], [ %53, %60 ], [ %53, %58 ], [ %38, %40 ], [ %67, %65 ], [ %38, %.thread18 ], [ %27, %31 ]
   %69 = icmp ugt ptr %68, inttoptr (i64 -4096 to ptr)
   br i1 %69, label %.thread19, label %70
 

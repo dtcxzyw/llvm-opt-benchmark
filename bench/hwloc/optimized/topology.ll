@@ -376,7 +376,7 @@ hwloc__find_obj_covering_memory_cpuset.exit.thread: ; preds = %hwloc_get_child_c
   br i1 %.not43.i, label %35, label %hwloc__find_insert_memory_parent.exit.thread
 
 35:                                               ; preds = %7, %31, %30
-  %.2.i = phi ptr [ %.1.i, %31 ], [ %14, %30 ], [ %14, %7 ]
+  %.2.i = phi ptr [ %.1.i, %31 ], [ %.1.i, %30 ], [ %14, %7 ]
   %36 = getelementptr i8, ptr %0, i64 168
   %.val.i = load i32, ptr %36, align 4
   %.not = icmp eq i32 %.val.i, 1
@@ -1182,7 +1182,7 @@ hwloc___insert_object_by_cpuset.exit:             ; preds = %.critedge.i, %332, 
   br label %413
 
 413:                                              ; preds = %hwloc___insert_object_by_cpuset.exit, %412, %hwloc__find_insert_memory_parent.exit.thread, %77
-  %.0 = phi ptr [ %78, %hwloc__find_insert_memory_parent.exit.thread ], [ null, %77 ], [ %.0.i4561, %412 ], [ %2, %hwloc___insert_object_by_cpuset.exit ]
+  %.0 = phi ptr [ %78, %hwloc__find_insert_memory_parent.exit.thread ], [ null, %77 ], [ %.0.i4561, %412 ], [ %.0.i4561, %hwloc___insert_object_by_cpuset.exit ]
   ret ptr %.0
 }
 

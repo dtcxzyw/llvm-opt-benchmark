@@ -359,7 +359,7 @@ define ptr @Cudd_addDivide(ptr noundef %0, ptr nocapture noundef readonly %1, pt
   br label %26
 
 26:                                               ; preds = %13, %16, %9, %3, %19
-  %.0 = phi ptr [ %25, %19 ], [ %4, %3 ], [ %4, %9 ], [ null, %16 ], [ null, %13 ]
+  %.0 = phi ptr [ %25, %19 ], [ %7, %3 ], [ %4, %9 ], [ null, %16 ], [ null, %13 ]
   ret ptr %.0
 }
 
@@ -807,7 +807,7 @@ define ptr @Cudd_addXor(ptr nocapture noundef readonly %0, ptr nocapture noundef
   br label %36
 
 36:                                               ; preds = %33, %35, %20, %14, %30, %7
-  %.0 = phi ptr [ %9, %7 ], [ %32, %30 ], [ %4, %14 ], [ %5, %20 ], [ null, %35 ], [ null, %33 ]
+  %.0 = phi ptr [ %9, %7 ], [ %32, %30 ], [ %12, %14 ], [ %12, %20 ], [ null, %35 ], [ null, %33 ]
   ret ptr %.0
 }
 

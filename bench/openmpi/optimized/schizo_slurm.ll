@@ -91,7 +91,7 @@ define internal i32 @parse_cli(ptr noundef %0, ptr noundef %1, i1 zeroext %2) #0
   %14 = getelementptr inbounds i8, ptr %1, i64 360
   %.013.i = load ptr, ptr %14, align 8
   %.not14.i = icmp eq ptr %.013.i, %13
-  br i1 %.not14.i, label %.loopexit39, label %.lr.ph.i
+  br i1 %.not14.i, label %convert_results.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %31
   %.015.i = phi ptr [ %.0.i, %31 ], [ %.013.i, %12 ]
@@ -135,15 +135,19 @@ define internal i32 @parse_cli(ptr noundef %0, ptr noundef %1, i1 zeroext %2) #0
   %32 = getelementptr inbounds i8, ptr %.015.i, i64 120
   %.0.i = load ptr, ptr %32, align 8
   %.not.i = icmp eq ptr %.0.i, %13
-  br i1 %.not.i, label %convert_results.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %convert_results.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
-convert_results.exit:                             ; preds = %31
+convert_results.exit.loopexit:                    ; preds = %31
   %.045.pre = load ptr, ptr %14, align 8
-  %.not3446 = icmp eq ptr %.045.pre, %13
+  br label %convert_results.exit
+
+convert_results.exit:                             ; preds = %convert_results.exit.loopexit, %12
+  %.045 = phi ptr [ %.045.pre, %convert_results.exit.loopexit ], [ %.013.i, %12 ]
+  %.not3446 = icmp eq ptr %.045, %13
   br i1 %.not3446, label %.loopexit39, label %.lr.ph48
 
 .lr.ph48:                                         ; preds = %convert_results.exit, %.loopexit
-  %.047 = phi ptr [ %.0, %.loopexit ], [ %.045.pre, %convert_results.exit ]
+  %.047 = phi ptr [ %.0, %.loopexit ], [ %.045, %convert_results.exit ]
   %33 = getelementptr inbounds i8, ptr %.047, i64 144
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(8) @.str.7) #7
@@ -197,8 +201,8 @@ convert_results.exit:                             ; preds = %31
   %.not34 = icmp eq ptr %.0, %13
   br i1 %.not34, label %.loopexit39, label %.lr.ph48, !llvm.loop !8
 
-.loopexit39:                                      ; preds = %.loopexit, %12, %convert_results.exit, %7, %3, %10
-  %.029 = phi i32 [ %11, %10 ], [ -8, %3 ], [ -72, %7 ], [ 0, %convert_results.exit ], [ 0, %12 ], [ 0, %.loopexit ]
+.loopexit39:                                      ; preds = %.loopexit, %convert_results.exit, %7, %3, %10
+  %.029 = phi i32 [ %11, %10 ], [ -8, %3 ], [ -72, %7 ], [ 0, %convert_results.exit ], [ 0, %.loopexit ]
   ret i32 %.029
 }
 

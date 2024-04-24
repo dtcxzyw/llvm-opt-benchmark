@@ -356,7 +356,7 @@ define dso_local i32 @__archive_write_format_header_ustar(ptr noundef %0, ptr no
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %22, i64 1
+  %30 = getelementptr inbounds i8, ptr %27, i64 1
   %31 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %30, i32 noundef 47) #12
   store ptr %31, ptr %8, align 8
   br label %32

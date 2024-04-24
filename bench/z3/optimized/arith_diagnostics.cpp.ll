@@ -410,7 +410,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK3euf13th_euf_so
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end90
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end90 ]
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   %call8 = call i32 @_ZNK5arith6solver6get_tvEi(ptr noundef nonnull align 8 dereferenceable(1144) %this, i32 noundef %4)
   %5 = load ptr, ptr %m_solver.i, align 8
   %call10 = call noundef i32 @_ZNK2lp10lar_solver24external_to_column_indexEj(ptr noundef nonnull align 8 dereferenceable(1888) %5, i32 noundef %4)
@@ -1219,7 +1219,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZNK14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE5beginEv.exit, label %land.rhs.i.i.i, !llvm.loop !8
 
 _ZNK14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE5beginEv.exit: ; preds = %land.rhs.i.i.i, %while.body.i.i.i, %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit
-  %retval.sroa.0.1.i = phi ptr [ %3, %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ], [ %add.ptr.i, %while.body.i.i.i ]
+  %retval.sroa.0.1.i = phi ptr [ %3, %_ZNK6vectorISt4pairIj8rationalELb1EjE5emptyEv.exit ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
   store i8 %lnot, ptr %agg.result, align 8
   %m_one.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)

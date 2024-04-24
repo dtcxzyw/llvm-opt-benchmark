@@ -954,14 +954,14 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef %1,
   br i1 %97, label %98, label %105
 
 98:                                               ; preds = %79
-  store ptr %95, ptr %5, align 8
+  store ptr %96, ptr %5, align 8
   %99 = getelementptr inbounds i8, ptr %2, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = icmp ugt i32 %100, 1
   br i1 %101, label %102, label %189
 
 102:                                              ; preds = %98
-  %103 = call i32 @st__add_direct(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %95) #22
+  %103 = call i32 @st__add_direct(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %96) #22
   %104 = icmp eq i32 %103, -10000
   br i1 %104, label %190, label %189
 

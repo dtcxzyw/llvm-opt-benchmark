@@ -2698,7 +2698,7 @@ if.then54.i:                                      ; preds = %land.lhs.true51.i
   %cond.i = tail call i64 @llvm.umax.i64(i64 %sub.i101.i, i64 %add55.i)
   store i64 %56, ptr %offset_within_address_space24.i, align 8
   %cond69.i = tail call i64 @llvm.umin.i64(i64 %add32.i, i64 %mrs_host.1.i)
-  %call71.i = tail call ptr @memory_region_get_ram_ptr(ptr noundef %65) #18
+  %call71.i = tail call ptr @memory_region_get_ram_ptr(ptr noundef %66) #18
   %68 = ptrtoint ptr %call71.i to i64
   %sub72.i = sub i64 %cond69.i, %68
   store i64 %sub72.i, ptr %offset_within_region31.i, align 16
@@ -2944,7 +2944,7 @@ land.lhs.true:                                    ; preds = %for.body
 
 if.then5:                                         ; preds = %land.lhs.true
   %n = getelementptr inbounds i8, ptr %iommu.021, i64 24
-  tail call void @memory_region_unregister_iommu_notifier(ptr noundef %0, ptr noundef nonnull %n) #18
+  tail call void @memory_region_unregister_iommu_notifier(ptr noundef %3, ptr noundef nonnull %n) #18
   %iommu_next = getelementptr inbounds i8, ptr %iommu.021, i64 80
   %6 = load ptr, ptr %iommu_next, align 8
   %cmp8.not = icmp eq ptr %6, null
@@ -3944,8 +3944,8 @@ if.end8:                                          ; preds = %if.end5, %if.then.i
 for.cond.preheader:                               ; preds = %if.end8
   %nvqs = getelementptr inbounds i8, ptr %hdev, i64 440
   %15 = load i32, ptr %nvqs, align 8
-  %cmp16146.not = icmp eq i32 %15, 0
-  br i1 %cmp16146.not, label %for.end, label %for.body.lr.ph
+  %cmp16147.not = icmp eq i32 %15, 0
+  br i1 %cmp16147.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %vqs = getelementptr inbounds i8, ptr %hdev, i64 432
@@ -3959,18 +3959,18 @@ do.body:                                          ; preds = %if.end8
   br label %fail_mem
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.0147 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.0148 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %16 = load ptr, ptr %vqs, align 8
-  %idx.ext = sext i32 %i.0147 to i64
+  %idx.ext = sext i32 %i.0148 to i64
   %add.ptr = getelementptr %struct.vhost_virtqueue, ptr %16, i64 %idx.ext
   %17 = load i32, ptr %vq_index, align 4
-  %add = add i32 %17, %i.0147
+  %add = add i32 %17, %i.0148
   %call17 = tail call i32 @vhost_virtqueue_start(ptr noundef nonnull %hdev, ptr noundef %vdev, ptr noundef %add.ptr, i32 noundef %add)
   %cmp18 = icmp slt i32 %call17, 0
   br i1 %cmp18, label %fail_vq, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw i32 %i.0147, 1
+  %inc = add nuw i32 %i.0148, 1
   %18 = load i32, ptr %nvqs, align 8
   %cmp16 = icmp ult i32 %inc, %18
   br i1 %cmp16, label %for.body, label %for.end, !llvm.loop !28
@@ -4095,17 +4095,17 @@ do.body54:                                        ; preds = %vhost_dev_log_is_sh
   br label %fail_log
 
 if.end60:                                         ; preds = %vhost_dev_log_is_shared.exit, %if.end37
-  %.pre156 = load ptr, ptr %vhost_ops, align 8
+  %.pre157 = load ptr, ptr %vhost_ops, align 8
   br i1 %vrings, label %if.then62, label %if.end67
 
 if.then62:                                        ; preds = %if.end60
-  %vhost_set_vring_enable.i = getelementptr inbounds i8, ptr %.pre156, i64 216
+  %vhost_set_vring_enable.i = getelementptr inbounds i8, ptr %.pre157, i64 216
   %39 = load ptr, ptr %vhost_set_vring_enable.i, align 8
   %tobool.not.i89 = icmp eq ptr %39, null
   br i1 %tobool.not.i89, label %if.end67, label %if.end.i90
 
 if.end.i90:                                       ; preds = %if.then62
-  %40 = load i32, ptr %.pre156, align 8
+  %40 = load i32, ptr %.pre157, align 8
   %cmp.i91 = icmp eq i32 %40, 2
   br i1 %cmp.i91, label %land.lhs.true.i, label %vhost_dev_set_vring_enable.exit
 
@@ -4126,7 +4126,7 @@ vhost_dev_set_vring_enable.exit.if.end67_crit_edge: ; preds = %vhost_dev_set_vri
   br label %if.end67
 
 if.end67:                                         ; preds = %vhost_dev_set_vring_enable.exit.if.end67_crit_edge, %land.lhs.true.i, %if.then62, %if.end60
-  %42 = phi ptr [ %.pre, %vhost_dev_set_vring_enable.exit.if.end67_crit_edge ], [ %.pre156, %land.lhs.true.i ], [ %.pre156, %if.then62 ], [ %.pre156, %if.end60 ]
+  %42 = phi ptr [ %.pre, %vhost_dev_set_vring_enable.exit.if.end67_crit_edge ], [ %.pre157, %land.lhs.true.i ], [ %.pre157, %if.then62 ], [ %.pre157, %if.end60 ]
   %vhost_dev_start = getelementptr inbounds i8, ptr %42, i64 320
   %43 = load ptr, ptr %vhost_dev_start, align 8
   %tobool69.not = icmp eq ptr %43, null
@@ -4163,17 +4163,17 @@ land.lhs.true:                                    ; preds = %vhost_dev_has_iommu
 if.then81:                                        ; preds = %land.lhs.true
   tail call void %47(ptr noundef nonnull %hdev, i32 noundef 1) #18
   %48 = load i32, ptr %nvqs, align 8
-  %cmp86148.not = icmp eq i32 %48, 0
-  br i1 %cmp86148.not, label %if.end95, label %for.body87
+  %cmp86149.not = icmp eq i32 %48, 0
+  br i1 %cmp86149.not, label %if.end95, label %for.body87
 
 for.body87:                                       ; preds = %if.then81, %for.body87
-  %i.1149 = phi i32 [ %inc93, %for.body87 ], [ 0, %if.then81 ]
+  %i.1150 = phi i32 [ %inc93, %for.body87 ], [ 0, %if.then81 ]
   %49 = load ptr, ptr %vqs21, align 8
-  %idx.ext89 = sext i32 %i.1149 to i64
+  %idx.ext89 = sext i32 %i.1150 to i64
   %used_phys = getelementptr %struct.vhost_virtqueue, ptr %49, i64 %idx.ext89, i32 10
   %50 = load i64, ptr %used_phys, align 8
   %call91 = tail call i32 @vhost_device_iotlb_miss(ptr noundef nonnull %hdev, i64 noundef %50, i32 noundef 1)
-  %inc93 = add nuw i32 %i.1149, 1
+  %inc93 = add nuw i32 %i.1150, 1
   %51 = load i32, ptr %nvqs, align 8
   %cmp86 = icmp ult i32 %inc93, %51
   br i1 %cmp86, label %for.body87, label %if.end95, !llvm.loop !29
@@ -4291,16 +4291,16 @@ if.end18.i:                                       ; preds = %if.end17.i128, %if.
   br label %fail_vq
 
 fail_vq:                                          ; preds = %for.body, %if.end18.i, %fail_log, %do.body25
-  %i.0145 = phi i32 [ %i.0.lcssa, %do.body25 ], [ %i.0.lcssa, %fail_log ], [ %i.0.lcssa, %if.end18.i ], [ %i.0147, %for.body ]
+  %i.0146 = phi i32 [ %i.0.lcssa, %do.body25 ], [ %i.0.lcssa, %fail_log ], [ %i.0.lcssa, %if.end18.i ], [ %i.0148, %for.body ]
   %r.1 = phi i32 [ %call22, %do.body25 ], [ %r.0, %fail_log ], [ %r.0, %if.end18.i ], [ %call17, %for.body ]
-  %dec150 = add i32 %i.0145, -1
-  %cmp100151 = icmp sgt i32 %dec150, -1
-  br i1 %cmp100151, label %while.body.lr.ph, label %fail_mem
+  %dec151 = add i32 %i.0146, -1
+  %cmp100152 = icmp sgt i32 %dec151, -1
+  br i1 %cmp100152, label %while.body.lr.ph, label %fail_mem
 
 while.body.lr.ph:                                 ; preds = %fail_vq
   %vqs101 = getelementptr inbounds i8, ptr %hdev, i64 432
   %vq_index104 = getelementptr inbounds i8, ptr %hdev, i64 444
-  %68 = zext nneg i32 %dec150 to i64
+  %68 = zext nneg i32 %dec151 to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -4318,27 +4318,27 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 fail_mem:                                         ; preds = %while.body, %fail_vq, %do.body
   %r.2 = phi i32 [ %call10, %do.body ], [ %r.1, %fail_vq ], [ %r.1, %while.body ]
   %72 = load ptr, ptr %hdev, align 8
-  %tobool.not.i129 = icmp eq ptr %72, null
-  br i1 %tobool.not.i129, label %fail_features, label %if.then.i130
+  %tobool.not.i130 = icmp eq ptr %72, null
+  br i1 %tobool.not.i130, label %fail_features, label %if.then.i131
 
-if.then.i130:                                     ; preds = %fail_mem
-  %call.i131 = tail call zeroext i1 @virtio_bus_device_iommu_enabled(ptr noundef nonnull %72) #18
-  br i1 %call.i131, label %vhost_dev_has_iommu.exit137, label %fail_features
+if.then.i131:                                     ; preds = %fail_mem
+  %call.i132 = tail call zeroext i1 @virtio_bus_device_iommu_enabled(ptr noundef nonnull %72) #18
+  br i1 %call.i132, label %vhost_dev_has_iommu.exit138, label %fail_features
 
-vhost_dev_has_iommu.exit137:                      ; preds = %if.then.i130
+vhost_dev_has_iommu.exit138:                      ; preds = %if.then.i131
   %73 = getelementptr i8, ptr %72, i64 176
-  %.val.i134 = load i64, ptr %73, align 8
-  %and.i.i.i135 = and i64 %.val.i134, 8589934592
-  %tobool.i.i.i136.not = icmp eq i64 %and.i.i.i135, 0
-  br i1 %tobool.i.i.i136.not, label %fail_features, label %if.then107
+  %.val.i135 = load i64, ptr %73, align 8
+  %and.i.i.i136 = and i64 %.val.i135, 8589934592
+  %tobool.i.i.i137.not = icmp eq i64 %and.i.i.i136, 0
+  br i1 %tobool.i.i.i137.not, label %fail_features, label %if.then107
 
-if.then107:                                       ; preds = %vhost_dev_has_iommu.exit137
+if.then107:                                       ; preds = %vhost_dev_has_iommu.exit138
   %iommu_listener108 = getelementptr inbounds i8, ptr %hdev, i64 200
   tail call void @memory_listener_unregister(ptr noundef nonnull %iommu_listener108) #18
   br label %fail_features
 
-fail_features:                                    ; preds = %fail_mem, %if.then.i130, %vhost_dev_has_iommu.exit137, %if.then107, %trace_vhost_dev_start.exit
-  %r.3 = phi i32 [ %call, %trace_vhost_dev_start.exit ], [ %r.2, %if.then107 ], [ %r.2, %vhost_dev_has_iommu.exit137 ], [ %r.2, %if.then.i130 ], [ %r.2, %fail_mem ]
+fail_features:                                    ; preds = %fail_mem, %if.then.i131, %vhost_dev_has_iommu.exit138, %if.then107, %trace_vhost_dev_start.exit
+  %r.3 = phi i32 [ %call, %trace_vhost_dev_start.exit ], [ %r.2, %if.then107 ], [ %r.2, %vhost_dev_has_iommu.exit138 ], [ %r.2, %if.then.i131 ], [ %r.2, %fail_mem ]
   store i8 0, ptr %vhost_started, align 2
   store i8 0, ptr %started, align 8
   br label %return

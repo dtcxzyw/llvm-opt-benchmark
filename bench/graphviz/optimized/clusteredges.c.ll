@@ -212,7 +212,7 @@ raiseLevel.exit46.i:                              ; preds = %.lr.ph.i41.i
   br i1 %.not.i, label %objectList.exit, label %.lr.ph.i
 
 objectList.exit:                                  ; preds = %.lr.ph.i, %96
-  %.lcssa58.i = phi ptr [ %.0..promoted57.i, %96 ], [ %104, %.lr.ph.i ]
+  %.lcssa58.i = phi ptr [ %.0..promoted57.i, %96 ], [ %110, %.lr.ph.i ]
   %.232.lcssa.i = phi ptr [ %.131.i, %96 ], [ %97, %.lr.ph.i ]
   %.2.lcssa.i = phi ptr [ %.1.i, %96 ], [ %98, %.lr.ph.i ]
   call fastcc void @addGraphObjs(ptr noundef nonnull %6, ptr noundef %.lcssa58.i, ptr noundef %.2.lcssa.i, ptr noundef %.232.lcssa.i, ptr noundef %1)

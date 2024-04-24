@@ -2598,17 +2598,16 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %.loopexit.split-lp.i126
 
 .loopexit.split-lp.loopexit.i:                    ; preds = %457, %424
-  %.lcssa262 = phi ptr [ %332, %457 ], [ %333, %424 ]
-  %394 = phi ptr [ %435, %457 ], [ %334, %424 ]
-  %395 = phi ptr [ %436, %457 ], [ %335, %424 ]
-  %scevgep.i.i203 = phi ptr [ %scevgep.i.i198, %457 ], [ %scevgep.i.i200, %424 ]
-  %.sroa.05.1.lcssa80.i = phi ptr [ %.sroa.05.1.lcssa79.i, %457 ], [ %.sroa.05.3.i, %424 ]
+  %394 = phi ptr [ %334, %424 ], [ %435, %457 ]
+  %395 = phi ptr [ %335, %424 ], [ %436, %457 ]
+  %scevgep.i.i203 = phi ptr [ %scevgep.i.i200, %424 ], [ %scevgep.i.i198, %457 ]
+  %.sroa.05.1.lcssa80.i = phi ptr [ %.sroa.05.3.i, %424 ], [ %.sroa.05.1.lcssa79.i, %457 ]
   %lpad.loopexit18.i = landingpad { ptr, i32 }
           cleanup
   store ptr %scevgep.i.i203, ptr %328, align 8, !alias.scope !31
   store ptr %395, ptr %317, align 8, !alias.scope !31
   store ptr %394, ptr %329, align 8, !alias.scope !31
-  store ptr %.lcssa262, ptr %316, align 8, !alias.scope !31
+  store ptr %333, ptr %316, align 8, !alias.scope !31
   store ptr %332, ptr %315, align 8, !alias.scope !31
   store ptr %331, ptr %10, align 8, !alias.scope !31
   br label %.loopexit.split-lp.i126
@@ -2741,7 +2740,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i: ; preds = %433, %429
   %435 = phi ptr [ %334, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i..noexc25_crit_edge.i ], [ %434, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %334, %._crit_edge.i124 ], [ %334, %346 ]
   %436 = phi ptr [ %335, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i..noexc25_crit_edge.i ], [ %427, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %335, %._crit_edge.i124 ], [ %335, %346 ]
   %scevgep.i.i198 = phi ptr [ %414, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i..noexc25_crit_edge.i ], [ %scevgep.i.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %scevgep.i.i200, %._crit_edge.i124 ], [ %scevgep.i.i200, %346 ]
-  %.sroa.05.1.lcssa79.i = phi ptr [ %.sroa.05.3.i, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i..noexc25_crit_edge.i ], [ %.sroa.05.3.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %.sroa.7.4.i, %._crit_edge.i124 ], [ %.sroa.05.056.i, %346 ]
+  %.sroa.05.1.lcssa79.i = phi ptr [ %.sroa.05.3.i, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i..noexc25_crit_edge.i ], [ %.sroa.05.3.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %.sroa.05.3.i, %._crit_edge.i124 ], [ %.sroa.05.056.i, %346 ]
   %.sroa.14.1.lcssa78.i = phi ptr [ %.sroa.14.3.i, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i..noexc25_crit_edge.i ], [ %.sroa.14.3.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %.sroa.14.3.i, %._crit_edge.i124 ], [ %.sroa.14.055.i, %346 ]
   %437 = phi ptr [ %414, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i..noexc25_crit_edge.i ], [ %scevgep.i.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %scevgep.i.i200, %._crit_edge.i124 ], [ %337, %346 ]
   %438 = phi ptr [ %335, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i..noexc25_crit_edge.i ], [ %427, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %335, %._crit_edge.i124 ], [ %338, %346 ]
@@ -2769,7 +2768,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i: ; preds = %433, %429
   store ptr %scevgep.i.i198, ptr %328, align 8, !alias.scope !31
   store ptr %436, ptr %317, align 8, !alias.scope !31
   store ptr %435, ptr %329, align 8, !alias.scope !31
-  store ptr %332, ptr %316, align 8, !alias.scope !31
+  store ptr %333, ptr %316, align 8, !alias.scope !31
   store ptr %332, ptr %315, align 8, !alias.scope !31
   store ptr %331, ptr %10, align 8, !alias.scope !31
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.51) #22

@@ -192,7 +192,7 @@ define dso_local i32 @LZ4_decompress_safe(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %96, label %.loopexit429, label %97
 
 97:                                               ; preds = %95
-  %98 = trunc i64 %.0363 to i32
+  %98 = trunc nuw nsw i64 %.0363 to i32
   store i32 %98, ptr %.2381, align 1
   %99 = icmp eq i64 %.4373, 15
   br i1 %99, label %.preheader428, label %111
@@ -796,7 +796,7 @@ define dso_local i32 @LZ4_decompress_fast(ptr noundef %0, ptr noundef %1, i32 no
   %.0363 = phi ptr [ %32, %23 ], [ %70, %65 ]
   %.0362 = phi i64 [ %29, %23 ], [ %67, %65 ]
   %.4 = phi ptr [ %30, %23 ], [ %68, %65 ]
-  %74 = trunc i64 %.0362 to i32
+  %74 = trunc nuw nsw i64 %.0362 to i32
   store i32 %74, ptr %.2380, align 1
   %75 = icmp eq i64 %.4372, 15
   br i1 %75, label %.preheader414, label %.loopexit415
@@ -1167,7 +1167,7 @@ define dso_local i32 @LZ4_decompress_safe_continue(ptr nocapture noundef %0, ptr
   br i1 %or.cond499, label %.loopexit508, label %130
 
 130:                                              ; preds = %127
-  %131 = trunc i64 %.0439 to i32
+  %131 = trunc nuw nsw i64 %.0439 to i32
   store i32 %131, ptr %.2429, align 1
   %132 = icmp eq i64 %.4449, 15
   br i1 %132, label %.preheader507, label %144
@@ -1565,7 +1565,7 @@ define internal fastcc i32 @LZ4_decompress_safe_withPrefix64k(ptr noundef %0, pt
   br i1 %97, label %.loopexit425, label %98
 
 98:                                               ; preds = %96
-  %99 = trunc i64 %.0363 to i32
+  %99 = trunc nuw nsw i64 %.0363 to i32
   store i32 %99, ptr %.2381, align 1
   %100 = icmp eq i64 %.4373, 15
   br i1 %100, label %.preheader424, label %112
@@ -1885,7 +1885,7 @@ define internal fastcc i32 @LZ4_decompress_safe_withSmallPrefix(ptr noundef %0, 
   br i1 %99, label %.loopexit430, label %100
 
 100:                                              ; preds = %98
-  %101 = trunc i64 %.0373 to i32
+  %101 = trunc nuw nsw i64 %.0373 to i32
   store i32 %101, ptr %.2366, align 1
   %102 = icmp eq i64 %.4383, 15
   br i1 %102, label %.preheader429, label %114
@@ -2207,7 +2207,7 @@ define internal fastcc i32 @LZ4_decompress_safe_forceExtDict(ptr noundef %0, ptr
   br i1 %or.cond429, label %.loopexit437, label %102
 
 102:                                              ; preds = %99
-  %103 = trunc i64 %.0374 to i32
+  %103 = trunc nuw nsw i64 %.0374 to i32
   store i32 %103, ptr %.2367, align 1
   %104 = icmp eq i64 %.4384, 15
   br i1 %104, label %.preheader436, label %116
@@ -2582,7 +2582,7 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
   %.0429 = phi i64 [ %57, %51 ], [ %95, %93 ]
   %.2419 = phi ptr [ %53, %51 ], [ %80, %93 ]
   %.4 = phi ptr [ %58, %51 ], [ %96, %93 ]
-  %102 = trunc i64 %.0429 to i32
+  %102 = trunc nuw nsw i64 %.0429 to i32
   store i32 %102, ptr %.2419, align 1
   %103 = icmp eq i64 %.4439, 15
   br i1 %103, label %.preheader490, label %.loopexit491
@@ -2782,7 +2782,7 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
 
 .thread481:                                       ; preds = %..thread481_crit_edge, %42
   %.pre-phi = phi i64 [ %.pre516, %..thread481_crit_edge ], [ 0, %42 ]
-  %197 = phi ptr [ %.pre515, %..thread481_crit_edge ], [ %2, %42 ]
+  %197 = phi ptr [ %.pre515, %..thread481_crit_edge ], [ %17, %42 ]
   %198 = phi i64 [ %.pre, %..thread481_crit_edge ], [ %6, %42 ]
   %.0483 = phi i32 [ %.0, %..thread481_crit_edge ], [ 1, %42 ]
   %199 = add i64 %198, %.pre-phi
@@ -2945,7 +2945,7 @@ define internal fastcc i32 @LZ4_decompress_fast_extDict(ptr noundef %0, ptr noun
   %.0373 = phi i64 [ %33, %27 ], [ %71, %69 ]
   %.2366 = phi ptr [ %29, %27 ], [ %56, %69 ]
   %.4 = phi ptr [ %34, %27 ], [ %72, %69 ]
-  %78 = trunc i64 %.0373 to i32
+  %78 = trunc nuw nsw i64 %.0373 to i32
   store i32 %78, ptr %.2366, align 1
   %79 = icmp eq i64 %.4383, 15
   br i1 %79, label %.preheader424, label %.loopexit425

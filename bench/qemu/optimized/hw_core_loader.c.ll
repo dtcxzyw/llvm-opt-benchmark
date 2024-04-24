@@ -4659,7 +4659,7 @@ if.then6:                                         ; preds = %if.then4
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.then4
-  %rom.val.i = phi ptr [ %2, %if.then4 ], [ %rom.val.i.pre, %if.then6 ]
+  %rom.val.i = phi ptr [ %3, %if.then4 ], [ %rom.val.i.pre, %if.then6 ]
   %found_overlap.1 = phi i8 [ %found_overlap.034, %if.then4 ], [ 1, %if.then6 ]
   %tobool.not.i.i = icmp eq ptr %rom.val.i, null
   br i1 %tobool.not.i.i, label %if.end9, label %cond.true.i.i

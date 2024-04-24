@@ -261,7 +261,7 @@ if.then1:                                         ; preds = %if.then
 if.then.i:                                        ; preds = %if.then1
   %szmcarea.i = getelementptr inbounds i8, ptr %J, i64 3072
   %2 = load i64, ptr %szmcarea.i, align 8
-  %call.i.i = tail call i32 @mprotect(ptr noundef %ptr, i64 noundef %2, i32 noundef 5) #7
+  %call.i.i = tail call i32 @mprotect(ptr noundef %0, i64 noundef %2, i32 noundef 5) #7
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then3.i
 

@@ -4169,9 +4169,9 @@ ReorderBufferIterTXNInit.exit:                    ; preds = %148, %123
 204:                                              ; preds = %199
   %205 = load ptr, ptr %193, align 8
   %206 = getelementptr inbounds i8, ptr %205, i64 8
-  store ptr %192, ptr %206, align 8
+  store ptr %.val51.i, ptr %206, align 8
   %207 = load ptr, ptr %193, align 8
-  store ptr %207, ptr %192, align 8
+  store ptr %207, ptr %.val51.i, align 8
   %208 = load ptr, ptr %176, align 8
   %209 = icmp eq ptr %208, null
   br i1 %209, label %210, label %dlist_push_tail.exit.i

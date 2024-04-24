@@ -6189,7 +6189,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call10 = call i32 @lj_ir_kptr_(ptr noundef nonnull %J, i32 noundef 26, ptr noundef nonnull %call) #11
+  %call10 = call i32 @lj_ir_kptr_(ptr noundef nonnull %J, i32 noundef 26, ptr noundef nonnull %nilnode) #11
   br label %return
 
 return:                                           ; preds = %entry, %land.lhs.true, %if.then

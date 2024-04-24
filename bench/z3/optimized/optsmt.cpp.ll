@@ -1846,7 +1846,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %_ZN7obj_refI4expr11
   br label %while.cond.backedge
 
 land.lhs.true:                                    ; preds = %invoke.cont10, %invoke.cont55
-  %56 = phi ptr [ %50, %invoke.cont55 ], [ %4, %invoke.cont10 ]
+  %56 = phi ptr [ %51, %invoke.cont55 ], [ %4, %invoke.cont10 ]
   %57 = phi ptr [ %50, %invoke.cont55 ], [ %5, %invoke.cont10 ]
   %num_scopes.2229 = phi i32 [ %num_scopes.1, %invoke.cont55 ], [ %num_scopes.0, %invoke.cont10 ]
   %58 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
@@ -4989,7 +4989,7 @@ _ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit: ; preds = %for
 for.body:                                         ; preds = %_ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit
   %15 = load ptr, ptr %m_s, align 8
   %arrayidx.i17 = getelementptr inbounds %class.inf_eps_rational, ptr %12, i64 %indvars.iv
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN3opt10opt_solver5mk_geEjRK16inf_eps_rationalI12inf_rationalE(ptr nonnull sret(%class.obj_ref.42) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(1034) %15, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(96) %arrayidx.i17)
           to label %invoke.cont25 unwind label %lpad18.loopexit
 
@@ -6564,7 +6564,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i52
   %42 = load ptr, ptr %m_s, align 8
   %43 = load ptr, ptr %mid, align 8
   %arrayidx.i55 = getelementptr inbounds %class.inf_eps_rational, ptr %43, i64 %indvars.iv
-  %44 = trunc i64 %indvars.iv to i32
+  %44 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN3opt10opt_solver5mk_geEjRK16inf_eps_rationalI12inf_rationalE(ptr nonnull sret(%class.obj_ref.42) align 8 %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(1034) %42, i32 noundef %44, ptr noundef nonnull align 8 dereferenceable(96) %arrayidx.i55)
           to label %invoke.cont40 unwind label %lpad6.loopexit.split-lp.loopexit
 
@@ -11023,7 +11023,8 @@ if.then3:                                         ; preds = %if.end
   %m_den = getelementptr inbounds i8, ptr %b, i64 16
   call void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %m_den, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
   %m_den4 = getelementptr inbounds i8, ptr %a, i64 16
-  call void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %m_den4, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %m_den)
+  %m_den6 = getelementptr inbounds i8, ptr %c, i64 16
+  call void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %m_den4, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %m_den6)
   %bf.load.i.i.i27 = load i8, ptr %m_kind.i, align 4
   %bf.clear.i.i.i28 = and i8 %bf.load.i.i.i27, 1
   %cmp.i.i.i29 = icmp eq i8 %bf.clear.i.i.i28, 0
@@ -11031,14 +11032,15 @@ if.then3:                                         ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %if.then3
   %6 = load i32, ptr %tmp, align 8
-  store i32 %6, ptr %b, align 8
-  %bf.load.i.i = load i8, ptr %m_kind.i.i.i.i, align 4
+  store i32 %6, ptr %c, align 8
+  %m_kind.i.i = getelementptr inbounds i8, ptr %c, i64 4
+  %bf.load.i.i = load i8, ptr %m_kind.i.i, align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, -2
-  store i8 %bf.clear.i.i, ptr %m_kind.i.i.i.i, align 4
+  store i8 %bf.clear.i.i, ptr %m_kind.i.i, align 4
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit
 
 if.else.i.i:                                      ; preds = %if.then3
-  call void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
+  call void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit:       ; preds = %if.then.i.i, %if.else.i.i

@@ -457,7 +457,7 @@ define void @_ZN18MLSelectionBuffersD2Ev(ptr noundef nonnull align 8 dereference
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %.not18 = icmp eq ptr %4, %5
-  br i1 %.not18, label %_ZNSt6vectorIS_IjSaIjEESaIS1_EE5clearEv.exit, label %.lr.ph
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.noexc, %_ZNSt6vectorIjSaIjEE5clearEv.exit
   %6 = phi ptr [ %25, %_ZNSt6vectorIjSaIjEE5clearEv.exit ], [ %5, %.noexc ]
@@ -504,12 +504,14 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %24, %18, %.lr.ph
   %32 = icmp ult i64 %26, %31
   br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorIjSaIjEE5clearEv.exit
-  %.not.i.i6 = icmp eq ptr %27, %25
+._crit_edge:                                      ; preds = %_ZNSt6vectorIjSaIjEE5clearEv.exit, %.noexc
+  %.lcssa9 = phi ptr [ %4, %.noexc ], [ %27, %_ZNSt6vectorIjSaIjEE5clearEv.exit ]
+  %.lcssa = phi ptr [ %5, %.noexc ], [ %25, %_ZNSt6vectorIjSaIjEE5clearEv.exit ]
+  %.not.i.i6 = icmp eq ptr %.lcssa9, %.lcssa
   br i1 %.not.i.i6, label %_ZNSt6vectorIS_IjSaIjEESaIS1_EE5clearEv.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge, %_ZSt8_DestroyISt6vectorIjSaIjEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %35, %_ZSt8_DestroyISt6vectorIjSaIjEEEvPT_.exit.i.i.i.i.i ], [ %25, %._crit_edge ]
+  %.05.i.i.i.i.i = phi ptr [ %35, %_ZSt8_DestroyISt6vectorIjSaIjEEEvPT_.exit.i.i.i.i.i ], [ %.lcssa, %._crit_edge ]
   %33 = load ptr, ptr %.05.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIjSaIjEEEvPT_.exit.i.i.i.i.i, label %34
@@ -520,14 +522,14 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %24, %18, %.lr.ph
 
 _ZSt8_DestroyISt6vectorIjSaIjEEEvPT_.exit.i.i.i.i.i: ; preds = %34, %.lr.ph.i.i.i.i.i
   %35 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %35, %27
+  %.not.i.i.i.i.i = icmp eq ptr %35, %.lcssa9
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIjSaIjEES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !11
 
 _ZSt8_DestroyIPSt6vectorIjSaIjEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyISt6vectorIjSaIjEEEvPT_.exit.i.i.i.i.i
-  store ptr %25, ptr %3, align 8
+  store ptr %.lcssa, ptr %3, align 8
   br label %_ZNSt6vectorIS_IjSaIjEESaIS1_EE5clearEv.exit
 
-_ZNSt6vectorIS_IjSaIjEESaIS1_EE5clearEv.exit:     ; preds = %.noexc, %_ZSt8_DestroyIPSt6vectorIjSaIjEES2_EvT_S4_RSaIT0_E.exit.i.i, %._crit_edge
+_ZNSt6vectorIS_IjSaIjEESaIS1_EE5clearEv.exit:     ; preds = %_ZSt8_DestroyIPSt6vectorIjSaIjEES2_EvT_S4_RSaIT0_E.exit.i.i, %._crit_edge
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZN12QWriteLockerD2Ev.exit unwind label %36
 
@@ -564,7 +566,7 @@ _ZSt8_DestroyIPSt6vectorIjSaIjEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; pre
   br label %_ZSt8_DestroyIPSt6vectorIjSaIjEES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt6vectorIjSaIjEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt6vectorIjSaIjEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %_ZN12QWriteLockerD2Ev.exit
-  %43 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt6vectorIjSaIjEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %.pre21, %_ZN12QWriteLockerD2Ev.exit ]
+  %43 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt6vectorIjSaIjEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %39, %_ZN12QWriteLockerD2Ev.exit ]
   %.not.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIS_IjSaIjEESaIS1_EED2Ev.exit, label %44
 
@@ -1378,7 +1380,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %40
   br i1 %.not53, label %._crit_edge51.invoke, label %.lr.ph
 
 .lr.ph:                                           ; preds = %46
-  %52 = trunc i64 %.sroa.speculated40 to i32
+  %52 = trunc nuw i64 %.sroa.speculated40 to i32
   br label %53
 
 53:                                               ; preds = %.lr.ph, %90
@@ -1564,7 +1566,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit36:  ; preds = %_ZNK3vcg8Matrix44If
   br i1 %.not52, label %._crit_edge51.invoke, label %.lr.ph50
 
 .lr.ph50:                                         ; preds = %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit36
-  %141 = trunc i64 %.sroa.speculated to i32
+  %141 = trunc nuw i64 %.sroa.speculated to i32
   br label %142
 
 142:                                              ; preds = %.lr.ph50, %182

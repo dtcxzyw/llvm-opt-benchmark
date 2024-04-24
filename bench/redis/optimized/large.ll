@@ -633,7 +633,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
   %shl.i.i = shl nuw i64 %usize_max, 1
   %sub.i.i = add i64 %shl.i.i, -1
   %30 = tail call i64 @llvm.ctlz.i64(i64 %sub.i.i, i1 true), !range !5
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw nsw i64 %30 to i32
   %conv1.i.i.i.i.i = shl nuw nsw i32 %31, 2
   %sub8.i.i = xor i32 %conv1.i.i.i.i.i, 252
   %shl9.i.i = add nsw i32 %sub8.i.i, -20
@@ -746,7 +746,7 @@ if.end5.i:                                        ; preds = %if.end.i
   %shl.i = shl nuw i64 %usize, 1
   %sub.i = add i64 %shl.i, -1
   %7 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 true), !range !5
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw nsw i64 %7 to i32
   %conv1.i.i.i.i = shl nuw nsw i32 %8, 2
   %sub8.i = xor i32 %conv1.i.i.i.i, 252
   %shl9.i = add nsw i32 %sub8.i, -20
@@ -901,7 +901,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i113
   %shl.i.i = shl nuw i64 %13, 1
   %sub.i.i = add i64 %shl.i.i, -1
   %20 = call i64 @llvm.ctlz.i64(i64 %sub.i.i, i1 true), !range !5
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw nsw i64 %20 to i32
   %conv1.i.i.i.i.i = shl nuw nsw i32 %21, 2
   %sub8.i.i = xor i32 %conv1.i.i.i.i.i, 252
   %shl9.i.i = add nsw i32 %sub8.i.i, -20
@@ -987,7 +987,7 @@ if.end5.i:                                        ; preds = %if.end.i.i
   %shl.i = shl nuw i64 %13, 1
   %sub.i = add i64 %shl.i, -1
   %30 = call i64 @llvm.ctlz.i64(i64 %sub.i, i1 true), !range !5
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw nsw i64 %30 to i32
   %conv1.i.i.i.i = shl nuw nsw i32 %31, 2
   %sub8.i = xor i32 %conv1.i.i.i.i, 252
   %shl9.i = add nsw i32 %sub8.i, -20
@@ -1151,7 +1151,7 @@ if.then4.i:                                       ; preds = %entry
   br i1 %cmp.i19.i, label %if.then.i28.i, label %if.end.i20.i
 
 if.then.i28.i:                                    ; preds = %if.then4.i
-  %5 = getelementptr inbounds i8, ptr %edata, i64 40
+  %5 = getelementptr inbounds i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %large6.i, align 8
   br label %if.end.i20.i
@@ -1246,7 +1246,7 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   br i1 %cmp.i14, label %if.then.i16, label %if.end.i15
 
 if.then.i16:                                      ; preds = %malloc_mutex_lock.exit
-  %6 = getelementptr inbounds i8, ptr %edata, i64 40
+  %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %large, align 8
   br label %if.end.i15
@@ -1302,7 +1302,7 @@ if.then4:                                         ; preds = %if.else
   br i1 %cmp.i19, label %if.then.i28, label %if.end.i20
 
 if.then.i28:                                      ; preds = %if.then4
-  %24 = getelementptr inbounds i8, ptr %edata, i64 40
+  %24 = getelementptr inbounds i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %large6, align 8
   br label %if.end.i20
@@ -1627,7 +1627,7 @@ monotonic.i.i:                                    ; preds = %if.then.i, %if.then
   %retval.i.0 = phi ptr [ %arrayidx15.i, %if.then.i ], [ %arrayidx54.i, %if.then27.i ], [ %arrayidx136.i, %if.then71.i ], [ %call141.i, %for.end.i ]
   %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !8
   %shr.i69 = lshr i64 %10, 48
-  %conv.i70 = trunc i64 %shr.i69 to i32
+  %conv.i70 = trunc nuw nsw i64 %shr.i69 to i32
   %metadata.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %conv.i70, ptr %metadata.i, align 8, !alias.scope !11
   %slab.i = getelementptr inbounds i8, ptr %agg.result, i64 17

@@ -182,12 +182,12 @@ if.then7.i.i:                                     ; preds = %if.else.i.i
   %call.i.i = tail call ptr @gpr_malloc(i64 noundef %mul8.i.i)
   store ptr %call.i.i, ptr %sb, align 8
   %mul13.i.i = shl i64 %add.i, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i, ptr nonnull align 8 %18, i64 %mul13.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i, ptr nonnull align 8 %inlined.i.i, i64 %mul13.i.i, i1 false)
   %.pre.i.i = load ptr, ptr %sb, align 8
   br label %_ZL14maybe_embiggenP17grpc_slice_buffer.exit.sink.split
 
 if.else14.i.i:                                    ; preds = %if.else.i.i
-  %call17.i.i = tail call ptr @gpr_realloc(ptr noundef %18, i64 noundef %mul8.i.i)
+  %call17.i.i = tail call ptr @gpr_realloc(ptr noundef %19, i64 noundef %mul8.i.i)
   store ptr %call17.i.i, ptr %sb, align 8
   br label %_ZL14maybe_embiggenP17grpc_slice_buffer.exit.sink.split
 
@@ -202,7 +202,7 @@ _ZL14maybe_embiggenP17grpc_slice_buffer.exit:     ; preds = %_ZL14maybe_embiggen
   %add125 = add i64 %0, 1
   store i64 %add125, ptr %count, align 8
   store ptr null, ptr %arrayidx124, align 8
-  %23 = trunc i64 %sub109 to i8
+  %23 = trunc nuw nsw i64 %sub109 to i8
   %conv132 = sub i8 %14, %23
   %data133 = getelementptr inbounds i8, ptr %arrayidx124, i64 8
   store i8 %conv132, ptr %data133, align 8
@@ -297,7 +297,7 @@ if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %if.end.i.i.i
 
 if.else14.i.i.i:                                  ; preds = %if.else.i.i.i
-  %call17.i.i.i = tail call ptr @gpr_realloc(ptr noundef %27, i64 noundef %mul8.i.i.i)
+  %call17.i.i.i = tail call ptr @gpr_realloc(ptr noundef %28, i64 noundef %mul8.i.i.i)
   store ptr %call17.i.i.i, ptr %sb, align 8
   br label %if.end.i.i.i
 
@@ -492,12 +492,12 @@ if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
   %call.i.i.i = tail call ptr @gpr_malloc(i64 noundef %mul8.i.i.i)
   store ptr %call.i.i.i, ptr %this, align 8
   %mul13.i.i.i = shl i64 %add.i.i, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i.i, ptr nonnull align 8 %2, i64 %mul13.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i.i, ptr nonnull align 8 %inlined.i.i.i, i64 %mul13.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %this, align 8
   br label %if.end.i.i.i
 
 if.else14.i.i.i:                                  ; preds = %if.else.i.i.i
-  %call17.i.i.i = tail call ptr @gpr_realloc(ptr noundef %2, i64 noundef %mul8.i.i.i)
+  %call17.i.i.i = tail call ptr @gpr_realloc(ptr noundef %3, i64 noundef %mul8.i.i.i)
   store ptr %call17.i.i.i, ptr %this, align 8
   br label %if.end.i.i.i
 
@@ -579,12 +579,12 @@ if.then7.i.i:                                     ; preds = %if.else.i.i
   %call.i.i = tail call ptr @gpr_malloc(i64 noundef %mul8.i.i)
   store ptr %call.i.i, ptr %sb, align 8
   %mul13.i.i = shl i64 %add.i, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i, ptr nonnull align 8 %2, i64 %mul13.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i, ptr nonnull align 8 %inlined.i.i, i64 %mul13.i.i, i1 false)
   %.pre.i.i = load ptr, ptr %sb, align 8
   br label %if.end.i.i
 
 if.else14.i.i:                                    ; preds = %if.else.i.i
-  %call17.i.i = tail call ptr @gpr_realloc(ptr noundef %2, i64 noundef %mul8.i.i)
+  %call17.i.i = tail call ptr @gpr_realloc(ptr noundef %3, i64 noundef %mul8.i.i)
   store ptr %call17.i.i, ptr %sb, align 8
   br label %if.end.i.i
 
@@ -1112,7 +1112,7 @@ if.end3:                                          ; preds = %if.end
 if.end8:                                          ; preds = %if.end3
   %bytes = getelementptr i8, ptr %2, i64 -23
   %add.ptr = getelementptr inbounds i8, ptr %bytes, i64 %conv
-  %conv17 = trunc i64 %add5 to i8
+  %conv17 = trunc nuw nsw i64 %add5 to i8
   store i8 %conv17, ptr %data, align 8
   br label %return
 
@@ -1151,12 +1151,12 @@ if.then7.i.i:                                     ; preds = %if.else.i.i
   %call.i.i = tail call ptr @gpr_malloc(i64 noundef %mul8.i.i)
   store ptr %call.i.i, ptr %sb, align 8
   %mul13.i.i = shl i64 %add.i, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i, ptr nonnull align 8 %.pre, i64 %mul13.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i, ptr nonnull align 8 %inlined.i.i, i64 %mul13.i.i, i1 false)
   %.pre.i.i = load ptr, ptr %sb, align 8
   br label %add_first.sink.split
 
 if.else14.i.i:                                    ; preds = %if.else.i.i
-  %call17.i.i = tail call ptr @gpr_realloc(ptr noundef nonnull %.pre, i64 noundef %mul8.i.i)
+  %call17.i.i = tail call ptr @gpr_realloc(ptr noundef %5, i64 noundef %mul8.i.i)
   store ptr %call17.i.i, ptr %sb, align 8
   br label %add_first.sink.split
 
@@ -1287,7 +1287,7 @@ if.else:                                          ; preds = %if.then
   store ptr %3, ptr %a, align 8
   store ptr %inlined11, ptr %b, align 8
   %mul31 = shl i64 %add, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %inlined11, ptr nonnull align 8 %1, i64 %mul31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %inlined11, ptr nonnull align 8 %inlined, i64 %mul31, i1 false)
   br label %if.end51
 
 if.else32:                                        ; preds = %entry
@@ -1297,7 +1297,7 @@ if.then37:                                        ; preds = %if.else32
   store ptr %1, ptr %b, align 8
   store ptr %inlined, ptr %a, align 8
   %mul46 = shl i64 %add8, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %inlined, ptr nonnull align 8 %3, i64 %mul46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %inlined, ptr nonnull align 8 %inlined11, i64 %mul46, i1 false)
   br label %if.end51
 
 if.else47:                                        ; preds = %if.else32
@@ -1383,7 +1383,7 @@ if.else.i:                                        ; preds = %if.then.i
   store ptr %5, ptr %src, align 8
   store ptr %inlined11.i, ptr %dst, align 8
   %mul31.i = shl i64 %add.i, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %inlined11.i, ptr nonnull align 8 %3, i64 %mul31.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %inlined11.i, ptr nonnull align 8 %inlined.i, i64 %mul31.i, i1 false)
   br label %grpc_slice_buffer_swap.exit
 
 if.else32.i:                                      ; preds = %if.then3
@@ -1392,7 +1392,7 @@ if.else32.i:                                      ; preds = %if.then3
 if.then37.i:                                      ; preds = %if.else32.i
   store ptr %3, ptr %dst, align 8
   store ptr %inlined.i, ptr %src, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %inlined.i, ptr nonnull align 8 %5, i64 %sub.ptr.sub5.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %inlined.i, ptr nonnull align 8 %inlined11.i, i64 %sub.ptr.sub5.i, i1 false)
   br label %grpc_slice_buffer_swap.exit
 
 if.else47.i:                                      ; preds = %if.else32.i
@@ -1766,12 +1766,12 @@ if.then7.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
   %call.i.i.i.i = call ptr @gpr_malloc(i64 noundef %mul8.i.i.i.i)
   store ptr %call.i.i.i.i, ptr %dst, align 8
   %mul13.i.i.i.i = shl i64 %add.i.i.i, 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i.i.i, ptr nonnull align 8 %16, i64 %mul13.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i.i.i, ptr nonnull align 8 %inlined.i.i.i.i, i64 %mul13.i.i.i.i, i1 false)
   %.pre.i.i.i.i = load ptr, ptr %dst, align 8
   br label %if.end.i.i.i.i
 
 if.else14.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %call17.i.i.i.i = call ptr @gpr_realloc(ptr noundef %16, i64 noundef %mul8.i.i.i.i)
+  %call17.i.i.i.i = call ptr @gpr_realloc(ptr noundef %17, i64 noundef %mul8.i.i.i.i)
   store ptr %call17.i.i.i.i, ptr %dst, align 8
   br label %if.end.i.i.i.i
 
@@ -2190,7 +2190,7 @@ if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %if.end.i.i.i
 
 if.else14.i.i.i:                                  ; preds = %if.else.i.i.i
-  %call17.i.i.i = call ptr @gpr_realloc(ptr noundef %15, i64 noundef %mul8.i.i.i)
+  %call17.i.i.i = call ptr @gpr_realloc(ptr noundef %16, i64 noundef %mul8.i.i.i)
   store ptr %call17.i.i.i, ptr %garbage, align 8
   br label %if.end.i.i.i
 
@@ -2301,7 +2301,7 @@ if.then7.i.i.i60:                                 ; preds = %if.else.i.i.i51
   br label %grpc_slice_buffer_add_indexed.exit66.sink.split
 
 if.else14.i.i.i57:                                ; preds = %if.else.i.i.i51
-  %call17.i.i.i58 = tail call ptr @gpr_realloc(ptr noundef %27, i64 noundef %mul8.i.i.i56)
+  %call17.i.i.i58 = tail call ptr @gpr_realloc(ptr noundef %28, i64 noundef %mul8.i.i.i56)
   store ptr %call17.i.i.i58, ptr %garbage, align 8
   br label %grpc_slice_buffer_add_indexed.exit66.sink.split
 
@@ -2400,7 +2400,7 @@ if.then7.i.i.i106:                                ; preds = %if.else.i.i.i97
   br label %grpc_slice_buffer_add_indexed.exit112.sink.split
 
 if.else14.i.i.i103:                               ; preds = %if.else.i.i.i97
-  %call17.i.i.i104 = tail call ptr @gpr_realloc(ptr noundef %37, i64 noundef %mul8.i.i.i102)
+  %call17.i.i.i104 = tail call ptr @gpr_realloc(ptr noundef %38, i64 noundef %mul8.i.i.i102)
   store ptr %call17.i.i.i104, ptr %garbage, align 8
   br label %grpc_slice_buffer_add_indexed.exit112.sink.split
 

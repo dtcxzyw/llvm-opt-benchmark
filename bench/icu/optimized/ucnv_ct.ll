@@ -337,7 +337,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond153.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %mySource.1.lcssa = phi ptr [ %mySource.0114, %for.cond.preheader ], [ %scevgep152, %for.body ]
+  %mySource.1.lcssa = phi ptr [ %mySource.0114, %for.cond.preheader ], [ %incdec.ptr, %for.body ]
   store i32 0, ptr %err, align 4
   br label %while.end126
 
@@ -495,7 +495,7 @@ if.else124:                                       ; preds = %while.body
 
 if.end125:                                        ; preds = %if.then70, %while.body63, %while.cond61.preheader, %if.else75, %_ZL11findNextEscPKcS0_.exit, %if.else77
   %myTarget.2 = phi ptr [ %myTarget.1106, %if.else75 ], [ %36, %_ZL11findNextEscPKcS0_.exit ], [ %myTarget.0112, %if.else77 ], [ %myTarget.0112, %while.cond61.preheader ], [ %incdec.ptr74, %if.then70 ], [ %myTarget.1106, %while.body63 ]
-  %mySource.5 = phi ptr [ %mySource.4107, %if.else75 ], [ %35, %_ZL11findNextEscPKcS0_.exit ], [ %mySource.3, %if.else77 ], [ %mySource.3, %while.cond61.preheader ], [ %scevgep150, %if.then70 ], [ %mySource.4107, %while.body63 ]
+  %mySource.5 = phi ptr [ %mySource.4107, %if.else75 ], [ %35, %_ZL11findNextEscPKcS0_.exit ], [ %mySource.3, %if.else77 ], [ %mySource.3, %while.cond61.preheader ], [ %incdec.ptr71, %if.then70 ], [ %mySource.4107, %while.body63 ]
   %cmp6 = icmp ult ptr %mySource.5, %2
   br i1 %cmp6, label %while.body, label %while.end126, !llvm.loop !11
 

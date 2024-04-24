@@ -88,7 +88,7 @@ define noundef i32 @setvbuf(ptr nocapture noundef %0, ptr noundef %1, i32 nounde
   br i1 %or.cond, label %39, label %40
 
 39:                                               ; preds = %36
-  tail call void @free(ptr noundef nonnull %17)
+  tail call void @free(ptr noundef nonnull %19)
   br label %40
 
 40:                                               ; preds = %39, %36

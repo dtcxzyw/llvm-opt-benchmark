@@ -1738,7 +1738,7 @@ _sapi_cgi_putenv.exit438.i:                       ; preds = %.critedge406.i, %.c
   br label %396
 
 396:                                              ; preds = %_sapi_cgi_putenv.exit438.i, %392, %386, %385
-  %.5.i = phi ptr [ %.1.i, %386 ], [ %201, %385 ], [ %393, %392 ], [ %395, %_sapi_cgi_putenv.exit438.i ]
+  %.5.i = phi ptr [ %.1.i, %386 ], [ %.1.i, %385 ], [ %393, %392 ], [ %395, %_sapi_cgi_putenv.exit438.i ]
   br i1 %239, label %397, label %413
 
 397:                                              ; preds = %396
@@ -1822,7 +1822,7 @@ _sapi_cgi_putenv.exit452.i:                       ; preds = %.critedge.i451.i, %
   br label %427
 
 427:                                              ; preds = %_sapi_cgi_putenv.exit452.i, %420, %413
-  %storemerge368.i = phi ptr [ %421, %420 ], [ %426, %_sapi_cgi_putenv.exit452.i ], [ %237, %413 ]
+  %storemerge368.i = phi ptr [ %421, %420 ], [ %426, %_sapi_cgi_putenv.exit452.i ], [ %.0317.i, %413 ]
   store ptr %storemerge368.i, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 5), align 8
   call void @_efree(ptr noundef %.0318.i) #28
   br label %435

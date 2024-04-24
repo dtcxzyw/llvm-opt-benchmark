@@ -65,7 +65,7 @@ if.then11:                                        ; preds = %if.end
 
 if.then14:                                        ; preds = %if.then11
   %shr = lshr i32 %call12, 24
-  %6 = trunc i32 %shr to i8
+  %6 = trunc nuw i32 %shr to i8
   %conv = or i8 %6, 1
   br label %return
 
@@ -74,7 +74,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp17, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.else
-  %add.ptr20 = getelementptr inbounds i16, ptr %add.ptr, i64 %idx.ext7
+  %add.ptr20 = getelementptr inbounds i16, ptr %add.ptr8, i64 %idx.ext7
   %call21 = tail call i32 @u_strlen_75(ptr noundef %add.ptr20)
   br label %if.end22
 
@@ -86,7 +86,7 @@ if.end22:                                         ; preds = %if.then18, %if.else
 if.then24:                                        ; preds = %if.end22
   %sub = sub nsw i32 %length.addr.0, %srcLength.addr.1
   %shr25 = lshr i32 %sub, 24
-  %7 = trunc i32 %shr25 to i8
+  %7 = trunc nuw i32 %shr25 to i8
   %conv27 = or i8 %7, 1
   br label %return
 
@@ -665,7 +665,7 @@ if.then11.i:                                      ; preds = %if.end.i
 
 if.then14.i:                                      ; preds = %if.then11.i
   %shr.i = lshr i32 %call12.i, 24
-  %16 = trunc i32 %shr.i to i8
+  %16 = trunc nuw i32 %shr.i to i8
   %conv.i = or i8 %16, 1
   br label %_ZNK6icu_7513UnicodeString13doCaseCompareEiiPKDsiij.exit
 
@@ -674,7 +674,7 @@ if.else.i9:                                       ; preds = %if.end.i
   br i1 %cmp17.i, label %if.then18.i, label %if.end22.i
 
 if.then18.i:                                      ; preds = %if.else.i9
-  %add.ptr20.i = getelementptr inbounds i16, ptr %add.ptr.i, i64 %idx.ext7.i
+  %add.ptr20.i = getelementptr inbounds i16, ptr %add.ptr8.i, i64 %idx.ext7.i
   %call21.i = tail call i32 @u_strlen_75(ptr noundef %add.ptr20.i)
   br label %if.end22.i
 
@@ -686,7 +686,7 @@ if.end22.i:                                       ; preds = %if.then18.i, %if.el
 if.then24.i:                                      ; preds = %if.end22.i
   %sub.i10 = sub nsw i32 %length.addr.0.i, %srcLength.addr.1.i
   %shr25.i = lshr i32 %sub.i10, 24
-  %17 = trunc i32 %shr25.i to i8
+  %17 = trunc nuw i32 %shr25.i to i8
   %conv27.i = or i8 %17, 1
   br label %_ZNK6icu_7513UnicodeString13doCaseCompareEiiPKDsiij.exit
 

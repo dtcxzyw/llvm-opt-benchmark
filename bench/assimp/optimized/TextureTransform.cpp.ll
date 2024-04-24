@@ -1041,7 +1041,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %exitcond.not.i, label %_ZNK6aiMesh16GetNumUVChannelsEv.exit, label %land.rhs.i, !llvm.loop !16
 
 while.end.split.loop.exit6.i:                     ; preds = %land.rhs.i
-  %87 = trunc i64 %indvars.iv.i to i32
+  %87 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZNK6aiMesh16GetNumUVChannelsEv.exit
 
 _ZNK6aiMesh16GetNumUVChannelsEv.exit:             ; preds = %while.body.i, %while.end.split.loop.exit6.i
@@ -1098,7 +1098,7 @@ while.body.i194:                                  ; preds = %land.rhs.i190
   br i1 %exitcond.not.i196, label %_ZNK6aiMesh16GetNumUVChannelsEv.exit199, label %land.rhs.i190, !llvm.loop !16
 
 while.end.split.loop.exit6.i198:                  ; preds = %land.rhs.i190
-  %97 = trunc i64 %indvars.iv.i191 to i32
+  %97 = trunc nuw nsw i64 %indvars.iv.i191 to i32
   br label %_ZNK6aiMesh16GetNumUVChannelsEv.exit199
 
 _ZNK6aiMesh16GetNumUVChannelsEv.exit199:          ; preds = %while.body.i194, %while.end.split.loop.exit6.i198
@@ -1216,7 +1216,7 @@ for.inc281:                                       ; preds = %_ZNK6Assimp17STrans
   br i1 %cmp.i234.not, label %for.end283, label %for.body275, !llvm.loop !17
 
 for.end283:                                       ; preds = %for.inc281, %_ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit249, %for.body275
-  %it2.sroa.0.0.lcssa.ph = phi ptr [ %it236.sroa.0.0655, %for.inc281 ], [ %it2.sroa.0.0661, %_ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit249 ], [ %it2.sroa.0.0661, %for.body275 ]
+  %it2.sroa.0.0.lcssa.ph = phi ptr [ %112, %for.inc281 ], [ %it2.sroa.0.0661, %_ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit249 ], [ %it2.sroa.0.0661, %for.body275 ]
   %call.i251 = invoke noundef ptr @_ZNSt7__cxx114listIN6Assimp17STransformVecInfoESaIS2_EE14_M_create_nodeIJRKS2_EEEPSt10_List_nodeIS2_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i180, ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i201.le)
           to label %invoke.cont286 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1364,7 +1364,7 @@ invoke.cont384:                                   ; preds = %if.end383
   store i64 %add.i.i.i267, ptr %_M_size.i.i.i182, align 8
   %123 = load ptr, ptr %_M_prev.i.i.i, align 8
   %uvIndex387 = getelementptr inbounds i8, ptr %123, i64 36
-  %124 = trunc i64 %indvars.iv728 to i32
+  %124 = trunc nuw nsw i64 %indvars.iv728 to i32
   store i32 %124, ptr %uvIndex387, align 4
   br label %for.inc388
 
@@ -1411,7 +1411,7 @@ if.end406:                                        ; preds = %if.end406thread-pre
 
 for.body427.lr.ph:                                ; preds = %if.end406
   %mNumVertices = getelementptr inbounds i8, ptr %85, i64 4
-  %128 = trunc i64 %indvars.iv735 to i32
+  %128 = trunc nuw i64 %indvars.iv735 to i32
   br label %for.body427
 
 for.body427:                                      ; preds = %for.body427.lr.ph, %for.inc590
@@ -2020,13 +2020,11 @@ _ZNSt7__cxx114listIN6Assimp12TTUpdateInfoESaIS2_EE5clearEv.exit.i.i.i19: ; preds
   %_M_prev.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__b, i64 48
   store ptr %updateList3.i6, ptr %_M_prev.i.i.i.i.i.i20, align 8
   store ptr %updateList3.i6, ptr %updateList3.i6, align 8
-  %_M_size.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__b, i64 56
-  store i64 0, ptr %_M_size.i.i.i.i.i.i21, align 8
   %9 = load ptr, ptr %updateList.i, align 8
   %cmp.i.i.i.i.i22 = icmp eq ptr %9, %updateList.i
-  br i1 %cmp.i.i.i.i.i22, label %_ZN6Assimp17STransformVecInfoD2Ev.exit, label %if.else.i.i.i.i.i23
+  br i1 %cmp.i.i.i.i.i22, label %_ZN6Assimp17STransformVecInfoD2Ev.exit, label %_ZN6Assimp17STransformVecInfoaSEOS0_.exit28.thread
 
-if.else.i.i.i.i.i23:                              ; preds = %_ZNSt7__cxx114listIN6Assimp12TTUpdateInfoESaIS2_EE5clearEv.exit.i.i.i19
+_ZN6Assimp17STransformVecInfoaSEOS0_.exit28.thread: ; preds = %_ZNSt7__cxx114listIN6Assimp12TTUpdateInfoESaIS2_EE5clearEv.exit.i.i.i19
   store ptr %9, ptr %updateList3.i6, align 8
   %10 = load ptr, ptr %_M_prev.i.i.i.i.i, align 8
   store ptr %10, ptr %_M_prev.i.i.i.i.i.i20, align 8
@@ -2035,12 +2033,12 @@ if.else.i.i.i.i.i23:                              ; preds = %_ZNSt7__cxx114listI
   %_M_prev9.i.i.i.i.i25 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %updateList3.i6, ptr %_M_prev9.i.i.i.i.i25, align 8
   %12 = load i64, ptr %_M_size.i.i.i.i.i, align 8
-  store i64 %12, ptr %_M_size.i.i.i.i.i.i21, align 8
   br label %_ZN6Assimp17STransformVecInfoD2Ev.exit
 
-_ZN6Assimp17STransformVecInfoD2Ev.exit:           ; preds = %if.else.i.i.i.i.i23, %_ZNSt7__cxx114listIN6Assimp12TTUpdateInfoESaIS2_EE5clearEv.exit.i.i.i19
-  %_M_size.sink.i.i.i.i.i27 = phi ptr [ %_M_size.i.i.i.i.i, %if.else.i.i.i.i.i23 ], [ %_M_size.i.i.i.i.i.i21, %_ZNSt7__cxx114listIN6Assimp12TTUpdateInfoESaIS2_EE5clearEv.exit.i.i.i19 ]
-  store i64 0, ptr %_M_size.sink.i.i.i.i.i27, align 8
+_ZN6Assimp17STransformVecInfoD2Ev.exit:           ; preds = %_ZNSt7__cxx114listIN6Assimp12TTUpdateInfoESaIS2_EE5clearEv.exit.i.i.i19, %_ZN6Assimp17STransformVecInfoaSEOS0_.exit28.thread
+  %.sink = phi i64 [ %12, %_ZN6Assimp17STransformVecInfoaSEOS0_.exit28.thread ], [ 0, %_ZNSt7__cxx114listIN6Assimp12TTUpdateInfoESaIS2_EE5clearEv.exit.i.i.i19 ]
+  %_M_size.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__b, i64 56
+  store i64 %.sink, ptr %_M_size.i.i.i.i.i.i21, align 8
   ret void
 }
 

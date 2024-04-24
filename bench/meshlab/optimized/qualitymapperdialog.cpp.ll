@@ -16430,7 +16430,7 @@ define void @_ZN19QualityMapperDialog21manageBorderTfHandlesEP8TFHandle(ptr noun
   %20 = load i32, ptr %5, align 8
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds [3 x %class.TfChannel], ptr %19, i64 0, i64 %21
-  %23 = tail call noundef zeroext i1 @_ZN9TfChannel6isHeadEP6TF_KEY(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef %14)
+  %23 = tail call noundef zeroext i1 @_ZN9TfChannel6isHeadEP6TF_KEY(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef %16)
   br i1 %23, label %78, label %24
 
 24:                                               ; preds = %18
@@ -16520,7 +16520,7 @@ define void @_ZN19QualityMapperDialog21manageBorderTfHandlesEP8TFHandle(ptr noun
   %99 = load i32, ptr %5, align 8
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds [3 x %class.TfChannel], ptr %98, i64 0, i64 %100
-  %102 = tail call noundef zeroext i1 @_ZN9TfChannel6isTailEP6TF_KEY(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef %93)
+  %102 = tail call noundef zeroext i1 @_ZN9TfChannel6isTailEP6TF_KEY(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef %95)
   br i1 %102, label %157, label %103
 
 103:                                              ; preds = %97

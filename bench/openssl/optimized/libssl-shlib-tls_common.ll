@@ -1832,7 +1832,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %length16 = getelementptr inbounds i8, ptr %rechandle, i64 8
+  %length16 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i64, ptr %length16, align 8
   %cmp17 = icmp ult i64 %2, %length
   br i1 %cmp17, label %if.then19, label %if.end20
@@ -1851,9 +1851,9 @@ if.end20:                                         ; preds = %if.end
   br i1 %cmp21.not, label %if.end24, label %if.then23
 
 if.then23:                                        ; preds = %if.end20
-  %data = getelementptr inbounds i8, ptr %rechandle, i64 32
+  %data = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %4 = load ptr, ptr %data, align 8
-  %off = getelementptr inbounds i8, ptr %rechandle, i64 24
+  %off = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %5 = load i64, ptr %off, align 8
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %5
   tail call void @OPENSSL_cleanse(ptr noundef %add.ptr, i64 noundef %length) #12
@@ -1862,7 +1862,7 @@ if.then23:                                        ; preds = %if.end20
 
 if.end24:                                         ; preds = %if.then23, %if.end20
   %6 = phi i64 [ %.pre, %if.then23 ], [ %2, %if.end20 ]
-  %off25 = getelementptr inbounds i8, ptr %rechandle, i64 24
+  %off25 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %7 = load i64, ptr %off25, align 8
   %add = add i64 %7, %length
   store i64 %add, ptr %off25, align 8

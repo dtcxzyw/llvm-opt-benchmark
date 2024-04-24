@@ -186,7 +186,7 @@ define dso_local i32 @onas_recvln(ptr noundef %0, ptr nocapture noundef writeonl
 22:                                               ; preds = %4
   %23 = call ptr @curl_easy_strerror(i32 noundef %12) #9
   %24 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str, ptr noundef %23) #9
-  br label %93
+  br label %94
 
 25:                                               ; preds = %.preheader77, %90
   %26 = phi i64 [ %.pre, %.preheader77 ], [ 0, %90 ]
@@ -242,7 +242,7 @@ define dso_local i32 @onas_recvln(ptr noundef %0, ptr nocapture noundef writeonl
 
 49:                                               ; preds = %33
   %50 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.3) #9
-  br label %93
+  br label %94
 
 51:                                               ; preds = %33
   %.pr = load i32, ptr %13, align 8
@@ -257,7 +257,7 @@ define dso_local i32 @onas_recvln(ptr noundef %0, ptr nocapture noundef writeonl
 
 55:                                               ; preds = %.thread
   %.not67 = icmp eq ptr %.pre99, %0
-  br i1 %.not67, label %93, label %56
+  br i1 %.not67, label %94, label %56
 
 56:                                               ; preds = %55
   store i8 0, ptr %.pre99, align 1
@@ -267,11 +267,11 @@ define dso_local i32 @onas_recvln(ptr noundef %0, ptr nocapture noundef writeonl
 
 58:                                               ; preds = %56
   %59 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.5) #9
-  br label %93
+  br label %94
 
 60:                                               ; preds = %56
   %61 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.6) #9
-  br label %93
+  br label %94
 
 62:                                               ; preds = %._crit_edge, %.thread
   %63 = phi ptr [ %.pre99, %.thread ], [ %.pre98, %._crit_edge ]
@@ -307,7 +307,7 @@ define dso_local i32 @onas_recvln(ptr noundef %0, ptr nocapture noundef writeonl
   %. = select i1 %.not73, ptr %0, ptr %67
   store ptr %., ptr %15, align 8
   store ptr %., ptr %21, align 8
-  br label %93
+  br label %94
 
 79:                                               ; preds = %62
   %80 = load ptr, ptr %21, align 8
@@ -321,7 +321,7 @@ define dso_local i32 @onas_recvln(ptr noundef %0, ptr nocapture noundef writeonl
 
 86:                                               ; preds = %79
   %87 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.7) #9
-  br label %93
+  br label %94
 
 88:                                               ; preds = %79
   %.not70 = icmp eq ptr %80, %0
@@ -335,12 +335,13 @@ define dso_local i32 @onas_recvln(ptr noundef %0, ptr nocapture noundef writeonl
 
 90:                                               ; preds = %89, %88
   %91 = phi i64 [ %.pre97, %89 ], [ %84, %88 ]
-  %92 = getelementptr inbounds i8, ptr %0, i64 %91
-  store ptr %92, ptr %15, align 8
+  %92 = phi ptr [ %0, %89 ], [ %80, %88 ]
+  %93 = getelementptr inbounds i8, ptr %92, i64 %91
+  store ptr %93, ptr %15, align 8
   store i64 0, ptr %14, align 8
   br label %25
 
-93:                                               ; preds = %55, %58, %60, %86, %73, %49, %22
+94:                                               ; preds = %55, %58, %60, %86, %73, %49, %22
   %.0 = phi i32 [ -1, %22 ], [ %77, %73 ], [ -1, %86 ], [ -1, %49 ], [ -1, %60 ], [ -1, %58 ], [ 0, %55 ]
   ret i32 %.0
 }
@@ -369,7 +370,7 @@ define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr nocapture noundef write
   br label %10
 
 10:                                               ; preds = %53, %4
-  %.pre84 = phi ptr [ %55, %53 ], [ %.pre84.pre, %4 ]
+  %.pre84 = phi ptr [ %56, %53 ], [ %.pre84.pre, %4 ]
   %11 = phi i64 [ 0, %53 ], [ %.pre, %4 ]
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %12, label %._crit_edge
@@ -386,7 +387,7 @@ define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr nocapture noundef write
 
 19:                                               ; preds = %12
   %.not57 = icmp eq ptr %18, %0
-  br i1 %.not57, label %56, label %20
+  br i1 %.not57, label %57, label %20
 
 20:                                               ; preds = %19
   store i8 0, ptr %18, align 1
@@ -396,11 +397,11 @@ define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr nocapture noundef write
 
 22:                                               ; preds = %20
   %23 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.8) #9
-  br label %56
+  br label %57
 
 24:                                               ; preds = %20
   %25 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.6) #9
-  br label %56
+  br label %57
 
 ._crit_edge:                                      ; preds = %12, %10
   %26 = phi i64 [ %11, %10 ], [ %16, %12 ]
@@ -436,7 +437,7 @@ define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr nocapture noundef write
   %. = select i1 %.not63, ptr %0, ptr %30
   store ptr %., ptr %7, align 8
   store ptr %., ptr %9, align 8
-  br label %56
+  br label %57
 
 42:                                               ; preds = %._crit_edge
   %43 = load ptr, ptr %9, align 8
@@ -450,7 +451,7 @@ define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr nocapture noundef write
 
 49:                                               ; preds = %42
   %50 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.7) #9
-  br label %56
+  br label %57
 
 51:                                               ; preds = %42
   %.not60 = icmp eq ptr %43, %0
@@ -464,12 +465,13 @@ define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr nocapture noundef write
 
 53:                                               ; preds = %52, %51
   %54 = phi i64 [ %.pre86, %52 ], [ %47, %51 ]
-  %55 = getelementptr inbounds i8, ptr %0, i64 %54
-  store ptr %55, ptr %7, align 8
+  %55 = phi ptr [ %0, %52 ], [ %43, %51 ]
+  %56 = getelementptr inbounds i8, ptr %55, i64 %54
+  store ptr %56, ptr %7, align 8
   store i64 0, ptr %5, align 8
   br label %10
 
-56:                                               ; preds = %19, %22, %24, %49, %36
+57:                                               ; preds = %19, %22, %24, %49, %36
   %.0 = phi i32 [ %40, %36 ], [ -1, %49 ], [ -1, %24 ], [ -1, %22 ], [ 0, %19 ]
   ret i32 %.0
 }

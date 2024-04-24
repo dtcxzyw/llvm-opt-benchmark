@@ -45,7 +45,7 @@ define dso_local noundef i32 @_ZN5vcpkg7Unicode22utf8_encode_code_pointERA4_cDi(
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %2
-  %10 = trunc i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %0, align 1
   br label %66
 
@@ -55,7 +55,7 @@ define dso_local noundef i32 @_ZN5vcpkg7Unicode22utf8_encode_code_pointERA4_cDi(
 
 13:                                               ; preds = %11
   %14 = lshr i32 %1, 6
-  %15 = trunc i32 %14 to i8
+  %15 = trunc nuw i32 %14 to i8
   %16 = or disjoint i8 %15, -64
   store i8 %16, ptr %0, align 1
   %17 = trunc i32 %1 to i8
@@ -71,7 +71,7 @@ define dso_local noundef i32 @_ZN5vcpkg7Unicode22utf8_encode_code_pointERA4_cDi(
 
 23:                                               ; preds = %21
   %24 = lshr i32 %1, 12
-  %25 = trunc i32 %24 to i8
+  %25 = trunc nuw i32 %24 to i8
   %26 = or disjoint i8 %25, -32
   store i8 %26, ptr %0, align 1
   %27 = lshr i32 %1, 6
@@ -93,7 +93,7 @@ define dso_local noundef i32 @_ZN5vcpkg7Unicode22utf8_encode_code_pointERA4_cDi(
 
 38:                                               ; preds = %36
   %39 = lshr i32 %1, 18
-  %40 = trunc i32 %39 to i8
+  %40 = trunc nuw i32 %39 to i8
   %41 = or disjoint i8 %40, -16
   store i8 %41, ptr %0, align 1
   %42 = lshr i32 %1, 12
@@ -531,7 +531,7 @@ define dso_local noundef i32 @_ZN5vcpkg7Unicode11Utf8Decoder4nextEv(ptr nocaptur
 15:                                               ; preds = %9
   store i32 -1, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %11, ptr %16, align 8
+  store ptr %13, ptr %16, align 8
   br label %33
 
 17:                                               ; preds = %9
@@ -723,10 +723,11 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unic
   unreachable
 
 44:                                               ; preds = %22, %26, %12
-  %.sink5 = phi i32 [ -1, %12 ], [ %23, %26 ], [ %23, %22 ]
-  store i32 %.sink5, ptr %0, align 8
+  %.sink6 = phi i32 [ -1, %12 ], [ %23, %26 ], [ %23, %22 ]
+  %.sink4 = phi ptr [ %16, %12 ], [ %14, %26 ], [ %14, %22 ]
+  store i32 %.sink6, ptr %0, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %14, ptr %45, align 8
+  store ptr %.sink4, ptr %45, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   ret ptr %0

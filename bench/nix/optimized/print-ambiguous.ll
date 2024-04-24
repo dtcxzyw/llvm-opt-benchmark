@@ -839,7 +839,7 @@ _ZN3nix3refINS_13InputAccessorEEC2ERKSt10shared_ptrIS1_E.exit: ; preds = %_ZNSt1
   %56 = icmp ult i64 %55, 16
   call void @llvm.assume(i1 %56)
   %57 = add nuw nsw i64 %55, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %49, ptr noundef nonnull align 8 dereferenceable(1) %50, i64 %57, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %49, ptr noundef nonnull align 8 dereferenceable(1) %51, i64 %57, i1 false)
   br label %_ZN3nix9CanonPathC2ENS0_11unchecked_tENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %48
@@ -1337,7 +1337,7 @@ _ZNSt12_Vector_baseIPKN3nix4AttrESaIS3_EE11_M_allocateEm.exit.i: ; preds = %3
   br i1 %25, label %26, label %_ZNKSt6vectorIPKN3nix4AttrESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 26:                                               ; preds = %21
-  store ptr %15, ptr %7, align 8
+  store ptr %16, ptr %7, align 8
   store ptr %17, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.25) #21
           to label %.noexc9 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -1404,7 +1404,7 @@ _ZNSt6vectorIPKN3nix4AttrESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit: ; preds 
 .loopexit.split-lp.loopexit:                      ; preds = %32
   %lpad.loopexit17 = landingpad { ptr, i32 }
           cleanup
-  store ptr %15, ptr %7, align 8
+  store ptr %16, ptr %7, align 8
   store ptr %17, ptr %0, align 8
   br label %.loopexit.split-lp
 
@@ -1935,7 +1935,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
   %48 = sub i64 %33, %43
   %spec.select7.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %48, i64 -2147483648)
   %.08.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i, i64 2147483647)
-  %.0.i4.i.i.i.i = trunc i64 %.08.i.i.i.i.i to i32
+  %.0.i4.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i to i32
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i
@@ -2046,7 +2046,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
   %40 = sub i64 %25, %35
   %spec.select7.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %40, i64 -2147483648)
   %.08.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i, i64 2147483647)
-  %.0.i4.i.i.i.i = trunc i64 %.08.i.i.i.i.i to i32
+  %.0.i4.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i to i32
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i
@@ -2130,7 +2130,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
   %38 = sub i64 %23, %33
   %spec.select7.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %38, i64 -2147483648)
   %.08.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i, i64 2147483647)
-  %.0.i4.i.i.i.i = trunc i64 %.08.i.i.i.i.i to i32
+  %.0.i4.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i to i32
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i
@@ -2173,7 +2173,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i35: ; preds = %_ZNSt11c
   %56 = sub i64 %33, %51
   %spec.select7.i.i.i.i.i36 = tail call i64 @llvm.smax.i64(i64 %56, i64 -2147483648)
   %.08.i.i.i.i.i37 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i36, i64 2147483647)
-  %.0.i4.i.i.i.i38 = trunc i64 %.08.i.i.i.i.i37 to i32
+  %.0.i4.i.i.i.i38 = trunc nsw i64 %.08.i.i.i.i.i37 to i32
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit39
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit39: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i33, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i35
@@ -2202,7 +2202,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i49: ; preds = %_ZNSt11c
   %64 = sub i64 %23, %51
   %spec.select7.i.i.i.i.i50 = tail call i64 @llvm.smax.i64(i64 %64, i64 -2147483648)
   %.08.i.i.i.i.i51 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i50, i64 2147483647)
-  %.0.i4.i.i.i.i52 = trunc i64 %.08.i.i.i.i.i51 to i32
+  %.0.i4.i.i.i.i52 = trunc nsw i64 %.08.i.i.i.i.i51 to i32
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit53
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit53: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i47, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i49
@@ -2254,7 +2254,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i63: ; preds = %_ZNSt11c
   %83 = sub i64 %23, %78
   %spec.select7.i.i.i.i.i64 = tail call i64 @llvm.smax.i64(i64 %83, i64 -2147483648)
   %.08.i.i.i.i.i65 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i64, i64 2147483647)
-  %.0.i4.i.i.i.i66 = trunc i64 %.08.i.i.i.i.i65 to i32
+  %.0.i4.i.i.i.i66 = trunc nsw i64 %.08.i.i.i.i.i65 to i32
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit67
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit67: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i61, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i63
@@ -2284,7 +2284,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i77: ; preds = %_ZNSt11c
   %92 = sub i64 %33, %78
   %spec.select7.i.i.i.i.i78 = tail call i64 @llvm.smax.i64(i64 %92, i64 -2147483648)
   %.08.i.i.i.i.i79 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i78, i64 2147483647)
-  %.0.i4.i.i.i.i80 = trunc i64 %.08.i.i.i.i.i79 to i32
+  %.0.i4.i.i.i.i80 = trunc nsw i64 %.08.i.i.i.i.i79 to i32
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit81
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit81: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i75, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i77
@@ -2381,7 +2381,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
   %41 = sub i64 %34, %24
   %spec.select7.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %41, i64 -2147483648)
   %.08.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i, i64 2147483647)
-  %.0.i4.i.i.i.i = trunc i64 %.08.i.i.i.i.i to i32
+  %.0.i4.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i to i32
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i
@@ -2437,7 +2437,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i18: ; preds = %_ZNSt11c
   %63 = sub i64 %24, %58
   %spec.select7.i.i.i.i.i19 = tail call i64 @llvm.smax.i64(i64 %63, i64 -2147483648)
   %.08.i.i.i.i.i20 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i19, i64 2147483647)
-  %.0.i4.i.i.i.i21 = trunc i64 %.08.i.i.i.i.i20 to i32
+  %.0.i4.i.i.i.i21 = trunc nsw i64 %.08.i.i.i.i.i20 to i32
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit22
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit22: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i16, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i18
@@ -2543,7 +2543,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
   %40 = sub i64 %25, %35
   %spec.select7.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %40, i64 -2147483648)
   %.08.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i, i64 2147483647)
-  %.0.i4.i.i.i.i = trunc i64 %.08.i.i.i.i.i to i32
+  %.0.i4.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i to i32
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i
@@ -2642,7 +2642,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
   %36 = sub i64 %21, %31
   %spec.select7.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %36, i64 -2147483648)
   %.08.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i, i64 2147483647)
-  %.0.i4.i.i.i.i = trunc i64 %.08.i.i.i.i.i to i32
+  %.0.i4.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i to i32
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclIS9_NS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclIS9_NS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i

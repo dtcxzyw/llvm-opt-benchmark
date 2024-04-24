@@ -4326,7 +4326,7 @@ define dso_local i32 @ndisc_ifinfo_sysctl_change(ptr noundef %0, i32 noundef %1,
   br i1 %78, label %79, label %86
 
 79:                                               ; preds = %72
-  %80 = load i32, ptr %74, align 4
+  %80 = load i32, ptr %77, align 4
   %81 = sext i32 %80 to i64
   %82 = tail call i64 @neigh_rand_reach_time(i64 noundef %81) #14
   %83 = trunc i64 %82 to i32

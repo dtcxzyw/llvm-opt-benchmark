@@ -60,9 +60,9 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %or.cond51, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %call20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %end.081) #14
-  %add.ptr21 = getelementptr inbounds i8, ptr %end.081, i64 %call20
-  %cmp22.not = icmp slt i64 %call20, 0
+  %call20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre82) #14
+  %add.ptr21 = getelementptr inbounds i8, ptr %.pre82, i64 %call20
+  %cmp22.not = icmp ugt ptr %end.081, %add.ptr21
   %add.ptr30 = getelementptr inbounds i8, ptr %add.ptr21, i64 1
   %spec.select = select i1 %cmp22.not, ptr %end.081, ptr %add.ptr30
   br label %for.inc
@@ -89,7 +89,7 @@ land.lhs.true45:                                  ; preds = %for.body36
   %add.ptr51 = getelementptr inbounds i8, ptr %5, i64 %call50
   %cmp52.not = icmp slt i64 %call50, 0
   %add.ptr60 = getelementptr inbounds i8, ptr %add.ptr51, i64 1
-  %spec.select53 = select i1 %cmp52.not, ptr %5, ptr %add.ptr60
+  %spec.select53 = select i1 %cmp52.not, ptr %end.270, ptr %add.ptr60
   br label %for.inc62
 
 for.inc62:                                        ; preds = %land.lhs.true45, %for.body36
@@ -101,7 +101,7 @@ for.inc62:                                        ; preds = %land.lhs.true45, %f
   br i1 %tobool35.not, label %for.end64.loopexit, label %for.body36, !llvm.loop !7
 
 for.end64.loopexit:                               ; preds = %for.inc62
-  %7 = trunc i64 %indvars.iv.next74 to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.next74 to i32
   %8 = shl i32 %7, 3
   %9 = add i32 %8, 8
   %10 = sext i32 %9 to i64
@@ -316,7 +316,7 @@ land.lhs.true:                                    ; preds = %if.else31
   br i1 %cmp35, label %if.then37, label %return
 
 if.then37:                                        ; preds = %land.lhs.true
-  store i8 32, ptr %arrayidx, align 1
+  store i8 32, ptr %4, align 1
   store i8 0, ptr %arrayidx34, align 1
   br label %return
 

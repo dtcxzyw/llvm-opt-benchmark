@@ -1431,7 +1431,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt6vectorIN10filesystem4pathESaIS1_EE9push_backEOS1_.exit
-  %31 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %.pre5, %_ZNSt6vectorIN10filesystem4pathESaIS1_EE9push_backEOS1_.exit ]
+  %31 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %.pre, %_ZNSt6vectorIN10filesystem4pathESaIS1_EE9push_backEOS1_.exit ]
   %.not.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i, label %_ZN10filesystem4pathD2Ev.exit, label %32
 
@@ -2092,7 +2092,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 43:                                               ; preds = %51, %40
   %indvars.iv = phi i64 [ %44, %51 ], [ %42, %40 ]
   %44 = add nsw i64 %indvars.iv, -1
-  %45 = trunc i64 %indvars.iv to i32
+  %45 = trunc nuw i64 %indvars.iv to i32
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %47, label %.critedge
 

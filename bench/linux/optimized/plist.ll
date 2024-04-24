@@ -64,7 +64,7 @@ define dso_local void @plist_add(ptr noundef %0, ptr noundef %1) local_unnamed_a
 .loopexit:                                        ; preds = %.preheader, %.loopexit5
   %31 = phi ptr [ %25, %.loopexit5 ], [ %1, %.preheader ]
   %32 = phi ptr [ %23, %.loopexit5 ], [ %26, %.preheader ]
-  %33 = phi ptr [ %24, %.loopexit5 ], [ %16, %.preheader ]
+  %33 = phi ptr [ %24, %.loopexit5 ], [ %29, %.preheader ]
   %34 = icmp eq ptr %32, null
   br i1 %34, label %38, label %35
 

@@ -448,7 +448,7 @@ define noundef i32 @_ZN6plic_t20context_best_pendingEPK14plic_context_t(ptr noca
   br i1 %.not30, label %19, label %._crit_edge44
 
 19:                                               ; preds = %17
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = shl nuw i32 1, %20
   %22 = and i32 %21, %13
   %.not31 = icmp eq i32 %22, 0
@@ -466,7 +466,7 @@ define noundef i32 @_ZN6plic_t20context_best_pendingEPK14plic_context_t(ptr noca
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   %27 = icmp ult i8 %.136, %.pre
   %or.cond = select i1 %.not33, i1 true, i1 %27
-  %28 = trunc i64 %18 to i32
+  %28 = trunc nuw i64 %18 to i32
   %spec.select = select i1 %or.cond, i32 %28, i32 %.12634
   %spec.select45 = select i1 %or.cond, i8 %.pre, i8 %.136
   br label %._crit_edge44
@@ -538,7 +538,7 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit.thread: ; preds = %2
   br i1 %.not30.i, label %23, label %._crit_edge44.i
 
 23:                                               ; preds = %21
-  %24 = trunc i64 %indvars.iv.i to i32
+  %24 = trunc nuw nsw i64 %indvars.iv.i to i32
   %25 = shl nuw i32 1, %24
   %26 = and i32 %25, %17
   %.not31.i = icmp eq i32 %26, 0
@@ -556,7 +556,7 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit.thread: ; preds = %2
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1
   %31 = icmp ult i8 %.136.i, %.pre.i
   %or.cond.i = select i1 %.not33.i, i1 true, i1 %31
-  %32 = trunc i64 %22 to i32
+  %32 = trunc nuw i64 %22 to i32
   %spec.select.i = select i1 %or.cond.i, i32 %32, i32 %.12634.i
   %spec.select45.i = select i1 %or.cond.i, i8 %.pre.i, i8 %.136.i
   br label %._crit_edge44.i
@@ -639,7 +639,7 @@ define noundef i32 @_ZN6plic_t13context_claimEP14plic_context_t(ptr nocapture no
   br i1 %.not30.i, label %19, label %._crit_edge44.i
 
 19:                                               ; preds = %17
-  %20 = trunc i64 %indvars.iv.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.i to i32
   %21 = shl nuw i32 1, %20
   %22 = and i32 %21, %13
   %.not31.i = icmp eq i32 %22, 0
@@ -657,7 +657,7 @@ define noundef i32 @_ZN6plic_t13context_claimEP14plic_context_t(ptr nocapture no
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1
   %27 = icmp ult i8 %.136.i, %.pre.i
   %or.cond.i = select i1 %.not33.i, i1 true, i1 %27
-  %28 = trunc i64 %18 to i32
+  %28 = trunc nuw i64 %18 to i32
   %spec.select.i = select i1 %or.cond.i, i32 %28, i32 %.12634.i
   %spec.select45.i = select i1 %or.cond.i, i8 %.pre.i, i8 %.136.i
   br label %._crit_edge44.i
@@ -735,7 +735,7 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit.thread.i: ; preds = %2,
   br i1 %.not30.i.i, label %52, label %._crit_edge44.i.i
 
 52:                                               ; preds = %50
-  %53 = trunc i64 %indvars.iv.i.i to i32
+  %53 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %54 = shl nuw i32 1, %53
   %55 = and i32 %54, %46
   %.not31.i.i = icmp eq i32 %55, 0
@@ -753,7 +753,7 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit.thread.i: ; preds = %2,
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 1
   %60 = icmp ult i8 %.136.i.i, %.pre.i.i
   %or.cond.i.i = select i1 %.not33.i.i, i1 true, i1 %60
-  %61 = trunc i64 %51 to i32
+  %61 = trunc nuw i64 %51 to i32
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %61, i32 %.12634.i.i
   %spec.select45.i.i = select i1 %or.cond.i.i, i8 %.pre.i.i, i8 %.136.i.i
   br label %._crit_edge44.i.i
@@ -941,7 +941,7 @@ define noundef zeroext i1 @_ZN6plic_t20context_enable_writeEP14plic_context_tmj(
 28:                                               ; preds = %9, %50
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %50 ]
   %29 = add nuw nsw i64 %indvars.iv, %27
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   %31 = shl nuw i32 1, %30
   %32 = getelementptr inbounds [1024 x i8], ptr %19, i64 0, i64 %29
   %33 = load i8, ptr %32, align 1
@@ -1028,7 +1028,7 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit.thread.i: ; preds = %51
   br i1 %.not30.i.i, label %68, label %._crit_edge44.i.i
 
 68:                                               ; preds = %66
-  %69 = trunc i64 %indvars.iv.i.i to i32
+  %69 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %70 = shl nuw i32 1, %69
   %71 = and i32 %70, %62
   %.not31.i.i = icmp eq i32 %71, 0
@@ -1046,7 +1046,7 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit.thread.i: ; preds = %51
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 1
   %76 = icmp ult i8 %.136.i.i, %.pre.i.i
   %or.cond.i.i = select i1 %.not33.i.i, i1 true, i1 %76
-  %77 = trunc i64 %67 to i32
+  %77 = trunc nuw i64 %67 to i32
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %77, i32 %.12634.i.i
   %spec.select45.i.i = select i1 %or.cond.i.i, i8 %.pre.i.i, i8 %.136.i.i
   br label %._crit_edge44.i.i
@@ -1129,7 +1129,7 @@ define noundef zeroext i1 @_ZN6plic_t13context_writeEP14plic_context_tmj(ptr noc
   br i1 %.not19, label %.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = trunc i32 %6 to i8
+  %10 = trunc nuw nsw i32 %6 to i8
   %11 = getelementptr inbounds i8, ptr %1, i64 9
   store i8 %10, ptr %11, align 1
   br label %31
@@ -1208,7 +1208,7 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit.thread.i: ; preds = %31
   br i1 %.not30.i.i, label %52, label %._crit_edge44.i.i
 
 52:                                               ; preds = %50
-  %53 = trunc i64 %indvars.iv.i.i to i32
+  %53 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %54 = shl nuw i32 1, %53
   %55 = and i32 %54, %46
   %.not31.i.i = icmp eq i32 %55, 0
@@ -1226,7 +1226,7 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit.thread.i: ; preds = %31
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 1
   %60 = icmp ult i8 %.136.i.i, %.pre.i.i
   %or.cond.i.i = select i1 %.not33.i.i, i1 true, i1 %60
-  %61 = trunc i64 %51 to i32
+  %61 = trunc nuw i64 %51 to i32
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %61, i32 %.12634.i.i
   %spec.select45.i.i = select i1 %or.cond.i.i, i8 %.pre.i.i, i8 %.136.i.i
   br label %._crit_edge44.i.i
@@ -1417,7 +1417,7 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit.thread.i: ; preds = %66
   br i1 %.not30.i.i, label %86, label %._crit_edge44.i.i
 
 86:                                               ; preds = %84
-  %87 = trunc i64 %indvars.iv.i.i to i32
+  %87 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %88 = shl nuw i32 1, %87
   %89 = and i32 %88, %80
   %.not31.i.i = icmp eq i32 %89, 0
@@ -1435,7 +1435,7 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit.thread.i: ; preds = %66
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 1
   %94 = icmp ult i8 %.136.i.i, %.pre.i.i
   %or.cond.i.i = select i1 %.not33.i.i, i1 true, i1 %94
-  %95 = trunc i64 %85 to i32
+  %95 = trunc nuw i64 %85 to i32
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %95, i32 %.12634.i.i
   %spec.select45.i.i = select i1 %or.cond.i.i, i8 %.pre.i.i, i8 %.136.i.i
   br label %._crit_edge44.i.i
@@ -1512,7 +1512,7 @@ define noundef zeroext i1 @_ZN6plic_t4loadEmmPh(ptr noundef nonnull align 8 dere
 
 18:                                               ; preds = %16
   %19 = lshr i64 %1, 2
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   %.not.i = icmp ne i32 %20, 0
   %21 = getelementptr inbounds i8, ptr %0, i64 40
   %22 = load i32, ptr %21, align 8
@@ -1591,7 +1591,7 @@ _ZN6plic_t12pending_readEmPj.exit:                ; preds = %46, %31, %38
 
 68:                                               ; preds = %54
   %69 = lshr i64 %57, 2
-  %70 = trunc i64 %69 to i32
+  %70 = trunc nuw nsw i64 %69 to i32
   %71 = getelementptr inbounds i8, ptr %0, i64 44
   %72 = load i32, ptr %71, align 4
   %73 = icmp ugt i32 %72, %70
@@ -1712,7 +1712,7 @@ _Z23write_little_endian_regIjEvPT_mmPKh.exit:     ; preds = %.preheader
 
 31:                                               ; preds = %_Z23write_little_endian_regIjEvPT_mmPKh.exit
   %32 = lshr i64 %1, 2
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw i64 %32 to i32
   %.not.i = icmp ne i32 %33, 0
   %34 = getelementptr inbounds i8, ptr %0, i64 40
   %35 = load i32, ptr %34, align 8
@@ -2352,7 +2352,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   %17 = sub i64 %12, %8
   %spec.select7.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %17, i64 -2147483648)
   %.08.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i.i, i64 2147483647)
-  %.0.i6.i.i.i.i.i.i = trunc i64 %.08.i.i.i.i.i.i.i to i32
+  %.0.i6.i.i.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -2387,7 +2387,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i: ; preds = %_ZNSt11char_
   %27 = sub i64 %8, %22
   %spec.select7.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %27, i64 -2147483648)
   %.08.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i, i64 2147483647)
-  %.0.i6.i.i.i = trunc i64 %.08.i.i.i.i to i32
+  %.0.i6.i.i.i = trunc nsw i64 %.08.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i
@@ -2396,7 +2396,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %28, label %.critedge, label %30
 
 .critedge:                                        ; preds = %3, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16device_factory_tSt4lessIS5_ESaISt4pairIKS5_S7_EEE11lower_boundERSB_.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
-  %.08.lcssa.i.i.i20 = phi ptr [ %6, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16device_factory_tSt4lessIS5_ESaISt4pairIKS5_S7_EEE11lower_boundERSB_.exit ], [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %6, %3 ]
+  %.08.lcssa.i.i.i20 = phi ptr [ %.19.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16device_factory_tSt4lessIS5_ESaISt4pairIKS5_S7_EEE11lower_boundERSB_.exit ], [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %6, %3 ]
   %29 = tail call ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P16device_factory_tESt10_Select1stISA_ESt4lessIS5_ESaISA_EE22_M_emplace_hint_uniqueIJRS5_P14plic_factory_tEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %30
 
@@ -2966,7 +2966,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZNSt11c
   %39 = sub i64 %31, %33
   %spec.select7.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %39, i64 -2147483648)
   %.08.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i, i64 2147483647)
-  %.0.i6.i.i.i.i.i = trunc i64 %.08.i.i.i.i.i.i to i32
+  %.0.i6.i.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
@@ -3051,7 +3051,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i: ; preds = %_ZNSt11char_
   %21 = sub i64 %13, %15
   %spec.select7.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %21, i64 -2147483648)
   %.08.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i, i64 2147483647)
-  %.0.i6.i.i.i = trunc i64 %.08.i.i.i.i to i32
+  %.0.i6.i.i.i = trunc nsw i64 %.08.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i
@@ -3128,7 +3128,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i23: ; preds = %_ZNSt11cha
   %55 = sub i64 %49, %29
   %spec.select7.i.i.i.i24 = tail call i64 @llvm.smax.i64(i64 %55, i64 -2147483648)
   %.08.i.i.i.i25 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i24, i64 2147483647)
-  %.0.i6.i.i.i26 = trunc i64 %.08.i.i.i.i25 to i32
+  %.0.i6.i.i.i26 = trunc nsw i64 %.08.i.i.i.i25 to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit27
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit27: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i20, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i23
@@ -3159,7 +3159,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i32: ; preds = %_ZNKSt4les
   %66 = sub i64 %31, %29
   %spec.select7.i.i.i.i33 = tail call i64 @llvm.smax.i64(i64 %66, i64 -2147483648)
   %.08.i.i.i.i34 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i33, i64 2147483647)
-  %.0.i6.i.i.i35 = trunc i64 %.08.i.i.i.i34 to i32
+  %.0.i6.i.i.i35 = trunc nsw i64 %.08.i.i.i.i34 to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i29, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i32
@@ -3193,7 +3193,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i41: ; preds = %_ZNSt11cha
   %81 = sub i64 %29, %75
   %spec.select7.i.i.i.i42 = tail call i64 @llvm.smax.i64(i64 %81, i64 -2147483648)
   %.08.i.i.i.i43 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i42, i64 2147483647)
-  %.0.i6.i.i.i44 = trunc i64 %.08.i.i.i.i43 to i32
+  %.0.i6.i.i.i44 = trunc nsw i64 %.08.i.i.i.i43 to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit45
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit45: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i38, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i41
@@ -3216,8 +3216,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %91
 
 91:                                               ; preds = %83, %57, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36, %68, %42, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit, %87, %61, %23
-  %.sroa.066.0 = phi ptr [ %25, %23 ], [ %63, %61 ], [ %89, %87 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %1, %42 ], [ null, %68 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %spec.select, %57 ], [ %spec.select74, %83 ]
-  %.sroa.12.0 = phi ptr [ %26, %23 ], [ %64, %61 ], [ %90, %87 ], [ %11, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %1, %42 ], [ %1, %68 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %spec.select73, %57 ], [ %spec.select75, %83 ]
+  %.sroa.066.0 = phi ptr [ %25, %23 ], [ %63, %61 ], [ %89, %87 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %44, %42 ], [ null, %68 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %spec.select, %57 ], [ %spec.select74, %83 ]
+  %.sroa.12.0 = phi ptr [ %26, %23 ], [ %64, %61 ], [ %90, %87 ], [ %11, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %44, %42 ], [ %70, %68 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %spec.select73, %57 ], [ %spec.select75, %83 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.066.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -3378,7 +3378,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i: ; preds = %_ZNSt11char_
   %15 = sub i64 %6, %10
   %spec.select7.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %15, i64 -2147483648)
   %.08.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i, i64 2147483647)
-  %.0.i6.i.i.i = trunc i64 %.08.i.i.i.i to i32
+  %.0.i6.i.i.i = trunc nsw i64 %.08.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i
@@ -3427,7 +3427,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i9: ; preds = %_ZNSt11char
   %32 = sub i64 %24, %26
   %spec.select7.i.i.i.i10 = tail call i64 @llvm.smax.i64(i64 %32, i64 -2147483648)
   %.08.i.i.i.i11 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i10, i64 2147483647)
-  %.0.i6.i.i.i12 = trunc i64 %.08.i.i.i.i11 to i32
+  %.0.i6.i.i.i12 = trunc nsw i64 %.08.i.i.i.i11 to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i6, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i9

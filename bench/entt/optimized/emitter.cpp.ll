@@ -10903,7 +10903,7 @@ cleanup.thread:                                   ; preds = %if.then.i.i, %_ZNSt
   br label %cleanup32
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit.thread
-  %16 = phi ptr [ %5, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %arrayidx.i.i.i.i, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit ]
+  %16 = phi ptr [ %5, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit ]
   %_M_finish.i.i60 = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 40
   %17 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !60
@@ -11620,7 +11620,7 @@ _ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4
   br i1 %cmp.i.i.i.not, label %cleanup.cont, label %cleanup29
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit.thread
-  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %arrayidx.i.i.i.i, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit ]
+  %6 = phi ptr [ %5, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit ]
   %_M_finish.i.i53 = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp13) #22
   store ptr %key, ptr %ref.tmp13, align 8, !tbaa !37, !alias.scope !127
@@ -12213,7 +12213,7 @@ cleanup.thread:                                   ; preds = %if.then.i.i, %_ZNSt
   br label %cleanup32
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit.thread
-  %16 = phi ptr [ %5, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %arrayidx.i.i.i.i, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit ]
+  %16 = phi ptr [ %5, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit ]
   %_M_finish.i.i60 = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 40
   %17 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !60
@@ -12980,7 +12980,7 @@ cleanup.thread:                                   ; preds = %if.then.i.i, %_ZNSt
   br label %cleanup32
 
 cleanup.cont:                                     ; preds = %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit.thread
-  %16 = phi ptr [ %5, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %arrayidx.i.i.i.i, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit ]
+  %16 = phi ptr [ %5, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %.pre, %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit ]
   %_M_finish.i.i60 = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 40
   %17 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !60

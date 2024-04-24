@@ -1960,7 +1960,7 @@ define dso_local noundef i32 @ext4_generic_delete_entry(ptr noundef %0, ptr noun
   %24 = getelementptr inbounds i8, ptr %15, i64 4
   %25 = load i16, ptr %24, align 4
   %26 = zext i16 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %27 = getelementptr inbounds i8, ptr %16, i64 4
   %28 = load i16, ptr %27, align 4
   %29 = zext i16 %28 to i32
   %30 = add nuw nsw i32 %29, %26
@@ -1982,13 +1982,13 @@ define dso_local noundef i32 @ext4_generic_delete_entry(ptr noundef %0, ptr noun
   store i16 %39, ptr %24, align 4
   %40 = load i16, ptr %27, align 4
   %41 = zext i16 %40 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 4 %1, i8 0, i64 %41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 %41, i1 false)
   br label %48
 
 42:                                               ; preds = %21
-  store i32 0, ptr %1, align 4
-  %43 = getelementptr inbounds i8, ptr %1, i64 6
-  %44 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 0, ptr %16, align 4
+  %43 = getelementptr inbounds i8, ptr %16, i64 6
+  %44 = getelementptr inbounds i8, ptr %16, i64 4
   %45 = load i16, ptr %44, align 4
   %46 = zext i16 %45 to i64
   %47 = add nsw i64 %46, -6

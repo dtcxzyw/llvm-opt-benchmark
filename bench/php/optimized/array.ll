@@ -13984,7 +13984,7 @@ define noundef i32 @php_array_merge_recursive(ptr noundef %0, ptr nocapture noun
   br i1 %35, label %51, label %.thread171
 
 51:                                               ; preds = %50
-  %52 = load ptr, ptr %.0143178, align 8
+  %52 = load ptr, ptr %25, align 8
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 1
   %.not158 = icmp eq i32 %54, 0
@@ -13995,10 +13995,14 @@ define noundef i32 @php_array_merge_recursive(ptr noundef %0, ptr nocapture noun
   br label %.loopexit
 
 56:                                               ; preds = %.thread
-  br i1 %35, label %.thread170, label %.thread171
+  br i1 %35, label %..thread170_crit_edge, label %.thread171
 
-.thread170:                                       ; preds = %51, %56
-  %57 = load ptr, ptr %25, align 8
+..thread170_crit_edge:                            ; preds = %56
+  %.pre183 = load ptr, ptr %25, align 8
+  br label %.thread170
+
+.thread170:                                       ; preds = %..thread170_crit_edge, %51
+  %57 = phi ptr [ %.pre183, %..thread170_crit_edge ], [ %52, %51 ]
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %57, i64 16
@@ -14015,7 +14019,7 @@ define noundef i32 @php_array_merge_recursive(ptr noundef %0, ptr nocapture noun
 
 66:                                               ; preds = %.thread170
   call void @_efree_32(ptr noundef nonnull %57) #18
-  %.pre183 = load i8, ptr %33, align 8
+  %.pre184 = load i8, ptr %33, align 8
   br label %.thread171
 
 67:                                               ; preds = %.thread170
@@ -14045,7 +14049,7 @@ define noundef i32 @php_array_merge_recursive(ptr noundef %0, ptr nocapture noun
   br label %thread-pre-split.sink.split
 
 .thread171:                                       ; preds = %50, %66, %74, %56
-  %81 = phi i8 [ %34, %50 ], [ %.pre183, %66 ], [ %75, %74 ], [ %34, %56 ]
+  %81 = phi i8 [ %34, %50 ], [ %.pre184, %66 ], [ %75, %74 ], [ %34, %56 ]
   %82 = icmp eq i8 %81, 7
   br i1 %82, label %83, label %94
 
@@ -14067,9 +14071,9 @@ define noundef i32 @php_array_merge_recursive(ptr noundef %0, ptr nocapture noun
 
 thread-pre-split.sink.split:                      ; preds = %87, %77
   %.sink = phi ptr [ %80, %77 ], [ %84, %87 ]
-  %.sink188 = phi i32 [ 1, %77 ], [ -1, %87 ]
+  %.sink189 = phi i32 [ 1, %77 ], [ -1, %87 ]
   %92 = load i32, ptr %.sink, align 4
-  %93 = add i32 %92, %.sink188
+  %93 = add i32 %92, %.sink189
   store i32 %93, ptr %.sink, align 4
   br label %thread-pre-split
 
@@ -14115,11 +14119,11 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
 
 110:                                              ; preds = %103, %107
   call void @convert_to_array(ptr noundef nonnull %3) #18
-  %.pre184 = load i8, ptr %9, align 8
+  %.pre185 = load i8, ptr %9, align 8
   br label %111
 
 111:                                              ; preds = %110, %99
-  %112 = phi i8 [ %.pre184, %110 ], [ %101, %99 ]
+  %112 = phi i8 [ %.pre185, %110 ], [ %101, %99 ]
   %.1147 = phi ptr [ %3, %110 ], [ %.0146, %99 ]
   %113 = icmp eq i8 %112, 7
   br i1 %113, label %114, label %135
@@ -14607,7 +14611,7 @@ define noundef i32 @php_array_replace_recursive(ptr noundef %0, ptr nocapture no
   br i1 %78, label %79, label %.thread
 
 79:                                               ; preds = %75
-  %80 = load i32, ptr %76, align 4
+  %80 = load i32, ptr %77, align 4
   %81 = and i32 %80, 1
   %.not152 = icmp eq i32 %81, 0
   br i1 %.not152, label %.thread, label %82
@@ -14624,7 +14628,7 @@ define noundef i32 @php_array_replace_recursive(ptr noundef %0, ptr nocapture no
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %79, %75
-  %84 = phi ptr [ %.pre, %..thread_crit_edge ], [ %76, %79 ], [ %77, %75 ]
+  %84 = phi ptr [ %.pre, %..thread_crit_edge ], [ %77, %79 ], [ %77, %75 ]
   %85 = getelementptr inbounds i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %84, i64 16
@@ -17313,7 +17317,7 @@ define internal fastcc ptr @array_column_fetch_prop(ptr nocapture noundef readon
   br label %56
 
 56:                                               ; preds = %34, %52, %49, %48, %27
-  %.1 = phi ptr [ %.077, %52 ], [ %.077, %49 ], [ %4, %48 ], [ null, %34 ], [ null, %27 ]
+  %.1 = phi ptr [ %.077, %52 ], [ %.077, %49 ], [ %.077, %48 ], [ null, %34 ], [ null, %27 ]
   %57 = getelementptr inbounds i8, ptr %.0, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 64

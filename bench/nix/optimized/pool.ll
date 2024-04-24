@@ -4931,7 +4931,7 @@ _ZNSt6vectorIN3nix3refINS0_12TestResourceEEESaIS3_EE9push_backERKS3_.exit: ; pre
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN3nix4SyncINS_4PoolINS_12TestResourceEE5StateESt5mutexE4lockEv.exit
   %45 = phi ptr [ %.pre23, %._crit_edge.loopexit ], [ null, %_ZN3nix4SyncINS_4PoolINS_12TestResourceEE5StateESt5mutexE4lockEv.exit ]
-  %46 = phi ptr [ %.pre19, %._crit_edge.loopexit ], [ %7, %_ZN3nix4SyncINS_4PoolINS_12TestResourceEE5StateESt5mutexE4lockEv.exit ]
+  %46 = phi ptr [ %.pre19, %._crit_edge.loopexit ], [ %9, %_ZN3nix4SyncINS_4PoolINS_12TestResourceEE5StateESt5mutexE4lockEv.exit ]
   %47 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %7, %_ZN3nix4SyncINS_4PoolINS_12TestResourceEE5StateESt5mutexE4lockEv.exit ]
   %48 = phi <2 x ptr> [ %44, %._crit_edge.loopexit ], [ zeroinitializer, %_ZN3nix4SyncINS_4PoolINS_12TestResourceEE5StateESt5mutexE4lockEv.exit ]
   %49 = getelementptr inbounds i8, ptr %0, i64 136
@@ -5031,7 +5031,7 @@ _ZSt8_DestroyIPN3nix3refINS0_12TestResourceEEES3_EvT_S5_RSaIT0_E.exitthread-pre-
   br label %_ZSt8_DestroyIPN3nix3refINS0_12TestResourceEEES3_EvT_S5_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN3nix3refINS0_12TestResourceEEES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN3nix3refINS0_12TestResourceEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, %._crit_edge
-  %90 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3nix3refINS0_12TestResourceEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %46, %._crit_edge ]
+  %90 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3nix3refINS0_12TestResourceEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %47, %._crit_edge ]
   %.not.i.i.i8 = icmp eq ptr %90, null
   br i1 %.not.i.i.i8, label %_ZN3nix4SyncINS_4PoolINS_12TestResourceEE5StateESt5mutexE4LockD2Ev.exit10, label %91
 

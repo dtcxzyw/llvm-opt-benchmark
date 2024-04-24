@@ -103796,7 +103796,7 @@ define void @_ZN9ockam_api4util22try_route_to_multiaddr17he2a07664b5e9ae29E(ptr 
 
 20:                                               ; preds = %16, %12
   %.sroa.11.1 = phi ptr [ %.sroa.735.0, %16 ], [ %.sroa.11.0, %12 ]
-  %.sroa.936.1 = phi ptr [ %.sroa.735.0, %16 ], [ %.sroa.936.0, %12 ]
+  %.sroa.936.1 = phi ptr [ %.sroa.0.037, %16 ], [ %.sroa.936.0, %12 ]
   %.sroa.735.1 = phi ptr [ %.sroa.11.0, %16 ], [ %.sroa.735.0, %12 ]
   %.sink6.i = phi ptr [ %.sroa.936.0, %16 ], [ %.sroa.0.037, %12 ]
   %21 = getelementptr inbounds i8, ptr %.sink6.i, i64 32

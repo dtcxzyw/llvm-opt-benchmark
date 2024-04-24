@@ -2078,7 +2078,7 @@ define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
   br label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h20268f30cece8a4aE.exit.thread"
 
 "_ZN17cranelift_codegen2ir7extfunc9Signature19special_param_index28_$u7b$$u7b$closure$u7d$$u7d$17h54d2046260933371E.exit._ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h20268f30cece8a4aE.exit.thread.loopexit_crit_edge": ; preds = %"_ZN17cranelift_codegen2ir7extfunc9Signature19special_param_index28_$u7b$$u7b$closure$u7d$$u7d$17h54d2046260933371E.exit.backedge"
-  store ptr %5, ptr %3, align 8, !alias.scope !548
+  store ptr %17, ptr %3, align 8, !alias.scope !548
   br label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h20268f30cece8a4aE.exit.thread"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h20268f30cece8a4aE.exit.thread": ; preds = %2, %"_ZN17cranelift_codegen2ir7extfunc9Signature19special_param_index28_$u7b$$u7b$closure$u7d$$u7d$17h54d2046260933371E.exit._ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h20268f30cece8a4aE.exit.thread.loopexit_crit_edge", %"_ZN17cranelift_codegen2ir7extfunc9Signature19special_param_index28_$u7b$$u7b$closure$u7d$$u7d$17h54d2046260933371E.exit.thread"
@@ -2135,7 +2135,7 @@ define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
   br label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h20268f30cece8a4aE.exit.thread"
 
 "_ZN17cranelift_codegen2ir7extfunc9Signature20special_return_index28_$u7b$$u7b$closure$u7d$$u7d$17h1069b4dab7d7f8dcE.exit._ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h20268f30cece8a4aE.exit.thread.loopexit_crit_edge": ; preds = %"_ZN17cranelift_codegen2ir7extfunc9Signature20special_return_index28_$u7b$$u7b$closure$u7d$$u7d$17h1069b4dab7d7f8dcE.exit.backedge"
-  store ptr %5, ptr %3, align 8, !alias.scope !553
+  store ptr %17, ptr %3, align 8, !alias.scope !553
   br label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h20268f30cece8a4aE.exit.thread"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h20268f30cece8a4aE.exit.thread": ; preds = %2, %"_ZN17cranelift_codegen2ir7extfunc9Signature20special_return_index28_$u7b$$u7b$closure$u7d$$u7d$17h1069b4dab7d7f8dcE.exit._ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h20268f30cece8a4aE.exit.thread.loopexit_crit_edge", %"_ZN17cranelift_codegen2ir7extfunc9Signature20special_return_index28_$u7b$$u7b$closure$u7d$$u7d$17h1069b4dab7d7f8dcE.exit.thread"

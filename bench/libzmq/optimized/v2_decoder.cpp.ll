@@ -512,7 +512,7 @@ if.then3:                                         ; preds = %do.body
 
 do.end:                                           ; preds = %do.body, %if.then3
   %4 = phi i64 [ %1, %do.body ], [ %.pre38, %if.then3 ]
-  %5 = phi ptr [ %data_, %do.body ], [ %.pre37, %if.then3 ]
+  %5 = phi ptr [ %0, %do.body ], [ %.pre37, %if.then3 ]
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %size_
   store ptr %add.ptr, ptr %_read_pos, align 8
   %sub = sub i64 %4, %size_

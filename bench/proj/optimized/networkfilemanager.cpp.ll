@@ -4691,7 +4691,7 @@ _ZSt7advanceIPKhmEvRT_T0_.exit.i.i:               ; preds = %22
   br label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit18.i.i
 
 _ZSt4copyIPKhPhET0_T_S4_S3_.exit18.i.i:           ; preds = %34, %_ZSt7advanceIPKhmEvRT_T0_.exit.i.i
-  %35 = phi ptr [ %9, %_ZSt7advanceIPKhmEvRT_T0_.exit.i.i ], [ %.pre26.i.i, %34 ]
+  %35 = phi ptr [ %24, %_ZSt7advanceIPKhmEvRT_T0_.exit.i.i ], [ %.pre26.i.i, %34 ]
   %36 = sub i64 %4, %33
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %32, %2
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i.i, label %37
@@ -11805,7 +11805,7 @@ _ZNKSt8__detail15_Hash_code_baseIN5osgeo4proj17NetworkChunkCache3KeyESt4pairIKS4
 
 44:                                               ; preds = %38
   %45 = getelementptr inbounds ptr, ptr %32, i64 %43
-  store ptr %.015, ptr %45, align 8
+  store ptr %34, ptr %45, align 8
   %.pre.i = load ptr, ptr %0, align 8
   %.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %.016
   %.pre25.i = load ptr, ptr %.phi.trans.insert.i, align 8
@@ -11820,7 +11820,7 @@ _ZNKSt8__detail15_Hash_code_baseIN5osgeo4proj17NetworkChunkCache3KeyESt4pairIKS4
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %.thread23.i
-  store ptr %36, ptr %46, align 8
+  store ptr %36, ptr %48, align 8
   br label %52
 
 52:                                               ; preds = %51, %.thread23.i
@@ -12756,7 +12756,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 51:                                               ; preds = %45
   %52 = getelementptr inbounds ptr, ptr %39, i64 %50
-  store ptr %.015, ptr %52, align 8
+  store ptr %41, ptr %52, align 8
   %.pre.i = load ptr, ptr %0, align 8
   %.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %.016
   %.pre25.i = load ptr, ptr %.phi.trans.insert.i, align 8

@@ -717,7 +717,7 @@ if.then27:                                        ; preds = %if.end24
   %sub.ptr.lhs.cast28 = ptrtoint ptr %call19 to i64
   %sub.ptr.rhs.cast29 = ptrtoint ptr %hostserv to i64
   %sub.ptr.sub30 = sub i64 %sub.ptr.lhs.cast28, %sub.ptr.rhs.cast29
-  %incdec.ptr31 = getelementptr inbounds i8, ptr %call19, i64 1
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %call20, i64 1
   br label %land.lhs.true.sink.split
 
 if.else33:                                        ; preds = %if.end24

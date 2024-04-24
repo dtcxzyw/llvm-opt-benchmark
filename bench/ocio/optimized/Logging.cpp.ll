@@ -909,7 +909,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont2, %invoke.contthread-pre-split.i, %for.end
-  %9 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre14, %for.end ], [ %2, %invoke.cont2 ]
+  %9 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %for.end ], [ %2, %invoke.cont2 ]
   %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 

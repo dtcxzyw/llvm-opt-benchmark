@@ -546,7 +546,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt6thread2idESt4pairIKS1_NSt7_
   br i1 %18, label %._crit_edge.thread.i, label %24
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %14
-  %.021.lcssa30.i = phi ptr [ %.02226.i, %._crit_edge.i ], [ %1, %14 ]
+  %.021.lcssa30.i = phi ptr [ %.02226.i, %._crit_edge.i ], [ %4, %14 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %.021.lcssa30.i, %20
@@ -705,8 +705,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt6thread2idESt4pairIKS1_NSt7_
   br label %_ZNSt8_Rb_treeINSt6thread2idESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE24_M_get_insert_unique_posERS3_.exit
 
 _ZNSt8_Rb_treeINSt6thread2idESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE24_M_get_insert_unique_posERS3_.exit: ; preds = %73, %._crit_edge.thread.i63, %48, %._crit_edge.thread.i35, %24, %._crit_edge.thread.i, %60, %37, %50, %52, %29, %9
-  %.sroa.086.0 = phi ptr [ null, %9 ], [ %1, %29 ], [ null, %52 ], [ %1, %50 ], [ %spec.select, %37 ], [ %spec.select88, %60 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %24 ], [ null, %._crit_edge.thread.i35 ], [ %spec.select.i29, %48 ], [ null, %._crit_edge.thread.i63 ], [ %spec.select.i57, %73 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %1, %29 ], [ %1, %52 ], [ null, %50 ], [ %spec.select87, %37 ], [ %spec.select89, %60 ], [ %.021.lcssa30.i, %._crit_edge.thread.i ], [ %spec.select23.i, %24 ], [ %31, %._crit_edge.thread.i35 ], [ %spec.select23.i30, %48 ], [ %.021.lcssa30.i64, %._crit_edge.thread.i63 ], [ %spec.select23.i58, %73 ]
+  %.sroa.086.0 = phi ptr [ null, %9 ], [ %31, %29 ], [ null, %52 ], [ %1, %50 ], [ %spec.select, %37 ], [ %spec.select88, %60 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %24 ], [ null, %._crit_edge.thread.i35 ], [ %spec.select.i29, %48 ], [ null, %._crit_edge.thread.i63 ], [ %spec.select.i57, %73 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %31, %29 ], [ %54, %52 ], [ null, %50 ], [ %spec.select87, %37 ], [ %spec.select89, %60 ], [ %.021.lcssa30.i, %._crit_edge.thread.i ], [ %spec.select23.i, %24 ], [ %.021.lcssa30.i36, %._crit_edge.thread.i35 ], [ %spec.select23.i30, %48 ], [ %.021.lcssa30.i64, %._crit_edge.thread.i63 ], [ %spec.select23.i58, %73 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.086.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

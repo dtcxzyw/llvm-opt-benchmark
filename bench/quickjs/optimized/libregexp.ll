@@ -573,7 +573,7 @@ declare i32 @dbuf_putc(ptr noundef, i8 noundef zeroext) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @re_emit_op_u32(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
-  %5 = trunc i32 %1 to i8
+  %5 = trunc nuw nsw i32 %1 to i8
   %6 = tail call i32 @dbuf_putc(ptr noundef %0, i8 noundef zeroext %5) #17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %2, ptr %4, align 4
@@ -815,10 +815,10 @@ declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @re_parse_error(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #5 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 128, ptr noundef %1, ptr noundef nonnull %3) #17
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1615,7 +1615,7 @@ is_line_terminator.exit747.thread:                ; preds = %655, %602, %545, %4
   br label %push_state.exit.thread.backedge
 
 push_state.exit.thread.backedge:                  ; preds = %.lr.ph51.i781, %.preheader835, %.preheader, %.lr.ph51.i731, %.lr.ph51.i, %.lr.ph.preheader, %334, %311, %289, %289, %289, %289, %267, %267, %267, %267, %323, %._crit_edge.i779, %._crit_edge.i729, %._crit_edge.i, %672, %666, %317, %693, %664, %439, %431, %370, %355, %362, %315, %268, %243, %148, %.thread790, %109, %._crit_edge881, %656, %.loopexit, %365, %353, %347, %327, %239
-  %.0515.be = phi ptr [ %53, %.thread790 ], [ %.1516.lcssa, %109 ], [ %.1516.lcssa, %._crit_edge881 ], [ %.us-phi, %693 ], [ %665, %664 ], [ %.10, %656 ], [ %.9, %.loopexit ], [ %.0515, %439 ], [ %.0515, %431 ], [ %.0515, %370 ], [ %.0515, %365 ], [ %.0515, %362 ], [ %.0515, %355 ], [ %.0515, %353 ], [ %.0515, %347 ], [ %.0515, %327 ], [ %316, %315 ], [ %11, %268 ], [ %.0515, %243 ], [ %.0515, %239 ], [ %.3518, %148 ], [ %318, %317 ], [ %667, %666 ], [ %spec.select696, %672 ], [ %.0515, %._crit_edge.i ], [ %.0515, %._crit_edge.i729 ], [ %.0515, %267 ], [ %.0515, %267 ], [ %.0515, %267 ], [ %.0515, %289 ], [ %.0515, %289 ], [ %.0515, %289 ], [ %.us-phi, %._crit_edge.i779 ], [ %spec.select812, %323 ], [ %.0515, %267 ], [ %.0515, %289 ], [ %.4, %311 ], [ %.0515, %334 ], [ %.0515, %.lr.ph.preheader ], [ %.0515, %.lr.ph51.i ], [ %.0515, %.lr.ph51.i731 ], [ %.5, %.preheader ], [ %.7, %.preheader835 ], [ %.us-phi, %.lr.ph51.i781 ]
+  %.0515.be = phi ptr [ %53, %.thread790 ], [ %.1516.lcssa, %109 ], [ %.1516.lcssa, %._crit_edge881 ], [ %.us-phi, %693 ], [ %665, %664 ], [ %.10, %656 ], [ %.9, %.loopexit ], [ %.0515, %439 ], [ %.0515, %431 ], [ %.0515, %370 ], [ %.0515, %365 ], [ %.0515, %362 ], [ %.0515, %355 ], [ %.0515, %353 ], [ %.0515, %347 ], [ %.0515, %327 ], [ %316, %315 ], [ %.0515, %268 ], [ %.0515, %243 ], [ %.0515, %239 ], [ %.3518, %148 ], [ %318, %317 ], [ %667, %666 ], [ %spec.select696, %672 ], [ %.0515, %._crit_edge.i ], [ %.0515, %._crit_edge.i729 ], [ %.0515, %267 ], [ %.0515, %267 ], [ %.0515, %267 ], [ %.0515, %289 ], [ %.0515, %289 ], [ %.0515, %289 ], [ %.us-phi, %._crit_edge.i779 ], [ %spec.select812, %323 ], [ %.0515, %267 ], [ %.0515, %289 ], [ %.4, %311 ], [ %.0515, %334 ], [ %.0515, %.lr.ph.preheader ], [ %.0515, %.lr.ph51.i ], [ %.0515, %.lr.ph51.i731 ], [ %.5, %.preheader ], [ %.7, %.preheader835 ], [ %.us-phi, %.lr.ph51.i781 ]
   %.0513.be = phi ptr [ %51, %.thread790 ], [ %104, %109 ], [ %104, %._crit_edge881 ], [ %681, %693 ], [ %22, %664 ], [ %659, %656 ], [ %605, %.loopexit ], [ %435, %439 ], [ %22, %431 ], [ %22, %370 ], [ %22, %365 ], [ %364, %362 ], [ %356, %355 ], [ %22, %353 ], [ %348, %347 ], [ %328, %327 ], [ %22, %315 ], [ %22, %268 ], [ %22, %243 ], [ %242, %239 ], [ %123, %148 ], [ %22, %317 ], [ %22, %666 ], [ %22, %672 ], [ %.2, %._crit_edge.i ], [ %195, %._crit_edge.i729 ], [ %22, %267 ], [ %22, %267 ], [ %22, %267 ], [ %22, %289 ], [ %22, %289 ], [ %22, %289 ], [ %681, %._crit_edge.i779 ], [ %22, %323 ], [ %22, %267 ], [ %22, %289 ], [ %22, %311 ], [ %338, %334 ], [ %338, %.lr.ph.preheader ], [ %.2, %.lr.ph51.i ], [ %195, %.lr.ph51.i731 ], [ %435, %.preheader ], [ %435, %.preheader835 ], [ %681, %.lr.ph51.i781 ]
   %.0510.be = phi i32 [ %56, %.thread790 ], [ %75, %109 ], [ %75, %._crit_edge881 ], [ %.0510, %693 ], [ %.0510, %664 ], [ %.0510, %656 ], [ %.0510, %.loopexit ], [ %.0510, %439 ], [ %.0510, %431 ], [ %371, %370 ], [ %367, %365 ], [ %.0510, %362 ], [ %.0510, %355 ], [ %354, %353 ], [ %350, %347 ], [ %.0510, %327 ], [ %.0510, %315 ], [ %.0510, %268 ], [ %.0510, %243 ], [ %.0510, %239 ], [ %.0510, %148 ], [ %.0510, %317 ], [ %.0510, %666 ], [ %.0510, %672 ], [ 0, %._crit_edge.i ], [ 0, %._crit_edge.i729 ], [ %.0510, %267 ], [ %.0510, %267 ], [ %.0510, %267 ], [ %.0510, %289 ], [ %.0510, %289 ], [ %.0510, %289 ], [ 0, %._crit_edge.i779 ], [ %.0510, %323 ], [ %.0510, %267 ], [ %.0510, %289 ], [ %.0510, %311 ], [ %.0510, %334 ], [ %.0510, %.lr.ph.preheader ], [ %.0510, %.lr.ph51.i ], [ %.0510, %.lr.ph51.i731 ], [ %.0510, %.preheader ], [ %.0510, %.preheader835 ], [ %.0510, %.lr.ph51.i781 ]
   br label %push_state.exit.thread
@@ -2968,7 +2968,7 @@ re_parse_expect.exit412:                          ; preds = %159
 
 parse_digits.exit418:                             ; preds = %237
   store ptr %238, ptr %13, align 8
-  %241 = trunc i64 %235 to i32
+  %241 = trunc nuw i64 %235 to i32
   %242 = getelementptr inbounds i8, ptr %0, i64 88
   %243 = load i32, ptr %242, align 8
   %.not336 = icmp sgt i32 %243, %241
@@ -3403,7 +3403,7 @@ parse_digits.exit435:                             ; preds = %.lr.ph.split.i425, 
   %438 = phi i8 [ %421, %428 ], [ %436, %.lr.ph.split.i425 ]
   %.014.lcssa.i431 = phi ptr [ %420, %428 ], [ %435, %.lr.ph.split.i425 ]
   %.013.lcssa.i432 = phi i64 [ 0, %428 ], [ %spec.select.i428, %.lr.ph.split.i425 ]
-  %439 = trunc i64 %.013.lcssa.i432 to i32
+  %439 = trunc nuw nsw i64 %.013.lcssa.i432 to i32
   %440 = icmp eq i8 %438, 44
   br i1 %440, label %441, label %460
 
@@ -3444,7 +3444,7 @@ parse_digits.exit448:                             ; preds = %.lr.ph.split.i438, 
   br i1 %457, label %459, label %parse_digits.exit448._crit_edge
 
 parse_digits.exit448._crit_edge:                  ; preds = %parse_digits.exit448
-  %458 = trunc i64 %.013.lcssa.i445 to i32
+  %458 = trunc nuw nsw i64 %.013.lcssa.i445 to i32
   %.pre515 = load i8, ptr %.014.lcssa.i444, align 1
   br label %460
 
@@ -3629,7 +3629,7 @@ re_parse_expect.exit451:                          ; preds = %463
   br i1 %.not384, label %552, label %668
 
 552:                                              ; preds = %549
-  %553 = trunc i32 %.0316489 to i8
+  %553 = trunc nuw nsw i32 %.0316489 to i8
   %554 = or disjoint i8 %553, 8
   %555 = load ptr, ptr %0, align 8
   %556 = sext i32 %.2309 to i64
@@ -3679,7 +3679,7 @@ re_parse_expect.exit451:                          ; preds = %463
   %583 = getelementptr i8, ptr %581, i64 %582
   store i32 %.1313, ptr %583, align 1
   %584 = add nuw i32 %.2309, 5
-  %585 = trunc i32 %.0316489 to i8
+  %585 = trunc nuw nsw i32 %.0316489 to i8
   %586 = or disjoint i8 %585, 8
   %587 = load ptr, ptr %0, align 8
   %588 = add nuw i32 %.2309, 6
@@ -3719,7 +3719,7 @@ re_parse_expect.exit451:                          ; preds = %463
   br i1 %or.cond7, label %617, label %609
 
 609:                                              ; preds = %605
-  %610 = trunc i32 %.0316489 to i8
+  %610 = trunc nuw nsw i32 %.0316489 to i8
   %611 = sub nuw nsw i8 9, %610
   %612 = call i32 @dbuf_putc(ptr noundef nonnull %0, i8 noundef zeroext %611) #17
   %613 = load i64, ptr %520, align 8
@@ -3974,7 +3974,7 @@ lre_js_is_ident_next.exit:                        ; preds = %45, %53
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %63
-  %66 = trunc i32 %.02837 to i8
+  %66 = trunc nuw nsw i32 %.02837 to i8
   %67 = getelementptr i8, ptr %.0, i64 1
   store i8 %66, ptr %.0, align 1
   br label %72
@@ -5021,7 +5021,7 @@ define internal fastcc noundef i32 @re_emit_range(ptr noundef %0, ptr nocapture 
 30:                                               ; preds = %27, %19
   %.0 = phi i32 [ %29, %27 ], [ %25, %19 ]
   %31 = icmp ult i32 %.0, 65536
-  %32 = trunc i32 %11 to i16
+  %32 = trunc nuw i32 %11 to i16
   br i1 %31, label %33, label %57
 
 33:                                               ; preds = %30
@@ -5235,7 +5235,7 @@ define internal fastcc i32 @re_need_check_advance(ptr nocapture noundef readonly
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @re_emit_goto(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
-  %5 = trunc i32 %1 to i8
+  %5 = trunc nuw nsw i32 %1 to i8
   %6 = tail call i32 @dbuf_putc(ptr noundef %0, i8 noundef zeroext %5) #17
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
@@ -5278,17 +5278,17 @@ declare i32 @unicode_general_category(ptr noundef, ptr noundef) local_unnamed_ad
 
 declare i32 @unicode_prop(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #13
+declare void @abort() local_unnamed_addr #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
@@ -5322,9 +5322,9 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

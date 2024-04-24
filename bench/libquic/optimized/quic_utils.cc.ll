@@ -220,7 +220,7 @@ for.body.i.i.i:                                   ; preds = %entry, %for.body.i.
 
 for.end.loopexit.i.i.i:                           ; preds = %for.body.i.i.i
   %extract6.i.i.i = lshr i128 %mul.i.i.i, 64
-  %extract.t7.i.i.i = trunc i128 %extract6.i.i.i to i64
+  %extract.t7.i.i.i = trunc nuw i128 %extract6.i.i.i to i64
   %extract.t4.i.i.i = trunc i128 %mul.i.i.i to i64
   br label %_ZN3net9QuicUtils18FNV1a_128_Hash_TwoEPKciS2_i.exit
 
@@ -254,7 +254,7 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
 
 for.end.loopexit.i.i:                             ; preds = %for.body.i.i
   %extract6.i.i = lshr i128 %mul.i.i, 64
-  %extract.t7.i.i = trunc i128 %extract6.i.i to i64
+  %extract.t7.i.i = trunc nuw i128 %extract6.i.i to i64
   %extract.t4.i.i = trunc i128 %mul.i.i to i64
   br label %_ZN3net12_GLOBAL__N_115IncrementalHashENS_7uint128EPKcm.exit
 
@@ -290,7 +290,7 @@ for.body.i.i15:                                   ; preds = %for.body.i.i15, %fo
 
 for.end.loopexit.i.i24:                           ; preds = %for.body.i.i15
   %extract6.i.i25 = lshr i128 %mul.i.i21, 64
-  %extract.t7.i.i26 = trunc i128 %extract6.i.i25 to i64
+  %extract.t7.i.i26 = trunc nuw i128 %extract6.i.i25 to i64
   %extract.t4.i.i27 = trunc i128 %mul.i.i21 to i64
   br label %return
 
@@ -1151,7 +1151,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3net9QuicFrameESt6vectorIS3_SaIS3_EEE
   br label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.exit
 
 _ZNSt6vectorIN3net9QuicFrameESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.exit: ; preds = %delete.end, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3net9QuicFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i
-  %10 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3net9QuicFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i ], [ %add.ptr.i.i.i, %delete.end ]
+  %10 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3net9QuicFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i ], [ %9, %delete.end ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 -16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   br label %while.cond.backedge
@@ -1449,18 +1449,18 @@ if.then.i.i.i:                                    ; preds = %cleanup
 ehcleanup:                                        ; preds = %lpad16, %lpad9.body, %lpad4, %lpad2
   %.pn = phi { ptr, i32 } [ %eh.lpad-body11, %lpad9.body ], [ %9, %lpad16 ], [ %5, %lpad4 ], [ %4, %lpad2 ]
   %11 = load ptr, ptr %v, align 8
-  %tobool.not.i.i.i13 = icmp eq ptr %11, null
-  br i1 %tobool.not.i.i.i13, label %eh.resume, label %if.then.i.i.i14
+  %tobool.not.i.i.i14 = icmp eq ptr %11, null
+  br i1 %tobool.not.i.i.i14, label %eh.resume, label %if.then.i.i.i15
 
-if.then.i.i.i14:                                  ; preds = %ehcleanup
+if.then.i.i.i15:                                  ; preds = %ehcleanup
   call void @_ZdlPv(ptr noundef nonnull %11) #22
   br label %eh.resume
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %invoke.cont
   ret void
 
-eh.resume:                                        ; preds = %if.then.i.i.i14, %ehcleanup, %lpad.body
-  %.pn2 = phi { ptr, i32 } [ %eh.lpad-body, %lpad.body ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i14 ]
+eh.resume:                                        ; preds = %if.then.i.i.i15, %ehcleanup, %lpad.body
+  %.pn2 = phi { ptr, i32 } [ %eh.lpad-body, %lpad.body ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i15 ]
   resume { ptr, i32 } %.pn2
 }
 

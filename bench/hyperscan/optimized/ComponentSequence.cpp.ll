@@ -546,7 +546,7 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
-  %7 = phi ptr [ %.pre28, %for.end.loopexit ], [ %1, %if.end ]
+  %7 = phi ptr [ %.pre28, %for.end.loopexit ], [ %2, %if.end ]
   %8 = phi ptr [ %.pre, %for.end.loopexit ], [ %1, %if.end ]
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %8 to i64
@@ -1252,19 +1252,20 @@ for.end:                                          ; preds = %invoke.cont12
   br i1 %cmp.i.i, label %do.end, label %do.end23
 
 do.end:                                           ; preds = %entry, %for.end
-  %11 = phi ptr [ %.pre29, %for.end ], [ null, %entry ]
+  %11 = phi ptr [ %.pre, %for.end ], [ null, %entry ]
+  %12 = phi ptr [ %.pre29, %for.end ], [ null, %entry ]
   %_M_finish.i.i33 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %12 = load i32, ptr @_ZN3ue218GlushkovBuildState11POS_EPSILONE, align 4
+  %13 = load i32, ptr @_ZN3ue218GlushkovBuildState11POS_EPSILONE, align 4
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %13 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %11, %13
+  %14 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %12, %14
   br i1 %cmp.not.i.i, label %cond.true.i.i.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %do.end
-  %ref.tmp17.sroa.0.0.insert.ext = zext i32 %12 to i64
-  store i64 %ref.tmp17.sroa.0.0.insert.ext, ptr %11, align 4
-  %14 = load ptr, ptr %_M_finish.i.i33, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %ref.tmp17.sroa.0.0.insert.ext = zext i32 %13 to i64
+  store i64 %ref.tmp17.sroa.0.0.insert.ext, ptr %12, align 4
+  %15 = load ptr, ptr %_M_finish.i.i33, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i33, align 8
   br label %do.end23
 
@@ -1273,10 +1274,10 @@ cond.true.i.i.i.i:                                ; preds = %do.end
           to label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i unwind label %lpad.loopexit.split-lp
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i: ; preds = %cond.true.i.i.i.i
-  %ref.tmp17.sroa.0.0.insert.ext15 = zext i32 %12 to i64
+  %ref.tmp17.sroa.0.0.insert.ext15 = zext i32 %13 to i64
   store i64 %ref.tmp17.sroa.0.0.insert.ext15, ptr %call5.i.i.i.i.i.i10, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i10, i64 8
-  %tobool.not.i.i.i.i = icmp eq ptr %11, null
+  %tobool.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
 if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i
@@ -1290,12 +1291,12 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx
   br label %do.end23
 
 do.end23:                                         ; preds = %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %if.then.i.i, %for.end
-  %15 = load ptr, ptr %subfirsts, align 16
-  %tobool.not.i.i.i11 = icmp eq ptr %15, null
+  %16 = load ptr, ptr %subfirsts, align 16
+  %tobool.not.i.i.i11 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i11, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit13, label %if.then.i.i.i12
 
 if.then.i.i.i12:                                  ; preds = %do.end23
-  call void @_ZdlPv(ptr noundef nonnull %15) #15
+  call void @_ZdlPv(ptr noundef nonnull %16) #15
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit13
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit13: ; preds = %do.end23, %if.then.i.i.i12
@@ -2519,18 +2520,18 @@ entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %children, align 8
-  %cmp1319.not = icmp eq ptr %0, %1
-  br i1 %cmp1319.not, label %for.end, label %do.end3.lr.ph
+  %cmp1318.not = icmp eq ptr %0, %1
+  br i1 %cmp1318.not, label %for.end, label %do.end3.lr.ph
 
 do.end3.lr.ph:                                    ; preds = %entry, %if.end
   %2 = phi ptr [ %22, %if.end ], [ %1, %entry ]
-  %conv22 = phi i64 [ %conv, %if.end ], [ 0, %entry ]
-  %connected_to_sds.addr.0.ph21.in = phi i1 [ %20, %if.end ], [ %connected_to_sds, %entry ]
-  %i.0.ph20 = phi i32 [ %inc, %if.end ], [ 0, %entry ]
-  br i1 %connected_to_sds.addr.0.ph21.in, label %do.end3, label %do.end3.lr.ph.split.us
+  %conv21 = phi i64 [ %conv, %if.end ], [ 0, %entry ]
+  %connected_to_sds.addr.0.ph20 = phi i1 [ %20, %if.end ], [ %connected_to_sds, %entry ]
+  %i.0.ph19 = phi i32 [ %inc, %if.end ], [ 0, %entry ]
+  br i1 %connected_to_sds.addr.0.ph20, label %do.end3, label %do.end3.lr.ph.split.us
 
 do.end3.lr.ph.split.us:                           ; preds = %do.end3.lr.ph
-  %add.ptr.i.us = getelementptr inbounds %"class.std::unique_ptr.5", ptr %2, i64 %conv22
+  %add.ptr.i.us = getelementptr inbounds %"class.std::unique_ptr.5", ptr %2, i64 %conv21
   %3 = load ptr, ptr %add.ptr.i.us, align 8
   %vtable.us = load ptr, ptr %3, align 8
   %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 80
@@ -2544,7 +2545,7 @@ do.end3.lr.ph.split.us:                           ; preds = %do.end3.lr.ph
 
 do.end3:                                          ; preds = %do.end3.lr.ph, %_ZNSt6vectorISt10unique_ptrIN3ue29ComponentESt14default_deleteIS2_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit
   %6 = phi ptr [ %19, %_ZNSt6vectorISt10unique_ptrIN3ue29ComponentESt14default_deleteIS2_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ], [ %2, %do.end3.lr.ph ]
-  %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.5", ptr %6, i64 %conv22
+  %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.5", ptr %6, i64 %conv21
   %7 = load ptr, ptr %add.ptr.i, align 8
   %vtable = load ptr, ptr %7, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
@@ -2558,7 +2559,7 @@ do.end3:                                          ; preds = %do.end3.lr.ph, %_ZN
 
 do.end15:                                         ; preds = %do.end3
   %10 = load ptr, ptr %children, align 8
-  %add.ptr.i8 = getelementptr inbounds %"class.std::unique_ptr.5", ptr %10, i64 %conv22
+  %add.ptr.i8 = getelementptr inbounds %"class.std::unique_ptr.5", ptr %10, i64 %conv21
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i8, i64 8
   %11 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %add.ptr.i.i.i, %11
@@ -2602,7 +2603,7 @@ if.end.loopexit.i.i:                              ; preds = %_ZNSt10unique_ptrIN
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.loopexit.i.i, %if.then.i.i, %do.end15
-  %15 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %11, %if.then.i.i ], [ %add.ptr.i.i.i, %do.end15 ]
+  %15 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %11, %if.then.i.i ], [ %11, %do.end15 ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 -8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %16 = load ptr, ptr %incdec.ptr.i.i, align 8
@@ -2624,13 +2625,13 @@ _ZNSt6vectorISt10unique_ptrIN3ue29ComponentESt14default_deleteIS2_EESaIS5_EE5era
   %sub.ptr.rhs.cast.i = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp ugt i64 %sub.ptr.div.i, %conv22
+  %cmp = icmp ugt i64 %sub.ptr.div.i, %conv21
   br i1 %cmp, label %do.end3, label %for.end, !llvm.loop !59
 
 if.end:                                           ; preds = %do.end3, %do.end3.lr.ph.split.us
-  %.us-phi14 = phi i1 [ %call10.us, %do.end3.lr.ph.split.us ], [ false, %do.end3 ]
-  %20 = and i1 %connected_to_sds.addr.0.ph21.in, %.us-phi14
-  %inc = add i32 %i.0.ph20, 1
+  %.us-phi = phi i1 [ %call10.us, %do.end3.lr.ph.split.us ], [ false, %do.end3 ]
+  %20 = and i1 %connected_to_sds.addr.0.ph20, %.us-phi
+  %inc = add i32 %i.0.ph19, 1
   %conv = zext i32 %inc to i64
   %21 = load ptr, ptr %_M_finish.i, align 8
   %22 = load ptr, ptr %children, align 8

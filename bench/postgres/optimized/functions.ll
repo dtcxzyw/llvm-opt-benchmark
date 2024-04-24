@@ -98,7 +98,7 @@ define dso_local ptr @prepare_sql_fn_parse_info(ptr noundef %0, ptr noundef %1, 
   ]
 
 28:                                               ; preds = %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = tail call i32 @get_call_expr_argtype(ptr noundef %1, i32 noundef %29) #10
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %38
@@ -284,7 +284,7 @@ list_length.exit.thread:                          ; preds = %.list_length.exit.t
   br i1 %47, label %48, label %66
 
 48:                                               ; preds = %45
-  %49 = trunc i64 %indvars.iv.i to i32
+  %49 = trunc nuw nsw i64 %indvars.iv.i to i32
   %50 = add nuw nsw i32 %49, 1
   %51 = tail call noundef ptr @palloc0(i64 noundef 28) #10
   store i32 8, ptr %51, align 4
@@ -367,7 +367,7 @@ sql_fn_resolve_param_name.exit:                   ; preds = %66, %34, %.preheade
   br i1 %88, label %89, label %107
 
 89:                                               ; preds = %86
-  %90 = trunc i64 %indvars.iv.i61 to i32
+  %90 = trunc nuw nsw i64 %indvars.iv.i61 to i32
   %91 = add nuw nsw i32 %90, 1
   %92 = tail call noundef ptr @palloc0(i64 noundef 28) #10
   store i32 8, ptr %92, align 4
@@ -439,7 +439,7 @@ sql_fn_resolve_param_name.exit:                   ; preds = %66, %34, %.preheade
   br i1 %122, label %123, label %141
 
 123:                                              ; preds = %120
-  %124 = trunc i64 %indvars.iv.i74 to i32
+  %124 = trunc nuw nsw i64 %indvars.iv.i74 to i32
   %125 = add nuw nsw i32 %124, 1
   %126 = tail call noundef ptr @palloc0(i64 noundef 28) #10
   store i32 8, ptr %126, align 4
@@ -1269,7 +1269,7 @@ postquel_sub_params.exit:                         ; preds = %.critedge171, %341,
 
 370:                                              ; preds = %369
   call void @CommandCounterIncrement() #10
-  %371 = trunc i8 %.0128249 to i1
+  %371 = trunc nuw i8 %.0128249 to i1
   br i1 %371, label %374, label %372
 
 372:                                              ; preds = %370
@@ -1346,7 +1346,7 @@ postquel_start.exit:                              ; preds = %400, %404
   br i1 %368, label %416, label %409
 
 409:                                              ; preds = %408
-  %410 = trunc i8 %.0128249 to i1
+  %410 = trunc nuw i8 %.0128249 to i1
   br i1 %410, label %416, label %411
 
 411:                                              ; preds = %409
@@ -1457,7 +1457,7 @@ postquel_end.exit:                                ; preds = %postquel_getnext.ex
 
 464:                                              ; preds = %.lr.ph238
   %465 = load ptr, ptr %460, align 8
-  %466 = trunc i8 %.3237 to i1
+  %466 = trunc nuw i8 %.3237 to i1
   br i1 %466, label %467, label %468
 
 467:                                              ; preds = %464
@@ -1720,7 +1720,7 @@ postquel_get_single_result.exit186:               ; preds = %573, %slot_getattr.
   %.not160216 = phi i1 [ false, %postquel_get_single_result.exit ], [ false, %518 ], [ true, %535 ], [ true, %528 ], [ true, %555 ], [ true, %550 ], [ %.not160217, %599 ]
   %.5202 = phi i8 [ %.2130, %postquel_get_single_result.exit ], [ %.2130, %518 ], [ %.0128.lcssa, %535 ], [ %.0128.lcssa, %528 ], [ %.0128.lcssa, %555 ], [ %.0128.lcssa, %550 ], [ %.5203, %599 ]
   %.1143 = phi i64 [ %.0.i182, %postquel_get_single_result.exit ], [ %.0.i182, %518 ], [ 0, %535 ], [ 0, %528 ], [ 0, %555 ], [ 0, %550 ], [ %.0142, %599 ]
-  %602 = trunc i8 %.5202 to i1
+  %602 = trunc nuw i8 %.5202 to i1
   br i1 %602, label %603, label %604
 
 603:                                              ; preds = %601
@@ -2659,7 +2659,7 @@ define internal fastcc noundef zeroext i1 @coerce_fn_result_column(ptr noundef %
   br label %27
 
 27:                                               ; preds = %25, %26, %17
-  %.028 = phi ptr [ %18, %17 ], [ %23, %26 ], [ %20, %25 ]
+  %.028 = phi ptr [ %18, %17 ], [ %23, %26 ], [ %23, %25 ]
   %28 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %list_length.exit, label %29
@@ -2777,7 +2777,7 @@ define internal fastcc noundef ptr @sql_fn_resolve_param_name(ptr nocapture noun
   br i1 %14, label %15, label %33
 
 15:                                               ; preds = %12
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = add nuw nsw i32 %16, 1
   %18 = tail call noundef ptr @palloc0(i64 noundef 28) #10
   store i32 8, ptr %18, align 4

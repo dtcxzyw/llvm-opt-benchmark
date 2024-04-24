@@ -19085,7 +19085,7 @@ define linkonce_odr dso_local void @_ZN4crow8response3endEv(ptr noundef nonnull 
   %91 = icmp ult i64 %90, 16
   call void @llvm.assume(i1 %91)
   %92 = add nuw nsw i64 %90, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %86, ptr noundef nonnull align 8 dereferenceable(1) %13, i64 %92, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %86, ptr noundef nonnull align 8 dereferenceable(1) %87, i64 %92, i1 false)
   br label %96
 
 93:                                               ; preds = %.noexc
@@ -19115,7 +19115,7 @@ define linkonce_odr dso_local void @_ZN4crow8response3endEv(ptr noundef nonnull 
   %106 = icmp ult i64 %105, 16
   call void @llvm.assume(i1 %106)
   %107 = add nuw nsw i64 %105, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %100, ptr noundef nonnull align 8 dereferenceable(1) %39, i64 %107, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %100, ptr noundef nonnull align 8 dereferenceable(1) %101, i64 %107, i1 false)
   br label %112
 
 108:                                              ; preds = %96
@@ -21396,7 +21396,7 @@ define linkonce_odr dso_local void @_ZN4crow8responseC2EONS_10returnableE(ptr no
   %106 = icmp ult i64 %105, 16
   call void @llvm.assume(i1 %106)
   %107 = add nuw nsw i64 %105, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %101, ptr noundef nonnull align 8 dereferenceable(1) %74, i64 %107, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %101, ptr noundef nonnull align 8 dereferenceable(1) %102, i64 %107, i1 false)
   br label %111
 
 108:                                              ; preds = %.noexc
@@ -21425,7 +21425,7 @@ define linkonce_odr dso_local void @_ZN4crow8responseC2EONS_10returnableE(ptr no
   %120 = icmp ult i64 %119, 16
   call void @llvm.assume(i1 %120)
   %121 = add nuw nsw i64 %119, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %115, ptr noundef nonnull align 8 dereferenceable(1) %78, i64 %121, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %115, ptr noundef nonnull align 8 dereferenceable(1) %116, i64 %121, i1 false)
   br label %125
 
 122:                                              ; preds = %111
@@ -28357,7 +28357,7 @@ define linkonce_odr dso_local void @_ZN4crow4json6wvalueC2ERKSt6vectorIS1_SaIS1_
 
 17:                                               ; preds = %2
   %18 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-          to label %19 unwind label %68
+          to label %19 unwind label %66
 
 19:                                               ; preds = %17
   store ptr %18, ptr %12, align 8, !tbaa !12
@@ -28422,7 +28422,7 @@ define linkonce_odr dso_local void @_ZN4crow4json6wvalueC2ERKSt6vectorIS1_SaIS1_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %44, i8 0, i64 48, i1 false)
   store i8 5, ptr %38, align 8, !tbaa !384
   %47 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-          to label %48 unwind label %76
+          to label %48 unwind label %74
 
 48:                                               ; preds = %37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
@@ -28439,7 +28439,7 @@ define linkonce_odr dso_local void @_ZN4crow4json6wvalueC2ERKSt6vectorIS1_SaIS1_
 
 57:                                               ; preds = %48
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.329) #37
-          to label %58 unwind label %78
+          to label %58 unwind label %76
 
 58:                                               ; preds = %57
   unreachable
@@ -28451,136 +28451,135 @@ define linkonce_odr dso_local void @_ZN4crow4json6wvalueC2ERKSt6vectorIS1_SaIS1_
 
 62:                                               ; preds = %59
   %63 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %54) #36
-          to label %64 unwind label %78
+          to label %.preheader.preheader unwind label %76
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %47, i64 8
+.preheader.preheader:                             ; preds = %62
+  %64 = getelementptr inbounds i8, ptr %47, i64 8
   store ptr %63, ptr %47, align 8, !tbaa !380
-  store ptr %63, ptr %65, align 8, !tbaa !382
-  %66 = getelementptr inbounds i8, ptr %63, i64 %54
-  store ptr %66, ptr %60, align 8, !tbaa !428
-  %67 = icmp eq ptr %51, %50
-  br i1 %67, label %.loopexit, label %.preheader
+  store ptr %63, ptr %64, align 8, !tbaa !382
+  %65 = getelementptr inbounds i8, ptr %63, i64 %54
+  store ptr %65, ptr %60, align 8, !tbaa !428
+  br label %.preheader
 
-.loopexit:                                        ; preds = %92, %59, %64
+.loopexit:                                        ; preds = %90, %59
   ret void
 
-68:                                               ; preds = %17
-  %69 = landingpad { ptr, i32 }
+66:                                               ; preds = %17
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %70 = load ptr, ptr %5, align 8, !tbaa !12
-  %71 = icmp eq ptr %70, %6
-  br i1 %71, label %72, label %75
+  %68 = load ptr, ptr %5, align 8, !tbaa !12
+  %69 = icmp eq ptr %68, %6
+  br i1 %69, label %70, label %73
 
-72:                                               ; preds = %68
-  %73 = load i64, ptr %9, align 8, !tbaa !15
-  %74 = icmp ult i64 %73, 16
-  call void @llvm.assume(i1 %74)
-  br label %122
+70:                                               ; preds = %66
+  %71 = load i64, ptr %9, align 8, !tbaa !15
+  %72 = icmp ult i64 %71, 16
+  call void @llvm.assume(i1 %72)
+  br label %120
 
-75:                                               ; preds = %68
-  call void @_ZdlPv(ptr noundef %70) #34
-  br label %122
+73:                                               ; preds = %66
+  call void @_ZdlPv(ptr noundef %68) #34
+  br label %120
 
-76:                                               ; preds = %37
+74:                                               ; preds = %37
+  %75 = landingpad { ptr, i32 }
+          cleanup
+  br label %96
+
+76:                                               ; preds = %62, %57
   %77 = landingpad { ptr, i32 }
           cleanup
-  br label %98
+  br label %96
 
-78:                                               ; preds = %62, %57
-  %79 = landingpad { ptr, i32 }
+.preheader:                                       ; preds = %.preheader.preheader, %90
+  %78 = phi ptr [ %91, %90 ], [ %51, %.preheader.preheader ]
+  %79 = load ptr, ptr %44, align 8, !tbaa !28
+  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %81 = load ptr, ptr %80, align 8, !tbaa !28
+  %82 = getelementptr inbounds i8, ptr %79, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !428
+  %84 = icmp eq ptr %81, %83
+  br i1 %84, label %89, label %85
+
+85:                                               ; preds = %.preheader
+  invoke void @_ZN4crow4json6wvalueC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(136) %81, ptr noundef nonnull align 8 dereferenceable(136) %78)
+          to label %86 unwind label %94
+
+86:                                               ; preds = %85
+  %87 = load ptr, ptr %80, align 8, !tbaa !382
+  %88 = getelementptr inbounds i8, ptr %87, i64 136
+  store ptr %88, ptr %80, align 8, !tbaa !382
+  br label %90
+
+89:                                               ; preds = %.preheader
+  invoke void @_ZNSt6vectorIN4crow4json6wvalueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %79, ptr %81, ptr noundef nonnull align 8 dereferenceable(136) %78)
+          to label %90 unwind label %94
+
+90:                                               ; preds = %89, %86
+  %91 = getelementptr inbounds i8, ptr %78, i64 136
+  %92 = load ptr, ptr %49, align 8, !tbaa !28
+  %93 = icmp eq ptr %91, %92
+  br i1 %93, label %.loopexit, label %.preheader, !llvm.loop !441
+
+94:                                               ; preds = %89, %85
+  %95 = landingpad { ptr, i32 }
           cleanup
-  br label %98
+  br label %96
 
-.preheader:                                       ; preds = %64, %92
-  %80 = phi ptr [ %93, %92 ], [ %51, %64 ]
-  %81 = load ptr, ptr %44, align 8, !tbaa !28
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !28
-  %84 = getelementptr inbounds i8, ptr %81, i64 16
-  %85 = load ptr, ptr %84, align 8, !tbaa !428
-  %86 = icmp eq ptr %83, %85
-  br i1 %86, label %91, label %87
+96:                                               ; preds = %94, %76, %74
+  %97 = phi { ptr, i32 } [ %95, %94 ], [ %77, %76 ], [ %75, %74 ]
+  %98 = getelementptr inbounds i8, ptr %0, i64 120
+  %99 = load ptr, ptr %98, align 8, !tbaa !95
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %106, label %101
 
-87:                                               ; preds = %.preheader
-  invoke void @_ZN4crow4json6wvalueC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(136) %80)
-          to label %88 unwind label %96
+101:                                              ; preds = %96
+  %102 = invoke noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %46, i32 noundef 3)
+          to label %106 unwind label %103
 
-88:                                               ; preds = %87
-  %89 = load ptr, ptr %82, align 8, !tbaa !382
-  %90 = getelementptr inbounds i8, ptr %89, i64 136
-  store ptr %90, ptr %82, align 8, !tbaa !382
-  br label %92
-
-91:                                               ; preds = %.preheader
-  invoke void @_ZNSt6vectorIN4crow4json6wvalueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %81, ptr %83, ptr noundef nonnull align 8 dereferenceable(136) %80)
-          to label %92 unwind label %96
-
-92:                                               ; preds = %91, %88
-  %93 = getelementptr inbounds i8, ptr %80, i64 136
-  %94 = load ptr, ptr %49, align 8, !tbaa !28
-  %95 = icmp eq ptr %93, %94
-  br i1 %95, label %.loopexit, label %.preheader, !llvm.loop !441
-
-96:                                               ; preds = %91, %87
-  %97 = landingpad { ptr, i32 }
-          cleanup
-  br label %98
-
-98:                                               ; preds = %96, %78, %76
-  %99 = phi { ptr, i32 } [ %97, %96 ], [ %79, %78 ], [ %77, %76 ]
-  %100 = getelementptr inbounds i8, ptr %0, i64 120
-  %101 = load ptr, ptr %100, align 8, !tbaa !95
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %108, label %103
-
-103:                                              ; preds = %98
-  %104 = invoke noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %46, i32 noundef 3)
-          to label %108 unwind label %105
-
-105:                                              ; preds = %103
-  %106 = landingpad { ptr, i32 }
+103:                                              ; preds = %101
+  %104 = landingpad { ptr, i32 }
           catch ptr null
-  %107 = extractvalue { ptr, i32 } %106, 0
-  call void @__clang_call_terminate(ptr %107) #35
+  %105 = extractvalue { ptr, i32 } %104, 0
+  call void @__clang_call_terminate(ptr %105) #35
   unreachable
 
-108:                                              ; preds = %103, %98
+106:                                              ; preds = %101, %96
   call void @_ZNSt10unique_ptrISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4crow4json6wvalueESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S9_EEESt14default_deleteISI_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #33
   call void @_ZNSt10unique_ptrISt6vectorIN4crow4json6wvalueESaIS3_EESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #33
-  %109 = load ptr, ptr %41, align 8, !tbaa !12
-  %110 = icmp eq ptr %109, %42
-  br i1 %110, label %111, label %114
+  %107 = load ptr, ptr %41, align 8, !tbaa !12
+  %108 = icmp eq ptr %107, %42
+  br i1 %108, label %109, label %112
 
-111:                                              ; preds = %108
-  %112 = load i64, ptr %43, align 8, !tbaa !15
-  %113 = icmp ult i64 %112, 16
-  call void @llvm.assume(i1 %113)
-  br label %115
+109:                                              ; preds = %106
+  %110 = load i64, ptr %43, align 8, !tbaa !15
+  %111 = icmp ult i64 %110, 16
+  call void @llvm.assume(i1 %111)
+  br label %113
 
-114:                                              ; preds = %108
-  call void @_ZdlPv(ptr noundef %109) #34
-  br label %115
+112:                                              ; preds = %106
+  call void @_ZdlPv(ptr noundef %107) #34
+  br label %113
 
-115:                                              ; preds = %114, %111
+113:                                              ; preds = %112, %109
   store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN4crow10returnableE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !102
-  %116 = load ptr, ptr %12, align 8, !tbaa !12
-  %117 = icmp eq ptr %116, %13
-  br i1 %117, label %118, label %121
+  %114 = load ptr, ptr %12, align 8, !tbaa !12
+  %115 = icmp eq ptr %114, %13
+  br i1 %115, label %116, label %119
 
-118:                                              ; preds = %115
-  %119 = load i64, ptr %28, align 8, !tbaa !15
-  %120 = icmp ult i64 %119, 16
-  call void @llvm.assume(i1 %120)
-  br label %122
+116:                                              ; preds = %113
+  %117 = load i64, ptr %28, align 8, !tbaa !15
+  %118 = icmp ult i64 %117, 16
+  call void @llvm.assume(i1 %118)
+  br label %120
 
-121:                                              ; preds = %115
-  call void @_ZdlPv(ptr noundef %116) #34
-  br label %122
+119:                                              ; preds = %113
+  call void @_ZdlPv(ptr noundef %114) #34
+  br label %120
 
-122:                                              ; preds = %121, %118, %75, %72
-  %123 = phi { ptr, i32 } [ %69, %72 ], [ %69, %75 ], [ %99, %118 ], [ %99, %121 ]
-  resume { ptr, i32 } %123
+120:                                              ; preds = %119, %116, %73, %70
+  %121 = phi { ptr, i32 } [ %67, %70 ], [ %67, %73 ], [ %97, %116 ], [ %97, %119 ]
+  resume { ptr, i32 } %121
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -49969,7 +49968,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 
 141:                                              ; preds = %130
   store ptr %139, ptr %127, align 8, !tbaa !871
-  %142 = load ptr, ptr %28, align 8, !tbaa !888
+  %142 = load ptr, ptr %131, align 8, !tbaa !888
   store ptr %142, ptr %139, align 8, !tbaa !888
   br label %143
 
@@ -50004,7 +50003,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
   %158 = icmp ult i64 %157, 16
   call void @llvm.assume(i1 %158)
   %159 = add nuw nsw i64 %157, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %153, ptr noundef nonnull align 8 dereferenceable(1) %24, i64 %159, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %153, ptr noundef nonnull align 8 dereferenceable(1) %154, i64 %159, i1 false)
   br label %_ZNSt6vectorIN4crow9multipart4partESaIS2_EE12emplace_backIJS2_EEEvDpOT_.exit.thread
 
 160:                                              ; preds = %151
@@ -61956,7 +61955,7 @@ define linkonce_odr dso_local void @_ZN4crow8response27set_static_file_info_unsa
   %125 = icmp ult i64 %124, 16
   call void @llvm.assume(i1 %125)
   %126 = add nuw nsw i64 %124, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %120, ptr noundef nonnull align 8 dereferenceable(1) %48, i64 %126, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %120, ptr noundef nonnull align 8 dereferenceable(1) %121, i64 %126, i1 false)
   br label %130
 
 127:                                              ; preds = %.noexc
@@ -61986,7 +61985,7 @@ define linkonce_odr dso_local void @_ZN4crow8response27set_static_file_info_unsa
   %140 = icmp ult i64 %139, 16
   call void @llvm.assume(i1 %140)
   %141 = add nuw nsw i64 %139, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %134, ptr noundef nonnull align 8 dereferenceable(1) %77, i64 %141, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %134, ptr noundef nonnull align 8 dereferenceable(1) %135, i64 %141, i1 false)
   br label %146
 
 142:                                              ; preds = %130
@@ -62090,7 +62089,7 @@ define linkonce_odr dso_local void @_ZN4crow8response27set_static_file_info_unsa
   %187 = icmp ult i64 %186, 16
   call void @llvm.assume(i1 %187)
   %188 = add nuw nsw i64 %186, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %182, ptr noundef nonnull align 8 dereferenceable(1) %176, i64 %188, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %182, ptr noundef nonnull align 8 dereferenceable(1) %183, i64 %188, i1 false)
   br label %192
 
 189:                                              ; preds = %.noexc18
@@ -82512,7 +82511,7 @@ define linkonce_odr dso_local void @_ZN4crow6detail10task_timer13process_tasksEv
   br i1 %142, label %13, label %17
 
 .loopexit28:                                      ; preds = %197, %13, %1
-  %143 = phi ptr [ %139, %13 ], [ null, %1 ], [ %140, %197 ]
+  %143 = phi ptr [ %140, %13 ], [ null, %1 ], [ %140, %197 ]
   %144 = getelementptr inbounds i8, ptr %0, i64 168
   %145 = load i64, ptr %144, align 8, !tbaa !1679
   %146 = icmp eq i64 %145, 0
@@ -97723,7 +97722,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %254 = icmp ult i64 %253, 16
   call void @llvm.assume(i1 %254)
   %255 = add nuw nsw i64 %253, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %249, ptr noundef nonnull align 8 dereferenceable(1) %224, i64 %255, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %249, ptr noundef nonnull align 8 dereferenceable(1) %250, i64 %255, i1 false)
   br label %259
 
 256:                                              ; preds = %.noexc
@@ -97752,7 +97751,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %268 = icmp ult i64 %267, 16
   call void @llvm.assume(i1 %268)
   %269 = add nuw nsw i64 %267, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %263, ptr noundef nonnull align 8 dereferenceable(1) %227, i64 %269, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %263, ptr noundef nonnull align 8 dereferenceable(1) %264, i64 %269, i1 false)
   br label %273
 
 270:                                              ; preds = %259
@@ -99178,7 +99177,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   %592 = icmp ult i64 %591, 16
   call void @llvm.assume(i1 %592)
   %593 = add nuw nsw i64 %591, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %587, ptr noundef nonnull align 8 dereferenceable(1) %561, i64 %593, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %587, ptr noundef nonnull align 8 dereferenceable(1) %588, i64 %593, i1 false)
   br label %597
 
 594:                                              ; preds = %.noexc
@@ -99207,7 +99206,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   %606 = icmp ult i64 %605, 16
   call void @llvm.assume(i1 %606)
   %607 = add nuw nsw i64 %605, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %601, ptr noundef nonnull align 8 dereferenceable(1) %564, i64 %607, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %601, ptr noundef nonnull align 8 dereferenceable(1) %602, i64 %607, i1 false)
   br label %611
 
 608:                                              ; preds = %597
@@ -99890,7 +99889,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   %910 = icmp ult i64 %909, 16
   call void @llvm.assume(i1 %910)
   %911 = add nuw nsw i64 %909, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %905, ptr noundef nonnull align 8 dereferenceable(1) %879, i64 %911, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %905, ptr noundef nonnull align 8 dereferenceable(1) %906, i64 %911, i1 false)
   br label %915
 
 912:                                              ; preds = %.noexc137
@@ -99919,7 +99918,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   %924 = icmp ult i64 %923, 16
   call void @llvm.assume(i1 %924)
   %925 = add nuw nsw i64 %923, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %919, ptr noundef nonnull align 8 dereferenceable(1) %882, i64 %925, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %919, ptr noundef nonnull align 8 dereferenceable(1) %920, i64 %925, i1 false)
   br label %929
 
 926:                                              ; preds = %915
@@ -116807,7 +116806,7 @@ _ZN17ExampleMiddleware13before_handleERN4crow7requestERNS0_8responseERNS_7contex
   %733 = icmp ult i64 %732, 16
   call void @llvm.assume(i1 %733)
   %734 = add nuw nsw i64 %732, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %728, ptr noundef nonnull align 8 dereferenceable(1) %717, i64 %734, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %728, ptr noundef nonnull align 8 dereferenceable(1) %729, i64 %734, i1 false)
   br label %738
 
 735:                                              ; preds = %.noexc62
@@ -116836,7 +116835,7 @@ _ZN17ExampleMiddleware13before_handleERN4crow7requestERNS0_8responseERNS_7contex
   %747 = icmp ult i64 %746, 16
   call void @llvm.assume(i1 %747)
   %748 = add nuw nsw i64 %746, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %742, ptr noundef nonnull align 8 dereferenceable(1) %720, i64 %748, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %742, ptr noundef nonnull align 8 dereferenceable(1) %743, i64 %748, i1 false)
   br label %752
 
 749:                                              ; preds = %738
@@ -118714,7 +118713,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_upgradeIRNS_13Socket
   %400 = icmp ult i64 %399, 16
   call void @llvm.assume(i1 %400)
   %401 = add nuw nsw i64 %399, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %395, ptr noundef nonnull align 8 dereferenceable(1) %355, i64 %401, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %395, ptr noundef nonnull align 8 dereferenceable(1) %396, i64 %401, i1 false)
   br label %405
 
 402:                                              ; preds = %.noexc
@@ -118743,7 +118742,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_upgradeIRNS_13Socket
   %414 = icmp ult i64 %413, 16
   call void @llvm.assume(i1 %414)
   %415 = add nuw nsw i64 %413, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %409, ptr noundef nonnull align 8 dereferenceable(1) %358, i64 %415, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %409, ptr noundef nonnull align 8 dereferenceable(1) %410, i64 %415, i1 false)
   br label %419
 
 416:                                              ; preds = %405
@@ -119021,7 +119020,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_upgradeIRNS_13Socket
   %542 = icmp ult i64 %541, 16
   call void @llvm.assume(i1 %542)
   %543 = add nuw nsw i64 %541, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %537, ptr noundef nonnull align 8 dereferenceable(1) %472, i64 %543, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %537, ptr noundef nonnull align 8 dereferenceable(1) %538, i64 %543, i1 false)
   br label %547
 
 544:                                              ; preds = %.noexc62
@@ -119050,7 +119049,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_upgradeIRNS_13Socket
   %556 = icmp ult i64 %555, 16
   call void @llvm.assume(i1 %556)
   %557 = add nuw nsw i64 %555, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %551, ptr noundef nonnull align 8 dereferenceable(1) %517, i64 %557, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %551, ptr noundef nonnull align 8 dereferenceable(1) %552, i64 %557, i1 false)
   br label %561
 
 558:                                              ; preds = %547
@@ -120500,7 +120499,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router6handleINS_4CrowIJ17ExampleMi
   %144 = icmp ult i64 %143, 16
   call void @llvm.assume(i1 %144)
   %145 = add nuw nsw i64 %143, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %139, ptr noundef nonnull align 8 dereferenceable(1) %98, i64 %145, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %139, ptr noundef nonnull align 8 dereferenceable(1) %140, i64 %145, i1 false)
   br label %149
 
 146:                                              ; preds = %.noexc
@@ -120529,7 +120528,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router6handleINS_4CrowIJ17ExampleMi
   %158 = icmp ult i64 %157, 16
   call void @llvm.assume(i1 %158)
   %159 = add nuw nsw i64 %157, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %153, ptr noundef nonnull align 8 dereferenceable(1) %102, i64 %159, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %153, ptr noundef nonnull align 8 dereferenceable(1) %154, i64 %159, i1 false)
   br label %163
 
 160:                                              ; preds = %149
@@ -120808,7 +120807,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router6handleINS_4CrowIJ17ExampleMi
   %287 = icmp ult i64 %286, 16
   call void @llvm.assume(i1 %287)
   %288 = add nuw nsw i64 %286, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %282, ptr noundef nonnull align 8 dereferenceable(1) %216, i64 %288, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %282, ptr noundef nonnull align 8 dereferenceable(1) %283, i64 %288, i1 false)
   br label %292
 
 289:                                              ; preds = %.noexc34
@@ -120837,7 +120836,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router6handleINS_4CrowIJ17ExampleMi
   %301 = icmp ult i64 %300, 16
   call void @llvm.assume(i1 %301)
   %302 = add nuw nsw i64 %300, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %296, ptr noundef nonnull align 8 dereferenceable(1) %262, i64 %302, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %296, ptr noundef nonnull align 8 dereferenceable(1) %297, i64 %302, i1 false)
   br label %306
 
 303:                                              ; preds = %292

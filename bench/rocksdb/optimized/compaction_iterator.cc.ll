@@ -4946,7 +4946,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_E
   %.pre = load ptr, ptr %pinned_ptrs_, align 8
   %.pre12 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %.pre, %.pre12
-  br i1 %cmp.i.i.i.i, label %for.end, label %while.cond.i.i.i
+  br i1 %cmp.i.i.i.i, label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_EEEEET_SC_SC_.exit, label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_EEEEEvT_SC_.exit, %while.body.i.i.i
   %__first.sroa.0.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i ], [ %.pre, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_EEEEEvT_SC_.exit ]
@@ -5010,9 +5010,9 @@ while.end.i.i:                                    ; preds = %while.end.i.i.loope
   %incdec.ptr.i6.i.i = getelementptr inbounds i8, ptr %__dest.sroa.0.0.lcssa.i.i, i64 16
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_EEEEET_SC_SC_.exit
 
-_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_EEEEET_SC_SC_.exit: ; preds = %while.cond.i.i.i, %while.end.i.i
-  %14 = phi ptr [ %.pre13, %while.end.i.i ], [ %.pre, %while.cond.i.i.i ]
-  %retval.sroa.0.0.in.sroa.speculated.i.i = phi ptr [ %incdec.ptr.i6.i.i, %while.end.i.i ], [ %.pre12, %while.cond.i.i.i ]
+_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_EEEEET_SC_SC_.exit: ; preds = %while.cond.i.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_EEEEEvT_SC_.exit, %while.end.i.i
+  %14 = phi ptr [ %.pre13, %while.end.i.i ], [ %.pre, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_EEEEEvT_SC_.exit ], [ %.pre, %while.cond.i.i.i ]
+  %retval.sroa.0.0.in.sroa.speculated.i.i = phi ptr [ %incdec.ptr.i6.i.i, %while.end.i.i ], [ %.pre12, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_EEEEEvT_SC_.exit ], [ %.pre12, %while.cond.i.i.i ]
   %cmp.i.not8 = icmp eq ptr %14, %retval.sroa.0.0.in.sroa.speculated.i.i
   br i1 %cmp.i.not8, label %for.end, label %for.body
 
@@ -5030,8 +5030,8 @@ for.end.loopexit:                                 ; preds = %for.body
   %.pre14 = load ptr, ptr %pinned_ptrs_, align 8
   br label %for.end
 
-for.end:                                          ; preds = %entry, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_EEEEEvT_SC_.exit, %for.end.loopexit, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_EEEEET_SC_SC_.exit
-  %17 = phi ptr [ %.pre14, %for.end.loopexit ], [ %14, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_EEEEET_SC_SC_.exit ], [ %.pre12, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_EEEEEvT_SC_.exit ], [ %0, %entry ]
+for.end:                                          ; preds = %entry, %for.end.loopexit, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_EEEEET_SC_SC_.exit
+  %17 = phi ptr [ %.pre14, %for.end.loopexit ], [ %14, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPSt4pairIPvPFvS3_EESt6vectorIS6_SaIS6_EEEEET_SC_SC_.exit ], [ %0, %entry ]
   %18 = load ptr, ptr %_M_finish.i, align 8
   %tobool.not.i.i = icmp eq ptr %18, %17
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt4pairIPvPFvS1_EESaIS4_EE5clearEv.exit, label %invoke.cont.i.i
@@ -6579,6 +6579,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8
   br i1 %cmp.i, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %if.end, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8_RKT0_.exit
+  %__first.sroa.0.0.lcssa.i.i25 = phi ptr [ %__first.sroa.0.1.i.i, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8_RKT0_.exit ], [ %4, %if.end ]
   store i64 0, ptr %prev_snapshot, align 8
   br label %if.end29
 
@@ -6595,7 +6596,7 @@ if.then25:                                        ; preds = %if.else
   br label %if.end29
 
 if.end29:                                         ; preds = %if.else, %if.then25, %if.then17
-  %__first.sroa.0.0.lcssa.i.i24 = phi ptr [ %__first.sroa.0.1.i.i, %if.else ], [ %__first.sroa.0.1.i.i, %if.then25 ], [ %4, %if.then17 ]
+  %__first.sroa.0.0.lcssa.i.i24 = phi ptr [ %__first.sroa.0.1.i.i, %if.else ], [ %__first.sroa.0.1.i.i, %if.then25 ], [ %__first.sroa.0.0.lcssa.i.i25, %if.then17 ]
   %snapshot_checker_ = getelementptr inbounds i8, ptr %this, i64 176
   %8 = load ptr, ptr %snapshot_checker_, align 8
   %cmp30 = icmp eq ptr %8, null
@@ -9526,7 +9527,7 @@ if.end18thread-pre-split:                         ; preds = %cond.end.i, %if.the
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end18thread-pre-split, %for.end
-  %25 = phi ptr [ %.pr, %if.end18thread-pre-split ], [ %10, %for.end ]
+  %25 = phi ptr [ %.pr, %if.end18thread-pre-split ], [ %11, %for.end ]
   %tobool.not.i.i.i51 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i51, label %if.end19, label %if.then.i.i.i52
 

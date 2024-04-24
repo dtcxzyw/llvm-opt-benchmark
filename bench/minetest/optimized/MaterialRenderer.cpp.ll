@@ -2042,7 +2042,7 @@ _ZSt8_DestroyIPN3irr5video24COpenGL3MaterialRenderer12SUniformInfoES3_EvT_S5_RSa
   br label %_ZSt8_DestroyIPN3irr5video24COpenGL3MaterialRenderer12SUniformInfoES3_EvT_S5_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN3irr5video24COpenGL3MaterialRenderer12SUniformInfoES3_EvT_S5_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN3irr5video24COpenGL3MaterialRenderer12SUniformInfoES3_EvT_S5_RSaIT0_E.exitthread-pre-split, %_ZNSt6vectorIN3irr5video24COpenGL3MaterialRenderer12SUniformInfoESaIS3_EE20_M_allocate_and_copyIPKS3_EEPS3_mT_SA_.exit, %_ZNSt12_Vector_baseIN3irr5video24COpenGL3MaterialRenderer12SUniformInfoESaIS3_EE11_M_allocateEm.exit.i
-  %8 = phi ptr [ %.pr, %_ZSt8_DestroyIPN3irr5video24COpenGL3MaterialRenderer12SUniformInfoES3_EvT_S5_RSaIT0_E.exitthread-pre-split ], [ %.pre, %_ZNSt6vectorIN3irr5video24COpenGL3MaterialRenderer12SUniformInfoESaIS3_EE20_M_allocate_and_copyIPKS3_EEPS3_mT_SA_.exit ], [ %1, %_ZNSt12_Vector_baseIN3irr5video24COpenGL3MaterialRenderer12SUniformInfoESaIS3_EE11_M_allocateEm.exit.i ]
+  %8 = phi ptr [ %.pr, %_ZSt8_DestroyIPN3irr5video24COpenGL3MaterialRenderer12SUniformInfoES3_EvT_S5_RSaIT0_E.exitthread-pre-split ], [ %.pre39, %_ZNSt6vectorIN3irr5video24COpenGL3MaterialRenderer12SUniformInfoESaIS3_EE20_M_allocate_and_copyIPKS3_EEPS3_mT_SA_.exit ], [ %1, %_ZNSt12_Vector_baseIN3irr5video24COpenGL3MaterialRenderer12SUniformInfoESaIS3_EE11_M_allocateEm.exit.i ]
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN3irr5video24COpenGL3MaterialRenderer12SUniformInfoESaIS3_EE13_M_deallocateEPS3_m.exit, label %if.then.i
 

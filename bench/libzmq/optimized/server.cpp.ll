@@ -429,7 +429,7 @@ entry:
 declare void @_ZN3zmq4fq_t9activatedEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(41), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8server_t16xwrite_activatedEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1932) %this, ptr noundef readnone %pipe_) unnamed_addr #0 align 2 {
+define void @_ZN3zmq8server_t16xwrite_activatedEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 dereferenceable(1932) %this, ptr noundef readnone %pipe_) unnamed_addr #0 align 2 {
 entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 1888
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 1904
@@ -450,6 +450,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp.i.not, label %if.then13, label %for.body, !llvm.loop !7
 
 if.then13:                                        ; preds = %for.inc, %entry
+  %it.sroa.0.0.lcssa = phi ptr [ %0, %entry ], [ %call.i, %for.inc ]
   %2 = load ptr, ptr @stderr, align 8
   %call14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 71) #15
   %3 = load ptr, ptr @stderr, align 8
@@ -458,7 +459,7 @@ if.then13:                                        ; preds = %for.inc, %entry
   br label %do.body17
 
 do.body17:                                        ; preds = %for.body, %if.then13
-  %it.sroa.0.011 = phi ptr [ %add.ptr.i.i, %if.then13 ], [ %it.sroa.0.013, %for.body ]
+  %it.sroa.0.011 = phi ptr [ %it.sroa.0.0.lcssa, %if.then13 ], [ %it.sroa.0.013, %for.body ]
   %active = getelementptr inbounds i8, ptr %it.sroa.0.011, i64 48
   %4 = load i8, ptr %active, align 8
   %tobool = trunc i8 %4 to i1

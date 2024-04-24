@@ -228,7 +228,7 @@ define dso_local noundef i32 @dock_notify(ptr noundef readonly %0, i32 noundef %
   switch i32 %32, label %.thread [
     i32 0, label %33
     i32 1, label %33
-    i32 3, label %168
+    i32 3, label %170
   ]
 
 33:                                               ; preds = %25, %25
@@ -313,262 +313,270 @@ define dso_local noundef i32 @dock_notify(ptr noundef readonly %0, i32 noundef %
   %71 = getelementptr i8, ptr %16, i64 -16
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, %71
-  br i1 %73, label %.loopexit29, label %.preheader32
+  br i1 %73, label %.loopexit33, label %.preheader32
 
-.loopexit33:                                      ; preds = %87
+.loopexit33.loopexit:                             ; preds = %88
   %.pre = load ptr, ptr %71, align 8
-  %74 = icmp eq ptr %.pre, %71
-  br i1 %74, label %.loopexit29, label %.preheader30
+  br label %.loopexit33
 
-.preheader32:                                     ; preds = %70, %87
-  %75 = phi ptr [ %88, %87 ], [ %72, %70 ]
-  %76 = getelementptr inbounds i8, ptr %75, i64 16
-  %77 = load ptr, ptr %76, align 8
+.loopexit33:                                      ; preds = %.loopexit33.loopexit, %70
+  %74 = phi ptr [ %.pre, %.loopexit33.loopexit ], [ %72, %70 ]
+  %75 = icmp eq ptr %74, %71
+  br i1 %75, label %.loopexit31, label %.preheader30
+
+.preheader32:                                     ; preds = %70, %88
+  %76 = phi ptr [ %89, %88 ], [ %72, %70 ]
+  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %78 = load ptr, ptr %77, align 8
   call void @acpi_lock_hp_context() #8
-  %78 = getelementptr inbounds i8, ptr %77, i64 584
-  %79 = load ptr, ptr %78, align 8
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %86, label %81
+  %79 = getelementptr inbounds i8, ptr %78, i64 584
+  %80 = load ptr, ptr %79, align 8
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %87, label %82
 
-81:                                               ; preds = %.preheader32
-  %82 = getelementptr inbounds i8, ptr %79, i64 24
-  %83 = load ptr, ptr %82, align 8
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %86, label %85
+82:                                               ; preds = %.preheader32
+  %83 = getelementptr inbounds i8, ptr %80, i64 24
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %87, label %86
 
-85:                                               ; preds = %81
+86:                                               ; preds = %82
   call void @acpi_unlock_hp_context() #8
-  call void %83(ptr noundef %77) #8
-  br label %87
+  call void %84(ptr noundef %78) #8
+  br label %88
 
-86:                                               ; preds = %81, %.preheader32
+87:                                               ; preds = %82, %.preheader32
   call void @acpi_unlock_hp_context() #8
-  br label %87
+  br label %88
 
-87:                                               ; preds = %86, %85
-  %88 = load ptr, ptr %75, align 8
-  %89 = icmp eq ptr %88, %71
-  br i1 %89, label %.loopexit33, label %.preheader32, !llvm.loop !11
+88:                                               ; preds = %87, %86
+  %89 = load ptr, ptr %76, align 8
+  %90 = icmp eq ptr %89, %71
+  br i1 %90, label %.loopexit33.loopexit, label %.preheader32, !llvm.loop !11
 
-.loopexit31:                                      ; preds = %104
+.loopexit31.loopexit:                             ; preds = %106
   %.pre39 = load ptr, ptr %71, align 8
-  %90 = icmp eq ptr %.pre39, %71
-  br i1 %90, label %.loopexit29, label %.preheader28
+  br label %.loopexit31
 
-.preheader30:                                     ; preds = %.loopexit33, %104
-  %91 = phi ptr [ %105, %104 ], [ %.pre, %.loopexit33 ]
-  %92 = getelementptr inbounds i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8
-  call void @acpi_lock_hp_context() #8
-  %94 = getelementptr inbounds i8, ptr %93, i64 584
+.loopexit31:                                      ; preds = %.loopexit31.loopexit, %.loopexit33
+  %91 = phi ptr [ %.pre39, %.loopexit31.loopexit ], [ %74, %.loopexit33 ]
+  %92 = icmp eq ptr %91, %71
+  br i1 %92, label %.loopexit29, label %.preheader28
+
+.preheader30:                                     ; preds = %.loopexit33, %106
+  %93 = phi ptr [ %107, %106 ], [ %74, %.loopexit33 ]
+  %94 = getelementptr inbounds i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %103, label %97
+  call void @acpi_lock_hp_context() #8
+  %96 = getelementptr inbounds i8, ptr %95, i64 584
+  %97 = load ptr, ptr %96, align 8
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %105, label %99
 
-97:                                               ; preds = %.preheader30
-  %98 = getelementptr inbounds i8, ptr %95, i64 8
-  %99 = load ptr, ptr %98, align 8
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %103, label %101
+99:                                               ; preds = %.preheader30
+  %100 = getelementptr inbounds i8, ptr %97, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %105, label %103
 
-101:                                              ; preds = %97
+103:                                              ; preds = %99
   call void @acpi_unlock_hp_context() #8
-  %102 = call i32 %99(ptr noundef %93, i32 noundef %32) #8
-  br label %104
+  %104 = call i32 %101(ptr noundef %95, i32 noundef %32) #8
+  br label %106
 
-103:                                              ; preds = %97, %.preheader30
+105:                                              ; preds = %99, %.preheader30
   call void @acpi_unlock_hp_context() #8
-  br label %104
+  br label %106
 
-104:                                              ; preds = %103, %101
-  %105 = load ptr, ptr %91, align 8
-  %106 = icmp eq ptr %105, %71
-  br i1 %106, label %.loopexit31, label %.preheader30, !llvm.loop !12
+106:                                              ; preds = %105, %103
+  %107 = load ptr, ptr %93, align 8
+  %108 = icmp eq ptr %107, %71
+  br i1 %108, label %.loopexit31.loopexit, label %.preheader30, !llvm.loop !12
 
-.preheader28:                                     ; preds = %.loopexit31, %120
-  %107 = phi ptr [ %121, %120 ], [ %.pre39, %.loopexit31 ]
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
-  %109 = load ptr, ptr %108, align 8
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %116, label %111
+.preheader28:                                     ; preds = %.loopexit31, %122
+  %109 = phi ptr [ %123, %122 ], [ %91, %.loopexit31 ]
+  %110 = getelementptr inbounds i8, ptr %109, i64 16
+  %111 = load ptr, ptr %110, align 8
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %118, label %113
 
-111:                                              ; preds = %.preheader28
-  %112 = getelementptr inbounds i8, ptr %109, i64 116
-  %113 = load i32, ptr %112, align 4
-  %114 = and i32 %113, 96
-  %115 = icmp eq i32 %114, 96
-  br i1 %115, label %120, label %116
+113:                                              ; preds = %.preheader28
+  %114 = getelementptr inbounds i8, ptr %111, i64 116
+  %115 = load i32, ptr %114, align 4
+  %116 = and i32 %115, 96
+  %117 = icmp eq i32 %116, 96
+  br i1 %117, label %122, label %118
 
-116:                                              ; preds = %111, %.preheader28
-  %117 = getelementptr inbounds i8, ptr %109, i64 8
-  %118 = load ptr, ptr %117, align 8
-  %119 = call i32 @acpi_bus_scan(ptr noundef %118) #8
-  br label %120
+118:                                              ; preds = %113, %.preheader28
+  %119 = getelementptr inbounds i8, ptr %111, i64 8
+  %120 = load ptr, ptr %119, align 8
+  %121 = call i32 @acpi_bus_scan(ptr noundef %120) #8
+  br label %122
 
-120:                                              ; preds = %116, %111
-  %121 = load ptr, ptr %107, align 8
-  %122 = icmp eq ptr %121, %71
-  br i1 %122, label %.loopexit29, label %.preheader28, !llvm.loop !13
+122:                                              ; preds = %118, %113
+  %123 = load ptr, ptr %109, align 8
+  %124 = icmp eq ptr %123, %71
+  br i1 %124, label %.loopexit29, label %.preheader28, !llvm.loop !13
 
-.loopexit29:                                      ; preds = %120, %70, %.loopexit33, %.loopexit31
-  %123 = load i32, ptr %26, align 8
-  %124 = and i32 %123, -2
-  store i32 %124, ptr %26, align 8
-  %125 = load volatile i64, ptr @jiffies, align 64
-  store i64 %125, ptr %38, align 8
-  %126 = getelementptr i8, ptr %16, i64 16
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 16
+.loopexit29:                                      ; preds = %122, %.loopexit31
+  %125 = load i32, ptr %26, align 8
+  %126 = and i32 %125, -2
+  store i32 %126, ptr %26, align 8
+  %127 = load volatile i64, ptr @jiffies, align 64
+  store i64 %127, ptr %38, align 8
+  %128 = getelementptr i8, ptr %16, i64 16
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds i8, ptr %129, i64 16
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %6) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
   store ptr %6, ptr %7, align 16
-  %129 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr null, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %6, i64 11
-  store i16 0, ptr %130, align 1
+  %131 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr null, ptr %131, align 8
+  %132 = getelementptr inbounds i8, ptr %6, i64 11
+  store i16 0, ptr %132, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %6, ptr noundef nonnull align 1 dereferenceable(11) @.str.14, i64 11, i1 false)
-  %131 = call i32 @kobject_uevent_env(ptr noundef %128, i32 noundef 2, ptr noundef nonnull %7) #8
-  %132 = load ptr, ptr %71, align 8
-  %133 = icmp eq ptr %132, %71
-  br i1 %133, label %.loopexit, label %.preheader
+  %133 = call i32 @kobject_uevent_env(ptr noundef %130, i32 noundef 2, ptr noundef nonnull %7) #8
+  %134 = load ptr, ptr %71, align 8
+  %135 = icmp eq ptr %134, %71
+  br i1 %135, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit29, %146
-  %134 = phi ptr [ %147, %146 ], [ %132, %.loopexit29 ]
-  %135 = getelementptr inbounds i8, ptr %134, i64 16
-  %136 = load ptr, ptr %135, align 8
-  call void @acpi_lock_hp_context() #8
-  %137 = getelementptr inbounds i8, ptr %136, i64 584
+.preheader:                                       ; preds = %.loopexit29, %148
+  %136 = phi ptr [ %149, %148 ], [ %134, %.loopexit29 ]
+  %137 = getelementptr inbounds i8, ptr %136, i64 16
   %138 = load ptr, ptr %137, align 8
-  %139 = icmp eq ptr %138, null
-  br i1 %139, label %145, label %140
+  call void @acpi_lock_hp_context() #8
+  %139 = getelementptr inbounds i8, ptr %138, i64 584
+  %140 = load ptr, ptr %139, align 8
+  %141 = icmp eq ptr %140, null
+  br i1 %141, label %147, label %142
 
-140:                                              ; preds = %.preheader
-  %141 = getelementptr inbounds i8, ptr %138, i64 16
-  %142 = load ptr, ptr %141, align 8
-  %143 = icmp eq ptr %142, null
-  br i1 %143, label %145, label %144
+142:                                              ; preds = %.preheader
+  %143 = getelementptr inbounds i8, ptr %140, i64 16
+  %144 = load ptr, ptr %143, align 8
+  %145 = icmp eq ptr %144, null
+  br i1 %145, label %147, label %146
 
-144:                                              ; preds = %140
+146:                                              ; preds = %142
   call void @acpi_unlock_hp_context() #8
-  call void %142(ptr noundef %136, i32 noundef %32) #8
-  br label %146
+  call void %144(ptr noundef %138, i32 noundef %32) #8
+  br label %148
 
-145:                                              ; preds = %140, %.preheader
+147:                                              ; preds = %142, %.preheader
   call void @acpi_unlock_hp_context() #8
-  br label %146
+  br label %148
 
-146:                                              ; preds = %145, %144
-  %147 = load ptr, ptr %134, align 8
-  %148 = icmp eq ptr %147, %71
-  br i1 %148, label %.loopexit, label %.preheader, !llvm.loop !14
+148:                                              ; preds = %147, %146
+  %149 = load ptr, ptr %136, align 8
+  %150 = icmp eq ptr %149, %71
+  br i1 %150, label %.loopexit, label %.preheader, !llvm.loop !14
 
-.loopexit:                                        ; preds = %146, %.loopexit29
+.loopexit:                                        ; preds = %148, %.loopexit29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6) #8
-  %149 = load ptr, ptr %23, align 8
-  %150 = call i32 @acpi_evaluate_lck(ptr noundef %149, i32 noundef 1) #8
-  %151 = call i32 @acpi_update_all_gpes() #8
+  %151 = load ptr, ptr %23, align 8
+  %152 = call i32 @acpi_evaluate_lck(ptr noundef %151, i32 noundef 1) #8
+  %153 = call i32 @acpi_update_all_gpes() #8
   br label %.thread
 
 .thread22:                                        ; preds = %33, %45, %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   store i64 0, ptr %5, align 8, !annotation !10
-  %152 = call i32 @acpi_evaluate_integer(ptr noundef %13, ptr noundef nonnull @.str.12, ptr noundef null, ptr noundef nonnull %5) #8
-  %153 = icmp ne i32 %152, 0
-  %154 = load i64, ptr %5, align 8
-  %155 = icmp eq i64 %154, 0
-  %156 = select i1 %153, i1 true, i1 %155
+  %154 = call i32 @acpi_evaluate_integer(ptr noundef %20, ptr noundef nonnull @.str.12, ptr noundef null, ptr noundef nonnull %5) #8
+  %155 = icmp ne i32 %154, 0
+  %156 = load i64, ptr %5, align 8
+  %157 = icmp eq i64 %156, 0
+  %158 = select i1 %155, i1 true, i1 %157
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  br i1 %156, label %157, label %.thread
+  br i1 %158, label %159, label %.thread
 
-157:                                              ; preds = %.thread22
-  %158 = load i32, ptr %26, align 8
-  %159 = and i32 %158, 1
-  %160 = icmp eq i32 %159, 0
-  br i1 %160, label %161, label %.thread
+159:                                              ; preds = %.thread22
+  %160 = load i32, ptr %26, align 8
+  %161 = and i32 %160, 1
+  %162 = icmp eq i32 %161, 0
+  br i1 %162, label %163, label %.thread
 
-161:                                              ; preds = %157
-  %162 = load volatile i64, ptr @jiffies, align 64
-  %163 = getelementptr i8, ptr %16, i64 -32
-  %164 = load i64, ptr %163, align 8
-  %165 = add i64 %162, -1000
-  %166 = sub i64 %165, %164
-  %167 = icmp sgt i64 %166, -1
-  br i1 %167, label %.thread23, label %.thread
+163:                                              ; preds = %159
+  %164 = load volatile i64, ptr @jiffies, align 64
+  %165 = getelementptr i8, ptr %16, i64 -32
+  %166 = load i64, ptr %165, align 8
+  %167 = add i64 %164, -1000
+  %168 = sub i64 %167, %166
+  %169 = icmp sgt i64 %168, -1
+  br i1 %169, label %.thread23, label %.thread
 
-168:                                              ; preds = %25
-  %169 = or i32 %27, 2
-  store i32 %169, ptr %26, align 8
-  %170 = load i8, ptr @immediate_undock, align 1, !range !15, !noundef !16
-  %171 = icmp ne i8 %170, 0
-  %172 = and i32 %27, 32
-  %173 = icmp eq i32 %172, 0
-  %or.cond = and i1 %171, %173
-  br i1 %or.cond, label %.thread24, label %176
+170:                                              ; preds = %25
+  %171 = or i32 %27, 2
+  store i32 %171, ptr %26, align 8
+  %172 = load i8, ptr @immediate_undock, align 1, !range !15, !noundef !16
+  %173 = icmp ne i8 %172, 0
+  %174 = and i32 %27, 32
+  %175 = icmp eq i32 %174, 0
+  %or.cond = and i1 %173, %175
+  br i1 %or.cond, label %.thread24, label %178
 
-.thread23:                                        ; preds = %161
-  %174 = or i32 %158, 2
-  store i32 %174, ptr %26, align 8
+.thread23:                                        ; preds = %163
+  %176 = or i32 %160, 2
+  store i32 %176, ptr %26, align 8
   br label %.thread24
 
-.thread24:                                        ; preds = %168, %.thread23
-  %175 = call fastcc i32 @handle_eject_request(ptr noundef nonnull %23), !range !17
+.thread24:                                        ; preds = %170, %.thread23
+  %177 = call fastcc i32 @handle_eject_request(ptr noundef nonnull %23), !range !17
   br label %.thread
 
-176:                                              ; preds = %168
-  %177 = getelementptr i8, ptr %16, i64 16
-  %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 16
+178:                                              ; preds = %170
+  %179 = getelementptr i8, ptr %16, i64 16
+  %180 = load ptr, ptr %179, align 8
+  %181 = getelementptr inbounds i8, ptr %180, i64 16
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %3) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
   store ptr %3, ptr %4, align 16
-  %180 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr null, ptr %180, align 8
+  %182 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr null, ptr %182, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %3, ptr noundef nonnull align 1 dereferenceable(13) @.str.13, i64 13, i1 false)
-  %181 = getelementptr i8, ptr %16, i64 -16
-  %182 = load ptr, ptr %181, align 8
-  %183 = icmp eq ptr %182, %181
-  br i1 %183, label %.loopexit35, label %.preheader34
+  %183 = getelementptr i8, ptr %16, i64 -16
+  %184 = load ptr, ptr %183, align 8
+  %185 = icmp eq ptr %184, %183
+  br i1 %185, label %.loopexit35, label %.preheader34
 
-.preheader34:                                     ; preds = %176, %196
-  %184 = phi ptr [ %197, %196 ], [ %182, %176 ]
-  %185 = getelementptr inbounds i8, ptr %184, i64 16
-  %186 = load ptr, ptr %185, align 8
-  call void @acpi_lock_hp_context() #8
-  %187 = getelementptr inbounds i8, ptr %186, i64 584
+.preheader34:                                     ; preds = %178, %198
+  %186 = phi ptr [ %199, %198 ], [ %184, %178 ]
+  %187 = getelementptr inbounds i8, ptr %186, i64 16
   %188 = load ptr, ptr %187, align 8
-  %189 = icmp eq ptr %188, null
-  br i1 %189, label %195, label %190
+  call void @acpi_lock_hp_context() #8
+  %189 = getelementptr inbounds i8, ptr %188, i64 584
+  %190 = load ptr, ptr %189, align 8
+  %191 = icmp eq ptr %190, null
+  br i1 %191, label %197, label %192
 
-190:                                              ; preds = %.preheader34
-  %191 = getelementptr inbounds i8, ptr %188, i64 16
-  %192 = load ptr, ptr %191, align 8
-  %193 = icmp eq ptr %192, null
-  br i1 %193, label %195, label %194
+192:                                              ; preds = %.preheader34
+  %193 = getelementptr inbounds i8, ptr %190, i64 16
+  %194 = load ptr, ptr %193, align 8
+  %195 = icmp eq ptr %194, null
+  br i1 %195, label %197, label %196
 
-194:                                              ; preds = %190
+196:                                              ; preds = %192
   call void @acpi_unlock_hp_context() #8
-  call void %192(ptr noundef %186, i32 noundef 3) #8
-  br label %196
+  call void %194(ptr noundef %188, i32 noundef 3) #8
+  br label %198
 
-195:                                              ; preds = %190, %.preheader34
+197:                                              ; preds = %192, %.preheader34
   call void @acpi_unlock_hp_context() #8
-  br label %196
+  br label %198
 
-196:                                              ; preds = %195, %194
-  %197 = load ptr, ptr %184, align 8
-  %198 = icmp eq ptr %197, %181
-  br i1 %198, label %.loopexit35, label %.preheader34, !llvm.loop !14
+198:                                              ; preds = %197, %196
+  %199 = load ptr, ptr %186, align 8
+  %200 = icmp eq ptr %199, %183
+  br i1 %200, label %.loopexit35, label %.preheader34, !llvm.loop !14
 
-.loopexit35:                                      ; preds = %196, %176
-  %199 = call i32 @kobject_uevent_env(ptr noundef %179, i32 noundef 2, ptr noundef nonnull %4) #8
+.loopexit35:                                      ; preds = %198, %178
+  %201 = call i32 @kobject_uevent_env(ptr noundef %181, i32 noundef 2, ptr noundef nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %3) #8
   br label %.thread
 
-.thread:                                          ; preds = %14, %.loopexit35, %.thread24, %161, %157, %.thread22, %.loopexit, %66, %25, %22
-  %200 = phi i32 [ -19, %22 ], [ 0, %.thread24 ], [ 0, %.loopexit35 ], [ 0, %.thread22 ], [ 0, %161 ], [ 0, %25 ], [ 0, %.loopexit ], [ 0, %66 ], [ 0, %157 ], [ -19, %14 ]
-  ret i32 %200
+.thread:                                          ; preds = %14, %.loopexit35, %.thread24, %163, %159, %.thread22, %.loopexit, %66, %25, %22
+  %202 = phi i32 [ -19, %22 ], [ 0, %.thread24 ], [ 0, %.loopexit35 ], [ 0, %.thread22 ], [ 0, %163 ], [ 0, %25 ], [ 0, %.loopexit ], [ 0, %66 ], [ 0, %159 ], [ -19, %14 ]
+  ret i32 %202
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -592,7 +600,7 @@ define internal fastcc noundef i32 @handle_eject_request(ptr noundef %0) unnamed
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 1
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %95
+  br i1 %11, label %12, label %96
 
 12:                                               ; preds = %1
   %13 = load volatile i64, ptr @jiffies, align 64
@@ -601,7 +609,7 @@ define internal fastcc noundef i32 @handle_eject_request(ptr noundef %0) unnamed
   %16 = add i64 %13, -1000
   %17 = sub i64 %16, %15
   %18 = icmp sgt i64 %17, -1
-  br i1 %18, label %19, label %95
+  br i1 %18, label %19, label %96
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds i8, ptr %0, i64 56
@@ -655,119 +663,123 @@ define internal fastcc noundef i32 @handle_eject_request(ptr noundef %0) unnamed
   %43 = getelementptr inbounds i8, ptr %0, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %24
-  br i1 %45, label %.loopexit, label %.preheader10
+  br i1 %45, label %.loopexit11, label %.preheader10
 
-.loopexit11:                                      ; preds = %60
+.loopexit11.loopexit:                             ; preds = %61
   %.pre = load ptr, ptr %43, align 8
-  %46 = icmp eq ptr %.pre, %24
-  br i1 %46, label %.loopexit, label %.preheader
+  br label %.loopexit11
 
-.preheader10:                                     ; preds = %.loopexit13, %60
-  %47 = phi ptr [ %62, %60 ], [ %44, %.loopexit13 ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
+.loopexit11:                                      ; preds = %.loopexit11.loopexit, %.loopexit13
+  %46 = phi ptr [ %.pre, %.loopexit11.loopexit ], [ %44, %.loopexit13 ]
+  %47 = icmp eq ptr %46, %24
+  br i1 %47, label %.loopexit, label %.preheader
+
+.preheader10:                                     ; preds = %.loopexit13, %61
+  %48 = phi ptr [ %63, %61 ], [ %44, %.loopexit13 ]
+  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %50 = load ptr, ptr %49, align 8
   call void @acpi_lock_hp_context() #8
-  %50 = getelementptr inbounds i8, ptr %49, i64 584
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %59, label %53
+  %51 = getelementptr inbounds i8, ptr %50, i64 584
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %60, label %54
 
-53:                                               ; preds = %.preheader10
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %59, label %57
+54:                                               ; preds = %.preheader10
+  %55 = getelementptr inbounds i8, ptr %52, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %60, label %58
 
-57:                                               ; preds = %53
+58:                                               ; preds = %54
   call void @acpi_unlock_hp_context() #8
-  %58 = call i32 %55(ptr noundef %49, i32 noundef 3) #8
-  br label %60
+  %59 = call i32 %56(ptr noundef %50, i32 noundef 3) #8
+  br label %61
 
-59:                                               ; preds = %53, %.preheader10
+60:                                               ; preds = %54, %.preheader10
   call void @acpi_unlock_hp_context() #8
-  br label %60
+  br label %61
 
-60:                                               ; preds = %59, %57
-  %61 = getelementptr inbounds i8, ptr %47, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, %24
-  br i1 %63, label %.loopexit11, label %.preheader10, !llvm.loop !18
+61:                                               ; preds = %60, %58
+  %62 = getelementptr inbounds i8, ptr %48, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, %24
+  br i1 %64, label %.loopexit11.loopexit, label %.preheader10, !llvm.loop !18
 
 .preheader:                                       ; preds = %.loopexit11, %.preheader
-  %64 = phi ptr [ %68, %.preheader ], [ %.pre, %.loopexit11 ]
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8
-  call void @acpi_bus_trim(ptr noundef %66) #8
-  %67 = getelementptr inbounds i8, ptr %64, i64 8
-  %68 = load ptr, ptr %67, align 8
-  %69 = icmp eq ptr %68, %24
-  br i1 %69, label %.loopexit, label %.preheader, !llvm.loop !19
+  %65 = phi ptr [ %69, %.preheader ], [ %46, %.loopexit11 ]
+  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %67 = load ptr, ptr %66, align 8
+  call void @acpi_bus_trim(ptr noundef %67) #8
+  %68 = getelementptr inbounds i8, ptr %65, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = icmp eq ptr %69, %24
+  br i1 %70, label %.loopexit, label %.preheader, !llvm.loop !19
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit13, %.loopexit11
+.loopexit:                                        ; preds = %.preheader, %.loopexit11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   store i64 0, ptr %3, align 8, !annotation !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   store i64 0, ptr %5, align 8, !annotation !10
-  %70 = load ptr, ptr %0, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.6, ptr noundef %70, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9) #8
+  %71 = load ptr, ptr %0, align 8
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.6, ptr noundef %71, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9) #8
   store i32 1, ptr %3, align 8
-  %71 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %4, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %4, ptr %72, align 8
   store i32 1, ptr %4, align 8
-  %72 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 0, ptr %72, align 8
-  %73 = load ptr, ptr %0, align 8
-  %74 = call i32 @acpi_evaluate_integer(ptr noundef %73, ptr noundef nonnull @.str.10, ptr noundef nonnull %3, ptr noundef nonnull %5) #8
-  switch i32 %74, label %75 [
-    i32 5, label %77
-    i32 0, label %77
+  %73 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 0, ptr %73, align 8
+  %74 = load ptr, ptr %0, align 8
+  %75 = call i32 @acpi_evaluate_integer(ptr noundef %74, ptr noundef nonnull @.str.10, ptr noundef nonnull %3, ptr noundef nonnull %5) #8
+  switch i32 %75, label %76 [
+    i32 5, label %78
+    i32 0, label %78
   ]
 
-75:                                               ; preds = %.loopexit
-  %76 = load ptr, ptr %0, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %76, ptr noundef nonnull @.str.11, i32 noundef %74) #8
-  br label %77
+76:                                               ; preds = %.loopexit
+  %77 = load ptr, ptr %0, align 8
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %77, ptr noundef nonnull @.str.11, i32 noundef %75) #8
+  br label %78
 
-77:                                               ; preds = %75, %.loopexit, %.loopexit
+78:                                               ; preds = %76, %.loopexit, %.loopexit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
-  %78 = load ptr, ptr %0, align 8
-  %79 = call i32 @acpi_evaluate_lck(ptr noundef %78, i32 noundef 0) #8
-  %80 = load ptr, ptr %0, align 8
-  %81 = call i32 @acpi_evaluate_ej0(ptr noundef %80) #8
+  %79 = load ptr, ptr %0, align 8
+  %80 = call i32 @acpi_evaluate_lck(ptr noundef %79, i32 noundef 0) #8
+  %81 = load ptr, ptr %0, align 8
+  %82 = call i32 @acpi_evaluate_ej0(ptr noundef %81) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
   store i64 0, ptr %2, align 8, !annotation !10
-  %82 = icmp eq ptr %0, null
-  br i1 %82, label %90, label %83
+  %83 = icmp eq ptr %0, null
+  br i1 %83, label %91, label %84
 
-83:                                               ; preds = %77
-  %84 = load ptr, ptr %0, align 8
-  %85 = call i32 @acpi_evaluate_integer(ptr noundef %84, ptr noundef nonnull @.str.12, ptr noundef null, ptr noundef nonnull %2) #8
-  %86 = icmp eq i32 %85, 0
-  %87 = load i64, ptr %2, align 8
-  %88 = icmp ne i64 %87, 0
-  %89 = select i1 %86, i1 %88, i1 false
-  br i1 %89, label %93, label %90
+84:                                               ; preds = %78
+  %85 = load ptr, ptr %0, align 8
+  %86 = call i32 @acpi_evaluate_integer(ptr noundef %85, ptr noundef nonnull @.str.12, ptr noundef null, ptr noundef nonnull %2) #8
+  %87 = icmp eq i32 %86, 0
+  %88 = load i64, ptr %2, align 8
+  %89 = icmp ne i64 %88, 0
+  %90 = select i1 %87, i1 %89, i1 false
+  br i1 %90, label %94, label %91
 
-90:                                               ; preds = %83, %77
+91:                                               ; preds = %84, %78
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
-  %91 = load i32, ptr %8, align 8
-  %92 = and i32 %91, -3
-  store i32 %92, ptr %8, align 8
-  br label %95
+  %92 = load i32, ptr %8, align 8
+  %93 = and i32 %92, -3
+  store i32 %93, ptr %8, align 8
+  br label %96
 
-93:                                               ; preds = %83
+94:                                               ; preds = %84
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
-  %94 = load ptr, ptr %0, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %94, ptr noundef nonnull @.str.15) #8
-  br label %95
+  %95 = load ptr, ptr %0, align 8
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %95, ptr noundef nonnull @.str.15) #8
+  br label %96
 
-95:                                               ; preds = %93, %90, %12, %1
-  %96 = phi i32 [ -16, %93 ], [ 0, %90 ], [ -16, %12 ], [ -16, %1 ]
-  ret i32 %96
+96:                                               ; preds = %94, %91, %12, %1
+  %97 = phi i32 [ -16, %94 ], [ 0, %91 ], [ -16, %12 ], [ -16, %1 ]
+  ret i32 %97
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

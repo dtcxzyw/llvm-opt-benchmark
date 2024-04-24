@@ -10438,8 +10438,7 @@ land.lhs.true:                                    ; preds = %cond.end10
   %method = getelementptr inbounds i8, ptr %s, i64 24
   %2 = load ptr, ptr %method, align 8
   %cmp15.not = icmp eq ptr %2, %meth
-  %spec.select = zext i1 %cmp15.not to i32
-  br label %return
+  br i1 %cmp15.not, label %if.end, label %return
 
 land.lhs.true19:                                  ; preds = %cond.false
   %call = tail call ptr @OSSL_QUIC_client_method() #24
@@ -10449,21 +10448,26 @@ land.lhs.true19:                                  ; preds = %cond.false
 lor.lhs.false21:                                  ; preds = %land.lhs.true19
   %call22 = tail call ptr @OSSL_QUIC_client_thread_method() #24
   %cmp23 = icmp eq ptr %call22, %meth
-  br i1 %cmp23, label %return, label %if.end
+  br i1 %cmp23, label %return, label %lor.lhs.false21.if.end_crit_edge
 
-if.end:                                           ; preds = %lor.lhs.false21
+lor.lhs.false21.if.end_crit_edge:                 ; preds = %lor.lhs.false21
   %method24.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 24
   %.pre = load ptr, ptr %method24.phi.trans.insert, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %lor.lhs.false21.if.end_crit_edge, %land.lhs.true
+  %3 = phi ptr [ %.pre, %lor.lhs.false21.if.end_crit_edge ], [ %2, %land.lhs.true ]
+  %cond11374044 = phi ptr [ %s, %lor.lhs.false21.if.end_crit_edge ], [ %1, %land.lhs.true ]
   %method24 = getelementptr inbounds i8, ptr %s, i64 24
-  %cmp25.not = icmp eq ptr %.pre, %meth
+  %cmp25.not = icmp eq ptr %3, %meth
   br i1 %cmp25.not, label %return, label %if.then26
 
 if.then26:                                        ; preds = %if.end
-  %handshake_func = getelementptr inbounds i8, ptr %s, i64 104
-  %3 = load ptr, ptr %handshake_func, align 8
-  %4 = load i32, ptr %.pre, align 8
-  %5 = load i32, ptr %meth, align 8
-  %cmp29 = icmp eq i32 %4, %5
+  %handshake_func = getelementptr inbounds i8, ptr %cond11374044, i64 104
+  %4 = load ptr, ptr %handshake_func, align 8
+  %5 = load i32, ptr %3, align 8
+  %6 = load i32, ptr %meth, align 8
+  %cmp29 = icmp eq i32 %5, %6
   br i1 %cmp29, label %if.then30, label %if.else
 
 if.then30:                                        ; preds = %if.then26
@@ -10471,37 +10475,37 @@ if.then30:                                        ; preds = %if.then26
   br label %if.end35
 
 if.else:                                          ; preds = %if.then26
-  %ssl_deinit = getelementptr inbounds i8, ptr %.pre, i64 56
-  %6 = load ptr, ptr %ssl_deinit, align 8
-  tail call void %6(ptr noundef nonnull %s) #24
+  %ssl_deinit = getelementptr inbounds i8, ptr %3, i64 56
+  %7 = load ptr, ptr %ssl_deinit, align 8
+  tail call void %7(ptr noundef nonnull %s) #24
   store ptr %meth, ptr %method24, align 8
   %ssl_init = getelementptr inbounds i8, ptr %meth, i64 40
-  %7 = load ptr, ptr %ssl_init, align 8
-  %call34 = tail call i32 %7(ptr noundef nonnull %s) #24
+  %8 = load ptr, ptr %ssl_init, align 8
+  %call34 = tail call i32 %8(ptr noundef nonnull %s) #24
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else, %if.then30
   %ret.0 = phi i32 [ 1, %if.then30 ], [ %call34, %if.else ]
-  %ssl_connect = getelementptr inbounds i8, ptr %.pre, i64 72
-  %8 = load ptr, ptr %ssl_connect, align 8
-  %cmp36 = icmp eq ptr %3, %8
+  %ssl_connect = getelementptr inbounds i8, ptr %3, i64 72
+  %9 = load ptr, ptr %ssl_connect, align 8
+  %cmp36 = icmp eq ptr %4, %9
   br i1 %cmp36, label %return.sink.split, label %if.else40
 
 if.else40:                                        ; preds = %if.end35
-  %ssl_accept = getelementptr inbounds i8, ptr %.pre, i64 64
-  %9 = load ptr, ptr %ssl_accept, align 8
-  %cmp41 = icmp eq ptr %3, %9
+  %ssl_accept = getelementptr inbounds i8, ptr %3, i64 64
+  %10 = load ptr, ptr %ssl_accept, align 8
+  %cmp41 = icmp eq ptr %4, %10
   br i1 %cmp41, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.else40, %if.end35
   %.sink = phi i64 [ 72, %if.end35 ], [ 64, %if.else40 ]
   %ssl_accept43 = getelementptr inbounds i8, ptr %meth, i64 %.sink
-  %10 = load ptr, ptr %ssl_accept43, align 8
-  store ptr %10, ptr %handshake_func, align 8
+  %11 = load ptr, ptr %ssl_accept43, align 8
+  store ptr %11, ptr %handshake_func, align 8
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %return.sink.split, %cond.false, %entry, %if.end, %if.else40, %cond.end10, %land.lhs.true19, %lor.lhs.false21
-  %retval.0 = phi i32 [ 0, %lor.lhs.false21 ], [ 0, %land.lhs.true19 ], [ 0, %cond.end10 ], [ %ret.0, %if.else40 ], [ 1, %if.end ], [ 0, %entry ], [ 0, %cond.false ], [ %spec.select, %land.lhs.true ], [ %ret.0, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %cond.false, %entry, %if.end, %if.else40, %cond.end10, %land.lhs.true, %land.lhs.true19, %lor.lhs.false21
+  %retval.0 = phi i32 [ 0, %lor.lhs.false21 ], [ 0, %land.lhs.true19 ], [ 0, %land.lhs.true ], [ 0, %cond.end10 ], [ %ret.0, %if.else40 ], [ 1, %if.end ], [ 0, %entry ], [ 0, %cond.false ], [ %ret.0, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -11096,22 +11100,22 @@ if.then32:                                        ; preds = %if.end30
 cond.false.i:                                     ; preds = %if.end30
   %method = getelementptr inbounds i8, ptr %s, i64 24
   %7 = load ptr, ptr %method, align 8
-  %call.i85 = tail call ptr @OSSL_QUIC_client_method() #24
-  %cmp20.i = icmp eq ptr %call.i85, %7
+  %call.i86 = tail call ptr @OSSL_QUIC_client_method() #24
+  %cmp20.i = icmp eq ptr %call.i86, %7
   br i1 %cmp20.i, label %if.end.i160, label %lor.lhs.false21.i
 
 lor.lhs.false21.i:                                ; preds = %cond.false.i
   %call22.i = tail call ptr @OSSL_QUIC_client_thread_method() #24
   %cmp23.i = icmp eq ptr %call22.i, %7
-  br i1 %cmp23.i, label %if.end.i160, label %if.end.i86
+  br i1 %cmp23.i, label %if.end.i160, label %lor.lhs.false21.if.end_crit_edge.i
 
-if.end.i86:                                       ; preds = %lor.lhs.false21.i
+lor.lhs.false21.if.end_crit_edge.i:               ; preds = %lor.lhs.false21.i
   %method24.phi.trans.insert.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %.pre.i = load ptr, ptr %method24.phi.trans.insert.i, align 8
   %cmp25.not.i = icmp eq ptr %.pre.i, %7
   br i1 %cmp25.not.i, label %if.end40, label %if.then26.i
 
-if.then26.i:                                      ; preds = %if.end.i86
+if.then26.i:                                      ; preds = %lor.lhs.false21.if.end_crit_edge.i
   %handshake_func.i = getelementptr inbounds i8, ptr %call.i, i64 104
   %8 = load ptr, ptr %handshake_func.i, align 8
   %9 = load i32, ptr %.pre.i, align 8
@@ -11157,7 +11161,7 @@ SSL_set_ssl_method.exit:                          ; preds = %if.else40.i, %retur
   %tobool38.not = icmp eq i32 %ret.0.i, 0
   br i1 %tobool38.not, label %if.end.i160, label %if.end40
 
-if.end40:                                         ; preds = %if.end.i86, %SSL_set_ssl_method.exit
+if.end40:                                         ; preds = %lor.lhs.false21.if.end_crit_edge.i, %SSL_set_ssl_method.exit
   %cert = getelementptr inbounds i8, ptr %s, i64 2048
   %16 = load ptr, ptr %cert, align 8
   %cmp41.not = icmp eq ptr %16, null
@@ -12286,7 +12290,7 @@ if.end54:                                         ; preds = %if.then49, %land.lh
   br label %return
 
 return:                                           ; preds = %entry, %cond.false, %if.end22, %if.end14, %if.end, %if.end54, %if.then21
-  %retval.0 = phi ptr [ %ctx.addr.0, %if.end54 ], [ null, %if.then21 ], [ %ctx, %if.end ], [ null, %if.end14 ], [ null, %if.end22 ], [ null, %cond.false ], [ null, %entry ]
+  %retval.0 = phi ptr [ %ctx.addr.0, %if.end54 ], [ null, %if.then21 ], [ %1, %if.end ], [ null, %if.end14 ], [ null, %if.end22 ], [ null, %cond.false ], [ null, %entry ]
   ret ptr %retval.0
 }
 

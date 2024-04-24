@@ -2450,9 +2450,9 @@ _ZNK4cvc58internal8Sequence4findERKS1_m.exit:     ; preds = %if.end8.i
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %if.end8.i.land.lhs.true_crit_edge, %if.end5.i, %entry, %_ZNK4cvc58internal8Sequence4findERKS1_m.exit
-  %sub.ptr.rhs.cast.i.i9.i13.pre-phi = phi i64 [ %.pre41, %if.end8.i.land.lhs.true_crit_edge ], [ %sub.ptr.lhs.cast.i.i.i, %if.end5.i ], [ %sub.ptr.rhs.cast.i.i.i, %entry ], [ %sub.ptr.rhs.cast.i.i, %_ZNK4cvc58internal8Sequence4findERKS1_m.exit ]
-  %5 = phi ptr [ %.pre, %if.end8.i.land.lhs.true_crit_edge ], [ %0, %if.end5.i ], [ %1, %entry ], [ %.pre, %_ZNK4cvc58internal8Sequence4findERKS1_m.exit ]
-  %6 = phi ptr [ %call.i.i, %if.end8.i.land.lhs.true_crit_edge ], [ %0, %if.end5.i ], [ %0, %entry ], [ %4, %_ZNK4cvc58internal8Sequence4findERKS1_m.exit ]
+  %sub.ptr.rhs.cast.i.i9.i13.pre-phi = phi i64 [ %.pre41, %if.end8.i.land.lhs.true_crit_edge ], [ %sub.ptr.rhs.cast.i.i.i, %if.end5.i ], [ %sub.ptr.rhs.cast.i.i.i, %entry ], [ %sub.ptr.rhs.cast.i.i, %_ZNK4cvc58internal8Sequence4findERKS1_m.exit ]
+  %5 = phi ptr [ %.pre, %if.end8.i.land.lhs.true_crit_edge ], [ %1, %if.end5.i ], [ %1, %entry ], [ %.pre, %_ZNK4cvc58internal8Sequence4findERKS1_m.exit ]
+  %6 = phi ptr [ %4, %if.end8.i.land.lhs.true_crit_edge ], [ %0, %if.end5.i ], [ %0, %entry ], [ %4, %_ZNK4cvc58internal8Sequence4findERKS1_m.exit ]
   %7 = load ptr, ptr %_M_finish.i.i7.i, align 8
   %8 = load ptr, ptr %d_seq.i6.i, align 8
   %sub.ptr.lhs.cast.i.i.i6 = ptrtoint ptr %7 to i64
@@ -3858,7 +3858,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp43.i.i, label %for.body.i.preheader.i, label %for.end.i.i
 
 for.body.i.preheader.i:                           ; preds = %if.then4
-  %3 = load ptr, ptr %retval.sroa.0.0.copyload.i1.i2, align 8, !noalias !40
+  %3 = load ptr, ptr %incdec.ptr.i.i, align 8, !noalias !40
   %4 = and i64 %sub.ptr.sub.i.i.i.i, -32
   %5 = sub i64 %0, %4
   %6 = mul nsw i64 %shr.i.i, -32
@@ -3929,19 +3929,19 @@ for.end.i.i:                                      ; preds = %for.end.loopexit.i.
     i64 1, label %for.end.i.i.sw.bb30.i.i_crit_edge
   ]
 
-for.end.i.i.sw.bb24.i.i_crit_edge:                ; preds = %for.end.i.i
-  %.pre149 = load ptr, ptr %retval.sroa.0.0.copyload.i1.i2, align 8, !noalias !40
-  br label %sw.bb24.i.i
-
 for.end.i.i.sw.bb30.i.i_crit_edge:                ; preds = %for.end.i.i
-  %.pre148 = load ptr, ptr %retval.sroa.0.0.copyload.i1.i2, align 8, !noalias !40
+  %.pre149 = load ptr, ptr %incdec.ptr.i.i, align 8, !noalias !40
   br label %sw.bb30.i.i
+
+for.end.i.i.sw.bb24.i.i_crit_edge:                ; preds = %for.end.i.i
+  %.pre148 = load ptr, ptr %incdec.ptr.i.i, align 8, !noalias !40
+  br label %sw.bb24.i.i
 
 sw.bb.i.i:                                        ; preds = %for.end.i.i
   %17 = inttoptr i64 %15 to ptr
   %incdec.ptr.i.i.i20.i.i = getelementptr inbounds i8, ptr %17, i64 -8
   %18 = load ptr, ptr %incdec.ptr.i.i.i20.i.i, align 8, !noalias !40
-  %19 = load ptr, ptr %retval.sroa.0.0.copyload.i1.i2, align 8, !noalias !40
+  %19 = load ptr, ptr %incdec.ptr.i.i, align 8, !noalias !40
   %cmp.i.i22.i.i = icmp eq ptr %18, %19
   br i1 %cmp.i.i22.i.i, label %return, label %if.end22.i.i
 
@@ -3951,7 +3951,7 @@ if.end22.i.i:                                     ; preds = %sw.bb.i.i
   br label %sw.bb24.i.i
 
 sw.bb24.i.i:                                      ; preds = %for.end.i.i.sw.bb24.i.i_crit_edge, %if.end22.i.i
-  %21 = phi ptr [ %19, %if.end22.i.i ], [ %.pre149, %for.end.i.i.sw.bb24.i.i_crit_edge ]
+  %21 = phi ptr [ %19, %if.end22.i.i ], [ %.pre148, %for.end.i.i.sw.bb24.i.i_crit_edge ]
   %22 = phi ptr [ %incdec.ptr.i.i23.i.i, %if.end22.i.i ], [ %16, %for.end.i.i.sw.bb24.i.i_crit_edge ]
   %23 = phi i64 [ %20, %if.end22.i.i ], [ %15, %for.end.i.i.sw.bb24.i.i_crit_edge ]
   %24 = inttoptr i64 %23 to ptr
@@ -3966,7 +3966,7 @@ if.end28.i.i:                                     ; preds = %sw.bb24.i.i
   br label %sw.bb30.i.i
 
 sw.bb30.i.i:                                      ; preds = %for.end.i.i.sw.bb30.i.i_crit_edge, %if.end28.i.i
-  %27 = phi ptr [ %21, %if.end28.i.i ], [ %.pre148, %for.end.i.i.sw.bb30.i.i_crit_edge ]
+  %27 = phi ptr [ %21, %if.end28.i.i ], [ %.pre149, %for.end.i.i.sw.bb30.i.i_crit_edge ]
   %28 = phi i64 [ %26, %if.end28.i.i ], [ %15, %for.end.i.i.sw.bb30.i.i_crit_edge ]
   %29 = inttoptr i64 %28 to ptr
   %incdec.ptr.i.i.i28.i.i = getelementptr inbounds i8, ptr %29, i64 -8

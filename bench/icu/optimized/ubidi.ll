@@ -6196,7 +6196,7 @@ if.end:                                           ; preds = %return.sink.split.i
   br i1 %cmp8, label %do.body, label %if.end13
 
 do.body:                                          ; preds = %if.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(480) %7, ptr noundef nonnull align 8 dereferenceable(480) %8, i64 480, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(480) %7, ptr noundef nonnull align 8 dereferenceable(480) %simpleOpenings, i64 480, i1 false)
   %.pre = load ptr, ptr %openingsMemory, align 8
   br label %if.end13
 

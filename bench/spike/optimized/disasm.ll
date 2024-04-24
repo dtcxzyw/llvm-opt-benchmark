@@ -10288,7 +10288,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2479:       ; preds = %2108, %2110
   store i64 502296703, ptr %2189, align 8
   store ptr @.str.500, ptr %2190, align 16
   store ptr %127, ptr %2191, align 8
-  %2198 = trunc i64 %.09483805 to i32
+  %2198 = trunc nuw nsw i64 %.09483805 to i32
   %2199 = shl nuw nsw i32 8, %2198
   %2200 = getelementptr inbounds [8 x i64], ptr @__const._ZN14disassembler_t16add_instructionsEPK12isa_parser_t.elt_map, i64 0, i64 %.09483805
   br label %2201
@@ -10330,7 +10330,7 @@ _ZNSt7__cxx119to_stringEj.exit:                   ; preds = %2201
   %2212 = icmp ult i64 %2211, 16
   call void @llvm.assume(i1 %2212)
   %2213 = add nuw nsw i64 %2211, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2195, ptr noundef nonnull align 8 dereferenceable(1) %2206, i64 %2213, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2195, ptr noundef nonnull align 8 dereferenceable(1) %2207, i64 %2213, i1 false)
   br label %.critedge
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %.noexc
@@ -17110,7 +17110,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 69:                                               ; preds = %._crit_edge.i
-  %70 = trunc i32 %.0.lcssa.i to i8
+  %70 = trunc nuw i32 %.0.lcssa.i to i8
   %71 = or disjoint i8 %70, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -18368,7 +18368,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit10: ; pred
   %33 = icmp ult i64 %32, 16
   tail call void @llvm.assume(i1 %33)
   %34 = add nuw nsw i64 %32, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %26, ptr noundef nonnull align 8 dereferenceable(1) %27, i64 %34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %26, ptr noundef nonnull align 8 dereferenceable(1) %28, i64 %34, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %24
@@ -20012,7 +20012,7 @@ define internal void @"_ZNK3$_09to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noa
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = shl i64 %2, 32
   %8 = ashr i64 %7, 52
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nsw i64 %8 to i32
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %9) #19
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %10 = getelementptr inbounds i8, ptr %6, i64 8
@@ -20252,7 +20252,7 @@ define internal void @"_ZNK3$_19to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noa
   %9 = lshr i64 %2, 6
   %10 = and i64 %9, 1
   %11 = or disjoint i64 %8, %10
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %12) #19
   call void @llvm.experimental.noalias.scope.decl(metadata !71)
   %13 = getelementptr inbounds i8, ptr %6, i64 8
@@ -20732,7 +20732,7 @@ define internal void @"_ZNK3$_39to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noa
   %10 = ashr i64 %9, 52
   %11 = and i64 %10, 4294967264
   %12 = or disjoint i64 %11, %8
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %13) #19
   call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %14 = getelementptr inbounds i8, ptr %6, i64 8
@@ -21269,7 +21269,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   %36 = icmp ult i64 %35, 16
   call void @llvm.assume(i1 %36)
   %37 = add nuw nsw i64 %35, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %30, ptr noundef nonnull align 8 dereferenceable(1) %31, i64 %37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %30, ptr noundef nonnull align 8 dereferenceable(1) %32, i64 %37, i1 false)
   %38 = getelementptr inbounds i8, ptr %29, i64 8
   %39 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %35, ptr %39, align 8, !alias.scope !92
@@ -27229,7 +27229,7 @@ define internal void @"_ZN4$_19D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_209to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #8 align 2 {
   %4 = shl i64 %2, 32
   %5 = ashr i64 %4, 52
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   tail call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %6) #19
   ret void
 }
@@ -27341,7 +27341,7 @@ define internal void @"_ZNK4$_259to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %15 = ashr i64 %14, 51
   %16 = and i64 %15, 4294963200
   %17 = or disjoint i64 %13, %16
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = icmp sgt i32 %18, -1
   %.str.2079..str.2080 = select i1 %19, ptr @.str.2079, ptr @.str.2080
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
@@ -27471,7 +27471,7 @@ define internal void @"_ZNK4$_269to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %13 = or disjoint i64 %8, %9
   %14 = or disjoint i64 %13, %6
   %15 = or disjoint i64 %14, %12
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw i64 %15 to i32
   %17 = getelementptr inbounds i8, ptr %4, i64 16
   %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.2081)
           to label %19 unwind label %32
@@ -27782,7 +27782,7 @@ define internal void @"_ZNK4$_369to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %7 = ashr i64 %6, 58
   %8 = and i64 %7, 4294967264
   %9 = or disjoint i64 %8, %5
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   tail call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %10) #19
   ret void
 }
@@ -27806,7 +27806,7 @@ define internal void @"_ZNK4$_379to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %12 = lshr i64 %2, 1
   %13 = and i64 %12, 960
   %14 = or disjoint i64 %11, %13
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw nsw i64 %14 to i32
   tail call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %15) #19
   ret void
 }
@@ -27834,7 +27834,7 @@ define internal void @"_ZNK4$_389to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %16 = ashr i64 %15, 54
   %17 = and i64 %16, 4294966784
   %18 = or disjoint i64 %14, %17
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw i64 %18 to i32
   tail call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %19) #19
   ret void
 }
@@ -27852,7 +27852,7 @@ define internal void @"_ZNK4$_409to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %6 = lshr i64 %2, 7
   %7 = and i64 %6, 32
   %8 = or disjoint i64 %7, %5
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw nsw i64 %8 to i32
   tail call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %9) #19
   ret void
 }
@@ -27882,7 +27882,7 @@ define internal void @"_ZNK4$_419to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %13 = ashr i64 %12, 58
   %14 = and i64 %13, 1048544
   %15 = or disjoint i64 %14, %11
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw nsw i64 %15 to i32
   %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %16)
           to label %18 unwind label %20
 
@@ -27920,7 +27920,7 @@ define internal void @"_ZNK4$_429to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %12 = shl i64 %2, 4
   %13 = and i64 %12, 192
   %14 = or disjoint i64 %11, %13
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw nsw i64 %14 to i32
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %15) #19
   call void @llvm.experimental.noalias.scope.decl(metadata !98)
   %16 = getelementptr inbounds i8, ptr %6, i64 8
@@ -28160,7 +28160,7 @@ define internal void @"_ZNK4$_439to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %12 = shl i64 %2, 4
   %13 = and i64 %12, 448
   %14 = or disjoint i64 %11, %13
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw nsw i64 %14 to i32
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %15) #19
   call void @llvm.experimental.noalias.scope.decl(metadata !104)
   %16 = getelementptr inbounds i8, ptr %6, i64 8
@@ -28397,7 +28397,7 @@ define internal void @"_ZNK4$_449to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %9 = lshr i64 %2, 1
   %10 = and i64 %9, 192
   %11 = or disjoint i64 %8, %10
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %12) #19
   call void @llvm.experimental.noalias.scope.decl(metadata !110)
   %13 = getelementptr inbounds i8, ptr %6, i64 8
@@ -28634,7 +28634,7 @@ define internal void @"_ZNK4$_459to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %9 = lshr i64 %2, 1
   %10 = and i64 %9, 448
   %11 = or disjoint i64 %8, %10
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %12) #19
   call void @llvm.experimental.noalias.scope.decl(metadata !116)
   %13 = getelementptr inbounds i8, ptr %6, i64 8
@@ -28874,7 +28874,7 @@ define internal void @"_ZNK4$_469to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %12 = shl i64 %2, 1
   %13 = and i64 %12, 64
   %14 = or disjoint i64 %11, %13
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw nsw i64 %14 to i32
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %15) #19
   call void @llvm.experimental.noalias.scope.decl(metadata !122)
   %16 = getelementptr inbounds i8, ptr %6, i64 8
@@ -29114,7 +29114,7 @@ define internal void @"_ZNK4$_479to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %9 = shl i64 %2, 1
   %10 = and i64 %9, 192
   %11 = or disjoint i64 %8, %10
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %12) #19
   call void @llvm.experimental.noalias.scope.decl(metadata !128)
   %13 = getelementptr inbounds i8, ptr %6, i64 8
@@ -29363,7 +29363,7 @@ define internal void @"_ZNK4$_489to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %18 = ashr i64 %17, 55
   %19 = and i64 %18, 4294967040
   %20 = or disjoint i64 %16, %19
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw i64 %20 to i32
   %22 = icmp sgt i32 %21, -1
   %.str.2079..str.2080 = select i1 %22, ptr @.str.2079, ptr @.str.2080
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
@@ -29505,7 +29505,7 @@ define internal void @"_ZNK4$_499to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %26 = or disjoint i64 %25, %16
   %27 = or disjoint i64 %26, %18
   %28 = add nuw nsw i64 %27, %21
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw i64 %28 to i32
   %30 = icmp sgt i32 %29, -1
   %.str.2079..str.2080 = select i1 %30, ptr @.str.2079, ptr @.str.2080
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
@@ -29936,7 +29936,7 @@ define internal void @"_ZN4$_56D0Ev"(ptr noundef nonnull align 8 dereferenceable
 define internal void @"_ZNK4$_579to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #8 align 2 {
   %4 = shl i64 %2, 44
   %5 = ashr i64 %4, 59
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   tail call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %6) #19
   ret void
 }
@@ -29970,7 +29970,7 @@ define internal void @"_ZNK4$_589to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %.not = icmp eq i64 %18, 0
   %.v = select i1 %.not, i64 2047, i64 1023
   %19 = and i64 %.v, %11
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %.not9 = icmp ult i32 %20, 256
   %21 = getelementptr inbounds i8, ptr %4, i64 16
   br i1 %.not9, label %30, label %22
@@ -30203,7 +30203,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   br i1 %32, label %10, label %33, !llvm.loop !137
 
 33:                                               ; preds = %31
-  %34 = trunc i8 %.1 to i1
+  %34 = trunc nuw i8 %.1 to i1
   %35 = select i1 %34, ptr @.str.2095, ptr @.str.502
   %.mask = and i8 %.1, 1
   %36 = zext nneg i8 %.mask to i64
@@ -31186,7 +31186,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 71:                                               ; preds = %._crit_edge.i
-  %72 = trunc i32 %.0.lcssa.i to i8
+  %72 = trunc nuw i32 %.0.lcssa.i to i8
   %73 = or disjoint i8 %72, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -31476,7 +31476,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 64:                                               ; preds = %._crit_edge.i
-  %65 = trunc i64 %.0.lcssa.i to i8
+  %65 = trunc nuw i64 %.0.lcssa.i to i8
   %66 = or disjoint i8 %65, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

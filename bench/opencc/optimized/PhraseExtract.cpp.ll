@@ -1520,7 +1520,7 @@ _ZN6opencc19UTF8StringSliceBaseImE9MoveRightEv.exit: ; preds = %108, %_ZNSt6vect
   br label %_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE13shrink_to_fitEv.exit
 
 _ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE13shrink_to_fitEv.exit: ; preds = %._crit_edge, %140
-  %142 = phi ptr [ %136, %._crit_edge ], [ %.pre43, %140 ]
+  %142 = phi ptr [ %138, %._crit_edge ], [ %.pre43, %140 ]
   %143 = load ptr, ptr %6, align 8
   tail call void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_(ptr %143, ptr %142)
   %144 = getelementptr inbounds i8, ptr %0, i64 105
@@ -1925,7 +1925,7 @@ _ZN6opencc19UTF8StringSliceBaseImE8MoveLeftEv.exit: ; preds = %113, %_ZNSt6vecto
   br label %_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE13shrink_to_fitEv.exit
 
 _ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE13shrink_to_fitEv.exit: ; preds = %._crit_edge, %146
-  %148 = phi ptr [ %142, %._crit_edge ], [ %.pre70, %146 ]
+  %148 = phi ptr [ %144, %._crit_edge ], [ %.pre70, %146 ]
   %149 = load ptr, ptr %6, align 8
   %.not.i.i7 = icmp eq ptr %149, %148
   br i1 %.not.i.i7, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEEZNS2_13PhraseExtract15ExtractPrefixesEvE3$_0EvT_SC_T0_.exit", label %150

@@ -470,7 +470,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_
   resume { ptr, i32 } %lpad.phi
 
 ._crit_edge:                                      ; preds = %.lr.ph, %137
-  %175 = phi ptr [ %142, %137 ], [ %168, %.lr.ph ]
+  %175 = phi ptr [ %143, %137 ], [ %168, %.lr.ph ]
   %.not = icmp eq i64 %128, 0
   br i1 %.not, label %181, label %176
 
@@ -863,7 +863,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12
   resume { ptr, i32 } %lpad.phi
 
 ._crit_edge:                                      ; preds = %.lr.ph, %138
-  %176 = phi ptr [ %143, %138 ], [ %169, %.lr.ph ]
+  %176 = phi ptr [ %144, %138 ], [ %169, %.lr.ph ]
   %.not = icmp eq i64 %129, 0
   br i1 %.not, label %182, label %177
 
@@ -1252,7 +1252,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12
   resume { ptr, i32 } %lpad.phi
 
 ._crit_edge:                                      ; preds = %.lr.ph, %134
-  %171 = phi ptr [ %139, %134 ], [ %164, %.lr.ph ]
+  %171 = phi ptr [ %140, %134 ], [ %164, %.lr.ph ]
   %.not = icmp eq i64 %125, 0
   br i1 %.not, label %177, label %172
 
@@ -1639,7 +1639,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12
   resume { ptr, i32 } %lpad.phi
 
 ._crit_edge:                                      ; preds = %.lr.ph, %134
-  %171 = phi ptr [ %139, %134 ], [ %164, %.lr.ph ]
+  %171 = phi ptr [ %140, %134 ], [ %164, %.lr.ph ]
   %.not = icmp eq i64 %125, 0
   br i1 %.not, label %177, label %172
 
@@ -2131,7 +2131,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_15FixupISt6vectorINS1_16RawTrackKeyframeIN
   resume { ptr, i32 } %lpad.phi
 
 ._crit_edge:                                      ; preds = %.lr.ph, %195
-  %232 = phi ptr [ %200, %195 ], [ %225, %.lr.ph ]
+  %232 = phi ptr [ %201, %195 ], [ %225, %.lr.ph ]
   %.not = icmp eq i64 %193, 0
   br i1 %.not, label %238, label %233
 

@@ -477,7 +477,7 @@ define internal ptr @addMMRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %._crit_edge231.thread
 
 ._crit_edge231.thread:                            ; preds = %.preheader, %._crit_edge231, %208, %176
-  %.2196 = phi ptr [ %205, %208 ], [ %.1195, %._crit_edge231 ], [ %7, %176 ], [ %.1195, %.preheader ]
+  %.2196 = phi ptr [ %205, %208 ], [ %.1195, %._crit_edge231 ], [ %.1195, %176 ], [ %.1195, %.preheader ]
   %215 = ptrtoint ptr %.2196 to i64
   %216 = and i64 %215, -2
   %217 = inttoptr i64 %216 to ptr
@@ -488,7 +488,7 @@ define internal ptr @addMMRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader225, %122, %._crit_edge, %101, %62, %5, %._crit_edge231.thread, %207, %197, %168, %156, %134, %100, %90, %._crit_edge237
-  %.0 = phi ptr [ %37, %._crit_edge237 ], [ null, %90 ], [ null, %100 ], [ null, %134 ], [ null, %156 ], [ null, %197 ], [ null, %207 ], [ %.2196, %._crit_edge231.thread ], [ null, %168 ], [ %7, %5 ], [ %7, %62 ], [ %98, %101 ], [ %61, %._crit_edge ], [ null, %122 ], [ %61, %.preheader225 ]
+  %.0 = phi ptr [ %37, %._crit_edge237 ], [ null, %90 ], [ null, %100 ], [ null, %134 ], [ null, %156 ], [ null, %197 ], [ null, %207 ], [ %.2196, %._crit_edge231.thread ], [ null, %168 ], [ %7, %5 ], [ %61, %62 ], [ %98, %101 ], [ %61, %._crit_edge ], [ null, %122 ], [ %61, %.preheader225 ]
   ret ptr %.0
 }
 
@@ -612,7 +612,7 @@ define ptr @Cudd_addTriangle(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds i32, ptr %10, i64 %21
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %23, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

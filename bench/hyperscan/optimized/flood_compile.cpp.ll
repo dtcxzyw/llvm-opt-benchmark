@@ -102,7 +102,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br label %_ZNSt6vectorI8FDRFloodSaIS0_EED2Ev.exit201
 
 invoke.cont13:                                    ; preds = %for.body10
-  %conv.i.i = trunc i64 %call12 to i32
+  %conv.i.i = trunc nuw i64 %call12 to i32
   %msk = getelementptr inbounds i8, ptr %__begin1.sroa.0.0238, i64 56
   %_M_finish.i142 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0238, i64 64
   %5 = load ptr, ptr %_M_finish.i142, align 8
@@ -208,7 +208,7 @@ if.end83.us:                                      ; preds = %if.then.i.us, %invo
   br i1 %cmp84.us, label %if.then85.us, label %for.inc158.us
 
 if.then85.us:                                     ; preds = %if.end83.us
-  %31 = trunc i64 %indvars.iv264 to i32
+  %31 = trunc nuw i64 %indvars.iv264 to i32
   %32 = xor i64 %indvars.iv264, -1
   %sub88.us = add i64 %sub.ptr.sub.i, %32
   %conv89.us = and i64 %sub88.us, 4294967295
@@ -295,7 +295,7 @@ if.then85:                                        ; preds = %if.end83
   br i1 %cmp145.not, label %for.inc158, label %do.end149
 
 do.end149:                                        ; preds = %if.then85
-  %50 = trunc i64 %indvars.iv260 to i32
+  %50 = trunc nuw i64 %indvars.iv260 to i32
   %cond154 = tail call i32 @llvm.umin.i32(i32 %cond53, i32 %50)
   br label %for.end160
 
@@ -486,7 +486,7 @@ lor.rhs.i:                                        ; preds = %_ZNSt3mapI8FDRFlood
 
 if.then.i180:                                     ; preds = %lor.rhs.i, %_ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit.i, %for.body220
   %cmp.i18.i = phi i1 [ true, %_ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit.i ], [ false, %lor.rhs.i ], [ true, %for.body220 ]
-  %__y.addr.0.lcssa.i.i.i17.i = phi ptr [ %75, %_ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %75, %for.body220 ]
+  %__y.addr.0.lcssa.i.i.i17.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %75, %for.body220 ]
   %call5.i.i.i.i.i.i.i182 = invoke noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #13
           to label %call5.i.i.i.i.i.i.i.noexc unwind label %lpad224.loopexit
 
@@ -527,10 +527,10 @@ while.end.i.i.i.i:                                ; preds = %while.body.i.i.i7.i
   br i1 %cmp.i.i.i.i9.i, label %if.then.i.i.i.i, label %if.end12.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.end.i.i.i.i, %if.else.i.i.i
-  %__y.0.lcssa28.i.i.i.i = phi ptr [ %__x.024.i.i.i.i, %while.end.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i, %if.else.i.i.i ]
+  %__y.0.lcssa28.i.i.i.i = phi ptr [ %__x.024.i.i.i.i, %while.end.i.i.i.i ], [ %75, %if.else.i.i.i ]
   %this.val4.i.i.i.i = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %cmp.i5.i.i.i.i = icmp eq ptr %__y.0.lcssa28.i.i.i.i, %this.val4.i.i.i.i
-  br i1 %cmp.i5.i.i.i.i, label %invoke.cont7.i.i, label %if.else.i.i.i.i
+  br i1 %cmp.i5.i.i.i.i, label %if.then.i.i181, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %call.i6.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa28.i.i.i.i) #16
@@ -542,7 +542,7 @@ if.end12.i.i.i.i:                                 ; preds = %if.else.i.i.i.i, %w
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i.i.i.i, i64 32
   %call.i7.i.i.i.i = call i32 @memcmp(ptr noundef nonnull dereferenceable(208) %_M_storage.i.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #16
   %cmp.i8.i.i.i.i = icmp slt i32 %call.i7.i.i.i.i, 0
-  br i1 %cmp.i8.i.i.i.i, label %invoke.cont7.i.i, label %if.then.i12.i.i
+  br i1 %cmp.i8.i.i.i.i, label %if.then.i.i181, label %if.then.i12.i.i
 
 if.else12.i.i.i:                                  ; preds = %call5.i.i.i.i.i.i.i.noexc
   %_M_storage.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i17.i, i64 32
@@ -588,7 +588,7 @@ while.end.i36.i.i.i:                              ; preds = %while.body.i27.i.i.
 if.then.i49.i.i.i:                                ; preds = %while.end.i36.i.i.i, %if.else42.i.i.i
   %__y.0.lcssa28.i50.i.i.i = phi ptr [ %__x.024.i28.i.i.i, %while.end.i36.i.i.i ], [ %75, %if.else42.i.i.i ]
   %cmp.i5.i52.i.i.i = icmp eq ptr %__y.0.lcssa28.i50.i.i.i, %77
-  br i1 %cmp.i5.i52.i.i.i, label %invoke.cont7.i.i, label %if.else.i53.i.i.i
+  br i1 %cmp.i5.i52.i.i.i, label %if.then.i.i181, label %if.else.i53.i.i.i
 
 if.else.i53.i.i.i:                                ; preds = %if.then.i49.i.i.i
   %call.i6.i54.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa28.i50.i.i.i) #16
@@ -660,15 +660,15 @@ if.end12.i81.i.i.i:                               ; preds = %if.else.i97.i.i.i, 
   %cmp.i8.i86.i.i.i = icmp slt i32 %call.i7.i85.i.i.i, 0
   br i1 %cmp.i8.i86.i.i.i, label %if.then.i.i181, label %if.then.i12.i.i
 
-invoke.cont7.i.i:                                 ; preds = %if.then64.i.i.i, %if.then50.i.i.i, %if.then.i49.i.i.i, %if.then32.i.i.i, %if.then18.i.i.i, %if.end12.i.i.i.i, %if.then.i.i.i.i, %land.lhs.true.i.i.i
-  %retval.sroa.0.0.i.i.i = phi ptr [ null, %land.lhs.true.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i, %if.then18.i.i.i ], [ null, %if.then50.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i, %if.then32.i.i.i ], [ %call.i62.i.i.i, %if.then64.i.i.i ], [ null, %if.then.i.i.i.i ], [ null, %if.then.i49.i.i.i ], [ null, %if.end12.i.i.i.i ]
-  %retval.sroa.12.0.i.i.i = phi ptr [ %76, %land.lhs.true.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i, %if.then18.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i, %if.then50.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i, %if.then32.i.i.i ], [ %call.i62.i.i.i, %if.then64.i.i.i ], [ %__y.0.lcssa28.i.i.i.i, %if.then.i.i.i.i ], [ %77, %if.then.i49.i.i.i ], [ %__y.0.lcssa29.i.i.i.i, %if.end12.i.i.i.i ]
+invoke.cont7.i.i:                                 ; preds = %if.then64.i.i.i, %if.then50.i.i.i, %if.then32.i.i.i, %if.then18.i.i.i, %land.lhs.true.i.i.i
+  %retval.sroa.0.0.i.i.i = phi ptr [ null, %land.lhs.true.i.i.i ], [ %77, %if.then18.i.i.i ], [ null, %if.then50.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i, %if.then32.i.i.i ], [ %call.i62.i.i.i, %if.then64.i.i.i ]
+  %retval.sroa.12.0.i.i.i = phi ptr [ %76, %land.lhs.true.i.i.i ], [ %77, %if.then18.i.i.i ], [ %79, %if.then50.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i, %if.then32.i.i.i ], [ %call.i62.i.i.i, %if.then64.i.i.i ]
   %tobool.not.i.i = icmp eq ptr %retval.sroa.12.0.i.i.i, null
   br i1 %tobool.not.i.i, label %if.then.i12.i.i, label %if.then.i.i181
 
-if.then.i.i181:                                   ; preds = %invoke.cont7.i.i, %if.end12.i81.i.i.i, %if.then.i93.i.i.i, %if.then64.i.i.i, %if.end12.i37.i.i.i, %if.then32.i.i.i
-  %retval.sroa.12.0.i11.i.i = phi ptr [ %retval.sroa.12.0.i.i.i, %invoke.cont7.i.i ], [ %__y.0.lcssa28.i94.i.i.i, %if.then.i93.i.i.i ], [ %call.i18.i.i.i, %if.then32.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i, %if.then64.i.i.i ], [ %__y.0.lcssa29.i38.i.i.i, %if.end12.i37.i.i.i ], [ %__y.0.lcssa29.i82.i.i.i, %if.end12.i81.i.i.i ]
-  %retval.sroa.0.0.i10.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %invoke.cont7.i.i ], [ null, %if.then.i93.i.i.i ], [ null, %if.then32.i.i.i ], [ null, %if.then64.i.i.i ], [ null, %if.end12.i37.i.i.i ], [ null, %if.end12.i81.i.i.i ]
+if.then.i.i181:                                   ; preds = %invoke.cont7.i.i, %if.end12.i81.i.i.i, %if.then.i93.i.i.i, %if.then64.i.i.i, %if.end12.i37.i.i.i, %if.then.i49.i.i.i, %if.then32.i.i.i, %if.end12.i.i.i.i, %if.then.i.i.i.i
+  %retval.sroa.12.0.i11.i.i = phi ptr [ %retval.sroa.12.0.i.i.i, %invoke.cont7.i.i ], [ %__y.0.lcssa28.i94.i.i.i, %if.then.i93.i.i.i ], [ %__y.0.lcssa28.i50.i.i.i, %if.then.i49.i.i.i ], [ %__y.0.lcssa28.i.i.i.i, %if.then.i.i.i.i ], [ %call.i18.i.i.i, %if.then32.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i, %if.then64.i.i.i ], [ %__y.0.lcssa29.i.i.i.i, %if.end12.i.i.i.i ], [ %__y.0.lcssa29.i38.i.i.i, %if.end12.i37.i.i.i ], [ %__y.0.lcssa29.i82.i.i.i, %if.end12.i81.i.i.i ]
+  %retval.sroa.0.0.i10.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %invoke.cont7.i.i ], [ null, %if.then.i93.i.i.i ], [ null, %if.then.i49.i.i.i ], [ null, %if.then.i.i.i.i ], [ null, %if.then32.i.i.i ], [ null, %if.then64.i.i.i ], [ null, %if.end12.i.i.i.i ], [ null, %if.end12.i37.i.i.i ], [ null, %if.end12.i81.i.i.i ]
   %cmp.not.i.i5.i.i = icmp ne ptr %retval.sroa.0.0.i10.i.i, null
   %cmp2.i.i.i.i = icmp eq ptr %75, %retval.sroa.12.0.i11.i.i
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i5.i.i, i1 true, i1 %cmp2.i.i.i.i

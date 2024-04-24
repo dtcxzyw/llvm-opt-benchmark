@@ -1440,7 +1440,7 @@ entry:
   %does_zap_garbage_.i = getelementptr inbounds i8, ptr %s, i64 72
   %18 = load i8, ptr %does_zap_garbage_.i, align 8
   %19 = and i8 %18, 1
-  %conv42 = uitofp i8 %19 to double
+  %conv42 = uitofp nneg i8 %19 to double
   %20 = load ptr, ptr %buffer_.i.i, align 8
   %arrayidx.i.i46 = getelementptr inbounds i8, ptr %20, i64 64
   store double %conv42, ptr %arrayidx.i.i46, align 8
@@ -4698,7 +4698,7 @@ if.then.i.i.i35:                                  ; preds = %do.end36
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i37:                                  ; preds = %do.end36
-  call void @_ZdlPv(ptr noundef %31) #24
+  call void @_ZdlPv(ptr noundef %39) #24
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %40 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i38 = getelementptr inbounds i8, ptr %40, i64 -8

@@ -625,20 +625,20 @@ land.rhs.i4.i9.i6.i:                              ; preds = %if.end8.i, %while.b
 while.body.i6.i12.i9.i:                           ; preds = %land.rhs.i4.i9.i6.i, %land.rhs.i4.i9.i6.i
   %incdec.ptr.i.i13.i10.i = getelementptr inbounds i8, ptr %retval.sroa.0.2.i7.i, i64 16
   %cmp.not.i7.i14.i11.i = icmp eq ptr %incdec.ptr.i.i13.i10.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i7.i14.i11.i, label %for.end31, label %land.rhs.i4.i9.i6.i, !llvm.loop !10
+  br i1 %cmp.not.i7.i14.i11.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E5beginEv.exit, label %land.rhs.i4.i9.i6.i, !llvm.loop !10
 
-_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E5beginEv.exit: ; preds = %land.rhs.i4.i9.i6.i, %if.end8.i
-  %add.ptr.i.i.pn16.i = phi ptr [ %2, %if.end8.i ], [ %retval.sroa.0.2.i7.i, %land.rhs.i4.i9.i6.i ]
+_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E5beginEv.exit: ; preds = %land.rhs.i4.i9.i6.i, %while.body.i6.i12.i9.i, %if.end8.i
+  %add.ptr.i.i.pn16.i = phi ptr [ %2, %if.end8.i ], [ %incdec.ptr.i.i13.i10.i, %while.body.i6.i12.i9.i ], [ %retval.sroa.0.2.i7.i, %land.rhs.i4.i9.i6.i ]
   %cmp.i.i10.not23 = icmp eq ptr %add.ptr.i.i.pn16.i, %add.ptr.i.i.i
   br i1 %cmp.i.i10.not23, label %for.end31, label %for.body27
 
 for.body27:                                       ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E5beginEv.exit, %_ZN4llvh16DenseMapIteratorIPN6hermes9ScopeDescES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EELb0EEppEv.exit
-  %__begin121.sroa.0.024 = phi ptr [ %__begin121.sroa.0.1, %_ZN4llvh16DenseMapIteratorIPN6hermes9ScopeDescES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EELb0EEppEv.exit ], [ %add.ptr.i.i.pn16.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E5beginEv.exit ]
+  %__begin121.sroa.0.024 = phi ptr [ %__begin121.sroa.0.2, %_ZN4llvh16DenseMapIteratorIPN6hermes9ScopeDescES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EELb0EEppEv.exit ], [ %add.ptr.i.i.pn16.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E5beginEv.exit ]
   %.sroa.0.0.copyload = load ptr, ptr %__begin121.sroa.0.024, align 8
   tail call void @_ZN6hermes5Value7destroyEPS0_(ptr noundef %.sroa.0.0.copyload) #9
   %incdec.ptr3.i = getelementptr inbounds i8, ptr %__begin121.sroa.0.024, i64 16
   %cmp.not3.i3.i = icmp eq ptr %incdec.ptr3.i, %add.ptr.i.i.i
-  br i1 %cmp.not3.i3.i, label %for.end31, label %land.rhs.i4.i
+  br i1 %cmp.not3.i3.i, label %_ZN4llvh16DenseMapIteratorIPN6hermes9ScopeDescES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EELb0EEppEv.exit, label %land.rhs.i4.i
 
 land.rhs.i4.i:                                    ; preds = %for.body27, %while.body.i6.i
   %__begin121.sroa.0.1 = phi ptr [ %incdec.ptr.i.i, %while.body.i6.i ], [ %incdec.ptr3.i, %for.body27 ]
@@ -652,13 +652,14 @@ land.rhs.i4.i:                                    ; preds = %for.body27, %while.
 while.body.i6.i:                                  ; preds = %land.rhs.i4.i, %land.rhs.i4.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin121.sroa.0.1, i64 16
   %cmp.not.i7.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i7.i, label %for.end31, label %land.rhs.i4.i, !llvm.loop !10
+  br i1 %cmp.not.i7.i, label %_ZN4llvh16DenseMapIteratorIPN6hermes9ScopeDescES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EELb0EEppEv.exit, label %land.rhs.i4.i, !llvm.loop !10
 
-_ZN4llvh16DenseMapIteratorIPN6hermes9ScopeDescES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EELb0EEppEv.exit: ; preds = %land.rhs.i4.i
-  %cmp.i.i10.not = icmp eq ptr %__begin121.sroa.0.1, %add.ptr.i.i.i
+_ZN4llvh16DenseMapIteratorIPN6hermes9ScopeDescES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EELb0EEppEv.exit: ; preds = %land.rhs.i4.i, %while.body.i6.i, %for.body27
+  %__begin121.sroa.0.2 = phi ptr [ %incdec.ptr3.i, %for.body27 ], [ %incdec.ptr.i.i, %while.body.i6.i ], [ %__begin121.sroa.0.1, %land.rhs.i4.i ]
+  %cmp.i.i10.not = icmp eq ptr %__begin121.sroa.0.2, %add.ptr.i.i.i
   br i1 %cmp.i.i10.not, label %for.end31, label %for.body27
 
-for.end31:                                        ; preds = %while.body.i6.i12.i9.i, %for.body27, %_ZN4llvh16DenseMapIteratorIPN6hermes9ScopeDescES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EELb0EEppEv.exit, %while.body.i6.i, %for.end19, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E5beginEv.exit
+for.end31:                                        ; preds = %_ZN4llvh16DenseMapIteratorIPN6hermes9ScopeDescES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EELb0EEppEv.exit, %for.end19, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E5beginEv.exit
   ret void
 }
 
@@ -909,7 +910,7 @@ _ZN4llvh8DenseMapIPN6hermes9ScopeDescES3_NS_12DenseMapInfoIS3_EENS_6detail12Dens
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8
@@ -1108,7 +1109,7 @@ if.then.i:                                        ; preds = %if.end5
   %or6.i.i.i = or i64 %shr5.i.i.i, %or4.i.i.i
   %shr7.i.i.i = lshr i64 %or6.i.i.i, 16
   %or8.i.i.i = or i64 %shr7.i.i.i, %or6.i.i.i
-  %5 = trunc i64 %or8.i.i.i to i32
+  %5 = trunc nuw nsw i64 %or8.i.i.i to i32
   %conv2.i.i = add nuw i32 %5, 1
   store i32 %conv2.i.i, ptr %NumBuckets, align 8
   %conv.i3.i = zext i32 %conv2.i.i to i64

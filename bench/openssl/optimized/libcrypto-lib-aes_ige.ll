@@ -111,7 +111,7 @@ while.body51:                                     ; preds = %while.body51.prehea
   %iv2.sroa.0.0 = phi <2 x i64> [ %iv2.sroa.0.0.copyload, %while.body51.preheader ], [ %tmp.sroa.0.0.copyload, %while.body51 ]
   %iv.sroa.0.0.in = phi ptr [ %ivec, %while.body51.preheader ], [ %tmp2, %while.body51 ]
   %in.addr.1132 = phi ptr [ %in, %while.body51.preheader ], [ %add.ptr81, %while.body51 ]
-  %out.addr.1131 = phi ptr [ %in, %while.body51.preheader ], [ %add.ptr82, %while.body51 ]
+  %out.addr.1131 = phi ptr [ %out, %while.body51.preheader ], [ %add.ptr82, %while.body51 ]
   %len.1130 = phi i64 [ %div101, %while.body51.preheader ], [ %dec80, %while.body51 ]
   %iv.sroa.0.0 = load <2 x i64>, ptr %iv.sroa.0.0.in, align 1
   %tmp.sroa.0.0.copyload = load <2 x i64>, ptr %in.addr.1132, align 1
@@ -181,7 +181,7 @@ while.body147:                                    ; preds = %while.body147.prehe
   %iv142.sroa.0.0 = phi <2 x i64> [ %iv142.sroa.0.0.copyload, %while.body147.preheader ], [ %tmp2141.sroa.0.sroa.0.0.copyload, %while.body147 ]
   %iv2143.sroa.0.0.in = phi ptr [ %add.ptr144, %while.body147.preheader ], [ %tmp140, %while.body147 ]
   %in.addr.3116 = phi ptr [ %in, %while.body147.preheader ], [ %add.ptr175, %while.body147 ]
-  %out.addr.3115 = phi ptr [ %in, %while.body147.preheader ], [ %add.ptr176, %while.body147 ]
+  %out.addr.3115 = phi ptr [ %out, %while.body147.preheader ], [ %add.ptr176, %while.body147 ]
   %len.3114 = phi i64 [ %div101, %while.body147.preheader ], [ %dec174, %while.body147 ]
   %iv2143.sroa.0.0 = load <2 x i64>, ptr %iv2143.sroa.0.0.in, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp140, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.3116, i64 16, i1 false)

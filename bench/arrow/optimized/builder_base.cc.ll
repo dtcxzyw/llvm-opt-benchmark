@@ -1194,7 +1194,7 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
-  %28 = phi ptr [ %.pre53, %for.end.loopexit ], [ %3, %if.end ]
+  %28 = phi ptr [ %.pre53, %for.end.loopexit ], [ %4, %if.end ]
   %29 = phi ptr [ %.pre, %for.end.loopexit ], [ %3, %if.end ]
   store ptr %29, ptr %ref.tmp33, align 8
   %scalars_end_ = getelementptr inbounds i8, ptr %ref.tmp33, i64 8
@@ -6131,7 +6131,7 @@ if.then.i.i.i.i942:                               ; preds = %if.end.i.i.i
   %509 = load <2 x i64>, ptr %retval.sroa.0.i.i.i.i.i, align 16, !noalias !418
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.sroa.0.i.i.i.i.i), !noalias !418
   %510 = lshr <2 x i64> %509, <i64 32, i64 32>
-  %511 = trunc <2 x i64> %510 to <2 x i32>
+  %511 = trunc nuw <2 x i64> %510 to <2 x i32>
   br label %_ZN5arrow4util12ToBinaryViewEPKviii.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -6634,7 +6634,7 @@ if.then.i.i.i.i1184:                              ; preds = %if.end.i.i.i1154
   %635 = load <2 x i64>, ptr %retval.sroa.0.i.i.i.i.i1058, align 16, !noalias !464
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.sroa.0.i.i.i.i.i1058), !noalias !464
   %636 = lshr <2 x i64> %635, <i64 32, i64 32>
-  %637 = trunc <2 x i64> %636 to <2 x i32>
+  %637 = trunc nuw <2 x i64> %636 to <2 x i32>
   br label %_ZN5arrow4util12ToBinaryViewEPKviii.exit.i.i.i1163
 
 if.end.i.i.i.i1156:                               ; preds = %if.end.i.i.i1154
@@ -15296,7 +15296,7 @@ if.then.i.i.i.i1027:                              ; preds = %if.end.i.i.i
   %417 = load <2 x i64>, ptr %retval.sroa.0.i.i.i.i.i, align 16, !noalias !1641
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.sroa.0.i.i.i.i.i), !noalias !1641
   %418 = lshr <2 x i64> %417, <i64 32, i64 32>
-  %419 = trunc <2 x i64> %418 to <2 x i32>
+  %419 = trunc nuw <2 x i64> %418 to <2 x i32>
   br label %_ZN5arrow4util12ToBinaryViewEPKviii.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -15801,7 +15801,7 @@ if.then.i.i.i.i1281:                              ; preds = %if.end.i.i.i1251
   %533 = load <2 x i64>, ptr %retval.sroa.0.i.i.i.i.i1149, align 16, !noalias !1687
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.sroa.0.i.i.i.i.i1149), !noalias !1687
   %534 = lshr <2 x i64> %533, <i64 32, i64 32>
-  %535 = trunc <2 x i64> %534 to <2 x i32>
+  %535 = trunc nuw <2 x i64> %534 to <2 x i32>
   br label %_ZN5arrow4util12ToBinaryViewEPKviii.exit.i.i.i1260
 
 if.end.i.i.i.i1253:                               ; preds = %if.end.i.i.i1251

@@ -2102,7 +2102,7 @@ invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyISt10u
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %invoke.cont4
-  %29 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre, %invoke.cont4 ]
+  %29 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre51, %invoke.cont4 ]
   %tobool.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3ue211RoseProgramD2Ev.exit, label %if.then.i.i.i.i
 
@@ -2323,7 +2323,7 @@ invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyISt10u
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %invoke.cont4
-  %29 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre, %invoke.cont4 ]
+  %29 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre51, %invoke.cont4 ]
   %tobool.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3ue211RoseProgramD2Ev.exit, label %if.then.i.i.i.i
 
@@ -2541,7 +2541,7 @@ invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyISt10u
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %invoke.cont4
-  %29 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre, %invoke.cont4 ]
+  %29 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre51, %invoke.cont4 ]
   %tobool.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3ue211RoseProgramD2Ev.exit, label %if.then.i.i.i.i
 
@@ -3707,7 +3707,7 @@ invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyISt10u
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %invoke.cont56
-  %136 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre358, %invoke.cont56 ]
+  %136 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre359, %invoke.cont56 ]
   %tobool.not.i.i.i.i201 = icmp eq ptr %136, null
   br i1 %tobool.not.i.i.i.i201, label %_ZN3ue211RoseProgramD2Ev.exit, label %if.then.i.i.i.i202
 
@@ -3950,7 +3950,7 @@ _ZSt8_DestroyIPN3ue211RoseProgramES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; pre
   br label %_ZSt8_DestroyIPN3ue211RoseProgramES1_EvT_S3_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN3ue211RoseProgramES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN3ue211RoseProgramES1_EvT_S3_RSaIT0_E.exitthread-pre-split, %_ZNSt6vectorIN3ue211RoseProgramESaIS1_EE20_M_allocate_and_copyISt13move_iteratorIPS1_EEES6_mT_S8_.exit, %_ZNSt12_Vector_baseIN3ue211RoseProgramESaIS1_EE11_M_allocateEm.exit.i
-  %11 = phi ptr [ %.pr, %_ZSt8_DestroyIPN3ue211RoseProgramES1_EvT_S3_RSaIT0_E.exitthread-pre-split ], [ %.pre, %_ZNSt6vectorIN3ue211RoseProgramESaIS1_EE20_M_allocate_and_copyISt13move_iteratorIPS1_EEES6_mT_S8_.exit ], [ %1, %_ZNSt12_Vector_baseIN3ue211RoseProgramESaIS1_EE11_M_allocateEm.exit.i ]
+  %11 = phi ptr [ %.pr, %_ZSt8_DestroyIPN3ue211RoseProgramES1_EvT_S3_RSaIT0_E.exitthread-pre-split ], [ %.pre42, %_ZNSt6vectorIN3ue211RoseProgramESaIS1_EE20_M_allocate_and_copyISt13move_iteratorIPS1_EEES6_mT_S8_.exit ], [ %1, %_ZNSt12_Vector_baseIN3ue211RoseProgramESaIS1_EE11_M_allocateEm.exit.i ]
   %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN3ue211RoseProgramESaIS1_EE13_M_deallocateEPS1_m.exit, label %if.then.i
 
@@ -5752,7 +5752,7 @@ invoke.contthread-pre-split.i.i256:               ; preds = %_ZSt8_DestroyISt10u
   br label %invoke.cont.i.i258
 
 invoke.cont.i.i258:                               ; preds = %invoke.contthread-pre-split.i.i256, %invoke.cont77
-  %226 = phi ptr [ %.pr.i.i257, %invoke.contthread-pre-split.i.i256 ], [ %.pre551, %invoke.cont77 ]
+  %226 = phi ptr [ %.pr.i.i257, %invoke.contthread-pre-split.i.i256 ], [ %.pre552, %invoke.cont77 ]
   %tobool.not.i.i.i.i259 = icmp eq ptr %226, null
   br i1 %tobool.not.i.i.i.i259, label %_ZN3ue211RoseProgramD2Ev.exit261, label %if.then.i.i.i.i260
 
@@ -11756,7 +11756,7 @@ if.then.i:                                        ; preds = %if.then15
   br i1 %cmp.i.i48, label %invoke.cont.i.thread, label %if.else.i
 
 invoke.cont.i.thread:                             ; preds = %if.then.i
-  store i64 %17, ptr %12, align 8
+  store i64 %17, ptr %14, align 8
   %18 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i.i.i, align 8
@@ -13602,7 +13602,7 @@ invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyISt10u
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %invoke.cont26
-  %49 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre, %invoke.cont26 ]
+  %49 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre104, %invoke.cont26 ]
   %tobool.not.i.i.i.i = icmp eq ptr %49, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3ue211RoseProgramD2Ev.exit, label %if.then.i.i.i.i
 
@@ -14538,7 +14538,7 @@ cleanupthread-pre-split:                          ; preds = %if.end36
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanupthread-pre-split, %for.cond.cleanup
-  %40 = phi ptr [ %.pr, %cleanupthread-pre-split ], [ %.pre, %for.cond.cleanup ]
+  %40 = phi ptr [ %.pr, %cleanupthread-pre-split ], [ %.pre79, %for.cond.cleanup ]
   %tobool.not.i.i.i = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3ue29LookEntryESaIS1_EED2Ev.exit, label %if.then.i.i.i69
 
@@ -14682,7 +14682,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %8 = load ptr, ptr %delay_instructions, align 8
   %9 = load ptr, ptr %_M_finish.i.i.i130, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %8, %9
-  br i1 %cmp.i.i.i.i.i, label %invoke.cont.i, label %while.cond.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %invoke.cont25, label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEEZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EvT_SO_T0_.exit.i", %while.body.i.i.i.i
   %__first.sroa.0.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %while.body.i.i.i.i ], [ %8, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEEZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EvT_SO_T0_.exit.i" ]
@@ -14964,9 +14964,9 @@ ehcleanup17:                                      ; preds = %lpad13.body, %lpad1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %delay_id) #27
   br label %ehcleanup53
 
-invoke.cont25:                                    ; preds = %while.cond.i.i.i.i, %invoke.cont.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit.i
-  %42 = phi ptr [ %add.ptr.i.i.i68, %invoke.cont.i.i.i.i ], [ %9, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit.i ], [ %9, %while.cond.i.i.i.i ]
-  %43 = phi ptr [ %.pre125, %invoke.cont.i.i.i.i ], [ %8, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit.i ], [ %8, %while.cond.i.i.i.i ]
+invoke.cont25:                                    ; preds = %while.cond.i.i.i.i, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEEZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EvT_SO_T0_.exit.i", %invoke.cont.i.i.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit.i
+  %42 = phi ptr [ %add.ptr.i.i.i68, %invoke.cont.i.i.i.i ], [ %9, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit.i ], [ %9, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEEZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EvT_SO_T0_.exit.i" ], [ %9, %while.cond.i.i.i.i ]
+  %43 = phi ptr [ %.pre125, %invoke.cont.i.i.i.i ], [ %8, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit.i ], [ %8, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEEZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EvT_SO_T0_.exit.i" ], [ %8, %while.cond.i.i.i.i ]
   %cmp.i.not117 = icmp eq ptr %43, %42
   br i1 %cmp.i.not117, label %invoke.cont.i, label %for.body35.lr.ph
 
@@ -14994,8 +14994,8 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   %.pr.i = load ptr, ptr %delay_instructions, align 8
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEEZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EvT_SO_T0_.exit.i", %invoke.contthread-pre-split.i, %for.cond.cleanup34, %invoke.cont25
-  %45 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre126, %for.cond.cleanup34 ], [ %42, %invoke.cont25 ], [ %8, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEEZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EvT_SO_T0_.exit.i" ]
+invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup34, %invoke.cont25
+  %45 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre127, %for.cond.cleanup34 ], [ %42, %invoke.cont25 ]
   %tobool.not.i.i.i = icmp eq ptr %45, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3ue220RoseInstrPushDelayedESaIS1_EED2Ev.exit, label %if.then.i.i.i82
 
@@ -19471,7 +19471,7 @@ invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyISt10u
   br label %invoke.cont.i.i1335
 
 invoke.cont.i.i1335:                              ; preds = %invoke.contthread-pre-split.i.i, %invoke.cont387
-  %504 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre, %invoke.cont387 ]
+  %504 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre1425, %invoke.cont387 ]
   %tobool.not.i.i.i.i = icmp eq ptr %504, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3ue211RoseProgramD2Ev.exit, label %if.then.i.i.i.i
 
@@ -19964,7 +19964,7 @@ invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyISt10u
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %invoke.cont4
-  %29 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre, %invoke.cont4 ]
+  %29 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre51, %invoke.cont4 ]
   %tobool.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3ue211RoseProgramD2Ev.exit, label %if.then.i.i.i.i
 
@@ -25923,7 +25923,7 @@ _ZNK3ue29cmpNibbleclEjj.exit61:                   ; preds = %if.end12.i154
 
 cleanup80:                                        ; preds = %_ZNK3ue29cmpNibbleclEjj.exit61, %_ZNK3ue29cmpNibbleclEjj.exit37, %_ZNK3ue29cmpNibbleclEjj.exit13, %if.end12.i154, %if.end12.i113, %if.end12.i, %land.lhs.true, %_ZNK3ue29cmpNibbleclEjj.exit, %if.then.i165, %if.then64, %if.then50, %_ZNK3ue29cmpNibbleclEjj.exit43, %if.then.i124, %if.then32, %if.then18, %if.then.i
   %retval.sroa.0.2 = phi ptr [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNK3ue29cmpNibbleclEjj.exit43 ], [ %spec.select, %if.then32 ], [ %spec.select187, %if.then64 ], [ null, %if.then.i ], [ null, %if.then.i124 ], [ null, %if.then.i165 ], [ null, %_ZNK3ue29cmpNibbleclEjj.exit ], [ null, %land.lhs.true ], [ null, %if.end12.i ], [ null, %if.end12.i113 ], [ null, %if.end12.i154 ], [ %spec.select102, %_ZNK3ue29cmpNibbleclEjj.exit13 ], [ %spec.select104, %_ZNK3ue29cmpNibbleclEjj.exit37 ], [ %spec.select106, %_ZNK3ue29cmpNibbleclEjj.exit61 ]
-  %retval.sroa.12.2 = phi ptr [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNK3ue29cmpNibbleclEjj.exit43 ], [ %spec.select186, %if.then32 ], [ %spec.select188, %if.then64 ], [ %__y.0.lcssa46.i, %if.then.i ], [ %135, %if.then.i124 ], [ %__y.0.lcssa46.i166, %if.then.i165 ], [ %1, %_ZNK3ue29cmpNibbleclEjj.exit ], [ %1, %land.lhs.true ], [ %__y.0.lcssa47.i, %if.end12.i ], [ %__y.0.lcssa47.i114, %if.end12.i113 ], [ %__y.0.lcssa47.i155, %if.end12.i154 ], [ %spec.select103, %_ZNK3ue29cmpNibbleclEjj.exit13 ], [ %spec.select105, %_ZNK3ue29cmpNibbleclEjj.exit37 ], [ %spec.select107, %_ZNK3ue29cmpNibbleclEjj.exit61 ]
+  %retval.sroa.12.2 = phi ptr [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNK3ue29cmpNibbleclEjj.exit43 ], [ %spec.select186, %if.then32 ], [ %spec.select188, %if.then64 ], [ %__y.0.lcssa46.i, %if.then.i ], [ %__y.0.lcssa46.i125, %if.then.i124 ], [ %__y.0.lcssa46.i166, %if.then.i165 ], [ %1, %_ZNK3ue29cmpNibbleclEjj.exit ], [ %1, %land.lhs.true ], [ %__y.0.lcssa47.i, %if.end12.i ], [ %__y.0.lcssa47.i114, %if.end12.i113 ], [ %__y.0.lcssa47.i155, %if.end12.i154 ], [ %spec.select103, %_ZNK3ue29cmpNibbleclEjj.exit13 ], [ %spec.select105, %_ZNK3ue29cmpNibbleclEjj.exit37 ], [ %spec.select107, %_ZNK3ue29cmpNibbleclEjj.exit61 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.2, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -1889,7 +1889,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt4pa
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %_ZN6duckdb11ArrowBuffer7reserveEm.exit
-  %7 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %for.cond.cleanup ], [ %2, %_ZN6duckdb11ArrowBuffer7reserveEm.exit ]
+  %7 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre36, %for.cond.cleanup ], [ %2, %_ZN6duckdb11ArrowBuffer7reserveEm.exit ]
   %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEESaIS9_EED2Ev.exit, label %if.then.i.i.i
 
@@ -2225,7 +2225,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt4pa
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %invoke.cont3
-  %5 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %for.cond.cleanup ], [ %0, %invoke.cont3 ]
+  %5 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre180, %for.cond.cleanup ], [ %0, %invoke.cont3 ]
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEESaIS9_EED2Ev.exit, label %if.then.i.i.i
 
@@ -2376,7 +2376,7 @@ if.end:                                           ; preds = %invoke.cont25, %inv
   br i1 %cmp31167.not, label %for.cond.cleanup32, label %invoke.cont35
 
 for.cond.cleanup32:                               ; preds = %invoke.cont43, %if.end
-  %conv49 = trunc i64 %tag.0 to i8
+  %conv49 = trunc nuw i64 %tag.0 to i8
   %24 = load ptr, ptr %main_buffer, align 8, !tbaa !9
   %arrayidx = getelementptr inbounds i8, ptr %24, i64 %input_idx.0170
   store i8 %conv49, ptr %arrayidx, align 1, !tbaa !46

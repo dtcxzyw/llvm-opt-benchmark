@@ -3907,7 +3907,7 @@ define dso_local noundef i32 @drm_dp_mst_hpd_irq_handle_event(ptr noundef %0, pt
 
 435:                                              ; preds = %430, %.loopexit33
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(326) %24, i8 0, i64 326, i1 false)
-  tail call fastcc void @drm_dp_mst_topology_put_mstb(ptr noundef %40)
+  tail call fastcc void @drm_dp_mst_topology_put_mstb(ptr noundef %41)
   tail call void @mutex_lock(ptr noundef %31) #21
   %436 = getelementptr i8, ptr %33, i64 20
   store i32 3, ptr %436, align 4
@@ -8672,7 +8672,7 @@ define internal fastcc ptr @drm_dp_mst_topology_get_port_validated_locked(ptr no
   br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !106
 
 .loopexit:                                        ; preds = %16, %13, %.preheader, %2
-  %19 = phi ptr [ null, %2 ], [ null, %16 ], [ %14, %13 ], [ %1, %.preheader ]
+  %19 = phi ptr [ null, %2 ], [ null, %16 ], [ %14, %13 ], [ %7, %.preheader ]
   ret ptr %19
 }
 
@@ -9579,7 +9579,7 @@ define internal fastcc ptr @drm_dp_mst_topology_get_mstb_validated_locked(ptr no
   br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !126
 
 .loopexit:                                        ; preds = %15, %12, %4, %2
-  %18 = phi ptr [ %1, %2 ], [ null, %4 ], [ %13, %12 ], [ null, %15 ]
+  %18 = phi ptr [ %0, %2 ], [ null, %4 ], [ %13, %12 ], [ null, %15 ]
   ret ptr %18
 }
 

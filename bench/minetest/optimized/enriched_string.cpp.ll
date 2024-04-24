@@ -1598,7 +1598,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEE
   br label %invoke.cont17
 
 if.else.i:                                        ; preds = %for.cond.cleanup, %entry
-  %11 = phi ptr [ %.pre, %for.cond.cleanup ], [ null, %entry ]
+  %11 = phi ptr [ %.pre95, %for.cond.cleanup ], [ null, %entry ]
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %11, ptr noundef nonnull align 8 dereferenceable(32) %current)
           to label %invoke.cont17 unwind label %lpad16
 
@@ -3728,7 +3728,7 @@ _ZNSt12_Vector_baseIN3irr5video6SColorESaIS2_EE13_M_deallocateEPS2_m.exit: ; pre
   br label %if.end109
 
 if.end109.critedge:                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3irr5video6SColorESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit
-  %add.ptr58.c = getelementptr inbounds i8, ptr %__position.coerce, i64 %sub.ptr.sub.i.i.i
+  %add.ptr58.c = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i.i.i
   store ptr %add.ptr58.c, ptr %_M_finish, align 8, !tbaa !26
   br label %if.end109
 

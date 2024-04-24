@@ -258,7 +258,7 @@ define dso_local ptr @__skb_gso_segment(ptr noundef %0, i64 noundef %1, i1 nound
   br label %74
 
 74:                                               ; preds = %73, %67, %48, %9
-  %75 = phi ptr [ %13, %9 ], [ %65, %67 ], [ %65, %73 ], [ %0, %48 ]
+  %75 = phi ptr [ %13, %9 ], [ %65, %67 ], [ %65, %73 ], [ %65, %48 ]
   ret ptr %75
 }
 

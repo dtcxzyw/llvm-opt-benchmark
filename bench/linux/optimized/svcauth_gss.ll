@@ -139,7 +139,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @svcauth_gss_register_pseudoflavor(i32 noundef %0, ptr noundef %1) #2 align 16 {
+define dso_local ptr @svcauth_gss_register_pseudoflavor(i32 noundef %0, ptr noundef %1) #2 align 16 {
   %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 64) #23
   %5 = icmp eq ptr %4, null
@@ -180,7 +180,7 @@ define dso_local noundef ptr @svcauth_gss_register_pseudoflavor(i32 noundef %0, 
   br label %23
 
 23:                                               ; preds = %20, %10
-  %24 = phi ptr [ %22, %20 ], [ %4, %10 ]
+  %24 = phi ptr [ %22, %20 ], [ %13, %10 ]
   ret ptr %24
 }
 

@@ -482,7 +482,7 @@ define internal i32 @crypto_authenc_esn_decrypt(ptr noundef %0) #2 align 16 {
   br label %._crit_edge4
 
 ._crit_edge4:                                     ; preds = %1, %._crit_edge
-  %44 = phi ptr [ %.pre, %._crit_edge ], [ %26, %1 ]
+  %44 = phi ptr [ %.pre, %._crit_edge ], [ %29, %1 ]
   call void @scatterwalk_map_and_copy(ptr noundef %24, ptr noundef %44, i32 noundef %.pre5, i32 noundef %12, i32 noundef 0) #9
   %45 = icmp eq i32 %12, 0
   br i1 %45, label %62, label %46

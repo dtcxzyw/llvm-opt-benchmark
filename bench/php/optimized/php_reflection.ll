@@ -1382,7 +1382,7 @@ define internal fastcc void @_function_string(ptr noundef %0, ptr nocapture noun
   br label %112
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds i8, ptr %2, i64 16
+  %79 = getelementptr inbounds i8, ptr %72, i64 16
   %80 = load ptr, ptr %79, align 8
   %.not553 = icmp eq ptr %80, null
   br i1 %.not553, label %112, label %81
@@ -4683,8 +4683,8 @@ define hidden void @zim_ReflectionFunctionAbstract_getParameters(ptr nocapture n
   br label %42
 
 42:                                               ; preds = %34, %reflection_parameter_factory.exit
-  %.036 = phi i32 [ 0, %34 ], [ %114, %reflection_parameter_factory.exit ]
-  %.02935 = phi ptr [ %36, %34 ], [ %113, %reflection_parameter_factory.exit ]
+  %.037 = phi i32 [ 0, %34 ], [ %114, %reflection_parameter_factory.exit ]
+  %.02936 = phi ptr [ %36, %34 ], [ %113, %reflection_parameter_factory.exit ]
   %43 = load i32, ptr %28, align 4
   %44 = and i32 %43, 262144
   %.not14.i = icmp eq i32 %44, 0
@@ -4716,15 +4716,15 @@ _copy_function.exit:                              ; preds = %42, %54
   %56 = load i8, ptr %40, align 8
   %57 = icmp eq i8 %56, 0
   %58 = load i32, ptr %41, align 4
-  %59 = icmp ult i32 %.036, %58
+  %59 = icmp ult i32 %.037, %58
   %60 = zext i1 %59 to i8
   %61 = load ptr, ptr @reflection_parameter_ptr, align 8
   %62 = call i32 @object_init_ex(ptr noundef nonnull %3, ptr noundef %61) #13
   %63 = load ptr, ptr %3, align 8
   %64 = call noalias ptr @_emalloc_24() #13
   %65 = getelementptr inbounds i8, ptr %64, i64 8
-  store ptr %.02935, ptr %65, align 8
-  store i32 %.036, ptr %64, align 8
+  store ptr %.02936, ptr %65, align 8
+  store i32 %.037, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %64, i64 4
   store i8 %60, ptr %66, align 4
   %67 = getelementptr inbounds i8, ptr %64, i64 16
@@ -4771,7 +4771,7 @@ has_internal_arg_info.exit.i:                     ; preds = %79
   br i1 %.not.i.i, label %92, label %has_internal_arg_info.exit.thread.i
 
 92:                                               ; preds = %has_internal_arg_info.exit.i
-  %93 = load ptr, ptr %.02935, align 8
+  %93 = load ptr, ptr %.02936, align 8
   %94 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %93) #16
   %95 = and i64 %94, -8
   %96 = add i64 %95, 32
@@ -4791,7 +4791,7 @@ has_internal_arg_info.exit.i:                     ; preds = %79
   br label %reflection_parameter_factory.exit
 
 has_internal_arg_info.exit.thread.i:              ; preds = %has_internal_arg_info.exit.i, %79
-  %103 = load ptr, ptr %.02935, align 8
+  %103 = load ptr, ptr %.02936, align 8
   store ptr %103, ptr %86, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 4
   %105 = load i32, ptr %104, align 4
@@ -4811,8 +4811,8 @@ reflection_parameter_factory.exit:                ; preds = %92, %has_internal_a
   store i32 %.sink.i, ptr %110, align 8
   %111 = load ptr, ptr %1, align 8
   %112 = call ptr @zend_hash_next_index_insert_new(ptr noundef %111, ptr noundef nonnull %3) #13
-  %113 = getelementptr inbounds i8, ptr %.02935, i64 32
-  %114 = add nuw i32 %.036, 1
+  %113 = getelementptr inbounds i8, ptr %.02936, i64 32
+  %114 = add nuw i32 %.037, 1
   %exitcond.not = icmp eq i32 %114, %spec.select
   br i1 %exitcond.not, label %.loopexit, label %42
 
@@ -5196,6 +5196,7 @@ define hidden void @zim_ReflectionGenerator_getTrace(ptr nocapture noundef reado
 46:                                               ; preds = %.thread, %41
   %47 = phi ptr [ %30, %.thread ], [ %44, %41 ]
   %48 = phi ptr [ %29, %.thread ], [ %43, %41 ]
+  %.037 = phi ptr [ %7, %.thread ], [ %.0, %41 ]
   store ptr null, ptr %48, align 8
   br label %58
 
@@ -5214,7 +5215,7 @@ define hidden void @zim_ReflectionGenerator_getTrace(ptr nocapture noundef reado
 
 58:                                               ; preds = %49, %46
   %59 = phi ptr [ %47, %46 ], [ %44, %49 ]
-  %.036 = phi ptr [ %7, %46 ], [ %.0, %49 ]
+  %.036 = phi ptr [ %.037, %46 ], [ %.0, %49 ]
   %.029 = phi ptr [ null, %46 ], [ %53, %49 ]
   %60 = getelementptr inbounds i8, ptr %.036, i64 56
   %61 = load ptr, ptr %60, align 8
@@ -7419,7 +7420,7 @@ reflection_function_factory.exit:                 ; preds = %60, %73
   br label %141
 
 77:                                               ; preds = %24
-  br i1 %.not14.i, label %_copy_function.exit24, label %78
+  br i1 %.not14.i, label %_copy_function.exit25, label %78
 
 78:                                               ; preds = %77
   %79 = tail call noalias ptr @_emalloc_256() #13
@@ -7429,8 +7430,8 @@ reflection_function_factory.exit:                 ; preds = %60, %73
   %82 = getelementptr inbounds i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4
   %84 = and i32 %83, 64
-  %.not15.i22 = icmp eq i32 %84, 0
-  br i1 %.not15.i22, label %85, label %88
+  %.not15.i23 = icmp eq i32 %84, 0
+  br i1 %.not15.i23, label %85, label %88
 
 85:                                               ; preds = %78
   %86 = load i32, ptr %81, align 4
@@ -7441,10 +7442,10 @@ reflection_function_factory.exit:                 ; preds = %60, %73
 88:                                               ; preds = %85, %78
   %89 = getelementptr inbounds i8, ptr %79, i64 8
   store ptr %81, ptr %89, align 8
-  br label %_copy_function.exit24
+  br label %_copy_function.exit25
 
-_copy_function.exit24:                            ; preds = %77, %88
-  %.0.i23 = phi ptr [ %79, %88 ], [ %26, %77 ]
+_copy_function.exit25:                            ; preds = %77, %88
+  %.0.i24 = phi ptr [ %79, %88 ], [ %26, %77 ]
   %90 = getelementptr inbounds i8, ptr %9, i64 -32
   %91 = load i8, ptr %90, align 8
   %92 = icmp eq i8 %91, 0
@@ -7452,14 +7453,14 @@ _copy_function.exit24:                            ; preds = %77, %88
   %94 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %93) #13
   %95 = load ptr, ptr %1, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 -24
-  store ptr %.0.i23, ptr %96, align 8
+  store ptr %.0.i24, ptr %96, align 8
   %97 = getelementptr inbounds i8, ptr %95, i64 -8
   store i32 1, ptr %97, align 8
   %98 = getelementptr inbounds i8, ptr %95, i64 -16
   store ptr %28, ptr %98, align 8
   br i1 %92, label %105, label %99
 
-99:                                               ; preds = %_copy_function.exit24
+99:                                               ; preds = %_copy_function.exit25
   %100 = getelementptr inbounds i8, ptr %95, i64 -40
   %101 = load ptr, ptr %10, align 8
   %102 = load i32, ptr %101, align 4
@@ -7470,7 +7471,7 @@ _copy_function.exit24:                            ; preds = %77, %88
   store i32 776, ptr %104, align 8
   br label %105
 
-105:                                              ; preds = %99, %_copy_function.exit24
+105:                                              ; preds = %99, %_copy_function.exit25
   %106 = load ptr, ptr %1, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 16
   %108 = load ptr, ptr %107, align 8
@@ -7479,7 +7480,7 @@ _copy_function.exit24:                            ; preds = %77, %88
   %111 = icmp sgt i32 %110, 0
   tail call void @llvm.assume(i1 %111)
   %112 = getelementptr inbounds i8, ptr %106, i64 40
-  %113 = getelementptr inbounds i8, ptr %.0.i23, i64 8
+  %113 = getelementptr inbounds i8, ptr %.0.i24, i64 8
   %114 = load ptr, ptr %113, align 8
   store ptr %114, ptr %112, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 4
@@ -7495,9 +7496,9 @@ _copy_function.exit24:                            ; preds = %77, %88
   br label %121
 
 121:                                              ; preds = %118, %105
-  %.sink.i25 = phi i32 [ 262, %118 ], [ 6, %105 ]
+  %.sink.i27 = phi i32 [ 262, %118 ], [ 6, %105 ]
   %122 = getelementptr inbounds i8, ptr %106, i64 48
-  store i32 %.sink.i25, ptr %122, align 8
+  store i32 %.sink.i27, ptr %122, align 8
   %123 = load ptr, ptr %1, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 16
   %125 = load ptr, ptr %124, align 8
@@ -7506,7 +7507,7 @@ _copy_function.exit24:                            ; preds = %77, %88
   %128 = icmp sgt i32 %127, 1
   tail call void @llvm.assume(i1 %128)
   %129 = getelementptr inbounds i8, ptr %123, i64 56
-  %130 = getelementptr inbounds i8, ptr %.0.i23, i64 16
+  %130 = getelementptr inbounds i8, ptr %.0.i24, i64 16
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
@@ -23717,7 +23718,7 @@ define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readon
   %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
-  br label %143
+  br label %142
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 32
@@ -23737,14 +23738,14 @@ define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readon
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @reflection_exception_ptr, align 8
   %24 = icmp eq ptr %22, %23
-  br i1 %24, label %143, label %25
+  br i1 %24, label %142, label %25
 
 25:                                               ; preds = %20, %18
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
   %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
-  br label %143
+  br label %142
 
 28:                                               ; preds = %12
   %29 = load ptr, ptr %16, align 8
@@ -23765,7 +23766,7 @@ define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readon
   %39 = load ptr, ptr %38, align 8
   %40 = call ptr @zend_read_static_property_ex(ptr noundef %37, ptr noundef %39, i1 noundef zeroext false) #13
   %.not120 = icmp eq ptr %40, null
-  br i1 %.not120, label %143, label %41
+  br i1 %.not120, label %142, label %41
 
 41:                                               ; preds = %35
   %42 = getelementptr inbounds i8, ptr %40, i64 8
@@ -23808,7 +23809,7 @@ define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readon
   store ptr %60, ptr %1, align 8
   %63 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %62, ptr %63, align 8
-  br label %143
+  br label %142
 
 .critedge125:                                     ; preds = %28, %30
   %64 = load ptr, ptr %3, align 8
@@ -23820,7 +23821,7 @@ define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readon
   %66 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %67 = icmp ne ptr %66, null
   call void @llvm.assume(i1 %67)
-  br label %143
+  br label %142
 
 68:                                               ; preds = %.critedge125
   %69 = load ptr, ptr %64, align 8
@@ -23848,7 +23849,7 @@ define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readon
   %81 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %82 = icmp ne ptr %81, null
   call void @llvm.assume(i1 %82)
-  br label %143
+  br label %142
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %68
   %83 = phi ptr [ %.pre126, %..critedge_crit_edge ], [ %69, %68 ]
@@ -23857,16 +23858,16 @@ define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readon
   %86 = load ptr, ptr %85, align 8
   %87 = call ptr @zend_read_property_ex(ptr noundef %84, ptr noundef %83, ptr noundef %86, i1 noundef zeroext false, ptr noundef nonnull %4) #13
   %.not116 = icmp eq ptr %87, %4
-  br i1 %.not116, label %111, label %88
+  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  br i1 %.not116, label %111, label %89
 
-88:                                               ; preds = %.critedge
-  %89 = getelementptr inbounds i8, ptr %87, i64 8
-  %90 = load i32, ptr %89, align 8
+89:                                               ; preds = %.critedge
+  %90 = load i32, ptr %88, align 8
   %91 = and i32 %90, 65280
   %.not118 = icmp eq i32 %91, 0
   br i1 %.not118, label %106, label %92
 
-92:                                               ; preds = %88
+92:                                               ; preds = %89
   %93 = and i32 %90, 255
   %94 = icmp eq i32 %93, 10
   br i1 %94, label %95, label %.sink.split129
@@ -23892,73 +23893,72 @@ define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readon
   store i32 %105, ptr %103, align 4
   br label %106
 
-106:                                              ; preds = %.sink.split129, %88, %95
-  %.0102 = phi ptr [ %97, %95 ], [ %87, %88 ], [ %.sink136, %.sink.split129 ]
+106:                                              ; preds = %.sink.split129, %89, %95
+  %.0102 = phi ptr [ %97, %95 ], [ %87, %89 ], [ %.sink136, %.sink.split129 ]
   %107 = load ptr, ptr %.0102, align 8
   %108 = getelementptr inbounds i8, ptr %.0102, i64 8
   %109 = load i32, ptr %108, align 8
   store ptr %107, ptr %1, align 8
   %110 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %109, ptr %110, align 8
-  br label %143
+  br label %142
 
 111:                                              ; preds = %.critedge
-  %112 = getelementptr inbounds i8, ptr %4, i64 8
-  %113 = load i8, ptr %112, align 8
-  %114 = icmp eq i8 %113, 10
-  br i1 %114, label %115, label %139
+  %112 = load i8, ptr %88, align 8
+  %113 = icmp eq i8 %112, 10
+  br i1 %113, label %114, label %138
 
-115:                                              ; preds = %111
-  %116 = load ptr, ptr %4, align 8
-  %117 = load i32, ptr %116, align 4
-  %118 = icmp eq i32 %117, 1
-  br i1 %118, label %119, label %124
+114:                                              ; preds = %111
+  %115 = load ptr, ptr %87, align 8
+  %116 = load i32, ptr %115, align 4
+  %117 = icmp eq i32 %116, 1
+  br i1 %117, label %118, label %123
 
-119:                                              ; preds = %115
-  %120 = getelementptr inbounds i8, ptr %116, i64 8
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %116, i64 16
-  %123 = load i32, ptr %122, align 8
-  store ptr %121, ptr %4, align 8
-  store i32 %123, ptr %112, align 8
-  call void @_efree_32(ptr noundef nonnull %116) #13
-  br label %139
+118:                                              ; preds = %114
+  %119 = getelementptr inbounds i8, ptr %115, i64 8
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %115, i64 16
+  %122 = load i32, ptr %121, align 8
+  store ptr %120, ptr %87, align 8
+  store i32 %122, ptr %88, align 8
+  call void @_efree_32(ptr noundef nonnull %115) #13
+  br label %138
 
-124:                                              ; preds = %115
-  %125 = getelementptr inbounds i8, ptr %4, i64 9
-  %126 = load i8, ptr %125, align 1
-  %127 = icmp ne i8 %126, 0
+123:                                              ; preds = %114
+  %124 = getelementptr inbounds i8, ptr %87, i64 9
+  %125 = load i8, ptr %124, align 1
+  %126 = icmp ne i8 %125, 0
+  call void @llvm.assume(i1 %126)
+  %127 = icmp ne i32 %116, 0
   call void @llvm.assume(i1 %127)
-  %128 = icmp ne i32 %117, 0
-  call void @llvm.assume(i1 %128)
-  %129 = add i32 %117, -1
-  store i32 %129, ptr %116, align 4
-  %130 = load ptr, ptr %4, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %130, i64 16
-  %134 = load i32, ptr %133, align 8
-  store ptr %132, ptr %4, align 8
-  store i32 %134, ptr %112, align 8
-  %135 = and i32 %134, 65280
-  %.not117 = icmp eq i32 %135, 0
-  br i1 %.not117, label %139, label %136
+  %128 = add i32 %116, -1
+  store i32 %128, ptr %115, align 4
+  %129 = load ptr, ptr %87, align 8
+  %130 = getelementptr inbounds i8, ptr %129, i64 8
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds i8, ptr %129, i64 16
+  %133 = load i32, ptr %132, align 8
+  store ptr %131, ptr %87, align 8
+  store i32 %133, ptr %88, align 8
+  %134 = and i32 %133, 65280
+  %.not117 = icmp eq i32 %134, 0
+  br i1 %.not117, label %138, label %135
 
-136:                                              ; preds = %124
-  %137 = load i32, ptr %132, align 4
-  %138 = add i32 %137, 1
-  store i32 %138, ptr %132, align 4
-  br label %139
+135:                                              ; preds = %123
+  %136 = load i32, ptr %131, align 4
+  %137 = add i32 %136, 1
+  store i32 %137, ptr %131, align 4
+  br label %138
 
-139:                                              ; preds = %119, %136, %124, %111
-  %140 = load ptr, ptr %4, align 8
-  %141 = load i32, ptr %112, align 8
-  store ptr %140, ptr %1, align 8
-  %142 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %141, ptr %142, align 8
-  br label %143
+138:                                              ; preds = %118, %135, %123, %111
+  %139 = load ptr, ptr %87, align 8
+  %140 = load i32, ptr %88, align 8
+  store ptr %139, ptr %1, align 8
+  %141 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %140, ptr %141, align 8
+  br label %142
 
-143:                                              ; preds = %20, %35, %139, %106, %78, %65, %59, %25, %9
+142:                                              ; preds = %20, %35, %138, %106, %78, %65, %59, %25, %9
   ret void
 }
 

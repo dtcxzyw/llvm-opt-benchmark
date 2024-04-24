@@ -300,7 +300,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -359,7 +359,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -739,7 +739,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp75, label %if.then76, label %if.end111
 
 if.then76:                                        ; preds = %for.body
-  %tobool77 = trunc i8 %doMinus.081 to i1
+  %tobool77 = trunc nuw i8 %doMinus.081 to i1
   br i1 %tobool77, label %if.then78, label %if.end81
 
 if.then78:                                        ; preds = %if.then76
@@ -780,7 +780,7 @@ if.else.i:                                        ; preds = %invoke.cont87
   call void @_ZdlPv(ptr noundef nonnull %call83) #20
   br label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit
 
-_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit: ; preds = %delete.end.i, %if.else.i
+_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit: ; preds = %if.else.i, %delete.end.i
   %call92 = invoke noalias noundef nonnull dereferenceable(864) ptr @_Znwm(i64 noundef 864) #19
           to label %invoke.cont91 unwind label %lpad45.loopexit
 
@@ -812,7 +812,7 @@ if.else.i49:                                      ; preds = %invoke.cont96
   call void @_ZdlPv(ptr noundef nonnull %call92) #20
   br label %_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit50
 
-_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit50: ; preds = %delete.end.i48, %if.else.i49
+_ZN6icu_7512LocalPointerINS_22Normalizer2DataBuilderEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit50: ; preds = %if.else.i49, %delete.end.i48
   invoke void @_ZNK6icu_759ErrorCode13assertSuccessEv(ptr noundef nonnull align 8 dereferenceable(12) %errorCode)
           to label %invoke.cont100 unwind label %lpad45.loopexit
 
@@ -912,7 +912,7 @@ for.inc:                                          ; preds = %if.end106, %if.then
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc
-  %53 = trunc i8 %doMinus.1 to i1
+  %53 = trunc nuw i8 %doMinus.1 to i1
   br i1 %53, label %if.then137, label %if.else
 
 if.then137:                                       ; preds = %for.end
@@ -1242,7 +1242,7 @@ if.end67:                                         ; preds = %invoke.cont58
   br i1 %cmp68.not62, label %while.cond.backedge, label %for.body.lr.ph, !llvm.loop !7
 
 for.body.lr.ph:                                   ; preds = %if.end67
-  %conv69 = trunc i64 %call56 to i8
+  %conv69 = trunc nuw i64 %call56 to i8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc

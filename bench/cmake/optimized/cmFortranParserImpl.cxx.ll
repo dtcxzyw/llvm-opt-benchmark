@@ -1003,7 +1003,7 @@ _ZNSt5stackI13cmFortranFileSt5dequeIS0_SaIS0_EEE3topEv.exit: ; preds = %8, %12
   br label %_ZNSt5stackI13cmFortranFileSt5dequeIS0_SaIS0_EEE3popEv.exit
 
 31:                                               ; preds = %_ZNSt5stackI13cmFortranFileSt5dequeIS0_SaIS0_EEE3topEv.exit
-  call void @_ZdlPv(ptr noundef %26) #23
+  call void @_ZdlPv(ptr noundef %27) #23
   %32 = getelementptr inbounds i8, ptr %0, i64 200
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 -8
@@ -2833,7 +2833,7 @@ define dso_local void @_Z25cmFortranParser_RuleEndifP17cmFortranParser_s(ptr noc
   br label %_ZNSt5stackIbSt5dequeIbSaIbEEE3popEv.exit
 
 12:                                               ; preds = %7
-  tail call void @_ZdlPv(ptr noundef %4) #23
+  tail call void @_ZdlPv(ptr noundef %9) #23
   %13 = getelementptr inbounds i8, ptr %0, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -8

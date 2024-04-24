@@ -1021,7 +1021,7 @@ if.else:                                          ; preds = %land.lhs.true2, %en
 
 if.then10:                                        ; preds = %if.else
   %call11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %t, i64 noundef 1, i8 noundef signext 91)
-  %2 = trunc i32 %r to i8
+  %2 = trunc nuw i32 %r to i8
   %conv12 = add nsw i8 %2, -32
   %call13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %t, i64 noundef 1, i8 noundef signext %conv12)
   %call18 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %t, i64 noundef 1, i8 noundef signext %2)
@@ -1402,7 +1402,7 @@ while.body.lr.ph:                                 ; preds = %invoke.cont3
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit
-  %5 = phi ptr [ %.pre, %while.body.lr.ph ], [ %21, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit ]
+  %5 = phi ptr [ %.pre, %while.body.lr.ph ], [ %20, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit ]
   %6 = phi ptr [ %3, %while.body.lr.ph ], [ %storemerge.i.i, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit ]
   %cmp.i.i.i5 = icmp eq ptr %6, %5
   br i1 %cmp.i.i.i5, label %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit, label %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit.thread
@@ -1416,7 +1416,7 @@ _ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit: ; preds = %whil
   %nsub_ = getelementptr inbounds i8, ptr %9, i64 6
   %10 = load i16, ptr %nsub_, align 2
   %cmp = icmp ugt i16 %10, 1
-  br i1 %cmp, label %if.then.i.i.i10, label %if.else.i.i
+  br i1 %cmp, label %if.then.i.i.i10, label %if.end
 
 _ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit.thread: ; preds = %while.body
   %incdec.ptr.i.i.i18 = getelementptr inbounds i8, ptr %6, i64 -32
@@ -1449,9 +1449,9 @@ lpad:                                             ; preds = %_ZN10LogMessageC2EP
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp) #15
   br label %common.resume
 
-if.end:                                           ; preds = %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit.thread, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit14, %delete.notnull
-  %16 = phi ptr [ %5, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit.thread ], [ %5, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit14 ], [ %.pre23, %delete.notnull ]
-  %17 = phi ptr [ %6, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit.thread ], [ %6, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit14 ], [ %.pre22, %delete.notnull ]
+if.end:                                           ; preds = %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit.thread, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit14, %delete.notnull, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit
+  %16 = phi ptr [ %5, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit.thread ], [ %5, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit14 ], [ %.pre23, %delete.notnull ], [ %5, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit ]
+  %17 = phi ptr [ %6, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit.thread ], [ %6, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit14 ], [ %.pre22, %delete.notnull ], [ %6, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit ]
   %cmp.not.i.i = icmp eq ptr %17, %16
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
@@ -1459,25 +1459,24 @@ if.then.i.i:                                      ; preds = %if.end
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 -32
   br label %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit
 
-if.else.i.i:                                      ; preds = %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit, %if.end
-  %18 = phi ptr [ %16, %if.end ], [ %5, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit ]
-  call void @_ZdlPv(ptr noundef %18) #16
-  %19 = load ptr, ptr %_M_node5.i.i.i.i, align 8
-  %add.ptr.i.i.i16 = getelementptr inbounds i8, ptr %19, i64 -8
+if.else.i.i:                                      ; preds = %if.end
+  call void @_ZdlPv(ptr noundef %16) #16
+  %18 = load ptr, ptr %_M_node5.i.i.i.i, align 8
+  %add.ptr.i.i.i16 = getelementptr inbounds i8, ptr %18, i64 -8
   store ptr %add.ptr.i.i.i16, ptr %_M_node5.i.i.i.i, align 8
-  %20 = load ptr, ptr %add.ptr.i.i.i16, align 8
-  store ptr %20, ptr %_M_first3.i.i.i.i, align 8
-  %add.ptr.i.i.i.i17 = getelementptr inbounds i8, ptr %20, i64 512
+  %19 = load ptr, ptr %add.ptr.i.i.i16, align 8
+  store ptr %19, ptr %_M_first3.i.i.i.i, align 8
+  %add.ptr.i.i.i.i17 = getelementptr inbounds i8, ptr %19, i64 512
   store ptr %add.ptr.i.i.i.i17, ptr %_M_last.i.i.i.i, align 8
-  %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %20, i64 480
+  %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %19, i64 480
   br label %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit
 
 _ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %21 = phi ptr [ %16, %if.then.i.i ], [ %20, %if.else.i.i ]
+  %20 = phi ptr [ %16, %if.then.i.i ], [ %19, %if.else.i.i ]
   %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %add.ptr8.i.i.i, %if.else.i.i ]
   store ptr %storemerge.i.i, ptr %_M_finish.i.i, align 8
-  %22 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i4 = icmp eq ptr %storemerge.i.i, %22
+  %21 = load ptr, ptr %_M_start.i.i, align 8
+  %cmp.i.i.i4 = icmp eq ptr %storemerge.i.i, %21
   br i1 %cmp.i.i.i4, label %if.end13, label %while.body, !llvm.loop !22
 
 if.end13:                                         ; preds = %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit, %invoke.cont3, %entry
@@ -1528,7 +1527,7 @@ if.then2:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %if.then
-  %conv = trunc i32 %r to i8
+  %conv = trunc nuw nsw i32 %r to i8
   %call4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %t, i64 noundef 1, i8 noundef signext %conv)
   br label %return
 
@@ -1898,7 +1897,7 @@ if.then.i.i:                                      ; preds = %sw.epilog
   br label %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit
 
 if.else.i.i:                                      ; preds = %sw.epilog
-  call void @_ZdlPv(ptr noundef %42) #16
+  call void @_ZdlPv(ptr noundef %43) #16
   %44 = load ptr, ptr %_M_node5.i.i.i.i, align 8
   %add.ptr.i.i.i66 = getelementptr inbounds i8, ptr %44, i64 -8
   store ptr %add.ptr.i.i.i66, ptr %_M_node5.i.i.i.i, align 8

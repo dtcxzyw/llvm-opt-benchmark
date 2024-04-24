@@ -2369,7 +2369,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN3ue2
 invoke.cont.i80:                                  ; preds = %_ZN3ue2L19literals_for_vertexERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.i, %invoke.contthread-pre-split.i, %cleanup82.thread249.i
   %allowed_to_remove.1.lcssa.i282 = phi i32 [ %cond.i, %invoke.contthread-pre-split.i ], [ %cond.i, %cleanup82.thread249.i ], [ %allowed_to_remove.0299.i, %_ZN3ue2L19literals_for_vertexERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.i ]
   %min_succ_lit_len.1.lcssa.i281 = phi i64 [ %spec.select.i, %invoke.contthread-pre-split.i ], [ %spec.select.i, %cleanup82.thread249.i ], [ %min_succ_lit_len.0298.i, %_ZN3ue2L19literals_for_vertexERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.i ]
-  %258 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre270, %cleanup82.thread249.i ], [ %.pre.i257, %_ZN3ue2L19literals_for_vertexERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.i ]
+  %258 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre269, %cleanup82.thread249.i ], [ %.pre.i257, %_ZN3ue2L19literals_for_vertexERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.i ]
   %tobool.not.i.i.i81 = icmp eq ptr %258, null
   br i1 %tobool.not.i.i.i81, label %_ZNSt6vectorIN3ue215rose_literal_idESaIS1_EED2Ev.exit, label %if.then.i.i.i82
 

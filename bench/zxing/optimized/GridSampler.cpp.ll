@@ -383,7 +383,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit:                 ; preds = %165
   br label %._crit_edge120
 
 ._crit_edge120:                                   ; preds = %._crit_edge120.loopexit, %._crit_edge
-  %.val62.val69 = phi ptr [ %.val62.val69.pre, %._crit_edge120.loopexit ], [ %105, %._crit_edge ]
+  %.val62.val69 = phi ptr [ %.val62.val69.pre, %._crit_edge120.loopexit ], [ %106, %._crit_edge ]
   %.val62.val = phi ptr [ %.val62.val.pre, %._crit_edge120.loopexit ], [ %105, %._crit_edge ]
   %185 = invoke fastcc i64 @"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE"(ptr %.val62.val, ptr %.val62.val69, i64 0)
           to label %186 unwind label %.loopexit.split-lp

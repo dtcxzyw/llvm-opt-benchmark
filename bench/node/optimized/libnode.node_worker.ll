@@ -5282,7 +5282,7 @@ if.end.loopexit.i.i:                              ; preds = %for.body.i.i.i.i.i.
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit: ; preds = %for.end, %if.then.i.i477, %if.end.loopexit.i.i
-  %270 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %269, %if.then.i.i477 ], [ %add.ptr.i.i.i, %for.end ]
+  %270 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %269, %if.then.i.i477 ], [ %269, %for.end ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %270, i64 -32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i) #23
@@ -11659,7 +11659,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.then
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__v) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %__v) #23
   %3 = load ptr, ptr %_M_finish, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %incdec.ptr, ptr %_M_finish, align 8

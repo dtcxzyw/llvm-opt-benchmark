@@ -2013,7 +2013,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyIPNS_16EvictingCacheMapINSt7__cxx111
   %sizeAndChunkShiftAndPackedBegin_.i = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %chunks_.i = getelementptr inbounds i8, ptr %this, i64 56
-  %conv.i = trunc i64 %or.i to i8
+  %conv.i = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -2272,7 +2272,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyIPNS_16EvictingCacheMapINSt7__cxx111
   %sizeAndChunkShiftAndPackedBegin_.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %chunks_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %conv.i = trunc i64 %or.i to i8
+  %conv.i = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %values_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2411,7 +2411,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyIPNS_16EvictingCacheMapINSt7__cxx111
   %8 = load ptr, ptr %chunks_.i, align 8
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
-  %conv.i = trunc i64 %or.i to i8
+  %conv.i = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.cond.i
@@ -2542,15 +2542,13 @@ if.then.i.i:                                      ; preds = %_ZN5folly3f146detai
   %cmp828.i.i = icmp eq ptr %add.ptr27.i.i, %add.ptr1.i.i
   br i1 %cmp828.i.i, label %if.then9.i.i, label %if.end.i.i
 
-if.then9.loopexit.i.i:                            ; preds = %_ZN5folly3f146detail8F14ChunkIjE25decrOutboundOverflowCountEv.exit.i.i
-  %.pre34.i.i = load i8, ptr %control_.i, align 2
-  br label %if.then9.i.i
-
-if.then9.i.i:                                     ; preds = %if.then9.loopexit.i.i, %if.then.i.i
-  %13 = phi i8 [ %10, %if.then.i.i ], [ %.pre34.i.i, %if.then9.loopexit.i.i ]
-  %hostedOp.0.lcssa.i.i = phi i8 [ 0, %if.then.i.i ], [ -16, %if.then9.loopexit.i.i ]
-  %add.i15.i.i = add i8 %hostedOp.0.lcssa.i.i, %13
-  store i8 %add.i15.i.i, ptr %control_.i, align 2
+if.then9.i.i:                                     ; preds = %_ZN5folly3f146detail8F14ChunkIjE25decrOutboundOverflowCountEv.exit.i.i, %if.then.i.i
+  %hostedOp.0.lcssa.i.i = phi i8 [ 0, %if.then.i.i ], [ -16, %_ZN5folly3f146detail8F14ChunkIjE25decrOutboundOverflowCountEv.exit.i.i ]
+  %add.ptr.lcssa.i.i = phi ptr [ %add.ptr27.i.i, %if.then.i.i ], [ %add.ptr.i.i5, %_ZN5folly3f146detail8F14ChunkIjE25decrOutboundOverflowCountEv.exit.i.i ]
+  %control_.i14.i.i = getelementptr inbounds i8, ptr %add.ptr.lcssa.i.i, i64 14
+  %13 = load i8, ptr %control_.i14.i.i, align 2
+  %add.i15.i.i = add i8 %13, %hostedOp.0.lcssa.i.i
+  store i8 %add.i15.i.i, ptr %control_.i14.i.i, align 2
   br label %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPNS_16EvictingCacheMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4quic13QuicCachedPskENS_23HeterogeneousAccessHashISA_vEENS_26HeterogeneousAccessEqualToISA_vEEE4NodeEvNSH_9KeyHasherENSH_13KeyValueEqualEvSt17integral_constantIbLb0EEEEE9eraseImplENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmE.exit
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %_ZN5folly3f146detail8F14ChunkIjE25decrOutboundOverflowCountEv.exit.i.i
@@ -2580,7 +2578,7 @@ _ZN5folly3f146detail8F14ChunkIjE25decrOutboundOverflowCountEv.exit.i.i: ; preds 
   %and.i.i.i = and i64 %add.i.i, %sub.i.i.i
   %add.ptr.i.i5 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %18, i64 %and.i.i.i
   %cmp8.i.i = icmp eq ptr %add.ptr.i.i5, %add.ptr1.i.i
-  br i1 %cmp8.i.i, label %if.then9.loopexit.i.i, label %if.end.i.i, !llvm.loop !33
+  br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end.i.i, !llvm.loop !33
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPNS_16EvictingCacheMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4quic13QuicCachedPskENS_23HeterogeneousAccessHashISA_vEENS_26HeterogeneousAccessEqualToISA_vEEE4NodeEvNSH_9KeyHasherENSH_13KeyValueEqualEvSt17integral_constantIbLb0EEEEE9eraseImplENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmE.exit: ; preds = %_ZN5folly3f146detail8F14ChunkIjE8clearTagEm.exit.i.i, %if.then9.i.i
   ret void
@@ -3490,8 +3488,8 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %shr.i6 = lshr i64 %mul.i, 2
-  %add2.i = add i64 %shr.i6, %mul.i
+  %shr.i7 = lshr i64 %mul.i, 2
+  %add2.i = add i64 %shr.i7, %mul.i
   %shr3.i = lshr i64 %mul.i, 3
   %add4.i = add i64 %add2.i, %shr3.i
   %shr5.i = lshr i64 %mul.i, 5
@@ -3513,7 +3511,7 @@ if.else11.i.i:                                    ; preds = %if.then
   %sub.i.i = add i64 %.sroa.speculated.i, -1
   %div.i.i = udiv i64 %sub.i.i, 10
   %2 = tail call i64 @llvm.ctlz.i64(i64 %div.i.i, i1 true), !range !20
-  %3 = trunc i64 %2 to i32
+  %3 = trunc nuw nsw i64 %2 to i32
   %add.i.i.i = sub nuw nsw i32 64, %3
   %conv.i.i = zext nneg i32 %add.i.i.i to i64
   %shl.i.i = shl nuw nsw i64 1, %conv.i.i
@@ -3522,8 +3520,8 @@ if.else11.i.i:                                    ; preds = %if.then
   %shl25.i.i = select i1 %cmp17.i.i, i32 40960, i32 %4
   %conv26.i.i = zext i32 %shl25.i.i to i64
   %sub.i.i.i = add nsw i64 %shl.i.i, -1
-  %shr.i.i.i7 = lshr i64 %sub.i.i.i, 12
-  %add.i7.i.i = add nuw nsw i64 %shr.i.i.i7, 1
+  %shr.i.i.i8 = lshr i64 %sub.i.i.i, 12
+  %add.i7.i.i = add nuw nsw i64 %shr.i.i.i8, 1
   %mul.i.i.i = mul i64 %add.i7.i.i, %conv26.i.i
   %cmp32.i.i = icmp ugt i64 %mul.i.i.i, 72057594037927935
   br i1 %cmp32.i.i, label %if.then33.i.i, label %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPNS_16EvictingCacheMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4quic13QuicCachedPskENS_23HeterogeneousAccessHashISA_vEENS_26HeterogeneousAccessEqualToISA_vEEE4NodeEvNSH_9KeyHasherENSH_13KeyValueEqualEvSt17integral_constantIbLb0EEEEE20reserveForInsertImplEmmmm.exit
@@ -3896,7 +3894,7 @@ if.then.i12.i:                                    ; preds = %while.end.i
   unreachable
 
 invoke.cont69:                                    ; preds = %while.end.i
-  %conv4.i.i = trunc i64 %or.i to i8
+  %conv4.i.i = trunc nuw i64 %or.i to i8
   store i8 %conv4.i.i, ptr %arrayidx.i.i.i.i84, align 1
   %control_.i.i86 = getelementptr inbounds i8, ptr %add.ptr.lcssa.i, i64 14
   %33 = load i8, ptr %control_.i.i86, align 2

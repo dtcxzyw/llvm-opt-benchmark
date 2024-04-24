@@ -189,8 +189,8 @@ do.end:                                           ; preds = %do.body
   br label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %do.end, %for.inc
-  %__begin1.0.idx28 = phi i64 [ 0, %do.end ], [ %__begin1.0.add, %for.inc ]
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr %ref.tmp16, i64 %__begin1.0.idx28
+  %__begin1.0.idx29 = phi i64 [ 0, %do.end ], [ %__begin1.0.add, %for.inc ]
+  %__begin1.0.ptr = getelementptr inbounds i8, ptr %ref.tmp16, i64 %__begin1.0.idx29
   %5 = load i32, ptr %__begin1.0.ptr, align 4
   store i32 %5, ptr %algo, align 4
   %conv.i = sext i32 %5 to i64
@@ -223,7 +223,7 @@ if.then.i.i.i:                                    ; preds = %lpad20
   br label %eh.resume
 
 for.inc:                                          ; preds = %if.then23, %invoke.cont21
-  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx28, 4
+  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx29, 4
   %cmp19.not = icmp eq i64 %__begin1.0.add, 8
   br i1 %cmp19.not, label %for.end, label %invoke.cont21
 
@@ -254,23 +254,23 @@ sw.bb29:                                          ; preds = %if.end28
 
 sw.bb32:                                          ; preds = %if.end28
   %shr.i.i = lshr i64 %11, 2
-  %and.i.i.i12 = and i64 %11, 1
-  %tobool.i.not.i.i13 = icmp eq i64 %and.i.i.i12, 0
-  %data_.i.i.i14 = getelementptr inbounds i8, ptr %algos, i64 8
-  %13 = load ptr, ptr %data_.i.i.i14, align 8
-  %cond.i.i15 = select i1 %tobool.i.not.i.i13, ptr %data_.i.i.i14, ptr %13
-  %arrayidx.i16 = getelementptr inbounds i32, ptr %cond.i.i15, i64 %shr.i.i
+  %and.i.i.i13 = and i64 %11, 1
+  %tobool.i.not.i.i14 = icmp eq i64 %and.i.i.i13, 0
+  %data_.i.i.i15 = getelementptr inbounds i8, ptr %algos, i64 8
+  %13 = load ptr, ptr %data_.i.i.i15, align 8
+  %cond.i.i16 = select i1 %tobool.i.not.i.i14, ptr %data_.i.i.i15, ptr %13
+  %arrayidx.i17 = getelementptr inbounds i32, ptr %cond.i.i16, i64 %shr.i.i
   br label %cleanup.sink.split
 
 sw.bb36:                                          ; preds = %if.end28
-  %and.i.i.i17 = and i64 %11, 1
-  %tobool.i.not.i.i18 = icmp eq i64 %and.i.i.i17, 0
-  %data_.i.i.i19 = getelementptr inbounds i8, ptr %algos, i64 8
-  %14 = load ptr, ptr %data_.i.i.i19, align 8
-  %cond.i.i20 = select i1 %tobool.i.not.i.i18, ptr %data_.i.i.i19, ptr %14
+  %and.i.i.i18 = and i64 %11, 1
+  %tobool.i.not.i.i19 = icmp eq i64 %and.i.i.i18, 0
+  %data_.i.i.i20 = getelementptr inbounds i8, ptr %algos, i64 8
+  %14 = load ptr, ptr %data_.i.i.i20, align 8
+  %cond.i.i21 = select i1 %tobool.i.not.i.i19, ptr %data_.i.i.i20, ptr %14
   %shr.i.i.i = lshr i64 %11, 1
-  %15 = getelementptr i32, ptr %cond.i.i20, i64 %shr.i.i.i
-  %arrayidx.i21 = getelementptr i8, ptr %15, i64 -4
+  %15 = getelementptr i32, ptr %cond.i.i21, i64 %shr.i.i.i
+  %arrayidx.i22 = getelementptr i8, ptr %15, i64 -4
   br label %cleanup.sink.split
 
 sw.default:                                       ; preds = %if.end28
@@ -278,25 +278,25 @@ sw.default:                                       ; preds = %if.end28
   unreachable
 
 cleanup.sink.split:                               ; preds = %sw.bb29, %sw.bb32, %sw.bb36
-  %arrayidx.i21.sink = phi ptr [ %arrayidx.i21, %sw.bb36 ], [ %arrayidx.i16, %sw.bb32 ], [ %cond.i.i, %sw.bb29 ]
-  %and.i.i.i.i22.pre-phi.ph = phi i64 [ %and.i.i.i17, %sw.bb36 ], [ %and.i.i.i12, %sw.bb32 ], [ %and.i.i.i, %sw.bb29 ]
-  %16 = load i32, ptr %arrayidx.i21.sink, align 4
+  %arrayidx.i22.sink = phi ptr [ %arrayidx.i22, %sw.bb36 ], [ %arrayidx.i17, %sw.bb32 ], [ %cond.i.i, %sw.bb29 ]
+  %and.i.i.i.i23.pre-phi.ph = phi i64 [ %and.i.i.i18, %sw.bb36 ], [ %and.i.i.i13, %sw.bb32 ], [ %and.i.i.i, %sw.bb29 ]
+  %16 = load i32, ptr %arrayidx.i22.sink, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %for.end
-  %and.i.i.i.i22.pre-phi = phi i64 [ %11, %for.end ], [ %and.i.i.i.i22.pre-phi.ph, %cleanup.sink.split ]
+  %and.i.i.i.i23.pre-phi = phi i64 [ %11, %for.end ], [ %and.i.i.i.i23.pre-phi.ph, %cleanup.sink.split ]
   %retval.0 = phi i32 [ 0, %for.end ], [ %16, %cleanup.sink.split ]
-  %tobool.i.not.i.i.i23 = icmp eq i64 %and.i.i.i.i22.pre-phi, 0
-  br i1 %tobool.i.not.i.i.i23, label %return, label %if.then.i.i.i24
+  %tobool.i.not.i.i.i24 = icmp eq i64 %and.i.i.i.i23.pre-phi, 0
+  br i1 %tobool.i.not.i.i.i24, label %return, label %if.then.i.i.i25
 
-if.then.i.i.i24:                                  ; preds = %cleanup
-  %data_.i.i.i.i25 = getelementptr inbounds i8, ptr %algos, i64 8
-  %17 = load ptr, ptr %data_.i.i.i.i25, align 8
+if.then.i.i.i25:                                  ; preds = %cleanup
+  %data_.i.i.i.i26 = getelementptr inbounds i8, ptr %algos, i64 8
+  %17 = load ptr, ptr %data_.i.i.i.i26, align 8
   call void @_ZdlPv(ptr noundef %17) #23
   br label %return
 
-return:                                           ; preds = %if.then.i.i.i24, %cleanup, %if.end8
-  %retval.1 = phi i32 [ 0, %if.end8 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i24 ]
+return:                                           ; preds = %if.then.i.i.i25, %cleanup, %if.end8
+  %retval.1 = phi i32 [ 0, %if.end8 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i25 ]
   ret i32 %retval.1
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad20, %lpad
@@ -1265,7 +1265,7 @@ _ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit23.i.i: ; 
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit23.i.i, %if.end.i.i
-  %text_buffer.2.i.i = phi ptr [ %text_buffer.019.i.i, %if.end.i.i ], [ %incdec.ptr.i21.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit23.i.i ]
+  %text_buffer.2.i.i = phi ptr [ %text_buffer.117.i.i, %if.end.i.i ], [ %incdec.ptr.i21.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit23.i.i ]
   %1 = icmp ult i32 %sh_prom.i.i, 3
   br i1 %1, label %switch.lookup, label %_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm.exit.i.i
 

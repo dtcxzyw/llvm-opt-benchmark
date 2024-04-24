@@ -396,7 +396,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd1d5314720
   br i1 %.not, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %9
-  store ptr %4, ptr %5, align 8, !alias.scope !44
+  store ptr %12, ptr %5, align 8, !alias.scope !44
   store i64 %15, ptr %8, align 8, !alias.scope !47
   br label %16
 
@@ -859,7 +859,7 @@ define hidden void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  store ptr %4, ptr %5, align 8, !alias.scope !106, !noalias !109
+  store ptr %8, ptr %5, align 8, !alias.scope !106, !noalias !109
   br label %"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$9spec_fold17h1ce281e371981859E.llvm.14303161345558456588.exit"
 
 "_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$9spec_fold17h1ce281e371981859E.llvm.14303161345558456588.exit": ; preds = %2, %._crit_edge.i.i
@@ -918,7 +918,7 @@ define hidden void @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  store ptr %4, ptr %5, align 8, !alias.scope !129, !noalias !132
+  store ptr %8, ptr %5, align 8, !alias.scope !129, !noalias !132
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd1d53147204ce813E.llvm.14303161345558456588.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hd1d53147204ce813E.llvm.14303161345558456588.exit: ; preds = %2, %._crit_edge.i

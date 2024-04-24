@@ -254,7 +254,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !6
 
 while.end:                                        ; preds = %while.body, %entry
-  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 8184
+  %.lcssa = phi ptr [ %4, %entry ], [ %7, %while.body ]
+  %add.ptr.i = getelementptr inbounds i8, ptr %.lcssa, i64 8184
   %m_curr_end_ptr = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i, ptr %m_curr_end_ptr, align 8
   ret void

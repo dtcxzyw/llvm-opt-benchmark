@@ -1520,9 +1520,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp8, label %do.body, label %if.else
 
 do.body:                                          ; preds = %for.body
-  %vtable = load ptr, ptr %3, align 8
+  %vtable = load ptr, ptr %4, align 8
   %5 = load ptr, ptr %vtable, align 8
-  call void %5(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  call void %5(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %6 = load i64, ptr %ref.tmp, align 8
   %and.i.i.i = and i64 %6, 1
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0

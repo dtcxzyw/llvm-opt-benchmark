@@ -694,9 +694,10 @@ define internal fastcc void @frame_pack_headers_shared(ptr nocapture noundef rea
   br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %33 = getelementptr inbounds i8, ptr %20, i64 32
+  %.0.lcssa = phi ptr [ %.038, %.preheader ], [ %.0, %.lr.ph ]
+  %33 = getelementptr inbounds i8, ptr %.0.lcssa, i64 32
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %20, i64 24
+  %35 = getelementptr inbounds i8, ptr %.0.lcssa, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %34 to i64
   %38 = ptrtoint ptr %36 to i64

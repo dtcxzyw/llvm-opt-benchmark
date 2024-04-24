@@ -2477,7 +2477,7 @@ define internal noundef i32 @pci_notify(ptr nocapture readnone %0, i64 noundef %
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %22
-  tail call void @pci_dev_put(ptr noundef nonnull %4) #14
+  tail call void @pci_dev_put(ptr noundef nonnull %23) #14
   %28 = tail call ptr @pci_dev_get(ptr noundef null) #14
   store ptr %28, ptr @vga_default, align 8
   br label %29

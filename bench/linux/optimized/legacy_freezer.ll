@@ -538,7 +538,7 @@ define internal noundef i64 @freezer_write(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %46
-  tail call fastcc void @freezer_apply_state(ptr noundef nonnull %12, i1 noundef zeroext %7, i32 noundef 2)
+  tail call fastcc void @freezer_apply_state(ptr noundef nonnull %15, i1 noundef zeroext %7, i32 noundef 2)
   br label %54
 
 49:                                               ; preds = %46

@@ -7254,7 +7254,7 @@ define void @_ZN5image6codecs3ico7decoder10best_entry17hf2af43a31171e0ccE(ptr no
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %50, %16
-  %.lcssa = phi ptr [ %21, %16 ], [ %22, %50 ]
+  %.lcssa = phi ptr [ %21, %16 ], [ %39, %50 ]
   %.sroa.10.sroa.0.0.lcssa = phi i16 [ %.sroa.653.sroa.7.0.copyload, %16 ], [ %.sroa.10.sroa.0.1, %50 ]
   %.sroa.9.0.lcssa = phi i8 [ %.sroa.653.sroa.6.0.copyload, %16 ], [ %.sroa.9.1, %50 ]
   %.sroa.8.0.lcssa = phi i8 [ %.sroa.653.sroa.5.0.copyload, %16 ], [ %.sroa.8.1, %50 ]

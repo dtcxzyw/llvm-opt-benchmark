@@ -395,11 +395,11 @@ _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit:           ; preds = %66, %68
   br i1 %76, label %.preheader, label %._crit_edge27.thread, !llvm.loop !8
 
 ._crit_edge27:                                    ; preds = %.preheader19
-  %.not.i.i.i17 = icmp eq ptr %37, null
+  %.not.i.i.i17 = icmp eq ptr %38, null
   br i1 %.not.i.i.i17, label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit18, label %._crit_edge27.thread
 
 ._crit_edge27.thread:                             ; preds = %._crit_edge, %._crit_edge27
-  %.lcssa40 = phi ptr [ %37, %._crit_edge27 ], [ %69, %._crit_edge ]
+  %.lcssa40 = phi ptr [ %38, %._crit_edge27 ], [ %69, %._crit_edge ]
   %.1.lcssa38 = phi i32 [ %.015, %._crit_edge27 ], [ %.2.lcssa, %._crit_edge ]
   call void @_ZdlPv(ptr noundef nonnull %.lcssa40) #16
   br label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit18
@@ -1568,11 +1568,11 @@ _ZNSt6vectorIPK10ExpressionSaIS2_EED2Ev.exit:     ; preds = %_ZNSt6vectorIPK5Blo
   br i1 %92, label %.preheader, label %._crit_edge32.thread, !llvm.loop !21
 
 ._crit_edge32:                                    ; preds = %.preheader20
-  %.not.i.i.i16 = icmp eq ptr %58, null
+  %.not.i.i.i16 = icmp eq ptr %59, null
   br i1 %.not.i.i.i16, label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17, label %._crit_edge32.thread
 
 ._crit_edge32.thread:                             ; preds = %._crit_edge30, %._crit_edge32
-  %.lcssa39 = phi ptr [ %58, %._crit_edge32 ], [ %85, %._crit_edge30 ]
+  %.lcssa39 = phi ptr [ %59, %._crit_edge32 ], [ %85, %._crit_edge30 ]
   call void @_ZdlPv(ptr noundef nonnull %.lcssa39) #16
   br label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17
 

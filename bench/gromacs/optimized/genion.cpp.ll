@@ -2667,7 +2667,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %79, %_ZL22solventMo
   br label %.loopexit.split-lp
 
 .critedge:                                        ; preds = %67, %.thread, %_ZL22solventMoleculeIndicesiiN3gmx8ArrayRefIKiEE.exit
-  %86 = phi ptr [ %16, %_ZL22solventMoleculeIndicesiiN3gmx8ArrayRefIKiEE.exit ], [ %.pre, %.thread ], [ %68, %67 ]
+  %86 = phi ptr [ %16, %_ZL22solventMoleculeIndicesiiN3gmx8ArrayRefIKiEE.exit ], [ %.pre, %.thread ], [ %69, %67 ]
   %.sroa.11.2 = phi ptr [ %.sroa.11.0, %_ZL22solventMoleculeIndicesiiN3gmx8ArrayRefIKiEE.exit ], [ %.sroa.11.1107, %.thread ], [ %.sroa.11.1109, %67 ]
   %.sroa.068.3 = phi ptr [ %.sroa.068.0, %_ZL22solventMoleculeIndicesiiN3gmx8ArrayRefIKiEE.exit ], [ %.sroa.068.1101, %.thread ], [ %.sroa.068.1110, %67 ]
   %87 = load ptr, ptr %1, align 8

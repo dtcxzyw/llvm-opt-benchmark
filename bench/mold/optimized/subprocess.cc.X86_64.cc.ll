@@ -2379,7 +2379,7 @@ if.end.thread.i:                                  ; preds = %if.end
   br i1 %cmp.i1739.i, label %if.then12.i, label %if.end24.i
 
 if.then12.i:                                      ; preds = %if.end.i, %if.end.thread.i
-  %7 = phi ptr [ %5, %if.end.thread.i ], [ %4, %if.end.i ]
+  %7 = phi ptr [ %5, %if.end.thread.i ], [ %3, %if.end.i ]
   %_M_string_length.i19.i = getelementptr inbounds i8, ptr %__p, i64 8
   %8 = load i64, ptr %_M_string_length.i19.i, align 8
   %cmp3.i20.i = icmp ult i64 %8, 16
@@ -2414,7 +2414,7 @@ if.end24.thread.i:                                ; preds = %if.end.i
   %12 = load i64, ptr %_M_string_length.i3236.i, align 8
   store i64 %12, ptr %_M_string_length.i.i, align 8
   %13 = load i64, ptr %4, align 8
-  store i64 %13, ptr %0, align 8
+  store i64 %13, ptr %1, align 8
   br label %if.else29.i
 
 if.end24.i:                                       ; preds = %if.end.thread.i

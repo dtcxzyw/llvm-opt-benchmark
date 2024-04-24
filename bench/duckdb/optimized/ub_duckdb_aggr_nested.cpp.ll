@@ -11610,11 +11610,11 @@ while.end.i.i:                                    ; preds = %while.body.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i11, label %if.end12.i.i
 
 if.then.i.i11:                                    ; preds = %while.end.i.i, %if.else.i
-  %__y.0.lcssa48.i.i = phi ptr [ %__x.044.i.i, %while.end.i.i ], [ %add.ptr.i.i.i.i, %if.else.i ]
+  %__y.0.lcssa48.i.i = phi ptr [ %__x.044.i.i, %while.end.i.i ], [ %__y.addr.0.lcssa.i.i.i27.i, %if.else.i ]
   %_M_left.i26.i.i = getelementptr inbounds i8, ptr %32, i64 24
   %40 = load ptr, ptr %_M_left.i26.i.i, align 8, !tbaa !239
   %cmp.i27.i.i = icmp eq ptr %__y.0.lcssa48.i.i, %40
-  br i1 %cmp.i27.i.i, label %if.then.i.i, label %if.else.i.i
+  br i1 %cmp.i27.i.i, label %invoke.cont7.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i11
   %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa48.i.i) #26
@@ -11627,7 +11627,7 @@ if.end12.i.i:                                     ; preds = %if.else.i.i, %while
   %__y.0.lcssa49.i.i = phi ptr [ %__y.0.lcssa48.i.i, %if.else.i.i ], [ %__x.044.i.i, %while.end.i.i ]
   %__j.sroa.0.0.i.i = phi ptr [ %call.i.i.i, %if.else.i.i ], [ %__x.044.i.i, %while.end.i.i ]
   %cmp.i28.i.i = icmp ult i8 %41, %.pre.i
-  br i1 %cmp.i28.i.i, label %if.then.i.i, label %if.then.i23.i.i
+  br i1 %cmp.i28.i.i, label %invoke.cont7.i.i, label %if.then.i23.i.i
 
 if.else12.i:                                      ; preds = %call5.i.i.i.i.i.i.i.noexc
   %_M_storage.i.i.i91.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i27.i, i64 32
@@ -11709,12 +11709,13 @@ if.end12.i158.i:                                  ; preds = %while.body.i149.i, 
   %cmp.i28.i162.not.not.i = icmp eq i8 %47, 0
   br i1 %cmp.i28.i162.not.not.i, label %if.then.i.i, label %if.then.i23.i.i
 
-invoke.cont7.i.i:                                 ; preds = %if.then.i126.i
-  %tobool.not.i.i = icmp eq ptr %43, null
+invoke.cont7.i.i:                                 ; preds = %if.end12.i.i, %if.then.i126.i, %if.then.i.i11
+  %retval.sroa.12.2.i = phi ptr [ %__y.0.lcssa48.i.i, %if.then.i.i11 ], [ %43, %if.then.i126.i ], [ %__y.0.lcssa49.i.i, %if.end12.i.i ]
+  %tobool.not.i.i = icmp eq ptr %retval.sroa.12.2.i, null
   br i1 %tobool.not.i.i, label %if.then.i23.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.end12.i.i, %if.then.i.i11, %if.end12.i158.i, %if.then50.i, %land.lhs.true.i, %invoke.cont7.i.i
-  %retval.sroa.12.2.i28 = phi ptr [ %43, %invoke.cont7.i.i ], [ %__y.addr.0.lcssa.i.i.i27.i, %if.then50.i ], [ %37, %land.lhs.true.i ], [ %__y.0.lcssa49.i159.i, %if.end12.i158.i ], [ %__y.0.lcssa49.i.i, %if.end12.i.i ], [ %__y.0.lcssa48.i.i, %if.then.i.i11 ]
+if.then.i.i:                                      ; preds = %if.end12.i158.i, %if.then50.i, %land.lhs.true.i, %invoke.cont7.i.i
+  %retval.sroa.12.2.i28 = phi ptr [ %retval.sroa.12.2.i, %invoke.cont7.i.i ], [ %__y.addr.0.lcssa.i.i.i27.i, %if.then50.i ], [ %37, %land.lhs.true.i ], [ %__y.0.lcssa49.i159.i, %if.end12.i158.i ]
   %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %retval.sroa.12.2.i28
   br i1 %cmp2.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
@@ -11725,7 +11726,7 @@ lor.rhs.i.i.i.i:                                  ; preds = %if.then.i.i
   br label %cleanup.thread.i.i
 
 cleanup.thread.i.i:                               ; preds = %if.then.i169.i, %if.then18.i, %lor.rhs.i.i.i.i, %if.then.i.i
-  %retval.sroa.12.2.i2834 = phi ptr [ %add.ptr.i.i.i.i, %if.then.i.i ], [ %retval.sroa.12.2.i28, %lor.rhs.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i27.i, %if.then18.i ], [ %add.ptr.i.i.i.i, %if.then.i169.i ]
+  %retval.sroa.12.2.i2834 = phi ptr [ %retval.sroa.12.2.i28, %if.then.i.i ], [ %retval.sroa.12.2.i28, %lor.rhs.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i27.i, %if.then18.i ], [ %add.ptr.i.i.i.i, %if.then.i169.i ]
   %49 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i.i.i20.i, %lor.rhs.i.i.i.i ], [ true, %if.then18.i ], [ true, %if.then.i169.i ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %49, ptr noundef nonnull %call5.i.i.i.i.i.i.i57, ptr noundef nonnull %retval.sroa.12.2.i2834, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #21
   %_M_node_count.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 40

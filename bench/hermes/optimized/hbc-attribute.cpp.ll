@@ -740,7 +740,7 @@ for.body.i.i.i.preheader.i.i:                     ; preds = %_ZNSt10shared_ptrIN
   %or6.i.i.i.i.i.i = or i64 %shr5.i.i.i.i.i.i, %or4.i.i.i.i.i.i
   %shr7.i.i.i.i.i.i = lshr i64 %or6.i.i.i.i.i.i, 16
   %or8.i.i.i.i.i.i = or i64 %shr7.i.i.i.i.i.i, %or6.i.i.i.i.i.i
-  %54 = trunc i64 %or8.i.i.i.i.i.i to i32
+  %54 = trunc nuw nsw i64 %or8.i.i.i.i.i.i to i32
   %conv2.i.i.i.i.i = add nuw i32 %54, 1
   %NumBuckets.i6.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp12.i, i64 16
   store i32 %conv2.i.i.i.i.i, ptr %NumBuckets.i6.i.i.i.i, align 8, !alias.scope !14
@@ -2296,7 +2296,7 @@ _ZN4llvh8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEE15allocat
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8
@@ -3680,7 +3680,7 @@ if.then.i:                                        ; preds = %if.end5
   %or6.i.i.i = or i64 %shr5.i.i.i, %or4.i.i.i
   %shr7.i.i.i = lshr i64 %or6.i.i.i, 16
   %or8.i.i.i = or i64 %shr7.i.i.i, %or6.i.i.i
-  %5 = trunc i64 %or8.i.i.i to i32
+  %5 = trunc nuw nsw i64 %or8.i.i.i to i32
   %conv2.i.i = add nuw i32 %5, 1
   store i32 %conv2.i.i, ptr %NumBuckets, align 8
   %conv.i3.i = zext i32 %conv2.i.i to i64
@@ -3899,7 +3899,7 @@ _ZN12_GLOBAL__N_112UsageCounter15countStringKindEj.exit: ; preds = %_ZSt11upper_
   %call3 = tail call i64 %7(ptr noundef nonnull align 8 dereferenceable(280) %6, i32 noundef %stringIndex) #22
   %entry2.sroa.0.0.extract.trunc = trunc i64 %call3 to i32
   %entry2.sroa.3.0.extract.shift = lshr i64 %call3, 32
-  %entry2.sroa.3.0.extract.trunc = trunc i64 %entry2.sroa.3.0.extract.shift to i32
+  %entry2.sroa.3.0.extract.trunc = trunc nuw i64 %entry2.sroa.3.0.extract.shift to i32
   %cmp.i = icmp ult i32 %entry2.sroa.0.0.extract.trunc, 8388608
   %and.i.i = and i32 %entry2.sroa.3.0.extract.trunc, 2147483647
   %cmp5.i = icmp ult i32 %and.i.i, 255
@@ -3928,7 +3928,7 @@ if.end:                                           ; preds = %_ZN4llvh9StringRefC
 
 _ZN4llvh9StringRefC2EPKc.exit29.preheader:        ; preds = %if.end
   %call3.lobit = lshr i64 %call3, 63
-  %8 = trunc i64 %call3.lobit to i32
+  %8 = trunc nuw nsw i64 %call3.lobit to i32
   %mul = shl nuw i32 %and.i.i, %8
   br label %_ZN4llvh9StringRefC2EPKc.exit29
 
@@ -4081,7 +4081,7 @@ if.end19.i.i.us77:                                ; preds = %while.body.us66
   br i1 %cmp.i.i.i.us80, label %land.rhs.i.i.i.us81, label %if.then.i.i28.us85
 
 land.rhs.i.i.i.us81:                              ; preds = %if.end19.i.i.us77
-  %bcmp.i.i.us = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -2 to ptr), ptr %agg.tmp1.sroa.0.0.copyload.i.us73, i64 %agg.tmp.sroa.2.0.copyload.i.fr)
+  %bcmp.i.i.us = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload.i.fr, ptr %agg.tmp1.sroa.0.0.copyload.i.us73, i64 %agg.tmp.sroa.2.0.copyload.i.fr)
   %7 = icmp eq i32 %bcmp.i.i.us, 0
   br i1 %7, label %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us82, label %if.then.i.i28.us85
 
@@ -4142,7 +4142,7 @@ if.end19.i.i.us116:                               ; preds = %while.body.us105
   br i1 %cmp.i.i.i.us119, label %land.rhs.i.i.i.us120, label %if.then.i.i28.us125
 
 land.rhs.i.i.i.us120:                             ; preds = %if.end19.i.i.us116
-  %bcmp.i.i.us121 = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -1 to ptr), ptr %agg.tmp1.sroa.0.0.copyload.i.us112, i64 %agg.tmp.sroa.2.0.copyload.i.fr)
+  %bcmp.i.i.us121 = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload.i.fr, ptr %agg.tmp1.sroa.0.0.copyload.i.us112, i64 %agg.tmp.sroa.2.0.copyload.i.fr)
   %12 = icmp eq i32 %bcmp.i.i.us121, 0
   br i1 %12, label %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us122, label %if.then.i.i28.us125
 
@@ -4336,7 +4336,7 @@ _ZN4llvh8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS3_EENS_6detail12De
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8
@@ -4516,7 +4516,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 for.body.lr.ph:                                   ; preds = %while.body
   %keyTag.sroa.3.0.extract.shift = lshr i64 %call2, 32
-  %keyTag.sroa.3.0.extract.trunc = trunc i64 %keyTag.sroa.3.0.extract.shift to i32
+  %keyTag.sroa.3.0.extract.trunc = trunc nuw i64 %keyTag.sroa.3.0.extract.shift to i32
   %conv3.i = and i32 %keyTag.sroa.3.0.extract.trunc, 255
   %2 = call i32 @llvm.fshl.i32(i32 %conv3.i, i32 %conv3.i, i32 28)
   %3 = add i32 %count.addr.093, -1

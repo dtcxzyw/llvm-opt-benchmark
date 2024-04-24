@@ -5258,7 +5258,7 @@ while.body:                                       ; preds = %land.rhs.lr.ph, %la
   br i1 %cmp.i.i.i, label %land.rhs, label %while.end, !llvm.loop !111
 
 while.end:                                        ; preds = %while.body, %land.rhs, %land.rhs.lr.ph, %entry
-  %.lcssa = phi ptr [ %1, %entry ], [ %0, %land.rhs.lr.ph ], [ %4, %land.rhs ], [ %5, %while.body ]
+  %.lcssa = phi ptr [ %1, %entry ], [ %1, %land.rhs.lr.ph ], [ %5, %land.rhs ], [ %5, %while.body ]
   %stopped_2 = getelementptr inbounds i8, ptr %this, i64 140
   %6 = load i8, ptr %stopped_2, align 4
   %tobool3 = trunc i8 %6 to i1
@@ -6119,7 +6119,7 @@ for.body:                                         ; preds = %entry, %_ZNSt12_Des
   %2 = load ptr, ptr %__node.06, align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %_ZSt8_DestroyISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EEEvPT_.exit.i, %for.body
+for.body.i:                                       ; preds = %for.body, %_ZSt8_DestroyISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EEEvPT_.exit.i
   %__first.addr.04.i.idx = phi i64 [ %__first.addr.04.i.add, %_ZSt8_DestroyISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EEEvPT_.exit.i ], [ 0, %for.body ]
   %__first.addr.04.i.ptr = getelementptr inbounds i8, ptr %2, i64 %__first.addr.04.i.idx
   %3 = load ptr, ptr %__first.addr.04.i.ptr, align 8
@@ -7776,7 +7776,7 @@ cond.end:                                         ; preds = %if.then
 
 if.then3.i:                                       ; preds = %cond.end
   %arrayidx5.i = getelementptr inbounds ptr, ptr %0, i64 %rem.i.i.i
-  store ptr %__prev_n, ptr %arrayidx5.i, align 8
+  store ptr %1, ptr %arrayidx5.i, align 8
   %.pre = load ptr, ptr %this, align 8
   %arrayidx7.i.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %__bkt
   %.pre23 = load ptr, ptr %arrayidx7.i.phi.trans.insert, align 8
@@ -7791,7 +7791,7 @@ if.end.i:                                         ; preds = %if.then, %if.then3.
   br i1 %cmp8.i, label %if.then9.i, label %if.end11.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  store ptr %2, ptr %6, align 8
+  store ptr %2, ptr %_M_before_begin.i, align 8
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then9.i, %if.end.i

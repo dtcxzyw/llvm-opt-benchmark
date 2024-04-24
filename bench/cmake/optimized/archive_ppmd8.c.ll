@@ -24,7 +24,7 @@ define dso_local void @Ppmd8_Construct(ptr nocapture noundef writeonly %0) #0 {
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %17 ]
   %.02936 = phi i32 [ 0, %1 ], [ %13, %17 ]
   %6 = icmp ugt i64 %indvars.iv, 11
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = lshr i32 %7, 2
   %9 = add nuw nsw i32 %8, 1
   %10 = select i1 %6, i32 4, i32 %9
@@ -285,7 +285,7 @@ define internal fastcc void @RestartModel(ptr nocapture noundef %0) unnamed_addr
   %68 = load i16, ptr %67, align 2
   %69 = zext i16 %68 to i32
   %70 = udiv i32 %69, %64
-  %71 = trunc i32 %70 to i16
+  %71 = trunc nuw i32 %70 to i16
   %72 = sub i16 16384, %71
   %73 = getelementptr inbounds i16, ptr %65, i64 %indvars.iv96
   br label %74
@@ -402,7 +402,7 @@ define dso_local nonnull ptr @Ppmd8_MakeEscFreq(ptr noundef %0, i32 noundef %1, 
   %46 = load i8, ptr %45, align 2
   %47 = zext nneg i8 %46 to i32
   %48 = lshr i32 %44, %47
-  %49 = trunc i32 %48 to i16
+  %49 = trunc nuw i32 %48 to i16
   %50 = sub i16 %43, %49
   store i16 %50, ptr %42, align 2
   %51 = icmp eq i32 %48, 0
@@ -517,12 +517,13 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #8 {
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %9, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
+  %.097.lcssa = phi ptr [ %11, %1 ], [ %12, %.lr.ph ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.097.lcssa, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 2
   %15 = load i16, ptr %14, align 1
   %16 = zext i16 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %9, i64 1
+  %17 = getelementptr inbounds i8, ptr %.097.lcssa, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = sub nsw i32 %16, %19
@@ -535,7 +536,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #8 {
   %26 = zext i8 %21 to i32
   %27 = add nuw nsw i32 %25, %26
   %28 = lshr i32 %27, 1
-  %29 = trunc i32 %28 to i8
+  %29 = trunc nuw i32 %28 to i8
   store i8 %29, ptr %17, align 1
   %30 = load ptr, ptr %0, align 8
   %31 = load i8, ptr %30, align 1
@@ -543,7 +544,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #8 {
   br label %33
 
 33:                                               ; preds = %55, %._crit_edge
-  %.198 = phi ptr [ %9, %._crit_edge ], [ %34, %55 ]
+  %.198 = phi ptr [ %.097.lcssa, %._crit_edge ], [ %34, %55 ]
   %.095 = phi i32 [ %20, %._crit_edge ], [ %38, %55 ]
   %.094 = phi i32 [ %28, %._crit_edge ], [ %42, %55 ]
   %.0 = phi i32 [ %32, %._crit_edge ], [ %56, %55 ]
@@ -554,7 +555,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #8 {
   %38 = sub i32 %.095, %37
   %39 = add nuw nsw i32 %37, %25
   %40 = lshr i32 %39, 1
-  %41 = trunc i32 %40 to i8
+  %41 = trunc nuw i32 %40 to i8
   store i8 %41, ptr %35, align 1
   %42 = add i32 %40, %.094
   %43 = getelementptr inbounds i8, ptr %.198, i64 1
@@ -583,8 +584,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #8 {
   br i1 %54, label %49, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %49, %51
-  %.lcssa120 = phi ptr [ %9, %49 ], [ %50, %51 ]
-  store i8 %.sroa.011.0.copyload, ptr %.lcssa120, align 2
+  store i8 %.sroa.011.0.copyload, ptr %50, align 2
   %.sroa.2.0..sroa_idx13 = getelementptr inbounds i8, ptr %.0100, i64 -5
   store i8 %41, ptr %.sroa.2.0..sroa_idx13, align 1
   %.sroa.315.0..sroa_idx16 = getelementptr inbounds i8, ptr %.0100, i64 -4
@@ -630,7 +630,8 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #8 {
 
 78:                                               ; preds = %70
   %.sroa.0.0.copyload = load i8, ptr %9, align 2
-  %.sroa.3.0.copyload = load i8, ptr %17, align 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 1
+  %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 2
   %79 = load i32, ptr %.sroa.7.0..sroa_idx, align 2
   %80 = zext i8 %.sroa.3.0.copyload to i32
@@ -1353,7 +1354,7 @@ ReduceOrder.exit.thread213:                       ; preds = %116, %ReduceOrder.e
   %243 = sub nsw i32 %231, %242
   %244 = trunc i32 %.0 to i16
   %245 = lshr i32 %.0, 16
-  %246 = trunc i32 %245 to i16
+  %246 = trunc nuw i32 %245 to i16
   br label %247
 
 247:                                              ; preds = %.lr.ph, %408
@@ -1611,7 +1612,7 @@ AllocUnits.exit211:                               ; preds = %356, %359
   %404 = icmp ugt i32 %384, %403
   %405 = zext i1 %404 to i32
   %406 = add nuw nsw i32 %402, %405
-  %407 = trunc i32 %406 to i16
+  %407 = trunc nuw nsw i32 %406 to i16
   br label %408
 
 408:                                              ; preds = %395, %388
@@ -1632,7 +1633,7 @@ AllocUnits.exit211:                               ; preds = %356, %359
   %418 = getelementptr inbounds i8, ptr %415, i64 10
   store i16 %246, ptr %418, align 2
   store i8 %16, ptr %416, align 2
-  %419 = trunc i32 %.0179 to i8
+  %419 = trunc nuw nsw i32 %.0179 to i8
   %420 = getelementptr inbounds i8, ptr %415, i64 7
   store i8 %419, ptr %420, align 1
   %421 = getelementptr inbounds i8, ptr %.0177233, i64 1
@@ -2266,7 +2267,7 @@ RangeDec_Decode.exit194:                          ; preds = %349
   %366 = zext i16 %365 to i32
   %367 = add nuw nsw i32 %366, 32
   %368 = lshr i32 %367, 7
-  %369 = trunc i32 %368 to i16
+  %369 = trunc nuw nsw i32 %368 to i16
   %370 = sub i16 %365, %369
   store i16 %370, ptr %259, align 2
   %371 = lshr i16 %370, 10
@@ -2408,7 +2409,7 @@ RangeDec_Decode.exit194:                          ; preds = %349
   %472 = load i8, ptr %471, align 2
   %473 = zext nneg i8 %472 to i32
   %474 = lshr i32 %470, %473
-  %475 = trunc i32 %474 to i16
+  %475 = trunc nuw i32 %474 to i16
   %476 = sub i16 %469, %475
   store i16 %476, ptr %468, align 2
   %477 = icmp eq i32 %474, 0
@@ -2919,7 +2920,7 @@ define internal fastcc ptr @CreateSuccessors(ptr noundef %0, i32 noundef %1, ptr
   %85 = add i32 %15, 1
   %86 = trunc i32 %85 to i16
   %87 = lshr i32 %85, 16
-  %88 = trunc i32 %87 to i16
+  %88 = trunc nuw i32 %87 to i16
   %89 = load ptr, ptr %6, align 8
   %90 = load i8, ptr %89, align 2
   %91 = icmp ugt i8 %90, 63
@@ -3096,8 +3097,9 @@ define internal fastcc void @RestoreModel(ptr noundef %0, ptr noundef readnone %
 
 .preheader81:                                     ; preds = %102, %2
   %17 = phi ptr [ %5, %2 ], [ %103, %102 ]
+  %.0.lcssa = phi ptr [ %12, %2 ], [ %107, %102 ]
   %18 = load ptr, ptr %0, align 8
-  %.not5493 = icmp eq ptr %18, %1
+  %.not5493 = icmp eq ptr %.0.lcssa, %18
   br i1 %.not5493, label %._crit_edge, label %.lr.ph95
 
 19:                                               ; preds = %.lr.ph, %102
@@ -3149,7 +3151,7 @@ define internal fastcc void @RestoreModel(ptr noundef %0, ptr noundef readnone %
   br label %SpecialFreeUnit.exit
 
 51:                                               ; preds = %23
-  %52 = getelementptr inbounds i8, ptr %28, i64 12
+  %52 = getelementptr inbounds i8, ptr %37, i64 12
   store ptr %52, ptr %13, align 8
   br label %SpecialFreeUnit.exit
 
@@ -3159,7 +3161,7 @@ SpecialFreeUnit.exit:                             ; preds = %38, %51
   %55 = zext i8 %54 to i16
   %56 = add nuw nsw i16 %55, 11
   %57 = lshr i16 %56, 3
-  %58 = trunc i16 %57 to i8
+  %58 = trunc nuw nsw i16 %57 to i8
   store i8 %58, ptr %53, align 1
   br label %102
 
@@ -3232,7 +3234,7 @@ Refresh.exit:                                     ; preds = %89
   br i1 %.not, label %.preheader81, label %19, !llvm.loop !41
 
 .lr.ph95:                                         ; preds = %.preheader81, %172
-  %.194 = phi ptr [ %177, %172 ], [ %1, %.preheader81 ]
+  %.194 = phi ptr [ %177, %172 ], [ %.0.lcssa, %.preheader81 ]
   %108 = load i8, ptr %.194, align 1
   %.not56 = icmp eq i8 %108, 0
   br i1 %.not56, label %109, label %114
@@ -3287,7 +3289,7 @@ Refresh.exit:                                     ; preds = %89
   %149 = sub nsw i32 %145, %148
   %150 = add nuw nsw i32 %148, 1
   %151 = lshr i32 %150, 1
-  %152 = trunc i32 %151 to i8
+  %152 = trunc nuw i32 %151 to i8
   store i8 %152, ptr %146, align 1
   br label %153
 
@@ -3304,7 +3306,7 @@ Refresh.exit:                                     ; preds = %89
   %158 = sub i32 %.036.i59, %157
   %159 = add nuw nsw i32 %157, 1
   %160 = lshr i32 %159, 1
-  %161 = trunc i32 %160 to i8
+  %161 = trunc nuw i32 %160 to i8
   store i8 %161, ptr %155, align 1
   %162 = add i32 %160, %.035.i60
   %163 = load i8, ptr %154, align 2
@@ -3990,7 +3992,7 @@ define internal fastcc i32 @CutOff(ptr noundef %0, ptr noundef %1, i32 noundef %
   %21 = tail call fastcc i32 @CutOff(ptr noundef nonnull %0, ptr noundef %12, i32 noundef %20)
   %22 = trunc i32 %21 to i16
   %23 = lshr i32 %21, 16
-  %24 = trunc i32 %23 to i16
+  %24 = trunc nuw i32 %23 to i16
   br label %25
 
 25:                                               ; preds = %15, %19
@@ -4045,7 +4047,7 @@ define internal fastcc i32 @CutOff(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %SpecialFreeUnit.exit
 
 53:                                               ; preds = %36
-  %54 = getelementptr inbounds i8, ptr %1, i64 12
+  %54 = getelementptr inbounds i8, ptr %37, i64 12
   store ptr %54, ptr %13, align 8
   br label %SpecialFreeUnit.exit
 
@@ -4141,7 +4143,7 @@ define internal fastcc i32 @CutOff(ptr noundef %0, ptr noundef %1, i32 noundef %
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i64
   %119 = mul nuw nsw i64 %118, 12
-  %120 = getelementptr inbounds i8, ptr %58, i64 %119
+  %120 = getelementptr inbounds i8, ptr %99, i64 %119
   store ptr %120, ptr %62, align 8
   %.pre = load ptr, ptr %6, align 8
   br label %MoveUnitsUp.exit
@@ -4208,7 +4210,7 @@ MoveUnitsUp.exit:                                 ; preds = %55, %66, %100, %114
   %156 = trunc i32 %155 to i16
   store i16 %156, ptr %140, align 2
   %157 = lshr i32 %155, 16
-  %158 = trunc i32 %157 to i16
+  %158 = trunc nuw i32 %157 to i16
   store i16 %158, ptr %143, align 2
   br label %160
 
@@ -4297,7 +4299,7 @@ MoveUnitsUp.exit:                                 ; preds = %55, %66, %100, %114
   br label %SpecialFreeUnit.exit
 
 211:                                              ; preds = %173
-  %212 = getelementptr inbounds i8, ptr %1, i64 12
+  %212 = getelementptr inbounds i8, ptr %198, i64 12
   store ptr %212, ptr %62, align 8
   br label %SpecialFreeUnit.exit
 
@@ -4350,7 +4352,7 @@ MoveUnitsUp.exit:                                 ; preds = %55, %66, %100, %114
   %250 = zext i8 %249 to i16
   %251 = add nuw nsw i16 %250, 11
   %252 = lshr i16 %251, 3
-  %253 = trunc i16 %252 to i8
+  %253 = trunc nuw nsw i16 %252 to i8
   store i8 %253, ptr %248, align 1
   br label %._crit_edge.thread
 

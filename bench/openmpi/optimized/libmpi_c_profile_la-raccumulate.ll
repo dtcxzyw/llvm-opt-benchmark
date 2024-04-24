@@ -165,7 +165,7 @@ ompi_win_invalid.exit.thread:                     ; preds = %19, %ompi_win_inval
   br label %127
 
 69:                                               ; preds = %57
-  %70 = call fastcc zeroext i1 @ompi_op_is_valid(ptr noundef %7, ptr noundef nonnull %58, ptr noundef nonnull %11)
+  %70 = call fastcc zeroext i1 @ompi_op_is_valid(ptr noundef %7, ptr noundef nonnull %59, ptr noundef nonnull %11)
   br i1 %70, label %84, label %71
 
 71:                                               ; preds = %69

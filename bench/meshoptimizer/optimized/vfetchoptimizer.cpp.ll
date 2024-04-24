@@ -77,7 +77,7 @@ invoke.cont:                                      ; preds = %if.then
   %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
   store i64 1, ptr %count.i, align 8
   store ptr %call.i22, ptr %allocator, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i22, ptr align 1 %destination, i64 %mul, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i22, ptr align 1 %vertices, i64 %mul, i1 false)
   br label %if.end
 
 lpad:                                             ; preds = %if.end, %if.then

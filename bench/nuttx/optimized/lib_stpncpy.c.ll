@@ -25,7 +25,7 @@ define ptr @stpncpy(ptr noundef writeonly %0, ptr nocapture noundef readonly %1,
   br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !6
 
 .critedge.loopexit:                               ; preds = %7, %.lr.ph
-  %.0.lcssa.ph = phi ptr [ %.016, %.lr.ph ], [ %5, %7 ]
+  %.0.lcssa.ph = phi ptr [ %.016, %.lr.ph ], [ %9, %7 ]
   %.pre = ptrtoint ptr %.0.lcssa.ph to i64
   br label %.critedge
 

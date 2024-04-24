@@ -713,7 +713,7 @@ define dso_local noundef i32 @dm_set_target_max_io_len(ptr nocapture noundef wri
   br label %10
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %8, ptr %9, align 8
   br label %10
@@ -1265,7 +1265,7 @@ define dso_local i32 @dm_setup_md_queue(ptr noundef %0, ptr noundef %1) local_un
 
 11:                                               ; preds = %5
   %12 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #24
-  br label %63
+  br label %62
 
 13:                                               ; preds = %2, %2
   %14 = getelementptr inbounds i8, ptr %0, i64 136
@@ -1286,14 +1286,14 @@ define dso_local i32 @dm_setup_md_queue(ptr noundef %0, ptr noundef %1) local_un
 
 20:                                               ; preds = %17
   %21 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5) #24
-  br label %63
+  br label %62
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds i8, ptr %0, i64 136
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @dm_table_set_restrictions(ptr noundef %1, ptr noundef %24, ptr noundef nonnull %3) #22
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %63
+  br i1 %26, label %27, label %62
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1303,7 +1303,7 @@ define dso_local i32 @dm_setup_md_queue(ptr noundef %0, ptr noundef %1) local_un
   %31 = call i32 @device_add_disk(ptr noundef null, ptr noundef %30, ptr noundef null) #22
   call void @mutex_unlock(ptr noundef %28) #22
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %63
+  br i1 %32, label %33, label %62
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1331,38 +1331,37 @@ define dso_local i32 @dm_setup_md_queue(ptr noundef %0, ptr noundef %1) local_un
 48:                                               ; preds = %45
   %49 = getelementptr inbounds i8, ptr %0, i64 128
   store i32 %4, ptr %49, align 8
-  br label %63
+  br label %62
 
 .loopexit8:                                       ; preds = %39, %45
-  %50 = phi ptr [ %34, %45 ], [ %37, %39 ]
-  %51 = phi i32 [ %46, %45 ], [ %43, %39 ]
-  %52 = getelementptr inbounds i8, ptr %50, i64 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp eq ptr %53, %34
-  br i1 %54, label %.loopexit, label %.preheader
+  %50 = phi i32 [ %46, %45 ], [ %43, %39 ]
+  %51 = getelementptr inbounds i8, ptr %37, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, %34
+  br i1 %53, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit8, %.preheader
-  %55 = phi ptr [ %60, %.preheader ], [ %53, %.loopexit8 ]
-  %56 = getelementptr inbounds i8, ptr %55, i64 24
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %29, align 8
-  call void @bd_unlink_disk_holder(ptr noundef %57, ptr noundef %58) #22
-  %59 = getelementptr inbounds i8, ptr %55, i64 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = icmp eq ptr %60, %34
-  br i1 %61, label %.loopexit, label %.preheader, !llvm.loop !57
+  %54 = phi ptr [ %59, %.preheader ], [ %52, %.loopexit8 ]
+  %55 = getelementptr inbounds i8, ptr %54, i64 24
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %29, align 8
+  call void @bd_unlink_disk_holder(ptr noundef %56, ptr noundef %57) #22
+  %58 = getelementptr inbounds i8, ptr %54, i64 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %59, %34
+  br i1 %60, label %.loopexit, label %.preheader, !llvm.loop !57
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit8
   call void @mutex_lock(ptr noundef %28) #22
-  %62 = load ptr, ptr %29, align 8
-  call void @del_gendisk(ptr noundef %62) #22
+  %61 = load ptr, ptr %29, align 8
+  call void @del_gendisk(ptr noundef %61) #22
   call void @mutex_unlock(ptr noundef %28) #22
-  br label %63
+  br label %62
 
-63:                                               ; preds = %.loopexit, %48, %27, %22, %20, %11
-  %64 = phi i32 [ %18, %20 ], [ %51, %.loopexit ], [ 0, %48 ], [ %9, %11 ], [ %25, %22 ], [ %31, %27 ]
+62:                                               ; preds = %.loopexit, %48, %27, %22, %20, %11
+  %63 = phi i32 [ %18, %20 ], [ %50, %.loopexit ], [ 0, %48 ], [ %9, %11 ], [ %25, %22 ], [ %31, %27 ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #22
-  ret i32 %64
+  ret i32 %63
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2447,7 +2446,7 @@ define internal fastcc noundef i32 @dm_wait_for_completion(ptr noundef %0, i32 n
   %96 = and i64 %95, 4
   %.not9 = icmp eq i64 %96, 0
   %.lobit = lshr exact i64 %96, 2
-  %97 = trunc i64 %.lobit to i32
+  %97 = trunc nuw nsw i64 %.lobit to i32
   br i1 %.not9, label %103, label %98
 
 98:                                               ; preds = %.split.split, %94
@@ -3783,7 +3782,7 @@ alloc_io.exit:                                    ; preds = %98, %94, %90, %89, 
 
 197:                                              ; preds = %187
   %198 = urem i64 %182, %194
-  %199 = trunc i64 %198 to i32
+  %199 = trunc nuw i64 %198 to i32
   br label %204
 
 200:                                              ; preds = %187
@@ -3804,7 +3803,7 @@ alloc_io.exit:                                    ; preds = %98, %94, %90, %89, 
   %211 = phi i64 [ %209, %204 ], [ %185, %173 ]
   %212 = zext nneg i32 %125 to i64
   %213 = tail call i64 @llvm.umin.i64(i64 %211, i64 %212)
-  %214 = trunc i64 %213 to i32
+  %214 = trunc nuw nsw i64 %213 to i32
   store i32 %214, ptr %2, align 4
   %215 = icmp ugt i32 %125, %214
   br i1 %215, label %216, label %224
@@ -5368,7 +5367,7 @@ define internal fastcc noundef zeroext i8 @__process_abnormal_io(ptr nocapture n
 
 49:                                               ; preds = %44
   %50 = urem i64 %34, %46
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw i64 %50 to i32
   br label %56
 
 52:                                               ; preds = %44
@@ -5389,7 +5388,7 @@ define internal fastcc noundef zeroext i8 @__process_abnormal_io(ptr nocapture n
   %63 = phi i64 [ %61, %56 ], [ %37, %27 ]
   %64 = zext i32 %29 to i64
   %65 = tail call i64 @llvm.umin.i64(i64 %63, i64 %64)
-  %66 = trunc i64 %65 to i32
+  %66 = trunc nuw i64 %65 to i32
   store i32 %66, ptr %3, align 4
   %67 = getelementptr inbounds i8, ptr %0, i64 16
   %68 = load ptr, ptr %67, align 8

@@ -32302,9 +32302,9 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07a3951d93ef43fcE.llvm.5605154820796467450.exit.sink.split", label %.lr.ph.split
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07a3951d93ef43fcE.llvm.5605154820796467450.exit.sink.split": ; preds = %.backedge, %31, %.backedge.us, %19
-  %.sink = phi ptr [ %12, %19 ], [ %4, %.backedge.us ], [ %24, %31 ], [ %4, %.backedge ]
-  %.lcssa.ph = phi i1 [ true, %19 ], [ false, %.backedge.us ], [ true, %31 ], [ false, %.backedge ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !3071
+  %.us-phi13.sink = phi ptr [ %12, %19 ], [ %12, %.backedge.us ], [ %24, %31 ], [ %24, %.backedge ]
+  %.lcssa.ph = phi i1 [ false, %.backedge.us ], [ true, %19 ], [ false, %.backedge ], [ true, %31 ]
+  store ptr %.us-phi13.sink, ptr %0, align 8, !alias.scope !3071
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07a3951d93ef43fcE.llvm.5605154820796467450.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07a3951d93ef43fcE.llvm.5605154820796467450.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07a3951d93ef43fcE.llvm.5605154820796467450.exit.sink.split", %2
@@ -33852,8 +33852,7 @@ define internal fastcc void @"_ZN3ide20goto_type_definition20goto_type_definitio
   br i1 %63, label %.loopexit.i.loopexit, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee05e5d60099ef51E.exit.i"
 
 .loopexit.i.loopexit:                             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee05e5d60099ef51E.exit.i", %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha87adcf16de506f5E.exit.i"
-  %.lcssa = phi ptr [ %51, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee05e5d60099ef51E.exit.i" ], [ %43, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha87adcf16de506f5E.exit.i" ]
-  store ptr %.lcssa, ptr %42, align 8, !alias.scope !3528, !noalias !3530
+  store ptr %51, ptr %42, align 8, !alias.scope !3528, !noalias !3530
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %39
@@ -34149,8 +34148,7 @@ define internal fastcc void @"_ZN3ide5hover16walk_and_push_ty28_$u7b$$u7b$closur
   br i1 %74, label %.loopexit.i.loopexit, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee05e5d60099ef51E.exit.i"
 
 .loopexit.i.loopexit:                             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee05e5d60099ef51E.exit.i", %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8f33c89707dae21E.exit.i"
-  %.lcssa = phi ptr [ %61, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee05e5d60099ef51E.exit.i" ], [ %53, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8f33c89707dae21E.exit.i" ]
-  store ptr %.lcssa, ptr %52, align 8, !alias.scope !3550, !noalias !3552
+  store ptr %61, ptr %52, align 8, !alias.scope !3550, !noalias !3552
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %47

@@ -3855,10 +3855,10 @@ define internal fastcc double @rb_cstr_to_dbl_raise(ptr noundef %0, i32 noundef 
   %.3.ph.ph = phi i8 [ %.196, %.loopexit173 ], [ %52, %.lr.ph ]
   br label %.outer
 
-58:                                               ; preds = %.outer271, %113
-  %.5117 = phi ptr [ %.11, %113 ], [ %.5117.ph272, %.outer271 ]
-  %.3 = phi i8 [ %72, %113 ], [ %.3.ph274, %.outer271 ]
-  %.0 = phi i32 [ %.1, %113 ], [ %.0.ph275, %.outer271 ]
+58:                                               ; preds = %.outer273, %113
+  %.5117 = phi ptr [ %.11, %113 ], [ %.5117.ph274, %.outer273 ]
+  %.3 = phi i8 [ %72, %113 ], [ %.3.ph276, %.outer273 ]
+  %.0 = phi i32 [ %.1, %113 ], [ %.0.ph277, %.outer273 ]
   %59 = load i8, ptr %.5117, align 1
   switch i8 %59, label %thread-pre-split [
     i8 0, label %116
@@ -3883,7 +3883,6 @@ define internal fastcc double @rb_cstr_to_dbl_raise(ptr noundef %0, i32 noundef 
   br i1 %70, label %71, label %thread-pre-split
 
 71:                                               ; preds = %65, %61, %60
-  %.3102.lcssa205 = phi ptr [ %.3102.ph273, %65 ], [ %.3102.ph273, %61 ], [ %6, %60 ]
   br i1 %.not132, label %.critedge150, label %.critedge
 
 thread-pre-split:                                 ; preds = %65, %58
@@ -3901,8 +3900,8 @@ thread-pre-split:                                 ; preds = %65, %58
   ]
 
 75:                                               ; preds = %74, %74, %74, %74
-  %76 = getelementptr i8, ptr %.3102.ph273, i64 1
-  store i8 %72, ptr %.3102.ph273, align 1
+  %76 = getelementptr i8, ptr %.3102.ph275, i64 1
+  store i8 %72, ptr %.3102.ph275, align 1
   %77 = load i8, ptr %73, align 1
   switch i8 %77, label %81 [
     i8 43, label %78
@@ -3911,7 +3910,7 @@ thread-pre-split:                                 ; preds = %65, %58
 
 78:                                               ; preds = %75, %75
   %79 = getelementptr i8, ptr %.6118, i64 2
-  %80 = getelementptr i8, ptr %.3102.ph273, i64 2
+  %80 = getelementptr i8, ptr %.3102.ph275, i64 2
   store i8 %77, ptr %76, align 1
   %.pr158 = load i8, ptr %79, align 1
   br label %81
@@ -3952,15 +3951,15 @@ thread-pre-split:                                 ; preds = %65, %58
   %.097.idx.ph.sroa.phi = phi ptr [ %.097.idx.ph.sroa.gep, %.outer.preheader ], [ %.097.idx.ph.sroa.gep224, %.outer.backedge ]
   %.3.ph = phi i8 [ %.3.ph.ph, %.outer.preheader ], [ %.3.ph.be, %.outer.backedge ]
   %.0.ph = phi i32 [ 0, %.outer.preheader ], [ %.0, %.outer.backedge ]
-  br label %.outer271
+  br label %.outer273
 
-.outer271:                                        ; preds = %114, %.outer
-  %.5117.ph272 = phi ptr [ %.11, %114 ], [ %.5117.ph, %.outer ]
-  %.3102.ph273 = phi ptr [ %115, %114 ], [ %.3102.ph, %.outer ]
-  %.3.ph274 = phi i8 [ %72, %114 ], [ %.3.ph, %.outer ]
-  %.0.ph275 = phi i32 [ %.1, %114 ], [ %.0.ph, %.outer ]
-  %91 = icmp eq ptr %.3102.ph273, %6
-  %92 = icmp ult ptr %.3102.ph273, %.097.idx.ph.sroa.phi
+.outer273:                                        ; preds = %114, %.outer
+  %.5117.ph274 = phi ptr [ %.11, %114 ], [ %.5117.ph, %.outer ]
+  %.3102.ph275 = phi ptr [ %115, %114 ], [ %.3102.ph, %.outer ]
+  %.3.ph276 = phi i8 [ %72, %114 ], [ %.3.ph, %.outer ]
+  %.0.ph277 = phi i32 [ %.1, %114 ], [ %.0.ph, %.outer ]
+  %91 = icmp eq ptr %.3102.ph275, %6
+  %92 = icmp ult ptr %.3102.ph275, %.097.idx.ph.sroa.phi
   br label %58
 
 93:                                               ; preds = %74, %thread-pre-split
@@ -4011,20 +4010,19 @@ thread-pre-split:                                 ; preds = %65, %58
   br i1 %92, label %114, label %58, !llvm.loop !25
 
 114:                                              ; preds = %113
-  %115 = getelementptr i8, ptr %.3102.ph273, i64 1
-  store i8 %72, ptr %.3102.ph273, align 1
-  br label %.outer271, !llvm.loop !25
+  %115 = getelementptr i8, ptr %.3102.ph275, i64 1
+  store i8 %72, ptr %.3102.ph275, align 1
+  br label %.outer273, !llvm.loop !25
 
 116:                                              ; preds = %58
-  store i8 0, ptr %.3102.ph273, align 1
+  store i8 0, ptr %.3102.ph275, align 1
   %117 = load i8, ptr %6, align 16
   %118 = icmp eq i8 %117, 48
   %or.cond = select i1 %.not132, i1 %118, i1 false
   br i1 %or.cond, label %119, label %122
 
 .critedge150:                                     ; preds = %71, %105, %112
-  %.3102209 = phi ptr [ %.3102.lcssa205, %71 ], [ %.3102.ph273, %105 ], [ %.3102.ph273, %112 ]
-  store i8 0, ptr %.3102209, align 1
+  store i8 0, ptr %.3102.ph275, align 1
   %.old = load i8, ptr %6, align 16
   %.old151 = icmp eq i8 %.old, 48
   br i1 %.old151, label %119, label %122

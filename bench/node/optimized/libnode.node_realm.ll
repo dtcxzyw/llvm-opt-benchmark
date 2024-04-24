@@ -4701,7 +4701,7 @@ if.then.i.i.i:                                    ; preds = %for.end
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i:                                    ; preds = %for.end
-  tail call void @_ZdlPv(ptr noundef %14) #20
+  tail call void @_ZdlPv(ptr noundef %15) #20
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %16 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i24 = getelementptr inbounds i8, ptr %16, i64 -8
@@ -7959,7 +7959,7 @@ if.end:                                           ; preds = %if.then, %if.then17
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end, %land.lhs.true, %entry
-  %8 = phi ptr [ %.pre1262, %if.end ], [ %2, %land.lhs.true ], [ %1, %entry ]
+  %8 = phi ptr [ %.pre1262, %if.end ], [ %2, %land.lhs.true ], [ %2, %entry ]
   %9 = phi ptr [ %.pre, %if.end ], [ %1, %land.lhs.true ], [ %1, %entry ]
   %i.0 = phi i64 [ 1, %if.end ], [ 0, %land.lhs.true ], [ 0, %entry ]
   %sub.ptr.lhs.cast.i850 = ptrtoint ptr %9 to i64
@@ -14088,7 +14088,7 @@ if.then.i.i.i35:                                  ; preds = %do.end36
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i37:                                  ; preds = %do.end36
-  call void @_ZdlPv(ptr noundef %31) #20
+  call void @_ZdlPv(ptr noundef %39) #20
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %40 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i38 = getelementptr inbounds i8, ptr %40, i64 -8

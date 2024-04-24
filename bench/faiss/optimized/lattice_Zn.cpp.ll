@@ -2427,7 +2427,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_
 
 ._crit_edge69.split.us.us:                        ; preds = %._crit_edge.us.us, %.preheader54.us
   %.pre107 = phi ptr [ %.pre, %.preheader54.us ], [ %96, %._crit_edge.us.us ]
-  %.lcssa60.us = phi ptr [ %35, %.preheader54.us ], [ %99, %._crit_edge.us.us ]
+  %.lcssa60.us = phi ptr [ %36, %.preheader54.us ], [ %99, %._crit_edge.us.us ]
   %32 = add nsw i32 %.13679.us, -1
   %.not.i.i.i48.us = icmp eq ptr %.lcssa60.us, null
   br i1 %.not.i.i.i48.us, label %_ZNSt6vectorIfSaIfEED2Ev.exit49.us, label %33
@@ -2755,13 +2755,12 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit:           ; preds = %118, %_ZNSt6vectorI
 
 ._crit_edge69.split:                              ; preds = %_ZNSt6vectorIfSaIfEE9push_backEOf.exit, %.preheader54
   %.promoted103 = phi ptr [ %.promoted, %.preheader54 ], [ %143, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit ]
-  %.lcssa60 = phi ptr [ %109, %.preheader54 ], [ %110, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit ]
   %150 = add nsw i32 %.13679, -1
-  %.not.i.i.i48 = icmp eq ptr %.lcssa60, null
+  %.not.i.i.i48 = icmp eq ptr %110, null
   br i1 %.not.i.i.i48, label %_ZNSt6vectorIfSaIfEED2Ev.exit49, label %151
 
 151:                                              ; preds = %._crit_edge69.split
-  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa60) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %110) #23
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit49
 
 _ZNSt6vectorIfSaIfEED2Ev.exit49:                  ; preds = %._crit_edge69.split, %151

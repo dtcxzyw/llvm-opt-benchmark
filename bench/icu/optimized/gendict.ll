@@ -308,7 +308,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -367,7 +367,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -1045,7 +1045,7 @@ for.inc:                                          ; preds = %invoke.cont99
   br i1 %cmp95, label %land.rhs, label %invoke.cont109.preheader, !llvm.loop !10
 
 for.end:                                          ; preds = %invoke.cont99
-  %70 = trunc i64 %indvars.iv to i32
+  %70 = trunc nuw nsw i64 %indvars.iv to i32
   %cmp103 = icmp eq i32 %70, 0
   br i1 %cmp103, label %while.cond.outer209.backedge, label %invoke.cont109.preheader
 
@@ -1107,12 +1107,12 @@ for.inc121:                                       ; preds = %invoke.cont116
   %shr.i.i109 = sext i16 %82 to i32
   %83 = load i32, ptr %fLength.i, align 4
   %cond.i111 = select i1 %cmp.i.i108, i32 %83, i32 %shr.i.i109
-  %84 = trunc i64 %indvars.iv.next376 to i32
+  %84 = trunc nuw i64 %indvars.iv.next376 to i32
   %cmp111 = icmp sgt i32 %cond.i111, %84
   br i1 %cmp111, label %land.rhs112, label %for.end123, !llvm.loop !11
 
 for.end123.loopexit.split.loop.exit465:           ; preds = %invoke.cont116
-  %85 = trunc i64 %indvars.iv375 to i32
+  %85 = trunc nuw nsw i64 %indvars.iv375 to i32
   br label %for.end123
 
 for.end123:                                       ; preds = %for.inc121, %for.end123.loopexit.split.loop.exit465, %invoke.cont109.preheader
@@ -1159,7 +1159,7 @@ if.end153:                                        ; preds = %lor.lhs.false143
           to label %invoke.cont154 unwind label %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
 
 invoke.cont154:                                   ; preds = %if.end153
-  %conv155 = trunc i64 %call137 to i32
+  %conv155 = trunc nuw i64 %call137 to i32
   invoke void @_ZN8DataDict7addWordERKN6icu_7513UnicodeStringEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %dict, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef %conv155, ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i.i)
           to label %if.end180 unwind label %lpad156
 
@@ -1609,7 +1609,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %6 = load i32, ptr @_ZN6icu_7514DictionaryData21TRANSFORM_TYPE_OFFSETE, align 4
   %transformType = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %6, ptr %transformType, align 4
-  %conv11 = trunc i64 %call2 to i32
+  %conv11 = trunc nuw i64 %call2 to i32
   %transformConstant = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %conv11, ptr %transformConstant, align 8
   ret void
@@ -1791,7 +1791,7 @@ if.then9.i:                                       ; preds = %if.end6.i
   unreachable
 
 if.end12.i:                                       ; preds = %if.end6.i
-  %conv13.i = trunc i32 %sub.i to i8
+  %conv13.i = trunc nuw i32 %sub.i to i8
   br label %_ZN8DataDict9transformEiR10UErrorCode.exit
 
 if.else14.i:                                      ; preds = %for.body

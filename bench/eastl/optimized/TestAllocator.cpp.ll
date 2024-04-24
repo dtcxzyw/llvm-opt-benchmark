@@ -1755,11 +1755,10 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %cmp.i46, label %while.cond, label %while.end, !llvm.loop !98
 
 while.end:                                        ; preds = %while.cond, %land.rhs
-  %ix.sroa.0.0.lcssa = phi ptr [ %50, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
-  %mpPrev = getelementptr inbounds i8, ptr %ix.sroa.0.0.lcssa, i64 8
+  %mpPrev = getelementptr inbounds i8, ptr %ix.sroa.0.0, i64 8
   %52 = load ptr, ptr %mpPrev, align 8
   store i64 %49, ptr %agg.result, align 8
-  %.cast18 = ptrtoint ptr %ix.sroa.0.0.lcssa to i64
+  %.cast18 = ptrtoint ptr %ix.sroa.0.0 to i64
   store i64 %.cast18, ptr %i2, align 8
   %mpPrev.i47 = getelementptr inbounds i8, ptr %45, i64 8
   %53 = load ptr, ptr %mpPrev.i47, align 8
@@ -1786,7 +1785,7 @@ if.else48:                                        ; preds = %_ZN5eastl4nextINS_1
 
 if.end49:                                         ; preds = %if.else48, %while.end
   %storemerge.in77 = phi ptr [ %storemerge.in77.pre, %while.end ], [ %46, %if.else48 ]
-  %end1.sroa.0.0 = phi ptr [ %ix.sroa.0.0.lcssa, %while.end ], [ %45, %if.else48 ]
+  %end1.sroa.0.0 = phi ptr [ %ix.sroa.0.0, %while.end ], [ %45, %if.else48 ]
   %storemerge78 = load ptr, ptr %storemerge.in77, align 8
   store ptr %storemerge78, ptr %i1, align 8
   %cmp.i49.not79 = icmp eq ptr %storemerge78, %end1.sroa.0.0
@@ -1821,12 +1820,11 @@ land.rhs64:                                       ; preds = %while.cond62
   br i1 %cmp.i57, label %while.cond62, label %while.end71, !llvm.loop !99
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
-  %ix61.sroa.0.0.lcssa = phi ptr [ %61, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
-  %mpPrev76 = getelementptr inbounds i8, ptr %ix61.sroa.0.0.lcssa, i64 8
+  %mpPrev76 = getelementptr inbounds i8, ptr %ix61.sroa.0.0, i64 8
   %65 = load ptr, ptr %mpPrev76, align 8
   %cmp.i58 = icmp eq ptr %end1.sroa.0.180, %60
-  %spec.select = select i1 %cmp.i58, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.180
-  %66 = ptrtoint ptr %ix61.sroa.0.0.lcssa to i64
+  %spec.select = select i1 %cmp.i58, ptr %ix61.sroa.0.0, ptr %end1.sroa.0.180
+  %66 = ptrtoint ptr %ix61.sroa.0.0 to i64
   store i64 %66, ptr %i2, align 8
   %mpPrev.i59 = getelementptr inbounds i8, ptr %60, i64 8
   %67 = load ptr, ptr %mpPrev.i59, align 8
@@ -2060,11 +2058,10 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %cmp.i46, label %while.cond, label %while.end, !llvm.loop !105
 
 while.end:                                        ; preds = %while.cond, %land.rhs
-  %ix.sroa.0.0.lcssa = phi ptr [ %50, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
-  %mpPrev = getelementptr inbounds i8, ptr %ix.sroa.0.0.lcssa, i64 8
+  %mpPrev = getelementptr inbounds i8, ptr %ix.sroa.0.0, i64 8
   %52 = load ptr, ptr %mpPrev, align 8
   store i64 %49, ptr %agg.result, align 8
-  %.cast18 = ptrtoint ptr %ix.sroa.0.0.lcssa to i64
+  %.cast18 = ptrtoint ptr %ix.sroa.0.0 to i64
   store i64 %.cast18, ptr %i2, align 8
   %mpPrev.i47 = getelementptr inbounds i8, ptr %45, i64 8
   %53 = load ptr, ptr %mpPrev.i47, align 8
@@ -2091,7 +2088,7 @@ if.else48:                                        ; preds = %_ZN5eastl4nextINS_1
 
 if.end49:                                         ; preds = %if.else48, %while.end
   %storemerge.in77 = phi ptr [ %storemerge.in77.pre, %while.end ], [ %46, %if.else48 ]
-  %end1.sroa.0.0 = phi ptr [ %ix.sroa.0.0.lcssa, %while.end ], [ %45, %if.else48 ]
+  %end1.sroa.0.0 = phi ptr [ %ix.sroa.0.0, %while.end ], [ %45, %if.else48 ]
   %storemerge78 = load ptr, ptr %storemerge.in77, align 8
   store ptr %storemerge78, ptr %i1, align 8
   %cmp.i49.not79 = icmp eq ptr %storemerge78, %end1.sroa.0.0
@@ -2126,12 +2123,11 @@ land.rhs64:                                       ; preds = %while.cond62
   br i1 %cmp.i57, label %while.cond62, label %while.end71, !llvm.loop !106
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
-  %ix61.sroa.0.0.lcssa = phi ptr [ %61, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
-  %mpPrev76 = getelementptr inbounds i8, ptr %ix61.sroa.0.0.lcssa, i64 8
+  %mpPrev76 = getelementptr inbounds i8, ptr %ix61.sroa.0.0, i64 8
   %65 = load ptr, ptr %mpPrev76, align 8
   %cmp.i58 = icmp eq ptr %end1.sroa.0.180, %60
-  %spec.select = select i1 %cmp.i58, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.180
-  %66 = ptrtoint ptr %ix61.sroa.0.0.lcssa to i64
+  %spec.select = select i1 %cmp.i58, ptr %ix61.sroa.0.0, ptr %end1.sroa.0.180
+  %66 = ptrtoint ptr %ix61.sroa.0.0 to i64
   store i64 %66, ptr %i2, align 8
   %mpPrev.i59 = getelementptr inbounds i8, ptr %60, i64 8
   %67 = load ptr, ptr %mpPrev.i59, align 8

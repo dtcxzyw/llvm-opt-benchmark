@@ -824,13 +824,11 @@ entry:
   %tobool.not.i = icmp eq i64 %0, 0
   %sections3.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %d, i64 56
   %.pre.i = load ptr, ptr %sections3.i.phi.trans.insert.i, align 8
-  br i1 %tobool.not.i, label %if.then.i, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %entry
   %cmp.i = icmp eq ptr %.pre.i, %1
-  br i1 %cmp.i, label %if.then.i, label %lor.lhs.false1.i
+  %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.i
+  br i1 %or.cond.i, label %if.then.i, label %lor.lhs.false1.i
 
-lor.lhs.false1.i:                                 ; preds = %lor.lhs.false.i
+lor.lhs.false1.i:                                 ; preds = %entry
   %2 = load i128, ptr %1, align 16
   %tobool.not.i.i = icmp ult i128 %2, 18446744073709551616
   br i1 %tobool.not.i.i, label %section_covers_addr.exit.i, label %if.end.i
@@ -846,11 +844,10 @@ section_covers_addr.exit.i:                       ; preds = %lor.lhs.false1.i
   %narrow.i.i.i = and i1 %cmp.not.i.i.i, %cmp1.i.i.i
   br i1 %narrow.i.i.i, label %if.end.i, label %if.then.i
 
-if.then.i:                                        ; preds = %section_covers_addr.exit.i, %lor.lhs.false.i, %entry
-  %4 = phi ptr [ %.pre.i, %section_covers_addr.exit.i ], [ %1, %lor.lhs.false.i ], [ %.pre.i, %entry ]
+if.then.i:                                        ; preds = %section_covers_addr.exit.i, %entry
   %phys_map.i.i = getelementptr inbounds i8, ptr %d, i64 8
   %nodes1.i.i = getelementptr inbounds i8, ptr %d, i64 48
-  %5 = load ptr, ptr %nodes1.i.i, align 8
+  %4 = load ptr, ptr %nodes1.i.i, align 8
   %shr.i.i = lshr i64 %addr, 12
   %lp.sroa.0.016.i.i = load i32, ptr %phys_map.i.i, align 4
   %bf.clear17.i.i = and i32 %lp.sroa.0.016.i.i, 63
@@ -872,7 +869,7 @@ for.body.i.i:                                     ; preds = %land.rhs.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %idxprom.i.i = zext nneg i32 %bf.lshr.i.i to i64
-  %arrayidx10.i.i = getelementptr [512 x %struct.PhysPageEntry], ptr %5, i64 %idxprom.i.i
+  %arrayidx10.i.i = getelementptr [512 x %struct.PhysPageEntry], ptr %4, i64 %idxprom.i.i
   %mul.i.i = mul nuw nsw i32 %sub.i.i, 9
   %sh_prom.i.i = zext nneg i32 %mul.i.i to i64
   %shr11.i.i = lshr i64 %shr.i.i, %sh_prom.i.i
@@ -887,18 +884,18 @@ for.end.i.i:                                      ; preds = %if.end.i.i, %land.r
   %lp.sroa.0.0.lcssa.i.i = phi i32 [ %lp.sroa.0.016.i.i, %if.then.i ], [ %lp.sroa.0.0.i.i, %if.end.i.i ], [ %lp.sroa.0.020.i.i, %land.rhs.i.i ]
   %bf.lshr14.i.i = lshr i32 %lp.sroa.0.0.lcssa.i.i, 6
   %idxprom15.i.i = zext nneg i32 %bf.lshr14.i.i to i64
-  %arrayidx16.i.i = getelementptr %struct.MemoryRegionSection, ptr %4, i64 %idxprom15.i.i
-  %6 = load i128, ptr %arrayidx16.i.i, align 16
-  %tobool.not.i.i.i = icmp ult i128 %6, 18446744073709551616
+  %arrayidx16.i.i = getelementptr %struct.MemoryRegionSection, ptr %.pre.i, i64 %idxprom15.i.i
+  %5 = load i128, ptr %arrayidx16.i.i, align 16
+  %tobool.not.i.i.i = icmp ult i128 %5, 18446744073709551616
   br i1 %tobool.not.i.i.i, label %section_covers_addr.exit.i.i, label %section_covers_addr.exit.thread.i.i
 
 section_covers_addr.exit.i.i:                     ; preds = %for.end.i.i
   %offset_within_address_space.i.i.i = getelementptr inbounds i8, ptr %arrayidx16.i.i, i64 40
-  %7 = load i64, ptr %offset_within_address_space.i.i.i, align 8
-  %coerce2.sroa.0.0.extract.trunc.i.i.i = trunc nuw i128 %6 to i64
-  %cmp.not.i.i.i.i = icmp ule i64 %7, %addr
+  %6 = load i64, ptr %offset_within_address_space.i.i.i, align 8
+  %coerce2.sroa.0.0.extract.trunc.i.i.i = trunc nuw i128 %5 to i64
+  %cmp.not.i.i.i.i = icmp ule i64 %6, %addr
   %add.i.i.i.i.i = add i64 %coerce2.sroa.0.0.extract.trunc.i.i.i, -1
-  %sub.i.i.i.i.i = add i64 %add.i.i.i.i.i, %7
+  %sub.i.i.i.i.i = add i64 %add.i.i.i.i.i, %6
   %cmp1.i.i.i.i = icmp uge i64 %sub.i.i.i.i.i, %addr
   %narrow.i.i.i.i = and i1 %cmp.not.i.i.i.i, %cmp1.i.i.i.i
   %cond.fr.i.i = freeze i1 %narrow.i.i.i.i
@@ -908,55 +905,54 @@ section_covers_addr.exit.thread.i.i:              ; preds = %section_covers_addr
   br label %phys_page_find.exit.i
 
 phys_page_find.exit.i:                            ; preds = %for.body.i.i, %section_covers_addr.exit.thread.i.i, %section_covers_addr.exit.i.i
-  %retval.0.i.i = phi ptr [ %arrayidx16.i.i, %section_covers_addr.exit.thread.i.i ], [ %4, %section_covers_addr.exit.i.i ], [ %4, %for.body.i.i ]
-  %8 = ptrtoint ptr %retval.0.i.i to i64
-  store atomic i64 %8, ptr %d monotonic, align 8
+  %retval.0.i.i = phi ptr [ %arrayidx16.i.i, %section_covers_addr.exit.thread.i.i ], [ %.pre.i, %section_covers_addr.exit.i.i ], [ %.pre.i, %for.body.i.i ]
+  %7 = ptrtoint ptr %retval.0.i.i to i64
+  store atomic i64 %7, ptr %d monotonic, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %phys_page_find.exit.i, %section_covers_addr.exit.i, %lor.lhs.false1.i
-  %9 = phi ptr [ %4, %phys_page_find.exit.i ], [ %.pre.i, %section_covers_addr.exit.i ], [ %.pre.i, %lor.lhs.false1.i ]
   %section.0.i = phi ptr [ %retval.0.i.i, %phys_page_find.exit.i ], [ %1, %section_covers_addr.exit.i ], [ %1, %lor.lhs.false1.i ]
   br i1 %resolve_subpage, label %land.lhs.true.i, label %address_space_lookup_region.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %mr.i = getelementptr inbounds i8, ptr %section.0.i, i64 16
-  %10 = load ptr, ptr %mr.i, align 16
-  %subpage12.i = getelementptr inbounds i8, ptr %10, i64 42
-  %11 = load i8, ptr %subpage12.i, align 2
-  %tobool13.i = trunc i8 %11 to i1
+  %8 = load ptr, ptr %mr.i, align 16
+  %subpage12.i = getelementptr inbounds i8, ptr %8, i64 42
+  %9 = load i8, ptr %subpage12.i, align 2
+  %tobool13.i = trunc i8 %9 to i1
   br i1 %tobool13.i, label %if.then14.i, label %address_space_lookup_region.exit
 
 if.then14.i:                                      ; preds = %land.lhs.true.i
-  %sub_section.i = getelementptr inbounds i8, ptr %10, i64 288
+  %sub_section.i = getelementptr inbounds i8, ptr %8, i64 288
   %and.i = and i64 %addr, 4095
   %arrayidx19.i = getelementptr [0 x i16], ptr %sub_section.i, i64 0, i64 %and.i
-  %12 = load i16, ptr %arrayidx19.i, align 2
-  %idxprom.i = zext i16 %12 to i64
-  %arrayidx20.i = getelementptr %struct.MemoryRegionSection, ptr %9, i64 %idxprom.i
+  %10 = load i16, ptr %arrayidx19.i, align 2
+  %idxprom.i = zext i16 %10 to i64
+  %arrayidx20.i = getelementptr %struct.MemoryRegionSection, ptr %.pre.i, i64 %idxprom.i
   br label %address_space_lookup_region.exit
 
 address_space_lookup_region.exit:                 ; preds = %if.end.i, %land.lhs.true.i, %if.then14.i
   %section.1.i = phi ptr [ %arrayidx20.i, %if.then14.i ], [ %section.0.i, %land.lhs.true.i ], [ %section.0.i, %if.end.i ]
   %offset_within_address_space = getelementptr inbounds i8, ptr %section.1.i, i64 40
-  %13 = load i64, ptr %offset_within_address_space, align 8
-  %sub = sub i64 %addr, %13
+  %11 = load i64, ptr %offset_within_address_space, align 8
+  %sub = sub i64 %addr, %11
   %offset_within_region = getelementptr inbounds i8, ptr %section.1.i, i64 32
-  %14 = load i64, ptr %offset_within_region, align 16
-  %add = add i64 %sub, %14
+  %12 = load i64, ptr %offset_within_region, align 16
+  %add = add i64 %sub, %12
   store i64 %add, ptr %xlat, align 8
   %mr1 = getelementptr inbounds i8, ptr %section.1.i, i64 16
-  %15 = load ptr, ptr %mr1, align 16
-  %16 = getelementptr i8, ptr %15, i64 41
-  %.val = load i8, ptr %16, align 1
+  %13 = load ptr, ptr %mr1, align 16
+  %14 = getelementptr i8, ptr %13, i64 41
+  %.val = load i8, ptr %14, align 1
   %tobool.i = trunc i8 %.val to i1
   br i1 %tobool.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %address_space_lookup_region.exit
-  %17 = load i128, ptr %section.1.i, align 16
+  %15 = load i128, ptr %section.1.i, align 16
   %b.sroa.0.0.insert.ext.i = zext i64 %sub to i128
-  %a.sroa.0.0.insert.insert.i = sub i128 %17, %b.sroa.0.0.insert.ext.i
-  %18 = load i64, ptr %plen, align 8
-  %b.sroa.0.0.insert.ext.i17 = zext i64 %18 to i128
+  %a.sroa.0.0.insert.insert.i = sub i128 %15, %b.sroa.0.0.insert.ext.i
+  %16 = load i64, ptr %plen, align 8
+  %b.sroa.0.0.insert.ext.i17 = zext i64 %16 to i128
   %cond.i = tail call i128 @llvm.smin.i128(i128 %a.sroa.0.0.insert.insert.i, i128 %b.sroa.0.0.insert.ext.i17)
   %cmp.i21 = icmp ult i128 %cond.i, 18446744073709551616
   br i1 %cmp.i21, label %int128_get64.exit, label %if.else.i
@@ -6503,12 +6499,12 @@ if.end5:                                          ; preds = %entry
 
 if.then7:                                         ; preds = %if.end5
   %2 = load i64, ptr getelementptr inbounds (%struct.BounceBuffer, ptr @bounce, i64 0, i32 2), align 8
-  %call35 = tail call i32 @address_space_write(ptr noundef %as, i64 noundef %2, i32 1, ptr noundef %buffer, i64 noundef %access_len)
+  %call35 = tail call i32 @address_space_write(ptr noundef %as, i64 noundef %2, i32 1, ptr noundef %0, i64 noundef %access_len)
   %.pre = load ptr, ptr getelementptr inbounds (%struct.BounceBuffer, ptr @bounce, i64 0, i32 1), align 8
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then7, %if.end5
-  %3 = phi ptr [ %.pre, %if.then7 ], [ %buffer, %if.end5 ]
+  %3 = phi ptr [ %.pre, %if.then7 ], [ %0, %if.end5 ]
   tail call void @qemu_vfree(ptr noundef %3) #26
   store ptr null, ptr getelementptr inbounds (%struct.BounceBuffer, ptr @bounce, i64 0, i32 1), align 8
   %4 = load ptr, ptr @bounce, align 8

@@ -132,7 +132,7 @@ while.body53:                                     ; preds = %while.body53.prehea
   br i1 %exitcond.not, label %if.end, label %while.body53, !llvm.loop !6
 
 if.end:                                           ; preds = %while.body53, %while.end45, %if.then
-  %runStart.2 = phi ptr [ %runEnd.1, %if.then ], [ %runStart.051, %while.end45 ], [ %scevgep, %while.body53 ]
+  %runStart.2 = phi ptr [ %runEnd.1, %if.then ], [ %runStart.051, %while.end45 ], [ %incdec.ptr54, %while.body53 ]
   %runEnd.3 = phi ptr [ %runEnd.1, %if.then ], [ %runEnd.2.lcssa, %while.end45 ], [ %runEnd.2.lcssa, %while.body53 ]
   %outWrite.2 = phi ptr [ %incdec.ptr18, %if.then ], [ %outWrite.144, %while.end45 ], [ %outWrite.1, %while.body53 ]
   %cmp = icmp ult ptr %runStart.2, %add.ptr
@@ -147,8 +147,8 @@ while.end58:                                      ; preds = %if.end, %entry
   ret i32 %conv62
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN7Imf_3_213rleUncompressEiiPKaPc(i32 noundef %inLength, i32 noundef %maxLength, ptr nocapture noundef readonly %in, ptr noundef %out) local_unnamed_addr #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @_ZN7Imf_3_213rleUncompressEiiPKaPc(i32 noundef %inLength, i32 noundef %maxLength, ptr nocapture noundef readonly %in, ptr noundef %out) local_unnamed_addr #0 {
 entry:
   %cmp25 = icmp sgt i32 %inLength, 0
   br i1 %cmp25, label %while.body, label %while.end
@@ -220,15 +220,14 @@ return:                                           ; preds = %if.else, %if.then, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

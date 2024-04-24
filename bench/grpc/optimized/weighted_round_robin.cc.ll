@@ -3601,10 +3601,10 @@ if.then:
   br label %while.body
 
 while.body:                                       ; preds = %if.then, %while.body
-  %dst.020 = phi i64 [ 60, %if.then ], [ %dec19, %while.body ]
-  %sub = add nsw i64 %dst.020, -4
+  %dst.022 = phi i64 [ 60, %if.then ], [ %dec19, %while.body ]
+  %sub = add nsw i64 %dst.022, -4
   %shr = lshr exact i64 %sub, 1
-  %dec = add nsw i64 %dst.020, -5
+  %dec = add nsw i64 %dst.022, -5
   %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec9
@@ -3612,7 +3612,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %1 = load i32, ptr %arrayidx10, align 4
   store i32 %1, ptr %arrayidx, align 4
   store i32 %0, ptr %arrayidx10, align 4
-  %dec11 = add nsw i64 %dst.020, -6
+  %dec11 = add nsw i64 %dst.022, -6
   %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec13
@@ -3620,7 +3620,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %3 = load i32, ptr %arrayidx14, align 8
   store i32 %3, ptr %arrayidx12, align 8
   store i32 %2, ptr %arrayidx14, align 8
-  %dec15 = add nsw i64 %dst.020, -7
+  %dec15 = add nsw i64 %dst.022, -7
   %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
   %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
@@ -3628,7 +3628,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %5 = load i32, ptr %arrayidx18, align 4
   store i32 %5, ptr %arrayidx16, align 4
   store i32 %4, ptr %arrayidx18, align 4
-  %dec19 = add nsw i64 %dst.020, -8
+  %dec19 = add nsw i64 %dst.022, -8
   %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
   %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
@@ -3646,9 +3646,9 @@ if.end:                                           ; preds = %while.body
   %has_crypto_.i = getelementptr inbounds i8, ptr %this, i64 280
   %9 = load i8, ptr %has_crypto_.i, align 8
   %tobool.i = trunc i8 %9 to i1
-  br i1 %tobool.i, label %if.then.i18, label %if.else.i
+  br i1 %tobool.i, label %if.then.i20, label %if.else.i
 
-if.then.i18:                                      ; preds = %if.end
+if.then.i20:                                      ; preds = %if.end
   call void @_ZN4absl12lts_2023080215random_internal11RandenHwAes6AbsorbEPKvPv(ptr noundef nonnull %buffer, ptr noundef nonnull %cond.i)
   br label %_ZNK4absl12lts_2023080215random_internal6Randen6AbsorbEPKvPv.exit
 
@@ -3656,7 +3656,7 @@ if.else.i:                                        ; preds = %if.end
   call void @_ZN4absl12lts_2023080215random_internal10RandenSlow6AbsorbEPKvPv(ptr noundef nonnull %buffer, ptr noundef nonnull %cond.i)
   br label %_ZNK4absl12lts_2023080215random_internal6Randen6AbsorbEPKvPv.exit
 
-_ZNK4absl12lts_2023080215random_internal6Randen6AbsorbEPKvPv.exit: ; preds = %if.then.i18, %if.else.i
+_ZNK4absl12lts_2023080215random_internal6Randen6AbsorbEPKvPv.exit: ; preds = %if.then.i20, %if.else.i
   %next_ = getelementptr inbounds i8, ptr %this, i64 264
   store i64 32, ptr %next_, align 8
   ret void
@@ -5554,7 +5554,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 
 if.then.i29.i.i.i.i.i.i.i.i:                      ; preds = %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i.i.i.i.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin13AddressWeightESt4lessIvESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit.i.i.i.i.i.i.i.i.i, %invoke.cont33.i.i.i.i.i.i.i.i
   %cmp.i22.i.i.i.i.i.i.i.i.i = phi i1 [ true, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin13AddressWeightESt4lessIvESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit.i.i.i.i.i.i.i.i.i ], [ false, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i.i.i.i.i.i.i ], [ true, %invoke.cont33.i.i.i.i.i.i.i.i ]
-  %__y.addr.0.lcssa.i.i.i21.i.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin13AddressWeightESt4lessIvESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit.i.i.i.i.i.i.i.i.i ], [ %__y.addr.1.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont33.i.i.i.i.i.i.i.i ]
+  %__y.addr.0.lcssa.i.i.i21.i.i.i.i.i.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin13AddressWeightESt4lessIvESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit.i.i.i.i.i.i.i.i.i ], [ %__y.addr.1.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont33.i.i.i.i.i.i.i.i ]
   %call5.i.i.i.i.i.i.i.i34.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #29
           to label %call5.i.i.i.i.i.i.i.i.noexc.i.i.i.i.i.i.i.i unwind label %lpad32.body.i.thread.i.i.i.i.i.i.i, !noalias !58
 
@@ -5651,11 +5651,11 @@ while.end.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %_ZNKSt4lessIvEclIRK
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end12.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %while.end.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i
-  %__y.0.lcssa29.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %__x.024.i.i.i.i.i.i.i.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i21.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %__y.0.lcssa29.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %__x.024.i.i.i.i.i.i.i.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ]
   %61 = getelementptr inbounds i8, ptr %subchannel_list.val10.i.i.i.i.i.i.i, i64 112
   %this.val4.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %61, align 8, !noalias !58
   %cmp.i.i.i.i.i.i32.i.i.i.i.i.i.i.i = icmp eq ptr %__y.0.lcssa29.i.i.i.i.i.i.i.i.i.i.i.i.i, %this.val4.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i32.i.i.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i32.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
   %call.i.i.i.i.i.i33.i.i.i.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa29.i.i.i.i.i.i.i.i.i.i.i.i.i) #34, !noalias !58
@@ -5677,7 +5677,7 @@ terminate.lpad.i.i.i7.i.i.i.i.i.i.i.i.i.i.i.i.i:  ; preds = %if.end12.i.i.i.i.i.
 
 _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.end12.i.i.i.i.i.i.i.i.i.i.i.i.i
   %cmp.i.i.i8.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i32 %call.i.i.i6.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i8.i.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i12.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i8.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i12.i.i.i.i.i.i.i.i.i.i.i
 
 if.else12.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i.i.i
   %_M_storage.i.i.i12.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i21.i.i.i.i.i.i.i.i.i, i64 32
@@ -5883,15 +5883,15 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   %cmp.i.i.i8.i101.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i32 %call.i.i.i6.i98.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i8.i101.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i12.i.i.i.i.i.i.i.i.i.i.i
 
-invoke.cont5.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then64.i.i.i.i.i.i.i.i.i.i.i.i, %if.then50.i.i.i.i.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i.i, %if.then18.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then9.i.i.i.i.i.i.i.i.i.i.i.i
-  %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %if.then9.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i21.i.i.i.i.i.i.i.i.i, %if.then18.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then50.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i21.i.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i.i ], [ %call.i71.i.i.i.i.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %retval.sroa.12.0.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %58, %if.then9.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i21.i.i.i.i.i.i.i.i.i, %if.then18.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i21.i.i.i.i.i.i.i.i.i, %if.then50.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i21.i.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i.i ], [ %call.i71.i.i.i.i.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa29.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa30.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+invoke.cont5.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then64.i.i.i.i.i.i.i.i.i.i.i.i, %if.then50.i.i.i.i.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i.i, %if.then18.i.i.i.i.i.i.i.i.i.i.i.i, %if.then9.i.i.i.i.i.i.i.i.i.i.i.i
+  %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %if.then9.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i21.i.i.i.i.i.i.i.i.i, %if.then18.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then50.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i21.i.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i.i ], [ %call.i71.i.i.i.i.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %retval.sroa.12.0.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %58, %if.then9.i.i.i.i.i.i.i.i.i.i.i.i ], [ %66, %if.then18.i.i.i.i.i.i.i.i.i.i.i.i ], [ %76, %if.then50.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i21.i.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i.i ], [ %call.i71.i.i.i.i.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i.i ]
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %retval.sroa.12.0.i.i.i.i.i.i.i.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i12.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i100.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i108.i.i.i.i.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i48.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i56.i.i.i.i.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i.i
-  %retval.sroa.12.0.i24.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.12.0.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa29.i109.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i108.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa29.i57.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i56.i.i.i.i.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i31.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i21.i.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa30.i43.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i48.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa30.i95.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i100.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %retval.sroa.0.0.i23.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i108.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i56.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then32.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then64.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i48.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i100.i.i.i.i.i.i.i.i.i.i.i.i ]
+if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i100.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i108.i.i.i.i.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i48.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i56.i.i.i.i.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %retval.sroa.12.0.i24.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.12.0.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa29.i109.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i108.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa29.i57.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i56.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa29.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i31.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i21.i.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa30.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa30.i43.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i48.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa30.i95.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i100.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %retval.sroa.0.0.i23.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i108.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i56.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then32.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then64.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i48.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i100.i.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.not.i.i5.i.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %retval.sroa.0.0.i23.i.i.i.i.i.i.i.i.i.i.i, null
   %cmp2.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, %retval.sroa.12.0.i24.i.i.i.i.i.i.i.i.i.i.i
   %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.not.i.i5.i.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -6860,7 +6860,7 @@ ehcleanup.i:                                      ; preds = %lpad28.i, %lpad25.i
 
 if.end.i28:                                       ; preds = %invoke.cont29.i, %if.then.i26
   %46 = phi ptr [ %.pre204.i, %invoke.cont29.i ], [ %subchannel_list_.val28.i, %if.then.i26 ]
-  %47 = phi ptr [ %.pre.i32, %invoke.cont29.i ], [ %this.val12, %if.then.i26 ]
+  %47 = phi ptr [ %.pre.i32, %invoke.cont29.i ], [ %latest_pending_subchannel_list_.val.i, %if.then.i26 ]
   store ptr null, ptr %latest_pending_subchannel_list_.i, align 8
   store ptr %47, ptr %subchannel_list_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %46, null
@@ -13932,7 +13932,7 @@ call.i.i.noexc.i.i.i.i.i.i.i:                     ; preds = %lor.rhs.i.i.i.i.i.i
 
 if.then.i21.i.i.i.i.i.i.i:                        ; preds = %call.i.i.noexc.i.i.i.i.i.i.i, %_ZNSt3mapIN9grpc_core18EndpointAddressSetEPNS0_12_GLOBAL__N_118WeightedRoundRobin14EndpointWeightESt4lessIS1_ESaISt4pairIKS1_S5_EEE11lower_boundERS9_.exit.i.i.i.i.i.i.i.i, %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit.i.i.i.i.i.i.i
   %cmp.i18.i.i.i.i.i.i.i.i = phi i1 [ true, %_ZNSt3mapIN9grpc_core18EndpointAddressSetEPNS0_12_GLOBAL__N_118WeightedRoundRobin14EndpointWeightESt4lessIS1_ESaISt4pairIKS1_S5_EEE11lower_boundERS9_.exit.i.i.i.i.i.i.i.i ], [ false, %call.i.i.noexc.i.i.i.i.i.i.i ], [ true, %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit.i.i.i.i.i.i.i ]
-  %__y.addr.0.lcssa.i.i.i17.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %_ZNSt3mapIN9grpc_core18EndpointAddressSetEPNS0_12_GLOBAL__N_118WeightedRoundRobin14EndpointWeightESt4lessIS1_ESaISt4pairIKS1_S5_EEE11lower_boundERS9_.exit.i.i.i.i.i.i.i.i ], [ %__y.addr.1.i.i.i.i.i.i.i.i.i.i.i, %call.i.i.noexc.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit.i.i.i.i.i.i.i ]
+  %__y.addr.0.lcssa.i.i.i17.i.i.i.i.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt3mapIN9grpc_core18EndpointAddressSetEPNS0_12_GLOBAL__N_118WeightedRoundRobin14EndpointWeightESt4lessIS1_ESaISt4pairIKS1_S5_EEE11lower_boundERS9_.exit.i.i.i.i.i.i.i.i ], [ %__y.addr.1.i.i.i.i.i.i.i.i.i.i.i, %call.i.i.noexc.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit.i.i.i.i.i.i.i ]
   %call5.i.i.i.i.i.i.i.i25.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #29
           to label %call5.i.i.i.i.i.i.i.i.noexc.i.i.i.i.i.i.i unwind label %lpad24.loopexit.split-lp.i.i.i.i.i.i.i, !noalias !180
 
@@ -14058,11 +14058,11 @@ while.end.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %call.i.i.i.noexc.i.
   br i1 %call.i.i.i5.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end12.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %while.end.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i
-  %__y.0.lcssa24.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %__x.020.i.i.i.i.i.i.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i ]
+  %__y.0.lcssa24.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %__x.020.i.i.i.i.i.i.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i ]
   %45 = getelementptr inbounds i8, ptr %this.val.val.i.i.i.i.i.i, i64 112
   %this.val4.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %45, align 8, !noalias !180
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %__y.0.lcssa24.i.i.i.i.i.i.i.i.i.i.i.i, %this.val4.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i7.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %call.i6.i.i.i.i.i.i.i.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa24.i.i.i.i.i.i.i.i.i.i.i.i) #34, !noalias !180
@@ -14076,7 +14076,7 @@ if.end12.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.else.i.i.i.i.i.i
           to label %call.i7.i.i.noexc.i.i.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i, !noalias !180
 
 call.i7.i.i.noexc.i.i.i.i.i.i.i.i.i.i:            ; preds = %if.end12.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %call.i7.i.i6.i.i.i.i.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i.i.i.i.i.i.i, label %if.then.i21.i.i.i.i.i.i.i.i.i.i
+  br i1 %call.i7.i.i6.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i7.i.i.i.i, label %if.then.i21.i.i.i.i.i.i.i.i.i.i
 
 if.else12.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i.i
   %_M_storage.i.i.i12.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i17.i.i.i.i.i.i.i.i, i64 32
@@ -14218,15 +14218,15 @@ if.end12.i74.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.else.i89.i.i.i.i
 call.i7.i78.i.noexc.i.i.i.i.i.i.i.i.i.i:          ; preds = %if.end12.i74.i.i.i.i.i.i.i.i.i.i.i
   br i1 %call.i7.i78.i14.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i7.i.i.i.i, label %if.then.i21.i.i.i.i.i.i.i.i.i.i
 
-invoke.cont5.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then64.i.i.i.i.i.i.i.i.i.i.i, %if.then50.i.i.i.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i, %if.then18.i.i.i.i.i.i.i.i.i.i.i, %call.i7.i.i.noexc.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %if.then9.i.i.i.i.i.i.i.i.i.i.i
-  %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %if.then9.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i.i.i.i.i.i.i.i, %if.then18.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then50.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i ], [ %call.i57.i.i.i.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %call.i7.i.i.noexc.i.i.i.i.i.i.i.i.i.i ]
-  %retval.sroa.12.0.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %44, %if.then9.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i.i.i.i.i.i.i.i, %if.then18.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i.i.i.i.i.i.i.i, %if.then50.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i ], [ %call.i57.i.i.i.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa24.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa25.i.i.i.i.i.i.i.i.i.i.i.i, %call.i7.i.i.noexc.i.i.i.i.i.i.i.i.i.i ]
+invoke.cont5.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then64.i.i.i.i.i.i.i.i.i.i.i, %if.then50.i.i.i.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i, %if.then18.i.i.i.i.i.i.i.i.i.i.i, %if.then9.i.i.i.i.i.i.i.i.i.i.i
+  %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %if.then9.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i.i.i.i.i.i.i.i, %if.then18.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then50.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i ], [ %call.i57.i.i.i.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i ]
+  %retval.sroa.12.0.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %44, %if.then9.i.i.i.i.i.i.i.i.i.i.i ], [ %46, %if.then18.i.i.i.i.i.i.i.i.i.i.i ], [ %48, %if.then50.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i ], [ %call.i57.i.i.i.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i ]
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %retval.sroa.12.0.i.i.i.i.i.i.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %if.then.i21.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i7.i.i.i.i
 
-if.then.i.i.i.i.i.i7.i.i.i.i:                     ; preds = %invoke.cont5.i.i.i.i.i.i.i.i.i.i, %call.i7.i78.i.noexc.i.i.i.i.i.i.i.i.i.i, %if.then.i85.i.i.i.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i, %call.i7.i38.i.noexc.i.i.i.i.i.i.i.i.i.i, %if.then.i45.i.i.i.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i
-  %retval.sroa.12.0.i33.i.i.i.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.12.0.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa24.i86.i.i.i.i.i.i.i.i.i.i.i, %if.then.i85.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa24.i46.i.i.i.i.i.i.i.i.i.i.i, %if.then.i45.i.i.i.i.i.i.i.i.i.i.i ], [ %call.i17.i.i.i.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa25.i35.i.i.i.i.i.i.i.i.i.i.i, %call.i7.i38.i.noexc.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa25.i75.i.i.i.i.i.i.i.i.i.i.i, %call.i7.i78.i.noexc.i.i.i.i.i.i.i.i.i.i ]
-  %retval.sroa.0.0.i32.i.i.i.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i85.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i45.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then32.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then64.i.i.i.i.i.i.i.i.i.i.i ], [ null, %call.i7.i38.i.noexc.i.i.i.i.i.i.i.i.i.i ], [ null, %call.i7.i78.i.noexc.i.i.i.i.i.i.i.i.i.i ]
+if.then.i.i.i.i.i.i7.i.i.i.i:                     ; preds = %invoke.cont5.i.i.i.i.i.i.i.i.i.i, %call.i7.i78.i.noexc.i.i.i.i.i.i.i.i.i.i, %if.then.i85.i.i.i.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i, %call.i7.i38.i.noexc.i.i.i.i.i.i.i.i.i.i, %if.then.i45.i.i.i.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i, %call.i7.i.i.noexc.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
+  %retval.sroa.12.0.i33.i.i.i.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.12.0.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa24.i86.i.i.i.i.i.i.i.i.i.i.i, %if.then.i85.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa24.i46.i.i.i.i.i.i.i.i.i.i.i, %if.then.i45.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa24.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %call.i17.i.i.i.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa25.i.i.i.i.i.i.i.i.i.i.i.i, %call.i7.i.i.noexc.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa25.i35.i.i.i.i.i.i.i.i.i.i.i, %call.i7.i38.i.noexc.i.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa25.i75.i.i.i.i.i.i.i.i.i.i.i, %call.i7.i78.i.noexc.i.i.i.i.i.i.i.i.i.i ]
+  %retval.sroa.0.0.i32.i.i.i.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i85.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i45.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then32.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then64.i.i.i.i.i.i.i.i.i.i.i ], [ null, %call.i7.i.i.noexc.i.i.i.i.i.i.i.i.i.i ], [ null, %call.i7.i38.i.noexc.i.i.i.i.i.i.i.i.i.i ], [ null, %call.i7.i78.i.noexc.i.i.i.i.i.i.i.i.i.i ]
   %cmp.not.i.i16.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %retval.sroa.0.0.i32.i.i.i.i.i.i.i.i.i.i, null
   %cmp2.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, %retval.sroa.12.0.i33.i.i.i.i.i.i.i.i.i.i
   %or.cond.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.not.i.i16.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i.i.i.i.i.i.i.i.i

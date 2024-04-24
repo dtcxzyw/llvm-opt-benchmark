@@ -165,7 +165,7 @@ define dso_local void @_ZN6snappy8internal13WorkingMemoryC2Em(ptr nocapture noun
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %input_size, i64 65536)
-  %conv = trunc i64 %.sroa.speculated to i32
+  %conv = trunc nuw nsw i64 %.sroa.speculated to i32
   %cmp.i5 = icmp ugt i32 %conv, 16384
   br i1 %cmp.i5, label %_ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit, label %if.end.i
 
@@ -433,7 +433,7 @@ if.else.i:                                        ; preds = %if.end.i
   %7 = tail call i32 @llvm.ctlz.i32(i32 %sub.i, i1 true), !range !5
   %xor.i.i.i = lshr i32 %7, 3
   %shr.i87 = xor i32 %xor.i.i.i, 3
-  %shr.tr.i = trunc i32 %shr.i87 to i8
+  %shr.tr.i = trunc nuw nsw i32 %shr.i87 to i8
   %8 = shl nuw nsw i8 %shr.tr.i, 2
   %conv10.i = or disjoint i8 %8, -16
   %incdec.ptr11.i = getelementptr inbounds i8, ptr %op.addr.0, i64 1
@@ -764,7 +764,7 @@ if.else.i124:                                     ; preds = %if.then118
   %31 = tail call i32 @llvm.ctlz.i32(i32 %sub.i122, i1 true), !range !5
   %xor.i.i.i125 = lshr i32 %31, 3
   %shr.i126 = xor i32 %xor.i.i.i125, 3
-  %shr.tr.i127 = trunc i32 %shr.i126 to i8
+  %shr.tr.i127 = trunc nuw nsw i32 %shr.i126 to i8
   %32 = shl nuw nsw i8 %shr.tr.i127, 2
   %conv4.i = or disjoint i8 %32, -16
   %incdec.ptr5.i = getelementptr inbounds i8, ptr %op.addr.4, i64 1
@@ -1025,7 +1025,7 @@ if.end4.i:                                        ; preds = %if.end.i
 
 if.end11.i:                                       ; preds = %if.end4.i
   %and.i = zext nneg i8 %4 to i32
-  %6 = trunc i64 %indvars.iv.i to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.i to i32
   %shl.i = shl i32 %and.i, %6
   %7 = load i32, ptr %result, align 4
   %or.i = or i32 %7, %shl.i
@@ -1129,7 +1129,7 @@ if.else37.i:                                      ; preds = %if.else20.i
   %incdec.ptr52.i = getelementptr inbounds i8, ptr %ulength, i64 4
   store i8 %conv51.i, ptr %incdec.ptr33.i, align 1
   %shr53.i = lshr i32 %conv, 28
-  %conv54.i = trunc i32 %shr53.i to i8
+  %conv54.i = trunc nuw nsw i32 %shr53.i to i8
   %incdec.ptr55.i = getelementptr inbounds i8, ptr %ulength, i64 5
   store i8 %conv54.i, ptr %incdec.ptr52.i, align 1
   br label %_ZN6snappy6Varint8Encode32EPcj.exit
@@ -1145,7 +1145,7 @@ _ZN6snappy6Varint8Encode32EPcj.exit:              ; preds = %if.then.i, %if.then
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %writer, ptr noundef nonnull %ulength, i64 noundef %sub.ptr.sub) #19
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %call, i64 65536)
-  %conv.i37 = trunc i64 %.sroa.speculated.i to i32
+  %conv.i37 = trunc nuw nsw i64 %.sroa.speculated.i to i32
   %cmp.i5.i = icmp ugt i32 %conv.i37, 16384
   br i1 %cmp.i5.i, label %_ZN6snappy8internal13WorkingMemoryC2Em.exit, label %if.end.i.i
 
@@ -1221,7 +1221,7 @@ if.end:                                           ; preds = %while.body20, %whil
   %pending_advance.0 = phi i64 [ %.sroa.speculated60, %while.body ], [ 0, %while.body20 ]
   %fragment.0 = phi ptr [ %call12, %while.body ], [ %add.ptr.i, %while.body20 ]
   store i64 %.sroa.speculated60, ptr %fragment_size, align 8
-  %conv.i42 = trunc i64 %.sroa.speculated60 to i32
+  %conv.i42 = trunc nuw nsw i64 %.sroa.speculated60 to i32
   %cmp.i.i = icmp ugt i32 %conv.i42, 16384
   br i1 %cmp.i.i, label %_ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit, label %if.end.i.i43
 
@@ -1362,7 +1362,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
 
 if.end11.i.i:                                     ; preds = %if.end4.i.i
   %and.i.i = zext nneg i8 %6 to i32
-  %8 = trunc i64 %indvars.iv.i.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %shl.i.i = shl i32 %and.i.i, %8
   %or.i.i = or i32 %shl.i.i, %uncompressed_len.0.i
   %cmp13.i.i = icmp sgt i8 %4, -1
@@ -1476,7 +1476,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
 
 if.end11.i.i:                                     ; preds = %if.end4.i.i
   %and.i.i = zext nneg i8 %4 to i32
-  %6 = trunc i64 %indvars.iv.i.i to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %shl.i.i = shl i32 %and.i.i, %6
   %or.i.i = or i32 %shl.i.i, %uncompressed_len.0.i
   %cmp13.i.i = icmp sgt i8 %2, -1
@@ -1691,7 +1691,7 @@ if.end4.i:                                        ; preds = %if.end.i
 
 if.end11.i:                                       ; preds = %if.end4.i
   %and.i = zext nneg i8 %4 to i32
-  %6 = trunc i64 %indvars.iv.i to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.i to i32
   %shl.i = shl i32 %and.i, %6
   %or.i = or i32 %shl.i, %uncompressed_len.0
   %cmp13.i = icmp sgt i8 %2, -1
@@ -2022,7 +2022,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
 
 if.end11.i.i:                                     ; preds = %if.end4.i.i
   %and.i.i = zext nneg i8 %4 to i32
-  %6 = trunc i64 %indvars.iv.i.i to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %shl.i.i = shl i32 %and.i.i, %6
   %or.i.i = or i32 %shl.i.i, %uncompressed_len.0.i
   %cmp13.i.i = icmp sgt i8 %2, -1
@@ -2176,7 +2176,7 @@ if.end4.i:                                        ; preds = %if.end.i
 
 if.end11.i:                                       ; preds = %if.end4.i
   %and.i = zext nneg i8 %4 to i32
-  %6 = trunc i64 %indvars.iv.i to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.i to i32
   %shl.i = shl i32 %and.i, %6
   %or.i = or i32 %shl.i, %uncompressed_len.0
   %cmp13.i = icmp sgt i8 %2, -1
@@ -2799,7 +2799,7 @@ if.else103:                                       ; preds = %if.end23
   %48 = and i16 %46, 255
   %conv118 = zext nneg i16 %48 to i64
   %sub117 = sub nsw i64 %conv118, %conv107
-  %sub117.tr = trunc i64 %sub117 to i32
+  %sub117.tr = trunc nsw i64 %sub117 to i32
   %add119.narrow = add nsw i32 %conv1.i146, %sub117.tr
   %conv121 = zext i32 %add119.narrow to i64
   %call123 = call noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter14AppendFromSelfEmmPPc(ptr noundef nonnull align 8 dereferenceable(48) %writer, i64 noundef %conv121, i64 noundef %conv118, ptr noundef nonnull %op)
@@ -2906,7 +2906,7 @@ for.body:                                         ; preds = %do.body, %for.inc
   %arrayidx2.i = getelementptr inbounds i8, ptr %ip.addr.1145, i64 %asmresult.i
   %6 = load volatile i8, ptr %arrayidx2.i, align 1
   %conv3.i = zext i8 %6 to i64
-  %tobool.i = trunc i8 %asmresult1.i to i1
+  %tobool.i = trunc nuw i8 %asmresult1.i to i1
   %cond.i = select i1 %tobool.i, i64 %conv.i, i64 %conv3.i
   %add.ptr.i = getelementptr inbounds i8, ptr %ip.addr.1145, i64 1
   %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %asmresult.i
@@ -3194,33 +3194,24 @@ while.body18.lr.ph.split:                         ; preds = %if.end64, %while.bo
   %from_iov_offset.2.ph62 = phi i64 [ %from_iov_offset.1, %while.body18.lr.ph.lr.ph ], [ %from_iov_offset.3, %if.end64 ]
   %from_iov.1.ph60 = phi ptr [ %from_iov.039, %while.body18.lr.ph.lr.ph ], [ %from_iov.2, %if.end64 ]
   %len.addr.0.ph59 = phi i64 [ %len, %while.body18.lr.ph.lr.ph ], [ %len.addr.1, %if.end64 ]
-  %7 = load ptr, ptr %this, align 8
   %curr_iov_.promoted64 = load ptr, ptr %curr_iov_, align 8
+  %7 = load ptr, ptr %this, align 8
   %cmp20.not55 = icmp eq ptr %from_iov.1.ph60, %curr_iov_.promoted64
   br i1 %cmp20.not55, label %if.else, label %if.then21
 
-if.then21.loopexit:                               ; preds = %if.then34
-  store ptr %add.ptr, ptr %curr_iov_, align 8
-  %8 = load ptr, ptr %add.ptr, align 8
-  store ptr %8, ptr %curr_iov_output_, align 8
-  %iov_len43 = getelementptr inbounds i8, ptr %from_iov.1.ph60, i64 24
-  %9 = load i64, ptr %iov_len43, align 8
-  store i64 %9, ptr %curr_iov_remaining_, align 8
-  br label %if.then21
-
-if.then21:                                        ; preds = %if.then21.loopexit, %while.body18.lr.ph.split
-  %.pre.i = phi i64 [ %9, %if.then21.loopexit ], [ %.pre.i88, %while.body18.lr.ph.split ]
-  %curr_iov_remaining_.promoted6580 = phi i64 [ %9, %if.then21.loopexit ], [ %curr_iov_remaining_.promoted65, %while.body18.lr.ph.split ]
+if.then21:                                        ; preds = %if.end38, %while.body18.lr.ph.split
+  %.pre.i = phi i64 [ %.pre.i88, %while.body18.lr.ph.split ], [ %22, %if.end38 ]
+  %curr_iov_remaining_.promoted6580 = phi i64 [ %curr_iov_remaining_.promoted65, %while.body18.lr.ph.split ], [ %22, %if.end38 ]
   %iov_len22 = getelementptr inbounds i8, ptr %from_iov.1.ph60, i64 8
-  %10 = load i64, ptr %iov_len22, align 8
-  %sub23 = sub i64 %10, %from_iov_offset.2.ph62
+  %8 = load i64, ptr %iov_len22, align 8
+  %sub23 = sub i64 %8, %from_iov_offset.2.ph62
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %len.addr.0.ph59, i64 %sub23)
-  %cmp.not10.i = icmp eq i64 %10, %from_iov_offset.2.ph62
+  %cmp.not10.i = icmp eq i64 %8, %from_iov_offset.2.ph62
   br i1 %cmp.not10.i, label %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then21
-  %11 = load ptr, ptr %from_iov.1.ph60, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 %from_iov_offset.2.ph62
+  %9 = load ptr, ptr %from_iov.1.ph60, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 %from_iov_offset.2.ph62
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end9.i, %while.body.lr.ph.i
@@ -3235,34 +3226,34 @@ while.body.if.end9_crit_edge.i:                   ; preds = %while.body.i
   br label %if.end9.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %12 = load ptr, ptr %curr_iov_, align 8
-  %add.ptr.i30 = getelementptr inbounds i8, ptr %12, i64 16
-  %13 = load ptr, ptr %this, align 8
-  %cmp3.not.i = icmp ult ptr %add.ptr.i30, %13
+  %10 = load ptr, ptr %curr_iov_, align 8
+  %add.ptr.i30 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = load ptr, ptr %this, align 8
+  %cmp3.not.i = icmp ult ptr %add.ptr.i30, %11
   br i1 %cmp3.not.i, label %if.end.i, label %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit
 
 if.end.i:                                         ; preds = %if.then.i
   store ptr %add.ptr.i30, ptr %curr_iov_, align 8
-  %14 = load ptr, ptr %add.ptr.i30, align 8
-  store ptr %14, ptr %curr_iov_output_, align 8
-  %iov_len.i = getelementptr inbounds i8, ptr %12, i64 24
-  %15 = load i64, ptr %iov_len.i, align 8
-  store i64 %15, ptr %curr_iov_remaining_, align 8
+  %12 = load ptr, ptr %add.ptr.i30, align 8
+  store ptr %12, ptr %curr_iov_output_, align 8
+  %iov_len.i = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = load i64, ptr %iov_len.i, align 8
+  store i64 %13, ptr %curr_iov_remaining_, align 8
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end.i, %while.body.if.end9_crit_edge.i
-  %16 = phi ptr [ %14, %if.end.i ], [ %.pre15.i, %while.body.if.end9_crit_edge.i ]
-  %17 = phi i64 [ %15, %if.end.i ], [ %.pre.i85, %while.body.if.end9_crit_edge.i ]
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %17, i64 %storemerge11.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %ip.addr.012.i, i64 %.sroa.speculated.i, i1 false)
-  %18 = load ptr, ptr %curr_iov_output_, align 8
-  %add.ptr13.i = getelementptr inbounds i8, ptr %18, i64 %.sroa.speculated.i
+  %14 = phi ptr [ %12, %if.end.i ], [ %.pre15.i, %while.body.if.end9_crit_edge.i ]
+  %15 = phi i64 [ %13, %if.end.i ], [ %.pre.i85, %while.body.if.end9_crit_edge.i ]
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %storemerge11.i)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %ip.addr.012.i, i64 %.sroa.speculated.i, i1 false)
+  %16 = load ptr, ptr %curr_iov_output_, align 8
+  %add.ptr13.i = getelementptr inbounds i8, ptr %16, i64 %.sroa.speculated.i
   store ptr %add.ptr13.i, ptr %curr_iov_output_, align 8
-  %19 = load i64, ptr %curr_iov_remaining_, align 8
-  %sub.i = sub i64 %19, %.sroa.speculated.i
+  %17 = load i64, ptr %curr_iov_remaining_, align 8
+  %sub.i = sub i64 %17, %.sroa.speculated.i
   store i64 %sub.i, ptr %curr_iov_remaining_, align 8
-  %20 = load i64, ptr %total_written_, align 8
-  %add.i = add i64 %20, %.sroa.speculated.i
+  %18 = load i64, ptr %total_written_, align 8
+  %add.i = add i64 %18, %.sroa.speculated.i
   store i64 %add.i, ptr %total_written_, align 8
   %add.ptr15.i = getelementptr inbounds i8, ptr %ip.addr.012.i, i64 %.sroa.speculated.i
   %sub16.i = sub i64 %storemerge11.i, %.sroa.speculated.i
@@ -3278,32 +3269,44 @@ _ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit: ; preds = %if.then.i, %i
   %spec.select28 = select i1 %cmp27.not.not, i64 0, i64 %from_iov_offset.2.ph62
   br label %if.end64
 
-if.else:                                          ; preds = %while.body18.lr.ph.split
-  %cmp33 = icmp eq i64 %curr_iov_remaining_.promoted65, 0
+if.else:                                          ; preds = %while.body18.lr.ph.split, %if.end38
+  %19 = phi i64 [ %22, %if.end38 ], [ %curr_iov_remaining_.promoted65, %while.body18.lr.ph.split ]
+  %20 = phi ptr [ %add.ptr, %if.end38 ], [ %curr_iov_.promoted64, %while.body18.lr.ph.split ]
+  %cmp33 = icmp eq i64 %19, 0
   br i1 %cmp33, label %if.then34, label %if.end45
 
 if.then34:                                        ; preds = %if.else
-  %add.ptr = getelementptr inbounds i8, ptr %from_iov.1.ph60, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %20, i64 16
   %cmp36.not = icmp ult ptr %add.ptr, %7
-  br i1 %cmp36.not, label %if.then21.loopexit, label %return
+  br i1 %cmp36.not, label %if.end38, label %return
+
+if.end38:                                         ; preds = %if.then34
+  store ptr %add.ptr, ptr %curr_iov_, align 8
+  %21 = load ptr, ptr %add.ptr, align 8
+  store ptr %21, ptr %curr_iov_output_, align 8
+  %iov_len43 = getelementptr inbounds i8, ptr %20, i64 24
+  %22 = load i64, ptr %iov_len43, align 8
+  store i64 %22, ptr %curr_iov_remaining_, align 8
+  %cmp20.not = icmp eq ptr %from_iov.1.ph60, %add.ptr
+  br i1 %cmp20.not, label %if.else, label %if.then21
 
 if.end45:                                         ; preds = %if.else
-  %spec.select29 = tail call i64 @llvm.umin.i64(i64 %curr_iov_remaining_.promoted65, i64 %len.addr.0.ph59)
-  %21 = load ptr, ptr %from_iov.1.ph60, align 8
-  %add.ptr.i31 = getelementptr inbounds i8, ptr %21, i64 %from_iov_offset.2.ph62
-  %22 = load ptr, ptr %curr_iov_output_, align 8
-  %add.ptr52 = getelementptr inbounds i8, ptr %22, i64 %spec.select29
-  %add.ptr55 = getelementptr inbounds i8, ptr %22, i64 %curr_iov_remaining_.promoted65
-  %call56 = tail call fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef %add.ptr.i31, ptr noundef %22, ptr noundef nonnull %add.ptr52, ptr noundef nonnull %add.ptr55)
-  %23 = load ptr, ptr %curr_iov_output_, align 8
-  %add.ptr58 = getelementptr inbounds i8, ptr %23, i64 %spec.select29
+  %spec.select29 = tail call i64 @llvm.umin.i64(i64 %19, i64 %len.addr.0.ph59)
+  %23 = load ptr, ptr %from_iov.1.ph60, align 8
+  %add.ptr.i31 = getelementptr inbounds i8, ptr %23, i64 %from_iov_offset.2.ph62
+  %24 = load ptr, ptr %curr_iov_output_, align 8
+  %add.ptr52 = getelementptr inbounds i8, ptr %24, i64 %spec.select29
+  %add.ptr55 = getelementptr inbounds i8, ptr %24, i64 %19
+  %call56 = tail call fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef %add.ptr.i31, ptr noundef %24, ptr noundef nonnull %add.ptr52, ptr noundef nonnull %add.ptr55)
+  %25 = load ptr, ptr %curr_iov_output_, align 8
+  %add.ptr58 = getelementptr inbounds i8, ptr %25, i64 %spec.select29
   store ptr %add.ptr58, ptr %curr_iov_output_, align 8
-  %24 = load i64, ptr %curr_iov_remaining_, align 8
-  %sub60 = sub i64 %24, %spec.select29
+  %26 = load i64, ptr %curr_iov_remaining_, align 8
+  %sub60 = sub i64 %26, %spec.select29
   store i64 %sub60, ptr %curr_iov_remaining_, align 8
   %add = add i64 %spec.select29, %from_iov_offset.2.ph62
-  %25 = load i64, ptr %total_written_, align 8
-  %add62 = add i64 %25, %spec.select29
+  %27 = load i64, ptr %total_written_, align 8
+  %add62 = add i64 %27, %spec.select29
   store i64 %add62, ptr %total_written_, align 8
   br label %if.end64
 
@@ -3318,7 +3321,7 @@ if.end64:                                         ; preds = %_ZN6snappy17SnappyI
   br i1 %cmp17.not, label %return, label %while.body18.lr.ph.split, !llvm.loop !39
 
 return:                                           ; preds = %if.end64, %if.then34, %while.end, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %while.end ], [ true, %if.end64 ], [ false, %if.then34 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %while.end ], [ false, %if.then34 ], [ true, %if.end64 ]
   ret i1 %retval.0
 }
 
@@ -3582,7 +3585,7 @@ for.body.i:                                       ; preds = %for.inc.i, %do.body
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %ip.addr.196.i, i64 %asmresult.i.i
   %13 = load volatile i8, ptr %arrayidx2.i.i, align 1
   %conv3.i.i = zext i8 %13 to i64
-  %tobool.i.i = trunc i8 %asmresult1.i.i to i1
+  %tobool.i.i = trunc nuw i8 %asmresult1.i.i to i1
   %cond.i.i = select i1 %tobool.i.i, i64 %conv.i.i, i64 %conv3.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ip.addr.196.i, i64 1
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %asmresult.i.i
@@ -3815,7 +3818,7 @@ if.else101:                                       ; preds = %if.end23
   %34 = and i16 %32, 255
   %conv116 = zext nneg i16 %34 to i64
   %sub115 = sub nsw i64 %conv116, %conv105
-  %sub115.tr = trunc i64 %sub115 to i32
+  %sub115.tr = trunc nsw i64 %sub115 to i32
   %add117.narrow = add nsw i32 %conv1.i119, %sub115.tr
   %conv119 = zext i32 %add117.narrow to i64
   %sub.i120 = add nsw i64 %conv119, -1
@@ -4166,7 +4169,7 @@ if.else103:                                       ; preds = %if.end23
   %34 = and i16 %32, 255
   %conv118 = zext nneg i16 %34 to i64
   %sub117 = sub nsw i64 %conv118, %conv107
-  %sub117.tr = trunc i64 %sub117 to i32
+  %sub117.tr = trunc nsw i64 %sub117 to i32
   %add119.narrow = add nsw i32 %conv1.i175, %sub117.tr
   %conv121 = zext i32 %add119.narrow to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %op.1, i64 %conv118
@@ -4538,7 +4541,7 @@ if.else103:                                       ; preds = %if.end23
   %36 = and i16 %34, 255
   %conv118 = zext nneg i16 %36 to i64
   %sub117 = sub nsw i64 %conv118, %conv107
-  %sub117.tr = trunc i64 %sub117 to i32
+  %sub117.tr = trunc nsw i64 %sub117 to i32
   %add119.narrow = add nsw i32 %conv1.i135, %sub117.tr
   %conv121 = zext i32 %add119.narrow to i64
   %call123 = call noundef zeroext i1 @_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE14AppendFromSelfEmmPPc(ptr noundef nonnull align 8 dereferenceable(104) %writer, i64 noundef %conv121, i64 noundef %conv118, ptr noundef nonnull %op)
@@ -4760,7 +4763,7 @@ if.end:                                           ; preds = %while.body
   %add.ptr8 = getelementptr inbounds i8, ptr %ip.addr.028, i64 %avail.030
   %sub14 = sub i64 %6, %add
   %.sroa.speculated15 = tail call i64 @llvm.umin.i64(i64 %sub14, i64 65536)
-  %conv = trunc i64 %.sroa.speculated15 to i32
+  %conv = trunc nuw nsw i64 %.sroa.speculated15 to i32
   %call15 = tail call noundef ptr @_ZN6snappy19SnappySinkAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %conv)
   store ptr %call15, ptr %op_base_, align 8
   store ptr %call15, ptr %op_ptr_, align 8

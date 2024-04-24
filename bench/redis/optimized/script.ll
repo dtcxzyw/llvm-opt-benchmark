@@ -47,7 +47,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.23 = private unnamed_addr constant [33 x i8] c"(c->flags & CLIENT_BLOCKED) == 0\00", align 1
 @.str.24 = private unnamed_addr constant [24 x i8] c"run_ctx == curr_run_ctx\00", align 1
 @.str.25 = private unnamed_addr constant [20 x i8] c"!scriptIsTimedout()\00", align 1
-@.str.26 = private unnamed_addr constant [19 x i8] c"scriptIsTimedout()\00", align 1
 @.str.27 = private unnamed_addr constant [55 x i8] c"Wrong number of args calling Redis command from script\00", align 1
 @.str.28 = private unnamed_addr constant [41 x i8] c"Unknown Redis command called from script\00", align 1
 @.str.29 = private unnamed_addr constant [47 x i8] c"Can not execute the command on a stale replica\00", align 1
@@ -175,7 +174,8 @@ cond.false.i:                                     ; preds = %do.end
   unreachable
 
 scriptIsTimedout.exit.i:                          ; preds = %do.end
-  %10 = load i32, ptr %flags, align 8
+  %flags.i.i = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = load i32, ptr %flags.i.i, align 8
   %11 = and i32 %10, 8
   %tobool2.not.i = icmp eq i32 %11, 0
   br i1 %tobool2.not.i, label %enterScriptTimedoutMode.exit, label %cond.false12.i
@@ -186,19 +186,20 @@ cond.false12.i:                                   ; preds = %scriptIsTimedout.ex
   unreachable
 
 enterScriptTimedoutMode.exit:                     ; preds = %scriptIsTimedout.exit.i
-  %12 = or disjoint i32 %10, 8
-  store i32 %12, ptr %flags, align 8
+  %12 = load i32, ptr %flags, align 8
+  %13 = or i32 %12, 8
+  store i32 %13, ptr %flags, align 8
   tail call void @blockingOperationStarts() #10
   %original_client = getelementptr inbounds i8, ptr %run_ctx, i64 16
-  %13 = load ptr, ptr %original_client, align 8
-  tail call void @protectClient(ptr noundef %13) #10
+  %14 = load ptr, ptr %original_client, align 8
+  tail call void @protectClient(ptr noundef %14) #10
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %entry, %enterScriptTimedoutMode.exit
   tail call void @processEventsWhileBlocked() #10
-  %14 = load i32, ptr %flags, align 8
-  %15 = and i32 %14, 16
-  %tobool20.not = icmp eq i32 %15, 0
+  %15 = load i32, ptr %flags, align 8
+  %16 = and i32 %15, 16
+  %tobool20.not = icmp eq i32 %16, 0
   %cond21 = select i1 %tobool20.not, i32 2, i32 1
   br label %return
 
@@ -502,50 +503,40 @@ scriptIsTimedout.exit:                            ; preds = %entry
 
 if.then:                                          ; preds = %scriptIsTimedout.exit
   %cmp.i = icmp eq ptr %0, %run_ctx
-  br i1 %cmp.i, label %scriptIsTimedout.exit.i, label %cond.false.i
+  br i1 %cmp.i, label %cond.end11.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then
   tail call void @_serverAssert(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.6, i32 noundef 47) #10
   tail call void @abort() #11
   unreachable
 
-scriptIsTimedout.exit.i:                          ; preds = %if.then
-  %flags.i.i = getelementptr inbounds i8, ptr %run_ctx, i64 24
-  %5 = load i32, ptr %flags.i.i, align 8
-  %6 = and i32 %5, 8
-  %tobool2.not.i = icmp eq i32 %6, 0
-  br i1 %tobool2.not.i, label %cond.false10.i, label %cond.end11.i
-
-cond.false10.i:                                   ; preds = %scriptIsTimedout.exit.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.6, i32 noundef 48) #10
-  tail call void @abort() #11
-  unreachable
-
-cond.end11.i:                                     ; preds = %scriptIsTimedout.exit.i
-  %7 = and i32 %5, -9
-  store i32 %7, ptr %flags.i.i, align 8
+cond.end11.i:                                     ; preds = %if.then
+  %flags.i4 = getelementptr inbounds i8, ptr %run_ctx, i64 24
+  %5 = load i32, ptr %flags.i4, align 8
+  %6 = and i32 %5, -9
+  store i32 %6, ptr %flags.i4, align 8
   tail call void @blockingOperationEnds() #10
-  %8 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
-  %tobool14.i = icmp ne ptr %8, null
-  %9 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 286), align 8
-  %tobool15.i = icmp ne ptr %9, null
+  %7 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
+  %tobool14.i = icmp ne ptr %7, null
+  %8 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 286), align 8
+  %tobool15.i = icmp ne ptr %8, null
   %or.cond.i = select i1 %tobool14.i, i1 %tobool15.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %exitScriptTimedoutMode.exit
 
 if.then.i:                                        ; preds = %cond.end11.i
-  tail call void @queueClientForReprocessing(ptr noundef nonnull %9) #10
+  tail call void @queueClientForReprocessing(ptr noundef nonnull %8) #10
   br label %exitScriptTimedoutMode.exit
 
 exitScriptTimedoutMode.exit:                      ; preds = %cond.end11.i, %if.then.i
   %original_client = getelementptr inbounds i8, ptr %run_ctx, i64 16
-  %10 = load ptr, ptr %original_client, align 8
-  tail call void @unprotectClient(ptr noundef %10) #10
+  %9 = load ptr, ptr %original_client, align 8
+  tail call void @unprotectClient(ptr noundef %9) #10
   br label %if.end
 
 if.end:                                           ; preds = %exitScriptTimedoutMode.exit, %scriptIsTimedout.exit
   %original_client4 = getelementptr inbounds i8, ptr %run_ctx, i64 16
-  %11 = load ptr, ptr %original_client4, align 8
-  tail call void @preventCommandPropagation(ptr noundef %11) #10
+  %10 = load ptr, ptr %original_client4, align 8
+  tail call void @preventCommandPropagation(ptr noundef %10) #10
   store ptr null, ptr @curr_run_ctx, align 8
   ret void
 }

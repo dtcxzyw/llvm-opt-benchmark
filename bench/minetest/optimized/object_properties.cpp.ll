@@ -253,7 +253,7 @@ if.then.i62:                                      ; preds = %invoke.cont14
   br label %invoke.cont21
 
 if.else.i65:                                      ; preds = %invoke.cont14
-  invoke void @_ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_M_realloc_insertIJiiiiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %colors, ptr %.pre10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp17, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp19)
+  invoke void @_ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_M_realloc_insertIJiiiiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %colors, ptr %.pre, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp17, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp19)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %if.else.i65, %if.then.i62
@@ -822,7 +822,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
   %spritediv = getelementptr inbounds i8, ptr %this, i64 312
   %agg.tmp105.sroa.0.0.copyload = load i32, ptr %spritediv, align 8, !tbaa.struct !62
   %vec.sroa.2.0.extract.shift.i = lshr i32 %agg.tmp105.sroa.0.0.copyload, 16
-  %vec.sroa.2.0.extract.trunc.i = trunc i32 %vec.sroa.2.0.extract.shift.i to i16
+  %vec.sroa.2.0.extract.trunc.i = trunc nuw i32 %vec.sroa.2.0.extract.shift.i to i16
   %call1.i.i415 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.50, i64 noundef 1)
           to label %call1.i.i.noexc414 unwind label %lpad
 
@@ -851,7 +851,7 @@ invoke.cont108:                                   ; preds = %invoke.cont106
   %initial_sprite_basepos = getelementptr inbounds i8, ptr %this, i64 316
   %agg.tmp110.sroa.0.0.copyload = load i32, ptr %initial_sprite_basepos, align 4, !tbaa.struct !62
   %vec.sroa.2.0.extract.shift.i426 = lshr i32 %agg.tmp110.sroa.0.0.copyload, 16
-  %vec.sroa.2.0.extract.trunc.i427 = trunc i32 %vec.sroa.2.0.extract.shift.i426 to i16
+  %vec.sroa.2.0.extract.trunc.i427 = trunc nuw i32 %vec.sroa.2.0.extract.shift.i426 to i16
   %call1.i.i429 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.50, i64 noundef 1)
           to label %call1.i.i.noexc428 unwind label %lpad
 
@@ -1999,7 +1999,7 @@ for.cond.cleanup:                                 ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i198) #22
   %p.sroa.0.0.extract.trunc.i.i = trunc i32 %agg.tmp27.sroa.0.0.copyload to i16
   %p.sroa.2.0.extract.shift.i.i = lshr i32 %agg.tmp27.sroa.0.0.copyload, 16
-  %p.sroa.2.0.extract.trunc.i.i = trunc i32 %p.sroa.2.0.extract.shift.i.i to i16
+  %p.sroa.2.0.extract.trunc.i.i = trunc nuw i32 %p.sroa.2.0.extract.shift.i.i to i16
   %rev.i.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %p.sroa.0.0.extract.trunc.i.i)
   store i16 %rev.i.i.i.i.i, ptr %buf.i198, align 2
   %arrayidx1.i.i199 = getelementptr inbounds i8, ptr %buf.i198, i64 2
@@ -2012,7 +2012,7 @@ for.cond.cleanup:                                 ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i201) #22
   %p.sroa.0.0.extract.trunc.i.i202 = trunc i32 %agg.tmp28.sroa.0.0.copyload to i16
   %p.sroa.2.0.extract.shift.i.i203 = lshr i32 %agg.tmp28.sroa.0.0.copyload, 16
-  %p.sroa.2.0.extract.trunc.i.i204 = trunc i32 %p.sroa.2.0.extract.shift.i.i203 to i16
+  %p.sroa.2.0.extract.trunc.i.i204 = trunc nuw i32 %p.sroa.2.0.extract.shift.i.i203 to i16
   %rev.i.i.i.i.i205 = call noundef i16 @llvm.bswap.i16(i16 %p.sroa.0.0.extract.trunc.i.i202)
   store i16 %rev.i.i.i.i.i205, ptr %buf.i201, align 2
   %arrayidx1.i.i206 = getelementptr inbounds i8, ptr %buf.i201, i64 2

@@ -30749,8 +30749,7 @@ define void @_ZN6ide_db13source_change12SourceChange5merge17h2318ddcfbd3f6ec3E(p
   br i1 %105, label %.loopexit.i.loopexit, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h290c3d8496b6b34eE.exit.i"
 
 .loopexit.i.loopexit:                             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h290c3d8496b6b34eE.exit.i", %99
-  %.lcssa = phi ptr [ %89, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h290c3d8496b6b34eE.exit.i" ], [ %81, %99 ]
-  store ptr %.lcssa, ptr %83, align 8, !alias.scope !7389, !noalias !7404
+  store ptr %89, ptr %83, align 8, !alias.scope !7389, !noalias !7404
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %80

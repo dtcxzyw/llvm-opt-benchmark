@@ -157,7 +157,7 @@ thread-pre-split:                                 ; preds = %_ZNKSt8functionIFfl
 
 .loopexit:                                        ; preds = %43, %17, %thread-pre-split
   %48 = phi ptr [ %.pre34, %thread-pre-split ], [ %18, %17 ], [ %45, %43 ]
-  %49 = phi ptr [ %.pr, %thread-pre-split ], [ %18, %17 ], [ %45, %43 ]
+  %49 = phi ptr [ %.pr, %thread-pre-split ], [ %20, %17 ], [ %46, %43 ]
   %50 = ptrtoint ptr %48 to i64
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51

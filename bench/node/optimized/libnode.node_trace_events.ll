@@ -1423,7 +1423,7 @@ if.then.i.i.i:                                    ; preds = %for.end
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i:                                    ; preds = %for.end
-  tail call void @_ZdlPv(ptr noundef %14) #19
+  tail call void @_ZdlPv(ptr noundef %15) #19
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %16 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i24 = getelementptr inbounds i8, ptr %16, i64 -8

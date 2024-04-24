@@ -1120,7 +1120,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv7 = sext i8 %0 to i32
   %call8 = call ptr @qemu_pixman_glyph_from_vgafont(i32 noundef 16, ptr noundef nonnull @vgafont16, i32 noundef %conv7) #17
   %1 = load ptr, ptr %call, align 8
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add i32 %div2, %2
   call void @qemu_pixman_glyph_render(ptr noundef %call8, ptr noundef %1, ptr noundef nonnull %fg, ptr noundef nonnull %bg, i32 noundef %add, i32 noundef %div5, i32 noundef 8, i32 noundef 16) #17
   call void @qemu_pixman_image_unref(ptr noundef %call8) #17
@@ -1230,7 +1230,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then6, label %for.body.preheader
 
 if.then6:                                         ; preds = %if.end
-  %conv7 = trunc i64 %num_slot to i32
+  %conv7 = trunc nuw nsw i64 %num_slot to i32
   %tracking_id = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 %conv7, ptr %tracking_id, align 4
   br label %for.body.preheader
@@ -1255,12 +1255,12 @@ if.end21:                                         ; preds = %for.body
 
 if.then24:                                        ; preds = %if.end21
   store i32 -1, ptr %tracking_id17, align 4
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @qemu_input_queue_mtt(ptr noundef %con, i32 noundef 2, i32 noundef %4, i32 noundef -1) #17
   br label %for.inc
 
 if.else27:                                        ; preds = %if.end21
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @qemu_input_queue_mtt(ptr noundef %con, i32 noundef %type., i32 noundef %5, i32 noundef %3) #17
   tail call void @qemu_input_queue_btn(ptr noundef %con, i32 noundef 9, i1 noundef zeroext true) #17
   %6 = load i32, ptr %arrayidx16, align 4
@@ -3027,19 +3027,19 @@ lor.lhs.false.i:                                  ; preds = %if.end9.i
   br label %graphic_hw_gl_block.exit
 
 graphic_hw_gl_block.exit:                         ; preds = %if.end9.i, %lor.lhs.false.i
-  %dcl.0.in26 = getelementptr inbounds i8, ptr %1, i64 32
-  %dcl.027 = load ptr, ptr %dcl.0.in26, align 8
-  %tobool1.not28 = icmp eq ptr %dcl.027, null
-  br i1 %tobool1.not28, label %if.end.i13, label %for.body.preheader
+  %dcl.0.in27 = getelementptr inbounds i8, ptr %1, i64 32
+  %dcl.028 = load ptr, ptr %dcl.0.in27, align 8
+  %tobool1.not29 = icmp eq ptr %dcl.028, null
+  br i1 %tobool1.not29, label %if.end.i13, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %graphic_hw_gl_block.exit
-  %.pre30 = load ptr, ptr @active_console, align 8
+  %.pre31 = load ptr, ptr @active_console, align 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %7 = phi ptr [ %11, %for.inc ], [ %.pre30, %for.body.preheader ]
-  %dcl.029 = phi ptr [ %dcl.0, %for.inc ], [ %dcl.027, %for.body.preheader ]
-  %con2 = getelementptr inbounds i8, ptr %dcl.029, i64 24
+  %7 = phi ptr [ %11, %for.inc ], [ %.pre31, %for.body.preheader ]
+  %dcl.030 = phi ptr [ %dcl.0, %for.inc ], [ %dcl.028, %for.body.preheader ]
+  %con2 = getelementptr inbounds i8, ptr %dcl.030, i64 24
   %8 = load ptr, ptr %con2, align 8
   %tobool3.not = icmp eq ptr %8, null
   %cond = select i1 %tobool3.not, ptr %7, ptr %8
@@ -3047,7 +3047,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp.not, label %if.end6, label %for.inc
 
 if.end6:                                          ; preds = %for.body
-  %ops = getelementptr inbounds i8, ptr %dcl.029, i64 8
+  %ops = getelementptr inbounds i8, ptr %dcl.030, i64 8
   %9 = load ptr, ptr %ops, align 8
   %dpy_gl_update = getelementptr inbounds i8, ptr %9, i64 136
   %10 = load ptr, ptr %dpy_gl_update, align 8
@@ -3055,13 +3055,13 @@ if.end6:                                          ; preds = %for.body
   br i1 %tobool7.not, label %for.inc, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  tail call void %10(ptr noundef nonnull %dcl.029, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) #17
+  tail call void %10(ptr noundef nonnull %dcl.030, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) #17
   %.pre = load ptr, ptr @active_console, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end6, %if.then8, %for.body
   %11 = phi ptr [ %7, %if.end6 ], [ %.pre, %if.then8 ], [ %7, %for.body ]
-  %dcl.0.in = getelementptr inbounds i8, ptr %dcl.029, i64 32
+  %dcl.0.in = getelementptr inbounds i8, ptr %dcl.030, i64 32
   %dcl.0 = load ptr, ptr %dcl.0.in, align 8
   %tobool1.not = icmp eq ptr %dcl.0, null
   br i1 %tobool1.not, label %if.end.i13, label %for.body, !llvm.loop !27
@@ -3084,7 +3084,7 @@ if.end9.i18:                                      ; preds = %if.end.i13
   %tobool11.not.i21 = icmp ne ptr %14, null
   %cmp20.not.i = icmp eq i32 %dec.i15, 0
   %or.cond = and i1 %cmp20.not.i, %tobool11.not.i21
-  br i1 %or.cond, label %if.else28.i, label %graphic_hw_gl_block.exit25
+  br i1 %or.cond, label %if.else28.i, label %graphic_hw_gl_block.exit26
 
 if.else28.i:                                      ; preds = %if.end9.i18
   %hw.i = getelementptr inbounds i8, ptr %con, i64 192
@@ -3093,9 +3093,9 @@ if.else28.i:                                      ; preds = %if.end9.i18
   %gl_unblock_timer29.i = getelementptr inbounds i8, ptr %con, i64 136
   %16 = load ptr, ptr %gl_unblock_timer29.i, align 8
   tail call void @timer_del(ptr noundef %16) #17
-  br label %graphic_hw_gl_block.exit25
+  br label %graphic_hw_gl_block.exit26
 
-graphic_hw_gl_block.exit25:                       ; preds = %if.end9.i18, %if.else28.i
+graphic_hw_gl_block.exit26:                       ; preds = %if.end9.i18, %if.else28.i
   ret void
 }
 
@@ -3750,7 +3750,7 @@ if.then8:                                         ; preds = %if.end5.i
   br i1 %tobool9.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %if.then8
-  %call12 = tail call ptr @object_get_typename(ptr noundef %1) #17
+  %call12 = tail call ptr @object_get_typename(ptr noundef %2) #17
   %.pre = load i32, ptr %head6.i, align 8
   br label %cond.end
 
@@ -4219,7 +4219,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   store ptr null, ptr %local_err, align 8
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   %call2 = call ptr @qapi_enum_lookup(ptr noundef nonnull @DisplayType_lookup, i32 noundef %1) #17
   %call3 = call i32 @module_load(ptr noundef nonnull @.str.27, ptr noundef %call2, ptr noundef nonnull %local_err) #17
   %cmp4 = icmp slt i32 %call3, 0
@@ -4613,7 +4613,7 @@ for.end:                                          ; preds = %for.body, %dpy_refr
 
 if.then6:                                         ; preds = %for.end
   store i64 %interval.0.lcssa, ptr %update_interval4, align 8
-  %conv = trunc i64 %interval.0.lcssa to i32
+  %conv = trunc nuw nsw i64 %interval.0.lcssa to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %4, 0

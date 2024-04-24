@@ -1591,7 +1591,7 @@ define internal fastcc void @__queue_work(i32 noundef %0, ptr noundef %1, ptr no
   br label %142
 
 142:                                              ; preds = %.thread18, %.thread20, %141, %138
-  %143 = phi ptr [ %96, %.thread18 ], [ %96, %.thread20 ], [ %139, %141 ], [ %111, %138 ]
+  %143 = phi ptr [ %96, %.thread18 ], [ %96, %.thread20 ], [ %139, %141 ], [ %139, %138 ]
   %144 = phi ptr [ %95, %.thread18 ], [ %95, %.thread20 ], [ %134, %141 ], [ %134, %138 ]
   %145 = getelementptr inbounds i8, ptr %144, i64 24
   %146 = load i32, ptr %145, align 8
@@ -2509,7 +2509,7 @@ define dso_local void @__flush_workqueue(ptr noundef %0) #1 align 16 {
   br i1 %102, label %.loopexit17, label %.preheader16, !llvm.loop !107
 
 .loopexit17:                                      ; preds = %96, %.preheader16, %88
-  %103 = phi ptr [ %85, %88 ], [ %91, %.preheader16 ], [ %85, %96 ]
+  %103 = phi ptr [ %89, %88 ], [ %91, %.preheader16 ], [ %97, %96 ]
   %104 = load volatile ptr, ptr %19, align 8
   %105 = icmp eq ptr %104, %19
   %.pre31 = load i32, ptr %16, align 4
@@ -5135,7 +5135,7 @@ define internal fastcc void @show_pwq(ptr noundef %0) unnamed_addr #1 align 16 {
   br label %pr_cont_work.exit
 
 thread-pre-split.thread.i.thread:                 ; preds = %117
-  %121 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.58, i64 noundef %115, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #28
+  %121 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.58, i64 noundef %115, ptr noundef nonnull %80) #28
   br label %pr_cont_work.exit
 
 thread-pre-split.thread.i:                        ; preds = %.thread20, %105, %114

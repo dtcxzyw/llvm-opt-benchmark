@@ -372,7 +372,7 @@ if.then12:                                        ; preds = %if.then4
 if.end15:                                         ; preds = %if.end
   %buffer_end_18 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %buffer_end_18, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %patch_buffer_, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false)
   %overall_limit_ = getelementptr inbounds i8, ptr %this, i64 84
   %4 = load i32, ptr %overall_limit_, align 4
   %cmp19 = icmp sgt i32 %4, 0
@@ -383,7 +383,7 @@ land.lhs.true:                                    ; preds = %if.end15
   br i1 %cmp20, label %if.then23, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %call = tail call noundef zeroext i1 @_ZN6google8protobuf8internal18EpsCopyInputStream21ParseEndsInSlopRegionEPKcii(ptr noundef nonnull %0, i32 noundef %overrun, i32 noundef %depth)
+  %call = tail call noundef zeroext i1 @_ZN6google8protobuf8internal18EpsCopyInputStream21ParseEndsInSlopRegionEPKcii(ptr noundef nonnull %patch_buffer_, i32 noundef %overrun, i32 noundef %depth)
   br i1 %call, label %if.end69, label %if.then23
 
 if.then23:                                        ; preds = %lor.lhs.false, %land.lhs.true
@@ -431,8 +431,8 @@ if.then45:                                        ; preds = %if.else
   %11 = load ptr, ptr %data, align 8
   %conv = zext nneg i32 %7 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr48, ptr align 1 %11, i64 %conv, i1 false)
-  store ptr %0, ptr %next_chunk_, align 8
-  %add.ptr57 = getelementptr inbounds i8, ptr %0, i64 %conv
+  store ptr %patch_buffer_, ptr %next_chunk_, align 8
+  %add.ptr57 = getelementptr inbounds i8, ptr %patch_buffer_, i64 %conv
   store ptr %add.ptr57, ptr %buffer_end_18, align 8
   %aliasing_59 = getelementptr inbounds i8, ptr %this, i64 72
   %12 = load i64, ptr %aliasing_59, align 8
@@ -470,7 +470,8 @@ if.end77:                                         ; preds = %if.then72, %if.end6
   br label %return
 
 return:                                           ; preds = %if.then45, %if.then61, %if.then27, %if.then38, %if.then4, %if.then12, %entry, %if.end77
-  ret ptr %0
+  %retval.0 = phi ptr [ %patch_buffer_, %if.end77 ], [ null, %entry ], [ %0, %if.then12 ], [ %0, %if.then4 ], [ %patch_buffer_, %if.then38 ], [ %patch_buffer_, %if.then27 ], [ %patch_buffer_, %if.then61 ], [ %patch_buffer_, %if.then45 ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1389,7 +1390,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %while.body.i, %entry
   %val.addr.0.lcssa.i = phi i64 [ %conv, %entry ], [ %shr.i, %while.body.i ]
-  %conv1.i = trunc i64 %val.addr.0.lcssa.i to i8
+  %conv1.i = trunc nuw nsw i64 %val.addr.0.lcssa.i to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %s, i8 noundef signext %conv1.i)
   %cmp5.i2 = icmp ugt i64 %val, 127
   br i1 %cmp5.i2, label %while.body.i5, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit10
@@ -1405,7 +1406,7 @@ while.body.i5:                                    ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit10: ; preds = %while.body.i5, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %val.addr.0.lcssa.i3 = phi i64 [ %val, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %shr.i8, %while.body.i5 ]
-  %conv1.i4 = trunc i64 %val.addr.0.lcssa.i3 to i8
+  %conv1.i4 = trunc nuw nsw i64 %val.addr.0.lcssa.i3 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %s, i8 noundef signext %conv1.i4)
   ret void
 }
@@ -1430,7 +1431,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %while.body.i, %entry
   %val.addr.0.lcssa.i = phi i64 [ %conv, %entry ], [ %shr.i, %while.body.i ]
-  %conv1.i = trunc i64 %val.addr.0.lcssa.i to i8
+  %conv1.i = trunc nuw nsw i64 %val.addr.0.lcssa.i to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %s, i8 noundef signext %conv1.i)
   %cmp5.i3 = icmp ugt i64 %val.coerce0, 127
   br i1 %cmp5.i3, label %while.body.i6, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit11
@@ -1446,7 +1447,7 @@ while.body.i6:                                    ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit11: ; preds = %while.body.i6, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %val.addr.0.lcssa.i4 = phi i64 [ %val.coerce0, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %shr.i9, %while.body.i6 ]
-  %conv1.i5 = trunc i64 %val.addr.0.lcssa.i4 to i8
+  %conv1.i5 = trunc nuw nsw i64 %val.addr.0.lcssa.i4 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %s, i8 noundef signext %conv1.i5)
   %call3 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef %val.coerce1, i64 noundef %val.coerce0)
   ret void
@@ -2405,7 +2406,7 @@ while.body.i.i:                                   ; preds = %if.end.i, %while.bo
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %while.body.i.i, %if.end.i
   %val.addr.0.lcssa.i.i = phi i64 [ %conv.i, %if.end.i ], [ %shr.i.i, %while.body.i.i ]
-  %conv1.i.i = trunc i64 %val.addr.0.lcssa.i.i to i8
+  %conv1.i.i = trunc nuw nsw i64 %val.addr.0.lcssa.i.i to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef signext %conv1.i.i)
   %5 = load ptr, ptr %field_parser, align 8
   %cmp5.i1.i = icmp ugt i64 %value.0.ph, 127
@@ -2422,7 +2423,7 @@ while.body.i4.i:                                  ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit9.i: ; preds = %while.body.i4.i, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   %val.addr.0.lcssa.i2.i = phi i64 [ %value.0.ph, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ %shr.i7.i, %while.body.i4.i ]
-  %conv1.i3.i = trunc i64 %val.addr.0.lcssa.i2.i to i8
+  %conv1.i3.i = trunc nuw nsw i64 %val.addr.0.lcssa.i2.i to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 noundef signext %conv1.i3.i)
   br label %sw.epilog
 
@@ -2452,7 +2453,7 @@ while.body.i.i31:                                 ; preds = %if.end.i24, %while.
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i28: ; preds = %while.body.i.i31, %if.end.i24
   %val.addr.0.lcssa.i.i29 = phi i64 [ %conv.i26, %if.end.i24 ], [ %shr.i.i34, %while.body.i.i31 ]
-  %conv1.i.i30 = trunc i64 %val.addr.0.lcssa.i.i29 to i8
+  %conv1.i.i30 = trunc nuw nsw i64 %val.addr.0.lcssa.i.i29 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef signext %conv1.i.i30)
   store i64 %tmp.0.copyload.i.i, ptr %buffer.i, align 8
   %9 = load ptr, ptr %field_parser, align 8
@@ -2514,7 +2515,7 @@ while.body.i.i48:                                 ; preds = %if.end.i39, %while.
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i44: ; preds = %while.body.i.i48, %if.end.i39
   %val.addr.0.lcssa.i.i45 = phi i64 [ %conv.i42, %if.end.i39 ], [ %shr.i.i51, %while.body.i.i48 ]
-  %conv1.i.i46 = trunc i64 %val.addr.0.lcssa.i.i45 to i8
+  %conv1.i.i46 = trunc nuw nsw i64 %val.addr.0.lcssa.i.i45 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 noundef signext %conv1.i.i46)
   store i32 %tmp.0.copyload.i.i36, ptr %buffer.i37, align 4
   %13 = load ptr, ptr %field_parser, align 8
@@ -3066,7 +3067,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %add.ptr.i.i22, ptr %cached_blocks_.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %div10.i.i.i.i, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %if.end34
 
@@ -3608,7 +3609,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %add.ptr.i.i22, ptr %cached_blocks_.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %div10.i.i.i.i, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %if.end34
 
@@ -4131,7 +4132,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %add.ptr.i.i21, ptr %cached_blocks_.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %div10.i.i.i.i, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %if.end34
 
@@ -4654,7 +4655,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %add.ptr.i.i21, ptr %cached_blocks_.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %div10.i.i.i.i, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %if.end34
 
@@ -5959,7 +5960,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %add.ptr.i.i20, ptr %cached_blocks_.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %div10.i.i.i.i, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %if.end34
 
@@ -7127,7 +7128,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %add.ptr.i.i22, ptr %cached_blocks_.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %div10.i.i.i.i, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %if.end34
 
@@ -7476,7 +7477,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %add.ptr.i.i21, ptr %cached_blocks_.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %div10.i.i.i.i, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %if.end34
 
@@ -7644,7 +7645,7 @@ while.body.i:                                     ; preds = %if.end4, %while.bod
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %while.body.i, %if.end4
   %val.addr.0.lcssa.i = phi i64 [ %conv, %if.end4 ], [ %shr.i, %while.body.i ]
-  %conv1.i = trunc i64 %val.addr.0.lcssa.i to i8
+  %conv1.i = trunc nuw nsw i64 %val.addr.0.lcssa.i to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 noundef signext %conv1.i)
   %conv6 = sext i32 %retval.0.i.ph to i64
   %13 = load ptr, ptr %this, align 8
@@ -7662,7 +7663,7 @@ while.body.i14:                                   ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit19: ; preds = %while.body.i14, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %val.addr.0.lcssa.i12 = phi i64 [ %conv6, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %shr.i17, %while.body.i14 ]
-  %conv1.i13 = trunc i64 %val.addr.0.lcssa.i12 to i8
+  %conv1.i13 = trunc nuw nsw i64 %val.addr.0.lcssa.i12 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 noundef signext %conv1.i13)
   %15 = load ptr, ptr %this, align 8
   %buffer_end_.i21 = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -7713,7 +7714,7 @@ while.body.i:                                     ; preds = %if.then, %while.bod
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %while.body.i, %if.then
   %val.addr.0.lcssa.i = phi i64 [ %conv, %if.then ], [ %shr.i, %while.body.i ]
-  %conv1.i = trunc i64 %val.addr.0.lcssa.i to i8
+  %conv1.i = trunc nuw nsw i64 %val.addr.0.lcssa.i to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %conv1.i)
   br label %if.end
 
@@ -7765,7 +7766,7 @@ while.body.i14:                                   ; preds = %if.then10, %while.b
 
 _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit19: ; preds = %while.body.i14, %if.then10
   %val.addr.0.lcssa.i12 = phi i64 [ %conv13, %if.then10 ], [ %shr.i17, %while.body.i14 ]
-  %conv1.i13 = trunc i64 %val.addr.0.lcssa.i12 to i8
+  %conv1.i13 = trunc nuw nsw i64 %val.addr.0.lcssa.i12 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef signext %conv1.i13)
   br label %return
 

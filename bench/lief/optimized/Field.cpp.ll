@@ -276,7 +276,7 @@ define void @_ZNK4LIEF3DEX5Field12access_flagsEv(ptr dead_on_unwind noalias noca
   br i1 %19, label %20, label %_ZNKSt6vectorIN4LIEF3DEX12ACCESS_FLAGSESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
 20:                                               ; preds = %15
-  store ptr %8, ptr %4, align 8
+  store ptr %9, ptr %4, align 8
   store ptr %8, ptr %5, align 8
   store ptr %7, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #19
@@ -336,7 +336,7 @@ _ZNSt20back_insert_iteratorISt6vectorIN4LIEF3DEX12ACCESS_FLAGSESaIS3_EEEaSERKS3_
 .loopexit:                                        ; preds = %26
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %8, ptr %4, align 8
+  store ptr %9, ptr %4, align 8
   store ptr %8, ptr %5, align 8
   store ptr %7, ptr %0, align 8
   br label %40
@@ -1065,7 +1065,7 @@ _ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEE10deallocateEv.exit.i.i: ; preds = 
 24:                                               ; preds = %_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEE10deallocateEv.exit.i.i
   store ptr %13, ptr %11, align 8
   store i64 %20, ptr %23, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %16, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %21, i64 %18, i1 false)
   br label %26
 
 25:                                               ; preds = %_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEE10deallocateEv.exit.i.i

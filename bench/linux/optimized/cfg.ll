@@ -5310,7 +5310,7 @@ define internal noundef i32 @ieee80211_set_tx_power(ptr noundef %0, ptr noundef 
   %15 = getelementptr inbounds i8, ptr %0, i64 7048
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.loopexit.thread, label %18
+  br i1 %17, label %105, label %18
 
 18:                                               ; preds = %14, %9
   %19 = phi ptr [ %16, %14 ], [ %10, %9 ]
@@ -5325,7 +5325,7 @@ define internal noundef i32 @ieee80211_set_tx_power(ptr noundef %0, ptr noundef 
   %22 = urem i32 %3, 100
   %23 = icmp eq i32 %22, 0
   %24 = and i1 %21, %23
-  br i1 %24, label %25, label %.loopexit.thread
+  br i1 %24, label %25, label %105
 
 25:                                               ; preds = %20
   %26 = udiv i32 %3, 100
@@ -5351,7 +5351,7 @@ define internal noundef i32 @ieee80211_set_tx_power(ptr noundef %0, ptr noundef 
 
 37:                                               ; preds = %36, %31
   tail call void @ieee80211_recalc_txpower(ptr noundef %19, i1 noundef zeroext %35) #15
-  br label %.loopexit.thread
+  br label %105
 
 38:                                               ; preds = %7
   switch i32 %2, label %49 [
@@ -5366,7 +5366,7 @@ define internal noundef i32 @ieee80211_set_tx_power(ptr noundef %0, ptr noundef 
   %42 = udiv i32 %3, 100
   %43 = icmp eq i32 %41, 0
   %44 = and i1 %40, %43
-  br i1 %44, label %45, label %.loopexit.thread
+  br i1 %44, label %45, label %105
 
 45:                                               ; preds = %39, %38
   %46 = phi i32 [ -2147483648, %38 ], [ %42, %39 ]
@@ -5380,89 +5380,95 @@ define internal noundef i32 @ieee80211_set_tx_power(ptr noundef %0, ptr noundef 
   %51 = getelementptr inbounds i8, ptr %0, i64 5824
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, %51
-  br i1 %53, label %.loopexit.thread, label %54
+  br i1 %53, label %61, label %54
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds i8, ptr %0, i64 6812
-  br label %62
+  br label %66
 
-56:                                               ; preds = %76
-  %57 = and i8 %78, 1
+56:                                               ; preds = %80
+  %57 = and i8 %82, 1
   %58 = icmp ne i8 %57, 0
-  %59 = and i8 %77, 1
+  %59 = and i8 %81, 1
   %60 = icmp eq i8 %59, 0
   %.pre = load ptr, ptr %51, align 8
-  %61 = icmp eq ptr %.pre, %51
-  br i1 %61, label %.loopexit, label %.preheader
+  br label %61
 
-62:                                               ; preds = %76, %54
-  %63 = phi ptr [ %52, %54 ], [ %79, %76 ]
-  %64 = phi i8 [ 0, %54 ], [ %78, %76 ]
-  %65 = phi i8 [ 0, %54 ], [ %77, %76 ]
-  %66 = getelementptr inbounds i8, ptr %63, i64 4056
-  %67 = load i32, ptr %66, align 8
-  %68 = icmp eq i32 %67, 6
-  br i1 %68, label %76, label %69
+61:                                               ; preds = %56, %49
+  %62 = phi ptr [ %52, %49 ], [ %.pre, %56 ]
+  %63 = phi i1 [ true, %49 ], [ %60, %56 ]
+  %64 = phi i1 [ false, %49 ], [ %58, %56 ]
+  %65 = icmp eq ptr %62, %51
+  br i1 %65, label %.loopexit, label %.preheader
 
-69:                                               ; preds = %62
-  %70 = load i32, ptr %55, align 4
-  %71 = getelementptr inbounds i8, ptr %63, i64 3544
-  store i32 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %63, i64 4336
-  %73 = load i32, ptr %72, align 8
-  %74 = icmp eq i32 %50, %73
-  %75 = select i1 %74, i8 %64, i8 1
-  store i32 %50, ptr %72, align 8
-  br label %76
+66:                                               ; preds = %80, %54
+  %67 = phi ptr [ %52, %54 ], [ %83, %80 ]
+  %68 = phi i8 [ 0, %54 ], [ %82, %80 ]
+  %69 = phi i8 [ 0, %54 ], [ %81, %80 ]
+  %70 = getelementptr inbounds i8, ptr %67, i64 4056
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 6
+  br i1 %72, label %80, label %73
 
-76:                                               ; preds = %69, %62
-  %77 = phi i8 [ %65, %69 ], [ 1, %62 ]
-  %78 = phi i8 [ %75, %69 ], [ %64, %62 ]
-  %79 = load ptr, ptr %63, align 8
-  %80 = icmp eq ptr %79, %51
-  br i1 %80, label %56, label %62, !llvm.loop !122
+73:                                               ; preds = %66
+  %74 = load i32, ptr %55, align 4
+  %75 = getelementptr inbounds i8, ptr %67, i64 3544
+  store i32 %74, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %67, i64 4336
+  %77 = load i32, ptr %76, align 8
+  %78 = icmp eq i32 %50, %77
+  %79 = select i1 %78, i8 %68, i8 1
+  store i32 %50, ptr %76, align 8
+  br label %80
 
-.preheader:                                       ; preds = %56, %86
-  %81 = phi ptr [ %87, %86 ], [ %.pre, %56 ]
-  %82 = getelementptr inbounds i8, ptr %81, i64 4056
-  %83 = load i32, ptr %82, align 8
-  %84 = icmp eq i32 %83, 6
-  br i1 %84, label %86, label %85
+80:                                               ; preds = %73, %66
+  %81 = phi i8 [ %69, %73 ], [ 1, %66 ]
+  %82 = phi i8 [ %79, %73 ], [ %68, %66 ]
+  %83 = load ptr, ptr %67, align 8
+  %84 = icmp eq ptr %83, %51
+  br i1 %84, label %56, label %66, !llvm.loop !122
 
-85:                                               ; preds = %.preheader
-  tail call void @ieee80211_recalc_txpower(ptr noundef %81, i1 noundef zeroext %58) #15
-  br label %86
+.preheader:                                       ; preds = %61, %90
+  %85 = phi ptr [ %91, %90 ], [ %62, %61 ]
+  %86 = getelementptr inbounds i8, ptr %85, i64 4056
+  %87 = load i32, ptr %86, align 8
+  %88 = icmp eq i32 %87, 6
+  br i1 %88, label %90, label %89
 
-86:                                               ; preds = %85, %.preheader
-  %87 = load ptr, ptr %81, align 8
-  %88 = icmp eq ptr %87, %51
-  br i1 %88, label %.loopexit, label %.preheader, !llvm.loop !123
+89:                                               ; preds = %.preheader
+  tail call void @ieee80211_recalc_txpower(ptr noundef %85, i1 noundef zeroext %64) #15
+  br label %90
 
-.loopexit:                                        ; preds = %86, %56
-  br i1 %60, label %.loopexit.thread, label %89
+90:                                               ; preds = %89, %.preheader
+  %91 = load ptr, ptr %85, align 8
+  %92 = icmp eq ptr %91, %51
+  br i1 %92, label %.loopexit, label %.preheader, !llvm.loop !123
 
-89:                                               ; preds = %.loopexit
-  %90 = getelementptr inbounds i8, ptr %0, i64 7048
-  %91 = load ptr, ptr %90, align 8
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %.loopexit.thread, label %93
+.loopexit:                                        ; preds = %90, %61
+  br i1 %63, label %105, label %93
 
-93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %0, i64 6812
-  %95 = load i32, ptr %94, align 4
-  %96 = getelementptr inbounds i8, ptr %91, i64 3544
-  store i32 %95, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %91, i64 4336
-  %98 = load i32, ptr %97, align 8
-  %99 = icmp ne i32 %50, %98
-  store i32 %50, ptr %97, align 8
-  %100 = select i1 %99, i1 true, i1 %58
-  tail call void @ieee80211_recalc_txpower(ptr noundef nonnull %91, i1 noundef zeroext %100) #15
-  br label %.loopexit.thread
+93:                                               ; preds = %.loopexit
+  %94 = getelementptr inbounds i8, ptr %0, i64 7048
+  %95 = load ptr, ptr %94, align 8
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %105, label %97
 
-.loopexit.thread:                                 ; preds = %49, %93, %89, %.loopexit, %39, %37, %20, %14
-  %101 = phi i32 [ 0, %37 ], [ -95, %14 ], [ -95, %20 ], [ -95, %39 ], [ 0, %89 ], [ 0, %93 ], [ 0, %.loopexit ], [ 0, %49 ]
-  ret i32 %101
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds i8, ptr %0, i64 6812
+  %99 = load i32, ptr %98, align 4
+  %100 = getelementptr inbounds i8, ptr %95, i64 3544
+  store i32 %99, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %95, i64 4336
+  %102 = load i32, ptr %101, align 8
+  %103 = icmp ne i32 %50, %102
+  store i32 %50, ptr %101, align 8
+  %104 = select i1 %103, i1 true, i1 %64
+  tail call void @ieee80211_recalc_txpower(ptr noundef nonnull %95, i1 noundef zeroext %104) #15
+  br label %105
+
+105:                                              ; preds = %97, %93, %.loopexit, %39, %37, %20, %14
+  %106 = phi i32 [ 0, %37 ], [ -95, %14 ], [ -95, %20 ], [ -95, %39 ], [ 0, %93 ], [ 0, %97 ], [ 0, %.loopexit ]
+  ret i32 %106
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

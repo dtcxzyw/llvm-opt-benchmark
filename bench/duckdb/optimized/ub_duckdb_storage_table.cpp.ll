@@ -18771,7 +18771,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN6duc
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %invoke.cont3
-  %13 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre78, %for.cond.cleanup ], [ %9, %invoke.cont3 ]
+  %13 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre79, %for.cond.cleanup ], [ %9, %invoke.cont3 ]
   %tobool.not.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6duckdb11DataPointerESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
@@ -81527,7 +81527,7 @@ invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyIN6duc
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %invoke.cont
-  %6 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre, %invoke.cont ]
+  %6 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre25, %invoke.cont ]
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_16SegmentScanStateESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev.exit.i, label %if.then.i.i.i.i
 
@@ -83724,7 +83724,7 @@ invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyIN6duc
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %invoke.cont
-  %19 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre, %invoke.cont ]
+  %19 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre65, %invoke.cont ]
   %tobool.not.i.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_16SegmentScanStateESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev.exit.i, label %if.then.i.i.i.i
 
@@ -109253,7 +109253,7 @@ invoke.cont16.thread:                             ; preds = %_ZN6duckdb10unique_
   br label %_ZN6duckdb11SegmentNodeINS_13ColumnSegmentEED2Ev.exit
 
 if.else.i.i:                                      ; preds = %_ZN6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEaSEOS4_.exit
-  invoke void @_ZNSt6vectorIN6duckdb11SegmentNodeINS0_13ColumnSegmentEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %nodes, ptr %.pre27, ptr noundef nonnull align 8 dereferenceable(16) %node7)
+  invoke void @_ZNSt6vectorIN6duckdb11SegmentNodeINS0_13ColumnSegmentEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %nodes, ptr %.pre28, ptr noundef nonnull align 8 dereferenceable(16) %node7)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %if.else.i.i
@@ -114052,7 +114052,7 @@ invoke.cont16.thread:                             ; preds = %_ZN6duckdb10unique_
   br label %_ZN6duckdb11SegmentNodeINS_8RowGroupEED2Ev.exit
 
 if.else.i.i:                                      ; preds = %_ZN6duckdb10unique_ptrINS_8RowGroupESt14default_deleteIS1_ELb1EEaSEOS4_.exit
-  invoke void @_ZNSt6vectorIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %nodes, ptr %.pre27, ptr noundef nonnull align 8 dereferenceable(16) %node7)
+  invoke void @_ZNSt6vectorIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %nodes, ptr %.pre28, ptr noundef nonnull align 8 dereferenceable(16) %node7)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %if.else.i.i

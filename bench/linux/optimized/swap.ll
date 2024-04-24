@@ -1796,7 +1796,7 @@ define internal fastcc void @folio_batch_move_lru(ptr nocapture noundef %0, ptr 
 31:                                               ; preds = %23, %14
   %32 = phi i64 [ %30, %23 ], [ %10, %14 ]
   %33 = phi ptr [ %28, %23 ], [ %9, %14 ]
-  tail call void @lru_add_fn(ptr noundef %33, ptr noundef %12) #12
+  tail call void %1(ptr noundef %33, ptr noundef %12) #12
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %12, i32 32, ptr elementtype(i8) %12) #12, !srcloc !37
   %34 = add nuw nsw i64 %8, 1
   %35 = load i8, ptr %0, align 8

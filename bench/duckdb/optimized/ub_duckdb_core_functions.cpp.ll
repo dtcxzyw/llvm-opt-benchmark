@@ -12635,7 +12635,7 @@ if.else.i:                                        ; preds = %if.end, %if.end.thr
   %_M_end_of_storage.i134 = phi ptr [ %_M_end_of_storage.i128, %if.end.thread ], [ %_M_end_of_storage.i.i, %if.end ]
   %_M_finish.i132 = phi ptr [ %_M_finish.i127, %if.end.thread ], [ %_M_finish.i.i, %if.end ]
   %type.i130 = phi ptr [ %type.i126, %if.end.thread ], [ %type.i, %if.end ]
-  %18 = phi ptr [ null, %if.end.thread ], [ %.pre, %if.end ]
+  %18 = phi ptr [ null, %if.end.thread ], [ %.pre125, %if.end ]
   invoke void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %input_types, ptr %18, ptr noundef nonnull align 8 dereferenceable(24) %type.i130)
           to label %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE9push_backERKS1_.exit unwind label %lpad16
 

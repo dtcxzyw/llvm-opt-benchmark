@@ -19852,153 +19852,147 @@ define internal void @mt_free_walk(ptr noundef %0) #1 align 16 {
   %40 = and i64 %39, -256
   %41 = inttoptr i64 %40 to ptr
   %42 = icmp eq ptr %17, %41
-  br i1 %42, label %.loopexit9, label %.preheader8.preheader
+  br i1 %42, label %.loopexit9, label %.preheader8
 
-.preheader8.preheader:                            ; preds = %32
-  %43 = getelementptr i8, ptr %0, i64 32
-  br label %.preheader8
-
-.preheader8:                                      ; preds = %.preheader8.preheader, %100
-  %44 = phi ptr [ %109, %100 ], [ %41, %.preheader8.preheader ]
-  %45 = phi i64 [ %107, %100 ], [ %39, %.preheader8.preheader ]
-  %46 = phi ptr [ %106, %100 ], [ %38, %.preheader8.preheader ]
-  %47 = phi ptr [ %95, %100 ], [ %17, %.preheader8.preheader ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 32
-  %49 = load i8, ptr %48, align 8
-  %50 = add i8 %49, 1
-  %51 = trunc i64 %45 to i32
-  %52 = lshr i32 %51, 3
-  %53 = and i32 %52, 15
-  switch i32 %53, label %60 [
-    i32 3, label %54
-    i32 2, label %56
-    i32 1, label %56
-    i32 0, label %58
+.preheader8:                                      ; preds = %32, %.loopexit._crit_edge
+  %43 = phi ptr [ %105, %.loopexit._crit_edge ], [ %41, %32 ]
+  %44 = phi i64 [ %103, %.loopexit._crit_edge ], [ %39, %32 ]
+  %45 = phi ptr [ %102, %.loopexit._crit_edge ], [ %38, %32 ]
+  %46 = phi ptr [ %94, %.loopexit._crit_edge ], [ %17, %32 ]
+  %47 = getelementptr inbounds i8, ptr %46, i64 32
+  %48 = load i8, ptr %47, align 8
+  %49 = add i8 %48, 1
+  %50 = trunc i64 %44 to i32
+  %51 = lshr i32 %50, 3
+  %52 = and i32 %51, 15
+  switch i32 %52, label %59 [
+    i32 3, label %53
+    i32 2, label %55
+    i32 1, label %55
+    i32 0, label %57
   ]
 
-54:                                               ; preds = %.preheader8
-  %55 = getelementptr inbounds i8, ptr %44, i64 80
-  br label %60
+53:                                               ; preds = %.preheader8
+  %54 = getelementptr inbounds i8, ptr %43, i64 80
+  br label %59
 
-56:                                               ; preds = %.preheader8, %.preheader8
-  %57 = getelementptr inbounds i8, ptr %44, i64 128
-  br label %60
+55:                                               ; preds = %.preheader8, %.preheader8
+  %56 = getelementptr inbounds i8, ptr %43, i64 128
+  br label %59
 
-58:                                               ; preds = %.preheader8
-  %59 = getelementptr inbounds i8, ptr %44, i64 8
-  br label %60
+57:                                               ; preds = %.preheader8
+  %58 = getelementptr inbounds i8, ptr %43, i64 8
+  br label %59
 
-60:                                               ; preds = %58, %56, %54, %.preheader8
-  %61 = phi ptr [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ null, %.preheader8 ]
-  %62 = zext nneg i32 %53 to i64
-  %63 = getelementptr [4 x i8], ptr @mt_slots, i64 0, i64 %62
-  %64 = load i8, ptr %63, align 1
-  %65 = icmp ult i8 %50, %64
-  br i1 %65, label %66, label %.loopexit
+59:                                               ; preds = %57, %55, %53, %.preheader8
+  %60 = phi ptr [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ null, %.preheader8 ]
+  %61 = zext nneg i32 %52 to i64
+  %62 = getelementptr [4 x i8], ptr @mt_slots, i64 0, i64 %61
+  %63 = load i8, ptr %62, align 1
+  %64 = icmp ult i8 %49, %63
+  br i1 %64, label %65, label %.loopexit
 
-66:                                               ; preds = %60
-  %67 = zext i8 %50 to i64
-  %68 = getelementptr ptr, ptr %61, i64 %67
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %.loopexit, label %.preheader
+65:                                               ; preds = %59
+  %66 = zext i8 %49 to i64
+  %67 = getelementptr ptr, ptr %60, i64 %66
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %66, %84
-  %71 = phi ptr [ %87, %84 ], [ %44, %66 ]
-  %72 = phi i64 [ 0, %84 ], [ %67, %66 ]
-  %73 = ptrtoint ptr %71 to i64
-  %74 = and i64 %73, -256
-  %75 = inttoptr i64 %74 to ptr
-  %76 = getelementptr inbounds i8, ptr %75, i64 36
-  %77 = load i32, ptr %76, align 4
-  switch i32 %77, label %84 [
-    i32 3, label %78
-    i32 2, label %80
-    i32 1, label %80
-    i32 0, label %82
+.preheader:                                       ; preds = %65, %83
+  %70 = phi ptr [ %86, %83 ], [ %43, %65 ]
+  %71 = phi i64 [ 0, %83 ], [ %66, %65 ]
+  %72 = ptrtoint ptr %70 to i64
+  %73 = and i64 %72, -256
+  %74 = inttoptr i64 %73 to ptr
+  %75 = getelementptr inbounds i8, ptr %74, i64 36
+  %76 = load i32, ptr %75, align 4
+  switch i32 %76, label %83 [
+    i32 3, label %77
+    i32 2, label %79
+    i32 1, label %79
+    i32 0, label %81
   ]
 
-78:                                               ; preds = %.preheader
-  %79 = getelementptr inbounds i8, ptr %75, i64 80
-  br label %84
+77:                                               ; preds = %.preheader
+  %78 = getelementptr inbounds i8, ptr %74, i64 80
+  br label %83
 
-80:                                               ; preds = %.preheader, %.preheader
-  %81 = getelementptr inbounds i8, ptr %75, i64 128
-  br label %84
+79:                                               ; preds = %.preheader, %.preheader
+  %80 = getelementptr inbounds i8, ptr %74, i64 128
+  br label %83
 
-82:                                               ; preds = %.preheader
-  %83 = getelementptr inbounds i8, ptr %75, i64 8
-  br label %84
+81:                                               ; preds = %.preheader
+  %82 = getelementptr inbounds i8, ptr %74, i64 8
+  br label %83
 
-84:                                               ; preds = %82, %80, %78, %.preheader
-  %85 = phi ptr [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ null, %.preheader ]
-  %86 = getelementptr ptr, ptr %85, i64 %72
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 36
-  %89 = load i32, ptr %88, align 4
-  %90 = icmp ult i32 %89, 2
-  br i1 %90, label %.loopexit, label %.preheader, !llvm.loop !184
+83:                                               ; preds = %81, %79, %77, %.preheader
+  %84 = phi ptr [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ null, %.preheader ]
+  %85 = getelementptr ptr, ptr %84, i64 %71
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 36
+  %88 = load i32, ptr %87, align 4
+  %89 = icmp ult i32 %88, 2
+  br i1 %89, label %.loopexit, label %.preheader, !llvm.loop !184
 
-.loopexit:                                        ; preds = %84, %66, %60
-  %91 = phi ptr [ %46, %66 ], [ %46, %60 ], [ %71, %84 ]
-  %92 = phi ptr [ %61, %66 ], [ %61, %60 ], [ %85, %84 ]
-  %93 = ptrtoint ptr %91 to i64
-  %94 = and i64 %93, -256
-  %95 = inttoptr i64 %94 to ptr
-  %96 = icmp eq ptr %2, %95
-  br i1 %96, label %97, label %100
+.loopexit:                                        ; preds = %83, %65, %59
+  %90 = phi ptr [ %45, %65 ], [ %45, %59 ], [ %70, %83 ]
+  %91 = phi ptr [ %60, %65 ], [ %60, %59 ], [ %84, %83 ]
+  %92 = ptrtoint ptr %90 to i64
+  %93 = and i64 %92, -256
+  %94 = inttoptr i64 %93 to ptr
+  %95 = icmp ne ptr %2, %94
+  %96 = getelementptr inbounds i8, ptr %94, i64 40
+  %97 = load i8, ptr %96, align 8
+  %98 = icmp ult i8 %97, %49
+  %or.cond = select i1 %95, i1 true, i1 %98
+  br i1 %or.cond, label %.loopexit._crit_edge, label %107
 
-97:                                               ; preds = %.loopexit
-  %98 = load i8, ptr %43, align 8
-  %99 = icmp ult i8 %98, %50
-  br i1 %99, label %100, label %111
+.loopexit._crit_edge:                             ; preds = %.loopexit
+  %99 = zext i8 %97 to i64
+  %100 = load ptr, ptr @maple_node_cache, align 8
+  tail call void @kmem_cache_free_bulk(ptr noundef %100, i64 noundef %99, ptr noundef %91) #19
+  %101 = getelementptr inbounds i8, ptr %94, i64 24
+  %102 = load ptr, ptr %101, align 8
+  %103 = ptrtoint ptr %102 to i64
+  %104 = and i64 %103, -256
+  %105 = inttoptr i64 %104 to ptr
+  %106 = icmp eq ptr %94, %105
+  br i1 %106, label %.loopexit9, label %.preheader8, !llvm.loop !185
 
-100:                                              ; preds = %97, %.loopexit
-  %101 = getelementptr inbounds i8, ptr %95, i64 40
-  %102 = load i8, ptr %101, align 8
-  %103 = zext i8 %102 to i64
-  %104 = load ptr, ptr @maple_node_cache, align 8
-  tail call void @kmem_cache_free_bulk(ptr noundef %104, i64 noundef %103, ptr noundef %92) #19
-  %105 = getelementptr inbounds i8, ptr %95, i64 24
-  %106 = load ptr, ptr %105, align 8
-  %107 = ptrtoint ptr %106 to i64
-  %108 = and i64 %107, -256
-  %109 = inttoptr i64 %108 to ptr
-  %110 = icmp eq ptr %95, %109
-  br i1 %110, label %.loopexit9, label %.preheader8, !llvm.loop !185
-
-111:                                              ; preds = %97
-  %112 = getelementptr i8, ptr %0, i64 28
-  %113 = load i32, ptr %112, align 4
-  switch i32 %113, label %119 [
-    i32 3, label %114
-    i32 2, label %116
-    i32 1, label %116
-    i32 0, label %118
+107:                                              ; preds = %.loopexit
+  %108 = getelementptr inbounds i8, ptr %94, i64 36
+  %109 = load i32, ptr %108, align 4
+  switch i32 %109, label %116 [
+    i32 3, label %110
+    i32 2, label %112
+    i32 1, label %112
+    i32 0, label %114
   ]
 
-114:                                              ; preds = %111
-  %115 = getelementptr i8, ptr %0, i64 72
-  br label %119
+110:                                              ; preds = %107
+  %111 = getelementptr inbounds i8, ptr %94, i64 80
+  br label %116
 
-116:                                              ; preds = %111, %111
-  %117 = getelementptr i8, ptr %0, i64 120
-  br label %119
+112:                                              ; preds = %107, %107
+  %113 = getelementptr inbounds i8, ptr %94, i64 128
+  br label %116
 
-118:                                              ; preds = %111
-  br label %119
+114:                                              ; preds = %107
+  %115 = getelementptr inbounds i8, ptr %94, i64 8
+  br label %116
 
-119:                                              ; preds = %118, %116, %114, %111
-  %120 = phi ptr [ %0, %118 ], [ %117, %116 ], [ %115, %114 ], [ null, %111 ]
-  %121 = zext i8 %98 to i64
-  %122 = load ptr, ptr @maple_node_cache, align 8
-  tail call void @kmem_cache_free_bulk(ptr noundef %122, i64 noundef %121, ptr noundef %120) #19
+116:                                              ; preds = %114, %112, %110, %107
+  %117 = phi ptr [ %115, %114 ], [ %113, %112 ], [ %111, %110 ], [ null, %107 ]
+  %118 = zext i8 %97 to i64
+  %119 = load ptr, ptr @maple_node_cache, align 8
+  tail call void @kmem_cache_free_bulk(ptr noundef %119, i64 noundef %118, ptr noundef %117) #19
   br label %.loopexit9
 
-.loopexit9:                                       ; preds = %100, %119, %32, %1
-  %123 = phi ptr [ %2, %1 ], [ %2, %119 ], [ %17, %32 ], [ %95, %100 ]
-  %124 = load ptr, ptr @maple_node_cache, align 8
-  tail call void @kmem_cache_free(ptr noundef %124, ptr noundef %123) #19
+.loopexit9:                                       ; preds = %.loopexit._crit_edge, %116, %32, %1
+  %120 = phi ptr [ %2, %1 ], [ %94, %116 ], [ %17, %32 ], [ %94, %.loopexit._crit_edge ]
+  %121 = load ptr, ptr @maple_node_cache, align 8
+  tail call void @kmem_cache_free(ptr noundef %121, ptr noundef %120) #19
   ret void
 }
 

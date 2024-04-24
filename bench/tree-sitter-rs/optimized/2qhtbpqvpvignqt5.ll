@@ -52,7 +52,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %18 = getelementptr inbounds i8, ptr %16, i64 48
   %19 = load i8, ptr %18, align 8, !range !12, !alias.scope !9, !noalias !13, !noundef !4
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   %21 = getelementptr inbounds i8, ptr %16, i64 24
   %22 = load i64, ptr %21, align 8, !alias.scope !9, !noalias !13
   %.not.i.i.i.i.i.i = icmp ne i64 %22, 5
@@ -129,7 +129,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
           to label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha4fb1b9197591b98E.llvm.1377623816751877581.exit.i" unwind label %10, !noalias !53
 
 18:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha4fb1b9197591b98E.llvm.1377623816751877581.exit.i"
-  store ptr %7, ptr %5, align 8, !alias.scope !56, !noalias !59
+  store ptr %8, ptr %5, align 8, !alias.scope !56, !noalias !59
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !62
   store ptr %4, ptr %3, align 8, !noalias !62
   %19 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hba2f2779a64be255E.llvm.5240718638599844143(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
@@ -251,7 +251,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   call void @_ZN11tree_sitter10TreeCursor4node17h6b89bf9cdd560ef0E(ptr noalias nocapture noundef nonnull sret({ { [4 x i32], ptr, ptr }, {} }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val.i.i), !noalias !109
   %13 = tail call noundef zeroext i1 @_ZN11tree_sitter10TreeCursor17goto_next_sibling17hef94ec34d6e0b078E(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val.i.i), !noalias !110
   %14 = load i8, ptr %9, align 1, !range !12, !noalias !113, !noundef !4
-  %15 = trunc i8 %14 to i1
+  %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %10
@@ -543,7 +543,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h43e2c40a3d1efd
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
   %20 = getelementptr inbounds i8, ptr %18, i64 48
   %21 = load i8, ptr %20, align 8, !range !12, !alias.scope !224, !noalias !227, !noundef !4
-  %22 = trunc i8 %21 to i1
+  %22 = trunc nuw i8 %21 to i1
   %23 = getelementptr inbounds i8, ptr %18, i64 24
   %24 = load i64, ptr %23, align 8, !alias.scope !224, !noalias !227
   %.not.i.i.i.i.i = icmp ne i64 %24, 5
@@ -634,7 +634,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hde17ee5164
   call void @_ZN11tree_sitter10TreeCursor4node17h6b89bf9cdd560ef0E(ptr noalias nocapture noundef nonnull sret({ { [4 x i32], ptr, ptr }, {} }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val.i), !noalias !276
   %13 = tail call noundef zeroext i1 @_ZN11tree_sitter10TreeCursor17goto_next_sibling17hef94ec34d6e0b078E(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val.i), !noalias !283
   %14 = load i8, ptr %9, align 1, !range !12, !noalias !286, !noundef !4
-  %15 = trunc i8 %14 to i1
+  %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %10
@@ -682,7 +682,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
   %12 = getelementptr inbounds i8, ptr %10, i64 48
   %13 = load i8, ptr %12, align 8, !range !12, !alias.scope !302, !noalias !305, !noundef !4
-  %14 = trunc i8 %13 to i1
+  %14 = trunc nuw i8 %13 to i1
   %15 = getelementptr inbounds i8, ptr %10, i64 24
   %16 = load i64, ptr %15, align 8, !alias.scope !302, !noalias !305
   %.not.i.i.i.i = icmp ne i64 %16, 5
@@ -772,7 +772,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !328)
   %6 = getelementptr inbounds i8, ptr %4, i64 48
   %7 = load i8, ptr %6, align 8, !range !12, !alias.scope !328, !noundef !4
-  %8 = trunc i8 %7 to i1
+  %8 = trunc nuw i8 %7 to i1
   %9 = getelementptr inbounds i8, ptr %4, i64 24
   %10 = load i64, ptr %9, align 8, !alias.scope !328
   %.not.i.i = icmp ne i64 %10, 5
@@ -791,9 +791,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not17, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdaca417b1e568430E.exit.sink.split", label %.lr.ph
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdaca417b1e568430E.exit.sink.split": ; preds = %"_ZN21tree_sitter_highlight22HighlightConfiguration3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h19cc09ba9f451e18E.exit.backedge", %11
-  %.sink = phi ptr [ %5, %11 ], [ %3, %"_ZN21tree_sitter_highlight22HighlightConfiguration3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h19cc09ba9f451e18E.exit.backedge" ]
   %.lcssa.ph = phi i1 [ true, %11 ], [ false, %"_ZN21tree_sitter_highlight22HighlightConfiguration3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h19cc09ba9f451e18E.exit.backedge" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !325
+  store ptr %5, ptr %0, align 8, !alias.scope !325
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdaca417b1e568430E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdaca417b1e568430E.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdaca417b1e568430E.exit.sink.split", %1
@@ -1097,33 +1096,33 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 .lr.ph.split.split.i.i.i.i:                       ; preds = %43, %63
   %45 = phi i64 [ %60, %63 ], [ %.lcssa212731.i.i, %43 ]
-  %.sroa.7.156.i.i.i.i = sub nuw i64 %.fca.1.extract.val29.i.i, %45
-  %.sroa.0.057.i.i.i.i = getelementptr inbounds i8, ptr %.fca.1.extract.val.i.i, i64 %45
-  %46 = icmp ult i64 %.sroa.7.156.i.i.i.i, 16
+  %.sroa.7.157.i.i.i.i = sub nuw i64 %.fca.1.extract.val29.i.i, %45
+  %.sroa.0.058.i.i.i.i = getelementptr inbounds i8, ptr %.fca.1.extract.val.i.i, i64 %45
+  %46 = icmp ult i64 %.sroa.7.157.i.i.i.i, 16
   br i1 %46, label %49, label %47
 
 47:                                               ; preds = %.lr.ph.split.split.i.i.i.i
-  %48 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h3504444bb25b5daaE(i8 noundef 46, ptr noalias noundef nonnull readonly align 1 %.sroa.0.057.i.i.i.i, i64 noundef %.sroa.7.156.i.i.i.i)
+  %48 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h3504444bb25b5daaE(i8 noundef 46, ptr noalias noundef nonnull readonly align 1 %.sroa.0.058.i.i.i.i, i64 noundef %.sroa.7.157.i.i.i.i)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
 
 49:                                               ; preds = %.lr.ph.split.split.i.i.i.i
-  %.not.i.i.i.i.i16 = icmp eq i64 %.sroa.7.156.i.i.i.i, 0
+  %.not.i.i.i.i.i16 = icmp eq i64 %.sroa.7.157.i.i.i.i, 0
   br i1 %.not.i.i.i.i.i16, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %49, %53
   %.05.i.i.i.i.i = phi i64 [ %54, %53 ], [ 0, %49 ]
-  %50 = getelementptr inbounds [0 x i8], ptr %.sroa.0.057.i.i.i.i, i64 0, i64 %.05.i.i.i.i.i
+  %50 = getelementptr inbounds [0 x i8], ptr %.sroa.0.058.i.i.i.i, i64 0, i64 %.05.i.i.i.i.i
   %51 = load i8, ptr %50, align 1, !alias.scope !449, !noalias !452, !noundef !4
   %52 = icmp eq i8 %51, 46
   br i1 %52, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i.i, label %53
 
 53:                                               ; preds = %.lr.ph.i.i.i.i.i
   %54 = add nuw nsw i64 %.05.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %54, %.sroa.7.156.i.i.i.i
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %54, %.sroa.7.157.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i.i: ; preds = %53, %.lr.ph.i.i.i.i.i, %49
-  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %49 ], [ %.sroa.7.156.i.i.i.i, %53 ], [ %.05.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %49 ], [ %.sroa.7.157.i.i.i.i, %53 ], [ %.05.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.sroa.0.0.i32.i.i.i.i = phi i64 [ 0, %49 ], [ 0, %53 ], [ 1, %.lr.ph.i.i.i.i.i ]
   %55 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i32.i.i.i.i, 0
   %56 = insertvalue { i64, i64 } %55, i64 %.0.lcssa.i.i.i.i.i, 1
@@ -1296,7 +1295,7 @@ define hidden noundef zeroext i1 @"_ZN21tree_sitter_highlight22HighlightConfigur
   tail call void @llvm.experimental.noalias.scope.decl(metadata !502)
   %11 = getelementptr inbounds i8, ptr %9, i64 48
   %12 = load i8, ptr %11, align 8, !range !12, !alias.scope !502, !noalias !505, !noundef !4
-  %13 = trunc i8 %12 to i1
+  %13 = trunc nuw i8 %12 to i1
   %14 = getelementptr inbounds i8, ptr %9, i64 24
   %15 = load i64, ptr %14, align 8, !alias.scope !502, !noalias !505
   %.not.i.i.i = icmp ne i64 %15, 5

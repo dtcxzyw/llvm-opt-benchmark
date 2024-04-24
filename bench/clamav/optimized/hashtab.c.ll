@@ -2590,8 +2590,7 @@ hash.exit.i.i:                                    ; preds = %._crit_edge.loopexi
   br i1 %.not33.i.i, label %cli_hashtab_delete.exit, label %86
 
 cli_hashtab_find.exit.i:                          ; preds = %95, %93
-  %.lcssa39 = phi ptr [ %87, %95 ], [ %1, %93 ]
-  tail call void @free(ptr noundef %.lcssa39) #18
+  tail call void @free(ptr noundef %87) #18
   store ptr @DELETED_KEY, ptr %.024.i.i, align 8
   br label %cli_hashtab_delete.exit
 

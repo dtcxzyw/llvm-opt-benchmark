@@ -418,7 +418,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %call7 = tail call i32 @rand() #31
   %rem8 = srem i32 %call7, 128
-  %conv9 = trunc i32 %rem8 to i8
+  %conv9 = trunc nsw i32 %rem8 to i8
   %arrayidx = getelementptr inbounds [32 x i8], ptr %str, i64 0, i64 %indvars.iv
   store i8 %conv9, ptr %arrayidx, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -429,7 +429,7 @@ for.body14:                                       ; preds = %for.body14.preheade
   %indvars.iv15 = phi i64 [ 0, %for.body14.preheader ], [ %indvars.iv.next16, %for.body14 ]
   %call15 = tail call i32 @rand() #31
   %rem16 = srem i32 %call15, 128
-  %conv17 = trunc i32 %rem16 to i8
+  %conv17 = trunc nsw i32 %rem16 to i8
   %arrayidx19 = getelementptr inbounds [32 x i8], ptr %pat, i64 0, i64 %indvars.iv15
   store i8 %conv17, ptr %arrayidx19, align 1
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
@@ -1032,7 +1032,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %value.addr.028 = phi i64 [ %div, %while.body ], [ %value, %if.end ]
   %next.027 = phi i32 [ %sub15, %while.body ], [ %sub, %if.end ]
   %rem = urem i64 %value.addr.028, 100
-  %rem.tr = trunc i64 %rem to i32
+  %rem.tr = trunc nuw nsw i64 %rem to i32
   %conv4 = shl nuw nsw i32 %rem.tr, 1
   %div = udiv i64 %value.addr.028, 100
   %add5 = or disjoint i32 %conv4, 1
@@ -1060,7 +1060,7 @@ while.end:                                        ; preds = %while.body, %if.end
   br i1 %cmp16, label %if.then18, label %if.else
 
 if.then18:                                        ; preds = %while.end
-  %conv19 = trunc i64 %value.addr.0.lcssa to i8
+  %conv19 = trunc nuw i64 %value.addr.0.lcssa to i8
   %add20 = or disjoint i8 %conv19, 48
   %idxprom22 = zext i32 %next.0.lcssa to i64
   %arrayidx23 = getelementptr inbounds i8, ptr %dst, i64 %idxprom22
@@ -1068,7 +1068,7 @@ if.then18:                                        ; preds = %while.end
   br label %return
 
 if.else:                                          ; preds = %while.end
-  %conv25 = trunc i64 %value.addr.0.lcssa to i32
+  %conv25 = trunc nuw nsw i64 %value.addr.0.lcssa to i32
   %mul26 = shl nuw nsw i32 %conv25, 1
   %add27 = or disjoint i32 %mul26, 1
   %idxprom28 = zext nneg i32 %add27 to i64
@@ -1920,7 +1920,7 @@ while.body:                                       ; preds = %if.end42, %while.bo
   %next.060 = phi i32 [ %spec.select, %while.body ], [ %sub50, %if.end42 ]
   %value.259 = phi i64 [ %div, %while.body ], [ %value.1, %if.end42 ]
   %rem = urem i64 %value.259, 100
-  %rem.tr = trunc i64 %rem to i32
+  %rem.tr = trunc nuw nsw i64 %rem to i32
   %conv54 = shl nuw nsw i32 %rem.tr, 1
   %div = udiv i64 %value.259, 100
   %add55 = or disjoint i32 %conv54, 1
@@ -1951,12 +1951,12 @@ while.end:                                        ; preds = %while.body, %if.end
   br i1 %cmp71, label %if.then73, label %if.else79
 
 if.then73:                                        ; preds = %while.end
-  %conv74 = trunc i64 %value.2.lcssa to i8
+  %conv74 = trunc nuw i64 %value.2.lcssa to i8
   %add75 = or disjoint i8 %conv74, 48
   br label %if.end93
 
 if.else79:                                        ; preds = %while.end
-  %conv81 = trunc i64 %value.2.lcssa to i32
+  %conv81 = trunc nuw nsw i64 %value.2.lcssa to i32
   %mul82 = shl nuw nsw i32 %conv81, 1
   %add83 = or disjoint i32 %mul82, 1
   %idxprom84 = zext nneg i32 %add83 to i64
@@ -2973,7 +2973,7 @@ return:                                           ; preds = %for.body, %if.end, 
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @vsnprintf_async_signal_safe(ptr noundef %to, i64 noundef %size, ptr nocapture noundef readonly %format, ptr nocapture noundef %ap) local_unnamed_addr #25 {
+define dso_local i32 @vsnprintf_async_signal_safe(ptr noundef %to, i64 noundef %size, ptr nocapture noundef readonly %format, ptr nocapture noundef %ap) local_unnamed_addr #25 {
 entry:
   %buff = alloca [22 x i8], align 16
   %add.ptr = getelementptr inbounds i8, ptr %to, i64 %size
@@ -3370,9 +3370,8 @@ for.inc:                                          ; preds = %while.body, %while.
   br label %for.cond, !llvm.loop !40
 
 for.end:                                          ; preds = %for.cond, %if.then
-  %to.addr.0.lcssa = phi ptr [ %to.addr.0, %for.cond ], [ %add.ptr1, %if.then ]
-  store i8 0, ptr %to.addr.0.lcssa, align 1
-  %sub.ptr.lhs.cast = ptrtoint ptr %to.addr.0.lcssa to i64
+  store i8 0, ptr %to.addr.0, align 1
+  %sub.ptr.lhs.cast = ptrtoint ptr %to.addr.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %to to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv120 = trunc i64 %sub.ptr.sub to i32
@@ -3380,7 +3379,7 @@ for.end:                                          ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define dso_local noundef i32 @snprintf_async_signal_safe(ptr noundef %to, i64 noundef %n, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #26 {
+define dso_local i32 @snprintf_async_signal_safe(ptr noundef %to, i64 noundef %n, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #26 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)

@@ -15049,9 +15049,8 @@ invoke.cont.thread:                               ; preds = %call3.i.i.i.noexc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %add.i.i, i1 false)
   %_M_string_length.i33.i.i121 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %3, ptr %_M_string_length.i33.i.i121, align 8, !alias.scope !184
-  store ptr %1, ptr %call3.i.i.i61, align 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8
-  store i8 0, ptr %1, align 8
+  store i8 0, ptr %2, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 invoke.cont:                                      ; preds = %call3.i.i.i.noexc

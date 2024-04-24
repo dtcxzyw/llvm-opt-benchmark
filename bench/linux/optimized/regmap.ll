@@ -7368,7 +7368,7 @@ define internal fastcc i32 @_regmap_raw_write_impl(ptr noundef %0, i32 noundef %
   br label %416
 
 416:                                              ; preds = %415, %411, %.loopexit
-  %417 = phi ptr [ %15, %415 ], [ %365, %411 ], [ %15, %.loopexit ]
+  %417 = phi ptr [ %15, %415 ], [ %365, %411 ], [ %365, %.loopexit ]
   %418 = getelementptr inbounds i8, ptr %0, i64 184
   %419 = load i8, ptr %418, align 8, !range !36, !noundef !37
   %420 = icmp eq i8 %419, 0

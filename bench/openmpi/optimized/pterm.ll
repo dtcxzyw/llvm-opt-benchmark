@@ -363,7 +363,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i144, %79
   %121 = getelementptr inbounds i8, ptr %13, i64 360
   %.09.i = load ptr, ptr %121, align 8
   %.not10.i = icmp eq ptr %.09.i, %120
-  br i1 %.not10.i, label %pmix_cmd_line_get_param.exit164.thread, label %.lr.ph.i147
+  br i1 %.not10.i, label %pmix_cmd_line_get_param.exit.thread, label %.lr.ph.i147
 
 .lr.ph.i147:                                      ; preds = %119, %126
   %.011.i = phi ptr [ %.0.i, %126 ], [ %.09.i, %119 ]
@@ -390,10 +390,10 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i147
   %.09.i149.pre = load ptr, ptr %121, align 8
   br label %pmix_cmd_line_get_param.exit.thread
 
-pmix_cmd_line_get_param.exit.thread:              ; preds = %126, %pmix_cmd_line_get_param.exit
-  %.09.i149 = phi ptr [ %.09.i149.pre, %pmix_cmd_line_get_param.exit ], [ %.09.i, %126 ]
+pmix_cmd_line_get_param.exit.thread:              ; preds = %126, %119, %pmix_cmd_line_get_param.exit
+  %.09.i149 = phi ptr [ %.09.i, %119 ], [ %.09.i149.pre, %pmix_cmd_line_get_param.exit ], [ %.09.i, %126 ]
   %.not10.i150 = icmp eq ptr %.09.i149, %120
-  br i1 %.not10.i150, label %pmix_cmd_line_get_param.exit164.thread, label %.lr.ph.i151
+  br i1 %.not10.i150, label %pmix_cmd_line_get_param.exit156.thread, label %.lr.ph.i151
 
 .lr.ph.i151:                                      ; preds = %pmix_cmd_line_get_param.exit.thread, %138
   %.011.i152 = phi ptr [ %.0.i153, %138 ], [ %.09.i149, %pmix_cmd_line_get_param.exit.thread ]
@@ -420,8 +420,8 @@ pmix_cmd_line_get_param.exit156:                  ; preds = %.lr.ph.i151
   %.09.i157.pre = load ptr, ptr %121, align 8
   br label %pmix_cmd_line_get_param.exit156.thread
 
-pmix_cmd_line_get_param.exit156.thread:           ; preds = %138, %pmix_cmd_line_get_param.exit156
-  %.09.i157 = phi ptr [ %.09.i157.pre, %pmix_cmd_line_get_param.exit156 ], [ %.09.i149, %138 ]
+pmix_cmd_line_get_param.exit156.thread:           ; preds = %138, %pmix_cmd_line_get_param.exit.thread, %pmix_cmd_line_get_param.exit156
+  %.09.i157 = phi ptr [ %.09.i149, %pmix_cmd_line_get_param.exit.thread ], [ %.09.i157.pre, %pmix_cmd_line_get_param.exit156 ], [ %.09.i149, %138 ]
   %.not10.i158 = icmp eq ptr %.09.i157, %120
   br i1 %.not10.i158, label %pmix_cmd_line_get_param.exit164.thread, label %.lr.ph.i159
 
@@ -511,7 +511,7 @@ pmix_cmd_line_get_param.exit164.thread.sink.split: ; preds = %pmix_cmd_line_get_
   %193 = call i32 @PMIx_Info_list_add(ptr noundef %106, ptr noundef nonnull @.str.25, ptr noundef nonnull %9, i16 noundef zeroext 5) #14
   br label %pmix_cmd_line_get_param.exit164.thread
 
-pmix_cmd_line_get_param.exit164.thread:           ; preds = %150, %pmix_cmd_line_get_param.exit164.thread.sink.split, %119, %pmix_cmd_line_get_param.exit.thread, %pmix_cmd_line_get_param.exit156.thread, %161
+pmix_cmd_line_get_param.exit164.thread:           ; preds = %150, %pmix_cmd_line_get_param.exit164.thread.sink.split, %pmix_cmd_line_get_param.exit156.thread, %161
   %.09.i165 = load ptr, ptr %121, align 8
   %.not10.i166 = icmp eq ptr %.09.i165, %120
   br i1 %.not10.i166, label %pmix_cmd_line_get_param.exit172.thread, label %.lr.ph.i167
@@ -839,7 +839,7 @@ pmix_obj_run_destructors.exit202:                 ; preds = %.lr.ph.i199, %._cri
   %339 = call i32 @pthread_cond_destroy(ptr noundef nonnull %247) #14
   %340 = load ptr, ptr %251, align 8
   %.not132 = icmp eq ptr %340, null
-  br i1 %.not132, label %355, label %.sink.split250
+  br i1 %.not132, label %355, label %.sink.split246
 
 341:                                              ; preds = %pmix_obj_run_constructors.exit192
   br i1 %307, label %.lr.ph225, label %._crit_edge226
@@ -874,14 +874,14 @@ pmix_obj_run_destructors.exit207:                 ; preds = %.lr.ph.i204, %._cri
   %353 = call i32 @pthread_cond_destroy(ptr noundef nonnull %247) #14
   %354 = load ptr, ptr %251, align 8
   %.not130 = icmp eq ptr %354, null
-  br i1 %.not130, label %355, label %.sink.split250
+  br i1 %.not130, label %355, label %.sink.split246
 
-.sink.split250:                                   ; preds = %pmix_obj_run_destructors.exit207, %pmix_obj_run_destructors.exit202
+.sink.split246:                                   ; preds = %pmix_obj_run_destructors.exit207, %pmix_obj_run_destructors.exit202
   %.sink = phi ptr [ %340, %pmix_obj_run_destructors.exit202 ], [ %354, %pmix_obj_run_destructors.exit207 ]
   call void @free(ptr noundef nonnull %.sink) #14
   br label %355
 
-355:                                              ; preds = %.sink.split250, %pmix_obj_run_destructors.exit207, %pmix_obj_run_destructors.exit202
+355:                                              ; preds = %.sink.split246, %pmix_obj_run_destructors.exit207, %pmix_obj_run_destructors.exit202
   %356 = load ptr, ptr @stderr, align 8
   %357 = call i64 @fwrite(ptr nonnull @.str.42, i64 5, i64 1, ptr %356) #18
   %358 = call i32 @PMIx_tool_finalize() #14

@@ -2317,7 +2317,7 @@ if.then.i:                                        ; preds = %if.then
   br label %_PyThreadState_Detach.exit
 
 _PyThreadState_Detach.exit:                       ; preds = %if.then, %if.then.i
-  %5 = phi ptr [ %interp, %if.then ], [ %.pre, %if.then.i ]
+  %5 = phi ptr [ %3, %if.then ], [ %.pre, %if.then.i ]
   %state.i.i = getelementptr inbounds i8, ptr %2, i64 32
   store i32 0, ptr %state.i.i, align 8
   %_status.i.i = getelementptr inbounds i8, ptr %2, i64 24
@@ -2574,10 +2574,11 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp8, label %if.then9, label %if.end13
 
 if.then9:                                         ; preds = %while.body
-  %next = getelementptr inbounds i8, ptr %interp4.055, i64 880
+  %next = getelementptr inbounds i8, ptr %9, i64 880
   store ptr null, ptr %next, align 8
   store ptr %interp4.055, ptr %head, align 8
-  %10 = load ptr, ptr %next, align 8
+  %next12 = getelementptr inbounds i8, ptr %interp4.055, i64 880
+  %10 = load ptr, ptr %next12, align 8
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then.i29, %if.end17, %if.then9

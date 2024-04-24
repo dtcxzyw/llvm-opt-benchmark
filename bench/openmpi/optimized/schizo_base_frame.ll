@@ -299,19 +299,19 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %22
   %40 = getelementptr inbounds i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
-  %.not6.i15 = icmp eq ptr %42, null
-  br i1 %.not6.i15, label %pmix_obj_run_destructors.exit19, label %.lr.ph.i16
+  %.not6.i16 = icmp eq ptr %42, null
+  br i1 %.not6.i16, label %pmix_obj_run_destructors.exit20, label %.lr.ph.i17
 
-.lr.ph.i16:                                       ; preds = %._crit_edge, %.lr.ph.i16
-  %43 = phi ptr [ %45, %.lr.ph.i16 ], [ %42, %._crit_edge ]
-  %.07.i17 = phi ptr [ %44, %.lr.ph.i16 ], [ %41, %._crit_edge ]
+.lr.ph.i17:                                       ; preds = %._crit_edge, %.lr.ph.i17
+  %43 = phi ptr [ %45, %.lr.ph.i17 ], [ %42, %._crit_edge ]
+  %.07.i18 = phi ptr [ %44, %.lr.ph.i17 ], [ %41, %._crit_edge ]
   tail call void %43(ptr noundef nonnull @prte_schizo_base) #16
-  %44 = getelementptr inbounds i8, ptr %.07.i17, i64 8
+  %44 = getelementptr inbounds i8, ptr %.07.i18, i64 8
   %45 = load ptr, ptr %44, align 8
-  %.not.i18 = icmp eq ptr %45, null
-  br i1 %.not.i18, label %pmix_obj_run_destructors.exit19, label %.lr.ph.i16, !llvm.loop !6
+  %.not.i19 = icmp eq ptr %45, null
+  br i1 %.not.i19, label %pmix_obj_run_destructors.exit20, label %.lr.ph.i17, !llvm.loop !6
 
-pmix_obj_run_destructors.exit19:                  ; preds = %.lr.ph.i16, %._crit_edge
+pmix_obj_run_destructors.exit20:                  ; preds = %.lr.ph.i17, %._crit_edge
   %46 = tail call i32 @pmix_mca_base_framework_components_close(ptr noundef nonnull @prte_schizo_base_framework, ptr noundef null) #16
   ret i32 %46
 }
@@ -768,7 +768,7 @@ define i32 @prte_schizo_base_sanity(ptr noundef %0) local_unnamed_addr #0 {
   %14 = getelementptr inbounds i8, ptr %0, i64 360
   %.09.i.i = load ptr, ptr %14, align 8
   %.not10.i.i = icmp eq ptr %.09.i.i, %13
-  br i1 %.not10.i.i, label %._crit_edge, label %.lr.ph.i.i
+  br i1 %.not10.i.i, label %pmix_cmd_line_get_ninsts.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %19
   %.011.i.i = phi ptr [ %.0.i.i, %19 ], [ %.09.i.i, %1 ]
@@ -799,10 +799,10 @@ pmix_cmd_line_get_ninsts.exit.pmix_cmd_line_get_ninsts.exit.thread_crit_edge: ; 
   %26 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef 1, ptr noundef nonnull @.str.18) #16
   br label %.loopexit
 
-pmix_cmd_line_get_ninsts.exit.thread:             ; preds = %19, %pmix_cmd_line_get_ninsts.exit.pmix_cmd_line_get_ninsts.exit.thread_crit_edge
-  %.09.i.i116 = phi ptr [ %.09.i.i116.pre, %pmix_cmd_line_get_ninsts.exit.pmix_cmd_line_get_ninsts.exit.thread_crit_edge ], [ %.09.i.i, %19 ]
+pmix_cmd_line_get_ninsts.exit.thread:             ; preds = %19, %pmix_cmd_line_get_ninsts.exit.pmix_cmd_line_get_ninsts.exit.thread_crit_edge, %1
+  %.09.i.i116 = phi ptr [ %.09.i.i116.pre, %pmix_cmd_line_get_ninsts.exit.pmix_cmd_line_get_ninsts.exit.thread_crit_edge ], [ %.09.i.i, %1 ], [ %.09.i.i, %19 ]
   %.not10.i.i117 = icmp eq ptr %.09.i.i116, %13
-  br i1 %.not10.i.i117, label %._crit_edge, label %.lr.ph.i.i118
+  br i1 %.not10.i.i117, label %pmix_cmd_line_get_ninsts.exit124.thread, label %.lr.ph.i.i118
 
 .lr.ph.i.i118:                                    ; preds = %pmix_cmd_line_get_ninsts.exit.thread, %31
   %.011.i.i119 = phi ptr [ %.0.i.i120, %31 ], [ %.09.i.i116, %pmix_cmd_line_get_ninsts.exit.thread ]
@@ -833,10 +833,10 @@ pmix_cmd_line_get_ninsts.exit124.pmix_cmd_line_get_ninsts.exit124.thread_crit_ed
   %38 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef 1, ptr noundef nonnull @.str.84) #16
   br label %.loopexit
 
-pmix_cmd_line_get_ninsts.exit124.thread:          ; preds = %31, %pmix_cmd_line_get_ninsts.exit124.pmix_cmd_line_get_ninsts.exit124.thread_crit_edge
-  %.09.i.i125 = phi ptr [ %.09.i.i125.pre, %pmix_cmd_line_get_ninsts.exit124.pmix_cmd_line_get_ninsts.exit124.thread_crit_edge ], [ %.09.i.i116, %31 ]
+pmix_cmd_line_get_ninsts.exit124.thread:          ; preds = %31, %pmix_cmd_line_get_ninsts.exit124.pmix_cmd_line_get_ninsts.exit124.thread_crit_edge, %pmix_cmd_line_get_ninsts.exit.thread
+  %.09.i.i125 = phi ptr [ %.09.i.i125.pre, %pmix_cmd_line_get_ninsts.exit124.pmix_cmd_line_get_ninsts.exit124.thread_crit_edge ], [ %.09.i.i116, %pmix_cmd_line_get_ninsts.exit.thread ], [ %.09.i.i116, %31 ]
   %.not10.i.i126 = icmp eq ptr %.09.i.i125, %13
-  br i1 %.not10.i.i126, label %._crit_edge, label %.lr.ph.i.i127
+  br i1 %.not10.i.i126, label %pmix_cmd_line_get_ninsts.exit133.thread, label %.lr.ph.i.i127
 
 .lr.ph.i.i127:                                    ; preds = %pmix_cmd_line_get_ninsts.exit124.thread, %43
   %.011.i.i128 = phi ptr [ %.0.i.i129, %43 ], [ %.09.i.i125, %pmix_cmd_line_get_ninsts.exit124.thread ]
@@ -867,10 +867,10 @@ pmix_cmd_line_get_ninsts.exit133.pmix_cmd_line_get_ninsts.exit133.thread_crit_ed
   %50 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef 1, ptr noundef nonnull @.str.85) #16
   br label %.loopexit
 
-pmix_cmd_line_get_ninsts.exit133.thread:          ; preds = %43, %pmix_cmd_line_get_ninsts.exit133.pmix_cmd_line_get_ninsts.exit133.thread_crit_edge
-  %.09.i.i134 = phi ptr [ %.09.i.i134.pre, %pmix_cmd_line_get_ninsts.exit133.pmix_cmd_line_get_ninsts.exit133.thread_crit_edge ], [ %.09.i.i125, %43 ]
+pmix_cmd_line_get_ninsts.exit133.thread:          ; preds = %43, %pmix_cmd_line_get_ninsts.exit133.pmix_cmd_line_get_ninsts.exit133.thread_crit_edge, %pmix_cmd_line_get_ninsts.exit124.thread
+  %.09.i.i134 = phi ptr [ %.09.i.i134.pre, %pmix_cmd_line_get_ninsts.exit133.pmix_cmd_line_get_ninsts.exit133.thread_crit_edge ], [ %.09.i.i125, %pmix_cmd_line_get_ninsts.exit124.thread ], [ %.09.i.i125, %43 ]
   %.not10.i.i135 = icmp eq ptr %.09.i.i134, %13
-  br i1 %.not10.i.i135, label %._crit_edge, label %.lr.ph.i.i136
+  br i1 %.not10.i.i135, label %pmix_cmd_line_get_ninsts.exit142.thread, label %.lr.ph.i.i136
 
 .lr.ph.i.i136:                                    ; preds = %pmix_cmd_line_get_ninsts.exit133.thread, %55
   %.011.i.i137 = phi ptr [ %.0.i.i138, %55 ], [ %.09.i.i134, %pmix_cmd_line_get_ninsts.exit133.thread ]
@@ -901,10 +901,10 @@ pmix_cmd_line_get_ninsts.exit142.pmix_cmd_line_get_ninsts.exit142.thread_crit_ed
   %62 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef 1, ptr noundef nonnull @.str.86) #16
   br label %.loopexit
 
-pmix_cmd_line_get_ninsts.exit142.thread:          ; preds = %55, %pmix_cmd_line_get_ninsts.exit142.pmix_cmd_line_get_ninsts.exit142.thread_crit_edge
-  %.09.i.i143 = phi ptr [ %.09.i.i143.pre, %pmix_cmd_line_get_ninsts.exit142.pmix_cmd_line_get_ninsts.exit142.thread_crit_edge ], [ %.09.i.i134, %55 ]
+pmix_cmd_line_get_ninsts.exit142.thread:          ; preds = %55, %pmix_cmd_line_get_ninsts.exit142.pmix_cmd_line_get_ninsts.exit142.thread_crit_edge, %pmix_cmd_line_get_ninsts.exit133.thread
+  %.09.i.i143 = phi ptr [ %.09.i.i143.pre, %pmix_cmd_line_get_ninsts.exit142.pmix_cmd_line_get_ninsts.exit142.thread_crit_edge ], [ %.09.i.i134, %pmix_cmd_line_get_ninsts.exit133.thread ], [ %.09.i.i134, %55 ]
   %.not10.i.i144 = icmp eq ptr %.09.i.i143, %13
-  br i1 %.not10.i.i144, label %._crit_edge, label %.lr.ph.i.i145
+  br i1 %.not10.i.i144, label %pmix_cmd_line_get_ninsts.exit151.thread, label %.lr.ph.i.i145
 
 .lr.ph.i.i145:                                    ; preds = %pmix_cmd_line_get_ninsts.exit142.thread, %67
   %.011.i.i146 = phi ptr [ %.0.i.i147, %67 ], [ %.09.i.i143, %pmix_cmd_line_get_ninsts.exit142.thread ]
@@ -935,8 +935,8 @@ pmix_cmd_line_get_ninsts.exit151.pmix_cmd_line_get_ninsts.exit151.thread_crit_ed
   %74 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef 1, ptr noundef nonnull @.str.87) #16
   br label %.loopexit
 
-pmix_cmd_line_get_ninsts.exit151.thread:          ; preds = %67, %pmix_cmd_line_get_ninsts.exit151.pmix_cmd_line_get_ninsts.exit151.thread_crit_edge
-  %.081180 = phi ptr [ %.081180.pre, %pmix_cmd_line_get_ninsts.exit151.pmix_cmd_line_get_ninsts.exit151.thread_crit_edge ], [ %.09.i.i143, %67 ]
+pmix_cmd_line_get_ninsts.exit151.thread:          ; preds = %67, %pmix_cmd_line_get_ninsts.exit151.pmix_cmd_line_get_ninsts.exit151.thread_crit_edge, %pmix_cmd_line_get_ninsts.exit142.thread
+  %.081180 = phi ptr [ %.081180.pre, %pmix_cmd_line_get_ninsts.exit151.pmix_cmd_line_get_ninsts.exit151.thread_crit_edge ], [ %.09.i.i143, %pmix_cmd_line_get_ninsts.exit142.thread ], [ %.09.i.i143, %67 ]
   %.not181 = icmp eq ptr %.081180, %13
   br i1 %.not181, label %._crit_edge, label %.lr.ph183
 
@@ -1043,7 +1043,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph, %110, %.lr.
   %.not = icmp eq ptr %.081, %13
   br i1 %.not, label %._crit_edge, label %77, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %pmix_cmd_line_get_param.exit, %1, %pmix_cmd_line_get_ninsts.exit.thread, %pmix_cmd_line_get_ninsts.exit124.thread, %pmix_cmd_line_get_ninsts.exit133.thread, %pmix_cmd_line_get_ninsts.exit142.thread, %pmix_cmd_line_get_ninsts.exit151.thread
+._crit_edge:                                      ; preds = %pmix_cmd_line_get_param.exit, %pmix_cmd_line_get_ninsts.exit151.thread
   %118 = tail call fastcc ptr @pmix_cmd_line_get_param(ptr noundef %0, ptr noundef nonnull @.str.18)
   %.not99 = icmp eq ptr %118, null
   br i1 %.not99, label %124, label %119

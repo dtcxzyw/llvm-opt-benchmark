@@ -3378,7 +3378,7 @@ define internal fastcc i32 @posix_lock_inode(ptr noundef %0, ptr noundef %1, ptr
   %519 = phi ptr [ %362, %513 ], [ %509, %507 ], [ %279, %.preheader261 ], [ %279, %301 ], [ %279, %352 ]
   %520 = phi i8 [ %360, %513 ], [ %508, %507 ], [ %280, %.preheader261 ], [ %280, %301 ], [ %280, %352 ]
   %521 = phi ptr [ %276, %513 ], [ %511, %507 ], [ %276, %.preheader261 ], [ %276, %301 ], [ %276, %352 ]
-  %522 = phi ptr [ %277, %513 ], [ %60, %507 ], [ %277, %.preheader261 ], [ %277, %301 ], [ %277, %352 ]
+  %522 = phi ptr [ %277, %513 ], [ %282, %507 ], [ %277, %.preheader261 ], [ %277, %301 ], [ %277, %352 ]
   %523 = phi ptr [ %278, %513 ], [ %510, %507 ], [ %278, %.preheader261 ], [ %278, %301 ], [ %278, %352 ]
   %524 = and i8 %520, 1
   %525 = icmp eq i8 %524, 0
@@ -3403,7 +3403,7 @@ define internal fastcc i32 @posix_lock_inode(ptr noundef %0, ptr noundef %1, ptr
 .thread79.thread:                                 ; preds = %.preheader90, %.thread79..thread79.thread_crit_edge
   %534 = phi i8 [ %.pre182, %.thread79..thread79.thread_crit_edge ], [ %.fr141, %.preheader90 ]
   %535 = phi ptr [ %528, %.thread79..thread79.thread_crit_edge ], [ %59, %.preheader90 ]
-  %536 = phi ptr [ %529, %.thread79..thread79.thread_crit_edge ], [ %60, %.preheader90 ]
+  %536 = phi ptr [ %529, %.thread79..thread79.thread_crit_edge ], [ %269, %.preheader90 ]
   %537 = phi ptr [ %530, %.thread79..thread79.thread_crit_edge ], [ %1, %.preheader90 ]
   %538 = phi ptr [ %531, %.thread79..thread79.thread_crit_edge ], [ null, %.preheader90 ]
   %539 = phi ptr [ %532, %.thread79..thread79.thread_crit_edge ], [ null, %.preheader90 ]
@@ -3601,33 +3601,33 @@ define internal fastcc i32 @posix_lock_inode(ptr noundef %0, ptr noundef %1, ptr
   br label %646
 
 646:                                              ; preds = %645, %641
-  %647 = getelementptr inbounds i8, ptr %638, i64 72
+  %647 = getelementptr inbounds i8, ptr %639, i64 72
   %648 = load ptr, ptr %647, align 8
   %649 = getelementptr inbounds i8, ptr %58, i64 72
   store ptr %648, ptr %649, align 8
-  %650 = getelementptr inbounds i8, ptr %638, i64 88
+  %650 = getelementptr inbounds i8, ptr %639, i64 88
   %651 = load i32, ptr %650, align 8
   %652 = getelementptr inbounds i8, ptr %58, i64 88
   store i32 %651, ptr %652, align 8
   %653 = getelementptr inbounds i8, ptr %58, i64 120
   store ptr null, ptr %653, align 8
-  %654 = getelementptr inbounds i8, ptr %638, i64 80
+  %654 = getelementptr inbounds i8, ptr %639, i64 80
   %655 = load i32, ptr %654, align 8
   %656 = getelementptr inbounds i8, ptr %58, i64 80
   store i32 %655, ptr %656, align 8
-  %657 = getelementptr inbounds i8, ptr %638, i64 84
+  %657 = getelementptr inbounds i8, ptr %639, i64 84
   %658 = load i8, ptr %657, align 4
   %659 = getelementptr inbounds i8, ptr %58, i64 84
   store i8 %658, ptr %659, align 4
-  %660 = getelementptr inbounds i8, ptr %638, i64 128
+  %660 = getelementptr inbounds i8, ptr %639, i64 128
   %661 = load i64, ptr %660, align 8
   %662 = getelementptr inbounds i8, ptr %58, i64 128
   store i64 %661, ptr %662, align 8
-  %663 = getelementptr inbounds i8, ptr %638, i64 136
+  %663 = getelementptr inbounds i8, ptr %639, i64 136
   %664 = load i64, ptr %663, align 8
   %665 = getelementptr inbounds i8, ptr %58, i64 136
   store i64 %664, ptr %665, align 8
-  %666 = getelementptr inbounds i8, ptr %638, i64 176
+  %666 = getelementptr inbounds i8, ptr %639, i64 176
   %667 = load ptr, ptr %666, align 8
   %668 = getelementptr inbounds i8, ptr %58, i64 176
   store ptr %667, ptr %668, align 8
@@ -3648,10 +3648,10 @@ define internal fastcc i32 @posix_lock_inode(ptr noundef %0, ptr noundef %1, ptr
   br label %678
 
 678:                                              ; preds = %675, %671, %646
-  %679 = getelementptr inbounds i8, ptr %638, i64 120
+  %679 = getelementptr inbounds i8, ptr %639, i64 120
   %680 = load ptr, ptr %679, align 8
   store ptr %680, ptr %653, align 8
-  %681 = getelementptr inbounds i8, ptr %638, i64 168
+  %681 = getelementptr inbounds i8, ptr %639, i64 168
   %682 = load ptr, ptr %681, align 8
   store ptr %682, ptr %642, align 8
   %683 = icmp eq ptr %682, null
@@ -3663,7 +3663,7 @@ define internal fastcc i32 @posix_lock_inode(ptr noundef %0, ptr noundef %1, ptr
   br i1 %686, label %688, label %687
 
 687:                                              ; preds = %684
-  call void %685(ptr noundef %58, ptr noundef nonnull %638) #15
+  call void %685(ptr noundef %58, ptr noundef nonnull %639) #15
   br label %688
 
 688:                                              ; preds = %687, %684, %678
@@ -3862,7 +3862,7 @@ define dso_local noundef i32 @lease_modify(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %4, label %5, label %locks_delete_lock_ctx.exit
 
 5:                                                ; preds = %3
-  %6 = trunc i32 %1 to i8
+  %6 = trunc nuw nsw i32 %1 to i8
   %7 = getelementptr inbounds i8, ptr %0, i64 84
   store i8 %6, ptr %7, align 4
   switch i32 %1, label %16 [
@@ -5283,7 +5283,7 @@ define dso_local i32 @generic_setlease(ptr noundef %0, i32 noundef %1, ptr nocap
   br label %.loopexit24
 
 .loopexit24:                                      ; preds = %94, %97, %82
-  %99 = phi ptr [ %86, %97 ], [ %83, %82 ], [ %83, %94 ]
+  %99 = phi ptr [ %86, %97 ], [ %84, %82 ], [ %95, %94 ]
   %100 = phi ptr [ %98, %97 ], [ null, %82 ], [ null, %94 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_generic_delete_lease, i64 0, i32 1), i32 2) #15
           to label %121 [label %101], !srcloc !71
@@ -5599,9 +5599,9 @@ select.unfold21.thread:                           ; preds = %222
   %265 = getelementptr i8, ptr %260, i64 64
   %266 = load ptr, ptr %265, align 8
   %267 = icmp eq ptr %266, %264
-  br i1 %267, label %.lr.ph63, label %select.unfold
+  br i1 %267, label %.lr.ph65, label %select.unfold
 
-268:                                              ; preds = %.lr.ph63
+268:                                              ; preds = %.lr.ph65
   %269 = getelementptr i8, ptr %277, i64 112
   %270 = load ptr, ptr %269, align 8
   %271 = icmp eq ptr %270, %0
@@ -5611,9 +5611,9 @@ select.unfold21.thread:                           ; preds = %222
   %273 = getelementptr i8, ptr %277, i64 64
   %274 = load ptr, ptr %273, align 8
   %275 = icmp eq ptr %274, %264
-  br i1 %275, label %.lr.ph63, label %select.unfold.loopexit, !llvm.loop !121
+  br i1 %275, label %.lr.ph65, label %select.unfold.loopexit, !llvm.loop !121
 
-.lr.ph63:                                         ; preds = %.lr.ph, %272
+.lr.ph65:                                         ; preds = %.lr.ph, %272
   %276 = phi ptr [ %277, %272 ], [ %260, %.lr.ph ]
   %277 = load ptr, ptr %276, align 8
   %278 = icmp eq ptr %277, %259
@@ -5648,7 +5648,7 @@ select.unfold21.thread:                           ; preds = %222
   %298 = icmp eq ptr %297, %256
   br i1 %298, label %.split33.us, label %.split, !llvm.loop !121
 
-.split33.us.loopexit:                             ; preds = %.lr.ph63
+.split33.us.loopexit:                             ; preds = %.lr.ph65
   %299 = getelementptr i8, ptr %276, i64 -8
   br label %.split33.us
 
@@ -5909,7 +5909,7 @@ define dso_local i32 @fcntl_setlease(i32 noundef %0, ptr noundef %1, i32 noundef
   br label %lease_alloc.exit.thread
 
 lease_alloc.exit:                                 ; preds = %22
-  %34 = trunc i32 %2 to i8
+  %34 = trunc nuw nsw i32 %2 to i8
   %35 = getelementptr inbounds i8, ptr %20, i64 84
   store i8 %34, ptr %35, align 4
   %36 = getelementptr inbounds i8, ptr %20, i64 72
@@ -6234,7 +6234,7 @@ define internal fastcc i64 @__se_sys_flock(i64 noundef %0, i64 noundef %1) unnam
   store i32 %48, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %3, i64 80
   store i32 2, ptr %50, align 8
-  %51 = trunc i32 %.ph2711 to i8
+  %51 = trunc nuw nsw i32 %.ph2711 to i8
   %52 = getelementptr inbounds i8, ptr %3, i64 84
   store i8 %51, ptr %52, align 4
   %53 = getelementptr inbounds i8, ptr %3, i64 136
@@ -6477,7 +6477,7 @@ thread-pre-split:                                 ; preds = %7
   br i1 %72, label %73, label %flock_to_posix_lock.exit.thread
 
 73:                                               ; preds = %60
-  %74 = trunc i16 %.pr to i8
+  %74 = trunc nuw nsw i16 %.pr to i8
   %75 = getelementptr inbounds i8, ptr %5, i64 84
   store i8 %74, ptr %75, align 4
   br i1 %16, label %76, label %81
@@ -6732,7 +6732,7 @@ define dso_local i32 @fcntl_setlk(i32 noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %72, label %73, label %flock_to_posix_lock.exit.thread
 
 73:                                               ; preds = %60
-  %74 = trunc i16 %19 to i8
+  %74 = trunc nuw nsw i16 %19 to i8
   %75 = getelementptr inbounds i8, ptr %6, i64 84
   store i8 %74, ptr %75, align 4
   switch i8 %74, label %86 [

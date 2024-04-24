@@ -360,7 +360,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -419,7 +419,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -3847,7 +3847,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp4, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %call6 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9setCharAtEiDs(ptr noundef nonnull align 8 dereferenceable(64) %uKey, i32 noundef %8, i16 noundef zeroext 58)
           to label %if.then.for.inc_crit_edge unwind label %lpad.loopexit
 
@@ -4294,7 +4294,7 @@ if.end11.i.i:                                     ; preds = %if.then7.i.i
   store ptr %4, ptr %mzID12.i.i, align 8
   %tzID13.i.i = getelementptr inbounds i8, ptr %call8.i.i, i64 8
   store ptr null, ptr %tzID13.i.i, align 8
-  %8 = trunc i64 %indvars.iv.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.i to i32
   %9 = icmp ult i32 %8, 7
   br i1 %9, label %switch.lookup, label %_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i
 
@@ -4390,7 +4390,7 @@ if.end11.i.i25:                                   ; preds = %if.then7.i.i22
   store ptr null, ptr %mzID12.i.i26, align 8
   %tzID13.i.i27 = getelementptr inbounds i8, ptr %call8.i.i23, i64 8
   store ptr %16, ptr %tzID13.i.i27, align 8
-  %20 = trunc i64 %indvars.iv.i19 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.i19 to i32
   %21 = icmp ult i32 %20, 7
   br i1 %21, label %switch.lookup69, label %_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i29
 
@@ -5058,7 +5058,7 @@ for.body.i19:                                     ; preds = %if.else, %for.inc.i
   br i1 %cmp4.i, label %if.then.i24, label %for.inc.i21
 
 if.then.i24:                                      ; preds = %for.body.i19
-  %21 = trunc i64 %indvars.iv.i20 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i20 to i32
   %call6.i = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9setCharAtEiDs(ptr noundef nonnull align 8 dereferenceable(64) %tzID, i32 noundef %21, i16 noundef zeroext 47)
           to label %if.then.for.inc_crit_edge.i unwind label %lpad.i
 
@@ -7248,7 +7248,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp4.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %13 = trunc i64 %indvars.iv.i to i32
+  %13 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call6.i = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9setCharAtEiDs(ptr noundef nonnull align 8 dereferenceable(64) %tzID, i32 noundef %13, i16 noundef zeroext 47)
           to label %if.then.for.inc_crit_edge.i unwind label %lpad.i
 

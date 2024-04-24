@@ -269,19 +269,16 @@ define weak_odr dso_local void @_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7I
 entry:
   br label %for.cond
 
-for.cond:                                         ; preds = %for.body, %entry
-  %pCurrent.0.in = phi ptr [ %this, %entry ], [ %pCurrent.0, %for.body ]
+for.cond:                                         ; preds = %for.cond, %entry
+  %pCurrent.0.in = phi ptr [ %this, %entry ], [ %pCurrent.0, %for.cond ]
   %pCurrent.0 = load ptr, ptr %pCurrent.0.in, align 8
   %tobool.not = icmp eq ptr %pCurrent.0, null
-  br i1 %tobool.not, label %for.end, label %for.body
-
-for.body:                                         ; preds = %for.cond
   %cmp = icmp eq ptr %pCurrent.0, %value
-  br i1 %cmp, label %for.end, label %for.cond, !llvm.loop !9
+  %or.cond = or i1 %tobool.not, %cmp
+  br i1 %or.cond, label %for.end, label %for.cond, !llvm.loop !9
 
-for.end:                                          ; preds = %for.body, %for.cond
-  %storemerge = phi ptr [ null, %for.cond ], [ %value, %for.body ]
-  store ptr %storemerge, ptr %agg.result, align 8
+for.end:                                          ; preds = %for.cond
+  store ptr %pCurrent.0, ptr %agg.result, align 8
   ret void
 }
 
@@ -1048,7 +1045,7 @@ entry:
   %ref.tmp = alloca %"class.eastl::basic_string", align 8
   %ref.tmp43 = alloca %"class.eastl::basic_string", align 8
   %0 = load ptr, ptr %cont, align 8
-  call void @llvm.va_start(ptr nonnull %val)
+  call void @llvm.va_start.p0(ptr nonnull %val)
   %cmp.i.not66 = icmp eq ptr %0, null
   %gp_offset15.pre = load i32, ptr %val, align 16
   br i1 %cmp.i.not66, label %while.end, label %while.body.lr.ph
@@ -1338,25 +1335,19 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit57: ; preds = %_ZN15TestSDListL
 
 return:                                           ; preds = %vaarg.end23, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit57, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit
   %retval.0 = phi i1 [ false, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit ], [ false, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit57 ], [ true, %vaarg.end23 ]
-  call void @llvm.va_end(ptr nonnull %val)
+  call void @llvm.va_end.p0(ptr nonnull %val)
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
 declare void @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 declare noundef ptr @_ZnamPKcijS0_i(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pBegin, ptr noundef %pEnd) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1454,7 +1445,13 @@ if.end23:                                         ; preds = %cond.false.i, %cond
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7
@@ -1471,10 +1468,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

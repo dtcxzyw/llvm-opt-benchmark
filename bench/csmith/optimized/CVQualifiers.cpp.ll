@@ -753,29 +753,29 @@ define dso_local noundef zeroext i1 @_ZNK12CVQualifiers13stricter_thanERKS_(ptr 
   br i1 %.not32, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %27
-  %.not63 = icmp eq i64 %15, 0
-  br i1 %.not63, label %.loopexit, label %.lr.ph
+  %.not65 = icmp eq i64 %15, 0
+  br i1 %.not65, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %78
-  %.02955 = phi i64 [ %79, %78 ], [ 0, %.preheader ]
-  %52 = sub i64 %15, %.02955
+  %.02957 = phi i64 [ %79, %78 ], [ 0, %.preheader ]
+  %52 = sub i64 %15, %.02957
   %53 = icmp ugt i64 %52, 2
-  %54 = sdiv i64 %.02955, 64
+  %54 = sdiv i64 %.02957, 64
   br i1 %53, label %55, label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %.pre74 = and i64 %.02955, -9223372036854775745
-  %.pre76 = and i64 %.02955, 63
-  %.pre78 = shl nuw i64 1, %.pre76
+  %.pre76 = and i64 %.02957, -9223372036854775745
+  %.pre78 = and i64 %.02957, 63
+  %.pre80 = shl nuw i64 1, %.pre78
   br label %69
 
 55:                                               ; preds = %.lr.ph
   %56 = getelementptr inbounds i64, ptr %9, i64 %54
-  %57 = and i64 %.02955, -9223372036854775745
+  %57 = and i64 %.02957, -9223372036854775745
   %58 = icmp ugt i64 %57, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %58, i64 -8, i64 0
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 %storemerge.idx.i.i.i.i.i
-  %59 = and i64 %.02955, 63
+  %59 = and i64 %.02957, 63
   %60 = shl nuw i64 1, %59
   %61 = load i64, ptr %storemerge.i.i.i.i.i, align 8
   %62 = and i64 %61, %60
@@ -789,33 +789,33 @@ define dso_local noundef zeroext i1 @_ZNK12CVQualifiers13stricter_thanERKS_(ptr 
   br i1 %68, label %.loopexit, label %69
 
 69:                                               ; preds = %.lr.ph._crit_edge, %55
-  %.pre-phi79 = phi i64 [ %.pre78, %.lr.ph._crit_edge ], [ %60, %55 ]
-  %.pre-phi75 = phi i64 [ %.pre74, %.lr.ph._crit_edge ], [ %57, %55 ]
+  %.pre-phi81 = phi i64 [ %.pre80, %.lr.ph._crit_edge ], [ %60, %55 ]
+  %.pre-phi77 = phi i64 [ %.pre76, %.lr.ph._crit_edge ], [ %57, %55 ]
   %70 = getelementptr inbounds i64, ptr %20, i64 %54
-  %71 = icmp ugt i64 %.pre-phi75, -9223372036854775808
+  %71 = icmp ugt i64 %.pre-phi77, -9223372036854775808
   %storemerge.idx.i.i.i.i.i38 = select i1 %71, i64 -8, i64 0
   %storemerge.i.i.i.i.i39 = getelementptr inbounds i8, ptr %70, i64 %storemerge.idx.i.i.i.i.i38
   %72 = load i64, ptr %storemerge.i.i.i.i.i39, align 8
-  %73 = and i64 %72, %.pre-phi79
-  %.not52 = icmp eq i64 %73, 0
-  br i1 %.not52, label %78, label %74
+  %73 = and i64 %72, %.pre-phi81
+  %.not54 = icmp eq i64 %73, 0
+  br i1 %.not54, label %78, label %74
 
 74:                                               ; preds = %69
   %75 = getelementptr inbounds i64, ptr %9, i64 %54
   %storemerge.i.i.i.i.i41 = getelementptr inbounds i8, ptr %75, i64 %storemerge.idx.i.i.i.i.i38
   %76 = load i64, ptr %storemerge.i.i.i.i.i41, align 8
-  %77 = and i64 %76, %.pre-phi79
-  %.not53 = icmp eq i64 %77, 0
-  br i1 %.not53, label %.loopexit, label %78
+  %77 = and i64 %76, %.pre-phi81
+  %.not55 = icmp eq i64 %77, 0
+  br i1 %.not55, label %.loopexit, label %78
 
 78:                                               ; preds = %69, %74
-  %79 = add nuw i64 %.02955, 1
+  %79 = add nuw i64 %.02957, 1
   %80 = icmp ult i64 %79, %15
   br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %78
-  %.not81 = icmp eq i64 %15, 1
-  br i1 %.not81, label %.lr.ph58.preheader, label %81
+  %.not83 = icmp eq i64 %15, 1
+  br i1 %.not83, label %.lr.ph60.preheader, label %81
 
 81:                                               ; preds = %._crit_edge
   %82 = load i64, ptr %34, align 8
@@ -825,67 +825,67 @@ define dso_local noundef zeroext i1 @_ZNK12CVQualifiers13stricter_thanERKS_(ptr 
   %86 = and i64 %85, 1
   %87 = icmp ne i64 %86, 0
   %88 = xor i1 %84, %87
-  br i1 %88, label %.loopexit, label %.lr.ph58.preheader
+  br i1 %88, label %.loopexit, label %.lr.ph60.preheader
 
-.lr.ph58.preheader:                               ; preds = %81, %._crit_edge
-  br label %.lr.ph58
+.lr.ph60.preheader:                               ; preds = %81, %._crit_edge
+  br label %.lr.ph60
 
-.lr.ph58:                                         ; preds = %.lr.ph58.preheader, %115
-  %.156 = phi i64 [ %116, %115 ], [ 0, %.lr.ph58.preheader ]
-  %89 = sub i64 %15, %.156
+.lr.ph60:                                         ; preds = %.lr.ph60.preheader, %115
+  %.158 = phi i64 [ %116, %115 ], [ 0, %.lr.ph60.preheader ]
+  %89 = sub i64 %15, %.158
   %90 = icmp ugt i64 %89, 2
-  %91 = sdiv i64 %.156, 64
-  br i1 %90, label %92, label %.lr.ph58._crit_edge
+  %91 = sdiv i64 %.158, 64
+  br i1 %90, label %92, label %.lr.ph60._crit_edge
 
-.lr.ph58._crit_edge:                              ; preds = %.lr.ph58
-  %.pre66 = and i64 %.156, -9223372036854775745
-  %.pre68 = and i64 %.156, 63
-  %.pre70 = shl nuw i64 1, %.pre68
+.lr.ph60._crit_edge:                              ; preds = %.lr.ph60
+  %.pre68 = and i64 %.158, -9223372036854775745
+  %.pre70 = and i64 %.158, 63
+  %.pre72 = shl nuw i64 1, %.pre70
   br label %106
 
-92:                                               ; preds = %.lr.ph58
+92:                                               ; preds = %.lr.ph60
   %93 = getelementptr inbounds i64, ptr %34, i64 %91
-  %94 = and i64 %.156, -9223372036854775745
+  %94 = and i64 %.158, -9223372036854775745
   %95 = icmp ugt i64 %94, -9223372036854775808
-  %storemerge.idx.i.i.i.i.i42 = select i1 %95, i64 -8, i64 0
-  %storemerge.i.i.i.i.i43 = getelementptr inbounds i8, ptr %93, i64 %storemerge.idx.i.i.i.i.i42
-  %96 = and i64 %.156, 63
+  %storemerge.idx.i.i.i.i.i44 = select i1 %95, i64 -8, i64 0
+  %storemerge.i.i.i.i.i45 = getelementptr inbounds i8, ptr %93, i64 %storemerge.idx.i.i.i.i.i44
+  %96 = and i64 %.158, 63
   %97 = shl nuw i64 1, %96
-  %98 = load i64, ptr %storemerge.i.i.i.i.i43, align 8
+  %98 = load i64, ptr %storemerge.i.i.i.i.i45, align 8
   %99 = and i64 %98, %97
   %100 = icmp ne i64 %99, 0
   %101 = getelementptr inbounds i64, ptr %45, i64 %91
-  %storemerge.i.i.i.i.i45 = getelementptr inbounds i8, ptr %101, i64 %storemerge.idx.i.i.i.i.i42
-  %102 = load i64, ptr %storemerge.i.i.i.i.i45, align 8
+  %storemerge.i.i.i.i.i47 = getelementptr inbounds i8, ptr %101, i64 %storemerge.idx.i.i.i.i.i44
+  %102 = load i64, ptr %storemerge.i.i.i.i.i47, align 8
   %103 = and i64 %102, %97
   %104 = icmp ne i64 %103, 0
   %105 = xor i1 %100, %104
   br i1 %105, label %.loopexit, label %106
 
-106:                                              ; preds = %.lr.ph58._crit_edge, %92
-  %.pre-phi71 = phi i64 [ %.pre70, %.lr.ph58._crit_edge ], [ %97, %92 ]
-  %.pre-phi67 = phi i64 [ %.pre66, %.lr.ph58._crit_edge ], [ %94, %92 ]
+106:                                              ; preds = %.lr.ph60._crit_edge, %92
+  %.pre-phi73 = phi i64 [ %.pre72, %.lr.ph60._crit_edge ], [ %97, %92 ]
+  %.pre-phi69 = phi i64 [ %.pre68, %.lr.ph60._crit_edge ], [ %94, %92 ]
   %107 = getelementptr inbounds i64, ptr %45, i64 %91
-  %108 = icmp ugt i64 %.pre-phi67, -9223372036854775808
-  %storemerge.idx.i.i.i.i.i46 = select i1 %108, i64 -8, i64 0
-  %storemerge.i.i.i.i.i47 = getelementptr inbounds i8, ptr %107, i64 %storemerge.idx.i.i.i.i.i46
-  %109 = load i64, ptr %storemerge.i.i.i.i.i47, align 8
-  %110 = and i64 %109, %.pre-phi71
-  %.not50 = icmp eq i64 %110, 0
-  br i1 %.not50, label %115, label %111
+  %108 = icmp ugt i64 %.pre-phi69, -9223372036854775808
+  %storemerge.idx.i.i.i.i.i48 = select i1 %108, i64 -8, i64 0
+  %storemerge.i.i.i.i.i49 = getelementptr inbounds i8, ptr %107, i64 %storemerge.idx.i.i.i.i.i48
+  %109 = load i64, ptr %storemerge.i.i.i.i.i49, align 8
+  %110 = and i64 %109, %.pre-phi73
+  %.not52 = icmp eq i64 %110, 0
+  br i1 %.not52, label %115, label %111
 
 111:                                              ; preds = %106
   %112 = getelementptr inbounds i64, ptr %34, i64 %91
-  %storemerge.i.i.i.i.i49 = getelementptr inbounds i8, ptr %112, i64 %storemerge.idx.i.i.i.i.i46
-  %113 = load i64, ptr %storemerge.i.i.i.i.i49, align 8
-  %114 = and i64 %113, %.pre-phi71
-  %.not51 = icmp eq i64 %114, 0
-  br i1 %.not51, label %.loopexit, label %115
+  %storemerge.i.i.i.i.i51 = getelementptr inbounds i8, ptr %112, i64 %storemerge.idx.i.i.i.i.i48
+  %113 = load i64, ptr %storemerge.i.i.i.i.i51, align 8
+  %114 = and i64 %113, %.pre-phi73
+  %.not53 = icmp eq i64 %114, 0
+  br i1 %.not53, label %.loopexit, label %115
 
 115:                                              ; preds = %106, %111
-  %116 = add nuw i64 %.156, 1
+  %116 = add nuw i64 %.158, 1
   %117 = icmp ult i64 %116, %15
-  br i1 %117, label %.lr.ph58, label %.loopexit, !llvm.loop !8
+  br i1 %117, label %.lr.ph60, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %74, %55, %92, %111, %115, %.preheader, %81, %2, %27
   %.0 = phi i1 [ false, %27 ], [ false, %2 ], [ false, %81 ], [ true, %.preheader ], [ false, %92 ], [ false, %111 ], [ true, %115 ], [ false, %55 ], [ false, %74 ]
@@ -6492,7 +6492,7 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZSt4copyISt13_Bit_
   %141 = sub i64 %11, %140
   %142 = ashr exact i64 %141, 3
   %143 = sub nsw i64 0, %142
-  %144 = getelementptr inbounds i64, ptr %6, i64 %143
+  %144 = getelementptr inbounds i64, ptr %8, i64 %143
   tail call void @_ZdlPv(ptr noundef %144) #20
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
@@ -6593,7 +6593,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %21, label %.critedge, label %23
 
 .critedge:                                        ; preds = %2, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEE11lower_boundERSD_.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
-  %.08.lcssa.i.i.i10 = phi ptr [ %7, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEE11lower_boundERSD_.exit ], [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %7, %2 ]
+  %.08.lcssa.i.i.i10 = phi ptr [ %.19.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEE11lower_boundERSD_.exit ], [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %7, %2 ]
   store ptr %1, ptr %3, align 8
   %22 = call ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN10EnumeratorIS5_E10EnumObjectEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESN_IJEEEEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i10, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
   br label %23
@@ -6773,7 +6773,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %27, label %._crit_edge.thread.i, label %33
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %20
-  %.020.lcssa32.i = phi ptr [ %.02127.i, %._crit_edge.i ], [ %1, %20 ]
+  %.020.lcssa32.i = phi ptr [ %.02127.i, %._crit_edge.i ], [ %4, %20 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %.020.lcssa32.i, %29
@@ -7018,8 +7018,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN10EnumeratorIS5_E10EnumObjectEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE24_M_get_insert_unique_posERS7_.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN10EnumeratorIS5_E10EnumObjectEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE24_M_get_insert_unique_posERS7_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48, %._crit_edge.thread.i55, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24, %._crit_edge.thread.i31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i, %._crit_edge.thread.i, %100, %59, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34, %88, %47, %18
-  %.sroa.078.0 = phi ptr [ null, %18 ], [ %1, %47 ], [ null, %88 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select, %59 ], [ %spec.select80, %100 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ null, %._crit_edge.thread.i31 ], [ %spec.select.i25, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ null, %._crit_edge.thread.i55 ], [ %spec.select.i49, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
-  %.sroa.12.0 = phi ptr [ %19, %18 ], [ %1, %47 ], [ %1, %88 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select79, %59 ], [ %spec.select81, %100 ], [ %.020.lcssa32.i, %._crit_edge.thread.i ], [ %spec.select22.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ %.020.lcssa32.i32, %._crit_edge.thread.i31 ], [ %spec.select22.i26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ %.020.lcssa32.i56, %._crit_edge.thread.i55 ], [ %spec.select22.i50, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
+  %.sroa.078.0 = phi ptr [ null, %18 ], [ %49, %47 ], [ null, %88 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select, %59 ], [ %spec.select80, %100 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ null, %._crit_edge.thread.i31 ], [ %spec.select.i25, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ null, %._crit_edge.thread.i55 ], [ %spec.select.i49, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
+  %.sroa.12.0 = phi ptr [ %19, %18 ], [ %49, %47 ], [ %90, %88 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select79, %59 ], [ %spec.select81, %100 ], [ %.020.lcssa32.i, %._crit_edge.thread.i ], [ %spec.select22.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ %.020.lcssa32.i32, %._crit_edge.thread.i31 ], [ %spec.select22.i26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ %.020.lcssa32.i56, %._crit_edge.thread.i55 ], [ %spec.select22.i50, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.078.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -7064,7 +7064,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10EnumeratorINSt7__cxx1112b
   br i1 %6, label %tailrecurse._crit_edge, label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
-  %.lcssa = phi ptr [ %4, %1 ], [ %49, %tailrecurse ]
+  %.lcssa = phi ptr [ %5, %1 ], [ %49, %tailrecurse ]
   %7 = getelementptr inbounds i8, ptr %.lcssa, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 4

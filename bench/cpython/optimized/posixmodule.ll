@@ -19944,19 +19944,19 @@ if.end122:                                        ; preds = %if.end98
   br i1 %cmp125, label %if.then126, label %if.else127
 
 if.then126:                                       ; preds = %if.end122
-  %47 = load i64, ptr %o.addr.0, align 8
+  %47 = load i64, ptr %42, align 8
   %48 = and i64 %47, 2147483648
   %cmp.i172.not = icmp eq i64 %48, 0
   br i1 %cmp.i172.not, label %if.end.i, label %if.end129
 
 if.end.i:                                         ; preds = %if.then126
   %dec.i = add i64 %47, -1
-  store i64 %dec.i, ptr %o.addr.0, align 8
+  store i64 %dec.i, ptr %42, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %if.end129
 
 if.then1.i:                                       ; preds = %if.end.i
-  call void @_Py_Dealloc(ptr noundef nonnull %o.addr.0) #22
+  call void @_Py_Dealloc(ptr noundef nonnull %42) #22
   br label %if.end129
 
 if.else127:                                       ; preds = %if.end122

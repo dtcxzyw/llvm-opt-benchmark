@@ -5834,7 +5834,7 @@ define internal fastcc noundef i32 @hwloc_calc_parse_range(ptr noundef %0, ptr n
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr @stderr, align 8
-  %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.313, ptr noundef nonnull %64, ptr noundef nonnull %8) #25
+  %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.313, ptr noundef nonnull %66, ptr noundef nonnull %8) #25
   br label %88
 
 80:                                               ; preds = %45

@@ -5749,7 +5749,7 @@ for.body:                                         ; preds = %_ZNK6vectorIP4exprL
   %7 = load ptr, ptr %arrayidx.i15, align 8
   %arrayidx.i17 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx.i17, align 8
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw i64 %indvars.iv to i32
   switch i32 %9, label %if.else33 [
     i32 1, label %if.then
     i32 2, label %if.then21
@@ -6202,7 +6202,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %_ZN7obj_refI3app11a
 
 if.end82:                                         ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i, %_ZN7obj_refI3app11ast_managerE7dec_refEv.exit.i, %invoke.cont79, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit
   %67 = phi ptr [ %55, %_ZN11ast_manager7inc_refEP3ast.exit.i.i ], [ null, %_ZN7obj_refI3app11ast_managerE7dec_refEv.exit.i ], [ %52, %invoke.cont79 ], [ %call.i19, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %7, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit ]
-  %68 = phi ptr [ %55, %_ZN11ast_manager7inc_refEP3ast.exit.i.i ], [ null, %_ZN7obj_refI3app11ast_managerE7dec_refEv.exit.i ], [ %52, %invoke.cont79 ], [ %2, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %2, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit ]
+  %68 = phi ptr [ %55, %_ZN11ast_manager7inc_refEP3ast.exit.i.i ], [ null, %_ZN7obj_refI3app11ast_managerE7dec_refEv.exit.i ], [ %55, %invoke.cont79 ], [ %2, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %2, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit ]
   %69 = load ptr, ptr %m, align 8
   %call.i150 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %69, i32 noundef 0, i32 noundef 6, ptr noundef %8, ptr noundef %67)
           to label %invoke.cont86 unwind label %lpad15

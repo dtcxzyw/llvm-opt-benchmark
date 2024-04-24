@@ -330,7 +330,7 @@ define hidden void @_ZN8rawspeed8identify16find_cameras_xmlB5cxx11EPKc(ptr dead_
   %103 = icmp ult i64 %102, 16
   call void @llvm.assume(i1 %103)
   %104 = add nuw nsw i64 %102, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %96, ptr noundef nonnull align 8 dereferenceable(1) %98, i64 %104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %96, ptr noundef nonnull align 8 dereferenceable(1) %97, i64 %104, i1 false)
   br label %109
 
 105:                                              ; preds = %95
@@ -1140,7 +1140,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly %1) local_u
   %341 = call i64 @_ZNK8rawspeed12RawImageData15getUncroppedDimEv(ptr noundef nonnull align 8 dereferenceable(616) %205) #26
   %342 = trunc i64 %341 to i32
   %343 = lshr i64 %341, 32
-  %344 = trunc i64 %343 to i32
+  %344 = trunc nuw i64 %343 to i32
   %345 = load ptr, ptr @stdout, align 8, !tbaa !7
   %346 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %345, ptr noundef nonnull @.str.30, i32 noundef %342, i32 noundef %344) #20
   %347 = getelementptr inbounds i8, ptr %205, i64 40
@@ -1152,7 +1152,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly %1) local_u
   %353 = call i64 @_ZNK8rawspeed12RawImageData13getCropOffsetEv(ptr noundef nonnull align 8 dereferenceable(616) %205) #26
   %354 = trunc i64 %353 to i32
   %355 = lshr i64 %353, 32
-  %356 = trunc i64 %355 to i32
+  %356 = trunc nuw i64 %355 to i32
   %357 = load ptr, ptr @stdout, align 8, !tbaa !7
   %358 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %357, ptr noundef nonnull @.str.32, i32 noundef %354, i32 noundef %356) #20
   %359 = load ptr, ptr @stdout, align 8, !tbaa !7

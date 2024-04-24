@@ -192,7 +192,7 @@ x509_attr_descr_from_name.exit:                   ; preds = %19
   br i1 %61, label %x509_attr_descr_from_name.exit.thread, label %62
 
 62:                                               ; preds = %.critedge72.thread, %57, %.critedge72
-  %63 = phi ptr [ %.159.ph, %.critedge72 ], [ %56, %57 ], [ %54, %.critedge72.thread ]
+  %63 = phi ptr [ %56, %.critedge72 ], [ %56, %57 ], [ %54, %.critedge72.thread ]
   %.249102 = phi i32 [ 0, %.critedge72 ], [ 0, %57 ], [ 1, %.critedge72.thread ]
   %.260101 = phi ptr [ %.159.ph, %.critedge72 ], [ %.159.ph, %57 ], [ %.260.ph, %.critedge72.thread ]
   %.15382100 = phi ptr [ %.153.ph, %.critedge72 ], [ %.153.ph, %57 ], [ %.15382.ph, %.critedge72.thread ]

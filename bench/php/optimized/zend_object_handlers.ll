@@ -5506,7 +5506,7 @@ zend_check_protected.exit:                        ; preds = %36, %.preheader.i, 
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %44
-  %50 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %0, %44 ]
+  %50 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %46, %44 ]
   %51 = getelementptr inbounds i8, ptr %50, i64 312
   %52 = load ptr, ptr %51, align 8
   %53 = icmp ne ptr %52, null
@@ -5587,7 +5587,7 @@ zend_bad_method_call.exit:                        ; preds = %68, %70
   br label %.critedge2
 
 .critedge2:                                       ; preds = %..critedge2_crit_edge, %83
-  %89 = phi ptr [ %.pre119, %..critedge2_crit_edge ], [ %0, %83 ]
+  %89 = phi ptr [ %.pre119, %..critedge2_crit_edge ], [ %85, %83 ]
   %90 = getelementptr inbounds i8, ptr %89, i64 312
   %91 = load ptr, ptr %90, align 8
   %92 = icmp ne ptr %91, null

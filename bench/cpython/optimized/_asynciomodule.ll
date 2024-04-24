@@ -4250,19 +4250,19 @@ if.then1.i158.i:                                  ; preds = %if.end.i155.i
 self_await.i:                                     ; preds = %if.end87
   %89 = load ptr, ptr @PyExc_RuntimeError, align 8
   %call131.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef %state, ptr noundef nonnull %task, ptr noundef %89, ptr noundef nonnull @.str.34, ptr noundef nonnull %task)
-  %90 = load i64, ptr %task, align 8
+  %90 = load i64, ptr %17, align 8
   %91 = and i64 %90, 2147483648
   %cmp.i321.not.i = icmp eq i64 %91, 0
   br i1 %cmp.i321.not.i, label %if.end.i146.i, label %task_step_handle_result_impl.exit
 
 if.end.i146.i:                                    ; preds = %self_await.i
   %dec.i147.i = add i64 %90, -1
-  store i64 %dec.i147.i, ptr %task, align 8
+  store i64 %dec.i147.i, ptr %17, align 8
   %cmp.i148.i = icmp eq i64 %dec.i147.i, 0
   br i1 %cmp.i148.i, label %if.then1.i149.i, label %task_step_handle_result_impl.exit
 
 if.then1.i149.i:                                  ; preds = %if.end.i146.i
-  call void @_Py_Dealloc(ptr noundef nonnull %task) #6
+  call void @_Py_Dealloc(ptr noundef nonnull %17) #6
   br label %task_step_handle_result_impl.exit
 
 yield_insteadof_yf.i:                             ; preds = %Py_DECREF.exit223.i, %if.end6.i
@@ -8097,11 +8097,11 @@ Py_INCREF.exit50:                                 ; preds = %if.end22, %if.end.i
 
 if.end.i40:                                       ; preds = %Py_INCREF.exit50
   store i32 %add.i38, ptr %12, align 8
-  %.pre45 = load ptr, ptr %fut_context0, align 8
+  %.pre46 = load ptr, ptr %fut_context0, align 8
   br label %Py_INCREF.exit42
 
 Py_INCREF.exit42:                                 ; preds = %Py_INCREF.exit50, %if.end.i40
-  %14 = phi ptr [ %12, %Py_INCREF.exit50 ], [ %.pre45, %if.end.i40 ]
+  %14 = phi ptr [ %12, %Py_INCREF.exit50 ], [ %.pre46, %if.end.i40 ]
   %arrayidx.i = getelementptr i8, ptr %call19, i64 32
   store ptr %14, ptr %arrayidx.i, align 8
   %15 = getelementptr i8, ptr %call15, i64 24
@@ -8113,16 +8113,16 @@ Py_INCREF.exit42:                                 ; preds = %Py_INCREF.exit50, %
 
 for.cond.preheader:                               ; preds = %Py_INCREF.exit42
   %17 = getelementptr i8, ptr %16, i64 16
-  %.val42 = load i64, ptr %17, align 8
-  %cmp3143 = icmp sgt i64 %.val42, 0
-  br i1 %cmp3143, label %for.body, label %return
+  %.val43 = load i64, ptr %17, align 8
+  %cmp3144 = icmp sgt i64 %.val43, 0
+  br i1 %cmp3144, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %Py_INCREF.exit
   %18 = phi ptr [ %22, %Py_INCREF.exit ], [ %16, %for.cond.preheader ]
-  %i.044 = phi i64 [ %add33, %Py_INCREF.exit ], [ 0, %for.cond.preheader ]
+  %i.045 = phi i64 [ %add33, %Py_INCREF.exit ], [ 0, %for.cond.preheader ]
   %ob_item = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load ptr, ptr %ob_item, align 8
-  %arrayidx = getelementptr ptr, ptr %19, i64 %i.044
+  %arrayidx = getelementptr ptr, ptr %19, i64 %i.045
   %20 = load ptr, ptr %arrayidx, align 8
   %21 = load i32, ptr %20, align 8
   %add.i = add i32 %21, 1
@@ -8134,10 +8134,10 @@ if.end.i:                                         ; preds = %for.body
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %for.body, %if.end.i
-  %add33 = add nuw nsw i64 %i.044, 1
+  %add33 = add nuw nsw i64 %i.045, 1
   %call15.val = load ptr, ptr %15, align 8
-  %arrayidx.i39 = getelementptr ptr, ptr %call15.val, i64 %add33
-  store ptr %20, ptr %arrayidx.i39, align 8
+  %arrayidx.i40 = getelementptr ptr, ptr %call15.val, i64 %add33
+  store ptr %20, ptr %arrayidx.i40, align 8
   %22 = load ptr, ptr %fut_callbacks, align 8
   %23 = getelementptr i8, ptr %22, i64 16
   %.val = load i64, ptr %23, align 8

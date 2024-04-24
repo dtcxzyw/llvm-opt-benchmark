@@ -1040,7 +1040,7 @@ if.end15:                                         ; preds = %if.end8
 
 if.then19:                                        ; preds = %if.end15
   %13 = lshr i64 %12, 32
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw i64 %13 to i32
   %15 = trunc i64 %12 to i32
   %LowerRightCorner.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i43, i64 8
   %16 = load i32, ptr %LowerRightCorner.i.i, align 4, !tbaa !74
@@ -1688,7 +1688,7 @@ if.then42:                                        ; preds = %if.end38
   %73 = load i64, ptr %add.ptr.i.i208, align 4, !tbaa.struct !66
   %p.sroa.0.0.extract.trunc = trunc i64 %73 to i32
   %p.sroa.7.0.extract.shift = lshr i64 %73, 32
-  %p.sroa.7.0.extract.trunc = trunc i64 %p.sroa.7.0.extract.shift to i32
+  %p.sroa.7.0.extract.trunc = trunc nuw i64 %p.sroa.7.0.extract.shift to i32
   %LowerRightCorner.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i206, i64 8
   %74 = load i32, ptr %LowerRightCorner.i.i, align 4, !tbaa !74
   %75 = load i32, ptr %add.ptr.i.i206, align 4, !tbaa !77
@@ -2765,7 +2765,7 @@ _ZSt8_DestroyIPN3irr3gui14CGUISpriteBank10SDrawBatchES3_EvT_S5_RSaIT0_E.exitthre
   br label %_ZSt8_DestroyIPN3irr3gui14CGUISpriteBank10SDrawBatchES3_EvT_S5_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN3irr3gui14CGUISpriteBank10SDrawBatchES3_EvT_S5_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN3irr3gui14CGUISpriteBank10SDrawBatchES3_EvT_S5_RSaIT0_E.exitthread-pre-split, %_ZNSt6vectorIN3irr3gui14CGUISpriteBank10SDrawBatchESaIS3_EE20_M_allocate_and_copyIPKS3_EEPS3_mT_SA_.exit, %_ZNSt12_Vector_baseIN3irr3gui14CGUISpriteBank10SDrawBatchESaIS3_EE11_M_allocateEm.exit.i
-  %5 = phi ptr [ %.pr, %_ZSt8_DestroyIPN3irr3gui14CGUISpriteBank10SDrawBatchES3_EvT_S5_RSaIT0_E.exitthread-pre-split ], [ %.pre, %_ZNSt6vectorIN3irr3gui14CGUISpriteBank10SDrawBatchESaIS3_EE20_M_allocate_and_copyIPKS3_EEPS3_mT_SA_.exit ], [ %1, %_ZNSt12_Vector_baseIN3irr3gui14CGUISpriteBank10SDrawBatchESaIS3_EE11_M_allocateEm.exit.i ]
+  %5 = phi ptr [ %.pr, %_ZSt8_DestroyIPN3irr3gui14CGUISpriteBank10SDrawBatchES3_EvT_S5_RSaIT0_E.exitthread-pre-split ], [ %.pre38, %_ZNSt6vectorIN3irr3gui14CGUISpriteBank10SDrawBatchESaIS3_EE20_M_allocate_and_copyIPKS3_EEPS3_mT_SA_.exit ], [ %1, %_ZNSt12_Vector_baseIN3irr3gui14CGUISpriteBank10SDrawBatchESaIS3_EE11_M_allocateEm.exit.i ]
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN3irr3gui14CGUISpriteBank10SDrawBatchESaIS3_EE13_M_deallocateEPS3_m.exit, label %if.then.i
 

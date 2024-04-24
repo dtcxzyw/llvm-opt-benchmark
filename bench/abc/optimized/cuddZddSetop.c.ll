@@ -652,156 +652,158 @@ define ptr @cuddZddDiff(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %1
-  %7 = icmp eq ptr %5, %2
-  %or.cond = or i1 %6, %7
-  br i1 %or.cond, label %95, label %8
+  br i1 %6, label %96, label %7
 
-8:                                                ; preds = %3
-  %9 = icmp eq ptr %1, %2
-  br i1 %9, label %95, label %10
+7:                                                ; preds = %3
+  %8 = icmp eq ptr %5, %2
+  br i1 %8, label %96, label %9
 
-10:                                               ; preds = %8
-  %11 = tail call ptr @cuddCacheLookup2Zdd(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDiff, ptr noundef %1, ptr noundef %2) #3
-  %switch = icmp ult ptr %11, inttoptr (i64 2 to ptr)
-  br i1 %switch, label %12, label %95
+9:                                                ; preds = %7
+  %10 = icmp eq ptr %1, %2
+  br i1 %10, label %96, label %11
 
-12:                                               ; preds = %10
-  %13 = load i32, ptr %1, align 8
-  %14 = icmp eq i32 %13, 2147483647
-  br i1 %14, label %21, label %15
+11:                                               ; preds = %9
+  %12 = tail call ptr @cuddCacheLookup2Zdd(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDiff, ptr noundef %1, ptr noundef %2) #3
+  %switch = icmp ult ptr %12, inttoptr (i64 2 to ptr)
+  br i1 %switch, label %13, label %96
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 320
-  %17 = load ptr, ptr %16, align 8
-  %18 = zext i32 %13 to i64
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
-  %20 = load i32, ptr %19, align 4
-  br label %21
+13:                                               ; preds = %11
+  %14 = load i32, ptr %1, align 8
+  %15 = icmp eq i32 %14, 2147483647
+  br i1 %15, label %22, label %16
 
-21:                                               ; preds = %12, %15
-  %.076 = phi i32 [ %20, %15 ], [ 2147483647, %12 ]
-  %22 = load i32, ptr %2, align 8
-  %23 = icmp eq i32 %22, 2147483647
-  br i1 %23, label %30, label %24
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %0, i64 320
+  %18 = load ptr, ptr %17, align 8
+  %19 = zext i32 %14 to i64
+  %20 = getelementptr inbounds i32, ptr %18, i64 %19
+  %21 = load i32, ptr %20, align 4
+  br label %22
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 320
-  %26 = load ptr, ptr %25, align 8
-  %27 = zext i32 %22 to i64
-  %28 = getelementptr inbounds i32, ptr %26, i64 %27
-  %29 = load i32, ptr %28, align 4
-  br label %30
+22:                                               ; preds = %13, %16
+  %.076 = phi i32 [ %21, %16 ], [ 2147483647, %13 ]
+  %23 = load i32, ptr %2, align 8
+  %24 = icmp eq i32 %23, 2147483647
+  br i1 %24, label %31, label %25
 
-30:                                               ; preds = %21, %24
-  %.077 = phi i32 [ %29, %24 ], [ 2147483647, %21 ]
-  %31 = icmp slt i32 %.076, %.077
-  br i1 %31, label %32, label %50
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %0, i64 320
+  %27 = load ptr, ptr %26, align 8
+  %28 = zext i32 %23 to i64
+  %29 = getelementptr inbounds i32, ptr %27, i64 %28
+  %30 = load i32, ptr %29, align 4
+  br label %31
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %1, i64 24
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call ptr @cuddZddDiff(ptr noundef nonnull %0, ptr noundef %34, ptr noundef nonnull %2)
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %95, label %37
+31:                                               ; preds = %22, %25
+  %.077 = phi i32 [ %30, %25 ], [ 2147483647, %22 ]
+  %32 = icmp slt i32 %.076, %.077
+  br i1 %32, label %33, label %51
 
-37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %1, i64 16
-  %39 = ptrtoint ptr %35 to i64
-  %40 = and i64 %39, -2
-  %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
-  %43 = load i32, ptr %42, align 4
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %42, align 4
-  %45 = load i32, ptr %1, align 8
-  %46 = load ptr, ptr %38, align 8
-  %47 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %45, ptr noundef %46, ptr noundef nonnull %35) #3
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %.sink.split
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call ptr @cuddZddDiff(ptr noundef nonnull %0, ptr noundef %35, ptr noundef nonnull %2)
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %96, label %38
 
-49:                                               ; preds = %37
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %35) #3
-  br label %95
+38:                                               ; preds = %33
+  %39 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = ptrtoint ptr %36 to i64
+  %41 = and i64 %40, -2
+  %42 = inttoptr i64 %41 to ptr
+  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %44 = load i32, ptr %43, align 4
+  %45 = add i32 %44, 1
+  store i32 %45, ptr %43, align 4
+  %46 = load i32, ptr %1, align 8
+  %47 = load ptr, ptr %39, align 8
+  %48 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %46, ptr noundef %47, ptr noundef nonnull %36) #3
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %.sink.split
 
-50:                                               ; preds = %30
-  %51 = icmp sgt i32 %.076, %.077
-  br i1 %51, label %52, label %57
+50:                                               ; preds = %38
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %36) #3
+  br label %96
 
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %2, i64 24
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call ptr @cuddZddDiff(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %54)
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %95, label %94
+51:                                               ; preds = %31
+  %52 = icmp sgt i32 %.076, %.077
+  br i1 %52, label %53, label %58
 
-57:                                               ; preds = %50
-  %58 = getelementptr inbounds i8, ptr %1, i64 16
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 16
-  %61 = load ptr, ptr %60, align 8
-  %62 = tail call ptr @cuddZddDiff(ptr noundef nonnull %0, ptr noundef %59, ptr noundef %61)
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %95, label %64
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds i8, ptr %2, i64 24
+  %55 = load ptr, ptr %54, align 8
+  %56 = tail call ptr @cuddZddDiff(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %55)
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %96, label %95
 
-64:                                               ; preds = %57
-  %65 = ptrtoint ptr %62 to i64
-  %66 = and i64 %65, -2
-  %67 = inttoptr i64 %66 to ptr
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
-  %69 = load i32, ptr %68, align 4
-  %70 = add i32 %69, 1
-  store i32 %70, ptr %68, align 4
-  %71 = getelementptr inbounds i8, ptr %1, i64 24
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %2, i64 24
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call ptr @cuddZddDiff(ptr noundef nonnull %0, ptr noundef %72, ptr noundef %74)
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %78
+58:                                               ; preds = %51
+  %59 = getelementptr inbounds i8, ptr %1, i64 16
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %2, i64 16
+  %62 = load ptr, ptr %61, align 8
+  %63 = tail call ptr @cuddZddDiff(ptr noundef nonnull %0, ptr noundef %60, ptr noundef %62)
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %96, label %65
 
-77:                                               ; preds = %64
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %62) #3
-  br label %95
+65:                                               ; preds = %58
+  %66 = ptrtoint ptr %63 to i64
+  %67 = and i64 %66, -2
+  %68 = inttoptr i64 %67 to ptr
+  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %70 = load i32, ptr %69, align 4
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %69, align 4
+  %72 = getelementptr inbounds i8, ptr %1, i64 24
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %2, i64 24
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call ptr @cuddZddDiff(ptr noundef nonnull %0, ptr noundef %73, ptr noundef %75)
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %78, label %79
 
-78:                                               ; preds = %64
-  %79 = ptrtoint ptr %75 to i64
-  %80 = and i64 %79, -2
-  %81 = inttoptr i64 %80 to ptr
-  %82 = getelementptr inbounds i8, ptr %81, i64 4
-  %83 = load i32, ptr %82, align 4
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %82, align 4
-  %85 = load i32, ptr %1, align 8
-  %86 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %85, ptr noundef nonnull %62, ptr noundef nonnull %75) #3
-  %87 = icmp eq ptr %86, null
-  br i1 %87, label %88, label %89
+78:                                               ; preds = %65
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %63) #3
+  br label %96
 
-88:                                               ; preds = %78
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %62) #3
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %75) #3
-  br label %95
+79:                                               ; preds = %65
+  %80 = ptrtoint ptr %76 to i64
+  %81 = and i64 %80, -2
+  %82 = inttoptr i64 %81 to ptr
+  %83 = getelementptr inbounds i8, ptr %82, i64 4
+  %84 = load i32, ptr %83, align 4
+  %85 = add i32 %84, 1
+  store i32 %85, ptr %83, align 4
+  %86 = load i32, ptr %1, align 8
+  %87 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %86, ptr noundef nonnull %63, ptr noundef nonnull %76) #3
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %89, label %90
 
-89:                                               ; preds = %78
-  %90 = load i32, ptr %68, align 4
-  %91 = add i32 %90, -1
-  store i32 %91, ptr %68, align 4
+89:                                               ; preds = %79
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %63) #3
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %76) #3
+  br label %96
+
+90:                                               ; preds = %79
+  %91 = load i32, ptr %69, align 4
+  %92 = add i32 %91, -1
+  store i32 %92, ptr %69, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %37, %89
-  %.sink = phi ptr [ %82, %89 ], [ %42, %37 ]
-  %.075.ph = phi ptr [ %86, %89 ], [ %47, %37 ]
-  %92 = load i32, ptr %.sink, align 4
-  %93 = add i32 %92, -1
-  store i32 %93, ptr %.sink, align 4
-  br label %94
-
-94:                                               ; preds = %.sink.split, %52
-  %.075 = phi ptr [ %55, %52 ], [ %.075.ph, %.sink.split ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDiff, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.075) #3
+.sink.split:                                      ; preds = %38, %90
+  %.sink = phi ptr [ %83, %90 ], [ %43, %38 ]
+  %.075.ph = phi ptr [ %87, %90 ], [ %48, %38 ]
+  %93 = load i32, ptr %.sink, align 4
+  %94 = add i32 %93, -1
+  store i32 %94, ptr %.sink, align 4
   br label %95
 
-95:                                               ; preds = %10, %57, %52, %32, %8, %3, %94, %88, %77, %49
-  %.0 = phi ptr [ null, %49 ], [ %.075, %94 ], [ null, %77 ], [ null, %88 ], [ %1, %3 ], [ %5, %8 ], [ %11, %10 ], [ null, %32 ], [ null, %52 ], [ null, %57 ]
+95:                                               ; preds = %.sink.split, %53
+  %.075 = phi ptr [ %56, %53 ], [ %.075.ph, %.sink.split ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDiff, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.075) #3
+  br label %96
+
+96:                                               ; preds = %11, %58, %53, %33, %9, %7, %3, %95, %89, %78, %50
+  %.0 = phi ptr [ null, %50 ], [ %.075, %95 ], [ null, %78 ], [ null, %89 ], [ %5, %3 ], [ %1, %7 ], [ %5, %9 ], [ %12, %11 ], [ null, %33 ], [ null, %53 ], [ null, %58 ]
   ret ptr %.0
 }
 
@@ -810,85 +812,87 @@ define ptr @Cudd_zddDiffConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %1
-  %7 = icmp eq ptr %5, %2
-  %or.cond = or i1 %6, %7
-  br i1 %or.cond, label %51, label %8
+  br i1 %6, label %52, label %7
 
-8:                                                ; preds = %3
-  %9 = icmp eq ptr %1, %2
-  br i1 %9, label %51, label %10
+7:                                                ; preds = %3
+  %8 = icmp eq ptr %5, %2
+  br i1 %8, label %52, label %9
 
-10:                                               ; preds = %8
-  %11 = tail call ptr @cuddCacheLookup2Zdd(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDiff, ptr noundef %1, ptr noundef %2) #3
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %12, label %51
+9:                                                ; preds = %7
+  %10 = icmp eq ptr %1, %2
+  br i1 %10, label %52, label %11
 
-12:                                               ; preds = %10
-  %13 = load i32, ptr %1, align 8
-  %14 = icmp eq i32 %13, 2147483647
-  br i1 %14, label %21, label %15
+11:                                               ; preds = %9
+  %12 = tail call ptr @cuddCacheLookup2Zdd(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDiff, ptr noundef %1, ptr noundef %2) #3
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %13, label %52
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 320
-  %17 = load ptr, ptr %16, align 8
-  %18 = zext i32 %13 to i64
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
-  %20 = load i32, ptr %19, align 4
-  br label %21
+13:                                               ; preds = %11
+  %14 = load i32, ptr %1, align 8
+  %15 = icmp eq i32 %14, 2147483647
+  br i1 %15, label %22, label %16
 
-21:                                               ; preds = %12, %15
-  %.045 = phi i32 [ %20, %15 ], [ 2147483647, %12 ]
-  %22 = load i32, ptr %2, align 8
-  %23 = icmp eq i32 %22, 2147483647
-  br i1 %23, label %30, label %24
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %0, i64 320
+  %18 = load ptr, ptr %17, align 8
+  %19 = zext i32 %14 to i64
+  %20 = getelementptr inbounds i32, ptr %18, i64 %19
+  %21 = load i32, ptr %20, align 4
+  br label %22
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 320
-  %26 = load ptr, ptr %25, align 8
-  %27 = zext i32 %22 to i64
-  %28 = getelementptr inbounds i32, ptr %26, i64 %27
-  %29 = load i32, ptr %28, align 4
-  br label %30
+22:                                               ; preds = %13, %16
+  %.045 = phi i32 [ %21, %16 ], [ 2147483647, %13 ]
+  %23 = load i32, ptr %2, align 8
+  %24 = icmp eq i32 %23, 2147483647
+  br i1 %24, label %31, label %25
 
-30:                                               ; preds = %21, %24
-  %.046 = phi i32 [ %29, %24 ], [ 2147483647, %21 ]
-  %31 = icmp slt i32 %.045, %.046
-  br i1 %31, label %50, label %32
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %0, i64 320
+  %27 = load ptr, ptr %26, align 8
+  %28 = zext i32 %23 to i64
+  %29 = getelementptr inbounds i32, ptr %27, i64 %28
+  %30 = load i32, ptr %29, align 4
+  br label %31
 
-32:                                               ; preds = %30
-  %33 = icmp sgt i32 %.045, %.046
-  br i1 %33, label %34, label %38
+31:                                               ; preds = %22, %25
+  %.046 = phi i32 [ %30, %25 ], [ 2147483647, %22 ]
+  %32 = icmp slt i32 %.045, %.046
+  br i1 %32, label %51, label %33
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %2, i64 24
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call ptr @Cudd_zddDiffConst(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %36)
-  br label %50
+33:                                               ; preds = %31
+  %34 = icmp sgt i32 %.045, %.046
+  br i1 %34, label %35, label %39
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %1, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 16
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call ptr @Cudd_zddDiffConst(ptr noundef nonnull %0, ptr noundef %40, ptr noundef %42)
-  %.not55 = icmp eq ptr %43, %5
-  br i1 %.not55, label %44, label %50
-
-44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %1, i64 24
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 24
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call ptr @Cudd_zddDiffConst(ptr noundef nonnull %0, ptr noundef %46, ptr noundef %48)
-  br label %50
-
-50:                                               ; preds = %38, %30, %34, %44
-  %.044 = phi ptr [ %37, %34 ], [ %49, %44 ], [ inttoptr (i64 1 to ptr), %30 ], [ inttoptr (i64 1 to ptr), %38 ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDiff, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %.044) #3
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds i8, ptr %2, i64 24
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call ptr @Cudd_zddDiffConst(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %37)
   br label %51
 
-51:                                               ; preds = %10, %8, %3, %50
-  %.0 = phi ptr [ %.044, %50 ], [ %1, %3 ], [ %5, %8 ], [ %11, %10 ]
+39:                                               ; preds = %33
+  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %2, i64 16
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call ptr @Cudd_zddDiffConst(ptr noundef nonnull %0, ptr noundef %41, ptr noundef %43)
+  %.not55 = icmp eq ptr %44, %5
+  br i1 %.not55, label %45, label %51
+
+45:                                               ; preds = %39
+  %46 = getelementptr inbounds i8, ptr %1, i64 24
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %2, i64 24
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call ptr @Cudd_zddDiffConst(ptr noundef nonnull %0, ptr noundef %47, ptr noundef %49)
+  br label %51
+
+51:                                               ; preds = %39, %31, %35, %45
+  %.044 = phi ptr [ %38, %35 ], [ %50, %45 ], [ inttoptr (i64 1 to ptr), %31 ], [ inttoptr (i64 1 to ptr), %39 ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDiff, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %.044) #3
+  br label %52
+
+52:                                               ; preds = %11, %9, %7, %3, %51
+  %.0 = phi ptr [ %.044, %51 ], [ %5, %3 ], [ %1, %7 ], [ %5, %9 ], [ %12, %11 ]
   ret ptr %.0
 }
 
@@ -1317,7 +1321,7 @@ define ptr @cuddZddChangeAux(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   br label %71
 
 71:                                               ; preds = %38, %32, %25, %11, %7, %3, %70, %64, %53
-  %.0 = phi ptr [ %.059, %70 ], [ null, %53 ], [ null, %64 ], [ %1, %3 ], [ %2, %7 ], [ %12, %11 ], [ null, %25 ], [ null, %32 ], [ null, %38 ]
+  %.0 = phi ptr [ %.059, %70 ], [ null, %53 ], [ null, %64 ], [ %5, %3 ], [ %2, %7 ], [ %12, %11 ], [ null, %25 ], [ null, %32 ], [ null, %38 ]
   ret ptr %.0
 }
 

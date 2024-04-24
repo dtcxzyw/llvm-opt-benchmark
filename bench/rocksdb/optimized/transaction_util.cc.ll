@@ -855,7 +855,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -997,7 +997,7 @@ invoke.cont42.us.us:                              ; preds = %while.body38.us.us
 
 invoke.cont46.us.us:                              ; preds = %invoke.cont42.us.us
   %9 = extractvalue { i64, i64 } %call47.us.us, 1
-  invoke void @_ZN7rocksdb15TransactionUtil8CheckKeyEPNS_6DBImplEPNS_12SuperVersionEmmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSB_bPNS_12ReadCallbackEm(ptr nonnull sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull %db_impl, ptr noundef nonnull %call13.us, i64 noundef %call26.us, i64 noundef %9, ptr noundef nonnull align 8 dereferenceable(32) %call43.us.us, ptr noundef null, i1 noundef zeroext %cache_only, ptr noundef null, i64 noundef 72057594037927935)
+  invoke void @_ZN7rocksdb15TransactionUtil8CheckKeyEPNS_6DBImplEPNS_12SuperVersionEmmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSB_bPNS_12ReadCallbackEm(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp48, ptr noundef nonnull %db_impl, ptr noundef nonnull %call13.us, i64 noundef %call26.us, i64 noundef %9, ptr noundef nonnull align 8 dereferenceable(32) %call43.us.us, ptr noundef null, i1 noundef zeroext %cache_only, ptr noundef null, i64 noundef 72057594037927935)
           to label %invoke.cont49.us.us unwind label %_ZNSt10unique_ptrIN7rocksdb11LockTracker11KeyIteratorESt14default_deleteIS2_EED2Ev.exit.loopexit.split.us.split.us
 
 invoke.cont49.us.us:                              ; preds = %invoke.cont46.us.us
@@ -1419,7 +1419,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

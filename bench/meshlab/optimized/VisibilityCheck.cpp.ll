@@ -6117,7 +6117,7 @@ _ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.e
   br i1 %.not215, label %101, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %97, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i, %94
-  %.08.lcssa.i.i.i10.i.i = phi ptr [ %45, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i ], [ %.012.i.i.i.i.i, %97 ], [ %45, %94 ]
+  %.08.lcssa.i.i.i10.i.i = phi ptr [ %.012.i.i.i.i.i, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i ], [ %.012.i.i.i.i.i, %97 ], [ %45, %94 ]
   store ptr %43, ptr %41, align 8
   %100 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKjN3glw12RenderTargetEESt10_Select1stIS4_ESt4lessIjESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr nonnull %.08.lcssa.i.i.i10.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 1 dereferenceable(1) %42)
           to label %.critedge.i.i._crit_edge unwind label %126
@@ -6242,7 +6242,7 @@ _ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.e
   br i1 %139, label %.critedge.i.i44, label %141
 
 .critedge.i.i44:                                  ; preds = %137, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i42, %131
-  %.08.lcssa.i.i.i10.i.i45 = phi ptr [ %45, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i42 ], [ %.19.i.i.i.i.i, %137 ], [ %45, %131 ]
+  %.08.lcssa.i.i.i10.i.i45 = phi ptr [ %.19.i.i.i.i.i, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i42 ], [ %.19.i.i.i.i.i, %137 ], [ %45, %131 ]
   store ptr %39, ptr %37, align 8
   %140 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKjN3glw12RenderTargetEESt10_Select1stIS4_ESt4lessIjESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr %.08.lcssa.i.i.i10.i.i45, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 1 dereferenceable(1) %38)
           to label %.critedge.i.i44._crit_edge unwind label %126
@@ -6357,7 +6357,7 @@ _ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.e
   br i1 %177, label %.critedge.i.i69, label %179
 
 .critedge.i.i69:                                  ; preds = %175, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i67, %169
-  %.08.lcssa.i.i.i10.i.i70 = phi ptr [ %45, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i67 ], [ %.19.i.i.i.i.i62, %175 ], [ %45, %169 ]
+  %.08.lcssa.i.i.i10.i.i70 = phi ptr [ %.19.i.i.i.i.i62, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i67 ], [ %.19.i.i.i.i.i62, %175 ], [ %45, %169 ]
   store ptr %35, ptr %33, align 8
   %178 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKjN3glw12RenderTargetEESt10_Select1stIS4_ESt4lessIjESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr %.08.lcssa.i.i.i10.i.i70, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 1 dereferenceable(1) %34)
           to label %.critedge.i.i69._crit_edge unwind label %126
@@ -6472,7 +6472,7 @@ _ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.e
   br i1 %215, label %.critedge.i.i94, label %217
 
 .critedge.i.i94:                                  ; preds = %213, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i92, %207
-  %.08.lcssa.i.i.i10.i.i95 = phi ptr [ %45, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i92 ], [ %.19.i.i.i.i.i87, %213 ], [ %45, %207 ]
+  %.08.lcssa.i.i.i10.i.i95 = phi ptr [ %.19.i.i.i.i.i87, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i92 ], [ %.19.i.i.i.i.i87, %213 ], [ %45, %207 ]
   store ptr %31, ptr %29, align 8
   %216 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKjN3glw12RenderTargetEESt10_Select1stIS4_ESt4lessIjESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr %.08.lcssa.i.i.i10.i.i95, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 1 dereferenceable(1) %30)
           to label %.critedge.i.i94._crit_edge unwind label %126
@@ -6587,7 +6587,7 @@ _ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.e
   br i1 %253, label %.critedge.i.i119, label %255
 
 .critedge.i.i119:                                 ; preds = %251, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i117, %245
-  %.08.lcssa.i.i.i10.i.i120 = phi ptr [ %45, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i117 ], [ %.19.i.i.i.i.i112, %251 ], [ %45, %245 ]
+  %.08.lcssa.i.i.i10.i.i120 = phi ptr [ %.19.i.i.i.i.i112, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i117 ], [ %.19.i.i.i.i.i112, %251 ], [ %45, %245 ]
   store ptr %27, ptr %25, align 8
   %254 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKjN3glw12RenderTargetEESt10_Select1stIS4_ESt4lessIjESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr %.08.lcssa.i.i.i10.i.i120, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 1 dereferenceable(1) %26)
           to label %.critedge.i.i119._crit_edge unwind label %126
@@ -6702,7 +6702,7 @@ _ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.e
   br i1 %291, label %.critedge.i.i144, label %293
 
 .critedge.i.i144:                                 ; preds = %289, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i142, %283
-  %.08.lcssa.i.i.i10.i.i145 = phi ptr [ %45, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i142 ], [ %.19.i.i.i.i.i137, %289 ], [ %45, %283 ]
+  %.08.lcssa.i.i.i10.i.i145 = phi ptr [ %.19.i.i.i.i.i137, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i142 ], [ %.19.i.i.i.i.i137, %289 ], [ %45, %283 ]
   store ptr %23, ptr %21, align 8
   %292 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKjN3glw12RenderTargetEESt10_Select1stIS4_ESt4lessIjESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr %.08.lcssa.i.i.i10.i.i145, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %.critedge.i.i144._crit_edge unwind label %126
@@ -6817,7 +6817,7 @@ _ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.e
   br i1 %329, label %.critedge.i.i169, label %331
 
 .critedge.i.i169:                                 ; preds = %327, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i167, %321
-  %.08.lcssa.i.i.i10.i.i170 = phi ptr [ %45, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i167 ], [ %.19.i.i.i.i.i162, %327 ], [ %45, %321 ]
+  %.08.lcssa.i.i.i10.i.i170 = phi ptr [ %.19.i.i.i.i.i162, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i167 ], [ %.19.i.i.i.i.i162, %327 ], [ %45, %321 ]
   store ptr %19, ptr %17, align 8
   %330 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKjN3glw12RenderTargetEESt10_Select1stIS4_ESt4lessIjESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr %.08.lcssa.i.i.i10.i.i170, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 dereferenceable(1) %18)
           to label %.critedge.i.i169._crit_edge unwind label %126
@@ -6932,7 +6932,7 @@ _ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.e
   br i1 %367, label %.critedge.i.i194, label %369
 
 .critedge.i.i194:                                 ; preds = %365, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i192, %359
-  %.08.lcssa.i.i.i10.i.i195 = phi ptr [ %45, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i192 ], [ %.19.i.i.i.i.i187, %365 ], [ %45, %359 ]
+  %.08.lcssa.i.i.i10.i.i195 = phi ptr [ %.19.i.i.i.i.i187, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i192 ], [ %.19.i.i.i.i.i187, %365 ], [ %45, %359 ]
   store ptr %15, ptr %13, align 8
   %368 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKjN3glw12RenderTargetEESt10_Select1stIS4_ESt4lessIjESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr %.08.lcssa.i.i.i10.i.i195, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %.critedge.i.i194._crit_edge unwind label %126
@@ -7339,7 +7339,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN3glw12RenderTargetE
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %1, %16 ]
+  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %.019.lcssa28.i, %24
@@ -7498,8 +7498,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN3glw12RenderTargetE
   br label %_ZNSt8_Rb_treeIjSt4pairIKjN3glw12RenderTargetEESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIjSt4pairIKjN3glw12RenderTargetEESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %1, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %1, %37 ], [ %1, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %39, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -7587,7 +7587,7 @@ _ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE11lower_boundERS3_.exit: ; preds = %.lr.p
   br i1 %13, label %.critedge, label %_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESD_IJEEEEESt17_Rb_tree_iteratorIS2_ESt23_Rb_tree_const_iteratorIS2_EDpOT_.exit
 
 .critedge:                                        ; preds = %2, %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE11lower_boundERS3_.exit, %10
-  %.08.lcssa.i.i.i12 = phi ptr [ %5, %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE11lower_boundERS3_.exit ], [ %.19.i.i.i, %10 ], [ %5, %2 ]
+  %.08.lcssa.i.i.i12 = phi ptr [ %.19.i.i.i, %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE11lower_boundERS3_.exit ], [ %.19.i.i.i, %10 ], [ %5, %2 ]
   %14 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   %15 = getelementptr inbounds i8, ptr %14, i64 32
   store i32 %.pre, ptr %15, align 4
@@ -7686,7 +7686,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %1, %16 ]
+  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %.019.lcssa28.i, %24
@@ -7845,8 +7845,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_
   br label %_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %1, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %1, %37 ], [ %1, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %39, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -8460,7 +8460,7 @@ _ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.e
   br i1 %29, label %.critedge.i.i, label %_ZN3glw19RenderTargetMappingixEj.exit
 
 .critedge.i.i:                                    ; preds = %26, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i, %19
-  %.08.lcssa.i.i.i10.i.i = phi ptr [ %12, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i ], [ %.19.i.i.i.i.i, %26 ], [ %12, %19 ]
+  %.08.lcssa.i.i.i10.i.i = phi ptr [ %.19.i.i.i.i.i, %_ZNSt3mapIjN3glw12RenderTargetESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i ], [ %.19.i.i.i.i.i, %26 ], [ %12, %19 ]
   store ptr %6, ptr %4, align 8
   %30 = call ptr @_ZNSt8_Rb_treeIjSt4pairIKjN3glw12RenderTargetEESt10_Select1stIS4_ESt4lessIjESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr %.08.lcssa.i.i.i10.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
   br label %_ZN3glw19RenderTargetMappingixEj.exit

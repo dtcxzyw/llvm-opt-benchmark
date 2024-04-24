@@ -122,7 +122,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then2
-  %call5 = tail call i32 @BN_sqr(ptr noundef nonnull %call, ptr noundef nonnull %y, ptr noundef %ctx) #4
+  %call5 = tail call i32 @BN_sqr(ptr noundef nonnull %call, ptr noundef %x, ptr noundef %ctx) #4
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %err, label %if.end14
 

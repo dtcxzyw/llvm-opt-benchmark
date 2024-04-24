@@ -447,7 +447,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %and23 = zext i8 %5 to i32
   %shr26 = lshr exact i32 %and23, %2
   %or = or i32 %shr26, %and20
-  %conv27 = trunc i32 %or to i8
+  %conv27 = trunc nuw i32 %or to i8
   store i8 %conv27, ptr %arrayidx16, align 1
   %inc = add nuw i64 %n.017, 1
   %exitcond.not = icmp eq i64 %inc, %spec.select
@@ -522,7 +522,7 @@ entry:
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i64 %inl to i32
+  %conv = trunc nuw nsw i64 %inl to i32
   %call = tail call i32 @ossl_is_partially_overlapping(ptr noundef %out, ptr noundef %in, i32 noundef %conv) #5
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.end3, label %if.then2
@@ -574,7 +574,7 @@ if.end12.i:                                       ; preds = %if.end2.i
   call void @BUF_reverse(ptr noundef nonnull %out, ptr noundef null, i64 noundef %add19.i) #5
   store i64 369832251558649162, ptr %iv.i, align 8
   %call23.i = call i32 @des_ede_cbc_cipher(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef nonnull %out, i64 noundef %add19.i)
-  %conv25.i = trunc i64 %add19.i to i32
+  %conv25.i = trunc nuw nsw i64 %add19.i to i32
   br label %des_ede3_wrap.exit
 
 des_ede3_wrap.exit:                               ; preds = %if.then.i, %if.end.i, %if.end2.i, %if.end12.i
@@ -625,7 +625,7 @@ if.then8.i:                                       ; preds = %des_ede_cbc_cipher.
   %add.ptr.i17 = getelementptr inbounds i8, ptr %out, i64 8
   %sub9.i = add nsw i64 %inl, -8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %out, ptr nonnull align 1 %add.ptr.i17, i64 %sub9.i, i1 false)
-  %add.ptr10.i = getelementptr inbounds i8, ptr %out, i64 -8
+  %add.ptr10.i = getelementptr inbounds i8, ptr %in, i64 -8
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then8.i, %des_ede_cbc_cipher.exit.i
@@ -682,7 +682,7 @@ des_ede_cbc_cipher.exit52.i:                      ; preds = %if.then.i45.i, %whi
 land.lhs.true.i:                                  ; preds = %des_ede_cbc_cipher.exit52.i
   %call34.i = call i32 @CRYPTO_memcmp(ptr noundef nonnull %sha1tmp.i12, ptr noundef nonnull %icv.i, i64 noundef 8) #5
   %cmp35.i = icmp eq i32 %call34.i, 0
-  %conv39.i = trunc i64 %sub13.i to i32
+  %conv39.i = trunc nuw nsw i64 %sub13.i to i32
   %spec.select = select i1 %cmp35.i, i32 %conv39.i, i32 -1
   br label %if.end40.i
 

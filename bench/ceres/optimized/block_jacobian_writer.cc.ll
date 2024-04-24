@@ -562,7 +562,7 @@ _ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit86.i: ; preds = %191, %188
 204:                                              ; preds = %198
   store i32 %203, ptr %.sroa.12.3180.i, align 4
   %205 = getelementptr inbounds i8, ptr %.sroa.12.3180.i, i64 4
-  %206 = trunc i64 %indvars.iv226.i to i32
+  %206 = trunc nuw nsw i64 %indvars.iv226.i to i32
   store i32 %206, ptr %205, align 4
   %207 = getelementptr inbounds i8, ptr %.sroa.12.3180.i, i64 8
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EE12emplace_backIJRKiRiEEERS1_DpOT_.exit.i
@@ -597,7 +597,7 @@ _ZNKSt6vectorISt4pairIiiESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %208
   %219 = getelementptr inbounds %"struct.std::pair", ptr %218, i64 %202
   store i32 %203, ptr %219, align 4
   %220 = getelementptr inbounds i8, ptr %219, i64 4
-  %221 = trunc i64 %indvars.iv226.i to i32
+  %221 = trunc nuw nsw i64 %indvars.iv226.i to i32
   store i32 %221, ptr %220, align 4
   %.not10.i.i.i.i.i.i = icmp eq ptr %.sroa.0108.2181.i, %.sroa.12.3180.i
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -704,7 +704,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE12emplace_backIJRKiRiEEERS1_DpOT_.exit.i: ; pred
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %252, 32
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %252 to i32
-  %.sroa.2.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.2.0.extract.shift.i.i.i.i.i to i32
+  %.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.i.i.i to i32
   store i32 %.sroa.0.0.extract.trunc.i.i.i.i.i, ptr %.sroa.0108.5.i, align 4
   store i32 %.sroa.2.0.extract.trunc.i.i.i.i.i, ptr %237, align 4
   br label %292
@@ -753,7 +753,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZN5ceres8internal12_GLOBAL__N_119BuildJacobianLayoutERKNSC_7ProgramEiPS5_IPiSaISH_EEPS5_IiSaIiEEE3$_0EEEvT_T0_.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i92.i, %263
   %.sroa.06.0.lcssa.i.i.i.i.i.i = phi ptr [ %.sroa.09.022.i.ptr.i.i.i.i, %263 ], [ %.sroa.0.0.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i92.i ]
   %.sroa.2.0.extract.shift.i.i.i.i.i.i = lshr i64 %252, 32
-  %.sroa.2.0.extract.trunc.i.i.i.i.i.i = trunc i64 %.sroa.2.0.extract.shift.i.i.i.i.i.i to i32
+  %.sroa.2.0.extract.trunc.i.i.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.i.i.i.i to i32
   %.sroa.04.0.extract.trunc.i.i.i.i.i.i = trunc i64 %252 to i32
   store i32 %.sroa.04.0.extract.trunc.i.i.i.i.i.i, ptr %.sroa.06.0.lcssa.i.i.i.i.i.i, align 4
   %291 = getelementptr inbounds i8, ptr %.sroa.06.0.lcssa.i.i.i.i.i.i, i64 4
@@ -819,7 +819,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZN5ceres8internal12_GLOBAL__N_119BuildJacobianLayoutERKNSC_7ProgramEiPS5_IPiSaISH_EEPS5_IiSaIiEEE3$_0EEEvT_T0_.exit.i12.i.i.i.i": ; preds = %.lr.ph.i.i18.i.i.i.i, %.lr.ph.i10.i.i.i.i
   %.sroa.06.0.lcssa.i.i13.i.i.i.i = phi ptr [ %.sroa.0.08.i.i.i.i.i, %.lr.ph.i10.i.i.i.i ], [ %.sroa.0.0.i.i20.i.i.i.i, %.lr.ph.i.i18.i.i.i.i ]
   %.sroa.2.0.extract.shift.i.i14.i.i.i.i = lshr i64 %294, 32
-  %.sroa.2.0.extract.trunc.i.i15.i.i.i.i = trunc i64 %.sroa.2.0.extract.shift.i.i14.i.i.i.i to i32
+  %.sroa.2.0.extract.trunc.i.i15.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i14.i.i.i.i to i32
   %.sroa.04.0.extract.trunc.i.i16.i.i.i.i = trunc i64 %294 to i32
   store i32 %.sroa.04.0.extract.trunc.i.i16.i.i.i.i, ptr %.sroa.06.0.lcssa.i.i13.i.i.i.i, align 4
   %323 = getelementptr inbounds i8, ptr %.sroa.06.0.lcssa.i.i13.i.i.i.i, i64 4
@@ -863,7 +863,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS
 341:                                              ; preds = %326
   %.sroa.0.0.extract.trunc.i48.i.i.i.i = trunc i64 %340 to i32
   %.sroa.2.0.extract.shift.i49.i.i.i.i = lshr i64 %340, 32
-  %.sroa.2.0.extract.trunc.i50.i.i.i.i = trunc i64 %.sroa.2.0.extract.shift.i49.i.i.i.i to i32
+  %.sroa.2.0.extract.trunc.i50.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i49.i.i.i.i to i32
   %342 = ptrtoint ptr %.sroa.09.022.i28.i.i.i.i to i64
   %343 = sub i64 %342, %230
   %344 = ashr exact i64 %343, 3
@@ -939,7 +939,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZN5ceres8internal12_GLOBAL__N_119BuildJacobianLayoutERKNSC_7ProgramEiPS5_IPiSaISH_EEPS5_IiSaIiEEE3$_0EEEvT_T0_.exit.i35.i.i.i.i": ; preds = %.lr.ph.i.i42.i.i.i.i, %355
   %.sroa.06.0.lcssa.i.i36.i.i.i.i = phi ptr [ %.sroa.09.022.i28.i.i.i.i, %355 ], [ %.sroa.0.0.i.i44.i.i.i.i, %.lr.ph.i.i42.i.i.i.i ]
   %.sroa.2.0.extract.shift.i.i37.i.i.i.i = lshr i64 %340, 32
-  %.sroa.2.0.extract.trunc.i.i38.i.i.i.i = trunc i64 %.sroa.2.0.extract.shift.i.i37.i.i.i.i to i32
+  %.sroa.2.0.extract.trunc.i.i38.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i37.i.i.i.i to i32
   %.sroa.04.0.extract.trunc.i.i39.i.i.i.i = trunc i64 %340 to i32
   store i32 %.sroa.04.0.extract.trunc.i.i39.i.i.i.i, ptr %.sroa.06.0.lcssa.i.i36.i.i.i.i, align 4
   %383 = getelementptr inbounds i8, ptr %.sroa.06.0.lcssa.i.i36.i.i.i.i, i64 4
@@ -1036,7 +1036,7 @@ _ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit94.i: ; preds = %401, %39
 ._crit_edge193.i:                                 ; preds = %424, %._crit_edge184.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE7reserveEm.exit.i
   %.sroa.24.2.lcssa242252.i = phi ptr [ %.sroa.24.4.i, %._crit_edge184.i ], [ %.sroa.24.1.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE7reserveEm.exit.i ], [ %.sroa.24.4.i, %424 ]
   %.sroa.12.3.lcssa243251.i = phi ptr [ %.sroa.12.5.i, %._crit_edge184.i ], [ %.sroa.0108.1.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE7reserveEm.exit.i ], [ %.sroa.12.5.i, %424 ]
-  %.sroa.0108.2.lcssa244250.i = phi ptr [ %.sroa.12.5.i, %._crit_edge184.i ], [ %.sroa.0108.1.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE7reserveEm.exit.i ], [ %.sroa.0108.5.i, %424 ]
+  %.sroa.0108.2.lcssa244250.i = phi ptr [ %.sroa.0108.5.i, %._crit_edge184.i ], [ %.sroa.0108.1.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE7reserveEm.exit.i ], [ %.sroa.0108.5.i, %424 ]
   %.172.lcssa.i = phi i32 [ %.071200.i, %._crit_edge184.i ], [ %.071200.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE7reserveEm.exit.i ], [ %.273.i, %424 ]
   %.4.lcssa.i = phi i32 [ %.3201.i, %._crit_edge184.i ], [ %.3201.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE7reserveEm.exit.i ], [ %.5.i, %424 ]
   %426 = ptrtoint ptr %.sroa.12.3.lcssa243251.i to i64
@@ -2333,7 +2333,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN5ceres8internal12_GLOBAL__N_119BuildJacobianLayoutERKNSC_7ProgramEiPS5_IPiSaISH_EEPS5_IiSaIiEEE3$_0EEEvT_T0_SR_T1_T2_.exit.i.i.i": ; preds = %67, %53, %50
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %50 ], [ %.020.i.i.i.i.i, %53 ], [ %.0921.i.i.i.i.i, %67 ]
   %.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %.sroa.03.0.copyload.i.i.i, 32
-  %.sroa.2.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.2.0.extract.shift.i.i.i.i.i to i32
+  %.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.i.i.i to i32
   %.sroa.013.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.03.0.copyload.i.i.i to i32
   %72 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i.i.i.i
   store i32 %.sroa.013.0.extract.trunc.i.i.i.i.i, ptr %72, align 4
@@ -2459,7 +2459,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN5ceres8internal12_GLOBAL__N_119BuildJacobianLayoutERKNSC_7ProgramEiPS5_IPiSaISH_EEPS5_IiSaIiEEE3$_0EEEvT_SQ_SQ_RT0_.exit": ; preds = %123, %137, %120
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %120 ], [ %.020.i.i.i, %123 ], [ 0, %137 ]
   %.sroa.2.0.extract.shift.i.i.i = lshr i64 %.sroa.03.0.copyload.i, 32
-  %.sroa.2.0.extract.trunc.i.i.i = trunc i64 %.sroa.2.0.extract.shift.i.i.i to i32
+  %.sroa.2.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.i to i32
   %.sroa.013.0.extract.trunc.i.i.i = trunc i64 %.sroa.03.0.copyload.i to i32
   %141 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i.i
   store i32 %.sroa.013.0.extract.trunc.i.i.i, ptr %141, align 4

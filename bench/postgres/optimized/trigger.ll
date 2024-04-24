@@ -4977,7 +4977,7 @@ define dso_local noundef zeroext i1 @ExecBRInsertTriggers(ptr noundef %0, ptr no
   br label %80
 
 80:                                               ; preds = %76, %79, %52, %29, %22
-  %.2 = phi ptr [ %.1, %52 ], [ %.03749, %29 ], [ %.03749, %22 ], [ null, %79 ], [ null, %76 ]
+  %.2 = phi ptr [ %46, %52 ], [ %.03749, %29 ], [ %.03749, %22 ], [ null, %79 ], [ null, %76 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = load i32, ptr %13, align 8
   %82 = sext i32 %81 to i64
@@ -5133,7 +5133,7 @@ define dso_local noundef zeroext i1 @ExecIRInsertTriggers(ptr noundef %0, ptr no
   br label %57
 
 57:                                               ; preds = %53, %56, %52, %29, %22
-  %.2 = phi ptr [ %.1, %52 ], [ %.03038, %29 ], [ %.03038, %22 ], [ null, %56 ], [ null, %53 ]
+  %.2 = phi ptr [ %46, %52 ], [ %.03038, %29 ], [ %.03038, %22 ], [ null, %56 ], [ null, %53 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr %13, align 8
   %59 = sext i32 %58 to i64
@@ -6039,7 +6039,7 @@ define dso_local noundef zeroext i1 @ExecBRUpdateTriggers(ptr noundef %0, ptr no
   br label %103
 
 103:                                              ; preds = %99, %102, %90, %64, %57
-  %.2 = phi ptr [ %.1, %90 ], [ %.06680, %64 ], [ %.06680, %57 ], [ null, %102 ], [ null, %99 ]
+  %.2 = phi ptr [ %81, %90 ], [ %.06680, %64 ], [ %.06680, %57 ], [ null, %102 ], [ null, %99 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %104 = load i32, ptr %45, align 8
   %105 = sext i32 %104 to i64
@@ -6263,7 +6263,7 @@ define dso_local noundef zeroext i1 @ExecIRUpdateTriggers(ptr noundef %0, ptr no
   br label %57
 
 57:                                               ; preds = %53, %56, %52, %33, %26
-  %.2 = phi ptr [ %.1, %52 ], [ %.03643, %33 ], [ %.03643, %26 ], [ null, %56 ], [ null, %53 ]
+  %.2 = phi ptr [ %50, %52 ], [ %.03643, %33 ], [ %.03643, %26 ], [ null, %56 ], [ null, %53 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr %15, align 8
   %59 = sext i32 %58 to i64

@@ -27652,7 +27652,7 @@ sw.bb4.i.i40:                                     ; preds = %_ZNK5folly7dynamic8
 sw.bb7.i.i37:                                     ; preds = %_ZNK5folly7dynamic8asDoubleEv.exit
   %u_.i.i.i19.i.i38 = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i8, ptr %u_.i.i.i19.i.i38, align 8, !tbaa !209, !range !137, !noundef !138
-  %conv.i.i.i.i.i39 = uitofp i8 %8 to double
+  %conv.i.i.i.i.i39 = uitofp nneg i8 %8 to double
   br label %_ZNK5folly7dynamic8asDoubleEv.exit46
 
 sw.bb10.i.i33:                                    ; preds = %_ZNK5folly7dynamic8asDoubleEv.exit
@@ -28775,7 +28775,7 @@ sw.bb4.i.i28:                                     ; preds = %_ZNK5folly7dynamic8
 sw.bb7.i.i25:                                     ; preds = %_ZNK5folly7dynamic8asDoubleEv.exit
   %u_.i.i.i19.i.i26 = getelementptr inbounds i8, ptr %value, i64 8
   %8 = load i8, ptr %u_.i.i.i19.i.i26, align 8, !tbaa !209, !range !137, !noundef !138
-  %conv.i.i.i.i.i27 = uitofp i8 %8 to double
+  %conv.i.i.i.i.i27 = uitofp nneg i8 %8 to double
   br label %_ZNK5folly7dynamic8asDoubleEv.exit34
 
 sw.bb10.i.i21:                                    ; preds = %_ZNK5folly7dynamic8asDoubleEv.exit
@@ -42091,7 +42091,7 @@ while.end.loopexit.i:                             ; preds = %while.body.i.epil, 
   br label %_ZN5boost13re_detail_50028hash_value_from_capture_nameIPKcEEiT_S4_.exit
 
 _ZN5boost13re_detail_50028hash_value_from_capture_nameIPKcEEiT_S4_.exit: ; preds = %while.end.loopexit.i, %while.end357, %if.then339
-  %.lcssa10841105 = phi ptr [ %221, %while.end357 ], [ %.lcssa1084, %while.end.loopexit.i ], [ %221, %if.then339 ]
+  %.lcssa10841105 = phi ptr [ %.lcssa1084, %while.end357 ], [ %.lcssa1084, %while.end.loopexit.i ], [ %221, %if.then339 ]
   %r.0.lcssa.i = phi i64 [ 1073741824, %while.end357 ], [ %236, %while.end.loopexit.i ], [ 1073741824, %if.then339 ]
   store ptr %.lcssa10841105, ptr %pc, align 8, !tbaa !22
   br label %if.end362

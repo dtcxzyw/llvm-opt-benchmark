@@ -1617,7 +1617,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   store i32 %566, ptr %541, align 8
   %567 = load ptr, ptr %7, align 8
   %568 = getelementptr inbounds i32, ptr %567, i64 %564
-  %569 = trunc i64 %indvars.iv.i263 to i32
+  %569 = trunc nuw nsw i64 %indvars.iv.i263 to i32
   store i32 %569, ptr %568, align 4
   %indvars.iv.next.i266 = add nuw nsw i64 %indvars.iv.i263, 1
   %570 = load ptr, ptr %51, align 8
@@ -1676,7 +1676,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i: ; preds = %
 ._crit_edge.i.i:                                  ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i, %.noexc260, %447
   %602 = phi ptr [ %454, %447 ], [ %578, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i ], [ %578, %.noexc260 ]
   %603 = phi ptr [ %455, %447 ], [ %579, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i ], [ %579, %.noexc260 ]
-  %604 = phi ptr [ %431, %447 ], [ %581, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i ], [ %580, %.noexc260 ]
+  %604 = phi ptr [ %431, %447 ], [ %581, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i ], [ %581, %.noexc260 ]
   %605 = phi i32 [ %453, %447 ], [ %601, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE4hashERKS3_.exit.i.i.i ], [ 0, %.noexc260 ]
   %606 = sext i32 %605 to i64
   %607 = getelementptr inbounds i32, ptr %604, i64 %606
@@ -3514,7 +3514,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   store i32 %69, ptr %44, align 8
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %67
-  %72 = trunc i64 %indvars.iv to i32
+  %72 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %72, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = load ptr, ptr %33, align 8
@@ -4764,7 +4764,7 @@ _ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE7do_hashERKS2_.exit: ; preds = %
   store i32 %65, ptr %44, align 8
   %66 = load ptr, ptr %0, align 8
   %67 = getelementptr inbounds i32, ptr %66, i64 %63
-  %68 = trunc i64 %indvars.iv to i32
+  %68 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %68, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load ptr, ptr %33, align 8

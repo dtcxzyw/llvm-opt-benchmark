@@ -1147,8 +1147,8 @@ XLogReadRecordAlloc.exit268.i:                    ; preds = %283, %278, %274, %2
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %299, %295
-  %.1218.sink.i = phi ptr [ %300, %299 ], [ %287, %295 ]
-  %301 = getelementptr i8, ptr %.1218.sink.i, i64 %298
+  %.sink744.i = phi ptr [ %300, %299 ], [ %296, %295 ]
+  %301 = getelementptr i8, ptr %.sink744.i, i64 %298
   store ptr %301, ptr %.phi.trans.insert.i.i, align 8
   br label %302
 

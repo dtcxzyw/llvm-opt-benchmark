@@ -198,25 +198,24 @@ define dso_local void @AllocSetReset(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph42:                                         ; preds = %._crit_edge
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = getelementptr i8, ptr %0, i64 240
-  %17 = getelementptr i8, ptr %0, i64 224
-  %18 = getelementptr i8, ptr %0, i64 208
-  br label %19
+  br label %16
 
-19:                                               ; preds = %.lr.ph42, %31
-  %.040 = phi ptr [ %14, %.lr.ph42 ], [ %21, %31 ]
-  %20 = getelementptr inbounds i8, ptr %.040, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %.040, %2
-  br i1 %22, label %23, label %24
+16:                                               ; preds = %.lr.ph42, %31
+  %.040 = phi ptr [ %14, %.lr.ph42 ], [ %18, %31 ]
+  %17 = getelementptr inbounds i8, ptr %.040, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %.040, %2
+  br i1 %19, label %20, label %24
 
-23:                                               ; preds = %19
-  store ptr %16, ptr %17, align 8
-  store ptr null, ptr %18, align 8
-  store ptr null, ptr %20, align 8
+20:                                               ; preds = %16
+  %21 = getelementptr i8, ptr %.040, i64 40
+  %22 = getelementptr inbounds i8, ptr %.040, i64 24
+  store ptr %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %.040, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   br label %31
 
-24:                                               ; preds = %19
+24:                                               ; preds = %16
   %25 = getelementptr inbounds i8, ptr %.040, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
@@ -228,9 +227,9 @@ define dso_local void @AllocSetReset(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @free(ptr noundef nonnull %.040) #14
   br label %31
 
-31:                                               ; preds = %24, %23
-  %.not = icmp eq ptr %21, null
-  br i1 %.not, label %._crit_edge43, label %19, !llvm.loop !7
+31:                                               ; preds = %24, %20
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %._crit_edge43, label %16, !llvm.loop !7
 
 ._crit_edge43:                                    ; preds = %31, %._crit_edge
   %32 = load i32, ptr %4, align 8

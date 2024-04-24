@@ -1351,7 +1351,7 @@ if.end.loopexit.i.i:                              ; preds = %_ZNSt10unique_ptrIS
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.loopexit.i.i, %if.then.i.i28, %invoke.cont
-  %38 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %35, %if.then.i.i28 ], [ %add.ptr.i.i.i, %invoke.cont ]
+  %38 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %35, %if.then.i.i28 ], [ %35, %invoke.cont ]
   %incdec.ptr.i.i29 = getelementptr inbounds i8, ptr %38, i64 -8
   store ptr %incdec.ptr.i.i29, ptr %_M_finish.i.i.i, align 8
   %39 = load ptr, ptr %incdec.ptr.i.i29, align 8
@@ -1470,12 +1470,11 @@ _ZSt8_DestroyISt10unique_ptrISt6threadSt14default_deleteIS1_EEEvPT_.exit.i.i.i.i
   br i1 %cmp.not.i.i.i.i40, label %invoke.cont.i, label %for.body.i.i.i.i, !llvm.loop !16
 
 invoke.cont.i:                                    ; preds = %_ZSt8_DestroyISt10unique_ptrISt6threadSt14default_deleteIS1_EEEvPT_.exit.i.i.i.i, %invoke.cont68
-  %43 = phi ptr [ %33, %invoke.cont68 ], [ %40, %_ZSt8_DestroyISt10unique_ptrISt6threadSt14default_deleteIS1_EEEvPT_.exit.i.i.i.i ]
-  %tobool.not.i.i.i41 = icmp eq ptr %43, null
+  %tobool.not.i.i.i41 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i41, label %if.end70, label %if.then.i.i.i42
 
 if.then.i.i.i42:                                  ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %43) #27
+  call void @_ZdlPv(ptr noundef nonnull %40) #27
   br label %if.end70
 
 if.end70:                                         ; preds = %_ZNSt10shared_ptrISt6atomicIbEED2Ev.exit, %if.then9, %if.then.i.i.i42, %invoke.cont.i, %land.lhs.true, %if.end
@@ -1910,9 +1909,8 @@ _ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit: ; preds = %do.end.i
   %3 = load ptr, ptr %m_worker_threadids, align 8, !noalias !20
   %m_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %4 = load i64, ptr %m_size.i.i.i.i.i.i, align 8, !noalias !20
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %3, i64 %4
   %tobool.not8.i.i.i.i.i = icmp eq i64 %4, 0
-  br i1 %tobool.not8.i.i.i.i.i, label %if.then.i.i, label %while.body.i.i.i.i.i
+  br i1 %tobool.not8.i.i.i.i.i, label %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit, %while.body.i.i.i.i.i
   %5 = phi ptr [ %6, %while.body.i.i.i.i.i ], [ %3, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit ]
@@ -1929,17 +1927,18 @@ while.body.i.i.i.i.i:                             ; preds = %_ZN18OpenImageIO_v2
   %tobool.not.i.i.i.i.i = icmp eq i64 %len.1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !28
 
-_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i: ; preds = %while.body.i.i.i.i.i
-  %cmp.i.i.i = icmp eq ptr %6, %add.ptr.i.i.i.i.i.i
+_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i: ; preds = %while.body.i.i.i.i.i, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit
+  %7 = phi ptr [ %3, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit ], [ %6, %while.body.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %3, i64 %4
+  %cmp.i.i.i = icmp eq ptr %7, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i
-  %agg.tmp2.sroa.0.0.copyload.i.i.i = load i64, ptr %6, align 8
+  %agg.tmp2.sroa.0.0.copyload.i.i.i = load i64, ptr %7, align 8
   %cmp.i.i.i.i = icmp ugt i64 %agg.tmp2.sroa.0.0.copyload.i.i.i, %id.coerce
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %invoke.cont
 
-if.then.i.i:                                      ; preds = %lor.rhs.i.i, %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit
-  %7 = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i ], [ %6, %lor.rhs.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit ]
+if.then.i.i:                                      ; preds = %lor.rhs.i.i, %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i
   store i64 %id.coerce, ptr %ref.tmp6.i.i, align 8
   %second.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
   store i32 0, ptr %second.i.i.i, align 8
@@ -1956,7 +1955,7 @@ if.then.i.i:                                      ; preds = %lor.rhs.i.i, %_ZN5b
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %.noexc, %lor.rhs.i.i
-  %i.sroa.0.0.i.i = phi ptr [ %ref.tmp.val.i.i.i, %.noexc ], [ %6, %lor.rhs.i.i ]
+  %i.sroa.0.0.i.i = phi ptr [ %ref.tmp.val.i.i.i, %.noexc ], [ %7, %lor.rhs.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %i.sroa.0.0.i.i, i64 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp6.i.i)
   %8 = load i32, ptr %second.i.i, align 4
@@ -2035,9 +2034,8 @@ _ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit: ; preds = %do.end.i
   %3 = load ptr, ptr %m_worker_threadids, align 8, !noalias !20
   %m_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %4 = load i64, ptr %m_size.i.i.i.i.i.i, align 8, !noalias !20
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %3, i64 %4
   %tobool.not8.i.i.i.i.i = icmp eq i64 %4, 0
-  br i1 %tobool.not8.i.i.i.i.i, label %if.then.i.i, label %while.body.i.i.i.i.i
+  br i1 %tobool.not8.i.i.i.i.i, label %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit, %while.body.i.i.i.i.i
   %5 = phi ptr [ %6, %while.body.i.i.i.i.i ], [ %3, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit ]
@@ -2054,17 +2052,18 @@ while.body.i.i.i.i.i:                             ; preds = %_ZN18OpenImageIO_v2
   %tobool.not.i.i.i.i.i = icmp eq i64 %len.1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !28
 
-_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i: ; preds = %while.body.i.i.i.i.i
-  %cmp.i.i.i = icmp eq ptr %6, %add.ptr.i.i.i.i.i.i
+_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i: ; preds = %while.body.i.i.i.i.i, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit
+  %7 = phi ptr [ %3, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit ], [ %6, %while.body.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %3, i64 %4
+  %cmp.i.i.i = icmp eq ptr %7, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i
-  %agg.tmp2.sroa.0.0.copyload.i.i.i = load i64, ptr %6, align 8
+  %agg.tmp2.sroa.0.0.copyload.i.i.i = load i64, ptr %7, align 8
   %cmp.i.i.i.i = icmp ugt i64 %agg.tmp2.sroa.0.0.copyload.i.i.i, %id.coerce
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %invoke.cont
 
-if.then.i.i:                                      ; preds = %lor.rhs.i.i, %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit
-  %7 = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i ], [ %6, %lor.rhs.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit ]
+if.then.i.i:                                      ; preds = %lor.rhs.i.i, %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i
   store i64 %id.coerce, ptr %ref.tmp6.i.i, align 8
   %second.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
   store i32 0, ptr %second.i.i.i, align 8
@@ -2081,7 +2080,7 @@ if.then.i.i:                                      ; preds = %lor.rhs.i.i, %_ZN5b
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %.noexc, %lor.rhs.i.i
-  %i.sroa.0.0.i.i = phi ptr [ %ref.tmp.val.i.i.i, %.noexc ], [ %6, %lor.rhs.i.i ]
+  %i.sroa.0.0.i.i = phi ptr [ %ref.tmp.val.i.i.i, %.noexc ], [ %7, %lor.rhs.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %i.sroa.0.0.i.i, i64 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp6.i.i)
   %8 = load i32, ptr %second.i.i, align 4
@@ -2160,9 +2159,8 @@ _ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit: ; preds = %do.end.i
   %3 = load ptr, ptr %m_worker_threadids, align 8, !noalias !20
   %m_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %4 = load i64, ptr %m_size.i.i.i.i.i.i, align 8, !noalias !20
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %3, i64 %4
   %tobool.not8.i.i.i.i.i = icmp eq i64 %4, 0
-  br i1 %tobool.not8.i.i.i.i.i, label %if.then.i.i, label %while.body.i.i.i.i.i
+  br i1 %tobool.not8.i.i.i.i.i, label %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit, %while.body.i.i.i.i.i
   %5 = phi ptr [ %6, %while.body.i.i.i.i.i ], [ %3, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit ]
@@ -2179,17 +2177,18 @@ while.body.i.i.i.i.i:                             ; preds = %_ZN18OpenImageIO_v2
   %tobool.not.i.i.i.i.i = icmp eq i64 %len.1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !28
 
-_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i: ; preds = %while.body.i.i.i.i.i
-  %cmp.i.i.i = icmp eq ptr %6, %add.ptr.i.i.i.i.i.i
+_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i: ; preds = %while.body.i.i.i.i.i, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit
+  %7 = phi ptr [ %3, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit ], [ %6, %while.body.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %3, i64 %4
+  %cmp.i.i.i = icmp eq ptr %7, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i
-  %agg.tmp2.sroa.0.0.copyload.i.i.i = load i64, ptr %6, align 8
+  %agg.tmp2.sroa.0.0.copyload.i.i.i = load i64, ptr %7, align 8
   %cmp.i.i.i.i = icmp ugt i64 %agg.tmp2.sroa.0.0.copyload.i.i.i, %id.coerce
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %invoke.cont
 
-if.then.i.i:                                      ; preds = %lor.rhs.i.i, %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit
-  %7 = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i ], [ %6, %lor.rhs.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit ]
+if.then.i.i:                                      ; preds = %lor.rhs.i.i, %_ZN5boost9container8flat_mapINSt6thread2idEiSt4lessIS3_EvE11lower_boundERKS3_.exit.i.i
   store i64 %id.coerce, ptr %ref.tmp6.i.i, align 8
   %second.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
   store i32 0, ptr %second.i.i.i, align 8
@@ -2206,7 +2205,7 @@ if.then.i.i:                                      ; preds = %lor.rhs.i.i, %_ZN5b
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %.noexc, %lor.rhs.i.i
-  %i.sroa.0.0.i.i = phi ptr [ %ref.tmp.val.i.i.i, %.noexc ], [ %6, %lor.rhs.i.i ]
+  %i.sroa.0.0.i.i = phi ptr [ %ref.tmp.val.i.i.i, %.noexc ], [ %7, %lor.rhs.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %i.sroa.0.0.i.i, i64 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp6.i.i)
   %8 = load i32, ptr %second.i.i, align 4
@@ -8751,7 +8750,7 @@ _ZN5boost9container3dtl9flat_treeINS1_4pairINSt6thread2idEiEENS1_9select1stIS5_E
   br i1 %cmp.i.i.i42.i, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %_ZNK5boost9container3dtl9flat_treeINS1_4pairINSt6thread2idEiEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS6_EEE16priv_lower_boundINS0_12vec_iteratorIPS6_Lb1EEES5_EET_SI_SI_RKT0_.exit.i37.i, %_ZNK5boost9container3dtl9flat_treeINS1_4pairINSt6thread2idEiEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS6_EEE16priv_lower_boundINS0_12vec_iteratorIPS6_Lb1EEES5_EET_SI_SI_RKT0_.exit.i.i, %if.end.i, %if.then.i, %lor.rhs.i.i, %_ZN5boost9container3dtl9flat_treeINS1_4pairINSt6thread2idEiEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS6_EEE26priv_insert_unique_prepareENS0_12vec_iteratorIPS6_Lb1EEERKS5_RNSD_18insert_commit_dataE.exit
-  %data.sroa.0.06 = phi ptr [ %7, %_ZN5boost9container3dtl9flat_treeINS1_4pairINSt6thread2idEiEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS6_EEE26priv_insert_unique_prepareENS0_12vec_iteratorIPS6_Lb1EEERKS5_RNSD_18insert_commit_dataE.exit ], [ %5, %lor.rhs.i.i ], [ %add.ptr.i.i.i.i, %_ZNK5boost9container3dtl9flat_treeINS1_4pairINSt6thread2idEiEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS6_EEE16priv_lower_boundINS0_12vec_iteratorIPS6_Lb1EEES5_EET_SI_SI_RKT0_.exit.i37.i ], [ %incdec.ptr.i.i, %_ZNK5boost9container3dtl9flat_treeINS1_4pairINSt6thread2idEiEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS6_EEE16priv_lower_boundINS0_12vec_iteratorIPS6_Lb1EEES5_EET_SI_SI_RKT0_.exit.i.i ], [ %0, %if.end.i ], [ %0, %if.then.i ]
+  %data.sroa.0.06 = phi ptr [ %7, %_ZN5boost9container3dtl9flat_treeINS1_4pairINSt6thread2idEiEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS6_EEE26priv_insert_unique_prepareENS0_12vec_iteratorIPS6_Lb1EEERKS5_RNSD_18insert_commit_dataE.exit ], [ %5, %lor.rhs.i.i ], [ %7, %_ZNK5boost9container3dtl9flat_treeINS1_4pairINSt6thread2idEiEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS6_EEE16priv_lower_boundINS0_12vec_iteratorIPS6_Lb1EEES5_EET_SI_SI_RKT0_.exit.i37.i ], [ %5, %_ZNK5boost9container3dtl9flat_treeINS1_4pairINSt6thread2idEiEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS6_EEE16priv_lower_boundINS0_12vec_iteratorIPS6_Lb1EEES5_EET_SI_SI_RKT0_.exit.i.i ], [ %0, %if.end.i ], [ %0, %if.then.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store ptr %data.sroa.0.06, ptr %agg.tmp.i, align 8, !noalias !141
   call void @_ZN5boost9container6vectorINS0_3dtl4pairINSt6thread2idEiEENS0_13new_allocatorIS6_EEvE25priv_forward_range_insertINS2_17insert_move_proxyIS8_PS6_EEEENS0_12vec_iteratorISC_Lb0EEERKSC_mT_(ptr sret(%"class.boost::container::vec_iterator.101") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i, i64 noundef 1, ptr nonnull %val)
@@ -8804,8 +8803,8 @@ if.end.i:                                         ; preds = %if.else
 
 if.then3.i:                                       ; preds = %if.end.i
   %4 = load i64, ptr %insert_range_proxy.coerce, align 8
-  store i64 %4, ptr %2, align 8
-  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %4, ptr %add.ptr.i.i, align 8
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %second3.i.i.i.i.i = getelementptr inbounds i8, ptr %insert_range_proxy.coerce, i64 8
   %5 = load i32, ptr %second3.i.i.i.i.i, align 4
   store i32 %5, ptr %second.i.i.i.i.i, align 8

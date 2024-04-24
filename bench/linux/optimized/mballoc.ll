@@ -584,7 +584,7 @@ define internal fastcc i32 @ext4_mb_init_group(ptr noundef %0, i32 noundef %1, i
 43:                                               ; preds = %30
   %44 = or disjoint i32 %16, 1
   %45 = sext i32 %44 to i64
-  %46 = tail call ptr @pagecache_get_page(ptr noundef %26, i64 noundef %45, i32 noundef 7, i32 noundef %2) #16
+  %46 = tail call ptr @pagecache_get_page(ptr noundef %27, i64 noundef %45, i32 noundef 7, i32 noundef %2) #16
   %47 = icmp eq ptr %46, null
   br i1 %47, label %99, label %48
 

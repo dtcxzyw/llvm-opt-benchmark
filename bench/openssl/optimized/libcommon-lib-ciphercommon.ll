@@ -642,12 +642,12 @@ if.then29:                                        ; preds = %if.end24
   br i1 %cmp30, label %if.then32, label %if.end34
 
 if.then32:                                        ; preds = %if.then29
-  %add.ptr = getelementptr inbounds i8, ptr %in, i64 %inl
+  %add.ptr = getelementptr inbounds i8, ptr %out, i64 %inl
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %sub25, i1 false)
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then32, %if.then29
-  %add.ptr35 = getelementptr inbounds i8, ptr %in, i64 %inl
+  %add.ptr35 = getelementptr inbounds i8, ptr %out, i64 %inl
   %add.ptr36 = getelementptr inbounds i8, ptr %add.ptr35, i64 %sub
   %add.ptr37 = getelementptr inbounds i8, ptr %add.ptr36, i64 -1
   store i8 %conv, ptr %add.ptr37, align 1
@@ -655,7 +655,7 @@ if.end34:                                         ; preds = %if.then32, %if.then
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %loop.093 = phi i64 [ %inc, %for.body ], [ %inl, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds i8, ptr %in, i64 %loop.093
+  %arrayidx = getelementptr inbounds i8, ptr %out, i64 %loop.093
   store i8 %conv, ptr %arrayidx, align 1
   %inc = add nuw i64 %loop.093, 1
   %cmp39 = icmp ult i64 %inc, %add
@@ -678,7 +678,7 @@ if.end48:                                         ; preds = %if.end43
   %5 = load ptr, ptr %hw, align 8
   %cipher = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %cipher, align 8
-  %call = tail call i32 %6(ptr noundef %vctx, ptr noundef nonnull %in, ptr noundef nonnull %in, i64 noundef %4) #5
+  %call = tail call i32 %6(ptr noundef %vctx, ptr noundef %out, ptr noundef %in, i64 noundef %4) #5
   %tobool49.not = icmp eq i32 %call, 0
   br i1 %tobool49.not, label %if.then50, label %if.end51
 
@@ -716,7 +716,7 @@ land.lhs.true:                                    ; preds = %if.end56
   %tlsmac64 = getelementptr inbounds i8, ptr %vctx, i64 120
   %tlsmacsize = getelementptr inbounds i8, ptr %vctx, i64 136
   %12 = load i64, ptr %tlsmacsize, align 8
-  %call66 = tail call i32 @ossl_cipher_tlsunpadblock(ptr noundef %10, i32 noundef %11, ptr noundef nonnull %in, ptr noundef nonnull %outl, i64 noundef %0, ptr noundef nonnull %tlsmac64, ptr noundef nonnull %alloced, i64 noundef %12, i32 noundef 0) #5
+  %call66 = tail call i32 @ossl_cipher_tlsunpadblock(ptr noundef %10, i32 noundef %11, ptr noundef %out, ptr noundef nonnull %outl, i64 noundef %0, ptr noundef nonnull %tlsmac64, ptr noundef nonnull %alloced, i64 noundef %12, i32 noundef 0) #5
   %tobool67.not = icmp eq i32 %call66, 0
   br i1 %tobool67.not, label %if.then68, label %return
 

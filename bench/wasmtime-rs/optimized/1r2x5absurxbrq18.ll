@@ -479,7 +479,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
   br i1 %11, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  store ptr %4, ptr %0, align 8, !alias.scope !169, !noalias !172
+  store ptr %8, ptr %0, align 8, !alias.scope !169, !noalias !172
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf8b87ce8cc8b36d0E.llvm.3269599604001853466.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hf8b87ce8cc8b36d0E.llvm.3269599604001853466.exit: ; preds = %2, %._crit_edge.i
@@ -8691,7 +8691,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf8b87ce8cc
   br i1 %15, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %9
-  store ptr %4, ptr %0, align 8, !alias.scope !2652
+  store ptr %12, ptr %0, align 8, !alias.scope !2652
   store i64 %14, ptr %8, align 8, !alias.scope !2655
   br label %16
 
@@ -10332,7 +10332,7 @@ define hidden void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
   br i1 %11, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
-  store ptr %4, ptr %0, align 8, !alias.scope !2920, !noalias !2923
+  store ptr %8, ptr %0, align 8, !alias.scope !2920, !noalias !2923
   br label %"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$9spec_fold17h552a312ea6c14792E.llvm.3269599604001853466.exit"
 
 "_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$9spec_fold17h552a312ea6c14792E.llvm.3269599604001853466.exit": ; preds = %2, %._crit_edge.i.i.i
@@ -10697,7 +10697,7 @@ define hidden void @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
   br i1 %11, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  store ptr %4, ptr %0, align 8, !alias.scope !3013, !noalias !3016
+  store ptr %8, ptr %0, align 8, !alias.scope !3013, !noalias !3016
   br label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0bcb29888afe46c3E.llvm.3269599604001853466.exit"
 
 "_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0bcb29888afe46c3E.llvm.3269599604001853466.exit": ; preds = %2, %._crit_edge.i.i
@@ -16158,7 +16158,7 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b1208338a8943faE.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b1208338a8943faE.exit": ; preds = %.thread, %19
-  %.sroa.039.1 = phi ptr [ %.sroa.5.0.copyload35, %.thread ], [ %15, %19 ]
+  %.sroa.039.1 = phi ptr [ %.sroa.039.0, %.thread ], [ %15, %19 ]
   %22 = phi { i64, ptr } [ { i64 0, ptr undef }, %.thread ], [ %20, %19 ]
   %.sroa.3.0.i = phi ptr [ undef, %.thread ], [ %21, %19 ]
   %23 = extractvalue { i64, ptr } %22, 0
@@ -16817,7 +16817,7 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55fd600dc7fcbd7aE.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55fd600dc7fcbd7aE.exit": ; preds = %.thread, %19
-  %.sroa.039.1 = phi ptr [ %.sroa.5.0.copyload35, %.thread ], [ %15, %19 ]
+  %.sroa.039.1 = phi ptr [ %.sroa.039.0, %.thread ], [ %15, %19 ]
   %22 = phi { i64, ptr } [ { i64 0, ptr undef }, %.thread ], [ %20, %19 ]
   %.sroa.3.0.i = phi ptr [ undef, %.thread ], [ %21, %19 ]
   %23 = extractvalue { i64, ptr } %22, 0

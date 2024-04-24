@@ -6752,7 +6752,7 @@ Gia_ObjIsAndNotBuf.exit117.thread:                ; preds = %118, %137, %Gia_Obj
   br i1 %150, label %151, label %Gia_ObjIsAndNotBuf.exit113.thread
 
 151:                                              ; preds = %Gia_ObjIsAndNotBuf.exit117.thread
-  %.val92 = load i64, ptr %148, align 4
+  %.val92 = load i64, ptr %149, align 4
   %152 = and i64 %.val92, 2147483648
   %.not.i.i118 = icmp ne i64 %152, 0
   %153 = and i64 %.val92, 536870911

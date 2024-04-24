@@ -1082,9 +1082,10 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef %1
   br i1 %19, label %.loopexit.sink.split, label %.preheader
 
 .loopexit.sink.split:                             ; preds = %18, %13
-  %.028.lcssa42.sink = phi ptr [ %14, %13 ], [ %.028, %18 ]
-  %20 = load ptr, ptr %1, align 8
-  store ptr %20, ptr %.028.lcssa42.sink, align 8
+  %.0.lcssa42.sink = phi ptr [ %1, %13 ], [ %.0, %18 ]
+  %.028.lcssa43.sink = phi ptr [ %14, %13 ], [ %.028, %18 ]
+  %20 = load ptr, ptr %.0.lcssa42.sink, align 8
+  store ptr %20, ptr %.028.lcssa43.sink, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split
@@ -3788,7 +3789,7 @@ define hidden void @zim_DOMElement_insertAdjacentText(ptr nocapture noundef read
   %36 = getelementptr inbounds i8, ptr %35, i64 64
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %27, i64 24
-  %39 = trunc i64 %29 to i32
+  %39 = trunc nuw nsw i64 %29 to i32
   %40 = call ptr @xmlNewDocTextLen(ptr noundef %37, ptr noundef nonnull %38, i32 noundef %39) #8
   %41 = load ptr, ptr %3, align 8
   %42 = call fastcc ptr @dom_insert_adjacent(ptr noundef %41, ptr noundef %35, ptr noundef nonnull %15, ptr noundef %40)

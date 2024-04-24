@@ -249,7 +249,7 @@ define dso_local void @_ZN5cmsys8Encoding20CommandLineArgumentsD2Ev(ptr nocaptur
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.lcssa = phi ptr [ %3, %1 ], [ %10, %.lr.ph ]
+  %.lcssa = phi ptr [ %4, %1 ], [ %10, %.lr.ph ]
   %.not.i.i.i = icmp eq ptr %.lcssa, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit, label %16
 
@@ -366,73 +366,73 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5cmsys8Enco
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %21 = phi ptr [ %4, %.preheader ], [ %15, %.lr.ph ]
   %.lcssa16 = phi ptr [ %4, %.preheader ], [ %14, %.lr.ph ]
+  %.lcssa15 = phi ptr [ %5, %.preheader ], [ %15, %.lr.ph ]
   %.lcssa = phi i64 [ %9, %.preheader ], [ %19, %.lr.ph ]
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %1, align 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %1, align 8
+  %24 = ptrtoint ptr %22 to i64
   %25 = ptrtoint ptr %23 to i64
-  %26 = ptrtoint ptr %24 to i64
-  %27 = sub i64 %25, %26
-  %28 = ashr exact i64 %27, 3
-  %29 = icmp ult i64 %.lcssa, %28
-  br i1 %29, label %30, label %32
+  %26 = sub i64 %24, %25
+  %27 = ashr exact i64 %26, 3
+  %28 = icmp ult i64 %.lcssa, %27
+  br i1 %28, label %29, label %31
 
-30:                                               ; preds = %._crit_edge
-  %31 = sub nsw i64 %28, %.lcssa
-  tail call void @_ZNSt6vectorIPcSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %31)
+29:                                               ; preds = %._crit_edge
+  %30 = sub nsw i64 %27, %.lcssa
+  tail call void @_ZNSt6vectorIPcSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %30)
   %.pre = load ptr, ptr %3, align 8
   %.pre28 = load ptr, ptr %0, align 8
   br label %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit
 
-32:                                               ; preds = %._crit_edge
-  %33 = icmp ugt i64 %.lcssa, %28
-  br i1 %33, label %34, label %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit
+31:                                               ; preds = %._crit_edge
+  %32 = icmp ugt i64 %.lcssa, %27
+  br i1 %32, label %33, label %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %21, i64 %27
-  %.not.i.i = icmp eq ptr %.lcssa16, %35
-  br i1 %.not.i.i, label %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit, label %36
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds i8, ptr %.lcssa15, i64 %26
+  %.not.i.i = icmp eq ptr %.lcssa16, %34
+  br i1 %.not.i.i, label %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit, label %35
 
-36:                                               ; preds = %34
-  store ptr %35, ptr %3, align 8
+35:                                               ; preds = %33
+  store ptr %34, ptr %3, align 8
   br label %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit
 
-_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit:            ; preds = %30, %32, %34, %36
-  %37 = phi ptr [ %.pre28, %30 ], [ %21, %32 ], [ %21, %34 ], [ %21, %36 ]
-  %38 = phi ptr [ %.pre, %30 ], [ %.lcssa16, %32 ], [ %.lcssa16, %34 ], [ %35, %36 ]
-  %.not24 = icmp eq ptr %38, %37
+_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit:            ; preds = %29, %31, %33, %35
+  %36 = phi ptr [ %.pre28, %29 ], [ %.lcssa15, %31 ], [ %.lcssa15, %33 ], [ %.lcssa15, %35 ]
+  %37 = phi ptr [ %.pre, %29 ], [ %.lcssa16, %31 ], [ %.lcssa16, %33 ], [ %34, %35 ]
+  %.not24 = icmp eq ptr %37, %36
   br i1 %.not24, label %.loopexit, label %.lr.ph22
 
-.lr.ph22:                                         ; preds = %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit, %45
-  %39 = phi ptr [ %50, %45 ], [ %37, %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit ]
-  %.121 = phi i64 [ %48, %45 ], [ 0, %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit ]
-  %40 = load ptr, ptr %1, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %.121
-  %42 = load ptr, ptr %41, align 8
-  %.not14 = icmp eq ptr %42, null
-  br i1 %.not14, label %45, label %43
+.lr.ph22:                                         ; preds = %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit, %44
+  %38 = phi ptr [ %49, %44 ], [ %36, %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit ]
+  %.121 = phi i64 [ %47, %44 ], [ 0, %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit ]
+  %39 = load ptr, ptr %1, align 8
+  %40 = getelementptr inbounds ptr, ptr %39, i64 %.121
+  %41 = load ptr, ptr %40, align 8
+  %.not14 = icmp eq ptr %41, null
+  br i1 %.not14, label %44, label %42
 
-43:                                               ; preds = %.lr.ph22
-  %44 = tail call noalias ptr @strdup(ptr noundef nonnull %42) #15
-  br label %45
+42:                                               ; preds = %.lr.ph22
+  %43 = tail call noalias ptr @strdup(ptr noundef nonnull %41) #15
+  br label %44
 
-45:                                               ; preds = %.lr.ph22, %43
-  %46 = phi ptr [ %44, %43 ], [ null, %.lr.ph22 ]
-  %47 = getelementptr inbounds ptr, ptr %39, i64 %.121
-  store ptr %46, ptr %47, align 8
-  %48 = add nuw i64 %.121, 1
-  %49 = load ptr, ptr %3, align 8
-  %50 = load ptr, ptr %0, align 8
+44:                                               ; preds = %.lr.ph22, %42
+  %45 = phi ptr [ %43, %42 ], [ null, %.lr.ph22 ]
+  %46 = getelementptr inbounds ptr, ptr %38, i64 %.121
+  store ptr %45, ptr %46, align 8
+  %47 = add nuw i64 %.121, 1
+  %48 = load ptr, ptr %3, align 8
+  %49 = load ptr, ptr %0, align 8
+  %50 = ptrtoint ptr %48 to i64
   %51 = ptrtoint ptr %49 to i64
-  %52 = ptrtoint ptr %50 to i64
-  %53 = sub i64 %51, %52
-  %54 = ashr exact i64 %53, 3
-  %55 = icmp ult i64 %48, %54
-  br i1 %55, label %.lr.ph22, label %.loopexit, !llvm.loop !11
+  %52 = sub i64 %50, %51
+  %53 = ashr exact i64 %52, 3
+  %54 = icmp ult i64 %47, %53
+  br i1 %54, label %.lr.ph22, label %.loopexit, !llvm.loop !11
 
-.loopexit:                                        ; preds = %45, %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit, %2
+.loopexit:                                        ; preds = %44, %_ZNSt6vectorIPcSaIS0_EE6resizeEm.exit, %2
   ret ptr %0
 }
 

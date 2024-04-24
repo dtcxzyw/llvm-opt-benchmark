@@ -48,20 +48,16 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.else.i:                                        ; preds = %for.body
   %cmp1.i = icmp eq ptr %call.i, %0
-  br i1 %cmp1.i, label %if.then2.i, label %if.else3.i
-
-if.then2.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 1
-  br label %do_create.exit
+  %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 1
+  br i1 %cmp1.i, label %do_create.exit, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.else.i
-  %add.ptr4.i = getelementptr inbounds i8, ptr %call.i, i64 1
-  %2 = load i8, ptr %add.ptr4.i, align 1
+  %2 = load i8, ptr %add.ptr.i, align 1
   %cmp5.i = icmp eq i8 %2, 0
   br i1 %cmp5.i, label %return.sink.split, label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.else3.i, %while.cond.i
-  %ostr.0.i = phi ptr [ %incdec.ptr.i, %while.cond.i ], [ %add.ptr4.i, %if.else3.i ]
+  %ostr.0.i = phi ptr [ %incdec.ptr.i, %while.cond.i ], [ %add.ptr.i, %if.else3.i ]
   %3 = load i8, ptr %ostr.0.i, align 1
   %conv8.i = sext i8 %3 to i32
   %call9.i = tail call i32 @ossl_ctype_check(i32 noundef %conv8.i, i32 noundef 8) #5
@@ -106,10 +102,10 @@ if.end34.i:                                       ; preds = %while.end28.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %do_create.exit
 
-do_create.exit:                                   ; preds = %for.body, %if.then2.i, %if.end34.i
-  %ln.1.i = phi ptr [ %1, %if.then2.i ], [ %call30.i, %if.end34.i ], [ %1, %for.body ]
-  %ostr.1.i = phi ptr [ %add.ptr.i, %if.then2.i ], [ %ostr.0.i, %if.end34.i ], [ %0, %for.body ]
-  %lntmp.0.i = phi ptr [ null, %if.then2.i ], [ %call30.i, %if.end34.i ], [ null, %for.body ]
+do_create.exit:                                   ; preds = %for.body, %if.else.i, %if.end34.i
+  %ln.1.i = phi ptr [ %call30.i, %if.end34.i ], [ %1, %for.body ], [ %1, %if.else.i ]
+  %ostr.1.i = phi ptr [ %ostr.0.i, %if.end34.i ], [ %0, %for.body ], [ %add.ptr.i, %if.else.i ]
+  %lntmp.0.i = phi ptr [ %call30.i, %if.end34.i ], [ null, %for.body ], [ null, %if.else.i ]
   %call43.i = tail call i32 @OBJ_create(ptr noundef %ostr.1.i, ptr noundef %1, ptr noundef %ln.1.i) #5
   tail call void @CRYPTO_free(ptr noundef %lntmp.0.i, ptr noundef nonnull @.str.1, i32 noundef 99) #5
   %cmp44.i.not = icmp eq i32 %call43.i, 0

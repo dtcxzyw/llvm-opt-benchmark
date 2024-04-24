@@ -330,7 +330,7 @@ define linkonce_odr ptr @_ZNSt6vectorIP6TF_KEYSaIS1_EE6insertEN9__gnu_cxx17__nor
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %2, align 8
-  store ptr %15, ptr %1, align 8
+  store ptr %15, ptr %9, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %17, ptr %8, align 8
@@ -522,7 +522,7 @@ define void @_ZN9TfChannel9removeKeyEP6TF_KEY(ptr nocapture noundef nonnull alig
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %9
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #23
   %.pre = load ptr, ptr %3, align 8
   %.pre16 = load ptr, ptr %5, align 8
   br label %12

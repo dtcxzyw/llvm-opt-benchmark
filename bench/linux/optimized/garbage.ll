@@ -92,7 +92,7 @@ define dso_local void @unix_gc() local_unnamed_addr #0 align 16 {
   call void @_raw_spin_lock(ptr noundef nonnull @unix_gc_lock) #4
   %5 = load i8, ptr @gc_in_progress, align 1, !range !5, !noundef !6
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %7, label %136
+  br i1 %6, label %7, label %137
 
 7:                                                ; preds = %0
   store volatile i8 1, ptr @gc_in_progress, align 1
@@ -287,7 +287,7 @@ define dso_local void @unix_gc() local_unnamed_addr #0 align 16 {
   call void @_raw_spin_unlock(ptr noundef nonnull @unix_gc_lock) #4
   %89 = load ptr, ptr %1, align 8
   %90 = icmp eq ptr %89, %1
-  br i1 %90, label %.loopexit17, label %.preheader18
+  br i1 %90, label %.loopexit19, label %.preheader18
 
 .preheader18:                                     ; preds = %.loopexit21, %106
   %91 = phi ptr [ %92, %106 ], [ %89, %.loopexit21 ]
@@ -316,72 +316,76 @@ define dso_local void @unix_gc() local_unnamed_addr #0 align 16 {
 
 106:                                              ; preds = %96, %.preheader18
   %107 = icmp eq ptr %92, %1
-  br i1 %107, label %.loopexit19, label %.preheader18, !llvm.loop !22
+  br i1 %107, label %.loopexit19.loopexit, label %.preheader18, !llvm.loop !22
 
-.loopexit19:                                      ; preds = %106
+.loopexit19.loopexit:                             ; preds = %106
   %.pre29 = load ptr, ptr %1, align 8
-  %108 = icmp eq ptr %.pre29, %1
-  %109 = icmp eq ptr %.pre29, null
-  %110 = or i1 %108, %109
-  br i1 %110, label %.loopexit17, label %.preheader16
+  br label %.loopexit19
+
+.loopexit19:                                      ; preds = %.loopexit19.loopexit, %.loopexit21
+  %108 = phi ptr [ %.pre29, %.loopexit19.loopexit ], [ %89, %.loopexit21 ]
+  %109 = icmp eq ptr %108, %1
+  %110 = icmp eq ptr %108, null
+  %111 = or i1 %109, %110
+  br i1 %111, label %.loopexit17, label %.preheader16
 
 .preheader16:                                     ; preds = %.loopexit19, %.preheader16
-  %111 = phi ptr [ %118, %.preheader16 ], [ %.pre29, %.loopexit19 ]
-  %112 = load i32, ptr %66, align 8
-  %113 = add i32 %112, -1
-  store volatile i32 %113, ptr %66, align 8
-  %114 = load ptr, ptr %111, align 8
-  %115 = getelementptr inbounds i8, ptr %111, i64 8
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %114, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false)
-  store volatile ptr %116, ptr %117, align 8
-  store volatile ptr %114, ptr %116, align 8
-  call void @kfree_skb_reason(ptr noundef nonnull %111, i32 noundef 82) #4
-  %118 = load ptr, ptr %1, align 8
-  %119 = icmp eq ptr %118, %1
-  %120 = icmp eq ptr %118, null
-  %121 = or i1 %119, %120
-  br i1 %121, label %.loopexit17, label %.preheader16, !llvm.loop !23
+  %112 = phi ptr [ %119, %.preheader16 ], [ %108, %.loopexit19 ]
+  %113 = load i32, ptr %66, align 8
+  %114 = add i32 %113, -1
+  store volatile i32 %114, ptr %66, align 8
+  %115 = load ptr, ptr %112, align 8
+  %116 = getelementptr inbounds i8, ptr %112, i64 8
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds i8, ptr %115, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %112, i8 0, i64 16, i1 false)
+  store volatile ptr %117, ptr %118, align 8
+  store volatile ptr %115, ptr %117, align 8
+  call void @kfree_skb_reason(ptr noundef nonnull %112, i32 noundef 82) #4
+  %119 = load ptr, ptr %1, align 8
+  %120 = icmp eq ptr %119, %1
+  %121 = icmp eq ptr %119, null
+  %122 = or i1 %120, %121
+  br i1 %122, label %.loopexit17, label %.preheader16, !llvm.loop !23
 
-.loopexit17:                                      ; preds = %.preheader16, %.loopexit21, %.loopexit19
+.loopexit17:                                      ; preds = %.preheader16, %.loopexit19
   call void @_raw_spin_lock(ptr noundef nonnull @unix_gc_lock) #4
-  %122 = load ptr, ptr @gc_candidates, align 8
-  %123 = icmp eq ptr %122, @gc_candidates
-  br i1 %123, label %.loopexit, label %.preheader
+  %123 = load ptr, ptr @gc_candidates, align 8
+  %124 = icmp eq ptr %123, @gc_candidates
+  br i1 %124, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit17, %.preheader
-  %124 = phi ptr [ %125, %.preheader ], [ %122, %.loopexit17 ]
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %124, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %125, i64 8
-  store ptr %127, ptr %128, align 8
-  store volatile ptr %125, ptr %127, align 8
-  %129 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @gc_inflight_list, i64 0, i32 1), align 8
-  store ptr %124, ptr getelementptr inbounds (%struct.list_head, ptr @gc_inflight_list, i64 0, i32 1), align 8
-  store ptr @gc_inflight_list, ptr %124, align 8
-  store ptr %129, ptr %126, align 8
-  store volatile ptr %124, ptr %129, align 8
-  %130 = icmp eq ptr %125, @gc_candidates
-  br i1 %130, label %.loopexit, label %.preheader, !llvm.loop !24
+  %125 = phi ptr [ %126, %.preheader ], [ %123, %.loopexit17 ]
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds i8, ptr %125, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %126, i64 8
+  store ptr %128, ptr %129, align 8
+  store volatile ptr %126, ptr %128, align 8
+  %130 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @gc_inflight_list, i64 0, i32 1), align 8
+  store ptr %125, ptr getelementptr inbounds (%struct.list_head, ptr @gc_inflight_list, i64 0, i32 1), align 8
+  store ptr @gc_inflight_list, ptr %125, align 8
+  store ptr %130, ptr %127, align 8
+  store volatile ptr %125, ptr %130, align 8
+  %131 = icmp eq ptr %126, @gc_candidates
+  br i1 %131, label %.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit17
-  %131 = load volatile ptr, ptr @gc_candidates, align 8
-  %132 = icmp eq ptr %131, @gc_candidates
-  br i1 %132, label %134, label %133, !prof !25
+  %132 = load volatile ptr, ptr @gc_candidates, align 8
+  %133 = icmp eq ptr %132, @gc_candidates
+  br i1 %133, label %135, label %134, !prof !25
 
-133:                                              ; preds = %.loopexit
+134:                                              ; preds = %.loopexit
   call void asm sideeffect "676: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 676b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 676) #4, !srcloc !26
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 334, i32 0, i64 12) #4, !srcloc !27
   unreachable
 
-134:                                              ; preds = %.loopexit
+135:                                              ; preds = %.loopexit
   store volatile i8 0, ptr @gc_in_progress, align 1
-  %135 = call i32 @__wake_up(ptr noundef nonnull @unix_gc_wait, i32 noundef 3, i32 noundef 1, ptr noundef null) #4
-  br label %136
+  %136 = call i32 @__wake_up(ptr noundef nonnull @unix_gc_wait, i32 noundef 3, i32 noundef 1, ptr noundef null) #4
+  br label %137
 
-136:                                              ; preds = %134, %0
+137:                                              ; preds = %135, %0
   call void @_raw_spin_unlock(ptr noundef nonnull @unix_gc_lock) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4

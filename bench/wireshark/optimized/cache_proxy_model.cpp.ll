@@ -157,7 +157,7 @@ define void @_ZNK15CacheProxyModel10headerDataEiN2Qt11OrientationEi(ptr dead_on_
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %5
-  tail call void @_ZNK18QStandardItemModel10headerDataEiN2Qt11OrientationEi(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  tail call void @_ZNK18QStandardItemModel10headerDataEiN2Qt11OrientationEi(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br label %13
 
 13:                                               ; preds = %8, %12
@@ -183,7 +183,7 @@ define noundef i32 @_ZNK15CacheProxyModel8rowCountERK11QModelIndex(ptr noundef n
   br label %9
 
 7:                                                ; preds = %2
-  %8 = tail call noundef i32 @_ZNK18QStandardItemModel8rowCountERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %8 = tail call noundef i32 @_ZNK18QStandardItemModel8rowCountERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -210,7 +210,7 @@ define noundef i32 @_ZNK15CacheProxyModel11columnCountERK11QModelIndex(ptr nound
   br label %9
 
 7:                                                ; preds = %2
-  %8 = tail call noundef i32 @_ZNK18QStandardItemModel11columnCountERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %8 = tail call noundef i32 @_ZNK18QStandardItemModel11columnCountERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %9
 
 9:                                                ; preds = %7, %5

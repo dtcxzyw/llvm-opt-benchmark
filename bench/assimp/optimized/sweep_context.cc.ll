@@ -1061,24 +1061,24 @@ invoke.cont:                                      ; preds = %entry
   %call8 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
   %7 = load ptr, ptr %points_.i, align 8
   store ptr %7, ptr %call8, align 8
-  %triangle.i3 = getelementptr inbounds i8, ptr %call8, i64 8
-  store ptr %call, ptr %triangle.i3, align 8
-  %next.i4 = getelementptr inbounds i8, ptr %call8, i64 16
-  %value.i5 = getelementptr inbounds i8, ptr %call8, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i4, i8 0, i64 16, i1 false)
+  %triangle.i4 = getelementptr inbounds i8, ptr %call8, i64 8
+  store ptr %call, ptr %triangle.i4, align 8
+  %next.i5 = getelementptr inbounds i8, ptr %call8, i64 16
+  %value.i6 = getelementptr inbounds i8, ptr %call8, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i5, i8 0, i64 16, i1 false)
   %8 = load double, ptr %7, align 8
-  store double %8, ptr %value.i5, align 8
+  store double %8, ptr %value.i6, align 8
   %af_middle_ = getelementptr inbounds i8, ptr %this, i64 184
   store ptr %call8, ptr %af_middle_, align 8
   %call13 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
-  %arrayidx.i7 = getelementptr inbounds i8, ptr %call, i64 24
-  %9 = load ptr, ptr %arrayidx.i7, align 8
+  %arrayidx.i8 = getelementptr inbounds i8, ptr %call, i64 24
+  %9 = load ptr, ptr %arrayidx.i8, align 8
   store ptr %9, ptr %call13, align 8
-  %triangle.i8 = getelementptr inbounds i8, ptr %call13, i64 8
-  %value.i9 = getelementptr inbounds i8, ptr %call13, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %triangle.i8, i8 0, i64 24, i1 false)
+  %triangle.i9 = getelementptr inbounds i8, ptr %call13, i64 8
+  %value.i10 = getelementptr inbounds i8, ptr %call13, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %triangle.i9, i8 0, i64 24, i1 false)
   %10 = load double, ptr %9, align 8
-  store double %10, ptr %value.i9, align 8
+  store double %10, ptr %value.i10, align 8
   %af_tail_ = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %call13, ptr %af_tail_, align 8
   %call18 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
@@ -1473,7 +1473,7 @@ while.end:                                        ; preds = %if.end13
   br i1 %tobool.not.i.i.i52, label %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EED2Ev.exit54, label %if.then.i.i.i53
 
 if.then.i.i.i53:                                  ; preds = %while.end
-  tail call void @_ZdlPv(ptr noundef nonnull %triangles.sroa.8.5) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %triangles.sroa.0.6) #18
   br label %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EED2Ev.exit54
 
 _ZNSt6vectorIPN3p2t8TriangleESaIS2_EED2Ev.exit54: ; preds = %while.end, %if.then.i.i.i53

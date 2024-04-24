@@ -13234,7 +13234,7 @@ _ZNK3gsl7details13span_iteratorIiEmiIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove
   %sub.ptr.sub.i11.i = sub i64 %sub.ptr.lhs.cast.i9.i, %sub.ptr.rhs.cast.i10.i
   %sub.ptr.div.i12.i = ashr exact i64 %sub.ptr.sub.i11.i, 2
   %cmp.i = icmp slt i64 %sub.ptr.sub.i11.i, %sub.ptr.sub.i.i
-  br i1 %cmp.i, label %cond.true.i, label %_ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph
+  br i1 %cmp.i, label %cond.true.i, label %_ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1IN3gsl7details13span_iteratorIiEES6_EET_S7_S7_T0_S8_.exit
 
 cond.true.i:                                      ; preds = %_ZNK3gsl7details13span_iteratorIiEmiIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEElRKNS1_IS6_EE.exit13.i
   %cmp.not.i.i.i = icmp eq ptr %agg.tmp3.sroa.3.0.copyload, %agg.tmp2.sroa.3.0.copyload
@@ -13280,21 +13280,29 @@ cond.false28.i.i.i:                               ; preds = %if.then17.i.i.i
 
 _ZNK3gsl7details13span_iteratorIiEplEl.exit.i:    ; preds = %cond.true.i, %if.then17.i.i.i, %if.then6.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.3.0.copyload, i64 %sub.ptr.sub.i11.i
-  br label %_ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph
+  br label %_ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1IN3gsl7details13span_iteratorIiEES6_EET_S7_S7_T0_S8_.exit
 
-_ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph: ; preds = %_ZNK3gsl7details13span_iteratorIiEplEl.exit.i, %_ZNK3gsl7details13span_iteratorIiEmiIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEElRKNS1_IS6_EE.exit13.i
+_ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1IN3gsl7details13span_iteratorIiEES6_EET_S7_S7_T0_S8_.exit: ; preds = %_ZNK3gsl7details13span_iteratorIiEmiIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEElRKNS1_IS6_EE.exit13.i, %_ZNK3gsl7details13span_iteratorIiEplEl.exit.i
   %ref.tmp.sroa.5.0 = phi ptr [ %add.ptr.i.i.i, %_ZNK3gsl7details13span_iteratorIiEplEl.exit.i ], [ %agg.tmp1.sroa.3.0.copyload, %_ZNK3gsl7details13span_iteratorIiEmiIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEElRKNS1_IS6_EE.exit13.i ]
+  %ref.tmp.sroa.4.0 = phi ptr [ %agg.tmp.sroa.2.0.copyload, %_ZNK3gsl7details13span_iteratorIiEplEl.exit.i ], [ %agg.tmp1.sroa.2.0.copyload, %_ZNK3gsl7details13span_iteratorIiEmiIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEElRKNS1_IS6_EE.exit13.i ]
+  %ref.tmp.sroa.0.0 = phi ptr [ %agg.tmp.sroa.0.0.copyload, %_ZNK3gsl7details13span_iteratorIiEplEl.exit.i ], [ %agg.tmp1.sroa.0.0.copyload, %_ZNK3gsl7details13span_iteratorIiEmiIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEElRKNS1_IS6_EE.exit13.i ]
+  %cmp.i.i10 = icmp eq ptr %agg.tmp.sroa.0.0.copyload, %ref.tmp.sroa.0.0
+  %cmp4.i.i13 = icmp eq ptr %agg.tmp.sroa.2.0.copyload, %ref.tmp.sroa.4.0
+  %2 = select i1 %cmp.i.i10, i1 %cmp4.i.i13, i1 false
+  br i1 %2, label %_ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph, label %cond.false.i.i14
+
+_ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph: ; preds = %_ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1IN3gsl7details13span_iteratorIiEES6_EET_S7_S7_T0_S8_.exit
   %tobool.not.i.i = icmp ne ptr %agg.tmp.sroa.0.0.copyload, null
   %tobool2.i.i = icmp ne ptr %agg.tmp.sroa.2.0.copyload, null
-  %2 = select i1 %tobool.not.i.i, i1 %tobool2.i.i, i1 false
-  %.fr = freeze i1 %2
+  %3 = select i1 %tobool.not.i.i, i1 %tobool2.i.i, i1 false
+  %.fr = freeze i1 %3
   br i1 %.fr, label %_ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph.split.us, label %_ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit
 
 _ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph.split.us: ; preds = %_ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph
   %tobool.not.i1.i = icmp ne ptr %agg.tmp2.sroa.0.0.copyload, null
   %tobool2.i3.i = icmp ne ptr %agg.tmp2.sroa.2.0.copyload, null
-  %3 = select i1 %tobool.not.i1.i, i1 %tobool2.i3.i, i1 false
-  %.fr123 = freeze i1 %3
+  %4 = select i1 %tobool.not.i1.i, i1 %tobool2.i3.i, i1 false
+  %.fr123 = freeze i1 %4
   %cmp7.i.i.not.us.us.us133 = icmp eq ptr %agg.tmp.sroa.3.0.copyload, %ref.tmp.sroa.5.0
   br i1 %.fr123, label %_ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph.split.us.split.us.split.us, label %_ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us
 
@@ -13310,18 +13318,18 @@ for.body.us.us.us:                                ; preds = %for.body.us.us.us.p
   %incdec.ptr.i619097.us.us.us135 = phi ptr [ %incdec.ptr.i61.us.us.us, %_ZN3gsl7details13span_iteratorIiEppEv.exit62.us.us.us ], [ %agg.tmp2.sroa.3.0.copyload, %for.body.us.us.us.preheader ]
   %incdec.ptr.i8398.us.us.us134 = phi ptr [ %incdec.ptr.i.us.us.us, %_ZN3gsl7details13span_iteratorIiEppEv.exit62.us.us.us ], [ %agg.tmp.sroa.3.0.copyload, %for.body.us.us.us.preheader ]
   %cmp8.i.i.us.us.us = icmp ult ptr %incdec.ptr.i8398.us.us.us134, %agg.tmp.sroa.2.0.copyload
-  %4 = select i1 %cmp.not.i.i.us.us.us, i1 %cmp8.i.i.us.us.us, i1 false
-  br i1 %4, label %_ZNK3gsl7details13span_iteratorIiEdeEv.exit.i.us.us.us, label %cond.false13.i.i
+  %5 = select i1 %cmp.not.i.i.us.us.us, i1 %cmp8.i.i.us.us.us, i1 false
+  br i1 %5, label %_ZNK3gsl7details13span_iteratorIiEdeEv.exit.i.us.us.us, label %cond.false13.i.i
 
 _ZNK3gsl7details13span_iteratorIiEdeEv.exit.i.us.us.us: ; preds = %for.body.us.us.us
   %cmp8.i8.i.us.us.us = icmp ult ptr %incdec.ptr.i619097.us.us.us135, %agg.tmp2.sroa.2.0.copyload
-  %5 = select i1 %cmp.not.i7.i.us.us.us, i1 %cmp8.i8.i.us.us.us, i1 false
-  br i1 %5, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN3gsl7details13span_iteratorIiEES6_EEbT_T0_.exit.us.us.us, label %cond.false13.i9.i
+  %6 = select i1 %cmp.not.i7.i.us.us.us, i1 %cmp8.i8.i.us.us.us, i1 false
+  br i1 %6, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN3gsl7details13span_iteratorIiEES6_EEbT_T0_.exit.us.us.us, label %cond.false13.i9.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN3gsl7details13span_iteratorIiEES6_EEbT_T0_.exit.us.us.us: ; preds = %_ZNK3gsl7details13span_iteratorIiEdeEv.exit.i.us.us.us
-  %6 = load i32, ptr %incdec.ptr.i8398.us.us.us134, align 4
-  %7 = load i32, ptr %incdec.ptr.i619097.us.us.us135, align 4
-  %or.cond.not = icmp eq i32 %7, %6
+  %7 = load i32, ptr %incdec.ptr.i8398.us.us.us134, align 4
+  %8 = load i32, ptr %incdec.ptr.i619097.us.us.us135, align 4
+  %or.cond.not = icmp eq i32 %8, %7
   br i1 %or.cond.not, label %_ZN3gsl7details13span_iteratorIiEppEv.exit62.us.us.us, label %return.loopexit
 
 _ZN3gsl7details13span_iteratorIiEppEv.exit62.us.us.us: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN3gsl7details13span_iteratorIiEES6_EEbT_T0_.exit.us.us.us
@@ -13336,10 +13344,14 @@ _ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove
 for.body.us:                                      ; preds = %_ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us
   %cmp.not.i.i.us = icmp ule ptr %agg.tmp.sroa.0.0.copyload, %agg.tmp.sroa.3.0.copyload
   %cmp8.i.i.us = icmp ult ptr %agg.tmp.sroa.3.0.copyload, %agg.tmp.sroa.2.0.copyload
-  %8 = select i1 %cmp.not.i.i.us, i1 %cmp8.i.i.us, i1 false
-  br i1 %8, label %_ZNK3gsl7details13span_iteratorIiEdeEv.exit.i.us, label %cond.false13.i.i
+  %9 = select i1 %cmp.not.i.i.us, i1 %cmp8.i.i.us, i1 false
+  br i1 %9, label %_ZNK3gsl7details13span_iteratorIiEdeEv.exit.i.us, label %cond.false13.i.i
 
 _ZNK3gsl7details13span_iteratorIiEdeEv.exit.i.us: ; preds = %for.body.us
+  tail call void @_ZN3gsl7details9terminateEv() #21
+  unreachable
+
+cond.false.i.i14:                                 ; preds = %_ZNSt8__lc_raiISt26random_access_iterator_tagS0_E10__newlast1IN3gsl7details13span_iteratorIiEES6_EET_S7_S7_T0_S8_.exit
   tail call void @_ZN3gsl7details9terminateEv() #21
   unreachable
 
@@ -13365,7 +13377,7 @@ _ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove
   br label %return
 
 return.loopexit:                                  ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN3gsl7details13span_iteratorIiEES6_EEbT_T0_.exit.us.us.us
-  %cmp.i24.us.us.us = icmp slt i32 %6, %7
+  %cmp.i24.us.us.us = icmp slt i32 %7, %8
   br label %return
 
 return:                                           ; preds = %return.loopexit, %_ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit76

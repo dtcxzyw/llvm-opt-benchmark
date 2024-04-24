@@ -419,7 +419,7 @@ invoke.cont9:                                     ; preds = %if.then6
   %shr.i.i.i = lshr i64 %mul.i.i.i, 31
   %and.i.i.i = and i64 %mul.i.i.i, 2147483647
   %add.i.i.i = add nuw nsw i64 %shr.i.i.i, %and.i.i.i
-  %conv2.i.i.i = trunc i64 %add.i.i.i to i32
+  %conv2.i.i.i = trunc nuw i64 %add.i.i.i to i32
   %cmp.i.i.i = icmp slt i32 %conv2.i.i.i, 0
   %sub.i.i.i = add i32 %conv2.i.i.i, -2147483647
   %spec.select.i.i.i = select i1 %cmp.i.i.i, i32 %sub.i.i.i, i32 %conv2.i.i.i
@@ -1630,7 +1630,7 @@ if.end29:                                         ; preds = %if.then21, %if.end1
   br i1 %cmp10.not, label %if.end32, label %while.body, !llvm.loop !16
 
 if.end32:                                         ; preds = %if.then21, %if.end14, %while.body, %if.end29, %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit, %lor.lhs.false
-  %last_writer.1 = phi ptr [ %leader, %lor.lhs.false ], [ %leader, %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit ], [ %w.030, %if.then21 ], [ %w.030, %if.end14 ], [ %w.030, %while.body ], [ %atomic-temp.i.0.i, %if.end29 ]
+  %last_writer.1 = phi ptr [ %leader, %lor.lhs.false ], [ %leader, %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit ], [ %w.030, %if.then21 ], [ %w.030, %if.end14 ], [ %w.030, %while.body ], [ %9, %if.end29 ]
   %last_writer33 = getelementptr inbounds i8, ptr %write_group, i64 8
   store ptr %last_writer.1, ptr %last_writer33, align 8
   %sequence = getelementptr inbounds i8, ptr %last_writer.1, i64 96

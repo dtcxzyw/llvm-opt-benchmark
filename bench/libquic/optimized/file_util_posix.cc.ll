@@ -373,7 +373,7 @@ if.then.i.i26:                                    ; preds = %invoke.cont56
   br label %_ZNSt5stackINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5dequeIS5_SaIS5_EEE3popEv.exit
 
 if.else.i.i28:                                    ; preds = %invoke.cont56
-  call void @_ZdlPv(ptr noundef %21) #21
+  call void @_ZdlPv(ptr noundef %22) #21
   %23 = load ptr, ptr %_M_node5.i.i.i.i, align 8
   %add.ptr.i.i.i29 = getelementptr inbounds i8, ptr %23, i64 -8
   store ptr %add.ptr.i.i.i29, ptr %_M_node5.i.i.i.i, align 8

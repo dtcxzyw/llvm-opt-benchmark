@@ -861,11 +861,11 @@ entry:
   %conv14 = zext i1 %cmp.i4 to i32
   %call15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %str, i64 noundef 1000, ptr noundef nonnull @.str, ptr noundef %call, i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %conv, i32 noundef %conv6, i64 noundef %7, i64 noundef %8, i32 noundef %conv10, i32 noundef %conv14) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
-  %call.i5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
+  %call.i6 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -1638,9 +1638,9 @@ if.then:                                          ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.then
   %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
-  br i1 %cmp.not.i, label %nrvo.skipdtor, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %_ZN7rocksdb6StatusaSEOS0_.exit.thread
 
-if.then.i:                                        ; preds = %invoke.cont
+_ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %invoke.cont
   %1 = load i8, ptr %ref.tmp, align 8
   store i8 %1, ptr %agg.result, align 8
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
@@ -1668,6 +1668,23 @@ if.then.i:                                        ; preds = %invoke.cont
   %state_.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %7 = load ptr, ptr %state_.i1, align 8
   store ptr %7, ptr %state_.i, align 8
+  %state_.i27 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  br label %_ZN7rocksdb6StatusD2Ev.exit
+
+_ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %invoke.cont
+  %state_.i2.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %.pre = load ptr, ptr %state_.i2.phi.trans.insert, align 8
+  %state_.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %cmp.not.i.i = icmp eq ptr %.pre, null
+  br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit
+  call void @_ZdaPv(ptr noundef nonnull %.pre) #18
+  br label %_ZN7rocksdb6StatusD2Ev.exit
+
+_ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit.thread, %_ZN7rocksdb6StatusaSEOS0_.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
+  %state_.i29 = phi ptr [ %state_.i27, %_ZN7rocksdb6StatusaSEOS0_.exit.thread ], [ %state_.i2, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %state_.i2, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ]
+  store ptr null, ptr %state_.i29, align 8
   br label %nrvo.skipdtor
 
 _ZN7rocksdb6StatusD2Ev.exit6:                     ; preds = %if.then
@@ -1676,7 +1693,7 @@ _ZN7rocksdb6StatusD2Ev.exit6:                     ; preds = %if.then
   store ptr null, ptr %state_.i, align 8
   resume { ptr, i32 } %8
 
-nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.then.i, %entry
+nrvo.skipdtor:                                    ; preds = %entry, %_ZN7rocksdb6StatusD2Ev.exit
   ret void
 }
 

@@ -59,9 +59,9 @@ define noundef i32 @fclose(ptr noundef %0) local_unnamed_addr #0 {
 27:                                               ; preds = %25
   %28 = load ptr, ptr %23, align 8
   %29 = icmp eq ptr %28, %0
-  %30 = load ptr, ptr %0, align 8
-  %..044.lcssa61 = select i1 %29, ptr %23, ptr %.044
-  store ptr %30, ptr %..044.lcssa61, align 8
+  %30 = load ptr, ptr %.043, align 8
+  %..044.lcssa62 = select i1 %29, ptr %23, ptr %.044
+  store ptr %30, ptr %..044.lcssa62, align 8
   %31 = getelementptr inbounds i8, ptr %21, i64 648
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %0

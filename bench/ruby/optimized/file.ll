@@ -1554,7 +1554,7 @@ fs_enc_check.exit.i:                              ; preds = %108, %99
   br label %rbimpl_rstring_getmem.exit.i
 
 rbimpl_rstring_getmem.exit.i:                     ; preds = %fs_enc_check.exit.i, %110, %118, %89
-  %.0 = phi ptr [ %7, %89 ], [ %.08.i.i, %118 ], [ %.08.i.i, %110 ], [ %7, %fs_enc_check.exit.i ]
+  %.0 = phi ptr [ %14, %89 ], [ %.08.i.i, %118 ], [ %.08.i.i, %110 ], [ %.08.i.i, %fs_enc_check.exit.i ]
   %.142.i = phi i64 [ %92, %89 ], [ %116, %118 ], [ %116, %110 ], [ %92, %fs_enc_check.exit.i ]
   %.139.i = phi i64 [ 4, %89 ], [ %111, %118 ], [ %111, %110 ], [ %95, %fs_enc_check.exit.i ]
   %.1.i = phi ptr [ %91, %89 ], [ %.sroa.3.0.copyload.i, %118 ], [ %117, %110 ], [ %91, %fs_enc_check.exit.i ]
@@ -1859,7 +1859,7 @@ RSTRING_PTR.exit366:                              ; preds = %207, %211
   br label %.backedge
 
 223:                                              ; preds = %220
-  %224 = getelementptr i8, ptr %.1248, i64 2
+  %224 = getelementptr i8, ptr %.4, i64 2
   %225 = load i8, ptr %224, align 1
   switch i8 %225, label %.backedge [
     i8 0, label %226
@@ -1920,7 +1920,7 @@ rb_enc_path_last_separator.exit.thread:           ; preds = %226, %rb_enc_path_l
   br label %215, !llvm.loop !86
 
 239:                                              ; preds = %220
-  %240 = getelementptr i8, ptr %.1248, i64 2
+  %240 = getelementptr i8, ptr %.4, i64 2
   br label %.backedge
 
 241:                                              ; preds = %215
@@ -9920,7 +9920,7 @@ skipprefixroot.exit72:                            ; preds = %.lr.ph.i.i69, %67, 
   br label %93
 
 75:                                               ; preds = %skipprefixroot.exit72, %53
-  %.047 = phi ptr [ null, %53 ], [ %.sroa.389.0, %skipprefixroot.exit72 ]
+  %.047 = phi ptr [ null, %53 ], [ %.0.lcssa.i.i67, %skipprefixroot.exit72 ]
   %76 = call i64 @rb_dir_getwd_ospath() #22
   store i64 %76, ptr %10, align 8
   %77 = inttoptr i64 %76 to ptr

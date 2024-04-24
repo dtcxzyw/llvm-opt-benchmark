@@ -95433,7 +95433,7 @@ default.unreachable57:                            ; preds = %103
   unreachable
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h2660f916a752af1fE.exit44", %46
-  %51 = phi ptr [ %.sroa.4.0.copyload.i, %46 ], [ %140, %"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h2660f916a752af1fE.exit44" ]
+  %51 = phi ptr [ %.sroa.4.0.copyload.i, %46 ], [ %141, %"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h2660f916a752af1fE.exit44" ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !19292
   store ptr %9, ptr %4, align 8, !noalias !19292
   %52 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hb16f2738bc503460E.llvm.450774749160709717(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9)

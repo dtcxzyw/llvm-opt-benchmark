@@ -524,7 +524,7 @@ define internal fastcc i32 @Connect_Fields(ptr noundef %0, ptr noundef %1) unnam
 
 .critedge2.i:                                     ; preds = %.critedge.i, %102, %100
   %.029.i = phi ptr [ %.0108, %102 ], [ %.0108, %100 ], [ null, %.critedge.i ]
-  %.1.i = phi ptr [ %.028.i, %102 ], [ %.028.i, %100 ], [ %.0108, %.critedge.i ]
+  %.1.i = phi ptr [ %.028.i, %102 ], [ %.028.i, %100 ], [ %108, %.critedge.i ]
   %110 = getelementptr inbounds i8, ptr %89, i64 56
   store ptr %.1.i, ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %.1.i, i64 64

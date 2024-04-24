@@ -119685,7 +119685,7 @@ define hidden void @_ZN6hir_ty5infer5unify14InferenceTable17register_infer_ok17h
   resume { ptr, i32 } %11
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hf55d77d50256422dE.llvm.16889320204317905965.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hba7db0249a3edfdcE.llvm.16889320204317905965.exit.i"
-  store ptr %4, ptr %6, align 8, !alias.scope !25056, !noalias !25057
+  store ptr %8, ptr %6, align 8, !alias.scope !25056, !noalias !25057
   call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0dcd44ea8fcdc785E.llvm.11905809803391100490"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -123645,7 +123645,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   unreachable
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hf55d77d50256422dE.llvm.16889320204317905965.exit.i: ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hba7db0249a3edfdcE.llvm.16889320204317905965.exit.i.i"
-  store ptr %45, ptr %47, align 8, !alias.scope !25969, !noalias !25970
+  store ptr %49, ptr %47, align 8, !alias.scope !25969, !noalias !25970
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0dcd44ea8fcdc785E.llvm.11905809803391100490"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
           to label %64 unwind label %11
 
@@ -123662,8 +123662,8 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hf55d77d50256422dE.llvm.16889320204
   %65 = trunc nuw i8 %.1 to i1
   %66 = load i64, ptr %8, align 8, !range !548
   %67 = icmp ne i64 %66, 2
-  %or.cond.not75 = select i1 %65, i1 %67, i1 false
-  br i1 %or.cond.not75, label %68, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hc182427d61c9a88eE.exit"
+  %or.cond.not77 = select i1 %65, i1 %67, i1 false
+  br i1 %or.cond.not77, label %68, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hc182427d61c9a88eE.exit"
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds i8, ptr %8, i64 24
@@ -124596,7 +124596,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   unreachable
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hf55d77d50256422dE.llvm.16889320204317905965.exit.i.i.i: ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hba7db0249a3edfdcE.llvm.16889320204317905965.exit.i.i.i.i"
-  store ptr %123, ptr %125, align 8, !alias.scope !26151, !noalias !26152
+  store ptr %127, ptr %125, align 8, !alias.scope !26151, !noalias !26152
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0dcd44ea8fcdc785E.llvm.11905809803391100490"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
           to label %142 unwind label %90, !noalias !26117
 
@@ -124613,8 +124613,8 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hf55d77d50256422dE.llvm.16889320204
   %143 = trunc nuw i8 %.1.i.i to i1
   %144 = load i64, ptr %12, align 8, !range !548, !noalias !26121
   %145 = icmp ne i64 %144, 2
-  %or.cond.not75.i.i = select i1 %143, i1 %145, i1 false
-  br i1 %or.cond.not75.i.i, label %146, label %190
+  %or.cond.not77.i.i = select i1 %143, i1 %145, i1 false
+  br i1 %or.cond.not77.i.i, label %146, label %190
 
 146:                                              ; preds = %142
   %147 = getelementptr inbounds i8, ptr %12, i64 24
@@ -125257,8 +125257,8 @@ _ZN6hir_ty5infer5unify14InferenceTable19register_obligation17h7f5e210203292f80E.
   %346 = trunc nuw i8 %.2 to i1
   %347 = load i64, ptr %31, align 8, !range !548
   %348 = icmp ne i64 %347, 2
-  %or.cond.not64 = select i1 %346, i1 %348, i1 false
-  br i1 %or.cond.not64, label %349, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hc182427d61c9a88eE.exit"
+  %or.cond.not66 = select i1 %346, i1 %348, i1 false
+  br i1 %or.cond.not66, label %349, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hc182427d61c9a88eE.exit"
 
 349:                                              ; preds = %345
   %350 = getelementptr inbounds i8, ptr %31, i64 24

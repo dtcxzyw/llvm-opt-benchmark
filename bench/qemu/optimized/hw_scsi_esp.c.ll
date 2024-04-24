@@ -312,7 +312,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @scsi_req_unref(ptr noundef nonnull %req) #10
+  tail call void @scsi_req_unref(ptr noundef %1) #10
   %current_dev = getelementptr inbounds i8, ptr %0, i64 392
   %async_len = getelementptr inbounds i8, ptr %0, i64 448
   store i32 0, ptr %async_len, align 8
@@ -1864,7 +1864,7 @@ if.else29:                                        ; preds = %if.then25
   %conv.i = trunc i16 %13 to i8
   store i8 %conv.i, ptr %rregs20, align 8
   %shr.i = lshr i16 %13, 8
-  %conv1.i = trunc i16 %shr.i to i8
+  %conv1.i = trunc nuw i16 %shr.i to i8
   %arrayidx3.i77 = getelementptr i8, ptr %s, i64 161
   store i8 %conv1.i, ptr %arrayidx3.i77, align 1
   %arrayidx7.i78 = getelementptr i8, ptr %s, i64 174
@@ -3866,40 +3866,40 @@ trace_esp_get_cmd.exit:                           ; preds = %if.end57, %land.lhs
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %24 = load i8, ptr %arrayidx, align 4
   %25 = and i8 %24, 7
-  %and.i42 = zext nneg i8 %25 to i32
-  %ti_size.i43 = getelementptr inbounds i8, ptr %s, i64 212
-  store i32 0, ptr %ti_size.i43, align 4
-  %fifo.i44 = getelementptr inbounds i8, ptr %s, i64 224
-  call void @fifo8_reset(ptr noundef nonnull %fifo.i44) #10
-  %bus.i45 = getelementptr inbounds i8, ptr %s, i64 248
-  %call.i46 = call ptr @scsi_device_find(ptr noundef nonnull %bus.i45, i32 noundef 0, i32 noundef %and.i42, i32 noundef 0) #10
-  %current_dev.i47 = getelementptr inbounds i8, ptr %s, i64 392
-  store ptr %call.i46, ptr %current_dev.i47, align 8
-  %tobool.not.i48 = icmp eq ptr %call.i46, null
-  %arrayidx6.i49 = getelementptr i8, ptr %s, i64 166
-  br i1 %tobool.not.i48, label %if.then61, label %esp_select.exit56
+  %and.i43 = zext nneg i8 %25 to i32
+  %ti_size.i44 = getelementptr inbounds i8, ptr %s, i64 212
+  store i32 0, ptr %ti_size.i44, align 4
+  %fifo.i45 = getelementptr inbounds i8, ptr %s, i64 224
+  call void @fifo8_reset(ptr noundef nonnull %fifo.i45) #10
+  %bus.i46 = getelementptr inbounds i8, ptr %s, i64 248
+  %call.i47 = call ptr @scsi_device_find(ptr noundef nonnull %bus.i46, i32 noundef 0, i32 noundef %and.i43, i32 noundef 0) #10
+  %current_dev.i48 = getelementptr inbounds i8, ptr %s, i64 392
+  store ptr %call.i47, ptr %current_dev.i48, align 8
+  %tobool.not.i49 = icmp eq ptr %call.i47, null
+  %arrayidx6.i50 = getelementptr i8, ptr %s, i64 166
+  br i1 %tobool.not.i49, label %if.then61, label %esp_select.exit57
 
-esp_select.exit56:                                ; preds = %trace_esp_get_cmd.exit
-  %arrayidx8.i51 = getelementptr i8, ptr %s, i64 165
-  %26 = load i8, ptr %arrayidx8.i51, align 1
+esp_select.exit57:                                ; preds = %trace_esp_get_cmd.exit
+  %arrayidx8.i52 = getelementptr i8, ptr %s, i64 165
+  %26 = load i8, ptr %arrayidx8.i52, align 1
   %27 = or i8 %26, 8
-  store i8 %27, ptr %arrayidx8.i51, align 1
-  store i8 4, ptr %arrayidx6.i49, align 2
+  store i8 %27, ptr %arrayidx8.i52, align 1
+  store i8 4, ptr %arrayidx6.i50, align 2
   br label %return
 
 if.then61:                                        ; preds = %trace_esp_get_cmd.exit
-  %arrayidx2.i54 = getelementptr i8, ptr %s, i64 164
-  store i8 0, ptr %arrayidx2.i54, align 4
-  %arrayidx4.i55 = getelementptr i8, ptr %s, i64 165
-  store i8 32, ptr %arrayidx4.i55, align 1
-  store i8 0, ptr %arrayidx6.i49, align 2
+  %arrayidx2.i55 = getelementptr i8, ptr %s, i64 164
+  store i8 0, ptr %arrayidx2.i55, align 4
+  %arrayidx4.i56 = getelementptr i8, ptr %s, i64 165
+  store i8 32, ptr %arrayidx4.i56, align 1
+  store i8 0, ptr %arrayidx6.i50, align 2
   call fastcc void @esp_raise_irq(ptr noundef nonnull %s)
   %cmdfifo62 = getelementptr inbounds i8, ptr %s, i64 408
   call void @fifo8_reset(ptr noundef nonnull %cmdfifo62) #10
   br label %return
 
-return:                                           ; preds = %esp_select.exit56, %if.else30, %if.then3, %if.then61, %esp_raise_drq.exit, %if.then25
-  %retval.0 = phi i32 [ -1, %if.then61 ], [ -1, %if.then25 ], [ 0, %esp_raise_drq.exit ], [ 0, %if.then3 ], [ 0, %if.else30 ], [ %dmalen.0, %esp_select.exit56 ]
+return:                                           ; preds = %esp_select.exit57, %if.else30, %if.then3, %if.then61, %esp_raise_drq.exit, %if.then25
+  %retval.0 = phi i32 [ -1, %if.then61 ], [ -1, %if.then25 ], [ 0, %esp_raise_drq.exit ], [ 0, %if.then3 ], [ 0, %if.else30 ], [ %dmalen.0, %esp_select.exit57 ]
   ret i32 %retval.0
 }
 

@@ -211,7 +211,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %16
   br label %110
 
 110:                                              ; preds = %89, %49, %36, %22, %10, %5, %3, %109, %99, %85, %74, %61, %Extra_zddEmptyBelongs.exit
-  %.0 = phi ptr [ %21, %Extra_zddEmptyBelongs.exit ], [ %.087, %109 ], [ null, %61 ], [ null, %74 ], [ null, %85 ], [ null, %99 ], [ %1, %3 ], [ %7, %5 ], [ %1, %10 ], [ %23, %22 ], [ null, %36 ], [ null, %49 ], [ null, %89 ]
+  %.0 = phi ptr [ %21, %Extra_zddEmptyBelongs.exit ], [ %.087, %109 ], [ null, %61 ], [ null, %74 ], [ null, %85 ], [ null, %99 ], [ %1, %3 ], [ %7, %5 ], [ %12, %10 ], [ %23, %22 ], [ null, %36 ], [ null, %49 ], [ null, %89 ]
   ret ptr %.0
 }
 
@@ -429,7 +429,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   br label %116
 
 116:                                              ; preds = %106, %63, %33, %19, %16, %Extra_zddEmptyBelongs.exit, %5, %3, %115, %105, %94, %83, %60, %49
-  %.0 = phi ptr [ null, %49 ], [ null, %60 ], [ %.094, %115 ], [ null, %83 ], [ null, %94 ], [ null, %105 ], [ %1, %3 ], [ %2, %5 ], [ %1, %Extra_zddEmptyBelongs.exit ], [ %7, %16 ], [ %20, %19 ], [ null, %33 ], [ null, %63 ], [ null, %106 ]
+  %.0 = phi ptr [ null, %49 ], [ null, %60 ], [ %.094, %115 ], [ null, %83 ], [ null, %94 ], [ null, %105 ], [ %1, %3 ], [ %7, %5 ], [ %1, %Extra_zddEmptyBelongs.exit ], [ %7, %16 ], [ %20, %19 ], [ null, %33 ], [ null, %63 ], [ null, %106 ]
   ret ptr %.0
 }
 
@@ -471,7 +471,7 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %9
-  %14 = tail call ptr @cuddZddDiff(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #3
+  %14 = tail call ptr @cuddZddDiff(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %11) #3
   br label %119
 
 15:                                               ; preds = %9
@@ -858,7 +858,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   br label %117
 
 117:                                              ; preds = %3, %Extra_zddEmptyBelongs.exit, %107, %64, %34, %20, %18, %7, %116, %106, %95, %84, %61, %50
-  %.0 = phi ptr [ null, %50 ], [ null, %61 ], [ %.094, %116 ], [ null, %84 ], [ null, %95 ], [ null, %106 ], [ %1, %7 ], [ %1, %18 ], [ %21, %20 ], [ null, %34 ], [ null, %64 ], [ null, %107 ], [ %6, %Extra_zddEmptyBelongs.exit ], [ %6, %3 ]
+  %.0 = phi ptr [ null, %50 ], [ null, %61 ], [ %.094, %116 ], [ null, %84 ], [ null, %95 ], [ null, %106 ], [ %1, %7 ], [ %15, %18 ], [ %21, %20 ], [ null, %34 ], [ null, %64 ], [ null, %107 ], [ %6, %Extra_zddEmptyBelongs.exit ], [ %6, %3 ]
   ret ptr %.0
 }
 
@@ -1116,7 +1116,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
   br label %139
 
 139:                                              ; preds = %3, %Extra_zddEmptyBelongs.exit, %129, %76, %36, %22, %20, %138, %128, %117, %107, %96, %73, %62, %52, %9
-  %.0 = phi ptr [ %10, %9 ], [ null, %52 ], [ null, %62 ], [ null, %73 ], [ %.0117, %138 ], [ null, %96 ], [ null, %107 ], [ null, %117 ], [ null, %128 ], [ %1, %20 ], [ %23, %22 ], [ null, %36 ], [ null, %76 ], [ null, %129 ], [ %6, %Extra_zddEmptyBelongs.exit ], [ %6, %3 ]
+  %.0 = phi ptr [ %10, %9 ], [ null, %52 ], [ null, %62 ], [ null, %73 ], [ %.0117, %138 ], [ null, %96 ], [ null, %107 ], [ null, %117 ], [ null, %128 ], [ %17, %20 ], [ %23, %22 ], [ null, %36 ], [ null, %76 ], [ null, %129 ], [ %6, %Extra_zddEmptyBelongs.exit ], [ %6, %3 ]
   ret ptr %.0
 }
 

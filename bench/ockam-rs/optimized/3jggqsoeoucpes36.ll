@@ -5213,7 +5213,7 @@ _ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit.i: ; pred
 
 36:                                               ; preds = %33, %29
   %.sroa.10.1.i = phi ptr [ %.sroa.6.0.i, %33 ], [ %.sroa.10.0.i, %29 ]
-  %.sroa.8.1.i = phi ptr [ %.sroa.6.0.i, %33 ], [ %.sroa.8.0.i, %29 ]
+  %.sroa.8.1.i = phi ptr [ %.sroa.0.0.i, %33 ], [ %.sroa.8.0.i, %29 ]
   %.sroa.6.1.i = phi ptr [ %.sroa.10.0.i, %33 ], [ %.sroa.6.0.i, %29 ]
   %.sink6.i.i = phi ptr [ %.sroa.8.0.i, %33 ], [ %.sroa.0.0.i, %29 ]
   %37 = getelementptr inbounds i8, ptr %.sink6.i.i, i64 16
@@ -5287,7 +5287,7 @@ _ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit.i28: ; pr
 
 62:                                               ; preds = %59, %55
   %.sroa.10.1.i41 = phi ptr [ %.sroa.6.0.i38, %59 ], [ %.sroa.10.0.i36, %55 ]
-  %.sroa.8.1.i42 = phi ptr [ %.sroa.6.0.i38, %59 ], [ %.sroa.8.0.i37, %55 ]
+  %.sroa.8.1.i42 = phi ptr [ %.sroa.0.0.i39, %59 ], [ %.sroa.8.0.i37, %55 ]
   %.sroa.6.1.i43 = phi ptr [ %.sroa.10.0.i36, %59 ], [ %.sroa.6.0.i38, %55 ]
   %.sink6.i.i44 = phi ptr [ %.sroa.8.0.i37, %59 ], [ %.sroa.0.0.i39, %55 ]
   %63 = getelementptr inbounds i8, ptr %.sink6.i.i44, i64 16
@@ -5911,7 +5911,7 @@ _ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit.i: ; pred
 
 19:                                               ; preds = %16, %12
   %.sroa.10.1.i = phi ptr [ %.sroa.6.0.i, %16 ], [ %.sroa.10.0.i, %12 ]
-  %.sroa.8.1.i = phi ptr [ %.sroa.6.0.i, %16 ], [ %.sroa.8.0.i, %12 ]
+  %.sroa.8.1.i = phi ptr [ %.sroa.0.0.i, %16 ], [ %.sroa.8.0.i, %12 ]
   %.sroa.6.1.i = phi ptr [ %.sroa.10.0.i, %16 ], [ %.sroa.6.0.i, %12 ]
   %.sink6.i.i = phi ptr [ %.sroa.8.0.i, %16 ], [ %.sroa.0.0.i, %12 ]
   %20 = getelementptr inbounds i8, ptr %.sink6.i.i, i64 16
@@ -5995,7 +5995,7 @@ _ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit.i11: ; pr
 
 48:                                               ; preds = %45, %41
   %.sroa.10.1.i24 = phi ptr [ %.sroa.6.0.i21, %45 ], [ %.sroa.10.0.i19, %41 ]
-  %.sroa.8.1.i25 = phi ptr [ %.sroa.6.0.i21, %45 ], [ %.sroa.8.0.i20, %41 ]
+  %.sroa.8.1.i25 = phi ptr [ %.sroa.0.0.i22, %45 ], [ %.sroa.8.0.i20, %41 ]
   %.sroa.6.1.i26 = phi ptr [ %.sroa.10.0.i19, %45 ], [ %.sroa.6.0.i21, %41 ]
   %.sink6.i.i27 = phi ptr [ %.sroa.8.0.i20, %45 ], [ %.sroa.0.0.i22, %41 ]
   %49 = getelementptr inbounds i8, ptr %.sink6.i.i27, i64 16

@@ -21492,7 +21492,7 @@ common.resume:                                    ; preds = %33, %.body.i
   resume { ptr, i32 } %common.resume.op
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17h2a1c14993cb13b12E.exit.loopexit: ; preds = %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b24730117b2158E.exit.i"
-  store ptr %.sroa.4.0.copyload.i.i10, ptr %.sroa.422.0..sroa_idx, align 8, !alias.scope !4545, !noalias !4543
+  store ptr %62, ptr %.sroa.422.0..sroa_idx, align 8, !alias.scope !4545, !noalias !4543
   br label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17h2a1c14993cb13b12E.exit
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17h2a1c14993cb13b12E.exit: ; preds = %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17h2a1c14993cb13b12E.exit.loopexit, %_ZN6ide_db14path_transform12preorder_rev17h29c1774802873552E.exit16
@@ -24999,7 +24999,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.2856947585988979465.ex
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd8f3f3bb8ed68e9E.exit.thread"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd8f3f3bb8ed68e9E.exit.thread": ; preds = %147, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd8f3f3bb8ed68e9E.exit.thread.split.loop.exit1070"
-  %156 = phi ptr [ %155, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd8f3f3bb8ed68e9E.exit.thread.split.loop.exit1070" ], [ %148, %147 ]
+  %156 = phi ptr [ %155, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd8f3f3bb8ed68e9E.exit.thread.split.loop.exit1070" ], [ %149, %147 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !5740
   store ptr %32, ptr %2, align 8, !noalias !5740
   %157 = ptrtoint ptr %148 to i64

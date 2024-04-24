@@ -87709,7 +87709,6 @@ land.lhs.true.i:                                  ; preds = %if.end3.i
   br i1 %or.cond.i, label %do.body.i, label %do.end.i, !llvm.loop !1766
 
 do.end.i:                                         ; preds = %land.lhs.true.i, %if.end3.i
-  %incdec.ptr5.i.lcssa = phi ptr [ %incdec.ptr5.i, %land.lhs.true.i ], [ %end, %if.end3.i ]
   %cmp11.i = icmp slt i32 %add.i, 0
   br i1 %cmp11.i, label %if.then12.i, label %_ZN10duckdb_fmt2v68internal21parse_nonnegative_intIcRNS1_13error_handlerEEEiRPKT_S7_OT0_.exit
 
@@ -87750,7 +87749,7 @@ ehcleanup.i:                                      ; preds = %if.then.i.i.i, %_ZN
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal21parse_nonnegative_intIcRNS1_13error_handlerEEEiRPKT_S7_OT0_.exit: ; preds = %do.end.i, %if.then.i
-  %11 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr5.i.lcssa, %do.end.i ]
+  %11 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr5.i, %do.end.i ]
   %retval.0.i = phi i32 [ 0, %if.then.i ], [ %add.i, %do.end.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %cmp4.not = icmp eq ptr %11, %end
@@ -136000,7 +135999,7 @@ cleanup:                                          ; preds = %if.then7
   br label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup, %if.then5.thread, %do.body.1
-  %begin.addr.115 = phi ptr [ %add.ptr15, %cleanup ], [ %add.ptr, %do.body.1 ], [ %end, %if.then5.thread ]
+  %begin.addr.115 = phi ptr [ %add.ptr15, %cleanup ], [ %add.ptr, %do.body.1 ], [ %add.ptr, %if.then5.thread ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   %arg_type_.i.i = getelementptr inbounds i8, ptr %handler, i64 32
   %14 = load i32, ptr %arg_type_.i.i, align 8, !tbaa !2682
@@ -136065,7 +136064,7 @@ _ZN10duckdb_fmt2v68internal21numeric_specs_checkerINS1_13specs_handlerINS0_26bas
   br label %_ZN10duckdb_fmt2v68internal13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEE8on_alignENS0_5align4typeE.exit
 
 _ZN10duckdb_fmt2v68internal13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEE8on_alignENS0_5align4typeE.exit: ; preds = %cleanup.thread, %if.then5, %if.end17.thread39, %if.end17.thread30, %do.body.1, %_ZN10duckdb_fmt2v68internal21numeric_specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEE24require_numeric_argumentEv.exit.i
-  %begin.addr.114 = phi ptr [ %begin.addr.115, %_ZN10duckdb_fmt2v68internal21numeric_specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEE24require_numeric_argumentEv.exit.i ], [ %add.ptr, %do.body.1 ], [ %add.ptr, %if.end17.thread30 ], [ %add.ptr, %if.end17.thread39 ], [ %end, %if.then5 ], [ %add.ptr1558, %cleanup.thread ]
+  %begin.addr.114 = phi ptr [ %begin.addr.115, %_ZN10duckdb_fmt2v68internal21numeric_specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEE24require_numeric_argumentEv.exit.i ], [ %add.ptr, %do.body.1 ], [ %add.ptr, %if.end17.thread30 ], [ %add.ptr, %if.end17.thread39 ], [ %add.ptr, %if.then5 ], [ %add.ptr1558, %cleanup.thread ]
   %bf.value.i.sink.i = phi i8 [ 4, %_ZN10duckdb_fmt2v68internal21numeric_specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEE24require_numeric_argumentEv.exit.i ], [ 2, %do.body.1 ], [ 3, %if.end17.thread30 ], [ 1, %if.end17.thread39 ], [ %align.1.ph, %if.then5 ], [ %align.1.ph, %cleanup.thread ]
   %.pn.i = load ptr, ptr %handler, align 8, !tbaa !2735
   %align2.i.sink.i = getelementptr inbounds i8, ptr %.pn.i, i64 9
@@ -136242,7 +136241,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp11.not, label %if.end17, label %if.then12
 
 if.then12:                                        ; preds = %lor.lhs.false, %if.end, %if.then5
-  %begin.addr.347 = phi ptr [ %call8, %lor.lhs.false ], [ %end, %if.end ], [ %end, %if.then5 ]
+  %begin.addr.347 = phi ptr [ %call8, %lor.lhs.false ], [ %call8, %if.end ], [ %end, %if.then5 ]
   %16 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr %16, ptr %agg.tmp, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #22

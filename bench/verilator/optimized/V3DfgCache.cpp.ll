@@ -1209,7 +1209,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8_
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %.thread23.i.i.i.i
-  store ptr %37, ptr %45, align 8
+  store ptr %37, ptr %47, align 8
   br label %51
 
 51:                                               ; preds = %50, %.thread23.i.i.i.i
@@ -1314,7 +1314,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %.thread23.i.i.i.i
-  store ptr %24, ptr %32, align 8
+  store ptr %24, ptr %34, align 8
   br label %38
 
 38:                                               ; preds = %37, %.thread23.i.i.i.i
@@ -1423,7 +1423,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %.thread23.i.i.i.i
-  store ptr %27, ptr %35, align 8
+  store ptr %27, ptr %37, align 8
   br label %41
 
 41:                                               ; preds = %40, %.thread23.i.i.i.i
@@ -1858,7 +1858,7 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal6KeySelESt4pairIKS2_P6DfgS
   %54 = ptrtoint ptr %47 to i64
   %55 = trunc i64 %54 to i32
   %56 = lshr i64 %54, 32
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw i64 %56 to i32
   %58 = add i32 %57, -1640531527
   %59 = shl i32 %55, 6
   %60 = add i32 %58, %59
@@ -2590,7 +2590,7 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS2_P14D
   %34 = ptrtoint ptr %27 to i64
   %35 = trunc i64 %34 to i32
   %36 = lshr i64 %34, 32
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nuw i64 %36 to i32
   %38 = add i32 %37, -1640531527
   %39 = shl i32 %35, 6
   %40 = add i32 %38, %39
@@ -3025,7 +3025,7 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS2_P15
   %51 = ptrtoint ptr %44 to i64
   %52 = trunc i64 %51 to i32
   %53 = lshr i64 %51, 32
-  %54 = trunc i64 %53 to i32
+  %54 = trunc nuw i64 %53 to i32
   %55 = add i32 %54, -1640531527
   %56 = shl i32 %52, 6
   %57 = add i32 %55, %56
@@ -3053,7 +3053,7 @@ _ZN18V3DfgCacheInternal10vertexHashEPK9DfgVertex.exit.i.i: ; preds = %47, %50
   %68 = ptrtoint ptr %61 to i64
   %69 = trunc i64 %68 to i32
   %70 = lshr i64 %68, 32
-  %71 = trunc i64 %70 to i32
+  %71 = trunc nuw i64 %70 to i32
   %72 = add i32 %71, -1640531527
   %73 = shl i32 %69, 6
   %74 = add i32 %72, %73
@@ -3743,7 +3743,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK18V3DfgCacheInternal10KeyTernary4
   %10 = ptrtoint ptr %3 to i64
   %11 = trunc i64 %10 to i32
   %12 = lshr i64 %10, 32
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   %14 = add i32 %13, -1640531527
   %15 = shl i32 %11, 6
   %16 = add i32 %14, %15
@@ -3772,7 +3772,7 @@ _ZN18V3DfgCacheInternal10vertexHashEPK9DfgVertex.exit: ; preds = %6, %9
   %28 = ptrtoint ptr %21 to i64
   %29 = trunc i64 %28 to i32
   %30 = lshr i64 %28, 32
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw i64 %30 to i32
   %32 = add i32 %31, -1640531527
   %33 = shl i32 %29, 6
   %34 = add i32 %32, %33
@@ -3801,7 +3801,7 @@ _ZN18V3DfgCacheInternal10vertexHashEPK9DfgVertex.exit8: ; preds = %24, %27
   %46 = ptrtoint ptr %39 to i64
   %47 = trunc i64 %46 to i32
   %48 = lshr i64 %46, 32
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw i64 %48 to i32
   %50 = add i32 %49, -1640531527
   %51 = shl i32 %47, 6
   %52 = add i32 %50, %51
@@ -4007,7 +4007,7 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal6KeySelESt4pairIKS2_P6DfgS
   %40 = ptrtoint ptr %33 to i64
   %41 = trunc i64 %40 to i32
   %42 = lshr i64 %40, 32
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw i64 %42 to i32
   %44 = add i32 %43, -1640531527
   %45 = shl i32 %41, 6
   %46 = add i32 %44, %45
@@ -4177,7 +4177,7 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS2_P14D
   %27 = ptrtoint ptr %20 to i64
   %28 = trunc i64 %27 to i32
   %29 = lshr i64 %27, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   %31 = add i32 %30, -1640531527
   %32 = shl i32 %28, 6
   %33 = add i32 %31, %32
@@ -4344,7 +4344,7 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS2_P15
   %41 = ptrtoint ptr %34 to i64
   %42 = trunc i64 %41 to i32
   %43 = lshr i64 %41, 32
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nuw i64 %43 to i32
   %45 = add i32 %44, -1640531527
   %46 = shl i32 %42, 6
   %47 = add i32 %45, %46
@@ -4373,7 +4373,7 @@ _ZN18V3DfgCacheInternal10vertexHashEPK9DfgVertex.exit.i.i: ; preds = %40, %37
   %59 = ptrtoint ptr %52 to i64
   %60 = trunc i64 %59 to i32
   %61 = lshr i64 %59, 32
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw i64 %61 to i32
   %63 = add i32 %62, -1640531527
   %64 = shl i32 %60, 6
   %65 = add i32 %63, %64

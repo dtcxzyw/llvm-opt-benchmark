@@ -483,7 +483,7 @@ select.unfold:                                    ; preds = %.lr.ph
   %68 = getelementptr i8, ptr %65, i64 %67
   %69 = add i32 %53, 1
   %70 = sext i32 %69 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr nonnull align 1 %51, i64 %70, i1 false), !noalias !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr align 1 %54, i64 %70, i1 false), !noalias !20
   %71 = add i32 %66, %69
   br label %pq_writestring.exit
 
@@ -580,7 +580,7 @@ define dso_local void @debugStartup(ptr nocapture noundef readnone %0, i32 nound
   %18 = load i8, ptr %17, align 2
   %19 = trunc i8 %18 to i1
   %20 = select i1 %19, i32 116, i32 102
-  %21 = trunc i64 %indvars.iv.next to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.next to i32
   %22 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.4, i32 noundef %21, ptr noundef nonnull %9, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.6, i32 noundef %11, i32 noundef %14, i32 noundef %16, i32 noundef %20) #10
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !44
@@ -619,7 +619,7 @@ define dso_local noundef zeroext i1 @debugtup(ptr noundef %0, ptr nocapture noun
   br i1 %.not, label %slot_getattr.exit, label %slot_getsomeattrs.exit.i
 
 slot_getsomeattrs.exit.i:                         ; preds = %13
-  %16 = trunc i64 %indvars.iv.next to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.next to i32
   call void @slot_getsomeattrs_int(ptr noundef nonnull %0, i32 noundef %16) #10
   br label %slot_getattr.exit
 
@@ -655,7 +655,7 @@ slot_getattr.exit:                                ; preds = %13, %slot_getsomeat
   %41 = load i8, ptr %40, align 2
   %42 = trunc i8 %41 to i1
   %43 = select i1 %42, i32 116, i32 102
-  %44 = trunc i64 %indvars.iv.next to i32
+  %44 = trunc nuw nsw i64 %indvars.iv.next to i32
   %45 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.4, i32 noundef %44, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33, i32 noundef %34, i32 noundef %37, i32 noundef %39, i32 noundef %43) #10
   br label %46
 

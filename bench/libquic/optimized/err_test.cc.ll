@@ -122,7 +122,7 @@ if.then10.i:                                      ; preds = %lor.lhs.false8.i, %
   br label %_ZL12TestPutErrorv.exit.thread
 
 if.end12.i:                                       ; preds = %lor.lhs.false8.i
-  %call13.i5 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(5) @.str.1) #7
+  %call13.i5 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(5) @.str.1) #7
   %cmp14.i = icmp eq i32 %call13.i5, 0
   %13 = load i32, ptr %line.i, align 4
   %cmp16.i = icmp eq i32 %13, 4
@@ -136,7 +136,7 @@ if.end12.i:                                       ; preds = %lor.lhs.false8.i
   br i1 %or.cond7.i, label %lor.lhs.false25.i, label %if.then28.i
 
 lor.lhs.false25.i:                                ; preds = %if.end12.i
-  %call26.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(8) @.str.5) #7
+  %call26.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(8) @.str.5) #7
   %cmp27.not.i = icmp eq i32 %call26.i, 0
   br i1 %cmp27.not.i, label %lor.lhs.false2, label %if.then28.i
 

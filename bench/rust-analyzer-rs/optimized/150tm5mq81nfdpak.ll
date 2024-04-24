@@ -40117,7 +40117,7 @@ _ZN6ide_db14syntax_helpers13format_string21lex_format_specifiers18skip_char_and_
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hc971a4e2dcc88a81E.exit331.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hc971a4e2dcc88a81E.exit331.thread": ; preds = %129, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hc971a4e2dcc88a81E.exit331", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hc971a4e2dcc88a81E.exit331.thread892"
-  %.sroa.7.2890 = phi ptr [ %132, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hc971a4e2dcc88a81E.exit331.thread892" ], [ %.val.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hc971a4e2dcc88a81E.exit331" ], [ %.val6.i, %129 ]
+  %.sroa.7.2890 = phi ptr [ %132, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hc971a4e2dcc88a81E.exit331.thread892" ], [ %.val.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hc971a4e2dcc88a81E.exit331" ], [ %.sroa.7.0, %129 ]
   %.sroa.3819.0 = phi i32 [ %135, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hc971a4e2dcc88a81E.exit331.thread892" ], [ %spec.select, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hc971a4e2dcc88a81E.exit331" ], [ 0, %129 ]
   %137 = icmp ne ptr %.val6.i, null
   call void @llvm.assume(i1 %137)
@@ -40444,7 +40444,7 @@ _ZN6ide_db14syntax_helpers13format_string21lex_format_specifiers18skip_char_and_
   %.val6.i4221336 = phi ptr [ %.val6.i422, %229 ], [ %.val6.i422, %219 ], [ %.val6.i4221333, %.thread ], [ %.val6.i422, %223 ]
   %.val.i4211335 = phi ptr [ %.val.i421, %229 ], [ %.val.i421, %219 ], [ %.val.i4211332, %.thread ], [ %.val.i421, %223 ]
   %236 = phi i32 [ %.pre1324, %229 ], [ %.pre1324, %219 ], [ %.sroa.43.0.copyload.i428, %.thread ], [ %.pre1324, %223 ]
-  %.sroa.7795.2 = phi ptr [ %226, %229 ], [ %.val.i421, %219 ], [ %.val.i4211332, %.thread ], [ %.val6.i422, %223 ]
+  %.sroa.7795.2 = phi ptr [ %226, %229 ], [ %.val.i421, %219 ], [ %.val.i4211332, %.thread ], [ %.sroa.7795.0, %223 ]
   %.sroa.3830.0 = phi i32 [ %230, %229 ], [ %.pre1324, %219 ], [ %.sroa.43.0.copyload.i428, %.thread ], [ 1114112, %223 ]
   %237 = icmp ne ptr %.val6.i4221336, null
   call void @llvm.assume(i1 %237)

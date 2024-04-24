@@ -11434,7 +11434,7 @@ invoke.contthread-pre-split.i274:                 ; preds = %_ZSt8_DestroyIN6duc
   br label %invoke.cont.i276
 
 invoke.cont.i276:                                 ; preds = %invoke.contthread-pre-split.i274, %if.end154, %_ZN6duckdb18RowGroupBatchEntryD2Ev.exit
-  %63 = phi ptr [ %.pr.i275, %invoke.contthread-pre-split.i274 ], [ %.pre, %if.end154 ], [ %31, %_ZN6duckdb18RowGroupBatchEntryD2Ev.exit ]
+  %63 = phi ptr [ %.pr.i275, %invoke.contthread-pre-split.i274 ], [ %.pre294, %if.end154 ], [ %31, %_ZN6duckdb18RowGroupBatchEntryD2Ev.exit ]
   %tobool.not.i.i.i277 = icmp eq ptr %63, null
   br i1 %tobool.not.i.i.i277, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_18RowGroupCollectionESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev.exit279, label %if.then.i.i.i278
 

@@ -95,7 +95,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %.not.i, label %._crit_edge6.i.loopexit, label %.lr.ph.i
 
 ._crit_edge6.i.loopexit:                          ; preds = %.lr.ph.i
-  store ptr %9, ptr %8, align 8, !alias.scope !29, !noalias !13
+  store ptr %13, ptr %8, align 8, !alias.scope !29, !noalias !13
   br label %._crit_edge6.i
 
 ._crit_edge6.i:                                   ; preds = %._crit_edge6.i.loopexit, %2

@@ -5395,8 +5395,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp7.not13.i, label %do.body12.i, label %do.end15.i.preheader
 
 do.end15.i.preheader:                             ; preds = %if.then
-  %cmp16.i2 = icmp eq ptr %current.012.i, %this
-  br i1 %cmp16.i2, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit, label %for.inc.i
+  %cmp16.i3 = icmp eq ptr %current.012.i, %this
+  br i1 %cmp16.i3, label %if.else.i, label %for.inc.i
 
 do.body12.i:                                      ; preds = %for.inc.i, %if.then
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerEE4args_0) #20
@@ -5405,23 +5405,29 @@ do.body12.i:                                      ; preds = %for.inc.i, %if.then
 
 do.end15.i:                                       ; preds = %for.inc.i
   %cmp16.i = icmp eq ptr %current.0.i, %this
-  br i1 %cmp16.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit, label %for.inc.i, !llvm.loop !11
+  br i1 %cmp16.i, label %if.then19.i, label %for.inc.i, !llvm.loop !11
+
+if.then19.i:                                      ; preds = %do.end15.i
+  %previous_listener_.i = getelementptr inbounds i8, ptr %current.0.i, i64 16
+  %1 = load ptr, ptr %previous_listener_.i, align 8
+  %previous_listener_20.i = getelementptr inbounds i8, ptr %current.015.i4, i64 16
+  store ptr %1, ptr %previous_listener_20.i, align 8
+  br label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit
+
+if.else.i:                                        ; preds = %do.end15.i.preheader
+  %previous_listener_21.i = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load ptr, ptr %previous_listener_21.i, align 8
+  store ptr %2, ptr %listener_.i, align 8
+  br label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit
 
 for.inc.i:                                        ; preds = %do.end15.i.preheader, %do.end15.i
-  %current.015.i3 = phi ptr [ %current.0.i, %do.end15.i ], [ %current.012.i, %do.end15.i.preheader ]
-  %previous_listener_25.i = getelementptr inbounds i8, ptr %current.015.i3, i64 16
+  %current.015.i4 = phi ptr [ %current.0.i, %do.end15.i ], [ %current.012.i, %do.end15.i.preheader ]
+  %previous_listener_25.i = getelementptr inbounds i8, ptr %current.015.i4, i64 16
   %current.0.i = load ptr, ptr %previous_listener_25.i, align 8
   %cmp7.not.i = icmp eq ptr %current.0.i, null
   br i1 %cmp7.not.i, label %do.body12.i, label %do.end15.i, !llvm.loop !11
 
-_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit: ; preds = %do.end15.i, %do.end15.i.preheader
-  %previous.014.i.lcssa = phi ptr [ null, %do.end15.i.preheader ], [ %current.015.i3, %do.end15.i ]
-  %cmp18.not.i = icmp eq ptr %previous.014.i.lcssa, null
-  %previous_listener_21.i = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load ptr, ptr %previous_listener_21.i, align 8
-  %previous_listener_20.i = getelementptr inbounds i8, ptr %previous.014.i.lcssa, i64 16
-  %previous_listener_20.sink.i = select i1 %cmp18.not.i, ptr %listener_.i, ptr %previous_listener_20.i
-  store ptr %1, ptr %previous_listener_20.sink.i, align 8
+_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit: ; preds = %if.then19.i, %if.else.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_, i8 0, i64 16, i1 false)
   br label %if.end
 
@@ -5447,8 +5453,8 @@ do.end5:                                          ; preds = %entry
   br i1 %cmp7.not13, label %do.body12, label %do.end15.preheader
 
 do.end15.preheader:                               ; preds = %do.end5
-  %cmp1620 = icmp eq ptr %current.012, %listener
-  br i1 %cmp1620, label %if.then17, label %for.inc
+  %cmp1622 = icmp eq ptr %current.012, %listener
+  br i1 %cmp1622, label %if.then17, label %for.inc
 
 do.body12:                                        ; preds = %for.inc, %do.end5
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerEE4args_0) #20
@@ -5460,23 +5466,35 @@ do.end15:                                         ; preds = %for.inc
   br i1 %cmp16, label %if.then17, label %for.inc, !llvm.loop !11
 
 if.then17:                                        ; preds = %do.end15, %do.end15.preheader
-  %previous.014.lcssa = phi ptr [ null, %do.end15.preheader ], [ %current.01521, %do.end15 ]
+  %current.015.lcssa = phi ptr [ %current.012, %do.end15.preheader ], [ %current.0, %do.end15 ]
+  %previous.014.lcssa = phi ptr [ null, %do.end15.preheader ], [ %current.01523, %do.end15 ]
   %cmp18.not = icmp eq ptr %previous.014.lcssa, null
-  %previous_listener_21 = getelementptr inbounds i8, ptr %listener, i64 16
-  %0 = load ptr, ptr %previous_listener_21, align 8
+  br i1 %cmp18.not, label %if.else, label %if.then19
+
+if.then19:                                        ; preds = %if.then17
+  %previous_listener_ = getelementptr inbounds i8, ptr %current.015.lcssa, i64 16
+  %0 = load ptr, ptr %previous_listener_, align 8
   %previous_listener_20 = getelementptr inbounds i8, ptr %previous.014.lcssa, i64 16
-  %previous_listener_20.sink = select i1 %cmp18.not, ptr %listener_, ptr %previous_listener_20
-  store ptr %0, ptr %previous_listener_20.sink, align 8
-  %stream_ = getelementptr inbounds i8, ptr %listener, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_, i8 0, i64 16, i1 false)
-  ret void
+  store ptr %0, ptr %previous_listener_20, align 8
+  br label %for.end
+
+if.else:                                          ; preds = %if.then17
+  %previous_listener_21 = getelementptr inbounds i8, ptr %listener, i64 16
+  %1 = load ptr, ptr %previous_listener_21, align 8
+  store ptr %1, ptr %listener_, align 8
+  br label %for.end
 
 for.inc:                                          ; preds = %do.end15.preheader, %do.end15
-  %current.01521 = phi ptr [ %current.0, %do.end15 ], [ %current.012, %do.end15.preheader ]
-  %previous_listener_25 = getelementptr inbounds i8, ptr %current.01521, i64 16
+  %current.01523 = phi ptr [ %current.0, %do.end15 ], [ %current.012, %do.end15.preheader ]
+  %previous_listener_25 = getelementptr inbounds i8, ptr %current.01523, i64 16
   %current.0 = load ptr, ptr %previous_listener_25, align 8
   %cmp7.not = icmp eq ptr %current.0, null
   br i1 %cmp7.not, label %do.body12, label %do.end15, !llvm.loop !11
+
+for.end:                                          ; preds = %if.then19, %if.else
+  %stream_ = getelementptr inbounds i8, ptr %listener, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_, i8 0, i64 16, i1 false)
+  ret void
 }
 
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
@@ -5537,34 +5555,34 @@ entry:
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node14StreamResourceE, i64 0, i32 0, i64 2), ptr %this, align 8
   %listener_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %listener_, align 8
-  %cmp.not5 = icmp eq ptr %0, null
-  br i1 %cmp.not5, label %while.end, label %while.body
+  %cmp.not7 = icmp eq ptr %0, null
+  br i1 %cmp.not7, label %while.end, label %while.body.us
 
-while.body:                                       ; preds = %entry, %if.end
-  %1 = phi ptr [ %5, %if.end ], [ %0, %entry ]
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
-  %2 = load ptr, ptr %vfn, align 8
+while.body.us:                                    ; preds = %entry, %if.end.us
+  %1 = phi ptr [ %5, %if.end.us ], [ %0, %entry ]
+  %vtable.us = load ptr, ptr %1, align 8
+  %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 56
+  %2 = load ptr, ptr %vfn.us, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %1) #20
   %3 = load ptr, ptr %listener_, align 8
-  %cmp4 = icmp eq ptr %1, %3
-  br i1 %cmp4, label %if.then, label %if.end
+  %cmp4.us = icmp eq ptr %1, %3
+  br i1 %cmp4.us, label %if.then.us, label %if.end.us
 
-if.then:                                          ; preds = %while.body
-  %previous_listener_21.i = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = load ptr, ptr %previous_listener_21.i, align 8
+if.then.us:                                       ; preds = %while.body.us
+  %previous_listener_21.i.us = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = load ptr, ptr %previous_listener_21.i.us, align 8
   store ptr %4, ptr %listener_, align 8
-  %stream_.i = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i, i8 0, i64 16, i1 false)
+  %stream_.i.us = getelementptr inbounds i8, ptr %3, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i.us, i8 0, i64 16, i1 false)
   %.pre = load ptr, ptr %listener_, align 8
-  br label %if.end
+  br label %if.end.us
 
-if.end:                                           ; preds = %if.then, %while.body
-  %5 = phi ptr [ %.pre, %if.then ], [ %3, %while.body ]
-  %cmp.not = icmp eq ptr %5, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !12
+if.end.us:                                        ; preds = %if.then.us, %while.body.us
+  %5 = phi ptr [ %.pre, %if.then.us ], [ %3, %while.body.us ]
+  %cmp.not.us = icmp eq ptr %5, null
+  br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !12
 
-while.end:                                        ; preds = %if.end, %entry
+while.end:                                        ; preds = %if.end.us, %entry
   ret void
 }
 
@@ -5800,8 +5818,8 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp7.not13.i.i.i, label %do.body12.i.i.i, label %do.end15.i.preheader.i.i
 
 do.end15.i.preheader.i.i:                         ; preds = %if.then.i.i
-  %cmp16.i2.i.i = icmp eq ptr %current.012.i.i.i, %this
-  br i1 %cmp16.i2.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i, label %for.inc.i.i.i
+  %cmp16.i3.i.i = icmp eq ptr %current.012.i.i.i, %this
+  br i1 %cmp16.i3.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i, label %for.inc.i.i.i
 
 do.body12.i.i.i:                                  ; preds = %for.inc.i.i.i, %if.then.i.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerEE4args_0) #20
@@ -5810,23 +5828,25 @@ do.body12.i.i.i:                                  ; preds = %for.inc.i.i.i, %if.
 
 do.end15.i.i.i:                                   ; preds = %for.inc.i.i.i
   %cmp16.i.i.i = icmp eq ptr %current.0.i.i.i, %this
-  br i1 %cmp16.i.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i, label %for.inc.i.i.i, !llvm.loop !11
+  br i1 %cmp16.i.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.loopexit, label %for.inc.i.i.i, !llvm.loop !11
 
 for.inc.i.i.i:                                    ; preds = %do.end15.i.preheader.i.i, %do.end15.i.i.i
-  %current.015.i3.i.i = phi ptr [ %current.0.i.i.i, %do.end15.i.i.i ], [ %current.012.i.i.i, %do.end15.i.preheader.i.i ]
-  %previous_listener_25.i.i.i = getelementptr inbounds i8, ptr %current.015.i3.i.i, i64 16
+  %current.015.i4.i.i = phi ptr [ %current.0.i.i.i, %do.end15.i.i.i ], [ %current.012.i.i.i, %do.end15.i.preheader.i.i ]
+  %previous_listener_25.i.i.i = getelementptr inbounds i8, ptr %current.015.i4.i.i, i64 16
   %current.0.i.i.i = load ptr, ptr %previous_listener_25.i.i.i, align 8
   %cmp7.not.i.i.i = icmp eq ptr %current.0.i.i.i, null
   br i1 %cmp7.not.i.i.i, label %do.body12.i.i.i, label %do.end15.i.i.i, !llvm.loop !11
 
-_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i: ; preds = %do.end15.i.i.i, %do.end15.i.preheader.i.i
-  %previous.014.i.lcssa.i.i = phi ptr [ null, %do.end15.i.preheader.i.i ], [ %current.015.i3.i.i, %do.end15.i.i.i ]
-  %cmp18.not.i.i.i = icmp eq ptr %previous.014.i.lcssa.i.i, null
-  %previous_listener_21.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.loopexit: ; preds = %do.end15.i.i.i
+  %previous_listener_25.i.i.i.le = getelementptr inbounds i8, ptr %current.015.i4.i.i, i64 16
+  br label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i
+
+_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i: ; preds = %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.loopexit, %do.end15.i.preheader.i.i
+  %this.sink.i = phi ptr [ %this, %do.end15.i.preheader.i.i ], [ %current.0.i.i.i, %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.loopexit ]
+  %listener_.i.i.sink.i = phi ptr [ %listener_.i.i.i, %do.end15.i.preheader.i.i ], [ %previous_listener_25.i.i.i.le, %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.loopexit ]
+  %previous_listener_21.i.i.i = getelementptr inbounds i8, ptr %this.sink.i, i64 16
   %1 = load ptr, ptr %previous_listener_21.i.i.i, align 8
-  %previous_listener_20.i.i.i = getelementptr inbounds i8, ptr %previous.014.i.lcssa.i.i, i64 16
-  %previous_listener_20.sink.i.i.i = select i1 %cmp18.not.i.i.i, ptr %listener_.i.i.i, ptr %previous_listener_20.i.i.i
-  store ptr %1, ptr %previous_listener_20.sink.i.i.i, align 8
+  store ptr %1, ptr %listener_.i.i.sink.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i.i, i8 0, i64 16, i1 false)
   br label %_ZN4node30ReportWritesToJSStreamListenerD2Ev.exit
 
@@ -5850,8 +5870,8 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp7.not13.i.i.i.i, label %do.body12.i.i.i.i, label %do.end15.i.preheader.i.i.i
 
 do.end15.i.preheader.i.i.i:                       ; preds = %if.then.i.i.i
-  %cmp16.i2.i.i.i = icmp eq ptr %current.012.i.i.i.i, %this
-  br i1 %cmp16.i2.i.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i, label %for.inc.i.i.i.i
+  %cmp16.i3.i.i.i = icmp eq ptr %current.012.i.i.i.i, %this
+  br i1 %cmp16.i3.i.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i, label %for.inc.i.i.i.i
 
 do.body12.i.i.i.i:                                ; preds = %for.inc.i.i.i.i, %if.then.i.i.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerEE4args_0) #20
@@ -5860,23 +5880,25 @@ do.body12.i.i.i.i:                                ; preds = %for.inc.i.i.i.i, %i
 
 do.end15.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i
   %cmp16.i.i.i.i = icmp eq ptr %current.0.i.i.i.i, %this
-  br i1 %cmp16.i.i.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i, label %for.inc.i.i.i.i, !llvm.loop !11
+  br i1 %cmp16.i.i.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i.loopexit, label %for.inc.i.i.i.i, !llvm.loop !11
 
 for.inc.i.i.i.i:                                  ; preds = %do.end15.i.preheader.i.i.i, %do.end15.i.i.i.i
-  %current.015.i3.i.i.i = phi ptr [ %current.0.i.i.i.i, %do.end15.i.i.i.i ], [ %current.012.i.i.i.i, %do.end15.i.preheader.i.i.i ]
-  %previous_listener_25.i.i.i.i = getelementptr inbounds i8, ptr %current.015.i3.i.i.i, i64 16
+  %current.015.i4.i.i.i = phi ptr [ %current.0.i.i.i.i, %do.end15.i.i.i.i ], [ %current.012.i.i.i.i, %do.end15.i.preheader.i.i.i ]
+  %previous_listener_25.i.i.i.i = getelementptr inbounds i8, ptr %current.015.i4.i.i.i, i64 16
   %current.0.i.i.i.i = load ptr, ptr %previous_listener_25.i.i.i.i, align 8
   %cmp7.not.i.i.i.i = icmp eq ptr %current.0.i.i.i.i, null
   br i1 %cmp7.not.i.i.i.i, label %do.body12.i.i.i.i, label %do.end15.i.i.i.i, !llvm.loop !11
 
-_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i: ; preds = %do.end15.i.i.i.i, %do.end15.i.preheader.i.i.i
-  %previous.014.i.lcssa.i.i.i = phi ptr [ null, %do.end15.i.preheader.i.i.i ], [ %current.015.i3.i.i.i, %do.end15.i.i.i.i ]
-  %cmp18.not.i.i.i.i = icmp eq ptr %previous.014.i.lcssa.i.i.i, null
-  %previous_listener_21.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i.loopexit: ; preds = %do.end15.i.i.i.i
+  %previous_listener_25.i.i.i.i.le = getelementptr inbounds i8, ptr %current.015.i4.i.i.i, i64 16
+  br label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i
+
+_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i: ; preds = %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i.loopexit, %do.end15.i.preheader.i.i.i
+  %this.sink.i.i = phi ptr [ %this, %do.end15.i.preheader.i.i.i ], [ %current.0.i.i.i.i, %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i.loopexit ]
+  %listener_.i.i.sink.i.i = phi ptr [ %listener_.i.i.i.i, %do.end15.i.preheader.i.i.i ], [ %previous_listener_25.i.i.i.i.le, %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i.loopexit ]
+  %previous_listener_21.i.i.i.i = getelementptr inbounds i8, ptr %this.sink.i.i, i64 16
   %1 = load ptr, ptr %previous_listener_21.i.i.i.i, align 8
-  %previous_listener_20.i.i.i.i = getelementptr inbounds i8, ptr %previous.014.i.lcssa.i.i.i, i64 16
-  %previous_listener_20.sink.i.i.i.i = select i1 %cmp18.not.i.i.i.i, ptr %listener_.i.i.i.i, ptr %previous_listener_20.i.i.i.i
-  store ptr %1, ptr %previous_listener_20.sink.i.i.i.i, align 8
+  store ptr %1, ptr %listener_.i.i.sink.i.i, align 8
   br label %_ZN4node22CustomBufferJSListenerD2Ev.exit
 
 _ZN4node22CustomBufferJSListenerD2Ev.exit:        ; preds = %entry, %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i
@@ -5916,8 +5938,8 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp7.not13.i.i, label %do.body12.i.i, label %do.end15.i.preheader.i
 
 do.end15.i.preheader.i:                           ; preds = %if.then.i
-  %cmp16.i2.i = icmp eq ptr %current.012.i.i, %this
-  br i1 %cmp16.i2.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i, label %for.inc.i.i
+  %cmp16.i3.i = icmp eq ptr %current.012.i.i, %this
+  br i1 %cmp16.i3.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i, label %for.inc.i.i
 
 do.body12.i.i:                                    ; preds = %for.inc.i.i, %if.then.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerEE4args_0) #20
@@ -5926,23 +5948,25 @@ do.body12.i.i:                                    ; preds = %for.inc.i.i, %if.th
 
 do.end15.i.i:                                     ; preds = %for.inc.i.i
   %cmp16.i.i = icmp eq ptr %current.0.i.i, %this
-  br i1 %cmp16.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i, label %for.inc.i.i, !llvm.loop !11
+  br i1 %cmp16.i.i, label %if.then19.i.i, label %for.inc.i.i, !llvm.loop !11
+
+if.then19.i.i:                                    ; preds = %do.end15.i.i
+  %previous_listener_25.i.i.le = getelementptr inbounds i8, ptr %current.015.i4.i, i64 16
+  br label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i
 
 for.inc.i.i:                                      ; preds = %do.end15.i.preheader.i, %do.end15.i.i
-  %current.015.i3.i = phi ptr [ %current.0.i.i, %do.end15.i.i ], [ %current.012.i.i, %do.end15.i.preheader.i ]
-  %previous_listener_25.i.i = getelementptr inbounds i8, ptr %current.015.i3.i, i64 16
+  %current.015.i4.i = phi ptr [ %current.0.i.i, %do.end15.i.i ], [ %current.012.i.i, %do.end15.i.preheader.i ]
+  %previous_listener_25.i.i = getelementptr inbounds i8, ptr %current.015.i4.i, i64 16
   %current.0.i.i = load ptr, ptr %previous_listener_25.i.i, align 8
   %cmp7.not.i.i = icmp eq ptr %current.0.i.i, null
   br i1 %cmp7.not.i.i, label %do.body12.i.i, label %do.end15.i.i, !llvm.loop !11
 
-_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i: ; preds = %do.end15.i.i, %do.end15.i.preheader.i
-  %previous.014.i.lcssa.i = phi ptr [ null, %do.end15.i.preheader.i ], [ %current.015.i3.i, %do.end15.i.i ]
-  %cmp18.not.i.i = icmp eq ptr %previous.014.i.lcssa.i, null
-  %previous_listener_21.i.i = getelementptr inbounds i8, ptr %this, i64 16
+_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i: ; preds = %do.end15.i.preheader.i, %if.then19.i.i
+  %this.sink = phi ptr [ %current.0.i.i, %if.then19.i.i ], [ %this, %do.end15.i.preheader.i ]
+  %listener_.i.i.sink = phi ptr [ %previous_listener_25.i.i.le, %if.then19.i.i ], [ %listener_.i.i, %do.end15.i.preheader.i ]
+  %previous_listener_21.i.i = getelementptr inbounds i8, ptr %this.sink, i64 16
   %1 = load ptr, ptr %previous_listener_21.i.i, align 8
-  %previous_listener_20.i.i = getelementptr inbounds i8, ptr %previous.014.i.lcssa.i, i64 16
-  %previous_listener_20.sink.i.i = select i1 %cmp18.not.i.i, ptr %listener_.i.i, ptr %previous_listener_20.i.i
-  store ptr %1, ptr %previous_listener_20.sink.i.i, align 8
+  store ptr %1, ptr %listener_.i.i.sink, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i, i8 0, i64 16, i1 false)
   br label %_ZN4node14StreamListenerD2Ev.exit
 
@@ -6026,8 +6050,8 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp7.not13.i.i.i, label %do.body12.i.i.i, label %do.end15.i.preheader.i.i
 
 do.end15.i.preheader.i.i:                         ; preds = %if.then.i.i
-  %cmp16.i2.i.i = icmp eq ptr %current.012.i.i.i, %this
-  br i1 %cmp16.i2.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i, label %for.inc.i.i.i
+  %cmp16.i3.i.i = icmp eq ptr %current.012.i.i.i, %this
+  br i1 %cmp16.i3.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i, label %for.inc.i.i.i
 
 do.body12.i.i.i:                                  ; preds = %for.inc.i.i.i, %if.then.i.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerEE4args_0) #20
@@ -6036,23 +6060,25 @@ do.body12.i.i.i:                                  ; preds = %for.inc.i.i.i, %if.
 
 do.end15.i.i.i:                                   ; preds = %for.inc.i.i.i
   %cmp16.i.i.i = icmp eq ptr %current.0.i.i.i, %this
-  br i1 %cmp16.i.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i, label %for.inc.i.i.i, !llvm.loop !11
+  br i1 %cmp16.i.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.loopexit, label %for.inc.i.i.i, !llvm.loop !11
 
 for.inc.i.i.i:                                    ; preds = %do.end15.i.preheader.i.i, %do.end15.i.i.i
-  %current.015.i3.i.i = phi ptr [ %current.0.i.i.i, %do.end15.i.i.i ], [ %current.012.i.i.i, %do.end15.i.preheader.i.i ]
-  %previous_listener_25.i.i.i = getelementptr inbounds i8, ptr %current.015.i3.i.i, i64 16
+  %current.015.i4.i.i = phi ptr [ %current.0.i.i.i, %do.end15.i.i.i ], [ %current.012.i.i.i, %do.end15.i.preheader.i.i ]
+  %previous_listener_25.i.i.i = getelementptr inbounds i8, ptr %current.015.i4.i.i, i64 16
   %current.0.i.i.i = load ptr, ptr %previous_listener_25.i.i.i, align 8
   %cmp7.not.i.i.i = icmp eq ptr %current.0.i.i.i, null
   br i1 %cmp7.not.i.i.i, label %do.body12.i.i.i, label %do.end15.i.i.i, !llvm.loop !11
 
-_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i: ; preds = %do.end15.i.i.i, %do.end15.i.preheader.i.i
-  %previous.014.i.lcssa.i.i = phi ptr [ null, %do.end15.i.preheader.i.i ], [ %current.015.i3.i.i, %do.end15.i.i.i ]
-  %cmp18.not.i.i.i = icmp eq ptr %previous.014.i.lcssa.i.i, null
-  %previous_listener_21.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.loopexit: ; preds = %do.end15.i.i.i
+  %previous_listener_25.i.i.i.le = getelementptr inbounds i8, ptr %current.015.i4.i.i, i64 16
+  br label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i
+
+_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i: ; preds = %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.loopexit, %do.end15.i.preheader.i.i
+  %this.sink.i = phi ptr [ %this, %do.end15.i.preheader.i.i ], [ %current.0.i.i.i, %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.loopexit ]
+  %listener_.i.i.sink.i = phi ptr [ %listener_.i.i.i, %do.end15.i.preheader.i.i ], [ %previous_listener_25.i.i.i.le, %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.loopexit ]
+  %previous_listener_21.i.i.i = getelementptr inbounds i8, ptr %this.sink.i, i64 16
   %1 = load ptr, ptr %previous_listener_21.i.i.i, align 8
-  %previous_listener_20.i.i.i = getelementptr inbounds i8, ptr %previous.014.i.lcssa.i.i, i64 16
-  %previous_listener_20.sink.i.i.i = select i1 %cmp18.not.i.i.i, ptr %listener_.i.i.i, ptr %previous_listener_20.i.i.i
-  store ptr %1, ptr %previous_listener_20.sink.i.i.i, align 8
+  store ptr %1, ptr %listener_.i.i.sink.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i.i, i8 0, i64 16, i1 false)
   br label %_ZN4node30ReportWritesToJSStreamListenerD2Ev.exit
 
@@ -6076,8 +6102,8 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp7.not13.i.i.i.i, label %do.body12.i.i.i.i, label %do.end15.i.preheader.i.i.i
 
 do.end15.i.preheader.i.i.i:                       ; preds = %if.then.i.i.i
-  %cmp16.i2.i.i.i = icmp eq ptr %current.012.i.i.i.i, %this
-  br i1 %cmp16.i2.i.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i, label %for.inc.i.i.i.i
+  %cmp16.i3.i.i.i = icmp eq ptr %current.012.i.i.i.i, %this
+  br i1 %cmp16.i3.i.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i, label %for.inc.i.i.i.i
 
 do.body12.i.i.i.i:                                ; preds = %for.inc.i.i.i.i, %if.then.i.i.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerEE4args_0) #20
@@ -6086,23 +6112,25 @@ do.body12.i.i.i.i:                                ; preds = %for.inc.i.i.i.i, %i
 
 do.end15.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i
   %cmp16.i.i.i.i = icmp eq ptr %current.0.i.i.i.i, %this
-  br i1 %cmp16.i.i.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i, label %for.inc.i.i.i.i, !llvm.loop !11
+  br i1 %cmp16.i.i.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i.loopexit, label %for.inc.i.i.i.i, !llvm.loop !11
 
 for.inc.i.i.i.i:                                  ; preds = %do.end15.i.preheader.i.i.i, %do.end15.i.i.i.i
-  %current.015.i3.i.i.i = phi ptr [ %current.0.i.i.i.i, %do.end15.i.i.i.i ], [ %current.012.i.i.i.i, %do.end15.i.preheader.i.i.i ]
-  %previous_listener_25.i.i.i.i = getelementptr inbounds i8, ptr %current.015.i3.i.i.i, i64 16
+  %current.015.i4.i.i.i = phi ptr [ %current.0.i.i.i.i, %do.end15.i.i.i.i ], [ %current.012.i.i.i.i, %do.end15.i.preheader.i.i.i ]
+  %previous_listener_25.i.i.i.i = getelementptr inbounds i8, ptr %current.015.i4.i.i.i, i64 16
   %current.0.i.i.i.i = load ptr, ptr %previous_listener_25.i.i.i.i, align 8
   %cmp7.not.i.i.i.i = icmp eq ptr %current.0.i.i.i.i, null
   br i1 %cmp7.not.i.i.i.i, label %do.body12.i.i.i.i, label %do.end15.i.i.i.i, !llvm.loop !11
 
-_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i: ; preds = %do.end15.i.i.i.i, %do.end15.i.preheader.i.i.i
-  %previous.014.i.lcssa.i.i.i = phi ptr [ null, %do.end15.i.preheader.i.i.i ], [ %current.015.i3.i.i.i, %do.end15.i.i.i.i ]
-  %cmp18.not.i.i.i.i = icmp eq ptr %previous.014.i.lcssa.i.i.i, null
-  %previous_listener_21.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i.loopexit: ; preds = %do.end15.i.i.i.i
+  %previous_listener_25.i.i.i.i.le = getelementptr inbounds i8, ptr %current.015.i4.i.i.i, i64 16
+  br label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i
+
+_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i: ; preds = %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i.loopexit, %do.end15.i.preheader.i.i.i
+  %this.sink.i.i = phi ptr [ %this, %do.end15.i.preheader.i.i.i ], [ %current.0.i.i.i.i, %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i.loopexit ]
+  %listener_.i.i.sink.i.i = phi ptr [ %listener_.i.i.i.i, %do.end15.i.preheader.i.i.i ], [ %previous_listener_25.i.i.i.i.le, %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i.loopexit ]
+  %previous_listener_21.i.i.i.i = getelementptr inbounds i8, ptr %this.sink.i.i, i64 16
   %1 = load ptr, ptr %previous_listener_21.i.i.i.i, align 8
-  %previous_listener_20.i.i.i.i = getelementptr inbounds i8, ptr %previous.014.i.lcssa.i.i.i, i64 16
-  %previous_listener_20.sink.i.i.i.i = select i1 %cmp18.not.i.i.i.i, ptr %listener_.i.i.i.i, ptr %previous_listener_20.i.i.i.i
-  store ptr %1, ptr %previous_listener_20.sink.i.i.i.i, align 8
+  store ptr %1, ptr %listener_.i.i.sink.i.i, align 8
   br label %_ZN4node22EmitToJSStreamListenerD2Ev.exit
 
 _ZN4node22EmitToJSStreamListenerD2Ev.exit:        ; preds = %entry, %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i
@@ -6128,8 +6156,8 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp7.not13.i.i.i.i, label %do.body12.i.i.i.i, label %do.end15.i.preheader.i.i.i
 
 do.end15.i.preheader.i.i.i:                       ; preds = %if.then.i.i.i
-  %cmp16.i2.i.i.i = icmp eq ptr %current.012.i.i.i.i, %default_listener_
-  br i1 %cmp16.i2.i.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i, label %for.inc.i.i.i.i
+  %cmp16.i3.i.i.i = icmp eq ptr %current.012.i.i.i.i, %default_listener_
+  br i1 %cmp16.i3.i.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i, label %for.inc.i.i.i.i
 
 do.body12.i.i.i.i:                                ; preds = %for.inc.i.i.i.i, %if.then.i.i.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerEE4args_0) #20
@@ -6138,23 +6166,25 @@ do.body12.i.i.i.i:                                ; preds = %for.inc.i.i.i.i, %i
 
 do.end15.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i
   %cmp16.i.i.i.i = icmp eq ptr %current.0.i.i.i.i, %default_listener_
-  br i1 %cmp16.i.i.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i, label %for.inc.i.i.i.i, !llvm.loop !11
+  br i1 %cmp16.i.i.i.i, label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i.loopexit, label %for.inc.i.i.i.i, !llvm.loop !11
 
 for.inc.i.i.i.i:                                  ; preds = %do.end15.i.preheader.i.i.i, %do.end15.i.i.i.i
-  %current.015.i3.i.i.i = phi ptr [ %current.0.i.i.i.i, %do.end15.i.i.i.i ], [ %current.012.i.i.i.i, %do.end15.i.preheader.i.i.i ]
-  %previous_listener_25.i.i.i.i = getelementptr inbounds i8, ptr %current.015.i3.i.i.i, i64 16
+  %current.015.i4.i.i.i = phi ptr [ %current.0.i.i.i.i, %do.end15.i.i.i.i ], [ %current.012.i.i.i.i, %do.end15.i.preheader.i.i.i ]
+  %previous_listener_25.i.i.i.i = getelementptr inbounds i8, ptr %current.015.i4.i.i.i, i64 16
   %current.0.i.i.i.i = load ptr, ptr %previous_listener_25.i.i.i.i, align 8
   %cmp7.not.i.i.i.i = icmp eq ptr %current.0.i.i.i.i, null
   br i1 %cmp7.not.i.i.i.i, label %do.body12.i.i.i.i, label %do.end15.i.i.i.i, !llvm.loop !11
 
-_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i: ; preds = %do.end15.i.i.i.i, %do.end15.i.preheader.i.i.i
-  %previous.014.i.lcssa.i.i.i = phi ptr [ null, %do.end15.i.preheader.i.i.i ], [ %current.015.i3.i.i.i, %do.end15.i.i.i.i ]
-  %cmp18.not.i.i.i.i = icmp eq ptr %previous.014.i.lcssa.i.i.i, null
-  %previous_listener_21.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i.loopexit: ; preds = %do.end15.i.i.i.i
+  %previous_listener_25.i.i.i.i.le = getelementptr inbounds i8, ptr %current.015.i4.i.i.i, i64 16
+  br label %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i
+
+_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i: ; preds = %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i.loopexit, %do.end15.i.preheader.i.i.i
+  %this.sink.i.i = phi ptr [ %default_listener_, %do.end15.i.preheader.i.i.i ], [ %current.0.i.i.i.i, %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i.loopexit ]
+  %listener_.i.i.sink.i.i = phi ptr [ %listener_.i.i.i.i, %do.end15.i.preheader.i.i.i ], [ %previous_listener_25.i.i.i.i.le, %_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i.loopexit ]
+  %previous_listener_21.i.i.i.i = getelementptr inbounds i8, ptr %this.sink.i.i, i64 16
   %1 = load ptr, ptr %previous_listener_21.i.i.i.i, align 8
-  %previous_listener_20.i.i.i.i = getelementptr inbounds i8, ptr %previous.014.i.lcssa.i.i.i, i64 16
-  %previous_listener_20.sink.i.i.i.i = select i1 %cmp18.not.i.i.i.i, ptr %listener_.i.i.i.i, ptr %previous_listener_20.i.i.i.i
-  store ptr %1, ptr %previous_listener_20.sink.i.i.i.i, align 8
+  store ptr %1, ptr %listener_.i.i.sink.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZN4node22EmitToJSStreamListenerD2Ev.exit
 
@@ -6162,34 +6192,34 @@ _ZN4node22EmitToJSStreamListenerD2Ev.exit:        ; preds = %entry, %_ZN4node14S
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node14StreamResourceE, i64 0, i32 0, i64 2), ptr %this, align 8
   %listener_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %listener_.i, align 8
-  %cmp.not5.i = icmp eq ptr %2, null
-  br i1 %cmp.not5.i, label %_ZN4node14StreamResourceD2Ev.exit, label %while.body.i
+  %cmp.not7.i = icmp eq ptr %2, null
+  br i1 %cmp.not7.i, label %_ZN4node14StreamResourceD2Ev.exit, label %while.body.us.i
 
-while.body.i:                                     ; preds = %_ZN4node22EmitToJSStreamListenerD2Ev.exit, %if.end.i
-  %3 = phi ptr [ %7, %if.end.i ], [ %2, %_ZN4node22EmitToJSStreamListenerD2Ev.exit ]
-  %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
-  %4 = load ptr, ptr %vfn.i, align 8
+while.body.us.i:                                  ; preds = %_ZN4node22EmitToJSStreamListenerD2Ev.exit, %if.end.us.i
+  %3 = phi ptr [ %7, %if.end.us.i ], [ %2, %_ZN4node22EmitToJSStreamListenerD2Ev.exit ]
+  %vtable.us.i = load ptr, ptr %3, align 8
+  %vfn.us.i = getelementptr inbounds i8, ptr %vtable.us.i, i64 56
+  %4 = load ptr, ptr %vfn.us.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
   %5 = load ptr, ptr %listener_.i, align 8
-  %cmp4.i = icmp eq ptr %3, %5
-  br i1 %cmp4.i, label %if.then.i, label %if.end.i
+  %cmp4.us.i = icmp eq ptr %3, %5
+  br i1 %cmp4.us.i, label %if.then.us.i, label %if.end.us.i
 
-if.then.i:                                        ; preds = %while.body.i
-  %previous_listener_21.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %6 = load ptr, ptr %previous_listener_21.i.i, align 8
+if.then.us.i:                                     ; preds = %while.body.us.i
+  %previous_listener_21.i.us.i = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = load ptr, ptr %previous_listener_21.i.us.i, align 8
   store ptr %6, ptr %listener_.i, align 8
-  %stream_.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i.i, i8 0, i64 16, i1 false)
+  %stream_.i.us.i = getelementptr inbounds i8, ptr %5, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i.us.i, i8 0, i64 16, i1 false)
   %.pre.i = load ptr, ptr %listener_.i, align 8
-  br label %if.end.i
+  br label %if.end.us.i
 
-if.end.i:                                         ; preds = %if.then.i, %while.body.i
-  %7 = phi ptr [ %.pre.i, %if.then.i ], [ %5, %while.body.i ]
-  %cmp.not.i = icmp eq ptr %7, null
-  br i1 %cmp.not.i, label %_ZN4node14StreamResourceD2Ev.exit, label %while.body.i, !llvm.loop !12
+if.end.us.i:                                      ; preds = %if.then.us.i, %while.body.us.i
+  %7 = phi ptr [ %.pre.i, %if.then.us.i ], [ %5, %while.body.us.i ]
+  %cmp.not.us.i = icmp eq ptr %7, null
+  br i1 %cmp.not.us.i, label %_ZN4node14StreamResourceD2Ev.exit, label %while.body.us.i, !llvm.loop !12
 
-_ZN4node14StreamResourceD2Ev.exit:                ; preds = %if.end.i, %_ZN4node22EmitToJSStreamListenerD2Ev.exit
+_ZN4node14StreamResourceD2Ev.exit:                ; preds = %if.end.us.i, %_ZN4node22EmitToJSStreamListenerD2Ev.exit
   ret void
 }
 

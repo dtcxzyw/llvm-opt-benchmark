@@ -2439,7 +2439,7 @@ select.unfold:                                    ; preds = %45, %42
   br label %.loopexit14
 
 .loopexit14:                                      ; preds = %.loopexit14.loopexit, %select.unfold
-  %.pre21 = phi ptr [ %.pre21.pre, %.loopexit14.loopexit ], [ %6, %select.unfold ]
+  %.pre21 = phi ptr [ %.pre21.pre, %.loopexit14.loopexit ], [ %49, %select.unfold ]
   %76 = load volatile ptr, ptr %5, align 8
   %77 = icmp eq ptr %76, %5
   br i1 %77, label %82, label %78

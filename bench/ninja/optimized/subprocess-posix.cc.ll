@@ -684,7 +684,7 @@ define dso_local void @_ZN13SubprocessSetD2Ev(ptr noundef nonnull align 8 derefe
 ._crit_edge.i:                                    ; preds = %16
   %.pre19.i = load ptr, ptr %0, align 8
   %.not913.i = icmp eq ptr %.pre19.i, %17
-  br i1 %.not913.i, label %_ZN13SubprocessSet5ClearEv.exit, label %.lr.ph16.i
+  br i1 %.not913.i, label %._crit_edge17.i, label %.lr.ph16.i
 
 .lr.ph16.i:                                       ; preds = %._crit_edge.i, %23
   %19 = phi ptr [ %24, %23 ], [ %17, %._crit_edge.i ]
@@ -703,101 +703,106 @@ define dso_local void @_ZN13SubprocessSetD2Ev(ptr noundef nonnull align 8 derefe
   %24 = phi ptr [ %19, %.lr.ph16.i ], [ %.pre20.i, %22 ]
   %25 = getelementptr inbounds i8, ptr %.sroa.01.014.i, i64 8
   %.not9.i = icmp eq ptr %25, %24
-  br i1 %.not9.i, label %._crit_edge17.i, label %.lr.ph16.i, !llvm.loop !8
+  br i1 %.not9.i, label %._crit_edge17.loopexit.i, label %.lr.ph16.i, !llvm.loop !8
 
-._crit_edge17.i:                                  ; preds = %23
+._crit_edge17.loopexit.i:                         ; preds = %23
   %.pre21.i = load ptr, ptr %0, align 8
-  %.not.i.i.i = icmp eq ptr %24, %.pre21.i
-  br i1 %.not.i.i.i, label %_ZN13SubprocessSet5ClearEv.exit, label %26
+  br label %._crit_edge17.i
 
-26:                                               ; preds = %._crit_edge17.i
-  store ptr %.pre21.i, ptr %3, align 8
+._crit_edge17.i:                                  ; preds = %._crit_edge17.loopexit.i, %._crit_edge.i
+  %26 = phi ptr [ %.pre19.i, %._crit_edge.i ], [ %.pre21.i, %._crit_edge17.loopexit.i ]
+  %.lcssa.i = phi ptr [ %17, %._crit_edge.i ], [ %24, %._crit_edge17.loopexit.i ]
+  %.not.i.i.i = icmp eq ptr %.lcssa.i, %26
+  br i1 %.not.i.i.i, label %_ZN13SubprocessSet5ClearEv.exit, label %27
+
+27:                                               ; preds = %._crit_edge17.i
+  store ptr %26, ptr %3, align 8
   br label %_ZN13SubprocessSet5ClearEv.exit
 
-_ZN13SubprocessSet5ClearEv.exit:                  ; preds = %1, %._crit_edge.i, %._crit_edge17.i, %26
-  %27 = getelementptr inbounds i8, ptr %0, i64 104
-  %28 = tail call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %27, ptr noundef null) #19
-  %29 = icmp slt i32 %28, 0
-  br i1 %29, label %.invoke, label %30
+_ZN13SubprocessSet5ClearEv.exit:                  ; preds = %1, %._crit_edge17.i, %27
+  %28 = getelementptr inbounds i8, ptr %0, i64 104
+  %29 = tail call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %28, ptr noundef null) #19
+  %30 = icmp slt i32 %29, 0
+  br i1 %30, label %.invoke, label %31
 
-30:                                               ; preds = %_ZN13SubprocessSet5ClearEv.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 256
-  %32 = tail call i32 @sigaction(i32 noundef 15, ptr noundef nonnull %31, ptr noundef null) #19
-  %33 = icmp slt i32 %32, 0
-  br i1 %33, label %.invoke, label %34
+31:                                               ; preds = %_ZN13SubprocessSet5ClearEv.exit
+  %32 = getelementptr inbounds i8, ptr %0, i64 256
+  %33 = tail call i32 @sigaction(i32 noundef 15, ptr noundef nonnull %32, ptr noundef null) #19
+  %34 = icmp slt i32 %33, 0
+  br i1 %34, label %.invoke, label %35
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %0, i64 408
-  %36 = tail call i32 @sigaction(i32 noundef 1, ptr noundef nonnull %35, ptr noundef null) #19
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %.invoke, label %38
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds i8, ptr %0, i64 408
+  %37 = tail call i32 @sigaction(i32 noundef 1, ptr noundef nonnull %36, ptr noundef null) #19
+  %38 = icmp slt i32 %37, 0
+  br i1 %38, label %.invoke, label %39
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 560
-  %40 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %39, ptr noundef null) #19
-  %41 = icmp slt i32 %40, 0
-  br i1 %41, label %.invoke, label %46
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds i8, ptr %0, i64 560
+  %41 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %40, ptr noundef null) #19
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %.invoke, label %47
 
-.invoke:                                          ; preds = %38, %34, %30, %_ZN13SubprocessSet5ClearEv.exit
-  %42 = phi ptr [ @.str.18, %_ZN13SubprocessSet5ClearEv.exit ], [ @.str.18, %30 ], [ @.str.18, %34 ], [ @.str.17, %38 ]
-  %43 = tail call ptr @__errno_location() #20
-  %44 = load i32, ptr %43, align 4
-  %45 = tail call ptr @strerror(i32 noundef %44) #19
-  invoke void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull %42, ptr noundef %45) #21
-          to label %.cont unwind label %62
+.invoke:                                          ; preds = %39, %35, %31, %_ZN13SubprocessSet5ClearEv.exit
+  %43 = phi ptr [ @.str.18, %_ZN13SubprocessSet5ClearEv.exit ], [ @.str.18, %31 ], [ @.str.18, %35 ], [ @.str.17, %39 ]
+  %44 = tail call ptr @__errno_location() #20
+  %45 = load i32, ptr %44, align 4
+  %46 = tail call ptr @strerror(i32 noundef %45) #19
+  invoke void (ptr, ...) @_Z5FatalPKcz(ptr noundef nonnull %43, ptr noundef %46) #21
+          to label %.cont unwind label %63
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
-  %48 = load ptr, ptr %47, align 8
-  %.not.i.i.i1 = icmp eq ptr %48, null
-  br i1 %.not.i.i.i1, label %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev.exit, label %49
+47:                                               ; preds = %39
+  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = load ptr, ptr %48, align 8
+  %.not.i.i.i1 = icmp eq ptr %49, null
+  br i1 %.not.i.i.i1, label %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev.exit, label %50
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 96
-  %51 = getelementptr inbounds i8, ptr %0, i64 64
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
-  %55 = icmp ult ptr %52, %54
-  br i1 %55, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds i8, ptr %0, i64 96
+  %52 = getelementptr inbounds i8, ptr %0, i64 64
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %51, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %56 = icmp ult ptr %53, %55
+  br i1 %56, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %49, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i.i ], [ %52, %49 ]
-  %56 = load ptr, ptr %.06.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %56) #24
-  %57 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
-  %58 = icmp ult ptr %.06.i.i.i.i, %53
-  br i1 %58, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i, !llvm.loop !5
+.lr.ph.i.i.i.i:                                   ; preds = %50, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %58, %.lr.ph.i.i.i.i ], [ %53, %50 ]
+  %57 = load ptr, ptr %.06.i.i.i.i, align 8
+  tail call void @_ZdlPv(ptr noundef %57) #24
+  %58 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
+  %59 = icmp ult ptr %.06.i.i.i.i, %54
+  br i1 %59, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i, !llvm.loop !5
 
 _ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %.pre.i.i.i = load ptr, ptr %47, align 8
+  %.pre.i.i.i = load ptr, ptr %48, align 8
   br label %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i
 
-_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i, %49
-  %59 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i ], [ %48, %49 ]
-  tail call void @_ZdlPv(ptr noundef %59) #24
+_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i, %50
+  %60 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i ], [ %49, %50 ]
+  tail call void @_ZdlPv(ptr noundef %60) #24
   br label %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev.exit
 
-_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev.exit: ; preds = %46, %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i
-  %60 = load ptr, ptr %0, align 8
-  %.not.i.i.i2 = icmp eq ptr %60, null
-  br i1 %.not.i.i.i2, label %_ZNSt6vectorIP10SubprocessSaIS1_EED2Ev.exit, label %61
+_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev.exit: ; preds = %47, %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i
+  %61 = load ptr, ptr %0, align 8
+  %.not.i.i.i2 = icmp eq ptr %61, null
+  br i1 %.not.i.i.i2, label %_ZNSt6vectorIP10SubprocessSaIS1_EED2Ev.exit, label %62
 
-61:                                               ; preds = %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %60) #24
+62:                                               ; preds = %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %61) #24
   br label %_ZNSt6vectorIP10SubprocessSaIS1_EED2Ev.exit
 
-_ZNSt6vectorIP10SubprocessSaIS1_EED2Ev.exit:      ; preds = %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev.exit, %61
+_ZNSt6vectorIP10SubprocessSaIS1_EED2Ev.exit:      ; preds = %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev.exit, %62
   ret void
 
-62:                                               ; preds = %.invoke
-  %63 = landingpad { ptr, i32 }
+63:                                               ; preds = %.invoke
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %63, 0
-  tail call void @__clang_call_terminate(ptr %64) #22
+  %65 = extractvalue { ptr, i32 } %64, 0
+  tail call void @__clang_call_terminate(ptr %65) #22
   unreachable
 }
 
@@ -836,7 +841,7 @@ define dso_local void @_ZN13SubprocessSet5ClearEv(ptr nocapture noundef nonnull 
 ._crit_edge:                                      ; preds = %16
   %.pre19 = load ptr, ptr %0, align 8
   %.not913 = icmp eq ptr %.pre19, %17
-  br i1 %.not913, label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit, label %.lr.ph16
+  br i1 %.not913, label %._crit_edge17, label %.lr.ph16
 
 .lr.ph16:                                         ; preds = %._crit_edge, %23
   %19 = phi ptr [ %24, %23 ], [ %17, %._crit_edge ]
@@ -855,18 +860,23 @@ define dso_local void @_ZN13SubprocessSet5ClearEv(ptr nocapture noundef nonnull 
   %24 = phi ptr [ %19, %.lr.ph16 ], [ %.pre20, %22 ]
   %25 = getelementptr inbounds i8, ptr %.sroa.01.014, i64 8
   %.not9 = icmp eq ptr %25, %24
-  br i1 %.not9, label %._crit_edge17, label %.lr.ph16, !llvm.loop !8
+  br i1 %.not9, label %._crit_edge17.loopexit, label %.lr.ph16, !llvm.loop !8
 
-._crit_edge17:                                    ; preds = %23
+._crit_edge17.loopexit:                           ; preds = %23
   %.pre21 = load ptr, ptr %0, align 8
-  %.not.i.i = icmp eq ptr %24, %.pre21
-  br i1 %.not.i.i, label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit, label %26
+  br label %._crit_edge17
 
-26:                                               ; preds = %._crit_edge17
-  store ptr %.pre21, ptr %3, align 8
+._crit_edge17:                                    ; preds = %._crit_edge17.loopexit, %._crit_edge
+  %26 = phi ptr [ %.pre19, %._crit_edge ], [ %.pre21, %._crit_edge17.loopexit ]
+  %.lcssa = phi ptr [ %17, %._crit_edge ], [ %24, %._crit_edge17.loopexit ]
+  %.not.i.i = icmp eq ptr %.lcssa, %26
+  br i1 %.not.i.i, label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit, label %27
+
+27:                                               ; preds = %._crit_edge17
+  store ptr %26, ptr %3, align 8
   br label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit
 
-_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge, %._crit_edge17, %26
+_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge17, %27
   ret void
 }
 
@@ -1250,7 +1260,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10SubprocessSt6vectorIS3_SaIS3_EEEES8
   br label %102
 
 102:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10SubprocessSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i, %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit
-  %103 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10SubprocessSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i ], [ %97, %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit ]
+  %103 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10SubprocessSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i ], [ %98, %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit ]
   %104 = getelementptr inbounds i8, ptr %103, i64 -8
   store ptr %104, ptr %4, align 8
   br label %.outer.backedge

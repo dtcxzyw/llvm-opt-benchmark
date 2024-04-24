@@ -7182,7 +7182,7 @@ if.end18thread-pre-split:                         ; preds = %cond.end.i, %if.the
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end18thread-pre-split, %for.end
-  %25 = phi ptr [ %.pr, %if.end18thread-pre-split ], [ %10, %for.end ]
+  %25 = phi ptr [ %.pr, %if.end18thread-pre-split ], [ %11, %for.end ]
   %tobool.not.i.i.i51 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i51, label %if.end19, label %if.then.i.i.i52
 
@@ -7635,7 +7635,7 @@ for.body:                                         ; preds = %entry, %_ZSt8_Destr
   %2 = load ptr, ptr %__node.036, align 8
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %_ZSt8_DestroyIN7rocksdb29PartitionedFilterBlockBuilder11FilterEntryEEvPT_.exit.i.i.i, %for.body
+for.body.i.i.i:                                   ; preds = %for.body, %_ZSt8_DestroyIN7rocksdb29PartitionedFilterBlockBuilder11FilterEntryEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i.idx = phi i64 [ %__first.addr.04.i.i.i.add, %_ZSt8_DestroyIN7rocksdb29PartitionedFilterBlockBuilder11FilterEntryEEvPT_.exit.i.i.i ], [ 0, %for.body ]
   %__first.addr.04.i.i.i.ptr = getelementptr inbounds i8, ptr %2, i64 %__first.addr.04.i.i.i.idx
   %filter_data.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.ptr, i64 32

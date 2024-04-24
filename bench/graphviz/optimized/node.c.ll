@@ -847,7 +847,7 @@ agprvnode.exit49:                                 ; preds = %35, %37, %41
   br i1 %.not44, label %56, label %35
 
 56:                                               ; preds = %53, %55
-  %.1 = phi ptr [ %0, %53 ], [ null, %55 ]
+  %.1 = phi ptr [ %.038, %53 ], [ null, %55 ]
   %57 = tail call i32 @agapply(ptr noundef %3, ptr noundef nonnull %1, ptr noundef nonnull @agnodesetfinger, ptr noundef %.1, i32 noundef 0) #4
   %.not45 = icmp eq i32 %57, 0
   br i1 %.not45, label %58, label %.loopexit

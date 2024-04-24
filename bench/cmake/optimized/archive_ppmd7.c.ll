@@ -24,7 +24,7 @@ define internal void @Ppmd7_Construct(ptr nocapture noundef writeonly %0) #0 {
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %17 ]
   %.03138 = phi i32 [ 0, %1 ], [ %13, %17 ]
   %6 = icmp ugt i64 %indvars.iv, 11
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = lshr i32 %7, 2
   %9 = add nuw nsw i32 %8, 1
   %10 = select i1 %6, i32 4, i32 %9
@@ -622,7 +622,7 @@ Ppmd7_UpdateBin.exit:                             ; preds = %237, %239
 241:                                              ; preds = %153
   %242 = add nuw nsw i32 %207, 32
   %243 = lshr i32 %242, 7
-  %244 = trunc i32 %243 to i16
+  %244 = trunc nuw nsw i32 %243 to i16
   %245 = sub i16 %206, %244
   store i16 %245, ptr %199, align 2
   %246 = lshr i16 %245, 10
@@ -754,7 +754,7 @@ Ppmd7_UpdateBin.exit:                             ; preds = %237, %239
   %337 = load i8, ptr %336, align 2
   %338 = zext nneg i8 %337 to i32
   %339 = lshr i32 %335, %338
-  %340 = trunc i32 %339 to i16
+  %340 = trunc nuw i32 %339 to i16
   %341 = sub i16 %334, %340
   store i16 %341, ptr %333, align 2
   %342 = icmp eq i32 %339, 0
@@ -1603,7 +1603,7 @@ RangeEnc_EncodeBit_1.exit:                        ; preds = %RangeEnc_ShiftLow.e
   %416 = zext i16 %415 to i32
   %417 = add nuw nsw i32 %416, 32
   %418 = lshr i32 %417, 7
-  %419 = trunc i32 %418 to i16
+  %419 = trunc nuw nsw i32 %418 to i16
   %420 = sub i16 %415, %419
   store i16 %420, ptr %309, align 2
   %421 = lshr i16 %420, 10
@@ -1702,7 +1702,7 @@ RangeEnc_Encode.exit179:                          ; preds = %RangeEnc_ShiftLow.e
   %492 = load i8, ptr %491, align 2
   %493 = zext nneg i8 %492 to i32
   %494 = lshr i32 %490, %493
-  %495 = trunc i32 %494 to i16
+  %495 = trunc nuw i32 %494 to i16
   %496 = sub i16 %489, %495
   store i16 %496, ptr %488, align 2
   %497 = icmp eq i32 %494, 0
@@ -2082,7 +2082,7 @@ define internal fastcc void @RestartModel(ptr nocapture noundef %0) unnamed_addr
   %61 = load i16, ptr %60, align 2
   %62 = zext i16 %61 to i32
   %63 = udiv i32 %62, %56
-  %64 = trunc i32 %63 to i16
+  %64 = trunc nuw i32 %63 to i16
   %65 = sub nsw i16 16384, %64
   br label %66
 
@@ -2410,12 +2410,13 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #9 {
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %9, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
+  %.086.lcssa = phi ptr [ %11, %1 ], [ %12, %.lr.ph ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.086.lcssa, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 2
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %9, i64 1
+  %17 = getelementptr inbounds i8, ptr %.086.lcssa, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = sub nsw i32 %16, %19
@@ -2428,7 +2429,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #9 {
   %26 = zext i8 %21 to i32
   %27 = add nuw nsw i32 %25, %26
   %28 = lshr i32 %27, 1
-  %29 = trunc i32 %28 to i8
+  %29 = trunc nuw i32 %28 to i8
   store i8 %29, ptr %17, align 1
   %30 = load ptr, ptr %0, align 8
   %31 = load i16, ptr %30, align 4
@@ -2437,7 +2438,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #9 {
   br label %34
 
 34:                                               ; preds = %56, %._crit_edge
-  %.187 = phi ptr [ %9, %._crit_edge ], [ %35, %56 ]
+  %.187 = phi ptr [ %.086.lcssa, %._crit_edge ], [ %35, %56 ]
   %.084 = phi i32 [ %20, %._crit_edge ], [ %39, %56 ]
   %.083 = phi i32 [ %28, %._crit_edge ], [ %43, %56 ]
   %.0 = phi i32 [ %33, %._crit_edge ], [ %57, %56 ]
@@ -2448,7 +2449,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #9 {
   %39 = sub i32 %.084, %38
   %40 = add nuw nsw i32 %38, %25
   %41 = lshr i32 %40, 1
-  %42 = trunc i32 %41 to i8
+  %42 = trunc nuw i32 %41 to i8
   store i8 %42, ptr %36, align 1
   %43 = add i32 %41, %.083
   %44 = getelementptr inbounds i8, ptr %.187, i64 1
@@ -2477,8 +2478,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #9 {
   br i1 %55, label %50, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %50, %52
-  %.lcssa110 = phi ptr [ %9, %50 ], [ %51, %52 ]
-  store i8 %.sroa.011.0.copyload, ptr %.lcssa110, align 2
+  store i8 %.sroa.011.0.copyload, ptr %51, align 2
   %.sroa.213.0..sroa_idx14 = getelementptr inbounds i8, ptr %.089, i64 -5
   store i8 %42, ptr %.sroa.213.0..sroa_idx14, align 1
   %.sroa.3.0..sroa_idx16 = getelementptr inbounds i8, ptr %.089, i64 -4
@@ -2524,7 +2524,8 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #9 {
 
 78:                                               ; preds = %70
   %.sroa.0.0.copyload = load i8, ptr %9, align 2
-  %.sroa.2.0.copyload = load i8, ptr %17, align 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 1
+  %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 2
   %79 = load i32, ptr %.sroa.5.0..sroa_idx, align 2
   br label %80
@@ -2683,13 +2684,13 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #9 {
 
 .sink.split.i:                                    ; preds = %144, %165, %142
   %.pre-phi.i.i.sink = phi i64 [ %143, %142 ], [ %167, %165 ], [ %161, %144 ]
-  %.sink125 = phi ptr [ %9, %142 ], [ %156, %165 ], [ %156, %144 ]
+  %.sink127 = phi ptr [ %9, %142 ], [ %156, %165 ], [ %156, %144 ]
   %.034.ph.i = phi ptr [ %129, %142 ], [ %9, %165 ], [ %9, %144 ]
   %184 = getelementptr inbounds [38 x i32], ptr %122, i64 0, i64 %.pre-phi.i.i.sink
   %185 = load i32, ptr %184, align 4
-  store i32 %185, ptr %.sink125, align 4
+  store i32 %185, ptr %.sink127, align 4
   %186 = load ptr, ptr %3, align 8
-  %187 = ptrtoint ptr %.sink125 to i64
+  %187 = ptrtoint ptr %.sink127 to i64
   %188 = ptrtoint ptr %186 to i64
   %189 = sub i64 %187, %188
   %190 = trunc i64 %189 to i32
@@ -2981,7 +2982,7 @@ define internal fastcc void @UpdateModel(ptr nocapture noundef %0) unnamed_addr 
   %152 = sub nsw i32 %.neg201, %151
   %153 = trunc i32 %.0 to i16
   %154 = lshr i32 %.0, 16
-  %155 = trunc i32 %154 to i16
+  %155 = trunc nuw i32 %154 to i16
   br label %156
 
 156:                                              ; preds = %.lr.ph, %313
@@ -3232,7 +3233,7 @@ AllocUnits.exit192:                               ; preds = %257, %260
   %309 = icmp uge i32 %290, %308
   %310 = zext i1 %309 to i32
   %311 = add nuw nsw i32 %307, %310
-  %312 = trunc i32 %311 to i16
+  %312 = trunc nuw nsw i32 %311 to i16
   br label %313
 
 313:                                              ; preds = %301, %294
@@ -3254,7 +3255,7 @@ AllocUnits.exit192:                               ; preds = %257, %260
   %323 = load ptr, ptr %3, align 8
   %324 = load i8, ptr %323, align 2
   store i8 %324, ptr %320, align 2
-  %325 = trunc i32 %.0162 to i8
+  %325 = trunc nuw nsw i32 %.0162 to i8
   %326 = getelementptr inbounds i8, ptr %320, i64 1
   store i8 %325, ptr %326, align 1
   %327 = add i16 %158, 1
@@ -3377,7 +3378,7 @@ define internal fastcc ptr @CreateSuccessors(ptr nocapture noundef %0, i32 nound
   %56 = add i32 %14, 1
   %57 = trunc i32 %56 to i16
   %58 = lshr i32 %56, 16
-  %59 = trunc i32 %58 to i16
+  %59 = trunc nuw i32 %58 to i16
   %60 = load i16, ptr %.1, align 4
   %61 = icmp eq i16 %60, 1
   br i1 %61, label %62, label %65
@@ -3645,7 +3646,7 @@ define internal fastcc ptr @AllocUnitsRare(ptr nocapture noundef %0, i32 noundef
   %76 = getelementptr inbounds i8, ptr %74, i64 %75
   %77 = getelementptr inbounds i8, ptr %76, i64 8
   store i32 %73, ptr %77, align 4
-  %78 = trunc i32 %63 to i16
+  %78 = trunc nuw i32 %63 to i16
   store i16 %78, ptr %51, align 2
   %79 = load ptr, ptr %14, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 %49

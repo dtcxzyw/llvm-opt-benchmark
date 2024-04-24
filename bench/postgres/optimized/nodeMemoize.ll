@@ -1647,13 +1647,13 @@ define internal fastcc zeroext i1 @cache_reduce_memory(ptr noundef %0, ptr nound
   br label %16
 
 16:                                               ; preds = %remove_cache_entry.exit, %10
-  %.026 = phi i64 [ 0, %10 ], [ %200, %remove_cache_entry.exit ]
+  %.026 = phi i64 [ 0, %10 ], [ %201, %remove_cache_entry.exit ]
   %.sroa.0.0 = phi ptr [ %., %10 ], [ %.sroa.6.0, %remove_cache_entry.exit ]
   %.0 = phi i1 [ true, %10 ], [ %spec.select, %remove_cache_entry.exit ]
   %.sroa.6.0.in = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
   %.sroa.6.0 = load ptr, ptr %.sroa.6.0.in, align 8
   %.not31 = icmp eq ptr %.sroa.0.0, %11
-  br i1 %.not31, label %203, label %17
+  br i1 %.not31, label %204, label %17
 
 17:                                               ; preds = %16
   %18 = getelementptr i8, ptr %.sroa.0.0, i64 -8
@@ -1881,115 +1881,116 @@ memoize_lookup.exit.thread38:                     ; preds = %._crit_edge.i, %Mem
 143:                                              ; preds = %memoize_lookup.exit.thread38
   %144 = icmp ne ptr %18, %1
   %spec.select = select i1 %144, i1 %.0, i1 false
-  %145 = getelementptr i8, ptr %.sroa.0.0, i64 8
-  %146 = load ptr, ptr %145, align 8
-  %147 = load ptr, ptr %.sroa.0.0, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 8
-  store ptr %146, ptr %148, align 8
-  %149 = load ptr, ptr %.sroa.0.0, align 8
-  store ptr %149, ptr %146, align 8
-  %150 = getelementptr inbounds i8, ptr %32, i64 8
-  %151 = load ptr, ptr %150, align 8
-  %.not12.i.i = icmp eq ptr %151, null
+  %145 = getelementptr inbounds i8, ptr %140, i64 8
+  %146 = getelementptr inbounds i8, ptr %140, i64 16
+  %147 = load ptr, ptr %146, align 8
+  %148 = load ptr, ptr %145, align 8
+  %149 = getelementptr inbounds i8, ptr %148, i64 8
+  store ptr %147, ptr %149, align 8
+  %150 = load ptr, ptr %145, align 8
+  store ptr %150, ptr %147, align 8
+  %151 = getelementptr inbounds i8, ptr %32, i64 8
+  %152 = load ptr, ptr %151, align 8
+  %.not12.i.i = icmp eq ptr %152, null
   br i1 %.not12.i.i, label %entry_purge_tuples.exit.i, label %.lr.ph.i.i33
 
 .lr.ph.i.i33:                                     ; preds = %143, %.lr.ph.i.i33
-  %.014.i.i = phi ptr [ %153, %.lr.ph.i.i33 ], [ %151, %143 ]
-  %.01113.i.i = phi i64 [ %158, %.lr.ph.i.i33 ], [ 0, %143 ]
-  %152 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
-  %153 = load ptr, ptr %152, align 8
-  %154 = load ptr, ptr %.014.i.i, align 8
-  %155 = load i32, ptr %154, align 4
-  %156 = zext i32 %155 to i64
-  %157 = add i64 %.01113.i.i, 16
-  %158 = add i64 %157, %156
-  call void @pfree(ptr noundef nonnull %154) #10
+  %.014.i.i = phi ptr [ %154, %.lr.ph.i.i33 ], [ %152, %143 ]
+  %.01113.i.i = phi i64 [ %159, %.lr.ph.i.i33 ], [ 0, %143 ]
+  %153 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %154 = load ptr, ptr %153, align 8
+  %155 = load ptr, ptr %.014.i.i, align 8
+  %156 = load i32, ptr %155, align 4
+  %157 = zext i32 %156 to i64
+  %158 = add i64 %.01113.i.i, 16
+  %159 = add i64 %158, %157
+  call void @pfree(ptr noundef nonnull %155) #10
   call void @pfree(ptr noundef nonnull %.014.i.i) #10
-  %.not.i.i = icmp eq ptr %153, null
+  %.not.i.i = icmp eq ptr %154, null
   br i1 %.not.i.i, label %entry_purge_tuples.exit.i, label %.lr.ph.i.i33, !llvm.loop !12
 
 entry_purge_tuples.exit.i:                        ; preds = %.lr.ph.i.i33, %143
-  %.011.lcssa.i.i = phi i64 [ 0, %143 ], [ %158, %.lr.ph.i.i33 ]
-  %159 = getelementptr inbounds i8, ptr %32, i64 21
-  store i8 0, ptr %159, align 1
-  store ptr null, ptr %150, align 8
-  %160 = load i64, ptr %4, align 8
-  %161 = sub i64 %160, %.011.lcssa.i.i
-  store i64 %161, ptr %4, align 8
-  %162 = load ptr, ptr %32, align 8
-  %163 = load ptr, ptr %162, align 8
-  %164 = load i32, ptr %163, align 4
-  %165 = zext i32 %164 to i64
-  %.neg12.i = add i64 %161, -48
-  %166 = sub i64 %.neg12.i, %165
-  store i64 %166, ptr %4, align 8
-  %167 = load ptr, ptr %14, align 8
-  %168 = getelementptr i8, ptr %167, i64 12
-  %169 = getelementptr inbounds i8, ptr %167, i64 24
-  %170 = load ptr, ptr %169, align 8
-  %171 = ptrtoint ptr %32 to i64
-  %172 = ptrtoint ptr %170 to i64
-  %173 = sub i64 %171, %172
-  %174 = sdiv exact i64 %173, 24
-  %175 = trunc i64 %174 to i32
-  %176 = getelementptr inbounds i8, ptr %167, i64 8
-  %177 = load i32, ptr %176, align 8
-  %178 = add i32 %177, -1
-  store i32 %178, ptr %176, align 8
-  %.val2931.i.i = load i32, ptr %168, align 4
-  %179 = add i32 %175, 1
-  %180 = and i32 %179, %.val2931.i.i
-  %181 = zext i32 %180 to i64
-  %182 = getelementptr %struct.MemoizeEntry, ptr %170, i64 %181
-  %183 = getelementptr inbounds i8, ptr %182, i64 20
-  %184 = load i8, ptr %183, align 4
-  %.not32.i.i = icmp eq i8 %184, 1
+  %.011.lcssa.i.i = phi i64 [ 0, %143 ], [ %159, %.lr.ph.i.i33 ]
+  %160 = getelementptr inbounds i8, ptr %32, i64 21
+  store i8 0, ptr %160, align 1
+  store ptr null, ptr %151, align 8
+  %161 = load i64, ptr %4, align 8
+  %162 = sub i64 %161, %.011.lcssa.i.i
+  store i64 %162, ptr %4, align 8
+  %163 = load ptr, ptr %32, align 8
+  %164 = load ptr, ptr %163, align 8
+  %165 = load i32, ptr %164, align 4
+  %166 = zext i32 %165 to i64
+  %.neg12.i = add i64 %162, -48
+  %167 = sub i64 %.neg12.i, %166
+  store i64 %167, ptr %4, align 8
+  %168 = load ptr, ptr %14, align 8
+  %169 = getelementptr i8, ptr %168, i64 12
+  %170 = getelementptr inbounds i8, ptr %168, i64 24
+  %171 = load ptr, ptr %170, align 8
+  %172 = ptrtoint ptr %32 to i64
+  %173 = ptrtoint ptr %171 to i64
+  %174 = sub i64 %172, %173
+  %175 = sdiv exact i64 %174, 24
+  %176 = trunc i64 %175 to i32
+  %177 = getelementptr inbounds i8, ptr %168, i64 8
+  %178 = load i32, ptr %177, align 8
+  %179 = add i32 %178, -1
+  store i32 %179, ptr %177, align 8
+  %.val2931.i.i = load i32, ptr %169, align 4
+  %180 = add i32 %176, 1
+  %181 = and i32 %180, %.val2931.i.i
+  %182 = zext i32 %181 to i64
+  %183 = getelementptr %struct.MemoizeEntry, ptr %171, i64 %182
+  %184 = getelementptr inbounds i8, ptr %183, i64 20
+  %185 = load i8, ptr %184, align 4
+  %.not32.i.i = icmp eq i8 %185, 1
   br i1 %.not32.i.i, label %.lr.ph.i10.i, label %remove_cache_entry.exit
 
-.lr.ph.i10.i:                                     ; preds = %entry_purge_tuples.exit.i, %190
-  %185 = phi ptr [ %195, %190 ], [ %182, %entry_purge_tuples.exit.i ]
-  %186 = phi i32 [ %192, %190 ], [ %180, %entry_purge_tuples.exit.i ]
-  %.val2934.i.i = phi i32 [ %.val29.i.i, %190 ], [ %.val2931.i.i, %entry_purge_tuples.exit.i ]
-  %.033.i.i = phi ptr [ %185, %190 ], [ %32, %entry_purge_tuples.exit.i ]
-  %187 = getelementptr i8, ptr %185, i64 16
-  %.val.i.i34 = load i32, ptr %187, align 8
-  %188 = and i32 %.val.i.i34, %.val2934.i.i
-  %189 = icmp eq i32 %188, %186
-  br i1 %189, label %remove_cache_entry.exit, label %190
+.lr.ph.i10.i:                                     ; preds = %entry_purge_tuples.exit.i, %191
+  %186 = phi ptr [ %196, %191 ], [ %183, %entry_purge_tuples.exit.i ]
+  %187 = phi i32 [ %193, %191 ], [ %181, %entry_purge_tuples.exit.i ]
+  %.val2934.i.i = phi i32 [ %.val29.i.i, %191 ], [ %.val2931.i.i, %entry_purge_tuples.exit.i ]
+  %.033.i.i = phi ptr [ %186, %191 ], [ %32, %entry_purge_tuples.exit.i ]
+  %188 = getelementptr i8, ptr %186, i64 16
+  %.val.i.i34 = load i32, ptr %188, align 8
+  %189 = and i32 %.val.i.i34, %.val2934.i.i
+  %190 = icmp eq i32 %189, %187
+  br i1 %190, label %remove_cache_entry.exit, label %191
 
-190:                                              ; preds = %.lr.ph.i10.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.033.i.i, ptr noundef nonnull align 8 dereferenceable(24) %185, i64 24, i1 false)
-  %.val29.i.i = load i32, ptr %168, align 4
-  %191 = add i32 %186, 1
-  %192 = and i32 %.val29.i.i, %191
-  %193 = load ptr, ptr %169, align 8
-  %194 = zext i32 %192 to i64
-  %195 = getelementptr %struct.MemoizeEntry, ptr %193, i64 %194
-  %196 = getelementptr inbounds i8, ptr %195, i64 20
-  %197 = load i8, ptr %196, align 4
-  %.not.i11.i = icmp eq i8 %197, 1
+191:                                              ; preds = %.lr.ph.i10.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.033.i.i, ptr noundef nonnull align 8 dereferenceable(24) %186, i64 24, i1 false)
+  %.val29.i.i = load i32, ptr %169, align 4
+  %192 = add i32 %187, 1
+  %193 = and i32 %.val29.i.i, %192
+  %194 = load ptr, ptr %170, align 8
+  %195 = zext i32 %193 to i64
+  %196 = getelementptr %struct.MemoizeEntry, ptr %194, i64 %195
+  %197 = getelementptr inbounds i8, ptr %196, i64 20
+  %198 = load i8, ptr %197, align 4
+  %.not.i11.i = icmp eq i8 %198, 1
   br i1 %.not.i11.i, label %.lr.ph.i10.i, label %remove_cache_entry.exit
 
-remove_cache_entry.exit:                          ; preds = %.lr.ph.i10.i, %190, %entry_purge_tuples.exit.i
-  %.033.lcssa.sink.i.i = phi ptr [ %32, %entry_purge_tuples.exit.i ], [ %185, %190 ], [ %.033.i.i, %.lr.ph.i10.i ]
-  %198 = getelementptr inbounds i8, ptr %.033.lcssa.sink.i.i, i64 20
-  store i8 0, ptr %198, align 4
-  %199 = load ptr, ptr %18, align 8
-  call void @pfree(ptr noundef %199) #10
-  call void @pfree(ptr noundef nonnull %18) #10
-  %200 = add i64 %.026, 1
-  %201 = load i64, ptr %4, align 8
-  %202 = load i64, ptr %15, align 8
-  %.not32 = icmp ugt i64 %201, %202
-  br i1 %.not32, label %16, label %203, !llvm.loop !14
+remove_cache_entry.exit:                          ; preds = %.lr.ph.i10.i, %191, %entry_purge_tuples.exit.i
+  %.033.lcssa.sink.i.i = phi ptr [ %32, %entry_purge_tuples.exit.i ], [ %186, %191 ], [ %.033.i.i, %.lr.ph.i10.i ]
+  %199 = getelementptr inbounds i8, ptr %.033.lcssa.sink.i.i, i64 20
+  store i8 0, ptr %199, align 4
+  %200 = load ptr, ptr %140, align 8
+  call void @pfree(ptr noundef %200) #10
+  call void @pfree(ptr noundef nonnull %140) #10
+  %201 = add i64 %.026, 1
+  %202 = load i64, ptr %4, align 8
+  %203 = load i64, ptr %15, align 8
+  %.not32 = icmp ugt i64 %202, %203
+  br i1 %.not32, label %16, label %204, !llvm.loop !14
 
-203:                                              ; preds = %remove_cache_entry.exit, %16
-  %.127 = phi i64 [ %200, %remove_cache_entry.exit ], [ %.026, %16 ]
+204:                                              ; preds = %remove_cache_entry.exit, %16
+  %.127 = phi i64 [ %201, %remove_cache_entry.exit ], [ %.026, %16 ]
   %.2 = phi i1 [ %spec.select, %remove_cache_entry.exit ], [ %.0, %16 ]
-  %204 = getelementptr inbounds i8, ptr %0, i64 376
-  %205 = load i64, ptr %204, align 8
-  %206 = add i64 %205, %.127
-  store i64 %206, ptr %204, align 8
+  %205 = getelementptr inbounds i8, ptr %0, i64 376
+  %206 = load i64, ptr %205, align 8
+  %207 = add i64 %206, %.127
+  store i64 %207, ptr %205, align 8
   ret i1 %.2
 }
 

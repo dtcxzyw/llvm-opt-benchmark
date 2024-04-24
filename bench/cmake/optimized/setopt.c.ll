@@ -1427,7 +1427,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 645:                                              ; preds = %639
   %646 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %646(ptr noundef %641) #8
+  tail call void %646(ptr noundef %643) #8
   store ptr null, ptr %642, align 8
   store ptr null, ptr %640, align 8
   br label %647
@@ -1479,7 +1479,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 675:                                              ; preds = %669
   %676 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %676(ptr noundef %671) #8
+  tail call void %676(ptr noundef %673) #8
   store ptr null, ptr %672, align 8
   store ptr null, ptr %670, align 8
   br label %677

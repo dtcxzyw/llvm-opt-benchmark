@@ -766,7 +766,7 @@ define dso_local noundef zeroext i1 @i915_request_enable_breadcrumb(ptr noundef 
   br i1 %88, label %.loopexit, label %.preheader, !llvm.loop !40
 
 .loopexit:                                        ; preds = %85, %.preheader, %75, %68
-  %89 = phi ptr [ %56, %68 ], [ %56, %75 ], [ %56, %85 ], [ %79, %.preheader ]
+  %89 = phi ptr [ %56, %68 ], [ %77, %75 ], [ %87, %85 ], [ %79, %.preheader ]
   %90 = icmp eq ptr %0, null
   br i1 %90, label %101, label %91
 

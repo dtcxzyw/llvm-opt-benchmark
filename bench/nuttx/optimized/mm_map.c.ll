@@ -208,11 +208,11 @@ define ptr @mm_map_find(ptr noundef %0, ptr noundef readnone %1, i64 noundef %2)
   %14 = getelementptr inbounds i8, ptr %11, i64 %13
   %.not.i = icmp ule ptr %11, %1
   %15 = icmp ugt ptr %14, %1
-  %or.cond.not19.not.i = select i1 %.not.i, i1 %15, i1 false
+  %or.cond.not19.not21.i = select i1 %.not.i, i1 %15, i1 false
   %.not16.i = icmp uge ptr %7, %11
-  %or.cond17.i = select i1 %or.cond.not19.not.i, i1 %.not16.i, i1 false
+  %or.cond17.not.i = select i1 %or.cond.not19.not21.i, i1 %.not16.i, i1 false
   %16 = icmp ule ptr %7, %14
-  %spec.select.i = select i1 %or.cond17.i, i1 %16, i1 false
+  %spec.select.i = select i1 %or.cond17.not.i, i1 %16, i1 false
   br i1 %spec.select.i, label %.critedge, label %8, !llvm.loop !8
 
 .critedge:                                        ; preds = %8, %9
@@ -273,12 +273,13 @@ define i32 @mm_map_remove(ptr noundef %0, ptr noundef readnone %1) local_unnamed
   br label %29
 
 24:                                               ; preds = %15, %20
+  %.024.ph = phi ptr [ %17, %20 ], [ %10, %15 ]
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, -1
   store i64 %27, ptr %25, align 8
   %28 = tail call i32 @nxrmutex_unlock(ptr noundef nonnull %6) #6
-  tail call void @free(ptr noundef nonnull %1)
+  tail call void @free(ptr noundef nonnull %.024.ph)
   br label %29
 
 29:                                               ; preds = %22, %5, %2, %24, %11

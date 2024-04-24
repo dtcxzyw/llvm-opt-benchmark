@@ -190,18 +190,18 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %invoke.cont.thread.i
 
 invoke.cont.thread.i:                             ; preds = %if.then
-  %size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %.sroa.speculated32, ptr %size.i.i.i.i.i.i, align 8
-  %used.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %used.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   store i64 0, ptr %used.i.i.i.i.i.i, align 8
-  store ptr %call.i.i, ptr %0, align 8
+  store ptr %call.i.i, ptr %1, align 8
   %.pre.i = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %.pre.i, i64 24
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZN3net11UnsafeArena10AllocBlockEm.exit
 
 if.else.i.i.i:                                    ; preds = %if.then
-  invoke void @_ZNSt6vectorIN3net11UnsafeArena5BlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %blocks_, ptr %0, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
+  invoke void @_ZNSt6vectorIN3net11UnsafeArena5BlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %blocks_, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i

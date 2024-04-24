@@ -4041,7 +4041,7 @@ if.else.i.i:                                      ; preds = %if.then
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.else.i.i
   store ptr %_M_single_bucket.i.i.i.i.i.i, ptr %executionInfo.i.i.i, align 8
-  %10 = load ptr, ptr %6, align 8
+  %10 = load ptr, ptr %_M_single_bucket.i.i.i.i.i.i.i.i, align 8
   store ptr %10, ptr %_M_single_bucket.i.i.i.i.i.i, align 8
   br label %if.end.i.i.i.i.i.i
 
@@ -5132,7 +5132,7 @@ if.then4:                                         ; preds = %_ZNSt10_HashtableIN
 
 if.else:                                          ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St13unordered_mapItmSt4hashItESt8equal_toItESaIS6_IKtmEEEESaISH_ENSt8__detail10_Select1stESB_IS5_ES9_IS5_ENSJ_18_Mod_range_hashingENSJ_20_Default_ranged_hashENSJ_20_Prime_rehash_policyENSJ_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
   store ptr %_M_single_bucket.i.i.i, ptr %this, align 8
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %_M_single_bucket.i.i, align 8
   store ptr %9, ptr %_M_single_bucket.i.i.i, align 8
   br label %if.end9
 

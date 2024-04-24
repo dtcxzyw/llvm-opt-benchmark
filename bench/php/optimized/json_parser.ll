@@ -70,7 +70,7 @@ define hidden noundef i32 @php_json_yyparse(ptr noundef %0) local_unnamed_addr #
   %.0260 = phi i64 [ 200, %1 ], [ %.1261, %21 ]
   %.1254 = phi i32 [ 0, %1 ], [ %.0253, %21 ]
   %.1 = phi i32 [ -2, %1 ], [ %.0, %21 ]
-  %24 = trunc i32 %.1254 to i8
+  %24 = trunc nsw i32 %.1254 to i8
   store i8 %24, ptr %.1267, align 1
   %25 = getelementptr inbounds i8, ptr %.0262, i64 %.0260
   %26 = getelementptr inbounds i8, ptr %25, i64 -1
@@ -335,8 +335,8 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
   %.not323 = icmp ne i32 %152, 0
   %.pre565 = load ptr, ptr %8, align 8
   %153 = icmp eq ptr %.pre565, @php_json_parser_object_create
-  %or.cond654 = select i1 %.not323, i1 %153, i1 false
-  br i1 %or.cond654, label %154, label %155
+  %or.cond655 = select i1 %.not323, i1 %153, i1 false
+  br i1 %or.cond655, label %154, label %155
 
 154:                                              ; preds = %150
   store ptr @zend_empty_array, ptr %5, align 8
@@ -379,8 +379,8 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
   %.not320 = icmp eq i32 %177, 0
   %.pre = load i32, ptr %14, align 8
   %.not321 = icmp slt i32 %.pre, %177
-  %or.cond655 = select i1 %.not320, i1 true, i1 %.not321
-  br i1 %or.cond655, label %178, label %.loopexit.sink.split
+  %or.cond656 = select i1 %.not320, i1 true, i1 %.not321
+  br i1 %or.cond656, label %178, label %.loopexit.sink.split
 
 178:                                              ; preds = %176
   %179 = add nsw i32 %.pre, 1
@@ -547,7 +547,7 @@ php_json_yyerror.exit336:                         ; preds = %44, %48, %.lr.ph, %
   %.5292 = phi i64 [ %118, %121 ], [ 0, %259 ], [ 0, %262 ], [ 0, %php_json_yyerror.exit ], [ 0, %.lr.ph ], [ 0, %48 ], [ 0, %44 ]
   %.0285 = phi i32 [ 0, %121 ], [ 2, %259 ], [ 2, %262 ], [ 1, %php_json_yyerror.exit ], [ 1, %.lr.ph ], [ 1, %44 ], [ 0, %48 ]
   %.6282 = phi ptr [ %.2278, %121 ], [ %.1277, %259 ], [ %.1277, %262 ], [ %.3279, %php_json_yyerror.exit ], [ %254, %.lr.ph ], [ %47, %44 ], [ %.2278, %48 ]
-  %.6272 = phi ptr [ %.2268, %121 ], [ %.1267, %259 ], [ %.1267, %262 ], [ %.1263, %php_json_yyerror.exit ], [ %.1263, %.lr.ph ], [ %45, %44 ], [ %.2268, %48 ]
+  %.6272 = phi ptr [ %.2268, %121 ], [ %.1267, %259 ], [ %.1267, %262 ], [ %.3269, %php_json_yyerror.exit ], [ %255, %.lr.ph ], [ %45, %44 ], [ %.2268, %48 ]
   %.3265 = phi ptr [ %.1263, %121 ], [ %.0262, %259 ], [ %.0262, %262 ], [ %.1263, %php_json_yyerror.exit ], [ %.1263, %.lr.ph ], [ %37, %44 ], [ %.1263, %48 ]
   %.9 = phi i32 [ %.5, %121 ], [ %.1, %259 ], [ %.1, %262 ], [ %.6, %php_json_yyerror.exit ], [ %.6, %.lr.ph ], [ %.1, %48 ], [ %.1, %44 ]
   %.not331 = icmp eq i32 %.9, -2

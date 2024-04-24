@@ -1081,13 +1081,13 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   br i1 %92, label %93, label %104
 
 93:                                               ; preds = %89
-  %94 = load ptr, ptr %.0132.i.i, align 8
+  %94 = load ptr, ptr %91, align 8
   store ptr %94, ptr %90, align 8
   %.not127.i.i = icmp eq ptr %94, null
   br i1 %.not127.i.i, label %.thread.i.i, label %96
 
 .thread.i.i:                                      ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %.0132.i.i, i64 16
+  %95 = getelementptr inbounds i8, ptr %91, i64 16
   store ptr %75, ptr %95, align 8
   %.pre40.i = load ptr, ptr %74, align 8
   br label %99
@@ -1096,7 +1096,7 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   %97 = getelementptr inbounds i8, ptr %94, i64 16
   store ptr %69, ptr %97, align 8
   %.pre134.i.i = load ptr, ptr %74, align 8
-  %98 = getelementptr inbounds i8, ptr %.0132.i.i, i64 16
+  %98 = getelementptr inbounds i8, ptr %91, i64 16
   store ptr %.pre134.i.i, ptr %98, align 8
   %.not128.i.i = icmp eq ptr %.pre134.i.i, null
   br i1 %.not128.i.i, label %103, label %99
@@ -1111,9 +1111,9 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
 
 103:                                              ; preds = %99, %96
   %.sink.i.i = phi ptr [ %52, %96 ], [ %spec.select.i.i, %99 ]
-  store ptr %.0132.i.i, ptr %.sink.i.i, align 8
-  store ptr %69, ptr %.0132.i.i, align 8
-  store ptr %.0132.i.i, ptr %74, align 8
+  store ptr %91, ptr %.sink.i.i, align 8
+  store ptr %69, ptr %91, align 8
+  store ptr %91, ptr %74, align 8
   br label %104
 
 104:                                              ; preds = %103, %89
@@ -1180,14 +1180,14 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   br i1 %129, label %130, label %142
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %.0132.i.i, i64 8
+  %131 = getelementptr inbounds i8, ptr %128, i64 8
   %132 = load ptr, ptr %131, align 8
   store ptr %132, ptr %69, align 8
   %.not122.i.i = icmp eq ptr %132, null
   br i1 %.not122.i.i, label %.thread136.i.i, label %134
 
 .thread136.i.i:                                   ; preds = %130
-  %133 = getelementptr inbounds i8, ptr %.0132.i.i, i64 16
+  %133 = getelementptr inbounds i8, ptr %128, i64 16
   store ptr %75, ptr %133, align 8
   %.pre.i = load ptr, ptr %74, align 8
   br label %137
@@ -1196,7 +1196,7 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   %135 = getelementptr inbounds i8, ptr %132, i64 16
   store ptr %69, ptr %135, align 8
   %.pre.i.i = load ptr, ptr %74, align 8
-  %136 = getelementptr inbounds i8, ptr %.0132.i.i, i64 16
+  %136 = getelementptr inbounds i8, ptr %128, i64 16
   store ptr %.pre.i.i, ptr %136, align 8
   %.not123.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not123.i.i, label %141, label %137
@@ -1211,9 +1211,9 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
 
 141:                                              ; preds = %137, %134
   %.sink139.i.i = phi ptr [ %52, %134 ], [ %spec.select142.i.i, %137 ]
-  store ptr %.0132.i.i, ptr %.sink139.i.i, align 8
+  store ptr %128, ptr %.sink139.i.i, align 8
   store ptr %69, ptr %131, align 8
-  store ptr %.0132.i.i, ptr %74, align 8
+  store ptr %128, ptr %74, align 8
   br label %142
 
 142:                                              ; preds = %141, %127

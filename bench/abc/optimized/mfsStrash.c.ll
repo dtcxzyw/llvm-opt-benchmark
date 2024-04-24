@@ -107,7 +107,7 @@ define ptr @Abc_MfsConvertAigToHop(ptr noundef %0, ptr noundef %1) local_unnamed
   %.val22 = load ptr, ptr %20, align 8
   %21 = getelementptr inbounds ptr, ptr %.val22, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = tail call ptr @Hop_IthVar(ptr noundef %1, i32 noundef %23) #3
   %25 = getelementptr inbounds i8, ptr %22, i64 40
   store ptr %24, ptr %25, align 8
@@ -430,32 +430,29 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge, %Vec_Int
   %42 = getelementptr i8, ptr %41, i64 4
   %.val4146 = load i32, ptr %42, align 4
   %43 = icmp sgt i32 %.val4146, 0
-  br i1 %43, label %.lr.ph48.preheader, label %.critedge2
+  br i1 %43, label %.lr.ph48, label %.critedge2
 
-.lr.ph48.preheader:                               ; preds = %Abc_NtkIncrementTravId.exit
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
-  br label %.lr.ph48
+.lr.ph48:                                         ; preds = %Abc_NtkIncrementTravId.exit, %55
+  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %55 ], [ 0, %Abc_NtkIncrementTravId.exit ]
+  %44 = phi ptr [ %56, %55 ], [ %41, %Abc_NtkIncrementTravId.exit ]
+  %45 = getelementptr i8, ptr %44, i64 8
+  %.val38 = load ptr, ptr %45, align 8
+  %46 = getelementptr inbounds ptr, ptr %.val38, i64 %indvars.iv54
+  %47 = load ptr, ptr %46, align 8
+  tail call void @Abc_MfsConvertHopToAig(ptr noundef %47, ptr noundef %2)
+  %48 = icmp eq ptr %47, %1
+  br i1 %48, label %49, label %55
 
-.lr.ph48:                                         ; preds = %.lr.ph48.preheader, %55
-  %indvars.iv54 = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next55, %55 ]
-  %45 = phi ptr [ %41, %.lr.ph48.preheader ], [ %56, %55 ]
-  %46 = getelementptr i8, ptr %45, i64 8
-  %.val38 = load ptr, ptr %46, align 8
-  %47 = getelementptr inbounds ptr, ptr %.val38, i64 %indvars.iv54
-  %48 = load ptr, ptr %47, align 8
-  tail call void @Abc_MfsConvertHopToAig(ptr noundef %48, ptr noundef %2)
-  %49 = icmp eq ptr %48, %1
-  br i1 %49, label %50, label %55
-
-50:                                               ; preds = %.lr.ph48
-  %51 = load ptr, ptr %44, align 8
+49:                                               ; preds = %.lr.ph48
+  %50 = getelementptr inbounds i8, ptr %47, i64 8
+  %51 = load ptr, ptr %50, align 8
   %52 = ptrtoint ptr %51 to i64
   %53 = xor i64 %52, 1
   %54 = inttoptr i64 %53 to ptr
-  store ptr %54, ptr %44, align 8
+  store ptr %54, ptr %50, align 8
   br label %55
 
-55:                                               ; preds = %.lr.ph48, %50
+55:                                               ; preds = %.lr.ph48, %49
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %56 = load ptr, ptr %40, align 8
   %57 = getelementptr i8, ptr %56, i64 4

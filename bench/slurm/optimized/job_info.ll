@@ -309,7 +309,7 @@ define internal fastcc void @_fname_format(ptr nocapture noundef writeonly %0, i
 31:                                               ; preds = %24
   %32 = call i64 @strtoul(ptr noundef nonnull %18, ptr noundef nonnull %5, i32 noundef 10) #19
   %33 = icmp ugt i64 %32, 9
-  %34 = trunc i64 %32 to i32
+  %34 = trunc nuw nsw i64 %32 to i32
   %.030 = select i1 %33, i32 10, i32 %34
   %.0 = select i1 %33, i32 3, i32 2
   %35 = load ptr, ptr %5, align 8
@@ -1868,7 +1868,7 @@ _threads_per_core.exit:                           ; preds = %431, %.loopexit.i
 490:                                              ; preds = %.preheader.us, %490
   %indvars.iv647 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next648, %490 ]
   %491 = load ptr, ptr %12, align 8
-  %492 = trunc i64 %indvars.iv647 to i32
+  %492 = trunc nuw nsw i64 %indvars.iv647 to i32
   %493 = add i32 %496, %492
   %494 = zext i32 %493 to i64
   call void @bit_set(ptr noundef %491, i64 noundef %494) #19
@@ -1897,11 +1897,11 @@ _threads_per_core.exit:                           ; preds = %431, %.loopexit.i
   br i1 %exitcond657.not, label %._crit_edge613.loopexit, label %.lr.ph612.split, !llvm.loop !14
 
 ._crit_edge613.loopexit:                          ; preds = %.lr.ph612.split
-  %500 = trunc i64 %indvars.iv.next655 to i32
+  %500 = trunc nsw i64 %indvars.iv.next655 to i32
   br label %._crit_edge613
 
 ._crit_edge613.loopexit640:                       ; preds = %..loopexit_crit_edge.us
-  %501 = trunc i64 %indvars.iv.next651 to i32
+  %501 = trunc nsw i64 %indvars.iv.next651 to i32
   br label %._crit_edge613
 
 ._crit_edge613:                                   ; preds = %._crit_edge613.loopexit640, %._crit_edge613.loopexit, %_threads_per_core.exit
@@ -1946,7 +1946,7 @@ _threads_per_core.exit:                           ; preds = %431, %.loopexit.i
   br i1 %.not525, label %543, label %520
 
 520:                                              ; preds = %519
-  %521 = getelementptr inbounds i64, ptr %.0412621, i64 %indvars.iv658
+  %521 = getelementptr inbounds i64, ptr %518, i64 %indvars.iv658
   %522 = load i64, ptr %521, align 8
   %.not526 = icmp eq i64 %.0409622, %522
   br i1 %.not526, label %543, label %523
@@ -2983,7 +2983,7 @@ define internal fastcc noundef i32 @_load_fed_jobs(ptr noundef %0, ptr nocapture
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.backedge.us
   %indvars.iv.next.lcssa.sink = phi i64 [ %indvars.iv, %.backedge.us ], [ %indvars.iv, %.backedge ], [ %indvars.iv.next, %.outer ]
-  %72 = trunc i64 %indvars.iv.next.lcssa.sink to i32
+  %72 = trunc nuw i64 %indvars.iv.next.lcssa.sink to i32
   call void @list_iterator_destroy(ptr noundef %20) #19
   %73 = icmp sgt i32 %72, 0
   br i1 %73, label %.lr.ph162.preheader, label %._crit_edge163
@@ -3209,7 +3209,7 @@ define internal fastcc noundef i32 @_load_fed_jobs(ptr noundef %0, ptr nocapture
   br i1 %exitcond213.not, label %.critedge2, label %162, !llvm.loop !20
 
 .critedge2.split.loop.exit:                       ; preds = %162
-  %168 = trunc i64 %indvars.iv209 to i32
+  %168 = trunc nuw nsw i64 %indvars.iv209 to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %167, %.critedge2.split.loop.exit
@@ -4118,7 +4118,7 @@ define noundef i32 @slurm_job_cpus_allocated_str_on_node_id(ptr noundef %0, i64 
 
 60:                                               ; preds = %.preheader.us, %60
   %indvars.iv82 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next83, %60 ]
-  %61 = trunc i64 %indvars.iv82 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv82 to i32
   %62 = add i32 %65, %61
   %63 = zext i32 %62 to i64
   tail call void @bit_set(ptr noundef %56, i64 noundef %63) #19
@@ -4518,7 +4518,7 @@ define noundef i32 @slurm_load_job_prio(ptr nocapture noundef %0, i16 noundef ze
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %.backedge370.i, %.backedge370.us.i
   %indvars.iv.next.lcssa.sink.i = phi i64 [ %indvars.iv.i, %.backedge370.us.i ], [ %indvars.iv.i, %.backedge370.i ], [ %indvars.iv.next.i, %.outer.i ]
-  %95 = trunc i64 %indvars.iv.next.lcssa.sink.i to i32
+  %95 = trunc nuw i64 %indvars.iv.next.lcssa.sink.i to i32
   call void @list_iterator_destroy(ptr noundef %38) #19
   %96 = icmp sgt i32 %95, 0
   br i1 %96, label %.lr.ph400.preheader.i, label %._crit_edge401.i
@@ -4995,7 +4995,7 @@ define noundef i32 @slurm_load_job_prio(ptr nocapture noundef %0, i16 noundef ze
   br label %.backedge.us.i
 
 .thread333.us.loopexit.i:                         ; preds = %334
-  %347 = trunc i64 %indvars.iv474.i to i32
+  %347 = trunc nuw nsw i64 %indvars.iv474.i to i32
   br label %.thread333.us.i
 
 .thread333.us.i:                                  ; preds = %.thread333.us.loopexit.i, %._crit_edge429.us.i

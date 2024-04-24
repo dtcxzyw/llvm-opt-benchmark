@@ -615,9 +615,9 @@ define hidden void @zend_optimize_cfg(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %.not239.i, label %313, label %.sink.split300.i
 
 .sink.split300.i:                                 ; preds = %.lr.ph254.i
-  %309 = trunc i8 %.0204251.i to i1
+  %309 = trunc nuw i8 %.0204251.i to i1
   %310 = load ptr, ptr @stderr, align 8
-  %311 = trunc i64 %indvars.iv280.i to i32
+  %311 = trunc nuw i64 %indvars.iv280.i to i32
   %.str.4..str.3.i = select i1 %309, ptr @.str.4, ptr @.str.3
   %.0204251..i = select i1 %309, i8 %.0204251.i, i8 1
   %312 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %310, ptr noundef nonnull %.str.4..str.3.i, i32 noundef %311) #16
@@ -633,7 +633,7 @@ define hidden void @zend_optimize_cfg(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %316, label %.lr.ph254.i, label %._crit_edge255.i
 
 ._crit_edge255.i:                                 ; preds = %313
-  %317 = trunc i8 %.1.i to i1
+  %317 = trunc nuw i8 %.1.i to i1
   br i1 %317, label %318, label %._crit_edge255.thread.i
 
 318:                                              ; preds = %._crit_edge255.i
@@ -678,13 +678,13 @@ define hidden void @zend_optimize_cfg(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %333, label %334, label %337
 
 334:                                              ; preds = %330, %325
-  %335 = trunc i64 %indvars.iv282.i to i32
+  %335 = trunc nuw i64 %indvars.iv282.i to i32
   %336 = icmp sgt i32 %335, 1
   br i1 %336, label %325, label %.outer._crit_edge.i
 
 337:                                              ; preds = %330
   %indvars.le.i = trunc i64 %indvars.iv.next283.i to i32
-  %338 = trunc i64 %indvars.iv282.i to i32
+  %338 = trunc nuw i64 %indvars.iv282.i to i32
   %339 = load ptr, ptr %121, align 8
   %340 = getelementptr inbounds i8, ptr %327, i64 12
   %341 = load i32, ptr %340, align 4
@@ -3984,7 +3984,7 @@ strip_leading_nops.exit.i369:                     ; preds = %2062, %2050
   br i1 %2090, label %.lr.ph.i371, label %._crit_edge.i377
 
 ._crit_edge.i377:                                 ; preds = %2085
-  %2091 = trunc i64 %indvars.iv.next.i376 to i32
+  %2091 = trunc nuw i64 %indvars.iv.next.i376 to i32
   %2092 = sub i32 %.1.i375, %2087
   store i32 %2092, ptr %2047, align 8
   %2093 = icmp ult i32 %.1.i375, %2091
@@ -4876,7 +4876,7 @@ strip_nops.exit:                                  ; preds = %.preheader.i378, %.
   %2577 = getelementptr inbounds i8, ptr %2500, i64 16
   store i32 -1, ptr %2577, align 8
   store i32 0, ptr %2492, align 8
-  %2578 = getelementptr inbounds i8, ptr %.2492602.i, i64 8
+  %2578 = getelementptr inbounds i8, ptr %.0489.i, i64 8
   %2579 = load i32, ptr %2578, align 8
   %2580 = or i32 %2579, 2
   store i32 %2580, ptr %2578, align 8
@@ -6188,7 +6188,7 @@ define internal fastcc void @assemble_code_blocks(ptr nocapture noundef readonly
   br i1 %343, label %282, label %._crit_edge29
 
 ._crit_edge29:                                    ; preds = %340
-  %344 = trunc i64 %indvars.iv.next to i32
+  %344 = trunc nuw nsw i64 %indvars.iv.next to i32
   %.not323 = icmp eq i32 %.1303, %344
   br i1 %.not323, label %.loopexit, label %345
 
@@ -6276,7 +6276,7 @@ define internal fastcc void @assemble_code_blocks(ptr nocapture noundef readonly
   %388 = load i32, ptr %387, align 4
   %389 = zext i32 %388 to i64
   %390 = getelementptr inbounds i32, ptr %386, i64 %389
-  %391 = trunc i64 %indvars.iv42 to i32
+  %391 = trunc nuw nsw i64 %indvars.iv42 to i32
   store i32 %391, ptr %390, align 4
   %.pre47 = load i32, ptr %0, align 8
   br label %392

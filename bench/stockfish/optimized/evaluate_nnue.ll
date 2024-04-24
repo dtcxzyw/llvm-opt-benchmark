@@ -7863,7 +7863,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not250, label %._crit_edge, label %45, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %45, %41
-  %.1218.lcssa = phi ptr [ %.0217277, %41 ], [ %42, %45 ]
+  %.1218.lcssa = phi ptr [ %.0217277, %41 ], [ %48, %45 ]
   %indvars.iv.next331 = add nsw i64 %indvars.iv330, -1
   %49 = trunc nuw i64 %indvars.iv330 to i32
   %50 = icmp sgt i32 %49, 0
@@ -8180,8 +8180,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %.sroa.0.4 = phi <4 x i32> [ %.sroa.0.2, %._crit_edge304 ], [ %220, %.lr.ph309 ]
   %225 = getelementptr inbounds i8, ptr %195, i64 11072
   store <4 x i32> %.sroa.0.4, ptr %225, align 16
-  %.sroa.6.0..sroa_idx370 = getelementptr inbounds i8, ptr %195, i64 11088
-  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx370, align 16
+  %.sroa.6.0..sroa_idx373 = getelementptr inbounds i8, ptr %195, i64 11088
+  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx373, align 16
   %226 = add i32 %.0231313, 1
   %227 = zext i32 %226 to i64
   %228 = getelementptr inbounds ptr, ptr %3, i64 %227
@@ -8292,7 +8292,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not250, label %._crit_edge, label %45, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %45, %41
-  %.1218.lcssa = phi ptr [ %.0217277, %41 ], [ %42, %45 ]
+  %.1218.lcssa = phi ptr [ %.0217277, %41 ], [ %48, %45 ]
   %indvars.iv.next331 = add nsw i64 %indvars.iv330, -1
   %49 = trunc nuw i64 %indvars.iv330 to i32
   %50 = icmp sgt i32 %49, 0
@@ -8609,8 +8609,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %.sroa.0.4 = phi <4 x i32> [ %.sroa.0.2, %._crit_edge304 ], [ %220, %.lr.ph309 ]
   %225 = getelementptr inbounds i8, ptr %195, i64 11104
   store <4 x i32> %.sroa.0.4, ptr %225, align 16
-  %.sroa.6.0..sroa_idx370 = getelementptr inbounds i8, ptr %195, i64 11120
-  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx370, align 16
+  %.sroa.6.0..sroa_idx373 = getelementptr inbounds i8, ptr %195, i64 11120
+  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx373, align 16
   %226 = add i32 %.0231313, 1
   %227 = zext i32 %226 to i64
   %228 = getelementptr inbounds ptr, ptr %3, i64 %227
@@ -8730,7 +8730,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not250, label %._crit_edge, label %45, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %45, %41
-  %.1218.lcssa = phi ptr [ %.0217276, %41 ], [ %42, %45 ]
+  %.1218.lcssa = phi ptr [ %.0217276, %41 ], [ %48, %45 ]
   %indvars.iv.next332 = add nsw i64 %indvars.iv331, -1
   %49 = trunc nuw i64 %indvars.iv331 to i32
   %50 = icmp sgt i32 %49, 0
@@ -9060,8 +9060,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %.sroa.0.4 = phi <4 x i32> [ %.sroa.0.2, %._crit_edge305 ], [ %227, %.lr.ph310 ]
   %232 = getelementptr inbounds i8, ptr %202, i64 10432
   store <4 x i32> %.sroa.0.4, ptr %232, align 16
-  %.sroa.6.0..sroa_idx371 = getelementptr inbounds i8, ptr %202, i64 10448
-  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx371, align 16
+  %.sroa.6.0..sroa_idx374 = getelementptr inbounds i8, ptr %202, i64 10448
+  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx374, align 16
   %233 = add i32 %.0231314, 1
   %234 = zext i32 %233 to i64
   %235 = getelementptr inbounds ptr, ptr %3, i64 %234
@@ -9172,7 +9172,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not250, label %._crit_edge, label %45, !llvm.loop !146
 
 ._crit_edge:                                      ; preds = %45, %41
-  %.1218.lcssa = phi ptr [ %.0217276, %41 ], [ %42, %45 ]
+  %.1218.lcssa = phi ptr [ %.0217276, %41 ], [ %48, %45 ]
   %indvars.iv.next332 = add nsw i64 %indvars.iv331, -1
   %49 = trunc nuw i64 %indvars.iv331 to i32
   %50 = icmp sgt i32 %49, 0
@@ -9322,15 +9322,15 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 
 .preheader268:                                    ; preds = %148
   %149 = getelementptr inbounds i8, ptr %0, i64 5120
-  %invariant.gep360 = getelementptr i8, ptr %2, i64 5312
+  %invariant.gep361 = getelementptr i8, ptr %2, i64 5312
   br label %.preheader267
 
 .preheader267:                                    ; preds = %.preheader268, %._crit_edge297
   %indvar = phi i64 [ 0, %.preheader268 ], [ %indvar.next, %._crit_edge297 ]
   %150 = shl nuw nsw i64 %indvar, 8
-  %gep361 = getelementptr i8, ptr %invariant.gep360, i64 %150
+  %gep362 = getelementptr i8, ptr %invariant.gep361, i64 %150
   %151 = shl nuw nsw i64 %indvar, 7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 16 dereferenceable(256) %gep361, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 16 dereferenceable(256) %gep362, i64 256, i1 false)
   %152 = load ptr, ptr %3, align 8
   %.not294 = icmp eq ptr %152, null
   br i1 %.not294, label %._crit_edge297, label %.lr.ph296.preheader
@@ -9502,8 +9502,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %.sroa.0.4 = phi <4 x i32> [ %.sroa.0.2, %._crit_edge305 ], [ %226, %.lr.ph310 ]
   %231 = getelementptr inbounds i8, ptr %201, i64 10464
   store <4 x i32> %.sroa.0.4, ptr %231, align 16
-  %.sroa.6.0..sroa_idx373 = getelementptr inbounds i8, ptr %201, i64 10480
-  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx373, align 16
+  %.sroa.6.0..sroa_idx376 = getelementptr inbounds i8, ptr %201, i64 10480
+  store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx376, align 16
   %232 = add i32 %.0231314, 1
   %233 = zext i32 %232 to i64
   %234 = getelementptr inbounds ptr, ptr %3, i64 %233

@@ -3409,27 +3409,29 @@ proto_item_set_generated.exit133:                 ; preds = %proto_item_set_gene
   %172 = getelementptr inbounds i8, ptr %1, i64 288
   store i32 %.sroa.38.0, ptr %172, align 8
   %173 = icmp eq i32 %.sroa.2632.1, 0
-  %174 = load ptr, ptr @aptx_handle, align 8
-  %175 = icmp eq ptr %.2, %174
-  %or.cond135 = select i1 %173, i1 %175, i1 false
-  br i1 %or.cond135, label %176, label %178
+  br i1 %173, label %174, label %179
 
-176:                                              ; preds = %166
-  %177 = call i32 @call_dissector_with_data(ptr noundef %.2, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #6
-  br label %184
+174:                                              ; preds = %166
+  %175 = load ptr, ptr @aptx_handle, align 8
+  %176 = icmp eq ptr %.2, %175
+  br i1 %176, label %177, label %179
 
-178:                                              ; preds = %166
-  %179 = getelementptr inbounds i8, ptr %1, i64 184
-  %180 = getelementptr inbounds i8, ptr %1, i64 20
-  %181 = load i32, ptr %180, align 4
-  call void @bluetooth_add_address(ptr noundef nonnull %1, ptr noundef nonnull %179, i32 noundef %.sroa.38.0, ptr noundef nonnull @.str.316, i32 noundef %181, i32 noundef 1, ptr noundef nonnull %5) #6
-  %182 = load ptr, ptr @rtp_handle, align 8
-  %183 = call i32 @call_dissector(ptr noundef %182, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #6
-  br label %184
+177:                                              ; preds = %174
+  %178 = call i32 @call_dissector_with_data(ptr noundef %175, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #6
+  br label %185
 
-184:                                              ; preds = %178, %176
-  %185 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
-  ret i32 %185
+179:                                              ; preds = %174, %166
+  %180 = getelementptr inbounds i8, ptr %1, i64 184
+  %181 = getelementptr inbounds i8, ptr %1, i64 20
+  %182 = load i32, ptr %181, align 4
+  call void @bluetooth_add_address(ptr noundef nonnull %1, ptr noundef nonnull %180, i32 noundef %.sroa.38.0, ptr noundef nonnull @.str.316, i32 noundef %182, i32 noundef 1, ptr noundef nonnull %5) #6
+  %183 = load ptr, ptr @rtp_handle, align 8
+  %184 = call i32 @call_dissector(ptr noundef %183, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #6
+  br label %185
+
+185:                                              ; preds = %179, %177
+  %186 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
+  ret i32 %186
 }
 
 declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

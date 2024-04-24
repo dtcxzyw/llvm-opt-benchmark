@@ -4599,7 +4599,7 @@ _ZN8nanobind6detail6Buffer3putEc.exit50:          ; preds = %153, %_ZN8nanobind6
   br label %184
 
 184:                                              ; preds = %180, %._crit_edge60
-  %185 = phi ptr [ %.pre, %180 ], [ %178, %._crit_edge60 ]
+  %185 = phi ptr [ %.pre, %180 ], [ %179, %._crit_edge60 ]
   %186 = tail call ptr @PyUnicode_FromString(ptr noundef %185)
   ret ptr %186
 }

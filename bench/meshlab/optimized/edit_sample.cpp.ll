@@ -2631,7 +2631,7 @@ _ZN3vcg9GLPickTriI6CMeshOE12ComputeDCBoxEiiii.exit: ; preds = %25, %23, %20
   br i1 %114, label %72, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %106, %.noexc
-  %115 = phi ptr [ %66, %.noexc ], [ %107, %106 ]
+  %115 = phi ptr [ %67, %.noexc ], [ %107, %106 ]
   %116 = phi ptr [ %66, %.noexc ], [ %108, %106 ]
   %117 = load <4 x float>, ptr %9, align 16
   store <4 x float> %117, ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickVertEiiRS1_RSt6vectorIP8CVertexOSaIS6_EEiiE5lastM, align 16
@@ -3676,7 +3676,7 @@ _ZN3vcg7glLabel6renderEP8QPainterRKNS_6Point3IfEERK7QString.exit: ; preds = %_ZN
 
 304:                                              ; preds = %302
   store ptr %303, ptr %33, align 8
-  %305 = trunc i64 %indvars.iv to i32
+  %305 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %34, i32 noundef %305, i32 noundef 10)
           to label %306 unwind label %406
 
@@ -7992,7 +7992,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg19IntersectionLineBoxIfEEbRKNS_4B
   %48 = getelementptr inbounds [3 x float], ptr %5, i64 0, i64 %indvars.iv82
   %49 = load float, ptr %48, align 4
   %50 = fcmp olt float %47, %49
-  %51 = trunc i64 %indvars.iv82 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv82 to i32
   %.1 = select i1 %50, i32 %51, i32 %.075
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next83, 3
@@ -8869,7 +8869,7 @@ _ZNK19MeshLabPluginLogger3logIJRhS1_S1_S1_EEEvN11GLLogStream6LevelsEPKcDpOT_.exi
   %135 = sub i64 %132, %134
   %136 = sdiv exact i64 %135, 48
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %17)
-  %137 = trunc i64 %indvars.iv to i32
+  %137 = trunc nuw nsw i64 %indvars.iv to i32
   %138 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 4096, ptr noundef nonnull @.str.32, i32 noundef %137, i64 noundef %136) #25
   call void @_ZN11GLLogStream3logEiPKc(ptr noundef nonnull align 8 dereferenceable(40) %126, i32 noundef 2, ptr noundef nonnull %17)
   %139 = icmp sgt i32 %138, 4095

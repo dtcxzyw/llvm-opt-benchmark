@@ -1128,7 +1128,7 @@ entry:
   %0 = load ptr, ptr %e_.i.i.i, align 8
   %this.promoted.i = load ptr, ptr %this, align 8
   %cmp.i2.i = icmp eq ptr %this.promoted.i, %0
-  br i1 %cmp.i2.i, label %if.then, label %land.rhs.i
+  br i1 %cmp.i2.i, label %_ZN8proxygen23StructuredHeadersBuffer24removeOptionalWhitespaceEv.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry, %_ZN8proxygen23StructuredHeadersBuffer13advanceCursorEv.exit.i
   %add.ptr.i.i13.i = phi ptr [ %add.ptr.i.i.i, %_ZN8proxygen23StructuredHeadersBuffer13advanceCursorEv.exit.i ], [ %this.promoted.i, %entry ]
@@ -1142,20 +1142,21 @@ _ZN8proxygen23StructuredHeadersBuffer13advanceCursorEv.exit.i: ; preds = %land.r
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i13.i, i64 1
   store ptr %add.ptr.i.i.i, ptr %this, align 8
   %cmp.i.i = icmp eq ptr %add.ptr.i.i.i, %0
-  br i1 %cmp.i.i, label %if.then, label %land.rhs.i, !llvm.loop !9
+  br i1 %cmp.i.i, label %_ZN8proxygen23StructuredHeadersBuffer24removeOptionalWhitespaceEv.exit, label %land.rhs.i, !llvm.loop !9
 
-_ZN8proxygen23StructuredHeadersBuffer24removeOptionalWhitespaceEv.exit: ; preds = %land.rhs.i
-  %cmp.i = icmp eq ptr %add.ptr.i.i13.i, %0
+_ZN8proxygen23StructuredHeadersBuffer24removeOptionalWhitespaceEv.exit: ; preds = %land.rhs.i, %_ZN8proxygen23StructuredHeadersBuffer13advanceCursorEv.exit.i, %entry
+  %2 = phi ptr [ %this.promoted.i, %entry ], [ %add.ptr.i.i13.i, %land.rhs.i ], [ %add.ptr.i.i.i, %_ZN8proxygen23StructuredHeadersBuffer13advanceCursorEv.exit.i ]
+  %cmp.i = icmp eq ptr %2, %0
   br i1 %cmp.i, label %if.then, label %if.else
 
-if.then:                                          ; preds = %_ZN8proxygen23StructuredHeadersBuffer13advanceCursorEv.exit.i, %entry, %_ZN8proxygen23StructuredHeadersBuffer24removeOptionalWhitespaceEv.exit
+if.then:                                          ; preds = %_ZN8proxygen23StructuredHeadersBuffer24removeOptionalWhitespaceEv.exit
   store i8 4, ptr %ref.tmp, align 1
   %call3 = call noundef zeroext i8 @_ZN8proxygen23StructuredHeadersBuffer17handleDecodeErrorERKNS_17StructuredHeaders11DecodeErrorE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   br label %return
 
 if.else:                                          ; preds = %_ZN8proxygen23StructuredHeadersBuffer24removeOptionalWhitespaceEv.exit
-  %2 = load i8, ptr %add.ptr.i.i13.i, align 1
-  switch i8 %2, label %if.else12 [
+  %3 = load i8, ptr %2, align 1
+  switch i8 %3, label %if.else12 [
     i8 34, label %if.then5
     i8 42, label %if.then10
   ]
@@ -1169,10 +1170,10 @@ if.then10:                                        ; preds = %if.else
   br label %return
 
 if.else12:                                        ; preds = %if.else
-  %conv = sext i8 %2 to i32
+  %conv = sext i8 %3 to i32
   %isdigittmp = add nsw i32 %conv, -48
   %isdigit = icmp ult i32 %isdigittmp, 10
-  %cmp16 = icmp eq i8 %2, 45
+  %cmp16 = icmp eq i8 %3, 45
   %or.cond = or i1 %cmp16, %isdigit
   br i1 %or.cond, label %if.then17, label %if.else19
 
@@ -1181,7 +1182,7 @@ if.then17:                                        ; preds = %if.else12
   br label %return
 
 if.else19:                                        ; preds = %if.else12
-  %cmp21 = icmp eq i8 %2, 63
+  %cmp21 = icmp eq i8 %3, 63
   br i1 %cmp21, label %if.then22, label %if.else24
 
 if.then22:                                        ; preds = %if.else19

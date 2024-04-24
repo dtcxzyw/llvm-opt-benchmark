@@ -387,7 +387,7 @@ define hidden void @_ZN7nanogui6Widget14perform_layoutEP10NVGcontext(ptr noundef
   %18 = tail call i64 %17(ptr noundef nonnull align 8 dereferenceable(140) %14, ptr noundef %1)
   %.sroa.019.0.extract.trunc = trunc i64 %18 to i32
   %.sroa.220.0.extract.shift = lshr i64 %18, 32
-  %.sroa.220.0.extract.trunc = trunc i64 %.sroa.220.0.extract.shift to i32
+  %.sroa.220.0.extract.trunc = trunc nuw i64 %.sroa.220.0.extract.shift to i32
   %19 = getelementptr inbounds i8, ptr %14, i64 56
   %20 = load i32, ptr %19, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %14, i64 60
@@ -963,7 +963,7 @@ define linkonce_odr hidden ptr @_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE6insertEN
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %2, align 8
-  store ptr %15, ptr %1, align 8
+  store ptr %15, ptr %9, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %17, ptr %8, align 8

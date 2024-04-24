@@ -445,7 +445,7 @@ pg_get_utf8_id.exit:                              ; preds = %2, %5
   br i1 %.not30.i, label %mb_utf_validate.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %.loopexit.i
-  %11 = phi i8 [ %86, %.loopexit.i ], [ %10, %9 ]
+  %11 = phi i8 [ %87, %.loopexit.i ], [ %10, %9 ]
   %.01732.i = phi ptr [ %.2.i, %.loopexit.i ], [ %0, %9 ]
   %.01831.i = phi ptr [ %.220.i, %.loopexit.i ], [ %0, %9 ]
   %12 = zext i8 %11 to i32
@@ -569,28 +569,29 @@ utf_charcheck.exit.i:                             ; preds = %71, %41, %17, %.lr.
 82:                                               ; preds = %utf_charcheck.exit.i
   %83 = zext nneg i32 %.0.i.i to i64
   %84 = getelementptr i8, ptr %.01732.i, i64 %83
+  %85 = getelementptr i8, ptr %.01831.i, i64 %83
   br label %.loopexit.i
 
 select.unfold.i:                                  ; preds = %71, %65, %59, %46, %43, %41, %36, %32, %26, %17
-  %85 = getelementptr i8, ptr %.01732.i, i64 1
+  %86 = getelementptr i8, ptr %.01732.i, i64 1
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %select.unfold.i, %82
-  %.220.i = phi ptr [ %84, %82 ], [ %.01831.i, %select.unfold.i ], [ %80, %.preheader.i ]
-  %.2.i = phi ptr [ %84, %82 ], [ %85, %select.unfold.i ], [ %78, %.preheader.i ]
-  %86 = load i8, ptr %.2.i, align 1
-  %.not.i = icmp eq i8 %86, 0
+  %.220.i = phi ptr [ %85, %82 ], [ %.01831.i, %select.unfold.i ], [ %80, %.preheader.i ]
+  %.2.i = phi ptr [ %84, %82 ], [ %86, %select.unfold.i ], [ %78, %.preheader.i ]
+  %87 = load i8, ptr %.2.i, align 1
+  %.not.i = icmp eq i8 %87, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
   %.not22.i = icmp eq ptr %.220.i, %.2.i
-  br i1 %.not22.i, label %mb_utf_validate.exit, label %87
+  br i1 %.not22.i, label %mb_utf_validate.exit, label %88
 
-87:                                               ; preds = %._crit_edge.i
+88:                                               ; preds = %._crit_edge.i
   store i8 0, ptr %.220.i, align 1
   br label %mb_utf_validate.exit
 
-mb_utf_validate.exit:                             ; preds = %87, %._crit_edge.i, %9, %pg_get_utf8_id.exit
+mb_utf_validate.exit:                             ; preds = %88, %._crit_edge.i, %9, %pg_get_utf8_id.exit
   ret ptr %0
 }
 

@@ -7501,7 +7501,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyINSt7_
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %cleanup142, %for.cond.cleanup
-  %79 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre348, %cleanup142 ], [ %.pre, %for.cond.cleanup ]
+  %79 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre349, %cleanup142 ], [ %.pre345, %for.cond.cleanup ]
   %tobool.not.i.i.i = icmp eq ptr %79, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEESaIS5_EED2Ev.exit, label %if.then.i.i.i298
 

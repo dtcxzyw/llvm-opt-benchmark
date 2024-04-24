@@ -95,9 +95,9 @@ if.then3:                                         ; preds = %_ZN4absl12lts_20230
   br i1 %or.cond, label %return, label %if.then8
 
 if.then8:                                         ; preds = %if.then3
-  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i, i64 -16
+  %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -16
   %agg.tmp9.sroa.0.0.copyload = load i64, ptr %add.ptr3.i, align 8
-  %agg.tmp9.sroa.2.0.call10.sroa_idx = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i, i64 -8
+  %agg.tmp9.sroa.2.0.call10.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 -8
   %agg.tmp9.sroa.2.0.copyload = load ptr, ptr %agg.tmp9.sroa.2.0.call10.sroa_idx, align 8
   %cmp.i.i = icmp eq i64 %agg.tmp9.sroa.0.0.copyload, 0
   br i1 %cmp.i.i, label %return, label %lor.rhs.i

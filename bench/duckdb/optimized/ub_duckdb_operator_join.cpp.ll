@@ -47125,7 +47125,7 @@ if.then.i.i10:                                    ; preds = %invoke.cont3
   br label %invoke.cont5
 
 if.else.i.i12:                                    ; preds = %invoke.cont3
-  invoke void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_16PhysicalOperatorESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %children.i, ptr %.pre, ptr noundef nonnull align 8 dereferenceable(8) %right)
+  invoke void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_16PhysicalOperatorESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %children.i, ptr %.pre17, ptr noundef nonnull align 8 dereferenceable(8) %right)
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %if.else.i.i12, %if.then.i.i10
@@ -68899,7 +68899,7 @@ invoke.contthread-pre-split.i157:                 ; preds = %_ZSt8_DestroyIN6duc
   br label %invoke.cont.i159
 
 invoke.cont.i159:                                 ; preds = %invoke.contthread-pre-split.i157, %_ZNSt10unique_ptrIN6duckdb17PhysicalRangeJoin17GlobalSortedTableESt14default_deleteIS2_EED2Ev.exit150
-  %31 = phi ptr [ %.pr.i158, %invoke.contthread-pre-split.i157 ], [ %.pre201, %_ZNSt10unique_ptrIN6duckdb17PhysicalRangeJoin17GlobalSortedTableESt14default_deleteIS2_EED2Ev.exit150 ]
+  %31 = phi ptr [ %.pr.i158, %invoke.contthread-pre-split.i157 ], [ %.pre202, %_ZNSt10unique_ptrIN6duckdb17PhysicalRangeJoin17GlobalSortedTableESt14default_deleteIS2_EED2Ev.exit150 ]
   %tobool.not.i.i.i160 = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i160, label %_ZNSt6vectorIN6duckdb16BoundOrderByNodeESaIS1_EED2Ev.exit, label %if.then.i.i.i161
 

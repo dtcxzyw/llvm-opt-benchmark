@@ -13020,7 +13020,7 @@ define internal fastcc ptr @_get_next_job_gres(ptr noundef %0, ptr nocapture nou
   br label %74
 
 18:                                               ; preds = %.thread, %14
-  %19 = phi ptr [ %10, %.thread ], [ %0, %14 ]
+  %19 = phi ptr [ %15, %.thread ], [ %0, %14 ]
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %.sink.split, label %22
@@ -20874,7 +20874,7 @@ define internal fastcc ptr @_get_next_step_gres(ptr noundef %0, ptr nocapture no
   br label %74
 
 18:                                               ; preds = %.thread, %14
-  %19 = phi ptr [ %10, %.thread ], [ %0, %14 ]
+  %19 = phi ptr [ %15, %.thread ], [ %0, %14 ]
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %.sink.split, label %22

@@ -288,13 +288,16 @@ entry:
   %mOSGlobalRefCount = getelementptr inbounds i8, ptr %p, i64 20
   %2 = atomicrmw add ptr %mOSGlobalRefCount, i32 -1 seq_cst, align 4
   %cmp2 = icmp eq i32 %2, 1
-  %.pre = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
-  br i1 %cmp2, label %for.cond.i.i, label %if.end
+  br i1 %cmp2, label %if.then, label %if.end
 
-for.cond.i.i:                                     ; preds = %entry, %for.body.i.i
-  %p.0.in.i.i = phi ptr [ %p.0.i.i, %for.body.i.i ], [ %.pre, %entry ]
+if.then:                                          ; preds = %entry
+  %3 = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
+  br label %for.cond.i.i
+
+for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then
+  %p.0.in.i.i = phi ptr [ %3, %if.then ], [ %p.0.i.i, %for.body.i.i ]
   %p.0.i.i = load ptr, ptr %p.0.in.i.i, align 8, !noalias !7
-  %cmp.not.i.i = icmp eq ptr %p.0.i.i, %.pre
+  %cmp.not.i.i = icmp eq ptr %p.0.i.i, %3
   br i1 %cmp.not.i.i, label %_ZN12_GLOBAL__N_115OSGlobalManager6RemoveEPN2EA4StdC12OSGlobalNodeE.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
@@ -302,46 +305,47 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp3.i.i, label %_ZN12_GLOBAL__N_115OSGlobalManager6RemoveEPN2EA4StdC12OSGlobalNodeE.exit, label %for.cond.i.i, !llvm.loop !10
 
 _ZN12_GLOBAL__N_115OSGlobalManager6RemoveEPN2EA4StdC12OSGlobalNodeE.exit: ; preds = %for.cond.i.i, %for.body.i.i
-  %storemerge.i.i = phi ptr [ %p, %for.body.i.i ], [ %.pre, %for.cond.i.i ]
+  %storemerge.i.i = phi ptr [ %p.0.i.i, %for.body.i.i ], [ %3, %for.cond.i.i ]
   %mpPrev.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 8
-  %3 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !11
-  %4 = load ptr, ptr %storemerge.i.i, align 8, !noalias !11
-  store ptr %4, ptr %3, align 8, !noalias !11
-  %mpPrev4.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %3, ptr %mpPrev4.i.i, align 8, !noalias !11
+  %4 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !11
+  %5 = load ptr, ptr %storemerge.i.i, align 8, !noalias !11
+  store ptr %5, ptr %4, align 8, !noalias !11
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %4, ptr %mpPrev4.i.i, align 8, !noalias !11
   br label %if.end
 
 if.end:                                           ; preds = %_ZN12_GLOBAL__N_115OSGlobalManager6RemoveEPN2EA4StdC12OSGlobalNodeE.exit, %entry
-  %mcsLock.i4 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %6 = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
+  %mcsLock.i4 = getelementptr inbounds i8, ptr %6, i64 24
   %call.i.i5 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i4)
   br i1 %cmp, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %uniqueName.i)
-  %5 = atomicrmw add ptr @_ZN12_GLOBAL__N_113gOSGlobalRefsE, i32 -1 seq_cst, align 4
-  %cmp.i = icmp eq i32 %5, 1
+  %7 = atomicrmw add ptr @_ZN12_GLOBAL__N_113gOSGlobalRefsE, i32 -1 seq_cst, align 4
+  %cmp.i = icmp eq i32 %7, 1
   br i1 %cmp.i, label %if.then.i, label %_ZN12_GLOBAL__N_122ShutdownOSGlobalSystemEv.exit
 
 if.then.i:                                        ; preds = %if.then5
-  %6 = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
-  %tobool.not.i = icmp eq ptr %6, null
+  %8 = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
+  %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %if.end5.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  %mRefCount.i = getelementptr inbounds i8, ptr %6, i64 16
-  %7 = atomicrmw add ptr %mRefCount.i, i32 -1 seq_cst, align 4
-  %cmp3.i = icmp eq i32 %7, 1
+  %mRefCount.i = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = atomicrmw add ptr %mRefCount.i, i32 -1 seq_cst, align 4
+  %cmp3.i = icmp eq i32 %9, 1
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
 
 if.then4.i:                                       ; preds = %if.then1.i
-  %8 = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
-  %tobool.not.i.i = icmp eq ptr %8, null
+  %10 = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
+  %tobool.not.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then4.i
-  %mcsLock.i.i.i = getelementptr inbounds i8, ptr %8, i64 24
+  %mcsLock.i.i.i = getelementptr inbounds i8, ptr %10, i64 24
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i.i.i) #11
-  %call.i.i6 = tail call i32 @munmap(ptr noundef nonnull %8, i64 noundef 72) #11
+  %call.i.i6 = tail call i32 @munmap(ptr noundef nonnull %10, i64 noundef 72) #11
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then4.i, %if.then1.i

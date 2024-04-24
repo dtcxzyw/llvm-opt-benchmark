@@ -858,7 +858,7 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZN2EA4StdC15CallbackManager10StopThreadEv.exit
-  %13 = phi ptr [ %.pre, %for.end.loopexit ], [ %3, %_ZN2EA4StdC15CallbackManager10StopThreadEv.exit ]
+  %13 = phi ptr [ %.pre, %for.end.loopexit ], [ %4, %_ZN2EA4StdC15CallbackManager10StopThreadEv.exit ]
   store ptr %13, ptr %mpEnd.i, align 8
   br label %if.end17
 

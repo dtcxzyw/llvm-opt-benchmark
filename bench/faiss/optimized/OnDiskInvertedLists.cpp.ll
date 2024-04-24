@@ -5060,29 +5060,28 @@ _ZN5faiss10LockLevels6lock_2Ev.exit:              ; preds = %32, %27
 define void @_ZN5faiss19OnDiskInvertedLists9free_slotEmm(ptr noundef nonnull align 8 dereferenceable(156) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.faiss::OnDiskInvertedLists::Slot", align 8
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %62, label %6
+  br i1 %5, label %61, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not4547 = icmp eq ptr %8, %7
-  br i1 %.not4547, label %.critedge, label %.lr.ph
+  br i1 %.not4547, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %11
   %.sroa.034.048 = phi ptr [ %12, %11 ], [ %8, %6 ]
   %9 = getelementptr inbounds i8, ptr %.sroa.034.048, i64 16
   %10 = load i64, ptr %9, align 8
-  %.not.not = icmp ule i64 %10, %1
-  br i1 %.not.not, label %11, label %.critedge
+  %.not.not.not = icmp ugt i64 %10, %1
+  br i1 %.not.not.not, label %.critedge, label %11
 
 11:                                               ; preds = %.lr.ph
   %12 = load ptr, ptr %.sroa.034.048, align 8
   %.not45 = icmp eq ptr %12, %7
   br i1 %.not45, label %.critedge, label %.lr.ph, !llvm.loop !32
 
-.critedge:                                        ; preds = %.lr.ph, %11, %6
-  %.sroa.034.0.lcssa = phi ptr [ %7, %6 ], [ %7, %11 ], [ %.sroa.034.048, %.lr.ph ]
-  %.not45.lcssa = phi i1 [ true, %6 ], [ %.not.not, %11 ], [ %.not.not, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %11
+  %.sroa.034.0.lcssa = phi ptr [ %.sroa.034.048, %.lr.ph ], [ %12, %11 ]
   %.not46 = icmp eq ptr %.sroa.034.0.lcssa, %8
   br i1 %.not46, label %21, label %13
 
@@ -5094,81 +5093,83 @@ define void @_ZN5faiss19OnDiskInvertedLists9free_slotEmm(ptr noundef nonnull ali
   %18 = getelementptr inbounds i8, ptr %15, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %17
-  br label %21
+  br i1 %.not.not.not, label %22, label %.thread
 
-21:                                               ; preds = %13, %.critedge
-  %.0 = phi i64 [ %20, %13 ], [ 1152921504606846976, %.critedge ]
-  br i1 %.not45.lcssa, label %25, label %22
+21:                                               ; preds = %.critedge
+  br i1 %.not.not.not, label %22, label %.thread
 
-22:                                               ; preds = %21
+22:                                               ; preds = %13, %21
+  %.065 = phi i64 [ %20, %13 ], [ 1152921504606846976, %21 ]
   %23 = getelementptr inbounds i8, ptr %.sroa.034.0.lcssa, i64 16
   %24 = load i64, ptr %23, align 8
-  br label %25
+  br label %.thread
 
-25:                                               ; preds = %22, %21
-  %.021 = phi i64 [ %24, %22 ], [ 1152921504606846976, %21 ]
-  %26 = icmp eq i64 %.0, %1
-  br i1 %26, label %27, label %46
+.thread:                                          ; preds = %6, %13, %22, %21
+  %.063 = phi i64 [ %.065, %22 ], [ 1152921504606846976, %21 ], [ %20, %13 ], [ 1152921504606846976, %6 ]
+  %.sroa.034.0.lcssa5762 = phi ptr [ %.sroa.034.0.lcssa, %22 ], [ %.sroa.034.0.lcssa, %21 ], [ %.sroa.034.0.lcssa, %13 ], [ %8, %6 ]
+  %.021 = phi i64 [ %24, %22 ], [ 1152921504606846976, %21 ], [ 1152921504606846976, %13 ], [ 1152921504606846976, %6 ]
+  %25 = icmp eq i64 %.063, %1
+  br i1 %25, label %26, label %45
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %.sroa.034.0.lcssa, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = add i64 %2, %1
-  %31 = icmp eq i64 %30, %.021
-  br i1 %31, label %32, label %42
+26:                                               ; preds = %.thread
+  %27 = getelementptr inbounds i8, ptr %.sroa.034.0.lcssa5762, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = add i64 %2, %1
+  %30 = icmp eq i64 %29, %.021
+  br i1 %30, label %31, label %41
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %.sroa.034.0.lcssa, i64 24
-  %34 = load i64, ptr %33, align 8
-  %35 = add i64 %34, %2
-  %36 = getelementptr inbounds i8, ptr %29, i64 24
-  %37 = load i64, ptr %36, align 8
-  %38 = add i64 %35, %37
-  store i64 %38, ptr %36, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 72
-  %40 = load i64, ptr %39, align 8
-  %41 = add i64 %40, -1
-  store i64 %41, ptr %39, align 8
-  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.034.0.lcssa) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.034.0.lcssa) #24
-  br label %62
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds i8, ptr %.sroa.034.0.lcssa5762, i64 24
+  %33 = load i64, ptr %32, align 8
+  %34 = add i64 %33, %2
+  %35 = getelementptr inbounds i8, ptr %28, i64 24
+  %36 = load i64, ptr %35, align 8
+  %37 = add i64 %34, %36
+  store i64 %37, ptr %35, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 72
+  %39 = load i64, ptr %38, align 8
+  %40 = add i64 %39, -1
+  store i64 %40, ptr %38, align 8
+  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.034.0.lcssa5762) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.034.0.lcssa5762) #24
+  br label %61
 
-42:                                               ; preds = %27
-  %43 = getelementptr inbounds i8, ptr %29, i64 24
-  %44 = load i64, ptr %43, align 8
-  %45 = add i64 %44, %2
-  store i64 %45, ptr %43, align 8
-  br label %62
+41:                                               ; preds = %26
+  %42 = getelementptr inbounds i8, ptr %28, i64 24
+  %43 = load i64, ptr %42, align 8
+  %44 = add i64 %43, %2
+  store i64 %44, ptr %42, align 8
+  br label %61
 
-46:                                               ; preds = %25
-  %47 = add i64 %2, %1
-  %48 = icmp eq i64 %47, %.021
-  br i1 %48, label %49, label %56
+45:                                               ; preds = %.thread
+  %46 = add i64 %2, %1
+  %47 = icmp eq i64 %46, %.021
+  br i1 %47, label %48, label %55
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %.sroa.034.0.lcssa, i64 16
-  %51 = load i64, ptr %50, align 8
-  %52 = sub i64 %51, %2
-  store i64 %52, ptr %50, align 8
-  %53 = getelementptr inbounds i8, ptr %.sroa.034.0.lcssa, i64 24
-  %54 = load i64, ptr %53, align 8
-  %55 = add i64 %54, %2
-  store i64 %55, ptr %53, align 8
-  br label %62
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds i8, ptr %.sroa.034.0.lcssa5762, i64 16
+  %50 = load i64, ptr %49, align 8
+  %51 = sub i64 %50, %2
+  store i64 %51, ptr %49, align 8
+  %52 = getelementptr inbounds i8, ptr %.sroa.034.0.lcssa5762, i64 24
+  %53 = load i64, ptr %52, align 8
+  %54 = add i64 %53, %2
+  store i64 %54, ptr %52, align 8
+  br label %61
 
-56:                                               ; preds = %46
+55:                                               ; preds = %45
   call void @_ZN5faiss19OnDiskInvertedLists4SlotC1Emm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %1, i64 noundef %2)
-  %57 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef %.sroa.034.0.lcssa) #16
-  %59 = getelementptr inbounds i8, ptr %0, i64 72
-  %60 = load i64, ptr %59, align 8
-  %61 = add i64 %60, 1
-  store i64 %61, ptr %59, align 8
-  br label %62
+  %56 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
+  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef %.sroa.034.0.lcssa5762) #16
+  %58 = getelementptr inbounds i8, ptr %0, i64 72
+  %59 = load i64, ptr %58, align 8
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %58, align 8
+  br label %61
 
-62:                                               ; preds = %49, %56, %32, %42, %3
+61:                                               ; preds = %48, %55, %31, %41, %3
   ret void
 }
 
@@ -5181,19 +5182,15 @@ define noundef i64 @_ZN5faiss19OnDiskInvertedLists13allocate_slotEm(ptr noundef 
   %.sroa.021.0.in = phi ptr [ %3, %2 ], [ %.sroa.021.0, %5 ]
   %.sroa.021.0 = load ptr, ptr %.sroa.021.0.in, align 8
   %.not = icmp eq ptr %.sroa.021.0, %3
-  br i1 %.not, label %.critedge.thread, label %5
+  br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %.sroa.021.0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = icmp ult i64 %7, %1
-  br i1 %8, label %4, label %.critedge, !llvm.loop !33
+  br i1 %8, label %4, label %.critedge2, !llvm.loop !33
 
-.critedge:                                        ; preds = %5
-  %9 = icmp eq ptr %.sroa.021.0, %3
-  br i1 %9, label %.critedge.thread, label %.critedge2
-
-.critedge.thread:                                 ; preds = %4, %.critedge
+9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %0, i64 112
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
@@ -5201,8 +5198,8 @@ define noundef i64 @_ZN5faiss19OnDiskInvertedLists13allocate_slotEm(ptr noundef 
   %spec.select = select i1 %12, i64 32, i64 %13
   br label %14
 
-14:                                               ; preds = %14, %.critedge.thread
-  %.0 = phi i64 [ %spec.select, %.critedge.thread ], [ %17, %14 ]
+14:                                               ; preds = %14, %9
+  %.0 = phi i64 [ %spec.select, %9 ], [ %17, %14 ]
   %15 = sub i64 %.0, %11
   %16 = icmp ult i64 %15, %1
   %17 = shl i64 %.0, 1
@@ -5256,8 +5253,8 @@ _ZN5faiss10LockLevels6lock_3Ev.exit:              ; preds = %30, %18
   %45 = icmp ult i64 %44, %1
   br i1 %45, label %41, label %.critedge2, !llvm.loop !36
 
-.critedge2:                                       ; preds = %42, %41, %.critedge
-  %.sroa.021.2 = phi ptr [ %.sroa.021.0, %.critedge ], [ %.sroa.021.1, %42 ], [ %3, %41 ]
+.critedge2:                                       ; preds = %5, %42, %41
+  %.sroa.021.2 = phi ptr [ %.sroa.021.1, %41 ], [ %.sroa.021.1, %42 ], [ %.sroa.021.0, %5 ]
   %46 = getelementptr inbounds i8, ptr %.sroa.021.2, i64 16
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %.sroa.021.2, i64 24
@@ -6352,32 +6349,37 @@ define linkonce_odr ptr @_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESa
 _ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EEC2IN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_S4_EEEvEET_SD_RKS4_.exit: ; preds = %.noexc.i
   %.pre = load ptr, ptr %5, align 8
   %17 = icmp eq ptr %.pre, %5
-  br i1 %17, label %_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EED2Ev.exit, label %18
+  br i1 %17, label %22, label %_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EE6spliceESt20_List_const_iteratorIS3_ERS5_.exit
+
+_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EE6spliceESt20_List_const_iteratorIS3_ERS5_.exit: ; preds = %_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EEC2IN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_S4_EEEvEET_SD_RKS4_.exit
+  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.pre, ptr noundef nonnull %5) #16
+  %18 = load i64, ptr %7, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = load i64, ptr %19, align 8
+  %21 = add i64 %20, %18
+  store i64 %21, ptr %19, align 8
+  store i64 0, ptr %7, align 8
+  %.pre12 = load ptr, ptr %5, align 8
+  br label %22
 
 .body:                                            ; preds = %.lr.ph.i.i.i, %13
   resume { ptr, i32 } %14
 
-18:                                               ; preds = %_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EEC2IN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_S4_EEEvEET_SD_RKS4_.exit
-  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.pre, ptr noundef nonnull %5) #16
-  %19 = load i64, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = load i64, ptr %20, align 8
-  %22 = add i64 %21, %19
-  store i64 %22, ptr %20, align 8
-  store i64 0, ptr %7, align 8
-  %.pre12 = load ptr, ptr %5, align 8
-  %.not8.i.i.i7 = icmp eq ptr %.pre12, %5
+22:                                               ; preds = %_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EEC2IN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_S4_EEEvEET_SD_RKS4_.exit, %_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EE6spliceESt20_List_const_iteratorIS3_ERS5_.exit
+  %23 = phi ptr [ %.pre12, %_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EE6spliceESt20_List_const_iteratorIS3_ERS5_.exit ], [ %.pre, %_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EEC2IN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_S4_EEEvEET_SD_RKS4_.exit ]
+  %.sroa.06.0 = phi ptr [ %.pre, %_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EE6spliceESt20_List_const_iteratorIS3_ERS5_.exit ], [ %1, %_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EEC2IN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_S4_EEEvEET_SD_RKS4_.exit ]
+  %.not8.i.i.i7 = icmp eq ptr %23, %5
   br i1 %.not8.i.i.i7, label %_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EED2Ev.exit, label %.lr.ph.i.i.i8
 
-.lr.ph.i.i.i8:                                    ; preds = %18, %.lr.ph.i.i.i8
-  %.09.i.i.i9 = phi ptr [ %23, %.lr.ph.i.i.i8 ], [ %.pre12, %18 ]
-  %23 = load ptr, ptr %.09.i.i.i9, align 8
+.lr.ph.i.i.i8:                                    ; preds = %22, %.lr.ph.i.i.i8
+  %.09.i.i.i9 = phi ptr [ %24, %.lr.ph.i.i.i8 ], [ %23, %22 ]
+  %24 = load ptr, ptr %.09.i.i.i9, align 8
   call void @_ZdlPv(ptr noundef %.09.i.i.i9) #24
-  %.not.i.i.i10 = icmp eq ptr %23, %5
+  %.not.i.i.i10 = icmp eq ptr %24, %5
   br i1 %.not.i.i.i10, label %_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EED2Ev.exit, label %.lr.ph.i.i.i8, !llvm.loop !22
 
-_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EED2Ev.exit: ; preds = %.lr.ph.i.i.i8, %4, %_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EEC2IN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_S4_EEEvEET_SD_RKS4_.exit, %18
-  %.sroa.06.015 = phi ptr [ %.pre, %18 ], [ %1, %_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EEC2IN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_S4_EEEvEET_SD_RKS4_.exit ], [ %1, %4 ], [ %.pre, %.lr.ph.i.i.i8 ]
+_ZNSt7__cxx114listIN5faiss19OnDiskInvertedLists4SlotESaIS3_EED2Ev.exit: ; preds = %.lr.ph.i.i.i8, %4, %22
+  %.sroa.06.015 = phi ptr [ %.sroa.06.0, %22 ], [ %1, %4 ], [ %.sroa.06.0, %.lr.ph.i.i.i8 ]
   ret ptr %.sroa.06.015
 }
 

@@ -32254,9 +32254,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8aeeb97f12b4fe01E.llvm.3663151438746104753.exit.sink.split", label %.lr.ph
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8aeeb97f12b4fe01E.llvm.3663151438746104753.exit.sink.split": ; preds = %"_ZN13rust_analyzer6config6Config19code_action_resolve28_$u7b$$u7b$closure$u7d$$u7d$17h3f35aa2eb871bf28E.llvm.3663151438746104753.exit.backedge", %8
-  %.sink = phi ptr [ %5, %8 ], [ %3, %"_ZN13rust_analyzer6config6Config19code_action_resolve28_$u7b$$u7b$closure$u7d$$u7d$17h3f35aa2eb871bf28E.llvm.3663151438746104753.exit.backedge" ]
   %.lcssa.ph = phi i1 [ true, %8 ], [ false, %"_ZN13rust_analyzer6config6Config19code_action_resolve28_$u7b$$u7b$closure$u7d$$u7d$17h3f35aa2eb871bf28E.llvm.3663151438746104753.exit.backedge" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !5691
+  store ptr %5, ptr %0, align 8, !alias.scope !5691
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8aeeb97f12b4fe01E.llvm.3663151438746104753.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8aeeb97f12b4fe01E.llvm.3663151438746104753.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8aeeb97f12b4fe01E.llvm.3663151438746104753.exit.sink.split", %1
@@ -32370,7 +32369,7 @@ define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcef132e4087a5420E.exit.thread"
 
 "._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcef132e4087a5420E.exit.thread.loopexit_crit_edge": ; preds = %"_ZN13rust_analyzer3lsp15semantic_tokens10type_index28_$u7b$$u7b$closure$u7d$$u7d$17hc2bb7482b0344081E.exit.thread"
-  store ptr %4, ptr %0, align 8, !alias.scope !5717
+  store ptr %15, ptr %0, align 8, !alias.scope !5717
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcef132e4087a5420E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcef132e4087a5420E.exit.thread": ; preds = %2, %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcef132e4087a5420E.exit.thread.loopexit_crit_edge", %21
@@ -32489,7 +32488,7 @@ define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2719ea5663de0186E.exit.thread"
 
 "._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2719ea5663de0186E.exit.thread.loopexit_crit_edge": ; preds = %"_ZN153_$LT$rust_analyzer..lsp..semantic_tokens..ModifierSet$u20$as$u20$core..ops..bit..BitOrAssign$LT$lsp_types..semantic_tokens..SemanticTokenModifier$GT$$GT$12bitor_assign28_$u7b$$u7b$closure$u7d$$u7d$17h5ebc40653bd0bf26E.exit.thread"
-  store ptr %4, ptr %0, align 8, !alias.scope !5743
+  store ptr %15, ptr %0, align 8, !alias.scope !5743
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2719ea5663de0186E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2719ea5663de0186E.exit.thread": ; preds = %2, %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2719ea5663de0186E.exit.thread.loopexit_crit_edge", %21

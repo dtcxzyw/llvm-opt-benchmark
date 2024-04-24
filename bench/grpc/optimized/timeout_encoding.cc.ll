@@ -42,7 +42,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else3
 
 if.then2:                                         ; preds = %if.else
-  %conv = trunc i64 %millis to i16
+  %conv = trunc nuw nsw i64 %millis to i16
   br label %return
 
 if.else3:                                         ; preds = %if.else
@@ -50,7 +50,7 @@ if.else3:                                         ; preds = %if.else
   br i1 %cmp4, label %if.then5, label %if.else9
 
 if.then5:                                         ; preds = %if.else3
-  %0 = trunc i64 %millis to i16
+  %0 = trunc nuw i64 %millis to i16
   %div.i21.lhs.trunc = add nuw nsw i16 %0, 9
   %div.i2122 = udiv i16 %div.i21.lhs.trunc, 10
   %rem2324 = urem i16 %div.i2122, 100
@@ -62,10 +62,10 @@ if.else9:                                         ; preds = %if.else3
   br i1 %cmp10, label %if.then11, label %if.else19
 
 if.then11:                                        ; preds = %if.else9
-  %1 = trunc i64 %millis to i32
+  %1 = trunc nuw i64 %millis to i32
   %div.i1533.lhs.trunc = add nuw nsw i32 %1, 99
   %div.i153334 = udiv i32 %div.i1533.lhs.trunc, 100
-  %rem1435.lhs.trunc = trunc i32 %div.i153334 to i16
+  %rem1435.lhs.trunc = trunc nuw i32 %div.i153334 to i16
   %rem143536 = urem i16 %rem1435.lhs.trunc, 10
   %cmp15.not = icmp eq i16 %rem143536, 0
   br i1 %cmp15.not, label %if.end27.thread, label %return
@@ -89,7 +89,7 @@ if.end27:                                         ; preds = %if.else19
 
 if.then.i:                                        ; preds = %if.end27.thread, %if.end27
   %div.i202540 = phi i64 [ %div.i202538.zext, %if.end27.thread ], [ %div.i2025, %if.end27 ]
-  %rem.i26.lhs.trunc = trunc i64 %div.i202540 to i16
+  %rem.i26.lhs.trunc = trunc nuw i64 %div.i202540 to i16
   %rem.i2627 = urem i16 %rem.i26.lhs.trunc, 60
   %cmp1.not.i = icmp eq i16 %rem.i2627, 0
   br i1 %cmp1.not.i, label %if.end23.thread.i, label %return
@@ -99,7 +99,7 @@ if.else.i:                                        ; preds = %if.end27
   br i1 %cmp3.i, label %if.then4.i, label %if.else10.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  %3 = trunc i64 %div.i2025 to i16
+  %3 = trunc nuw i64 %div.i2025 to i16
   %div.i18.lhs.trunc.i = add nuw nsw i16 %3, 9
   %div.i1819.i = udiv i16 %div.i18.lhs.trunc.i, 10
   %mul.i = mul nuw nsw i16 %div.i1819.i, 10
@@ -112,7 +112,7 @@ if.else10.i:                                      ; preds = %if.else.i
   br i1 %cmp11.i, label %if.then12.i, label %if.else.i.i
 
 if.then12.i:                                      ; preds = %if.else10.i
-  %4 = trunc i64 %div.i2025 to i32
+  %4 = trunc nuw i64 %div.i2025 to i32
   %div.i1322.lhs.trunc.i = add nuw nsw i32 %4, 99
   %div.i132223.i = udiv i32 %div.i1322.lhs.trunc.i, 100
   %mul15.i = mul nuw nsw i32 %div.i132223.i, 100
@@ -121,7 +121,7 @@ if.then12.i:                                      ; preds = %if.else10.i
   br i1 %cmp17.not.i, label %if.end23.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.then12.i
-  %conv19.i = trunc i32 %div.i132223.i to i16
+  %conv19.i = trunc nuw i32 %div.i132223.i to i16
   br label %return
 
 if.end23.thread.i:                                ; preds = %if.then4.i, %if.then.i
@@ -153,7 +153,7 @@ if.else.i.i:                                      ; preds = %if.else10.i
 
 if.then4.i.i:                                     ; preds = %if.else.i.i, %if.end23.i
   %div.i173538.i = phi i64 [ %div.i173341.i, %if.else.i.i ], [ %div.i1739.zext.i, %if.end23.i ]
-  %5 = trunc i64 %div.i173538.i to i16
+  %5 = trunc nuw i64 %div.i173538.i to i16
   %div.i18.lhs.trunc.i.i = add nuw nsw i16 %5, 9
   %div.i1819.i.i = udiv i16 %div.i18.lhs.trunc.i.i, 10
   %mul.i.i = mul nuw nsw i16 %div.i1819.i.i, 10
@@ -166,7 +166,7 @@ if.else10.i.i:                                    ; preds = %if.else.i.i
   br i1 %cmp11.i.i, label %if.then12.i.i, label %if.end23.i.i
 
 if.then12.i.i:                                    ; preds = %if.else10.i.i
-  %6 = trunc i64 %div.i173341.i to i32
+  %6 = trunc nuw i64 %div.i173341.i to i32
   %div.i1322.lhs.trunc.i.i = add nuw nsw i32 %6, 99
   %div.i132223.i.i = udiv i32 %div.i1322.lhs.trunc.i.i, 100
   %mul15.i.i = mul nuw nsw i32 %div.i132223.i.i, 100
@@ -175,7 +175,7 @@ if.then12.i.i:                                    ; preds = %if.else10.i.i
   br i1 %cmp17.not.i.i, label %if.end23.i.i, label %if.then18.i.i
 
 if.then18.i.i:                                    ; preds = %if.then12.i.i
-  %conv19.i.i = trunc i32 %div.i132223.i.i to i16
+  %conv19.i.i = trunc nuw i32 %div.i132223.i.i to i16
   br label %return
 
 if.end23.i.i:                                     ; preds = %if.then12.i.i, %if.else10.i.i, %if.then4.i.i, %if.then.i.i
@@ -183,7 +183,7 @@ if.end23.i.i:                                     ; preds = %if.then12.i.i, %if.
   %add.i16.i.i = add nuw nsw i64 %div.i1729.i, 59
   %div.i17.i.i32 = udiv i64 %add.i16.i.i, 60
   %7 = tail call i64 @llvm.umin.i64(i64 %div.i17.i.i32, i64 27000)
-  %spec.select.i.i.i = trunc i64 %7 to i16
+  %spec.select.i.i.i = trunc nuw nsw i64 %7 to i16
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %if.then.i, %if.then11, %if.end23.i.i, %if.then18.i.i, %if.then4.i.i, %if.then18.i, %if.then4.i, %if.then5, %if.else19, %entry, %if.then2
@@ -245,11 +245,11 @@ sw.bb23.i:                                        ; preds = %entry
   br label %_ZNK9grpc_core7Timeout10AsDurationEv.exit
 
 sw.bb26.i:                                        ; preds = %entry
-  %mul8.i.i.i17.i = mul nuw nsw i64 %conv.i, 600000
+  %mul8.i.i.i18.i = mul nuw nsw i64 %conv.i, 600000
   br label %_ZNK9grpc_core7Timeout10AsDurationEv.exit
 
 sw.bb30.i:                                        ; preds = %entry
-  %mul8.i.i.i22.i = mul nuw nsw i64 %conv.i, 6000000
+  %mul8.i.i.i23.i = mul nuw nsw i64 %conv.i, 6000000
   br label %_ZNK9grpc_core7Timeout10AsDurationEv.exit
 
 sw.bb34.i:                                        ; preds = %entry
@@ -261,7 +261,7 @@ do.body.i:                                        ; preds = %entry
   unreachable
 
 _ZNK9grpc_core7Timeout10AsDurationEv.exit:        ; preds = %entry, %sw.bb2.i, %sw.bb5.i, %sw.bb8.i, %sw.bb12.i, %sw.bb15.i, %sw.bb19.i, %sw.bb23.i, %sw.bb26.i, %sw.bb30.i, %sw.bb34.i
-  %retval.sroa.0.0.i = phi i64 [ %mul8.i.i.i.i.i, %sw.bb34.i ], [ %mul8.i.i.i.i, %sw.bb23.i ], [ %mul8.i.i13.i, %sw.bb19.i ], [ %mul8.i.i10.i, %sw.bb15.i ], [ %mul8.i.i.i, %sw.bb12.i ], [ %mul9.i, %sw.bb8.i ], [ %mul.i, %sw.bb5.i ], [ %conv.i, %sw.bb2.i ], [ 0, %entry ], [ %mul8.i.i.i17.i, %sw.bb26.i ], [ %mul8.i.i.i22.i, %sw.bb30.i ]
+  %retval.sroa.0.0.i = phi i64 [ %mul8.i.i.i.i.i, %sw.bb34.i ], [ %mul8.i.i.i.i, %sw.bb23.i ], [ %mul8.i.i13.i, %sw.bb19.i ], [ %mul8.i.i10.i, %sw.bb15.i ], [ %mul8.i.i.i, %sw.bb12.i ], [ %mul9.i, %sw.bb8.i ], [ %mul.i, %sw.bb5.i ], [ %conv.i, %sw.bb2.i ], [ 0, %entry ], [ %mul8.i.i.i18.i, %sw.bb26.i ], [ %mul8.i.i.i23.i, %sw.bb30.i ]
   %2 = and i32 %other.coerce, 65535
   %conv.i4 = zext nneg i32 %2 to i64
   switch i8 %other.sroa.2.0.extract.trunc, label %do.body.i26 [
@@ -303,11 +303,11 @@ sw.bb23.i13:                                      ; preds = %_ZNK9grpc_core7Time
   br label %_ZNK9grpc_core7Timeout10AsDurationEv.exit27
 
 sw.bb26.i11:                                      ; preds = %_ZNK9grpc_core7Timeout10AsDurationEv.exit
-  %mul8.i.i.i17.i12 = mul nuw nsw i64 %conv.i4, 600000
+  %mul8.i.i.i18.i12 = mul nuw nsw i64 %conv.i4, 600000
   br label %_ZNK9grpc_core7Timeout10AsDurationEv.exit27
 
 sw.bb30.i9:                                       ; preds = %_ZNK9grpc_core7Timeout10AsDurationEv.exit
-  %mul8.i.i.i22.i10 = mul nuw nsw i64 %conv.i4, 6000000
+  %mul8.i.i.i23.i10 = mul nuw nsw i64 %conv.i4, 6000000
   br label %_ZNK9grpc_core7Timeout10AsDurationEv.exit27
 
 sw.bb34.i6:                                       ; preds = %_ZNK9grpc_core7Timeout10AsDurationEv.exit
@@ -319,7 +319,7 @@ do.body.i26:                                      ; preds = %_ZNK9grpc_core7Time
   unreachable
 
 _ZNK9grpc_core7Timeout10AsDurationEv.exit27:      ; preds = %_ZNK9grpc_core7Timeout10AsDurationEv.exit, %sw.bb5.i23, %sw.bb8.i21, %sw.bb12.i19, %sw.bb15.i17, %sw.bb19.i15, %sw.bb23.i13, %sw.bb26.i11, %sw.bb30.i9, %sw.bb34.i6
-  %retval.sroa.0.0.i8 = phi i64 [ %mul8.i.i.i.i.i7, %sw.bb34.i6 ], [ %mul8.i.i.i.i14, %sw.bb23.i13 ], [ %mul8.i.i13.i16, %sw.bb19.i15 ], [ %mul8.i.i10.i18, %sw.bb15.i17 ], [ %mul8.i.i.i20, %sw.bb12.i19 ], [ %mul9.i22, %sw.bb8.i21 ], [ %mul.i24, %sw.bb5.i23 ], [ %mul8.i.i.i17.i12, %sw.bb26.i11 ], [ %mul8.i.i.i22.i10, %sw.bb30.i9 ], [ %conv.i4, %_ZNK9grpc_core7Timeout10AsDurationEv.exit ]
+  %retval.sroa.0.0.i8 = phi i64 [ %mul8.i.i.i.i.i7, %sw.bb34.i6 ], [ %mul8.i.i.i.i14, %sw.bb23.i13 ], [ %mul8.i.i13.i16, %sw.bb19.i15 ], [ %mul8.i.i10.i18, %sw.bb15.i17 ], [ %mul8.i.i.i20, %sw.bb12.i19 ], [ %mul9.i22, %sw.bb8.i21 ], [ %mul.i24, %sw.bb5.i23 ], [ %mul8.i.i.i18.i12, %sw.bb26.i11 ], [ %mul8.i.i.i23.i10, %sw.bb30.i9 ], [ %conv.i4, %_ZNK9grpc_core7Timeout10AsDurationEv.exit ]
   %cmp = icmp eq i64 %retval.sroa.0.0.i8, 0
   br i1 %cmp, label %if.then, label %if.end13
 
@@ -392,11 +392,11 @@ sw.bb23:                                          ; preds = %entry
   br label %return
 
 sw.bb26:                                          ; preds = %entry
-  %mul8.i.i.i17 = mul nuw nsw i64 %conv, 600000
+  %mul8.i.i.i18 = mul nuw nsw i64 %conv, 600000
   br label %return
 
 sw.bb30:                                          ; preds = %entry
-  %mul8.i.i.i22 = mul nuw nsw i64 %conv, 6000000
+  %mul8.i.i.i23 = mul nuw nsw i64 %conv, 6000000
   br label %return
 
 sw.bb34:                                          ; preds = %entry
@@ -408,7 +408,7 @@ do.body:                                          ; preds = %entry
   unreachable
 
 return:                                           ; preds = %sw.bb30, %sw.bb26, %entry, %sw.bb34, %sw.bb23, %sw.bb19, %sw.bb15, %sw.bb12, %sw.bb8, %sw.bb5, %sw.bb2
-  %retval.sroa.0.0 = phi i64 [ %mul8.i.i.i.i, %sw.bb34 ], [ %mul8.i.i.i, %sw.bb23 ], [ %mul8.i.i13, %sw.bb19 ], [ %mul8.i.i10, %sw.bb15 ], [ %mul8.i.i, %sw.bb12 ], [ %mul9, %sw.bb8 ], [ %mul, %sw.bb5 ], [ %conv, %sw.bb2 ], [ 0, %entry ], [ %mul8.i.i.i17, %sw.bb26 ], [ %mul8.i.i.i22, %sw.bb30 ]
+  %retval.sroa.0.0 = phi i64 [ %mul8.i.i.i.i, %sw.bb34 ], [ %mul8.i.i.i, %sw.bb23 ], [ %mul8.i.i13, %sw.bb19 ], [ %mul8.i.i10, %sw.bb15 ], [ %mul8.i.i, %sw.bb12 ], [ %mul9, %sw.bb8 ], [ %mul, %sw.bb5 ], [ %conv, %sw.bb2 ], [ 0, %entry ], [ %mul8.i.i.i18, %sw.bb26 ], [ %mul8.i.i.i23, %sw.bb30 ]
   ret i64 %retval.sroa.0.0
 }
 
@@ -438,7 +438,7 @@ if.else9:                                         ; preds = %if.else5
 
 sw.bb:                                            ; preds = %entry
   %div = udiv i16 %0, 10000
-  %1 = trunc i16 %div to i8
+  %1 = trunc nuw nsw i16 %div to i8
   %conv18 = or disjoint i8 %1, 48
   %incdec.ptr = getelementptr inbounds i8, ptr %buf, i64 1
   store i8 %conv18, ptr %buf, align 1
@@ -449,7 +449,7 @@ sw.bb21:                                          ; preds = %if.else, %sw.bb
   %p.0 = phi ptr [ %incdec.ptr, %sw.bb ], [ %buf, %if.else ]
   %n.0 = phi i16 [ %2, %sw.bb ], [ %0, %if.else ]
   %div23 = udiv i16 %n.0, 1000
-  %3 = trunc i16 %div23 to i8
+  %3 = trunc nuw nsw i16 %div23 to i8
   %conv25 = add nuw nsw i8 %3, 48
   %incdec.ptr26 = getelementptr inbounds i8, ptr %p.0, i64 1
   store i8 %conv25, ptr %p.0, align 1
@@ -460,7 +460,7 @@ sw.bb30:                                          ; preds = %if.else5, %sw.bb21
   %p.1 = phi ptr [ %incdec.ptr26, %sw.bb21 ], [ %buf, %if.else5 ]
   %n.1 = phi i16 [ %4, %sw.bb21 ], [ %0, %if.else5 ]
   %div32 = udiv i16 %n.1, 100
-  %5 = trunc i16 %div32 to i8
+  %5 = trunc nuw i16 %div32 to i8
   %conv34 = or disjoint i8 %5, 48
   %incdec.ptr35 = getelementptr inbounds i8, ptr %p.1, i64 1
   store i8 %conv34, ptr %p.1, align 1
@@ -470,7 +470,7 @@ sw.bb30:                                          ; preds = %if.else5, %sw.bb21
 sw.bb39:                                          ; preds = %if.else9, %sw.bb30
   %p.2 = phi ptr [ %incdec.ptr35, %sw.bb30 ], [ %buf, %if.else9 ]
   %n.2 = phi i16 [ %6, %sw.bb30 ], [ %0, %if.else9 ]
-  %div41.lhs.trunc = trunc i16 %n.2 to i8
+  %div41.lhs.trunc = trunc nuw i16 %n.2 to i8
   %div4136 = udiv i8 %div41.lhs.trunc, 10
   %conv43 = or disjoint i8 %div4136, 48
   %incdec.ptr44 = getelementptr inbounds i8, ptr %p.2, i64 1
@@ -482,7 +482,7 @@ sw.bb39:                                          ; preds = %if.else9, %sw.bb30
 sw.bb48:                                          ; preds = %if.else9, %sw.bb39
   %p.3 = phi ptr [ %incdec.ptr44, %sw.bb39 ], [ %buf, %if.else9 ]
   %n.3 = phi i16 [ %.zext, %sw.bb39 ], [ %0, %if.else9 ]
-  %conv49 = trunc i16 %n.3 to i8
+  %conv49 = trunc nuw i16 %n.3 to i8
   %add50 = add nuw nsw i8 %conv49, 48
   %incdec.ptr52 = getelementptr inbounds i8, ptr %p.3, i64 1
   store i8 %add50, ptr %p.3, align 1
@@ -595,7 +595,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.else10
 
 if.then4:                                         ; preds = %if.else
-  %0 = trunc i64 %seconds to i16
+  %0 = trunc nuw i64 %seconds to i16
   %div.i18.lhs.trunc = add nuw nsw i16 %0, 9
   %div.i1819 = udiv i16 %div.i18.lhs.trunc, 10
   %mul = mul nuw nsw i16 %div.i1819, 10
@@ -608,7 +608,7 @@ if.else10:                                        ; preds = %if.else
   br i1 %cmp11, label %if.then12, label %if.else.i
 
 if.then12:                                        ; preds = %if.else10
-  %1 = trunc i64 %seconds to i32
+  %1 = trunc nuw i64 %seconds to i32
   %div.i1322.lhs.trunc = add nuw nsw i32 %1, 99
   %div.i132223 = udiv i32 %div.i1322.lhs.trunc, 100
   %mul15 = mul nuw nsw i32 %div.i132223, 100
@@ -617,7 +617,7 @@ if.then12:                                        ; preds = %if.else10
   br i1 %cmp17.not, label %if.end23, label %if.then18
 
 if.then18:                                        ; preds = %if.then12
-  %conv19 = trunc i32 %div.i132223 to i16
+  %conv19 = trunc nuw i32 %div.i132223 to i16
   br label %return
 
 if.end23.thread:                                  ; preds = %if.then4, %if.then
@@ -626,7 +626,7 @@ if.end23.thread:                                  ; preds = %if.then4, %if.then
   br label %if.then.i
 
 if.end23:                                         ; preds = %if.then12
-  %2 = trunc i64 %seconds to i32
+  %2 = trunc nuw i64 %seconds to i32
   %div.i1739.lhs.trunc = add nuw nsw i32 %2, 59
   %div.i173940 = udiv i32 %div.i1739.lhs.trunc, 60
   %div.i1739.zext = zext nneg i32 %div.i173940 to i64
@@ -651,7 +651,7 @@ if.else.i:                                        ; preds = %if.else10
 
 if.then4.i:                                       ; preds = %if.end23, %if.else.i
   %div.i173538 = phi i64 [ %div.i173341, %if.else.i ], [ %div.i1739.zext, %if.end23 ]
-  %3 = trunc i64 %div.i173538 to i16
+  %3 = trunc nuw i64 %div.i173538 to i16
   %div.i18.lhs.trunc.i = add nuw nsw i16 %3, 9
   %div.i1819.i = udiv i16 %div.i18.lhs.trunc.i, 10
   %mul.i = mul nuw nsw i16 %div.i1819.i, 10
@@ -664,7 +664,7 @@ if.else10.i:                                      ; preds = %if.else.i
   br i1 %cmp11.i, label %if.then12.i, label %if.end23.i
 
 if.then12.i:                                      ; preds = %if.else10.i
-  %4 = trunc i64 %div.i173341 to i32
+  %4 = trunc nuw i64 %div.i173341 to i32
   %div.i1322.lhs.trunc.i = add nuw nsw i32 %4, 99
   %div.i132223.i = udiv i32 %div.i1322.lhs.trunc.i, 100
   %mul15.i = mul nuw nsw i32 %div.i132223.i, 100
@@ -673,7 +673,7 @@ if.then12.i:                                      ; preds = %if.else10.i
   br i1 %cmp17.not.i, label %if.end23.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.then12.i
-  %conv19.i = trunc i32 %div.i132223.i to i16
+  %conv19.i = trunc nuw i32 %div.i132223.i to i16
   br label %return
 
 if.end23.i:                                       ; preds = %if.then12.i, %if.else10.i, %if.then4.i, %if.then.i
@@ -712,7 +712,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.else10
 
 if.then4:                                         ; preds = %if.else
-  %0 = trunc i64 %minutes to i16
+  %0 = trunc nuw i64 %minutes to i16
   %div.i18.lhs.trunc = add nuw nsw i16 %0, 9
   %div.i1819 = udiv i16 %div.i18.lhs.trunc, 10
   %mul = mul nuw nsw i16 %div.i1819, 10
@@ -725,7 +725,7 @@ if.else10:                                        ; preds = %if.else
   br i1 %cmp11, label %if.then12, label %if.end23
 
 if.then12:                                        ; preds = %if.else10
-  %1 = trunc i64 %minutes to i32
+  %1 = trunc nuw i64 %minutes to i32
   %div.i1322.lhs.trunc = add nuw nsw i32 %1, 99
   %div.i132223 = udiv i32 %div.i1322.lhs.trunc, 100
   %mul15 = mul nuw nsw i32 %div.i132223, 100
@@ -734,7 +734,7 @@ if.then12:                                        ; preds = %if.else10
   br i1 %cmp17.not, label %if.end23, label %if.then18
 
 if.then18:                                        ; preds = %if.then12
-  %conv19 = trunc i32 %div.i132223 to i16
+  %conv19 = trunc nuw i32 %div.i132223 to i16
   br label %return
 
 if.end23:                                         ; preds = %if.then4, %if.then12, %if.else10, %if.then
@@ -798,12 +798,10 @@ for.end:                                          ; preds = %land.rhs, %entry
 land.lhs.true.preheader:                          ; preds = %for.end
   %4 = load i8, ptr %p.0.lcssa, align 1
   %5 = add i8 %4, -58
-  %or.cond3193 = icmp ult i8 %5, -10
-  br i1 %or.cond3193, label %for.end21, label %for.body11
+  %or.cond3185 = icmp ult i8 %5, -10
+  br i1 %or.cond3185, label %for.end21, label %for.body11
 
 land.lhs.true:                                    ; preds = %if.end18
-  %mul = mul nsw i32 %x.05394, 10
-  %add = add nsw i32 %sub, %mul
   %6 = load i8, ptr %incdec.ptr20, align 1
   %7 = add i8 %6, -48
   %or.cond31 = icmp ult i8 %7, 10
@@ -811,31 +809,35 @@ land.lhs.true:                                    ; preds = %if.end18
 
 for.body11:                                       ; preds = %land.lhs.true.preheader, %land.lhs.true
   %8 = phi i8 [ %6, %land.lhs.true ], [ %4, %land.lhs.true.preheader ]
-  %p.15295 = phi ptr [ %incdec.ptr20, %land.lhs.true ], [ %p.0.lcssa, %land.lhs.true.preheader ]
-  %x.05394 = phi i32 [ %add, %land.lhs.true ], [ 0, %land.lhs.true.preheader ]
+  %p.15287 = phi ptr [ %incdec.ptr20, %land.lhs.true ], [ %p.0.lcssa, %land.lhs.true.preheader ]
+  %x.05386 = phi i32 [ %add, %land.lhs.true ], [ 0, %land.lhs.true.preheader ]
   %conv5 = zext nneg i8 %8 to i32
   %sub = add nsw i32 %conv5, -48
-  %cmp13 = icmp sgt i32 %x.05394, 99999999
+  %cmp13 = icmp sgt i32 %x.05386, 99999999
   br i1 %cmp13, label %if.then, label %if.end18
 
 if.then:                                          ; preds = %for.body11
-  %cmp14 = icmp ne i32 %x.05394, 100000000
+  %cmp14 = icmp ne i32 %x.05386, 100000000
   %cmp15 = icmp ne i32 %sub, 0
   %or.cond = select i1 %cmp14, i1 true, i1 %cmp15
   br i1 %or.cond, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.then, %for.body11
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %p.15295, i64 1
+  %mul = mul nsw i32 %x.05386, 10
+  %add = add nsw i32 %sub, %mul
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %p.15287, i64 1
   %cmp4.not = icmp eq ptr %incdec.ptr20, %add.ptr.i
-  br i1 %cmp4.not, label %return, label %land.lhs.true, !llvm.loop !9
+  br i1 %cmp4.not, label %for.end21, label %land.lhs.true, !llvm.loop !9
 
-for.end21:                                        ; preds = %land.lhs.true, %land.lhs.true.preheader
-  %x.053.lcssa = phi i32 [ 0, %land.lhs.true.preheader ], [ %add, %land.lhs.true ]
-  %p.152.lcssa = phi ptr [ %p.0.lcssa, %land.lhs.true.preheader ], [ %incdec.ptr20, %land.lhs.true ]
-  br i1 %or.cond3193, label %return, label %land.rhs26
+for.end21:                                        ; preds = %land.lhs.true, %if.end18, %land.lhs.true.preheader
+  %p.1.lcssa = phi ptr [ %p.0.lcssa, %land.lhs.true.preheader ], [ %incdec.ptr20, %if.end18 ], [ %incdec.ptr20, %land.lhs.true ]
+  %x.0.lcssa = phi i32 [ 0, %land.lhs.true.preheader ], [ %add, %if.end18 ], [ %add, %land.lhs.true ]
+  %cmp25.not60 = icmp eq ptr %p.1.lcssa, %add.ptr.i
+  %or.cond62 = or i1 %or.cond3185, %cmp25.not60
+  br i1 %or.cond62, label %return, label %land.rhs26
 
 land.rhs26:                                       ; preds = %for.end21, %for.inc31
-  %p.261 = phi ptr [ %incdec.ptr32, %for.inc31 ], [ %p.152.lcssa, %for.end21 ]
+  %p.261 = phi ptr [ %incdec.ptr32, %for.inc31 ], [ %p.1.lcssa, %for.end21 ]
   %9 = load i8, ptr %p.261, align 1
   switch i8 %9, label %return [
     i8 32, label %for.inc31
@@ -853,8 +855,8 @@ for.inc31:                                        ; preds = %land.rhs26
   br i1 %cmp25.not, label %return, label %land.rhs26, !llvm.loop !10
 
 sw.bb:                                            ; preds = %land.rhs26
-  %div = sdiv i32 %x.053.lcssa, 1000000
-  %rem = srem i32 %x.053.lcssa, 1000000
+  %div = sdiv i32 %x.0.lcssa, 1000000
+  %rem = srem i32 %x.0.lcssa, 1000000
   %cmp40 = icmp ne i32 %rem, 0
   %conv41 = zext i1 %cmp40 to i32
   %add42 = add nsw i32 %div, %conv41
@@ -862,8 +864,8 @@ sw.bb:                                            ; preds = %land.rhs26
   br label %sw.epilog
 
 sw.bb46:                                          ; preds = %land.rhs26
-  %div48 = sdiv i32 %x.053.lcssa, 1000
-  %rem49 = srem i32 %x.053.lcssa, 1000
+  %div48 = sdiv i32 %x.0.lcssa, 1000
+  %rem49 = srem i32 %x.0.lcssa, 1000
   %cmp50 = icmp ne i32 %rem49, 0
   %conv51 = zext i1 %cmp50 to i32
   %add52 = add nsw i32 %div48, %conv51
@@ -871,21 +873,21 @@ sw.bb46:                                          ; preds = %land.rhs26
   br label %sw.epilog
 
 sw.bb56:                                          ; preds = %land.rhs26
-  %conv58 = sext i32 %x.053.lcssa to i64
+  %conv58 = sext i32 %x.0.lcssa to i64
   br label %sw.epilog
 
 sw.bb61:                                          ; preds = %land.rhs26
-  %conv63 = sext i32 %x.053.lcssa to i64
+  %conv63 = sext i32 %x.0.lcssa to i64
   %mul8.i.i = mul nsw i64 %conv63, 1000
   br label %sw.epilog
 
 sw.bb66:                                          ; preds = %land.rhs26
-  %conv68 = sext i32 %x.053.lcssa to i64
+  %conv68 = sext i32 %x.0.lcssa to i64
   %mul8.i.i.i = mul nsw i64 %conv68, 60000
   br label %sw.epilog
 
 sw.bb71:                                          ; preds = %land.rhs26
-  %conv73 = sext i32 %x.053.lcssa to i64
+  %conv73 = sext i32 %x.0.lcssa to i64
   %mul8.i.i.i.i = mul nsw i64 %conv73, 3600000
   br label %sw.epilog
 
@@ -906,9 +908,9 @@ land.rhs.i:                                       ; preds = %sw.epilog, %while.c
   %cmp1.i = icmp eq i8 %10, 32
   br i1 %cmp1.i, label %while.cond.i, label %return
 
-return:                                           ; preds = %for.inc, %if.end18, %if.then, %for.inc31, %land.rhs26, %while.cond.i, %land.rhs.i, %for.end, %sw.epilog, %for.end21
-  %retval.sroa.0.0 = phi i64 [ undef, %for.end21 ], [ %timeout.sroa.0.0, %sw.epilog ], [ undef, %for.end ], [ %timeout.sroa.0.0, %land.rhs.i ], [ %timeout.sroa.0.0, %while.cond.i ], [ undef, %land.rhs26 ], [ undef, %for.inc31 ], [ 9223372036854775807, %if.then ], [ 9223372036854775807, %if.end18 ], [ undef, %for.inc ]
-  %retval.sroa.3.0 = phi i8 [ 0, %for.end21 ], [ 1, %sw.epilog ], [ 0, %for.end ], [ 1, %while.cond.i ], [ 0, %land.rhs.i ], [ 0, %land.rhs26 ], [ 0, %for.inc31 ], [ 0, %if.end18 ], [ 1, %if.then ], [ 0, %for.inc ]
+return:                                           ; preds = %for.inc, %if.then, %for.inc31, %land.rhs26, %while.cond.i, %land.rhs.i, %for.end, %sw.epilog, %for.end21
+  %retval.sroa.0.0 = phi i64 [ undef, %for.end21 ], [ %timeout.sroa.0.0, %sw.epilog ], [ undef, %for.end ], [ %timeout.sroa.0.0, %land.rhs.i ], [ %timeout.sroa.0.0, %while.cond.i ], [ undef, %land.rhs26 ], [ undef, %for.inc31 ], [ 9223372036854775807, %if.then ], [ undef, %for.inc ]
+  %retval.sroa.3.0 = phi i8 [ 0, %for.end21 ], [ 1, %sw.epilog ], [ 0, %for.end ], [ 1, %while.cond.i ], [ 0, %land.rhs.i ], [ 0, %land.rhs26 ], [ 0, %for.inc31 ], [ 1, %if.then ], [ 0, %for.inc ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { i64, i8 } %.fca.1.insert

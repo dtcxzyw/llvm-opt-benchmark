@@ -244,7 +244,7 @@ define hidden noundef i32 @mbedtls_md_clone(ptr noundef readonly %0, ptr noundef
   br i1 %.not, label %10, label %48
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds i8, ptr %9, i64 8
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %48 [
     i32 1, label %13

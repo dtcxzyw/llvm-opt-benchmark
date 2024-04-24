@@ -140,7 +140,7 @@ _ZSt8_DestroyIPSt3setIiSt4lessIiESaIiEES4_EvT_S6_RSaIT0_E.exit.i.i: ; preds = %_
   br label %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE6resizeEm.exit
 
 _ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE6resizeEm.exit: ; preds = %.critedge, %_ZSt8_DestroyIPSt3setIiSt4lessIiESaIiEES4_EvT_S6_RSaIT0_E.exit.i.i
-  %21 = phi ptr [ %13, %.critedge ], [ %.pre, %_ZSt8_DestroyIPSt3setIiSt4lessIiESaIiEES4_EvT_S6_RSaIT0_E.exit.i.i ]
+  %21 = phi ptr [ %14, %.critedge ], [ %.pre, %_ZSt8_DestroyIPSt3setIiSt4lessIiESaIiEES4_EvT_S6_RSaIT0_E.exit.i.i ]
   %22 = phi ptr [ %13, %.critedge ], [ %14, %_ZSt8_DestroyIPSt3setIiSt4lessIiESaIiEES4_EvT_S6_RSaIT0_E.exit.i.i ]
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
@@ -405,7 +405,7 @@ _ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EEC2EmRKS5_.exit: ; preds = %.lr.ph.i
   br i1 %.not121154, label %._crit_edge158, label %.lr.ph157.preheader
 
 .lr.ph157.preheader:                              ; preds = %.lr.ph160
-  %38 = trunc i64 %indvars.iv to i32
+  %38 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.lr.ph157
 
 .lr.ph157:                                        ; preds = %.lr.ph157.preheader, %68

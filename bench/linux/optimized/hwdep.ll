@@ -497,7 +497,7 @@ define internal i32 @snd_hwdep_control_ioctl(ptr noundef readnone %0, ptr nocapt
 83:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(i64 220, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(220) %5, i8 0, i64 220, i1 false)
-  %84 = load i32, ptr %0, align 8
+  %84 = load i32, ptr %71, align 8
   %85 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %84, ptr %85, align 4
   %86 = getelementptr inbounds i8, ptr %5, i64 8

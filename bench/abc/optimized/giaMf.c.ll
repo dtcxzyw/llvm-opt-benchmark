@@ -10048,7 +10048,7 @@ Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjFanin2.exit
   br i1 %113, label %114, label %127
 
 114:                                              ; preds = %110
-  %.val65 = load i64, ptr %111, align 4
+  %.val65 = load i64, ptr %112, align 4
   %115 = and i64 %.val65, 2147483648
   %.not.i99 = icmp ne i64 %115, 0
   %116 = and i64 %.val65, 536870911
@@ -10507,7 +10507,7 @@ Mf_CutArea.exit:                                  ; preds = %.thread, %162, %.th
   %184 = getelementptr inbounds i8, ptr %179, i64 12
   %185 = load i32, ptr %184, align 4
   %186 = lshr i32 %185, 16
-  %187 = uitofp i32 %186 to float
+  %187 = uitofp nneg i32 %186 to float
   %188 = fcmp olt float %187, 1.000000e+00
   %189 = select i1 %188, float 1.000000e+00, float %187
   %190 = fpext float %189 to double

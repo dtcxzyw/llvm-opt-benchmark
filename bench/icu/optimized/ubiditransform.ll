@@ -194,8 +194,8 @@ for.inc.i:                                        ; preds = %land.lhs.true11.i, 
   br i1 %exitcond.not.i, label %_ZL18findMatchingSchemehh10UBiDiOrderS_.exit.thread, label %for.body.i, !llvm.loop !4
 
 _ZL18findMatchingSchemehh10UBiDiOrderS_.exit.thread: ; preds = %for.inc.i
-  %pActiveScheme85 = getelementptr inbounds i8, ptr %pBiDiTransform.addr.0, i64 8
-  store ptr null, ptr %pActiveScheme85, align 8
+  %pActiveScheme87 = getelementptr inbounds i8, ptr %pBiDiTransform.addr.0, i64 8
+  store ptr null, ptr %pActiveScheme87, align 8
   br label %cleanup
 
 if.end38:                                         ; preds = %land.lhs.true11.i
@@ -240,8 +240,8 @@ if.end56:                                         ; preds = %if.then49, %if.end4
   %13 = load ptr, ptr %pActiveScheme, align 8
   %actions = getelementptr inbounds i8, ptr %13, i64 32
   %14 = load ptr, ptr %actions, align 8
-  %tobool60.not88 = icmp eq ptr %14, null
-  br i1 %tobool60.not88, label %for.end.thread, label %land.rhs.lr.ph
+  %tobool60.not90 = icmp eq ptr %14, null
+  br i1 %tobool60.not90, label %for.end.thread, label %land.rhs.lr.ph
 
 for.end.thread:                                   ; preds = %if.end56
   call void @ubidi_setInverse_75(ptr noundef %12, i8 noundef signext 0)
@@ -255,8 +255,8 @@ land.rhs.lr.ph:                                   ; preds = %if.end56
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %15 = phi ptr [ %14, %land.rhs.lr.ph ], [ %25, %for.inc ]
-  %action.090 = phi ptr [ %actions, %land.rhs.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %textChanged.089 = phi i8 [ 0, %land.rhs.lr.ph ], [ %textChanged.1, %for.inc ]
+  %action.092 = phi ptr [ %actions, %land.rhs.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %textChanged.091 = phi i8 [ 0, %land.rhs.lr.ph ], [ %textChanged.1, %for.inc ]
   %16 = load i32, ptr %pErrorCode, align 4
   %cmp.i75 = icmp sgt i32 %16, 0
   br i1 %cmp.i75, label %for.end, label %for.body
@@ -272,30 +272,30 @@ if.then67:                                        ; preds = %for.body
   %19 = load i32, ptr %18, align 4
   %20 = load i32, ptr %srcSize.i, align 4
   %cmp1.i = icmp ult i32 %20, %19
-  br i1 %cmp1.i, label %if.then2.i77, label %if.end.if.end14_crit_edge.i
+  br i1 %cmp1.i, label %if.then2.i78, label %if.end.if.end14_crit_edge.i
 
 if.end.if.end14_crit_edge.i:                      ; preds = %if.then67
   %.pre.i = load ptr, ptr %src15.phi.trans.insert.i, align 8
   br label %if.end14.i
 
-if.then2.i77:                                     ; preds = %if.then67
+if.then2.i78:                                     ; preds = %if.then67
   %add.i = add i32 %19, 50
   %21 = load ptr, ptr %src15.phi.trans.insert.i, align 8
   %cmp3.not.i = icmp eq ptr %21, null
   br i1 %cmp3.not.i, label %if.end7.i, label %if.then4.i
 
-if.then4.i:                                       ; preds = %if.then2.i77
+if.then4.i:                                       ; preds = %if.then2.i78
   call void @uprv_free_75(ptr noundef nonnull %21)
   store ptr null, ptr %src15.phi.trans.insert.i, align 8
   br label %if.end7.i
 
-if.end7.i:                                        ; preds = %if.then4.i, %if.then2.i77
-  %conv.i78 = zext i32 %add.i to i64
-  %mul.i = shl nuw nsw i64 %conv.i78, 1
+if.end7.i:                                        ; preds = %if.then4.i, %if.then2.i78
+  %conv.i79 = zext i32 %add.i to i64
+  %mul.i = shl nuw nsw i64 %conv.i79, 1
   %call.i = call noalias ptr @uprv_malloc_75(i64 noundef %mul.i) #6
   store ptr %call.i, ptr %src15.phi.trans.insert.i, align 8
-  %cmp10.i79 = icmp eq ptr %call.i, null
-  br i1 %cmp10.i79, label %if.then11.i, label %if.end12.i
+  %cmp10.i80 = icmp eq ptr %call.i, null
+  br i1 %cmp10.i80, label %if.then11.i, label %if.end12.i
 
 if.then11.i:                                      ; preds = %if.end7.i
   store i32 7, ptr %pErrorCode, align 4
@@ -315,23 +315,23 @@ if.end14.i:                                       ; preds = %if.end12.i, %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end14.i, %if.then11.i, %for.body
-  %textChanged.1 = phi i8 [ %textChanged.089, %for.body ], [ 1, %if.then11.i ], [ 1, %if.end14.i ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %action.090, i64 8
+  %textChanged.1 = phi i8 [ %textChanged.091, %for.body ], [ 1, %if.then11.i ], [ 1, %if.end14.i ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %action.092, i64 8
   %25 = load ptr, ptr %incdec.ptr, align 8
   %tobool60.not = icmp eq ptr %25, null
   br i1 %tobool60.not, label %for.end, label %land.rhs, !llvm.loop !6
 
 for.end:                                          ; preds = %land.rhs, %for.inc
-  %textChanged.0.lcssa.ph = phi i8 [ %textChanged.089, %land.rhs ], [ %textChanged.1, %for.inc ]
-  %.pre93 = load ptr, ptr %pBiDiTransform.addr.0, align 8
+  %textChanged.0.lcssa.ph = phi i8 [ %textChanged.091, %land.rhs ], [ %textChanged.1, %for.inc ]
+  %.pre95 = load ptr, ptr %pBiDiTransform.addr.0, align 8
   %26 = icmp eq i8 %textChanged.0.lcssa.ph, 0
-  call void @ubidi_setInverse_75(ptr noundef %.pre93, i8 noundef signext 0)
+  call void @ubidi_setInverse_75(ptr noundef %.pre95, i8 noundef signext 0)
   br i1 %26, label %land.lhs.true, label %cleanup
 
 land.lhs.true:                                    ; preds = %for.end.thread, %for.end
   %27 = load i32, ptr %pErrorCode, align 4
-  %cmp.i80 = icmp sgt i32 %27, 0
-  br i1 %cmp.i80, label %cleanup, label %if.then77
+  %cmp.i82 = icmp sgt i32 %27, 0
+  br i1 %cmp.i82, label %cleanup, label %if.then77
 
 if.then77:                                        ; preds = %land.lhs.true
   %cmp78 = icmp slt i32 %destSize.addr.0, %srcLength.addr.0
@@ -355,21 +355,21 @@ if.then84:                                        ; preds = %cleanup
   br label %if.end90
 
 if.else85:                                        ; preds = %cleanup
-  %dest86 = getelementptr inbounds i8, ptr %pBiDiTransform, i64 24
+  %dest86 = getelementptr inbounds i8, ptr %pBiDiTransform.addr.0, i64 24
   store ptr null, ptr %dest86, align 8
-  %pDestLength87 = getelementptr inbounds i8, ptr %pBiDiTransform, i64 48
+  %pDestLength87 = getelementptr inbounds i8, ptr %pBiDiTransform.addr.0, i64 48
   store ptr null, ptr %pDestLength87, align 8
-  %srcLength88 = getelementptr inbounds i8, ptr %pBiDiTransform, i64 32
+  %srcLength88 = getelementptr inbounds i8, ptr %pBiDiTransform.addr.0, i64 32
   store i32 0, ptr %srcLength88, align 8
-  %destSize89 = getelementptr inbounds i8, ptr %pBiDiTransform, i64 40
+  %destSize89 = getelementptr inbounds i8, ptr %pBiDiTransform.addr.0, i64 40
   store i32 0, ptr %destSize89, align 8
   br label %if.end90
 
 if.end90:                                         ; preds = %if.else85, %if.then84
   %28 = load i32, ptr %pErrorCode, align 4
   %29 = load i32, ptr %destLength, align 4
-  %cmp.i82.inv = icmp sgt i32 %28, 0
-  %cond96 = select i1 %cmp.i82.inv, i32 0, i32 %29
+  %cmp.i84.inv = icmp sgt i32 %28, 0
+  %cond96 = select i1 %cmp.i84.inv, i32 0, i32 %29
   br label %return
 
 return:                                           ; preds = %if.then27, %if.then2.i, %ubiditransform_open_75.exit, %do.body14, %do.body, %entry, %if.end90, %if.then19, %if.then8, %if.then2
@@ -558,11 +558,11 @@ if.then4.i:                                       ; preds = %if.then2.i
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then4.i, %if.then2.i
-  %conv.i31 = zext i32 %add.i to i64
-  %mul.i = shl nuw nsw i64 %conv.i31, 1
-  %call.i32 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i) #6
-  store ptr %call.i32, ptr %src.i, align 8
-  %cmp10.i = icmp eq ptr %call.i32, null
+  %conv.i32 = zext i32 %add.i to i64
+  %mul.i = shl nuw nsw i64 %conv.i32, 1
+  %call.i33 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i) #6
+  store ptr %call.i33, ptr %src.i, align 8
+  %cmp10.i = icmp eq ptr %call.i33, null
   br i1 %cmp10.i, label %if.then11.i, label %if.end12.i
 
 if.then11.i:                                      ; preds = %if.end7.i
@@ -575,7 +575,7 @@ if.end12.i:                                       ; preds = %if.end7.i
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end12.i, %if.end.if.end14_crit_edge.i
-  %16 = phi ptr [ %.pre.i, %if.end.if.end14_crit_edge.i ], [ %call.i32, %if.end12.i ]
+  %16 = phi ptr [ %.pre.i, %if.end.if.end14_crit_edge.i ], [ %call.i33, %if.end12.i ]
   %call16.i = tail call ptr @u_strncpy_75(ptr noundef %16, ptr noundef %11, i32 noundef %13)
   %17 = load ptr, ptr %src.i, align 8
   %18 = load i32, ptr %srcSize.i, align 4
@@ -593,11 +593,11 @@ _ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode.exit: ; preds = %if.then11.i, 
   %23 = load ptr, ptr %src.i, align 8
   %24 = load ptr, ptr %dest.i, align 8
   %25 = load i32, ptr %destSize.i, align 8
-  %call.i37 = tail call i32 @u_shapeArabic_75(ptr noundef %23, i32 noundef %19, ptr noundef %24, i32 noundef %25, i32 noundef %or19, ptr noundef nonnull %pErrorCode)
+  %call.i38 = tail call i32 @u_shapeArabic_75(ptr noundef %23, i32 noundef %19, ptr noundef %24, i32 noundef %25, i32 noundef %or19, ptr noundef nonnull %pErrorCode)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode.exit, %if.then3
-  %call.i.sink = phi i32 [ %call.i, %if.then3 ], [ %call.i37, %_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode.exit ]
+  %call.i.sink = phi i32 [ %call.i, %if.then3 ], [ %call.i38, %_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode.exit ]
   %26 = load ptr, ptr %pDestLength.i, align 8
   store i32 %call.i.sink, ptr %26, align 4
   br label %return

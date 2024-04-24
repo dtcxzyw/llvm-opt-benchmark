@@ -10388,7 +10388,7 @@ invoke.cont.i:                                    ; preds = %_ZNSt16allocator_tr
   %sub.ptr.div.i.i681 = phi i64 [ %sub.ptr.div.i.i, %for.cond.cleanup75 ], [ %sub.ptr.div.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i ], [ 0, %for.cond.cleanup75.thread ]
   %anonymousNameIndex.1.lcssa680 = phi i64 [ %anonymousNameIndex.3, %for.cond.cleanup75 ], [ %anonymousNameIndex.3, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i ], [ %anonymousNameIndex.0646, %for.cond.cleanup75.thread ]
   %125 = phi ptr [ %.pre667, %for.cond.cleanup75 ], [ %.pre667, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i ], [ null, %for.cond.cleanup75.thread ]
-  %126 = phi ptr [ %.pre667, %for.cond.cleanup75 ], [ %.pre668, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i ], [ null, %for.cond.cleanup75.thread ]
+  %126 = phi ptr [ %.pre668, %for.cond.cleanup75 ], [ %.pre668, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i ], [ null, %for.cond.cleanup75.thread ]
   %cond.i.i.i.i = phi ptr [ null, %for.cond.cleanup75 ], [ %call5.i.i.i.i4.i20.i339, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i ], [ null, %for.cond.cleanup75.thread ]
   store ptr %cond.i.i.i.i, ptr %agg.tmp, align 8, !tbaa !35
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !38
@@ -10740,7 +10740,7 @@ if.then.i.i68:                                    ; preds = %while.end.i.i
 
 if.else.i.i:                                      ; preds = %while.end.i.i
   %185 = lshr i16 %184, 8
-  %conv8.i.i = trunc i16 %185 to i8
+  %conv8.i.i = trunc nuw i16 %185 to i8
   store i8 %conv8.i.i, ptr %buffer.i.i.i.i, align 16, !tbaa !34
   br label %call.i.i.i16.i.i.i.noexc
 
@@ -11479,7 +11479,7 @@ invoke.contthread-pre-split.i486:                 ; preds = %_ZSt8_DestroyISt10s
 
 invoke.cont.i488:                                 ; preds = %invoke.contthread-pre-split.i486, %cleanup147, %land.lhs.true
   %anonymousNameIndex.4684 = phi i64 [ %anonymousNameIndex.1.lcssa680, %invoke.contthread-pre-split.i486 ], [ %anonymousNameIndex.1.lcssa680, %cleanup147 ], [ %anonymousNameIndex.0646, %land.lhs.true ]
-  %295 = phi ptr [ %.pr.i487, %invoke.contthread-pre-split.i486 ], [ %.pre669, %cleanup147 ], [ %.pre665, %land.lhs.true ]
+  %295 = phi ptr [ %.pr.i487, %invoke.contthread-pre-split.i486 ], [ %.pre670, %cleanup147 ], [ %.pre665, %land.lhs.true ]
   %tobool.not.i.i.i489 = icmp eq ptr %295, null
   br i1 %tobool.not.i.i.i489, label %_ZNSt6vectorISt10shared_ptrIN5folly10LogHandlerEESaIS3_EED2Ev.exit, label %if.then.i.i.i490
 
@@ -22121,7 +22121,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt10s
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup19, %invoke.cont12
-  %28 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %for.cond.cleanup19 ], [ %15, %invoke.cont12 ]
+  %28 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre92, %for.cond.cleanup19 ], [ %15, %invoke.cont12 ]
   %tobool.not.i.i.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN5folly10LogHandlerEESaIS3_EED2Ev.exit, label %if.then.i.i.i
 

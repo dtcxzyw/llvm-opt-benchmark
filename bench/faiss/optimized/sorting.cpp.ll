@@ -757,7 +757,7 @@ define void @_ZN5faiss21fvec_argsort_parallelEmPKfPm(i64 noundef %0, ptr noundef
   %13 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @1)
   store i64 %0, ptr %4, align 8
   %14 = icmp ugt i64 %0, 2305843009213693951
-  %15 = shl i64 %0, 3
+  %15 = shl nuw i64 %0, 3
   %16 = select i1 %14, i64 -1, i64 %15
   %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #24
   %18 = tail call i32 @omp_get_max_threads()
@@ -2487,7 +2487,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc92.i
   br i1 %127, label %.split.loop.exit.i, label %.preheader103.i, !llvm.loop !41
 
 .split.loop.exit.i:                               ; preds = %122
-  %128 = trunc i64 %indvars.iv.i to i32
+  %128 = trunc nsw i64 %indvars.iv.i to i32
   br label %.split.loop.exit116.i
 
 .split.loop.exit116.i:                            ; preds = %.preheader103.i, %.split.loop.exit.i
@@ -3202,8 +3202,8 @@ _ZN5faiss12_GLOBAL__N_17ToWriteIiED2Ev.exit:      ; preds = %77, %_ZNSt6vectorIN
   %177 = udiv i64 %175, %176
   %178 = add i64 %.0131332, %173
   %179 = sub i64 %178, %171
-  %180 = trunc i64 %indvars.iv to i32
-  %181 = trunc i64 %indvars.iv to i32
+  %180 = trunc nuw nsw i64 %indvars.iv to i32
+  %181 = trunc nuw nsw i64 %indvars.iv to i32
   br label %182
 
 182:                                              ; preds = %_ZN5faiss12_GLOBAL__N_17ToWriteIiE3addEii.exit, %168
@@ -4081,7 +4081,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %48, %50, %52, %54
   br i1 %.not, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %59 = phi ptr [ %57, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %73, %.lr.ph ]
+  %59 = phi ptr [ %58, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %73, %.lr.ph ]
   %60 = phi ptr [ %57, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %72, %.lr.ph ]
   %61 = load i32, ptr %0, align 8
   %.not55 = icmp eq i32 %61, 0
@@ -6285,7 +6285,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %47, %49, %51, %53
   br i1 %.not, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %60 = phi ptr [ %58, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %73, %.lr.ph ]
+  %60 = phi ptr [ %59, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %73, %.lr.ph ]
   %61 = phi ptr [ %58, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %72, %.lr.ph ]
   %62 = load i64, ptr %0, align 8
   %.not55 = icmp eq i64 %62, 0

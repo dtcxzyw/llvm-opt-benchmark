@@ -12543,7 +12543,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -15322,7 +15322,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -18060,7 +18060,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -18319,7 +18319,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -18699,7 +18699,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -18963,7 +18963,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -19257,6 +19257,7 @@ invoke.cont.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE5clearEv.exit
 
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE5clearEv.exit: ; preds = %entry, %invoke.cont.i.i
+  %.pre207 = phi ptr [ %1, %entry ], [ %0, %invoke.cont.i.i ]
   %schema_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %schema_, align 8
   %cmp.i = icmp eq ptr %2, %message
@@ -19310,6 +19311,7 @@ _ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE13_M_deallocate
 
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE7reserveEm.exit: ; preds = %if.end.i, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE13_M_deallocateEPS4_m.exit.i
   %.pre204209 = phi ptr [ %0, %if.end.i ], [ %call5.i.i.i.i, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE13_M_deallocateEPS4_m.exit.i ]
+  %.pre206 = phi ptr [ %.pre207, %if.end.i ], [ %call5.i.i.i.i, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE13_M_deallocateEPS4_m.exit.i ]
   %last_non_weak_field_index_ = getelementptr inbounds i8, ptr %this, i64 96
   %8 = load i32, ptr %last_non_weak_field_index_, align 8
   %cmp.not198 = icmp slt i32 %8, 0
@@ -19721,7 +19723,7 @@ if.then46:                                        ; preds = %for.end
 
 if.end56:                                         ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE7reserveEm.exit, %if.then46, %for.end
   %53 = phi ptr [ %.pre203, %if.then46 ], [ %.pre204.pre, %for.end ], [ %.pre204209, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE7reserveEm.exit ]
-  %54 = phi ptr [ %50, %if.then46 ], [ %.pre.pre, %for.end ], [ %.pre204209, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE7reserveEm.exit ]
+  %54 = phi ptr [ %50, %if.then46 ], [ %.pre.pre, %for.end ], [ %.pre206, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE7reserveEm.exit ]
   %last.2 = phi i32 [ %52, %if.then46 ], [ %last.1, %for.end ], [ 0, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE7reserveEm.exit ]
   %sub.ptr.lhs.cast.i150 = ptrtoint ptr %54 to i64
   %sub.ptr.rhs.cast.i151 = ptrtoint ptr %53 to i64
@@ -19951,7 +19953,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -20162,7 +20164,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -20440,7 +20442,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -20606,7 +20608,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -20706,7 +20708,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -20869,7 +20871,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -21080,7 +21082,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -21358,7 +21360,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -21524,7 +21526,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -21624,7 +21626,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -21787,7 +21789,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -21998,7 +22000,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -22276,7 +22278,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -22442,7 +22444,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -22542,7 +22544,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -22705,7 +22707,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -22916,7 +22918,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -23194,7 +23196,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -23360,7 +23362,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -23460,7 +23462,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -23623,7 +23625,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -23834,7 +23836,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -24112,7 +24114,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -24278,7 +24280,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -24378,7 +24380,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -24541,7 +24543,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -24752,7 +24754,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -25030,7 +25032,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -25196,7 +25198,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -25296,7 +25298,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -25459,7 +25461,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -25674,7 +25676,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -25955,7 +25957,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -26122,7 +26124,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -26224,7 +26226,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -26387,7 +26389,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -26882,7 +26884,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -27368,7 +27370,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -27920,7 +27922,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -29233,7 +29235,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -30316,7 +30318,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -30489,7 +30491,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -30660,7 +30662,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -30781,7 +30783,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -30928,7 +30930,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -31323,7 +31325,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -31451,7 +31453,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -31695,7 +31697,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -31951,7 +31953,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -32241,7 +32243,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -32457,7 +32459,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -32826,7 +32828,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -33191,7 +33193,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.10)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.10)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -33451,7 +33453,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -33737,7 +33739,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -33899,7 +33901,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -34239,7 +34241,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -34500,7 +34502,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %0, ptr noundef nonnull %field, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.13)
+  tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef %1, ptr noundef nonnull %field, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.13)
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -38896,8 +38898,8 @@ entry:
 for.cond.preheader:                               ; preds = %entry
   %field_count_.i = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %field_count_.i, align 4
-  %cmp255 = icmp sgt i32 %3, 0
-  br i1 %cmp255, label %for.body.lr.ph, label %for.end
+  %cmp256 = icmp sgt i32 %3, 0
+  br i1 %cmp256, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %fields_.i = getelementptr inbounds i8, ptr %0, i64 56
@@ -39004,8 +39006,8 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread:         ; preds = %invoke.cont16
   store ptr %add.ptr.i.i.i40, ptr %_M_end_of_storage.i.i.i41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i6.i43, ptr nonnull align 4 %call5.i.i.i.i2.i.i37, i64 %add.ptr.i.i.i.idx, i1 false)
   %_M_finish.i.i.i39 = getelementptr inbounds i8, ptr %inlined_string_indices, i64 8
-  %add.ptr.i.i.i.i.i.i.i.i.i287 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i43, i64 %add.ptr.i.i.i.idx
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i287, ptr %_M_finish.i.i.i39, align 8
+  %add.ptr.i.i.i.i.i.i.i.i.i288 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i43, i64 %add.ptr.i.i.i.idx
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i288, ptr %_M_finish.i.i.i39, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %fields, i64 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %fields, i64 16
   %schema_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -39016,20 +39018,20 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread:         ; preds = %invoke.cont16
 
 for.end50.thread:                                 ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %has_bit_indices, i8 0, i64 24, i1 false)
-  %_M_finish.i.i.i39230 = getelementptr inbounds i8, ptr %inlined_string_indices, i64 8
-  %_M_end_of_storage.i.i.i41232 = getelementptr inbounds i8, ptr %inlined_string_indices, i64 16
+  %_M_finish.i.i.i39231 = getelementptr inbounds i8, ptr %inlined_string_indices, i64 8
+  %_M_end_of_storage.i.i.i41233 = getelementptr inbounds i8, ptr %inlined_string_indices, i64 16
   store i64 0, ptr %inlined_string_indices, align 8
-  store ptr null, ptr %_M_end_of_storage.i.i.i41232, align 8
-  store ptr null, ptr %_M_finish.i.i.i39230, align 8
-  %_M_finish.i104295 = getelementptr inbounds i8, ptr %fields, i64 8
+  store ptr null, ptr %_M_end_of_storage.i.i.i41233, align 8
+  store ptr null, ptr %_M_finish.i.i.i39231, align 8
+  %_M_finish.i104296 = getelementptr inbounds i8, ptr %fields, i64 8
   br label %invoke.cont58
 
 invoke.cont28:                                    ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread, %for.inc48
-  %indvars.iv262 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread ], [ %indvars.iv.next263, %for.inc48 ]
+  %indvars.iv263 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread ], [ %indvars.iv.next264, %for.inc48 ]
   %9 = phi ptr [ %0, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread ], [ %44, %for.inc48 ]
   %fields_.i45 = getelementptr inbounds i8, ptr %9, i64 56
   %10 = load ptr, ptr %fields_.i45, align 8
-  %add.ptr.i47 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %10, i64 %indvars.iv262
+  %add.ptr.i47 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %10, i64 %indvars.iv263
   %11 = load ptr, ptr %_M_finish.i, align 8
   %12 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %11, %12
@@ -39190,8 +39192,8 @@ invoke.cont33:                                    ; preds = %if.else10.i, %_ZNK6
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %28 to i64
   %sub.ptr.sub14.i = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i
   %retval.0.in.i = sdiv exact i64 %sub.ptr.sub14.i, 88
-  %sext248 = shl i64 %retval.0.in.i, 32
-  %conv35 = ashr exact i64 %sext248, 32
+  %sext249 = shl i64 %retval.0.in.i, 32
+  %conv35 = ashr exact i64 %sext249, 32
   %29 = load ptr, ptr %has_bit_indices, align 8
   %add.ptr.i55 = getelementptr inbounds i32, ptr %29, i64 %conv35
   store i32 %retval.0.i, ptr %add.ptr.i55, align 4
@@ -39230,12 +39232,12 @@ if.then.i99:                                      ; preds = %if.then39
 _ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit7.i88: ; preds = %_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit.i.i62
   %extensions_.i.i66 = getelementptr inbounds i8, ptr %32, i64 96
   %35 = load ptr, ptr %extensions_.i.i66, align 8
-  %sub.ptr.rhs.cast13.i.i70236 = ptrtoint ptr %35 to i64
-  %sub.ptr.sub14.i.i71237 = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i.i70236
-  %retval.0.in.i.i72238 = sdiv exact i64 %sub.ptr.sub14.i.i71237, 88
-  %sext.i73239 = shl i64 %retval.0.in.i.i72238, 32
-  %idxprom.i74240 = ashr exact i64 %sext.i73239, 32
-  %arrayidx.i75241 = getelementptr inbounds i32, ptr %30, i64 %idxprom.i74240
+  %sub.ptr.rhs.cast13.i.i70237 = ptrtoint ptr %35 to i64
+  %sub.ptr.sub14.i.i71238 = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i.i70237
+  %retval.0.in.i.i72239 = sdiv exact i64 %sub.ptr.sub14.i.i71238, 88
+  %sext.i73240 = shl i64 %retval.0.in.i.i72239, 32
+  %idxprom.i74241 = ashr exact i64 %sext.i73240, 32
+  %arrayidx.i75242 = getelementptr inbounds i32, ptr %30, i64 %idxprom.i74241
   %extensions_.i89 = getelementptr inbounds i8, ptr %32, i64 96
   br label %invoke.cont43
 
@@ -39244,27 +39246,27 @@ if.else10.i96:                                    ; preds = %_ZNK6google8protobu
   %36 = load ptr, ptr %file_.i.i77, align 8
   %extensions_11.i.i78 = getelementptr inbounds i8, ptr %36, i64 120
   %37 = load ptr, ptr %extensions_11.i.i78, align 8
-  %sub.ptr.rhs.cast13.i.i70236289 = ptrtoint ptr %37 to i64
-  %sub.ptr.sub14.i.i71237290 = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i.i70236289
-  %retval.0.in.i.i72238291 = sdiv exact i64 %sub.ptr.sub14.i.i71237290, 88
-  %sext.i73239292 = shl i64 %retval.0.in.i.i72238291, 32
-  %idxprom.i74240293 = ashr exact i64 %sext.i73239292, 32
-  %arrayidx.i75241294 = getelementptr inbounds i32, ptr %30, i64 %idxprom.i74240293
+  %sub.ptr.rhs.cast13.i.i70237290 = ptrtoint ptr %37 to i64
+  %sub.ptr.sub14.i.i71238291 = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i.i70237290
+  %retval.0.in.i.i72239292 = sdiv exact i64 %sub.ptr.sub14.i.i71238291, 88
+  %sext.i73240293 = shl i64 %retval.0.in.i.i72239292, 32
+  %idxprom.i74241294 = ashr exact i64 %sext.i73240293, 32
+  %arrayidx.i75242295 = getelementptr inbounds i32, ptr %30, i64 %idxprom.i74241294
   %file_.i97 = getelementptr inbounds i8, ptr %add.ptr.i47, i64 16
   %38 = load ptr, ptr %file_.i97, align 8
   %extensions_11.i98 = getelementptr inbounds i8, ptr %38, i64 120
   br label %invoke.cont43
 
 invoke.cont43:                                    ; preds = %if.else10.i96, %_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit7.i88, %if.then.i99
-  %.in = phi ptr [ %arrayidx.i75241294, %if.else10.i96 ], [ %arrayidx.i75241, %_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit7.i88 ], [ %arrayidx.i75, %if.then.i99 ]
+  %.in = phi ptr [ %arrayidx.i75242295, %if.else10.i96 ], [ %arrayidx.i75242, %_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit7.i88 ], [ %arrayidx.i75, %if.then.i99 ]
   %extensions_11.sink.i90 = phi ptr [ %extensions_11.i98, %if.else10.i96 ], [ %extensions_.i89, %_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit7.i88 ], [ %fields_.i.i81, %if.then.i99 ]
   %39 = load i32, ptr %.in, align 4
   %40 = load ptr, ptr %extensions_11.sink.i90, align 8
   %sub.ptr.rhs.cast13.i92 = ptrtoint ptr %40 to i64
   %sub.ptr.sub14.i93 = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i92
   %retval.0.in.i94 = sdiv exact i64 %sub.ptr.sub14.i93, 88
-  %sext249 = shl i64 %retval.0.in.i94, 32
-  %conv45 = ashr exact i64 %sext249, 32
+  %sext250 = shl i64 %retval.0.in.i94, 32
+  %conv45 = ashr exact i64 %sext250, 32
   %41 = load ptr, ptr %inlined_string_indices, align 8
   %add.ptr.i103 = getelementptr inbounds i32, ptr %41, i64 %conv45
   store i32 %39, ptr %add.ptr.i103, align 4
@@ -39281,40 +39283,40 @@ lpad17:                                           ; preds = %invoke.cont16
   br label %ehcleanup194
 
 lpad22.loopexit:                                  ; preds = %cond.true.i.i.i, %invoke.cont33
-  %lpad.loopexit251 = landingpad { ptr, i32 }
+  %lpad.loopexit252 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup193
 
 lpad22.loopexit.split-lp:                         ; preds = %invoke.cont58, %if.then.i.i.i
-  %lpad.loopexit.split-lp252 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp253 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup193
 
 for.inc48:                                        ; preds = %invoke.cont37, %invoke.cont43
-  %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
+  %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
   %44 = load ptr, ptr %this, align 8
   %field_count_.i44 = getelementptr inbounds i8, ptr %44, i64 4
   %45 = load i32, ptr %field_count_.i44, align 4
   %46 = sext i32 %45 to i64
-  %cmp25 = icmp slt i64 %indvars.iv.next263, %46
+  %cmp25 = icmp slt i64 %indvars.iv.next264, %46
   br i1 %cmp25, label %invoke.cont28, label %for.end50, !llvm.loop !114
 
 for.end50:                                        ; preds = %for.inc48
   %.pre = load ptr, ptr %fields, align 8
-  %.pre266 = load ptr, ptr %_M_finish.i, align 8
+  %.pre267 = load ptr, ptr %_M_finish.i, align 8
   %_M_finish.i104 = getelementptr inbounds i8, ptr %fields, i64 8
-  %cmp.i.not.i.i = icmp eq ptr %.pre, %.pre266
+  %cmp.i.not.i.i = icmp eq ptr %.pre, %.pre267
   br i1 %cmp.i.not.i.i, label %invoke.cont58, label %if.then.i.i105
 
 if.then.i.i105:                                   ; preds = %for.end50
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %.pre266 to i64
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %.pre267 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %.pre to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %47 = tail call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i, i1 true), !range !109
   %sub.i.i.i = shl nuw nsw i64 %47, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_SH_T0_T1_"(ptr %.pre, ptr %.pre266, i64 noundef %mul.i.i)
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_SH_T0_T1_"(ptr %.pre, ptr %.pre267, i64 noundef %mul.i.i)
   %cmp.i2.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i, 128
   %scevgep.i.i.i = getelementptr i8, ptr %.pre, i64 8
   br i1 %cmp.i2.i.i, label %for.body.i.i.i.i, label %if.else.i.i.i
@@ -39365,7 +39367,7 @@ for.inc.i.i.i.i:                                  ; preds = %while.body.i.i.i.i.
 
 "_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_SH_T0_.exit.i.i.i": ; preds = %for.inc.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %.pre, i64 128
-  %cmp.i.not2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %.pre266
+  %cmp.i.not2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %.pre267
   br i1 %cmp.i.not2.i.i.i.i, label %invoke.cont58, label %for.body.i4.i.i.i
 
 for.body.i4.i.i.i:                                ; preds = %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_SH_T0_.exit.i.i.i", %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_T0_.exit.i.i.i.i"
@@ -39397,11 +39399,11 @@ while.body.i.i7.i.i.i:                            ; preds = %for.body.i4.i.i.i, 
   %__last.sroa.0.0.lcssa.i.i.i.i.i = phi ptr [ %__i.sroa.0.03.i.i.i.i, %for.body.i4.i.i.i ], [ %__next.sroa.0.011.i.i8.i.i.i, %while.body.i.i7.i.i.i ]
   store ptr %57, ptr %__last.sroa.0.0.lcssa.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i.i.i, i64 8
-  %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %.pre266
+  %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %.pre267
   br i1 %cmp.i.not.i.i.i.i, label %invoke.cont58, label %for.body.i4.i.i.i, !llvm.loop !117
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i105
-  %cmp.i1.not10.i17.i.i.i = icmp eq ptr %scevgep.i.i.i, %.pre266
+  %cmp.i1.not10.i17.i.i.i = icmp eq ptr %scevgep.i.i.i, %.pre267
   br i1 %cmp.i1.not10.i17.i.i.i, label %invoke.cont58, label %for.body.i20.i.i.i
 
 for.body.i20.i.i.i:                               ; preds = %if.else.i.i.i, %for.inc.i29.i.i.i
@@ -39450,11 +39452,11 @@ for.inc.i29.i.i.i:                                ; preds = %while.body.i.i33.i.
   %__first.coerce.sink.i30.i.i.i = phi ptr [ %.pre, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i40.i.i.i ], [ %__i.sroa.0.012.i21.i.i.i, %if.else.i26.i.i.i ], [ %__next.sroa.0.011.i.i34.i.i.i, %while.body.i.i33.i.i.i ]
   store ptr %64, ptr %__first.coerce.sink.i30.i.i.i, align 8
   %__i.sroa.0.0.i31.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.012.i21.i.i.i, i64 8
-  %cmp.i1.not.i32.i.i.i = icmp eq ptr %__i.sroa.0.0.i31.i.i.i, %.pre266
+  %cmp.i1.not.i32.i.i.i = icmp eq ptr %__i.sroa.0.0.i31.i.i.i, %.pre267
   br i1 %cmp.i1.not.i32.i.i.i, label %invoke.cont58, label %for.body.i20.i.i.i, !llvm.loop !116
 
 invoke.cont58:                                    ; preds = %for.inc.i29.i.i.i, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_T0_.exit.i.i.i.i", %for.end50.thread, %if.else.i.i.i, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_SH_T0_.exit.i.i.i", %for.end50
-  %_M_finish.i104297 = phi ptr [ %_M_finish.i104295, %for.end50.thread ], [ %_M_finish.i104, %if.else.i.i.i ], [ %_M_finish.i104, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_SH_T0_.exit.i.i.i" ], [ %_M_finish.i104, %for.end50 ], [ %_M_finish.i104, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_T0_.exit.i.i.i.i" ], [ %_M_finish.i104, %for.inc.i29.i.i.i ]
+  %_M_finish.i104298 = phi ptr [ %_M_finish.i104296, %for.end50.thread ], [ %_M_finish.i104, %if.else.i.i.i ], [ %_M_finish.i104, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_SH_T0_.exit.i.i.i" ], [ %_M_finish.i104, %for.end50 ], [ %_M_finish.i104, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_T0_.exit.i.i.i.i" ], [ %_M_finish.i104, %for.inc.i29.i.i.i ]
   %73 = load ptr, ptr %this, align 8
   store i8 0, ptr %ref.tmp60, align 1
   %uses_codegen = getelementptr inbounds i8, ptr %ref.tmp60, i64 1
@@ -39483,8 +39485,8 @@ invoke.cont63:                                    ; preds = %invoke.cont58
   br i1 %cmp.i.i108, label %while.end, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %invoke.cont63
-  %sext246 = shl i64 %sub.ptr.sub.i, 27
-  %conv.i.i = ashr i64 %sext246, 32
+  %sext247 = shl i64 %sub.ptr.sub.i, 27
+  %conv.i.i = ashr i64 %sext247, 32
   %conv1.i.i = sext i32 %shl to i64
   %call.i.i109 = invoke noundef nonnull ptr @_ZN4absl12lts_2023080212log_internal17MakeCheckOpStringIllEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %conv.i.i, i64 noundef %conv1.i.i, ptr noundef nonnull @.str.103)
           to label %while.body unwind label %lpad66.loopexit.split-lp
@@ -39554,7 +39556,7 @@ _ZNK6google8protobuf8internal17TailCallTableInfo15NumToEntryTable6size16Ev.exit:
   %add89 = or disjoint i32 %conv83.mask, 2
   %sub.i115 = add i32 %add89, %mul88
   %and.i116 = and i32 %sub.i115, -4
-  %86 = load ptr, ptr %_M_finish.i104297, align 8
+  %86 = load ptr, ptr %_M_finish.i104298, align 8
   %87 = load ptr, ptr %fields, align 8
   %sub.ptr.lhs.cast.i118 = ptrtoint ptr %86 to i64
   %sub.ptr.rhs.cast.i119 = ptrtoint ptr %87 to i64
@@ -39601,7 +39603,7 @@ invoke.cont109:                                   ; preds = %_ZNK6google8protobu
   %conv125 = trunc i32 %96 to i16
   %cond128 = select i1 %cmp.i136.not, i16 0, i16 %conv125
   %97 = load ptr, ptr %fields, align 8
-  %98 = load ptr, ptr %_M_finish.i104297, align 8
+  %98 = load ptr, ptr %_M_finish.i104298, align 8
   %cmp.i.i139 = icmp eq ptr %97, %98
   br i1 %cmp.i.i139, label %cond.end135, label %cond.false131
 
@@ -39750,11 +39752,11 @@ for.inc.i:                                        ; preds = %call19.i.noexc, %if
   br i1 %cmp.i.not.i159, label %invoke.cont149.loopexit, label %for.body.i155
 
 invoke.cont149.loopexit:                          ; preds = %for.inc.i
-  %.pre267 = load i16, ptr %lookup_table_offset6.i, align 2
+  %.pre268 = load i16, ptr %lookup_table_offset6.i, align 2
   br label %invoke.cont149
 
 invoke.cont149:                                   ; preds = %invoke.cont149.loopexit, %cond.end135
-  %124 = phi i16 [ %.pre267, %invoke.cont149.loopexit ], [ %conv83, %cond.end135 ]
+  %124 = phi i16 [ %.pre268, %invoke.cont149.loopexit ], [ %conv83, %cond.end135 ]
   %125 = ptrtoint ptr %call110 to i64
   %conv.i162 = zext i16 %124 to i64
   %add.i = add i64 %conv.i162, %125
@@ -39831,52 +39833,52 @@ invoke.cont155:                                   ; preds = %_ZN6google8protobuf
 invoke.cont158:                                   ; preds = %invoke.cont155
   %138 = load ptr, ptr %field_name_data, align 8
   %139 = load ptr, ptr %_M_finish.i129, align 8
-  %cmp.i.i178 = icmp eq ptr %138, %139
-  br i1 %cmp.i.i178, label %while.cond169, label %if.then161
+  %cmp.i.i179 = icmp eq ptr %138, %139
+  br i1 %cmp.i.i179, label %while.cond169, label %if.then161
 
 if.then161:                                       ; preds = %invoke.cont158
   %140 = load i32, ptr %aux_offset11.i, align 8
-  %conv.i180 = zext i32 %140 to i64
-  %add.i181 = add i64 %conv.i180, %125
+  %conv.i181 = zext i32 %140 to i64
+  %add.i182 = add i64 %conv.i181, %125
   %141 = load i16, ptr %num_aux_entries10.i, align 2
   %conv2.i = zext i16 %141 to i64
   %mul.i = shl nuw nsw i64 %conv2.i, 3
-  %add3.i = add i64 %add.i181, %mul.i
+  %add3.i = add i64 %add.i182, %mul.i
   %142 = inttoptr i64 %add3.i to ptr
-  %sub.ptr.lhs.cast.i183 = ptrtoint ptr %139 to i64
-  %sub.ptr.rhs.cast.i184 = ptrtoint ptr %138 to i64
-  %sub.ptr.sub.i185 = sub i64 %sub.ptr.lhs.cast.i183, %sub.ptr.rhs.cast.i184
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %142, ptr align 1 %138, i64 %sub.ptr.sub.i185, i1 false)
-  %.pre268 = load ptr, ptr %_M_finish.i129, align 8
-  %.pre269 = load ptr, ptr %field_name_data, align 8
+  %sub.ptr.lhs.cast.i184 = ptrtoint ptr %139 to i64
+  %sub.ptr.rhs.cast.i185 = ptrtoint ptr %138 to i64
+  %sub.ptr.sub.i186 = sub i64 %sub.ptr.lhs.cast.i184, %sub.ptr.rhs.cast.i185
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %142, ptr align 1 %138, i64 %sub.ptr.sub.i186, i1 false)
+  %.pre269 = load ptr, ptr %_M_finish.i129, align 8
+  %.pre270 = load ptr, ptr %field_name_data, align 8
   br label %while.cond169
 
 while.cond169:                                    ; preds = %invoke.cont158, %if.then161
-  %143 = phi ptr [ %138, %invoke.cont158 ], [ %.pre269, %if.then161 ]
-  %144 = phi ptr [ %138, %invoke.cont158 ], [ %.pre268, %if.then161 ]
+  %143 = phi ptr [ %138, %invoke.cont158 ], [ %.pre270, %if.then161 ]
+  %144 = phi ptr [ %138, %invoke.cont158 ], [ %.pre269, %if.then161 ]
   %145 = load i32, ptr %aux_offset11.i, align 8
-  %conv.i187 = zext i32 %145 to i64
-  %add.i188 = add i64 %conv.i187, %125
+  %conv.i188 = zext i32 %145 to i64
+  %add.i189 = add i64 %conv.i188, %125
   %146 = load i16, ptr %num_aux_entries10.i, align 2
-  %conv2.i190 = zext i16 %146 to i64
-  %mul.i191 = shl nuw nsw i64 %conv2.i190, 3
-  %add3.i192 = add i64 %add.i188, %mul.i191
-  %147 = inttoptr i64 %add3.i192 to ptr
-  %sub.ptr.lhs.cast.i194 = ptrtoint ptr %144 to i64
-  %sub.ptr.rhs.cast.i195 = ptrtoint ptr %143 to i64
-  %sub.ptr.sub.i196 = sub i64 %sub.ptr.lhs.cast.i194, %sub.ptr.rhs.cast.i195
-  %add.ptr = getelementptr inbounds i8, ptr %147, i64 %sub.ptr.sub.i196
+  %conv2.i191 = zext i16 %146 to i64
+  %mul.i192 = shl nuw nsw i64 %conv2.i191, 3
+  %add3.i193 = add i64 %add.i189, %mul.i192
+  %147 = inttoptr i64 %add3.i193 to ptr
+  %sub.ptr.lhs.cast.i195 = ptrtoint ptr %144 to i64
+  %sub.ptr.rhs.cast.i196 = ptrtoint ptr %143 to i64
+  %sub.ptr.sub.i197 = sub i64 %sub.ptr.lhs.cast.i195, %sub.ptr.rhs.cast.i196
+  %add.ptr = getelementptr inbounds i8, ptr %147, i64 %sub.ptr.sub.i197
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %125
-  %cmp.i198 = icmp eq i64 %sub.ptr.sub, %conv108
-  br i1 %cmp.i198, label %while.end192, label %cond.false.i
+  %cmp.i199 = icmp eq i64 %sub.ptr.sub, %conv108
+  br i1 %cmp.i199, label %while.end192, label %cond.false.i
 
 cond.false.i:                                     ; preds = %while.cond169
-  %call.i199200 = invoke noundef nonnull ptr @_ZN4absl12lts_2023080212log_internal17MakeCheckOpStringIllEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %sub.ptr.sub, i64 noundef %conv108, ptr noundef nonnull @.str.104)
+  %call.i200201 = invoke noundef nonnull ptr @_ZN4absl12lts_2023080212log_internal17MakeCheckOpStringIllEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %sub.ptr.sub, i64 noundef %conv108, ptr noundef nonnull @.str.104)
           to label %while.body184 unwind label %lpad66.loopexit.split-lp
 
 while.body184:                                    ; preds = %cond.false.i
-  %call187 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i199200) #29
+  %call187 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i200201) #29
   %148 = extractvalue { i64, ptr } %call187, 0
   %149 = extractvalue { i64, ptr } %call187, 1
   invoke void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp185, ptr noundef nonnull @.str, i32 noundef 3499, i64 %148, ptr %149) #31
@@ -39889,66 +39891,66 @@ invoke.cont188:                                   ; preds = %while.body184
 while.end192:                                     ; preds = %while.cond169
   call void @_ZN6google8protobuf8internal17TailCallTableInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %table_info) #29
   %150 = load ptr, ptr %inlined_string_indices, align 8
-  %tobool.not.i.i.i202 = icmp eq ptr %150, null
-  br i1 %tobool.not.i.i.i202, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i203
+  %tobool.not.i.i.i203 = icmp eq ptr %150, null
+  br i1 %tobool.not.i.i.i203, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i204
 
-if.then.i.i.i203:                                 ; preds = %while.end192
+if.then.i.i.i204:                                 ; preds = %while.end192
   call void @_ZdlPv(ptr noundef nonnull %150) #28
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %while.end192, %if.then.i.i.i203
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %while.end192, %if.then.i.i.i204
   %151 = load ptr, ptr %has_bit_indices, align 8
-  %tobool.not.i.i.i205 = icmp eq ptr %151, null
-  br i1 %tobool.not.i.i.i205, label %_ZNSt6vectorIiSaIiEED2Ev.exit207, label %if.then.i.i.i206
+  %tobool.not.i.i.i206 = icmp eq ptr %151, null
+  br i1 %tobool.not.i.i.i206, label %_ZNSt6vectorIiSaIiEED2Ev.exit208, label %if.then.i.i.i207
 
-if.then.i.i.i206:                                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
+if.then.i.i.i207:                                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %151) #28
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit207
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit208
 
-_ZNSt6vectorIiSaIiEED2Ev.exit207:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %if.then.i.i.i206
+_ZNSt6vectorIiSaIiEED2Ev.exit208:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %if.then.i.i.i207
   %152 = load ptr, ptr %fields, align 8
-  %tobool.not.i.i.i209 = icmp eq ptr %152, null
-  br i1 %tobool.not.i.i.i209, label %return, label %if.then.i.i.i210
+  %tobool.not.i.i.i210 = icmp eq ptr %152, null
+  br i1 %tobool.not.i.i.i210, label %return, label %if.then.i.i.i211
 
-if.then.i.i.i210:                                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit207
+if.then.i.i.i211:                                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit208
   call void @_ZdlPv(ptr noundef nonnull %152) #28
   br label %return
 
 ehcleanup193:                                     ; preds = %lpad22.loopexit, %lpad22.loopexit.split-lp, %lpad66
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad66 ], [ %lpad.loopexit251, %lpad22.loopexit ], [ %lpad.loopexit.split-lp252, %lpad22.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad66 ], [ %lpad.loopexit252, %lpad22.loopexit ], [ %lpad.loopexit.split-lp253, %lpad22.loopexit.split-lp ]
   %153 = load ptr, ptr %inlined_string_indices, align 8
-  %tobool.not.i.i.i212 = icmp eq ptr %153, null
-  br i1 %tobool.not.i.i.i212, label %ehcleanup194, label %if.then.i.i.i213
+  %tobool.not.i.i.i213 = icmp eq ptr %153, null
+  br i1 %tobool.not.i.i.i213, label %ehcleanup194, label %if.then.i.i.i214
 
-if.then.i.i.i213:                                 ; preds = %ehcleanup193
+if.then.i.i.i214:                                 ; preds = %ehcleanup193
   call void @_ZdlPv(ptr noundef nonnull %153) #28
   br label %ehcleanup194
 
-ehcleanup194:                                     ; preds = %if.then.i.i.i213, %ehcleanup193, %lpad17
-  %.pn.pn = phi { ptr, i32 } [ %43, %lpad17 ], [ %.pn, %ehcleanup193 ], [ %.pn, %if.then.i.i.i213 ]
+ehcleanup194:                                     ; preds = %if.then.i.i.i214, %ehcleanup193, %lpad17
+  %.pn.pn = phi { ptr, i32 } [ %43, %lpad17 ], [ %.pn, %ehcleanup193 ], [ %.pn, %if.then.i.i.i214 ]
   %154 = load ptr, ptr %has_bit_indices, align 8
-  %tobool.not.i.i.i216 = icmp eq ptr %154, null
-  br i1 %tobool.not.i.i.i216, label %ehcleanup195, label %if.then.i.i.i217
+  %tobool.not.i.i.i217 = icmp eq ptr %154, null
+  br i1 %tobool.not.i.i.i217, label %ehcleanup195, label %if.then.i.i.i218
 
-if.then.i.i.i217:                                 ; preds = %ehcleanup194
+if.then.i.i.i218:                                 ; preds = %ehcleanup194
   call void @_ZdlPv(ptr noundef nonnull %154) #28
   br label %ehcleanup195
 
-ehcleanup195:                                     ; preds = %if.then.i.i.i217, %ehcleanup194, %lpad15
-  %.pn.pn.pn = phi { ptr, i32 } [ %42, %lpad15 ], [ %.pn.pn, %ehcleanup194 ], [ %.pn.pn, %if.then.i.i.i217 ]
+ehcleanup195:                                     ; preds = %if.then.i.i.i218, %ehcleanup194, %lpad15
+  %.pn.pn.pn = phi { ptr, i32 } [ %42, %lpad15 ], [ %.pn.pn, %ehcleanup194 ], [ %.pn.pn, %if.then.i.i.i218 ]
   %155 = load ptr, ptr %fields, align 8
-  %tobool.not.i.i.i220 = icmp eq ptr %155, null
-  br i1 %tobool.not.i.i.i220, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit222, label %if.then.i.i.i221
+  %tobool.not.i.i.i221 = icmp eq ptr %155, null
+  br i1 %tobool.not.i.i.i221, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit223, label %if.then.i.i.i222
 
-if.then.i.i.i221:                                 ; preds = %ehcleanup195
+if.then.i.i.i222:                                 ; preds = %ehcleanup195
   call void @_ZdlPv(ptr noundef nonnull %155) #28
-  br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit222
+  br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit223
 
-_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit222: ; preds = %ehcleanup195, %if.then.i.i.i221
+_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit223: ; preds = %ehcleanup195, %if.then.i.i.i222
   resume { ptr, i32 } %.pn.pn.pn
 
-return:                                           ; preds = %if.then.i.i.i210, %_ZNSt6vectorIiSaIiEED2Ev.exit207, %if.then10, %if.then
-  %retval.0 = phi ptr [ %call.i, %if.then ], [ %call.i27, %if.then10 ], [ %call110, %_ZNSt6vectorIiSaIiEED2Ev.exit207 ], [ %call110, %if.then.i.i.i210 ]
+return:                                           ; preds = %if.then.i.i.i211, %_ZNSt6vectorIiSaIiEED2Ev.exit208, %if.then10, %if.then
+  %retval.0 = phi ptr [ %call.i, %if.then ], [ %call.i27, %if.then10 ], [ %call110, %_ZNSt6vectorIiSaIiEED2Ev.exit208 ], [ %call110, %if.then.i.i.i211 ]
   ret ptr %retval.0
 }
 

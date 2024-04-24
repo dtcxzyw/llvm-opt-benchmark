@@ -585,10 +585,10 @@ do.body15:                                        ; preds = %do.end5
   unreachable
 
 do.end20:                                         ; preds = %do.end5
-  %isolate_.i = getelementptr inbounds i8, ptr %4, i64 88
+  %isolate_.i = getelementptr inbounds i8, ptr %6, i64 88
   %7 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %7) #9
-  %principal_realm_.i.i = getelementptr inbounds i8, ptr %4, i64 2728
+  %principal_realm_.i.i = getelementptr inbounds i8, ptr %6, i64 2728
   %8 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %8, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
@@ -780,7 +780,7 @@ _ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit: ; preds = %_ZNSt
   br label %do.end134
 
 do.end134:                                        ; preds = %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit, %if.end124
-  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %6, i64 96
   %41 = load ptr, ptr %isolate_data_.i.i, align 8
   %oncomplete_string_.i.i = getelementptr inbounds i8, ptr %41, i64 1608
   %42 = load ptr, ptr %oncomplete_string_.i.i, align 8
@@ -890,10 +890,10 @@ do.body15:                                        ; preds = %do.end5
   unreachable
 
 do.end20:                                         ; preds = %do.end5
-  %isolate_.i = getelementptr inbounds i8, ptr %4, i64 88
+  %isolate_.i = getelementptr inbounds i8, ptr %6, i64 88
   %7 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %7) #9
-  %principal_realm_.i.i = getelementptr inbounds i8, ptr %4, i64 2728
+  %principal_realm_.i.i = getelementptr inbounds i8, ptr %6, i64 2728
   %8 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %8, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
@@ -1085,7 +1085,7 @@ _ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit: ; preds = %_ZNSt
   br label %do.end134
 
 do.end134:                                        ; preds = %_ZN4node7tracingL13AddTraceEventIRiEEmcPKhPKcS6_mmjS6_OT_.exit, %if.end124
-  %isolate_data_.i.i = getelementptr inbounds i8, ptr %4, i64 96
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %6, i64 96
   %41 = load ptr, ptr %isolate_data_.i.i, align 8
   %oncomplete_string_.i.i = getelementptr inbounds i8, ptr %41, i64 1608
   %42 = load ptr, ptr %oncomplete_string_.i.i, align 8

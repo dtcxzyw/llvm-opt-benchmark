@@ -2570,8 +2570,7 @@ if.then4:                                         ; preds = %if.then
   br label %return
 
 if.end6:                                          ; preds = %if.then, %entry
-  %v.sink = phi ptr [ %w, %entry ], [ %v, %if.then ]
-  %call12 = tail call ptr @PyObject_RichCompare(ptr noundef %v, ptr noundef %v.sink, i32 noundef %op)
+  %call12 = tail call ptr @PyObject_RichCompare(ptr noundef %v, ptr noundef %w, i32 noundef %op)
   %cmp7 = icmp eq ptr %call12, null
   br i1 %cmp7, label %return, label %if.end9
 

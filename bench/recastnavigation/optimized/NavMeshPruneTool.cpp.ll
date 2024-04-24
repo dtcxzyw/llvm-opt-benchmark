@@ -896,7 +896,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i:      ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %.not.i.i.i57.i, label %_ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit, label %196
 
 196:                                              ; preds = %195
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.8.2.lcssa.i) #15
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2.lcssa.i) #15
   br label %_ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit
 
 _ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit: ; preds = %_ZN12NavmeshFlags8getFlagsEj.exit.i, %195, %196
@@ -941,7 +941,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12NavmeshFlags4initEPK9dtNa
 
 .lr.ph:                                           ; preds = %10, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %10 ]
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = tail call noundef ptr @_ZNK9dtNavMesh7getTileEi(ptr noundef nonnull align 8 dereferenceable(100) %1, i32 noundef %16)
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8

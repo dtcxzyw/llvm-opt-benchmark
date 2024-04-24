@@ -350,7 +350,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hcdbc9a9
 .noexc:                                           ; preds = %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !noalias !114
   %79 = load i8, ptr %14, align 8, !range !115, !noalias !114, !noundef !4
-  %80 = trunc i8 %79 to i1
+  %80 = trunc nuw i8 %79 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !114
   br i1 %80, label %81, label %.sink.split.i.i.i.i.i.i.i
 
@@ -454,7 +454,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hcdbc9a9
   unreachable
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h4e9271ceac29d442E.exit", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6edb278a0fb23aceE.exit.i.i.i", %..loopexit.loopexit_crit_edge, %2
-  %110 = phi ptr [ %11, %2 ], [ %.pre.pre, %..loopexit.loopexit_crit_edge ], [ %22, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6edb278a0fb23aceE.exit.i.i.i" ], [ %103, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h4e9271ceac29d442E.exit" ]
+  %110 = phi ptr [ %.promoted.i.i.i46, %2 ], [ %.pre.pre, %..loopexit.loopexit_crit_edge ], [ %22, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6edb278a0fb23aceE.exit.i.i.i" ], [ %.promoted.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h4e9271ceac29d442E.exit" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.213.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !135)
   call void @llvm.experimental.noalias.scope.decl(metadata !136)

@@ -412,18 +412,18 @@ define noundef i32 @ompi_coll_libnbc_hb_tree_insert(ptr nocapture noundef %0, pt
   br i1 %60, label %61, label %120
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %.263.lcssa, i64 40
+  %62 = getelementptr inbounds i8, ptr %54, i64 40
   %63 = load i8, ptr %62, align 8
   %64 = icmp sgt i8 %63, 0
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %61
-  tail call fastcc void @rot_left(ptr noundef nonnull %0, ptr noundef nonnull %.263.lcssa)
+  tail call fastcc void @rot_left(ptr noundef nonnull %0, ptr noundef nonnull %54)
   %.pre100 = load ptr, ptr %53, align 8
   br label %66
 
 66:                                               ; preds = %65, %61
-  %67 = phi ptr [ %.pre100, %65 ], [ %.263.lcssa, %61 ]
+  %67 = phi ptr [ %.pre100, %65 ], [ %54, %61 ]
   %68 = getelementptr inbounds i8, ptr %67, i64 32
   %69 = load ptr, ptr %68, align 8
   store ptr %69, ptr %53, align 8
@@ -666,18 +666,18 @@ define noundef i32 @ompi_coll_libnbc_hb_tree_probe(ptr nocapture noundef %0, ptr
   br i1 %48, label %49, label %108
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %.254.lcssa, i64 40
+  %50 = getelementptr inbounds i8, ptr %42, i64 40
   %51 = load i8, ptr %50, align 8
   %52 = icmp sgt i8 %51, 0
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %49
-  tail call fastcc void @rot_left(ptr noundef nonnull %0, ptr noundef nonnull %.254.lcssa)
+  tail call fastcc void @rot_left(ptr noundef nonnull %0, ptr noundef nonnull %42)
   %.pre87 = load ptr, ptr %41, align 8
   br label %54
 
 54:                                               ; preds = %53, %49
-  %55 = phi ptr [ %.pre87, %53 ], [ %.254.lcssa, %49 ]
+  %55 = phi ptr [ %.pre87, %53 ], [ %42, %49 ]
   %56 = getelementptr inbounds i8, ptr %55, i64 32
   %57 = load ptr, ptr %56, align 8
   store ptr %57, ptr %41, align 8

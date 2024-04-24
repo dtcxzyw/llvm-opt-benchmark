@@ -8493,7 +8493,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #22
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i44
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i47
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZN7rocksdb19TransactionBaseImpl9SavePointD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr) #22
@@ -8505,11 +8505,11 @@ lpad29:                                           ; preds = %invoke.cont31
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i44:                                      ; preds = %lpad
+if.then.i47:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #21
   br label %invoke.cont31
 
-invoke.cont31:                                    ; preds = %if.then.i44, %if.end.thread
+invoke.cont31:                                    ; preds = %if.then.i47, %if.end.thread
   invoke void @__cxa_rethrow() #25
           to label %unreachable unwind label %lpad29
 
@@ -9204,7 +9204,7 @@ invoke.contthread-pre-split.i.i.i:                ; preds = %for.body.i.i.i.i.i.
   br label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %invoke.contthread-pre-split.i.i.i, %_ZN7rocksdb10autovectorINS_19TransactionBaseImpl9SavePointELm8EE5clearEv.exit.i.i, %while.end.i.i.i
-  %6 = phi ptr [ %.pr.i.i.i, %invoke.contthread-pre-split.i.i.i ], [ %4, %_ZN7rocksdb10autovectorINS_19TransactionBaseImpl9SavePointELm8EE5clearEv.exit.i.i ], [ %4, %while.end.i.i.i ]
+  %6 = phi ptr [ %.pr.i.i.i, %invoke.contthread-pre-split.i.i.i ], [ %.pre.i.i, %_ZN7rocksdb10autovectorINS_19TransactionBaseImpl9SavePointELm8EE5clearEv.exit.i.i ], [ %4, %while.end.i.i.i ]
   %tobool.not.i.i.i1.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i1.i.i, label %_ZNSt5stackIN7rocksdb19TransactionBaseImpl9SavePointENS0_10autovectorIS2_Lm8EEEED2Ev.exit, label %if.then.i.i.i.i.i
 

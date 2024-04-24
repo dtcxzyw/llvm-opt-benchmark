@@ -331,8 +331,8 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
 127:                                              ; preds = %121, %111
   %128 = getelementptr inbounds i8, ptr %7, i64 48
   %129 = load ptr, ptr %128, align 8
-  %.not17.i31 = icmp eq ptr %129, null
-  br i1 %.not17.i31, label %131, label %130
+  %.not17.i33 = icmp eq ptr %129, null
+  br i1 %.not17.i33, label %131, label %130
 
 130:                                              ; preds = %127
   call void @free(ptr noundef nonnull %129) #26
@@ -341,8 +341,8 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
 
 131:                                              ; preds = %130, %127
   %132 = load ptr, ptr %112, align 8
-  %.not18.i32 = icmp eq ptr %132, null
-  br i1 %.not18.i32, label %134, label %133
+  %.not18.i34 = icmp eq ptr %132, null
+  br i1 %.not18.i34, label %134, label %133
 
 133:                                              ; preds = %131
   call void @free(ptr noundef nonnull %132) #26
@@ -352,8 +352,8 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
 134:                                              ; preds = %133, %131
   %135 = getelementptr inbounds i8, ptr %7, i64 72
   %136 = load ptr, ptr %135, align 8
-  %.not19.i33 = icmp eq ptr %136, null
-  br i1 %.not19.i33, label %138, label %137
+  %.not19.i35 = icmp eq ptr %136, null
+  br i1 %.not19.i35, label %138, label %137
 
 137:                                              ; preds = %134
   call void @free(ptr noundef nonnull %136) #26
@@ -363,8 +363,8 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
 138:                                              ; preds = %137, %134
   %139 = getelementptr inbounds i8, ptr %7, i64 8
   %140 = load ptr, ptr %139, align 8
-  %.not20.i34 = icmp eq ptr %140, null
-  br i1 %.not20.i34, label %COVER_map_destroy.exit, label %141
+  %.not20.i36 = icmp eq ptr %140, null
+  br i1 %.not20.i36, label %COVER_map_destroy.exit, label %141
 
 141:                                              ; preds = %138
   call void @free(ptr noundef nonnull %140) #26
@@ -788,7 +788,7 @@ COVER_sum.exit120:                                ; preds = %.lr.ph.i114, %COVER
   br i1 %.not.i.i.i, label %COVER_lower_bound.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !13
 
 COVER_lower_bound.exit.i.i:                       ; preds = %.lr.ph.i.i.i, %191
-  %.0.lcssa.i.i.i = phi ptr [ %178, %191 ], [ %.1.i.i.i, %.lr.ph.i.i.i ]
+  %.0.lcssa.i.i.i = phi ptr [ %.02935.i.i, %191 ], [ %.1.i.i.i, %.lr.ph.i.i.i ]
   %201 = load i64, ptr %.0.lcssa.i.i.i, align 8
   %202 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   br label %203
@@ -1694,8 +1694,8 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
   %28 = select i1 %21, i32 1950, i32 0
   %29 = udiv i32 %28, %27
   %30 = tail call i32 @llvm.umax.i32(i32 %29, i32 1)
-  %.lhs.trunc = trunc i32 %28 to i16
-  %.rhs.trunc = trunc i32 %30 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %28 to i16
+  %.rhs.trunc = trunc nuw nsw i32 %30 to i16
   %31 = udiv i16 %.lhs.trunc, %.rhs.trunc
   %narrow = add nuw nsw i16 %31, 1
   %32 = zext nneg i16 %narrow to i32

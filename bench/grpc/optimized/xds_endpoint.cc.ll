@@ -2645,7 +2645,7 @@ if.then.i.i.i124.i.i.i:                           ; preds = %ehcleanup95.i.i.i, 
   br label %ehcleanup97.i.i.i
 
 cleanup96.i.i.i:                                  ; preds = %if.then.i.i.i121.i.i.i, %_ZN9grpc_core17EndpointAddressesD2Ev.exit.i.i.i, %if.then70.i.i.i, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit106.i.i.i
-  %addresses.sroa.0.8.i.i1421.i = phi ptr [ %addresses.sroa.0.8.i.i1420.i, %if.then.i.i.i121.i.i.i ], [ %addresses.sroa.0.8.i.i1420.i, %_ZN9grpc_core17EndpointAddressesD2Ev.exit.i.i.i ], [ %addresses.sroa.10.5.i.i1222.i, %if.then70.i.i.i ], [ %addresses.sroa.0.8.i.i13.i, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit106.i.i.i ]
+  %addresses.sroa.0.8.i.i1421.i = phi ptr [ %addresses.sroa.0.8.i.i1420.i, %if.then.i.i.i121.i.i.i ], [ %addresses.sroa.0.8.i.i1420.i, %_ZN9grpc_core17EndpointAddressesD2Ev.exit.i.i.i ], [ %addresses.sroa.0.8.i.i1420.i, %if.then70.i.i.i ], [ %addresses.sroa.0.8.i.i13.i, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit106.i.i.i ]
   %tobool.not.i.i.i127.i.i.i = icmp eq ptr %addresses.sroa.0.8.i.i1421.i, null
   br i1 %tobool.not.i.i.i127.i.i.i, label %invoke.cont55.i.i, label %if.then.i.i.i128.i.i.i
 
@@ -4955,7 +4955,7 @@ _ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit: ; preds = %if.end.i, %if.e
   br i1 %cmp4.i, label %if.then, label %return
 
 if.then:                                          ; preds = %entry, %if.then.i, %_ZNSt3mapIPN9grpc_core15XdsLocalityNameENS0_19XdsEndpointResource8Priority8LocalityENS1_4LessESaISt4pairIKS2_S5_EEE11lower_boundERS8_.exit, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit
-  %__y.addr.0.lcssa.i.i.i14 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapIPN9grpc_core15XdsLocalityNameENS0_19XdsEndpointResource8Priority8LocalityENS1_4LessESaISt4pairIKS2_S5_EEE11lower_boundERS8_.exit ], [ %__y.addr.1.i.i.i, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit ], [ %__y.addr.1.i.i.i, %if.then.i ], [ %add.ptr.i.i.i, %entry ]
+  %__y.addr.0.lcssa.i.i.i14 = phi ptr [ %__y.addr.1.i.i.i, %_ZNSt3mapIPN9grpc_core15XdsLocalityNameENS0_19XdsEndpointResource8Priority8LocalityENS1_4LessESaISt4pairIKS2_S5_EEE11lower_boundERS8_.exit ], [ %__y.addr.1.i.i.i, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit ], [ %__y.addr.1.i.i.i, %if.then.i ], [ %add.ptr.i.i.i, %entry ]
   %call.i = tail call ptr @_ZNSt8_Rb_treeIPN9grpc_core15XdsLocalityNameESt4pairIKS2_NS0_19XdsEndpointResource8Priority8LocalityEESt10_Select1stIS8_ENS1_4LessESaIS8_EE22_M_emplace_hint_uniqueIJS2_S7_EEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i14, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(40) %__args1)
   br label %return
 
@@ -6651,7 +6651,7 @@ if.else42:                                        ; preds = %if.then.i60, %_ZNK9
 
 if.else44:                                        ; preds = %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit34.if.else44_crit_edge, %if.then.i32
   %14 = phi ptr [ %.pre140, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit34.if.else44_crit_edge ], [ %6, %if.then.i32 ]
-  %15 = phi ptr [ %.pre, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit34.if.else44_crit_edge ], [ %6, %if.then.i32 ]
+  %15 = phi ptr [ %.pre, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit34.if.else44_crit_edge ], [ %7, %if.then.i32 ]
   %cmp.i67 = icmp eq ptr %15, null
   %cmp2.i68 = icmp eq ptr %14, null
   %or.cond.i69 = or i1 %cmp.i67, %cmp2.i68
@@ -6746,8 +6746,8 @@ if.else74:                                        ; preds = %if.then.i117, %_ZNK
   br label %return
 
 return:                                           ; preds = %if.then.i, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit.if.then9_crit_edge, %if.then64, %if.then32, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit90, %if.then.i88, %if.then50, %if.then18, %if.else74, %if.else42, %if.else
-  %retval.sroa.0.0 = phi ptr [ %4, %if.else ], [ %12, %if.else42 ], [ %20, %if.else74 ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.then.i88 ], [ %__position.coerce, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit90 ], [ %spec.select, %if.then32 ], [ %spec.select138, %if.then64 ], [ null, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit.if.then9_crit_edge ], [ null, %if.then.i ]
-  %retval.sroa.12.0 = phi ptr [ %5, %if.else ], [ %13, %if.else42 ], [ %21, %if.else74 ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.then.i88 ], [ null, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit90 ], [ %spec.select137, %if.then32 ], [ %spec.select139, %if.then64 ], [ %.pre141, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit.if.then9_crit_edge ], [ %1, %if.then.i ]
+  %retval.sroa.0.0 = phi ptr [ %4, %if.else ], [ %12, %if.else42 ], [ %20, %if.else74 ], [ %8, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.then.i88 ], [ %__position.coerce, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit90 ], [ %spec.select, %if.then32 ], [ %spec.select138, %if.then64 ], [ null, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit.if.then9_crit_edge ], [ null, %if.then.i ]
+  %retval.sroa.12.0 = phi ptr [ %5, %if.else ], [ %13, %if.else42 ], [ %21, %if.else74 ], [ %8, %if.then18 ], [ %16, %if.then50 ], [ null, %if.then.i88 ], [ null, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit90 ], [ %spec.select137, %if.then32 ], [ %spec.select139, %if.then64 ], [ %.pre141, %_ZNK9grpc_core15XdsLocalityName4LessclEPKS0_S3_.exit.if.then9_crit_edge ], [ %1, %if.then.i ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -7099,10 +7099,10 @@ if.then:
   br label %while.body
 
 while.body:                                       ; preds = %if.then, %while.body
-  %dst.020 = phi i64 [ 60, %if.then ], [ %dec19, %while.body ]
-  %sub = add nsw i64 %dst.020, -4
+  %dst.022 = phi i64 [ 60, %if.then ], [ %dec19, %while.body ]
+  %sub = add nsw i64 %dst.022, -4
   %shr = lshr exact i64 %sub, 1
-  %dec = add nsw i64 %dst.020, -5
+  %dec = add nsw i64 %dst.022, -5
   %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec9
@@ -7110,7 +7110,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %1 = load i32, ptr %arrayidx10, align 4
   store i32 %1, ptr %arrayidx, align 4
   store i32 %0, ptr %arrayidx10, align 4
-  %dec11 = add nsw i64 %dst.020, -6
+  %dec11 = add nsw i64 %dst.022, -6
   %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec13
@@ -7118,7 +7118,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %3 = load i32, ptr %arrayidx14, align 8
   store i32 %3, ptr %arrayidx12, align 8
   store i32 %2, ptr %arrayidx14, align 8
-  %dec15 = add nsw i64 %dst.020, -7
+  %dec15 = add nsw i64 %dst.022, -7
   %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
   %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
@@ -7126,7 +7126,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %5 = load i32, ptr %arrayidx18, align 4
   store i32 %5, ptr %arrayidx16, align 4
   store i32 %4, ptr %arrayidx18, align 4
-  %dec19 = add nsw i64 %dst.020, -8
+  %dec19 = add nsw i64 %dst.022, -8
   %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
   %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
@@ -7144,9 +7144,9 @@ if.end:                                           ; preds = %while.body
   %has_crypto_.i = getelementptr inbounds i8, ptr %this, i64 280
   %9 = load i8, ptr %has_crypto_.i, align 8
   %tobool.i = trunc i8 %9 to i1
-  br i1 %tobool.i, label %if.then.i18, label %if.else.i
+  br i1 %tobool.i, label %if.then.i20, label %if.else.i
 
-if.then.i18:                                      ; preds = %if.end
+if.then.i20:                                      ; preds = %if.end
   call void @_ZN4absl12lts_2023080215random_internal11RandenHwAes6AbsorbEPKvPv(ptr noundef nonnull %buffer, ptr noundef nonnull %cond.i)
   br label %_ZNK4absl12lts_2023080215random_internal6Randen6AbsorbEPKvPv.exit
 
@@ -7154,7 +7154,7 @@ if.else.i:                                        ; preds = %if.end
   call void @_ZN4absl12lts_2023080215random_internal10RandenSlow6AbsorbEPKvPv(ptr noundef nonnull %buffer, ptr noundef nonnull %cond.i)
   br label %_ZNK4absl12lts_2023080215random_internal6Randen6AbsorbEPKvPv.exit
 
-_ZNK4absl12lts_2023080215random_internal6Randen6AbsorbEPKvPv.exit: ; preds = %if.then.i18, %if.else.i
+_ZNK4absl12lts_2023080215random_internal6Randen6AbsorbEPKvPv.exit: ; preds = %if.then.i20, %if.else.i
   %next_ = getelementptr inbounds i8, ptr %this, i64 264
   store i64 32, ptr %next_, align 8
   ret void

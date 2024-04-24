@@ -288,7 +288,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -347,7 +347,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -906,7 +906,7 @@ while.cond58.preheader:                           ; preds = %while.end51
   br i1 %cmp60.not49, label %while.end63, label %while.body61
 
 if.then54:                                        ; preds = %while.end51
-  store ptr %arrayidx, ptr %fieldLimit, align 8
+  store ptr %limit.1.lcssa, ptr %fieldLimit, align 8
   store i32 1, ptr %lineType, align 8
   br label %return
 
@@ -946,7 +946,7 @@ for.inc:                                          ; preds = %if.end71
   br i1 %cmp66, label %if.then67, label %if.end71, !llvm.loop !9
 
 for.end:                                          ; preds = %if.end71
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %14, ptr %lineType, align 8
   %cmp81 = icmp eq i32 %14, 2
   %15 = load ptr, ptr %lineLimit, align 8
@@ -1301,7 +1301,7 @@ for.cond128.preheader:                            ; preds = %for.inc
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   %call111 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %newValues, i32 noundef %31)
   %tobool112.not = icmp eq i8 %call111, 0
   br i1 %tobool112.not, label %for.inc, label %land.lhs.true113
@@ -1325,7 +1325,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
 
 for.body130:                                      ; preds = %for.cond128.preheader, %for.inc146
   %indvars.iv94 = phi i64 [ 4096, %for.cond128.preheader ], [ %indvars.iv.next95, %for.inc146 ]
-  %34 = trunc i64 %indvars.iv94 to i32
+  %34 = trunc nuw nsw i64 %indvars.iv94 to i32
   %call131 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %newValues, i32 noundef %34)
   %tobool132.not = icmp eq i8 %call131, 0
   br i1 %tobool132.not, label %for.inc146, label %land.lhs.true133
@@ -1585,7 +1585,7 @@ land.lhs.true73:                                  ; preds = %if.then70
   %cmp75 = icmp eq i8 %18, 0
   %cmp77 = icmp ult i64 %call71, 255
   %or.cond1 = select i1 %cmp75, i1 %cmp77, i1 false
-  %conv79 = trunc i64 %call71 to i32
+  %conv79 = trunc nuw nsw i64 %call71 to i32
   br i1 %or.cond1, label %if.end81, label %if.then83
 
 if.end81:                                         ; preds = %land.lhs.true73, %invoke.cont66

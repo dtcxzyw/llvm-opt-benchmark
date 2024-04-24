@@ -489,7 +489,7 @@ if.then53:                                        ; preds = %for.body
 
 if.else54:                                        ; preds = %for.body
   %8 = load ptr, ptr %rl, align 8
-  %call58 = tail call i32 @RAND_bytes_ex(ptr noundef %8, ptr noundef %6, i64 noundef %conv57, i32 noundef 0) #4
+  %call58 = tail call i32 @RAND_bytes_ex(ptr noundef %8, ptr noundef %7, i64 noundef %conv57, i32 noundef 0) #4
   %cmp59 = icmp slt i32 %call58, 1
   br i1 %cmp59, label %if.then61, label %for.cond
 

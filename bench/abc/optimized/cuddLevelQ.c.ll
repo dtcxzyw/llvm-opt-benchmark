@@ -395,8 +395,9 @@ define void @cuddLevelQueueDequeue(ptr nocapture noundef %0, i32 noundef %1) loc
   br label %.loopexit.sink.split.i
 
 .loopexit.sink.split.i:                           ; preds = %.loopexit.sink.split.i.loopexit, %16
+  %.sink.i = phi ptr [ %14, %16 ], [ %3, %.loopexit.sink.split.i.loopexit ]
   %.sink4.i = phi ptr [ %13, %16 ], [ %22, %.loopexit.sink.split.i.loopexit ]
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds i8, ptr %.sink.i, i64 8
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %.sink4.i, align 8
   br label %hashDelete.exit

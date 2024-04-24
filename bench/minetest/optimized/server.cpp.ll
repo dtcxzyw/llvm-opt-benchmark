@@ -19939,7 +19939,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN2fs1
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup65, %invoke.cont58
-  %149 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre558, %for.cond.cleanup65 ], [ %144, %invoke.cont58 ]
+  %149 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre559, %for.cond.cleanup65 ], [ %144, %invoke.cont58 ]
   %tobool.not.i.i.i = icmp eq ptr %149, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN2fs11DirListNodeESaIS1_EED2Ev.exit, label %if.then.i.i.i414
 
@@ -48966,7 +48966,7 @@ invoke.cont.thread:                               ; preds = %call3.i.i.i.noexc
   %_M_string_length.i24.i.i69 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %13, ptr %_M_string_length.i24.i.i69, align 8, !tbaa !14, !alias.scope !1206
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
-  store i8 0, ptr %11, align 8, !tbaa !13
+  store i8 0, ptr %12, align 8, !tbaa !13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 invoke.cont:                                      ; preds = %call3.i.i.i.noexc
@@ -65236,6 +65236,7 @@ cond.end.i:                                       ; preds = %if.then.i, %if.end1
   %23 = phi ptr [ %10, %if.end13.thread ], [ %19, %if.then.i ]
   %__n.16574 = phi ptr [ %12, %if.end13.thread ], [ %__n.1, %if.then.i ]
   %__bkt.06672 = phi i64 [ %rem.i.i.i29, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
+  %__prev_n.06870 = phi ptr [ %11, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
   %24 = phi ptr [ %14, %if.end13.thread ], [ %20, %if.then.i ]
   %add.ptr.i36 = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load i16, ptr %add.ptr.i36, align 2, !tbaa !361
@@ -65255,7 +65256,7 @@ if.then3.i.i:                                     ; preds = %cond.end.i
 if.end.i.i:                                       ; preds = %if.then3.i.i, %if.then.i, %if.end13.thread
   %__n.16575 = phi ptr [ %__n.1, %if.then.i ], [ %__n.16574, %if.then3.i.i ], [ %12, %if.end13.thread ]
   %__bkt.06673 = phi i64 [ %__bkt.0, %if.then.i ], [ %__bkt.06672, %if.then3.i.i ], [ %rem.i.i.i29, %if.end13.thread ]
-  %__prev_n.06871 = phi ptr [ %18, %if.then.i ], [ %22, %if.then3.i.i ], [ %11, %if.end13.thread ]
+  %__prev_n.06871 = phi ptr [ %__prev_n.0, %if.then.i ], [ %__prev_n.06870, %if.then3.i.i ], [ %11, %if.end13.thread ]
   %26 = phi ptr [ null, %if.then.i ], [ %24, %if.then3.i.i ], [ null, %if.end13.thread ]
   %27 = phi ptr [ %18, %if.then.i ], [ %.pre43.i, %if.then3.i.i ], [ %11, %if.end13.thread ]
   %28 = phi ptr [ %19, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %10, %if.end13.thread ]
@@ -65289,7 +65290,7 @@ if.then11.i:                                      ; preds = %if.then6.i
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then11.i, %if.then6.i, %if.else.i, %if.end11.i.i, %cond.end.i
-  %__prev_n.067 = phi ptr [ %__prev_n.0, %if.then11.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.06871, %if.end11.i.i ], [ %22, %cond.end.i ]
+  %__prev_n.067 = phi ptr [ %__prev_n.0, %if.then11.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.06871, %if.end11.i.i ], [ %__prev_n.06870, %cond.end.i ]
   %__n.164 = phi ptr [ %__n.1, %if.then11.i ], [ %__n.1, %if.then6.i ], [ %__n.1, %if.else.i ], [ %__n.16575, %if.end11.i.i ], [ %__n.16574, %cond.end.i ]
   %30 = load ptr, ptr %__n.164, align 8, !tbaa !308
   store ptr %30, ptr %__prev_n.067, align 8, !tbaa !308
@@ -70582,6 +70583,7 @@ cond.end.i:                                       ; preds = %if.then.i, %if.end1
   %23 = phi ptr [ %10, %if.end13.thread ], [ %19, %if.then.i ]
   %__n.16574 = phi ptr [ %12, %if.end13.thread ], [ %__n.1, %if.then.i ]
   %__bkt.06672 = phi i64 [ %rem.i.i.i29, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
+  %__prev_n.06870 = phi ptr [ %11, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
   %24 = phi ptr [ %14, %if.end13.thread ], [ %20, %if.then.i ]
   %add.ptr.i36 = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load i16, ptr %add.ptr.i36, align 2, !tbaa !361
@@ -70601,7 +70603,7 @@ if.then3.i.i:                                     ; preds = %cond.end.i
 if.end.i.i:                                       ; preds = %if.then3.i.i, %if.then.i, %if.end13.thread
   %__n.16575 = phi ptr [ %__n.1, %if.then.i ], [ %__n.16574, %if.then3.i.i ], [ %12, %if.end13.thread ]
   %__bkt.06673 = phi i64 [ %__bkt.0, %if.then.i ], [ %__bkt.06672, %if.then3.i.i ], [ %rem.i.i.i29, %if.end13.thread ]
-  %__prev_n.06871 = phi ptr [ %18, %if.then.i ], [ %22, %if.then3.i.i ], [ %11, %if.end13.thread ]
+  %__prev_n.06871 = phi ptr [ %__prev_n.0, %if.then.i ], [ %__prev_n.06870, %if.then3.i.i ], [ %11, %if.end13.thread ]
   %26 = phi ptr [ null, %if.then.i ], [ %24, %if.then3.i.i ], [ null, %if.end13.thread ]
   %27 = phi ptr [ %18, %if.then.i ], [ %.pre43.i, %if.then3.i.i ], [ %11, %if.end13.thread ]
   %28 = phi ptr [ %19, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %10, %if.end13.thread ]
@@ -70635,7 +70637,7 @@ if.then11.i:                                      ; preds = %if.then6.i
   br label %_ZNSt10_HashtableIttSaItENSt8__detail9_IdentityESt8equal_toItESt4hashItENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeItLb0EEE.exit
 
 _ZNSt10_HashtableIttSaItENSt8__detail9_IdentityESt8equal_toItESt4hashItENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeItLb0EEE.exit: ; preds = %if.then11.i, %if.then6.i, %if.else.i, %if.end11.i.i, %cond.end.i
-  %__prev_n.067 = phi ptr [ %22, %cond.end.i ], [ %__prev_n.06871, %if.end11.i.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.then11.i ]
+  %__prev_n.067 = phi ptr [ %__prev_n.06870, %cond.end.i ], [ %__prev_n.06871, %if.end11.i.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.then11.i ]
   %__n.164 = phi ptr [ %__n.16574, %cond.end.i ], [ %__n.16575, %if.end11.i.i ], [ %__n.1, %if.else.i ], [ %__n.1, %if.then6.i ], [ %__n.1, %if.then11.i ]
   %30 = load ptr, ptr %__n.164, align 8, !tbaa !308
   store ptr %30, ptr %__prev_n.067, align 8, !tbaa !308

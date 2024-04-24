@@ -30459,7 +30459,7 @@ new_label_body.exit138:                           ; preds = %ISEQ_COMPILE_DATA.e
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %162 = icmp eq i32 %spec.select.i, 1
-  %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds i8, ptr %154, i64 16
+  %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds i8, ptr %161, i64 16
   %.pre.i.pre = load ptr, ptr %.phi.trans.insert.i.phi.trans.insert, align 8
   br i1 %162, label %.thread.i, label %167
 
@@ -30828,11 +30828,11 @@ ISEQ_COMPILE_DATA.exit152:                        ; preds = %rb_obj_write.exit, 
   %383 = getelementptr inbounds i8, ptr %381, i64 8
   store ptr %379, ptr %383, align 8
   store ptr %379, ptr %380, align 8
-  %.pre167 = load i32, ptr %9, align 4
+  %.pre169 = load i32, ptr %9, align 4
   br label %384
 
 384:                                              ; preds = %374, %371
-  %385 = phi i32 [ %.pre167, %374 ], [ %372, %371 ]
+  %385 = phi i32 [ %.pre169, %374 ], [ %372, %371 ]
   %386 = load i64, ptr %8, align 8
   %387 = lshr i64 %386, 15
   %388 = trunc i64 %387 to i32
@@ -30879,12 +30879,12 @@ ISEQ_COMPILE_DATA.exit152:                        ; preds = %rb_obj_write.exit, 
   %418 = getelementptr inbounds i8, ptr %416, i64 8
   store ptr %55, ptr %418, align 8
   store ptr %55, ptr %398, align 8
-  %.pre168 = load i16, ptr %117, align 2
+  %.pre170 = load i16, ptr %117, align 2
   br label %419
 
 419:                                              ; preds = %404, %384
   %420 = phi ptr [ %55, %404 ], [ %397, %384 ]
-  %421 = phi i16 [ %.pre168, %404 ], [ %402, %384 ]
+  %421 = phi i16 [ %.pre170, %404 ], [ %402, %384 ]
   %422 = and i16 %421, 1
   %.not121 = icmp eq i16 %422, 0
   br i1 %.not121, label %423, label %429
@@ -30907,11 +30907,11 @@ ISEQ_COMPILE_DATA.exit152:                        ; preds = %rb_obj_write.exit, 
   %431 = getelementptr inbounds i8, ptr %420, i64 8
   store ptr %101, ptr %431, align 8
   store ptr %101, ptr %398, align 8
-  %.pre169 = load i16, ptr %117, align 2
+  %.pre171 = load i16, ptr %117, align 2
   br label %432
 
 432:                                              ; preds = %429, %424, %423
-  %433 = phi i16 [ %.pre169, %429 ], [ %421, %424 ], [ %421, %423 ]
+  %433 = phi i16 [ %.pre171, %429 ], [ %421, %424 ], [ %421, %423 ]
   %434 = and i16 %433, 4
   %.not124 = icmp eq i16 %434, 0
   %brmerge = or i1 %.not124, %3
@@ -44922,7 +44922,7 @@ iseq_compile_each.exit:                           ; preds = %110
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %145 = icmp eq i32 %spec.select.i, 1
-  %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds i8, ptr %137, i64 16
+  %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds i8, ptr %144, i64 16
   %.pre.i.pre = load ptr, ptr %.phi.trans.insert.i.phi.trans.insert, align 8
   br i1 %145, label %.thread.i, label %150
 
@@ -45025,7 +45025,7 @@ make_name_for_block.exit:                         ; preds = %.thread.i, %150
 
 ._crit_edge.i108:                                 ; preds = %.lr.ph.i103
   %204 = icmp eq i32 %spec.select.i106, 1
-  %.phi.trans.insert.i112.phi.trans.insert = getelementptr inbounds i8, ptr %196, i64 16
+  %.phi.trans.insert.i112.phi.trans.insert = getelementptr inbounds i8, ptr %203, i64 16
   %.pre.i113.pre = load ptr, ptr %.phi.trans.insert.i112.phi.trans.insert, align 8
   br i1 %204, label %.thread.i114, label %209
 
@@ -59103,7 +59103,7 @@ define internal fastcc i64 @make_name_for_block(ptr noundef readonly %0) unnamed
   br i1 %15, label %._crit_edge..thread_crit_edge, label %20
 
 ._crit_edge..thread_crit_edge:                    ; preds = %.preheader, %._crit_edge
-  %.0.lcssa24 = phi ptr [ %7, %._crit_edge ], [ %0, %.preheader ]
+  %.0.lcssa24 = phi ptr [ %14, %._crit_edge ], [ %0, %.preheader ]
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.0.lcssa24, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %.thread
@@ -59116,7 +59116,7 @@ define internal fastcc i64 @make_name_for_block(ptr noundef readonly %0) unnamed
   br label %26
 
 20:                                               ; preds = %._crit_edge
-  %21 = getelementptr inbounds i8, ptr %7, i64 16
+  %21 = getelementptr inbounds i8, ptr %14, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 80
   %24 = load i64, ptr %23, align 8
@@ -60615,7 +60615,7 @@ define internal void @build_postexe_iseq(ptr noundef %0, ptr nocapture noundef %
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %25 = icmp eq i32 %spec.select.i, 1
-  %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds i8, ptr %17, i64 16
+  %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds i8, ptr %24, i64 16
   %.pre.i.pre = load ptr, ptr %.phi.trans.insert.i.phi.trans.insert, align 8
   br i1 %25, label %.thread.i, label %30
 

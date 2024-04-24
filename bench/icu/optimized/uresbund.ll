@@ -290,7 +290,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -349,7 +349,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -4451,22 +4451,22 @@ lpad2.loopexit:                                   ; preds = %if.then291, %if.the
   br label %ehcleanup
 
 lpad2.loopexit.split-lp.loopexit:                 ; preds = %invoke.cont239, %do.body125, %if.end236, %invoke.cont211, %if.then209, %invoke.cont177, %if.then175, %if.then165, %if.then144, %if.then140
-  %lpad.loopexit166 = landingpad { ptr, i32 }
+  %lpad.loopexit168 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad2.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then55, %if.then59, %if.then67, %invoke.cont69, %if.then78, %if.else102, %do.body, %if.end106
-  %lpad.loopexit169 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup
-
-lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.cond.i
   %lpad.loopexit171 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
+lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.cond.i
+  %lpad.loopexit173 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup
+
 lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke.cont421, %if.end420, %invoke.cont267, %if.end443, %if.then429, %if.then376, %invoke.cont271, %invoke.cont268, %if.then262, %land.lhs.true256, %invoke.cont120, %do.end, %if.end35, %if.then25, %invoke.cont19, %invoke.cont18, %if.end12, %invoke.cont5, %invoke.cont1
-  %lpad.loopexit.split-lp172 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp174 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -4660,8 +4660,8 @@ land.lhs.true112:                                 ; preds = %do.cond
 
 land.rhs:                                         ; preds = %land.lhs.true112
   %23 = load i32, ptr %status, align 4
-  %cmp.i95 = icmp sgt i32 %23, 0
-  br i1 %cmp.i95, label %do.end, label %do.body, !llvm.loop !21
+  %cmp.i96 = icmp sgt i32 %23, 0
+  br i1 %cmp.i96, label %do.end, label %do.body, !llvm.loop !21
 
 do.end:                                           ; preds = %land.lhs.true112, %do.cond, %land.rhs
   %call121 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %base, ptr noundef nonnull %parent, i32 noundef 1024, ptr noundef nonnull align 4 dereferenceable(4) %subStatus)
@@ -4672,13 +4672,13 @@ invoke.cont120:                                   ; preds = %do.end
           to label %do.body125 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 do.body125:                                       ; preds = %invoke.cont120, %land.rhs247
-  %call.i98 = invoke fastcc noundef ptr @_ZL17ures_openWithTypeP15UResourceBundlePKcS2_12UResOpenTypeP10UErrorCode(ptr noundef null, ptr noundef %path, ptr noundef nonnull %parent, i32 noundef 0, ptr noundef nonnull %subStatus)
+  %call.i99 = invoke fastcc noundef ptr @_ZL17ures_openWithTypeP15UResourceBundlePKcS2_12UResOpenTypeP10UErrorCode(ptr noundef null, ptr noundef %path, ptr noundef nonnull %parent, i32 noundef 0, ptr noundef nonnull %subStatus)
           to label %if.end133 unwind label %lpad2.loopexit.split-lp.loopexit
 
 if.end133:                                        ; preds = %do.body125
   %24 = load i32, ptr %subStatus, align 4
-  %cmp.i100 = icmp slt i32 %24, 1
-  br i1 %cmp.i100, label %if.else138, label %if.then137
+  %cmp.i101 = icmp slt i32 %24, 1
+  br i1 %cmp.i101, label %if.else138, label %if.then137
 
 if.then137:                                       ; preds = %if.end133
   store i32 %24, ptr %status, align 4
@@ -4689,7 +4689,7 @@ if.else138:                                       ; preds = %if.end133
   br i1 %cmp139, label %if.then140, label %if.end189
 
 if.then140:                                       ; preds = %if.else138
-  %call142 = invoke ptr @ures_getByKey_75(ptr noundef %call.i98, ptr noundef %resName, ptr noundef nonnull %bund1, ptr noundef nonnull %subStatus)
+  %call142 = invoke ptr @ures_getByKey_75(ptr noundef %call.i99, ptr noundef %resName, ptr noundef nonnull %bund1, ptr noundef nonnull %subStatus)
           to label %invoke.cont141 unwind label %lpad2.loopexit.split-lp.loopexit
 
 invoke.cont141:                                   ; preds = %if.then140
@@ -4729,10 +4729,10 @@ if.then165:                                       ; preds = %if.end159
 
 invoke.cont168:                                   ; preds = %if.then165
   %29 = load i32, ptr %subStatus, align 4
-  %cmp.i102 = icmp slt i32 %29, 1
+  %cmp.i103 = icmp slt i32 %29, 1
   %30 = load i32, ptr %defLen167, align 4
   %tobool174 = icmp ne i32 %30, 0
-  %or.cond5 = select i1 %cmp.i102, i1 %tobool174, i1 false
+  %or.cond5 = select i1 %cmp.i103, i1 %tobool174, i1 false
   br i1 %or.cond5, label %if.then175, label %if.end189
 
 if.then175:                                       ; preds = %invoke.cont168
@@ -4748,7 +4748,7 @@ invoke.cont179:                                   ; preds = %invoke.cont177
   br label %if.end189
 
 if.end189:                                        ; preds = %if.else138, %invoke.cont168, %invoke.cont179, %if.end159, %invoke.cont147, %invoke.cont141, %if.then137
-  %cmp190.not = icmp eq ptr %call.i98, null
+  %cmp190.not = icmp eq ptr %call.i99, null
   br i1 %cmp190.not, label %if.then232, label %land.lhs.true191
 
 land.lhs.true191:                                 ; preds = %if.end189
@@ -4758,21 +4758,21 @@ land.lhs.true191:                                 ; preds = %if.end189
 
 invoke.cont195:                                   ; preds = %land.lhs.true191
   store i32 0, ptr %subStatus, align 4
-  %fValidLocaleDataEntry.i109 = getelementptr inbounds i8, ptr %call.i98, i64 24
-  %31 = load ptr, ptr %fValidLocaleDataEntry.i109, align 8
+  %fValidLocaleDataEntry.i111 = getelementptr inbounds i8, ptr %call.i99, i64 24
+  %31 = load ptr, ptr %fValidLocaleDataEntry.i111, align 8
   %32 = load ptr, ptr %31, align 8
   %cmp201.not = icmp eq ptr %32, null
-  br i1 %cmp201.not, label %if.end230.thread159, label %land.lhs.true202
+  br i1 %cmp201.not, label %if.end230.thread161, label %land.lhs.true202
 
 land.lhs.true202:                                 ; preds = %invoke.cont195
   %33 = load i8, ptr %32, align 1
   %cmp205.not = icmp eq i8 %33, 0
-  br i1 %cmp205.not, label %if.end230.thread159, label %land.lhs.true206
+  br i1 %cmp205.not, label %if.end230.thread161, label %land.lhs.true206
 
 land.lhs.true206:                                 ; preds = %land.lhs.true202
   %call207 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(5) @.str) #24
   %cmp208.not = icmp eq i32 %call207, 0
-  br i1 %cmp208.not, label %if.end230.thread159, label %if.then209
+  br i1 %cmp208.not, label %if.end230.thread161, label %if.then209
 
 if.then209:                                       ; preds = %land.lhs.true206
   %call212 = invoke i32 @uloc_getLanguage_75(ptr noundef nonnull %32, ptr noundef nonnull %validLang, i32 noundef 12, ptr noundef nonnull %subStatus)
@@ -4784,15 +4784,15 @@ invoke.cont211:                                   ; preds = %if.then209
 
 invoke.cont215:                                   ; preds = %invoke.cont211
   %34 = load i32, ptr %subStatus, align 4
-  %cmp.i114 = icmp sgt i32 %34, 0
-  br i1 %cmp.i114, label %if.end230.thread159, label %land.lhs.true220
+  %cmp.i116 = icmp sgt i32 %34, 0
+  br i1 %cmp.i116, label %if.end230.thread161, label %land.lhs.true220
 
 land.lhs.true220:                                 ; preds = %invoke.cont215
   %call223 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %validLang, ptr noundef nonnull dereferenceable(1) %parentLang) #24
   %cmp224.not = icmp eq i32 %call223, 0
-  br i1 %cmp224.not, label %if.end230.thread159, label %if.end230
+  br i1 %cmp224.not, label %if.end230.thread161, label %if.end230
 
-if.end230.thread159:                              ; preds = %land.lhs.true220, %invoke.cont215, %land.lhs.true206, %land.lhs.true202, %invoke.cont195
+if.end230.thread161:                              ; preds = %land.lhs.true220, %invoke.cont215, %land.lhs.true206, %land.lhs.true202, %invoke.cont195
   store i32 0, ptr %subStatus, align 4
   br label %if.then232
 
@@ -4801,16 +4801,16 @@ if.end230:                                        ; preds = %land.lhs.true220
   store i32 0, ptr %subStatus, align 4
   br label %if.end236
 
-if.then232:                                       ; preds = %if.end189, %land.lhs.true191, %if.end230.thread159
+if.then232:                                       ; preds = %if.end189, %land.lhs.true191, %if.end230.thread161
   %call235 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %found, ptr noundef nonnull dereferenceable(1) %parent) #20
   br label %if.end236
 
 if.end236:                                        ; preds = %if.end230, %if.then232
-  invoke fastcc void @_ZL32getParentForFunctionalEquivalentPKcP15UResourceBundleS2_Pci(ptr noundef nonnull %found, ptr noundef %call.i98, ptr noundef nonnull %bund1, ptr noundef nonnull %parent, i32 noundef 1023)
+  invoke fastcc void @_ZL32getParentForFunctionalEquivalentPKcP15UResourceBundleS2_Pci(ptr noundef nonnull %found, ptr noundef %call.i99, ptr noundef nonnull %bund1, ptr noundef nonnull %parent, i32 noundef 1023)
           to label %invoke.cont239 unwind label %lpad2.loopexit.split-lp.loopexit
 
 invoke.cont239:                                   ; preds = %if.end236
-  invoke fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef %call.i98, i8 noundef signext 1)
+  invoke fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef %call.i99, i8 noundef signext 1)
           to label %invoke.cont240 unwind label %lpad2.loopexit.split-lp.loopexit
 
 invoke.cont240:                                   ; preds = %invoke.cont239
@@ -4824,8 +4824,8 @@ invoke.cont240:                                   ; preds = %invoke.cont239
 
 land.rhs247:                                      ; preds = %invoke.cont240
   %37 = load i32, ptr %status, align 4
-  %cmp.i117 = icmp sgt i32 %37, 0
-  br i1 %cmp.i117, label %land.lhs.true256, label %do.body125, !llvm.loop !22
+  %cmp.i119 = icmp sgt i32 %37, 0
+  br i1 %cmp.i119, label %land.lhs.true256, label %do.body125, !llvm.loop !22
 
 do.end252:                                        ; preds = %invoke.cont240
   br i1 %tobool243, label %land.lhs.true256, label %if.end360
@@ -4839,11 +4839,11 @@ invoke.cont259:                                   ; preds = %land.lhs.true256
   %39 = getelementptr inbounds i8, ptr %agg.tmp257, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = load i32, ptr %len.i75, align 8
-  %cmp.i.i119 = icmp eq i32 %41, %40
-  br i1 %cmp.i.i119, label %land.rhs.i.i, label %invoke.cont259.if.then262_crit_edge
+  %cmp.i.i121 = icmp eq i32 %41, %40
+  br i1 %cmp.i.i121, label %land.rhs.i.i, label %invoke.cont259.if.then262_crit_edge
 
 invoke.cont259.if.then262_crit_edge:              ; preds = %invoke.cont259
-  %.pre176 = load ptr, ptr %kwVal, align 8
+  %.pre178 = load ptr, ptr %kwVal, align 8
   br label %if.then262
 
 land.rhs.i.i:                                     ; preds = %invoke.cont259
@@ -4858,7 +4858,7 @@ invoke.cont260:                                   ; preds = %land.rhs.i.i
   br i1 %cmp8.i.i.not, label %if.end360, label %if.then262
 
 if.then262:                                       ; preds = %invoke.cont259.if.then262_crit_edge, %invoke.cont260
-  %43 = phi ptr [ %.pre176, %invoke.cont259.if.then262_crit_edge ], [ %42, %invoke.cont260 ]
+  %43 = phi ptr [ %.pre178, %invoke.cont259.if.then262_crit_edge ], [ %42, %invoke.cont260 ]
   store i32 0, ptr %len.i75, align 8
   store i8 0, ptr %43, align 1
   invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp265, ptr noundef nonnull %defVal)
@@ -4868,7 +4868,7 @@ invoke.cont267:                                   ; preds = %if.then262
   %44 = load ptr, ptr %agg.tmp265, align 8
   %45 = getelementptr inbounds i8, ptr %agg.tmp265, i64 8
   %46 = load i32, ptr %45, align 8
-  %call3.i121 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %kwVal, ptr noundef %44, i32 noundef %46, ptr noundef nonnull align 4 dereferenceable(4) %subStatus)
+  %call3.i123 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %kwVal, ptr noundef %44, i32 noundef %46, ptr noundef nonnull align 4 dereferenceable(4) %subStatus)
           to label %invoke.cont268 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont268:                                   ; preds = %invoke.cont267
@@ -4880,13 +4880,13 @@ invoke.cont271:                                   ; preds = %invoke.cont268
           to label %do.body276 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 do.body276:                                       ; preds = %invoke.cont271, %land.rhs354
-  %call.i123 = invoke fastcc noundef ptr @_ZL17ures_openWithTypeP15UResourceBundlePKcS2_12UResOpenTypeP10UErrorCode(ptr noundef null, ptr noundef %path, ptr noundef nonnull %parent, i32 noundef 0, ptr noundef nonnull %subStatus)
+  %call.i125 = invoke fastcc noundef ptr @_ZL17ures_openWithTypeP15UResourceBundlePKcS2_12UResOpenTypeP10UErrorCode(ptr noundef null, ptr noundef %path, ptr noundef nonnull %parent, i32 noundef 0, ptr noundef nonnull %subStatus)
           to label %if.end284 unwind label %lpad2.loopexit
 
 if.end284:                                        ; preds = %do.body276
   %47 = load i32, ptr %subStatus, align 4
-  %cmp.i125 = icmp slt i32 %47, 1
-  br i1 %cmp.i125, label %if.else289, label %if.then288
+  %cmp.i127 = icmp slt i32 %47, 1
+  br i1 %cmp.i127, label %if.else289, label %if.then288
 
 if.then288:                                       ; preds = %if.end284
   store i32 %47, ptr %status, align 4
@@ -4897,7 +4897,7 @@ if.else289:                                       ; preds = %if.end284
   br i1 %cmp290, label %if.then291, label %if.end340
 
 if.then291:                                       ; preds = %if.else289
-  %call293 = invoke ptr @ures_getByKey_75(ptr noundef %call.i123, ptr noundef %resName, ptr noundef nonnull %bund1, ptr noundef nonnull %subStatus)
+  %call293 = invoke ptr @ures_getByKey_75(ptr noundef %call.i125, ptr noundef %resName, ptr noundef nonnull %bund1, ptr noundef nonnull %subStatus)
           to label %invoke.cont292 unwind label %lpad2.loopexit
 
 invoke.cont292:                                   ; preds = %if.then291
@@ -4937,10 +4937,10 @@ if.then317:                                       ; preds = %if.end311
 
 invoke.cont320:                                   ; preds = %if.then317
   %52 = load i32, ptr %subStatus, align 4
-  %cmp.i127 = icmp slt i32 %52, 1
+  %cmp.i129 = icmp slt i32 %52, 1
   %53 = load i32, ptr %defLen319, align 4
   %tobool326 = icmp ne i32 %53, 0
-  %or.cond9 = select i1 %cmp.i127, i1 %tobool326, i1 false
+  %or.cond9 = select i1 %cmp.i129, i1 %tobool326, i1 false
   br i1 %or.cond9, label %if.then327, label %if.end340
 
 if.then327:                                       ; preds = %invoke.cont320
@@ -4957,11 +4957,11 @@ invoke.cont331:                                   ; preds = %invoke.cont329
 
 if.end340:                                        ; preds = %if.else289, %invoke.cont298, %invoke.cont320, %invoke.cont331, %if.end311, %invoke.cont292, %if.then288
   %call343 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %found, ptr noundef nonnull dereferenceable(1) %parent) #20
-  invoke fastcc void @_ZL32getParentForFunctionalEquivalentPKcP15UResourceBundleS2_Pci(ptr noundef nonnull %found, ptr noundef %call.i123, ptr noundef nonnull %bund1, ptr noundef nonnull %parent, i32 noundef 1023)
+  invoke fastcc void @_ZL32getParentForFunctionalEquivalentPKcP15UResourceBundleS2_Pci(ptr noundef nonnull %found, ptr noundef %call.i125, ptr noundef nonnull %bund1, ptr noundef nonnull %parent, i32 noundef 1023)
           to label %invoke.cont346 unwind label %lpad2.loopexit
 
 invoke.cont346:                                   ; preds = %if.end340
-  invoke fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef %call.i123, i8 noundef signext 1)
+  invoke fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef %call.i125, i8 noundef signext 1)
           to label %invoke.cont347 unwind label %lpad2.loopexit
 
 invoke.cont347:                                   ; preds = %invoke.cont346
@@ -4975,13 +4975,13 @@ invoke.cont347:                                   ; preds = %invoke.cont346
 
 land.rhs354:                                      ; preds = %invoke.cont347
   %56 = load i32, ptr %status, align 4
-  %cmp.i130 = icmp sgt i32 %56, 0
-  br i1 %cmp.i130, label %if.end420, label %do.body276, !llvm.loop !23
+  %cmp.i132 = icmp sgt i32 %56, 0
+  br i1 %cmp.i132, label %if.end420, label %do.body276, !llvm.loop !23
 
 if.end360:                                        ; preds = %invoke.cont347, %land.rhs.i.i, %invoke.cont260, %do.end252
   %.pr = load i32, ptr %status, align 4
-  %cmp.i132 = icmp sgt i32 %.pr, 0
-  br i1 %cmp.i132, label %if.end420, label %if.then364
+  %cmp.i134 = icmp sgt i32 %.pr, 0
+  br i1 %cmp.i134, label %if.end420, label %if.then364
 
 if.then364:                                       ; preds = %if.end360
   %57 = load i8, ptr %full, align 16
@@ -5011,34 +5011,34 @@ invoke.cont379:                                   ; preds = %if.then376
   %59 = getelementptr inbounds i8, ptr %agg.tmp377, i64 8
   %60 = load i32, ptr %59, align 8
   %61 = load i32, ptr %len.i75, align 8
-  %cmp.i135 = icmp eq i32 %61, %60
-  br i1 %cmp.i135, label %land.rhs.i136, label %if.end388
+  %cmp.i137 = icmp eq i32 %61, %60
+  br i1 %cmp.i137, label %land.rhs.i138, label %if.end388
 
-land.rhs.i136:                                    ; preds = %invoke.cont379
-  %cmp3.i137 = icmp eq i32 %60, 0
-  %.pre177 = load ptr, ptr %kwVal, align 8
-  br i1 %cmp3.i137, label %if.then382, label %invoke.cont380
+land.rhs.i138:                                    ; preds = %invoke.cont379
+  %cmp3.i139 = icmp eq i32 %60, 0
+  %.pre179 = load ptr, ptr %kwVal, align 8
+  br i1 %cmp3.i139, label %if.then382, label %invoke.cont380
 
-invoke.cont380:                                   ; preds = %land.rhs.i136
-  %conv.i139 = sext i32 %60 to i64
-  %bcmp.i140 = call i32 @bcmp(ptr %.pre177, ptr %58, i64 %conv.i139)
-  %cmp8.i141 = icmp eq i32 %bcmp.i140, 0
-  br i1 %cmp8.i141, label %if.then382, label %if.end388thread-pre-split
+invoke.cont380:                                   ; preds = %land.rhs.i138
+  %conv.i141 = sext i32 %60 to i64
+  %bcmp.i142 = call i32 @bcmp(ptr %.pre179, ptr %58, i64 %conv.i141)
+  %cmp8.i143 = icmp eq i32 %bcmp.i142, 0
+  br i1 %cmp8.i143, label %if.then382, label %if.end388thread-pre-split
 
-if.then382:                                       ; preds = %land.rhs.i136, %invoke.cont380
+if.then382:                                       ; preds = %land.rhs.i138, %invoke.cont380
   store i32 0, ptr %len.i75, align 8
-  store i8 0, ptr %.pre177, align 1
+  store i8 0, ptr %.pre179, align 1
   br label %if.end388thread-pre-split
 
 if.end388thread-pre-split:                        ; preds = %if.then367, %if.then370, %if.then382, %invoke.cont380, %if.else368
-  %.pr179 = load i32, ptr %len.i75, align 8
+  %.pr181 = load i32, ptr %len.i75, align 8
   br label %if.end388
 
 if.end388:                                        ; preds = %if.end388thread-pre-split, %invoke.cont379
-  %62 = phi i32 [ %.pr179, %if.end388thread-pre-split ], [ %61, %invoke.cont379 ]
+  %62 = phi i32 [ %.pr181, %if.end388thread-pre-split ], [ %61, %invoke.cont379 ]
   %call391 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %found, ptr noundef nonnull dereferenceable(1) %full) #20
-  %cmp.i145.not = icmp eq i32 %62, 0
-  br i1 %cmp.i145.not, label %if.else406, label %if.then395
+  %cmp.i147.not = icmp eq i32 %62, 0
+  br i1 %cmp.i147.not, label %if.else406, label %if.then395
 
 if.then395:                                       ; preds = %if.end388
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %found)
@@ -5082,8 +5082,8 @@ invoke.cont422:                                   ; preds = %invoke.cont421
   %call424 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %found) #24
   %conv425 = trunc i64 %call424 to i32
   %64 = load i32, ptr %status, align 4
-  %cmp.i149 = icmp sgt i32 %64, 0
-  br i1 %cmp.i149, label %if.else441, label %if.then429
+  %cmp.i151 = icmp sgt i32 %64, 0
+  br i1 %cmp.i151, label %if.else441, label %if.then429
 
 if.then429:                                       ; preds = %invoke.cont422
   %call431 = invoke i32 @uprv_min_75(i32 noundef %conv425, i32 noundef %resultCapacity)
@@ -5121,7 +5121,7 @@ cleanup:                                          ; preds = %if.end443, %if.then
   br label %cleanup446
 
 ehcleanup:                                        ; preds = %lpad2.loopexit, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad2.loopexit.split-lp.loopexit, %lpad15, %lpad4
-  %.pn = phi { ptr, i32 } [ %10, %lpad15 ], [ %8, %lpad4 ], [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit166, %lpad2.loopexit.split-lp.loopexit ], [ %lpad.loopexit169, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit171, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp172, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad15 ], [ %8, %lpad4 ], [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit168, %lpad2.loopexit.split-lp.loopexit ], [ %lpad.loopexit171, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit173, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp174, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %kwVal) #20
   br label %ehcleanup447
 

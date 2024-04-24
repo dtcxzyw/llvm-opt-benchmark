@@ -389,7 +389,7 @@ define noundef i32 @Cudd_bddIterConjDecomp(ptr noundef %0, ptr noundef %1, ptr n
   br label %131
 
 117:                                              ; preds = %107
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %106) #8
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %108) #8
   %118 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #9
   store ptr %118, ptr %2, align 8
   %119 = icmp eq ptr %118, null
@@ -2066,7 +2066,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   br i1 %60, label %61, label %85
 
 61:                                               ; preds = %57
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %29) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %59) #8
   %62 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %67

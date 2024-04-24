@@ -461,7 +461,7 @@ _ZNSt6vectorISt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS2_EESaIS5_
 
 .lr.ph:                                           ; preds = %.preheader, %106
   %indvars.iv = phi i64 [ %indvars.iv.next, %106 ], [ 0, %.preheader ]
-  %105 = trunc i64 %indvars.iv to i32
+  %105 = trunc nuw nsw i64 %indvars.iv to i32
   invoke fastcc void @"_ZZNK5faiss17IndexSplitVectors6searchElPKflPfPlPKNS_16SearchParametersEENK3$_1clEi"(ptr noundef nonnull align 8 dereferenceable(64) %13, i32 noundef %105)
           to label %106 unwind label %108
 
@@ -598,7 +598,7 @@ _ZNSt6vectorISt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS2_EESaIS5_
           to label %154 unwind label %.loopexit.split-lp.loopexit
 
 154:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit
-  %155 = trunc i64 %indvars.iv156 to i32
+  %155 = trunc nuw nsw i64 %indvars.iv156 to i32
   store i32 %155, ptr %153, align 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %153, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(68) %.sroa.2, i64 68, i1 false)
@@ -798,7 +798,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNSt6futureIbED2Ev
 
 ._crit_edge139:                                   ; preds = %._crit_edge.thread, %._crit_edge139.loopexit, %._crit_edge
   %224 = phi ptr [ %220, %._crit_edge139.loopexit ], [ %220, %._crit_edge ], [ %112, %._crit_edge.thread ]
-  %225 = phi ptr [ %.pre169, %._crit_edge139.loopexit ], [ %.pre168, %._crit_edge ], [ null, %._crit_edge.thread ]
+  %225 = phi ptr [ %.pre169, %._crit_edge139.loopexit ], [ %.pre, %._crit_edge ], [ null, %._crit_edge.thread ]
   %226 = load ptr, ptr %224, align 8
   %.not4.i.i.i.i = icmp eq ptr %225, %226
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt6futureIbES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -2581,7 +2581,7 @@ define void @_ZN5faiss17IndexSplitVectorsD2Ev(ptr noundef nonnull align 8 derefe
   br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %18, %..loopexit_crit_edge, %.preheader
-  %26 = phi ptr [ %.pre8, %..loopexit_crit_edge ], [ %7, %.preheader ], [ %19, %18 ]
+  %26 = phi ptr [ %.pre8, %..loopexit_crit_edge ], [ %8, %.preheader ], [ %19, %18 ]
   %.not.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN5faiss5IndexESaIS2_EED2Ev.exit, label %27
 

@@ -3085,7 +3085,7 @@ define void @_ZN6colvar12alpha_anglesD2Ev(ptr noundef nonnull align 8 dereferenc
   br i1 %.not2, label %._crit_edge, label %.lr.ph7, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %33, %.preheader
-  %.lcssa = phi ptr [ %9, %.preheader ], [ %34, %33 ]
+  %.lcssa = phi ptr [ %10, %.preheader ], [ %34, %33 ]
   %37 = getelementptr inbounds i8, ptr %0, i64 576
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 584
@@ -5001,7 +5001,7 @@ define void @_ZN6colvar7dihedPCD2Ev(ptr noundef nonnull align 8 dereferenceable(
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %16, %1
-  %20 = phi ptr [ %5, %1 ], [ %17, %16 ]
+  %20 = phi ptr [ %6, %1 ], [ %17, %16 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 576
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 584

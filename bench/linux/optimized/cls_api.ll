@@ -299,13 +299,13 @@ define dso_local void @unregister_tcf_proto_ops(ptr noundef %0) #0 align 16 {
   br i1 %8, label %9, label %3, !llvm.loop !9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %0, align 8
+  %12 = load ptr, ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %13, align 8
   store volatile ptr %12, ptr %11, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %5, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %10, align 8
   tail call void @_raw_write_unlock(ptr noundef nonnull @cls_mod_lock) #14
   br label %16
@@ -8436,8 +8436,8 @@ define internal fastcc void @tcf_chain_tp_delete_empty(ptr noundef %0, ptr nound
   br i1 %11, label %12, label %6, !llvm.loop !94
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 60
+  %13 = load ptr, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %8, i64 60
   %15 = load i8, ptr %14, align 4, !range !17, !noundef !18
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %18, label %17, !prof !21
@@ -8458,139 +8458,140 @@ define internal fastcc void @tcf_chain_tp_delete_empty(ptr noundef %0, ptr nound
 
 24:                                               ; preds = %18
   %25 = tail call zeroext i1 %22(ptr noundef %1) #14
-  br i1 %25, label %27, label %.loopexit8
+  br i1 %25, label %28, label %.loopexit8
 
 26:                                               ; preds = %18
-  store i8 1, ptr %14, align 4
-  br label %27
+  %27 = getelementptr inbounds i8, ptr %1, i64 60
+  store i8 1, ptr %27, align 4
+  br label %28
 
 .loopexit8:                                       ; preds = %6, %24
   tail call void @mutex_unlock(ptr noundef %0) #14
   br label %.thread7
 
-27:                                               ; preds = %26, %24
-  %28 = getelementptr i8, ptr %0, i64 56
-  %.val = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.val, i64 1248
-  tail call void @mutex_lock(ptr noundef %29) #14
-  %30 = getelementptr inbounds i8, ptr %1, i64 88
-  %31 = getelementptr inbounds i8, ptr %.val, i64 224
-  %32 = getelementptr inbounds i8, ptr %1, i64 48
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 64
-  %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 28
-  %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %1, i64 24
-  %39 = load i16, ptr %38, align 8
-  %40 = zext i16 %39 to i32
-  %41 = add i32 %35, -559038725
-  %42 = add i32 %37, -559038725
-  %43 = add nuw nsw i32 %40, -559038725
-  %44 = xor i32 %43, %42
-  %45 = tail call noundef i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 14)
-  %46 = sub i32 %44, %45
-  %47 = xor i32 %46, %41
-  %48 = tail call noundef i32 @llvm.fshl.i32(i32 %46, i32 %46, i32 11)
-  %49 = sub i32 %47, %48
-  %50 = xor i32 %49, %42
-  %51 = tail call noundef i32 @llvm.fshl.i32(i32 %49, i32 %49, i32 25)
-  %52 = sub i32 %50, %51
-  %53 = xor i32 %52, %46
-  %54 = tail call noundef i32 @llvm.fshl.i32(i32 %52, i32 %52, i32 16)
-  %55 = sub i32 %53, %54
-  %56 = xor i32 %55, %49
-  %57 = tail call noundef i32 @llvm.fshl.i32(i32 %55, i32 %55, i32 4)
-  %58 = sub i32 %56, %57
-  %59 = xor i32 %58, %52
-  %60 = tail call noundef i32 @llvm.fshl.i32(i32 %58, i32 %58, i32 14)
-  %61 = sub i32 %59, %60
-  %62 = xor i32 %61, %55
-  %63 = tail call noundef i32 @llvm.fshl.i32(i32 %61, i32 %61, i32 24)
-  %64 = sub i32 %62, %63
-  %65 = mul i32 %64, 1640531527
-  %66 = lshr i32 %65, 25
-  %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr [128 x %struct.hlist_head], ptr %31, i64 0, i64 %67
-  %69 = load ptr, ptr %68, align 8
-  store ptr %69, ptr %30, align 8
-  %70 = getelementptr inbounds i8, ptr %1, i64 96
-  store volatile ptr %68, ptr %70, align 8
+28:                                               ; preds = %26, %24
+  %29 = getelementptr i8, ptr %0, i64 56
+  %.val = load ptr, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %.val, i64 1248
+  tail call void @mutex_lock(ptr noundef %30) #14
+  %31 = getelementptr inbounds i8, ptr %1, i64 88
+  %32 = getelementptr inbounds i8, ptr %.val, i64 224
+  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 64
+  %36 = load i32, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %1, i64 28
+  %38 = load i32, ptr %37, align 4
+  %39 = getelementptr inbounds i8, ptr %1, i64 24
+  %40 = load i16, ptr %39, align 8
+  %41 = zext i16 %40 to i32
+  %42 = add i32 %36, -559038725
+  %43 = add i32 %38, -559038725
+  %44 = add nuw nsw i32 %41, -559038725
+  %45 = xor i32 %44, %43
+  %46 = tail call noundef i32 @llvm.fshl.i32(i32 %43, i32 %43, i32 14)
+  %47 = sub i32 %45, %46
+  %48 = xor i32 %47, %42
+  %49 = tail call noundef i32 @llvm.fshl.i32(i32 %47, i32 %47, i32 11)
+  %50 = sub i32 %48, %49
+  %51 = xor i32 %50, %43
+  %52 = tail call noundef i32 @llvm.fshl.i32(i32 %50, i32 %50, i32 25)
+  %53 = sub i32 %51, %52
+  %54 = xor i32 %53, %47
+  %55 = tail call noundef i32 @llvm.fshl.i32(i32 %53, i32 %53, i32 16)
+  %56 = sub i32 %54, %55
+  %57 = xor i32 %56, %50
+  %58 = tail call noundef i32 @llvm.fshl.i32(i32 %56, i32 %56, i32 4)
+  %59 = sub i32 %57, %58
+  %60 = xor i32 %59, %53
+  %61 = tail call noundef i32 @llvm.fshl.i32(i32 %59, i32 %59, i32 14)
+  %62 = sub i32 %60, %61
+  %63 = xor i32 %62, %56
+  %64 = tail call noundef i32 @llvm.fshl.i32(i32 %62, i32 %62, i32 24)
+  %65 = sub i32 %63, %64
+  %66 = mul i32 %65, 1640531527
+  %67 = lshr i32 %66, 25
+  %68 = zext nneg i32 %67 to i64
+  %69 = getelementptr [128 x %struct.hlist_head], ptr %32, i64 0, i64 %68
+  %70 = load ptr, ptr %69, align 8
+  store ptr %70, ptr %31, align 8
+  %71 = getelementptr inbounds i8, ptr %1, i64 96
+  store volatile ptr %69, ptr %71, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !78
-  store volatile ptr %30, ptr %68, align 8
-  %71 = icmp eq ptr %69, null
-  br i1 %71, label %tcf_proto_signal_destroying.exit, label %72
+  store volatile ptr %31, ptr %69, align 8
+  %72 = icmp eq ptr %70, null
+  br i1 %72, label %tcf_proto_signal_destroying.exit, label %73
 
-72:                                               ; preds = %27
-  %73 = getelementptr inbounds i8, ptr %69, i64 8
-  store volatile ptr %30, ptr %73, align 8
+73:                                               ; preds = %28
+  %74 = getelementptr inbounds i8, ptr %70, i64 8
+  store volatile ptr %31, ptr %74, align 8
   br label %tcf_proto_signal_destroying.exit
 
-tcf_proto_signal_destroying.exit:                 ; preds = %27, %72
-  tail call void @mutex_unlock(ptr noundef %29) #14
-  %74 = load ptr, ptr %5, align 8
-  %75 = icmp eq ptr %74, %1
-  br i1 %75, label %76, label %96
+tcf_proto_signal_destroying.exit:                 ; preds = %28, %73
+  tail call void @mutex_unlock(ptr noundef %30) #14
+  %75 = load ptr, ptr %5, align 8
+  %76 = icmp eq ptr %75, %1
+  br i1 %76, label %77, label %97
 
-76:                                               ; preds = %tcf_proto_signal_destroying.exit
-  %77 = getelementptr inbounds i8, ptr %0, i64 64
-  %78 = load i32, ptr %77, align 8
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %96
+77:                                               ; preds = %tcf_proto_signal_destroying.exit
+  %78 = getelementptr inbounds i8, ptr %0, i64 64
+  %79 = load i32, ptr %78, align 8
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %97
 
-80:                                               ; preds = %76
-  %81 = load ptr, ptr %28, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
-  tail call void @mutex_lock(ptr noundef %82) #14
-  %83 = getelementptr inbounds i8, ptr %81, i64 192
-  %84 = load ptr, ptr %83, align 8
-  %85 = icmp eq ptr %84, %83
-  br i1 %85, label %.loopexit, label %.preheader
+81:                                               ; preds = %77
+  %82 = load ptr, ptr %29, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  tail call void @mutex_lock(ptr noundef %83) #14
+  %84 = getelementptr inbounds i8, ptr %82, i64 192
+  %85 = load ptr, ptr %84, align 8
+  %86 = icmp eq ptr %85, %84
+  br i1 %86, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %80, %93
-  %86 = phi ptr [ %94, %93 ], [ %84, %80 ]
-  %87 = getelementptr inbounds i8, ptr %86, i64 16
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %93, label %90
+.preheader:                                       ; preds = %81, %94
+  %87 = phi ptr [ %95, %94 ], [ %85, %81 ]
+  %88 = getelementptr inbounds i8, ptr %87, i64 16
+  %89 = load ptr, ptr %88, align 8
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %94, label %91
 
-90:                                               ; preds = %.preheader
-  %91 = getelementptr inbounds i8, ptr %86, i64 24
-  %92 = load ptr, ptr %91, align 8
-  tail call void %88(ptr noundef %13, ptr noundef %92) #14
-  br label %93
+91:                                               ; preds = %.preheader
+  %92 = getelementptr inbounds i8, ptr %87, i64 24
+  %93 = load ptr, ptr %92, align 8
+  tail call void %89(ptr noundef %13, ptr noundef %93) #14
+  br label %94
 
-93:                                               ; preds = %90, %.preheader
-  %94 = load ptr, ptr %86, align 8
-  %95 = icmp eq ptr %94, %83
-  br i1 %95, label %.loopexit, label %.preheader, !llvm.loop !80
+94:                                               ; preds = %91, %.preheader
+  %95 = load ptr, ptr %87, align 8
+  %96 = icmp eq ptr %95, %84
+  br i1 %96, label %.loopexit, label %.preheader, !llvm.loop !80
 
-.loopexit:                                        ; preds = %93, %80
-  tail call void @mutex_unlock(ptr noundef %82) #14
-  br label %96
+.loopexit:                                        ; preds = %94, %81
+  tail call void @mutex_unlock(ptr noundef %83) #14
+  br label %97
 
-96:                                               ; preds = %.loopexit, %76, %tcf_proto_signal_destroying.exit
+97:                                               ; preds = %.loopexit, %77, %tcf_proto_signal_destroying.exit
   store volatile ptr %13, ptr %7, align 8
   tail call void @mutex_unlock(ptr noundef %0) #14
-  %97 = getelementptr inbounds i8, ptr %1, i64 64
-  %98 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %97, i32 -1, ptr elementtype(i32) %97) #14, !srcloc !20
-  %99 = icmp eq i32 %98, 1
-  br i1 %99, label %103, label %100
+  %98 = getelementptr inbounds i8, ptr %1, i64 64
+  %99 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %98, i32 -1, ptr elementtype(i32) %98) #14, !srcloc !20
+  %100 = icmp eq i32 %99, 1
+  br i1 %100, label %104, label %101
 
-100:                                              ; preds = %96
-  %101 = icmp sgt i32 %98, 0
-  br i1 %101, label %.thread7, label %102, !prof !21
+101:                                              ; preds = %97
+  %102 = icmp sgt i32 %99, 0
+  br i1 %102, label %.thread7, label %103, !prof !21
 
-102:                                              ; preds = %100
-  tail call void @refcount_warn_saturate(ptr noundef %97, i32 noundef 3) #14
+103:                                              ; preds = %101
+  tail call void @refcount_warn_saturate(ptr noundef %98, i32 noundef 3) #14
   br label %.thread7
 
-103:                                              ; preds = %96
+104:                                              ; preds = %97
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !22
   tail call fastcc void @tcf_proto_destroy(ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3)
   br label %.thread7
 
-.thread7:                                         ; preds = %100, %102, %103, %.loopexit8
+.thread7:                                         ; preds = %101, %103, %104, %.loopexit8
   ret void
 }
 

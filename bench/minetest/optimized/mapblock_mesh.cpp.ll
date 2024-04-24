@@ -2051,7 +2051,7 @@ invoke.cont17:                                    ; preds = %if.then
   br label %if.end
 
 if.else:                                          ; preds = %if.end.i, %for.cond.cleanup
-  %13 = phi ptr [ %cond.i31.i.i.i52, %for.cond.cleanup ], [ null, %if.end.i ]
+  %13 = phi ptr [ %incdec.ptr.i.i.i65, %for.cond.cleanup ], [ null, %if.end.i ]
   %root19 = getelementptr inbounds i8, ptr %this, i64 32
   store i32 -1, ptr %root19, align 8, !tbaa !83
   br label %if.end
@@ -7962,9 +7962,9 @@ lpad19.loopexit.split-lp:                         ; preds = %if.then.i.i.i.invok
   br label %ehcleanup
 
 if.end22:                                         ; preds = %invoke.cont.i.i63, %invoke.cont20, %invoke.cont20.thread, %if.then16
-  %23 = phi ptr [ %.pre, %invoke.cont.i.i63 ], [ %.pre, %invoke.cont20 ], [ %14, %if.then16 ], [ null, %invoke.cont20.thread ]
-  %24 = phi ptr [ %.pre, %invoke.cont.i.i63 ], [ %.pre, %invoke.cont20 ], [ %15, %if.then16 ], [ null, %invoke.cont20.thread ]
-  %25 = phi ptr [ %.pre, %invoke.cont.i.i63 ], [ %.pre, %invoke.cont20 ], [ %16, %if.then16 ], [ null, %invoke.cont20.thread ]
+  %23 = phi ptr [ %.pre, %invoke.cont.i.i63 ], [ %.pre176, %invoke.cont20 ], [ %14, %if.then16 ], [ null, %invoke.cont20.thread ]
+  %24 = phi ptr [ %.pre, %invoke.cont.i.i63 ], [ %.pre176, %invoke.cont20 ], [ %15, %if.then16 ], [ null, %invoke.cont20.thread ]
+  %25 = phi ptr [ %.pre, %invoke.cont.i.i63 ], [ %.pre176, %invoke.cont20 ], [ %16, %if.then16 ], [ null, %invoke.cont20.thread ]
   %26 = load ptr, ptr %add.ptr.i, align 8, !tbaa !91
   store ptr %26, ptr %current_buffer, align 8, !tbaa !32
   %.pre177 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i, align 8, !tbaa !111
@@ -8221,7 +8221,7 @@ if.end35:                                         ; preds = %if.else.i156
   br i1 %tobool.not.i.i.i160, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i161
 
 if.then.i.i.i161:                                 ; preds = %if.end35, %for.cond.cleanup
-  %56 = phi ptr [ %.pr, %if.end35 ], [ %49, %for.cond.cleanup ]
+  %56 = phi ptr [ %.pr, %if.end35 ], [ %50, %for.cond.cleanup ]
   call void @_ZdlPv(ptr noundef nonnull %56) #33
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
@@ -8385,9 +8385,9 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.invok
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont.i.i36, %invoke.cont, %invoke.cont.thread, %if.then
-  %13 = phi ptr [ %.pre, %invoke.cont.i.i36 ], [ %.pre, %invoke.cont ], [ %6, %if.then ], [ null, %invoke.cont.thread ]
-  %14 = phi ptr [ %.pre, %invoke.cont.i.i36 ], [ %.pre, %invoke.cont ], [ %7, %if.then ], [ null, %invoke.cont.thread ]
-  %15 = phi ptr [ %.pre, %invoke.cont.i.i36 ], [ %.pre, %invoke.cont ], [ %8, %if.then ], [ null, %invoke.cont.thread ]
+  %13 = phi ptr [ %.pre, %invoke.cont.i.i36 ], [ %.pre144, %invoke.cont ], [ %6, %if.then ], [ null, %invoke.cont.thread ]
+  %14 = phi ptr [ %.pre, %invoke.cont.i.i36 ], [ %.pre144, %invoke.cont ], [ %7, %if.then ], [ null, %invoke.cont.thread ]
+  %15 = phi ptr [ %.pre, %invoke.cont.i.i36 ], [ %.pre144, %invoke.cont ], [ %8, %if.then ], [ null, %invoke.cont.thread ]
   %16 = load ptr, ptr %__begin1.sroa.0.0143, align 8, !tbaa !91
   store ptr %16, ptr %current_buffer, align 8, !tbaa !32
   %.pre145 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i, align 8, !tbaa !111
@@ -8644,7 +8644,7 @@ if.end22:                                         ; preds = %if.else.i129
   br i1 %tobool.not.i.i.i133, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i134
 
 if.then.i.i.i134:                                 ; preds = %if.end22, %for.cond.cleanup
-  %46 = phi ptr [ %.pr, %if.end22 ], [ %39, %for.cond.cleanup ]
+  %46 = phi ptr [ %.pr, %if.end22 ], [ %40, %for.cond.cleanup ]
   call void @_ZdlPv(ptr noundef nonnull %46) #33
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 

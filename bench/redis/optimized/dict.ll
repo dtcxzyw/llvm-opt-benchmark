@@ -242,7 +242,7 @@ if.end.i:                                         ; preds = %if.end3
 if.end3.i:                                        ; preds = %if.end.i
   %sub.i = add nsw i64 %size, -1
   %2 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 true), !range !8
-  %3 = trunc i64 %2 to i8
+  %3 = trunc nuw nsw i64 %2 to i8
   %conv5.i = sub nuw nsw i8 64, %3
   br label %_dictNextExp.exit
 
@@ -2155,7 +2155,7 @@ cond.true37.if.end47_crit_edge:                   ; preds = %cond.true37
   br label %if.end47
 
 if.then45:                                        ; preds = %cond.true37, %dictGetKey.exit
-  %conv46 = trunc i64 %table.044 to i32
+  %conv46 = trunc nuw nsw i64 %table.044 to i32
   store i32 %conv46, ptr %table_index, align 4
   store ptr %ref.04356, ptr %plink, align 8
   %pauserehash = getelementptr inbounds i8, ptr %d, i64 48
@@ -3107,7 +3107,7 @@ while.end:                                        ; preds = %dictGetNext.exit, %
   %call96 = tail call i64 @random() #22
   %conv97 = zext nneg i32 %inc56 to i64
   %rem98 = srem i64 %call96, %conv97
-  %conv99 = trunc i64 %rem98 to i32
+  %conv99 = trunc nsw i64 %rem98 to i32
   %tobool101.not45 = icmp eq i32 %conv99, 0
   br i1 %tobool101.not45, label %return, label %while.body102
 
@@ -3156,7 +3156,7 @@ entry:
   %add = add i64 %1, %0
   %conv = zext i32 %count to i64
   %cmp = icmp ult i64 %add, %conv
-  %conv9 = trunc i64 %add to i32
+  %conv9 = trunc nuw i64 %add to i32
   %spec.select = select i1 %cmp, i32 %conv9, i32 %count
   %mul = mul i32 %spec.select, 10
   %conv10 = zext i32 %mul to i64
@@ -3357,7 +3357,7 @@ for.end194:                                       ; preds = %for.inc192
 end:                                              ; preds = %for.end194, %land.rhs, %while.end, %if.end92
   %stored.4 = phi i64 [ 0, %if.end92 ], [ %inc18596, %while.end ], [ %stored.3, %for.end194 ], [ %stored.085, %land.rhs ]
   %cond205 = tail call i64 @llvm.umin.i64(i64 %stored.4, i64 %conv11)
-  %conv206 = trunc i64 %cond205 to i32
+  %conv206 = trunc nuw i64 %cond205 to i32
   ret i32 %conv206
 }
 
@@ -4010,7 +4010,7 @@ while.end:                                        ; preds = %dictGetNext.exit, %
   br i1 %or.cond, label %for.body.backedge, label %return
 
 return:                                           ; preds = %while.end, %dictGetKey.exit.thread, %dictGetKey.exit, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %he.029, %dictGetKey.exit ], [ null, %while.end ], [ %oldptr, %dictGetKey.exit.thread ]
+  %retval.0 = phi ptr [ null, %entry ], [ %he.029, %dictGetKey.exit ], [ null, %while.end ], [ %he.029, %dictGetKey.exit.thread ]
   ret ptr %retval.0
 }
 

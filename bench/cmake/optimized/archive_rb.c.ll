@@ -121,12 +121,12 @@ define dso_local noundef i32 @__archive_rb_tree_insert_node(ptr noundef %0, ptr 
 .lr.ph:                                           ; preds = %2, %10
   %.03848 = phi ptr [ %.038, %10 ], [ %.03846, %2 ]
   %8 = tail call i32 %5(ptr noundef nonnull %.03848, ptr noundef %1) #4
-  %.fr104 = freeze i32 %8
-  %9 = icmp eq i32 %.fr104, 0
+  %.fr105 = freeze i32 %8
+  %9 = icmp eq i32 %.fr105, 0
   br i1 %9, label %__archive_rb_tree_insert_rebalance.exit, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = icmp sgt i32 %.fr104, 0
+  %11 = icmp sgt i32 %.fr105, 0
   %12 = zext i1 %11 to i64
   %13 = getelementptr inbounds [2 x ptr], ptr %.03848, i64 0, i64 %12
   %.038 = load ptr, ptr %13, align 8
@@ -259,13 +259,13 @@ define dso_local noundef i32 @__archive_rb_tree_insert_node(ptr noundef %0, ptr 
   %91 = lshr i64 %.lcssa44.i, 1
   %92 = and i64 %91, 1
   %93 = getelementptr inbounds [2 x ptr], ptr %.lcssa40.i, i64 0, i64 %92
-  store ptr %.0.lcssa.i, ptr %93, align 8
+  store ptr %87, ptr %93, align 8
   %94 = zext i1 %.lcssa38.i to i64
-  %95 = getelementptr inbounds [2 x ptr], ptr %.0.lcssa.i, i64 0, i64 %94
+  %95 = getelementptr inbounds [2 x ptr], ptr %87, i64 0, i64 %94
   %96 = load ptr, ptr %95, align 8
   store ptr %96, ptr %86, align 8
   store ptr %.025.lcssa.i, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 16
+  %97 = getelementptr inbounds i8, ptr %87, i64 16
   %98 = load i64, ptr %97, align 8
   %99 = and i64 %98, 3
   %100 = or disjoint i64 %99, %.lcssa42.i
@@ -376,11 +376,12 @@ __archive_rb_tree_reparent_nodes.exit36.i:        ; preds = %.sink.split.i32.i, 
 
 .critedge:                                        ; preds = %.thread88, %14
   %165 = phi i64 [ %.masked80, %.thread88 ], [ %18, %14 ]
+  %.039.lcssa8294 = phi ptr [ %0, %.thread88 ], [ %.03848, %14 ]
   %.037.lcssa8493 = phi i64 [ 0, %.thread88 ], [ %15, %14 ]
   %166 = phi ptr [ %7, %.thread88 ], [ %17, %14 ]
   %167 = and i64 %165, -2
   store i64 %167, ptr %166, align 8
-  %168 = getelementptr inbounds [2 x ptr], ptr %0, i64 0, i64 %.037.lcssa8493
+  %168 = getelementptr inbounds [2 x ptr], ptr %.039.lcssa8294, i64 0, i64 %.037.lcssa8493
   %169 = load ptr, ptr %168, align 8
   store ptr %169, ptr %1, align 8
   %170 = getelementptr inbounds i8, ptr %1, i64 8
@@ -516,7 +517,7 @@ __archive_rb_tree_iterate.exit:                   ; preds = %68, %67, %.lr.ph.i,
   %72 = load i64, ptr %71, align 8
   %73 = lshr i64 %72, 1
   %.lobit.i = and i64 %73, 1
-  %74 = trunc i64 %.lobit.i to i32
+  %74 = trunc nuw nsw i64 %.lobit.i to i32
   %75 = xor i64 %.lobit.i, 1
   %76 = and i64 %72, -4
   %77 = inttoptr i64 %76 to ptr

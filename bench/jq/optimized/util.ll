@@ -746,7 +746,7 @@ thread-pre-split:                                 ; preds = %4, %7
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %.thread111
-  tail call void @clearerr(ptr noundef nonnull %.pr97114) #12
+  tail call void @clearerr(ptr noundef %17) #12
   br label %22
 
 20:                                               ; preds = %.thread111

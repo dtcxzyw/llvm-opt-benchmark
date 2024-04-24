@@ -1363,7 +1363,7 @@ _ZN14regex_automata4util6search5Input8set_span17h7ff3ee01fe0086b5E.exit.i.us.i: 
   br i1 %122, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h032d28ce674adf87E.exit77.i.i", label %.lr.ph.i73.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h032d28ce674adf87E.exit77.i.i": ; preds = %121, %120, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit103.thr_comm.thread.i.i"
-  %.lcssa216246.i.i = phi ptr [ %116, %120 ], [ %59, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit103.thr_comm.thread.i.i" ], [ %59, %121 ]
+  %.lcssa216246.i.i = phi ptr [ %116, %120 ], [ %.lcssa216247.i.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit103.thr_comm.thread.i.i" ], [ %116, %121 ]
   %123 = phi i1 [ true, %120 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit103.thr_comm.thread.i.i" ], [ false, %121 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
   %124 = icmp eq ptr %.lcssa220251.i.i, %60
@@ -1386,7 +1386,7 @@ _ZN14regex_automata4util6search5Input8set_span17h7ff3ee01fe0086b5E.exit.i.us.i: 
   br i1 %123, label %140, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h032d28ce674adf87E.exit83.thread.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h032d28ce674adf87E.exit83.thread.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h032d28ce674adf87E.exit83.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h032d28ce674adf87E.exit77.i.i", %130
-  %.promoted.i104.i.i = phi ptr [ %60, %130 ], [ %60, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h032d28ce674adf87E.exit77.i.i" ], [ %126, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h032d28ce674adf87E.exit83.i.i" ]
+  %.promoted.i104.i.i = phi ptr [ %126, %130 ], [ %.lcssa220251.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h032d28ce674adf87E.exit77.i.i" ], [ %126, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h032d28ce674adf87E.exit83.i.i" ]
   %132 = icmp eq ptr %.lcssa216246.i.i, %59
   br i1 %132, label %._crit_edge.i87.i.i, label %.lr.ph.i85.i.i
 

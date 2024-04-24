@@ -237,7 +237,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -296,7 +296,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -688,7 +688,7 @@ _ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit44: ; preds = %land.rhs.i38, %wh
   %p.addr.0.lcssa.i33 = phi ptr [ %add.ptr34, %if.end32 ], [ %p.addr.05.i39, %land.rhs.i38 ], [ %scevgep.i37, %while.body.i41 ]
   store ptr %p.addr.0.lcssa.i33, ptr %p, align 8
   %cmp37.not = icmp eq ptr %p.addr.0.lcssa.i33, %add.ptr
-  br i1 %cmp37.not, label %if.end70, label %land.lhs.true
+  br i1 %cmp37.not, label %if.end64, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit44
   %18 = load i8, ptr %p.addr.0.lcssa.i33, align 1
@@ -795,9 +795,9 @@ _ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit83: ; preds = %land.rhs.i77, %wh
   store ptr %p.addr.0.lcssa.i72, ptr %p, align 8
   br label %if.end64
 
-if.end64:                                         ; preds = %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit83, %land.lhs.true
-  %28 = phi ptr [ %p.addr.0.lcssa.i72, %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit83 ], [ %p.addr.0.lcssa.i33, %land.lhs.true ]
-  %weight.0 = phi i32 [ %call58, %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit83 ], [ 1000, %land.lhs.true ]
+if.end64:                                         ; preds = %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit83, %land.lhs.true, %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit44
+  %28 = phi ptr [ %p.addr.0.lcssa.i72, %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit83 ], [ %p.addr.0.lcssa.i33, %land.lhs.true ], [ %p.addr.0.lcssa.i33, %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit44 ]
+  %weight.0 = phi i32 [ %call58, %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit83 ], [ 1000, %land.lhs.true ], [ 1000, %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit44 ]
   %cmp65.not = icmp eq ptr %28, %add.ptr
   br i1 %cmp65.not, label %if.end70, label %land.lhs.true66
 
@@ -806,15 +806,12 @@ land.lhs.true66:                                  ; preds = %if.end64
   %cmp68.not = icmp eq i8 %29, 44
   br i1 %cmp68.not, label %if.end70, label %cleanup77.thread87
 
-if.end70:                                         ; preds = %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit44, %land.lhs.true66, %if.end64
-  %cmp65.not94 = phi i1 [ false, %land.lhs.true66 ], [ true, %if.end64 ], [ true, %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit44 ]
-  %weight.093 = phi i32 [ %weight.0, %land.lhs.true66 ], [ %weight.0, %if.end64 ], [ 1000, %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit44 ]
-  %30 = phi ptr [ %28, %land.lhs.true66 ], [ %28, %if.end64 ], [ %add.ptr, %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit44 ]
-  %call72 = invoke noundef zeroext i1 @_ZN6icu_7518LocalePriorityList3addERKNS_6LocaleEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, i32 noundef %weight.093, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+if.end70:                                         ; preds = %land.lhs.true66, %if.end64
+  %call72 = invoke noundef zeroext i1 @_ZN6icu_7518LocalePriorityList3addERKNS_6LocaleEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, i32 noundef %weight.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont71 unwind label %lpad27
 
 invoke.cont71:                                    ; preds = %if.end70
-  br i1 %cmp65.not94, label %cleanup77.thread89, label %cleanup77
+  br i1 %cmp65.not, label %cleanup77.thread89, label %cleanup77
 
 cleanup77.thread89:                               ; preds = %invoke.cont71
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale) #13
@@ -828,33 +825,33 @@ cleanup77.thread87:                               ; preds = %land.lhs.true66, %_
   br label %return
 
 cleanup77:                                        ; preds = %invoke.cont71
-  %incdec.ptr76 = getelementptr inbounds i8, ptr %30, i64 1
+  %incdec.ptr76 = getelementptr inbounds i8, ptr %28, i64 1
   store ptr %incdec.ptr76, ptr %p, align 8
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale) #13
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %tag) #13
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %_ZN6icu_7512_GLOBAL__N_110skipSpacesEPKcS2_.exit, %cleanup77.thread89
-  %31 = load i32, ptr %errorCode, align 4
-  %cmp.i.i = icmp slt i32 %31, 1
+  %30 = load i32, ptr %errorCode, align 4
+  %cmp.i.i = icmp slt i32 %30, 1
   br i1 %cmp.i.i, label %lor.lhs.false.i, label %return
 
 lor.lhs.false.i:                                  ; preds = %while.end
-  %32 = load i32, ptr %listLength, align 8
-  %33 = load i32, ptr %numRemoved, align 4
-  %sub.i.i = sub nsw i32 %32, %33
+  %31 = load i32, ptr %listLength, align 8
+  %32 = load i32, ptr %numRemoved, align 4
+  %sub.i.i = sub nsw i32 %31, %32
   %cmp.i84 = icmp slt i32 %sub.i.i, 2
   br i1 %cmp.i84, label %return, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
-  %34 = load i8, ptr %hasWeights, align 8
-  %tobool4.i = trunc i8 %34 to i1
+  %33 = load i8, ptr %hasWeights, align 8
+  %tobool4.i = trunc i8 %33 to i1
   br i1 %tobool4.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false3.i
-  %35 = load ptr, ptr %this, align 8
-  %.val.i = load ptr, ptr %35, align 8
-  call void @uprv_sortArray_75(ptr noundef %.val.i, i32 noundef %32, i32 noundef 16, ptr noundef nonnull @_ZN6icu_7512_GLOBAL__N_122compareLocaleAndWeightEPKvS2_S2_, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %errorCode)
+  %34 = load ptr, ptr %this, align 8
+  %.val.i = load ptr, ptr %34, align 8
+  call void @uprv_sortArray_75(ptr noundef %.val.i, i32 noundef %31, i32 noundef 16, ptr noundef nonnull @_ZN6icu_7512_GLOBAL__N_122compareLocaleAndWeightEPKvS2_S2_, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %errorCode)
   br label %return
 
 return:                                           ; preds = %if.end.i, %lor.lhs.false3.i, %lor.lhs.false.i, %while.end, %cleanup77.thread87, %cleanup77.thread, %entry, %if.then16, %if.then5

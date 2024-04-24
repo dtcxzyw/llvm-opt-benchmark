@@ -5711,14 +5711,14 @@ define internal { i64, ptr } @"_ZN85_$LT$wasi_common..sync..sched..SyncSched$u20
   %40 = alloca { { i64, ptr, {} }, i64 }, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 32
   %42 = load i8, ptr %41, align 8, !range !176, !noundef !4
-  switch i8 %42, label %default.unreachable131 [
+  switch i8 %42, label %default.unreachable105 [
     i8 0, label %.thread
     i8 1, label %46
     i8 2, label %47
     i8 3, label %48
   ]
 
-default.unreachable131:                           ; preds = %48, %2
+default.unreachable105:                           ; preds = %48, %2
   unreachable
 
 .thread:                                          ; preds = %2
@@ -5746,7 +5746,7 @@ default.unreachable131:                           ; preds = %48, %2
 48:                                               ; preds = %2
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 24
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !884
-  switch i8 %.pre, label %default.unreachable131 [
+  switch i8 %.pre, label %default.unreachable105 [
     i8 0, label %49
     i8 1, label %.invoke
     i8 2, label %524
@@ -6585,7 +6585,7 @@ _ZN11wasi_common5sched4Poll23earliest_clock_deadline17h57f423e063c6bd4aE.exit195
   br i1 %332, label %.loopexit236.i, label %349
 
 .loopexit.i:                                      ; preds = %393, %319, %314
-  %.lcssa274.i = phi ptr [ %274, %314 ], [ %318, %319 ], [ %394, %393 ]
+  %.lcssa274.i = phi ptr [ %274, %314 ], [ %323, %319 ], [ %.promoted.i.i.i.i.i, %393 ]
   store ptr %.lcssa274.i, ptr %21, align 8, !alias.scope !1001, !noalias !1008
   br label %.loopexit236.i
 

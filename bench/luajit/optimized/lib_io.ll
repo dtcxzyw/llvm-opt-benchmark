@@ -445,7 +445,7 @@ io_tofile.exit:                                   ; preds = %io_tofilep.exit.i
 if.then11:                                        ; preds = %io_tofile.exit
   %9 = load i64, ptr %add.ptr, align 8
   %shr = ashr i64 %9, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp12 = icmp ult i32 %conv, -14
   br i1 %cmp12, label %if.then14, label %if.else16
 
@@ -767,7 +767,7 @@ for.body:                                         ; preds = %if.else, %for.inc
   %add.ptr = getelementptr inbounds %union.TValue, ptr %3, i64 %indvars.iv
   %4 = load i64, ptr %add.ptr, align 8
   %shr = ashr i64 %4, 47
-  %conv6 = trunc i64 %shr to i32
+  %conv6 = trunc nsw i64 %shr to i32
   %cmp7 = icmp eq i32 %conv6, -5
   br i1 %cmp7, label %if.then9, label %if.else47
 
@@ -862,7 +862,7 @@ if.then13.i:                                      ; preds = %if.then.i41
   br label %for.inc
 
 if.else42:                                        ; preds = %if.else36
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nsw i64 %indvars.iv to i32
   %add43 = add nsw i32 %18, 1
   call void @lj_err_arg(ptr noundef nonnull %L, i32 noundef %add43, i32 noundef 1219) #11
   unreachable
@@ -940,7 +940,7 @@ for.inc:                                          ; preds = %if.then13.i, %if.th
   br i1 %31, label %for.body, label %if.end63.loopexit, !llvm.loop !6
 
 if.end63.loopexit:                                ; preds = %for.inc
-  %32 = trunc i64 %indvars.iv.next to i32
+  %32 = trunc nsw i64 %indvars.iv.next to i32
   br label %if.end63
 
 if.end63:                                         ; preds = %if.end63.loopexit, %if.then
@@ -1441,9 +1441,9 @@ for.body.i:                                       ; preds = %io_stdfile.exit, %l
   %status.04.i = phi i32 [ %land.ext.i, %land.end.i ], [ 1, %io_stdfile.exit ]
   %call.i = call ptr @lj_strfmt_wstrnum(ptr noundef nonnull %L, ptr noundef %tv.05.i, ptr noundef nonnull %len.i) #10
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %if.then.i3, label %if.end.i
+  br i1 %tobool.not.i, label %if.then.i4, label %if.end.i
 
-if.then.i3:                                       ; preds = %for.body.i
+if.then.i4:                                       ; preds = %for.body.i
   %7 = load ptr, ptr %base.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %tv.05.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -1472,8 +1472,8 @@ land.end.i:                                       ; preds = %land.rhs.i, %if.end
   %land.ext.i = zext i1 %10 to i32
   %incdec.ptr.i = getelementptr inbounds i8, ptr %tv.05.i, i64 8
   %11 = load ptr, ptr %top.i, align 8
-  %cmp.i2 = icmp ult ptr %incdec.ptr.i, %11
-  br i1 %cmp.i2, label %for.body.i, label %io_file_write.exit, !llvm.loop !4
+  %cmp.i3 = icmp ult ptr %incdec.ptr.i, %11
+  br i1 %cmp.i3, label %for.body.i, label %io_file_write.exit, !llvm.loop !4
 
 io_file_write.exit:                               ; preds = %land.end.i, %io_stdfile.exit
   %status.0.lcssa.i = phi i32 [ 1, %io_stdfile.exit ], [ %land.ext.i, %land.end.i ]
@@ -1681,9 +1681,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %incdec.ptr, ptr %top, align 8
-  store i64 -1, ptr %0, align 8
+  store i64 -1, ptr %1, align 8
   %.pre = load ptr, ptr %base, align 8
   br label %if.end
 

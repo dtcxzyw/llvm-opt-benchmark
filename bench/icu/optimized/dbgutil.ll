@@ -240,7 +240,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -299,7 +299,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -505,7 +505,7 @@ if.then.i:                                        ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc19.i, %if.then.i
   %indvars.iv20.i = phi i64 [ 0, %if.then.i ], [ %indvars.iv.next21.i, %for.inc19.i ]
-  %1 = trunc i64 %indvars.iv20.i to i32
+  %1 = trunc nuw nsw i64 %indvars.iv20.i to i32
   %call2.i = call i32 @udbg_enumCount(i32 noundef %1)
   %add.i = add i32 %call2.i, 1
   %conv.i = sext i32 %add.i to i64
@@ -558,7 +558,7 @@ for.body13.i:                                     ; preds = %_ZL12_fieldString14
   %indvars.iv.i = phi i64 [ 0, %for.body13.preheader.i ], [ %indvars.iv.next.i, %_ZL12_fieldString14UDebugEnumTypeiRN6icu_7513UnicodeStringE.exit.i ]
   %arrayidx17.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %6, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i.i)
-  %7 = trunc i64 %indvars.iv.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call.i.i = call ptr @udbg_enumName(i32 noundef %1, i32 noundef %7)
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -717,11 +717,11 @@ for.inc:                                          ; preds = %if.else.i, %if.then
   br i1 %cmp3, label %for.body, label %return, !llvm.loop !7
 
 return.loopexit.split.loop.exit:                  ; preds = %if.then.i
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   br label %return
 
 return.loopexit.split.loop.exit17:                ; preds = %_ZNK6icu_7513UnicodeStringeqERKS0_.exit
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %for.inc, %return.loopexit.split.loop.exit, %return.loopexit.split.loop.exit17, %if.end, %entry

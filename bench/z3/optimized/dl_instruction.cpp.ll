@@ -1170,7 +1170,7 @@ cond.end44:                                       ; preds = %for.body27, %_ZNK6v
 if.end:                                           ; preds = %cond.end44
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %reg.addr.i)
-  %24 = trunc i64 %indvars.iv78 to i32
+  %24 = trunc nuw i64 %indvars.iv78 to i32
   store i32 %24, ptr %reg.addr.i, align 4
   %call.i.i58 = invoke noundef ptr @_ZNK9table2mapI17default_map_entryIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6u_hash4u_eqE9find_coreERKj(ptr noundef nonnull align 8 dereferenceable(24) %m_reg_annotation.i, ptr noundef nonnull align 4 dereferenceable(4) %reg.addr.i)
           to label %call.i.i.noexc unwind label %lpad47
@@ -1484,15 +1484,15 @@ land.rhs.i.i.i.i:                                 ; preds = %entry, %while.body.
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i.i.i, label %for.end, label %land.rhs.i.i.i.i, !llvm.loop !10
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont2, label %land.rhs.i.i.i.i, !llvm.loop !10
 
-invoke.cont2:                                     ; preds = %land.rhs.i.i.i.i, %entry
-  %retval.sroa.0.1.i.i = phi ptr [ %0, %entry ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ]
+invoke.cont2:                                     ; preds = %land.rhs.i.i.i.i, %while.body.i.i.i.i, %entry
+  %retval.sroa.0.1.i.i = phi ptr [ %0, %entry ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ]
   %cmp.i.not10 = icmp eq ptr %retval.sroa.0.1.i.i, %add.ptr.i.i
   br i1 %cmp.i.not10, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont2, %_ZN14core_hashtableI17default_map_entryIjPN7datalog17tr_infrastructureINS1_15relation_traitsEE7base_fnEEN9table2mapIS7_6u_hash4u_eqE15entry_hash_procENSB_13entry_eq_procEE8iteratorppEv.exit
-  %__begin1.sroa.0.011 = phi ptr [ %__begin1.sroa.0.1, %_ZN14core_hashtableI17default_map_entryIjPN7datalog17tr_infrastructureINS1_15relation_traitsEE7base_fnEEN9table2mapIS7_6u_hash4u_eqE15entry_hash_procENSB_13entry_eq_procEE8iteratorppEv.exit ], [ %retval.sroa.0.1.i.i, %invoke.cont2 ]
+  %__begin1.sroa.0.011 = phi ptr [ %__begin1.sroa.0.2, %_ZN14core_hashtableI17default_map_entryIjPN7datalog17tr_infrastructureINS1_15relation_traitsEE7base_fnEEN9table2mapIS7_6u_hash4u_eqE15entry_hash_procENSB_13entry_eq_procEE8iteratorppEv.exit ], [ %retval.sroa.0.1.i.i, %invoke.cont2 ]
   %m_value = getelementptr inbounds i8, ptr %__begin1.sroa.0.011, i64 16
   %3 = load ptr, ptr %m_value, align 8
   %cmp.i7 = icmp eq ptr %3, null
@@ -1508,7 +1508,7 @@ if.end.i:                                         ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.end.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.011, i64 24
   %cmp.not2.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not2.i.i, label %for.end.loopexit, label %land.rhs.i.i
+  br i1 %cmp.not2.i.i, label %_ZN14core_hashtableI17default_map_entryIjPN7datalog17tr_infrastructureINS1_15relation_traitsEE7base_fnEEN9table2mapIS7_6u_hash4u_eqE15entry_hash_procENSB_13entry_eq_procEE8iteratorppEv.exit, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %for.inc, %while.body.i.i
   %__begin1.sroa.0.1 = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %incdec.ptr.i, %for.inc ]
@@ -1520,18 +1520,19 @@ land.rhs.i.i:                                     ; preds = %for.inc, %while.bod
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.1, i64 24
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i, label %for.end.loopexit, label %land.rhs.i.i, !llvm.loop !10
+  br i1 %cmp.not.i.i, label %_ZN14core_hashtableI17default_map_entryIjPN7datalog17tr_infrastructureINS1_15relation_traitsEE7base_fnEEN9table2mapIS7_6u_hash4u_eqE15entry_hash_procENSB_13entry_eq_procEE8iteratorppEv.exit, label %land.rhs.i.i, !llvm.loop !10
 
-_ZN14core_hashtableI17default_map_entryIjPN7datalog17tr_infrastructureINS1_15relation_traitsEE7base_fnEEN9table2mapIS7_6u_hash4u_eqE15entry_hash_procENSB_13entry_eq_procEE8iteratorppEv.exit: ; preds = %land.rhs.i.i
-  %cmp.i.not = icmp eq ptr %__begin1.sroa.0.1, %add.ptr.i.i
+_ZN14core_hashtableI17default_map_entryIjPN7datalog17tr_infrastructureINS1_15relation_traitsEE7base_fnEEN9table2mapIS7_6u_hash4u_eqE15entry_hash_procENSB_13entry_eq_procEE8iteratorppEv.exit: ; preds = %land.rhs.i.i, %while.body.i.i, %for.inc
+  %__begin1.sroa.0.2 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %incdec.ptr.i.i, %while.body.i.i ], [ %__begin1.sroa.0.1, %land.rhs.i.i ]
+  %cmp.i.not = icmp eq ptr %__begin1.sroa.0.2, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
 
-for.end.loopexit:                                 ; preds = %for.inc, %_ZN14core_hashtableI17default_map_entryIjPN7datalog17tr_infrastructureINS1_15relation_traitsEE7base_fnEEN9table2mapIS7_6u_hash4u_eqE15entry_hash_procENSB_13entry_eq_procEE8iteratorppEv.exit, %while.body.i.i
+for.end.loopexit:                                 ; preds = %_ZN14core_hashtableI17default_map_entryIjPN7datalog17tr_infrastructureINS1_15relation_traitsEE7base_fnEEN9table2mapIS7_6u_hash4u_eqE15entry_hash_procENSB_13entry_eq_procEE8iteratorppEv.exit
   %.pre = load ptr, ptr %m_fn_cache, align 8
   br label %for.end
 
-for.end:                                          ; preds = %while.body.i.i.i.i, %for.end.loopexit, %invoke.cont2
-  %6 = phi ptr [ %.pre, %for.end.loopexit ], [ %0, %invoke.cont2 ], [ %0, %while.body.i.i.i.i ]
+for.end:                                          ; preds = %for.end.loopexit, %invoke.cont2
+  %6 = phi ptr [ %.pre, %for.end.loopexit ], [ %0, %invoke.cont2 ]
   %cmp.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.i.i.i.i.i.i, label %_ZN5u_mapIPN7datalog17tr_infrastructureINS0_15relation_traitsEE7base_fnEED2Ev.exit, label %for.cond.preheader.i.i.i.i.i.i
 
@@ -14862,7 +14863,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
 for.body.i.i.i.i.i.preheader.i:                   ; preds = %for.body.i
   %__val.sroa.0.0.extract.trunc.i = trunc i64 %2 to i32
   %__val.sroa.2.0.extract.shift.i = lshr i64 %2, 32
-  %__val.sroa.2.0.extract.trunc.i = trunc i64 %__val.sroa.2.0.extract.shift.i to i32
+  %__val.sroa.2.0.extract.trunc.i = trunc nuw i64 %__val.sroa.2.0.extract.shift.i to i32
   %sub.ptr.div.i.i.i.i.i.i = lshr exact i64 %__i.015.i.idx, 3
   %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn14.i, i64 16
   br label %for.body.i.i.i.i.i.i
@@ -14890,7 +14891,7 @@ _ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i: ; preds = %for.body.i.i.
 
 if.else.i:                                        ; preds = %for.body.i
   %__val.sroa.2.0.extract.shift.i.i = lshr i64 %2, 32
-  %__val.sroa.2.0.extract.trunc.i.i = trunc i64 %__val.sroa.2.0.extract.shift.i.i to i32
+  %__val.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %__val.sroa.2.0.extract.shift.i.i to i32
   %second2.i.i11.i.i = getelementptr inbounds i8, ptr %__first.pn14.i, i64 4
   %5 = load i32, ptr %second2.i.i11.i.i, align 4
   %cmp.i.i12.i.i = icmp ult i32 %5, %__val.sroa.2.0.extract.trunc.i.i
@@ -14931,7 +14932,7 @@ for.body.i9:                                      ; preds = %_ZSt16__insertion_s
   %__i.04.i = phi ptr [ %incdec.ptr.i, %_ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog17compare_size_procEEEEvT_T0_.exit.i14 ], [ %add.ptr, %_ZSt16__insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_T0_.exit ]
   %9 = load i64, ptr %__i.04.i, align 4
   %__val.sroa.2.0.extract.shift.i.i10 = lshr i64 %9, 32
-  %__val.sroa.2.0.extract.trunc.i.i11 = trunc i64 %__val.sroa.2.0.extract.shift.i.i10 to i32
+  %__val.sroa.2.0.extract.trunc.i.i11 = trunc nuw i64 %__val.sroa.2.0.extract.shift.i.i10 to i32
   %second2.i.i11.i.i12 = getelementptr inbounds i8, ptr %__i.04.i, i64 -4
   %10 = load i32, ptr %second2.i.i11.i.i12, align 4
   %cmp.i.i12.i.i13 = icmp ult i32 %10, %__val.sroa.2.0.extract.trunc.i.i11
@@ -14986,7 +14987,7 @@ for.body.i27:                                     ; preds = %for.inc.i41, %for.b
 if.then2.i50:                                     ; preds = %for.body.i27
   %__val.sroa.0.0.extract.trunc.i51 = trunc i64 %16 to i32
   %__val.sroa.2.0.extract.shift.i52 = lshr i64 %16, 32
-  %__val.sroa.2.0.extract.trunc.i53 = trunc i64 %__val.sroa.2.0.extract.shift.i52 to i32
+  %__val.sroa.2.0.extract.trunc.i53 = trunc nuw i64 %__val.sroa.2.0.extract.shift.i52 to i32
   %sub.ptr.lhs.cast.i.i.i.i.i.i54 = ptrtoint ptr %__i.015.i28 to i64
   %sub.ptr.sub.i.i.i.i.i.i55 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i54, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i56 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i55, 3
@@ -15020,7 +15021,7 @@ _ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i58: ; preds = %for.body.i.
 
 if.else.i32:                                      ; preds = %for.body.i27
   %__val.sroa.2.0.extract.shift.i.i33 = lshr i64 %16, 32
-  %__val.sroa.2.0.extract.trunc.i.i34 = trunc i64 %__val.sroa.2.0.extract.shift.i.i33 to i32
+  %__val.sroa.2.0.extract.trunc.i.i34 = trunc nuw i64 %__val.sroa.2.0.extract.shift.i.i33 to i32
   %second2.i.i11.i.i35 = getelementptr inbounds i8, ptr %__first.pn14.i29, i64 4
   %19 = load i32, ptr %second2.i.i11.i.i35, align 4
   %cmp.i.i12.i.i36 = icmp ult i32 %19, %__val.sroa.2.0.extract.trunc.i.i34
@@ -15129,7 +15130,7 @@ if.then10.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
 if.end18.i.i.i:                                   ; preds = %if.then10.i.i.i, %land.lhs.true.i.i.i, %while.end.i.i.i
   %__holeIndex.addr.1.i.i.i = phi i64 [ %sub13.i.i.i, %if.then10.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i, %land.lhs.true.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i, %while.end.i.i.i ]
   %__value.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %__value.sroa.0.0.copyload.i.i, 32
-  %__value.sroa.2.0.extract.trunc.i.i.i.i = trunc i64 %__value.sroa.2.0.extract.shift.i.i.i.i to i32
+  %__value.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i.i.i to i32
   %cmp15.i.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i, 0
   br i1 %cmp15.i.i.i.i, label %land.rhs.i.i.i.i, label %_ZSt10__pop_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_RT0_.exit.i
 
@@ -15237,7 +15238,7 @@ if.then10.i.i.us:                                 ; preds = %while.end.i.i.loope
 if.end18.i.i.us:                                  ; preds = %if.then10.i.i.us, %while.end.i.i.loopexit.us
   %__holeIndex.addr.1.i.i.us = phi i64 [ %sub13.i.i.us, %if.then10.i.i.us ], [ %spec.select.i.i.us, %while.end.i.i.loopexit.us ]
   %__value.sroa.2.0.extract.shift.i.i.i.us = lshr i64 %__value.sroa.0.0.copyload.i.us, 32
-  %__value.sroa.2.0.extract.trunc.i.i.i.us = trunc i64 %__value.sroa.2.0.extract.shift.i.i.i.us to i32
+  %__value.sroa.2.0.extract.trunc.i.i.i.us = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i.i.us to i32
   %cmp15.i.i.i.us = icmp sgt i64 %__holeIndex.addr.1.i.i.us, 0
   br i1 %cmp15.i.i.i.us, label %land.rhs.i.i.i.us, label %_ZSt10__pop_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_RT0_.exit.us
 
@@ -15311,7 +15312,7 @@ if.then.us16.us:                                  ; preds = %for.body.us12.us
   %16 = load i32, ptr %second.i23.i.i, align 4
   store i32 %16, ptr %second2.i.i, align 4
   %__value.sroa.2.0.extract.shift.i.i.i.us22.us = lshr i64 %__value.sroa.0.0.copyload.i.us17.us, 32
-  %__value.sroa.2.0.extract.trunc.i.i.i.us23.us = trunc i64 %__value.sroa.2.0.extract.shift.i.i.i.us22.us to i32
+  %__value.sroa.2.0.extract.trunc.i.i.i.us23.us = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i.i.us22.us to i32
   %cmp.i.i.i.i.i.us31.us = icmp ugt i32 %16, %__value.sroa.2.0.extract.trunc.i.i.i.us23.us
   br i1 %cmp.i.i.i.i.i.us31.us, label %while.body.i.i.i.us32.us, label %_ZSt10__pop_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_RT0_.exit.loopexit.us45.us
 
@@ -15352,7 +15353,7 @@ if.then.us16:                                     ; preds = %for.body.us12
   %20 = load i32, ptr %second2.i.i, align 4
   store i32 %20, ptr %second.i.i.us14, align 4
   %__value.sroa.2.0.extract.shift.i.i.i.us22 = lshr i64 %__value.sroa.0.0.copyload.i.us17, 32
-  %__value.sroa.2.0.extract.trunc.i.i.i.us23 = trunc i64 %__value.sroa.2.0.extract.shift.i.i.i.us22 to i32
+  %__value.sroa.2.0.extract.trunc.i.i.i.us23 = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i.i.us22 to i32
   %__value.sroa.0.0.extract.trunc.i.i.i.us38 = trunc i64 %__value.sroa.0.0.copyload.i.us17 to i32
   store i32 %__value.sroa.0.0.extract.trunc.i.i.i.us38, ptr %__first, align 4
   store i32 %__value.sroa.2.0.extract.trunc.i.i.i.us23, ptr %second2.i.i, align 4
@@ -15383,7 +15384,7 @@ if.then:                                          ; preds = %for.body
   %25 = load i32, ptr %second2.i.i, align 4
   store i32 %25, ptr %second.i.i, align 4
   %__value.sroa.2.0.extract.shift.i.i.i = lshr i64 %__value.sroa.0.0.copyload.i, 32
-  %__value.sroa.2.0.extract.trunc.i.i.i = trunc i64 %__value.sroa.2.0.extract.shift.i.i.i to i32
+  %__value.sroa.2.0.extract.trunc.i.i.i = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i.i to i32
   %__value.sroa.0.0.extract.trunc.i.i.i = trunc i64 %__value.sroa.0.0.copyload.i to i32
   store i32 %__value.sroa.0.0.extract.trunc.i.i.i, ptr %__first, align 4
   store i32 %__value.sroa.2.0.extract.trunc.i.i.i, ptr %second2.i.i, align 4
@@ -15458,7 +15459,7 @@ if.then10.i:                                      ; preds = %while.end.i
 if.end18.i:                                       ; preds = %if.then10.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub13.i, %if.then10.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
   %__value.sroa.2.0.extract.shift.i.i = lshr i64 %__value.sroa.0.0.copyload10, 32
-  %__value.sroa.2.0.extract.trunc.i.i = trunc i64 %__value.sroa.2.0.extract.shift.i.i to i32
+  %__value.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i to i32
   %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %div13
   br i1 %cmp15.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit
 
@@ -15510,7 +15511,7 @@ if.end8.split.us:                                 ; preds = %if.end8.split.lr.ph
 
 while.end.i17.us.thread:                          ; preds = %if.end8.split.us
   %__value.sroa.2.0.extract.shift.i.i23.us74 = lshr i64 %__value.sroa.0.0.copyload12.us, 32
-  %__value.sroa.2.0.extract.trunc.i.i24.us75 = trunc i64 %__value.sroa.2.0.extract.shift.i.i23.us74 to i32
+  %__value.sroa.2.0.extract.trunc.i.i24.us75 = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i23.us74 to i32
   br label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit66.us
 
 while.body.i52.us:                                ; preds = %if.end8.split.us, %while.body.i52.us
@@ -15533,7 +15534,7 @@ while.body.i52.us:                                ; preds = %if.end8.split.us, %
 
 while.end.i17.us:                                 ; preds = %while.body.i52.us
   %__value.sroa.2.0.extract.shift.i.i23.us = lshr i64 %__value.sroa.0.0.copyload12.us, 32
-  %__value.sroa.2.0.extract.trunc.i.i24.us = trunc i64 %__value.sroa.2.0.extract.shift.i.i23.us to i32
+  %__value.sroa.2.0.extract.trunc.i.i24.us = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i23.us to i32
   %cmp15.i.i25.not.us = icmp slt i64 %spec.select.i60.us, %__parent.071.us
   br i1 %cmp15.i.i25.not.us, label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit66.us, label %land.rhs.i.i30.us
 
@@ -15606,7 +15607,7 @@ if.then10.i45:                                    ; preds = %while.end.i17
 if.end18.i21:                                     ; preds = %if.then10.i45, %while.end.i17
   %__holeIndex.addr.1.i22 = phi i64 [ %sub13.i47, %if.then10.i45 ], [ %__holeIndex.addr.0.lcssa.i18, %while.end.i17 ]
   %__value.sroa.2.0.extract.shift.i.i23 = lshr i64 %__value.sroa.0.0.copyload12, 32
-  %__value.sroa.2.0.extract.trunc.i.i24 = trunc i64 %__value.sroa.2.0.extract.shift.i.i23 to i32
+  %__value.sroa.2.0.extract.trunc.i.i24 = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i23 to i32
   %cmp15.i.i25.not = icmp slt i64 %__holeIndex.addr.1.i22, %__parent.071
   br i1 %cmp15.i.i25.not, label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit66, label %land.rhs.i.i30
 

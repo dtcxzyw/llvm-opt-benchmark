@@ -445,7 +445,7 @@ common.resume:                                    ; preds = %.body, %57, %37
   br label %54
 
 54:                                               ; preds = %48, %52
-  %55 = phi ptr [ %.pre, %52 ], [ %45, %48 ]
+  %55 = phi ptr [ %.pre, %52 ], [ %46, %48 ]
   %storemerge = phi i8 [ 1, %52 ], [ 0, %48 ]
   store i8 %storemerge, ptr %0, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
@@ -646,7 +646,7 @@ common.resume:                                    ; preds = %29, %56, %36
   br label %53
 
 53:                                               ; preds = %47, %51
-  %54 = phi ptr [ %.pre, %51 ], [ %44, %47 ]
+  %54 = phi ptr [ %.pre, %51 ], [ %45, %47 ]
   %storemerge = phi i8 [ 1, %51 ], [ 0, %47 ]
   store i8 %storemerge, ptr %0, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !166)

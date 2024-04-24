@@ -1599,7 +1599,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -1658,7 +1658,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -5793,9 +5793,9 @@ invoke.cont.i:                                    ; preds = %if.end8
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp.i) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
   %1 = load i32, ptr %status, align 4
-  %cmp.i16 = icmp sgt i32 %1, 0
+  %cmp.i17 = icmp sgt i32 %1, 0
   %cmp13 = icmp eq i32 %1, -124
-  %or.cond = or i1 %cmp.i16, %cmp13
+  %or.cond = or i1 %cmp.i17, %cmp13
   br i1 %or.cond, label %return, label %if.end15
 
 common.resume:                                    ; preds = %lpad, %lpad19, %lpad.i
@@ -5830,11 +5830,11 @@ invoke.cont:                                      ; preds = %if.then18
 invoke.cont20:                                    ; preds = %invoke.cont
   call void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink) #17
   %4 = load i32, ptr %status, align 4
-  %cmp.i18 = icmp sgt i32 %4, 0
+  %cmp.i19 = icmp sgt i32 %4, 0
   %5 = load i32, ptr %len.i, align 8
-  %cmp.i21.not = icmp eq i32 %5, 0
-  %or.cond30 = select i1 %cmp.i18, i1 true, i1 %cmp.i21.not
-  br i1 %or.cond30, label %cleanup.thread, label %if.then27
+  %cmp.i22.not = icmp eq i32 %5, 0
+  %or.cond31 = select i1 %cmp.i19, i1 true, i1 %cmp.i22.not
+  br i1 %or.cond31, label %cleanup.thread, label %if.then27
 
 if.then27:                                        ; preds = %invoke.cont20
   %call30 = invoke i32 @uloc_getBaseName_75(ptr noundef nonnull %localeID, ptr noundef nonnull %tmpLocaleID, i32 noundef 156, ptr noundef nonnull %status)
@@ -5842,9 +5842,9 @@ if.then27:                                        ; preds = %invoke.cont20
 
 invoke.cont29:                                    ; preds = %if.then27
   %6 = load i32, ptr %status, align 4
-  %cmp.i23 = icmp slt i32 %6, 1
+  %cmp.i24 = icmp slt i32 %6, 1
   %cmp35 = icmp sgt i32 %call30, 0
-  %or.cond1 = select i1 %cmp.i23, i1 %cmp35, i1 false
+  %or.cond1 = select i1 %cmp.i24, i1 %cmp35, i1 false
   br i1 %or.cond1, label %if.then36, label %cleanup.thread
 
 if.then36:                                        ; preds = %invoke.cont29
@@ -5858,9 +5858,9 @@ if.then36:                                        ; preds = %invoke.cont29
 
 invoke.cont41:                                    ; preds = %if.then36
   %8 = load i32, ptr %status, align 4
-  %cmp.i25 = icmp slt i32 %8, 1
+  %cmp.i26 = icmp slt i32 %8, 1
   %cmp47 = icmp sgt i32 %call42, 0
-  %or.cond2 = select i1 %cmp.i25, i1 %cmp47, i1 false
+  %or.cond2 = select i1 %cmp.i26, i1 %cmp47, i1 false
   br i1 %or.cond2, label %if.then48, label %cleanup.thread
 
 if.then48:                                        ; preds = %invoke.cont41

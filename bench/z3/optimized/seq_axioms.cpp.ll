@@ -740,7 +740,7 @@ cleanup.thread:                                   ; preds = %invoke.cont
   %m_manager.i26 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %11 = load ptr, ptr %m_manager.i20, align 8
   store ptr %11, ptr %m_manager.i26, align 8
-  store ptr %e, ptr %agg.result, align 8
+  store ptr %10, ptr %agg.result, align 8
   br label %return
 
 lpad:                                             ; preds = %if.end42, %if.then.i.i69, %if.then.i.i, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %call.i.i.noexc, %.noexc33, %invoke.cont23, %if.then2.i.i.i, %invoke.cont21, %if.else, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit25
@@ -26680,7 +26680,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %55 = load ptr, ptr %m_nodes.i.i, align 8
   %arrayidx.i.i99 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv.i
-  %56 = trunc i64 %indvars.iv.i to i32
+  %56 = trunc nuw nsw i64 %indvars.iv.i to i32
   %57 = xor i32 %56, -1
   %sub4.i = add i32 %54, %57
   %idxprom.i6.i = zext i32 %sub4.i to i64
@@ -27483,7 +27483,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %conv.i.i.i.i = trunc i64 %u to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %u to i32
   store i32 %conv.i.i.i.i, ptr %ref.tmp, align 8
   store i8 0, ptr %m_kind.i.i.i, align 4
   br label %_ZN8rationalC2EmNS_4ui64E.exit

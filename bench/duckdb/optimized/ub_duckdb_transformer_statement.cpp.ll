@@ -6383,7 +6383,7 @@ cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7
   br label %eh.resume
 
 switch.lookup:                                    ; preds = %entry
-  %switch.idx.cast = trunc i32 %conflict to i8
+  %switch.idx.cast = trunc nuw nsw i32 %conflict to i8
   ret i8 %switch.idx.cast
 
 eh.resume:                                        ; preds = %cleanup.action, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -8351,7 +8351,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN6duc
   br label %invoke.cont.i424
 
 invoke.cont.i424:                                 ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %invoke.cont105
-  %70 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %for.cond.cleanup ], [ %66, %invoke.cont105 ]
+  %70 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre620, %for.cond.cleanup ], [ %66, %invoke.cont105 ]
   %tobool.not.i.i.i = icmp eq ptr %70, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_16ParsedExpressionESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
@@ -24834,7 +24834,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN6duc
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %invoke.cont30
-  %21 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %invoke.cont30 ]
+  %21 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre72, %invoke.cont30 ]
   %tobool.not.i.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_16ParsedExpressionESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
@@ -32289,7 +32289,7 @@ if.then.i.i436:                                   ; preds = %while.end.i.i
   br label %invoke.cont116
 
 if.else.i.i435:                                   ; preds = %while.end.i.i
-  %129 = trunc i64 %__val.addr.0.lcssa.i.i to i8
+  %129 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %129, 48
   br label %invoke.cont116
 
@@ -32471,7 +32471,7 @@ if.then.i.i483:                                   ; preds = %while.end.i.i477
   br label %invoke.cont123
 
 if.else.i.i480:                                   ; preds = %while.end.i.i477
-  %147 = trunc i64 %__val.addr.0.lcssa.i.i478 to i8
+  %147 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i478 to i8
   %conv.i.i481 = or disjoint i8 %147, 48
   br label %invoke.cont123
 
@@ -43447,7 +43447,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN6duc
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %_ZN6duckdb6vectorINS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS2_ELb1EEELb1EE5clearEv.exit, %for.cond.cleanup, %if.end
-  %36 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %94, %_ZN6duckdb6vectorINS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS2_ELb1EEELb1EE5clearEv.exit ], [ %93, %for.cond.cleanup ], [ %.pre, %if.end ]
+  %36 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %94, %_ZN6duckdb6vectorINS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS2_ELb1EEELb1EE5clearEv.exit ], [ %94, %for.cond.cleanup ], [ %.pre294, %if.end ]
   %tobool.not.i.i.i143 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i143, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_16ParsedExpressionESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
@@ -43748,7 +43748,7 @@ if.then.i.i174:                                   ; preds = %while.end.i.i
   br label %invoke.cont65
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %64 = trunc i64 %__val.addr.0.lcssa.i.i to i8
+  %64 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %64, 48
   br label %invoke.cont65
 
@@ -48015,7 +48015,7 @@ cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7
   br label %eh.resume
 
 switch.lookup:                                    ; preds = %if.end
-  %switch.idx.cast = trunc i32 %0 to i8
+  %switch.idx.cast = trunc nuw nsw i32 %0 to i8
   br label %return
 
 return:                                           ; preds = %switch.lookup, %entry

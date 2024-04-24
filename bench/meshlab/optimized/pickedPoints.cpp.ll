@@ -535,7 +535,7 @@ define void @_ZN12PickedPointsD2Ev(ptr nocapture noundef nonnull align 8 derefer
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, %4
-  br i1 %.not, label %_ZNSt6vectorIP11PickedPointSaIS1_EE5clearEv.exit, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %15
   %5 = phi ptr [ %16, %15 ], [ %4, %1 ]
@@ -585,15 +585,17 @@ _ZN11PickedPointD2Ev.exit:                        ; preds = %10, %_ZN9QtPrivate8
   %23 = icmp ult i64 %18, %22
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %15
-  %.not.i.i4 = icmp eq ptr %17, %16
+._crit_edge:                                      ; preds = %15, %1
+  %.lcssa5 = phi ptr [ %3, %1 ], [ %17, %15 ]
+  %.lcssa = phi ptr [ %4, %1 ], [ %16, %15 ]
+  %.not.i.i4 = icmp eq ptr %.lcssa5, %.lcssa
   br i1 %.not.i.i4, label %_ZNSt6vectorIP11PickedPointSaIS1_EE5clearEv.exit, label %24
 
 24:                                               ; preds = %._crit_edge
-  store ptr %16, ptr %2, align 8
+  store ptr %.lcssa, ptr %2, align 8
   br label %_ZNSt6vectorIP11PickedPointSaIS1_EE5clearEv.exit
 
-_ZNSt6vectorIP11PickedPointSaIS1_EE5clearEv.exit: ; preds = %1, %._crit_edge, %24
+_ZNSt6vectorIP11PickedPointSaIS1_EE5clearEv.exit: ; preds = %._crit_edge, %24
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = load atomic i32, ptr %26 monotonic, align 4

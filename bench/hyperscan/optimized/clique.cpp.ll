@@ -389,7 +389,7 @@ if.then.i15:                                      ; preds = %for.body.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.cond.i, %if.then.i15
-  %edge_iter_to_erase.sroa.0.0.i = phi ptr [ %26, %if.then.i15 ], [ null, %for.cond.i ]
+  %edge_iter_to_erase.sroa.0.0.i = phi ptr [ %27, %if.then.i15 ], [ null, %for.cond.i ]
   br label %for.cond21.i
 
 for.cond21.i:                                     ; preds = %for.body26.i, %for.end.i

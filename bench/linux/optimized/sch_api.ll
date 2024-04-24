@@ -1061,27 +1061,28 @@ define dso_local void @qdisc_put_rtab(ptr noundef %0) #0 align 16 {
   br i1 %12, label %.loopexit3, label %.preheader
 
 13:                                               ; preds = %.preheader
-  %14 = icmp eq ptr %21, %0
+  %14 = icmp eq ptr %22, %0
   br i1 %14, label %.loopexit3.loopexit, label %.preheader, !llvm.loop !31
 
 .loopexit3.loopexit:                              ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %19, i64 1040
+  %15 = getelementptr inbounds i8, ptr %20, i64 1040
   br label %.loopexit3
 
 .loopexit3:                                       ; preds = %.loopexit3.loopexit, %11
-  %16 = phi ptr [ @qdisc_rtab_list, %11 ], [ %15, %.loopexit3.loopexit ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 1040
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %16, align 8
-  tail call void @kfree(ptr noundef nonnull %0) #19
+  %16 = phi ptr [ %8, %11 ], [ %22, %.loopexit3.loopexit ]
+  %17 = phi ptr [ @qdisc_rtab_list, %11 ], [ %15, %.loopexit3.loopexit ]
+  %18 = getelementptr inbounds i8, ptr %16, i64 1040
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %17, align 8
+  tail call void @kfree(ptr noundef nonnull %16) #19
   br label %.loopexit
 
 .preheader:                                       ; preds = %11, %13
-  %19 = phi ptr [ %21, %13 ], [ %8, %11 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 1040
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %.loopexit, label %13, !llvm.loop !31
+  %20 = phi ptr [ %22, %13 ], [ %8, %11 ]
+  %21 = getelementptr inbounds i8, ptr %20, i64 1040
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %.loopexit, label %13, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit3, %3, %1
   ret void

@@ -1778,7 +1778,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt8fu
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %while.end, %invoke.contthread-pre-split.i, %for.end
-  %27 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre67, %for.end ], [ %20, %while.end ]
+  %27 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre66, %for.end ], [ %20, %while.end ]
   %tobool.not.i.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt8functionIFvvEESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
@@ -3574,7 +3574,7 @@ terminate.lpad.i.i5.i.i.i:                        ; preds = %if.then.i.i3.i.i.i
   unreachable
 
 if.else:                                          ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #26
+  tail call void @_ZdlPv(ptr noundef %1) #26
   %_M_node.i = getelementptr inbounds i8, ptr %this, i64 72
   %8 = load ptr, ptr %_M_node.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 -8
@@ -4271,7 +4271,7 @@ for.body:                                         ; preds = %entry, %_ZSt8_Destr
   %2 = load ptr, ptr %__node.068, align 8
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %_ZSt8_DestroyIN7rocksdb14ThreadPoolImpl4Impl6BGItemEEvPT_.exit.i.i.i, %for.body
+for.body.i.i.i:                                   ; preds = %for.body, %_ZSt8_DestroyIN7rocksdb14ThreadPoolImpl4Impl6BGItemEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i.idx = phi i64 [ %__first.addr.04.i.i.i.add, %_ZSt8_DestroyIN7rocksdb14ThreadPoolImpl4Impl6BGItemEEvPT_.exit.i.i.i ], [ 0, %for.body ]
   %__first.addr.04.i.i.i.ptr = getelementptr inbounds i8, ptr %2, i64 %__first.addr.04.i.i.i.idx
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.ptr, i64 56

@@ -3272,7 +3272,7 @@ module_in_super_chain.exit:                       ; preds = %.preheader.i
   br i1 %62, label %63, label %RICLASS_SET_ORIGIN_SHARED_MTBL.exit.us
 
 63:                                               ; preds = %57
-  tail call void @rb_id_table_foreach(ptr noundef %54, ptr noundef nonnull @clear_module_cache_i, ptr noundef nonnull %59) #18
+  tail call void @rb_id_table_foreach(ptr noundef %61, ptr noundef nonnull @clear_module_cache_i, ptr noundef nonnull %59) #18
   store ptr %51, ptr %60, align 8
   %64 = getelementptr inbounds i8, ptr %59, i64 16
   %65 = load i64, ptr %64, align 8

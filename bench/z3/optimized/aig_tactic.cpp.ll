@@ -1345,7 +1345,7 @@ invoke.cont16:                                    ; preds = %.noexc60, %lor.lhs.
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   %46 = load ptr, ptr %g, align 8
   %47 = load ptr, ptr %m_true.i, align 8
-  %48 = trunc i64 %indvars.iv to i32
+  %48 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN4goal6updateEjP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %46, i32 noundef %48, ptr noundef %47, ptr noundef null, ptr noundef null)
           to label %for.inc unwind label %lpad3.loopexit
 
@@ -1528,7 +1528,7 @@ invoke.cont43:                                    ; preds = %invoke.cont39
 if.then47:                                        ; preds = %invoke.cont43
   %74 = load ptr, ptr %g, align 8
   %75 = load ptr, ptr %new_f, align 8
-  %76 = trunc i64 %indvars.iv to i32
+  %76 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN4goal6updateEjP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %74, i32 noundef %76, ptr noundef %75, ptr noundef null, ptr noundef nonnull %26)
           to label %if.end unwind label %lpad33
 
@@ -1644,15 +1644,13 @@ invoke.cont80:                                    ; preds = %invoke.cont75
   %conv82 = uitofp i32 %call81 to double
   %conv83 = uitofp i32 %call76 to double
   %mul84 = fmul double %conv83, 1.200000e+00
-  %cmp85 = fcmp olt double %mul84, %conv82
+  %cmp85 = fcmp uge double %mul84, %conv82
   %.pre = load ptr, ptr %new_f67, align 8
-  br i1 %cmp85, label %if.then86, label %if.end89
-
-if.then86:                                        ; preds = %invoke.cont80
   %cmp.not.i = icmp eq ptr %.pre, %call3.i140
-  br i1 %cmp.not.i, label %if.end89, label %if.then.i
+  %or.cond = select i1 %cmp85, i1 true, i1 %cmp.not.i
+  br i1 %or.cond, label %if.end89, label %if.then.i
 
-if.then.i:                                        ; preds = %if.then86
+if.then.i:                                        ; preds = %invoke.cont80
   %tobool.not.i.i142 = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i142, label %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i, label %if.then.i.i.i143
 
@@ -1696,8 +1694,8 @@ lpad70:                                           ; preds = %if.end89, %if.then2
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_f67) #14
   br label %ehcleanup96
 
-if.end89:                                         ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i, %if.then86, %invoke.cont80
-  %99 = phi ptr [ %call3.i140, %_ZN11ast_manager7inc_refEP3ast.exit.i.i ], [ null, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i ], [ %call3.i140, %if.then86 ], [ %.pre, %invoke.cont80 ]
+if.end89:                                         ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i, %invoke.cont80
+  %99 = phi ptr [ %call3.i140, %_ZN11ast_manager7inc_refEP3ast.exit.i.i ], [ null, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i ], [ %.pre, %invoke.cont80 ]
   %100 = load ptr, ptr %g, align 8
   invoke void @_ZN4goal11assert_exprEP4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %100, ptr noundef %99, ptr noundef null)
           to label %invoke.cont94 unwind label %lpad70

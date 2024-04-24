@@ -2735,7 +2735,7 @@ lor.rhs.i:                                        ; preds = %_ZSt11lower_boundIN
   br i1 %cmp.i23.i, label %if.then.i.thread, label %invoke.cont14
 
 if.then.i:                                        ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i
-  store ptr %add.ptr.i.i, ptr %agg.tmp14.i, align 8, !noalias !48
+  store ptr %18, ptr %agg.tmp14.i, align 8, !noalias !48
   %20 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i, align 8, !noalias !49
   %cmp.not.i = icmp eq i64 %20, %13
   br i1 %cmp.not.i, label %if.then.i43, label %if.then4.i.i
@@ -2751,7 +2751,7 @@ if.then.i43:                                      ; preds = %if.then.i.thread, %
           to label %invoke.cont14 unwind label %lpad13
 
 if.then4.i.i:                                     ; preds = %if.then.i
-  store i32 %2, ptr %add.ptr.i.i, align 4, !noalias !49
+  store i32 %2, ptr %18, align 4, !noalias !49
   %22 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8, !noalias !49
   %add.i.i = add i64 %22, 1
   store i64 %add.i.i, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8, !noalias !49

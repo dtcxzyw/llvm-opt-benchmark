@@ -1590,7 +1590,7 @@ common.resume:                                    ; preds = %11, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %._crit_edge, %.thread
-  %39 = phi ptr [ %.pre, %._crit_edge ], [ %33, %.thread ]
+  %39 = phi ptr [ %.pre, %._crit_edge ], [ %35, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !146)
   call void @llvm.experimental.noalias.scope.decl(metadata !149)
@@ -1747,7 +1747,7 @@ common.resume:                                    ; preds = %11, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %._crit_edge, %.thread
-  %39 = phi ptr [ %.pre, %._crit_edge ], [ %33, %.thread ]
+  %39 = phi ptr [ %.pre, %._crit_edge ], [ %35, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !179)
   call void @llvm.experimental.noalias.scope.decl(metadata !182)
@@ -1904,7 +1904,7 @@ common.resume:                                    ; preds = %11, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %._crit_edge, %.thread
-  %39 = phi ptr [ %.pre, %._crit_edge ], [ %33, %.thread ]
+  %39 = phi ptr [ %.pre, %._crit_edge ], [ %35, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !212)
   call void @llvm.experimental.noalias.scope.decl(metadata !215)
@@ -2061,7 +2061,7 @@ common.resume:                                    ; preds = %11, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %._crit_edge, %.thread
-  %39 = phi ptr [ %.pre, %._crit_edge ], [ %33, %.thread ]
+  %39 = phi ptr [ %.pre, %._crit_edge ], [ %35, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !245)
   call void @llvm.experimental.noalias.scope.decl(metadata !248)
@@ -2398,7 +2398,7 @@ common.resume:                                    ; preds = %.body, %81, %66
           to label %86 unwind label %71
 
 78:                                               ; preds = %._crit_edge, %.thread24
-  %79 = phi ptr [ %.pre, %._crit_edge ], [ %74, %.thread24 ]
+  %79 = phi ptr [ %.pre, %._crit_edge ], [ %75, %.thread24 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !361)
   call void @llvm.experimental.noalias.scope.decl(metadata !364)
@@ -2649,7 +2649,7 @@ common.resume:                                    ; preds = %41, %64, %49
           to label %69 unwind label %54
 
 61:                                               ; preds = %.thread, %"_ZN4core3ptr66drop_in_place$LT$rust_analyzer..lsp..ext..InlayHintResolveData$GT$17h72cf931a75390976E.exit"
-  %62 = phi ptr [ %57, %.thread ], [ %.pre, %"_ZN4core3ptr66drop_in_place$LT$rust_analyzer..lsp..ext..InlayHintResolveData$GT$17h72cf931a75390976E.exit" ]
+  %62 = phi ptr [ %58, %.thread ], [ %.pre, %"_ZN4core3ptr66drop_in_place$LT$rust_analyzer..lsp..ext..InlayHintResolveData$GT$17h72cf931a75390976E.exit" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !449)
   call void @llvm.experimental.noalias.scope.decl(metadata !452)
@@ -3238,7 +3238,7 @@ common.resume:                                    ; preds = %.body, %85, %70
           to label %90 unwind label %75
 
 82:                                               ; preds = %.thread26, %"_ZN4core3ptr61drop_in_place$LT$rust_analyzer..lsp..ext..RunnablesParams$GT$17hc3a379230639f681E.exit"
-  %83 = phi ptr [ %78, %.thread26 ], [ %.pre, %"_ZN4core3ptr61drop_in_place$LT$rust_analyzer..lsp..ext..RunnablesParams$GT$17hc3a379230639f681E.exit" ]
+  %83 = phi ptr [ %79, %.thread26 ], [ %.pre, %"_ZN4core3ptr61drop_in_place$LT$rust_analyzer..lsp..ext..RunnablesParams$GT$17hc3a379230639f681E.exit" ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %14)
   call void @llvm.experimental.noalias.scope.decl(metadata !654)
   call void @llvm.experimental.noalias.scope.decl(metadata !657)
@@ -3568,7 +3568,7 @@ common.resume:                                    ; preds = %.body, %82, %67
           to label %87 unwind label %72
 
 79:                                               ; preds = %.thread24, %"_ZN4core3ptr63drop_in_place$LT$lsp_types..VersionedTextDocumentIdentifier$GT$17h2371f1b994cc60d8E.exit"
-  %80 = phi ptr [ %75, %.thread24 ], [ %.pre, %"_ZN4core3ptr63drop_in_place$LT$lsp_types..VersionedTextDocumentIdentifier$GT$17h2371f1b994cc60d8E.exit" ]
+  %80 = phi ptr [ %76, %.thread24 ], [ %.pre, %"_ZN4core3ptr63drop_in_place$LT$lsp_types..VersionedTextDocumentIdentifier$GT$17h2371f1b994cc60d8E.exit" ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !767)
   call void @llvm.experimental.noalias.scope.decl(metadata !770)
@@ -3903,7 +3903,7 @@ common.resume:                                    ; preds = %.body, %81, %66
           to label %86 unwind label %71
 
 78:                                               ; preds = %.thread25, %"_ZN4core3ptr40drop_in_place$LT$lsp_types..Location$GT$17h13e951764b4b14dbE.exit"
-  %79 = phi ptr [ %74, %.thread25 ], [ %.pre, %"_ZN4core3ptr40drop_in_place$LT$lsp_types..Location$GT$17h13e951764b4b14dbE.exit" ]
+  %79 = phi ptr [ %75, %.thread25 ], [ %.pre, %"_ZN4core3ptr40drop_in_place$LT$lsp_types..Location$GT$17h13e951764b4b14dbE.exit" ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !881)
   call void @llvm.experimental.noalias.scope.decl(metadata !884)
@@ -4080,7 +4080,7 @@ common.resume:                                    ; preds = %12, %42, %25
           to label %47 unwind label %30
 
 39:                                               ; preds = %.thread, %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..DiagnosticTag$GT$$GT$17h9c218741ce97e5b6E.exit"
-  %40 = phi ptr [ %34, %.thread ], [ %.pre, %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..DiagnosticTag$GT$$GT$17h9c218741ce97e5b6E.exit" ]
+  %40 = phi ptr [ %36, %.thread ], [ %.pre, %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..DiagnosticTag$GT$$GT$17h9c218741ce97e5b6E.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !927)
   call void @llvm.experimental.noalias.scope.decl(metadata !930)
@@ -4630,7 +4630,7 @@ common.resume:                                    ; preds = %11, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %._crit_edge, %.thread
-  %39 = phi ptr [ %.pre, %._crit_edge ], [ %33, %.thread ]
+  %39 = phi ptr [ %.pre, %._crit_edge ], [ %35, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !1100)
   call void @llvm.experimental.noalias.scope.decl(metadata !1103)
@@ -5681,7 +5681,7 @@ common.resume:                                    ; preds = %.body, %201, %186
           to label %206 unwind label %191
 
 198:                                              ; preds = %._crit_edge, %.thread22
-  %199 = phi ptr [ %.pre, %._crit_edge ], [ %194, %.thread22 ]
+  %199 = phi ptr [ %.pre, %._crit_edge ], [ %195, %.thread22 ]
   call void @llvm.lifetime.end.p0(i64 488, ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !1446)
   call void @llvm.experimental.noalias.scope.decl(metadata !1449)
@@ -5996,7 +5996,7 @@ common.resume:                                    ; preds = %.body, %78, %64
           to label %83 unwind label %69
 
 "_ZN4core3ptr59drop_in_place$LT$lsp_types..DidChangeTextDocumentParams$GT$17hd63326265d2f5c0dE.exit": ; preds = %"._ZN4core3ptr59drop_in_place$LT$lsp_types..DidChangeTextDocumentParams$GT$17hd63326265d2f5c0dE.exit_crit_edge", %.thread29
-  %76 = phi ptr [ %.pre, %"._ZN4core3ptr59drop_in_place$LT$lsp_types..DidChangeTextDocumentParams$GT$17hd63326265d2f5c0dE.exit_crit_edge" ], [ %72, %.thread29 ]
+  %76 = phi ptr [ %.pre, %"._ZN4core3ptr59drop_in_place$LT$lsp_types..DidChangeTextDocumentParams$GT$17hd63326265d2f5c0dE.exit_crit_edge" ], [ %73, %.thread29 ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !1547)
   call void @llvm.experimental.noalias.scope.decl(metadata !1550)
@@ -6345,7 +6345,7 @@ common.resume:                                    ; preds = %.body, %78, %63
           to label %83 unwind label %68
 
 75:                                               ; preds = %._crit_edge, %.thread24
-  %76 = phi ptr [ %.pre, %._crit_edge ], [ %71, %.thread24 ]
+  %76 = phi ptr [ %.pre, %._crit_edge ], [ %72, %.thread24 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11)
   call void @llvm.experimental.noalias.scope.decl(metadata !1661)
   call void @llvm.experimental.noalias.scope.decl(metadata !1664)
@@ -6502,7 +6502,7 @@ common.resume:                                    ; preds = %11, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %._crit_edge, %.thread
-  %39 = phi ptr [ %.pre, %._crit_edge ], [ %33, %.thread ]
+  %39 = phi ptr [ %.pre, %._crit_edge ], [ %35, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !1694)
   call void @llvm.experimental.noalias.scope.decl(metadata !1697)
@@ -6790,7 +6790,7 @@ common.resume:                                    ; preds = %.body, %65, %51
           to label %70 unwind label %56
 
 "_ZN4core3ptr78drop_in_place$LT$lsp_types..workspace_folders..WorkspaceFoldersChangeEvent$GT$17h9dfa3c288c8ace96E.exit": ; preds = %"._ZN4core3ptr78drop_in_place$LT$lsp_types..workspace_folders..WorkspaceFoldersChangeEvent$GT$17h9dfa3c288c8ace96E.exit_crit_edge", %.thread
-  %63 = phi ptr [ %.pre, %"._ZN4core3ptr78drop_in_place$LT$lsp_types..workspace_folders..WorkspaceFoldersChangeEvent$GT$17h9dfa3c288c8ace96E.exit_crit_edge" ], [ %59, %.thread ]
+  %63 = phi ptr [ %.pre, %"._ZN4core3ptr78drop_in_place$LT$lsp_types..workspace_folders..WorkspaceFoldersChangeEvent$GT$17h9dfa3c288c8ace96E.exit_crit_edge" ], [ %60, %.thread ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !1783)
   call void @llvm.experimental.noalias.scope.decl(metadata !1786)
@@ -8062,7 +8062,7 @@ common.resume:                                    ; preds = %.body, %343, %328
           to label %348 unwind label %333
 
 340:                                              ; preds = %._crit_edge, %.thread29
-  %341 = phi ptr [ %.pre, %._crit_edge ], [ %336, %.thread29 ]
+  %341 = phi ptr [ %.pre, %._crit_edge ], [ %337, %.thread29 ]
   call void @llvm.lifetime.end.p0(i64 504, ptr nonnull %44)
   call void @llvm.experimental.noalias.scope.decl(metadata !2016)
   call void @llvm.experimental.noalias.scope.decl(metadata !2019)
@@ -8373,7 +8373,7 @@ common.resume:                                    ; preds = %.body, %82, %67
           to label %87 unwind label %72
 
 79:                                               ; preds = %.thread25, %"_ZN4core3ptr58drop_in_place$LT$lsp_types..TextDocumentPositionParams$GT$17h88c5753b2d0ab700E.exit"
-  %80 = phi ptr [ %75, %.thread25 ], [ %.pre, %"_ZN4core3ptr58drop_in_place$LT$lsp_types..TextDocumentPositionParams$GT$17h88c5753b2d0ab700E.exit" ]
+  %80 = phi ptr [ %76, %.thread25 ], [ %.pre, %"_ZN4core3ptr58drop_in_place$LT$lsp_types..TextDocumentPositionParams$GT$17h88c5753b2d0ab700E.exit" ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !2116)
   call void @llvm.experimental.noalias.scope.decl(metadata !2119)
@@ -8648,7 +8648,7 @@ common.resume:                                    ; preds = %40, %63, %48
           to label %68 unwind label %53
 
 60:                                               ; preds = %.thread, %"_ZN4core3ptr40drop_in_place$LT$lsp_types..TextEdit$GT$17h84abe41b33089228E.exit"
-  %61 = phi ptr [ %56, %.thread ], [ %.pre, %"_ZN4core3ptr40drop_in_place$LT$lsp_types..TextEdit$GT$17h84abe41b33089228E.exit" ]
+  %61 = phi ptr [ %57, %.thread ], [ %.pre, %"_ZN4core3ptr40drop_in_place$LT$lsp_types..TextEdit$GT$17h84abe41b33089228E.exit" ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !2221)
   call void @llvm.experimental.noalias.scope.decl(metadata !2224)
@@ -8865,7 +8865,7 @@ common.resume:                                    ; preds = %28, %51, %36
           to label %56 unwind label %41
 
 48:                                               ; preds = %.thread17, %"_ZN4core3ptr58drop_in_place$LT$lsp_types..DidCloseTextDocumentParams$GT$17ha1d0199e336191a8E.exit"
-  %49 = phi ptr [ %44, %.thread17 ], [ %.pre, %"_ZN4core3ptr58drop_in_place$LT$lsp_types..DidCloseTextDocumentParams$GT$17ha1d0199e336191a8E.exit" ]
+  %49 = phi ptr [ %45, %.thread17 ], [ %.pre, %"_ZN4core3ptr58drop_in_place$LT$lsp_types..DidCloseTextDocumentParams$GT$17ha1d0199e336191a8E.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !2293)
   call void @llvm.experimental.noalias.scope.decl(metadata !2296)
@@ -9286,7 +9286,7 @@ common.resume:                                    ; preds = %12, %42, %25
           to label %47 unwind label %30
 
 39:                                               ; preds = %.thread, %"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Range$GT$$GT$17h56bfed6a7284f238E.exit"
-  %40 = phi ptr [ %34, %.thread ], [ %.pre, %"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Range$GT$$GT$17h56bfed6a7284f238E.exit" ]
+  %40 = phi ptr [ %36, %.thread ], [ %.pre, %"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Range$GT$$GT$17h56bfed6a7284f238E.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !2431)
   call void @llvm.experimental.noalias.scope.decl(metadata !2434)
@@ -9462,7 +9462,7 @@ common.resume:                                    ; preds = %11, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %._crit_edge, %.thread
-  %39 = phi ptr [ %.pre, %._crit_edge ], [ %33, %.thread ]
+  %39 = phi ptr [ %.pre, %._crit_edge ], [ %35, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !2471)
   call void @llvm.experimental.noalias.scope.decl(metadata !2474)
@@ -9889,7 +9889,7 @@ common.resume:                                    ; preds = %.body, %102, %87
           to label %107 unwind label %92
 
 99:                                               ; preds = %._crit_edge, %.thread
-  %100 = phi ptr [ %.pre, %._crit_edge ], [ %95, %.thread ]
+  %100 = phi ptr [ %.pre, %._crit_edge ], [ %96, %.thread ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !2626)
   call void @llvm.experimental.noalias.scope.decl(metadata !2629)
@@ -10087,7 +10087,7 @@ common.resume:                                    ; preds = %28, %51, %36
           to label %56 unwind label %41
 
 48:                                               ; preds = %.thread17, %"_ZN4core3ptr65drop_in_place$LT$rust_analyzer..lsp..ext..OpenCargoTomlParams$GT$17h228edd20f7e0487cE.exit"
-  %49 = phi ptr [ %44, %.thread17 ], [ %.pre, %"_ZN4core3ptr65drop_in_place$LT$rust_analyzer..lsp..ext..OpenCargoTomlParams$GT$17h228edd20f7e0487cE.exit" ]
+  %49 = phi ptr [ %45, %.thread17 ], [ %.pre, %"_ZN4core3ptr65drop_in_place$LT$rust_analyzer..lsp..ext..OpenCargoTomlParams$GT$17h228edd20f7e0487cE.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !2687)
   call void @llvm.experimental.noalias.scope.decl(metadata !2690)
@@ -10264,7 +10264,7 @@ common.resume:                                    ; preds = %.body, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %.thread, %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17he4d80897c53cbdf4E.exit"
-  %39 = phi ptr [ %33, %.thread ], [ %.pre, %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17he4d80897c53cbdf4E.exit" ]
+  %39 = phi ptr [ %35, %.thread ], [ %.pre, %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17he4d80897c53cbdf4E.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !2735)
   call void @llvm.experimental.noalias.scope.decl(metadata !2738)
@@ -10615,7 +10615,7 @@ common.resume:                                    ; preds = %.body, %82, %67
           to label %87 unwind label %72
 
 79:                                               ; preds = %.thread24, %"_ZN4core3ptr41drop_in_place$LT$lsp_types..FileEvent$GT$17h56cf14d94f3ec349E.exit"
-  %80 = phi ptr [ %75, %.thread24 ], [ %.pre, %"_ZN4core3ptr41drop_in_place$LT$lsp_types..FileEvent$GT$17h56cf14d94f3ec349E.exit" ]
+  %80 = phi ptr [ %76, %.thread24 ], [ %.pre, %"_ZN4core3ptr41drop_in_place$LT$lsp_types..FileEvent$GT$17h56cf14d94f3ec349E.exit" ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !2851)
   call void @llvm.experimental.noalias.scope.decl(metadata !2854)
@@ -10791,7 +10791,7 @@ common.resume:                                    ; preds = %11, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %._crit_edge, %.thread
-  %39 = phi ptr [ %.pre, %._crit_edge ], [ %33, %.thread ]
+  %39 = phi ptr [ %.pre, %._crit_edge ], [ %35, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !2897)
   call void @llvm.experimental.noalias.scope.decl(metadata !2900)
@@ -10989,7 +10989,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr59drop
           to label %51 unwind label %37
 
 "_ZN4core3ptr59drop_in_place$LT$lsp_types..DidChangeWatchedFilesParams$GT$17h9f8d502ca22f103fE.exit11": ; preds = %"._ZN4core3ptr59drop_in_place$LT$lsp_types..DidChangeWatchedFilesParams$GT$17h9f8d502ca22f103fE.exit11_crit_edge", %.thread
-  %44 = phi ptr [ %.pre, %"._ZN4core3ptr59drop_in_place$LT$lsp_types..DidChangeWatchedFilesParams$GT$17h9f8d502ca22f103fE.exit11_crit_edge" ], [ %40, %.thread ]
+  %44 = phi ptr [ %.pre, %"._ZN4core3ptr59drop_in_place$LT$lsp_types..DidChangeWatchedFilesParams$GT$17h9f8d502ca22f103fE.exit11_crit_edge" ], [ %41, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !2959)
   call void @llvm.experimental.noalias.scope.decl(metadata !2962)
@@ -11424,7 +11424,7 @@ common.resume:                                    ; preds = %.body, %105, %90
           to label %110 unwind label %95
 
 102:                                              ; preds = %._crit_edge, %.thread
-  %103 = phi ptr [ %.pre, %._crit_edge ], [ %98, %.thread ]
+  %103 = phi ptr [ %.pre, %._crit_edge ], [ %99, %.thread ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %16)
   call void @llvm.experimental.noalias.scope.decl(metadata !3106)
   call void @llvm.experimental.noalias.scope.decl(metadata !3109)
@@ -11636,7 +11636,7 @@ common.resume:                                    ; preds = %.body, %57, %37
   br label %54
 
 54:                                               ; preds = %48, %52
-  %55 = phi ptr [ %.pre, %52 ], [ %45, %48 ]
+  %55 = phi ptr [ %.pre, %52 ], [ %46, %48 ]
   %storemerge = phi i8 [ 1, %52 ], [ 0, %48 ]
   store i8 %storemerge, ptr %0, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !3185)
@@ -11744,8 +11744,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h50b0b91b0d05f892E(pt
   call void @llvm.experimental.noalias.scope.decl(metadata !3208)
   %27 = getelementptr inbounds i8, ptr %25, i64 72
   store ptr %27, ptr %23, align 8, !alias.scope !3211, !noalias !3212
-  %.sroa.0.0.copyload3.i.i.i.i35 = load i64, ptr %25, align 8, !noalias !3215
-  %28 = icmp eq i64 %.sroa.0.0.copyload3.i.i.i.i35, -9223372036854775803
+  %.sroa.0.0.copyload3.i.i.i.i36 = load i64, ptr %25, align 8, !noalias !3215
+  %28 = icmp eq i64 %.sroa.0.0.copyload3.i.i.i.i36, -9223372036854775803
   br i1 %28, label %.loopexit.loopexit.split.loop.exit21, label %.lr.ph
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i.i": ; preds = %45
@@ -11759,10 +11759,10 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h50b0b91b0d05f892E(pt
   br i1 %30, label %.loopexit.loopexit.split.loop.exit21, label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i.lr.ph.i", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i.i"
-  %.sroa.0.0.copyload3.i.i.i.i36 = phi i64 [ %.sroa.0.0.copyload3.i.i.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i.i" ], [ %.sroa.0.0.copyload3.i.i.i.i35, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i.lr.ph.i" ]
+  %.sroa.0.0.copyload3.i.i.i.i37 = phi i64 [ %.sroa.0.0.copyload3.i.i.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i.i" ], [ %.sroa.0.0.copyload3.i.i.i.i36, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i.lr.ph.i" ]
   %31 = phi ptr [ %47, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i.i" ], [ %25, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i.lr.ph.i" ]
   %.sroa.6.0..sroa_idx4.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 8
-  store i64 %.sroa.0.0.copyload3.i.i.i.i36, ptr %7, align 8, !noalias !3224
+  store i64 %.sroa.0.0.copyload3.i.i.i.i37, ptr %7, align 8, !noalias !3224
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.6.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.6.0..sroa_idx4.i.i.i.i, i64 64, i1 false), !noalias !3227
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !3224
   invoke void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$serde_json..value..Value$GT$18deserialize_string17hbdb5415d32d8edb1E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %7)
@@ -11844,7 +11844,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h50b0b91b0d05f892E(pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %.loopexit.loopexit.split.loop.exit21, %.noexc6
-  %54 = phi ptr [ %24, %.noexc6 ], [ %53, %.loopexit.loopexit.split.loop.exit21 ], [ %46, %45 ]
+  %54 = phi ptr [ %25, %.noexc6 ], [ %53, %.loopexit.loopexit.split.loop.exit21 ], [ %47, %45 ]
   %55 = phi ptr [ %24, %.noexc6 ], [ %.lcssa28, %.loopexit.loopexit.split.loop.exit21 ], [ %46, %45 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !3234
   %.sroa.013.0.copyload14 = load ptr, ptr %10, align 8, !noalias !3189
@@ -12246,7 +12246,7 @@ common.resume:                                    ; preds = %.body, %78, %63
           to label %83 unwind label %68
 
 75:                                               ; preds = %._crit_edge, %.thread24
-  %76 = phi ptr [ %.pre, %._crit_edge ], [ %71, %.thread24 ]
+  %76 = phi ptr [ %.pre, %._crit_edge ], [ %72, %.thread24 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11)
   call void @llvm.experimental.noalias.scope.decl(metadata !3367)
   call void @llvm.experimental.noalias.scope.decl(metadata !3370)
@@ -12723,7 +12723,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr60drop
           to label %49 unwind label %33
 
 "_ZN4core3ptr60drop_in_place$LT$lsp_types..DidChangeConfigurationParams$GT$17h0f71c7a84c9d0cebE.exit11": ; preds = %"._ZN4core3ptr60drop_in_place$LT$lsp_types..DidChangeConfigurationParams$GT$17h0f71c7a84c9d0cebE.exit11_crit_edge", %.thread16
-  %42 = phi ptr [ %.pre, %"._ZN4core3ptr60drop_in_place$LT$lsp_types..DidChangeConfigurationParams$GT$17h0f71c7a84c9d0cebE.exit11_crit_edge" ], [ %37, %.thread16 ]
+  %42 = phi ptr [ %.pre, %"._ZN4core3ptr60drop_in_place$LT$lsp_types..DidChangeConfigurationParams$GT$17h0f71c7a84c9d0cebE.exit11_crit_edge" ], [ %39, %.thread16 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !3527)
   call void @llvm.experimental.noalias.scope.decl(metadata !3530)
@@ -13326,7 +13326,7 @@ common.resume:                                    ; preds = %11, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %._crit_edge, %.thread
-  %39 = phi ptr [ %.pre, %._crit_edge ], [ %33, %.thread ]
+  %39 = phi ptr [ %.pre, %._crit_edge ], [ %35, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !3721)
   call void @llvm.experimental.noalias.scope.decl(metadata !3724)
@@ -13665,7 +13665,7 @@ common.resume:                                    ; preds = %.body, %83, %69
           to label %88 unwind label %74
 
 "_ZN4core3ptr68drop_in_place$LT$lsp_types..signature_help..ParameterInformation$GT$17hcbb9ff3d48890906E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$lsp_types..signature_help..ParameterLabel$GT$17h872a85a5cc7dc043E.llvm.10409712727403535664.exit.i._ZN4core3ptr68drop_in_place$LT$lsp_types..signature_help..ParameterInformation$GT$17hcbb9ff3d48890906E.exit_crit_edge", %.thread32
-  %81 = phi ptr [ %.pre, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..signature_help..ParameterLabel$GT$17h872a85a5cc7dc043E.llvm.10409712727403535664.exit.i._ZN4core3ptr68drop_in_place$LT$lsp_types..signature_help..ParameterInformation$GT$17hcbb9ff3d48890906E.exit_crit_edge" ], [ %77, %.thread32 ]
+  %81 = phi ptr [ %.pre, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..signature_help..ParameterLabel$GT$17h872a85a5cc7dc043E.llvm.10409712727403535664.exit.i._ZN4core3ptr68drop_in_place$LT$lsp_types..signature_help..ParameterInformation$GT$17hcbb9ff3d48890906E.exit_crit_edge" ], [ %78, %.thread32 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !3837)
   call void @llvm.experimental.noalias.scope.decl(metadata !3840)
@@ -14366,7 +14366,7 @@ common.resume:                                    ; preds = %.body, %183, %168
           to label %188 unwind label %173
 
 180:                                              ; preds = %._crit_edge, %.thread30
-  %181 = phi ptr [ %.pre, %._crit_edge ], [ %176, %.thread30 ]
+  %181 = phi ptr [ %.pre, %._crit_edge ], [ %177, %.thread30 ]
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !4043)
   call void @llvm.experimental.noalias.scope.decl(metadata !4046)
@@ -14453,7 +14453,7 @@ define hidden noundef align 8 ptr @_ZN10serde_json5value2de11visit_array17h6932d
   br label %16
 
 16:                                               ; preds = %._crit_edge, %1
-  %17 = phi ptr [ %8, %1 ], [ %.pre, %._crit_edge ]
+  %17 = phi ptr [ %10, %1 ], [ %.pre, %._crit_edge ]
   %.0 = phi ptr [ null, %1 ], [ %15, %._crit_edge ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4072)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4073)
@@ -14819,7 +14819,7 @@ common.resume:                                    ; preds = %.body, %87, %73
           to label %92 unwind label %78
 
 "_ZN4core3ptr61drop_in_place$LT$lsp_types..signature_help..SignatureHelp$GT$17hf225cd16f9a1a8a5E.exit10": ; preds = %"._ZN4core3ptr61drop_in_place$LT$lsp_types..signature_help..SignatureHelp$GT$17hf225cd16f9a1a8a5E.exit10_crit_edge", %.thread
-  %85 = phi ptr [ %.pre, %"._ZN4core3ptr61drop_in_place$LT$lsp_types..signature_help..SignatureHelp$GT$17hf225cd16f9a1a8a5E.exit10_crit_edge" ], [ %81, %.thread ]
+  %85 = phi ptr [ %.pre, %"._ZN4core3ptr61drop_in_place$LT$lsp_types..signature_help..SignatureHelp$GT$17hf225cd16f9a1a8a5E.exit10_crit_edge" ], [ %82, %.thread ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
   call void @llvm.experimental.noalias.scope.decl(metadata !4205)
   call void @llvm.experimental.noalias.scope.decl(metadata !4208)
@@ -15535,7 +15535,7 @@ common.resume:                                    ; preds = %.body, %77, %60
           to label %82 unwind label %65
 
 74:                                               ; preds = %._crit_edge, %.thread19
-  %75 = phi ptr [ %.pre, %._crit_edge ], [ %69, %.thread19 ]
+  %75 = phi ptr [ %.pre, %._crit_edge ], [ %71, %.thread19 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !4419)
   call void @llvm.experimental.noalias.scope.decl(metadata !4422)
@@ -16113,7 +16113,7 @@ common.resume:                                    ; preds = %.body, %140, %125
           to label %145 unwind label %130
 
 137:                                              ; preds = %._crit_edge, %.thread20
-  %138 = phi ptr [ %.pre, %._crit_edge ], [ %133, %.thread20 ]
+  %138 = phi ptr [ %.pre, %._crit_edge ], [ %134, %.thread20 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %21)
   call void @llvm.experimental.noalias.scope.decl(metadata !4626)
   call void @llvm.experimental.noalias.scope.decl(metadata !4629)
@@ -16270,7 +16270,7 @@ common.resume:                                    ; preds = %11, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %._crit_edge, %.thread
-  %39 = phi ptr [ %.pre, %._crit_edge ], [ %33, %.thread ]
+  %39 = phi ptr [ %.pre, %._crit_edge ], [ %35, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !4659)
   call void @llvm.experimental.noalias.scope.decl(metadata !4662)
@@ -16581,7 +16581,7 @@ common.resume:                                    ; preds = %.body, %82, %67
           to label %87 unwind label %72
 
 79:                                               ; preds = %.thread25, %"_ZN4core3ptr63drop_in_place$LT$rust_analyzer..lsp..ext..ExpandMacroParams$GT$17heee7eeb3f951b468E.exit"
-  %80 = phi ptr [ %75, %.thread25 ], [ %.pre, %"_ZN4core3ptr63drop_in_place$LT$rust_analyzer..lsp..ext..ExpandMacroParams$GT$17heee7eeb3f951b468E.exit" ]
+  %80 = phi ptr [ %76, %.thread25 ], [ %.pre, %"_ZN4core3ptr63drop_in_place$LT$rust_analyzer..lsp..ext..ExpandMacroParams$GT$17heee7eeb3f951b468E.exit" ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !4759)
   call void @llvm.experimental.noalias.scope.decl(metadata !4762)
@@ -17097,7 +17097,7 @@ common.resume:                                    ; preds = %42, %74, %49
   br label %71
 
 71:                                               ; preds = %64, %69
-  %72 = phi ptr [ %.pre, %69 ], [ %61, %64 ]
+  %72 = phi ptr [ %.pre, %69 ], [ %62, %64 ]
   %storemerge = phi i32 [ 1, %69 ], [ 0, %64 ]
   store i32 %storemerge, ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4963)
@@ -17244,7 +17244,7 @@ common.resume:                                    ; preds = %11, %40, %23
           to label %45 unwind label %28
 
 37:                                               ; preds = %._crit_edge, %.thread
-  %38 = phi ptr [ %.pre, %._crit_edge ], [ %32, %.thread ]
+  %38 = phi ptr [ %.pre, %._crit_edge ], [ %34, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !4987)
   call void @llvm.experimental.noalias.scope.decl(metadata !4990)
@@ -17402,7 +17402,7 @@ common.resume:                                    ; preds = %12, %42, %25
           to label %47 unwind label %30
 
 39:                                               ; preds = %.thread, %"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..SymbolTag$GT$$GT$17h4c8b7ce6a4c24717E.exit"
-  %40 = phi ptr [ %34, %.thread ], [ %.pre, %"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..SymbolTag$GT$$GT$17h4c8b7ce6a4c24717E.exit" ]
+  %40 = phi ptr [ %36, %.thread ], [ %.pre, %"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..SymbolTag$GT$$GT$17h4c8b7ce6a4c24717E.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !5020)
   call void @llvm.experimental.noalias.scope.decl(metadata !5023)
@@ -17578,7 +17578,7 @@ common.resume:                                    ; preds = %11, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %._crit_edge, %.thread
-  %39 = phi ptr [ %.pre, %._crit_edge ], [ %33, %.thread ]
+  %39 = phi ptr [ %.pre, %._crit_edge ], [ %35, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !5060)
   call void @llvm.experimental.noalias.scope.decl(metadata !5063)
@@ -17824,7 +17824,7 @@ common.resume:                                    ; preds = %40, %70, %47
   br label %67
 
 67:                                               ; preds = %60, %65
-  %68 = phi ptr [ %.pre, %65 ], [ %57, %60 ]
+  %68 = phi ptr [ %.pre, %65 ], [ %58, %60 ]
   %storemerge = phi i32 [ 1, %65 ], [ 0, %60 ]
   store i32 %storemerge, ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5155)
@@ -18746,7 +18746,7 @@ common.resume:                                    ; preds = %.body, %234, %219
           to label %239 unwind label %224
 
 231:                                              ; preds = %._crit_edge, %.thread45
-  %232 = phi ptr [ %.pre, %._crit_edge ], [ %227, %.thread45 ]
+  %232 = phi ptr [ %.pre, %._crit_edge ], [ %228, %.thread45 ]
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %34)
   call void @llvm.experimental.noalias.scope.decl(metadata !5453)
   call void @llvm.experimental.noalias.scope.decl(metadata !5456)
@@ -19111,7 +19111,7 @@ common.resume:                                    ; preds = %.body, %95, %80
           to label %100 unwind label %85
 
 92:                                               ; preds = %.thread29, %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..lsp..ext..MoveItemParams$GT$17h84e386d95ca9acfbE.exit"
-  %93 = phi ptr [ %88, %.thread29 ], [ %.pre, %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..lsp..ext..MoveItemParams$GT$17h84e386d95ca9acfbE.exit" ]
+  %93 = phi ptr [ %89, %.thread29 ], [ %.pre, %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..lsp..ext..MoveItemParams$GT$17h84e386d95ca9acfbE.exit" ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %14)
   call void @llvm.experimental.noalias.scope.decl(metadata !5580)
   call void @llvm.experimental.noalias.scope.decl(metadata !5583)
@@ -19288,7 +19288,7 @@ common.resume:                                    ; preds = %.body, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %.thread, %"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..signature_help..ParameterInformation$GT$$GT$17hf0d15fe03f4476e6E.exit"
-  %39 = phi ptr [ %33, %.thread ], [ %.pre, %"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..signature_help..ParameterInformation$GT$$GT$17hf0d15fe03f4476e6E.exit" ]
+  %39 = phi ptr [ %35, %.thread ], [ %.pre, %"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..signature_help..ParameterInformation$GT$$GT$17hf0d15fe03f4476e6E.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !5628)
   call void @llvm.experimental.noalias.scope.decl(metadata !5631)
@@ -19526,7 +19526,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr66drop
           to label %51 unwind label %37
 
 "_ZN4core3ptr66drop_in_place$LT$rust_analyzer..lsp..ext..ClientCommandOptions$GT$17h5769adca22377204E.exit11": ; preds = %"._ZN4core3ptr66drop_in_place$LT$rust_analyzer..lsp..ext..ClientCommandOptions$GT$17h5769adca22377204E.exit11_crit_edge", %.thread
-  %44 = phi ptr [ %.pre, %"._ZN4core3ptr66drop_in_place$LT$rust_analyzer..lsp..ext..ClientCommandOptions$GT$17h5769adca22377204E.exit11_crit_edge" ], [ %40, %.thread ]
+  %44 = phi ptr [ %.pre, %"._ZN4core3ptr66drop_in_place$LT$rust_analyzer..lsp..ext..ClientCommandOptions$GT$17h5769adca22377204E.exit11_crit_edge" ], [ %41, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !5701)
   call void @llvm.experimental.noalias.scope.decl(metadata !5704)
@@ -19684,7 +19684,7 @@ common.resume:                                    ; preds = %12, %42, %25
           to label %47 unwind label %30
 
 39:                                               ; preds = %.thread, %"_ZN4core3ptr84drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..completion..CompletionItemTag$GT$$GT$17hdf1c589fb6cfbda3E.exit"
-  %40 = phi ptr [ %34, %.thread ], [ %.pre, %"_ZN4core3ptr84drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..completion..CompletionItemTag$GT$$GT$17hdf1c589fb6cfbda3E.exit" ]
+  %40 = phi ptr [ %36, %.thread ], [ %.pre, %"_ZN4core3ptr84drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..completion..CompletionItemTag$GT$$GT$17hdf1c589fb6cfbda3E.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !5734)
   call void @llvm.experimental.noalias.scope.decl(metadata !5737)
@@ -20017,7 +20017,7 @@ common.resume:                                    ; preds = %.body, %78, %63
           to label %83 unwind label %68
 
 75:                                               ; preds = %._crit_edge, %.thread24
-  %76 = phi ptr [ %.pre, %._crit_edge ], [ %71, %.thread24 ]
+  %76 = phi ptr [ %.pre, %._crit_edge ], [ %72, %.thread24 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11)
   call void @llvm.experimental.noalias.scope.decl(metadata !5842)
   call void @llvm.experimental.noalias.scope.decl(metadata !5845)
@@ -20501,7 +20501,7 @@ common.resume:                                    ; preds = %.body, %120, %105
           to label %125 unwind label %110
 
 117:                                              ; preds = %._crit_edge, %.thread30
-  %118 = phi ptr [ %.pre, %._crit_edge ], [ %113, %.thread30 ]
+  %118 = phi ptr [ %.pre, %._crit_edge ], [ %114, %.thread30 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %17)
   call void @llvm.experimental.noalias.scope.decl(metadata !6037)
   call void @llvm.experimental.noalias.scope.decl(metadata !6040)
@@ -20699,7 +20699,7 @@ common.resume:                                    ; preds = %28, %51, %36
           to label %56 unwind label %41
 
 48:                                               ; preds = %.thread17, %"_ZN4core3ptr64drop_in_place$LT$rust_analyzer..lsp..ext..ViewItemTreeParams$GT$17hdf29c0852c3bd13eE.exit"
-  %49 = phi ptr [ %44, %.thread17 ], [ %.pre, %"_ZN4core3ptr64drop_in_place$LT$rust_analyzer..lsp..ext..ViewItemTreeParams$GT$17hdf29c0852c3bd13eE.exit" ]
+  %49 = phi ptr [ %45, %.thread17 ], [ %.pre, %"_ZN4core3ptr64drop_in_place$LT$rust_analyzer..lsp..ext..ViewItemTreeParams$GT$17hdf29c0852c3bd13eE.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !6098)
   call void @llvm.experimental.noalias.scope.decl(metadata !6101)
@@ -21063,7 +21063,7 @@ common.resume:                                    ; preds = %56, %79, %64
           to label %84 unwind label %69
 
 76:                                               ; preds = %.thread, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentContentChangeEvent$GT$17hb1477c9f7c8ed8cbE.exit"
-  %77 = phi ptr [ %72, %.thread ], [ %.pre, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentContentChangeEvent$GT$17hb1477c9f7c8ed8cbE.exit" ]
+  %77 = phi ptr [ %73, %.thread ], [ %.pre, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentContentChangeEvent$GT$17hb1477c9f7c8ed8cbE.exit" ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14)
   call void @llvm.experimental.noalias.scope.decl(metadata !6257)
   call void @llvm.experimental.noalias.scope.decl(metadata !6260)
@@ -21397,7 +21397,7 @@ common.resume:                                    ; preds = %.body, %78, %64
           to label %83 unwind label %69
 
 "_ZN4core3ptr67drop_in_place$LT$rust_analyzer..lsp..ext..CompletionResolveData$GT$17he504cac428dc8698E.exit": ; preds = %"._ZN4core3ptr67drop_in_place$LT$rust_analyzer..lsp..ext..CompletionResolveData$GT$17he504cac428dc8698E.exit_crit_edge", %.thread29
-  %76 = phi ptr [ %.pre, %"._ZN4core3ptr67drop_in_place$LT$rust_analyzer..lsp..ext..CompletionResolveData$GT$17he504cac428dc8698E.exit_crit_edge" ], [ %72, %.thread29 ]
+  %76 = phi ptr [ %.pre, %"._ZN4core3ptr67drop_in_place$LT$rust_analyzer..lsp..ext..CompletionResolveData$GT$17he504cac428dc8698E.exit_crit_edge" ], [ %73, %.thread29 ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !6371)
   call void @llvm.experimental.noalias.scope.decl(metadata !6374)
@@ -21630,7 +21630,7 @@ common.resume:                                    ; preds = %28, %51, %36
           to label %56 unwind label %41
 
 48:                                               ; preds = %.thread17, %"_ZN4core3ptr54drop_in_place$LT$lsp_types..TextDocumentIdentifier$GT$17hf3dcc07daf59a2bbE.exit"
-  %49 = phi ptr [ %44, %.thread17 ], [ %.pre, %"_ZN4core3ptr54drop_in_place$LT$lsp_types..TextDocumentIdentifier$GT$17hf3dcc07daf59a2bbE.exit" ]
+  %49 = phi ptr [ %45, %.thread17 ], [ %.pre, %"_ZN4core3ptr54drop_in_place$LT$lsp_types..TextDocumentIdentifier$GT$17hf3dcc07daf59a2bbE.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !6449)
   call void @llvm.experimental.noalias.scope.decl(metadata !6452)
@@ -21806,7 +21806,7 @@ common.resume:                                    ; preds = %11, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %._crit_edge, %.thread
-  %39 = phi ptr [ %.pre, %._crit_edge ], [ %33, %.thread ]
+  %39 = phi ptr [ %.pre, %._crit_edge ], [ %35, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !6495)
   call void @llvm.experimental.noalias.scope.decl(metadata !6498)
@@ -22117,7 +22117,7 @@ common.resume:                                    ; preds = %.body, %75, %60
           to label %80 unwind label %65
 
 72:                                               ; preds = %._crit_edge, %.thread
-  %73 = phi ptr [ %.pre, %._crit_edge ], [ %68, %.thread ]
+  %73 = phi ptr [ %.pre, %._crit_edge ], [ %69, %.thread ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   call void @llvm.experimental.noalias.scope.decl(metadata !6593)
   call void @llvm.experimental.noalias.scope.decl(metadata !6596)
@@ -22314,7 +22314,7 @@ common.resume:                                    ; preds = %.body, %48, %34
           to label %53 unwind label %39
 
 "_ZN4core3ptr82drop_in_place$LT$lsp_types..workspace_folders..DidChangeWorkspaceFoldersParams$GT$17haf90f295ae851ffeE.exit": ; preds = %"_ZN4core3ptr78drop_in_place$LT$lsp_types..workspace_folders..WorkspaceFoldersChangeEvent$GT$17h9dfa3c288c8ace96E.exit.i._ZN4core3ptr82drop_in_place$LT$lsp_types..workspace_folders..DidChangeWorkspaceFoldersParams$GT$17haf90f295ae851ffeE.exit_crit_edge", %.thread17
-  %46 = phi ptr [ %.pre, %"_ZN4core3ptr78drop_in_place$LT$lsp_types..workspace_folders..WorkspaceFoldersChangeEvent$GT$17h9dfa3c288c8ace96E.exit.i._ZN4core3ptr82drop_in_place$LT$lsp_types..workspace_folders..DidChangeWorkspaceFoldersParams$GT$17haf90f295ae851ffeE.exit_crit_edge" ], [ %42, %.thread17 ]
+  %46 = phi ptr [ %.pre, %"_ZN4core3ptr78drop_in_place$LT$lsp_types..workspace_folders..WorkspaceFoldersChangeEvent$GT$17h9dfa3c288c8ace96E.exit.i._ZN4core3ptr82drop_in_place$LT$lsp_types..workspace_folders..DidChangeWorkspaceFoldersParams$GT$17haf90f295ae851ffeE.exit_crit_edge" ], [ %43, %.thread17 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !6654)
   call void @llvm.experimental.noalias.scope.decl(metadata !6657)
@@ -22624,7 +22624,7 @@ common.resume:                                    ; preds = %.body, %70, %55
           to label %75 unwind label %60
 
 67:                                               ; preds = %.thread27, %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..lsp..ext..CodeActionData$GT$17h3f3c78c0510633c0E.exit"
-  %68 = phi ptr [ %63, %.thread27 ], [ %.pre, %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..lsp..ext..CodeActionData$GT$17h3f3c78c0510633c0E.exit" ]
+  %68 = phi ptr [ %64, %.thread27 ], [ %.pre, %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..lsp..ext..CodeActionData$GT$17h3f3c78c0510633c0E.exit" ]
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %11)
   call void @llvm.experimental.noalias.scope.decl(metadata !6742)
   call void @llvm.experimental.noalias.scope.decl(metadata !6745)
@@ -22816,7 +22816,7 @@ common.resume:                                    ; preds = %11, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %._crit_edge, %.thread
-  %39 = phi ptr [ %.pre, %._crit_edge ], [ %33, %.thread ]
+  %39 = phi ptr [ %.pre, %._crit_edge ], [ %35, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !6786)
   call void @llvm.experimental.noalias.scope.decl(metadata !6789)
@@ -23130,7 +23130,7 @@ common.resume:                                    ; preds = %.body, %78, %63
           to label %83 unwind label %68
 
 75:                                               ; preds = %._crit_edge, %.thread24
-  %76 = phi ptr [ %.pre, %._crit_edge ], [ %71, %.thread24 ]
+  %76 = phi ptr [ %.pre, %._crit_edge ], [ %72, %.thread24 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11)
   call void @llvm.experimental.noalias.scope.decl(metadata !6887)
   call void @llvm.experimental.noalias.scope.decl(metadata !6890)
@@ -23328,7 +23328,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr66drop
           to label %51 unwind label %37
 
 "_ZN4core3ptr66drop_in_place$LT$lsp_types..file_operations..RenameFilesParams$GT$17hc70d97cff03b69d9E.exit11": ; preds = %"._ZN4core3ptr66drop_in_place$LT$lsp_types..file_operations..RenameFilesParams$GT$17hc70d97cff03b69d9E.exit11_crit_edge", %.thread
-  %44 = phi ptr [ %.pre, %"._ZN4core3ptr66drop_in_place$LT$lsp_types..file_operations..RenameFilesParams$GT$17hc70d97cff03b69d9E.exit11_crit_edge" ], [ %40, %.thread ]
+  %44 = phi ptr [ %.pre, %"._ZN4core3ptr66drop_in_place$LT$lsp_types..file_operations..RenameFilesParams$GT$17hc70d97cff03b69d9E.exit11_crit_edge" ], [ %41, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !6949)
   call void @llvm.experimental.noalias.scope.decl(metadata !6952)
@@ -23518,7 +23518,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hda66b7afd0c276feE(pt
   br label %201
 
 .thread309.i:                                     ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i.i", %2
-  %53 = phi ptr [ %38, %2 ], [ %42, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i.i" ]
+  %53 = phi ptr [ %40, %2 ], [ %42, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %20), !noalias !6973
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !noalias !6965
   br label %55
@@ -23594,7 +23594,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hda66b7afd0c276feE(pt
   br label %196
 
 .thread332.i:                                     ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i235.i", %55
-  %68 = phi ptr [ %38, %55 ], [ %58, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i235.i" ]
+  %68 = phi ptr [ %56, %55 ], [ %58, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i235.i" ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %18), !noalias !7000
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false), !noalias !6965
   br label %70
@@ -23668,7 +23668,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hda66b7afd0c276feE(pt
   br label %195
 
 .thread355.i:                                     ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i245.i", %70
-  %83 = phi ptr [ %38, %70 ], [ %73, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i245.i" ]
+  %83 = phi ptr [ %71, %70 ], [ %73, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i245.i" ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %16), !noalias !7026
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false), !noalias !6965
   br label %85
@@ -23740,7 +23740,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hda66b7afd0c276feE(pt
   br label %194
 
 .thread378.i:                                     ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i255.i", %85
-  %98 = phi ptr [ %38, %85 ], [ %88, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i255.i" ]
+  %98 = phi ptr [ %86, %85 ], [ %88, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i255.i" ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14), !noalias !7052
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !6965
   br label %100
@@ -23821,7 +23821,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hda66b7afd0c276feE(pt
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f0f279d64fa8c7dE.exit.i"
 
 .thread401.i:                                     ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i265.i", %100
-  %114 = phi ptr [ %38, %100 ], [ %103, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i265.i" ]
+  %114 = phi ptr [ %101, %100 ], [ %103, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bf4c8a7f5c404d8E.llvm.1186121590401690724.exit.i.i.i265.i" ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12), !noalias !7078
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false), !noalias !6965
   br label %117
@@ -25065,7 +25065,7 @@ common.resume:                                    ; preds = %.body, %119, %104
           to label %124 unwind label %109
 
 116:                                              ; preds = %._crit_edge, %.thread23
-  %117 = phi ptr [ %.pre, %._crit_edge ], [ %112, %.thread23 ]
+  %117 = phi ptr [ %.pre, %._crit_edge ], [ %113, %.thread23 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %17)
   call void @llvm.experimental.noalias.scope.decl(metadata !7425)
   call void @llvm.experimental.noalias.scope.decl(metadata !7428)
@@ -25222,7 +25222,7 @@ common.resume:                                    ; preds = %11, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %._crit_edge, %.thread
-  %39 = phi ptr [ %.pre, %._crit_edge ], [ %33, %.thread ]
+  %39 = phi ptr [ %.pre, %._crit_edge ], [ %35, %.thread ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !7459)
   call void @llvm.experimental.noalias.scope.decl(metadata !7462)
@@ -25420,7 +25420,7 @@ common.resume:                                    ; preds = %28, %51, %36
           to label %56 unwind label %41
 
 48:                                               ; preds = %.thread17, %"_ZN4core3ptr47drop_in_place$LT$lsp_types..CodeDescription$GT$17h2946f11fcc8ea115E.exit"
-  %49 = phi ptr [ %44, %.thread17 ], [ %.pre, %"_ZN4core3ptr47drop_in_place$LT$lsp_types..CodeDescription$GT$17h2946f11fcc8ea115E.exit" ]
+  %49 = phi ptr [ %45, %.thread17 ], [ %.pre, %"_ZN4core3ptr47drop_in_place$LT$lsp_types..CodeDescription$GT$17h2946f11fcc8ea115E.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !7520)
   call void @llvm.experimental.noalias.scope.decl(metadata !7523)
@@ -25886,7 +25886,7 @@ common.resume:                                    ; preds = %.body, %105, %90
           to label %110 unwind label %95
 
 102:                                              ; preds = %._crit_edge, %.thread18
-  %103 = phi ptr [ %.pre, %._crit_edge ], [ %98, %.thread18 ]
+  %103 = phi ptr [ %.pre, %._crit_edge ], [ %99, %.thread18 ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %16)
   call void @llvm.experimental.noalias.scope.decl(metadata !7707)
   call void @llvm.experimental.noalias.scope.decl(metadata !7710)
@@ -26044,7 +26044,7 @@ common.resume:                                    ; preds = %12, %42, %25
           to label %47 unwind label %30
 
 39:                                               ; preds = %.thread, %"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Position$GT$$GT$17h2f116c559f2e4597E.exit"
-  %40 = phi ptr [ %34, %.thread ], [ %.pre, %"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Position$GT$$GT$17h2f116c559f2e4597E.exit" ]
+  %40 = phi ptr [ %36, %.thread ], [ %.pre, %"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Position$GT$$GT$17h2f116c559f2e4597E.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !7740)
   call void @llvm.experimental.noalias.scope.decl(metadata !7743)
@@ -26220,7 +26220,7 @@ common.resume:                                    ; preds = %11, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %._crit_edge, %.thread
-  %39 = phi ptr [ %.pre, %._crit_edge ], [ %33, %.thread ]
+  %39 = phi ptr [ %.pre, %._crit_edge ], [ %35, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !7780)
   call void @llvm.experimental.noalias.scope.decl(metadata !7783)
@@ -26771,7 +26771,7 @@ common.resume:                                    ; preds = %.body, %75, %60
           to label %80 unwind label %65
 
 72:                                               ; preds = %._crit_edge, %.thread
-  %73 = phi ptr [ %.pre, %._crit_edge ], [ %68, %.thread ]
+  %73 = phi ptr [ %.pre, %._crit_edge ], [ %69, %.thread ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   call void @llvm.experimental.noalias.scope.decl(metadata !7972)
   call void @llvm.experimental.noalias.scope.decl(metadata !7975)
@@ -27134,7 +27134,7 @@ common.resume:                                    ; preds = %.body, %84, %69
           to label %89 unwind label %74
 
 81:                                               ; preds = %._crit_edge, %.thread
-  %82 = phi ptr [ %.pre, %._crit_edge ], [ %77, %.thread ]
+  %82 = phi ptr [ %.pre, %._crit_edge ], [ %78, %.thread ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !8103)
   call void @llvm.experimental.noalias.scope.decl(metadata !8106)
@@ -27471,7 +27471,7 @@ common.resume:                                    ; preds = %.body, %83, %68
           to label %88 unwind label %73
 
 80:                                               ; preds = %.thread27, %"_ZN4core3ptr62drop_in_place$LT$rust_analyzer..lsp..ext..SyntaxTreeParams$GT$17hf6e669870f16e04dE.exit"
-  %81 = phi ptr [ %76, %.thread27 ], [ %.pre, %"_ZN4core3ptr62drop_in_place$LT$rust_analyzer..lsp..ext..SyntaxTreeParams$GT$17hf6e669870f16e04dE.exit" ]
+  %81 = phi ptr [ %77, %.thread27 ], [ %.pre, %"_ZN4core3ptr62drop_in_place$LT$rust_analyzer..lsp..ext..SyntaxTreeParams$GT$17hf6e669870f16e04dE.exit" ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !8221)
   call void @llvm.experimental.noalias.scope.decl(metadata !8224)
@@ -27687,7 +27687,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr57drop
           to label %53 unwind label %39
 
 "_ZN4core3ptr57drop_in_place$LT$lsp_types..DidOpenTextDocumentParams$GT$17h84dcb042cd791e32E.exit11": ; preds = %"._ZN4core3ptr57drop_in_place$LT$lsp_types..DidOpenTextDocumentParams$GT$17h84dcb042cd791e32E.exit11_crit_edge", %.thread19
-  %46 = phi ptr [ %.pre, %"._ZN4core3ptr57drop_in_place$LT$lsp_types..DidOpenTextDocumentParams$GT$17h84dcb042cd791e32E.exit11_crit_edge" ], [ %42, %.thread19 ]
+  %46 = phi ptr [ %.pre, %"._ZN4core3ptr57drop_in_place$LT$lsp_types..DidOpenTextDocumentParams$GT$17h84dcb042cd791e32E.exit11_crit_edge" ], [ %43, %.thread19 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !8297)
   call void @llvm.experimental.noalias.scope.decl(metadata !8300)
@@ -27899,7 +27899,7 @@ common.resume:                                    ; preds = %.body, %57, %37
   br label %54
 
 54:                                               ; preds = %48, %52
-  %55 = phi ptr [ %.pre, %52 ], [ %45, %48 ]
+  %55 = phi ptr [ %.pre, %52 ], [ %46, %48 ]
   %storemerge = phi i8 [ 1, %52 ], [ 0, %48 ]
   store i8 %storemerge, ptr %0, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !8376)
@@ -28596,7 +28596,7 @@ common.resume:                                    ; preds = %.body, %183, %168
           to label %188 unwind label %173
 
 180:                                              ; preds = %._crit_edge, %.thread23
-  %181 = phi ptr [ %.pre, %._crit_edge ], [ %176, %.thread23 ]
+  %181 = phi ptr [ %.pre, %._crit_edge ], [ %177, %.thread23 ]
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %25)
   call void @llvm.experimental.noalias.scope.decl(metadata !8565)
   call void @llvm.experimental.noalias.scope.decl(metadata !8568)
@@ -28754,7 +28754,7 @@ common.resume:                                    ; preds = %.body, %41, %24
           to label %46 unwind label %29
 
 38:                                               ; preds = %.thread, %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$rust_analyzer..config..ManifestOrProjectJson$GT$$GT$17he797142039a57d22E.exit"
-  %39 = phi ptr [ %33, %.thread ], [ %.pre, %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$rust_analyzer..config..ManifestOrProjectJson$GT$$GT$17he797142039a57d22E.exit" ]
+  %39 = phi ptr [ %35, %.thread ], [ %.pre, %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$rust_analyzer..config..ManifestOrProjectJson$GT$$GT$17he797142039a57d22E.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !8598)
   call void @llvm.experimental.noalias.scope.decl(metadata !8601)

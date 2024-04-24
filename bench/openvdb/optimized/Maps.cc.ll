@@ -1292,12 +1292,12 @@ entry:
   br i1 %cmp.i.i.i, label %land.rhs, label %if.else
 
 land.rhs:                                         ; preds = %entry
-  %arrayidx.i.i7 = getelementptr inbounds i8, ptr %v, i64 16
-  %3 = load double, ptr %arrayidx.i.i7, align 8
-  %sub.i.i8 = fsub double %0, %3
-  %4 = tail call noundef double @llvm.fabs.f64(double %sub.i.i8)
-  %cmp.i.i.i9 = fcmp ule double %4, 1.000000e-15
-  br i1 %cmp.i.i.i9, label %invoke.cont, label %if.else
+  %arrayidx.i.i8 = getelementptr inbounds i8, ptr %v, i64 16
+  %3 = load double, ptr %arrayidx.i.i8, align 8
+  %sub.i.i9 = fsub double %0, %3
+  %4 = tail call noundef double @llvm.fabs.f64(double %sub.i.i9)
+  %cmp.i.i.i10 = fcmp ule double %4, 1.000000e-15
+  br i1 %cmp.i.i.i10, label %invoke.cont, label %if.else
 
 invoke.cont:                                      ; preds = %land.rhs
   %call10 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
@@ -1335,8 +1335,8 @@ lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
-common.resume:                                    ; preds = %lpad, %lpad15, %lpad3.i.i.i.i13, %lpad3.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %8, %lpad3.i.i.i.i ], [ %16, %lpad3.i.i.i.i13 ], [ %11, %lpad ], [ %19, %lpad15 ]
+common.resume:                                    ; preds = %lpad, %lpad15, %lpad3.i.i.i.i15, %lpad3.i.i.i.i
+  %common.resume.op = phi { ptr, i32 } [ %8, %lpad3.i.i.i.i ], [ %16, %lpad3.i.i.i.i15 ], [ %11, %lpad ], [ %19, %lpad15 ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
@@ -1374,12 +1374,12 @@ if.else:                                          ; preds = %entry, %land.rhs
 
 invoke.cont16:                                    ; preds = %if.else
   store ptr %call13, ptr %agg.result, align 8
-  %_M_refcount.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %_M_refcount.i.i10, align 8
-  %call.i.i.i.i11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-          to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i12
+  %_M_refcount.i.i12 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr null, ptr %_M_refcount.i.i12, align 8
+  %call.i.i.i.i13 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+          to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i14
 
-lpad.i.i.i.i12:                                   ; preds = %invoke.cont16
+lpad.i.i.i.i14:                                   ; preds = %invoke.cont16
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
@@ -1389,33 +1389,33 @@ lpad.i.i.i.i12:                                   ; preds = %invoke.cont16
   %15 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(152) %call13) #25
   invoke void @__cxa_rethrow() #26
-          to label %unreachable.i.i.i.i16 unwind label %lpad3.i.i.i.i13
+          to label %unreachable.i.i.i.i18 unwind label %lpad3.i.i.i.i15
 
-lpad3.i.i.i.i13:                                  ; preds = %lpad.i.i.i.i12
+lpad3.i.i.i.i15:                                  ; preds = %lpad.i.i.i.i14
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i14
+          to label %common.resume unwind label %terminate.lpad.i.i.i.i16
 
-terminate.lpad.i.i.i.i14:                         ; preds = %lpad3.i.i.i.i13
+terminate.lpad.i.i.i.i16:                         ; preds = %lpad3.i.i.i.i15
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   tail call void @__clang_call_terminate(ptr %18) #27
   unreachable
 
-unreachable.i.i.i.i16:                            ; preds = %lpad.i.i.i.i12
+unreachable.i.i.i.i18:                            ; preds = %lpad.i.i.i.i14
   unreachable
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit: ; preds = %invoke.cont16
-  %_M_use_count.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %call.i.i.i.i11, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i17, align 8
-  %_M_weak_count.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %call.i.i.i.i11, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i18, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04math17ScaleTranslateMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i11, align 8
-  %_M_ptr.i.i.i.i.i19 = getelementptr inbounds i8, ptr %call.i.i.i.i11, i64 16
-  store ptr %call13, ptr %_M_ptr.i.i.i.i.i19, align 8
-  store ptr %call.i.i.i.i11, ptr %_M_refcount.i.i10, align 8
+  %_M_use_count.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %call.i.i.i.i13, i64 8
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i19, align 8
+  %_M_weak_count.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %call.i.i.i.i13, i64 12
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i20, align 4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04math17ScaleTranslateMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i13, align 8
+  %_M_ptr.i.i.i.i.i21 = getelementptr inbounds i8, ptr %call.i.i.i.i13, i64 16
+  store ptr %call13, ptr %_M_ptr.i.i.i.i.i21, align 8
+  store ptr %call.i.i.i.i13, ptr %_M_refcount.i.i12, align 8
   br label %return
 
 lpad15:                                           ; preds = %if.else
@@ -1455,20 +1455,20 @@ entry:
   br i1 %cmp.i.i.i, label %land.rhs, label %if.else
 
 land.rhs:                                         ; preds = %entry
-  %sub.i.i3 = fsub double %5, %mul7.i
-  %8 = tail call noundef double @llvm.fabs.f64(double %sub.i.i3)
-  %cmp.i.i.i4 = fcmp ule double %8, 1.000000e-15
-  br i1 %cmp.i.i.i4, label %invoke.cont, label %if.else
+  %sub.i.i4 = fsub double %5, %mul7.i
+  %8 = tail call noundef double @llvm.fabs.f64(double %sub.i.i4)
+  %cmp.i.i.i5 = fcmp ule double %8, 1.000000e-15
+  br i1 %cmp.i.i.i5, label %invoke.cont, label %if.else
 
 invoke.cont:                                      ; preds = %land.rhs
   %call10 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
   %mTranslation = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   store double %5, ptr %ref.tmp.i, align 8
-  %arrayidx3.i.i5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store double %5, ptr %arrayidx3.i.i5, align 8
-  %arrayidx5.i.i6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  store double %5, ptr %arrayidx5.i.i6, align 8
+  %arrayidx3.i.i7 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store double %5, ptr %arrayidx3.i.i7, align 8
+  %arrayidx5.i.i8 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  store double %5, ptr %arrayidx5.i.i8, align 8
   invoke void @_ZN7openvdb5v11_04math17ScaleTranslateMapC2ERKNS1_4Vec3IdEES6_(ptr noundef nonnull align 8 dereferenceable(152) %call10, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %mTranslation)
           to label %invoke.cont12 unwind label %lpad
 
@@ -1502,8 +1502,8 @@ common.resume.sink.split:                         ; preds = %lpad15, %lpad
   call void @_ZdlPv(ptr noundef nonnull %call10.sink) #28
   br label %common.resume
 
-common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i10, %lpad3.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %12, %lpad3.i.i.i.i ], [ %20, %lpad3.i.i.i.i10 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i12, %lpad3.i.i.i.i
+  %common.resume.op = phi { ptr, i32 } [ %12, %lpad3.i.i.i.i ], [ %20, %lpad3.i.i.i.i12 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
@@ -1540,12 +1540,12 @@ if.else:                                          ; preds = %entry, %land.rhs
 
 invoke.cont16:                                    ; preds = %if.else
   store ptr %call13, ptr %agg.result, align 8
-  %_M_refcount.i.i7 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %_M_refcount.i.i7, align 8
-  %call.i.i.i.i8 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-          to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i9
+  %_M_refcount.i.i9 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr null, ptr %_M_refcount.i.i9, align 8
+  %call.i.i.i.i10 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+          to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i11
 
-lpad.i.i.i.i9:                                    ; preds = %invoke.cont16
+lpad.i.i.i.i11:                                   ; preds = %invoke.cont16
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
@@ -1555,33 +1555,33 @@ lpad.i.i.i.i9:                                    ; preds = %invoke.cont16
   %19 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(152) %call13) #25
   invoke void @__cxa_rethrow() #26
-          to label %unreachable.i.i.i.i13 unwind label %lpad3.i.i.i.i10
+          to label %unreachable.i.i.i.i15 unwind label %lpad3.i.i.i.i12
 
-lpad3.i.i.i.i10:                                  ; preds = %lpad.i.i.i.i9
+lpad3.i.i.i.i12:                                  ; preds = %lpad.i.i.i.i11
   %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i11
+          to label %common.resume unwind label %terminate.lpad.i.i.i.i13
 
-terminate.lpad.i.i.i.i11:                         ; preds = %lpad3.i.i.i.i10
+terminate.lpad.i.i.i.i13:                         ; preds = %lpad3.i.i.i.i12
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
   call void @__clang_call_terminate(ptr %22) #27
   unreachable
 
-unreachable.i.i.i.i13:                            ; preds = %lpad.i.i.i.i9
+unreachable.i.i.i.i15:                            ; preds = %lpad.i.i.i.i11
   unreachable
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit: ; preds = %invoke.cont16
-  %_M_use_count.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %call.i.i.i.i8, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i14, align 8
-  %_M_weak_count.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %call.i.i.i.i8, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04math17ScaleTranslateMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i8, align 8
-  %_M_ptr.i.i.i.i.i16 = getelementptr inbounds i8, ptr %call.i.i.i.i8, i64 16
-  store ptr %call13, ptr %_M_ptr.i.i.i.i.i16, align 8
-  store ptr %call.i.i.i.i8, ptr %_M_refcount.i.i7, align 8
+  %_M_use_count.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %call.i.i.i.i10, i64 8
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i16, align 8
+  %_M_weak_count.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %call.i.i.i.i10, i64 12
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i17, align 4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04math17ScaleTranslateMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i10, align 8
+  %_M_ptr.i.i.i.i.i18 = getelementptr inbounds i8, ptr %call.i.i.i.i10, i64 16
+  store ptr %call13, ptr %_M_ptr.i.i.i.i.i18, align 8
+  store ptr %call.i.i.i.i10, ptr %_M_refcount.i.i9, align 8
   br label %return
 
 lpad15:                                           ; preds = %if.else
@@ -2155,7 +2155,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEvESt4lessIS5_ESaISt4pairIKS5_SD_EEE11lower_boundERSH_.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
-  %__y.addr.0.lcssa.i.i.i9 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEvESt4lessIS5_ESaISt4pairIKS5_SD_EEE11lower_boundERSH_.exit ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %add.ptr.i.i.i, %entry ]
+  %__y.addr.0.lcssa.i.i.i9 = phi ptr [ %__y.addr.1.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEvESt4lessIS5_ESaISt4pairIKS5_SD_EEE11lower_boundERSH_.exit ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %add.ptr.i.i.i, %entry ]
   store ptr %__k, ptr %ref.tmp9, align 8
   %call12 = call ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PFSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEvEESt10_Select1stISG_ESt4lessIS5_ESaISG_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESR_IJEEEEESt17_Rb_tree_iteratorISG_ESt23_Rb_tree_const_iteratorISG_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i9, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10)
   br label %if.end
@@ -4578,8 +4578,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7openvdb5v11_04math8simplifyESt10shared_ptrINS1_9AffineMapEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef readonly %affine) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i75 = alloca %"class.openvdb::v11_0::math::Vec3", align 8
-  %ref.tmp.i16 = alloca %"class.openvdb::v11_0::math::Mat3", align 8
+  %ref.tmp.i80 = alloca %"class.openvdb::v11_0::math::Vec3", align 8
+  %ref.tmp.i18 = alloca %"class.openvdb::v11_0::math::Mat3", align 8
   %ref.tmp.i = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %scale = alloca %"class.openvdb::v11_0::math::Vec3", align 16
   %translate = alloca %"class.openvdb::v11_0::math::Vec3", align 16
@@ -4627,17 +4627,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i.i, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then
-  %sub.i.i3 = fsub double %15, %add25.i.i
-  %18 = tail call noundef double @llvm.fabs.f64(double %sub.i.i3)
-  %cmp.i.i.i4 = fcmp ule double %18, 1.000000e-15
-  br i1 %cmp.i.i.i4, label %invoke.cont, label %if.else
+  %sub.i.i4 = fsub double %15, %add25.i.i
+  %18 = tail call noundef double @llvm.fabs.f64(double %sub.i.i4)
+  %cmp.i.i.i5 = fcmp ule double %18, 1.000000e-15
+  br i1 %cmp.i.i.i5, label %invoke.cont, label %if.else
 
 invoke.cont:                                      ; preds = %land.lhs.true
   %call10 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   store double %15, ptr %ref.tmp.i, align 8
-  %arrayidx3.i.i5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store double %15, ptr %arrayidx3.i.i5, align 8
+  %arrayidx3.i.i7 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store double %15, ptr %arrayidx3.i.i7, align 8
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store double %15, ptr %arrayidx5.i.i, align 8
   invoke void @_ZN7openvdb5v11_04math8ScaleMapC2ERKNS1_4Vec3IdEE(ptr noundef nonnull align 8 dereferenceable(128) %call10, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
@@ -4673,8 +4673,8 @@ common.resume.sink.split:                         ; preds = %lpad41, %lpad35, %l
   call void @_ZdlPv(ptr noundef nonnull %call10.sink) #28
   br label %common.resume
 
-common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i93, %lpad3.i.i.i.i81, %lpad3.i.i.i.i9, %lpad3.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %22, %lpad3.i.i.i.i ], [ %30, %lpad3.i.i.i.i9 ], [ %68, %lpad3.i.i.i.i81 ], [ %76, %lpad3.i.i.i.i93 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i98, %lpad3.i.i.i.i86, %lpad3.i.i.i.i11, %lpad3.i.i.i.i
+  %common.resume.op = phi { ptr, i32 } [ %22, %lpad3.i.i.i.i ], [ %30, %lpad3.i.i.i.i11 ], [ %68, %lpad3.i.i.i.i86 ], [ %76, %lpad3.i.i.i.i98 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
@@ -4710,12 +4710,12 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 
 invoke.cont15:                                    ; preds = %if.else
   store ptr %call13, ptr %agg.result, align 8
-  %_M_refcount.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %_M_refcount.i.i6, align 8
-  %call.i.i.i.i7 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-          to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_8ScaleMapEvEEPT_.exit unwind label %lpad.i.i.i.i8
+  %_M_refcount.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr null, ptr %_M_refcount.i.i8, align 8
+  %call.i.i.i.i9 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+          to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_8ScaleMapEvEEPT_.exit unwind label %lpad.i.i.i.i10
 
-lpad.i.i.i.i8:                                    ; preds = %invoke.cont15
+lpad.i.i.i.i10:                                   ; preds = %invoke.cont15
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
@@ -4725,33 +4725,33 @@ lpad.i.i.i.i8:                                    ; preds = %invoke.cont15
   %29 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(128) %call13) #25
   invoke void @__cxa_rethrow() #26
-          to label %unreachable.i.i.i.i12 unwind label %lpad3.i.i.i.i9
+          to label %unreachable.i.i.i.i14 unwind label %lpad3.i.i.i.i11
 
-lpad3.i.i.i.i9:                                   ; preds = %lpad.i.i.i.i8
+lpad3.i.i.i.i11:                                  ; preds = %lpad.i.i.i.i10
   %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i10
+          to label %common.resume unwind label %terminate.lpad.i.i.i.i12
 
-terminate.lpad.i.i.i.i10:                         ; preds = %lpad3.i.i.i.i9
+terminate.lpad.i.i.i.i12:                         ; preds = %lpad3.i.i.i.i11
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
   call void @__clang_call_terminate(ptr %32) #27
   unreachable
 
-unreachable.i.i.i.i12:                            ; preds = %lpad.i.i.i.i8
+unreachable.i.i.i.i14:                            ; preds = %lpad.i.i.i.i10
   unreachable
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_8ScaleMapEvEEPT_.exit: ; preds = %invoke.cont15
-  %_M_use_count.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %call.i.i.i.i7, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i13, align 8
-  %_M_weak_count.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %call.i.i.i.i7, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i14, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04math8ScaleMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i7, align 8
-  %_M_ptr.i.i.i.i.i15 = getelementptr inbounds i8, ptr %call.i.i.i.i7, i64 16
-  store ptr %call13, ptr %_M_ptr.i.i.i.i.i15, align 8
-  store ptr %call.i.i.i.i7, ptr %_M_refcount.i.i6, align 8
+  %_M_use_count.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %call.i.i.i.i9, i64 8
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i15, align 8
+  %_M_weak_count.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %call.i.i.i.i9, i64 12
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i16, align 4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04math8ScaleMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i9, align 8
+  %_M_ptr.i.i.i.i.i17 = getelementptr inbounds i8, ptr %call.i.i.i.i9, i64 16
+  store ptr %call13, ptr %_M_ptr.i.i.i.i.i17, align 8
+  store ptr %call.i.i.i.i9, ptr %_M_refcount.i.i8, align 8
   br label %return
 
 lpad14:                                           ; preds = %if.else
@@ -4760,13 +4760,13 @@ lpad14:                                           ; preds = %if.else
   br label %common.resume.sink.split
 
 if.else16:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %ref.tmp.i16)
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %ref.tmp.i18)
   br label %for.cond2.preheader.i.i
 
 for.cond2.preheader.i.i:                          ; preds = %for.cond2.preheader.i.i, %if.else16
   %indvar.i.i = phi i64 [ 0, %if.else16 ], [ %indvar.next.i.i, %for.cond2.preheader.i.i ]
   %34 = mul nuw nsw i64 %indvar.i.i, 24
-  %scevgep.i.i = getelementptr i8, ptr %ref.tmp.i16, i64 %34
+  %scevgep.i.i = getelementptr i8, ptr %ref.tmp.i18, i64 %34
   %35 = shl nuw nsw i64 %indvar.i.i, 5
   %scevgep9.i.i = getelementptr i8, ptr %mMatrix.i, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i.i, ptr noundef nonnull align 8 dereferenceable(24) %scevgep9.i.i, i64 24, i1 false)
@@ -4788,14 +4788,14 @@ for.body3.i.i:                                    ; preds = %for.inc.i.i, %for.c
 
 if.then.i.i:                                      ; preds = %for.body3.i.i
   %37 = add nuw nsw i64 %indvars.iv.i.i, %36
-  %arrayidx.i.i.i = getelementptr inbounds [9 x double], ptr %ref.tmp.i16, i64 0, i64 %37
+  %arrayidx.i.i.i = getelementptr inbounds [9 x double], ptr %ref.tmp.i18, i64 0, i64 %37
   %38 = load double, ptr %arrayidx.i.i.i, align 8
   %39 = tail call noundef double @llvm.fabs.f64(double %38)
-  %add.i.i18 = fadd double %temp.19.i.i, %39
+  %add.i.i20 = fadd double %temp.19.i.i, %39
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body3.i.i
-  %temp.2.i.i = phi double [ %temp.19.i.i, %for.body3.i.i ], [ %add.i.i18, %if.then.i.i ]
+  %temp.2.i.i = phi double [ %temp.19.i.i, %for.body3.i.i ], [ %add.i.i20, %if.then.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i1.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %exitcond.not.i1.i, label %for.inc6.i.i, label %for.body3.i.i, !llvm.loop !66
@@ -4808,115 +4808,115 @@ for.inc6.i.i:                                     ; preds = %for.inc.i.i
 _ZNK7openvdb5v11_04math9AffineMap16isScaleTranslateEv.exit: ; preds = %for.inc6.i.i
   %40 = tail call noundef double @llvm.fabs.f64(double %temp.2.i.i)
   %cmp.i.i.i.i.i = fcmp ule double %40, 1.000000e-15
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %ref.tmp.i16)
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %ref.tmp.i18)
   br i1 %cmp.i.i.i.i.i, label %if.then19, label %if.end43
 
 if.then19:                                        ; preds = %_ZNK7openvdb5v11_04math9AffineMap16isScaleTranslateEv.exit
-  %arrayidx3.i.i23 = getelementptr inbounds i8, ptr %0, i64 40
-  %arrayidx6.i.i26 = getelementptr inbounds i8, ptr %0, i64 72
-  %arrayidx7.i.i27 = getelementptr inbounds i8, ptr %0, i64 104
-  %arrayidx18.i.i35 = getelementptr inbounds i8, ptr %0, i64 24
-  %41 = load double, ptr %arrayidx18.i.i35, align 8, !noalias !68
-  %arrayidx20.i.i36 = getelementptr inbounds i8, ptr %0, i64 56
-  %42 = load double, ptr %arrayidx20.i.i36, align 8, !noalias !68
-  %mul21.i.i37 = fmul double %42, 0.000000e+00
-  %43 = tail call double @llvm.fmuladd.f64(double %41, double 0.000000e+00, double %mul21.i.i37)
-  %arrayidx23.i.i38 = getelementptr inbounds i8, ptr %0, i64 88
-  %44 = load double, ptr %arrayidx23.i.i38, align 8, !noalias !68
+  %arrayidx3.i.i25 = getelementptr inbounds i8, ptr %0, i64 40
+  %arrayidx6.i.i28 = getelementptr inbounds i8, ptr %0, i64 72
+  %arrayidx7.i.i29 = getelementptr inbounds i8, ptr %0, i64 104
+  %arrayidx18.i.i37 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = load double, ptr %arrayidx18.i.i37, align 8, !noalias !68
+  %arrayidx20.i.i38 = getelementptr inbounds i8, ptr %0, i64 56
+  %42 = load double, ptr %arrayidx20.i.i38, align 8, !noalias !68
+  %mul21.i.i39 = fmul double %42, 0.000000e+00
+  %43 = tail call double @llvm.fmuladd.f64(double %41, double 0.000000e+00, double %mul21.i.i39)
+  %arrayidx23.i.i40 = getelementptr inbounds i8, ptr %0, i64 88
+  %44 = load double, ptr %arrayidx23.i.i40, align 8, !noalias !68
   %45 = tail call double @llvm.fmuladd.f64(double %44, double 0.000000e+00, double %43)
-  %arrayidx24.i.i39 = getelementptr inbounds i8, ptr %0, i64 120
-  %46 = load double, ptr %arrayidx24.i.i39, align 8, !noalias !68
-  %add25.i.i40 = fadd double %46, %45
+  %arrayidx24.i.i41 = getelementptr inbounds i8, ptr %0, i64 120
+  %46 = load double, ptr %arrayidx24.i.i41, align 8, !noalias !68
+  %add25.i.i42 = fadd double %46, %45
   %47 = load <2 x double>, ptr %mMatrix.i, align 8, !noalias !68
-  %48 = load <2 x double>, ptr %arrayidx3.i.i23, align 8, !noalias !68
+  %48 = load <2 x double>, ptr %arrayidx3.i.i25, align 8, !noalias !68
   %49 = fmul <2 x double> %48, zeroinitializer
   %50 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %47, <2 x double> zeroinitializer, <2 x double> %49)
-  %51 = load <2 x double>, ptr %arrayidx6.i.i26, align 8, !noalias !68
+  %51 = load <2 x double>, ptr %arrayidx6.i.i28, align 8, !noalias !68
   %52 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %51, <2 x double> zeroinitializer, <2 x double> %50)
-  %53 = load <2 x double>, ptr %arrayidx7.i.i27, align 8, !noalias !68
+  %53 = load <2 x double>, ptr %arrayidx7.i.i29, align 8, !noalias !68
   %54 = fadd <2 x double> %53, %52
   store <2 x double> %54, ptr %translate, align 16, !alias.scope !69
-  %arrayidx5.i.i.i42 = getelementptr inbounds i8, ptr %translate, i64 16
-  store double %add25.i.i40, ptr %arrayidx5.i.i.i42, align 16, !alias.scope !69
+  %arrayidx5.i.i.i44 = getelementptr inbounds i8, ptr %translate, i64 16
+  store double %add25.i.i42, ptr %arrayidx5.i.i.i44, align 16, !alias.scope !69
   %55 = fadd double %41, %42
   %56 = fadd double %44, %55
-  %add25.i.i64 = fadd double %46, %56
+  %add25.i.i66 = fadd double %46, %56
   %ref.tmp23.sroa.3.0.scale22.sroa_idx = getelementptr inbounds i8, ptr %scale22, i64 16
   %57 = fadd <2 x double> %48, %47
   %58 = fadd <2 x double> %51, %57
   %59 = fadd <2 x double> %53, %58
   %60 = fsub <2 x double> %59, %54
   store <2 x double> %60, ptr %scale22, align 16, !alias.scope !74
-  %sub9.i.i = fsub double %add25.i.i64, %add25.i.i40
+  %sub9.i.i = fsub double %add25.i.i66, %add25.i.i42
   store double %sub9.i.i, ptr %ref.tmp23.sroa.3.0.scale22.sroa_idx, align 16, !alias.scope !74
   %61 = extractelement <2 x double> %60, i64 0
-  %shift101 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %62 = fsub <2 x double> %60, %shift101
-  %sub.i.i70 = extractelement <2 x double> %62, i64 0
-  %63 = tail call noundef double @llvm.fabs.f64(double %sub.i.i70)
-  %cmp.i.i.i71 = fcmp ule double %63, 1.000000e-15
-  br i1 %cmp.i.i.i71, label %land.lhs.true29, label %if.else39
+  %shift106 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %62 = fsub <2 x double> %60, %shift106
+  %sub.i.i73 = extractelement <2 x double> %62, i64 0
+  %63 = tail call noundef double @llvm.fabs.f64(double %sub.i.i73)
+  %cmp.i.i.i74 = fcmp ule double %63, 1.000000e-15
+  br i1 %cmp.i.i.i74, label %land.lhs.true29, label %if.else39
 
 land.lhs.true29:                                  ; preds = %if.then19
-  %sub.i.i73 = fsub double %61, %sub9.i.i
-  %64 = tail call noundef double @llvm.fabs.f64(double %sub.i.i73)
-  %cmp.i.i.i74 = fcmp ule double %64, 1.000000e-15
-  br i1 %cmp.i.i.i74, label %invoke.cont36, label %if.else39
+  %sub.i.i77 = fsub double %61, %sub9.i.i
+  %64 = tail call noundef double @llvm.fabs.f64(double %sub.i.i77)
+  %cmp.i.i.i78 = fcmp ule double %64, 1.000000e-15
+  br i1 %cmp.i.i.i78, label %invoke.cont36, label %if.else39
 
 invoke.cont36:                                    ; preds = %land.lhs.true29
   %call34 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i75)
-  store double %61, ptr %ref.tmp.i75, align 8
-  %arrayidx3.i.i76 = getelementptr inbounds i8, ptr %ref.tmp.i75, i64 8
-  store double %61, ptr %arrayidx3.i.i76, align 8
-  %arrayidx5.i.i77 = getelementptr inbounds i8, ptr %ref.tmp.i75, i64 16
-  store double %61, ptr %arrayidx5.i.i77, align 8
-  invoke void @_ZN7openvdb5v11_04math17ScaleTranslateMapC2ERKNS1_4Vec3IdEES6_(ptr noundef nonnull align 8 dereferenceable(152) %call34, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i75, ptr noundef nonnull align 8 dereferenceable(24) %translate)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i80)
+  store double %61, ptr %ref.tmp.i80, align 8
+  %arrayidx3.i.i81 = getelementptr inbounds i8, ptr %ref.tmp.i80, i64 8
+  store double %61, ptr %arrayidx3.i.i81, align 8
+  %arrayidx5.i.i82 = getelementptr inbounds i8, ptr %ref.tmp.i80, i64 16
+  store double %61, ptr %arrayidx5.i.i82, align 8
+  invoke void @_ZN7openvdb5v11_04math17ScaleTranslateMapC2ERKNS1_4Vec3IdEES6_(ptr noundef nonnull align 8 dereferenceable(152) %call34, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i80, ptr noundef nonnull align 8 dereferenceable(24) %translate)
           to label %invoke.cont38 unwind label %lpad35
 
 invoke.cont38:                                    ; preds = %invoke.cont36
   store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN7openvdb5v11_04math24UniformScaleTranslateMapE, i64 0, i32 0, i64 2), ptr %call34, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i75)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i80)
   store ptr %call34, ptr %agg.result, align 8
-  %_M_refcount.i.i78 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %_M_refcount.i.i78, align 8
-  %call.i.i.i.i79 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-          to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i80
+  %_M_refcount.i.i83 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr null, ptr %_M_refcount.i.i83, align 8
+  %call.i.i.i.i84 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+          to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i85
 
-lpad.i.i.i.i80:                                   ; preds = %invoke.cont38
+lpad.i.i.i.i85:                                   ; preds = %invoke.cont38
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
   %67 = call ptr @__cxa_begin_catch(ptr %66) #25
   call void @_ZdlPv(ptr noundef nonnull %call34) #28
   invoke void @__cxa_rethrow() #26
-          to label %unreachable.i.i.i.i84 unwind label %lpad3.i.i.i.i81
+          to label %unreachable.i.i.i.i89 unwind label %lpad3.i.i.i.i86
 
-lpad3.i.i.i.i81:                                  ; preds = %lpad.i.i.i.i80
+lpad3.i.i.i.i86:                                  ; preds = %lpad.i.i.i.i85
   %68 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i82
+          to label %common.resume unwind label %terminate.lpad.i.i.i.i87
 
-terminate.lpad.i.i.i.i82:                         ; preds = %lpad3.i.i.i.i81
+terminate.lpad.i.i.i.i87:                         ; preds = %lpad3.i.i.i.i86
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
   call void @__clang_call_terminate(ptr %70) #27
   unreachable
 
-unreachable.i.i.i.i84:                            ; preds = %lpad.i.i.i.i80
+unreachable.i.i.i.i89:                            ; preds = %lpad.i.i.i.i85
   unreachable
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMapEvEEPT_.exit: ; preds = %invoke.cont38
-  %_M_use_count.i.i.i.i.i.i85 = getelementptr inbounds i8, ptr %call.i.i.i.i79, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i85, align 8
-  %_M_weak_count.i.i.i.i.i.i86 = getelementptr inbounds i8, ptr %call.i.i.i.i79, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i86, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04math24UniformScaleTranslateMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i79, align 8
-  %_M_ptr.i.i.i.i.i87 = getelementptr inbounds i8, ptr %call.i.i.i.i79, i64 16
-  store ptr %call34, ptr %_M_ptr.i.i.i.i.i87, align 8
-  store ptr %call.i.i.i.i79, ptr %_M_refcount.i.i78, align 8
+  %_M_use_count.i.i.i.i.i.i90 = getelementptr inbounds i8, ptr %call.i.i.i.i84, i64 8
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i90, align 8
+  %_M_weak_count.i.i.i.i.i.i91 = getelementptr inbounds i8, ptr %call.i.i.i.i84, i64 12
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i91, align 4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04math24UniformScaleTranslateMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i84, align 8
+  %_M_ptr.i.i.i.i.i92 = getelementptr inbounds i8, ptr %call.i.i.i.i84, i64 16
+  store ptr %call34, ptr %_M_ptr.i.i.i.i.i92, align 8
+  store ptr %call.i.i.i.i84, ptr %_M_refcount.i.i83, align 8
   br label %return
 
 lpad35:                                           ; preds = %invoke.cont36
@@ -4931,48 +4931,48 @@ if.else39:                                        ; preds = %land.lhs.true29, %i
 
 invoke.cont42:                                    ; preds = %if.else39
   store ptr %call40, ptr %agg.result, align 8
-  %_M_refcount.i.i88 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %_M_refcount.i.i88, align 8
-  %call.i.i.i.i89 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-          to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i90
+  %_M_refcount.i.i93 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr null, ptr %_M_refcount.i.i93, align 8
+  %call.i.i.i.i94 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+          to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i95
 
-lpad.i.i.i.i90:                                   ; preds = %invoke.cont42
+lpad.i.i.i.i95:                                   ; preds = %invoke.cont42
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
   %74 = call ptr @__cxa_begin_catch(ptr %73) #25
-  %vtable.i.i.i.i91 = load ptr, ptr %call40, align 8
-  %vfn.i.i.i.i92 = getelementptr inbounds i8, ptr %vtable.i.i.i.i91, i64 8
-  %75 = load ptr, ptr %vfn.i.i.i.i92, align 8
+  %vtable.i.i.i.i96 = load ptr, ptr %call40, align 8
+  %vfn.i.i.i.i97 = getelementptr inbounds i8, ptr %vtable.i.i.i.i96, i64 8
+  %75 = load ptr, ptr %vfn.i.i.i.i97, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(152) %call40) #25
   invoke void @__cxa_rethrow() #26
-          to label %unreachable.i.i.i.i96 unwind label %lpad3.i.i.i.i93
+          to label %unreachable.i.i.i.i101 unwind label %lpad3.i.i.i.i98
 
-lpad3.i.i.i.i93:                                  ; preds = %lpad.i.i.i.i90
+lpad3.i.i.i.i98:                                  ; preds = %lpad.i.i.i.i95
   %76 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i94
+          to label %common.resume unwind label %terminate.lpad.i.i.i.i99
 
-terminate.lpad.i.i.i.i94:                         ; preds = %lpad3.i.i.i.i93
+terminate.lpad.i.i.i.i99:                         ; preds = %lpad3.i.i.i.i98
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
   call void @__clang_call_terminate(ptr %78) #27
   unreachable
 
-unreachable.i.i.i.i96:                            ; preds = %lpad.i.i.i.i90
+unreachable.i.i.i.i101:                           ; preds = %lpad.i.i.i.i95
   unreachable
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit: ; preds = %invoke.cont42
-  %_M_use_count.i.i.i.i.i.i97 = getelementptr inbounds i8, ptr %call.i.i.i.i89, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i97, align 8
-  %_M_weak_count.i.i.i.i.i.i98 = getelementptr inbounds i8, ptr %call.i.i.i.i89, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i98, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04math17ScaleTranslateMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i89, align 8
-  %_M_ptr.i.i.i.i.i99 = getelementptr inbounds i8, ptr %call.i.i.i.i89, i64 16
-  store ptr %call40, ptr %_M_ptr.i.i.i.i.i99, align 8
-  store ptr %call.i.i.i.i89, ptr %_M_refcount.i.i88, align 8
+  %_M_use_count.i.i.i.i.i.i102 = getelementptr inbounds i8, ptr %call.i.i.i.i94, i64 8
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i102, align 8
+  %_M_weak_count.i.i.i.i.i.i103 = getelementptr inbounds i8, ptr %call.i.i.i.i94, i64 12
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i103, align 4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04math17ScaleTranslateMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i94, align 8
+  %_M_ptr.i.i.i.i.i104 = getelementptr inbounds i8, ptr %call.i.i.i.i94, i64 16
+  store ptr %call40, ptr %_M_ptr.i.i.i.i.i104, align 8
+  store ptr %call.i.i.i.i94, ptr %_M_refcount.i.i93, align 8
   br label %return
 
 lpad41:                                           ; preds = %if.else39
@@ -4992,19 +4992,19 @@ if.end43:                                         ; preds = %_ZNK7openvdb5v11_04
   br i1 %cmp.not.i.i.i.i.i, label %return, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end43
-  %_M_use_count.i.i.i.i.i.i100 = getelementptr inbounds i8, ptr %80, i64 8
+  %_M_use_count.i.i.i.i.i.i105 = getelementptr inbounds i8, ptr %80, i64 8
   %81 = load i8, ptr @__libc_single_threaded, align 1, !noalias !83
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %81, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %82 = load i32, ptr %_M_use_count.i.i.i.i.i.i100, align 4, !noalias !83
+  %82 = load i32, ptr %_M_use_count.i.i.i.i.i.i105, align 4, !noalias !83
   %add.i.i.i.i.i.i.i = add nsw i32 %82, 1
-  store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i100, align 4, !noalias !83
+  store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i105, align 4, !noalias !83
   br label %return
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %83 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i100, i32 1 acq_rel, align 4, !noalias !83
+  %83 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i105, i32 1 acq_rel, align 4, !noalias !83
   br label %return
 
 return:                                           ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.end43, %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit, %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMapEvEEPT_.exit, %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_8ScaleMapEvEEPT_.exit, %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_15UniformScaleMapEvEEPT_.exit
@@ -5538,8 +5538,8 @@ entry:
   %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load double, ptr %arrayidx15, align 8
   %mul18 = fmul double %4, %5
-  %arrayidx.i96 = getelementptr inbounds i8, ptr %this, i64 64
-  %6 = load double, ptr %arrayidx.i96, align 8
+  %arrayidx.i100 = getelementptr inbounds i8, ptr %this, i64 64
+  %6 = load double, ptr %arrayidx.i100, align 8
   %mul23 = fmul double %3, %6
   %arrayidx30 = getelementptr inbounds i8, ptr %this, i64 80
   %7 = load double, ptr %arrayidx30, align 8
@@ -5560,17 +5560,17 @@ entry:
   %cmp.i = fcmp une double %16, 0.000000e+00
   %arrayidx53 = getelementptr inbounds i8, ptr %this, i64 56
   %17 = load double, ptr %arrayidx53, align 8
-  %cmp.i105 = fcmp une double %17, 0.000000e+00
-  %or.cond.not304 = select i1 %cmp.i, i1 true, i1 %cmp.i105
+  %cmp.i111 = fcmp une double %17, 0.000000e+00
+  %or.cond.not349 = select i1 %cmp.i, i1 true, i1 %cmp.i111
   %arrayidx58 = getelementptr inbounds i8, ptr %this, i64 88
   %18 = load double, ptr %arrayidx58, align 8
-  %cmp.i107 = fcmp une double %18, 0.000000e+00
-  %or.cond301.not303 = select i1 %or.cond.not304, i1 true, i1 %cmp.i107
+  %cmp.i113 = fcmp une double %18, 0.000000e+00
+  %or.cond346.not348 = select i1 %or.cond.not349, i1 true, i1 %cmp.i113
   %arrayidx62 = getelementptr inbounds i8, ptr %this, i64 120
   %19 = load double, ptr %arrayidx62, align 8
-  %cmp.i109 = fcmp une double %19, 1.000000e+00
-  %or.cond302 = select i1 %or.cond301.not303, i1 true, i1 %cmp.i109
-  br i1 %or.cond302, label %if.then, label %if.end
+  %cmp.i115 = fcmp une double %19, 1.000000e+00
+  %or.cond347 = select i1 %or.cond346.not348, i1 true, i1 %cmp.i115
+  br i1 %or.cond347, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -5592,26 +5592,26 @@ if.then:                                          ; preds = %entry
   %29 = tail call noundef double @llvm.fmuladd.f64(double %6, double %21, double %neg.i47.i)
   %30 = tail call noundef double @llvm.fmuladd.f64(double %1, double %29, double %27)
   %31 = fneg double %3
-  %neg.i.i117 = fmul double %21, %31
-  %32 = tail call noundef double @llvm.fmuladd.f64(double %5, double %20, double %neg.i.i117)
+  %neg.i.i124 = fmul double %21, %31
+  %32 = tail call noundef double @llvm.fmuladd.f64(double %5, double %20, double %neg.i.i124)
   %33 = fneg double %0
-  %neg.i32.i120 = fmul double %20, %33
-  %34 = tail call noundef double @llvm.fmuladd.f64(double %3, double %24, double %neg.i32.i120)
-  %mul8.i121 = fmul double %7, %34
-  %35 = tail call double @llvm.fmuladd.f64(double %6, double %32, double %mul8.i121)
-  %neg.i47.i123 = fmul double %24, %14
-  %36 = tail call noundef double @llvm.fmuladd.f64(double %0, double %21, double %neg.i47.i123)
+  %neg.i32.i128 = fmul double %20, %33
+  %34 = tail call noundef double @llvm.fmuladd.f64(double %3, double %24, double %neg.i32.i128)
+  %mul8.i129 = fmul double %7, %34
+  %35 = tail call double @llvm.fmuladd.f64(double %6, double %32, double %mul8.i129)
+  %neg.i47.i131 = fmul double %24, %14
+  %36 = tail call noundef double @llvm.fmuladd.f64(double %0, double %21, double %neg.i47.i131)
   %37 = tail call noundef double @llvm.fmuladd.f64(double %8, double %36, double %35)
   %mul72 = fmul double %17, %37
   %38 = tail call double @llvm.fmuladd.f64(double %16, double %30, double %mul72)
-  %neg.i.i130 = fmul double %2, %31
-  %39 = tail call noundef double @llvm.fmuladd.f64(double %5, double %1, double %neg.i.i130)
-  %neg.i32.i133 = fmul double %1, %33
-  %40 = tail call noundef double @llvm.fmuladd.f64(double %3, double %4, double %neg.i32.i133)
-  %mul8.i134 = fmul double %21, %40
-  %41 = tail call double @llvm.fmuladd.f64(double %24, double %39, double %mul8.i134)
-  %neg.i47.i136 = fmul double %4, %14
-  %42 = tail call noundef double @llvm.fmuladd.f64(double %0, double %2, double %neg.i47.i136)
+  %neg.i.i138 = fmul double %2, %31
+  %39 = tail call noundef double @llvm.fmuladd.f64(double %5, double %1, double %neg.i.i138)
+  %neg.i32.i142 = fmul double %1, %33
+  %40 = tail call noundef double @llvm.fmuladd.f64(double %3, double %4, double %neg.i32.i142)
+  %mul8.i143 = fmul double %21, %40
+  %41 = tail call double @llvm.fmuladd.f64(double %24, double %39, double %mul8.i143)
+  %neg.i47.i145 = fmul double %4, %14
+  %42 = tail call noundef double @llvm.fmuladd.f64(double %0, double %2, double %neg.i47.i145)
   %43 = tail call noundef double @llvm.fmuladd.f64(double %20, double %42, double %41)
   %44 = tail call double @llvm.fmuladd.f64(double %18, double %43, double %38)
   %45 = tail call double @llvm.fmuladd.f64(double %19, double %15, double %44)
@@ -5625,8 +5625,8 @@ if.end:                                           ; preds = %entry, %if.then
 
 if.else86:                                        ; preds = %if.end
   %47 = tail call noundef double @llvm.fabs.f64(double %15)
-  %cmp.i.i140 = fcmp ule double %47, 1.000000e-08
-  br i1 %cmp.i.i140, label %if.then90, label %if.else93
+  %cmp.i.i149 = fcmp ule double %47, 1.000000e-08
+  br i1 %cmp.i.i149, label %if.then90, label %if.else93
 
 if.then90:                                        ; preds = %if.else86
   %call91 = tail call noundef zeroext i1 @_ZNK7openvdb5v11_04math4Mat4IdE6invertERS3_d(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(128) %agg.result, double noundef %tolerance)
@@ -5650,8 +5650,8 @@ if.else93:                                        ; preds = %if.else86
   %mul145 = fmul double %2, %6
   %55 = tail call double @llvm.fmuladd.f64(double %fneg137, double %7, double %mul145)
   %mul146 = fmul double %55, %div
-  %arrayidx.i153 = getelementptr inbounds i8, ptr %agg.result, i64 32
-  store double %mul146, ptr %arrayidx.i153, align 8
+  %arrayidx.i169 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  store double %mul146, ptr %arrayidx.i169, align 8
   %56 = tail call double @llvm.fmuladd.f64(double %0, double %7, double %neg48)
   %arrayidx157 = getelementptr inbounds i8, ptr %agg.result, i64 40
   %sub = fsub double %mul18, %mul8
@@ -5659,8 +5659,8 @@ if.else93:                                        ; preds = %if.else86
   %neg171 = fmul double %6, %57
   %58 = tail call double @llvm.fmuladd.f64(double %4, double %8, double %neg171)
   %mul172 = fmul double %58, %div
-  %arrayidx.i161 = getelementptr inbounds i8, ptr %agg.result, i64 64
-  store double %mul172, ptr %arrayidx.i161, align 8
+  %arrayidx.i178 = getelementptr inbounds i8, ptr %agg.result, i64 64
+  store double %mul172, ptr %arrayidx.i178, align 8
   %neg180 = fneg double %0
   %59 = tail call double @llvm.fmuladd.f64(double %neg180, double %8, double %mul23)
   %arrayidx183 = getelementptr inbounds i8, ptr %agg.result, i64 72
@@ -5682,11 +5682,11 @@ if.else93:                                        ; preds = %if.else86
   %72 = insertelement <2 x double> %71, double %sub184, i64 1
   %73 = fmul <2 x double> %72, %66
   store <2 x double> %73, ptr %arrayidx183, align 8
-  %arrayidx.i165 = getelementptr inbounds i8, ptr %this, i64 96
-  %74 = load double, ptr %arrayidx.i165, align 8
+  %arrayidx.i183 = getelementptr inbounds i8, ptr %this, i64 96
+  %74 = load double, ptr %arrayidx.i183, align 8
   %arrayidx196 = getelementptr inbounds i8, ptr %this, i64 104
   %75 = load double, ptr %arrayidx196, align 8
-  br i1 %or.cond302, label %if.then189, label %if.else381
+  br i1 %or.cond347, label %if.then189, label %if.else381
 
 if.then189:                                       ; preds = %if.else93
   %arrayidx201 = getelementptr inbounds i8, ptr %this, i64 112
@@ -5706,13 +5706,13 @@ if.then189:                                       ; preds = %if.else93
   %86 = tail call double @llvm.fmuladd.f64(double %mul172, double %16, double %mul279)
   %87 = extractelement <2 x double> %73, i64 1
   %88 = tail call double @llvm.fmuladd.f64(double %87, double %18, double %86)
-  %mul8.i201 = fmul double %75, %84
-  %89 = tail call double @llvm.fmuladd.f64(double %80, double %74, double %mul8.i201)
+  %mul8.i230 = fmul double %75, %84
+  %89 = tail call double @llvm.fmuladd.f64(double %80, double %74, double %mul8.i230)
   %90 = tail call noundef double @llvm.fmuladd.f64(double %88, double %76, double %89)
   %sub296 = fsub double %19, %90
   %91 = tail call noundef double @llvm.fabs.f64(double %sub296)
-  %cmp.i.i204 = fcmp ule double %91, %tolerance
-  br i1 %cmp.i.i204, label %if.then448, label %if.else300
+  %cmp.i.i233 = fcmp ule double %91, %tolerance
+  br i1 %cmp.i.i233, label %if.then448, label %if.else300
 
 if.else300:                                       ; preds = %if.then189
   %92 = insertelement <2 x double> poison, double %75, i64 0
@@ -5757,13 +5757,13 @@ if.else300:                                       ; preds = %if.then189
   %112 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %111, <2 x double> %102, <2 x double> %67)
   store <2 x double> %112, ptr %arrayidx120, align 8
   %113 = tail call double @llvm.fmuladd.f64(double %mul4.i, double %96, double %mul146)
-  store double %113, ptr %arrayidx.i153, align 8
+  store double %113, ptr %arrayidx.i169, align 8
   %114 = insertelement <2 x double> poison, double %mul4.i, i64 0
   %115 = shufflevector <2 x double> %114, <2 x double> poison, <2 x i32> zeroinitializer
   %116 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %115, <2 x double> %102, <2 x double> %70)
   store <2 x double> %116, ptr %arrayidx157, align 8
   %117 = tail call double @llvm.fmuladd.f64(double %mul7.i, double %96, double %mul172)
-  store double %117, ptr %arrayidx.i161, align 8
+  store double %117, ptr %arrayidx.i178, align 8
   %118 = insertelement <2 x double> poison, double %mul7.i, i64 0
   %119 = shufflevector <2 x double> %118, <2 x double> poison, <2 x i32> zeroinitializer
   %120 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %119, <2 x double> %102, <2 x double> %73)
@@ -5773,7 +5773,7 @@ if.else300:                                       ; preds = %if.then189
 if.else381:                                       ; preds = %if.else93
   %arrayidx393 = getelementptr inbounds i8, ptr %this, i64 112
   %121 = load double, ptr %arrayidx393, align 8
-  %arrayidx.i240 = getelementptr inbounds i8, ptr %agg.result, i64 96
+  %arrayidx.i282 = getelementptr inbounds i8, ptr %agg.result, i64 96
   %122 = shufflevector <2 x double> %70, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
   %123 = insertelement <2 x double> %122, double %mul146, i64 0
   %124 = insertelement <2 x double> poison, double %75, i64 0
@@ -5790,7 +5790,7 @@ if.else381:                                       ; preds = %if.else93
   %135 = insertelement <2 x double> %134, double %mul172, i64 0
   %136 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %133, <2 x double> %135, <2 x double> %131)
   %137 = fneg <2 x double> %136
-  store <2 x double> %137, ptr %arrayidx.i240, align 8
+  store <2 x double> %137, ptr %arrayidx.i282, align 8
   %138 = extractelement <2 x double> %70, i64 1
   %mul427 = fmul double %138, %75
   %139 = extractelement <2 x double> %67, i64 1
@@ -6718,19 +6718,19 @@ entry:
   br i1 %cmp.i.i.i, label %land.rhs, label %if.else
 
 land.rhs:                                         ; preds = %entry
-  %sub.i.i3 = fsub double %5, %mul7.i
-  %8 = tail call noundef double @llvm.fabs.f64(double %sub.i.i3)
-  %cmp.i.i.i4 = fcmp ule double %8, 1.000000e-15
-  br i1 %cmp.i.i.i4, label %invoke.cont, label %if.else
+  %sub.i.i4 = fsub double %5, %mul7.i
+  %8 = tail call noundef double @llvm.fabs.f64(double %sub.i.i4)
+  %cmp.i.i.i5 = fcmp ule double %8, 1.000000e-15
+  br i1 %cmp.i.i.i5, label %invoke.cont, label %if.else
 
 invoke.cont:                                      ; preds = %land.rhs
   %call10 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   store double %5, ptr %ref.tmp.i, align 8
-  %arrayidx3.i.i5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store double %5, ptr %arrayidx3.i.i5, align 8
-  %arrayidx5.i.i6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  store double %5, ptr %arrayidx5.i.i6, align 8
+  %arrayidx3.i.i7 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store double %5, ptr %arrayidx3.i.i7, align 8
+  %arrayidx5.i.i8 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  store double %5, ptr %arrayidx5.i.i8, align 8
   invoke void @_ZN7openvdb5v11_04math8ScaleMapC2ERKNS1_4Vec3IdEE(ptr noundef nonnull align 8 dereferenceable(128) %call10, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
           to label %invoke.cont12 unwind label %lpad
 
@@ -6764,8 +6764,8 @@ common.resume.sink.split:                         ; preds = %lpad14, %lpad
   call void @_ZdlPv(ptr noundef nonnull %call10.sink) #28
   br label %common.resume
 
-common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i10, %lpad3.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %12, %lpad3.i.i.i.i ], [ %20, %lpad3.i.i.i.i10 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i12, %lpad3.i.i.i.i
+  %common.resume.op = phi { ptr, i32 } [ %12, %lpad3.i.i.i.i ], [ %20, %lpad3.i.i.i.i12 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
@@ -6801,12 +6801,12 @@ if.else:                                          ; preds = %entry, %land.rhs
 
 invoke.cont15:                                    ; preds = %if.else
   store ptr %call13, ptr %agg.result, align 8
-  %_M_refcount.i.i7 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %_M_refcount.i.i7, align 8
-  %call.i.i.i.i8 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-          to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_8ScaleMapEvEEPT_.exit unwind label %lpad.i.i.i.i9
+  %_M_refcount.i.i9 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr null, ptr %_M_refcount.i.i9, align 8
+  %call.i.i.i.i10 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+          to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_8ScaleMapEvEEPT_.exit unwind label %lpad.i.i.i.i11
 
-lpad.i.i.i.i9:                                    ; preds = %invoke.cont15
+lpad.i.i.i.i11:                                   ; preds = %invoke.cont15
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
@@ -6816,33 +6816,33 @@ lpad.i.i.i.i9:                                    ; preds = %invoke.cont15
   %19 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(128) %call13) #25
   invoke void @__cxa_rethrow() #26
-          to label %unreachable.i.i.i.i13 unwind label %lpad3.i.i.i.i10
+          to label %unreachable.i.i.i.i15 unwind label %lpad3.i.i.i.i12
 
-lpad3.i.i.i.i10:                                  ; preds = %lpad.i.i.i.i9
+lpad3.i.i.i.i12:                                  ; preds = %lpad.i.i.i.i11
   %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i11
+          to label %common.resume unwind label %terminate.lpad.i.i.i.i13
 
-terminate.lpad.i.i.i.i11:                         ; preds = %lpad3.i.i.i.i10
+terminate.lpad.i.i.i.i13:                         ; preds = %lpad3.i.i.i.i12
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
   call void @__clang_call_terminate(ptr %22) #27
   unreachable
 
-unreachable.i.i.i.i13:                            ; preds = %lpad.i.i.i.i9
+unreachable.i.i.i.i15:                            ; preds = %lpad.i.i.i.i11
   unreachable
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_8ScaleMapEvEEPT_.exit: ; preds = %invoke.cont15
-  %_M_use_count.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %call.i.i.i.i8, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i14, align 8
-  %_M_weak_count.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %call.i.i.i.i8, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04math8ScaleMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i8, align 8
-  %_M_ptr.i.i.i.i.i16 = getelementptr inbounds i8, ptr %call.i.i.i.i8, i64 16
-  store ptr %call13, ptr %_M_ptr.i.i.i.i.i16, align 8
-  store ptr %call.i.i.i.i8, ptr %_M_refcount.i.i7, align 8
+  %_M_use_count.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %call.i.i.i.i10, i64 8
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i16, align 8
+  %_M_weak_count.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %call.i.i.i.i10, i64 12
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i17, align 4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04math8ScaleMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i10, align 8
+  %_M_ptr.i.i.i.i.i18 = getelementptr inbounds i8, ptr %call.i.i.i.i10, i64 16
+  store ptr %call13, ptr %_M_ptr.i.i.i.i.i18, align 8
+  store ptr %call.i.i.i.i10, ptr %_M_refcount.i.i9, align 8
   br label %return
 
 lpad14:                                           ; preds = %if.else
@@ -9294,15 +9294,15 @@ entry:
   %sub.i.i = extractelement <2 x double> %2, i64 0
   %3 = tail call noundef double @llvm.fabs.f64(double %sub.i.i)
   %cmp.i.i.i = fcmp ule double %3, 1.000000e-15
-  %arrayidx.i.i11 = getelementptr inbounds i8, ptr %v, i64 16
-  %4 = load double, ptr %arrayidx.i.i11, align 8
+  %arrayidx.i.i12 = getelementptr inbounds i8, ptr %v, i64 16
+  %4 = load double, ptr %arrayidx.i.i12, align 8
   br i1 %cmp.i.i.i, label %land.rhs, label %if.else
 
 land.rhs:                                         ; preds = %entry
-  %sub.i.i12 = fsub double %1, %4
-  %5 = tail call noundef double @llvm.fabs.f64(double %sub.i.i12)
-  %cmp.i.i.i13 = fcmp ule double %5, 1.000000e-15
-  br i1 %cmp.i.i.i13, label %invoke.cont15, label %if.else
+  %sub.i.i13 = fsub double %1, %4
+  %5 = tail call noundef double @llvm.fabs.f64(double %sub.i.i13)
+  %cmp.i.i.i14 = fcmp ule double %5, 1.000000e-15
+  br i1 %cmp.i.i.i14, label %invoke.cont15, label %if.else
 
 invoke.cont15:                                    ; preds = %land.rhs
   %call10 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
@@ -9355,8 +9355,8 @@ common.resume.sink.split:                         ; preds = %lpad29, %lpad
   call void @_ZdlPv(ptr noundef nonnull %call10.sink) #28
   br label %common.resume
 
-common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i20, %lpad3.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %13, %lpad3.i.i.i.i ], [ %24, %lpad3.i.i.i.i20 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i23, %lpad3.i.i.i.i
+  %common.resume.op = phi { ptr, i32 } [ %13, %lpad3.i.i.i.i ], [ %24, %lpad3.i.i.i.i23 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
@@ -9387,8 +9387,8 @@ lpad:                                             ; preds = %invoke.cont15
 
 if.else:                                          ; preds = %entry, %land.rhs
   %mTranslation17 = getelementptr inbounds i8, ptr %this, i64 8
-  %arrayidx.i15 = getelementptr inbounds i8, ptr %this, i64 24
-  %17 = load double, ptr %arrayidx.i15, align 8
+  %arrayidx.i18 = getelementptr inbounds i8, ptr %this, i64 24
+  %17 = load double, ptr %arrayidx.i18, align 8
   %mul27 = fmul double %17, %4
   %18 = load <2 x double>, ptr %mTranslation17, align 8
   %19 = fmul <2 x double> %0, %18
@@ -9401,12 +9401,12 @@ if.else:                                          ; preds = %entry, %land.rhs
 
 invoke.cont30:                                    ; preds = %if.else
   store ptr %call28, ptr %agg.result, align 8
-  %_M_refcount.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %_M_refcount.i.i17, align 8
-  %call.i.i.i.i18 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-          to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i19
+  %_M_refcount.i.i20 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr null, ptr %_M_refcount.i.i20, align 8
+  %call.i.i.i.i21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+          to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i22
 
-lpad.i.i.i.i19:                                   ; preds = %invoke.cont30
+lpad.i.i.i.i22:                                   ; preds = %invoke.cont30
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
@@ -9416,33 +9416,33 @@ lpad.i.i.i.i19:                                   ; preds = %invoke.cont30
   %23 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(152) %call28) #25
   invoke void @__cxa_rethrow() #26
-          to label %unreachable.i.i.i.i23 unwind label %lpad3.i.i.i.i20
+          to label %unreachable.i.i.i.i26 unwind label %lpad3.i.i.i.i23
 
-lpad3.i.i.i.i20:                                  ; preds = %lpad.i.i.i.i19
+lpad3.i.i.i.i23:                                  ; preds = %lpad.i.i.i.i22
   %24 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i21
+          to label %common.resume unwind label %terminate.lpad.i.i.i.i24
 
-terminate.lpad.i.i.i.i21:                         ; preds = %lpad3.i.i.i.i20
+terminate.lpad.i.i.i.i24:                         ; preds = %lpad3.i.i.i.i23
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
   call void @__clang_call_terminate(ptr %26) #27
   unreachable
 
-unreachable.i.i.i.i23:                            ; preds = %lpad.i.i.i.i19
+unreachable.i.i.i.i26:                            ; preds = %lpad.i.i.i.i22
   unreachable
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit: ; preds = %invoke.cont30
-  %_M_use_count.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %call.i.i.i.i18, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i24, align 8
-  %_M_weak_count.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %call.i.i.i.i18, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i25, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04math17ScaleTranslateMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i18, align 8
-  %_M_ptr.i.i.i.i.i26 = getelementptr inbounds i8, ptr %call.i.i.i.i18, i64 16
-  store ptr %call28, ptr %_M_ptr.i.i.i.i.i26, align 8
-  store ptr %call.i.i.i.i18, ptr %_M_refcount.i.i17, align 8
+  %_M_use_count.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %call.i.i.i.i21, i64 8
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i27, align 8
+  %_M_weak_count.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %call.i.i.i.i21, i64 12
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i28, align 4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04math17ScaleTranslateMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i21, align 8
+  %_M_ptr.i.i.i.i.i29 = getelementptr inbounds i8, ptr %call.i.i.i.i21, i64 16
+  store ptr %call28, ptr %_M_ptr.i.i.i.i.i29, align 8
+  store ptr %call.i.i.i.i21, ptr %_M_refcount.i.i20, align 8
   br label %return
 
 lpad29:                                           ; preds = %if.else
@@ -11322,19 +11322,19 @@ entry:
   br i1 %cmp.i.i.i, label %land.rhs, label %if.else
 
 land.rhs:                                         ; preds = %entry
-  %sub.i.i9 = fsub double %8, %mul7.i
-  %11 = tail call noundef double @llvm.fabs.f64(double %sub.i.i9)
-  %cmp.i.i.i10 = fcmp ule double %11, 1.000000e-15
-  br i1 %cmp.i.i.i10, label %invoke.cont, label %if.else
+  %sub.i.i10 = fsub double %8, %mul7.i
+  %11 = tail call noundef double @llvm.fabs.f64(double %sub.i.i10)
+  %cmp.i.i.i11 = fcmp ule double %11, 1.000000e-15
+  br i1 %cmp.i.i.i11, label %invoke.cont, label %if.else
 
 invoke.cont:                                      ; preds = %land.rhs
   %call20 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   store double %8, ptr %ref.tmp.i, align 8
-  %arrayidx3.i.i11 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store double %8, ptr %arrayidx3.i.i11, align 8
-  %arrayidx5.i.i12 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  store double %8, ptr %arrayidx5.i.i12, align 8
+  %arrayidx3.i.i13 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store double %8, ptr %arrayidx3.i.i13, align 8
+  %arrayidx5.i.i14 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  store double %8, ptr %arrayidx5.i.i14, align 8
   invoke void @_ZN7openvdb5v11_04math17ScaleTranslateMapC2ERKNS1_4Vec3IdEES6_(ptr noundef nonnull align 8 dereferenceable(152) %call20, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %new_trans)
           to label %invoke.cont22 unwind label %lpad
 
@@ -11368,8 +11368,8 @@ common.resume.sink.split:                         ; preds = %lpad24, %lpad
   call void @_ZdlPv(ptr noundef nonnull %call20.sink) #28
   br label %common.resume
 
-common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i16, %lpad3.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %15, %lpad3.i.i.i.i ], [ %23, %lpad3.i.i.i.i16 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i18, %lpad3.i.i.i.i
+  %common.resume.op = phi { ptr, i32 } [ %15, %lpad3.i.i.i.i ], [ %23, %lpad3.i.i.i.i18 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
@@ -11405,12 +11405,12 @@ if.else:                                          ; preds = %entry, %land.rhs
 
 invoke.cont25:                                    ; preds = %if.else
   store ptr %call23, ptr %agg.result, align 8
-  %_M_refcount.i.i13 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %_M_refcount.i.i13, align 8
-  %call.i.i.i.i14 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-          to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i15
+  %_M_refcount.i.i15 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr null, ptr %_M_refcount.i.i15, align 8
+  %call.i.i.i.i16 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+          to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i17
 
-lpad.i.i.i.i15:                                   ; preds = %invoke.cont25
+lpad.i.i.i.i17:                                   ; preds = %invoke.cont25
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
@@ -11420,33 +11420,33 @@ lpad.i.i.i.i15:                                   ; preds = %invoke.cont25
   %22 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(152) %call23) #25
   invoke void @__cxa_rethrow() #26
-          to label %unreachable.i.i.i.i19 unwind label %lpad3.i.i.i.i16
+          to label %unreachable.i.i.i.i21 unwind label %lpad3.i.i.i.i18
 
-lpad3.i.i.i.i16:                                  ; preds = %lpad.i.i.i.i15
+lpad3.i.i.i.i18:                                  ; preds = %lpad.i.i.i.i17
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i17
+          to label %common.resume unwind label %terminate.lpad.i.i.i.i19
 
-terminate.lpad.i.i.i.i17:                         ; preds = %lpad3.i.i.i.i16
+terminate.lpad.i.i.i.i19:                         ; preds = %lpad3.i.i.i.i18
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
   call void @__clang_call_terminate(ptr %25) #27
   unreachable
 
-unreachable.i.i.i.i19:                            ; preds = %lpad.i.i.i.i15
+unreachable.i.i.i.i21:                            ; preds = %lpad.i.i.i.i17
   unreachable
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit: ; preds = %invoke.cont25
-  %_M_use_count.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %call.i.i.i.i14, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i20, align 8
-  %_M_weak_count.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %call.i.i.i.i14, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i21, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04math17ScaleTranslateMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i14, align 8
-  %_M_ptr.i.i.i.i.i22 = getelementptr inbounds i8, ptr %call.i.i.i.i14, i64 16
-  store ptr %call23, ptr %_M_ptr.i.i.i.i.i22, align 8
-  store ptr %call.i.i.i.i14, ptr %_M_refcount.i.i13, align 8
+  %_M_use_count.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %call.i.i.i.i16, i64 8
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i22, align 8
+  %_M_weak_count.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %call.i.i.i.i16, i64 12
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i23, align 4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04math17ScaleTranslateMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i16, align 8
+  %_M_ptr.i.i.i.i.i24 = getelementptr inbounds i8, ptr %call.i.i.i.i16, i64 16
+  store ptr %call23, ptr %_M_ptr.i.i.i.i.i24, align 8
+  store ptr %call.i.i.i.i16, ptr %_M_refcount.i.i15, align 8
   br label %return
 
 lpad24:                                           ; preds = %if.else
@@ -19192,20 +19192,20 @@ _ZN7openvdb5v11_04math10isIdentityINS1_4Mat4IdEEEEbRKT_.exit: ; preds = %_ZN7ope
   %106 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %105)
   store <2 x double> %106, ptr %mVoxelSize, align 8
   %107 = fadd double %49, %48
-  %add.i.i86 = fadd double %51, %107
+  %add.i.i87 = fadd double %51, %107
   %108 = fadd double %55, %54
-  %add16.i.i92 = fadd double %57, %108
+  %add16.i.i93 = fadd double %57, %108
   %109 = fadd double %61, %60
-  %add25.i.i98 = fadd double %63, %109
-  %sub.i.i101 = fsub double %add.i.i86, %add.i.i
-  %sub5.i.i104 = fsub double %add16.i.i92, %add16.i.i
-  %sub9.i.i107 = fsub double %add25.i.i98, %add25.i.i
-  %mul8.i109 = fmul double %sub5.i.i104, %sub5.i.i104
-  %110 = call double @llvm.fmuladd.f64(double %sub.i.i101, double %sub.i.i101, double %mul8.i109)
-  %111 = call double @llvm.fmuladd.f64(double %sub9.i.i107, double %sub9.i.i107, double %110)
-  %sqrt.i111 = call noundef double @llvm.sqrt.f64(double %111)
-  %arrayidx.i112 = getelementptr inbounds i8, ptr %this, i64 360
-  store double %sqrt.i111, ptr %arrayidx.i112, align 8
+  %add25.i.i99 = fadd double %63, %109
+  %sub.i.i102 = fsub double %add.i.i87, %add.i.i
+  %sub5.i.i105 = fsub double %add16.i.i93, %add16.i.i
+  %sub9.i.i108 = fsub double %add25.i.i99, %add25.i.i
+  %mul8.i110 = fmul double %sub5.i.i105, %sub5.i.i105
+  %110 = call double @llvm.fmuladd.f64(double %sub.i.i102, double %sub.i.i102, double %mul8.i110)
+  %111 = call double @llvm.fmuladd.f64(double %sub9.i.i108, double %sub9.i.i108, double %110)
+  %sqrt.i112 = call noundef double @llvm.sqrt.f64(double %111)
+  %arrayidx.i113 = getelementptr inbounds i8, ptr %this, i64 360
+  store double %sqrt.i112, ptr %arrayidx.i113, align 8
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -20512,14 +20512,14 @@ return:                                           ; preds = %sw.bb19, %sw.bb9, %
   %.sink = phi i64 [ 32, %sw.bb19 ], [ 64, %sw.bb9 ], [ 72, %sw.bb ]
   %fneg24.sink = phi double [ %fneg24, %sw.bb19 ], [ %call1, %sw.bb9 ], [ %fneg, %sw.bb ]
   %arrayidx11.i.sink = phi ptr [ %arrayidx11.i, %sw.bb19 ], [ %arrayidx21.i, %sw.bb9 ], [ %arrayidx21.i, %sw.bb ]
-  %arrayidx.i18 = getelementptr inbounds i8, ptr %agg.result, i64 %.sink
-  store double %fneg24.sink, ptr %arrayidx.i18, align 8
+  %arrayidx.i22 = getelementptr inbounds i8, ptr %agg.result, i64 %.sink
+  store double %fneg24.sink, ptr %arrayidx.i22, align 8
   store double %call, ptr %arrayidx11.i.sink, align 8
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action
-  %.pn22 = phi { ptr, i32 } [ %0, %ehcleanup ], [ %1, %cleanup.action ]
-  resume { ptr, i32 } %.pn22
+  %.pn26 = phi { ptr, i32 } [ %0, %ehcleanup ], [ %1, %cleanup.action ]
+  resume { ptr, i32 } %.pn26
 
 unreachable:                                      ; preds = %invoke.cont
   unreachable
@@ -21874,7 +21874,7 @@ while.end.i:                                      ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %if.else
-  %__y.0.lcssa30.i = phi ptr [ %__x.025.i, %while.end.i ], [ %__position.coerce, %if.else ]
+  %__y.0.lcssa30.i = phi ptr [ %__x.025.i, %while.end.i ], [ %add.ptr.i, %if.else ]
   %_M_left.i3.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %_M_left.i3.i, align 8
   %cmp.i.i11 = icmp eq ptr %__y.0.lcssa30.i, %7
@@ -22119,8 +22119,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %return
 
 return:                                           ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105, %if.then.i113, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51, %if.then.i59, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i, %if.then.i, %if.then64, %if.then32, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70, %if.then50, %if.then18, %if.then9
-  %retval.sroa.0.0 = phi ptr [ null, %if.then9 ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ %spec.select, %if.then32 ], [ %spec.select135, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ null, %if.then.i59 ], [ %spec.select.i53, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ null, %if.then.i113 ], [ %spec.select.i107, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ]
-  %retval.sroa.12.0 = phi ptr [ %4, %if.then9 ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ %spec.select134, %if.then32 ], [ %spec.select136, %if.then64 ], [ %__y.0.lcssa30.i, %if.then.i ], [ %spec.select20.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ %__y.0.lcssa30.i60, %if.then.i59 ], [ %spec.select20.i54, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ %__y.0.lcssa30.i114, %if.then.i113 ], [ %spec.select20.i108, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ]
+  %retval.sroa.0.0 = phi ptr [ null, %if.then9 ], [ %12, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ %spec.select, %if.then32 ], [ %spec.select135, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ null, %if.then.i59 ], [ %spec.select.i53, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ null, %if.then.i113 ], [ %spec.select.i107, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ]
+  %retval.sroa.12.0 = phi ptr [ %4, %if.then9 ], [ %12, %if.then18 ], [ %23, %if.then50 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ %spec.select134, %if.then32 ], [ %spec.select136, %if.then64 ], [ %__y.0.lcssa30.i, %if.then.i ], [ %spec.select20.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ %__y.0.lcssa30.i60, %if.then.i59 ], [ %spec.select20.i54, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ %__y.0.lcssa30.i114, %if.then.i113 ], [ %spec.select20.i108, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -22278,12 +22278,14 @@ entry:
   %_M_left.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_left.i, align 8
   %cmp.i = icmp eq ptr %0, %__first.coerce
+  br i1 %cmp.i, label %land.rhs, label %if.else
+
+land.rhs:                                         ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.i1 = icmp eq ptr %add.ptr.i, %__last.coerce
-  %or.cond = select i1 %cmp.i, i1 %cmp.i1, i1 false
-  br i1 %or.cond, label %if.then, label %if.else
+  br i1 %cmp.i1, label %if.then, label %if.else
 
-if.then:                                          ; preds = %entry
+if.then:                                          ; preds = %land.rhs
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_parent.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PFSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEvEESt10_Select1stISG_ESt4lessIS5_ESaISG_EE8_M_eraseEPSt13_Rb_tree_nodeISG_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %1)
@@ -22298,14 +22300,14 @@ terminate.lpad.i:                                 ; preds = %if.then
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PFSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEvEESt10_Select1stISG_ESt4lessIS5_ESaISG_EE5clearEv.exit: ; preds = %if.then
   store ptr null, ptr %_M_parent.i.i.i, align 8
-  store ptr %__last.coerce, ptr %_M_left.i, align 8
+  store ptr %add.ptr.i, ptr %_M_left.i, align 8
   %_M_right.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr %__last.coerce, ptr %_M_right.i.i, align 8
+  store ptr %add.ptr.i, ptr %_M_right.i.i, align 8
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %_M_node_count.i.i, align 8
   br label %if.end
 
-if.else:                                          ; preds = %entry
+if.else:                                          ; preds = %entry, %land.rhs
   %cmp.i3.not8 = icmp eq ptr %__first.coerce, %__last.coerce
   br i1 %cmp.i3.not8, label %if.end, label %while.body.lr.ph
 

@@ -322,7 +322,7 @@ define dso_local i32 @snd_seq_create_port(ptr noundef %0, i32 noundef %1, ptr no
 
 .loopexit:                                        ; preds = %69, %71, %60, %58, %17
   %74 = phi i32 [ %44, %17 ], [ %53, %58 ], [ %61, %60 ], [ %44, %71 ], [ %44, %69 ]
-  %75 = phi ptr [ %47, %17 ], [ %52, %58 ], [ %47, %60 ], [ %64, %69 ], [ %47, %71 ]
+  %75 = phi ptr [ %48, %17 ], [ %52, %58 ], [ %62, %60 ], [ %64, %69 ], [ %72, %71 ]
   %76 = getelementptr inbounds i8, ptr %15, i64 80
   %77 = getelementptr inbounds i8, ptr %75, i64 8
   %78 = load ptr, ptr %77, align 8

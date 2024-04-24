@@ -2369,7 +2369,7 @@ _ZL14gmx_sfree_implIA3_A3_fEvPKcS3_iPT_.exit:     ; preds = %1
   br label %_ZL14gmx_sfree_implIA5_fEvPKcS2_iPT_.exit
 
 _ZL14gmx_sfree_implIA5_fEvPKcS2_iPT_.exit:        ; preds = %._ZL14gmx_sfree_implIA5_fEvPKcS2_iPT_.exit_crit_edge, %_ZL14gmx_sfree_implIA3_A3_fEvPKcS3_iPT_.exit
-  %9 = phi ptr [ %.pre, %._ZL14gmx_sfree_implIA5_fEvPKcS2_iPT_.exit_crit_edge ], [ %5, %_ZL14gmx_sfree_implIA3_A3_fEvPKcS3_iPT_.exit ]
+  %9 = phi ptr [ %.pre, %._ZL14gmx_sfree_implIA5_fEvPKcS2_iPT_.exit_crit_edge ], [ %7, %_ZL14gmx_sfree_implIA3_A3_fEvPKcS3_iPT_.exit ]
   %10 = getelementptr inbounds i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8
   %.not2 = icmp eq ptr %9, %11
@@ -2384,7 +2384,7 @@ _ZL14gmx_sfree_implIA5_fEvPKcS2_iPT_.exit:        ; preds = %._ZL14gmx_sfree_imp
   br label %_ZL14gmx_sfree_implIA5_fEvPKcS2_iPT_.exit3
 
 _ZL14gmx_sfree_implIA5_fEvPKcS2_iPT_.exit3:       ; preds = %._ZL14gmx_sfree_implIA5_fEvPKcS2_iPT_.exit3_crit_edge, %_ZL14gmx_sfree_implIA5_fEvPKcS2_iPT_.exit
-  %13 = phi ptr [ %.pre17, %._ZL14gmx_sfree_implIA5_fEvPKcS2_iPT_.exit3_crit_edge ], [ %9, %_ZL14gmx_sfree_implIA5_fEvPKcS2_iPT_.exit ]
+  %13 = phi ptr [ %.pre17, %._ZL14gmx_sfree_implIA5_fEvPKcS2_iPT_.exit3_crit_edge ], [ %11, %_ZL14gmx_sfree_implIA5_fEvPKcS2_iPT_.exit ]
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, i32 noundef 320, ptr noundef %13)
           to label %_ZL14gmx_sfree_implIA5_fEvPKcS2_iPT_.exit4 unwind label %38
 

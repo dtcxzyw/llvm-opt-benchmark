@@ -6580,7 +6580,7 @@ if.then4.i:                                       ; preds = %lor.lhs.false.i, %i
 if.then.i.i:                                      ; preds = %if.then4.i
   %29 = load ptr, ptr %bufev.i.i, align 8
   %timeout_write.i.i = getelementptr inbounds i8, ptr %evcon.057.i.i, i64 240
-  %call.i47.i = call i32 @bufferevent_set_timeouts(ptr noundef %29, ptr noundef nonnull %timeout_read.i.i, ptr noundef nonnull %timeout_write.i.i) #19
+  %call.i48.i = call i32 @bufferevent_set_timeouts(ptr noundef %29, ptr noundef nonnull %timeout_read.i.i, ptr noundef nonnull %timeout_write.i.i) #19
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then.i.i, %if.then4.i, %lor.lhs.false.i
@@ -6597,21 +6597,21 @@ lor.lhs.false9.i:                                 ; preds = %if.end6.i
 
 if.then13.i:                                      ; preds = %lor.lhs.false9.i, %if.end6.i
   %32 = load i32, ptr %flags59.phi.trans.insert.i.i, align 8
-  %or.i49.i = or i32 %32, 4194304
-  store i32 %or.i49.i, ptr %flags59.phi.trans.insert.i.i, align 8
-  %timeout_write.i50.i = getelementptr inbounds i8, ptr %evcon.057.i.i, i64 240
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_write.i50.i, ptr noundef nonnull align 8 dereferenceable(16) %timeout_write.i, i64 16, i1 false)
+  %or.i51.i = or i32 %32, 4194304
+  store i32 %or.i51.i, ptr %flags59.phi.trans.insert.i.i, align 8
+  %timeout_write.i52.i = getelementptr inbounds i8, ptr %evcon.057.i.i, i64 240
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout_write.i52.i, ptr noundef nonnull align 8 dereferenceable(16) %timeout_write.i, i64 16, i1 false)
   %33 = load i32, ptr %state.i.i, align 8
-  %cmp.not.i52.i = icmp eq i32 %33, 1
-  br i1 %cmp.not.i52.i, label %if.end15.i, label %if.then.i53.i
+  %cmp.not.i55.i = icmp eq i32 %33, 1
+  br i1 %cmp.not.i55.i, label %if.end15.i, label %if.then.i56.i
 
-if.then.i53.i:                                    ; preds = %if.then13.i
+if.then.i56.i:                                    ; preds = %if.then13.i
   %34 = load ptr, ptr %bufev.i.i, align 8
-  %timeout_read.i55.i = getelementptr inbounds i8, ptr %evcon.057.i.i, i64 224
-  %call.i56.i = call i32 @bufferevent_set_timeouts(ptr noundef %34, ptr noundef nonnull %timeout_read.i55.i, ptr noundef nonnull %timeout_write.i50.i) #19
+  %timeout_read.i58.i = getelementptr inbounds i8, ptr %evcon.057.i.i, i64 224
+  %call.i59.i = call i32 @bufferevent_set_timeouts(ptr noundef %34, ptr noundef nonnull %timeout_read.i58.i, ptr noundef nonnull %timeout_write.i52.i) #19
   br label %if.end15.i
 
-if.end15.i:                                       ; preds = %if.then.i53.i, %if.then13.i, %lor.lhs.false9.i
+if.end15.i:                                       ; preds = %if.then.i56.i, %if.then13.i, %lor.lhs.false9.i
   %http_server.i = getelementptr inbounds i8, ptr %evcon.057.i.i, i64 288
   store ptr %0, ptr %http_server.i, align 8
   %ext_method_cmp.i = getelementptr inbounds i8, ptr %0, i64 272
@@ -9168,7 +9168,7 @@ if.then22:                                        ; preds = %while.body
   br i1 %exitcond.not, label %while.endthread-pre-split, label %land.rhs, !llvm.loop !47
 
 while.endthread-pre-split:                        ; preds = %if.then22, %while.cond.preheader
-  %s.addr.0.lcssa = phi ptr [ %add.ptr12, %while.cond.preheader ], [ %scevgep, %if.then22 ]
+  %s.addr.0.lcssa = phi ptr [ %add.ptr12, %while.cond.preheader ], [ %incdec.ptr23, %if.then22 ]
   %.pr = load i8, ptr %s.addr.0.lcssa, align 1
   %5 = icmp eq i8 %.pr, 46
   br i1 %5, label %while.cond31.preheader, label %return
@@ -9469,7 +9469,7 @@ do.end:                                           ; preds = %do.cond
   br i1 %tobool6.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %do.end
-  store ptr %http.addr.0, ptr %outhttp, align 8
+  store ptr %http.addr.1, ptr %outhttp, align 8
   br label %return
 
 return:                                           ; preds = %do.end, %if.then7, %entry
@@ -11049,11 +11049,11 @@ do.cond.i:                                        ; preds = %for.body.i, %for.co
   br i1 %cmp5.not.i, label %do.end.i, label %do.body.i, !llvm.loop !50
 
 do.end.i:                                         ; preds = %do.cond.i
-  store ptr %http.addr.0.i, ptr %http, align 8
+  store ptr %http.addr.1.i, ptr %http, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10.if.end12_crit_edge, %do.end.i, %if.end7
-  %8 = phi ptr [ %.pre, %if.then10.if.end12_crit_edge ], [ %http.addr.0.i, %do.end.i ], [ %arg, %if.end7 ]
+  %8 = phi ptr [ %.pre, %if.then10.if.end12_crit_edge ], [ %http.addr.1.i, %do.end.i ], [ %arg, %if.end7 ]
   %callbacks = getelementptr inbounds i8, ptr %8, i64 32
   %9 = getelementptr i8, ptr %req, i64 104
   %req.val = load ptr, ptr %9, align 8

@@ -568,91 +568,92 @@ define dso_local void @component_master_del(ptr noundef readnone %0, ptr noundef
   br i1 %24, label %.thread, label %.split, !llvm.loop !12
 
 .split10.us:                                      ; preds = %18, %.split.us
+  %25 = phi ptr [ %9, %.split.us ], [ %16, %18 ]
   %.us-phi = phi ptr [ %7, %.split.us ], [ %14, %18 ]
-  %25 = icmp eq ptr %.us-phi, null
-  br i1 %25, label %.thread, label %26
+  %26 = icmp eq ptr %.us-phi, null
+  br i1 %26, label %.thread, label %27
 
-26:                                               ; preds = %.split10.us
-  %27 = getelementptr inbounds i8, ptr %.us-phi, i64 16
-  %28 = load i8, ptr %27, align 8, !range !13, !noundef !14
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %38, label %30
+27:                                               ; preds = %.split10.us
+  %28 = getelementptr inbounds i8, ptr %.us-phi, i64 16
+  %29 = load i8, ptr %28, align 8, !range !13, !noundef !14
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %39, label %31
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %.us-phi, i64 24
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %.us-phi, i64 32
-  tail call void %34(ptr noundef %0) #9
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 @devres_release_group(ptr noundef %36, ptr noundef nonnull %.us-phi) #9
-  store i8 0, ptr %27, align 8
-  %.pre = load ptr, ptr %35, align 8
-  br label %38
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds i8, ptr %.us-phi, i64 24
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %.us-phi, i64 32
+  tail call void %35(ptr noundef %25) #9
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call i32 @devres_release_group(ptr noundef %37, ptr noundef nonnull %.us-phi) #9
+  store i8 0, ptr %28, align 8
+  %.pre = load ptr, ptr %36, align 8
+  br label %39
 
-38:                                               ; preds = %30, %26
-  %39 = phi ptr [ %.pre, %30 ], [ %0, %26 ]
-  %40 = getelementptr inbounds i8, ptr %.us-phi, i64 40
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 80
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %47
+39:                                               ; preds = %31, %27
+  %40 = phi ptr [ %.pre, %31 ], [ %25, %27 ]
+  %41 = getelementptr inbounds i8, ptr %.us-phi, i64 40
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %40, i64 80
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %48
 
-45:                                               ; preds = %38
-  %46 = load ptr, ptr %39, align 8
-  br label %47
+46:                                               ; preds = %39
+  %47 = load ptr, ptr %40, align 8
+  br label %48
 
-47:                                               ; preds = %45, %38
-  %48 = phi ptr [ %46, %45 ], [ %43, %38 ]
-  %49 = load ptr, ptr @component_debugfs_dir, align 8
-  tail call void @debugfs_lookup_and_remove(ptr noundef %48, ptr noundef %49) #9
-  %50 = getelementptr inbounds i8, ptr %.us-phi, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %.us-phi, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
-  store ptr %51, ptr %53, align 8
-  store volatile ptr %52, ptr %51, align 8
+48:                                               ; preds = %46, %39
+  %49 = phi ptr [ %47, %46 ], [ %44, %39 ]
+  %50 = load ptr, ptr @component_debugfs_dir, align 8
+  tail call void @debugfs_lookup_and_remove(ptr noundef %49, ptr noundef %50) #9
+  %51 = getelementptr inbounds i8, ptr %.us-phi, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = load ptr, ptr %.us-phi, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  store ptr %52, ptr %54, align 8
+  store volatile ptr %53, ptr %52, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %.us-phi, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %50, align 8
-  %54 = icmp eq ptr %41, null
-  br i1 %54, label %.loopexit, label %55
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %51, align 8
+  %55 = icmp eq ptr %42, null
+  br i1 %55, label %.loopexit, label %56
 
-55:                                               ; preds = %47
-  %56 = getelementptr inbounds i8, ptr %41, i64 8
-  %57 = load i64, ptr %56, align 8
-  %58 = icmp eq i64 %57, 0
-  br i1 %58, label %.loopexit, label %59
+56:                                               ; preds = %48
+  %57 = getelementptr inbounds i8, ptr %42, i64 8
+  %58 = load i64, ptr %57, align 8
+  %59 = icmp eq i64 %58, 0
+  br i1 %59, label %.loopexit, label %60
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %41, i64 16
-  br label %61
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds i8, ptr %42, i64 16
+  br label %62
 
-61:                                               ; preds = %71, %59
-  %62 = phi i64 [ %57, %59 ], [ %72, %71 ]
-  %63 = phi i64 [ 0, %59 ], [ %74, %71 ]
-  %64 = phi i32 [ 0, %59 ], [ %73, %71 ]
-  %65 = load ptr, ptr %60, align 8
-  %66 = getelementptr %struct.component_match_array, ptr %65, i64 %63, i32 4
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %71, label %69
+62:                                               ; preds = %72, %60
+  %63 = phi i64 [ %58, %60 ], [ %73, %72 ]
+  %64 = phi i64 [ 0, %60 ], [ %75, %72 ]
+  %65 = phi i32 [ 0, %60 ], [ %74, %72 ]
+  %66 = load ptr, ptr %61, align 8
+  %67 = getelementptr %struct.component_match_array, ptr %66, i64 %64, i32 4
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %72, label %70
 
-69:                                               ; preds = %61
-  %70 = getelementptr inbounds i8, ptr %67, i64 16
-  store ptr null, ptr %70, align 8
-  %.pre18 = load i64, ptr %56, align 8
-  br label %71
+70:                                               ; preds = %62
+  %71 = getelementptr inbounds i8, ptr %68, i64 16
+  store ptr null, ptr %71, align 8
+  %.pre18 = load i64, ptr %57, align 8
+  br label %72
 
-71:                                               ; preds = %69, %61
-  %72 = phi i64 [ %.pre18, %69 ], [ %62, %61 ]
-  %73 = add i32 %64, 1
-  %74 = sext i32 %73 to i64
-  %75 = icmp ugt i64 %72, %74
-  br i1 %75, label %61, label %.loopexit, !llvm.loop !7
+72:                                               ; preds = %70, %62
+  %73 = phi i64 [ %.pre18, %70 ], [ %63, %62 ]
+  %74 = add i32 %65, 1
+  %75 = sext i32 %74 to i64
+  %76 = icmp ugt i64 %73, %75
+  br i1 %76, label %62, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %71, %55, %47
+.loopexit:                                        ; preds = %72, %56, %48
   tail call void @kfree(ptr noundef nonnull %.us-phi) #9
   br label %.thread
 

@@ -935,16 +935,15 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   %.pre44 = load ptr, ptr %_M_finish.i, align 8
   %.pre45 = ptrtoint ptr %.pre42 to i64
   %.pre46 = ptrtoint ptr %.pre43 to i64
+  %.pre47 = sub i64 %.pre45, %.pre46
   br label %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPdS0_ET0_T_S2_S1_.exit:                 ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.rhs.cast.i39.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i15, %if.else49 ], [ %.pre46, %if.then.i.i.i.i.i35 ]
-  %sub.ptr.lhs.cast.i38.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i15, %if.else49 ], [ %.pre45, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
-  %6 = phi ptr [ %3, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
+  %6 = phi ptr [ %4, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
-  %sub.ptr.sub.i40 = sub i64 %sub.ptr.lhs.cast.i38.pre-phi, %sub.ptr.rhs.cast.i39.pre-phi
-  %add.ptr62 = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i40
+  %add.ptr62 = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i40.pre-phi
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, %add.ptr62
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.end69, label %if.then.i.i.i.i.i.i.i.i
 
@@ -1667,8 +1666,8 @@ entry:
   %15 = load ptr, ptr %m_paramsG.i, align 8
   %16 = load double, ptr %15, align 8
   %17 = load float, ptr %m_base.i, align 8
-  %call.i6 = tail call noundef float @log2f(float noundef %17) #22
-  %conv34 = fpext float %call.i6 to double
+  %call.i8 = tail call noundef float @log2f(float noundef %17) #22
+  %conv34 = fpext float %call.i8 to double
   %div35 = fdiv double %16, %conv34
   %conv36 = fptrunc double %div35 to float
   %arrayidx38 = getelementptr inbounds i8, ptr %this, i64 116
@@ -1676,27 +1675,27 @@ entry:
   %18 = load ptr, ptr %m_paramsB.i, align 8
   %19 = load double, ptr %18, align 8
   %20 = load float, ptr %m_base.i, align 8
-  %call.i7 = tail call noundef float @log2f(float noundef %20) #22
-  %conv43 = fpext float %call.i7 to double
+  %call.i10 = tail call noundef float @log2f(float noundef %20) #22
+  %conv43 = fpext float %call.i10 to double
   %div44 = fdiv double %19, %conv43
   %conv45 = fptrunc double %div44 to float
   %arrayidx47 = getelementptr inbounds i8, ptr %this, i64 120
   store float %conv45, ptr %arrayidx47, align 8
   %21 = load ptr, ptr %m_paramsR.i, align 8
-  %add.ptr.i8 = getelementptr inbounds i8, ptr %21, i64 8
-  %22 = load double, ptr %add.ptr.i8, align 8
+  %add.ptr.i11 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = load double, ptr %add.ptr.i11, align 8
   %conv50 = fptrunc double %22 to float
   %m_kb = getelementptr inbounds i8, ptr %this, i64 124
   store float %conv50, ptr %m_kb, align 4
   %23 = load ptr, ptr %m_paramsG.i, align 8
-  %add.ptr.i9 = getelementptr inbounds i8, ptr %23, i64 8
-  %24 = load double, ptr %add.ptr.i9, align 8
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = load double, ptr %add.ptr.i12, align 8
   %conv54 = fptrunc double %24 to float
   %arrayidx56 = getelementptr inbounds i8, ptr %this, i64 128
   store float %conv54, ptr %arrayidx56, align 8
   %25 = load ptr, ptr %m_paramsB.i, align 8
-  %add.ptr.i10 = getelementptr inbounds i8, ptr %25, i64 8
-  %26 = load double, ptr %add.ptr.i10, align 8
+  %add.ptr.i13 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = load double, ptr %add.ptr.i13, align 8
   %conv59 = fptrunc double %26 to float
   %arrayidx61 = getelementptr inbounds i8, ptr %this, i64 132
   store float %conv59, ptr %arrayidx61, align 4
@@ -2491,33 +2490,33 @@ invoke.cont:                                      ; preds = %entry
   %conv42.i = fptrunc double %div41.i to float
   %arrayidx44.i = getelementptr inbounds i8, ptr %this, i64 160
   store float %conv42.i, ptr %arrayidx44.i, align 8
-  %add.ptr.i6.i = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load double, ptr %add.ptr.i6.i, align 8
+  %add.ptr.i9.i = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = load double, ptr %add.ptr.i9.i, align 8
   %conv47.i = fptrunc double %13 to float
   %m_kb.i = getelementptr inbounds i8, ptr %this, i64 164
   store float %conv47.i, ptr %m_kb.i, align 4
-  %add.ptr.i7.i = getelementptr inbounds i8, ptr %2, i64 8
-  %14 = load double, ptr %add.ptr.i7.i, align 8
+  %add.ptr.i10.i = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = load double, ptr %add.ptr.i10.i, align 8
   %conv51.i = fptrunc double %14 to float
   %arrayidx53.i = getelementptr inbounds i8, ptr %this, i64 168
   store float %conv51.i, ptr %arrayidx53.i, align 8
-  %add.ptr.i8.i = getelementptr inbounds i8, ptr %4, i64 8
-  %15 = load double, ptr %add.ptr.i8.i, align 8
+  %add.ptr.i11.i = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = load double, ptr %add.ptr.i11.i, align 8
   %conv56.i = fptrunc double %15 to float
   %arrayidx58.i = getelementptr inbounds i8, ptr %this, i64 172
   store float %conv56.i, ptr %arrayidx58.i, align 4
-  %add.ptr.i9.i = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = load double, ptr %add.ptr.i9.i, align 8
+  %add.ptr.i12.i = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = load double, ptr %add.ptr.i12.i, align 8
   %conv61.i = fptrunc double %16 to float
   %m_linb.i = getelementptr inbounds i8, ptr %this, i64 176
   store float %conv61.i, ptr %m_linb.i, align 8
-  %add.ptr.i10.i = getelementptr inbounds i8, ptr %2, i64 32
-  %17 = load double, ptr %add.ptr.i10.i, align 8
+  %add.ptr.i13.i = getelementptr inbounds i8, ptr %2, i64 32
+  %17 = load double, ptr %add.ptr.i13.i, align 8
   %conv65.i = fptrunc double %17 to float
   %arrayidx67.i = getelementptr inbounds i8, ptr %this, i64 180
   store float %conv65.i, ptr %arrayidx67.i, align 4
-  %add.ptr.i11.i = getelementptr inbounds i8, ptr %4, i64 32
-  %18 = load double, ptr %add.ptr.i11.i, align 8
+  %add.ptr.i14.i = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = load double, ptr %add.ptr.i14.i, align 8
   %conv70.i = fptrunc double %18 to float
   %arrayidx72.i = getelementptr inbounds i8, ptr %this, i64 184
   store float %conv70.i, ptr %arrayidx72.i, align 8
@@ -2588,33 +2587,33 @@ entry:
   %conv42 = fptrunc double %div41 to float
   %arrayidx44 = getelementptr inbounds i8, ptr %this, i64 160
   store float %conv42, ptr %arrayidx44, align 8
-  %add.ptr.i6 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load double, ptr %add.ptr.i6, align 8
+  %add.ptr.i9 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = load double, ptr %add.ptr.i9, align 8
   %conv47 = fptrunc double %13 to float
   %m_kb = getelementptr inbounds i8, ptr %this, i64 164
   store float %conv47, ptr %m_kb, align 4
-  %add.ptr.i7 = getelementptr inbounds i8, ptr %2, i64 8
-  %14 = load double, ptr %add.ptr.i7, align 8
+  %add.ptr.i10 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = load double, ptr %add.ptr.i10, align 8
   %conv51 = fptrunc double %14 to float
   %arrayidx53 = getelementptr inbounds i8, ptr %this, i64 168
   store float %conv51, ptr %arrayidx53, align 8
-  %add.ptr.i8 = getelementptr inbounds i8, ptr %4, i64 8
-  %15 = load double, ptr %add.ptr.i8, align 8
+  %add.ptr.i11 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = load double, ptr %add.ptr.i11, align 8
   %conv56 = fptrunc double %15 to float
   %arrayidx58 = getelementptr inbounds i8, ptr %this, i64 172
   store float %conv56, ptr %arrayidx58, align 4
-  %add.ptr.i9 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = load double, ptr %add.ptr.i9, align 8
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = load double, ptr %add.ptr.i12, align 8
   %conv61 = fptrunc double %16 to float
   %m_linb = getelementptr inbounds i8, ptr %this, i64 176
   store float %conv61, ptr %m_linb, align 8
-  %add.ptr.i10 = getelementptr inbounds i8, ptr %2, i64 32
-  %17 = load double, ptr %add.ptr.i10, align 8
+  %add.ptr.i13 = getelementptr inbounds i8, ptr %2, i64 32
+  %17 = load double, ptr %add.ptr.i13, align 8
   %conv65 = fptrunc double %17 to float
   %arrayidx67 = getelementptr inbounds i8, ptr %this, i64 180
   store float %conv65, ptr %arrayidx67, align 4
-  %add.ptr.i11 = getelementptr inbounds i8, ptr %4, i64 32
-  %18 = load double, ptr %add.ptr.i11, align 8
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = load double, ptr %add.ptr.i14, align 8
   %conv70 = fptrunc double %18 to float
   %arrayidx72 = getelementptr inbounds i8, ptr %this, i64 184
   store float %conv70, ptr %arrayidx72, align 8

@@ -807,87 +807,87 @@ if.end19:                                         ; preds = %do.cond
   br i1 %cmp20, label %if.then21, label %if.end26
 
 if.then21:                                        ; preds = %if.then7, %if.end19
-  %pw.1105 = phi ptr [ %pw.0, %if.end19 ], [ %3, %if.then7 ]
-  %26 = load ptr, ptr %s, align 8
-  store ptr %26, ptr %pw.1105, align 8
-  %cmp.i90 = icmp eq ptr %3, %s
+  %pw.1106 = phi ptr [ %pw.0, %if.end19 ], [ %3, %if.then7 ]
+  %26 = phi ptr [ %24, %if.end19 ], [ %4, %if.then7 ]
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %pw.1106, align 8
+  %cmp.i90 = icmp eq ptr %26, %3
+  %cmp3.i = icmp eq ptr %pw.1106, %3
   br i1 %cmp.i90, label %if.then.i98, label %if.else.i91
 
 if.then.i98:                                      ; preds = %if.then21
-  %cmp3.i = icmp eq ptr %pw.1105, %s
-  %cond.i99 = select i1 %cmp3.i, ptr null, ptr %pw.1105
+  %cond.i99 = select i1 %cmp3.i, ptr null, ptr %pw.1106
   br label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
 if.else.i91:                                      ; preds = %if.then21
-  %cmp4.not.i = icmp eq ptr %pw.1105, %3
-  br i1 %cmp4.not.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit, label %land.lhs.true.i92
+  br i1 %cmp3.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit, label %land.lhs.true.i92
 
 land.lhs.true.i92:                                ; preds = %if.else.i91
-  %waitp.i.i = getelementptr inbounds i8, ptr %pw.1105, i64 32
-  %27 = load ptr, ptr %waitp.i.i, align 8
-  %28 = load ptr, ptr %27, align 8
-  %waitp1.i.i = getelementptr inbounds i8, ptr %26, i64 32
-  %29 = load ptr, ptr %waitp1.i.i, align 8
-  %30 = load ptr, ptr %29, align 8
-  %cmp.i.i93 = icmp eq ptr %28, %30
+  %waitp.i.i = getelementptr inbounds i8, ptr %pw.1106, i64 32
+  %28 = load ptr, ptr %waitp.i.i, align 8
+  %29 = load ptr, ptr %28, align 8
+  %waitp1.i.i = getelementptr inbounds i8, ptr %27, i64 32
+  %30 = load ptr, ptr %waitp1.i.i, align 8
+  %31 = load ptr, ptr %30, align 8
+  %cmp.i.i93 = icmp eq ptr %29, %31
   br i1 %cmp.i.i93, label %land.lhs.true.i.i94, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
 land.lhs.true.i.i94:                              ; preds = %land.lhs.true.i92
-  %priority.i.i = getelementptr inbounds i8, ptr %pw.1105, i64 24
-  %31 = load i32, ptr %priority.i.i, align 8
-  %priority3.i.i = getelementptr inbounds i8, ptr %26, i64 24
-  %32 = load i32, ptr %priority3.i.i, align 8
-  %cmp4.i.i95 = icmp eq i32 %31, %32
+  %priority.i.i = getelementptr inbounds i8, ptr %pw.1106, i64 24
+  %32 = load i32, ptr %priority.i.i, align 8
+  %priority3.i.i = getelementptr inbounds i8, ptr %27, i64 24
+  %33 = load i32, ptr %priority3.i.i, align 8
+  %cmp4.i.i95 = icmp eq i32 %32, %33
   br i1 %cmp4.i.i95, label %land.rhs.i.i96, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
 land.rhs.i.i96:                                   ; preds = %land.lhs.true.i.i94
-  %cond.i.i = getelementptr inbounds i8, ptr %27, i64 8
-  %33 = load ptr, ptr %cond.i.i, align 8
-  %cond7.i.i = getelementptr inbounds i8, ptr %29, i64 8
-  %34 = load ptr, ptr %cond7.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %33, null
-  %cmp1.i.i.i = icmp eq ptr %34, null
+  %cond.i.i = getelementptr inbounds i8, ptr %28, i64 8
+  %34 = load ptr, ptr %cond.i.i, align 8
+  %cond7.i.i = getelementptr inbounds i8, ptr %30, i64 8
+  %35 = load ptr, ptr %cond7.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %34, null
+  %cmp1.i.i.i = icmp eq ptr %35, null
   %or.cond.i.i.i = or i1 %cmp.i.i.i, %cmp1.i.i.i
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs.i.i96
-  %cmp2.i.i.i = icmp eq ptr %33, %34
+  %cmp2.i.i.i = icmp eq ptr %34, %35
   br i1 %cmp2.i.i.i, label %if.then6.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
 if.end.i.i.i:                                     ; preds = %land.rhs.i.i96
-  %eval_.i.i.i = getelementptr inbounds i8, ptr %33, i64 16
-  %35 = load ptr, ptr %eval_.i.i.i, align 8
-  %eval_3.i.i.i = getelementptr inbounds i8, ptr %34, i64 16
-  %36 = load ptr, ptr %eval_3.i.i.i, align 8
-  %cmp4.i.i.i = icmp eq ptr %35, %36
+  %eval_.i.i.i = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = load ptr, ptr %eval_.i.i.i, align 8
+  %eval_3.i.i.i = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = load ptr, ptr %eval_3.i.i.i, align 8
+  %cmp4.i.i.i = icmp eq ptr %36, %37
   br i1 %cmp4.i.i.i, label %land.lhs.true.i.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i.i
-  %arg_.i.i.i = getelementptr inbounds i8, ptr %33, i64 24
-  %37 = load ptr, ptr %arg_.i.i.i, align 8
-  %arg_5.i.i.i = getelementptr inbounds i8, ptr %34, i64 24
-  %38 = load ptr, ptr %arg_5.i.i.i, align 8
-  %cmp6.i.i.i = icmp eq ptr %37, %38
+  %arg_.i.i.i = getelementptr inbounds i8, ptr %34, i64 24
+  %38 = load ptr, ptr %arg_.i.i.i, align 8
+  %arg_5.i.i.i = getelementptr inbounds i8, ptr %35, i64 24
+  %39 = load ptr, ptr %arg_5.i.i.i, align 8
+  %cmp6.i.i.i = icmp eq ptr %38, %39
   br i1 %cmp6.i.i.i, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
 _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i: ; preds = %land.lhs.true.i.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %33, ptr noundef nonnull dereferenceable(16) %34, i64 16)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %34, ptr noundef nonnull dereferenceable(16) %35, i64 16)
   %tobool.not.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.then6.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
 if.then6.i:                                       ; preds = %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i, %if.then.i.i.i
-  %skip.i97 = getelementptr inbounds i8, ptr %26, i64 8
-  %39 = load ptr, ptr %skip.i97, align 8
-  %cmp8.not.i = icmp eq ptr %39, null
-  %skip15.i = getelementptr inbounds i8, ptr %pw.1105, i64 8
+  %skip.i97 = getelementptr inbounds i8, ptr %27, i64 8
+  %40 = load ptr, ptr %skip.i97, align 8
+  %cmp8.not.i = icmp eq ptr %40, null
+  %skip15.i = getelementptr inbounds i8, ptr %pw.1106, i64 8
   br i1 %cmp8.not.i, label %if.else13.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then6.i
-  store ptr %39, ptr %skip15.i, align 8
+  store ptr %40, ptr %skip15.i, align 8
   br label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
 if.else13.i:                                      ; preds = %if.then6.i
-  store ptr %26, ptr %skip15.i, align 8
+  store ptr %27, ptr %skip15.i, align 8
   br label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
 _ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit: ; preds = %if.then.i98, %if.else.i91, %land.lhs.true.i92, %land.lhs.true.i.i94, %if.then.i.i.i, %if.end.i.i.i, %land.lhs.true.i.i.i, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i, %if.then9.i, %if.else13.i
@@ -900,7 +900,7 @@ _ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit: ; preds = %if.th
 if.end26:                                         ; preds = %if.end19, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
   %h.0 = phi ptr [ %head.addr.0.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit ], [ %3, %if.end19 ]
   %cmp31.not = icmp eq ptr %h.0, null
-  %40 = ptrtoint ptr %h.0 to i64
+  %41 = ptrtoint ptr %h.0 to i64
   %readers = getelementptr inbounds i8, ptr %h.0, i64 40
   %maybe_unlocking = getelementptr inbounds i8, ptr %h.0, i64 19
   br i1 %cmp31.not, label %do.body27.us.preheader, label %do.body27
@@ -909,22 +909,22 @@ do.body27.us.preheader:                           ; preds = %if.then, %if.end26
   br label %do.body27.us
 
 do.body27.us:                                     ; preds = %do.body27.us.preheader, %do.body27.us
-  %41 = load atomic i64, ptr %this monotonic, align 8
-  %and30.us = and i64 %41, 18
-  %42 = cmpxchg weak ptr %this, i64 %41, i64 %and30.us release monotonic, align 8
-  %43 = extractvalue { i64, i1 } %42, 1
-  br i1 %43, label %if.end40, label %do.body27.us, !llvm.loop !11
+  %42 = load atomic i64, ptr %this monotonic, align 8
+  %and30.us = and i64 %42, 18
+  %43 = cmpxchg weak ptr %this, i64 %42, i64 %and30.us release monotonic, align 8
+  %44 = extractvalue { i64, i1 } %43, 1
+  br i1 %44, label %if.end40, label %do.body27.us, !llvm.loop !11
 
 do.body27:                                        ; preds = %if.end26, %do.body27
-  %44 = load atomic i64, ptr %this monotonic, align 8
-  %and30 = and i64 %44, 18
-  %or33 = or i64 %and30, %40
+  %45 = load atomic i64, ptr %this monotonic, align 8
+  %and30 = and i64 %45, 18
+  %or33 = or i64 %and30, %41
   %or34 = or i64 %or33, 4
   store i64 0, ptr %readers, align 8
   store i8 0, ptr %maybe_unlocking, align 1
-  %45 = cmpxchg weak ptr %this, i64 %44, i64 %or34 release monotonic, align 8
-  %46 = extractvalue { i64, i1 } %45, 1
-  br i1 %46, label %if.end40, label %do.body27, !llvm.loop !11
+  %46 = cmpxchg weak ptr %this, i64 %45, i64 %or34 release monotonic, align 8
+  %47 = extractvalue { i64, i1 } %46, 1
+  br i1 %47, label %if.end40, label %do.body27, !llvm.loop !11
 
 if.end40:                                         ; preds = %do.body27, %do.body27.us, %land.lhs.true, %entry
   ret void
@@ -1992,14 +1992,14 @@ if.else213:                                       ; preds = %land.lhs.true203, %
 
 if.then215:                                       ; preds = %if.else213
   %and217 = and i64 %7, -106
-  %readers218 = getelementptr inbounds i8, ptr %old_h.0.ph, i64 40
+  %readers218 = getelementptr inbounds i8, ptr %21, i64 40
   store i64 0, ptr %readers218, align 8
-  %maybe_unlocking219 = getelementptr inbounds i8, ptr %old_h.0.ph, i64 19
+  %maybe_unlocking219 = getelementptr inbounds i8, ptr %21, i64 19
   store i8 0, ptr %maybe_unlocking219, align 1
   br i1 %cmp6, label %for.end.sink.split, label %if.then221
 
 if.then221:                                       ; preds = %if.then215
-  %call224 = tail call fastcc noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef nonnull %old_h.0.ph, ptr noundef nonnull %waitp, i64 noundef %7, i32 noundef 2)
+  %call224 = tail call fastcc noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef nonnull %21, ptr noundef nonnull %waitp, i64 noundef %7, i32 noundef 2)
   %and225 = and i64 %7, 150
   %cmp226.not = icmp eq ptr %call224, null
   br i1 %cmp226.not, label %for.end.sink.split, label %if.then227
@@ -2133,6 +2133,7 @@ do.body.i259:                                     ; preds = %do.body301, %land.r
   %wake_tail.addr.0.i = phi ptr [ %wake_tail.addr.121.i, %land.rhs.i260 ], [ %wake_list, %do.body301 ]
   %pw.addr.0.i = phi ptr [ %pw.addr.122.i, %land.rhs.i260 ], [ %pw.4, %do.body301 ]
   %skipped.0.i = phi i1 [ %skipped.123.i, %land.rhs.i260 ], [ false, %do.body301 ]
+  %head.addr.0.i = phi ptr [ %head.addr.124.i, %land.rhs.i260 ], [ %21, %do.body301 ]
   %w.0.i = load ptr, ptr %pw.addr.0.i, align 8
   %wake.i = getelementptr inbounds i8, ptr %w.0.i, i64 17
   %62 = load i8, ptr %wake.i, align 1
@@ -2152,16 +2153,17 @@ do.body3.i:                                       ; preds = %do.body1.i
 do.end6.i:                                        ; preds = %do.body1.i
   %64 = load ptr, ptr %w.0.i, align 8
   store ptr %64, ptr %pw.addr.0.i, align 8
-  %cmp.i.i263 = icmp eq ptr %w.0.i, %21
-  %cmp3.i.i = icmp eq ptr %pw.addr.0.i, %21
+  %cmp.i.i263 = icmp eq ptr %w.0.i, %head.addr.0.i
   br i1 %cmp.i.i263, label %if.then.i.i266, label %if.else.i.i
 
 if.then.i.i266:                                   ; preds = %do.end6.i
+  %cmp3.i.i = icmp eq ptr %head.addr.0.i, %pw.addr.0.i
   %cond.i.i = select i1 %cmp3.i.i, ptr null, ptr %pw.addr.0.i
   br label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 if.else.i.i:                                      ; preds = %do.end6.i
-  br i1 %cmp3.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i, label %land.lhs.true.i.i264
+  %cmp4.not.i.i = icmp eq ptr %pw.addr.0.i, %head.addr.0.i
+  br i1 %cmp4.not.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i, label %land.lhs.true.i.i264
 
 land.lhs.true.i.i264:                             ; preds = %if.else.i.i
   %waitp.i.i.i = getelementptr inbounds i8, ptr %pw.addr.0.i, i64 32
@@ -2231,7 +2233,7 @@ if.else13.i.i:                                    ; preds = %if.then6.i.i
   br label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 _ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i: ; preds = %if.else13.i.i, %if.then9.i.i, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i.i, %land.lhs.true.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i, %land.lhs.true.i.i.i, %land.lhs.true.i.i264, %if.else.i.i, %if.then.i.i266
-  %head.addr.0.i.i = phi ptr [ %cond.i.i, %if.then.i.i266 ], [ %21, %if.then9.i.i ], [ %21, %if.else13.i.i ], [ %21, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i.i ], [ %21, %if.else.i.i ], [ %21, %if.then.i.i.i.i ], [ %21, %land.lhs.true.i.i.i ], [ %21, %land.lhs.true.i.i264 ], [ %21, %land.lhs.true.i.i.i.i ], [ %21, %if.end.i.i.i.i ]
+  %head.addr.0.i.i = phi ptr [ %cond.i.i, %if.then.i.i266 ], [ %head.addr.0.i, %if.then9.i.i ], [ %head.addr.0.i, %if.else13.i.i ], [ %head.addr.0.i, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i.i ], [ %head.addr.0.i, %if.else.i.i ], [ %head.addr.0.i, %if.then.i.i.i.i ], [ %head.addr.0.i, %land.lhs.true.i.i.i ], [ %head.addr.0.i, %land.lhs.true.i.i264 ], [ %head.addr.0.i, %land.lhs.true.i.i.i.i ], [ %head.addr.0.i, %if.end.i.i.i.i ]
   %78 = load ptr, ptr %wake_tail.addr.0.i, align 8
   store ptr %78, ptr %w.0.i, align 8
   store ptr %w.0.i, ptr %wake_tail.addr.0.i, align 8
@@ -2272,15 +2274,16 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %wh
   br label %land.rhs.i260
 
 land.rhs.i260:                                    ; preds = %while.end.i.i, %if.else.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
+  %head.addr.124.i = phi ptr [ %head.addr.0.i, %if.else.i ], [ %head.addr.0.i, %while.end.i.i ], [ %head.addr.0.i.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
   %skipped.123.i = phi i1 [ true, %if.else.i ], [ true, %while.end.i.i ], [ %skipped.0.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
   %pw.addr.122.i = phi ptr [ %w.0.i, %if.else.i ], [ %x2.0.lcssa.i.i, %while.end.i.i ], [ %pw.addr.0.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
   %wake_tail.addr.121.i = phi ptr [ %wake_tail.addr.0.i, %if.else.i ], [ %wake_tail.addr.0.i, %while.end.i.i ], [ %w.0.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
-  %cmp16.i = icmp eq ptr %pw.addr.122.i, %21
+  %cmp16.i = icmp eq ptr %pw.addr.122.i, %head.addr.124.i
   %.not.i = select i1 %cmp16.i, i1 %skipped.123.i, i1 false
   br i1 %.not.i, label %invoke.cont317, label %do.body.i259, !llvm.loop !19
 
 invoke.cont317:                                   ; preds = %land.rhs.i260, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
-  %head.addr.2.i = phi ptr [ %head.addr.0.i.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ], [ %21, %land.rhs.i260 ]
+  %head.addr.2.i = phi ptr [ %head.addr.0.i.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ], [ %head.addr.124.i, %land.rhs.i260 ]
   %and320 = and i64 %.lcssa289297, 16
   %or321 = or disjoint i64 %and320, 2
   br i1 %cmp6, label %do.body327, label %if.then323
@@ -3759,17 +3762,17 @@ land.lhs.true:                                    ; preds = %if.else47
   br i1 %cmp49, label %if.then55, label %if.else95
 
 if.then55:                                        ; preds = %_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE.exit, %land.lhs.true
-  %enqueue_after.0178 = phi ptr [ %head, %land.lhs.true ], [ %advance_to.0, %_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE.exit ]
-  %47 = load ptr, ptr %enqueue_after.0178, align 8
+  %enqueue_after.0182 = phi ptr [ %head, %land.lhs.true ], [ %advance_to.0, %_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE.exit ]
+  %47 = load ptr, ptr %enqueue_after.0182, align 8
   store ptr %47, ptr %25, align 8
-  store ptr %25, ptr %enqueue_after.0178, align 8
-  %skip60 = getelementptr inbounds i8, ptr %enqueue_after.0178, i64 8
+  store ptr %25, ptr %enqueue_after.0182, align 8
+  %skip60 = getelementptr inbounds i8, ptr %enqueue_after.0182, i64 8
   %48 = load ptr, ptr %skip60, align 8
   %cmp61 = icmp eq ptr %48, null
   br i1 %cmp61, label %do.end77, label %lor.rhs62
 
 lor.rhs62:                                        ; preds = %if.then55
-  %waitp.i = getelementptr inbounds i8, ptr %enqueue_after.0178, i64 32
+  %waitp.i = getelementptr inbounds i8, ptr %enqueue_after.0182, i64 32
   %49 = load ptr, ptr %waitp.i, align 8
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %waitp1, align 8
@@ -3778,7 +3781,7 @@ lor.rhs62:                                        ; preds = %if.then55
   br i1 %cmp.i85, label %land.lhs.true.i, label %do.body68
 
 land.lhs.true.i:                                  ; preds = %lor.rhs62
-  %priority.i = getelementptr inbounds i8, ptr %enqueue_after.0178, i64 24
+  %priority.i = getelementptr inbounds i8, ptr %enqueue_after.0182, i64 24
   %53 = load i32, ptr %priority.i, align 8
   %54 = load i32, ptr %priority33, align 8
   %cmp4.i = icmp eq i32 %53, %54
@@ -3824,17 +3827,17 @@ do.body68:                                        ; preds = %if.then.i.i87, %if.
   unreachable
 
 do.end77:                                         ; preds = %if.then.i.i87, %if.then55, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit
-  %cmp78.not = icmp eq ptr %enqueue_after.0178, %head
+  %cmp78.not = icmp eq ptr %enqueue_after.0182, %head
   br i1 %cmp78.not, label %if.end88, label %land.lhs.true79
 
 land.lhs.true79:                                  ; preds = %do.end77
-  %may_skip80 = getelementptr inbounds i8, ptr %enqueue_after.0178, i64 16
+  %may_skip80 = getelementptr inbounds i8, ptr %enqueue_after.0182, i64 16
   %61 = load i8, ptr %may_skip80, align 8
   %tobool81 = trunc i8 %61 to i1
   br i1 %tobool81, label %land.lhs.true82, label %if.end88
 
 land.lhs.true82:                                  ; preds = %land.lhs.true79
-  %waitp.i89 = getelementptr inbounds i8, ptr %enqueue_after.0178, i64 32
+  %waitp.i89 = getelementptr inbounds i8, ptr %enqueue_after.0182, i64 32
   %62 = load ptr, ptr %waitp.i89, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %waitp1, align 8
@@ -3843,7 +3846,7 @@ land.lhs.true82:                                  ; preds = %land.lhs.true79
   br i1 %cmp.i91, label %land.lhs.true.i92, label %if.end88
 
 land.lhs.true.i92:                                ; preds = %land.lhs.true82
-  %priority.i93 = getelementptr inbounds i8, ptr %enqueue_after.0178, i64 24
+  %priority.i93 = getelementptr inbounds i8, ptr %enqueue_after.0182, i64 24
   %66 = load i32, ptr %priority.i93, align 8
   %67 = load i32, ptr %priority33, align 8
   %cmp4.i95 = icmp eq i32 %66, %67
@@ -3947,11 +3950,11 @@ if.then91:                                        ; preds = %if.then.i.i140, %_Z
 if.else95:                                        ; preds = %land.lhs.true, %if.else32, %if.else47
   %and96 = and i32 %flags, 1
   %tobool97.not = icmp eq i32 %and96, 0
-  %.pre181 = load ptr, ptr %head, align 8
+  %.pre185 = load ptr, ptr %head, align 8
   br i1 %tobool97.not, label %if.else122, label %land.lhs.true98
 
 land.lhs.true98:                                  ; preds = %if.else95
-  %priority101 = getelementptr inbounds i8, ptr %.pre181, i64 24
+  %priority101 = getelementptr inbounds i8, ptr %.pre185, i64 24
   %87 = load i32, ptr %priority101, align 8
   %cmp102.not = icmp slt i32 %34, %87
   br i1 %cmp102.not, label %if.else122, label %land.lhs.true103
@@ -3974,7 +3977,7 @@ land.lhs.true109:                                 ; preds = %lor.lhs.false106
   br i1 %cmp2.i, label %if.then112, label %if.else122
 
 if.then112:                                       ; preds = %land.lhs.true109, %land.lhs.true103
-  store ptr %.pre181, ptr %25, align 8
+  store ptr %.pre185, ptr %25, align 8
   store ptr %25, ptr %head, align 8
   %91 = load ptr, ptr %25, align 8
   %call117 = call fastcc noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr noundef nonnull %25, ptr noundef %91)
@@ -3985,7 +3988,7 @@ if.then118:                                       ; preds = %if.then112
   br label %if.end141
 
 if.else122:                                       ; preds = %land.lhs.true109, %lor.lhs.false106, %land.lhs.true98, %if.else95
-  store ptr %.pre181, ptr %25, align 8
+  store ptr %.pre185, ptr %25, align 8
   store ptr %25, ptr %head, align 8
   %readers126 = getelementptr inbounds i8, ptr %head, i64 40
   %92 = load i64, ptr %readers126, align 8
@@ -4002,62 +4005,62 @@ if.else122:                                       ; preds = %land.lhs.true109, %
   br i1 %tobool133, label %land.lhs.true134, label %if.end141
 
 land.lhs.true134:                                 ; preds = %if.else122
-  %waitp.i146 = getelementptr inbounds i8, ptr %head, i64 32
-  %95 = load ptr, ptr %waitp.i146, align 8
+  %waitp.i150 = getelementptr inbounds i8, ptr %head, i64 32
+  %95 = load ptr, ptr %waitp.i150, align 8
   %96 = load ptr, ptr %95, align 8
   %97 = load ptr, ptr %waitp1, align 8
   %98 = load ptr, ptr %97, align 8
-  %cmp.i148 = icmp eq ptr %96, %98
-  br i1 %cmp.i148, label %land.lhs.true.i149, label %if.end141
+  %cmp.i152 = icmp eq ptr %96, %98
+  br i1 %cmp.i152, label %land.lhs.true.i153, label %if.end141
 
-land.lhs.true.i149:                               ; preds = %land.lhs.true134
+land.lhs.true.i153:                               ; preds = %land.lhs.true134
   %99 = load i32, ptr %priority34, align 8
   %100 = load i32, ptr %priority33, align 8
-  %cmp4.i152 = icmp eq i32 %99, %100
-  br i1 %cmp4.i152, label %land.rhs.i153, label %if.end141
+  %cmp4.i156 = icmp eq i32 %99, %100
+  br i1 %cmp4.i156, label %land.rhs.i157, label %if.end141
 
-land.rhs.i153:                                    ; preds = %land.lhs.true.i149
-  %cond.i154 = getelementptr inbounds i8, ptr %95, i64 8
-  %101 = load ptr, ptr %cond.i154, align 8
-  %cond7.i155 = getelementptr inbounds i8, ptr %97, i64 8
-  %102 = load ptr, ptr %cond7.i155, align 8
-  %cmp.i.i156 = icmp eq ptr %101, null
-  %cmp1.i.i157 = icmp eq ptr %102, null
-  %or.cond.i.i158 = or i1 %cmp.i.i156, %cmp1.i.i157
-  br i1 %or.cond.i.i158, label %if.then.i.i170, label %if.end.i.i159
+land.rhs.i157:                                    ; preds = %land.lhs.true.i153
+  %cond.i158 = getelementptr inbounds i8, ptr %95, i64 8
+  %101 = load ptr, ptr %cond.i158, align 8
+  %cond7.i159 = getelementptr inbounds i8, ptr %97, i64 8
+  %102 = load ptr, ptr %cond7.i159, align 8
+  %cmp.i.i160 = icmp eq ptr %101, null
+  %cmp1.i.i161 = icmp eq ptr %102, null
+  %or.cond.i.i162 = or i1 %cmp.i.i160, %cmp1.i.i161
+  br i1 %or.cond.i.i162, label %if.then.i.i174, label %if.end.i.i163
 
-if.then.i.i170:                                   ; preds = %land.rhs.i153
-  %cmp2.i.i171 = icmp eq ptr %101, %102
-  br i1 %cmp2.i.i171, label %if.then136, label %if.end141
+if.then.i.i174:                                   ; preds = %land.rhs.i157
+  %cmp2.i.i175 = icmp eq ptr %101, %102
+  br i1 %cmp2.i.i175, label %if.then136, label %if.end141
 
-if.end.i.i159:                                    ; preds = %land.rhs.i153
-  %eval_.i.i160 = getelementptr inbounds i8, ptr %101, i64 16
-  %103 = load ptr, ptr %eval_.i.i160, align 8
-  %eval_3.i.i161 = getelementptr inbounds i8, ptr %102, i64 16
-  %104 = load ptr, ptr %eval_3.i.i161, align 8
-  %cmp4.i.i162 = icmp eq ptr %103, %104
-  br i1 %cmp4.i.i162, label %land.lhs.true.i.i163, label %if.end141
+if.end.i.i163:                                    ; preds = %land.rhs.i157
+  %eval_.i.i164 = getelementptr inbounds i8, ptr %101, i64 16
+  %103 = load ptr, ptr %eval_.i.i164, align 8
+  %eval_3.i.i165 = getelementptr inbounds i8, ptr %102, i64 16
+  %104 = load ptr, ptr %eval_3.i.i165, align 8
+  %cmp4.i.i166 = icmp eq ptr %103, %104
+  br i1 %cmp4.i.i166, label %land.lhs.true.i.i167, label %if.end141
 
-land.lhs.true.i.i163:                             ; preds = %if.end.i.i159
-  %arg_.i.i164 = getelementptr inbounds i8, ptr %101, i64 24
-  %105 = load ptr, ptr %arg_.i.i164, align 8
-  %arg_5.i.i165 = getelementptr inbounds i8, ptr %102, i64 24
-  %106 = load ptr, ptr %arg_5.i.i165, align 8
-  %cmp6.i.i166 = icmp eq ptr %105, %106
-  br i1 %cmp6.i.i166, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit172, label %if.end141
+land.lhs.true.i.i167:                             ; preds = %if.end.i.i163
+  %arg_.i.i168 = getelementptr inbounds i8, ptr %101, i64 24
+  %105 = load ptr, ptr %arg_.i.i168, align 8
+  %arg_5.i.i169 = getelementptr inbounds i8, ptr %102, i64 24
+  %106 = load ptr, ptr %arg_5.i.i169, align 8
+  %cmp6.i.i170 = icmp eq ptr %105, %106
+  br i1 %cmp6.i.i170, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit176, label %if.end141
 
-_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit172: ; preds = %land.lhs.true.i.i163
-  %bcmp.i.i168 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %101, ptr noundef nonnull dereferenceable(16) %102, i64 16)
-  %tobool.not.i.i169 = icmp eq i32 %bcmp.i.i168, 0
-  br i1 %tobool.not.i.i169, label %if.then136, label %if.end141
+_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit176: ; preds = %land.lhs.true.i.i167
+  %bcmp.i.i172 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %101, ptr noundef nonnull dereferenceable(16) %102, i64 16)
+  %tobool.not.i.i173 = icmp eq i32 %bcmp.i.i172, 0
+  br i1 %tobool.not.i.i173, label %if.then136, label %if.end141
 
-if.then136:                                       ; preds = %if.then.i.i170, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit172
+if.then136:                                       ; preds = %if.then.i.i174, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit176
   %skip137 = getelementptr inbounds i8, ptr %head, i64 8
   store ptr %25, ptr %skip137, align 8
   br label %if.end141
 
-if.end141:                                        ; preds = %if.end.i.i159, %land.lhs.true.i.i163, %land.lhs.true134, %land.lhs.true.i149, %if.end.i.i129, %land.lhs.true.i.i133, %if.end88, %land.lhs.true.i119, %if.then.i.i170, %if.then.i.i140, %if.else122, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit172, %if.then136, %if.then91, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit142, %if.then112, %if.then118, %if.then31
-  %head.addr.0 = phi ptr [ %25, %if.then31 ], [ %head, %if.then91 ], [ %head, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit142 ], [ %head, %if.then118 ], [ %head, %if.then112 ], [ %25, %if.then136 ], [ %25, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit172 ], [ %25, %if.else122 ], [ %head, %if.then.i.i140 ], [ %25, %if.then.i.i170 ], [ %head, %land.lhs.true.i119 ], [ %head, %if.end88 ], [ %head, %land.lhs.true.i.i133 ], [ %head, %if.end.i.i129 ], [ %25, %land.lhs.true.i149 ], [ %25, %land.lhs.true134 ], [ %25, %land.lhs.true.i.i163 ], [ %25, %if.end.i.i159 ]
+if.end141:                                        ; preds = %if.end.i.i163, %land.lhs.true.i.i167, %land.lhs.true134, %land.lhs.true.i153, %if.end.i.i129, %land.lhs.true.i.i133, %if.end88, %land.lhs.true.i119, %if.then.i.i174, %if.then.i.i140, %if.else122, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit176, %if.then136, %if.then91, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit142, %if.then112, %if.then118, %if.then31
+  %head.addr.0 = phi ptr [ %25, %if.then31 ], [ %head, %if.then91 ], [ %head, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit142 ], [ %head, %if.then118 ], [ %head, %if.then112 ], [ %25, %if.then136 ], [ %25, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit176 ], [ %25, %if.else122 ], [ %head, %if.then.i.i140 ], [ %25, %if.then.i.i174 ], [ %head, %land.lhs.true.i119 ], [ %head, %if.end88 ], [ %head, %land.lhs.true.i.i133 ], [ %head, %if.end.i.i129 ], [ %25, %land.lhs.true.i153 ], [ %25, %land.lhs.true134 ], [ %25, %land.lhs.true.i.i167 ], [ %25, %if.end.i.i163 ]
   %state = getelementptr inbounds i8, ptr %25, i64 28
   store atomic i32 1, ptr %state monotonic, align 4
   br label %return

@@ -1679,7 +1679,7 @@ define dso_local ptr @build_index_pathkeys(ptr noundef %0, ptr noundef %1, i32 n
   br label %pathkey_is_redundant.exit
 
 76:                                               ; preds = %42
-  %77 = trunc i64 %indvars.iv65 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv65 to i32
   %78 = tail call zeroext i1 @indexcol_is_bool_constant_for_query(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %77) #10
   br i1 %78, label %pathkey_is_redundant.exit, label %.thread
 
@@ -2618,7 +2618,7 @@ pathkeys_useful_for_merging.exit:                 ; preds = %.lr.ph.i, %45, %rig
   br i1 %.not.i.i.i, label %pathkeys_useful_for_ordering.exit, label %87
 
 87:                                               ; preds = %86
-  %88 = getelementptr inbounds i8, ptr %2, i64 4
+  %88 = getelementptr inbounds i8, ptr %.val, i64 4
   %89 = load i32, ptr %88, align 4
   br label %pathkeys_useful_for_ordering.exit
 
@@ -3420,7 +3420,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %121 = getelementptr i32, ptr %12, i64 %indvars.iv248
   %122 = load i32, ptr %121, align 4
   %123 = icmp sgt i32 %122, %.0112205
-  %124 = trunc i64 %indvars.iv248 to i32
+  %124 = trunc nuw nsw i64 %indvars.iv248 to i32
   %spec.select143 = select i1 %123, i32 %124, i32 %.0114204
   %spec.select144 = tail call i32 @llvm.smax.i32(i32 %122, i32 %.0112205)
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1

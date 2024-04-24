@@ -1182,44 +1182,45 @@ _ZSt8_DestroyIPN19cmCTestBuildHandler24cmCTestBuildErrorWarningES1_EvT_S3_RSaIT0
   br label %_ZNSt6vectorIN19cmCTestBuildHandler24cmCTestBuildErrorWarningESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN19cmCTestBuildHandler24cmCTestBuildErrorWarningESaIS1_EE5clearEv.exit: ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit, %_ZSt8_DestroyIPN19cmCTestBuildHandler24cmCTestBuildErrorWarningES1_EvT_S3_RSaIT0_E.exit.i.i
-  %123 = getelementptr inbounds i8, ptr %0, i64 920
-  store ptr %114, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 928
-  store i64 0, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 936
-  store i64 10, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 944
+  %123 = phi ptr [ %116, %_ZNSt6vectorIcSaIcEE5clearEv.exit ], [ %114, %_ZSt8_DestroyIPN19cmCTestBuildHandler24cmCTestBuildErrorWarningES1_EvT_S3_RSaIT0_E.exit.i.i ]
+  %124 = getelementptr inbounds i8, ptr %0, i64 920
+  store ptr %123, ptr %124, align 8
+  %125 = getelementptr inbounds i8, ptr %0, i64 928
+  store i64 0, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %0, i64 936
   store i64 10, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %0, i64 952
+  %127 = getelementptr inbounds i8, ptr %0, i64 944
+  store i64 10, ptr %127, align 8
+  %128 = getelementptr inbounds i8, ptr %0, i64 952
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %128 = getelementptr inbounds i8, ptr %0, i64 968
-  %129 = load <2 x ptr>, ptr %128, align 8, !noalias !17
-  store <2 x ptr> %129, ptr %2, align 16, !alias.scope !17
-  %130 = getelementptr inbounds i8, ptr %2, i64 16
-  %131 = getelementptr inbounds i8, ptr %0, i64 984
-  %132 = load <2 x ptr>, ptr %131, align 8, !noalias !17
-  store <2 x ptr> %132, ptr %130, align 16, !alias.scope !17
-  invoke void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE15_M_erase_at_endESt15_Deque_iteratorIS5_RS5_PS5_E(ptr noundef nonnull align 8 dereferenceable(80) %127, ptr noundef nonnull %2)
-          to label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit unwind label %133
+  %129 = getelementptr inbounds i8, ptr %0, i64 968
+  %130 = load <2 x ptr>, ptr %129, align 8, !noalias !17
+  store <2 x ptr> %130, ptr %2, align 16, !alias.scope !17
+  %131 = getelementptr inbounds i8, ptr %2, i64 16
+  %132 = getelementptr inbounds i8, ptr %0, i64 984
+  %133 = load <2 x ptr>, ptr %132, align 8, !noalias !17
+  store <2 x ptr> %133, ptr %131, align 16, !alias.scope !17
+  invoke void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE15_M_erase_at_endESt15_Deque_iteratorIS5_RS5_PS5_E(ptr noundef nonnull align 8 dereferenceable(80) %128, ptr noundef nonnull %2)
+          to label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit unwind label %134
 
-133:                                              ; preds = %_ZNSt6vectorIN19cmCTestBuildHandler24cmCTestBuildErrorWarningESaIS1_EE5clearEv.exit
-  %134 = landingpad { ptr, i32 }
+134:                                              ; preds = %_ZNSt6vectorIN19cmCTestBuildHandler24cmCTestBuildErrorWarningESaIS1_EE5clearEv.exit
+  %135 = landingpad { ptr, i32 }
           catch ptr null
-  %135 = extractvalue { ptr, i32 } %134, 0
-  call void @__clang_call_terminate(ptr %135) #23
+  %136 = extractvalue { ptr, i32 } %135, 0
+  call void @__clang_call_terminate(ptr %136) #23
   unreachable
 
 _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit: ; preds = %_ZNSt6vectorIN19cmCTestBuildHandler24cmCTestBuildErrorWarningESaIS1_EE5clearEv.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  %136 = getelementptr inbounds i8, ptr %0, i64 1032
-  %137 = getelementptr inbounds i8, ptr %0, i64 1044
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %136, i8 0, i64 11, i1 false)
-  store i32 50, ptr %137, align 4
-  %138 = getelementptr inbounds i8, ptr %0, i64 1048
-  store i32 50, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %0, i64 1064
-  store i8 0, ptr %139, align 8
+  %137 = getelementptr inbounds i8, ptr %0, i64 1032
+  %138 = getelementptr inbounds i8, ptr %0, i64 1044
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %137, i8 0, i64 11, i1 false)
+  store i32 50, ptr %138, align 4
+  %139 = getelementptr inbounds i8, ptr %0, i64 1048
+  store i32 50, ptr %139, align 8
+  %140 = getelementptr inbounds i8, ptr %0, i64 1064
+  store i8 0, ptr %140, align 8
   ret void
 }
 
@@ -8291,7 +8292,7 @@ _ZNSt15_Deque_iteratorIcRcPcEppEv.exit:           ; preds = %108, %111
   %.sroa.19.1.lcssa = phi ptr [ %104, %100 ], [ %.sroa.19.1151, %.lr.ph156 ], [ %.sroa.19.2, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ]
   %.sroa.14.1.lcssa = phi ptr [ %103, %100 ], [ %.sroa.14.1152, %.lr.ph156 ], [ %.sroa.14.2, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ]
   %.sroa.10.1.lcssa = phi ptr [ %102, %100 ], [ %.sroa.10.1153, %.lr.ph156 ], [ %.sroa.10.2, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ]
-  %.sroa.0130.1.lcssa = phi ptr [ %101, %100 ], [ %.sroa.0130.1154, %.lr.ph156 ], [ %105, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ]
+  %.sroa.0130.1.lcssa = phi ptr [ %101, %100 ], [ %.sroa.0130.1154, %.lr.ph156 ], [ %.sroa.0130.2, %_ZNSt15_Deque_iteratorIcRcPcEppEv.exit ]
   %115 = load i32, ptr %49, align 4
   %116 = load i32, ptr %50, align 8
   %.not = icmp slt i32 %115, %116
@@ -9219,7 +9220,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %21, label %.critedge, label %23
 
 .critedge:                                        ; preds = %2, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
-  %.08.lcssa.i.i.i10 = phi ptr [ %7, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit ], [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %7, %2 ]
+  %.08.lcssa.i.i.i10 = phi ptr [ %.19.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE11lower_boundERS9_.exit ], [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %7, %2 ]
   store ptr %1, ptr %3, align 8, !alias.scope !181
   %22 = call ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS5_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i10, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
   br label %23
@@ -11976,9 +11977,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 .thread:                                          ; preds = %33
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #21
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -11986,9 +11987,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 39:                                               ; preds = %33
   tail call void @_ZdlPv(ptr noundef nonnull %23) #22
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35: ; preds = %39, %.thread
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %39, %.thread
   invoke void @__cxa_rethrow() #24
           to label %44 unwind label %37
 
@@ -12002,7 +12003,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   tail call void @__clang_call_terminate(ptr %43) #23
   unreachable
 
-44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   unreachable
 }
 
@@ -12768,7 +12769,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %27, label %._crit_edge.thread.i, label %33
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %20
-  %.020.lcssa32.i = phi ptr [ %.02127.i, %._crit_edge.i ], [ %1, %20 ]
+  %.020.lcssa32.i = phi ptr [ %.02127.i, %._crit_edge.i ], [ %4, %20 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %.020.lcssa32.i, %29
@@ -13013,8 +13014,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE24_M_get_insert_unique_posERS7_.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE24_M_get_insert_unique_posERS7_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48, %._crit_edge.thread.i55, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24, %._crit_edge.thread.i31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i, %._crit_edge.thread.i, %100, %59, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34, %88, %47, %18
-  %.sroa.078.0 = phi ptr [ null, %18 ], [ %1, %47 ], [ null, %88 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select, %59 ], [ %spec.select80, %100 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ null, %._crit_edge.thread.i31 ], [ %spec.select.i25, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ null, %._crit_edge.thread.i55 ], [ %spec.select.i49, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
-  %.sroa.12.0 = phi ptr [ %19, %18 ], [ %1, %47 ], [ %1, %88 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select79, %59 ], [ %spec.select81, %100 ], [ %.020.lcssa32.i, %._crit_edge.thread.i ], [ %spec.select22.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ %.020.lcssa32.i32, %._crit_edge.thread.i31 ], [ %spec.select22.i26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ %.020.lcssa32.i56, %._crit_edge.thread.i55 ], [ %spec.select22.i50, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
+  %.sroa.078.0 = phi ptr [ null, %18 ], [ %49, %47 ], [ null, %88 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select, %59 ], [ %spec.select80, %100 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ null, %._crit_edge.thread.i31 ], [ %spec.select.i25, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ null, %._crit_edge.thread.i55 ], [ %spec.select.i49, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
+  %.sroa.12.0 = phi ptr [ %19, %18 ], [ %49, %47 ], [ %90, %88 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select79, %59 ], [ %spec.select81, %100 ], [ %.020.lcssa32.i, %._crit_edge.thread.i ], [ %spec.select22.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ %.020.lcssa32.i32, %._crit_edge.thread.i31 ], [ %spec.select22.i26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ %.020.lcssa32.i56, %._crit_edge.thread.i55 ], [ %spec.select22.i50, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.078.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -13499,24 +13500,24 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
 
 _ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i: ; preds = %63, %58
   %64 = getelementptr inbounds i8, ptr %1, i64 %62
-  %.016.i.i.i.i = getelementptr inbounds i8, ptr %54, i64 8
-  %.not1117.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %57
-  br i1 %.not1117.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+  %.017.i.i.i.i = getelementptr inbounds i8, ptr %54, i64 8
+  %.not1118.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %57
+  br i1 %.not1118.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i, %.lr.ph.i.i.i.i
-  %.019.i.i.i.i = phi ptr [ %.0.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.016.i.i.i.i, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i ]
-  %.0918.i.i.i.i = phi ptr [ %66, %.lr.ph.i.i.i.i ], [ %64, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i ]
-  %65 = load ptr, ptr %.019.i.i.i.i, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %.0918.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(512) %65, i64 512, i1 false)
-  %66 = getelementptr inbounds i8, ptr %.0918.i.i.i.i, i64 512
-  %.0.i.i.i.i = getelementptr inbounds i8, ptr %.019.i.i.i.i, i64 8
+  %.020.i.i.i.i = phi ptr [ %.0.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.017.i.i.i.i, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i ]
+  %.0919.i.i.i.i = phi ptr [ %66, %.lr.ph.i.i.i.i ], [ %64, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i ]
+  %65 = load ptr, ptr %.020.i.i.i.i, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %.0919.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(512) %65, i64 512, i1 false)
+  %66 = getelementptr inbounds i8, ptr %.0919.i.i.i.i, i64 512
+  %.0.i.i.i.i = getelementptr inbounds i8, ptr %.020.i.i.i.i, i64 8
   %.not11.i.i.i.i = icmp eq ptr %.0.i.i.i.i, %57
   br i1 %.not11.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !216
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i
   %.09.lcssa.i.i.i.i = phi ptr [ %64, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i ], [ %66, %.lr.ph.i.i.i.i ]
-  %.not.i.i.i12.i.i.i.i = icmp eq ptr %55, %56
-  br i1 %.not.i.i.i12.i.i.i.i, label %_ZSt4copyISt15_Deque_iteratorIcRcPcEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIcSaIcEEEEET0_T_SB_SA_.exit, label %67
+  %.not.i.i.i13.i.i.i.i = icmp eq ptr %55, %56
+  br i1 %.not.i.i.i13.i.i.i.i, label %_ZSt4copyISt15_Deque_iteratorIcRcPcEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIcSaIcEEEEET0_T_SB_SA_.exit, label %67
 
 67:                                               ; preds = %._crit_edge.i.i.i.i
   %68 = ptrtoint ptr %55 to i64
@@ -13526,8 +13527,8 @@ _ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i: ; preds = %63, %58
   br label %_ZSt4copyISt15_Deque_iteratorIcRcPcEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIcSaIcEEEEET0_T_SB_SA_.exit
 
 71:                                               ; preds = %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
-  %.not.i.i.i14.i.i.i.i = icmp eq ptr %55, %53
-  br i1 %.not.i.i.i14.i.i.i.i, label %_ZSt4copyISt15_Deque_iteratorIcRcPcEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIcSaIcEEEEET0_T_SB_SA_.exit, label %72
+  %.not.i.i.i15.i.i.i.i = icmp eq ptr %55, %53
+  br i1 %.not.i.i.i15.i.i.i.i, label %_ZSt4copyISt15_Deque_iteratorIcRcPcEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIcSaIcEEEEET0_T_SB_SA_.exit, label %72
 
 72:                                               ; preds = %71
   %73 = ptrtoint ptr %55 to i64
@@ -13591,24 +13592,24 @@ _ZSt7advanceISt15_Deque_iteratorIcRcPcEmEvRT_T0_.exit: ; preds = %84, %90
 
 _ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i: ; preds = %102, %98
   %103 = getelementptr inbounds i8, ptr %35, i64 %101
-  %.016.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.21.2, i64 8
-  %.not1117.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i.i.i, %16
-  br i1 %.not1117.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
+  %.017.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.21.2, i64 8
+  %.not1118.i.i.i.i.i.i.i = icmp eq ptr %.017.i.i.i.i.i.i.i, %16
+  br i1 %.not1118.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %.019.i.i.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.016.i.i.i.i.i.i.i, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i ]
-  %.0918.i.i.i.i.i.i.i = phi ptr [ %105, %.lr.ph.i.i.i.i.i.i.i ], [ %103, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i ]
-  %104 = load ptr, ptr %.019.i.i.i.i.i.i.i, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %.0918.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(512) %104, i64 512, i1 false)
-  %105 = getelementptr inbounds i8, ptr %.0918.i.i.i.i.i.i.i, i64 512
-  %.0.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.019.i.i.i.i.i.i.i, i64 8
+  %.020.i.i.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.017.i.i.i.i.i.i.i, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i ]
+  %.0919.i.i.i.i.i.i.i = phi ptr [ %105, %.lr.ph.i.i.i.i.i.i.i ], [ %103, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i ]
+  %104 = load ptr, ptr %.020.i.i.i.i.i.i.i, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %.0919.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(512) %104, i64 512, i1 false)
+  %105 = getelementptr inbounds i8, ptr %.0919.i.i.i.i.i.i.i, i64 512
+  %.0.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.020.i.i.i.i.i.i.i, i64 8
   %.not11.i.i.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i.i.i, %16
   br i1 %.not11.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !216
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i
   %.09.lcssa.i.i.i.i.i.i.i = phi ptr [ %103, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i ], [ %105, %.lr.ph.i.i.i.i.i.i.i ]
-  %.not.i.i.i12.i.i.i.i.i.i.i = icmp eq ptr %6, %14
-  br i1 %.not.i.i.i12.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt15_Deque_iteratorIcRcPcES2_cET0_T_S5_S4_RSaIT1_E.exit, label %106
+  %.not.i.i.i13.i.i.i.i.i.i.i = icmp eq ptr %6, %14
+  br i1 %.not.i.i.i13.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt15_Deque_iteratorIcRcPcES2_cET0_T_S5_S4_RSaIT1_E.exit, label %106
 
 106:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
   %107 = sub i64 %24, %25
@@ -13616,8 +13617,8 @@ _ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i: ; preds = %102, 
   br label %_ZSt22__uninitialized_copy_aISt15_Deque_iteratorIcRcPcES2_cET0_T_S5_S4_RSaIT1_E.exit
 
 108:                                              ; preds = %_ZSt7advanceISt15_Deque_iteratorIcRcPcEmEvRT_T0_.exit
-  %.not.i.i.i14.i.i.i.i.i.i.i = icmp eq ptr %6, %.sroa.0105.0
-  br i1 %.not.i.i.i14.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt15_Deque_iteratorIcRcPcES2_cET0_T_S5_S4_RSaIT1_E.exit, label %109
+  %.not.i.i.i15.i.i.i.i.i.i.i = icmp eq ptr %6, %.sroa.0105.0
+  br i1 %.not.i.i.i15.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt15_Deque_iteratorIcRcPcES2_cET0_T_S5_S4_RSaIT1_E.exit, label %109
 
 109:                                              ; preds = %108
   %110 = ptrtoint ptr %.sroa.0105.0 to i64
@@ -13661,24 +13662,24 @@ _ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit43: ; preds = %_ZSt2
 
 _ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i46: ; preds = %125, %120
   %126 = getelementptr inbounds i8, ptr %1, i64 %124
-  %.016.i.i.i.i47 = getelementptr inbounds i8, ptr %119, i64 8
-  %.not1117.i.i.i.i48 = icmp eq ptr %.016.i.i.i.i47, %.sroa.21.2
-  br i1 %.not1117.i.i.i.i48, label %._crit_edge.i.i.i.i54, label %.lr.ph.i.i.i.i49
+  %.017.i.i.i.i47 = getelementptr inbounds i8, ptr %119, i64 8
+  %.not1118.i.i.i.i48 = icmp eq ptr %.017.i.i.i.i47, %.sroa.21.2
+  br i1 %.not1118.i.i.i.i48, label %._crit_edge.i.i.i.i54, label %.lr.ph.i.i.i.i49
 
 .lr.ph.i.i.i.i49:                                 ; preds = %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i46, %.lr.ph.i.i.i.i49
-  %.019.i.i.i.i50 = phi ptr [ %.0.i.i.i.i52, %.lr.ph.i.i.i.i49 ], [ %.016.i.i.i.i47, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i46 ]
-  %.0918.i.i.i.i51 = phi ptr [ %128, %.lr.ph.i.i.i.i49 ], [ %126, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i46 ]
-  %127 = load ptr, ptr %.019.i.i.i.i50, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %.0918.i.i.i.i51, ptr noundef nonnull align 1 dereferenceable(512) %127, i64 512, i1 false)
-  %128 = getelementptr inbounds i8, ptr %.0918.i.i.i.i51, i64 512
-  %.0.i.i.i.i52 = getelementptr inbounds i8, ptr %.019.i.i.i.i50, i64 8
+  %.020.i.i.i.i50 = phi ptr [ %.0.i.i.i.i52, %.lr.ph.i.i.i.i49 ], [ %.017.i.i.i.i47, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i46 ]
+  %.0919.i.i.i.i51 = phi ptr [ %128, %.lr.ph.i.i.i.i49 ], [ %126, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i46 ]
+  %127 = load ptr, ptr %.020.i.i.i.i50, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %.0919.i.i.i.i51, ptr noundef nonnull align 1 dereferenceable(512) %127, i64 512, i1 false)
+  %128 = getelementptr inbounds i8, ptr %.0919.i.i.i.i51, i64 512
+  %.0.i.i.i.i52 = getelementptr inbounds i8, ptr %.020.i.i.i.i50, i64 8
   %.not11.i.i.i.i53 = icmp eq ptr %.0.i.i.i.i52, %.sroa.21.2
   br i1 %.not11.i.i.i.i53, label %._crit_edge.i.i.i.i54, label %.lr.ph.i.i.i.i49, !llvm.loop !216
 
 ._crit_edge.i.i.i.i54:                            ; preds = %.lr.ph.i.i.i.i49, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i46
   %.09.lcssa.i.i.i.i55 = phi ptr [ %126, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i46 ], [ %128, %.lr.ph.i.i.i.i49 ]
-  %.not.i.i.i12.i.i.i.i56 = icmp eq ptr %.sroa.0105.0, %.sroa.7.2
-  br i1 %.not.i.i.i12.i.i.i.i56, label %_ZSt4copyISt15_Deque_iteratorIcRcPcEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIcSaIcEEEEET0_T_SB_SA_.exit, label %129
+  %.not.i.i.i13.i.i.i.i56 = icmp eq ptr %.sroa.0105.0, %.sroa.7.2
+  br i1 %.not.i.i.i13.i.i.i.i56, label %_ZSt4copyISt15_Deque_iteratorIcRcPcEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIcSaIcEEEEET0_T_SB_SA_.exit, label %129
 
 129:                                              ; preds = %._crit_edge.i.i.i.i54
   %130 = ptrtoint ptr %.sroa.0105.0 to i64
@@ -13688,8 +13689,8 @@ _ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i46: ; preds = %125, %120
   br label %_ZSt4copyISt15_Deque_iteratorIcRcPcEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIcSaIcEEEEET0_T_SB_SA_.exit
 
 133:                                              ; preds = %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit43
-  %.not.i.i.i14.i.i.i.i59 = icmp eq ptr %.sroa.0105.0, %118
-  br i1 %.not.i.i.i14.i.i.i.i59, label %_ZSt4copyISt15_Deque_iteratorIcRcPcEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIcSaIcEEEEET0_T_SB_SA_.exit, label %134
+  %.not.i.i.i15.i.i.i.i59 = icmp eq ptr %.sroa.0105.0, %118
+  br i1 %.not.i.i.i15.i.i.i.i59, label %_ZSt4copyISt15_Deque_iteratorIcRcPcEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIcSaIcEEEEET0_T_SB_SA_.exit, label %134
 
 134:                                              ; preds = %133
   %135 = ptrtoint ptr %.sroa.0105.0 to i64
@@ -13737,7 +13738,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
 155:                                              ; preds = %154, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit
   %156 = getelementptr inbounds i8, ptr %151, i64 %153
   %.not.i.i.i.i.i.i.i63 = icmp eq ptr %12, %16
-  br i1 %.not.i.i.i.i.i.i.i63, label %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit15.i.i.i.i.i.i.i79, label %157
+  br i1 %.not.i.i.i.i.i.i.i63, label %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit16.i.i.i.i.i.i.i79, label %157
 
 157:                                              ; preds = %155
   %158 = sub i64 %26, %27
@@ -13750,42 +13751,42 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
 
 _ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i65: ; preds = %159, %157
   %160 = getelementptr inbounds i8, ptr %156, i64 %158
-  %.016.i.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %12, i64 8
-  %.not1117.i.i.i.i.i.i.i67 = icmp eq ptr %.016.i.i.i.i.i.i.i66, %16
-  br i1 %.not1117.i.i.i.i.i.i.i67, label %._crit_edge.i.i.i.i.i.i.i73, label %.lr.ph.i.i.i.i.i.i.i68
+  %.017.i.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %12, i64 8
+  %.not1118.i.i.i.i.i.i.i67 = icmp eq ptr %.017.i.i.i.i.i.i.i66, %16
+  br i1 %.not1118.i.i.i.i.i.i.i67, label %._crit_edge.i.i.i.i.i.i.i73, label %.lr.ph.i.i.i.i.i.i.i68
 
 .lr.ph.i.i.i.i.i.i.i68:                           ; preds = %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i65, %.lr.ph.i.i.i.i.i.i.i68
-  %.019.i.i.i.i.i.i.i69 = phi ptr [ %.0.i.i.i.i.i.i.i71, %.lr.ph.i.i.i.i.i.i.i68 ], [ %.016.i.i.i.i.i.i.i66, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i65 ]
-  %.0918.i.i.i.i.i.i.i70 = phi ptr [ %162, %.lr.ph.i.i.i.i.i.i.i68 ], [ %160, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i65 ]
-  %161 = load ptr, ptr %.019.i.i.i.i.i.i.i69, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %.0918.i.i.i.i.i.i.i70, ptr noundef nonnull align 1 dereferenceable(512) %161, i64 512, i1 false)
-  %162 = getelementptr inbounds i8, ptr %.0918.i.i.i.i.i.i.i70, i64 512
-  %.0.i.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %.019.i.i.i.i.i.i.i69, i64 8
+  %.020.i.i.i.i.i.i.i69 = phi ptr [ %.0.i.i.i.i.i.i.i71, %.lr.ph.i.i.i.i.i.i.i68 ], [ %.017.i.i.i.i.i.i.i66, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i65 ]
+  %.0919.i.i.i.i.i.i.i70 = phi ptr [ %162, %.lr.ph.i.i.i.i.i.i.i68 ], [ %160, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i65 ]
+  %161 = load ptr, ptr %.020.i.i.i.i.i.i.i69, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %.0919.i.i.i.i.i.i.i70, ptr noundef nonnull align 1 dereferenceable(512) %161, i64 512, i1 false)
+  %162 = getelementptr inbounds i8, ptr %.0919.i.i.i.i.i.i.i70, i64 512
+  %.0.i.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %.020.i.i.i.i.i.i.i69, i64 8
   %.not11.i.i.i.i.i.i.i72 = icmp eq ptr %.0.i.i.i.i.i.i.i71, %16
   br i1 %.not11.i.i.i.i.i.i.i72, label %._crit_edge.i.i.i.i.i.i.i73, label %.lr.ph.i.i.i.i.i.i.i68, !llvm.loop !216
 
 ._crit_edge.i.i.i.i.i.i.i73:                      ; preds = %.lr.ph.i.i.i.i.i.i.i68, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i65
   %.09.lcssa.i.i.i.i.i.i.i74 = phi ptr [ %160, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i65 ], [ %162, %.lr.ph.i.i.i.i.i.i.i68 ]
   %163 = sub i64 %24, %25
-  %.not.i.i.i12.i.i.i.i.i.i.i75 = icmp eq ptr %6, %14
-  br i1 %.not.i.i.i12.i.i.i.i.i.i.i75, label %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit13.i.i.i.i.i.i.i76, label %164
+  %.not.i.i.i13.i.i.i.i.i.i.i75 = icmp eq ptr %6, %14
+  br i1 %.not.i.i.i13.i.i.i.i.i.i.i75, label %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit14.i.i.i.i.i.i.i76, label %164
 
 164:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i73
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.09.lcssa.i.i.i.i.i.i.i74, ptr align 1 %14, i64 %163, i1 false)
-  br label %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit13.i.i.i.i.i.i.i76
+  br label %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit14.i.i.i.i.i.i.i76
 
-_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit13.i.i.i.i.i.i.i76: ; preds = %164, %._crit_edge.i.i.i.i.i.i.i73
+_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit14.i.i.i.i.i.i.i76: ; preds = %164, %._crit_edge.i.i.i.i.i.i.i73
   %165 = getelementptr inbounds i8, ptr %.09.lcssa.i.i.i.i.i.i.i74, i64 %163
   br label %_ZSt22__uninitialized_copy_aISt15_Deque_iteratorIcRcPcES2_cET0_T_S5_S4_RSaIT1_E.exit80
 
-_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit15.i.i.i.i.i.i.i79: ; preds = %155
+_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit16.i.i.i.i.i.i.i79: ; preds = %155
   %166 = sub i64 %24, %27
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %156, ptr align 1 %5, i64 %166, i1 false)
   %167 = getelementptr inbounds i8, ptr %156, i64 %166
   br label %_ZSt22__uninitialized_copy_aISt15_Deque_iteratorIcRcPcES2_cET0_T_S5_S4_RSaIT1_E.exit80
 
-_ZSt22__uninitialized_copy_aISt15_Deque_iteratorIcRcPcES2_cET0_T_S5_S4_RSaIT1_E.exit80: ; preds = %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit15.i.i.i.i.i.i.i79, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit13.i.i.i.i.i.i.i76
-  %.010.i.i.i.i.i.i.i77 = phi ptr [ %165, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit13.i.i.i.i.i.i.i76 ], [ %167, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit15.i.i.i.i.i.i.i79 ]
+_ZSt22__uninitialized_copy_aISt15_Deque_iteratorIcRcPcES2_cET0_T_S5_S4_RSaIT1_E.exit80: ; preds = %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit16.i.i.i.i.i.i.i79, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit14.i.i.i.i.i.i.i76
+  %.010.i.i.i.i.i.i.i77 = phi ptr [ %165, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit14.i.i.i.i.i.i.i76 ], [ %167, %_ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit16.i.i.i.i.i.i.i79 ]
   %168 = sub i64 %37, %152
   %.not.i.i.i.i.i.i.i.i.i81 = icmp eq ptr %35, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i81, label %170, label %169
@@ -13876,11 +13877,11 @@ define linkonce_odr dso_local void @_ZNSt5dequeIcSaIcEE8_M_eraseESt15_Deque_iter
   br i1 %44, label %.lr.ph.i.i.i, label %_ZNSt5dequeIcSaIcEE5clearEv.exit, !llvm.loop !7
 
 _ZNSt5dequeIcSaIcEE5clearEv.exit:                 ; preds = %.lr.ph.i.i.i, %37
-  store ptr %13, ptr %30, align 8
+  store ptr %25, ptr %30, align 8
   store ptr %38, ptr %33, align 8
   store ptr %39, ptr %34, align 8
   store ptr %40, ptr %35, align 8
-  store ptr %13, ptr %0, align 8, !alias.scope !220
+  store ptr %25, ptr %0, align 8, !alias.scope !220
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %38, ptr %45, align 8, !alias.scope !220
   %46 = getelementptr inbounds i8, ptr %0, i64 16
@@ -14000,10 +14001,10 @@ _ZNSt5dequeIcSaIcEE5clearEv.exit:                 ; preds = %.lr.ph.i.i.i, %37
   br label %122
 
 122:                                              ; preds = %109, %108
-  %.pre-phi114 = phi i64 [ %.pre113, %109 ], [ %66, %108 ]
+  %.pre-phi114 = phi i64 [ %.pre113, %109 ], [ %84, %108 ]
   %123 = phi ptr [ %.pre102, %109 ], [ %73, %108 ]
   %124 = phi ptr [ %.pre101, %109 ], [ %72, %108 ]
-  %125 = phi ptr [ %.pre100, %109 ], [ %13, %108 ]
+  %125 = phi ptr [ %.pre100, %109 ], [ %25, %108 ]
   %126 = load ptr, ptr %26, align 8, !noalias !235
   %127 = ptrtoint ptr %126 to i64
   %128 = sub i64 %.pre-phi114, %127
@@ -14104,10 +14105,10 @@ _ZNSt5dequeIcSaIcEE17_M_erase_at_beginESt15_Deque_iteratorIcRcPcE.exit: ; preds 
 
 164:                                              ; preds = %151, %149
   %.pre-phi112 = phi i64 [ %.pre111, %151 ], [ %101, %149 ]
-  %.pre-phi = phi i64 [ %.pre110, %151 ], [ %61, %149 ]
+  %.pre-phi = phi i64 [ %.pre110, %151 ], [ %100, %149 ]
   %165 = phi ptr [ %.pre105, %151 ], [ %91, %149 ]
   %166 = phi ptr [ %.pre104, %151 ], [ %99, %149 ]
-  %167 = phi ptr [ %.pre103, %151 ], [ %14, %149 ]
+  %167 = phi ptr [ %.pre103, %151 ], [ %31, %149 ]
   %168 = load ptr, ptr %150, align 8, !noalias !253
   %169 = add i64 %70, %.pre-phi112
   %170 = sub i64 %.pre-phi, %169
@@ -14247,36 +14248,36 @@ define linkonce_odr dso_local void @_ZSt24__copy_move_backward_ditILb1EcRcPcSt15
   br i1 %23, label %.lr.ph.i, label %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit
 
 .lr.ph.i:                                         ; preds = %9, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i
-  %.sroa.074.0 = phi ptr [ %storemerge.i.i.i, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i ], [ %13, %9 ]
-  %.sroa.976.0 = phi ptr [ %.sroa.976.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i ], [ %17, %9 ]
-  %.sroa.1277.0 = phi ptr [ %.sroa.1277.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i ], [ %19, %9 ]
-  %24 = phi ptr [ %.sroa.475.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i ], [ %15, %9 ]
+  %.sroa.076.0 = phi ptr [ %storemerge.i.i.i, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i ], [ %13, %9 ]
+  %.sroa.978.0 = phi ptr [ %.sroa.978.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i ], [ %17, %9 ]
+  %.sroa.1279.0 = phi ptr [ %.sroa.1279.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i ], [ %19, %9 ]
+  %24 = phi ptr [ %.sroa.477.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i ], [ %15, %9 ]
   %.017.i = phi ptr [ %35, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i ], [ %12, %9 ]
   %storemerge16.i = phi i64 [ %56, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i ], [ %22, %9 ]
-  %.not.i = icmp eq ptr %.sroa.074.0, %24
+  %.not.i = icmp eq ptr %.sroa.076.0, %24
   br i1 %.not.i, label %.thread.i, label %29
 
 .thread.i:                                        ; preds = %.lr.ph.i
-  %25 = getelementptr inbounds i8, ptr %.sroa.1277.0, i64 -8
+  %25 = getelementptr inbounds i8, ptr %.sroa.1279.0, i64 -8
   %26 = load ptr, ptr %25, align 8, !noalias !265
   %27 = getelementptr inbounds i8, ptr %26, i64 512
   %28 = tail call i64 @llvm.umin.i64(i64 %storemerge16.i, i64 512)
-  %.pre91 = ptrtoint ptr %.sroa.074.0 to i64
-  %.pre92 = ptrtoint ptr %24 to i64
+  %.pre93 = ptrtoint ptr %.sroa.076.0 to i64
+  %.pre94 = ptrtoint ptr %24 to i64
   br label %33
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = ptrtoint ptr %.sroa.074.0 to i64
+  %30 = ptrtoint ptr %.sroa.076.0 to i64
   %31 = ptrtoint ptr %24 to i64
   %32 = sub i64 %30, %31
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %32, i64 %storemerge16.i)
   br label %33
 
 33:                                               ; preds = %29, %.thread.i
-  %.pre23.i.pre-phi = phi i64 [ %31, %29 ], [ %.pre92, %.thread.i ]
-  %.pre22.i.pre-phi = phi i64 [ %30, %29 ], [ %.pre91, %.thread.i ]
+  %.pre23.i.pre-phi = phi i64 [ %31, %29 ], [ %.pre94, %.thread.i ]
+  %.pre22.i.pre-phi = phi i64 [ %30, %29 ], [ %.pre93, %.thread.i ]
   %.sroa.speculated30.i = phi i64 [ %.sroa.speculated.i, %29 ], [ %28, %.thread.i ]
-  %.0929.i = phi ptr [ %.sroa.074.0, %29 ], [ %27, %.thread.i ]
+  %.0929.i = phi ptr [ %.sroa.076.0, %29 ], [ %27, %.thread.i ]
   %34 = sub i64 0, %.sroa.speculated30.i
   %35 = getelementptr inbounds i8, ptr %.017.i, i64 %34
   %36 = getelementptr inbounds i8, ptr %.0929.i, i64 %34
@@ -14291,7 +14292,7 @@ define linkonce_odr dso_local void @_ZSt24__copy_move_backward_ditILb1EcRcPcSt15
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %.sroa.074.0, i64 %34
+  %43 = getelementptr inbounds i8, ptr %.sroa.076.0, i64 %34
   br label %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i
 
 44:                                               ; preds = %40
@@ -14304,7 +14305,7 @@ define linkonce_odr dso_local void @_ZSt24__copy_move_backward_ditILb1EcRcPcSt15
 
 48:                                               ; preds = %46, %44
   %49 = phi i64 [ %45, %44 ], [ %47, %46 ]
-  %50 = getelementptr inbounds ptr, ptr %.sroa.1277.0, i64 %49
+  %50 = getelementptr inbounds ptr, ptr %.sroa.1279.0, i64 %49
   %51 = load ptr, ptr %50, align 8, !noalias !265
   %52 = getelementptr inbounds i8, ptr %51, i64 512
   %53 = shl nsw i64 %49, 9
@@ -14313,76 +14314,76 @@ define linkonce_odr dso_local void @_ZSt24__copy_move_backward_ditILb1EcRcPcSt15
   br label %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i
 
 _ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i:         ; preds = %48, %42
-  %.sroa.475.1 = phi ptr [ %24, %42 ], [ %51, %48 ]
-  %.sroa.976.1 = phi ptr [ %.sroa.976.0, %42 ], [ %52, %48 ]
-  %.sroa.1277.1 = phi ptr [ %.sroa.1277.0, %42 ], [ %50, %48 ]
+  %.sroa.477.1 = phi ptr [ %24, %42 ], [ %51, %48 ]
+  %.sroa.978.1 = phi ptr [ %.sroa.978.0, %42 ], [ %52, %48 ]
+  %.sroa.1279.1 = phi ptr [ %.sroa.1279.0, %42 ], [ %50, %48 ]
   %storemerge.i.i.i = phi ptr [ %43, %42 ], [ %55, %48 ]
   %56 = sub nsw i64 %storemerge16.i, %.sroa.speculated30.i
   %57 = icmp sgt i64 %56, 0
   br i1 %57, label %.lr.ph.i, label %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit, !llvm.loop !268
 
 _ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit: ; preds = %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i, %9
-  %.sroa.976.2 = phi ptr [ %17, %9 ], [ %.sroa.976.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i ]
-  %.sroa.1277.2 = phi ptr [ %19, %9 ], [ %.sroa.1277.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i ]
-  %58 = phi ptr [ %15, %9 ], [ %.sroa.475.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i ]
+  %.sroa.978.2 = phi ptr [ %17, %9 ], [ %.sroa.978.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i ]
+  %.sroa.1279.2 = phi ptr [ %19, %9 ], [ %.sroa.1279.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i ]
+  %58 = phi ptr [ %15, %9 ], [ %.sroa.477.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i ]
   %59 = phi ptr [ %13, %9 ], [ %storemerge.i.i.i, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i ]
   store ptr %59, ptr %3, align 8
   store ptr %58, ptr %14, align 8
-  store ptr %.sroa.976.2, ptr %16, align 8
-  store ptr %.sroa.1277.2, ptr %18, align 8
+  store ptr %.sroa.978.2, ptr %16, align 8
+  store ptr %.sroa.1279.2, ptr %18, align 8
   %60 = load ptr, ptr %7, align 8
-  %.087 = getelementptr inbounds i8, ptr %60, i64 -8
+  %.089 = getelementptr inbounds i8, ptr %60, i64 -8
   %61 = load ptr, ptr %5, align 8
-  %.not488 = icmp eq ptr %.087, %61
-  br i1 %.not488, label %._crit_edge, label %.lr.ph
+  %.not490 = icmp eq ptr %.089, %61
+  br i1 %.not490, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit21
-  %62 = phi ptr [ %.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit21 ], [ %.sroa.1277.2, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
-  %63 = phi ptr [ %.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit21 ], [ %.sroa.976.2, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
-  %64 = phi ptr [ %.sroa.469.1, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit21 ], [ %58, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
-  %65 = phi ptr [ %storemerge.i.i.i19, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit21 ], [ %59, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
-  %.089 = phi ptr [ %.0, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit21 ], [ %.087, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
-  %66 = load ptr, ptr %.089, align 8
+.lr.ph:                                           ; preds = %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit23
+  %62 = phi ptr [ %.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit23 ], [ %.sroa.1279.2, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
+  %63 = phi ptr [ %.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit23 ], [ %.sroa.978.2, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
+  %64 = phi ptr [ %.sroa.471.1, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit23 ], [ %58, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
+  %65 = phi ptr [ %storemerge.i.i.i21, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit23 ], [ %59, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
+  %.091 = phi ptr [ %.0, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit23 ], [ %.089, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
+  %66 = load ptr, ptr %.091, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 512
   br label %68
 
-68:                                               ; preds = %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i18, %.lr.ph
-  %.sroa.11.0 = phi ptr [ %62, %.lr.ph ], [ %.sroa.11.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i18 ]
-  %.sroa.8.0 = phi ptr [ %63, %.lr.ph ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i18 ]
-  %.sroa.068.0 = phi ptr [ %65, %.lr.ph ], [ %storemerge.i.i.i19, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i18 ]
-  %69 = phi ptr [ %64, %.lr.ph ], [ %.sroa.469.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i18 ]
-  %.017.i8 = phi ptr [ %67, %.lr.ph ], [ %80, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i18 ]
-  %storemerge16.i9 = phi i64 [ 512, %.lr.ph ], [ %101, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i18 ]
-  %.not.i10 = icmp eq ptr %.sroa.068.0, %69
-  br i1 %.not.i10, label %.thread.i20, label %74
+68:                                               ; preds = %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i20, %.lr.ph
+  %.sroa.11.0 = phi ptr [ %62, %.lr.ph ], [ %.sroa.11.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i20 ]
+  %.sroa.8.0 = phi ptr [ %63, %.lr.ph ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i20 ]
+  %.sroa.070.0 = phi ptr [ %65, %.lr.ph ], [ %storemerge.i.i.i21, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i20 ]
+  %69 = phi ptr [ %64, %.lr.ph ], [ %.sroa.471.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i20 ]
+  %.017.i10 = phi ptr [ %67, %.lr.ph ], [ %80, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i20 ]
+  %storemerge16.i11 = phi i64 [ 512, %.lr.ph ], [ %101, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i20 ]
+  %.not.i12 = icmp eq ptr %.sroa.070.0, %69
+  br i1 %.not.i12, label %.thread.i22, label %74
 
-.thread.i20:                                      ; preds = %68
+.thread.i22:                                      ; preds = %68
   %70 = getelementptr inbounds i8, ptr %.sroa.11.0, i64 -8
   %71 = load ptr, ptr %70, align 8, !noalias !269
   %72 = getelementptr inbounds i8, ptr %71, i64 512
-  %73 = tail call i64 @llvm.umin.i64(i64 %storemerge16.i9, i64 512)
-  %.pre95 = ptrtoint ptr %.sroa.068.0 to i64
-  %.pre96 = ptrtoint ptr %69 to i64
+  %73 = tail call i64 @llvm.umin.i64(i64 %storemerge16.i11, i64 512)
+  %.pre97 = ptrtoint ptr %.sroa.070.0 to i64
+  %.pre98 = ptrtoint ptr %69 to i64
   br label %78
 
 74:                                               ; preds = %68
-  %75 = ptrtoint ptr %.sroa.068.0 to i64
+  %75 = ptrtoint ptr %.sroa.070.0 to i64
   %76 = ptrtoint ptr %69 to i64
   %77 = sub i64 %75, %76
-  %.sroa.speculated.i11 = tail call i64 @llvm.smin.i64(i64 %77, i64 %storemerge16.i9)
+  %.sroa.speculated.i13 = tail call i64 @llvm.smin.i64(i64 %77, i64 %storemerge16.i11)
   br label %78
 
-78:                                               ; preds = %74, %.thread.i20
-  %.pre23.i17.pre-phi = phi i64 [ %76, %74 ], [ %.pre96, %.thread.i20 ]
-  %.pre22.i16.pre-phi = phi i64 [ %75, %74 ], [ %.pre95, %.thread.i20 ]
-  %.sroa.speculated30.i12 = phi i64 [ %.sroa.speculated.i11, %74 ], [ %73, %.thread.i20 ]
-  %.0929.i13 = phi ptr [ %.sroa.068.0, %74 ], [ %72, %.thread.i20 ]
-  %79 = sub i64 0, %.sroa.speculated30.i12
-  %80 = getelementptr inbounds i8, ptr %.017.i8, i64 %79
-  %81 = getelementptr inbounds i8, ptr %.0929.i13, i64 %79
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %81, ptr nonnull align 1 %80, i64 %.sroa.speculated30.i12, i1 false), !noalias !269
-  %82 = add i64 %.sroa.speculated30.i12, %.pre23.i17.pre-phi
-  %83 = sub i64 %.pre22.i16.pre-phi, %82
+78:                                               ; preds = %74, %.thread.i22
+  %.pre23.i19.pre-phi = phi i64 [ %76, %74 ], [ %.pre98, %.thread.i22 ]
+  %.pre22.i18.pre-phi = phi i64 [ %75, %74 ], [ %.pre97, %.thread.i22 ]
+  %.sroa.speculated30.i14 = phi i64 [ %.sroa.speculated.i13, %74 ], [ %73, %.thread.i22 ]
+  %.0929.i15 = phi ptr [ %.sroa.070.0, %74 ], [ %72, %.thread.i22 ]
+  %79 = sub i64 0, %.sroa.speculated30.i14
+  %80 = getelementptr inbounds i8, ptr %.017.i10, i64 %79
+  %81 = getelementptr inbounds i8, ptr %.0929.i15, i64 %79
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %81, ptr nonnull align 1 %80, i64 %.sroa.speculated30.i14, i1 false), !noalias !269
+  %82 = add i64 %.sroa.speculated30.i14, %.pre23.i19.pre-phi
+  %83 = sub i64 %.pre22.i18.pre-phi, %82
   %84 = icmp sgt i64 %83, -1
   br i1 %84, label %85, label %91
 
@@ -14391,8 +14392,8 @@ _ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %.sroa.068.0, i64 %79
-  br label %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i18
+  %88 = getelementptr inbounds i8, ptr %.sroa.070.0, i64 %79
+  br label %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i20
 
 89:                                               ; preds = %85
   %90 = lshr i64 %83, 9
@@ -14410,32 +14411,32 @@ _ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_
   %98 = shl nsw i64 %94, 9
   %99 = sub nsw i64 %83, %98
   %100 = getelementptr inbounds i8, ptr %96, i64 %99
-  br label %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i18
+  br label %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i20
 
-_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i18:       ; preds = %93, %87
+_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i20:       ; preds = %93, %87
   %.sroa.11.1 = phi ptr [ %.sroa.11.0, %87 ], [ %95, %93 ]
   %.sroa.8.1 = phi ptr [ %.sroa.8.0, %87 ], [ %97, %93 ]
-  %.sroa.469.1 = phi ptr [ %69, %87 ], [ %96, %93 ]
-  %storemerge.i.i.i19 = phi ptr [ %88, %87 ], [ %100, %93 ]
-  %101 = sub nsw i64 %storemerge16.i9, %.sroa.speculated30.i12
+  %.sroa.471.1 = phi ptr [ %69, %87 ], [ %96, %93 ]
+  %storemerge.i.i.i21 = phi ptr [ %88, %87 ], [ %100, %93 ]
+  %101 = sub nsw i64 %storemerge16.i11, %.sroa.speculated30.i14
   %102 = icmp sgt i64 %101, 0
-  br i1 %102, label %68, label %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit21, !llvm.loop !268
+  br i1 %102, label %68, label %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit23, !llvm.loop !268
 
-_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit21: ; preds = %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i18
-  store ptr %storemerge.i.i.i19, ptr %3, align 8
-  store ptr %.sroa.469.1, ptr %14, align 8
+_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit23: ; preds = %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i20
+  store ptr %storemerge.i.i.i21, ptr %3, align 8
+  store ptr %.sroa.471.1, ptr %14, align 8
   store ptr %.sroa.8.1, ptr %16, align 8
   store ptr %.sroa.11.1, ptr %18, align 8
-  %.0 = getelementptr inbounds i8, ptr %.089, i64 -8
+  %.0 = getelementptr inbounds i8, ptr %.091, i64 -8
   %103 = load ptr, ptr %5, align 8
   %.not4 = icmp eq ptr %.0, %103
   br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !272
 
-._crit_edge:                                      ; preds = %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit21, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit
-  %104 = phi ptr [ %.sroa.1277.2, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ], [ %.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit21 ]
-  %105 = phi ptr [ %.sroa.976.2, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ], [ %.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit21 ]
-  %106 = phi ptr [ %58, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ], [ %.sroa.469.1, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit21 ]
-  %107 = phi ptr [ %59, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ], [ %storemerge.i.i.i19, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit21 ]
+._crit_edge:                                      ; preds = %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit23, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit
+  %104 = phi ptr [ %.sroa.1279.2, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ], [ %.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit23 ]
+  %105 = phi ptr [ %.sroa.978.2, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ], [ %.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit23 ]
+  %106 = phi ptr [ %58, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ], [ %.sroa.471.1, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit23 ]
+  %107 = phi ptr [ %59, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ], [ %storemerge.i.i.i21, %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit23 ]
   %108 = load ptr, ptr %1, align 8
   %109 = getelementptr inbounds i8, ptr %1, i64 16
   %110 = load ptr, ptr %109, align 8
@@ -14443,45 +14444,45 @@ _ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_
   %112 = ptrtoint ptr %108 to i64
   %113 = sub i64 %111, %112
   %114 = icmp sgt i64 %113, 0
-  br i1 %114, label %.lr.ph.i25, label %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit40
+  br i1 %114, label %.lr.ph.i27, label %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit42
 
-.lr.ph.i25:                                       ; preds = %._crit_edge, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37
-  %.sroa.1265.0 = phi ptr [ %.sroa.1265.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37 ], [ %104, %._crit_edge ]
-  %.sroa.964.0 = phi ptr [ %.sroa.964.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37 ], [ %105, %._crit_edge ]
-  %.sroa.062.0 = phi ptr [ %storemerge.i.i.i38, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37 ], [ %107, %._crit_edge ]
-  %115 = phi ptr [ %.sroa.463.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37 ], [ %106, %._crit_edge ]
-  %.017.i27 = phi ptr [ %126, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37 ], [ %110, %._crit_edge ]
-  %storemerge16.i28 = phi i64 [ %147, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37 ], [ %113, %._crit_edge ]
-  %.not.i29 = icmp eq ptr %.sroa.062.0, %115
-  br i1 %.not.i29, label %.thread.i39, label %120
+.lr.ph.i27:                                       ; preds = %._crit_edge, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i39
+  %.sroa.1267.0 = phi ptr [ %.sroa.1267.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i39 ], [ %104, %._crit_edge ]
+  %.sroa.966.0 = phi ptr [ %.sroa.966.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i39 ], [ %105, %._crit_edge ]
+  %.sroa.064.0 = phi ptr [ %storemerge.i.i.i40, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i39 ], [ %107, %._crit_edge ]
+  %115 = phi ptr [ %.sroa.465.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i39 ], [ %106, %._crit_edge ]
+  %.017.i29 = phi ptr [ %126, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i39 ], [ %110, %._crit_edge ]
+  %storemerge16.i30 = phi i64 [ %147, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i39 ], [ %113, %._crit_edge ]
+  %.not.i31 = icmp eq ptr %.sroa.064.0, %115
+  br i1 %.not.i31, label %.thread.i41, label %120
 
-.thread.i39:                                      ; preds = %.lr.ph.i25
-  %116 = getelementptr inbounds i8, ptr %.sroa.1265.0, i64 -8
+.thread.i41:                                      ; preds = %.lr.ph.i27
+  %116 = getelementptr inbounds i8, ptr %.sroa.1267.0, i64 -8
   %117 = load ptr, ptr %116, align 8, !noalias !273
   %118 = getelementptr inbounds i8, ptr %117, i64 512
-  %119 = tail call i64 @llvm.umin.i64(i64 %storemerge16.i28, i64 512)
-  %.pre93 = ptrtoint ptr %.sroa.062.0 to i64
-  %.pre94 = ptrtoint ptr %115 to i64
+  %119 = tail call i64 @llvm.umin.i64(i64 %storemerge16.i30, i64 512)
+  %.pre95 = ptrtoint ptr %.sroa.064.0 to i64
+  %.pre96 = ptrtoint ptr %115 to i64
   br label %124
 
-120:                                              ; preds = %.lr.ph.i25
-  %121 = ptrtoint ptr %.sroa.062.0 to i64
+120:                                              ; preds = %.lr.ph.i27
+  %121 = ptrtoint ptr %.sroa.064.0 to i64
   %122 = ptrtoint ptr %115 to i64
   %123 = sub i64 %121, %122
-  %.sroa.speculated.i30 = tail call i64 @llvm.smin.i64(i64 %123, i64 %storemerge16.i28)
+  %.sroa.speculated.i32 = tail call i64 @llvm.smin.i64(i64 %123, i64 %storemerge16.i30)
   br label %124
 
-124:                                              ; preds = %120, %.thread.i39
-  %.pre23.i36.pre-phi = phi i64 [ %122, %120 ], [ %.pre94, %.thread.i39 ]
-  %.pre22.i35.pre-phi = phi i64 [ %121, %120 ], [ %.pre93, %.thread.i39 ]
-  %.sroa.speculated30.i31 = phi i64 [ %.sroa.speculated.i30, %120 ], [ %119, %.thread.i39 ]
-  %.0929.i32 = phi ptr [ %.sroa.062.0, %120 ], [ %118, %.thread.i39 ]
-  %125 = sub i64 0, %.sroa.speculated30.i31
-  %126 = getelementptr inbounds i8, ptr %.017.i27, i64 %125
-  %127 = getelementptr inbounds i8, ptr %.0929.i32, i64 %125
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %127, ptr nonnull align 1 %126, i64 %.sroa.speculated30.i31, i1 false), !noalias !273
-  %128 = add i64 %.sroa.speculated30.i31, %.pre23.i36.pre-phi
-  %129 = sub i64 %.pre22.i35.pre-phi, %128
+124:                                              ; preds = %120, %.thread.i41
+  %.pre23.i38.pre-phi = phi i64 [ %122, %120 ], [ %.pre96, %.thread.i41 ]
+  %.pre22.i37.pre-phi = phi i64 [ %121, %120 ], [ %.pre95, %.thread.i41 ]
+  %.sroa.speculated30.i33 = phi i64 [ %.sroa.speculated.i32, %120 ], [ %119, %.thread.i41 ]
+  %.0929.i34 = phi ptr [ %.sroa.064.0, %120 ], [ %118, %.thread.i41 ]
+  %125 = sub i64 0, %.sroa.speculated30.i33
+  %126 = getelementptr inbounds i8, ptr %.017.i29, i64 %125
+  %127 = getelementptr inbounds i8, ptr %.0929.i34, i64 %125
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %127, ptr nonnull align 1 %126, i64 %.sroa.speculated30.i33, i1 false), !noalias !273
+  %128 = add i64 %.sroa.speculated30.i33, %.pre23.i38.pre-phi
+  %129 = sub i64 %.pre22.i37.pre-phi, %128
   %130 = icmp sgt i64 %129, -1
   br i1 %130, label %131, label %137
 
@@ -14490,8 +14491,8 @@ _ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_
   br i1 %132, label %133, label %135
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds i8, ptr %.sroa.062.0, i64 %125
-  br label %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37
+  %134 = getelementptr inbounds i8, ptr %.sroa.064.0, i64 %125
+  br label %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i39
 
 135:                                              ; preds = %131
   %136 = lshr i64 %129, 9
@@ -14503,22 +14504,22 @@ _ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_
 
 139:                                              ; preds = %137, %135
   %140 = phi i64 [ %136, %135 ], [ %138, %137 ]
-  %141 = getelementptr inbounds ptr, ptr %.sroa.1265.0, i64 %140
+  %141 = getelementptr inbounds ptr, ptr %.sroa.1267.0, i64 %140
   %142 = load ptr, ptr %141, align 8, !noalias !273
   %143 = getelementptr inbounds i8, ptr %142, i64 512
   %144 = shl nsw i64 %140, 9
   %145 = sub nsw i64 %129, %144
   %146 = getelementptr inbounds i8, ptr %142, i64 %145
-  br label %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37
+  br label %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i39
 
-_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37:       ; preds = %139, %133
-  %.sroa.1265.1 = phi ptr [ %.sroa.1265.0, %133 ], [ %141, %139 ]
-  %.sroa.964.1 = phi ptr [ %.sroa.964.0, %133 ], [ %143, %139 ]
-  %.sroa.463.1 = phi ptr [ %115, %133 ], [ %142, %139 ]
-  %storemerge.i.i.i38 = phi ptr [ %134, %133 ], [ %146, %139 ]
-  %147 = sub nsw i64 %storemerge16.i28, %.sroa.speculated30.i31
+_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i39:       ; preds = %139, %133
+  %.sroa.1267.1 = phi ptr [ %.sroa.1267.0, %133 ], [ %141, %139 ]
+  %.sroa.966.1 = phi ptr [ %.sroa.966.0, %133 ], [ %143, %139 ]
+  %.sroa.465.1 = phi ptr [ %115, %133 ], [ %142, %139 ]
+  %storemerge.i.i.i40 = phi ptr [ %134, %133 ], [ %146, %139 ]
+  %147 = sub nsw i64 %storemerge16.i30, %.sroa.speculated30.i33
   %148 = icmp sgt i64 %147, 0
-  br i1 %148, label %.lr.ph.i25, label %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit40, !llvm.loop !268
+  br i1 %148, label %.lr.ph.i27, label %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit42, !llvm.loop !268
 
 149:                                              ; preds = %4
   %150 = load ptr, ptr %1, align 8
@@ -14534,45 +14535,45 @@ _ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37:       ; preds = %139, %133
   %160 = ptrtoint ptr %150 to i64
   %161 = sub i64 %159, %160
   %162 = icmp sgt i64 %161, 0
-  br i1 %162, label %.lr.ph.i44, label %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit40
+  br i1 %162, label %.lr.ph.i46, label %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit42
 
-.lr.ph.i44:                                       ; preds = %149, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i56
-  %.sroa.12.0 = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i56 ], [ %158, %149 ]
-  %.sroa.9.0 = phi ptr [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i56 ], [ %156, %149 ]
-  %.sroa.0.0 = phi ptr [ %storemerge.i.i.i57, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i56 ], [ %152, %149 ]
-  %163 = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i56 ], [ %154, %149 ]
-  %.017.i46 = phi ptr [ %174, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i56 ], [ %151, %149 ]
-  %storemerge16.i47 = phi i64 [ %195, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i56 ], [ %161, %149 ]
-  %.not.i48 = icmp eq ptr %.sroa.0.0, %163
-  br i1 %.not.i48, label %.thread.i58, label %168
+.lr.ph.i46:                                       ; preds = %149, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i58
+  %.sroa.12.0 = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i58 ], [ %158, %149 ]
+  %.sroa.9.0 = phi ptr [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i58 ], [ %156, %149 ]
+  %.sroa.0.0 = phi ptr [ %storemerge.i.i.i59, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i58 ], [ %152, %149 ]
+  %163 = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i58 ], [ %154, %149 ]
+  %.017.i48 = phi ptr [ %174, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i58 ], [ %151, %149 ]
+  %storemerge16.i49 = phi i64 [ %195, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i58 ], [ %161, %149 ]
+  %.not.i50 = icmp eq ptr %.sroa.0.0, %163
+  br i1 %.not.i50, label %.thread.i60, label %168
 
-.thread.i58:                                      ; preds = %.lr.ph.i44
+.thread.i60:                                      ; preds = %.lr.ph.i46
   %164 = getelementptr inbounds i8, ptr %.sroa.12.0, i64 -8
   %165 = load ptr, ptr %164, align 8, !noalias !276
   %166 = getelementptr inbounds i8, ptr %165, i64 512
-  %167 = tail call i64 @llvm.umin.i64(i64 %storemerge16.i47, i64 512)
+  %167 = tail call i64 @llvm.umin.i64(i64 %storemerge16.i49, i64 512)
   %.pre = ptrtoint ptr %.sroa.0.0 to i64
-  %.pre90 = ptrtoint ptr %163 to i64
+  %.pre92 = ptrtoint ptr %163 to i64
   br label %172
 
-168:                                              ; preds = %.lr.ph.i44
+168:                                              ; preds = %.lr.ph.i46
   %169 = ptrtoint ptr %.sroa.0.0 to i64
   %170 = ptrtoint ptr %163 to i64
   %171 = sub i64 %169, %170
-  %.sroa.speculated.i49 = tail call i64 @llvm.smin.i64(i64 %171, i64 %storemerge16.i47)
+  %.sroa.speculated.i51 = tail call i64 @llvm.smin.i64(i64 %171, i64 %storemerge16.i49)
   br label %172
 
-172:                                              ; preds = %168, %.thread.i58
-  %.pre23.i55.pre-phi = phi i64 [ %170, %168 ], [ %.pre90, %.thread.i58 ]
-  %.pre22.i54.pre-phi = phi i64 [ %169, %168 ], [ %.pre, %.thread.i58 ]
-  %.sroa.speculated30.i50 = phi i64 [ %.sroa.speculated.i49, %168 ], [ %167, %.thread.i58 ]
-  %.0929.i51 = phi ptr [ %.sroa.0.0, %168 ], [ %166, %.thread.i58 ]
-  %173 = sub i64 0, %.sroa.speculated30.i50
-  %174 = getelementptr inbounds i8, ptr %.017.i46, i64 %173
-  %175 = getelementptr inbounds i8, ptr %.0929.i51, i64 %173
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %175, ptr nonnull align 1 %174, i64 %.sroa.speculated30.i50, i1 false), !noalias !276
-  %176 = add i64 %.sroa.speculated30.i50, %.pre23.i55.pre-phi
-  %177 = sub i64 %.pre22.i54.pre-phi, %176
+172:                                              ; preds = %168, %.thread.i60
+  %.pre23.i57.pre-phi = phi i64 [ %170, %168 ], [ %.pre92, %.thread.i60 ]
+  %.pre22.i56.pre-phi = phi i64 [ %169, %168 ], [ %.pre, %.thread.i60 ]
+  %.sroa.speculated30.i52 = phi i64 [ %.sroa.speculated.i51, %168 ], [ %167, %.thread.i60 ]
+  %.0929.i53 = phi ptr [ %.sroa.0.0, %168 ], [ %166, %.thread.i60 ]
+  %173 = sub i64 0, %.sroa.speculated30.i52
+  %174 = getelementptr inbounds i8, ptr %.017.i48, i64 %173
+  %175 = getelementptr inbounds i8, ptr %.0929.i53, i64 %173
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %175, ptr nonnull align 1 %174, i64 %.sroa.speculated30.i52, i1 false), !noalias !276
+  %176 = add i64 %.sroa.speculated30.i52, %.pre23.i57.pre-phi
+  %177 = sub i64 %.pre22.i56.pre-phi, %176
   %178 = icmp sgt i64 %177, -1
   br i1 %178, label %179, label %185
 
@@ -14582,7 +14583,7 @@ _ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37:       ; preds = %139, %133
 
 181:                                              ; preds = %179
   %182 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %173
-  br label %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i56
+  br label %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i58
 
 183:                                              ; preds = %179
   %184 = lshr i64 %177, 9
@@ -14600,23 +14601,23 @@ _ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37:       ; preds = %139, %133
   %192 = shl nsw i64 %188, 9
   %193 = sub nsw i64 %177, %192
   %194 = getelementptr inbounds i8, ptr %190, i64 %193
-  br label %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i56
+  br label %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i58
 
-_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i56:       ; preds = %187, %181
+_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i58:       ; preds = %187, %181
   %.sroa.12.1 = phi ptr [ %.sroa.12.0, %181 ], [ %189, %187 ]
   %.sroa.9.1 = phi ptr [ %.sroa.9.0, %181 ], [ %191, %187 ]
   %.sroa.4.1 = phi ptr [ %163, %181 ], [ %190, %187 ]
-  %storemerge.i.i.i57 = phi ptr [ %182, %181 ], [ %194, %187 ]
-  %195 = sub nsw i64 %storemerge16.i47, %.sroa.speculated30.i50
+  %storemerge.i.i.i59 = phi ptr [ %182, %181 ], [ %194, %187 ]
+  %195 = sub nsw i64 %storemerge16.i49, %.sroa.speculated30.i52
   %196 = icmp sgt i64 %195, 0
-  br i1 %196, label %.lr.ph.i44, label %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit40, !llvm.loop !268
+  br i1 %196, label %.lr.ph.i46, label %_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit42, !llvm.loop !268
 
-_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit40: ; preds = %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i56, %149, %._crit_edge
-  %.sink98 = phi ptr [ %107, %._crit_edge ], [ %152, %149 ], [ %storemerge.i.i.i57, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i56 ], [ %storemerge.i.i.i38, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37 ]
-  %.sink = phi ptr [ %106, %._crit_edge ], [ %154, %149 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i56 ], [ %.sroa.463.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37 ]
-  %.sroa.9.2.sink = phi ptr [ %105, %._crit_edge ], [ %156, %149 ], [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i56 ], [ %.sroa.964.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37 ]
-  %.sroa.12.2.sink = phi ptr [ %104, %._crit_edge ], [ %158, %149 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i56 ], [ %.sroa.1265.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i37 ]
-  store ptr %.sink98, ptr %0, align 8
+_ZSt23__copy_move_backward_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit42: ; preds = %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i39, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i58, %149, %._crit_edge
+  %.sink100 = phi ptr [ %107, %._crit_edge ], [ %152, %149 ], [ %storemerge.i.i.i59, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i58 ], [ %storemerge.i.i.i40, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i39 ]
+  %.sink = phi ptr [ %106, %._crit_edge ], [ %154, %149 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i58 ], [ %.sroa.465.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i39 ]
+  %.sroa.9.2.sink = phi ptr [ %105, %._crit_edge ], [ %156, %149 ], [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i58 ], [ %.sroa.966.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i39 ]
+  %.sroa.12.2.sink = phi ptr [ %104, %._crit_edge ], [ %158, %149 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i58 ], [ %.sroa.1267.1, %_ZNSt15_Deque_iteratorIcRcPcEmIEl.exit.i39 ]
+  store ptr %.sink100, ptr %0, align 8
   %197 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sink, ptr %197, align 8
   %198 = getelementptr inbounds i8, ptr %0, i64 16
@@ -14653,26 +14654,26 @@ define linkonce_odr dso_local void @_ZSt15__copy_move_ditILb1EcRcPcSt15_Deque_it
   br i1 %23, label %.lr.ph.i, label %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit
 
 .lr.ph.i:                                         ; preds = %11, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i
-  %.sroa.064.0 = phi ptr [ %storemerge.i.i, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i ], [ %14, %11 ]
-  %.sroa.465.0 = phi ptr [ %.sroa.465.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i ], [ %16, %11 ]
-  %.sroa.866.0 = phi ptr [ %.sroa.866.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i ], [ %18, %11 ]
-  %.sroa.1268.0 = phi ptr [ %.sroa.1268.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i ], [ %20, %11 ]
+  %.sroa.067.0 = phi ptr [ %storemerge.i.i, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i ], [ %14, %11 ]
+  %.sroa.468.0 = phi ptr [ %.sroa.468.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i ], [ %16, %11 ]
+  %.sroa.869.0 = phi ptr [ %.sroa.869.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i ], [ %18, %11 ]
+  %.sroa.1271.0 = phi ptr [ %.sroa.1271.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i ], [ %20, %11 ]
   %.013.i = phi ptr [ %27, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i ], [ %9, %11 ]
   %storemerge12.i = phi i64 [ %49, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i ], [ %22, %11 ]
-  %24 = ptrtoint ptr %.sroa.866.0 to i64
-  %25 = ptrtoint ptr %.sroa.064.0 to i64
+  %24 = ptrtoint ptr %.sroa.869.0 to i64
+  %25 = ptrtoint ptr %.sroa.067.0 to i64
   %26 = sub i64 %24, %25
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %26, i64 %storemerge12.i)
   %27 = getelementptr inbounds i8, ptr %.013.i, i64 %.sroa.speculated.i
-  %.not.i.i.i.i = icmp eq ptr %.sroa.866.0, %.sroa.064.0
+  %.not.i.i.i.i = icmp eq ptr %.sroa.869.0, %.sroa.067.0
   br i1 %.not.i.i.i.i, label %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i, label %28
 
 28:                                               ; preds = %.lr.ph.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.sroa.064.0, ptr align 1 %.013.i, i64 %.sroa.speculated.i, i1 false), !noalias !279
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.sroa.067.0, ptr align 1 %.013.i, i64 %.sroa.speculated.i, i1 false), !noalias !279
   br label %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i
 
 _ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i: ; preds = %28, %.lr.ph.i
-  %29 = ptrtoint ptr %.sroa.465.0 to i64
+  %29 = ptrtoint ptr %.sroa.468.0 to i64
   %30 = sub i64 %25, %29
   %31 = add nsw i64 %30, %.sroa.speculated.i
   %32 = icmp sgt i64 %31, -1
@@ -14683,7 +14684,7 @@ _ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i: ; preds = %28, %.lr.ph.i
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %.sroa.064.0, i64 %.sroa.speculated.i
+  %36 = getelementptr inbounds i8, ptr %.sroa.067.0, i64 %.sroa.speculated.i
   br label %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i
 
 37:                                               ; preds = %33
@@ -14696,7 +14697,7 @@ _ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i: ; preds = %28, %.lr.ph.i
 
 41:                                               ; preds = %39, %37
   %42 = phi i64 [ %38, %37 ], [ %40, %39 ]
-  %43 = getelementptr inbounds ptr, ptr %.sroa.1268.0, i64 %42
+  %43 = getelementptr inbounds ptr, ptr %.sroa.1271.0, i64 %42
   %44 = load ptr, ptr %43, align 8, !noalias !279
   %45 = getelementptr inbounds i8, ptr %44, i64 512
   %46 = shl nsw i64 %42, 9
@@ -14705,77 +14706,77 @@ _ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i: ; preds = %28, %.lr.ph.i
   br label %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i
 
 _ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i:         ; preds = %41, %35
-  %.sroa.465.1 = phi ptr [ %.sroa.465.0, %35 ], [ %44, %41 ]
-  %.sroa.866.1 = phi ptr [ %.sroa.866.0, %35 ], [ %45, %41 ]
-  %.sroa.1268.1 = phi ptr [ %.sroa.1268.0, %35 ], [ %43, %41 ]
+  %.sroa.468.1 = phi ptr [ %.sroa.468.0, %35 ], [ %44, %41 ]
+  %.sroa.869.1 = phi ptr [ %.sroa.869.0, %35 ], [ %45, %41 ]
+  %.sroa.1271.1 = phi ptr [ %.sroa.1271.0, %35 ], [ %43, %41 ]
   %storemerge.i.i = phi ptr [ %36, %35 ], [ %48, %41 ]
   %49 = sub nsw i64 %storemerge12.i, %.sroa.speculated.i
   %50 = icmp sgt i64 %49, 0
   br i1 %50, label %.lr.ph.i, label %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit, !llvm.loop !282
 
 _ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit: ; preds = %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i, %11
-  %.sroa.866.2 = phi ptr [ %18, %11 ], [ %.sroa.866.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i ]
-  %.sroa.1268.2 = phi ptr [ %20, %11 ], [ %.sroa.1268.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i ]
-  %51 = phi ptr [ %16, %11 ], [ %.sroa.465.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i ]
+  %.sroa.869.2 = phi ptr [ %18, %11 ], [ %.sroa.869.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i ]
+  %.sroa.1271.2 = phi ptr [ %20, %11 ], [ %.sroa.1271.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i ]
+  %51 = phi ptr [ %16, %11 ], [ %.sroa.468.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i ]
   %52 = phi ptr [ %14, %11 ], [ %storemerge.i.i, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i ]
   store ptr %52, ptr %3, align 8
   store ptr %51, ptr %15, align 8
-  store ptr %.sroa.866.2, ptr %17, align 8
-  store ptr %.sroa.1268.2, ptr %19, align 8
+  store ptr %.sroa.869.2, ptr %17, align 8
+  store ptr %.sroa.1271.2, ptr %19, align 8
   %53 = load ptr, ptr %5, align 8
-  %.074 = getelementptr inbounds i8, ptr %53, i64 8
+  %.077 = getelementptr inbounds i8, ptr %53, i64 8
   %54 = load ptr, ptr %7, align 8
-  %.not475 = icmp eq ptr %.074, %54
-  br i1 %.not475, label %._crit_edge, label %.lr.ph
+  %.not478 = icmp eq ptr %.077, %54
+  br i1 %.not478, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit17
-  %55 = phi ptr [ %.sroa.11.1, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit17 ], [ %.sroa.1268.2, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
-  %56 = phi ptr [ %.sroa.7.1, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit17 ], [ %.sroa.866.2, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
-  %57 = phi ptr [ %.sroa.459.1, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit17 ], [ %51, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
-  %58 = phi ptr [ %storemerge.i.i16, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit17 ], [ %52, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
-  %.076 = phi ptr [ %.0, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit17 ], [ %.074, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
-  %59 = load ptr, ptr %.076, align 8
+.lr.ph:                                           ; preds = %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit20
+  %55 = phi ptr [ %.sroa.11.1, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit20 ], [ %.sroa.1271.2, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
+  %56 = phi ptr [ %.sroa.7.1, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit20 ], [ %.sroa.869.2, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
+  %57 = phi ptr [ %.sroa.462.1, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit20 ], [ %51, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
+  %58 = phi ptr [ %storemerge.i.i19, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit20 ], [ %52, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
+  %.079 = phi ptr [ %.0, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit20 ], [ %.077, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ]
+  %59 = load ptr, ptr %.079, align 8
   br label %60
 
-60:                                               ; preds = %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i15, %.lr.ph
-  %.sroa.11.0 = phi ptr [ %55, %.lr.ph ], [ %.sroa.11.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i15 ]
-  %.sroa.7.0 = phi ptr [ %56, %.lr.ph ], [ %.sroa.7.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i15 ]
-  %.sroa.459.0 = phi ptr [ %57, %.lr.ph ], [ %.sroa.459.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i15 ]
-  %.sroa.058.0 = phi ptr [ %58, %.lr.ph ], [ %storemerge.i.i16, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i15 ]
-  %.013.i7 = phi ptr [ %59, %.lr.ph ], [ %64, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i15 ]
-  %storemerge12.i8 = phi i64 [ 512, %.lr.ph ], [ %86, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i15 ]
+60:                                               ; preds = %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18, %.lr.ph
+  %.sroa.11.0 = phi ptr [ %55, %.lr.ph ], [ %.sroa.11.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18 ]
+  %.sroa.7.0 = phi ptr [ %56, %.lr.ph ], [ %.sroa.7.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18 ]
+  %.sroa.462.0 = phi ptr [ %57, %.lr.ph ], [ %.sroa.462.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18 ]
+  %.sroa.061.0 = phi ptr [ %58, %.lr.ph ], [ %storemerge.i.i19, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18 ]
+  %.013.i10 = phi ptr [ %59, %.lr.ph ], [ %64, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18 ]
+  %storemerge12.i11 = phi i64 [ 512, %.lr.ph ], [ %86, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18 ]
   %61 = ptrtoint ptr %.sroa.7.0 to i64
-  %62 = ptrtoint ptr %.sroa.058.0 to i64
+  %62 = ptrtoint ptr %.sroa.061.0 to i64
   %63 = sub i64 %61, %62
-  %.sroa.speculated.i9 = tail call i64 @llvm.smin.i64(i64 %63, i64 %storemerge12.i8)
-  %64 = getelementptr inbounds i8, ptr %.013.i7, i64 %.sroa.speculated.i9
-  %.not.i.i.i.i10 = icmp eq ptr %.sroa.7.0, %.sroa.058.0
-  br i1 %.not.i.i.i.i10, label %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i13, label %65
+  %.sroa.speculated.i12 = tail call i64 @llvm.smin.i64(i64 %63, i64 %storemerge12.i11)
+  %64 = getelementptr inbounds i8, ptr %.013.i10, i64 %.sroa.speculated.i12
+  %.not.i.i.i.i13 = icmp eq ptr %.sroa.7.0, %.sroa.061.0
+  br i1 %.not.i.i.i.i13, label %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i16, label %65
 
 65:                                               ; preds = %60
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.sroa.058.0, ptr align 1 %.013.i7, i64 %.sroa.speculated.i9, i1 false), !noalias !283
-  br label %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i13
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.sroa.061.0, ptr align 1 %.013.i10, i64 %.sroa.speculated.i12, i1 false), !noalias !283
+  br label %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i16
 
-_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i13: ; preds = %65, %60
-  %66 = ptrtoint ptr %.sroa.459.0 to i64
+_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i16: ; preds = %65, %60
+  %66 = ptrtoint ptr %.sroa.462.0 to i64
   %67 = sub i64 %62, %66
-  %68 = add nsw i64 %67, %.sroa.speculated.i9
+  %68 = add nsw i64 %67, %.sroa.speculated.i12
   %69 = icmp sgt i64 %68, -1
   br i1 %69, label %70, label %76
 
-70:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i13
+70:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i16
   %71 = icmp ult i64 %68, 512
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %.sroa.058.0, i64 %.sroa.speculated.i9
-  br label %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i15
+  %73 = getelementptr inbounds i8, ptr %.sroa.061.0, i64 %.sroa.speculated.i12
+  br label %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18
 
 74:                                               ; preds = %70
   %75 = lshr i64 %68, 9
   br label %78
 
-76:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i13
+76:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i16
   %77 = ashr i64 %68, 9
   br label %78
 
@@ -14787,32 +14788,32 @@ _ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i13: ; preds = %65, %60
   %83 = shl nsw i64 %79, 9
   %84 = sub nsw i64 %68, %83
   %85 = getelementptr inbounds i8, ptr %81, i64 %84
-  br label %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i15
+  br label %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18
 
-_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i15:       ; preds = %78, %72
+_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18:       ; preds = %78, %72
   %.sroa.11.1 = phi ptr [ %.sroa.11.0, %72 ], [ %80, %78 ]
   %.sroa.7.1 = phi ptr [ %.sroa.7.0, %72 ], [ %82, %78 ]
-  %.sroa.459.1 = phi ptr [ %.sroa.459.0, %72 ], [ %81, %78 ]
-  %storemerge.i.i16 = phi ptr [ %73, %72 ], [ %85, %78 ]
-  %86 = sub nsw i64 %storemerge12.i8, %.sroa.speculated.i9
+  %.sroa.462.1 = phi ptr [ %.sroa.462.0, %72 ], [ %81, %78 ]
+  %storemerge.i.i19 = phi ptr [ %73, %72 ], [ %85, %78 ]
+  %86 = sub nsw i64 %storemerge12.i11, %.sroa.speculated.i12
   %87 = icmp sgt i64 %86, 0
-  br i1 %87, label %60, label %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit17, !llvm.loop !282
+  br i1 %87, label %60, label %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit20, !llvm.loop !282
 
-_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit17: ; preds = %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i15
-  store ptr %storemerge.i.i16, ptr %3, align 8
-  store ptr %.sroa.459.1, ptr %15, align 8
+_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit20: ; preds = %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i18
+  store ptr %storemerge.i.i19, ptr %3, align 8
+  store ptr %.sroa.462.1, ptr %15, align 8
   store ptr %.sroa.7.1, ptr %17, align 8
   store ptr %.sroa.11.1, ptr %19, align 8
-  %.0 = getelementptr inbounds i8, ptr %.076, i64 8
+  %.0 = getelementptr inbounds i8, ptr %.079, i64 8
   %88 = load ptr, ptr %7, align 8
   %.not4 = icmp eq ptr %.0, %88
   br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !286
 
-._crit_edge:                                      ; preds = %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit17, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit
-  %89 = phi ptr [ %.sroa.1268.2, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ], [ %.sroa.11.1, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit17 ]
-  %90 = phi ptr [ %.sroa.866.2, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ], [ %.sroa.7.1, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit17 ]
-  %91 = phi ptr [ %51, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ], [ %.sroa.459.1, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit17 ]
-  %92 = phi ptr [ %52, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ], [ %storemerge.i.i16, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit17 ]
+._crit_edge:                                      ; preds = %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit20, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit
+  %89 = phi ptr [ %.sroa.1271.2, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ], [ %.sroa.11.1, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit20 ]
+  %90 = phi ptr [ %.sroa.869.2, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ], [ %.sroa.7.1, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit20 ]
+  %91 = phi ptr [ %51, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ], [ %.sroa.462.1, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit20 ]
+  %92 = phi ptr [ %52, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit ], [ %storemerge.i.i19, %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit20 ]
   %93 = getelementptr inbounds i8, ptr %2, i64 8
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %2, align 8
@@ -14820,68 +14821,68 @@ _ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_it
   %97 = ptrtoint ptr %94 to i64
   %98 = sub i64 %96, %97
   %99 = icmp sgt i64 %98, 0
-  br i1 %99, label %.lr.ph.i22, label %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit33
+  br i1 %99, label %.lr.ph.i25, label %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit36
 
-.lr.ph.i22:                                       ; preds = %._crit_edge, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i31
-  %.sroa.1256.0 = phi ptr [ %.sroa.1256.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i31 ], [ %89, %._crit_edge ]
-  %.sroa.854.0 = phi ptr [ %.sroa.854.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i31 ], [ %90, %._crit_edge ]
-  %.sroa.453.0 = phi ptr [ %.sroa.453.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i31 ], [ %91, %._crit_edge ]
-  %.sroa.052.0 = phi ptr [ %storemerge.i.i32, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i31 ], [ %92, %._crit_edge ]
-  %.013.i23 = phi ptr [ %103, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i31 ], [ %94, %._crit_edge ]
-  %storemerge12.i24 = phi i64 [ %125, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i31 ], [ %98, %._crit_edge ]
-  %100 = ptrtoint ptr %.sroa.854.0 to i64
-  %101 = ptrtoint ptr %.sroa.052.0 to i64
+.lr.ph.i25:                                       ; preds = %._crit_edge, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i34
+  %.sroa.1259.0 = phi ptr [ %.sroa.1259.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i34 ], [ %89, %._crit_edge ]
+  %.sroa.857.0 = phi ptr [ %.sroa.857.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i34 ], [ %90, %._crit_edge ]
+  %.sroa.456.0 = phi ptr [ %.sroa.456.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i34 ], [ %91, %._crit_edge ]
+  %.sroa.055.0 = phi ptr [ %storemerge.i.i35, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i34 ], [ %92, %._crit_edge ]
+  %.013.i26 = phi ptr [ %103, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i34 ], [ %94, %._crit_edge ]
+  %storemerge12.i27 = phi i64 [ %125, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i34 ], [ %98, %._crit_edge ]
+  %100 = ptrtoint ptr %.sroa.857.0 to i64
+  %101 = ptrtoint ptr %.sroa.055.0 to i64
   %102 = sub i64 %100, %101
-  %.sroa.speculated.i25 = tail call i64 @llvm.smin.i64(i64 %102, i64 %storemerge12.i24)
-  %103 = getelementptr inbounds i8, ptr %.013.i23, i64 %.sroa.speculated.i25
-  %.not.i.i.i.i26 = icmp eq ptr %.sroa.854.0, %.sroa.052.0
-  br i1 %.not.i.i.i.i26, label %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i29, label %104
+  %.sroa.speculated.i28 = tail call i64 @llvm.smin.i64(i64 %102, i64 %storemerge12.i27)
+  %103 = getelementptr inbounds i8, ptr %.013.i26, i64 %.sroa.speculated.i28
+  %.not.i.i.i.i29 = icmp eq ptr %.sroa.857.0, %.sroa.055.0
+  br i1 %.not.i.i.i.i29, label %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i32, label %104
 
-104:                                              ; preds = %.lr.ph.i22
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.sroa.052.0, ptr align 1 %.013.i23, i64 %.sroa.speculated.i25, i1 false), !noalias !287
-  br label %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i29
+104:                                              ; preds = %.lr.ph.i25
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.sroa.055.0, ptr align 1 %.013.i26, i64 %.sroa.speculated.i28, i1 false), !noalias !287
+  br label %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i32
 
-_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i29: ; preds = %104, %.lr.ph.i22
-  %105 = ptrtoint ptr %.sroa.453.0 to i64
+_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i32: ; preds = %104, %.lr.ph.i25
+  %105 = ptrtoint ptr %.sroa.456.0 to i64
   %106 = sub i64 %101, %105
-  %107 = add nsw i64 %106, %.sroa.speculated.i25
+  %107 = add nsw i64 %106, %.sroa.speculated.i28
   %108 = icmp sgt i64 %107, -1
   br i1 %108, label %109, label %115
 
-109:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i29
+109:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i32
   %110 = icmp ult i64 %107, 512
   br i1 %110, label %111, label %113
 
 111:                                              ; preds = %109
-  %112 = getelementptr inbounds i8, ptr %.sroa.052.0, i64 %.sroa.speculated.i25
-  br label %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i31
+  %112 = getelementptr inbounds i8, ptr %.sroa.055.0, i64 %.sroa.speculated.i28
+  br label %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i34
 
 113:                                              ; preds = %109
   %114 = lshr i64 %107, 9
   br label %117
 
-115:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i29
+115:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i32
   %116 = ashr i64 %107, 9
   br label %117
 
 117:                                              ; preds = %115, %113
   %118 = phi i64 [ %114, %113 ], [ %116, %115 ]
-  %119 = getelementptr inbounds ptr, ptr %.sroa.1256.0, i64 %118
+  %119 = getelementptr inbounds ptr, ptr %.sroa.1259.0, i64 %118
   %120 = load ptr, ptr %119, align 8, !noalias !287
   %121 = getelementptr inbounds i8, ptr %120, i64 512
   %122 = shl nsw i64 %118, 9
   %123 = sub nsw i64 %107, %122
   %124 = getelementptr inbounds i8, ptr %120, i64 %123
-  br label %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i31
+  br label %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i34
 
-_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i31:       ; preds = %117, %111
-  %.sroa.1256.1 = phi ptr [ %.sroa.1256.0, %111 ], [ %119, %117 ]
-  %.sroa.854.1 = phi ptr [ %.sroa.854.0, %111 ], [ %121, %117 ]
-  %.sroa.453.1 = phi ptr [ %.sroa.453.0, %111 ], [ %120, %117 ]
-  %storemerge.i.i32 = phi ptr [ %112, %111 ], [ %124, %117 ]
-  %125 = sub nsw i64 %storemerge12.i24, %.sroa.speculated.i25
+_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i34:       ; preds = %117, %111
+  %.sroa.1259.1 = phi ptr [ %.sroa.1259.0, %111 ], [ %119, %117 ]
+  %.sroa.857.1 = phi ptr [ %.sroa.857.0, %111 ], [ %121, %117 ]
+  %.sroa.456.1 = phi ptr [ %.sroa.456.0, %111 ], [ %120, %117 ]
+  %storemerge.i.i35 = phi ptr [ %112, %111 ], [ %124, %117 ]
+  %125 = sub nsw i64 %storemerge12.i27, %.sroa.speculated.i28
   %126 = icmp sgt i64 %125, 0
-  br i1 %126, label %.lr.ph.i22, label %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit33, !llvm.loop !282
+  br i1 %126, label %.lr.ph.i25, label %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit36, !llvm.loop !282
 
 127:                                              ; preds = %4
   %128 = load ptr, ptr %2, align 8
@@ -14895,47 +14896,47 @@ _ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i31:       ; preds = %117, %111
   %136 = ptrtoint ptr %128 to i64
   %137 = sub i64 %136, %10
   %138 = icmp sgt i64 %137, 0
-  br i1 %138, label %.lr.ph.i38, label %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit33
+  br i1 %138, label %.lr.ph.i41, label %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit36
 
-.lr.ph.i38:                                       ; preds = %127, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i47
-  %.sroa.12.0 = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i47 ], [ %135, %127 ]
-  %.sroa.8.0 = phi ptr [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i47 ], [ %133, %127 ]
-  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i47 ], [ %131, %127 ]
-  %.sroa.0.0 = phi ptr [ %storemerge.i.i48, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i47 ], [ %129, %127 ]
-  %.013.i39 = phi ptr [ %142, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i47 ], [ %9, %127 ]
-  %storemerge12.i40 = phi i64 [ %164, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i47 ], [ %137, %127 ]
+.lr.ph.i41:                                       ; preds = %127, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50
+  %.sroa.12.0 = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %135, %127 ]
+  %.sroa.8.0 = phi ptr [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %133, %127 ]
+  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %131, %127 ]
+  %.sroa.0.0 = phi ptr [ %storemerge.i.i51, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %129, %127 ]
+  %.013.i42 = phi ptr [ %142, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %9, %127 ]
+  %storemerge12.i43 = phi i64 [ %164, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %137, %127 ]
   %139 = ptrtoint ptr %.sroa.8.0 to i64
   %140 = ptrtoint ptr %.sroa.0.0 to i64
   %141 = sub i64 %139, %140
-  %.sroa.speculated.i41 = tail call i64 @llvm.smin.i64(i64 %141, i64 %storemerge12.i40)
-  %142 = getelementptr inbounds i8, ptr %.013.i39, i64 %.sroa.speculated.i41
-  %.not.i.i.i.i42 = icmp eq ptr %.sroa.8.0, %.sroa.0.0
-  br i1 %.not.i.i.i.i42, label %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i45, label %143
+  %.sroa.speculated.i44 = tail call i64 @llvm.smin.i64(i64 %141, i64 %storemerge12.i43)
+  %142 = getelementptr inbounds i8, ptr %.013.i42, i64 %.sroa.speculated.i44
+  %.not.i.i.i.i45 = icmp eq ptr %.sroa.8.0, %.sroa.0.0
+  br i1 %.not.i.i.i.i45, label %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i48, label %143
 
-143:                                              ; preds = %.lr.ph.i38
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.sroa.0.0, ptr align 1 %.013.i39, i64 %.sroa.speculated.i41, i1 false), !noalias !290
-  br label %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i45
+143:                                              ; preds = %.lr.ph.i41
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.sroa.0.0, ptr align 1 %.013.i42, i64 %.sroa.speculated.i44, i1 false), !noalias !290
+  br label %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i48
 
-_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i45: ; preds = %143, %.lr.ph.i38
+_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i48: ; preds = %143, %.lr.ph.i41
   %144 = ptrtoint ptr %.sroa.4.0 to i64
   %145 = sub i64 %140, %144
-  %146 = add nsw i64 %145, %.sroa.speculated.i41
+  %146 = add nsw i64 %145, %.sroa.speculated.i44
   %147 = icmp sgt i64 %146, -1
   br i1 %147, label %148, label %154
 
-148:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i45
+148:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i48
   %149 = icmp ult i64 %146, 512
   br i1 %149, label %150, label %152
 
 150:                                              ; preds = %148
-  %151 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.sroa.speculated.i41
-  br label %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i47
+  %151 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.sroa.speculated.i44
+  br label %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50
 
 152:                                              ; preds = %148
   %153 = lshr i64 %146, 9
   br label %156
 
-154:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i45
+154:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i48
   %155 = ashr i64 %146, 9
   br label %156
 
@@ -14947,23 +14948,23 @@ _ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i45: ; preds = %143, %.lr.ph.i3
   %161 = shl nsw i64 %157, 9
   %162 = sub nsw i64 %146, %161
   %163 = getelementptr inbounds i8, ptr %159, i64 %162
-  br label %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i47
+  br label %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50
 
-_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i47:       ; preds = %156, %150
+_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50:       ; preds = %156, %150
   %.sroa.12.1 = phi ptr [ %.sroa.12.0, %150 ], [ %158, %156 ]
   %.sroa.8.1 = phi ptr [ %.sroa.8.0, %150 ], [ %160, %156 ]
   %.sroa.4.1 = phi ptr [ %.sroa.4.0, %150 ], [ %159, %156 ]
-  %storemerge.i.i48 = phi ptr [ %151, %150 ], [ %163, %156 ]
-  %164 = sub nsw i64 %storemerge12.i40, %.sroa.speculated.i41
+  %storemerge.i.i51 = phi ptr [ %151, %150 ], [ %163, %156 ]
+  %164 = sub nsw i64 %storemerge12.i43, %.sroa.speculated.i44
   %165 = icmp sgt i64 %164, 0
-  br i1 %165, label %.lr.ph.i38, label %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit33, !llvm.loop !282
+  br i1 %165, label %.lr.ph.i41, label %_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit36, !llvm.loop !282
 
-_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit33: ; preds = %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i31, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i47, %127, %._crit_edge
-  %.sink78 = phi ptr [ %92, %._crit_edge ], [ %129, %127 ], [ %storemerge.i.i48, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i47 ], [ %storemerge.i.i32, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i31 ]
-  %.sink = phi ptr [ %91, %._crit_edge ], [ %131, %127 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i47 ], [ %.sroa.453.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i31 ]
-  %.sroa.8.2.sink = phi ptr [ %90, %._crit_edge ], [ %133, %127 ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i47 ], [ %.sroa.854.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i31 ]
-  %.sroa.12.2.sink = phi ptr [ %89, %._crit_edge ], [ %135, %127 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i47 ], [ %.sroa.1256.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i31 ]
-  store ptr %.sink78, ptr %0, align 8
+_ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS5_PS5_EE6__typeES3_S3_S8_.exit36: ; preds = %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i34, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50, %127, %._crit_edge
+  %.sink81 = phi ptr [ %92, %._crit_edge ], [ %129, %127 ], [ %storemerge.i.i51, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %storemerge.i.i35, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i34 ]
+  %.sink = phi ptr [ %91, %._crit_edge ], [ %131, %127 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %.sroa.456.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i34 ]
+  %.sroa.8.2.sink = phi ptr [ %90, %._crit_edge ], [ %133, %127 ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %.sroa.857.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i34 ]
+  %.sroa.12.2.sink = phi ptr [ %89, %._crit_edge ], [ %135, %127 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i50 ], [ %.sroa.1259.1, %_ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i34 ]
+  store ptr %.sink81, ptr %0, align 8
   %166 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sink, ptr %166, align 8
   %167 = getelementptr inbounds i8, ptr %0, i64 16
@@ -15226,7 +15227,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11c
   %24 = getelementptr inbounds i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %23, align 8
-  br label %229
+  br label %227
 
 26:                                               ; preds = %4
   %27 = getelementptr inbounds i8, ptr %1, i64 16
@@ -15247,7 +15248,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11c
 38:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !293)
-  store ptr %16, ptr %13, align 8, !alias.scope !293
+  store ptr %28, ptr %13, align 8, !alias.scope !293
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   %40 = load <2 x ptr>, ptr %29, align 8, !noalias !293
   store <2 x ptr> %40, ptr %39, align 8, !alias.scope !293
@@ -15272,7 +15273,7 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv
   %47 = getelementptr inbounds i8, ptr %0, i64 16
   %48 = load <2 x ptr>, ptr %36, align 8, !noalias !296
   store <2 x ptr> %48, ptr %47, align 8, !alias.scope !296
-  br label %229
+  br label %227
 
 .critedge:                                        ; preds = %26, %35
   %49 = getelementptr inbounds i8, ptr %3, i64 24
@@ -15385,14 +15386,14 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv
   %.pre67 = load ptr, ptr %27, align 8, !noalias !311
   %.pre68 = load ptr, ptr %30, align 8, !noalias !311
   %.pre69 = load ptr, ptr %31, align 8, !noalias !311
-  %.pre76 = ptrtoint ptr %.pre67 to i64
+  %.pre80 = ptrtoint ptr %.pre67 to i64
   br label %127
 
 127:                                              ; preds = %114, %113
-  %.pre-phi77 = phi i64 [ %.pre76, %114 ], [ %70, %113 ]
+  %.pre-phi81 = phi i64 [ %.pre80, %114 ], [ %89, %113 ]
   %128 = phi ptr [ %.pre69, %114 ], [ %76, %113 ]
   %129 = phi ptr [ %.pre68, %114 ], [ %75, %113 ]
-  %130 = phi ptr [ %.pre67, %114 ], [ %16, %113 ]
+  %130 = phi ptr [ %.pre67, %114 ], [ %28, %113 ]
   %131 = load ptr, ptr %29, align 8, !noalias !311
   call void @llvm.experimental.noalias.scope.decl(metadata !314)
   %132 = getelementptr inbounds i8, ptr %14, i64 8
@@ -15402,7 +15403,7 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv
   %134 = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %128, ptr %134, align 8, !alias.scope !314
   %135 = ptrtoint ptr %131 to i64
-  %136 = sub i64 %.pre-phi77, %135
+  %136 = sub i64 %.pre-phi81, %135
   %137 = ashr exact i64 %136, 5
   %138 = add nsw i64 %137, %73
   %139 = icmp sgt i64 %138, -1
@@ -15441,7 +15442,7 @@ _ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %storemerge.i.i = phi ptr [ %155, %148 ], [ %143, %142 ]
   store ptr %storemerge.i.i, ptr %14, align 8, !alias.scope !314
   call void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_erase_at_beginESt15_Deque_iteratorIS5_RS5_PS5_E(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull %14)
-  br label %199
+  br label %197
 
 156:                                              ; preds = %.critedge
   %157 = getelementptr inbounds i8, ptr %1, i64 64
@@ -15487,14 +15488,15 @@ _ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %.pre72 = load ptr, ptr %95, align 8, !noalias !329
   %.pre73 = ptrtoint ptr %.pre70 to i64
   %.pre74 = ptrtoint ptr %.pre71 to i64
+  %.pre76 = sub i64 %.pre73, %.pre74
+  %.pre78 = ashr exact i64 %.pre76, 5
   br label %171
 
 171:                                              ; preds = %158, %156
-  %.pre-phi75 = phi i64 [ %.pre74, %158 ], [ %106, %156 ]
-  %.pre-phi = phi i64 [ %.pre73, %158 ], [ %62, %156 ]
+  %.pre-phi79 = phi i64 [ %.pre78, %158 ], [ %108, %156 ]
   %172 = phi ptr [ %.pre72, %158 ], [ %96, %156 ]
   %173 = phi ptr [ %.pre71, %158 ], [ %104, %156 ]
-  %174 = phi ptr [ %.pre70, %158 ], [ %17, %156 ]
+  %174 = phi ptr [ %.pre70, %158 ], [ %34, %156 ]
   %175 = load ptr, ptr %157, align 8, !noalias !329
   call void @llvm.experimental.noalias.scope.decl(metadata !332)
   %176 = getelementptr inbounds i8, ptr %15, i64 8
@@ -15503,102 +15505,100 @@ _ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store ptr %175, ptr %177, align 8, !alias.scope !332
   %178 = getelementptr inbounds i8, ptr %15, i64 24
   store ptr %172, ptr %178, align 8, !alias.scope !332
-  %179 = sub i64 %.pre-phi, %.pre-phi75
-  %180 = ashr exact i64 %179, 5
-  %181 = sub i64 %180, %73
-  %182 = icmp sgt i64 %181, -1
-  br i1 %182, label %183, label %189
+  %179 = sub i64 %.pre-phi79, %73
+  %180 = icmp sgt i64 %179, -1
+  br i1 %180, label %181, label %187
 
-183:                                              ; preds = %171
-  %184 = icmp ult i64 %181, 16
-  br i1 %184, label %185, label %187
+181:                                              ; preds = %171
+  %182 = icmp ult i64 %179, 16
+  br i1 %182, label %183, label %185
 
-185:                                              ; preds = %183
-  %186 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %174, i64 %74
+183:                                              ; preds = %181
+  %184 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %174, i64 %74
   br label %_ZStmiRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit
 
-187:                                              ; preds = %183
-  %188 = lshr i64 %181, 4
-  br label %191
+185:                                              ; preds = %181
+  %186 = lshr i64 %179, 4
+  br label %189
 
-189:                                              ; preds = %171
-  %190 = ashr i64 %181, 4
-  br label %191
+187:                                              ; preds = %171
+  %188 = ashr i64 %179, 4
+  br label %189
 
-191:                                              ; preds = %189, %187
-  %192 = phi i64 [ %188, %187 ], [ %190, %189 ]
-  %193 = getelementptr inbounds ptr, ptr %172, i64 %192
-  store ptr %193, ptr %178, align 8, !alias.scope !332
-  %194 = load ptr, ptr %193, align 8, !noalias !332
-  store ptr %194, ptr %176, align 8, !alias.scope !332
-  %195 = getelementptr inbounds i8, ptr %194, i64 512
-  store ptr %195, ptr %177, align 8, !alias.scope !332
-  %196 = shl nsw i64 %192, 4
-  %197 = sub nsw i64 %181, %196
-  %198 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %194, i64 %197
+189:                                              ; preds = %187, %185
+  %190 = phi i64 [ %186, %185 ], [ %188, %187 ]
+  %191 = getelementptr inbounds ptr, ptr %172, i64 %190
+  store ptr %191, ptr %178, align 8, !alias.scope !332
+  %192 = load ptr, ptr %191, align 8, !noalias !332
+  store ptr %192, ptr %176, align 8, !alias.scope !332
+  %193 = getelementptr inbounds i8, ptr %192, i64 512
+  store ptr %193, ptr %177, align 8, !alias.scope !332
+  %194 = shl nsw i64 %190, 4
+  %195 = sub nsw i64 %179, %194
+  %196 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %192, i64 %195
   br label %_ZStmiRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit
 
-_ZStmiRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit: ; preds = %185, %191
-  %storemerge.i.i.i = phi ptr [ %198, %191 ], [ %186, %185 ]
+_ZStmiRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit: ; preds = %183, %189
+  %storemerge.i.i.i = phi ptr [ %196, %189 ], [ %184, %183 ]
   store ptr %storemerge.i.i.i, ptr %15, align 8, !alias.scope !332
   call void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE15_M_erase_at_endESt15_Deque_iteratorIS5_RS5_PS5_E(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull %15)
-  br label %199
+  br label %197
 
-199:                                              ; preds = %_ZStmiRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit, %_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit
-  %200 = load ptr, ptr %27, align 8, !noalias !335
-  %201 = load ptr, ptr %29, align 8, !noalias !335
-  %202 = load ptr, ptr %30, align 8, !noalias !335
-  %203 = load ptr, ptr %31, align 8, !noalias !335
+197:                                              ; preds = %_ZStmiRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit, %_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit
+  %198 = load ptr, ptr %27, align 8, !noalias !335
+  %199 = load ptr, ptr %29, align 8, !noalias !335
+  %200 = load ptr, ptr %30, align 8, !noalias !335
+  %201 = load ptr, ptr %31, align 8, !noalias !335
   call void @llvm.experimental.noalias.scope.decl(metadata !338)
-  %204 = getelementptr inbounds i8, ptr %0, i64 8
+  %202 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %199, ptr %202, align 8, !alias.scope !338
+  %203 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %200, ptr %203, align 8, !alias.scope !338
+  %204 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %201, ptr %204, align 8, !alias.scope !338
-  %205 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %202, ptr %205, align 8, !alias.scope !338
-  %206 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %203, ptr %206, align 8, !alias.scope !338
-  %207 = ptrtoint ptr %200 to i64
-  %208 = ptrtoint ptr %201 to i64
-  %209 = sub i64 %207, %208
-  %210 = ashr exact i64 %209, 5
-  %211 = add nsw i64 %210, %93
-  %212 = icmp sgt i64 %211, -1
-  br i1 %212, label %213, label %219
+  %205 = ptrtoint ptr %198 to i64
+  %206 = ptrtoint ptr %199 to i64
+  %207 = sub i64 %205, %206
+  %208 = ashr exact i64 %207, 5
+  %209 = add nsw i64 %208, %93
+  %210 = icmp sgt i64 %209, -1
+  br i1 %210, label %211, label %217
 
-213:                                              ; preds = %199
-  %214 = icmp ult i64 %211, 16
-  br i1 %214, label %215, label %217
+211:                                              ; preds = %197
+  %212 = icmp ult i64 %209, 16
+  br i1 %212, label %213, label %215
 
-215:                                              ; preds = %213
-  %216 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %200, i64 %93
+213:                                              ; preds = %211
+  %214 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %198, i64 %93
   br label %_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit7
 
-217:                                              ; preds = %213
-  %218 = lshr i64 %211, 4
-  br label %221
+215:                                              ; preds = %211
+  %216 = lshr i64 %209, 4
+  br label %219
 
-219:                                              ; preds = %199
-  %220 = ashr i64 %211, 4
-  br label %221
+217:                                              ; preds = %197
+  %218 = ashr i64 %209, 4
+  br label %219
 
-221:                                              ; preds = %219, %217
-  %222 = phi i64 [ %218, %217 ], [ %220, %219 ]
-  %223 = getelementptr inbounds ptr, ptr %203, i64 %222
-  store ptr %223, ptr %206, align 8, !alias.scope !338
-  %224 = load ptr, ptr %223, align 8, !noalias !338
-  store ptr %224, ptr %204, align 8, !alias.scope !338
-  %225 = getelementptr inbounds i8, ptr %224, i64 512
-  store ptr %225, ptr %205, align 8, !alias.scope !338
-  %226 = shl nsw i64 %222, 4
-  %227 = sub nsw i64 %211, %226
-  %228 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %224, i64 %227
+219:                                              ; preds = %217, %215
+  %220 = phi i64 [ %216, %215 ], [ %218, %217 ]
+  %221 = getelementptr inbounds ptr, ptr %201, i64 %220
+  store ptr %221, ptr %204, align 8, !alias.scope !338
+  %222 = load ptr, ptr %221, align 8, !noalias !338
+  store ptr %222, ptr %202, align 8, !alias.scope !338
+  %223 = getelementptr inbounds i8, ptr %222, i64 512
+  store ptr %223, ptr %203, align 8, !alias.scope !338
+  %224 = shl nsw i64 %220, 4
+  %225 = sub nsw i64 %209, %224
+  %226 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %222, i64 %225
   br label %_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit7
 
-_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit7: ; preds = %215, %221
-  %storemerge.i.i6 = phi ptr [ %228, %221 ], [ %216, %215 ]
+_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit7: ; preds = %213, %219
+  %storemerge.i.i6 = phi ptr [ %226, %219 ], [ %214, %213 ]
   store ptr %storemerge.i.i6, ptr %0, align 8, !alias.scope !338
-  br label %229
+  br label %227
 
-229:                                              ; preds = %_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit7, %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, %19
+227:                                              ; preds = %_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit7, %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, %19
   ret void
 }
 
@@ -15721,29 +15721,29 @@ define linkonce_odr dso_local void @_ZSt24__copy_move_backward_ditILb1ENSt7__cxx
   br i1 %24, label %.lr.ph.i, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit
 
 .lr.ph.i:                                         ; preds = %9, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i
-  %.sroa.098.0 = phi ptr [ %storemerge.i.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i ], [ %13, %9 ]
-  %.sroa.499.0 = phi ptr [ %.sroa.499.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i ], [ %15, %9 ]
-  %.sroa.9100.0 = phi ptr [ %.sroa.9100.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i ], [ %17, %9 ]
-  %.sroa.12101.0 = phi ptr [ %.sroa.12101.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i ], [ %19, %9 ]
+  %.sroa.0100.0 = phi ptr [ %storemerge.i.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i ], [ %13, %9 ]
+  %.sroa.4101.0 = phi ptr [ %.sroa.4101.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i ], [ %15, %9 ]
+  %.sroa.9102.0 = phi ptr [ %.sroa.9102.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i ], [ %17, %9 ]
+  %.sroa.12103.0 = phi ptr [ %.sroa.12103.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i ], [ %19, %9 ]
   %25 = phi ptr [ %62, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i ], [ %15, %9 ]
   %.016.i = phi ptr [ %36, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i ], [ %12, %9 ]
   %storemerge15.i = phi i64 [ %63, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i ], [ %23, %9 ]
-  %26 = ptrtoint ptr %.sroa.098.0 to i64
+  %26 = ptrtoint ptr %.sroa.0100.0 to i64
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = ashr exact i64 %28, 5
-  %.not.i = icmp eq ptr %.sroa.098.0, %25
+  %.not.i = icmp eq ptr %.sroa.0100.0, %25
   br i1 %.not.i, label %30, label %34
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds i8, ptr %.sroa.12101.0, i64 -8
+  %31 = getelementptr inbounds i8, ptr %.sroa.12103.0, i64 -8
   %32 = load ptr, ptr %31, align 8, !noalias !344
   %33 = getelementptr inbounds i8, ptr %32, i64 512
   br label %34
 
 34:                                               ; preds = %30, %.lr.ph.i
   %.014.i = phi i64 [ 16, %30 ], [ %29, %.lr.ph.i ]
-  %.09.i = phi ptr [ %33, %30 ], [ %.sroa.098.0, %.lr.ph.i ]
+  %.09.i = phi ptr [ %33, %30 ], [ %.sroa.0100.0, %.lr.ph.i ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.014.i, i64 %storemerge15.i)
   %35 = sub nsw i64 0, %.sroa.speculated.i
   %36 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.016.i, i64 %35
@@ -15762,14 +15762,14 @@ define linkonce_odr dso_local void @_ZSt24__copy_move_backward_ditILb1ENSt7__cxx
   br i1 %42, label %.lr.ph.i.i.i.i, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i, !llvm.loop !347
 
 _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i
-  %.pre22.i = ptrtoint ptr %.sroa.499.0 to i64
+  %.pre22.i = ptrtoint ptr %.sroa.4101.0 to i64
   %.pre24.i = sub i64 %26, %.pre22.i
   %.pre26.i = ashr exact i64 %.pre24.i, 5
   br label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i
 
 _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i, %34
   %.pre-phi27.i = phi i64 [ %.pre26.i, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i ], [ %29, %34 ]
-  %43 = phi ptr [ %.sroa.499.0, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i ], [ %25, %34 ]
+  %43 = phi ptr [ %.sroa.4101.0, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i ], [ %25, %34 ]
   %44 = sub i64 %.pre-phi27.i, %.sroa.speculated.i
   %45 = icmp sgt i64 %44, -1
   br i1 %45, label %46, label %52
@@ -15779,7 +15779,7 @@ _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.098.0, i64 %35
+  %49 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.0100.0, i64 %35
   br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i
 
 50:                                               ; preds = %46
@@ -15792,7 +15792,7 @@ _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 
 54:                                               ; preds = %52, %50
   %55 = phi i64 [ %51, %50 ], [ %53, %52 ]
-  %56 = getelementptr inbounds ptr, ptr %.sroa.12101.0, i64 %55
+  %56 = getelementptr inbounds ptr, ptr %.sroa.12103.0, i64 %55
   %57 = load ptr, ptr %56, align 8, !noalias !344
   %58 = getelementptr inbounds i8, ptr %57, i64 512
   %59 = shl nsw i64 %55, 4
@@ -15801,9 +15801,9 @@ _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i
 
 _ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i: ; preds = %54, %48
-  %.sroa.499.1 = phi ptr [ %.sroa.499.0, %48 ], [ %57, %54 ]
-  %.sroa.9100.1 = phi ptr [ %.sroa.9100.0, %48 ], [ %58, %54 ]
-  %.sroa.12101.1 = phi ptr [ %.sroa.12101.0, %48 ], [ %56, %54 ]
+  %.sroa.4101.1 = phi ptr [ %.sroa.4101.0, %48 ], [ %57, %54 ]
+  %.sroa.9102.1 = phi ptr [ %.sroa.9102.0, %48 ], [ %58, %54 ]
+  %.sroa.12103.1 = phi ptr [ %.sroa.12103.0, %48 ], [ %56, %54 ]
   %62 = phi ptr [ %43, %48 ], [ %57, %54 ]
   %storemerge.i.i.i = phi ptr [ %49, %48 ], [ %61, %54 ]
   %63 = sub nsw i64 %storemerge15.i, %.sroa.speculated.i
@@ -15811,44 +15811,44 @@ _ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_P
   br i1 %64, label %.lr.ph.i, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit, !llvm.loop !348
 
 _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit: ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i, %9
-  %.sroa.9100.2 = phi ptr [ %17, %9 ], [ %.sroa.9100.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i ]
-  %.sroa.12101.2 = phi ptr [ %19, %9 ], [ %.sroa.12101.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i ]
+  %.sroa.9102.2 = phi ptr [ %17, %9 ], [ %.sroa.9102.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i ]
+  %.sroa.12103.2 = phi ptr [ %19, %9 ], [ %.sroa.12103.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i ]
   %65 = phi ptr [ %15, %9 ], [ %62, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i ]
   %66 = phi ptr [ %13, %9 ], [ %storemerge.i.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i ]
   store ptr %66, ptr %3, align 8
   store ptr %65, ptr %14, align 8
-  store ptr %.sroa.9100.2, ptr %16, align 8
-  store ptr %.sroa.12101.2, ptr %18, align 8
+  store ptr %.sroa.9102.2, ptr %16, align 8
+  store ptr %.sroa.12103.2, ptr %18, align 8
   %67 = load ptr, ptr %7, align 8
-  %.0111 = getelementptr inbounds i8, ptr %67, i64 -8
+  %.0113 = getelementptr inbounds i8, ptr %67, i64 -8
   %68 = load ptr, ptr %5, align 8
-  %.not4112 = icmp eq ptr %.0111, %68
-  br i1 %.not4112, label %._crit_edge, label %.lr.ph
+  %.not4114 = icmp eq ptr %.0113, %68
+  br i1 %.not4114, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit29
-  %69 = phi ptr [ %.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit29 ], [ %.sroa.12101.2, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
-  %70 = phi ptr [ %.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit29 ], [ %.sroa.9100.2, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
-  %71 = phi ptr [ %113, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit29 ], [ %65, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
-  %72 = phi ptr [ %storemerge.i.i.i17, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit29 ], [ %66, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
-  %.0113 = phi ptr [ %.0, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit29 ], [ %.0111, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
-  %73 = load ptr, ptr %.0113, align 8
+.lr.ph:                                           ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit31
+  %69 = phi ptr [ %.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit31 ], [ %.sroa.12103.2, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
+  %70 = phi ptr [ %.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit31 ], [ %.sroa.9102.2, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
+  %71 = phi ptr [ %113, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit31 ], [ %65, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
+  %72 = phi ptr [ %storemerge.i.i.i19, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit31 ], [ %66, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
+  %.0115 = phi ptr [ %.0, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit31 ], [ %.0113, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
+  %73 = load ptr, ptr %.0115, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 512
   br label %75
 
-75:                                               ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i16, %.lr.ph
-  %.sroa.11.0 = phi ptr [ %69, %.lr.ph ], [ %.sroa.11.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i16 ]
-  %.sroa.8.0 = phi ptr [ %70, %.lr.ph ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i16 ]
-  %.sroa.493.0 = phi ptr [ %71, %.lr.ph ], [ %.sroa.493.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i16 ]
-  %.sroa.092.0 = phi ptr [ %72, %.lr.ph ], [ %storemerge.i.i.i17, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i16 ]
-  %76 = phi ptr [ %71, %.lr.ph ], [ %113, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i16 ]
-  %.016.i8 = phi ptr [ %74, %.lr.ph ], [ %87, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i16 ]
-  %storemerge15.i9 = phi i64 [ 16, %.lr.ph ], [ %114, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i16 ]
-  %77 = ptrtoint ptr %.sroa.092.0 to i64
+75:                                               ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i18, %.lr.ph
+  %.sroa.11.0 = phi ptr [ %69, %.lr.ph ], [ %.sroa.11.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i18 ]
+  %.sroa.8.0 = phi ptr [ %70, %.lr.ph ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i18 ]
+  %.sroa.495.0 = phi ptr [ %71, %.lr.ph ], [ %.sroa.495.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i18 ]
+  %.sroa.094.0 = phi ptr [ %72, %.lr.ph ], [ %storemerge.i.i.i19, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i18 ]
+  %76 = phi ptr [ %71, %.lr.ph ], [ %113, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i18 ]
+  %.016.i10 = phi ptr [ %74, %.lr.ph ], [ %87, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i18 ]
+  %storemerge15.i11 = phi i64 [ 16, %.lr.ph ], [ %114, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i18 ]
+  %77 = ptrtoint ptr %.sroa.094.0 to i64
   %78 = ptrtoint ptr %76 to i64
   %79 = sub i64 %77, %78
   %80 = ashr exact i64 %79, 5
-  %.not.i10 = icmp eq ptr %.sroa.092.0, %76
-  br i1 %.not.i10, label %81, label %85
+  %.not.i12 = icmp eq ptr %.sroa.094.0, %76
+  br i1 %.not.i12, label %81, label %85
 
 81:                                               ; preds = %75
   %82 = getelementptr inbounds i8, ptr %.sroa.11.0, i64 -8
@@ -15857,51 +15857,51 @@ _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br label %85
 
 85:                                               ; preds = %81, %75
-  %.014.i11 = phi i64 [ 16, %81 ], [ %80, %75 ]
-  %.09.i12 = phi ptr [ %84, %81 ], [ %.sroa.092.0, %75 ]
-  %.sroa.speculated.i13 = tail call i64 @llvm.smin.i64(i64 %.014.i11, i64 %storemerge15.i9)
-  %86 = sub nsw i64 0, %.sroa.speculated.i13
-  %87 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.016.i8, i64 %86
-  %88 = icmp sgt i64 %.sroa.speculated.i13, 0
-  br i1 %88, label %.lr.ph.i.i.i.i18, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i14
+  %.014.i13 = phi i64 [ 16, %81 ], [ %80, %75 ]
+  %.09.i14 = phi ptr [ %84, %81 ], [ %.sroa.094.0, %75 ]
+  %.sroa.speculated.i15 = tail call i64 @llvm.smin.i64(i64 %.014.i13, i64 %storemerge15.i11)
+  %86 = sub nsw i64 0, %.sroa.speculated.i15
+  %87 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.016.i10, i64 %86
+  %88 = icmp sgt i64 %.sroa.speculated.i15, 0
+  br i1 %88, label %.lr.ph.i.i.i.i20, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i16
 
-.lr.ph.i.i.i.i18:                                 ; preds = %85, %.lr.ph.i.i.i.i18
-  %.010.i.i.i.i19 = phi i64 [ %92, %.lr.ph.i.i.i.i18 ], [ %.sroa.speculated.i13, %85 ]
-  %.069.i.i.i.i20 = phi ptr [ %90, %.lr.ph.i.i.i.i18 ], [ %.09.i12, %85 ]
-  %.078.i.i.i.i21 = phi ptr [ %89, %.lr.ph.i.i.i.i18 ], [ %.016.i8, %85 ]
-  %89 = getelementptr inbounds i8, ptr %.078.i.i.i.i21, i64 -32
-  %90 = getelementptr inbounds i8, ptr %.069.i.i.i.i20, i64 -32
+.lr.ph.i.i.i.i20:                                 ; preds = %85, %.lr.ph.i.i.i.i20
+  %.010.i.i.i.i21 = phi i64 [ %92, %.lr.ph.i.i.i.i20 ], [ %.sroa.speculated.i15, %85 ]
+  %.069.i.i.i.i22 = phi ptr [ %90, %.lr.ph.i.i.i.i20 ], [ %.09.i14, %85 ]
+  %.078.i.i.i.i23 = phi ptr [ %89, %.lr.ph.i.i.i.i20 ], [ %.016.i10, %85 ]
+  %89 = getelementptr inbounds i8, ptr %.078.i.i.i.i23, i64 -32
+  %90 = getelementptr inbounds i8, ptr %.069.i.i.i.i22, i64 -32
   %91 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull align 8 dereferenceable(32) %89) #21, !noalias !349
-  %92 = add nsw i64 %.010.i.i.i.i19, -1
-  %93 = icmp ugt i64 %.010.i.i.i.i19, 1
-  br i1 %93, label %.lr.ph.i.i.i.i18, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i22, !llvm.loop !347
+  %92 = add nsw i64 %.010.i.i.i.i21, -1
+  %93 = icmp ugt i64 %.010.i.i.i.i21, 1
+  br i1 %93, label %.lr.ph.i.i.i.i20, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i24, !llvm.loop !347
 
-_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i22: ; preds = %.lr.ph.i.i.i.i18
-  %.pre22.i26 = ptrtoint ptr %.sroa.493.0 to i64
-  %.pre24.i27 = sub i64 %77, %.pre22.i26
-  %.pre26.i28 = ashr exact i64 %.pre24.i27, 5
-  br label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i14
+_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i24: ; preds = %.lr.ph.i.i.i.i20
+  %.pre22.i28 = ptrtoint ptr %.sroa.495.0 to i64
+  %.pre24.i29 = sub i64 %77, %.pre22.i28
+  %.pre26.i30 = ashr exact i64 %.pre24.i29, 5
+  br label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i16
 
-_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i14: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i22, %85
-  %.pre-phi27.i15 = phi i64 [ %.pre26.i28, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i22 ], [ %80, %85 ]
-  %94 = phi ptr [ %.sroa.493.0, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i22 ], [ %76, %85 ]
-  %95 = sub i64 %.pre-phi27.i15, %.sroa.speculated.i13
+_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i16: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i24, %85
+  %.pre-phi27.i17 = phi i64 [ %.pre26.i30, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i24 ], [ %80, %85 ]
+  %94 = phi ptr [ %.sroa.495.0, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i24 ], [ %76, %85 ]
+  %95 = sub i64 %.pre-phi27.i17, %.sroa.speculated.i15
   %96 = icmp sgt i64 %95, -1
   br i1 %96, label %97, label %103
 
-97:                                               ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i14
+97:                                               ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i16
   %98 = icmp ult i64 %95, 16
   br i1 %98, label %99, label %101
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.092.0, i64 %86
-  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i16
+  %100 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.094.0, i64 %86
+  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i18
 
 101:                                              ; preds = %97
   %102 = lshr i64 %95, 4
   br label %105
 
-103:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i14
+103:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i16
   %104 = ashr i64 %95, 4
   br label %105
 
@@ -15913,33 +15913,33 @@ _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %110 = shl nsw i64 %106, 4
   %111 = sub nsw i64 %95, %110
   %112 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %108, i64 %111
-  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i16
+  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i18
 
-_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i16: ; preds = %105, %99
+_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i18: ; preds = %105, %99
   %.sroa.11.1 = phi ptr [ %.sroa.11.0, %99 ], [ %107, %105 ]
   %.sroa.8.1 = phi ptr [ %.sroa.8.0, %99 ], [ %109, %105 ]
-  %.sroa.493.1 = phi ptr [ %.sroa.493.0, %99 ], [ %108, %105 ]
+  %.sroa.495.1 = phi ptr [ %.sroa.495.0, %99 ], [ %108, %105 ]
   %113 = phi ptr [ %94, %99 ], [ %108, %105 ]
-  %storemerge.i.i.i17 = phi ptr [ %100, %99 ], [ %112, %105 ]
-  %114 = sub nsw i64 %storemerge15.i9, %.sroa.speculated.i13
+  %storemerge.i.i.i19 = phi ptr [ %100, %99 ], [ %112, %105 ]
+  %114 = sub nsw i64 %storemerge15.i11, %.sroa.speculated.i15
   %115 = icmp sgt i64 %114, 0
-  br i1 %115, label %75, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit29, !llvm.loop !348
+  br i1 %115, label %75, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit31, !llvm.loop !348
 
-_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit29: ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i16
-  store ptr %storemerge.i.i.i17, ptr %3, align 8
+_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit31: ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i18
+  store ptr %storemerge.i.i.i19, ptr %3, align 8
   store ptr %113, ptr %14, align 8
   store ptr %.sroa.8.1, ptr %16, align 8
   store ptr %.sroa.11.1, ptr %18, align 8
-  %.0 = getelementptr inbounds i8, ptr %.0113, i64 -8
+  %.0 = getelementptr inbounds i8, ptr %.0115, i64 -8
   %116 = load ptr, ptr %5, align 8
   %.not4 = icmp eq ptr %.0, %116
   br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !352
 
-._crit_edge:                                      ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit29, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit
-  %117 = phi ptr [ %.sroa.12101.2, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit29 ]
-  %118 = phi ptr [ %.sroa.9100.2, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit29 ]
-  %119 = phi ptr [ %65, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %113, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit29 ]
-  %120 = phi ptr [ %66, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %storemerge.i.i.i17, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit29 ]
+._crit_edge:                                      ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit31, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit
+  %117 = phi ptr [ %.sroa.12103.2, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit31 ]
+  %118 = phi ptr [ %.sroa.9102.2, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit31 ]
+  %119 = phi ptr [ %65, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %113, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit31 ]
+  %120 = phi ptr [ %66, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %storemerge.i.i.i19, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit31 ]
   %121 = load ptr, ptr %1, align 8
   %122 = getelementptr inbounds i8, ptr %1, i64 16
   %123 = load ptr, ptr %122, align 8
@@ -15948,97 +15948,97 @@ _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %126 = sub i64 %124, %125
   %127 = ashr exact i64 %126, 5
   %128 = icmp sgt i64 %127, 0
-  br i1 %128, label %.lr.ph.i33, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit56
+  br i1 %128, label %.lr.ph.i35, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit58
 
-.lr.ph.i33:                                       ; preds = %._crit_edge, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i43
-  %.sroa.1289.0 = phi ptr [ %.sroa.1289.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i43 ], [ %117, %._crit_edge ]
-  %.sroa.988.0 = phi ptr [ %.sroa.988.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i43 ], [ %118, %._crit_edge ]
-  %.sroa.487.0 = phi ptr [ %.sroa.487.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i43 ], [ %119, %._crit_edge ]
-  %.sroa.086.0 = phi ptr [ %storemerge.i.i.i44, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i43 ], [ %120, %._crit_edge ]
-  %129 = phi ptr [ %166, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i43 ], [ %119, %._crit_edge ]
-  %.016.i35 = phi ptr [ %140, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i43 ], [ %123, %._crit_edge ]
-  %storemerge15.i36 = phi i64 [ %167, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i43 ], [ %127, %._crit_edge ]
-  %130 = ptrtoint ptr %.sroa.086.0 to i64
+.lr.ph.i35:                                       ; preds = %._crit_edge, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i45
+  %.sroa.1291.0 = phi ptr [ %.sroa.1291.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i45 ], [ %117, %._crit_edge ]
+  %.sroa.990.0 = phi ptr [ %.sroa.990.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i45 ], [ %118, %._crit_edge ]
+  %.sroa.489.0 = phi ptr [ %.sroa.489.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i45 ], [ %119, %._crit_edge ]
+  %.sroa.088.0 = phi ptr [ %storemerge.i.i.i46, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i45 ], [ %120, %._crit_edge ]
+  %129 = phi ptr [ %166, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i45 ], [ %119, %._crit_edge ]
+  %.016.i37 = phi ptr [ %140, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i45 ], [ %123, %._crit_edge ]
+  %storemerge15.i38 = phi i64 [ %167, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i45 ], [ %127, %._crit_edge ]
+  %130 = ptrtoint ptr %.sroa.088.0 to i64
   %131 = ptrtoint ptr %129 to i64
   %132 = sub i64 %130, %131
   %133 = ashr exact i64 %132, 5
-  %.not.i37 = icmp eq ptr %.sroa.086.0, %129
-  br i1 %.not.i37, label %134, label %138
+  %.not.i39 = icmp eq ptr %.sroa.088.0, %129
+  br i1 %.not.i39, label %134, label %138
 
-134:                                              ; preds = %.lr.ph.i33
-  %135 = getelementptr inbounds i8, ptr %.sroa.1289.0, i64 -8
+134:                                              ; preds = %.lr.ph.i35
+  %135 = getelementptr inbounds i8, ptr %.sroa.1291.0, i64 -8
   %136 = load ptr, ptr %135, align 8, !noalias !353
   %137 = getelementptr inbounds i8, ptr %136, i64 512
   br label %138
 
-138:                                              ; preds = %134, %.lr.ph.i33
-  %.014.i38 = phi i64 [ 16, %134 ], [ %133, %.lr.ph.i33 ]
-  %.09.i39 = phi ptr [ %137, %134 ], [ %.sroa.086.0, %.lr.ph.i33 ]
-  %.sroa.speculated.i40 = tail call i64 @llvm.smin.i64(i64 %.014.i38, i64 %storemerge15.i36)
-  %139 = sub nsw i64 0, %.sroa.speculated.i40
-  %140 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.016.i35, i64 %139
-  %141 = icmp sgt i64 %.sroa.speculated.i40, 0
-  br i1 %141, label %.lr.ph.i.i.i.i45, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i41
+138:                                              ; preds = %134, %.lr.ph.i35
+  %.014.i40 = phi i64 [ 16, %134 ], [ %133, %.lr.ph.i35 ]
+  %.09.i41 = phi ptr [ %137, %134 ], [ %.sroa.088.0, %.lr.ph.i35 ]
+  %.sroa.speculated.i42 = tail call i64 @llvm.smin.i64(i64 %.014.i40, i64 %storemerge15.i38)
+  %139 = sub nsw i64 0, %.sroa.speculated.i42
+  %140 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.016.i37, i64 %139
+  %141 = icmp sgt i64 %.sroa.speculated.i42, 0
+  br i1 %141, label %.lr.ph.i.i.i.i47, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i43
 
-.lr.ph.i.i.i.i45:                                 ; preds = %138, %.lr.ph.i.i.i.i45
-  %.010.i.i.i.i46 = phi i64 [ %145, %.lr.ph.i.i.i.i45 ], [ %.sroa.speculated.i40, %138 ]
-  %.069.i.i.i.i47 = phi ptr [ %143, %.lr.ph.i.i.i.i45 ], [ %.09.i39, %138 ]
-  %.078.i.i.i.i48 = phi ptr [ %142, %.lr.ph.i.i.i.i45 ], [ %.016.i35, %138 ]
-  %142 = getelementptr inbounds i8, ptr %.078.i.i.i.i48, i64 -32
-  %143 = getelementptr inbounds i8, ptr %.069.i.i.i.i47, i64 -32
+.lr.ph.i.i.i.i47:                                 ; preds = %138, %.lr.ph.i.i.i.i47
+  %.010.i.i.i.i48 = phi i64 [ %145, %.lr.ph.i.i.i.i47 ], [ %.sroa.speculated.i42, %138 ]
+  %.069.i.i.i.i49 = phi ptr [ %143, %.lr.ph.i.i.i.i47 ], [ %.09.i41, %138 ]
+  %.078.i.i.i.i50 = phi ptr [ %142, %.lr.ph.i.i.i.i47 ], [ %.016.i37, %138 ]
+  %142 = getelementptr inbounds i8, ptr %.078.i.i.i.i50, i64 -32
+  %143 = getelementptr inbounds i8, ptr %.069.i.i.i.i49, i64 -32
   %144 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull align 8 dereferenceable(32) %142) #21, !noalias !353
-  %145 = add nsw i64 %.010.i.i.i.i46, -1
-  %146 = icmp ugt i64 %.010.i.i.i.i46, 1
-  br i1 %146, label %.lr.ph.i.i.i.i45, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i49, !llvm.loop !347
+  %145 = add nsw i64 %.010.i.i.i.i48, -1
+  %146 = icmp ugt i64 %.010.i.i.i.i48, 1
+  br i1 %146, label %.lr.ph.i.i.i.i47, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i51, !llvm.loop !347
 
-_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i49: ; preds = %.lr.ph.i.i.i.i45
-  %.pre22.i53 = ptrtoint ptr %.sroa.487.0 to i64
-  %.pre24.i54 = sub i64 %130, %.pre22.i53
-  %.pre26.i55 = ashr exact i64 %.pre24.i54, 5
-  br label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i41
+_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i51: ; preds = %.lr.ph.i.i.i.i47
+  %.pre22.i55 = ptrtoint ptr %.sroa.489.0 to i64
+  %.pre24.i56 = sub i64 %130, %.pre22.i55
+  %.pre26.i57 = ashr exact i64 %.pre24.i56, 5
+  br label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i43
 
-_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i41: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i49, %138
-  %.pre-phi27.i42 = phi i64 [ %.pre26.i55, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i49 ], [ %133, %138 ]
-  %147 = phi ptr [ %.sroa.487.0, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i49 ], [ %129, %138 ]
-  %148 = sub i64 %.pre-phi27.i42, %.sroa.speculated.i40
+_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i43: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i51, %138
+  %.pre-phi27.i44 = phi i64 [ %.pre26.i57, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i51 ], [ %133, %138 ]
+  %147 = phi ptr [ %.sroa.489.0, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i51 ], [ %129, %138 ]
+  %148 = sub i64 %.pre-phi27.i44, %.sroa.speculated.i42
   %149 = icmp sgt i64 %148, -1
   br i1 %149, label %150, label %156
 
-150:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i41
+150:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i43
   %151 = icmp ult i64 %148, 16
   br i1 %151, label %152, label %154
 
 152:                                              ; preds = %150
-  %153 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.086.0, i64 %139
-  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i43
+  %153 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.088.0, i64 %139
+  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i45
 
 154:                                              ; preds = %150
   %155 = lshr i64 %148, 4
   br label %158
 
-156:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i41
+156:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i43
   %157 = ashr i64 %148, 4
   br label %158
 
 158:                                              ; preds = %156, %154
   %159 = phi i64 [ %155, %154 ], [ %157, %156 ]
-  %160 = getelementptr inbounds ptr, ptr %.sroa.1289.0, i64 %159
+  %160 = getelementptr inbounds ptr, ptr %.sroa.1291.0, i64 %159
   %161 = load ptr, ptr %160, align 8, !noalias !353
   %162 = getelementptr inbounds i8, ptr %161, i64 512
   %163 = shl nsw i64 %159, 4
   %164 = sub nsw i64 %148, %163
   %165 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %161, i64 %164
-  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i43
+  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i45
 
-_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i43: ; preds = %158, %152
-  %.sroa.1289.1 = phi ptr [ %.sroa.1289.0, %152 ], [ %160, %158 ]
-  %.sroa.988.1 = phi ptr [ %.sroa.988.0, %152 ], [ %162, %158 ]
-  %.sroa.487.1 = phi ptr [ %.sroa.487.0, %152 ], [ %161, %158 ]
+_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i45: ; preds = %158, %152
+  %.sroa.1291.1 = phi ptr [ %.sroa.1291.0, %152 ], [ %160, %158 ]
+  %.sroa.990.1 = phi ptr [ %.sroa.990.0, %152 ], [ %162, %158 ]
+  %.sroa.489.1 = phi ptr [ %.sroa.489.0, %152 ], [ %161, %158 ]
   %166 = phi ptr [ %147, %152 ], [ %161, %158 ]
-  %storemerge.i.i.i44 = phi ptr [ %153, %152 ], [ %165, %158 ]
-  %167 = sub nsw i64 %storemerge15.i36, %.sroa.speculated.i40
+  %storemerge.i.i.i46 = phi ptr [ %153, %152 ], [ %165, %158 ]
+  %167 = sub nsw i64 %storemerge15.i38, %.sroa.speculated.i42
   %168 = icmp sgt i64 %167, 0
-  br i1 %168, label %.lr.ph.i33, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit56, !llvm.loop !348
+  br i1 %168, label %.lr.ph.i35, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit58, !llvm.loop !348
 
 169:                                              ; preds = %4
   %170 = load ptr, ptr %1, align 8
@@ -16055,75 +16055,75 @@ _ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_P
   %181 = sub i64 %179, %180
   %182 = ashr exact i64 %181, 5
   %183 = icmp sgt i64 %182, 0
-  br i1 %183, label %.lr.ph.i60, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit56
+  br i1 %183, label %.lr.ph.i62, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit58
 
-.lr.ph.i60:                                       ; preds = %169, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i70
-  %.sroa.12.0 = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i70 ], [ %178, %169 ]
-  %.sroa.9.0 = phi ptr [ %.sroa.9.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i70 ], [ %176, %169 ]
-  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i70 ], [ %174, %169 ]
-  %.sroa.0.0 = phi ptr [ %storemerge.i.i.i71, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i70 ], [ %172, %169 ]
-  %184 = phi ptr [ %221, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i70 ], [ %174, %169 ]
-  %.016.i62 = phi ptr [ %195, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i70 ], [ %171, %169 ]
-  %storemerge15.i63 = phi i64 [ %222, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i70 ], [ %182, %169 ]
+.lr.ph.i62:                                       ; preds = %169, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i72
+  %.sroa.12.0 = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i72 ], [ %178, %169 ]
+  %.sroa.9.0 = phi ptr [ %.sroa.9.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i72 ], [ %176, %169 ]
+  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i72 ], [ %174, %169 ]
+  %.sroa.0.0 = phi ptr [ %storemerge.i.i.i73, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i72 ], [ %172, %169 ]
+  %184 = phi ptr [ %221, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i72 ], [ %174, %169 ]
+  %.016.i64 = phi ptr [ %195, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i72 ], [ %171, %169 ]
+  %storemerge15.i65 = phi i64 [ %222, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i72 ], [ %182, %169 ]
   %185 = ptrtoint ptr %.sroa.0.0 to i64
   %186 = ptrtoint ptr %184 to i64
   %187 = sub i64 %185, %186
   %188 = ashr exact i64 %187, 5
-  %.not.i64 = icmp eq ptr %.sroa.0.0, %184
-  br i1 %.not.i64, label %189, label %193
+  %.not.i66 = icmp eq ptr %.sroa.0.0, %184
+  br i1 %.not.i66, label %189, label %193
 
-189:                                              ; preds = %.lr.ph.i60
+189:                                              ; preds = %.lr.ph.i62
   %190 = getelementptr inbounds i8, ptr %.sroa.12.0, i64 -8
   %191 = load ptr, ptr %190, align 8, !noalias !356
   %192 = getelementptr inbounds i8, ptr %191, i64 512
   br label %193
 
-193:                                              ; preds = %189, %.lr.ph.i60
-  %.014.i65 = phi i64 [ 16, %189 ], [ %188, %.lr.ph.i60 ]
-  %.09.i66 = phi ptr [ %192, %189 ], [ %.sroa.0.0, %.lr.ph.i60 ]
-  %.sroa.speculated.i67 = tail call i64 @llvm.smin.i64(i64 %.014.i65, i64 %storemerge15.i63)
-  %194 = sub nsw i64 0, %.sroa.speculated.i67
-  %195 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.016.i62, i64 %194
-  %196 = icmp sgt i64 %.sroa.speculated.i67, 0
-  br i1 %196, label %.lr.ph.i.i.i.i72, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i68
+193:                                              ; preds = %189, %.lr.ph.i62
+  %.014.i67 = phi i64 [ 16, %189 ], [ %188, %.lr.ph.i62 ]
+  %.09.i68 = phi ptr [ %192, %189 ], [ %.sroa.0.0, %.lr.ph.i62 ]
+  %.sroa.speculated.i69 = tail call i64 @llvm.smin.i64(i64 %.014.i67, i64 %storemerge15.i65)
+  %194 = sub nsw i64 0, %.sroa.speculated.i69
+  %195 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.016.i64, i64 %194
+  %196 = icmp sgt i64 %.sroa.speculated.i69, 0
+  br i1 %196, label %.lr.ph.i.i.i.i74, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i70
 
-.lr.ph.i.i.i.i72:                                 ; preds = %193, %.lr.ph.i.i.i.i72
-  %.010.i.i.i.i73 = phi i64 [ %200, %.lr.ph.i.i.i.i72 ], [ %.sroa.speculated.i67, %193 ]
-  %.069.i.i.i.i74 = phi ptr [ %198, %.lr.ph.i.i.i.i72 ], [ %.09.i66, %193 ]
-  %.078.i.i.i.i75 = phi ptr [ %197, %.lr.ph.i.i.i.i72 ], [ %.016.i62, %193 ]
-  %197 = getelementptr inbounds i8, ptr %.078.i.i.i.i75, i64 -32
-  %198 = getelementptr inbounds i8, ptr %.069.i.i.i.i74, i64 -32
+.lr.ph.i.i.i.i74:                                 ; preds = %193, %.lr.ph.i.i.i.i74
+  %.010.i.i.i.i75 = phi i64 [ %200, %.lr.ph.i.i.i.i74 ], [ %.sroa.speculated.i69, %193 ]
+  %.069.i.i.i.i76 = phi ptr [ %198, %.lr.ph.i.i.i.i74 ], [ %.09.i68, %193 ]
+  %.078.i.i.i.i77 = phi ptr [ %197, %.lr.ph.i.i.i.i74 ], [ %.016.i64, %193 ]
+  %197 = getelementptr inbounds i8, ptr %.078.i.i.i.i77, i64 -32
+  %198 = getelementptr inbounds i8, ptr %.069.i.i.i.i76, i64 -32
   %199 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %198, ptr noundef nonnull align 8 dereferenceable(32) %197) #21, !noalias !356
-  %200 = add nsw i64 %.010.i.i.i.i73, -1
-  %201 = icmp ugt i64 %.010.i.i.i.i73, 1
-  br i1 %201, label %.lr.ph.i.i.i.i72, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i76, !llvm.loop !347
+  %200 = add nsw i64 %.010.i.i.i.i75, -1
+  %201 = icmp ugt i64 %.010.i.i.i.i75, 1
+  br i1 %201, label %.lr.ph.i.i.i.i74, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i78, !llvm.loop !347
 
-_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i76: ; preds = %.lr.ph.i.i.i.i72
-  %.pre22.i80 = ptrtoint ptr %.sroa.4.0 to i64
-  %.pre24.i81 = sub i64 %185, %.pre22.i80
-  %.pre26.i82 = ashr exact i64 %.pre24.i81, 5
-  br label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i68
+_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i78: ; preds = %.lr.ph.i.i.i.i74
+  %.pre22.i82 = ptrtoint ptr %.sroa.4.0 to i64
+  %.pre24.i83 = sub i64 %185, %.pre22.i82
+  %.pre26.i84 = ashr exact i64 %.pre24.i83, 5
+  br label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i70
 
-_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i68: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i76, %193
-  %.pre-phi27.i69 = phi i64 [ %.pre26.i82, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i76 ], [ %188, %193 ]
-  %202 = phi ptr [ %.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i76 ], [ %184, %193 ]
-  %203 = sub i64 %.pre-phi27.i69, %.sroa.speculated.i67
+_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i70: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i78, %193
+  %.pre-phi27.i71 = phi i64 [ %.pre26.i84, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i78 ], [ %188, %193 ]
+  %202 = phi ptr [ %.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.loopexit.i78 ], [ %184, %193 ]
+  %203 = sub i64 %.pre-phi27.i71, %.sroa.speculated.i69
   %204 = icmp sgt i64 %203, -1
   br i1 %204, label %205, label %211
 
-205:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i68
+205:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i70
   %206 = icmp ult i64 %203, 16
   br i1 %206, label %207, label %209
 
 207:                                              ; preds = %205
   %208 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.0.0, i64 %194
-  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i70
+  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i72
 
 209:                                              ; preds = %205
   %210 = lshr i64 %203, 4
   br label %213
 
-211:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i68
+211:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i70
   %212 = ashr i64 %203, 4
   br label %213
 
@@ -16135,24 +16135,24 @@ _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %218 = shl nsw i64 %214, 4
   %219 = sub nsw i64 %203, %218
   %220 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %216, i64 %219
-  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i70
+  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i72
 
-_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i70: ; preds = %213, %207
+_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i72: ; preds = %213, %207
   %.sroa.12.1 = phi ptr [ %.sroa.12.0, %207 ], [ %215, %213 ]
   %.sroa.9.1 = phi ptr [ %.sroa.9.0, %207 ], [ %217, %213 ]
   %.sroa.4.1 = phi ptr [ %.sroa.4.0, %207 ], [ %216, %213 ]
   %221 = phi ptr [ %202, %207 ], [ %216, %213 ]
-  %storemerge.i.i.i71 = phi ptr [ %208, %207 ], [ %220, %213 ]
-  %222 = sub nsw i64 %storemerge15.i63, %.sroa.speculated.i67
+  %storemerge.i.i.i73 = phi ptr [ %208, %207 ], [ %220, %213 ]
+  %222 = sub nsw i64 %storemerge15.i65, %.sroa.speculated.i69
   %223 = icmp sgt i64 %222, 0
-  br i1 %223, label %.lr.ph.i60, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit56, !llvm.loop !348
+  br i1 %223, label %.lr.ph.i62, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit58, !llvm.loop !348
 
-_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit56: ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i43, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i70, %169, %._crit_edge
-  %.sink121 = phi ptr [ %120, %._crit_edge ], [ %172, %169 ], [ %storemerge.i.i.i71, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i70 ], [ %storemerge.i.i.i44, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i43 ]
-  %.sink = phi ptr [ %119, %._crit_edge ], [ %174, %169 ], [ %221, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i70 ], [ %166, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i43 ]
-  %.sroa.9.2.sink = phi ptr [ %118, %._crit_edge ], [ %176, %169 ], [ %.sroa.9.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i70 ], [ %.sroa.988.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i43 ]
-  %.sroa.12.2.sink = phi ptr [ %117, %._crit_edge ], [ %178, %169 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i70 ], [ %.sroa.1289.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i43 ]
-  store ptr %.sink121, ptr %0, align 8
+_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit58: ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i45, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i72, %169, %._crit_edge
+  %.sink123 = phi ptr [ %120, %._crit_edge ], [ %172, %169 ], [ %storemerge.i.i.i73, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i72 ], [ %storemerge.i.i.i46, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i45 ]
+  %.sink = phi ptr [ %119, %._crit_edge ], [ %174, %169 ], [ %221, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i72 ], [ %166, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i45 ]
+  %.sroa.9.2.sink = phi ptr [ %118, %._crit_edge ], [ %176, %169 ], [ %.sroa.9.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i72 ], [ %.sroa.990.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i45 ]
+  %.sroa.12.2.sink = phi ptr [ %117, %._crit_edge ], [ %178, %169 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i72 ], [ %.sroa.1291.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit.i45 ]
+  store ptr %.sink123, ptr %0, align 8
   %224 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sink, ptr %224, align 8
   %225 = getelementptr inbounds i8, ptr %0, i64 16
@@ -16190,14 +16190,14 @@ define linkonce_odr dso_local void @_ZSt15__copy_move_ditILb1ENSt7__cxx1112basic
   br i1 %24, label %.lr.ph.i, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit
 
 .lr.ph.i:                                         ; preds = %11, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i
-  %.sroa.076.0 = phi ptr [ %storemerge.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i ], [ %14, %11 ]
-  %.sroa.477.0 = phi ptr [ %.sroa.477.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i ], [ %16, %11 ]
-  %.sroa.878.0 = phi ptr [ %.sroa.878.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i ], [ %18, %11 ]
-  %.sroa.1280.0 = phi ptr [ %.sroa.1280.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i ], [ %20, %11 ]
+  %.sroa.079.0 = phi ptr [ %storemerge.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i ], [ %14, %11 ]
+  %.sroa.480.0 = phi ptr [ %.sroa.480.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i ], [ %16, %11 ]
+  %.sroa.881.0 = phi ptr [ %.sroa.881.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i ], [ %18, %11 ]
+  %.sroa.1283.0 = phi ptr [ %.sroa.1283.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i ], [ %20, %11 ]
   %.013.i = phi ptr [ %29, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i ], [ %9, %11 ]
   %storemerge12.i = phi i64 [ %57, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i ], [ %23, %11 ]
-  %25 = ptrtoint ptr %.sroa.878.0 to i64
-  %26 = ptrtoint ptr %.sroa.076.0 to i64
+  %25 = ptrtoint ptr %.sroa.881.0 to i64
+  %26 = ptrtoint ptr %.sroa.079.0 to i64
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 5
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %28, i64 %storemerge12.i)
@@ -16207,7 +16207,7 @@ define linkonce_odr dso_local void @_ZSt15__copy_move_ditILb1ENSt7__cxx1112basic
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi i64 [ %34, %.lr.ph.i.i.i.i ], [ %.sroa.speculated.i, %.lr.ph.i ]
-  %.0811.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i ], [ %.sroa.076.0, %.lr.ph.i ]
+  %.0811.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i ], [ %.sroa.079.0, %.lr.ph.i ]
   %.0910.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i ], [ %.013.i, %.lr.ph.i ]
   %31 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0910.i.i.i.i) #21, !noalias !359
   %32 = getelementptr inbounds i8, ptr %.0910.i.i.i.i, i64 32
@@ -16217,7 +16217,7 @@ define linkonce_odr dso_local void @_ZSt15__copy_move_ditILb1ENSt7__cxx1112basic
   br i1 %35, label %.lr.ph.i.i.i.i, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i, !llvm.loop !362
 
 _ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i
-  %36 = ptrtoint ptr %.sroa.477.0 to i64
+  %36 = ptrtoint ptr %.sroa.480.0 to i64
   %37 = sub i64 %26, %36
   %38 = ashr exact i64 %37, 5
   %39 = add nsw i64 %38, %.sroa.speculated.i
@@ -16229,7 +16229,7 @@ _ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.076.0, i64 %.sroa.speculated.i
+  %44 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.079.0, i64 %.sroa.speculated.i
   br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i
 
 45:                                               ; preds = %41
@@ -16242,7 +16242,7 @@ _ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
 
 49:                                               ; preds = %47, %45
   %50 = phi i64 [ %46, %45 ], [ %48, %47 ]
-  %51 = getelementptr inbounds ptr, ptr %.sroa.1280.0, i64 %50
+  %51 = getelementptr inbounds ptr, ptr %.sroa.1283.0, i64 %50
   %52 = load ptr, ptr %51, align 8, !noalias !359
   %53 = getelementptr inbounds i8, ptr %52, i64 512
   %54 = shl nsw i64 %50, 4
@@ -16251,86 +16251,86 @@ _ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i
 
 _ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i: ; preds = %49, %43
-  %.sroa.477.1 = phi ptr [ %.sroa.477.0, %43 ], [ %52, %49 ]
-  %.sroa.878.1 = phi ptr [ %.sroa.878.0, %43 ], [ %53, %49 ]
-  %.sroa.1280.1 = phi ptr [ %.sroa.1280.0, %43 ], [ %51, %49 ]
+  %.sroa.480.1 = phi ptr [ %.sroa.480.0, %43 ], [ %52, %49 ]
+  %.sroa.881.1 = phi ptr [ %.sroa.881.0, %43 ], [ %53, %49 ]
+  %.sroa.1283.1 = phi ptr [ %.sroa.1283.0, %43 ], [ %51, %49 ]
   %storemerge.i.i = phi ptr [ %44, %43 ], [ %56, %49 ]
   %57 = sub nsw i64 %storemerge12.i, %.sroa.speculated.i
   %58 = icmp sgt i64 %57, 0
   br i1 %58, label %.lr.ph.i, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit, !llvm.loop !363
 
 _ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit: ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i, %11
-  %.sroa.878.2 = phi ptr [ %18, %11 ], [ %.sroa.878.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i ]
-  %.sroa.1280.2 = phi ptr [ %20, %11 ], [ %.sroa.1280.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i ]
-  %59 = phi ptr [ %16, %11 ], [ %.sroa.477.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i ]
+  %.sroa.881.2 = phi ptr [ %18, %11 ], [ %.sroa.881.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i ]
+  %.sroa.1283.2 = phi ptr [ %20, %11 ], [ %.sroa.1283.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i ]
+  %59 = phi ptr [ %16, %11 ], [ %.sroa.480.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i ]
   %60 = phi ptr [ %14, %11 ], [ %storemerge.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i ]
   store ptr %60, ptr %3, align 8
   store ptr %59, ptr %15, align 8
-  store ptr %.sroa.878.2, ptr %17, align 8
-  store ptr %.sroa.1280.2, ptr %19, align 8
+  store ptr %.sroa.881.2, ptr %17, align 8
+  store ptr %.sroa.1283.2, ptr %19, align 8
   %61 = load ptr, ptr %5, align 8
-  %.086 = getelementptr inbounds i8, ptr %61, i64 8
+  %.089 = getelementptr inbounds i8, ptr %61, i64 8
   %62 = load ptr, ptr %7, align 8
-  %.not487 = icmp eq ptr %.086, %62
-  br i1 %.not487, label %._crit_edge, label %.lr.ph
+  %.not490 = icmp eq ptr %.089, %62
+  br i1 %.not490, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit21
-  %63 = phi ptr [ %.sroa.11.1, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit21 ], [ %.sroa.1280.2, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
-  %64 = phi ptr [ %.sroa.7.1, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit21 ], [ %.sroa.878.2, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
-  %65 = phi ptr [ %.sroa.471.1, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit21 ], [ %59, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
-  %66 = phi ptr [ %storemerge.i.i13, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit21 ], [ %60, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
-  %.088 = phi ptr [ %.0, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit21 ], [ %.086, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
-  %67 = load ptr, ptr %.088, align 8
+.lr.ph:                                           ; preds = %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit24
+  %63 = phi ptr [ %.sroa.11.1, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit24 ], [ %.sroa.1283.2, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
+  %64 = phi ptr [ %.sroa.7.1, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit24 ], [ %.sroa.881.2, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
+  %65 = phi ptr [ %.sroa.474.1, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit24 ], [ %59, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
+  %66 = phi ptr [ %storemerge.i.i16, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit24 ], [ %60, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
+  %.091 = phi ptr [ %.0, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit24 ], [ %.089, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
+  %67 = load ptr, ptr %.091, align 8
   br label %68
 
-68:                                               ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i12, %.lr.ph
-  %.sroa.11.0 = phi ptr [ %63, %.lr.ph ], [ %.sroa.11.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i12 ]
-  %.sroa.7.0 = phi ptr [ %64, %.lr.ph ], [ %.sroa.7.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i12 ]
-  %.sroa.471.0 = phi ptr [ %65, %.lr.ph ], [ %.sroa.471.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i12 ]
-  %.sroa.070.0 = phi ptr [ %66, %.lr.ph ], [ %storemerge.i.i13, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i12 ]
-  %.013.i7 = phi ptr [ %67, %.lr.ph ], [ %73, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i12 ]
-  %storemerge12.i8 = phi i64 [ 16, %.lr.ph ], [ %101, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i12 ]
+68:                                               ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i15, %.lr.ph
+  %.sroa.11.0 = phi ptr [ %63, %.lr.ph ], [ %.sroa.11.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i15 ]
+  %.sroa.7.0 = phi ptr [ %64, %.lr.ph ], [ %.sroa.7.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i15 ]
+  %.sroa.474.0 = phi ptr [ %65, %.lr.ph ], [ %.sroa.474.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i15 ]
+  %.sroa.073.0 = phi ptr [ %66, %.lr.ph ], [ %storemerge.i.i16, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i15 ]
+  %.013.i10 = phi ptr [ %67, %.lr.ph ], [ %73, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i15 ]
+  %storemerge12.i11 = phi i64 [ 16, %.lr.ph ], [ %101, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i15 ]
   %69 = ptrtoint ptr %.sroa.7.0 to i64
-  %70 = ptrtoint ptr %.sroa.070.0 to i64
+  %70 = ptrtoint ptr %.sroa.073.0 to i64
   %71 = sub i64 %69, %70
   %72 = ashr exact i64 %71, 5
-  %.sroa.speculated.i9 = tail call i64 @llvm.smin.i64(i64 %72, i64 %storemerge12.i8)
-  %73 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.013.i7, i64 %.sroa.speculated.i9
+  %.sroa.speculated.i12 = tail call i64 @llvm.smin.i64(i64 %72, i64 %storemerge12.i11)
+  %73 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.013.i10, i64 %.sroa.speculated.i12
   %74 = icmp sgt i64 %72, 0
-  br i1 %74, label %.lr.ph.i.i.i.i14, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i10
+  br i1 %74, label %.lr.ph.i.i.i.i17, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i13
 
-.lr.ph.i.i.i.i14:                                 ; preds = %68, %.lr.ph.i.i.i.i14
-  %.012.i.i.i.i15 = phi i64 [ %78, %.lr.ph.i.i.i.i14 ], [ %.sroa.speculated.i9, %68 ]
-  %.0811.i.i.i.i16 = phi ptr [ %77, %.lr.ph.i.i.i.i14 ], [ %.sroa.070.0, %68 ]
-  %.0910.i.i.i.i17 = phi ptr [ %76, %.lr.ph.i.i.i.i14 ], [ %.013.i7, %68 ]
-  %75 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %.0910.i.i.i.i17) #21, !noalias !364
-  %76 = getelementptr inbounds i8, ptr %.0910.i.i.i.i17, i64 32
-  %77 = getelementptr inbounds i8, ptr %.0811.i.i.i.i16, i64 32
-  %78 = add nsw i64 %.012.i.i.i.i15, -1
-  %79 = icmp ugt i64 %.012.i.i.i.i15, 1
-  br i1 %79, label %.lr.ph.i.i.i.i14, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i10, !llvm.loop !362
+.lr.ph.i.i.i.i17:                                 ; preds = %68, %.lr.ph.i.i.i.i17
+  %.012.i.i.i.i18 = phi i64 [ %78, %.lr.ph.i.i.i.i17 ], [ %.sroa.speculated.i12, %68 ]
+  %.0811.i.i.i.i19 = phi ptr [ %77, %.lr.ph.i.i.i.i17 ], [ %.sroa.073.0, %68 ]
+  %.0910.i.i.i.i20 = phi ptr [ %76, %.lr.ph.i.i.i.i17 ], [ %.013.i10, %68 ]
+  %75 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i19, ptr noundef nonnull align 8 dereferenceable(32) %.0910.i.i.i.i20) #21, !noalias !364
+  %76 = getelementptr inbounds i8, ptr %.0910.i.i.i.i20, i64 32
+  %77 = getelementptr inbounds i8, ptr %.0811.i.i.i.i19, i64 32
+  %78 = add nsw i64 %.012.i.i.i.i18, -1
+  %79 = icmp ugt i64 %.012.i.i.i.i18, 1
+  br i1 %79, label %.lr.ph.i.i.i.i17, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i13, !llvm.loop !362
 
-_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i10: ; preds = %.lr.ph.i.i.i.i14, %68
-  %80 = ptrtoint ptr %.sroa.471.0 to i64
+_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i13: ; preds = %.lr.ph.i.i.i.i17, %68
+  %80 = ptrtoint ptr %.sroa.474.0 to i64
   %81 = sub i64 %70, %80
   %82 = ashr exact i64 %81, 5
-  %83 = add nsw i64 %82, %.sroa.speculated.i9
+  %83 = add nsw i64 %82, %.sroa.speculated.i12
   %84 = icmp sgt i64 %83, -1
   br i1 %84, label %85, label %91
 
-85:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i10
+85:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i13
   %86 = icmp ult i64 %83, 16
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.070.0, i64 %.sroa.speculated.i9
-  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i12
+  %88 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.073.0, i64 %.sroa.speculated.i12
+  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i15
 
 89:                                               ; preds = %85
   %90 = lshr i64 %83, 4
   br label %93
 
-91:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i10
+91:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i13
   %92 = ashr i64 %83, 4
   br label %93
 
@@ -16342,32 +16342,32 @@ _ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   %98 = shl nsw i64 %94, 4
   %99 = sub nsw i64 %83, %98
   %100 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %96, i64 %99
-  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i12
+  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i15
 
-_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i12: ; preds = %93, %87
+_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i15: ; preds = %93, %87
   %.sroa.11.1 = phi ptr [ %.sroa.11.0, %87 ], [ %95, %93 ]
   %.sroa.7.1 = phi ptr [ %.sroa.7.0, %87 ], [ %97, %93 ]
-  %.sroa.471.1 = phi ptr [ %.sroa.471.0, %87 ], [ %96, %93 ]
-  %storemerge.i.i13 = phi ptr [ %88, %87 ], [ %100, %93 ]
-  %101 = sub nsw i64 %storemerge12.i8, %.sroa.speculated.i9
+  %.sroa.474.1 = phi ptr [ %.sroa.474.0, %87 ], [ %96, %93 ]
+  %storemerge.i.i16 = phi ptr [ %88, %87 ], [ %100, %93 ]
+  %101 = sub nsw i64 %storemerge12.i11, %.sroa.speculated.i12
   %102 = icmp sgt i64 %101, 0
-  br i1 %102, label %68, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit21, !llvm.loop !363
+  br i1 %102, label %68, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit24, !llvm.loop !363
 
-_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit21: ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i12
-  store ptr %storemerge.i.i13, ptr %3, align 8
-  store ptr %.sroa.471.1, ptr %15, align 8
+_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit24: ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i15
+  store ptr %storemerge.i.i16, ptr %3, align 8
+  store ptr %.sroa.474.1, ptr %15, align 8
   store ptr %.sroa.7.1, ptr %17, align 8
   store ptr %.sroa.11.1, ptr %19, align 8
-  %.0 = getelementptr inbounds i8, ptr %.088, i64 8
+  %.0 = getelementptr inbounds i8, ptr %.091, i64 8
   %103 = load ptr, ptr %7, align 8
   %.not4 = icmp eq ptr %.0, %103
   br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !367
 
-._crit_edge:                                      ; preds = %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit21, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit
-  %104 = phi ptr [ %.sroa.1280.2, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %.sroa.11.1, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit21 ]
-  %105 = phi ptr [ %.sroa.878.2, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %.sroa.7.1, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit21 ]
-  %106 = phi ptr [ %59, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %.sroa.471.1, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit21 ]
-  %107 = phi ptr [ %60, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %storemerge.i.i13, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit21 ]
+._crit_edge:                                      ; preds = %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit24, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit
+  %104 = phi ptr [ %.sroa.1283.2, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %.sroa.11.1, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit24 ]
+  %105 = phi ptr [ %.sroa.881.2, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %.sroa.7.1, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit24 ]
+  %106 = phi ptr [ %59, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %.sroa.474.1, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit24 ]
+  %107 = phi ptr [ %60, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %storemerge.i.i16, %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit24 ]
   %108 = getelementptr inbounds i8, ptr %2, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr %2, align 8
@@ -16376,77 +16376,77 @@ _ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   %113 = sub i64 %111, %112
   %114 = ashr exact i64 %113, 5
   %115 = icmp sgt i64 %114, 0
-  br i1 %115, label %.lr.ph.i26, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit41
+  br i1 %115, label %.lr.ph.i29, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit44
 
-.lr.ph.i26:                                       ; preds = %._crit_edge, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i32
-  %.sroa.1268.0 = phi ptr [ %.sroa.1268.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i32 ], [ %104, %._crit_edge ]
-  %.sroa.866.0 = phi ptr [ %.sroa.866.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i32 ], [ %105, %._crit_edge ]
-  %.sroa.465.0 = phi ptr [ %.sroa.465.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i32 ], [ %106, %._crit_edge ]
-  %.sroa.064.0 = phi ptr [ %storemerge.i.i33, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i32 ], [ %107, %._crit_edge ]
-  %.013.i27 = phi ptr [ %120, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i32 ], [ %109, %._crit_edge ]
-  %storemerge12.i28 = phi i64 [ %148, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i32 ], [ %114, %._crit_edge ]
-  %116 = ptrtoint ptr %.sroa.866.0 to i64
-  %117 = ptrtoint ptr %.sroa.064.0 to i64
+.lr.ph.i29:                                       ; preds = %._crit_edge, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i35
+  %.sroa.1271.0 = phi ptr [ %.sroa.1271.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i35 ], [ %104, %._crit_edge ]
+  %.sroa.869.0 = phi ptr [ %.sroa.869.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i35 ], [ %105, %._crit_edge ]
+  %.sroa.468.0 = phi ptr [ %.sroa.468.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i35 ], [ %106, %._crit_edge ]
+  %.sroa.067.0 = phi ptr [ %storemerge.i.i36, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i35 ], [ %107, %._crit_edge ]
+  %.013.i30 = phi ptr [ %120, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i35 ], [ %109, %._crit_edge ]
+  %storemerge12.i31 = phi i64 [ %148, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i35 ], [ %114, %._crit_edge ]
+  %116 = ptrtoint ptr %.sroa.869.0 to i64
+  %117 = ptrtoint ptr %.sroa.067.0 to i64
   %118 = sub i64 %116, %117
   %119 = ashr exact i64 %118, 5
-  %.sroa.speculated.i29 = tail call i64 @llvm.smin.i64(i64 %119, i64 %storemerge12.i28)
-  %120 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.013.i27, i64 %.sroa.speculated.i29
+  %.sroa.speculated.i32 = tail call i64 @llvm.smin.i64(i64 %119, i64 %storemerge12.i31)
+  %120 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.013.i30, i64 %.sroa.speculated.i32
   %121 = icmp sgt i64 %119, 0
-  br i1 %121, label %.lr.ph.i.i.i.i34, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i30
+  br i1 %121, label %.lr.ph.i.i.i.i37, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i33
 
-.lr.ph.i.i.i.i34:                                 ; preds = %.lr.ph.i26, %.lr.ph.i.i.i.i34
-  %.012.i.i.i.i35 = phi i64 [ %125, %.lr.ph.i.i.i.i34 ], [ %.sroa.speculated.i29, %.lr.ph.i26 ]
-  %.0811.i.i.i.i36 = phi ptr [ %124, %.lr.ph.i.i.i.i34 ], [ %.sroa.064.0, %.lr.ph.i26 ]
-  %.0910.i.i.i.i37 = phi ptr [ %123, %.lr.ph.i.i.i.i34 ], [ %.013.i27, %.lr.ph.i26 ]
-  %122 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i36, ptr noundef nonnull align 8 dereferenceable(32) %.0910.i.i.i.i37) #21, !noalias !368
-  %123 = getelementptr inbounds i8, ptr %.0910.i.i.i.i37, i64 32
-  %124 = getelementptr inbounds i8, ptr %.0811.i.i.i.i36, i64 32
-  %125 = add nsw i64 %.012.i.i.i.i35, -1
-  %126 = icmp ugt i64 %.012.i.i.i.i35, 1
-  br i1 %126, label %.lr.ph.i.i.i.i34, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i30, !llvm.loop !362
+.lr.ph.i.i.i.i37:                                 ; preds = %.lr.ph.i29, %.lr.ph.i.i.i.i37
+  %.012.i.i.i.i38 = phi i64 [ %125, %.lr.ph.i.i.i.i37 ], [ %.sroa.speculated.i32, %.lr.ph.i29 ]
+  %.0811.i.i.i.i39 = phi ptr [ %124, %.lr.ph.i.i.i.i37 ], [ %.sroa.067.0, %.lr.ph.i29 ]
+  %.0910.i.i.i.i40 = phi ptr [ %123, %.lr.ph.i.i.i.i37 ], [ %.013.i30, %.lr.ph.i29 ]
+  %122 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(32) %.0910.i.i.i.i40) #21, !noalias !368
+  %123 = getelementptr inbounds i8, ptr %.0910.i.i.i.i40, i64 32
+  %124 = getelementptr inbounds i8, ptr %.0811.i.i.i.i39, i64 32
+  %125 = add nsw i64 %.012.i.i.i.i38, -1
+  %126 = icmp ugt i64 %.012.i.i.i.i38, 1
+  br i1 %126, label %.lr.ph.i.i.i.i37, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i33, !llvm.loop !362
 
-_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i30: ; preds = %.lr.ph.i.i.i.i34, %.lr.ph.i26
-  %127 = ptrtoint ptr %.sroa.465.0 to i64
+_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i33: ; preds = %.lr.ph.i.i.i.i37, %.lr.ph.i29
+  %127 = ptrtoint ptr %.sroa.468.0 to i64
   %128 = sub i64 %117, %127
   %129 = ashr exact i64 %128, 5
-  %130 = add nsw i64 %129, %.sroa.speculated.i29
+  %130 = add nsw i64 %129, %.sroa.speculated.i32
   %131 = icmp sgt i64 %130, -1
   br i1 %131, label %132, label %138
 
-132:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i30
+132:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i33
   %133 = icmp ult i64 %130, 16
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %132
-  %135 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.064.0, i64 %.sroa.speculated.i29
-  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i32
+  %135 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.067.0, i64 %.sroa.speculated.i32
+  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i35
 
 136:                                              ; preds = %132
   %137 = lshr i64 %130, 4
   br label %140
 
-138:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i30
+138:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i33
   %139 = ashr i64 %130, 4
   br label %140
 
 140:                                              ; preds = %138, %136
   %141 = phi i64 [ %137, %136 ], [ %139, %138 ]
-  %142 = getelementptr inbounds ptr, ptr %.sroa.1268.0, i64 %141
+  %142 = getelementptr inbounds ptr, ptr %.sroa.1271.0, i64 %141
   %143 = load ptr, ptr %142, align 8, !noalias !368
   %144 = getelementptr inbounds i8, ptr %143, i64 512
   %145 = shl nsw i64 %141, 4
   %146 = sub nsw i64 %130, %145
   %147 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %143, i64 %146
-  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i32
+  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i35
 
-_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i32: ; preds = %140, %134
-  %.sroa.1268.1 = phi ptr [ %.sroa.1268.0, %134 ], [ %142, %140 ]
-  %.sroa.866.1 = phi ptr [ %.sroa.866.0, %134 ], [ %144, %140 ]
-  %.sroa.465.1 = phi ptr [ %.sroa.465.0, %134 ], [ %143, %140 ]
-  %storemerge.i.i33 = phi ptr [ %135, %134 ], [ %147, %140 ]
-  %148 = sub nsw i64 %storemerge12.i28, %.sroa.speculated.i29
+_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i35: ; preds = %140, %134
+  %.sroa.1271.1 = phi ptr [ %.sroa.1271.0, %134 ], [ %142, %140 ]
+  %.sroa.869.1 = phi ptr [ %.sroa.869.0, %134 ], [ %144, %140 ]
+  %.sroa.468.1 = phi ptr [ %.sroa.468.0, %134 ], [ %143, %140 ]
+  %storemerge.i.i36 = phi ptr [ %135, %134 ], [ %147, %140 ]
+  %148 = sub nsw i64 %storemerge12.i31, %.sroa.speculated.i32
   %149 = icmp sgt i64 %148, 0
-  br i1 %149, label %.lr.ph.i26, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit41, !llvm.loop !363
+  br i1 %149, label %.lr.ph.i29, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit44, !llvm.loop !363
 
 150:                                              ; preds = %4
   %151 = load ptr, ptr %2, align 8
@@ -16461,56 +16461,56 @@ _ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_P
   %160 = sub i64 %159, %10
   %161 = ashr exact i64 %160, 5
   %162 = icmp sgt i64 %161, 0
-  br i1 %162, label %.lr.ph.i46, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit41
+  br i1 %162, label %.lr.ph.i49, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit44
 
-.lr.ph.i46:                                       ; preds = %150, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i52
-  %.sroa.12.0 = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i52 ], [ %158, %150 ]
-  %.sroa.8.0 = phi ptr [ %.sroa.8.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i52 ], [ %156, %150 ]
-  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i52 ], [ %154, %150 ]
-  %.sroa.0.0 = phi ptr [ %storemerge.i.i53, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i52 ], [ %152, %150 ]
-  %.013.i47 = phi ptr [ %167, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i52 ], [ %9, %150 ]
-  %storemerge12.i48 = phi i64 [ %195, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i52 ], [ %161, %150 ]
+.lr.ph.i49:                                       ; preds = %150, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i55
+  %.sroa.12.0 = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i55 ], [ %158, %150 ]
+  %.sroa.8.0 = phi ptr [ %.sroa.8.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i55 ], [ %156, %150 ]
+  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i55 ], [ %154, %150 ]
+  %.sroa.0.0 = phi ptr [ %storemerge.i.i56, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i55 ], [ %152, %150 ]
+  %.013.i50 = phi ptr [ %167, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i55 ], [ %9, %150 ]
+  %storemerge12.i51 = phi i64 [ %195, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i55 ], [ %161, %150 ]
   %163 = ptrtoint ptr %.sroa.8.0 to i64
   %164 = ptrtoint ptr %.sroa.0.0 to i64
   %165 = sub i64 %163, %164
   %166 = ashr exact i64 %165, 5
-  %.sroa.speculated.i49 = tail call i64 @llvm.smin.i64(i64 %166, i64 %storemerge12.i48)
-  %167 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.013.i47, i64 %.sroa.speculated.i49
+  %.sroa.speculated.i52 = tail call i64 @llvm.smin.i64(i64 %166, i64 %storemerge12.i51)
+  %167 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.013.i50, i64 %.sroa.speculated.i52
   %168 = icmp sgt i64 %166, 0
-  br i1 %168, label %.lr.ph.i.i.i.i54, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i50
+  br i1 %168, label %.lr.ph.i.i.i.i57, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i53
 
-.lr.ph.i.i.i.i54:                                 ; preds = %.lr.ph.i46, %.lr.ph.i.i.i.i54
-  %.012.i.i.i.i55 = phi i64 [ %172, %.lr.ph.i.i.i.i54 ], [ %.sroa.speculated.i49, %.lr.ph.i46 ]
-  %.0811.i.i.i.i56 = phi ptr [ %171, %.lr.ph.i.i.i.i54 ], [ %.sroa.0.0, %.lr.ph.i46 ]
-  %.0910.i.i.i.i57 = phi ptr [ %170, %.lr.ph.i.i.i.i54 ], [ %.013.i47, %.lr.ph.i46 ]
-  %169 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i56, ptr noundef nonnull align 8 dereferenceable(32) %.0910.i.i.i.i57) #21, !noalias !371
-  %170 = getelementptr inbounds i8, ptr %.0910.i.i.i.i57, i64 32
-  %171 = getelementptr inbounds i8, ptr %.0811.i.i.i.i56, i64 32
-  %172 = add nsw i64 %.012.i.i.i.i55, -1
-  %173 = icmp ugt i64 %.012.i.i.i.i55, 1
-  br i1 %173, label %.lr.ph.i.i.i.i54, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i50, !llvm.loop !362
+.lr.ph.i.i.i.i57:                                 ; preds = %.lr.ph.i49, %.lr.ph.i.i.i.i57
+  %.012.i.i.i.i58 = phi i64 [ %172, %.lr.ph.i.i.i.i57 ], [ %.sroa.speculated.i52, %.lr.ph.i49 ]
+  %.0811.i.i.i.i59 = phi ptr [ %171, %.lr.ph.i.i.i.i57 ], [ %.sroa.0.0, %.lr.ph.i49 ]
+  %.0910.i.i.i.i60 = phi ptr [ %170, %.lr.ph.i.i.i.i57 ], [ %.013.i50, %.lr.ph.i49 ]
+  %169 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i59, ptr noundef nonnull align 8 dereferenceable(32) %.0910.i.i.i.i60) #21, !noalias !371
+  %170 = getelementptr inbounds i8, ptr %.0910.i.i.i.i60, i64 32
+  %171 = getelementptr inbounds i8, ptr %.0811.i.i.i.i59, i64 32
+  %172 = add nsw i64 %.012.i.i.i.i58, -1
+  %173 = icmp ugt i64 %.012.i.i.i.i58, 1
+  br i1 %173, label %.lr.ph.i.i.i.i57, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i53, !llvm.loop !362
 
-_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i50: ; preds = %.lr.ph.i.i.i.i54, %.lr.ph.i46
+_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i53: ; preds = %.lr.ph.i.i.i.i57, %.lr.ph.i49
   %174 = ptrtoint ptr %.sroa.4.0 to i64
   %175 = sub i64 %164, %174
   %176 = ashr exact i64 %175, 5
-  %177 = add nsw i64 %176, %.sroa.speculated.i49
+  %177 = add nsw i64 %176, %.sroa.speculated.i52
   %178 = icmp sgt i64 %177, -1
   br i1 %178, label %179, label %185
 
-179:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i50
+179:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i53
   %180 = icmp ult i64 %177, 16
   br i1 %180, label %181, label %183
 
 181:                                              ; preds = %179
-  %182 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.0.0, i64 %.sroa.speculated.i49
-  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i52
+  %182 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.0.0, i64 %.sroa.speculated.i52
+  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i55
 
 183:                                              ; preds = %179
   %184 = lshr i64 %177, 4
   br label %187
 
-185:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i50
+185:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit.i53
   %186 = ashr i64 %177, 4
   br label %187
 
@@ -16522,23 +16522,23 @@ _ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   %192 = shl nsw i64 %188, 4
   %193 = sub nsw i64 %177, %192
   %194 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %190, i64 %193
-  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i52
+  br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i55
 
-_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i52: ; preds = %187, %181
+_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i55: ; preds = %187, %181
   %.sroa.12.1 = phi ptr [ %.sroa.12.0, %181 ], [ %189, %187 ]
   %.sroa.8.1 = phi ptr [ %.sroa.8.0, %181 ], [ %191, %187 ]
   %.sroa.4.1 = phi ptr [ %.sroa.4.0, %181 ], [ %190, %187 ]
-  %storemerge.i.i53 = phi ptr [ %182, %181 ], [ %194, %187 ]
-  %195 = sub nsw i64 %storemerge12.i48, %.sroa.speculated.i49
+  %storemerge.i.i56 = phi ptr [ %182, %181 ], [ %194, %187 ]
+  %195 = sub nsw i64 %storemerge12.i51, %.sroa.speculated.i52
   %196 = icmp sgt i64 %195, 0
-  br i1 %196, label %.lr.ph.i46, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit41, !llvm.loop !363
+  br i1 %196, label %.lr.ph.i49, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit44, !llvm.loop !363
 
-_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit41: ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i32, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i52, %150, %._crit_edge
-  %.sink90 = phi ptr [ %107, %._crit_edge ], [ %152, %150 ], [ %storemerge.i.i53, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i52 ], [ %storemerge.i.i33, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i32 ]
-  %.sink = phi ptr [ %106, %._crit_edge ], [ %154, %150 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i52 ], [ %.sroa.465.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i32 ]
-  %.sroa.8.2.sink = phi ptr [ %105, %._crit_edge ], [ %156, %150 ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i52 ], [ %.sroa.866.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i32 ]
-  %.sroa.12.2.sink = phi ptr [ %104, %._crit_edge ], [ %158, %150 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i52 ], [ %.sroa.1268.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i32 ]
-  store ptr %.sink90, ptr %0, align 8
+_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit44: ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i35, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i55, %150, %._crit_edge
+  %.sink93 = phi ptr [ %107, %._crit_edge ], [ %152, %150 ], [ %storemerge.i.i56, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i55 ], [ %storemerge.i.i36, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i35 ]
+  %.sink = phi ptr [ %106, %._crit_edge ], [ %154, %150 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i55 ], [ %.sroa.468.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i35 ]
+  %.sroa.8.2.sink = phi ptr [ %105, %._crit_edge ], [ %156, %150 ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i55 ], [ %.sroa.869.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i35 ]
+  %.sroa.12.2.sink = phi ptr [ %104, %._crit_edge ], [ %158, %150 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i55 ], [ %.sroa.1271.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit.i35 ]
+  store ptr %.sink93, ptr %0, align 8
   %197 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sink, ptr %197, align 8
   %198 = getelementptr inbounds i8, ptr %0, i64 16

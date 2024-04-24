@@ -2345,15 +2345,15 @@ sw.bb7.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 
 sw.bb7.i.i.i.i.i.invoke.cont_crit_edge:           ; preds = %sw.bb7.i.i.i.i.i
   %.pre = load i32, ptr %value3.i.i.i, align 8
-  %.pre54 = ashr i32 %.pre, 31
-  %.pre55 = xor i32 %.pre54, %.pre
+  %.pre58 = ashr i32 %.pre, 31
+  %.pre59 = xor i32 %.pre58, %.pre
   br label %invoke.cont
 
 sw.default.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE11_M_allocateEm.exit
   unreachable
 
 invoke.cont:                                      ; preds = %sw.bb7.i.i.i.i.i.invoke.cont_crit_edge, %sw.bb5.i.i.i.i.i, %sw.bb3.i.i.i.i.i, %sw.bb.i.i.i.i.i
-  %retval.0.i79.i.i.i.i.pre-phi = phi i32 [ %.pre55, %sw.bb7.i.i.i.i.i.invoke.cont_crit_edge ], [ 2, %sw.bb5.i.i.i.i.i ], [ 1, %sw.bb3.i.i.i.i.i ], [ 0, %sw.bb.i.i.i.i.i ]
+  %retval.0.i79.i.i.i.i.pre-phi = phi i32 [ %.pre59, %sw.bb7.i.i.i.i.i.invoke.cont_crit_edge ], [ 2, %sw.bb5.i.i.i.i.i ], [ 1, %sw.bb3.i.i.i.i.i ], [ 0, %sw.bb.i.i.i.i.i ]
   %value.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i32 %retval.0.i79.i.i.i.i.pre-phi, ptr %value.i.i.i, align 8
   %cmp.not6.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -2645,7 +2645,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i
   store ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i, ptr %parameterMap.i.i.i.i.i.i.i, align 8, !alias.scope !24, !noalias !27
-  %9 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !24
   store ptr %9, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !24, !noalias !27
   br label %if.end.i.i.i.i.i.i.i.i.i.i
 
@@ -2714,7 +2714,7 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8prox
 
 if.then.i.i.i.i.i.i.i.i.i.i47:                    ; preds = %for.body.i.i.i19
   store ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i32, ptr %parameterMap.i.i.i.i.i.i.i22, align 8, !alias.scope !31, !noalias !34
-  %16 = load ptr, ptr %12, align 8
+  %16 = load ptr, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i.i.i33, align 8, !alias.scope !34, !noalias !31
   store ptr %16, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i32, align 8, !alias.scope !31, !noalias !34
   br label %if.end.i.i.i.i.i.i.i.i.i.i35
 

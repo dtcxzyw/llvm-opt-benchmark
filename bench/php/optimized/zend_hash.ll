@@ -10362,7 +10362,7 @@ split.loopexit:                                   ; preds = %19
 
 split:                                            ; preds = %split.loopexit, %._crit_edge
   %39 = phi ptr [ %37, %._crit_edge ], [ %38, %split.loopexit ]
-  %40 = phi ptr [ %.pre, %._crit_edge ], [ %1, %split.loopexit ]
+  %40 = phi ptr [ %.pre, %._crit_edge ], [ %24, %split.loopexit ]
   %41 = getelementptr inbounds i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 64

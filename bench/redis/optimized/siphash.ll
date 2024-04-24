@@ -65,7 +65,7 @@ for.end:                                          ; preds = %for.body, %entry
   %v2.0.lcssa = phi i64 [ %xor3, %entry ], [ %or30, %for.body ]
   %v1.0.lcssa = phi i64 [ %xor4, %entry ], [ %xor27, %for.body ]
   %v0.0.lcssa = phi i64 [ %xor5, %entry ], [ %xor31, %for.body ]
-  %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %add.ptr2, %for.body ]
+  %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %add.ptr32, %for.body ]
   switch i32 %conv, label %sw.epilog [
     i32 7, label %sw.bb
     i32 6, label %sw.bb36
@@ -255,7 +255,7 @@ for.body:                                         ; preds = %entry, %for.body
   %25 = zext <4 x i8> %.v to <4 x i64>
   %26 = shl nuw <4 x i64> %25, <i64 32, i64 40, i64 48, i64 56>
   %27 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %26)
-  %op.rdx = or i64 %27, %or25
+  %op.rdx = or disjoint i64 %27, %or25
   %xor50 = xor i64 %op.rdx, %v3.0201
   %add = add i64 %v0.0204, %v1.0203
   %or52 = tail call i64 @llvm.fshl.i64(i64 %v1.0203, i64 %v1.0203, i64 13)
@@ -281,7 +281,7 @@ for.end:                                          ; preds = %for.body, %entry
   %v2.0.lcssa = phi i64 [ %xor3, %entry ], [ %or74, %for.body ]
   %v1.0.lcssa = phi i64 [ %xor4, %entry ], [ %xor71, %for.body ]
   %v0.0.lcssa = phi i64 [ %xor5, %entry ], [ %xor75, %for.body ]
-  %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %add.ptr2, %for.body ]
+  %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %add.ptr76, %for.body ]
   switch i32 %conv, label %sw.epilog [
     i32 7, label %sw.bb
     i32 6, label %sw.bb83

@@ -115,7 +115,7 @@ thread-pre-split:                                 ; preds = %9
   br label %58
 
 58:                                               ; preds = %57, %52
-  %59 = phi ptr [ %.pre, %57 ], [ %54, %52 ]
+  %59 = phi ptr [ %.pre, %57 ], [ %55, %52 ]
   call void @acpi_ut_remove_reference(ptr noundef %59) #3
   %60 = load ptr, ptr %5, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 12

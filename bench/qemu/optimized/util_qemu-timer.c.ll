@@ -721,8 +721,8 @@ while.end:                                        ; preds = %entry
   br i1 %tobool.not8.i, label %timer_del_locked.exit, label %if.end.i.preheader
 
 if.end.i.preheader:                               ; preds = %while.end
-  %cmp.i6 = icmp eq ptr %3, %ts
-  br i1 %cmp.i6, label %while.end.i, label %if.end4.i
+  %cmp.i7 = icmp eq ptr %3, %ts
+  br i1 %cmp.i7, label %while.end.i, label %if.end4.i
 
 if.end.i:                                         ; preds = %if.end4.i
   %cmp.i = icmp eq ptr %7, %ts
@@ -733,8 +733,9 @@ while.end.i.loopexit:                             ; preds = %if.end.i
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.i.loopexit, %if.end.i.preheader
+  %.lcssa = phi ptr [ %3, %if.end.i.preheader ], [ %7, %while.end.i.loopexit ]
   %pt.09.i.lcssa = phi ptr [ %active_timers.i, %if.end.i.preheader ], [ %next5.i.le, %while.end.i.loopexit ]
-  %next.i = getelementptr inbounds i8, ptr %ts, i64 32
+  %next.i = getelementptr inbounds i8, ptr %.lcssa, i64 32
   %4 = load ptr, ptr %next.i, align 8
   %5 = ptrtoint ptr %4 to i64
   store atomic i64 %5, ptr %pt.09.i.lcssa monotonic, align 8
@@ -771,8 +772,8 @@ entry:
   br i1 %tobool.not8.i, label %timer_mod_ns_locked.exit, label %if.end.i.preheader
 
 if.end.i.preheader:                               ; preds = %entry
-  %cmp.i15 = icmp eq ptr %3, %ts
-  br i1 %cmp.i15, label %while.end.i, label %if.end4.i
+  %cmp.i16 = icmp eq ptr %3, %ts
+  br i1 %cmp.i16, label %while.end.i, label %if.end4.i
 
 if.end.i:                                         ; preds = %if.end4.i
   %cmp.i = icmp eq ptr %7, %ts
@@ -783,8 +784,9 @@ while.end.i.loopexit:                             ; preds = %if.end.i
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.i.loopexit, %if.end.i.preheader
+  %.lcssa = phi ptr [ %3, %if.end.i.preheader ], [ %7, %while.end.i.loopexit ]
   %pt.09.i.lcssa = phi ptr [ %active_timers.i, %if.end.i.preheader ], [ %next5.i.le, %while.end.i.loopexit ]
-  %next.i = getelementptr inbounds i8, ptr %ts, i64 32
+  %next.i = getelementptr inbounds i8, ptr %.lcssa, i64 32
   %4 = load ptr, ptr %next.i, align 8
   %5 = ptrtoint ptr %4 to i64
   store atomic i64 %5, ptr %pt.09.i.lcssa monotonic, align 8
@@ -805,8 +807,8 @@ timer_del_locked.exit:                            ; preds = %if.end4.i, %while.e
 
 timer_expired_ns.exit.i.preheader:                ; preds = %timer_del_locked.exit
   %8 = load i64, ptr %.pr, align 8
-  %cmp.i.not.i16 = icmp sgt i64 %8, %expire_time
-  br i1 %cmp.i.not.i16, label %timer_mod_ns_locked.exit, label %for.cond.i
+  %cmp.i.not.i18 = icmp sgt i64 %8, %expire_time
+  br i1 %cmp.i.not.i18, label %timer_mod_ns_locked.exit, label %for.cond.i
 
 for.cond.i:                                       ; preds = %timer_expired_ns.exit.i.preheader, %timer_expired_ns.exit.i
   %9 = phi ptr [ %10, %timer_expired_ns.exit.i ], [ %.pr, %timer_expired_ns.exit.i.preheader ]
@@ -886,8 +888,8 @@ entry:
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.3, i32 noundef 122) #17
   %active_timers.i = getelementptr inbounds i8, ptr %0, i64 56
-  %next.i = getelementptr inbounds i8, ptr %ts, i64 32
   %cond.i = tail call i64 @llvm.smax.i64(i64 %expire_time, i64 0)
+  %next2.i = getelementptr inbounds i8, ptr %ts, i64 32
   %3 = ptrtoint ptr %ts to i64
   %4 = load i64, ptr %ts, align 8
   %cmp = icmp eq i64 %4, -1
@@ -909,8 +911,8 @@ if.then7:                                         ; preds = %if.then
   br i1 %tobool.not8.i, label %qemu_lockable_auto_unlock.exit, label %if.end.i.preheader
 
 if.end.i.preheader:                               ; preds = %if.then7
-  %cmp.i23 = icmp eq ptr %5, %ts
-  br i1 %cmp.i23, label %while.end.i, label %if.end4.i
+  %cmp.i24 = icmp eq ptr %5, %ts
+  br i1 %cmp.i24, label %while.end.i, label %if.end4.i
 
 if.end.i:                                         ; preds = %if.end4.i
   %cmp.i = icmp eq ptr %9, %ts
@@ -921,7 +923,9 @@ while.end.i.loopexit:                             ; preds = %if.end.i
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.i.loopexit, %if.end.i.preheader
+  %.lcssa = phi ptr [ %5, %if.end.i.preheader ], [ %9, %while.end.i.loopexit ]
   %pt.09.i.lcssa = phi ptr [ %active_timers.i, %if.end.i.preheader ], [ %next5.i.le, %while.end.i.loopexit ]
+  %next.i = getelementptr inbounds i8, ptr %.lcssa, i64 32
   %6 = load ptr, ptr %next.i, align 8
   %7 = ptrtoint ptr %6 to i64
   store atomic i64 %7, ptr %pt.09.i.lcssa monotonic, align 8
@@ -941,8 +945,8 @@ if.end:                                           ; preds = %if.end4.i, %while.e
 
 timer_expired_ns.exit.i.preheader:                ; preds = %if.end
   %10 = load i64, ptr %.pr, align 8
-  %cmp.i.not.i24 = icmp sgt i64 %10, %expire_time
-  br i1 %cmp.i.not.i24, label %qemu_lockable_auto_unlock.exit, label %for.cond.i
+  %cmp.i.not.i26 = icmp sgt i64 %10, %expire_time
+  br i1 %cmp.i.not.i26, label %qemu_lockable_auto_unlock.exit, label %for.cond.i
 
 for.cond.i:                                       ; preds = %timer_expired_ns.exit.i.preheader, %timer_expired_ns.exit.i
   %11 = phi ptr [ %12, %timer_expired_ns.exit.i ], [ %.pr, %timer_expired_ns.exit.i.preheader ]
@@ -964,7 +968,7 @@ qemu_lockable_auto_unlock.exit:                   ; preds = %qemu_lockable_auto_
   %pt.0.lcssa.i = phi ptr [ %active_timers.i, %if.end ], [ %active_timers.i, %timer_expired_ns.exit.i.preheader ], [ %active_timers.i, %if.then7 ], [ %next.i11.le, %qemu_lockable_auto_unlock.exit.loopexit ]
   store i64 %cond.i, ptr %ts, align 8
   %14 = load ptr, ptr %pt.0.lcssa.i, align 8
-  store ptr %14, ptr %next.i, align 8
+  store ptr %14, ptr %next2.i, align 8
   store atomic i64 %3, ptr %pt.0.lcssa.i monotonic, align 8
   %cmp6.i = icmp eq ptr %pt.0.lcssa.i, %active_timers.i
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.3, i32 noundef 132) #17
@@ -1398,7 +1402,7 @@ if.else.i:                                        ; preds = %for.body
 
 if.end.i:                                         ; preds = %for.body
   %type1.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %1, ptr %type1.i, align 8
   %cmp2.i = icmp ne i64 %indvars.iv, 1
   %enabled.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12

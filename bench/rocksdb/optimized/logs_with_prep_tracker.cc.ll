@@ -223,11 +223,10 @@ lpad:                                             ; preds = %if.then14
   resume { ptr, i32 } %4
 
 if.then14:                                        ; preds = %invoke.cont3, %invoke.cont
-  %rit.sroa.0.0.lcssa = phi ptr [ %rit.sroa.0.0, %invoke.cont3 ], [ %1, %invoke.cont ]
   store i64 %log, ptr %ref.tmp18, align 8
   %cnt20 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
   store i64 1, ptr %cnt20, align 8
-  %call.i7 = invoke ptr @_ZNSt6vectorIN7rocksdb19LogsWithPrepTracker6LogCntESaIS2_EE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %rit.sroa.0.0.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18)
+  %call.i7 = invoke ptr @_ZNSt6vectorIN7rocksdb19LogsWithPrepTracker6LogCntESaIS2_EE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %rit.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18)
           to label %if.end25 unwind label %lpad
 
 if.end25:                                         ; preds = %if.then14, %invoke.cont10
@@ -440,7 +439,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN7rocksdb19LogsWithPrepTracker6LogCntE
   br label %_ZNSt6vectorIN7rocksdb19LogsWithPrepTracker6LogCntESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit
 
 _ZNSt6vectorIN7rocksdb19LogsWithPrepTracker6LogCntESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit: ; preds = %cleanup.cont, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN7rocksdb19LogsWithPrepTracker6LogCntESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
-  %28 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN7rocksdb19LogsWithPrepTracker6LogCntESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %add.ptr.i.i.i17, %cleanup.cont ]
+  %28 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN7rocksdb19LogsWithPrepTracker6LogCntESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %27, %cleanup.cont ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %28, i64 -16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %storemerge50, %incdec.ptr.i.i
@@ -717,7 +716,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.then
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__position.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__v, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %__v, i64 16, i1 false)
   %3 = load ptr, ptr %_M_finish, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %incdec.ptr, ptr %_M_finish, align 8

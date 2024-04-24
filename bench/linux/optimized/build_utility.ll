@@ -3253,7 +3253,7 @@ define dso_local i32 @wake_bit_function(ptr noundef %0, i32 noundef %1, i32 noun
 
 15:                                               ; preds = %9
   %16 = sext i32 %11 to i64
-  %17 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %6, i64 %16) #42, !srcloc !42
+  %17 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %7, i64 %16) #42, !srcloc !42
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i8 %17, 0
@@ -3337,10 +3337,9 @@ define dso_local i32 @__wait_on_bit(ptr noundef %0, ptr noundef %1, ptr nocaptur
   br i1 %23, label %24, label %.preheader, !llvm.loop !88
 
 24:                                               ; preds = %19, %.preheader
-  %.lcssa = phi ptr [ %17, %19 ], [ %7, %.preheader ]
-  %25 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %25 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %6, ptr %25, align 8
-  store ptr %.lcssa, ptr %6, align 8
+  store ptr %17, ptr %6, align 8
   store ptr %16, ptr %8, align 8
   store volatile ptr %6, ptr %16, align 8
   br label %26
@@ -3434,10 +3433,9 @@ define dso_local void @prepare_to_wait(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %20, label %21, label %12, !llvm.loop !88
 
 21:                                               ; preds = %16, %12
-  %.lcssa = phi ptr [ %14, %16 ], [ %11, %12 ]
-  %22 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %22 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %7, ptr %22, align 8
-  store ptr %.lcssa, ptr %7, align 8
+  store ptr %14, ptr %7, align 8
   %23 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %13, ptr %23, align 8
   store volatile ptr %7, ptr %13, align 8
@@ -4260,11 +4258,10 @@ define dso_local void @add_wait_queue(ptr noundef %0, ptr noundef %1) #0 align 1
   br i1 %15, label %16, label %7, !llvm.loop !88
 
 16:                                               ; preds = %11, %7
-  %.lcssa = phi ptr [ %9, %11 ], [ %6, %7 ]
   %17 = getelementptr inbounds i8, ptr %1, i64 24
-  %18 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %18 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %17, ptr %18, align 8
-  store ptr %.lcssa, ptr %17, align 8
+  store ptr %9, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %8, ptr %19, align 8
   store volatile ptr %17, ptr %8, align 8
@@ -4314,11 +4311,10 @@ define dso_local void @add_wait_queue_priority(ptr noundef %0, ptr noundef %1) #
   br i1 %15, label %16, label %7, !llvm.loop !88
 
 16:                                               ; preds = %11, %7
-  %.lcssa = phi ptr [ %9, %11 ], [ %6, %7 ]
   %17 = getelementptr inbounds i8, ptr %1, i64 24
-  %18 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %18 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %17, ptr %18, align 8
-  store ptr %.lcssa, ptr %17, align 8
+  store ptr %9, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %8, ptr %19, align 8
   store volatile ptr %17, ptr %8, align 8
@@ -4703,13 +4699,12 @@ define dso_local noundef i64 @prepare_to_wait_event(ptr noundef %0, ptr noundef 
   br i1 %50, label %51, label %.preheader, !llvm.loop !88
 
 51:                                               ; preds = %46, %.preheader
-  %.lcssa = phi ptr [ %44, %46 ], [ %39, %.preheader ]
-  %52 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %52 = getelementptr inbounds i8, ptr %44, i64 8
   br label %53
 
 53:                                               ; preds = %51, %40
   %54 = phi ptr [ %52, %51 ], [ %41, %40 ]
-  %55 = phi ptr [ %.lcssa, %51 ], [ %39, %40 ]
+  %55 = phi ptr [ %44, %51 ], [ %39, %40 ]
   %56 = phi ptr [ %43, %51 ], [ %42, %40 ]
   store ptr %32, ptr %54, align 8
   store ptr %55, ptr %32, align 8

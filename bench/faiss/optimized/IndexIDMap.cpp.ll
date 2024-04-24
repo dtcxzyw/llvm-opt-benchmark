@@ -703,7 +703,7 @@ define weak_odr void @_ZN5faiss18IndexIDMapTemplateINS_5IndexEE10merge_fromERS1_
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %16, %17
-  br i1 %.not, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %18 = getelementptr inbounds i8, ptr %0, i64 56
@@ -797,15 +797,17 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %28, %_ZNSt6vectorIl
   %62 = icmp ult i64 %55, %61
   br i1 %62, label %21, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
-  %.not.i.i11 = icmp eq ptr %56, %57
+._crit_edge:                                      ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit, %3
+  %.lcssa14 = phi ptr [ %16, %3 ], [ %56, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
+  %.lcssa = phi ptr [ %17, %3 ], [ %57, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
+  %.not.i.i11 = icmp eq ptr %.lcssa14, %.lcssa
   br i1 %.not.i.i11, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit, label %63
 
 63:                                               ; preds = %._crit_edge
-  store ptr %57, ptr %15, align 8
+  store ptr %.lcssa, ptr %15, align 8
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
-_ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %3, %._crit_edge, %63
+_ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %._crit_edge, %63
   %64 = load ptr, ptr %7, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 16
   %66 = load i64, ptr %65, align 8
@@ -1329,7 +1331,7 @@ define weak_odr void @_ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEE10merge_fr
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %16, %17
-  br i1 %.not, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %18 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1423,15 +1425,17 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %28, %_ZNSt6vectorIl
   %62 = icmp ult i64 %55, %61
   br i1 %62, label %21, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
-  %.not.i.i11 = icmp eq ptr %56, %57
+._crit_edge:                                      ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit, %3
+  %.lcssa14 = phi ptr [ %16, %3 ], [ %56, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
+  %.lcssa = phi ptr [ %17, %3 ], [ %57, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
+  %.not.i.i11 = icmp eq ptr %.lcssa14, %.lcssa
   br i1 %.not.i.i11, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit, label %63
 
 63:                                               ; preds = %._crit_edge
-  store ptr %57, ptr %15, align 8
+  store ptr %.lcssa, ptr %15, align 8
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
-_ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %3, %._crit_edge, %63
+_ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %._crit_edge, %63
   %64 = load ptr, ptr %7, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 16
   %66 = load i64, ptr %65, align 8

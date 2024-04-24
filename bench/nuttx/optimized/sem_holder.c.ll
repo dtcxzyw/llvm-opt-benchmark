@@ -480,7 +480,7 @@ nxsem_foreachholder.exit:                         ; preds = %nxsem_restoreholder
   br i1 %61, label %62, label %81
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %54, i64 56
+  %63 = getelementptr inbounds i8, ptr %56, i64 56
   %64 = load ptr, ptr %63, align 8
   %.not28.i.i.i31 = icmp eq ptr %64, null
   br i1 %.not28.i.i.i31, label %.loopexit25.i.i.i39, label %.lr.ph.i.preheader.i.i32
@@ -538,19 +538,19 @@ nxsem_freeholder.exit.i.i42:                      ; preds = %74, %78
   br label %81
 
 81:                                               ; preds = %nxsem_freeholder.exit.i.i42, %58
-  %82 = getelementptr inbounds i8, ptr %54, i64 49
+  %82 = getelementptr inbounds i8, ptr %56, i64 49
   %83 = load i8, ptr %82, align 1
-  %84 = getelementptr inbounds i8, ptr %54, i64 50
+  %84 = getelementptr inbounds i8, ptr %56, i64 50
   %85 = load i8, ptr %84, align 2
   %..i.i.i17 = tail call i8 @llvm.umax.i8(i8 %83, i8 %85)
-  %86 = getelementptr inbounds i8, ptr %54, i64 28
+  %86 = getelementptr inbounds i8, ptr %56, i64 28
   %87 = load i8, ptr %86, align 4
   %.not.i5.i.i18 = icmp eq i8 %87, %..i.i.i17
   br i1 %.not.i5.i.i18, label %nxsem_foreachholder.exit10, label %88
 
 88:                                               ; preds = %81
   %89 = zext i8 %..i.i.i17 to i32
-  %90 = getelementptr inbounds i8, ptr %54, i64 56
+  %90 = getelementptr inbounds i8, ptr %56, i64 56
   %.01523.i.i.i19 = load ptr, ptr %90, align 8
   %.not2124.i.i.i20 = icmp eq ptr %.01523.i.i.i19, null
   br i1 %.not2124.i.i.i20, label %._crit_edge.i.i.i29, label %.lr.ph.i6.i.i21
@@ -581,7 +581,7 @@ nxsem_freeholder.exit.i.i42:                      ; preds = %74, %78
 
 ._crit_edge.i.i.i29:                              ; preds = %99, %88
   %.0.lcssa.i.i.i30 = phi i32 [ %89, %88 ], [ %.1.i7.i.i26, %99 ]
-  %101 = tail call i32 @nxsched_set_priority(ptr noundef %54, i32 noundef %.0.lcssa.i.i.i30) #7
+  %101 = tail call i32 @nxsched_set_priority(ptr noundef %56, i32 noundef %.0.lcssa.i.i.i30) #7
   br label %nxsem_foreachholder.exit10
 
 nxsem_restoreholderprio_self.exit:                ; preds = %.lr.ph.i7

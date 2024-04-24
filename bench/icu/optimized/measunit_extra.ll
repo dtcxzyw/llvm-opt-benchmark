@@ -352,7 +352,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -411,7 +411,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -3234,7 +3234,7 @@ if.else.i:                                        ; preds = %if.end6.i
   br i1 %or.cond164.i, label %if.end22.i, label %nrvo.skipdtor.sink.split
 
 if.end22.i:                                       ; preds = %if.else.i
-  %trunc.i = trunc i32 %match.1.i.i to i8
+  %trunc.i = trunc nuw i32 %match.1.i.i to i8
   switch i8 %trunc.i, label %sw.epilog.i [
     i8 -128, label %if.end26.i
     i8 -127, label %sw.bb29.i
@@ -3905,7 +3905,7 @@ entry:
   %call = tail call { i64, i32 } @_ZN6icu_7514SingleUnitImpl14forMeasureUnitERKNS_11MeasureUnitER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(19) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %call.fca.0.extract = extractvalue { i64, i32 } %call, 0
   %ref.tmp.sroa.1.0.extract.shift = lshr i64 %call.fca.0.extract, 32
-  %ref.tmp.sroa.1.0.extract.trunc = trunc i64 %ref.tmp.sroa.1.0.extract.shift to i32
+  %ref.tmp.sroa.1.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.1.0.extract.shift to i32
   ret i32 %ref.tmp.sroa.1.0.extract.trunc
 }
 
@@ -4920,7 +4920,7 @@ _ZN6icu_7515MaybeStackArrayIPNS_14SingleUnitImplELi8EEC2EOS3_.exit: ; preds = %e
   store ptr %stackArray6.i, ptr %__tmp, align 8
   %conv.i = sext i32 %1 to i64
   %mul.i = shl nsw i64 %conv.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray6.i, ptr nonnull align 8 %0, i64 %mul.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray6.i, ptr nonnull align 8 %stackArray.i, i64 %mul.i, i1 false)
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %invoke.cont.i, label %if.then.i.i
 
@@ -4956,7 +4956,7 @@ _ZN6icu_7515MaybeStackArrayIPNS_14SingleUnitImplELi8EEaSEOS3_.exit: ; preds = %i
   %8 = load i32, ptr %capacity.i3, align 8
   %conv.i9 = sext i32 %8 to i64
   %mul.i10 = shl nsw i64 %conv.i9, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray.i, ptr nonnull align 8 %5, i64 %mul.i10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray.i, ptr nonnull align 8 %stackArray.i5, i64 %mul.i10, i1 false)
   %.pr33 = load i8, ptr %needToRelease.i4, align 4
   %tobool.not.i.i12 = icmp eq i8 %.pr33, 0
   br i1 %tobool.not.i.i12, label %invoke.cont.i15, label %if.then.i.i13
@@ -4996,7 +4996,7 @@ _ZN6icu_7515MaybeStackArrayIPNS_14SingleUnitImplELi8EEaSEOS3_.exit26: ; preds = 
   br i1 %tobool.not.i.i28, label %_ZN6icu_7515MaybeStackArrayIPNS_14SingleUnitImplELi8EED2Ev.exit, label %if.then.i.i29
 
 if.then.i.i29:                                    ; preds = %_ZN6icu_7515MaybeStackArrayIPNS_14SingleUnitImplELi8EEaSEOS3_.exit26
-  invoke void @uprv_free_75(ptr noundef nonnull %stackArray.i19)
+  invoke void @uprv_free_75(ptr noundef %12)
           to label %_ZN6icu_7515MaybeStackArrayIPNS_14SingleUnitImplELi8EED2Ev.exit unwind label %terminate.lpad.i30
 
 terminate.lpad.i30:                               ; preds = %if.then.i.i29

@@ -177,7 +177,7 @@ define ptr @zend_get_exception_base(ptr nocapture noundef readonly %0) local_unn
   br label %i_get_exception_base.exit
 
 i_get_exception_base.exit:                        ; preds = %1, %5
-  %7 = phi ptr [ %.val, %1 ], [ %.pre.i, %5 ]
+  %7 = phi ptr [ %3, %1 ], [ %.pre.i, %5 ]
   ret ptr %7
 }
 
@@ -250,7 +250,7 @@ define void @zend_exception_set_previous(ptr noundef %0, ptr noundef %1) local_u
   br label %i_get_exception_base.exit
 
 i_get_exception_base.exit:                        ; preds = %29, %32
-  %34 = phi ptr [ %.val53, %29 ], [ %.pre.i, %32 ]
+  %34 = phi ptr [ %30, %29 ], [ %.pre.i, %32 ]
   %35 = load ptr, ptr @zend_known_strings, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 184
   %37 = load ptr, ptr %36, align 8
@@ -308,7 +308,7 @@ i_get_exception_base.exit:                        ; preds = %29, %32
 
 i_get_exception_base.exit57:                      ; preds = %57, %61
   %63 = phi ptr [ %42, %57 ], [ %.pre, %61 ]
-  %64 = phi ptr [ %.val52, %57 ], [ %.pre.i56, %61 ]
+  %64 = phi ptr [ %59, %57 ], [ %.pre.i56, %61 ]
   %65 = load ptr, ptr @zend_known_strings, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 184
   %67 = load ptr, ptr %66, align 8
@@ -336,7 +336,7 @@ i_get_exception_base.exit57:                      ; preds = %57, %61
 
 i_get_exception_base.exit61:                      ; preds = %._crit_edge, %76
   %78 = phi ptr [ %72, %._crit_edge ], [ %.pre70, %76 ]
-  %79 = phi ptr [ %.val, %._crit_edge ], [ %.pre.i60, %76 ]
+  %79 = phi ptr [ %74, %._crit_edge ], [ %.pre.i60, %76 ]
   %80 = load ptr, ptr @zend_known_strings, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 184
   %82 = load ptr, ptr %81, align 8
@@ -615,7 +615,7 @@ define noundef i32 @zend_exception_error(ptr noundef %0, i32 noundef %1) local_u
   br label %i_get_exception_base.exit
 
 i_get_exception_base.exit:                        ; preds = %11, %14
-  %16 = phi ptr [ %.val228, %11 ], [ %.pre.i, %14 ]
+  %16 = phi ptr [ %12, %11 ], [ %.pre.i, %14 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 200
   %19 = load ptr, ptr %18, align 8
@@ -658,7 +658,7 @@ i_get_exception_base.exit:                        ; preds = %11, %14
   br label %i_get_exception_base.exit232
 
 i_get_exception_base.exit232:                     ; preds = %34, %38
-  %40 = phi ptr [ %.val227, %34 ], [ %.pre.i231, %38 ]
+  %40 = phi ptr [ %36, %34 ], [ %.pre.i231, %38 ]
   %41 = load ptr, ptr @zend_known_strings, align 8
   %42 = load ptr, ptr %41, align 8
   %43 = call ptr @zend_read_property_ex(ptr noundef %40, ptr noundef nonnull %0, ptr noundef %42, i1 noundef zeroext true, ptr noundef nonnull %3) #15
@@ -700,7 +700,7 @@ i_get_exception_base.exit232:                     ; preds = %34, %38
   br label %i_get_exception_base.exit236
 
 i_get_exception_base.exit236:                     ; preds = %57, %61
-  %63 = phi ptr [ %.val226, %57 ], [ %.pre.i235, %61 ]
+  %63 = phi ptr [ %59, %57 ], [ %.pre.i235, %61 ]
   %64 = load ptr, ptr @zend_known_strings, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
@@ -819,7 +819,7 @@ zend_observer_error_notify.exit:                  ; preds = %75, %83
   br label %i_get_exception_base.exit240
 
 i_get_exception_base.exit240:                     ; preds = %120, %123
-  %125 = phi ptr [ %.val225, %120 ], [ %.pre.i239, %123 ]
+  %125 = phi ptr [ %121, %120 ], [ %.pre.i239, %123 ]
   %126 = load ptr, ptr @zend_known_strings, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 216
   %128 = load ptr, ptr %127, align 8
@@ -865,7 +865,7 @@ i_get_exception_base.exit240:                     ; preds = %120, %123
   br label %i_get_exception_base.exit244
 
 i_get_exception_base.exit244:                     ; preds = %.critedge2, %144
-  %146 = phi ptr [ %.val224, %.critedge2 ], [ %.pre.i243, %144 ]
+  %146 = phi ptr [ %142, %.critedge2 ], [ %.pre.i243, %144 ]
   %147 = load ptr, ptr @zend_known_strings, align 8
   %148 = load ptr, ptr %147, align 8
   %149 = call ptr @zend_read_property_ex(ptr noundef %146, ptr noundef nonnull %130, ptr noundef %148, i1 noundef zeroext true, ptr noundef nonnull %3) #15
@@ -907,7 +907,7 @@ i_get_exception_base.exit244:                     ; preds = %.critedge2, %144
   br label %i_get_exception_base.exit248
 
 i_get_exception_base.exit248:                     ; preds = %163, %167
-  %169 = phi ptr [ %.val223, %163 ], [ %.pre.i247, %167 ]
+  %169 = phi ptr [ %165, %163 ], [ %.pre.i247, %167 ]
   %170 = load ptr, ptr @zend_known_strings, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 8
   %172 = load ptr, ptr %171, align 8
@@ -991,7 +991,7 @@ i_get_exception_base.exit248:                     ; preds = %163, %167
   br label %i_get_exception_base.exit252
 
 i_get_exception_base.exit252:                     ; preds = %211, %214
-  %216 = phi ptr [ %.val222, %211 ], [ %.pre.i251, %214 ]
+  %216 = phi ptr [ %212, %211 ], [ %.pre.i251, %214 ]
   %217 = load ptr, ptr @zend_known_strings, align 8
   %218 = getelementptr inbounds i8, ptr %217, i64 216
   %219 = load ptr, ptr %218, align 8
@@ -1034,7 +1034,7 @@ i_get_exception_base.exit252:                     ; preds = %211, %214
   br label %i_get_exception_base.exit256
 
 i_get_exception_base.exit256:                     ; preds = %234, %238
-  %240 = phi ptr [ %.val221, %234 ], [ %.pre.i255, %238 ]
+  %240 = phi ptr [ %236, %234 ], [ %.pre.i255, %238 ]
   %241 = load ptr, ptr @zend_known_strings, align 8
   %242 = load ptr, ptr %241, align 8
   %243 = call ptr @zend_read_property_ex(ptr noundef %240, ptr noundef nonnull %0, ptr noundef %242, i1 noundef zeroext true, ptr noundef nonnull %3) #15
@@ -1076,7 +1076,7 @@ i_get_exception_base.exit256:                     ; preds = %234, %238
   br label %i_get_exception_base.exit260
 
 i_get_exception_base.exit260:                     ; preds = %257, %261
-  %263 = phi ptr [ %.val, %257 ], [ %.pre.i259, %261 ]
+  %263 = phi ptr [ %259, %257 ], [ %.pre.i259, %261 ]
   %264 = load ptr, ptr @zend_known_strings, align 8
   %265 = getelementptr inbounds i8, ptr %264, i64 8
   %266 = load ptr, ptr %265, align 8
@@ -1422,7 +1422,7 @@ define hidden void @zim_Exception___construct(ptr nocapture noundef readonly %0,
   br label %i_get_exception_base.exit
 
 i_get_exception_base.exit:                        ; preds = %2, %12
-  %14 = phi ptr [ %.val, %2 ], [ %.pre.i, %12 ]
+  %14 = phi ptr [ %10, %2 ], [ %.pre.i, %12 ]
   %15 = getelementptr inbounds i8, ptr %0, i64 44
   %16 = load i32, ptr %15, align 4
   %17 = load ptr, ptr @zend_ce_throwable, align 8
@@ -1526,7 +1526,7 @@ define hidden void @zim_Exception___wakeup(ptr nocapture noundef readonly %0, pt
 
 i_get_exception_base.exit:                        ; preds = %8, %13
   %15 = phi ptr [ %9, %8 ], [ %.pre, %13 ]
-  %16 = phi ptr [ %.val25, %8 ], [ %.pre.i, %13 ]
+  %16 = phi ptr [ %11, %8 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 200
   %19 = load ptr, ptr %18, align 8
@@ -1556,7 +1556,7 @@ i_get_exception_base.exit:                        ; preds = %8, %13
 
 i_get_exception_base.exit29:                      ; preds = %23, %28
   %30 = phi ptr [ %24, %23 ], [ %.pre38, %28 ]
-  %31 = phi ptr [ %.val24, %23 ], [ %.pre.i28, %28 ]
+  %31 = phi ptr [ %26, %23 ], [ %.pre.i28, %28 ]
   %32 = load ptr, ptr @zend_known_strings, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 200
   %34 = load ptr, ptr %33, align 8
@@ -1584,7 +1584,7 @@ i_get_exception_base.exit29:                      ; preds = %23, %28
 
 i_get_exception_base.exit33:                      ; preds = %38, %43
   %45 = phi ptr [ %39, %38 ], [ %.pre39, %43 ]
-  %46 = phi ptr [ %.val23, %38 ], [ %.pre.i32, %43 ]
+  %46 = phi ptr [ %41, %38 ], [ %.pre.i32, %43 ]
   %47 = load ptr, ptr @zend_known_strings, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 192
   %49 = load ptr, ptr %48, align 8
@@ -1614,7 +1614,7 @@ i_get_exception_base.exit33:                      ; preds = %38, %43
 
 i_get_exception_base.exit37:                      ; preds = %53, %58
   %60 = phi ptr [ %54, %53 ], [ %.pre40, %58 ]
-  %61 = phi ptr [ %.val, %53 ], [ %.pre.i36, %58 ]
+  %61 = phi ptr [ %56, %53 ], [ %.pre.i36, %58 ]
   %62 = load ptr, ptr @zend_known_strings, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 192
   %64 = load ptr, ptr %63, align 8
@@ -1835,7 +1835,7 @@ define hidden void @zim_Exception_getFile(ptr nocapture noundef readonly %0, ptr
 
 i_get_exception_base.exit:                        ; preds = %7, %13
   %15 = phi ptr [ %9, %7 ], [ %.pre, %13 ]
-  %16 = phi ptr [ %.val, %7 ], [ %.pre.i, %13 ]
+  %16 = phi ptr [ %11, %7 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
   %18 = load ptr, ptr %17, align 8
   %19 = call ptr @zend_read_property_ex(ptr noundef %16, ptr noundef %15, ptr noundef %18, i1 noundef zeroext false, ptr noundef nonnull %3) #15
@@ -1909,7 +1909,7 @@ define hidden void @zim_Exception_getLine(ptr nocapture noundef readonly %0, ptr
 
 i_get_exception_base.exit:                        ; preds = %7, %13
   %15 = phi ptr [ %9, %7 ], [ %.pre, %13 ]
-  %16 = phi ptr [ %.val, %7 ], [ %.pre.i, %13 ]
+  %16 = phi ptr [ %11, %7 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -1969,7 +1969,7 @@ define hidden void @zim_Exception_getMessage(ptr nocapture noundef readonly %0, 
 
 i_get_exception_base.exit:                        ; preds = %7, %13
   %15 = phi ptr [ %9, %7 ], [ %.pre, %13 ]
-  %16 = phi ptr [ %.val, %7 ], [ %.pre.i, %13 ]
+  %16 = phi ptr [ %11, %7 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 200
   %19 = load ptr, ptr %18, align 8
@@ -2044,7 +2044,7 @@ define hidden void @zim_Exception_getCode(ptr nocapture noundef readonly %0, ptr
 
 i_get_exception_base.exit:                        ; preds = %7, %13
   %15 = phi ptr [ %9, %7 ], [ %.pre, %13 ]
-  %16 = phi ptr [ %.val, %7 ], [ %.pre.i, %13 ]
+  %16 = phi ptr [ %11, %7 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 192
   %19 = load ptr, ptr %18, align 8
@@ -2112,7 +2112,7 @@ define hidden void @zim_Exception_getTrace(ptr nocapture noundef readonly %0, pt
 
 i_get_exception_base.exit:                        ; preds = %7, %13
   %15 = phi ptr [ %9, %7 ], [ %.pre, %13 ]
-  %16 = phi ptr [ %.val, %7 ], [ %.pre.i, %13 ]
+  %16 = phi ptr [ %11, %7 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 224
   %19 = load ptr, ptr %18, align 8
@@ -2180,7 +2180,7 @@ define hidden void @zim_ErrorException_getSeverity(ptr nocapture noundef readonl
 
 i_get_exception_base.exit:                        ; preds = %7, %13
   %15 = phi ptr [ %9, %7 ], [ %.pre, %13 ]
-  %16 = phi ptr [ %.val, %7 ], [ %.pre.i, %13 ]
+  %16 = phi ptr [ %11, %7 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 208
   %19 = load ptr, ptr %18, align 8
@@ -2321,7 +2321,7 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   %.0568.i = phi i64 [ %52, %45 ], [ %58, %53 ]
   %.0567.i = phi ptr [ %14, %45 ], [ %57, %53 ]
   %54 = urem i64 %.0568.i, 10
-  %55 = trunc i64 %54 to i8
+  %55 = trunc nuw nsw i64 %54 to i8
   %56 = or disjoint i8 %55, 48
   %57 = getelementptr inbounds i8, ptr %.0567.i, i64 -1
   store i8 %56, ptr %57, align 1
@@ -2509,7 +2509,7 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   %.0566.i = phi i64 [ %144, %143 ], [ %150, %145 ]
   %.0561.i = phi ptr [ %16, %143 ], [ %149, %145 ]
   %146 = urem i64 %.0566.i, 10
-  %147 = trunc i64 %146 to i8
+  %147 = trunc nuw nsw i64 %146 to i8
   %148 = or disjoint i8 %147, 48
   %149 = getelementptr inbounds i8, ptr %.0561.i, i64 -1
   store i8 %148, ptr %149, align 1
@@ -2530,7 +2530,7 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   %.0558.i = phi i64 [ %.0570.i, %153 ], [ %159, %154 ]
   %.0.i = phi ptr [ %16, %153 ], [ %158, %154 ]
   %155 = urem i64 %.0558.i, 10
-  %156 = trunc i64 %155 to i8
+  %156 = trunc nuw nsw i64 %155 to i8
   %157 = or disjoint i8 %156, 48
   %158 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   store i8 %157, ptr %158, align 1
@@ -3150,7 +3150,7 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   %.0240.i.i = phi i64 [ %446, %445 ], [ %452, %447 ]
   %.0239.i.i = phi ptr [ %18, %445 ], [ %451, %447 ]
   %448 = urem i64 %.0240.i.i, 10
-  %449 = trunc i64 %448 to i8
+  %449 = trunc nuw nsw i64 %448 to i8
   %450 = or disjoint i8 %449, 48
   %451 = getelementptr inbounds i8, ptr %.0239.i.i, i64 -1
   store i8 %450, ptr %451, align 1
@@ -3171,7 +3171,7 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   %.0237.i.i = phi i64 [ %443, %455 ], [ %461, %456 ]
   %.0.i.i = phi ptr [ %18, %455 ], [ %460, %456 ]
   %457 = urem i64 %.0237.i.i, 10
-  %458 = trunc i64 %457 to i8
+  %458 = trunc nuw nsw i64 %457 to i8
   %459 = or disjoint i8 %458, 48
   %460 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
   store i8 %459, ptr %460, align 1
@@ -3484,7 +3484,7 @@ _build_trace_string.exit:                         ; preds = %.thread.i, %563
   %.0121 = phi i64 [ %.0129.lcssa, %582 ], [ %596, %591 ]
   %.0 = phi ptr [ %590, %582 ], [ %595, %591 ]
   %592 = urem i64 %.0121, 10
-  %593 = trunc i64 %592 to i8
+  %593 = trunc nuw nsw i64 %592 to i8
   %594 = or disjoint i8 %593, 48
   %595 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %594, ptr %595, align 1
@@ -3609,7 +3609,7 @@ define hidden void @zim_Exception_getTraceAsString(ptr nocapture noundef readonl
 
 i_get_exception_base.exit:                        ; preds = %7, %13
   %15 = phi ptr [ %9, %7 ], [ %.pre, %13 ]
-  %16 = phi ptr [ %.val, %7 ], [ %.pre.i, %13 ]
+  %16 = phi ptr [ %11, %7 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 224
   %19 = load ptr, ptr %18, align 8
@@ -3661,7 +3661,7 @@ define hidden void @zim_Exception_getPrevious(ptr nocapture noundef readonly %0,
 
 i_get_exception_base.exit:                        ; preds = %7, %13
   %15 = phi ptr [ %9, %7 ], [ %.pre, %13 ]
-  %16 = phi ptr [ %.val, %7 ], [ %.pre.i, %13 ]
+  %16 = phi ptr [ %11, %7 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr @zend_known_strings, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 184
   %19 = load ptr, ptr %18, align 8
@@ -3766,7 +3766,7 @@ define hidden void @zim_Exception___toString(ptr nocapture noundef readonly %0, 
 
 i_get_exception_base.exit:                        ; preds = %.critedge2, %38
   %40 = phi ptr [ %35, %.critedge2 ], [ %.pre358, %38 ]
-  %41 = phi ptr [ %.val326, %.critedge2 ], [ %.pre.i, %38 ]
+  %41 = phi ptr [ %36, %.critedge2 ], [ %.pre.i, %38 ]
   %42 = load ptr, ptr @zend_known_strings, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 200
   %44 = load ptr, ptr %43, align 8
@@ -3813,7 +3813,7 @@ i_get_exception_base.exit:                        ; preds = %.critedge2, %38
 
 i_get_exception_base.exit330:                     ; preds = %59, %65
   %67 = phi ptr [ %61, %59 ], [ %.pre359, %65 ]
-  %68 = phi ptr [ %.val325, %59 ], [ %.pre.i329, %65 ]
+  %68 = phi ptr [ %63, %59 ], [ %.pre.i329, %65 ]
   %69 = load ptr, ptr @zend_known_strings, align 8
   %70 = load ptr, ptr %69, align 8
   %71 = call ptr @zend_read_property_ex(ptr noundef %68, ptr noundef %67, ptr noundef %70, i1 noundef zeroext false, ptr noundef nonnull %5) #15
@@ -3859,7 +3859,7 @@ i_get_exception_base.exit330:                     ; preds = %59, %65
 
 i_get_exception_base.exit334:                     ; preds = %85, %91
   %93 = phi ptr [ %87, %85 ], [ %.pre360, %91 ]
-  %94 = phi ptr [ %.val324, %85 ], [ %.pre.i333, %91 ]
+  %94 = phi ptr [ %89, %85 ], [ %.pre.i333, %91 ]
   %95 = load ptr, ptr @zend_known_strings, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8
@@ -4110,7 +4110,7 @@ i_get_exception_base.exit334:                     ; preds = %85, %91
 
 i_get_exception_base.exit338:                     ; preds = %214, %223
   %225 = phi ptr [ %219, %214 ], [ %.pre361, %223 ]
-  %226 = phi ptr [ %.val323, %214 ], [ %.pre.i337, %223 ]
+  %226 = phi ptr [ %221, %214 ], [ %.pre.i337, %223 ]
   %227 = load ptr, ptr @zend_known_strings, align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 184
   %229 = load ptr, ptr %228, align 8
@@ -4178,7 +4178,7 @@ i_get_exception_base.exit338:                     ; preds = %214, %223
   br label %i_get_exception_base.exit342
 
 i_get_exception_base.exit342:                     ; preds = %251, %256
-  %258 = phi ptr [ %.val322, %251 ], [ %.pre.i341, %256 ]
+  %258 = phi ptr [ %254, %251 ], [ %.pre.i341, %256 ]
   %.not316 = icmp eq ptr %258, null
   br i1 %.not316, label %.critedge4, label %259
 
@@ -4225,7 +4225,7 @@ i_get_exception_base.exit342:                     ; preds = %251, %256
 
 i_get_exception_base.exit346:                     ; preds = %270, %276
   %278 = phi ptr [ %272, %270 ], [ %.pre363, %276 ]
-  %279 = phi ptr [ %.val321, %270 ], [ %.pre.i345, %276 ]
+  %279 = phi ptr [ %274, %270 ], [ %.pre.i345, %276 ]
   %280 = load ptr, ptr @zend_known_strings, align 8
   %281 = getelementptr inbounds i8, ptr %280, i64 184
   %282 = load ptr, ptr %281, align 8
@@ -4251,7 +4251,7 @@ i_get_exception_base.exit346:                     ; preds = %270, %276
 
 i_get_exception_base.exit350:                     ; preds = %.critedge4, %288
   %290 = phi ptr [ %284, %.critedge4 ], [ %.pre364, %288 ]
-  %291 = phi ptr [ %.val, %.critedge4 ], [ %.pre.i349, %288 ]
+  %291 = phi ptr [ %286, %.critedge4 ], [ %.pre.i349, %288 ]
   store ptr %.2.ph, ptr %6, align 8
   %292 = getelementptr inbounds i8, ptr %.2.ph, i64 4
   %293 = load i32, ptr %292, align 4
@@ -5526,7 +5526,7 @@ define ptr @zend_throw_error_exception(ptr noundef %0, ptr noundef %1, i64 nound
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %7
-  %12 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %0, %7 ]
+  %12 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %8, %7 ]
   %13 = sext i32 %3 to i64
   store i64 %13, ptr %5, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 8
@@ -5797,7 +5797,7 @@ define internal noundef ptr @zend_default_exception_new(ptr noundef %0) #0 {
   br label %i_get_exception_base.exit
 
 i_get_exception_base.exit:                        ; preds = %14, %20
-  %22 = phi ptr [ %.val, %14 ], [ %.pre.i, %20 ]
+  %22 = phi ptr [ %18, %14 ], [ %.pre.i, %20 ]
   %23 = load ptr, ptr @zend_ce_parse_error, align 8
   %.not95 = icmp eq ptr %23, %0
   %24 = load ptr, ptr @zend_ce_compile_error, align 8

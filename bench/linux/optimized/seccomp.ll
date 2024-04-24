@@ -2737,7 +2737,7 @@ define internal i64 @seccomp_notify_ioctl(ptr nocapture noundef readonly %0, i32
   br label %324
 
 324:                                              ; preds = %._crit_edge59, %323
-  %325 = phi ptr [ %.pre, %._crit_edge59 ], [ %.phi.trans.insert, %323 ]
+  %325 = phi ptr [ %.pre, %._crit_edge59 ], [ %321, %323 ]
   %326 = getelementptr inbounds i8, ptr %5, i64 56
   %327 = getelementptr i8, ptr %303, i64 16
   %328 = getelementptr inbounds i8, ptr %325, i64 8

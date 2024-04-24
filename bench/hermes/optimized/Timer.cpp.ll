@@ -1521,7 +1521,7 @@ _ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exitthread-pre
   br label %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit.i, %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exitthread-pre-split, %_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE20_M_allocate_and_copyIPKS2_EEPS2_mT_S9_.exit
-  %3 = phi ptr [ %.pr, %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exitthread-pre-split ], [ %.pre9, %_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE20_M_allocate_and_copyIPKS2_EEPS2_mT_S9_.exit ], [ %1, %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit.i ]
+  %3 = phi ptr [ %.pr, %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exitthread-pre-split ], [ %.pre, %_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE20_M_allocate_and_copyIPKS2_EEPS2_mT_S9_.exit ], [ %1, %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit.i ]
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE13_M_deallocateEPS2_m.exit, label %if.then.i
 

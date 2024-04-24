@@ -615,7 +615,7 @@ define dso_local void @intel_fbc_post_update(ptr nocapture noundef readonly %0, 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds i8, ptr %42, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call i32 @__SCT__tp_func_intel_fbc_activate(ptr noundef %46, ptr noundef nonnull %16) #11
+  %47 = tail call i32 @__SCT__tp_func_intel_fbc_activate(ptr noundef %46, ptr noundef %30) #11
   br label %48
 
 48:                                               ; preds = %44, %41

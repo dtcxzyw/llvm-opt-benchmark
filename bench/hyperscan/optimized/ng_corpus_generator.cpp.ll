@@ -3032,7 +3032,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt6ve
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup16, %if.end
-  %257 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre140, %for.cond.cleanup16 ], [ %253, %if.end ]
+  %257 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre141, %for.cond.cleanup16 ], [ %253, %if.end ]
   %tobool.not.i.i.i46 = icmp eq ptr %257, null
   br i1 %tobool.not.i.i.i46, label %_ZNSt6vectorIS_IjSaIjEESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
@@ -6636,9 +6636,9 @@ terminate.lpad.i.i:                               ; preds = %if.then.i
 
 _ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE5clearEv.exit.i: ; preds = %if.then.i
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
-  store ptr %add.ptr.i.i.i.i, ptr %_M_left.i.i, align 8
+  store ptr %call.i.i35, ptr %_M_left.i.i, align 8
   %_M_right.i.i.i = getelementptr inbounds i8, ptr %object, i64 32
-  store ptr %add.ptr.i.i.i.i, ptr %_M_right.i.i.i, align 8
+  store ptr %call.i.i35, ptr %_M_right.i.i.i, align 8
   %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %object, i64 40
   store i64 0, ptr %_M_node_count.i.i.i, align 8
   br label %_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS4_ESC_.exit
@@ -6900,9 +6900,9 @@ terminate.lpad.i.i:                               ; preds = %if.then.i7
 
 _ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE5clearEv.exit.i: ; preds = %if.then.i7
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
-  store ptr %add.ptr.i.i.i.i, ptr %_M_left.i.i, align 8
+  store ptr %__y.addr.1.i.i.i18.i, ptr %_M_left.i.i, align 8
   %_M_right.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr %add.ptr.i.i.i.i, ptr %_M_right.i.i.i, align 8
+  store ptr %__y.addr.1.i.i.i18.i, ptr %_M_right.i.i.i, align 8
   %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %_M_node_count.i.i.i, align 8
   br label %_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS4_ESC_.exit

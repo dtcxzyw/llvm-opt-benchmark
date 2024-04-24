@@ -18,7 +18,7 @@ define dso_local void @slist_delete(ptr nocapture noundef %0, ptr noundef readno
   br i1 %6, label %7, label %3, !llvm.loop !5
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr %1, align 8
+  %8 = load ptr, ptr %4, align 8
   store ptr %8, ptr %.0, align 8
   br label %.loopexit
 

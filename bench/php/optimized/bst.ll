@@ -412,7 +412,7 @@ define hidden ptr @lexbor_bst_remove_by_pointer(ptr nocapture noundef %0, ptr no
   %12 = load ptr, ptr %8, align 8
   %13 = load ptr, ptr %0, align 8
   %14 = tail call ptr @lexbor_dobject_free(ptr noundef %13, ptr noundef nonnull %8) #5
-  br label %109
+  br label %107
 
 15:                                               ; preds = %3
   %16 = load ptr, ptr %1, align 8
@@ -459,7 +459,7 @@ define hidden ptr @lexbor_bst_remove_by_pointer(ptr nocapture noundef %0, ptr no
 37:                                               ; preds = %.sink.split, %32
   %38 = load ptr, ptr %0, align 8
   %39 = tail call ptr @lexbor_dobject_free(ptr noundef %38, ptr noundef nonnull %1) #5
-  br label %109
+  br label %107
 
 40:                                               ; preds = %23
   %41 = getelementptr inbounds i8, ptr %21, i64 32
@@ -497,12 +497,12 @@ define hidden ptr @lexbor_bst_remove_by_pointer(ptr nocapture noundef %0, ptr no
   %56 = getelementptr inbounds i8, ptr %.090, i64 16
   %57 = load ptr, ptr %56, align 8
   %.not109 = icmp eq ptr %57, null
-  br i1 %.not109, label %109, label %58
+  br i1 %.not109, label %107, label %58
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds i8, ptr %57, i64 32
   store ptr %.090, ptr %59, align 8
-  br label %109
+  br label %107
 
 60:                                               ; preds = %15
   br i1 %22, label %61, label %.preheader
@@ -546,12 +546,12 @@ define hidden ptr @lexbor_bst_remove_by_pointer(ptr nocapture noundef %0, ptr no
   %80 = getelementptr inbounds i8, ptr %.1, i64 16
   %81 = load ptr, ptr %80, align 8
   %.not107 = icmp eq ptr %81, null
-  br i1 %.not107, label %109, label %82
+  br i1 %.not107, label %107, label %82
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds i8, ptr %81, i64 32
   store ptr %.1, ptr %83, align 8
-  br label %109
+  br label %107
 
 .preheader:                                       ; preds = %60, %.preheader
   %.0 = phi ptr [ %85, %.preheader ], [ %21, %60 ]
@@ -571,43 +571,40 @@ define hidden ptr @lexbor_bst_remove_by_pointer(ptr nocapture noundef %0, ptr no
   %92 = load ptr, ptr %.0, align 8
   store ptr %92, ptr %1, align 8
   %93 = icmp eq ptr %21, %.0
-  br i1 %93, label %94, label %97
+  %94 = getelementptr inbounds i8, ptr %.0, i64 8
+  %95 = load ptr, ptr %94, align 8
+  br i1 %93, label %96, label %97
 
-94:                                               ; preds = %86
-  %95 = getelementptr inbounds i8, ptr %21, i64 8
-  %96 = load ptr, ptr %95, align 8
-  store ptr %96, ptr %20, align 8
-  %.not105 = icmp eq ptr %96, null
-  br i1 %.not105, label %106, label %.sink.split111
+96:                                               ; preds = %86
+  store ptr %95, ptr %20, align 8
+  %.not105 = icmp eq ptr %95, null
+  br i1 %.not105, label %104, label %.sink.split111
 
 97:                                               ; preds = %86
-  %98 = getelementptr inbounds i8, ptr %.0, i64 8
+  %98 = getelementptr inbounds i8, ptr %.0, i64 32
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %.0, i64 32
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 16
-  store ptr %99, ptr %102, align 8
-  %.not104 = icmp eq ptr %99, null
-  br i1 %.not104, label %106, label %103
+  %100 = getelementptr inbounds i8, ptr %99, i64 16
+  store ptr %95, ptr %100, align 8
+  %.not104 = icmp eq ptr %95, null
+  br i1 %.not104, label %104, label %101
 
-103:                                              ; preds = %97
-  %104 = load ptr, ptr %100, align 8
+101:                                              ; preds = %97
+  %102 = load ptr, ptr %98, align 8
   br label %.sink.split111
 
-.sink.split111:                                   ; preds = %94, %103
-  %.sink114 = phi ptr [ %99, %103 ], [ %96, %94 ]
-  %.sink112 = phi ptr [ %104, %103 ], [ %1, %94 ]
-  %105 = getelementptr inbounds i8, ptr %.sink114, i64 32
-  store ptr %.sink112, ptr %105, align 8
-  br label %106
+.sink.split111:                                   ; preds = %96, %101
+  %.sink112 = phi ptr [ %102, %101 ], [ %1, %96 ]
+  %103 = getelementptr inbounds i8, ptr %95, i64 32
+  store ptr %.sink112, ptr %103, align 8
+  br label %104
 
-106:                                              ; preds = %.sink.split111, %97, %94
-  %107 = load ptr, ptr %0, align 8
-  %108 = tail call ptr @lexbor_dobject_free(ptr noundef %107, ptr noundef nonnull %.0) #5
-  br label %109
+104:                                              ; preds = %.sink.split111, %97, %96
+  %105 = load ptr, ptr %0, align 8
+  %106 = tail call ptr @lexbor_dobject_free(ptr noundef %105, ptr noundef nonnull %.0) #5
+  br label %107
 
-109:                                              ; preds = %37, %106, %82, %79, %55, %58, %9
-  %.089 = phi ptr [ %12, %9 ], [ %16, %58 ], [ %16, %55 ], [ %16, %79 ], [ %16, %82 ], [ %16, %106 ], [ %16, %37 ]
+107:                                              ; preds = %37, %104, %82, %79, %55, %58, %9
+  %.089 = phi ptr [ %12, %9 ], [ %16, %58 ], [ %16, %55 ], [ %16, %79 ], [ %16, %82 ], [ %16, %104 ], [ %16, %37 ]
   ret ptr %.089
 }
 

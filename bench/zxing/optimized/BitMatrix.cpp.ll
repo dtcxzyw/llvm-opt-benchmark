@@ -1305,7 +1305,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %_ZNSt6vectorItSaItEE6resizeEm.exit
-  %33 = phi ptr [ %.pre37, %.lr.ph.i.i.i.i.preheader ], [ %26, %_ZNSt6vectorItSaItEE6resizeEm.exit ]
+  %33 = phi ptr [ %.pre37, %.lr.ph.i.i.i.i.preheader ], [ %27, %_ZNSt6vectorItSaItEE6resizeEm.exit ]
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
   %34 = load i8, ptr %.sroa.0.0.copyload.i1.i, align 1
@@ -1439,7 +1439,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %17, %19, %21, %23
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %_ZNSt6vectorItSaItEE6resizeEm.exit
-  %31 = phi ptr [ %.pre58, %.lr.ph.i.i.i.i.preheader ], [ %24, %_ZNSt6vectorItSaItEE6resizeEm.exit ]
+  %31 = phi ptr [ %.pre58, %.lr.ph.i.i.i.i.preheader ], [ %25, %_ZNSt6vectorItSaItEE6resizeEm.exit ]
   %32 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %32, 0
   %spec.select.idx = select i1 %.not, i64 0, i64 2

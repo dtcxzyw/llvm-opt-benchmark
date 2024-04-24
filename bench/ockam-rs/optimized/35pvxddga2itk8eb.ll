@@ -23676,9 +23676,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not17, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bd51d4353acbb4E.llvm.13709060677010895390.exit.sink.split", label %10
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bd51d4353acbb4E.llvm.13709060677010895390.exit.sink.split": ; preds = %.backedge, %19
-  %.sink = phi ptr [ %12, %19 ], [ %4, %.backedge ]
   %.lcssa.ph = phi i1 [ true, %19 ], [ false, %.backedge ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !3911
+  store ptr %12, ptr %0, align 8, !alias.scope !3911
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bd51d4353acbb4E.llvm.13709060677010895390.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bd51d4353acbb4E.llvm.13709060677010895390.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1bd51d4353acbb4E.llvm.13709060677010895390.exit.sink.split", %2

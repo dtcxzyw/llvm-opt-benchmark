@@ -1521,7 +1521,7 @@ land.lhs.true697:                                 ; preds = %if.end692
 
 if.then705:                                       ; preds = %land.lhs.true697
   %175 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %175(ptr noundef %173) #8
+  tail call void %175(ptr noundef %174) #8
   store ptr null, ptr %arrayidx702, align 8
   store ptr null, ptr %postfields699, align 8
   br label %if.end712
@@ -1573,7 +1573,7 @@ land.lhs.true735:                                 ; preds = %if.end730
 
 if.then743:                                       ; preds = %land.lhs.true735
   %184 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %184(ptr noundef %182) #8
+  tail call void %184(ptr noundef %183) #8
   store ptr null, ptr %arrayidx740, align 8
   store ptr null, ptr %postfields737, align 8
   br label %if.end750

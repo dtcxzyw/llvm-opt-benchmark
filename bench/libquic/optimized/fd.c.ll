@@ -237,7 +237,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %exitcond.not, label %while.end, label %land.lhs.true, !llvm.loop !7
 
 while.end:                                        ; preds = %land.rhs, %while.body, %fd_read.exit, %while.cond.preheader, %if.then4.i, %if.then.i.i
-  %ptr.011 = phi ptr [ %ptr.013, %if.then4.i ], [ %ptr.013, %if.then.i.i ], [ %buf, %while.cond.preheader ], [ %ptr.013, %land.rhs ], [ %add.ptr1, %while.body ], [ %ptr.013, %fd_read.exit ]
+  %ptr.011 = phi ptr [ %ptr.013, %if.then4.i ], [ %ptr.013, %if.then.i.i ], [ %buf, %while.cond.preheader ], [ %ptr.013, %land.rhs ], [ %incdec.ptr, %while.body ], [ %ptr.013, %fd_read.exit ]
   store i8 0, ptr %ptr.011, align 1
   %sub.ptr.lhs.cast = ptrtoint ptr %ptr.011 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %buf to i64

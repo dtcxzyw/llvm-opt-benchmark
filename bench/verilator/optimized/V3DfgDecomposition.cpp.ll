@@ -1423,7 +1423,7 @@ _ZNSt8functionIFvR9DfgVertexEED2Ev.exit50:        ; preds = %_ZN9DfgVertex11forE
 118:                                              ; preds = %_ZN9DfgVertex4userImEERT_v.exit, %115
   %.sroa.0.0 = phi ptr [ %31, %_ZN9DfgVertex4userImEERT_v.exit ], [ %.sroa.0.0.pre, %115 ]
   %119 = phi ptr [ %28, %_ZN9DfgVertex4userImEERT_v.exit ], [ %112, %115 ]
-  %120 = phi ptr [ %29, %_ZN9DfgVertex4userImEERT_v.exit ], [ %112, %115 ]
+  %120 = phi ptr [ %29, %_ZN9DfgVertex4userImEERT_v.exit ], [ %113, %115 ]
   %.not = icmp eq ptr %.sroa.0.0, null
   br i1 %.not, label %._crit_edge, label %27
 
@@ -8832,7 +8832,7 @@ _ZN17DfgVertexVariadic12resetSourcesEv.exit:      ; preds = %51, %_ZNSt8function
   br i1 %89, label %.lr.ph, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %81, %_ZN17DfgVertexVariadic12resetSourcesEv.exit
-  %.lcssa = phi ptr [ %59, %_ZN17DfgVertexVariadic12resetSourcesEv.exit ], [ %82, %81 ]
+  %.lcssa = phi ptr [ %60, %_ZN17DfgVertexVariadic12resetSourcesEv.exit ], [ %82, %81 ]
   %.not.i.i.i26 = icmp eq ptr %.lcssa, null
   br i1 %.not.i.i.i26, label %_ZNSt6vectorIP9DfgVertexSaIS1_EED2Ev.exit, label %90
 
@@ -9125,7 +9125,7 @@ _ZN17DfgVertexVariadic12resetSourcesEv.exit:      ; preds = %51, %_ZNSt8function
   br i1 %89, label %.lr.ph, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %81, %_ZN17DfgVertexVariadic12resetSourcesEv.exit
-  %.lcssa = phi ptr [ %59, %_ZN17DfgVertexVariadic12resetSourcesEv.exit ], [ %82, %81 ]
+  %.lcssa = phi ptr [ %60, %_ZN17DfgVertexVariadic12resetSourcesEv.exit ], [ %82, %81 ]
   %.not.i.i.i26 = icmp eq ptr %.lcssa, null
   br i1 %.not.i.i.i26, label %_ZNSt6vectorIP9DfgVertexSaIS1_EED2Ev.exit, label %90
 

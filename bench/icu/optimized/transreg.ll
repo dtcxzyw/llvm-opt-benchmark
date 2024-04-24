@@ -280,7 +280,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -339,7 +339,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -1545,29 +1545,29 @@ if.else10:                                        ; preds = %entry
   %9 = load i16, ptr %fUnion.i.i6, align 8
   %conv2.i5.i7 = and i16 %9, 1
   %tobool.i8.not = icmp eq i16 %conv2.i5.i7, 0
-  br i1 %tobool.i8.not, label %if.else.i9, label %if.then.i18
+  br i1 %tobool.i8.not, label %if.else.i10, label %if.then.i20
 
-if.then.i18:                                      ; preds = %if.else10
+if.then.i20:                                      ; preds = %if.else10
   %nextSpec11 = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %nextSpec11)
   br label %if.end13
 
-if.else.i9:                                       ; preds = %if.else10
-  %cmp.i.i.i10 = icmp slt i16 %9, 0
+if.else.i10:                                      ; preds = %if.else10
+  %cmp.i.i.i11 = icmp slt i16 %9, 0
   %10 = ashr i16 %9, 5
-  %shr.i.i.i11 = sext i16 %10 to i32
-  %fLength.i.i12 = getelementptr inbounds i8, ptr %this, i64 148
-  %11 = load i32, ptr %fLength.i.i12, align 4
-  %cond.i.i13 = select i1 %cmp.i.i.i10, i32 %11, i32 %shr.i.i.i11
-  %cmp3.i14.not = icmp eq i32 %cond.i.i13, 0
-  br i1 %cmp3.i14.not, label %if.end13, label %if.then4.i16
+  %shr.i.i.i12 = sext i16 %10 to i32
+  %fLength.i.i13 = getelementptr inbounds i8, ptr %this, i64 148
+  %11 = load i32, ptr %fLength.i.i13, align 4
+  %cond.i.i14 = select i1 %cmp.i.i.i11, i32 %11, i32 %shr.i.i.i12
+  %cmp3.i15.not = icmp eq i32 %cond.i.i14, 0
+  br i1 %cmp3.i15.not, label %if.end13, label %if.then4.i17
 
-if.then4.i16:                                     ; preds = %if.else.i9
+if.then4.i17:                                     ; preds = %if.else.i10
   %12 = and i16 %9, 30
   store i16 %12, ptr %fUnion.i.i6, align 8
   br label %if.end13
 
-if.end13:                                         ; preds = %if.then4.i16, %if.else.i9, %if.then.i18, %_ZN6icu_7513UnicodeString8truncateEi.exit, %if.else
+if.end13:                                         ; preds = %if.then4.i17, %if.else.i10, %if.then.i20, %_ZN6icu_7513UnicodeString8truncateEi.exit, %if.else
   ret void
 }
 

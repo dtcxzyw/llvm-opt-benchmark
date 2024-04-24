@@ -270,11 +270,7 @@ _ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit: ; preds = 
   %14 = load ptr, ptr %_M_finish.i.i.i, align 8
   %15 = load ptr, ptr %descs, align 8
   %cmp58.not = icmp eq ptr %14, %15
-  br i1 %cmp58.not, label %cleanup.thread, label %for.body
-
-cleanup.thread:                                   ; preds = %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit
-  store ptr null, ptr %agg.result, align 8
-  br label %invoke.cont.i
+  br i1 %cmp58.not, label %cleanup, label %for.body
 
 for.body:                                         ; preds = %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit, %for.inc
   %16 = phi ptr [ %30, %for.inc ], [ %15, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
@@ -442,27 +438,29 @@ _ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXn
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %numMasks.i.i, ptr noundef nonnull align 4 dereferenceable(5) %numMasks2.i.i, i64 5, i1 false), !noalias !9
   br label %cleanup
 
-cleanup:                                          ; preds = %for.end, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit
-  %storemerge = phi ptr [ %call.i41, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit ], [ null, %for.end ]
+cleanup:                                          ; preds = %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit, %for.end, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit
+  %.lcssa71 = phi ptr [ %30, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit ], [ %30, %for.end ], [ %15, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
+  %.lcssa5170 = phi ptr [ %29, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit ], [ %29, %for.end ], [ %14, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
+  %storemerge = phi ptr [ %call.i41, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit ], [ null, %for.end ], [ null, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
   store ptr %storemerge, ptr %agg.result, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %30, %29
+  %cmp.not3.i.i.i.i = icmp eq ptr %.lcssa71, %.lcssa5170
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %cleanup, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %30, %cleanup ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %.lcssa71, %cleanup ]
   %vtable.i.i.i.i.i = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
   %31 = load ptr, ptr %vtable.i.i.i.i.i, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(41) %__first.addr.04.i.i.i.i) #14
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 48
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %29
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %.lcssa5170
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !5
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   %.pr.i = load ptr, ptr %descs, align 8
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %cleanup.thread, %invoke.contthread-pre-split.i, %cleanup
-  %32 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %29, %cleanup ], [ %14, %cleanup.thread ]
+invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %cleanup
+  %32 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.lcssa71, %cleanup ]
   %tobool.not.i.i.i43 = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.i43, label %_ZNSt6vectorIN3ue222TeddyEngineDescriptionESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
@@ -840,7 +838,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %13) #14
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i35
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i38
 
 if.end.thread:                                    ; preds = %lpad
   %vtable.i.i = load ptr, ptr %add.ptr, align 8
@@ -854,11 +852,11 @@ lpad17:                                           ; preds = %invoke.cont19
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i35:                                      ; preds = %lpad
+if.then.i38:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #16
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.then.i35, %if.end.thread
+invoke.cont19:                                    ; preds = %if.then.i38, %if.end.thread
   invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad17
 

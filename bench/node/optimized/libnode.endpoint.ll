@@ -9041,8 +9041,8 @@ _ZN4node4quic8Endpoint3UDP5StartEv.exit:          ; preds = %if.end.i
   br i1 %cmp.i, label %if.end23, label %if.then22
 
 if.then22:                                        ; preds = %if.end5, %if.end18, %lor.lhs.false.i, %_ZN4node4quic8Endpoint3UDP5StartEv.exit
-  %retval.0.i17 = phi i32 [ %call8.i, %_ZN4node4quic8Endpoint3UDP5StartEv.exit ], [ -9, %lor.lhs.false.i ], [ -9, %if.end18 ], [ -9, %if.end5 ]
-  tail call void @_ZN4node4quic8Endpoint7DestroyENS1_12CloseContextEi(ptr noundef nonnull align 8 dereferenceable(1520) %this, i32 noundef 2, i32 noundef %retval.0.i17)
+  %retval.0.i18 = phi i32 [ %call8.i, %_ZN4node4quic8Endpoint3UDP5StartEv.exit ], [ -9, %lor.lhs.false.i ], [ -9, %if.end18 ], [ -9, %if.end5 ]
+  tail call void @_ZN4node4quic8Endpoint7DestroyENS1_12CloseContextEi(ptr noundef nonnull align 8 dereferenceable(1520) %this, i32 noundef 2, i32 noundef %retval.0.i18)
   br label %return
 
 if.end23:                                         ; preds = %if.end.i, %_ZN4node4quic8Endpoint3UDP5StartEv.exit
@@ -9066,18 +9066,18 @@ _ZN4node17BaseObjectPtrImplINS_4quic8EndpointELb0EEC2EPS2_.exit: ; preds = %if.e
   store ptr %this, ptr %ref.tmp26, align 8
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPN4node4quic8EndpointESt4pairIKS4_NS1_17BaseObjectPtrImplINS1_10BaseObjectELb0EEEESaISA_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %listening_endpoints, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26)
   %11 = load ptr, ptr %call.i, align 8
-  %cmp.i9 = icmp eq ptr %11, %this
-  br i1 %cmp.i9, label %_ZN4node17BaseObjectPtrImplINS_4quic8EndpointELb0EED2Ev.exit, label %if.end.i10
+  %cmp.i10 = icmp eq ptr %11, %this
+  br i1 %cmp.i10, label %_ZN4node17BaseObjectPtrImplINS_4quic8EndpointELb0EED2Ev.exit, label %if.end.i11
 
-if.end.i10:                                       ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic8EndpointELb0EEC2EPS2_.exit
+if.end.i11:                                       ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic8EndpointELb0EEC2EPS2_.exit
   %cmp.not.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i, label %_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb0EE12pointer_dataEv.exit.i.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.end.i10
+if.then.i.i:                                      ; preds = %if.end.i11
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
   br label %_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb0EE12pointer_dataEv.exit.i.i.i
 
-_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb0EE12pointer_dataEv.exit.i.i.i: ; preds = %if.end.i10, %if.then.i.i
+_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb0EE12pointer_dataEv.exit.i.i.i: ; preds = %if.end.i11, %if.then.i.i
   store ptr %this, ptr %call.i, align 8
   %call3.i.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
   %cmp2.not.i.i.i = icmp eq ptr %call3.i.i.i.i, null
@@ -10338,7 +10338,7 @@ if.then.i.i.i:                                    ; preds = %for.end
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i:                                    ; preds = %for.end
-  tail call void @_ZdlPv(ptr noundef %13) #23
+  tail call void @_ZdlPv(ptr noundef %14) #23
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i23 = getelementptr inbounds i8, ptr %15, i64 -8
@@ -10448,7 +10448,7 @@ if.then.i.i.i:                                    ; preds = %for.end
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i:                                    ; preds = %for.end
-  tail call void @_ZdlPv(ptr noundef %13) #23
+  tail call void @_ZdlPv(ptr noundef %14) #23
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i23 = getelementptr inbounds i8, ptr %15, i64 -8
@@ -10558,7 +10558,7 @@ if.then.i.i.i:                                    ; preds = %for.end
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i:                                    ; preds = %for.end
-  tail call void @_ZdlPv(ptr noundef %13) #23
+  tail call void @_ZdlPv(ptr noundef %14) #23
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %15 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i23 = getelementptr inbounds i8, ptr %15, i64 -8
@@ -11151,7 +11151,7 @@ if.then.i.i.i35:                                  ; preds = %do.end36
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i37:                                  ; preds = %do.end36
-  call void @_ZdlPv(ptr noundef %31) #23
+  call void @_ZdlPv(ptr noundef %39) #23
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %40 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i38 = getelementptr inbounds i8, ptr %40, i64 -8
@@ -12464,7 +12464,7 @@ cond.end.i:                                       ; preds = %if.then.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
   %arrayidx5.i.i = getelementptr inbounds ptr, ptr %15, i64 %rem.i.i.i.i21
-  store ptr %__prev_n.0, ptr %arrayidx5.i.i, align 8
+  store ptr %16, ptr %arrayidx5.i.i, align 8
   %.pre.i22 = load ptr, ptr %this, align 8
   %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i22, i64 %__bkt.0
   %.pre24.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8
@@ -14728,7 +14728,7 @@ cond.end.i:                                       ; preds = %if.then.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
   %arrayidx5.i.i = getelementptr inbounds ptr, ptr %15, i64 %rem.i.i.i.i22
-  store ptr %__prev_n.0, ptr %arrayidx5.i.i, align 8
+  store ptr %16, ptr %arrayidx5.i.i, align 8
   %.pre.i23 = load ptr, ptr %_M_buckets.i16, align 8
   %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i23, i64 %__bkt.0
   %.pre24.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8
@@ -15293,7 +15293,7 @@ cond.end.i:                                       ; preds = %if.then.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
   %arrayidx5.i.i = getelementptr inbounds ptr, ptr %15, i64 %rem.i.i.i.i22
-  store ptr %__prev_n.0, ptr %arrayidx5.i.i, align 8
+  store ptr %16, ptr %arrayidx5.i.i, align 8
   %.pre.i23 = load ptr, ptr %_M_buckets.i16, align 8
   %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i23, i64 %__bkt.0
   %.pre24.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8
@@ -15685,7 +15685,7 @@ cond.end.i:                                       ; preds = %if.then.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
   %arrayidx5.i.i = getelementptr inbounds ptr, ptr %15, i64 %rem.i.i.i.i21
-  store ptr %__prev_n.0, ptr %arrayidx5.i.i, align 8
+  store ptr %16, ptr %arrayidx5.i.i, align 8
   %.pre.i22 = load ptr, ptr %this, align 8
   %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i22, i64 %__bkt.0
   %.pre24.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8
@@ -18602,7 +18602,7 @@ if.then.i.i.i4:                                   ; preds = %_ZN4node13MemoryTra
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldEPKcPKNS_14MemoryRetainerES2_.exit
-  tail call void @_ZdlPv(ptr noundef %43) #23
+  tail call void @_ZdlPv(ptr noundef %44) #23
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %45 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i5 = getelementptr inbounds i8, ptr %45, i64 -8
@@ -18852,7 +18852,7 @@ if.then.i.i.i:                                    ; preds = %_ZN4node13MemoryTra
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldINS_4quic7SessionELb0EEEvPKcRKNS_17BaseObjectPtrImplIT_XT0_EEES5_.exit
-  tail call void @_ZdlPv(ptr noundef %43) #23
+  tail call void @_ZdlPv(ptr noundef %44) #23
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %45 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i53 = getelementptr inbounds i8, ptr %45, i64 -8
@@ -19097,7 +19097,7 @@ if.then.i.i.i:                                    ; preds = %_ZN4node13MemoryTra
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i:                                    ; preds = %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit53
-  tail call void @_ZdlPv(ptr noundef %42) #23
+  tail call void @_ZdlPv(ptr noundef %43) #23
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %44 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i54 = getelementptr inbounds i8, ptr %44, i64 -8

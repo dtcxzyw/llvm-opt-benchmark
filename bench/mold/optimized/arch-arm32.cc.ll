@@ -400,72 +400,72 @@ sw.bb6:                                           ; preds = %entry, %entry, %ent
   %conv12 = zext i16 %x.0.copyload.i22 to i64
   %shr.i23 = lshr i64 %conv12, 13
   %shr.i26 = lshr i64 %conv12, 11
-  %and.i2459 = xor i64 %shr.i23, %shr.i21
-  %and.i2760 = xor i64 %shr.i26, %shr.i21
+  %and.i2464 = xor i64 %shr.i23, %shr.i21
+  %and.i2765 = xor i64 %shr.i26, %shr.i21
   %and.i = shl i64 %shr.i21, 63
-  %xor17 = shl i64 %and.i2459, 62
+  %xor17 = shl i64 %and.i2464, 62
   %1 = and i64 %xor17, 4611686018427387904
   %2 = or disjoint i64 %1, %and.i
-  %xor2118 = shl i64 %and.i2760, 61
+  %xor2118 = shl i64 %and.i2765, 61
   %3 = and i64 %xor2118, 2305843009213693952
   %4 = or disjoint i64 %2, %3
-  %and.i29 = shl i64 %conv8, 51
-  %shl38 = and i64 %and.i29, 2303591209400008704
+  %and.i30 = shl i64 %conv8, 51
+  %shl38 = and i64 %and.i30, 2303591209400008704
   %5 = or disjoint i64 %4, %shl38
-  %and.i31 = shl nuw nsw i64 %conv12, 40
-  %shl40 = and i64 %and.i31, 2250700302057472
+  %and.i33 = shl nuw nsw i64 %conv12, 40
+  %shl40 = and i64 %and.i33, 2250700302057472
   %6 = or disjoint i64 %5, %shl40
   %conv42 = ashr exact i64 %6, 39
-  %shr.i33 = xor i64 %conv42, 12582912
+  %shr.i35 = xor i64 %conv42, 12582912
   br label %return
 
 sw.bb44:                                          ; preds = %entry, %entry, %entry, %entry
-  %x.0.copyload.i34 = load i32, ptr %loc, align 1
-  %conv46 = zext i32 %x.0.copyload.i34 to i64
-  %shl.i35 = shl i64 %conv46, 40
-  %shl48 = ashr exact i64 %shl.i35, 38
+  %x.0.copyload.i36 = load i32, ptr %loc, align 1
+  %conv46 = zext i32 %x.0.copyload.i36 to i64
+  %shl.i37 = shl i64 %conv46, 40
+  %shl48 = ashr exact i64 %shl.i37, 38
   br label %return
 
 sw.bb49:                                          ; preds = %entry, %entry, %entry, %entry
-  %x.0.copyload.i37 = load i32, ptr %loc, align 1
-  %conv51 = zext i32 %x.0.copyload.i37 to i64
-  %and.i38 = and i64 %conv51, 4095
+  %x.0.copyload.i39 = load i32, ptr %loc, align 1
+  %conv51 = zext i32 %x.0.copyload.i39 to i64
+  %and.i41 = and i64 %conv51, 4095
   %7 = lshr i64 %conv51, 4
   %shl58 = and i64 %7, 61440
-  %or59 = or disjoint i64 %shl58, %and.i38
-  %shl.i42 = shl nuw i64 %or59, 48
-  %shr.i43 = ashr exact i64 %shl.i42, 48
+  %or59 = or disjoint i64 %shl58, %and.i41
+  %shl.i45 = shl nuw i64 %or59, 48
+  %shr.i46 = ashr exact i64 %shl.i45, 48
   br label %return
 
 sw.bb62:                                          ; preds = %entry
-  %x.0.copyload.i44 = load i32, ptr %loc, align 1
-  %conv64 = zext i32 %x.0.copyload.i44 to i64
-  %shl.i45 = shl i64 %conv64, 33
-  %shr.i46 = ashr exact i64 %shl.i45, 33
+  %x.0.copyload.i47 = load i32, ptr %loc, align 1
+  %conv64 = zext i32 %x.0.copyload.i47 to i64
+  %shl.i48 = shl i64 %conv64, 33
+  %shr.i49 = ashr exact i64 %shl.i48, 33
   br label %return
 
 sw.bb66:                                          ; preds = %entry, %entry, %entry, %entry
-  %x.0.copyload.i47 = load i16, ptr %loc, align 1
-  %conv69 = zext i16 %x.0.copyload.i47 to i64
+  %x.0.copyload.i50 = load i16, ptr %loc, align 1
+  %conv69 = zext i16 %x.0.copyload.i50 to i64
   %add.ptr76 = getelementptr inbounds i8, ptr %loc, i64 2
-  %x.0.copyload.i52 = load i16, ptr %add.ptr76, align 1
-  %conv78 = zext i16 %x.0.copyload.i52 to i64
-  %and.i56 = and i64 %conv78, 255
-  %and.i48 = shl nuw nsw i64 %conv69, 12
-  %shl87 = and i64 %and.i48, 61440
+  %x.0.copyload.i56 = load i16, ptr %add.ptr76, align 1
+  %conv78 = zext i16 %x.0.copyload.i56 to i64
+  %and.i61 = and i64 %conv78, 255
+  %and.i52 = shl nuw nsw i64 %conv69, 12
+  %shl87 = and i64 %and.i52, 61440
   %8 = shl nuw nsw i64 %conv69, 1
   %shl88 = and i64 %8, 2048
   %9 = lshr i64 %conv78, 4
   %shl90 = and i64 %9, 1792
   %or91 = or disjoint i64 %shl87, %shl88
-  %or89 = or disjoint i64 %or91, %and.i56
+  %or89 = or disjoint i64 %or91, %and.i61
   %or92 = or disjoint i64 %or89, %shl90
-  %shl.i57 = shl nuw i64 %or92, 48
-  %shr.i58 = ashr exact i64 %shl.i57, 48
+  %shl.i62 = shl nuw i64 %or92, 48
+  %shr.i63 = ashr exact i64 %shl.i62, 48
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb66, %sw.bb62, %sw.bb49, %sw.bb44, %sw.bb6, %sw.bb2, %sw.bb
-  %retval.0 = phi i64 [ %shr.i58, %sw.bb66 ], [ %shr.i46, %sw.bb62 ], [ %shr.i43, %sw.bb49 ], [ %shl48, %sw.bb44 ], [ %shr.i33, %sw.bb6 ], [ %shl, %sw.bb2 ], [ %conv1, %sw.bb ], [ 0, %entry ]
+  %retval.0 = phi i64 [ %shr.i63, %sw.bb66 ], [ %shr.i49, %sw.bb62 ], [ %shr.i46, %sw.bb49 ], [ %shl48, %sw.bb44 ], [ %shr.i35, %sw.bb6 ], [ %shl, %sw.bb2 ], [ %conv1, %sw.bb ], [ 0, %entry ]
   ret i64 %retval.0
 }
 
@@ -603,8 +603,8 @@ sw.bb30:                                          ; preds = %entry, %entry, %ent
   %or13.i = or disjoint i16 %or.i28, %17
   store i16 %or13.i, ptr %loc, align 1
   %arrayidx17.i = getelementptr inbounds i8, ptr %loc, i64 2
-  %x.0.copyload.i12.i = load i16, ptr %arrayidx17.i, align 1
-  %19 = and i16 %x.0.copyload.i12.i, -28928
+  %x.0.copyload.i13.i = load i16, ptr %arrayidx17.i, align 1
+  %19 = and i16 %x.0.copyload.i13.i, -28928
   %20 = shl i16 %15, 4
   %shl21.i = and i16 %20, 28672
   %or22.i = or disjoint i16 %shl21.i, %conv10.i
@@ -1690,8 +1690,8 @@ sw.bb239:                                         ; preds = %_ZNK4mold3elf6Symbo
   %or13.i = or disjoint i16 %or.i532, %139
   store i16 %or13.i, ptr %add.ptr22, align 1
   %arrayidx17.i = getelementptr inbounds i8, ptr %add.ptr22, i64 2
-  %x.0.copyload.i12.i = load i16, ptr %arrayidx17.i, align 1
-  %141 = and i16 %x.0.copyload.i12.i, -28928
+  %x.0.copyload.i13.i = load i16, ptr %arrayidx17.i, align 1
+  %141 = and i16 %x.0.copyload.i13.i, -28928
   %142 = shl i16 %137, 4
   %shl21.i = and i16 %142, 28672
   %or22.i = or disjoint i16 %shl21.i, %conv10.i
@@ -1725,8 +1725,8 @@ sw.bb253:                                         ; preds = %_ZNK4mold3elf6Symbo
   %or13.i541 = or disjoint i16 %or.i540, %146
   store i16 %or13.i541, ptr %add.ptr22, align 1
   %arrayidx17.i542 = getelementptr inbounds i8, ptr %add.ptr22, i64 2
-  %x.0.copyload.i12.i543 = load i16, ptr %arrayidx17.i542, align 1
-  %148 = and i16 %x.0.copyload.i12.i543, -28928
+  %x.0.copyload.i13.i543 = load i16, ptr %arrayidx17.i542, align 1
+  %148 = and i16 %x.0.copyload.i13.i543, -28928
   %149 = shl i16 %144, 4
   %shl21.i544 = and i16 %149, 28672
   %or22.i545 = or disjoint i16 %shl21.i544, %conv10.i537
@@ -1764,8 +1764,8 @@ sw.bb261:                                         ; preds = %_ZNK4mold3elf6Symbo
   %or13.i557 = or disjoint i16 %or.i556, %153
   store i16 %or13.i557, ptr %add.ptr22, align 1
   %arrayidx17.i558 = getelementptr inbounds i8, ptr %add.ptr22, i64 2
-  %x.0.copyload.i12.i559 = load i16, ptr %arrayidx17.i558, align 1
-  %155 = and i16 %x.0.copyload.i12.i559, -28928
+  %x.0.copyload.i13.i559 = load i16, ptr %arrayidx17.i558, align 1
+  %155 = and i16 %x.0.copyload.i13.i559, -28928
   %156 = shl i16 %151, 4
   %shl21.i560 = and i16 %156, 28672
   %or22.i561 = or disjoint i16 %shl21.i560, %conv10.i553
@@ -1801,8 +1801,8 @@ sw.bb270:                                         ; preds = %_ZNK4mold3elf6Symbo
   %or13.i573 = or disjoint i16 %or.i572, %160
   store i16 %or13.i573, ptr %add.ptr22, align 1
   %arrayidx17.i574 = getelementptr inbounds i8, ptr %add.ptr22, i64 2
-  %x.0.copyload.i12.i575 = load i16, ptr %arrayidx17.i574, align 1
-  %162 = and i16 %x.0.copyload.i12.i575, -28928
+  %x.0.copyload.i13.i575 = load i16, ptr %arrayidx17.i574, align 1
+  %162 = and i16 %x.0.copyload.i13.i575, -28928
   %163 = shl i16 %158, 4
   %shl21.i576 = and i16 %163, 28672
   %or22.i577 = or disjoint i16 %shl21.i576, %conv10.i569
@@ -5134,7 +5134,7 @@ if.then4:                                         ; preds = %if.then
 
 for.body.i.i:                                     ; preds = %if.then4, %_ZN3tbb6detail2d015spin_wait_whileIPSt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EEZNS1_18spin_wait_while_eqIS9_S9_EET_RKSt6atomicISB_ET0_St12memory_orderEUlS9_E_EESB_SF_SG_SH_.exit.i.i
   %i.016.i.i = phi i64 [ %inc.i.i, %_ZN3tbb6detail2d015spin_wait_whileIPSt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EEZNS1_18spin_wait_while_eqIS9_S9_EET_RKSt6atomicISB_ET0_St12memory_orderEUlS9_E_EESB_SF_SG_SH_.exit.i.i ], [ 0, %if.then4 ]
-  %arrayidx.i.i = getelementptr inbounds %"struct.std::atomic.127", ptr %0, i64 %i.016.i.i
+  %arrayidx.i.i = getelementptr inbounds %"struct.std::atomic.127", ptr %my_embedded_table, i64 %i.016.i.i
   %1 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
   %cmp.i13.i.i.i = icmp eq i64 %1, 0
   br i1 %cmp.i13.i.i.i, label %while.body.us.i.i.i, label %_ZN3tbb6detail2d015spin_wait_whileIPSt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EEZNS1_18spin_wait_while_eqIS9_S9_EET_RKSt6atomicISB_ET0_St12memory_orderEUlS9_E_EESB_SF_SG_SH_.exit.i.i
@@ -5190,7 +5190,7 @@ if.end.i.i:                                       ; preds = %for.end.i.i
 for.body9.i.i:                                    ; preds = %for.body9.i.i, %if.end.i.i
   %segment_index.017.i.i = phi i64 [ 0, %if.end.i.i ], [ %inc15.i.i, %for.body9.i.i ]
   %arrayidx11.i.i = getelementptr inbounds %"struct.std::atomic.127", ptr %call.i.i.i.i, i64 %segment_index.017.i.i
-  %arrayidx12.i.i = getelementptr inbounds %"struct.std::atomic.127", ptr %0, i64 %segment_index.017.i.i
+  %arrayidx12.i.i = getelementptr inbounds %"struct.std::atomic.127", ptr %my_embedded_table, i64 %segment_index.017.i.i
   %4 = load atomic i64, ptr %arrayidx12.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %4 to ptr
   store ptr %atomic-temp.i.0.i.i.i, ptr %arrayidx11.i.i, align 8
@@ -5349,7 +5349,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
 for.body9.i.i.i:                                  ; preds = %for.body9.i.i.i, %if.end.i.i.i
   %segment_index.017.i.i.i = phi i64 [ 0, %if.end.i.i.i ], [ %inc15.i.i.i, %for.body9.i.i.i ]
   %arrayidx11.i.i.i = getelementptr inbounds %"struct.std::atomic.127", ptr %call.i.i.i.i.i, i64 %segment_index.017.i.i.i
-  %arrayidx12.i.i.i = getelementptr inbounds %"struct.std::atomic.127", ptr %table, i64 %segment_index.017.i.i.i
+  %arrayidx12.i.i.i = getelementptr inbounds %"struct.std::atomic.127", ptr %my_embedded_table.i, i64 %segment_index.017.i.i.i
   %8 = load atomic i64, ptr %arrayidx12.i.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %8 to ptr
   store ptr %atomic-temp.i.0.i.i.i.i, ptr %arrayidx11.i.i.i, align 8

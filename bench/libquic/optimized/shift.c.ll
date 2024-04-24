@@ -148,7 +148,7 @@ if.end:                                           ; preds = %if.then
   br label %if.end15
 
 if.else:                                          ; preds = %entry
-  %top7 = getelementptr inbounds i8, ptr %r, i64 8
+  %top7 = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load i32, ptr %top7, align 8
   %add8 = add nsw i32 %3, 1
   %conv9 = sext i32 %add8 to i64

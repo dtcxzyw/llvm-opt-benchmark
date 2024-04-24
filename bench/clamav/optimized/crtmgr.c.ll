@@ -601,10 +601,10 @@ define void @crtmgr_del(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_
   br i1 %3, label %4, label %26
 
 4:                                                ; preds = %.lr.ph
-  %5 = getelementptr inbounds i8, ptr %1, i64 392
+  %5 = getelementptr inbounds i8, ptr %.028, i64 392
   %6 = load ptr, ptr %5, align 8
   %.not22 = icmp eq ptr %6, null
-  %7 = getelementptr inbounds i8, ptr %1, i64 400
+  %7 = getelementptr inbounds i8, ptr %.028, i64 400
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 400
   %.sink = select i1 %.not22, ptr %0, ptr %9

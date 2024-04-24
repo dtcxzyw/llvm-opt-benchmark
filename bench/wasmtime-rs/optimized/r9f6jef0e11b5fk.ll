@@ -13162,7 +13162,7 @@ define void @"_ZN113_$LT$wasmtime_runtime..instance..allocator..pooling..memory_
   br label %"_ZN4core3ptr118drop_in_place$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$17h61123cf7d018ed17E.llvm.14031171042790067460.exit"
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr118drop_in_place$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$17h61123cf7d018ed17E.llvm.14031171042790067460.exit5"
-  store ptr %6, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !4550, !noalias !4554
+  store ptr %21, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !4550, !noalias !4554
   br label %13
 
 13:                                               ; preds = %._crit_edge, %1

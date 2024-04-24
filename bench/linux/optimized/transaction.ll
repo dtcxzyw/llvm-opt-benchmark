@@ -3109,7 +3109,7 @@ define dso_local noundef i32 @jbd2_journal_dirty_metadata(ptr nocapture noundef 
   br i1 %112, label %116, label %113
 
 113:                                              ; preds = %108
-  %114 = getelementptr inbounds i8, ptr %3, i64 8
+  %114 = getelementptr inbounds i8, ptr %98, i64 8
   %115 = load i32, ptr %114, align 8
   br label %116
 
@@ -3125,7 +3125,7 @@ define dso_local noundef i32 @jbd2_journal_dirty_metadata(ptr nocapture noundef 
 
 122:                                              ; preds = %119, %116
   %123 = phi i32 [ %121, %119 ], [ 0, %116 ]
-  %124 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, ptr noundef %109, i64 noundef %111, ptr noundef %3, i32 noundef %117, ptr noundef %106, i32 noundef %123) #12
+  %124 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, ptr noundef %109, i64 noundef %111, ptr noundef %98, i32 noundef %117, ptr noundef %106, i32 noundef %123) #12
   br label %.thread8
 
 125:                                              ; preds = %100, %97

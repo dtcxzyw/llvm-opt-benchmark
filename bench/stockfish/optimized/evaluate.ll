@@ -419,7 +419,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 122:                                              ; preds = %._crit_edge
   store ptr %119, ptr %0, align 8
-  %123 = load ptr, ptr %109, align 8
+  %123 = load ptr, ptr %120, align 8
   store ptr %123, ptr %119, align 8
   br label %124
 

@@ -7899,7 +7899,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIdSt4pairIKdPN6casadi10Realtype
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %.thread24
-  store ptr %11, ptr %32, align 8
+  store ptr %11, ptr %34, align 8
   br label %38
 
 38:                                               ; preds = %37, %.thread24

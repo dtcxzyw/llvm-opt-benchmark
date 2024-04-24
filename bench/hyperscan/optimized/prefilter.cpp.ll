@@ -629,7 +629,7 @@ _ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i55: ; preds = %_ZNSt
   br label %common.resume
 
 return:                                           ; preds = %delete.notnull.i, %invoke.cont19, %_ZNSt10unique_ptrIN3ue215ComponentRepeatESt14default_deleteIS1_EED2Ev.exit
-  %retval.0 = phi ptr [ %39, %_ZNSt10unique_ptrIN3ue215ComponentRepeatESt14default_deleteIS1_EED2Ev.exit ], [ %call14, %invoke.cont19 ], [ %call.i, %delete.notnull.i ]
+  %retval.0 = phi ptr [ %39, %_ZNSt10unique_ptrIN3ue215ComponentRepeatESt14default_deleteIS1_EED2Ev.exit ], [ %call.i, %invoke.cont19 ], [ %call.i, %delete.notnull.i ]
   ret ptr %retval.0
 }
 
@@ -738,7 +738,7 @@ delete.notnull.i:                                 ; preds = %if.end21
   br label %return
 
 return:                                           ; preds = %delete.notnull.i, %if.end21, %invoke.cont
-  %retval.0 = phi ptr [ %call, %invoke.cont ], [ %call, %if.end21 ], [ %call.i, %delete.notnull.i ]
+  %retval.0 = phi ptr [ %call, %invoke.cont ], [ %call.i, %if.end21 ], [ %call.i, %delete.notnull.i ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i10, %lpad13, %lpad
@@ -1336,7 +1336,7 @@ if.else.i.i:                                      ; preds = %entry
   %4 = load ptr, ptr %add.ptr.i.i.i, align 8
   %incdec.ptr.i.i.i5 = getelementptr inbounds i8, ptr %4, i64 504
   %5 = load i64, ptr %incdec.ptr.i.i.i5, align 8
-  tail call void @_ZdlPv(ptr noundef %0) #17
+  tail call void @_ZdlPv(ptr noundef %1) #17
   %6 = load ptr, ptr %_M_node5.i.i.i.i, align 8
   %add.ptr.i.i.i2 = getelementptr inbounds i8, ptr %6, i64 -8
   store ptr %add.ptr.i.i.i2, ptr %_M_node5.i.i.i.i, align 8
@@ -1358,7 +1358,7 @@ _ZNSt5stackImSt5dequeImSaImEEE3popEv.exit:        ; preds = %if.then.i.i, %if.el
   %call3 = tail call i64 %9(ptr noundef nonnull align 8 dereferenceable(96) %c)
   %bounds.sroa.0.0.extract.trunc = trunc i64 %call3 to i32
   %bounds.sroa.3.0.extract.shift = lshr i64 %call3, 32
-  %bounds.sroa.3.0.extract.trunc = trunc i64 %bounds.sroa.3.0.extract.shift to i32
+  %bounds.sroa.3.0.extract.trunc = trunc nuw i64 %bounds.sroa.3.0.extract.shift to i32
   %numPositions = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load i64, ptr %numPositions, align 8
   %cmp.not = icmp eq i32 %bounds.sroa.3.0.extract.trunc, -1

@@ -1108,7 +1108,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %cleanup
-  %10 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %8, %cleanup ]
+  %10 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %9, %cleanup ]
   %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev10FormatInfoESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
@@ -2578,7 +2578,7 @@ if.end188.critedge:                               ; preds = %invoke.cont168
   br label %if.end188
 
 if.end188:                                        ; preds = %if.end188.critedge, %if.end.i.i
-  %tobool189 = trunc i8 %foundDisplay.0 to i1
+  %tobool189 = trunc nuw i8 %foundDisplay.0 to i1
   br i1 %tobool189, label %land.lhs.true190, label %for.inc
 
 land.lhs.true190:                                 ; preds = %if.end188.thread, %if.end188
@@ -2596,7 +2596,7 @@ for.inc:                                          ; preds = %if.end188, %land.lh
 for.end:                                          ; preds = %if.end8.sink.split.i.i.i.i244, %invoke.cont158, %land.lhs.true190, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit253
   %foundDisplay.2 = phi i8 [ %foundDisplay.1430, %land.lhs.true190 ], [ %foundDisplay.0, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit253 ], [ %foundDisplay.0, %invoke.cont158 ], [ %foundDisplay.0, %if.end8.sink.split.i.i.i.i244 ]
   %foundView.2 = phi i8 [ %foundView.1431, %land.lhs.true190 ], [ %foundView.0, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit253 ], [ %foundView.0, %invoke.cont158 ], [ %foundView.0, %if.end8.sink.split.i.i.i.i244 ]
-  %tobool194 = trunc i8 %foundDisplay.2 to i1
+  %tobool194 = trunc nuw i8 %foundDisplay.2 to i1
   br i1 %tobool194, label %if.else, label %if.then195
 
 if.then195:                                       ; preds = %for.end

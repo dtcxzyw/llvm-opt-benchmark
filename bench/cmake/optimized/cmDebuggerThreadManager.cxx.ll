@@ -398,7 +398,7 @@ define dso_local void @_ZN10cmDebugger23cmDebuggerThreadManager27GetThreadStackT
   %4 = alloca %"struct.dap::StackTraceResponse", align 16
   %5 = load ptr, ptr %1, align 8
   %.not5.i.i.i = icmp eq ptr %5, %1
-  br i1 %.not5.i.i.i, label %_ZN3dap18StackTraceResponseD2Ev.exit, label %.lr.ph.i.i.i
+  br i1 %.not5.i.i.i, label %"_ZSt7find_ifISt14_List_iteratorISt10shared_ptrIN10cmDebugger16cmDebuggerThreadEEEZNS2_23cmDebuggerThreadManager27GetThreadStackTraceResponseElE3$_0ET_S8_S8_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %8
   %.sroa.03.06.i.i.i = phi ptr [ %9, %8 ], [ %5, %3 ]
@@ -411,14 +411,15 @@ define dso_local void @_ZN10cmDebugger23cmDebuggerThreadManager27GetThreadStackT
 8:                                                ; preds = %.lr.ph.i.i.i
   %9 = load ptr, ptr %.sroa.03.06.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %9, %1
-  br i1 %.not.i.i.i, label %_ZN3dap18StackTraceResponseD2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i, label %"_ZSt7find_ifISt14_List_iteratorISt10shared_ptrIN10cmDebugger16cmDebuggerThreadEEEZNS2_23cmDebuggerThreadManager27GetThreadStackTraceResponseElE3$_0ET_S8_S8_T0_.exit", label %.lr.ph.i.i.i, !llvm.loop !11
 
-"_ZSt7find_ifISt14_List_iteratorISt10shared_ptrIN10cmDebugger16cmDebuggerThreadEEEZNS2_23cmDebuggerThreadManager27GetThreadStackTraceResponseElE3$_0ET_S8_S8_T0_.exit": ; preds = %.lr.ph.i.i.i
-  %10 = icmp eq ptr %.sroa.03.06.i.i.i, %1
+"_ZSt7find_ifISt14_List_iteratorISt10shared_ptrIN10cmDebugger16cmDebuggerThreadEEEZNS2_23cmDebuggerThreadManager27GetThreadStackTraceResponseElE3$_0ET_S8_S8_T0_.exit": ; preds = %.lr.ph.i.i.i, %8, %3
+  %.sroa.03.0.lcssa.i.i.i = phi ptr [ %5, %3 ], [ %.sroa.03.06.i.i.i, %.lr.ph.i.i.i ], [ %9, %8 ]
+  %10 = icmp eq ptr %.sroa.03.0.lcssa.i.i.i, %1
   br i1 %10, label %_ZN3dap18StackTraceResponseD2Ev.exit, label %_ZSt8_DestroyIPN3dap10StackFrameES1_EvT_S3_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN3dap10StackFrameES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %"_ZSt7find_ifISt14_List_iteratorISt10shared_ptrIN10cmDebugger16cmDebuggerThreadEEEZNS2_23cmDebuggerThreadManager27GetThreadStackTraceResponseElE3$_0ET_S8_S8_T0_.exit"
-  %11 = getelementptr inbounds i8, ptr %.sroa.03.06.i.i.i, i64 16
+  %11 = getelementptr inbounds i8, ptr %.sroa.03.0.lcssa.i.i.i, i64 16
   call void @_ZN10cmDebugger21GetStackTraceResponseERKSt10shared_ptrINS_16cmDebuggerThreadEE(ptr dead_on_unwind nonnull writable sret(%"struct.dap::StackTraceResponse") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %11)
   %12 = load <2 x ptr>, ptr %4, align 16
   store <2 x ptr> %12, ptr %0, align 8
@@ -437,8 +438,8 @@ _ZSt8_DestroyIPN3dap10StackFrameES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %"_ZSt7f
   store i8 %22, ptr %19, align 8
   br label %_ZN3dap18StackTraceResponseD2Ev.exit
 
-_ZN3dap18StackTraceResponseD2Ev.exit:             ; preds = %8, %"_ZSt7find_ifISt14_List_iteratorISt10shared_ptrIN10cmDebugger16cmDebuggerThreadEEEZNS2_23cmDebuggerThreadManager27GetThreadStackTraceResponseElE3$_0ET_S8_S8_T0_.exit", %3, %_ZSt8_DestroyIPN3dap10StackFrameES1_EvT_S3_RSaIT0_E.exit.i.i
-  %.sink = phi i8 [ 1, %_ZSt8_DestroyIPN3dap10StackFrameES1_EvT_S3_RSaIT0_E.exit.i.i ], [ 0, %3 ], [ 0, %"_ZSt7find_ifISt14_List_iteratorISt10shared_ptrIN10cmDebugger16cmDebuggerThreadEEEZNS2_23cmDebuggerThreadManager27GetThreadStackTraceResponseElE3$_0ET_S8_S8_T0_.exit" ], [ 0, %8 ]
+_ZN3dap18StackTraceResponseD2Ev.exit:             ; preds = %"_ZSt7find_ifISt14_List_iteratorISt10shared_ptrIN10cmDebugger16cmDebuggerThreadEEEZNS2_23cmDebuggerThreadManager27GetThreadStackTraceResponseElE3$_0ET_S8_S8_T0_.exit", %_ZSt8_DestroyIPN3dap10StackFrameES1_EvT_S3_RSaIT0_E.exit.i.i
+  %.sink = phi i8 [ 1, %_ZSt8_DestroyIPN3dap10StackFrameES1_EvT_S3_RSaIT0_E.exit.i.i ], [ 0, %"_ZSt7find_ifISt14_List_iteratorISt10shared_ptrIN10cmDebugger16cmDebuggerThreadEEEZNS2_23cmDebuggerThreadManager27GetThreadStackTraceResponseElE3$_0ET_S8_S8_T0_.exit" ]
   %23 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 %.sink, ptr %23, align 8
   ret void

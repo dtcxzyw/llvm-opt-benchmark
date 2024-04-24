@@ -10397,21 +10397,22 @@ folio_putback_lru.exit:                           ; preds = %31, %36
 
 .loopexit:                                        ; preds = %114, %2
   %118 = phi i32 [ 0, %2 ], [ %115, %114 ]
-  %119 = load volatile ptr, ptr %3, align 8
-  %120 = icmp eq ptr %119, %3
-  br i1 %120, label %125, label %121
+  %119 = phi ptr [ %5, %2 ], [ %116, %114 ]
+  %120 = load volatile ptr, ptr %3, align 8
+  %121 = icmp eq ptr %120, %3
+  br i1 %121, label %126, label %122
 
-121:                                              ; preds = %.loopexit
-  %122 = load ptr, ptr %4, align 8
-  %123 = getelementptr inbounds i8, ptr %119, i64 8
-  store ptr %1, ptr %123, align 8
-  store ptr %119, ptr %1, align 8
-  store ptr %1, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %122, ptr %124, align 8
-  br label %125
+122:                                              ; preds = %.loopexit
+  %123 = load ptr, ptr %4, align 8
+  %124 = getelementptr inbounds i8, ptr %120, i64 8
+  store ptr %1, ptr %124, align 8
+  store ptr %120, ptr %1, align 8
+  store ptr %119, ptr %123, align 8
+  %125 = getelementptr inbounds i8, ptr %119, i64 8
+  store ptr %123, ptr %125, align 8
+  br label %126
 
-125:                                              ; preds = %121, %.loopexit
+126:                                              ; preds = %122, %.loopexit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   ret i32 %118
 }

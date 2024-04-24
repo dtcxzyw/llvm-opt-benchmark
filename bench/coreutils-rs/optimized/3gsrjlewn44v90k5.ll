@@ -611,13 +611,13 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter8adapters7flatten17and_then_or
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i": ; preds = %82, %46
   %84 = phi i64 [ %19, %46 ], [ %59, %82 ]
-  %.lcssa.sink.i.i.i.i.i = phi ptr [ %48, %46 ], [ %9, %82 ]
+  %.lcssa.sink.i.i.i.i.i = phi ptr [ %48, %46 ], [ %.sink.in.i.i.i.i.i.i.i, %82 ]
   store ptr %.lcssa.sink.i.i.i.i.i, ptr %7, align 8, !alias.scope !216, !noalias !200
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i": ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i", %17
   %85 = phi i64 [ %84, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i" ], [ %14, %17 ]
-  %.lcssa.sink.i.i19.i.i.i = phi ptr [ %.lcssa.sink.i.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i" ], [ %9, %17 ]
+  %.lcssa.sink.i.i19.i.i.i = phi ptr [ %.lcssa.sink.i.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i" ], [ %.lcssa.sink.i.i20.i.i.i, %17 ]
   store i8 1, ptr %2, align 1, !alias.scope !217
   %.not.i.i.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i.i.i, %.pre.i.i.i16.i.i.i
   %or.cond.not.i.i.i.i.i.i = select i1 %12, i1 true, i1 %.not.i.i.i.i.i.i
@@ -1104,13 +1104,13 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he5da7e8
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i.i": ; preds = %96, %60
   %98 = phi i64 [ %33, %60 ], [ %73, %96 ]
-  %.lcssa.sink.i.i.i.i.i.i = phi ptr [ %62, %60 ], [ %24, %96 ]
+  %.lcssa.sink.i.i.i.i.i.i = phi ptr [ %62, %60 ], [ %.sink.in.i.i.i.i.i.i.i.i, %96 ]
   store ptr %.lcssa.sink.i.i.i.i.i.i, ptr %7, align 8, !alias.scope !363, !noalias !347
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i": ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i.i", %31
   %99 = phi i64 [ %98, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i.i" ], [ %28, %31 ]
-  %.lcssa.sink.i.i19.i.i.i.i = phi ptr [ %.lcssa.sink.i.i.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i.i" ], [ %24, %31 ]
+  %.lcssa.sink.i.i19.i.i.i.i = phi ptr [ %.lcssa.sink.i.i.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i.i" ], [ %.lcssa.sink.i.i20.i.i.i.i, %31 ]
   store i8 1, ptr %.sroa.410.0..sroa_idx.i.i.i, align 1, !alias.scope !364, !noalias !303
   %.not.i.i.i.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i.i.i.i, %.pre.i.i.i16.i.i.i.i
   %or.cond.not.i.i.i.i.i.i.i = select i1 %26, i1 true, i1 %.not.i.i.i.i.i.i.i

@@ -95,7 +95,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN109_$LT$alloc
   %10 = load ptr, ptr %9, align 8, !alias.scope !13, !noalias !10, !noundef !9
   store ptr %8, ptr %0, align 8, !alias.scope !10, !noalias !13
   store ptr %10, ptr %2, align 8, !alias.scope !10, !noalias !13
-  store ptr %3, ptr %7, align 8, !alias.scope !13, !noalias !10
+  store ptr %4, ptr %7, align 8, !alias.scope !13, !noalias !10
   store ptr %3, ptr %9, align 8, !alias.scope !13, !noalias !10
   %11 = icmp eq ptr %8, %10
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1facae21fd1b6d6E.llvm.2123743330159991533.exit4", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1facae21fd1b6d6E.llvm.2123743330159991533.exit4.sink.split"
@@ -3633,7 +3633,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 
 12:                                               ; preds = %8, %4
   %.sroa.10.1 = phi ptr [ %.sroa.6.0, %8 ], [ %.sroa.10.0, %4 ]
-  %.sroa.8.1 = phi ptr [ %.sroa.6.0, %8 ], [ %.sroa.8.0, %4 ]
+  %.sroa.8.1 = phi ptr [ %.sroa.0.0, %8 ], [ %.sroa.8.0, %4 ]
   %.sroa.6.1 = phi ptr [ %.sroa.10.0, %8 ], [ %.sroa.6.0, %4 ]
   %.sink6.i = phi ptr [ %.sroa.8.0, %8 ], [ %.sroa.0.0, %4 ]
   %13 = getelementptr inbounds i8, ptr %.sink6.i, i64 32

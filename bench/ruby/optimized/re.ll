@@ -8724,7 +8724,7 @@ define internal fastcc noundef i32 @unescape_nonascii0(ptr nocapture noundef %0,
   br label %.critedge
 
 .critedge.loopexit:                               ; preds = %.lr.ph255, %115, %.preheader
-  %186 = phi ptr [ %42, %.preheader ], [ %106, %.lr.ph255 ], [ %scevgep325, %115 ]
+  %186 = phi ptr [ %42, %.preheader ], [ %106, %115 ], [ %106, %.lr.ph255 ]
   store ptr %186, ptr %11, align 8
   br label %.critedge
 

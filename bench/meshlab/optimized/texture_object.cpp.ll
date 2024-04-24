@@ -152,7 +152,7 @@ _ZN13TextureObject7ReleaseEi.exit:                ; preds = %.noexc3, %21
   br i1 %35, label %7, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %_ZN13TextureObject7ReleaseEi.exit, %1
-  %.lcssa = phi ptr [ %4, %1 ], [ %28, %_ZN13TextureObject7ReleaseEi.exit ]
+  %.lcssa = phi ptr [ %5, %1 ], [ %28, %_ZN13TextureObject7ReleaseEi.exit ]
   %.not.i.i.i = icmp eq ptr %.lcssa, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %36
 

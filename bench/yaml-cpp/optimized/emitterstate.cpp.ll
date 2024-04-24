@@ -208,7 +208,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt10u
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZN4YAML14SettingChanges7restoreEv.exit.i, %entry, %invoke.contthread-pre-split.i, %_ZN4YAML14SettingChanges5clearEv.exit
-  %10 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre.i, %_ZN4YAML14SettingChanges5clearEv.exit ], [ %.pre.i, %_ZN4YAML14SettingChanges7restoreEv.exit.i ], [ %0, %entry ]
+  %10 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %_ZN4YAML14SettingChanges5clearEv.exit ], [ %.pre.i, %_ZN4YAML14SettingChanges7restoreEv.exit.i ], [ %0, %entry ]
   %tobool.not.i.i.i2 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i2, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
@@ -946,7 +946,7 @@ if.then10.i:                                      ; preds = %if.else.i
   br label %_ZN4YAML12EmitterState11StartedNodeEv.exit
 
 _ZN4YAML12EmitterState11StartedNodeEv.exit:       ; preds = %if.then.i, %if.else.i, %if.then10.i
-  %8 = phi ptr [ %0, %if.then.i ], [ %5, %if.else.i ], [ %.pre, %if.then10.i ]
+  %8 = phi ptr [ %1, %if.then.i ], [ %5, %if.else.i ], [ %.pre, %if.then10.i ]
   %m_hasAnchor.i = getelementptr inbounds i8, ptr %this, i64 208
   store i32 0, ptr %m_hasAnchor.i, align 8
   %9 = load ptr, ptr %m_groups.i, align 8

@@ -4325,7 +4325,7 @@ if.end59.i:                                       ; preds = %if.end54.i
 
 _ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit15.sink.split.i: ; preds = %if.end59.i, %if.end54.i, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v86ObjectEEEbNS3_5LocalINS3_7ContextEEENS5_IS4_EENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit.i47, %if.end.i40
   %cert.sroa.0.7 = phi ptr [ %cert.sroa.0.6, %if.end.i40 ], [ %cert.sroa.0.6, %if.end54.i ], [ %20, %if.end59.i ], [ %cert.sroa.0.6, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v86ObjectEEEbNS3_5LocalINS3_7ContextEEENS5_IS4_EENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit.i47 ]
-  %.sink.i = phi ptr [ %20, %if.end.i40 ], [ %cert.sroa.0.6, %if.end54.i ], [ %cert.sroa.0.6, %if.end59.i ], [ %20, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v86ObjectEEEbNS3_5LocalINS3_7ContextEEENS5_IS4_EENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit.i47 ]
+  %.sink.i = phi ptr [ %20, %if.end.i40 ], [ %20, %if.end54.i ], [ %cert.sroa.0.6, %if.end59.i ], [ %20, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v86ObjectEEEbNS3_5LocalINS3_7ContextEEENS5_IS4_EENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit.i47 ]
   %issuer_chain.sroa.0.133.ph.i = phi ptr [ %issuer_chain.sroa.0.0.i, %if.end.i40 ], [ %call16.i41, %if.end54.i ], [ %call16.i41, %if.end59.i ], [ %issuer_chain.sroa.0.0.i, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v86ObjectEEEbNS3_5LocalINS3_7ContextEEENS5_IS4_EENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit.i47 ]
   %cleanup.dest.slot.032.ph.i = phi i32 [ 1, %if.end.i40 ], [ 3, %if.end54.i ], [ 0, %if.end59.i ], [ 1, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v86ObjectEEEbNS3_5LocalINS3_7ContextEEENS5_IS4_EENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit.i47 ]
   call void @X509_free(ptr noundef nonnull %.sink.i) #17

@@ -5532,7 +5532,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %invoke.cont19
 
 if.else.i:                                        ; preds = %for.cond.cleanup, %entry
-  %11 = phi ptr [ %.pre, %for.cond.cleanup ], [ null, %entry ]
+  %11 = phi ptr [ %.pre94, %for.cond.cleanup ], [ null, %entry ]
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %11, ptr noundef nonnull align 8 dereferenceable(32) %current)
           to label %invoke.cont19 unwind label %lpad18
 
@@ -22812,7 +22812,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyINSt7_
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %_ZNSt6vectorIN8GUITable6OptionESaIS1_EE5clearEv.exit
-  %16 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre59, %for.cond.cleanup ], [ %8, %_ZNSt6vectorIN8GUITable6OptionESaIS1_EE5clearEv.exit ]
+  %16 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre60, %for.cond.cleanup ], [ %8, %_ZNSt6vectorIN8GUITable6OptionESaIS1_EE5clearEv.exit ]
   %tobool.not.i.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
@@ -23303,7 +23303,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyINSt7_
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %_ZNSt6vectorIN8GUITable11TableColumnESaIS1_EE5clearEv.exit
-  %23 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre130, %for.cond.cleanup ], [ %14, %_ZNSt6vectorIN8GUITable11TableColumnESaIS1_EE5clearEv.exit ]
+  %23 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre131, %for.cond.cleanup ], [ %14, %_ZNSt6vectorIN8GUITable11TableColumnESaIS1_EE5clearEv.exit ]
   %tobool.not.i.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
@@ -29247,7 +29247,7 @@ invoke.contthread-pre-split.i747:                 ; preds = %_ZSt8_DestroyINSt7_
   br label %invoke.cont.i749
 
 invoke.cont.i749:                                 ; preds = %invoke.contthread-pre-split.i747, %invoke.cont240
-  %247 = phi ptr [ %.pr.i748, %invoke.contthread-pre-split.i747 ], [ %.pre1057, %invoke.cont240 ]
+  %247 = phi ptr [ %.pr.i748, %invoke.contthread-pre-split.i747 ], [ %.pre1058, %invoke.cont240 ]
   %tobool.not.i.i.i750 = icmp eq ptr %247, null
   br i1 %tobool.not.i.i.i750, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit755, label %if.then.i.i.i751
 

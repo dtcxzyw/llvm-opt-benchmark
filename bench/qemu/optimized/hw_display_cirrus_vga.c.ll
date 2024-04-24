@@ -2323,43 +2323,43 @@ sw.bb41:                                          ; preds = %trace_vga_cirrus_wr
   %16 = load i32, ptr %real_vram_size.i83, align 8
   %cmp45.not.not.i86 = icmp ugt i32 %16, %offset.1.i82
   %limit.0.i84 = tail call i32 @llvm.usub.sat.i32(i32 %16, i32 %offset.1.i82)
-  %.sink132 = select i1 %cmp45.not.not.i86, i32 %offset.1.i82, i32 0
-  %.sink.i89 = select i1 %cmp45.not.not.i86, i32 %limit.0.i84, i32 0
+  %.sink139 = select i1 %cmp45.not.not.i86, i32 %offset.1.i82, i32 0
+  %.sink.i90 = select i1 %cmp45.not.not.i86, i32 %limit.0.i84, i32 0
   %17 = getelementptr inbounds i8, ptr %s, i64 70588
-  store i32 %.sink132, ptr %17, align 4
-  %cirrus_bank_limit56.i90 = getelementptr inbounds i8, ptr %s, i64 70596
-  store i32 %.sink.i89, ptr %cirrus_bank_limit56.i90, align 4
-  %arrayidx4.i100 = getelementptr i8, ptr %s, i64 1116
-  %offset.0.in.in.i102 = select i1 %cmp.not.i73, ptr %arrayidx4.i75, ptr %arrayidx4.i100
-  %offset.0.in.i103 = load i8, ptr %offset.0.in.in.i102, align 1
-  %offset.0.i104 = zext i8 %offset.0.in.i103 to i32
-  %offset.1.i107 = shl nuw nsw i32 %offset.0.i104, %offset.1.v.i81
-  %limit.0.i109 = tail call i32 @llvm.usub.sat.i32(i32 %16, i32 %offset.1.i107)
-  br i1 %cmp.not.i73, label %if.then36.i123, label %if.end44.i110
+  store i32 %.sink139, ptr %17, align 4
+  %cirrus_bank_limit56.i91 = getelementptr inbounds i8, ptr %s, i64 70596
+  store i32 %.sink.i90, ptr %cirrus_bank_limit56.i91, align 4
+  %arrayidx4.i107 = getelementptr i8, ptr %s, i64 1116
+  %offset.0.in.in.i109 = select i1 %cmp.not.i73, ptr %arrayidx4.i75, ptr %arrayidx4.i107
+  %offset.0.in.i110 = load i8, ptr %offset.0.in.in.i109, align 1
+  %offset.0.i111 = zext i8 %offset.0.in.i110 to i32
+  %offset.1.i114 = shl nuw nsw i32 %offset.0.i111, %offset.1.v.i81
+  %limit.0.i116 = tail call i32 @llvm.usub.sat.i32(i32 %16, i32 %offset.1.i114)
+  br i1 %cmp.not.i73, label %if.then36.i130, label %if.end44.i117
 
-if.then36.i123:                                   ; preds = %sw.bb41
-  %cmp37.i124 = icmp ugt i32 %limit.0.i109, 32768
-  br i1 %cmp37.i124, label %if.end44.thread27.i125, label %if.else52.i112
+if.then36.i130:                                   ; preds = %sw.bb41
+  %cmp37.i131 = icmp ugt i32 %limit.0.i116, 32768
+  br i1 %cmp37.i131, label %if.end44.thread27.i132, label %if.else52.i119
 
-if.end44.thread27.i125:                           ; preds = %if.then36.i123
-  %add40.i126 = add nuw nsw i32 %offset.1.i107, 32768
-  %sub41.i127 = add i32 %limit.0.i109, -32768
-  br label %cirrus_update_bank_ptr.exit128
+if.end44.thread27.i132:                           ; preds = %if.then36.i130
+  %add40.i133 = add nuw nsw i32 %offset.1.i114, 32768
+  %sub41.i134 = add i32 %limit.0.i116, -32768
+  br label %cirrus_update_bank_ptr.exit135
 
-if.end44.i110:                                    ; preds = %sw.bb41
-  %cmp45.not.not.i111 = icmp ugt i32 %16, %offset.1.i107
-  br i1 %cmp45.not.not.i111, label %cirrus_update_bank_ptr.exit128, label %if.else52.i112
+if.end44.i117:                                    ; preds = %sw.bb41
+  %cmp45.not.not.i118 = icmp ugt i32 %16, %offset.1.i114
+  br i1 %cmp45.not.not.i118, label %cirrus_update_bank_ptr.exit135, label %if.else52.i119
 
-if.else52.i112:                                   ; preds = %if.end44.i110, %if.then36.i123
-  br label %cirrus_update_bank_ptr.exit128
+if.else52.i119:                                   ; preds = %if.end44.i117, %if.then36.i130
+  br label %cirrus_update_bank_ptr.exit135
 
-cirrus_update_bank_ptr.exit128:                   ; preds = %if.end44.thread27.i125, %if.end44.i110, %if.else52.i112
-  %offset.231.i120.sink = phi i32 [ 0, %if.else52.i112 ], [ %add40.i126, %if.end44.thread27.i125 ], [ %offset.1.i107, %if.end44.i110 ]
-  %.sink.i115 = phi i32 [ 0, %if.else52.i112 ], [ %sub41.i127, %if.end44.thread27.i125 ], [ %limit.0.i109, %if.end44.i110 ]
-  %arrayidx49.i122 = getelementptr i8, ptr %s, i64 70592
-  store i32 %offset.231.i120.sink, ptr %arrayidx49.i122, align 4
-  %arrayidx58.i117 = getelementptr i8, ptr %s, i64 70600
-  store i32 %.sink.i115, ptr %arrayidx58.i117, align 4
+cirrus_update_bank_ptr.exit135:                   ; preds = %if.end44.thread27.i132, %if.end44.i117, %if.else52.i119
+  %offset.231.i127.sink = phi i32 [ 0, %if.else52.i119 ], [ %add40.i133, %if.end44.thread27.i132 ], [ %offset.1.i114, %if.end44.i117 ]
+  %.sink.i122 = phi i32 [ 0, %if.else52.i119 ], [ %sub41.i134, %if.end44.thread27.i132 ], [ %limit.0.i116, %if.end44.i117 ]
+  %arrayidx49.i129 = getelementptr i8, ptr %s, i64 70592
+  store i32 %offset.231.i127.sink, ptr %arrayidx49.i129, align 4
+  %arrayidx58.i124 = getelementptr i8, ptr %s, i64 70600
+  store i32 %.sink.i122, ptr %arrayidx58.i124, align 4
   tail call fastcc void @cirrus_update_memory_access(ptr noundef nonnull %s)
   br label %sw.epilog
 
@@ -2398,20 +2398,20 @@ sw.bb72:                                          ; preds = %trace_vga_cirrus_wr
   br label %sw.epilog
 
 sw.bb79:                                          ; preds = %trace_vga_cirrus_write_gr.exit
-  %arrayidx.i129 = getelementptr i8, ptr %s, i64 1155
-  %19 = load i8, ptr %arrayidx.i129, align 1
+  %arrayidx.i136 = getelementptr i8, ptr %s, i64 1155
+  %19 = load i8, ptr %arrayidx.i136, align 1
   %conv.i = zext i8 %19 to i32
-  store i8 %conv1, ptr %arrayidx.i129, align 1
+  store i8 %conv1, ptr %arrayidx.i136, align 1
   %and.i = and i32 %conv.i, 4
-  %cmp.not.i130 = icmp ne i32 %and.i, 0
+  %cmp.not.i137 = icmp ne i32 %and.i, 0
   %and6.i = and i32 %reg_value, 4
   %cmp7.i = icmp eq i32 %and6.i, 0
-  %or.cond.i = and i1 %cmp7.i, %cmp.not.i130
+  %or.cond.i = and i1 %cmp7.i, %cmp.not.i137
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.bb79
   %20 = and i8 %conv1, -24
-  store i8 %20, ptr %arrayidx.i129, align 1
+  store i8 %20, ptr %arrayidx.i136, align 1
   %cirrus_srcptr.i.i = getelementptr inbounds i8, ptr %s, i64 78896
   %21 = load ptr, ptr %cirrus_srcptr.i.i, align 16
   %cirrus_bltbuf.i.i = getelementptr inbounds i8, ptr %s, i64 70704
@@ -2422,7 +2422,7 @@ lor.rhs.i.i:                                      ; preds = %if.then.i
   %cirrus_srcptr_end.i.i = getelementptr inbounds i8, ptr %s, i64 78904
   %22 = load ptr, ptr %cirrus_srcptr_end.i.i, align 8
   %cmp6.not.i.i = icmp eq ptr %22, %21
-  store ptr %21, ptr %cirrus_srcptr_end.i.i, align 8
+  store ptr %cirrus_bltbuf.i.i, ptr %cirrus_srcptr_end.i.i, align 8
   %cirrus_srccounter.i.i = getelementptr inbounds i8, ptr %s, i64 78912
   store i32 0, ptr %cirrus_srccounter.i.i, align 16
   br i1 %cmp6.not.i.i, label %sw.epilog, label %if.end.i.i
@@ -2453,15 +2453,15 @@ if.then16.i:                                      ; preds = %if.else.i
 
 do.body:                                          ; preds = %trace_vga_cirrus_write_gr.exit
   %23 = load i32, ptr @qemu_loglevel, align 4
-  %and.i131 = and i32 %23, 2048
-  %cmp.i.not = icmp eq i32 %and.i131, 0
+  %and.i138 = and i32 %23, 2048
+  %cmp.i.not = icmp eq i32 %and.i138, 0
   br i1 %cmp.i.not, label %sw.epilog, label %if.then83
 
 if.then83:                                        ; preds = %do.body
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %reg_index, i32 noundef %reg_value) #13
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then16.i, %if.else.i, %if.end.i.i, %lor.rhs.i.i, %if.then83, %do.body, %sw.bb60, %if.then, %sw.bb72, %sw.bb53, %sw.bb47, %cirrus_update_bank_ptr.exit128, %cirrus_update_bank_ptr.exit71, %sw.bb28, %sw.bb18, %sw.bb7, %sw.bb
+sw.epilog:                                        ; preds = %if.then16.i, %if.else.i, %if.end.i.i, %lor.rhs.i.i, %if.then83, %do.body, %sw.bb60, %if.then, %sw.bb72, %sw.bb53, %sw.bb47, %cirrus_update_bank_ptr.exit135, %cirrus_update_bank_ptr.exit71, %sw.bb28, %sw.bb18, %sw.bb7, %sw.bb
   ret void
 }
 

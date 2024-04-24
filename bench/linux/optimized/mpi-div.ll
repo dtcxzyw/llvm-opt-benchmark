@@ -293,7 +293,7 @@ define dso_local void @mpi_tdiv_qr(ptr noundef %0, ptr noundef %1, ptr noundef r
 
 87:                                               ; preds = %87, %85
   %88 = phi i64 [ 0, %85 ], [ %92, %87 ]
-  %89 = getelementptr i64, ptr %46, i64 %88
+  %89 = getelementptr i64, ptr %53, i64 %88
   %90 = load i64, ptr %89, align 8
   %91 = getelementptr i64, ptr %83, i64 %88
   store i64 %90, ptr %91, align 8
@@ -309,7 +309,7 @@ define dso_local void @mpi_tdiv_qr(ptr noundef %0, ptr noundef %1, ptr noundef r
 .loopexit25:                                      ; preds = %87, %.thread19, %82, %80
   %96 = phi ptr [ %48, %80 ], [ %57, %.thread19 ], [ %48, %82 ], [ %48, %87 ]
   %97 = phi ptr [ %50, %80 ], [ %59, %.thread19 ], [ %50, %82 ], [ %50, %87 ]
-  %98 = phi ptr [ %53, %80 ], [ %95, %.thread19 ], [ %46, %82 ], [ %46, %87 ]
+  %98 = phi ptr [ %53, %80 ], [ %95, %.thread19 ], [ %53, %82 ], [ %53, %87 ]
   %99 = phi i32 [ 0, %80 ], [ 0, %.thread19 ], [ 1, %82 ], [ 1, %87 ]
   %100 = phi ptr [ %46, %80 ], [ %55, %.thread19 ], [ %83, %82 ], [ %83, %87 ]
   %101 = add i32 %9, -1

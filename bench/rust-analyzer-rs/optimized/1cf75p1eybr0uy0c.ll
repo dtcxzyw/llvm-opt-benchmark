@@ -544,7 +544,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %24, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he4a5848ea645ffc0E.exit.thread.i.i.i.i.i", label %26
 
 "_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he4a5848ea645ffc0E.exit.thread.i.i.i.i.i": ; preds = %.noexc.i.i.i, %11
-  %25 = phi ptr [ %17, %.noexc.i.i.i ], [ %.sroa.7.0.copyload, %11 ]
+  %25 = phi ptr [ %17, %.noexc.i.i.i ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5.i.i.i.i.i)
   br label %28
 
@@ -1171,7 +1171,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %16, label %._crit_edge12.i.loopexit, label %.lr.ph.i
 
 ._crit_edge12.i.loopexit:                         ; preds = %.lr.ph.i
-  store ptr %7, ptr %6, align 8, !alias.scope !466, !noalias !453
+  store ptr %12, ptr %6, align 8, !alias.scope !466, !noalias !453
   br label %._crit_edge12.i
 
 ._crit_edge12.i:                                  ; preds = %._crit_edge12.i.loopexit, %2
@@ -1266,7 +1266,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   resume { ptr, i32 } %14
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hfb545c0d624fc721E.llvm.12542172245242916373.exit.loopexit: ; preds = %22
-  store ptr %10, ptr %9, align 8, !alias.scope !487, !noalias !484
+  store ptr %17, ptr %9, align 8, !alias.scope !487, !noalias !484
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17hfb545c0d624fc721E.llvm.12542172245242916373.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hfb545c0d624fc721E.llvm.12542172245242916373.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hfb545c0d624fc721E.llvm.12542172245242916373.exit.loopexit, %2
@@ -1411,7 +1411,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   resume { ptr, i32 } %14
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h2f0b374bc6f1622dE.llvm.12542172245242916373.exit.loopexit: ; preds = %22
-  store ptr %10, ptr %9, align 8, !alias.scope !578, !noalias !575
+  store ptr %17, ptr %9, align 8, !alias.scope !578, !noalias !575
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h2f0b374bc6f1622dE.llvm.12542172245242916373.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h2f0b374bc6f1622dE.llvm.12542172245242916373.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h2f0b374bc6f1622dE.llvm.12542172245242916373.exit.loopexit, %2
@@ -1478,9 +1478,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %14, label %_ZN4core4iter6traits8iterator8Iterator4fold17hbcb7ca21e41d628cE.llvm.12542172245242916373.exit.loopexit, label %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc979ff779ead3dbbE.llvm.12542172245242916373.exit.i"
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hbcb7ca21e41d628cE.llvm.12542172245242916373.exit.loopexit: ; preds = %11, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc979ff779ead3dbbE.llvm.12542172245242916373.exit.i"
-  %.lcssa = phi ptr [ %5, %11 ], [ %10, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc979ff779ead3dbbE.llvm.12542172245242916373.exit.i" ]
   %.ph = phi i64 [ %13, %11 ], [ %8, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc979ff779ead3dbbE.llvm.12542172245242916373.exit.i" ]
-  store ptr %.lcssa, ptr %3, align 8, !alias.scope !632, !noalias !633
+  store ptr %10, ptr %3, align 8, !alias.scope !632, !noalias !633
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17hbcb7ca21e41d628cE.llvm.12542172245242916373.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hbcb7ca21e41d628cE.llvm.12542172245242916373.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hbcb7ca21e41d628cE.llvm.12542172245242916373.exit.loopexit, %2
@@ -2006,7 +2005,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %16, label %._crit_edge6.i.loopexit, label %.lr.ph.i
 
 ._crit_edge6.i.loopexit:                          ; preds = %.lr.ph.i
-  store ptr %7, ptr %6, align 8, !alias.scope !942, !noalias !929
+  store ptr %12, ptr %6, align 8, !alias.scope !942, !noalias !929
   br label %._crit_edge6.i
 
 ._crit_edge6.i:                                   ; preds = %._crit_edge6.i.loopexit, %2
@@ -3261,7 +3260,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   br i1 %30, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he4a5848ea645ffc0E.exit.thread.i.i.i.i", label %32
 
 "_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he4a5848ea645ffc0E.exit.thread.i.i.i.i": ; preds = %.noexc.i.i, %17
-  %31 = phi ptr [ %23, %.noexc.i.i ], [ %.val14.i.i, %17 ]
+  %31 = phi ptr [ %23, %.noexc.i.i ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5.i.i.i.i)
   br label %34
 
@@ -3938,7 +3937,7 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   br i1 %30, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he4a5848ea645ffc0E.exit.thread.i.i.i", label %32
 
 "_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he4a5848ea645ffc0E.exit.thread.i.i.i": ; preds = %.noexc.i, %17
-  %31 = phi ptr [ %23, %.noexc.i ], [ %.val14.i, %17 ]
+  %31 = phi ptr [ %23, %.noexc.i ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5.i.i.i)
   br label %34
 
@@ -30577,7 +30576,7 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
   br i1 %30, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he4a5848ea645ffc0E.exit.thread.i.i", label %32
 
 "_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he4a5848ea645ffc0E.exit.thread.i.i": ; preds = %.noexc, %17
-  %31 = phi ptr [ %23, %.noexc ], [ %.val14, %17 ]
+  %31 = phi ptr [ %23, %.noexc ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5.i.i)
   br label %34
 

@@ -168,7 +168,7 @@ define dso_local void @change_mnt_propagation(ptr noundef %0, i32 noundef %1) lo
   br i1 %52, label %.loopexit12, label %43, !llvm.loop !9
 
 .loopexit12:                                      ; preds = %48, %43, %37
-  %53 = phi ptr [ %0, %37 ], [ %44, %43 ], [ %38, %48 ]
+  %53 = phi ptr [ %38, %37 ], [ %44, %43 ], [ %38, %48 ]
   %54 = getelementptr inbounds i8, ptr %0, i64 192
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %11, i64 8
@@ -1238,7 +1238,7 @@ define dso_local noundef i32 @propagate_umount(ptr noundef %0) local_unnamed_add
   br label %.loopexit45
 
 .preheader44:                                     ; preds = %84, %156
-  %92 = phi ptr [ %160, %156 ], [ %65, %84 ]
+  %92 = phi ptr [ %160, %156 ], [ %66, %84 ]
   %93 = phi ptr [ %158, %156 ], [ %62, %84 ]
   %94 = getelementptr inbounds i8, ptr %93, i64 32
   %95 = getelementptr inbounds i8, ptr %93, i64 48

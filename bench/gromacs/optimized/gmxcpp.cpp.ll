@@ -733,7 +733,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %231
-  %254 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %232, %231 ]
+  %254 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %234, %231 ]
   %255 = getelementptr inbounds i8, ptr %224, i64 16
   %256 = load ptr, ptr %255, align 8
   %.not.i.i = icmp eq ptr %254, %256
@@ -2272,9 +2272,9 @@ _ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.e
 
 .thread:                                          ; preds = %.body
   tail call void @_ZNSt16allocator_traitsISaINSt10filesystem7__cxx114pathEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %24) #20
-  br label %_ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit38
+  br label %_ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit40
 
-57:                                               ; preds = %_ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit38
+57:                                               ; preds = %_ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit40
   %58 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -2282,9 +2282,9 @@ _ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.e
 
 59:                                               ; preds = %.body
   tail call void @_ZdlPv(ptr noundef nonnull %23) #24
-  br label %_ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit38
+  br label %_ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit40
 
-_ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit38: ; preds = %59, %.thread
+_ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit40: ; preds = %59, %.thread
   invoke void @__cxa_rethrow() #21
           to label %64 unwind label %57
 
@@ -2298,7 +2298,7 @@ _ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.e
   tail call void @__clang_call_terminate(ptr %63) #23
   unreachable
 
-64:                                               ; preds = %_ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit38
+64:                                               ; preds = %_ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit40
   unreachable
 }
 
@@ -4560,7 +4560,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP8t_defineSt6vectorIS2_SaIS2_EEEES7_ET0
   br label %_ZNSt6vectorI8t_defineSaIS0_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS0_S2_EE.exit
 
 _ZNSt6vectorI8t_defineSaIS0_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS0_S2_EE.exit: ; preds = %2, %11, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP8t_defineSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.loopexit.i
-  %25 = phi ptr [ %.pre.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP8t_defineSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.loopexit.i ], [ %10, %11 ], [ %8, %2 ]
+  %25 = phi ptr [ %.pre.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP8t_defineSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.loopexit.i ], [ %10, %11 ], [ %10, %2 ]
   %26 = getelementptr inbounds i8, ptr %25, i64 -64
   store ptr %26, ptr %9, align 8
   %27 = getelementptr inbounds i8, ptr %25, i64 -32
@@ -4677,7 +4677,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 51:                                               ; preds = %45
   %52 = getelementptr inbounds ptr, ptr %39, i64 %50
-  store ptr %.015, ptr %52, align 8
+  store ptr %41, ptr %52, align 8
   %.pre.i = load ptr, ptr %0, align 8
   %.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %.016
   %.pre25.i = load ptr, ptr %.phi.trans.insert.i, align 8

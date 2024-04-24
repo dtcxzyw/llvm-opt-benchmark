@@ -56,7 +56,7 @@ define internal i64 @fscontext_read(ptr nocapture noundef readonly %0, ptr nound
   %32 = and i32 %31, %30
   %33 = icmp eq i32 %32, 0
   store ptr null, ptr %26, align 8
-  %34 = trunc i32 %31 to i8
+  %34 = trunc nuw i32 %31 to i8
   %35 = xor i8 %34, -1
   %36 = and i8 %29, %35
   store i8 %36, ptr %28, align 2
@@ -266,7 +266,7 @@ define internal fastcc i64 @__se_sys_fspick(i64 noundef %0, i64 noundef %1, i64 
   br i1 %29, label %30, label %56
 
 30:                                               ; preds = %24
-  %31 = call ptr @fs_context_for_reconfigure(ptr noundef %26, i32 noundef 0, i32 noundef 0) #6
+  %31 = call ptr @fs_context_for_reconfigure(ptr noundef %28, i32 noundef 0, i32 noundef 0) #6
   %32 = icmp ugt ptr %31, inttoptr (i64 -4096 to ptr)
   br i1 %32, label %33, label %36
 

@@ -1135,231 +1135,237 @@ define dso_local noundef zeroext i1 @_ZN20cmConditionEvaluator12HandleLevel2ERNS
   %30 = alloca %"class.std::__cxx11::basic_string", align 8
   %31 = load ptr, ptr %1, align 8, !noalias !14
   %.not.i.i = icmp eq ptr %31, %1
-  br i1 %.not.i.i, label %._crit_edge, label %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i
+  br i1 %.not.i.i, label %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i, label %.preheader.i.i.i.preheader.i.i
 
-_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i: ; preds = %4
+.preheader.i.i.i.preheader.i.i:                   ; preds = %4
   %32 = load ptr, ptr %31, align 8, !noalias !14
-  %.not16.i.i = icmp eq ptr %32, %1
-  br i1 %.not16.i.i, label %.lr.ph, label %.preheader.i.i.i11.preheader.i.i
+  br label %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i
 
-.preheader.i.i.i11.preheader.i.i:                 ; preds = %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i
-  %33 = load ptr, ptr %32, align 8, !noalias !14
-  br label %.lr.ph
+_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i: ; preds = %.preheader.i.i.i.preheader.i.i, %4
+  %.sroa.0.0.i.i.i = phi ptr [ %31, %4 ], [ %32, %.preheader.i.i.i.preheader.i.i ]
+  %.not15.i.i = icmp eq ptr %.sroa.0.0.i.i.i, %1
+  br i1 %.not15.i.i, label %_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit, label %.preheader.i.i.i10.preheader.i.i
 
-.lr.ph:                                           ; preds = %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i, %.preheader.i.i.i11.preheader.i.i
-  %.sroa.23.0.ph = phi ptr [ %32, %.preheader.i.i.i11.preheader.i.i ], [ %1, %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i ]
-  %.sroa.0.0.i10.i.i.ph = phi ptr [ %33, %.preheader.i.i.i11.preheader.i.i ], [ %1, %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i ]
+.preheader.i.i.i10.preheader.i.i:                 ; preds = %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i
+  %33 = load ptr, ptr %.sroa.0.0.i.i.i, align 8, !noalias !14
+  br label %_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit
+
+_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit: ; preds = %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i, %.preheader.i.i.i10.preheader.i.i
+  %.sroa.0.0.i9.i.i = phi ptr [ %.sroa.0.0.i.i.i, %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i ], [ %33, %.preheader.i.i.i10.preheader.i.i ]
+  br i1 %.not.i.i, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.34.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   %34 = getelementptr inbounds i8, ptr %0, i64 40
   %.sroa.23.0..sroa_idx213 = getelementptr inbounds i8, ptr %27, i64 8
-  %.sroa.36.0..sroa_idx237 = getelementptr inbounds i8, ptr %27, i64 16
+  %.sroa.34.0..sroa_idx237 = getelementptr inbounds i8, ptr %27, i64 16
   %35 = getelementptr inbounds i8, ptr %0, i64 32
   %36 = getelementptr inbounds i8, ptr %18, i64 8
   %.sroa.23.0..sroa_idx211 = getelementptr inbounds i8, ptr %19, i64 8
-  %.sroa.36.0..sroa_idx235 = getelementptr inbounds i8, ptr %19, i64 16
+  %.sroa.34.0..sroa_idx235 = getelementptr inbounds i8, ptr %19, i64 16
   %.sroa.23.0..sroa_idx209 = getelementptr inbounds i8, ptr %17, i64 8
-  %.sroa.36.0..sroa_idx233 = getelementptr inbounds i8, ptr %17, i64 16
+  %.sroa.34.0..sroa_idx233 = getelementptr inbounds i8, ptr %17, i64 16
   %.sroa.23.0..sroa_idx207 = getelementptr inbounds i8, ptr %15, i64 8
-  %.sroa.36.0..sroa_idx231 = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.34.0..sroa_idx231 = getelementptr inbounds i8, ptr %15, i64 16
   %.sroa.23.0..sroa_idx205 = getelementptr inbounds i8, ptr %14, i64 8
-  %.sroa.36.0..sroa_idx229 = getelementptr inbounds i8, ptr %14, i64 16
+  %.sroa.34.0..sroa_idx229 = getelementptr inbounds i8, ptr %14, i64 16
   %.sroa.23.0..sroa_idx203 = getelementptr inbounds i8, ptr %13, i64 8
-  %.sroa.36.0..sroa_idx227 = getelementptr inbounds i8, ptr %13, i64 16
+  %.sroa.34.0..sroa_idx227 = getelementptr inbounds i8, ptr %13, i64 16
   %37 = getelementptr inbounds i8, ptr %7, i64 528
   %38 = getelementptr inbounds i8, ptr %7, i64 544
   %39 = getelementptr inbounds i8, ptr %7, i64 552
   %.sroa.23.0..sroa_idx201 = getelementptr inbounds i8, ptr %10, i64 8
-  %.sroa.36.0..sroa_idx225 = getelementptr inbounds i8, ptr %10, i64 16
-  br label %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit
+  %.sroa.34.0..sroa_idx225 = getelementptr inbounds i8, ptr %10, i64 16
+  br label %40
 
-_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit: ; preds = %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit.backedge, %.lr.ph
-  %.sroa.36.0307 = phi ptr [ %.sroa.0.0.i10.i.i.ph, %.lr.ph ], [ %.sroa.36.0307.be, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit.backedge ]
-  %.sroa.23.1306 = phi ptr [ %.sroa.23.0.ph, %.lr.ph ], [ %.sroa.23.1306.be, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit.backedge ]
-  %.sroa.0182.0304 = phi ptr [ %31, %.lr.ph ], [ %290, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit.backedge ]
-  %.not282 = icmp eq ptr %.sroa.23.1306, %1
-  br i1 %.not282, label %.critedge2, label %40
+40:                                               ; preds = %.lr.ph, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit
+  %.sroa.34.0307 = phi ptr [ %.sroa.0.0.i9.i.i, %.lr.ph ], [ %.sroa.0.0.i16.i, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ]
+  %.sroa.23.0306 = phi ptr [ %.sroa.0.0.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ]
+  %.sroa.0182.0304 = phi ptr [ %31, %.lr.ph ], [ %291, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ]
+  %.not282 = icmp eq ptr %.sroa.23.0306, %1
+  br i1 %.not282, label %.critedge2, label %41
 
-40:                                               ; preds = %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit
+41:                                               ; preds = %40
   %.sroa.037.0.copyload.b = load i1, ptr @_ZN12_GLOBAL__N_110keyMATCHESE.0, align 8
   %.sroa.037.0.copyload = select i1 %.sroa.037.0.copyload.b, i64 7, i64 0
   %.sroa.238.0.copyload = load ptr, ptr @_ZN12_GLOBAL__N_110keyMATCHESE.1, align 8
-  %41 = getelementptr inbounds i8, ptr %.sroa.0182.0304, i64 16
-  %42 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.037.0.copyload, ptr %.sroa.238.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %41)
-  br i1 %42, label %43, label %.critedge
+  %42 = getelementptr inbounds i8, ptr %.sroa.0182.0304, i64 16
+  %43 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.037.0.copyload, ptr %.sroa.238.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %42)
+  br i1 %43, label %44, label %.critedge
 
-43:                                               ; preds = %40
+44:                                               ; preds = %41
   store ptr %.sroa.0182.0304, ptr %5, align 8
-  store ptr %.sroa.23.1306, ptr %.sroa.23.0..sroa_idx, align 8
-  store ptr %.sroa.36.0307, ptr %.sroa.36.0..sroa_idx, align 8
+  store ptr %.sroa.23.0306, ptr %.sroa.23.0..sroa_idx, align 8
+  store ptr %.sroa.34.0307, ptr %.sroa.34.0..sroa_idx, align 8
   call void @_ZN20cmConditionEvaluator14cmArgumentList12ReduceOneArgINS0_21CurrentAndTwoMoreIterEEEvbT_(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext false, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %5)
   br label %.critedge2
 
-.critedge:                                        ; preds = %40
-  %44 = icmp eq ptr %.sroa.36.0307, %1
-  br i1 %44, label %.critedge2, label %45
+.critedge:                                        ; preds = %41
+  %45 = icmp eq ptr %.sroa.34.0307, %1
+  br i1 %45, label %.critedge2, label %46
 
-45:                                               ; preds = %.critedge
+46:                                               ; preds = %.critedge
   %.sroa.035.0.copyload.b = load i1, ptr @_ZN12_GLOBAL__N_110keyMATCHESE.0, align 8
   %.sroa.035.0.copyload = select i1 %.sroa.035.0.copyload.b, i64 7, i64 0
   %.sroa.236.0.copyload = load ptr, ptr @_ZN12_GLOBAL__N_110keyMATCHESE.1, align 8
-  %46 = getelementptr inbounds i8, ptr %.sroa.23.1306, i64 16
-  %47 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.035.0.copyload, ptr %.sroa.236.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %47, label %48, label %103
+  %47 = getelementptr inbounds i8, ptr %.sroa.23.0306, i64 16
+  %48 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.035.0.copyload, ptr %.sroa.236.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %48, label %49, label %104
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %.sroa.0182.0304, i64 16
-  %50 = call ptr @_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %49)
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds i8, ptr %.sroa.0182.0304, i64 16
+  %51 = call ptr @_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %50)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
-  %.not286 = icmp eq ptr %50, null
-  br i1 %.not286, label %51, label %55
+  %.not286 = icmp eq ptr %51, null
+  br i1 %.not286, label %52, label %56
 
-51:                                               ; preds = %48
-  %52 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %49)
-          to label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread unwind label %53
+52:                                               ; preds = %49
+  %53 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %50)
+          to label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread unwind label %54
 
-53:                                               ; preds = %69, %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread, %66, %55, %51
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %70, %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread, %67, %56, %52
+  %55 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5cmsys17RegularExpressionD2Ev.exit101
 
-55:                                               ; preds = %48
-  %56 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %49)
-          to label %57 unwind label %53
+56:                                               ; preds = %49
+  %57 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %50)
+          to label %58 unwind label %54
 
-57:                                               ; preds = %55
-  %58 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #18
-  %59 = extractvalue { i64, ptr } %58, 0
-  %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %59, i64 12)
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+58:                                               ; preds = %56
+  %59 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %57) #18
+  %60 = extractvalue { i64, ptr } %59, 0
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %60, i64 12)
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %57
-  %61 = extractvalue { i64, ptr } %58, 1
-  %bcmp.i.i = call i32 @bcmp(ptr %61, ptr nonnull @.str.85, i64 %.sroa.speculated.i.i.i.i)
-  %62 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %62, label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit, label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %58
+  %62 = extractvalue { i64, ptr } %59, 1
+  %bcmp.i.i = call i32 @bcmp(ptr %62, ptr nonnull @.str.85, i64 %.sroa.speculated.i.i.i.i)
+  %63 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %63, label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit, label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread
 
-_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit: ; preds = %57, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %63 = add nuw nsw i64 %.sroa.speculated.i.i.i.i, 4294967284
-  %64 = and i64 %63, 4294967295
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %66, label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread
+_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit: ; preds = %58, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  %64 = add nuw nsw i64 %.sroa.speculated.i.i.i.i, 4294967284
+  %65 = and i64 %64, 4294967295
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %67, label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread
 
-66:                                               ; preds = %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit
-  %67 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %50)
-          to label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread unwind label %53
+67:                                               ; preds = %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit
+  %68 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %51)
+          to label %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread unwind label %54
 
-_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread: ; preds = %66, %51, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit
-  %.sroa.0175.0 = phi ptr [ %50, %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit ], [ %50, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %52, %51 ], [ %6, %66 ]
-  %68 = load ptr, ptr %0, align 8
-  invoke void @_ZN10cmMakefile12ClearMatchesEv(ptr noundef nonnull align 8 dereferenceable(3520) %68)
-          to label %69 unwind label %53
+_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread: ; preds = %67, %52, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit
+  %.sroa.0175.0 = phi ptr [ %51, %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit ], [ %51, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %53, %52 ], [ %6, %67 ]
+  %69 = load ptr, ptr %0, align 8
+  invoke void @_ZN10cmMakefile12ClearMatchesEv(ptr noundef nonnull align 8 dereferenceable(3520) %69)
+          to label %70 unwind label %54
 
-69:                                               ; preds = %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread
-  %70 = getelementptr inbounds i8, ptr %.sroa.36.0307, i64 16
-  %71 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %70)
-          to label %72 unwind label %53
+70:                                               ; preds = %_Z18cmHasLiteralPrefixILm13EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread
+  %71 = getelementptr inbounds i8, ptr %.sroa.34.0307, i64 16
+  %72 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %71)
+          to label %73 unwind label %54
 
-72:                                               ; preds = %69
+73:                                               ; preds = %70
   store ptr null, ptr %37, align 8
   store ptr null, ptr %38, align 8
   store i32 0, ptr %39, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %7, i8 0, i64 522, i1 false)
-  %73 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %71) #18
-  %74 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %7, ptr noundef %73)
-          to label %_ZN5cmsys17RegularExpression7compileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %85
+  %74 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %72) #18
+  %75 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %7, ptr noundef %74)
+          to label %_ZN5cmsys17RegularExpression7compileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %86
 
-_ZN5cmsys17RegularExpression7compileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %72
-  br i1 %74, label %89, label %75
+_ZN5cmsys17RegularExpression7compileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %73
+  br i1 %75, label %90, label %76
 
-75:                                               ; preds = %_ZN5cmsys17RegularExpression7compileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+76:                                               ; preds = %_ZN5cmsys17RegularExpression7compileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8)
-          to label %76 unwind label %85
+          to label %77 unwind label %86
 
-76:                                               ; preds = %75
-  %77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.86)
-          to label %78 unwind label %87
+77:                                               ; preds = %76
+  %78 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.86)
+          to label %79 unwind label %88
 
-78:                                               ; preds = %76
-  %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull align 8 dereferenceable(32) %71)
-          to label %80 unwind label %87
+79:                                               ; preds = %77
+  %80 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull align 8 dereferenceable(32) %72)
+          to label %81 unwind label %88
 
-80:                                               ; preds = %78
-  %81 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull @.str.87)
-          to label %82 unwind label %87
+81:                                               ; preds = %79
+  %82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull @.str.87)
+          to label %83 unwind label %88
 
-82:                                               ; preds = %80
+83:                                               ; preds = %81
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(112) %8)
-          to label %83 unwind label %87
+          to label %84 unwind label %88
 
-83:                                               ; preds = %82
-  %84 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %9) #18
+84:                                               ; preds = %83
+  %85 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   store i32 2, ptr %3, align 4
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #18
-  br label %95
+  br label %96
 
-85:                                               ; preds = %89, %72, %94, %92, %75
-  %86 = landingpad { ptr, i32 }
+86:                                               ; preds = %90, %73, %95, %93, %76
+  %87 = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %100
 
-87:                                               ; preds = %82, %80, %78, %76
-  %88 = landingpad { ptr, i32 }
+88:                                               ; preds = %83, %81, %79, %77
+  %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #18
-  br label %99
+  br label %100
 
-89:                                               ; preds = %_ZN5cmsys17RegularExpression7compileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %90 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0175.0) #18
-  %91 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %7, ptr noundef %90, ptr noundef nonnull align 8 dereferenceable(520) %7)
-          to label %_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %85
+90:                                               ; preds = %_ZN5cmsys17RegularExpression7compileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %91 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0175.0) #18
+  %92 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %7, ptr noundef %91, ptr noundef nonnull align 8 dereferenceable(520) %7)
+          to label %_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %86
 
-_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %89
-  br i1 %91, label %92, label %94
+_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %90
+  br i1 %92, label %93, label %95
 
-92:                                               ; preds = %_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %93 = load ptr, ptr %0, align 8
-  invoke void @_ZN10cmMakefile12StoreMatchesERN5cmsys17RegularExpressionE(ptr noundef nonnull align 8 dereferenceable(3520) %93, ptr noundef nonnull align 8 dereferenceable(556) %7)
-          to label %94 unwind label %85
+93:                                               ; preds = %_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %94 = load ptr, ptr %0, align 8
+  invoke void @_ZN10cmMakefile12StoreMatchesERN5cmsys17RegularExpressionE(ptr noundef nonnull align 8 dereferenceable(3520) %94, ptr noundef nonnull align 8 dereferenceable(556) %7)
+          to label %95 unwind label %86
 
-94:                                               ; preds = %92, %_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+95:                                               ; preds = %93, %_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   store ptr %.sroa.0182.0304, ptr %10, align 8
-  store ptr %.sroa.23.1306, ptr %.sroa.23.0..sroa_idx201, align 8
-  store ptr %.sroa.36.0307, ptr %.sroa.36.0..sroa_idx225, align 8
-  invoke void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %91, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %10)
-          to label %95 unwind label %85
+  store ptr %.sroa.23.0306, ptr %.sroa.23.0..sroa_idx201, align 8
+  store ptr %.sroa.34.0307, ptr %.sroa.34.0..sroa_idx225, align 8
+  invoke void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %92, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %10)
+          to label %96 unwind label %86
 
-95:                                               ; preds = %94, %83
-  %96 = load ptr, ptr %38, align 8
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %_ZN5cmsys17RegularExpressionD2Ev.exit, label %98
+96:                                               ; preds = %95, %84
+  %97 = load ptr, ptr %38, align 8
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %_ZN5cmsys17RegularExpressionD2Ev.exit, label %99
 
-98:                                               ; preds = %95
-  call void @_ZdaPv(ptr noundef nonnull %96) #20
+99:                                               ; preds = %96
+  call void @_ZdaPv(ptr noundef nonnull %97) #20
   br label %_ZN5cmsys17RegularExpressionD2Ev.exit
 
-_ZN5cmsys17RegularExpressionD2Ev.exit:            ; preds = %95, %98
+_ZN5cmsys17RegularExpressionD2Ev.exit:            ; preds = %96, %99
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
-  br i1 %74, label %.critedge2, label %._crit_edge
+  br i1 %75, label %.critedge2, label %._crit_edge
 
-99:                                               ; preds = %87, %85
-  %.pn94 = phi { ptr, i32 } [ %86, %85 ], [ %88, %87 ]
-  %100 = load ptr, ptr %38, align 8
-  %101 = icmp eq ptr %100, null
-  br i1 %101, label %_ZN5cmsys17RegularExpressionD2Ev.exit101, label %102
+100:                                              ; preds = %88, %86
+  %.pn94 = phi { ptr, i32 } [ %87, %86 ], [ %89, %88 ]
+  %101 = load ptr, ptr %38, align 8
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %_ZN5cmsys17RegularExpressionD2Ev.exit101, label %103
 
-102:                                              ; preds = %99
-  call void @_ZdaPv(ptr noundef nonnull %100) #20
+103:                                              ; preds = %100
+  call void @_ZdaPv(ptr noundef nonnull %101) #20
   br label %_ZN5cmsys17RegularExpressionD2Ev.exit101
 
-_ZN5cmsys17RegularExpressionD2Ev.exit101:         ; preds = %102, %99, %53
-  %.pn94.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn94, %99 ], [ %.pn94, %102 ]
+_ZN5cmsys17RegularExpressionD2Ev.exit101:         ; preds = %103, %100, %54
+  %.pn94.pn = phi { ptr, i32 } [ %55, %54 ], [ %.pn94, %100 ], [ %.pn94, %103 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
-  br label %293
+  br label %294
 
-103:                                              ; preds = %45
+104:                                              ; preds = %46
   %.sroa.024.0.copyload.b = load i1, ptr @_ZN12_GLOBAL__N_17keyLESSE.0, align 8
   %.sroa.024.0.copyload = select i1 %.sroa.024.0.copyload.b, i64 4, i64 0
   %.sroa.225.0.copyload = load ptr, ptr @_ZN12_GLOBAL__N_17keyLESSE.1, align 8
@@ -1374,106 +1380,106 @@ _ZN5cmsys17RegularExpressionD2Ev.exit101:         ; preds = %102, %99, %53
   %.sroa.0170.sroa.0.0.copyload.b = load i1, ptr @_ZN12_GLOBAL__N_18keyEQUALE.0, align 8
   %.sroa.0170.sroa.0.0.copyload = select i1 %.sroa.0170.sroa.0.0.copyload.b, i64 5, i64 0
   %.sroa.0170.sroa.2.0.copyload = load ptr, ptr @_ZN12_GLOBAL__N_18keyEQUALE.1, align 8
-  %104 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.024.0.copyload, ptr %.sroa.225.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %104, label %select.unfold, label %105
+  %105 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.024.0.copyload, ptr %.sroa.225.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %105, label %select.unfold, label %106
 
-105:                                              ; preds = %103
+106:                                              ; preds = %104
   %.sroa.022.0.copyload = select i1 %.sroa.022.0.copyload.b, i64 10, i64 0
-  %106 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.022.0.copyload, ptr %.sroa.223.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %106, label %select.unfold, label %107
+  %107 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.022.0.copyload, ptr %.sroa.223.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %107, label %select.unfold, label %108
 
-107:                                              ; preds = %105
-  %108 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0172.sroa.0.0.copyload, ptr %.sroa.0172.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %108, label %select.unfold, label %109
+108:                                              ; preds = %106
+  %109 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0172.sroa.0.0.copyload, ptr %.sroa.0172.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %109, label %select.unfold, label %110
 
-109:                                              ; preds = %107
-  %110 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0171.sroa.0.0.copyload, ptr %.sroa.0171.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %110, label %select.unfold, label %111
+110:                                              ; preds = %108
+  %111 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0171.sroa.0.0.copyload, ptr %.sroa.0171.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %111, label %select.unfold, label %112
 
-111:                                              ; preds = %109
-  %112 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0170.sroa.0.0.copyload, ptr %.sroa.0170.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %112, label %select.unfold, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit
+112:                                              ; preds = %110
+  %113 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0170.sroa.0.0.copyload, ptr %.sroa.0170.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %113, label %select.unfold, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit
 
-select.unfold:                                    ; preds = %111, %103, %105, %107, %109
-  %.0.i.i.ph = phi i32 [ 4, %109 ], [ 3, %107 ], [ 2, %105 ], [ 1, %103 ], [ 5, %111 ]
-  %113 = getelementptr inbounds i8, ptr %.sroa.0182.0304, i64 16
-  %114 = call ptr @_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %113)
-  %.not.i = icmp eq ptr %114, null
-  br i1 %.not.i, label %115, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit
+select.unfold:                                    ; preds = %112, %104, %106, %108, %110
+  %.0.i.i.ph = phi i32 [ 4, %110 ], [ 3, %108 ], [ 2, %106 ], [ 1, %104 ], [ 5, %112 ]
+  %114 = getelementptr inbounds i8, ptr %.sroa.0182.0304, i64 16
+  %115 = call ptr @_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %114)
+  %.not.i = icmp eq ptr %115, null
+  br i1 %.not.i, label %116, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit
 
-115:                                              ; preds = %select.unfold
-  %116 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %113)
+116:                                              ; preds = %select.unfold
+  %117 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %114)
   br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit
 
-_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit: ; preds = %select.unfold, %115
-  %.sroa.03.0.i = phi ptr [ %114, %select.unfold ], [ %116, %115 ]
-  %117 = getelementptr inbounds i8, ptr %.sroa.36.0307, i64 16
-  %118 = call ptr @_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %117)
-  %.not.i102 = icmp eq ptr %118, null
-  br i1 %.not.i102, label %119, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit104
+_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit: ; preds = %select.unfold, %116
+  %.sroa.03.0.i = phi ptr [ %115, %select.unfold ], [ %117, %116 ]
+  %118 = getelementptr inbounds i8, ptr %.sroa.34.0307, i64 16
+  %119 = call ptr @_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %118)
+  %.not.i102 = icmp eq ptr %119, null
+  br i1 %.not.i102, label %120, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit104
 
-119:                                              ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit
-  %120 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %117)
+120:                                              ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit
+  %121 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %118)
   br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit104
 
-_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit104: ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit, %119
-  %.sroa.03.0.i103 = phi ptr [ %118, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit ], [ %120, %119 ]
-  %121 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0.i) #18
-  %122 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %121, ptr noundef nonnull @.str.94, ptr noundef nonnull %11) #18
-  %123 = icmp eq i32 %122, 1
-  br i1 %123, label %"_ZZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEv.exit", label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit
+_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit104: ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit, %120
+  %.sroa.03.0.i103 = phi ptr [ %119, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit ], [ %121, %120 ]
+  %122 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0.i) #18
+  %123 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %122, ptr noundef nonnull @.str.94, ptr noundef nonnull %11) #18
+  %124 = icmp eq i32 %123, 1
+  br i1 %124, label %"_ZZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEv.exit", label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit
 
 "_ZZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEv.exit": ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit104
-  %124 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0.i103) #18
-  %125 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %124, ptr noundef nonnull @.str.94, ptr noundef nonnull %12) #18
-  %126 = icmp eq i32 %125, 1
-  br i1 %126, label %127, label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit
+  %125 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0.i103) #18
+  %126 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %125, ptr noundef nonnull @.str.94, ptr noundef nonnull %12) #18
+  %127 = icmp eq i32 %126, 1
+  br i1 %127, label %128, label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit
 
-127:                                              ; preds = %"_ZZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEv.exit"
-  %128 = load double, ptr %11, align 8
-  %129 = load double, ptr %12, align 8
-  switch i32 %.0.i.i.ph, label %136 [
-    i32 1, label %130
-    i32 3, label %134
-    i32 2, label %132
+128:                                              ; preds = %"_ZZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEv.exit"
+  %129 = load double, ptr %11, align 8
+  %130 = load double, ptr %12, align 8
+  switch i32 %.0.i.i.ph, label %137 [
+    i32 1, label %131
+    i32 3, label %135
+    i32 2, label %133
   ]
 
-130:                                              ; preds = %127
-  %131 = fcmp olt double %128, %129
+131:                                              ; preds = %128
+  %132 = fcmp olt double %129, %130
   br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit
 
-132:                                              ; preds = %127
-  %133 = fcmp ole double %128, %129
+133:                                              ; preds = %128
+  %134 = fcmp ole double %129, %130
   br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit
 
-134:                                              ; preds = %127
-  %135 = fcmp ogt double %128, %129
+135:                                              ; preds = %128
+  %136 = fcmp ogt double %129, %130
   br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit
 
-136:                                              ; preds = %127
-  %137 = add nsw i32 %.0.i.i.ph, -3
-  %cond.i.i.i = icmp eq i32 %137, 1
-  br i1 %cond.i.i.i, label %138, label %140
+137:                                              ; preds = %128
+  %138 = add nsw i32 %.0.i.i.ph, -3
+  %cond.i.i.i = icmp eq i32 %138, 1
+  br i1 %cond.i.i.i, label %139, label %141
 
-138:                                              ; preds = %136
-  %139 = fcmp oge double %128, %129
+139:                                              ; preds = %137
+  %140 = fcmp oge double %129, %130
   br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit
 
-140:                                              ; preds = %136
-  %141 = icmp eq i32 %137, 2
-  %142 = fcmp oeq double %128, %129
-  %spec.select.i.i.i.i.i = and i1 %141, %142
+141:                                              ; preds = %137
+  %142 = icmp eq i32 %138, 2
+  %143 = fcmp oeq double %129, %130
+  %spec.select.i.i.i.i.i = and i1 %142, %143
   br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit
 
-_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit: ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit104, %140, %138, %134, %132, %130, %"_ZZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEv.exit"
-  %143 = phi i1 [ false, %"_ZZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEv.exit" ], [ %131, %130 ], [ %133, %132 ], [ %135, %134 ], [ %spec.select.i.i.i.i.i, %140 ], [ %139, %138 ], [ false, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit104 ]
+_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit: ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit104, %141, %139, %135, %133, %131, %"_ZZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEv.exit"
+  %144 = phi i1 [ false, %"_ZZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeENK3$_0clEv.exit" ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %spec.select.i.i.i.i.i, %141 ], [ %140, %139 ], [ false, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit104 ]
   store ptr %.sroa.0182.0304, ptr %13, align 8
-  store ptr %.sroa.23.1306, ptr %.sroa.23.0..sroa_idx203, align 8
-  store ptr %.sroa.36.0307, ptr %.sroa.36.0..sroa_idx227, align 8
-  call void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %143, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %13)
+  store ptr %.sroa.23.0306, ptr %.sroa.23.0..sroa_idx203, align 8
+  store ptr %.sroa.34.0307, ptr %.sroa.34.0..sroa_idx227, align 8
+  call void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %144, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %13)
   br label %.critedge2
 
-_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit: ; preds = %111
+_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit: ; preds = %112
   %.sroa.019.0.copyload.b = load i1, ptr @_ZN12_GLOBAL__N_110keySTRLESSE.0, align 8
   %.sroa.019.0.copyload = select i1 %.sroa.019.0.copyload.b, i64 7, i64 0
   %.sroa.220.0.copyload = load ptr, ptr @_ZN12_GLOBAL__N_110keySTRLESSE.1, align 8
@@ -1488,93 +1494,93 @@ _ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK
   %.sroa.0165.sroa.0.0.copyload.b = load i1, ptr @_ZN12_GLOBAL__N_111keySTREQUALE.0, align 8
   %.sroa.0165.sroa.0.0.copyload = select i1 %.sroa.0165.sroa.0.0.copyload.b, i64 8, i64 0
   %.sroa.0165.sroa.2.0.copyload = load ptr, ptr @_ZN12_GLOBAL__N_111keySTREQUALE.1, align 8
-  %144 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.019.0.copyload, ptr %.sroa.220.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %144, label %select.unfold273, label %145
+  %145 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.019.0.copyload, ptr %.sroa.220.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %145, label %select.unfold273, label %146
 
-145:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit
+146:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit
   %.sroa.017.0.copyload = select i1 %.sroa.017.0.copyload.b, i64 13, i64 0
-  %146 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.017.0.copyload, ptr %.sroa.218.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %146, label %select.unfold273, label %147
+  %147 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.017.0.copyload, ptr %.sroa.218.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %147, label %select.unfold273, label %148
 
-147:                                              ; preds = %145
-  %148 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0167.sroa.0.0.copyload, ptr %.sroa.0167.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %148, label %select.unfold273, label %149
+148:                                              ; preds = %146
+  %149 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0167.sroa.0.0.copyload, ptr %.sroa.0167.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %149, label %select.unfold273, label %150
 
-149:                                              ; preds = %147
-  %150 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0166.sroa.0.0.copyload, ptr %.sroa.0166.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %150, label %select.unfold273, label %151
+150:                                              ; preds = %148
+  %151 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0166.sroa.0.0.copyload, ptr %.sroa.0166.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %151, label %select.unfold273, label %152
 
-151:                                              ; preds = %149
-  %152 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0165.sroa.0.0.copyload, ptr %.sroa.0165.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %152, label %select.unfold273, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit116
+152:                                              ; preds = %150
+  %153 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0165.sroa.0.0.copyload, ptr %.sroa.0165.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %153, label %select.unfold273, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit116
 
-select.unfold273:                                 ; preds = %151, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit, %145, %147, %149
-  %.0.i.i115.ph = phi i32 [ 4, %149 ], [ 3, %147 ], [ 2, %145 ], [ 1, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit ], [ 5, %151 ]
-  %153 = getelementptr inbounds i8, ptr %.sroa.0182.0304, i64 16
-  %154 = call ptr @_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %153)
-  %.not.i117 = icmp eq ptr %154, null
-  br i1 %.not.i117, label %155, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit119
+select.unfold273:                                 ; preds = %152, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit, %146, %148, %150
+  %.0.i.i115.ph = phi i32 [ 4, %150 ], [ 3, %148 ], [ 2, %146 ], [ 1, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit ], [ 5, %152 ]
+  %154 = getelementptr inbounds i8, ptr %.sroa.0182.0304, i64 16
+  %155 = call ptr @_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %154)
+  %.not.i117 = icmp eq ptr %155, null
+  br i1 %.not.i117, label %156, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit119
 
-155:                                              ; preds = %select.unfold273
-  %156 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %153)
+156:                                              ; preds = %select.unfold273
+  %157 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %154)
   br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit119
 
-_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit119: ; preds = %select.unfold273, %155
-  %.sroa.03.0.i118 = phi ptr [ %154, %select.unfold273 ], [ %156, %155 ]
-  %157 = getelementptr inbounds i8, ptr %.sroa.36.0307, i64 16
-  %158 = call ptr @_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %157)
-  %.not.i120 = icmp eq ptr %158, null
-  br i1 %.not.i120, label %159, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit122
+_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit119: ; preds = %select.unfold273, %156
+  %.sroa.03.0.i118 = phi ptr [ %155, %select.unfold273 ], [ %157, %156 ]
+  %158 = getelementptr inbounds i8, ptr %.sroa.34.0307, i64 16
+  %159 = call ptr @_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %158)
+  %.not.i120 = icmp eq ptr %159, null
+  br i1 %.not.i120, label %160, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit122
 
-159:                                              ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit119
-  %160 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %157)
+160:                                              ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit119
+  %161 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %158)
   br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit122
 
-_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit122: ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit119, %159
-  %.sroa.03.0.i121 = phi ptr [ %158, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit119 ], [ %160, %159 ]
-  %161 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0.i118, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0.i121)
-  switch i32 %.0.i.i115.ph, label %168 [
-    i32 1, label %162
-    i32 3, label %166
-    i32 2, label %164
+_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit122: ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit119, %160
+  %.sroa.03.0.i121 = phi ptr [ %159, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit119 ], [ %161, %160 ]
+  %162 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0.i118, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0.i121)
+  switch i32 %.0.i.i115.ph, label %169 [
+    i32 1, label %163
+    i32 3, label %167
+    i32 2, label %165
   ]
 
-162:                                              ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit122
-  %163 = icmp slt i32 %161, 0
+163:                                              ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit122
+  %164 = icmp slt i32 %162, 0
   br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIiEEbiT_S8_.exit
 
-164:                                              ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit122
-  %165 = icmp slt i32 %161, 1
+165:                                              ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit122
+  %166 = icmp slt i32 %162, 1
   br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIiEEbiT_S8_.exit
 
-166:                                              ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit122
-  %167 = icmp sgt i32 %161, 0
+167:                                              ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit122
+  %168 = icmp sgt i32 %162, 0
   br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIiEEbiT_S8_.exit
 
-168:                                              ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit122
-  %169 = add nsw i32 %.0.i.i115.ph, -3
-  %cond.i.i.i126 = icmp eq i32 %169, 1
-  br i1 %cond.i.i.i126, label %170, label %172
+169:                                              ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit122
+  %170 = add nsw i32 %.0.i.i115.ph, -3
+  %cond.i.i.i126 = icmp eq i32 %170, 1
+  br i1 %cond.i.i.i126, label %171, label %173
 
-170:                                              ; preds = %168
-  %171 = icmp sgt i32 %161, -1
+171:                                              ; preds = %169
+  %172 = icmp sgt i32 %162, -1
   br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIiEEbiT_S8_.exit
 
-172:                                              ; preds = %168
-  %173 = icmp eq i32 %169, 2
-  %174 = icmp eq i32 %161, 0
-  %spec.select.i.i.i.i.i127 = and i1 %173, %174
+173:                                              ; preds = %169
+  %174 = icmp eq i32 %170, 2
+  %175 = icmp eq i32 %162, 0
+  %spec.select.i.i.i.i.i127 = and i1 %174, %175
   br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIiEEbiT_S8_.exit
 
-_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIiEEbiT_S8_.exit: ; preds = %162, %164, %166, %170, %172
-  %.0.i125 = phi i1 [ %163, %162 ], [ %165, %164 ], [ %167, %166 ], [ %spec.select.i.i.i.i.i127, %172 ], [ %171, %170 ]
+_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIiEEbiT_S8_.exit: ; preds = %163, %165, %167, %171, %173
+  %.0.i125 = phi i1 [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ %spec.select.i.i.i.i.i127, %173 ], [ %172, %171 ]
   store ptr %.sroa.0182.0304, ptr %14, align 8
-  store ptr %.sroa.23.1306, ptr %.sroa.23.0..sroa_idx205, align 8
-  store ptr %.sroa.36.0307, ptr %.sroa.36.0..sroa_idx229, align 8
+  store ptr %.sroa.23.0306, ptr %.sroa.23.0..sroa_idx205, align 8
+  store ptr %.sroa.34.0307, ptr %.sroa.34.0..sroa_idx229, align 8
   call void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %.0.i125, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %14)
   br label %.critedge2
 
-_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit116: ; preds = %151
+_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit116: ; preds = %152
   %.sroa.013.0.copyload.b = load i1, ptr @_ZN12_GLOBAL__N_115keyVERSION_LESSE.0, align 8
   %.sroa.013.0.copyload = select i1 %.sroa.013.0.copyload.b, i64 12, i64 0
   %.sroa.214.0.copyload = load ptr, ptr @_ZN12_GLOBAL__N_115keyVERSION_LESSE.1, align 8
@@ -1589,349 +1595,352 @@ _ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK
   %.sroa.0160.sroa.0.0.copyload.b = load i1, ptr @_ZN12_GLOBAL__N_116keyVERSION_EQUALE.0, align 8
   %.sroa.0160.sroa.0.0.copyload = select i1 %.sroa.0160.sroa.0.0.copyload.b, i64 13, i64 0
   %.sroa.0160.sroa.2.0.copyload = load ptr, ptr @_ZN12_GLOBAL__N_116keyVERSION_EQUALE.1, align 8
-  %175 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.013.0.copyload, ptr %.sroa.214.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %175, label %select.unfold277, label %176
+  %176 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.013.0.copyload, ptr %.sroa.214.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %176, label %select.unfold277, label %177
 
-176:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit116
+177:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit116
   %.sroa.011.0.copyload = select i1 %.sroa.011.0.copyload.b, i64 18, i64 0
-  %177 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.011.0.copyload, ptr %.sroa.212.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %177, label %select.unfold277, label %178
+  %178 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.011.0.copyload, ptr %.sroa.212.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %178, label %select.unfold277, label %179
 
-178:                                              ; preds = %176
-  %179 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0162.sroa.0.0.copyload, ptr %.sroa.0162.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %179, label %select.unfold277, label %180
+179:                                              ; preds = %177
+  %180 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0162.sroa.0.0.copyload, ptr %.sroa.0162.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %180, label %select.unfold277, label %181
 
-180:                                              ; preds = %178
-  %181 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0161.sroa.0.0.copyload, ptr %.sroa.0161.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %181, label %select.unfold277, label %182
+181:                                              ; preds = %179
+  %182 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0161.sroa.0.0.copyload, ptr %.sroa.0161.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %182, label %select.unfold277, label %183
 
-182:                                              ; preds = %180
-  %183 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0160.sroa.0.0.copyload, ptr %.sroa.0160.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %183, label %select.unfold277, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit139
+183:                                              ; preds = %181
+  %184 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0160.sroa.0.0.copyload, ptr %.sroa.0160.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %184, label %select.unfold277, label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit139
 
-select.unfold277:                                 ; preds = %182, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit116, %176, %178, %180
-  %.0.i.i138.ph = phi i64 [ 3, %180 ], [ 2, %178 ], [ 1, %176 ], [ 0, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit116 ], [ 4, %182 ]
-  %184 = getelementptr inbounds [5 x i32], ptr @_ZN12_GLOBAL__N_111MATCH2CMPOPE, i64 0, i64 %.0.i.i138.ph
-  %185 = load i32, ptr %184, align 4
-  %186 = getelementptr inbounds i8, ptr %.sroa.0182.0304, i64 16
-  %187 = call ptr @_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %186)
-  %.not.i140 = icmp eq ptr %187, null
-  br i1 %.not.i140, label %188, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit142
+select.unfold277:                                 ; preds = %183, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit116, %177, %179, %181
+  %.0.i.i138.ph = phi i64 [ 3, %181 ], [ 2, %179 ], [ 1, %177 ], [ 0, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit116 ], [ 4, %183 ]
+  %185 = getelementptr inbounds [5 x i32], ptr @_ZN12_GLOBAL__N_111MATCH2CMPOPE, i64 0, i64 %.0.i.i138.ph
+  %186 = load i32, ptr %185, align 4
+  %187 = getelementptr inbounds i8, ptr %.sroa.0182.0304, i64 16
+  %188 = call ptr @_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %187)
+  %.not.i140 = icmp eq ptr %188, null
+  br i1 %.not.i140, label %189, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit142
 
-188:                                              ; preds = %select.unfold277
-  %189 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %186)
+189:                                              ; preds = %select.unfold277
+  %190 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %187)
   br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit142
 
-_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit142: ; preds = %select.unfold277, %188
-  %.sroa.03.0.i141 = phi ptr [ %187, %select.unfold277 ], [ %189, %188 ]
-  %190 = getelementptr inbounds i8, ptr %.sroa.36.0307, i64 16
-  %191 = call ptr @_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %190)
-  %.not.i143 = icmp eq ptr %191, null
-  br i1 %.not.i143, label %192, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit145
+_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit142: ; preds = %select.unfold277, %189
+  %.sroa.03.0.i141 = phi ptr [ %188, %select.unfold277 ], [ %190, %189 ]
+  %191 = getelementptr inbounds i8, ptr %.sroa.34.0307, i64 16
+  %192 = call ptr @_ZNK20cmConditionEvaluator23GetDefinitionIfUnquotedERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %191)
+  %.not.i143 = icmp eq ptr %192, null
+  br i1 %.not.i143, label %193, label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit145
 
-192:                                              ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit142
-  %193 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %190)
+193:                                              ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit142
+  %194 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %191)
   br label %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit145
 
-_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit145: ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit142, %192
-  %.sroa.03.0.i144 = phi ptr [ %191, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit142 ], [ %193, %192 ]
-  %194 = call noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9CompareOpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(i32 noundef %185, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0.i141, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0.i144)
+_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit145: ; preds = %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit142, %193
+  %.sroa.03.0.i144 = phi ptr [ %192, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit142 ], [ %194, %193 ]
+  %195 = call noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9CompareOpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(i32 noundef %186, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0.i141, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.0.i144)
   store ptr %.sroa.0182.0304, ptr %15, align 8
-  store ptr %.sroa.23.1306, ptr %.sroa.23.0..sroa_idx207, align 8
-  store ptr %.sroa.36.0307, ptr %.sroa.36.0..sroa_idx231, align 8
-  call void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %194, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %15)
+  store ptr %.sroa.23.0306, ptr %.sroa.23.0..sroa_idx207, align 8
+  store ptr %.sroa.34.0307, ptr %.sroa.34.0..sroa_idx231, align 8
+  call void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %195, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %15)
   br label %.critedge2
 
-_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit139: ; preds = %182
+_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit139: ; preds = %183
   %.sroa.07.0.copyload.b = load i1, ptr @_ZN12_GLOBAL__N_116keyIS_NEWER_THANE.0, align 8
   %.sroa.07.0.copyload = select i1 %.sroa.07.0.copyload.b, i64 13, i64 0
   %.sroa.28.0.copyload = load ptr, ptr @_ZN12_GLOBAL__N_116keyIS_NEWER_THANE.1, align 8
-  %195 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.07.0.copyload, ptr %.sroa.28.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %195, label %196, label %206
+  %196 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.07.0.copyload, ptr %.sroa.28.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %196, label %197, label %207
 
-196:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit139
+197:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit139
   store i32 0, ptr %16, align 4
-  %197 = getelementptr inbounds i8, ptr %.sroa.0182.0304, i64 16
-  %198 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %197)
-  %199 = getelementptr inbounds i8, ptr %.sroa.36.0307, i64 16
-  %200 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %199)
-  %201 = call i64 @_ZN5cmsys11SystemTools15FileTimeCompareERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pi(ptr noundef nonnull align 8 dereferenceable(32) %198, ptr noundef nonnull align 8 dereferenceable(32) %200, ptr noundef nonnull %16)
-  %202 = and i64 %201, 4294967295
-  %203 = icmp ne i64 %202, 0
-  %204 = load i32, ptr %16, align 4
-  %205 = icmp ult i32 %204, 2
-  %spec.select = select i1 %203, i1 true, i1 %205
+  %198 = getelementptr inbounds i8, ptr %.sroa.0182.0304, i64 16
+  %199 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %198)
+  %200 = getelementptr inbounds i8, ptr %.sroa.34.0307, i64 16
+  %201 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %200)
+  %202 = call i64 @_ZN5cmsys11SystemTools15FileTimeCompareERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pi(ptr noundef nonnull align 8 dereferenceable(32) %199, ptr noundef nonnull align 8 dereferenceable(32) %201, ptr noundef nonnull %16)
+  %203 = and i64 %202, 4294967295
+  %204 = icmp ne i64 %203, 0
+  %205 = load i32, ptr %16, align 4
+  %206 = icmp ult i32 %205, 2
+  %spec.select = select i1 %204, i1 true, i1 %206
   store ptr %.sroa.0182.0304, ptr %17, align 8
-  store ptr %.sroa.23.1306, ptr %.sroa.23.0..sroa_idx209, align 8
-  store ptr %.sroa.36.0307, ptr %.sroa.36.0..sroa_idx233, align 8
+  store ptr %.sroa.23.0306, ptr %.sroa.23.0..sroa_idx209, align 8
+  store ptr %.sroa.34.0307, ptr %.sroa.34.0..sroa_idx233, align 8
   call void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %spec.select, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %17)
   br label %.critedge2
 
-206:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit139
+207:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit139
   %.sroa.05.0.copyload.b = load i1, ptr @_ZN12_GLOBAL__N_110keyIN_LISTE.0, align 8
   %.sroa.05.0.copyload = select i1 %.sroa.05.0.copyload.b, i64 7, i64 0
   %.sroa.26.0.copyload = load ptr, ptr @_ZN12_GLOBAL__N_110keyIN_LISTE.1, align 8
-  %207 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.05.0.copyload, ptr %.sroa.26.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %207, label %208, label %250
+  %208 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.05.0.copyload, ptr %.sroa.26.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %208, label %209, label %251
 
-208:                                              ; preds = %206
-  %209 = load i32, ptr %35, align 8
-  %switch98 = icmp ult i32 %209, 2
-  br i1 %switch98, label %232, label %210
+209:                                              ; preds = %207
+  %210 = load i32, ptr %35, align 8
+  %switch98 = icmp ult i32 %210, 2
+  br i1 %switch98, label %233, label %211
 
-210:                                              ; preds = %208
-  %211 = getelementptr inbounds i8, ptr %.sroa.0182.0304, i64 16
-  %212 = call ptr @_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %211)
-  %213 = load ptr, ptr %0, align 8
-  %214 = getelementptr inbounds i8, ptr %.sroa.36.0307, i64 16
-  %215 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %214)
-  %216 = call ptr @_ZNK10cmMakefile13GetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520) %213, ptr noundef nonnull align 8 dereferenceable(32) %215)
-  %.not283 = icmp eq ptr %216, null
-  br i1 %.not283, label %224, label %217
+211:                                              ; preds = %209
+  %212 = getelementptr inbounds i8, ptr %.sroa.0182.0304, i64 16
+  %213 = call ptr @_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %212)
+  %214 = load ptr, ptr %0, align 8
+  %215 = getelementptr inbounds i8, ptr %.sroa.34.0307, i64 16
+  %216 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK25cmExpandedCommandArgument8GetValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(33) %215)
+  %217 = call ptr @_ZNK10cmMakefile13GetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520) %214, ptr noundef nonnull align 8 dereferenceable(32) %216)
+  %.not283 = icmp eq ptr %217, null
+  br i1 %.not283, label %225, label %218
 
-217:                                              ; preds = %210
-  call void @_ZN6cmListC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13EmptyElementsE(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(32) %216, i32 noundef 1)
-  %218 = load ptr, ptr %18, align 8
-  %219 = load ptr, ptr %36, align 8
-  %220 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %218, ptr %219, ptr nonnull %212)
+218:                                              ; preds = %211
+  call void @_ZN6cmListC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13EmptyElementsE(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(32) %217, i32 noundef 1)
+  %219 = load ptr, ptr %18, align 8
+  %220 = load ptr, ptr %36, align 8
+  %221 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %219, ptr %220, ptr nonnull %213)
           to label %_ZN2cm8containsI6cmListNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaasr2cm14is_input_rangeIT_EE5valuentoosr2cm24is_associative_containerIS9_EE5valuesr2cm34is_unordered_associative_containerIS9_EE5valueEiE4typeELi0EEEbRKS9_RKT0_.exit unwind label %.thread
 
-.thread:                                          ; preds = %217
-  %221 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %218
+  %222 = landingpad { ptr, i32 }
           cleanup
-  br label %230
+  br label %231
 
-_ZN2cm8containsI6cmListNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaasr2cm14is_input_rangeIT_EE5valuentoosr2cm24is_associative_containerIS9_EE5valuesr2cm34is_unordered_associative_containerIS9_EE5valueEiE4typeELi0EEEbRKS9_RKT0_.exit: ; preds = %217
-  %222 = load ptr, ptr %36, align 8
-  %223 = icmp ne ptr %220, %222
-  br label %224
+_ZN2cm8containsI6cmListNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaasr2cm14is_input_rangeIT_EE5valuentoosr2cm24is_associative_containerIS9_EE5valuesr2cm34is_unordered_associative_containerIS9_EE5valueEiE4typeELi0EEEbRKS9_RKT0_.exit: ; preds = %218
+  %223 = load ptr, ptr %36, align 8
+  %224 = icmp ne ptr %221, %223
+  br label %225
 
-224:                                              ; preds = %_ZN2cm8containsI6cmListNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaasr2cm14is_input_rangeIT_EE5valuentoosr2cm24is_associative_containerIS9_EE5valuesr2cm34is_unordered_associative_containerIS9_EE5valueEiE4typeELi0EEEbRKS9_RKT0_.exit, %210
-  %225 = phi i1 [ %223, %_ZN2cm8containsI6cmListNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaasr2cm14is_input_rangeIT_EE5valuentoosr2cm24is_associative_containerIS9_EE5valuesr2cm34is_unordered_associative_containerIS9_EE5valueEiE4typeELi0EEEbRKS9_RKT0_.exit ], [ false, %210 ]
+225:                                              ; preds = %_ZN2cm8containsI6cmListNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaasr2cm14is_input_rangeIT_EE5valuentoosr2cm24is_associative_containerIS9_EE5valuesr2cm34is_unordered_associative_containerIS9_EE5valueEiE4typeELi0EEEbRKS9_RKT0_.exit, %211
+  %226 = phi i1 [ %224, %_ZN2cm8containsI6cmListNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaasr2cm14is_input_rangeIT_EE5valuentoosr2cm24is_associative_containerIS9_EE5valuesr2cm34is_unordered_associative_containerIS9_EE5valueEiE4typeELi0EEEbRKS9_RKT0_.exit ], [ false, %211 ]
   store ptr %.sroa.0182.0304, ptr %19, align 8
-  store ptr %.sroa.23.1306, ptr %.sroa.23.0..sroa_idx211, align 8
-  store ptr %.sroa.36.0307, ptr %.sroa.36.0..sroa_idx235, align 8
-  invoke void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %225, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %19)
-          to label %226 unwind label %228
+  store ptr %.sroa.23.0306, ptr %.sroa.23.0..sroa_idx211, align 8
+  store ptr %.sroa.34.0307, ptr %.sroa.34.0..sroa_idx235, align 8
+  invoke void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %226, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %19)
+          to label %227 unwind label %229
 
-226:                                              ; preds = %224
-  br i1 %.not283, label %.critedge2, label %227
+227:                                              ; preds = %225
+  br i1 %.not283, label %.critedge2, label %228
 
-227:                                              ; preds = %226
+228:                                              ; preds = %227
   call void @_ZN6cmListD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
   br label %.critedge2
 
-228:                                              ; preds = %224
-  %229 = landingpad { ptr, i32 }
+229:                                              ; preds = %225
+  %230 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not283, label %293, label %230
+  br i1 %.not283, label %294, label %231
 
-230:                                              ; preds = %.thread, %228
-  %231 = phi { ptr, i32 } [ %221, %.thread ], [ %229, %228 ]
+231:                                              ; preds = %.thread, %229
+  %232 = phi { ptr, i32 } [ %222, %.thread ], [ %230, %229 ]
   call void @_ZN6cmListD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
-  br label %293
+  br label %294
 
-232:                                              ; preds = %208
-  %233 = icmp eq i32 %209, 1
-  br i1 %233, label %234, label %.critedge2
+233:                                              ; preds = %209
+  %234 = icmp eq i32 %210, 1
+  br i1 %234, label %235, label %.critedge2
 
-234:                                              ; preds = %232
+235:                                              ; preds = %233
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %20)
   invoke void @_ZN10cmPolicies16GetPolicyWarningB5cxx11ENS_8PolicyIDE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, i32 noundef 57)
-          to label %235 unwind label %243
+          to label %236 unwind label %244
 
-235:                                              ; preds = %234
-  %236 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(32) %21)
-          to label %237 unwind label %245
+236:                                              ; preds = %235
+  %237 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(32) %21)
+          to label %238 unwind label %246
 
-237:                                              ; preds = %235
-  %238 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %236, ptr noundef nonnull @.str.88)
-          to label %239 unwind label %245
+238:                                              ; preds = %236
+  %239 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %237, ptr noundef nonnull @.str.88)
+          to label %240 unwind label %246
 
-239:                                              ; preds = %237
+240:                                              ; preds = %238
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #18
-  %240 = load ptr, ptr %0, align 8
+  %241 = load ptr, ptr %0, align 8
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %22, ptr noundef nonnull align 8 dereferenceable(112) %20)
-          to label %241 unwind label %243
+          to label %242 unwind label %244
 
-241:                                              ; preds = %239
-  invoke void @_ZNK10cmMakefile12IssueMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520) %240, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %242 unwind label %247
+242:                                              ; preds = %240
+  invoke void @_ZNK10cmMakefile12IssueMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520) %241, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %22)
+          to label %243 unwind label %248
 
-242:                                              ; preds = %241
+243:                                              ; preds = %242
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #18
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %20) #18
   br label %.critedge2
 
-243:                                              ; preds = %239, %234
-  %244 = landingpad { ptr, i32 }
+244:                                              ; preds = %240, %235
+  %245 = landingpad { ptr, i32 }
           cleanup
-  br label %249
+  br label %250
 
-245:                                              ; preds = %237, %235
-  %246 = landingpad { ptr, i32 }
+246:                                              ; preds = %238, %236
+  %247 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #18
-  br label %249
+  br label %250
 
-247:                                              ; preds = %241
-  %248 = landingpad { ptr, i32 }
+248:                                              ; preds = %242
+  %249 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #18
-  br label %249
+  br label %250
 
-249:                                              ; preds = %247, %245, %243
-  %.pn91 = phi { ptr, i32 } [ %248, %247 ], [ %244, %243 ], [ %246, %245 ]
+250:                                              ; preds = %248, %246, %244
+  %.pn91 = phi { ptr, i32 } [ %249, %248 ], [ %245, %244 ], [ %247, %246 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %20) #18
-  br label %293
+  br label %294
 
-250:                                              ; preds = %206
+251:                                              ; preds = %207
   %.sroa.0.0.copyload.b = load i1, ptr @_ZN12_GLOBAL__N_113keyPATH_EQUALE.0, align 8
   %.sroa.0.0.copyload = select i1 %.sroa.0.0.copyload.b, i64 10, i64 0
   %.sroa.2.0.copyload = load ptr, ptr @_ZN12_GLOBAL__N_113keyPATH_EQUALE.1, align 8
-  %251 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0.0.copyload, ptr %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %46)
-  br i1 %251, label %252, label %.critedge2
+  %252 = call noundef zeroext i1 @_ZNK20cmConditionEvaluator9IsKeywordEN2cm18static_string_viewERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 %.sroa.0.0.copyload, ptr %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(33) %47)
+  br i1 %252, label %253, label %.critedge2
 
-252:                                              ; preds = %250
-  %253 = load i32, ptr %34, align 8
-  %switch99 = icmp ult i32 %253, 2
-  br i1 %switch99, label %272, label %254
+253:                                              ; preds = %251
+  %254 = load i32, ptr %34, align 8
+  %switch99 = icmp ult i32 %254, 2
+  br i1 %switch99, label %273, label %255
 
-254:                                              ; preds = %252
-  %255 = getelementptr inbounds i8, ptr %.sroa.0182.0304, i64 16
-  %256 = call ptr @_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %255)
-  %257 = getelementptr inbounds i8, ptr %.sroa.36.0307, i64 16
-  %258 = call ptr @_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %257)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %256)
+255:                                              ; preds = %253
+  %256 = getelementptr inbounds i8, ptr %.sroa.0182.0304, i64 16
+  %257 = call ptr @_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %256)
+  %258 = getelementptr inbounds i8, ptr %.sroa.34.0307, i64 16
+  %259 = call ptr @_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %258)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %257)
   invoke void @_ZN11cmCMakePathC2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS_EET_NS_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull %24, i8 noundef zeroext 1)
-          to label %259 unwind label %264
+          to label %260 unwind label %265
 
-259:                                              ; preds = %254
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %258)
-          to label %260 unwind label %266
-
-260:                                              ; preds = %259
-  invoke void @_ZN11cmCMakePathC2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS_EET_NS_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull %26, i8 noundef zeroext 1)
-          to label %261 unwind label %268
+260:                                              ; preds = %255
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %259)
+          to label %261 unwind label %267
 
 261:                                              ; preds = %260
-  %262 = call noundef i32 @_ZNKSt10filesystem7__cxx114path7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %25) #18
-  %263 = icmp eq i32 %262, 0
+  invoke void @_ZN11cmCMakePathC2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS_EET_NS_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull %26, i8 noundef zeroext 1)
+          to label %262 unwind label %269
+
+262:                                              ; preds = %261
+  %263 = call noundef i32 @_ZNKSt10filesystem7__cxx114path7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %25) #18
+  %264 = icmp eq i32 %263, 0
   call void @_ZN11cmCMakePathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #18
   call void @_ZN11cmCMakePathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #18
   store ptr %.sroa.0182.0304, ptr %27, align 8
-  store ptr %.sroa.23.1306, ptr %.sroa.23.0..sroa_idx213, align 8
-  store ptr %.sroa.36.0307, ptr %.sroa.36.0..sroa_idx237, align 8
-  call void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %263, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %27)
+  store ptr %.sroa.23.0306, ptr %.sroa.23.0..sroa_idx213, align 8
+  store ptr %.sroa.34.0307, ptr %.sroa.34.0..sroa_idx237, align 8
+  call void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %264, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %27)
   br label %.critedge2
 
-264:                                              ; preds = %254
-  %265 = landingpad { ptr, i32 }
+265:                                              ; preds = %255
+  %266 = landingpad { ptr, i32 }
+          cleanup
+  br label %272
+
+267:                                              ; preds = %260
+  %268 = landingpad { ptr, i32 }
           cleanup
   br label %271
 
-266:                                              ; preds = %259
-  %267 = landingpad { ptr, i32 }
-          cleanup
-  br label %270
-
-268:                                              ; preds = %260
-  %269 = landingpad { ptr, i32 }
+269:                                              ; preds = %261
+  %270 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #18
-  br label %270
-
-270:                                              ; preds = %268, %266
-  %.pn86 = phi { ptr, i32 } [ %269, %268 ], [ %267, %266 ]
-  call void @_ZN11cmCMakePathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #18
   br label %271
 
-271:                                              ; preds = %270, %264
-  %.pn86.pn = phi { ptr, i32 } [ %.pn86, %270 ], [ %265, %264 ]
+271:                                              ; preds = %269, %267
+  %.pn86 = phi { ptr, i32 } [ %270, %269 ], [ %268, %267 ]
+  call void @_ZN11cmCMakePathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #18
+  br label %272
+
+272:                                              ; preds = %271, %265
+  %.pn86.pn = phi { ptr, i32 } [ %.pn86, %271 ], [ %266, %265 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #18
-  br label %293
+  br label %294
 
-272:                                              ; preds = %252
-  %273 = icmp eq i32 %253, 1
-  br i1 %273, label %274, label %.critedge2
+273:                                              ; preds = %253
+  %274 = icmp eq i32 %254, 1
+  br i1 %274, label %275, label %.critedge2
 
-274:                                              ; preds = %272
+275:                                              ; preds = %273
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %28)
   invoke void @_ZN10cmPolicies16GetPolicyWarningB5cxx11ENS_8PolicyIDE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %29, i32 noundef 139)
-          to label %275 unwind label %283
+          to label %276 unwind label %284
 
-275:                                              ; preds = %274
-  %276 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(32) %29)
-          to label %277 unwind label %285
+276:                                              ; preds = %275
+  %277 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(32) %29)
+          to label %278 unwind label %286
 
-277:                                              ; preds = %275
-  %278 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %276, ptr noundef nonnull @.str.89)
-          to label %279 unwind label %285
+278:                                              ; preds = %276
+  %279 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %277, ptr noundef nonnull @.str.89)
+          to label %280 unwind label %286
 
-279:                                              ; preds = %277
+280:                                              ; preds = %278
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #18
-  %280 = load ptr, ptr %0, align 8
+  %281 = load ptr, ptr %0, align 8
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %30, ptr noundef nonnull align 8 dereferenceable(112) %28)
-          to label %281 unwind label %283
+          to label %282 unwind label %284
 
-281:                                              ; preds = %279
-  invoke void @_ZNK10cmMakefile12IssueMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520) %280, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %30)
-          to label %282 unwind label %287
+282:                                              ; preds = %280
+  invoke void @_ZNK10cmMakefile12IssueMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520) %281, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %30)
+          to label %283 unwind label %288
 
-282:                                              ; preds = %281
+283:                                              ; preds = %282
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #18
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %28) #18
   br label %.critedge2
 
-283:                                              ; preds = %279, %274
-  %284 = landingpad { ptr, i32 }
+284:                                              ; preds = %280, %275
+  %285 = landingpad { ptr, i32 }
           cleanup
-  br label %289
+  br label %290
 
-285:                                              ; preds = %277, %275
-  %286 = landingpad { ptr, i32 }
+286:                                              ; preds = %278, %276
+  %287 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #18
-  br label %289
+  br label %290
 
-287:                                              ; preds = %281
-  %288 = landingpad { ptr, i32 }
+288:                                              ; preds = %282
+  %289 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #18
-  br label %289
+  br label %290
 
-289:                                              ; preds = %287, %285, %283
-  %.pn = phi { ptr, i32 } [ %288, %287 ], [ %284, %283 ], [ %286, %285 ]
+290:                                              ; preds = %288, %286, %284
+  %.pn = phi { ptr, i32 } [ %289, %288 ], [ %285, %284 ], [ %287, %286 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %28) #18
-  br label %293
+  br label %294
 
-.critedge2:                                       ; preds = %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit, %_ZN5cmsys17RegularExpressionD2Ev.exit, %.critedge, %43, %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIiEEbiT_S8_.exit, %196, %250, %272, %282, %261, %227, %226, %242, %232, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit145, %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit
-  %290 = load ptr, ptr %.sroa.0182.0304, align 8, !noalias !17
-  %.not.i152 = icmp eq ptr %290, %1
-  br i1 %.not.i152, label %._crit_edge, label %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i
+.critedge2:                                       ; preds = %40, %_ZN5cmsys17RegularExpressionD2Ev.exit, %.critedge, %44, %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIiEEbiT_S8_.exit, %197, %251, %273, %283, %262, %228, %227, %243, %233, %_ZNK20cmConditionEvaluator19GetVariableOrStringERK25cmExpandedCommandArgument.exit145, %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt4lessJSt10less_equalSt7greaterSt13greater_equalSt8equal_toEE4evalIdEEbiT_S8_.exit
+  %291 = load ptr, ptr %.sroa.0182.0304, align 8, !noalias !17
+  %.not.i152 = icmp eq ptr %291, %1
+  br i1 %.not.i152, label %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i, label %.preheader.i.i.i8.preheader.i
 
-_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i: ; preds = %.critedge2
-  %291 = load ptr, ptr %290, align 8, !noalias !17
-  %.not23.i = icmp eq ptr %291, %1
-  br i1 %.not23.i, label %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit.backedge, label %.preheader.i.i.i18.preheader.i
+.preheader.i.i.i8.preheader.i:                    ; preds = %.critedge2
+  %292 = load ptr, ptr %291, align 8, !noalias !17
+  br label %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i
 
-_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit.backedge: ; preds = %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i, %.preheader.i.i.i18.preheader.i
-  %.sroa.36.0307.be = phi ptr [ %1, %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i ], [ %292, %.preheader.i.i.i18.preheader.i ]
-  %.sroa.23.1306.be = phi ptr [ %1, %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i ], [ %291, %.preheader.i.i.i18.preheader.i ]
+_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i: ; preds = %.preheader.i.i.i8.preheader.i, %.critedge2
+  %.sroa.0.0.i.i = phi ptr [ %291, %.critedge2 ], [ %292, %.preheader.i.i.i8.preheader.i ]
+  %.not22.i = icmp eq ptr %.sroa.0.0.i.i, %1
+  br i1 %.not22.i, label %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit, label %.preheader.i.i.i17.preheader.i
+
+.preheader.i.i.i17.preheader.i:                   ; preds = %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i
+  %293 = load ptr, ptr %.sroa.0.0.i.i, align 8, !noalias !17
   br label %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit
 
-.preheader.i.i.i18.preheader.i:                   ; preds = %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i
-  %292 = load ptr, ptr %291, align 8, !noalias !17
-  br label %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit.backedge
+_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit: ; preds = %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i, %.preheader.i.i.i17.preheader.i
+  %.sroa.0.0.i16.i = phi ptr [ %.sroa.0.0.i.i, %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i ], [ %293, %.preheader.i.i.i17.preheader.i ]
+  br i1 %.not.i152, label %._crit_edge, label %40, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %.critedge2, %_ZN5cmsys17RegularExpressionD2Ev.exit, %4
-  %.not.lcssa = phi i1 [ true, %4 ], [ true, %.critedge2 ], [ false, %_ZN5cmsys17RegularExpressionD2Ev.exit ]
+._crit_edge:                                      ; preds = %_ZN5cmsys17RegularExpressionD2Ev.exit, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit, %_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit
+  %.not.lcssa = phi i1 [ true, %_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit ], [ true, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ], [ false, %_ZN5cmsys17RegularExpressionD2Ev.exit ]
   ret i1 %.not.lcssa
 
-293:                                              ; preds = %228, %230, %289, %271, %249, %_ZN5cmsys17RegularExpressionD2Ev.exit101
-  %.pn94.pn.pn = phi { ptr, i32 } [ %.pn94.pn, %_ZN5cmsys17RegularExpressionD2Ev.exit101 ], [ %231, %230 ], [ %229, %228 ], [ %.pn91, %249 ], [ %.pn86.pn, %271 ], [ %.pn, %289 ]
+294:                                              ; preds = %229, %231, %290, %272, %250, %_ZN5cmsys17RegularExpressionD2Ev.exit101
+  %.pn94.pn.pn = phi { ptr, i32 } [ %.pn94.pn, %_ZN5cmsys17RegularExpressionD2Ev.exit101 ], [ %232, %231 ], [ %230, %229 ], [ %.pn91, %250 ], [ %.pn86.pn, %272 ], [ %.pn, %290 ]
   resume { ptr, i32 } %.pn94.pn.pn
 }
 
@@ -1939,15 +1948,19 @@ _ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__
 define dso_local noundef zeroext i1 @_ZN20cmConditionEvaluator12HandleLevel3ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageType(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) #3 align 2 {
   %5 = load ptr, ptr %1, align 8
   %.not.i.i = icmp eq ptr %5, %1
-  br i1 %.not.i.i, label %._crit_edge, label %_ZN20cmConditionEvaluator14cmArgumentList17make2ArgsIteratorEv.exit
+  br i1 %.not.i.i, label %_ZN20cmConditionEvaluator14cmArgumentList17make2ArgsIteratorEv.exit, label %.preheader.i.i.i.preheader.i.i
 
-_ZN20cmConditionEvaluator14cmArgumentList17make2ArgsIteratorEv.exit: ; preds = %4
+.preheader.i.i.i.preheader.i.i:                   ; preds = %4
   %6 = load ptr, ptr %5, align 8
-  %.not14 = icmp eq ptr %6, %1
+  br label %_ZN20cmConditionEvaluator14cmArgumentList17make2ArgsIteratorEv.exit
+
+_ZN20cmConditionEvaluator14cmArgumentList17make2ArgsIteratorEv.exit: ; preds = %4, %.preheader.i.i.i.preheader.i.i
+  %.sroa.0.0.i.i.i = phi ptr [ %5, %4 ], [ %6, %.preheader.i.i.i.preheader.i.i ]
+  %.not14 = icmp eq ptr %.sroa.0.0.i.i.i, %1
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN20cmConditionEvaluator14cmArgumentList17make2ArgsIteratorEv.exit, %_ZN20cmConditionEvaluator14cmArgumentList18CurrentAndNextIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit
-  %.sroa.5.016 = phi ptr [ %15, %_ZN20cmConditionEvaluator14cmArgumentList18CurrentAndNextIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ], [ %6, %_ZN20cmConditionEvaluator14cmArgumentList17make2ArgsIteratorEv.exit ]
+  %.sroa.5.016 = phi ptr [ %.sroa.0.0.i.i, %_ZN20cmConditionEvaluator14cmArgumentList18CurrentAndNextIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ], [ %.sroa.0.0.i.i.i, %_ZN20cmConditionEvaluator14cmArgumentList17make2ArgsIteratorEv.exit ]
   %.sroa.012.015 = phi ptr [ %14, %_ZN20cmConditionEvaluator14cmArgumentList18CurrentAndNextIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ], [ %5, %_ZN20cmConditionEvaluator14cmArgumentList17make2ArgsIteratorEv.exit ]
   %.sroa.02.0.copyload.b = load i1, ptr @_ZN12_GLOBAL__N_16keyNOTE.0, align 8
   %.sroa.02.0.copyload = select i1 %.sroa.02.0.copyload.b, i64 3, i64 0
@@ -1960,50 +1973,62 @@ _ZN20cmConditionEvaluator14cmArgumentList17make2ArgsIteratorEv.exit: ; preds = %
   %10 = getelementptr inbounds i8, ptr %.sroa.5.016, i64 16
   %11 = tail call noundef zeroext i1 @_ZNK20cmConditionEvaluator34GetBooleanValueWithAutoDereferenceER25cmExpandedCommandArgumentRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeb(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %10, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, i1 noundef zeroext false)
   %12 = xor i1 %11, true
-  tail call void @_ZN20cmConditionEvaluator14cmArgumentList12ReduceOneArgINS0_18CurrentAndNextIterEEEvbT_(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %12, ptr nonnull %.sroa.012.015, ptr %.sroa.5.016)
+  tail call void @_ZN20cmConditionEvaluator14cmArgumentList12ReduceOneArgINS0_18CurrentAndNextIterEEEvbT_(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %12, ptr %.sroa.012.015, ptr %.sroa.5.016)
   br label %13
 
 13:                                               ; preds = %.lr.ph, %9
   %14 = load ptr, ptr %.sroa.012.015, align 8
   %.not.i = icmp eq ptr %14, %1
-  br i1 %.not.i, label %._crit_edge, label %_ZN20cmConditionEvaluator14cmArgumentList18CurrentAndNextIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit
+  br i1 %.not.i, label %_ZN20cmConditionEvaluator14cmArgumentList18CurrentAndNextIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit, label %.preheader.i.i.i6.preheader.i
 
-_ZN20cmConditionEvaluator14cmArgumentList18CurrentAndNextIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit: ; preds = %13
+.preheader.i.i.i6.preheader.i:                    ; preds = %13
   %15 = load ptr, ptr %14, align 8
-  %.not = icmp eq ptr %15, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br label %_ZN20cmConditionEvaluator14cmArgumentList18CurrentAndNextIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit
 
-._crit_edge:                                      ; preds = %13, %_ZN20cmConditionEvaluator14cmArgumentList18CurrentAndNextIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit, %4, %_ZN20cmConditionEvaluator14cmArgumentList17make2ArgsIteratorEv.exit
+_ZN20cmConditionEvaluator14cmArgumentList18CurrentAndNextIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit: ; preds = %13, %.preheader.i.i.i6.preheader.i
+  %.sroa.0.0.i.i = phi ptr [ %14, %13 ], [ %15, %.preheader.i.i.i6.preheader.i ]
+  %.not = icmp eq ptr %.sroa.0.0.i.i, %1
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+
+._crit_edge:                                      ; preds = %_ZN20cmConditionEvaluator14cmArgumentList18CurrentAndNextIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit, %_ZN20cmConditionEvaluator14cmArgumentList17make2ArgsIteratorEv.exit
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN20cmConditionEvaluator12HandleLevel4ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageType(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) #3 align 2 {
   %5 = alloca %"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter", align 8
-  %6 = load ptr, ptr %1, align 8, !noalias !21
+  %6 = load ptr, ptr %1, align 8, !noalias !22
   %.not.i.i = icmp eq ptr %6, %1
-  br i1 %.not.i.i, label %._crit_edge, label %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i
+  br i1 %.not.i.i, label %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i, label %.preheader.i.i.i.preheader.i.i
 
-_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i: ; preds = %4
-  %7 = load ptr, ptr %6, align 8, !noalias !21
-  %.not16.i.i = icmp eq ptr %7, %1
-  br i1 %.not16.i.i, label %._crit_edge, label %_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit
+.preheader.i.i.i.preheader.i.i:                   ; preds = %4
+  %7 = load ptr, ptr %6, align 8, !noalias !22
+  br label %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i
 
-_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit: ; preds = %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i
-  %8 = load ptr, ptr %7, align 8, !noalias !21
-  %.not25 = icmp eq ptr %8, %1
+_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i: ; preds = %.preheader.i.i.i.preheader.i.i, %4
+  %.sroa.0.0.i.i.i = phi ptr [ %6, %4 ], [ %7, %.preheader.i.i.i.preheader.i.i ]
+  %.not15.i.i = icmp eq ptr %.sroa.0.0.i.i.i, %1
+  br i1 %.not15.i.i, label %_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit, label %.preheader.i.i.i10.preheader.i.i
+
+.preheader.i.i.i10.preheader.i.i:                 ; preds = %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i
+  %8 = load ptr, ptr %.sroa.0.0.i.i.i, align 8, !noalias !22
+  br label %_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit
+
+_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit: ; preds = %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i, %.preheader.i.i.i10.preheader.i.i
+  %.sroa.0.0.i9.i.i = phi ptr [ %.sroa.0.0.i.i.i, %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i ], [ %8, %.preheader.i.i.i10.preheader.i.i ]
+  %.not25 = icmp eq ptr %.sroa.0.0.i9.i.i, %1
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   br label %9
 
 9:                                                ; preds = %.lr.ph, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit
-  %.sroa.11.028 = phi ptr [ %8, %.lr.ph ], [ %24, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ]
+  %.sroa.9.028 = phi ptr [ %.sroa.0.0.i9.i.i, %.lr.ph ], [ %.sroa.0.0.i16.i, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ]
   %.sroa.014.027 = phi ptr [ %6, %.lr.ph ], [ %22, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ]
-  %.sroa.6.126 = phi ptr [ %7, %.lr.ph ], [ %23, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ]
-  %10 = getelementptr inbounds i8, ptr %.sroa.6.126, i64 16
+  %.sroa.6.026 = phi ptr [ %.sroa.0.0.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit ]
+  %10 = getelementptr inbounds i8, ptr %.sroa.6.026, i64 16
   %.sroa.03.0.copyload.b = load i1, ptr @_ZN12_GLOBAL__N_16keyANDE.0, align 8
   %.sroa.03.0.copyload = select i1 %.sroa.03.0.copyload.b, i64 3, i64 0
   %.sroa.24.0.copyload = load ptr, ptr @_ZN12_GLOBAL__N_16keyANDE.1, align 8
@@ -2020,7 +2045,7 @@ _ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit: ; preds = %
 select.unfold:                                    ; preds = %12, %9
   %14 = getelementptr inbounds i8, ptr %.sroa.014.027, i64 16
   %15 = tail call noundef zeroext i1 @_ZNK20cmConditionEvaluator34GetBooleanValueWithAutoDereferenceER25cmExpandedCommandArgumentRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeb(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %14, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, i1 noundef zeroext false)
-  %16 = getelementptr inbounds i8, ptr %.sroa.11.028, i64 16
+  %16 = getelementptr inbounds i8, ptr %.sroa.9.028, i64 16
   %17 = tail call noundef zeroext i1 @_ZNK20cmConditionEvaluator34GetBooleanValueWithAutoDereferenceER25cmExpandedCommandArgumentRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeb(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %16, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, i1 noundef zeroext false)
   br i1 %11, label %18, label %20
 
@@ -2035,27 +2060,35 @@ select.unfold:                                    ; preds = %12, %9
 _ZN12_GLOBAL__N_115cmRt2CtSelectorISt11logical_andJSt10logical_orEE4evalIbEEbiT_S5_.exit: ; preds = %18, %20
   %.0.i = phi i1 [ %21, %20 ], [ %19, %18 ]
   store ptr %.sroa.014.027, ptr %5, align 8
-  store ptr %.sroa.6.126, ptr %.sroa.6.0..sroa_idx, align 8
-  store ptr %.sroa.11.028, ptr %.sroa.11.0..sroa_idx, align 8
+  store ptr %.sroa.6.026, ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr %.sroa.9.028, ptr %.sroa.9.0..sroa_idx, align 8
   tail call void @_ZN20cmConditionEvaluator14cmArgumentList13ReduceTwoArgsEbNS0_21CurrentAndTwoMoreIterE(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %.0.i, ptr noundef nonnull byval(%"class.cmConditionEvaluator::cmArgumentList::CurrentAndTwoMoreIter") align 8 %5)
   br label %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_EEEiRK25cmExpandedCommandArgumentDpT_.exit
 
 _ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_EEEiRK25cmExpandedCommandArgumentDpT_.exit: ; preds = %12, %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt11logical_andJSt10logical_orEE4evalIbEEbiT_S5_.exit
-  %22 = load ptr, ptr %.sroa.014.027, align 8, !noalias !24
+  %22 = load ptr, ptr %.sroa.014.027, align 8, !noalias !25
   %.not.i = icmp eq ptr %22, %1
-  br i1 %.not.i, label %._crit_edge, label %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i
+  br i1 %.not.i, label %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i, label %.preheader.i.i.i8.preheader.i
 
-_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i: ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_EEEiRK25cmExpandedCommandArgumentDpT_.exit
-  %23 = load ptr, ptr %22, align 8, !noalias !24
-  %.not23.i = icmp eq ptr %23, %1
-  br i1 %.not23.i, label %._crit_edge, label %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit
+.preheader.i.i.i8.preheader.i:                    ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_EEEiRK25cmExpandedCommandArgumentDpT_.exit
+  %23 = load ptr, ptr %22, align 8, !noalias !25
+  br label %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i
 
-_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit: ; preds = %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i
-  %24 = load ptr, ptr %23, align 8, !noalias !24
-  %.not = icmp eq ptr %24, %1
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !27
+_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i: ; preds = %.preheader.i.i.i8.preheader.i, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_EEEiRK25cmExpandedCommandArgumentDpT_.exit
+  %.sroa.0.0.i.i = phi ptr [ %22, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_EEEiRK25cmExpandedCommandArgumentDpT_.exit ], [ %23, %.preheader.i.i.i8.preheader.i ]
+  %.not22.i = icmp eq ptr %.sroa.0.0.i.i, %1
+  br i1 %.not22.i, label %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit, label %.preheader.i.i.i17.preheader.i
 
-._crit_edge:                                      ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_EEEiRK25cmExpandedCommandArgumentDpT_.exit, %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i, %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit, %4, %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit.i.i, %_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit
+.preheader.i.i.i17.preheader.i:                   ; preds = %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i
+  %24 = load ptr, ptr %.sroa.0.0.i.i, align 8, !noalias !25
+  br label %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit
+
+_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit: ; preds = %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i, %.preheader.i.i.i17.preheader.i
+  %.sroa.0.0.i16.i = phi ptr [ %.sroa.0.0.i.i, %_ZSt4nextISt14_List_iteratorI25cmExpandedCommandArgumentEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit11.i ], [ %24, %.preheader.i.i.i17.preheader.i ]
+  %.not = icmp eq ptr %.sroa.0.0.i16.i, %1
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !28
+
+._crit_edge:                                      ; preds = %_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE.exit, %_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv.exit
   ret i1 true
 }
 
@@ -2116,15 +2149,15 @@ define dso_local noundef zeroext i1 @_ZNK20cmConditionEvaluator34GetBooleanValue
           to label %30 unwind label %46
 
 30:                                               ; preds = %29
-  %31 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #18, !noalias !28
-  %32 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #18, !noalias !28
+  %31 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #18, !noalias !29
+  %32 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #18, !noalias !29
   %33 = add i64 %32, %31
-  %34 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #18, !noalias !28
+  %34 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #18, !noalias !29
   %35 = icmp ugt i64 %33, %34
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %30
-  %37 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #18, !noalias !28
+  %37 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #18, !noalias !29
   %.not.i = icmp ugt i64 %33, %37
   br i1 %.not.i, label %40, label %38
 
@@ -2180,15 +2213,15 @@ define dso_local noundef zeroext i1 @_ZNK20cmConditionEvaluator34GetBooleanValue
           to label %55 unwind label %71
 
 55:                                               ; preds = %54
-  %56 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18, !noalias !31
-  %57 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #18, !noalias !31
+  %56 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18, !noalias !32
+  %57 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #18, !noalias !32
   %58 = add i64 %57, %56
-  %59 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18, !noalias !31
+  %59 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18, !noalias !32
   %60 = icmp ugt i64 %58, %59
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %55
-  %62 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #18, !noalias !31
+  %62 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #18, !noalias !32
   %.not.i36 = icmp ugt i64 %58, %62
   br i1 %.not.i36, label %65, label %63
 
@@ -2824,24 +2857,24 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_124looksLikeSpecialVa
   %11 = extractvalue { i64, ptr } %10, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
-  store i64 %1, ptr %5, align 8, !alias.scope !34, !noalias !37
+  store i64 %1, ptr %5, align 8, !alias.scope !35, !noalias !38
   %.sroa.2.0..sroa_idx.i4.i = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %2, ptr %.sroa.2.0..sroa_idx.i4.i, align 8, !alias.scope !34, !noalias !37
+  store ptr %2, ptr %.sroa.2.0..sroa_idx.i4.i, align 8, !alias.scope !35, !noalias !38
   %12 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr null, ptr %12, align 8, !alias.scope !34, !noalias !37
+  store ptr null, ptr %12, align 8, !alias.scope !35, !noalias !38
   %13 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr null, ptr %6, align 8, !noalias !37
+  store ptr null, ptr %6, align 8, !noalias !38
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   %15 = getelementptr inbounds i8, ptr %6, i64 24
-  store i64 1, ptr %14, align 8, !noalias !37
+  store i64 1, ptr %14, align 8, !noalias !38
   %16 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %15, ptr %16, align 8, !noalias !37
-  store i8 123, ptr %15, align 8, !noalias !37
-  store i64 1, ptr %13, align 8, !alias.scope !40, !noalias !37
+  store ptr %15, ptr %16, align 8, !noalias !38
+  store i8 123, ptr %15, align 8, !noalias !38
+  store i64 1, ptr %13, align 8, !alias.scope !41, !noalias !38
   %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %15, ptr %.sroa.2.0..sroa_idx.i9.i, align 8, !alias.scope !40, !noalias !37
+  store ptr %15, ptr %.sroa.2.0..sroa_idx.i9.i, align 8, !alias.scope !41, !noalias !38
   %17 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr null, ptr %17, align 8, !alias.scope !40, !noalias !37
+  store ptr null, ptr %17, align 8, !alias.scope !41, !noalias !38
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr nonnull %5, i64 2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
@@ -3037,7 +3070,7 @@ define linkonce_odr dso_local void @_ZN6cmListD2Ev(ptr noundef nonnull align 8 d
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #18
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %5, %4
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !43
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !44
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %0, align 8
@@ -3230,7 +3263,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #18
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %5, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !43
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !44
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -3303,7 +3336,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI25cmExpandedCommandArgumentSaIS
   %3 = load ptr, ptr %.sroa.010.014.i.i.i, align 8
   %4 = add nuw nsw i64 %.015.i.i.i, 1
   %.not.i.i.i = icmp eq ptr %3, %2
-  br i1 %.not.i.i.i, label %_ZSt8distanceISt14_List_iteratorI25cmExpandedCommandArgumentEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit, label %.lr.ph.i.i.i, !llvm.loop !44
+  br i1 %.not.i.i.i, label %_ZSt8distanceISt14_List_iteratorI25cmExpandedCommandArgumentEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit, label %.lr.ph.i.i.i, !llvm.loop !45
 
 _ZSt8distanceISt14_List_iteratorI25cmExpandedCommandArgumentEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit: ; preds = %.lr.ph.i.i.i
   %5 = icmp ugt i64 %.015.i.i.i, 230584300921369394
@@ -3344,7 +3377,7 @@ _ZNSt12_Vector_baseI25cmExpandedCommandArgumentSaIS0_EE11_M_allocateEm.exit: ; p
   %18 = load ptr, ptr %.sroa.08.013.i.i.i.i, align 8
   %19 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 40
   %.not.i.i.i.i = icmp eq ptr %18, %2
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt14_List_iteratorI25cmExpandedCommandArgumentEPS1_S1_ET0_T_S5_S4_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !45
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt14_List_iteratorI25cmExpandedCommandArgumentEPS1_S1_ET0_T_S5_S4_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !46
 
 20:                                               ; preds = %.lr.ph.i.i.i.i
   %21 = landingpad { ptr, i32 }
@@ -3488,7 +3521,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   %48 = getelementptr inbounds i8, ptr %.sroa.037.054, i64 128
   %49 = add nsw i64 %.055, -1
   %50 = icmp sgt i64 %.055, 1
-  br i1 %50, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !46
+  br i1 %50, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !47
 
 ._crit_edge.loopexit:                             ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit21.thread49
   %.pre = ptrtoint ptr %48 to i64
@@ -3727,29 +3760,30 @@ attributes #23 = { noreturn }
 !18 = distinct !{!18, !19, !"_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE: argument 0"}
 !19 = distinct !{!19, !"_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE"}
 !20 = distinct !{!20, !6}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv: argument 0"}
-!23 = distinct !{!23, !"_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE: argument 0"}
-!26 = distinct !{!26, !"_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE"}
-!27 = distinct !{!27, !6}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: argument 0"}
-!30 = distinct !{!30, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: argument 0"}
-!33 = distinct !{!33, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZZ8cmStrCatIRN2cm18static_string_viewEcJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESI_: argument 0"}
-!36 = distinct !{!36, !"_ZZ8cmStrCatIRN2cm18static_string_viewEcJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESI_"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_Z8cmStrCatIRN2cm18static_string_viewEcJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_: argument 0"}
-!39 = distinct !{!39, !"_Z8cmStrCatIRN2cm18static_string_viewEcJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZZ8cmStrCatIRN2cm18static_string_viewEcJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESI_: argument 0"}
-!42 = distinct !{!42, !"_ZZ8cmStrCatIRN2cm18static_string_viewEcJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESI_"}
-!43 = distinct !{!43, !6}
+!21 = distinct !{!21, !6}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv: argument 0"}
+!24 = distinct !{!24, !"_ZN20cmConditionEvaluator14cmArgumentList17make3ArgsIteratorEv"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE: argument 0"}
+!27 = distinct !{!27, !"_ZN20cmConditionEvaluator14cmArgumentList21CurrentAndTwoMoreIter7advanceERNSt7__cxx114listI25cmExpandedCommandArgumentSaIS4_EEE"}
+!28 = distinct !{!28, !6}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: argument 0"}
+!31 = distinct !{!31, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: argument 0"}
+!34 = distinct !{!34, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZZ8cmStrCatIRN2cm18static_string_viewEcJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESI_: argument 0"}
+!37 = distinct !{!37, !"_ZZ8cmStrCatIRN2cm18static_string_viewEcJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESI_"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_Z8cmStrCatIRN2cm18static_string_viewEcJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_: argument 0"}
+!40 = distinct !{!40, !"_Z8cmStrCatIRN2cm18static_string_viewEcJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_"}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZZ8cmStrCatIRN2cm18static_string_viewEcJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESI_: argument 0"}
+!43 = distinct !{!43, !"_ZZ8cmStrCatIRN2cm18static_string_viewEcJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESI_"}
 !44 = distinct !{!44, !6}
 !45 = distinct !{!45, !6}
 !46 = distinct !{!46, !6}
+!47 = distinct !{!47, !6}

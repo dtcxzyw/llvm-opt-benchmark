@@ -5045,7 +5045,7 @@ define internal i32 @devinet_sysctl_forward(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %37, label %38, label %77
 
 38:                                               ; preds = %33
-  %39 = load i32, ptr %7, align 8
+  %39 = load i32, ptr %36, align 8
   %40 = icmp eq i32 %39, 0
   %41 = zext i1 %40 to i32
   %42 = getelementptr i8, ptr %35, i64 20

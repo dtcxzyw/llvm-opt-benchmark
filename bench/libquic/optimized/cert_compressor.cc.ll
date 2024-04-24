@@ -1701,7 +1701,7 @@ for.cond.i.backedge:                              ; preds = %_ZNSt6vectorIN3net1
   br label %for.cond.i
 
 cleanup.i:                                        ; preds = %invoke.cont59.i, %invoke.cont44.i, %sw.bb40.i, %if.end27.i, %invoke.cont12.i, %if.end6.i, %invoke.cont.i
-  %cached_hashes.sroa.0.5.i = phi ptr [ %cached_hashes.sroa.8.1.i, %if.end27.i ], [ %cached_hashes.sroa.0.0.i, %invoke.cont.i ], [ %cached_hashes.sroa.0.0.i, %invoke.cont12.i ], [ %cached_hashes.sroa.0.0.i, %sw.bb40.i ], [ %cached_hashes.sroa.0.0.i, %invoke.cont44.i ], [ %cached_hashes.sroa.0.0.i, %invoke.cont59.i ], [ %cached_hashes.sroa.0.0.i, %if.end6.i ]
+  %cached_hashes.sroa.0.5.i = phi ptr [ %cached_hashes.sroa.0.3.i, %if.end27.i ], [ %cached_hashes.sroa.0.0.i, %invoke.cont.i ], [ %cached_hashes.sroa.0.0.i, %invoke.cont12.i ], [ %cached_hashes.sroa.0.0.i, %sw.bb40.i ], [ %cached_hashes.sroa.0.0.i, %invoke.cont44.i ], [ %cached_hashes.sroa.0.0.i, %invoke.cont59.i ], [ %cached_hashes.sroa.0.0.i, %if.end6.i ]
   %tobool.not.i.i.i63.i = icmp eq ptr %cached_hashes.sroa.0.5.i, null
   br i1 %tobool.not.i.i.i63.i, label %invoke.cont, label %if.then.i.i.i64.i
 
@@ -2292,7 +2292,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #14
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i29
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #14
@@ -2304,11 +2304,11 @@ lpad17:                                           ; preds = %invoke.cont19
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i29:                                      ; preds = %lpad
+if.then.i32:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #15
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.then.i29, %if.end.thread
+invoke.cont19:                                    ; preds = %if.then.i32, %if.end.thread
   invoke void @__cxa_rethrow() #16
           to label %unreachable unwind label %lpad17
 

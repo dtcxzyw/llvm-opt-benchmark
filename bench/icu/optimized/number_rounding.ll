@@ -257,7 +257,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -316,7 +316,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -668,7 +668,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp44, label %if.then45, label %for.inc
 
 if.then45:                                        ; preds = %for.body
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %sub48 = sub nsw i32 %16, %13
   %add = add nsw i32 %sub48, 1
   %sub49 = sub nsw i32 %call38, %add
@@ -856,7 +856,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv.i = trunc i32 %minMaxFractionPlaces to i16
+  %conv.i = trunc nuw i32 %minMaxFractionPlaces to i16
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 %conv.i, ptr %fUnion.i.i.i, align 8, !alias.scope !13
   %union_.sroa.2.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 10
@@ -887,7 +887,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv.i = trunc i32 %minFractionPlaces to i16
+  %conv.i = trunc nuw i32 %minFractionPlaces to i16
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 %conv.i, ptr %fUnion.i.i.i, align 8, !alias.scope !16
   %union_.sroa.2.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 10
@@ -918,7 +918,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv1.i = trunc i32 %maxFractionPlaces to i16
+  %conv1.i = trunc nuw i32 %maxFractionPlaces to i16
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 0, ptr %fUnion.i.i.i, align 8, !alias.scope !19
   %union_.sroa.2.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 10
@@ -986,7 +986,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv.i = trunc i32 %minMaxSignificantDigits to i16
+  %conv.i = trunc nuw i32 %minMaxSignificantDigits to i16
   %fUnion.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 -1, ptr %fUnion.i.i, align 8, !alias.scope !25
   %union_.sroa.2.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 10
@@ -1037,7 +1037,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv.i = trunc i32 %minSignificantDigits to i16
+  %conv.i = trunc nuw i32 %minSignificantDigits to i16
   %fUnion.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 -1, ptr %fUnion.i.i, align 8, !alias.scope !28
   %union_.sroa.2.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 10
@@ -1069,7 +1069,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv1.i = trunc i32 %maxSignificantDigits to i16
+  %conv1.i = trunc nuw i32 %maxSignificantDigits to i16
   %fUnion.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 -1, ptr %fUnion.i.i, align 8, !alias.scope !31
   %union_.sroa.2.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 10
@@ -1364,7 +1364,7 @@ if.then4:                                         ; preds = %if.end
   %fUnion.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %fUnion.i, align 8, !noalias !46
   %settings.sroa.6.0.fUnion.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 21
-  %conv1.i = trunc i32 %minSignificantDigits to i16
+  %conv1.i = trunc nuw i32 %minSignificantDigits to i16
   store i32 4, ptr %agg.result, align 8, !alias.scope !46
   %fUnion.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %2, ptr %fUnion.i.i, align 8, !alias.scope !46
@@ -1415,7 +1415,7 @@ if.then4:                                         ; preds = %if.end
   %fUnion.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %fUnion.i, align 8, !noalias !49
   %settings.sroa.6.0.fUnion.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 21
-  %conv1.i = trunc i32 %maxSignificantDigits to i16
+  %conv1.i = trunc nuw i32 %maxSignificantDigits to i16
   store i32 4, ptr %agg.result, align 8, !alias.scope !49
   %fUnion.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %2, ptr %fUnion.i.i, align 8, !alias.scope !49
@@ -1615,7 +1615,7 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   %copy.sroa.3.0.this1.sroa_idx = getelementptr inbounds i8, ptr %this, i64 20
-  %conv = trunc i32 %minFrac to i16
+  %conv = trunc nuw nsw i32 %minFrac to i16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %this, i64 18, i1 false)
   %copy.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 18
   store i16 %conv, ptr %copy.sroa.2.0.agg.result.sroa_idx, align 2

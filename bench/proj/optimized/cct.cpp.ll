@@ -2288,7 +2288,7 @@ tailrecurse.preheader.i.outer353.backedge:        ; preds = %589, %593, %532, %_
   br label %tailrecurse.preheader.i.outer353, !llvm.loop !17
 
 593:                                              ; preds = %589
-  %594 = call i32 @fflush(ptr noundef %590)
+  %594 = call i32 @fflush(ptr noundef %591)
   br label %tailrecurse.preheader.i.outer353.backedge
 
 _Z14opt_input_loopP7OPTARGSi.exit:                ; preds = %492, %thread-pre-split.i

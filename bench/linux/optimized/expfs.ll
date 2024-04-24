@@ -450,7 +450,7 @@ define internal fastcc i32 @reconnect_path(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %68, label %.thread11, label %61
 
 .thread11:                                        ; preds = %66
-  tail call void @dput(ptr noundef %62) #7
+  tail call void @dput(ptr noundef %67) #7
   br label %.thread14
 
 .thread13:                                        ; preds = %61

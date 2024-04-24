@@ -21659,7 +21659,7 @@ default.unreachable:                              ; preds = %36
 
 .lr.ph.i.i:                                       ; preds = %118, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Path$GT$17h746ac44fb868d39dE.exit.i.i"
   %.09.i.i = phi i64 [ %121, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Path$GT$17h746ac44fb868d39dE.exit.i.i" ], [ 0, %118 ]
-  %120 = getelementptr inbounds [0 x ptr], ptr %111, i64 0, i64 %.09.i.i
+  %120 = getelementptr inbounds [0 x ptr], ptr %112, i64 0, i64 %.09.i.i
   %121 = add nuw i64 %.09.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !5664)
   call void @llvm.experimental.noalias.scope.decl(metadata !5667)
@@ -21689,7 +21689,7 @@ default.unreachable:                              ; preds = %36
 
 .lr.ph12.i.i:                                     ; preds = %129, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Path$GT$17h746ac44fb868d39dE.exit8.i.i"
   %.110.i.i = phi i64 [ %133, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Path$GT$17h746ac44fb868d39dE.exit8.i.i" ], [ %121, %129 ]
-  %132 = getelementptr inbounds [0 x ptr], ptr %111, i64 0, i64 %.110.i.i
+  %132 = getelementptr inbounds [0 x ptr], ptr %112, i64 0, i64 %.110.i.i
   %133 = add i64 %.110.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !5677)
   call void @llvm.experimental.noalias.scope.decl(metadata !5680)
@@ -21877,8 +21877,8 @@ common.resume.i:                                  ; preds = %145, %.body.i, %161
   br i1 %182, label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17he981aa4ecd6424a9E.exit.sink.split", label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17he981aa4ecd6424a9E.exit"
 
 "_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17he981aa4ecd6424a9E.exit.sink.split": ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17hf3fc0e4057766c71E.exit98", %339
-  %.sink296 = phi ptr [ %340, %339 ], [ %178, %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17hf3fc0e4057766c71E.exit98" ]
-  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sink296), !noalias !11
+  %.sink292 = phi ptr [ %340, %339 ], [ %178, %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17hf3fc0e4057766c71E.exit98" ]
+  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sink292), !noalias !11
   br label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17he981aa4ecd6424a9E.exit"
 
 "_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17he981aa4ecd6424a9E.exit": ; preds = %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17he981aa4ecd6424a9E.exit.sink.split", %339, %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17hf3fc0e4057766c71E.exit98"
@@ -22757,7 +22757,7 @@ default.unreachable:                              ; preds = %36
 
 .lr.ph.i.i:                                       ; preds = %118, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Path$GT$17h746ac44fb868d39dE.exit.i.i"
   %.09.i.i = phi i64 [ %121, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Path$GT$17h746ac44fb868d39dE.exit.i.i" ], [ 0, %118 ]
-  %120 = getelementptr inbounds [0 x ptr], ptr %111, i64 0, i64 %.09.i.i
+  %120 = getelementptr inbounds [0 x ptr], ptr %112, i64 0, i64 %.09.i.i
   %121 = add nuw i64 %.09.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !6000)
   call void @llvm.experimental.noalias.scope.decl(metadata !6003)
@@ -22787,7 +22787,7 @@ default.unreachable:                              ; preds = %36
 
 .lr.ph12.i.i:                                     ; preds = %129, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Path$GT$17h746ac44fb868d39dE.exit8.i.i"
   %.110.i.i = phi i64 [ %133, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Path$GT$17h746ac44fb868d39dE.exit8.i.i" ], [ %121, %129 ]
-  %132 = getelementptr inbounds [0 x ptr], ptr %111, i64 0, i64 %.110.i.i
+  %132 = getelementptr inbounds [0 x ptr], ptr %112, i64 0, i64 %.110.i.i
   %133 = add i64 %.110.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !6013)
   call void @llvm.experimental.noalias.scope.decl(metadata !6016)
@@ -22975,8 +22975,8 @@ common.resume.i:                                  ; preds = %145, %.body.i, %161
   br i1 %182, label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17he981aa4ecd6424a9E.exit.sink.split", label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17he981aa4ecd6424a9E.exit"
 
 "_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17he981aa4ecd6424a9E.exit.sink.split": ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17hf3fc0e4057766c71E.exit98", %361
-  %.sink300 = phi ptr [ %362, %361 ], [ %178, %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17hf3fc0e4057766c71E.exit98" ]
-  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sink300), !noalias !11
+  %.sink296 = phi ptr [ %362, %361 ], [ %178, %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17hf3fc0e4057766c71E.exit98" ]
+  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sink296), !noalias !11
   br label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17he981aa4ecd6424a9E.exit"
 
 "_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17he981aa4ecd6424a9E.exit": ; preds = %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17he981aa4ecd6424a9E.exit.sink.split", %361, %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17hf3fc0e4057766c71E.exit98"

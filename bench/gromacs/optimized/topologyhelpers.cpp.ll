@@ -63,8 +63,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_E
   br i1 %22, label %47, label %23
 
 23:                                               ; preds = %21
-  %.not73 = icmp ult i64 %.016.i.i, 2
-  br i1 %.not73, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZN5nblib19toGmxExclusionBlockERKS8_E3$_0EEET_SH_SH_RKT0_T1_.exit.i.i", label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i
+  %.not75 = icmp ult i64 %.016.i.i, 2
+  br i1 %.not75, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZN5nblib19toGmxExclusionBlockERKS8_E3$_0EEET_SH_SH_RKT0_T1_.exit.i.i", label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i: ; preds = %23, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i
   %.04.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i ], [ %13, %23 ]
@@ -242,7 +242,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %53
   %88 = phi ptr [ null, %53 ], [ %84, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %.sroa.029.1.lcssa = phi ptr [ %.sroa.029.052, %53 ], [ %.sroa.028.051, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.sroa.029.1.lcssa = phi ptr [ %.sroa.029.052, %53 ], [ %85, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %89 = load ptr, ptr %51, align 8
   %90 = load ptr, ptr %52, align 8
   %.not.i17 = icmp eq ptr %89, %90
@@ -607,47 +607,45 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5nblib14offsetGmxBlockESt6vectorIN3gmx14ExclusionBlockESaIS2_EEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #7 {
-  %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8
-  %.not12 = icmp eq ptr %4, %6
-  %7 = insertelement <2 x ptr> poison, ptr %4, i64 0
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> zeroinitializer
+  %4 = load <2 x ptr>, ptr %1, align 8
+  %5 = extractelement <2 x ptr> %4, i64 0
+  %6 = extractelement <2 x ptr> %4, i64 1
+  %.not12 = icmp eq ptr %5, %6
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ZN5nblib14offsetGmxBlockES3_IN3gmx14ExclusionBlockESaIS9_EEiE3$_0ET0_T_SE_SD_T1_.exit"
-  %.sroa.09.013 = phi ptr [ %15, %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ZN5nblib14offsetGmxBlockES3_IN3gmx14ExclusionBlockESaIS9_EEiE3$_0ET0_T_SE_SD_T1_.exit" ], [ %4, %3 ]
-  %9 = load ptr, ptr %.sroa.09.013, align 8
-  %10 = getelementptr inbounds i8, ptr %.sroa.09.013, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %.not7.i = icmp eq ptr %9, %11
+  %.sroa.09.013 = phi ptr [ %13, %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ZN5nblib14offsetGmxBlockES3_IN3gmx14ExclusionBlockESaIS9_EEiE3$_0ET0_T_SE_SD_T1_.exit" ], [ %5, %3 ]
+  %7 = load ptr, ptr %.sroa.09.013, align 8
+  %8 = getelementptr inbounds i8, ptr %.sroa.09.013, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %.not7.i = icmp eq ptr %7, %9
   br i1 %.not7.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ZN5nblib14offsetGmxBlockES3_IN3gmx14ExclusionBlockESaIS9_EEiE3$_0ET0_T_SE_SD_T1_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.lr.ph.i
-  %.sroa.04.09.i = phi ptr [ %14, %.lr.ph.i ], [ %9, %.lr.ph ]
-  %12 = load i32, ptr %.sroa.04.09.i, align 4
-  %13 = add nsw i32 %12, %2
-  store i32 %13, ptr %.sroa.04.09.i, align 4
-  %14 = getelementptr i8, ptr %.sroa.04.09.i, i64 4
-  %.not.i = icmp eq ptr %14, %11
+  %.sroa.04.09.i = phi ptr [ %12, %.lr.ph.i ], [ %7, %.lr.ph ]
+  %10 = load i32, ptr %.sroa.04.09.i, align 4
+  %11 = add nsw i32 %10, %2
+  store i32 %11, ptr %.sroa.04.09.i, align 4
+  %12 = getelementptr i8, ptr %.sroa.04.09.i, i64 4
+  %.not.i = icmp eq ptr %12, %9
   br i1 %.not.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ZN5nblib14offsetGmxBlockES3_IN3gmx14ExclusionBlockESaIS9_EEiE3$_0ET0_T_SE_SD_T1_.exit", label %.lr.ph.i, !llvm.loop !23
 
 "_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ZN5nblib14offsetGmxBlockES3_IN3gmx14ExclusionBlockESaIS9_EEiE3$_0ET0_T_SE_SD_T1_.exit": ; preds = %.lr.ph.i, %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.sroa.09.013, i64 24
-  %.not = icmp eq ptr %15, %6
+  %13 = getelementptr inbounds i8, ptr %.sroa.09.013, i64 24
+  %.not = icmp eq ptr %13, %6
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ZN5nblib14offsetGmxBlockES3_IN3gmx14ExclusionBlockESaIS9_EEiE3$_0ET0_T_SE_SD_T1_.exit"
-  %16 = load <2 x ptr>, ptr %1, align 8
+  %14 = load <2 x ptr>, ptr %1, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %17 = phi <2 x ptr> [ %16, %._crit_edge.loopexit ], [ %8, %3 ]
-  store <2 x ptr> %17, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %18, align 8
+  %15 = phi <2 x ptr> [ %14, %._crit_edge.loopexit ], [ %4, %3 ]
+  store <2 x ptr> %15, ptr %0, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %16, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   ret void
 }

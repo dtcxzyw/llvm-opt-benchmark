@@ -151,7 +151,7 @@ if.then8:                                         ; preds = %while.end
 
 while.body12:                                     ; preds = %while.body12.preheader, %while.body12
   %in.addr.175 = phi ptr [ %add.ptr27, %while.body12 ], [ %in, %while.body12.preheader ]
-  %out.addr.174 = phi ptr [ %add.ptr28, %while.body12 ], [ %in, %while.body12.preheader ]
+  %out.addr.174 = phi ptr [ %add.ptr28, %while.body12 ], [ %out, %while.body12.preheader ]
   %len.addr.173 = phi i64 [ %sub26, %while.body12 ], [ %len, %while.body12.preheader ]
   call void %block(ptr noundef %in.addr.175, ptr noundef nonnull %tmp, ptr noundef %key) #2
   %4 = load i64, ptr %in.addr.175, align 1
@@ -183,7 +183,7 @@ while.cond31:                                     ; preds = %while.body12, %if.t
 
 while.body32:                                     ; preds = %while.cond.preheader, %while.cond10.preheader, %while.cond31
   %in.addr.294 = phi ptr [ %in.addr.2, %while.cond31 ], [ %in, %while.cond10.preheader ], [ %in, %while.cond.preheader ]
-  %out.addr.293 = phi ptr [ %out.addr.2, %while.cond31 ], [ %in, %while.cond10.preheader ], [ %out, %while.cond.preheader ]
+  %out.addr.293 = phi ptr [ %out.addr.2, %while.cond31 ], [ %out, %while.cond10.preheader ], [ %out, %while.cond.preheader ]
   %len.addr.292 = phi i64 [ %len.addr.2, %while.cond31 ], [ %len, %while.cond10.preheader ], [ %len, %while.cond.preheader ]
   call void %block(ptr noundef %in.addr.294, ptr noundef nonnull %tmp, ptr noundef %key) #2
   br label %for.body38

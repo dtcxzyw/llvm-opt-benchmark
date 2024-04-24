@@ -203,7 +203,7 @@ if.else.i:                                        ; preds = %if.end3.i
   br label %return
 
 return:                                           ; preds = %if.end3, %if.end4.i, %if.else.i, %if.then6.i, %BN_new.exit.thread, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %BN_new.exit.thread ], [ null, %if.then6.i ], [ null, %if.else.i ], [ %calloc.i, %if.end4.i ], [ %src, %if.end3 ]
+  %retval.0 = phi ptr [ null, %entry ], [ null, %BN_new.exit.thread ], [ null, %if.then6.i ], [ null, %if.else.i ], [ %calloc.i, %if.end4.i ], [ %calloc.i, %if.end3 ]
   ret ptr %retval.0
 }
 
@@ -238,7 +238,7 @@ if.end4:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end4
-  %retval.0 = phi ptr [ %dest, %if.end4 ], [ %src, %entry ], [ null, %if.end ]
+  %retval.0 = phi ptr [ %dest, %if.end4 ], [ %dest, %entry ], [ null, %if.end ]
   ret ptr %retval.0
 }
 

@@ -672,19 +672,17 @@ if.end80:                                         ; preds = %if.else74, %if.then
   %.pre177 = phi ptr [ %call64, %if.else74 ], [ %.pre177.pre, %if.then76 ], [ %pPieces.addr.0154, %if.then70 ]
   %14 = load i8, ptr %mayContainOption, align 1
   %tobool81.not = icmp eq i8 %14, 0
-  br i1 %tobool81.not, label %if.then91, label %land.lhs.true82
-
-land.lhs.true82:                                  ; preds = %if.end80
   %cmp86.not = icmp eq ptr %.pre177, %pPieces.addr.0154
-  br i1 %cmp86.not, label %if.then91, label %if.then87
+  %or.cond = select i1 %tobool81.not, i1 true, i1 %cmp86.not
+  br i1 %or.cond, label %if.then91, label %if.then87
 
-if.then87:                                        ; preds = %land.lhs.true82
+if.then87:                                        ; preds = %if.end80
   call fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef %.pre177, ptr noundef nonnull %pPieces.addr.0154, ptr noundef nonnull %pArgs.addr.0, ptr noundef nonnull %err)
   %.pre = load ptr, ptr %pArgs.addr.0.sroa.phi192, align 8
   br label %if.then91
 
-if.then91:                                        ; preds = %if.end80, %land.lhs.true82, %if.then87
-  %15 = phi ptr [ %.pre177, %if.end80 ], [ %pPieces.addr.0154, %land.lhs.true82 ], [ %.pre, %if.then87 ]
+if.then91:                                        ; preds = %if.end80, %if.then87
+  %15 = phi ptr [ %.pre177, %if.end80 ], [ %.pre, %if.then87 ]
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %strippedName.i)
   %call.i = call ptr @ucnv_io_stripASCIIForCompare_75(ptr noundef nonnull %strippedName.i, ptr noundef %15)
   br label %if.end.i
@@ -1574,11 +1572,11 @@ ucnv_loadSharedData_75.exit.i:                    ; preds = %if.end.i3
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %stackArgs.i.i)
   call void @ucnv_close_75(ptr noundef %spec.select.i)
   store i16 0, ptr @_ZL24gAvailableConverterCount, align 2
-  %cmp13.i = icmp sgt i32 %call1.i, 0
-  br i1 %cmp13.i, label %for.body.i, label %for.end.i
+  %cmp14.i = icmp sgt i32 %call1.i, 0
+  br i1 %cmp14.i, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %ucnv_loadSharedData_75.exit.i, %for.inc.i
-  %idx.014.i = phi i32 [ %inc13.i, %for.inc.i ], [ 0, %ucnv_loadSharedData_75.exit.i ]
+  %idx.015.i = phi i32 [ %inc13.i, %for.inc.i ], [ 0, %ucnv_loadSharedData_75.exit.i ]
   store i32 0, ptr %localStatus.i, align 4
   %call8.i = call ptr @uenum_next_75(ptr noundef %call.i, ptr noundef null, ptr noundef nonnull %localStatus.i)
   %call9.i = call signext i8 @ucnv_canCreateConverter_75(ptr noundef %call8.i, ptr noundef nonnull %localStatus.i), !range !11
@@ -1596,7 +1594,7 @@ if.then11.i:                                      ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then11.i, %for.body.i
-  %inc13.i = add nuw nsw i32 %idx.014.i, 1
+  %inc13.i = add nuw nsw i32 %idx.015.i, 1
   %exitcond.not.i = icmp eq i32 %inc13.i, %call1.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !12
 

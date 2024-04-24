@@ -2351,7 +2351,7 @@ if.end21.i:                                       ; preds = %for.cond.i
   br i1 %cmp.i, label %nameserver_pick.exit.thread35, label %for.cond.i
 
 nameserver_pick.exit.thread35:                    ; preds = %if.end21.i, %for.cond.i
-  %retval.0.ph.i.ph = phi ptr [ %7, %for.cond.i ], [ %5, %if.end21.i ]
+  %retval.0.ph.i.ph = phi ptr [ %7, %for.cond.i ], [ %9, %if.end21.i ]
   %.sink.i.ph.in = getelementptr inbounds i8, ptr %retval.0.ph.i.ph, i64 280
   %.sink.i.ph = load ptr, ptr %.sink.i.ph.in, align 8
   store ptr %.sink.i.ph, ptr %server_head.i, align 8
@@ -3697,31 +3697,31 @@ if.then25:                                        ; preds = %if.end18
   %add28 = add nuw nsw i64 %call, 7
   %div54 = lshr i64 %add28, 3
   call void @evutil_secure_rng_get_bytes(ptr noundef nonnull %randbits, i64 noundef %div54) #18
-  %cmp3067.not = icmp eq i64 %call, 0
-  br i1 %cmp3067.not, label %if.end53, label %for.body.preheader
+  %cmp3068.not = icmp eq i64 %call, 0
+  br i1 %cmp3068.not, label %if.end53, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then25
   %10 = trunc nuw i64 %call to i32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %conv2969 = phi i64 [ %conv29, %for.inc ], [ 0, %for.body.preheader ]
-  %i.068 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds [256 x i8], ptr %namebuf, i64 0, i64 %conv2969
+  %conv2970 = phi i64 [ %conv29, %for.inc ], [ 0, %for.body.preheader ]
+  %i.069 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+  %arrayidx = getelementptr inbounds [256 x i8], ptr %namebuf, i64 0, i64 %conv2970
   %11 = load i8, ptr %arrayidx, align 1
   %call32 = call i32 @EVUTIL_ISALPHA_(i8 noundef signext %11) #18
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %for.inc, label %if.then34
 
 if.then34:                                        ; preds = %for.body
-  %shr = lshr i32 %i.068, 3
+  %shr = lshr i32 %i.069, 3
   %idxprom35 = zext nneg i32 %shr to i64
   %arrayidx36 = getelementptr inbounds [32 x i8], ptr %randbits, i64 0, i64 %idxprom35
   %12 = load i8, ptr %arrayidx36, align 1
-  %conv3774 = zext i8 %12 to i32
-  %and = and i32 %i.068, 7
+  %conv3776 = zext i8 %12 to i32
+  %and = and i32 %i.069, 7
   %shl = shl nuw nsw i32 1, %and
-  %and38 = and i32 %shl, %conv3774
+  %and38 = and i32 %shl, %conv3776
   %tobool39.not = icmp eq i32 %and38, 0
   %13 = load i8, ptr %arrayidx, align 1
   %14 = and i8 %13, -33
@@ -3731,7 +3731,7 @@ if.then34:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then34, %for.body
-  %inc = add nuw i32 %i.068, 1
+  %inc = add nuw i32 %i.069, 1
   %conv29 = zext i32 %inc to i64
   %cmp30 = icmp ult i32 %inc, %10
   br i1 %cmp30, label %for.body, label %if.end53, !llvm.loop !31
@@ -3899,13 +3899,13 @@ if.end21.i:                                       ; preds = %for.cond.i58
   br i1 %cmp.i60, label %do.end28.i, label %for.cond.i58
 
 do.end28.i:                                       ; preds = %if.end21.i
-  %next31.i = getelementptr inbounds i8, ptr %18, i64 280
+  %next31.i = getelementptr inbounds i8, ptr %23, i64 280
   %24 = load ptr, ptr %next31.i, align 8
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %for.cond.i58, %do.end28.i, %if.then9.i
   %.sink.i = phi ptr [ %24, %do.end28.i ], [ %20, %if.then9.i ], [ %23, %for.cond.i58 ]
-  %retval.0.ph.i = phi ptr [ %18, %do.end28.i ], [ %20, %if.then9.i ], [ %21, %for.cond.i58 ]
+  %retval.0.ph.i = phi ptr [ %23, %do.end28.i ], [ %20, %if.then9.i ], [ %21, %for.cond.i58 ]
   store ptr %.sink.i, ptr %server_head.i, align 8
   br label %cond.end68
 
@@ -8426,7 +8426,7 @@ if.end45:                                         ; preds = %if.then40
   br label %if.end46
 
 if.end46:                                         ; preds = %if.end45, %if.end37
-  %cp.1 = phi ptr [ %add.ptr41, %if.end45 ], [ %name_out, %if.end37 ]
+  %cp.1 = phi ptr [ %add.ptr41, %if.end45 ], [ %cp.049, %if.end37 ]
   %idx.ext48 = zext nneg i8 %1 to i64
   %add.ptr49 = getelementptr inbounds i8, ptr %cp.1, i64 %idx.ext48
   %cmp50.not = icmp ult ptr %add.ptr49, %add.ptr
@@ -10382,7 +10382,7 @@ if.end21.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.i.i, label %nameserver_pick.exit.thread10.i, label %for.cond.i.i
 
 nameserver_pick.exit.thread10.i:                  ; preds = %if.end21.i.i, %for.cond.i.i
-  %retval.0.ph.i.ph.i = phi ptr [ %13, %for.cond.i.i ], [ %11, %if.end21.i.i ]
+  %retval.0.ph.i.ph.i = phi ptr [ %13, %for.cond.i.i ], [ %15, %if.end21.i.i ]
   %.sink.i.ph.in.i = getelementptr inbounds i8, ptr %retval.0.ph.i.ph.i, i64 280
   %.sink.i.ph.i = load ptr, ptr %.sink.i.ph.in.i, align 8
   store ptr %.sink.i.ph.i, ptr %server_head.i.i, align 8
@@ -10457,11 +10457,11 @@ sw.default:                                       ; preds = %land.lhs.true33, %i
 
 if.then63:                                        ; preds = %sw.default
   store ptr null, ptr %probe_request, align 8
-  %.pre169 = load ptr, ptr %ns60, align 8
+  %.pre171 = load ptr, ptr %ns60, align 8
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then63, %sw.default
-  %26 = phi ptr [ %.pre169, %if.then63 ], [ %24, %sw.default ]
+  %26 = phi ptr [ %.pre171, %if.then63 ], [ %24, %sw.default ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %addrbuf.i)
   %base.i46 = getelementptr inbounds i8, ptr %26, i64 432
   %state.i = getelementptr inbounds i8, ptr %26, i64 424
@@ -10631,13 +10631,13 @@ if.end21.i.i.i:                                   ; preds = %for.cond.i23.i.i
   br i1 %cmp.i24.i.i, label %do.end28.i.i.i, label %for.cond.i23.i.i
 
 do.end28.i.i.i:                                   ; preds = %if.end21.i.i.i
-  %next31.i.i.i = getelementptr inbounds i8, ptr %52, i64 280
+  %next31.i.i.i = getelementptr inbounds i8, ptr %57, i64 280
   %58 = load ptr, ptr %next31.i.i.i, align 8
   br label %return.sink.split.i.i.i
 
 return.sink.split.i.i.i:                          ; preds = %for.cond.i23.i.i, %do.end28.i.i.i, %if.then9.i.i.i
   %.sink.i.i.i = phi ptr [ %58, %do.end28.i.i.i ], [ %54, %if.then9.i.i.i ], [ %57, %for.cond.i23.i.i ]
-  %retval.0.ph.i.i.i = phi ptr [ %52, %do.end28.i.i.i ], [ %54, %if.then9.i.i.i ], [ %55, %for.cond.i23.i.i ]
+  %retval.0.ph.i.i.i = phi ptr [ %57, %do.end28.i.i.i ], [ %54, %if.then9.i.i.i ], [ %55, %for.cond.i23.i.i ]
   store ptr %.sink.i.i.i, ptr %server_head.i.i.i, align 8
   %.pre.i.i = load i16, ptr %trans_id1.i.i.i, align 8
   br label %if.end7.i
@@ -11360,7 +11360,7 @@ if.end21.i:                                       ; preds = %for.cond.i
   br i1 %cmp.i, label %nameserver_pick.exit.thread47, label %for.cond.i
 
 nameserver_pick.exit.thread47:                    ; preds = %if.end21.i, %for.cond.i
-  %retval.0.ph.i.ph = phi ptr [ %25, %for.cond.i ], [ %23, %if.end21.i ]
+  %retval.0.ph.i.ph = phi ptr [ %25, %for.cond.i ], [ %27, %if.end21.i ]
   %.sink.i.ph.in = getelementptr inbounds i8, ptr %retval.0.ph.i.ph, i64 280
   %.sink.i.ph = load ptr, ptr %.sink.i.ph.in, align 8
   store ptr %.sink.i.ph, ptr %server_head.i, align 8
@@ -11654,7 +11654,7 @@ if.end21.i:                                       ; preds = %for.cond.i
   br i1 %cmp.i36, label %nameserver_pick.exit.thread42, label %for.cond.i
 
 nameserver_pick.exit.thread42:                    ; preds = %if.end21.i, %for.cond.i
-  %retval.0.ph.i.ph = phi ptr [ %51, %for.cond.i ], [ %49, %if.end21.i ]
+  %retval.0.ph.i.ph = phi ptr [ %51, %for.cond.i ], [ %53, %if.end21.i ]
   %.sink.i.ph.in = getelementptr inbounds i8, ptr %retval.0.ph.i.ph, i64 280
   %.sink.i.ph = load ptr, ptr %.sink.i.ph.in, align 8
   store ptr %.sink.i.ph, ptr %server_head.i, align 8

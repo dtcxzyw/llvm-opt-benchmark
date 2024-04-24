@@ -1437,7 +1437,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   br i1 %.not19.i, label %create_hostcache_id.exit, label %select.unfold.i, !llvm.loop !7
 
 create_hostcache_id.exit:                         ; preds = %select.unfold.i
-  %37 = trunc i64 %22 to i32
+  %37 = trunc nuw i64 %22 to i32
   %38 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %36, i64 noundef 7, ptr noundef nonnull @.str.22, i32 noundef %37) #12
   %39 = sext i32 %38 to i64
   %40 = load ptr, ptr %9, align 8
@@ -1489,7 +1489,7 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i
   br i1 %.not153, label %65, label %.thread200
 
 65:                                               ; preds = %63
-  %66 = trunc i64 %58 to i32
+  %66 = trunc nuw nsw i64 %58 to i32
   %67 = getelementptr inbounds i8, ptr %61, i64 1
   br label %.outer.outer
 
@@ -1587,8 +1587,7 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i
   br i1 %.not155, label %.thread200, label %104
 
 .thread200.loopexit.loopexit:                     ; preds = %81, %79
-  %.0126.lcssa = phi ptr [ %.0126, %81 ], [ %71, %79 ]
-  store ptr %.0126.lcssa, ptr %4, align 8
+  store ptr %.0126, ptr %4, align 8
   br label %.thread200
 
 .thread200:                                       ; preds = %51, %63, %60, %53, %102, %87, %.thread200.loopexit.loopexit, %95, %98

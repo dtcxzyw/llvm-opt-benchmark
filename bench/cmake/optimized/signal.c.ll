@@ -1324,14 +1324,14 @@ uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.
   br i1 %151, label %152, label %166
 
 152:                                              ; preds = %148
-  %153 = getelementptr inbounds i8, ptr %.02.i.i, i64 112
+  %153 = getelementptr inbounds i8, ptr %150, i64 112
   %154 = load ptr, ptr %153, align 8
   store ptr %154, ptr %149, align 8
   %.not127.i.i = icmp eq ptr %154, null
   br i1 %.not127.i.i, label %.thread.i.i, label %156
 
 .thread.i.i:                                      ; preds = %152
-  %155 = getelementptr inbounds i8, ptr %.02.i.i, i64 128
+  %155 = getelementptr inbounds i8, ptr %150, i64 128
   store ptr %133, ptr %155, align 8
   %.pre18.i = load ptr, ptr %132, align 8
   br label %159
@@ -1340,7 +1340,7 @@ uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.
   %157 = getelementptr inbounds i8, ptr %154, i64 128
   store ptr %126, ptr %157, align 8
   %.pre4.i.i = load ptr, ptr %132, align 8
-  %158 = getelementptr inbounds i8, ptr %.02.i.i, i64 128
+  %158 = getelementptr inbounds i8, ptr %150, i64 128
   store ptr %.pre4.i.i, ptr %158, align 8
   %.not128.i.i = icmp eq ptr %.pre4.i.i, null
   br i1 %.not128.i.i, label %165, label %159
@@ -1356,9 +1356,9 @@ uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.
 
 165:                                              ; preds = %159, %156
   %.sink.i.i47 = phi ptr [ @uv__signal_tree, %156 ], [ %spec.select.i.i, %159 ]
-  store ptr %.02.i.i, ptr %.sink.i.i47, align 8
+  store ptr %150, ptr %.sink.i.i47, align 8
   store ptr %126, ptr %153, align 8
-  store ptr %.02.i.i, ptr %132, align 8
+  store ptr %150, ptr %132, align 8
   br label %166
 
 166:                                              ; preds = %165, %148
@@ -1426,14 +1426,14 @@ uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.
   br i1 %193, label %194, label %208
 
 194:                                              ; preds = %191
-  %195 = getelementptr inbounds i8, ptr %.02.i.i, i64 120
+  %195 = getelementptr inbounds i8, ptr %192, i64 120
   %196 = load ptr, ptr %195, align 8
   store ptr %196, ptr %127, align 8
   %.not122.i.i = icmp eq ptr %196, null
   br i1 %.not122.i.i, label %.thread6.i.i, label %198
 
 .thread6.i.i:                                     ; preds = %194
-  %197 = getelementptr inbounds i8, ptr %.02.i.i, i64 128
+  %197 = getelementptr inbounds i8, ptr %192, i64 128
   store ptr %133, ptr %197, align 8
   %.pre.i45 = load ptr, ptr %132, align 8
   br label %201
@@ -1442,7 +1442,7 @@ uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.
   %199 = getelementptr inbounds i8, ptr %196, i64 128
   store ptr %126, ptr %199, align 8
   %.pre.i.i = load ptr, ptr %132, align 8
-  %200 = getelementptr inbounds i8, ptr %.02.i.i, i64 128
+  %200 = getelementptr inbounds i8, ptr %192, i64 128
   store ptr %.pre.i.i, ptr %200, align 8
   %.not123.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not123.i.i, label %207, label %201
@@ -1458,9 +1458,9 @@ uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.
 
 207:                                              ; preds = %201, %198
   %.sink9.i.i = phi ptr [ @uv__signal_tree, %198 ], [ %spec.select12.i.i, %201 ]
-  store ptr %.02.i.i, ptr %.sink9.i.i, align 8
+  store ptr %192, ptr %.sink9.i.i, align 8
   store ptr %126, ptr %195, align 8
-  store ptr %.02.i.i, ptr %132, align 8
+  store ptr %192, ptr %132, align 8
   br label %208
 
 208:                                              ; preds = %207, %191

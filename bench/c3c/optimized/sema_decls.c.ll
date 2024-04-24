@@ -7440,7 +7440,7 @@ sema_analyse_attribute.exit:                      ; preds = %490, %404, %400, %3
   %508 = load ptr, ptr %4, align 8
   %509 = load i64, ptr %507, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %509, ptr noundef nonnull @.str.57, ptr noundef %508) #10
-  %510 = getelementptr inbounds i8, ptr %4, i64 24
+  %510 = getelementptr inbounds i8, ptr %503, i64 24
   %511 = load i64, ptr %510, align 8
   %512 = and i64 %511, -1024
   %513 = or disjoint i64 %512, 256

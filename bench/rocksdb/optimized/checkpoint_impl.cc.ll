@@ -2074,7 +2074,7 @@ _ZN7rocksdb6StatusD2Ev.exit76:                    ; preds = %if.then.i54, %_ZN7r
   br label %if.end121
 
 if.else66:                                        ; preds = %for.body37
-  %tobool67 = trunc i8 %same_fs.0245 to i1
+  %tobool67 = trunc nuw i8 %same_fs.0245 to i1
   br i1 %tobool67, label %land.lhs.true, label %if.then88
 
 land.lhs.true:                                    ; preds = %if.else66
@@ -5146,7 +5146,7 @@ if.end:                                           ; preds = %invoke.cont
 
 invoke.cont22:                                    ; preds = %if.end
   %inc = add i64 %num_files.1136, 1
-  %tobool23 = trunc i8 %hardlink_file.1137 to i1
+  %tobool23 = trunc nuw i8 %hardlink_file.1137 to i1
   br i1 %tobool23, label %if.then24, label %if.then40
 
 if.then24:                                        ; preds = %invoke.cont22
@@ -5955,9 +5955,9 @@ ehcleanup19.i.i.i:                                ; preds = %ehcleanup18.i.i.i, 
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !38
   %cmp.not.i.i.i = icmp eq ptr %ref.tmp.i, %agg.result
-  br i1 %cmp.not.i.i.i, label %"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_0JSA_SA_NS0_8FileTypeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZN7rocksdb6StatusC2EOS0_.exit.i, label %_ZN7rocksdb6StatusC2EOS0_.exit.thread.i
 
-if.then.i.i.i:                                    ; preds = %"_ZSt13__invoke_implIN7rocksdb8IOStatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_0JSA_SA_NS0_8FileTypeEEET_St14__invoke_otherOT0_DpOT1_.exit.i"
+_ZN7rocksdb6StatusC2EOS0_.exit.thread.i:          ; preds = %"_ZSt13__invoke_implIN7rocksdb8IOStatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_0JSA_SA_NS0_8FileTypeEEET_St14__invoke_otherOT0_DpOT1_.exit.i"
   %19 = load i8, ptr %ref.tmp.i, align 8, !noalias !38
   store i8 %19, ptr %agg.result, align 8, !alias.scope !38
   %subcode_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 1
@@ -5987,7 +5987,17 @@ if.then.i.i.i:                                    ; preds = %"_ZSt13__invoke_imp
   store ptr %25, ptr %state_.i.i.i, align 8, !alias.scope !38
   br label %"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_0JSA_SA_NS0_8FileTypeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
 
-"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_0JSA_SA_NS0_8FileTypeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %"_ZSt13__invoke_implIN7rocksdb8IOStatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_0JSA_SA_NS0_8FileTypeEEET_St14__invoke_otherOT0_DpOT1_.exit.i", %if.then.i.i.i
+_ZN7rocksdb6StatusC2EOS0_.exit.i:                 ; preds = %"_ZSt13__invoke_implIN7rocksdb8IOStatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_0JSA_SA_NS0_8FileTypeEEET_St14__invoke_otherOT0_DpOT1_.exit.i"
+  %state_.i.i1.phi.trans.insert.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %.pre.i = load ptr, ptr %state_.i.i1.phi.trans.insert.i, align 8, !noalias !38
+  %cmp.not.i.i.i.i = icmp eq ptr %.pre.i, null
+  br i1 %cmp.not.i.i.i.i, label %"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_0JSA_SA_NS0_8FileTypeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i: ; preds = %_ZN7rocksdb6StatusC2EOS0_.exit.i
+  call void @_ZdaPv(ptr noundef nonnull %.pre.i) #17
+  br label %"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_0JSA_SA_NS0_8FileTypeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
+
+"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_0JSA_SA_NS0_8FileTypeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %_ZN7rocksdb6StatusC2EOS0_.exit.thread.i, %_ZN7rocksdb6StatusC2EOS0_.exit.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   ret void
 }
@@ -6231,9 +6241,9 @@ ehcleanup16.i.i.i:                                ; preds = %ehcleanup.i.i.i, %l
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !47
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !47
   %cmp.not.i.i.i = icmp eq ptr %ref.tmp.i, %agg.result
-  br i1 %cmp.not.i.i.i, label %"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_1JSA_SA_mNS0_8FileTypeESA_SA_NS0_11TemperatureEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZN7rocksdb6StatusC2EOS0_.exit.i, label %_ZN7rocksdb6StatusC2EOS0_.exit.thread.i
 
-if.then.i.i.i:                                    ; preds = %"_ZSt13__invoke_implIN7rocksdb8IOStatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_1JSA_SA_mNS0_8FileTypeESA_SA_NS0_11TemperatureEEET_St14__invoke_otherOT0_DpOT1_.exit.i"
+_ZN7rocksdb6StatusC2EOS0_.exit.thread.i:          ; preds = %"_ZSt13__invoke_implIN7rocksdb8IOStatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_1JSA_SA_mNS0_8FileTypeESA_SA_NS0_11TemperatureEEET_St14__invoke_otherOT0_DpOT1_.exit.i"
   %26 = load i8, ptr %ref.tmp.i, align 8, !noalias !47
   store i8 %26, ptr %agg.result, align 8, !alias.scope !47
   %subcode_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 1
@@ -6263,7 +6273,17 @@ if.then.i.i.i:                                    ; preds = %"_ZSt13__invoke_imp
   store ptr %32, ptr %state_.i.i.i, align 8, !alias.scope !47
   br label %"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_1JSA_SA_mNS0_8FileTypeESA_SA_NS0_11TemperatureEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
-"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_1JSA_SA_mNS0_8FileTypeESA_SA_NS0_11TemperatureEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %"_ZSt13__invoke_implIN7rocksdb8IOStatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_1JSA_SA_mNS0_8FileTypeESA_SA_NS0_11TemperatureEEET_St14__invoke_otherOT0_DpOT1_.exit.i", %if.then.i.i.i
+_ZN7rocksdb6StatusC2EOS0_.exit.i:                 ; preds = %"_ZSt13__invoke_implIN7rocksdb8IOStatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_1JSA_SA_mNS0_8FileTypeESA_SA_NS0_11TemperatureEEET_St14__invoke_otherOT0_DpOT1_.exit.i"
+  %state_.i.i1.phi.trans.insert.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %.pre.i = load ptr, ptr %state_.i.i1.phi.trans.insert.i, align 8, !noalias !47
+  %cmp.not.i.i.i.i = icmp eq ptr %.pre.i, null
+  br i1 %cmp.not.i.i.i.i, label %"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_1JSA_SA_mNS0_8FileTypeESA_SA_NS0_11TemperatureEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i: ; preds = %_ZN7rocksdb6StatusC2EOS0_.exit.i
+  call void @_ZdaPv(ptr noundef nonnull %.pre.i) #17
+  br label %"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_1JSA_SA_mNS0_8FileTypeESA_SA_NS0_11TemperatureEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
+
+"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_1JSA_SA_mNS0_8FileTypeESA_SA_NS0_11TemperatureEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %_ZN7rocksdb6StatusC2EOS0_.exit.thread.i, %_ZN7rocksdb6StatusC2EOS0_.exit.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   ret void
 }
@@ -6461,9 +6481,9 @@ lpad5.i.i.i:                                      ; preds = %invoke.cont.i.i.i
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !56
   %cmp.not.i.i.i = icmp eq ptr %ref.tmp.i, %agg.result
-  br i1 %cmp.not.i.i.i, label %"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_2JSA_SA_NS0_8FileTypeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZN7rocksdb6StatusC2EOS0_.exit.i, label %_ZN7rocksdb6StatusC2EOS0_.exit.thread.i
 
-if.then.i.i.i:                                    ; preds = %"_ZSt13__invoke_implIN7rocksdb8IOStatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_2JSA_SA_NS0_8FileTypeEEET_St14__invoke_otherOT0_DpOT1_.exit.i"
+_ZN7rocksdb6StatusC2EOS0_.exit.thread.i:          ; preds = %"_ZSt13__invoke_implIN7rocksdb8IOStatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_2JSA_SA_NS0_8FileTypeEEET_St14__invoke_otherOT0_DpOT1_.exit.i"
   %12 = load i8, ptr %ref.tmp.i, align 8, !noalias !56
   store i8 %12, ptr %agg.result, align 8, !alias.scope !56
   %subcode_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 1
@@ -6493,7 +6513,17 @@ if.then.i.i.i:                                    ; preds = %"_ZSt13__invoke_imp
   store ptr %18, ptr %state_.i.i.i, align 8, !alias.scope !56
   br label %"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_2JSA_SA_NS0_8FileTypeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
 
-"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_2JSA_SA_NS0_8FileTypeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %"_ZSt13__invoke_implIN7rocksdb8IOStatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_2JSA_SA_NS0_8FileTypeEEET_St14__invoke_otherOT0_DpOT1_.exit.i", %if.then.i.i.i
+_ZN7rocksdb6StatusC2EOS0_.exit.i:                 ; preds = %"_ZSt13__invoke_implIN7rocksdb8IOStatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_2JSA_SA_NS0_8FileTypeEEET_St14__invoke_otherOT0_DpOT1_.exit.i"
+  %state_.i.i1.phi.trans.insert.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %.pre.i = load ptr, ptr %state_.i.i1.phi.trans.insert.i, align 8, !noalias !56
+  %cmp.not.i.i.i.i = icmp eq ptr %.pre.i, null
+  br i1 %cmp.not.i.i.i.i, label %"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_2JSA_SA_NS0_8FileTypeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i: ; preds = %_ZN7rocksdb6StatusC2EOS0_.exit.i
+  call void @_ZdaPv(ptr noundef nonnull %.pre.i) #17
+  br label %"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_2JSA_SA_NS0_8FileTypeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
+
+"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl16CreateCheckpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPmE3$_2JSA_SA_NS0_8FileTypeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %_ZN7rocksdb6StatusC2EOS0_.exit.thread.i, %_ZN7rocksdb6StatusC2EOS0_.exit.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   ret void
 }
@@ -7261,9 +7291,9 @@ lpad7.i.i.i:                                      ; preds = %invoke.cont.i.i.i
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !76
   %cmp.not.i.i.i = icmp eq ptr %ref.tmp.i, %agg.result
-  br i1 %cmp.not.i.i.i, label %"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl18ExportColumnFamilyEPNS0_18ColumnFamilyHandleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS0_25ExportImportFilesMetaDataEE3$_1JSC_SC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZN7rocksdb6StatusC2EOS0_.exit.i, label %_ZN7rocksdb6StatusC2EOS0_.exit.thread.i
 
-if.then.i.i.i:                                    ; preds = %"_ZSt13__invoke_implIN7rocksdb8IOStatusERZNS0_14CheckpointImpl18ExportColumnFamilyEPNS0_18ColumnFamilyHandleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS0_25ExportImportFilesMetaDataEE3$_1JSC_SC_EET_St14__invoke_otherOT0_DpOT1_.exit.i"
+_ZN7rocksdb6StatusC2EOS0_.exit.thread.i:          ; preds = %"_ZSt13__invoke_implIN7rocksdb8IOStatusERZNS0_14CheckpointImpl18ExportColumnFamilyEPNS0_18ColumnFamilyHandleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS0_25ExportImportFilesMetaDataEE3$_1JSC_SC_EET_St14__invoke_otherOT0_DpOT1_.exit.i"
   %26 = load i8, ptr %ref.tmp.i, align 8, !noalias !76
   store i8 %26, ptr %agg.result, align 8, !alias.scope !76
   %subcode_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 1
@@ -7293,7 +7323,17 @@ if.then.i.i.i:                                    ; preds = %"_ZSt13__invoke_imp
   store ptr %32, ptr %state_.i.i.i, align 8, !alias.scope !76
   br label %"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl18ExportColumnFamilyEPNS0_18ColumnFamilyHandleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS0_25ExportImportFilesMetaDataEE3$_1JSC_SC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
-"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl18ExportColumnFamilyEPNS0_18ColumnFamilyHandleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS0_25ExportImportFilesMetaDataEE3$_1JSC_SC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %"_ZSt13__invoke_implIN7rocksdb8IOStatusERZNS0_14CheckpointImpl18ExportColumnFamilyEPNS0_18ColumnFamilyHandleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS0_25ExportImportFilesMetaDataEE3$_1JSC_SC_EET_St14__invoke_otherOT0_DpOT1_.exit.i", %if.then.i.i.i
+_ZN7rocksdb6StatusC2EOS0_.exit.i:                 ; preds = %"_ZSt13__invoke_implIN7rocksdb8IOStatusERZNS0_14CheckpointImpl18ExportColumnFamilyEPNS0_18ColumnFamilyHandleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS0_25ExportImportFilesMetaDataEE3$_1JSC_SC_EET_St14__invoke_otherOT0_DpOT1_.exit.i"
+  %state_.i.i1.phi.trans.insert.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %.pre.i = load ptr, ptr %state_.i.i1.phi.trans.insert.i, align 8, !noalias !76
+  %cmp.not.i.i.i.i = icmp eq ptr %.pre.i, null
+  br i1 %cmp.not.i.i.i.i, label %"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl18ExportColumnFamilyEPNS0_18ColumnFamilyHandleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS0_25ExportImportFilesMetaDataEE3$_1JSC_SC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i: ; preds = %_ZN7rocksdb6StatusC2EOS0_.exit.i
+  call void @_ZdaPv(ptr noundef nonnull %.pre.i) #17
+  br label %"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl18ExportColumnFamilyEPNS0_18ColumnFamilyHandleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS0_25ExportImportFilesMetaDataEE3$_1JSC_SC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
+
+"_ZSt10__invoke_rIN7rocksdb6StatusERZNS0_14CheckpointImpl18ExportColumnFamilyEPNS0_18ColumnFamilyHandleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPNS0_25ExportImportFilesMetaDataEE3$_1JSC_SC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %_ZN7rocksdb6StatusC2EOS0_.exit.thread.i, %_ZN7rocksdb6StatusC2EOS0_.exit.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   ret void
 }

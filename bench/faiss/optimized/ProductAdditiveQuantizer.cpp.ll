@@ -2317,7 +2317,7 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer22compute_unpacked_cod
   br i1 %64, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !18
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %65 = trunc i64 %indvars.iv.next.i to i32
+  %65 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %52
@@ -2651,7 +2651,7 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer6decodeEPKhPfm.omp_out
   br i1 %75, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !18
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %76 = trunc i64 %indvars.iv.next.i to i32
+  %76 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %63
@@ -2868,7 +2868,7 @@ _ZN5faiss24ProductAdditiveQuantizerC2Ev.exit:     ; preds = %6
   br i1 %49, label %50, label %_ZNKSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 50:                                               ; preds = %45
-  store ptr %38, ptr %35, align 8
+  store ptr %39, ptr %35, align 8
   store ptr %38, ptr %36, align 8
   store ptr %40, ptr %8, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #19
@@ -2926,10 +2926,9 @@ _ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE9push_backEOS2_.exit: ; preds =
   br i1 %exitcond.not, label %.loopexit, label %37, !llvm.loop !28
 
 .loopexit36:                                      ; preds = %37, %56
-  %.lcssa62 = phi ptr [ %39, %37 ], [ %38, %56 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %.lcssa62, ptr %35, align 8
+  store ptr %39, ptr %35, align 8
   store ptr %38, ptr %36, align 8
   store ptr %40, ptr %8, align 8
   br label %86
@@ -3232,7 +3231,7 @@ _ZN5faiss24ProductAdditiveQuantizerC2Ev.exit:     ; preds = %6
   br i1 %49, label %50, label %_ZNKSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 50:                                               ; preds = %45
-  store ptr %38, ptr %35, align 8
+  store ptr %39, ptr %35, align 8
   store ptr %38, ptr %36, align 8
   store ptr %40, ptr %8, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #19
@@ -3290,10 +3289,9 @@ _ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE9push_backEOS2_.exit: ; preds =
   br i1 %exitcond.not, label %.loopexit, label %37, !llvm.loop !29
 
 .loopexit36:                                      ; preds = %37, %56
-  %.lcssa62 = phi ptr [ %39, %37 ], [ %38, %56 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %.lcssa62, ptr %35, align 8
+  store ptr %39, ptr %35, align 8
   store ptr %38, ptr %36, align 8
   store ptr %40, ptr %8, align 8
   br label %86

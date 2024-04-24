@@ -1063,7 +1063,7 @@ define internal void @execlists_submission_tasklet(ptr nocapture noundef readonl
   %407 = getelementptr [0 x ptr], ptr %383, i64 0, i64 %402
   %408 = load ptr, ptr %383, align 8
   store ptr %408, ptr %407, align 8
-  store ptr %6, ptr %383, align 8
+  store ptr %404, ptr %383, align 8
   br label %.loopexit78
 
 .loopexit78:                                      ; preds = %398, %406, %392, %382, %378
@@ -1258,7 +1258,7 @@ define internal void @execlists_submission_tasklet(ptr nocapture noundef readonl
   br i1 %513, label %526, label %.thread67
 
 .thread67:                                        ; preds = %478, %474, %468, %466, %._crit_edge129
-  %514 = phi ptr [ %.lcssa90, %._crit_edge129 ], [ %436, %478 ], [ %436, %474 ], [ %436, %468 ], [ %58, %466 ]
+  %514 = phi ptr [ %.lcssa90, %._crit_edge129 ], [ %436, %466 ], [ %436, %468 ], [ %436, %474 ], [ %436, %478 ]
   %515 = phi ptr [ %.lcssa92, %._crit_edge129 ], [ %437, %466 ], [ %437, %468 ], [ %437, %474 ], [ %437, %478 ]
   %516 = phi i8 [ %.lcssa94, %._crit_edge129 ], [ %439, %466 ], [ %439, %468 ], [ %439, %474 ], [ %439, %478 ]
   %517 = getelementptr inbounds i8, ptr %515, i64 56
@@ -1792,7 +1792,7 @@ define internal void @execlists_submission_tasklet(ptr nocapture noundef readonl
   %864 = getelementptr i32, ptr %861, i64 %863
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %860, ptr elementtype(i32) %864) #17, !srcloc !38
   %865 = lshr i64 %856, 32
-  %866 = trunc i64 %865 to i32
+  %866 = trunc nuw i64 %865 to i32
   %867 = load ptr, ptr %800, align 8
   %868 = getelementptr i32, ptr %867, i64 %863
   %869 = getelementptr i8, ptr %868, i64 4
@@ -1801,7 +1801,7 @@ define internal void @execlists_submission_tasklet(ptr nocapture noundef readonl
 
 870:                                              ; preds = %855
   %871 = lshr i64 %856, 32
-  %872 = trunc i64 %871 to i32
+  %872 = trunc nuw i64 %871 to i32
   %873 = load ptr, ptr %800, align 8
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %872, ptr elementtype(i32) %873) #17, !srcloc !38
   %874 = trunc i64 %856 to i32
@@ -3627,9 +3627,9 @@ define internal void @execlists_capture_work(ptr noundef %0) #0 align 16 {
   %92 = load volatile i64, ptr %91, align 8
   %93 = and i64 %92, 32
   %94 = lshr exact i64 %93, 5
-  %95 = trunc i64 %94 to i8
+  %95 = trunc nuw nsw i64 %94 to i8
   %96 = lshr exact i64 %93, 4
-  %97 = trunc i64 %96 to i32
+  %97 = trunc nuw nsw i64 %96 to i32
   br label %98
 
 98:                                               ; preds = %90, %83
@@ -4128,7 +4128,7 @@ define internal i32 @execlists_request_alloc(ptr noundef %0) #0 align 16 {
   %61 = getelementptr i8, ptr %39, i64 4
   store i32 %60, ptr %39, align 4
   %62 = lshr i64 %54, 32
-  %63 = trunc i64 %62 to i32
+  %63 = trunc nuw i64 %62 to i32
   %64 = getelementptr i8, ptr %39, i64 8
   store i32 %63, ptr %61, align 4
   %65 = getelementptr i8, ptr %39, i64 12
@@ -6552,9 +6552,9 @@ define internal void @execlists_submit_request(ptr noundef %0) #0 align 16 {
   %28 = load volatile i64, ptr %27, align 8
   %29 = and i64 %28, 32
   %30 = lshr exact i64 %29, 5
-  %31 = trunc i64 %30 to i8
+  %31 = trunc nuw nsw i64 %30 to i8
   %32 = lshr exact i64 %29, 4
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw nsw i64 %32 to i32
   br label %34
 
 34:                                               ; preds = %26, %19

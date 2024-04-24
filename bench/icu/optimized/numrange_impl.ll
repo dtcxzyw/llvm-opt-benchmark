@@ -375,7 +375,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -434,7 +434,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -1082,7 +1082,7 @@ _ZN6icu_7520StandardPluralRangesaSEOS0_.exit:     ; preds = %invoke.cont.i.i28
   store ptr %stackArray.i.i, ptr %fPluralRanges, align 8
   %conv.i.i = sext i32 %38 to i64
   %mul.i.i = mul nsw i64 %conv.i.i, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray.i.i, ptr nonnull align 8 %40, i64 %mul.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray.i.i, ptr nonnull align 8 %stackArray.i.i31, i64 %mul.i.i, i1 false)
   %44 = load i32, ptr %fTriplesLen.i33, align 8
   store i32 %44, ptr %fTriplesLen.i, align 8
   %tobool.not.i.i.i36 = icmp eq i8 %39, 0
@@ -1834,7 +1834,7 @@ if.then30:                                        ; preds = %if.end14
 
 if.end38:                                         ; preds = %if.then30, %land.lhs.true, %if.end14, %if.then17
   %collapseMiddle.0 = phi i8 [ 1, %if.then17 ], [ %spec.select, %land.lhs.true ], [ 1, %if.end14 ], [ %spec.select120, %if.then30 ]
-  %tobool39 = trunc i8 %collapseMiddle.0 to i1
+  %tobool39 = trunc nuw i8 %collapseMiddle.0 to i1
   %13 = load i32, ptr %fCollapse, align 4
   %cmp41.not = icmp eq i32 %13, 3
   %or.cond = select i1 %tobool39, i1 %cmp41.not, i1 false
@@ -1883,7 +1883,7 @@ land.rhs:                                         ; preds = %if.end56
 
 land.end:                                         ; preds = %land.rhs, %if.end56
   %23 = phi i1 [ false, %if.end56 ], [ %cmp63, %land.rhs ]
-  %tobool65 = trunc i8 %collapseMiddle.1 to i1
+  %tobool65 = trunc nuw i8 %collapseMiddle.1 to i1
   br i1 %tobool65, label %land.end72, label %land.rhs66
 
 land.rhs66:                                       ; preds = %land.end
@@ -2887,7 +2887,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %exhausted = getelementptr inbounds i8, ptr %this, i64 488
+  %exhausted = getelementptr inbounds i8, ptr %micros, i64 488
   store i8 1, ptr %exhausted, align 8
   br label %if.end
 

@@ -229,7 +229,7 @@ while.end:                                        ; preds = %land.lhs.true50, %l
 
 label_return.sink.split:                          ; preds = %while.body85, %while.end, %entry
   %.sink = phi i32 [ 22, %entry ], [ 22, %while.end ], [ 34, %while.body85 ]
-  %p.4.ph = phi ptr [ %nptr, %entry ], [ %p.1, %while.end ], [ %p.3, %while.body85 ]
+  %p.4.ph = phi ptr [ %nptr, %entry ], [ %p.3, %while.end ], [ %p.3, %while.body85 ]
   %ns.0.ph = phi ptr [ %nptr, %entry ], [ %p.1, %while.end ], [ %p.1, %while.body85 ]
   %call.i56 = tail call ptr @__errno_location() #14
   store i32 %.sink, ptr %call.i56, align 4
@@ -732,20 +732,20 @@ d2s.exit:                                         ; preds = %u2s.exit.i, %sw.bb6
   br i1 %cmp243, label %cond.end256.thread, label %cond.end256
 
 cond.end256.thread:                               ; preds = %d2s.exit
-  %tobool258368 = trunc i8 %left_justify.2 to i1
+  %tobool258368 = trunc nuw i8 %left_justify.2 to i1
   br label %do.body286
 
 cond.end256:                                      ; preds = %d2s.exit
   %conv247 = sext i32 %width.0 to i64
   %cond255 = call i64 @llvm.usub.sat.i64(i64 %conv247, i64 %slen.0)
-  %tobool258 = trunc i8 %left_justify.2 to i1
+  %tobool258 = trunc nuw i8 %left_justify.2 to i1
   %tobool258.not = xor i1 %tobool258, true
   %cmp259 = icmp ult i64 %slen.0, %conv247
   %or.cond = select i1 %tobool258.not, i1 %cmp259, i1 false
   br i1 %or.cond, label %for.body.lr.ph, label %do.body286
 
 for.body.lr.ph:                                   ; preds = %cond.end256
-  %tobool264 = trunc i8 %pad_zero.1 to i1
+  %tobool264 = trunc nuw i8 %pad_zero.1 to i1
   %. = select i1 %tobool264, i8 48, i8 32
   br label %for.body
 
@@ -958,7 +958,7 @@ do.body19.i.i:                                    ; preds = %do.body19.i.i, %do.
 
 u2s.exit.i318:                                    ; preds = %do.body19.i.i
   %arrayidx24.i.i.le = getelementptr inbounds i8, ptr %buf328, i64 %idxprom23.i.i
-  %tobool482 = trunc i8 %alt_form.0 to i1
+  %tobool482 = trunc nuw i8 %alt_form.0 to i1
   %sub.i.i319 = sub i64 65, %indvars.iv.i
   %conv31.i.i320 = and i64 %sub.i.i319, 4294967295
   %cmp.not.i = icmp ne i8 %73, 48
@@ -978,20 +978,20 @@ o2s.exit:                                         ; preds = %u2s.exit.i318, %if.
   br i1 %cmp487, label %cond.end500.thread, label %cond.end500
 
 cond.end500.thread:                               ; preds = %o2s.exit
-  %tobool502376 = trunc i8 %left_justify.2 to i1
+  %tobool502376 = trunc nuw i8 %left_justify.2 to i1
   br label %do.body536
 
 cond.end500:                                      ; preds = %o2s.exit
   %conv491 = sext i32 %width.0 to i64
   %cond499 = call i64 @llvm.usub.sat.i64(i64 %conv491, i64 %slen.1)
-  %tobool502 = trunc i8 %left_justify.2 to i1
+  %tobool502 = trunc nuw i8 %left_justify.2 to i1
   %tobool502.not = xor i1 %tobool502, true
   %cmp504 = icmp ult i64 %slen.1, %conv491
   %or.cond2 = select i1 %tobool502.not, i1 %cmp504, i1 false
   br i1 %or.cond2, label %for.body511.lr.ph, label %do.body536
 
 for.body511.lr.ph:                                ; preds = %cond.end500
-  %tobool512 = trunc i8 %pad_zero.1 to i1
+  %tobool512 = trunc nuw i8 %pad_zero.1 to i1
   %.571 = select i1 %tobool512, i8 48, i8 32
   br label %for.body511
 
@@ -1210,20 +1210,20 @@ u2s.exit:                                         ; preds = %do.body.i
   br i1 %cmp739, label %cond.end752.thread, label %cond.end752
 
 cond.end752.thread:                               ; preds = %u2s.exit
-  %tobool754384 = trunc i8 %left_justify.2 to i1
+  %tobool754384 = trunc nuw i8 %left_justify.2 to i1
   br label %do.body788
 
 cond.end752:                                      ; preds = %u2s.exit
   %conv743 = sext i32 %width.0 to i64
   %cond751 = call i64 @llvm.usub.sat.i64(i64 %conv743, i64 %conv31.i)
-  %tobool754 = trunc i8 %left_justify.2 to i1
+  %tobool754 = trunc nuw i8 %left_justify.2 to i1
   %tobool754.not = xor i1 %tobool754, true
   %cmp756 = icmp ugt i64 %conv743, %conv31.i
   %or.cond4 = select i1 %tobool754.not, i1 %cmp756, i1 false
   br i1 %or.cond4, label %for.body763.lr.ph, label %do.body788
 
 for.body763.lr.ph:                                ; preds = %cond.end752
-  %tobool764 = trunc i8 %pad_zero.1 to i1
+  %tobool764 = trunc nuw i8 %pad_zero.1 to i1
   %.572 = select i1 %tobool764, i8 48, i8 32
   br label %for.body763
 
@@ -1439,7 +1439,7 @@ do.body5.i.i:                                     ; preds = %do.body5.i.i, %do.e
 
 u2s.exit.i326:                                    ; preds = %do.body5.i.i
   %arrayidx9.i.i.le = getelementptr inbounds i8, ptr %buf832, i64 %idxprom8.i.i
-  %tobool987 = trunc i8 %alt_form.0 to i1
+  %tobool987 = trunc nuw i8 %alt_form.0 to i1
   %sub.i.i327 = sub i64 65, %indvars.iv.i.i
   %conv31.i.i328 = and i64 %sub.i.i327, 4294967295
   br i1 %tobool987, label %if.then.i330, label %x2s.exit
@@ -1458,20 +1458,20 @@ x2s.exit:                                         ; preds = %u2s.exit.i326, %if.
   br i1 %cmp995, label %cond.end1008.thread, label %cond.end1008
 
 cond.end1008.thread:                              ; preds = %x2s.exit
-  %tobool1010392 = trunc i8 %left_justify.2 to i1
+  %tobool1010392 = trunc nuw i8 %left_justify.2 to i1
   br label %do.body1044
 
 cond.end1008:                                     ; preds = %x2s.exit
   %conv999 = sext i32 %width.0 to i64
   %cond1007 = call i64 @llvm.usub.sat.i64(i64 %conv999, i64 %slen.2)
-  %tobool1010 = trunc i8 %left_justify.2 to i1
+  %tobool1010 = trunc nuw i8 %left_justify.2 to i1
   %tobool1010.not = xor i1 %tobool1010, true
   %cmp1012 = icmp ult i64 %slen.2, %conv999
   %or.cond6 = select i1 %tobool1010.not, i1 %cmp1012, i1 false
   br i1 %or.cond6, label %for.body1019.lr.ph, label %do.body1044
 
 for.body1019.lr.ph:                               ; preds = %cond.end1008
-  %tobool1020 = trunc i8 %pad_zero.1 to i1
+  %tobool1020 = trunc nuw i8 %pad_zero.1 to i1
   %.573 = select i1 %tobool1020, i8 48, i8 32
   br label %for.body1019
 
@@ -1566,14 +1566,14 @@ vaarg.end1102:                                    ; preds = %vaarg.in_mem1098, %
   %sub1118 = add nsw i64 %conv1113, -1
   %cond1121 = select i1 %cmp1114, i64 %sub1118, i64 0
   %cond1123 = select i1 %cmp1109, i64 0, i64 %cond1121
-  %tobool1124 = trunc i8 %left_justify.2 to i1
+  %tobool1124 = trunc nuw i8 %left_justify.2 to i1
   %tobool1124.not = xor i1 %tobool1124, true
   %cmp1126 = icmp ne i64 %cond1123, 0
   %or.cond8 = select i1 %tobool1124.not, i1 %cmp1126, i1 false
   br i1 %or.cond8, label %for.cond1130.preheader, label %do.body1158
 
 for.cond1130.preheader:                           ; preds = %vaarg.end1102
-  %tobool1134 = trunc i8 %pad_zero.1 to i1
+  %tobool1134 = trunc nuw i8 %pad_zero.1 to i1
   %.574 = select i1 %tobool1134, i8 48, i8 32
   br label %for.body1133
 
@@ -1671,14 +1671,14 @@ cond.end1223:                                     ; preds = %cond.false1221, %co
   %conv1231 = sext i32 %width.0 to i64
   %cond1239 = call i64 @llvm.usub.sat.i64(i64 %conv1231, i64 %cond1224)
   %cond1241 = select i1 %cmp1227, i64 0, i64 %cond1239
-  %tobool1242 = trunc i8 %left_justify.2 to i1
+  %tobool1242 = trunc nuw i8 %left_justify.2 to i1
   %tobool1242.not = xor i1 %tobool1242, true
   %cmp1244 = icmp ne i64 %cond1241, 0
   %or.cond10 = select i1 %tobool1242.not, i1 %cmp1244, i1 false
   br i1 %or.cond10, label %for.cond1248.preheader, label %do.body1276
 
 for.cond1248.preheader:                           ; preds = %cond.end1223
-  %tobool1252 = trunc i8 %pad_zero.1 to i1
+  %tobool1252 = trunc nuw i8 %pad_zero.1 to i1
   %.575 = select i1 %tobool1252, i8 48, i8 32
   br label %for.body1251
 
@@ -1788,20 +1788,20 @@ x2s.exit350:                                      ; preds = %do.body5.i.i332
   br i1 %cmp1338, label %cond.end1351.thread, label %cond.end1351
 
 cond.end1351.thread:                              ; preds = %x2s.exit350
-  %tobool1353400 = trunc i8 %left_justify.2 to i1
+  %tobool1353400 = trunc nuw i8 %left_justify.2 to i1
   br label %do.body1387
 
 cond.end1351:                                     ; preds = %x2s.exit350
   %conv1342 = sext i32 %width.0 to i64
   %cond1350 = call i64 @llvm.usub.sat.i64(i64 %conv1342, i64 %add.i348)
-  %tobool1353 = trunc i8 %left_justify.2 to i1
+  %tobool1353 = trunc nuw i8 %left_justify.2 to i1
   %tobool1353.not = xor i1 %tobool1353, true
   %cmp1355 = icmp ult i64 %add.i348, %conv1342
   %or.cond12 = select i1 %tobool1353.not, i1 %cmp1355, i1 false
   br i1 %or.cond12, label %for.body1362.lr.ph, label %do.body1387
 
 for.body1362.lr.ph:                               ; preds = %cond.end1351
-  %tobool1363 = trunc i8 %pad_zero.1 to i1
+  %tobool1363 = trunc nuw i8 %pad_zero.1 to i1
   %.576 = select i1 %tobool1363, i8 48, i8 32
   br label %for.body1362
 

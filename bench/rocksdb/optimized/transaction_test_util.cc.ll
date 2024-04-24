@@ -447,7 +447,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %cmp.i.not.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtEvT_S7_T0_.exit, label %for.body.i, !llvm.loop !4
 
 _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtEvT_S7_T0_.exit: ; preds = %for.body.i, %invoke.cont3, %invoke.cont5
-  %__first.addr.0.i.i.i.i.i372 = phi ptr [ %call5.i.i.i.i2.i.i57, %invoke.cont5 ], [ null, %invoke.cont3 ], [ %__first.addr.0.i.i.i.i.i424, %for.body.i ]
+  %__first.addr.0.i.i.i.i.i372 = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %invoke.cont5 ], [ null, %invoke.cont3 ], [ %__first.addr.0.i.i.i.i.i424, %for.body.i ]
   %set_vec.sroa.0.0363 = phi ptr [ %call5.i.i.i.i2.i.i57, %invoke.cont5 ], [ null, %invoke.cont3 ], [ %call5.i.i.i.i2.i.i57, %for.body.i ]
   invoke void @_ZN7rocksdb13RandomShuffleIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEEEvT_S8_(ptr %set_vec.sroa.0.0363, ptr %__first.addr.0.i.i.i.i.i372)
           to label %for.cond.preheader unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -983,7 +983,7 @@ call.i.i.i.i.i.noexc159:                          ; preds = %land.rhs
   %mul.i.i.i.i.i152 = mul nuw nsw i128 %conv.i.i.i.i.i151, 10
   %conv2.i.i.i.i.i153 = trunc i128 %mul.i.i.i.i.i152 to i64
   %extract9.i.i.i.i.i155 = lshr i128 %mul.i.i.i.i.i152, 64
-  %extract.t10.i.i.i.i.i156 = trunc i128 %extract9.i.i.i.i.i155 to i64
+  %extract.t10.i.i.i.i.i156 = trunc nuw nsw i128 %extract9.i.i.i.i.i155 to i64
   %cmp315.i.i.i.i.i = icmp ult i64 %conv2.i.i.i.i.i153, 6
   br i1 %cmp315.i.i.i.i.i, label %while.body.i.i.i.i.i, label %invoke.cont175
 
@@ -1000,7 +1000,7 @@ call4.i.i.i.i.i.noexc:                            ; preds = %while.body.i.i.i.i.
 
 while.cond.if.end.loopexit_crit_edge.i.i.i.i.i:   ; preds = %call4.i.i.i.i.i.noexc
   %extract13.le.i.i.i.i.i = lshr i128 %mul7.i.i.i.i.i, 64
-  %extract.t14.le.i.i.i.i.i = trunc i128 %extract13.le.i.i.i.i.i to i64
+  %extract.t14.le.i.i.i.i.i = trunc nuw nsw i128 %extract13.le.i.i.i.i.i to i64
   br label %invoke.cont175
 
 invoke.cont175:                                   ; preds = %while.cond.if.end.loopexit_crit_edge.i.i.i.i.i, %call.i.i.i.i.i.noexc159
@@ -1117,7 +1117,7 @@ call.i.i.i.i.i.noexc203:                          ; preds = %invoke.cont216
   %conv.i.i.i.i.i185 = zext i64 %call.i.i.i.i.i204 to i128
   %mul.i.i.i.i.i186 = mul nuw nsw i128 %conv.i.i.i.i.i185, 20
   %extract9.i.i.i.i.i189 = lshr i128 %mul.i.i.i.i.i186, 64
-  %extract.t10.i.i.i.i.i190 = trunc i128 %extract9.i.i.i.i.i189 to i64
+  %extract.t10.i.i.i.i.i190 = trunc nuw nsw i128 %extract9.i.i.i.i.i189 to i64
   %81 = and i128 %mul.i.i.i.i.i186, 18446744073709551600
   %cmp315.i.i.i.i.i192 = icmp eq i128 %81, 0
   br i1 %cmp315.i.i.i.i.i192, label %while.body.i.i.i.i.i195, label %invoke.cont221
@@ -1135,7 +1135,7 @@ call4.i.i.i.i.i.noexc205:                         ; preds = %while.body.i.i.i.i.
 
 while.cond.if.end.loopexit_crit_edge.i.i.i.i.i200: ; preds = %call4.i.i.i.i.i.noexc205
   %extract13.le.i.i.i.i.i201 = lshr i128 %mul7.i.i.i.i.i197, 64
-  %extract.t14.le.i.i.i.i.i202 = trunc i128 %extract13.le.i.i.i.i.i201 to i64
+  %extract.t14.le.i.i.i.i.i202 = trunc nuw nsw i128 %extract13.le.i.i.i.i.i201 to i64
   br label %invoke.cont221
 
 invoke.cont221:                                   ; preds = %while.cond.if.end.loopexit_crit_edge.i.i.i.i.i200, %call.i.i.i.i.i.noexc203
@@ -1275,7 +1275,7 @@ call.i.i.i.i.i.noexc251:                          ; preds = %if.end248
   %conv.i.i.i.i.i233 = zext i64 %call.i.i.i.i.i252 to i128
   %mul.i.i.i.i.i234 = mul nuw nsw i128 %conv.i.i.i.i.i233, 20
   %extract9.i.i.i.i.i237 = lshr i128 %mul.i.i.i.i.i234, 64
-  %extract.t10.i.i.i.i.i238 = trunc i128 %extract9.i.i.i.i.i237 to i64
+  %extract.t10.i.i.i.i.i238 = trunc nuw nsw i128 %extract9.i.i.i.i.i237 to i64
   %104 = and i128 %mul.i.i.i.i.i234, 18446744073709551600
   %cmp315.i.i.i.i.i240 = icmp eq i128 %104, 0
   br i1 %cmp315.i.i.i.i.i240, label %while.body.i.i.i.i.i243, label %invoke.cont250
@@ -1293,7 +1293,7 @@ call4.i.i.i.i.i.noexc253:                         ; preds = %while.body.i.i.i.i.
 
 while.cond.if.end.loopexit_crit_edge.i.i.i.i.i248: ; preds = %call4.i.i.i.i.i.noexc253
   %extract13.le.i.i.i.i.i249 = lshr i128 %mul7.i.i.i.i.i245, 64
-  %extract.t14.le.i.i.i.i.i250 = trunc i128 %extract13.le.i.i.i.i.i249 to i64
+  %extract.t14.le.i.i.i.i.i250 = trunc nuw nsw i128 %extract13.le.i.i.i.i.i249 to i64
   br label %invoke.cont250
 
 invoke.cont250:                                   ; preds = %while.cond.if.end.loopexit_crit_edge.i.i.i.i.i248, %call.i.i.i.i.i.noexc251
@@ -2386,7 +2386,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -3371,7 +3371,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %cmp.i.not.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtEvT_S7_T0_.exit, label %for.body.i, !llvm.loop !4
 
 _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtEvT_S7_T0_.exit: ; preds = %for.body.i, %if.end, %invoke.cont11
-  %__first.addr.0.i.i.i.i.i114 = phi ptr [ %call5.i.i.i.i2.i.i41, %invoke.cont11 ], [ null, %if.end ], [ %__first.addr.0.i.i.i.i.i238, %for.body.i ]
+  %__first.addr.0.i.i.i.i.i114 = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %invoke.cont11 ], [ null, %if.end ], [ %__first.addr.0.i.i.i.i.i238, %for.body.i ]
   %set_vec.sroa.0.0110 = phi ptr [ %call5.i.i.i.i2.i.i41, %invoke.cont11 ], [ null, %if.end ], [ %call5.i.i.i.i2.i.i41, %for.body.i ]
   invoke void @_ZN7rocksdb13RandomShuffleIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEEEvT_S8_(ptr %set_vec.sroa.0.0110, ptr %__first.addr.0.i.i.i.i.i114)
           to label %for.cond.preheader unwind label %lpad18.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -3424,7 +3424,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %land.rhs
   %mul.i.i.i.i.i = mul nuw nsw i128 %conv.i.i.i.i.i, 10
   %conv2.i.i.i.i.i = trunc i128 %mul.i.i.i.i.i to i64
   %extract9.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i, 64
-  %extract.t10.i.i.i.i.i = trunc i128 %extract9.i.i.i.i.i to i64
+  %extract.t10.i.i.i.i.i = trunc nuw nsw i128 %extract9.i.i.i.i.i to i64
   %cmp315.i.i.i.i.i = icmp ult i64 %conv2.i.i.i.i.i, 6
   br i1 %cmp315.i.i.i.i.i, label %while.body.i.i.i.i.i, label %land.end
 
@@ -3441,7 +3441,7 @@ call4.i.i.i.i.i.noexc:                            ; preds = %while.body.i.i.i.i.
 
 while.cond.if.end.loopexit_crit_edge.i.i.i.i.i:   ; preds = %call4.i.i.i.i.i.noexc
   %extract13.le.i.i.i.i.i = lshr i128 %mul7.i.i.i.i.i, 64
-  %extract.t14.le.i.i.i.i.i = trunc i128 %extract13.le.i.i.i.i.i to i64
+  %extract.t14.le.i.i.i.i.i = trunc nuw nsw i128 %extract13.le.i.i.i.i.i to i64
   br label %land.end
 
 land.end:                                         ; preds = %while.cond.if.end.loopexit_crit_edge.i.i.i.i.i, %call.i.i.i.i.i.noexc
@@ -4373,7 +4373,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %2 = trunc i64 %sub to i32
+  %2 = trunc nuw i64 %sub to i32
   %conv = add nuw i32 %2, 1
   %call.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %__urng)
   %conv.i = zext i32 %conv to i64

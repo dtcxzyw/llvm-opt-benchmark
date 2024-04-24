@@ -3314,7 +3314,7 @@ define internal noundef i32 @normal_attributeValueTok(ptr noundef %0, ptr nounde
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %1, i64 1
+  %21 = getelementptr inbounds i8, ptr %.04961, i64 1
   %22 = tail call fastcc i32 @normal_scanRef(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %2, ptr noundef %3), !range !26
   br label %56
 
@@ -3331,7 +3331,7 @@ define internal noundef i32 @normal_attributeValueTok(ptr noundef %0, ptr nounde
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %1, i64 1
+  %28 = getelementptr inbounds i8, ptr %.04961, i64 1
   store ptr %28, ptr %3, align 8
   br label %56
 
@@ -3344,7 +3344,7 @@ define internal noundef i32 @normal_attributeValueTok(ptr noundef %0, ptr nounde
   br i1 %31, label %32, label %44
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %1, i64 1
+  %33 = getelementptr inbounds i8, ptr %.04961, i64 1
   %34 = ptrtoint ptr %33 to i64
   %35 = sub i64 %6, %34
   %36 = icmp sgt i64 %35, 0
@@ -3356,7 +3356,7 @@ define internal noundef i32 @normal_attributeValueTok(ptr noundef %0, ptr nounde
   %40 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = icmp eq i8 %41, 10
-  %43 = getelementptr inbounds i8, ptr %1, i64 2
+  %43 = getelementptr inbounds i8, ptr %.04961, i64 2
   %spec.select = select i1 %42, ptr %43, ptr %33
   store ptr %spec.select, ptr %3, align 8
   br label %56
@@ -3370,7 +3370,7 @@ define internal noundef i32 @normal_attributeValueTok(ptr noundef %0, ptr nounde
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %1, i64 1
+  %48 = getelementptr inbounds i8, ptr %.04961, i64 1
   store ptr %48, ptr %3, align 8
   br label %56
 
@@ -3441,7 +3441,7 @@ define internal noundef i32 @normal_entityValueTok(ptr noundef %0, ptr noundef %
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %1, i64 1
+  %21 = getelementptr inbounds i8, ptr %.05161, i64 1
   %22 = tail call fastcc i32 @normal_scanRef(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %2, ptr noundef %3), !range !26
   br label %58
 
@@ -3454,7 +3454,7 @@ define internal noundef i32 @normal_entityValueTok(ptr noundef %0, ptr noundef %
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %1, i64 1
+  %27 = getelementptr inbounds i8, ptr %.05161, i64 1
   %28 = tail call fastcc i32 @normal_scanPercent(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %2, ptr noundef %3), !range !16
   %29 = icmp eq i32 %28, 22
   %30 = select i1 %29, i32 0, i32 %28
@@ -3469,7 +3469,7 @@ define internal noundef i32 @normal_entityValueTok(ptr noundef %0, ptr noundef %
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %1, i64 1
+  %35 = getelementptr inbounds i8, ptr %.05161, i64 1
   store ptr %35, ptr %3, align 8
   br label %58
 
@@ -3482,7 +3482,7 @@ define internal noundef i32 @normal_entityValueTok(ptr noundef %0, ptr noundef %
   br i1 %38, label %39, label %51
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %1, i64 1
+  %40 = getelementptr inbounds i8, ptr %.05161, i64 1
   %41 = ptrtoint ptr %40 to i64
   %42 = sub i64 %6, %41
   %43 = icmp sgt i64 %42, 0
@@ -3494,7 +3494,7 @@ define internal noundef i32 @normal_entityValueTok(ptr noundef %0, ptr noundef %
   %47 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 10
-  %50 = getelementptr inbounds i8, ptr %1, i64 2
+  %50 = getelementptr inbounds i8, ptr %.05161, i64 2
   %spec.select = select i1 %49, ptr %50, ptr %40
   store ptr %spec.select, ptr %3, align 8
   br label %58
@@ -8454,8 +8454,8 @@ unicode_byte_type.exit92.thread101:               ; preds = %unicode_byte_type.e
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @little2_attributeValueTok(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @little2_attributeValueTok(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #8 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %5, label %58
 
@@ -8508,7 +8508,7 @@ unicode_byte_type.exit.thread63:                  ; preds = %11, %11, %11, %11, 
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 2
+  %22 = getelementptr inbounds i8, ptr %.05571, i64 2
   %23 = tail call fastcc i32 @little2_scanRef(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull %2, ptr noundef %3), !range !26
   br label %58
 
@@ -8525,7 +8525,7 @@ unicode_byte_type.exit.thread63:                  ; preds = %11, %11, %11, %11, 
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %1, i64 2
+  %29 = getelementptr inbounds i8, ptr %.05571, i64 2
   store ptr %29, ptr %3, align 8
   br label %58
 
@@ -8538,14 +8538,14 @@ unicode_byte_type.exit.thread63:                  ; preds = %11, %11, %11, %11, 
   br i1 %32, label %33, label %48
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 2
+  %34 = getelementptr inbounds i8, ptr %.05571, i64 2
   %35 = ptrtoint ptr %34 to i64
   %36 = sub i64 %6, %35
   %37 = icmp sgt i64 %36, 1
   br i1 %37, label %38, label %58
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %1, i64 3
+  %39 = getelementptr inbounds i8, ptr %.05571, i64 3
   %40 = load i8, ptr %39, align 1
   %cond = icmp eq i8 %40, 0
   br i1 %cond, label %unicode_byte_type.exit60, label %unicode_byte_type.exit60.thread
@@ -8557,7 +8557,7 @@ unicode_byte_type.exit60:                         ; preds = %38
   %44 = load i8, ptr %43, align 1
   %.fr = freeze i8 %44
   %45 = icmp eq i8 %.fr, 10
-  %46 = getelementptr inbounds i8, ptr %1, i64 4
+  %46 = getelementptr inbounds i8, ptr %.05571, i64 4
   %spec.select = select i1 %45, ptr %46, ptr %34
   br label %unicode_byte_type.exit60.thread
 
@@ -8575,7 +8575,7 @@ unicode_byte_type.exit60.thread:                  ; preds = %unicode_byte_type.e
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %1, i64 2
+  %52 = getelementptr inbounds i8, ptr %.05571, i64 2
   store ptr %52, ptr %3, align 8
   br label %58
 
@@ -8600,8 +8600,8 @@ unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.e
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @little2_entityValueTok(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @little2_entityValueTok(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #8 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %5, label %60
 
@@ -8653,7 +8653,7 @@ unicode_byte_type.exit.thread65:                  ; preds = %11, %11, %11, %11, 
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 2
+  %22 = getelementptr inbounds i8, ptr %.05772, i64 2
   %23 = tail call fastcc i32 @little2_scanRef(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull %2, ptr noundef %3), !range !26
   br label %60
 
@@ -8666,7 +8666,7 @@ unicode_byte_type.exit.thread65:                  ; preds = %11, %11, %11, %11, 
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %1, i64 2
+  %28 = getelementptr inbounds i8, ptr %.05772, i64 2
   %29 = tail call fastcc i32 @little2_scanPercent(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef nonnull %2, ptr noundef %3), !range !16
   %30 = icmp eq i32 %29, 22
   %31 = select i1 %30, i32 0, i32 %29
@@ -8681,7 +8681,7 @@ unicode_byte_type.exit.thread65:                  ; preds = %11, %11, %11, %11, 
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %1, i64 2
+  %36 = getelementptr inbounds i8, ptr %.05772, i64 2
   store ptr %36, ptr %3, align 8
   br label %60
 
@@ -8694,14 +8694,14 @@ unicode_byte_type.exit.thread65:                  ; preds = %11, %11, %11, %11, 
   br i1 %39, label %40, label %55
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %1, i64 2
+  %41 = getelementptr inbounds i8, ptr %.05772, i64 2
   %42 = ptrtoint ptr %41 to i64
   %43 = sub i64 %6, %42
   %44 = icmp sgt i64 %43, 1
   br i1 %44, label %45, label %60
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %1, i64 3
+  %46 = getelementptr inbounds i8, ptr %.05772, i64 3
   %47 = load i8, ptr %46, align 1
   %cond = icmp eq i8 %47, 0
   br i1 %cond, label %unicode_byte_type.exit62, label %unicode_byte_type.exit62.thread
@@ -8713,7 +8713,7 @@ unicode_byte_type.exit62:                         ; preds = %45
   %51 = load i8, ptr %50, align 1
   %.fr = freeze i8 %51
   %52 = icmp eq i8 %.fr, 10
-  %53 = getelementptr inbounds i8, ptr %1, i64 4
+  %53 = getelementptr inbounds i8, ptr %.05772, i64 4
   %spec.select = select i1 %52, ptr %53, ptr %41
   br label %unicode_byte_type.exit62.thread
 
@@ -13977,8 +13977,8 @@ unicode_byte_type.exit92.thread101:               ; preds = %unicode_byte_type.e
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @big2_attributeValueTok(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @big2_attributeValueTok(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #8 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %5, label %58
 
@@ -14031,7 +14031,7 @@ unicode_byte_type.exit.thread63:                  ; preds = %11, %11, %11, %11, 
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 2
+  %22 = getelementptr inbounds i8, ptr %.05571, i64 2
   %23 = tail call fastcc i32 @big2_scanRef(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull %2, ptr noundef %3), !range !26
   br label %58
 
@@ -14048,7 +14048,7 @@ unicode_byte_type.exit.thread63:                  ; preds = %11, %11, %11, %11, 
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %1, i64 2
+  %29 = getelementptr inbounds i8, ptr %.05571, i64 2
   store ptr %29, ptr %3, align 8
   br label %58
 
@@ -14061,7 +14061,7 @@ unicode_byte_type.exit.thread63:                  ; preds = %11, %11, %11, %11, 
   br i1 %32, label %33, label %48
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 2
+  %34 = getelementptr inbounds i8, ptr %.05571, i64 2
   %35 = ptrtoint ptr %34 to i64
   %36 = sub i64 %6, %35
   %37 = icmp sgt i64 %36, 1
@@ -14073,14 +14073,14 @@ unicode_byte_type.exit.thread63:                  ; preds = %11, %11, %11, %11, 
   br i1 %cond, label %unicode_byte_type.exit60, label %unicode_byte_type.exit60.thread
 
 unicode_byte_type.exit60:                         ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %1, i64 3
+  %40 = getelementptr inbounds i8, ptr %.05571, i64 3
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
   %43 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %42
   %44 = load i8, ptr %43, align 1
   %.fr = freeze i8 %44
   %45 = icmp eq i8 %.fr, 10
-  %46 = getelementptr inbounds i8, ptr %1, i64 4
+  %46 = getelementptr inbounds i8, ptr %.05571, i64 4
   %spec.select = select i1 %45, ptr %46, ptr %34
   br label %unicode_byte_type.exit60.thread
 
@@ -14098,7 +14098,7 @@ unicode_byte_type.exit60.thread:                  ; preds = %unicode_byte_type.e
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %1, i64 2
+  %52 = getelementptr inbounds i8, ptr %.05571, i64 2
   store ptr %52, ptr %3, align 8
   br label %58
 
@@ -14123,8 +14123,8 @@ unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.e
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @big2_entityValueTok(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @big2_entityValueTok(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #8 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %5, label %60
 
@@ -14176,7 +14176,7 @@ unicode_byte_type.exit.thread65:                  ; preds = %11, %11, %11, %11, 
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 2
+  %22 = getelementptr inbounds i8, ptr %.05772, i64 2
   %23 = tail call fastcc i32 @big2_scanRef(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull %2, ptr noundef %3), !range !26
   br label %60
 
@@ -14189,7 +14189,7 @@ unicode_byte_type.exit.thread65:                  ; preds = %11, %11, %11, %11, 
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %1, i64 2
+  %28 = getelementptr inbounds i8, ptr %.05772, i64 2
   %29 = tail call fastcc i32 @big2_scanPercent(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef nonnull %2, ptr noundef %3), !range !16
   %30 = icmp eq i32 %29, 22
   %31 = select i1 %30, i32 0, i32 %29
@@ -14204,7 +14204,7 @@ unicode_byte_type.exit.thread65:                  ; preds = %11, %11, %11, %11, 
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %1, i64 2
+  %36 = getelementptr inbounds i8, ptr %.05772, i64 2
   store ptr %36, ptr %3, align 8
   br label %60
 
@@ -14217,7 +14217,7 @@ unicode_byte_type.exit.thread65:                  ; preds = %11, %11, %11, %11, 
   br i1 %39, label %40, label %55
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %1, i64 2
+  %41 = getelementptr inbounds i8, ptr %.05772, i64 2
   %42 = ptrtoint ptr %41 to i64
   %43 = sub i64 %6, %42
   %44 = icmp sgt i64 %43, 1
@@ -14229,14 +14229,14 @@ unicode_byte_type.exit.thread65:                  ; preds = %11, %11, %11, %11, 
   br i1 %cond, label %unicode_byte_type.exit62, label %unicode_byte_type.exit62.thread
 
 unicode_byte_type.exit62:                         ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %1, i64 3
+  %47 = getelementptr inbounds i8, ptr %.05772, i64 3
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i64
   %50 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1
   %.fr = freeze i8 %51
   %52 = icmp eq i8 %.fr, 10
-  %53 = getelementptr inbounds i8, ptr %1, i64 4
+  %53 = getelementptr inbounds i8, ptr %.05772, i64 4
   %spec.select = select i1 %52, ptr %53, ptr %41
   br label %unicode_byte_type.exit62.thread
 

@@ -4990,7 +4990,7 @@ if.then43:                                        ; preds = %if.then40
   %spec.select.i = call i64 @llvm.smin.i64(i64 %spec.store.select.i, i64 %a.val26.i)
   %17 = load ptr, ptr %call1.val.i, align 8
   %sub.i = sub i64 %spec.select.i, %a.val26..i
-  %ob_descr.i = getelementptr inbounds i8, ptr %self, i64 40
+  %ob_descr.i = getelementptr inbounds i8, ptr %value, i64 40
   %18 = load ptr, ptr %ob_descr.i, align 8
   %call20.i = call fastcc ptr @newarrayobject(ptr noundef %17, i64 noundef %sub.i, ptr noundef %18)
   %cmp21.i = icmp ne ptr %call20.i, null
@@ -5001,7 +5001,7 @@ if.then43:                                        ; preds = %if.then40
 array_slice.exit.thread:                          ; preds = %if.then43
   %ob_item.i = getelementptr inbounds i8, ptr %call20.i, i64 24
   %19 = load ptr, ptr %ob_item.i, align 8
-  %ob_item26.i = getelementptr inbounds i8, ptr %self, i64 24
+  %ob_item26.i = getelementptr inbounds i8, ptr %value, i64 24
   %20 = load ptr, ptr %ob_item26.i, align 8
   %21 = load ptr, ptr %ob_descr.i, align 8
   %itemsize.i = getelementptr inbounds i8, ptr %21, i64 4
@@ -6337,9 +6337,9 @@ land.lhs.true8.split:                             ; preds = %land.lhs.true8
   %13 = getelementptr i8, ptr %self, i64 16
   %self.val.i.i.i13 = load i64, ptr %13, align 8
   %cmp.i.i.i14 = icmp eq ptr %12, null
-  br i1 %cmp.i.i.i14, label %if.then.i.i.i46, label %if.end.i.i.i15
+  br i1 %cmp.i.i.i14, label %if.then.i.i.i47, label %if.end.i.i.i15
 
-if.then.i.i.i46:                                  ; preds = %land.lhs.true8.split
+if.then.i.i.i47:                                  ; preds = %land.lhs.true8.split
   tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.51, i32 noundef 672) #11
   br label %exit
 
@@ -6361,39 +6361,39 @@ if.end4.i.i.i20:                                  ; preds = %if.end.i.i.i15
 if.end8.i.i.i24:                                  ; preds = %if.end4.i.i.i20
   %add11.i.i.i25 = add i64 %self.val.i.i.i13, -1
   %spec.store.select.i.i.i26 = tail call i64 @llvm.smax.i64(i64 %add11.i.i.i25, i64 0)
-  %where.addr.1.i.i.i27 = tail call i64 @llvm.smin.i64(i64 %spec.store.select.i.i.i26, i64 %self.val.i.i.i13)
-  %cmp19.not.not.i.i.i28 = icmp sgt i64 %self.val.i.i.i13, %spec.store.select.i.i.i26
-  br i1 %cmp19.not.not.i.i.i28, label %if.then20.i.i.i35, label %ins1.exit.i.i29
+  %where.addr.1.i.i.i28 = tail call i64 @llvm.smin.i64(i64 %spec.store.select.i.i.i26, i64 %self.val.i.i.i13)
+  %cmp19.not.not.i.i.i29 = icmp sgt i64 %self.val.i.i.i13, %spec.store.select.i.i.i26
+  br i1 %cmp19.not.not.i.i.i29, label %if.then20.i.i.i36, label %ins1.exit.i.i30
 
-if.then20.i.i.i35:                                ; preds = %if.end8.i.i.i24
-  %ob_item.i.i.i36 = getelementptr inbounds i8, ptr %self, i64 24
-  %16 = load ptr, ptr %ob_item.i.i.i36, align 8
-  %add21.i.i.i37 = add i64 %where.addr.1.i.i.i27, 1
+if.then20.i.i.i36:                                ; preds = %if.end8.i.i.i24
+  %ob_item.i.i.i37 = getelementptr inbounds i8, ptr %self, i64 24
+  %16 = load ptr, ptr %ob_item.i.i.i37, align 8
+  %add21.i.i.i38 = add i64 %where.addr.1.i.i.i28, 1
   %17 = load ptr, ptr %ob_descr.i.i.i16, align 8
-  %itemsize.i.i.i38 = getelementptr inbounds i8, ptr %17, i64 4
-  %18 = load i32, ptr %itemsize.i.i.i38, align 4
-  %conv.i.i.i39 = sext i32 %18 to i64
-  %mul.i.i.i40 = mul i64 %add21.i.i.i37, %conv.i.i.i39
-  %add.ptr.i.i.i41 = getelementptr i8, ptr %16, i64 %mul.i.i.i40
-  %mul26.i.i.i42 = mul i64 %where.addr.1.i.i.i27, %conv.i.i.i39
-  %add.ptr27.i.i.i43 = getelementptr i8, ptr %16, i64 %mul26.i.i.i42
-  %sub.i.i.i44 = sub i64 %self.val.i.i.i13, %where.addr.1.i.i.i27
-  %mul31.i.i.i45 = mul i64 %sub.i.i.i44, %conv.i.i.i39
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i41, ptr align 1 %add.ptr27.i.i.i43, i64 %mul31.i.i.i45, i1 false)
-  br label %ins1.exit.i.i29
+  %itemsize.i.i.i39 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = load i32, ptr %itemsize.i.i.i39, align 4
+  %conv.i.i.i40 = sext i32 %18 to i64
+  %mul.i.i.i41 = mul i64 %add21.i.i.i38, %conv.i.i.i40
+  %add.ptr.i.i.i42 = getelementptr i8, ptr %16, i64 %mul.i.i.i41
+  %mul26.i.i.i43 = mul i64 %where.addr.1.i.i.i28, %conv.i.i.i40
+  %add.ptr27.i.i.i44 = getelementptr i8, ptr %16, i64 %mul26.i.i.i43
+  %sub.i.i.i45 = sub i64 %self.val.i.i.i13, %where.addr.1.i.i.i28
+  %mul31.i.i.i46 = mul i64 %sub.i.i.i45, %conv.i.i.i40
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i42, ptr align 1 %add.ptr27.i.i.i44, i64 %mul31.i.i.i46, i1 false)
+  br label %ins1.exit.i.i30
 
-ins1.exit.i.i29:                                  ; preds = %if.then20.i.i.i35, %if.end8.i.i.i24
+ins1.exit.i.i30:                                  ; preds = %if.then20.i.i.i36, %if.end8.i.i.i24
   %19 = load ptr, ptr %ob_descr.i.i.i16, align 8
-  %setitem34.i.i.i30 = getelementptr inbounds i8, ptr %19, i64 16
-  %20 = load ptr, ptr %setitem34.i.i.i30, align 8
-  %call35.i.i.i31 = tail call i32 %20(ptr noundef nonnull %self, i64 noundef %where.addr.1.i.i.i27, ptr noundef nonnull %12) #11
-  %call35.i.fr.i.i32 = freeze i32 %call35.i.i.i31
-  %cmp.not.i.i33 = icmp eq i32 %call35.i.fr.i.i32, 0
-  %spec.select.i.i34 = select i1 %cmp.not.i.i33, ptr @_Py_NoneStruct, ptr null
+  %setitem34.i.i.i31 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = load ptr, ptr %setitem34.i.i.i31, align 8
+  %call35.i.i.i32 = tail call i32 %20(ptr noundef nonnull %self, i64 noundef %where.addr.1.i.i.i28, ptr noundef nonnull %12) #11
+  %call35.i.fr.i.i33 = freeze i32 %call35.i.i.i32
+  %cmp.not.i.i34 = icmp eq i32 %call35.i.fr.i.i33, 0
+  %spec.select.i.i35 = select i1 %cmp.not.i.i34, ptr @_Py_NoneStruct, ptr null
   br label %exit
 
-exit:                                             ; preds = %ins1.exit.i.i29, %if.end4.i.i.i20, %if.end.i.i.i15, %if.then.i.i.i46, %ins1.exit.i.i, %if.end4.i.i.i, %if.end.i.i.i, %if.then.i.i.i, %land.lhs.true8, %lor.lhs.false
-  %return_value.0 = phi ptr [ null, %land.lhs.true8 ], [ null, %lor.lhs.false ], [ null, %if.then.i.i.i ], [ null, %if.end.i.i.i ], [ null, %if.end4.i.i.i ], [ %spec.select.i.i, %ins1.exit.i.i ], [ null, %if.then.i.i.i46 ], [ null, %if.end.i.i.i15 ], [ null, %if.end4.i.i.i20 ], [ %spec.select.i.i34, %ins1.exit.i.i29 ]
+exit:                                             ; preds = %ins1.exit.i.i30, %if.end4.i.i.i20, %if.end.i.i.i15, %if.then.i.i.i47, %ins1.exit.i.i, %if.end4.i.i.i, %if.end.i.i.i, %if.then.i.i.i, %land.lhs.true8, %lor.lhs.false
+  %return_value.0 = phi ptr [ null, %land.lhs.true8 ], [ null, %lor.lhs.false ], [ null, %if.then.i.i.i ], [ null, %if.end.i.i.i ], [ null, %if.end4.i.i.i ], [ %spec.select.i.i, %ins1.exit.i.i ], [ null, %if.then.i.i.i47 ], [ null, %if.end.i.i.i15 ], [ null, %if.end4.i.i.i20 ], [ %spec.select.i.i35, %ins1.exit.i.i30 ]
   ret ptr %return_value.0
 }
 

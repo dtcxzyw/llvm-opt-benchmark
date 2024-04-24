@@ -1357,7 +1357,7 @@ PyByteArray_AS_STRING.exit52:                     ; preds = %if.end39, %if.then.
   br label %if.end55
 
 if.else47:                                        ; preds = %if.end30
-  %call49 = tail call ptr @PyObject_Realloc(ptr noundef %1, i64 noundef %alloc.058) #15
+  %call49 = tail call ptr @PyObject_Realloc(ptr noundef %2, i64 noundef %alloc.058) #15
   %cmp50 = icmp eq ptr %call49, null
   br i1 %cmp50, label %if.then52, label %if.end55
 
@@ -3152,7 +3152,7 @@ PyByteArray_AS_STRING.exit:                       ; preds = %if.then, %if.then.i
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %PyByteArray_AS_STRING.exit
-  %call5 = tail call fastcc i32 @bytearray_setslice(ptr noundef nonnull %values, i64 noundef %lo, i64 noundef %hi, ptr noundef nonnull %call2), !range !10
+  %call5 = tail call fastcc i32 @bytearray_setslice(ptr noundef %self, i64 noundef %lo, i64 noundef %hi, ptr noundef nonnull %call2), !range !10
   %2 = load i64, ptr %call2, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i34.not = icmp eq i64 %3, 0
@@ -6499,14 +6499,14 @@ if.end.i37.i:                                     ; preds = %if.end13.i
   br label %Py_INCREF.exit.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i37.i, %if.end13.i
-  %arrayidx.i46.i = getelementptr i8, ptr %call.i, i64 32
-  store ptr %call, ptr %arrayidx.i46.i, align 8
+  %arrayidx.i47.i = getelementptr i8, ptr %call.i, i64 32
+  store ptr %call, ptr %arrayidx.i47.i, align 8
   %add.i = add i64 %call3.i, %op.val.i9
   %add.ptr.i = getelementptr i8, ptr %retval.0.i, i64 %add.i
   %sub.i = sub i64 %op.val.i, %add.i
   %call15.i = tail call ptr @PyByteArray_FromStringAndSize(ptr noundef %add.ptr.i, i64 noundef %sub.i)
-  %arrayidx.i48.i = getelementptr i8, ptr %call.i, i64 40
-  store ptr %call15.i, ptr %arrayidx.i48.i, align 8
+  %arrayidx.i49.i = getelementptr i8, ptr %call.i, i64 40
+  store ptr %call15.i, ptr %arrayidx.i49.i, align 8
   %call16.i = tail call ptr @PyErr_Occurred() #15
   %tobool17.not.i = icmp eq ptr %call16.i, null
   br i1 %tobool17.not.i, label %stringlib_partition.exit, label %if.then18.i
@@ -8099,14 +8099,14 @@ if.end.i37.i:                                     ; preds = %if.end13.i
   br label %Py_INCREF.exit.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i37.i, %if.end13.i
-  %arrayidx.i46.i = getelementptr i8, ptr %call.i, i64 32
-  store ptr %call, ptr %arrayidx.i46.i, align 8
+  %arrayidx.i47.i = getelementptr i8, ptr %call.i, i64 32
+  store ptr %call, ptr %arrayidx.i47.i, align 8
   %add.i = add i64 %call3.i, %op.val.i9
   %add.ptr.i = getelementptr i8, ptr %retval.0.i, i64 %add.i
   %sub.i = sub i64 %op.val.i, %add.i
   %call15.i = tail call ptr @PyByteArray_FromStringAndSize(ptr noundef %add.ptr.i, i64 noundef %sub.i)
-  %arrayidx.i48.i = getelementptr i8, ptr %call.i, i64 40
-  store ptr %call15.i, ptr %arrayidx.i48.i, align 8
+  %arrayidx.i49.i = getelementptr i8, ptr %call.i, i64 40
+  store ptr %call15.i, ptr %arrayidx.i49.i, align 8
   %call16.i = tail call ptr @PyErr_Occurred() #15
   %tobool17.not.i = icmp eq ptr %call16.i, null
   br i1 %tobool17.not.i, label %stringlib_rpartition.exit, label %if.then18.i

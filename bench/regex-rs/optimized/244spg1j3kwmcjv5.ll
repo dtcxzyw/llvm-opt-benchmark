@@ -1768,7 +1768,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %19 = getelementptr inbounds i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !311, !noalias !314, !nonnull !4, !align !317, !noundef !4
   %21 = load i8, ptr %20, align 1, !range !308, !noalias !316, !noundef !4
-  %22 = trunc i8 %21 to i1
+  %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %40, label %23
 
 23:                                               ; preds = %17
@@ -1876,7 +1876,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
 
 25:                                               ; preds = %15
   %26 = load i8, ptr %9, align 1, !range !308, !noalias !344, !noundef !4
-  %27 = trunc i8 %26 to i1
+  %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %41, label %28
 
 28:                                               ; preds = %25
@@ -2314,9 +2314,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h7398d4218
   br i1 %30, label %_ZN4core4iter6traits8iterator8Iterator4fold17h7057a54b0e139178E.exit.loopexit.i, label %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51f8c7ee22f7fb1eE.exit.i.i"
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h7057a54b0e139178E.exit.loopexit.i: ; preds = %27, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51f8c7ee22f7fb1eE.exit.i.i"
-  %.lcssa.i = phi ptr [ %21, %27 ], [ %26, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51f8c7ee22f7fb1eE.exit.i.i" ]
   %.val4.i.ph.i = phi i64 [ %29, %27 ], [ %24, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51f8c7ee22f7fb1eE.exit.i.i" ]
-  store ptr %.lcssa.i, ptr %3, align 8, !alias.scope !471, !noalias !458
+  store ptr %26, ptr %3, align 8, !alias.scope !471, !noalias !458
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h7057a54b0e139178E.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h7057a54b0e139178E.exit.i: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h7057a54b0e139178E.exit.loopexit.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h70bd6f1e74e6325fE.exit"
@@ -2397,7 +2396,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17habe08f4fd
   br i1 %33, label %_ZN4core4iter6traits8iterator8Iterator4fold17hac1b060319f1f75aE.exit.loopexit.i, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hac1b060319f1f75aE.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  store ptr %21, ptr %3, align 8, !alias.scope !508, !noalias !496
+  store ptr %26, ptr %3, align 8, !alias.scope !508, !noalias !496
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17hac1b060319f1f75aE.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hac1b060319f1f75aE.exit.i: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hac1b060319f1f75aE.exit.loopexit.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hde142e8d31f1772eE.exit"
@@ -2485,9 +2484,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hd69ce9560
   br i1 %30, label %_ZN4core4iter6traits8iterator8Iterator4fold17h6a311da4a6fb2c3cE.exit.loopexit.i, label %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdfcd412c53144f0cE.exit.i.i"
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h6a311da4a6fb2c3cE.exit.loopexit.i: ; preds = %27, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdfcd412c53144f0cE.exit.i.i"
-  %.lcssa.i = phi ptr [ %21, %27 ], [ %26, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdfcd412c53144f0cE.exit.i.i" ]
   %.val4.i.ph.i = phi i64 [ %29, %27 ], [ %24, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdfcd412c53144f0cE.exit.i.i" ]
-  store ptr %.lcssa.i, ptr %3, align 8, !alias.scope !548, !noalias !549
+  store ptr %26, ptr %3, align 8, !alias.scope !548, !noalias !549
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h6a311da4a6fb2c3cE.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h6a311da4a6fb2c3cE.exit.i: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h6a311da4a6fb2c3cE.exit.loopexit.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd5c14c0b6cb3849bE.llvm.9790117770016849591.exit"
@@ -3029,7 +3027,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17hf52fca98c0e8c61a
   %22 = getelementptr i8, ptr %9, i64 -8
   %23 = load i8, ptr %22, align 8, !range !308, !alias.scope !599, !noalias !596, !noundef !4
   %24 = xor i8 %23, %21
-  %25 = trunc i8 %24 to i1
+  %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %19
@@ -3094,7 +3092,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17hf52fca98c0e8c61a
   %46 = getelementptr i8, ptr %33, i64 -8
   %47 = load i8, ptr %46, align 8, !range !308, !alias.scope !627, !noalias !624, !noundef !4
   %48 = xor i8 %47, %45
-  %49 = trunc i8 %48 to i1
+  %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %43
@@ -3432,7 +3430,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br i1 %42, label %._crit_edge6.i.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 ._crit_edge6.i.loopexit.i.i.i.i.i:                ; preds = %.lr.ph.i.i.i.i.i.i
-  store ptr %33, ptr %30, align 8, !alias.scope !721, !noalias !706
+  store ptr %37, ptr %30, align 8, !alias.scope !721, !noalias !706
   br label %._crit_edge6.i.i.i.i.i.i
 
 ._crit_edge6.i.i.i.i.i.i:                         ; preds = %._crit_edge6.i.loopexit.i.i.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb5ea3fea7d38c2d4E.llvm.9790117770016849591.exit.i.i.i"
@@ -4396,7 +4394,7 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3hir7literal14PreferenceTrie
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !317, !noundef !4
   %12 = load i8, ptr %11, align 1, !range !308, !noundef !4
-  %13 = trunc i8 %12 to i1
+  %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %9, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h095a7ef75646145bE.exit", %2

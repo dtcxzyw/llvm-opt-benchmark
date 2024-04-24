@@ -975,7 +975,7 @@ if.end:                                           ; preds = %for.body
 
 invoke.cont15:                                    ; preds = %if.end
   %tobool17.not = icmp eq ptr %call16, null
-  br i1 %tobool17.not, label %if.then18, label %dynamic_cast.notnull
+  br i1 %tobool17.not, label %if.then18, label %dynamic_cast.end
 
 if.then18:                                        ; preds = %invoke.cont15
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #13
@@ -1022,12 +1022,12 @@ ehcleanup:                                        ; preds = %lpad21, %lpad.i, %l
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #13
   br label %ehcleanup57
 
-dynamic_cast.notnull:                             ; preds = %invoke.cont15
+dynamic_cast.end:                                 ; preds = %invoke.cont15
   %25 = call ptr @__dynamic_cast(ptr nonnull %call16, ptr nonnull @_ZTIN6Assimp3FBX6ObjectE, ptr nonnull @_ZTIN6Assimp3FBX8MaterialE, i64 0) #13
   %tobool26.not = icmp eq ptr %25, null
-  br i1 %tobool26.not, label %dynamic_cast.notnull31, label %if.then27
+  br i1 %tobool26.not, label %dynamic_cast.end33, label %if.then27
 
-if.then27:                                        ; preds = %dynamic_cast.notnull
+if.then27:                                        ; preds = %dynamic_cast.end
   %26 = load ptr, ptr %_M_finish.i73, align 8
   %27 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %26, %27
@@ -1091,12 +1091,12 @@ _ZNSt6vectorIPKN6Assimp3FBX8MaterialESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__g
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
-dynamic_cast.notnull31:                           ; preds = %dynamic_cast.notnull
+dynamic_cast.end33:                               ; preds = %dynamic_cast.end
   %31 = call ptr @__dynamic_cast(ptr nonnull %call16, ptr nonnull @_ZTIN6Assimp3FBX6ObjectE, ptr nonnull @_ZTIN6Assimp3FBX8GeometryE, i64 0) #13
   %tobool34.not = icmp eq ptr %31, null
-  br i1 %tobool34.not, label %dynamic_cast.notnull39, label %if.then35
+  br i1 %tobool34.not, label %dynamic_cast.end41, label %if.then35
 
-if.then35:                                        ; preds = %dynamic_cast.notnull31
+if.then35:                                        ; preds = %dynamic_cast.end33
   %32 = load ptr, ptr %_M_finish.i78, align 8
   %33 = load ptr, ptr %_M_end_of_storage.i.i22, align 8
   %cmp.not.i80 = icmp eq ptr %32, %33
@@ -1160,12 +1160,12 @@ _ZNSt6vectorIPKN6Assimp3FBX8GeometryESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__g
   store ptr %add.ptr19.i.i104, ptr %_M_end_of_storage.i.i22, align 8
   br label %for.inc
 
-dynamic_cast.notnull39:                           ; preds = %dynamic_cast.notnull31
+dynamic_cast.end41:                               ; preds = %dynamic_cast.end33
   %37 = call ptr @__dynamic_cast(ptr nonnull %call16, ptr nonnull @_ZTIN6Assimp3FBX6ObjectE, ptr nonnull @_ZTIN6Assimp3FBX13NodeAttributeE, i64 0) #13
   %tobool42.not = icmp eq ptr %37, null
   br i1 %tobool42.not, label %if.end46, label %if.then43
 
-if.then43:                                        ; preds = %dynamic_cast.notnull39
+if.then43:                                        ; preds = %dynamic_cast.end41
   %38 = load ptr, ptr %_M_finish.i110, align 8
   %39 = load ptr, ptr %_M_end_of_storage.i.i48, align 8
   %cmp.not.i112 = icmp eq ptr %38, %39
@@ -1229,7 +1229,7 @@ _ZNSt6vectorIPKN6Assimp3FBX13NodeAttributeESaIS4_EE17_M_realloc_insertIJRKS4_EEE
   store ptr %add.ptr19.i.i136, ptr %_M_end_of_storage.i.i48, align 8
   br label %for.inc
 
-if.end46:                                         ; preds = %dynamic_cast.notnull39
+if.end46:                                         ; preds = %dynamic_cast.end41
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #13
   %call.i147 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47)
           to label %call.i.noexc146 unwind label %lpad49
@@ -1284,7 +1284,7 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %invoke.cont6
-  %47 = phi ptr [ %.pre171, %for.end.loopexit ], [ %18, %invoke.cont6 ]
+  %47 = phi ptr [ %.pre171, %for.end.loopexit ], [ %19, %invoke.cont6 ]
   %tobool.not.i.i.i152 = icmp eq ptr %47, null
   br i1 %tobool.not.i.i.i152, label %_ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EED2Ev.exit, label %if.then.i.i.i153
 
@@ -1321,7 +1321,7 @@ declare noundef ptr @_ZNK6Assimp3FBX10Connection12SourceObjectEv(ptr noundef non
 
 declare void @_ZN6Assimp3FBX4Util10DOMWarningERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
@@ -1635,7 +1635,7 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree nounwind memory(read) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

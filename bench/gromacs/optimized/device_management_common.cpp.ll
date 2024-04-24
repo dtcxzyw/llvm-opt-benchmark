@@ -242,7 +242,7 @@ _ZNSt6vectorISt17reference_wrapperI17DeviceInformationESaIS2_EE7reserveEm.exit: 
   br i1 %31, label %32, label %_ZNKSt6vectorISt17reference_wrapperI17DeviceInformationESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 32:                                               ; preds = %27
-  store ptr %18, ptr %12, align 8
+  store ptr %19, ptr %12, align 8
   store ptr %20, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #19
           to label %.noexc9 unwind label %.loopexit.split-lp
@@ -302,7 +302,7 @@ _ZNSt6vectorISt17reference_wrapperI17DeviceInformationESaIS2_EE17_M_realloc_inse
 .loopexit:                                        ; preds = %38
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %18, ptr %12, align 8
+  store ptr %19, ptr %12, align 8
   store ptr %20, ptr %0, align 8
   br label %50
 
@@ -441,7 +441,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %33, label %34, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
 
 34:                                               ; preds = %29
-  store ptr %18, ptr %11, align 8
+  store ptr %19, ptr %11, align 8
   store ptr %20, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #19
           to label %.noexc11 unwind label %.loopexit.split-lp
@@ -494,7 +494,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPi
 .loopexit:                                        ; preds = %40
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %18, ptr %11, align 8
+  store ptr %19, ptr %11, align 8
   store ptr %20, ptr %0, align 8
   br label %53
 

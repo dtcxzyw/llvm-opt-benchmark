@@ -123,7 +123,7 @@ for.body6:                                        ; preds = %for.cond3.preheader
   %cmp11 = fcmp olt float %5, 0x3FB99999A0000000
   %cmp19 = fcmp ugt float %5, 0x3F847AE140000000
   %zero.0. = select i1 %cmp19, i8 %zero.057, i8 1
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw i64 %indvars.iv to i32
   %smallV.1 = select i1 %cmp11, i32 %6, i32 %smallV.055
   %zero.1 = select i1 %cmp11, i8 %zero.0., i8 %zero.057
   %7 = and i1 %cmp11, %cmp19
@@ -152,8 +152,8 @@ for.end:                                          ; preds = %for.inc
   br i1 %or.cond, label %for.inc130, label %for.body50.lr.ph
 
 for.body50.lr.ph:                                 ; preds = %for.end
-  %tobool = trunc i8 %zero.1 to i1
-  %tobool75 = trunc i8 %one.1 to i1
+  %tobool = trunc nuw i8 %zero.1 to i1
+  %tobool75 = trunc nuw i8 %one.1 to i1
   br i1 %tobool75, label %for.body50.us, label %for.body50
 
 for.body50.us:                                    ; preds = %for.body50.lr.ph, %for.inc126.us
@@ -1362,7 +1362,7 @@ for.end:                                          ; preds = %for.inc, %if.end28,
   store i32 99999999, ptr %idx, align 4
   %29 = load ptr, ptr %mappingStack, align 8
   %cmp.i.not2.i.i.i = icmp eq ptr %29, %mappingStack
-  br i1 %cmp.i.not2.i.i.i, label %for.cond67.preheader, label %land.rhs.lr.ph.i.i.i
+  br i1 %cmp.i.not2.i.i.i, label %invoke.cont59, label %land.rhs.lr.ph.i.i.i
 
 land.rhs.lr.ph.i.i.i:                             ; preds = %for.end
   %30 = load float, ptr %axis.i, align 4
@@ -1398,19 +1398,20 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6Assimp23ComputeUVMappingProcess11Mappin
 while.body.i.i.i49:                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6Assimp23ComputeUVMappingProcess11MappingInfoEEclISt14_List_iteratorIS4_EEEbT_.exit.i.i.i, %land.lhs.true.i.i.i.i.i.i, %land.rhs.i.i.i.i.i, %land.rhs.i.i.i
   %37 = load ptr, ptr %__first.sroa.0.03.i.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %37, %mappingStack
-  br i1 %cmp.i.not.i.i.i, label %for.cond67.preheader, label %land.rhs.i.i.i, !llvm.loop !22
+  br i1 %cmp.i.not.i.i.i, label %invoke.cont59, label %land.rhs.i.i.i, !llvm.loop !22
 
-invoke.cont59:                                    ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6Assimp23ComputeUVMappingProcess11MappingInfoEEclISt14_List_iteratorIS4_EEEbT_.exit.i.i.i
-  %cmp.i.not = icmp eq ptr %mappingStack, %__first.sroa.0.03.i.i.i
+invoke.cont59:                                    ; preds = %while.body.i.i.i49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6Assimp23ComputeUVMappingProcess11MappingInfoEEclISt14_List_iteratorIS4_EEEbT_.exit.i.i.i, %for.end
+  %__first.sroa.0.0.lcssa.i.i.i = phi ptr [ %29, %for.end ], [ %__first.sroa.0.03.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6Assimp23ComputeUVMappingProcess11MappingInfoEEclISt14_List_iteratorIS4_EEEbT_.exit.i.i.i ], [ %37, %while.body.i.i.i49 ]
+  %cmp.i.not = icmp eq ptr %mappingStack, %__first.sroa.0.0.lcssa.i.i.i
   br i1 %cmp.i.not, label %for.cond67.preheader, label %if.then65
 
-for.cond67.preheader:                             ; preds = %while.body.i.i.i49, %for.end, %invoke.cont59
+for.cond67.preheader:                             ; preds = %invoke.cont59
   %38 = load i32, ptr %mNumMeshes, align 8
   %cmp6874.not = icmp eq i32 %38, 0
   br i1 %cmp6874.not, label %for.end105, label %for.body69
 
 if.then65:                                        ; preds = %invoke.cont59
-  %uv = getelementptr inbounds i8, ptr %__first.sroa.0.03.i.i.i, i64 32
+  %uv = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 32
   %39 = load i32, ptr %uv, align 4
   store i32 %39, ptr %idx, align 4
   br label %if.end108
@@ -1451,7 +1452,7 @@ call.i50.noexc:                                   ; preds = %for.end.i
           to label %for.inc103 unwind label %lpad12.loopexit
 
 invoke.cont74:                                    ; preds = %for.body.i
-  %45 = trunc i64 %indvars.iv.i to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp76 = icmp eq i32 %45, -1
   br i1 %cmp76, label %for.inc103, label %lor.lhs.false77
 
@@ -1847,7 +1848,7 @@ if.end59:                                         ; preds = %if.else46, %if.then
 
 for.cond89.preheader:                             ; preds = %if.end59, %_ZN12aiMatrix3x3tIfEixEj.exit139
   %indvars.iv184 = phi i64 [ 0, %if.end59 ], [ %indvars.iv.next185, %_ZN12aiMatrix3x3tIfEixEj.exit139 ]
-  %22 = trunc i64 %indvars.iv184 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv184 to i32
   br label %for.body91
 
 for.body91:                                       ; preds = %for.cond89.preheader, %_ZN12aiMatrix3x3tIfEixEj.exit
@@ -1866,7 +1867,7 @@ sw.bb3.i:                                         ; preds = %for.body91
 _ZN10aiVector3tIfEixEj.exit:                      ; preds = %for.body91, %sw.bb2.i, %sw.bb3.i
   %retval.0.i.sroa.speculated = phi float [ %sub69, %sw.bb3.i ], [ %sub65, %sw.bb2.i ], [ %sub, %for.body91 ]
   %mul94 = fmul float %retval.0.i.sroa.speculated, %fneg92
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %23, label %_ZN10aiVector3tIfEixEj.exit106 [
     i32 2, label %sw.bb3.i104
     i32 1, label %sw.bb2.i101

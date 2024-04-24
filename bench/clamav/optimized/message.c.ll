@@ -1043,8 +1043,8 @@ define void @messageAddArgument(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 .preheader:                                       ; preds = %18
   %20 = getelementptr inbounds i8, ptr %0, i64 64
   %21 = load i64, ptr %20, align 8
-  %.not78 = icmp eq i64 %21, 0
-  br i1 %.not78, label %._crit_edge, label %.lr.ph
+  %.not79 = icmp eq i64 %21, 0
+  br i1 %.not79, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %22 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1052,8 +1052,8 @@ define void @messageAddArgument(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %24
 
 24:                                               ; preds = %.lr.ph, %31
-  %.04173 = phi i64 [ 0, %.lr.ph ], [ %32, %31 ]
-  %25 = getelementptr inbounds ptr, ptr %23, i64 %.04173
+  %.04174 = phi i64 [ 0, %.lr.ph ], [ %32, %31 ]
+  %25 = getelementptr inbounds ptr, ptr %23, i64 %.04174
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %._crit_edge, label %28
@@ -1064,17 +1064,17 @@ define void @messageAddArgument(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %28
-  %32 = add nuw i64 %.04173, 1
+  %32 = add nuw i64 %.04174, 1
   %exitcond.not = icmp eq i64 %32, %21
   br i1 %exitcond.not, label %._crit_edge.thread, label %24
 
 ._crit_edge:                                      ; preds = %24, %.preheader
-  %.041.lcssa = phi i64 [ 0, %.preheader ], [ %.04173, %24 ]
+  %.041.lcssa = phi i64 [ 0, %.preheader ], [ %.04174, %24 ]
   %33 = icmp eq i64 %.041.lcssa, %21
   br i1 %33, label %._crit_edge.thread, label %44
 
 ._crit_edge.thread:                               ; preds = %31, %._crit_edge
-  %.041.lcssa87 = phi i64 [ %.041.lcssa, %._crit_edge ], [ %21, %31 ]
+  %.041.lcssa89 = phi i64 [ %.041.lcssa, %._crit_edge ], [ %21, %31 ]
   %34 = add i64 %21, 1
   store i64 %34, ptr %20, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1095,7 +1095,7 @@ define void @messageAddArgument(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %44
 
 44:                                               ; preds = %43, %._crit_edge
-  %.041.lcssa86 = phi i64 [ %.041.lcssa87, %43 ], [ %.041.lcssa, %._crit_edge ]
+  %.041.lcssa88 = phi i64 [ %.041.lcssa89, %43 ], [ %.041.lcssa, %._crit_edge ]
   %45 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(1) @.str.124) #23
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %64, label %46
@@ -1176,7 +1176,7 @@ thread-pre-split.i:                               ; preds = %46
 rfc2231.exit.thread54:                            ; preds = %69
   %72 = getelementptr inbounds i8, ptr %0, i64 24
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %.041.lcssa86
+  %74 = getelementptr inbounds ptr, ptr %73, i64 %.041.lcssa88
   store ptr %70, ptr %74, align 8
   br label %161
 
@@ -1215,7 +1215,7 @@ rfc2231.exit.thread54:                            ; preds = %69
   br i1 %.not86.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader107.i
-  %.375.lcssa.i = phi ptr [ %.0, %.preheader107.i ], [ %.068103.i, %.lr.ph.i ]
+  %.375.lcssa.i = phi ptr [ %.0, %.preheader107.i ], [ %83, %.lr.ph.i ]
   %.165.lcssa.i = phi ptr [ %81, %.preheader107.i ], [ %85, %.lr.ph.i ]
   store i8 61, ptr %.165.lcssa.i, align 1
   br label %86
@@ -1408,7 +1408,7 @@ rfc2231.exit.thread:                              ; preds = %.thread.i, %46
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull %.str.125.sink) #21
   %154 = getelementptr inbounds i8, ptr %0, i64 24
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds ptr, ptr %155, i64 %.041.lcssa86
+  %156 = getelementptr inbounds ptr, ptr %155, i64 %.041.lcssa88
   store ptr null, ptr %156, align 8
   br label %160
 
@@ -1416,7 +1416,7 @@ rfc2231.exit:                                     ; preds = %.lr.ph121.i, %.loop
   %.076.i = phi ptr [ %49, %.loopexit109.i ], [ %152, %151 ], [ %81, %153 ], [ %70, %.lr.ph121.i ]
   %157 = getelementptr inbounds i8, ptr %0, i64 24
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds ptr, ptr %158, i64 %.041.lcssa86
+  %159 = getelementptr inbounds ptr, ptr %158, i64 %.041.lcssa88
   store ptr %.076.i, ptr %159, align 8
   %.not49 = icmp eq ptr %.076.i, null
   br i1 %.not49, label %160, label %161
@@ -1463,11 +1463,11 @@ rfc2231.exit:                                     ; preds = %.lr.ph121.i, %.loop
 
 177:                                              ; preds = %176, %174
   %178 = load ptr, ptr %162, align 8
-  %179 = getelementptr inbounds ptr, ptr %178, i64 %.041.lcssa86
+  %179 = getelementptr inbounds ptr, ptr %178, i64 %.041.lcssa88
   %180 = load ptr, ptr %179, align 8
   tail call void @free(ptr noundef %180) #21
   %181 = load ptr, ptr %162, align 8
-  %182 = getelementptr inbounds ptr, ptr %181, i64 %.041.lcssa86
+  %182 = getelementptr inbounds ptr, ptr %181, i64 %.041.lcssa88
   store ptr null, ptr %182, align 8
   br label %.loopexit
 

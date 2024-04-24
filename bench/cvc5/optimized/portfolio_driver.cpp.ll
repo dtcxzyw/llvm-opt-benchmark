@@ -1579,7 +1579,7 @@ if.else.i.i:                                      ; preds = %_ZN4cvc54main15Port
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i
-  store ptr %add.ptr19.i.i.i223, ptr %_M_finish.i5.i, align 8
+  store ptr %incdec.ptr.i.i.i216, ptr %_M_finish.i5.i, align 8
   store ptr %add.ptr19.i.i.i223, ptr %_M_end_of_storage.i.i, align 8
   store ptr %this.val.i.i.i229, ptr %d_jobs.i, align 8
   store double %50, ptr %d_timeout.i.i, align 8
@@ -1669,7 +1669,7 @@ _ZN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobD2Ev.exit.i: ; preds = %_ZN
 lpad.loopexit.i:                                  ; preds = %cond.true.i.i.i.i
   %lpad.loopexit3.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %add.ptr19.i.i.i223, ptr %_M_finish.i5.i, align 8
+  store ptr %incdec.ptr.i.i.i216, ptr %_M_finish.i5.i, align 8
   store ptr %add.ptr19.i.i.i223, ptr %_M_end_of_storage.i.i, align 8
   store ptr %this.val.i.i.i229, ptr %d_jobs.i, align 8
   store double %50, ptr %d_timeout.i.i, align 8
@@ -19701,7 +19701,7 @@ lpad.body:                                        ; preds = %lpad.i.i.i, %lpad
   %5 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #20
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i35
 
 if.end.thread:                                    ; preds = %lpad.body
   %second.i.i.i30 = getelementptr inbounds i8, ptr %add.ptr, i64 32
@@ -19715,11 +19715,11 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i32:                                      ; preds = %lpad.body
+if.then.i35:                                      ; preds = %lpad.body
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #21
   br label %invoke.cont21
 
-invoke.cont21:                                    ; preds = %if.then.i32, %if.end.thread
+invoke.cont21:                                    ; preds = %if.then.i35, %if.end.thread
   invoke void @__cxa_rethrow() #23
           to label %unreachable unwind label %lpad19
 

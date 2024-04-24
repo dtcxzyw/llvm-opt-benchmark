@@ -1953,7 +1953,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then5.i.i
-  %9 = load ptr, ptr %srt_list_seq.val.i.i, align 8
+  %9 = load ptr, ptr %srte.012.i.i, align 8
   store ptr %9, ptr %srt_list_seq.i.i, align 8
   br label %if.end.i.i.i
 
@@ -2168,7 +2168,7 @@ entry:
   %net_error = getelementptr inbounds i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %net_error, align 8
   %bf.lshr = lshr i64 %bf.load, 36
-  %0 = trunc i64 %bf.lshr to i32
+  %0 = trunc nuw nsw i64 %bf.lshr to i32
   %bf.cast = and i32 %0, 1
   ret i32 %bf.cast
 }
@@ -3687,7 +3687,7 @@ if.end103:                                        ; preds = %sw.bb100
   br i1 %or.cond, label %malformed, label %if.end108
 
 if.end108:                                        ; preds = %if.end103
-  %conv = trunc i64 %15 to i8
+  %conv = trunc nuw nsw i64 %15 to i8
   store i8 %conv, ptr %rx_ack_delay_exp, align 8
   br label %sw.epilog
 

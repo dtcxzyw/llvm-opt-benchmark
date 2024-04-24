@@ -285,7 +285,7 @@ define dso_local void @serio_unregister_port(ptr noundef %0) #0 align 16 {
   br label %16
 
 16:                                               ; preds = %12, %10
-  %17 = phi ptr [ %14, %12 ], [ %0, %10 ]
+  %17 = phi ptr [ %14, %12 ], [ %5, %10 ]
   %18 = load volatile ptr, ptr %2, align 8
   %19 = icmp eq ptr %18, %2
   br i1 %19, label %.loopexit, label %.preheader.backedge
@@ -524,7 +524,7 @@ define dso_local void @serio_unregister_child_port(ptr noundef readonly %0) #0 a
   br label %22
 
 22:                                               ; preds = %18, %16
-  %23 = phi ptr [ %20, %18 ], [ %6, %16 ]
+  %23 = phi ptr [ %20, %18 ], [ %11, %16 ]
   %24 = load volatile ptr, ptr %8, align 8
   %25 = icmp eq ptr %24, %8
   br i1 %25, label %.loopexit, label %.preheader.backedge
@@ -678,7 +678,7 @@ define dso_local void @serio_unregister_driver(ptr noundef %0) #0 align 16 {
   br label %46
 
 46:                                               ; preds = %42, %40
-  %47 = phi ptr [ %44, %42 ], [ %31, %40 ]
+  %47 = phi ptr [ %44, %42 ], [ %35, %40 ]
   %48 = load volatile ptr, ptr %32, align 8
   %49 = icmp eq ptr %48, %32
   br i1 %49, label %.loopexit, label %.preheader.backedge
@@ -1150,7 +1150,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr nocapture readnone %1, ptr
 
 8:                                                ; preds = %4
   %9 = sext i32 %6 to i64
-  br label %206
+  br label %209
 
 10:                                               ; preds = %4
   %11 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull @.str.17, i64 noundef %3) #10
@@ -1184,7 +1184,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr nocapture readnone %1, ptr
   br label %28
 
 28:                                               ; preds = %24, %22
-  %29 = phi ptr [ %26, %24 ], [ %5, %22 ]
+  %29 = phi ptr [ %26, %24 ], [ %17, %22 ]
   %30 = load volatile ptr, ptr %14, align 8
   %31 = icmp eq ptr %30, %14
   br i1 %31, label %.loopexit, label %.preheader.backedge
@@ -1200,339 +1200,346 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr nocapture readnone %1, ptr
 32:                                               ; preds = %10
   %33 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull @.str.18, i64 noundef %3) #10
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.preheader25, label %54
+  br i1 %34, label %.preheader25, label %57
 
 .preheader25:                                     ; preds = %32, %.loopexit24
-  %35 = phi ptr [ %52, %.loopexit24 ], [ %5, %32 ]
+  %35 = phi ptr [ %55, %.loopexit24 ], [ %5, %32 ]
   %36 = tail call fastcc i32 @serio_reconnect_port(ptr noundef %35)
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %.preheader41
+  br i1 %37, label %38, label %.preheader43
+
+.preheader43:                                     ; preds = %38, %.preheader25
+  br label %44
 
 38:                                               ; preds = %.preheader25
   %39 = getelementptr inbounds i8, ptr %35, i64 280
   %40 = load volatile ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %39
-  br i1 %41, label %.preheader41, label %.loopexit24
+  br i1 %41, label %.preheader43, label %42
 
-.preheader41:                                     ; preds = %38, %.preheader25
-  br label %42
+42:                                               ; preds = %38
+  %43 = getelementptr i8, ptr %40, i64 -264
+  br label %.loopexit24
 
-42:                                               ; preds = %.preheader41, %45
-  %43 = phi ptr [ %47, %45 ], [ %35, %.preheader41 ]
-  %44 = icmp eq ptr %43, %5
-  br i1 %44, label %.thread, label %45
+44:                                               ; preds = %.preheader43, %47
+  %45 = phi ptr [ %49, %47 ], [ %35, %.preheader43 ]
+  %46 = icmp eq ptr %45, %5
+  br i1 %46, label %.loopexit24, label %47
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %43, i64 256
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %43, i64 264
-  %49 = getelementptr inbounds i8, ptr %47, i64 280
-  %50 = load ptr, ptr %48, align 8
-  %51 = icmp eq ptr %50, %49
-  br i1 %51, label %42, label %.loopexit24
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds i8, ptr %45, i64 256
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %45, i64 264
+  %51 = getelementptr inbounds i8, ptr %49, i64 280
+  %52 = load ptr, ptr %50, align 8
+  %53 = icmp eq ptr %52, %51
+  br i1 %53, label %44, label %.loopexit24.split.loop.exit35
 
-.loopexit24:                                      ; preds = %45, %38
-  %.lcssa.sink = phi ptr [ %40, %38 ], [ %50, %45 ]
-  %52 = getelementptr i8, ptr %.lcssa.sink, i64 -264
-  %53 = icmp eq ptr %52, %5
-  br i1 %53, label %.thread, label %.preheader25, !llvm.loop !20
+.loopexit24.split.loop.exit35:                    ; preds = %47
+  %54 = getelementptr i8, ptr %52, i64 -264
+  br label %.loopexit24
 
-54:                                               ; preds = %32
-  %55 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull @.str.19, i64 noundef %3) #10
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %104
+.loopexit24:                                      ; preds = %44, %.loopexit24.split.loop.exit35, %42
+  %55 = phi ptr [ %43, %42 ], [ %54, %.loopexit24.split.loop.exit35 ], [ %45, %44 ]
+  %56 = icmp eq ptr %55, %5
+  br i1 %56, label %.thread, label %.preheader25, !llvm.loop !20
 
-57:                                               ; preds = %54
-  %58 = getelementptr i8, ptr %0, i64 -64
-  %59 = load volatile ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, %58
-  br i1 %60, label %.loopexit29, label %.preheader28
+57:                                               ; preds = %32
+  %58 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull @.str.19, i64 noundef %3) #10
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %107
 
-.preheader28:                                     ; preds = %57, %.preheader28.backedge
-  %61 = phi ptr [ %.be43, %.preheader28.backedge ], [ %5, %57 ]
-  %62 = getelementptr inbounds i8, ptr %61, i64 280
-  %63 = load volatile ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, %62
-  %65 = getelementptr i8, ptr %63, i64 -264
-  br i1 %64, label %66, label %.preheader28.backedge
+60:                                               ; preds = %57
+  %61 = getelementptr i8, ptr %0, i64 -64
+  %62 = load volatile ptr, ptr %61, align 8
+  %63 = icmp eq ptr %62, %61
+  br i1 %63, label %.loopexit29, label %.preheader28
 
-66:                                               ; preds = %.preheader28
-  %67 = icmp eq ptr %61, %5
-  br i1 %67, label %72, label %68
+.preheader28:                                     ; preds = %60, %.preheader28.backedge
+  %64 = phi ptr [ %.be46, %.preheader28.backedge ], [ %5, %60 ]
+  %65 = getelementptr inbounds i8, ptr %64, i64 280
+  %66 = load volatile ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, %65
+  %68 = getelementptr i8, ptr %66, i64 -264
+  br i1 %67, label %69, label %.preheader28.backedge
 
-68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %61, i64 256
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %61, i64 344
-  tail call void @device_release_driver(ptr noundef %71) #10
-  tail call fastcc void @serio_destroy_port(ptr noundef %61)
-  br label %72
+69:                                               ; preds = %.preheader28
+  %70 = icmp eq ptr %64, %5
+  br i1 %70, label %75, label %71
 
-72:                                               ; preds = %68, %66
-  %73 = phi ptr [ %70, %68 ], [ %5, %66 ]
-  %74 = load volatile ptr, ptr %58, align 8
-  %75 = icmp eq ptr %74, %58
-  br i1 %75, label %.loopexit29, label %.preheader28.backedge
+71:                                               ; preds = %69
+  %72 = getelementptr inbounds i8, ptr %64, i64 256
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %64, i64 344
+  tail call void @device_release_driver(ptr noundef %74) #10
+  tail call fastcc void @serio_destroy_port(ptr noundef %64)
+  br label %75
 
-.preheader28.backedge:                            ; preds = %72, %.preheader28
-  %.be43 = phi ptr [ %65, %.preheader28 ], [ %73, %72 ]
+75:                                               ; preds = %71, %69
+  %76 = phi ptr [ %73, %71 ], [ %64, %69 ]
+  %77 = load volatile ptr, ptr %61, align 8
+  %78 = icmp eq ptr %77, %61
+  br i1 %78, label %.loopexit29, label %.preheader28.backedge
+
+.preheader28.backedge:                            ; preds = %75, %.preheader28
+  %.be46 = phi ptr [ %68, %.preheader28 ], [ %76, %75 ]
   br label %.preheader28, !llvm.loop !10
 
-.loopexit29:                                      ; preds = %72, %57
+.loopexit29:                                      ; preds = %75, %60
   tail call void @device_release_driver(ptr noundef %0) #10
-  %76 = tail call i32 @device_attach(ptr noundef %0) #10
-  %77 = icmp slt i32 %76, 0
-  %78 = icmp ne i32 %76, -517
-  %79 = and i1 %77, %78
-  br i1 %79, label %80, label %83
+  %79 = tail call i32 @device_attach(ptr noundef %0) #10
+  %80 = icmp slt i32 %79, 0
+  %81 = icmp ne i32 %79, -517
+  %82 = and i1 %80, %81
+  br i1 %82, label %83, label %86
 
-80:                                               ; preds = %.loopexit29
-  %81 = getelementptr i8, ptr %0, i64 -304
-  %82 = getelementptr i8, ptr %0, i64 -336
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef %81, ptr noundef %82, i32 noundef %76) #12
-  br label %83
+83:                                               ; preds = %.loopexit29
+  %84 = getelementptr i8, ptr %0, i64 -304
+  %85 = getelementptr i8, ptr %0, i64 -336
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef %84, ptr noundef %85, i32 noundef %79) #12
+  br label %86
 
-83:                                               ; preds = %80, %.loopexit29
-  %84 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @serio_event_lock) #10
-  %85 = load ptr, ptr @serio_event_list, align 8
-  %86 = icmp eq ptr %85, @serio_event_list
-  br i1 %86, label %.loopexit27, label %.preheader26
+86:                                               ; preds = %83, %.loopexit29
+  %87 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @serio_event_lock) #10
+  %88 = load ptr, ptr @serio_event_list, align 8
+  %89 = icmp eq ptr %88, @serio_event_list
+  br i1 %89, label %.loopexit27, label %.preheader26
 
-.preheader26:                                     ; preds = %83, %102
-  %87 = phi ptr [ %89, %102 ], [ %85, %83 ]
-  %88 = getelementptr i8, ptr %87, i64 -24
-  %89 = load ptr, ptr %87, align 8
-  %90 = getelementptr i8, ptr %87, i64 -16
-  %91 = load ptr, ptr %90, align 8
-  %92 = icmp eq ptr %91, %5
-  br i1 %92, label %93, label %102
+.preheader26:                                     ; preds = %86, %105
+  %90 = phi ptr [ %92, %105 ], [ %88, %86 ]
+  %91 = getelementptr i8, ptr %90, i64 -24
+  %92 = load ptr, ptr %90, align 8
+  %93 = getelementptr i8, ptr %90, i64 -16
+  %94 = load ptr, ptr %93, align 8
+  %95 = icmp eq ptr %94, %5
+  br i1 %95, label %96, label %105
 
-93:                                               ; preds = %.preheader26
-  %94 = load i32, ptr %88, align 8
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %.loopexit27
+96:                                               ; preds = %.preheader26
+  %97 = load i32, ptr %91, align 8
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %99, label %.loopexit27
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %87, i64 8
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %89, i64 8
-  store ptr %98, ptr %99, align 8
-  store volatile ptr %89, ptr %98, align 8
-  store volatile ptr %87, ptr %87, align 8
-  store volatile ptr %87, ptr %97, align 8
-  %100 = getelementptr i8, ptr %87, i64 -8
+99:                                               ; preds = %96
+  %100 = getelementptr inbounds i8, ptr %90, i64 8
   %101 = load ptr, ptr %100, align 8
-  tail call void @module_put(ptr noundef %101) #10
-  tail call void @kfree(ptr noundef %88) #10
-  br label %102
+  %102 = getelementptr inbounds i8, ptr %92, i64 8
+  store ptr %101, ptr %102, align 8
+  store volatile ptr %92, ptr %101, align 8
+  store volatile ptr %90, ptr %90, align 8
+  store volatile ptr %90, ptr %100, align 8
+  %103 = getelementptr i8, ptr %90, i64 -8
+  %104 = load ptr, ptr %103, align 8
+  tail call void @module_put(ptr noundef %104) #10
+  tail call void @kfree(ptr noundef %91) #10
+  br label %105
 
-102:                                              ; preds = %96, %.preheader26
-  %103 = icmp eq ptr %89, @serio_event_list
-  br i1 %103, label %.loopexit27, label %.preheader26, !llvm.loop !21
+105:                                              ; preds = %99, %.preheader26
+  %106 = icmp eq ptr %92, @serio_event_list
+  br i1 %106, label %.loopexit27, label %.preheader26, !llvm.loop !21
 
-.loopexit27:                                      ; preds = %102, %93, %83
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @serio_event_lock, i64 noundef %84) #10
+.loopexit27:                                      ; preds = %105, %96, %86
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @serio_event_lock, i64 noundef %87) #10
   br label %.thread
 
-104:                                              ; preds = %54
-  %105 = tail call ptr @driver_find(ptr noundef %2, ptr noundef nonnull @serio_bus) #10
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %.thread22, label %107
+107:                                              ; preds = %57
+  %108 = tail call ptr @driver_find(ptr noundef %2, ptr noundef nonnull @serio_bus) #10
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %.thread22, label %110
 
-.thread22:                                        ; preds = %104
+.thread22:                                        ; preds = %107
   tail call void @mutex_unlock(ptr noundef nonnull @serio_mutex) #10
-  br label %206
+  br label %209
 
-107:                                              ; preds = %104
-  %108 = getelementptr i8, ptr %0, i64 -64
-  %109 = load volatile ptr, ptr %108, align 8
-  %110 = icmp eq ptr %109, %108
-  br i1 %110, label %.loopexit34, label %.preheader33
+110:                                              ; preds = %107
+  %111 = getelementptr i8, ptr %0, i64 -64
+  %112 = load volatile ptr, ptr %111, align 8
+  %113 = icmp eq ptr %112, %111
+  br i1 %113, label %.loopexit34, label %.preheader33
 
-.preheader33:                                     ; preds = %107, %.preheader33.backedge
-  %111 = phi ptr [ %.be44, %.preheader33.backedge ], [ %5, %107 ]
-  %112 = getelementptr inbounds i8, ptr %111, i64 280
-  %113 = load volatile ptr, ptr %112, align 8
-  %114 = icmp eq ptr %113, %112
-  %115 = getelementptr i8, ptr %113, i64 -264
-  br i1 %114, label %116, label %.preheader33.backedge
+.preheader33:                                     ; preds = %110, %.preheader33.backedge
+  %114 = phi ptr [ %.be47, %.preheader33.backedge ], [ %5, %110 ]
+  %115 = getelementptr inbounds i8, ptr %114, i64 280
+  %116 = load volatile ptr, ptr %115, align 8
+  %117 = icmp eq ptr %116, %115
+  %118 = getelementptr i8, ptr %116, i64 -264
+  br i1 %117, label %119, label %.preheader33.backedge
 
-116:                                              ; preds = %.preheader33
-  %117 = icmp eq ptr %111, %5
-  br i1 %117, label %122, label %118
+119:                                              ; preds = %.preheader33
+  %120 = icmp eq ptr %114, %5
+  br i1 %120, label %125, label %121
 
-118:                                              ; preds = %116
-  %119 = getelementptr inbounds i8, ptr %111, i64 256
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %111, i64 344
-  tail call void @device_release_driver(ptr noundef %121) #10
-  tail call fastcc void @serio_destroy_port(ptr noundef %111)
-  br label %122
+121:                                              ; preds = %119
+  %122 = getelementptr inbounds i8, ptr %114, i64 256
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds i8, ptr %114, i64 344
+  tail call void @device_release_driver(ptr noundef %124) #10
+  tail call fastcc void @serio_destroy_port(ptr noundef %114)
+  br label %125
 
-122:                                              ; preds = %118, %116
-  %123 = phi ptr [ %120, %118 ], [ %5, %116 ]
-  %124 = load volatile ptr, ptr %108, align 8
-  %125 = icmp eq ptr %124, %108
-  br i1 %125, label %.loopexit34, label %.preheader33.backedge
+125:                                              ; preds = %121, %119
+  %126 = phi ptr [ %123, %121 ], [ %114, %119 ]
+  %127 = load volatile ptr, ptr %111, align 8
+  %128 = icmp eq ptr %127, %111
+  br i1 %128, label %.loopexit34, label %.preheader33.backedge
 
-.preheader33.backedge:                            ; preds = %122, %.preheader33
-  %.be44 = phi ptr [ %115, %.preheader33 ], [ %123, %122 ]
+.preheader33.backedge:                            ; preds = %125, %.preheader33
+  %.be47 = phi ptr [ %118, %.preheader33 ], [ %126, %125 ]
   br label %.preheader33, !llvm.loop !10
 
-.loopexit34:                                      ; preds = %122, %107
+.loopexit34:                                      ; preds = %125, %110
   tail call void @device_release_driver(ptr noundef %0) #10
-  %126 = getelementptr i8, ptr %105, i64 -80
-  %127 = getelementptr i8, ptr %105, i64 -72
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr i8, ptr %0, i64 -141
-  %130 = getelementptr i8, ptr %0, i64 -143
-  %131 = getelementptr i8, ptr %0, i64 -140
-  %132 = getelementptr i8, ptr %0, i64 -142
-  br label %133
+  %129 = getelementptr i8, ptr %108, i64 -80
+  %130 = getelementptr i8, ptr %108, i64 -72
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr i8, ptr %0, i64 -141
+  %133 = getelementptr i8, ptr %0, i64 -143
+  %134 = getelementptr i8, ptr %0, i64 -140
+  %135 = getelementptr i8, ptr %0, i64 -142
+  br label %136
 
-133:                                              ; preds = %164, %.loopexit34
-  %134 = phi ptr [ %128, %.loopexit34 ], [ %165, %164 ]
-  %135 = load i8, ptr %134, align 1
-  switch i8 %135, label %140 [
-    i8 0, label %136
-    i8 -1, label %143
+136:                                              ; preds = %167, %.loopexit34
+  %137 = phi ptr [ %131, %.loopexit34 ], [ %168, %167 ]
+  %138 = load i8, ptr %137, align 1
+  switch i8 %138, label %143 [
+    i8 0, label %139
+    i8 -1, label %146
   ]
 
-136:                                              ; preds = %133
-  %137 = getelementptr inbounds i8, ptr %134, i64 3
-  %138 = load i8, ptr %137, align 1
-  %139 = icmp eq i8 %138, 0
-  br i1 %139, label %.loopexit32, label %140
+139:                                              ; preds = %136
+  %140 = getelementptr inbounds i8, ptr %137, i64 3
+  %141 = load i8, ptr %140, align 1
+  %142 = icmp eq i8 %141, 0
+  br i1 %142, label %.loopexit32, label %143
 
-140:                                              ; preds = %136, %133
-  %141 = load i8, ptr %130, align 1
-  %142 = icmp eq i8 %135, %141
-  br i1 %142, label %143, label %164
+143:                                              ; preds = %139, %136
+  %144 = load i8, ptr %133, align 1
+  %145 = icmp eq i8 %138, %144
+  br i1 %145, label %146, label %167
 
-143:                                              ; preds = %140, %133
-  %144 = getelementptr inbounds i8, ptr %134, i64 3
-  %145 = load i8, ptr %144, align 1
-  %146 = icmp eq i8 %145, -1
-  br i1 %146, label %150, label %147
+146:                                              ; preds = %143, %136
+  %147 = getelementptr inbounds i8, ptr %137, i64 3
+  %148 = load i8, ptr %147, align 1
+  %149 = icmp eq i8 %148, -1
+  br i1 %149, label %153, label %150
 
-147:                                              ; preds = %143
-  %148 = load i8, ptr %131, align 1
-  %149 = icmp eq i8 %145, %148
-  br i1 %149, label %150, label %164
+150:                                              ; preds = %146
+  %151 = load i8, ptr %134, align 1
+  %152 = icmp eq i8 %148, %151
+  br i1 %152, label %153, label %167
 
-150:                                              ; preds = %147, %143
-  %151 = getelementptr inbounds i8, ptr %134, i64 1
-  %152 = load i8, ptr %151, align 1
-  %153 = icmp eq i8 %152, -1
-  br i1 %153, label %157, label %154
+153:                                              ; preds = %150, %146
+  %154 = getelementptr inbounds i8, ptr %137, i64 1
+  %155 = load i8, ptr %154, align 1
+  %156 = icmp eq i8 %155, -1
+  br i1 %156, label %160, label %157
 
-154:                                              ; preds = %150
-  %155 = load i8, ptr %132, align 1
-  %156 = icmp eq i8 %152, %155
-  br i1 %156, label %157, label %164
+157:                                              ; preds = %153
+  %158 = load i8, ptr %135, align 1
+  %159 = icmp eq i8 %155, %158
+  br i1 %159, label %160, label %167
 
-157:                                              ; preds = %154, %150
-  %158 = getelementptr inbounds i8, ptr %134, i64 2
-  %159 = load i8, ptr %158, align 1
-  %160 = icmp eq i8 %159, -1
-  br i1 %160, label %166, label %161
+160:                                              ; preds = %157, %153
+  %161 = getelementptr inbounds i8, ptr %137, i64 2
+  %162 = load i8, ptr %161, align 1
+  %163 = icmp eq i8 %162, -1
+  br i1 %163, label %169, label %164
 
-161:                                              ; preds = %157
-  %162 = load i8, ptr %129, align 1
-  %163 = icmp eq i8 %159, %162
-  br i1 %163, label %166, label %164
+164:                                              ; preds = %160
+  %165 = load i8, ptr %132, align 1
+  %166 = icmp eq i8 %162, %165
+  br i1 %166, label %169, label %167
 
-164:                                              ; preds = %161, %154, %147, %140
-  %165 = getelementptr i8, ptr %134, i64 4
-  br label %133, !llvm.loop !19
+167:                                              ; preds = %164, %157, %150, %143
+  %168 = getelementptr i8, ptr %137, i64 4
+  br label %136, !llvm.loop !19
 
-166:                                              ; preds = %161, %157
-  %167 = getelementptr i8, ptr %0, i64 104
-  store ptr %105, ptr %167, align 8
-  %168 = getelementptr i8, ptr %0, i64 -32
-  tail call void @mutex_lock(ptr noundef %168) #10
-  %169 = getelementptr i8, ptr %105, i64 -40
-  %170 = load ptr, ptr %169, align 8
-  %171 = tail call i32 %170(ptr noundef %5, ptr noundef %126) #10
-  tail call void @mutex_unlock(ptr noundef %168) #10
-  %172 = icmp eq i32 %171, 0
-  br i1 %172, label %173, label %181
+169:                                              ; preds = %164, %160
+  %170 = getelementptr i8, ptr %0, i64 104
+  store ptr %108, ptr %170, align 8
+  %171 = getelementptr i8, ptr %0, i64 -32
+  tail call void @mutex_lock(ptr noundef %171) #10
+  %172 = getelementptr i8, ptr %108, i64 -40
+  %173 = load ptr, ptr %172, align 8
+  %174 = tail call i32 %173(ptr noundef %5, ptr noundef %129) #10
+  tail call void @mutex_unlock(ptr noundef %171) #10
+  %175 = icmp eq i32 %174, 0
+  br i1 %175, label %176, label %184
 
-173:                                              ; preds = %166
-  %174 = tail call i32 @device_bind_driver(ptr noundef %0) #10
-  %175 = freeze i32 %174
-  %176 = icmp eq i32 %175, 0
-  br i1 %176, label %.loopexit32, label %177
+176:                                              ; preds = %169
+  %177 = tail call i32 @device_bind_driver(ptr noundef %0) #10
+  %178 = freeze i32 %177
+  %179 = icmp eq i32 %178, 0
+  br i1 %179, label %.loopexit32, label %180
 
-177:                                              ; preds = %173
-  %178 = getelementptr i8, ptr %0, i64 -304
-  %179 = getelementptr i8, ptr %0, i64 -336
-  %180 = load ptr, ptr %126, align 8
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef %178, ptr noundef %179, ptr noundef %180, i32 noundef %175) #12
+180:                                              ; preds = %176
+  %181 = getelementptr i8, ptr %0, i64 -304
+  %182 = getelementptr i8, ptr %0, i64 -336
+  %183 = load ptr, ptr %129, align 8
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef %181, ptr noundef %182, ptr noundef %183, i32 noundef %178) #12
   tail call fastcc void @serio_disconnect_driver(ptr noundef %5)
-  br label %181
+  br label %184
 
-181:                                              ; preds = %177, %166
-  %182 = phi i32 [ %175, %177 ], [ -19, %166 ]
-  store ptr null, ptr %167, align 8
+184:                                              ; preds = %180, %169
+  %185 = phi i32 [ %178, %180 ], [ -19, %169 ]
+  store ptr null, ptr %170, align 8
   br label %.loopexit32
 
-.loopexit32:                                      ; preds = %136, %181, %173
-  %.fr = phi i32 [ 0, %173 ], [ %182, %181 ], [ 0, %136 ]
-  %183 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @serio_event_lock) #10
-  %184 = load ptr, ptr @serio_event_list, align 8
-  %185 = icmp eq ptr %184, @serio_event_list
-  br i1 %185, label %.loopexit31, label %.preheader30
+.loopexit32:                                      ; preds = %139, %184, %176
+  %.fr = phi i32 [ 0, %176 ], [ %185, %184 ], [ 0, %139 ]
+  %186 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @serio_event_lock) #10
+  %187 = load ptr, ptr @serio_event_list, align 8
+  %188 = icmp eq ptr %187, @serio_event_list
+  br i1 %188, label %.loopexit31, label %.preheader30
 
-.preheader30:                                     ; preds = %.loopexit32, %201
-  %186 = phi ptr [ %188, %201 ], [ %184, %.loopexit32 ]
-  %187 = getelementptr i8, ptr %186, i64 -24
-  %188 = load ptr, ptr %186, align 8
-  %189 = getelementptr i8, ptr %186, i64 -16
-  %190 = load ptr, ptr %189, align 8
-  %191 = icmp eq ptr %190, %5
-  br i1 %191, label %192, label %201
+.preheader30:                                     ; preds = %.loopexit32, %204
+  %189 = phi ptr [ %191, %204 ], [ %187, %.loopexit32 ]
+  %190 = getelementptr i8, ptr %189, i64 -24
+  %191 = load ptr, ptr %189, align 8
+  %192 = getelementptr i8, ptr %189, i64 -16
+  %193 = load ptr, ptr %192, align 8
+  %194 = icmp eq ptr %193, %5
+  br i1 %194, label %195, label %204
 
-192:                                              ; preds = %.preheader30
-  %193 = load i32, ptr %187, align 8
-  %194 = icmp eq i32 %193, 0
-  br i1 %194, label %195, label %.loopexit31
+195:                                              ; preds = %.preheader30
+  %196 = load i32, ptr %190, align 8
+  %197 = icmp eq i32 %196, 0
+  br i1 %197, label %198, label %.loopexit31
 
-195:                                              ; preds = %192
-  %196 = getelementptr inbounds i8, ptr %186, i64 8
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %188, i64 8
-  store ptr %197, ptr %198, align 8
-  store volatile ptr %188, ptr %197, align 8
-  store volatile ptr %186, ptr %186, align 8
-  store volatile ptr %186, ptr %196, align 8
-  %199 = getelementptr i8, ptr %186, i64 -8
+198:                                              ; preds = %195
+  %199 = getelementptr inbounds i8, ptr %189, i64 8
   %200 = load ptr, ptr %199, align 8
-  tail call void @module_put(ptr noundef %200) #10
-  tail call void @kfree(ptr noundef %187) #10
-  br label %201
+  %201 = getelementptr inbounds i8, ptr %191, i64 8
+  store ptr %200, ptr %201, align 8
+  store volatile ptr %191, ptr %200, align 8
+  store volatile ptr %189, ptr %189, align 8
+  store volatile ptr %189, ptr %199, align 8
+  %202 = getelementptr i8, ptr %189, i64 -8
+  %203 = load ptr, ptr %202, align 8
+  tail call void @module_put(ptr noundef %203) #10
+  tail call void @kfree(ptr noundef %190) #10
+  br label %204
 
-201:                                              ; preds = %195, %.preheader30
-  %202 = icmp eq ptr %188, @serio_event_list
-  br i1 %202, label %.loopexit31, label %.preheader30, !llvm.loop !21
+204:                                              ; preds = %198, %.preheader30
+  %205 = icmp eq ptr %191, @serio_event_list
+  br i1 %205, label %.loopexit31, label %.preheader30, !llvm.loop !21
 
-.thread:                                          ; preds = %.loopexit24, %42, %.loopexit27, %.loopexit
+.thread:                                          ; preds = %.loopexit24, %.loopexit27, %.loopexit
   tail call void @mutex_unlock(ptr noundef nonnull @serio_mutex) #10
-  br label %205
+  br label %208
 
-.loopexit31:                                      ; preds = %192, %201, %.loopexit32
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @serio_event_lock, i64 noundef %183) #10
+.loopexit31:                                      ; preds = %195, %204, %.loopexit32
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @serio_event_lock, i64 noundef %186) #10
   tail call void @mutex_unlock(ptr noundef nonnull @serio_mutex) #10
-  %203 = icmp eq i32 %.fr, 0
-  %204 = sext i32 %.fr to i64
-  br i1 %203, label %205, label %206
+  %206 = icmp eq i32 %.fr, 0
+  %207 = sext i32 %.fr to i64
+  br i1 %206, label %208, label %209
 
-205:                                              ; preds = %.thread, %.loopexit31
-  br label %206
+208:                                              ; preds = %.thread, %.loopexit31
+  br label %209
 
-206:                                              ; preds = %205, %.loopexit31, %.thread22, %8
-  %207 = phi i64 [ %9, %8 ], [ %3, %205 ], [ %204, %.loopexit31 ], [ -22, %.thread22 ]
-  ret i64 %207
+209:                                              ; preds = %208, %.loopexit31, %.thread22, %8
+  %210 = phi i64 [ %9, %8 ], [ %3, %208 ], [ %207, %.loopexit31 ], [ -22, %.thread22 ]
+  ret i64 %210
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1597,7 +1604,7 @@ define internal fastcc i32 @serio_reconnect_port(ptr noundef %0) unnamed_addr #0
   br label %29
 
 29:                                               ; preds = %25, %23
-  %30 = phi ptr [ %27, %25 ], [ %0, %23 ]
+  %30 = phi ptr [ %27, %25 ], [ %18, %23 ]
   %31 = load volatile ptr, ptr %15, align 8
   %32 = icmp eq ptr %31, %15
   br i1 %32, label %.loopexit, label %.preheader.backedge
@@ -1843,13 +1850,13 @@ define internal void @serio_handle_event(ptr nocapture readnone %0) #0 align 16 
   br i1 %4, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %.loopexit14, %1
-  %.lcssa = phi i64 [ %2, %1 ], [ %170, %.loopexit14 ]
+  %.lcssa = phi i64 [ %2, %1 ], [ %173, %.loopexit14 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @serio_event_lock, i64 noundef %.lcssa) #10
   br label %.loopexit18
 
 .lr.ph:                                           ; preds = %1, %.loopexit14
-  %5 = phi ptr [ %171, %.loopexit14 ], [ %3, %1 ]
-  %6 = phi i64 [ %170, %.loopexit14 ], [ %2, %1 ]
+  %5 = phi ptr [ %174, %.loopexit14 ], [ %3, %1 ]
+  %6 = phi i64 [ %173, %.loopexit14 ], [ %2, %1 ]
   %7 = getelementptr i8, ptr %5, i64 -24
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -1870,7 +1877,7 @@ define internal void @serio_handle_event(ptr nocapture readnone %0) #0 align 16 
     i32 1, label %44
     i32 0, label %48
     i32 2, label %79
-    i32 4, label %136
+    i32 4, label %139
   ]
 
 15:                                               ; preds = %13
@@ -1940,7 +1947,7 @@ define internal void @serio_handle_event(ptr nocapture readnone %0) #0 align 16 
   br i1 %53, label %.loopexit16, label %.preheader15
 
 .preheader15:                                     ; preds = %48, %.preheader15.backedge
-  %54 = phi ptr [ %.be33, %.preheader15.backedge ], [ %50, %48 ]
+  %54 = phi ptr [ %.be35, %.preheader15.backedge ], [ %50, %48 ]
   %55 = getelementptr inbounds i8, ptr %54, i64 280
   %56 = load volatile ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, %55
@@ -1960,13 +1967,13 @@ define internal void @serio_handle_event(ptr nocapture readnone %0) #0 align 16 
   br label %65
 
 65:                                               ; preds = %61, %59
-  %66 = phi ptr [ %63, %61 ], [ %50, %59 ]
+  %66 = phi ptr [ %63, %61 ], [ %54, %59 ]
   %67 = load volatile ptr, ptr %51, align 8
   %68 = icmp eq ptr %67, %51
   br i1 %68, label %.loopexit16, label %.preheader15.backedge
 
 .preheader15.backedge:                            ; preds = %65, %.preheader15
-  %.be33 = phi ptr [ %58, %.preheader15 ], [ %66, %65 ]
+  %.be35 = phi ptr [ %58, %.preheader15 ], [ %66, %65 ]
   br label %.preheader15, !llvm.loop !10
 
 .loopexit16:                                      ; preds = %65, %48
@@ -1992,7 +1999,7 @@ define internal void @serio_handle_event(ptr nocapture readnone %0) #0 align 16 
   br label %82
 
 82:                                               ; preds = %.loopexit, %79
-  %83 = phi ptr [ %81, %79 ], [ %134, %.loopexit ]
+  %83 = phi ptr [ %81, %79 ], [ %137, %.loopexit ]
   %84 = getelementptr inbounds i8, ptr %83, i64 312
   tail call void @mutex_lock(ptr noundef %84) #10
   %85 = getelementptr inbounds i8, ptr %83, i64 304
@@ -2043,7 +2050,7 @@ define internal void @serio_handle_event(ptr nocapture readnone %0) #0 align 16 
   br label %110
 
 110:                                              ; preds = %106, %104
-  %111 = phi ptr [ %108, %106 ], [ %83, %104 ]
+  %111 = phi ptr [ %108, %106 ], [ %99, %104 ]
   %112 = load volatile ptr, ptr %96, align 8
   %113 = icmp eq ptr %112, %96
   br i1 %113, label %.loopexit.i, label %.preheader.i.backedge
@@ -2071,95 +2078,102 @@ serio_reconnect_port.exit:                        ; preds = %92
   %122 = getelementptr inbounds i8, ptr %83, i64 280
   %123 = load volatile ptr, ptr %122, align 8
   %124 = icmp eq ptr %123, %122
-  br i1 %124, label %serio_reconnect_port.exit.thread.preheader, label %.loopexit
+  br i1 %124, label %serio_reconnect_port.exit.thread.preheader, label %125
 
 serio_reconnect_port.exit.thread.preheader:       ; preds = %.loopexit.i, %119, %serio_reconnect_port.exit
   br label %serio_reconnect_port.exit.thread
 
-serio_reconnect_port.exit.thread:                 ; preds = %serio_reconnect_port.exit.thread.preheader, %127
-  %125 = phi ptr [ %129, %127 ], [ %83, %serio_reconnect_port.exit.thread.preheader ]
-  %126 = icmp eq ptr %125, %81
-  br i1 %126, label %.loopexit17, label %127
+125:                                              ; preds = %serio_reconnect_port.exit
+  %126 = getelementptr i8, ptr %123, i64 -264
+  br label %.loopexit
 
-127:                                              ; preds = %serio_reconnect_port.exit.thread
-  %128 = getelementptr inbounds i8, ptr %125, i64 256
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %125, i64 264
-  %131 = getelementptr inbounds i8, ptr %129, i64 280
-  %132 = load ptr, ptr %130, align 8
-  %133 = icmp eq ptr %132, %131
-  br i1 %133, label %serio_reconnect_port.exit.thread, label %.loopexit
+serio_reconnect_port.exit.thread:                 ; preds = %serio_reconnect_port.exit.thread.preheader, %129
+  %127 = phi ptr [ %131, %129 ], [ %83, %serio_reconnect_port.exit.thread.preheader ]
+  %128 = icmp eq ptr %127, %81
+  br i1 %128, label %.loopexit, label %129
 
-.loopexit:                                        ; preds = %127, %serio_reconnect_port.exit
-  %.lcssa28.sink = phi ptr [ %123, %serio_reconnect_port.exit ], [ %132, %127 ]
-  %134 = getelementptr i8, ptr %.lcssa28.sink, i64 -264
-  %135 = icmp eq ptr %134, %81
-  br i1 %135, label %.loopexit17, label %82, !llvm.loop !20
+129:                                              ; preds = %serio_reconnect_port.exit.thread
+  %130 = getelementptr inbounds i8, ptr %127, i64 256
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds i8, ptr %127, i64 264
+  %133 = getelementptr inbounds i8, ptr %131, i64 280
+  %134 = load ptr, ptr %132, align 8
+  %135 = icmp eq ptr %134, %133
+  br i1 %135, label %serio_reconnect_port.exit.thread, label %.loopexit.split.loop.exit20
 
-136:                                              ; preds = %13
-  %137 = getelementptr i8, ptr %5, i64 -16
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 80
-  %140 = tail call i32 @driver_attach(ptr noundef %139) #10
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %.loopexit17, label %142
+.loopexit.split.loop.exit20:                      ; preds = %129
+  %136 = getelementptr i8, ptr %134, i64 -264
+  br label %.loopexit
 
-142:                                              ; preds = %136
-  %143 = load ptr, ptr %139, align 8
-  %144 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef %143, i32 noundef %140) #12
+.loopexit:                                        ; preds = %serio_reconnect_port.exit.thread, %.loopexit.split.loop.exit20, %125
+  %137 = phi ptr [ %126, %125 ], [ %136, %.loopexit.split.loop.exit20 ], [ %127, %serio_reconnect_port.exit.thread ]
+  %138 = icmp eq ptr %137, %81
+  br i1 %138, label %.loopexit17, label %82, !llvm.loop !20
+
+139:                                              ; preds = %13
+  %140 = getelementptr i8, ptr %5, i64 -16
+  %141 = load ptr, ptr %140, align 8
+  %142 = getelementptr inbounds i8, ptr %141, i64 80
+  %143 = tail call i32 @driver_attach(ptr noundef %142) #10
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %.loopexit17, label %145
+
+145:                                              ; preds = %139
+  %146 = load ptr, ptr %142, align 8
+  %147 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef %146, i32 noundef %143) #12
   br label %.loopexit17
 
-.loopexit17:                                      ; preds = %.loopexit, %serio_reconnect_port.exit.thread, %142, %136, %76, %.loopexit16, %44, %41, %37, %13
-  %145 = getelementptr i8, ptr %5, i64 -16
-  %146 = load ptr, ptr %145, align 8
-  %147 = load i32, ptr %7, align 8
-  %148 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @serio_event_lock) #10
-  %149 = load ptr, ptr @serio_event_list, align 8
-  %150 = icmp eq ptr %149, @serio_event_list
-  br i1 %150, label %.loopexit14, label %.preheader
+.loopexit17:                                      ; preds = %.loopexit, %145, %139, %76, %.loopexit16, %44, %41, %37, %13
+  %148 = getelementptr i8, ptr %5, i64 -16
+  %149 = load ptr, ptr %148, align 8
+  %150 = load i32, ptr %7, align 8
+  %151 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @serio_event_lock) #10
+  %152 = load ptr, ptr @serio_event_list, align 8
+  %153 = icmp eq ptr %152, @serio_event_list
+  br i1 %153, label %.loopexit14, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit17, %166
-  %151 = phi ptr [ %153, %166 ], [ %149, %.loopexit17 ]
-  %152 = getelementptr i8, ptr %151, i64 -24
-  %153 = load ptr, ptr %151, align 8
-  %154 = getelementptr i8, ptr %151, i64 -16
-  %155 = load ptr, ptr %154, align 8
-  %156 = icmp eq ptr %155, %146
-  br i1 %156, label %157, label %166
+.preheader:                                       ; preds = %.loopexit17, %169
+  %154 = phi ptr [ %156, %169 ], [ %152, %.loopexit17 ]
+  %155 = getelementptr i8, ptr %154, i64 -24
+  %156 = load ptr, ptr %154, align 8
+  %157 = getelementptr i8, ptr %154, i64 -16
+  %158 = load ptr, ptr %157, align 8
+  %159 = icmp eq ptr %158, %149
+  br i1 %159, label %160, label %169
 
-157:                                              ; preds = %.preheader
-  %158 = load i32, ptr %152, align 8
-  %159 = icmp eq i32 %158, %147
-  br i1 %159, label %160, label %.loopexit14
+160:                                              ; preds = %.preheader
+  %161 = load i32, ptr %155, align 8
+  %162 = icmp eq i32 %161, %150
+  br i1 %162, label %163, label %.loopexit14
 
-160:                                              ; preds = %157
-  %161 = getelementptr inbounds i8, ptr %151, i64 8
-  %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %153, i64 8
-  store ptr %162, ptr %163, align 8
-  store volatile ptr %153, ptr %162, align 8
-  store volatile ptr %151, ptr %151, align 8
-  store volatile ptr %151, ptr %161, align 8
-  %164 = getelementptr i8, ptr %151, i64 -8
+163:                                              ; preds = %160
+  %164 = getelementptr inbounds i8, ptr %154, i64 8
   %165 = load ptr, ptr %164, align 8
-  tail call void @module_put(ptr noundef %165) #10
-  tail call void @kfree(ptr noundef %152) #10
-  br label %166
+  %166 = getelementptr inbounds i8, ptr %156, i64 8
+  store ptr %165, ptr %166, align 8
+  store volatile ptr %156, ptr %165, align 8
+  store volatile ptr %154, ptr %154, align 8
+  store volatile ptr %154, ptr %164, align 8
+  %167 = getelementptr i8, ptr %154, i64 -8
+  %168 = load ptr, ptr %167, align 8
+  tail call void @module_put(ptr noundef %168) #10
+  tail call void @kfree(ptr noundef %155) #10
+  br label %169
 
-166:                                              ; preds = %160, %.preheader
-  %167 = icmp eq ptr %153, @serio_event_list
-  br i1 %167, label %.loopexit14, label %.preheader, !llvm.loop !21
+169:                                              ; preds = %163, %.preheader
+  %170 = icmp eq ptr %156, @serio_event_list
+  br i1 %170, label %.loopexit14, label %.preheader, !llvm.loop !21
 
-.loopexit14:                                      ; preds = %166, %157, %.loopexit17
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @serio_event_lock, i64 noundef %148) #10
-  %168 = getelementptr i8, ptr %5, i64 -8
-  %169 = load ptr, ptr %168, align 8
-  tail call void @module_put(ptr noundef %169) #10
+.loopexit14:                                      ; preds = %169, %160, %.loopexit17
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @serio_event_lock, i64 noundef %151) #10
+  %171 = getelementptr i8, ptr %5, i64 -8
+  %172 = load ptr, ptr %171, align 8
+  tail call void @module_put(ptr noundef %172) #10
   tail call void @kfree(ptr noundef nonnull %7) #10
-  %170 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @serio_event_lock) #10
-  %171 = load volatile ptr, ptr @serio_event_list, align 8
-  %172 = icmp eq ptr %171, @serio_event_list
-  br i1 %172, label %.thread, label %.lr.ph, !llvm.loop !22
+  %173 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @serio_event_lock) #10
+  %174 = load volatile ptr, ptr @serio_event_list, align 8
+  %175 = icmp eq ptr %174, @serio_event_list
+  br i1 %175, label %.thread, label %.lr.ph, !llvm.loop !22
 
 .loopexit18:                                      ; preds = %.lr.ph, %.thread
   tail call void @mutex_unlock(ptr noundef nonnull @serio_mutex) #10

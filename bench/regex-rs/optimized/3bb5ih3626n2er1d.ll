@@ -1071,7 +1071,7 @@ define internal fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point1
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.llvm.15183607879373971598.exit13"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.llvm.15183607879373971598.exit13": ; preds = %10, %14
-  %16 = phi ptr [ %15, %14 ], [ %3, %10 ]
+  %16 = phi ptr [ %15, %14 ], [ %7, %10 ]
   %.0.i12 = phi ptr [ %7, %14 ], [ null, %10 ]
   %17 = icmp ne ptr %.0.i12, null
   tail call void @llvm.assume(i1 %17)
@@ -1097,7 +1097,7 @@ define internal fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point1
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.llvm.15183607879373971598.exit15"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.llvm.15183607879373971598.exit15": ; preds = %26, %28
-  %30 = phi ptr [ %29, %28 ], [ %3, %26 ]
+  %30 = phi ptr [ %29, %28 ], [ %16, %26 ]
   %.0.i14 = phi ptr [ %16, %28 ], [ null, %26 ]
   %31 = icmp ne ptr %.0.i14, null
   tail call void @llvm.assume(i1 %31)
@@ -4303,7 +4303,7 @@ define void @_ZN14regex_automata4meta5regex7Builder5build17h95d9f52de86b9271E(pt
 62:                                               ; preds = %59, %55, %52
   %.sroa.0127.1.idx.i = phi i64 [ 16, %52 ], [ %.sroa.0127.0.add.i, %55 ], [ %.sroa.0127.0.add.i, %59 ]
   %.sroa.8129.1.i = phi i64 [ %.sroa.8129.0.i, %52 ], [ %56, %55 ], [ %56, %59 ]
-  %.sroa.13131.1.i = phi ptr [ %.sroa.13131.0.i, %52 ], [ %48, %55 ], [ %61, %59 ]
+  %.sroa.13131.1.i = phi ptr [ %.sroa.13131.0.i, %52 ], [ %.sroa.13131.0.i, %55 ], [ %61, %59 ]
   %.sroa.0134.1.i = phi i32 [ %.sroa.0134.0.i, %52 ], [ %.sroa.0134.0.i, %55 ], [ %60, %59 ]
   %.sink19.i.sroa.phi.i = phi ptr [ %.sroa.6136.i, %52 ], [ %.sroa.6136.i, %55 ], [ %.sroa.11138.i, %59 ]
   %.sink.i.i = phi ptr [ null, %52 ], [ null, %55 ], [ %.sroa.13131.0.i, %59 ]
@@ -8834,7 +8834,7 @@ define noundef zeroext i1 @"_ZN76_$LT$regex_automata..util..escape..DebugByte$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1699)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1702)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = trunc i64 %indvars.iv.next to i8
+  %31 = trunc nuw i64 %indvars.iv.next to i8
   store i8 %31, ptr %21, align 4, !alias.scope !1705, !noalias !1706
   %32 = icmp ult i64 %indvars.iv, 4
   br i1 %32, label %47, label %33, !prof !1487

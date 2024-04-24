@@ -326,7 +326,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !131
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !131
   %18 = load i8, ptr %11, align 1, !range !5, !noalias !136, !noundef !4
-  %19 = trunc i8 %18 to i1
+  %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %16
@@ -400,7 +400,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %14 = load ptr, ptr %12, align 8, !noalias !158, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i8, ptr %15, align 8, !range !5, !noalias !158, !noundef !4
-  %17 = trunc i8 %16 to i1
+  %17 = trunc nuw i8 %16 to i1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0.i.i), !noalias !159
   invoke void @_ZN10rayon_core8registry10ThreadInfo3new17h98ee6cfac5572a51E(ptr noalias nocapture noundef nonnull sret({ { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }) align 8 dereferenceable(48) %.sroa.0.i.i, ptr noundef nonnull %14, i1 noundef zeroext %17)
           to label %18 unwind label %9, !noalias !162
@@ -423,7 +423,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   resume { ptr, i32 } %10
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h05b978afbde02e09E.llvm.17633404800605446996.exit.loopexit: ; preds = %18
-  store ptr %7, ptr %4, align 8, !alias.scope !150, !noalias !146
+  store ptr %13, ptr %4, align 8, !alias.scope !150, !noalias !146
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h05b978afbde02e09E.llvm.17633404800605446996.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h05b978afbde02e09E.llvm.17633404800605446996.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h05b978afbde02e09E.llvm.17633404800605446996.exit.loopexit, %2
@@ -461,7 +461,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   %15 = load ptr, ptr %13, align 8, !noalias !176, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds i8, ptr %13, i64 8
   %17 = load i8, ptr %16, align 8, !range !5, !noalias !176, !noundef !4
-  %18 = trunc i8 %17 to i1
+  %18 = trunc nuw i8 %17 to i1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !173
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !173
   store ptr %1, ptr %6, align 8, !noalias !173
@@ -901,7 +901,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h05b978afbde02e
   %16 = load ptr, ptr %14, align 8, !noalias !356, !nonnull !4, !noundef !4
   %17 = getelementptr inbounds i8, ptr %14, i64 8
   %18 = load i8, ptr %17, align 8, !range !5, !noalias !356, !noundef !4
-  %19 = trunc i8 %18 to i1
+  %19 = trunc nuw i8 %18 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !358)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0.i), !noalias !358
   invoke void @_ZN10rayon_core8registry10ThreadInfo3new17h98ee6cfac5572a51E(ptr noalias nocapture noundef nonnull sret({ { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }) align 8 dereferenceable(48) %.sroa.0.i, ptr noundef nonnull %16, i1 noundef zeroext %19)
@@ -1146,7 +1146,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hd1507e829ba2bb
   tail call void @llvm.experimental.noalias.scope.decl(metadata !489)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !488
   %12 = load i8, ptr %8, align 1, !range !5, !noalias !490, !noundef !4
-  %13 = trunc i8 %12 to i1
+  %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %10
@@ -1328,7 +1328,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3b
   %16 = load ptr, ptr %14, align 8, !noalias !510, !nonnull !4, !noundef !4
   %17 = getelementptr inbounds i8, ptr %14, i64 8
   %18 = load i8, ptr %17, align 8, !range !5, !noalias !510, !noundef !4
-  %19 = trunc i8 %18 to i1
+  %19 = trunc nuw i8 %18 to i1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %1, ptr %7, align 8
@@ -1455,7 +1455,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %6 = load ptr, ptr %5, align 8, !alias.scope !541, !noalias !544, !nonnull !4, !align !130, !noundef !4
   %7 = load i8, ptr %6, align 1, !range !5, !noalias !546, !noundef !4
-  %8 = trunc i8 %7 to i1
+  %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %2
@@ -1684,7 +1684,7 @@ define hidden void @"_ZN10rayon_core8registry8Registry3new28_$u7b$$u7b$closure$u
   %4 = alloca { ptr, { ptr, i64 }, i8, {}, [7 x i8] }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !4, !align !130, !noundef !4
   %6 = load i8, ptr %5, align 1, !range !5, !noundef !4
-  %7 = trunc i8 %6 to i1
+  %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3

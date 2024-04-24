@@ -9480,7 +9480,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2172, %2181
   %.sroa.3.0.extract.shift = lshr i32 %storemerge, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %storemerge, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %20)
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %20)
           to label %.noexc974 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -16268,7 +16268,7 @@ _ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9
   br i1 %248, label %40, label %._crit_edge, !llvm.loop !374
 
 ._crit_edge:                                      ; preds = %240, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
-  %249 = phi ptr [ %35, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit ], [ %241, %240 ]
+  %249 = phi ptr [ %36, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit ], [ %241, %240 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   %250 = getelementptr inbounds i8, ptr %0, i64 856
   %251 = load ptr, ptr %250, align 8
@@ -19234,7 +19234,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZN7QStringD2Ev.exi
           to label %84 unwind label %.loopexit48
 
 84:                                               ; preds = %.lr.ph
-  %85 = trunc i64 %indvars.iv to i32
+  %85 = trunc nuw nsw i64 %indvars.iv to i32
   %86 = udiv i32 %85, 3
   %87 = zext nneg i32 %86 to i64
   %88 = getelementptr i8, ptr %83, i64 %indvars.iv

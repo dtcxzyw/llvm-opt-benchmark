@@ -7111,7 +7111,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   %cmp.i.i.i.i.i7.i.i = icmp ult i32 %0, %5
   br label %if.then5
 
-if.then5:                                         ; preds = %lor.rhs.i.i.i, %if.then.i.i
+if.then5:                                         ; preds = %if.then.i.i, %lor.rhs.i.i.i
   %6 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i.i.i.i7.i.i, %lor.rhs.i.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
@@ -7198,7 +7198,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %5 = load i64, ptr %_M_storage.i.i.i4.i.i, align 4
   %right_interval.sroa.0.0.extract.trunc.i.i.i = trunc i64 %5 to i32
   %right_interval.sroa.3.0.extract.shift.i.i.i = lshr i64 %5, 32
-  %right_interval.sroa.3.0.extract.trunc.i.i.i = trunc i64 %right_interval.sroa.3.0.extract.shift.i.i.i to i32
+  %right_interval.sroa.3.0.extract.trunc.i.i.i = trunc nuw i64 %right_interval.sroa.3.0.extract.shift.i.i.i to i32
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 8
   %call.i1.i.i.i.i.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i.i) #12
   tail call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i.i.i.i.i) #16
@@ -7210,7 +7210,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %agg.tmp3.sroa.0.0.copyload.i.i.i = load i64, ptr %_M_storage.i.i.i3.i.i.i, align 4
   %left.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %agg.tmp3.sroa.0.0.copyload.i.i.i to i32
   %left.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %agg.tmp3.sroa.0.0.copyload.i.i.i, 32
-  %left.sroa.4.0.extract.trunc.i.i.i.i = trunc i64 %left.sroa.4.0.extract.shift.i.i.i.i to i32
+  %left.sroa.4.0.extract.trunc.i.i.i.i = trunc nuw i64 %left.sroa.4.0.extract.shift.i.i.i.i to i32
   %cmp.i.i.i.i.i.i.i = icmp ult i32 %right_interval.sroa.3.0.extract.trunc.i.i.i, %right_interval.sroa.0.0.extract.trunc.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN5boost3icl9segmental13join_on_rightINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_SB_.exit.i, label %if.else.i.i.i.i
 
@@ -7235,7 +7235,7 @@ _ZN5boost3icl9segmental13join_on_rightINS0_12interval_setIjSt4lessNS0_15closed_i
   br label %_ZN5boost3icl9segmental9join_leftINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_.exit
 
 _ZN5boost3icl9segmental9join_leftINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_.exit: ; preds = %entry, %if.end.i, %_ZN5boost3icl9segmental13join_on_rightINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_SB_.exit.i
-  %8 = phi ptr [ %0, %entry ], [ %1, %if.end.i ], [ %call.i.i, %_ZN5boost3icl9segmental13join_on_rightINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_SB_.exit.i ]
+  %8 = phi ptr [ %1, %entry ], [ %1, %if.end.i ], [ %call.i.i, %_ZN5boost3icl9segmental13join_on_rightINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_SB_.exit.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 8
   %cmp.i.i3 = icmp eq ptr %8, %add.ptr.i.i.i.i
   br i1 %cmp.i.i3, label %_ZN5boost3icl9segmental10join_rightINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_.exit, label %if.end.i4
@@ -7258,7 +7258,7 @@ if.then8.i:                                       ; preds = %land.rhs.i
   %12 = load i64, ptr %_M_storage.i.i.i4.i.i6, align 4
   %right_interval.sroa.0.0.extract.trunc.i.i.i10 = trunc i64 %12 to i32
   %right_interval.sroa.3.0.extract.shift.i.i.i11 = lshr i64 %12, 32
-  %right_interval.sroa.3.0.extract.trunc.i.i.i12 = trunc i64 %right_interval.sroa.3.0.extract.shift.i.i.i11 to i32
+  %right_interval.sroa.3.0.extract.trunc.i.i.i12 = trunc nuw i64 %right_interval.sroa.3.0.extract.shift.i.i.i11 to i32
   %call.i1.i.i.i.i.i.i13 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %call.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #12
   tail call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i.i.i.i.i13) #16
   %_M_node_count.i.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %object, i64 40
@@ -7270,7 +7270,7 @@ if.then8.i:                                       ; preds = %land.rhs.i
   %agg.tmp3.sroa.0.0.copyload.i.i.i17 = load i64, ptr %_M_storage.i.i.i3.i.i.i16, align 4
   %left.sroa.0.0.extract.trunc.i.i.i.i18 = trunc i64 %agg.tmp3.sroa.0.0.copyload.i.i.i17 to i32
   %left.sroa.4.0.extract.shift.i.i.i.i19 = lshr i64 %agg.tmp3.sroa.0.0.copyload.i.i.i17, 32
-  %left.sroa.4.0.extract.trunc.i.i.i.i20 = trunc i64 %left.sroa.4.0.extract.shift.i.i.i.i19 to i32
+  %left.sroa.4.0.extract.trunc.i.i.i.i20 = trunc nuw i64 %left.sroa.4.0.extract.shift.i.i.i.i19 to i32
   %cmp.i.i.i.i.i.i.i21 = icmp ult i32 %right_interval.sroa.3.0.extract.trunc.i.i.i12, %right_interval.sroa.0.0.extract.trunc.i.i.i10
   br i1 %cmp.i.i.i.i.i.i.i21, label %_ZN5boost3icl9segmental12join_on_leftINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_SB_.exit.i, label %if.else.i.i.i.i22
 
@@ -7294,7 +7294,7 @@ _ZN5boost3icl9segmental12join_on_leftINS0_12interval_setIjSt4lessNS0_15closed_in
   br label %_ZN5boost3icl9segmental10join_rightINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_.exit
 
 _ZN5boost3icl9segmental10join_rightINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_.exit: ; preds = %_ZN5boost3icl9segmental9join_leftINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_.exit, %if.end.i4, %land.rhs.i, %_ZN5boost3icl9segmental12join_on_leftINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_SB_.exit.i
-  %retval.sroa.0.0.i9 = phi ptr [ %retval.sroa.0.0.copyload.i.i, %_ZN5boost3icl9segmental12join_on_leftINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_SB_.exit.i ], [ %add.ptr.i.i.i.i, %_ZN5boost3icl9segmental9join_leftINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_.exit ], [ %8, %if.end.i4 ], [ %8, %land.rhs.i ]
+  %retval.sroa.0.0.i9 = phi ptr [ %retval.sroa.0.0.copyload.i.i, %_ZN5boost3icl9segmental12join_on_leftINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_SB_.exit.i ], [ %8, %_ZN5boost3icl9segmental9join_leftINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_.exit ], [ %8, %if.end.i4 ], [ %8, %land.rhs.i ]
   ret ptr %retval.sroa.0.0.i9
 }
 
@@ -7335,7 +7335,7 @@ _ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_interva
   %agg.tmp9.sroa.0.0.copyload = load i64, ptr %_M_storage.i.i.i, align 4
   %left.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp9.sroa.0.0.copyload to i32
   %left.sroa.5.0.extract.shift.i = lshr i64 %agg.tmp9.sroa.0.0.copyload, 32
-  %left.sroa.5.0.extract.trunc.i = trunc i64 %left.sroa.5.0.extract.shift.i to i32
+  %left.sroa.5.0.extract.trunc.i = trunc nuw i64 %left.sroa.5.0.extract.shift.i to i32
   %cmp.i.i.i.i.i = icmp ult i32 %left.sroa.5.0.extract.trunc.i, %left.sroa.0.0.extract.trunc.i
   br i1 %cmp.i.i.i.i.i, label %_ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit, label %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i
 
@@ -7388,7 +7388,7 @@ _ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS
   %_M_storage.i.i.i6 = getelementptr inbounds i8, ptr %last_.coerce, i64 32
   %agg.tmp14.sroa.0.0.copyload = load i64, ptr %_M_storage.i.i.i6, align 4
   %right.sroa.3.0.extract.shift.i = lshr i64 %agg.tmp14.sroa.0.0.copyload, 32
-  %right.sroa.3.0.extract.trunc.i = trunc i64 %right.sroa.3.0.extract.shift.i to i32
+  %right.sroa.3.0.extract.trunc.i = trunc nuw i64 %right.sroa.3.0.extract.shift.i to i32
   %_upb.i.i.i.i.i.i = getelementptr inbounds i8, ptr %addend, i64 4
   %7 = load i32, ptr %_upb.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i7 = icmp ult i32 %7, %6
@@ -7438,13 +7438,13 @@ _ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0
   %retval.sroa.0.0.i17 = phi i64 [ %retval.sroa.0.0.copyload.i.i16, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i15 ], [ %retval.sroa.0.0.insert.insert.i.i.i25, %if.end4.i22 ], [ %agg.tmp14.sroa.0.0.copyload, %_ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit ], [ %agg.tmp14.sroa.0.0.copyload, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i8 ]
   %right_resid.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.i17 to i32
   %right_resid.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.i17, 32
-  %right_resid.sroa.3.0.extract.trunc = trunc i64 %right_resid.sroa.3.0.extract.shift to i32
+  %right_resid.sroa.3.0.extract.trunc = trunc nuw i64 %right_resid.sroa.3.0.extract.shift to i32
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 24
   %11 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i26 = icmp eq ptr %11, %call.i.i
   %cmp.i1.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %call.i.i5
-  %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i.i26, i1 %cmp.i1.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
+  %or.cond = select i1 %cmp.i.i.i.i.i26, i1 %cmp.i1.i.i.i.i, i1 false
+  br i1 %or.cond, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit
   %12 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -7489,7 +7489,7 @@ while.body.i.i.i.i28:                             ; preds = %while.body.i.i.i.i2
 _ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE5eraseESt23_Rb_tree_const_iteratorIS5_ES9_.exit: ; preds = %while.body.i.i.i.i28, %_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE5clearEv.exit.i.i.i.i, %if.else.i.i.i.i
   %left.sroa.0.0.extract.trunc.i29 = trunc i64 %retval.sroa.0.0.i to i32
   %left.sroa.4.0.extract.shift.i = lshr i64 %retval.sroa.0.0.i, 32
-  %left.sroa.4.0.extract.trunc.i = trunc i64 %left.sroa.4.0.extract.shift.i to i32
+  %left.sroa.4.0.extract.trunc.i = trunc nuw i64 %left.sroa.4.0.extract.shift.i to i32
   %16 = load i32, ptr %_upb.i.i.i.i.i.i, align 4
   %17 = load i32, ptr %addend, align 4
   %cmp.i.i.i.i30 = icmp ult i32 %16, %17
@@ -7516,7 +7516,7 @@ _ZN5boost3icl4hullINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_17has_sta
   %retval.sroa.0.0.i36 = phi i64 [ %retval.sroa.0.0.copyload4.i, %if.then2.i37 ], [ %retval.sroa.0.0.insert.insert.i.i.i35, %if.end3.i ], [ %retval.sroa.0.0.i, %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE5eraseESt23_Rb_tree_const_iteratorIS5_ES9_.exit ]
   %left.sroa.0.0.extract.trunc.i38 = trunc i64 %retval.sroa.0.0.i36 to i32
   %left.sroa.4.0.extract.shift.i39 = lshr i64 %retval.sroa.0.0.i36, 32
-  %left.sroa.4.0.extract.trunc.i40 = trunc i64 %left.sroa.4.0.extract.shift.i39 to i32
+  %left.sroa.4.0.extract.trunc.i40 = trunc nuw i64 %left.sroa.4.0.extract.shift.i39 to i32
   %cmp.i.i.i.i42 = icmp ult i32 %right_resid.sroa.3.0.extract.trunc, %right_resid.sroa.0.0.extract.trunc
   br i1 %cmp.i.i.i.i42, label %_ZN5boost3icl4hullINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_17has_static_boundsIT_EES7_E4typeES7_RKS7_.exit55, label %if.else.i43
 

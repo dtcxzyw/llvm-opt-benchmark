@@ -2312,7 +2312,7 @@ PyObject_TypeCheck.exit.if.then2_crit_edge:       ; preds = %PyObject_TypeCheck.
   br label %if.then2
 
 if.then2:                                         ; preds = %PyObject_TypeCheck.exit.if.then2_crit_edge, %if.end
-  %to.val.i = phi ptr [ %to.val.i.pre, %PyObject_TypeCheck.exit.if.then2_crit_edge ], [ %0, %if.end ]
+  %to.val.i = phi ptr [ %to.val.i.pre, %PyObject_TypeCheck.exit.if.then2_crit_edge ], [ %call.val, %if.end ]
   %call1.i = tail call ptr @_PyObject_GC_New(ptr noundef %to.val.i) #8
   %cmp.i20 = icmp eq ptr %call1.i, null
   br i1 %cmp.i20, label %done, label %if.end.i21

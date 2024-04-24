@@ -714,7 +714,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN117_$LT$itert
   br label %.split.i
 
 ..loopexit_crit_edge.split.us.i:                  ; preds = %33
-  store ptr %17, ptr %18, align 8, !alias.scope !224, !noalias !229
+  store ptr %25, ptr %18, align 8, !alias.scope !224, !noalias !229
   br label %.thread
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %40
@@ -9825,7 +9825,7 @@ _ZN3hir7symbols15SymbolCollector17collect_from_impl17haccaa0857009b08eE.exit: ; 
   br label %.body71
 
 448:                                              ; preds = %443
-  store ptr %433, ptr %408, align 8, !alias.scope !3160, !noalias !3165
+  store ptr %436, ptr %408, align 8, !alias.scope !3160, !noalias !3165
   %449 = icmp eq i32 %.sink9.i.ph.i.i, 0
   br i1 %449, label %.thread, label %.thread802
 

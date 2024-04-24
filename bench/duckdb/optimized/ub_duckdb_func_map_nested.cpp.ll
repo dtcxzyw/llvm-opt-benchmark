@@ -6718,7 +6718,7 @@ for.cond.cleanup111:                              ; preds = %invoke.cont129, %fo
   %values_list.sroa.0.1 = phi ptr [ null, %for.cond.cleanup22 ], [ null, %for.body19 ], [ %values_list.sroa.0.3, %invoke.cont129 ]
   %values_list.sroa.13.1 = phi ptr [ null, %for.cond.cleanup22 ], [ null, %for.body19 ], [ %values_list.sroa.13.3, %invoke.cont129 ]
   %values_list.sroa.18.1 = phi ptr [ null, %for.cond.cleanup22 ], [ null, %for.body19 ], [ %values_list.sroa.18.3, %invoke.cont129 ]
-  %index_to_map.sroa.0.1.lcssa697 = phi ptr [ %index_to_map.sroa.10.5, %for.cond.cleanup22 ], [ null, %for.body19 ], [ %index_to_map.sroa.0.5, %invoke.cont129 ]
+  %index_to_map.sroa.0.1.lcssa697 = phi ptr [ %index_to_map.sroa.0.5, %for.cond.cleanup22 ], [ null, %for.body19 ], [ %index_to_map.sroa.0.5, %invoke.cont129 ]
   %call143 = invoke noundef i64 @_ZN6duckdb10ListVector11GetListSizeERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %result)
           to label %invoke.cont142 unwind label %lpad141
 
@@ -7014,7 +7014,7 @@ invoke.contthread-pre-split.i399:                 ; preds = %for.body.i.i.i.i395
   br label %invoke.cont.i401
 
 invoke.cont.i401:                                 ; preds = %invoke.contthread-pre-split.i399, %for.cond.cleanup162, %_ZNSt6vectorIN6duckdb5ValueESaIS1_EED2Ev.exit390
-  %67 = phi ptr [ %.pr.i400, %invoke.contthread-pre-split.i399 ], [ %.pre, %for.cond.cleanup162 ], [ %65, %_ZNSt6vectorIN6duckdb5ValueESaIS1_EED2Ev.exit390 ]
+  %67 = phi ptr [ %.pr.i400, %invoke.contthread-pre-split.i399 ], [ %.pre687, %for.cond.cleanup162 ], [ %65, %_ZNSt6vectorIN6duckdb5ValueESaIS1_EED2Ev.exit390 ]
   %tobool.not.i.i.i402 = icmp eq ptr %67, null
   br i1 %tobool.not.i.i.i402, label %invoke.cont.i413.thread, label %invoke.cont.i413
 

@@ -3383,7 +3383,7 @@ define internal fastcc i32 @shmem_swapin_folio(ptr noundef %0, i64 noundef %1, p
 
 ._crit_edge:                                      ; preds = %100, %90
   %103 = phi ptr [ %62, %90 ], [ %.pre10.pre, %100 ]
-  %104 = tail call fastcc i32 @shmem_add_to_page_cache(ptr noundef %103, ptr noundef %9, i64 noundef %1, ptr noundef nonnull %82, i32 noundef %4)
+  %104 = tail call fastcc i32 @shmem_add_to_page_cache(ptr noundef %103, ptr noundef %9, i64 noundef %1, ptr noundef nonnull %84, i32 noundef %4)
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %106, label %111
 

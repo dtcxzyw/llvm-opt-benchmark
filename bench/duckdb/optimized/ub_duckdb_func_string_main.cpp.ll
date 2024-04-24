@@ -37762,7 +37762,7 @@ invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_tr
   %sub.ptr.div.i.i.i725 = phi i64 [ %sub.ptr.div.i.i.i, %for.cond.cleanup ], [ %sub.ptr.div.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ 0, %for.cond.cleanup.thread ]
   %_M_finish.i.i.i724 = phi ptr [ %_M_finish.i440, %for.cond.cleanup ], [ %_M_finish.i440, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ %_M_finish.i.i.i718, %for.cond.cleanup.thread ]
   %50 = phi ptr [ %.pre713, %for.cond.cleanup ], [ %.pre713, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup.thread ]
-  %51 = phi ptr [ %.pre713, %for.cond.cleanup ], [ %.pre714, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup.thread ]
+  %51 = phi ptr [ %.pre714, %for.cond.cleanup ], [ %.pre714, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup.thread ]
   %cond.i.i.i.i.i = phi ptr [ null, %for.cond.cleanup ], [ %call5.i.i.i.i4.i20.i.i395, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup.thread ]
   store ptr %cond.i.i.i.i.i, ptr %agg.tmp202, align 8, !tbaa !700
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp202, i64 8
@@ -58794,7 +58794,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN6duc
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %cleanup54, %if.then50
-  %69 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre220.pre, %cleanup54 ], [ %53, %if.then50 ]
+  %69 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre221.pre, %cleanup54 ], [ %53, %if.then50 ]
   %tobool.not.i.i.i = icmp eq ptr %69, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6duckdb11LikeSegmentESaIS1_EED2Ev.exit, label %if.then.i.i.i174
 

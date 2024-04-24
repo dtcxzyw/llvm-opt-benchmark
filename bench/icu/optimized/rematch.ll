@@ -266,7 +266,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -325,7 +325,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -1621,7 +1621,7 @@ land.lhs.true65:                                  ; preds = %land.lhs.true61
   br i1 %cmp68, label %if.then69, label %if.else71
 
 if.then69:                                        ; preds = %land.lhs.true65
-  %conv70 = trunc i64 %sub59 to i32
+  %conv70 = trunc nuw nsw i64 %sub59 to i32
   %chunkOffset = getelementptr inbounds i8, ptr %replacement, i64 40
   store i32 %conv70, ptr %chunkOffset, align 8
   br label %do.end
@@ -1728,7 +1728,7 @@ if.then120:                                       ; preds = %if.then117
   br i1 %cmp121, label %if.then122, label %if.else127
 
 if.then122:                                       ; preds = %if.then120
-  %conv123 = trunc i32 %call118 to i16
+  %conv123 = trunc nuw i32 %call118 to i16
   store i16 %conv123, ptr %c16, align 2
   %call124 = call i32 @utext_replace_75(ptr noundef %dest, i64 noundef %destLen.1205, i64 noundef %destLen.1205, ptr noundef nonnull %c16, i32 noundef 1, ptr noundef nonnull %status)
   %conv125 = sext i32 %call124 to i64
@@ -1823,7 +1823,7 @@ cond.end196:                                      ; preds = %cond.false194, %con
   br i1 %cmp198, label %if.then199, label %if.else205
 
 if.then199:                                       ; preds = %cond.end196
-  %conv201 = trunc i32 %cond111189 to i16
+  %conv201 = trunc nuw i32 %cond111189 to i16
   store i16 %conv201, ptr %c16200, align 2
   %call202 = call i32 @utext_replace_75(ptr noundef %dest, i64 noundef %destLen.1205, i64 noundef %destLen.1205, ptr noundef nonnull %c16200, i32 noundef 1, ptr noundef nonnull %status)
   %conv203 = sext i32 %call202 to i64
@@ -1854,7 +1854,7 @@ if.then227:                                       ; preds = %for.body
   br i1 %cmp228, label %if.then229, label %if.then247
 
 if.then229:                                       ; preds = %if.then227
-  %conv231 = trunc i32 %c.0204 to i16
+  %conv231 = trunc nuw i32 %c.0204 to i16
   store i16 %conv231, ptr %c16230, align 2
   %call232 = call i32 @utext_replace_75(ptr noundef %dest, i64 noundef %destLen.1205, i64 noundef %destLen.1205, ptr noundef nonnull %c16230, i32 noundef 1, ptr noundef nonnull %status)
   %conv233 = sext i32 %call232 to i64
@@ -2804,7 +2804,7 @@ land.lhs.true37:                                  ; preds = %land.lhs.true32
   br i1 %cmp40, label %if.then41, label %if.else
 
 if.then41:                                        ; preds = %land.lhs.true37
-  %conv42 = trunc i64 %sub to i32
+  %conv42 = trunc nuw nsw i64 %sub to i32
   %chunkOffset = getelementptr inbounds i8, ptr %2, i64 40
   store i32 %conv42, ptr %chunkOffset, align 8
   br label %do.end
@@ -2973,7 +2973,7 @@ land.lhs.true137:                                 ; preds = %land.lhs.true132
   br i1 %cmp142, label %if.then143, label %if.else147
 
 if.then143:                                       ; preds = %land.lhs.true137
-  %conv144 = trunc i64 %sub130 to i32
+  %conv144 = trunc nuw nsw i64 %sub130 to i32
   %chunkOffset146 = getelementptr inbounds i8, ptr %37, i64 40
   store i32 %conv144, ptr %chunkOffset146, align 8
   br label %do.end150
@@ -3095,7 +3095,7 @@ land.lhs.true226:                                 ; preds = %land.lhs.true221
   br i1 %cmp231, label %if.then232, label %if.else236
 
 if.then232:                                       ; preds = %land.lhs.true226
-  %conv233 = trunc i64 %sub219 to i32
+  %conv233 = trunc nuw nsw i64 %sub219 to i32
   %chunkOffset235 = getelementptr inbounds i8, ptr %28, i64 40
   store i32 %conv233, ptr %chunkOffset235, align 8
   br label %do.end239
@@ -3230,7 +3230,7 @@ land.lhs.true321:                                 ; preds = %land.lhs.true316
   br i1 %cmp326, label %if.then327, label %if.else331
 
 if.then327:                                       ; preds = %land.lhs.true321
-  %conv328 = trunc i64 %sub314 to i32
+  %conv328 = trunc nuw nsw i64 %sub314 to i32
   %chunkOffset330 = getelementptr inbounds i8, ptr %81, i64 40
   store i32 %conv328, ptr %chunkOffset330, align 8
   br label %if.end335
@@ -3292,7 +3292,7 @@ land.lhs.true358:                                 ; preds = %land.lhs.true353
   br i1 %cmp363, label %if.then364, label %if.else368
 
 if.then364:                                       ; preds = %land.lhs.true358
-  %conv365 = trunc i64 %sub351 to i32
+  %conv365 = trunc nuw nsw i64 %sub351 to i32
   %chunkOffset367 = getelementptr inbounds i8, ptr %28, i64 40
   store i32 %conv365, ptr %chunkOffset367, align 8
   br label %do.end371
@@ -3401,7 +3401,7 @@ land.lhs.true443:                                 ; preds = %land.lhs.true438
   br i1 %cmp448, label %if.then449, label %if.else453
 
 if.then449:                                       ; preds = %land.lhs.true443
-  %conv450 = trunc i64 %sub436 to i32
+  %conv450 = trunc nuw nsw i64 %sub436 to i32
   %chunkOffset452 = getelementptr inbounds i8, ptr %107, i64 40
   store i32 %conv450, ptr %chunkOffset452, align 8
   br label %if.end457
@@ -3479,7 +3479,7 @@ land.lhs.true489:                                 ; preds = %land.lhs.true484
   br i1 %cmp494, label %if.then495, label %if.else499
 
 if.then495:                                       ; preds = %land.lhs.true489
-  %conv496 = trunc i64 %sub482 to i32
+  %conv496 = trunc nuw nsw i64 %sub482 to i32
   %chunkOffset498 = getelementptr inbounds i8, ptr %117, i64 40
   store i32 %conv496, ptr %chunkOffset498, align 8
   br label %do.end502
@@ -3565,7 +3565,7 @@ land.lhs.true563:                                 ; preds = %land.lhs.true558
   br i1 %cmp568, label %if.then569, label %if.else573
 
 if.then569:                                       ; preds = %land.lhs.true563
-  %conv570 = trunc i64 %sub556 to i32
+  %conv570 = trunc nuw nsw i64 %sub556 to i32
   %chunkOffset572 = getelementptr inbounds i8, ptr %28, i64 40
   store i32 %conv570, ptr %chunkOffset572, align 8
   br label %do.end576
@@ -3629,7 +3629,7 @@ land.lhs.true614:                                 ; preds = %land.lhs.true609
   br i1 %cmp619, label %if.then620, label %if.else624
 
 if.then620:                                       ; preds = %land.lhs.true614
-  %conv621 = trunc i64 %sub607 to i32
+  %conv621 = trunc nuw nsw i64 %sub607 to i32
   %chunkOffset623 = getelementptr inbounds i8, ptr %145, i64 40
   store i32 %conv621, ptr %chunkOffset623, align 8
   br label %if.end628
@@ -3700,7 +3700,7 @@ land.lhs.true654:                                 ; preds = %land.lhs.true649
   br i1 %cmp659, label %if.then660, label %if.else664
 
 if.then660:                                       ; preds = %land.lhs.true654
-  %conv661 = trunc i64 %sub647 to i32
+  %conv661 = trunc nuw nsw i64 %sub647 to i32
   %chunkOffset663 = getelementptr inbounds i8, ptr %154, i64 40
   store i32 %conv661, ptr %chunkOffset663, align 8
   br label %if.end668
@@ -3935,7 +3935,7 @@ land.lhs.true833:                                 ; preds = %land.lhs.true828
   br i1 %cmp838, label %if.then839, label %if.else843
 
 if.then839:                                       ; preds = %land.lhs.true833
-  %conv840 = trunc i64 %sub826 to i32
+  %conv840 = trunc nuw nsw i64 %sub826 to i32
   %chunkOffset842 = getelementptr inbounds i8, ptr %192, i64 40
   store i32 %conv840, ptr %chunkOffset842, align 8
   br label %if.end847
@@ -4953,7 +4953,7 @@ land.lhs.true33:                                  ; preds = %land.lhs.true
   br i1 %cmp37, label %if.then38, label %if.else
 
 if.then38:                                        ; preds = %land.lhs.true33
-  %conv39 = trunc i64 %sub to i32
+  %conv39 = trunc nuw nsw i64 %sub to i32
   %chunkOffset = getelementptr inbounds i8, ptr %37, i64 40
   store i32 %conv39, ptr %chunkOffset, align 8
   br label %do.end
@@ -5079,7 +5079,7 @@ land.lhs.true113:                                 ; preds = %land.lhs.true108
   br i1 %cmp118, label %if.then119, label %if.else123
 
 if.then119:                                       ; preds = %land.lhs.true113
-  %conv120 = trunc i64 %sub106 to i32
+  %conv120 = trunc nuw nsw i64 %sub106 to i32
   %chunkOffset122 = getelementptr inbounds i8, ptr %60, i64 40
   store i32 %conv120, ptr %chunkOffset122, align 8
   br label %while.cond.preheader
@@ -5325,7 +5325,7 @@ land.lhs.true286:                                 ; preds = %land.lhs.true281
   br i1 %cmp291, label %if.then292, label %if.else296
 
 if.then292:                                       ; preds = %land.lhs.true286
-  %conv293 = trunc i64 %sub279 to i32
+  %conv293 = trunc nuw nsw i64 %sub279 to i32
   %chunkOffset295 = getelementptr inbounds i8, ptr %98, i64 40
   store i32 %conv293, ptr %chunkOffset295, align 8
   br label %do.end300
@@ -5598,7 +5598,7 @@ land.lhs.true503:                                 ; preds = %land.lhs.true498
   br i1 %cmp508, label %if.then509, label %if.else513
 
 if.then509:                                       ; preds = %land.lhs.true503
-  %conv510 = trunc i64 %sub496 to i32
+  %conv510 = trunc nuw nsw i64 %sub496 to i32
   %chunkOffset512 = getelementptr inbounds i8, ptr %150, i64 40
   store i32 %conv510, ptr %chunkOffset512, align 8
   br label %do.end517
@@ -5728,7 +5728,7 @@ land.lhs.true599:                                 ; preds = %land.lhs.true594
   br i1 %cmp604, label %if.then605, label %if.else609
 
 if.then605:                                       ; preds = %land.lhs.true599
-  %conv606 = trunc i64 %sub592 to i32
+  %conv606 = trunc nuw nsw i64 %sub592 to i32
   %chunkOffset608 = getelementptr inbounds i8, ptr %174, i64 40
   store i32 %conv606, ptr %chunkOffset608, align 8
   br label %do.end613
@@ -5873,7 +5873,7 @@ land.lhs.true705:                                 ; preds = %land.lhs.true700
   br i1 %cmp710, label %if.then711, label %if.else715
 
 if.then711:                                       ; preds = %land.lhs.true705
-  %conv712 = trunc i64 %sub698 to i32
+  %conv712 = trunc nuw nsw i64 %sub698 to i32
   %chunkOffset714 = getelementptr inbounds i8, ptr %199, i64 40
   store i32 %conv712, ptr %chunkOffset714, align 8
   br label %do.end719
@@ -5983,7 +5983,7 @@ land.lhs.true780:                                 ; preds = %land.lhs.true775
   br i1 %cmp785, label %if.then786, label %if.else790
 
 if.then786:                                       ; preds = %land.lhs.true780
-  %conv787 = trunc i64 %sub773 to i32
+  %conv787 = trunc nuw nsw i64 %sub773 to i32
   %chunkOffset789 = getelementptr inbounds i8, ptr %221, i64 40
   store i32 %conv787, ptr %chunkOffset789, align 8
   br label %do.end794
@@ -6081,7 +6081,7 @@ land.lhs.true852:                                 ; preds = %land.lhs.true847
   br i1 %cmp857, label %if.then858, label %if.else862
 
 if.then858:                                       ; preds = %land.lhs.true852
-  %conv859 = trunc i64 %sub845 to i32
+  %conv859 = trunc nuw nsw i64 %sub845 to i32
   %chunkOffset861 = getelementptr inbounds i8, ptr %241, i64 40
   store i32 %conv859, ptr %chunkOffset861, align 8
   br label %do.end866
@@ -6279,7 +6279,7 @@ land.lhs.true954:                                 ; preds = %land.lhs.true949
   br i1 %cmp959, label %if.then960, label %if.else964
 
 if.then960:                                       ; preds = %land.lhs.true954
-  %conv961 = trunc i64 %sub947 to i32
+  %conv961 = trunc nuw nsw i64 %sub947 to i32
   %chunkOffset963 = getelementptr inbounds i8, ptr %280, i64 40
   store i32 %conv961, ptr %chunkOffset963, align 8
   br label %do.end968
@@ -6452,7 +6452,7 @@ land.lhs.true1075:                                ; preds = %land.lhs.true1070
   br i1 %cmp1080, label %if.then1081, label %if.else1085
 
 if.then1081:                                      ; preds = %land.lhs.true1075
-  %conv1082 = trunc i64 %sub1068 to i32
+  %conv1082 = trunc nuw nsw i64 %sub1068 to i32
   %chunkOffset1084 = getelementptr inbounds i8, ptr %315, i64 40
   store i32 %conv1082, ptr %chunkOffset1084, align 8
   br label %do.end1089
@@ -6594,7 +6594,7 @@ land.lhs.true1182:                                ; preds = %land.lhs.true1177
   br i1 %cmp1187, label %if.then1188, label %if.else1192
 
 if.then1188:                                      ; preds = %land.lhs.true1182
-  %conv1189 = trunc i64 %sub1175 to i32
+  %conv1189 = trunc nuw nsw i64 %sub1175 to i32
   %chunkOffset1191 = getelementptr inbounds i8, ptr %343, i64 40
   store i32 %conv1189, ptr %chunkOffset1191, align 8
   br label %do.end1196
@@ -6754,7 +6754,7 @@ land.lhs.true1286:                                ; preds = %land.lhs.true1281
   br i1 %cmp1291, label %if.then1292, label %if.else1296
 
 if.then1292:                                      ; preds = %land.lhs.true1286
-  %conv1293 = trunc i64 %sub1279 to i32
+  %conv1293 = trunc nuw nsw i64 %sub1279 to i32
   %chunkOffset1295 = getelementptr inbounds i8, ptr %372, i64 40
   store i32 %conv1293, ptr %chunkOffset1295, align 8
   br label %do.end1300
@@ -6992,7 +6992,7 @@ if.end1408:                                       ; preds = %sw.bb1399
   %and1410 = and i32 %conv, 8388608
   %cmp1411.not = icmp eq i32 %and1410, 0
   %and1410.lobit = lshr exact i32 %and1410, 23
-  %conv1412 = trunc i32 %and1410.lobit to i8
+  %conv1412 = trunc nuw nsw i32 %and1410.lobit to i8
   %and1413 = and i64 %30, 8388607
   %420 = load ptr, ptr %fInputText3645, align 8
   %chunkNativeStart1418 = getelementptr inbounds i8, ptr %420, i64 32
@@ -7017,7 +7017,7 @@ land.lhs.true1426:                                ; preds = %land.lhs.true1421
   br i1 %cmp1431, label %if.then1432, label %if.else1436
 
 if.then1432:                                      ; preds = %land.lhs.true1426
-  %conv1433 = trunc i64 %sub1419 to i32
+  %conv1433 = trunc nuw nsw i64 %sub1419 to i32
   %chunkOffset1435 = getelementptr inbounds i8, ptr %420, i64 40
   store i32 %conv1433, ptr %chunkOffset1435, align 8
   br label %do.end1440
@@ -7183,7 +7183,7 @@ land.lhs.true1541:                                ; preds = %land.lhs.true1536
   br i1 %cmp1546, label %if.then1547, label %if.else1551
 
 if.then1547:                                      ; preds = %land.lhs.true1541
-  %conv1548 = trunc i64 %sub1534 to i32
+  %conv1548 = trunc nuw nsw i64 %sub1534 to i32
   %chunkOffset1550 = getelementptr inbounds i8, ptr %449, i64 40
   store i32 %conv1548, ptr %chunkOffset1550, align 8
   br label %do.end1555
@@ -7372,7 +7372,7 @@ land.lhs.true1674:                                ; preds = %land.lhs.true1669
   br i1 %cmp1679, label %if.then1680, label %if.else1684
 
 if.then1680:                                      ; preds = %land.lhs.true1674
-  %conv1681 = trunc i64 %sub1667 to i32
+  %conv1681 = trunc nuw nsw i64 %sub1667 to i32
   %chunkOffset1683 = getelementptr inbounds i8, ptr %484, i64 40
   store i32 %conv1681, ptr %chunkOffset1683, align 8
   br label %do.end1688
@@ -7561,7 +7561,7 @@ land.lhs.true1804:                                ; preds = %land.lhs.true1799
   br i1 %cmp1809, label %if.then1810, label %if.else1814
 
 if.then1810:                                      ; preds = %land.lhs.true1804
-  %conv1811 = trunc i64 %sub1797 to i32
+  %conv1811 = trunc nuw nsw i64 %sub1797 to i32
   %chunkOffset1813 = getelementptr inbounds i8, ptr %520, i64 40
   store i32 %conv1811, ptr %chunkOffset1813, align 8
   br label %do.end1818
@@ -7710,7 +7710,7 @@ land.lhs.true1898:                                ; preds = %land.lhs.true1893
   br i1 %cmp1903, label %if.then1904, label %if.else1908
 
 if.then1904:                                      ; preds = %land.lhs.true1898
-  %conv1905 = trunc i64 %sub1891 to i32
+  %conv1905 = trunc nuw nsw i64 %sub1891 to i32
   %chunkOffset1907 = getelementptr inbounds i8, ptr %547, i64 40
   store i32 %conv1905, ptr %chunkOffset1907, align 8
   br label %do.end1912
@@ -7917,7 +7917,7 @@ land.lhs.true2071:                                ; preds = %land.lhs.true2066
   br i1 %cmp2076, label %if.then2077, label %if.else2081
 
 if.then2077:                                      ; preds = %land.lhs.true2071
-  %conv2078 = trunc i64 %sub2064 to i32
+  %conv2078 = trunc nuw nsw i64 %sub2064 to i32
   %chunkOffset2080 = getelementptr inbounds i8, ptr %587, i64 40
   store i32 %conv2078, ptr %chunkOffset2080, align 8
   br label %do.end2085
@@ -8394,7 +8394,7 @@ land.lhs.true2427:                                ; preds = %land.lhs.true2422
   br i1 %cmp2432, label %if.then2433, label %if.else2437
 
 if.then2433:                                      ; preds = %land.lhs.true2427
-  %conv2434 = trunc i64 %sub2420 to i32
+  %conv2434 = trunc nuw nsw i64 %sub2420 to i32
   %chunkOffset2436 = getelementptr inbounds i8, ptr %660, i64 40
   store i32 %conv2434, ptr %chunkOffset2436, align 8
   br label %do.body2441
@@ -8428,7 +8428,7 @@ land.lhs.true2453:                                ; preds = %land.lhs.true2448
   br i1 %cmp2458, label %if.then2459, label %if.else2463
 
 if.then2459:                                      ; preds = %land.lhs.true2453
-  %conv2460 = trunc i64 %sub2446 to i32
+  %conv2460 = trunc nuw nsw i64 %sub2446 to i32
   %chunkOffset2462 = getelementptr inbounds i8, ptr %666, i64 40
   store i32 %conv2460, ptr %chunkOffset2462, align 8
   br label %for.cond2469.preheader
@@ -8849,7 +8849,7 @@ land.lhs.true2729:                                ; preds = %land.lhs.true2724
   br i1 %cmp2734, label %if.then2735, label %if.else2739
 
 if.then2735:                                      ; preds = %land.lhs.true2729
-  %conv2736 = trunc i64 %sub2722 to i32
+  %conv2736 = trunc nuw nsw i64 %sub2722 to i32
   %chunkOffset2738 = getelementptr inbounds i8, ptr %750, i64 40
   store i32 %conv2736, ptr %chunkOffset2738, align 8
   br label %do.end2743
@@ -8976,7 +8976,7 @@ land.lhs.true2828:                                ; preds = %land.lhs.true2823
   br i1 %cmp2833, label %if.then2834, label %if.else2838
 
 if.then2834:                                      ; preds = %land.lhs.true2828
-  %conv2835 = trunc i64 %sub2821 to i32
+  %conv2835 = trunc nuw nsw i64 %sub2821 to i32
   %chunkOffset2837 = getelementptr inbounds i8, ptr %773, i64 40
   store i32 %conv2835, ptr %chunkOffset2837, align 8
   br label %do.end2842
@@ -9237,7 +9237,7 @@ land.lhs.true3010:                                ; preds = %land.lhs.true3005
   br i1 %cmp3015, label %if.then3016, label %if.else3020
 
 if.then3016:                                      ; preds = %land.lhs.true3010
-  %conv3017 = trunc i64 %sub3003 to i32
+  %conv3017 = trunc nuw nsw i64 %sub3003 to i32
   %chunkOffset3019 = getelementptr inbounds i8, ptr %824, i64 40
   store i32 %conv3017, ptr %chunkOffset3019, align 8
   br label %do.end3024
@@ -9301,7 +9301,7 @@ land.lhs.true3062:                                ; preds = %land.lhs.true3057
   br i1 %cmp3067, label %if.then3068, label %if.else3072
 
 if.then3068:                                      ; preds = %land.lhs.true3062
-  %conv3069 = trunc i64 %sub3055 to i32
+  %conv3069 = trunc nuw nsw i64 %sub3055 to i32
   %chunkOffset3071 = getelementptr inbounds i8, ptr %816, i64 40
   store i32 %conv3069, ptr %chunkOffset3071, align 8
   br label %do.end3076
@@ -9509,7 +9509,7 @@ land.lhs.true3216:                                ; preds = %land.lhs.true3211
   br i1 %cmp3221, label %if.then3222, label %if.else3226
 
 if.then3222:                                      ; preds = %land.lhs.true3216
-  %conv3223 = trunc i64 %sub3209 to i32
+  %conv3223 = trunc nuw nsw i64 %sub3209 to i32
   %chunkOffset3225 = getelementptr inbounds i8, ptr %885, i64 40
   store i32 %conv3223, ptr %chunkOffset3225, align 8
   br label %do.end3230
@@ -9574,7 +9574,7 @@ land.lhs.true3268:                                ; preds = %land.lhs.true3263
   br i1 %cmp3273, label %if.then3274, label %if.else3278
 
 if.then3274:                                      ; preds = %land.lhs.true3268
-  %conv3275 = trunc i64 %sub3261 to i32
+  %conv3275 = trunc nuw nsw i64 %sub3261 to i32
   %chunkOffset3277 = getelementptr inbounds i8, ptr %896, i64 40
   store i32 %conv3275, ptr %chunkOffset3277, align 8
   br label %do.end3282
@@ -9755,7 +9755,7 @@ land.lhs.true3404:                                ; preds = %land.lhs.true3399
   br i1 %cmp3409, label %if.then3410, label %if.else3414
 
 if.then3410:                                      ; preds = %land.lhs.true3404
-  %conv3411 = trunc i64 %sub3397 to i32
+  %conv3411 = trunc nuw nsw i64 %sub3397 to i32
   %chunkOffset3413 = getelementptr inbounds i8, ptr %941, i64 40
   store i32 %conv3411, ptr %chunkOffset3413, align 8
   br label %do.end3418
@@ -9917,7 +9917,7 @@ land.lhs.true3528:                                ; preds = %land.lhs.true3523
   br i1 %cmp3533, label %if.then3534, label %if.else3538
 
 if.then3534:                                      ; preds = %land.lhs.true3528
-  %conv3535 = trunc i64 %sub3521 to i32
+  %conv3535 = trunc nuw nsw i64 %sub3521 to i32
   %chunkOffset3537 = getelementptr inbounds i8, ptr %967, i64 40
   store i32 %conv3535, ptr %chunkOffset3537, align 8
   br label %do.end3542
@@ -10086,7 +10086,7 @@ land.lhs.true3654:                                ; preds = %land.lhs.true3649
   br i1 %cmp3659, label %if.then3660, label %if.else3664
 
 if.then3660:                                      ; preds = %land.lhs.true3654
-  %conv3661 = trunc i64 %sub3647 to i32
+  %conv3661 = trunc nuw nsw i64 %sub3647 to i32
   %chunkOffset3663 = getelementptr inbounds i8, ptr %993, i64 40
   store i32 %conv3661, ptr %chunkOffset3663, align 8
   br label %do.end3669
@@ -11901,7 +11901,7 @@ if.end733:                                        ; preds = %sw.bb724
   %and735 = and i32 %conv19, 8388608
   %cmp736.not = icmp eq i32 %and735, 0
   %and735.lobit = lshr exact i32 %and735, 23
-  %conv737 = trunc i32 %and735.lobit to i8
+  %conv737 = trunc nuw nsw i32 %and735.lobit to i8
   %and738 = and i64 %32, 8388607
   %inc742 = add nsw i64 %239, 1
   store i64 %inc742, ptr %fp.0, align 8
@@ -14370,7 +14370,7 @@ land.lhs.true43:                                  ; preds = %land.lhs.true
   br i1 %cmp46, label %if.then47, label %if.else49
 
 if.then47:                                        ; preds = %land.lhs.true43
-  %conv48 = trunc i64 %sub39 to i32
+  %conv48 = trunc nuw nsw i64 %sub39 to i32
   %chunkOffset = getelementptr inbounds i8, ptr %call36, i64 40
   store i32 %conv48, ptr %chunkOffset, align 8
   br label %return
@@ -16893,7 +16893,7 @@ _ZN6icu_75L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit: ; preds = %_Z
   br i1 %or.cond, label %if.end157, label %for.end.loopexit, !llvm.loop !44
 
 for.end.loopexit:                                 ; preds = %_ZN6icu_75L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit
-  %77 = trunc i64 %indvars.iv.next292 to i32
+  %77 = trunc nsw i64 %indvars.iv.next292 to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end151
@@ -17512,7 +17512,7 @@ land.lhs.true5:                                   ; preds = %land.lhs.true
   br i1 %cmp8, label %if.then9, label %if.else12
 
 if.then9:                                         ; preds = %land.lhs.true5
-  %conv10 = trunc i64 %sub to i32
+  %conv10 = trunc nuw nsw i64 %sub to i32
   %chunkOffset = getelementptr inbounds i8, ptr %1, i64 40
   store i32 %conv10, ptr %chunkOffset, align 8
   br label %do.end

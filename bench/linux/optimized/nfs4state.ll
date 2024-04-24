@@ -707,7 +707,7 @@ define dso_local ptr @nfs4_get_state_owner(ptr noundef %0, ptr noundef %1, i32 n
   br label %.thread22
 
 .thread22:                                        ; preds = %42, %53, %.thread23, %120, %109, %31
-  %124 = phi ptr [ %18, %31 ], [ %89, %120 ], [ %46, %109 ], [ %46, %.thread23 ], [ null, %53 ], [ null, %42 ]
+  %124 = phi ptr [ %18, %31 ], [ %89, %120 ], [ %89, %109 ], [ %46, %.thread23 ], [ null, %53 ], [ null, %42 ]
   %125 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
   store ptr %4, ptr %4, align 8

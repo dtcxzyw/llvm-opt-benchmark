@@ -319,7 +319,7 @@ lor.rhs.i:                                        ; preds = %_ZNSt3mapImSt10uniq
   br i1 %cmp.i3.i, label %if.then.i, label %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEEixERS9_.exit
 
 if.then.i:                                        ; preds = %if.end.thread, %lor.rhs.i, %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i
-  %__y.addr.0.lcssa.i.i.i10.i = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %add.ptr.i.i.i, %if.end.thread ]
+  %__y.addr.0.lcssa.i.i.i10.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %add.ptr.i.i.i, %if.end.thread ]
   store ptr %id.addr, ptr %ref.tmp9.i, align 8
   %call12.i = call ptr @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %sample_records_, ptr %__y.addr.0.lcssa.i.i.i10.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
   %.pre = load i64, ptr %id.addr, align 8, !noalias !7
@@ -1126,11 +1126,11 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %name = getelementptr inbounds i8, ptr %histogram_data_ptr, i64 80
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #19
-  %call.i48 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  %call.i49 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i48, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i49, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -1163,33 +1163,33 @@ invoke.cont5:                                     ; preds = %invoke.cont
 invoke.cont7:                                     ; preds = %invoke.cont5
   %8 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
   %9 = inttoptr i64 %8 to ptr
-  %tobool.not.i.i49 = icmp eq i64 %8, 0
-  br i1 %tobool.not.i.i49, label %if.then.i.i56, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i50
+  %tobool.not.i.i50 = icmp eq i64 %8, 0
+  br i1 %tobool.not.i.i50, label %if.then.i.i57, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i51
 
-if.then.i.i56:                                    ; preds = %invoke.cont7
-  %.b3.i.i57 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b3.i.i57, label %return, label %if.then2.i.i58
+if.then.i.i57:                                    ; preds = %invoke.cont7
+  %.b3.i.i58 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  br i1 %.b3.i.i58, label %return, label %if.then2.i.i59
 
-if.then2.i.i58:                                   ; preds = %if.then.i.i56
+if.then2.i.i59:                                   ; preds = %if.then.i.i57
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  %call5.i.i5960 = invoke noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
-          to label %call5.i.i59.noexc unwind label %lpad6
+  %call5.i.i6061 = invoke noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
+          to label %call5.i.i60.noexc unwind label %lpad6
 
-call5.i.i59.noexc:                                ; preds = %if.then2.i.i58
-  %10 = ptrtoint ptr %call5.i.i5960 to i64
+call5.i.i60.noexc:                                ; preds = %if.then2.i.i59
+  %10 = ptrtoint ptr %call5.i.i6061 to i64
   store atomic volatile i64 %10, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
-  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i50
+  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i51
 
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i50: ; preds = %call5.i.i59.noexc, %invoke.cont7
-  %histogram_pointer.0.i.i51 = phi ptr [ %9, %invoke.cont7 ], [ %call5.i.i5960, %call5.i.i59.noexc ]
-  %tobool.not.i52 = icmp eq ptr %histogram_pointer.0.i.i51, null
-  br i1 %tobool.not.i52, label %return, label %if.then.i53
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i51: ; preds = %call5.i.i60.noexc, %invoke.cont7
+  %histogram_pointer.0.i.i52 = phi ptr [ %9, %invoke.cont7 ], [ %call5.i.i6061, %call5.i.i60.noexc ]
+  %tobool.not.i53 = icmp eq ptr %histogram_pointer.0.i.i52, null
+  br i1 %tobool.not.i53, label %return, label %if.then.i54
 
-if.then.i53:                                      ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i50
-  %vtable.i54 = load ptr, ptr %histogram_pointer.0.i.i51, align 8
-  %vfn.i55 = getelementptr inbounds i8, ptr %vtable.i54, i64 40
-  %11 = load ptr, ptr %vfn.i55, align 8
-  invoke void %11(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i.i51, i32 noundef 0)
+if.then.i54:                                      ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i51
+  %vtable.i55 = load ptr, ptr %histogram_pointer.0.i.i52, align 8
+  %vfn.i56 = getelementptr inbounds i8, ptr %vtable.i55, i64 40
+  %11 = load ptr, ptr %vfn.i56, align 8
+  invoke void %11(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i.i52, i32 noundef 0)
           to label %return unwind label %lpad6
 
 lpad:                                             ; preds = %call.i.noexc, %if.then2
@@ -1208,7 +1208,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #19
   br label %common.resume
 
-lpad6:                                            ; preds = %if.then.i53, %if.then2.i.i58, %invoke.cont5
+lpad6:                                            ; preds = %if.then.i54, %if.then2.i.i59, %invoke.cont5
   %14 = landingpad { ptr, i32 }
           cleanup
   %15 = load ptr, ptr %agg.result, align 8
@@ -1244,12 +1244,12 @@ if.end10:                                         ; preds = %if.end
   %histogram_data.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %histogram_data_ptr, i64 32
   %memory_allocator_ = getelementptr inbounds i8, ptr %this, i64 8
   %17 = load ptr, ptr %memory_allocator_, align 8
-  %call.i.i63 = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %17, i32 noundef %histogram_data.sroa.16.0.copyload, i32 noundef -1125506469, i32 noundef 4)
+  %call.i.i64 = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %17, i32 noundef %histogram_data.sroa.16.0.copyload, i32 noundef -1125506469, i32 noundef 4)
   %add = add i32 %histogram_data.sroa.7.0.copyload, 1
   %conv = zext i32 %add to i64
   %18 = load ptr, ptr %memory_allocator_, align 8
   %call16 = tail call noundef i64 @_ZNK4base25PersistentMemoryAllocator12GetAllocSizeEj(ptr noundef nonnull align 8 dereferenceable(48) %18, i32 noundef %histogram_data.sroa.16.0.copyload)
-  %tobool17 = icmp eq ptr %call.i.i63, null
+  %tobool17 = icmp eq ptr %call.i.i64, null
   %19 = add i32 %histogram_data.sroa.7.0.copyload, -1073741823
   %20 = icmp ult i32 %19, -1073741821
   %or.cond1 = select i1 %tobool17, i1 true, i1 %20
@@ -1261,33 +1261,33 @@ if.end10:                                         ; preds = %if.end
 if.then25:                                        ; preds = %if.end10
   %21 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
   %22 = inttoptr i64 %21 to ptr
-  %tobool.not.i.i64 = icmp eq i64 %21, 0
-  br i1 %tobool.not.i.i64, label %if.then.i.i71, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i65
+  %tobool.not.i.i65 = icmp eq i64 %21, 0
+  br i1 %tobool.not.i.i65, label %if.then.i.i72, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i66
 
-if.then.i.i71:                                    ; preds = %if.then25
-  %.b3.i.i72 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b3.i.i72, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit75, label %if.then2.i.i73
+if.then.i.i72:                                    ; preds = %if.then25
+  %.b3.i.i73 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  br i1 %.b3.i.i73, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit76, label %if.then2.i.i74
 
-if.then2.i.i73:                                   ; preds = %if.then.i.i71
+if.then2.i.i74:                                   ; preds = %if.then.i.i72
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  %call5.i.i74 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
-  %23 = ptrtoint ptr %call5.i.i74 to i64
+  %call5.i.i75 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
+  %23 = ptrtoint ptr %call5.i.i75 to i64
   store atomic volatile i64 %23, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
-  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i65
+  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i66
 
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i65: ; preds = %if.then2.i.i73, %if.then25
-  %histogram_pointer.0.i.i66 = phi ptr [ %22, %if.then25 ], [ %call5.i.i74, %if.then2.i.i73 ]
-  %tobool.not.i67 = icmp eq ptr %histogram_pointer.0.i.i66, null
-  br i1 %tobool.not.i67, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit75, label %if.then.i68
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i66: ; preds = %if.then2.i.i74, %if.then25
+  %histogram_pointer.0.i.i67 = phi ptr [ %22, %if.then25 ], [ %call5.i.i75, %if.then2.i.i74 ]
+  %tobool.not.i68 = icmp eq ptr %histogram_pointer.0.i.i67, null
+  br i1 %tobool.not.i68, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit76, label %if.then.i69
 
-if.then.i68:                                      ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i65
-  %vtable.i69 = load ptr, ptr %histogram_pointer.0.i.i66, align 8
-  %vfn.i70 = getelementptr inbounds i8, ptr %vtable.i69, i64 40
-  %24 = load ptr, ptr %vfn.i70, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i.i66, i32 noundef 3)
-  br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit75
+if.then.i69:                                      ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i66
+  %vtable.i70 = load ptr, ptr %histogram_pointer.0.i.i67, align 8
+  %vfn.i71 = getelementptr inbounds i8, ptr %vtable.i70, i64 40
+  %24 = load ptr, ptr %vfn.i71, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i.i67, i32 noundef 3)
+  br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit76
 
-_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit75: ; preds = %if.then.i.i71, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i65, %if.then.i68
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit76: ; preds = %if.then.i.i72, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i66, %if.then.i69
   store ptr null, ptr %agg.result, align 8
   br label %return
 
@@ -1295,9 +1295,9 @@ if.end26:                                         ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ranges.i)
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21, !noalias !12
   invoke void @_ZN4base12BucketRangesC1Em(ptr noundef nonnull align 8 dereferenceable(28) %call.i, i64 noundef %conv)
-          to label %if.end.i unwind label %lpad.i76, !noalias !12
+          to label %if.end.i unwind label %lpad.i77, !noalias !12
 
-lpad.i76:                                         ; preds = %if.end26
+lpad.i77:                                         ; preds = %if.end26
   %25 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call.i) #22, !noalias !12
@@ -1328,11 +1328,11 @@ for.body.i:                                       ; preds = %if.end.i, %for.inc.
   br i1 %cmp7.not.i, label %for.body.if.end11_crit_edge.i, label %land.lhs.true.i
 
 for.body.if.end11_crit_edge.i:                    ; preds = %for.body.i
-  %.pre.i = load i32, ptr %call.i.i63, align 4, !noalias !12
+  %.pre.i = load i32, ptr %call.i.i64, align 4, !noalias !12
   br label %if.end11.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds i32, ptr %call.i.i63, i64 %i.014.i
+  %arrayidx.i = getelementptr inbounds i32, ptr %call.i.i64, i64 %i.014.i
   %26 = load i32, ptr %arrayidx.i, align 4, !noalias !12
   %arrayidx8.i = getelementptr i8, ptr %arrayidx.i, i64 -4
   %27 = load i32, ptr %arrayidx8.i, align 4, !noalias !12
@@ -1359,8 +1359,8 @@ invoke.cont16.i:                                  ; preds = %for.end.i
   %cmp19.not.i = icmp eq i32 %29, %histogram_data.sroa.18.0.copyload
   br i1 %cmp19.not.i, label %if.end35, label %if.then32
 
-common.resume:                                    ; preds = %ehcleanup, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit, %ehcleanup126, %lpad.i76, %lpad1.i
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %lpad1.i ], [ %25, %lpad.i76 ], [ %14, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit ], [ %.pn44, %ehcleanup ], [ %.pn, %ehcleanup126 ]
+common.resume:                                    ; preds = %ehcleanup, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit, %ehcleanup126, %lpad.i77, %lpad1.i
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %lpad1.i ], [ %25, %lpad.i77 ], [ %14, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit ], [ %.pn44, %ehcleanup ], [ %.pn, %ehcleanup126 ]
   resume { ptr, i32 } %common.resume.op
 
 if.then32:                                        ; preds = %land.lhs.true.i, %invoke.cont16.i
@@ -1370,40 +1370,40 @@ if.then32:                                        ; preds = %land.lhs.true.i, %i
   store ptr null, ptr %created_ranges, align 8
   %30 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
   %31 = inttoptr i64 %30 to ptr
-  %tobool.not.i.i79 = icmp eq i64 %30, 0
-  br i1 %tobool.not.i.i79, label %if.then.i.i87, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i80
+  %tobool.not.i.i80 = icmp eq i64 %30, 0
+  br i1 %tobool.not.i.i80, label %if.then.i.i88, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i81
 
-if.then.i.i87:                                    ; preds = %if.then32
-  %.b3.i.i88 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b3.i.i88, label %invoke.cont34, label %if.then2.i.i89
+if.then.i.i88:                                    ; preds = %if.then32
+  %.b3.i.i89 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  br i1 %.b3.i.i89, label %invoke.cont34, label %if.then2.i.i90
 
-if.then2.i.i89:                                   ; preds = %if.then.i.i87
+if.then2.i.i90:                                   ; preds = %if.then.i.i88
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  %call5.i.i9091 = invoke noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
-          to label %call5.i.i90.noexc unwind label %lpad33
+  %call5.i.i9192 = invoke noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
+          to label %call5.i.i91.noexc unwind label %lpad33
 
-call5.i.i90.noexc:                                ; preds = %if.then2.i.i89
-  %32 = ptrtoint ptr %call5.i.i9091 to i64
+call5.i.i91.noexc:                                ; preds = %if.then2.i.i90
+  %32 = ptrtoint ptr %call5.i.i9192 to i64
   store atomic volatile i64 %32, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
-  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i80
+  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i81
 
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i80: ; preds = %call5.i.i90.noexc, %if.then32
-  %histogram_pointer.0.i.i81 = phi ptr [ %31, %if.then32 ], [ %call5.i.i9091, %call5.i.i90.noexc ]
-  %tobool.not.i82 = icmp eq ptr %histogram_pointer.0.i.i81, null
-  br i1 %tobool.not.i82, label %invoke.cont34, label %if.then.i83
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i81: ; preds = %call5.i.i91.noexc, %if.then32
+  %histogram_pointer.0.i.i82 = phi ptr [ %31, %if.then32 ], [ %call5.i.i9192, %call5.i.i91.noexc ]
+  %tobool.not.i83 = icmp eq ptr %histogram_pointer.0.i.i82, null
+  br i1 %tobool.not.i83, label %invoke.cont34, label %if.then.i84
 
-if.then.i83:                                      ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i80
-  %vtable.i84 = load ptr, ptr %histogram_pointer.0.i.i81, align 8
-  %vfn.i85 = getelementptr inbounds i8, ptr %vtable.i84, i64 40
-  %33 = load ptr, ptr %vfn.i85, align 8
-  invoke void %33(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i.i81, i32 noundef 3)
+if.then.i84:                                      ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i81
+  %vtable.i85 = load ptr, ptr %histogram_pointer.0.i.i82, align 8
+  %vfn.i86 = getelementptr inbounds i8, ptr %vtable.i85, i64 40
+  %33 = load ptr, ptr %vfn.i86, align 8
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i.i82, i32 noundef 3)
           to label %invoke.cont34 unwind label %lpad33
 
-invoke.cont34:                                    ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i80, %if.then.i.i87, %if.then.i83
+invoke.cont34:                                    ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i81, %if.then.i.i88, %if.then.i84
   store ptr null, ptr %agg.result, align 8
   br label %cleanup
 
-lpad33:                                           ; preds = %if.then.i100, %if.then2.i.i106, %invoke.cont37, %if.then.i83, %if.then2.i.i89, %lor.lhs.false50, %if.end35
+lpad33:                                           ; preds = %if.then.i102, %if.then2.i.i108, %invoke.cont37, %if.then.i84, %if.then2.i.i90, %lor.lhs.false50, %if.end35
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup126
@@ -1416,13 +1416,13 @@ if.end35:                                         ; preds = %invoke.cont16.i
 
 invoke.cont37:                                    ; preds = %if.end35
   %35 = load ptr, ptr %memory_allocator_, align 8
-  %call.i.i9495 = invoke noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %35, i32 noundef %histogram_data.sroa.19.0.copyload, i32 noundef 1394693425, i32 noundef 4)
+  %call.i.i9596 = invoke noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %35, i32 noundef %histogram_data.sroa.19.0.copyload, i32 noundef 1394693425, i32 noundef 4)
           to label %invoke.cont41 unwind label %lpad33
 
 invoke.cont41:                                    ; preds = %invoke.cont37
   %conv44 = zext nneg i32 %histogram_data.sroa.7.0.copyload to i64
   %mul.i = shl nuw nsw i64 %conv44, 3
-  %tobool47 = icmp eq ptr %call.i.i9495, null
+  %tobool47 = icmp eq ptr %call.i.i9596, null
   %cmp49 = icmp eq i32 %histogram_data.sroa.7.0.copyload, 0
   %or.cond2 = or i1 %cmp49, %tobool47
   br i1 %or.cond2, label %if.then57, label %lor.lhs.false50
@@ -1439,41 +1439,41 @@ invoke.cont54:                                    ; preds = %lor.lhs.false50
 if.then57:                                        ; preds = %invoke.cont54, %invoke.cont41
   %37 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
   %38 = inttoptr i64 %37 to ptr
-  %tobool.not.i.i96 = icmp eq i64 %37, 0
-  br i1 %tobool.not.i.i96, label %if.then.i.i104, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i97
+  %tobool.not.i.i98 = icmp eq i64 %37, 0
+  br i1 %tobool.not.i.i98, label %if.then.i.i106, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i99
 
-if.then.i.i104:                                   ; preds = %if.then57
-  %.b3.i.i105 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b3.i.i105, label %invoke.cont58, label %if.then2.i.i106
+if.then.i.i106:                                   ; preds = %if.then57
+  %.b3.i.i107 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  br i1 %.b3.i.i107, label %invoke.cont58, label %if.then2.i.i108
 
-if.then2.i.i106:                                  ; preds = %if.then.i.i104
+if.then2.i.i108:                                  ; preds = %if.then.i.i106
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  %call5.i.i107108 = invoke noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
-          to label %call5.i.i107.noexc unwind label %lpad33
+  %call5.i.i109110 = invoke noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
+          to label %call5.i.i109.noexc unwind label %lpad33
 
-call5.i.i107.noexc:                               ; preds = %if.then2.i.i106
-  %39 = ptrtoint ptr %call5.i.i107108 to i64
+call5.i.i109.noexc:                               ; preds = %if.then2.i.i108
+  %39 = ptrtoint ptr %call5.i.i109110 to i64
   store atomic volatile i64 %39, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
-  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i97
+  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i99
 
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i97: ; preds = %call5.i.i107.noexc, %if.then57
-  %histogram_pointer.0.i.i98 = phi ptr [ %38, %if.then57 ], [ %call5.i.i107108, %call5.i.i107.noexc ]
-  %tobool.not.i99 = icmp eq ptr %histogram_pointer.0.i.i98, null
-  br i1 %tobool.not.i99, label %invoke.cont58, label %if.then.i100
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i99: ; preds = %call5.i.i109.noexc, %if.then57
+  %histogram_pointer.0.i.i100 = phi ptr [ %38, %if.then57 ], [ %call5.i.i109110, %call5.i.i109.noexc ]
+  %tobool.not.i101 = icmp eq ptr %histogram_pointer.0.i.i100, null
+  br i1 %tobool.not.i101, label %invoke.cont58, label %if.then.i102
 
-if.then.i100:                                     ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i97
-  %vtable.i101 = load ptr, ptr %histogram_pointer.0.i.i98, align 8
-  %vfn.i102 = getelementptr inbounds i8, ptr %vtable.i101, i64 40
-  %40 = load ptr, ptr %vfn.i102, align 8
-  invoke void %40(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i.i98, i32 noundef 4)
+if.then.i102:                                     ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i99
+  %vtable.i103 = load ptr, ptr %histogram_pointer.0.i.i100, align 8
+  %vfn.i104 = getelementptr inbounds i8, ptr %vtable.i103, i64 40
+  %40 = load ptr, ptr %vfn.i104, align 8
+  invoke void %40(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0.i.i100, i32 noundef 4)
           to label %invoke.cont58 unwind label %lpad33
 
-invoke.cont58:                                    ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i97, %if.then.i.i104, %if.then.i100
+invoke.cont58:                                    ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i99, %if.then.i.i106, %if.then.i102
   store ptr null, ptr %agg.result, align 8
   br label %cleanup
 
 if.end59:                                         ; preds = %invoke.cont54
-  %add.ptr = getelementptr inbounds i32, ptr %call.i.i9495, i64 %conv44
+  %add.ptr = getelementptr inbounds i32, ptr %call.i.i9596, i64 %conv44
   %name62 = getelementptr inbounds i8, ptr %histogram_data_ptr, i64 80
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %name61, ptr noundef nonnull %name62, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64)
@@ -1497,10 +1497,10 @@ lpad65:                                           ; preds = %if.end59
 
 sw.bb:                                            ; preds = %invoke.cont66
   %logged_metadata73 = getelementptr inbounds i8, ptr %histogram_data_ptr, i64 56
-  invoke void @_ZN4base9Histogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp70, ptr noundef nonnull align 8 dereferenceable(32) %name61, i32 noundef %histogram_data.sroa.3.0.copyload, i32 noundef %histogram_data.sroa.5.0.copyload, ptr noundef %call38, ptr noundef nonnull %call.i.i9495, ptr noundef %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata73)
-          to label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit116 unwind label %lpad74.thread
+  invoke void @_ZN4base9Histogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp70, ptr noundef nonnull align 8 dereferenceable(32) %name61, i32 noundef %histogram_data.sroa.3.0.copyload, i32 noundef %histogram_data.sroa.5.0.copyload, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata73)
+          to label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit118 unwind label %lpad74.thread
 
-_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit116: ; preds = %sw.bb
+_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit118: ; preds = %sw.bb
   %42 = load ptr, ptr %ref.tmp70, align 8
   store ptr %42, ptr %agg.result, align 8
   store ptr null, ptr %ref.tmp70, align 8
@@ -1509,29 +1509,29 @@ _ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit116: ; 
 lpad74.thread:                                    ; preds = %if.else118, %sw.bb92, %sw.bb86, %sw.bb77, %sw.bb
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit122
+  br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit124
 
-_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i118: ; preds = %if.end113, %invoke.cont116
+_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i120: ; preds = %if.end113, %invoke.cont116
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %vtable.i.i119 = load ptr, ptr %47, align 8
-  %vfn.i.i120 = getelementptr inbounds i8, ptr %vtable.i.i119, i64 8
-  %43 = load ptr, ptr %vfn.i.i120, align 8
+  %vtable.i.i121 = load ptr, ptr %47, align 8
+  %vfn.i.i122 = getelementptr inbounds i8, ptr %vtable.i.i121, i64 8
+  %43 = load ptr, ptr %vfn.i.i122, align 8
   call void %43(ptr noundef nonnull align 8 dereferenceable(44) %47) #19
-  br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit122
+  br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit124
 
-_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit122: ; preds = %lpad74.thread, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i118
-  %lpad.phi177 = phi { ptr, i32 } [ %lpad.thr_comm, %lpad74.thread ], [ %lpad.thr_comm.split-lp, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i118 ]
+_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit124: ; preds = %lpad74.thread, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i120
+  %lpad.phi179 = phi { ptr, i32 } [ %lpad.thr_comm, %lpad74.thread ], [ %lpad.thr_comm.split-lp, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i120 ]
   store ptr null, ptr %agg.result, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name61) #19
   br label %ehcleanup126
 
 sw.bb77:                                          ; preds = %invoke.cont66
   %logged_metadata83 = getelementptr inbounds i8, ptr %histogram_data_ptr, i64 56
-  invoke void @_ZN4base15LinearHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(32) %name61, i32 noundef %histogram_data.sroa.3.0.copyload, i32 noundef %histogram_data.sroa.5.0.copyload, ptr noundef %call38, ptr noundef nonnull %call.i.i9495, ptr noundef %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata83)
-          to label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit133 unwind label %lpad74.thread
+  invoke void @_ZN4base15LinearHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(32) %name61, i32 noundef %histogram_data.sroa.3.0.copyload, i32 noundef %histogram_data.sroa.5.0.copyload, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata83)
+          to label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit135 unwind label %lpad74.thread
 
-_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit133: ; preds = %sw.bb77
+_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit135: ; preds = %sw.bb77
   %44 = load ptr, ptr %ref.tmp78, align 8
   store ptr %44, ptr %agg.result, align 8
   store ptr null, ptr %ref.tmp78, align 8
@@ -1539,10 +1539,10 @@ _ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit133: ; 
 
 sw.bb86:                                          ; preds = %invoke.cont66
   %logged_metadata89 = getelementptr inbounds i8, ptr %histogram_data_ptr, i64 56
-  invoke void @_ZN4base16BooleanHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_PNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp87, ptr noundef nonnull align 8 dereferenceable(32) %name61, ptr noundef %call38, ptr noundef nonnull %call.i.i9495, ptr noundef %add.ptr, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata89)
-          to label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit144 unwind label %lpad74.thread
+  invoke void @_ZN4base16BooleanHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_PNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp87, ptr noundef nonnull align 8 dereferenceable(32) %name61, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef %add.ptr, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata89)
+          to label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit146 unwind label %lpad74.thread
 
-_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit144: ; preds = %sw.bb86
+_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit146: ; preds = %sw.bb86
   %45 = load ptr, ptr %ref.tmp87, align 8
   store ptr %45, ptr %agg.result, align 8
   store ptr null, ptr %ref.tmp87, align 8
@@ -1550,27 +1550,27 @@ _ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit144: ; 
 
 sw.bb92:                                          ; preds = %invoke.cont66
   %logged_metadata96 = getelementptr inbounds i8, ptr %histogram_data_ptr, i64 56
-  invoke void @_ZN4base15CustomHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(32) %name61, ptr noundef %call38, ptr noundef nonnull %call.i.i9495, ptr noundef %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata96)
-          to label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit155 unwind label %lpad74.thread
+  invoke void @_ZN4base15CustomHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(32) %name61, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata96)
+          to label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit157 unwind label %lpad74.thread
 
-_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit155: ; preds = %sw.bb92
+_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit157: ; preds = %sw.bb92
   %46 = load ptr, ptr %ref.tmp93, align 8
   store ptr %46, ptr %agg.result, align 8
   store ptr null, ptr %ref.tmp93, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit155, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit144, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit133, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit116
-  %47 = phi ptr [ %46, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit155 ], [ %45, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit144 ], [ %44, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit133 ], [ %42, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit116 ]
-  %cmp.i156.not = icmp eq ptr %47, null
-  br i1 %cmp.i156.not, label %if.else118, label %if.end113
+sw.epilog:                                        ; preds = %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit157, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit146, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit135, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit118
+  %47 = phi ptr [ %46, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit157 ], [ %45, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit146 ], [ %44, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit135 ], [ %42, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit118 ]
+  %cmp.i158.not = icmp eq ptr %47, null
+  br i1 %cmp.i158.not, label %if.else118, label %if.end113
 
 if.end113:                                        ; preds = %sw.epilog
   invoke void @_ZN4base13HistogramBase8SetFlagsEi(ptr noundef nonnull align 8 dereferenceable(44) %47, i32 noundef %histogram_data.sroa.2.0.copyload)
-          to label %invoke.cont116 unwind label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i118
+          to label %invoke.cont116 unwind label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i120
 
 invoke.cont116:                                   ; preds = %if.end113
   invoke void @_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE(i32 noundef 0)
-          to label %nrvo.skipdtor123 unwind label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i118
+          to label %nrvo.skipdtor123 unwind label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i120
 
 if.else118:                                       ; preds = %invoke.cont66, %sw.epilog
   invoke void @_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE(i32 noundef 8)
@@ -1582,20 +1582,20 @@ nrvo.skipdtor123:                                 ; preds = %invoke.cont116, %if
 
 cleanup:                                          ; preds = %nrvo.skipdtor123, %invoke.cont58, %invoke.cont34
   %48 = load ptr, ptr %created_ranges, align 8
-  %cmp.not.i158 = icmp eq ptr %48, null
-  br i1 %cmp.not.i158, label %return, label %_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit.i
+  %cmp.not.i160 = icmp eq ptr %48, null
+  br i1 %cmp.not.i160, label %return, label %_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit.i: ; preds = %cleanup
   call void @_ZN4base12BucketRangesD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %48) #19
   call void @_ZdlPv(ptr noundef nonnull %48) #22
   br label %return
 
-ehcleanup126:                                     ; preds = %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit122, %lpad65, %lpad33
-  %.pn = phi { ptr, i32 } [ %34, %lpad33 ], [ %lpad.phi177, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit122 ], [ %41, %lpad65 ]
+ehcleanup126:                                     ; preds = %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit124, %lpad65, %lpad33
+  %.pn = phi { ptr, i32 } [ %34, %lpad33 ], [ %lpad.phi179, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit124 ], [ %41, %lpad65 ]
   call void @_ZNSt10unique_ptrIKN4base12BucketRangesESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %created_ranges) #19
   br label %common.resume
 
-return:                                           ; preds = %_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit.i, %cleanup, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i50, %if.then.i.i56, %if.then.i53, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit75, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit
+return:                                           ; preds = %_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit.i, %cleanup, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i51, %if.then.i.i57, %if.then.i54, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit76, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit
   ret void
 }
 
@@ -3035,7 +3035,7 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %if.else
-  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %__position.coerce, %if.else ]
+  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
   %_M_left.i3.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %_M_left.i3.i, align 8
   %cmp.i4.i = icmp eq ptr %__y.0.lcssa25.i, %6
@@ -3194,8 +3194,8 @@ if.end12.i78:                                     ; preds = %if.else.i93, %while
   br label %return
 
 return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %11, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa25.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

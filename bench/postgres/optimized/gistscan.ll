@@ -110,7 +110,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %11
-  %18 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %13, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #6
+  %18 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %15, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #6
   store ptr %18, ptr %12, align 8
   br label %20
 

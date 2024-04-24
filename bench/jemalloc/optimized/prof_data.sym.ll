@@ -485,7 +485,7 @@ if.then37.i:                                      ; preds = %for.end31.i
   br i1 %cmp89.i, label %if.then91.i, label %if.else94.i
 
 if.then91.i:                                      ; preds = %if.then37.i
-  %30 = load ptr, ptr %path.i, align 16
+  %30 = load ptr, ptr %nodep.0.i, align 8
   store ptr %30, ptr @tdatas, align 8
   br label %if.end182.i
 
@@ -1465,7 +1465,7 @@ if.then37.i.i:                                    ; preds = %for.end31.i.i
   br i1 %cmp89.i.i, label %if.then91.i.i, label %if.else94.i.i
 
 if.then91.i.i:                                    ; preds = %if.then37.i.i
-  %49 = load ptr, ptr %path.i.i, align 16
+  %49 = load ptr, ptr %nodep.0.i.i, align 8
   store ptr %49, ptr %tctxs.i, align 8
   br label %if.end182.i.i
 
@@ -2304,7 +2304,7 @@ monotonic.i.i:                                    ; preds = %if.then.i, %if.then
   %retval.i.0 = phi ptr [ %arrayidx15.i, %if.then.i ], [ %arrayidx54.i, %if.then27.i ], [ %arrayidx136.i, %if.then71.i ], [ %call141.i, %for.end.i ]
   %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !12
   %shr.i69 = lshr i64 %10, 48
-  %conv.i70 = trunc i64 %shr.i69 to i32
+  %conv.i70 = trunc nuw nsw i64 %shr.i69 to i32
   %metadata.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %conv.i70, ptr %metadata.i, align 8, !alias.scope !15
   %slab.i = getelementptr inbounds i8, ptr %agg.result, i64 17

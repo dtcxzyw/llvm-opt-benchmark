@@ -38240,7 +38240,7 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h46bfdc96296c0
   br i1 %26, label %.thread19, label %28
 
 .thread19:                                        ; preds = %23, %43, %3
-  %.sroa.0.123 = phi ptr [ %.sroa.014.0.copyload, %3 ], [ %16, %23 ], [ %.sroa.4.0.copyload, %43 ]
+  %.sroa.0.123 = phi ptr [ %.sroa.014.0.copyload, %3 ], [ %16, %43 ], [ %16, %23 ]
   %27 = invoke { ptr, i64 } @"_ZN4core5slice4iter16IterMut$LT$T$GT$10into_slice17h11753d980ef613ecE"(ptr noundef nonnull %.sroa.0.123, ptr noundef nonnull %.sroa.4.0.copyload)
           to label %"_ZN4core3ptr600drop_in_place$LT$core..iter..adapters..map..Map$LT$rayon..vec..SliceDrain$LT$la_arena..Idx$LT$base_db..input..CrateData$GT$$GT$$C$$LT$rayon..iter..map_with..MapWithFolder$LT$C$C$U$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$..consume_iter..with$LT$la_arena..Idx$LT$base_db..input..CrateData$GT$$C$ide_db..symbol_index..Snap$LT$salsa..Snapshot$LT$ide_db..RootDatabase$GT$$GT$$C$alloc..boxed..Box$LT$$u5b$triomphe..arc..Arc$LT$ide_db..symbol_index..SymbolIndex$GT$$u5d$$GT$$C$$RF$ide_db..symbol_index..world_symbols..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17heb960f2d01361b93E.exit8" unwind label %.thread
 
@@ -38376,7 +38376,7 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hb3e93ed579f21
           to label %12 unwind label %46
 
 ._crit_edge:                                      ; preds = %41, %3
-  %.sroa.0.0.lcssa = phi ptr [ %.sroa.011.0.copyload, %3 ], [ %.sroa.4.0.copyload, %41 ]
+  %.sroa.0.0.lcssa = phi ptr [ %.sroa.011.0.copyload, %3 ], [ %15, %41 ]
   %22 = invoke { ptr, i64 } @"_ZN4core5slice4iter16IterMut$LT$T$GT$10into_slice17h5c6e2926dd64bfe3E"(ptr noundef nonnull %.sroa.0.0.lcssa, ptr noundef nonnull %.sroa.4.0.copyload)
           to label %"_ZN4core3ptr537drop_in_place$LT$core..iter..adapters..map..Map$LT$rayon..vec..SliceDrain$LT$$RF$base_db..input..SourceRootId$GT$$C$$LT$rayon..iter..map_with..MapWithFolder$LT$C$C$U$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$..consume_iter..with$LT$$RF$base_db..input..SourceRootId$C$ide_db..symbol_index..Snap$LT$salsa..Snapshot$LT$ide_db..RootDatabase$GT$$GT$$C$triomphe..arc..Arc$LT$ide_db..symbol_index..SymbolIndex$GT$$C$$RF$ide_db..symbol_index..world_symbols..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he3ebcc7121f481a6E.exit5" unwind label %.thread
 
@@ -46248,7 +46248,7 @@ default.unreachable1.i:                           ; preds = %59
   br i1 %85, label %._crit_edge.i.loopexit, label %81
 
 ._crit_edge.i.loopexit:                           ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfb2e0f0d157e82c1E.exit.i"
-  store ptr %76, ptr %45, align 8, !alias.scope !8342, !noalias !8340
+  store ptr %83, ptr %45, align 8, !alias.scope !8342, !noalias !8340
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %75
@@ -46360,7 +46360,7 @@ default.unreachable1.i:                           ; preds = %59
   br i1 %112, label %._crit_edge.i28.loopexit, label %108
 
 ._crit_edge.i28.loopexit:                         ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h6bb782a7e58a2272E.exit.i"
-  store ptr %99, ptr %101, align 8, !alias.scope !8365, !noalias !8363
+  store ptr %110, ptr %101, align 8, !alias.scope !8365, !noalias !8363
   br label %._crit_edge.i28
 
 ._crit_edge.i28:                                  ; preds = %._crit_edge.i28.loopexit, %98
@@ -46500,7 +46500,8 @@ default.unreachable1.i:                           ; preds = %59
   br i1 %145, label %._crit_edge.i40.loopexit, label %"_ZN6ide_db7helpers15visit_file_defs28_$u7b$$u7b$closure$u7d$$u7d$17hd70a4ba831674b9fE.exit.thread.i.i"
 
 ._crit_edge.i40.loopexit:                         ; preds = %.noexc6.i, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b52053931ab761E.exit.i.us"
-  store ptr %124, ptr %126, align 8, !alias.scope !8393, !noalias !8394
+  %.us-phi84 = phi ptr [ %131, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b52053931ab761E.exit.i.us" ], [ %143, %.noexc6.i ]
+  store ptr %.us-phi84, ptr %126, align 8, !alias.scope !8393, !noalias !8394
   br label %._crit_edge.i40
 
 ._crit_edge.i40:                                  ; preds = %._crit_edge.i40.loopexit, %123

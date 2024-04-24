@@ -144,8 +144,8 @@ entry:
 if.then:                                          ; preds = %entry
   %dmax.i = getelementptr inbounds i8, ptr %a, i64 12
   %2 = load i32, ptr %dmax.i, align 4
-  %cmp17.i = icmp sgt i32 %2, 0
-  br i1 %cmp17.i, label %for.body.lr.ph.i, label %bn_num_bits_consttime.exit
+  %cmp18.i = icmp sgt i32 %2, 0
+  br i1 %cmp18.i, label %for.body.lr.ph.i, label %bn_num_bits_consttime.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.then
   %not.i.i.i.i = sub i32 0, %0
@@ -155,17 +155,17 @@ for.body.lr.ph.i:                                 ; preds = %if.then
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %past_i.019.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %and.demorgan.i, %for.body.i ]
-  %ret.018.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %add5.i, %for.body.i ]
+  %past_i.020.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %and.demorgan.i, %for.body.i ]
+  %ret.019.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %add5.i, %for.body.i ]
   %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %xor.i.i.i = xor i32 %sub, %4
   %sub.i.i.i.i = add i32 %xor.i.i.i, -1
   %and.i.i.i.i = and i32 %sub.i.i.i.i, %not.i.i.i.i
   %shr.neg.i.i.i.i.i = ashr i32 %and.i.i.i.i, 31
-  %and.demorgan.i = or i32 %shr.neg.i.i.i.i.i, %past_i.019.i
+  %and.demorgan.i = or i32 %shr.neg.i.i.i.i.i, %past_i.020.i
   %and.i = and i32 %and.demorgan.i, 64
   %and2.i = xor i32 %and.i, 64
-  %add.i = add i32 %and2.i, %ret.018.i
+  %add.i = add i32 %and2.i, %ret.019.i
   %arrayidx.i = getelementptr inbounds i64, ptr %3, i64 %indvars.iv.i
   %5 = load i64, ptr %arrayidx.i, align 8
   %cmp.i.i = icmp ne i64 %5, 0
@@ -614,7 +614,7 @@ if.then4.i:                                       ; preds = %if.end2.i
   br label %return
 
 return:                                           ; preds = %if.end, %if.end5, %if.end9.i, %if.then4.i, %if.end2.i, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end2.i ], [ null, %if.then4.i ], [ %call.i, %if.end9.i ], [ %a, %if.end5 ], [ null, %if.end ]
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end2.i ], [ null, %if.then4.i ], [ %call.i, %if.end9.i ], [ %call.i, %if.end5 ], [ null, %if.end ]
   ret ptr %retval.0
 }
 
@@ -667,7 +667,7 @@ if.end9:                                          ; preds = %if.then7, %if.end4
   br label %return
 
 return:                                           ; preds = %bn_wexpand.exit, %entry, %if.end9
-  %retval.0 = phi ptr [ %a, %if.end9 ], [ %b, %entry ], [ null, %bn_wexpand.exit ]
+  %retval.0 = phi ptr [ %a, %if.end9 ], [ %a, %entry ], [ null, %bn_wexpand.exit ]
   ret ptr %retval.0
 }
 
@@ -2362,8 +2362,8 @@ define void @bn_correct_top_consttime(ptr nocapture noundef %a) local_unnamed_ad
 entry:
   %dmax = getelementptr inbounds i8, ptr %a, i64 12
   %0 = load i32, ptr %dmax, align 4
-  %cmp21 = icmp sgt i32 %0, 0
-  br i1 %cmp21, label %for.body.lr.ph, label %for.end
+  %cmp23 = icmp sgt i32 %0, 0
+  br i1 %cmp23, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %1 = load ptr, ptr %a, align 8
@@ -2375,7 +2375,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %atop.022 = phi i32 [ 0, %for.body.lr.ph ], [ %or.i.i, %for.body ]
+  %atop.024 = phi i32 [ 0, %for.body.lr.ph ], [ %or.i.i, %for.body ]
   %arrayidx = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
   %4 = load i64, ptr %arrayidx, align 8
   %.not = icmp ne i64 %4, 0
@@ -2388,7 +2388,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %and.i.i = and i32 %6, %7
   %not.i.i = xor i32 %and, -1
   %8 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #18, !srcloc !18
-  %and2.i.i = and i32 %8, %atop.022
+  %and2.i.i = and i32 %8, %atop.024
   %or.i.i = or i32 %and2.i.i, %and.i.i
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
@@ -2404,10 +2404,10 @@ for.end:                                          ; preds = %for.body, %entry
   %neg = getelementptr inbounds i8, ptr %a, i64 16
   %9 = load i32, ptr %neg, align 8
   %10 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i.i.i.i) #18, !srcloc !18
-  %not.i.i19 = xor i32 %shr.neg.i.i.i.i, -1
-  %11 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i19) #18, !srcloc !18
-  %and2.i.i20 = and i32 %11, %9
-  store i32 %and2.i.i20, ptr %neg, align 8
+  %not.i.i20 = xor i32 %shr.neg.i.i.i.i, -1
+  %11 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i20) #18, !srcloc !18
+  %and2.i.i21 = and i32 %11, %9
+  store i32 %and2.i.i21, ptr %neg, align 8
   ret void
 }
 

@@ -124,7 +124,7 @@ declare noundef ptr @_ZNK5ceres8internal17BlockSparseMatrix15block_structureEv(p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %47, label %3
+  br i1 %.not, label %46, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -205,37 +205,36 @@ _ZNSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE13_M_deallocateEPS2_m.exit: ;
   %.pre28 = load ptr, ptr %4, align 8
   %.pre29 = ptrtoint ptr %.pre26 to i64
   %.pre30 = ptrtoint ptr %.pre27 to i64
+  %.pre32 = sub i64 %.pre29, %.pre30
   br label %_ZSt4copyIPN5ceres8internal5BlockES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPN5ceres8internal5BlockES3_ET0_T_S5_S4_.exit: ; preds = %34, %35
-  %.pre-phi31 = phi i64 [ %14, %34 ], [ %.pre30, %35 ]
-  %.pre-phi = phi i64 [ %14, %34 ], [ %.pre29, %35 ]
+  %.pre-phi33 = phi i64 [ %31, %34 ], [ %.pre32, %35 ]
   %36 = phi ptr [ %5, %34 ], [ %.pre28, %35 ]
-  %37 = phi ptr [ %12, %34 ], [ %.pre26, %35 ]
+  %37 = phi ptr [ %29, %34 ], [ %.pre26, %35 ]
   %38 = phi ptr [ %6, %34 ], [ %.pre, %35 ]
-  %39 = sub i64 %.pre-phi, %.pre-phi31
-  %40 = getelementptr inbounds i8, ptr %38, i64 %39
-  %.not9.i.i.i.i = icmp eq ptr %40, %36
+  %39 = getelementptr inbounds i8, ptr %38, i64 %.pre-phi33
+  %.not9.i.i.i.i = icmp eq ptr %39, %36
   br i1 %.not9.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5ceres8internal5BlockESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt4copyIPN5ceres8internal5BlockES3_ET0_T_S5_S4_.exit, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i ], [ %37, %_ZSt4copyIPN5ceres8internal5BlockES3_ET0_T_S5_S4_.exit ]
-  %.0810.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i ], [ %40, %_ZSt4copyIPN5ceres8internal5BlockES3_ET0_T_S5_S4_.exit ]
-  %41 = load i64, ptr %.0810.i.i.i.i, align 4
-  store i64 %41, ptr %.011.i.i.i.i, align 4
-  %42 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 8
-  %43 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %42, %36
+  %.011.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i ], [ %37, %_ZSt4copyIPN5ceres8internal5BlockES3_ET0_T_S5_S4_.exit ]
+  %.0810.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i ], [ %39, %_ZSt4copyIPN5ceres8internal5BlockES3_ET0_T_S5_S4_.exit ]
+  %40 = load i64, ptr %.0810.i.i.i.i, align 4
+  store i64 %40, ptr %.011.i.i.i.i, align 4
+  %41 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 8
+  %42 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %41, %36
   br i1 %.not.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5ceres8internal5BlockESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5ceres8internal5BlockESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt4copyIPN5ceres8internal5BlockES3_ET0_T_S5_S4_.exit, %33, %32, %_ZNSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE13_M_deallocateEPS2_m.exit
-  %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 %9
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %45, ptr %46, align 8
-  br label %47
+  %43 = load ptr, ptr %0, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 %9
+  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %44, ptr %45, align 8
+  br label %46
 
-47:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5ceres8internal5BlockESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, %2
+46:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5ceres8internal5BlockESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, %2
   ret ptr %0
 }
 
@@ -616,7 +615,7 @@ define hidden void @_ZN5ceres8internal20InnerProductComputer4InitENS0_25Compress
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %.028.v = select i1 %13, i64 %indvars.iv.next75, i64 %30
   %.028 = trunc i64 %.028.v to i32
-  %32 = trunc i64 %indvars.iv74 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv74 to i32
   %.026 = select i1 %13, i32 0, i32 %32
   %33 = icmp slt i32 %.026, %.028
   br i1 %33, label %.lr.ph, label %78
@@ -1100,7 +1099,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %90, %88, %86, %84
   %131 = phi ptr [ %118, %.lr.ph117 ], [ %136, %130 ]
   %132 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %131, i64 %113, i32 1
   %133 = load i32, ptr %132, align 4
-  %134 = trunc i64 %indvars.iv131 to i32
+  %134 = trunc nuw nsw i64 %indvars.iv131 to i32
   %135 = add nsw i32 %133, %134
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv131
   store i32 %135, ptr %gep, align 4
@@ -1230,7 +1229,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %90, %88, %86, %84
   %217 = phi ptr [ %208, %.lr.ph121 ], [ %222, %216 ]
   %218 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %217, i64 %204, i32 1
   %219 = load i32, ptr %218, align 4
-  %220 = trunc i64 %indvars.iv137 to i32
+  %220 = trunc nuw nsw i64 %indvars.iv137 to i32
   %221 = add nsw i32 %219, %220
   %gep154 = getelementptr i32, ptr %invariant.gep153, i64 %indvars.iv137
   store i32 %221, ptr %gep154, align 4
@@ -1389,7 +1388,7 @@ define hidden void @_ZN5ceres8internal20InnerProductComputer7ComputeEv(ptr nocap
   br i1 %exitcond94.not, label %._crit_edge.us.us, label %54, !llvm.loop !34
 
 ._crit_edge.us.us:                                ; preds = %54
-  %75 = trunc i64 %indvars.iv.next85 to i32
+  %75 = trunc nsw i64 %indvars.iv.next85 to i32
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %76 = load ptr, ptr %31, align 8
   %77 = load ptr, ptr %30, align 8
@@ -1482,7 +1481,7 @@ define hidden void @_ZN5ceres8internal20InnerProductComputer7ComputeEv(ptr nocap
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %115, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %115
-  %136 = trunc i64 %indvars.iv.next to i32
+  %136 = trunc nsw i64 %indvars.iv.next to i32
   %.pre = load ptr, ptr %87, align 8
   %.pre105 = load ptr, ptr %86, align 8
   br label %._crit_edge
@@ -2225,7 +2224,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5ceres8internal
   %.1 = phi i64 [ %44, %42 ], [ %.0.lcssa, %38 ], [ %.0.lcssa, %._crit_edge ]
   %.sroa.013.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
   %.sroa.013.sroa.3.0.extract.shift.i = lshr i64 %3, 32
-  %.sroa.013.sroa.3.0.extract.trunc.i = trunc i64 %.sroa.013.sroa.3.0.extract.shift.i to i32
+  %.sroa.013.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.013.sroa.3.0.extract.shift.i to i32
   %48 = icmp sgt i64 %.1, %1
   br i1 %48, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal20InnerProductComputer11ProductTermESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_less_valEEvT_T0_SE_T1_RT2_.exit
 
@@ -2575,7 +2574,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %58 = add nsw i64 %55, -1
   %59 = add i32 %8, %7
   %60 = add i32 %59, %51
-  %61 = trunc i64 %58 to i32
+  %61 = trunc nsw i64 %58 to i32
   %62 = add i32 %60, %61
   %63 = icmp slt i32 %62, %60
   %64 = icmp ugt i64 %58, 4294967295
@@ -2689,7 +2688,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge.split.us.us.us
   %indvars.iv225 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next226, %._crit_edge.split.us.us.us ]
-  %119 = trunc i64 %indvars.iv225 to i32
+  %119 = trunc nuw nsw i64 %indvars.iv225 to i32
   %120 = add i32 %119, %8
   %121 = getelementptr inbounds double, ptr %3, i64 %indvars.iv225
   br label %.lr.ph.i.preheader.us.us.us
@@ -2829,7 +2828,7 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph164
   %213 = add i32 %8, %7
   %scevgep = getelementptr i8, ptr %6, i64 16
   %ident.check = icmp ne i32 %10, 1
-  %214 = trunc i64 %212 to i32
+  %214 = trunc nsw i64 %212 to i32
   %215 = icmp ugt i64 %212, 4294967295
   br label %.preheader.i.us.lver.check
 
@@ -2840,7 +2839,7 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph164
 
 .preheader.us.us166:                              ; preds = %.preheader.us.us166.preheader, %._crit_edge.split.split.us.us.us
   %indvars.iv217 = phi i64 [ 0, %.preheader.us.us166.preheader ], [ %indvars.iv.next218, %._crit_edge.split.split.us.us.us ]
-  %217 = trunc i64 %indvars.iv217 to i32
+  %217 = trunc nuw nsw i64 %indvars.iv217 to i32
   %218 = add i32 %217, %8
   %219 = getelementptr inbounds double, ptr %3, i64 %indvars.iv217
   br label %.preheader.i.us134.us.us

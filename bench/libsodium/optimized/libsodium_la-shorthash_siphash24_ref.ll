@@ -69,7 +69,7 @@ for.end:                                          ; preds = %for.body, %entry
   %v2.0.lcssa = phi i64 [ %xor4, %entry ], [ %or.i244, %for.body ]
   %v1.0.lcssa = phi i64 [ %xor5, %entry ], [ %xor36, %for.body ]
   %v0.0.lcssa = phi i64 [ %xor6, %entry ], [ %xor39, %for.body ]
-  %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %add.ptr3, %for.body ]
+  %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %add.ptr40, %for.body ]
   switch i32 %conv, label %sw.epilog [
     i32 7, label %sw.bb
     i32 6, label %sw.bb43

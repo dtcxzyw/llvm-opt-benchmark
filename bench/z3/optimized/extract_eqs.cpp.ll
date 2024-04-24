@@ -6549,8 +6549,8 @@ if.then57:                                        ; preds = %land.rhs.i178, %_Z1
   br label %if.end58
 
 if.end58:                                         ; preds = %land.lhs.true55, %land.lhs.true.i175, %if.then57, %_Z17is_uninterp_constPK4expr.exit183, %if.end53
-  %x2.1 = phi ptr [ %67, %if.then57 ], [ %75, %_Z17is_uninterp_constPK4expr.exit183 ], [ %75, %if.end53 ], [ %75, %land.lhs.true.i175 ], [ %75, %land.lhs.true55 ]
-  %y2.1 = phi ptr [ %75, %if.then57 ], [ %67, %_Z17is_uninterp_constPK4expr.exit183 ], [ %76, %if.end53 ], [ %67, %land.lhs.true.i175 ], [ %67, %land.lhs.true55 ]
+  %x2.1 = phi ptr [ %76, %if.then57 ], [ %75, %_Z17is_uninterp_constPK4expr.exit183 ], [ %75, %if.end53 ], [ %75, %land.lhs.true.i175 ], [ %75, %land.lhs.true55 ]
+  %y2.1 = phi ptr [ %75, %if.then57 ], [ %76, %_Z17is_uninterp_constPK4expr.exit183 ], [ %76, %if.end53 ], [ %76, %land.lhs.true.i175 ], [ %76, %land.lhs.true55 ]
   %cmp59 = icmp eq ptr %76, %75
   br i1 %cmp59, label %land.lhs.true60, label %if.end63
 
@@ -6592,20 +6592,20 @@ if.end63:                                         ; preds = %land.lhs.true60, %l
   br i1 %cmp64, label %land.lhs.true65, label %if.end68
 
 land.lhs.true65:                                  ; preds = %if.end63
-  %m_kind.i.i197 = getelementptr inbounds i8, ptr %y1.1, i64 4
+  %m_kind.i.i197 = getelementptr inbounds i8, ptr %x2.2, i64 4
   %bf.load.i.i198 = load i32, ptr %m_kind.i.i197, align 4
   %bf.clear.i.i199 = and i32 %bf.load.i.i198, 65535
   %cmp.i200 = icmp eq i32 %bf.clear.i.i199, 0
   br i1 %cmp.i200, label %land.lhs.true.i201, label %if.end68
 
 land.lhs.true.i201:                               ; preds = %land.lhs.true65
-  %m_num_args.i.i202 = getelementptr inbounds i8, ptr %y1.1, i64 24
+  %m_num_args.i.i202 = getelementptr inbounds i8, ptr %x2.2, i64 24
   %89 = load i32, ptr %m_num_args.i.i202, align 8
   %cmp3.i203 = icmp eq i32 %89, 0
   br i1 %cmp3.i203, label %land.rhs.i204, label %if.end68
 
 land.rhs.i204:                                    ; preds = %land.lhs.true.i201
-  %m_decl.i.i.i205 = getelementptr inbounds i8, ptr %y1.1, i64 16
+  %m_decl.i.i.i205 = getelementptr inbounds i8, ptr %x2.2, i64 16
   %90 = load ptr, ptr %m_decl.i.i.i205, align 8
   %m_info.i.i.i206 = getelementptr inbounds i8, ptr %90, i64 24
   %91 = load ptr, ptr %m_info.i.i.i206, align 8
@@ -6627,20 +6627,20 @@ if.end68:                                         ; preds = %land.lhs.true65, %l
   br i1 %cmp69, label %land.lhs.true70, label %if.end89
 
 land.lhs.true70:                                  ; preds = %if.end68
-  %m_kind.i.i210 = getelementptr inbounds i8, ptr %x2.2, i64 4
+  %m_kind.i.i210 = getelementptr inbounds i8, ptr %x1.2, i64 4
   %bf.load.i.i211 = load i32, ptr %m_kind.i.i210, align 4
   %bf.clear.i.i212 = and i32 %bf.load.i.i211, 65535
   %cmp.i213 = icmp eq i32 %bf.clear.i.i212, 0
   br i1 %cmp.i213, label %land.lhs.true.i214, label %if.end89
 
 land.lhs.true.i214:                               ; preds = %land.lhs.true70
-  %m_num_args.i.i215 = getelementptr inbounds i8, ptr %x2.2, i64 24
+  %m_num_args.i.i215 = getelementptr inbounds i8, ptr %x1.2, i64 24
   %94 = load i32, ptr %m_num_args.i.i215, align 8
   %cmp3.i216 = icmp eq i32 %94, 0
   br i1 %cmp3.i216, label %land.rhs.i217, label %if.end89
 
 land.rhs.i217:                                    ; preds = %land.lhs.true.i214
-  %m_decl.i.i.i218 = getelementptr inbounds i8, ptr %x2.2, i64 16
+  %m_decl.i.i.i218 = getelementptr inbounds i8, ptr %x1.2, i64 16
   %95 = load ptr, ptr %m_decl.i.i.i218, align 8
   %m_info.i.i.i219 = getelementptr inbounds i8, ptr %95, i64 24
   %96 = load ptr, ptr %m_info.i.i.i219, align 8
@@ -6665,7 +6665,7 @@ if.then72:                                        ; preds = %land.rhs.i217, %_Z1
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit229.thread: ; preds = %if.then72
   %var3.i230455 = getelementptr inbounds i8, ptr %ref.tmp73, i64 8
-  store ptr %x2.2, ptr %var3.i230455, align 8
+  store ptr %x1.2, ptr %var3.i230455, align 8
   %term4.i231456 = getelementptr inbounds i8, ptr %ref.tmp73, i64 16
   store ptr null, ptr %term4.i231456, align 8
   %m_manager.i.i232457 = getelementptr inbounds i8, ptr %ref.tmp73, i64 24
@@ -6678,7 +6678,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.i235:     ; preds = %if.then72
   %inc.i.i.i.i228 = add i32 %102, 1
   store i32 %inc.i.i.i.i228, ptr %m_ref_count.i.i.i.i227, align 4
   %var3.i230 = getelementptr inbounds i8, ptr %ref.tmp73, i64 8
-  store ptr %x2.2, ptr %var3.i230, align 8
+  store ptr %x1.2, ptr %var3.i230, align 8
   %term4.i231 = getelementptr inbounds i8, ptr %ref.tmp73, i64 16
   store ptr %call.i, ptr %term4.i231, align 8
   %m_manager.i.i232 = getelementptr inbounds i8, ptr %ref.tmp73, i64 24

@@ -4103,7 +4103,7 @@ invoke.contthread-pre-split.i502:                 ; preds = %_ZSt8_DestroyIN6duc
   br label %invoke.cont.i504
 
 invoke.cont.i504:                                 ; preds = %invoke.contthread-pre-split.i502, %for.cond.cleanup204, %for.cond.cleanup204.thread
-  %134 = phi ptr [ %.pr.i503, %invoke.contthread-pre-split.i502 ], [ %.pre988, %for.cond.cleanup204 ], [ %130, %for.cond.cleanup204.thread ]
+  %134 = phi ptr [ %.pr.i503, %invoke.contthread-pre-split.i502 ], [ %.pre989, %for.cond.cleanup204 ], [ %130, %for.cond.cleanup204.thread ]
   %tobool.not.i.i.i505 = icmp eq ptr %134, null
   br i1 %tobool.not.i.i.i505, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_16ParsedExpressionESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev.exit, label %if.then.i.i.i506
 
@@ -11811,7 +11811,7 @@ ehcleanup666:                                     ; preds = %ehcleanup662, %lpad
   br label %ehcleanup920
 
 for.cond.cleanup682:                              ; preds = %_ZNSt10unique_ptrIN6duckdb24BoundColumnRefExpressionESt14default_deleteIS1_EED2Ev.exit, %for.cond680.preheader, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN6duckdb33CaseInsensitiveStringHashFunctionENS6_29CaseInsensitiveStringEqualityESaISt4pairIKS5_mEEED2Ev.exit
-  %group_by_all_indexes.sroa.0.0.lcssa2728 = phi ptr [ %group_by_all_indexes.sroa.9.3, %for.cond680.preheader ], [ null, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN6duckdb33CaseInsensitiveStringHashFunctionENS6_29CaseInsensitiveStringEqualityESaISt4pairIKS5_mEEED2Ev.exit ], [ %group_by_all_indexes.sroa.0.4, %_ZNSt10unique_ptrIN6duckdb24BoundColumnRefExpressionESt14default_deleteIS1_EED2Ev.exit ]
+  %group_by_all_indexes.sroa.0.0.lcssa2728 = phi ptr [ %group_by_all_indexes.sroa.0.4, %for.cond680.preheader ], [ null, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmN6duckdb33CaseInsensitiveStringHashFunctionENS6_29CaseInsensitiveStringEqualityESaISt4pairIKS5_mEEED2Ev.exit ], [ %group_by_all_indexes.sroa.0.4, %_ZNSt10unique_ptrIN6duckdb24BoundColumnRefExpressionESt14default_deleteIS1_EED2Ev.exit ]
   %_M_finish.i1752 = getelementptr inbounds i8, ptr %new_names, i64 8
   %458 = load ptr, ptr %_M_finish.i1752, align 8, !tbaa !139
   %459 = load ptr, ptr %new_names, align 16, !tbaa !141

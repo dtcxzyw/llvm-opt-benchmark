@@ -981,14 +981,13 @@ switch.early.test:                                ; preds = %130
   ]
 
 .split404.us:                                     ; preds = %.critedge6, %130, %switch.early.test, %switch.early.test
-  %.us-phi405 = phi ptr [ %.3259.lcssa, %switch.early.test ], [ %.3259.lcssa, %switch.early.test ], [ %.3259.lcssa, %130 ], [ %24, %.critedge6 ]
   %135 = icmp ne i32 %.0237.lcssa, 3
   %or.cond = select i1 %.not298, i1 %135, i1 false
   br i1 %or.cond, label %.thread375, label %.split404.us.thread
 
 .split404.us.thread:                              ; preds = %.critedge6.us, %113, %switch.early.test.us, %switch.early.test.us, %.split404.us
   %.us-phi406444 = phi ptr [ %.2.lcssa, %.split404.us ], [ %.2.lcssa.us, %switch.early.test.us ], [ %.2.lcssa.us, %switch.early.test.us ], [ %.2.lcssa.us, %113 ], [ %.2.lcssa.us, %.critedge6.us ]
-  %.us-phi405443 = phi ptr [ %.us-phi405, %.split404.us ], [ %.3259.lcssa.us, %switch.early.test.us ], [ %.3259.lcssa.us, %switch.early.test.us ], [ %.3259.lcssa.us, %113 ], [ %24, %.critedge6.us ]
+  %.us-phi405443 = phi ptr [ %.3259.lcssa, %.split404.us ], [ %.3259.lcssa.us, %switch.early.test.us ], [ %.3259.lcssa.us, %switch.early.test.us ], [ %.3259.lcssa.us, %113 ], [ %.3259.lcssa.us, %.critedge6.us ]
   %136 = load i8, ptr %.us-phi405443, align 1
   %137 = icmp eq i8 %136, %.0247334348353368
   br i1 %137, label %138, label %.critedge9
@@ -3162,7 +3161,7 @@ define hidden void @php_filter_validate_mac(ptr noundef %0, i64 noundef %1, ptr 
   %77 = getelementptr inbounds i8, ptr %76, i64 %59
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %88, %75
+.lr.ph.i:                                         ; preds = %75, %88
   %.02133.i = phi i64 [ %90, %88 ], [ 0, %75 ]
   %.02232.i = phi ptr [ %.1.i, %88 ], [ %76, %75 ]
   %78 = load i8, ptr %.02232.i, align 1

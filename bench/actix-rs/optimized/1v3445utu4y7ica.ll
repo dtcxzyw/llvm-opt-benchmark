@@ -12989,7 +12989,7 @@ define void @_ZN10actix_http2h17encoder16write_camel_case17hffd1ca0f5c8822e2E(pt
   br i1 %or.cond20, label %29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hba40d418119fe24dE.llvm.10144161557925507027.exit24.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hba40d418119fe24dE.llvm.10144161557925507027.exit24.thread": ; preds = %19, %31, %24
-  %.sroa.0.339 = phi ptr [ %25, %31 ], [ %25, %24 ], [ %5, %19 ]
+  %.sroa.0.339 = phi ptr [ %25, %31 ], [ %25, %24 ], [ %16, %19 ]
   %28 = add i64 %.042, 1
   br label %21
 

@@ -468,7 +468,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %30, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f84103f6e495a1dE.exit", label %.lr.ph.split.i.i
 
 "_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f84103f6e495a1dE.exit": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7210bb4841ebc5fbE.exit.thread.us.i.i", %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7210bb4841ebc5fbE.exit.thread.i.i"
-  store ptr %5, ptr %1, align 8, !alias.scope !196, !noalias !194
+  %.lcssa30.sink.i.i = phi ptr [ %21, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7210bb4841ebc5fbE.exit.thread.i.i" ], [ %12, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7210bb4841ebc5fbE.exit.thread.us.i.i" ]
+  store ptr %.lcssa30.sink.i.i, ptr %1, align 8, !alias.scope !196, !noalias !194
   br label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f84103f6e495a1dE.exit.thread"
 
 "_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f84103f6e495a1dE.exit.thread": ; preds = %2, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f84103f6e495a1dE.exit"
@@ -480,9 +481,9 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %68
 
-.loopexit:                                        ; preds = %16, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7210bb4841ebc5fbE.exit.i.i", %28
-  %.lcssa30.sink.i.i.ph = phi ptr [ %21, %28 ], [ %21, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7210bb4841ebc5fbE.exit.i.i" ], [ %12, %16 ]
-  %.0.ph.i.i.ph = phi ptr [ %20, %28 ], [ %20, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7210bb4841ebc5fbE.exit.i.i" ], [ %11, %16 ]
+.loopexit:                                        ; preds = %16, %28, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7210bb4841ebc5fbE.exit.i.i"
+  %.lcssa30.sink.i.i.ph = phi ptr [ %21, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7210bb4841ebc5fbE.exit.i.i" ], [ %21, %28 ], [ %12, %16 ]
+  %.0.ph.i.i.ph = phi ptr [ %20, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7210bb4841ebc5fbE.exit.i.i" ], [ %20, %28 ], [ %11, %16 ]
   store ptr %.lcssa30.sink.i.i.ph, ptr %1, align 8, !alias.scope !196, !noalias !194
   %33 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hcd453b54bfe74686E"(i64 noundef 4, i1 noundef zeroext false)
   %34 = extractvalue { i64, ptr } %33, 0
@@ -508,13 +509,13 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc, %.lr.ph.i.i.lr.ph.i.i
   %39 = phi i64 [ 1, %.lr.ph.i.i.lr.ph.i.i ], [ %66, %.noexc ]
-  %.lcssa30.sink.i.i.ph2425.i.i = phi ptr [ %.sroa.06.0.copyload, %.lr.ph.i.i.lr.ph.i.i ], [ %.lcssa30.sink.i.i.ph.i.i, %.noexc ]
+  %.lcssa30.sink.i.i.ph2122.i.i = phi ptr [ %.sroa.06.0.copyload, %.lr.ph.i.i.lr.ph.i.i ], [ %.lcssa30.sink.i.i.ph.i.i, %.noexc ]
   %40 = load i8, ptr %.sroa.7.0.copyload, align 1, !range !126, !noalias !209, !noundef !28
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %.lr.ph.split.i.i.i.i, label %.lr.ph.split.us.i.i.i.i
 
 .lr.ph.split.us.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7210bb4841ebc5fbE.exit.thread.us.i.i.i.i"
-  %42 = phi ptr [ %43, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7210bb4841ebc5fbE.exit.thread.us.i.i.i.i" ], [ %.lcssa30.sink.i.i.ph2425.i.i, %.lr.ph.i.i.i.i ]
+  %42 = phi ptr [ %43, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7210bb4841ebc5fbE.exit.thread.us.i.i.i.i" ], [ %.lcssa30.sink.i.i.ph2122.i.i, %.lr.ph.i.i.i.i ]
   %43 = getelementptr inbounds i8, ptr %42, i64 552
   %44 = getelementptr inbounds i8, ptr %42, i64 544
   %45 = load i32, ptr %44, align 4, !noalias !209, !noundef !28
@@ -535,7 +536,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %50, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hd5915f15622409b8E.exit", label %.lr.ph.split.us.i.i.i.i
 
 .lr.ph.split.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7210bb4841ebc5fbE.exit.thread.i.i.i.i"
-  %51 = phi ptr [ %52, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7210bb4841ebc5fbE.exit.thread.i.i.i.i" ], [ %.lcssa30.sink.i.i.ph2425.i.i, %.lr.ph.i.i.i.i ]
+  %51 = phi ptr [ %52, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7210bb4841ebc5fbE.exit.thread.i.i.i.i" ], [ %.lcssa30.sink.i.i.ph2122.i.i, %.lr.ph.i.i.i.i ]
   %52 = getelementptr inbounds i8, ptr %51, i64 552
   %53 = getelementptr inbounds i8, ptr %51, i64 544
   %54 = load i32, ptr %53, align 4, !noalias !209, !noundef !28
@@ -976,7 +977,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %34, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb83ff975131e5e0E.exit", label %.lr.ph.i.i.i.i.i
 
 "_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb83ff975131e5e0E.exit": ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h43029a1e8808ab22E.exit.i.i.i.i.i"
-  store ptr %6, ptr %1, align 8, !alias.scope !334, !noalias !337
+  store ptr %9, ptr %1, align 8, !alias.scope !334, !noalias !337
   br label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb83ff975131e5e0E.exit.thread"
 
 "_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb83ff975131e5e0E.exit.thread": ; preds = %2, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb83ff975131e5e0E.exit"
@@ -1009,11 +1010,11 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .lr.ph.i.i.i.i.i.preheader.i.i:                   ; preds = %37, %.noexc
   %43 = phi i64 [ %76, %.noexc ], [ 1, %37 ]
-  %.lcssa1718.i.i = phi ptr [ %45, %.noexc ], [ %.sroa.05.0.copyload, %37 ]
+  %.lcssa1415.i.i = phi ptr [ %45, %.noexc ], [ %.sroa.05.0.copyload, %37 ]
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h43029a1e8808ab22E.exit.i.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.preheader.i.i
-  %44 = phi ptr [ %45, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h43029a1e8808ab22E.exit.i.i.i.i.i.i.i" ], [ %.lcssa1718.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i ]
+  %44 = phi ptr [ %45, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h43029a1e8808ab22E.exit.i.i.i.i.i.i.i" ], [ %.lcssa1415.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i ]
   %45 = getelementptr inbounds i8, ptr %44, i64 552
   call void @llvm.experimental.noalias.scope.decl(metadata !371)
   %46 = getelementptr inbounds i8, ptr %44, i64 504
@@ -1527,7 +1528,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %38, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4546f5688da847E.exit", label %11
 
 "_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4546f5688da847E.exit": ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hda2b6ae6b48c4b2aE.exit.i.i.i.i"
-  store ptr %6, ptr %1, align 8, !alias.scope !522, !noalias !525
+  store ptr %13, ptr %1, align 8, !alias.scope !522, !noalias !525
   br label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4546f5688da847E.exit.thread"
 
 "_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4546f5688da847E.exit.thread": ; preds = %2, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4546f5688da847E.exit"
@@ -1566,11 +1567,11 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc, %.lr.ph.i.i.i.i.lr.ph.i.i
   %49 = phi i64 [ 1, %.lr.ph.i.i.i.i.lr.ph.i.i ], [ %83, %.noexc ]
-  %.lcssa1718.i.i = phi ptr [ %.sroa.05.0.copyload, %.lr.ph.i.i.i.i.lr.ph.i.i ], [ %52, %.noexc ]
+  %.lcssa1415.i.i = phi ptr [ %.sroa.05.0.copyload, %.lr.ph.i.i.i.i.lr.ph.i.i ], [ %52, %.noexc ]
   br label %50
 
 50:                                               ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hda2b6ae6b48c4b2aE.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
-  %51 = phi ptr [ %.lcssa1718.i.i, %.lr.ph.i.i.i.i.i.i ], [ %52, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hda2b6ae6b48c4b2aE.exit.i.i.i.i.i.i" ]
+  %51 = phi ptr [ %.lcssa1415.i.i, %.lr.ph.i.i.i.i.i.i ], [ %52, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hda2b6ae6b48c4b2aE.exit.i.i.i.i.i.i" ]
   %52 = getelementptr inbounds i8, ptr %51, i64 552
   call void @llvm.experimental.noalias.scope.decl(metadata !555)
   %53 = getelementptr inbounds i8, ptr %51, i64 56
@@ -5712,7 +5713,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %34, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h559b050dae27c61bE.exit", label %.lr.ph.i.i.i.i.i
 
 "_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h559b050dae27c61bE.exit": ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd6df20787bd724b1E.exit.i.i.i.i.i"
-  store ptr %6, ptr %1, align 8, !alias.scope !1577, !noalias !1580
+  store ptr %9, ptr %1, align 8, !alias.scope !1577, !noalias !1580
   br label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h559b050dae27c61bE.exit.thread"
 
 "_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h559b050dae27c61bE.exit.thread": ; preds = %2, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h559b050dae27c61bE.exit"
@@ -5745,11 +5746,11 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .lr.ph.i.i.i.i.i.preheader.i.i:                   ; preds = %37, %.noexc
   %43 = phi i64 [ %76, %.noexc ], [ 1, %37 ]
-  %.lcssa1718.i.i = phi ptr [ %45, %.noexc ], [ %.sroa.05.0.copyload, %37 ]
+  %.lcssa1415.i.i = phi ptr [ %45, %.noexc ], [ %.sroa.05.0.copyload, %37 ]
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd6df20787bd724b1E.exit.i.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.preheader.i.i
-  %44 = phi ptr [ %45, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd6df20787bd724b1E.exit.i.i.i.i.i.i.i" ], [ %.lcssa1718.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i ]
+  %44 = phi ptr [ %45, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd6df20787bd724b1E.exit.i.i.i.i.i.i.i" ], [ %.lcssa1415.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i ]
   %45 = getelementptr inbounds i8, ptr %44, i64 552
   call void @llvm.experimental.noalias.scope.decl(metadata !1612)
   %46 = getelementptr inbounds i8, ptr %44, i64 504

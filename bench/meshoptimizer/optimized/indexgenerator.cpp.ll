@@ -594,7 +594,7 @@ invoke.cont:                                      ; preds = %if.then
   %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
   store i64 1, ptr %count.i, align 8
   store ptr %call.i30, ptr %allocator, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i30, ptr align 1 %destination, i64 %mul, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i30, ptr align 1 %vertices, i64 %mul, i1 false)
   br label %if.end
 
 lpad:                                             ; preds = %if.then
@@ -1165,7 +1165,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %allocator, i8 0, i64 200, i1 false)
   %0 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i = icmp ugt i64 %vertex_count, 4611686018427387903
-  %mul.i = shl i64 %vertex_count, 2
+  %mul.i = shl nuw i64 %vertex_count, 2
   %cond.i = select i1 %cmp.i, i64 -1, i64 %mul.i
   %call.i43 = invoke noundef ptr %0(i64 noundef %cond.i)
           to label %invoke.cont unwind label %lpad
@@ -1393,7 +1393,7 @@ invoke.cont57.thread:                             ; preds = %for.body.i82
   %24 = shl nuw nsw i64 %indvars.iv140, 1
   %arrayidx62119 = getelementptr inbounds [6 x i32], ptr %patch, i64 0, i64 %24
   store i32 %18, ptr %arrayidx62119, align 8
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   br label %cond.end
 
 if.end.i87:                                       ; preds = %for.body.i82
@@ -1614,7 +1614,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %allocator, i8 0, i64 200, i1 false)
   %0 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i = icmp ugt i64 %vertex_count, 4611686018427387903
-  %mul.i = shl i64 %vertex_count, 2
+  %mul.i = shl nuw i64 %vertex_count, 2
   %cond.i = select i1 %cmp.i, i64 -1, i64 %mul.i
   %call.i38 = invoke noundef ptr %0(i64 noundef %cond.i)
           to label %invoke.cont unwind label %lpad
@@ -1849,7 +1849,7 @@ invoke.cont47:                                    ; preds = %if.end4.i78, %_ZNK7
   %arrayidx57 = getelementptr inbounds [12 x i32], ptr %patch, i64 0, i64 %26
   store i32 %conv52, ptr %arrayidx57, align 4
   %shr = lshr i64 %24, 32
-  %conv58 = trunc i64 %shr to i32
+  %conv58 = trunc nuw i64 %shr to i32
   %27 = add nuw nsw i64 %25, 4
   %arrayidx63 = getelementptr inbounds [12 x i32], ptr %patch, i64 0, i64 %27
   store i32 %conv58, ptr %arrayidx63, align 8

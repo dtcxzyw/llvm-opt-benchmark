@@ -154,7 +154,7 @@ define internal i32 @echainiv_encrypt(ptr noundef %0) #2 align 16 {
 
 41:                                               ; preds = %._crit_edge, %13
   %42 = phi i32 [ %.pre5, %._crit_edge ], [ %11, %13 ]
-  %43 = phi ptr [ %.pre, %._crit_edge ], [ %21, %13 ]
+  %43 = phi ptr [ %.pre, %._crit_edge ], [ %23, %13 ]
   %44 = getelementptr inbounds i8, ptr %0, i64 40
   %45 = load i32, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 16

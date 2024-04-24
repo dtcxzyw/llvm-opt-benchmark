@@ -49,7 +49,7 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noca
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %17
-  store ptr %2, ptr %3, align 8
+  store ptr %9, ptr %3, align 8
   br label %192
 
 20:                                               ; preds = %17
@@ -452,7 +452,7 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noca
   br label %192
 
 192:                                              ; preds = %79, %26, %191, %190, %184, %177, %162, %152, %148, %141, %136, %132, %125, %115, %108, %100, %95, %91, %19, %16
-  %.0 = phi ptr [ %1, %16 ], [ %2, %19 ], [ null, %91 ], [ null, %95 ], [ null, %100 ], [ null, %108 ], [ null, %115 ], [ null, %125 ], [ null, %132 ], [ null, %136 ], [ null, %141 ], [ null, %148 ], [ null, %152 ], [ null, %162 ], [ null, %177 ], [ null, %184 ], [ null, %190 ], [ %175, %191 ], [ %25, %26 ], [ null, %79 ]
+  %.0 = phi ptr [ %12, %16 ], [ %9, %19 ], [ null, %91 ], [ null, %95 ], [ null, %100 ], [ null, %108 ], [ null, %115 ], [ null, %125 ], [ null, %132 ], [ null, %136 ], [ null, %141 ], [ null, %148 ], [ null, %152 ], [ null, %162 ], [ null, %177 ], [ null, %184 ], [ null, %190 ], [ %175, %191 ], [ %25, %26 ], [ null, %79 ]
   ret ptr %.0
 }
 
@@ -785,7 +785,7 @@ define ptr @cuddBddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %161
 
 161:                                              ; preds = %58, %12, %10, %3, %159, %158, %145, %130, %126, %119, %115, %111, %107, %92, %85, %78, %74, %70
-  %.0236 = phi ptr [ null, %70 ], [ null, %74 ], [ null, %78 ], [ null, %85 ], [ null, %92 ], [ null, %107 ], [ null, %111 ], [ null, %115 ], [ null, %119 ], [ null, %126 ], [ null, %130 ], [ null, %145 ], [ null, %158 ], [ %160, %159 ], [ %1, %3 ], [ %2, %10 ], [ %13, %12 ], [ null, %58 ]
+  %.0236 = phi ptr [ null, %70 ], [ null, %74 ], [ null, %78 ], [ null, %85 ], [ null, %92 ], [ null, %107 ], [ null, %111 ], [ null, %115 ], [ null, %119 ], [ null, %126 ], [ null, %130 ], [ null, %145 ], [ null, %158 ], [ %160, %159 ], [ %8, %3 ], [ %5, %10 ], [ %13, %12 ], [ null, %58 ]
   ret ptr %.0236
 }
 
@@ -1004,7 +1004,7 @@ define ptr @cuddMakeBddFromZddCover(ptr noundef %0, ptr noundef %1) #0 {
   br label %95
 
 95:                                               ; preds = %19, %17, %2, %94, %93, %86, %69, %60, %49, %38, %31, %13
-  %.0106 = phi ptr [ %16, %13 ], [ %.0107, %94 ], [ null, %86 ], [ null, %93 ], [ null, %69 ], [ null, %60 ], [ null, %49 ], [ null, %38 ], [ null, %31 ], [ %1, %2 ], [ %18, %17 ], [ null, %19 ]
+  %.0106 = phi ptr [ %16, %13 ], [ %.0107, %94 ], [ null, %86 ], [ null, %93 ], [ null, %69 ], [ null, %60 ], [ null, %49 ], [ null, %38 ], [ null, %31 ], [ %7, %2 ], [ %18, %17 ], [ null, %19 ]
   ret ptr %.0106
 }
 

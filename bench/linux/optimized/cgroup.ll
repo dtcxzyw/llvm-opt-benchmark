@@ -2815,7 +2815,7 @@ define dso_local void @cgroup_lock_and_drain_offline(ptr noundef %0) local_unnam
   %104 = phi ptr [ %101, %100 ], [ %105, %107 ]
   %105 = load volatile ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, %101
-  br i1 %106, label %.loopexit, label %107
+  br i1 %106, label %.loopexit8, label %107
 
 107:                                              ; preds = %103
   %108 = getelementptr i8, ptr %105, i64 56
@@ -2824,8 +2824,8 @@ define dso_local void @cgroup_lock_and_drain_offline(ptr noundef %0) local_unnam
   %111 = icmp ugt i64 %109, %110
   br i1 %111, label %.loopexit8, label %103, !llvm.loop !51
 
-.loopexit8:                                       ; preds = %107, %97
-  %112 = phi ptr [ %99, %97 ], [ %105, %107 ]
+.loopexit8:                                       ; preds = %107, %103, %97
+  %112 = phi ptr [ %99, %97 ], [ %105, %103 ], [ %105, %107 ]
   %113 = getelementptr i8, ptr %112, i64 -32
   %114 = getelementptr inbounds i8, ptr %92, i64 48
   %115 = icmp eq ptr %112, %114
@@ -2843,8 +2843,8 @@ define dso_local void @cgroup_lock_and_drain_offline(ptr noundef %0) local_unnam
   %124 = or i1 %122, %123
   br i1 %124, label %.loopexit, label %.preheader, !llvm.loop !48
 
-.loopexit:                                        ; preds = %103, %.preheader, %.loopexit8
-  %125 = phi ptr [ %92, %.loopexit8 ], [ %118, %.preheader ], [ %92, %103 ]
+.loopexit:                                        ; preds = %.preheader, %.loopexit8
+  %125 = phi ptr [ %92, %.loopexit8 ], [ %118, %.preheader ]
   %126 = icmp eq ptr %125, null
   br i1 %126, label %.thread, label %.preheader10, !llvm.loop !52
 
@@ -3336,7 +3336,7 @@ define dso_local ptr @css_next_child(ptr noundef %0, ptr noundef %1) local_unnam
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %16, %25
-  %28 = phi ptr [ %27, %25 ], [ %18, %20 ], [ %14, %16 ]
+  %28 = phi ptr [ %27, %25 ], [ %18, %16 ], [ %18, %20 ]
   %29 = getelementptr i8, ptr %28, i64 -32
   %30 = getelementptr inbounds i8, ptr %1, i64 48
   %31 = icmp eq ptr %28, %30
@@ -3596,7 +3596,7 @@ cgroup_migrate_add_src.exit:                      ; preds = %32, %39, %95
   br label %.loopexit24
 
 .loopexit24:                                      ; preds = %128, %124, %133
-  %136 = phi ptr [ %135, %133 ], [ %126, %128 ], [ %122, %124 ]
+  %136 = phi ptr [ %135, %133 ], [ %126, %124 ], [ %126, %128 ]
   %137 = getelementptr i8, ptr %136, i64 -32
   %138 = getelementptr inbounds i8, ptr %110, i64 48
   %139 = icmp eq ptr %136, %138
@@ -3794,7 +3794,7 @@ cgroup_migrate_add_src.exit:                      ; preds = %32, %39, %95
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @cgroup_finalize_control(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = icmp eq i32 %1, 0
-  br i1 %3, label %.preheader61, label %.preheader32
+  br i1 %3, label %.preheader54, label %.preheader32
 
 .preheader32:                                     ; preds = %2, %.preheader32
   %4 = phi ptr [ %7, %.preheader32 ], [ %0, %2 ]
@@ -3861,7 +3861,7 @@ define internal fastcc void @cgroup_finalize_control(ptr noundef %0, i32 noundef
   %45 = phi ptr [ %42, %41 ], [ %46, %48 ]
   %46 = load volatile ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, %42
-  br i1 %47, label %.loopexit29, label %48
+  br i1 %47, label %.loopexit30, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr i8, ptr %46, i64 56
@@ -3870,8 +3870,8 @@ define internal fastcc void @cgroup_finalize_control(ptr noundef %0, i32 noundef
   %52 = icmp ugt i64 %50, %51
   br i1 %52, label %.loopexit30, label %44, !llvm.loop !51
 
-.loopexit30:                                      ; preds = %48, %38
-  %53 = phi ptr [ %40, %38 ], [ %46, %48 ]
+.loopexit30:                                      ; preds = %48, %44, %38
+  %53 = phi ptr [ %40, %38 ], [ %46, %44 ], [ %46, %48 ]
   %54 = getelementptr i8, ptr %53, i64 -32
   %55 = getelementptr inbounds i8, ptr %33, i64 48
   %56 = icmp eq ptr %53, %55
@@ -3889,20 +3889,20 @@ define internal fastcc void @cgroup_finalize_control(ptr noundef %0, i32 noundef
   %65 = or i1 %63, %64
   br i1 %65, label %.loopexit29, label %.preheader28, !llvm.loop !48
 
-.loopexit29:                                      ; preds = %44, %.preheader28, %.loopexit30
-  %66 = phi ptr [ %33, %.loopexit30 ], [ %59, %.preheader28 ], [ %33, %44 ]
+.loopexit29:                                      ; preds = %.preheader28, %.loopexit30
+  %66 = phi ptr [ %33, %.loopexit30 ], [ %59, %.preheader28 ]
   %67 = icmp eq ptr %66, null
   br i1 %67, label %.thread, label %.preheader31, !llvm.loop !99
 
 .thread:                                          ; preds = %29, %.loopexit29, %11
   tail call fastcc void @cgroup_propagate_control(ptr noundef %0)
-  br label %.preheader61
+  br label %.preheader54
 
-.preheader61:                                     ; preds = %.thread, %2
+.preheader54:                                     ; preds = %.thread, %2
   br label %68
 
-68:                                               ; preds = %.preheader61, %68
-  %69 = phi ptr [ %72, %68 ], [ %0, %.preheader61 ]
+68:                                               ; preds = %.preheader54, %68
+  %69 = phi ptr [ %72, %68 ], [ %0, %.preheader54 ]
   %70 = getelementptr inbounds i8, ptr %69, i64 48
   %71 = load volatile ptr, ptr %70, align 8
   %72 = getelementptr i8, ptr %71, i64 -32
@@ -4164,7 +4164,7 @@ define internal fastcc void @cgroup_finalize_control(ptr noundef %0, i32 noundef
   %244 = phi ptr [ %241, %240 ], [ %245, %247 ]
   %245 = load volatile ptr, ptr %244, align 8
   %246 = icmp eq ptr %245, %241
-  br i1 %246, label %.loopexit24, label %247
+  br i1 %246, label %.loopexit25, label %247
 
 247:                                              ; preds = %243
   %248 = getelementptr i8, ptr %245, i64 56
@@ -4173,8 +4173,8 @@ define internal fastcc void @cgroup_finalize_control(ptr noundef %0, i32 noundef
   %251 = icmp ugt i64 %249, %250
   br i1 %251, label %.loopexit25, label %243, !llvm.loop !51
 
-.loopexit25:                                      ; preds = %247, %237
-  %252 = phi ptr [ %239, %237 ], [ %245, %247 ]
+.loopexit25:                                      ; preds = %247, %243, %237
+  %252 = phi ptr [ %239, %237 ], [ %245, %243 ], [ %245, %247 ]
   %253 = getelementptr i8, ptr %252, i64 -32
   %254 = getelementptr inbounds i8, ptr %232, i64 48
   %255 = icmp eq ptr %252, %254
@@ -4192,8 +4192,8 @@ define internal fastcc void @cgroup_finalize_control(ptr noundef %0, i32 noundef
   %264 = or i1 %262, %263
   br i1 %264, label %.loopexit24, label %.preheader23, !llvm.loop !48
 
-.loopexit24:                                      ; preds = %243, %.preheader23, %.loopexit25
-  %265 = phi ptr [ %232, %.loopexit25 ], [ %258, %.preheader23 ], [ %232, %243 ]
+.loopexit24:                                      ; preds = %.preheader23, %.loopexit25
+  %265 = phi ptr [ %232, %.loopexit25 ], [ %258, %.preheader23 ]
   %266 = icmp eq ptr %265, null
   br i1 %266, label %.thread22, label %.preheader27, !llvm.loop !105
 
@@ -5982,13 +5982,13 @@ define dso_local noundef i32 @cgroup_migrate_prepare_dst(ptr noundef %0) local_u
   br label %37
 
 37:                                               ; preds = %35, %27
-  %38 = getelementptr i8, ptr %9, i64 -384
+  %38 = getelementptr inbounds i8, ptr %14, i64 112
   %39 = tail call zeroext i1 @refcount_dec_not_one(ptr noundef %38) #30
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %37
   %41 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @css_set_lock) #30
-  tail call void @put_css_set_locked(ptr noundef nonnull %10)
+  tail call void @put_css_set_locked(ptr noundef nonnull %14)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @css_set_lock, i64 noundef %41) #30
   br label %.loopexit
 
@@ -6870,7 +6870,7 @@ define internal fastcc i32 @cgroup_migrate_execute(ptr noundef %0) unnamed_addr 
   br i1 %98, label %99, label %104
 
 99:                                               ; preds = %.preheader7.i
-  %100 = load ptr, ptr %48, align 8
+  %100 = load ptr, ptr %97, align 8
   store ptr %100, ptr %96, align 8
   %101 = getelementptr i8, ptr %94, i64 -80
   %102 = load i32, ptr %101, align 8
@@ -7550,7 +7550,7 @@ define dso_local ptr @css_next_descendant_post(ptr noundef %0, ptr noundef %1) l
   %27 = phi ptr [ %24, %23 ], [ %28, %30 ]
   %28 = load volatile ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %24
-  br i1 %29, label %.loopexit, label %30
+  br i1 %29, label %.loopexit5, label %30
 
 30:                                               ; preds = %26
   %31 = getelementptr i8, ptr %28, i64 56
@@ -7559,8 +7559,8 @@ define dso_local ptr @css_next_descendant_post(ptr noundef %0, ptr noundef %1) l
   %34 = icmp ugt i64 %32, %33
   br i1 %34, label %.loopexit5, label %26, !llvm.loop !51
 
-.loopexit5:                                       ; preds = %30, %20
-  %35 = phi ptr [ %22, %20 ], [ %28, %30 ]
+.loopexit5:                                       ; preds = %30, %26, %20
+  %35 = phi ptr [ %22, %20 ], [ %28, %26 ], [ %28, %30 ]
   %36 = getelementptr i8, ptr %35, i64 -32
   %37 = getelementptr inbounds i8, ptr %15, i64 48
   %38 = icmp eq ptr %35, %37
@@ -7578,8 +7578,8 @@ define dso_local ptr @css_next_descendant_post(ptr noundef %0, ptr noundef %1) l
   %47 = or i1 %45, %46
   br i1 %47, label %.loopexit, label %.preheader3, !llvm.loop !48
 
-.loopexit:                                        ; preds = %26, %.preheader3, %.preheader, %.loopexit5, %11
-  %48 = phi ptr [ null, %11 ], [ %15, %.loopexit5 ], [ %4, %.preheader ], [ %41, %.preheader3 ], [ %15, %26 ]
+.loopexit:                                        ; preds = %.preheader3, %.preheader, %.loopexit5, %11
+  %48 = phi ptr [ null, %11 ], [ %15, %.loopexit5 ], [ %4, %.preheader ], [ %41, %.preheader3 ]
   ret ptr %48
 }
 
@@ -7945,7 +7945,7 @@ define dso_local ptr @css_next_descendant_pre(ptr noundef %0, ptr noundef readno
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %29, %38
-  %41 = phi ptr [ %40, %38 ], [ %31, %33 ], [ %27, %29 ]
+  %41 = phi ptr [ %40, %38 ], [ %31, %29 ], [ %31, %33 ]
   %42 = getelementptr i8, ptr %41, i64 -32
   %43 = getelementptr inbounds i8, ptr %15, i64 48
   %44 = icmp eq ptr %41, %43
@@ -7962,8 +7962,8 @@ define dso_local ptr @css_next_descendant_pre(ptr noundef %0, ptr noundef readno
 define dso_local ptr @css_rightmost_descendant(ptr noundef %0) local_unnamed_addr #5 align 16 {
   br label %2
 
-2:                                                ; preds = %.loopexit.thread, %1
-  %3 = phi ptr [ %0, %1 ], [ %10, %.loopexit.thread ]
+2:                                                ; preds = %34, %1
+  %3 = phi ptr [ %0, %1 ], [ %10, %34 ]
   %4 = getelementptr inbounds i8, ptr %3, i64 48
   %5 = load volatile ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -32
@@ -7993,7 +7993,7 @@ define dso_local ptr @css_rightmost_descendant(ptr noundef %0) local_unnamed_add
   %21 = phi ptr [ %4, %18 ], [ %22, %24 ]
   %22 = load volatile ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %4
-  br i1 %23, label %.loopexit.thread, label %24
+  br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr i8, ptr %22, i64 56
@@ -8002,19 +8002,19 @@ define dso_local ptr @css_rightmost_descendant(ptr noundef %0) local_unnamed_add
   %28 = icmp ugt i64 %26, %27
   br i1 %28, label %.loopexit, label %20, !llvm.loop !51
 
-.loopexit:                                        ; preds = %24, %15
-  %29 = phi ptr [ %17, %15 ], [ %22, %24 ]
+.loopexit:                                        ; preds = %24, %20, %15
+  %29 = phi ptr [ %17, %15 ], [ %22, %20 ], [ %22, %24 ]
   %30 = getelementptr i8, ptr %29, i64 -32
   %31 = icmp eq ptr %29, %4
   %32 = icmp eq ptr %30, null
   %33 = or i1 %31, %32
-  br i1 %33, label %.loopexit.thread, label %.preheader, !llvm.loop !194
+  br i1 %33, label %34, label %.preheader, !llvm.loop !194
 
-.loopexit.thread:                                 ; preds = %.loopexit, %20
-  %34 = icmp eq ptr %10, null
-  br i1 %34, label %.thread, label %2, !llvm.loop !195
+34:                                               ; preds = %.loopexit
+  %35 = icmp eq ptr %10, null
+  br i1 %35, label %.thread, label %2, !llvm.loop !195
 
-.thread:                                          ; preds = %2, %.loopexit.thread
+.thread:                                          ; preds = %2, %34
   ret ptr %3
 }
 
@@ -8063,7 +8063,7 @@ define dso_local noundef zeroext i1 @css_has_online_children(ptr noundef %0) loc
   %26 = phi ptr [ %2, %23 ], [ %27, %29 ]
   %27 = load volatile ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %2
-  br i1 %28, label %.loopexit8, label %29
+  br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr i8, ptr %27, i64 56
@@ -8072,16 +8072,16 @@ define dso_local noundef zeroext i1 @css_has_online_children(ptr noundef %0) loc
   %33 = icmp ugt i64 %31, %32
   br i1 %33, label %.loopexit, label %25, !llvm.loop !51
 
-.loopexit:                                        ; preds = %29, %20
-  %34 = phi ptr [ %22, %20 ], [ %27, %29 ]
+.loopexit:                                        ; preds = %29, %25, %20
+  %34 = phi ptr [ %22, %20 ], [ %27, %25 ], [ %27, %29 ]
   %35 = getelementptr i8, ptr %34, i64 -32
   %36 = icmp ne ptr %34, %2
   %.not67 = icmp ne ptr %35, null
   %.not6.not = and i1 %36, %.not67
   br i1 %.not6.not, label %11, label %.loopexit8, !llvm.loop !196
 
-.loopexit8:                                       ; preds = %.loopexit, %11, %25, %6, %1
-  %37 = phi i1 [ false, %1 ], [ true, %6 ], [ false, %25 ], [ %.not6.not, %11 ], [ %.not6.not, %.loopexit ]
+.loopexit8:                                       ; preds = %.loopexit, %11, %6, %1
+  %37 = phi i1 [ false, %1 ], [ true, %6 ], [ %.not6.not, %11 ], [ %.not6.not, %.loopexit ]
   tail call void @__rcu_read_unlock() #30
   ret i1 %37
 }
@@ -9399,7 +9399,7 @@ define internal fastcc i32 @cgroup_apply_control_enable(ptr noundef %0) unnamed_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %240, %236, %245
-  %248 = phi ptr [ %247, %245 ], [ %238, %240 ], [ %234, %236 ]
+  %248 = phi ptr [ %247, %245 ], [ %238, %236 ], [ %238, %240 ]
   %249 = getelementptr i8, ptr %248, i64 -32
   %250 = getelementptr inbounds i8, ptr %222, i64 48
   %251 = icmp eq ptr %248, %250
@@ -9520,7 +9520,7 @@ define internal fastcc noundef i32 @cgroup_destroy_locked(ptr noundef %0) unname
   %38 = phi ptr [ %14, %35 ], [ %39, %41 ]
   %39 = load volatile ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %14
-  br i1 %40, label %.critedge, label %41
+  br i1 %40, label %.loopexit18, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr i8, ptr %39, i64 56
@@ -9529,8 +9529,8 @@ define internal fastcc noundef i32 @cgroup_destroy_locked(ptr noundef %0) unname
   %45 = icmp ugt i64 %43, %44
   br i1 %45, label %.loopexit18, label %37, !llvm.loop !51
 
-.loopexit18:                                      ; preds = %41, %32
-  %46 = phi ptr [ %34, %32 ], [ %39, %41 ]
+.loopexit18:                                      ; preds = %41, %37, %32
+  %46 = phi ptr [ %34, %32 ], [ %39, %37 ], [ %39, %41 ]
   %47 = getelementptr i8, ptr %46, i64 -32
   %48 = icmp eq ptr %46, %14
   %.not1314 = icmp eq ptr %47, null
@@ -9541,7 +9541,7 @@ define internal fastcc noundef i32 @cgroup_destroy_locked(ptr noundef %0) unname
   tail call void @__rcu_read_unlock() #30
   br label %131
 
-.critedge:                                        ; preds = %.loopexit18, %37, %13
+.critedge:                                        ; preds = %.loopexit18, %13
   tail call void @__rcu_read_unlock() #30
   %49 = getelementptr inbounds i8, ptr %0, i64 84
   %50 = load i32, ptr %49, align 4
@@ -11907,7 +11907,7 @@ define dso_local void @cgroup_exit(ptr noundef %0) local_unnamed_addr #1 align 1
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %.preheader7.i
-  %24 = load ptr, ptr %2, align 8
+  %24 = load ptr, ptr %21, align 8
   store ptr %24, ptr %20, align 8
   %25 = getelementptr i8, ptr %18, i64 -80
   %26 = load i32, ptr %25, align 8
@@ -12120,7 +12120,7 @@ define dso_local void @cgroup_release(ptr noundef %0) local_unnamed_addr #1 alig
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %31
-  %38 = load ptr, ptr %30, align 8
+  %38 = load ptr, ptr %35, align 8
   store ptr %38, ptr %34, align 8
   %39 = getelementptr i8, ptr %32, i64 -80
   %40 = load i32, ptr %39, align 8
@@ -13988,7 +13988,7 @@ define internal fastcc void @cgroup_propagate_control(ptr noundef %0) unnamed_ad
   br label %.loopexit
 
 .loopexit:                                        ; preds = %112, %108, %117
-  %120 = phi ptr [ %119, %117 ], [ %110, %112 ], [ %106, %108 ]
+  %120 = phi ptr [ %119, %117 ], [ %110, %108 ], [ %110, %112 ]
   %121 = getelementptr i8, ptr %120, i64 -32
   %122 = getelementptr inbounds i8, ptr %94, i64 48
   %123 = icmp eq ptr %120, %122
@@ -14326,7 +14326,7 @@ select.unfold.us:                                 ; preds = %25, %.split.us
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %49, %53, %62
-  %65 = phi ptr [ %64, %62 ], [ %47, %49 ], [ %51, %53 ]
+  %65 = phi ptr [ %64, %62 ], [ %51, %53 ], [ %51, %49 ]
   %66 = getelementptr i8, ptr %65, i64 -32
   %67 = getelementptr inbounds i8, ptr %39, i64 48
   %68 = icmp eq ptr %65, %67
@@ -14415,7 +14415,7 @@ select.unfold:                                    ; preds = %77, %.split
   br label %.loopexit
 
 .loopexit:                                        ; preds = %113, %109, %118
-  %121 = phi ptr [ %120, %118 ], [ %111, %113 ], [ %107, %109 ]
+  %121 = phi ptr [ %120, %118 ], [ %111, %109 ], [ %111, %113 ]
   %122 = getelementptr i8, ptr %121, i64 -32
   %123 = getelementptr inbounds i8, ptr %95, i64 48
   %124 = icmp eq ptr %121, %123
@@ -15902,7 +15902,7 @@ define internal noundef i64 @cgroup_type_write(ptr nocapture noundef readonly %0
   br label %.loopexit21
 
 .loopexit21:                                      ; preds = %121, %117, %126
-  %129 = phi ptr [ %128, %126 ], [ %119, %121 ], [ %115, %117 ]
+  %129 = phi ptr [ %128, %126 ], [ %119, %117 ], [ %119, %121 ]
   %130 = getelementptr i8, ptr %129, i64 -32
   %131 = getelementptr inbounds i8, ptr %103, i64 48
   %132 = icmp eq ptr %129, %131
@@ -15997,7 +15997,7 @@ define internal noundef i64 @cgroup_type_write(ptr nocapture noundef readonly %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %179, %175, %184
-  %187 = phi ptr [ %186, %184 ], [ %177, %179 ], [ %173, %175 ]
+  %187 = phi ptr [ %186, %184 ], [ %177, %175 ], [ %177, %179 ]
   %188 = getelementptr i8, ptr %187, i64 -32
   %189 = getelementptr inbounds i8, ptr %161, i64 48
   %190 = icmp eq ptr %187, %189
@@ -16830,7 +16830,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   br label %.loopexit
 
 .loopexit:                                        ; preds = %271, %267, %276
-  %279 = phi ptr [ %278, %276 ], [ %269, %271 ], [ %265, %267 ]
+  %279 = phi ptr [ %278, %276 ], [ %269, %267 ], [ %269, %271 ]
   %280 = getelementptr i8, ptr %279, i64 -32
   %281 = getelementptr inbounds i8, ptr %253, i64 48
   %282 = icmp eq ptr %279, %281
@@ -17610,7 +17610,7 @@ define internal i64 @cgroup_kill_write(ptr nocapture noundef readonly %0, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %97, %93, %102
-  %105 = phi ptr [ %104, %102 ], [ %95, %97 ], [ %91, %93 ]
+  %105 = phi ptr [ %104, %102 ], [ %95, %93 ], [ %95, %97 ]
   %106 = getelementptr i8, ptr %105, i64 -32
   %107 = getelementptr inbounds i8, ptr %79, i64 48
   %108 = icmp eq ptr %105, %107

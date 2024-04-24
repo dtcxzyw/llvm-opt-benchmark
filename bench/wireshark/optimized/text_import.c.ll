@@ -288,7 +288,7 @@ switch.lookup:                                    ; preds = %3
   br i1 %exitcond.not, label %.critedge.i, label %.lr.ph5.i.split, !llvm.loop !4
 
 .critedge.i:                                      ; preds = %.lr.ph5.i.split, %51, %.loopexit.i, %.lr.ph5.i.split.us.split, %.loopexit.i.us, %.lr.ph5.i.split.us, %26
-  %.213 = phi ptr [ %.011, %26 ], [ %.011, %.lr.ph5.i.split.us ], [ %.112.us, %.lr.ph5.i.split.us.split ], [ %scevgep32, %.loopexit.i.us ], [ %.112, %51 ], [ %scevgep30, %.loopexit.i ], [ %.112, %.lr.ph5.i.split ]
+  %.213 = phi ptr [ %.011, %26 ], [ %.011, %.lr.ph5.i.split.us ], [ %.112.us, %.lr.ph5.i.split.us.split ], [ %49, %.loopexit.i.us ], [ %.112, %51 ], [ %72, %.loopexit.i ], [ %.112, %.lr.ph5.i.split ]
   %.4 = phi ptr [ %.010, %26 ], [ %.010, %.lr.ph5.i.split.us ], [ %.010, %.loopexit.i.us ], [ %.010, %.lr.ph5.i.split.us.split ], [ %.1, %51 ], [ %.3, %.loopexit.i ], [ %.1, %.lr.ph5.i.split ]
   %.045.lcssa.i = phi i64 [ 0, %26 ], [ 0, %.lr.ph5.i.split.us ], [ %.0452.i.us, %.lr.ph5.i.split.us.split ], [ %.146.i.us, %.loopexit.i.us ], [ %.0452.i, %51 ], [ %.146.i, %.loopexit.i ], [ %.0452.i, %.lr.ph5.i.split ]
   %.043.lcssa.i = phi i32 [ 0, %26 ], [ 0, %.lr.ph5.i.split.us ], [ %.0433.i.us, %.lr.ph5.i.split.us.split ], [ %.144.i.us, %.loopexit.i.us ], [ %.0433.i, %51 ], [ %.144.i, %.loopexit.i ], [ %.0433.i, %.lr.ph5.i.split ]

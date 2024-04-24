@@ -4528,19 +4528,19 @@ if.then1.i77:                                     ; preds = %if.end.i74
   br label %return
 
 if.end68:                                         ; preds = %if.then61
-  %64 = load i64, ptr %retval.0.i, align 8
+  %64 = load i64, ptr %call62, align 8
   %65 = and i64 %64, 2147483648
   %cmp.i123.not = icmp eq i64 %65, 0
   br i1 %cmp.i123.not, label %if.end.i, label %if.end69
 
 if.end.i:                                         ; preds = %if.end68
   %dec.i = add i64 %64, -1
-  store i64 %dec.i, ptr %retval.0.i, align 8
+  store i64 %dec.i, ptr %call62, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %if.end69
 
 if.then1.i:                                       ; preds = %if.end.i
-  call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i) #15
+  call void @_Py_Dealloc(ptr noundef nonnull %call62) #15
   br label %if.end69
 
 if.end69:                                         ; preds = %if.end.i, %if.then1.i, %if.end68, %if.end55

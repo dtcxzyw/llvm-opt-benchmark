@@ -506,7 +506,7 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %.not216, label %239, label %227
 
 227:                                              ; preds = %223
-  %228 = getelementptr inbounds i8, ptr %.6, i64 8
+  %228 = getelementptr inbounds i8, ptr %220, i64 8
   %229 = load ptr, ptr %228, align 8
   %230 = getelementptr inbounds i8, ptr %226, i64 8
   store ptr %229, ptr %230, align 8

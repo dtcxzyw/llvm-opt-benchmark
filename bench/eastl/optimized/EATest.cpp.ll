@@ -1534,10 +1534,10 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %or.cond.not, label %delete.notnull, label %if.end
 
 delete.notnull:                                   ; preds = %land.lhs.true
-  %vtable = load ptr, ptr %pTest, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %4 = load ptr, ptr %vfn, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(80) %pTest) #32
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(80) %2) #32
   %.pre = load ptr, ptr %mpEnd.i, align 8
   br label %if.end
 
@@ -2763,14 +2763,14 @@ entry:
   %0 = load ptr, ptr %mResults, align 8
   %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 128
   %1 = load ptr, ptr %mpEnd.i, align 8
-  %cmp.not13 = icmp eq ptr %0, %1
-  br i1 %cmp.not13, label %for.end, label %for.body
+  %cmp.not15 = icmp eq ptr %0, %1
+  br i1 %cmp.not15, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %it.014 = phi ptr [ %add.ptr.i, %for.inc ], [ %0, %entry ]
-  %2 = load ptr, ptr %it.014, align 8
+  %it.016 = phi ptr [ %add.ptr.i, %for.inc ], [ %0, %entry ]
+  %2 = load ptr, ptr %it.016, align 8
   %cmp4 = icmp eq ptr %2, %pTest
-  %add.ptr.i = getelementptr inbounds i8, ptr %it.014, i64 16
+  %add.ptr.i = getelementptr inbounds i8, ptr %it.016, i64 16
   br i1 %cmp4, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
@@ -2781,7 +2781,7 @@ _ZN5eastl4moveIPN2EA8UnitTest9TestSuite10ResultInfoES5_EET0_T_S7_S6_.exit.i: ; p
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %add.ptr.i to i64
   %sub.i.i.i.i.i = sub i64 %3, %4
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %it.014, ptr nonnull align 8 %add.ptr.i, i64 %sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %it.016, ptr nonnull align 8 %add.ptr.i, i64 %sub.i.i.i.i.i, i1 false)
   %.pre.i = load ptr, ptr %mpEnd.i, align 8
   br label %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE5eraseEPKS4_.exit
 
@@ -2823,10 +2823,10 @@ land.lhs.true.i:                                  ; preds = %if.then.i
   br i1 %tobool5.i, label %delete.notnull.i, label %if.end.i
 
 delete.notnull.i:                                 ; preds = %land.lhs.true.i
-  %vtable.i = load ptr, ptr %pTest, align 8
+  %vtable.i = load ptr, ptr %9, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %11 = load ptr, ptr %vfn.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(80) %pTest) #32
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(80) %9) #32
   %.pre.i8 = load ptr, ptr %mpEnd.i.i, align 8
   br label %if.end.i
 
@@ -2867,14 +2867,14 @@ entry:
   %0 = load ptr, ptr %mResults.i, align 8
   %mpEnd.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %mpEnd.i.i, align 8
-  %cmp.not13.i = icmp eq ptr %0, %1
-  br i1 %cmp.not13.i, label %for.end.i, label %for.body.i
+  %cmp.not15.i = icmp eq ptr %0, %1
+  br i1 %cmp.not15.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
-  %it.014.i = phi ptr [ %add.ptr.i.i, %for.inc.i ], [ %0, %entry ]
-  %2 = load ptr, ptr %it.014.i, align 8
+  %it.016.i = phi ptr [ %add.ptr.i.i, %for.inc.i ], [ %0, %entry ]
+  %2 = load ptr, ptr %it.016.i, align 8
   %cmp4.i = icmp eq ptr %2, %pTest
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %it.014.i, i64 16
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %it.016.i, i64 16
   br i1 %cmp4.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -2885,7 +2885,7 @@ _ZN5eastl4moveIPN2EA8UnitTest9TestSuite10ResultInfoES5_EET0_T_S7_S6_.exit.i.i: ;
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %add.ptr.i.i to i64
   %sub.i.i.i.i.i.i = sub i64 %3, %4
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %it.014.i, ptr nonnull align 8 %add.ptr.i.i, i64 %sub.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %it.016.i, ptr nonnull align 8 %add.ptr.i.i, i64 %sub.i.i.i.i.i.i, i1 false)
   %.pre.i.i = load ptr, ptr %mpEnd.i.i, align 8
   br label %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE5eraseEPKS4_.exit.i
 
@@ -2927,10 +2927,10 @@ land.lhs.true.i.i:                                ; preds = %if.then.i.i
   br i1 %tobool5.i.i, label %delete.notnull.i.i, label %if.end.i.i
 
 delete.notnull.i.i:                               ; preds = %land.lhs.true.i.i
-  %vtable.i.i = load ptr, ptr %pTest, align 8
+  %vtable.i.i = load ptr, ptr %9, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(80) %pTest) #32
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(80) %9) #32
   %.pre.i8.i = load ptr, ptr %mpEnd.i.i.i, align 8
   br label %if.end.i.i
 

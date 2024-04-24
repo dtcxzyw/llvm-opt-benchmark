@@ -1524,7 +1524,7 @@ define internal fastcc i32 @format_decode(ptr noundef %0, ptr nocapture noundef 
 
 41:                                               ; preds = %38, %36
   %42 = phi i64 [ %37, %36 ], [ %40, %38 ]
-  %43 = phi ptr [ %0, %36 ], [ %44, %38 ]
+  %43 = phi ptr [ %28, %36 ], [ %44, %38 ]
   store i64 %42, ptr %1, align 1
   %44 = getelementptr i8, ptr %43, i64 1
   %45 = load i8, ptr %44, align 1

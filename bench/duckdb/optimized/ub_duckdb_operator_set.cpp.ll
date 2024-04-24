@@ -374,7 +374,7 @@ if.then.i.i12:                                    ; preds = %invoke.cont5
   br label %invoke.cont7
 
 if.else.i.i14:                                    ; preds = %invoke.cont5
-  invoke void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_16PhysicalOperatorESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %children.i, ptr %.pre, ptr noundef nonnull align 8 dereferenceable(8) %bottom)
+  invoke void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_16PhysicalOperatorESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %children.i, ptr %.pre19, ptr noundef nonnull align 8 dereferenceable(8) %bottom)
           to label %invoke.cont7 unwind label %lpad4
 
 invoke.cont7:                                     ; preds = %if.else.i.i14, %if.then.i.i12
@@ -1936,7 +1936,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt10s
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.end70, %invoke.contthread-pre-split.i, %while.end
-  %39 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre24, %while.end ], [ %27, %if.end70 ]
+  %39 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre23, %while.end ], [ %27, %if.end70 ]
   %tobool.not.i.i.i142 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i142, label %_ZNSt6vectorISt10shared_ptrIN6duckdb5EventEESaIS3_EED2Ev.exit, label %if.then.i.i.i143
 
@@ -3680,7 +3680,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt10s
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.end70, %invoke.contthread-pre-split.i, %while.end
-  %39 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre24, %while.end ], [ %27, %if.end70 ]
+  %39 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre23, %while.end ], [ %27, %if.end70 ]
   %tobool.not.i.i.i142 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i142, label %_ZNSt6vectorISt10shared_ptrIN6duckdb5EventEESaIS3_EED2Ev.exit, label %if.then.i.i.i143
 

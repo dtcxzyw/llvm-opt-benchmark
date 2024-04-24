@@ -3776,7 +3776,7 @@ define internal fastcc i32 @x509_get_crt_ext(ptr noundef %0, ptr noundef %1, ptr
 74:                                               ; preds = %73
   %75 = load i32, ptr %15, align 4
   %76 = load ptr, ptr %0, align 8
-  %77 = call i32 %3(ptr noundef %4, ptr noundef %2, ptr noundef nonnull %14, i32 noundef %75, ptr noundef %76, ptr noundef %52) #16
+  %77 = call i32 %3(ptr noundef %4, ptr noundef %2, ptr noundef nonnull %14, i32 noundef %75, ptr noundef %76, ptr noundef %70) #16
   %78 = icmp ne i32 %77, 0
   %79 = load i32, ptr %15, align 4
   %80 = icmp ne i32 %79, 0
@@ -3784,7 +3784,7 @@ define internal fastcc i32 @x509_get_crt_ext(ptr noundef %0, ptr noundef %1, ptr
   br i1 %or.cond3, label %x509_get_ext_key_usage.exit.thread153, label %81
 
 81:                                               ; preds = %74
-  store ptr %52, ptr %0, align 8
+  store ptr %70, ptr %0, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %256, %x509_get_basic_constraints.exit, %x509_get_key_usage.exit, %x509_get_ext_key_usage.exit, %x509_get_subject_alt_name.exit, %x509_get_ns_cert_type.exit, %248, %x509_get_certificate_policies.exit, %252, %x509_get_basic_constraints.exit.thread, %x509_get_key_usage.exit.thread, %x509_get_subject_alt_name.exit.thread159, %x509_get_ns_cert_type.exit.thread, %136, %81, %84
@@ -3793,7 +3793,7 @@ define internal fastcc i32 @x509_get_crt_ext(ptr noundef %0, ptr noundef %1, ptr
   br i1 %83, label %45, label %._crit_edge, !llvm.loop !33
 
 84:                                               ; preds = %73
-  store ptr %52, ptr %0, align 8
+  store ptr %70, ptr %0, align 8
   %85 = load i32, ptr %15, align 4
   %.not123 = icmp eq i32 %85, 0
   br i1 %.not123, label %.backedge, label %x509_get_ext_key_usage.exit.thread153
@@ -3821,7 +3821,7 @@ define internal fastcc i32 @x509_get_crt_ext(ptr noundef %0, ptr noundef %1, ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store i32 0, ptr %43, align 4
   store i32 0, ptr %44, align 4
-  %93 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %52, ptr noundef nonnull %12, i32 noundef 48) #16
+  %93 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %70, ptr noundef nonnull %12, i32 noundef 48) #16
   %.not.i = icmp eq i32 %93, 0
   br i1 %.not.i, label %94, label %x509_get_basic_constraints.exit
 
@@ -3831,14 +3831,14 @@ define internal fastcc i32 @x509_get_crt_ext(ptr noundef %0, ptr noundef %1, ptr
   br i1 %96, label %x509_get_basic_constraints.exit.thread, label %97
 
 97:                                               ; preds = %94
-  %98 = call i32 @mbedtls_asn1_get_bool(ptr noundef nonnull %0, ptr noundef %52, ptr noundef nonnull %43) #16
+  %98 = call i32 @mbedtls_asn1_get_bool(ptr noundef nonnull %0, ptr noundef %70, ptr noundef nonnull %43) #16
   switch i32 %98, label %101 [
     i32 0, label %105
     i32 -98, label %99
   ]
 
 99:                                               ; preds = %97
-  %100 = call i32 @mbedtls_asn1_get_int(ptr noundef nonnull %0, ptr noundef %52, ptr noundef nonnull %43) #16
+  %100 = call i32 @mbedtls_asn1_get_int(ptr noundef nonnull %0, ptr noundef %70, ptr noundef nonnull %43) #16
   br label %101
 
 101:                                              ; preds = %99, %97
@@ -3861,7 +3861,7 @@ define internal fastcc i32 @x509_get_crt_ext(ptr noundef %0, ptr noundef %1, ptr
   br i1 %107, label %x509_get_basic_constraints.exit.thread, label %108
 
 108:                                              ; preds = %105
-  %109 = call i32 @mbedtls_asn1_get_int(ptr noundef nonnull %0, ptr noundef %52, ptr noundef nonnull %44) #16
+  %109 = call i32 @mbedtls_asn1_get_int(ptr noundef nonnull %0, ptr noundef %70, ptr noundef nonnull %44) #16
   %.not37.i = icmp eq i32 %109, 0
   br i1 %.not37.i, label %110, label %x509_get_basic_constraints.exit
 
@@ -3899,7 +3899,7 @@ x509_get_basic_constraints.exit:                  ; preds = %108, %101, %92
 117:                                              ; preds = %90
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  %118 = call i32 @mbedtls_asn1_get_bitstring(ptr noundef nonnull %0, ptr noundef %52, ptr noundef nonnull %11) #16
+  %118 = call i32 @mbedtls_asn1_get_bitstring(ptr noundef nonnull %0, ptr noundef %70, ptr noundef nonnull %11) #16
   %.not.i124 = icmp eq i32 %118, 0
   br i1 %.not.i124, label %119, label %x509_get_key_usage.exit
 
@@ -3944,7 +3944,7 @@ x509_get_key_usage.exit:                          ; preds = %117
   br i1 %.not119, label %.backedge, label %x509_get_ext_key_usage.exit.thread153
 
 134:                                              ; preds = %90
-  %135 = call i32 @mbedtls_asn1_get_sequence_of(ptr noundef nonnull %0, ptr noundef %52, ptr noundef nonnull %39, i32 noundef 6) #16
+  %135 = call i32 @mbedtls_asn1_get_sequence_of(ptr noundef nonnull %0, ptr noundef %70, ptr noundef nonnull %39, i32 noundef 6) #16
   %.not.i125 = icmp eq i32 %135, 0
   br i1 %.not.i125, label %136, label %x509_get_ext_key_usage.exit
 
@@ -3962,7 +3962,7 @@ x509_get_ext_key_usage.exit:                      ; preds = %134
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10)
-  %141 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %52, ptr noundef nonnull %8, i32 noundef 48) #16
+  %141 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %70, ptr noundef nonnull %8, i32 noundef 48) #16
   %.not.i127 = icmp eq i32 %141, 0
   br i1 %.not.i127, label %144, label %142
 
@@ -3988,7 +3988,7 @@ x509_get_ext_key_usage.exit:                      ; preds = %134
   %150 = load i8, ptr %149, align 1
   %151 = getelementptr inbounds i8, ptr %149, i64 1
   store ptr %151, ptr %0, align 8
-  %152 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef nonnull %52, ptr noundef nonnull %9) #16
+  %152 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef nonnull %70, ptr noundef nonnull %9) #16
   %.not52.i = icmp eq i32 %152, 0
   br i1 %.not52.i, label %155, label %153
 
@@ -4092,7 +4092,7 @@ x509_get_subject_alt_name.exit:                   ; preds = %142, %153, %._crit_
 183:                                              ; preds = %90
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %184 = call i32 @mbedtls_asn1_get_bitstring(ptr noundef nonnull %0, ptr noundef %52, ptr noundef nonnull %7) #16
+  %184 = call i32 @mbedtls_asn1_get_bitstring(ptr noundef nonnull %0, ptr noundef %70, ptr noundef nonnull %7) #16
   %.not.i130 = icmp eq i32 %184, 0
   br i1 %.not.i130, label %185, label %x509_get_ns_cert_type.exit
 
@@ -4120,7 +4120,7 @@ x509_get_ns_cert_type.exit:                       ; preds = %183
 
 190:                                              ; preds = %90
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %191 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %52, ptr noundef nonnull %6, i32 noundef 48) #16
+  %191 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %70, ptr noundef nonnull %6, i32 noundef 48) #16
   %.not.i132 = icmp eq i32 %191, 0
   br i1 %.not.i132, label %194, label %192
 
@@ -4145,7 +4145,7 @@ x509_get_ns_cert_type.exit:                       ; preds = %183
   br i1 %200, label %201, label %243
 
 201:                                              ; preds = %.preheader.i135
-  %202 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef nonnull %52, ptr noundef nonnull %6, i32 noundef 48) #16
+  %202 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef nonnull %70, ptr noundef nonnull %6, i32 noundef 48) #16
   %.not55.i138 = icmp eq i32 %202, 0
   br i1 %.not55.i138, label %205, label %203
 
@@ -4259,7 +4259,7 @@ x509_get_certificate_policies.exit:               ; preds = %243, %192, %203, %2
 
 248:                                              ; preds = %246
   %249 = load i32, ptr %15, align 4
-  %250 = call i32 %3(ptr noundef %4, ptr noundef %2, ptr noundef nonnull %14, i32 noundef %249, ptr noundef %68, ptr noundef %52) #16
+  %250 = call i32 %3(ptr noundef %4, ptr noundef %2, ptr noundef nonnull %14, i32 noundef %249, ptr noundef %68, ptr noundef %70) #16
   %251 = icmp eq i32 %250, 0
   br i1 %251, label %.backedge, label %252
 
@@ -4275,7 +4275,7 @@ x509_get_certificate_policies.exit:               ; preds = %243, %192, %203, %2
   br i1 %.not121, label %256, label %x509_get_ext_key_usage.exit.thread153
 
 256:                                              ; preds = %254
-  store ptr %52, ptr %0, align 8
+  store ptr %70, ptr %0, align 8
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %22

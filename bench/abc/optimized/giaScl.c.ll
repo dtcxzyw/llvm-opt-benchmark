@@ -152,7 +152,7 @@ define i32 @Gia_ManCombMarkUsed(ptr noundef %0) local_unnamed_addr #0 {
   %12 = trunc i64 %.val44 to i32
   %13 = and i32 %12, 536870911
   %14 = lshr i64 %.val44, 32
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   %16 = and i32 %15, 536870911
   %17 = icmp eq i32 %13, %16
   %.not.i51 = icmp ne i32 %13, 536870911
@@ -199,7 +199,7 @@ define i32 @Gia_ManCombMarkUsed(ptr noundef %0) local_unnamed_addr #0 {
   %31 = trunc i64 %.val46 to i32
   %32 = and i32 %31, 536870911
   %33 = lshr i64 %.val46, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   %35 = and i32 %34, 536870911
   %36 = icmp ne i32 %32, %35
   %.not.i53 = icmp eq i32 %32, 536870911
@@ -370,7 +370,7 @@ tailrecurse:                                      ; preds = %9
 
 Gia_ObjIsRo.exit:                                 ; preds = %19
   %21 = lshr i64 %10, 32
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   %23 = and i32 %22, 536870911
   %.val4.i = load i32, ptr %6, align 8
   %.val5.i = load ptr, ptr %7, align 8
@@ -954,7 +954,7 @@ define ptr @Gia_ManSeqStructSweep(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %50, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %46, %34, %.lr.ph43, %.preheader.split.us, %.preheader.split, %26, %7
-  %.0 = phi ptr [ %9, %7 ], [ %.031, %26 ], [ %28, %.preheader.split.us ], [ %40, %.preheader.split ], [ %31, %.lr.ph43 ], [ %36, %34 ], [ %48, %46 ], [ %43, %.lr.ph ]
+  %.0 = phi ptr [ %9, %7 ], [ %.031, %26 ], [ %28, %.preheader.split.us ], [ %40, %.preheader.split ], [ %32, %.lr.ph43 ], [ %36, %34 ], [ %48, %46 ], [ %44, %.lr.ph ]
   ret ptr %.0
 }
 

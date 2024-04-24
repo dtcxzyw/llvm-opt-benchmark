@@ -476,7 +476,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br i1 %.not.i, label %206, label %203
 
 203:                                              ; preds = %201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %196, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %197, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   %204 = load ptr, ptr %11, align 8
   %205 = getelementptr inbounds i8, ptr %204, i64 16
   store ptr %205, ptr %11, align 8
@@ -556,7 +556,7 @@ _ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__n
   br i1 %.not.i219, label %239, label %236
 
 236:                                              ; preds = %234
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %231, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %232, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   %237 = load ptr, ptr %13, align 8
   %238 = getelementptr inbounds i8, ptr %237, i64 16
   store ptr %238, ptr %13, align 8

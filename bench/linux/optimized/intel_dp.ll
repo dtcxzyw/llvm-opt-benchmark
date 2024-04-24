@@ -6132,137 +6132,141 @@ define dso_local i32 @intel_dp_retrain_link(ptr noundef %0, ptr noundef %1) loca
   %48 = getelementptr inbounds i8, ptr %4, i64 736
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, %48
-  br i1 %50, label %.loopexit10, label %51
+  br i1 %50, label %.loopexit11, label %51
 
 51:                                               ; preds = %42
   %52 = zext i8 %33 to i64
-  br label %57
+  br label %58
 
-.loopexit11:                                      ; preds = %76
+.loopexit11.loopexit:                             ; preds = %77
   %.pre = load ptr, ptr %48, align 8
-  %53 = icmp eq ptr %.pre, %48
-  br i1 %53, label %.loopexit10, label %54
+  br label %.loopexit11
 
-54:                                               ; preds = %.loopexit11
-  %55 = zext i8 %33 to i64
-  %56 = getelementptr inbounds i8, ptr %4, i64 2632
-  br label %79
+.loopexit11:                                      ; preds = %.loopexit11.loopexit, %42
+  %53 = phi ptr [ %.pre, %.loopexit11.loopexit ], [ %49, %42 ]
+  %54 = icmp eq ptr %53, %48
+  br i1 %54, label %.loopexit10, label %55
 
-57:                                               ; preds = %76, %51
-  %58 = phi ptr [ %49, %51 ], [ %77, %76 ]
-  %59 = getelementptr i8, ptr %58, i64 -16
-  %60 = getelementptr i8, ptr %58, i64 1632
-  %61 = load i32, ptr %60, align 8
-  %62 = zext nneg i32 %61 to i64
-  %63 = shl nuw i64 1, %62
-  %64 = and i64 %63, %52
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %76, label %66
+55:                                               ; preds = %.loopexit11
+  %56 = zext i8 %33 to i64
+  %57 = getelementptr inbounds i8, ptr %4, i64 2632
+  br label %80
 
-66:                                               ; preds = %57
-  %67 = getelementptr i8, ptr %58, i64 1464
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call zeroext i1 @intel_set_cpu_fifo_underrun_reporting(ptr noundef %4, i32 noundef %61, i1 noundef zeroext false) #14
-  %70 = getelementptr inbounds i8, ptr %68, i64 860
-  %71 = load i8, ptr %70, align 4, !range !10, !noundef !11
-  %72 = icmp eq i8 %71, 0
-  br i1 %72, label %76, label %73
+58:                                               ; preds = %77, %51
+  %59 = phi ptr [ %49, %51 ], [ %78, %77 ]
+  %60 = getelementptr i8, ptr %59, i64 -16
+  %61 = getelementptr i8, ptr %59, i64 1632
+  %62 = load i32, ptr %61, align 8
+  %63 = zext nneg i32 %62 to i64
+  %64 = shl nuw i64 1, %63
+  %65 = and i64 %64, %52
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %77, label %67
 
-73:                                               ; preds = %66
-  %74 = tail call i32 @intel_crtc_pch_transcoder(ptr noundef %59) #14
-  %75 = tail call zeroext i1 @intel_set_pch_fifo_underrun_reporting(ptr noundef %4, i32 noundef %74, i1 noundef zeroext false) #14
-  br label %76
+67:                                               ; preds = %58
+  %68 = getelementptr i8, ptr %59, i64 1464
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call zeroext i1 @intel_set_cpu_fifo_underrun_reporting(ptr noundef %4, i32 noundef %62, i1 noundef zeroext false) #14
+  %71 = getelementptr inbounds i8, ptr %69, i64 860
+  %72 = load i8, ptr %71, align 4, !range !10, !noundef !11
+  %73 = icmp eq i8 %72, 0
+  br i1 %73, label %77, label %74
 
-76:                                               ; preds = %73, %66, %57
-  %77 = load ptr, ptr %58, align 8
-  %78 = icmp eq ptr %77, %48
-  br i1 %78, label %.loopexit11, label %57, !llvm.loop !109
+74:                                               ; preds = %67
+  %75 = tail call i32 @intel_crtc_pch_transcoder(ptr noundef %60) #14
+  %76 = tail call zeroext i1 @intel_set_pch_fifo_underrun_reporting(ptr noundef %4, i32 noundef %75, i1 noundef zeroext false) #14
+  br label %77
 
-79:                                               ; preds = %100, %54
-  %80 = phi ptr [ %.pre, %54 ], [ %101, %100 ]
-  %81 = getelementptr i8, ptr %80, i64 1632
-  %82 = load i32, ptr %81, align 8
-  %83 = zext nneg i32 %82 to i64
-  %84 = shl nuw i64 1, %83
-  %85 = and i64 %84, %55
-  %86 = icmp eq i64 %85, 0
-  br i1 %86, label %100, label %87
+77:                                               ; preds = %74, %67, %58
+  %78 = load ptr, ptr %59, align 8
+  %79 = icmp eq ptr %78, %48
+  br i1 %79, label %.loopexit11.loopexit, label %58, !llvm.loop !109
 
-87:                                               ; preds = %79
-  %88 = getelementptr i8, ptr %80, i64 1464
-  %89 = load ptr, ptr %88, align 8
-  %90 = load i16, ptr %56, align 8
-  %91 = icmp ugt i16 %90, 11
-  br i1 %91, label %92, label %99
+80:                                               ; preds = %101, %55
+  %81 = phi ptr [ %53, %55 ], [ %102, %101 ]
+  %82 = getelementptr i8, ptr %81, i64 1632
+  %83 = load i32, ptr %82, align 8
+  %84 = zext nneg i32 %83 to i64
+  %85 = shl nuw i64 1, %84
+  %86 = and i64 %85, %56
+  %87 = icmp eq i64 %86, 0
+  br i1 %87, label %101, label %88
 
-92:                                               ; preds = %87
-  %93 = getelementptr inbounds i8, ptr %89, i64 872
-  %94 = load i32, ptr %93, align 8
-  %95 = and i32 %94, 2048
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %99, label %97
+88:                                               ; preds = %80
+  %89 = getelementptr i8, ptr %81, i64 1464
+  %90 = load ptr, ptr %89, align 8
+  %91 = load i16, ptr %57, align 8
+  %92 = icmp ugt i16 %91, 11
+  br i1 %92, label %93, label %100
 
-97:                                               ; preds = %92
-  %98 = tail call zeroext i1 @intel_dp_mst_is_master_trans(ptr noundef %89) #14
-  br i1 %98, label %99, label %100
+93:                                               ; preds = %88
+  %94 = getelementptr inbounds i8, ptr %90, i64 872
+  %95 = load i32, ptr %94, align 8
+  %96 = and i32 %95, 2048
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %100, label %98
 
-99:                                               ; preds = %97, %92, %87
+98:                                               ; preds = %93
+  %99 = tail call zeroext i1 @intel_dp_mst_is_master_trans(ptr noundef %90) #14
+  br i1 %99, label %100, label %101
+
+100:                                              ; preds = %98, %93, %88
   tail call void @intel_dp_check_frl_training(ptr noundef %13)
-  tail call void @intel_dp_pcon_dsc_configure(ptr noundef %13, ptr noundef %89)
-  tail call void @intel_dp_start_link_train(ptr noundef %13, ptr noundef %89) #14
-  tail call void @intel_dp_stop_link_train(ptr noundef %13, ptr noundef %89) #14
+  tail call void @intel_dp_pcon_dsc_configure(ptr noundef %13, ptr noundef %90)
+  tail call void @intel_dp_start_link_train(ptr noundef %13, ptr noundef %90) #14
+  tail call void @intel_dp_stop_link_train(ptr noundef %13, ptr noundef %90) #14
   br label %.loopexit10
 
-100:                                              ; preds = %97, %79
-  %101 = load ptr, ptr %80, align 8
-  %102 = icmp eq ptr %101, %48
-  br i1 %102, label %.loopexit10, label %79, !llvm.loop !110
+101:                                              ; preds = %98, %80
+  %102 = load ptr, ptr %81, align 8
+  %103 = icmp eq ptr %102, %48
+  br i1 %103, label %.loopexit10, label %80, !llvm.loop !110
 
-.loopexit10:                                      ; preds = %100, %42, %99, %.loopexit11
-  %103 = load ptr, ptr %48, align 8
-  %104 = icmp eq ptr %103, %48
-  br i1 %104, label %.loopexit, label %105
+.loopexit10:                                      ; preds = %101, %100, %.loopexit11
+  %104 = load ptr, ptr %48, align 8
+  %105 = icmp eq ptr %104, %48
+  br i1 %105, label %.loopexit, label %106
 
-105:                                              ; preds = %.loopexit10
-  %106 = zext i8 %33 to i64
-  br label %107
+106:                                              ; preds = %.loopexit10
+  %107 = zext i8 %33 to i64
+  br label %108
 
-107:                                              ; preds = %127, %105
-  %108 = phi ptr [ %103, %105 ], [ %128, %127 ]
-  %109 = getelementptr i8, ptr %108, i64 -16
-  %110 = getelementptr i8, ptr %108, i64 1632
-  %111 = load i32, ptr %110, align 8
-  %112 = zext nneg i32 %111 to i64
-  %113 = shl nuw i64 1, %112
-  %114 = and i64 %113, %106
-  %115 = icmp eq i64 %114, 0
-  br i1 %115, label %127, label %116
+108:                                              ; preds = %128, %106
+  %109 = phi ptr [ %104, %106 ], [ %129, %128 ]
+  %110 = getelementptr i8, ptr %109, i64 -16
+  %111 = getelementptr i8, ptr %109, i64 1632
+  %112 = load i32, ptr %111, align 8
+  %113 = zext nneg i32 %112 to i64
+  %114 = shl nuw i64 1, %113
+  %115 = and i64 %114, %107
+  %116 = icmp eq i64 %115, 0
+  br i1 %116, label %128, label %117
 
-116:                                              ; preds = %107
-  %117 = getelementptr i8, ptr %108, i64 1464
-  %118 = load ptr, ptr %117, align 8
-  tail call void @intel_crtc_wait_for_next_vblank(ptr noundef %109) #14
-  %119 = load i32, ptr %110, align 8
-  %120 = tail call zeroext i1 @intel_set_cpu_fifo_underrun_reporting(ptr noundef %4, i32 noundef %119, i1 noundef zeroext true) #14
-  %121 = getelementptr inbounds i8, ptr %118, i64 860
-  %122 = load i8, ptr %121, align 4, !range !10, !noundef !11
-  %123 = icmp eq i8 %122, 0
-  br i1 %123, label %127, label %124
+117:                                              ; preds = %108
+  %118 = getelementptr i8, ptr %109, i64 1464
+  %119 = load ptr, ptr %118, align 8
+  tail call void @intel_crtc_wait_for_next_vblank(ptr noundef %110) #14
+  %120 = load i32, ptr %111, align 8
+  %121 = tail call zeroext i1 @intel_set_cpu_fifo_underrun_reporting(ptr noundef %4, i32 noundef %120, i1 noundef zeroext true) #14
+  %122 = getelementptr inbounds i8, ptr %119, i64 860
+  %123 = load i8, ptr %122, align 4, !range !10, !noundef !11
+  %124 = icmp eq i8 %123, 0
+  br i1 %124, label %128, label %125
 
-124:                                              ; preds = %116
-  %125 = tail call i32 @intel_crtc_pch_transcoder(ptr noundef %109) #14
-  %126 = tail call zeroext i1 @intel_set_pch_fifo_underrun_reporting(ptr noundef %4, i32 noundef %125, i1 noundef zeroext true) #14
-  br label %127
+125:                                              ; preds = %117
+  %126 = tail call i32 @intel_crtc_pch_transcoder(ptr noundef %110) #14
+  %127 = tail call zeroext i1 @intel_set_pch_fifo_underrun_reporting(ptr noundef %4, i32 noundef %126, i1 noundef zeroext true) #14
+  br label %128
 
-127:                                              ; preds = %124, %116, %107
-  %128 = load ptr, ptr %108, align 8
-  %129 = icmp eq ptr %128, %48
-  br i1 %129, label %.loopexit, label %107, !llvm.loop !111
+128:                                              ; preds = %125, %117, %108
+  %129 = load ptr, ptr %109, align 8
+  %130 = icmp eq ptr %129, %48
+  br i1 %130, label %.loopexit, label %108, !llvm.loop !111
 
-.loopexit:                                        ; preds = %127, %.loopexit10, %35, %32, %29, %27, %23, %19
-  %130 = phi i32 [ 0, %19 ], [ %25, %23 ], [ 0, %27 ], [ %30, %29 ], [ 0, %32 ], [ 0, %35 ], [ 0, %.loopexit10 ], [ 0, %127 ]
+.loopexit:                                        ; preds = %128, %.loopexit10, %35, %32, %29, %27, %23, %19
+  %131 = phi i32 [ 0, %19 ], [ %25, %23 ], [ 0, %27 ], [ %30, %29 ], [ 0, %32 ], [ 0, %35 ], [ 0, %.loopexit10 ], [ 0, %128 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
-  ret i32 %130
+  ret i32 %131
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

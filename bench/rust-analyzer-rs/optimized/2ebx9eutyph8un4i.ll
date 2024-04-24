@@ -2170,7 +2170,6 @@ default.unreachable:                              ; preds = %"_ZN98_$LT$alloc..v
   %72 = icmp eq ptr %63, %13
   %73 = getelementptr inbounds i8, ptr %14, i64 192
   %spec.select = select i1 %72, ptr %63, ptr %73
-  %spec.select102 = select i1 %72, ptr %13, ptr %73
   store ptr %spec.select, ptr %1, align 8
   %74 = getelementptr inbounds i8, ptr %14, i64 136
   %75 = tail call { ptr, i64 } @_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.2875332049115192089(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %74)
@@ -2352,10 +2351,10 @@ default.unreachable:                              ; preds = %"_ZN98_$LT$alloc..v
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h203dd5ff83fa97b2E.exit71.thread"
 
 .critedge.sink.split:                             ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h203dd5ff83fa97b2E.exit67", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h203dd5ff83fa97b2E.exit"
-  %.sink103 = phi i8 [ 29, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h203dd5ff83fa97b2E.exit" ], [ 30, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h203dd5ff83fa97b2E.exit67" ]
+  %.sink102 = phi i8 [ 29, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h203dd5ff83fa97b2E.exit" ], [ 30, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h203dd5ff83fa97b2E.exit67" ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %132 = getelementptr inbounds i8, ptr %10, i64 24
-  store i8 %.sink103, ptr %132, align 8
+  store i8 %.sink102, ptr %132, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h203dd5ff83fa97b2E.exit71.thread"
@@ -2377,7 +2376,7 @@ default.unreachable:                              ; preds = %"_ZN98_$LT$alloc..v
   unreachable
 
 136:                                              ; preds = %86, %.critedge, %52
-  %137 = phi ptr [ %spec.select102, %86 ], [ %19, %52 ], [ %89, %.critedge ]
+  %137 = phi ptr [ %spec.select, %86 ], [ %19, %52 ], [ %89, %.critedge ]
   %.2 = phi i1 [ false, %86 ], [ false, %52 ], [ true, %.critedge ]
   %.not52 = icmp eq ptr %13, %137
   br i1 %.not52, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h900475b0f22ada37E.llvm.2875332049115192089.exit73", label %138

@@ -43917,7 +43917,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt10s
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %for.cond.cleanup.thread
-  %15 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %for.cond.cleanup ], [ %6, %for.cond.cleanup.thread ]
+  %15 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre55, %for.cond.cleanup ], [ %6, %for.cond.cleanup.thread ]
   %tobool.not.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN6duckdb13ClientContextEESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
@@ -63672,7 +63672,12 @@ entry:
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueENS6_33CaseInsensitiveStringHashFunctionENS6_29CaseInsensitiveStringEqualityESaISt4pairIKS5_S7_EEEaSERKSE_.exit45.thread: ; preds = %entry
   %extension_directory48 = getelementptr inbounds i8, ptr %this, i64 376
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %extension_directory48, ptr noundef nonnull align 8 dereferenceable(32) %extension_directory48)
+  %extension_directory1849 = getelementptr inbounds i8, ptr %0, i64 376
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %extension_directory48, ptr noundef nonnull align 8 dereferenceable(32) %extension_directory1849)
+  %allow_unsigned_extensions50 = getelementptr inbounds i8, ptr %this, i64 408
+  %allow_unsigned_extensions2051 = getelementptr inbounds i8, ptr %0, i64 408
+  %1 = load i32, ptr %allow_unsigned_extensions2051, align 8
+  store i32 %1, ptr %allow_unsigned_extensions50, align 8
   br label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEaSERKSG_.exit
 
 if.end.i.i47:                                     ; preds = %entry
@@ -63687,8 +63692,8 @@ if.end.i.i47:                                     ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %extension_directory, ptr noundef nonnull align 8 dereferenceable(32) %extension_directory18)
   %allow_unsigned_extensions = getelementptr inbounds i8, ptr %this, i64 408
   %allow_unsigned_extensions20 = getelementptr inbounds i8, ptr %0, i64 408
-  %1 = load i32, ptr %allow_unsigned_extensions20, align 8
-  store i32 %1, ptr %allow_unsigned_extensions, align 8
+  %2 = load i32, ptr %allow_unsigned_extensions20, align 8
+  store i32 %2, ptr %allow_unsigned_extensions, align 8
   %unrecognized_options = getelementptr inbounds i8, ptr %this, i64 416
   %unrecognized_options21 = getelementptr inbounds i8, ptr %0, i64 416
   tail call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb5ValueEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE18_M_assign_elementsIRKSN_EEvOT_(ptr noundef nonnull align 8 dereferenceable(56) %unrecognized_options, ptr noundef nonnull align 8 dereferenceable(56) %unrecognized_options21)
@@ -69902,7 +69907,7 @@ if.then.i.i.i11:                                  ; preds = %_ZN6duckdb14Preserv
   %cmp3.i.i.i.i12 = icmp ult i64 %7, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i12)
   %add.i.i.i = add nuw nsw i64 %7, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %add.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(1) %6, i64 %add.i.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZN6duckdb14PreservedErrorC2EOS0_.exit
@@ -69912,6 +69917,9 @@ if.else.i.i.i:                                    ; preds = %_ZN6duckdb14Preserv
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i: ; preds = %if.else.i.i.i, %if.then.i.i.i11
   %23 = phi ptr [ %6, %if.else.i.i.i ], [ %16, %if.then.i.i.i11 ]
+  store ptr %1, ptr %raw_message.i, align 8, !tbaa !58
+  store i64 0, ptr %_M_string_length.i24.i.i, align 8, !tbaa !61
+  store i8 0, ptr %1, align 8, !tbaa !50
   %final_message.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 40
   %24 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 56
   store ptr %24, ptr %final_message.i.i, align 8, !tbaa !65
@@ -69922,7 +69930,7 @@ if.then.i13.i.i:                                  ; preds = %_ZNSt7__cxx1112basi
   %cmp3.i.i15.i.i = icmp ult i64 %14, 16
   call void @llvm.assume(i1 %cmp3.i.i15.i.i)
   %add.i16.i.i = add nuw nsw i64 %14, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(1) %8, i64 %add.i16.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(1) %13, i64 %add.i16.i.i, i1 false)
   br label %_ZN6duckdb14PreservedErrorC2EOS0_.exit.i
 
 if.else.i10.i.i:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i
@@ -96947,7 +96955,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt4pa
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %invoke.cont300
   %has_previous_phase.0.lcssa2613 = phi i1 [ %473, %invoke.contthread-pre-split.i ], [ %473, %for.cond.cleanup ], [ true, %invoke.cont300 ]
-  %477 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %for.cond.cleanup ], [ %451, %invoke.cont300 ]
+  %477 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre2610, %for.cond.cleanup ], [ %451, %invoke.cont300 ]
   %tobool.not.i.i.i = icmp eq ptr %477, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdESaIS8_EED2Ev.exit, label %if.then.i.i.i1642
 
@@ -99901,7 +99909,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyINSt7_
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup28, %invoke.cont18
-  %18 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre87, %for.cond.cleanup28 ], [ %13, %invoke.cont18 ]
+  %18 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre88, %for.cond.cleanup28 ], [ %13, %invoke.cont18 ]
   %tobool.not.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i62
 
@@ -248293,6 +248301,7 @@ cond.end.i:                                       ; preds = %if.then.i, %if.end1
   %26 = phi ptr [ %12, %if.end13.thread ], [ %22, %if.then.i ]
   %__n.16473 = phi ptr [ %14, %if.end13.thread ], [ %__n.1, %if.then.i ]
   %__bkt.06571 = phi i64 [ %rem.i.i.i29, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
+  %__prev_n.06769 = phi ptr [ %13, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
   %27 = phi ptr [ %16, %if.end13.thread ], [ %23, %if.then.i ]
   %add.ptr.i36 = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load ptr, ptr %add.ptr.i36, align 8, !tbaa !6
@@ -248312,7 +248321,7 @@ if.then3.i.i:                                     ; preds = %cond.end.i
 if.end.i.i:                                       ; preds = %if.then3.i.i, %if.then.i, %if.end13.thread
   %__n.16474 = phi ptr [ %__n.1, %if.then.i ], [ %__n.16473, %if.then3.i.i ], [ %14, %if.end13.thread ]
   %__bkt.06572 = phi i64 [ %__bkt.0, %if.then.i ], [ %__bkt.06571, %if.then3.i.i ], [ %rem.i.i.i29, %if.end13.thread ]
-  %__prev_n.06770 = phi ptr [ %21, %if.then.i ], [ %25, %if.then3.i.i ], [ %13, %if.end13.thread ]
+  %__prev_n.06770 = phi ptr [ %__prev_n.0, %if.then.i ], [ %__prev_n.06769, %if.then3.i.i ], [ %13, %if.end13.thread ]
   %30 = phi ptr [ null, %if.then.i ], [ %27, %if.then3.i.i ], [ null, %if.end13.thread ]
   %31 = phi ptr [ %21, %if.then.i ], [ %.pre42.i, %if.then3.i.i ], [ %13, %if.end13.thread ]
   %32 = phi ptr [ %22, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %12, %if.end13.thread ]
@@ -248346,7 +248355,7 @@ if.then11.i:                                      ; preds = %if.then6.i
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then11.i, %if.then6.i, %if.else.i, %if.end11.i.i, %cond.end.i
-  %__prev_n.066 = phi ptr [ %__prev_n.0, %if.then11.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.06770, %if.end11.i.i ], [ %25, %cond.end.i ]
+  %__prev_n.066 = phi ptr [ %__prev_n.0, %if.then11.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.06770, %if.end11.i.i ], [ %__prev_n.06769, %cond.end.i ]
   %__n.163 = phi ptr [ %__n.1, %if.then11.i ], [ %__n.1, %if.then6.i ], [ %__n.1, %if.else.i ], [ %__n.16474, %if.end11.i.i ], [ %__n.16473, %cond.end.i ]
   %35 = load ptr, ptr %__n.163, align 8, !tbaa !268
   store ptr %35, ptr %__prev_n.066, align 8, !tbaa !268
@@ -264504,7 +264513,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   %add.i = add nuw nsw i64 %4, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i, i1 false)
   store i64 0, ptr %_M_string_length.i.i, align 8, !tbaa !61
-  store i8 0, ptr %2, align 1, !tbaa !50
+  store i8 0, ptr %3, align 1, !tbaa !50
   store ptr %1, ptr %agg.tmp6, align 8, !tbaa !65
   br label %if.then.i28
 
@@ -265927,7 +265936,7 @@ if.end32.thread.i:                                ; preds = %invoke.cont12.i
   store ptr %13, ptr %__last.sroa.0.0, align 8, !tbaa !58
   store i64 %7, ptr %_M_string_length.i.i14, align 8, !tbaa !61
   %21 = load i64, ptr %14, align 8, !tbaa !50
-  store i64 %21, ptr %10, align 8, !tbaa !50
+  store i64 %21, ptr %11, align 8, !tbaa !50
   br label %if.else37.i
 
 if.end32.i:                                       ; preds = %invoke.cont12.thread.i

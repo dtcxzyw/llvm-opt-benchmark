@@ -3903,8 +3903,9 @@ define dso_local void @kmem_cache_free_bulk(ptr noundef %0, i64 noundef %1, ptr 
 .split9.us:                                       ; preds = %58, %.split
   %89 = phi ptr [ %40, %.split ], [ %34, %58 ]
   %.us-phi = phi ptr [ %87, %.split ], [ %73, %58 ]
+  %.us-phi10 = phi ptr [ %77, %.split ], [ %43, %58 ]
   %.us-phi11 = phi i64 [ %78, %.split ], [ %44, %58 ]
-  %90 = icmp eq ptr %20, null
+  %90 = icmp eq ptr %.us-phi10, null
   br i1 %90, label %.loopexit, label %91, !prof !16
 
 91:                                               ; preds = %.split9.us
@@ -3924,7 +3925,7 @@ define dso_local void @kmem_cache_free_bulk(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %101, label %103, label %102, !prof !25
 
 102:                                              ; preds = %93
-  tail call fastcc void @__slab_free(ptr noundef %18, ptr noundef nonnull %15, ptr noundef nonnull %20, ptr noundef nonnull %.us-phi, i32 noundef %21, i64 noundef %23)
+  tail call fastcc void @__slab_free(ptr noundef %18, ptr noundef nonnull %15, ptr noundef nonnull %.us-phi10, ptr noundef nonnull %.us-phi, i32 noundef %21, i64 noundef %23)
   br label %.loopexit
 
 103:                                              ; preds = %93
@@ -6801,7 +6802,7 @@ define internal fastcc i32 @sysfs_slab_add(ptr noundef %0) unnamed_addr #0 align
   br label %55
 
 55:                                               ; preds = %53, %50
-  %56 = phi ptr [ %54, %53 ], [ %24, %50 ]
+  %56 = phi ptr [ %54, %53 ], [ %51, %50 ]
   %57 = ptrtoint ptr %56 to i64
   %58 = ptrtoint ptr %21 to i64
   %59 = add i64 %58, 32
@@ -11199,7 +11200,7 @@ thread-pre-split.i:                               ; preds = %160, %160
   br i1 %192, label %.loopexit.i, label %58
 
 .loopexit.i:                                      ; preds = %183, %182, %45
-  %193 = phi ptr [ %2, %45 ], [ %190, %183 ], [ %3, %182 ]
+  %193 = phi ptr [ %2, %45 ], [ %190, %183 ], [ %60, %182 ]
   %194 = phi i32 [ 1, %45 ], [ %191, %183 ], [ %59, %182 ]
   %195 = phi i1 [ true, %45 ], [ %.not.i.not, %182 ], [ %.not.i.not, %183 ]
   %196 = icmp eq i32 %194, %4

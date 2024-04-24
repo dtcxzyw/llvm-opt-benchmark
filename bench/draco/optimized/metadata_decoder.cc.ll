@@ -95,7 +95,7 @@ _ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13Metadat
   %.sroa.8.2.lcssa = phi ptr [ %12, %.preheader ], [ %.sroa.8.3, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54 ]
   %.sroa.080.3.lcssa = phi ptr [ %.sroa.080.1142, %.preheader ], [ %.sroa.080.4, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54 ]
   %10 = icmp eq ptr %.sroa.080.3.lcssa, %.sroa.8.2.lcssa
-  br i1 %10, label %.loopexit100.thread, label %11, !llvm.loop !4
+  br i1 %10, label %.loopexit100, label %11, !llvm.loop !4
 
 11:                                               ; preds = %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit, %.loopexit
   %.sroa.080.1142 = phi ptr [ %8, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit ], [ %.sroa.080.3.lcssa, %.loopexit ]
@@ -416,19 +416,18 @@ _ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13Metadat
   %124 = icmp ult i32 %123, %122
   br i1 %124, label %97, label %.loopexit, !llvm.loop !7
 
-.loopexit100:                                     ; preds = %85, %._crit_edge, %.thread, %74, %13, %_ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %82, %_ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread88
-  %.not.i.i.i = icmp eq ptr %.sroa.080.1142, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.exit, label %.loopexit100.thread
+.loopexit100:                                     ; preds = %.loopexit, %85, %._crit_edge, %.thread, %74, %13, %_ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %82, %_ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread88
+  %.sroa.080.1131 = phi ptr [ %.sroa.080.1142, %_ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread88 ], [ %.sroa.080.1142, %82 ], [ %.sroa.080.1142, %_ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.sroa.080.1142, %13 ], [ %.sroa.080.1142, %74 ], [ %.sroa.080.1142, %.thread ], [ %.sroa.080.1142, %._crit_edge ], [ %.sroa.080.1142, %85 ], [ %.sroa.080.3.lcssa, %.loopexit ]
+  %125 = phi i1 [ false, %_ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread88 ], [ false, %82 ], [ false, %_ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %13 ], [ false, %74 ], [ false, %.thread ], [ false, %._crit_edge ], [ false, %85 ], [ true, %.loopexit ]
+  %.not.i.i.i = icmp eq ptr %.sroa.080.1131, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.exit, label %126
 
-.loopexit100.thread:                              ; preds = %.loopexit, %.loopexit100
-  %125 = phi i1 [ false, %.loopexit100 ], [ true, %.loopexit ]
-  %.sroa.080.1131176 = phi ptr [ %.sroa.080.1142, %.loopexit100 ], [ %.sroa.8.2.lcssa, %.loopexit ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.080.1131176) #18
+126:                                              ; preds = %.loopexit100
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.080.1131) #18
   br label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.exit
 
-_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.exit: ; preds = %.loopexit100, %.loopexit100.thread
-  %126 = phi i1 [ false, %.loopexit100 ], [ %125, %.loopexit100.thread ]
-  ret i1 %126
+_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.exit: ; preds = %.loopexit100, %126
+  ret i1 %125
 
 .loopexit.split-lp:                               ; preds = %.loopexit95, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %73
   %.sroa.080.5 = phi ptr [ %.sroa.080.1142, %73 ], [ %.sroa.080.3135, %.loopexit95 ], [ %.sroa.080.1142, %.loopexit.split-lp.loopexit ], [ %.sroa.080.2.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]

@@ -352,7 +352,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -411,7 +411,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -2400,14 +2400,12 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i.i, %i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i.i.i
   %stackArray4.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  store ptr %stackArray4.i.i.i, ptr %fMatchers.i.i, align 8
   %conv.i.i.i = sext i32 %10 to i64
   %mul.i.i.i = shl nsw i64 %conv.i.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray4.i.i.i, ptr nonnull align 8 %stackArray.i.i.i, i64 %mul.i.i.i, i1 false)
   br label %_ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
 
 if.else.i.i.i:                                    ; preds = %invoke.cont.i.i.i
-  store ptr %12, ptr %fMatchers.i.i, align 8
   store ptr %stackArray.i.i.i, ptr %fMatchers2.i.i, align 8
   store i32 3, ptr %capacity.i.i.i, align 8
   store i8 0, ptr %needToRelease.i.i.i, align 4
@@ -2421,6 +2419,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
+  %.sink = phi ptr [ %stackArray4.i.i.i, %if.then.i.i.i ], [ %12, %if.else.i.i.i ]
+  store ptr %.sink, ptr %fMatchers.i.i, align 8
   %15 = load i32, ptr %fMatchersLen.i.i, align 8
   %fMatchersLen4.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
   store i32 %15, ptr %fMatchersLen4.i.i, align 8
@@ -2470,7 +2470,7 @@ _ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit: ; preds = %invoke.con
   br i1 %tobool.not.i.i.i.i64, label %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i, label %if.then.i.i.i.i65
 
 if.then.i.i.i.i65:                                ; preds = %_ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit
-  invoke void @uprv_free_75(ptr noundef nonnull %stackArray.i.i10.i)
+  invoke void @uprv_free_75(ptr noundef %20)
           to label %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i unwind label %terminate.lpad.i.i.i67
 
 terminate.lpad.i.i.i67:                           ; preds = %if.then.i.i.i.i65
@@ -2541,14 +2541,12 @@ invoke.cont.i.i.i75:                              ; preds = %if.then.i.i.i.i73, 
 
 if.then.i.i.i102:                                 ; preds = %invoke.cont.i.i.i75
   %stackArray4.i.i.i103 = getelementptr inbounds i8, ptr %arrayidx44, i64 24
-  store ptr %stackArray4.i.i.i103, ptr %fMatchers.i.i69, align 8
   %conv.i.i.i104 = sext i32 %33 to i64
   %mul.i.i.i105 = shl nsw i64 %conv.i.i.i104, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray4.i.i.i103, ptr nonnull align 8 %stackArray.i.i.i79, i64 %mul.i.i.i105, i1 false)
   br label %_ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i82
 
 if.else.i.i.i81:                                  ; preds = %invoke.cont.i.i.i75
-  store ptr %35, ptr %fMatchers.i.i69, align 8
   store ptr %stackArray.i.i.i79, ptr %fMatchers2.i.i70, align 8
   store i32 3, ptr %capacity.i.i.i76, align 8
   store i8 0, ptr %needToRelease.i.i.i78, align 4
@@ -2562,6 +2560,8 @@ terminate.lpad.i.i.i74:                           ; preds = %if.then.i.i.i.i73
   unreachable
 
 _ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i82: ; preds = %if.else.i.i.i81, %if.then.i.i.i102
+  %.sink223 = phi ptr [ %stackArray4.i.i.i103, %if.then.i.i.i102 ], [ %35, %if.else.i.i.i81 ]
+  store ptr %.sink223, ptr %fMatchers.i.i69, align 8
   %38 = load i32, ptr %fMatchersLen.i.i83, align 8
   %fMatchersLen4.i.i84 = getelementptr inbounds i8, ptr %arrayidx44, i64 48
   store i32 %38, ptr %fMatchersLen4.i.i84, align 8
@@ -2611,7 +2611,7 @@ _ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit106: ; preds = %invoke.
   br i1 %tobool.not.i.i.i.i108, label %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i112, label %if.then.i.i.i.i109
 
 if.then.i.i.i.i109:                               ; preds = %_ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit106
-  invoke void @uprv_free_75(ptr noundef nonnull %stackArray.i.i10.i95)
+  invoke void @uprv_free_75(ptr noundef %43)
           to label %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i112 unwind label %terminate.lpad.i.i.i111
 
 terminate.lpad.i.i.i111:                          ; preds = %if.then.i.i.i.i109
@@ -2707,8 +2707,8 @@ invoke.cont68:                                    ; preds = %if.end64
 
 if.then78:                                        ; preds = %invoke.cont68
   %cmp1.i133 = icmp ne ptr %posPrefix.1, null
-  %or.cond223.not = select i1 %cmp16, i1 %cmp1.i133, i1 false
-  br i1 %or.cond223.not, label %if.end5.i137, label %if.then82
+  %or.cond224.not = select i1 %cmp16, i1 %cmp1.i133, i1 false
+  br i1 %or.cond224.not, label %if.end5.i137, label %if.then82
 
 if.end5.i137:                                     ; preds = %if.then78
   %fPattern.i.i138 = getelementptr inbounds i8, ptr %spec.select59, i64 56

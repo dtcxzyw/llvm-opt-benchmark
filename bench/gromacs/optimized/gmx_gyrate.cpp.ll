@@ -1314,7 +1314,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit176:       ; preds = %272, %269, %250, %2
 
 429:                                              ; preds = %421
   %430 = mul nuw nsw i64 %422, 24
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %418, i64 %430
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %419, i64 %430
   store ptr %scevgep.i.i.i.i.i, ptr getelementptr inbounds (%"class.std::vector.6", ptr @_ZZL11calc_gyro_zPA3_fS0_iPKiP6t_atomifP8_IO_FILEE7inertia, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
   br label %.noexc209
 

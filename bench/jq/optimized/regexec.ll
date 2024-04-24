@@ -1416,7 +1416,7 @@ define i32 @onig_regset_search_with_param(ptr nocapture noundef readonly %0, ptr
   br i1 %.not294, label %86, label %adjust_match_param.exit
 
 86:                                               ; preds = %85
-  %87 = getelementptr inbounds i8, ptr %3, i64 1
+  %87 = getelementptr inbounds i8, ptr %1, i64 1
   br label %195
 
 88:                                               ; preds = %83
@@ -1537,7 +1537,7 @@ define i32 @onig_regset_search_with_param(ptr nocapture noundef readonly %0, ptr
   %156 = getelementptr inbounds i8, ptr %149, i64 16
   store ptr %155, ptr %156, align 8
   %157 = getelementptr inbounds i8, ptr %149, i64 32
-  store ptr %2, ptr %157, align 8
+  store ptr %1, ptr %157, align 8
   %158 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv341
   %159 = load ptr, ptr %158, align 8
   %160 = load i32, ptr %159, align 8
@@ -1582,7 +1582,7 @@ define i32 @onig_regset_search_with_param(ptr nocapture noundef readonly %0, ptr
 
 184:                                              ; preds = %.lr.ph327
   %185 = getelementptr inbounds %struct.MatchArg, ptr %142, i64 %indvars.iv344
-  %186 = tail call fastcc i32 @match_at(ptr noundef nonnull %180, ptr noundef %2, ptr noundef %2, ptr noundef %2, ptr noundef %2, ptr noundef nonnull %185)
+  %186 = tail call fastcc i32 @match_at(ptr noundef nonnull %180, ptr noundef %1, ptr noundef %1, ptr noundef %1, ptr noundef %1, ptr noundef nonnull %185)
   %.not286 = icmp eq i32 %186, -1
   br i1 %.not286, label %._crit_edge358, label %187
 
@@ -3679,13 +3679,13 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 1032:                                             ; preds = %1030
   %1033 = load ptr, ptr %122, align 8
   %1034 = load ptr, ptr %123, align 8
-  %1035 = call i32 %1034(ptr noundef %1, ptr noundef %2) #29
+  %1035 = call i32 %1034(ptr noundef %1024, ptr noundef %2) #29
   %1036 = call i32 %1033(i32 noundef %1035, i32 noundef 12) #29
   %.not1859 = icmp eq i32 %1036, 0
   br i1 %.not1859, label %backref_check_at_nested_level.exit.thread, label %1069
 
 1037:                                             ; preds = %1030
-  %1038 = call i32 @onigenc_is_mbc_word_ascii(ptr noundef %26, ptr noundef %1, ptr noundef %2) #29
+  %1038 = call i32 @onigenc_is_mbc_word_ascii(ptr noundef %26, ptr noundef %1024, ptr noundef %2) #29
   %.not1858 = icmp eq i32 %1038, 0
   br i1 %.not1858, label %backref_check_at_nested_level.exit.thread, label %1069
 
@@ -3759,13 +3759,13 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 1080:                                             ; preds = %1078
   %1081 = load ptr, ptr %122, align 8
   %1082 = load ptr, ptr %123, align 8
-  %1083 = call i32 %1082(ptr noundef %1, ptr noundef %2) #29
+  %1083 = call i32 %1082(ptr noundef %1074, ptr noundef %2) #29
   %1084 = call i32 %1081(i32 noundef %1083, i32 noundef 12) #29
   %.not1855 = icmp eq i32 %1084, 0
   br i1 %.not1855, label %1116, label %backref_check_at_nested_level.exit.thread
 
 1085:                                             ; preds = %1078
-  %1086 = call i32 @onigenc_is_mbc_word_ascii(ptr noundef %26, ptr noundef %1, ptr noundef %2) #29
+  %1086 = call i32 @onigenc_is_mbc_word_ascii(ptr noundef %26, ptr noundef %1074, ptr noundef %2) #29
   %.not1854 = icmp eq i32 %1086, 0
   br i1 %.not1854, label %1116, label %backref_check_at_nested_level.exit.thread
 
@@ -8566,7 +8566,7 @@ define internal fastcc i32 @search_in_range(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not379, label %77, label %adjust_match_param.exit
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %3, i64 1
+  %78 = getelementptr inbounds i8, ptr %1, i64 1
   br label %197
 
 79:                                               ; preds = %74
@@ -8992,7 +8992,7 @@ define internal fastcc i32 @search_in_range(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %316, label %317, label %.loopexit
 
 317:                                              ; preds = %315
-  %318 = call fastcc i32 @match_at(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef nonnull %.2322, ptr noundef nonnull %10)
+  %318 = call fastcc i32 @match_at(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef %313, ptr noundef nonnull %10)
   %.not392 = icmp eq i32 %318, -1
   br i1 %.not392, label %.loopexit, label %319
 
@@ -12328,7 +12328,6 @@ slow_search.exit:                                 ; preds = %.lr.ph.i121, %53, %
   br i1 %.not108, label %162, label %187
 
 187:                                              ; preds = %168, %172, %170, %182, %180
-  %.3.lcssa = phi ptr [ %.3, %168 ], [ %.3, %172 ], [ %1, %170 ], [ %.3, %182 ], [ %2, %180 ]
   %188 = getelementptr inbounds i8, ptr %0, i64 440
   %189 = load i32, ptr %188, align 8
   switch i32 %189, label %191 [
@@ -12342,7 +12341,7 @@ slow_search.exit:                                 ; preds = %.lr.ph.i121, %53, %
   br label %204
 
 190:                                              ; preds = %187
-  store ptr %.3.lcssa, ptr %5, align 8
+  store ptr %.3, ptr %5, align 8
   br label %slow_search.exit.thread.sink.split
 
 191:                                              ; preds = %187
@@ -12358,7 +12357,7 @@ slow_search.exit:                                 ; preds = %.lr.ph.i121, %53, %
 
 197:                                              ; preds = %191
   %198 = sub nsw i64 0, %194
-  %199 = getelementptr inbounds i8, ptr %.3.lcssa, i64 %198
+  %199 = getelementptr inbounds i8, ptr %.3, i64 %198
   store ptr %199, ptr %5, align 8
   %200 = icmp ugt ptr %199, %3
   br i1 %200, label %201, label %204
@@ -12378,11 +12377,11 @@ slow_search.exit:                                 ; preds = %.lr.ph.i121, %53, %
 
 208:                                              ; preds = %204
   %209 = sub nsw i64 0, %206
-  %210 = getelementptr inbounds i8, ptr %.3.lcssa, i64 %209
+  %210 = getelementptr inbounds i8, ptr %.3, i64 %209
   br label %slow_search.exit.thread.sink.split
 
 slow_search.exit.thread.sink.split:               ; preds = %204, %208, %190
-  %.3.lcssa.sink = phi ptr [ %.3.lcssa, %190 ], [ %210, %208 ], [ %1, %204 ]
+  %.3.lcssa.sink = phi ptr [ %.3, %190 ], [ %210, %208 ], [ %1, %204 ]
   store ptr %.3.lcssa.sink, ptr %6, align 8
   br label %slow_search.exit.thread
 
@@ -12544,20 +12543,19 @@ slow_search_backward.exit.thread80:               ; preds = %.lr.ph.i76, %slow_s
   br label %.backedge
 
 82:                                               ; preds = %slow_search_backward.exit.thread80, %63, %66, %61, %73, %71
-  %.183.lcssa = phi ptr [ %.183, %slow_search_backward.exit.thread80 ], [ %.183, %63 ], [ %.183, %66 ], [ %1, %61 ], [ %.183, %73 ], [ %2, %71 ]
   %83 = getelementptr inbounds i8, ptr %0, i64 440
   %84 = load i32, ptr %83, align 8
   %.not74 = icmp eq i32 %84, -1
   br i1 %.not74, label %slow_search_backward.exit.thread, label %85
 
 85:                                               ; preds = %82
-  %86 = ptrtoint ptr %.183.lcssa to i64
+  %86 = ptrtoint ptr %.183 to i64
   %87 = ptrtoint ptr %1 to i64
   %88 = sub i64 %86, %87
   %89 = zext i32 %84 to i64
   %90 = icmp slt i64 %88, %89
   %91 = sub nsw i64 0, %89
-  %92 = getelementptr inbounds i8, ptr %.183.lcssa, i64 %91
+  %92 = getelementptr inbounds i8, ptr %.183, i64 %91
   %storemerge = select i1 %90, ptr %1, ptr %92
   store ptr %storemerge, ptr %6, align 8
   %93 = getelementptr inbounds i8, ptr %0, i64 436
@@ -12572,11 +12570,11 @@ slow_search_backward.exit.thread80:               ; preds = %.lr.ph.i76, %slow_s
 
 98:                                               ; preds = %95
   %99 = sub nsw i64 0, %96
-  %100 = getelementptr inbounds i8, ptr %.183.lcssa, i64 %99
+  %100 = getelementptr inbounds i8, ptr %.183, i64 %99
   br label %101
 
 101:                                              ; preds = %85, %95, %98
-  %.sink = phi ptr [ %100, %98 ], [ %1, %95 ], [ %.183.lcssa, %85 ]
+  %.sink = phi ptr [ %100, %98 ], [ %1, %95 ], [ %.183, %85 ]
   store ptr %.sink, ptr %7, align 8
   %102 = load ptr, ptr %10, align 8
   %103 = tail call ptr @onigenc_get_right_adjust_char_head(ptr noundef %102, ptr noundef %5, ptr noundef %.sink) #29

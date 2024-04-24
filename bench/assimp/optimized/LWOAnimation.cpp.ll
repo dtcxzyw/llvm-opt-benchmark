@@ -562,7 +562,7 @@ for.inc189:                                       ; preds = %for.body176, %if.th
   br i1 %cmp.i90.not, label %for.inc192, label %for.body176, !llvm.loop !11
 
 for.inc192:                                       ; preds = %for.inc189, %cond.end
-  %n.sroa.0.1.lcssa = phi ptr [ %n.sroa.0.0143, %cond.end ], [ %ref.tmp165.sroa.0.0, %for.inc189 ]
+  %n.sroa.0.1.lcssa = phi ptr [ %n.sroa.0.0143, %cond.end ], [ %incdec.ptr.i, %for.inc189 ]
   %add193 = fadd double %sub, %cur_minus.0144
   %inc194 = add i32 %tt.0145, 1
   %cmp163 = fcmp ugt double %add193, %mul161
@@ -1074,7 +1074,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp.i20, label %land.rhs, label %if.end43
 
 land.rhs:                                         ; preds = %if.else
-  %12 = load double, ptr %cur.coerce, align 8
+  %12 = load double, ptr %add.ptr.i19, align 8
   %cmp29 = fcmp olt double %12, %time
   br i1 %cmp29, label %if.then30, label %if.end43
 
@@ -1100,60 +1100,61 @@ sw.bb.i35:                                        ; preds = %sw.bb31
 sw.epilog.i24:                                    ; preds = %sw.bb31
   %add.ptr.i21 = getelementptr inbounds i8, ptr %cur.coerce, i64 -40
   %16 = load double, ptr %add.ptr.i21, align 8
-  %sub.i25 = fsub double %16, %12
+  %17 = load double, ptr %cur.coerce, align 8
+  %sub.i25 = fsub double %16, %17
   %cmp.i26 = fcmp ogt double %sub.i25, 0.000000e+00
   %value9.i27 = getelementptr inbounds i8, ptr %cur.coerce, i64 8
-  %17 = load float, ptr %value9.i27, align 8
+  %18 = load float, ptr %value9.i27, align 8
   br i1 %cmp.i26, label %if.then.i29, label %return
 
 if.then.i29:                                      ; preds = %sw.epilog.i24
   %value11.i30 = getelementptr inbounds i8, ptr %cur.coerce, i64 -32
-  %18 = load float, ptr %value11.i30, align 8
-  %sub14.i31 = fsub float %18, %17
-  %sub17.i32 = fsub double %time, %12
+  %19 = load float, ptr %value11.i30, align 8
+  %sub14.i31 = fsub float %19, %18
+  %sub17.i32 = fsub double %time, %17
   %div.i33 = fdiv double %sub17.i32, %sub.i25
   %conv.i34 = fptrunc double %div.i33 to float
-  %19 = tail call float @llvm.fmuladd.f32(float %sub14.i31, float %conv.i34, float %17)
+  %20 = tail call float @llvm.fmuladd.f32(float %sub14.i31, float %conv.i34, float %18)
   br label %return
 
 sw.default39:                                     ; preds = %if.then30
   %value41 = getelementptr inbounds i8, ptr %cur.coerce, i64 8
-  %20 = load float, ptr %value41, align 8
+  %21 = load float, ptr %value41, align 8
   br label %return
 
 if.end43:                                         ; preds = %land.rhs, %if.else
   %inter.i39 = getelementptr inbounds i8, ptr %cur.coerce, i64 12
-  %21 = load i32, ptr %inter.i39, align 4
-  %cond.i40 = icmp eq i32 %21, 0
+  %22 = load i32, ptr %inter.i39, align 4
+  %cond.i40 = icmp eq i32 %22, 0
   br i1 %cond.i40, label %sw.bb.i52, label %sw.epilog.i41
 
 sw.bb.i52:                                        ; preds = %if.end43
   %value.i53 = getelementptr inbounds i8, ptr %cur.coerce, i64 -32
-  %22 = load float, ptr %value.i53, align 8
+  %23 = load float, ptr %value.i53, align 8
   br label %return
 
 sw.epilog.i41:                                    ; preds = %if.end43
   %add.ptr.i38 = getelementptr inbounds i8, ptr %cur.coerce, i64 -40
-  %23 = load double, ptr %cur.coerce, align 8
-  %24 = load double, ptr %add.ptr.i38, align 8
-  %sub.i42 = fsub double %23, %24
+  %24 = load double, ptr %cur.coerce, align 8
+  %25 = load double, ptr %add.ptr.i38, align 8
+  %sub.i42 = fsub double %24, %25
   %cmp.i43 = fcmp ogt double %sub.i42, 0.000000e+00
   %value9.i44 = getelementptr inbounds i8, ptr %cur.coerce, i64 -32
-  %25 = load float, ptr %value9.i44, align 8
+  %26 = load float, ptr %value9.i44, align 8
   br i1 %cmp.i43, label %if.then.i46, label %return
 
 if.then.i46:                                      ; preds = %sw.epilog.i41
   %value11.i47 = getelementptr inbounds i8, ptr %cur.coerce, i64 8
-  %26 = load float, ptr %value11.i47, align 8
-  %sub14.i48 = fsub float %26, %25
-  %sub17.i49 = fsub double %time, %24
+  %27 = load float, ptr %value11.i47, align 8
+  %sub14.i48 = fsub float %27, %26
+  %sub17.i49 = fsub double %time, %25
   %div.i50 = fdiv double %sub17.i49, %sub.i42
   %conv.i51 = fptrunc double %div.i50 to float
-  %27 = tail call float @llvm.fmuladd.f32(float %sub14.i48, float %conv.i51, float %25)
+  %28 = tail call float @llvm.fmuladd.f32(float %sub14.i48, float %conv.i51, float %26)
   br label %return
 
 return:                                           ; preds = %if.then.i46, %sw.epilog.i41, %sw.bb.i52, %if.then30, %if.then.i29, %sw.epilog.i24, %sw.bb.i35, %if.then8, %if.then.i, %sw.epilog.i, %sw.bb.i, %sw.default39, %sw.default, %if.then
-  %.sink.i45.sink = phi float [ %20, %sw.default39 ], [ %11, %sw.default ], [ %2, %if.then ], [ %10, %if.then.i ], [ %5, %sw.bb.i ], [ %8, %sw.epilog.i ], [ 0.000000e+00, %if.then8 ], [ %19, %if.then.i29 ], [ %15, %sw.bb.i35 ], [ %17, %sw.epilog.i24 ], [ 0.000000e+00, %if.then30 ], [ %27, %if.then.i46 ], [ %22, %sw.bb.i52 ], [ %25, %sw.epilog.i41 ]
+  %.sink.i45.sink = phi float [ %21, %sw.default39 ], [ %11, %sw.default ], [ %2, %if.then ], [ %10, %if.then.i ], [ %5, %sw.bb.i ], [ %8, %sw.epilog.i ], [ 0.000000e+00, %if.then8 ], [ %20, %if.then.i29 ], [ %15, %sw.bb.i35 ], [ %18, %sw.epilog.i24 ], [ 0.000000e+00, %if.then30 ], [ %28, %if.then.i46 ], [ %23, %sw.bb.i52 ], [ %26, %sw.epilog.i41 ]
   store float %.sink.i45.sink, ptr %fill, align 4
   ret void
 }

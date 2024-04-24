@@ -317,7 +317,7 @@ define void @_ZN10colvardeps19remove_all_childrenEv(ptr noundef nonnull align 8 
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %6, %7
-  br i1 %.not, label %_ZNSt6vectorIP10colvardepsSaIS1_EE5clearEv.exit, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %45
   %8 = phi ptr [ %48, %45 ], [ %7, %1 ]
@@ -411,15 +411,17 @@ _ZNSt6vectorIP10colvardepsSaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_
   %53 = icmp ult i64 %46, %52
   br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %45
-  %.not.i.i19 = icmp eq ptr %47, %48
+._crit_edge:                                      ; preds = %45, %1
+  %.lcssa25 = phi ptr [ %6, %1 ], [ %47, %45 ]
+  %.lcssa22 = phi ptr [ %7, %1 ], [ %48, %45 ]
+  %.not.i.i19 = icmp eq ptr %.lcssa25, %.lcssa22
   br i1 %.not.i.i19, label %_ZNSt6vectorIP10colvardepsSaIS1_EE5clearEv.exit, label %54
 
 54:                                               ; preds = %._crit_edge
-  store ptr %48, ptr %5, align 8
+  store ptr %.lcssa22, ptr %5, align 8
   br label %_ZNSt6vectorIP10colvardepsSaIS1_EE5clearEv.exit
 
-_ZNSt6vectorIP10colvardepsSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge, %54
+_ZNSt6vectorIP10colvardepsSaIS1_EE5clearEv.exit:  ; preds = %._crit_edge, %54
   ret void
 }
 
@@ -2626,7 +2628,7 @@ define noundef i32 @_ZN10colvardeps7disableEi(ptr noundef nonnull align 8 derefe
   %82 = load ptr, ptr %81, align 8
   %83 = load ptr, ptr %80, align 8
   %.not102 = icmp eq ptr %82, %83
-  br i1 %.not102, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, label %.lr.ph92
+  br i1 %.not102, label %._crit_edge, label %.lr.ph92
 
 .lr.ph:                                           ; preds = %.preheader87, %.lr.ph
   %84 = phi ptr [ %90, %.lr.ph ], [ %33, %.preheader87 ]
@@ -2660,15 +2662,17 @@ define noundef i32 @_ZN10colvardeps7disableEi(ptr noundef nonnull align 8 derefe
   %107 = icmp ult i64 %100, %106
   br i1 %107, label %.lr.ph92, label %._crit_edge, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %.lr.ph92
-  %.not.i.i = icmp eq ptr %101, %102
+._crit_edge:                                      ; preds = %.lr.ph92, %.preheader
+  %.lcssa88 = phi ptr [ %82, %.preheader ], [ %101, %.lr.ph92 ]
+  %.lcssa = phi ptr [ %83, %.preheader ], [ %102, %.lr.ph92 ]
+  %.not.i.i = icmp eq ptr %.lcssa88, %.lcssa
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, label %108
 
 108:                                              ; preds = %._crit_edge
-  store ptr %102, ptr %81, align 8
+  store ptr %.lcssa, ptr %81, align 8
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit
 
-_ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %.preheader, %._crit_edge, %108
+_ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %._crit_edge, %108
   %109 = load ptr, ptr %19, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 1
   %111 = load i8, ptr %110, align 1

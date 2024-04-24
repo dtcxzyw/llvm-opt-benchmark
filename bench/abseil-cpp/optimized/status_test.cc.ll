@@ -10210,7 +10210,7 @@ invoke.cont20:                                    ; preds = %call3.i.noexc
   store i8 %frombool, ptr %gtest_ar_, align 8
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8
-  %tobool.i93 = trunc i8 %frombool to i1
+  %tobool.i93 = trunc nuw i8 %frombool to i1
   br i1 %tobool.i93, label %_ZN7testing15AssertionResultD2Ev.exit, label %if.else
 
 lpad:                                             ; preds = %call3.i.noexc305, %if.end.i303, %_ZN7testing15AssertionResultD2Ev.exit272, %call3.i.noexc251, %if.end.i249, %call3.i.noexc222, %if.end.i220, %call3.i.noexc193, %if.end.i191, %if.end.i159, %call3.i.noexc131, %if.end.i129, %if.end.i106, %call3.i.noexc, %if.end.i90, %_ZN4absl4CordD2Ev.exit63, %_ZN4absl4CordD2Ev.exit, %entry
@@ -10796,7 +10796,7 @@ invoke.cont125:                                   ; preds = %call3.i.noexc193
   store i8 %frombool128, ptr %gtest_ar_122, align 8
   %message_.i199 = getelementptr inbounds i8, ptr %gtest_ar_122, i64 8
   store ptr null, ptr %message_.i199, align 8
-  %tobool.i200 = trunc i8 %frombool128 to i1
+  %tobool.i200 = trunc nuw i8 %frombool128 to i1
   br i1 %tobool.i200, label %_ZN7testing15AssertionResultD2Ev.exit214, label %if.else132
 
 ehcleanup121:                                     ; preds = %_ZN7testing7MessageD2Ev.exit181, %lpad106
@@ -14950,7 +14950,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt4pa
 
 invoke.cont.i256:                                 ; preds = %land.rhs.i.i, %invoke.contthread-pre-split.i, %invoke.cont137
   %lnot.i365 = phi i1 [ %lnot.i, %invoke.contthread-pre-split.i ], [ %lnot.i, %invoke.cont137 ], [ false, %land.rhs.i.i ]
-  %168 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %162, %invoke.cont137 ], [ %.pre350, %land.rhs.i.i ]
+  %168 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %163, %invoke.cont137 ], [ %.pre350, %land.rhs.i.i ]
   %tobool.not.i.i.i257 = icmp eq ptr %168, null
   br i1 %tobool.not.i.i.i257, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl4CordEESaIS9_EED2Ev.exit, label %if.then.i.i.i
 
@@ -17518,7 +17518,7 @@ invoke.cont8.thread:                              ; preds = %if.end.i.i, %_ZNK7t
   br label %_ZN7testing7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl4CordEEED2Ev.exit
 
 land.lhs.true.i.i.i16:                            ; preds = %invoke.cont6
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl4CordEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl4CordEEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
   %21 = atomicrmw sub ptr %call.i.i1.i.i6, i32 1 acq_rel, align 4
   %cmp.i.i.i.i18 = icmp eq i32 %21, 1
   br i1 %cmp.i.i.i.i18, label %if.then.i.i.i19, label %_ZN7testing7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl4CordEEED2Ev.exit
@@ -18770,7 +18770,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = tail call ptr @__cxa_begin_catch(ptr %7) #20
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i29
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZNSt16allocator_traitsISaIN4absl6StatusEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr) #20
@@ -18782,11 +18782,11 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i29:                                      ; preds = %lpad
+if.then.i32:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #21
   br label %invoke.cont21
 
-invoke.cont21:                                    ; preds = %if.then.i29, %if.end.thread
+invoke.cont21:                                    ; preds = %if.then.i32, %if.end.thread
   invoke void @__cxa_rethrow() #24
           to label %unreachable unwind label %lpad19
 

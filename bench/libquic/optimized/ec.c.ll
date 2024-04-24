@@ -1118,7 +1118,7 @@ EC_POINT_free.exit:                               ; preds = %EC_POINT_copy.exit.
   br label %return
 
 return:                                           ; preds = %if.end.i7, %EC_POINT_copy.exit, %entry, %EC_POINT_free.exit, %if.then2
-  %retval.0 = phi ptr [ null, %if.then2 ], [ null, %EC_POINT_free.exit ], [ null, %entry ], [ %call.i, %EC_POINT_copy.exit ], [ %a, %if.end.i7 ]
+  %retval.0 = phi ptr [ null, %if.then2 ], [ null, %EC_POINT_free.exit ], [ null, %entry ], [ %call.i, %EC_POINT_copy.exit ], [ %call.i, %if.end.i7 ]
   ret ptr %retval.0
 }
 

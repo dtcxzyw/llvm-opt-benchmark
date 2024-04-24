@@ -285,7 +285,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   store ptr %4, ptr %6, align 8
-  %10 = trunc i64 %3 to i32
+  %10 = trunc nsw i64 %3 to i32
   store i32 %10, ptr %9, align 4
   %11 = icmp ugt i64 %3, 2147483647
   br i1 %11, label %12, label %30
@@ -423,7 +423,7 @@ define noundef i32 @ompi_osc_base_sndrcv_op(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not53, label %24, label %opal_obj_run_destructors.exit73
 
 24:                                               ; preds = %21
-  %25 = getelementptr i8, ptr %22, i64 24
+  %25 = getelementptr i8, ptr %23, i64 24
   %.val = load i64, ptr %25, align 8
   %26 = load i32, ptr @opal_class_init_epoch, align 4
   %27 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i64 0, i32 4), align 8
@@ -545,7 +545,7 @@ opal_obj_run_constructors.exit63:                 ; preds = %.lr.ph.i60, %49
   %84 = load ptr, ptr %75, align 16
   %sext = shl i64 %82, 32
   %85 = ashr exact i64 %sext, 32
-  call fastcc void @ompi_op_reduce(ptr noundef %6, ptr noundef %83, ptr noundef %84, i64 noundef %85, ptr noundef %22)
+  call fastcc void @ompi_op_reduce(ptr noundef %6, ptr noundef %83, ptr noundef %84, i64 noundef %85, ptr noundef %23)
   %86 = load i64, ptr %76, align 8
   %87 = sub i64 %86, %.
   store i64 %87, ptr %76, align 8

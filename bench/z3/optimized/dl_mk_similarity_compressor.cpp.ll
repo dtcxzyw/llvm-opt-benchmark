@@ -387,7 +387,7 @@ _ZN6vectorIN7datalog10const_infoELb0EjE9push_backEOS1_.exit.i.i: ; preds = %.noe
   %add.ptr.i.i.i = getelementptr inbounds %"class.datalog::const_info", ptr %8, i64 %idx.ext.i.i.i
   store i32 -1, ptr %add.ptr.i.i.i, align 4
   %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
-  %9 = trunc i64 %indvars.iv.i.i to i32
+  %9 = trunc nuw i64 %indvars.iv.i.i to i32
   store i32 %9, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i.i, align 4
   %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   store i8 0, ptr %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i.i, align 4
@@ -429,7 +429,7 @@ for.body.i:                                       ; preds = %_ZN7datalogL21colle
 for.body.lr.ph.i9.i:                              ; preds = %for.body.i
   %m_args.i.i10.i = getelementptr inbounds i8, ptr %15, i64 32
   %wide.trip.count.i11.i = zext i32 %16 to i64
-  %17 = trunc i64 %indvars.iv.i to i32
+  %17 = trunc nuw i64 %indvars.iv.i to i32
   br label %for.body.i12.i
 
 for.body.i12.i:                                   ; preds = %for.inc.i32.i, %for.body.lr.ph.i9.i
@@ -539,7 +539,7 @@ _ZN6vectorIN7datalog10const_infoELb0EjE9push_backEOS1_.exit.i25.i: ; preds = %_Z
   %add.ptr.i.i27.i = getelementptr inbounds %"class.datalog::const_info", ptr %25, i64 %idx.ext.i.i26.i
   store i32 %17, ptr %add.ptr.i.i27.i, align 4
   %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i28.i = getelementptr inbounds i8, ptr %add.ptr.i.i27.i, i64 4
-  %26 = trunc i64 %indvars.iv.i13.i to i32
+  %26 = trunc nuw i64 %indvars.iv.i13.i to i32
   store i32 %26, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i28.i, align 4
   %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i29.i = getelementptr inbounds i8, ptr %add.ptr.i.i27.i, i64 8
   store i8 0, ptr %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i29.i, align 4
@@ -763,7 +763,7 @@ if.else.i:                                        ; preds = %for.body28.i
 
 if.then35.i:                                      ; preds = %if.else.i
   %arrayidx.i42.i = getelementptr inbounds %"class.datalog::const_info", ptr %57, i64 %indvars.iv64.i
-  %60 = trunc i64 %indvars.iv64.i to i32
+  %60 = trunc nuw i64 %indvars.iv64.i to i32
   %sub.i = sub i32 %60, %removed_cnt.060.i
   %idxprom.i43.i = zext i32 %sub.i to i64
   %arrayidx.i44.i = getelementptr inbounds %"class.datalog::const_info", ptr %57, i64 %idxprom.i43.i
@@ -1185,7 +1185,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i:          ; preds = %.noexc105.i, %lor.l
   %108 = phi ptr [ %.pre.i.i, %.noexc105.i ], [ %102, %lor.lhs.false.i.i ]
   %idx.ext.i.i = zext i32 %107 to i64
   %add.ptr.i.i = getelementptr inbounds i32, ptr %108, i64 %idx.ext.i.i
-  %109 = trunc i64 %indvars.iv.i132 to i32
+  %109 = trunc nuw i64 %indvars.iv.i132 to i32
   store i32 %109, ptr %add.ptr.i.i, align 4
   %110 = load ptr, ptr %arrayidx.i101.i, align 8
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %110, i64 -4
@@ -1501,14 +1501,14 @@ for.body64.i:                                     ; preds = %for.inc90.i, %for.b
   br i1 %cmp.i181.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit185.thread.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit185.i
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit185.thread.i:      ; preds = %for.body64.i
-  %144 = trunc i64 %indvars.iv285.i to i32
+  %144 = trunc nuw i64 %indvars.iv285.i to i32
   br label %for.end83.i
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit185.i:             ; preds = %for.body64.i
   %arrayidx.i183.i = getelementptr inbounds i8, ptr %143, i64 -4
   %145 = load i32, ptr %arrayidx.i183.i, align 4
   %cmp72265.not.i = icmp eq i32 %145, 0
-  %146 = trunc i64 %indvars.iv285.i to i32
+  %146 = trunc nuw i64 %indvars.iv285.i to i32
   br i1 %cmp72265.not.i, label %for.end83.i, label %for.body73.preheader.i
 
 for.body73.preheader.i:                           ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit185.i
@@ -2820,7 +2820,7 @@ for.end124.loopexit.split.loop.exit718:           ; preds = %land.rhs, %land.rhs
   %.lcssa730 = phi ptr [ %272, %land.rhs.preheader ], [ %306, %land.rhs ]
   %indvars.iv685.lcssa = phi i64 [ %idxprom.i289, %land.rhs.preheader ], [ %indvars.iv.next686, %land.rhs ]
   %aux_column_index.1675.lcssa = phi i32 [ %aux_column_index.0681, %land.rhs.preheader ], [ %aux_column_index.2628, %land.rhs ]
-  %307 = trunc i64 %indvars.iv685.lcssa to i32
+  %307 = trunc nuw i64 %indvars.iv685.lcssa to i32
   br label %for.end124
 
 for.end124:                                       ; preds = %invoke.cont116, %for.end124.loopexit.split.loop.exit718, %_ZN10ptr_vectorI4exprEC2EjPKPS0_.exit
@@ -3815,7 +3815,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp.not, label %while.end, label %land.lhs.true, !llvm.loop !32
 
 while.end:                                        ; preds = %if.end, %entry
-  %after_last.addr.0.lcssa = phi ptr [ %after_last, %entry ], [ %it.1, %if.end ]
+  %after_last.addr.0.lcssa = phi ptr [ %after_last, %entry ], [ %after_last.addr.1, %if.end ]
   %17 = load ptr, ptr %first, align 8
   %m_head.i.i = getelementptr inbounds i8, ptr %17, i64 40
   %18 = load ptr, ptr %m_head.i.i, align 8

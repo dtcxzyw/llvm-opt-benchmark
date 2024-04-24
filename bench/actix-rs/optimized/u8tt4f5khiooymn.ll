@@ -11256,7 +11256,7 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   br i1 %.not.i31.i, label %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i.i", %68, %62, %58, %52, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i.i"
-  %78 = phi ptr [ %.pre3.i.i, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i.i" ], [ %.val4.i.i.i, %58 ], [ %.val4.i.i.i, %62 ], [ %.val4.i.i.i, %68 ], [ %56, %52 ], [ %.val4.i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i.i" ]
+  %78 = phi ptr [ %.pre3.i.i, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i.i" ], [ %56, %58 ], [ %56, %62 ], [ %56, %68 ], [ %56, %52 ], [ %56, %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i.i" ]
   %79 = phi ptr [ %.pre.i.i, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i.i" ], [ %.pre2.i.i, %58 ], [ %.pre2.i.i, %62 ], [ %.pre2.i.i, %68 ], [ %.pre2.i.i, %52 ], [ %.pre2.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i.i" ]
   %80 = load ptr, ptr %79, align 8, !noalias !1437, !nonnull !5, !noundef !5
   %81 = invoke { ptr, ptr } %80(ptr noundef %78)
@@ -11411,7 +11411,7 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit.i: ; preds = 
   br i1 %.not.i40.i, label %_ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit48.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i36.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread.i36.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i39.i", %132, %126, %122, %116, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i41.i"
-  %142 = phi ptr [ %.pre3.i44.i, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i41.i" ], [ %.val4.i.i34.i, %122 ], [ %.val4.i.i34.i, %126 ], [ %.val4.i.i34.i, %132 ], [ %120, %116 ], [ %.val4.i.i34.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i39.i" ]
+  %142 = phi ptr [ %.pre3.i44.i, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i41.i" ], [ %120, %122 ], [ %120, %126 ], [ %120, %132 ], [ %120, %116 ], [ %120, %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i39.i" ]
   %143 = phi ptr [ %.pre.i42.i, %"._ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.thread_crit_edge.i41.i" ], [ %.pre2.i35.i, %122 ], [ %.pre2.i35.i, %126 ], [ %.pre2.i35.i, %132 ], [ %.pre2.i35.i, %116 ], [ %.pre2.i35.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17he704bcf3e3604240E.exit.i39.i" ]
   %144 = load ptr, ptr %143, align 8, !noalias !1461, !nonnull !5, !noundef !5
   %145 = invoke { ptr, ptr } %144(ptr noundef %142)
@@ -11648,9 +11648,8 @@ define void @_ZN10actix_http2h17payload5Inner11register_io17h0aa62ec7f6ef06a4E(p
   br label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hec85bcc7a7f9414fE.exit"
 
 37:                                               ; preds = %12, %16, %22, %6, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.exit"
-  %.ph = phi ptr [ %.val4.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4d7ba5cec704cf25E.exit" ], [ %10, %6 ], [ %.val4.i, %22 ], [ %.val4.i, %16 ], [ %.val4.i, %12 ]
   %38 = load ptr, ptr %.pre10, align 8, !nonnull !5, !noundef !5
-  %39 = tail call { ptr, ptr } %38(ptr noundef %.ph)
+  %39 = tail call { ptr, ptr } %38(ptr noundef %10)
   %40 = extractvalue { ptr, ptr } %39, 0
   %41 = extractvalue { ptr, ptr } %39, 1
   %42 = icmp ne ptr %40, null

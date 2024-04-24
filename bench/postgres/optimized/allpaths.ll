@@ -3999,7 +3999,7 @@ declare void @set_baserel_size_estimates(ptr noundef, ptr noundef) local_unnamed
 declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4217,7 +4217,7 @@ check_output_expressions.exit:                    ; preds = %targetIsInAllPartit
   br i1 %.not31, label %compare_tlist_datatypes.exit, label %129
 
 129:                                              ; preds = %128
-  %130 = tail call fastcc zeroext i1 @recurse_pushdown_safe(ptr noundef nonnull %127, ptr noundef nonnull %0, ptr noundef %2)
+  %130 = tail call fastcc zeroext i1 @recurse_pushdown_safe(ptr noundef nonnull %127, ptr noundef %1, ptr noundef %2)
   br i1 %130, label %compare_tlist_datatypes.exit, label %185
 
 131:                                              ; preds = %check_output_expressions.exit

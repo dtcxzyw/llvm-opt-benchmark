@@ -44,7 +44,7 @@ define noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr nocapture noundef reado
   br label %15
 
 15:                                               ; preds = %13, %12
-  %.1.i = phi ptr [ %14, %13 ], [ %3, %12 ]
+  %.1.i = phi ptr [ %14, %13 ], [ %.02634.i, %12 ]
   %16 = getelementptr i8, ptr %.02535.i, i64 1
   %17 = load i8, ptr %.02535.i, align 1
   %18 = zext i8 %17 to i32
@@ -127,7 +127,7 @@ define noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr nocapture noundef reado
 55:                                               ; preds = %.preheader.i10
   %56 = add i32 %.sroa.8.0113.i, 1
   %spec.select97.i = select i1 %54, i32 1, i32 %56
-  %57 = trunc i64 %indvars.iv145.i to i32
+  %57 = trunc nuw nsw i64 %indvars.iv145.i to i32
   %spec.select98.i = select i1 %54, i32 %57, i32 %.sroa.0.0114.i
   br label %62
 

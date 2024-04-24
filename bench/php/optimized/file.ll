@@ -6769,7 +6769,7 @@ php_fgetcsv_lookup_trailing_spaces.exit:          ; preds = %6, %._crit_edge.i, 
   br label %90
 
 90:                                               ; preds = %85, %84
-  %.2371 = phi ptr [ %.2345, %85 ], [ %.1349, %84 ]
+  %.2371 = phi ptr [ %.2345, %85 ], [ %.1370, %84 ]
   %.2366 = phi ptr [ %89, %85 ], [ %.1365, %84 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %.2366, ptr noundef align 1 %.1349, i64 noundef %.1379, i1 false) #17
   %91 = getelementptr inbounds i8, ptr %.2366, i64 %.1379

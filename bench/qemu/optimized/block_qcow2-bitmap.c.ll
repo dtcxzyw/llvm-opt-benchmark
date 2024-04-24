@@ -1526,7 +1526,12 @@ do.body10:                                        ; preds = %do.body
   %5 = load ptr, ptr %entry12, align 8
   store ptr %5, ptr %call, align 8
   %cmp14 = icmp eq ptr %5, null
-  br i1 %cmp14, label %do.end41.sink.split, label %do.end41
+  br i1 %cmp14, label %if.then15, label %do.end41
+
+if.then15:                                        ; preds = %do.body10
+  %sqh_last = getelementptr inbounds i8, ptr %call, i64 8
+  store ptr %call, ptr %sqh_last, align 8
+  br label %do.end41
 
 while.cond:                                       ; preds = %do.body, %while.cond
   %curelm.0 = phi ptr [ %6, %while.cond ], [ %bm.04.i, %do.body ]
@@ -1537,21 +1542,23 @@ while.cond:                                       ; preds = %do.body, %while.con
 
 while.end:                                        ; preds = %while.cond
   %entry21.le = getelementptr inbounds i8, ptr %curelm.0, i64 48
-  %entry28 = getelementptr inbounds i8, ptr %bm.06.i, i64 48
+  %entry28 = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load ptr, ptr %entry28, align 8
   store ptr %7, ptr %entry21.le, align 8
   %cmp32 = icmp eq ptr %7, null
-  br i1 %cmp32, label %do.end41.sink.split, label %do.end41
+  br i1 %cmp32, label %if.then33, label %if.end37
 
-do.end41.sink.split:                              ; preds = %while.end, %do.body10
-  %entry21.le.sink = phi ptr [ %call, %do.body10 ], [ %entry21.le, %while.end ]
-  %entry12.sink.ph = phi ptr [ %entry12, %do.body10 ], [ %entry28, %while.end ]
+if.then33:                                        ; preds = %while.end
   %sqh_last36 = getelementptr inbounds i8, ptr %call, i64 8
-  store ptr %entry21.le.sink, ptr %sqh_last36, align 8
+  store ptr %entry21.le, ptr %sqh_last36, align 8
+  br label %if.end37
+
+if.end37:                                         ; preds = %if.then33, %while.end
+  %entry38 = getelementptr inbounds i8, ptr %bm.06.i, i64 48
   br label %do.end41
 
-do.end41:                                         ; preds = %do.end41.sink.split, %while.end, %do.body10
-  %entry12.sink = phi ptr [ %entry12, %do.body10 ], [ %entry28, %while.end ], [ %entry12.sink.ph, %do.end41.sink.split ]
+do.end41:                                         ; preds = %do.body10, %if.then15, %if.end37
+  %entry12.sink = phi ptr [ %entry38, %if.end37 ], [ %entry12, %if.then15 ], [ %entry12, %do.body10 ]
   store ptr null, ptr %entry12.sink, align 8
   %call42 = tail call fastcc i32 @update_ext_header_and_dir(ptr noundef %bs, ptr noundef nonnull %call), !range !5
   %cmp43 = icmp slt i32 %call42, 0

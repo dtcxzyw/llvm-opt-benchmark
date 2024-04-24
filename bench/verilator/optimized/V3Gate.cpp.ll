@@ -6125,7 +6125,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 59:                                               ; preds = %._crit_edge.i
-  %60 = trunc i32 %.0.lcssa.i to i8
+  %60 = trunc nuw i32 %.0.lcssa.i to i8
   %61 = or disjoint i8 %60, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -9688,7 +9688,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt13unordered_mapIP11AstVarScope
   %9 = load ptr, ptr %.040, align 8
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZSt8_DestroyISt13unordered_mapIP11AstVarScopeP11AstNodeExprSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEEvPT_.exit.i.i.i, %.lr.ph
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph, %_ZSt8_DestroyISt13unordered_mapIP11AstVarScopeP11AstNodeExprSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEEvPT_.exit.i.i.i
   %.05.i.i.i.idx = phi i64 [ %.05.i.i.i.add, %_ZSt8_DestroyISt13unordered_mapIP11AstVarScopeP11AstNodeExprSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEEvPT_.exit.i.i.i ], [ 0, %.lr.ph ]
   %.05.i.i.i.ptr = getelementptr inbounds i8, ptr %9, i64 %.05.i.i.i.idx
   %10 = getelementptr inbounds i8, ptr %.05.i.i.i.ptr, i64 16
@@ -16595,13 +16595,13 @@ _ZN20AstUserAllocatorBaseI11AstNodeExprN14GateDedupeHash14AuxAstNodeExprELi2EEcl
 
 75:                                               ; preds = %.lr.ph.i.i.i.i
   %76 = icmp eq ptr %12, %.0710.i.i.i.i
-  %spec.select18.i.i.i = or i1 %76, %74
+  %spec.select.i.i.i = or i1 %76, %74
   br label %_ZN11V3DupFinder6insertEP7AstNode.exit
 
 _ZN11V3DupFinder6insertEP7AstNode.exit:           ; preds = %63, %75
-  %.0.lcssa.i17.i.i.i = phi ptr [ %12, %63 ], [ %.0710.i.i.i.i, %75 ]
-  %77 = phi i1 [ true, %63 ], [ %spec.select18.i.i.i, %75 ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %77, ptr noundef nonnull %68, ptr noundef nonnull %.0.lcssa.i17.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %12) #22
+  %.0.lcssa.i17.i.i.i = phi ptr [ %13, %63 ], [ %.0710.i.i.i.i, %75 ]
+  %77 = phi i1 [ true, %63 ], [ %spec.select.i.i.i, %75 ]
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %77, ptr noundef nonnull %68, ptr noundef nonnull %.0.lcssa.i17.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %13) #22
   %78 = getelementptr inbounds i8, ptr %0, i64 160
   %79 = load i64, ptr %78, align 8
   %80 = add i64 %79, 1

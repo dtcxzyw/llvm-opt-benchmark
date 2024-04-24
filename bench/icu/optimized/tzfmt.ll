@@ -308,7 +308,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -367,7 +367,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -1245,7 +1245,7 @@ lpad202:                                          ; preds = %invoke.cont195
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %45 = trunc i64 %indvars.iv.i to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.i to i32
   %46 = icmp ult i32 %45, 6
   br i1 %46, label %switch.lookup, label %for.inc.i
 
@@ -1849,7 +1849,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %1 = icmp ult i32 %0, 6
   br i1 %1, label %switch.lookup, label %for.inc
 
@@ -2185,7 +2185,7 @@ delete.end47:                                     ; preds = %delete.notnull44, %
 
 for.body.i:                                       ; preds = %delete.end47, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %delete.end47 ]
-  %13 = trunc i64 %indvars.iv.i to i32
+  %13 = trunc nuw nsw i64 %indvars.iv.i to i32
   %14 = icmp ult i32 %13, 6
   br i1 %14, label %switch.lookup, label %for.inc.i
 
@@ -6996,7 +6996,7 @@ if.end18:                                         ; preds = %if.end9
   %arrayidx20 = getelementptr inbounds i8, ptr %fields, i64 4
   store i32 %div19, ptr %arrayidx20, align 4
   %rem21 = urem i32 %rem, 60000
-  %div22.lhs.trunc = trunc i32 %rem21 to i16
+  %div22.lhs.trunc = trunc nuw i32 %rem21 to i16
   %div2247 = udiv i16 %div22.lhs.trunc, 1000
   %div22.zext = zext nneg i16 %div2247 to i32
   %arrayidx23 = getelementptr inbounds i8, ptr %fields, i64 8
@@ -7074,7 +7074,7 @@ for.body42.us:                                    ; preds = %for.body42.lr.ph, %
   %call.i44.us = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull %srcChar.addr.i43, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i43)
   %rem56.us = srem i32 %11, 10
-  %13 = trunc i32 %rem56.us to i16
+  %13 = trunc nsw i32 %rem56.us to i16
   %conv58.us = add nsw i16 %13, 48
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i45)
   store i16 %conv58.us, ptr %srcChar.addr.i45, align 2
@@ -7107,7 +7107,7 @@ if.end48:                                         ; preds = %if.then46, %for.bod
   %call.i44 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull %srcChar.addr.i43, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i43)
   %rem56 = srem i32 %14, 10
-  %16 = trunc i32 %rem56 to i16
+  %16 = trunc nsw i32 %rem56 to i16
   %conv58 = add nsw i16 %16, 48
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i45)
   store i16 %conv58, ptr %srcChar.addr.i45, align 2
@@ -7158,7 +7158,7 @@ if.end8:                                          ; preds = %if.end4
   %rem = urem i32 %spec.select, 3600000
   %div13 = udiv i32 %rem, 60000
   %rem14 = urem i32 %rem, 60000
-  %div15.lhs.trunc = trunc i32 %rem14 to i16
+  %div15.lhs.trunc = trunc nuw i32 %rem14 to i16
   %div1590 = udiv i16 %div15.lhs.trunc, 1000
   %cmp32.not = icmp ult i32 %rem14, 1000
   br i1 %cmp9, label %if.else31, label %if.then17
@@ -7198,11 +7198,11 @@ for.body.lr.ph:                                   ; preds = %if.end48
   %cmp.i64 = icmp ult i16 %div15.lhs.trunc, 10000
   %sub.i66 = zext i1 %cmp.i64 to i32
   %fGMTOffsetDigits4.i75 = getelementptr inbounds i8, ptr %this, i64 1024
-  %div.i76.lhs.trunc = trunc i16 %div1590 to i8
+  %div.i76.lhs.trunc = trunc nuw nsw i16 %div1590 to i8
   %div.i7693 = udiv i8 %div.i76.lhs.trunc, 10
   %idxprom.i77 = zext nneg i8 %div.i7693 to i64
   %arrayidx5.i78 = getelementptr inbounds [10 x i32], ptr %fGMTOffsetDigits4.i75, i64 0, i64 %idxprom.i77
-  %rem.i70.lhs.trunc = trunc i16 %div1590 to i8
+  %rem.i70.lhs.trunc = trunc nuw nsw i16 %div1590 to i8
   %rem.i7094 = urem i8 %rem.i70.lhs.trunc, 10
   %idxprom8.i71 = zext nneg i8 %rem.i7094 to i64
   %arrayidx9.i72 = getelementptr inbounds [10 x i32], ptr %fGMTOffsetDigits4.i75, i64 0, i64 %idxprom8.i71
@@ -7211,7 +7211,7 @@ for.body.lr.ph:                                   ; preds = %if.end48
   %div.i52 = udiv i32 %rem, 600000
   %idxprom.i53 = zext nneg i32 %div.i52 to i64
   %arrayidx5.i54 = getelementptr inbounds [10 x i32], ptr %fGMTOffsetDigits4.i75, i64 0, i64 %idxprom.i53
-  %rem.i46.lhs.trunc = trunc i32 %div13 to i8
+  %rem.i46.lhs.trunc = trunc nuw nsw i32 %div13 to i8
   %rem.i4695 = urem i8 %rem.i46.lhs.trunc, 10
   %idxprom8.i47 = zext nneg i8 %rem.i4695 to i64
   %arrayidx9.i48 = getelementptr inbounds [10 x i32], ptr %fGMTOffsetDigits4.i75, i64 0, i64 %idxprom8.i47
@@ -7429,7 +7429,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %7, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %fieldIdx.037 = phi i32 [ 0, %for.body.lr.ph ], [ %fieldIdx.1, %for.inc ]
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nsw i64 %indvars.iv to i32
   %cmp.i.i32 = icmp ugt i32 %cond.i, %9
   br i1 %cmp.i.i32, label %if.then.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit
 
@@ -7608,7 +7608,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %if
   %indvars.iv55 = phi i64 [ %6, %land.rhs.lr.ph ], [ %indvars.iv.next56, %if.end ]
   %indvars.iv = phi i64 [ 0, %land.rhs.lr.ph ], [ %indvars.iv.next, %if.end ]
   %cmp4 = icmp slt i64 %indvars.iv55, %7
-  %8 = trunc i64 %indvars.iv55 to i32
+  %8 = trunc nsw i64 %indvars.iv55 to i32
   %cmp.i.i31 = icmp ugt i32 %cond.i, %8
   %or.cond43 = and i1 %cmp4, %cmp.i.i31
   br i1 %or.cond43, label %_ZNK6icu_7513UnicodeString6charAtEi.exit, label %while.end.loopexit.split.loop.exit66
@@ -7633,11 +7633,11 @@ if.end:                                           ; preds = %_ZNK6icu_7513Unicod
   br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !31
 
 while.end.loopexit.split.loop.exit64:             ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end.loopexit.split.loop.exit66:             ; preds = %land.rhs
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %if.end, %while.end.loopexit.split.loop.exit64, %while.end.loopexit.split.loop.exit66, %entry
@@ -7978,7 +7978,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp6, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %3, label %lor.rhs [
     i32 4, label %for.end
     i32 2, label %for.end
@@ -8019,7 +8019,7 @@ for.body17:                                       ; preds = %if.then11, %for.inc
   br i1 %cmp26, label %if.then27, label %for.inc36
 
 if.then27:                                        ; preds = %for.body17
-  %8 = trunc i64 %indvars.iv48 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv48 to i32
   switch i32 %8, label %lor.rhs31 [
     i32 4, label %for.end38
     i32 2, label %for.end38
@@ -8193,15 +8193,15 @@ if.end38:                                         ; preds = %if.end38.loopexit, 
   br i1 %cmp41.not, label %for.inc, label %if.then69
 
 if.then47:                                        ; preds = %for.body
-  %call51 = call noundef i32 @_ZNK6icu_7514TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.064, i8 noundef zeroext 1, i8 noundef zeroext %conv50, i16 noundef zeroext 0, i16 noundef zeroext 23, ptr noundef nonnull align 4 dereferenceable(4) %len)
+  %call51 = call noundef i32 @_ZNK6icu_7514TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.064, i8 noundef zeroext 1, i8 noundef zeroext %conv50, i16 noundef zeroext 0, i16 noundef zeroext 23, ptr noundef nonnull align 4 dereferenceable(4) %len), !range !36
   br label %if.end62
 
 if.then54:                                        ; preds = %for.body
-  %call55 = call noundef i32 @_ZNK6icu_7514TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.064, i8 noundef zeroext 2, i8 noundef zeroext 2, i16 noundef zeroext 0, i16 noundef zeroext 59, ptr noundef nonnull align 4 dereferenceable(4) %len)
+  %call55 = call noundef i32 @_ZNK6icu_7514TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.064, i8 noundef zeroext 2, i8 noundef zeroext 2, i16 noundef zeroext 0, i16 noundef zeroext 59, ptr noundef nonnull align 4 dereferenceable(4) %len), !range !36
   br label %if.end62
 
 if.then58:                                        ; preds = %for.body
-  %call59 = call noundef i32 @_ZNK6icu_7514TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.064, i8 noundef zeroext 2, i8 noundef zeroext 2, i16 noundef zeroext 0, i16 noundef zeroext 59, ptr noundef nonnull align 4 dereferenceable(4) %len)
+  %call59 = call noundef i32 @_ZNK6icu_7514TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.064, i8 noundef zeroext 2, i8 noundef zeroext 2, i16 noundef zeroext 0, i16 noundef zeroext 59, ptr noundef nonnull align 4 dereferenceable(4) %len), !range !36
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then54, %if.then58, %if.then47
@@ -8221,7 +8221,7 @@ for.inc:                                          ; preds = %if.end38, %if.end62
   %inc = add nuw nsw i32 %i.065, 1
   %11 = load i32, ptr %count.i, align 8
   %cmp.not = icmp slt i32 %inc, %11
-  br i1 %cmp.not, label %for.body, label %if.end70, !llvm.loop !36
+  br i1 %cmp.not, label %for.body, label %if.end70, !llvm.loop !37
 
 if.then69:                                        ; preds = %for.body, %if.end62, %if.end38
   store i32 0, ptr %sec, align 4
@@ -8289,7 +8289,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %if.then7.i, label %for.body.i, !llvm.loop !37
+  br i1 %exitcond.not.i, label %if.then7.i, label %for.body.i, !llvm.loop !38
 
 if.then7.i:                                       ; preds = %for.inc.i
   %call8.i = tail call i32 @u_charDigitValue_75(i32 noundef %call2.i)
@@ -8301,7 +8301,7 @@ _ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   br label %if.end
 
 _ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit: ; preds = %for.body.i
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call14.i = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.029, i32 noundef 1)
   %cmp4 = icmp slt i32 %5, 0
   br i1 %cmp4, label %while.end, label %if.end
@@ -8309,8 +8309,8 @@ _ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
 if.end:                                           ; preds = %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread16, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit
   %call14.i18.pn = phi i32 [ %call14.i18, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread16 ], [ %call14.i, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit ]
   %digit.1.ph.i21 = phi i32 [ %call8.i, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread16 ], [ %5, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit ]
-  %mul = mul nsw i32 %decVal.031, 10
-  %add = add nsw i32 %digit.1.ph.i21, %mul
+  %mul = mul nuw nsw i32 %decVal.031, 10
+  %add = add nuw nsw i32 %digit.1.ph.i21, %mul
   %cmp6 = icmp sgt i32 %add, %conv5
   br i1 %cmp6, label %while.end, label %if.end8
 
@@ -8325,7 +8325,7 @@ if.end8:                                          ; preds = %if.end
   %cmp = icmp slt i32 %call14.i18.pn, %cond.i
   %cmp2 = icmp ult i32 %inc, %conv
   %9 = select i1 %cmp, i1 %cmp2, i1 false
-  br i1 %9, label %if.then.i, label %while.end, !llvm.loop !38
+  br i1 %9, label %if.then.i, label %while.end, !llvm.loop !39
 
 while.end:                                        ; preds = %if.end8, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit, %if.end, %if.then7.i, %entry
   %idx.0.lcssa = phi i32 [ %start, %entry ], [ %idx.029, %if.then7.i ], [ %idx.029, %if.end ], [ %idx.029, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit ], [ %call14.i18.pn, %if.end8 ]
@@ -8384,7 +8384,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %if.then7.i, label %for.body.i, !llvm.loop !37
+  br i1 %exitcond.not.i, label %if.then7.i, label %for.body.i, !llvm.loop !38
 
 if.then7.i:                                       ; preds = %for.inc.i
   %call8.i = tail call i32 @u_charDigitValue_75(i32 noundef %call2.i)
@@ -8404,7 +8404,7 @@ _ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   br label %for.end
 
 _ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit: ; preds = %for.body.i
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call14.i = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.029, i32 noundef 1)
   %arrayidx = getelementptr inbounds [6 x i32], ptr %digits, i64 0, i64 %indvars.iv
   store i32 %4, ptr %arrayidx, align 4
@@ -8418,7 +8418,7 @@ if.end:                                           ; preds = %_ZNK6icu_7514TimeZo
   store i32 %sub, ptr %arrayidx6, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %while.body.lr.ph, label %for.body, !llvm.loop !39
+  br i1 %exitcond.not, label %while.body.lr.ph, label %for.body, !llvm.loop !40
 
 for.end:                                          ; preds = %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.thread
   %indvars4364 = trunc i64 %indvars.iv to i32
@@ -8509,7 +8509,7 @@ if.then59:                                        ; preds = %sw.epilog
 if.end68:                                         ; preds = %sw.epilog
   %dec = add nsw i32 %numDigits.133, -1
   %cmp11 = icmp sgt i32 %numDigits.133, 1
-  br i1 %cmp11, label %while.body, label %return, !llvm.loop !40
+  br i1 %cmp11, label %while.body, label %return, !llvm.loop !41
 
 return.sink.split:                                ; preds = %for.end, %if.then59
   %.sink = phi i32 [ %11, %if.then59 ], [ 0, %for.end ]
@@ -8552,7 +8552,7 @@ for.body:                                         ; preds = %if.then, %for.inc
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %if.then7, label %for.body, !llvm.loop !37
+  br i1 %exitcond.not, label %if.then7, label %for.body, !llvm.loop !38
 
 if.then7:                                         ; preds = %for.inc
   %call8 = tail call i32 @u_charDigitValue_75(i32 noundef %call2)
@@ -8560,7 +8560,7 @@ if.then7:                                         ; preds = %for.inc
   br i1 %or.cond, label %if.then13, label %if.end16
 
 if.then13.loopexit:                               ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   br label %if.then13
 
 if.then13:                                        ; preds = %if.then13.loopexit, %if.then7
@@ -8589,7 +8589,7 @@ entry:
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   store i32 0, ptr %len, align 4
   store i32 0, ptr %parsedLen, align 4
-  %call2 = call noundef i32 @_ZNK6icu_7514TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i8 noundef zeroext 1, i8 noundef zeroext 2, i16 noundef zeroext 0, i16 noundef zeroext 23, ptr noundef nonnull align 4 dereferenceable(4) %len)
+  %call2 = call noundef i32 @_ZNK6icu_7514TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i8 noundef zeroext 1, i8 noundef zeroext 2, i16 noundef zeroext 0, i16 noundef zeroext 23, ptr noundef nonnull align 4 dereferenceable(4) %len), !range !36
   %3 = load i32, ptr %len, align 4
   %cmp = icmp eq i32 %3, 0
   br i1 %cmp, label %return, label %if.end
@@ -8628,7 +8628,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %land.lhs.true, %if.
   br i1 %cmp7, label %if.then8, label %do.end
 
 if.then8:                                         ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %call10 = call noundef i32 @_ZNK6icu_7514TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %add3, i8 noundef zeroext 2, i8 noundef zeroext 2, i16 noundef zeroext 0, i16 noundef zeroext 59, ptr noundef nonnull align 4 dereferenceable(4) %len)
+  %call10 = call noundef i32 @_ZNK6icu_7514TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %add3, i8 noundef zeroext 2, i8 noundef zeroext 2, i16 noundef zeroext 0, i16 noundef zeroext 59, ptr noundef nonnull align 4 dereferenceable(4) %len), !range !36
   %10 = load i32, ptr %len, align 4
   %cmp11 = icmp eq i32 %10, 0
   br i1 %cmp11, label %do.end, label %if.end13
@@ -8667,7 +8667,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit39:       ; preds = %land.lhs.true18, %i
   br i1 %cmp22, label %if.then23, label %do.end
 
 if.then23:                                        ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit39
-  %call25 = call noundef i32 @_ZNK6icu_7514TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %add16, i8 noundef zeroext 2, i8 noundef zeroext 2, i16 noundef zeroext 0, i16 noundef zeroext 59, ptr noundef nonnull align 4 dereferenceable(4) %len)
+  %call25 = call noundef i32 @_ZNK6icu_7514TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %add16, i8 noundef zeroext 2, i8 noundef zeroext 2, i16 noundef zeroext 0, i16 noundef zeroext 59, ptr noundef nonnull align 4 dereferenceable(4) %len), !range !36
   %17 = load i32, ptr %len, align 4
   %cmp26 = icmp eq i32 %17, 0
   %add30 = add i32 %add16, %17
@@ -8747,20 +8747,20 @@ if.then.split:                                    ; preds = %entry
 
 if.end:                                           ; preds = %entry.split, %if.then.split
   %offset.addr.0 = phi i32 [ %sub, %if.then.split ], [ %offset, %entry.split ]
-  %div34 = udiv i32 %offset.addr.0, 3600000
-  store i32 %div34, ptr %fields, align 4
-  %rem35 = urem i32 %offset.addr.0, 3600000
-  %div136 = udiv i32 %rem35, 60000
+  %div = udiv i32 %offset.addr.0, 3600000
+  store i32 %div, ptr %fields, align 4
+  %rem = urem i32 %offset.addr.0, 3600000
+  %div1 = udiv i32 %rem, 60000
   %arrayidx2 = getelementptr inbounds i8, ptr %fields, i64 4
-  store i32 %div136, ptr %arrayidx2, align 4
-  %rem337 = urem i32 %rem35, 60000
-  %div438.lhs.trunc = trunc i32 %rem337 to i16
-  %div43839 = udiv i16 %div438.lhs.trunc, 1000
-  %div438.zext = zext nneg i16 %div43839 to i32
+  store i32 %div1, ptr %arrayidx2, align 4
+  %rem3 = urem i32 %rem, 60000
+  %div4.lhs.trunc = trunc nuw i32 %rem3 to i16
+  %div434 = udiv i16 %div4.lhs.trunc, 1000
+  %div4.zext = zext nneg i16 %div434 to i32
   %arrayidx5 = getelementptr inbounds i8, ptr %fields, i64 8
-  store i32 %div438.zext, ptr %arrayidx5, align 4
-  %cmp640 = icmp sgt i32 %maxFields, %minFields
-  br i1 %cmp640, label %while.body.preheader, label %while.end
+  store i32 %div4.zext, ptr %arrayidx5, align 4
+  %cmp635 = icmp sgt i32 %maxFields, %minFields
+  br i1 %cmp635, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %if.end
   %6 = sext i32 %maxFields to i64
@@ -8777,26 +8777,26 @@ while.body:                                       ; preds = %while.body.preheade
 if.end10:                                         ; preds = %while.body
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp6 = icmp sgt i64 %indvars.iv.next, %7
-  br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !41
+  br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !42
 
 while.end.loopexit.split.loop.exit:               ; preds = %while.body
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %if.end10, %while.end.loopexit.split.loop.exit, %if.end
   %lastIdx.0.lcssa = phi i32 [ %maxFields, %if.end ], [ %9, %while.end.loopexit.split.loop.exit ], [ %minFields, %if.end10 ]
-  %cmp11.not43 = icmp slt i32 %lastIdx.0.lcssa, 0
-  br i1 %cmp11.not43, label %for.end, label %for.body.lr.ph
+  %cmp11.not38 = icmp slt i32 %lastIdx.0.lcssa, 0
+  br i1 %cmp11.not38, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end
   %tobool.not = icmp eq i16 %sep, 0
   %10 = add nuw i32 %lastIdx.0.lcssa, 1
-  %wide.trip.count53 = zext i32 %10 to i64
+  %wide.trip.count48 = zext i32 %10 to i64
   br i1 %tobool.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
-  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %for.body.us ], [ 0, %for.body.lr.ph ]
-  %arrayidx17.us = getelementptr inbounds [3 x i32], ptr %fields, i64 0, i64 %indvars.iv50
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %for.body.us ], [ 0, %for.body.lr.ph ]
+  %arrayidx17.us = getelementptr inbounds [3 x i32], ptr %fields, i64 0, i64 %indvars.iv45
   %11 = load i32, ptr %arrayidx17.us, align 4
   %div18.us = sdiv i32 %11, 10
   %12 = trunc i32 %div18.us to i16
@@ -8806,19 +8806,19 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %call.i31.us = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull %srcChar.addr.i30, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i30)
   %rem22.us = srem i32 %11, 10
-  %13 = trunc i32 %rem22.us to i16
+  %13 = trunc nsw i32 %rem22.us to i16
   %conv24.us = add nsw i16 %13, 48
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i32)
   store i16 %conv24.us, ptr %srcChar.addr.i32, align 2
   %call.i33.us = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull %srcChar.addr.i32, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i32)
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
-  br i1 %exitcond54.not, label %for.end, label %for.body.us, !llvm.loop !42
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
+  br i1 %exitcond49.not, label %for.end, label %for.body.us, !llvm.loop !43
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end15
-  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %if.end15 ], [ 0, %for.body.lr.ph ]
-  %cmp12.not = icmp eq i64 %indvars.iv47, 0
+  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %if.end15 ], [ 0, %for.body.lr.ph ]
+  %cmp12.not = icmp eq i64 %indvars.iv42, 0
   br i1 %cmp12.not, label %if.end15, label %if.then13
 
 if.then13:                                        ; preds = %for.body
@@ -8829,7 +8829,7 @@ if.then13:                                        ; preds = %for.body
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then13, %for.body
-  %arrayidx17 = getelementptr inbounds [3 x i32], ptr %fields, i64 0, i64 %indvars.iv47
+  %arrayidx17 = getelementptr inbounds [3 x i32], ptr %fields, i64 0, i64 %indvars.iv42
   %14 = load i32, ptr %arrayidx17, align 4
   %div18 = sdiv i32 %14, 10
   %15 = trunc i32 %div18 to i16
@@ -8839,15 +8839,15 @@ if.end15:                                         ; preds = %if.then13, %for.bod
   %call.i31 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull %srcChar.addr.i30, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i30)
   %rem22 = srem i32 %14, 10
-  %16 = trunc i32 %rem22 to i16
+  %16 = trunc nsw i32 %rem22 to i16
   %conv24 = add nsw i16 %16, 48
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i32)
   store i16 %conv24, ptr %srcChar.addr.i32, align 2
   %call.i33 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull %srcChar.addr.i32, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i32)
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count53
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !42
+  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count48
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !43
 
 for.end:                                          ; preds = %if.end15, %for.body.us, %while.end
   ret ptr %result
@@ -8941,7 +8941,7 @@ for.inc:                                          ; preds = %if.then8, %if.then7
   %cond.i = select i1 %cmp.i.i, i32 %14, i32 %shr.i.i
   %15 = sext i32 %cond.i to i64
   %cmp4 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %cmp4, label %for.body, label %return, !llvm.loop !43
+  br i1 %cmp4, label %for.body, label %return, !llvm.loop !44
 
 return:                                           ; preds = %for.inc, %if.end, %if.then
   ret ptr %result
@@ -9223,7 +9223,7 @@ attributes #21 = { nounwind willreturn memory(read) }
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
 !35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
+!36 = !{i32 -1, i32 65536}
 !37 = distinct !{!37, !6}
 !38 = distinct !{!38, !6}
 !39 = distinct !{!39, !6}
@@ -9231,3 +9231,4 @@ attributes #21 = { nounwind willreturn memory(read) }
 !41 = distinct !{!41, !6}
 !42 = distinct !{!42, !6}
 !43 = distinct !{!43, !6}
+!44 = distinct !{!44, !6}

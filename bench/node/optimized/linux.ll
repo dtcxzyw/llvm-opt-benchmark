@@ -4815,13 +4815,13 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i.i, 
   br i1 %cmp21.i.i, label %do.body23.i.i, label %do.body77.i.i
 
 do.body23.i.i:                                    ; preds = %if.end.i.i
-  %18 = load ptr, ptr %elm.addr.0116.i.i, align 8
+  %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %rbe_right20.i.i, align 8
   %cmp30.not.i.i = icmp eq ptr %18, null
   br i1 %cmp30.not.i.i, label %do.end38.thread.i.i, label %do.end38.i.i
 
 do.end38.thread.i.i:                              ; preds = %do.body23.i.i
-  %rbe_parent42118.i.i = getelementptr inbounds i8, ptr %elm.addr.0116.i.i, i64 16
+  %rbe_parent42118.i.i = getelementptr inbounds i8, ptr %17, i64 16
   store ptr %12, ptr %rbe_parent42118.i.i, align 8
   %.pre30.i = load ptr, ptr %rbe_parent5.i.i, align 8
   br label %if.then44.i.i
@@ -4830,7 +4830,7 @@ do.end38.i.i:                                     ; preds = %do.body23.i.i
   %rbe_parent35.i.i = getelementptr inbounds i8, ptr %18, i64 16
   store ptr %10, ptr %rbe_parent35.i.i, align 8
   %.pre117.i.i = load ptr, ptr %rbe_parent5.i.i, align 8
-  %rbe_parent42.i.i = getelementptr inbounds i8, ptr %elm.addr.0116.i.i, i64 16
+  %rbe_parent42.i.i = getelementptr inbounds i8, ptr %17, i64 16
   store ptr %.pre117.i.i, ptr %rbe_parent42.i.i, align 8
   %cmp43.not.i.i = icmp eq ptr %.pre117.i.i, null
   br i1 %cmp43.not.i.i, label %if.end61.i.i, label %if.then44.i.i
@@ -4845,9 +4845,9 @@ if.then44.i.i:                                    ; preds = %do.end38.i.i, %do.e
 
 if.end61.i.i:                                     ; preds = %if.then44.i.i, %do.end38.i.i
   %.sink.i.i = phi ptr [ %6, %do.end38.i.i ], [ %spec.select.i.i, %if.then44.i.i ]
-  store ptr %elm.addr.0116.i.i, ptr %.sink.i.i, align 8
-  store ptr %10, ptr %elm.addr.0116.i.i, align 8
-  store ptr %elm.addr.0116.i.i, ptr %rbe_parent5.i.i, align 8
+  store ptr %17, ptr %.sink.i.i, align 8
+  store ptr %10, ptr %17, align 8
+  store ptr %17, ptr %rbe_parent5.i.i, align 8
   br label %do.body77.i.i
 
 do.body77.i.i:                                    ; preds = %if.end61.i.i, %if.end.i.i
@@ -4914,14 +4914,14 @@ if.end155.i.i:                                    ; preds = %land.lhs.true142.i.
   br i1 %cmp158.i.i, label %do.body160.i.i, label %do.body216.i.i
 
 do.body160.i.i:                                   ; preds = %if.end155.i.i
-  %rbe_right164.i.i = getelementptr inbounds i8, ptr %elm.addr.0116.i.i, i64 8
+  %rbe_right164.i.i = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load ptr, ptr %rbe_right164.i.i, align 8
   store ptr %27, ptr %10, align 8
   %cmp167.not.i.i = icmp eq ptr %27, null
   br i1 %cmp167.not.i.i, label %do.end175.thread.i.i, label %do.end175.i.i
 
 do.end175.thread.i.i:                             ; preds = %do.body160.i.i
-  %rbe_parent179120.i.i = getelementptr inbounds i8, ptr %elm.addr.0116.i.i, i64 16
+  %rbe_parent179120.i.i = getelementptr inbounds i8, ptr %26, i64 16
   store ptr %12, ptr %rbe_parent179120.i.i, align 8
   %.pre.i = load ptr, ptr %rbe_parent5.i.i, align 8
   br label %if.then181.i.i
@@ -4930,7 +4930,7 @@ do.end175.i.i:                                    ; preds = %do.body160.i.i
   %rbe_parent172.i.i = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %10, ptr %rbe_parent172.i.i, align 8
   %.pre.i.i = load ptr, ptr %rbe_parent5.i.i, align 8
-  %rbe_parent179.i.i = getelementptr inbounds i8, ptr %elm.addr.0116.i.i, i64 16
+  %rbe_parent179.i.i = getelementptr inbounds i8, ptr %26, i64 16
   store ptr %.pre.i.i, ptr %rbe_parent179.i.i, align 8
   %cmp180.not.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %cmp180.not.i.i, label %if.end200.i.i, label %if.then181.i.i
@@ -4945,9 +4945,9 @@ if.then181.i.i:                                   ; preds = %do.end175.i.i, %do.
 
 if.end200.i.i:                                    ; preds = %if.then181.i.i, %do.end175.i.i
   %.sink123.i.i = phi ptr [ %6, %do.end175.i.i ], [ %spec.select126.i.i, %if.then181.i.i ]
-  store ptr %elm.addr.0116.i.i, ptr %.sink123.i.i, align 8
+  store ptr %26, ptr %.sink123.i.i, align 8
   store ptr %10, ptr %rbe_right164.i.i, align 8
-  store ptr %elm.addr.0116.i.i, ptr %rbe_parent5.i.i, align 8
+  store ptr %26, ptr %rbe_parent5.i.i, align 8
   br label %do.body216.i.i
 
 do.body216.i.i:                                   ; preds = %if.end200.i.i, %if.end155.i.i

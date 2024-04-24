@@ -4891,10 +4891,10 @@ define dso_local void @register_console(ptr noundef %0) #1 align 16 {
 
 13:                                               ; preds = %.preheader12
   tail call void asm sideeffect "519: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 519b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 519) #26, !srcloc !85
-  %14 = getelementptr inbounds i8, ptr %0, i64 74
+  %14 = getelementptr inbounds i8, ptr %9, i64 74
   %15 = load i16, ptr %14, align 2
   %16 = sext i16 %15 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.54, ptr noundef nonnull %0, i32 noundef %16) #26
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.54, ptr noundef nonnull %9, i32 noundef %16) #26
   tail call void asm sideeffect "520: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 520b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 520) #26, !srcloc !86
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 3433, i32 2313, i64 12) #26, !srcloc !87
   tail call void asm sideeffect "521: nop\0A\09.pushsection .discard.instr_end\0A\09.long 521b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 521) #26, !srcloc !88

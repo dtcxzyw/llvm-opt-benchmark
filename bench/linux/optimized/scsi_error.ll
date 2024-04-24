@@ -2234,59 +2234,56 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
 .loopexit89:                                      ; preds = %72, %.preheader87, %64, %64, %64
   %75 = load ptr, ptr %1, align 8
   %76 = icmp eq ptr %75, %1
-  br i1 %76, label %.thread48, label %.preheader86.preheader
+  br i1 %76, label %.thread48, label %.preheader86
 
-.preheader86.preheader:                           ; preds = %.loopexit89
-  %77 = getelementptr inbounds i8, ptr %15, i64 544
-  br label %.preheader86
-
-.preheader86:                                     ; preds = %.preheader86.preheader, %101
-  %78 = phi ptr [ %80, %101 ], [ %75, %.preheader86.preheader ]
-  %79 = getelementptr i8, ptr %78, i64 -8
+.preheader86:                                     ; preds = %.loopexit89, %101
+  %77 = phi ptr [ %79, %101 ], [ %75, %.loopexit89 ]
+  %78 = getelementptr i8, ptr %77, i64 -8
+  %79 = load ptr, ptr %77, align 8
   %80 = load ptr, ptr %78, align 8
-  %81 = load ptr, ptr %79, align 8
-  %82 = icmp eq ptr %81, %15
-  br i1 %82, label %83, label %101
+  %81 = icmp eq ptr %80, %15
+  br i1 %81, label %82, label %101
 
-83:                                               ; preds = %.preheader86
-  %84 = getelementptr i8, ptr %78, i64 -232
-  %85 = load i32, ptr %84, align 8
-  %86 = and i32 %85, 254
-  %87 = icmp eq i32 %86, 34
-  br i1 %87, label %.thread50, label %88
+82:                                               ; preds = %.preheader86
+  %83 = getelementptr i8, ptr %77, i64 -232
+  %84 = load i32, ptr %83, align 8
+  %85 = and i32 %84, 254
+  %86 = icmp eq i32 %85, 34
+  br i1 %86, label %.thread50, label %87
 
-88:                                               ; preds = %83
-  %89 = load ptr, ptr %77, align 8
+87:                                               ; preds = %82
+  %88 = getelementptr inbounds i8, ptr %80, i64 544
+  %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 176
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
   br i1 %92, label %.thread50, label %93
 
-93:                                               ; preds = %88
-  %94 = tail call i32 %91(ptr noundef %79, i32 noundef 8194) #14
+93:                                               ; preds = %87
+  %94 = tail call i32 %91(ptr noundef %78, i32 noundef 8194) #14
   %95 = icmp eq i32 %94, 8194
   br i1 %95, label %..thread50_crit_edge, label %101
 
 ..thread50_crit_edge:                             ; preds = %93
-  %.pre = load ptr, ptr %78, align 8
+  %.pre = load ptr, ptr %77, align 8
   br label %.thread50
 
-.thread50:                                        ; preds = %..thread50_crit_edge, %88, %83
-  %96 = phi ptr [ %.pre, %..thread50_crit_edge ], [ %80, %88 ], [ %80, %83 ]
-  %97 = getelementptr i8, ptr %78, i64 8
+.thread50:                                        ; preds = %..thread50_crit_edge, %87, %82
+  %96 = phi ptr [ %.pre, %..thread50_crit_edge ], [ %79, %87 ], [ %79, %82 ]
+  %97 = getelementptr i8, ptr %77, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %96, i64 8
   store ptr %98, ptr %99, align 8
   store volatile ptr %96, ptr %98, align 8
   %100 = load ptr, ptr %13, align 8
-  store ptr %78, ptr %13, align 8
-  store ptr %2, ptr %78, align 8
+  store ptr %77, ptr %13, align 8
+  store ptr %2, ptr %77, align 8
   store ptr %100, ptr %97, align 8
-  store volatile ptr %78, ptr %100, align 8
+  store volatile ptr %77, ptr %100, align 8
   br label %101
 
 101:                                              ; preds = %.thread50, %93, %.preheader86
-  %102 = icmp eq ptr %80, %1
+  %102 = icmp eq ptr %79, %1
   br i1 %102, label %.thread48, label %.preheader86, !llvm.loop !47
 
 .thread48:                                        ; preds = %44, %.preheader87, %101, %.thread, %.loopexit89, %62, %49, %47
@@ -2328,8 +2325,8 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
   %125 = sub i64 %122, %124
   %126 = icmp slt i64 %125, 0
   %127 = icmp sgt i32 %119, -1
-  %.not143 = and i1 %127, %126
-  br i1 %.not143, label %.preheader83.preheader, label %128
+  %.not144 = and i1 %127, %126
+  br i1 %.not144, label %.preheader83.preheader, label %128
 
 .preheader83.preheader:                           ; preds = %114, %118, %121
   br label %.preheader83
@@ -2356,7 +2353,7 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %138, label %.thread51, label %139
 
 139:                                              ; preds = %136
-  %140 = load ptr, ptr %115, align 8
+  %140 = load ptr, ptr %134, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 168
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 88
@@ -2404,59 +2401,56 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
 .loopexit82:                                      ; preds = %159, %.preheader80, %146, %.thread53, %.thread53, %.thread53
   %162 = load ptr, ptr %1, align 8
   %163 = icmp eq ptr %162, %1
-  br i1 %163, label %.thread51, label %.preheader79.preheader
+  br i1 %163, label %.thread51, label %.preheader79
 
-.preheader79.preheader:                           ; preds = %.loopexit82
-  %164 = getelementptr inbounds i8, ptr %115, i64 544
-  br label %.preheader79
-
-.preheader79:                                     ; preds = %.preheader79.preheader, %191
-  %165 = phi ptr [ %167, %191 ], [ %162, %.preheader79.preheader ]
-  %166 = getelementptr i8, ptr %165, i64 -8
+.preheader79:                                     ; preds = %.loopexit82, %191
+  %164 = phi ptr [ %166, %191 ], [ %162, %.loopexit82 ]
+  %165 = getelementptr i8, ptr %164, i64 -8
+  %166 = load ptr, ptr %164, align 8
   %167 = load ptr, ptr %165, align 8
-  %168 = load ptr, ptr %166, align 8
-  %169 = icmp eq ptr %168, %115
-  br i1 %169, label %170, label %191
+  %168 = icmp eq ptr %167, %115
+  br i1 %168, label %169, label %191
 
-170:                                              ; preds = %.preheader79
-  %171 = getelementptr i8, ptr %165, i64 -232
-  %172 = load i32, ptr %171, align 8
-  %173 = and i32 %172, 254
-  %174 = icmp eq i32 %173, 34
-  br i1 %174, label %182, label %175
+169:                                              ; preds = %.preheader79
+  %170 = getelementptr i8, ptr %164, i64 -232
+  %171 = load i32, ptr %170, align 8
+  %172 = and i32 %171, 254
+  %173 = icmp eq i32 %172, 34
+  br i1 %173, label %182, label %174
 
-175:                                              ; preds = %170
-  %176 = load ptr, ptr %164, align 8
+174:                                              ; preds = %169
+  %175 = getelementptr inbounds i8, ptr %167, i64 544
+  %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 176
   %178 = load ptr, ptr %177, align 8
   %179 = icmp eq ptr %178, null
   br i1 %179, label %182, label %180
 
-180:                                              ; preds = %175
-  %181 = tail call i32 %178(ptr noundef %166, i32 noundef %147) #14
+180:                                              ; preds = %174
+  %181 = tail call i32 %178(ptr noundef %165, i32 noundef %147) #14
   br label %182
 
-182:                                              ; preds = %180, %175, %170
-  %183 = phi i32 [ %147, %170 ], [ %181, %180 ], [ %147, %175 ]
+182:                                              ; preds = %180, %174, %169
+  %183 = phi i32 [ %147, %169 ], [ %181, %180 ], [ %147, %174 ]
   %184 = icmp eq i32 %183, 8195
   br i1 %184, label %191, label %185
 
 185:                                              ; preds = %182
-  %186 = getelementptr i8, ptr %165, i64 8
+  %186 = getelementptr i8, ptr %164, i64 8
   %187 = load ptr, ptr %186, align 8
-  %188 = load ptr, ptr %165, align 8
+  %188 = load ptr, ptr %164, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 8
   store ptr %187, ptr %189, align 8
   store volatile ptr %188, ptr %187, align 8
   %190 = load ptr, ptr %113, align 8
-  store ptr %165, ptr %113, align 8
-  store ptr %2, ptr %165, align 8
+  store ptr %164, ptr %113, align 8
+  store ptr %2, ptr %164, align 8
   store ptr %190, ptr %186, align 8
-  store volatile ptr %165, ptr %190, align 8
+  store volatile ptr %164, ptr %190, align 8
   br label %191
 
 191:                                              ; preds = %185, %182, %.preheader79
-  %192 = icmp eq ptr %167, %1
+  %192 = icmp eq ptr %166, %1
   br i1 %192, label %.thread51, label %.preheader79, !llvm.loop !50
 
 .thread51:                                        ; preds = %.preheader83, %.preheader80, %191, %146, %139, %.loopexit82, %136
@@ -2733,8 +2727,8 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
   %333 = sub i64 %330, %332
   %334 = icmp slt i64 %333, 0
   %335 = icmp sgt i32 %327, -1
-  %.not146 = and i1 %335, %334
-  br i1 %.not146, label %.preheader76.preheader, label %336
+  %.not147 = and i1 %335, %334
+  br i1 %.not147, label %.preheader76.preheader, label %336
 
 .preheader76.preheader:                           ; preds = %322, %326, %329
   br label %.preheader76
@@ -4619,79 +4613,76 @@ define internal fastcc i32 @scsi_eh_test_devices(ptr noundef %0, ptr noundef %1,
   %75 = phi i1 [ true, %.thread ], [ true, %.thread ], [ true, %.thread ], [ true, %.loopexit19.loopexit27 ], [ false, %.loopexit18 ], [ true, %.preheader17 ], [ true, %64 ]
   %76 = load ptr, ptr %0, align 8
   %77 = icmp eq ptr %76, %0
-  br i1 %77, label %.loopexit, label %.preheader.preheader
+  br i1 %77, label %.loopexit, label %.preheader
 
-.preheader.preheader:                             ; preds = %.loopexit19
-  %78 = getelementptr inbounds i8, ptr %16, i64 544
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %111
-  %79 = phi ptr [ %81, %111 ], [ %76, %.preheader.preheader ]
-  %80 = getelementptr i8, ptr %79, i64 -8
+.preheader:                                       ; preds = %.loopexit19, %111
+  %78 = phi ptr [ %80, %111 ], [ %76, %.loopexit19 ]
+  %79 = getelementptr i8, ptr %78, i64 -8
+  %80 = load ptr, ptr %78, align 8
   %81 = load ptr, ptr %79, align 8
-  %82 = load ptr, ptr %80, align 8
-  %83 = icmp eq ptr %82, %16
-  br i1 %83, label %84, label %111
+  %82 = icmp eq ptr %81, %16
+  br i1 %82, label %83, label %111
 
-84:                                               ; preds = %.preheader
-  br i1 %75, label %85, label %._crit_edge
+83:                                               ; preds = %.preheader
+  br i1 %75, label %84, label %._crit_edge
+
+84:                                               ; preds = %83
+  br i1 %8, label %85, label %.thread11
 
 85:                                               ; preds = %84
-  br i1 %8, label %86, label %.thread11
+  %86 = getelementptr i8, ptr %78, i64 -232
+  %87 = load i32, ptr %86, align 8
+  %88 = and i32 %87, 254
+  %89 = icmp eq i32 %88, 34
+  br i1 %89, label %.thread11, label %90
 
-86:                                               ; preds = %85
-  %87 = getelementptr i8, ptr %79, i64 -232
-  %88 = load i32, ptr %87, align 8
-  %89 = and i32 %88, 254
-  %90 = icmp eq i32 %89, 34
-  br i1 %90, label %.thread11, label %91
-
-91:                                               ; preds = %86
-  %92 = load ptr, ptr %78, align 8
+90:                                               ; preds = %85
+  %91 = getelementptr inbounds i8, ptr %81, i64 544
+  %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 176
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %94, null
   br i1 %95, label %.thread11, label %96
 
-96:                                               ; preds = %91
-  %97 = tail call i32 %94(ptr noundef %80, i32 noundef 8194) #14
+96:                                               ; preds = %90
+  %97 = tail call i32 %94(ptr noundef %79, i32 noundef 8194) #14
   %98 = icmp eq i32 %97, 8194
-  %.pre23 = load ptr, ptr %79, align 8
+  %.pre23 = load ptr, ptr %78, align 8
   br i1 %98, label %.thread11, label %._crit_edge
 
-.thread11:                                        ; preds = %91, %86, %96, %85
-  %99 = phi ptr [ %81, %91 ], [ %81, %86 ], [ %.pre23, %96 ], [ %81, %85 ]
-  %100 = getelementptr i8, ptr %79, i64 8
+.thread11:                                        ; preds = %90, %85, %96, %84
+  %99 = phi ptr [ %80, %90 ], [ %80, %85 ], [ %.pre23, %96 ], [ %80, %84 ]
+  %100 = getelementptr i8, ptr %78, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %99, i64 8
   store ptr %101, ptr %102, align 8
   store volatile ptr %99, ptr %101, align 8
   %103 = load ptr, ptr %10, align 8
-  store ptr %79, ptr %10, align 8
-  store ptr %2, ptr %79, align 8
+  store ptr %78, ptr %10, align 8
+  store ptr %2, ptr %78, align 8
   store ptr %103, ptr %100, align 8
   br label %109
 
-._crit_edge:                                      ; preds = %96, %84
-  %104 = phi ptr [ %81, %84 ], [ %.pre23, %96 ]
-  %105 = getelementptr inbounds i8, ptr %79, i64 8
+._crit_edge:                                      ; preds = %96, %83
+  %104 = phi ptr [ %80, %83 ], [ %.pre23, %96 ]
+  %105 = getelementptr inbounds i8, ptr %78, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %104, i64 8
   store ptr %106, ptr %107, align 8
   store volatile ptr %104, ptr %106, align 8
   %108 = load ptr, ptr %9, align 8
-  store ptr %79, ptr %9, align 8
-  store ptr %1, ptr %79, align 8
+  store ptr %78, ptr %9, align 8
+  store ptr %1, ptr %78, align 8
   store ptr %108, ptr %105, align 8
   br label %109
 
 109:                                              ; preds = %._crit_edge, %.thread11
   %110 = phi ptr [ %108, %._crit_edge ], [ %103, %.thread11 ]
-  store volatile ptr %79, ptr %110, align 8
+  store volatile ptr %78, ptr %110, align 8
   br label %111
 
 111:                                              ; preds = %109, %.preheader
-  %112 = icmp eq ptr %81, %0
+  %112 = icmp eq ptr %80, %0
   br i1 %112, label %.loopexit, label %.preheader, !llvm.loop !75
 
 .loopexit21:                                      ; preds = %.loopexit, %36, %33, %4

@@ -6635,6 +6635,7 @@ if.then.i:                                        ; preds = %if.then
 
 cond.end.i:                                       ; preds = %if.then.i, %if.then.thread
   %15 = phi ptr [ %5, %if.then.thread ], [ %12, %if.then.i ]
+  %retval.1.i4143 = phi ptr [ %4, %if.then.thread ], [ %__p.024.i, %if.then.i ]
   %16 = phi ptr [ %9, %if.then.thread ], [ %14, %if.then.i ]
   %add.ptr.i.i.i25 = getelementptr inbounds i8, ptr %16, i64 40
   %17 = load i64, ptr %add.ptr.i.i.i25, align 8, !tbaa !27, !noalias !342
@@ -6652,6 +6653,7 @@ if.then3.i.i:                                     ; preds = %cond.end.i
 
 if.end.i.i:                                       ; preds = %if.then3.i.i, %if.then.i, %if.then.thread
   %18 = phi ptr [ %12, %if.then.i ], [ %15, %if.then3.i.i ], [ %5, %if.then.thread ]
+  %retval.1.i4144 = phi ptr [ %__p.024.i, %if.then.i ], [ %retval.1.i4143, %if.then3.i.i ], [ %4, %if.then.thread ]
   %19 = phi ptr [ null, %if.then.i ], [ %16, %if.then3.i.i ], [ null, %if.then.thread ]
   %20 = phi ptr [ %4, %if.then.i ], [ %.pre46.i, %if.then3.i.i ], [ %4, %if.then.thread ]
   %21 = phi ptr [ %3, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %3, %if.then.thread ]
@@ -6684,7 +6686,7 @@ if.then12.i:                                      ; preds = %if.then7.i
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %if.then12.i, %if.then7.i, %if.else.i, %if.end11.i.i, %cond.end.i
-  %retval.1.i40 = phi ptr [ %__p.024.i, %if.then12.i ], [ %__p.024.i, %if.then7.i ], [ %__p.024.i, %if.else.i ], [ %4, %if.end11.i.i ], [ %4, %cond.end.i ]
+  %retval.1.i40 = phi ptr [ %__p.024.i, %if.then12.i ], [ %__p.024.i, %if.then7.i ], [ %__p.024.i, %if.else.i ], [ %retval.1.i4144, %if.end11.i.i ], [ %retval.1.i4143, %cond.end.i ]
   %23 = phi ptr [ %12, %if.then12.i ], [ %12, %if.then7.i ], [ %12, %if.else.i ], [ %18, %if.end11.i.i ], [ %15, %cond.end.i ]
   %24 = load ptr, ptr %23, align 8, !tbaa !21, !noalias !342
   store ptr %24, ptr %retval.1.i40, align 8, !tbaa !21, !noalias !342

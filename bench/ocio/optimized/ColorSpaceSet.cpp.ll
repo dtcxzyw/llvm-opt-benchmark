@@ -2940,7 +2940,7 @@ if.end.loopexit:                                  ; preds = %_ZNSt10shared_ptrIN
   br label %if.end
 
 if.end:                                           ; preds = %if.end.loopexit, %if.then, %entry
-  %13 = phi ptr [ %.pre, %if.end.loopexit ], [ %0, %if.then ], [ %add.ptr.i, %entry ]
+  %13 = phi ptr [ %.pre, %if.end.loopexit ], [ %0, %if.then ], [ %0, %entry ]
   %incdec.ptr = getelementptr inbounds i8, ptr %13, i64 -16
   store ptr %incdec.ptr, ptr %_M_finish.i, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 -8

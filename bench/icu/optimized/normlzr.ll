@@ -656,7 +656,7 @@ if.end26:                                         ; preds = %invoke.cont20, %if.
   br i1 %or.cond27, label %if.end34, label %if.then31
 
 if.then31:                                        ; preds = %if.end26
-  %call33 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %localDest)
+  %call33 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %localDest.result)
           to label %if.end34 unwind label %lpad
 
 if.end34:                                         ; preds = %if.then31, %if.end26
@@ -892,7 +892,7 @@ if.end31:                                         ; preds = %invoke.cont25, %if.
   br i1 %or.cond33, label %if.end39, label %if.then36
 
 if.then36:                                        ; preds = %if.end31
-  %call38 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %localDest)
+  %call38 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %localDest.result)
           to label %if.end39 unwind label %lpad
 
 if.end39:                                         ; preds = %if.then36, %if.end31

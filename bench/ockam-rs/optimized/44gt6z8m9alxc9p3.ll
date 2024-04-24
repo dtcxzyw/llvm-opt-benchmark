@@ -3145,7 +3145,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br i1 %19, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h4ec804d375402238E.exit.loopexit.i.i, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf10322fd833ee793E.exit.i.i.i"
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h4ec804d375402238E.exit.loopexit.i.i: ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf10322fd833ee793E.exit.i.i.i", %18, %2
-  %.sroa.6.0.lcssa.i.i.i = phi ptr [ %4, %2 ], [ %.pn6.i.i.i.i, %18 ], [ %.sroa.6.018.i.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf10322fd833ee793E.exit.i.i.i" ]
+  %.sroa.6.0.lcssa.i.i.i = phi ptr [ %4, %2 ], [ %.sroa.6.018.i.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf10322fd833ee793E.exit.i.i.i" ], [ %.pn6.i.i.i.i, %18 ]
   %20 = ptrtoint ptr %.sroa.6.0.lcssa.i.i.i to i64
   %21 = ptrtoint ptr %4 to i64
   %22 = sub nuw i64 %20, %21

@@ -32,7 +32,7 @@ if.end:                                           ; preds = %if.then
   br label %if.end12
 
 if.else:                                          ; preds = %entry
-  %top6 = getelementptr inbounds i8, ptr %r, i64 8
+  %top6 = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load i32, ptr %top6, align 8
   %add7 = add nsw i32 %3, 1
   %call8 = tail call ptr @bn_wexpand(ptr noundef %r, i32 noundef %add7) #4
@@ -77,7 +77,7 @@ for.end:                                          ; preds = %for.body, %if.end12
   store i64 %c.0.lcssa, ptr %rp.0.lcssa, align 8
   %top17 = getelementptr inbounds i8, ptr %r, i64 8
   %9 = load i32, ptr %top17, align 8
-  %10 = trunc i64 %c.0.lcssa to i32
+  %10 = trunc nuw nsw i64 %c.0.lcssa to i32
   %conv19 = add i32 %9, %10
   store i32 %conv19, ptr %top17, align 8
   br label %return

@@ -260,7 +260,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   br label %146
 
 146:                                              ; preds = %94, %38, %65, %15, %._crit_edge, %135, %118, %108, %57, %18, %10
-  %.0100 = phi ptr [ %12, %10 ], [ %23, %18 ], [ null, %57 ], [ null, %108 ], [ null, %118 ], [ null, %135 ], [ %.2.lcssa, %._crit_edge ], [ %1, %15 ], [ %55, %65 ], [ %28, %38 ], [ null, %94 ]
+  %.0100 = phi ptr [ %12, %10 ], [ %23, %18 ], [ null, %57 ], [ null, %108 ], [ null, %118 ], [ null, %135 ], [ %.2.lcssa, %._crit_edge ], [ %5, %15 ], [ %55, %65 ], [ %28, %38 ], [ null, %94 ]
   ret ptr %.0100
 }
 

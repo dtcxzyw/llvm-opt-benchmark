@@ -329,79 +329,82 @@ define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef z
   br i1 %38, label %.thread16, label %.loopexit
 
 .thread16:                                        ; preds = %.thread12, %.thread17, %36
-  %39 = phi i32 [ %37, %36 ], [ %35, %.thread17 ], [ %33, %.thread12 ]
-  %40 = load i32, ptr %4, align 8
-  %41 = and i32 %40, 16777216
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %46, label %43
+  %39 = phi ptr [ %23, %36 ], [ %4, %.thread17 ], [ %4, %.thread12 ]
+  %40 = phi i32 [ %37, %36 ], [ %35, %.thread17 ], [ %33, %.thread12 ]
+  %41 = load i32, ptr %39, align 8
+  %42 = and i32 %41, 16777216
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %47, label %44
 
-43:                                               ; preds = %.thread16
-  %44 = getelementptr inbounds i8, ptr %4, i64 8
-  %45 = load ptr, ptr %44, align 8
-  call void @kfree(ptr noundef %45) #9
-  %.pre = load i32, ptr %4, align 8
-  br label %46
+44:                                               ; preds = %.thread16
+  %45 = getelementptr inbounds i8, ptr %39, i64 8
+  %46 = load ptr, ptr %45, align 8
+  call void @kfree(ptr noundef %46) #9
+  %.pre = load i32, ptr %39, align 8
+  br label %47
 
-46:                                               ; preds = %43, %.thread16
-  %47 = phi i32 [ %.pre, %43 ], [ %40, %.thread16 ]
-  %48 = and i32 %47, 2
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.thread19, label %50
+47:                                               ; preds = %44, %.thread16
+  %48 = phi i32 [ %.pre, %44 ], [ %41, %.thread16 ]
+  %49 = and i32 %48, 2
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %.thread19, label %51
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %4, i64 16
-  %52 = load ptr, ptr %51, align 8
-  %53 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %52, i32 -1, ptr elementtype(i32) %52) #9, !srcloc !5
-  %54 = icmp eq i32 %53, 1
-  br i1 %54, label %58, label %55
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds i8, ptr %39, i64 16
+  %53 = load ptr, ptr %52, align 8
+  %54 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %53, i32 -1, ptr elementtype(i32) %53) #9, !srcloc !5
+  %55 = icmp eq i32 %54, 1
+  br i1 %55, label %59, label %56
 
-55:                                               ; preds = %50
-  %56 = icmp sgt i32 %53, 0
-  br i1 %56, label %.thread19, label %57, !prof !6
+56:                                               ; preds = %51
+  %57 = icmp sgt i32 %54, 0
+  br i1 %57, label %.thread19, label %58, !prof !6
 
-57:                                               ; preds = %55
-  call void @refcount_warn_saturate(ptr noundef %52, i32 noundef 3) #9
+58:                                               ; preds = %56
+  call void @refcount_warn_saturate(ptr noundef %53, i32 noundef 3) #9
   br label %.thread19
 
-58:                                               ; preds = %50
+59:                                               ; preds = %51
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %59 = getelementptr inbounds i8, ptr %52, i64 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %65, label %62
+  %60 = getelementptr inbounds i8, ptr %53, i64 8
+  %61 = load ptr, ptr %60, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %66, label %63
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %52, i64 16
-  %64 = load ptr, ptr %63, align 8
-  call void %60(ptr noundef %64) #9
-  br label %65
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds i8, ptr %53, i64 16
+  %65 = load ptr, ptr %64, align 8
+  call void %61(ptr noundef %65) #9
+  br label %66
 
-65:                                               ; preds = %62, %58
-  call void @kfree(ptr noundef %52) #9
+66:                                               ; preds = %63, %59
+  call void @kfree(ptr noundef %53) #9
   br label %.thread19
 
-.thread19:                                        ; preds = %55, %57, %65, %46
-  %66 = load i32, ptr %4, align 8
-  %67 = and i32 %66, 8
-  %68 = icmp eq i32 %67, 0
-  %69 = getelementptr inbounds i8, ptr %4, i64 24
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, null
-  %or.cond = select i1 %68, i1 true, i1 %71
-  br i1 %or.cond, label %.loopexit, label %.preheader
+.thread19:                                        ; preds = %56, %58, %66, %47
+  %67 = load i32, ptr %39, align 8
+  %68 = and i32 %67, 8
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %.loopexit, label %70
 
-.preheader:                                       ; preds = %.thread19, %.preheader
-  %72 = phi ptr [ %74, %.preheader ], [ %70, %.thread19 ]
-  %73 = getelementptr inbounds i8, ptr %72, i64 40
-  %74 = load ptr, ptr %73, align 8
-  call void @kfree(ptr noundef nonnull %72) #9
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %.loopexit, label %.preheader, !llvm.loop !8
+70:                                               ; preds = %.thread19
+  %71 = getelementptr inbounds i8, ptr %39, i64 24
+  %72 = load ptr, ptr %71, align 8
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %.thread9, %.thread19, %36
-  %76 = phi i32 [ %37, %36 ], [ %39, %.thread19 ], [ 0, %.thread9 ], [ %39, %.preheader ]
+.preheader:                                       ; preds = %70, %.preheader
+  %74 = phi ptr [ %76, %.preheader ], [ %72, %70 ]
+  %75 = getelementptr inbounds i8, ptr %74, i64 40
+  %76 = load ptr, ptr %75, align 8
+  call void @kfree(ptr noundef nonnull %74) #9
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %.loopexit, label %.preheader, !llvm.loop !8
+
+.loopexit:                                        ; preds = %.preheader, %.thread9, %70, %.thread19, %36
+  %78 = phi i32 [ %37, %36 ], [ %40, %.thread19 ], [ %40, %70 ], [ 0, %.thread9 ], [ %40, %.preheader ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #9
-  ret i32 %76
+  ret i32 %78
 }
 
 ; Function Attrs: null_pointer_is_valid

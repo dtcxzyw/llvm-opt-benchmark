@@ -151,7 +151,7 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %17 = phi ptr [ %.pre, %for.end.loopexit ], [ %0, %entry ]
+  %17 = phi ptr [ %.pre, %for.end.loopexit ], [ %1, %entry ]
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %17, %18

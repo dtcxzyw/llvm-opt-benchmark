@@ -44150,7 +44150,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 33:                                               ; preds = %30, %27
   %.sroa.10.1.i.i = phi ptr [ %.sroa.6.0.i.i, %30 ], [ %.sroa.10.0.i.i, %27 ]
-  %.sroa.8.1.i.i = phi ptr [ %.sroa.6.0.i.i, %30 ], [ %.sroa.8.0.i.i, %27 ]
+  %.sroa.8.1.i.i = phi ptr [ %.sroa.0.0.i.i, %30 ], [ %.sroa.8.0.i.i, %27 ]
   %.sroa.6.1.i.i = phi ptr [ %.sroa.10.0.i.i, %30 ], [ %.sroa.6.0.i.i, %27 ]
   %.sink6.i.i.i = phi ptr [ %.sroa.8.0.i.i, %30 ], [ %.sroa.0.0.i.i, %27 ]
   %34 = getelementptr inbounds i8, ptr %.sink6.i.i.i, i64 24
@@ -80374,7 +80374,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h65b2d69a528d0c6cE
   br i1 %108, label %113, label %.critedge.i
 
 .critedge.i:                                      ; preds = %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde9ecf3a772ace7fE.exit.i", %123, %117, %113, %103, %..critedge_crit_edge.i
-  %109 = phi ptr [ %.pre11.i, %..critedge_crit_edge.i ], [ %105, %113 ], [ %105, %117 ], [ %105, %123 ], [ %107, %103 ], [ %105, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde9ecf3a772ace7fE.exit.i" ]
+  %109 = phi ptr [ %.pre11.i, %..critedge_crit_edge.i ], [ %107, %113 ], [ %107, %117 ], [ %107, %123 ], [ %107, %103 ], [ %107, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde9ecf3a772ace7fE.exit.i" ]
   %110 = phi ptr [ %.pre9.i, %..critedge_crit_edge.i ], [ %.pre10.i, %113 ], [ %.pre10.i, %117 ], [ %.pre10.i, %123 ], [ %.pre10.i, %103 ], [ %.pre10.i, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde9ecf3a772ace7fE.exit.i" ]
   %111 = load ptr, ptr %110, align 8, !noalias !17047, !nonnull !4, !noundef !4
   %112 = invoke { ptr, ptr } %111(ptr noundef %109)

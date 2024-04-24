@@ -608,11 +608,11 @@ if.end:                                           ; preds = %entry
   %tobool.not.i.i = icmp eq i8 %3, 0
   %..i.i.neg = select i1 %tobool.not.i.i, i64 0, i64 -5
   %..i.i = select i1 %tobool.not.i.i, i64 0, i64 5
-  %pos = getelementptr inbounds i8, ptr %0, i64 24
+  %pos = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %pos, align 8
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %..i.i
   store ptr %add.ptr, ptr %pos, align 8
-  %last = getelementptr inbounds i8, ptr %0, i64 32
+  %last = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %add.ptr, ptr %last, align 8
   %nva = getelementptr inbounds i8, ptr %frame, i64 40
   %5 = load ptr, ptr %nva, align 8
@@ -770,9 +770,10 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp15.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %last31 = getelementptr inbounds i8, ptr %6, i64 32
+  %ci.0.lcssa = phi ptr [ %ci.046, %for.cond.preheader ], [ %ci.0, %for.body ]
+  %last31 = getelementptr inbounds i8, ptr %ci.0.lcssa, i64 32
   %9 = load ptr, ptr %last31, align 8
-  %pos32 = getelementptr inbounds i8, ptr %6, i64 24
+  %pos32 = getelementptr inbounds i8, ptr %ci.0.lcssa, i64 24
   %10 = load ptr, ptr %pos32, align 8
   %sub.ptr.lhs.cast33 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast34 = ptrtoint ptr %10 to i64
@@ -1210,11 +1211,11 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %pos = getelementptr inbounds i8, ptr %0, i64 24
+  %pos = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %pos, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 4
   store ptr %add.ptr, ptr %pos, align 8
-  %last = getelementptr inbounds i8, ptr %0, i64 32
+  %last = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %add.ptr, ptr %last, align 8
   %nva = getelementptr inbounds i8, ptr %frame, i64 24
   %3 = load ptr, ptr %nva, align 8

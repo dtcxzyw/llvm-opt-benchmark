@@ -596,7 +596,7 @@ cleanup71.loopexit:                               ; preds = %invoke.cont66
   br label %cleanup71
 
 cleanup71:                                        ; preds = %cleanup71.loopexit, %invoke.cont
-  %10 = phi ptr [ %2, %invoke.cont ], [ %.pre258, %cleanup71.loopexit ]
+  %10 = phi ptr [ %3, %invoke.cont ], [ %.pre258, %cleanup71.loopexit ]
   %cmp.i.not.lcssa = phi i1 [ true, %invoke.cont ], [ %call67, %cleanup71.loopexit ]
   %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit, label %if.then.i.i.i
@@ -673,7 +673,7 @@ _ZN4cvc58internal4expr9NodeValue4nullEv.exit:     ; preds = %init.check, %init.c
   store ptr %4, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8
   %bf.load.i.i = load i64, ptr %4, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
-  %5 = trunc i64 %bf.lshr.i.i to i32
+  %5 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %5, 1048575
   %cmp.i.i = icmp ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i

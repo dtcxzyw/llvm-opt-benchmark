@@ -5093,7 +5093,7 @@ define dso_local ptr @ieee80211_tx_dequeue(ptr noundef %0, ptr noundef %1) #0 al
   %169 = phi i1 [ false, %159 ], [ true, %.thread ], [ true, %146 ]
   %170 = phi ptr [ %157, %159 ], [ %145, %.thread ], [ %157, %146 ]
   %171 = phi ptr [ %156, %159 ], [ %144, %.thread ], [ %156, %146 ]
-  %172 = phi ptr [ %153, %159 ], [ %74, %.thread ], [ %74, %146 ]
+  %172 = phi ptr [ %153, %159 ], [ %74, %.thread ], [ %153, %146 ]
   %173 = phi ptr [ %167, %159 ], [ %72, %.thread ], [ %72, %146 ]
   %174 = getelementptr i8, ptr %122, i64 40
   %175 = getelementptr inbounds i8, ptr %173, i64 24

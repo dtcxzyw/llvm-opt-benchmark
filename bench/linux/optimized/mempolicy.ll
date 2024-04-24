@@ -1772,7 +1772,7 @@ define internal fastcc i64 @__se_sys_get_mempolicy(i64 noundef %0, i64 noundef %
   br i1 %114, label %115, label %162
 
 115:                                              ; preds = %113
-  %116 = getelementptr inbounds i8, ptr %22, i64 4
+  %116 = getelementptr inbounds i8, ptr %63, i64 4
   %117 = load i16, ptr %116, align 4
   %118 = icmp eq i16 %117, 3
   br i1 %118, label %119, label %162
@@ -1781,7 +1781,7 @@ define internal fastcc i64 @__se_sys_get_mempolicy(i64 noundef %0, i64 noundef %
   %120 = getelementptr inbounds i8, ptr %18, i64 2440
   %121 = load i16, ptr %120, align 8
   %122 = sext i16 %121 to i32
-  %123 = getelementptr inbounds i8, ptr %22, i64 8
+  %123 = getelementptr inbounds i8, ptr %63, i64 8
   %124 = tail call fastcc i32 @__next_node_in(i32 noundef %122, ptr noundef %123), !range !33
   br label %140
 
@@ -1807,7 +1807,7 @@ define internal fastcc i64 @__se_sys_get_mempolicy(i64 noundef %0, i64 noundef %
   br label %140
 
 140:                                              ; preds = %.thread19, %133, %119, %111
-  %141 = phi ptr [ %126, %133 ], [ %22, %119 ], [ %66, %111 ], [ %66, %.thread19 ]
+  %141 = phi ptr [ %126, %133 ], [ %63, %119 ], [ %66, %111 ], [ %66, %.thread19 ]
   %142 = phi i32 [ %139, %133 ], [ %124, %119 ], [ 0, %111 ], [ %79, %.thread19 ]
   %143 = phi ptr [ %127, %133 ], [ null, %119 ], [ null, %111 ], [ null, %.thread19 ]
   %144 = phi ptr [ null, %133 ], [ null, %119 ], [ %66, %111 ], [ %66, %.thread19 ]
@@ -1856,7 +1856,7 @@ define internal fastcc i64 @__se_sys_get_mempolicy(i64 noundef %0, i64 noundef %
   br label %162
 
 162:                                              ; preds = %161, %148, %115, %113, %111
-  %163 = phi ptr [ %141, %161 ], [ %141, %148 ], [ %22, %115 ], [ %63, %113 ], [ %66, %111 ]
+  %163 = phi ptr [ %141, %161 ], [ %141, %148 ], [ %63, %115 ], [ %63, %113 ], [ %66, %111 ]
   %164 = phi i32 [ %142, %161 ], [ %142, %148 ], [ 0, %115 ], [ 0, %113 ], [ 0, %111 ]
   %165 = phi i32 [ 0, %161 ], [ 0, %148 ], [ -22, %115 ], [ -22, %113 ], [ %73, %111 ]
   %166 = phi ptr [ %143, %161 ], [ %143, %148 ], [ null, %115 ], [ null, %113 ], [ null, %111 ]

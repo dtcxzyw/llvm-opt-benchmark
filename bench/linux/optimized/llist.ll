@@ -80,8 +80,8 @@ define dso_local noundef zeroext i1 @llist_del_first_this(ptr noundef %0, ptr no
   br i1 %4, label %5, label %.loopexit
 
 5:                                                ; preds = %2
-  %6 = load volatile ptr, ptr %1, align 8
-  %7 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr %6, ptr elementtype(i64) %0, ptr %1) #3, !srcloc !16
+  %6 = load volatile ptr, ptr %3, align 8
+  %7 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr %6, ptr elementtype(i64) %0, ptr %3) #3, !srcloc !16
   %8 = extractvalue { i8, ptr } %7, 0
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
@@ -89,8 +89,8 @@ define dso_local noundef zeroext i1 @llist_del_first_this(ptr noundef %0, ptr no
   br i1 %10, label %.preheader, label %.loopexit, !prof !6
 
 11:                                               ; preds = %.preheader
-  %12 = load volatile ptr, ptr %1, align 8
-  %13 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr %12, ptr elementtype(i64) %0, ptr %1) #3, !srcloc !16
+  %12 = load volatile ptr, ptr %18, align 8
+  %13 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr %12, ptr elementtype(i64) %0, ptr %18) #3, !srcloc !16
   %14 = extractvalue { i8, ptr } %13, 0
   %15 = icmp ult i8 %14, 2
   tail call void @llvm.assume(i1 %15)

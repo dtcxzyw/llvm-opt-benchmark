@@ -637,7 +637,7 @@ if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then6.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
-  %25 = trunc i64 %conv114.pre-phi to i8
+  %25 = trunc nuw nsw i64 %conv114.pre-phi to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %25
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp113, i64 23
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !tbaa !46
@@ -712,7 +712,7 @@ _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEaSEOS6_
   br i1 %27, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEaSEOS6_.exit
-  call void @_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv(ptr noundef nonnull align 8 dereferenceable(24) %piece) #26
+  call void @_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp113) #26
   br label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit: ; preds = %if.end.i.i, %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEaSEOS6_.exit, %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEaSEOS6_.exit.thread
@@ -2566,7 +2566,7 @@ if.end.i.i7.i:                                    ; preds = %for.body.i.i.i.i.i
 _ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_.exit: ; preds = %for.cond.i.i.i.i.i, %if.then.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp4.i) #26
   %ref.tmp.sroa.52.0.extract.shift.i.i.i = lshr i64 %call.i.i.i.i, 32
-  %ref.tmp.sroa.52.0.extract.trunc.i.i.i = trunc i64 %ref.tmp.sroa.52.0.extract.shift.i.i.i to i32
+  %ref.tmp.sroa.52.0.extract.trunc.i.i.i = trunc nuw i64 %ref.tmp.sroa.52.0.extract.shift.i.i.i to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i) #26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i) #26
@@ -2731,7 +2731,7 @@ if.end.i.i7.i:                                    ; preds = %for.body.i.i.i.i.i
 _ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_.exit: ; preds = %for.cond.i.i.i.i.i, %if.then.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp4.i) #26
   %ref.tmp.sroa.52.0.extract.shift.i.i.i = lshr i64 %call.i.i.i.i, 32
-  %ref.tmp.sroa.52.0.extract.trunc.i.i.i = trunc i64 %ref.tmp.sroa.52.0.extract.shift.i.i.i to i32
+  %ref.tmp.sroa.52.0.extract.trunc.i.i.i = trunc nuw i64 %ref.tmp.sroa.52.0.extract.shift.i.i.i to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i) #26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i) #26

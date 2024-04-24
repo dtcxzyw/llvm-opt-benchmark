@@ -54,14 +54,14 @@ define void @evrpc_free(ptr noundef %base) local_unnamed_addr #0 {
 entry:
   %registered_rpcs = getelementptr inbounds i8, ptr %base, i64 56
   %0 = load ptr, ptr %registered_rpcs, align 8
-  %cmp.not33 = icmp eq ptr %0, null
-  br i1 %cmp.not33, label %while.cond1.preheader, label %while.body
+  %cmp.not35 = icmp eq ptr %0, null
+  br i1 %cmp.not35, label %while.cond1.preheader, label %while.body
 
 while.cond1.preheader:                            ; preds = %while.body, %entry
   %pause_requests = getelementptr inbounds i8, ptr %base, i64 32
   %1 = load ptr, ptr %pause_requests, align 8
-  %cmp3.not34 = icmp eq ptr %1, null
-  br i1 %cmp3.not34, label %while.cond22.preheader, label %do.body5.lr.ph
+  %cmp3.not36 = icmp eq ptr %1, null
+  br i1 %cmp3.not36, label %while.cond22.preheader, label %do.body5.lr.ph
 
 do.body5.lr.ph:                                   ; preds = %while.cond1.preheader
   %tqh_last = getelementptr inbounds i8, ptr %base, i64 40
@@ -78,8 +78,8 @@ while.body:                                       ; preds = %entry, %while.body
 
 while.cond22.preheader:                           ; preds = %do.body5, %while.cond1.preheader
   %5 = load ptr, ptr %base, align 8
-  %cmp25.not36 = icmp eq ptr %5, null
-  br i1 %cmp25.not36, label %while.cond31.preheader, label %for.cond.i.i.preheader
+  %cmp25.not38 = icmp eq ptr %5, null
+  br i1 %cmp25.not38, label %while.cond31.preheader, label %for.cond.i.i.preheader
 
 do.body5:                                         ; preds = %do.body5.lr.ph, %do.body5
   %6 = phi ptr [ %1, %do.body5.lr.ph ], [ %10, %do.body5 ]
@@ -104,30 +104,28 @@ for.cond.i.i.preheader:                           ; preds = %while.cond22.prehea
 while.cond31.preheader:                           ; preds = %evrpc_remove_hook.exit, %while.cond22.preheader
   %out_hooks = getelementptr inbounds i8, ptr %base, i64 16
   %12 = load ptr, ptr %out_hooks, align 8
-  %cmp34.not38 = icmp eq ptr %12, null
-  br i1 %cmp34.not38, label %while.end39, label %for.cond.i.i20.preheader
+  %cmp34.not40 = icmp eq ptr %12, null
+  br i1 %cmp34.not40, label %while.end39, label %for.cond.i.i20.preheader
 
 for.cond.i.ithread-pre-split:                     ; preds = %for.body.i.i
-  %hook.0.i.i.pr = load ptr, ptr %hook.0.i.i35, align 8
-  %cmp.not.i.i = icmp eq ptr %hook.0.i.i.pr, null
-  br i1 %cmp.not.i.i, label %evrpc_remove_hook.exit, label %for.body.i.i
+  br i1 %cmp2.not.i.i, label %evrpc_remove_hook.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i.preheader, %for.cond.i.ithread-pre-split
-  %hook.0.i.i35 = phi ptr [ %11, %for.cond.i.i.preheader ], [ %hook.0.i.i.pr, %for.cond.i.ithread-pre-split ]
-  %cmp1.i.i = icmp eq ptr %hook.0.i.i35, %11
+  %hook.0.i.i37 = phi ptr [ %11, %for.cond.i.i.preheader ], [ %13, %for.cond.i.ithread-pre-split ]
+  %cmp1.i.i = icmp eq ptr %hook.0.i.i37, %11
+  %13 = load ptr, ptr %hook.0.i.i37, align 8
+  %cmp2.not.i.i = icmp eq ptr %13, null
   br i1 %cmp1.i.i, label %do.body.i.i, label %for.cond.i.ithread-pre-split, !llvm.loop !8
 
 do.body.i.i:                                      ; preds = %for.body.i.i
-  %13 = load ptr, ptr %11, align 8
-  %cmp2.not.i.i = icmp eq ptr %13, null
-  %tqe_prev10.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %tqe_prev10.i.i = getelementptr inbounds i8, ptr %hook.0.i.i37, i64 8
   %14 = load ptr, ptr %tqe_prev10.i.i, align 8
   %head..i.i = select i1 %cmp2.not.i.i, ptr %base, ptr %13
   %tqh_last.i.i = getelementptr inbounds i8, ptr %head..i.i, i64 8
   store ptr %14, ptr %tqh_last.i.i, align 8
-  %15 = load ptr, ptr %11, align 8
+  %15 = load ptr, ptr %hook.0.i.i37, align 8
   store ptr %15, ptr %14, align 8
-  tail call void @event_mm_free_(ptr noundef nonnull %11) #11
+  tail call void @event_mm_free_(ptr noundef nonnull %hook.0.i.i37) #11
   %.pre = load ptr, ptr %base, align 8
   br label %evrpc_remove_hook.exit
 
@@ -141,31 +139,29 @@ for.cond.i.i20.preheader:                         ; preds = %while.cond31.prehea
   br label %for.body.i.i24
 
 for.cond.i.i20thread-pre-split:                   ; preds = %for.body.i.i24
-  %hook.0.i.i22.pr = load ptr, ptr %hook.0.i.i2237, align 8
-  %cmp.not.i.i23 = icmp eq ptr %hook.0.i.i22.pr, null
-  br i1 %cmp.not.i.i23, label %evrpc_remove_hook.exit32, label %for.body.i.i24
+  br i1 %cmp2.not.i.i27, label %evrpc_remove_hook.exit32, label %for.body.i.i24
 
 for.body.i.i24:                                   ; preds = %for.cond.i.i20.preheader, %for.cond.i.i20thread-pre-split
-  %hook.0.i.i2237 = phi ptr [ %17, %for.cond.i.i20.preheader ], [ %hook.0.i.i22.pr, %for.cond.i.i20thread-pre-split ]
-  %cmp1.i.i25 = icmp eq ptr %hook.0.i.i2237, %17
+  %hook.0.i.i2239 = phi ptr [ %17, %for.cond.i.i20.preheader ], [ %18, %for.cond.i.i20thread-pre-split ]
+  %cmp1.i.i25 = icmp eq ptr %hook.0.i.i2239, %17
+  %18 = load ptr, ptr %hook.0.i.i2239, align 8
+  %cmp2.not.i.i27 = icmp eq ptr %18, null
   br i1 %cmp1.i.i25, label %do.body.i.i26, label %for.cond.i.i20thread-pre-split, !llvm.loop !8
 
 do.body.i.i26:                                    ; preds = %for.body.i.i24
-  %18 = load ptr, ptr %17, align 8
-  %cmp2.not.i.i27 = icmp eq ptr %18, null
-  %tqe_prev10.i.i28 = getelementptr inbounds i8, ptr %17, i64 8
+  %tqe_prev10.i.i28 = getelementptr inbounds i8, ptr %hook.0.i.i2239, i64 8
   %19 = load ptr, ptr %tqe_prev10.i.i28, align 8
   %head..i.i29 = select i1 %cmp2.not.i.i27, ptr %out_hooks, ptr %18
   %tqh_last.i.i30 = getelementptr inbounds i8, ptr %head..i.i29, i64 8
   store ptr %19, ptr %tqh_last.i.i30, align 8
-  %20 = load ptr, ptr %17, align 8
+  %20 = load ptr, ptr %hook.0.i.i2239, align 8
   store ptr %20, ptr %19, align 8
-  tail call void @event_mm_free_(ptr noundef nonnull %17) #11
-  %.pre39 = load ptr, ptr %out_hooks, align 8
+  tail call void @event_mm_free_(ptr noundef nonnull %hook.0.i.i2239) #11
+  %.pre43 = load ptr, ptr %out_hooks, align 8
   br label %evrpc_remove_hook.exit32
 
 evrpc_remove_hook.exit32:                         ; preds = %for.cond.i.i20thread-pre-split, %do.body.i.i26
-  %21 = phi ptr [ %.pre39, %do.body.i.i26 ], [ %17, %for.cond.i.i20thread-pre-split ]
+  %21 = phi ptr [ %.pre43, %do.body.i.i26 ], [ %17, %for.cond.i.i20thread-pre-split ]
   %cmp34.not = icmp eq ptr %21, null
   br i1 %cmp34.not, label %while.end39, label %for.cond.i.i20.preheader, !llvm.loop !10
 
@@ -240,7 +236,7 @@ return:                                           ; preds = %for.cond, %evrpc_co
 declare void @event_mm_free_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @evrpc_remove_hook(ptr nocapture noundef %vbase, i32 noundef %hook_type, ptr noundef %handle) local_unnamed_addr #0 {
+define noundef i32 @evrpc_remove_hook(ptr nocapture noundef %vbase, i32 noundef %hook_type, ptr noundef readnone %handle) local_unnamed_addr #0 {
 entry:
   switch i32 %hook_type, label %sw.epilog [
     i32 0, label %sw.bb
@@ -269,16 +265,16 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp1.i, label %do.body.i, label %for.cond.i, !llvm.loop !8
 
 do.body.i:                                        ; preds = %for.body.i
-  %0 = load ptr, ptr %handle, align 8
+  %0 = load ptr, ptr %hook.0.i, align 8
   %cmp2.not.i = icmp eq ptr %0, null
-  %tqe_prev10.i = getelementptr inbounds i8, ptr %handle, i64 8
+  %tqe_prev10.i = getelementptr inbounds i8, ptr %hook.0.i, i64 8
   %1 = load ptr, ptr %tqe_prev10.i, align 8
   %head..i = select i1 %cmp2.not.i, ptr %head.0, ptr %0
   %tqh_last.i = getelementptr inbounds i8, ptr %head..i, i64 8
   store ptr %1, ptr %tqh_last.i, align 8
-  %2 = load ptr, ptr %handle, align 8
+  %2 = load ptr, ptr %hook.0.i, align 8
   store ptr %2, ptr %1, align 8
-  tail call void @event_mm_free_(ptr noundef nonnull %handle) #11
+  tail call void @event_mm_free_(ptr noundef nonnull %hook.0.i) #11
   br label %evrpc_remove_hook_internal.exit
 
 evrpc_remove_hook_internal.exit:                  ; preds = %for.cond.i, %do.body.i
@@ -832,8 +828,8 @@ define void @evrpc_pool_free(ptr noundef %pool) local_unnamed_addr #0 {
 entry:
   %requests = getelementptr inbounds i8, ptr %pool, i64 80
   %0 = load ptr, ptr %requests, align 8
-  %cmp.not50 = icmp eq ptr %0, null
-  br i1 %cmp.not50, label %while.cond14.preheader, label %do.body.lr.ph
+  %cmp.not52 = icmp eq ptr %0, null
+  br i1 %cmp.not52, label %while.cond14.preheader, label %do.body.lr.ph
 
 do.body.lr.ph:                                    ; preds = %entry
   %tqh_last = getelementptr inbounds i8, ptr %pool, i64 88
@@ -842,8 +838,8 @@ do.body.lr.ph:                                    ; preds = %entry
 while.cond14.preheader:                           ; preds = %do.body, %entry
   %pause_requests = getelementptr inbounds i8, ptr %pool, i64 32
   %1 = load ptr, ptr %pause_requests, align 8
-  %cmp16.not51 = icmp eq ptr %1, null
-  br i1 %cmp16.not51, label %while.cond42.preheader, label %do.body18.lr.ph
+  %cmp16.not53 = icmp eq ptr %1, null
+  br i1 %cmp16.not53, label %while.cond42.preheader, label %do.body18.lr.ph
 
 do.body18.lr.ph:                                  ; preds = %while.cond14.preheader
   %tqh_last34 = getelementptr inbounds i8, ptr %pool, i64 40
@@ -869,8 +865,8 @@ do.body:                                          ; preds = %do.body.lr.ph, %do.
 while.cond42.preheader:                           ; preds = %do.body18, %while.cond14.preheader
   %connections = getelementptr inbounds i8, ptr %pool, i64 56
   %7 = load ptr, ptr %connections, align 8
-  %cmp44.not52 = icmp eq ptr %7, null
-  br i1 %cmp44.not52, label %while.cond69.preheader, label %do.body46.lr.ph
+  %cmp44.not54 = icmp eq ptr %7, null
+  br i1 %cmp44.not54, label %while.cond69.preheader, label %do.body46.lr.ph
 
 do.body46.lr.ph:                                  ; preds = %while.cond42.preheader
   %tqh_last61 = getelementptr inbounds i8, ptr %pool, i64 64
@@ -894,8 +890,8 @@ do.body18:                                        ; preds = %do.body18.lr.ph, %d
 
 while.cond69.preheader:                           ; preds = %do.body46, %while.cond42.preheader
   %13 = load ptr, ptr %pool, align 8
-  %cmp72.not54 = icmp eq ptr %13, null
-  br i1 %cmp72.not54, label %while.cond77.preheader, label %for.cond.i.i.preheader
+  %cmp72.not56 = icmp eq ptr %13, null
+  br i1 %cmp72.not56, label %while.cond77.preheader, label %for.cond.i.i.preheader
 
 do.body46:                                        ; preds = %do.body46.lr.ph, %do.body46
   %14 = phi ptr [ %7, %do.body46.lr.ph ], [ %18, %do.body46 ]
@@ -920,30 +916,28 @@ for.cond.i.i.preheader:                           ; preds = %while.cond69.prehea
 while.cond77.preheader:                           ; preds = %evrpc_remove_hook.exit, %while.cond69.preheader
   %out_hooks = getelementptr inbounds i8, ptr %pool, i64 16
   %20 = load ptr, ptr %out_hooks, align 8
-  %cmp80.not56 = icmp eq ptr %20, null
-  br i1 %cmp80.not56, label %while.end85, label %for.cond.i.i37.preheader
+  %cmp80.not58 = icmp eq ptr %20, null
+  br i1 %cmp80.not58, label %while.end85, label %for.cond.i.i37.preheader
 
 for.cond.i.ithread-pre-split:                     ; preds = %for.body.i.i
-  %hook.0.i.i.pr = load ptr, ptr %hook.0.i.i53, align 8
-  %cmp.not.i.i = icmp eq ptr %hook.0.i.i.pr, null
-  br i1 %cmp.not.i.i, label %evrpc_remove_hook.exit, label %for.body.i.i
+  br i1 %cmp2.not.i.i, label %evrpc_remove_hook.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i.preheader, %for.cond.i.ithread-pre-split
-  %hook.0.i.i53 = phi ptr [ %19, %for.cond.i.i.preheader ], [ %hook.0.i.i.pr, %for.cond.i.ithread-pre-split ]
-  %cmp1.i.i = icmp eq ptr %hook.0.i.i53, %19
+  %hook.0.i.i55 = phi ptr [ %19, %for.cond.i.i.preheader ], [ %21, %for.cond.i.ithread-pre-split ]
+  %cmp1.i.i = icmp eq ptr %hook.0.i.i55, %19
+  %21 = load ptr, ptr %hook.0.i.i55, align 8
+  %cmp2.not.i.i = icmp eq ptr %21, null
   br i1 %cmp1.i.i, label %do.body.i.i, label %for.cond.i.ithread-pre-split, !llvm.loop !8
 
 do.body.i.i:                                      ; preds = %for.body.i.i
-  %21 = load ptr, ptr %19, align 8
-  %cmp2.not.i.i = icmp eq ptr %21, null
-  %tqe_prev10.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %tqe_prev10.i.i = getelementptr inbounds i8, ptr %hook.0.i.i55, i64 8
   %22 = load ptr, ptr %tqe_prev10.i.i, align 8
   %head..i.i = select i1 %cmp2.not.i.i, ptr %pool, ptr %21
   %tqh_last.i.i = getelementptr inbounds i8, ptr %head..i.i, i64 8
   store ptr %22, ptr %tqh_last.i.i, align 8
-  %23 = load ptr, ptr %19, align 8
+  %23 = load ptr, ptr %hook.0.i.i55, align 8
   store ptr %23, ptr %22, align 8
-  tail call void @event_mm_free_(ptr noundef nonnull %19) #11
+  tail call void @event_mm_free_(ptr noundef nonnull %hook.0.i.i55) #11
   %.pre = load ptr, ptr %pool, align 8
   br label %evrpc_remove_hook.exit
 
@@ -957,31 +951,29 @@ for.cond.i.i37.preheader:                         ; preds = %while.cond77.prehea
   br label %for.body.i.i41
 
 for.cond.i.i37thread-pre-split:                   ; preds = %for.body.i.i41
-  %hook.0.i.i39.pr = load ptr, ptr %hook.0.i.i3955, align 8
-  %cmp.not.i.i40 = icmp eq ptr %hook.0.i.i39.pr, null
-  br i1 %cmp.not.i.i40, label %evrpc_remove_hook.exit49, label %for.body.i.i41
+  br i1 %cmp2.not.i.i44, label %evrpc_remove_hook.exit49, label %for.body.i.i41
 
 for.body.i.i41:                                   ; preds = %for.cond.i.i37.preheader, %for.cond.i.i37thread-pre-split
-  %hook.0.i.i3955 = phi ptr [ %25, %for.cond.i.i37.preheader ], [ %hook.0.i.i39.pr, %for.cond.i.i37thread-pre-split ]
-  %cmp1.i.i42 = icmp eq ptr %hook.0.i.i3955, %25
+  %hook.0.i.i3957 = phi ptr [ %25, %for.cond.i.i37.preheader ], [ %26, %for.cond.i.i37thread-pre-split ]
+  %cmp1.i.i42 = icmp eq ptr %hook.0.i.i3957, %25
+  %26 = load ptr, ptr %hook.0.i.i3957, align 8
+  %cmp2.not.i.i44 = icmp eq ptr %26, null
   br i1 %cmp1.i.i42, label %do.body.i.i43, label %for.cond.i.i37thread-pre-split, !llvm.loop !8
 
 do.body.i.i43:                                    ; preds = %for.body.i.i41
-  %26 = load ptr, ptr %25, align 8
-  %cmp2.not.i.i44 = icmp eq ptr %26, null
-  %tqe_prev10.i.i45 = getelementptr inbounds i8, ptr %25, i64 8
+  %tqe_prev10.i.i45 = getelementptr inbounds i8, ptr %hook.0.i.i3957, i64 8
   %27 = load ptr, ptr %tqe_prev10.i.i45, align 8
   %head..i.i46 = select i1 %cmp2.not.i.i44, ptr %out_hooks, ptr %26
   %tqh_last.i.i47 = getelementptr inbounds i8, ptr %head..i.i46, i64 8
   store ptr %27, ptr %tqh_last.i.i47, align 8
-  %28 = load ptr, ptr %25, align 8
+  %28 = load ptr, ptr %hook.0.i.i3957, align 8
   store ptr %28, ptr %27, align 8
-  tail call void @event_mm_free_(ptr noundef nonnull %25) #11
-  %.pre57 = load ptr, ptr %out_hooks, align 8
+  tail call void @event_mm_free_(ptr noundef nonnull %hook.0.i.i3957) #11
+  %.pre61 = load ptr, ptr %out_hooks, align 8
   br label %evrpc_remove_hook.exit49
 
 evrpc_remove_hook.exit49:                         ; preds = %for.cond.i.i37thread-pre-split, %do.body.i.i43
-  %29 = phi ptr [ %.pre57, %do.body.i.i43 ], [ %25, %for.cond.i.i37thread-pre-split ]
+  %29 = phi ptr [ %.pre61, %do.body.i.i43 ], [ %25, %for.cond.i.i37thread-pre-split ]
   %cmp80.not = icmp eq ptr %29, null
   br i1 %cmp80.not, label %while.end85, label %for.cond.i.i37.preheader, !llvm.loop !17
 
@@ -1266,7 +1258,7 @@ for.body:                                         ; preds = %for.cond
 if.end5:                                          ; preds = %for.body
   %cb = getelementptr inbounds i8, ptr %pause.0, i64 24
   %1 = load ptr, ptr %cb, align 8
-  tail call void %1(ptr noundef %ctx, i32 noundef %res) #11
+  tail call void %1(ptr noundef %0, i32 noundef %res) #11
   %2 = load ptr, ptr %pause.0, align 8
   %cmp9.not = icmp eq ptr %2, null
   %tqe_prev17 = getelementptr inbounds i8, ptr %pause.0, i64 8

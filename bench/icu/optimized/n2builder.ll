@@ -356,7 +356,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -415,7 +415,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -1681,10 +1681,10 @@ if.end18:                                         ; preds = %if.end7
 land.rhs:                                         ; preds = %if.end18
   %shr.i = ashr exact i32 %8, 8
   %10 = add nsw i32 %shr.i, -4470
-  %cmp.i.i61 = icmp ult i32 %10, -21
+  %cmp.i.i62 = icmp ult i32 %10, -21
   %11 = add nsw i32 %shr.i, -4547
   %12 = icmp ult i32 %11, -27
-  %or.cond.i = and i1 %cmp.i.i61, %12
+  %or.cond.i = and i1 %cmp.i.i62, %12
   br i1 %or.cond.i, label %lor.rhs.i, label %land.end
 
 lor.rhs.i:                                        ; preds = %land.rhs
@@ -1752,8 +1752,8 @@ if.then50:                                        ; preds = %if.else47
 
 if.else52:                                        ; preds = %if.else47
   %20 = load i32, ptr %fLength.i48, align 4
-  %cmp.i64.not = icmp eq i32 %20, 0
-  br i1 %cmp.i64.not, label %if.then55, label %if.else57
+  %cmp.i65.not = icmp eq i32 %20, 0
+  br i1 %cmp.i65.not, label %if.then55, label %if.else57
 
 if.then55:                                        ; preds = %if.else52
   %type56 = getelementptr inbounds i8, ptr %norm, i64 48
@@ -1803,8 +1803,8 @@ if.else75:                                        ; preds = %entry
   %compositions95 = getelementptr inbounds i8, ptr %norm, i64 32
   %25 = load ptr, ptr %compositions95, align 8
   %cmp96 = icmp eq ptr %25, null
-  %narrow69 = select i1 %narrow, i1 %cmp96, i1 false
-  %conv98 = zext i1 %narrow69 to i8
+  %narrow70 = select i1 %narrow, i1 %cmp96, i1 false
+  %conv98 = zext i1 %narrow70 to i8
   %hasCompBoundaryAfter99 = getelementptr inbounds i8, ptr %norm, i64 45
   store i8 %conv98, ptr %hasCompBoundaryAfter99, align 1
   %type122 = getelementptr inbounds i8, ptr %norm, i64 48

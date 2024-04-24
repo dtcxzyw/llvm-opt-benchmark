@@ -761,126 +761,127 @@ _ZSt8_DestroyIPN5draco17MeshAreEquivalent8MeshInfoES2_EvT_S4_RSaIT0_E.exit.i.i: 
   br label %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE5clearEv.exit
 
 _ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE5clearEv.exit: ; preds = %3, %_ZSt8_DestroyIPN5draco17MeshAreEquivalent8MeshInfoES2_EvT_S4_RSaIT0_E.exit.i.i
-  %16 = getelementptr inbounds i8, ptr %2, i64 192
-  %17 = getelementptr inbounds i8, ptr %2, i64 200
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %16, align 8
-  %20 = ptrtoint ptr %18 to i64
+  %16 = phi ptr [ %8, %3 ], [ %6, %_ZSt8_DestroyIPN5draco17MeshAreEquivalent8MeshInfoES2_EvT_S4_RSaIT0_E.exit.i.i ]
+  %17 = getelementptr inbounds i8, ptr %2, i64 192
+  %18 = getelementptr inbounds i8, ptr %2, i64 200
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %17, align 8
   %21 = ptrtoint ptr %19 to i64
-  %22 = sub i64 %20, %21
-  %23 = sdiv exact i64 %22, 12
-  %24 = trunc i64 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %24, ptr %25, align 8
+  %22 = ptrtoint ptr %20 to i64
+  %23 = sub i64 %21, %22
+  %24 = sdiv exact i64 %23, 12
+  %25 = trunc i64 %24 to i32
+  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %25, ptr %26, align 8
   store ptr %1, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %26, i8 0, i64 48, i1 false)
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %.not.i.i7 = icmp eq ptr %6, %28
-  br i1 %.not.i.i7, label %34, label %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit.thread
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, i8 0, i64 48, i1 false)
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %.not.i.i7 = icmp eq ptr %16, %29
+  br i1 %.not.i.i7, label %35, label %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit.thread
 
 _ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit.thread: ; preds = %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE5clearEv.exit
-  store ptr %1, ptr %6, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
-  %30 = getelementptr inbounds i8, ptr %6, i64 32
-  %31 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %1, ptr %16, align 8
+  %30 = getelementptr inbounds i8, ptr %16, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
-  %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 56
-  store ptr %33, ptr %7, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
+  %31 = getelementptr inbounds i8, ptr %16, i64 32
+  %32 = getelementptr inbounds i8, ptr %4, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
+  %33 = load ptr, ptr %7, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 56
+  store ptr %34, ptr %7, align 8
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i
 
-34:                                               ; preds = %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE5clearEv.exit
-  invoke void @_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %6, ptr noundef nonnull align 8 dereferenceable(56) %4)
-          to label %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit unwind label %50
+35:                                               ; preds = %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE5clearEv.exit
+  invoke void @_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %16, ptr noundef nonnull align 8 dereferenceable(56) %4)
+          to label %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit unwind label %51
 
-_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit: ; preds = %34
+_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit: ; preds = %35
   %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not.i.i.i.i.i8 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i.i.i.i8, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i, label %35
+  br i1 %.not.i.i.i.i.i8, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i, label %36
 
-35:                                               ; preds = %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit
+36:                                               ; preds = %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit
   call void @_ZdlPv(ptr noundef nonnull %.pre) #21
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i
 
-_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i: ; preds = %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit.thread, %35, %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit
-  %36 = load ptr, ptr %26, align 8
-  %.not.i.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco17MeshAreEquivalent8MeshInfoD2Ev.exit, label %37
+_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i: ; preds = %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit.thread, %36, %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit
+  %37 = load ptr, ptr %27, align 8
+  %.not.i.i.i.i = icmp eq ptr %37, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco17MeshAreEquivalent8MeshInfoD2Ev.exit, label %38
 
-37:                                               ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %36) #21
+38:                                               ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %37) #21
   br label %_ZN5draco17MeshAreEquivalent8MeshInfoD2Ev.exit
 
-_ZN5draco17MeshAreEquivalent8MeshInfoD2Ev.exit:   ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i, %37
+_ZN5draco17MeshAreEquivalent8MeshInfoD2Ev.exit:   ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i, %38
   store ptr %2, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, i8 0, i64 48, i1 false)
-  %39 = load ptr, ptr %7, align 8
-  %40 = load ptr, ptr %27, align 8
-  %.not.i.i9 = icmp eq ptr %39, %40
-  br i1 %.not.i.i9, label %46, label %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit11.thread
+  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, i8 0, i64 48, i1 false)
+  %40 = load ptr, ptr %7, align 8
+  %41 = load ptr, ptr %28, align 8
+  %.not.i.i9 = icmp eq ptr %40, %41
+  br i1 %.not.i.i9, label %47, label %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit11.thread
 
 _ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit11.thread: ; preds = %_ZN5draco17MeshAreEquivalent8MeshInfoD2Ev.exit
-  store ptr %2, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
-  %42 = getelementptr inbounds i8, ptr %39, i64 32
-  %43 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %2, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %40, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
+  %43 = getelementptr inbounds i8, ptr %40, i64 32
+  %44 = getelementptr inbounds i8, ptr %5, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 56
-  store ptr %45, ptr %7, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
+  %45 = load ptr, ptr %7, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 56
+  store ptr %46, ptr %7, align 8
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i13
 
-46:                                               ; preds = %_ZN5draco17MeshAreEquivalent8MeshInfoD2Ev.exit
-  invoke void @_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %39, ptr noundef nonnull align 8 dereferenceable(56) %5)
-          to label %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit11 unwind label %52
+47:                                               ; preds = %_ZN5draco17MeshAreEquivalent8MeshInfoD2Ev.exit
+  invoke void @_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %40, ptr noundef nonnull align 8 dereferenceable(56) %5)
+          to label %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit11 unwind label %53
 
-_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit11: ; preds = %46
+_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit11: ; preds = %47
   %.phi.trans.insert16 = getelementptr inbounds i8, ptr %5, i64 32
   %.pre17 = load ptr, ptr %.phi.trans.insert16, align 8
   %.not.i.i.i.i.i12 = icmp eq ptr %.pre17, null
-  br i1 %.not.i.i.i.i.i12, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i13, label %47
+  br i1 %.not.i.i.i.i.i12, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i13, label %48
 
-47:                                               ; preds = %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit11
+48:                                               ; preds = %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit11
   call void @_ZdlPv(ptr noundef nonnull %.pre17) #21
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i13
 
-_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i13: ; preds = %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit11.thread, %47, %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit11
-  %48 = load ptr, ptr %38, align 8
-  %.not.i.i.i.i14 = icmp eq ptr %48, null
-  br i1 %.not.i.i.i.i14, label %_ZN5draco17MeshAreEquivalent8MeshInfoD2Ev.exit15, label %49
+_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i13: ; preds = %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit11.thread, %48, %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE9push_backEOS2_.exit11
+  %49 = load ptr, ptr %39, align 8
+  %.not.i.i.i.i14 = icmp eq ptr %49, null
+  br i1 %.not.i.i.i.i14, label %_ZN5draco17MeshAreEquivalent8MeshInfoD2Ev.exit15, label %50
 
-49:                                               ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i13
-  call void @_ZdlPv(ptr noundef nonnull %48) #21
+50:                                               ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i13
+  call void @_ZdlPv(ptr noundef nonnull %49) #21
   br label %_ZN5draco17MeshAreEquivalent8MeshInfoD2Ev.exit15
 
-_ZN5draco17MeshAreEquivalent8MeshInfoD2Ev.exit15: ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i13, %49
+_ZN5draco17MeshAreEquivalent8MeshInfoD2Ev.exit15: ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiED2Ev.exit.i13, %50
   call void @_ZN5draco17MeshAreEquivalent33InitCornerIndexOfSmallestPointXYZEv(ptr noundef nonnull align 8 dereferenceable(28) %0)
   call void @_ZN5draco17MeshAreEquivalent20InitOrderedFaceIndexEv(ptr noundef nonnull align 8 dereferenceable(28) %0)
   ret void
 
-50:                                               ; preds = %34
-  %51 = landingpad { ptr, i32 }
+51:                                               ; preds = %35
+  %52 = landingpad { ptr, i32 }
           cleanup
-  br label %54
+  br label %55
 
-52:                                               ; preds = %46
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %47
+  %54 = landingpad { ptr, i32 }
           cleanup
-  br label %54
+  br label %55
 
-54:                                               ; preds = %52, %50
-  %.sink = phi ptr [ %5, %52 ], [ %4, %50 ]
-  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %51, %50 ]
+55:                                               ; preds = %53, %51
+  %.sink = phi ptr [ %5, %53 ], [ %4, %51 ]
+  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ]
   call void @_ZN5draco17MeshAreEquivalent8MeshInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #22
   resume { ptr, i32 } %.pn
 }

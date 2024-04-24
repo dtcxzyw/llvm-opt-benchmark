@@ -3191,9 +3191,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %53, label %.loopexit.i.loopexit.i.i.i.i, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8ef8b56e1db4502E.exit.i.i.i.i.i"
 
 .loopexit.i.loopexit.i.i.i.i:                     ; preds = %50, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8ef8b56e1db4502E.exit.i.i.i.i.i"
-  %.lcssa.i.i.i.i = phi ptr [ %49, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8ef8b56e1db4502E.exit.i.i.i.i.i" ], [ %44, %50 ]
-  %.val4.i.ph.i.i.i.i = phi i64 [ %47, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8ef8b56e1db4502E.exit.i.i.i.i.i" ], [ %52, %50 ]
-  store ptr %.lcssa.i.i.i.i, ptr %43, align 8, !alias.scope !705, !noalias !706
+  %.val4.i.ph.i.i.i.i = phi i64 [ %52, %50 ], [ %47, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8ef8b56e1db4502E.exit.i.i.i.i.i" ]
+  store ptr %49, ptr %43, align 8, !alias.scope !705, !noalias !706
   br label %.loopexit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i:                              ; preds = %.loopexit.i.loopexit.i.i.i.i, %._crit_edge.i.i.i.i

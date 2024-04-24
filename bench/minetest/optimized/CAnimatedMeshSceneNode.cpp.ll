@@ -6183,7 +6183,7 @@ _ZSt8_DestroyIPN3irr5video9SMaterialES2_EvT_S4_RSaIT0_E.exitthread-pre-split: ; 
   br label %_ZSt8_DestroyIPN3irr5video9SMaterialES2_EvT_S4_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN3irr5video9SMaterialES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN3irr5video9SMaterialES2_EvT_S4_RSaIT0_E.exitthread-pre-split, %_ZNSt6vectorIN3irr5video9SMaterialESaIS2_EE20_M_allocate_and_copyIPKS2_EEPS2_mT_S9_.exit, %_ZNSt12_Vector_baseIN3irr5video9SMaterialESaIS2_EE11_M_allocateEm.exit.i
-  %7 = phi ptr [ %.pr, %_ZSt8_DestroyIPN3irr5video9SMaterialES2_EvT_S4_RSaIT0_E.exitthread-pre-split ], [ %.pre, %_ZNSt6vectorIN3irr5video9SMaterialESaIS2_EE20_M_allocate_and_copyIPKS2_EEPS2_mT_S9_.exit ], [ %1, %_ZNSt12_Vector_baseIN3irr5video9SMaterialESaIS2_EE11_M_allocateEm.exit.i ]
+  %7 = phi ptr [ %.pr, %_ZSt8_DestroyIPN3irr5video9SMaterialES2_EvT_S4_RSaIT0_E.exitthread-pre-split ], [ %.pre38, %_ZNSt6vectorIN3irr5video9SMaterialESaIS2_EE20_M_allocate_and_copyIPKS2_EEPS2_mT_S9_.exit ], [ %1, %_ZNSt12_Vector_baseIN3irr5video9SMaterialESaIS2_EE11_M_allocateEm.exit.i ]
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN3irr5video9SMaterialESaIS2_EE13_M_deallocateEPS2_m.exit, label %if.then.i
 

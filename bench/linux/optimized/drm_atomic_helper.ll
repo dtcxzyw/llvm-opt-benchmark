@@ -509,7 +509,7 @@ define dso_local i32 @drm_atomic_helper_check_modeset(ptr noundef %0, ptr nounde
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %202, %176
-  %212 = phi ptr [ %183, %176 ], [ %.pr53.pre, %202 ]
+  %212 = phi ptr [ %185, %176 ], [ %.pr53.pre, %202 ]
   %213 = icmp eq ptr %212, null
   br i1 %213, label %thread-pre-split.thread, label %249
 
@@ -714,7 +714,7 @@ thread-pre-split.thread:                          ; preds = %199, %thread-pre-sp
   %346 = zext i32 %345 to i64
   %347 = getelementptr %struct.__drm_crtcs_state, ptr %343, i64 %346, i32 3
   %348 = load ptr, ptr %347, align 8
-  %349 = getelementptr inbounds i8, ptr %294, i64 68
+  %349 = getelementptr inbounds i8, ptr %333, i64 68
   %350 = load i32, ptr %349, align 4
   %351 = shl nuw i32 1, %350
   %352 = xor i32 %351, -1

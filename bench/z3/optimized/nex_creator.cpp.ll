@@ -3064,17 +3064,17 @@ land.rhs:                                         ; preds = %sw.bb7
   br label %tailrecurse
 
 sw.bb15:                                          ; preds = %tailrecurse
-  %m_children.i10 = getelementptr inbounds i8, ptr %b.tr, i64 8
-  %9 = load ptr, ptr %m_children.i10, align 8
+  %m_children.i11 = getelementptr inbounds i8, ptr %b.tr, i64 8
+  %9 = load ptr, ptr %m_children.i11, align 8
   %10 = load ptr, ptr %9, align 8
   %call.i = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %10)
   br i1 %call.i, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.bb15
-  %11 = load ptr, ptr %m_children.i10, align 8
+  %11 = load ptr, ptr %m_children.i11, align 8
   %12 = load ptr, ptr %11, align 8
-  %call.i12 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %a)
-  %not.call.i12 = xor i1 %call.i12, true
+  %call.i15 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %a)
+  %not.call.i15 = xor i1 %call.i15, true
   br label %return
 
 sw.default:                                       ; preds = %tailrecurse
@@ -3083,7 +3083,7 @@ sw.default:                                       ; preds = %tailrecurse
   unreachable
 
 return:                                           ; preds = %sw.bb7, %tailrecurse, %if.end, %sw.bb15, %sw.bb2
-  %retval.0 = phi i1 [ %cond.i, %sw.bb2 ], [ true, %sw.bb15 ], [ %not.call.i12, %if.end ], [ false, %sw.bb7 ], [ true, %tailrecurse ]
+  %retval.0 = phi i1 [ %cond.i, %sw.bb2 ], [ true, %sw.bb15 ], [ %not.call.i15, %if.end ], [ false, %sw.bb7 ], [ true, %tailrecurse ]
   ret i1 %retval.0
 }
 
@@ -4704,9 +4704,9 @@ cleanup.done:                                     ; preds = %if.then.i.i, %clean
   br i1 %call4.i5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNSt3mapIPN3nla3nexEiSt8functionIFbPKS1_S5_EESaISt4pairIKS2_iEEE11lower_boundERS9_.exit, %entry, %cleanup.done
-  %__y.addr.0.lcssa.i.i.i202426 = phi ptr [ %__y.addr.1.i.i.i, %cleanup.done ], [ %add.ptr.i.i.i, %_ZNSt3mapIPN3nla3nexEiSt8functionIFbPKS1_S5_EESaISt4pairIKS2_iEEE11lower_boundERS9_.exit ], [ %add.ptr.i.i.i, %entry ]
+  %__y.addr.0.lcssa.i.i.i202426 = phi ptr [ %__y.addr.1.i.i.i, %cleanup.done ], [ %__y.addr.1.i.i.i, %_ZNSt3mapIPN3nla3nexEiSt8functionIFbPKS1_S5_EESaISt4pairIKS2_iEEE11lower_boundERS9_.exit ], [ %add.ptr.i.i.i, %entry ]
   store ptr %__k, ptr %ref.tmp12, align 8
-  %call15 = call ptr @_ZNSt8_Rb_treeIPN3nla3nexESt4pairIKS2_iESt10_Select1stIS5_ESt8functionIFbPKS1_SA_EESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESJ_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i202426, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
+  %call15 = call ptr @_ZNSt8_Rb_treeIPN3nla3nexESt4pairIKS2_iESt10_Select1stIS5_ESt8functionIFbPKS1_SA_EESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESJ_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %__y.addr.0.lcssa.i.i.i202426, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
   br label %if.end
 
 lpad:                                             ; preds = %if.end.i, %if.then.i
@@ -5048,9 +5048,9 @@ cleanup.done:                                     ; preds = %if.then.i.i, %clean
   br i1 %call4.i5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNSt3mapIPKN3nla3nexE8rationalSt8functionIFbS3_S3_EESaISt4pairIKS3_S4_EEE11lower_boundERS9_.exit, %entry, %cleanup.done
-  %__y.addr.0.lcssa.i.i.i202426 = phi ptr [ %__y.addr.1.i.i.i, %cleanup.done ], [ %add.ptr.i.i.i, %_ZNSt3mapIPKN3nla3nexE8rationalSt8functionIFbS3_S3_EESaISt4pairIKS3_S4_EEE11lower_boundERS9_.exit ], [ %add.ptr.i.i.i, %entry ]
+  %__y.addr.0.lcssa.i.i.i202426 = phi ptr [ %__y.addr.1.i.i.i, %cleanup.done ], [ %__y.addr.1.i.i.i, %_ZNSt3mapIPKN3nla3nexE8rationalSt8functionIFbS3_S3_EESaISt4pairIKS3_S4_EEE11lower_boundERS9_.exit ], [ %add.ptr.i.i.i, %entry ]
   store ptr %__k, ptr %ref.tmp12, align 8
-  %call15 = call ptr @_ZNSt8_Rb_treeIPKN3nla3nexESt4pairIKS3_8rationalESt10_Select1stIS7_ESt8functionIFbS3_S3_EESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESJ_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i202426, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
+  %call15 = call ptr @_ZNSt8_Rb_treeIPKN3nla3nexESt4pairIKS3_8rationalESt10_Select1stIS7_ESt8functionIFbS3_S3_EESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESJ_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %__y.addr.0.lcssa.i.i.i202426, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
   br label %if.end
 
 lpad:                                             ; preds = %if.end.i, %if.then.i
@@ -7137,7 +7137,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp, label %for.body, label %return, !llvm.loop !47
 
 return.loopexit.split.loop.exit11:                ; preds = %for.body
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %for.inc, %return.loopexit.split.loop.exit11, %entry
@@ -7979,7 +7979,7 @@ for.inc42:                                        ; preds = %for.inc42.preheader
   %indvars.iv = phi i64 [ 0, %for.inc42.preheader ], [ %indvars.iv.next, %for.inc42 ]
   %21 = load ptr, ptr %m_active_vars_weights.i, align 8
   %arrayidx.i.i29 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw i64 %indvars.iv to i32
   store i32 %22, ptr %arrayidx.i.i29, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -10015,7 +10015,8 @@ if.then3:                                         ; preds = %if.end
   %m_den = getelementptr inbounds i8, ptr %b, i64 16
   call void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %m_den, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
   %m_den4 = getelementptr inbounds i8, ptr %a, i64 16
-  call void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %m_den4, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %m_den)
+  %m_den6 = getelementptr inbounds i8, ptr %c, i64 16
+  call void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %m_den4, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %m_den6)
   %bf.load.i.i.i27 = load i8, ptr %m_kind.i, align 4
   %bf.clear.i.i.i28 = and i8 %bf.load.i.i.i27, 1
   %cmp.i.i.i29 = icmp eq i8 %bf.clear.i.i.i28, 0
@@ -10023,14 +10024,15 @@ if.then3:                                         ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %if.then3
   %6 = load i32, ptr %tmp, align 8
-  store i32 %6, ptr %b, align 8
-  %bf.load.i.i = load i8, ptr %m_kind.i.i.i.i, align 4
+  store i32 %6, ptr %c, align 8
+  %m_kind.i.i = getelementptr inbounds i8, ptr %c, i64 4
+  %bf.load.i.i = load i8, ptr %m_kind.i.i, align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, -2
-  store i8 %bf.clear.i.i, ptr %m_kind.i.i.i.i, align 4
+  store i8 %bf.clear.i.i, ptr %m_kind.i.i, align 4
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit
 
 if.else.i.i:                                      ; preds = %if.then3
-  call void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
+  call void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit:       ; preds = %if.then.i.i, %if.else.i.i
@@ -11582,8 +11584,8 @@ if.else74:                                        ; preds = %_ZNKSt8functionIFbP
   br label %return
 
 return:                                           ; preds = %if.then64, %if.then32, %_ZNKSt8functionIFbPKN3nla3nexES3_EEclES3_S3_.exit42, %if.then50, %if.then18, %if.else74, %if.else42, %if.else, %if.then9
-  %retval.sroa.0.0 = phi ptr [ %7, %if.else ], [ null, %if.then9 ], [ %19, %if.else42 ], [ %31, %if.else74 ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt8functionIFbPKN3nla3nexES3_EEclES3_S3_.exit42 ], [ %spec.select, %if.then32 ], [ %spec.select74, %if.then64 ]
-  %retval.sroa.12.0 = phi ptr [ %8, %if.else ], [ %6, %if.then9 ], [ %20, %if.else42 ], [ %32, %if.else74 ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNKSt8functionIFbPKN3nla3nexES3_EEclES3_S3_.exit42 ], [ %spec.select73, %if.then32 ], [ %spec.select75, %if.then64 ]
+  %retval.sroa.0.0 = phi ptr [ %7, %if.else ], [ null, %if.then9 ], [ %19, %if.else42 ], [ %31, %if.else74 ], [ %13, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt8functionIFbPKN3nla3nexES3_EEclES3_S3_.exit42 ], [ %spec.select, %if.then32 ], [ %spec.select74, %if.then64 ]
+  %retval.sroa.12.0 = phi ptr [ %8, %if.else ], [ %6, %if.then9 ], [ %20, %if.else42 ], [ %32, %if.else74 ], [ %13, %if.then18 ], [ %25, %if.then50 ], [ null, %_ZNKSt8functionIFbPKN3nla3nexES3_EEclES3_S3_.exit42 ], [ %spec.select73, %if.then32 ], [ %spec.select75, %if.then64 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -12389,8 +12391,8 @@ if.else74:                                        ; preds = %_ZNKSt8functionIFbP
   br label %return
 
 return:                                           ; preds = %if.then64, %if.then32, %_ZNKSt8functionIFbPKN3nla3nexES3_EEclES3_S3_.exit42, %if.then50, %if.then18, %if.else74, %if.else42, %if.else, %if.then9
-  %retval.sroa.0.0 = phi ptr [ %7, %if.else ], [ null, %if.then9 ], [ %19, %if.else42 ], [ %31, %if.else74 ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt8functionIFbPKN3nla3nexES3_EEclES3_S3_.exit42 ], [ %spec.select, %if.then32 ], [ %spec.select74, %if.then64 ]
-  %retval.sroa.12.0 = phi ptr [ %8, %if.else ], [ %6, %if.then9 ], [ %20, %if.else42 ], [ %32, %if.else74 ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNKSt8functionIFbPKN3nla3nexES3_EEclES3_S3_.exit42 ], [ %spec.select73, %if.then32 ], [ %spec.select75, %if.then64 ]
+  %retval.sroa.0.0 = phi ptr [ %7, %if.else ], [ null, %if.then9 ], [ %19, %if.else42 ], [ %31, %if.else74 ], [ %13, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt8functionIFbPKN3nla3nexES3_EEclES3_S3_.exit42 ], [ %spec.select, %if.then32 ], [ %spec.select74, %if.then64 ]
+  %retval.sroa.12.0 = phi ptr [ %8, %if.else ], [ %6, %if.then9 ], [ %20, %if.else42 ], [ %32, %if.else74 ], [ %13, %if.then18 ], [ %25, %if.then50 ], [ null, %_ZNKSt8functionIFbPKN3nla3nexES3_EEclES3_S3_.exit42 ], [ %spec.select73, %if.then32 ], [ %spec.select75, %if.then64 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

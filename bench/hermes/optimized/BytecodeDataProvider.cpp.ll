@@ -2184,14 +2184,14 @@ _ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit:
   store i32 1, ptr %Capacity2.i.i.i.i.i, align 4
   %fileRegionCount = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %5 = load i32, ptr %fileRegionCount, align 1
-  %cmp52.not = icmp eq i32 %5, 0
-  br i1 %cmp52.not, label %for.end, label %for.body
+  %cmp53.not = icmp eq i32 %5, 0
+  br i1 %cmp53.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit
   %6 = phi i32 [ %add.i, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit ], [ 0, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit ]
-  %i.054 = phi i32 [ %inc, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit ], [ 0, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit ]
-  %buf.053 = phi ptr [ %add.ptr.i18, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit ], [ %add.ptr.i14, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit ]
-  %add.ptr.i18 = getelementptr inbounds i8, ptr %buf.053, i64 12
+  %i.055 = phi i32 [ %inc, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit ], [ 0, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit ]
+  %buf.054 = phi ptr [ %add.ptr.i18, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit ], [ %add.ptr.i14, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit ]
+  %add.ptr.i18 = getelementptr inbounds i8, ptr %buf.054, i64 12
   %7 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
   %cmp.not.i = icmp ult i32 %6, %7
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit, label %if.then.i19
@@ -2206,11 +2206,11 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backE
   %9 = load ptr, ptr %files, align 8
   %conv.i3.i = zext i32 %8 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.hermes::hbc::DebugFileRegion", ptr %9, i64 %conv.i3.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i.i, ptr noundef nonnull align 1 dereferenceable(12) %buf.053, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i.i, ptr noundef nonnull align 1 dereferenceable(12) %buf.054, i64 12, i1 false)
   %10 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i = add i32 %10, 1
   store i32 %add.i, ptr %Size.i.i.i.i.i, align 8
-  %inc = add nuw i32 %i.054, 1
+  %inc = add nuw i32 %i.055, 1
   %11 = load i32, ptr %fileRegionCount, align 1
   %cmp = icmp ult i32 %inc, %11
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
@@ -2268,15 +2268,15 @@ _ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit:  ; preds = %_ZNSt6vectorIhSaIhE
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call7, i64 60
   store i32 1, ptr %Capacity2.i.i.i.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i32 %12, 0
-  %.pre56 = load ptr, ptr %files, align 8
+  %.pre57 = load ptr, ptr %files, align 8
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit
-  %cmp.i.i = icmp eq ptr %.pre56, %add.ptr.i.i.i.i.i
+  %cmp.i.i = icmp eq ptr %.pre57, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i, label %if.end24.i, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then.i.i
-  store ptr %.pre56, ptr %files_.i, align 8
+  store ptr %.pre57, ptr %files_.i, align 8
   store i32 %12, ptr %Size.i.i.i.i.i.i, align 8
   %16 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
   store i32 %16, ptr %Capacity2.i.i.i.i.i.i, align 4
@@ -2286,38 +2286,38 @@ if.end8.i:                                        ; preds = %if.then.i.i
 
 if.end24.i:                                       ; preds = %if.then.i.i
   %cmp26.i.not = icmp eq i32 %12, 1
-  br i1 %cmp26.i.not, label %if.then.i.i.i39, label %if.end37.i
+  br i1 %cmp26.i.not, label %if.then.i.i.i40, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end24.i
   %conv.i30.i = zext i32 %12 to i64
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %files_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i30.i, i64 noundef 12) #19
   %.pre = load i32, ptr %Size.i.i.i.i.i, align 8
-  %.pre55.pre.pre58.pre = load ptr, ptr %files, align 8
-  %.pre61 = zext i32 %.pre to i64
+  %.pre56.pre.pre59.pre = load ptr, ptr %files, align 8
+  %.pre62 = zext i32 %.pre to i64
   %cmp.not.i.i.i = icmp eq i32 %.pre, 0
-  br i1 %cmp.not.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i, label %if.then.i.i.i39
+  br i1 %cmp.not.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i, label %if.then.i.i.i40
 
-if.then.i.i.i39:                                  ; preds = %if.end24.i, %if.end37.i
-  %.pre55.pre.pre5866 = phi ptr [ %.pre55.pre.pre58.pre, %if.end37.i ], [ %add.ptr.i.i.i.i.i, %if.end24.i ]
-  %conv.i50.i.pre-phi65 = phi i64 [ %.pre61, %if.end37.i ], [ 1, %if.end24.i ]
+if.then.i.i.i40:                                  ; preds = %if.end24.i, %if.end37.i
+  %.pre56.pre.pre5967 = phi ptr [ %.pre56.pre.pre59.pre, %if.end37.i ], [ %.pre57, %if.end24.i ]
+  %conv.i51.i.pre-phi66 = phi i64 [ %.pre62, %if.end37.i ], [ 1, %if.end24.i ]
   %17 = load ptr, ptr %files_.i, align 8
-  %add.ptr.i.i40.idx = mul nuw nsw i64 %conv.i50.i.pre-phi65, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %.pre55.pre.pre5866, i64 %add.ptr.i.i40.idx, i1 false)
-  %.pre55.pre.pre = load ptr, ptr %files, align 8
+  %add.ptr.i.i41.idx = mul nuw nsw i64 %conv.i51.i.pre-phi66, 12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %.pre56.pre.pre5967, i64 %add.ptr.i.i41.idx, i1 false)
+  %.pre56.pre.pre = load ptr, ptr %files, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
 
-_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i: ; preds = %if.then.i.i.i39, %if.end37.i
-  %.pre55.pre = phi ptr [ %.pre55.pre.pre, %if.then.i.i.i39 ], [ %.pre55.pre.pre58.pre, %if.end37.i ]
+_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i: ; preds = %if.then.i.i.i40, %if.end37.i
+  %.pre56.pre = phi ptr [ %.pre56.pre.pre, %if.then.i.i.i40 ], [ %.pre56.pre.pre59.pre, %if.end37.i ]
   store i32 %12, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN4llvh15SmallVectorImplIN6hermes3hbc15DebugFileRegionEEaSEOS4_.exit
 
 _ZN4llvh15SmallVectorImplIN6hermes3hbc15DebugFileRegionEEaSEOS4_.exit: ; preds = %if.end8.i, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
-  %.pre55 = phi ptr [ %add.ptr.i.i.i.i.i, %if.end8.i ], [ %.pre55.pre, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i ]
+  %.pre56 = phi ptr [ %add.ptr.i.i.i.i.i, %if.end8.i ], [ %.pre56.pre, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i ]
   store i32 0, ptr %Size.i.i.i.i.i, align 8
   br label %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit: ; preds = %_ZN4llvh15SmallVectorImplIN6hermes3hbc15DebugFileRegionEEaSEOS4_.exit, %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit
-  %18 = phi ptr [ %.pre55, %_ZN4llvh15SmallVectorImplIN6hermes3hbc15DebugFileRegionEEaSEOS4_.exit ], [ %.pre56, %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit ]
+  %18 = phi ptr [ %.pre56, %_ZN4llvh15SmallVectorImplIN6hermes3hbc15DebugFileRegionEEaSEOS4_.exit ], [ %.pre57, %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit ]
   %scopeDescDataOffset_.i = getelementptr inbounds i8, ptr %call7, i64 80
   store <2 x i32> %13, ptr %scopeDescDataOffset_.i, align 8
   %stringTableOffset_.i = getelementptr inbounds i8, ptr %call7, i64 88
@@ -2373,7 +2373,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %bf.lshr4 = lshr i120 %bf.load3, 64
-  %4 = trunc i120 %bf.lshr4 to i64
+  %4 = trunc nuw nsw i120 %bf.lshr4 to i64
   %bf.cast6 = and i64 %4, 33554431
   %add.ptr8 = getelementptr inbounds i8, ptr %1, i64 %bf.cast6
   br label %if.end
@@ -2748,7 +2748,7 @@ if.then.i:                                        ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %bf.lshr4.i = lshr i120 %bf.load3.i, 64
-  %4 = trunc i120 %bf.lshr4.i to i64
+  %4 = trunc nuw nsw i120 %bf.lshr4.i to i64
   %bf.cast6.i = and i64 %4, 33554431
   %add.ptr8.i = getelementptr inbounds i8, ptr %1, i64 %bf.cast6.i
   br label %if.end.i
@@ -2821,7 +2821,7 @@ if.then.i:                                        ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %bf.lshr4.i = lshr i120 %bf.load3.i, 64
-  %4 = trunc i120 %bf.lshr4.i to i64
+  %4 = trunc nuw nsw i120 %bf.lshr4.i to i64
   %bf.cast6.i = and i64 %4, 33554431
   %add.ptr8.i = getelementptr inbounds i8, ptr %1, i64 %bf.cast6.i
   br label %if.end.i

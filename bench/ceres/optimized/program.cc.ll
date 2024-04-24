@@ -2387,7 +2387,7 @@ _ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread.thread: ; preds = 
 ._crit_edge147:                                   ; preds = %._crit_edge147.loopexit, %.preheader
   %.058.lcssa = phi i64 [ 0, %.preheader ], [ %121, %._crit_edge147.loopexit ]
   %.lcssa124 = phi ptr [ %47, %.preheader ], [ %114, %._crit_edge147.loopexit ]
-  %.lcssa120 = phi ptr [ %47, %.preheader ], [ %115, %._crit_edge147.loopexit ]
+  %.lcssa120 = phi ptr [ %48, %.preheader ], [ %115, %._crit_edge147.loopexit ]
   %.lcssa = phi i64 [ %52, %.preheader ], [ %119, %._crit_edge147.loopexit ]
   %122 = icmp ult i64 %.lcssa, %.058.lcssa
   br i1 %122, label %123, label %125

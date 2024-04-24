@@ -206,7 +206,7 @@ define hidden void @_ZN8rawspeed24ParseChecksumFileContentERKNSt7__cxx1112basic_
   br label %90
 
 90:                                               ; preds = %88, %72, %54
-  %91 = phi ptr [ %89, %88 ], [ %73, %72 ], [ %55, %54 ]
+  %91 = phi ptr [ %89, %88 ], [ %74, %72 ], [ %55, %54 ]
   %92 = icmp eq ptr %91, null
   br i1 %92, label %94, label %93
 

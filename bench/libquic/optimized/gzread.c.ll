@@ -689,33 +689,34 @@ if.end33:                                         ; preds = %if.end25
   %out36 = getelementptr inbounds i8, ptr %file, i64 56
   %15 = load ptr, ptr %out36, align 8
   %cmp37 = icmp eq ptr %14, %15
-  br i1 %cmp37, label %while.body.preheader, label %if.end56
+  br i1 %cmp37, label %if.then39, label %if.end56
 
-while.body.preheader:                             ; preds = %if.end33
-  %idx.ext48 = zext i32 %shl29 to i64
-  %add.ptr49 = getelementptr inbounds i8, ptr %14, i64 %idx.ext48
+if.then39:                                        ; preds = %if.end33
   %idx.ext43 = zext i32 %9 to i64
-  %add.ptr44 = getelementptr inbounds i8, ptr %14, i64 %idx.ext43
-  br label %while.body
+  %add.ptr44 = getelementptr inbounds i8, ptr %15, i64 %idx.ext43
+  %idx.ext48 = zext i32 %shl29 to i64
+  %add.ptr49 = getelementptr inbounds i8, ptr %15, i64 %idx.ext48
+  %cmp5144 = icmp ugt ptr %add.ptr44, %14
+  br i1 %cmp5144, label %while.body, label %if.end56
 
-while.body:                                       ; preds = %while.body.preheader, %while.body
-  %dest.046 = phi ptr [ %incdec.ptr53, %while.body ], [ %add.ptr49, %while.body.preheader ]
-  %src.045 = phi ptr [ %incdec.ptr, %while.body ], [ %add.ptr44, %while.body.preheader ]
+while.body:                                       ; preds = %if.then39, %while.body
+  %dest.046 = phi ptr [ %incdec.ptr53, %while.body ], [ %add.ptr49, %if.then39 ]
+  %src.045 = phi ptr [ %incdec.ptr, %while.body ], [ %add.ptr44, %if.then39 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %src.045, i64 -1
   %16 = load i8, ptr %incdec.ptr, align 1
   %incdec.ptr53 = getelementptr inbounds i8, ptr %dest.046, i64 -1
   store i8 %16, ptr %incdec.ptr53, align 1
   %17 = load ptr, ptr %out36, align 8
   %cmp51 = icmp ugt ptr %incdec.ptr, %17
-  br i1 %cmp51, label %while.body, label %while.end, !llvm.loop !12
+  br i1 %cmp51, label %while.body, label %while.end.loopexit, !llvm.loop !12
 
-while.end:                                        ; preds = %while.body
+while.end.loopexit:                               ; preds = %while.body
   %.pre.pre = load i32, ptr %file, align 8
   br label %if.end56
 
-if.end56:                                         ; preds = %while.end, %if.end33
-  %18 = phi ptr [ %incdec.ptr53, %while.end ], [ %14, %if.end33 ]
-  %19 = phi i32 [ %.pre.pre, %while.end ], [ %9, %if.end33 ]
+if.end56:                                         ; preds = %if.then39, %while.end.loopexit, %if.end33
+  %18 = phi ptr [ %14, %if.end33 ], [ %add.ptr49, %if.then39 ], [ %incdec.ptr53, %while.end.loopexit ]
+  %19 = phi i32 [ %9, %if.end33 ], [ %9, %if.then39 ], [ %.pre.pre, %while.end.loopexit ]
   %inc = add i32 %19, 1
   store i32 %inc, ptr %file, align 8
   %incdec.ptr61 = getelementptr inbounds i8, ptr %18, i64 -1

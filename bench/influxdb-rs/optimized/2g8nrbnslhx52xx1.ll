@@ -10486,13 +10486,13 @@ define void @_ZN15influxdb3_write12write_buffer33parse_validate_and_update_catal
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h5f5ca20ad47954acE.exit.sink.split.i.i.i.i.i.i.i": ; preds = %269, %233
   %275 = phi i64 [ %202, %233 ], [ %246, %269 ]
-  %.lcssa.sink.i.i.i.i.i.i.i = phi ptr [ %235, %233 ], [ %194, %269 ]
+  %.lcssa.sink.i.i.i.i.i.i.i = phi ptr [ %235, %233 ], [ %.sink.in.i.i.i.i.i.i.i.i.i, %269 ]
   store ptr %.lcssa.sink.i.i.i.i.i.i.i, ptr %179, align 8, !alias.scope !1596, !noalias !1575
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h5f5ca20ad47954acE.exit.i.i.i.i.i.i.i"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h5f5ca20ad47954acE.exit.i.i.i.i.i.i.i": ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h5f5ca20ad47954acE.exit.sink.split.i.i.i.i.i.i.i", %197
   %276 = phi i64 [ %275, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h5f5ca20ad47954acE.exit.sink.split.i.i.i.i.i.i.i" ], [ %198, %197 ]
-  %.sink.in.i.i.i.i.lcssa23.i.i.i.i.i = phi ptr [ %.lcssa.sink.i.i.i.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h5f5ca20ad47954acE.exit.sink.split.i.i.i.i.i.i.i" ], [ %194, %197 ]
+  %.sink.in.i.i.i.i.lcssa23.i.i.i.i.i = phi ptr [ %.lcssa.sink.i.i.i.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h5f5ca20ad47954acE.exit.sink.split.i.i.i.i.i.i.i" ], [ %.sink.in.i.i.i.i.lcssa24.i.i.i.i.i, %197 ]
   store i8 1, ptr %176, align 1, !alias.scope !1597, !noalias !1554
   %.not.i.i.i.i.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i.i.i.i.i, %.lcssa1920.i.i.i.i.i
   %or.cond.not.i.i.i.i.i.i.i.i = select i1 %196, i1 true, i1 %.not.i.i.i.i.i.i.i.i

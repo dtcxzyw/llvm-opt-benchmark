@@ -447,9 +447,9 @@ node_uncle.exit.thread.thread33.i:                ; preds = %20, %node_uncle.exi
   br i1 %brmerge, label %50, label %39
 
 39:                                               ; preds = %node_uncle.exit.thread.thread33.i
-  store ptr %.tr16.i, ptr %35, align 8
+  store ptr %37, ptr %35, align 8
   %40 = load ptr, ptr %.val.i, align 8
-  store ptr %40, ptr %.tr16.i, align 8
+  store ptr %40, ptr %37, align 8
   %41 = load ptr, ptr %36, align 8
   store ptr %41, ptr %.val.i, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 8
@@ -486,9 +486,9 @@ node_uncle.exit.thread.thread33.i:                ; preds = %20, %node_uncle.exi
 
 58:                                               ; preds = %54
   %..i.i = select i1 %16, ptr %55, ptr %35
-  store ptr %.tr16.i, ptr %..i.i, align 8
+  store ptr %52, ptr %..i.i, align 8
   %59 = load ptr, ptr %.val.i, align 8
-  store ptr %59, ptr %.tr16.i, align 8
+  store ptr %59, ptr %52, align 8
   %60 = load ptr, ptr %51, align 8
   store ptr %60, ptr %.val.i, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 16
@@ -563,9 +563,9 @@ node_uncle.exit.thread.thread33.i:                ; preds = %20, %node_uncle.exi
 
 92:                                               ; preds = %90, %85
   %.sink.i.i.i = phi ptr [ %91, %90 ], [ %spec.select.i.i.i, %85 ]
-  store ptr %73, ptr %.sink.i.i.i, align 8
+  store ptr %81, ptr %.sink.i.i.i, align 8
   %93 = load ptr, ptr %72, align 8
-  store ptr %93, ptr %73, align 8
+  store ptr %93, ptr %81, align 8
   %94 = load ptr, ptr %80, align 8
   store ptr %94, ptr %72, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 16

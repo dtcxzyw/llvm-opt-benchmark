@@ -82,8 +82,8 @@ while.end.i.loopexit:                             ; preds = %land.rhs.i, %while.
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.i.loopexit, %while.end
-  %sub.ptr.rhs.cast.i.pre-phi = phi i64 [ %.pre148, %while.end.i.loopexit ], [ %end145, %while.end ]
-  %begin.addr.0.lcssa.i = phi ptr [ %begin.addr.0.lcssa.i.ph, %while.end.i.loopexit ], [ %end, %while.end ]
+  %sub.ptr.rhs.cast.i.pre-phi = phi i64 [ %.pre148, %while.end.i.loopexit ], [ %begin51.i.pre-phi, %while.end ]
+  %begin.addr.0.lcssa.i = phi ptr [ %begin.addr.0.lcssa.i.ph, %while.end.i.loopexit ], [ %begin.addr.0.lcssa, %while.end ]
   %sub.ptr.sub.i = sub i64 %end145, %sub.ptr.rhs.cast.i.pre-phi
   %cmp3.i = icmp sgt i64 %sub.ptr.sub.i, 19
   %add.ptr.i = getelementptr inbounds i8, ptr %begin.addr.0.lcssa.i, i64 19
@@ -725,8 +725,8 @@ while.end.i.loopexit:                             ; preds = %land.rhs.i, %while.
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.i.loopexit, %while.end
-  %sub.ptr.rhs.cast.i.pre-phi = phi i64 [ %.pre154, %while.end.i.loopexit ], [ %end151, %while.end ]
-  %begin.addr.0.lcssa.i = phi ptr [ %begin.addr.0.lcssa.i.ph, %while.end.i.loopexit ], [ %end, %while.end ]
+  %sub.ptr.rhs.cast.i.pre-phi = phi i64 [ %.pre154, %while.end.i.loopexit ], [ %begin56.i.pre-phi, %while.end ]
+  %begin.addr.0.lcssa.i = phi ptr [ %begin.addr.0.lcssa.i.ph, %while.end.i.loopexit ], [ %begin.addr.0.lcssa, %while.end ]
   %sub.ptr.sub.i = sub i64 %end151, %sub.ptr.rhs.cast.i.pre-phi
   %cmp3.i = icmp sgt i64 %sub.ptr.sub.i, 15
   %add.ptr.i = getelementptr inbounds i8, ptr %begin.addr.0.lcssa.i, i64 15

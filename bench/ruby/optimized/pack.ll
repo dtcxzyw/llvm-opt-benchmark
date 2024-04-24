@@ -63,7 +63,7 @@ define dso_local noundef i32 @rb_uv_to_utf8(ptr nocapture noundef nonnull writeo
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = trunc i64 %1 to i8
+  %5 = trunc nuw nsw i64 %1 to i8
   store i8 %5, ptr %0, align 1
   br label %108
 
@@ -73,7 +73,7 @@ define dso_local noundef i32 @rb_uv_to_utf8(ptr nocapture noundef nonnull writeo
 
 8:                                                ; preds = %6
   %9 = lshr i64 %1, 6
-  %10 = trunc i64 %9 to i8
+  %10 = trunc nuw i64 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %0, align 1
   %12 = trunc i64 %1 to i8
@@ -89,7 +89,7 @@ define dso_local noundef i32 @rb_uv_to_utf8(ptr nocapture noundef nonnull writeo
 
 18:                                               ; preds = %16
   %19 = lshr i64 %1, 12
-  %20 = trunc i64 %19 to i8
+  %20 = trunc nuw i64 %19 to i8
   %21 = or disjoint i8 %20, -32
   store i8 %21, ptr %0, align 1
   %22 = lshr i64 %1, 6
@@ -111,7 +111,7 @@ define dso_local noundef i32 @rb_uv_to_utf8(ptr nocapture noundef nonnull writeo
 
 33:                                               ; preds = %31
   %34 = lshr i64 %1, 18
-  %35 = trunc i64 %34 to i8
+  %35 = trunc nuw i64 %34 to i8
   %36 = or disjoint i8 %35, -16
   store i8 %36, ptr %0, align 1
   %37 = lshr i64 %1, 12
@@ -139,11 +139,11 @@ define dso_local noundef i32 @rb_uv_to_utf8(ptr nocapture noundef nonnull writeo
 
 53:                                               ; preds = %51
   %54 = lshr i64 %1, 24
-  %55 = trunc i64 %54 to i8
+  %55 = trunc nuw i64 %54 to i8
   %56 = or disjoint i8 %55, -8
   store i8 %56, ptr %0, align 1
   %57 = lshr i64 %1, 18
-  %58 = trunc i64 %57 to i8
+  %58 = trunc nuw i64 %57 to i8
   %59 = and i8 %58, 63
   %60 = or disjoint i8 %59, -128
   %61 = getelementptr i8, ptr %0, i64 1
@@ -173,11 +173,11 @@ define dso_local noundef i32 @rb_uv_to_utf8(ptr nocapture noundef nonnull writeo
 
 78:                                               ; preds = %76
   %79 = lshr i64 %1, 30
-  %80 = trunc i64 %79 to i8
+  %80 = trunc nuw i64 %79 to i8
   %81 = or disjoint i8 %80, -4
   store i8 %81, ptr %0, align 1
   %82 = lshr i64 %1, 24
-  %83 = trunc i64 %82 to i8
+  %83 = trunc nuw i64 %82 to i8
   %84 = and i8 %83, 63
   %85 = or disjoint i8 %84, -128
   %86 = getelementptr i8, ptr %0, i64 1
@@ -771,7 +771,7 @@ RSTRING_PTR.exit424:                              ; preds = %172, %179
   br label %228
 
 225:                                              ; preds = %.lr.ph778
-  %226 = trunc i32 %spec.select412 to i8
+  %226 = trunc nuw i32 %spec.select412 to i8
   store i8 %226, ptr %9, align 1
   %227 = call i64 @rb_str_cat(i64 noundef %.0312, ptr noundef nonnull %9, i64 noundef 1) #14
   br label %228
@@ -790,7 +790,7 @@ RSTRING_PTR.exit424:                              ; preds = %172, %179
   br i1 %.not405, label %484, label %232
 
 232:                                              ; preds = %._crit_edge779
-  %233 = trunc i64 %231 to i32
+  %233 = trunc nuw nsw i64 %231 to i32
   %234 = xor i32 %233, 7
   %235 = lshr i32 %.0330.lcssa, %234
   %236 = trunc i32 %235 to i8
@@ -849,7 +849,7 @@ RSTRING_PTR.exit424:                              ; preds = %172, %179
   br i1 %.not403, label %484, label %259
 
 259:                                              ; preds = %._crit_edge773
-  %260 = trunc i64 %258 to i32
+  %260 = trunc nuw nsw i64 %258 to i32
   %261 = xor i32 %260, 7
   %262 = shl i32 %.0326.lcssa, %261
   %263 = trunc i32 %262 to i8
@@ -898,7 +898,7 @@ RSTRING_PTR.exit424:                              ; preds = %172, %179
   br label %286
 
 283:                                              ; preds = %.lr.ph766
-  %284 = trunc i32 %.1322 to i8
+  %284 = trunc nuw i32 %.1322 to i8
   store i8 %284, ptr %13, align 1
   %285 = call i64 @rb_str_cat(i64 noundef %.0312, ptr noundef nonnull %13, i64 noundef 1) #14
   br label %286
@@ -917,7 +917,7 @@ RSTRING_PTR.exit424:                              ; preds = %172, %179
   br i1 %.not399, label %484, label %290
 
 290:                                              ; preds = %._crit_edge767
-  %291 = trunc i32 %.0321.lcssa to i8
+  %291 = trunc nuw nsw i32 %.0321.lcssa to i8
   store i8 %291, ptr %14, align 1
   br label %.sink.split
 
@@ -2853,7 +2853,7 @@ RSTRING_PTR.exit965:                              ; preds = %._crit_edge1684, %1
 178:                                              ; preds = %174, %172
   %.1817 = phi i32 [ %173, %172 ], [ %177, %174 ]
   %.2 = phi ptr [ %.17181439, %172 ], [ %175, %174 ]
-  %179 = trunc i32 %.1817 to i8
+  %179 = trunc nuw i32 %.1817 to i8
   %180 = and i8 %179, 1
   %181 = or disjoint i8 %180, 48
   %182 = getelementptr i8, ptr %.08151438, i64 1
@@ -4477,7 +4477,7 @@ thread-pre-split.thread:                          ; preds = %897, %thread-pre-sp
   %.0777.lcssa.ph = phi ptr [ %.1778, %thread-pre-split.thread ], [ %.07771301, %889 ], [ %.07771301, %thread-pre-split.thread1717 ], [ %.07771301, %906 ], [ %.07771301, %909 ]
   %.0774.lcssa.ph = phi i32 [ %.1775, %thread-pre-split.thread ], [ %.07741302, %889 ], [ %.07741302, %thread-pre-split.thread1717 ], [ %.07741302, %906 ], [ %.07741302, %909 ]
   %.35.lcssa.ph = phi ptr [ %928, %thread-pre-split.thread ], [ %.351303, %889 ], [ %.351303, %thread-pre-split.thread1717 ], [ %.351303, %906 ], [ %.351303, %909 ]
-  %.38.ph = phi ptr [ %928, %thread-pre-split.thread ], [ %28, %889 ], [ %890, %thread-pre-split.thread1717 ], [ %28, %906 ], [ %907, %909 ]
+  %.38.ph = phi ptr [ %928, %thread-pre-split.thread ], [ %890, %889 ], [ %890, %thread-pre-split.thread1717 ], [ %907, %906 ], [ %907, %909 ]
   %.pre1676 = load i64, ptr %881, align 8, !noalias !110
   %.pre1679 = and i64 %.pre1676, 8192
   br label %._crit_edge

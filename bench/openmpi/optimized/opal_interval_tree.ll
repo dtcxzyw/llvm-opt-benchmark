@@ -729,7 +729,7 @@ tailrecurse.backedge.i.i:                         ; preds = %left_rotate.exit47.
   br i1 %204, label %205, label %223
 
 205:                                              ; preds = %201
-  %206 = getelementptr inbounds i8, ptr %.tr5051.i.i, i64 72
+  %206 = getelementptr inbounds i8, ptr %203, i64 72
   %207 = load ptr, ptr %206, align 8
   %.not.i.i.i31 = icmp eq ptr %207, %126
   br i1 %.not.i.i.i31, label %left_rotate.exit.i.i, label %208
@@ -740,7 +740,7 @@ tailrecurse.backedge.i.i:                         ; preds = %left_rotate.exit47.
   br label %left_rotate.exit.i.i
 
 left_rotate.exit.i.i:                             ; preds = %208, %205
-  store ptr %.tr5051.i.i, ptr %177, align 8
+  store ptr %203, ptr %177, align 8
   %210 = load ptr, ptr %206, align 8
   store ptr %210, ptr %202, align 8
   %211 = getelementptr inbounds i8, ptr %176, i64 112
@@ -758,8 +758,8 @@ left_rotate.exit.i.i:                             ; preds = %208, %205
   %220 = icmp eq ptr %219, %176
   %.sink.i.i.i = select i1 %220, ptr %179, ptr %183
   fence release
-  store ptr %.tr5051.i.i, ptr %.sink.i.i.i, align 8
-  %221 = getelementptr inbounds i8, ptr %.tr5051.i.i, i64 64
+  store ptr %203, ptr %.sink.i.i.i, align 8
+  %221 = getelementptr inbounds i8, ptr %203, i64 64
   store ptr %178, ptr %221, align 8
   %222 = load ptr, ptr %177, align 8
   %.phi.trans.insert52.i.i = getelementptr inbounds i8, ptr %222, i64 64
@@ -792,7 +792,7 @@ left_rotate.exit.i.i:                             ; preds = %208, %205
   br label %right_rotate.exit.i.i
 
 right_rotate.exit.i.i:                            ; preds = %235, %223
-  %237 = phi ptr [ %.pre.i.i.i, %235 ], [ %126, %223 ]
+  %237 = phi ptr [ %.pre.i.i.i, %235 ], [ %234, %223 ]
   store ptr %237, ptr %229, align 8
   store ptr %230, ptr %231, align 8
   fence release
@@ -819,7 +819,7 @@ right_rotate.exit.i.i:                            ; preds = %235, %223
   br i1 %248, label %249, label %263
 
 249:                                              ; preds = %.thread49.i.i
-  %250 = getelementptr inbounds i8, ptr %.tr5051.i.i, i64 80
+  %250 = getelementptr inbounds i8, ptr %247, i64 80
   %251 = load ptr, ptr %250, align 8
   %.not.i41.i.i = icmp eq ptr %251, %126
   br i1 %.not.i41.i.i, label %right_rotate.exit44.i.i, label %252
@@ -831,23 +831,23 @@ right_rotate.exit.i.i:                            ; preds = %235, %223
   br label %right_rotate.exit44.i.i
 
 right_rotate.exit44.i.i:                          ; preds = %252, %249
-  %254 = phi ptr [ %.pre.i42.i.i, %252 ], [ %126, %249 ]
+  %254 = phi ptr [ %.pre.i42.i.i, %252 ], [ %251, %249 ]
   store ptr %254, ptr %246, align 8
-  store ptr %.tr5051.i.i, ptr %177, align 8
+  store ptr %247, ptr %177, align 8
   fence release
   store ptr %176, ptr %250, align 8
   %255 = getelementptr inbounds i8, ptr %176, i64 120
   %256 = load i64, ptr %255, align 8
-  %257 = getelementptr inbounds i8, ptr %.tr5051.i.i, i64 120
+  %257 = getelementptr inbounds i8, ptr %247, i64 120
   store i64 %256, ptr %257, align 8
-  %258 = getelementptr inbounds i8, ptr %.tr5051.i.i, i64 64
+  %258 = getelementptr inbounds i8, ptr %247, i64 64
   store ptr %178, ptr %258, align 8
   %259 = load ptr, ptr %179, align 8
   %260 = icmp eq ptr %259, %176
   %261 = getelementptr inbounds i8, ptr %178, i64 80
   %.sink.i43.i.i = select i1 %260, ptr %179, ptr %261
   fence release
-  store ptr %.tr5051.i.i, ptr %.sink.i43.i.i, align 8
+  store ptr %247, ptr %.sink.i43.i.i, align 8
   %262 = load ptr, ptr %177, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %262, i64 64
   %.pre.i.i30 = load ptr, ptr %.phi.trans.insert.i.i, align 8
@@ -1242,504 +1242,494 @@ opal_interval_tree_find_node.exit:                ; preds = %35, %21
   %53 = icmp eq ptr %52, %17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.0.i.i, i64 80
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %53, label %opal_interval_tree_find_node.exit._crit_edge, label %54
+  %54 = icmp eq ptr %.pre, %17
+  %or.cond = select i1 %53, i1 true, i1 %54
+  %55 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
+  %58 = load i32, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %56, i64 80
+  %60 = load ptr, ptr %59, align 8
+  br i1 %or.cond, label %opal_interval_tree_find_node.exit._crit_edge, label %83
 
-54:                                               ; preds = %opal_interval_tree_find_node.exit
-  %55 = icmp eq ptr %.pre, %17
-  br i1 %55, label %opal_interval_tree_find_node.exit._crit_edge, label %85
-
-opal_interval_tree_find_node.exit._crit_edge:     ; preds = %opal_interval_tree_find_node.exit, %54
-  %56 = phi ptr [ %17, %54 ], [ %.pre, %opal_interval_tree_find_node.exit ]
-  %57 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
-  %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %58, i64 80
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, %.0.i.i
-  %64 = getelementptr inbounds i8, ptr %58, i64 72
-  %65 = select i1 %63, ptr %61, ptr %64
-  %66 = icmp eq ptr %56, %17
-  %spec.select = select i1 %66, ptr %52, ptr %56
-  %67 = getelementptr inbounds i8, ptr %spec.select, i64 64
-  store ptr %58, ptr %67, align 8
+opal_interval_tree_find_node.exit._crit_edge:     ; preds = %opal_interval_tree_find_node.exit
+  %61 = icmp eq ptr %60, %.0.i.i
+  %62 = getelementptr inbounds i8, ptr %56, i64 72
+  %63 = select i1 %61, ptr %59, ptr %62
+  %64 = icmp eq ptr %.pre, %17
+  %spec.select = select i1 %64, ptr %52, ptr %.pre
+  %65 = getelementptr inbounds i8, ptr %spec.select, i64 64
+  store ptr %56, ptr %65, align 8
   fence release
-  store ptr %spec.select, ptr %65, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 640
-  %69 = getelementptr inbounds i8, ptr %0, i64 664
-  %70 = load volatile ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
-  store volatile ptr %70, ptr %71, align 8
-  %72 = load volatile ptr, ptr %69, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
-  store volatile ptr %.0.i.i, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
-  store volatile ptr %68, ptr %74, align 8
-  store volatile ptr %.0.i.i, ptr %69, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 680
-  %76 = load volatile i64, ptr %75, align 8
-  %77 = add i64 %76, 1
-  store volatile i64 %77, ptr %75, align 8
-  %78 = icmp eq i32 %60, 1
-  br i1 %78, label %79, label %opal_interval_tree_delete_leaf.exit
+  store ptr %spec.select, ptr %63, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 640
+  %67 = getelementptr inbounds i8, ptr %0, i64 664
+  %68 = load volatile ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  store volatile ptr %68, ptr %69, align 8
+  %70 = load volatile ptr, ptr %67, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  store volatile ptr %.0.i.i, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  store volatile ptr %66, ptr %72, align 8
+  store volatile ptr %.0.i.i, ptr %67, align 8
+  %73 = getelementptr inbounds i8, ptr %0, i64 680
+  %74 = load volatile i64, ptr %73, align 8
+  %75 = add i64 %74, 1
+  store volatile i64 %75, ptr %73, align 8
+  %76 = icmp eq i32 %58, 1
+  br i1 %76, label %77, label %opal_interval_tree_delete_leaf.exit
 
-79:                                               ; preds = %opal_interval_tree_find_node.exit._crit_edge
-  %80 = getelementptr inbounds i8, ptr %spec.select, i64 56
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %83, label %84
+77:                                               ; preds = %opal_interval_tree_find_node.exit._crit_edge
+  %78 = getelementptr inbounds i8, ptr %spec.select, i64 56
+  %79 = load i32, ptr %78, align 8
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %82
 
-83:                                               ; preds = %79
-  store i32 1, ptr %80, align 8
+81:                                               ; preds = %77
+  store i32 1, ptr %78, align 8
   br label %opal_interval_tree_delete_leaf.exit
 
-84:                                               ; preds = %79
-  tail call fastcc void @opal_interval_tree_delete_fixup(ptr noundef nonnull %0, ptr noundef nonnull %spec.select, ptr noundef nonnull %58)
+82:                                               ; preds = %77
+  tail call fastcc void @opal_interval_tree_delete_fixup(ptr noundef nonnull %0, ptr noundef nonnull %spec.select, ptr noundef nonnull %56)
   br label %opal_interval_tree_delete_leaf.exit
 
-85:                                               ; preds = %54
-  %86 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
-  %89 = load i32, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %87, i64 80
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %87, i64 72
+83:                                               ; preds = %opal_interval_tree_find_node.exit
+  %84 = getelementptr inbounds i8, ptr %56, i64 72
   br label %.preheader22.i.i
 
-.preheader22.i.i:                                 ; preds = %85, %.preheader22.i.i
-  %.1.i.i = phi ptr [ %94, %.preheader22.i.i ], [ %.pre, %85 ]
-  %93 = getelementptr inbounds i8, ptr %.1.i.i, i64 72
-  %94 = load ptr, ptr %93, align 8
-  %.not.i.i19 = icmp eq ptr %94, %17
+.preheader22.i.i:                                 ; preds = %83, %.preheader22.i.i
+  %.1.i.i = phi ptr [ %86, %.preheader22.i.i ], [ %.pre, %83 ]
+  %85 = getelementptr inbounds i8, ptr %.1.i.i, i64 72
+  %86 = load ptr, ptr %85, align 8
+  %.not.i.i19 = icmp eq ptr %86, %17
   br i1 %.not.i.i19, label %opal_interval_tree_next.exit.i, label %.preheader22.i.i, !llvm.loop !14
 
 opal_interval_tree_next.exit.i:                   ; preds = %.preheader22.i.i
-  %95 = getelementptr inbounds i8, ptr %.1.i.i, i64 72
-  %96 = icmp eq ptr %91, %.0.i.i
-  %97 = select i1 %96, ptr %90, ptr %92
+  %87 = getelementptr inbounds i8, ptr %.1.i.i, i64 72
+  %88 = icmp eq ptr %60, %.0.i.i
+  %89 = select i1 %88, ptr %59, ptr %84
   %.not.i = icmp eq ptr %.1.i.i, %.pre
-  br i1 %.not.i, label %258, label %98
+  br i1 %.not.i, label %250, label %90
 
-98:                                               ; preds = %opal_interval_tree_next.exit.i
-  %99 = getelementptr inbounds i8, ptr %0, i64 272
+90:                                               ; preds = %opal_interval_tree_next.exit.i
+  %91 = getelementptr inbounds i8, ptr %0, i64 272
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %100 = load i8, ptr @opal_uses_threads, align 1
-  %101 = trunc i8 %100 to i1
-  br i1 %101, label %102, label %120
+  %92 = load i8, ptr @opal_uses_threads, align 1
+  %93 = trunc i8 %92 to i1
+  br i1 %93, label %94, label %112
 
-102:                                              ; preds = %98
+94:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i.i.i.i)
-  %103 = getelementptr inbounds i8, ptr %0, i64 288
-  store volatile ptr %103, ptr %8, align 8
+  %95 = getelementptr inbounds i8, ptr %0, i64 288
+  store volatile ptr %95, ptr %8, align 8
   %.0..0..0..0..0..0..0..0..0..0..0..0..0..0.10.i.i.i.i.i = load volatile ptr, ptr %8, align 8
-  %104 = load volatile i64, ptr %.0..0..0..0..0..0..0..0..0..0..0..0..0..0.10.i.i.i.i.i, align 16
+  %96 = load volatile i64, ptr %.0..0..0..0..0..0..0..0..0..0..0..0..0..0.10.i.i.i.i.i, align 16
   fence acquire
   %.0..0..0..0..0..0..0..0..0..0..0..0..0..0.11.i.i.i.i.i = load volatile ptr, ptr %8, align 8
-  %105 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0..0..0..0..0..0..0..0..0.11.i.i.i.i.i, i64 8
-  %106 = load volatile i64, ptr %105, align 8
-  store volatile i64 %106, ptr %.sroa.4.i.i.i.i.i, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 304
+  %97 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0..0..0..0..0..0..0..0..0.11.i.i.i.i.i, i64 8
+  %98 = load volatile i64, ptr %97, align 8
+  store volatile i64 %98, ptr %.sroa.4.i.i.i.i.i, align 8
+  %99 = getelementptr inbounds i8, ptr %0, i64 304
   %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i.i.i.i = load volatile i64, ptr %.sroa.4.i.i.i.i.i, align 8
-  %108 = inttoptr i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i.i.i.i to ptr
-  %109 = icmp eq ptr %107, %108
-  br i1 %109, label %opal_lifo_pop.exit.thread50.i.i.i, label %.lr.ph.i.i.i.i.i
+  %100 = inttoptr i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i.i.i.i to ptr
+  %101 = icmp eq ptr %99, %100
+  br i1 %101, label %opal_lifo_pop.exit.thread50.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %102, %opal_update_counted_pointer.exit.i.i.i.i.i
-  %110 = phi ptr [ %118, %opal_update_counted_pointer.exit.i.i.i.i.i ], [ %108, %102 ]
-  %.sroa.4.0..sroa.4.8.19.i.i.i.i.i = phi i64 [ %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, %opal_update_counted_pointer.exit.i.i.i.i.i ], [ %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i.i.i.i, %102 ]
-  %.sroa.0.018.i.i.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %opal_update_counted_pointer.exit.i.i.i.i.i ], [ %104, %102 ]
-  %111 = getelementptr inbounds i8, ptr %110, i64 16
-  %112 = load volatile ptr, ptr %111, align 8
+.lr.ph.i.i.i.i.i:                                 ; preds = %94, %opal_update_counted_pointer.exit.i.i.i.i.i
+  %102 = phi ptr [ %110, %opal_update_counted_pointer.exit.i.i.i.i.i ], [ %100, %94 ]
+  %.sroa.4.0..sroa.4.8.19.i.i.i.i.i = phi i64 [ %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, %opal_update_counted_pointer.exit.i.i.i.i.i ], [ %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i.i.i.i, %94 ]
+  %.sroa.0.018.i.i.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %opal_update_counted_pointer.exit.i.i.i.i.i ], [ %96, %94 ]
+  %103 = getelementptr inbounds i8, ptr %102, i64 16
+  %104 = load volatile ptr, ptr %103, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i.i.i)
-  store volatile ptr %103, ptr %7, align 8
-  %113 = ptrtoint ptr %112 to i64
-  store volatile i64 %113, ptr %.sroa.22.i.i.i.i.i.i, align 8
-  %114 = add i64 %.sroa.0.018.i.i.i.i.i, 1
+  store volatile ptr %95, ptr %7, align 8
+  %105 = ptrtoint ptr %104 to i64
+  store volatile i64 %105, ptr %.sroa.22.i.i.i.i.i.i, align 8
+  %106 = add i64 %.sroa.0.018.i.i.i.i.i, 1
   %.0..0..0..0..0..0..0..0..0..0..0..0..0..0..0..0.5.i.i.i.i.i.i = load volatile ptr, ptr %7, align 8
-  %.sroa.2.0.insert.ext.i.i.i.i.i.i.i = zext i64 %113 to i128
+  %.sroa.2.0.insert.ext.i.i.i.i.i.i.i = zext i64 %105 to i128
   %.sroa.2.0.insert.shift.i.i.i.i.i.i.i = shl nuw i128 %.sroa.2.0.insert.ext.i.i.i.i.i.i.i, 64
-  %.sroa.0.0.insert.ext.i.i.i.i.i.i.i = zext i64 %114 to i128
+  %.sroa.0.0.insert.ext.i.i.i.i.i.i.i = zext i64 %106 to i128
   %.sroa.0.0.insert.insert.i.i.i.i.i.i.i = or disjoint i128 %.sroa.2.0.insert.shift.i.i.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i.i
   %.sroa.4.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.4.0..sroa.4.8.19.i.i.i.i.i to i128
   %.sroa.4.0.insert.shift.i.i.i.i.i = shl nuw i128 %.sroa.4.0.insert.ext.i.i.i.i.i, 64
   %.sroa.0.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.0.018.i.i.i.i.i to i128
   %.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i128 %.sroa.4.0.insert.shift.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i
-  %115 = cmpxchg volatile ptr %.0..0..0..0..0..0..0..0..0..0..0..0..0..0..0..0.5.i.i.i.i.i.i, i128 %.sroa.0.0.insert.insert.i.i.i.i.i, i128 %.sroa.0.0.insert.insert.i.i.i.i.i.i.i acquire monotonic, align 16
-  %116 = extractvalue { i128, i1 } %115, 1
-  br i1 %116, label %opal_lifo_pop.exit.i.i.i, label %opal_update_counted_pointer.exit.i.i.i.i.i
+  %107 = cmpxchg volatile ptr %.0..0..0..0..0..0..0..0..0..0..0..0..0..0..0..0.5.i.i.i.i.i.i, i128 %.sroa.0.0.insert.insert.i.i.i.i.i, i128 %.sroa.0.0.insert.insert.i.i.i.i.i.i.i acquire monotonic, align 16
+  %108 = extractvalue { i128, i1 } %107, 1
+  br i1 %108, label %opal_lifo_pop.exit.i.i.i, label %opal_update_counted_pointer.exit.i.i.i.i.i
 
 opal_update_counted_pointer.exit.i.i.i.i.i:       ; preds = %.lr.ph.i.i.i.i.i
-  %117 = extractvalue { i128, i1 } %115, 0
-  %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i128 %117 to i64
-  %.sroa.4.0.extract.shift.i.i.i.i.i = lshr i128 %117, 64
+  %109 = extractvalue { i128, i1 } %107, 0
+  %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i128 %109 to i64
+  %.sroa.4.0.extract.shift.i.i.i.i.i = lshr i128 %109, 64
   %.sroa.4.0.extract.trunc.i.i.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i.i.i.i, ptr %.sroa.4.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i.i.i)
   %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i = load volatile i64, ptr %.sroa.4.i.i.i.i.i, align 8
-  %118 = inttoptr i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i to ptr
-  %119 = icmp eq ptr %107, %118
-  br i1 %119, label %opal_lifo_pop.exit.thread50.i.i.i, label %.lr.ph.i.i.i.i.i
+  %110 = inttoptr i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i to ptr
+  %111 = icmp eq ptr %99, %110
+  br i1 %111, label %opal_lifo_pop.exit.thread50.i.i.i, label %.lr.ph.i.i.i.i.i
 
-120:                                              ; preds = %98
-  %121 = getelementptr inbounds i8, ptr %0, i64 296
-  %122 = load volatile i64, ptr %121, align 8
-  %123 = inttoptr i64 %122 to ptr
-  %124 = getelementptr inbounds i8, ptr %123, i64 16
-  %125 = load volatile ptr, ptr %124, align 8
-  %126 = ptrtoint ptr %125 to i64
-  store volatile i64 %126, ptr %121, align 8
-  %127 = getelementptr inbounds i8, ptr %0, i64 304
-  %128 = icmp eq ptr %127, %123
-  br i1 %128, label %.lr.ph.i.i.i, label %opal_lifo_pop.exit.thread48.i.i.i
+112:                                              ; preds = %90
+  %113 = getelementptr inbounds i8, ptr %0, i64 296
+  %114 = load volatile i64, ptr %113, align 8
+  %115 = inttoptr i64 %114 to ptr
+  %116 = getelementptr inbounds i8, ptr %115, i64 16
+  %117 = load volatile ptr, ptr %116, align 8
+  %118 = ptrtoint ptr %117 to i64
+  store volatile i64 %118, ptr %113, align 8
+  %119 = getelementptr inbounds i8, ptr %0, i64 304
+  %120 = icmp eq ptr %119, %115
+  br i1 %120, label %.lr.ph.i.i.i, label %opal_lifo_pop.exit.thread48.i.i.i
 
-opal_lifo_pop.exit.thread48.i.i.i:                ; preds = %120
-  store volatile ptr null, ptr %124, align 8
-  %129 = getelementptr inbounds i8, ptr %123, i64 32
-  store i32 1, ptr %129, align 8
+opal_lifo_pop.exit.thread48.i.i.i:                ; preds = %112
+  store volatile ptr null, ptr %116, align 8
+  %121 = getelementptr inbounds i8, ptr %115, i64 32
+  store i32 1, ptr %121, align 8
   br label %opal_interval_tree_node_copy.exit.i
 
-opal_lifo_pop.exit.thread50.i.i.i:                ; preds = %opal_update_counted_pointer.exit.i.i.i.i.i, %102
+opal_lifo_pop.exit.thread50.i.i.i:                ; preds = %opal_update_counted_pointer.exit.i.i.i.i.i, %94
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i.i.i.i)
   br label %.lr.ph.i.i.i
 
 opal_lifo_pop.exit.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i
-  %130 = getelementptr inbounds i8, ptr %110, i64 16
+  %122 = getelementptr inbounds i8, ptr %102, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i.i.i)
   fence release
-  store volatile ptr null, ptr %130, align 8
+  store volatile ptr null, ptr %122, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i.i.i.i)
   br label %opal_interval_tree_node_copy.exit.i
 
-.lr.ph.i.i.i:                                     ; preds = %opal_lifo_pop.exit.thread50.i.i.i, %120
+.lr.ph.i.i.i:                                     ; preds = %opal_lifo_pop.exit.thread50.i.i.i, %112
   store ptr null, ptr %9, align 8
-  %131 = getelementptr inbounds i8, ptr %0, i64 352
-  %132 = getelementptr inbounds i8, ptr %0, i64 360
-  %133 = getelementptr inbounds i8, ptr %0, i64 368
-  %134 = getelementptr inbounds i8, ptr %0, i64 296
-  %135 = getelementptr inbounds i8, ptr %0, i64 304
-  %136 = getelementptr inbounds i8, ptr %0, i64 288
+  %123 = getelementptr inbounds i8, ptr %0, i64 352
+  %124 = getelementptr inbounds i8, ptr %0, i64 360
+  %125 = getelementptr inbounds i8, ptr %0, i64 368
+  %126 = getelementptr inbounds i8, ptr %0, i64 296
+  %127 = getelementptr inbounds i8, ptr %0, i64 304
+  %128 = getelementptr inbounds i8, ptr %0, i64 288
+  br label %129
+
+129:                                              ; preds = %170, %.lr.ph.i.i.i
+  %130 = load i64, ptr %123, align 16
+  %131 = load i64, ptr %124, align 8
+  %.not.i.i.i20 = icmp ugt i64 %130, %131
+  br i1 %.not.i.i.i20, label %132, label %135
+
+132:                                              ; preds = %129
+  %133 = load i64, ptr %125, align 16
+  %134 = call i32 @opal_free_list_grow_st(ptr noundef nonnull %91, i64 noundef %133, ptr noundef nonnull %9) #14
+  %.not6.i.i.i = icmp eq i32 %134, 0
+  br i1 %.not6.i.i.i, label %137, label %135
+
+135:                                              ; preds = %132, %129
+  %136 = call i32 @opal_progress() #14
   br label %137
 
-137:                                              ; preds = %178, %.lr.ph.i.i.i
-  %138 = load i64, ptr %131, align 16
-  %139 = load i64, ptr %132, align 8
-  %.not.i.i.i20 = icmp ugt i64 %138, %139
-  br i1 %.not.i.i.i20, label %140, label %143
+137:                                              ; preds = %135, %132
+  %138 = load ptr, ptr %9, align 8
+  %139 = icmp eq ptr %138, null
+  br i1 %139, label %140, label %opal_interval_tree_node_copy.exit.i
 
 140:                                              ; preds = %137
-  %141 = load i64, ptr %133, align 16
-  %142 = call i32 @opal_free_list_grow_st(ptr noundef nonnull %99, i64 noundef %141, ptr noundef nonnull %9) #14
-  %.not6.i.i.i = icmp eq i32 %142, 0
-  br i1 %.not6.i.i.i, label %145, label %143
+  %141 = load i8, ptr @opal_uses_threads, align 1
+  %142 = trunc i8 %141 to i1
+  br i1 %142, label %143, label %161
 
-143:                                              ; preds = %140, %137
-  %144 = call i32 @opal_progress() #14
-  br label %145
-
-145:                                              ; preds = %143, %140
-  %146 = load ptr, ptr %9, align 8
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %148, label %opal_interval_tree_node_copy.exit.i
-
-148:                                              ; preds = %145
-  %149 = load i8, ptr @opal_uses_threads, align 1
-  %150 = trunc i8 %149 to i1
-  br i1 %150, label %151, label %169
-
-151:                                              ; preds = %148
+143:                                              ; preds = %140
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i8.i.i.i)
-  store volatile ptr %136, ptr %6, align 8
+  store volatile ptr %128, ptr %6, align 8
   %.0..0..0..0..0..0..0..0..0..0..0..0..0..0.10.i.i10.i.i.i = load volatile ptr, ptr %6, align 8
-  %152 = load volatile i64, ptr %.0..0..0..0..0..0..0..0..0..0..0..0..0..0.10.i.i10.i.i.i, align 16
+  %144 = load volatile i64, ptr %.0..0..0..0..0..0..0..0..0..0..0..0..0..0.10.i.i10.i.i.i, align 16
   fence acquire
   %.0..0..0..0..0..0..0..0..0..0..0..0..0..0.11.i.i11.i.i.i = load volatile ptr, ptr %6, align 8
-  %153 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0..0..0..0..0..0..0..0..0.11.i.i11.i.i.i, i64 8
-  %154 = load volatile i64, ptr %153, align 8
-  store volatile i64 %154, ptr %.sroa.4.i.i8.i.i.i, align 8
+  %145 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0..0..0..0..0..0..0..0..0.11.i.i11.i.i.i, i64 8
+  %146 = load volatile i64, ptr %145, align 8
+  store volatile i64 %146, ptr %.sroa.4.i.i8.i.i.i, align 8
   %.sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i12.i.i.i = load volatile i64, ptr %.sroa.4.i.i8.i.i.i, align 8
-  %155 = inttoptr i64 %.sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i12.i.i.i to ptr
-  %156 = icmp eq ptr %135, %155
-  br i1 %156, label %opal_lifo_pop_atomic.exit.i30.i.i.i, label %.lr.ph.i.i13.i.i.i
+  %147 = inttoptr i64 %.sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i12.i.i.i to ptr
+  %148 = icmp eq ptr %127, %147
+  br i1 %148, label %opal_lifo_pop_atomic.exit.i30.i.i.i, label %.lr.ph.i.i13.i.i.i
 
-.lr.ph.i.i13.i.i.i:                               ; preds = %151, %opal_update_counted_pointer.exit.i.i25.i.i.i
-  %157 = phi ptr [ %165, %opal_update_counted_pointer.exit.i.i25.i.i.i ], [ %155, %151 ]
-  %.sroa.4.0..sroa.4.8.19.i.i14.i.i.i = phi i64 [ %.sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i29.i.i.i, %opal_update_counted_pointer.exit.i.i25.i.i.i ], [ %.sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i12.i.i.i, %151 ]
-  %.sroa.0.018.i.i15.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i26.i.i.i, %opal_update_counted_pointer.exit.i.i25.i.i.i ], [ %152, %151 ]
-  %158 = getelementptr inbounds i8, ptr %157, i64 16
-  %159 = load volatile ptr, ptr %158, align 8
+.lr.ph.i.i13.i.i.i:                               ; preds = %143, %opal_update_counted_pointer.exit.i.i25.i.i.i
+  %149 = phi ptr [ %157, %opal_update_counted_pointer.exit.i.i25.i.i.i ], [ %147, %143 ]
+  %.sroa.4.0..sroa.4.8.19.i.i14.i.i.i = phi i64 [ %.sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i29.i.i.i, %opal_update_counted_pointer.exit.i.i25.i.i.i ], [ %.sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.17.i.i12.i.i.i, %143 ]
+  %.sroa.0.018.i.i15.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i26.i.i.i, %opal_update_counted_pointer.exit.i.i25.i.i.i ], [ %144, %143 ]
+  %150 = getelementptr inbounds i8, ptr %149, i64 16
+  %151 = load volatile ptr, ptr %150, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.22.i.i.i7.i.i.i)
-  store volatile ptr %136, ptr %5, align 8
-  %160 = ptrtoint ptr %159 to i64
-  store volatile i64 %160, ptr %.sroa.22.i.i.i7.i.i.i, align 8
-  %161 = add i64 %.sroa.0.018.i.i15.i.i.i, 1
+  store volatile ptr %128, ptr %5, align 8
+  %152 = ptrtoint ptr %151 to i64
+  store volatile i64 %152, ptr %.sroa.22.i.i.i7.i.i.i, align 8
+  %153 = add i64 %.sroa.0.018.i.i15.i.i.i, 1
   %.0..0..0..0..0..0..0..0..0..0..0..0..0..0..0..0.5.i.i.i16.i.i.i = load volatile ptr, ptr %5, align 8
-  %.sroa.2.0.insert.ext.i.i.i.i17.i.i.i = zext i64 %160 to i128
+  %.sroa.2.0.insert.ext.i.i.i.i17.i.i.i = zext i64 %152 to i128
   %.sroa.2.0.insert.shift.i.i.i.i18.i.i.i = shl nuw i128 %.sroa.2.0.insert.ext.i.i.i.i17.i.i.i, 64
-  %.sroa.0.0.insert.ext.i.i.i.i19.i.i.i = zext i64 %161 to i128
+  %.sroa.0.0.insert.ext.i.i.i.i19.i.i.i = zext i64 %153 to i128
   %.sroa.0.0.insert.insert.i.i.i.i20.i.i.i = or disjoint i128 %.sroa.2.0.insert.shift.i.i.i.i18.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i19.i.i.i
   %.sroa.4.0.insert.ext.i.i21.i.i.i = zext i64 %.sroa.4.0..sroa.4.8.19.i.i14.i.i.i to i128
   %.sroa.4.0.insert.shift.i.i22.i.i.i = shl nuw i128 %.sroa.4.0.insert.ext.i.i21.i.i.i, 64
   %.sroa.0.0.insert.ext.i.i23.i.i.i = zext i64 %.sroa.0.018.i.i15.i.i.i to i128
   %.sroa.0.0.insert.insert.i.i24.i.i.i = or disjoint i128 %.sroa.4.0.insert.shift.i.i22.i.i.i, %.sroa.0.0.insert.ext.i.i23.i.i.i
-  %162 = cmpxchg volatile ptr %.0..0..0..0..0..0..0..0..0..0..0..0..0..0..0..0.5.i.i.i16.i.i.i, i128 %.sroa.0.0.insert.insert.i.i24.i.i.i, i128 %.sroa.0.0.insert.insert.i.i.i.i20.i.i.i acquire monotonic, align 16
-  %163 = extractvalue { i128, i1 } %162, 1
-  br i1 %163, label %167, label %opal_update_counted_pointer.exit.i.i25.i.i.i
+  %154 = cmpxchg volatile ptr %.0..0..0..0..0..0..0..0..0..0..0..0..0..0..0..0.5.i.i.i16.i.i.i, i128 %.sroa.0.0.insert.insert.i.i24.i.i.i, i128 %.sroa.0.0.insert.insert.i.i.i.i20.i.i.i acquire monotonic, align 16
+  %155 = extractvalue { i128, i1 } %154, 1
+  br i1 %155, label %159, label %opal_update_counted_pointer.exit.i.i25.i.i.i
 
 opal_update_counted_pointer.exit.i.i25.i.i.i:     ; preds = %.lr.ph.i.i13.i.i.i
-  %164 = extractvalue { i128, i1 } %162, 0
-  %.sroa.0.0.extract.trunc.i.i26.i.i.i = trunc i128 %164 to i64
-  %.sroa.4.0.extract.shift.i.i27.i.i.i = lshr i128 %164, 64
+  %156 = extractvalue { i128, i1 } %154, 0
+  %.sroa.0.0.extract.trunc.i.i26.i.i.i = trunc i128 %156 to i64
+  %.sroa.4.0.extract.shift.i.i27.i.i.i = lshr i128 %156, 64
   %.sroa.4.0.extract.trunc.i.i28.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i27.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i28.i.i.i, ptr %.sroa.4.i.i8.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i7.i.i.i)
   %.sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i29.i.i.i = load volatile i64, ptr %.sroa.4.i.i8.i.i.i, align 8
-  %165 = inttoptr i64 %.sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i29.i.i.i to ptr
-  %166 = icmp eq ptr %135, %165
-  br i1 %166, label %opal_lifo_pop_atomic.exit.i30.i.i.i, label %.lr.ph.i.i13.i.i.i
+  %157 = inttoptr i64 %.sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i29.i.i.i to ptr
+  %158 = icmp eq ptr %127, %157
+  br i1 %158, label %opal_lifo_pop_atomic.exit.i30.i.i.i, label %.lr.ph.i.i13.i.i.i
 
-167:                                              ; preds = %.lr.ph.i.i13.i.i.i
-  %168 = getelementptr inbounds i8, ptr %157, i64 16
+159:                                              ; preds = %.lr.ph.i.i13.i.i.i
+  %160 = getelementptr inbounds i8, ptr %149, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i7.i.i.i)
   fence release
-  store volatile ptr null, ptr %168, align 8
+  store volatile ptr null, ptr %160, align 8
   br label %opal_lifo_pop_atomic.exit.i30.i.i.i
 
-opal_lifo_pop_atomic.exit.i30.i.i.i:              ; preds = %opal_update_counted_pointer.exit.i.i25.i.i.i, %167, %151
-  %.0.i.i31.i.i.i = phi ptr [ %157, %167 ], [ null, %151 ], [ null, %opal_update_counted_pointer.exit.i.i25.i.i.i ]
+opal_lifo_pop_atomic.exit.i30.i.i.i:              ; preds = %opal_update_counted_pointer.exit.i.i25.i.i.i, %159, %143
+  %.0.i.i31.i.i.i = phi ptr [ %149, %159 ], [ null, %143 ], [ null, %opal_update_counted_pointer.exit.i.i25.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i8.i.i.i)
-  br label %178
+  br label %170
 
-169:                                              ; preds = %148
-  %170 = load volatile i64, ptr %134, align 8
-  %171 = inttoptr i64 %170 to ptr
-  %172 = getelementptr inbounds i8, ptr %171, i64 16
-  %173 = load volatile ptr, ptr %172, align 8
-  %174 = ptrtoint ptr %173 to i64
-  store volatile i64 %174, ptr %134, align 8
-  %175 = icmp eq ptr %135, %171
-  br i1 %175, label %178, label %.thread54.i.i.i
+161:                                              ; preds = %140
+  %162 = load volatile i64, ptr %126, align 8
+  %163 = inttoptr i64 %162 to ptr
+  %164 = getelementptr inbounds i8, ptr %163, i64 16
+  %165 = load volatile ptr, ptr %164, align 8
+  %166 = ptrtoint ptr %165 to i64
+  store volatile i64 %166, ptr %126, align 8
+  %167 = icmp eq ptr %127, %163
+  br i1 %167, label %170, label %.thread54.i.i.i
 
-.thread54.i.i.i:                                  ; preds = %169
-  %176 = getelementptr inbounds i8, ptr %171, i64 16
-  store volatile ptr null, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %171, i64 32
-  store i32 1, ptr %177, align 8
+.thread54.i.i.i:                                  ; preds = %161
+  %168 = getelementptr inbounds i8, ptr %163, i64 16
+  store volatile ptr null, ptr %168, align 8
+  %169 = getelementptr inbounds i8, ptr %163, i64 32
+  store i32 1, ptr %169, align 8
   br label %opal_interval_tree_node_copy.exit.i
 
-178:                                              ; preds = %169, %opal_lifo_pop_atomic.exit.i30.i.i.i
-  %.0.i9.i.i.i = phi ptr [ %.0.i.i31.i.i.i, %opal_lifo_pop_atomic.exit.i30.i.i.i ], [ null, %169 ]
+170:                                              ; preds = %161, %opal_lifo_pop_atomic.exit.i30.i.i.i
+  %.0.i9.i.i.i = phi ptr [ %.0.i.i31.i.i.i, %opal_lifo_pop_atomic.exit.i30.i.i.i ], [ null, %161 ]
   store ptr %.0.i9.i.i.i, ptr %9, align 8
-  %179 = icmp eq ptr %.0.i9.i.i.i, null
-  br i1 %179, label %137, label %opal_interval_tree_node_copy.exit.i, !llvm.loop !15
+  %171 = icmp eq ptr %.0.i9.i.i.i, null
+  br i1 %171, label %129, label %opal_interval_tree_node_copy.exit.i, !llvm.loop !15
 
-opal_interval_tree_node_copy.exit.i:              ; preds = %178, %145, %.thread54.i.i.i, %opal_lifo_pop.exit.i.i.i, %opal_lifo_pop.exit.thread48.i.i.i
-  %.lcssa36.i.i.i = phi ptr [ %110, %opal_lifo_pop.exit.i.i.i ], [ %123, %opal_lifo_pop.exit.thread48.i.i.i ], [ %171, %.thread54.i.i.i ], [ %.0.i9.i.i.i, %178 ], [ %146, %145 ]
+opal_interval_tree_node_copy.exit.i:              ; preds = %170, %137, %.thread54.i.i.i, %opal_lifo_pop.exit.i.i.i, %opal_lifo_pop.exit.thread48.i.i.i
+  %.lcssa36.i.i.i = phi ptr [ %102, %opal_lifo_pop.exit.i.i.i ], [ %115, %opal_lifo_pop.exit.thread48.i.i.i ], [ %163, %.thread54.i.i.i ], [ %.0.i9.i.i.i, %170 ], [ %138, %137 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %180 = getelementptr inbounds i8, ptr %.lcssa36.i.i.i, i64 56
-  %181 = getelementptr inbounds i8, ptr %.1.i.i, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %180, ptr noundef nonnull align 1 dereferenceable(72) %181, i64 72, i1 false)
-  %182 = load i32, ptr %88, align 8
-  store i32 %182, ptr %180, align 8
-  %183 = load ptr, ptr %51, align 8
-  %184 = getelementptr inbounds i8, ptr %.lcssa36.i.i.i, i64 72
-  store ptr %183, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %183, i64 64
-  store ptr %.lcssa36.i.i.i, ptr %185, align 8
-  %186 = load ptr, ptr %.phi.trans.insert, align 8
-  %187 = getelementptr inbounds i8, ptr %.lcssa36.i.i.i, i64 80
-  store ptr %186, ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %186, i64 64
-  store ptr %.lcssa36.i.i.i, ptr %188, align 8
-  %189 = load ptr, ptr %86, align 8
-  %190 = getelementptr inbounds i8, ptr %.lcssa36.i.i.i, i64 64
-  store ptr %189, ptr %190, align 8
+  %172 = getelementptr inbounds i8, ptr %.lcssa36.i.i.i, i64 56
+  %173 = getelementptr inbounds i8, ptr %.1.i.i, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %172, ptr noundef nonnull align 1 dereferenceable(72) %173, i64 72, i1 false)
+  %174 = load i32, ptr %57, align 8
+  store i32 %174, ptr %172, align 8
+  %175 = load ptr, ptr %51, align 8
+  %176 = getelementptr inbounds i8, ptr %.lcssa36.i.i.i, i64 72
+  store ptr %175, ptr %176, align 8
+  %177 = getelementptr inbounds i8, ptr %175, i64 64
+  store ptr %.lcssa36.i.i.i, ptr %177, align 8
+  %178 = load ptr, ptr %.phi.trans.insert, align 8
+  %179 = getelementptr inbounds i8, ptr %.lcssa36.i.i.i, i64 80
+  store ptr %178, ptr %179, align 8
+  %180 = getelementptr inbounds i8, ptr %178, i64 64
+  store ptr %.lcssa36.i.i.i, ptr %180, align 8
+  %181 = load ptr, ptr %55, align 8
+  %182 = getelementptr inbounds i8, ptr %.lcssa36.i.i.i, i64 64
+  store ptr %181, ptr %182, align 8
   fence release
-  store ptr %.lcssa36.i.i.i, ptr %97, align 8
-  %191 = getelementptr inbounds i8, ptr %0, i64 688
-  %192 = load i32, ptr %191, align 16
-  %193 = add i32 %192, 1
-  store i32 %193, ptr %191, align 16
-  %194 = getelementptr inbounds i8, ptr %0, i64 708
-  %195 = load volatile i32, ptr %194, align 4
-  %196 = icmp sgt i32 %195, 0
-  br i1 %196, label %.preheader.lr.ph.i.i.i, label %rp_wait_for_readers.exit.i.i
+  store ptr %.lcssa36.i.i.i, ptr %89, align 8
+  %183 = getelementptr inbounds i8, ptr %0, i64 688
+  %184 = load i32, ptr %183, align 16
+  %185 = add i32 %184, 1
+  store i32 %185, ptr %183, align 16
+  %186 = getelementptr inbounds i8, ptr %0, i64 708
+  %187 = load volatile i32, ptr %186, align 4
+  %188 = icmp sgt i32 %187, 0
+  br i1 %188, label %.preheader.lr.ph.i.i.i, label %rp_wait_for_readers.exit.i.i
 
 .preheader.lr.ph.i.i.i:                           ; preds = %opal_interval_tree_node_copy.exit.i
-  %197 = getelementptr inbounds i8, ptr %0, i64 716
+  %189 = getelementptr inbounds i8, ptr %0, i64 716
   br label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %202, %.preheader.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %202 ]
-  %198 = getelementptr inbounds [128 x i32], ptr %197, i64 0, i64 %indvars.iv.i.i.i
-  br label %199
+.preheader.i.i.i:                                 ; preds = %194, %.preheader.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %194 ]
+  %190 = getelementptr inbounds [128 x i32], ptr %189, i64 0, i64 %indvars.iv.i.i.i
+  br label %191
 
-199:                                              ; preds = %199, %.preheader.i.i.i
-  %200 = load volatile i32, ptr %198, align 4
-  %201 = icmp ult i32 %200, %193
-  br i1 %201, label %199, label %202, !llvm.loop !16
+191:                                              ; preds = %191, %.preheader.i.i.i
+  %192 = load volatile i32, ptr %190, align 4
+  %193 = icmp ult i32 %192, %185
+  br i1 %193, label %191, label %194, !llvm.loop !16
 
-202:                                              ; preds = %199
+194:                                              ; preds = %191
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %203 = load volatile i32, ptr %194, align 4
-  %204 = sext i32 %203 to i64
-  %205 = icmp slt i64 %indvars.iv.next.i.i.i, %204
-  br i1 %205, label %.preheader.i.i.i, label %rp_wait_for_readers.exit.i.i, !llvm.loop !17
+  %195 = load volatile i32, ptr %186, align 4
+  %196 = sext i32 %195 to i64
+  %197 = icmp slt i64 %indvars.iv.next.i.i.i, %196
+  br i1 %197, label %.preheader.i.i.i, label %rp_wait_for_readers.exit.i.i, !llvm.loop !17
 
-rp_wait_for_readers.exit.i.i:                     ; preds = %202, %opal_interval_tree_node_copy.exit.i
-  %206 = getelementptr inbounds i8, ptr %0, i64 296
-  %207 = load volatile i64, ptr %206, align 8
-  %208 = inttoptr i64 %207 to ptr
-  %209 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
-  store volatile ptr %208, ptr %209, align 8
-  %210 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
-  store i32 0, ptr %210, align 8
-  %211 = ptrtoint ptr %.0.i.i to i64
-  store volatile i64 %211, ptr %206, align 8
-  %212 = load volatile ptr, ptr %209, align 8
-  %213 = getelementptr inbounds i8, ptr %0, i64 304
-  %214 = icmp eq ptr %213, %212
-  br i1 %214, label %215, label %rp_free_wait.exit.i
+rp_wait_for_readers.exit.i.i:                     ; preds = %194, %opal_interval_tree_node_copy.exit.i
+  %198 = getelementptr inbounds i8, ptr %0, i64 296
+  %199 = load volatile i64, ptr %198, align 8
+  %200 = inttoptr i64 %199 to ptr
+  %201 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  store volatile ptr %200, ptr %201, align 8
+  %202 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+  store i32 0, ptr %202, align 8
+  %203 = ptrtoint ptr %.0.i.i to i64
+  store volatile i64 %203, ptr %198, align 8
+  %204 = load volatile ptr, ptr %201, align 8
+  %205 = getelementptr inbounds i8, ptr %0, i64 304
+  %206 = icmp eq ptr %205, %204
+  br i1 %206, label %207, label %rp_free_wait.exit.i
 
-215:                                              ; preds = %rp_wait_for_readers.exit.i.i
-  %216 = getelementptr inbounds i8, ptr %0, i64 376
-  %217 = load i64, ptr %216, align 8
-  %.not.i.i48.i = icmp eq i64 %217, 0
-  br i1 %.not.i.i48.i, label %rp_free_wait.exit.i, label %218
+207:                                              ; preds = %rp_wait_for_readers.exit.i.i
+  %208 = getelementptr inbounds i8, ptr %0, i64 376
+  %209 = load i64, ptr %208, align 8
+  %.not.i.i48.i = icmp eq i64 %209, 0
+  br i1 %.not.i.i48.i, label %rp_free_wait.exit.i, label %210
 
-218:                                              ; preds = %215
-  %219 = getelementptr inbounds i8, ptr %0, i64 520
-  %220 = load volatile i32, ptr %219, align 8
-  %.not.i.i.i.i = icmp eq i32 %220, 0
-  br i1 %.not.i.i.i.i, label %rp_free_wait.exit.i, label %221
+210:                                              ; preds = %207
+  %211 = getelementptr inbounds i8, ptr %0, i64 520
+  %212 = load volatile i32, ptr %211, align 8
+  %.not.i.i.i.i = icmp eq i32 %212, 0
+  br i1 %.not.i.i.i.i, label %rp_free_wait.exit.i, label %213
 
-221:                                              ; preds = %218
-  %222 = getelementptr inbounds i8, ptr %0, i64 524
-  %223 = load volatile i32, ptr %222, align 4
-  %224 = add nsw i32 %223, 1
-  store volatile i32 %224, ptr %222, align 4
+213:                                              ; preds = %210
+  %214 = getelementptr inbounds i8, ptr %0, i64 524
+  %215 = load volatile i32, ptr %214, align 4
+  %216 = add nsw i32 %215, 1
+  store volatile i32 %216, ptr %214, align 4
   br label %rp_free_wait.exit.i
 
-rp_free_wait.exit.i:                              ; preds = %221, %218, %215, %rp_wait_for_readers.exit.i.i
-  %225 = getelementptr inbounds i8, ptr %.1.i.i, i64 64
+rp_free_wait.exit.i:                              ; preds = %213, %210, %207, %rp_wait_for_readers.exit.i.i
+  %217 = getelementptr inbounds i8, ptr %.1.i.i, i64 64
+  %218 = load ptr, ptr %217, align 8
+  %219 = load i32, ptr %173, align 8
+  %220 = getelementptr inbounds i8, ptr %218, i64 80
+  %221 = load ptr, ptr %220, align 8
+  %222 = icmp eq ptr %221, %.1.i.i
+  %223 = getelementptr inbounds i8, ptr %218, i64 72
+  %224 = select i1 %222, ptr %220, ptr %223
+  %225 = getelementptr inbounds i8, ptr %.1.i.i, i64 80
   %226 = load ptr, ptr %225, align 8
-  %227 = load i32, ptr %181, align 8
-  %228 = getelementptr inbounds i8, ptr %226, i64 80
-  %229 = load ptr, ptr %228, align 8
-  %230 = icmp eq ptr %229, %.1.i.i
-  %231 = getelementptr inbounds i8, ptr %226, i64 72
-  %232 = select i1 %230, ptr %228, ptr %231
-  %233 = getelementptr inbounds i8, ptr %.1.i.i, i64 80
-  %234 = load ptr, ptr %233, align 8
-  %235 = icmp eq ptr %234, %17
-  br i1 %235, label %236, label %238
+  %227 = icmp eq ptr %226, %17
+  br i1 %227, label %228, label %230
 
-236:                                              ; preds = %rp_free_wait.exit.i
-  %237 = load ptr, ptr %95, align 8
-  br label %238
+228:                                              ; preds = %rp_free_wait.exit.i
+  %229 = load ptr, ptr %87, align 8
+  br label %230
 
-238:                                              ; preds = %236, %rp_free_wait.exit.i
-  %239 = phi ptr [ %237, %236 ], [ %234, %rp_free_wait.exit.i ]
-  %240 = getelementptr inbounds i8, ptr %239, i64 64
-  store ptr %226, ptr %240, align 8
+230:                                              ; preds = %228, %rp_free_wait.exit.i
+  %231 = phi ptr [ %229, %228 ], [ %226, %rp_free_wait.exit.i ]
+  %232 = getelementptr inbounds i8, ptr %231, i64 64
+  store ptr %218, ptr %232, align 8
   fence release
-  store ptr %239, ptr %232, align 8
-  %241 = getelementptr inbounds i8, ptr %0, i64 640
-  %242 = getelementptr inbounds i8, ptr %0, i64 664
-  %243 = load volatile ptr, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
-  store volatile ptr %243, ptr %244, align 8
-  %245 = load volatile ptr, ptr %242, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 16
-  store volatile ptr %.1.i.i, ptr %246, align 8
-  %247 = getelementptr inbounds i8, ptr %.1.i.i, i64 16
-  store volatile ptr %241, ptr %247, align 8
-  store volatile ptr %.1.i.i, ptr %242, align 8
-  %248 = getelementptr inbounds i8, ptr %0, i64 680
-  %249 = load volatile i64, ptr %248, align 8
-  %250 = add i64 %249, 1
-  store volatile i64 %250, ptr %248, align 8
-  %251 = icmp eq i32 %227, 1
-  br i1 %251, label %252, label %opal_interval_tree_delete_leaf.exit
+  store ptr %231, ptr %224, align 8
+  %233 = getelementptr inbounds i8, ptr %0, i64 640
+  %234 = getelementptr inbounds i8, ptr %0, i64 664
+  %235 = load volatile ptr, ptr %234, align 8
+  %236 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
+  store volatile ptr %235, ptr %236, align 8
+  %237 = load volatile ptr, ptr %234, align 8
+  %238 = getelementptr inbounds i8, ptr %237, i64 16
+  store volatile ptr %.1.i.i, ptr %238, align 8
+  %239 = getelementptr inbounds i8, ptr %.1.i.i, i64 16
+  store volatile ptr %233, ptr %239, align 8
+  store volatile ptr %.1.i.i, ptr %234, align 8
+  %240 = getelementptr inbounds i8, ptr %0, i64 680
+  %241 = load volatile i64, ptr %240, align 8
+  %242 = add i64 %241, 1
+  store volatile i64 %242, ptr %240, align 8
+  %243 = icmp eq i32 %219, 1
+  br i1 %243, label %244, label %opal_interval_tree_delete_leaf.exit
 
-252:                                              ; preds = %238
-  %253 = getelementptr inbounds i8, ptr %239, i64 56
-  %254 = load i32, ptr %253, align 8
-  %255 = icmp eq i32 %254, 0
-  br i1 %255, label %256, label %257
+244:                                              ; preds = %230
+  %245 = getelementptr inbounds i8, ptr %231, i64 56
+  %246 = load i32, ptr %245, align 8
+  %247 = icmp eq i32 %246, 0
+  br i1 %247, label %248, label %249
 
-256:                                              ; preds = %252
-  store i32 1, ptr %253, align 8
+248:                                              ; preds = %244
+  store i32 1, ptr %245, align 8
   br label %opal_interval_tree_delete_leaf.exit
 
-257:                                              ; preds = %252
-  call fastcc void @opal_interval_tree_delete_fixup(ptr noundef nonnull %0, ptr noundef nonnull %239, ptr noundef nonnull %226)
+249:                                              ; preds = %244
+  call fastcc void @opal_interval_tree_delete_fixup(ptr noundef nonnull %0, ptr noundef nonnull %231, ptr noundef nonnull %218)
   br label %opal_interval_tree_delete_leaf.exit
 
-258:                                              ; preds = %opal_interval_tree_next.exit.i
-  %259 = getelementptr inbounds i8, ptr %.pre, i64 56
-  %260 = load i32, ptr %259, align 8
-  store i32 %89, ptr %259, align 8
-  %261 = load ptr, ptr %51, align 8
-  %262 = getelementptr inbounds i8, ptr %.pre, i64 72
-  store ptr %261, ptr %262, align 8
-  %263 = getelementptr inbounds i8, ptr %261, i64 64
-  store ptr %.pre, ptr %263, align 8
-  %264 = load ptr, ptr %86, align 8
-  %265 = getelementptr inbounds i8, ptr %.pre, i64 64
-  store ptr %264, ptr %265, align 8
+250:                                              ; preds = %opal_interval_tree_next.exit.i
+  %251 = getelementptr inbounds i8, ptr %.1.i.i, i64 56
+  %252 = load i32, ptr %251, align 8
+  store i32 %58, ptr %251, align 8
+  %253 = load ptr, ptr %51, align 8
+  store ptr %253, ptr %87, align 8
+  %254 = getelementptr inbounds i8, ptr %253, i64 64
+  store ptr %.1.i.i, ptr %254, align 8
+  %255 = load ptr, ptr %55, align 8
+  %256 = getelementptr inbounds i8, ptr %.1.i.i, i64 64
+  store ptr %255, ptr %256, align 8
   fence release
-  store ptr %.pre, ptr %97, align 8
-  %266 = getelementptr inbounds i8, ptr %0, i64 640
-  %267 = getelementptr inbounds i8, ptr %0, i64 664
-  %268 = load volatile ptr, ptr %267, align 8
-  %269 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
-  store volatile ptr %268, ptr %269, align 8
-  %270 = load volatile ptr, ptr %267, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 16
-  store volatile ptr %.0.i.i, ptr %271, align 8
-  %272 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
-  store volatile ptr %266, ptr %272, align 8
-  store volatile ptr %.0.i.i, ptr %267, align 8
-  %273 = getelementptr inbounds i8, ptr %0, i64 680
-  %274 = load volatile i64, ptr %273, align 8
-  %275 = add i64 %274, 1
-  store volatile i64 %275, ptr %273, align 8
-  %276 = icmp eq i32 %260, 1
-  br i1 %276, label %277, label %opal_interval_tree_delete_leaf.exit
+  store ptr %.1.i.i, ptr %89, align 8
+  %257 = getelementptr inbounds i8, ptr %0, i64 640
+  %258 = getelementptr inbounds i8, ptr %0, i64 664
+  %259 = load volatile ptr, ptr %258, align 8
+  %260 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  store volatile ptr %259, ptr %260, align 8
+  %261 = load volatile ptr, ptr %258, align 8
+  %262 = getelementptr inbounds i8, ptr %261, i64 16
+  store volatile ptr %.0.i.i, ptr %262, align 8
+  %263 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  store volatile ptr %257, ptr %263, align 8
+  store volatile ptr %.0.i.i, ptr %258, align 8
+  %264 = getelementptr inbounds i8, ptr %0, i64 680
+  %265 = load volatile i64, ptr %264, align 8
+  %266 = add i64 %265, 1
+  store volatile i64 %266, ptr %264, align 8
+  %267 = icmp eq i32 %252, 1
+  br i1 %267, label %268, label %opal_interval_tree_delete_leaf.exit
 
-277:                                              ; preds = %258
-  %278 = getelementptr inbounds i8, ptr %.pre, i64 80
-  %279 = load ptr, ptr %278, align 8
-  %280 = getelementptr inbounds i8, ptr %279, i64 56
-  %281 = load i32, ptr %280, align 8
-  %282 = icmp eq i32 %281, 0
-  br i1 %282, label %283, label %284
+268:                                              ; preds = %250
+  %269 = getelementptr inbounds i8, ptr %.1.i.i, i64 80
+  %270 = load ptr, ptr %269, align 8
+  %271 = getelementptr inbounds i8, ptr %270, i64 56
+  %272 = load i32, ptr %271, align 8
+  %273 = icmp eq i32 %272, 0
+  br i1 %273, label %274, label %275
 
-283:                                              ; preds = %277
-  store i32 1, ptr %280, align 8
+274:                                              ; preds = %268
+  store i32 1, ptr %271, align 8
   br label %opal_interval_tree_delete_leaf.exit
 
-284:                                              ; preds = %277
-  tail call fastcc void @opal_interval_tree_delete_fixup(ptr noundef nonnull %0, ptr noundef nonnull %279, ptr noundef nonnull %.pre)
+275:                                              ; preds = %268
+  tail call fastcc void @opal_interval_tree_delete_fixup(ptr noundef nonnull %0, ptr noundef nonnull %270, ptr noundef nonnull %.1.i.i)
   br label %opal_interval_tree_delete_leaf.exit
 
-opal_interval_tree_delete_leaf.exit:              ; preds = %284, %283, %258, %257, %256, %238, %84, %83, %opal_interval_tree_find_node.exit._crit_edge
-  %285 = getelementptr inbounds i8, ptr %0, i64 696
-  %286 = load volatile i64, ptr %285, align 8
-  %287 = add i64 %286, -1
-  store volatile i64 %287, ptr %285, align 8
+opal_interval_tree_delete_leaf.exit:              ; preds = %275, %274, %250, %249, %248, %230, %82, %81, %opal_interval_tree_find_node.exit._crit_edge
+  %276 = getelementptr inbounds i8, ptr %0, i64 696
+  %277 = load volatile i64, ptr %276, align 8
+  %278 = add i64 %277, -1
+  store volatile i64 %278, ptr %276, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge.i.i, %tailrecurse.backedge.us.i.i, %opal_interval_tree_write_lock.exit, %opal_interval_tree_delete_leaf.exit
@@ -2393,7 +2383,7 @@ define internal fastcc void @opal_interval_tree_delete_fixup(ptr noundef %0, ptr
   br i1 %60, label %.thread20.i, label %.thread.thread11.i.loopexit
 
 .thread2.i:                                       ; preds = %34, %30
-  %61 = phi ptr [ %.pre.i.i, %34 ], [ %6, %30 ]
+  %61 = phi ptr [ %.pre.i.i, %34 ], [ %33, %30 ]
   store ptr %61, ptr %12, align 8
   store ptr %31, ptr %22, align 8
   fence release
@@ -2486,7 +2476,7 @@ define internal fastcc void @opal_interval_tree_delete_fixup(ptr noundef %0, ptr
   br label %right_rotate.exit49.i
 
 right_rotate.exit49.i:                            ; preds = %110, %102
-  %112 = phi ptr [ %.pre.i47.i, %110 ], [ %6, %102 ]
+  %112 = phi ptr [ %.pre.i47.i, %110 ], [ %109, %102 ]
   store ptr %112, ptr %96, align 8
   store ptr %105, ptr %106, align 8
   fence release
@@ -2634,7 +2624,7 @@ left_rotate.exit55.i:                             ; preds = %160, %.thread17.i
   br label %right_rotate.exit59.i
 
 right_rotate.exit59.i:                            ; preds = %187, %.thread1.i
-  %189 = phi ptr [ %.pre.i57.i, %187 ], [ %6, %.thread1.i ]
+  %189 = phi ptr [ %.pre.i57.i, %187 ], [ %186, %.thread1.i ]
   store ptr %189, ptr %12, align 8
   store ptr %182, ptr %183, align 8
   fence release
@@ -2669,7 +2659,7 @@ opal_interval_tree_delete_fixup_helper.exit:      ; preds = %76, %.thread20.i, %
   br i1 %.not, label %.critedge, label %7, !llvm.loop !18
 
 .critedge:                                        ; preds = %7, %opal_interval_tree_delete_fixup_helper.exit, %opal_interval_tree_delete_fixup_helper.exit.thread, %3
-  %.011.lcssa = phi ptr [ %1, %3 ], [ %198, %opal_interval_tree_delete_fixup_helper.exit.thread ], [ %.pre, %opal_interval_tree_delete_fixup_helper.exit ], [ %.01113, %7 ]
+  %.011.lcssa = phi ptr [ %1, %3 ], [ %198, %opal_interval_tree_delete_fixup_helper.exit.thread ], [ %.014, %opal_interval_tree_delete_fixup_helper.exit ], [ %.01113, %7 ]
   %202 = getelementptr inbounds i8, ptr %.011.lcssa, i64 56
   store i32 1, ptr %202, align 8
   %203 = getelementptr inbounds i8, ptr %0, i64 200

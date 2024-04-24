@@ -254,7 +254,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -313,7 +313,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -885,7 +885,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit35:       ; preds = %for.body7, %cond.tr
   br i1 %cmp12.not, label %if.end, label %for.cond5
 
 if.end:                                           ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit35
-  %12 = trunc i64 %9 to i32
+  %12 = trunc nuw nsw i64 %9 to i32
   %13 = or disjoint i64 %2, 2
   %cmp5.i38 = icmp slt i64 %13, %5
   br i1 %cmp5.i38, label %cond.true.i41, label %_ZNK6icu_759UVector3210elementAtiEi.exit45
@@ -1342,21 +1342,21 @@ if.end50.us:                                      ; preds = %if.then45.us, %if.t
   br i1 %cmp51.us, label %if.then52.us, label %for.inc.us
 
 if.then52.us:                                     ; preds = %if.end50.us
-  %27 = trunc i64 %1 to i32
+  %27 = trunc nuw nsw i64 %1 to i32
   tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i69.us, i32 noundef %27)
-  %28 = trunc i64 %6 to i32
+  %28 = trunc nuw nsw i64 %6 to i32
   tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i79.us, i32 noundef %28)
-  %29 = trunc i64 %9 to i32
+  %29 = trunc nuw nsw i64 %9 to i32
   tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i89.us, i32 noundef %29)
-  %30 = trunc i64 %12 to i32
+  %30 = trunc nuw nsw i64 %12 to i32
   tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i99.us, i32 noundef %30)
-  %31 = trunc i64 %15 to i32
+  %31 = trunc nuw nsw i64 %15 to i32
   tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i.us, i32 noundef %31)
-  %32 = trunc i64 %18 to i32
+  %32 = trunc nuw nsw i64 %18 to i32
   tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i39.us, i32 noundef %32)
-  %33 = trunc i64 %21 to i32
+  %33 = trunc nuw nsw i64 %21 to i32
   tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i49.us, i32 noundef %33)
-  %34 = trunc i64 %24 to i32
+  %34 = trunc nuw nsw i64 %24 to i32
   tail call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %cond.i59.us, i32 noundef %34)
   br label %for.inc.us
 

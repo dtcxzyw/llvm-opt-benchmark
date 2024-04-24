@@ -352,7 +352,7 @@ while.cond.i:                                     ; preds = %sh_find_my_buddy.ex
 
 while.body.i:                                     ; preds = %while.cond.i.preheader, %while.cond.i
   %slist.1.i56 = phi i64 [ %inc.i, %while.cond.i ], [ %slist.0182.i, %while.cond.i.preheader ]
-  %6 = phi ptr [ %add.ptr.i, %while.cond.i ], [ %5, %while.cond.i.preheader ]
+  %6 = phi ptr [ %41, %while.cond.i ], [ %5, %while.cond.i.preheader ]
   %7 = phi i64 [ %42, %while.cond.i ], [ %1, %while.cond.i.preheader ]
   %conv.i = trunc i64 %slist.1.i56 to i32
   %8 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i64 0, i32 8), align 8
@@ -1674,7 +1674,7 @@ cond.false30:                                     ; preds = %cond.end22
   unreachable
 
 cond.end31:                                       ; preds = %cond.end22
-  %5 = trunc i64 %shl27 to i8
+  %5 = trunc nuw i64 %shl27 to i8
   %conv38 = or i8 %4, %5
   store i8 %conv38, ptr %arrayidx, align 1
   ret void
@@ -1828,7 +1828,7 @@ cond.false30:                                     ; preds = %cond.end22
   unreachable
 
 cond.end31:                                       ; preds = %cond.end22
-  %5 = trunc i64 %shl27 to i8
+  %5 = trunc nuw i64 %shl27 to i8
   %6 = xor i8 %5, -1
   %conv40 = and i8 %4, %6
   store i8 %conv40, ptr %arrayidx, align 1

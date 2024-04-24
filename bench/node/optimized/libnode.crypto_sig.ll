@@ -6215,48 +6215,48 @@ cleanup88:                                        ; preds = %_ZN4node6crypto10By
 sw.bb92:                                          ; preds = %if.end29
   %call1.i.i90 = call ptr @CRYPTO_malloc(i64 noundef 1, ptr noundef nonnull @.str.100, i32 noundef 205) #21
   %cmp.i.i91 = icmp eq ptr %call1.i.i90, null
-  br i1 %cmp.i.i91, label %do.body5.i.i93, label %_ZN4node6crypto10ByteSource7BuilderC2Em.exit94
+  br i1 %cmp.i.i91, label %do.body5.i.i94, label %_ZN4node6crypto10ByteSource7BuilderC2Em.exit95
 
-do.body5.i.i93:                                   ; preds = %sw.bb92
+do.body5.i.i94:                                   ; preds = %sw.bb92
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6crypto13MallocOpenSSLIcEEPT_mE4args) #21
   call void @abort() #22
   unreachable
 
-_ZN4node6crypto10ByteSource7BuilderC2Em.exit94:   ; preds = %sw.bb92
+_ZN4node6crypto10ByteSource7BuilderC2Em.exit95:   ; preds = %sw.bb92
   store i8 0, ptr %call1.i.i90, align 1
   %signature = getelementptr inbounds i8, ptr %params, i64 72
   %29 = load ptr, ptr %signature, align 8
-  %size_.i95 = getelementptr inbounds i8, ptr %params, i64 88
-  %30 = load i64, ptr %size_.i95, align 8
+  %size_.i96 = getelementptr inbounds i8, ptr %params, i64 88
+  %30 = load i64, ptr %size_.i96, align 8
   %data99 = getelementptr inbounds i8, ptr %params, i64 48
   %31 = load ptr, ptr %data99, align 8
-  %size_.i96 = getelementptr inbounds i8, ptr %params, i64 64
-  %32 = load i64, ptr %size_.i96, align 8
+  %size_.i97 = getelementptr inbounds i8, ptr %params, i64 64
+  %32 = load i64, ptr %size_.i97, align 8
   %call103 = call i32 @EVP_DigestVerify(ptr noundef %call, ptr noundef %29, i64 noundef %30, ptr noundef %31, i64 noundef %32) #21
   %cmp = icmp eq i32 %call103, 1
-  br i1 %cmp, label %if.then104, label %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit107
+  br i1 %cmp, label %if.then104, label %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit108
 
-if.then104:                                       ; preds = %_ZN4node6crypto10ByteSource7BuilderC2Em.exit94
+if.then104:                                       ; preds = %_ZN4node6crypto10ByteSource7BuilderC2Em.exit95
   store i8 1, ptr %call1.i.i90, align 1
-  br label %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit107
+  br label %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit108
 
-_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit107: ; preds = %_ZN4node6crypto10ByteSource7BuilderC2Em.exit94, %if.then104
+_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit108: ; preds = %_ZN4node6crypto10ByteSource7BuilderC2Em.exit95, %if.then104
   call void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp108, ptr noundef nonnull %call1.i.i90, i64 noundef 1) #21
   %call111 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp108) #21
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp108) #21
   call void @CRYPTO_clear_free(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.100, i32 noundef 225) #21
   br label %cleanup113
 
-cleanup113:                                       ; preds = %if.end29, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit107, %cleanup, %cleanup88.thread, %cleanup88, %cleanup.thread, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit79, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit65, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit54, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit47, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit
-  %retval.2 = phi i1 [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit65 ], [ false, %cleanup88 ], [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit79 ], [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit54 ], [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit47 ], [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit ], [ false, %cleanup.thread ], [ true, %cleanup88.thread ], [ true, %cleanup ], [ true, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit107 ], [ true, %if.end29 ]
-  %cmp.not.i109 = icmp eq ptr %call, null
-  br i1 %cmp.not.i109, label %_ZNSt10unique_ptrI13evp_md_ctx_stN4node15FunctionDeleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEED2Ev.exit, label %if.then.i110
+cleanup113:                                       ; preds = %if.end29, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit108, %cleanup, %cleanup88.thread, %cleanup88, %cleanup.thread, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit79, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit65, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit54, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit47, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit
+  %retval.2 = phi i1 [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit65 ], [ false, %cleanup88 ], [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit79 ], [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit54 ], [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit47 ], [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit ], [ false, %cleanup.thread ], [ true, %cleanup88.thread ], [ true, %cleanup ], [ true, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit108 ], [ true, %if.end29 ]
+  %cmp.not.i110 = icmp eq ptr %call, null
+  br i1 %cmp.not.i110, label %_ZNSt10unique_ptrI13evp_md_ctx_stN4node15FunctionDeleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEED2Ev.exit, label %if.then.i111
 
-if.then.i110:                                     ; preds = %cleanup113
+if.then.i111:                                     ; preds = %cleanup113
   call void @EVP_MD_CTX_free(ptr noundef nonnull %call) #21
   br label %_ZNSt10unique_ptrI13evp_md_ctx_stN4node15FunctionDeleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEED2Ev.exit
 
-_ZNSt10unique_ptrI13evp_md_ctx_stN4node15FunctionDeleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEED2Ev.exit: ; preds = %cleanup113, %if.then.i110
+_ZNSt10unique_ptrI13evp_md_ctx_stN4node15FunctionDeleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEED2Ev.exit: ; preds = %cleanup113, %if.then.i111
   call void @ERR_clear_error() #21
   ret i1 %retval.2
 }
@@ -7657,7 +7657,7 @@ if.then.i.i.i35:                                  ; preds = %do.end36
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i37:                                  ; preds = %do.end36
-  call void @_ZdlPv(ptr noundef %31) #25
+  call void @_ZdlPv(ptr noundef %39) #25
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %40 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i38 = getelementptr inbounds i8, ptr %40, i64 -8
@@ -10581,7 +10581,7 @@ land.lhs.true:                                    ; preds = %_ZN4node7ReallocIcE
   br i1 %cmp13.not, label %if.end18, label %if.then14
 
 if.then14:                                        ; preds = %land.lhs.true
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i7.i, ptr nonnull align 8 %0, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i7.i, ptr nonnull align 8 %buf_st_.i, i64 %2, i1 false)
   br label %if.end18
 
 if.end18:                                         ; preds = %_ZN4node7ReallocIcEEPT_S2_m.exit, %land.lhs.true, %if.then14, %do.end6

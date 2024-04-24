@@ -4654,7 +4654,7 @@ uhci_fixup_toggles.exit27:                        ; preds = %.loopexit.i26
   br i1 %896, label %.loopexit.i29, label %.preheader.i28, !llvm.loop !86
 
 .loopexit.i29:                                    ; preds = %893, %.preheader.i28, %883
-  %897 = phi ptr [ %886, %883 ], [ %886, %893 ], [ %889, %.preheader.i28 ]
+  %897 = phi ptr [ %887, %883 ], [ %895, %893 ], [ %889, %.preheader.i28 ]
   %898 = getelementptr i8, ptr %897, i64 -16
   %899 = load ptr, ptr %897, align 8
   %900 = getelementptr inbounds i8, ptr %899, i64 8
@@ -5457,7 +5457,7 @@ define internal fastcc void @uhci_activate_qh(ptr nocapture noundef %0, ptr noun
   br i1 %81, label %.loopexit, label %.preheader, !llvm.loop !86
 
 .loopexit:                                        ; preds = %78, %.preheader, %67
-  %82 = phi ptr [ %71, %67 ], [ %74, %.preheader ], [ %71, %78 ]
+  %82 = phi ptr [ %72, %67 ], [ %74, %.preheader ], [ %80, %78 ]
   %83 = getelementptr i8, ptr %82, i64 -16
   %84 = load ptr, ptr %82, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 8

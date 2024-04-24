@@ -3733,270 +3733,265 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not95118, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %31, %35, %38
-  %39 = getelementptr inbounds i8, ptr %1, i64 72
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %51
-  %.0119 = phi ptr [ %53, %51 ], [ %1, %.lr.ph.preheader ]
-  %.not105 = icmp eq ptr %.0119, %1
-  br i1 %.not105, label %40, label %45
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %46
+  %.0119 = phi ptr [ %48, %46 ], [ %1, %.lr.ph.preheader ]
+  %.not105 = icmp ne ptr %.0119, %1
+  %39 = getelementptr inbounds i8, ptr %.0119, i64 72
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 2
+  %42 = load i16, ptr %41, align 2
+  %43 = icmp sgt i16 %42, 1
+  %or.cond = select i1 %.not105, i1 true, i1 %43
+  br i1 %or.cond, label %.lr.ph._crit_edge, label %46
 
-40:                                               ; preds = %.lr.ph
-  %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 2
-  %43 = load i16, ptr %42, align 2
-  %44 = icmp sgt i16 %43, 1
-  br i1 %44, label %45, label %51
+.lr.ph._crit_edge:                                ; preds = %.lr.ph
+  %44 = getelementptr inbounds i8, ptr %40, i64 2
+  %45 = add i16 %42, -1
+  store i16 %45, ptr %44, align 2
+  br label %46
 
-45:                                               ; preds = %40, %.lr.ph
-  %46 = getelementptr inbounds i8, ptr %.0119, i64 72
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 2
-  %49 = load i16, ptr %48, align 2
-  %50 = add i16 %49, -1
-  store i16 %50, ptr %48, align 2
-  br label %51
-
-51:                                               ; preds = %40, %45
-  %52 = getelementptr inbounds i8, ptr %.0119, i64 40
-  %53 = load ptr, ptr %52, align 8
-  %.not95 = icmp eq ptr %53, null
+46:                                               ; preds = %.lr.ph, %.lr.ph._crit_edge
+  %47 = getelementptr inbounds i8, ptr %.0119, i64 40
+  %48 = load ptr, ptr %47, align 8
+  %.not95 = icmp eq ptr %48, null
   br i1 %.not95, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %51, %38
-  %54 = getelementptr inbounds i8, ptr %1, i64 72
-  %55 = load ptr, ptr %54, align 8
+._crit_edge:                                      ; preds = %46, %38
+  %49 = getelementptr inbounds i8, ptr %1, i64 72
+  %50 = load ptr, ptr %49, align 8
   %.1.in123 = getelementptr inbounds i8, ptr %1, i64 40
   %.1124 = load ptr, ptr %.1.in123, align 8
   %.not96125 = icmp eq ptr %.1124, null
   br i1 %.not96125, label %._crit_edge129, label %.lr.ph128
 
 .lr.ph128:                                        ; preds = %._crit_edge
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
-  %57 = getelementptr inbounds i8, ptr %55, i64 2
-  %58 = getelementptr i8, ptr %0, i64 724
-  %59 = getelementptr inbounds i8, ptr %1, i64 52
-  %60 = getelementptr inbounds i8, ptr %0, i64 88
-  %61 = icmp eq i32 %2, 2
-  br label %62
+  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = getelementptr inbounds i8, ptr %50, i64 2
+  %53 = getelementptr i8, ptr %0, i64 724
+  %54 = getelementptr inbounds i8, ptr %1, i64 52
+  %55 = getelementptr inbounds i8, ptr %0, i64 88
+  %56 = icmp eq i32 %2, 2
+  br label %57
 
-62:                                               ; preds = %.lr.ph128, %.critedge
+57:                                               ; preds = %.lr.ph128, %.critedge
   %.1126 = phi ptr [ %.1124, %.lr.ph128 ], [ %.1, %.critedge ]
-  %63 = getelementptr inbounds i8, ptr %.1126, i64 72
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 2
-  %66 = load i16, ptr %65, align 2
-  %67 = icmp sgt i16 %66, 0
-  br i1 %67, label %.lr.ph121, label %.critedge
+  %58 = getelementptr inbounds i8, ptr %.1126, i64 72
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 2
+  %61 = load i16, ptr %60, align 2
+  %62 = icmp sgt i16 %61, 0
+  br i1 %62, label %.lr.ph121, label %.critedge
 
-.lr.ph121:                                        ; preds = %62, %134
-  %indvars.iv = phi i64 [ %indvars.iv.next, %134 ], [ 0, %62 ]
-  %68 = phi ptr [ %135, %134 ], [ %64, %62 ]
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds ptr, ptr %70, i64 %indvars.iv
-  %72 = load ptr, ptr %71, align 8
-  %.not100 = icmp eq ptr %72, null
-  br i1 %.not100, label %.critedge, label %73
+.lr.ph121:                                        ; preds = %57, %129
+  %indvars.iv = phi i64 [ %indvars.iv.next, %129 ], [ 0, %57 ]
+  %63 = phi ptr [ %130, %129 ], [ %59, %57 ]
+  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv
+  %67 = load ptr, ptr %66, align 8
+  %.not100 = icmp eq ptr %67, null
+  br i1 %.not100, label %.critedge, label %68
 
-73:                                               ; preds = %.lr.ph121
-  %74 = getelementptr inbounds i8, ptr %72, i64 28
-  %75 = load i64, ptr %74, align 4
-  %76 = and i64 %75, 16384
-  %.not101 = icmp eq i64 %76, 0
-  br i1 %.not101, label %77, label %134
+68:                                               ; preds = %.lr.ph121
+  %69 = getelementptr inbounds i8, ptr %67, i64 28
+  %70 = load i64, ptr %69, align 4
+  %71 = and i64 %70, 16384
+  %.not101 = icmp eq i64 %71, 0
+  br i1 %.not101, label %72, label %129
 
-77:                                               ; preds = %73
-  %78 = load ptr, ptr %56, align 8
-  %79 = load i16, ptr %57, align 2
-  %80 = sext i16 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %78, i64 %80
-  %82 = load ptr, ptr %81, align 8
-  %.val106 = load i32, ptr %58, align 4
-  %83 = sext i32 %.val106 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %82, ptr nonnull align 4 %72, i64 %83, i1 false)
-  %84 = tail call i32 @If_CutFilter(ptr noundef %55, ptr noundef %82, i32 noundef %30) #20
-  %.not102 = icmp eq i32 %84, 0
-  br i1 %.not102, label %85, label %134
+72:                                               ; preds = %68
+  %73 = load ptr, ptr %51, align 8
+  %74 = load i16, ptr %52, align 2
+  %75 = sext i16 %74 to i64
+  %76 = getelementptr inbounds ptr, ptr %73, i64 %75
+  %77 = load ptr, ptr %76, align 8
+  %.val106 = load i32, ptr %53, align 4
+  %78 = sext i32 %.val106 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %77, ptr nonnull align 4 %67, i64 %78, i1 false)
+  %79 = tail call i32 @If_CutFilter(ptr noundef %50, ptr noundef %77, i32 noundef %30) #20
+  %.not102 = icmp eq i32 %79, 0
+  br i1 %.not102, label %80, label %129
 
-85:                                               ; preds = %77
-  br i1 %.not94, label %93, label %86
+80:                                               ; preds = %72
+  br i1 %.not94, label %88, label %81
 
-86:                                               ; preds = %85
-  %87 = getelementptr inbounds i8, ptr %82, i64 12
-  %88 = load float, ptr %87, align 4
-  %89 = load float, ptr %59, align 4
-  %90 = load float, ptr %60, align 8
-  %91 = fadd float %89, %90
-  %92 = fcmp ogt float %88, %91
-  br i1 %92, label %134, label %93
+81:                                               ; preds = %80
+  %82 = getelementptr inbounds i8, ptr %77, i64 12
+  %83 = load float, ptr %82, align 4
+  %84 = load float, ptr %54, align 4
+  %85 = load float, ptr %55, align 8
+  %86 = fadd float %84, %85
+  %87 = fcmp ogt float %83, %86
+  br i1 %87, label %129, label %88
 
-93:                                               ; preds = %86, %85
-  %94 = load i32, ptr %1, align 8
-  %95 = load i32, ptr %.1126, align 8
-  %96 = xor i32 %95, %94
-  %97 = getelementptr inbounds i8, ptr %82, i64 28
-  %98 = load i64, ptr %97, align 4
-  %99 = shl i32 %96, 6
-  %100 = and i32 %99, 4096
-  %101 = zext nneg i32 %100 to i64
-  %102 = and i64 %98, -4097
-  %103 = or disjoint i64 %102, %101
-  store i64 %103, ptr %97, align 4
-  br i1 %61, label %104, label %.thread
+88:                                               ; preds = %81, %80
+  %89 = load i32, ptr %1, align 8
+  %90 = load i32, ptr %.1126, align 8
+  %91 = xor i32 %90, %89
+  %92 = getelementptr inbounds i8, ptr %77, i64 28
+  %93 = load i64, ptr %92, align 4
+  %94 = shl i32 %91, 6
+  %95 = and i32 %94, 4096
+  %96 = zext nneg i32 %95 to i64
+  %97 = and i64 %93, -4097
+  %98 = or disjoint i64 %97, %96
+  store i64 %98, ptr %92, align 4
+  br i1 %56, label %99, label %.thread
 
-104:                                              ; preds = %93
-  %105 = tail call float @If_CutAreaDerefed(ptr noundef nonnull %0, ptr noundef nonnull %82) #20
-  store float %105, ptr %82, align 4
-  %106 = load ptr, ptr %5, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 76
-  %108 = load i32, ptr %107, align 4
-  %.not103 = icmp eq i32 %108, 0
-  br i1 %.not103, label %.thread112, label %113
+99:                                               ; preds = %88
+  %100 = tail call float @If_CutAreaDerefed(ptr noundef nonnull %0, ptr noundef nonnull %77) #20
+  store float %100, ptr %77, align 4
+  %101 = load ptr, ptr %5, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 76
+  %103 = load i32, ptr %102, align 4
+  %.not103 = icmp eq i32 %103, 0
+  br i1 %.not103, label %.thread112, label %108
 
-.thread:                                          ; preds = %93
-  %109 = tail call float @If_CutAreaFlow(ptr noundef nonnull %0, ptr noundef nonnull %82) #20
-  store float %109, ptr %82, align 4
-  %110 = load ptr, ptr %5, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 76
-  %112 = load i32, ptr %111, align 4
-  %.not103107 = icmp eq i32 %112, 0
+.thread:                                          ; preds = %88
+  %104 = tail call float @If_CutAreaFlow(ptr noundef nonnull %0, ptr noundef nonnull %77) #20
+  store float %104, ptr %77, align 4
+  %105 = load ptr, ptr %5, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 76
+  %107 = load i32, ptr %106, align 4
+  %.not103107 = icmp eq i32 %107, 0
   br i1 %.not103107, label %.thread109, label %.thread115
 
-113:                                              ; preds = %104
-  %114 = tail call float @If_CutEdgeDerefed(ptr noundef nonnull %0, ptr noundef nonnull %82) #20
-  %115 = getelementptr inbounds i8, ptr %82, i64 4
+108:                                              ; preds = %99
+  %109 = tail call float @If_CutEdgeDerefed(ptr noundef nonnull %0, ptr noundef nonnull %77) #20
+  %110 = getelementptr inbounds i8, ptr %77, i64 4
+  store float %109, ptr %110, align 4
+  %111 = load ptr, ptr %5, align 8
+  %112 = getelementptr inbounds i8, ptr %111, i64 80
+  %113 = load i32, ptr %112, align 8
+  %.not104 = icmp eq i32 %113, 0
+  br i1 %.not104, label %128, label %.thread114
+
+.thread115:                                       ; preds = %.thread
+  %114 = tail call float @If_CutEdgeFlow(ptr noundef nonnull %0, ptr noundef nonnull %77) #20
+  %115 = getelementptr inbounds i8, ptr %77, i64 4
   store float %114, ptr %115, align 4
   %116 = load ptr, ptr %5, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 80
   %118 = load i32, ptr %117, align 8
-  %.not104 = icmp eq i32 %118, 0
-  br i1 %.not104, label %133, label %.thread114
+  %.not104116 = icmp eq i32 %118, 0
+  br i1 %.not104116, label %128, label %.thread111
 
-.thread115:                                       ; preds = %.thread
-  %119 = tail call float @If_CutEdgeFlow(ptr noundef nonnull %0, ptr noundef nonnull %82) #20
-  %120 = getelementptr inbounds i8, ptr %82, i64 4
-  store float %119, ptr %120, align 4
-  %121 = load ptr, ptr %5, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 80
-  %123 = load i32, ptr %122, align 8
-  %.not104116 = icmp eq i32 %123, 0
-  br i1 %.not104116, label %133, label %.thread111
-
-.thread112:                                       ; preds = %104
-  %124 = getelementptr inbounds i8, ptr %106, i64 80
-  %125 = load i32, ptr %124, align 8
-  %.not104113 = icmp eq i32 %125, 0
-  br i1 %.not104113, label %133, label %.thread114
+.thread112:                                       ; preds = %99
+  %119 = getelementptr inbounds i8, ptr %101, i64 80
+  %120 = load i32, ptr %119, align 8
+  %.not104113 = icmp eq i32 %120, 0
+  br i1 %.not104113, label %128, label %.thread114
 
 .thread109:                                       ; preds = %.thread
-  %126 = getelementptr inbounds i8, ptr %110, i64 80
-  %127 = load i32, ptr %126, align 8
-  %.not104110 = icmp eq i32 %127, 0
-  br i1 %.not104110, label %133, label %.thread111
+  %121 = getelementptr inbounds i8, ptr %105, i64 80
+  %122 = load i32, ptr %121, align 8
+  %.not104110 = icmp eq i32 %122, 0
+  br i1 %.not104110, label %128, label %.thread111
 
-.thread114:                                       ; preds = %113, %.thread112
-  %128 = tail call float @If_CutPowerDerefed(ptr noundef nonnull %0, ptr noundef nonnull %82, ptr noundef nonnull %1) #20
-  br label %130
+.thread114:                                       ; preds = %108, %.thread112
+  %123 = tail call float @If_CutPowerDerefed(ptr noundef nonnull %0, ptr noundef nonnull %77, ptr noundef nonnull %1) #20
+  br label %125
 
 .thread111:                                       ; preds = %.thread115, %.thread109
-  %129 = tail call float @If_CutPowerFlow(ptr noundef nonnull %0, ptr noundef nonnull %82, ptr noundef nonnull %1) #20
-  br label %130
+  %124 = tail call float @If_CutPowerFlow(ptr noundef nonnull %0, ptr noundef nonnull %77, ptr noundef nonnull %1) #20
+  br label %125
 
-130:                                              ; preds = %.thread111, %.thread114
-  %131 = phi float [ %128, %.thread114 ], [ %129, %.thread111 ]
-  %132 = getelementptr inbounds i8, ptr %82, i64 8
-  store float %131, ptr %132, align 4
-  br label %133
+125:                                              ; preds = %.thread111, %.thread114
+  %126 = phi float [ %123, %.thread114 ], [ %124, %.thread111 ]
+  %127 = getelementptr inbounds i8, ptr %77, i64 8
+  store float %126, ptr %127, align 4
+  br label %128
 
-133:                                              ; preds = %.thread115, %.thread112, %.thread109, %130, %113
-  tail call void @If_CutSort(ptr noundef nonnull %0, ptr noundef nonnull %55, ptr noundef nonnull %82) #20
-  br label %134
+128:                                              ; preds = %.thread115, %.thread112, %.thread109, %125, %108
+  tail call void @If_CutSort(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef nonnull %77) #20
+  br label %129
 
-134:                                              ; preds = %86, %77, %73, %133
+129:                                              ; preds = %81, %72, %68, %128
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %135 = load ptr, ptr %63, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 2
-  %137 = load i16, ptr %136, align 2
-  %138 = sext i16 %137 to i64
-  %139 = icmp slt i64 %indvars.iv.next, %138
-  br i1 %139, label %.lr.ph121, label %.critedge, !llvm.loop !33
+  %130 = load ptr, ptr %58, align 8
+  %131 = getelementptr inbounds i8, ptr %130, i64 2
+  %132 = load i16, ptr %131, align 2
+  %133 = sext i16 %132 to i64
+  %134 = icmp slt i64 %indvars.iv.next, %133
+  br i1 %134, label %.lr.ph121, label %.critedge, !llvm.loop !33
 
-.critedge:                                        ; preds = %134, %.lr.ph121, %62
+.critedge:                                        ; preds = %129, %.lr.ph121, %57
   %.1.in = getelementptr inbounds i8, ptr %.1126, i64 40
   %.1 = load ptr, ptr %.1.in, align 8
   %.not96 = icmp eq ptr %.1, null
-  br i1 %.not96, label %._crit_edge129, label %62, !llvm.loop !34
+  br i1 %.not96, label %._crit_edge129, label %57, !llvm.loop !34
 
 ._crit_edge129:                                   ; preds = %.critedge, %._crit_edge
   %.not97 = icmp eq i32 %3, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %55, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre131 = load ptr, ptr %.pre, align 8
-  br i1 %.not97, label %._crit_edge129._crit_edge, label %140
+  %.phi.trans.insert133 = getelementptr inbounds i8, ptr %50, i64 16
+  %.pre134 = load ptr, ptr %.phi.trans.insert133, align 8
+  %.pre135 = load ptr, ptr %.pre134, align 8
+  br i1 %.not97, label %._crit_edge129._crit_edge, label %135
 
-140:                                              ; preds = %._crit_edge129
-  %141 = getelementptr inbounds i8, ptr %.pre131, i64 12
-  %142 = load float, ptr %141, align 4
-  %143 = getelementptr inbounds i8, ptr %1, i64 52
-  %144 = load float, ptr %143, align 4
-  %145 = getelementptr inbounds i8, ptr %0, i64 88
-  %146 = load float, ptr %145, align 8
-  %147 = fadd float %144, %146
-  %148 = fcmp ugt float %142, %147
-  br i1 %148, label %152, label %._crit_edge129._crit_edge
+135:                                              ; preds = %._crit_edge129
+  %136 = getelementptr inbounds i8, ptr %.pre135, i64 12
+  %137 = load float, ptr %136, align 4
+  %138 = getelementptr inbounds i8, ptr %1, i64 52
+  %139 = load float, ptr %138, align 4
+  %140 = getelementptr inbounds i8, ptr %0, i64 88
+  %141 = load float, ptr %140, align 8
+  %142 = fadd float %139, %141
+  %143 = fcmp ugt float %137, %142
+  br i1 %143, label %147, label %._crit_edge129._crit_edge
 
-._crit_edge129._crit_edge:                        ; preds = %._crit_edge129, %140
-  %149 = getelementptr inbounds i8, ptr %1, i64 80
-  %150 = getelementptr i8, ptr %0, i64 724
-  %.val = load i32, ptr %150, align 4
-  %151 = sext i32 %.val to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %149, ptr align 4 %.pre131, i64 %151, i1 false)
-  br label %152
+._crit_edge129._crit_edge:                        ; preds = %._crit_edge129, %135
+  %144 = getelementptr inbounds i8, ptr %1, i64 80
+  %145 = getelementptr i8, ptr %0, i64 724
+  %.val = load i32, ptr %145, align 4
+  %146 = sext i32 %.val to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %144, ptr align 4 %.pre135, i64 %146, i1 false)
+  br label %147
 
-152:                                              ; preds = %._crit_edge129._crit_edge, %140
-  %153 = load i32, ptr %1, align 8
-  %154 = and i32 %153, 4096
-  %.not98 = icmp eq i32 %154, 0
-  br i1 %.not98, label %155, label %170
+147:                                              ; preds = %._crit_edge129._crit_edge, %135
+  %148 = load i32, ptr %1, align 8
+  %149 = and i32 %148, 4096
+  %.not98 = icmp eq i32 %149, 0
+  br i1 %.not98, label %150, label %165
 
-155:                                              ; preds = %152
-  %156 = getelementptr inbounds i8, ptr %1, i64 108
-  %157 = load i64, ptr %156, align 4
-  %158 = and i64 %157, 4261412864
-  %.not99 = icmp eq i64 %158, 0
-  br i1 %.not99, label %170, label %159
+150:                                              ; preds = %147
+  %151 = getelementptr inbounds i8, ptr %1, i64 108
+  %152 = load i64, ptr %151, align 4
+  %153 = and i64 %152, 4261412864
+  %.not99 = icmp eq i64 %153, 0
+  br i1 %.not99, label %165, label %154
 
-159:                                              ; preds = %155
-  %160 = getelementptr inbounds i8, ptr %55, i64 16
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %55, i64 2
-  %163 = load i16, ptr %162, align 2
-  %164 = add i16 %163, 1
-  store i16 %164, ptr %162, align 2
-  %165 = sext i16 %163 to i64
-  %166 = getelementptr inbounds ptr, ptr %161, i64 %165
-  %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %1, i64 4
-  %169 = load i32, ptr %168, align 4
-  tail call void @If_ManSetupCutTriv(ptr noundef nonnull %0, ptr noundef %167, i32 noundef %169) #20
-  br label %170
+154:                                              ; preds = %150
+  %155 = getelementptr inbounds i8, ptr %50, i64 16
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds i8, ptr %50, i64 2
+  %158 = load i16, ptr %157, align 2
+  %159 = add i16 %158, 1
+  store i16 %159, ptr %157, align 2
+  %160 = sext i16 %158 to i64
+  %161 = getelementptr inbounds ptr, ptr %156, i64 %160
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds i8, ptr %1, i64 4
+  %164 = load i32, ptr %163, align 4
+  tail call void @If_ManSetupCutTriv(ptr noundef nonnull %0, ptr noundef %162, i32 noundef %164) #20
+  br label %165
 
-170:                                              ; preds = %159, %155, %152
-  br i1 %.not94, label %178, label %171
+165:                                              ; preds = %154, %150, %147
+  br i1 %.not94, label %173, label %166
 
-171:                                              ; preds = %170
-  %172 = getelementptr inbounds i8, ptr %1, i64 12
-  %173 = load i32, ptr %172, align 4
-  %174 = icmp sgt i32 %173, 0
-  br i1 %174, label %175, label %178
+166:                                              ; preds = %165
+  %167 = getelementptr inbounds i8, ptr %1, i64 12
+  %168 = load i32, ptr %167, align 4
+  %169 = icmp sgt i32 %168, 0
+  br i1 %169, label %170, label %173
 
-175:                                              ; preds = %171
-  %176 = getelementptr inbounds i8, ptr %1, i64 80
-  %177 = tail call float @If_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %176) #20
-  br label %178
+170:                                              ; preds = %166
+  %171 = getelementptr inbounds i8, ptr %1, i64 80
+  %172 = tail call float @If_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %171) #20
+  br label %173
 
-178:                                              ; preds = %175, %171, %170
+173:                                              ; preds = %170, %166, %165
   tail call void @If_ManDerefChoiceCutSet(ptr noundef nonnull %0, ptr noundef nonnull %1) #20
   ret void
 }

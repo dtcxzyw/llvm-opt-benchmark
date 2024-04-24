@@ -930,7 +930,7 @@ define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1)
   %11 = getelementptr inbounds i8, ptr %0, i64 296
   %12 = load i32, ptr %6, align 8
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef %11, i32 noundef %12) #12
-  br label %93
+  br label %94
 
 13:                                               ; preds = %2
   %14 = icmp eq ptr %0, null
@@ -969,7 +969,7 @@ define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1)
 
 30:                                               ; preds = %27, %25
   %31 = tail call i32 @dev_set_mtu(ptr noundef %0, i32 noundef %5) #11
-  br label %93
+  br label %94
 
 32:                                               ; preds = %23, %23, %18
   %33 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
@@ -1024,62 +1024,63 @@ define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1)
   %65 = icmp eq i64 %64, 0
   %66 = zext i1 %65 to i8
   %67 = icmp eq ptr %60, %0
-  br i1 %67, label %68, label %75
+  br i1 %67, label %68, label %76
 
 68:                                               ; preds = %58
-  %69 = load volatile i64, ptr %62, align 8
-  %70 = and i64 %69, 1
-  %71 = icmp eq i64 %70, 0
-  br i1 %71, label %74, label %72
+  %69 = getelementptr inbounds i8, ptr %60, i64 352
+  %70 = load volatile i64, ptr %69, align 8
+  %71 = and i64 %70, 1
+  %72 = icmp eq i64 %71, 0
+  br i1 %72, label %75, label %73
 
-72:                                               ; preds = %68
-  %73 = or disjoint i8 %66, 2
-  store i8 %73, ptr %3, align 1
-  br label %90
+73:                                               ; preds = %68
+  %74 = or disjoint i8 %66, 2
+  store i8 %74, ptr %3, align 1
+  br label %91
 
-74:                                               ; preds = %68
+75:                                               ; preds = %68
   store i8 %66, ptr %3, align 1
-  br label %90
+  br label %91
 
-75:                                               ; preds = %58
-  %76 = icmp eq ptr %60, null
-  br i1 %76, label %82, label %77
+76:                                               ; preds = %58
+  %77 = icmp eq ptr %60, null
+  br i1 %77, label %83, label %78
 
-77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %60, i64 352
-  %79 = load volatile i64, ptr %78, align 8
-  %80 = and i64 %79, 1
-  %81 = icmp eq i64 %80, 0
-  br i1 %81, label %82, label %87
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds i8, ptr %60, i64 352
+  %80 = load volatile i64, ptr %79, align 8
+  %81 = and i64 %80, 1
+  %82 = icmp eq i64 %81, 0
+  br i1 %82, label %83, label %88
 
-82:                                               ; preds = %77, %75
-  %83 = getelementptr inbounds i8, ptr %61, i64 352
-  %84 = load volatile i64, ptr %83, align 8
-  %85 = and i64 %84, 1
-  %86 = icmp eq i64 %85, 0
-  br i1 %86, label %87, label %88
+83:                                               ; preds = %78, %76
+  %84 = getelementptr inbounds i8, ptr %61, i64 352
+  %85 = load volatile i64, ptr %84, align 8
+  %86 = and i64 %85, 1
+  %87 = icmp eq i64 %86, 0
+  br i1 %87, label %88, label %89
 
-87:                                               ; preds = %82, %77
+88:                                               ; preds = %83, %78
   store i8 %66, ptr %3, align 1
-  br label %90
+  br label %91
 
-88:                                               ; preds = %82
-  %89 = or disjoint i8 %66, 2
-  store i8 %89, ptr %3, align 1
-  br label %90
+89:                                               ; preds = %83
+  %90 = or disjoint i8 %66, 2
+  store i8 %90, ptr %3, align 1
+  br label %91
 
-90:                                               ; preds = %88, %87, %74, %72
+91:                                               ; preds = %89, %88, %75, %73
   call void @netdev_lower_state_changed(ptr noundef %0, ptr noundef nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   call fastcc void @net_failover_compute_features(ptr noundef %1)
-  %91 = call i32 @call_netdevice_notifiers(i64 noundef 21, ptr noundef %0) #11
-  %92 = getelementptr inbounds i8, ptr %0, i64 296
-  call void (ptr, ptr, ...) @netdev_info(ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull %59, ptr noundef %92) #12
-  br label %93
+  %92 = call i32 @call_netdevice_notifiers(i64 noundef 21, ptr noundef %0) #11
+  %93 = getelementptr inbounds i8, ptr %0, i64 296
+  call void (ptr, ptr, ...) @netdev_info(ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull %59, ptr noundef %93) #12
+  br label %94
 
-93:                                               ; preds = %90, %30, %10
-  %94 = phi i32 [ 0, %90 ], [ %8, %10 ], [ %24, %30 ]
-  ret i32 %94
+94:                                               ; preds = %91, %30, %10
+  %95 = phi i32 [ 0, %91 ], [ %8, %10 ], [ %24, %30 ]
+  ret i32 %95
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -1185,7 +1186,7 @@ define internal noundef i32 @net_failover_slave_link_change(ptr noundef %0, ptr 
   %8 = icmp eq ptr %5, %0
   %9 = icmp eq ptr %7, %0
   %10 = select i1 %8, i1 true, i1 %9
-  br i1 %10, label %11, label %77
+  br i1 %10, label %11, label %78
 
 11:                                               ; preds = %2
   %12 = icmp eq ptr %5, null
@@ -1257,57 +1258,58 @@ define internal noundef i32 @net_failover_slave_link_change(ptr noundef %0, ptr 
   %52 = and i64 %51, 4
   %53 = icmp eq i64 %52, 0
   %54 = zext i1 %53 to i8
-  br i1 %8, label %55, label %62
+  br i1 %8, label %55, label %63
 
 55:                                               ; preds = %.loopexit
-  %56 = load volatile i64, ptr %50, align 8
-  %57 = and i64 %56, 1
-  %58 = icmp eq i64 %57, 0
-  br i1 %58, label %61, label %59
+  %56 = getelementptr inbounds i8, ptr %5, i64 352
+  %57 = load volatile i64, ptr %56, align 8
+  %58 = and i64 %57, 1
+  %59 = icmp eq i64 %58, 0
+  br i1 %59, label %62, label %60
 
-59:                                               ; preds = %55
-  %60 = or disjoint i8 %54, 2
-  store i8 %60, ptr %3, align 1
-  br label %76
-
-61:                                               ; preds = %55
-  store i8 %54, ptr %3, align 1
-  br label %76
-
-62:                                               ; preds = %.loopexit
-  br i1 %12, label %68, label %63
-
-63:                                               ; preds = %62
-  %64 = getelementptr inbounds i8, ptr %5, i64 352
-  %65 = load volatile i64, ptr %64, align 8
-  %66 = and i64 %65, 1
-  %67 = icmp eq i64 %66, 0
-  br i1 %67, label %68, label %73
-
-68:                                               ; preds = %63, %62
-  %69 = getelementptr inbounds i8, ptr %7, i64 352
-  %70 = load volatile i64, ptr %69, align 8
-  %71 = and i64 %70, 1
-  %72 = icmp eq i64 %71, 0
-  br i1 %72, label %73, label %74
-
-73:                                               ; preds = %68, %63
-  store i8 %54, ptr %3, align 1
-  br label %76
-
-74:                                               ; preds = %68
-  %75 = or disjoint i8 %54, 2
-  store i8 %75, ptr %3, align 1
-  br label %76
-
-76:                                               ; preds = %74, %73, %61, %59
-  call void @netdev_lower_state_changed(ptr noundef %0, ptr noundef nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
+60:                                               ; preds = %55
+  %61 = or disjoint i8 %54, 2
+  store i8 %61, ptr %3, align 1
   br label %77
 
-77:                                               ; preds = %76, %2
-  %78 = phi i32 [ 0, %76 ], [ -19, %2 ]
-  ret i32 %78
+62:                                               ; preds = %55
+  store i8 %54, ptr %3, align 1
+  br label %77
+
+63:                                               ; preds = %.loopexit
+  br i1 %12, label %69, label %64
+
+64:                                               ; preds = %63
+  %65 = getelementptr inbounds i8, ptr %5, i64 352
+  %66 = load volatile i64, ptr %65, align 8
+  %67 = and i64 %66, 1
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %69, label %74
+
+69:                                               ; preds = %64, %63
+  %70 = getelementptr inbounds i8, ptr %7, i64 352
+  %71 = load volatile i64, ptr %70, align 8
+  %72 = and i64 %71, 1
+  %73 = icmp eq i64 %72, 0
+  br i1 %73, label %74, label %75
+
+74:                                               ; preds = %69, %64
+  store i8 %54, ptr %3, align 1
+  br label %77
+
+75:                                               ; preds = %69
+  %76 = or disjoint i8 %54, 2
+  store i8 %76, ptr %3, align 1
+  br label %77
+
+77:                                               ; preds = %75, %74, %62, %60
+  call void @netdev_lower_state_changed(ptr noundef %0, ptr noundef nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
+  br label %78
+
+78:                                               ; preds = %77, %2
+  %79 = phi i32 [ 0, %77 ], [ -19, %2 ]
+  ret i32 %79
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -1393,17 +1393,17 @@ switch.early.test:                                ; preds = %72
 75:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %72
   %76 = getelementptr inbounds i8, ptr %.4327, i64 1
   %.not266 = icmp eq ptr %76, %.ptr345
-  br i1 %.not266, label %switch.early.test._crit_edge..loopexit_crit_edge, label %.lr.ph329
+  br i1 %.not266, label %switch.early.test._crit_edge.thread, label %.lr.ph329
+
+switch.early.test._crit_edge.thread:              ; preds = %75
+  %.4.lcssa351354 = ptrtoint ptr %.ptr345 to i64
+  br label %.loopexit
 
 switch.early.test._crit_edge:                     ; preds = %.lr.ph329, %switch.early.test, %32
   %.4.lcssa = phi ptr [ %.ptr344, %32 ], [ %.4327, %switch.early.test ], [ %.4327, %.lr.ph329 ]
   %.4.lcssa351 = ptrtoint ptr %.4.lcssa to i64
   %.not267335 = icmp eq ptr %.4.lcssa, %.ptr345
-  br i1 %.not267335, label %switch.early.test._crit_edge..loopexit_crit_edge, label %.lr.ph338.preheader
-
-switch.early.test._crit_edge..loopexit_crit_edge: ; preds = %75, %switch.early.test._crit_edge
-  %.pre353 = ptrtoint ptr %.ptr345 to i64
-  br label %.loopexit
+  br i1 %.not267335, label %.loopexit, label %.lr.ph338.preheader
 
 .lr.ph338.preheader:                              ; preds = %switch.early.test._crit_edge
   %77 = sub i64 %.4.lcssa351, %30
@@ -1440,11 +1440,11 @@ switch.early.test279:                             ; preds = %81
   %.pre = load i64, ptr %39, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %50, %51, %84, %.lr.ph338, %switch.early.test279, %switch.early.test._crit_edge..loopexit_crit_edge, %.loopexit.loopexit347
-  %.pre-phi = phi i64 [ %.pre353, %switch.early.test._crit_edge..loopexit_crit_edge ], [ %.2.lcssa348, %.loopexit.loopexit347 ], [ %.4.lcssa351, %switch.early.test279 ], [ %.4.lcssa351, %.lr.ph338 ], [ %.4.lcssa351, %84 ], [ %.0247.lcssa349, %51 ], [ %.0247.lcssa349, %50 ]
-  %85 = phi i64 [ %34, %switch.early.test._crit_edge..loopexit_crit_edge ], [ %.pre, %.loopexit.loopexit347 ], [ %34, %switch.early.test279 ], [ %34, %.lr.ph338 ], [ %34, %84 ], [ %40, %51 ], [ %40, %50 ]
-  %.3252 = phi ptr [ %.ptr345, %switch.early.test._crit_edge..loopexit_crit_edge ], [ %.1250.lcssa, %.loopexit.loopexit347 ], [ %scevgep352, %84 ], [ %.2251336, %.lr.ph338 ], [ %.2251336, %switch.early.test279 ], [ %scevgep350, %50 ], [ %.0249, %51 ]
-  %.6 = phi ptr [ %.ptr345, %switch.early.test._crit_edge..loopexit_crit_edge ], [ %.2.lcssa, %.loopexit.loopexit347 ], [ %.4.lcssa, %switch.early.test279 ], [ %.4.lcssa, %.lr.ph338 ], [ %.4.lcssa, %84 ], [ %.0247.lcssa, %51 ], [ %.0247.lcssa, %50 ]
+.loopexit:                                        ; preds = %50, %51, %84, %.lr.ph338, %switch.early.test279, %switch.early.test._crit_edge.thread, %.loopexit.loopexit347, %switch.early.test._crit_edge
+  %.pre-phi = phi i64 [ %.2.lcssa348, %.loopexit.loopexit347 ], [ %.4.lcssa351, %switch.early.test._crit_edge ], [ %.4.lcssa351354, %switch.early.test._crit_edge.thread ], [ %.4.lcssa351, %switch.early.test279 ], [ %.4.lcssa351, %.lr.ph338 ], [ %.4.lcssa351, %84 ], [ %.0247.lcssa349, %51 ], [ %.0247.lcssa349, %50 ]
+  %85 = phi i64 [ %.pre, %.loopexit.loopexit347 ], [ %34, %switch.early.test._crit_edge ], [ %34, %switch.early.test._crit_edge.thread ], [ %34, %switch.early.test279 ], [ %34, %.lr.ph338 ], [ %34, %84 ], [ %40, %51 ], [ %40, %50 ]
+  %.3252 = phi ptr [ %.1250.lcssa, %.loopexit.loopexit347 ], [ %.ptr345, %switch.early.test._crit_edge ], [ %.ptr345, %switch.early.test._crit_edge.thread ], [ %scevgep352, %84 ], [ %.2251336, %.lr.ph338 ], [ %.2251336, %switch.early.test279 ], [ %scevgep350, %50 ], [ %.0249, %51 ]
+  %.6 = phi ptr [ %.2.lcssa, %.loopexit.loopexit347 ], [ %.4.lcssa, %switch.early.test._crit_edge ], [ %.ptr345, %switch.early.test._crit_edge.thread ], [ %.4.lcssa, %switch.early.test279 ], [ %.4.lcssa, %.lr.ph338 ], [ %.4.lcssa, %84 ], [ %.0247.lcssa, %51 ], [ %.0247.lcssa, %50 ]
   %86 = ptrtoint ptr %.3252 to i64
   %87 = sub i64 %86, %.pre-phi
   %88 = icmp eq i64 %85, %87
@@ -1505,7 +1505,7 @@ switch.early.test279:                             ; preds = %81
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_trim_1(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @zflf_trim_1(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1696,7 +1696,8 @@ switch.early.test207:                             ; preds = %41
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %.thread209, %69
-  call void @zval_ptr_dtor(ptr noundef nonnull %3) #28
+  %.1197211 = phi ptr [ %3, %.thread209 ], [ %.0196, %69 ]
+  call void @zval_ptr_dtor(ptr noundef %.1197211) #28
   br label %77
 
 77:                                               ; preds = %76, %69
@@ -1708,7 +1709,7 @@ declare void @zend_wrong_parameter_type_error(i32 noundef, i32 noundef, ptr noun
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_trim_2(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @zflf_trim_2(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
@@ -1970,8 +1971,9 @@ define hidden void @zflf_trim_2(ptr nocapture noundef writeonly %0, ptr noundef 
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %.thread, %117
+  %.1231256 = phi ptr [ %5, %.thread ], [ %.0230, %117 ]
   %.1233255 = phi ptr [ %2, %.thread ], [ %.1233, %117 ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %5) #28
+  call void @zval_ptr_dtor(ptr noundef %.1231256) #28
   br label %120
 
 120:                                              ; preds = %119, %117
@@ -1980,7 +1982,7 @@ define hidden void @zflf_trim_2(ptr nocapture noundef writeonly %0, ptr noundef 
   br i1 %121, label %122, label %123
 
 122:                                              ; preds = %120
-  call void @zval_ptr_dtor(ptr noundef nonnull %6) #28
+  call void @zval_ptr_dtor(ptr noundef %.1233254) #28
   br label %123
 
 123:                                              ; preds = %122, %120
@@ -4091,7 +4093,7 @@ define void @php_implode(ptr nocapture noundef readonly %0, ptr nocapture nounde
   %.0201 = phi i64 [ %132, %131 ], [ %138, %133 ]
   %.0200 = phi ptr [ %.0207, %131 ], [ %137, %133 ]
   %134 = urem i64 %.0201, 10
-  %135 = trunc i64 %134 to i8
+  %135 = trunc nuw nsw i64 %134 to i8
   %136 = or disjoint i8 %135, 48
   %137 = getelementptr inbounds i8, ptr %.0200, i64 -1
   store i8 %136, ptr %137, align 1
@@ -4108,7 +4110,7 @@ define void @php_implode(ptr nocapture noundef readonly %0, ptr nocapture nounde
   %.0199 = phi i64 [ %145, %.preheader ], [ %129, %126 ]
   %.0 = phi ptr [ %144, %.preheader ], [ %.0207, %126 ]
   %141 = urem i64 %.0199, 10
-  %142 = trunc i64 %141 to i8
+  %142 = trunc nuw nsw i64 %141 to i8
   %143 = or disjoint i8 %142, 48
   %144 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %143, ptr %144, align 1
@@ -4290,7 +4292,7 @@ define hidden void @zflf_implode_1(ptr nocapture noundef writeonly %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_implode_2(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @zflf_implode_2(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4367,7 +4369,8 @@ define hidden void @zflf_implode_2(ptr nocapture noundef writeonly %0, ptr nound
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %.thread62, %34
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #28
+  %.164 = phi ptr [ %4, %.thread62 ], [ %.048, %34 ]
+  call void @zval_ptr_dtor(ptr noundef nonnull %.164) #28
   br label %37
 
 37:                                               ; preds = %36, %34
@@ -5658,7 +5661,7 @@ define internal fastcc void @_zend_dirname(ptr nocapture noundef writeonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_dirname_1(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @zflf_dirname_1(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5740,7 +5743,8 @@ define hidden void @zflf_dirname_1(ptr nocapture noundef writeonly %0, ptr nound
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %.thread, %24
-  call void @zval_ptr_dtor(ptr noundef nonnull %3) #28
+  %.136 = phi ptr [ %3, %.thread ], [ %.033, %24 ]
+  call void @zval_ptr_dtor(ptr noundef nonnull %.136) #28
   br label %42
 
 42:                                               ; preds = %41, %24
@@ -5748,7 +5752,7 @@ define hidden void @zflf_dirname_1(ptr nocapture noundef writeonly %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_dirname_2(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @zflf_dirname_2(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -5832,7 +5836,8 @@ define hidden void @zflf_dirname_2(ptr nocapture noundef writeonly %0, ptr nound
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %.thread, %37
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #28
+  %.161 = phi ptr [ %4, %.thread ], [ %.055, %37 ]
+  call void @zval_ptr_dtor(ptr noundef nonnull %.161) #28
   br label %40
 
 40:                                               ; preds = %39, %37
@@ -6247,7 +6252,7 @@ define ptr @php_stristr(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2,
   br i1 %73, label %74, label %79
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %.086109, i64 1
+  %75 = getelementptr inbounds i8, ptr %.188108, i64 1
   %76 = ptrtoint ptr %.086109 to i64
   %77 = sub i64 %50, %76
   %78 = tail call ptr @memchr(ptr noundef nonnull %75, i32 noundef %20, i64 noundef %77) #30
@@ -6839,7 +6844,7 @@ define internal fastcc void @_zend_strstr(ptr nocapture noundef writeonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_strstr_2(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @zflf_strstr_2(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca ptr, align 8
@@ -6953,8 +6958,9 @@ define hidden void @zflf_strstr_2(ptr nocapture noundef writeonly %0, ptr nounde
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %.thread, %51
+  %.179 = phi ptr [ %4, %.thread ], [ %.067, %51 ]
   %.16978 = phi ptr [ %2, %.thread ], [ %.169, %51 ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #28
+  call void @zval_ptr_dtor(ptr noundef nonnull %.179) #28
   br label %54
 
 54:                                               ; preds = %53, %51
@@ -6963,7 +6969,7 @@ define hidden void @zflf_strstr_2(ptr nocapture noundef writeonly %0, ptr nounde
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %54
-  call void @zval_ptr_dtor(ptr noundef nonnull %5) #28
+  call void @zval_ptr_dtor(ptr noundef %.16977) #28
   br label %57
 
 57:                                               ; preds = %56, %54
@@ -6971,7 +6977,7 @@ define hidden void @zflf_strstr_2(ptr nocapture noundef writeonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_strstr_3(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @zflf_strstr_3(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca ptr, align 8
@@ -7112,8 +7118,9 @@ define hidden void @zflf_strstr_3(ptr nocapture noundef writeonly %0, ptr nounde
   br i1 %63, label %64, label %65
 
 64:                                               ; preds = %.thread, %62
+  %.1106 = phi ptr [ %5, %.thread ], [ %.091, %62 ]
   %.193105 = phi ptr [ %2, %.thread ], [ %.193, %62 ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %5) #28
+  call void @zval_ptr_dtor(ptr noundef nonnull %.1106) #28
   br label %65
 
 65:                                               ; preds = %64, %62
@@ -7122,7 +7129,7 @@ define hidden void @zflf_strstr_3(ptr nocapture noundef writeonly %0, ptr nounde
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %65
-  call void @zval_ptr_dtor(ptr noundef nonnull %6) #28
+  call void @zval_ptr_dtor(ptr noundef %.193104) #28
   br label %68
 
 68:                                               ; preds = %67, %65
@@ -7281,7 +7288,7 @@ define hidden void @zif_str_contains(ptr noundef %0, ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_str_contains_2(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @zflf_str_contains_2(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca ptr, align 8
@@ -7478,8 +7485,9 @@ define hidden void @zflf_str_contains_2(ptr nocapture noundef writeonly %0, ptr 
   br i1 %94, label %95, label %96
 
 95:                                               ; preds = %.thread, %93
+  %.1128 = phi ptr [ %4, %.thread ], [ %.0108, %93 ]
   %.1110127 = phi ptr [ %2, %.thread ], [ %.1110, %93 ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #28
+  call void @zval_ptr_dtor(ptr noundef %.1128) #28
   br label %96
 
 96:                                               ; preds = %95, %93
@@ -7488,7 +7496,7 @@ define hidden void @zflf_str_contains_2(ptr nocapture noundef writeonly %0, ptr 
   br i1 %97, label %98, label %99
 
 98:                                               ; preds = %96
-  call void @zval_ptr_dtor(ptr noundef nonnull %5) #28
+  call void @zval_ptr_dtor(ptr noundef %.1110126) #28
   br label %99
 
 99:                                               ; preds = %98, %96
@@ -7574,7 +7582,7 @@ define hidden void @zif_str_starts_with(ptr noundef %0, ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_str_starts_with_2(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @zflf_str_starts_with_2(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca ptr, align 8
@@ -7706,8 +7714,9 @@ define hidden void @zflf_str_starts_with_2(ptr nocapture noundef writeonly %0, p
   br i1 %63, label %64, label %65
 
 64:                                               ; preds = %.thread, %62
+  %.190 = phi ptr [ %4, %.thread ], [ %.075, %62 ]
   %.17789 = phi ptr [ %2, %.thread ], [ %.177, %62 ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #28
+  call void @zval_ptr_dtor(ptr noundef nonnull %.190) #28
   br label %65
 
 65:                                               ; preds = %64, %62
@@ -7716,7 +7725,7 @@ define hidden void @zflf_str_starts_with_2(ptr nocapture noundef writeonly %0, p
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %65
-  call void @zval_ptr_dtor(ptr noundef nonnull %5) #28
+  call void @zval_ptr_dtor(ptr noundef %.17788) #28
   br label %68
 
 68:                                               ; preds = %67, %65
@@ -8037,7 +8046,7 @@ define internal fastcc void @_zend_strpos(ptr nocapture noundef writeonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_strpos_2(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @zflf_strpos_2(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca ptr, align 8
@@ -8151,8 +8160,9 @@ define hidden void @zflf_strpos_2(ptr nocapture noundef writeonly %0, ptr nounde
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %.thread, %51
+  %.179 = phi ptr [ %4, %.thread ], [ %.067, %51 ]
   %.16978 = phi ptr [ %2, %.thread ], [ %.169, %51 ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #28
+  call void @zval_ptr_dtor(ptr noundef nonnull %.179) #28
   br label %54
 
 54:                                               ; preds = %53, %51
@@ -8161,7 +8171,7 @@ define hidden void @zflf_strpos_2(ptr nocapture noundef writeonly %0, ptr nounde
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %54
-  call void @zval_ptr_dtor(ptr noundef nonnull %5) #28
+  call void @zval_ptr_dtor(ptr noundef %.16977) #28
   br label %57
 
 57:                                               ; preds = %56, %54
@@ -8169,7 +8179,7 @@ define hidden void @zflf_strpos_2(ptr nocapture noundef writeonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_strpos_3(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @zflf_strpos_3(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca ptr, align 8
@@ -8304,8 +8314,9 @@ define hidden void @zflf_strpos_3(ptr nocapture noundef writeonly %0, ptr nounde
   br i1 %63, label %64, label %65
 
 64:                                               ; preds = %.thread, %62
+  %.1104 = phi ptr [ %5, %.thread ], [ %.089, %62 ]
   %.191103 = phi ptr [ %2, %.thread ], [ %.191, %62 ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %5) #28
+  call void @zval_ptr_dtor(ptr noundef nonnull %.1104) #28
   br label %65
 
 65:                                               ; preds = %64, %62
@@ -8314,7 +8325,7 @@ define hidden void @zflf_strpos_3(ptr nocapture noundef writeonly %0, ptr nounde
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %65
-  call void @zval_ptr_dtor(ptr noundef nonnull %6) #28
+  call void @zval_ptr_dtor(ptr noundef %.191102) #28
   br label %68
 
 68:                                               ; preds = %67, %65
@@ -9916,7 +9927,7 @@ define internal fastcc void @_zend_substr(ptr nocapture noundef writeonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_substr_2(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @zflf_substr_2(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -10094,7 +10105,8 @@ _zend_substr.exit:                                ; preds = %48, %.thread62, %57
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %.thread, %88
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #28
+  %.161 = phi ptr [ %4, %.thread ], [ %.055, %88 ]
+  call void @zval_ptr_dtor(ptr noundef nonnull %.161) #28
   br label %91
 
 91:                                               ; preds = %90, %88
@@ -10102,7 +10114,7 @@ _zend_substr.exit:                                ; preds = %48, %.thread62, %57
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_substr_3(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @zflf_substr_3(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -10216,7 +10228,8 @@ define hidden void @zflf_substr_3(ptr nocapture noundef writeonly %0, ptr nounde
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %.thread88, %51
-  call void @zval_ptr_dtor(ptr noundef nonnull %5) #28
+  %.190 = phi ptr [ %5, %.thread88 ], [ %.077, %51 ]
+  call void @zval_ptr_dtor(ptr noundef nonnull %.190) #28
   br label %54
 
 54:                                               ; preds = %53, %51
@@ -10497,7 +10510,7 @@ define hidden void @zif_substr_replace(ptr noundef %0, ptr noundef %1) local_unn
 .loopexit807:                                     ; preds = %93, %98
   %indvars.iv.lcssa.sink = phi i64 [ %indvars.iv894, %98 ], [ %indvars.iv, %93 ]
   %.2550 = phi ptr [ %99, %98 ], [ %94, %93 ]
-  %103 = trunc i64 %indvars.iv.lcssa.sink to i32
+  %103 = trunc nuw i64 %indvars.iv.lcssa.sink to i32
   %104 = icmp ugt i32 %88, %103
   br i1 %104, label %105, label %.loopexit807.thread
 
@@ -10743,11 +10756,11 @@ define hidden void @zif_substr_replace(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %exitcond907.not, label %.loopexit801.thread, label %213
 
 .loopexit801.loopexit:                            ; preds = %213
-  %218 = trunc i64 %indvars.iv904 to i32
+  %218 = trunc nuw i64 %indvars.iv904 to i32
   br label %.loopexit801
 
 .loopexit801.loopexit958:                         ; preds = %208
-  %219 = trunc i64 %indvars.iv900 to i32
+  %219 = trunc nuw i64 %indvars.iv900 to i32
   br label %.loopexit801
 
 .loopexit801:                                     ; preds = %.loopexit801.loopexit958, %.loopexit801.loopexit, %.preheader802, %.preheader800
@@ -10866,11 +10879,11 @@ define hidden void @zif_substr_replace(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %exitcond915.not, label %.loopexit796.thread, label %263
 
 .loopexit796.loopexit:                            ; preds = %263
-  %268 = trunc i64 %indvars.iv912 to i32
+  %268 = trunc nuw i64 %indvars.iv912 to i32
   br label %.loopexit796
 
 .loopexit796.loopexit956:                         ; preds = %258
-  %269 = trunc i64 %indvars.iv908 to i32
+  %269 = trunc nuw i64 %indvars.iv908 to i32
   br label %.loopexit796
 
 .loopexit796:                                     ; preds = %.loopexit796.loopexit956, %.loopexit796.loopexit, %.preheader797, %.preheader795
@@ -10997,11 +11010,11 @@ define hidden void @zif_substr_replace(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %exitcond923.not, label %.loopexit.thread, label %319
 
 .loopexit.loopexit:                               ; preds = %319
-  %324 = trunc i64 %indvars.iv920 to i32
+  %324 = trunc nuw i64 %indvars.iv920 to i32
   br label %.loopexit
 
 .loopexit.loopexit954:                            ; preds = %314
-  %325 = trunc i64 %indvars.iv916 to i32
+  %325 = trunc nuw i64 %indvars.iv916 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit954, %.loopexit.loopexit, %.preheader792, %.preheader
@@ -13851,7 +13864,7 @@ define internal fastcc noundef ptr @php_strtr_ex(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_strtr_2(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @zflf_strtr_2(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -13934,7 +13947,8 @@ define hidden void @zflf_strtr_2(ptr nocapture noundef writeonly %0, ptr noundef
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %.thread, %40
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #28
+  %.158 = phi ptr [ %4, %.thread ], [ %.052, %40 ]
+  call void @zval_ptr_dtor(ptr noundef nonnull %.158) #28
   br label %43
 
 43:                                               ; preds = %42, %40
@@ -13942,7 +13956,7 @@ define hidden void @zflf_strtr_2(ptr nocapture noundef writeonly %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_strtr_3(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @zflf_strtr_3(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
@@ -14131,9 +14145,10 @@ define hidden void @zflf_strtr_3(ptr nocapture noundef writeonly %0, ptr noundef
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %.thread, %95
+  %.1134 = phi ptr [ %5, %.thread ], [ %.0110, %95 ]
   %.1112133 = phi ptr [ %2, %.thread ], [ %.1112, %95 ]
   %.1114131 = phi ptr [ %3, %.thread ], [ %.1114, %95 ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %5) #28
+  call void @zval_ptr_dtor(ptr noundef nonnull %.1134) #28
   br label %98
 
 98:                                               ; preds = %97, %95
@@ -14143,7 +14158,7 @@ define hidden void @zflf_strtr_3(ptr nocapture noundef writeonly %0, ptr noundef
   br i1 %99, label %100, label %101
 
 100:                                              ; preds = %98
-  call void @zval_ptr_dtor(ptr noundef nonnull %6) #28
+  call void @zval_ptr_dtor(ptr noundef %.1112132) #28
   br label %101
 
 101:                                              ; preds = %100, %98
@@ -14151,7 +14166,7 @@ define hidden void @zflf_strtr_3(ptr nocapture noundef writeonly %0, ptr noundef
   br i1 %102, label %103, label %104
 
 103:                                              ; preds = %101
-  call void @zval_ptr_dtor(ptr noundef nonnull %7) #28
+  call void @zval_ptr_dtor(ptr noundef %.1114130) #28
   br label %104
 
 104:                                              ; preds = %103, %101
@@ -16113,7 +16128,7 @@ define internal fastcc void @php_str_replace_common(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_str_replace_3(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @zflf_str_replace_3(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -16263,9 +16278,10 @@ define hidden void @zflf_str_replace_3(ptr nocapture noundef %0, ptr noundef rea
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %.thread, %61
+  %.182 = phi ptr [ %8, %.thread ], [ %.0, %61 ]
   %.16481 = phi ptr [ %2, %.thread ], [ %.164, %61 ]
   %.16679 = phi ptr [ %3, %.thread ], [ %.166, %61 ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %8) #28
+  call void @zval_ptr_dtor(ptr noundef nonnull %.182) #28
   br label %64
 
 64:                                               ; preds = %63, %61
@@ -16275,7 +16291,7 @@ define hidden void @zflf_str_replace_3(ptr nocapture noundef %0, ptr noundef rea
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %64
-  call void @zval_ptr_dtor(ptr noundef nonnull %9) #28
+  call void @zval_ptr_dtor(ptr noundef %.16480) #28
   br label %67
 
 67:                                               ; preds = %66, %64
@@ -16283,7 +16299,7 @@ define hidden void @zflf_str_replace_3(ptr nocapture noundef %0, ptr noundef rea
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %67
-  call void @zval_ptr_dtor(ptr noundef nonnull %10) #28
+  call void @zval_ptr_dtor(ptr noundef %.16678) #28
   br label %70
 
 70:                                               ; preds = %69, %67
@@ -22783,11 +22799,11 @@ define internal fastcc i64 @php_str_replace_in_subject(ptr noundef %0, ptr nound
   br i1 %exitcond366.not, label %.loopexit.thread, label %66
 
 .loopexit.loopexit:                               ; preds = %66
-  %71 = trunc i64 %indvars.iv363 to i32
+  %71 = trunc nuw i64 %indvars.iv363 to i32
   br label %.loopexit
 
 .loopexit.loopexit369:                            ; preds = %61
-  %72 = trunc i64 %indvars.iv to i32
+  %72 = trunc nuw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit369, %.loopexit.loopexit, %.preheader330, %.preheader

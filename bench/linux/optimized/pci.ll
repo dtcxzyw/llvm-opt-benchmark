@@ -9569,11 +9569,11 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
   br i1 %62, label %.thread27, label %.preheader31, !llvm.loop !85
 
 .loopexit36.loopexit:                             ; preds = %35
-  %.pre50 = load ptr, ptr %36, align 8
+  %.pre50 = load ptr, ptr %38, align 8
   br label %.loopexit36
 
 .loopexit36:                                      ; preds = %.loopexit36.loopexit, %10
-  %63 = phi ptr [ %.pre50, %.loopexit36.loopexit ], [ %12, %10 ]
+  %63 = phi ptr [ %.pre50, %.loopexit36.loopexit ], [ %13, %10 ]
   %64 = phi ptr [ %37, %.loopexit36.loopexit ], [ %11, %10 ]
   %65 = getelementptr inbounds i8, ptr %64, i64 40
   %66 = icmp eq ptr %63, %65
@@ -9722,11 +9722,11 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
   br i1 %150, label %.loopexit.loopexit, label %.preheader28, !llvm.loop !87
 
 .loopexit.loopexit:                               ; preds = %146
-  %.pre51 = load ptr, ptr %147, align 8
+  %.pre51 = load ptr, ptr %149, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %116
-  %151 = phi ptr [ %.pre51, %.loopexit.loopexit ], [ %119, %116 ]
+  %151 = phi ptr [ %.pre51, %.loopexit.loopexit ], [ %120, %116 ]
   %152 = phi ptr [ %148, %.loopexit.loopexit ], [ %118, %116 ]
   %153 = getelementptr inbounds i8, ptr %152, i64 40
   %154 = icmp eq ptr %151, %153
@@ -13145,7 +13145,7 @@ define internal i32 @pci_reset_bus_function(ptr noundef readonly %0, i1 noundef 
   br label %58
 
 58:                                               ; preds = %62, %56
-  %59 = phi ptr [ %57, %56 ], [ %0, %62 ]
+  %59 = phi ptr [ %57, %56 ], [ %60, %62 ]
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, %57
   br i1 %61, label %64, label %62

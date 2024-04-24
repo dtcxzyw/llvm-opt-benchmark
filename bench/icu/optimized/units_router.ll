@@ -298,7 +298,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -357,7 +357,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -1911,7 +1911,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont23
   store ptr %stackArray6.i.i.i.i, ptr %fPool.i.i.i, align 8
   %conv.i.i.i.i = sext i32 %12 to i64
   %mul.i.i.i.i = shl nsw i64 %conv.i.i.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray6.i.i.i.i, ptr nonnull align 8 %11, i64 %mul.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray6.i.i.i.i, ptr nonnull align 8 %stackArray.i.i.i.i, i64 %mul.i.i.i.i, i1 false)
   br label %_ZN6icu_7516MaybeStackVectorINS_7MeasureELi8EEC2EOS2_.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %invoke.cont23
@@ -1950,7 +1950,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN6icu_7516MaybeSt
   store ptr %stackArray6.i.i.i.i.i, ptr %fPool.i.i.i.i, align 8
   %conv.i.i.i.i.i = sext i32 %17 to i64
   %mul.i.i.i.i.i = shl nsw i64 %conv.i.i.i.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray6.i.i.i.i.i, ptr nonnull align 8 %16, i64 %mul.i.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray6.i.i.i.i.i, ptr nonnull align 8 %stackArray.i.i.i.i.i, i64 %mul.i.i.i.i.i, i1 false)
   br label %_ZN6icu_755units11RouteResultC2ENS_16MaybeStackVectorINS_7MeasureELi8EEENS_15MeasureUnitImplE.exit
 
 if.else.i.i.i.i.i:                                ; preds = %_ZN6icu_7516MaybeStackVectorINS_7MeasureELi8EEC2EOS2_.exit.i

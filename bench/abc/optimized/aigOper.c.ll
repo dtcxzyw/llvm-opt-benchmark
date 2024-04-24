@@ -166,7 +166,7 @@ define ptr @Aig_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
 
 tailrecurse.backedge:                             ; preds = %61, %68, %89, %95, %144, %151, %170, %177, %125, %128, %130
   %.tr282.be = phi ptr [ %64, %61 ], [ %71, %68 ], [ %92, %89 ], [ %98, %95 ], [ %147, %144 ], [ %154, %151 ], [ %173, %170 ], [ %180, %177 ], [ %.tr282349, %125 ], [ %.val237, %128 ], [ %.tr282349, %130 ]
-  %.tr283.be = phi ptr [ %.tr283350, %61 ], [ %.tr283350, %68 ], [ %.tr282349, %89 ], [ %.tr282349, %95 ], [ %.tr283350, %144 ], [ %.tr283350, %151 ], [ %.tr282349, %170 ], [ %.tr282349, %177 ], [ %.val240, %125 ], [ %.tr283350, %128 ], [ %.val238, %130 ]
+  %.tr283.be = phi ptr [ %.val239, %61 ], [ %.val237, %68 ], [ %.val240, %89 ], [ %.val238, %95 ], [ %.tr283350, %144 ], [ %.tr283350, %151 ], [ %.tr282349, %170 ], [ %.tr282349, %177 ], [ %.val240, %125 ], [ %.tr283350, %128 ], [ %.val238, %130 ]
   %65 = icmp eq ptr %.tr282.be, %.tr283.be
   br i1 %65, label %.loopexit, label %7
 
@@ -900,7 +900,7 @@ define ptr @Aig_Miter(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_ad
   store ptr %17, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %21 = load i32, ptr %3, align 4
-  %22 = trunc i64 %indvars.iv.next to i32
+  %22 = trunc nuw i64 %indvars.iv.next to i32
   %23 = icmp sgt i32 %21, %22
   br i1 %23, label %7, label %._crit_edge, !llvm.loop !6
 

@@ -1315,7 +1315,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN4abs
 
 invoke.cont.i:                                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit16, %invoke.contthread-pre-split.i, %cleanup
   %cmp.i.lcssa39 = phi i1 [ %call14, %invoke.contthread-pre-split.i ], [ %call14, %cleanup ], [ false, %_ZN4absl12lts_202308026StatusD2Ev.exit16 ]
-  %25 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre36, %cleanup ], [ %13, %_ZN4absl12lts_202308026StatusD2Ev.exit16 ]
+  %25 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %cleanup ], [ %13, %_ZN4absl12lts_202308026StatusD2Ev.exit16 ]
   %tobool.not.i.i.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 

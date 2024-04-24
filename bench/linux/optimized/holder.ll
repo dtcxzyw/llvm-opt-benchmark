@@ -144,7 +144,7 @@ define dso_local i32 @bd_link_disk_holder(ptr noundef %0, ptr noundef %1) #0 ali
   br label %80
 
 76:                                               ; preds = %45
-  tail call void @kobject_put(ptr noundef %42) #3
+  tail call void @kobject_put(ptr noundef %43) #3
   %77 = getelementptr inbounds i8, ptr %38, i64 24
   %78 = load i32, ptr %77, align 8
   %79 = add i32 %78, 1

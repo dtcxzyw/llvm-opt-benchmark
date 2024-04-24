@@ -8956,7 +8956,7 @@ define hidden void @_ZN7uu_sort5merge21merge_with_file_limit17ha3e30d6d680d5e6bE
 
 .noexc103._crit_edge.i:                           ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit.i", %.noexc103._crit_edge.i.loopexit.split.loop.exit490, %.noexc103..noexc103._crit_edge.loopexit_crit_edge.i, %135
   %161 = phi ptr [ %142, %135 ], [ %.pre339.pre.i, %.noexc103..noexc103._crit_edge.loopexit_crit_edge.i ], [ %.ph.ph491, %.noexc103._crit_edge.i.loopexit.split.loop.exit490 ], [ %359, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit.i" ]
-  %162 = phi ptr [ %142, %135 ], [ %.pre.pre.i, %.noexc103..noexc103._crit_edge.loopexit_crit_edge.i ], [ %160, %.noexc103._crit_edge.i.loopexit.split.loop.exit490 ], [ %359, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit.i" ]
+  %162 = phi ptr [ %143, %135 ], [ %.pre.pre.i, %.noexc103..noexc103._crit_edge.loopexit_crit_edge.i ], [ %160, %.noexc103._crit_edge.i.loopexit.split.loop.exit490 ], [ %360, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.511.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1537)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40), !noalias !1538
@@ -17410,8 +17410,8 @@ define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17hdbe0b67f5e
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2789)
   %90 = getelementptr inbounds i8, ptr %79, i64 48
   store ptr %90, ptr %77, align 8, !alias.scope !2792, !noalias !2793
-  %.sroa.0.0.copyload1.i.i414 = load i64, ptr %79, align 8, !noalias !2797
-  %91 = icmp eq i64 %.sroa.0.0.copyload1.i.i414, -9223372036854775808
+  %.sroa.0.0.copyload1.i.i415 = load i64, ptr %79, align 8, !noalias !2797
+  %91 = icmp eq i64 %.sroa.0.0.copyload1.i.i415, -9223372036854775808
   br i1 %91, label %.noexc103._crit_edge.loopexit.split.loop.exit, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d8e9722f7932927E.exit.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86acb71de6da6bedE.exit.i.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit"
@@ -17425,7 +17425,7 @@ define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17hdbe0b67f5e
   br i1 %93, label %.noexc103._crit_edge.loopexit.split.loop.exit, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d8e9722f7932927E.exit.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d8e9722f7932927E.exit.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86acb71de6da6bedE.exit.i.i.lr.ph", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86acb71de6da6bedE.exit.i.i"
-  %.sroa.0.0.copyload1.i.i415 = phi i64 [ %.sroa.0.0.copyload1.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86acb71de6da6bedE.exit.i.i" ], [ %.sroa.0.0.copyload1.i.i414, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86acb71de6da6bedE.exit.i.i.lr.ph" ]
+  %.sroa.0.0.copyload1.i.i416 = phi i64 [ %.sroa.0.0.copyload1.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86acb71de6da6bedE.exit.i.i" ], [ %.sroa.0.0.copyload1.i.i415, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86acb71de6da6bedE.exit.i.i.lr.ph" ]
   %94 = phi ptr [ %316, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86acb71de6da6bedE.exit.i.i" ], [ %79, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86acb71de6da6bedE.exit.i.i.lr.ph" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2806)
   call void @llvm.experimental.noalias.scope.decl(metadata !2808)
@@ -17434,7 +17434,7 @@ define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17hdbe0b67f5e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.45.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx2.i.i, i64 40, i1 false), !noalias !2815
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %15), !noalias !2815
   call void @llvm.experimental.noalias.scope.decl(metadata !2816)
-  store i64 %.sroa.0.0.copyload1.i.i415, ptr %14, align 8, !noalias !2817
+  store i64 %.sroa.0.0.copyload1.i.i416, ptr %14, align 8, !noalias !2817
   call void @llvm.experimental.noalias.scope.decl(metadata !2818)
   %95 = load ptr, ptr %81, align 8, !alias.scope !2821, !noalias !2822, !nonnull !16, !align !188, !noundef !16
   %96 = load ptr, ptr %82, align 8, !alias.scope !2821, !noalias !2822, !nonnull !16, !align !107, !noundef !16
@@ -17474,7 +17474,7 @@ define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17hdbe0b67f5e
 
 .noexc103._crit_edge:                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit", %.noexc103._crit_edge.loopexit.split.loop.exit, %.noexc103..noexc103._crit_edge.loopexit_crit_edge, %71
   %103 = phi ptr [ %78, %71 ], [ %.pre342.pre, %.noexc103..noexc103._crit_edge.loopexit_crit_edge ], [ %.pre342346.lcssa, %.noexc103._crit_edge.loopexit.split.loop.exit ], [ %315, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit" ]
-  %104 = phi ptr [ %78, %71 ], [ %.pre.pre, %.noexc103..noexc103._crit_edge.loopexit_crit_edge ], [ %102, %.noexc103._crit_edge.loopexit.split.loop.exit ], [ %315, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit" ]
+  %104 = phi ptr [ %79, %71 ], [ %.pre.pre, %.noexc103..noexc103._crit_edge.loopexit_crit_edge ], [ %102, %.noexc103._crit_edge.loopexit.split.loop.exit ], [ %316, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit" ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.511.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2839)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !2839

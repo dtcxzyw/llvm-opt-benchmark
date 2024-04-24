@@ -1446,18 +1446,18 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i, label %if.then9.i, label %if.else.i
 
 if.then9.i:                                       ; preds = %if.then.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__position.coerce, i8 0, i64 48, i1 false)
-  %civil_sec.i.i.i.i = getelementptr inbounds i8, ptr %__position.coerce, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false)
+  %civil_sec.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   store i64 1970, ptr %civil_sec.i.i.i.i, align 8
-  %m.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__position.coerce, i64 24
+  %m.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   store i8 1, ptr %m.i.i.i.i.i.i, align 8
-  %d.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__position.coerce, i64 25
+  %d.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 25
   store i8 1, ptr %d.i.i.i.i.i.i, align 1
-  %prev_civil_sec.i.i.i.i = getelementptr inbounds i8, ptr %__position.coerce, i64 32
+  %prev_civil_sec.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   store i64 1970, ptr %prev_civil_sec.i.i.i.i, align 8
-  %m.i.i1.i.i.i.i = getelementptr inbounds i8, ptr %__position.coerce, i64 40
+  %m.i.i1.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
   store i8 1, ptr %m.i.i1.i.i.i.i, align 8
-  %d.i.i2.i.i.i.i = getelementptr inbounds i8, ptr %__position.coerce, i64 41
+  %d.i.i2.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 41
   store i8 1, ptr %d.i.i2.i.i.i.i, align 1
   %3 = load ptr, ptr %_M_finish.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 48
@@ -1555,14 +1555,14 @@ cond.false:                                       ; preds = %entry
   %10 = shl i64 %7, 32
   %conv3.i20 = ashr i64 %10, 56
   %11 = shl i64 %7, 24
-  %conv4.i21 = ashr i64 %11, 56
-  %add5.i22 = add nsw i64 %conv4.i21, 1
-  %call.i23 = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_secEllllll(i64 noundef %6, i64 noundef %conv.i17, i64 noundef %conv1.i18, i64 noundef %conv2.i19, i64 noundef %conv3.i20, i64 noundef %add5.i22) #22
+  %conv4.i22 = ashr i64 %11, 56
+  %add5.i23 = add nsw i64 %conv4.i22, 1
+  %call.i24 = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_secEllllll(i64 noundef %6, i64 noundef %conv.i17, i64 noundef %conv1.i18, i64 noundef %conv2.i19, i64 noundef %conv3.i20, i64 noundef %add5.i23) #22
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %call.i23.pn = phi { i64, i64 } [ %call.i23, %cond.false ], [ %call.i, %cond.true ]
-  ret { i64, i64 } %call.i23.pn
+  %call.i24.pn = phi { i64, i64 } [ %call.i24, %cond.false ], [ %call.i, %cond.true ]
+  ret { i64, i64 } %call.i24.pn
 }
 
 declare void @_ZN4absl13time_internal4cctz17FixedOffsetToAbbrB5cxx11ERKNSt6chrono8durationIlSt5ratioILl1ELl1EEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
@@ -1579,8 +1579,8 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4absl13time_internal4cctz12TimeZoneInfo4LoadEPNS1_14ZoneInfoSourceE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %zip) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ch.i140 = alloca i8, align 1
-  %ch.i132 = alloca i8, align 1
+  %ch.i142 = alloca i8, align 1
+  %ch.i134 = alloca i8, align 1
   %ch.i = alloca i8, align 1
   %tzh = alloca %struct.tzhead, align 1
   %hdr = alloca %"struct.absl::time_internal::cctz::(anonymous namespace)::Header", align 8
@@ -1749,20 +1749,20 @@ invoke.cont70:                                    ; preds = %if.end68
           to label %for.cond.preheader unwind label %lpad63.loopexit.split-lp
 
 for.cond.preheader:                               ; preds = %invoke.cont70
-  %cmp75.not176 = icmp eq i64 %15, 0
-  br i1 %cmp75.not176, label %for.end121, label %for.body
+  %cmp75.not178 = icmp eq i64 %15, 0
+  br i1 %cmp75.not178, label %for.end121, label %for.body
 
 for.body99.preheader:                             ; preds = %for.inc
   %.pre = load ptr, ptr %transitions_, align 8
   br label %for.body99
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %bp.0178 = phi ptr [ %add.ptr, %for.inc ], [ %20, %for.cond.preheader ]
-  %i.0177 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
+  %bp.0180 = phi ptr [ %add.ptr, %for.inc ], [ %20, %for.cond.preheader ]
+  %i.0179 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   br i1 %cmp9.not, label %for.body.i, label %for.body.i90
 
 for.body.i:                                       ; preds = %for.body, %for.body.i
-  %cp.addr.07.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %bp.0178, %for.body ]
+  %cp.addr.07.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %bp.0180, %for.body ]
   %i.06.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.body ]
   %v.05.i = phi i64 [ %or.i, %for.body.i ], [ 0, %for.body ]
   %shl.i = shl i64 %v.05.i, 8
@@ -1781,7 +1781,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit: ; preds = %for.bod
   br label %cond.end
 
 for.body.i90:                                     ; preds = %for.body, %for.body.i90
-  %cp.addr.07.i91 = phi ptr [ %incdec.ptr.i95, %for.body.i90 ], [ %bp.0178, %for.body ]
+  %cp.addr.07.i91 = phi ptr [ %incdec.ptr.i95, %for.body.i90 ], [ %bp.0180, %for.body ]
   %i.06.i92 = phi i32 [ %inc.i99, %for.body.i90 ], [ 0, %for.body ]
   %v.05.i93 = phi i64 [ %or.i98, %for.body.i90 ], [ 0, %for.body ]
   %shl.i94 = shl i64 %v.05.i93, 8
@@ -1796,15 +1796,15 @@ for.body.i90:                                     ; preds = %for.body, %for.body
 cond.end:                                         ; preds = %for.body.i90, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit
   %cond = phi i64 [ %retval.0.i, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit ], [ %or.i98, %for.body.i90 ]
   %21 = load ptr, ptr %transitions_, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %21, i64 %i.0177
+  %add.ptr.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %21, i64 %i.0179
   store i64 %cond, ptr %add.ptr.i, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %bp.0178, i64 %time_len.0
-  %cmp83.not = icmp eq i64 %i.0177, 0
+  %add.ptr = getelementptr inbounds i8, ptr %bp.0180, i64 %time_len.0
+  %cmp83.not = icmp eq i64 %i.0179, 0
   br i1 %cmp83.not, label %for.inc, label %if.then84
 
 if.then84:                                        ; preds = %cond.end
   %22 = load ptr, ptr %transitions_, align 8
-  %23 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %22, i64 %i.0177
+  %23 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %22, i64 %i.0179
   %add.ptr.i101 = getelementptr i8, ptr %23, i64 -48
   %24 = load i64, ptr %add.ptr.i101, align 8
   %25 = load i64, ptr %23, align 8
@@ -1812,30 +1812,30 @@ if.then84:                                        ; preds = %cond.end
   br i1 %cmp.i, label %for.inc, label %cleanup
 
 for.inc:                                          ; preds = %cond.end, %if.then84
-  %inc = add nuw i64 %i.0177, 1
+  %inc = add nuw i64 %i.0179, 1
   %cmp75.not = icmp eq i64 %inc, %15
   br i1 %cmp75.not, label %for.body99.preheader, label %for.body, !llvm.loop !32
 
 for.body99:                                       ; preds = %for.body99.preheader, %if.end111
   %26 = phi ptr [ %27, %if.end111 ], [ %.pre, %for.body99.preheader ]
-  %bp.1182 = phi ptr [ %incdec.ptr, %if.end111 ], [ %add.ptr, %for.body99.preheader ]
-  %seen_type_0.0181 = phi i1 [ %spec.select, %if.end111 ], [ false, %for.body99.preheader ]
-  %i95.0180 = phi i64 [ %inc120, %if.end111 ], [ 0, %for.body99.preheader ]
-  %bp.1.val = load i8, ptr %bp.1182, align 1
-  %type_index = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %26, i64 %i95.0180, i32 1
+  %bp.1184 = phi ptr [ %incdec.ptr, %if.end111 ], [ %add.ptr, %for.body99.preheader ]
+  %seen_type_0.0183 = phi i1 [ %spec.select, %if.end111 ], [ false, %for.body99.preheader ]
+  %i95.0182 = phi i64 [ %inc120, %if.end111 ], [ 0, %for.body99.preheader ]
+  %bp.1.val = load i8, ptr %bp.1184, align 1
+  %type_index = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %26, i64 %i95.0182, i32 1
   store i8 %bp.1.val, ptr %type_index, align 8
   %27 = load ptr, ptr %transitions_, align 8
-  %type_index106 = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %27, i64 %i95.0180, i32 1
+  %type_index106 = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %27, i64 %i95.0182, i32 1
   %28 = load i8, ptr %type_index106, align 8
   %conv107 = zext i8 %28 to i64
   %cmp109.not = icmp ugt i64 %11, %conv107
   br i1 %cmp109.not, label %if.end111, label %cleanup
 
 if.end111:                                        ; preds = %for.body99
-  %incdec.ptr = getelementptr inbounds i8, ptr %bp.1182, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %bp.1184, i64 1
   %cmp116 = icmp eq i8 %28, 0
-  %spec.select = select i1 %cmp116, i1 true, i1 %seen_type_0.0181
-  %inc120 = add nuw i64 %i95.0180, 1
+  %spec.select = select i1 %cmp116, i1 true, i1 %seen_type_0.0183
+  %inc120 = add nuw i64 %i95.0182, 1
   %cmp98.not = icmp eq i64 %inc120, %15
   br i1 %cmp98.not, label %for.end121, label %for.body99, !llvm.loop !33
 
@@ -1852,12 +1852,12 @@ invoke.cont124:                                   ; preds = %for.end121
           to label %for.body.i106.preheader unwind label %lpad63.loopexit.split-lp
 
 for.body.i106.preheader:                          ; preds = %invoke.cont124, %for.inc168
-  %bp.2186 = phi ptr [ %incdec.ptr156, %for.inc168 ], [ %bp.1.lcssa, %invoke.cont124 ]
-  %i128.0185 = phi i64 [ %inc169, %for.inc168 ], [ 0, %invoke.cont124 ]
+  %bp.2188 = phi ptr [ %incdec.ptr156, %for.inc168 ], [ %bp.1.lcssa, %invoke.cont124 ]
+  %i128.0187 = phi i64 [ %inc169, %for.inc168 ], [ 0, %invoke.cont124 ]
   br label %for.body.i106
 
 for.body.i106:                                    ; preds = %for.body.i106.preheader, %for.body.i106
-  %cp.addr.07.i107 = phi ptr [ %incdec.ptr.i111, %for.body.i106 ], [ %bp.2186, %for.body.i106.preheader ]
+  %cp.addr.07.i107 = phi ptr [ %incdec.ptr.i111, %for.body.i106 ], [ %bp.2188, %for.body.i106.preheader ]
   %i.06.i108 = phi i32 [ %inc.i115, %for.body.i106 ], [ 0, %for.body.i106.preheader ]
   %v.05.i109 = phi i32 [ %or.i114, %for.body.i106 ], [ 0, %for.body.i106.preheader ]
   %shl.i110 = shl i32 %v.05.i109, 8
@@ -1871,18 +1871,18 @@ for.body.i106:                                    ; preds = %for.body.i106.prehe
 
 invoke.cont133:                                   ; preds = %for.body.i106
   %29 = load ptr, ptr %transition_types_, align 8
-  %add.ptr.i121 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %29, i64 %i128.0185
+  %add.ptr.i121 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %29, i64 %i128.0187
   store i32 %or.i114, ptr %add.ptr.i121, align 8
   %30 = load ptr, ptr %transition_types_, align 8
-  %add.ptr.i122 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %30, i64 %i128.0185
+  %add.ptr.i122 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %30, i64 %i128.0187
   %31 = load i32, ptr %add.ptr.i122, align 8
   %32 = add i32 %31, -86400
-  %or.cond163 = icmp ult i32 %32, -172799
-  br i1 %or.cond163, label %cleanup, label %if.end147
+  %or.cond165 = icmp ult i32 %32, -172799
+  br i1 %or.cond165, label %cleanup, label %if.end147
 
 if.end147:                                        ; preds = %invoke.cont133
-  %add.ptr148 = getelementptr inbounds i8, ptr %bp.2186, i64 4
-  %incdec.ptr149 = getelementptr inbounds i8, ptr %bp.2186, i64 5
+  %add.ptr148 = getelementptr inbounds i8, ptr %bp.2188, i64 4
+  %incdec.ptr149 = getelementptr inbounds i8, ptr %bp.2188, i64 5
   %add.ptr148.val = load i8, ptr %add.ptr148, align 1
   %cmp153 = icmp ne i8 %add.ptr148.val, 0
   %is_dst = getelementptr inbounds i8, ptr %add.ptr.i122, i64 40
@@ -1890,18 +1890,18 @@ if.end147:                                        ; preds = %invoke.cont133
   store i8 %frombool, ptr %is_dst, align 8
   %incdec.ptr149.val = load i8, ptr %incdec.ptr149, align 1
   %33 = load ptr, ptr %transition_types_, align 8
-  %abbr_index = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %33, i64 %i128.0185, i32 5
+  %abbr_index = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %33, i64 %i128.0187, i32 5
   store i8 %incdec.ptr149.val, ptr %abbr_index, align 1
   %34 = load ptr, ptr %transition_types_, align 8
-  %abbr_index163 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %34, i64 %i128.0185, i32 5
+  %abbr_index163 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %34, i64 %i128.0187, i32 5
   %35 = load i8, ptr %abbr_index163, align 1
   %conv164 = zext i8 %35 to i64
   %cmp165.not = icmp ugt i64 %16, %conv164
   br i1 %cmp165.not, label %for.inc168, label %cleanup
 
 for.inc168:                                       ; preds = %if.end147
-  %incdec.ptr156 = getelementptr inbounds i8, ptr %bp.2186, i64 6
-  %inc169 = add i64 %i128.0185, 1
+  %incdec.ptr156 = getelementptr inbounds i8, ptr %bp.2188, i64 6
+  %inc169 = add i64 %i128.0187, 1
   %cmp131.not = icmp eq i64 %inc169, %11
   br i1 %cmp131.not, label %for.end170, label %for.body.i106.preheader, !llvm.loop !34
 
@@ -1922,8 +1922,8 @@ if.then179:                                       ; preds = %if.then174
   %37 = load ptr, ptr %transitions_, align 8
   %type_index182 = getelementptr inbounds i8, ptr %37, i64 8
   %38 = load i8, ptr %type_index182, align 8
-  %cmp184.not187 = icmp eq i8 %38, 0
-  br i1 %cmp184.not187, label %if.end190, label %land.rhs.preheader
+  %cmp184.not189 = icmp eq i8 %38, 0
+  br i1 %cmp184.not189, label %if.end190, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %if.then179
   %39 = zext i8 %38 to i64
@@ -1948,26 +1948,26 @@ if.end190.loopexit.split.loop.exit:               ; preds = %land.rhs
 
 if.end190:                                        ; preds = %while.body, %if.end190.loopexit.split.loop.exit, %if.then179, %if.then174
   %index.1 = phi i8 [ 0, %if.then174 ], [ 0, %if.then179 ], [ %42, %if.end190.loopexit.split.loop.exit ], [ 0, %while.body ]
-  %conv192191 = zext i8 %index.1 to i64
-  %cmp194.not192 = icmp eq i64 %11, %conv192191
-  br i1 %cmp194.not192, label %if.end211, label %land.rhs195
+  %conv192193 = zext i8 %index.1 to i64
+  %cmp194.not194 = icmp eq i64 %11, %conv192193
+  br i1 %cmp194.not194, label %if.end211, label %land.rhs195
 
 land.rhs195:                                      ; preds = %if.end190, %while.body202
-  %conv192194 = phi i64 [ %conv192, %while.body202 ], [ %conv192191, %if.end190 ]
-  %index.2193 = phi i8 [ %inc203, %while.body202 ], [ %index.1, %if.end190 ]
-  %is_dst199 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %34, i64 %conv192194, i32 4
+  %conv192196 = phi i64 [ %conv192, %while.body202 ], [ %conv192193, %if.end190 ]
+  %index.2195 = phi i8 [ %inc203, %while.body202 ], [ %index.1, %if.end190 ]
+  %is_dst199 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %34, i64 %conv192196, i32 4
   %43 = load i8, ptr %is_dst199, align 8
   %tobool200 = trunc i8 %43 to i1
   br i1 %tobool200, label %while.body202, label %if.then208
 
 while.body202:                                    ; preds = %land.rhs195
-  %inc203 = add i8 %index.2193, 1
+  %inc203 = add i8 %index.2195, 1
   %conv192 = zext i8 %inc203 to i64
   %cmp194.not = icmp eq i64 %11, %conv192
   br i1 %cmp194.not, label %if.end211, label %land.rhs195, !llvm.loop !36
 
 if.then208:                                       ; preds = %land.rhs195
-  store i8 %index.2193, ptr %default_transition_type_, align 8
+  store i8 %index.2195, ptr %default_transition_type_, align 8
   br label %if.end211
 
 if.end211:                                        ; preds = %while.body202, %if.end190, %if.then208, %for.end170
@@ -1992,35 +1992,35 @@ if.then234:                                       ; preds = %invoke.cont217
   %vtable.i = load ptr, ptr %zip, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %45 = load ptr, ptr %vfn.i, align 8
-  %call.i131 = invoke noundef i64 %45(ptr noundef nonnull align 8 dereferenceable(8) %zip, ptr noundef nonnull %ch.i, i64 noundef 1)
+  %call.i133 = invoke noundef i64 %45(ptr noundef nonnull align 8 dereferenceable(8) %zip, ptr noundef nonnull %ch.i, i64 noundef 1)
           to label %invoke.cont235 unwind label %lpad63.loopexit.split-lp
 
 invoke.cont235:                                   ; preds = %if.then234
-  %cmp.i129 = icmp eq i64 %call.i131, 1
+  %cmp.i131 = icmp eq i64 %call.i133, 1
   %46 = load i8, ptr %ch.i, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.i)
-  %cmp237.not166 = icmp eq i8 %46, 10
-  %cmp237.not = select i1 %cmp.i129, i1 %cmp237.not166, i1 false
+  %cmp237.not168 = icmp eq i8 %46, 10
+  %cmp237.not = select i1 %cmp.i131, i1 %cmp237.not168, i1 false
   br i1 %cmp237.not, label %if.end239, label %cleanup
 
 if.end239:                                        ; preds = %invoke.cont235
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.i132)
-  %vtable.i133 = load ptr, ptr %zip, align 8
-  %vfn.i134 = getelementptr inbounds i8, ptr %vtable.i133, i64 16
-  %47 = load ptr, ptr %vfn.i134, align 8
-  %call.i138 = invoke noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(8) %zip, ptr noundef nonnull %ch.i132, i64 noundef 1)
-          to label %"_ZZN4absl13time_internal4cctz12TimeZoneInfo4LoadEPNS1_14ZoneInfoSourceEENK3$_0clES4_.exit139" unwind label %lpad63.loopexit.split-lp
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.i134)
+  %vtable.i135 = load ptr, ptr %zip, align 8
+  %vfn.i136 = getelementptr inbounds i8, ptr %vtable.i135, i64 16
+  %47 = load ptr, ptr %vfn.i136, align 8
+  %call.i140 = invoke noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(8) %zip, ptr noundef nonnull %ch.i134, i64 noundef 1)
+          to label %"_ZZN4absl13time_internal4cctz12TimeZoneInfo4LoadEPNS1_14ZoneInfoSourceEENK3$_0clES4_.exit141" unwind label %lpad63.loopexit.split-lp
 
-"_ZZN4absl13time_internal4cctz12TimeZoneInfo4LoadEPNS1_14ZoneInfoSourceEENK3$_0clES4_.exit139": ; preds = %if.end239
-  %cmp.i135 = icmp eq i64 %call.i138, 1
-  %48 = load i8, ptr %ch.i132, align 1
-  %conv.i136 = zext i8 %48 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.i132)
-  %spec.select232 = select i1 %cmp.i135, i32 %conv.i136, i32 -1
+"_ZZN4absl13time_internal4cctz12TimeZoneInfo4LoadEPNS1_14ZoneInfoSourceEENK3$_0clES4_.exit141": ; preds = %if.end239
+  %cmp.i137 = icmp eq i64 %call.i140, 1
+  %48 = load i8, ptr %ch.i134, align 1
+  %conv.i138 = zext i8 %48 to i32
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.i134)
+  %spec.select234 = select i1 %cmp.i137, i32 %conv.i138, i32 -1
   br label %for.cond242
 
-for.cond242:                                      ; preds = %"_ZZN4absl13time_internal4cctz12TimeZoneInfo4LoadEPNS1_14ZoneInfoSourceEENK3$_0clES4_.exit147", %"_ZZN4absl13time_internal4cctz12TimeZoneInfo4LoadEPNS1_14ZoneInfoSourceEENK3$_0clES4_.exit139"
-  %c.0 = phi i32 [ %spec.select232, %"_ZZN4absl13time_internal4cctz12TimeZoneInfo4LoadEPNS1_14ZoneInfoSourceEENK3$_0clES4_.exit139" ], [ %c.0.be, %"_ZZN4absl13time_internal4cctz12TimeZoneInfo4LoadEPNS1_14ZoneInfoSourceEENK3$_0clES4_.exit147" ]
+for.cond242:                                      ; preds = %"_ZZN4absl13time_internal4cctz12TimeZoneInfo4LoadEPNS1_14ZoneInfoSourceEENK3$_0clES4_.exit149", %"_ZZN4absl13time_internal4cctz12TimeZoneInfo4LoadEPNS1_14ZoneInfoSourceEENK3$_0clES4_.exit141"
+  %c.0 = phi i32 [ %spec.select234, %"_ZZN4absl13time_internal4cctz12TimeZoneInfo4LoadEPNS1_14ZoneInfoSourceEENK3$_0clES4_.exit141" ], [ %c.0.be, %"_ZZN4absl13time_internal4cctz12TimeZoneInfo4LoadEPNS1_14ZoneInfoSourceEENK3$_0clES4_.exit149" ]
   switch i32 %c.0, label %if.end247 [
     i32 10, label %if.end255
     i32 -1, label %cleanup
@@ -2032,19 +2032,19 @@ if.end247:                                        ; preds = %for.cond242
           to label %for.inc251 unwind label %lpad63.loopexit
 
 for.inc251:                                       ; preds = %if.end247
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.i140)
-  %vtable.i141 = load ptr, ptr %zip, align 8
-  %vfn.i142 = getelementptr inbounds i8, ptr %vtable.i141, i64 16
-  %49 = load ptr, ptr %vfn.i142, align 8
-  %call.i146 = invoke noundef i64 %49(ptr noundef nonnull align 8 dereferenceable(8) %zip, ptr noundef nonnull %ch.i140, i64 noundef 1)
-          to label %"_ZZN4absl13time_internal4cctz12TimeZoneInfo4LoadEPNS1_14ZoneInfoSourceEENK3$_0clES4_.exit147" unwind label %lpad63.loopexit
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.i142)
+  %vtable.i143 = load ptr, ptr %zip, align 8
+  %vfn.i144 = getelementptr inbounds i8, ptr %vtable.i143, i64 16
+  %49 = load ptr, ptr %vfn.i144, align 8
+  %call.i148 = invoke noundef i64 %49(ptr noundef nonnull align 8 dereferenceable(8) %zip, ptr noundef nonnull %ch.i142, i64 noundef 1)
+          to label %"_ZZN4absl13time_internal4cctz12TimeZoneInfo4LoadEPNS1_14ZoneInfoSourceEENK3$_0clES4_.exit149" unwind label %lpad63.loopexit
 
-"_ZZN4absl13time_internal4cctz12TimeZoneInfo4LoadEPNS1_14ZoneInfoSourceEENK3$_0clES4_.exit147": ; preds = %for.inc251
-  %cmp.i143 = icmp eq i64 %call.i146, 1
-  %50 = load i8, ptr %ch.i140, align 1
-  %conv.i144 = zext i8 %50 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.i140)
-  %c.0.be = select i1 %cmp.i143, i32 %conv.i144, i32 -1
+"_ZZN4absl13time_internal4cctz12TimeZoneInfo4LoadEPNS1_14ZoneInfoSourceEENK3$_0clES4_.exit149": ; preds = %for.inc251
+  %cmp.i145 = icmp eq i64 %call.i148, 1
+  %50 = load i8, ptr %ch.i142, align 1
+  %conv.i146 = zext i8 %50 to i32
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.i142)
+  %c.0.be = select i1 %cmp.i145, i32 %conv.i146, i32 -1
   br label %for.cond242
 
 if.end255:                                        ; preds = %for.cond242, %invoke.cont217
@@ -2066,8 +2066,8 @@ invoke.cont261:                                   ; preds = %if.then257
 
 if.end264:                                        ; preds = %invoke.cont261, %if.end255
   %.pr = load i64, ptr %hdr, align 8
-  %cmp267196 = icmp ugt i64 %.pr, 1
-  br i1 %cmp267196, label %while.body268.lr.ph, label %while.end284
+  %cmp267198 = icmp ugt i64 %.pr, 1
+  br i1 %cmp267198, label %while.body268.lr.ph, label %while.end284
 
 while.body268.lr.ph:                              ; preds = %if.end264
   %52 = load ptr, ptr %transitions_, align 8
@@ -2079,17 +2079,17 @@ while.cond265:                                    ; preds = %while.body268
   br i1 %cmp267, label %while.body268, label %while.end284, !llvm.loop !37
 
 while.body268:                                    ; preds = %while.body268.lr.ph, %while.cond265
-  %sub271195197 = phi i64 [ %.pr, %while.body268.lr.ph ], [ %sub271, %while.cond265 ]
-  %sub271 = add i64 %sub271195197, -1
+  %sub271197199 = phi i64 [ %.pr, %while.body268.lr.ph ], [ %sub271, %while.cond265 ]
+  %sub271 = add i64 %sub271197199, -1
   %type_index273 = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %52, i64 %sub271, i32 1
   %53 = load i8, ptr %type_index273, align 8
-  %gep = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %invariant.gep, i64 %sub271195197
+  %gep = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %invariant.gep, i64 %sub271197199
   %54 = load i8, ptr %gep, align 8
   %call279 = call noundef zeroext i1 @_ZNK4absl13time_internal4cctz12TimeZoneInfo16EquivTransitionsEhh(ptr noundef nonnull align 8 dereferenceable(192) %this, i8 noundef zeroext %53, i8 noundef zeroext %54)
   br i1 %call279, label %while.cond265, label %while.end284
 
 while.end284:                                     ; preds = %while.cond265, %while.body268, %if.end264
-  %.lcssa = phi i64 [ %.pr, %if.end264 ], [ %sub271195197, %while.body268 ], [ 1, %while.cond265 ]
+  %.lcssa = phi i64 [ %.pr, %if.end264 ], [ %sub271197199, %while.body268 ], [ 1, %while.cond265 ]
   store i64 %.lcssa, ptr %hdr, align 8
   invoke void @_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %transitions_, i64 noundef %.lcssa)
           to label %invoke.cont287 unwind label %lpad63.loopexit.split-lp
@@ -2141,60 +2141,60 @@ invoke.cont330:                                   ; preds = %if.then318
   store i64 2147483647, ptr %call331, align 8
   %type_index335 = getelementptr inbounds i8, ptr %call331, i64 8
   store i8 %61, ptr %type_index335, align 8
-  %.pre218 = load ptr, ptr %_M_finish.i.i, align 8
+  %.pre220 = load ptr, ptr %_M_finish.i.i, align 8
   br label %if.end336
 
 if.end336:                                        ; preds = %invoke.cont330, %if.end313
-  %62 = phi ptr [ %.pre218, %invoke.cont330 ], [ %59, %if.end313 ]
+  %62 = phi ptr [ %.pre220, %invoke.cont330 ], [ %59, %if.end313 ]
   %63 = load ptr, ptr %transitions_, align 8
-  %cmp345.not206 = icmp eq ptr %62, %63
-  br i1 %cmp345.not206, label %for.end379, label %for.body346.lr.ph
+  %cmp345.not208 = icmp eq ptr %62, %63
+  br i1 %cmp345.not208, label %for.end379, label %for.body346.lr.ph
 
 for.body346.lr.ph:                                ; preds = %if.end336
   %64 = load ptr, ptr %transition_types_, align 8
   %65 = load i8, ptr %default_transition_type_, align 8
   %conv339 = zext i8 %65 to i64
-  %add.ptr.i151 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %64, i64 %conv339
+  %add.ptr.i153 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %64, i64 %conv339
   %agg.tmp351.sroa.2.0.cs.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp352, i64 8
   br label %for.body346
 
 for.body346:                                      ; preds = %for.body346.lr.ph, %for.inc377
   %66 = phi ptr [ %63, %for.body346.lr.ph ], [ %76, %for.inc377 ]
-  %i341.0208 = phi i64 [ 0, %for.body346.lr.ph ], [ %inc378, %for.inc377 ]
-  %ttp.0207 = phi ptr [ %add.ptr.i151, %for.body346.lr.ph ], [ %add.ptr.i154, %for.inc377 ]
-  %add.ptr.i153 = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %66, i64 %i341.0208
-  %67 = load i64, ptr %add.ptr.i153, align 8
-  call void @_ZNK4absl13time_internal4cctz12TimeZoneInfo9LocalTimeElRKNS1_14TransitionTypeE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %ref.tmp352, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %67, ptr noundef nonnull align 8 dereferenceable(42) %ttp.0207)
+  %i341.0210 = phi i64 [ 0, %for.body346.lr.ph ], [ %inc378, %for.inc377 ]
+  %ttp.0209 = phi ptr [ %add.ptr.i153, %for.body346.lr.ph ], [ %add.ptr.i156, %for.inc377 ]
+  %add.ptr.i155 = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %66, i64 %i341.0210
+  %67 = load i64, ptr %add.ptr.i155, align 8
+  call void @_ZNK4absl13time_internal4cctz12TimeZoneInfo9LocalTimeElRKNS1_14TransitionTypeE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %ref.tmp352, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %67, ptr noundef nonnull align 8 dereferenceable(42) %ttp.0209)
   %agg.tmp351.sroa.0.0.copyload = load i64, ptr %ref.tmp352, align 8
   %agg.tmp351.sroa.2.0.copyload = load i64, ptr %agg.tmp351.sroa.2.0.cs.sroa_idx, align 8
   %call355 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS2_10second_tagEEEl(i64 %agg.tmp351.sroa.0.0.copyload, i64 %agg.tmp351.sroa.2.0.copyload, i64 noundef 1) #22
   %68 = extractvalue { i64, i64 } %call355, 0
   %69 = extractvalue { i64, i64 } %call355, 1
-  %prev_civil_sec = getelementptr inbounds i8, ptr %add.ptr.i153, i64 32
+  %prev_civil_sec = getelementptr inbounds i8, ptr %add.ptr.i155, i64 32
   store i64 %68, ptr %prev_civil_sec, align 8
-  %ref.tmp350.sroa.2.0.prev_civil_sec.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i153, i64 40
+  %ref.tmp350.sroa.2.0.prev_civil_sec.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i155, i64 40
   store i64 %69, ptr %ref.tmp350.sroa.2.0.prev_civil_sec.sroa_idx, align 8
-  %type_index358 = getelementptr inbounds i8, ptr %add.ptr.i153, i64 8
+  %type_index358 = getelementptr inbounds i8, ptr %add.ptr.i155, i64 8
   %70 = load i8, ptr %type_index358, align 8
   %conv359 = zext i8 %70 to i64
   %71 = load ptr, ptr %transition_types_, align 8
-  %add.ptr.i154 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %71, i64 %conv359
-  %72 = load i64, ptr %add.ptr.i153, align 8
-  call void @_ZNK4absl13time_internal4cctz12TimeZoneInfo9LocalTimeElRKNS1_14TransitionTypeE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %ref.tmp361, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %72, ptr noundef nonnull align 8 dereferenceable(42) %add.ptr.i154)
-  %civil_sec = getelementptr inbounds i8, ptr %add.ptr.i153, i64 16
+  %add.ptr.i156 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %71, i64 %conv359
+  %72 = load i64, ptr %add.ptr.i155, align 8
+  call void @_ZNK4absl13time_internal4cctz12TimeZoneInfo9LocalTimeElRKNS1_14TransitionTypeE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %ref.tmp361, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %72, ptr noundef nonnull align 8 dereferenceable(42) %add.ptr.i156)
+  %civil_sec = getelementptr inbounds i8, ptr %add.ptr.i155, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %civil_sec, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp361, i64 16, i1 false)
-  %cmp365.not = icmp eq i64 %i341.0208, 0
+  %cmp365.not = icmp eq i64 %i341.0210, 0
   br i1 %cmp365.not, label %for.inc377, label %if.then366
 
 if.then366:                                       ; preds = %for.body346
   %73 = load ptr, ptr %transitions_, align 8
-  %74 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %73, i64 %i341.0208
-  %add.ptr.i155 = getelementptr i8, ptr %74, i64 -48
-  %call372 = call noundef zeroext i1 @_ZNK4absl13time_internal4cctz10Transition11ByCivilTimeclERKS2_S5_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp367, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i155, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i153)
+  %74 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %73, i64 %i341.0210
+  %add.ptr.i157 = getelementptr i8, ptr %74, i64 -48
+  %call372 = call noundef zeroext i1 @_ZNK4absl13time_internal4cctz10Transition11ByCivilTimeclERKS2_S5_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp367, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i157, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i155)
   br i1 %call372, label %for.inc377, label %cleanup
 
 for.inc377:                                       ; preds = %for.body346, %if.then366
-  %inc378 = add i64 %i341.0208, 1
+  %inc378 = add i64 %i341.0210, 1
   %75 = load ptr, ptr %_M_finish.i.i, align 8
   %76 = load ptr, ptr %transitions_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %75 to i64
@@ -2207,33 +2207,33 @@ for.inc377:                                       ; preds = %for.body346, %if.th
 for.end379:                                       ; preds = %for.inc377, %if.end336
   %77 = phi ptr [ %62, %if.end336 ], [ %75, %for.inc377 ]
   %78 = load ptr, ptr %transition_types_, align 8
-  %_M_finish.i156 = getelementptr inbounds i8, ptr %this, i64 40
-  %79 = load ptr, ptr %_M_finish.i156, align 8
-  %cmp.i157.not209 = icmp eq ptr %78, %79
-  br i1 %cmp.i157.not209, label %for.end407, label %for.body387
+  %_M_finish.i158 = getelementptr inbounds i8, ptr %this, i64 40
+  %79 = load ptr, ptr %_M_finish.i158, align 8
+  %cmp.i159.not211 = icmp eq ptr %78, %79
+  br i1 %cmp.i159.not211, label %for.end407, label %for.body387
 
 for.body387:                                      ; preds = %for.end379, %for.body387
-  %__begin2.sroa.0.0210 = phi ptr [ %incdec.ptr.i158, %for.body387 ], [ %78, %for.end379 ]
-  call void @_ZNK4absl13time_internal4cctz12TimeZoneInfo9LocalTimeElRKNS1_14TransitionTypeE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %ref.tmp389, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef 9223372036854775807, ptr noundef nonnull align 8 dereferenceable(42) %__begin2.sroa.0.0210)
-  %civil_max = getelementptr inbounds i8, ptr %__begin2.sroa.0.0210, i64 8
+  %__begin2.sroa.0.0212 = phi ptr [ %incdec.ptr.i160, %for.body387 ], [ %78, %for.end379 ]
+  call void @_ZNK4absl13time_internal4cctz12TimeZoneInfo9LocalTimeElRKNS1_14TransitionTypeE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %ref.tmp389, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef 9223372036854775807, ptr noundef nonnull align 8 dereferenceable(42) %__begin2.sroa.0.0212)
+  %civil_max = getelementptr inbounds i8, ptr %__begin2.sroa.0.0212, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %civil_max, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp389, i64 16, i1 false)
-  call void @_ZNK4absl13time_internal4cctz12TimeZoneInfo9LocalTimeElRKNS1_14TransitionTypeE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %ref.tmp397, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef -9223372036854775808, ptr noundef nonnull align 8 dereferenceable(42) %__begin2.sroa.0.0210)
-  %civil_min = getelementptr inbounds i8, ptr %__begin2.sroa.0.0210, i64 24
+  call void @_ZNK4absl13time_internal4cctz12TimeZoneInfo9LocalTimeElRKNS1_14TransitionTypeE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %ref.tmp397, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef -9223372036854775808, ptr noundef nonnull align 8 dereferenceable(42) %__begin2.sroa.0.0212)
+  %civil_min = getelementptr inbounds i8, ptr %__begin2.sroa.0.0212, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %civil_min, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp397, i64 16, i1 false)
-  %incdec.ptr.i158 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0210, i64 48
-  %cmp.i157.not = icmp eq ptr %incdec.ptr.i158, %79
-  br i1 %cmp.i157.not, label %for.end407.loopexit, label %for.body387
+  %incdec.ptr.i160 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0212, i64 48
+  %cmp.i159.not = icmp eq ptr %incdec.ptr.i160, %79
+  br i1 %cmp.i159.not, label %for.end407.loopexit, label %for.body387
 
 for.end407.loopexit:                              ; preds = %for.body387
-  %.pre219 = load ptr, ptr %_M_finish.i.i, align 8
+  %.pre221 = load ptr, ptr %_M_finish.i.i, align 8
   br label %for.end407
 
 for.end407:                                       ; preds = %for.end407.loopexit, %for.end379
-  %80 = phi ptr [ %.pre219, %for.end407.loopexit ], [ %77, %for.end379 ]
+  %80 = phi ptr [ %.pre221, %for.end407.loopexit ], [ %77, %for.end379 ]
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %81 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  %cmp.i.i159 = icmp eq ptr %81, %80
-  br i1 %cmp.i.i159, label %cleanup, label %if.end.i.i
+  %cmp.i.i161 = icmp eq ptr %81, %80
+  br i1 %cmp.i.i161, label %cleanup, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.end407
   %call3.i.i = call noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorIN4absl13time_internal4cctz10TransitionESaIS4_EELb1EE8_S_do_itERS6_(ptr noundef nonnull align 8 dereferenceable(24) %transitions_) #22
@@ -3245,53 +3245,53 @@ _ZSt11upper_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_10ByUnixTimeEE
   store atomic i64 %sub.ptr.div, ptr %local_time_hint_ monotonic, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i, i64 -48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  %transition_types_.i84 = getelementptr inbounds i8, ptr %this, i64 32
-  %type_index.i85 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i, i64 -40
-  %60 = load i8, ptr %type_index.i85, align 8, !noalias !54
-  %conv.i86 = zext i8 %60 to i64
-  %61 = load ptr, ptr %transition_types_.i84, align 8, !noalias !54
-  %add.ptr.i.i87 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %61, i64 %conv.i86
-  %civil_sec.i88 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i, i64 -32
-  %agg.tmp.sroa.0.0.copyload.i89 = load i64, ptr %civil_sec.i88, align 8, !noalias !54
-  %agg.tmp.sroa.2.0.civil_sec.sroa_idx.i90 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i, i64 -24
-  %agg.tmp.sroa.2.0.copyload.i91 = load i64, ptr %agg.tmp.sroa.2.0.civil_sec.sroa_idx.i90, align 8, !noalias !54
+  %transition_types_.i85 = getelementptr inbounds i8, ptr %this, i64 32
+  %type_index.i86 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i, i64 -40
+  %60 = load i8, ptr %type_index.i86, align 8, !noalias !54
+  %conv.i87 = zext i8 %60 to i64
+  %61 = load ptr, ptr %transition_types_.i85, align 8, !noalias !54
+  %add.ptr.i.i88 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %61, i64 %conv.i87
+  %civil_sec.i89 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i, i64 -32
+  %agg.tmp.sroa.0.0.copyload.i90 = load i64, ptr %civil_sec.i89, align 8, !noalias !54
+  %agg.tmp.sroa.2.0.civil_sec.sroa_idx.i91 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i, i64 -24
+  %agg.tmp.sroa.2.0.copyload.i92 = load i64, ptr %agg.tmp.sroa.2.0.civil_sec.sroa_idx.i91, align 8, !noalias !54
   %62 = load i64, ptr %incdec.ptr, align 8, !noalias !54
-  %sub.i92 = sub nsw i64 %retval.sroa.0.0.copyload.i.i1.i, %62
-  %sext.i.i.i93 = shl i64 %agg.tmp.sroa.2.0.copyload.i91, 56
-  %conv.i.i.i94 = ashr exact i64 %sext.i.i.i93, 56
-  %63 = shl i64 %agg.tmp.sroa.2.0.copyload.i91, 48
-  %conv1.i.i.i95 = ashr i64 %63, 56
-  %64 = shl i64 %agg.tmp.sroa.2.0.copyload.i91, 40
-  %conv2.i.i.i96 = ashr i64 %64, 56
-  %65 = shl i64 %agg.tmp.sroa.2.0.copyload.i91, 32
-  %conv3.i.i.i97 = ashr i64 %65, 56
-  %div.i.i.i98 = sdiv i64 %sub.i92, 60
-  %add.i.i.i99 = add nsw i64 %div.i.i.i98, %conv3.i.i.i97
-  %66 = shl i64 %agg.tmp.sroa.2.0.copyload.i91, 24
-  %conv4.i.i.i100 = ashr i64 %66, 56
-  %rem.i.i.i101 = srem i64 %sub.i92, 60
-  %add5.i.i.i102 = add nsw i64 %rem.i.i.i101, %conv4.i.i.i100
-  %call.i.i.i103 = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_secEllllll(i64 noundef %agg.tmp.sroa.0.0.copyload.i89, i64 noundef %conv.i.i.i94, i64 noundef %conv1.i.i.i95, i64 noundef %conv2.i.i.i96, i64 noundef %add.i.i.i99, i64 noundef %add5.i.i.i102) #22, !noalias !54
-  %67 = extractvalue { i64, i64 } %call.i.i.i103, 0
+  %sub.i93 = sub nsw i64 %retval.sroa.0.0.copyload.i.i1.i, %62
+  %sext.i.i.i94 = shl i64 %agg.tmp.sroa.2.0.copyload.i92, 56
+  %conv.i.i.i95 = ashr exact i64 %sext.i.i.i94, 56
+  %63 = shl i64 %agg.tmp.sroa.2.0.copyload.i92, 48
+  %conv1.i.i.i96 = ashr i64 %63, 56
+  %64 = shl i64 %agg.tmp.sroa.2.0.copyload.i92, 40
+  %conv2.i.i.i97 = ashr i64 %64, 56
+  %65 = shl i64 %agg.tmp.sroa.2.0.copyload.i92, 32
+  %conv3.i.i.i98 = ashr i64 %65, 56
+  %div.i.i.i99 = sdiv i64 %sub.i93, 60
+  %add.i.i.i100 = add nsw i64 %div.i.i.i99, %conv3.i.i.i98
+  %66 = shl i64 %agg.tmp.sroa.2.0.copyload.i92, 24
+  %conv4.i.i.i101 = ashr i64 %66, 56
+  %rem.i.i.i102 = srem i64 %sub.i93, 60
+  %add5.i.i.i103 = add nsw i64 %rem.i.i.i102, %conv4.i.i.i101
+  %call.i.i.i104 = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_secEllllll(i64 noundef %agg.tmp.sroa.0.0.copyload.i90, i64 noundef %conv.i.i.i95, i64 noundef %conv1.i.i.i96, i64 noundef %conv2.i.i.i97, i64 noundef %add.i.i.i100, i64 noundef %add5.i.i.i103) #22, !noalias !54
+  %67 = extractvalue { i64, i64 } %call.i.i.i104, 0
   store i64 %67, ptr %agg.result, align 8, !alias.scope !54
   %68 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %69 = extractvalue { i64, i64 } %call.i.i.i103, 1
+  %69 = extractvalue { i64, i64 } %call.i.i.i104, 1
   store i64 %69, ptr %68, align 8, !alias.scope !54
-  %offset.i104 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %70 = load i32, ptr %add.ptr.i.i87, align 8, !noalias !54
-  store i32 %70, ptr %offset.i104, align 8, !alias.scope !54
-  %is_dst.i105 = getelementptr inbounds i8, ptr %agg.result, i64 20
-  %is_dst4.i106 = getelementptr inbounds i8, ptr %add.ptr.i.i87, i64 40
-  %71 = load i8, ptr %is_dst4.i106, align 8, !noalias !54
-  %frombool.i107 = and i8 %71, 1
-  store i8 %frombool.i107, ptr %is_dst.i105, align 4, !alias.scope !54
-  %abbr.i108 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  %abbreviations_.i109 = getelementptr inbounds i8, ptr %this, i64 64
-  %abbr_index.i110 = getelementptr inbounds i8, ptr %add.ptr.i.i87, i64 41
-  %72 = load i8, ptr %abbr_index.i110, align 1, !noalias !54
-  %conv5.i111 = zext i8 %72 to i64
-  %call6.i112 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %abbreviations_.i109, i64 noundef %conv5.i111) #22, !noalias !54
-  store ptr %call6.i112, ptr %abbr.i108, align 8, !alias.scope !54
+  %offset.i105 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %70 = load i32, ptr %add.ptr.i.i88, align 8, !noalias !54
+  store i32 %70, ptr %offset.i105, align 8, !alias.scope !54
+  %is_dst.i106 = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %is_dst4.i107 = getelementptr inbounds i8, ptr %add.ptr.i.i88, i64 40
+  %71 = load i8, ptr %is_dst4.i107, align 8, !noalias !54
+  %frombool.i108 = and i8 %71, 1
+  store i8 %frombool.i108, ptr %is_dst.i106, align 4, !alias.scope !54
+  %abbr.i109 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %abbreviations_.i110 = getelementptr inbounds i8, ptr %this, i64 64
+  %abbr_index.i111 = getelementptr inbounds i8, ptr %add.ptr.i.i88, i64 41
+  %72 = load i8, ptr %abbr_index.i111, align 1, !noalias !54
+  %conv5.i112 = zext i8 %72 to i64
+  %call6.i113 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %abbreviations_.i110, i64 noundef %conv5.i112) #22, !noalias !54
+  store ptr %call6.i113, ptr %abbr.i109, align 8, !alias.scope !54
   br label %return
 
 return:                                           ; preds = %_ZSt11upper_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_10ByUnixTimeEET_S7_S7_RKT0_T1_.exit, %if.then45, %if.end26, %if.then12, %if.then
@@ -3705,8 +3705,9 @@ if.end35.if.then37_crit_edge:                     ; preds = %if.end35
   br label %if.then37
 
 if.then37:                                        ; preds = %if.end35.if.then37_crit_edge, %land.rhs28.i, %land.rhs20.i, %land.rhs12.i, %land.rhs.i, %entry, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit
-  %60 = phi i64 [ %.pre, %if.end35.if.then37_crit_edge ], [ %2, %land.rhs28.i ], [ %2, %land.rhs20.i ], [ %2, %land.rhs12.i ], [ %2, %land.rhs.i ], [ %2, %entry ], [ %2, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit ]
-  %prev_civil_sec38 = getelementptr inbounds i8, ptr %1, i64 32
+  %60 = phi i64 [ %.pre, %if.end35.if.then37_crit_edge ], [ %2, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit ], [ %2, %entry ], [ %2, %land.rhs.i ], [ %2, %land.rhs12.i ], [ %2, %land.rhs20.i ], [ %2, %land.rhs28.i ]
+  %tr.1423 = phi ptr [ %tr.1, %if.end35.if.then37_crit_edge ], [ %1, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit ], [ %1, %entry ], [ %1, %land.rhs.i ], [ %1, %land.rhs12.i ], [ %1, %land.rhs20.i ], [ %1, %land.rhs28.i ]
+  %prev_civil_sec38 = getelementptr inbounds i8, ptr %tr.1423, i64 32
   %61 = load i64, ptr %prev_civil_sec38, align 8
   %cmp.i.i129 = icmp slt i64 %61, %60
   br i1 %cmp.i.i129, label %if.end54, label %lor.rhs.i.i130
@@ -3716,7 +3717,7 @@ lor.rhs.i.i130:                                   ; preds = %if.then37
   br i1 %cmp4.i.i131, label %land.rhs.i.i133, label %if.then40
 
 land.rhs.i.i133:                                  ; preds = %lor.rhs.i.i130
-  %m.i.i.i134 = getelementptr inbounds i8, ptr %1, i64 40
+  %m.i.i.i134 = getelementptr inbounds i8, ptr %tr.1423, i64 40
   %62 = load i8, ptr %m.i.i.i134, align 8
   %m.i21.i.i135 = getelementptr inbounds i8, ptr %cs, i64 8
   %63 = load i8, ptr %m.i21.i.i135, align 8
@@ -3728,7 +3729,7 @@ lor.rhs8.i.i137:                                  ; preds = %land.rhs.i.i133
   br i1 %cmp11.i.i138, label %land.rhs12.i.i139, label %if.then40
 
 land.rhs12.i.i139:                                ; preds = %lor.rhs8.i.i137
-  %d.i.i.i140 = getelementptr inbounds i8, ptr %1, i64 41
+  %d.i.i.i140 = getelementptr inbounds i8, ptr %tr.1423, i64 41
   %64 = load i8, ptr %d.i.i.i140, align 1
   %d.i28.i.i141 = getelementptr inbounds i8, ptr %cs, i64 9
   %65 = load i8, ptr %d.i28.i.i141, align 1
@@ -3740,7 +3741,7 @@ lor.rhs16.i.i143:                                 ; preds = %land.rhs12.i.i139
   br i1 %cmp19.i.i144, label %land.rhs20.i.i145, label %if.then40
 
 land.rhs20.i.i145:                                ; preds = %lor.rhs16.i.i143
-  %hh.i.i.i146 = getelementptr inbounds i8, ptr %1, i64 42
+  %hh.i.i.i146 = getelementptr inbounds i8, ptr %tr.1423, i64 42
   %66 = load i8, ptr %hh.i.i.i146, align 2
   %hh.i35.i.i147 = getelementptr inbounds i8, ptr %cs, i64 10
   %67 = load i8, ptr %hh.i35.i.i147, align 2
@@ -3752,7 +3753,7 @@ lor.rhs24.i.i149:                                 ; preds = %land.rhs20.i.i145
   br i1 %cmp27.i.i150, label %land.rhs28.i.i151, label %if.then40
 
 land.rhs28.i.i151:                                ; preds = %lor.rhs24.i.i149
-  %mm.i.i.i152 = getelementptr inbounds i8, ptr %1, i64 43
+  %mm.i.i.i152 = getelementptr inbounds i8, ptr %tr.1423, i64 43
   %68 = load i8, ptr %mm.i.i.i152, align 1
   %mm.i42.i.i153 = getelementptr inbounds i8, ptr %cs, i64 11
   %69 = load i8, ptr %mm.i42.i.i153, align 1
@@ -3764,7 +3765,7 @@ lor.rhs32.i.i155:                                 ; preds = %land.rhs28.i.i151
   br i1 %cmp35.i.i156, label %_ZN4absl13time_internal4cctz6detailgeINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit161, label %if.then40
 
 _ZN4absl13time_internal4cctz6detailgeINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit161: ; preds = %lor.rhs32.i.i155
-  %ss.i.i.i158 = getelementptr inbounds i8, ptr %1, i64 44
+  %ss.i.i.i158 = getelementptr inbounds i8, ptr %tr.1423, i64 44
   %70 = load i8, ptr %ss.i.i.i158, align 4
   %ss.i49.i.i159 = getelementptr inbounds i8, ptr %cs, i64 12
   %71 = load i8, ptr %ss.i49.i.i159, align 4
@@ -3905,7 +3906,7 @@ if.end46:                                         ; preds = %lor.rhs32.i188, %lo
   br label %return
 
 if.end54:                                         ; preds = %land.rhs28.i.i151, %land.rhs20.i.i145, %land.rhs12.i.i139, %land.rhs.i.i133, %if.then37, %_ZN4absl13time_internal4cctz6detailgeINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit161
-  tail call fastcc void @_ZN4absl13time_internal4cctz12_GLOBAL__N_111MakeSkippedERKNS1_10TransitionERKNS1_6detail10civil_timeINS6_10second_tagEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %cs)
+  tail call fastcc void @_ZN4absl13time_internal4cctz12_GLOBAL__N_111MakeSkippedERKNS1_10TransitionERKNS1_6detail10civil_timeINS6_10second_tagEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %tr.1423, ptr noundef nonnull align 8 dereferenceable(16) %cs)
   br label %return
 
 if.end55:                                         ; preds = %if.end35
@@ -3913,8 +3914,8 @@ if.end55:                                         ; preds = %if.end35
   br i1 %cmp56, label %if.then57, label %if.end92
 
 if.then57:                                        ; preds = %if.end55
-  %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 -48
-  %prev_civil_sec58 = getelementptr inbounds i8, ptr %0, i64 -16
+  %incdec.ptr = getelementptr inbounds i8, ptr %tr.1, i64 -48
+  %prev_civil_sec58 = getelementptr inbounds i8, ptr %tr.1, i64 -16
   %92 = load i64, ptr %prev_civil_sec58, align 8
   %93 = load i64, ptr %cs, align 8
   %cmp.i.i202 = icmp slt i64 %92, %93
@@ -3925,7 +3926,7 @@ lor.rhs.i.i203:                                   ; preds = %if.then57
   br i1 %cmp4.i.i204, label %land.rhs.i.i205, label %if.end91
 
 land.rhs.i.i205:                                  ; preds = %lor.rhs.i.i203
-  %m.i.i.i206 = getelementptr inbounds i8, ptr %0, i64 -8
+  %m.i.i.i206 = getelementptr inbounds i8, ptr %tr.1, i64 -8
   %94 = load i8, ptr %m.i.i.i206, align 8
   %m.i21.i.i207 = getelementptr inbounds i8, ptr %cs, i64 8
   %95 = load i8, ptr %m.i21.i.i207, align 8
@@ -3937,7 +3938,7 @@ lor.rhs8.i.i209:                                  ; preds = %land.rhs.i.i205
   br i1 %cmp11.i.i210, label %land.rhs12.i.i211, label %if.end91
 
 land.rhs12.i.i211:                                ; preds = %lor.rhs8.i.i209
-  %d.i.i.i212 = getelementptr inbounds i8, ptr %0, i64 -7
+  %d.i.i.i212 = getelementptr inbounds i8, ptr %tr.1, i64 -7
   %96 = load i8, ptr %d.i.i.i212, align 1
   %d.i28.i.i213 = getelementptr inbounds i8, ptr %cs, i64 9
   %97 = load i8, ptr %d.i28.i.i213, align 1
@@ -3949,7 +3950,7 @@ lor.rhs16.i.i215:                                 ; preds = %land.rhs12.i.i211
   br i1 %cmp19.i.i216, label %land.rhs20.i.i217, label %if.end91
 
 land.rhs20.i.i217:                                ; preds = %lor.rhs16.i.i215
-  %hh.i.i.i218 = getelementptr inbounds i8, ptr %0, i64 -6
+  %hh.i.i.i218 = getelementptr inbounds i8, ptr %tr.1, i64 -6
   %98 = load i8, ptr %hh.i.i.i218, align 2
   %hh.i35.i.i219 = getelementptr inbounds i8, ptr %cs, i64 10
   %99 = load i8, ptr %hh.i35.i.i219, align 2
@@ -3961,7 +3962,7 @@ lor.rhs24.i.i221:                                 ; preds = %land.rhs20.i.i217
   br i1 %cmp27.i.i222, label %land.rhs28.i.i223, label %if.end91
 
 land.rhs28.i.i223:                                ; preds = %lor.rhs24.i.i221
-  %mm.i.i.i224 = getelementptr inbounds i8, ptr %0, i64 -5
+  %mm.i.i.i224 = getelementptr inbounds i8, ptr %tr.1, i64 -5
   %100 = load i8, ptr %mm.i.i.i224, align 1
   %mm.i42.i.i225 = getelementptr inbounds i8, ptr %cs, i64 11
   %101 = load i8, ptr %mm.i42.i.i225, align 1
@@ -3973,7 +3974,7 @@ lor.rhs32.i.i227:                                 ; preds = %land.rhs28.i.i223
   br i1 %cmp35.i.i228, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit, label %if.end91
 
 _ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit: ; preds = %lor.rhs32.i.i227
-  %ss.i.i.i230 = getelementptr inbounds i8, ptr %0, i64 -4
+  %ss.i.i.i230 = getelementptr inbounds i8, ptr %tr.1, i64 -4
   %102 = load i8, ptr %ss.i.i.i230, align 4
   %ss.i49.i.i231 = getelementptr inbounds i8, ptr %cs, i64 12
   %103 = load i8, ptr %ss.i49.i.i231, align 4
@@ -4070,7 +4071,7 @@ _ZNK4absl13time_internal4cctz12TimeZoneInfo9TimeLocalERKNS1_6detail10civil_timeI
 
 if.end72:                                         ; preds = %land.lhs.true61, %if.then60
   %transition_types_74 = getelementptr inbounds i8, ptr %this, i64 32
-  %type_index75 = getelementptr inbounds i8, ptr %0, i64 -40
+  %type_index75 = getelementptr inbounds i8, ptr %tr.1, i64 -40
   %117 = load i8, ptr %type_index75, align 8
   %conv76 = zext i8 %117 to i64
   %118 = load ptr, ptr %transition_types_74, align 8
@@ -4153,9 +4154,9 @@ if.end84:                                         ; preds = %lor.rhs32.i.i270, %
   %130 = load i64, ptr %incdec.ptr, align 8
   %agg.tmp86.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %cs, i64 8
   %agg.tmp86.sroa.2.0.copyload = load i64, ptr %agg.tmp86.sroa.2.0..sroa_idx, align 8
-  %civil_sec88 = getelementptr inbounds i8, ptr %0, i64 -32
+  %civil_sec88 = getelementptr inbounds i8, ptr %tr.1, i64 -32
   %agg.tmp87.sroa.0.0.copyload = load i64, ptr %civil_sec88, align 8
-  %agg.tmp87.sroa.2.0.civil_sec88.sroa_idx = getelementptr inbounds i8, ptr %0, i64 -24
+  %agg.tmp87.sroa.2.0.civil_sec88.sroa_idx = getelementptr inbounds i8, ptr %tr.1, i64 -24
   %agg.tmp87.sroa.2.0.copyload = load i64, ptr %agg.tmp87.sroa.2.0.civil_sec88.sroa_idx, align 8
   %131 = trunc i64 %agg.tmp86.sroa.2.0.copyload to i32
   %132 = trunc i64 %agg.tmp87.sroa.2.0.copyload to i32
@@ -5044,11 +5045,11 @@ _ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit: ; preds = %if.end, 
   %call.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i, i8 noundef signext %conv.i, i64 noundef %d, i64 noundef 0, i8 noundef signext %conv11, i8 noundef signext %conv6, i8 noundef signext %conv) #22
   %3 = extractvalue { i64, i64 } %call.i, 0
   %4 = extractvalue { i64, i64 } %call.i, 1
-  %retval.sroa.12.8.extract.shift101 = lshr i64 %4, 8
-  %retval.sroa.13.8.extract.shift107 = lshr i64 %4, 16
-  %retval.sroa.14.8.extract.shift113 = lshr i64 %4, 24
-  %retval.sroa.15.8.extract.shift119 = lshr i64 %4, 32
-  %retval.sroa.16.8.extract.shift125 = and i64 %4, -1099511627776
+  %retval.sroa.12.8.extract.shift107 = lshr i64 %4, 8
+  %retval.sroa.13.8.extract.shift113 = lshr i64 %4, 16
+  %retval.sroa.14.8.extract.shift119 = lshr i64 %4, 24
+  %retval.sroa.15.8.extract.shift125 = lshr i64 %4, 32
+  %retval.sroa.16.8.extract.shift131 = and i64 %4, -1099511627776
   br label %return
 
 if.end22:                                         ; preds = %if.then5
@@ -5075,18 +5076,18 @@ _ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit: ; preds = %if.end2
   %cmp.i = icmp slt i64 %rem, 0
   %add1.i = add nsw i64 %rem, 24
   %hh.addr.0.i = select i1 %cmp.i, i64 %add1.i, i64 %rem
-  %conv.i49 = trunc nuw nsw i64 %hh.addr.0.i to i8
+  %conv.i50 = trunc nuw nsw i64 %hh.addr.0.i to i8
   %rem.lobit.i = ashr i64 %rem, 63
   %cd.addr.0.i = add nsw i64 %rem.lobit.i, %div
   %conv.i.i = trunc nuw nsw i64 %m.addr.0.i.i to i8
-  %call.i.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i, i8 noundef signext %conv.i.i, i64 noundef %d, i64 noundef %cd.addr.0.i, i8 noundef signext %conv.i49, i8 noundef signext %conv6, i8 noundef signext %conv) #22
+  %call.i.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i, i8 noundef signext %conv.i.i, i64 noundef %d, i64 noundef %cd.addr.0.i, i8 noundef signext %conv.i50, i8 noundef signext %conv6, i8 noundef signext %conv) #22
   %5 = extractvalue { i64, i64 } %call.i.i, 0
   %6 = extractvalue { i64, i64 } %call.i.i, 1
-  %retval.sroa.12.8.extract.shift99 = lshr i64 %6, 8
-  %retval.sroa.13.8.extract.shift105 = lshr i64 %6, 16
-  %retval.sroa.14.8.extract.shift111 = lshr i64 %6, 24
-  %retval.sroa.15.8.extract.shift117 = lshr i64 %6, 32
-  %retval.sroa.16.8.extract.shift123 = and i64 %6, -1099511627776
+  %retval.sroa.12.8.extract.shift105 = lshr i64 %6, 8
+  %retval.sroa.13.8.extract.shift111 = lshr i64 %6, 16
+  %retval.sroa.14.8.extract.shift117 = lshr i64 %6, 24
+  %retval.sroa.15.8.extract.shift123 = lshr i64 %6, 32
+  %retval.sroa.16.8.extract.shift129 = and i64 %6, -1099511627776
   br label %return
 
 if.end24:                                         ; preds = %if.then
@@ -5110,13 +5111,13 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 _ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit: ; preds = %if.end24, %if.then.i.i.i, %if.then2.i.i.i
   %m.addr.0.i.i.i = phi i64 [ %add3.i.i.i, %if.then2.i.i.i ], [ %rem.i.i.i, %if.then.i.i.i ], [ 12, %if.end24 ]
   %y.addr.0.i.i.i = phi i64 [ %sub.i.i.i, %if.then2.i.i.i ], [ %add.i.i.i, %if.then.i.i.i ], [ %y, %if.end24 ]
-  %cmp.i50 = icmp slt i64 %rem26, 0
-  %add1.i51 = add nsw i64 %rem26, 60
-  %mm.addr.0.i = select i1 %cmp.i50, i64 %add1.i51, i64 %rem26
-  %conv.i52 = trunc nuw nsw i64 %mm.addr.0.i to i8
+  %cmp.i54 = icmp slt i64 %rem26, 0
+  %add1.i55 = add nsw i64 %rem26, 60
+  %mm.addr.0.i = select i1 %cmp.i54, i64 %add1.i55, i64 %rem26
+  %conv.i56 = trunc nuw nsw i64 %mm.addr.0.i to i8
   %rem5.i = srem i64 %hh, 24
-  %rem.lobit.i53 = ashr i64 %rem26, 63
-  %ch.addr.0.i = add nsw i64 %rem.lobit.i53, %div25
+  %rem.lobit.i59 = ashr i64 %rem26, 63
+  %ch.addr.0.i = add nsw i64 %rem.lobit.i59, %div25
   %rem6.i = srem i64 %ch.addr.0.i, 24
   %add7.i = add nsw i64 %rem6.i, %rem5.i
   %div2.i = sdiv i64 %hh, 24
@@ -5129,19 +5130,19 @@ _ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit: ; preds = %if.end24
   %hh.addr.0.i.i = select i1 %cmp.i.i, i8 %add1.i.i, i8 %rem.i9.i
   %div.i10.i = sdiv i8 %rem.i.lhs.trunc.i, 24
   %div.i.sext.i = sext i8 %div.i10.i to i64
-  %add.i.i54 = add nsw i64 %add4.i, %div.i.sext.i
+  %add.i.i60 = add nsw i64 %add4.i, %div.i.sext.i
   %7 = ashr i8 %rem.i9.i, 7
   %rem.lobit.i.i = sext i8 %7 to i64
-  %cd.addr.0.i.i = add nsw i64 %add.i.i54, %rem.lobit.i.i
+  %cd.addr.0.i.i = add nsw i64 %add.i.i60, %rem.lobit.i.i
   %conv.i.i.i = trunc nuw nsw i64 %m.addr.0.i.i.i to i8
-  %call.i.i.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i.i, i8 noundef signext %conv.i.i.i, i64 noundef %d, i64 noundef %cd.addr.0.i.i, i8 noundef signext %hh.addr.0.i.i, i8 noundef signext %conv.i52, i8 noundef signext %conv) #22
+  %call.i.i.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i.i, i8 noundef signext %conv.i.i.i, i64 noundef %d, i64 noundef %cd.addr.0.i.i, i8 noundef signext %hh.addr.0.i.i, i8 noundef signext %conv.i56, i8 noundef signext %conv) #22
   %8 = extractvalue { i64, i64 } %call.i.i.i, 0
   %9 = extractvalue { i64, i64 } %call.i.i.i, 1
-  %retval.sroa.12.8.extract.shift97 = lshr i64 %9, 8
-  %retval.sroa.13.8.extract.shift103 = lshr i64 %9, 16
-  %retval.sroa.14.8.extract.shift109 = lshr i64 %9, 24
-  %retval.sroa.15.8.extract.shift115 = lshr i64 %9, 32
-  %retval.sroa.16.8.extract.shift121 = and i64 %9, -1099511627776
+  %retval.sroa.12.8.extract.shift103 = lshr i64 %9, 8
+  %retval.sroa.13.8.extract.shift109 = lshr i64 %9, 16
+  %retval.sroa.14.8.extract.shift115 = lshr i64 %9, 24
+  %retval.sroa.15.8.extract.shift121 = lshr i64 %9, 32
+  %retval.sroa.16.8.extract.shift127 = and i64 %9, -1099511627776
   br label %return
 
 if.end28:                                         ; preds = %entry
@@ -5159,56 +5160,56 @@ if.end28:                                         ; preds = %entry
   %rem38 = srem i64 %cm.0, 60
   %add39 = add nsw i64 %rem38, %rem37
   %conv40 = trunc nuw nsw i64 %ss.addr.0 to i8
-  %cmp.not.i.i.i55 = icmp eq i64 %m, 12
-  br i1 %cmp.not.i.i.i55, label %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93, label %if.then.i.i.i56
+  %cmp.not.i.i.i61 = icmp eq i64 %m, 12
+  br i1 %cmp.not.i.i.i61, label %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99, label %if.then.i.i.i62
 
-if.then.i.i.i56:                                  ; preds = %if.end28
-  %div.i.i.i57 = sdiv i64 %m, 12
-  %add.i.i.i58 = add nsw i64 %div.i.i.i57, %y
-  %rem.i.i.i59 = srem i64 %m, 12
-  %cmp1.i.i.i60 = icmp slt i64 %rem.i.i.i59, 1
-  br i1 %cmp1.i.i.i60, label %if.then2.i.i.i90, label %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93
+if.then.i.i.i62:                                  ; preds = %if.end28
+  %div.i.i.i63 = sdiv i64 %m, 12
+  %add.i.i.i64 = add nsw i64 %div.i.i.i63, %y
+  %rem.i.i.i65 = srem i64 %m, 12
+  %cmp1.i.i.i66 = icmp slt i64 %rem.i.i.i65, 1
+  br i1 %cmp1.i.i.i66, label %if.then2.i.i.i96, label %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99
 
-if.then2.i.i.i90:                                 ; preds = %if.then.i.i.i56
-  %sub.i.i.i91 = add nsw i64 %add.i.i.i58, -1
-  %add3.i.i.i92 = add nsw i64 %rem.i.i.i59, 12
-  br label %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93
+if.then2.i.i.i96:                                 ; preds = %if.then.i.i.i62
+  %sub.i.i.i97 = add nsw i64 %add.i.i.i64, -1
+  %add3.i.i.i98 = add nsw i64 %rem.i.i.i65, 12
+  br label %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99
 
-_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93: ; preds = %if.end28, %if.then.i.i.i56, %if.then2.i.i.i90
-  %m.addr.0.i.i.i61 = phi i64 [ %add3.i.i.i92, %if.then2.i.i.i90 ], [ %rem.i.i.i59, %if.then.i.i.i56 ], [ 12, %if.end28 ]
-  %y.addr.0.i.i.i62 = phi i64 [ %sub.i.i.i91, %if.then2.i.i.i90 ], [ %add.i.i.i58, %if.then.i.i.i56 ], [ %y, %if.end28 ]
-  %rem.i63.lhs.trunc = trunc nsw i64 %add39 to i8
-  %rem.i63127 = srem i8 %rem.i63.lhs.trunc, 60
-  %cmp.i64 = icmp slt i8 %rem.i63127, 0
-  %add1.i65 = add nsw i8 %rem.i63127, 60
-  %mm.addr.0.i66 = select i1 %cmp.i64, i8 %add1.i65, i8 %rem.i63127
-  %rem5.i68 = srem i64 %hh, 24
-  %div.i69128 = sdiv i8 %rem.i63.lhs.trunc, 60
-  %div.i69.sext = sext i8 %div.i69128 to i64
-  %add.i70 = add nsw i64 %add36, %div.i69.sext
-  %10 = ashr i8 %rem.i63127, 7
-  %rem.lobit.i71 = sext i8 %10 to i64
-  %ch.addr.0.i72 = add nsw i64 %add.i70, %rem.lobit.i71
-  %rem6.i73 = srem i64 %ch.addr.0.i72, 24
-  %add7.i74 = add nsw i64 %rem6.i73, %rem5.i68
-  %div2.i75 = sdiv i64 %hh, 24
-  %div3.i76 = sdiv i64 %ch.addr.0.i72, 24
-  %add4.i77 = add nsw i64 %div3.i76, %div2.i75
-  %rem.i.lhs.trunc.i78 = trunc nsw i64 %add7.i74 to i8
-  %rem.i9.i79 = srem i8 %rem.i.lhs.trunc.i78, 24
-  %cmp.i.i80 = icmp slt i8 %rem.i9.i79, 0
-  %add1.i.i81 = add nsw i8 %rem.i9.i79, 24
-  %hh.addr.0.i.i82 = select i1 %cmp.i.i80, i8 %add1.i.i81, i8 %rem.i9.i79
-  %div.i10.i83 = sdiv i8 %rem.i.lhs.trunc.i78, 24
-  %div.i.sext.i84 = sext i8 %div.i10.i83 to i64
-  %add.i.i85 = add nsw i64 %add4.i77, %div.i.sext.i84
-  %11 = ashr i8 %rem.i9.i79, 7
-  %rem.lobit.i.i86 = sext i8 %11 to i64
-  %cd.addr.0.i.i87 = add nsw i64 %add.i.i85, %rem.lobit.i.i86
-  %conv.i.i.i88 = trunc nuw nsw i64 %m.addr.0.i.i.i61 to i8
-  %call.i.i.i89 = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i.i62, i8 noundef signext %conv.i.i.i88, i64 noundef %d, i64 noundef %cd.addr.0.i.i87, i8 noundef signext %hh.addr.0.i.i82, i8 noundef signext %mm.addr.0.i66, i8 noundef signext %conv40) #22
-  %12 = extractvalue { i64, i64 } %call.i.i.i89, 0
-  %13 = extractvalue { i64, i64 } %call.i.i.i89, 1
+_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99: ; preds = %if.end28, %if.then.i.i.i62, %if.then2.i.i.i96
+  %m.addr.0.i.i.i67 = phi i64 [ %add3.i.i.i98, %if.then2.i.i.i96 ], [ %rem.i.i.i65, %if.then.i.i.i62 ], [ 12, %if.end28 ]
+  %y.addr.0.i.i.i68 = phi i64 [ %sub.i.i.i97, %if.then2.i.i.i96 ], [ %add.i.i.i64, %if.then.i.i.i62 ], [ %y, %if.end28 ]
+  %rem.i69.lhs.trunc = trunc nsw i64 %add39 to i8
+  %rem.i69133 = srem i8 %rem.i69.lhs.trunc, 60
+  %cmp.i70 = icmp slt i8 %rem.i69133, 0
+  %add1.i71 = add nsw i8 %rem.i69133, 60
+  %mm.addr.0.i72 = select i1 %cmp.i70, i8 %add1.i71, i8 %rem.i69133
+  %rem5.i74 = srem i64 %hh, 24
+  %div.i75134 = sdiv i8 %rem.i69.lhs.trunc, 60
+  %div.i75.sext = sext i8 %div.i75134 to i64
+  %add.i76 = add nsw i64 %add36, %div.i75.sext
+  %10 = ashr i8 %rem.i69133, 7
+  %rem.lobit.i77 = sext i8 %10 to i64
+  %ch.addr.0.i78 = add nsw i64 %add.i76, %rem.lobit.i77
+  %rem6.i79 = srem i64 %ch.addr.0.i78, 24
+  %add7.i80 = add nsw i64 %rem6.i79, %rem5.i74
+  %div2.i81 = sdiv i64 %hh, 24
+  %div3.i82 = sdiv i64 %ch.addr.0.i78, 24
+  %add4.i83 = add nsw i64 %div3.i82, %div2.i81
+  %rem.i.lhs.trunc.i84 = trunc nsw i64 %add7.i80 to i8
+  %rem.i9.i85 = srem i8 %rem.i.lhs.trunc.i84, 24
+  %cmp.i.i86 = icmp slt i8 %rem.i9.i85, 0
+  %add1.i.i87 = add nsw i8 %rem.i9.i85, 24
+  %hh.addr.0.i.i88 = select i1 %cmp.i.i86, i8 %add1.i.i87, i8 %rem.i9.i85
+  %div.i10.i89 = sdiv i8 %rem.i.lhs.trunc.i84, 24
+  %div.i.sext.i90 = sext i8 %div.i10.i89 to i64
+  %add.i.i91 = add nsw i64 %add4.i83, %div.i.sext.i90
+  %11 = ashr i8 %rem.i9.i85, 7
+  %rem.lobit.i.i92 = sext i8 %11 to i64
+  %cd.addr.0.i.i93 = add nsw i64 %add.i.i91, %rem.lobit.i.i92
+  %conv.i.i.i94 = trunc nuw nsw i64 %m.addr.0.i.i.i67 to i8
+  %call.i.i.i95 = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i.i68, i8 noundef signext %conv.i.i.i94, i64 noundef %d, i64 noundef %cd.addr.0.i.i93, i8 noundef signext %hh.addr.0.i.i88, i8 noundef signext %mm.addr.0.i72, i8 noundef signext %conv40) #22
+  %12 = extractvalue { i64, i64 } %call.i.i.i95, 0
+  %13 = extractvalue { i64, i64 } %call.i.i.i95, 1
   %retval.sroa.12.8.extract.shift = lshr i64 %13, 8
   %retval.sroa.13.8.extract.shift = lshr i64 %13, 16
   %retval.sroa.14.8.extract.shift = lshr i64 %13, 24
@@ -5216,14 +5217,14 @@ _ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93: ; preds = %if.end
   %retval.sroa.16.8.extract.shift = and i64 %13, -1099511627776
   br label %return
 
-return:                                           ; preds = %if.then10, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit
-  %retval.sroa.16.sroa.0.0 = phi i64 [ %retval.sroa.16.8.extract.shift125, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.16.8.extract.shift123, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.16.8.extract.shift121, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.16.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93 ], [ 0, %if.then10 ]
-  %retval.sroa.15.0 = phi i64 [ %retval.sroa.15.8.extract.shift119, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.15.8.extract.shift117, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.15.8.extract.shift115, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.15.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93 ], [ %ss, %if.then10 ]
-  %retval.sroa.14.0 = phi i64 [ %retval.sroa.14.8.extract.shift113, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.14.8.extract.shift111, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.14.8.extract.shift109, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.14.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93 ], [ %mm, %if.then10 ]
-  %retval.sroa.13.0 = phi i64 [ %retval.sroa.13.8.extract.shift107, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.13.8.extract.shift105, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.13.8.extract.shift103, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.13.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93 ], [ %hh, %if.then10 ]
-  %retval.sroa.12.0.in = phi i64 [ %retval.sroa.12.8.extract.shift101, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.12.8.extract.shift99, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.12.8.extract.shift97, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.12.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93 ], [ %d, %if.then10 ]
-  %retval.sroa.6.0.in = phi i64 [ %4, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %6, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %9, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %13, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93 ], [ %m, %if.then10 ]
-  %retval.sroa.0.0 = phi i64 [ %3, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %5, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %8, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %12, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93 ], [ %y, %if.then10 ]
+return:                                           ; preds = %if.then10, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit
+  %retval.sroa.16.sroa.0.0 = phi i64 [ %retval.sroa.16.8.extract.shift131, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.16.8.extract.shift129, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.16.8.extract.shift127, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.16.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99 ], [ 0, %if.then10 ]
+  %retval.sroa.15.0 = phi i64 [ %retval.sroa.15.8.extract.shift125, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.15.8.extract.shift123, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.15.8.extract.shift121, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.15.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99 ], [ %ss, %if.then10 ]
+  %retval.sroa.14.0 = phi i64 [ %retval.sroa.14.8.extract.shift119, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.14.8.extract.shift117, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.14.8.extract.shift115, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.14.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99 ], [ %mm, %if.then10 ]
+  %retval.sroa.13.0 = phi i64 [ %retval.sroa.13.8.extract.shift113, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.13.8.extract.shift111, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.13.8.extract.shift109, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.13.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99 ], [ %hh, %if.then10 ]
+  %retval.sroa.12.0.in = phi i64 [ %retval.sroa.12.8.extract.shift107, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %retval.sroa.12.8.extract.shift105, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %retval.sroa.12.8.extract.shift103, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %retval.sroa.12.8.extract.shift, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99 ], [ %d, %if.then10 ]
+  %retval.sroa.6.0.in = phi i64 [ %4, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %6, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %9, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %13, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99 ], [ %m, %if.then10 ]
+  %retval.sroa.0.0 = phi i64 [ %3, %_ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %5, %_ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %8, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %12, %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit99 ], [ %y, %if.then10 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
   %retval.sroa.15.8.insert.ext = shl nuw i64 %retval.sroa.15.0, 32
   %retval.sroa.15.8.insert.shift = and i64 %retval.sroa.15.8.insert.ext, 1095216660480

@@ -859,7 +859,7 @@ land.lhs.true67:                                  ; preds = %land.lhs.true62
   br i1 %cmp68.not, label %lor.lhs.false, label %if.then73
 
 lor.lhs.false:                                    ; preds = %land.lhs.true67
-  %call70 = tail call i32 @access(ptr noundef nonnull %13, i32 noundef 0) #13
+  %call70 = tail call i32 @access(ptr noundef nonnull %cond59, i32 noundef 0) #13
   %cmp71.not = icmp eq i32 %call70, -1
   br i1 %cmp71.not, label %if.end134, label %if.then73
 
@@ -1275,7 +1275,7 @@ if.then159.i:                                     ; preds = %sw.bb153.i
   br label %read_config.exitthread-pre-split
 
 if.end162.i:                                      ; preds = %sw.bb153.i
-  %conv163.i = trunc i64 %num.2.i to i32
+  %conv163.i = trunc nsw i64 %num.2.i to i32
   %idxprom164.i = zext i32 %spec.select55.i to i64
   %arrayidx165.i = getelementptr inbounds [107 x %union.varref], ptr @cmp_vars, i64 0, i64 %idxprom164.i
   %66 = load ptr, ptr %arrayidx165.i, align 8

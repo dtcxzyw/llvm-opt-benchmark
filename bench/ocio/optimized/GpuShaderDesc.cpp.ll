@@ -957,7 +957,7 @@ if.end.loopexit:                                  ; preds = %for.cond.i
   br label %if.end
 
 if.end:                                           ; preds = %if.end.loopexit, %entry
-  %13 = phi ptr [ %.pre11, %if.end.loopexit ], [ %3, %entry ]
+  %13 = phi ptr [ %.pre11, %if.end.loopexit ], [ %4, %entry ]
   %14 = phi ptr [ %.pre, %if.end.loopexit ], [ %2, %entry ]
   %_M_finish.i = getelementptr inbounds i8, ptr %14, i64 448
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %14, i64 456

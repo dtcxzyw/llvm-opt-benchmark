@@ -681,7 +681,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit.i.i.i": ; preds = %27, %.lr.ph.i.i.i
   %29 = phi ptr [ %28, %27 ], [ %21, %.lr.ph.i.i.i ]
-  %30 = phi ptr [ %28, %27 ], [ %5, %.lr.ph.i.i.i ]
+  %30 = phi ptr [ %28, %27 ], [ %23, %.lr.ph.i.i.i ]
   %.sroa.016.0.i.i.i = phi i64 [ %.sroa.016.0.copyload17.i.i.i, %27 ], [ -9223372036854775808, %.lr.ph.i.i.i ]
   %31 = icmp ne i64 %.sroa.016.0.i.i.i, -9223372036854775808
   tail call void @llvm.assume(i1 %31)
@@ -698,7 +698,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 36:                                               ; preds = %33, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit.i.i.i"
   %37 = phi ptr [ %34, %33 ], [ %20, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit.i.i.i" ]
-  %38 = phi ptr [ %34, %33 ], [ %13, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit.i.i.i" ]
+  %38 = phi ptr [ %34, %33 ], [ %22, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit.i.i.i" ]
   %.0.i.i.i.i = phi ptr [ %35, %33 ], [ null, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit.i.i.i" ]
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -1285,7 +1285,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h4b0df2c45c85dc2bE.llvm.11107275065492906757.exit"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit.i.i": ; preds = %28, %22
-  %30 = phi ptr [ %29, %28 ], [ %4, %22 ]
+  %30 = phi ptr [ %29, %28 ], [ %24, %22 ]
   %.sroa.016.0.i.i = phi i64 [ %.sroa.016.0.copyload17.i.i, %28 ], [ -9223372036854775808, %22 ]
   %31 = icmp ne i64 %.sroa.016.0.i.i, -9223372036854775808
   tail call void @llvm.assume(i1 %31)
@@ -1302,7 +1302,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   br label %36
 
 36:                                               ; preds = %33, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit.i.i"
-  %37 = phi ptr [ %34, %33 ], [ %12, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit.i.i" ]
+  %37 = phi ptr [ %34, %33 ], [ %23, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit.i.i" ]
   %.0.i.i.i = phi ptr [ %35, %33 ], [ null, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit.i.i" ]
   %38 = icmp ne ptr %.0.i.i.i, null
   tail call void @llvm.assume(i1 %38)
@@ -2264,7 +2264,7 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   br label %"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..SpecFold$GT$9spec_fold17h15792b4f75b2b86aE.llvm.11107275065492906757.exit"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit.i": ; preds = %28, %22
-  %30 = phi ptr [ %29, %28 ], [ %4, %22 ]
+  %30 = phi ptr [ %29, %28 ], [ %24, %22 ]
   %.sroa.016.0.i = phi i64 [ %.sroa.016.0.copyload17.i, %28 ], [ -9223372036854775808, %22 ]
   %31 = icmp ne i64 %.sroa.016.0.i, -9223372036854775808
   tail call void @llvm.assume(i1 %31)
@@ -2281,7 +2281,7 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   br label %36
 
 36:                                               ; preds = %33, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit.i"
-  %37 = phi ptr [ %34, %33 ], [ %12, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit.i" ]
+  %37 = phi ptr [ %34, %33 ], [ %23, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit.i" ]
   %.0.i.i = phi ptr [ %35, %33 ], [ null, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit.i" ]
   %38 = icmp ne ptr %.0.i.i, null
   tail call void @llvm.assume(i1 %38)
@@ -7493,7 +7493,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h14329f8bc0
   br i1 %.not, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %8
-  store ptr %4, ptr %0, align 8, !alias.scope !1567
+  store ptr %11, ptr %0, align 8, !alias.scope !1567
   store i64 %14, ptr %7, align 8, !alias.scope !1574
   br label %15
 
@@ -10141,7 +10141,7 @@ define hidden void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  store ptr %4, ptr %0, align 8, !alias.scope !2091, !noalias !2098
+  store ptr %7, ptr %0, align 8, !alias.scope !2091, !noalias !2098
   br label %"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$9spec_fold17ha4abb9cc1c7fa09eE.llvm.11107275065492906757.exit"
 
 "_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$9spec_fold17ha4abb9cc1c7fa09eE.llvm.11107275065492906757.exit": ; preds = %2, %._crit_edge.i.i
@@ -10252,7 +10252,7 @@ define hidden void @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  store ptr %4, ptr %0, align 8, !alias.scope !2136, !noalias !2143
+  store ptr %7, ptr %0, align 8, !alias.scope !2136, !noalias !2143
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h14329f8bc061eea4E.llvm.11107275065492906757.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h14329f8bc061eea4E.llvm.11107275065492906757.exit: ; preds = %2, %._crit_edge.i
@@ -12723,7 +12723,7 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
   ret void
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit": ; preds = %28, %22
-  %31 = phi ptr [ %29, %28 ], [ %4, %22 ]
+  %31 = phi ptr [ %29, %28 ], [ %24, %22 ]
   %.sroa.016.0 = phi i64 [ %.sroa.016.0.copyload17, %28 ], [ -9223372036854775808, %22 ]
   %32 = icmp ne i64 %.sroa.016.0, -9223372036854775808
   tail call void @llvm.assume(i1 %32)
@@ -12740,7 +12740,7 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
   br label %37
 
 37:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit", %34
-  %38 = phi ptr [ %35, %34 ], [ %12, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit" ]
+  %38 = phi ptr [ %35, %34 ], [ %23, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit" ]
   %.0.i = phi ptr [ %36, %34 ], [ null, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit" ]
   %39 = icmp ne ptr %.0.i, null
   tail call void @llvm.assume(i1 %39)

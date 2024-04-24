@@ -310,7 +310,7 @@ define noundef i32 @_ZN19colvarproxy_volmaps5resetEv(ptr noundef nonnull align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %4, %5
-  br i1 %.not, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.09 = phi i64 [ %10, %.lr.ph ], [ 0, %1 ]
@@ -329,15 +329,17 @@ define noundef i32 @_ZN19colvarproxy_volmaps5resetEv(ptr noundef nonnull align 8
   %17 = icmp ult i64 %10, %16
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %.lr.ph
-  %.not.i.i = icmp eq ptr %11, %12
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  %.lcssa7 = phi ptr [ %4, %1 ], [ %11, %.lr.ph ]
+  %.lcssa = phi ptr [ %5, %1 ], [ %12, %.lr.ph ]
+  %.not.i.i = icmp eq ptr %.lcssa7, %.lcssa
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, label %18
 
 18:                                               ; preds = %._crit_edge
-  store ptr %12, ptr %3, align 8
+  store ptr %.lcssa, ptr %3, align 8
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit
 
-_ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %._crit_edge, %18
+_ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %._crit_edge, %18
   %19 = getelementptr inbounds i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 40

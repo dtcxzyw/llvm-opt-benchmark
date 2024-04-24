@@ -2819,7 +2819,7 @@ common.resume:                                    ; preds = %19, %36, %24
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %29, %._crit_edge.loopexit.split.loop.exit18, %2
-  %34 = phi ptr [ %9, %2 ], [ %33, %._crit_edge.loopexit.split.loop.exit18 ], [ %30, %29 ]
+  %34 = phi ptr [ %10, %2 ], [ %33, %._crit_edge.loopexit.split.loop.exit18 ], [ %31, %29 ]
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !561
   store ptr %1, ptr %3, align 8, !noalias !561
@@ -6194,7 +6194,7 @@ _ZN5serde2de9SeqAccess12next_element17had0e7017939ce0c5E.exit.thread: ; preds = 
   br label %.thread469
 
 .thread469:                                       ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4593cb33c2fc4778E.exit.i.i403", %64, %83
-  %85 = phi ptr [ %.pre550, %83 ], [ %65, %64 ], [ %68, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4593cb33c2fc4778E.exit.i.i403" ]
+  %85 = phi ptr [ %.pre550, %83 ], [ %66, %64 ], [ %68, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4593cb33c2fc4778E.exit.i.i403" ]
   %86 = phi ptr [ %.pre, %83 ], [ %65, %64 ], [ %65, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4593cb33c2fc4778E.exit.i.i403" ]
   %.sroa.9423.0457.ph473 = phi i64 [ %77, %83 ], [ undef, %64 ], [ undef, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4593cb33c2fc4778E.exit.i.i403" ]
   %87 = phi i64 [ %spec.select, %83 ], [ 0, %64 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4593cb33c2fc4778E.exit.i.i403" ]

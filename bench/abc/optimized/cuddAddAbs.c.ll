@@ -712,13 +712,7 @@ tailrecurse:                                      ; preds = %13
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4
   %.not103 = icmp eq ptr %36, %5
-  br i1 %.not103, label %._crit_edge, label %45
-
-._crit_edge:                                      ; preds = %38
-  %.pre = ptrtoint ptr %5 to i64
-  %.pre114 = and i64 %.pre, -2
-  %.pre116 = inttoptr i64 %.pre114 to ptr
-  br label %67
+  br i1 %.not103, label %67, label %45
 
 45:                                               ; preds = %38
   %46 = load ptr, ptr %34, align 8
@@ -759,11 +753,11 @@ tailrecurse:                                      ; preds = %13
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %47) #3
   br label %67
 
-67:                                               ; preds = %._crit_edge, %60
-  %.pre-phi117 = phi ptr [ %.pre116, %._crit_edge ], [ %63, %60 ]
-  %.091 = phi ptr [ %5, %._crit_edge ], [ %57, %60 ]
+67:                                               ; preds = %38, %60
+  %.pre-phi115 = phi ptr [ %41, %38 ], [ %63, %60 ]
+  %.091 = phi ptr [ %36, %38 ], [ %57, %60 ]
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_addOrAbstract, ptr noundef nonnull %1, ptr noundef nonnull %.tr106110, ptr noundef nonnull %.091) #3
-  %68 = getelementptr inbounds i8, ptr %.pre-phi117, i64 4
+  %68 = getelementptr inbounds i8, ptr %.pre-phi115, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %69, -1
   store i32 %70, ptr %68, align 4

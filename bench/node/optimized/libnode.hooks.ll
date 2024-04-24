@@ -330,7 +330,7 @@ entry:
   %call.i = tail call i64 @_ZN4node23EmitProcessExitInternalEPNS_11EnvironmentE(ptr noundef %env)
   %tobool.i.i = trunc i64 %call.i to i1
   %ref.tmp.sroa.21.0.extract.shift.i = lshr i64 %call.i, 32
-  %ref.tmp.sroa.21.0.extract.trunc.i = trunc i64 %ref.tmp.sroa.21.0.extract.shift.i to i32
+  %ref.tmp.sroa.21.0.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.21.0.extract.shift.i to i32
   %cond.i.i = select i1 %tobool.i.i, i32 %ref.tmp.sroa.21.0.extract.trunc.i, i32 1
   ret i32 %cond.i.i
 }
@@ -1827,7 +1827,7 @@ cond.end.i:                                       ; preds = %if.then.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
   %arrayidx5.i.i = getelementptr inbounds ptr, ptr %15, i64 %rem.i.i.i.i21
-  store ptr %__prev_n.0, ptr %arrayidx5.i.i, align 8
+  store ptr %16, ptr %arrayidx5.i.i, align 8
   %.pre.i22 = load ptr, ptr %this, align 8
   %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i22, i64 %__bkt.0
   %.pre24.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8

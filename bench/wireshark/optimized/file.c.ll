@@ -1685,12 +1685,12 @@ cf_read_record.exit.thread:                       ; preds = %133
 
 162:                                              ; preds = %158
   %.not210 = icmp eq i16 %155, 0
-  %.pre316 = load i32, ptr %63, align 8
+  %.pre316 = load i32, ptr %110, align 8
   br i1 %.not210, label %164, label %.thread238
 
 .thread238:                                       ; preds = %162, %.thread
   %163 = phi i32 [ %160, %.thread ], [ %.pre316, %162 ]
-  %.1169235243 = phi ptr [ %63, %.thread ], [ %.0168269, %162 ]
+  %.1169235243 = phi ptr [ %110, %.thread ], [ %.0168269, %162 ]
   %.1162237242 = phi i32 [ %160, %.thread ], [ %.0161273, %162 ]
   br label %164
 

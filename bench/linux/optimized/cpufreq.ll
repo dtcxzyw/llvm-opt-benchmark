@@ -1825,7 +1825,7 @@ define internal fastcc i32 @cpufreq_set_policy(ptr noundef %0, ptr noundef %1, i
   br i1 %68, label %.thread16, label %69
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %1, i64 48
+  %70 = getelementptr inbounds i8, ptr %63, i64 48
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
   br i1 %72, label %.thread16, label %73

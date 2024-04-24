@@ -3157,7 +3157,7 @@ if.end122:                                        ; preds = %if.then103, %lor.lh
   br i1 %cmp123, label %if.then125, label %if.end126
 
 if.then125:                                       ; preds = %if.end122
-  call void @PyBuffer_Release(ptr noundef nonnull %wbuf) #11
+  call void @PyBuffer_Release(ptr noundef %ww.188) #11
   br label %if.end126
 
 if.end126:                                        ; preds = %if.then125, %if.end122
@@ -5226,8 +5226,8 @@ entry:
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %cmp446 = icmp sgt i64 %tup.val, 0
-  br i1 %cmp446, label %for.body.lr.ph, label %return
+  %cmp447 = icmp sgt i64 %tup.val, 0
+  br i1 %cmp447, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %ob_item = getelementptr inbounds i8, ptr %tup, i64 24
@@ -5242,9 +5242,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %ptr.048 = phi ptr [ %0, %for.body.lr.ph ], [ %phi.call, %for.inc ]
-  %dim.047 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %dim.047
+  %ptr.049 = phi ptr [ %0, %for.body.lr.ph ], [ %phi.call, %for.inc ]
+  %dim.048 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %dim.048
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load ptr, ptr @PyExc_IndexError, align 8
   %call6 = tail call i64 @PyNumber_AsSsize_t(ptr noundef %4, ptr noundef %5) #11
@@ -5253,7 +5253,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.body.split:                                   ; preds = %for.body
   %6 = load ptr, ptr %shape.i, align 8
-  %sext = shl i64 %dim.047, 32
+  %sext = shl i64 %dim.048, 32
   %idxprom.i = ashr exact i64 %sext, 32
   %arrayidx.i = getelementptr i64, ptr %6, i64 %idxprom.i
   %7 = load i64, ptr %arrayidx.i, align 8
@@ -5266,7 +5266,7 @@ for.body.split:                                   ; preds = %for.body
   br i1 %or.cond.i, label %if.end5.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %for.body.split
-  %conv1213 = trunc i64 %dim.047 to i32
+  %conv1213 = trunc i64 %dim.048 to i32
   %8 = load ptr, ptr @PyExc_IndexError, align 8
   %add4.i = add i32 %conv1213, 1
   %call.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.24, i32 noundef %add4.i) #11
@@ -5277,7 +5277,7 @@ if.end5.i:                                        ; preds = %for.body.split
   %arrayidx7.i = getelementptr i64, ptr %9, i64 %idxprom.i
   %10 = load i64, ptr %arrayidx7.i, align 8
   %mul.i = mul i64 %10, %spec.select.i
-  %add.ptr.i = getelementptr i8, ptr %ptr.048, i64 %mul.i
+  %add.ptr.i = getelementptr i8, ptr %ptr.049, i64 %mul.i
   %11 = load ptr, ptr %suboffsets.i, align 8
   %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %if.end11, label %land.lhs.true.i
@@ -5295,56 +5295,56 @@ land.lhs.true:                                    ; preds = %for.body
 
 land.lhs.true.split:                              ; preds = %land.lhs.true
   %13 = load ptr, ptr %shape.i, align 8
-  %sext43 = shl i64 %dim.047, 32
-  %idxprom.i18 = ashr exact i64 %sext43, 32
+  %sext44 = shl i64 %dim.048, 32
+  %idxprom.i18 = ashr exact i64 %sext44, 32
   %arrayidx.i19 = getelementptr i64, ptr %13, i64 %idxprom.i18
   %14 = load i64, ptr %arrayidx.i19, align 8
-  %or.cond.i23 = icmp sgt i64 %14, 0
-  br i1 %or.cond.i23, label %if.end5.i28, label %if.then3.i24
+  %or.cond.i24 = icmp sgt i64 %14, 0
+  br i1 %or.cond.i24, label %if.end5.i29, label %if.then3.i25
 
-if.then3.i24:                                     ; preds = %land.lhs.true.split
-  %conv1215 = trunc i64 %dim.047 to i32
+if.then3.i25:                                     ; preds = %land.lhs.true.split
+  %conv1215 = trunc i64 %dim.048 to i32
   %15 = load ptr, ptr @PyExc_IndexError, align 8
-  %add4.i25 = add i32 %conv1215, 1
-  %call.i26 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.24, i32 noundef %add4.i25) #11
+  %add4.i26 = add i32 %conv1215, 1
+  %call.i27 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.24, i32 noundef %add4.i26) #11
   br label %return
 
-if.end5.i28:                                      ; preds = %land.lhs.true.split
-  %spec.select.i20 = add nsw i64 %14, -1
+if.end5.i29:                                      ; preds = %land.lhs.true.split
+  %spec.select.i21 = add nsw i64 %14, -1
   %16 = load ptr, ptr %strides.i, align 8
-  %arrayidx7.i30 = getelementptr i64, ptr %16, i64 %idxprom.i18
-  %17 = load i64, ptr %arrayidx7.i30, align 8
-  %mul.i31 = mul i64 %17, %spec.select.i20
-  %add.ptr.i32 = getelementptr i8, ptr %ptr.048, i64 %mul.i31
+  %arrayidx7.i31 = getelementptr i64, ptr %16, i64 %idxprom.i18
+  %17 = load i64, ptr %arrayidx7.i31, align 8
+  %mul.i32 = mul i64 %17, %spec.select.i21
+  %add.ptr.i33 = getelementptr i8, ptr %ptr.049, i64 %mul.i32
   %18 = load ptr, ptr %suboffsets.i, align 8
-  %tobool.not.i34 = icmp eq ptr %18, null
-  br i1 %tobool.not.i34, label %if.end11, label %land.lhs.true.i35
+  %tobool.not.i35 = icmp eq ptr %18, null
+  br i1 %tobool.not.i35, label %if.end11, label %land.lhs.true.i36
 
-land.lhs.true.i35:                                ; preds = %if.end5.i28
-  %arrayidx10.i36 = getelementptr i64, ptr %18, i64 %idxprom.i18
-  %19 = load i64, ptr %arrayidx10.i36, align 8
-  %cmp11.i37 = icmp sgt i64 %19, -1
-  br i1 %cmp11.i37, label %if.end11.sink.split, label %if.end11
+land.lhs.true.i36:                                ; preds = %if.end5.i29
+  %arrayidx10.i37 = getelementptr i64, ptr %18, i64 %idxprom.i18
+  %19 = load i64, ptr %arrayidx10.i37, align 8
+  %cmp11.i38 = icmp sgt i64 %19, -1
+  br i1 %cmp11.i38, label %if.end11.sink.split, label %if.end11
 
-if.end11.sink.split:                              ; preds = %land.lhs.true.i35, %land.lhs.true.i
-  %add.ptr.i32.sink = phi ptr [ %add.ptr.i, %land.lhs.true.i ], [ %add.ptr.i32, %land.lhs.true.i35 ]
-  %.sink55 = phi i64 [ %12, %land.lhs.true.i ], [ %19, %land.lhs.true.i35 ]
-  %20 = load ptr, ptr %add.ptr.i32.sink, align 8
-  %add.ptr15.i39 = getelementptr i8, ptr %20, i64 %.sink55
+if.end11.sink.split:                              ; preds = %land.lhs.true.i36, %land.lhs.true.i
+  %add.ptr.i33.sink = phi ptr [ %add.ptr.i, %land.lhs.true.i ], [ %add.ptr.i33, %land.lhs.true.i36 ]
+  %.sink56 = phi i64 [ %12, %land.lhs.true.i ], [ %19, %land.lhs.true.i36 ]
+  %20 = load ptr, ptr %add.ptr.i33.sink, align 8
+  %add.ptr15.i40 = getelementptr i8, ptr %20, i64 %.sink56
   br label %if.end11
 
-if.end11:                                         ; preds = %if.end11.sink.split, %land.lhs.true.i35, %if.end5.i28, %land.lhs.true.i, %if.end5.i
-  %phi.call = phi ptr [ %add.ptr.i, %land.lhs.true.i ], [ %add.ptr.i, %if.end5.i ], [ %add.ptr.i32, %land.lhs.true.i35 ], [ %add.ptr.i32, %if.end5.i28 ], [ %add.ptr15.i39, %if.end11.sink.split ]
+if.end11:                                         ; preds = %if.end11.sink.split, %land.lhs.true.i36, %if.end5.i29, %land.lhs.true.i, %if.end5.i
+  %phi.call = phi ptr [ %add.ptr.i, %land.lhs.true.i ], [ %add.ptr.i, %if.end5.i ], [ %add.ptr.i33, %land.lhs.true.i36 ], [ %add.ptr.i33, %if.end5.i29 ], [ %add.ptr15.i40, %if.end11.sink.split ]
   %cmp14 = icmp eq ptr %phi.call, null
   br i1 %cmp14, label %return, label %for.inc
 
 for.inc:                                          ; preds = %if.end11
-  %inc = add nuw nsw i64 %dim.047, 1
+  %inc = add nuw nsw i64 %dim.048, 1
   %exitcond.not = icmp eq i64 %inc, %tup.val
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !24
 
-return:                                           ; preds = %land.lhs.true, %if.end11, %for.inc, %for.cond.preheader, %if.then3.i24, %if.then3.i, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then3.i ], [ null, %if.then3.i24 ], [ %0, %for.cond.preheader ], [ null, %land.lhs.true ], [ null, %if.end11 ], [ %phi.call, %for.inc ]
+return:                                           ; preds = %land.lhs.true, %if.end11, %for.inc, %for.cond.preheader, %if.then3.i25, %if.then3.i, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then3.i ], [ null, %if.then3.i25 ], [ %0, %for.cond.preheader ], [ null, %land.lhs.true ], [ null, %if.end11 ], [ %phi.call, %for.inc ]
   ret ptr %retval.0
 }
 

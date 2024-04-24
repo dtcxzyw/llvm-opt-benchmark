@@ -45,7 +45,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   unreachable
 
 land.rhs.lr.ph:                                   ; preds = %land.lhs.true
-  %status8 = getelementptr inbounds i8, ptr %p, i64 84
+  %status8 = getelementptr inbounds i8, ptr %2, i64 84
   %4 = load i32, ptr %status8, align 4
   %tql_prev = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %tql_prev, align 8
@@ -55,7 +55,7 @@ land.rhs.lr.ph:                                   ; preds = %land.lhs.true
   %short_not_ok13 = getelementptr inbounds i8, ptr %7, i64 80
   %8 = load i8, ptr %short_not_ok13, align 8
   %frombool = and i8 %8, 1
-  %actual_length10 = getelementptr inbounds i8, ptr %p, i64 88
+  %actual_length10 = getelementptr inbounds i8, ptr %2, i64 88
   %9 = load i32, ptr %actual_length10, align 8
   %iov.i = getelementptr inbounds i8, ptr %0, i64 24
   %port = getelementptr inbounds i8, ptr %dev, i64 160
@@ -63,11 +63,11 @@ land.rhs.lr.ph:                                   ; preds = %land.lhs.true
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %done.046 = phi i8 [ 0, %land.rhs.lr.ph ], [ %done.2, %for.inc ]
-  %p.addr.045 = phi ptr [ %p, %land.rhs.lr.ph ], [ %10, %for.inc ]
+  %p.addr.045 = phi ptr [ %3, %land.rhs.lr.ph ], [ %10, %for.inc ]
   %actual_length.043 = phi i32 [ %9, %land.rhs.lr.ph ], [ %actual_length.1, %for.inc ]
   %combined_entry = getelementptr inbounds i8, ptr %p.addr.045, i64 120
   %10 = load ptr, ptr %combined_entry, align 8
-  %tobool16 = trunc i8 %done.046 to i1
+  %tobool16 = trunc nuw i8 %done.046 to i1
   br i1 %tobool16, label %if.else41, label %if.then17
 
 if.then17:                                        ; preds = %land.rhs

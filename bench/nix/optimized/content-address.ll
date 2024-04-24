@@ -525,7 +525,7 @@ define void @_ZN3nix51ContentAddressMethod_testRoundTripPrintParse_1_Test8TestBo
   %18 = load i8, ptr %17, align 1, !noalias !4
   %switch.i.i.i.i.i.i.i.i = icmp eq i8 %18, 0
   %19 = lshr i16 %16, 8
-  %20 = trunc i16 %19 to i8
+  %20 = trunc nuw i16 %19 to i8
   %21 = trunc i16 %16 to i8
   br i1 %switch.i.i.i.i.i.i.i.i, label %22, label %24
 
@@ -2073,7 +2073,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %
   %45 = icmp ult i64 %44, 16
   tail call void @llvm.assume(i1 %45)
   %46 = add nuw nsw i64 %44, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %39, ptr noundef nonnull align 8 dereferenceable(1) %40, i64 %46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %39, ptr noundef nonnull align 8 dereferenceable(1) %41, i64 %46, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit

@@ -152,7 +152,7 @@ define hidden noundef i8 @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$
   store ptr %46, ptr %0, align 8, !alias.scope !53, !noalias !54
   store ptr %48, ptr %16, align 8, !alias.scope !53, !noalias !54
   store ptr %41, ptr %45, align 8, !alias.scope !49, !noalias !52
-  store ptr %41, ptr %47, align 8, !alias.scope !49, !noalias !52
+  store ptr %42, ptr %47, align 8, !alias.scope !49, !noalias !52
   %49 = icmp eq ptr %46, %48
   br i1 %49, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hed156e0ca4a26d13E.exit.thread", label %_ZN4core4iter6traits8iterator8Iterator3nth17hec55b1158754fce0E.exit.i
 
@@ -204,7 +204,7 @@ define hidden noundef i8 @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$
   %16 = load ptr, ptr %15, align 8, !alias.scope !78, !noalias !79, !noundef !4
   store ptr %14, ptr %7, align 8, !alias.scope !80, !noalias !81
   store ptr %16, ptr %8, align 8, !alias.scope !80, !noalias !81
-  store ptr %9, ptr %13, align 8, !alias.scope !78, !noalias !79
+  store ptr %10, ptr %13, align 8, !alias.scope !78, !noalias !79
   store ptr %9, ptr %15, align 8, !alias.scope !78, !noalias !79
   %17 = icmp eq ptr %14, %16
   br i1 %17, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h0f3b1ac3e5f3663eE.llvm.17048215454070662348.exit", label %18
@@ -1409,7 +1409,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN109_$LT$alloc
   %10 = load ptr, ptr %9, align 8, !alias.scope !361, !noalias !358, !noundef !4
   store ptr %8, ptr %0, align 8, !alias.scope !358, !noalias !361
   store ptr %10, ptr %2, align 8, !alias.scope !358, !noalias !361
-  store ptr %3, ptr %7, align 8, !alias.scope !361, !noalias !358
+  store ptr %4, ptr %7, align 8, !alias.scope !361, !noalias !358
   store ptr %3, ptr %9, align 8, !alias.scope !361, !noalias !358
   %11 = icmp eq ptr %8, %10
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1facae21fd1b6d6E.llvm.17048215454070662348.exit4", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1facae21fd1b6d6E.llvm.17048215454070662348.exit4.sink.split"
@@ -2562,7 +2562,7 @@ define hidden noundef i8 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops.
   %17 = load ptr, ptr %16, align 8, !alias.scope !587, !noalias !588, !noundef !4
   store ptr %15, ptr %8, align 8, !alias.scope !589, !noalias !590
   store ptr %17, ptr %9, align 8, !alias.scope !589, !noalias !590
-  store ptr %10, ptr %14, align 8, !alias.scope !587, !noalias !588
+  store ptr %11, ptr %14, align 8, !alias.scope !587, !noalias !588
   store ptr %10, ptr %16, align 8, !alias.scope !587, !noalias !588
   %18 = icmp eq ptr %15, %17
   br i1 %18, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h86d07523e76c5721E.llvm.17048215454070662348.exit", label %19
@@ -3005,7 +3005,7 @@ define hidden noundef i8 @_ZN4core4iter6traits8iterator12iter_compare17hee540e34
   %14 = load ptr, ptr %13, align 8, !alias.scope !775, !noalias !770, !noundef !4
   store ptr %12, ptr %1, align 8, !alias.scope !776, !noalias !773
   store ptr %14, ptr %6, align 8, !alias.scope !776, !noalias !773
-  store ptr %7, ptr %11, align 8, !alias.scope !775, !noalias !770
+  store ptr %8, ptr %11, align 8, !alias.scope !775, !noalias !770
   store ptr %7, ptr %13, align 8, !alias.scope !775, !noalias !770
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.17048215454070662348.exit", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1facae21fd1b6d6E.llvm.17048215454070662348.exit4.sink.split.i"
@@ -3039,7 +3039,7 @@ define hidden noundef i8 @"_ZN4core4iter6traits8iterator12iter_compare7compare28
   %12 = load ptr, ptr %11, align 8, !alias.scope !785, !noalias !780, !noundef !4
   store ptr %10, ptr %3, align 8, !alias.scope !786, !noalias !783
   store ptr %12, ptr %4, align 8, !alias.scope !786, !noalias !783
-  store ptr %5, ptr %9, align 8, !alias.scope !785, !noalias !780
+  store ptr %6, ptr %9, align 8, !alias.scope !785, !noalias !780
   store ptr %5, ptr %11, align 8, !alias.scope !785, !noalias !780
   %13 = icmp eq ptr %10, %12
   br i1 %13, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.17048215454070662348.exit.thread", label %14
@@ -3111,7 +3111,7 @@ define hidden noundef i8 @"_ZN4core4iter6traits8iterator8Iterator12try_for_each4
   %12 = load ptr, ptr %11, align 8, !alias.scope !823, !noalias !824, !noundef !4
   store ptr %10, ptr %3, align 8, !alias.scope !825, !noalias !826
   store ptr %12, ptr %4, align 8, !alias.scope !825, !noalias !826
-  store ptr %5, ptr %9, align 8, !alias.scope !823, !noalias !824
+  store ptr %6, ptr %9, align 8, !alias.scope !823, !noalias !824
   store ptr %5, ptr %11, align 8, !alias.scope !823, !noalias !824
   %13 = icmp eq ptr %10, %12
   br i1 %13, label %"_ZN4core4iter6traits8iterator12iter_compare7compare28_$u7b$$u7b$closure$u7d$$u7d$17h948d83b1c8e2fbaaE.llvm.17048215454070662348.exit", label %14

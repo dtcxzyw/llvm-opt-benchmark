@@ -428,10 +428,10 @@ define dso_local i32 @fcntl_dirnotify(i32 noundef %0, ptr noundef %1, i32 nounde
   br i1 %.not, label %89, label %91
 
 89:                                               ; preds = %88
-  tail call void @fsnotify_detach_mark(ptr noundef nonnull %49) #6
+  tail call void @fsnotify_detach_mark(ptr noundef nonnull %76) #6
   %90 = load ptr, ptr @dnotify_group, align 8
   tail call fastcc void @fsnotify_group_unlock(ptr noundef %90)
-  tail call void @fsnotify_free_mark(ptr noundef nonnull %49) #6
+  tail call void @fsnotify_free_mark(ptr noundef nonnull %76) #6
   br label %95
 
 91:                                               ; preds = %.thread, %88

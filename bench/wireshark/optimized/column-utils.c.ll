@@ -1181,13 +1181,13 @@ col_get_writable.exit:                            ; preds = %6, %32
   br label %68
 
 68:                                               ; preds = %65, %60
-  %69 = phi ptr [ %67, %65 ], [ %62, %60 ]
+  %69 = phi ptr [ %67, %65 ], [ %64, %60 ]
   %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %69) #18
   %.not44 = icmp ult i64 %70, %.
   br i1 %.not44, label %71, label %col_get_writable.exit.thread
 
 71:                                               ; preds = %68
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   br label %72
 
 72:                                               ; preds = %88, %71
@@ -1226,7 +1226,7 @@ col_get_writable.exit:                            ; preds = %6, %32
   br i1 %.not45, label %.critedge, label %72, !llvm.loop !17
 
 .critedge:                                        ; preds = %72, %88
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %44, align 8
   br label %91
 
@@ -1244,13 +1244,7 @@ col_get_writable.exit.thread:                     ; preds = %23, %91, %68, %42, 
 
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
 declare i64 @ws_label_strcpy(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
 
 ; Function Attrs: nounwind uwtable
 define void @col_append_str_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -1405,9 +1399,9 @@ col_get_writable.exit:                            ; preds = %6, %32
   br i1 %41, label %42, label %col_get_writable.exit.thread
 
 42:                                               ; preds = %35
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   call fastcc void @col_do_append_fstr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef %2, ptr noundef nonnull %4)
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   br label %col_get_writable.exit.thread
 
 col_get_writable.exit.thread:                     ; preds = %23, %8, %.preheader.i, %10, %3, %col_get_writable.exit, %35, %42
@@ -1474,7 +1468,7 @@ define internal fastcc void @col_do_append_fstr(ptr nocapture noundef readonly %
   br label %41
 
 41:                                               ; preds = %38, %33
-  %42 = phi ptr [ %40, %38 ], [ %35, %33 ]
+  %42 = phi ptr [ %40, %38 ], [ %37, %33 ]
   %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #18
   %44 = icmp ne i64 %43, 0
   %or.cond = select i1 %23, i1 %44, i1 false
@@ -1491,10 +1485,10 @@ define internal fastcc void @col_do_append_fstr(ptr nocapture noundef readonly %
   br i1 %49, label %50, label %58
 
 50:                                               ; preds = %48
-  call void @llvm.va_copy(ptr nonnull %7, ptr %4)
+  call void @llvm.va_copy.p0(ptr nonnull %7, ptr %4)
   %51 = call i32 @vsnprintf(ptr noundef nonnull %6, i64 noundef 4096, ptr noundef %3, ptr noundef nonnull %7) #16
   %52 = sext i32 %51 to i64
-  call void @llvm.va_end(ptr nonnull %7)
+  call void @llvm.va_end.p0(ptr nonnull %7)
   %.not48 = icmp ugt i64 %., %52
   br i1 %.not48, label %55, label %53
 
@@ -1595,9 +1589,9 @@ col_get_writable.exit:                            ; preds = %7, %33
 43:                                               ; preds = %36
   %44 = icmp eq ptr %2, null
   %spec.store.select = select i1 %44, ptr @.str.5, ptr %2
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   call fastcc void @col_do_append_fstr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %spec.store.select, ptr noundef %3, ptr noundef nonnull %5)
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   br label %col_get_writable.exit.thread
 
 col_get_writable.exit.thread:                     ; preds = %24, %9, %.preheader.i, %11, %4, %col_get_writable.exit, %36, %43
@@ -1716,15 +1710,15 @@ col_get_writable.exit:                            ; preds = %8, %34
   br i1 %.not41, label %66, label %68
 
 66:                                               ; preds = %61
-  %67 = call i64 @g_strlcpy(ptr noundef nonnull %5, ptr noundef %63, i64 noundef %.) #16
+  %67 = call i64 @g_strlcpy(ptr noundef nonnull %5, ptr noundef %65, i64 noundef %.) #16
   br label %68
 
 68:                                               ; preds = %61, %66
   %.035 = phi ptr [ %5, %66 ], [ %63, %61 ]
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %69 = call i32 @vsnprintf(ptr noundef nonnull %6, i64 noundef 4096, ptr noundef %2, ptr noundef nonnull %4) #16
   %70 = sext i32 %69 to i64
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %.not42 = icmp ugt i64 %., %70
   br i1 %.not42, label %73, label %71
 
@@ -1768,7 +1762,7 @@ col_get_writable.exit.thread:                     ; preds = %25, %86, %44, %10, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #11
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
 
 declare ptr @ws_utf8_truncate(ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -1884,15 +1878,15 @@ col_get_writable.exit:                            ; preds = %8, %34
   br i1 %.not43, label %66, label %68
 
 66:                                               ; preds = %61
-  %67 = call i64 @g_strlcpy(ptr noundef nonnull %5, ptr noundef %63, i64 noundef %.) #16
+  %67 = call i64 @g_strlcpy(ptr noundef nonnull %5, ptr noundef %65, i64 noundef %.) #16
   br label %68
 
 68:                                               ; preds = %61, %66
   %.037 = phi ptr [ %5, %66 ], [ %63, %61 ]
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %69 = call i32 @vsnprintf(ptr noundef nonnull %6, i64 noundef 4096, ptr noundef %2, ptr noundef nonnull %4) #16
   %70 = sext i32 %69 to i64
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %.not44 = icmp ugt i64 %., %70
   br i1 %.not44, label %73, label %71
 
@@ -2058,7 +2052,7 @@ col_get_writable.exit:                            ; preds = %5, %31
 
 72:                                               ; preds = %60, %65, %68
   %73 = phi i32 [ %59, %60 ], [ %.pre, %65 ], [ 0, %68 ]
-  %74 = phi ptr [ %62, %60 ], [ %67, %65 ], [ %70, %68 ]
+  %74 = phi ptr [ %64, %60 ], [ %67, %65 ], [ %70, %68 ]
   %75 = sext i32 %73 to i64
   %76 = tail call i64 @ws_label_strcpy(ptr noundef %74, i64 noundef %., i64 noundef %75, ptr noundef %2, i32 noundef 0) #16
   %.pre43 = load ptr, ptr %43, align 8
@@ -2205,7 +2199,7 @@ col_get_writable.exit:                            ; preds = %7, %33
 
 69:                                               ; preds = %66, %62
   %70 = phi i32 [ %.pre, %66 ], [ %60, %62 ]
-  %71 = phi ptr [ %68, %66 ], [ %63, %62 ]
+  %71 = phi ptr [ %68, %66 ], [ %65, %62 ]
   %72 = sext i32 %70 to i64
   %73 = getelementptr i8, ptr %71, i64 %72
   %74 = sub nsw i64 %., %72
@@ -2229,7 +2223,7 @@ col_get_writable.exit.thread:                     ; preds = %24, %77, %43, %9, %
 }
 
 ; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #12
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define void @col_add_lstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
@@ -2362,7 +2356,7 @@ col_get_writable.exit:                            ; preds = %6, %32
   br label %76
 
 76:                                               ; preds = %64, %69, %72
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %77 = getelementptr inbounds i8, ptr %55, i64 64
   br label %78
 
@@ -2402,7 +2396,7 @@ col_get_writable.exit:                            ; preds = %6, %32
   br i1 %.not45, label %.critedge, label %78, !llvm.loop !24
 
 .critedge:                                        ; preds = %78, %94
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %44, align 8
   br label %97
 
@@ -2550,9 +2544,9 @@ col_get_writable.exit:                            ; preds = %7, %33
   br label %77
 
 77:                                               ; preds = %65, %70, %73
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %78 = call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 4096, ptr noundef %2, ptr noundef nonnull %4) #16
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %.not38 = icmp slt i32 %78, %.
   br i1 %.not38, label %81, label %79
 
@@ -2695,7 +2689,7 @@ col_get_writable.exit:                            ; preds = %5, %31
   br label %64
 
 64:                                               ; preds = %61, %56
-  %65 = phi ptr [ %63, %61 ], [ %58, %56 ]
+  %65 = phi ptr [ %63, %61 ], [ %60, %56 ]
   %66 = tail call i64 @ws_label_strcat(ptr noundef %65, i64 noundef %..i, ptr noundef %2, i32 noundef 0) #16
   %.pre39.i = load ptr, ptr %43, align 8
   br label %67
@@ -2800,7 +2794,7 @@ col_get_writable.exit:                            ; preds = %6, %32
   %49 = getelementptr inbounds i8, ptr %0, i64 16
   br label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %74, %.lr.ph.i8
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i8, %74
   %50 = phi ptr [ %75, %74 ], [ %46, %.lr.ph.i8 ]
   %.034.i = phi i32 [ %76, %74 ], [ %40, %.lr.ph.i8 ]
   %51 = load ptr, ptr %49, align 8
@@ -2828,7 +2822,7 @@ col_get_writable.exit:                            ; preds = %6, %32
   br label %66
 
 66:                                               ; preds = %63, %58
-  %67 = phi ptr [ %65, %63 ], [ %60, %58 ]
+  %67 = phi ptr [ %65, %63 ], [ %62, %58 ]
   %68 = load i8, ptr %67, align 1
   %.not36.i = icmp eq i8 %68, 0
   br i1 %.not36.i, label %71, label %69
@@ -3483,7 +3477,7 @@ declare void @frame_delta_abs_time(ptr noundef, ptr noundef, i32 noundef, ptr no
 declare i32 @timestamp_get_seconds_type() local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #12
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @set_time_hour_min_sec(ptr nocapture noundef readonly %0, i64 %.0.val, i32 %.8.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -4289,7 +4283,7 @@ col_based_on_frame_data.exit:                     ; preds = %16, %16, %16, %16, 
 
 22:                                               ; preds = %col_based_on_frame_data.exit
   %23 = load ptr, ptr %15, align 8
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @col_fill_in_frame_data(ptr noundef %23, ptr noundef nonnull %17, i32 noundef %24, i32 noundef %1)
   br label %col_set_addr.exit
 
@@ -4816,22 +4810,22 @@ col_based_on_frame_data.exit:                     ; preds = %16, %16, %16, %16, 
   br label %col_set_addr.exit
 
 331:                                              ; preds = %16, %16
-  %332 = trunc i64 %indvars.iv to i32
+  %332 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_port(ptr noundef nonnull %0, i32 noundef %332, i32 noundef 1, i32 noundef 1)
   br label %col_set_addr.exit
 
 333:                                              ; preds = %16
-  %334 = trunc i64 %indvars.iv to i32
+  %334 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_port(ptr noundef nonnull %0, i32 noundef %334, i32 noundef 0, i32 noundef 1)
   br label %col_set_addr.exit
 
 335:                                              ; preds = %16, %16
-  %336 = trunc i64 %indvars.iv to i32
+  %336 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_port(ptr noundef nonnull %0, i32 noundef %336, i32 noundef 1, i32 noundef 0)
   br label %col_set_addr.exit
 
 337:                                              ; preds = %16
-  %338 = trunc i64 %indvars.iv to i32
+  %338 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_port(ptr noundef nonnull %0, i32 noundef %338, i32 noundef 0, i32 noundef 0)
   br label %col_set_addr.exit
 
@@ -5196,7 +5190,7 @@ col_based_on_frame_data.exit.us:                  ; preds = %.lr.ph.split.us, %.
   ]
 
 col_based_on_frame_data.exit:                     ; preds = %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @col_fill_in_frame_data(ptr noundef %1, ptr noundef nonnull %0, i32 noundef %21, i32 noundef %2)
   br label %28
 
@@ -5232,7 +5226,7 @@ col_based_on_frame_data.exit:                     ; preds = %.lr.ph.split, %.lr.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define i32 @col_data_changed() local_unnamed_addr #13 {
+define i32 @col_data_changed() local_unnamed_addr #12 {
   %.b = load i1, ptr @col_data_changed_, align 4
   %1 = zext i1 %.b to i32
   store i1 false, ptr @col_data_changed_, align 4
@@ -5324,7 +5318,7 @@ proto_item_set_hidden.exit:                       ; preds = %9, %12, %15
 30:                                               ; preds = %25
   %31 = load i32, ptr %27, align 8
   %32 = icmp eq i32 %31, 4
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = tail call ptr @get_column_text(ptr noundef nonnull %5, i32 noundef %33) #16
   br i1 %32, label %35, label %39
 
@@ -5397,12 +5391,9 @@ define internal void @col_custom_free_cb(ptr noundef %0) #0 {
 declare ptr @try_serv_name_lookup(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 declare i64 @ws_label_strcat(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #10
 
 declare ptr @ws_localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -5967,6 +5958,15 @@ declare ptr @tcp_port_to_display(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare ptr @udp_port_to_display(ptr noundef, i32 noundef) local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #13
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
 
@@ -5992,10 +5992,10 @@ attributes #6 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtab
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }

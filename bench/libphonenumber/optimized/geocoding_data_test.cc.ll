@@ -790,7 +790,7 @@ _ZN7testing15AssertionResultD2Ev.exit54:          ; preds = %143, %_ZNKSt14defau
   br label %common.resume
 
 146:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit54, %_ZN7testing15AssertionResultD2Ev.exit43
-  %147 = trunc i64 %indvars.iv to i32
+  %147 = trunc nuw nsw i64 %indvars.iv to i32
   %148 = call noundef ptr %2(i32 noundef %147), !callees !8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
@@ -1971,7 +1971,7 @@ _ZN7testing15AssertionResultD2Ev.exit69:          ; preds = %191, %_ZNKSt14defau
   br label %.body73
 
 194:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit69, %_ZN7testing15AssertionResultD2Ev.exit51
-  %195 = trunc i64 %indvars.iv to i32
+  %195 = trunc nuw nsw i64 %indvars.iv to i32
   %196 = invoke noundef ptr %2(i32 noundef %195)
           to label %197 unwind label %116, !callees !21
 
@@ -2415,7 +2415,7 @@ _ZN7testing15AssertionResultD2Ev.exit93.i:        ; preds = %_ZNKSt14default_del
   br i1 %325, label %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i, label %320, !llvm.loop !33
 
 ._crit_edge.loopexit.split.loop.exit.i.i.i.i.i.i.i: ; preds = %320
-  %326 = trunc i64 %indvars.iv.i.i.i.i.i.i.i to i32
+  %326 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i.i to i32
   br label %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i
 
 _ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i: ; preds = %324, %._crit_edge.loopexit.split.loop.exit.i.i.i.i.i.i.i, %315
@@ -3047,7 +3047,7 @@ _ZN7testing15AssertionResultD2Ev.exit137.i:       ; preds = %_ZNKSt14default_del
   br i1 %561, label %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i.i, label %556, !llvm.loop !33
 
 ._crit_edge.loopexit.split.loop.exit.i.i.i.i.i.i.i.i: ; preds = %556
-  %562 = trunc i64 %indvars.iv.i.i.i.i.i.i.i.i to i32
+  %562 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i.i.i to i32
   br label %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i.i
 
 _ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i.i: ; preds = %560, %._crit_edge.loopexit.split.loop.exit.i.i.i.i.i.i.i.i, %551
@@ -6623,10 +6623,10 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   store i32 0, ptr %79, align 1
   %80 = getelementptr inbounds i8, ptr %78, i64 256
-  store ptr %5, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %7, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %7, i64 8
   store i8 0, ptr %81, align 1
-  store ptr %78, ptr %5, align 8
+  store ptr %78, ptr %7, align 8
   store ptr %78, ptr %0, align 8
   br label %82
 
@@ -6788,7 +6788,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
   %47 = load i8, ptr %5, align 1
   %48 = zext i8 %47 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = trunc i64 %indvars.iv.next to i32
+  %49 = trunc nuw nsw i64 %indvars.iv.next to i32
   %50 = add nuw i32 %49, %48
   %51 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8

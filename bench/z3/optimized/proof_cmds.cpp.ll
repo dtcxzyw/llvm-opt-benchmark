@@ -713,7 +713,7 @@ _Z7deallocI10proof_cmdsEvPT_.exit.i.i.i:          ; preds = %if.end.i.i.i.i, %if
   br label %_ZL3getR11cmd_context.exit
 
 _ZL3getR11cmd_context.exit:                       ; preds = %entry, %if.then.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i
-  %3 = phi ptr [ %call1.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i ], [ %call1.i, %if.then.i ], [ %0, %entry ]
+  %3 = phi ptr [ %call1.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i ], [ %1, %if.then.i ], [ %0, %entry ]
   %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
@@ -806,7 +806,7 @@ _Z7deallocI10proof_cmdsEvPT_.exit.i.i.i:          ; preds = %if.end.i.i.i.i, %if
   br label %_ZL3getR11cmd_context.exit
 
 _ZL3getR11cmd_context.exit:                       ; preds = %entry, %if.then.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i
-  %3 = phi ptr [ %call1.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i ], [ %call1.i, %if.then.i ], [ %0, %entry ]
+  %3 = phi ptr [ %call1.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i ], [ %1, %if.then.i ], [ %0, %entry ]
   %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %4 = load ptr, ptr %vfn, align 8
@@ -978,7 +978,7 @@ _Z7deallocI10proof_cmdsEvPT_.exit.i.i.i:          ; preds = %if.end.i.i.i.i, %if
   br label %_ZL3getR11cmd_context.exit
 
 _ZL3getR11cmd_context.exit:                       ; preds = %entry, %if.then.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i
-  %3 = phi ptr [ %call1.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i ], [ %call1.i, %if.then.i ], [ %0, %entry ]
+  %3 = phi ptr [ %call1.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i ], [ %1, %if.then.i ], [ %0, %entry ]
   %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
@@ -1023,7 +1023,7 @@ _Z7deallocI10proof_cmdsEvPT_.exit.i.i.i:          ; preds = %if.end.i.i.i.i, %if
   br label %_ZL3getR11cmd_context.exit
 
 _ZL3getR11cmd_context.exit:                       ; preds = %entry, %if.then.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i
-  %3 = phi ptr [ %call1.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i ], [ %call1.i, %if.then.i ], [ %0, %entry ]
+  %3 = phi ptr [ %call1.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i ], [ %1, %if.then.i ], [ %0, %entry ]
   %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %4 = load ptr, ptr %vfn, align 8
@@ -1111,7 +1111,7 @@ _Z7deallocI10proof_cmdsEvPT_.exit.i.i.i:          ; preds = %if.end.i.i.i.i, %if
   br label %_ZL3getR11cmd_context.exit
 
 _ZL3getR11cmd_context.exit:                       ; preds = %entry, %if.then.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i
-  %3 = phi ptr [ %call1.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i ], [ %call1.i, %if.then.i ], [ %0, %entry ]
+  %3 = phi ptr [ %call1.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i ], [ %1, %if.then.i ], [ %0, %entry ]
   %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
@@ -1156,7 +1156,7 @@ _Z7deallocI10proof_cmdsEvPT_.exit.i.i.i:          ; preds = %if.end.i.i.i.i, %if
   br label %_ZL3getR11cmd_context.exit
 
 _ZL3getR11cmd_context.exit:                       ; preds = %entry, %if.then.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i
-  %3 = phi ptr [ %call1.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i ], [ %call1.i, %if.then.i ], [ %0, %entry ]
+  %3 = phi ptr [ %call1.i, %_Z7deallocI10proof_cmdsEvPT_.exit.i.i.i ], [ %1, %if.then.i ], [ %0, %entry ]
   %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %4 = load ptr, ptr %vfn, align 8
@@ -1967,7 +1967,7 @@ _Z7deallocI10proof_trimEvPT_.exit.i.i:            ; preds = %if.end.i.i.i, %if.t
   br label %_ZN14proof_cmds_imp4trimEv.exit
 
 _ZN14proof_cmds_imp4trimEv.exit:                  ; preds = %if.then8, %if.then.i, %_Z7deallocI10proof_trimEvPT_.exit.i.i
-  %6 = phi ptr [ %call2.i, %_Z7deallocI10proof_trimEvPT_.exit.i.i ], [ %call2.i, %if.then.i ], [ %3, %if.then8 ]
+  %6 = phi ptr [ %call2.i, %_Z7deallocI10proof_trimEvPT_.exit.i.i ], [ %5, %if.then.i ], [ %3, %if.then8 ]
   %m_lits10 = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN10proof_trim9mk_clauseERK10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(4593) %6, ptr noundef nonnull align 8 dereferenceable(16) %m_lits10)
   %trim.i = getelementptr inbounds i8, ptr %6, i64 8
@@ -2347,7 +2347,7 @@ _Z7deallocI10proof_trimEvPT_.exit.i.i:            ; preds = %if.end.i.i.i, %if.t
   br label %_ZN14proof_cmds_imp4trimEv.exit
 
 _ZN14proof_cmds_imp4trimEv.exit:                  ; preds = %if.then11, %if.then.i, %_Z7deallocI10proof_trimEvPT_.exit.i.i
-  %8 = phi ptr [ %call2.i, %_Z7deallocI10proof_trimEvPT_.exit.i.i ], [ %call2.i, %if.then.i ], [ %5, %if.then11 ]
+  %8 = phi ptr [ %call2.i, %_Z7deallocI10proof_trimEvPT_.exit.i.i ], [ %7, %if.then.i ], [ %5, %if.then11 ]
   %m_lits13 = getelementptr inbounds i8, ptr %this, i64 40
   %m_proof_hint14 = getelementptr inbounds i8, ptr %this, i64 56
   %9 = load ptr, ptr %m_proof_hint14, align 8
@@ -2566,7 +2566,7 @@ _Z7deallocI10proof_trimEvPT_.exit.i.i:            ; preds = %if.end.i.i.i, %if.t
   br label %_ZN14proof_cmds_imp4trimEv.exit
 
 _ZN14proof_cmds_imp4trimEv.exit:                  ; preds = %if.then8, %if.then.i, %_Z7deallocI10proof_trimEvPT_.exit.i.i
-  %6 = phi ptr [ %call2.i, %_Z7deallocI10proof_trimEvPT_.exit.i.i ], [ %call2.i, %if.then.i ], [ %3, %if.then8 ]
+  %6 = phi ptr [ %call2.i, %_Z7deallocI10proof_trimEvPT_.exit.i.i ], [ %5, %if.then.i ], [ %3, %if.then8 ]
   %m_lits10 = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN10proof_trim9mk_clauseERK10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(4593) %6, ptr noundef nonnull align 8 dereferenceable(16) %m_lits10)
   %trim.i = getelementptr inbounds i8, ptr %6, i64 8
@@ -2924,7 +2924,7 @@ _Z7deallocI10proof_trimEvPT_.exit.i.i:            ; preds = %if.end.i.i.i, %if.t
   br label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %_Z7deallocI10proof_trimEvPT_.exit.i.i, %.noexc, %if.then
-  %8 = phi ptr [ %call2.i8, %_Z7deallocI10proof_trimEvPT_.exit.i.i ], [ %call2.i8, %.noexc ], [ %5, %if.then ]
+  %8 = phi ptr [ %call2.i8, %_Z7deallocI10proof_trimEvPT_.exit.i.i ], [ %7, %.noexc ], [ %5, %if.then ]
   %trim.i = getelementptr inbounds i8, ptr %8, i64 8
   invoke void @_ZN3sat6solver11updt_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(4408) %trim.i, ptr noundef nonnull align 8 dereferenceable(8) %p)
           to label %if.end unwind label %lpad
@@ -4367,7 +4367,7 @@ lpad:                                             ; preds = %if.end.i.i, %invoke
   resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %_Z7deallocIN3euf17smt_proof_checkerEEvPT_.exit.i, %invoke.cont4, %entry
-  %4 = phi ptr [ %call3, %_Z7deallocIN3euf17smt_proof_checkerEEvPT_.exit.i ], [ %call3, %invoke.cont4 ], [ %0, %entry ]
+  %4 = phi ptr [ %call3, %_Z7deallocIN3euf17smt_proof_checkerEEvPT_.exit.i ], [ %2, %invoke.cont4 ], [ %0, %entry ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %p) #15
   ret ptr %4
 }
@@ -4556,7 +4556,7 @@ _Z7deallocI11proof_saverEvPT_.exit.i:             ; preds = %if.end.i.i, %if.the
   br label %if.end
 
 if.end:                                           ; preds = %_Z7deallocI11proof_saverEvPT_.exit.i, %_ZN11proof_saverC2ER11cmd_context.exit, %entry
-  %10 = phi ptr [ %call2, %_Z7deallocI11proof_saverEvPT_.exit.i ], [ %call2, %_ZN11proof_saverC2ER11cmd_context.exit ], [ %0, %entry ]
+  %10 = phi ptr [ %call2, %_Z7deallocI11proof_saverEvPT_.exit.i ], [ %9, %_ZN11proof_saverC2ER11cmd_context.exit ], [ %0, %entry ]
   ret ptr %10
 }
 

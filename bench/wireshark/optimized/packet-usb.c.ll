@@ -5993,7 +5993,7 @@ is_usb_standard_setup_request.exit.thread:        ; preds = %110, %is_usb_standa
   br label %181
 
 181:                                              ; preds = %.thread, %167, %166
-  %.0159203 = phi ptr [ %3, %.thread ], [ %.0159, %167 ], [ %3, %166 ]
+  %.0159203 = phi ptr [ %3, %.thread ], [ %.0159, %167 ], [ %.0159, %166 ]
   %.0161202 = phi ptr [ %164, %.thread ], [ %.0161, %167 ], [ %.0161, %166 ]
   %.0163201 = phi ptr [ %165, %.thread ], [ %.0163, %167 ], [ %.0163, %166 ]
   call fastcc void @usb_tap_queue_packet(ptr noundef nonnull %2, i8 noundef zeroext %4, ptr noundef nonnull %.0159203)

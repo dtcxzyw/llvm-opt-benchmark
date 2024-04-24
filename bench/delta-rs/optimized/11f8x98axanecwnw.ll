@@ -1234,7 +1234,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h38cb8d40ce8cf9caE.exit.threa
   br label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$arrow_array..record_batch..RecordBatch$GT$$GT$17hcf71e04295daac5aE.exit.i.i"
 
 20:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h9940dd4236e86cabE.exit.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h9940dd4236e86cabE.exit.thread.i.i.i
-  %21 = phi ptr [ %16, %_ZN4core3ops8function6FnOnce9call_once17h9940dd4236e86cabE.exit.thread.i.i.i ], [ %19, %_ZN4core3ops8function6FnOnce9call_once17h9940dd4236e86cabE.exit.i.i.i ]
+  %21 = phi ptr [ %17, %_ZN4core3ops8function6FnOnce9call_once17h9940dd4236e86cabE.exit.thread.i.i.i ], [ %19, %_ZN4core3ops8function6FnOnce9call_once17h9940dd4236e86cabE.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !69
   store ptr %7, ptr %5, align 8, !noalias !69
   %22 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h80b30d358cb31013E.llvm.18123795597341512700(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
@@ -1360,7 +1360,7 @@ _ZN4core3ops8function6FnOnce9call_once17h9940dd4236e86cabE.exit.i1.i.i: ; preds 
   br label %63
 
 50:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h9940dd4236e86cabE.exit.i1.i.i, %_ZN4core3ops8function6FnOnce9call_once17h9940dd4236e86cabE.exit.thread.i8.i.i
-  %51 = phi ptr [ %45, %_ZN4core3ops8function6FnOnce9call_once17h9940dd4236e86cabE.exit.thread.i8.i.i ], [ %49, %_ZN4core3ops8function6FnOnce9call_once17h9940dd4236e86cabE.exit.i1.i.i ]
+  %51 = phi ptr [ %47, %_ZN4core3ops8function6FnOnce9call_once17h9940dd4236e86cabE.exit.thread.i8.i.i ], [ %49, %_ZN4core3ops8function6FnOnce9call_once17h9940dd4236e86cabE.exit.i1.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !112
   store ptr %40, ptr %3, align 8, !noalias !112
   %52 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h80b30d358cb31013E.llvm.18123795597341512700(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %40)
@@ -11385,7 +11385,7 @@ define hidden void @"_ZN137_$LT$futures_util..stream..futures_ordered..FuturesOr
   br i1 %25, label %"_ZN4core3ptr173drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$$RP$$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h8ef41f25ceb084c8E.exit.i.loopexit", label %15
 
 "_ZN4core3ptr173drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$$RP$$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h8ef41f25ceb084c8E.exit.i.loopexit": ; preds = %24
-  store ptr %9, ptr %8, align 8, !alias.scope !2852, !noalias !2839
+  store ptr %17, ptr %8, align 8, !alias.scope !2852, !noalias !2839
   br label %"_ZN4core3ptr173drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$$RP$$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h8ef41f25ceb084c8E.exit.i"
 
 "_ZN4core3ptr173drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$$RP$$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h8ef41f25ceb084c8E.exit.i": ; preds = %"_ZN4core3ptr173drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$$RP$$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h8ef41f25ceb084c8E.exit.i.loopexit", %6
@@ -11543,7 +11543,7 @@ define hidden void @"_ZN137_$LT$futures_util..stream..futures_ordered..FuturesOr
   br i1 %25, label %"_ZN4core3ptr226drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..Action$GT$$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h7cd98bf8e4e695d1E.exit.i.loopexit", label %15
 
 "_ZN4core3ptr226drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..Action$GT$$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h7cd98bf8e4e695d1E.exit.i.loopexit": ; preds = %24
-  store ptr %9, ptr %8, align 8, !alias.scope !2874, !noalias !2861
+  store ptr %17, ptr %8, align 8, !alias.scope !2874, !noalias !2861
   br label %"_ZN4core3ptr226drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..Action$GT$$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h7cd98bf8e4e695d1E.exit.i"
 
 "_ZN4core3ptr226drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..Action$GT$$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h7cd98bf8e4e695d1E.exit.i": ; preds = %"_ZN4core3ptr226drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..Action$GT$$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h7cd98bf8e4e695d1E.exit.i.loopexit", %6
@@ -43463,13 +43463,13 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hba126ec5d751b264E.exit.sink.split.i.i": ; preds = %79, %43
   %81 = phi i64 [ %16, %43 ], [ %56, %79 ]
-  %.lcssa.sink.i.i = phi ptr [ %45, %43 ], [ %6, %79 ]
+  %.lcssa.sink.i.i = phi ptr [ %45, %43 ], [ %.sink.in.i.i.i.i, %79 ]
   store ptr %.lcssa.sink.i.i, ptr %4, align 8, !alias.scope !10162, !noalias !10146
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hba126ec5d751b264E.exit.i.i"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hba126ec5d751b264E.exit.i.i": ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hba126ec5d751b264E.exit.sink.split.i.i", %14
   %82 = phi i64 [ %81, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hba126ec5d751b264E.exit.sink.split.i.i" ], [ %11, %14 ]
-  %.lcssa.sink.i.i19 = phi ptr [ %.lcssa.sink.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hba126ec5d751b264E.exit.sink.split.i.i" ], [ %6, %14 ]
+  %.lcssa.sink.i.i19 = phi ptr [ %.lcssa.sink.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hba126ec5d751b264E.exit.sink.split.i.i" ], [ %.lcssa.sink.i.i20, %14 ]
   store i8 1, ptr %2, align 1, !alias.scope !10163
   %.not.i.i.i = icmp ne i64 %.pre5.i.i.i, %.pre.i.i.i16
   %or.cond.not.i.i.i = select i1 %9, i1 true, i1 %.not.i.i.i

@@ -233,13 +233,13 @@ if.then3.i22:                                     ; preds = %cond.true, %cond.fa
 _ZN4pbrt3RGBixEi.exit27:                          ; preds = %cond.true, %cond.false, %if.then3.i22
   %rgb.coerce1.sink = phi float [ %rgb.sroa.0.0.vec.extract, %if.then3.i22 ], [ %rgb.coerce1, %cond.false ], [ %rgb.sroa.0.4.vec.extract, %cond.true ]
   %rgb.sroa.0.4.vec.extract.sink = phi float [ %rgb.coerce1, %if.then3.i22 ], [ %rgb.sroa.0.4.vec.extract, %cond.false ], [ %rgb.sroa.0.0.vec.extract, %cond.true ]
-  %cond21254262280 = phi i64 [ 2, %if.then3.i22 ], [ 1, %cond.false ], [ 0, %cond.true ]
+  %cond21264272290 = phi i64 [ 2, %if.then3.i22 ], [ 1, %cond.false ], [ 0, %cond.true ]
   %retval.0.i24.sroa.speculated = phi float [ %rgb.sroa.0.4.vec.extract, %if.then3.i22 ], [ %rgb.sroa.0.0.vec.extract, %cond.false ], [ %rgb.coerce1, %cond.true ]
-  %mul24288 = fmul float %rgb.coerce1.sink, 6.300000e+01
-  %div25289 = fdiv float %mul24288, %rgb.sroa.0.4.vec.extract.sink
+  %mul24298 = fmul float %rgb.coerce1.sink, 6.300000e+01
+  %div25299 = fdiv float %mul24298, %rgb.sroa.0.4.vec.extract.sink
   %mul29 = fmul float %retval.0.i24.sroa.speculated, 6.300000e+01
   %div30 = fdiv float %mul29, %rgb.sroa.0.4.vec.extract.sink
-  %conv = fptosi float %div25289 to i32
+  %conv = fptosi float %div25299 to i32
   %conv34 = fptosi float %div30 to i32
   %pred.val.val.i = load ptr, ptr %this, align 8
   br label %while.body.i
@@ -263,14 +263,14 @@ while.body.i:                                     ; preds = %while.body.i, %_ZN4
   br i1 %cmp.i30, label %while.body.i, label %"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.exit", !llvm.loop !5
 
 "_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.exit": ; preds = %while.body.i
-  %.sroa.speculated163 = tail call i32 @llvm.smin.i32(i32 %conv, i32 62)
+  %.sroa.speculated173 = tail call i32 @llvm.smin.i32(i32 %conv, i32 62)
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %conv34, i32 62)
   %sub9.i = add nsw i64 %cond.i, -1
   %high.val.i.i = tail call i64 @llvm.umin.i64(i64 %sub9.i, i64 62)
   %cmp.i11.inv.i = icmp sgt i64 %cond.i, 0
   %retval.0.i.i = select i1 %cmp.i11.inv.i, i64 %high.val.i.i, i64 0
-  %conv40 = sitofp i32 %.sroa.speculated163 to float
-  %sub41 = fsub float %div25289, %conv40
+  %conv40 = sitofp i32 %.sroa.speculated173 to float
+  %sub41 = fsub float %div25299, %conv40
   %conv42 = sitofp i32 %.sroa.speculated to float
   %sub43 = fsub float %div30, %conv42
   %arrayidx = getelementptr float, ptr %pred.val.val.i, i64 %retval.0.i.i
@@ -284,66 +284,66 @@ while.body.i:                                     ; preds = %while.body.i, %_ZN4
   %coeffs.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %coeffs.i, align 8
   %idxprom5.i = sext i32 %.sroa.speculated to i64
-  %idxprom8.i = sext i32 %.sroa.speculated163 to i64
-  %add7.i = add nsw i32 %.sroa.speculated163, 1
-  %idxprom8.i35 = sext i32 %add7.i to i64
+  %idxprom8.i = sext i32 %.sroa.speculated173 to i64
+  %add7.i = add nsw i32 %.sroa.speculated173, 1
+  %idxprom8.i37 = sext i32 %add7.i to i64
   %sub.i = fsub float 1.000000e+00, %sub41
   %add4.i = add nsw i32 %.sroa.speculated, 1
-  %idxprom5.i42 = sext i32 %add4.i to i64
-  %sub.i59 = fsub float 1.000000e+00, %sub43
-  %add.i65 = add nuw nsw i64 %retval.0.i.i, 1
-  %sub.i111 = fsub float 1.000000e+00, %div53
+  %idxprom5.i45 = sext i32 %add4.i to i64
+  %sub.i64 = fsub float 1.000000e+00, %sub43
+  %add.i70 = add nuw nsw i64 %retval.0.i.i, 1
+  %sub.i120 = fsub float 1.000000e+00, %div53
   br label %for.body
 
 for.body:                                         ; preds = %"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.exit", %for.body
   %indvars.iv = phi i64 [ 0, %"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.exit" ], [ %indvars.iv.next, %for.body ]
-  %arrayidx11.i = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %3, i64 0, i64 %cond21254262280, i64 %retval.0.i.i, i64 %idxprom5.i, i64 %idxprom8.i, i64 %indvars.iv
+  %arrayidx11.i = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %3, i64 0, i64 %cond21264272290, i64 %retval.0.i.i, i64 %idxprom5.i, i64 %idxprom8.i, i64 %indvars.iv
   %4 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx11.i37 = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %3, i64 0, i64 %cond21254262280, i64 %retval.0.i.i, i64 %idxprom5.i, i64 %idxprom8.i35, i64 %indvars.iv
-  %5 = load float, ptr %arrayidx11.i37, align 4
+  %arrayidx11.i39 = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %3, i64 0, i64 %cond21264272290, i64 %retval.0.i.i, i64 %idxprom5.i, i64 %idxprom8.i37, i64 %indvars.iv
+  %5 = load float, ptr %arrayidx11.i39, align 4
   %mul.i = fmul float %sub.i, %4
   %mul1.i = fmul float %sub41, %5
-  %add.i38 = fadd float %mul.i, %mul1.i
-  %arrayidx11.i45 = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %3, i64 0, i64 %cond21254262280, i64 %retval.0.i.i, i64 %idxprom5.i42, i64 %idxprom8.i, i64 %indvars.iv
-  %6 = load float, ptr %arrayidx11.i45, align 4
-  %arrayidx11.i54 = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %3, i64 0, i64 %cond21254262280, i64 %retval.0.i.i, i64 %idxprom5.i42, i64 %idxprom8.i35, i64 %indvars.iv
-  %7 = load float, ptr %arrayidx11.i54, align 4
-  %mul.i56 = fmul float %sub.i, %6
-  %mul1.i57 = fmul float %sub41, %7
-  %add.i58 = fadd float %mul.i56, %mul1.i57
-  %mul.i60 = fmul float %sub.i59, %add.i38
-  %mul1.i61 = fmul float %sub43, %add.i58
-  %add.i62 = fadd float %mul.i60, %mul1.i61
-  %arrayidx11.i70 = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %3, i64 0, i64 %cond21254262280, i64 %add.i65, i64 %idxprom5.i, i64 %idxprom8.i, i64 %indvars.iv
-  %8 = load float, ptr %arrayidx11.i70, align 4
-  %arrayidx11.i79 = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %3, i64 0, i64 %cond21254262280, i64 %add.i65, i64 %idxprom5.i, i64 %idxprom8.i35, i64 %indvars.iv
-  %9 = load float, ptr %arrayidx11.i79, align 4
-  %mul.i81 = fmul float %sub.i, %8
-  %mul1.i82 = fmul float %sub41, %9
-  %add.i83 = fadd float %mul.i81, %mul1.i82
-  %arrayidx11.i92 = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %3, i64 0, i64 %cond21254262280, i64 %add.i65, i64 %idxprom5.i42, i64 %idxprom8.i, i64 %indvars.iv
-  %10 = load float, ptr %arrayidx11.i92, align 4
-  %arrayidx11.i102 = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %3, i64 0, i64 %cond21254262280, i64 %add.i65, i64 %idxprom5.i42, i64 %idxprom8.i35, i64 %indvars.iv
-  %11 = load float, ptr %arrayidx11.i102, align 4
-  %mul.i104 = fmul float %sub.i, %10
-  %mul1.i105 = fmul float %sub41, %11
-  %add.i106 = fadd float %mul.i104, %mul1.i105
-  %mul.i108 = fmul float %sub.i59, %add.i83
-  %mul1.i109 = fmul float %sub43, %add.i106
-  %add.i110 = fadd float %mul.i108, %mul1.i109
-  %mul.i112 = fmul float %sub.i111, %add.i62
-  %mul1.i113 = fmul float %div53, %add.i110
-  %add.i114 = fadd float %mul.i112, %mul1.i113
+  %add.i40 = fadd float %mul.i, %mul1.i
+  %arrayidx11.i49 = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %3, i64 0, i64 %cond21264272290, i64 %retval.0.i.i, i64 %idxprom5.i45, i64 %idxprom8.i, i64 %indvars.iv
+  %6 = load float, ptr %arrayidx11.i49, align 4
+  %arrayidx11.i59 = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %3, i64 0, i64 %cond21264272290, i64 %retval.0.i.i, i64 %idxprom5.i45, i64 %idxprom8.i37, i64 %indvars.iv
+  %7 = load float, ptr %arrayidx11.i59, align 4
+  %mul.i61 = fmul float %sub.i, %6
+  %mul1.i62 = fmul float %sub41, %7
+  %add.i63 = fadd float %mul.i61, %mul1.i62
+  %mul.i65 = fmul float %sub.i64, %add.i40
+  %mul1.i66 = fmul float %sub43, %add.i63
+  %add.i67 = fadd float %mul.i65, %mul1.i66
+  %arrayidx11.i77 = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %3, i64 0, i64 %cond21264272290, i64 %add.i70, i64 %idxprom5.i, i64 %idxprom8.i, i64 %indvars.iv
+  %8 = load float, ptr %arrayidx11.i77, align 4
+  %arrayidx11.i87 = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %3, i64 0, i64 %cond21264272290, i64 %add.i70, i64 %idxprom5.i, i64 %idxprom8.i37, i64 %indvars.iv
+  %9 = load float, ptr %arrayidx11.i87, align 4
+  %mul.i89 = fmul float %sub.i, %8
+  %mul1.i90 = fmul float %sub41, %9
+  %add.i91 = fadd float %mul.i89, %mul1.i90
+  %arrayidx11.i101 = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %3, i64 0, i64 %cond21264272290, i64 %add.i70, i64 %idxprom5.i45, i64 %idxprom8.i, i64 %indvars.iv
+  %10 = load float, ptr %arrayidx11.i101, align 4
+  %arrayidx11.i111 = getelementptr inbounds [3 x [64 x [64 x [64 x [3 x float]]]]], ptr %3, i64 0, i64 %cond21264272290, i64 %add.i70, i64 %idxprom5.i45, i64 %idxprom8.i37, i64 %indvars.iv
+  %11 = load float, ptr %arrayidx11.i111, align 4
+  %mul.i113 = fmul float %sub.i, %10
+  %mul1.i114 = fmul float %sub41, %11
+  %add.i115 = fadd float %mul.i113, %mul1.i114
+  %mul.i117 = fmul float %sub.i64, %add.i91
+  %mul1.i118 = fmul float %sub43, %add.i115
+  %add.i119 = fadd float %mul.i117, %mul1.i118
+  %mul.i121 = fmul float %sub.i120, %add.i67
+  %mul1.i122 = fmul float %div53, %add.i119
+  %add.i123 = fadd float %mul.i121, %mul1.i122
   %arrayidx.i = getelementptr inbounds [3 x float], ptr %c, i64 0, i64 %indvars.iv
-  store float %add.i114, ptr %arrayidx.i, align 4
+  store float %add.i123, ptr %arrayidx.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
   %12 = load <2 x float>, ptr %c, align 8
-  %arrayidx.i116 = getelementptr inbounds i8, ptr %c, i64 8
-  %13 = load float, ptr %arrayidx.i116, align 8
+  %arrayidx.i126 = getelementptr inbounds i8, ptr %c, i64 8
+  %13 = load float, ptr %arrayidx.i126, align 8
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
@@ -1222,7 +1222,7 @@ lor.rhs:                                          ; preds = %_ZNSt3mapIfN4pbrt13
   br i1 %cmp.i3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %_ZNSt3mapIfN4pbrt13ColorEncodingESt4lessIfESaISt4pairIKfS1_EEE11lower_boundERS5_.exit, %lor.rhs
-  %__y.addr.0.lcssa.i.i.i13 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapIfN4pbrt13ColorEncodingESt4lessIfESaISt4pairIKfS1_EEE11lower_boundERS5_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
+  %__y.addr.0.lcssa.i.i.i13 = phi ptr [ %__y.addr.1.i.i.i, %_ZNSt3mapIfN4pbrt13ColorEncodingESt4lessIfESaISt4pairIKfS1_EEE11lower_boundERS5_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %_M_storage.i.i.i.i.i4 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 32
   store float %.pre, ptr %_M_storage.i.i.i.i.i4, align 8
@@ -3167,7 +3167,7 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %if.else
-  %__y.0.lcssa25.i = phi ptr [ %__x.020.i, %while.end.i ], [ %__position.coerce, %if.else ]
+  %__y.0.lcssa25.i = phi ptr [ %__x.020.i, %while.end.i ], [ %add.ptr.i, %if.else ]
   %_M_left.i3.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %_M_left.i3.i, align 8
   %cmp.i4.i = icmp eq ptr %__y.0.lcssa25.i, %6
@@ -3329,8 +3329,8 @@ if.end18.i82:                                     ; preds = %if.end12.i77
   br label %return
 
 return:                                           ; preds = %if.end18.i82, %if.end12.i77, %if.then.i87, %if.end18.i40, %if.end12.i35, %if.then.i45, %if.end18.i, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select109, %if.then64 ], [ %__j.sroa.0.0.i, %if.end18.i ], [ null, %if.then.i ], [ null, %if.end12.i ], [ %__j.sroa.0.0.i37, %if.end18.i40 ], [ null, %if.then.i45 ], [ null, %if.end12.i35 ], [ %__j.sroa.0.0.i79, %if.end18.i82 ], [ null, %if.then.i87 ], [ null, %if.end12.i77 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select108, %if.then32 ], [ %spec.select110, %if.then64 ], [ null, %if.end18.i ], [ %__y.0.lcssa25.i, %if.then.i ], [ %__y.0.lcssa24.i, %if.end12.i ], [ null, %if.end18.i40 ], [ %11, %if.then.i45 ], [ %__y.0.lcssa24.i36, %if.end12.i35 ], [ null, %if.end18.i82 ], [ %__y.0.lcssa25.i88, %if.then.i87 ], [ %__y.0.lcssa24.i78, %if.end12.i77 ]
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %11, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select109, %if.then64 ], [ %__j.sroa.0.0.i, %if.end18.i ], [ null, %if.then.i ], [ null, %if.end12.i ], [ %__j.sroa.0.0.i37, %if.end18.i40 ], [ null, %if.then.i45 ], [ null, %if.end12.i35 ], [ %__j.sroa.0.0.i79, %if.end18.i82 ], [ null, %if.then.i87 ], [ null, %if.end12.i77 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select108, %if.then32 ], [ %spec.select110, %if.then64 ], [ null, %if.end18.i ], [ %__y.0.lcssa25.i, %if.then.i ], [ %__y.0.lcssa24.i, %if.end12.i ], [ null, %if.end18.i40 ], [ %__y.0.lcssa25.i46, %if.then.i45 ], [ %__y.0.lcssa24.i36, %if.end12.i35 ], [ null, %if.end18.i82 ], [ %__y.0.lcssa25.i88, %if.then.i87 ], [ %__y.0.lcssa24.i78, %if.end12.i77 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

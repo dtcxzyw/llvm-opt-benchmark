@@ -651,7 +651,7 @@ if.end3:                                          ; preds = %if.end
 
 if.then8:                                         ; preds = %if.end3
   %5 = load ptr, ptr @slaveKeysWithExpire, align 8
-  %call10 = tail call ptr @sdsdup(ptr noundef %call5) #9
+  %call10 = tail call ptr @sdsdup(ptr noundef %4) #9
   tail call void @dictSetKey(ptr noundef %5, ptr noundef %call4, ptr noundef %call10) #9
   tail call void @dictSetUnsignedIntegerVal(ptr noundef %call4, i64 noundef 0) #9
   br label %if.end11

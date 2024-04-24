@@ -132,7 +132,7 @@ define i32 @hwloc_shmem_topology_write(ptr noundef %0, i32 noundef %1, i64 nound
   store ptr @tma_shmem_malloc, ptr %8, align 8
   %33 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 24
+  %34 = getelementptr inbounds i8, ptr %26, i64 24
   %35 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %34, ptr %35, align 8
   %36 = call i32 @hwloc__topology_dup(ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %8) #12

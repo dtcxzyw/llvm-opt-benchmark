@@ -3311,7 +3311,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %16, label %17, label %117
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 552
+  %18 = getelementptr inbounds i8, ptr %15, i64 552
   %19 = load i16, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 44
   %21 = getelementptr inbounds i8, ptr %1, i64 48
@@ -3780,10 +3780,10 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
 341:                                              ; preds = %337
   %342 = load ptr, ptr %13, align 8
   %343 = icmp eq ptr %342, %0
-  br i1 %343, label %344, label %443
+  br i1 %343, label %344, label %444
 
 344:                                              ; preds = %341
-  %345 = getelementptr inbounds i8, ptr %0, i64 552
+  %345 = getelementptr inbounds i8, ptr %342, i64 552
   %346 = load i16, ptr %345, align 8
   %347 = getelementptr inbounds i8, ptr %1, i64 44
   %348 = getelementptr inbounds i8, ptr %1, i64 48
@@ -3915,17 +3915,18 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
 .split28.us:                                      ; preds = %430, %395
   %441 = phi ptr [ %391, %395 ], [ %421, %430 ]
   %.us-phi = phi ptr [ %377, %395 ], [ %407, %430 ]
-  %442 = icmp eq ptr %.us-phi, %4
-  br i1 %442, label %.thread23, label %443
+  %442 = getelementptr i8, ptr %342, i64 2304
+  %443 = icmp eq ptr %.us-phi, %442
+  br i1 %443, label %.thread23, label %444
 
-443:                                              ; preds = %.split28.us, %341
-  %444 = phi ptr [ %0, %341 ], [ %441, %.split28.us ]
-  tail call void @unregister_netdevice_queue(ptr noundef %444, ptr noundef null) #16
+444:                                              ; preds = %.split28.us, %341
+  %445 = phi ptr [ %0, %341 ], [ %441, %.split28.us ]
+  tail call void @unregister_netdevice_queue(ptr noundef %445, ptr noundef null) #16
   br label %.thread23
 
-.thread23:                                        ; preds = %434, %400, %344, %443, %.split28.us, %337, %.thread, %333, %325, %321, %308, %249, %120, %117, %3
-  %445 = phi i32 [ -1, %.split28.us ], [ 0, %443 ], [ -1, %337 ], [ %313, %308 ], [ 0, %.thread ], [ -22, %325 ], [ -1, %120 ], [ 0, %117 ], [ -17, %249 ], [ -17, %321 ], [ -2, %333 ], [ -22, %3 ], [ -2, %344 ], [ -2, %400 ], [ -2, %434 ]
-  ret i32 %445
+.thread23:                                        ; preds = %434, %400, %344, %444, %.split28.us, %337, %.thread, %333, %325, %321, %308, %249, %120, %117, %3
+  %446 = phi i32 [ -1, %.split28.us ], [ 0, %444 ], [ -1, %337 ], [ %313, %308 ], [ 0, %.thread ], [ -22, %325 ], [ -1, %120 ], [ 0, %117 ], [ -17, %249 ], [ -17, %321 ], [ -2, %333 ], [ -22, %3 ], [ -2, %344 ], [ -2, %400 ], [ -2, %434 ]
+  ret i32 %446
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

@@ -22781,7 +22781,7 @@ default.unreachable214:                           ; preds = %116, %3
   %164 = load ptr, ptr %163, align 8, !alias.scope !2559, !noalias !2560, !noundef !4
   store ptr %162, ptr %155, align 8, !alias.scope !2561, !noalias !2562
   store ptr %164, ptr %156, align 8, !alias.scope !2561, !noalias !2562
-  store ptr %157, ptr %161, align 8, !alias.scope !2559, !noalias !2560
+  store ptr %158, ptr %161, align 8, !alias.scope !2559, !noalias !2560
   store ptr %157, ptr %163, align 8, !alias.scope !2559, !noalias !2560
   %165 = icmp eq ptr %162, %164
   br i1 %165, label %242, label %245

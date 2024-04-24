@@ -853,7 +853,7 @@ default.unreachable153:                           ; preds = %95
   br i1 %105, label %106, label %107
 
 106:                                              ; preds = %104
-  call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %.0127162) #9
+  call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %.0124) #9
   br label %107
 
 107:                                              ; preds = %106, %104
@@ -1507,7 +1507,7 @@ define dso_local void @llvm_emit_stmt(ptr noundef %0, ptr noundef %1) local_unna
   br label %89
 
 89:                                               ; preds = %88, %85, %84, %82
-  %.175.i = phi ptr [ %40, %82 ], [ %.074.i, %84 ], [ %.072.i, %88 ], [ %.072.i, %85 ]
+  %.175.i = phi ptr [ %40, %82 ], [ %.074.i, %84 ], [ %.074.i, %88 ], [ %.074.i, %85 ]
   %.0.shrunk.i = phi i1 [ true, %82 ], [ true, %84 ], [ true, %88 ], [ false, %85 ]
   %.not84.i = icmp eq ptr %.072.i, %40
   br i1 %.not84.i, label %91, label %90
@@ -3116,21 +3116,21 @@ define dso_local void @llvm_emit_panic_if_true(ptr noundef %0, ptr noundef %1, p
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %73 = load ptr, ptr %51, align 8
   call void @llvm_emit_any_from_value(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %73) #9
-  %.phi.trans.insert.i71 = getelementptr inbounds i8, ptr %.1.i68, i64 4
-  %.pre.i72 = load i32, ptr %.phi.trans.insert.i71, align 4
+  %.phi.trans.insert.i72 = getelementptr inbounds i8, ptr %.1.i68, i64 4
+  %.pre.i73 = load i32, ptr %.phi.trans.insert.i72, align 4
   %74 = load i32, ptr %.1.i68, align 4
-  %75 = icmp eq i32 %74, %.pre.i72
+  %75 = icmp eq i32 %74, %.pre.i73
   br i1 %75, label %76, label %89
 
 76:                                               ; preds = %72
-  %77 = shl i32 %.pre.i72, 1
+  %77 = shl i32 %.pre.i73, 1
   %78 = zext i32 %77 to i64
   %79 = shl nuw nsw i64 %78, 5
   %80 = or disjoint i64 %79, 8
   %81 = call ptr @calloc_arena(i64 noundef %80) #9
   %82 = getelementptr inbounds i8, ptr %81, i64 4
   store i32 %77, ptr %82, align 4
-  %83 = load i32, ptr %.phi.trans.insert.i71, align 4
+  %83 = load i32, ptr %.phi.trans.insert.i72, align 4
   %84 = zext i32 %83 to i64
   %85 = shl nuw nsw i64 %84, 5
   %86 = or disjoint i64 %85, 8
@@ -3138,15 +3138,15 @@ define dso_local void @llvm_emit_panic_if_true(ptr noundef %0, ptr noundef %1, p
   %87 = load i32, ptr %82, align 4
   %88 = shl i32 %87, 1
   store i32 %88, ptr %82, align 4
-  %.pre18.i75 = load i32, ptr %81, align 4
+  %.pre18.i76 = load i32, ptr %81, align 4
   br label %89
 
 89:                                               ; preds = %72, %76
-  %90 = phi i32 [ %.pre18.i75, %76 ], [ %74, %72 ]
-  %.1.i74 = phi ptr [ %81, %76 ], [ %.1.i68, %72 ]
+  %90 = phi i32 [ %.pre18.i76, %76 ], [ %74, %72 ]
+  %.1.i75 = phi ptr [ %81, %76 ], [ %.1.i68, %72 ]
   %91 = add i32 %90, 1
-  store i32 %91, ptr %.1.i74, align 4
-  %92 = getelementptr inbounds i8, ptr %.1.i74, i64 8
+  store i32 %91, ptr %.1.i75, align 4
+  %92 = getelementptr inbounds i8, ptr %.1.i75, i64 8
   %93 = zext i32 %90 to i64
   %94 = getelementptr inbounds %struct.BEValue, ptr %92, i64 %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)

@@ -1140,7 +1140,7 @@ lj_buf_need.exit96:                               ; preds = %if.else, %if.then.i
 
 if.end23:                                         ; preds = %if.then12, %if.then16, %lj_buf_need.exit96
   %idx.ext.pre-phi = phi i64 [ %.pre84, %if.then16 ], [ %conv22, %lj_buf_need.exit96 ], [ %.pre84, %if.then12 ]
-  %p.0 = phi ptr [ %7, %if.then16 ], [ %retval.i79.0, %lj_buf_need.exit96 ], [ %5, %if.then12 ]
+  %p.0 = phi ptr [ %7, %if.then16 ], [ %retval.i79.0, %lj_buf_need.exit96 ], [ %7, %if.then12 ]
   store ptr %p.0, ptr %p2, align 8
   %add.ptr = getelementptr inbounds i8, ptr %p.0, i64 %idx.ext.pre-phi
   store ptr %add.ptr, ptr %pe, align 8
@@ -1210,7 +1210,7 @@ if.end48:                                         ; preds = %if.end42
   br i1 %tobool.not, label %if.else66, label %if.then50
 
 if.then50:                                        ; preds = %if.end48
-  %conv51 = trunc i64 %15 to i32
+  %conv51 = trunc nuw i64 %15 to i32
   %add = add i32 %conv51, %conv
   %cond = call i32 @llvm.umax.i32(i32 %add, i32 %len)
   %20 = load ptr, ptr %e.i82, align 8

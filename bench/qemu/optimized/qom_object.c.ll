@@ -1046,7 +1046,7 @@ entry:
 declare zeroext i1 @user_creatable_complete(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @object_unparent(ptr noundef %obj) local_unnamed_addr #0 {
+define dso_local void @object_unparent(ptr noundef readonly %obj) local_unnamed_addr #0 {
 entry:
   %iter.i = alloca %struct._GHashTableIter, align 8
   %key.i = alloca ptr, align 8
@@ -1089,7 +1089,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %6 = load ptr, ptr %2, align 8
-  call void %5(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %obj) #19
+  call void %5(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %4) #19
   store ptr null, ptr %release.i, align 8
   br label %while.end.i
 
@@ -2220,7 +2220,7 @@ while.end43:                                      ; preds = %while.end20
   br label %out
 
 out:                                              ; preds = %while.end, %if.end7.thread, %if.end7, %while.end43
-  %ret.0 = phi ptr [ %class, %while.end43 ], [ %call, %if.end7 ], [ %call38, %if.end7.thread ], [ %class, %while.end ]
+  %ret.0 = phi ptr [ %call, %while.end43 ], [ %call, %if.end7 ], [ %call38, %if.end7.thread ], [ %class, %while.end ]
   ret ptr %ret.0
 }
 

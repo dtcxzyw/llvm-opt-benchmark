@@ -1379,7 +1379,7 @@ Vec_IntFill.exit89:                               ; preds = %292, %Vec_IntGrow.e
   ]
 
 297:                                              ; preds = %.lr.ph
-  %298 = trunc i64 %indvars.iv to i32
+  %298 = trunc nuw nsw i64 %indvars.iv to i32
   %299 = xor i32 %298, -1
   %300 = add nsw i32 %.1, %299
   %301 = and i32 %300, 31
@@ -2895,7 +2895,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %313, %304
 320:                                              ; preds = %320, %.lr.ph.i
   %indvars.iv.i290 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i291, %320 ]
   %321 = getelementptr inbounds i32, ptr %317, i64 %indvars.iv.i290
-  %322 = trunc i64 %indvars.iv.i290 to i32
+  %322 = trunc nuw nsw i64 %indvars.iv.i290 to i32
   store i32 %322, ptr %321, align 4
   %indvars.iv.next.i291 = add nuw nsw i64 %indvars.iv.i290, 1
   %exitcond.not.i292 = icmp eq i64 %indvars.iv.next.i291, %wide.trip.count.i
@@ -4596,7 +4596,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %235, %227
 242:                                              ; preds = %242, %.lr.ph.i
   %indvars.iv.i166 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i167, %242 ]
   %243 = getelementptr inbounds i32, ptr %239, i64 %indvars.iv.i166
-  %244 = trunc i64 %indvars.iv.i166 to i32
+  %244 = trunc nuw nsw i64 %indvars.iv.i166 to i32
   store i32 %244, ptr %243, align 4
   %indvars.iv.next.i167 = add nuw nsw i64 %indvars.iv.i166, 1
   %exitcond.not.i168 = icmp eq i64 %indvars.iv.next.i167, %wide.trip.count.i
@@ -4749,9 +4749,9 @@ Smt_PrsSkipSpaces.exit:                           ; preds = %46
   %.not = icmp ne i32 %.077, 0
   %50 = icmp eq i8 %48, 124
   %or.cond = and i1 %.not, %50
-  br i1 %or.cond, label %.preheader87, label %56
+  br i1 %or.cond, label %.preheader84, label %56
 
-.preheader87:                                     ; preds = %Smt_PrsSkipSpaces.exit, %53
+.preheader84:                                     ; preds = %Smt_PrsSkipSpaces.exit, %53
   %.sink = phi ptr [ %51, %53 ], [ %47, %Smt_PrsSkipSpaces.exit ]
   store i8 32, ptr %.sink, align 1
   %51 = load ptr, ptr %38, align 8
@@ -4761,12 +4761,12 @@ Smt_PrsSkipSpaces.exit:                           ; preds = %46
     i8 0, label %.loopexit
   ]
 
-53:                                               ; preds = %.preheader87
+53:                                               ; preds = %.preheader84
   %54 = getelementptr inbounds i8, ptr %51, i64 1
   store ptr %54, ptr %38, align 8
-  br label %.preheader87, !llvm.loop !31
+  br label %.preheader84, !llvm.loop !31
 
-55:                                               ; preds = %.preheader87
+55:                                               ; preds = %.preheader84
   store i8 32, ptr %51, align 1
   br label %.loopexit
 
@@ -4950,10 +4950,10 @@ Vec_IntPush.exit64:                               ; preds = %.Vec_IntGrow.exit10
   %132 = getelementptr inbounds i8, ptr %130, i64 1
   store ptr %132, ptr %38, align 8
   %exitcond.not.i = icmp eq ptr %132, %45
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.ithread-pre-split, !llvm.loop !32
+  br i1 %exitcond.not.i, label %Smt_PrsSkipNonSpaces.exit, label %.lr.ph.ithread-pre-split, !llvm.loop !32
 
-Smt_PrsSkipNonSpaces.exit:                        ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %127
-  %133 = phi ptr [ %47, %127 ], [ %130, %.lr.ph.i ], [ %130, %.lr.ph.i ], [ %130, %.lr.ph.i ], [ %130, %.lr.ph.i ], [ %130, %.lr.ph.i ], [ %130, %.lr.ph.i ]
+Smt_PrsSkipNonSpaces.exit:                        ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %131, %127
+  %133 = phi ptr [ %47, %127 ], [ %130, %.lr.ph.i ], [ %130, %.lr.ph.i ], [ %130, %.lr.ph.i ], [ %130, %.lr.ph.i ], [ %130, %.lr.ph.i ], [ %130, %.lr.ph.i ], [ %132, %131 ]
   %134 = icmp ult ptr %133, %45
   br i1 %134, label %135, label %.loopexit
 
@@ -5041,8 +5041,8 @@ Vec_IntPush.exit72:                               ; preds = %.Vec_IntGrow.exit10
   store i32 %146, ptr %177, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %131, %.preheader87, %Vec_IntPush.exit64, %Smt_PrsSkipNonSpaces.exit, %Vec_IntPush.exit72, %124, %55
-  %.1 = phi i32 [ 0, %55 ], [ %.077, %Vec_IntPush.exit64 ], [ %.077, %124 ], [ %.077, %Vec_IntPush.exit72 ], [ %.077, %Smt_PrsSkipNonSpaces.exit ], [ 0, %.preheader87 ], [ %.077, %131 ]
+.loopexit:                                        ; preds = %.preheader84, %Vec_IntPush.exit64, %Smt_PrsSkipNonSpaces.exit, %Vec_IntPush.exit72, %124, %55
+  %.1 = phi i32 [ 0, %55 ], [ %.077, %Vec_IntPush.exit64 ], [ %.077, %124 ], [ %.077, %Vec_IntPush.exit72 ], [ %.077, %Smt_PrsSkipNonSpaces.exit ], [ 0, %.preheader84 ]
   %178 = load ptr, ptr %38, align 8
   %179 = getelementptr inbounds i8, ptr %178, i64 1
   store ptr %179, ptr %38, align 8

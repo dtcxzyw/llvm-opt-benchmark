@@ -98,7 +98,7 @@ declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #1
 define void @_ZN7console7cleanupEv() local_unnamed_addr #3 {
 entry:
   %0 = load i8, ptr @_ZN7consoleL16advanced_displayE, align 1
-  %tobool.i = trunc i8 %0 to i1
+  %tobool.i = trunc nuw i8 %0 to i1
   %1 = load i32, ptr @_ZN7consoleL15current_displayE, align 4
   %cmp.not.i = icmp ne i32 %1, 0
   %or.cond.not.i = select i1 %tobool.i, i1 %cmp.not.i, i1 false
@@ -116,7 +116,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN7console11set_displayENS_9display_tE.exit:     ; preds = %entry, %if.then.i
   %6 = load i8, ptr @_ZN7consoleL9simple_ioE, align 1
-  %tobool = trunc i8 %6 to i1
+  %tobool = trunc nuw i8 %6 to i1
   br i1 %tobool, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %_ZN7console11set_displayENS_9display_tE.exit
@@ -143,7 +143,7 @@ if.end3:                                          ; preds = %if.end, %_ZN7consol
 define void @_ZN7console11set_displayENS_9display_tE(i32 noundef %display) local_unnamed_addr #6 {
 entry:
   %0 = load i8, ptr @_ZN7consoleL16advanced_displayE, align 1
-  %tobool = trunc i8 %0 to i1
+  %tobool = trunc nuw i8 %0 to i1
   %1 = load i32, ptr @_ZN7consoleL15current_displayE, align 4
   %cmp.not = icmp ne i32 %1, %display
   %or.cond.not = select i1 %tobool, i1 %cmp.not, i1 false
@@ -207,7 +207,7 @@ entry:
   %y2.i.i = alloca i32, align 4
   %w.i.i = alloca %struct.winsize, align 2
   %0 = load i8, ptr @_ZN7consoleL16advanced_displayE, align 1
-  %tobool.i = trunc i8 %0 to i1
+  %tobool.i = trunc nuw i8 %0 to i1
   %1 = load i32, ptr @_ZN7consoleL15current_displayE, align 4
   %cmp.not.i = icmp ne i32 %1, 2
   %or.cond.not.i = select i1 %tobool.i, i1 %cmp.not.i, i1 false
@@ -225,7 +225,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN7console11set_displayENS_9display_tE.exit:     ; preds = %entry, %if.then.i
   %6 = load i8, ptr @_ZN7consoleL9simple_ioE, align 1
-  %tobool = trunc i8 %6 to i1
+  %tobool = trunc nuw i8 %6 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN7console11set_displayENS_9display_tE.exit
@@ -338,12 +338,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %l
   resume { ptr, i32 } %lpad.phi.i
 
 if.end12.i10:                                     ; preds = %invoke.cont2.i
-  %tobool.i11 = trunc i8 %is_special_char.0.i to i1
+  %tobool.i11 = trunc nuw i8 %is_special_char.0.i to i1
   br i1 %tobool.i11, label %if.then13.i, label %if.end17.i
 
 if.then13.i:                                      ; preds = %if.end12.i10
   %11 = load i8, ptr @_ZN7consoleL16advanced_displayE, align 1
-  %tobool.i.i = trunc i8 %11 to i1
+  %tobool.i.i = trunc nuw i8 %11 to i1
   %12 = load i32, ptr @_ZN7consoleL15current_displayE, align 4
   %cmp.not.i.i = icmp ne i32 %12, 2
   %or.cond.not.i.i = select i1 %tobool.i.i, i1 %cmp.not.i.i, i1 false
@@ -473,7 +473,7 @@ if.else56.i:                                      ; preds = %if.end17.i
   br i1 %cmp.i.i, label %if.then.i60.i, label %if.else.i.i
 
 if.then.i60.i:                                    ; preds = %if.else56.i
-  %conv.i61.i = trunc i32 %call.i44.i to i8
+  %conv.i61.i = trunc nuw i32 %call.i44.i to i8
   br label %if.end42.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %if.else56.i
@@ -482,7 +482,7 @@ if.else.i.i:                                      ; preds = %if.else56.i
 
 if.then2.i.i:                                     ; preds = %if.else.i.i
   %shr.i.i = lshr i32 %call.i44.i, 6
-  %28 = trunc i32 %shr.i.i to i8
+  %28 = trunc nuw i32 %shr.i.i to i8
   %conv3.i.i = or disjoint i8 %28, -64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %line, i8 noundef signext %conv3.i.i)
           to label %.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
@@ -499,7 +499,7 @@ if.else7.i.i:                                     ; preds = %if.else.i.i
 
 if.then9.i.i:                                     ; preds = %if.else7.i.i
   %shr10.i.i = lshr i32 %call.i44.i, 12
-  %31 = trunc i32 %shr10.i.i to i8
+  %31 = trunc nuw i32 %shr10.i.i to i8
   %conv13.i.i = or disjoint i8 %31, -32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %line, i8 noundef signext %conv13.i.i)
           to label %.noexc62.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
@@ -524,7 +524,7 @@ if.else21.i.i:                                    ; preds = %if.else7.i.i
 
 if.then23.i.i:                                    ; preds = %if.else21.i.i
   %shr24.i.i = lshr i32 %call.i44.i, 18
-  %36 = trunc i32 %shr24.i.i to i8
+  %36 = trunc nuw i32 %shr24.i.i to i8
   %conv27.i.i = or disjoint i8 %36, -16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %line, i8 noundef signext %conv27.i.i)
           to label %.noexc64.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
@@ -687,7 +687,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 if.end71.i:                                       ; preds = %do.cond.i, %lor.lhs.false33.i, %invoke.cont27.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %if.then.i80.i, %if.then45.i, %invoke.cont20.i
   %widths.sroa.7.3.i = phi ptr [ %widths.sroa.7.0.i, %if.then45.i ], [ %widths.sroa.7.0.i, %invoke.cont20.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %incdec.ptr.i81.i, %if.then.i80.i ], [ %widths.sroa.7.0.i, %invoke.cont27.i ], [ %widths.sroa.7.0.i, %lor.lhs.false33.i ], [ %add.ptr.i.i.i, %do.cond.i ]
   %widths.sroa.16.2.i = phi ptr [ %widths.sroa.16.0.i, %if.then45.i ], [ %widths.sroa.16.0.i, %invoke.cont20.i ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %widths.sroa.16.0.i, %if.then.i80.i ], [ %widths.sroa.16.0.i, %invoke.cont27.i ], [ %widths.sroa.16.0.i, %lor.lhs.false33.i ], [ %widths.sroa.16.0.i, %do.cond.i ]
-  %widths.sroa.0.2.i = phi ptr [ %widths.sroa.7.0.i, %if.then45.i ], [ %widths.sroa.0.0.i, %invoke.cont20.i ], [ %cond.i10.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %widths.sroa.0.0.i, %if.then.i80.i ], [ %widths.sroa.0.0.i, %invoke.cont27.i ], [ %widths.sroa.0.0.i, %lor.lhs.false33.i ], [ %widths.sroa.0.0.i, %do.cond.i ]
+  %widths.sroa.0.2.i = phi ptr [ %widths.sroa.0.0.i, %if.then45.i ], [ %widths.sroa.0.0.i, %invoke.cont20.i ], [ %cond.i10.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %widths.sroa.0.0.i, %if.then.i80.i ], [ %widths.sroa.0.0.i, %invoke.cont27.i ], [ %widths.sroa.0.0.i, %lor.lhs.false33.i ], [ %widths.sroa.0.0.i, %do.cond.i ]
   %call72.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %line) #14
   br i1 %call72.i, label %while.cond.i.backedge, label %land.lhs.true73.i
 
@@ -705,7 +705,7 @@ lor.lhs.false77.i:                                ; preds = %land.lhs.true73.i
 
 if.then81.i:                                      ; preds = %lor.lhs.false77.i, %land.lhs.true73.i
   %57 = load i8, ptr @_ZN7consoleL16advanced_displayE, align 1
-  %tobool.i89.i = trunc i8 %57 to i1
+  %tobool.i89.i = trunc nuw i8 %57 to i1
   %58 = load i32, ptr @_ZN7consoleL15current_displayE, align 4
   %cmp.not.i90.i = icmp ne i32 %58, 1
   %or.cond.not.i91.i = select i1 %tobool.i89.i, i1 %cmp.not.i90.i, i1 false
@@ -734,7 +734,7 @@ while.cond.i.backedge:                            ; preds = %invoke.cont82.i, %l
   br label %while.cond.i, !llvm.loop !9
 
 while.end86.i:                                    ; preds = %invoke.cont2.i, %invoke.cont2.i, %invoke.cont2.i, %invoke.cont2.i
-  %tobool89.i = trunc i8 %is_special_char.0.i to i1
+  %tobool89.i = trunc nuw i8 %is_special_char.0.i to i1
   br i1 %tobool89.i, label %invoke.cont92.i, label %if.else115.i
 
 invoke.cont92.i:                                  ; preds = %while.end86.i

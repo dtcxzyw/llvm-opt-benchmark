@@ -2942,7 +2942,7 @@ define hidden void @zim_Phar___construct(ptr nocapture noundef readonly %0, ptr 
   br i1 %or.cond116, label %77, label %76
 
 76:                                               ; preds = %72
-  call void @_efree(ptr noundef %73) #19
+  call void @_efree(ptr noundef %74) #19
   store ptr %56, ptr %4, align 8
   br label %77
 
@@ -3009,7 +3009,7 @@ define hidden void @zim_Phar___construct(ptr nocapture noundef readonly %0, ptr 
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %105
-  call void @_efree(ptr noundef %106) #19
+  call void @_efree(ptr noundef %107) #19
   store ptr %56, ptr %4, align 8
   br label %110
 

@@ -817,7 +817,7 @@ vaarg.end290:                                     ; preds = %vaarg.in_mem286, %v
   %spec.store.select1 = select i1 %cmp292, i32 6, i32 %pr.1
   %and.i631 = and i64 %70, 4503599627370495
   %shr.i = lshr i64 %70, 52
-  %71 = trunc i64 %shr.i to i32
+  %71 = trunc nuw nsw i64 %shr.i to i32
   %72 = and i32 %71, 2047
   %conv.i = add nsw i32 %72, -1023
   %or299 = or i32 %fl.3, 128
@@ -937,10 +937,10 @@ if.end367:                                        ; preds = %if.else365, %if.the
   %cond378 = select i1 %cmp376, i32 4, i32 3
   %cond380 = select i1 %cmp372, i32 5, i32 %cond378
   %cond382 = select i1 %cmp368, i32 6, i32 %cond380
-  %conv383 = trunc i32 %cond382 to i8
+  %conv383 = trunc nuw nsw i32 %cond382 to i8
   store i8 %conv383, ptr %tail, align 1
   %rem8711196 = urem i32 %dp.promoted869, 10
-  %79 = trunc i32 %rem8711196 to i8
+  %79 = trunc nuw nsw i32 %rem8711196 to i8
   %conv387872 = or disjoint i8 %79, 48
   %idxprom388873 = zext nneg i32 %cond382 to i64
   %arrayidx389874 = getelementptr inbounds [8 x i8], ptr %tail, i64 0, i64 %idxprom388873
@@ -954,7 +954,7 @@ if.end393:                                        ; preds = %if.end367, %if.end3
   %80 = add nsw i64 %indvars.iv1095, -1
   %div = sdiv i32 %div870876, 10
   %rem = srem i32 %div, 10
-  %81 = trunc i32 %rem to i8
+  %81 = trunc nsw i32 %rem to i8
   %conv387 = add nsw i8 %81, 48
   %arrayidx389 = getelementptr inbounds [8 x i8], ptr %tail, i64 0, i64 %80
   store i8 %conv387, ptr %arrayidx389, align 1
@@ -1019,7 +1019,7 @@ land.rhs455.lr.ph:                                ; preds = %vaarg.end427
 land.rhs455:                                      ; preds = %land.rhs455.lr.ph, %while.body463
   %indvars.iv = phi i64 [ %umin, %land.rhs455.lr.ph ], [ %indvars.iv.next, %while.body463 ]
   %pr.3801 = phi i32 [ %pr.2, %land.rhs455.lr.ph ], [ %dec464, %while.body463 ]
-  %89 = trunc i64 %indvars.iv to i32
+  %89 = trunc nuw i64 %indvars.iv to i32
   %sub456 = add i32 %89, -1
   %idxprom457 = zext i32 %sub456 to i64
   %arrayidx458 = getelementptr inbounds i8, ptr %87, i64 %idxprom457
@@ -1204,10 +1204,10 @@ if.end575:                                        ; preds = %if.else573, %if.the
   %104 = phi i32 [ %sub567, %if.else573 ], [ %sub572, %if.then570 ]
   %cmp576 = icmp ugt i32 %104, 99
   %cond578 = select i1 %cmp576, i32 5, i32 4
-  %conv579 = trunc i32 %cond578 to i8
+  %conv579 = trunc nuw nsw i32 %cond578 to i8
   store i8 %conv579, ptr %tail, align 1
   %rem5828581197 = urem i32 %104, 10
-  %105 = trunc i32 %rem5828581197 to i8
+  %105 = trunc nuw nsw i32 %rem5828581197 to i8
   %conv584859 = or disjoint i8 %105, 48
   %idxprom585860 = zext nneg i32 %cond578 to i64
   %arrayidx586861 = getelementptr inbounds [8 x i8], ptr %tail, i64 0, i64 %idxprom585860
@@ -1220,7 +1220,7 @@ if.end590:                                        ; preds = %if.end575, %if.end5
   %indvars.iv.next1093 = add nsw i64 %indvars.iv1092, -1
   %div592 = sdiv i32 %div592857862, 10
   %rem582 = srem i32 %div592, 10
-  %106 = trunc i32 %rem582 to i8
+  %106 = trunc nsw i32 %rem582 to i8
   %conv584 = add nsw i8 %106, 48
   %arrayidx586 = getelementptr inbounds [8 x i8], ptr %tail, i64 0, i64 %indvars.iv.next1093
   store i8 %conv584, ptr %arrayidx586, align 1
@@ -2074,7 +2074,7 @@ if.then1110:                                      ; preds = %for.cond1106
 if.end1116:                                       ; preds = %for.cond1106, %if.then1110
   %storemerge = phi i64 [ %div1113, %if.then1110 ], [ 0, %for.cond1106 ]
   %n.15.in = phi i64 [ %rem1111, %if.then1110 ], [ %n64.4, %for.cond1106 ]
-  %n.15 = trunc i64 %n.15.in to i32
+  %n.15 = trunc nuw i64 %n.15.in to i32
   br i1 %cmp1118, label %do.body, label %if.end1128
 
 do.body:                                          ; preds = %if.end1116, %do.body
@@ -2114,7 +2114,7 @@ if.then1138:                                      ; preds = %while.body1131
 if.else1141:                                      ; preds = %while.body1131
   %inc1135 = add i32 %211, 1
   %rem1142 = urem i32 %n.18769, 10
-  %212 = trunc i32 %rem1142 to i8
+  %212 = trunc nuw nsw i32 %rem1142 to i8
   %conv1146 = or disjoint i8 %212, 48
   %s.28.add = add nsw i64 %s.28.idx770, -1
   %incdec.ptr1147.ptr = getelementptr inbounds i8, ptr %num, i64 %s.28.add
@@ -3068,29 +3068,29 @@ done:                                             ; preds = %if.then14, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @stbsp__real_to_parts(ptr nocapture noundef writeonly %bits, ptr nocapture noundef writeonly %expo, double noundef %value) local_unnamed_addr #1 {
+define i32 @stbsp__real_to_parts(ptr nocapture noundef writeonly %bits, ptr nocapture noundef writeonly %expo, double noundef %value) local_unnamed_addr #1 {
 entry:
   %0 = bitcast double %value to i64
   %and = and i64 %0, 4503599627370495
   store i64 %and, ptr %bits, align 8
   %shr = lshr i64 %0, 52
-  %1 = trunc i64 %shr to i32
+  %1 = trunc nuw nsw i64 %shr to i32
   %2 = and i32 %1, 2047
   %conv = add nsw i32 %2, -1023
   store i32 %conv, ptr %expo, align 4
   %shr4 = lshr i64 %0, 63
-  %conv5 = trunc i64 %shr4 to i32
+  %conv5 = trunc nuw nsw i64 %shr4 to i32
   ret i32 %conv5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @stbsp__real_to_str(ptr nocapture noundef writeonly %start, ptr nocapture noundef writeonly %len, ptr noundef %out, ptr nocapture noundef writeonly %decimal_pos, double noundef %value, i32 noundef %frac_digits) local_unnamed_addr #4 {
+define i32 @stbsp__real_to_str(ptr nocapture noundef writeonly %start, ptr nocapture noundef writeonly %len, ptr noundef %out, ptr nocapture noundef writeonly %decimal_pos, double noundef %value, i32 noundef %frac_digits) local_unnamed_addr #4 {
 entry:
   %ph = alloca double, align 8
   %pl = alloca double, align 8
   %0 = bitcast double %value to i64
   %shr = lshr i64 %0, 52
-  %1 = trunc i64 %shr to i32
+  %1 = trunc nuw nsw i64 %shr to i32
   %conv = and i32 %1, 2047
   %d.0 = tail call double @llvm.fabs.f64(double %value)
   switch i32 %conv, label %if.end23 [
@@ -3277,7 +3277,7 @@ for.cond119:                                      ; preds = %for.cond119.loopexi
 if.end129:                                        ; preds = %for.cond119
   %rem125 = urem i64 %storemerge99, 100000000
   %div127 = udiv i64 %storemerge99, 100000000
-  %n120.0 = trunc i64 %rem125 to i32
+  %n120.0 = trunc nuw nsw i64 %rem125 to i32
   %tobool131.not86 = icmp eq i32 %n120.0, 0
   br i1 %tobool131.not86, label %while.body156.preheader, label %while.body132.preheader
 
@@ -3356,7 +3356,7 @@ return:                                           ; preds = %for.end160, %if.the
   %e.3.sink = phi i32 [ %e.3, %for.end160 ], [ 1, %if.then16 ], [ 3, %if.then7 ]
   store i32 %e.3.sink, ptr %len, align 4
   %shr3 = lshr i64 %0, 63
-  %conv4 = trunc i64 %shr3 to i32
+  %conv4 = trunc nuw nsw i64 %shr3 to i32
   ret i32 %conv4
 }
 
@@ -3410,7 +3410,7 @@ if.end9.loopexit:                                 ; preds = %do.body
 
 if.end9:                                          ; preds = %if.then2, %if.end9.loopexit
   %4 = phi i32 [ %.pre22, %if.end9.loopexit ], [ %1, %if.then2 ]
-  %5 = phi ptr [ %.pre, %if.end9.loopexit ], [ %buf, %if.then2 ]
+  %5 = phi ptr [ %.pre, %if.end9.loopexit ], [ %2, %if.then2 ]
   %add.ptr12 = getelementptr inbounds i8, ptr %5, i64 %.pre23
   store ptr %add.ptr12, ptr %user, align 8
   %sub = sub nsw i32 %4, %spec.select

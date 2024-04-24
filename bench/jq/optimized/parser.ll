@@ -347,7 +347,7 @@ define noundef i32 @yyparse(ptr nocapture noundef writeonly %0, ptr nocapture no
   %.11154 = phi i32 [ 0, %4 ], [ %.01153, %30 ]
   %.11151 = phi i32 [ 0, %4 ], [ %.01150, %30 ]
   %.1 = phi i32 [ -2, %4 ], [ %.01145, %30 ]
-  %33 = trunc i32 %.11151 to i16
+  %33 = trunc nsw i32 %.11151 to i16
   store i16 %33, ptr %.11164, align 2
   %34 = getelementptr inbounds i16, ptr %.01158, i64 %.01156
   %35 = getelementptr inbounds i8, ptr %34, i64 -2
@@ -3491,7 +3491,7 @@ define noundef i32 @yyparse(ptr nocapture noundef writeonly %0, ptr nocapture no
   %.61253 = phi ptr [ %.51252, %2125 ], [ %.41251, %2109 ], [ %.11248, %68 ], [ %.11248, %61 ]
   %.01192 = phi i32 [ 2, %2125 ], [ 1, %2109 ], [ 1, %61 ], [ 0, %68 ]
   %.61179 = phi ptr [ %.51178, %2125 ], [ %.31176, %2109 ], [ %65, %61 ], [ %.21175, %68 ]
-  %.61169 = phi ptr [ %.51168, %2125 ], [ %.11159, %2109 ], [ %63, %61 ], [ %.21165, %68 ]
+  %.61169 = phi ptr [ %.51168, %2125 ], [ %.31166, %2109 ], [ %63, %61 ], [ %.21165, %68 ]
   %.41162 = phi ptr [ %.31161, %2125 ], [ %.11159, %2109 ], [ %47, %61 ], [ %.11159, %68 ]
   %.10 = phi i32 [ %.9, %2125 ], [ %.7, %2109 ], [ %.1, %68 ], [ %.1, %61 ]
   %.not1232 = icmp eq i32 %.10, -2
@@ -4134,14 +4134,14 @@ define internal fastcc noundef i32 @yysyntax_error(ptr nocapture noundef %0, ptr
   %19 = sext i32 %15 to i64
   br label %.lr.ph.split.i.i
 
-.lr.ph.split.i.i:                                 ; preds = %37, %.lr.ph.i.i
+.lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %37
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %37 ], [ %17, %.lr.ph.i.i ]
   %.0353.i.i = phi i32 [ %.2.i.fr.i, %37 ], [ 0, %.lr.ph.i.i ]
   %20 = add nsw i64 %indvars.iv.i.i, %18
   %21 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i32
-  %24 = trunc i64 %indvars.iv.i.i to i32
+  %24 = trunc nsw i64 %indvars.iv.i.i to i32
   %25 = icmp eq i32 %24, %23
   %26 = icmp ne i64 %indvars.iv.i.i, 1
   %or.cond.i.i = and i1 %26, %25

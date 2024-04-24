@@ -1289,7 +1289,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZNSt6vectorIjSaIjEE5clearEv.exit, %invoke.contthread-pre-split.i, %_ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EE5clearEv.exit
-  %6 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %2, %_ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EE5clearEv.exit ], [ %2, %_ZNSt6vectorIjSaIjEE5clearEv.exit ]
+  %6 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %_ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EE5clearEv.exit ], [ %2, %_ZNSt6vectorIjSaIjEE5clearEv.exit ]
   %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EED2Ev.exit, label %if.then.i.i.i
 

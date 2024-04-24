@@ -204,7 +204,7 @@ if.end5.i:                                        ; preds = %if.end.i16
   %shl.i = shl nuw i64 %add, 1
   %sub.i = add i64 %shl.i, -1
   %1 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 true), !range !5
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %conv1.i.i.i.i = shl nuw nsw i32 %2, 2
   %sub8.i = xor i32 %conv1.i.i.i.i, 252
   %shl9.i = add nsw i32 %sub8.i, -20
@@ -615,7 +615,7 @@ if.then35.i:                                      ; preds = %do.end.i
   br i1 %cmp87.i, label %if.then89.i, label %if.else92.i
 
 if.then89.i:                                      ; preds = %if.then35.i
-  %30 = load ptr, ptr %path.i, align 16
+  %30 = load ptr, ptr %nodep.0.i, align 8
   store ptr %30, ptr @tdatas, align 8
   br label %if.end180.i
 
@@ -1642,7 +1642,7 @@ if.then35.i.i:                                    ; preds = %do.end.i.i
   br i1 %cmp87.i.i, label %if.then89.i.i, label %if.else92.i.i
 
 if.then89.i.i:                                    ; preds = %if.then35.i.i
-  %49 = load ptr, ptr %path.i.i, align 16
+  %49 = load ptr, ptr %nodep.0.i.i, align 8
   store ptr %49, ptr %tctxs.i, align 8
   br label %if.end180.i.i
 
@@ -2483,7 +2483,7 @@ monotonic.i.i:                                    ; preds = %if.then.i, %if.then
   %retval.i.0 = phi ptr [ %arrayidx15.i, %if.then.i ], [ %arrayidx54.i, %if.then27.i ], [ %arrayidx136.i, %if.then71.i ], [ %call141.i, %for.end.i ]
   %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !14
   %shr.i69 = lshr i64 %10, 48
-  %conv.i70 = trunc i64 %shr.i69 to i32
+  %conv.i70 = trunc nuw nsw i64 %shr.i69 to i32
   %metadata.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %conv.i70, ptr %metadata.i, align 8, !alias.scope !17
   %slab.i = getelementptr inbounds i8, ptr %agg.result, i64 17

@@ -16262,7 +16262,7 @@ define hidden void @_ZN8smol_str19build_from_str_iter17hd5f4392ad354ab4fE(ptr no
   br i1 %162, label %._crit_edge.i.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 ._crit_edge.i.loopexit.i.i.i.i.i:                 ; preds = %"_ZN115_$LT$itertools..intersperse..IntersperseWith$LT$I$C$ElemF$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hbdbd9e34d10a6e27E.exit.i.i.i.i.i.i"
-  store ptr %128, ptr %126, align 8, !alias.scope !3997, !noalias !3992
+  store ptr %134, ptr %126, align 8, !alias.scope !3997, !noalias !3992
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.i.loopexit.i.i.i.i.i, %125

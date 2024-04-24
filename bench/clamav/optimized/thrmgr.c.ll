@@ -468,15 +468,15 @@ define dso_local void @thrmgr_destroy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %40, label %.thread, label %43
 
 .thread:                                          ; preds = %.lr.ph.i.preheader, %36
-  %.029.i.lcssa3942 = phi ptr [ %.0.i, %36 ], [ %.026.i, %.lr.ph.i.preheader ]
-  %41 = getelementptr inbounds i8, ptr %.026.i, i64 8
+  %.029.i.lcssa3941 = phi ptr [ %.0.i, %36 ], [ %.026.i, %.lr.ph.i.preheader ]
+  %41 = getelementptr inbounds i8, ptr %.029.i.lcssa3941, i64 8
   %42 = load ptr, ptr %41, align 8
   store ptr %42, ptr @pools, align 8
   br label %43
 
 43:                                               ; preds = %.thread, %36
-  %.029.i.lcssa3941 = phi ptr [ %.029.i.lcssa3942, %.thread ], [ %.0.i, %36 ]
-  tail call void @free(ptr noundef nonnull %.029.i.lcssa3941) #12
+  %.029.i.lcssa3942 = phi ptr [ %.029.i.lcssa3941, %.thread ], [ %.0.i, %36 ]
+  tail call void @free(ptr noundef nonnull %.029.i.lcssa3942) #12
   %44 = getelementptr inbounds i8, ptr %0, i64 320
   %45 = load ptr, ptr %44, align 8
   %.not2230.i = icmp eq ptr %45, null

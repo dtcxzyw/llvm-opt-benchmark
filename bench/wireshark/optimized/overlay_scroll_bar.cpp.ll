@@ -1176,7 +1176,7 @@ define noundef zeroext i1 @_ZN16OverlayScrollBar11eventFilterEP7QObjectP6QEvent(
   br i1 %or.cond, label %18, label %._crit_edge
 
 18:                                               ; preds = %3
-  %19 = tail call noundef zeroext i1 @_ZN10QScrollBar5eventEP6QEvent(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %2)
+  %19 = tail call noundef zeroext i1 @_ZN10QScrollBar5eventEP6QEvent(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull %2)
   %20 = getelementptr inbounds i8, ptr %0, i64 120
   %21 = tail call noundef zeroext i1 @_ZNK6QImage6isNullEv(ptr noundef nonnull align 8 dereferenceable(24) %20)
   br i1 %21, label %109, label %22
@@ -1211,14 +1211,14 @@ define noundef zeroext i1 @_ZN16OverlayScrollBar11eventFilterEP7QObjectP6QEvent(
   store i64 0, ptr %39, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 24
   store i64 %.sroa.3.8.insert.insert.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %40 = invoke noundef ptr @_ZNK7QWidget5styleEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
+  %40 = invoke noundef ptr @_ZNK7QWidget5styleEv(ptr noundef nonnull align 8 dereferenceable(40) %13)
           to label %41 unwind label %46
 
 41:                                               ; preds = %26
   %42 = load ptr, ptr %40, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 216
   %44 = load ptr, ptr %43, align 8
-  %45 = invoke { i64, i64 } %44(ptr noundef nonnull align 8 dereferenceable(16) %40, i32 noundef 2, ptr noundef nonnull %7, i32 noundef 128, ptr noundef nonnull %1)
+  %45 = invoke { i64, i64 } %44(ptr noundef nonnull align 8 dereferenceable(16) %40, i32 noundef 2, ptr noundef nonnull %7, i32 noundef 128, ptr noundef nonnull %13)
           to label %_ZN16OverlayScrollBar10grooveRectEv.exit unwind label %46
 
 common.resume:                                    ; preds = %106, %46

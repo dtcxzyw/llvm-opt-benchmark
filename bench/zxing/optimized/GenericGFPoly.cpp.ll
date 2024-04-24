@@ -503,7 +503,7 @@ _ZN5ZXing13GenericGFPoly12Coefficients6resizeEm.exit: ; preds = %34, %36, %38
   br label %_ZN5ZXing13GenericGFPoly11setMonomialEii.exit
 
 _ZN5ZXing13GenericGFPoly11setMonomialEii.exit:    ; preds = %_ZN5ZXing13GenericGFPoly12Coefficients6resizeEm.exit, %.lr.ph.i.i.i.i.preheader.i
-  %47 = phi ptr [ %.pre.i, %.lr.ph.i.i.i.i.preheader.i ], [ %40, %_ZN5ZXing13GenericGFPoly12Coefficients6resizeEm.exit ]
+  %47 = phi ptr [ %.pre.i, %.lr.ph.i.i.i.i.preheader.i ], [ %41, %_ZN5ZXing13GenericGFPoly12Coefficients6resizeEm.exit ]
   store i32 0, ptr %47, align 4
   br label %133
 
@@ -631,7 +631,7 @@ _ZNK5ZXing9GenericGF8multiplyEii.exit:            ; preds = %.lr.ph, %87
 
 ._crit_edge24:                                    ; preds = %._crit_edge, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
   %.lcssa21 = phi ptr [ %73, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit ], [ %119, %._crit_edge ]
-  %.lcssa = phi ptr [ %73, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit ], [ %118, %._crit_edge ]
+  %.lcssa = phi ptr [ %74, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit ], [ %118, %._crit_edge ]
   %128 = getelementptr inbounds i8, ptr %0, i64 24
   %129 = load ptr, ptr %128, align 8
   %130 = load <2 x ptr>, ptr %49, align 8
@@ -763,7 +763,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN5ZXing13GenericGFPoly
   br i1 %18, label %19, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i
 
 19:                                               ; preds = %14
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %17, ptr align 4 %8, i64 %16, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %17, ptr align 4 %9, i64 %16, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i: ; preds = %19, %14
@@ -771,7 +771,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i: ; preds = %19, %14
   br i1 %.not.i8.i.i.i, label %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i.i, label %20
 
 20:                                               ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #14
   br label %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i.i
 
 _ZNSt6vectorIiSaIiEE7reserveEm.exit.i.i:          ; preds = %20, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i
@@ -832,7 +832,7 @@ _ZN5ZXing13GenericGFPoly12Coefficients6resizeEm.exit: ; preds = %30, %32, %34
   br label %_ZN5ZXing13GenericGFPoly11setMonomialEii.exit
 
 _ZN5ZXing13GenericGFPoly11setMonomialEii.exit:    ; preds = %_ZN5ZXing13GenericGFPoly12Coefficients6resizeEm.exit, %.lr.ph.i.i.i.i.preheader.i
-  %43 = phi ptr [ %.pre.i, %.lr.ph.i.i.i.i.preheader.i ], [ %36, %_ZN5ZXing13GenericGFPoly12Coefficients6resizeEm.exit ]
+  %43 = phi ptr [ %.pre.i, %.lr.ph.i.i.i.i.preheader.i ], [ %37, %_ZN5ZXing13GenericGFPoly12Coefficients6resizeEm.exit ]
   store i32 0, ptr %43, align 4
   br label %78
 
@@ -1058,7 +1058,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN5ZXing13GenericGFPoly
   br i1 %46, label %47, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i
 
 47:                                               ; preds = %42
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %45, ptr align 4 %37, i64 %44, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %45, ptr align 4 %38, i64 %44, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i: ; preds = %47, %42
@@ -1066,7 +1066,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i: ; preds = %47, %42
   br i1 %.not.i8.i.i.i, label %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %37) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %38) #14
   br label %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i.i
 
 _ZNSt6vectorIiSaIiEE7reserveEm.exit.i.i:          ; preds = %48, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i
@@ -1127,7 +1127,7 @@ _ZN5ZXing13GenericGFPoly12Coefficients6resizeEm.exit: ; preds = %58, %60, %62
   br label %_ZN5ZXing13GenericGFPoly11setMonomialEii.exit
 
 _ZN5ZXing13GenericGFPoly11setMonomialEii.exit:    ; preds = %_ZN5ZXing13GenericGFPoly12Coefficients6resizeEm.exit, %.lr.ph.i.i.i.i.preheader.i
-  %71 = phi ptr [ %.pre.i, %.lr.ph.i.i.i.i.preheader.i ], [ %64, %_ZN5ZXing13GenericGFPoly12Coefficients6resizeEm.exit ]
+  %71 = phi ptr [ %.pre.i, %.lr.ph.i.i.i.i.preheader.i ], [ %65, %_ZN5ZXing13GenericGFPoly12Coefficients6resizeEm.exit ]
   store i32 0, ptr %71, align 4
   br label %271
 
@@ -1412,7 +1412,7 @@ _ZNK5ZXing9GenericGF8multiplyEii.exit48:          ; preds = %.lr.ph, %135
   br i1 %223, label %224, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i61
 
 224:                                              ; preds = %219
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %222, ptr align 4 %214, i64 %221, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %222, ptr align 4 %215, i64 %221, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i61
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i61: ; preds = %224, %219
@@ -1420,7 +1420,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i61: ; preds = %224, %21
   br i1 %.not.i8.i.i.i62, label %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i.i63, label %225
 
 225:                                              ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i61
-  tail call void @_ZdlPv(ptr noundef nonnull %214) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %215) #14
   br label %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i.i63
 
 _ZNSt6vectorIiSaIiEE7reserveEm.exit.i.i63:        ; preds = %225, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i.i61
@@ -1480,7 +1480,7 @@ _ZN5ZXing13GenericGFPoly12Coefficients6resizeEm.exit65: ; preds = %234, %236, %2
   br label %_ZN5ZXing13GenericGFPoly11setMonomialEii.exit52
 
 _ZN5ZXing13GenericGFPoly11setMonomialEii.exit52:  ; preds = %_ZN5ZXing13GenericGFPoly12Coefficients6resizeEm.exit65, %.lr.ph.i.i.i.i.preheader.i50
-  %247 = phi ptr [ %.pre.i51, %.lr.ph.i.i.i.i.preheader.i50 ], [ %240, %_ZN5ZXing13GenericGFPoly12Coefficients6resizeEm.exit65 ]
+  %247 = phi ptr [ %.pre.i51, %.lr.ph.i.i.i.i.preheader.i50 ], [ %241, %_ZN5ZXing13GenericGFPoly12Coefficients6resizeEm.exit65 ]
   store i32 0, ptr %247, align 4
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
 

@@ -3120,7 +3120,7 @@ entry:
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %threads_, align 8
   %cmp28.not = icmp eq ptr %0, %1
-  br i1 %cmp28.not, label %try.cont, label %invoke.cont.lr.ph
+  br i1 %cmp28.not, label %for.cond8.preheader, label %invoke.cont.lr.ph
 
 invoke.cont.lr.ph:                                ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
@@ -3136,9 +3136,11 @@ invoke.cont.lr.ph:                                ; preds = %entry
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 400
   br label %invoke.cont
 
-for.cond8.preheader:                              ; preds = %_ZN6spdlog7details9async_msgD2Ev.exit
-  %cmp.i.not31 = icmp eq ptr %16, %15
-  br i1 %cmp.i.not31, label %try.contthread-pre-split, label %for.body10
+for.cond8.preheader:                              ; preds = %_ZN6spdlog7details9async_msgD2Ev.exit, %entry
+  %.lcssa14 = phi ptr [ %0, %entry ], [ %15, %_ZN6spdlog7details9async_msgD2Ev.exit ]
+  %.lcssa = phi ptr [ %1, %entry ], [ %16, %_ZN6spdlog7details9async_msgD2Ev.exit ]
+  %cmp.i.not31 = icmp eq ptr %.lcssa, %.lcssa14
+  br i1 %cmp.i.not31, label %try.cont, label %for.body10
 
 invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %_ZN6spdlog7details9async_msgD2Ev.exit
   %i.029 = phi i64 [ 0, %invoke.cont.lr.ph ], [ %inc, %_ZN6spdlog7details9async_msgD2Ev.exit ]
@@ -3279,14 +3281,10 @@ catch.dispatch:                                   ; preds = %lpad2, %lpad
 catch:                                            ; preds = %catch.dispatch
   %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #18
   invoke void @__cxa_end_catch()
-          to label %try.contthread-pre-split unwind label %terminate.lpad
+          to label %try.cont unwind label %terminate.lpad
 
-try.contthread-pre-split:                         ; preds = %for.inc13, %catch, %for.cond8.preheader
-  %.pr = load ptr, ptr %threads_, align 8
-  br label %try.cont
-
-try.cont:                                         ; preds = %entry, %try.contthread-pre-split
-  %21 = phi ptr [ %.pr, %try.contthread-pre-split ], [ %1, %entry ]
+try.cont:                                         ; preds = %for.inc13, %for.cond8.preheader, %catch
+  %21 = load ptr, ptr %threads_, align 8
   %22 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %21, %22
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -3346,14 +3344,14 @@ _ZN6spdlog7details19mpmc_blocking_queueINS0_9async_msgEED2Ev.exit: ; preds = %in
   ret void
 
 for.body10:                                       ; preds = %for.cond8.preheader, %for.inc13
-  %__begin2.sroa.0.032 = phi ptr [ %incdec.ptr.i, %for.inc13 ], [ %16, %for.cond8.preheader ]
+  %__begin2.sroa.0.032 = phi ptr [ %incdec.ptr.i, %for.inc13 ], [ %.lcssa, %for.cond8.preheader ]
   invoke void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2.sroa.0.032)
           to label %for.inc13 unwind label %lpad
 
 for.inc13:                                        ; preds = %for.body10
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.032, i64 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %15
-  br i1 %cmp.i.not, label %try.contthread-pre-split, label %for.body10
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %.lcssa14
+  br i1 %cmp.i.not, label %try.cont, label %for.body10
 
 terminate.lpad:                                   ; preds = %catch
   %28 = landingpad { ptr, i32 }
@@ -5323,7 +5321,7 @@ _ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_
   br label %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
 
 _ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit: ; preds = %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split, %if.end59.i, %land.lhs.true61.i, %if.then49.i, %if.end42.i, %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
-  %retval.i.0 = phi ptr [ %add.ptr.i.i, %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit ], [ %add.ptr.i.i, %if.end42.i ], [ %add.ptr.i.i, %if.then49.i ], [ %begin.addr.i.4117, %land.lhs.true61.i ], [ %add.ptr.i.i, %if.end59.i ], [ %retval.i.0.ph, %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split ]
+  %retval.i.0 = phi ptr [ %retval.0.i, %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit ], [ %call43.i, %if.end42.i ], [ %call50.i, %if.then49.i ], [ %begin.addr.i.4117, %land.lhs.true61.i ], [ %incdec.ptr58.i, %if.end59.i ], [ %retval.i.0.ph, %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split ]
   %type33 = getelementptr inbounds i8, ptr %this, i64 8
   %22 = load i8, ptr %type33, align 8
   switch i8 %22, label %if.then5.i [
@@ -5503,7 +5501,7 @@ if.else6:                                         ; preds = %entry
 if.then9:                                         ; preds = %if.else6
   %incdec.ptr = getelementptr inbounds i8, ptr %begin, i64 1
   %cmp10.not = icmp eq ptr %incdec.ptr, %end
-  br i1 %cmp10.not, label %if.then19, label %if.then11
+  br i1 %cmp10.not, label %if.end15, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
   store ptr %handler, ptr %ref.tmp12, align 8
@@ -5575,8 +5573,8 @@ _ZZN3fmt2v96detail11parse_widthIcRNS1_13specs_checkerINS1_21dynamic_specs_handle
   store i32 %11, ptr %ref.tmp.sroa.21.0.width_ref.sroa_idx.i.i, align 8
   br label %if.end15
 
-if.end15:                                         ; preds = %if.then.i, %_ZZN3fmt2v96detail11parse_widthIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN13width_adapterclEv.exit
-  %begin.addr.0 = phi ptr [ %call.i, %if.then.i ], [ %incdec.ptr, %_ZZN3fmt2v96detail11parse_widthIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN13width_adapterclEv.exit ]
+if.end15:                                         ; preds = %if.then.i, %_ZZN3fmt2v96detail11parse_widthIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN13width_adapterclEv.exit, %if.then9
+  %begin.addr.0 = phi ptr [ %incdec.ptr, %if.then9 ], [ %call.i, %if.then.i ], [ %incdec.ptr, %_ZZN3fmt2v96detail11parse_widthIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN13width_adapterclEv.exit ]
   %cmp16 = icmp eq ptr %begin.addr.0, %end
   br i1 %cmp16, label %if.then19, label %lor.lhs.false
 
@@ -5585,7 +5583,7 @@ lor.lhs.false:                                    ; preds = %if.end15
   %cmp18.not = icmp eq i8 %20, 125
   br i1 %cmp18.not, label %if.end20, label %if.then19
 
-if.then19:                                        ; preds = %if.then9, %lor.lhs.false, %if.end15
+if.then19:                                        ; preds = %lor.lhs.false, %if.end15
   call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.7) #19
   unreachable
 
@@ -5683,7 +5681,7 @@ if.else6:                                         ; preds = %cond.end
 if.then9:                                         ; preds = %if.else6
   %incdec.ptr10 = getelementptr inbounds i8, ptr %begin, i64 2
   %cmp11.not = icmp eq ptr %incdec.ptr10, %end
-  br i1 %cmp11.not, label %if.then20, label %if.then12
+  br i1 %cmp11.not, label %if.end15, label %if.then12
 
 if.then12:                                        ; preds = %if.then9
   store ptr %handler, ptr %ref.tmp, align 8
@@ -5755,8 +5753,8 @@ _ZZN3fmt2v96detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_ha
   store i32 %12, ptr %ref.tmp.sroa.21.0.precision_ref.sroa_idx.i.i, align 8
   br label %if.end15
 
-if.end15:                                         ; preds = %if.then.i, %_ZZN3fmt2v96detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN17precision_adapterclEv.exit
-  %begin.addr.0 = phi ptr [ %call.i, %if.then.i ], [ %incdec.ptr10, %_ZZN3fmt2v96detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN17precision_adapterclEv.exit ]
+if.end15:                                         ; preds = %if.then.i, %_ZZN3fmt2v96detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN17precision_adapterclEv.exit, %if.then9
+  %begin.addr.0 = phi ptr [ %incdec.ptr10, %if.then9 ], [ %call.i, %if.then.i ], [ %incdec.ptr10, %_ZZN3fmt2v96detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN17precision_adapterclEv.exit ]
   %cmp16 = icmp eq ptr %begin.addr.0, %end
   br i1 %cmp16, label %if.then20, label %lor.lhs.false
 
@@ -5766,7 +5764,7 @@ lor.lhs.false:                                    ; preds = %if.end15
   %cmp19.not = icmp eq i8 %21, 125
   br i1 %cmp19.not, label %if.end24, label %if.then20
 
-if.then20:                                        ; preds = %if.then9, %lor.lhs.false, %if.end15
+if.then20:                                        ; preds = %lor.lhs.false, %if.end15
   call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.7) #19
   unreachable
 
@@ -6486,7 +6484,7 @@ _ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_
   br label %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
 
 _ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit: ; preds = %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split, %if.end59.i, %land.lhs.true61.i, %if.then49.i, %if.end42.i, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_zeroEv.exit, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_hashEv.exit, %sw.epilog.i, %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
-  %retval.i.0 = phi ptr [ %add.ptr.i.i, %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit ], [ %add.ptr.i.i, %sw.epilog.i ], [ %add.ptr.i.i, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_hashEv.exit ], [ %add.ptr.i.i, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_zeroEv.exit ], [ %add.ptr.i.i, %if.end42.i ], [ %add.ptr.i.i, %if.then49.i ], [ %begin.addr.i.4118, %land.lhs.true61.i ], [ %add.ptr.i.i, %if.end59.i ], [ %retval.i.0.ph, %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split ]
+  %retval.i.0 = phi ptr [ %retval.0.i, %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit ], [ %begin.addr.i.0, %sw.epilog.i ], [ %incdec.ptr30.i, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_hashEv.exit ], [ %incdec.ptr38.i, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_zeroEv.exit ], [ %call43.i, %if.end42.i ], [ %call50.i, %if.then49.i ], [ %begin.addr.i.4118, %land.lhs.true61.i ], [ %incdec.ptr58.i, %if.end59.i ], [ %retval.i.0.ph, %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split ]
   %type16 = getelementptr inbounds i8, ptr %this, i64 8
   %25 = load i8, ptr %type16, align 8
   switch i8 %25, label %if.then.i113 [

@@ -860,12 +860,12 @@ define internal fastcc noundef i32 @pt_buffer_reset_markers(ptr noundef %0, ptr 
   br label %101
 
 86:                                               ; preds = %77
-  %87 = getelementptr inbounds i8, ptr %79, i64 4056
+  %87 = getelementptr inbounds i8, ptr %82, i64 4056
   %88 = getelementptr inbounds i8, ptr %0, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %87, %89
   %91 = getelementptr inbounds i8, ptr %0, i64 24
-  %92 = getelementptr inbounds i8, ptr %79, i64 4064
+  %92 = getelementptr inbounds i8, ptr %82, i64 4064
   %93 = select i1 %90, ptr %91, ptr %92
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr i8, ptr %94, i64 -4056
@@ -912,12 +912,12 @@ define internal fastcc noundef i32 @pt_buffer_reset_markers(ptr noundef %0, ptr 
   br label %137
 
 122:                                              ; preds = %113
-  %123 = getelementptr inbounds i8, ptr %115, i64 4056
+  %123 = getelementptr inbounds i8, ptr %118, i64 4056
   %124 = getelementptr inbounds i8, ptr %0, i64 16
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %123, %125
   %127 = getelementptr inbounds i8, ptr %0, i64 24
-  %128 = getelementptr inbounds i8, ptr %115, i64 4064
+  %128 = getelementptr inbounds i8, ptr %118, i64 4064
   %129 = select i1 %126, ptr %127, ptr %128
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr i8, ptr %130, i64 -4056

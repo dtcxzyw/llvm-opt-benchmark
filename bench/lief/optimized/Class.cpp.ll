@@ -612,7 +612,7 @@ define void @_ZNK4LIEF3DEX5Class12access_flagsEv(ptr dead_on_unwind noalias noca
   br i1 %19, label %20, label %_ZNKSt6vectorIN4LIEF3DEX12ACCESS_FLAGSESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
 20:                                               ; preds = %15
-  store ptr %8, ptr %4, align 8
+  store ptr %9, ptr %4, align 8
   store ptr %8, ptr %5, align 8
   store ptr %7, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #18
@@ -672,7 +672,7 @@ _ZNSt20back_insert_iteratorISt6vectorIN4LIEF3DEX12ACCESS_FLAGSESaIS3_EEEaSERKS3_
 .loopexit:                                        ; preds = %26
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %8, ptr %4, align 8
+  store ptr %9, ptr %4, align 8
   store ptr %8, ptr %5, align 8
   store ptr %7, ptr %0, align 8
   br label %40

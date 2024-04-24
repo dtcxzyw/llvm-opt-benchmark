@@ -339,7 +339,7 @@ define dso_local void @_ZN4Fact26abstract_fact_for_var_initEPK8Variable(ptr dead
 
 .loopexit.i:                                      ; preds = %.loopexitthread-pre-split.i, %.lr.ph.i
   %85 = phi ptr [ %.pre60, %.loopexitthread-pre-split.i ], [ %48, %.lr.ph.i ]
-  %86 = phi ptr [ %.pr.i, %.loopexitthread-pre-split.i ], [ %48, %.lr.ph.i ]
+  %86 = phi ptr [ %.pr.i, %.loopexitthread-pre-split.i ], [ %49, %.lr.ph.i ]
   %.01522.i = phi i64 [ %.01522.ph.i, %.loopexitthread-pre-split.i ], [ 0, %.lr.ph.i ]
   %87 = ptrtoint ptr %85 to i64
   %88 = ptrtoint ptr %86 to i64
@@ -428,7 +428,7 @@ _ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_
   br i1 %124, label %.lr.ph.i, label %_Z11merge_factsRSt6vectorIPK4FactSaIS2_EERKS4_.exit, !llvm.loop !7
 
 _Z11merge_factsRSt6vectorIPK4FactSaIS2_EERKS4_.exit: ; preds = %.noexc, %45
-  %125 = phi ptr [ %46, %45 ], [ %119, %.noexc ]
+  %125 = phi ptr [ %47, %45 ], [ %119, %.noexc ]
   %.not.i.i.i = icmp eq ptr %125, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit, label %126
 
@@ -900,7 +900,7 @@ define dso_local noundef zeroext i1 @_Z10renew_factRSt6vectorIPK4FactSaIS2_EES2_
   br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %24, %2, %21
-  %33 = phi ptr [ %.pre22, %21 ], [ %4, %2 ], [ %27, %24 ]
+  %33 = phi ptr [ %.pre22, %21 ], [ %5, %2 ], [ %27, %24 ]
   %34 = phi ptr [ %.pre, %21 ], [ %4, %2 ], [ %26, %24 ]
   %.019 = phi i64 [ %.020, %21 ], [ 0, %2 ], [ %25, %24 ]
   %35 = ptrtoint ptr %34 to i64

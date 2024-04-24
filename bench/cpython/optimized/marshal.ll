@@ -1014,9 +1014,9 @@ if.end5.i:                                        ; preds = %if.end.i
   %cond.i = tail call i64 @llvm.smax.i64(i64 %delta.0.i, i64 1)
   %sub.i = sub i64 9223372036854775807, %.val.i
   %cmp16.i = icmp sgt i64 %cond.i, %sub.i
-  br i1 %cmp16.i, label %lor.lhs.false7.thread178, label %if.end19.i
+  br i1 %cmp16.i, label %lor.lhs.false7.thread176, label %if.end19.i
 
-lor.lhs.false7.thread178:                         ; preds = %if.end5.i
+lor.lhs.false7.thread176:                         ; preds = %if.end5.i
   %error.i = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i, align 8
   br label %if.end.i21
@@ -1069,24 +1069,25 @@ do.body2:                                         ; preds = %if.then, %w_reserve
 
 lor.lhs.false7:                                   ; preds = %do.body2
   %cmp.i20 = icmp eq ptr %10, null
-  br i1 %cmp.i20, label %do.end48, label %if.end.i21
+  br i1 %cmp.i20, label %do.body17, label %if.end.i21
 
-if.end.i21:                                       ; preds = %lor.lhs.false7.thread178, %lor.lhs.false7
-  %12 = phi ptr [ %0, %lor.lhs.false7.thread178 ], [ %10, %lor.lhs.false7 ]
-  %13 = load ptr, ptr %p, align 8
-  %cmp1.not.i22 = icmp eq ptr %13, null
+if.end.i21:                                       ; preds = %lor.lhs.false7.thread176, %lor.lhs.false7
+  %12 = phi ptr [ %0, %lor.lhs.false7.thread176 ], [ %10, %lor.lhs.false7 ]
+  %13 = phi ptr [ %0, %lor.lhs.false7.thread176 ], [ %11, %lor.lhs.false7 ]
+  %14 = load ptr, ptr %p, align 8
+  %cmp1.not.i22 = icmp eq ptr %14, null
   %buf.i23 = getelementptr inbounds i8, ptr %p, i64 40
-  %14 = load ptr, ptr %buf.i23, align 8
+  %15 = load ptr, ptr %buf.i23, align 8
   %sub.ptr.lhs.cast7.i24 = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast8.i25 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast8.i25 = ptrtoint ptr %15 to i64
   %sub.ptr.sub9.i26 = sub i64 %sub.ptr.lhs.cast7.i24, %sub.ptr.rhs.cast8.i25
   br i1 %cmp1.not.i22, label %if.end5.i36, label %w_reserve.exit58
 
 if.end5.i36:                                      ; preds = %if.end.i21
   %str.i37 = getelementptr inbounds i8, ptr %p, i64 16
-  %15 = load ptr, ptr %str.i37, align 8
-  %16 = getelementptr i8, ptr %15, i64 16
-  %.val.i38 = load i64, ptr %16, align 8
+  %16 = load ptr, ptr %str.i37, align 8
+  %17 = getelementptr i8, ptr %16, i64 16
+  %.val.i38 = load i64, ptr %17, align 8
   %cmp10.i39 = icmp sgt i64 %.val.i38, 16777216
   %shr.i40 = lshr i64 %.val.i38, 3
   %add.i41 = add nsw i64 %.val.i38, 1024
@@ -1094,26 +1095,26 @@ if.end5.i36:                                      ; preds = %if.end.i21
   %cond.i43 = tail call i64 @llvm.smax.i64(i64 %delta.0.i42, i64 1)
   %sub.i44 = sub i64 9223372036854775807, %.val.i38
   %cmp16.i45 = icmp sgt i64 %cond.i43, %sub.i44
-  br i1 %cmp16.i45, label %lor.lhs.false22.thread181, label %if.end19.i46
+  br i1 %cmp16.i45, label %if.then18.i56, label %if.end19.i46
 
-lor.lhs.false22.thread181:                        ; preds = %if.end5.i36
+if.then18.i56:                                    ; preds = %if.end5.i36
   %error.i57 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i57, align 8
-  br label %if.end.i61
+  br label %do.body17
 
 if.end19.i46:                                     ; preds = %if.end5.i36
   %add20.i47 = add i64 %cond.i43, %.val.i38
   %call22.i48 = tail call i32 @_PyBytes_Resize(ptr noundef nonnull %str.i37, i64 noundef %add20.i47) #9
   %cmp23.not.i49 = icmp eq i32 %call22.i48, 0
-  br i1 %cmp23.not.i49, label %w_reserve.exit58.thread146, label %if.then25.i50
+  br i1 %cmp23.not.i49, label %w_reserve.exit58.thread146, label %lor.lhs.false22.thread
 
-if.then25.i50:                                    ; preds = %if.end19.i46
+lor.lhs.false22.thread:                           ; preds = %if.end19.i46
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr, i8 0, i64 24, i1 false)
   br label %do.end48
 
 w_reserve.exit58.thread146:                       ; preds = %if.end19.i46
-  %17 = load ptr, ptr %str.i37, align 8
-  %ob_sval.i.i52 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = load ptr, ptr %str.i37, align 8
+  %ob_sval.i.i52 = getelementptr inbounds i8, ptr %18, i64 32
   store ptr %ob_sval.i.i52, ptr %buf.i23, align 8
   %add.ptr.i53 = getelementptr i8, ptr %ob_sval.i.i52, i64 %sub.ptr.sub9.i26
   %add.ptr36.i54 = getelementptr i8, ptr %ob_sval.i.i52, i64 %add20.i47
@@ -1121,44 +1122,43 @@ w_reserve.exit58.thread146:                       ; preds = %if.end19.i46
   br label %if.then10
 
 w_reserve.exit58:                                 ; preds = %if.end.i21
-  %call.i.i28 = tail call i64 @fwrite(ptr noundef %14, i64 noundef 1, i64 noundef %sub.ptr.sub9.i26, ptr noundef nonnull %13)
-  %18 = load ptr, ptr %buf.i23, align 8
-  store ptr %18, ptr %ptr, align 8
-  %19 = load ptr, ptr %end, align 8
-  %sub.ptr.lhs.cast.i30 = ptrtoint ptr %19 to i64
-  %sub.ptr.rhs.cast.i31 = ptrtoint ptr %18 to i64
+  %call.i.i28 = tail call i64 @fwrite(ptr noundef %15, i64 noundef 1, i64 noundef %sub.ptr.sub9.i26, ptr noundef nonnull %14)
+  %19 = load ptr, ptr %buf.i23, align 8
+  store ptr %19, ptr %ptr, align 8
+  %20 = load ptr, ptr %end, align 8
+  %sub.ptr.lhs.cast.i30 = ptrtoint ptr %20 to i64
+  %sub.ptr.rhs.cast.i31 = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i32 = sub i64 %sub.ptr.lhs.cast.i30, %sub.ptr.rhs.cast.i31
   %cmp4.i33 = icmp slt i64 %sub.ptr.sub.i32, 1
   br i1 %cmp4.i33, label %do.body17, label %if.then10
 
 if.then10:                                        ; preds = %w_reserve.exit58.thread146, %w_reserve.exit58, %do.body2
-  %20 = phi ptr [ %add.ptr.i53, %w_reserve.exit58.thread146 ], [ %18, %w_reserve.exit58 ], [ %11, %do.body2 ]
+  %21 = phi ptr [ %add.ptr.i53, %w_reserve.exit58.thread146 ], [ %19, %w_reserve.exit58 ], [ %11, %do.body2 ]
   %shr = lshr i64 %x, 8
   %conv12 = trunc i64 %shr to i8
-  %incdec.ptr14 = getelementptr i8, ptr %20, i64 1
+  %incdec.ptr14 = getelementptr i8, ptr %21, i64 1
   store ptr %incdec.ptr14, ptr %ptr, align 8
-  store i8 %conv12, ptr %20, align 1
+  store i8 %conv12, ptr %21, align 1
   %.pr159.pre = load ptr, ptr %ptr, align 8
   %.pre163.pre = load ptr, ptr %end, align 8
   br label %do.body17
 
-do.body17:                                        ; preds = %if.then10, %w_reserve.exit58
-  %21 = phi ptr [ %19, %w_reserve.exit58 ], [ %.pre163.pre, %if.then10 ]
-  %22 = phi ptr [ %18, %w_reserve.exit58 ], [ %.pr159.pre, %if.then10 ]
-  %cmp20.not = icmp eq ptr %22, %21
+do.body17:                                        ; preds = %lor.lhs.false7, %if.then18.i56, %if.then10, %w_reserve.exit58
+  %22 = phi ptr [ %20, %w_reserve.exit58 ], [ %.pre163.pre, %if.then10 ], [ %12, %if.then18.i56 ], [ null, %lor.lhs.false7 ]
+  %23 = phi ptr [ %19, %w_reserve.exit58 ], [ %.pr159.pre, %if.then10 ], [ %13, %if.then18.i56 ], [ %11, %lor.lhs.false7 ]
+  %cmp20.not = icmp eq ptr %23, %22
   br i1 %cmp20.not, label %lor.lhs.false22, label %if.then25
 
 lor.lhs.false22:                                  ; preds = %do.body17
-  %cmp.i60 = icmp eq ptr %21, null
-  br i1 %cmp.i60, label %do.end48, label %if.end.i61
+  %cmp.i60 = icmp eq ptr %22, null
+  br i1 %cmp.i60, label %do.body33, label %if.end.i61
 
-if.end.i61:                                       ; preds = %lor.lhs.false22.thread181, %lor.lhs.false22
-  %23 = phi ptr [ %12, %lor.lhs.false22.thread181 ], [ %21, %lor.lhs.false22 ]
+if.end.i61:                                       ; preds = %lor.lhs.false22
   %24 = load ptr, ptr %p, align 8
   %cmp1.not.i62 = icmp eq ptr %24, null
   %buf.i63 = getelementptr inbounds i8, ptr %p, i64 40
   %25 = load ptr, ptr %buf.i63, align 8
-  %sub.ptr.lhs.cast7.i64 = ptrtoint ptr %23 to i64
+  %sub.ptr.lhs.cast7.i64 = ptrtoint ptr %22 to i64
   %sub.ptr.rhs.cast8.i65 = ptrtoint ptr %25 to i64
   %sub.ptr.sub9.i66 = sub i64 %sub.ptr.lhs.cast7.i64, %sub.ptr.rhs.cast8.i65
   br i1 %cmp1.not.i62, label %if.end5.i76, label %w_reserve.exit98
@@ -1175,12 +1175,12 @@ if.end5.i76:                                      ; preds = %if.end.i61
   %cond.i83 = tail call i64 @llvm.smax.i64(i64 %delta.0.i82, i64 1)
   %sub.i84 = sub i64 9223372036854775807, %.val.i78
   %cmp16.i85 = icmp sgt i64 %cond.i83, %sub.i84
-  br i1 %cmp16.i85, label %lor.lhs.false38.thread184, label %if.end19.i86
+  br i1 %cmp16.i85, label %if.then18.i96, label %if.end19.i86
 
-lor.lhs.false38.thread184:                        ; preds = %if.end5.i76
+if.then18.i96:                                    ; preds = %if.end5.i76
   %error.i97 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 3, ptr %error.i97, align 8
-  br label %if.end.i101
+  br label %do.body33
 
 if.end19.i86:                                     ; preds = %if.end5.i76
   %add20.i87 = add i64 %cond.i83, %.val.i78
@@ -1213,7 +1213,7 @@ w_reserve.exit98:                                 ; preds = %if.end.i61
   br i1 %cmp4.i73, label %do.body33, label %if.then25
 
 if.then25:                                        ; preds = %w_reserve.exit98.thread151, %w_reserve.exit98, %do.body17
-  %31 = phi ptr [ %add.ptr.i93, %w_reserve.exit98.thread151 ], [ %29, %w_reserve.exit98 ], [ %22, %do.body17 ]
+  %31 = phi ptr [ %add.ptr.i93, %w_reserve.exit98.thread151 ], [ %29, %w_reserve.exit98 ], [ %23, %do.body17 ]
   %shr26 = lshr i64 %x, 16
   %conv28 = trunc i64 %shr26 to i8
   %incdec.ptr30 = getelementptr i8, ptr %31, i64 1
@@ -1223,9 +1223,9 @@ if.then25:                                        ; preds = %w_reserve.exit98.th
   %.pre165.pre = load ptr, ptr %end, align 8
   br label %do.body33
 
-do.body33:                                        ; preds = %if.then25, %w_reserve.exit98
-  %32 = phi ptr [ %30, %w_reserve.exit98 ], [ %.pre165.pre, %if.then25 ]
-  %33 = phi ptr [ %29, %w_reserve.exit98 ], [ %.pr160.pre, %if.then25 ]
+do.body33:                                        ; preds = %lor.lhs.false22, %if.then18.i96, %if.then25, %w_reserve.exit98
+  %32 = phi ptr [ %30, %w_reserve.exit98 ], [ %.pre165.pre, %if.then25 ], [ %22, %if.then18.i96 ], [ null, %lor.lhs.false22 ]
+  %33 = phi ptr [ %29, %w_reserve.exit98 ], [ %.pr160.pre, %if.then25 ], [ %23, %if.then18.i96 ], [ %23, %lor.lhs.false22 ]
   %cmp36.not = icmp eq ptr %33, %32
   br i1 %cmp36.not, label %lor.lhs.false38, label %if.then41
 
@@ -1233,22 +1233,21 @@ lor.lhs.false38:                                  ; preds = %do.body33
   %cmp.i100 = icmp eq ptr %32, null
   br i1 %cmp.i100, label %do.end48, label %if.end.i101
 
-if.end.i101:                                      ; preds = %lor.lhs.false38.thread184, %lor.lhs.false38
-  %34 = phi ptr [ %23, %lor.lhs.false38.thread184 ], [ %32, %lor.lhs.false38 ]
-  %35 = load ptr, ptr %p, align 8
-  %cmp1.not.i102 = icmp eq ptr %35, null
+if.end.i101:                                      ; preds = %lor.lhs.false38
+  %34 = load ptr, ptr %p, align 8
+  %cmp1.not.i102 = icmp eq ptr %34, null
   %buf.i103 = getelementptr inbounds i8, ptr %p, i64 40
-  %36 = load ptr, ptr %buf.i103, align 8
-  %sub.ptr.lhs.cast7.i104 = ptrtoint ptr %34 to i64
-  %sub.ptr.rhs.cast8.i105 = ptrtoint ptr %36 to i64
+  %35 = load ptr, ptr %buf.i103, align 8
+  %sub.ptr.lhs.cast7.i104 = ptrtoint ptr %32 to i64
+  %sub.ptr.rhs.cast8.i105 = ptrtoint ptr %35 to i64
   %sub.ptr.sub9.i106 = sub i64 %sub.ptr.lhs.cast7.i104, %sub.ptr.rhs.cast8.i105
   br i1 %cmp1.not.i102, label %if.end5.i116, label %w_reserve.exit138
 
 if.end5.i116:                                     ; preds = %if.end.i101
   %str.i117 = getelementptr inbounds i8, ptr %p, i64 16
-  %37 = load ptr, ptr %str.i117, align 8
-  %38 = getelementptr i8, ptr %37, i64 16
-  %.val.i118 = load i64, ptr %38, align 8
+  %36 = load ptr, ptr %str.i117, align 8
+  %37 = getelementptr i8, ptr %36, i64 16
+  %.val.i118 = load i64, ptr %37, align 8
   %cmp10.i119 = icmp sgt i64 %.val.i118, 16777216
   %shr.i120 = lshr i64 %.val.i118, 3
   %add.i121 = add nsw i64 %.val.i118, 1024
@@ -1274,8 +1273,8 @@ if.then25.i130:                                   ; preds = %if.end19.i126
   br label %do.end48
 
 w_reserve.exit138.thread156:                      ; preds = %if.end19.i126
-  %39 = load ptr, ptr %str.i117, align 8
-  %ob_sval.i.i132 = getelementptr inbounds i8, ptr %39, i64 32
+  %38 = load ptr, ptr %str.i117, align 8
+  %ob_sval.i.i132 = getelementptr inbounds i8, ptr %38, i64 32
   store ptr %ob_sval.i.i132, ptr %buf.i103, align 8
   %add.ptr.i133 = getelementptr i8, ptr %ob_sval.i.i132, i64 %sub.ptr.sub9.i106
   %add.ptr36.i134 = getelementptr i8, ptr %ob_sval.i.i132, i64 %add20.i127
@@ -1283,26 +1282,26 @@ w_reserve.exit138.thread156:                      ; preds = %if.end19.i126
   br label %if.then41
 
 w_reserve.exit138:                                ; preds = %if.end.i101
-  %call.i.i108 = tail call i64 @fwrite(ptr noundef %36, i64 noundef 1, i64 noundef %sub.ptr.sub9.i106, ptr noundef nonnull %35)
-  %40 = load ptr, ptr %buf.i103, align 8
-  store ptr %40, ptr %ptr, align 8
-  %41 = load ptr, ptr %end, align 8
-  %sub.ptr.lhs.cast.i110 = ptrtoint ptr %41 to i64
-  %sub.ptr.rhs.cast.i111 = ptrtoint ptr %40 to i64
+  %call.i.i108 = tail call i64 @fwrite(ptr noundef %35, i64 noundef 1, i64 noundef %sub.ptr.sub9.i106, ptr noundef nonnull %34)
+  %39 = load ptr, ptr %buf.i103, align 8
+  store ptr %39, ptr %ptr, align 8
+  %40 = load ptr, ptr %end, align 8
+  %sub.ptr.lhs.cast.i110 = ptrtoint ptr %40 to i64
+  %sub.ptr.rhs.cast.i111 = ptrtoint ptr %39 to i64
   %sub.ptr.sub.i112 = sub i64 %sub.ptr.lhs.cast.i110, %sub.ptr.rhs.cast.i111
   %cmp4.i113 = icmp slt i64 %sub.ptr.sub.i112, 1
   br i1 %cmp4.i113, label %do.end48, label %if.then41
 
 if.then41:                                        ; preds = %w_reserve.exit138.thread156, %w_reserve.exit138, %do.body33
-  %42 = phi ptr [ %add.ptr.i133, %w_reserve.exit138.thread156 ], [ %40, %w_reserve.exit138 ], [ %33, %do.body33 ]
+  %41 = phi ptr [ %add.ptr.i133, %w_reserve.exit138.thread156 ], [ %39, %w_reserve.exit138 ], [ %33, %do.body33 ]
   %shr42 = lshr i64 %x, 24
   %conv44 = trunc i64 %shr42 to i8
-  %incdec.ptr46 = getelementptr i8, ptr %42, i64 1
+  %incdec.ptr46 = getelementptr i8, ptr %41, i64 1
   store ptr %incdec.ptr46, ptr %ptr, align 8
-  store i8 %conv44, ptr %42, align 1
+  store i8 %conv44, ptr %41, align 1
   br label %do.end48
 
-do.end48:                                         ; preds = %if.then25.i, %lor.lhs.false, %if.then25.i50, %lor.lhs.false7, %if.then25.i90, %lor.lhs.false22, %lor.lhs.false38, %if.then25.i130, %if.then18.i136, %w_reserve.exit138, %if.then41
+do.end48:                                         ; preds = %if.then25.i, %lor.lhs.false, %if.then25.i90, %lor.lhs.false22.thread, %lor.lhs.false38, %if.then25.i130, %if.then18.i136, %w_reserve.exit138, %if.then41
   ret void
 }
 

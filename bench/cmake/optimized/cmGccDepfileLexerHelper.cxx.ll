@@ -114,7 +114,7 @@ define dso_local void @_ZN23cmGccDepfileLexerHelper8newEntryEv(ptr noundef nonnu
   br label %_ZN23cmGccDepfileLexerHelper7newRuleEv.exit
 
 20:                                               ; preds = %._crit_edge, %5
-  %21 = phi ptr [ %.pre, %._crit_edge ], [ %6, %5 ]
+  %21 = phi ptr [ %.pre, %._crit_edge ], [ %8, %5 ]
   store i32 0, ptr %2, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = getelementptr inbounds i8, ptr %0, i64 16
@@ -153,7 +153,7 @@ _ZNSt6vectorI20cmGccStyleDependencySaIS0_EE12emplace_backIJEEERS0_DpOT_.exit: ; 
   br label %38
 
 38:                                               ; preds = %._crit_edge.i, %_ZNSt6vectorI20cmGccStyleDependencySaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
-  %39 = phi ptr [ %.pre.i1, %._crit_edge.i ], [ %31, %_ZNSt6vectorI20cmGccStyleDependencySaIS0_EE12emplace_backIJEEERS0_DpOT_.exit ]
+  %39 = phi ptr [ %.pre.i1, %._crit_edge.i ], [ %33, %_ZNSt6vectorI20cmGccStyleDependencySaIS0_EE12emplace_backIJEEERS0_DpOT_.exit ]
   %40 = getelementptr inbounds i8, ptr %29, i64 -32
   %41 = load ptr, ptr %40, align 8
   %.not.i.i = icmp eq ptr %39, %41
@@ -216,7 +216,7 @@ define dso_local void @_ZN23cmGccDepfileLexerHelper15sanitizeContentEv(ptr nound
   br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit: ; preds = %.lr.ph69, %9
-  %17 = phi ptr [ %6, %.lr.ph69 ], [ %.pre72, %9 ]
+  %17 = phi ptr [ %8, %.lr.ph69 ], [ %.pre72, %9 ]
   %18 = phi ptr [ %6, %.lr.ph69 ], [ %.pre, %9 ]
   %19 = tail call ptr @_ZSt8__uniqueIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops19_Iter_equal_to_iterEET_SF_SF_T0_(ptr %18, ptr %17)
   %20 = load ptr, ptr %7, align 8
@@ -288,7 +288,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_tr
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit: ; preds = %30, %38, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i14
-  %49 = phi ptr [ %.pre.i.i15, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i14 ], [ %37, %38 ], [ %36, %30 ]
+  %49 = phi ptr [ %.pre.i.i15, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i14 ], [ %37, %38 ], [ %37, %30 ]
   %50 = getelementptr inbounds i8, ptr %49, i64 -32
   store ptr %50, ptr %7, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #15
@@ -351,7 +351,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_tr
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit23
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit23: ; preds = %59, %67, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i21
-  %78 = phi ptr [ %.pre.i.i22, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i21 ], [ %66, %67 ], [ %65, %59 ]
+  %78 = phi ptr [ %.pre.i.i22, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i21 ], [ %66, %67 ], [ %66, %59 ]
   %79 = getelementptr inbounds i8, ptr %78, i64 -32
   store ptr %79, ptr %56, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %79) #15
@@ -422,7 +422,7 @@ define dso_local void @_ZN23cmGccDepfileLexerHelper7newRuleEv(ptr nocapture noun
   br label %12
 
 12:                                               ; preds = %._crit_edge, %1
-  %13 = phi ptr [ %.pre, %._crit_edge ], [ %5, %1 ]
+  %13 = phi ptr [ %.pre, %._crit_edge ], [ %7, %1 ]
   %14 = getelementptr inbounds i8, ptr %3, i64 -32
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %13, %15
@@ -471,7 +471,7 @@ define dso_local void @_ZN23cmGccDepfileLexerHelper13newDependencyEv(ptr nocaptu
   br label %16
 
 16:                                               ; preds = %._crit_edge, %5
-  %17 = phi ptr [ %.pre, %._crit_edge ], [ %9, %5 ]
+  %17 = phi ptr [ %.pre, %._crit_edge ], [ %11, %5 ]
   %18 = getelementptr inbounds i8, ptr %7, i64 -8
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %17, %19
@@ -521,7 +521,7 @@ define dso_local void @_ZN23cmGccDepfileLexerHelper19newRuleOrDependencyEv(ptr n
   br label %15
 
 15:                                               ; preds = %._crit_edge.i, %4
-  %16 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %8, %4 ]
+  %16 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %10, %4 ]
   %17 = getelementptr inbounds i8, ptr %6, i64 -32
   %18 = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %16, %18
@@ -559,7 +559,7 @@ define dso_local void @_ZN23cmGccDepfileLexerHelper19newRuleOrDependencyEv(ptr n
   br label %34
 
 34:                                               ; preds = %._crit_edge.i1, %23
-  %35 = phi ptr [ %.pre.i2, %._crit_edge.i1 ], [ %27, %23 ]
+  %35 = phi ptr [ %.pre.i2, %._crit_edge.i1 ], [ %29, %23 ]
   %36 = getelementptr inbounds i8, ptr %25, i64 -8
   %37 = load ptr, ptr %36, align 8
   %.not.i.i3 = icmp eq ptr %35, %37
@@ -1520,7 +1520,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP20cmGccStyleDependencySt6vectorIS2_SaI
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP20cmGccStyleDependencySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP20cmGccStyleDependencySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP20cmGccStyleDependencySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.loopexit, %6, %2
-  %17 = phi ptr [ %.pre, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP20cmGccStyleDependencySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.loopexit ], [ %5, %6 ], [ %3, %2 ]
+  %17 = phi ptr [ %.pre, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP20cmGccStyleDependencySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.loopexit ], [ %5, %6 ], [ %5, %2 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 -48
   store ptr %18, ptr %4, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 -24

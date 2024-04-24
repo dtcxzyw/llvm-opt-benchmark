@@ -142,7 +142,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %1 = phi ptr [ %.pre, %if.then ], [ %data, %entry ]
+  %1 = phi ptr [ %.pre, %if.then ], [ %0, %entry ]
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %n
   store ptr %add.ptr, ptr %dest_, align 8
   ret void
@@ -174,7 +174,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %1 = phi ptr [ %.pre, %if.then ], [ %bytes, %entry ]
+  %1 = phi ptr [ %.pre, %if.then ], [ %0, %entry ]
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %n
   store ptr %add.ptr, ptr %dest_, align 8
   ret void

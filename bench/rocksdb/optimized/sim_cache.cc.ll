@@ -2174,7 +2174,7 @@ lpad:                                             ; preds = %invoke.cont42, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl20StartActivityLoggingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3EnvEm(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(32) %activity_log_file, ptr noundef %env, i64 noundef %max_logging_size) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl20StartActivityLoggingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3EnvEm(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(32) %activity_log_file, ptr noundef %env, i64 noundef %max_logging_size) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %file_opts.i = alloca %"struct.rocksdb::FileOptions", align 8
   %ref.tmp.i = alloca %"class.rocksdb::IOStatus", align 8
@@ -2232,13 +2232,9 @@ invoke.cont6.i:                                   ; preds = %invoke.cont5.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont6.i
   %cmp.not.i.i = icmp eq ptr %ref.tmp.i, %agg.result
-  br i1 %cmp.not.i.i, label %invoke.cont9.thread.i, label %invoke.cont9.i
+  br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusaSEOS0_.exit.i, label %_ZN7rocksdb6StatusaSEOS0_.exit.thread.i
 
-invoke.cont9.thread.i:                            ; preds = %invoke.cont7.i
-  store ptr null, ptr %state_.i.i, align 8, !noalias !16
-  br label %if.end.i
-
-invoke.cont9.i:                                   ; preds = %invoke.cont7.i
+_ZN7rocksdb6StatusaSEOS0_.exit.thread.i:          ; preds = %invoke.cont7.i
   %0 = load i8, ptr %ref.tmp.i, align 8, !noalias !16
   store i8 %0, ptr %agg.result, align 8, !alias.scope !16
   %subcode_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 1
@@ -2268,10 +2264,27 @@ invoke.cont9.i:                                   ; preds = %invoke.cont7.i
   store i8 0, ptr %scope_.i.i, align 1, !noalias !16
   %state_.i3.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %6 = load ptr, ptr %state_.i3.i, align 8, !noalias !16
-  store ptr %6, ptr %state_.i.i, align 8, !alias.scope !16
-  %7 = icmp eq i8 %0, 0
   store ptr null, ptr %state_.i3.i, align 8, !noalias !16
-  br i1 %7, label %if.end.i, label %cleanup.i
+  store ptr %6, ptr %state_.i.i, align 8, !alias.scope !16
+  br label %invoke.cont9.i
+
+_ZN7rocksdb6StatusaSEOS0_.exit.i:                 ; preds = %invoke.cont7.i
+  %state_.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %.pre.i = load ptr, ptr %state_.i.i.phi.trans.insert.i, align 8, !noalias !16
+  %cmp.not.i.i.i.i = icmp eq ptr %.pre.i, null
+  br i1 %cmp.not.i.i.i.i, label %if.end.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit.i
+  call void @_ZdaPv(ptr noundef nonnull %.pre.i) #15
+  %.pre9.i = load i8, ptr %agg.result, align 8, !alias.scope !16
+  br label %invoke.cont9.i
+
+invoke.cont9.i:                                   ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit.thread.i
+  %state_.i.i12.i = phi ptr [ %state_.i.i.phi.trans.insert.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i ], [ %state_.i3.i, %_ZN7rocksdb6StatusaSEOS0_.exit.thread.i ]
+  %7 = phi i8 [ %.pre9.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i ], [ %0, %_ZN7rocksdb6StatusaSEOS0_.exit.thread.i ]
+  store ptr null, ptr %state_.i.i12.i, align 8, !noalias !16
+  %cmp.i.i = icmp eq i8 %7, 0
+  br i1 %cmp.i.i, label %if.end.i, label %cleanup.i
 
 lpad.i:                                           ; preds = %entry
   %8 = landingpad { ptr, i32 }
@@ -2296,7 +2309,7 @@ terminate.lpad.i.i:                               ; preds = %lpad4.i
   call void @__clang_call_terminate(ptr %12) #18
   unreachable
 
-if.end.i:                                         ; preds = %invoke.cont9.i, %invoke.cont9.thread.i
+if.end.i:                                         ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit.i, %invoke.cont9.i
   %max_logging_size_.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 %max_logging_size, ptr %max_logging_size_.i, align 8, !noalias !16
   %activity_logging_enabled_.i = getelementptr inbounds i8, ptr %this, i64 152

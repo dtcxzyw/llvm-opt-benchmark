@@ -122,7 +122,7 @@ define dso_local ptr @dma_fence_chain_walk(ptr noundef %0) #0 align 16 {
   br i1 %60, label %61, label %69
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %21, i64 56
+  %62 = getelementptr inbounds i8, ptr %59, i64 56
   %63 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %62, i32 -1, ptr elementtype(i32) %62) #6, !srcloc !5
   %64 = icmp eq i32 %63, 1
   br i1 %64, label %68, label %65

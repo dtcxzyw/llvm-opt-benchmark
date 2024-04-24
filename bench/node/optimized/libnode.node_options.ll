@@ -3026,14 +3026,14 @@ _ZNK4node14options_parser8ArgsInfo12program_nameB5cxx11Ev.exit: ; preds = %if.th
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK4node14options_parser8ArgsInfo12program_nameB5cxx11Ev.exit
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   %5 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %_ZNK4node14options_parser8ArgsInfo12program_nameB5cxx11Ev.exit
-  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %v8_args, ptr %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %v8_args, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then.i, %entry
@@ -4512,14 +4512,14 @@ _ZNK4node14options_parser8ArgsInfo12program_nameB5cxx11Ev.exit: ; preds = %if.th
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK4node14options_parser8ArgsInfo12program_nameB5cxx11Ev.exit
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   %5 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %_ZNK4node14options_parser8ArgsInfo12program_nameB5cxx11Ev.exit
-  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %v8_args, ptr %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %v8_args, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then.i, %entry
@@ -5984,14 +5984,14 @@ _ZNK4node14options_parser8ArgsInfo12program_nameB5cxx11Ev.exit: ; preds = %if.th
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK4node14options_parser8ArgsInfo12program_nameB5cxx11Ev.exit
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   %5 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %_ZNK4node14options_parser8ArgsInfo12program_nameB5cxx11Ev.exit
-  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %v8_args, ptr %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %v8_args, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then.i, %entry
@@ -20541,7 +20541,7 @@ if.end.loopexit.i.i:                              ; preds = %for.body.i.i.i.i.i.
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit: ; preds = %if.end, %if.then.i.i, %if.end.loopexit.i.i
-  %15 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %14, %if.then.i.i ], [ %add.ptr.i.i.i2, %if.end ]
+  %15 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %14, %if.then.i.i ], [ %14, %if.end ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 -32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i3, align 8
   br label %nrvo.skipdtor

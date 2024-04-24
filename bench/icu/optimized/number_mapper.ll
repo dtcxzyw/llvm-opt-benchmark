@@ -318,7 +318,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -377,7 +377,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -1312,7 +1312,7 @@ if.then408:                                       ; preds = %if.else405
   %tr.sh.diff = trunc i64 %sh.diff to i32
   %conv410 = ashr i32 %tr.sh.diff, 16
   %sh.diff207 = lshr i64 %rounding_.sroa.4158.0.copyload159, 32
-  %tr.sh.diff208 = trunc i64 %sh.diff207 to i32
+  %tr.sh.diff208 = trunc nuw i64 %sh.diff207 to i32
   %conv412 = ashr i32 %tr.sh.diff208, 16
   br label %if.end415
 
@@ -2281,7 +2281,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %invoke.cont11
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %invoke.cont11 ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %call = invoke noundef ptr @_ZN6icu_7514StandardPlural10getKeywordENS0_4FormE(i32 noundef %0)
           to label %invoke.cont2 unwind label %lpad
 

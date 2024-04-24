@@ -244,7 +244,7 @@ default.unreachable:                              ; preds = %2
 define hidden noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h1006d54870bc8330E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, ptr }, align 8
   %4 = load i64, ptr %0, align 8, !range !36, !noundef !11
-  %trunc = trunc i64 %4 to i1
+  %trunc = trunc nuw i64 %4 to i1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %trunc, label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hd0ffc9b095270f0cE.llvm.1533238098547642317.exit", label %6
 
@@ -319,7 +319,7 @@ default.unreachable:                              ; preds = %6
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h6ab144b3967aac6dE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !36, !noundef !11
-  %trunc = trunc i64 %3 to i1
+  %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %trunc, label %7, label %5
 
@@ -335,7 +335,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys6commo
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17ha854bd608303d4d6E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !36, !noundef !11
-  %trunc = trunc i64 %3 to i1
+  %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %trunc, label %12, label %5
 
@@ -555,13 +555,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hb08501162eb98
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc i32 %1 to i8
+  %11 = trunc nuw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !112
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc i32 %13 to i8
+  %14 = trunc nuw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !112
   %16 = trunc i32 %1 to i8
@@ -573,7 +573,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hb08501162eb98
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc i32 %21 to i8
+  %22 = trunc nuw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !112
   %24 = lshr i32 %1, 6
@@ -735,7 +735,7 @@ define hidden noundef align 8 ptr @"_ZN4moka6common5deque14Deque$LT$T$GT$9pop_fr
 
 .sink.split.i.i:                                  ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds i8, ptr %9, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !157, !noundef !11
   store i64 1, ptr %0, align 8, !alias.scope !154, !noalias !151
   store ptr %12, ptr %8, align 8, !alias.scope !154, !noalias !151
@@ -780,7 +780,7 @@ define hidden noundef align 8 ptr @"_ZN4moka6common5deque14Deque$LT$T$GT$9pop_fr
 
 .sink.split.i.i:                                  ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds i8, ptr %9, i64 16
   %12 = load ptr, ptr %11, align 8, !noalias !164, !noundef !11
   store i64 1, ptr %0, align 8, !alias.scope !161, !noalias !158
   store ptr %12, ptr %8, align 8, !alias.scope !161, !noalias !158
@@ -838,7 +838,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN4moka6common5deque14Deque$LT$T$GT
 
 .sink.split.i:                                    ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds i8, ptr %7, i64 16
   %19 = load ptr, ptr %18, align 8, !noalias !166, !noundef !11
   store i64 1, ptr %3, align 8, !alias.scope !166
   store ptr %19, ptr %6, align 8, !alias.scope !166
@@ -876,7 +876,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN4moka6common5deque14Deque$LT$T$GT
 
 .sink.split.i:                                    ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds i8, ptr %7, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !169, !noundef !11
   store i64 1, ptr %3, align 8, !alias.scope !169
   store ptr %18, ptr %6, align 8, !alias.scope !169

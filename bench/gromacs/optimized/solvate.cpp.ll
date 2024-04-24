@@ -4693,11 +4693,11 @@ _ZL27removeExtraSolventMoleculesP7t_atomsPSt6vectorIN3gmx11BasicVectorIfEESaIS4_
   br i1 %.not.i.i, label %1305, label %1301
 
 1301:                                             ; preds = %1299
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.0.in.sroa.speculated.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %16) #20
-  %1302 = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1256, ptr noundef nonnull align 8 dereferenceable(32) %16) #20
+  %1302 = getelementptr inbounds i8, ptr %1256, i64 32
   %1303 = load i64, ptr %1163, align 8
   store i64 %1303, ptr %1302, align 8
-  %1304 = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, i64 40
+  %1304 = getelementptr inbounds i8, ptr %1256, i64 40
   store ptr %1304, ptr %1161, align 8
   br label %_ZNSt6vectorI12MoleculeTypeSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i
 

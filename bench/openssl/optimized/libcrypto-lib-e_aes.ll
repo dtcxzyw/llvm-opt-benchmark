@@ -1096,7 +1096,7 @@ if.end5.i:                                        ; preds = %land.lhs.true.i, %i
   %call6.i = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #8
   %tobool7.not.i = icmp eq i32 %call6.i, 0
   %cond.i = select i1 %tobool7.not.i, i32 24, i32 19
-  %call8.i = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %ctx, i32 noundef %cond.i, i32 noundef 8, ptr noundef %in) #8
+  %call8.i = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %ctx, i32 noundef %cond.i, i32 noundef 8, ptr noundef %out) #8
   %cmp9.i = icmp slt i32 %call8.i, 1
   br i1 %cmp9.i, label %err.i, label %if.end11.i
 
@@ -1112,6 +1112,7 @@ if.end11.i:                                       ; preds = %if.end5.i
 
 if.end16.i:                                       ; preds = %if.end11.i
   %add.ptr.i = getelementptr inbounds i8, ptr %in, i64 8
+  %add.ptr17.i = getelementptr inbounds i8, ptr %out, i64 8
   %sub.i = add i64 %len, -24
   %call18.i = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #8
   %tobool19.not.i = icmp eq i32 %call18.i, 0
@@ -1144,7 +1145,7 @@ if.end38.i:                                       ; preds = %if.then33.i
   %key.i = getelementptr inbounds i8, ptr %call.i, i64 648
   %6 = load ptr, ptr %key.i, align 8
   %Xi.i = getelementptr inbounds i8, ptr %call.i, i64 320
-  %call43.i = tail call i64 @aesni_gcm_encrypt(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i, ptr noundef %6, ptr noundef nonnull %gcm.i, ptr noundef nonnull %Xi.i) #8
+  %call43.i = tail call i64 @aesni_gcm_encrypt(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr17.i, i64 noundef %sub.i, ptr noundef %6, ptr noundef nonnull %gcm.i, ptr noundef nonnull %Xi.i) #8
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i, i64 312
   %7 = load i64, ptr %arrayidx.i, align 8
   %add.i = add i64 %7, %call43.i
@@ -1156,18 +1157,19 @@ if.end46.i:                                       ; preds = %if.end38.i, %land.l
   %8 = phi ptr [ %.pre.i, %if.end38.i ], [ @aesni_ctr32_encrypt_blocks, %land.lhs.true29.i ], [ %4, %if.then22.i ]
   %bulk.0.i = phi i64 [ %call43.i, %if.end38.i ], [ 0, %land.lhs.true29.i ], [ 0, %if.then22.i ]
   %add.ptr48.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %bulk.0.i
+  %add.ptr49.i = getelementptr inbounds i8, ptr %add.ptr17.i, i64 %bulk.0.i
   %sub50.i = sub i64 %sub.i, %bulk.0.i
-  %call52.i = tail call i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef nonnull %gcm.i, ptr noundef nonnull %add.ptr48.i, ptr noundef nonnull %add.ptr48.i, i64 noundef %sub50.i, ptr noundef %8) #8
+  %call52.i = tail call i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef nonnull %gcm.i, ptr noundef nonnull %add.ptr48.i, ptr noundef nonnull %add.ptr49.i, i64 noundef %sub50.i, ptr noundef %8) #8
   %tobool53.not.i = icmp eq i32 %call52.i, 0
   br i1 %tobool53.not.i, label %if.end65.i, label %err.i
 
 if.else.i:                                        ; preds = %if.then20.i
-  %call61.i = tail call i32 @CRYPTO_gcm128_encrypt(ptr noundef nonnull %gcm.i, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #8
+  %call61.i = tail call i32 @CRYPTO_gcm128_encrypt(ptr noundef nonnull %gcm.i, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr17.i, i64 noundef %sub.i) #8
   %tobool62.not.i = icmp eq i32 %call61.i, 0
   br i1 %tobool62.not.i, label %if.end65.i, label %err.i
 
 if.end65.i:                                       ; preds = %if.else.i, %if.end46.i
-  %add.ptr66.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %sub.i
+  %add.ptr66.i = getelementptr inbounds i8, ptr %add.ptr17.i, i64 %sub.i
   tail call void @CRYPTO_gcm128_tag(ptr noundef nonnull %gcm.i, ptr noundef nonnull %add.ptr66.i, i64 noundef 16) #8
   %conv70.i = trunc i64 %len to i32
   br label %err.i
@@ -1196,7 +1198,7 @@ if.end93.i:                                       ; preds = %if.then88.i
   %key95.i = getelementptr inbounds i8, ptr %call.i, i64 648
   %10 = load ptr, ptr %key95.i, align 8
   %Xi100.i = getelementptr inbounds i8, ptr %call.i, i64 320
-  %call102.i = tail call i64 @aesni_gcm_decrypt(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i, ptr noundef %10, ptr noundef nonnull %gcm.i, ptr noundef nonnull %Xi100.i) #8
+  %call102.i = tail call i64 @aesni_gcm_decrypt(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr17.i, i64 noundef %sub.i, ptr noundef %10, ptr noundef nonnull %gcm.i, ptr noundef nonnull %Xi100.i) #8
   %arrayidx105.i = getelementptr inbounds i8, ptr %call.i, i64 312
   %11 = load i64, ptr %arrayidx105.i, align 8
   %add106.i = add i64 %11, %call102.i
@@ -1208,13 +1210,14 @@ if.end107.i:                                      ; preds = %if.end93.i, %land.l
   %12 = phi ptr [ %.pre82.i, %if.end93.i ], [ @aesni_ctr32_encrypt_blocks, %land.lhs.true82.i ], [ %4, %if.then74.i ]
   %bulk75.0.i = phi i64 [ %call102.i, %if.end93.i ], [ 0, %land.lhs.true82.i ], [ 0, %if.then74.i ]
   %add.ptr109.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %bulk75.0.i
+  %add.ptr110.i = getelementptr inbounds i8, ptr %add.ptr17.i, i64 %bulk75.0.i
   %sub111.i = sub i64 %sub.i, %bulk75.0.i
-  %call113.i = tail call i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef nonnull %gcm.i, ptr noundef nonnull %add.ptr109.i, ptr noundef nonnull %add.ptr109.i, i64 noundef %sub111.i, ptr noundef %12) #8
+  %call113.i = tail call i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef nonnull %gcm.i, ptr noundef nonnull %add.ptr109.i, ptr noundef nonnull %add.ptr110.i, i64 noundef %sub111.i, ptr noundef %12) #8
   %tobool114.not.i = icmp eq i32 %call113.i, 0
   br i1 %tobool114.not.i, label %if.end127.i, label %err.i
 
 if.else117.i:                                     ; preds = %if.else71.i
-  %call123.i = tail call i32 @CRYPTO_gcm128_decrypt(ptr noundef nonnull %gcm.i, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #8
+  %call123.i = tail call i32 @CRYPTO_gcm128_decrypt(ptr noundef nonnull %gcm.i, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr17.i, i64 noundef %sub.i) #8
   %tobool124.not.i = icmp eq i32 %call123.i, 0
   br i1 %tobool124.not.i, label %if.end127.i, label %err.i
 
@@ -1228,7 +1231,7 @@ if.end127.i:                                      ; preds = %if.else117.i, %if.e
   br i1 %tobool133.not.i, label %if.end135.i, label %if.then134.i
 
 if.then134.i:                                     ; preds = %if.end127.i
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %add.ptr17.i, i64 noundef %sub.i) #8
   br label %err.i
 
 if.end135.i:                                      ; preds = %if.end127.i
@@ -2353,22 +2356,18 @@ lor.lhs.false.i:                                  ; preds = %if.then2
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %call4.i = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #8
   %tobool.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i, label %if.end.if.end7_crit_edge.i, label %if.then5.i
-
-if.end.if.end7_crit_edge.i:                       ; preds = %if.end.i
-  %.pre.i = load i64, ptr %in, align 1
-  br label %if.end7.i
+  br i1 %tobool.not.i, label %if.end7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i
   %call6.i = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %ctx) #8
   %3 = load i64, ptr %call6.i, align 1
-  store i64 %3, ptr %in, align 1
+  store i64 %3, ptr %out, align 1
   br label %if.end7.i
 
-if.end7.i:                                        ; preds = %if.then5.i, %if.end.if.end7_crit_edge.i
-  %4 = phi i64 [ %.pre.i, %if.end.if.end7_crit_edge.i ], [ %3, %if.then5.i ]
+if.end7.i:                                        ; preds = %if.then5.i, %if.end.i
   %iv.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %add.ptr.i = getelementptr inbounds i8, ptr %ctx, i64 44
+  %4 = load i64, ptr %in, align 1
   store i64 %4, ptr %add.ptr.i, align 1
   %5 = load i32, ptr %M.i, align 4
   %add9.i = add nsw i32 %5, 8
@@ -2389,6 +2388,7 @@ if.end18.i:                                       ; preds = %if.end7.i
   %conv20.i = sext i32 %7 to i64
   tail call void @CRYPTO_ccm128_aad(ptr noundef nonnull %ccm1.i, ptr noundef %call19.i, i64 noundef %conv20.i) #8
   %add.ptr21.i = getelementptr inbounds i8, ptr %in, i64 8
+  %add.ptr22.i = getelementptr inbounds i8, ptr %out, i64 8
   %call23.i = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %ctx) #8
   %tobool24.not.i = icmp eq i32 %call23.i, 0
   %str46.i = getelementptr inbounds i8, ptr %call.i, i64 336
@@ -2400,17 +2400,17 @@ if.then25.i:                                      ; preds = %if.end18.i
   br i1 %tobool47.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then25.i
-  %call28.i = tail call i32 @CRYPTO_ccm128_encrypt_ccm64(ptr noundef nonnull %ccm1.i, ptr noundef nonnull %add.ptr21.i, ptr noundef nonnull %add.ptr21.i, i64 noundef %sub.i, ptr noundef nonnull %8) #8
+  %call28.i = tail call i32 @CRYPTO_ccm128_encrypt_ccm64(ptr noundef nonnull %ccm1.i, ptr noundef nonnull %add.ptr21.i, ptr noundef nonnull %add.ptr22.i, i64 noundef %sub.i, ptr noundef nonnull %8) #8
   %tobool29.not.i = icmp eq i32 %call28.i, 0
   br i1 %tobool29.not.i, label %if.end33.i, label %aes_ccm_tls_cipher.exit
 
 cond.false.i:                                     ; preds = %if.then25.i
-  %call30.i = tail call i32 @CRYPTO_ccm128_encrypt(ptr noundef nonnull %ccm1.i, ptr noundef nonnull %add.ptr21.i, ptr noundef nonnull %add.ptr21.i, i64 noundef %sub.i) #8
+  %call30.i = tail call i32 @CRYPTO_ccm128_encrypt(ptr noundef nonnull %ccm1.i, ptr noundef nonnull %add.ptr21.i, ptr noundef nonnull %add.ptr22.i, i64 noundef %sub.i) #8
   %tobool31.not.i = icmp eq i32 %call30.i, 0
   br i1 %tobool31.not.i, label %if.end33.i, label %aes_ccm_tls_cipher.exit
 
 if.end33.i:                                       ; preds = %cond.false.i, %cond.true.i
-  %add.ptr34.i = getelementptr inbounds i8, ptr %add.ptr21.i, i64 %sub.i
+  %add.ptr34.i = getelementptr inbounds i8, ptr %add.ptr22.i, i64 %sub.i
   %9 = load i32, ptr %M.i, align 4
   %conv36.i = sext i32 %9 to i64
   %call37.i = tail call i64 @CRYPTO_ccm128_tag(ptr noundef nonnull %ccm1.i, ptr noundef nonnull %add.ptr34.i, i64 noundef %conv36.i) #8
@@ -2428,12 +2428,12 @@ if.else.i:                                        ; preds = %if.end18.i
   br i1 %tobool47.not.i, label %cond.false52.i, label %cond.true48.i
 
 cond.true48.i:                                    ; preds = %if.else.i
-  %call50.i = tail call i32 @CRYPTO_ccm128_decrypt_ccm64(ptr noundef nonnull %ccm1.i, ptr noundef nonnull %add.ptr21.i, ptr noundef nonnull %add.ptr21.i, i64 noundef %sub.i, ptr noundef nonnull %8) #8
+  %call50.i = tail call i32 @CRYPTO_ccm128_decrypt_ccm64(ptr noundef nonnull %ccm1.i, ptr noundef nonnull %add.ptr21.i, ptr noundef nonnull %add.ptr22.i, i64 noundef %sub.i, ptr noundef nonnull %8) #8
   %tobool51.not.i = icmp eq i32 %call50.i, 0
   br i1 %tobool51.not.i, label %if.then55.i, label %if.end72.i
 
 cond.false52.i:                                   ; preds = %if.else.i
-  %call53.i = tail call i32 @CRYPTO_ccm128_decrypt(ptr noundef nonnull %ccm1.i, ptr noundef nonnull %add.ptr21.i, ptr noundef nonnull %add.ptr21.i, i64 noundef %sub.i) #8
+  %call53.i = tail call i32 @CRYPTO_ccm128_decrypt(ptr noundef nonnull %ccm1.i, ptr noundef nonnull %add.ptr21.i, ptr noundef nonnull %add.ptr22.i, i64 noundef %sub.i) #8
   %tobool54.not.i = icmp eq i32 %call53.i, 0
   br i1 %tobool54.not.i, label %if.then55.i, label %if.end72.i
 
@@ -2457,7 +2457,7 @@ if.then68.i:                                      ; preds = %if.then61.i
   br label %aes_ccm_tls_cipher.exit
 
 if.end72.i:                                       ; preds = %if.then61.i, %if.then55.i, %cond.false52.i, %cond.true48.i
-  call void @OPENSSL_cleanse(ptr noundef nonnull %add.ptr21.i, i64 noundef %sub.i) #8
+  call void @OPENSSL_cleanse(ptr noundef nonnull %add.ptr22.i, i64 noundef %sub.i) #8
   br label %aes_ccm_tls_cipher.exit
 
 aes_ccm_tls_cipher.exit:                          ; preds = %if.then2, %lor.lhs.false.i, %if.end7.i, %cond.true.i, %cond.false.i, %if.end33.i, %if.end40.i, %if.then68.i, %if.end72.i

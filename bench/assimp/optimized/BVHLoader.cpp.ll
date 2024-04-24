@@ -1165,7 +1165,7 @@ lor.rhs.i:                                        ; preds = %_ZNSt3mapIN6Assimp9
   br i1 %cmp.i3.i, label %if.then.i, label %invoke.cont38
 
 if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3mapIN6Assimp9BVHLoader11ChannelTypeEiSt4lessIS2_ESaISt4pairIKS2_iEEE11lower_boundERS6_.exit.i, %for.body33
-  %__y.addr.0.lcssa.i.i.i13.i = phi ptr [ %6, %_ZNSt3mapIN6Assimp9BVHLoader11ChannelTypeEiSt4lessIS2_ESaISt4pairIKS2_iEEE11lower_boundERS6_.exit.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %6, %for.body33 ]
+  %__y.addr.0.lcssa.i.i.i13.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNSt3mapIN6Assimp9BVHLoader11ChannelTypeEiSt4lessIS2_ESaISt4pairIKS2_iEEE11lower_boundERS6_.exit.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %6, %for.body33 ]
   %call5.i.i.i.i.i.i.i98 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
           to label %call5.i.i.i.i.i.i.i.noexc unwind label %lpad37.loopexit
 
@@ -1298,7 +1298,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop, %in
 for.body55:                                       ; preds = %arrayctor.cont, %for.end98
   %poskey.0458 = phi ptr [ %incdec.ptr, %for.end98 ], [ %call50, %arrayctor.cont ]
   %indvars.iv435457 = phi i64 [ %indvars.iv.next436, %for.end98 ], [ 0, %arrayctor.cont ]
-  %35 = trunc i64 %indvars.iv435457 to i32
+  %35 = trunc nuw i64 %indvars.iv435457 to i32
   %conv56 = uitofp i32 %35 to double
   store double %conv56, ptr %poskey.0458, align 8
   %z = getelementptr inbounds i8, ptr %poskey.0458, i64 16
@@ -1685,7 +1685,7 @@ for.end212:                                       ; preds = %for.end212.loopexit
   %186 = phi <2 x float> [ zeroinitializer, %for.cond146.preheader ], [ %176, %for.end212.loopexit ]
   %187 = phi <2 x float> [ zeroinitializer, %for.cond146.preheader ], [ %184, %for.end212.loopexit ]
   %188 = phi <2 x float> [ <float 0.000000e+00, float 1.000000e+00>, %for.cond146.preheader ], [ %178, %for.end212.loopexit ]
-  %189 = trunc i64 %indvars.iv439 to i32
+  %189 = trunc nuw i64 %indvars.iv439 to i32
   %conv213 = uitofp i32 %189 to double
   store double %conv213, ptr %rotkey.0430, align 8
   %190 = extractelement <2 x float> %188, i64 1
@@ -8577,7 +8577,7 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %if.else
-  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %__position.coerce, %if.else ]
+  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
   %_M_left.i3.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %_M_left.i3.i, align 8
   %cmp.i4.i = icmp eq ptr %__y.0.lcssa25.i, %6
@@ -8736,8 +8736,8 @@ if.end12.i78:                                     ; preds = %if.else.i93, %while
   br label %return
 
 return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %11, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa25.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -476,7 +476,7 @@ invoke.contthread-pre-split.i17:                  ; preds = %for.body.i.i.i.i13
   br label %invoke.cont.i19
 
 invoke.cont.i19:                                  ; preds = %invoke.cont14, %invoke.contthread-pre-split.i17, %if.end34.critedge
-  %24 = phi ptr [ %.pr.i18, %invoke.contthread-pre-split.i17 ], [ %.pre29, %if.end34.critedge ], [ %15, %invoke.cont14 ]
+  %24 = phi ptr [ %.pr.i18, %invoke.contthread-pre-split.i17 ], [ %.pre, %if.end34.critedge ], [ %15, %invoke.cont14 ]
   %tobool.not.i.i.i20 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i20, label %cleanup35, label %if.then.i.i.i21
 
@@ -1095,7 +1095,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont62, %invoke.contthread-pre-split.i, %cleanup
   %cmp.i33.not.lcssa75 = phi i1 [ %cmp.i33.not.lcssa.ph, %invoke.contthread-pre-split.i ], [ %cmp.i33.not.lcssa.ph, %cleanup ], [ true, %invoke.cont62 ]
-  %72 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre72, %cleanup ], [ %66, %invoke.cont62 ]
+  %72 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %cleanup ], [ %66, %invoke.cont62 ]
   %tobool.not.i.i.i = icmp eq ptr %72, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i36
 
@@ -1958,7 +1958,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then3.i.i.i.i.i,
   br i1 %cmp8.i.i.i.i.i, label %if.then9.i.i.i.i.i, label %if.end11.i.i.i.i.i
 
 if.then9.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  store ptr %7, ptr %9, align 8
+  store ptr %7, ptr %_M_before_begin.i.i.i.i.i, align 8
   br label %if.end11.i.i.i.i.i
 
 if.end11.i.i.i.i.i:                               ; preds = %if.then9.i.i.i.i.i, %if.end.i.i.i.i.i

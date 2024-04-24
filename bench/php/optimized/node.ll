@@ -4797,7 +4797,7 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
   br i1 %or.cond166, label %63, label %.loopexit172
 
 63:                                               ; preds = %57
-  %64 = getelementptr inbounds i8, ptr %.0, i64 88
+  %64 = getelementptr inbounds i8, ptr %59, i64 88
   %.0139174 = load ptr, ptr %64, align 8
   %.not175 = icmp eq ptr %.0139174, null
   br i1 %.not175, label %.loopexit172, label %.lr.ph
@@ -4831,7 +4831,7 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
 
 .loopexit172:                                     ; preds = %65, %63, %57, %53
   %.0138 = phi ptr [ %27, %57 ], [ null, %53 ], [ %27, %63 ], [ %27, %65 ]
-  %.0133 = phi ptr [ %59, %57 ], [ %27, %53 ], [ %.0, %63 ], [ %.0, %65 ]
+  %.0133 = phi ptr [ %59, %57 ], [ %27, %53 ], [ %59, %63 ], [ %59, %65 ]
   %74 = icmp eq ptr %.0, null
   %75 = icmp eq ptr %.0133, null
   %or.cond3 = select i1 %74, i1 true, i1 %75

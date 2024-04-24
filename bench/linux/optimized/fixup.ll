@@ -701,7 +701,7 @@ define internal void @pci_fixup_via_northbridge_bug(ptr noundef %0) #0 align 16 
   %27 = and i32 %13, %16
   call void (ptr, ptr, ...) @_dev_warn(ptr noundef %21, ptr noundef nonnull @.str.3, i32 noundef %23, i32 noundef %26, i32 noundef %12, i32 noundef %16, i32 noundef %13, i32 noundef %27) #12
   %28 = load i8, ptr %2, align 1
-  %29 = trunc i32 %13 to i8
+  %29 = trunc nuw nsw i32 %13 to i8
   %30 = and i8 %28, %29
   store i8 %30, ptr %2, align 1
   %31 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %12, i8 noundef zeroext %30) #11
@@ -1202,7 +1202,7 @@ define internal void @pci_amd_enable_64bit_bar(ptr noundef %0) #0 align 16 {
   %18 = zext i16 %17 to i32
   %19 = load i16, ptr %11, align 2
   %20 = zext i16 %19 to i32
-  %21 = tail call ptr @pci_get_device(i32 noundef %18, i32 noundef %20, ptr noundef %0) #11
+  %21 = tail call ptr @pci_get_device(i32 noundef %18, i32 noundef %20, ptr noundef %14) #11
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.preheader.preheader, label %23
 
@@ -1296,7 +1296,7 @@ define internal void @pci_amd_enable_64bit_bar(ptr noundef %0) #0 align 16 {
   %76 = lshr i64 %70, 24
   %77 = and i64 %76, 16711680
   %78 = or disjoint i64 %77, %75
-  %79 = trunc i64 %78 to i32
+  %79 = trunc nuw nsw i64 %78 to i32
   store i32 %79, ptr %3, align 4
   %80 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef %30, i32 noundef %79) #11
   %81 = add nsw i32 %26, 132
@@ -1345,7 +1345,7 @@ define internal void @rs690_fix_64bit_dma(ptr noundef %0) #0 align 16 {
   %22 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 168, i32 noundef 305) #11
   %23 = load i64, ptr %3, align 8
   %24 = lshr i64 %23, 32
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw i64 %24 to i32
   %26 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 172, i32 noundef %25) #11
   %27 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 168, i32 noundef 304) #11
   %28 = load i64, ptr %3, align 8
@@ -1412,8 +1412,8 @@ define internal void @chromeos_save_apl_pci_l1ss_capability(ptr noundef %0) #0 a
   br i1 %11, label %12, label %.preheader, !llvm.loop !15
 
 12:                                               ; preds = %7
-  %13 = trunc i32 %21 to i16
-  %14 = trunc i32 %23 to i16
+  %13 = trunc nuw nsw i32 %21 to i16
+  %14 = trunc nuw nsw i32 %23 to i16
   br label %15
 
 15:                                               ; preds = %12, %1

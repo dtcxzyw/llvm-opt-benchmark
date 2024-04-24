@@ -304,7 +304,7 @@ define dso_local void @intel_gt_flush_buffer_pool(ptr noundef %0) local_unnamed_
 
 .thread.i:                                        ; preds = %31, %27, %.lr.ph.i, %.preheader9.i
   %.lcssa10.i = phi ptr [ %9, %.preheader9.i ], [ %23, %31 ], [ %22, %.lr.ph.i ], [ %22, %27 ]
-  %.lcssa.i = phi ptr [ %11, %.preheader9.i ], [ %11, %31 ], [ %21, %.lr.ph.i ], [ %21, %27 ]
+  %.lcssa.i = phi ptr [ %18, %.preheader9.i ], [ %34, %31 ], [ %21, %.lr.ph.i ], [ %21, %27 ]
   %36 = load ptr, ptr %.lcssa.i, align 8
   %37 = icmp eq ptr %36, %11
   br i1 %37, label %39, label %38
@@ -445,7 +445,7 @@ define internal fastcc zeroext i1 @pool_free_older_than(ptr noundef %0, i64 noun
 
 .thread:                                          ; preds = %33, %26, %.lr.ph, %30, %.preheader9
   %.lcssa10 = phi ptr [ %8, %.preheader9 ], [ %21, %30 ], [ %21, %.lr.ph ], [ %21, %26 ], [ %22, %33 ]
-  %.lcssa = phi ptr [ %10, %.preheader9 ], [ %20, %30 ], [ %20, %.lr.ph ], [ %20, %26 ], [ %10, %33 ]
+  %.lcssa = phi ptr [ %17, %.preheader9 ], [ %20, %30 ], [ %20, %.lr.ph ], [ %20, %26 ], [ %36, %33 ]
   %38 = load ptr, ptr %.lcssa, align 8
   %39 = icmp eq ptr %38, %10
   br i1 %39, label %41, label %40

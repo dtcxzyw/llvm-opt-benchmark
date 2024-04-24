@@ -370,7 +370,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
 
 8:                                                ; preds = %5
   %.val = load ptr, ptr %1, align 8
-  %.val99 = load ptr, ptr %4, align 8
+  %.val99 = load ptr, ptr %3, align 8
   %.val.val = load i64, ptr %.val, align 8
   %9 = getelementptr i8, ptr %.val, i64 16
   %.val.val103 = load ptr, ptr %9, align 8
@@ -438,7 +438,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
 
 37:                                               ; preds = %34
   %.val100 = load ptr, ptr %3, align 8
-  %.val101 = load ptr, ptr %4, align 8
+  %.val101 = load ptr, ptr %1, align 8
   %.val100.val = load i64, ptr %.val100, align 8
   %38 = getelementptr i8, ptr %.val100, i64 16
   %.val100.val102 = load ptr, ptr %38, align 8
@@ -823,7 +823,7 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly %1, ptr nou
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %3
-  %.val = load ptr, ptr %2, align 8
+  %.val = load ptr, ptr %1, align 8
   %.val.val = load i64, ptr %.val, align 8
   %6 = getelementptr i8, ptr %.val, i64 16
   %.val.val23 = load ptr, ptr %6, align 8

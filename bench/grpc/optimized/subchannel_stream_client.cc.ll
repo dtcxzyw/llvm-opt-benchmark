@@ -2667,9 +2667,9 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   store ptr null, ptr %call_state_, align 8
-  %vtable.i.i.i = load ptr, ptr %this, align 8
+  %vtable.i.i.i = load ptr, ptr %1, align 8
   %2 = load ptr, ptr %vtable.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(3648) %this)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(3648) %1)
           to label %_ZNSt10unique_ptrIN9grpc_core22SubchannelStreamClient9CallStateENS0_16OrphanableDeleteEE5resetEPS2_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i

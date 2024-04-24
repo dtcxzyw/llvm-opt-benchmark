@@ -3251,7 +3251,7 @@ cleanup.thread:                                   ; preds = %if.end39
   %m_manager2.i = getelementptr inbounds i8, ptr %e1, i64 8
   %62 = load ptr, ptr %m_manager2.i, align 8
   store ptr %62, ptr %m_manager.i51, align 8
-  store ptr %e, ptr %agg.result, align 8
+  store ptr %61, ptr %agg.result, align 8
   br label %return
 
 lpad41:                                           ; preds = %if.end46
@@ -7184,7 +7184,7 @@ if.end.i.i100:                                    ; preds = %if.end54
 
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit103: ; preds = %if.end54, %if.end.i.i100
   %retval.0.i.i102 = phi i32 [ %71, %if.end.i.i100 ], [ 0, %if.end54 ]
-  %72 = trunc i64 %indvars.iv313 to i32
+  %72 = trunc nuw i64 %indvars.iv313 to i32
   %73 = xor i32 %72, -1
   %sub59 = add i32 %retval.0.i.i102, %73
   %idxprom.i.i105 = zext i32 %sub59 to i64
@@ -12214,7 +12214,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %i
   br i1 %26, label %return, label %for.body.i18, !llvm.loop !74
 
 for.inc:                                          ; preds = %land.lhs.true.i
-  %27 = trunc i64 %indvars.iv.i to i32
+  %27 = trunc nuw i64 %indvars.iv.i to i32
   %28 = load ptr, ptr %offsets, align 8
   %arrayidx.i10.i = getelementptr inbounds i32, ptr %28, i64 %indvars.iv
   store i32 %27, ptr %arrayidx.i10.i, align 4
@@ -12514,7 +12514,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %call12.i, label %for.inc.i, label %_ZN1q4mbqi11next_offsetER7svectorIjjERK10ref_vectorI3app11ast_managerEjj.exit.thread
 
 _ZN1q4mbqi11next_offsetER7svectorIjjERK10ref_vectorI3app11ast_managerEjj.exit.thread: ; preds = %land.lhs.true.i
-  %15 = trunc i64 %indvars.iv.i to i32
+  %15 = trunc nuw i64 %indvars.iv.i to i32
   %16 = load ptr, ptr %offsets, align 8
   %arrayidx.i10.i = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
   store i32 %15, ptr %arrayidx.i10.i, align 4
@@ -12579,7 +12579,7 @@ for.inc.i33:                                      ; preds = %land.lhs.true.i37, 
   br i1 %27, label %return, label %for.body.i25, !llvm.loop !74
 
 for.inc:                                          ; preds = %land.lhs.true.i37
-  %28 = trunc i64 %indvars.iv.i26 to i32
+  %28 = trunc nuw i64 %indvars.iv.i26 to i32
   %29 = load ptr, ptr %offsets, align 8
   %arrayidx.i10.i40 = getelementptr inbounds i32, ptr %29, i64 %idxprom.i.i.i.i14
   store i32 %28, ptr %arrayidx.i10.i40, align 4
@@ -12668,7 +12668,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %call12, label %for.inc, label %if.then13
 
 if.then13:                                        ; preds = %land.lhs.true
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw i64 %indvars.iv to i32
   %12 = load ptr, ptr %offsets, align 8
   %arrayidx.i10 = getelementptr inbounds i32, ptr %12, i64 %idxprom.i.i.i
   store i32 %11, ptr %arrayidx.i10, align 4

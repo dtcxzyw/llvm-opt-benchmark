@@ -388,36 +388,37 @@ _Z7deallocIN3sat15constraint_baseEEvPT_.exit.i:   ; preds = %if.end.i.i, %if.the
   br label %invoke.cont42
 
 invoke.cont42:                                    ; preds = %_Z7deallocIN3sat15constraint_baseEEvPT_.exit.i, %invoke.cont39
-  store ptr %this, ptr %call, align 8
+  %9 = phi ptr [ %call, %_Z7deallocIN3sat15constraint_baseEEvPT_.exit.i ], [ %8, %invoke.cont39 ]
+  store ptr %this, ptr %9, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup63
 
 lpad12:                                           ; preds = %invoke.cont11
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup60
 
 lpad14:                                           ; preds = %invoke.cont13
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup59
 
 lpad16:                                           ; preds = %invoke.cont15
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup58
 
 lpad32:                                           ; preds = %invoke.cont21
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup52
 
 lpad38:                                           ; preds = %if.end.i.i, %invoke.cont33
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10ptr_vectorI13ptr_hashtableIN3euf5enodeEN5array6solver8sel_hashENS4_6sel_eqEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_selects_range) #15
   call void @_ZN10ptr_vectorIN3euf5enodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_selects_domain) #15
@@ -425,7 +426,7 @@ lpad38:                                           ; preds = %if.end.i.i, %invoke
   br label %ehcleanup52
 
 ehcleanup52:                                      ; preds = %lpad38, %lpad32
-  %.pn = phi { ptr, i32 } [ %14, %lpad38 ], [ %13, %lpad32 ]
+  %.pn = phi { ptr, i32 } [ %15, %lpad38 ], [ %14, %lpad32 ]
   call void @_ZN7svectorIijED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_parents) #15
   call void @_ZN10ptr_vectorI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_else_values) #15
   call void @_ZN10ptr_vectorIN3euf5enodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_defaults) #15
@@ -435,17 +436,17 @@ ehcleanup52:                                      ; preds = %lpad38, %lpad32
   br label %ehcleanup58
 
 ehcleanup58:                                      ; preds = %ehcleanup52, %lpad16
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup52 ], [ %12, %lpad16 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup52 ], [ %13, %lpad16 ]
   call void @_ZN10union_findIN5array6solverEN3euf6solverEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_find) #15
   br label %ehcleanup59
 
 ehcleanup59:                                      ; preds = %ehcleanup58, %lpad14
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup58 ], [ %11, %lpad14 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup58 ], [ %12, %lpad14 ]
   call void @_ZN7obj_mapI4sortP10ref_vectorI9func_decl11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_sort2diff) #15
   br label %ehcleanup60
 
 ehcleanup60:                                      ; preds = %ehcleanup59, %lpad12
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup59 ], [ %10, %lpad12 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup59 ], [ %11, %lpad12 ]
   call void @_ZN16ast2ast_trailmapI4sort9func_declED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_sort2diag) #15
   br label %ehcleanup61
 
@@ -460,7 +461,7 @@ ehcleanup62:                                      ; preds = %lpad2.i, %ehcleanup
   br label %ehcleanup63
 
 ehcleanup63:                                      ; preds = %ehcleanup62, %lpad
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup62 ], [ %9, %lpad ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup62 ], [ %10, %lpad ]
   call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) #15
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 }

@@ -4729,9 +4729,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1082b3d593b125ddE.llvm.14766313156815909311.exit.sink.split", label %9
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1082b3d593b125ddE.llvm.14766313156815909311.exit.sink.split": ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h62d0782fa0d2575fE.llvm.14766313156815909311.exit.backedge", %14
-  %.sink = phi ptr [ %11, %14 ], [ %4, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h62d0782fa0d2575fE.llvm.14766313156815909311.exit.backedge" ]
   %.lcssa.ph = phi i1 [ true, %14 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h62d0782fa0d2575fE.llvm.14766313156815909311.exit.backedge" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !503
+  store ptr %11, ptr %0, align 8, !alias.scope !503
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1082b3d593b125ddE.llvm.14766313156815909311.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1082b3d593b125ddE.llvm.14766313156815909311.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1082b3d593b125ddE.llvm.14766313156815909311.exit.sink.split", %2

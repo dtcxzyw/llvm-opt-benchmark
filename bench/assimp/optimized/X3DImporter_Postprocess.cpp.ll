@@ -1660,15 +1660,19 @@ if.then153:                                       ; preds = %if.end7
   %Children156 = getelementptr inbounds i8, ptr %pNodeElement, i64 48
   %ch_it155.sroa.0.0878 = load ptr, ptr %Children156, align 8
   %cmp.i319.not879 = icmp eq ptr %ch_it155.sroa.0.0878, %Children156
-  br i1 %cmp.i319.not879, label %return, label %for.body165.lr.ph
+  br i1 %cmp.i319.not879, label %for.cond181.preheader, label %for.body165.lr.ph
 
 for.body165.lr.ph:                                ; preds = %if.then153
   %CoordIndex = getelementptr inbounds i8, ptr %pNodeElement, i64 152
   br label %for.body165
 
-for.cond181.preheader:                            ; preds = %for.inc174
+for.cond181.preheader.loopexit:                   ; preds = %for.inc174
   %ch_it177.sroa.0.0881.pre = load ptr, ptr %Children156, align 8
-  %cmp.i322.not882 = icmp eq ptr %ch_it177.sroa.0.0881.pre, %Children156
+  br label %for.cond181.preheader
+
+for.cond181.preheader:                            ; preds = %for.cond181.preheader.loopexit, %if.then153
+  %ch_it177.sroa.0.0881 = phi ptr [ %ch_it177.sroa.0.0881.pre, %for.cond181.preheader.loopexit ], [ %ch_it155.sroa.0.0878, %if.then153 ]
+  %cmp.i322.not882 = icmp eq ptr %ch_it177.sroa.0.0881, %Children156
   br i1 %cmp.i322.not882, label %return, label %for.body187.lr.ph
 
 for.body187.lr.ph:                                ; preds = %for.cond181.preheader
@@ -1698,10 +1702,10 @@ if.then169:                                       ; preds = %for.body165
 for.inc174:                                       ; preds = %for.body165, %if.then169
   %ch_it155.sroa.0.0 = load ptr, ptr %ch_it155.sroa.0.0880, align 8
   %cmp.i319.not = icmp eq ptr %ch_it155.sroa.0.0, %Children156
-  br i1 %cmp.i319.not, label %for.cond181.preheader, label %for.body165, !llvm.loop !23
+  br i1 %cmp.i319.not, label %for.cond181.preheader.loopexit, label %for.body165, !llvm.loop !23
 
 for.body187:                                      ; preds = %for.body187.lr.ph, %for.inc259
-  %ch_it177.sroa.0.0883 = phi ptr [ %ch_it177.sroa.0.0881.pre, %for.body187.lr.ph ], [ %ch_it177.sroa.0.0, %for.inc259 ]
+  %ch_it177.sroa.0.0883 = phi ptr [ %ch_it177.sroa.0.0881, %for.body187.lr.ph ], [ %ch_it177.sroa.0.0, %for.inc259 ]
   %_M_storage.i.i323 = getelementptr inbounds i8, ptr %ch_it177.sroa.0.0883, i64 16
   %37 = load ptr, ptr %_M_storage.i.i323, align 8
   %Type189 = getelementptr inbounds i8, ptr %37, i64 72
@@ -1815,15 +1819,19 @@ if.then265:                                       ; preds = %if.end7
   %Children268 = getelementptr inbounds i8, ptr %pNodeElement, i64 48
   %ch_it267.sroa.0.0872 = load ptr, ptr %Children268, align 8
   %cmp.i337.not873 = icmp eq ptr %ch_it267.sroa.0.0872, %Children268
-  br i1 %cmp.i337.not873, label %return, label %for.body277.lr.ph
+  br i1 %cmp.i337.not873, label %for.cond294.preheader, label %for.body277.lr.ph
 
 for.body277.lr.ph:                                ; preds = %if.then265
   %CoordIndex282 = getelementptr inbounds i8, ptr %pNodeElement, i64 152
   br label %for.body277
 
-for.cond294.preheader:                            ; preds = %for.inc287
+for.cond294.preheader.loopexit:                   ; preds = %for.inc287
   %ch_it290.sroa.0.0875.pre = load ptr, ptr %Children268, align 8
-  %cmp.i340.not876 = icmp eq ptr %ch_it290.sroa.0.0875.pre, %Children268
+  br label %for.cond294.preheader
+
+for.cond294.preheader:                            ; preds = %for.cond294.preheader.loopexit, %if.then265
+  %ch_it290.sroa.0.0875 = phi ptr [ %ch_it290.sroa.0.0875.pre, %for.cond294.preheader.loopexit ], [ %ch_it267.sroa.0.0872, %if.then265 ]
+  %cmp.i340.not876 = icmp eq ptr %ch_it290.sroa.0.0875, %Children268
   br i1 %cmp.i340.not876, label %return, label %for.body300.lr.ph
 
 for.body300.lr.ph:                                ; preds = %for.cond294.preheader
@@ -1850,10 +1858,10 @@ if.then281:                                       ; preds = %for.body277
 for.inc287:                                       ; preds = %for.body277, %if.then281
   %ch_it267.sroa.0.0 = load ptr, ptr %ch_it267.sroa.0.0874, align 8
   %cmp.i337.not = icmp eq ptr %ch_it267.sroa.0.0, %Children268
-  br i1 %cmp.i337.not, label %for.cond294.preheader, label %for.body277, !llvm.loop !25
+  br i1 %cmp.i337.not, label %for.cond294.preheader.loopexit, label %for.body277, !llvm.loop !25
 
 for.body300:                                      ; preds = %for.body300.lr.ph, %for.inc353
-  %ch_it290.sroa.0.0877 = phi ptr [ %ch_it290.sroa.0.0875.pre, %for.body300.lr.ph ], [ %ch_it290.sroa.0.0, %for.inc353 ]
+  %ch_it290.sroa.0.0877 = phi ptr [ %ch_it290.sroa.0.0875, %for.body300.lr.ph ], [ %ch_it290.sroa.0.0, %for.inc353 ]
   %_M_storage.i.i341 = getelementptr inbounds i8, ptr %ch_it290.sroa.0.0877, i64 16
   %54 = load ptr, ptr %_M_storage.i.i341, align 8
   %Type302 = getelementptr inbounds i8, ptr %54, i64 72
@@ -1951,15 +1959,19 @@ if.then365:                                       ; preds = %if.end7, %if.end7, 
   %Children368 = getelementptr inbounds i8, ptr %pNodeElement, i64 48
   %ch_it367.sroa.0.0866 = load ptr, ptr %Children368, align 8
   %cmp.i351.not867 = icmp eq ptr %ch_it367.sroa.0.0866, %Children368
-  br i1 %cmp.i351.not867, label %return, label %for.body377.lr.ph
+  br i1 %cmp.i351.not867, label %for.cond394.preheader, label %for.body377.lr.ph
 
 for.body377.lr.ph:                                ; preds = %if.then365
   %CoordIndex382 = getelementptr inbounds i8, ptr %pNodeElement, i64 152
   br label %for.body377
 
-for.cond394.preheader:                            ; preds = %for.inc387
+for.cond394.preheader.loopexit:                   ; preds = %for.inc387
   %ch_it390.sroa.0.0869.pre = load ptr, ptr %Children368, align 8
-  %cmp.i354.not870 = icmp eq ptr %ch_it390.sroa.0.0869.pre, %Children368
+  br label %for.cond394.preheader
+
+for.cond394.preheader:                            ; preds = %for.cond394.preheader.loopexit, %if.then365
+  %ch_it390.sroa.0.0869 = phi ptr [ %ch_it390.sroa.0.0869.pre, %for.cond394.preheader.loopexit ], [ %ch_it367.sroa.0.0866, %if.then365 ]
+  %cmp.i354.not870 = icmp eq ptr %ch_it390.sroa.0.0869, %Children368
   br i1 %cmp.i354.not870, label %return, label %for.body400.lr.ph
 
 for.body400.lr.ph:                                ; preds = %for.cond394.preheader
@@ -1989,10 +2001,10 @@ if.then381:                                       ; preds = %for.body377
 for.inc387:                                       ; preds = %for.body377, %if.then381
   %ch_it367.sroa.0.0 = load ptr, ptr %ch_it367.sroa.0.0868, align 8
   %cmp.i351.not = icmp eq ptr %ch_it367.sroa.0.0, %Children368
-  br i1 %cmp.i351.not, label %for.cond394.preheader, label %for.body377, !llvm.loop !27
+  br i1 %cmp.i351.not, label %for.cond394.preheader.loopexit, label %for.body377, !llvm.loop !27
 
 for.body400:                                      ; preds = %for.body400.lr.ph, %for.inc475
-  %ch_it390.sroa.0.0871 = phi ptr [ %ch_it390.sroa.0.0869.pre, %for.body400.lr.ph ], [ %ch_it390.sroa.0.0, %for.inc475 ]
+  %ch_it390.sroa.0.0871 = phi ptr [ %ch_it390.sroa.0.0869, %for.body400.lr.ph ], [ %ch_it390.sroa.0.0, %for.inc475 ]
   %_M_storage.i.i355 = getelementptr inbounds i8, ptr %ch_it390.sroa.0.0871, i64 16
   %68 = load ptr, ptr %_M_storage.i.i355, align 8
   %Type402 = getelementptr inbounds i8, ptr %68, i64 72
@@ -2113,16 +2125,20 @@ if.then489:                                       ; preds = %if.end7
   %Children492 = getelementptr inbounds i8, ptr %pNodeElement, i64 48
   %ch_it491.sroa.0.0860 = load ptr, ptr %Children492, align 8
   %cmp.i369.not861 = icmp eq ptr %ch_it491.sroa.0.0860, %Children492
-  br i1 %cmp.i369.not861, label %return, label %for.body501.lr.ph
+  br i1 %cmp.i369.not861, label %for.cond542.preheader, label %for.body501.lr.ph
 
 for.body501.lr.ph:                                ; preds = %if.then489
   %_M_end_of_storage.i.i375 = getelementptr inbounds i8, ptr %vec_copy, i64 16
   %_M_finish.i.i382 = getelementptr inbounds i8, ptr %vec_copy, i64 8
   br label %for.body501
 
-for.cond542.preheader:                            ; preds = %for.inc535
+for.cond542.preheader.loopexit:                   ; preds = %for.inc535
   %ch_it538.sroa.0.0863.pre = load ptr, ptr %Children492, align 8
-  %cmp.i456.not864 = icmp eq ptr %ch_it538.sroa.0.0863.pre, %Children492
+  br label %for.cond542.preheader
+
+for.cond542.preheader:                            ; preds = %for.cond542.preheader.loopexit, %if.then489
+  %ch_it538.sroa.0.0863 = phi ptr [ %ch_it538.sroa.0.0863.pre, %for.cond542.preheader.loopexit ], [ %ch_it491.sroa.0.0860, %if.then489 ]
+  %cmp.i456.not864 = icmp eq ptr %ch_it538.sroa.0.0863, %Children492
   br i1 %cmp.i456.not864, label %return, label %for.body548
 
 for.body501:                                      ; preds = %for.body501.lr.ph, %for.inc535
@@ -2296,10 +2312,10 @@ if.then.i.i.i454:                                 ; preds = %invoke.cont531
 for.inc535:                                       ; preds = %if.then.i.i.i454, %invoke.cont531, %for.body501
   %ch_it491.sroa.0.0 = load ptr, ptr %ch_it491.sroa.0.0862, align 8
   %cmp.i369.not = icmp eq ptr %ch_it491.sroa.0.0, %Children492
-  br i1 %cmp.i369.not, label %for.cond542.preheader, label %for.body501, !llvm.loop !34
+  br i1 %cmp.i369.not, label %for.cond542.preheader.loopexit, label %for.body501, !llvm.loop !34
 
 for.body548:                                      ; preds = %for.cond542.preheader, %for.inc593
-  %ch_it538.sroa.0.0865 = phi ptr [ %ch_it538.sroa.0.0, %for.inc593 ], [ %ch_it538.sroa.0.0863.pre, %for.cond542.preheader ]
+  %ch_it538.sroa.0.0865 = phi ptr [ %ch_it538.sroa.0.0, %for.inc593 ], [ %ch_it538.sroa.0.0863, %for.cond542.preheader ]
   %_M_storage.i.i457 = getelementptr inbounds i8, ptr %ch_it538.sroa.0.0865, i64 16
   %99 = load ptr, ptr %_M_storage.i.i457, align 8
   %Type550 = getelementptr inbounds i8, ptr %99, i64 72
@@ -2393,15 +2409,19 @@ if.then599:                                       ; preds = %if.end7
   %Children602 = getelementptr inbounds i8, ptr %pNodeElement, i64 48
   %ch_it601.sroa.0.0850 = load ptr, ptr %Children602, align 8
   %cmp.i467.not851 = icmp eq ptr %ch_it601.sroa.0.0850, %Children602
-  br i1 %cmp.i467.not851, label %return, label %for.body611.lr.ph
+  br i1 %cmp.i467.not851, label %for.cond628.preheader, label %for.body611.lr.ph
 
 for.body611.lr.ph:                                ; preds = %if.then599
   %CoordIndex616 = getelementptr inbounds i8, ptr %pNodeElement, i64 120
   br label %for.body611
 
-for.cond628.preheader:                            ; preds = %for.inc621
+for.cond628.preheader.loopexit:                   ; preds = %for.inc621
   %ch_it624.sroa.0.0853.pre = load ptr, ptr %Children602, align 8
-  %cmp.i470.not854 = icmp eq ptr %ch_it624.sroa.0.0853.pre, %Children602
+  br label %for.cond628.preheader
+
+for.cond628.preheader:                            ; preds = %for.cond628.preheader.loopexit, %if.then599
+  %ch_it624.sroa.0.0853 = phi ptr [ %ch_it624.sroa.0.0853.pre, %for.cond628.preheader.loopexit ], [ %ch_it601.sroa.0.0850, %if.then599 ]
+  %cmp.i470.not854 = icmp eq ptr %ch_it624.sroa.0.0853, %Children602
   br i1 %cmp.i470.not854, label %return, label %for.body634
 
 for.body611:                                      ; preds = %for.body611.lr.ph, %for.inc621
@@ -2422,10 +2442,10 @@ if.then615:                                       ; preds = %for.body611
 for.inc621:                                       ; preds = %for.body611, %if.then615
   %ch_it601.sroa.0.0 = load ptr, ptr %ch_it601.sroa.0.0852, align 8
   %cmp.i467.not = icmp eq ptr %ch_it601.sroa.0.0, %Children602
-  br i1 %cmp.i467.not, label %for.cond628.preheader, label %for.body611, !llvm.loop !36
+  br i1 %cmp.i467.not, label %for.cond628.preheader.loopexit, label %for.body611, !llvm.loop !36
 
 for.body634:                                      ; preds = %for.cond628.preheader, %for.inc679
-  %ch_it624.sroa.0.0855 = phi ptr [ %ch_it624.sroa.0.0, %for.inc679 ], [ %ch_it624.sroa.0.0853.pre, %for.cond628.preheader ]
+  %ch_it624.sroa.0.0855 = phi ptr [ %ch_it624.sroa.0.0, %for.inc679 ], [ %ch_it624.sroa.0.0853, %for.cond628.preheader ]
   %_M_storage.i.i471 = getelementptr inbounds i8, ptr %ch_it624.sroa.0.0855, i64 16
   %111 = load ptr, ptr %_M_storage.i.i471, align 8
   %Type636 = getelementptr inbounds i8, ptr %111, i64 72
@@ -2519,15 +2539,19 @@ if.then685:                                       ; preds = %if.end7
   %Children688 = getelementptr inbounds i8, ptr %pNodeElement, i64 48
   %ch_it687.sroa.0.0844 = load ptr, ptr %Children688, align 8
   %cmp.i481.not845 = icmp eq ptr %ch_it687.sroa.0.0844, %Children688
-  br i1 %cmp.i481.not845, label %return, label %for.body697.lr.ph
+  br i1 %cmp.i481.not845, label %for.cond714.preheader, label %for.body697.lr.ph
 
 for.body697.lr.ph:                                ; preds = %if.then685
   %CoordIndex702 = getelementptr inbounds i8, ptr %pNodeElement, i64 120
   br label %for.body697
 
-for.cond714.preheader:                            ; preds = %for.inc707
+for.cond714.preheader.loopexit:                   ; preds = %for.inc707
   %ch_it710.sroa.0.0847.pre = load ptr, ptr %Children688, align 8
-  %cmp.i484.not848 = icmp eq ptr %ch_it710.sroa.0.0847.pre, %Children688
+  br label %for.cond714.preheader
+
+for.cond714.preheader:                            ; preds = %for.cond714.preheader.loopexit, %if.then685
+  %ch_it710.sroa.0.0847 = phi ptr [ %ch_it710.sroa.0.0847.pre, %for.cond714.preheader.loopexit ], [ %ch_it687.sroa.0.0844, %if.then685 ]
+  %cmp.i484.not848 = icmp eq ptr %ch_it710.sroa.0.0847, %Children688
   br i1 %cmp.i484.not848, label %return, label %for.body720.lr.ph
 
 for.body720.lr.ph:                                ; preds = %for.cond714.preheader
@@ -2556,10 +2580,10 @@ if.then701:                                       ; preds = %for.body697
 for.inc707:                                       ; preds = %for.body697, %if.then701
   %ch_it687.sroa.0.0 = load ptr, ptr %ch_it687.sroa.0.0846, align 8
   %cmp.i481.not = icmp eq ptr %ch_it687.sroa.0.0, %Children688
-  br i1 %cmp.i481.not, label %for.cond714.preheader, label %for.body697, !llvm.loop !38
+  br i1 %cmp.i481.not, label %for.cond714.preheader.loopexit, label %for.body697, !llvm.loop !38
 
 for.body720:                                      ; preds = %for.body720.lr.ph, %for.inc794
-  %ch_it710.sroa.0.0849 = phi ptr [ %ch_it710.sroa.0.0847.pre, %for.body720.lr.ph ], [ %ch_it710.sroa.0.0, %for.inc794 ]
+  %ch_it710.sroa.0.0849 = phi ptr [ %ch_it710.sroa.0.0847, %for.body720.lr.ph ], [ %ch_it710.sroa.0.0, %for.inc794 ]
   %123 = load ptr, ptr %pMesh, align 8
   %cmp721 = icmp eq ptr %123, null
   br i1 %cmp721, label %return, label %if.end723
@@ -2674,16 +2698,20 @@ if.then800:                                       ; preds = %if.end7
   %Children803 = getelementptr inbounds i8, ptr %pNodeElement, i64 48
   %ch_it802.sroa.0.0838 = load ptr, ptr %Children803, align 8
   %cmp.i499.not839 = icmp eq ptr %ch_it802.sroa.0.0838, %Children803
-  br i1 %cmp.i499.not839, label %return, label %for.body812.lr.ph
+  br i1 %cmp.i499.not839, label %for.cond854.preheader, label %for.body812.lr.ph
 
 for.body812.lr.ph:                                ; preds = %if.then800
   %_M_end_of_storage.i.i505 = getelementptr inbounds i8, ptr %vec_copy817, i64 16
   %_M_finish.i.i512 = getelementptr inbounds i8, ptr %vec_copy817, i64 8
   br label %for.body812
 
-for.cond854.preheader:                            ; preds = %for.inc847
+for.cond854.preheader.loopexit:                   ; preds = %for.inc847
   %ch_it850.sroa.0.0841.pre = load ptr, ptr %Children803, align 8
-  %cmp.i586.not842 = icmp eq ptr %ch_it850.sroa.0.0841.pre, %Children803
+  br label %for.cond854.preheader
+
+for.cond854.preheader:                            ; preds = %for.cond854.preheader.loopexit, %if.then800
+  %ch_it850.sroa.0.0841 = phi ptr [ %ch_it850.sroa.0.0841.pre, %for.cond854.preheader.loopexit ], [ %ch_it802.sroa.0.0838, %if.then800 ]
+  %cmp.i586.not842 = icmp eq ptr %ch_it850.sroa.0.0841, %Children803
   br i1 %cmp.i586.not842, label %return, label %for.body860.lr.ph
 
 for.body860.lr.ph:                                ; preds = %for.cond854.preheader
@@ -2865,10 +2893,10 @@ if.then.i.i.i584:                                 ; preds = %invoke.cont843
 for.inc847:                                       ; preds = %if.then.i.i.i584, %invoke.cont843, %for.body812
   %ch_it802.sroa.0.0 = load ptr, ptr %ch_it802.sroa.0.0840, align 8
   %cmp.i499.not = icmp eq ptr %ch_it802.sroa.0.0, %Children803
-  br i1 %cmp.i499.not, label %for.cond854.preheader, label %for.body812, !llvm.loop !45
+  br i1 %cmp.i499.not, label %for.cond854.preheader.loopexit, label %for.body812, !llvm.loop !45
 
 for.body860:                                      ; preds = %for.body860.lr.ph, %for.inc931
-  %ch_it850.sroa.0.0843 = phi ptr [ %ch_it850.sroa.0.0841.pre, %for.body860.lr.ph ], [ %ch_it850.sroa.0.0, %for.inc931 ]
+  %ch_it850.sroa.0.0843 = phi ptr [ %ch_it850.sroa.0.0841, %for.body860.lr.ph ], [ %ch_it850.sroa.0.0, %for.inc931 ]
   %_M_storage.i.i587 = getelementptr inbounds i8, ptr %ch_it850.sroa.0.0843, i64 16
   %151 = load ptr, ptr %_M_storage.i.i587, align 8
   %Type862 = getelementptr inbounds i8, ptr %151, i64 72
@@ -2982,15 +3010,19 @@ if.then937:                                       ; preds = %if.end7
   %Children940 = getelementptr inbounds i8, ptr %pNodeElement, i64 48
   %ch_it939.sroa.0.0828 = load ptr, ptr %Children940, align 8
   %cmp.i601.not829 = icmp eq ptr %ch_it939.sroa.0.0828, %Children940
-  br i1 %cmp.i601.not829, label %return, label %for.body949.lr.ph
+  br i1 %cmp.i601.not829, label %for.cond966.preheader, label %for.body949.lr.ph
 
 for.body949.lr.ph:                                ; preds = %if.then937
   %CoordIndex954 = getelementptr inbounds i8, ptr %pNodeElement, i64 120
   br label %for.body949
 
-for.cond966.preheader:                            ; preds = %for.inc959
+for.cond966.preheader.loopexit:                   ; preds = %for.inc959
   %ch_it962.sroa.0.0831.pre = load ptr, ptr %Children940, align 8
-  %cmp.i604.not832 = icmp eq ptr %ch_it962.sroa.0.0831.pre, %Children940
+  br label %for.cond966.preheader
+
+for.cond966.preheader:                            ; preds = %for.cond966.preheader.loopexit, %if.then937
+  %ch_it962.sroa.0.0831 = phi ptr [ %ch_it962.sroa.0.0831.pre, %for.cond966.preheader.loopexit ], [ %ch_it939.sroa.0.0828, %if.then937 ]
+  %cmp.i604.not832 = icmp eq ptr %ch_it962.sroa.0.0831, %Children940
   br i1 %cmp.i604.not832, label %return, label %for.body972.lr.ph
 
 for.body972.lr.ph:                                ; preds = %for.cond966.preheader
@@ -3019,10 +3051,10 @@ if.then953:                                       ; preds = %for.body949
 for.inc959:                                       ; preds = %for.body949, %if.then953
   %ch_it939.sroa.0.0 = load ptr, ptr %ch_it939.sroa.0.0830, align 8
   %cmp.i601.not = icmp eq ptr %ch_it939.sroa.0.0, %Children940
-  br i1 %cmp.i601.not, label %for.cond966.preheader, label %for.body949, !llvm.loop !47
+  br i1 %cmp.i601.not, label %for.cond966.preheader.loopexit, label %for.body949, !llvm.loop !47
 
 for.body972:                                      ; preds = %for.body972.lr.ph, %for.inc1043
-  %ch_it962.sroa.0.0833 = phi ptr [ %ch_it962.sroa.0.0831.pre, %for.body972.lr.ph ], [ %ch_it962.sroa.0.0, %for.inc1043 ]
+  %ch_it962.sroa.0.0833 = phi ptr [ %ch_it962.sroa.0.0831, %for.body972.lr.ph ], [ %ch_it962.sroa.0.0, %for.inc1043 ]
   %_M_storage.i.i605 = getelementptr inbounds i8, ptr %ch_it962.sroa.0.0833, i64 16
   %168 = load ptr, ptr %_M_storage.i.i605, align 8
   %Type974 = getelementptr inbounds i8, ptr %168, i64 72
@@ -3191,7 +3223,7 @@ cleanup.action1066:                               ; preds = %ehcleanup1064.threa
   call void @__cxa_free_exception(ptr %exception1047) #21
   br label %eh.resume
 
-return:                                           ; preds = %for.inc1043, %for.inc931, %for.body720, %for.inc794, %for.inc679, %for.inc593, %for.inc475, %for.inc353, %for.inc259, %for.inc147, %if.then937, %if.then800, %if.then685, %if.then599, %if.then489, %if.then365, %if.then265, %if.then153, %for.cond966.preheader, %for.cond854.preheader, %for.cond714.preheader, %for.cond628.preheader, %for.cond542.preheader, %for.cond394.preheader, %for.cond294.preheader, %for.cond181.preheader, %if.then85, %if.then.i.i.i305, %invoke.cont80, %if.then.i.i.i223, %invoke.cont41, %if.then481
+return:                                           ; preds = %for.inc1043, %for.inc931, %for.body720, %for.inc794, %for.inc679, %for.inc593, %for.inc475, %for.inc353, %for.inc259, %for.inc147, %for.cond966.preheader, %for.cond854.preheader, %for.cond714.preheader, %for.cond628.preheader, %for.cond542.preheader, %for.cond394.preheader, %for.cond294.preheader, %for.cond181.preheader, %if.then85, %if.then.i.i.i305, %invoke.cont80, %if.then.i.i.i223, %invoke.cont41, %if.then481
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i581, %lpad821, %if.then.i.i.i451, %lpad509, %if.then.i.i.i302, %lpad60, %if.then.i.i.i221, %lpad30, %ehcleanup1064, %cleanup.action1066, %ehcleanup1034, %cleanup.action1036, %ehcleanup922, %cleanup.action924, %ehcleanup785, %cleanup.action787, %ehcleanup672, %cleanup.action674, %ehcleanup586, %cleanup.action588, %ehcleanup466, %cleanup.action468, %ehcleanup346, %cleanup.action348, %ehcleanup250, %cleanup.action252, %ehcleanup142, %cleanup.action, %lpad5, %lpad
@@ -3487,7 +3519,7 @@ for.body109:                                      ; preds = %invoke.cont102, %fo
 if.end118:                                        ; preds = %for.body109, %invoke.cont102, %for.end91
   %29 = load ptr, ptr %SceneNode_Mesh, align 8
   %cmp.i56 = icmp eq ptr %29, %SceneNode_Mesh
-  br i1 %cmp.i56, label %_ZNSt7__cxx114listIjSaIjEED2Ev.exit, label %if.then120
+  br i1 %cmp.i56, label %if.end146, label %if.then120
 
 if.then120:                                       ; preds = %if.end118
   %30 = load i64, ptr %_M_size.i.i.i.i.i38, align 8
@@ -3524,8 +3556,8 @@ if.end146.loopexit:                               ; preds = %for.body136
   %.pre = load ptr, ptr %SceneNode_Mesh, align 8
   br label %if.end146
 
-if.end146:                                        ; preds = %if.end146.loopexit, %invoke.cont129
-  %36 = phi ptr [ %.pre, %if.end146.loopexit ], [ %29, %invoke.cont129 ]
+if.end146:                                        ; preds = %if.end146.loopexit, %invoke.cont129, %if.end118
+  %36 = phi ptr [ %.pre, %if.end146.loopexit ], [ %29, %invoke.cont129 ], [ %29, %if.end118 ]
   %cmp.not4.i.i.i = icmp eq ptr %36, %SceneNode_Mesh
   br i1 %cmp.not4.i.i.i, label %_ZNSt7__cxx114listIjSaIjEED2Ev.exit, label %while.body.i.i.i
 
@@ -3536,7 +3568,7 @@ while.body.i.i.i:                                 ; preds = %if.end146, %while.b
   %cmp.not.i.i.i = icmp eq ptr %37, %SceneNode_Mesh
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIjSaIjEED2Ev.exit, label %while.body.i.i.i, !llvm.loop !53
 
-_ZNSt7__cxx114listIjSaIjEED2Ev.exit:              ; preds = %while.body.i.i.i, %if.end118, %if.end146
+_ZNSt7__cxx114listIjSaIjEED2Ev.exit:              ; preds = %while.body.i.i.i, %if.end146
   %38 = load ptr, ptr %SceneNode_Child, align 8
   %cmp.not4.i.i.i60 = icmp eq ptr %38, %SceneNode_Child
   br i1 %cmp.not4.i.i.i60, label %_ZNSt7__cxx114listIP6aiNodeSaIS2_EED2Ev.exit, label %while.body.i.i.i61
@@ -3603,7 +3635,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %0 = load ptr, ptr %meta_list, align 8
   %cmp.i = icmp eq ptr %0, %meta_list
-  br i1 %cmp.i, label %_ZNSt7__cxx114listIP18X3DNodeElementBaseSaIS2_EED2Ev.exit, label %if.then
+  br i1 %cmp.i, label %if.end136, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
   %mMetaData = getelementptr inbounds i8, ptr %pSceneNode, i64 1136
@@ -3889,34 +3921,38 @@ for.inc:                                          ; preds = %if.then44.invoke, %
   %36 = load ptr, ptr %it.sroa.0.077, align 8
   %inc = add i64 %meta_idx.078, 1
   %cmp.i31.not = icmp eq ptr %36, %meta_list
-  br i1 %cmp.i31.not, label %if.end136, label %for.body, !llvm.loop !55
+  br i1 %cmp.i31.not, label %if.end136.loopexit, label %for.body, !llvm.loop !55
 
-if.end136:                                        ; preds = %for.inc
+if.end136.loopexit:                               ; preds = %for.inc
   %.pre = load ptr, ptr %meta_list, align 8
-  %cmp.not4.i.i.i = icmp eq ptr %.pre, %meta_list
+  br label %if.end136
+
+if.end136:                                        ; preds = %if.end136.loopexit, %invoke.cont
+  %37 = phi ptr [ %.pre, %if.end136.loopexit ], [ %0, %invoke.cont ]
+  %cmp.not4.i.i.i = icmp eq ptr %37, %meta_list
   br i1 %cmp.not4.i.i.i, label %_ZNSt7__cxx114listIP18X3DNodeElementBaseSaIS2_EED2Ev.exit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end136, %while.body.i.i.i
-  %__cur.05.i.i.i = phi ptr [ %37, %while.body.i.i.i ], [ %.pre, %if.end136 ]
-  %37 = load ptr, ptr %__cur.05.i.i.i, align 8
+  %__cur.05.i.i.i = phi ptr [ %38, %while.body.i.i.i ], [ %37, %if.end136 ]
+  %38 = load ptr, ptr %__cur.05.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #22
-  %cmp.not.i.i.i = icmp eq ptr %37, %meta_list
+  %cmp.not.i.i.i = icmp eq ptr %38, %meta_list
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIP18X3DNodeElementBaseSaIS2_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !56
 
-_ZNSt7__cxx114listIP18X3DNodeElementBaseSaIS2_EED2Ev.exit: ; preds = %while.body.i.i.i, %invoke.cont, %if.end136
+_ZNSt7__cxx114listIP18X3DNodeElementBaseSaIS2_EED2Ev.exit: ; preds = %while.body.i.i.i, %if.end136
   ret void
 
 ehcleanup137:                                     ; preds = %lpad.loopexit71, %lpad.loopexit.split-lp72, %lpad127, %lpad115.body, %lpad3
   %.pn = phi { ptr, i32 } [ %3, %lpad3 ], [ %eh.lpad-body, %lpad115.body ], [ %35, %lpad127 ], [ %lpad.loopexit73, %lpad.loopexit71 ], [ %lpad.loopexit.split-lp74, %lpad.loopexit.split-lp72 ]
-  %38 = load ptr, ptr %meta_list, align 8
-  %cmp.not4.i.i.i59 = icmp eq ptr %38, %meta_list
+  %39 = load ptr, ptr %meta_list, align 8
+  %cmp.not4.i.i.i59 = icmp eq ptr %39, %meta_list
   br i1 %cmp.not4.i.i.i59, label %_ZNSt7__cxx114listIP18X3DNodeElementBaseSaIS2_EED2Ev.exit63, label %while.body.i.i.i60
 
 while.body.i.i.i60:                               ; preds = %ehcleanup137, %while.body.i.i.i60
-  %__cur.05.i.i.i61 = phi ptr [ %39, %while.body.i.i.i60 ], [ %38, %ehcleanup137 ]
-  %39 = load ptr, ptr %__cur.05.i.i.i61, align 8
+  %__cur.05.i.i.i61 = phi ptr [ %40, %while.body.i.i.i60 ], [ %39, %ehcleanup137 ]
+  %40 = load ptr, ptr %__cur.05.i.i.i61, align 8
   call void @_ZdlPv(ptr noundef %__cur.05.i.i.i61) #22
-  %cmp.not.i.i.i62 = icmp eq ptr %39, %meta_list
+  %cmp.not.i.i.i62 = icmp eq ptr %40, %meta_list
   br i1 %cmp.not.i.i.i62, label %_ZNSt7__cxx114listIP18X3DNodeElementBaseSaIS2_EED2Ev.exit63, label %while.body.i.i.i60, !llvm.loop !56
 
 _ZNSt7__cxx114listIP18X3DNodeElementBaseSaIS2_EED2Ev.exit63: ; preds = %while.body.i.i.i60, %ehcleanup137

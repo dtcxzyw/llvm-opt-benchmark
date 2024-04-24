@@ -1063,7 +1063,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZNK7obj_mapI9func_decljE13find_iteratorEPS0_.exit, label %land.rhs.i.i.i.i, !llvm.loop !9
 
 _ZNK7obj_mapI9func_decljE13find_iteratorEPS0_.exit: ; preds = %for.body.i.i.i, %for.body20.i.i.i, %for.inc36.i.i.i, %land.rhs.i.i.i.i, %while.body.i.i.i.i, %for.cond18.preheader.i.i.i, %if.then.i.i76
-  %retval.sroa.0.2.i.i = phi ptr [ %add.ptr5.i.i.i, %if.then.i.i76 ], [ %add.ptr5.i.i.i, %for.cond18.preheader.i.i.i ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ], [ %add.ptr5.i.i.i, %while.body.i.i.i.i ], [ %add.ptr5.i.i.i, %for.inc36.i.i.i ], [ %add.ptr5.i.i.i, %for.body20.i.i.i ], [ %add.ptr5.i.i.i, %for.body.i.i.i ]
+  %retval.sroa.0.2.i.i = phi ptr [ %retval.0.i.i.i, %if.then.i.i76 ], [ %add.ptr5.i.i.i, %for.cond18.preheader.i.i.i ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr5.i.i.i, %for.inc36.i.i.i ], [ %add.ptr5.i.i.i, %for.body20.i.i.i ], [ %add.ptr5.i.i.i, %for.body.i.i.i ]
   %m_value = getelementptr inbounds i8, ptr %retval.sroa.0.2.i.i, i64 8
   %52 = load i32, ptr %m_value, align 8
   %inc = add i32 %52, 1

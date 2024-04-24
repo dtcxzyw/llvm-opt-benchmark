@@ -181,7 +181,7 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   tail call void @free(ptr noundef nonnull %6) #9
   tail call void @free(ptr noundef nonnull %62) #9
   %puts132 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %127
+  br label %128
 
 ._crit_edge149.thread:                            ; preds = %._crit_edge, %._crit_edge149
   %71 = getelementptr inbounds i8, ptr %62, i64 4
@@ -209,7 +209,7 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
 76:                                               ; preds = %75, %74
   tail call void @free(ptr noundef nonnull %62) #9
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %127
+  br label %128
 
 .lr.ph152:                                        ; preds = %.lr.ph152.preheader, %83
   %indvars.iv192 = phi i64 [ 0, %.lr.ph152.preheader ], [ %indvars.iv.next193, %83 ]
@@ -221,7 +221,7 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   br i1 %.not123, label %83, label %80
 
 80:                                               ; preds = %.lr.ph152
-  %81 = trunc i64 %indvars.iv192 to i32
+  %81 = trunc nuw nsw i64 %indvars.iv192 to i32
   %.neg = add i32 %78, %3
   %82 = sub i32 %.neg, %79
   br label %.loopexit137
@@ -280,7 +280,7 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   br i1 %exitcond201.not, label %.preheader135, label %.lr.ph157, !llvm.loop !11
 
 96:                                               ; preds = %.lr.ph178, %.loopexit
-  %97 = phi i32 [ %59, %.lr.ph178 ], [ %123, %.loopexit ]
+  %97 = phi i32 [ %59, %.lr.ph178 ], [ %124, %.loopexit ]
   %indvars.iv206 = phi i64 [ 0, %.lr.ph178 ], [ %indvars.iv.next207, %.loopexit ]
   %.4176 = phi i32 [ 0, %.lr.ph178 ], [ %.7, %.loopexit ]
   %98 = load ptr, ptr %85, align 8
@@ -316,12 +316,12 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   br i1 %exitcond202.not, label %.preheader, label %.lr.ph161, !llvm.loop !12
 
 .lr.ph174:                                        ; preds = %.preheader, %._crit_edge169
-  %.5173 = phi i32 [ %122, %._crit_edge169 ], [ %.4176, %.preheader ]
-  %.0110172 = phi ptr [ %.pre210, %._crit_edge169 ], [ %108, %.preheader ]
+  %.5173 = phi i32 [ %.6.lcssa, %._crit_edge169 ], [ %.4176, %.preheader ]
+  %.0110172 = phi ptr [ %123, %._crit_edge169 ], [ %108, %.preheader ]
   %115 = getelementptr inbounds i8, ptr %.0110172, i64 56
   %.0109163 = load ptr, ptr %115, align 8
   %.not127164 = icmp eq ptr %.0109163, %113
-  br i1 %.not127164, label %.loopexit.loopexit, label %.lr.ph168.preheader
+  br i1 %.not127164, label %._crit_edge169, label %.lr.ph168.preheader
 
 .lr.ph168.preheader:                              ; preds = %.lr.ph174
   %116 = sext i32 %.5173 to i64
@@ -344,37 +344,41 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   %121 = getelementptr inbounds i8, ptr %.0109166, i64 56
   %.0109 = load ptr, ptr %121, align 8
   %.not127 = icmp eq ptr %.0109, %113
-  br i1 %.not127, label %._crit_edge169, label %.lr.ph168, !llvm.loop !13
+  br i1 %.not127, label %._crit_edge169.loopexit, label %.lr.ph168, !llvm.loop !13
 
-._crit_edge169:                                   ; preds = %120
-  %122 = trunc i64 %indvars.iv.next204 to i32
+._crit_edge169.loopexit:                          ; preds = %120
+  %122 = trunc nsw i64 %indvars.iv.next204 to i32
   %.pre210 = load ptr, ptr %115, align 8
-  %.not126 = icmp eq ptr %.pre210, %113
+  br label %._crit_edge169
+
+._crit_edge169:                                   ; preds = %._crit_edge169.loopexit, %.lr.ph174
+  %123 = phi ptr [ %.0109163, %.lr.ph174 ], [ %.pre210, %._crit_edge169.loopexit ]
+  %.6.lcssa = phi i32 [ %.5173, %.lr.ph174 ], [ %122, %._crit_edge169.loopexit ]
+  %.not126 = icmp eq ptr %123, %113
   br i1 %.not126, label %.loopexit.loopexit, label %.lr.ph174, !llvm.loop !14
 
-.loopexit.loopexit:                               ; preds = %.lr.ph174, %._crit_edge169
-  %.6.lcssa217 = phi i32 [ %122, %._crit_edge169 ], [ %.5173, %.lr.ph174 ]
+.loopexit.loopexit:                               ; preds = %._crit_edge169
   %.pre211 = load i32, ptr %7, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %101, %.loopexit.loopexit, %.preheader, %96
-  %123 = phi i32 [ %97, %96 ], [ %97, %.preheader ], [ %.pre211, %.loopexit.loopexit ], [ %97, %101 ]
-  %.7 = phi i32 [ %.4176, %96 ], [ %.4176, %.preheader ], [ %.6.lcssa217, %.loopexit.loopexit ], [ %.4176, %101 ]
+  %124 = phi i32 [ %97, %96 ], [ %97, %.preheader ], [ %.pre211, %.loopexit.loopexit ], [ %97, %101 ]
+  %.7 = phi i32 [ %.4176, %96 ], [ %.4176, %.preheader ], [ %.6.lcssa, %.loopexit.loopexit ], [ %.4176, %101 ]
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %124 = sext i32 %123 to i64
-  %125 = icmp slt i64 %indvars.iv.next207, %124
-  br i1 %125, label %96, label %._crit_edge179, !llvm.loop !15
+  %125 = sext i32 %124 to i64
+  %126 = icmp slt i64 %indvars.iv.next207, %125
+  br i1 %126, label %96, label %._crit_edge179, !llvm.loop !15
 
 ._crit_edge179:                                   ; preds = %.loopexit, %.preheader135
   %.not124 = icmp eq ptr %6, null
-  br i1 %.not124, label %127, label %126
+  br i1 %.not124, label %128, label %127
 
-126:                                              ; preds = %._crit_edge179
+127:                                              ; preds = %._crit_edge179
   tail call void @free(ptr noundef nonnull %6) #9
-  br label %127
+  br label %128
 
-127:                                              ; preds = %126, %._crit_edge179, %76, %70
-  %.0 = phi i32 [ 0, %70 ], [ 0, %76 ], [ 1, %._crit_edge179 ], [ 1, %126 ]
+128:                                              ; preds = %127, %._crit_edge179, %76, %70
+  %.0 = phi i32 [ 0, %70 ], [ 0, %76 ], [ 1, %._crit_edge179 ], [ 1, %127 ]
   ret i32 %.0
 }
 

@@ -114,7 +114,7 @@ ginRedoCreatePTree.exit:                          ; preds = %38, %44
   %60 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 12
   store i16 %59, ptr %60, align 4
   %61 = lshr i64 %33, 32
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw i64 %61 to i32
   store i32 %62, ptr %.0.i.i.i, align 4
   %63 = trunc i64 %33 to i32
   %64 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
@@ -181,7 +181,7 @@ BufferGetPage.exit.i.i:                           ; preds = %90, %84
   %102 = and i16 %101, -65
   store i16 %102, ptr %100, align 2
   %103 = lshr i64 %67, 32
-  %104 = trunc i64 %103 to i32
+  %104 = trunc nuw i64 %103 to i32
   store i32 %104, ptr %.0.i.i.i.i, align 4
   %105 = trunc i64 %67 to i32
   %106 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 4
@@ -275,7 +275,7 @@ BufferGetPage.exit.i20.i:                         ; preds = %141, %135
   %153 = getelementptr i8, ptr %149, i64 %152
   %154 = getelementptr i8, ptr %153, i64 -10
   %155 = lshr i32 %.0.i, 16
-  %156 = trunc i32 %155 to i16
+  %156 = trunc nuw i32 %155 to i16
   store i16 %156, ptr %154, align 2
   %157 = trunc i32 %.0.i to i16
   %158 = getelementptr i8, ptr %153, i64 -8
@@ -324,7 +324,7 @@ BufferGetPage.exit.i22.i:                         ; preds = %169, %163
   %182 = zext nneg i32 %181 to i64
   %183 = getelementptr i8, ptr %.0.i.i.i23.i, i64 %182
   %184 = lshr i32 %.0.i, 16
-  %185 = trunc i32 %184 to i16
+  %185 = trunc nuw i32 %184 to i16
   store i16 %185, ptr %183, align 2
   %186 = trunc i32 %.0.i to i16
   %187 = getelementptr inbounds i8, ptr %183, i64 2
@@ -374,7 +374,7 @@ ginRedoInsertEntry.exit.i:                        ; preds = %194
 
 ginRedoInsertData.exit.i:                         ; preds = %ginRedoInsertEntry.exit.i, %148, %147
   %210 = lshr i64 %67, 32
-  %211 = trunc i64 %210 to i32
+  %211 = trunc nuw i64 %210 to i32
   store i32 %211, ptr %.0.i.i.i12, align 4
   %212 = trunc i64 %67 to i32
   %213 = getelementptr inbounds i8, ptr %.0.i.i.i12, i64 4
@@ -452,7 +452,7 @@ BufferGetPage.exit.i.i16:                         ; preds = %240, %234
   %252 = and i16 %251, -65
   store i16 %252, ptr %250, align 2
   %253 = lshr i64 %228, 32
-  %254 = trunc i64 %253 to i32
+  %254 = trunc nuw i64 %253 to i32
   store i32 %254, ptr %.0.i.i.i.i17, align 4
   %255 = trunc i64 %228 to i32
   %256 = getelementptr inbounds i8, ptr %.0.i.i.i.i17, i64 4
@@ -582,7 +582,7 @@ BufferGetPage.exit.i20:                           ; preds = %301, %295
   %307 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %9) #6
   call fastcc void @ginRedoRecompress(ptr noundef %.0.i.i.i21, ptr noundef %307)
   %308 = lshr i64 %289, 32
-  %309 = trunc i64 %308 to i32
+  %309 = trunc nuw i64 %308 to i32
   store i32 %309, ptr %.0.i.i.i21, align 4
   %310 = trunc i64 %289 to i32
   %311 = getelementptr inbounds i8, ptr %.0.i.i.i21, i64 4
@@ -648,7 +648,7 @@ BufferGetPage.exit.i23:                           ; preds = %332, %326
   %343 = getelementptr i8, ptr %.0.i.i.i24, i64 %342
   store i32 %339, ptr %343, align 4
   %344 = lshr i64 %318, 32
-  %345 = trunc i64 %344 to i32
+  %345 = trunc nuw i64 %344 to i32
   store i32 %345, ptr %.0.i.i.i24, align 4
   %346 = trunc i64 %318 to i32
   %347 = getelementptr inbounds i8, ptr %.0.i.i.i24, i64 4
@@ -698,7 +698,7 @@ BufferGetPage.exit18.i:                           ; preds = %361, %355
   %376 = getelementptr inbounds i8, ptr %.0.i.i17.i, i64 20
   store i32 %375, ptr %376, align 4
   %377 = lshr i64 %318, 32
-  %378 = trunc i64 %377 to i32
+  %378 = trunc nuw i64 %377 to i32
   store i32 %378, ptr %.0.i.i17.i, align 4
   %379 = trunc i64 %318 to i32
   %380 = getelementptr inbounds i8, ptr %.0.i.i17.i, i64 4
@@ -738,7 +738,7 @@ BufferGetPage.exit20.i:                           ; preds = %394, %388
   %400 = load i16, ptr %320, align 4
   call void @GinPageDeletePostingItem(ptr noundef %.0.i.i19.i, i16 noundef zeroext %400) #6
   %401 = lshr i64 %318, 32
-  %402 = trunc i64 %401 to i32
+  %402 = trunc nuw i64 %401 to i32
   store i32 %402, ptr %.0.i.i19.i, align 4
   %403 = trunc i64 %318 to i32
   %404 = getelementptr inbounds i8, ptr %.0.i.i19.i, i64 4
@@ -814,7 +814,7 @@ BufferGetPage.exit.i25:                           ; preds = %428, %422
   %435 = getelementptr inbounds i8, ptr %419, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %434, ptr noundef nonnull align 8 dereferenceable(56) %435, i64 56, i1 false)
   %436 = lshr i64 %417, 32
-  %437 = trunc i64 %436 to i32
+  %437 = trunc nuw i64 %436 to i32
   store i32 %437, ptr %.0.i.i.i26, align 4
   %438 = trunc i64 %417 to i32
   %439 = getelementptr inbounds i8, ptr %.0.i.i.i26, i64 4
@@ -1073,7 +1073,7 @@ BufferGetPage.exit.i30:                           ; preds = %540, %534
 
 ginRedoInsertListPage.exit:                       ; preds = %578, %561
   %584 = lshr i64 %529, 32
-  %585 = trunc i64 %584 to i32
+  %585 = trunc nuw i64 %584 to i32
   store i32 %585, ptr %.0.i.i.i31, align 4
   %586 = trunc i64 %529 to i32
   %587 = getelementptr inbounds i8, ptr %.0.i.i.i31, i64 4
@@ -1114,7 +1114,7 @@ BufferGetPage.exit.i35:                           ; preds = %601, %595
   %607 = getelementptr i8, ptr %.0.i.i.i36, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %607, ptr noundef nonnull align 8 dereferenceable(56) %592, i64 56, i1 false)
   %608 = lshr i64 %590, 32
-  %609 = trunc i64 %608 to i32
+  %609 = trunc nuw i64 %608 to i32
   store i32 %609, ptr %.0.i.i.i36, align 4
   %610 = trunc i64 %590 to i32
   %611 = getelementptr inbounds i8, ptr %.0.i.i.i36, i64 4
@@ -1480,7 +1480,7 @@ define internal fastcc void @ginRedoRecompress(ptr noundef %0, ptr noundef %1) u
 
 .thread145:                                       ; preds = %110, %111, %118
   %.0110151 = phi i32 [ %117, %111 ], [ %117, %118 ], [ 0, %110 ]
-  %.0131 = phi ptr [ %.1112.lcssa, %111 ], [ %123, %118 ], [ %.0113166, %110 ]
+  %.0131 = phi ptr [ %.1112.lcssa, %111 ], [ %123, %118 ], [ %.1112.lcssa, %110 ]
   %.1127 = phi ptr [ %.0126164, %111 ], [ %123, %118 ], [ %.0126164, %110 ]
   %.1114 = phi ptr [ %.0113166, %111 ], [ %124, %118 ], [ %.0113166, %110 ]
   switch i8 %.0121, label %138 [

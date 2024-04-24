@@ -106,7 +106,7 @@ define void @init_setproctitle(i32 noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %.lr.ph._crit_edge, %5
-  %11 = phi ptr [ %.pre, %.lr.ph._crit_edge ], [ %6, %5 ]
+  %11 = phi ptr [ %.pre, %.lr.ph._crit_edge ], [ %8, %5 ]
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #14
   %13 = getelementptr inbounds i8, ptr %11, i64 %12
   br label %14

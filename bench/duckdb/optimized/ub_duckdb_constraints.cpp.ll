@@ -202,7 +202,7 @@ invoke.cont.thread:                               ; preds = %call3.i.i.i.noexc
   %_M_string_length.i24.i.i45 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %4, ptr %_M_string_length.i24.i.i45, align 8, !tbaa !17, !alias.scope !11
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !17
-  store i8 0, ptr %2, align 8, !tbaa !18
+  store i8 0, ptr %3, align 8, !tbaa !18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 invoke.cont:                                      ; preds = %call3.i.i.i.noexc

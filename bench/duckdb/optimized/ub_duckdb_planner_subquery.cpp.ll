@@ -5849,7 +5849,7 @@ invoke.cont1143.thread:                           ; preds = %_ZNSt10unique_ptrIN
   br label %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit.i3373
 
 if.else.i.i3365:                                  ; preds = %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit3355
-  invoke void @_ZNSt6vectorIN6duckdb13JoinConditionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %conditions1142, ptr %.pre5129, ptr noundef nonnull align 8 dereferenceable(17) %cond1129)
+  invoke void @_ZNSt6vectorIN6duckdb13JoinConditionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %conditions1142, ptr %.pre5130, ptr noundef nonnull align 8 dereferenceable(17) %cond1129)
           to label %invoke.cont1143 unwind label %lpad1139
 
 invoke.cont1143:                                  ; preds = %if.else.i.i3365

@@ -14054,7 +14054,7 @@ if.then.i:                                        ; preds = %for.cond.cleanup49
   br label %invoke.cont67
 
 if.else.i:                                        ; preds = %for.cond.cleanup49, %invoke.cont44
-  %21 = phi ptr [ %.pre, %for.cond.cleanup49 ], [ null, %invoke.cont44 ]
+  %21 = phi ptr [ %.pre1253, %for.cond.cleanup49 ], [ null, %invoke.cont44 ]
   invoke void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE17_M_realloc_insertIJRKNS0_13LogicalTypeIdEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %new_column_types, ptr %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZN6duckdb11LogicalType8ROW_TYPEE)
           to label %invoke.cont67 unwind label %lpad66
 

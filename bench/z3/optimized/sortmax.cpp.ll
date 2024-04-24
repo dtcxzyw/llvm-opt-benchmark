@@ -3890,8 +3890,8 @@ _ZN3opt7sortmax5trailEP4expr.exit.i.i:            ; preds = %if.then.i.i.i.i.i, 
   br label %_ZN8psort_nwIN3opt7sortmaxEE6mk_notEP4expr.exit
 
 _ZN8psort_nwIN3opt7sortmaxEE6mk_notEP4expr.exit:  ; preds = %for.body31, %if.end.i, %if.then.i.i, %_ZN3opt7sortmax5trailEP4expr.exit.i.i
-  %36 = phi ptr [ %16, %if.end.i ], [ %20, %if.then.i.i ], [ %.pre412, %_ZN3opt7sortmax5trailEP4expr.exit.i.i ], [ %20, %for.body31 ]
-  %37 = phi ptr [ %19, %if.end.i ], [ %19, %if.then.i.i ], [ %.pre411, %_ZN3opt7sortmax5trailEP4expr.exit.i.i ], [ %16, %for.body31 ]
+  %36 = phi ptr [ %20, %if.end.i ], [ %20, %if.then.i.i ], [ %.pre412, %_ZN3opt7sortmax5trailEP4expr.exit.i.i ], [ %20, %for.body31 ]
+  %37 = phi ptr [ %19, %if.end.i ], [ %19, %if.then.i.i ], [ %.pre411, %_ZN3opt7sortmax5trailEP4expr.exit.i.i ], [ %19, %for.body31 ]
   %38 = phi ptr [ %18, %if.end.i ], [ %18, %if.then.i.i ], [ %.pre410, %_ZN3opt7sortmax5trailEP4expr.exit.i.i ], [ %18, %for.body31 ]
   %39 = phi ptr [ %17, %if.end.i ], [ %17, %if.then.i.i ], [ %.pre, %_ZN3opt7sortmax5trailEP4expr.exit.i.i ], [ %17, %for.body31 ]
   %retval.0.i = phi ptr [ %19, %if.end.i ], [ %27, %if.then.i.i ], [ %call.i.i.i, %_ZN3opt7sortmax5trailEP4expr.exit.i.i ], [ %20, %for.body31 ]

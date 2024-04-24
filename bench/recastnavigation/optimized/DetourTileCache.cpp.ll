@@ -794,30 +794,31 @@ define noundef i32 @_ZN11dtTileCache10removeTileEjPPhPi(ptr nocapture noundef no
 
 .lr.ph.preheader:                                 ; preds = %23
   %40 = icmp eq ptr %.067, %21
-  br i1 %40, label %.loopexit.sink.split, label %.lr.ph77
+  br i1 %40, label %.loopexit.sink.split, label %.lr.ph79
 
-.lr.ph:                                           ; preds = %.lr.ph77
+.lr.ph:                                           ; preds = %.lr.ph79
   %41 = icmp eq ptr %.0, %21
-  br i1 %41, label %.loopexit.sink.split, label %.lr.ph77, !llvm.loop !10
+  br i1 %41, label %.loopexit.sink.split, label %.lr.ph79, !llvm.loop !10
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %.lr.ph.preheader
-  %.04769.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.07076, %.lr.ph ]
+  %.070.lcssa = phi ptr [ %.067, %.lr.ph.preheader ], [ %.0, %.lr.ph ]
+  %.04769.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.07078, %.lr.ph ]
   %.not58 = icmp eq ptr %.04769.lcssa, null
-  %42 = getelementptr inbounds i8, ptr %21, i64 48
+  %42 = getelementptr inbounds i8, ptr %.070.lcssa, i64 48
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %.04769.lcssa, i64 48
   %.sink = select i1 %.not58, ptr %39, ptr %44
   store ptr %43, ptr %.sink, align 8
   br label %.loopexit
 
-.lr.ph77:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.07076 = phi ptr [ %.0, %.lr.ph ], [ %.067, %.lr.ph.preheader ]
-  %45 = getelementptr inbounds i8, ptr %.07076, i64 48
+.lr.ph79:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.07078 = phi ptr [ %.0, %.lr.ph ], [ %.067, %.lr.ph.preheader ]
+  %45 = getelementptr inbounds i8, ptr %.07078, i64 48
   %.0 = load ptr, ptr %45, align 8
   %.not57 = icmp eq ptr %.0, null
   br i1 %.not57, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
-.loopexit:                                        ; preds = %.lr.ph77, %.loopexit.sink.split, %23
+.loopexit:                                        ; preds = %.lr.ph79, %.loopexit.sink.split, %23
   %46 = getelementptr inbounds i8, ptr %21, i64 44
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 1
@@ -859,8 +860,8 @@ define noundef i32 @_ZN11dtTileCache10removeTileEjPPhPi(ptr nocapture noundef no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %53, %59
-  %.sink74 = phi i32 [ %61, %59 ], [ 0, %53 ]
-  store i32 %.sink74, ptr %3, align 4
+  %.sink75 = phi i32 [ %61, %59 ], [ 0, %53 ]
+  store i32 %.sink75, ptr %3, align 4
   br label %62
 
 62:                                               ; preds = %.sink.split, %58, %53

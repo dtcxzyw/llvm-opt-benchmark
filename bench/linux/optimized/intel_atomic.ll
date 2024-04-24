@@ -277,7 +277,7 @@ define dso_local zeroext i1 @intel_connector_needs_modeset(ptr nocapture noundef
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %20, i64 144
+  %29 = getelementptr inbounds i8, ptr %22, i64 144
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
   %32 = getelementptr %struct.__drm_crtcs_state, ptr %28, i64 %31, i32 3

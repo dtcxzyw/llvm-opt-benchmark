@@ -6826,7 +6826,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %94, %._crit_edge.loopexit.split.loop.exit159, %53
-  %63 = phi ptr [ %.sroa.2.0.copyload, %53 ], [ %62, %._crit_edge.loopexit.split.loop.exit159 ], [ %95, %94 ]
+  %63 = phi ptr [ %.sroa.2.0.copyload, %53 ], [ %62, %._crit_edge.loopexit.split.loop.exit159 ], [ %96, %94 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.5118)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !1363

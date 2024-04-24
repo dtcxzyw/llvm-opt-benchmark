@@ -482,7 +482,7 @@ thread-pre-split.thread:                          ; preds = %83, %thread-pre-spl
   br i1 %115, label %116, label %150
 
 116:                                              ; preds = %113
-  %117 = tail call ptr @makeRelabelType(ptr noundef nonnull %1, i32 noundef %3, i32 noundef -1, i32 noundef 0, i32 noundef %6) #5
+  %117 = tail call ptr @makeRelabelType(ptr noundef %114, i32 noundef %3, i32 noundef -1, i32 noundef 0, i32 noundef %6) #5
   %118 = getelementptr inbounds i8, ptr %117, i64 32
   store i32 %7, ptr %118, align 8
   br label %150

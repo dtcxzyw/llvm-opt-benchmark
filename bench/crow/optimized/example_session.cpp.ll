@@ -8572,7 +8572,7 @@ define linkonce_odr dso_local void @_ZN4crow8response8redirectERKNSt7__cxx1112ba
   %39 = icmp ult i64 %38, 16
   call void @llvm.assume(i1 %39)
   %40 = add nuw nsw i64 %38, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %34, ptr noundef nonnull align 8 dereferenceable(1) %7, i64 %40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %34, ptr noundef nonnull align 8 dereferenceable(1) %35, i64 %40, i1 false)
   br label %44
 
 41:                                               ; preds = %.noexc
@@ -8601,7 +8601,7 @@ define linkonce_odr dso_local void @_ZN4crow8response8redirectERKNSt7__cxx1112ba
   %53 = icmp ult i64 %52, 16
   call void @llvm.assume(i1 %53)
   %54 = add nuw nsw i64 %52, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %48, ptr noundef nonnull align 8 dereferenceable(1) %10, i64 %54, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %48, ptr noundef nonnull align 8 dereferenceable(1) %49, i64 %54, i1 false)
   br label %58
 
 55:                                               ; preds = %44
@@ -22045,7 +22045,7 @@ define linkonce_odr dso_local void @_ZN4crow8response3endEv(ptr noundef nonnull 
   %91 = icmp ult i64 %90, 16
   call void @llvm.assume(i1 %91)
   %92 = add nuw nsw i64 %90, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %86, ptr noundef nonnull align 8 dereferenceable(1) %13, i64 %92, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %86, ptr noundef nonnull align 8 dereferenceable(1) %87, i64 %92, i1 false)
   br label %96
 
 93:                                               ; preds = %.noexc
@@ -22075,7 +22075,7 @@ define linkonce_odr dso_local void @_ZN4crow8response3endEv(ptr noundef nonnull 
   %106 = icmp ult i64 %105, 16
   call void @llvm.assume(i1 %106)
   %107 = add nuw nsw i64 %105, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %100, ptr noundef nonnull align 8 dereferenceable(1) %39, i64 %107, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %100, ptr noundef nonnull align 8 dereferenceable(1) %101, i64 %107, i1 false)
   br label %112
 
 108:                                              ; preds = %96
@@ -27679,14 +27679,14 @@ define linkonce_odr dso_local noundef i64 @_ZNSt10_HashtableINSt7__cxx1112basic_
 
 118:                                              ; preds = %113
   %119 = getelementptr inbounds ptr, ptr %105, i64 %116
-  store ptr %104, ptr %119, align 8, !tbaa !48
+  store ptr %108, ptr %119, align 8, !tbaa !48
   %120 = load ptr, ptr %0, align 8, !tbaa !56
   %121 = getelementptr inbounds ptr, ptr %120, i64 %107
   %122 = load ptr, ptr %121, align 8, !tbaa !48
   br label %123
 
 123:                                              ; preds = %118, %112
-  %124 = phi ptr [ %104, %112 ], [ %122, %118 ]
+  %124 = phi ptr [ %108, %112 ], [ %122, %118 ]
   %125 = phi ptr [ %105, %112 ], [ %120, %118 ]
   %126 = getelementptr inbounds i8, ptr %0, i64 16
   %127 = getelementptr inbounds ptr, ptr %125, i64 %107
@@ -27694,7 +27694,7 @@ define linkonce_odr dso_local noundef i64 @_ZNSt10_HashtableINSt7__cxx1112basic_
   br i1 %128, label %129, label %130
 
 129:                                              ; preds = %123
-  store ptr %110, ptr %126, align 8, !tbaa !53
+  store ptr %110, ptr %124, align 8, !tbaa !53
   br label %130
 
 130:                                              ; preds = %129, %123
@@ -33256,7 +33256,7 @@ define linkonce_odr dso_local void @_ZN4crow8response27set_static_file_info_unsa
   %125 = icmp ult i64 %124, 16
   call void @llvm.assume(i1 %125)
   %126 = add nuw nsw i64 %124, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %120, ptr noundef nonnull align 8 dereferenceable(1) %48, i64 %126, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %120, ptr noundef nonnull align 8 dereferenceable(1) %121, i64 %126, i1 false)
   br label %130
 
 127:                                              ; preds = %.noexc
@@ -33286,7 +33286,7 @@ define linkonce_odr dso_local void @_ZN4crow8response27set_static_file_info_unsa
   %140 = icmp ult i64 %139, 16
   call void @llvm.assume(i1 %140)
   %141 = add nuw nsw i64 %139, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %134, ptr noundef nonnull align 8 dereferenceable(1) %77, i64 %141, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %134, ptr noundef nonnull align 8 dereferenceable(1) %135, i64 %141, i1 false)
   br label %146
 
 142:                                              ; preds = %130
@@ -33390,7 +33390,7 @@ define linkonce_odr dso_local void @_ZN4crow8response27set_static_file_info_unsa
   %187 = icmp ult i64 %186, 16
   call void @llvm.assume(i1 %187)
   %188 = add nuw nsw i64 %186, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %182, ptr noundef nonnull align 8 dereferenceable(1) %176, i64 %188, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %182, ptr noundef nonnull align 8 dereferenceable(1) %183, i64 %188, i1 false)
   br label %192
 
 189:                                              ; preds = %.noexc18
@@ -54030,7 +54030,7 @@ define linkonce_odr dso_local void @_ZN4crow6detail10task_timer13process_tasksEv
   br i1 %142, label %13, label %17
 
 .loopexit28:                                      ; preds = %197, %13, %1
-  %143 = phi ptr [ %139, %13 ], [ null, %1 ], [ %140, %197 ]
+  %143 = phi ptr [ %140, %13 ], [ null, %1 ], [ %140, %197 ]
   %144 = getelementptr inbounds i8, ptr %0, i64 168
   %145 = load i64, ptr %144, align 8, !tbaa !1273
   %146 = icmp eq i64 %145, 0
@@ -69376,7 +69376,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %261 = icmp ult i64 %260, 16
   call void @llvm.assume(i1 %261)
   %262 = add nuw nsw i64 %260, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %256, ptr noundef nonnull align 8 dereferenceable(1) %231, i64 %262, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %256, ptr noundef nonnull align 8 dereferenceable(1) %257, i64 %262, i1 false)
   br label %266
 
 263:                                              ; preds = %.noexc
@@ -69405,7 +69405,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %275 = icmp ult i64 %274, 16
   call void @llvm.assume(i1 %275)
   %276 = add nuw nsw i64 %274, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %270, ptr noundef nonnull align 8 dereferenceable(1) %234, i64 %276, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %270, ptr noundef nonnull align 8 dereferenceable(1) %271, i64 %276, i1 false)
   br label %280
 
 277:                                              ; preds = %266
@@ -70831,7 +70831,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   %592 = icmp ult i64 %591, 16
   call void @llvm.assume(i1 %592)
   %593 = add nuw nsw i64 %591, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %587, ptr noundef nonnull align 8 dereferenceable(1) %561, i64 %593, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %587, ptr noundef nonnull align 8 dereferenceable(1) %588, i64 %593, i1 false)
   br label %597
 
 594:                                              ; preds = %.noexc
@@ -70860,7 +70860,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   %606 = icmp ult i64 %605, 16
   call void @llvm.assume(i1 %606)
   %607 = add nuw nsw i64 %605, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %601, ptr noundef nonnull align 8 dereferenceable(1) %564, i64 %607, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %601, ptr noundef nonnull align 8 dereferenceable(1) %602, i64 %607, i1 false)
   br label %611
 
 608:                                              ; preds = %597
@@ -71543,7 +71543,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   %910 = icmp ult i64 %909, 16
   call void @llvm.assume(i1 %910)
   %911 = add nuw nsw i64 %909, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %905, ptr noundef nonnull align 8 dereferenceable(1) %879, i64 %911, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %905, ptr noundef nonnull align 8 dereferenceable(1) %906, i64 %911, i1 false)
   br label %915
 
 912:                                              ; preds = %.noexc137
@@ -71572,7 +71572,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   %924 = icmp ult i64 %923, 16
   call void @llvm.assume(i1 %924)
   %925 = add nuw nsw i64 %923, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %919, ptr noundef nonnull align 8 dereferenceable(1) %882, i64 %925, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %919, ptr noundef nonnull align 8 dereferenceable(1) %920, i64 %925, i1 false)
   br label %929
 
 926:                                              ; preds = %915
@@ -84356,7 +84356,7 @@ define linkonce_odr dso_local void @_ZN4crow12CookieParser12after_handleERNS_7re
   %31 = icmp ult i64 %30, 16
   call void @llvm.assume(i1 %31)
   %32 = add nuw nsw i64 %30, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %26, ptr noundef nonnull align 8 dereferenceable(1) %14, i64 %32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %26, ptr noundef nonnull align 8 dereferenceable(1) %27, i64 %32, i1 false)
   br label %36
 
 33:                                               ; preds = %.noexc
@@ -84385,7 +84385,7 @@ define linkonce_odr dso_local void @_ZN4crow12CookieParser12after_handleERNS_7re
   %45 = icmp ult i64 %44, 16
   call void @llvm.assume(i1 %45)
   %46 = add nuw nsw i64 %44, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %40, ptr noundef nonnull align 8 dereferenceable(1) %17, i64 %46, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %40, ptr noundef nonnull align 8 dereferenceable(1) %41, i64 %46, i1 false)
   br label %50
 
 47:                                               ; preds = %36
@@ -92341,7 +92341,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %717 = icmp ult i64 %716, 16
   call void @llvm.assume(i1 %717)
   %718 = add nuw nsw i64 %716, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %712, ptr noundef nonnull align 8 dereferenceable(1) %701, i64 %718, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %712, ptr noundef nonnull align 8 dereferenceable(1) %713, i64 %718, i1 false)
   br label %722
 
 719:                                              ; preds = %.noexc
@@ -92370,7 +92370,7 @@ define linkonce_odr dso_local void @_ZN4crow10ConnectionINS_13SocketAdaptorENS_4
   %731 = icmp ult i64 %730, 16
   call void @llvm.assume(i1 %731)
   %732 = add nuw nsw i64 %730, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %726, ptr noundef nonnull align 8 dereferenceable(1) %704, i64 %732, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %726, ptr noundef nonnull align 8 dereferenceable(1) %727, i64 %732, i1 false)
   br label %736
 
 733:                                              ; preds = %722
@@ -97267,7 +97267,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_upgradeIRNS_13Socket
   %400 = icmp ult i64 %399, 16
   call void @llvm.assume(i1 %400)
   %401 = add nuw nsw i64 %399, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %395, ptr noundef nonnull align 8 dereferenceable(1) %355, i64 %401, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %395, ptr noundef nonnull align 8 dereferenceable(1) %396, i64 %401, i1 false)
   br label %405
 
 402:                                              ; preds = %.noexc
@@ -97296,7 +97296,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_upgradeIRNS_13Socket
   %414 = icmp ult i64 %413, 16
   call void @llvm.assume(i1 %414)
   %415 = add nuw nsw i64 %413, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %409, ptr noundef nonnull align 8 dereferenceable(1) %358, i64 %415, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %409, ptr noundef nonnull align 8 dereferenceable(1) %410, i64 %415, i1 false)
   br label %419
 
 416:                                              ; preds = %405
@@ -97574,7 +97574,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_upgradeIRNS_13Socket
   %542 = icmp ult i64 %541, 16
   call void @llvm.assume(i1 %542)
   %543 = add nuw nsw i64 %541, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %537, ptr noundef nonnull align 8 dereferenceable(1) %472, i64 %543, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %537, ptr noundef nonnull align 8 dereferenceable(1) %538, i64 %543, i1 false)
   br label %547
 
 544:                                              ; preds = %.noexc62
@@ -97603,7 +97603,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_upgradeIRNS_13Socket
   %556 = icmp ult i64 %555, 16
   call void @llvm.assume(i1 %556)
   %557 = add nuw nsw i64 %555, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %551, ptr noundef nonnull align 8 dereferenceable(1) %517, i64 %557, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %551, ptr noundef nonnull align 8 dereferenceable(1) %552, i64 %557, i1 false)
   br label %561
 
 558:                                              ; preds = %547
@@ -99055,7 +99055,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router6handleINS_4CrowIJNS_12Cookie
   %144 = icmp ult i64 %143, 16
   call void @llvm.assume(i1 %144)
   %145 = add nuw nsw i64 %143, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %139, ptr noundef nonnull align 8 dereferenceable(1) %98, i64 %145, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %139, ptr noundef nonnull align 8 dereferenceable(1) %140, i64 %145, i1 false)
   br label %149
 
 146:                                              ; preds = %.noexc
@@ -99084,7 +99084,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router6handleINS_4CrowIJNS_12Cookie
   %158 = icmp ult i64 %157, 16
   call void @llvm.assume(i1 %158)
   %159 = add nuw nsw i64 %157, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %153, ptr noundef nonnull align 8 dereferenceable(1) %102, i64 %159, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %153, ptr noundef nonnull align 8 dereferenceable(1) %154, i64 %159, i1 false)
   br label %163
 
 160:                                              ; preds = %149
@@ -99363,7 +99363,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router6handleINS_4CrowIJNS_12Cookie
   %287 = icmp ult i64 %286, 16
   call void @llvm.assume(i1 %287)
   %288 = add nuw nsw i64 %286, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %282, ptr noundef nonnull align 8 dereferenceable(1) %216, i64 %288, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %282, ptr noundef nonnull align 8 dereferenceable(1) %283, i64 %288, i1 false)
   br label %292
 
 289:                                              ; preds = %.noexc34
@@ -99392,7 +99392,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router6handleINS_4CrowIJNS_12Cookie
   %301 = icmp ult i64 %300, 16
   call void @llvm.assume(i1 %301)
   %302 = add nuw nsw i64 %300, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %296, ptr noundef nonnull align 8 dereferenceable(1) %262, i64 %302, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %296, ptr noundef nonnull align 8 dereferenceable(1) %297, i64 %302, i1 false)
   br label %306
 
 303:                                              ; preds = %292

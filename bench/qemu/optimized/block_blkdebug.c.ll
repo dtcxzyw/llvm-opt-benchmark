@@ -336,7 +336,7 @@ land.lhs.true42:                                  ; preds = %if.end33
   br i1 %cmp44, label %if.then50, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %land.lhs.true42
-  %rem.lhs.trunc = trunc i64 %call39 to i32
+  %rem.lhs.trunc = trunc nuw i64 %call39 to i32
   %rem.rhs.trunc = trunc i64 %cond to i32
   %rem95 = urem i32 %rem.lhs.trunc, %rem.rhs.trunc
   %cmp48 = icmp eq i32 %rem95, 0
@@ -358,7 +358,7 @@ land.lhs.true56:                                  ; preds = %if.end52
   br i1 %cmp58, label %if.then65, label %lor.lhs.false60
 
 lor.lhs.false60:                                  ; preds = %land.lhs.true56
-  %rem62.lhs.trunc = trunc i64 %call53 to i32
+  %rem62.lhs.trunc = trunc nuw i64 %call53 to i32
   %rem62.rhs.trunc = trunc i64 %cond to i32
   %rem6294 = urem i32 %rem62.lhs.trunc, %rem62.rhs.trunc
   %cmp63 = icmp eq i32 %rem6294, 0
@@ -402,7 +402,7 @@ land.lhs.true94:                                  ; preds = %if.end90
   br i1 %cmp96, label %if.then103, label %lor.lhs.false98
 
 lor.lhs.false98:                                  ; preds = %land.lhs.true94
-  %rem100.lhs.trunc = trunc i64 %call91 to i32
+  %rem100.lhs.trunc = trunc nuw i64 %call91 to i32
   %rem100.rhs.trunc = trunc i64 %cond to i32
   %rem10093 = urem i32 %rem100.lhs.trunc, %rem100.rhs.trunc
   %cmp101 = icmp eq i32 %rem10093, 0
@@ -2010,7 +2010,12 @@ do.body30:                                        ; preds = %do.body25
   %10 = load ptr, ptr %active_next33, align 8
   store ptr %10, ptr %active_rules, align 8
   %cmp37 = icmp eq ptr %10, null
-  br i1 %cmp37, label %do.end72.sink.split, label %do.end72
+  br i1 %cmp37, label %if.then38, label %do.end72
+
+if.then38:                                        ; preds = %do.body30
+  %sqh_last = getelementptr inbounds i8, ptr %0, i64 472
+  store ptr %active_rules, ptr %sqh_last, align 8
+  br label %do.end72
 
 while.cond48:                                     ; preds = %do.body25, %while.cond48
   %curelm.0 = phi ptr [ %11, %while.cond48 ], [ %rule.039, %do.body25 ]
@@ -2021,21 +2026,23 @@ while.cond48:                                     ; preds = %do.body25, %while.c
 
 while.end55:                                      ; preds = %while.cond48
   %active_next49.le = getelementptr inbounds i8, ptr %curelm.0, i64 64
-  %active_next58 = getelementptr inbounds i8, ptr %.us-phi42, i64 64
+  %active_next58 = getelementptr inbounds i8, ptr %11, i64 64
   %12 = load ptr, ptr %active_next58, align 8
   store ptr %12, ptr %active_next49.le, align 8
   %cmp62 = icmp eq ptr %12, null
-  br i1 %cmp62, label %do.end72.sink.split, label %do.end72
+  br i1 %cmp62, label %if.then63, label %if.end68
 
-do.end72.sink.split:                              ; preds = %while.end55, %do.body30
-  %active_next49.le.sink = phi ptr [ %active_rules, %do.body30 ], [ %active_next49.le, %while.end55 ]
-  %active_next33.sink.ph = phi ptr [ %active_next33, %do.body30 ], [ %active_next58, %while.end55 ]
+if.then63:                                        ; preds = %while.end55
   %sqh_last67 = getelementptr inbounds i8, ptr %0, i64 472
-  store ptr %active_next49.le.sink, ptr %sqh_last67, align 8
+  store ptr %active_next49.le, ptr %sqh_last67, align 8
+  br label %if.end68
+
+if.end68:                                         ; preds = %if.then63, %while.end55
+  %active_next69 = getelementptr inbounds i8, ptr %.us-phi42, i64 64
   br label %do.end72
 
-do.end72:                                         ; preds = %do.end72.sink.split, %while.end55, %do.body30
-  %active_next33.sink = phi ptr [ %active_next33, %do.body30 ], [ %active_next58, %while.end55 ], [ %active_next33.sink.ph, %do.end72.sink.split ]
+do.end72:                                         ; preds = %do.body30, %if.then38, %if.end68
+  %active_next33.sink = phi ptr [ %active_next69, %if.end68 ], [ %active_next33, %if.then38 ], [ %active_next33, %do.body30 ]
   store ptr null, ptr %active_next33.sink, align 8
   %action.i = getelementptr inbounds i8, ptr %.us-phi42, i64 4
   %13 = load i32, ptr %action.i, align 4

@@ -272,69 +272,66 @@ define dso_local i32 @dyn_event_release(ptr noundef %0, ptr noundef readnone %1)
 36:                                               ; preds = %31
   %37 = icmp eq ptr %1, null
   %38 = getelementptr i8, ptr %4, i64 8
-  br i1 %37, label %.split.us, label %.split.preheader
+  br i1 %37, label %.split.us, label %.split
 
-.split.preheader:                                 ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %1, i64 48
-  br label %.split
+.split.us:                                        ; preds = %36, %55
+  %39 = phi ptr [ %41, %55 ], [ %34, %36 ]
+  %40 = phi i32 [ %56, %55 ], [ -2, %36 ]
+  %41 = load ptr, ptr %39, align 8
+  %42 = getelementptr inbounds i8, ptr %39, i64 16
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 48
+  %45 = load ptr, ptr %44, align 8
+  %46 = load i32, ptr %3, align 4
+  %47 = add i32 %46, -1
+  %48 = call zeroext i1 %45(ptr noundef %32, ptr noundef %33, i32 noundef %47, ptr noundef %38, ptr noundef %39) #9
+  br i1 %48, label %49, label %55
 
-.split.us:                                        ; preds = %36, %56
-  %40 = phi ptr [ %42, %56 ], [ %34, %36 ]
-  %41 = phi i32 [ %57, %56 ], [ -2, %36 ]
-  %42 = load ptr, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 16
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 48
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i32, ptr %3, align 4
-  %48 = add i32 %47, -1
-  %49 = call zeroext i1 %46(ptr noundef %32, ptr noundef %33, i32 noundef %48, ptr noundef %38, ptr noundef %40) #9
-  br i1 %49, label %50, label %56
+49:                                               ; preds = %.split.us
+  %50 = load ptr, ptr %42, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 40
+  %52 = load ptr, ptr %51, align 8
+  %53 = call i32 %52(ptr noundef %39) #9
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %.loopexit
 
-50:                                               ; preds = %.split.us
-  %51 = load ptr, ptr %43, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 40
-  %53 = load ptr, ptr %52, align 8
-  %54 = call i32 %53(ptr noundef %40) #9
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %.loopexit
+55:                                               ; preds = %49, %.split.us
+  %56 = phi i32 [ 0, %49 ], [ %40, %.split.us ]
+  %57 = icmp eq ptr %41, @dyn_event_list
+  br i1 %57, label %.loopexit, label %.split.us, !llvm.loop !21
 
-56:                                               ; preds = %50, %.split.us
-  %57 = phi i32 [ 0, %50 ], [ %41, %.split.us ]
-  %58 = icmp eq ptr %42, @dyn_event_list
-  br i1 %58, label %.loopexit, label %.split.us, !llvm.loop !21
+.split:                                           ; preds = %36, %76
+  %58 = phi ptr [ %60, %76 ], [ %34, %36 ]
+  %59 = phi i32 [ %77, %76 ], [ -2, %36 ]
+  %60 = load ptr, ptr %58, align 8
+  %61 = getelementptr inbounds i8, ptr %58, i64 16
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp eq ptr %62, %1
+  br i1 %63, label %64, label %76
 
-.split:                                           ; preds = %.split.preheader, %76
-  %59 = phi ptr [ %61, %76 ], [ %34, %.split.preheader ]
-  %60 = phi i32 [ %77, %76 ], [ -2, %.split.preheader ]
-  %61 = load ptr, ptr %59, align 8
-  %62 = getelementptr inbounds i8, ptr %59, i64 16
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, %1
-  br i1 %64, label %65, label %76
-
-65:                                               ; preds = %.split
-  %66 = load ptr, ptr %39, align 8
+64:                                               ; preds = %.split
+  %65 = getelementptr inbounds i8, ptr %62, i64 48
+  %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr %3, align 4
   %68 = add i32 %67, -1
-  %69 = call zeroext i1 %66(ptr noundef %32, ptr noundef %33, i32 noundef %68, ptr noundef %38, ptr noundef %59) #9
+  %69 = call zeroext i1 %66(ptr noundef %32, ptr noundef %33, i32 noundef %68, ptr noundef %38, ptr noundef %58) #9
   br i1 %69, label %70, label %76
 
-70:                                               ; preds = %65
-  %71 = load ptr, ptr %62, align 8
+70:                                               ; preds = %64
+  %71 = load ptr, ptr %61, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 40
   %73 = load ptr, ptr %72, align 8
-  %74 = call i32 %73(ptr noundef %59) #9
+  %74 = call i32 %73(ptr noundef %58) #9
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %.loopexit
 
-76:                                               ; preds = %70, %65, %.split
-  %77 = phi i32 [ %60, %.split ], [ 0, %70 ], [ %60, %65 ]
-  %78 = icmp eq ptr %61, @dyn_event_list
+76:                                               ; preds = %70, %64, %.split
+  %77 = phi i32 [ %59, %.split ], [ 0, %70 ], [ %59, %64 ]
+  %78 = icmp eq ptr %60, @dyn_event_list
   br i1 %78, label %.loopexit, label %.split, !llvm.loop !21
 
-.loopexit:                                        ; preds = %70, %76, %56, %50, %31
-  %79 = phi i32 [ -2, %31 ], [ %54, %50 ], [ %57, %56 ], [ %74, %70 ], [ %77, %76 ]
+.loopexit:                                        ; preds = %70, %76, %55, %49, %31
+  %79 = phi i32 [ -2, %31 ], [ %53, %49 ], [ %56, %55 ], [ %74, %70 ], [ %77, %76 ]
   call void @tracing_reset_all_online_cpus() #9
   call void @mutex_unlock(ptr noundef nonnull @event_mutex) #9
   br label %80
@@ -397,90 +394,84 @@ define dso_local i32 @dyn_events_release_all(ptr noundef readnone %0) local_unna
 
 4:                                                ; preds = %1
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %.split.us, label %.split.preheader
+  br i1 %5, label %.split.us, label %.split
 
-.split.preheader:                                 ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  br label %.split
+.split.us:                                        ; preds = %4, %12
+  %6 = phi ptr [ %13, %12 ], [ %2, %4 ]
+  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call zeroext i1 %10(ptr noundef %6) #9
+  br i1 %11, label %.thread, label %12
 
-.split.us:                                        ; preds = %4, %13
-  %7 = phi ptr [ %14, %13 ], [ %2, %4 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call zeroext i1 %11(ptr noundef %7) #9
-  br i1 %12, label %.thread, label %13
+12:                                               ; preds = %.split.us
+  %13 = load ptr, ptr %6, align 8
+  %14 = icmp eq ptr %13, @dyn_event_list
+  br i1 %14, label %.split8.us, label %.split.us, !llvm.loop !22
 
-13:                                               ; preds = %.split.us
-  %14 = load ptr, ptr %7, align 8
-  %15 = icmp eq ptr %14, @dyn_event_list
-  br i1 %15, label %.split8.us, label %.split.us, !llvm.loop !22
+.split:                                           ; preds = %4, %23
+  %15 = phi ptr [ %24, %23 ], [ %2, %4 ]
+  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, %0
+  br i1 %18, label %19, label %23
 
-.split:                                           ; preds = %.split.preheader, %23
-  %16 = phi ptr [ %24, %23 ], [ %2, %.split.preheader ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, %0
-  br i1 %19, label %20, label %23
-
-20:                                               ; preds = %.split
-  %21 = load ptr, ptr %6, align 8
-  %22 = tail call zeroext i1 %21(ptr noundef %16) #9
+19:                                               ; preds = %.split
+  %20 = getelementptr inbounds i8, ptr %17, i64 32
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call zeroext i1 %21(ptr noundef %15) #9
   br i1 %22, label %.thread, label %23
 
-23:                                               ; preds = %20, %.split
-  %24 = load ptr, ptr %16, align 8
+23:                                               ; preds = %19, %.split
+  %24 = load ptr, ptr %15, align 8
   %25 = icmp eq ptr %24, @dyn_event_list
   br i1 %25, label %.split8.us, label %.split, !llvm.loop !22
 
-.split8.us:                                       ; preds = %23, %13
+.split8.us:                                       ; preds = %23, %12
   %.pr = load ptr, ptr @dyn_event_list, align 8
   %26 = icmp eq ptr %.pr, @dyn_event_list
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %.split8.us
-  br i1 %5, label %.split9.us, label %.split9.preheader
+  br i1 %5, label %.split9.us, label %.split9
 
-.split9.preheader:                                ; preds = %27
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
-  br label %.split9
+.split9.us:                                       ; preds = %27, %36
+  %28 = phi ptr [ %29, %36 ], [ %.pr, %27 ]
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 40
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call i32 %33(ptr noundef %28) #9
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %.thread
 
-.split9.us:                                       ; preds = %27, %37
-  %29 = phi ptr [ %30, %37 ], [ %.pr, %27 ]
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 16
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 40
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 %34(ptr noundef %29) #9
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %.thread
+36:                                               ; preds = %.split9.us
+  %37 = icmp eq ptr %29, @dyn_event_list
+  br i1 %37, label %.thread, label %.split9.us, !llvm.loop !23
 
-37:                                               ; preds = %.split9.us
-  %38 = icmp eq ptr %30, @dyn_event_list
-  br i1 %38, label %.thread, label %.split9.us, !llvm.loop !23
+.split9:                                          ; preds = %27, %48
+  %38 = phi ptr [ %39, %48 ], [ %.pr, %27 ]
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %38, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp eq ptr %41, %0
+  br i1 %42, label %43, label %48
 
-.split9:                                          ; preds = %.split9.preheader, %48
-  %39 = phi ptr [ %40, %48 ], [ %.pr, %.split9.preheader ]
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, %0
-  br i1 %43, label %44, label %48
-
-44:                                               ; preds = %.split9
-  %45 = load ptr, ptr %28, align 8
-  %46 = tail call i32 %45(ptr noundef %39) #9
+43:                                               ; preds = %.split9
+  %44 = getelementptr inbounds i8, ptr %41, i64 40
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call i32 %45(ptr noundef %38) #9
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %.thread
 
-48:                                               ; preds = %44, %.split9
-  %49 = icmp eq ptr %40, @dyn_event_list
+48:                                               ; preds = %43, %.split9
+  %49 = icmp eq ptr %39, @dyn_event_list
   br i1 %49, label %.thread, label %.split9, !llvm.loop !23
 
-.thread:                                          ; preds = %20, %.split.us, %44, %48, %37, %.split9.us, %1, %.split8.us
-  %50 = phi i32 [ 0, %.split8.us ], [ 0, %1 ], [ %35, %.split9.us ], [ 0, %37 ], [ %46, %44 ], [ 0, %48 ], [ -16, %.split.us ], [ -16, %20 ]
+.thread:                                          ; preds = %19, %.split.us, %43, %48, %36, %.split9.us, %1, %.split8.us
+  %50 = phi i32 [ 0, %.split8.us ], [ 0, %1 ], [ %34, %.split9.us ], [ 0, %36 ], [ %46, %43 ], [ 0, %48 ], [ -16, %.split.us ], [ -16, %19 ]
   tail call void @tracing_reset_all_online_cpus() #9
   tail call void @mutex_unlock(ptr noundef nonnull @event_mutex) #9
   ret i32 %50

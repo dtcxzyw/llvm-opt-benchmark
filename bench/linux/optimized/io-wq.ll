@@ -2275,10 +2275,9 @@ define internal fastcc void @io_worker_handle_work(ptr noundef %0, ptr noundef %
   br i1 %84, label %85, label %76, !llvm.loop !56
 
 85:                                               ; preds = %80, %76
-  %.lcssa = phi ptr [ %78, %80 ], [ %75, %76 ]
-  %86 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %86 = getelementptr inbounds i8, ptr %78, i64 8
   store ptr %70, ptr %86, align 8
-  store ptr %.lcssa, ptr %70, align 8
+  store ptr %78, ptr %70, align 8
   %87 = getelementptr inbounds i8, ptr %26, i64 256
   store ptr %77, ptr %87, align 8
   store volatile ptr %70, ptr %77, align 8

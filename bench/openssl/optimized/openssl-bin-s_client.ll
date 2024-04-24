@@ -6618,7 +6618,8 @@ if.then25:                                        ; preds = %if.end
   br i1 %cmp28116, label %land.lhs.true, label %if.else144
 
 land.lhs.true:                                    ; preds = %if.then25, %if.then34
-  %call27119 = phi ptr [ %add.ptr30, %if.then34 ], [ %add.ptr, %if.then25 ]
+  %call27119 = phi ptr [ %call27, %if.then34 ], [ %call27115, %if.then25 ]
+  %buf_start.0118 = phi ptr [ %incdec.ptr, %if.then34 ], [ %add.ptr, %if.then25 ]
   %outlen.0117 = phi i64 [ %dec38, %if.then34 ], [ %2, %if.then25 ]
   %add.ptr30 = getelementptr inbounds i8, ptr %call27119, i64 1
   %19 = load i8, ptr %add.ptr30, align 1
@@ -6627,15 +6628,17 @@ land.lhs.true:                                    ; preds = %if.then25, %if.then
 
 if.then34:                                        ; preds = %land.lhs.true
   %add.ptr35 = getelementptr inbounds i8, ptr %call27119, i64 2
+  %incdec.ptr = getelementptr inbounds i8, ptr %buf_start.0118, i64 1
   %20 = load <2 x i64>, ptr %buflen, align 8
   %21 = add <2 x i64> %20, <i64 -1, i64 1>
   store <2 x i64> %21, ptr %buflen, align 8
   %dec38 = add i64 %outlen.0117, -1
   %call27 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr35, i32 noundef 123) #17
-  %cmp28 = icmp eq ptr %call27, %add.ptr30
+  %cmp28 = icmp eq ptr %call27, %incdec.ptr
   br i1 %cmp28, label %land.lhs.true, label %if.else144
 
 if.then42:                                        ; preds = %land.lhs.true
+  %add.ptr30.le = getelementptr inbounds i8, ptr %call27119, i64 1
   %call43 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call27119, i32 noundef 125) #17
   %cmp44 = icmp eq ptr %call43, null
   br i1 %cmp44, label %if.then46, label %if.end51
@@ -6664,17 +6667,17 @@ if.then55:                                        ; preds = %if.end51
 
 if.end57:                                         ; preds = %if.then55, %if.end51
   %arg_start.0 = phi ptr [ %incdec.ptr56, %if.then55 ], [ null, %if.end51 ]
-  %call59 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %add.ptr30, ptr noundef nonnull @.str.2) #16
+  %call59 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %add.ptr30.le, ptr noundef nonnull @.str.2) #16
   %cmp60 = icmp eq i32 %call59, 0
   br i1 %cmp60, label %if.end84, label %if.else63
 
 if.else63:                                        ; preds = %if.end57
-  %call64 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %add.ptr30, ptr noundef nonnull @.str.629) #16
+  %call64 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %add.ptr30.le, ptr noundef nonnull @.str.629) #16
   %cmp65 = icmp eq i32 %call64, 0
   br i1 %cmp65, label %if.end84, label %if.else68
 
 if.else68:                                        ; preds = %if.else63
-  %call69 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %add.ptr30, ptr noundef nonnull @.str.96) #16
+  %call69 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %add.ptr30.le, ptr noundef nonnull @.str.96) #16
   %cmp70 = icmp eq i32 %call69, 0
   br i1 %cmp70, label %if.end84, label %if.else73
 
@@ -6685,7 +6688,7 @@ if.else73:                                        ; preds = %if.else68
   br i1 %tobool.not, label %if.end84, label %if.then75
 
 if.then75:                                        ; preds = %if.else73
-  %call76 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %add.ptr30, ptr noundef nonnull @.str.630) #16
+  %call76 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %add.ptr30.le, ptr noundef nonnull @.str.630) #16
   %cmp77 = icmp eq i32 %call76, 0
   %spec.select = select i1 %cmp77, i32 5, i32 -1
   br label %if.end84
@@ -6698,7 +6701,7 @@ if.end84:                                         ; preds = %if.then75, %if.else
   br i1 %cmp87, label %if.then89, label %if.else99
 
 if.then89:                                        ; preds = %if.end84
-  %call90 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %add.ptr30, ptr noundef nonnull @.str.631) #16
+  %call90 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %add.ptr30.le, ptr noundef nonnull @.str.631) #16
   %cmp91 = icmp eq i32 %call90, 0
   br i1 %cmp91, label %if.then93, label %if.end105
 
@@ -6708,7 +6711,7 @@ if.then93:                                        ; preds = %if.then89
   br label %if.else110
 
 if.else99:                                        ; preds = %if.end84
-  %call100 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %add.ptr30, ptr noundef nonnull @.str.632) #16
+  %call100 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %add.ptr30.le, ptr noundef nonnull @.str.632) #16
   %cmp101 = icmp eq i32 %call100, 0
   br i1 %cmp101, label %if.else110, label %if.end105
 
@@ -6718,7 +6721,7 @@ if.end105:                                        ; preds = %if.else99, %if.then
 
 if.then108:                                       ; preds = %if.end105
   %26 = load ptr, ptr @bio_err, align 8
-  %call109 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %26, ptr noundef nonnull @.str.633, ptr noundef nonnull %add.ptr30) #16
+  %call109 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %26, ptr noundef nonnull @.str.633, ptr noundef nonnull %add.ptr30.le) #16
   br label %if.end117
 
 if.else110:                                       ; preds = %if.else99, %if.then93, %if.end105
@@ -6752,7 +6755,7 @@ if.end117:                                        ; preds = %if.else110, %if.the
   br i1 %or.cond, label %land.lhs.true133, label %if.end143
 
 land.lhs.true133:                                 ; preds = %if.end117
-  %arrayidx136 = getelementptr inbounds i8, ptr %call27119, i64 %add
+  %arrayidx136 = getelementptr inbounds i8, ptr %29, i64 %add
   %31 = load i8, ptr %arrayidx136, align 1
   %cmp138 = icmp eq i8 %31, 10
   br i1 %cmp138, label %if.then140, label %if.end143
@@ -6768,7 +6771,7 @@ if.end143:                                        ; preds = %if.then140, %land.l
 
 if.else144:                                       ; preds = %if.then34, %if.then25
   %outlen.0.lcssa = phi i64 [ %2, %if.then25 ], [ %dec38, %if.then34 ]
-  %buf_start.0.lcssa = phi ptr [ %add.ptr, %if.then25 ], [ %add.ptr30, %if.then34 ]
+  %buf_start.0.lcssa = phi ptr [ %add.ptr, %if.then25 ], [ %incdec.ptr, %if.then34 ]
   %call27.lcssa = phi ptr [ %call27115, %if.then25 ], [ %call27, %if.then34 ]
   %cmp145.not = icmp eq ptr %call27.lcssa, null
   br i1 %cmp145.not, label %if.end154, label %if.then147
@@ -6801,8 +6804,8 @@ if.end159:                                        ; preds = %if.end154
   store i64 %sub162, ptr %buflen, align 8
   %cmp164 = icmp eq i64 %34, %outlen.1
   %add170 = add i64 %33, %outlen.1
-  %spec.select129 = select i1 %cmp164, i64 0, i64 %add170
-  store i64 %spec.select129, ptr %bufoff, align 8
+  %spec.select130 = select i1 %cmp164, i64 0, i64 %add170
+  store i64 %spec.select130, ptr %bufoff, align 8
   br label %return
 
 return:                                           ; preds = %sw.epilog.i103, %if.end46.i, %if.else40.i, %sw.epilog.i, %sw.bb10, %if.end159, %if.then156, %if.end143, %if.then46, %sw.bb6, %sw.bb, %if.then

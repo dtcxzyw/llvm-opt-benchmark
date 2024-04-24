@@ -1755,7 +1755,7 @@ define internal fastcc void @_ZN3mbe4Rule5parse17ha0c6f045ec70cc48E(ptr noalias 
   br i1 %.not3.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha3a21720a5e24effE.exit", label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha3a21720a5e24effE.exit.thread"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha3a21720a5e24effE.exit": ; preds = %18, %5
-  %22 = phi ptr [ %19, %18 ], [ %15, %5 ]
+  %22 = phi ptr [ %19, %18 ], [ %16, %5 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !221
   call void @_ZN3mbe10ParseError8expected17h95e0d24e1d3bcfeeE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 @anon.c84b1ad4650e75dcc23d0bef38e10828.9, i64 noundef 16), !noalias !221
   %.sroa.0.0.copyload = load i64, ptr %9, align 8, !noalias !225
@@ -1834,7 +1834,7 @@ define internal fastcc void @_ZN3mbe4Rule5parse17ha0c6f045ec70cc48E(ptr noalias 
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc354201ee5db435fE.exit.thread", label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc354201ee5db435fE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc354201ee5db435fE.exit": ; preds = %35, %37, %42, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_char17h156b6df56ca10453E.exit"
-  %47 = phi ptr [ %15, %35 ], [ %38, %37 ], [ %38, %42 ], [ %38, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_char17h156b6df56ca10453E.exit" ]
+  %47 = phi ptr [ %24, %35 ], [ %38, %37 ], [ %38, %42 ], [ %38, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_char17h156b6df56ca10453E.exit" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !243
   call void @_ZN3mbe10ParseError8expected17h95e0d24e1d3bcfeeE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 @anon.c84b1ad4650e75dcc23d0bef38e10828.11, i64 noundef 12), !noalias !243
   %.sroa.0117.0.copyload = load i64, ptr %7, align 8
@@ -1872,7 +1872,7 @@ define internal fastcc void @_ZN3mbe4Rule5parse17ha0c6f045ec70cc48E(ptr noalias 
   br i1 %.not146, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8ea83f6f450422f3E.exit.thread", label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8ea83f6f450422f3E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8ea83f6f450422f3E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc354201ee5db435fE.exit.thread", %51, %56, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_char17h156b6df56ca10453E.exit115"
-  %61 = phi ptr [ %15, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc354201ee5db435fE.exit.thread" ], [ %52, %51 ], [ %52, %56 ], [ %52, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_char17h156b6df56ca10453E.exit115" ]
+  %61 = phi ptr [ %49, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc354201ee5db435fE.exit.thread" ], [ %52, %51 ], [ %52, %56 ], [ %52, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_char17h156b6df56ca10453E.exit115" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !252
   call void @_ZN3mbe10ParseError8expected17h95e0d24e1d3bcfeeE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 @anon.c84b1ad4650e75dcc23d0bef38e10828.10, i64 noundef 12), !noalias !252
   %.sroa.0119.0.copyload = load i64, ptr %6, align 8
@@ -17956,8 +17956,8 @@ define internal fastcc void @_ZN10hir_expand5eager17eager_macro_recur17h9def0045
   %57 = invoke noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode16clone_for_update17h89efe027f4f6f581E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %55)
           to label %66 unwind label %64
 
-"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit378": ; preds = %.thread510, %885, %696, %64
-  %.pn158.pn.pn.pn = phi { ptr, i32 } [ %.pn158.pn940, %696 ], [ %65, %64 ], [ %.pn158.pn.pn513, %885 ], [ %.pn158.pn.pn513, %.thread510 ]
+"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit378": ; preds = %.thread510, %884, %696, %64
+  %.pn158.pn.pn.pn = phi { ptr, i32 } [ %.pn158.pn936, %696 ], [ %65, %64 ], [ %.pn158.pn.pn513, %884 ], [ %.pn158.pn.pn513, %.thread510 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4821)
   call void @llvm.experimental.noalias.scope.decl(metadata !4824)
   call void @llvm.experimental.noalias.scope.decl(metadata !4827)
@@ -18077,19 +18077,19 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.4743249442795103037.ex
   br label %.backedge
 
 "_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit": ; preds = %.body371
-  br i1 %.399, label %880, label %878
+  br i1 %.399, label %879, label %877
 
 .thread:                                          ; preds = %73, %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.4743249442795103037.exit.i
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %880
+  br label %879
 
-108:                                              ; preds = %870, %680
-  %.1.ph = phi i8 [ 0, %870 ], [ 1, %680 ]
+108:                                              ; preds = %869, %680
+  %.1.ph = phi i8 [ 0, %869 ], [ 1, %680 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %109 = trunc nuw i8 %.1.ph to i1
-  br label %878
+  br label %877
 
 .backedge:                                        ; preds = %.backedge.backedge, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$20preorder_with_tokens17h4c032e2b9d6b041bE.exit"
   %.0478 = phi i32 [ %5, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$20preorder_with_tokens17h4c032e2b9d6b041bE.exit" ], [ %.0478.be, %.backedge.backedge ]
@@ -18102,10 +18102,10 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.4743249442795103037.ex
   %111 = icmp eq i64 %110, 2
   br i1 %111, label %819, label %112
 
-.body371:                                         ; preds = %.loopexit523, %.loopexit.split-lp524, %.body.i, %863, %818, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h89cfcc8efbf3e719E.exit326"
-  %.399 = phi i1 [ %.6, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h89cfcc8efbf3e719E.exit326" ], [ %.6, %818 ], [ true, %863 ], [ true, %.body.i ], [ true, %.loopexit523 ], [ %111, %.loopexit.split-lp524 ]
-  %.295 = phi i8 [ 1, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h89cfcc8efbf3e719E.exit326" ], [ 1, %818 ], [ 0, %863 ], [ 0, %.body.i ], [ 1, %.loopexit523 ], [ %.3.ph, %.loopexit.split-lp524 ]
-  %.pn158 = phi { ptr, i32 } [ %.pn156, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h89cfcc8efbf3e719E.exit326" ], [ %.pn156, %818 ], [ %864, %863 ], [ %eh.lpad-body.i, %.body.i ], [ %lpad.loopexit525, %.loopexit523 ], [ %lpad.loopexit.split-lp526, %.loopexit.split-lp524 ]
+.body371:                                         ; preds = %.loopexit523, %.loopexit.split-lp524, %.body.i, %862, %818, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h89cfcc8efbf3e719E.exit326"
+  %.399 = phi i1 [ %.6, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h89cfcc8efbf3e719E.exit326" ], [ %.6, %818 ], [ true, %862 ], [ true, %.body.i ], [ true, %.loopexit523 ], [ %111, %.loopexit.split-lp524 ]
+  %.295 = phi i8 [ 1, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h89cfcc8efbf3e719E.exit326" ], [ 1, %818 ], [ 0, %862 ], [ 0, %.body.i ], [ 1, %.loopexit523 ], [ %.3.ph, %.loopexit.split-lp524 ]
+  %.pn158 = phi { ptr, i32 } [ %.pn156, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h89cfcc8efbf3e719E.exit326" ], [ %.pn156, %818 ], [ %863, %862 ], [ %eh.lpad-body.i, %.body.i ], [ %lpad.loopexit525, %.loopexit523 ], [ %lpad.loopexit.split-lp526, %.loopexit.split-lp524 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$rowan..cursor..PreorderWithTokens$GT$17hd04120a677eeba5cE.llvm.10606712881621943088"(ptr noalias noundef nonnull align 8 dereferenceable(48) %52)
           to label %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit" unwind label %458
 
@@ -18861,13 +18861,13 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %217
   invoke void %339(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] }, { { ptr, { ptr, [1 x i64] }, {} }, ptr } }) align 8 dereferenceable(48) %34, ptr noundef nonnull align 1 %1, i32 noundef %333)
           to label %340 unwind label %336
 
-"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread954": ; preds = %"_ZN68_$LT$rowan..green..node..GreenNode$u20$as$u20$core..clone..Clone$GT$5clone17ha5edfc14a619e3bfE.llvm.1819014470976533947.exit.i", %.noexc229
-  %lpad.thr_comm952 = landingpad { ptr, i32 }
+"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread950": ; preds = %"_ZN68_$LT$rowan..green..node..GreenNode$u20$as$u20$core..clone..Clone$GT$5clone17ha5edfc14a619e3bfE.llvm.1819014470976533947.exit.i", %.noexc229
+  %lpad.thr_comm948 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread"
 
 "_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit": ; preds = %436
-  %lpad.thr_comm.split-lp953 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp949 = landingpad { ptr, i32 }
           cleanup
   br label %460
 
@@ -18956,11 +18956,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %217
 
 "_ZN68_$LT$rowan..green..node..GreenNode$u20$as$u20$core..clone..Clone$GT$5clone17ha5edfc14a619e3bfE.llvm.1819014470976533947.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he95cd3a0201d44eeE.exit"
   %368 = invoke noundef nonnull ptr @"_ZN5rowan3arc57Arc$LT$rowan..arc..HeaderSlice$LT$H$C$$u5b$T$u5d$$GT$$GT$9into_thin17h97d7742c78f7aaafE.llvm.1819014470976533947"(ptr noundef nonnull %362, i64 noundef %364)
-          to label %.noexc229 unwind label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread954"
+          to label %.noexc229 unwind label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread950"
 
 .noexc229:                                        ; preds = %"_ZN68_$LT$rowan..green..node..GreenNode$u20$as$u20$core..clone..Clone$GT$5clone17ha5edfc14a619e3bfE.llvm.1819014470976533947.exit.i"
   %369 = invoke noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode8new_root17h9eadfad81c804108E(ptr noundef nonnull %368)
-          to label %"_ZN6syntax14Parse$LT$T$GT$11syntax_node17hc813af9009e80e1fE.exit" unwind label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread954"
+          to label %"_ZN6syntax14Parse$LT$T$GT$11syntax_node17hc813af9009e80e1fE.exit" unwind label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread950"
 
 "_ZN6syntax14Parse$LT$T$GT$11syntax_node17hc813af9009e80e1fE.exit": ; preds = %.noexc229
   store ptr %369, ptr %33, align 8
@@ -19179,8 +19179,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %217
           to label %"_ZN4core3ptr103drop_in_place$LT$triomphe..arc..Arc$LT$span..map..SpanMap$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17hb25325128d180df2E.exit" unwind label %443
 
 "_ZN4core3ptr103drop_in_place$LT$triomphe..arc..Arc$LT$span..map..SpanMap$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17hb25325128d180df2E.exit255": ; preds = %460, %464, %443
-  %.5105 = phi i8 [ 0, %443 ], [ %.2102947, %464 ], [ %.2102947, %460 ]
-  %.pn138 = phi { ptr, i32 } [ %444, %443 ], [ %.pn136949, %464 ], [ %.pn136949, %460 ]
+  %.5105 = phi i8 [ 0, %443 ], [ %.2102943, %464 ], [ %.2102943, %460 ]
+  %.pn138 = phi { ptr, i32 } [ %444, %443 ], [ %.pn136945, %464 ], [ %.pn136945, %460 ]
   invoke void @"_ZN4core3ptr105drop_in_place$LT$syntax..Parse$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5518afd7d760b833E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37) #39
           to label %.body252 unwind label %458
 
@@ -19244,15 +19244,15 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %217
   %.not146 = icmp eq i8 %.sroa.0462.2, 15
   br i1 %.not146, label %553, label %525
 
-458:                                              ; preds = %885, %753, %729, %717, %716, %464, %405, %376, %294, %.body, %.body371, %63, %881, %818, %"_ZN4core3ptr103drop_in_place$LT$triomphe..arc..Arc$LT$span..map..SpanMap$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17hb25325128d180df2E.exit324", %"_ZN4core3ptr103drop_in_place$LT$triomphe..arc..Arc$LT$span..map..SpanMap$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17hb25325128d180df2E.exit255"
+458:                                              ; preds = %884, %753, %729, %717, %716, %464, %405, %376, %294, %.body, %.body371, %63, %880, %818, %"_ZN4core3ptr103drop_in_place$LT$triomphe..arc..Arc$LT$span..map..SpanMap$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17hb25325128d180df2E.exit324", %"_ZN4core3ptr103drop_in_place$LT$triomphe..arc..Arc$LT$span..map..SpanMap$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17hb25325128d180df2E.exit255"
   %459 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #38
   unreachable
 
 460:                                              ; preds = %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit", %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread"
-  %.pn136949 = phi { ptr, i32 } [ %.pn136950, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread" ], [ %lpad.thr_comm.split-lp953, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit" ]
-  %.2102947 = phi i8 [ 1, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread" ], [ 0, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit" ]
+  %.pn136945 = phi { ptr, i32 } [ %.pn136946, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread" ], [ %lpad.thr_comm.split-lp949, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit" ]
+  %.2102943 = phi i8 [ 1, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread" ], [ 0, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5183)
   call void @llvm.experimental.noalias.scope.decl(metadata !5186)
   %461 = load ptr, ptr %36, align 8, !alias.scope !5189, !nonnull !17, !noundef !17
@@ -19266,8 +19266,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %217
   invoke void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17he061c33f791748b1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %36)
           to label %"_ZN4core3ptr103drop_in_place$LT$triomphe..arc..Arc$LT$span..map..SpanMap$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17hb25325128d180df2E.exit255" unwind label %458
 
-"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread": ; preds = %.loopexit.split-lp.loopexit.split-lp, %.loopexit, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit245", %376, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread954"
-  %.pn136950 = phi { ptr, i32 } [ %lpad.thr_comm952, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread954" ], [ %lpad.loopexit.split-lp549, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %.pn134, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit245" ], [ %.pn134, %376 ]
+"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread": ; preds = %.loopexit.split-lp.loopexit.split-lp, %.loopexit, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit245", %376, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread950"
+  %.pn136946 = phi { ptr, i32 } [ %lpad.thr_comm948, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.thread950" ], [ %lpad.loopexit.split-lp549, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %.pn134, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit245" ], [ %.pn134, %376 ]
   call void @"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h6a77f1804104e80cE.llvm.4743249442795103037"(ptr noalias noundef nonnull align 8 dereferenceable(16) %35) #39
   br label %460
 
@@ -19546,7 +19546,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %217
           to label %556 unwind label %.loopexit555
 
 555:                                              ; preds = %.loopexit555, %.loopexit.split-lp556, %588
-  %.sroa.090.1805 = phi ptr [ %.sroa.090.1, %588 ], [ null, %.loopexit.split-lp556 ], [ %.sroa.090.1, %.loopexit555 ]
+  %.sroa.090.1801 = phi ptr [ %.sroa.090.1, %588 ], [ null, %.loopexit.split-lp556 ], [ %.sroa.090.1, %.loopexit555 ]
   %.1111.lpad-body = phi i1 [ false, %588 ], [ true, %.loopexit.split-lp556 ], [ true, %.loopexit555 ]
   %eh.lpad-body288 = phi { ptr, i32 } [ %589, %588 ], [ %lpad.loopexit.split-lp558, %.loopexit.split-lp556 ], [ %lpad.loopexit557, %.loopexit555 ]
   br i1 %.not146, label %709, label %650
@@ -19803,7 +19803,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i: ; preds = %564, %561
   br i1 %649, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h6581b2a1b3627727E.llvm.4743249442795103037.exit.sink.split.i.i305", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h6581b2a1b3627727E.llvm.4743249442795103037.exit.sink.split.sink.split.i.i302"
 
 650:                                              ; preds = %709, %555
-  %.not151 = icmp eq ptr %.sroa.090.1805, null
+  %.not151 = icmp eq ptr %.sroa.090.1801, null
   br i1 %.not151, label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit322", label %710
 
 "_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h89cfcc8efbf3e719E.exit309": ; preds = %655, %661, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h6a77f1804104e80cE.llvm.4743249442795103037.exit307"
@@ -19940,8 +19940,8 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i: ; preds = %564, %561
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #38
   unreachable
 
-696:                                              ; preds = %881, %878
-  br i1 %.0938, label %.thread510, label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit378"
+696:                                              ; preds = %880, %877
+  br i1 %.0934, label %.thread510, label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit378"
 
 697:                                              ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h19c901064ba1dd3cE.llvm.10606712881621943088.exit.i"
   %698 = landingpad { ptr, i32 }
@@ -19975,7 +19975,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i: ; preds = %564, %561
   br i1 %708, label %"_ZN4core3ptr142drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h7a779dafcc65c632E.exit320.sink.split", label %"_ZN4core3ptr142drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h7a779dafcc65c632E.exit320"
 
 "_ZN4core3ptr142drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h7a779dafcc65c632E.exit320.sink.split": ; preds = %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit319", %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit375"
-  %.sink = phi ptr [ %873, %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit375" ], [ %704, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit319" ]
+  %.sink = phi ptr [ %872, %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit375" ], [ %704, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit319" ]
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sink), !noalias !17
   br label %"_ZN4core3ptr142drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h7a779dafcc65c632E.exit320"
 
@@ -19990,7 +19990,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i: ; preds = %564, %561
   br i1 %.1111.lpad-body, label %711, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h89cfcc8efbf3e719E.exit326"
 
 711:                                              ; preds = %710
-  %712 = getelementptr inbounds i8, ptr %.sroa.090.1805, i64 48
+  %712 = getelementptr inbounds i8, ptr %.sroa.090.1801, i64 48
   %713 = load i32, ptr %712, align 4, !noalias !5449, !noundef !17
   %714 = add i32 %713, -1
   store i32 %714, ptr %712, align 4, !noalias !5449
@@ -19998,7 +19998,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i: ; preds = %564, %561
   br i1 %715, label %716, label %.thread486
 
 716:                                              ; preds = %711
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sroa.090.1805)
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sroa.090.1801)
           to label %.thread486 unwind label %458
 
 717:                                              ; preds = %720
@@ -20095,13 +20095,13 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i: ; preds = %564, %561
   %.0.i.i.i333 = phi i32 [ %746, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc0bb5ee9c4a2d71E.llvm.4743249442795103037.exit.i.i.i331" ], [ %741, %740 ]
   %747 = xor i32 %.0.i.i327, -1
   %.not.i.i334 = icmp ugt i32 %.0.i.i.i333, %747
-  br i1 %.not.i.i334, label %.invoke1275, label %754
+  br i1 %.not.i.i334, label %.invoke1271, label %754
 
-.invoke1275:                                      ; preds = %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.4743249442795103037.exit.i.i332", %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.4743249442795103037.exit.i.i344"
+.invoke1271:                                      ; preds = %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.4743249442795103037.exit.i.i332", %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.4743249442795103037.exit.i.i344"
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.c84b1ad4650e75dcc23d0bef38e10828.38.llvm.4743249442795103037, i64 noundef 38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c84b1ad4650e75dcc23d0bef38e10828.40.llvm.4743249442795103037) #41
-          to label %.cont1276 unwind label %.loopexit.split-lp561
+          to label %.cont1272 unwind label %.loopexit.split-lp561
 
-.cont1276:                                        ; preds = %.invoke1275
+.cont1272:                                        ; preds = %.invoke1271
   unreachable
 
 .loopexit560:                                     ; preds = %737, %760, %771, %782
@@ -20109,7 +20109,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i: ; preds = %564, %561
           cleanup
   br label %748
 
-.loopexit.split-lp561:                            ; preds = %.invoke1275, %.invoke, %776
+.loopexit.split-lp561:                            ; preds = %.invoke1271, %.invoke, %776
   %lpad.loopexit.split-lp563 = landingpad { ptr, i32 }
           cleanup
   br label %748
@@ -20173,7 +20173,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i: ; preds = %564, %561
   %.0.i.i.i345 = phi i32 [ %769, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc0bb5ee9c4a2d71E.llvm.4743249442795103037.exit.i.i.i343" ], [ %764, %763 ]
   %770 = xor i32 %.0.i.i339, -1
   %.not.i.i346 = icmp ugt i32 %.0.i.i.i345, %770
-  br i1 %.not.i.i346, label %.invoke1275, label %771
+  br i1 %.not.i.i346, label %.invoke1271, label %771
 
 771:                                              ; preds = %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.4743249442795103037.exit.i.i344"
   %772 = add i32 %.0.i.i.i345, %.0478
@@ -20326,7 +20326,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i: ; preds = %564, %561
 .body.i:                                          ; preds = %849, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.i.i.i", %825
   %eh.lpad-body.i = phi { ptr, i32 } [ %826, %825 ], [ %843, %849 ], [ %843, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit.i.i.i" ]
   invoke void @"_ZN4core3ptr174drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h706509bb48abf27bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #39
-          to label %.body371 unwind label %868
+          to label %.body371 unwind label %867
 
 .lr.ph.i:                                         ; preds = %819, %859
   %827 = phi ptr [ %828, %859 ], [ %820, %819 ]
@@ -20412,93 +20412,92 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i: ; preds = %564, %561
   br i1 %860, label %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h9bf91e44b1c97aa0E.exit.i.loopexit", label %.lr.ph.i
 
 "_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h9bf91e44b1c97aa0E.exit.i.loopexit": ; preds = %859
-  store ptr %.sroa.4457.0.copyload, ptr %823, align 8, !alias.scope !5549
+  store ptr %828, ptr %823, align 8, !alias.scope !5549
   br label %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h9bf91e44b1c97aa0E.exit.i"
 
 "_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h9bf91e44b1c97aa0E.exit.i": ; preds = %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h9bf91e44b1c97aa0E.exit.i.loopexit", %819
-  %861 = phi ptr [ %820, %819 ], [ %.sroa.4457.0.copyload, %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h9bf91e44b1c97aa0E.exit.i.loopexit" ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14), !noalias !5588
   store ptr %27, ptr %14, align 8, !noalias !5588
-  %862 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h04f33bea4bfa2288E.llvm.10606712881621943088(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %27)
-          to label %865 unwind label %863
+  %861 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h04f33bea4bfa2288E.llvm.10606712881621943088(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %27)
+          to label %864 unwind label %862
 
-863:                                              ; preds = %865, %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h9bf91e44b1c97aa0E.exit.i"
-  %864 = landingpad { ptr, i32 }
+862:                                              ; preds = %864, %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h9bf91e44b1c97aa0E.exit.i"
+  %863 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h53291005b323fea6E.llvm.10606712881621943088"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
-          to label %.body371 unwind label %866
+          to label %.body371 unwind label %865
 
-865:                                              ; preds = %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h9bf91e44b1c97aa0E.exit.i"
-  invoke void @"_ZN4core3ptr145drop_in_place$LT$$u5b$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$u5d$$GT$17h86ea862f19186ccdE.llvm.10606712881621943088"(ptr noalias noundef nonnull align 8 %861, i64 noundef %862)
-          to label %"_ZN4core3ptr174drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h706509bb48abf27bE.exit.i" unwind label %863
+864:                                              ; preds = %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h9bf91e44b1c97aa0E.exit.i"
+  invoke void @"_ZN4core3ptr145drop_in_place$LT$$u5b$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$u5d$$GT$17h86ea862f19186ccdE.llvm.10606712881621943088"(ptr noalias noundef nonnull align 8 %.sroa.4457.0.copyload, i64 noundef %861)
+          to label %"_ZN4core3ptr174drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h706509bb48abf27bE.exit.i" unwind label %862
 
-866:                                              ; preds = %863
-  %867 = landingpad { ptr, i32 }
+865:                                              ; preds = %862
+  %866 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #38
   unreachable
 
-"_ZN4core3ptr174drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h706509bb48abf27bE.exit.i": ; preds = %865
+"_ZN4core3ptr174drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h706509bb48abf27bE.exit.i": ; preds = %864
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h53291005b323fea6E.llvm.10606712881621943088"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
-          to label %870 unwind label %.loopexit.split-lp524
+          to label %869 unwind label %.loopexit.split-lp524
 
-868:                                              ; preds = %.body.i
-  %869 = landingpad { ptr, i32 }
+867:                                              ; preds = %.body.i
+  %868 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #38
   unreachable
 
-870:                                              ; preds = %"_ZN4core3ptr174drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h706509bb48abf27bE.exit.i"
+869:                                              ; preds = %"_ZN4core3ptr174drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h706509bb48abf27bE.exit.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !5588
-  %871 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %57, ptr %871, align 8
-  %872 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %.0478, ptr %872, align 8
+  %870 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %57, ptr %870, align 8
+  %871 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %.0478, ptr %871, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false)
   invoke void @"_ZN4core3ptr54drop_in_place$LT$rowan..cursor..PreorderWithTokens$GT$17hd04120a677eeba5cE.llvm.10606712881621943088"(ptr noalias noundef nonnull align 8 dereferenceable(48) %52)
           to label %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit375" unwind label %108
 
-"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit375": ; preds = %870
+"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit375": ; preds = %869
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %52)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54)
   call void @llvm.experimental.noalias.scope.decl(metadata !5593)
   call void @llvm.experimental.noalias.scope.decl(metadata !5596)
   call void @llvm.experimental.noalias.scope.decl(metadata !5599)
   call void @llvm.experimental.noalias.scope.decl(metadata !5602)
-  %873 = load ptr, ptr %55, align 8, !alias.scope !5605, !nonnull !17, !noundef !17
-  %874 = getelementptr inbounds i8, ptr %873, i64 48
-  %875 = load i32, ptr %874, align 4, !noalias !5605, !noundef !17
-  %876 = add i32 %875, -1
-  store i32 %876, ptr %874, align 4, !noalias !5605
-  %877 = icmp eq i32 %876, 0
-  br i1 %877, label %"_ZN4core3ptr142drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h7a779dafcc65c632E.exit320.sink.split", label %"_ZN4core3ptr142drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h7a779dafcc65c632E.exit320"
+  %872 = load ptr, ptr %55, align 8, !alias.scope !5605, !nonnull !17, !noundef !17
+  %873 = getelementptr inbounds i8, ptr %872, i64 48
+  %874 = load i32, ptr %873, align 4, !noalias !5605, !noundef !17
+  %875 = add i32 %874, -1
+  store i32 %875, ptr %873, align 4, !noalias !5605
+  %876 = icmp eq i32 %875, 0
+  br i1 %876, label %"_ZN4core3ptr142drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h7a779dafcc65c632E.exit320.sink.split", label %"_ZN4core3ptr142drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h7a779dafcc65c632E.exit320"
 
-878:                                              ; preds = %108, %880, %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit"
-  %.pn158.pn940 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %108 ], [ %.pn158.pn941, %880 ], [ %.pn158, %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit" ]
-  %.0938 = phi i1 [ %109, %108 ], [ true, %880 ], [ true, %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit" ]
-  %.093936 = phi i8 [ %.1.ph, %108 ], [ %.093937, %880 ], [ %.295, %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit" ]
-  %879 = trunc nuw i8 %.093936 to i1
-  br i1 %879, label %881, label %696
+877:                                              ; preds = %108, %879, %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit"
+  %.pn158.pn936 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %108 ], [ %.pn158.pn937, %879 ], [ %.pn158, %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit" ]
+  %.0934 = phi i1 [ %109, %108 ], [ true, %879 ], [ true, %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit" ]
+  %.093932 = phi i8 [ %.1.ph, %108 ], [ %.093933, %879 ], [ %.295, %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit" ]
+  %878 = trunc nuw i8 %.093932 to i1
+  br i1 %878, label %880, label %696
 
-880:                                              ; preds = %.thread, %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit"
-  %.pn158.pn941 = phi { ptr, i32 } [ %.pn158, %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit" ], [ %lpad.thr_comm, %.thread ]
-  %.093937 = phi i8 [ %.295, %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit" ], [ 1, %.thread ]
+879:                                              ; preds = %.thread, %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit"
+  %.pn158.pn937 = phi { ptr, i32 } [ %.pn158, %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit" ], [ %lpad.thr_comm, %.thread ]
+  %.093933 = phi i8 [ %.295, %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd0d0d6b1d260549eE.exit" ], [ 1, %.thread ]
   call void @"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hir_expand..ExpandError$GT$$GT$17h6a77f1804104e80cE.llvm.4743249442795103037"(ptr noalias noundef nonnull align 8 dereferenceable(16) %53) #39
-  br label %878
+  br label %877
 
-881:                                              ; preds = %878
+880:                                              ; preds = %877
   invoke void @"_ZN4core3ptr158drop_in_place$LT$alloc..vec..Vec$LT$$LP$syntax..ast..generated..nodes..MacroCall$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17hf621f542fbe3f527E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %54) #39
           to label %696 unwind label %458
 
 .thread510:                                       ; preds = %684, %697, %696
-  %.pn158.pn.pn513 = phi { ptr, i32 } [ %.pn158.pn940, %696 ], [ %698, %697 ], [ %685, %684 ]
-  %882 = load i32, ptr %69, align 4, !noalias !5606, !noundef !17
-  %883 = add i32 %882, -1
-  store i32 %883, ptr %69, align 4, !noalias !5606
-  %884 = icmp eq i32 %883, 0
-  br i1 %884, label %885, label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit378"
+  %.pn158.pn.pn513 = phi { ptr, i32 } [ %.pn158.pn936, %696 ], [ %698, %697 ], [ %685, %684 ]
+  %881 = load i32, ptr %69, align 4, !noalias !5606, !noundef !17
+  %882 = add i32 %881, -1
+  store i32 %882, ptr %69, align 4, !noalias !5606
+  %883 = icmp eq i32 %882, 0
+  br i1 %883, label %884, label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit378"
 
-885:                                              ; preds = %.thread510
+884:                                              ; preds = %.thread510
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %57)
           to label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit378" unwind label %458
 

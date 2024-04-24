@@ -407,7 +407,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -466,7 +466,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -4219,7 +4219,7 @@ _ZN6icu_7515MaybeStackArrayIPNS_8numparse4impl16CodePointMatcherELi8EEC2EOS5_.ex
   store ptr %stackArray6.i, ptr %__tmp, align 8
   %conv.i = sext i32 %1 to i64
   %mul.i = shl nsw i64 %conv.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray6.i, ptr nonnull align 8 %0, i64 %mul.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray6.i, ptr nonnull align 8 %stackArray.i, i64 %mul.i, i1 false)
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %invoke.cont.i, label %if.then.i.i
 
@@ -4255,7 +4255,7 @@ _ZN6icu_7515MaybeStackArrayIPNS_8numparse4impl16CodePointMatcherELi8EEaSEOS5_.ex
   %8 = load i32, ptr %capacity.i3, align 8
   %conv.i9 = sext i32 %8 to i64
   %mul.i10 = shl nsw i64 %conv.i9, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray.i, ptr nonnull align 8 %5, i64 %mul.i10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray.i, ptr nonnull align 8 %stackArray.i5, i64 %mul.i10, i1 false)
   %.pr33 = load i8, ptr %needToRelease.i4, align 4
   %tobool.not.i.i12 = icmp eq i8 %.pr33, 0
   br i1 %tobool.not.i.i12, label %invoke.cont.i15, label %if.then.i.i13
@@ -4295,7 +4295,7 @@ _ZN6icu_7515MaybeStackArrayIPNS_8numparse4impl16CodePointMatcherELi8EEaSEOS5_.ex
   br i1 %tobool.not.i.i28, label %_ZN6icu_7515MaybeStackArrayIPNS_8numparse4impl16CodePointMatcherELi8EED2Ev.exit, label %if.then.i.i29
 
 if.then.i.i29:                                    ; preds = %_ZN6icu_7515MaybeStackArrayIPNS_8numparse4impl16CodePointMatcherELi8EEaSEOS5_.exit26
-  invoke void @uprv_free_75(ptr noundef nonnull %stackArray.i19)
+  invoke void @uprv_free_75(ptr noundef %12)
           to label %_ZN6icu_7515MaybeStackArrayIPNS_8numparse4impl16CodePointMatcherELi8EED2Ev.exit unwind label %terminate.lpad.i30
 
 terminate.lpad.i30:                               ; preds = %if.then.i.i29
@@ -4343,7 +4343,7 @@ if.then.i.i:                                      ; preds = %invoke.cont.i.i
   %6 = load i32, ptr %capacity.i.i, align 8
   %conv.i.i = sext i32 %6 to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray4.i.i, ptr nonnull align 8 %5, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray4.i.i, ptr nonnull align 8 %stackArray.i.i, i64 %mul.i.i, i1 false)
   br label %_ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit
 
 if.else.i.i:                                      ; preds = %invoke.cont.i.i
@@ -4396,7 +4396,7 @@ if.then.i.i13:                                    ; preds = %invoke.cont.i.i6
   %15 = load i32, ptr %capacity.i.i7, align 8
   %conv.i.i15 = sext i32 %15 to i64
   %mul.i.i16 = shl nsw i64 %conv.i.i15, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %stackArray4.i.i14, ptr nonnull align 2 %14, i64 %mul.i.i16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %stackArray4.i.i14, ptr nonnull align 2 %stackArray.i.i10, i64 %mul.i.i16, i1 false)
   br label %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EEaSEOS3_.exit
 
 if.else.i.i12:                                    ; preds = %invoke.cont.i.i6

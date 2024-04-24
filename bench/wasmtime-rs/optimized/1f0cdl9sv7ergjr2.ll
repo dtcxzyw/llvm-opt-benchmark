@@ -6486,14 +6486,14 @@ _ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E.exit.i: ; pre
   br i1 %232, label %_ZN16wasmtime_runtime5table5Table13copy_elements17h6c65b010ebe9a70dE.exit, label %233
 
 233:                                              ; preds = %231
-  switch i64 %22, label %default.unreachable [
+  switch i64 %41, label %default.unreachable [
     i64 2, label %234
     i64 0, label %243
     i64 1, label %269
   ]
 
 234:                                              ; preds = %233
-  %235 = getelementptr inbounds i8, ptr %2, i64 8
+  %235 = getelementptr inbounds i8, ptr %1, i64 8
   %236 = load i64, ptr %235, align 8, !range !132, !alias.scope !877, !noalias !880, !noundef !14
   %trunc.i.i51 = trunc nuw i64 %236 to i1
   %.not.i25.i = icmp eq i64 %236, 0
@@ -6503,7 +6503,7 @@ _ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E.exit.i: ; pre
   br i1 %.not.i25.i, label %238, label %242
 
 238:                                              ; preds = %237
-  %239 = getelementptr inbounds i8, ptr %2, i64 32
+  %239 = getelementptr inbounds i8, ptr %1, i64 32
   %240 = load i32, ptr %239, align 8, !alias.scope !882, !noalias !880, !noundef !14
   %241 = zext i32 %240 to i64
   br label %_ZN16wasmtime_runtime5table5Table12funcrefs_mut17h66f8518076e65e45E.exit.i47
@@ -6514,13 +6514,13 @@ _ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E.exit.i: ; pre
 
 243:                                              ; preds = %233
   tail call void @llvm.experimental.noalias.scope.decl(metadata !886)
-  %244 = getelementptr inbounds i8, ptr %2, i64 24
+  %244 = getelementptr inbounds i8, ptr %1, i64 24
   %245 = load i64, ptr %244, align 8, !alias.scope !882, !noalias !880, !noundef !14
   br label %_ZN16wasmtime_runtime5table5Table12funcrefs_mut17h66f8518076e65e45E.exit.i47
 
 _ZN16wasmtime_runtime5table5Table12funcrefs_mut17h66f8518076e65e45E.exit.i47: ; preds = %243, %238
   %.sroa.3.0.i.i48 = phi i64 [ %241, %238 ], [ %245, %243 ]
-  %.sroa.0.0.in.i.i49 = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.0.0.in.i.i49 = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.0.0.i.i50 = load ptr, ptr %.sroa.0.0.in.i.i49, align 8, !alias.scope !882, !noalias !880, !nonnull !14, !noundef !14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !887)
   %246 = tail call { i64, i64 } @_ZN4core5slice5index5range17h589778377312b1ceE(i64 noundef %57, i64 noundef %59, i64 noundef %.sroa.3.0.i.i48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.764a2583fb810618b3ddee9b3a33c6c4.197), !noalias !890
@@ -6556,9 +6556,9 @@ _ZN16wasmtime_runtime5table5Table12funcrefs_mut17h66f8518076e65e45E.exit.i47: ; 
   br i1 %.not.i25.i, label %268, label %260
 
 260:                                              ; preds = %259
-  %261 = getelementptr inbounds i8, ptr %2, i64 24
+  %261 = getelementptr inbounds i8, ptr %1, i64 24
   %262 = load i64, ptr %261, align 8, !alias.scope !894, !noalias !880, !noundef !14
-  %263 = getelementptr inbounds i8, ptr %2, i64 32
+  %263 = getelementptr inbounds i8, ptr %1, i64 32
   %264 = load i32, ptr %263, align 8, !alias.scope !894, !noalias !880, !noundef !14
   %265 = zext i32 %264 to i64
   %266 = icmp ult i64 %262, %265
@@ -6574,13 +6574,13 @@ _ZN16wasmtime_runtime5table5Table12funcrefs_mut17h66f8518076e65e45E.exit.i47: ; 
 
 269:                                              ; preds = %233
   tail call void @llvm.experimental.noalias.scope.decl(metadata !901)
-  %270 = getelementptr inbounds i8, ptr %2, i64 24
+  %270 = getelementptr inbounds i8, ptr %1, i64 24
   %271 = load i64, ptr %270, align 8, !alias.scope !894, !noalias !880, !noundef !14
   br label %_ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.i32
 
 _ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.i32: ; preds = %269, %260
   %.sroa.3.0.i21.i = phi i64 [ %271, %269 ], [ %265, %260 ]
-  %.sroa.0.0.in.i22.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.0.0.in.i22.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.0.0.i23.i = load ptr, ptr %.sroa.0.0.in.i22.i, align 8, !alias.scope !894, !noalias !880, !nonnull !14, !noundef !14
   %272 = icmp ult i32 %3, %4
   br i1 %272, label %.split.i, label %.preheader.i

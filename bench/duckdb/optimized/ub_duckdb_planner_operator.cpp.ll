@@ -14571,11 +14571,11 @@ _ZN6duckdb12Deserializer4ReadINS_14TableFilterSetEEENSt9enable_ifIXsr15has_deser
   %cmp.i.i.i.i = icmp eq ptr %ref.tmp, %ret
   %_M_before_begin.i.i.i.i.i4.phi.trans.insert = getelementptr inbounds i8, ptr %ret, i64 16
   %.pre = load ptr, ptr %_M_before_begin.i.i.i.i.i4.phi.trans.insert, align 8, !tbaa !404
-  %tobool.not4.i.i.i.i.i5 = icmp eq ptr %.pre, null
   br i1 %cmp.i.i.i.i, label %_ZN6duckdb14TableFilterSetaSEOS0_.exit, label %if.end.i.i.i.i, !prof !57
 
 if.end.i.i.i.i:                                   ; preds = %_ZN6duckdb12Deserializer4ReadINS_14TableFilterSetEEENSt9enable_ifIXsr15has_deserializeIT_EE5valueES4_E4typeEv.exit
-  br i1 %tobool.not4.i.i.i.i.i5, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN6duckdb10unique_ptrINS4_11TableFilterESt14default_deleteIS6_ELb1EEEELb0EEEEE19_M_deallocate_nodesEPSB_.exit.i.i.i.i, label %while.body.i.i.i.i.i
+  %tobool.not4.i.i.i.i.i = icmp eq ptr %.pre, null
+  br i1 %tobool.not4.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN6duckdb10unique_ptrINS4_11TableFilterESt14default_deleteIS6_ELb1EEEELb0EEEEE19_M_deallocate_nodesEPSB_.exit.i.i.i.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN6duckdb10unique_ptrINS4_11TableFilterESt14default_deleteIS6_ELb1EEEELb0EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i.i
   %__n.addr.05.i.i.i.i.i = phi ptr [ %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN6duckdb10unique_ptrINS4_11TableFilterESt14default_deleteIS6_ELb1EEEELb0EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i.i ], [ %.pre, %if.end.i.i.i.i ]
@@ -14655,6 +14655,8 @@ _ZN6duckdb14TableFilterSetaSEOS0_.exit.thread:    ; preds = %if.then.i.i.i.i.i, 
   br label %_ZNSt10_HashtableImSt4pairIKmN6duckdb10unique_ptrINS2_11TableFilterESt14default_deleteIS4_ELb1EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
 
 _ZN6duckdb14TableFilterSetaSEOS0_.exit:           ; preds = %_ZN6duckdb12Deserializer4ReadINS_14TableFilterSetEEENSt9enable_ifIXsr15has_deserializeIT_EE5valueES4_E4typeEv.exit
+  %_M_before_begin.i.i.i.i.i4 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %tobool.not4.i.i.i.i.i5 = icmp eq ptr %.pre, null
   br i1 %tobool.not4.i.i.i.i.i5, label %_ZNSt10_HashtableImSt4pairIKmN6duckdb10unique_ptrINS2_11TableFilterESt14default_deleteIS4_ELb1EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %while.body.i.i.i.i.i6
 
 while.body.i.i.i.i.i6:                            ; preds = %_ZN6duckdb14TableFilterSetaSEOS0_.exit, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN6duckdb10unique_ptrINS4_11TableFilterESt14default_deleteIS6_ELb1EEEELb0EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i.i13
@@ -14678,7 +14680,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN6duckdb10unique_p
   br i1 %tobool.not.i.i.i.i.i14, label %_ZNSt10_HashtableImSt4pairIKmN6duckdb10unique_ptrINS2_11TableFilterESt14default_deleteIS4_ELb1EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %while.body.i.i.i.i.i6, !llvm.loop !405
 
 _ZNSt10_HashtableImSt4pairIKmN6duckdb10unique_ptrINS2_11TableFilterESt14default_deleteIS4_ELb1EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN6duckdb10unique_ptrINS4_11TableFilterESt14default_deleteIS6_ELb1EEEELb0EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i.i13, %_ZN6duckdb14TableFilterSetaSEOS0_.exit, %_ZN6duckdb14TableFilterSetaSEOS0_.exit.thread
-  %_M_before_begin.i.i.i.i.i420 = phi ptr [ %_M_before_begin.i.i.i.i, %_ZN6duckdb14TableFilterSetaSEOS0_.exit.thread ], [ %_M_before_begin.i.i.i.i.i4.phi.trans.insert, %_ZN6duckdb14TableFilterSetaSEOS0_.exit ], [ %_M_before_begin.i.i.i.i.i4.phi.trans.insert, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN6duckdb10unique_ptrINS4_11TableFilterESt14default_deleteIS6_ELb1EEEELb0EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i.i13 ]
+  %_M_before_begin.i.i.i.i.i420 = phi ptr [ %_M_before_begin.i.i.i.i, %_ZN6duckdb14TableFilterSetaSEOS0_.exit.thread ], [ %_M_before_begin.i.i.i.i.i4, %_ZN6duckdb14TableFilterSetaSEOS0_.exit ], [ %_M_before_begin.i.i.i.i.i4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN6duckdb10unique_ptrINS4_11TableFilterESt14default_deleteIS6_ELb1EEEELb0EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i.i13 ]
   %18 = load ptr, ptr %ref.tmp, align 8, !tbaa !394
   %_M_bucket_count.i.i.i.i15 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %19 = load i64, ptr %_M_bucket_count.i.i.i.i15, align 8, !tbaa !396

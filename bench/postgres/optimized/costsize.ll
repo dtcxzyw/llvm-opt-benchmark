@@ -7356,7 +7356,7 @@ define internal fastcc double @calc_joinrel_size_estimate(ptr noundef %0, ptr no
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %35
-  %38 = tail call ptr @list_copy(ptr noundef %5) #17
+  %38 = tail call ptr @list_copy(ptr noundef %.094159.i13) #17
   br label %39
 
 39:                                               ; preds = %37, %35

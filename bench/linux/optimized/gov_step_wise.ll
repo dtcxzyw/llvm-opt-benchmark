@@ -84,7 +84,7 @@ define internal noundef i32 @step_wise_throttle(ptr noundef %0, ptr noundef %1) 
   %34 = getelementptr inbounds i8, ptr %0, i64 960
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, %34
-  br i1 %36, label %.loopexit, label %37
+  br i1 %36, label %.loopexit11, label %37
 
 37:                                               ; preds = %33
   %38 = icmp eq i32 %5, 1
@@ -231,23 +231,27 @@ define internal noundef i32 @step_wise_throttle(ptr noundef %0, ptr noundef %1) 
 126:                                              ; preds = %119, %99, %42
   %127 = load ptr, ptr %43, align 8
   %128 = icmp eq ptr %127, %34
-  br i1 %128, label %.loopexit11, label %42, !llvm.loop !18
+  br i1 %128, label %.loopexit11.loopexit, label %42, !llvm.loop !18
 
-.loopexit11:                                      ; preds = %126
+.loopexit11.loopexit:                             ; preds = %126
   %.pre = load ptr, ptr %34, align 8
-  %129 = icmp eq ptr %.pre, %34
-  br i1 %129, label %.loopexit, label %.preheader
+  br label %.loopexit11
+
+.loopexit11:                                      ; preds = %.loopexit11.loopexit, %33
+  %129 = phi ptr [ %.pre, %.loopexit11.loopexit ], [ %35, %33 ]
+  %130 = icmp eq ptr %129, %34
+  br i1 %130, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit11, %.preheader
-  %130 = phi ptr [ %133, %.preheader ], [ %.pre, %.loopexit11 ]
-  %131 = getelementptr i8, ptr %130, i64 -160
-  %132 = load ptr, ptr %131, align 8
-  call void @thermal_cdev_update(ptr noundef %132) #8
-  %133 = load ptr, ptr %130, align 8
-  %134 = icmp eq ptr %133, %34
-  br i1 %134, label %.loopexit, label %.preheader, !llvm.loop !21
+  %131 = phi ptr [ %134, %.preheader ], [ %129, %.loopexit11 ]
+  %132 = getelementptr i8, ptr %131, i64 -160
+  %133 = load ptr, ptr %132, align 8
+  call void @thermal_cdev_update(ptr noundef %133) #8
+  %134 = load ptr, ptr %131, align 8
+  %135 = icmp eq ptr %134, %34
+  br i1 %135, label %.loopexit, label %.preheader, !llvm.loop !21
 
-.loopexit:                                        ; preds = %.preheader, %33, %.loopexit11
+.loopexit:                                        ; preds = %.preheader, %.loopexit11
   ret i32 0
 }
 

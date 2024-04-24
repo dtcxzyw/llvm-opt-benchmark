@@ -6353,7 +6353,7 @@ _ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit173: ; preds = %_ZNSt6vectorIP
 
 _Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread279: ; preds = %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit173, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit, %592, %.preheader, %346, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread277
   %.sroa.20.6 = phi ptr [ %.sroa.20.1392, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread277 ], [ %.sroa.20.1392, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137 ], [ %.sroa.20.1392, %346 ], [ %.sroa.20.5, %.preheader ], [ %.sroa.20.1392, %592 ], [ %.sroa.20.1392, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit ], [ %.sroa.20.5, %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit173 ]
-  %.sroa.0208.7 = phi ptr [ %.sroa.0208.2394, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread277 ], [ %.sroa.0208.2394, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137 ], [ %.sroa.0208.2394, %346 ], [ %.sroa.11.6, %.preheader ], [ %.sroa.0208.2394, %592 ], [ %.sroa.0208.2394, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit ], [ %.sroa.0208.6, %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit173 ]
+  %.sroa.0208.7 = phi ptr [ %.sroa.0208.2394, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread277 ], [ %.sroa.0208.2394, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137 ], [ %.sroa.0208.2394, %346 ], [ %.sroa.0208.6, %.preheader ], [ %.sroa.0208.2394, %592 ], [ %.sroa.0208.2394, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit ], [ %.sroa.0208.6, %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit173 ]
   %.sroa.33.12 = phi ptr [ %.sroa.33.8395, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread277 ], [ %.sroa.33.8395, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137 ], [ %.sroa.33.8395, %346 ], [ %.sroa.33.8395, %.preheader ], [ %.sroa.33.8395, %592 ], [ %.sroa.33.8395, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit ], [ %.sroa.33.11, %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit173 ]
   %.sroa.15.12 = phi ptr [ %.sroa.15.8396, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread277 ], [ %.sroa.15.8396, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137 ], [ %.sroa.15.8396, %346 ], [ %.sroa.15.8396, %.preheader ], [ %.sroa.15.8396, %592 ], [ %.sroa.15.8396, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit ], [ %.sroa.15.11, %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit173 ]
   %.sroa.0221.13 = phi ptr [ %.sroa.0221.9397, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread277 ], [ %.sroa.0221.9397, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137 ], [ %.sroa.0221.9397, %346 ], [ %.sroa.0221.9397, %.preheader ], [ %.sroa.0221.9397, %592 ], [ %.sroa.0221.9397, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit ], [ %.sroa.0221.12, %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit173 ]
@@ -6368,7 +6368,7 @@ _Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread279: ; preds = %_ZNSt6vecto
 
 ._crit_edge:                                      ; preds = %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread279, %244
   %.sroa.0208.2.lcssa = phi ptr [ %12, %244 ], [ %.sroa.0208.7, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread279 ]
-  %.sroa.0221.9.lcssa = phi ptr [ %.sroa.15.7, %244 ], [ %.sroa.0221.13, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread279 ]
+  %.sroa.0221.9.lcssa = phi ptr [ %.sroa.0221.8, %244 ], [ %.sroa.0221.13, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread279 ]
   %770 = load i32, ptr %14, align 4
   %771 = and i32 %770, 7
   %.not97 = icmp eq i32 %771, 0

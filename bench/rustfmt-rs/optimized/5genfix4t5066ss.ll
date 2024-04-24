@@ -8913,59 +8913,59 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   br i1 %51, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %42, %57
-  %.062145.i = phi i64 [ %58, %57 ], [ 0, %42 ]
-  %.064144.i = phi i8 [ %.2.i, %57 ], [ 0, %42 ]
-  %52 = trunc nuw i8 %.064144.i to i1
+  %.062146.i = phi i64 [ %58, %57 ], [ 0, %42 ]
+  %.064145.i = phi i8 [ %.2.i, %57 ], [ 0, %42 ]
+  %52 = trunc nuw i8 %.064145.i to i1
   br i1 %52, label %._crit_edge.i, label %56
 
 ._crit_edge.i:                                    ; preds = %57, %.lr.ph.i, %42
-  %.064.lcssa.i = phi i8 [ 0, %42 ], [ %.064144.i, %.lr.ph.i ], [ %.2.i, %57 ]
-  %.062.lcssa.i = phi i64 [ 0, %42 ], [ %.062145.i, %.lr.ph.i ], [ %58, %57 ]
+  %.064.lcssa.i = phi i8 [ 0, %42 ], [ %.064145.i, %.lr.ph.i ], [ %.2.i, %57 ]
+  %.062.lcssa.i = phi i64 [ 0, %42 ], [ %.062146.i, %.lr.ph.i ], [ %58, %57 ]
   %53 = add i64 %1, 15
   %54 = add i64 %.062.lcssa.i, %53
   %55 = icmp ult i64 %54, %3
-  br i1 %55, label %.lr.ph153.i, label %._crit_edge154.i
+  br i1 %55, label %.lr.ph154.i, label %._crit_edge155.i
 
 56:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !2475
   store i64 0, ptr %5, align 8, !noalias !2475
-  %invariant.gep.i = getelementptr i8, ptr %2, i64 %.062145.i
+  %invariant.gep.i = getelementptr i8, ptr %2, i64 %.062146.i
   br label %73
 
 57:                                               ; preds = %65
-  %58 = add i64 %.062145.i, 64
+  %58 = add i64 %.062146.i, 64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !2475
   %59 = add i64 %58, %50
   %60 = icmp ult i64 %59, %3
   br i1 %60, label %.lr.ph.i, label %._crit_edge.i
 
 .preheader.i:                                     ; preds = %73, %65
-  %.sroa.025.0143.i = phi i64 [ %61, %65 ], [ 0, %73 ]
-  %.165142.i = phi i8 [ %.2.i, %65 ], [ %.064144.i, %73 ]
-  %61 = add nuw nsw i64 %.sroa.025.0143.i, 1
-  %62 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0143.i
+  %.sroa.025.0144.i = phi i64 [ %61, %65 ], [ 0, %73 ]
+  %.165143.i = phi i8 [ %.2.i, %65 ], [ %.064145.i, %73 ]
+  %61 = add nuw nsw i64 %.sroa.025.0144.i, 1
+  %62 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0144.i
   %63 = load i16, ptr %62, align 2, !noalias !2475, !noundef !5
   %64 = icmp eq i16 %63, 0
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %66, %.preheader.i
-  %.2.i = phi i8 [ %.165142.i, %.preheader.i ], [ %72, %66 ]
-  %exitcond160.not.i = icmp eq i64 %61, 4
-  br i1 %exitcond160.not.i, label %57, label %.preheader.i
+  %.2.i = phi i8 [ %.165143.i, %.preheader.i ], [ %72, %66 ]
+  %exitcond161.not.i = icmp eq i64 %61, 4
+  br i1 %exitcond161.not.i, label %57, label %.preheader.i
 
 66:                                               ; preds = %.preheader.i
-  %67 = shl nuw nsw i64 %.sroa.025.0143.i, 4
-  %68 = add nuw nsw i64 %67, %.062145.i
-  %69 = trunc nuw i8 %.165142.i to i1
+  %67 = shl nuw nsw i64 %.sroa.025.0144.i, 4
+  %68 = add nuw nsw i64 %67, %.062146.i
+  %69 = trunc nuw i8 %.165143.i to i1
   %70 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf5c284d063610c5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %68, i16 noundef %63, i1 noundef zeroext %69)
   %71 = or i1 %70, %69
   %72 = zext i1 %71 to i8
   br label %65
 
 73:                                               ; preds = %73, %56
-  %.sroa.019.0141.i = phi i64 [ 0, %56 ], [ %74, %73 ]
-  %74 = add nuw nsw i64 %.sroa.019.0141.i, 1
-  %75 = shl nuw nsw i64 %.sroa.019.0141.i, 4
+  %.sroa.019.0142.i = phi i64 [ 0, %56 ], [ %74, %73 ]
+  %74 = add nuw nsw i64 %.sroa.019.0142.i, 1
+  %75 = shl nuw nsw i64 %.sroa.019.0142.i, 4
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %75
   %.0.copyload.i.i = load <16 x i8>, ptr %gep.i, align 1, !alias.scope !2472, !noalias !2485
   %76 = getelementptr inbounds i8, ptr %gep.i, i64 %storemerge123126.i
@@ -8973,19 +8973,19 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %77 = icmp eq <16 x i8> %.0.copyload.i.i, %44
   %78 = icmp eq <16 x i8> %.0.copyload2.i.i, %45
   %79 = and <16 x i1> %78, %77
-  %80 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.019.0141.i
+  %80 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.019.0142.i
   store <16 x i1> %79, ptr %80, align 2, !noalias !2475
   %exitcond.not.i = icmp eq i64 %74, 4
   br i1 %exitcond.not.i, label %.preheader.i, label %73
 
-.lr.ph153.i:                                      ; preds = %._crit_edge.i, %99
-  %.163151.i = phi i64 [ %100, %99 ], [ %.062.lcssa.i, %._crit_edge.i ]
-  %.3150.i = phi i8 [ %.4.i, %99 ], [ %.064.lcssa.i, %._crit_edge.i ]
-  %81 = trunc nuw i8 %.3150.i to i1
-  br i1 %81, label %._crit_edge154.i, label %91
+.lr.ph154.i:                                      ; preds = %._crit_edge.i, %99
+  %.163152.i = phi i64 [ %100, %99 ], [ %.062.lcssa.i, %._crit_edge.i ]
+  %.3151.i = phi i8 [ %.4.i, %99 ], [ %.064.lcssa.i, %._crit_edge.i ]
+  %81 = trunc nuw i8 %.3151.i to i1
+  br i1 %81, label %._crit_edge155.i, label %91
 
-._crit_edge154.i:                                 ; preds = %99, %.lr.ph153.i, %._crit_edge.i
-  %.3.lcssa.i = phi i8 [ %.064.lcssa.i, %._crit_edge.i ], [ %.3150.i, %.lr.ph153.i ], [ %.4.i, %99 ]
+._crit_edge155.i:                                 ; preds = %99, %.lr.ph154.i, %._crit_edge.i
+  %.3.lcssa.i = phi i8 [ %.064.lcssa.i, %._crit_edge.i ], [ %.3151.i, %.lr.ph154.i ], [ %.4.i, %99 ]
   %82 = sub i64 %3, %18
   %83 = add i64 %82, -16
   %84 = getelementptr inbounds i8, ptr %2, i64 %83
@@ -8999,8 +8999,8 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %90 = icmp eq i16 %89, 0
   br i1 %90, label %106, label %107
 
-91:                                               ; preds = %.lr.ph153.i
-  %92 = getelementptr inbounds i8, ptr %2, i64 %.163151.i
+91:                                               ; preds = %.lr.ph154.i
+  %92 = getelementptr inbounds i8, ptr %2, i64 %.163152.i
   %.0.copyload.i82.i = load <16 x i8>, ptr %92, align 1, !alias.scope !2472, !noalias !2491
   %93 = getelementptr inbounds i8, ptr %92, i64 %storemerge123126.i
   %.0.copyload2.i83.i = load <16 x i8>, ptr %93, align 1, !alias.scope !2472, !noalias !2491
@@ -9012,23 +9012,23 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   br i1 %98, label %99, label %103
 
 99:                                               ; preds = %103, %91
-  %.4.i = phi i8 [ %.3150.i, %91 ], [ %105, %103 ]
-  %100 = add i64 %.163151.i, 16
+  %.4.i = phi i8 [ %.3151.i, %91 ], [ %105, %103 ]
+  %100 = add i64 %.163152.i, 16
   %101 = add i64 %100, %53
   %102 = icmp ult i64 %101, %3
-  br i1 %102, label %.lr.ph153.i, label %._crit_edge154.i
+  br i1 %102, label %.lr.ph154.i, label %._crit_edge155.i
 
 103:                                              ; preds = %91
-  %104 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf5c284d063610c5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %.163151.i, i16 noundef %97, i1 noundef zeroext false)
+  %104 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf5c284d063610c5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %.163152.i, i16 noundef %97, i1 noundef zeroext false)
   %105 = zext i1 %104 to i8
   br label %99
 
-106:                                              ; preds = %107, %._crit_edge154.i
-  %.5.i = phi i8 [ %.3.lcssa.i, %._crit_edge154.i ], [ %111, %107 ]
+106:                                              ; preds = %107, %._crit_edge155.i
+  %.5.i = phi i8 [ %.3.lcssa.i, %._crit_edge155.i ], [ %111, %107 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2475
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
 
-107:                                              ; preds = %._crit_edge154.i
+107:                                              ; preds = %._crit_edge155.i
   %108 = trunc nuw i8 %.3.lcssa.i to i1
   %109 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf5c284d063610c5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %83, i16 noundef %89, i1 noundef zeroext %108)
   %110 = or i1 %109, %108
@@ -10659,7 +10659,7 @@ _ZN5serde2de7Visitor12visit_string17h16f31d2d3ecee187E.exit44: ; preds = %94, %9
 
 140:                                              ; preds = %136, %139
   %141 = phi ptr [ %132, %136 ], [ %.pre54, %139 ]
-  %142 = phi ptr [ %132, %136 ], [ %.pre, %139 ]
+  %142 = phi ptr [ %134, %136 ], [ %.pre, %139 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2922)
   call void @llvm.experimental.noalias.scope.decl(metadata !2923)
   call void @llvm.experimental.noalias.scope.decl(metadata !2924)
@@ -11718,7 +11718,7 @@ _ZN5serde2de7Visitor12visit_string17h652233f2a1752f02E.exit46: ; preds = %91, %9
 
 136:                                              ; preds = %._crit_edge, %.thread52
   %137 = phi ptr [ %.pre56, %._crit_edge ], [ %131, %.thread52 ]
-  %138 = phi ptr [ %.pre, %._crit_edge ], [ %131, %.thread52 ]
+  %138 = phi ptr [ %.pre, %._crit_edge ], [ %133, %.thread52 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
   call void @llvm.experimental.noalias.scope.decl(metadata !3139)
   call void @llvm.experimental.noalias.scope.decl(metadata !3142)
@@ -12264,7 +12264,7 @@ _ZN5serde2de7Visitor12visit_string17he7fbd893f99224d7E.exit54: ; preds = %92, %9
 
 139:                                              ; preds = %.thread66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
   %140 = phi ptr [ %134, %.thread66 ], [ %.pre70, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
-  %141 = phi ptr [ %134, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
+  %141 = phi ptr [ %136, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !3240)
   call void @llvm.experimental.noalias.scope.decl(metadata !3243)
@@ -12851,7 +12851,7 @@ _ZN5serde2de7Visitor12visit_string17h751552ac7bb407c6E.exit54: ; preds = %92, %9
 
 139:                                              ; preds = %.thread66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
   %140 = phi ptr [ %134, %.thread66 ], [ %.pre70, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
-  %141 = phi ptr [ %134, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
+  %141 = phi ptr [ %136, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !3359)
   call void @llvm.experimental.noalias.scope.decl(metadata !3362)
@@ -13438,7 +13438,7 @@ _ZN5serde2de7Visitor12visit_string17h14e7bb660a368089E.exit54: ; preds = %92, %9
 
 139:                                              ; preds = %.thread66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
   %140 = phi ptr [ %134, %.thread66 ], [ %.pre70, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
-  %141 = phi ptr [ %134, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
+  %141 = phi ptr [ %136, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !3478)
   call void @llvm.experimental.noalias.scope.decl(metadata !3481)
@@ -14025,7 +14025,7 @@ _ZN5serde2de7Visitor12visit_string17h39e2445f1c9860cfE.exit54: ; preds = %92, %9
 
 139:                                              ; preds = %.thread66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
   %140 = phi ptr [ %134, %.thread66 ], [ %.pre70, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
-  %141 = phi ptr [ %134, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
+  %141 = phi ptr [ %136, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !3597)
   call void @llvm.experimental.noalias.scope.decl(metadata !3600)
@@ -16855,7 +16855,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
 
 593:                                              ; preds = %589, %592
   %594 = phi ptr [ %586, %589 ], [ %.pre1001, %592 ]
-  %595 = phi ptr [ %586, %589 ], [ %.pre, %592 ]
+  %595 = phi ptr [ %587, %589 ], [ %.pre, %592 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4133)
   call void @llvm.experimental.noalias.scope.decl(metadata !4134)
   call void @llvm.experimental.noalias.scope.decl(metadata !4135)
@@ -21941,7 +21941,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
 
 1504:                                             ; preds = %._crit_edge, %.thread1969
   %1505 = phi ptr [ %.pre1973, %._crit_edge ], [ %1501, %.thread1969 ]
-  %1506 = phi ptr [ %.pre, %._crit_edge ], [ %1501, %.thread1969 ]
+  %1506 = phi ptr [ %.pre, %._crit_edge ], [ %1502, %.thread1969 ]
   call void @llvm.lifetime.end.p0(i64 632, ptr nonnull %208)
   call void @llvm.experimental.noalias.scope.decl(metadata !4462)
   call void @llvm.experimental.noalias.scope.decl(metadata !4465)
@@ -22483,7 +22483,7 @@ _ZN5serde2de7Visitor12visit_string17haac779249495b633E.exit54: ; preds = %92, %9
 
 139:                                              ; preds = %.thread66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
   %140 = phi ptr [ %134, %.thread66 ], [ %.pre70, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
-  %141 = phi ptr [ %134, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
+  %141 = phi ptr [ %136, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !4563)
   call void @llvm.experimental.noalias.scope.decl(metadata !4566)
@@ -22965,7 +22965,7 @@ common.resume:                                    ; preds = %115, %66, %100, %80
 
 93:                                               ; preds = %.thread64, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
   %94 = phi ptr [ %88, %.thread64 ], [ %.pre68, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
-  %95 = phi ptr [ %88, %.thread64 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
+  %95 = phi ptr [ %90, %.thread64 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.experimental.noalias.scope.decl(metadata !4653)
   call void @llvm.experimental.noalias.scope.decl(metadata !4656)
@@ -23552,7 +23552,7 @@ _ZN5serde2de7Visitor12visit_string17h96718709b450e7fcE.exit54: ; preds = %92, %9
 
 139:                                              ; preds = %.thread66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
   %140 = phi ptr [ %134, %.thread66 ], [ %.pre70, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
-  %141 = phi ptr [ %134, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
+  %141 = phi ptr [ %136, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !4772)
   call void @llvm.experimental.noalias.scope.decl(metadata !4775)
@@ -24139,7 +24139,7 @@ _ZN5serde2de7Visitor12visit_string17h9a3f5c3f251fb99eE.exit54: ; preds = %92, %9
 
 139:                                              ; preds = %.thread66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
   %140 = phi ptr [ %134, %.thread66 ], [ %.pre70, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
-  %141 = phi ptr [ %134, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
+  %141 = phi ptr [ %136, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !4891)
   call void @llvm.experimental.noalias.scope.decl(metadata !4894)
@@ -24726,7 +24726,7 @@ _ZN5serde2de7Visitor12visit_string17h926c531932de856aE.exit54: ; preds = %92, %9
 
 139:                                              ; preds = %.thread66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
   %140 = phi ptr [ %134, %.thread66 ], [ %.pre70, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
-  %141 = phi ptr [ %134, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
+  %141 = phi ptr [ %136, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !5010)
   call void @llvm.experimental.noalias.scope.decl(metadata !5013)
@@ -25313,7 +25313,7 @@ _ZN5serde2de7Visitor12visit_string17hccb408de7fbff611E.exit54: ; preds = %92, %9
 
 139:                                              ; preds = %.thread66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
   %140 = phi ptr [ %134, %.thread66 ], [ %.pre70, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
-  %141 = phi ptr [ %134, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
+  %141 = phi ptr [ %136, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !5129)
   call void @llvm.experimental.noalias.scope.decl(metadata !5132)
@@ -25900,7 +25900,7 @@ _ZN5serde2de7Visitor12visit_string17hb524fab2fbfed0e9E.exit54: ; preds = %92, %9
 
 139:                                              ; preds = %.thread66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
   %140 = phi ptr [ %134, %.thread66 ], [ %.pre70, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
-  %141 = phi ptr [ %134, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
+  %141 = phi ptr [ %136, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !5248)
   call void @llvm.experimental.noalias.scope.decl(metadata !5251)
@@ -26487,7 +26487,7 @@ _ZN5serde2de7Visitor12visit_string17hcfe3b7ff3aeb78c1E.exit54: ; preds = %92, %9
 
 139:                                              ; preds = %.thread66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
   %140 = phi ptr [ %134, %.thread66 ], [ %.pre70, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
-  %141 = phi ptr [ %134, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
+  %141 = phi ptr [ %136, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !5367)
   call void @llvm.experimental.noalias.scope.decl(metadata !5370)
@@ -27074,7 +27074,7 @@ _ZN5serde2de7Visitor12visit_string17h06c99afde89e626dE.exit54: ; preds = %92, %9
 
 139:                                              ; preds = %.thread66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
   %140 = phi ptr [ %134, %.thread66 ], [ %.pre70, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
-  %141 = phi ptr [ %134, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
+  %141 = phi ptr [ %136, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !5486)
   call void @llvm.experimental.noalias.scope.decl(metadata !5489)
@@ -27661,7 +27661,7 @@ _ZN5serde2de7Visitor12visit_string17h41f4f11e1eb7f78cE.exit54: ; preds = %92, %9
 
 139:                                              ; preds = %.thread66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
   %140 = phi ptr [ %134, %.thread66 ], [ %.pre70, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
-  %141 = phi ptr [ %134, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
+  %141 = phi ptr [ %136, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !5605)
   call void @llvm.experimental.noalias.scope.decl(metadata !5608)
@@ -28248,7 +28248,7 @@ _ZN5serde2de7Visitor12visit_string17h20549de7ccaca48fE.exit54: ; preds = %92, %9
 
 139:                                              ; preds = %.thread66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
   %140 = phi ptr [ %134, %.thread66 ], [ %.pre70, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
-  %141 = phi ptr [ %134, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
+  %141 = phi ptr [ %136, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !5724)
   call void @llvm.experimental.noalias.scope.decl(metadata !5727)
@@ -28835,7 +28835,7 @@ _ZN5serde2de7Visitor12visit_string17h4360e5de3c5ea6f0E.exit54: ; preds = %92, %9
 
 139:                                              ; preds = %.thread66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
   %140 = phi ptr [ %134, %.thread66 ], [ %.pre70, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
-  %141 = phi ptr [ %134, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
+  %141 = phi ptr [ %136, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !5843)
   call void @llvm.experimental.noalias.scope.decl(metadata !5846)
@@ -29404,7 +29404,7 @@ _ZN5serde2de7Visitor12visit_string17h59f4d972e9a76550E.exit44: ; preds = %88, %9
 
 135:                                              ; preds = %130, %134
   %136 = phi ptr [ %126, %130 ], [ %.pre54, %134 ]
-  %137 = phi ptr [ %126, %130 ], [ %.pre, %134 ]
+  %137 = phi ptr [ %128, %130 ], [ %.pre, %134 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5978)
   call void @llvm.experimental.noalias.scope.decl(metadata !5979)
   call void @llvm.experimental.noalias.scope.decl(metadata !5980)
@@ -29931,7 +29931,7 @@ _ZN5serde2de7Visitor12visit_string17hd1d702f421f84e3dE.exit54: ; preds = %92, %9
 
 139:                                              ; preds = %.thread66, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
   %140 = phi ptr [ %134, %.thread66 ], [ %.pre70, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
-  %141 = phi ptr [ %134, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
+  %141 = phi ptr [ %136, %.thread66 ], [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !6063)
   call void @llvm.experimental.noalias.scope.decl(metadata !6066)
@@ -30413,7 +30413,7 @@ common.resume:                                    ; preds = %115, %66, %100, %80
 
 93:                                               ; preds = %.thread64, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2740da28ff94c641E.exit"
   %94 = phi ptr [ %88, %.thread64 ], [ %.pre68, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2740da28ff94c641E.exit" ]
-  %95 = phi ptr [ %88, %.thread64 ], [ %.pre, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2740da28ff94c641E.exit" ]
+  %95 = phi ptr [ %90, %.thread64 ], [ %.pre, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2740da28ff94c641E.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.experimental.noalias.scope.decl(metadata !6153)
   call void @llvm.experimental.noalias.scope.decl(metadata !6156)
@@ -32861,9 +32861,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67fa843362bcde23E.llvm.4073844125802496097.exit.sink.split", label %8
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67fa843362bcde23E.llvm.4073844125802496097.exit.sink.split": ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hb060909b24843e09E.llvm.4073844125802496097.exit.backedge", %13
-  %.sink = phi ptr [ %10, %13 ], [ %4, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hb060909b24843e09E.llvm.4073844125802496097.exit.backedge" ]
   %.lcssa.ph = phi i1 [ true, %13 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hb060909b24843e09E.llvm.4073844125802496097.exit.backedge" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !6868
+  store ptr %10, ptr %0, align 8, !alias.scope !6868
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67fa843362bcde23E.llvm.4073844125802496097.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67fa843362bcde23E.llvm.4073844125802496097.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67fa843362bcde23E.llvm.4073844125802496097.exit.sink.split", %2
@@ -40334,7 +40333,7 @@ _ZN5serde2de7Visitor12visit_string17hfa459429c77446aaE.exit54.i.i: ; preds = %10
   %.sroa.14.0 = phi i64 [ %.sroa.14.0.copyload43, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i.i" ], [ %.sroa.461.i.i.sroa.0.0.copyload, %131 ]
   %.sroa.0.0103 = phi i64 [ %.sroa.0.0.copyload38, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i.i" ], [ 2, %131 ]
   %136 = phi ptr [ %.pre70.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i.i" ], [ %133, %131 ]
-  %137 = phi ptr [ %.pre.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i.i" ], [ %133, %131 ]
+  %137 = phi ptr [ %.pre.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i.i" ], [ %134, %131 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29), !noalias !8352
   call void @llvm.experimental.noalias.scope.decl(metadata !8409)
   call void @llvm.experimental.noalias.scope.decl(metadata !8412)
@@ -42051,7 +42050,7 @@ _ZN5serde2de7Visitor12visit_string17h1c866401d570f9afE.exit54.i.i: ; preds = %10
   %.sroa.14.0 = phi i64 [ %.sroa.14.0.copyload56, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i.i" ], [ %.sroa.461.i.i.sroa.0.0.copyload, %131 ]
   %.sroa.0.0116 = phi i64 [ %.sroa.0.0.copyload51, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i.i" ], [ 2, %131 ]
   %136 = phi ptr [ %.pre70.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i.i" ], [ %133, %131 ]
-  %137 = phi ptr [ %.pre.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i.i" ], [ %133, %131 ]
+  %137 = phi ptr [ %.pre.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i.i" ], [ %134, %131 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29), !noalias !8735
   call void @llvm.experimental.noalias.scope.decl(metadata !8792)
   call void @llvm.experimental.noalias.scope.decl(metadata !8795)
@@ -43517,7 +43516,7 @@ _ZN5serde2de7Visitor12visit_string17h5c15f0dc63ec0499E.exit54.i.i: ; preds = %10
   %.sroa.14.0 = phi i64 [ %.sroa.14.0.copyload106, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i.i" ], [ %.sroa.461.i.i.sroa.0.0.copyload, %130 ]
   %.sroa.0.0166 = phi i64 [ %.sroa.0.0.copyload101, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i.i" ], [ 2, %130 ]
   %135 = phi ptr [ %.pre70.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i.i" ], [ %132, %130 ]
-  %136 = phi ptr [ %.pre.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i.i" ], [ %132, %130 ]
+  %136 = phi ptr [ %.pre.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i.i" ], [ %133, %130 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28), !noalias !9059
   call void @llvm.experimental.noalias.scope.decl(metadata !9116)
   call void @llvm.experimental.noalias.scope.decl(metadata !9119)

@@ -217,50 +217,49 @@ if.then:                                          ; preds = %internal_exr_destro
 if.then3:                                         ; preds = %internal_exr_destroy_part.exit
   %first_part = getelementptr inbounds i8, ptr %ctxt, i64 200
   %cmp4 = icmp eq ptr %1, %first_part
+  %parts7 = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %7 = load ptr, ptr %parts7, align 8
   br i1 %cmp4, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %if.then3
-  %parts7 = getelementptr inbounds i8, ptr %ctxt, i64 472
-  %7 = load ptr, ptr %parts7, align 8
   %arrayidx = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %arrayidx, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(264) %8, i64 264, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %first_part, ptr noundef nonnull align 8 dereferenceable(264) %8, i64 264, i1 false)
   br label %if.end
 
-if.end:                                           ; preds = %if.then5, %if.then3
+if.end:                                           ; preds = %if.then3, %if.then5
   %init_part9 = getelementptr inbounds i8, ptr %ctxt, i64 464
   store ptr %first_part, ptr %init_part9, align 8
   %9 = load ptr, ptr %free_fn.i, align 8
   %parts10 = getelementptr inbounds i8, ptr %ctxt, i64 472
-  %10 = load ptr, ptr %parts10, align 8
-  tail call void %9(ptr noundef %10) #10
+  tail call void %9(ptr noundef %7) #10
   store ptr %init_part9, ptr %parts10, align 8
   br label %if.end29
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %11 = phi i32 [ %6, %for.body.lr.ph ], [ %14, %for.inc ]
+  %10 = phi i32 [ %6, %for.body.lr.ph ], [ %13, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %np.029 = phi i32 [ 0, %for.body.lr.ph ], [ %np.1, %for.inc ]
-  %12 = load ptr, ptr %parts16, align 8
-  %arrayidx17 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
-  %13 = load ptr, ptr %arrayidx17, align 8
-  %cmp18 = icmp eq ptr %13, %1
+  %11 = load ptr, ptr %parts16, align 8
+  %arrayidx17 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %12 = load ptr, ptr %arrayidx17, align 8
+  %cmp18 = icmp eq ptr %12, %1
   br i1 %cmp18, label %for.inc, label %if.end20
 
 if.end20:                                         ; preds = %for.body
   %idxprom25 = sext i32 %np.029 to i64
-  %arrayidx26 = getelementptr inbounds ptr, ptr %12, i64 %idxprom25
-  store ptr %13, ptr %arrayidx26, align 8
+  %arrayidx26 = getelementptr inbounds ptr, ptr %11, i64 %idxprom25
+  store ptr %12, ptr %arrayidx26, align 8
   %inc = add nsw i32 %np.029, 1
-  %.pre = load i32, ptr %num_parts, align 4
+  %.pre32 = load i32, ptr %num_parts, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end20
-  %14 = phi i32 [ %11, %for.body ], [ %.pre, %if.end20 ]
+  %13 = phi i32 [ %10, %for.body ], [ %.pre32, %if.end20 ]
   %np.1 = phi i32 [ %np.029, %for.body ], [ %inc, %if.end20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = sext i32 %14 to i64
-  %cmp15 = icmp slt i64 %indvars.iv.next, %15
+  %14 = sext i32 %13 to i64
+  %cmp15 = icmp slt i64 %indvars.iv.next, %14
   br i1 %cmp15, label %for.body, label %if.end29, !llvm.loop !6
 
 if.end29:                                         ; preds = %for.inc, %for.cond.preheader, %if.end, %if.then
@@ -338,10 +337,10 @@ entry:
   %stackbuf = alloca [256 x i8], align 16
   %fmtargs = alloca [1 x %struct.__va_list_tag], align 16
   %stkargs = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %fmtargs)
-  call void @llvm.va_copy(ptr nonnull %stkargs, ptr nonnull %fmtargs)
+  call void @llvm.va_start.p0(ptr nonnull %fmtargs)
+  call void @llvm.va_copy.p0(ptr nonnull %stkargs, ptr nonnull %fmtargs)
   %call = call i32 @vsnprintf(ptr noundef nonnull %stackbuf, i64 noundef 256, ptr noundef %msg, ptr noundef nonnull %stkargs) #10
-  call void @llvm.va_end(ptr nonnull %stkargs)
+  call void @llvm.va_end.p0(ptr nonnull %stkargs)
   %cmp = icmp sgt i32 %call, 255
   br i1 %cmp, label %if.then, label %if.else14
 
@@ -390,7 +389,7 @@ if.end.i26:                                       ; preds = %if.else14
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end.i26, %if.then.i24, %dispatch_error.exit, %dispatch_error.exit22
-  call void @llvm.va_end(ptr nonnull %fmtargs)
+  call void @llvm.va_end.p0(ptr nonnull %fmtargs)
   ret i32 %code
 }
 
@@ -484,11 +483,11 @@ if.end18:                                         ; preds = %if.end18.sink.split
 if.end29:                                         ; preds = %if.end18
   %cmp33 = icmp sgt i32 %11, 0
   %13 = call i32 @llvm.smin.i32(i32 %10, i32 %11)
-  %spec.select148 = select i1 %cmp33, i32 %13, i32 %10
+  %spec.select144 = select i1 %cmp33, i32 %13, i32 %10
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end29, %if.end18
-  %storemerge = phi i32 [ %spec.select148, %if.end29 ], [ %11, %if.end18 ]
+  %storemerge = phi i32 [ %spec.select144, %if.end29 ], [ %11, %if.end18 ]
   store i32 %storemerge, ptr %12, align 8
   %max_image_height = getelementptr inbounds i8, ptr %initializers, i64 76
   %14 = load i32, ptr %max_image_height, align 4
@@ -500,11 +499,11 @@ if.end44:                                         ; preds = %if.end29, %if.end18
 if.end51:                                         ; preds = %if.end44
   %cmp56 = icmp sgt i32 %15, 0
   %17 = call i32 @llvm.smin.i32(i32 %14, i32 %15)
-  %spec.select149 = select i1 %cmp56, i32 %17, i32 %14
+  %spec.select145 = select i1 %cmp56, i32 %17, i32 %14
   br label %if.end67
 
 if.end67:                                         ; preds = %if.end51, %if.end44
-  %storemerge121 = phi i32 [ %15, %if.end44 ], [ %spec.select149, %if.end51 ]
+  %storemerge121 = phi i32 [ %15, %if.end44 ], [ %spec.select145, %if.end51 ]
   store i32 %storemerge121, ptr %16, align 4
   call void @exr_get_default_maximum_tile_size(ptr noundef nonnull %gmaxw, ptr noundef nonnull %gmaxh) #10
   %max_tile_width = getelementptr inbounds i8, ptr %initializers, i64 80
@@ -517,11 +516,11 @@ if.end67:                                         ; preds = %if.end51, %if.end44
 if.end74:                                         ; preds = %if.end67
   %cmp79 = icmp sgt i32 %19, 0
   %21 = call i32 @llvm.smin.i32(i32 %18, i32 %19)
-  %spec.select150 = select i1 %cmp79, i32 %21, i32 %18
+  %spec.select146 = select i1 %cmp79, i32 %21, i32 %18
   br label %if.end90
 
 if.end90:                                         ; preds = %if.end74, %if.end67
-  %storemerge122 = phi i32 [ %19, %if.end67 ], [ %spec.select150, %if.end74 ]
+  %storemerge122 = phi i32 [ %19, %if.end67 ], [ %spec.select146, %if.end74 ]
   store i32 %storemerge122, ptr %20, align 8
   %max_tile_height = getelementptr inbounds i8, ptr %initializers, i64 84
   %22 = load i32, ptr %max_tile_height, align 4
@@ -533,11 +532,11 @@ if.end90:                                         ; preds = %if.end74, %if.end67
 if.end97:                                         ; preds = %if.end90
   %cmp102 = icmp sgt i32 %23, 0
   %25 = call i32 @llvm.smin.i32(i32 %22, i32 %23)
-  %spec.select151 = select i1 %cmp102, i32 %25, i32 %22
+  %spec.select147 = select i1 %cmp102, i32 %25, i32 %22
   br label %if.end113
 
 if.end113:                                        ; preds = %if.end97, %if.end90
-  %storemerge123 = phi i32 [ %23, %if.end90 ], [ %spec.select151, %if.end97 ]
+  %storemerge123 = phi i32 [ %23, %if.end90 ], [ %spec.select147, %if.end97 ]
   store i32 %storemerge123, ptr %24, align 4
   %default_zip_level = getelementptr inbounds i8, ptr %call, i64 120
   call void @exr_get_default_zip_compression_level(ptr noundef nonnull %default_zip_level) #10
@@ -725,7 +724,7 @@ if.then.i:                                        ; preds = %internal_exr_destro
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %internal_exr_destroy_part.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %first_part.i, i8 0, i64 264, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %4, i8 0, i64 264, i1 false)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then.i
@@ -836,31 +835,31 @@ declare noalias ptr @internal_exr_alloc(i64 noundef) #4
 
 declare void @internal_exr_free(ptr noundef) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #7
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 declare ptr @exr_get_error_code_as_string(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
@@ -872,8 +871,8 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { cold }

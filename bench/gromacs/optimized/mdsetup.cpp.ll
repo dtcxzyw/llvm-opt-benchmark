@@ -57,40 +57,45 @@ define void @_ZN3gmx25mdAlgorithmsSetupAtomDataEPK9t_commrecRK10t_inputrecRK10gm
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
   %.not.i.i.i.i = icmp eq ptr %32, %33
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit, label %37
+  br i1 %.not.i.i.i.i, label %40, label %37
 
 37:                                               ; preds = %28
   %38 = icmp ugt i64 %36, 9223372036854775804
-  br i1 %38, label %.noexc.i.i, label %39
+  br i1 %38, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i
 
 .noexc.i.i:                                       ; preds = %37
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #6
   unreachable
 
-39:                                               ; preds = %37
-  %40 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %36) #7
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %37
+  %39 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %36) #7
   %.pre = load ptr, ptr %30, align 8
   %.pre112 = load ptr, ptr %31, align 8
   %.pre113 = ptrtoint ptr %.pre112 to i64
   %.pre114 = ptrtoint ptr %.pre to i64
-  %41 = sub i64 %.pre113, %.pre114
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre112, %.pre
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit, label %42
+  %.pre116 = sub i64 %.pre113, %.pre114
+  br label %40
 
-42:                                               ; preds = %39
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %40, ptr align 4 %.pre, i64 %41, i1 false)
+40:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i, %28
+  %.pre-phi117 = phi i64 [ %.pre116, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i ], [ %36, %28 ]
+  %41 = phi ptr [ %.pre112, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i ], [ %32, %28 ]
+  %42 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i ], [ %33, %28 ]
+  %43 = phi ptr [ %39, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i ], [ null, %28 ]
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %41, %42
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit, label %44
+
+44:                                               ; preds = %40
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %43, ptr align 4 %42, i64 %.pre-phi117, i1 false)
   br label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
 
-_ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %28, %39, %42
-  %43 = phi i64 [ %41, %39 ], [ %41, %42 ], [ 0, %28 ]
-  %44 = phi ptr [ %40, %39 ], [ %40, %42 ], [ null, %28 ]
-  %45 = getelementptr inbounds i8, ptr %44, i64 %43
+_ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %40, %44
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.pre-phi117
   %46 = ptrtoint ptr %45 to i64
   br label %47
 
 47:                                               ; preds = %27, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
   %.sroa.7.0 = phi i64 [ %46, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit ], [ 0, %27 ]
-  %.sroa.094.0 = phi ptr [ %44, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit ], [ null, %27 ]
+  %.sroa.094.0 = phi ptr [ %43, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit ], [ null, %27 ]
   %48 = ptrtoint ptr %.sroa.094.0 to i64
   %49 = sub i64 %.sroa.7.0, %48
   %50 = getelementptr inbounds i8, ptr %.sroa.094.0, i64 %49

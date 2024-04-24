@@ -440,7 +440,7 @@ define noundef i32 @_ZNK10BigInteger13toUnsignedIntEv(ptr nocapture noundef nonn
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = trunc i64 %12 to i32
+  %15 = trunc nuw i64 %12 to i32
   br label %_ZNK10BigInteger26convertToUnsignedPrimitiveIjEET_v.exit
 
 16:                                               ; preds = %9, %6
@@ -482,7 +482,7 @@ define noundef zeroext i16 @_ZNK10BigInteger15toUnsignedShortEv(ptr nocapture no
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = trunc i64 %12 to i16
+  %15 = trunc nuw i64 %12 to i16
   br label %_ZNK10BigInteger26convertToUnsignedPrimitiveItEET_v.exit
 
 16:                                               ; preds = %9, %6
@@ -1908,7 +1908,7 @@ declare void @_ZN11BigUnsigned19divideWithRemainderERKS_RS_(ptr noundef nonnull 
 declare void @_ZN11BigUnsignedppEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.BigInteger, align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %5, label %48
@@ -1917,7 +1917,7 @@ define void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 dereference
   store i32 0, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  invoke void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %7 unwind label %42
 
 7:                                                ; preds = %5

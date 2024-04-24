@@ -47,7 +47,7 @@ if.then.i:                                        ; preds = %if.then9
   br label %_ZN4llvh11safe_mallocEm.exit
 
 _ZN4llvh11safe_mallocEm.exit:                     ; preds = %if.then9, %if.then.i
-  %2 = phi ptr [ %FirstEl, %if.then9 ], [ %.pre, %if.then.i ]
+  %2 = phi ptr [ %1, %if.then9 ], [ %.pre, %if.then.i ]
   %Size.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %Size.i, align 8
   %conv.i10 = zext i32 %3 to i64

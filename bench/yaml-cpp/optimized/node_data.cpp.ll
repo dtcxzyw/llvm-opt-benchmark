@@ -594,7 +594,7 @@ while.body.i.i:                                   ; preds = %_ZNK4YAML6detail18n
   br i1 %cmp.i.not.i.i, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEC2EN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEESF_.exit, label %land.rhs.i.i, !llvm.loop !9
 
 _ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEC2EN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEESF_.exit: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i, %while.body.i.i, %sw.bb3
-  %it.sroa.0.0.lcssa.i.i = phi ptr [ %3, %sw.bb3 ], [ %4, %while.body.i.i ], [ %it.sroa.0.03.i.i, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i ]
+  %it.sroa.0.0.lcssa.i.i = phi ptr [ %3, %sw.bb3 ], [ %incdec.ptr.i.i.i, %while.body.i.i ], [ %it.sroa.0.03.i.i, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i ]
   store ptr %it.sroa.0.0.lcssa.i.i, ptr %m_mapIt.i3, align 8
   br label %return
 
@@ -677,7 +677,7 @@ while.body.i.i:                                   ; preds = %_ZNK4YAML6detail18n
   br i1 %cmp.i.not.i.i, label %_ZN4YAML6detail18node_iterator_baseINS0_4nodeEEC2EN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEESD_.exit, label %land.rhs.i.i, !llvm.loop !10
 
 _ZN4YAML6detail18node_iterator_baseINS0_4nodeEEC2EN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEESD_.exit: ; preds = %_ZNK4YAML6detail18node_iterator_baseINS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i, %while.body.i.i, %sw.bb3
-  %it.sroa.0.0.lcssa.i.i = phi ptr [ %3, %sw.bb3 ], [ %4, %while.body.i.i ], [ %it.sroa.0.03.i.i, %_ZNK4YAML6detail18node_iterator_baseINS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i ]
+  %it.sroa.0.0.lcssa.i.i = phi ptr [ %3, %sw.bb3 ], [ %incdec.ptr.i.i.i, %while.body.i.i ], [ %it.sroa.0.03.i.i, %_ZNK4YAML6detail18node_iterator_baseINS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPSt4pairIPS2_S7_ESt6vectorIS8_SaIS8_EEEE.exit.i.i ]
   store ptr %it.sroa.0.0.lcssa.i.i, ptr %m_mapIt.i3, align 8
   br label %return
 
@@ -1702,7 +1702,7 @@ _ZN4YAML6detail9node_data9reset_mapEv.exit:       ; preds = %while.body.i.i.i, %
   %4 = load ptr, ptr %_M_finish.i, align 8
   %5 = load ptr, ptr %m_sequence, align 8
   %cmp17.not = icmp eq ptr %4, %5
-  br i1 %cmp17.not, label %_ZN4YAML6detail9node_data14reset_sequenceEv.exit, label %for.body.lr.ph
+  br i1 %cmp17.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN4YAML6detail9node_data9reset_mapEv.exit
   %add.ptr = getelementptr inbounds i8, ptr %stream, i64 16
@@ -1774,15 +1774,17 @@ ehcleanup:                                        ; preds = %lpad7, %lpad
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %stream) #18
   resume { ptr, i32 } %.pn
 
-for.end:                                          ; preds = %invoke.cont11
-  %tobool.not.i.i.i9 = icmp eq ptr %12, %13
+for.end:                                          ; preds = %invoke.cont11, %_ZN4YAML6detail9node_data9reset_mapEv.exit
+  %16 = phi ptr [ %4, %_ZN4YAML6detail9node_data9reset_mapEv.exit ], [ %12, %invoke.cont11 ]
+  %.lcssa = phi ptr [ %5, %_ZN4YAML6detail9node_data9reset_mapEv.exit ], [ %13, %invoke.cont11 ]
+  %tobool.not.i.i.i9 = icmp eq ptr %16, %.lcssa
   br i1 %tobool.not.i.i.i9, label %_ZN4YAML6detail9node_data14reset_sequenceEv.exit, label %invoke.cont.i.i.i10
 
 invoke.cont.i.i.i10:                              ; preds = %for.end
-  store ptr %13, ptr %_M_finish.i, align 8
+  store ptr %.lcssa, ptr %_M_finish.i, align 8
   br label %_ZN4YAML6detail9node_data14reset_sequenceEv.exit
 
-_ZN4YAML6detail9node_data14reset_sequenceEv.exit: ; preds = %_ZN4YAML6detail9node_data9reset_mapEv.exit, %for.end, %invoke.cont.i.i.i10
+_ZN4YAML6detail9node_data14reset_sequenceEv.exit: ; preds = %for.end, %invoke.cont.i.i.i10
   %m_seqSize.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %m_seqSize.i, align 8
   %m_type = getelementptr inbounds i8, ptr %this, i64 16

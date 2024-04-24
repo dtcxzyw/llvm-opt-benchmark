@@ -247,7 +247,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -306,7 +306,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -599,7 +599,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %for.body
 
 if.then20:                                        ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
   %17 = or disjoint i16 %15, 32
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   %call23 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9setCharAtEiDs(ptr noundef nonnull align 8 dereferenceable(64) %result, i32 noundef %18, i16 noundef zeroext %17)
   br label %for.inc
 
@@ -633,7 +633,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit62:       ; preds = %for.body27
 
 if.then35:                                        ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit62
   %sub = add nsw i16 %25, -32
-  %27 = trunc i64 %indvars.iv73 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv73 to i32
   %call38 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9setCharAtEiDs(ptr noundef nonnull align 8 dereferenceable(64) %result, i32 noundef %27, i16 noundef zeroext %sub)
   br label %for.inc40
 

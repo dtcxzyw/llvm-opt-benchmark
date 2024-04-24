@@ -1183,7 +1183,7 @@ if.then.i:                                        ; preds = %if.end42
   br label %_ZNSt5dequeIN3net10HpackEntryESaIS1_EE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %if.end42
-  call void @_ZdlPv(ptr noundef %42) #15
+  call void @_ZdlPv(ptr noundef %43) #15
   %44 = load ptr, ptr %_M_node5.i.i.i, align 8
   %add.ptr.i.i43 = getelementptr inbounds i8, ptr %44, i64 -8
   store ptr %add.ptr.i.i43, ptr %_M_node5.i.i.i, align 8
@@ -1686,7 +1686,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then3.i.i.i.i.i,
   br i1 %cmp8.i.i.i.i.i, label %if.then9.i.i.i.i.i, label %if.end11.i.i.i.i.i
 
 if.then9.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  store ptr %27, ptr %29, align 8
+  store ptr %27, ptr %_M_before_begin.i.i.i.i.i, align 8
   br label %if.end11.i.i.i.i.i
 
 if.end11.i.i.i.i.i:                               ; preds = %if.then9.i.i.i.i.i, %if.end.i.i.i.i.i
@@ -1797,7 +1797,7 @@ if.end.i.i.i.i.i45:                               ; preds = %if.then3.i.i.i.i.i4
   br i1 %cmp8.i.i.i.i.i48, label %if.then9.i.i.i.i.i50, label %if.end11.i.i.i.i.i49
 
 if.then9.i.i.i.i.i50:                             ; preds = %if.end.i.i.i.i.i45
-  store ptr %43, ptr %45, align 8
+  store ptr %43, ptr %_M_before_begin.i.i.i.i.i46, align 8
   br label %if.end11.i.i.i.i.i49
 
 if.end11.i.i.i.i.i49:                             ; preds = %if.then9.i.i.i.i.i50, %if.end.i.i.i.i.i45

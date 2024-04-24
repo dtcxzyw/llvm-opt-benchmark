@@ -2014,8 +2014,8 @@ define dso_local void @unregister_kprobes(ptr nocapture noundef readonly %0, i32
 38:                                               ; preds = %34
   %39 = getelementptr i8, ptr %32, i64 -16
   %40 = getelementptr inbounds i8, ptr %32, i64 8
-  store ptr %32, ptr %40, align 8
-  store volatile ptr %32, ptr %32, align 8
+  store ptr %36, ptr %40, align 8
+  store volatile ptr %32, ptr %36, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %27, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %35, align 8
   tail call void @arch_remove_optimized_kprobe(ptr noundef %39) #20
@@ -2699,8 +2699,8 @@ define dso_local void @unregister_kretprobes(ptr nocapture noundef readonly %0, 
 41:                                               ; preds = %37
   %42 = getelementptr i8, ptr %35, i64 -16
   %43 = getelementptr inbounds i8, ptr %35, i64 8
-  store ptr %35, ptr %43, align 8
-  store volatile ptr %35, ptr %35, align 8
+  store ptr %39, ptr %43, align 8
+  store volatile ptr %35, ptr %39, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %30, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %38, align 8
   tail call void @arch_remove_optimized_kprobe(ptr noundef %42) #20
@@ -3176,20 +3176,20 @@ define dso_local void @kprobe_free_init_mem() local_unnamed_addr #0 align 16 {
   br label %1
 
 1:                                                ; preds = %.loopexit, %0
-  %2 = phi i64 [ 0, %0 ], [ %64, %.loopexit ]
+  %2 = phi i64 [ 0, %0 ], [ %66, %.loopexit ]
   %3 = getelementptr [64 x %struct.hlist_head], ptr @kprobe_table, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %1, %61
-  %6 = phi ptr [ %62, %61 ], [ %4, %1 ]
+.preheader:                                       ; preds = %1, %63
+  %6 = phi ptr [ %64, %63 ], [ %4, %1 ]
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = icmp uge ptr %8, @__init_begin
   %10 = icmp ult ptr %8, @__init_end
   %11 = and i1 %9, %10
-  br i1 %11, label %12, label %61
+  br i1 %11, label %12, label %63
 
 12:                                               ; preds = %.preheader
   %13 = getelementptr inbounds i8, ptr %6, i64 120
@@ -3236,64 +3236,67 @@ define dso_local void @kprobe_free_init_mem() local_unnamed_addr #0 align 16 {
   br label %37
 
 37:                                               ; preds = %33, %.loopexit.i
-  %38 = load i32, ptr %13, align 8
-  %39 = and i32 %38, -5
-  store i32 %39, ptr %13, align 8
-  %40 = load ptr, ptr %16, align 8
-  %41 = icmp ne ptr %40, @aggr_pre_handler
-  %42 = and i32 %38, 3
-  %43 = icmp eq i32 %42, 0
-  %44 = select i1 %41, i1 true, i1 %43
-  br i1 %44, label %60, label %45
+  %38 = phi ptr [ %30, %33 ], [ %31, %.loopexit.i ]
+  %39 = load i32, ptr %13, align 8
+  %40 = and i32 %39, -5
+  store i32 %40, ptr %13, align 8
+  %41 = load ptr, ptr %16, align 8
+  %42 = icmp ne ptr %41, @aggr_pre_handler
+  %43 = and i32 %39, 3
+  %44 = icmp eq i32 %43, 0
+  %45 = select i1 %42, i1 true, i1 %44
+  br i1 %45, label %62, label %46
 
-45:                                               ; preds = %37
-  %46 = load volatile ptr, ptr %20, align 8
-  %47 = icmp eq ptr %46, %20
-  br i1 %47, label %.preheader.i, label %60
+46:                                               ; preds = %37
+  %47 = load volatile ptr, ptr %20, align 8
+  %48 = icmp eq ptr %47, %20
+  br i1 %48, label %.preheader.i, label %62
 
-.preheader.i:                                     ; preds = %45, %.preheader.i
-  %48 = phi ptr [ %49, %.preheader.i ], [ @unoptimizing_list, %45 ]
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp ne ptr %49, @unoptimizing_list
-  %51 = getelementptr i8, ptr %49, i64 -128
-  %52 = icmp ne ptr %51, %6
-  %53 = and i1 %50, %52
-  br i1 %53, label %.preheader.i, label %54, !llvm.loop !32
+.preheader.i:                                     ; preds = %46, %.preheader.i
+  %49 = phi ptr [ %50, %.preheader.i ], [ @unoptimizing_list, %46 ]
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp ne ptr %50, @unoptimizing_list
+  %52 = getelementptr i8, ptr %50, i64 -128
+  %53 = icmp ne ptr %52, %6
+  %54 = and i1 %51, %53
+  br i1 %54, label %.preheader.i, label %55, !llvm.loop !32
 
-54:                                               ; preds = %.preheader.i
-  br i1 %50, label %55, label %60
+55:                                               ; preds = %.preheader.i
+  br i1 %51, label %56, label %62
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %6, i64 136
-  %57 = load ptr, ptr %56, align 8
-  store volatile ptr %30, ptr %57, align 8
-  %58 = load ptr, ptr @freeing_list, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
-  store ptr %30, ptr %59, align 8
-  store ptr %58, ptr %30, align 8
-  store ptr @freeing_list, ptr %56, align 8
+56:                                               ; preds = %55
+  %57 = getelementptr inbounds i8, ptr %6, i64 136
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %38, i64 8
+  store ptr %58, ptr %59, align 8
+  store volatile ptr %38, ptr %58, align 8
+  %60 = load ptr, ptr @freeing_list, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  store ptr %30, ptr %61, align 8
+  store ptr %60, ptr %30, align 8
+  store ptr @freeing_list, ptr %57, align 8
   store volatile ptr %30, ptr @freeing_list, align 8
-  br label %60
+  br label %62
 
-60:                                               ; preds = %55, %54, %45, %37
+62:                                               ; preds = %56, %55, %46, %37
   tail call void @arch_remove_optimized_kprobe(ptr noundef nonnull %6) #20
   br label %kill_kprobe.exit
 
-kill_kprobe.exit:                                 ; preds = %12, %60
+kill_kprobe.exit:                                 ; preds = %12, %62
   tail call void @arch_remove_kprobe(ptr noundef nonnull %6) #20
-  br label %61
+  br label %63
 
-61:                                               ; preds = %kill_kprobe.exit, %.preheader
-  %62 = load ptr, ptr %6, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %.loopexit, label %.preheader, !llvm.loop !85
+63:                                               ; preds = %kill_kprobe.exit, %.preheader
+  %64 = load ptr, ptr %6, align 8
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %.loopexit, label %.preheader, !llvm.loop !85
 
-.loopexit:                                        ; preds = %61, %1
-  %64 = add nuw nsw i64 %2, 1
-  %65 = icmp eq i64 %64, 64
-  br i1 %65, label %66, label %1, !llvm.loop !86
+.loopexit:                                        ; preds = %63, %1
+  %66 = add nuw nsw i64 %2, 1
+  %67 = icmp eq i64 %66, 64
+  br i1 %67, label %68, label %1, !llvm.loop !86
 
-66:                                               ; preds = %.loopexit
+68:                                               ; preds = %.loopexit
   tail call void @mutex_unlock(ptr noundef nonnull @kprobe_mutex) #20
   ret void
 }
@@ -4268,7 +4271,7 @@ kprobe_add_area_blacklist.exit22:                 ; preds = %110, %100, %.thread
 115:                                              ; preds = %kprobe_add_area_blacklist.exit22, %3
   %116 = and i64 %1, -3
   %117 = icmp eq i64 %116, 0
-  br i1 %117, label %118, label %311
+  br i1 %117, label %118, label %313
 
 118:                                              ; preds = %115
   call void @mutex_lock(ptr noundef nonnull @kprobe_mutex) #20
@@ -4276,14 +4279,14 @@ kprobe_add_area_blacklist.exit22:                 ; preds = %110, %100, %.thread
   br label %120
 
 120:                                              ; preds = %.loopexit32, %118
-  %121 = phi i64 [ 0, %118 ], [ %225, %.loopexit32 ]
+  %121 = phi i64 [ 0, %118 ], [ %227, %.loopexit32 ]
   %122 = getelementptr [64 x %struct.hlist_head], ptr @kprobe_table, i64 0, i64 %121
   %123 = load ptr, ptr %122, align 8
   %124 = icmp eq ptr %123, null
   br i1 %124, label %.loopexit32, label %.preheader31
 
-.preheader31:                                     ; preds = %120, %222
-  %125 = phi ptr [ %223, %222 ], [ %123, %120 ]
+.preheader31:                                     ; preds = %120, %224
+  %125 = phi ptr [ %225, %224 ], [ %123, %120 ]
   %126 = getelementptr inbounds i8, ptr %125, i64 40
   %127 = load ptr, ptr %126, align 8
   %128 = ptrtoint ptr %127 to i64
@@ -4320,7 +4323,7 @@ kprobe_add_area_blacklist.exit22:                 ; preds = %110, %100, %.thread
   br i1 %150, label %173, label %151
 
 151:                                              ; preds = %149
-  br i1 %10, label %.preheader30, label %222
+  br i1 %10, label %.preheader30, label %224
 
 .preheader30:                                     ; preds = %151, %167
   %152 = phi i64 [ %168, %167 ], [ 0, %151 ]
@@ -4350,7 +4353,7 @@ kprobe_add_area_blacklist.exit22:                 ; preds = %110, %100, %.thread
 
 171:                                              ; preds = %167, %158
   %172 = phi i1 [ %153, %158 ], [ %169, %167 ]
-  br i1 %172, label %173, label %222
+  br i1 %172, label %173, label %224
 
 173:                                              ; preds = %171, %149
   %174 = getelementptr inbounds i8, ptr %125, i64 120
@@ -4397,215 +4400,218 @@ kprobe_add_area_blacklist.exit22:                 ; preds = %110, %100, %.thread
   br label %198
 
 198:                                              ; preds = %194, %.loopexit.i
-  %199 = load i32, ptr %174, align 8
-  %200 = and i32 %199, -5
-  store i32 %200, ptr %174, align 8
-  %201 = load ptr, ptr %177, align 8
-  %202 = icmp ne ptr %201, @aggr_pre_handler
-  %203 = and i32 %199, 3
-  %204 = icmp eq i32 %203, 0
-  %205 = select i1 %202, i1 true, i1 %204
-  br i1 %205, label %221, label %206
+  %199 = phi ptr [ %191, %194 ], [ %192, %.loopexit.i ]
+  %200 = load i32, ptr %174, align 8
+  %201 = and i32 %200, -5
+  store i32 %201, ptr %174, align 8
+  %202 = load ptr, ptr %177, align 8
+  %203 = icmp ne ptr %202, @aggr_pre_handler
+  %204 = and i32 %200, 3
+  %205 = icmp eq i32 %204, 0
+  %206 = select i1 %203, i1 true, i1 %205
+  br i1 %206, label %223, label %207
 
-206:                                              ; preds = %198
-  %207 = load volatile ptr, ptr %181, align 8
-  %208 = icmp eq ptr %207, %181
-  br i1 %208, label %.preheader.i23, label %221
+207:                                              ; preds = %198
+  %208 = load volatile ptr, ptr %181, align 8
+  %209 = icmp eq ptr %208, %181
+  br i1 %209, label %.preheader.i23, label %223
 
-.preheader.i23:                                   ; preds = %206, %.preheader.i23
-  %209 = phi ptr [ %210, %.preheader.i23 ], [ @unoptimizing_list, %206 ]
-  %210 = load ptr, ptr %209, align 8
-  %211 = icmp ne ptr %210, @unoptimizing_list
-  %212 = getelementptr i8, ptr %210, i64 -128
-  %213 = icmp ne ptr %212, %125
-  %214 = and i1 %211, %213
-  br i1 %214, label %.preheader.i23, label %215, !llvm.loop !32
+.preheader.i23:                                   ; preds = %207, %.preheader.i23
+  %210 = phi ptr [ %211, %.preheader.i23 ], [ @unoptimizing_list, %207 ]
+  %211 = load ptr, ptr %210, align 8
+  %212 = icmp ne ptr %211, @unoptimizing_list
+  %213 = getelementptr i8, ptr %211, i64 -128
+  %214 = icmp ne ptr %213, %125
+  %215 = and i1 %212, %214
+  br i1 %215, label %.preheader.i23, label %216, !llvm.loop !32
 
-215:                                              ; preds = %.preheader.i23
-  br i1 %211, label %216, label %221
+216:                                              ; preds = %.preheader.i23
+  br i1 %212, label %217, label %223
 
-216:                                              ; preds = %215
-  %217 = getelementptr inbounds i8, ptr %125, i64 136
-  %218 = load ptr, ptr %217, align 8
-  store volatile ptr %191, ptr %218, align 8
-  %219 = load ptr, ptr @freeing_list, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 8
-  store ptr %191, ptr %220, align 8
-  store ptr %219, ptr %191, align 8
-  store ptr @freeing_list, ptr %217, align 8
+217:                                              ; preds = %216
+  %218 = getelementptr inbounds i8, ptr %125, i64 136
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds i8, ptr %199, i64 8
+  store ptr %219, ptr %220, align 8
+  store volatile ptr %199, ptr %219, align 8
+  %221 = load ptr, ptr @freeing_list, align 8
+  %222 = getelementptr inbounds i8, ptr %221, i64 8
+  store ptr %191, ptr %222, align 8
+  store ptr %221, ptr %191, align 8
+  store ptr @freeing_list, ptr %218, align 8
   store volatile ptr %191, ptr @freeing_list, align 8
-  br label %221
+  br label %223
 
-221:                                              ; preds = %216, %215, %206, %198
+223:                                              ; preds = %217, %216, %207, %198
   call void @arch_remove_optimized_kprobe(ptr noundef nonnull %125) #20
   br label %kill_kprobe.exit
 
-kill_kprobe.exit:                                 ; preds = %173, %221
+kill_kprobe.exit:                                 ; preds = %173, %223
   call void @arch_remove_kprobe(ptr noundef nonnull %125) #20
-  br label %222
+  br label %224
 
-222:                                              ; preds = %kill_kprobe.exit, %171, %151
-  %223 = load ptr, ptr %125, align 8
-  %224 = icmp eq ptr %223, null
-  br i1 %224, label %.loopexit32, label %.preheader31, !llvm.loop !100
+224:                                              ; preds = %kill_kprobe.exit, %171, %151
+  %225 = load ptr, ptr %125, align 8
+  %226 = icmp eq ptr %225, null
+  br i1 %226, label %.loopexit32, label %.preheader31, !llvm.loop !100
 
-.loopexit32:                                      ; preds = %222, %120
-  %225 = add nuw nsw i64 %121, 1
-  %226 = icmp eq i64 %225, 64
-  br i1 %226, label %227, label %120, !llvm.loop !101
+.loopexit32:                                      ; preds = %224, %120
+  %227 = add nuw nsw i64 %121, 1
+  %228 = icmp eq i64 %227, 64
+  br i1 %228, label %229, label %120, !llvm.loop !101
 
-227:                                              ; preds = %.loopexit32
-  br i1 %10, label %228, label %.loopexit
+229:                                              ; preds = %.loopexit32
+  br i1 %10, label %230, label %.loopexit
 
-228:                                              ; preds = %227
-  %229 = getelementptr inbounds i8, ptr %2, i64 1080
-  %230 = load ptr, ptr %229, align 8
-  %231 = icmp eq ptr %230, null
-  br i1 %231, label %.loopexit29, label %232
+230:                                              ; preds = %229
+  %231 = getelementptr inbounds i8, ptr %2, i64 1080
+  %232 = load ptr, ptr %231, align 8
+  %233 = icmp eq ptr %232, null
+  br i1 %233, label %.loopexit29, label %234
 
-232:                                              ; preds = %228
-  %233 = getelementptr inbounds i8, ptr %2, i64 1088
-  %234 = load i32, ptr %233, align 64
-  %235 = icmp eq i32 %234, 0
-  %236 = load ptr, ptr @kprobe_blacklist, align 8
-  %237 = icmp eq ptr %236, @kprobe_blacklist
-  %or.cond = select i1 %235, i1 true, i1 %237
+234:                                              ; preds = %230
+  %235 = getelementptr inbounds i8, ptr %2, i64 1088
+  %236 = load i32, ptr %235, align 64
+  %237 = icmp eq i32 %236, 0
+  %238 = load ptr, ptr @kprobe_blacklist, align 8
+  %239 = icmp eq ptr %238, @kprobe_blacklist
+  %or.cond = select i1 %237, i1 true, i1 %239
   br i1 %or.cond, label %.loopexit29, label %.preheader28.split
 
-.preheader28.split:                               ; preds = %232, %.loopexit27
-  %238 = phi i32 [ %260, %.loopexit27 ], [ %234, %232 ]
-  %239 = phi i32 [ %261, %.loopexit27 ], [ 0, %232 ]
-  %240 = load ptr, ptr %229, align 8
-  %241 = sext i32 %239 to i64
-  %242 = getelementptr i64, ptr %240, i64 %241
-  %243 = load i64, ptr %242, align 8
-  %244 = add i64 %243, 1
-  %245 = load ptr, ptr @kprobe_blacklist, align 8
-  %246 = icmp eq ptr %245, @kprobe_blacklist
-  br i1 %246, label %.loopexit27, label %.preheader26
+.preheader28.split:                               ; preds = %234, %.loopexit27
+  %240 = phi i32 [ %262, %.loopexit27 ], [ %236, %234 ]
+  %241 = phi i32 [ %263, %.loopexit27 ], [ 0, %234 ]
+  %242 = load ptr, ptr %231, align 8
+  %243 = sext i32 %241 to i64
+  %244 = getelementptr i64, ptr %242, i64 %243
+  %245 = load i64, ptr %244, align 8
+  %246 = add i64 %245, 1
+  %247 = load ptr, ptr @kprobe_blacklist, align 8
+  %248 = icmp eq ptr %247, @kprobe_blacklist
+  br i1 %248, label %.loopexit27, label %.preheader26
 
-.preheader26:                                     ; preds = %.preheader28.split, %258
-  %247 = phi ptr [ %248, %258 ], [ %245, %.preheader28.split ]
-  %248 = load ptr, ptr %247, align 8
-  %249 = getelementptr inbounds i8, ptr %247, i64 16
-  %250 = load i64, ptr %249, align 8
-  %251 = icmp uge i64 %250, %243
-  %252 = icmp ult i64 %250, %244
-  %253 = and i1 %251, %252
-  br i1 %253, label %254, label %258
+.preheader26:                                     ; preds = %.preheader28.split, %260
+  %249 = phi ptr [ %250, %260 ], [ %247, %.preheader28.split ]
+  %250 = load ptr, ptr %249, align 8
+  %251 = getelementptr inbounds i8, ptr %249, i64 16
+  %252 = load i64, ptr %251, align 8
+  %253 = icmp uge i64 %252, %245
+  %254 = icmp ult i64 %252, %246
+  %255 = and i1 %253, %254
+  br i1 %255, label %256, label %260
 
-254:                                              ; preds = %.preheader26
-  %255 = getelementptr inbounds i8, ptr %247, i64 8
-  %256 = load ptr, ptr %255, align 8
-  %257 = getelementptr inbounds i8, ptr %248, i64 8
-  store ptr %256, ptr %257, align 8
-  store volatile ptr %248, ptr %256, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %247, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %255, align 8
-  call void @kfree(ptr noundef %247) #20
-  br label %258
+256:                                              ; preds = %.preheader26
+  %257 = getelementptr inbounds i8, ptr %249, i64 8
+  %258 = load ptr, ptr %257, align 8
+  %259 = getelementptr inbounds i8, ptr %250, i64 8
+  store ptr %258, ptr %259, align 8
+  store volatile ptr %250, ptr %258, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %249, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %257, align 8
+  call void @kfree(ptr noundef %249) #20
+  br label %260
 
-258:                                              ; preds = %254, %.preheader26
-  %259 = icmp eq ptr %248, @kprobe_blacklist
-  br i1 %259, label %.loopexit27.loopexit, label %.preheader26, !llvm.loop !102
+260:                                              ; preds = %256, %.preheader26
+  %261 = icmp eq ptr %250, @kprobe_blacklist
+  br i1 %261, label %.loopexit27.loopexit, label %.preheader26, !llvm.loop !102
 
-.loopexit27.loopexit:                             ; preds = %258
-  %.pre = load i32, ptr %233, align 64
+.loopexit27.loopexit:                             ; preds = %260
+  %.pre = load i32, ptr %235, align 64
   br label %.loopexit27
 
 .loopexit27:                                      ; preds = %.loopexit27.loopexit, %.preheader28.split
-  %260 = phi i32 [ %.pre, %.loopexit27.loopexit ], [ %238, %.preheader28.split ]
-  %261 = add nuw i32 %239, 1
-  %262 = icmp ult i32 %261, %260
-  br i1 %262, label %.preheader28.split, label %.loopexit29, !llvm.loop !103
+  %262 = phi i32 [ %.pre, %.loopexit27.loopexit ], [ %240, %.preheader28.split ]
+  %263 = add nuw i32 %241, 1
+  %264 = icmp ult i32 %263, %262
+  br i1 %264, label %.preheader28.split, label %.loopexit29, !llvm.loop !103
 
-.loopexit29:                                      ; preds = %.loopexit27, %232, %228
-  %263 = getelementptr inbounds i8, ptr %2, i64 1064
-  %264 = load ptr, ptr %263, align 8
-  %265 = icmp eq ptr %264, null
-  br i1 %265, label %.loopexit25, label %266
+.loopexit29:                                      ; preds = %.loopexit27, %234, %230
+  %265 = getelementptr inbounds i8, ptr %2, i64 1064
+  %266 = load ptr, ptr %265, align 8
+  %267 = icmp eq ptr %266, null
+  br i1 %267, label %.loopexit25, label %268
 
-266:                                              ; preds = %.loopexit29
-  %267 = ptrtoint ptr %264 to i64
-  %268 = getelementptr inbounds i8, ptr %2, i64 1072
-  %269 = load i32, ptr %268, align 16
-  %270 = zext i32 %269 to i64
-  %271 = add i64 %270, %267
-  %272 = load ptr, ptr @kprobe_blacklist, align 8
-  %273 = icmp eq ptr %272, @kprobe_blacklist
-  br i1 %273, label %.loopexit25, label %.preheader24
+268:                                              ; preds = %.loopexit29
+  %269 = ptrtoint ptr %266 to i64
+  %270 = getelementptr inbounds i8, ptr %2, i64 1072
+  %271 = load i32, ptr %270, align 16
+  %272 = zext i32 %271 to i64
+  %273 = add i64 %272, %269
+  %274 = load ptr, ptr @kprobe_blacklist, align 8
+  %275 = icmp eq ptr %274, @kprobe_blacklist
+  br i1 %275, label %.loopexit25, label %.preheader24
 
-.preheader24:                                     ; preds = %266, %285
-  %274 = phi ptr [ %275, %285 ], [ %272, %266 ]
-  %275 = load ptr, ptr %274, align 8
-  %276 = getelementptr inbounds i8, ptr %274, i64 16
-  %277 = load i64, ptr %276, align 8
-  %278 = icmp uge i64 %277, %267
-  %279 = icmp ult i64 %277, %271
-  %280 = and i1 %278, %279
-  br i1 %280, label %281, label %285
+.preheader24:                                     ; preds = %268, %287
+  %276 = phi ptr [ %277, %287 ], [ %274, %268 ]
+  %277 = load ptr, ptr %276, align 8
+  %278 = getelementptr inbounds i8, ptr %276, i64 16
+  %279 = load i64, ptr %278, align 8
+  %280 = icmp uge i64 %279, %269
+  %281 = icmp ult i64 %279, %273
+  %282 = and i1 %280, %281
+  br i1 %282, label %283, label %287
 
-281:                                              ; preds = %.preheader24
-  %282 = getelementptr inbounds i8, ptr %274, i64 8
-  %283 = load ptr, ptr %282, align 8
-  %284 = getelementptr inbounds i8, ptr %275, i64 8
-  store ptr %283, ptr %284, align 8
-  store volatile ptr %275, ptr %283, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %274, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %282, align 8
-  call void @kfree(ptr noundef %274) #20
-  br label %285
+283:                                              ; preds = %.preheader24
+  %284 = getelementptr inbounds i8, ptr %276, i64 8
+  %285 = load ptr, ptr %284, align 8
+  %286 = getelementptr inbounds i8, ptr %277, i64 8
+  store ptr %285, ptr %286, align 8
+  store volatile ptr %277, ptr %285, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %276, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %284, align 8
+  call void @kfree(ptr noundef %276) #20
+  br label %287
 
-285:                                              ; preds = %281, %.preheader24
-  %286 = icmp eq ptr %275, @kprobe_blacklist
-  br i1 %286, label %.loopexit25, label %.preheader24, !llvm.loop !102
+287:                                              ; preds = %283, %.preheader24
+  %288 = icmp eq ptr %277, @kprobe_blacklist
+  br i1 %288, label %.loopexit25, label %.preheader24, !llvm.loop !102
 
-.loopexit25:                                      ; preds = %285, %266, %.loopexit29
-  %287 = getelementptr inbounds i8, ptr %2, i64 968
-  %288 = load ptr, ptr %287, align 8
-  %289 = icmp eq ptr %288, null
-  br i1 %289, label %.loopexit, label %290
+.loopexit25:                                      ; preds = %287, %268, %.loopexit29
+  %289 = getelementptr inbounds i8, ptr %2, i64 968
+  %290 = load ptr, ptr %289, align 8
+  %291 = icmp eq ptr %290, null
+  br i1 %291, label %.loopexit, label %292
 
-290:                                              ; preds = %.loopexit25
-  %291 = ptrtoint ptr %288 to i64
-  %292 = getelementptr inbounds i8, ptr %2, i64 976
-  %293 = load i32, ptr %292, align 16
-  %294 = zext i32 %293 to i64
-  %295 = add i64 %294, %291
-  %296 = load ptr, ptr @kprobe_blacklist, align 8
-  %297 = icmp eq ptr %296, @kprobe_blacklist
-  br i1 %297, label %.loopexit, label %.preheader
+292:                                              ; preds = %.loopexit25
+  %293 = ptrtoint ptr %290 to i64
+  %294 = getelementptr inbounds i8, ptr %2, i64 976
+  %295 = load i32, ptr %294, align 16
+  %296 = zext i32 %295 to i64
+  %297 = add i64 %296, %293
+  %298 = load ptr, ptr @kprobe_blacklist, align 8
+  %299 = icmp eq ptr %298, @kprobe_blacklist
+  br i1 %299, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %290, %309
-  %298 = phi ptr [ %299, %309 ], [ %296, %290 ]
-  %299 = load ptr, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %298, i64 16
-  %301 = load i64, ptr %300, align 8
-  %302 = icmp uge i64 %301, %291
-  %303 = icmp ult i64 %301, %295
-  %304 = and i1 %302, %303
-  br i1 %304, label %305, label %309
+.preheader:                                       ; preds = %292, %311
+  %300 = phi ptr [ %301, %311 ], [ %298, %292 ]
+  %301 = load ptr, ptr %300, align 8
+  %302 = getelementptr inbounds i8, ptr %300, i64 16
+  %303 = load i64, ptr %302, align 8
+  %304 = icmp uge i64 %303, %293
+  %305 = icmp ult i64 %303, %297
+  %306 = and i1 %304, %305
+  br i1 %306, label %307, label %311
 
-305:                                              ; preds = %.preheader
-  %306 = getelementptr inbounds i8, ptr %298, i64 8
-  %307 = load ptr, ptr %306, align 8
-  %308 = getelementptr inbounds i8, ptr %299, i64 8
-  store ptr %307, ptr %308, align 8
-  store volatile ptr %299, ptr %307, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %298, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %306, align 8
-  call void @kfree(ptr noundef %298) #20
-  br label %309
-
-309:                                              ; preds = %305, %.preheader
-  %310 = icmp eq ptr %299, @kprobe_blacklist
-  br i1 %310, label %.loopexit, label %.preheader, !llvm.loop !102
-
-.loopexit:                                        ; preds = %309, %290, %.loopexit25, %227
-  call void @mutex_unlock(ptr noundef nonnull @kprobe_mutex) #20
+307:                                              ; preds = %.preheader
+  %308 = getelementptr inbounds i8, ptr %300, i64 8
+  %309 = load ptr, ptr %308, align 8
+  %310 = getelementptr inbounds i8, ptr %301, i64 8
+  store ptr %309, ptr %310, align 8
+  store volatile ptr %301, ptr %309, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %300, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %308, align 8
+  call void @kfree(ptr noundef %300) #20
   br label %311
 
-311:                                              ; preds = %.loopexit, %115
+311:                                              ; preds = %307, %.preheader
+  %312 = icmp eq ptr %301, @kprobe_blacklist
+  br i1 %312, label %.loopexit, label %.preheader, !llvm.loop !102
+
+.loopexit:                                        ; preds = %311, %292, %.loopexit25, %229
+  call void @mutex_unlock(ptr noundef nonnull @kprobe_mutex) #20
+  br label %313
+
+313:                                              ; preds = %.loopexit, %115
   ret i32 0
 }
 

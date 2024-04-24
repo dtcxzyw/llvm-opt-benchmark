@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [26 x i8] c"assertion failed: success\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BN_new() #5
   store ptr %call, ptr @b1, align 8
@@ -49,7 +49,7 @@ declare i32 @OPENSSL_init_crypto(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare void @ERR_clear_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerTestOneInput(ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp1.not = icmp eq i64 %len, 0
   br i1 %cmp1.not, label %if.end10, label %if.then2
@@ -59,7 +59,7 @@ if.then2:                                         ; preds = %entry
   %0 = load i8, ptr %buf, align 1
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 63
-  %1 = trunc i64 %spec.store.select to i32
+  %1 = trunc nuw nsw i64 %spec.store.select to i32
   %2 = add nsw i32 %1, -1
   %div.lhs.trunc = mul nuw nsw i32 %and, %2
   %div16 = udiv i32 %div.lhs.trunc, 63
@@ -76,7 +76,7 @@ if.end10:                                         ; preds = %if.then2, %entry
   %l2.0 = phi i32 [ %3, %if.then2 ], [ 0, %entry ]
   %s1.0 = phi i32 [ %and6, %if.then2 ], [ 0, %entry ]
   %s2.0 = phi i32 [ %and9, %if.then2 ], [ 0, %entry ]
-  %conv11 = trunc i64 %l1.0 to i32
+  %conv11 = trunc nuw nsw i64 %l1.0 to i32
   %4 = load ptr, ptr @b1, align 8
   %call = tail call ptr @BN_bin2bn(ptr noundef %buf.addr.0, i32 noundef %conv11, ptr noundef %4) #5
   %5 = load ptr, ptr @b1, align 8
@@ -88,7 +88,7 @@ cond.false:                                       ; preds = %if.end10
   unreachable
 
 cond.end:                                         ; preds = %if.end10
-  tail call void @BN_set_negative(ptr noundef %call, i32 noundef %s1.0) #5
+  tail call void @BN_set_negative(ptr noundef %5, i32 noundef %s1.0) #5
   %add.ptr = getelementptr inbounds i8, ptr %buf.addr.0, i64 %l1.0
   %6 = load ptr, ptr @b2, align 8
   %call15 = tail call ptr @BN_bin2bn(ptr noundef %add.ptr, i32 noundef %l2.0, ptr noundef %6) #5
@@ -101,7 +101,7 @@ cond.false19:                                     ; preds = %cond.end
   unreachable
 
 cond.end20:                                       ; preds = %cond.end
-  tail call void @BN_set_negative(ptr noundef %call15, i32 noundef %s2.0) #5
+  tail call void @BN_set_negative(ptr noundef %7, i32 noundef %s2.0) #5
   %8 = load ptr, ptr @b2, align 8
   %call22 = tail call i32 @BN_is_zero(ptr noundef %8) #5
   %tobool.not = icmp eq i32 %call22, 0

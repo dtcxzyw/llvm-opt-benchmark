@@ -306,7 +306,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
 
 8:                                                ; preds = %5
   %.val = load ptr, ptr %1, align 8
-  %.val99 = load ptr, ptr %4, align 8
+  %.val99 = load ptr, ptr %3, align 8
   %.val.val = load i64, ptr %.val, align 8
   %9 = getelementptr i8, ptr %.val, i64 16
   %.val.val103 = load ptr, ptr %9, align 8
@@ -374,7 +374,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, dou
 
 37:                                               ; preds = %34
   %.val100 = load ptr, ptr %3, align 8
-  %.val101 = load ptr, ptr %4, align 8
+  %.val101 = load ptr, ptr %1, align 8
   %.val100.val = load i64, ptr %.val100, align 8
   %38 = getelementptr i8, ptr %.val100, i64 16
   %.val100.val102 = load ptr, ptr %38, align 8
@@ -759,7 +759,7 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly %1, ptr nou
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %3
-  %.val = load ptr, ptr %2, align 8
+  %.val = load ptr, ptr %1, align 8
   %.val.val = load i64, ptr %.val, align 8
   %6 = getelementptr i8, ptr %.val, i64 16
   %.val.val23 = load ptr, ptr %6, align 8
@@ -1686,7 +1686,7 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr nocapture no
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %6
-  %.val.i = load ptr, ptr %3, align 8
+  %.val.i = load ptr, ptr %5, align 8
   %.val.val.i = load i64, ptr %.val.i, align 8
   %10 = getelementptr i8, ptr %.val.i, i64 16
   %.val.val23.i = load ptr, ptr %10, align 8
@@ -2069,7 +2069,7 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
   br i1 %or.cond121, label %15, label %16
 
 15:                                               ; preds = %12
-  tail call fastcc void @VaxpyVectorArray_Serial(i32 noundef %0, double noundef %1, ptr noundef %2, ptr noundef %5)
+  tail call fastcc void @VaxpyVectorArray_Serial(i32 noundef %0, double noundef %1, ptr noundef %2, ptr noundef %4)
   br label %VSumVectorArray_Serial.exit
 
 16:                                               ; preds = %12
@@ -2079,7 +2079,7 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
   br i1 %or.cond122, label %19, label %20
 
 19:                                               ; preds = %16
-  tail call fastcc void @VaxpyVectorArray_Serial(i32 noundef %0, double noundef %3, ptr noundef %4, ptr noundef %5)
+  tail call fastcc void @VaxpyVectorArray_Serial(i32 noundef %0, double noundef %3, ptr noundef %4, ptr noundef %2)
   br label %VSumVectorArray_Serial.exit
 
 20:                                               ; preds = %16

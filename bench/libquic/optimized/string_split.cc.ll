@@ -2065,7 +2065,7 @@ for.end.loopexit:                                 ; preds = %for.cond
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader
-  %26 = phi ptr [ %6, %for.cond.preheader ], [ %.pre32, %for.end.loopexit ]
+  %26 = phi ptr [ %7, %for.cond.preheader ], [ %.pre32, %for.end.loopexit ]
   %success.0.lcssa = phi i1 [ true, %for.cond.preheader ], [ %22, %for.end.loopexit ]
   %tobool.not.i.i.i22 = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i22, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit24, label %if.then.i.i.i23

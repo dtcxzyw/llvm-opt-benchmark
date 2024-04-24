@@ -6574,7 +6574,7 @@ do.body.i:                                        ; preds = %for.body.i
   br i1 %cmp4.i, label %do.body6.i, label %while.cond.i
 
 do.body6.i:                                       ; preds = %do.body.i
-  %4 = load ptr, ptr %use.0.i, align 8
+  %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %branches.i, align 8
   %cmp11.i = icmp eq ptr %4, null
   br i1 %cmp11.i, label %do.body.sink.split.sink.split, label %do.body.sink.split
@@ -6586,7 +6586,7 @@ while.cond.i:                                     ; preds = %do.body.i, %while.c
   br i1 %cmp22.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !30
 
 while.end.i:                                      ; preds = %while.cond.i
-  %6 = load ptr, ptr %use.0.i, align 8
+  %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %curelm.0.i, align 8
   %cmp31.i = icmp eq ptr %6, null
   br i1 %cmp31.i, label %do.body.sink.split.sink.split, label %do.body.sink.split
@@ -6606,7 +6606,7 @@ for.cond.i23:                                     ; preds = %for.body.i27, %sw.b
   %use.0.in.i24 = phi ptr [ %branches.i22, %sw.bb1 ], [ %use.0.i25, %for.body.i27 ]
   %use.0.i25 = load ptr, ptr %use.0.in.i24, align 8
   %tobool.not.i26 = icmp eq ptr %use.0.i25, null
-  br i1 %tobool.not.i26, label %do.body45.i42, label %for.body.i27
+  br i1 %tobool.not.i26, label %do.body45.i44, label %for.body.i27
 
 for.body.i27:                                     ; preds = %for.cond.i23
   %op1.i28 = getelementptr inbounds i8, ptr %use.0.i25, i64 8
@@ -6617,13 +6617,13 @@ for.body.i27:                                     ; preds = %for.cond.i23
 do.body.i30:                                      ; preds = %for.body.i27
   %10 = load ptr, ptr %branches.i22, align 8
   %cmp4.i31 = icmp eq ptr %10, %use.0.i25
-  br i1 %cmp4.i31, label %do.body6.i40, label %while.cond.i32
+  br i1 %cmp4.i31, label %do.body6.i42, label %while.cond.i32
 
-do.body6.i40:                                     ; preds = %do.body.i30
-  %11 = load ptr, ptr %use.0.i25, align 8
+do.body6.i42:                                     ; preds = %do.body.i30
+  %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %branches.i22, align 8
-  %cmp11.i41 = icmp eq ptr %11, null
-  br i1 %cmp11.i41, label %do.body.sink.split.sink.split, label %do.body.sink.split
+  %cmp11.i43 = icmp eq ptr %11, null
+  br i1 %cmp11.i43, label %do.body.sink.split.sink.split, label %do.body.sink.split
 
 while.cond.i32:                                   ; preds = %do.body.i30, %while.cond.i32
   %curelm.0.i33 = phi ptr [ %12, %while.cond.i32 ], [ %10, %do.body.i30 ]
@@ -6632,72 +6632,72 @@ while.cond.i32:                                   ; preds = %do.body.i30, %while
   br i1 %cmp22.not.i34, label %while.end.i35, label %while.cond.i32, !llvm.loop !30
 
 while.end.i35:                                    ; preds = %while.cond.i32
-  %13 = load ptr, ptr %use.0.i25, align 8
+  %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %curelm.0.i33, align 8
   %cmp31.i36 = icmp eq ptr %13, null
   br i1 %cmp31.i36, label %do.body.sink.split.sink.split, label %do.body.sink.split
 
-do.body45.i42:                                    ; preds = %for.cond.i23
+do.body45.i44:                                    ; preds = %for.cond.i23
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 3136, ptr noundef nonnull @__func__.remove_label_use, ptr noundef null) #27
   unreachable
 
 sw.bb2:                                           ; preds = %entry
-  %arrayidx.i45 = getelementptr i8, ptr %op, i64 72
-  %14 = load i64, ptr %arrayidx.i45, align 8
+  %arrayidx.i47 = getelementptr i8, ptr %op, i64 72
+  %14 = load i64, ptr %arrayidx.i47, align 8
   %15 = inttoptr i64 %14 to ptr
-  %branches.i46 = getelementptr inbounds i8, ptr %15, i64 16
-  br label %for.cond.i47
+  %branches.i48 = getelementptr inbounds i8, ptr %15, i64 16
+  br label %for.cond.i49
 
-for.cond.i47:                                     ; preds = %for.body.i51, %sw.bb2
-  %use.0.in.i48 = phi ptr [ %branches.i46, %sw.bb2 ], [ %use.0.i49, %for.body.i51 ]
-  %use.0.i49 = load ptr, ptr %use.0.in.i48, align 8
-  %tobool.not.i50 = icmp eq ptr %use.0.i49, null
-  br i1 %tobool.not.i50, label %do.body45.i66, label %for.body.i51
+for.cond.i49:                                     ; preds = %for.body.i53, %sw.bb2
+  %use.0.in.i50 = phi ptr [ %branches.i48, %sw.bb2 ], [ %use.0.i51, %for.body.i53 ]
+  %use.0.i51 = load ptr, ptr %use.0.in.i50, align 8
+  %tobool.not.i52 = icmp eq ptr %use.0.i51, null
+  br i1 %tobool.not.i52, label %do.body45.i70, label %for.body.i53
 
-for.body.i51:                                     ; preds = %for.cond.i47
-  %op1.i52 = getelementptr inbounds i8, ptr %use.0.i49, i64 8
-  %16 = load ptr, ptr %op1.i52, align 8
-  %cmp.i53 = icmp eq ptr %16, %op
-  br i1 %cmp.i53, label %do.body.i54, label %for.cond.i47, !llvm.loop !29
+for.body.i53:                                     ; preds = %for.cond.i49
+  %op1.i54 = getelementptr inbounds i8, ptr %use.0.i51, i64 8
+  %16 = load ptr, ptr %op1.i54, align 8
+  %cmp.i55 = icmp eq ptr %16, %op
+  br i1 %cmp.i55, label %do.body.i56, label %for.cond.i49, !llvm.loop !29
 
-do.body.i54:                                      ; preds = %for.body.i51
-  %17 = load ptr, ptr %branches.i46, align 8
-  %cmp4.i55 = icmp eq ptr %17, %use.0.i49
-  br i1 %cmp4.i55, label %do.body6.i64, label %while.cond.i56
+do.body.i56:                                      ; preds = %for.body.i53
+  %17 = load ptr, ptr %branches.i48, align 8
+  %cmp4.i57 = icmp eq ptr %17, %use.0.i51
+  br i1 %cmp4.i57, label %do.body6.i68, label %while.cond.i58
 
-do.body6.i64:                                     ; preds = %do.body.i54
-  %18 = load ptr, ptr %use.0.i49, align 8
-  store ptr %18, ptr %branches.i46, align 8
-  %cmp11.i65 = icmp eq ptr %18, null
-  br i1 %cmp11.i65, label %do.body.sink.split.sink.split, label %do.body.sink.split
+do.body6.i68:                                     ; preds = %do.body.i56
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %branches.i48, align 8
+  %cmp11.i69 = icmp eq ptr %18, null
+  br i1 %cmp11.i69, label %do.body.sink.split.sink.split, label %do.body.sink.split
 
-while.cond.i56:                                   ; preds = %do.body.i54, %while.cond.i56
-  %curelm.0.i57 = phi ptr [ %19, %while.cond.i56 ], [ %17, %do.body.i54 ]
-  %19 = load ptr, ptr %curelm.0.i57, align 8
-  %cmp22.not.i58 = icmp eq ptr %19, %use.0.i49
-  br i1 %cmp22.not.i58, label %while.end.i59, label %while.cond.i56, !llvm.loop !30
+while.cond.i58:                                   ; preds = %do.body.i56, %while.cond.i58
+  %curelm.0.i59 = phi ptr [ %19, %while.cond.i58 ], [ %17, %do.body.i56 ]
+  %19 = load ptr, ptr %curelm.0.i59, align 8
+  %cmp22.not.i60 = icmp eq ptr %19, %use.0.i51
+  br i1 %cmp22.not.i60, label %while.end.i61, label %while.cond.i58, !llvm.loop !30
 
-while.end.i59:                                    ; preds = %while.cond.i56
-  %20 = load ptr, ptr %use.0.i49, align 8
-  store ptr %20, ptr %curelm.0.i57, align 8
-  %cmp31.i60 = icmp eq ptr %20, null
-  br i1 %cmp31.i60, label %do.body.sink.split.sink.split, label %do.body.sink.split
+while.end.i61:                                    ; preds = %while.cond.i58
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %curelm.0.i59, align 8
+  %cmp31.i62 = icmp eq ptr %20, null
+  br i1 %cmp31.i62, label %do.body.sink.split.sink.split, label %do.body.sink.split
 
-do.body45.i66:                                    ; preds = %for.cond.i47
+do.body45.i70:                                    ; preds = %for.cond.i49
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 3136, ptr noundef nonnull @__func__.remove_label_use, ptr noundef null) #27
   unreachable
 
-do.body.sink.split.sink.split:                    ; preds = %do.body6.i64, %while.end.i59, %do.body6.i40, %while.end.i35, %do.body6.i, %while.end.i
-  %.sink = phi ptr [ %1, %while.end.i ], [ %1, %do.body6.i ], [ %8, %while.end.i35 ], [ %8, %do.body6.i40 ], [ %15, %while.end.i59 ], [ %15, %do.body6.i64 ]
-  %curelm.0.lcssa.sink.i62.sink = phi ptr [ %curelm.0.i, %while.end.i ], [ %branches.i, %do.body6.i ], [ %curelm.0.i33, %while.end.i35 ], [ %branches.i22, %do.body6.i40 ], [ %curelm.0.i57, %while.end.i59 ], [ %branches.i46, %do.body6.i64 ]
-  %use.0.i.lcssa77.sink.ph = phi ptr [ %use.0.i, %while.end.i ], [ %use.0.i, %do.body6.i ], [ %use.0.i25, %while.end.i35 ], [ %use.0.i25, %do.body6.i40 ], [ %use.0.i49, %while.end.i59 ], [ %use.0.i49, %do.body6.i64 ]
-  %sqh_last36.i63 = getelementptr inbounds i8, ptr %.sink, i64 24
-  store ptr %curelm.0.lcssa.sink.i62.sink, ptr %sqh_last36.i63, align 8
+do.body.sink.split.sink.split:                    ; preds = %do.body6.i68, %while.end.i61, %do.body6.i42, %while.end.i35, %do.body6.i, %while.end.i
+  %.sink = phi ptr [ %1, %while.end.i ], [ %1, %do.body6.i ], [ %8, %while.end.i35 ], [ %8, %do.body6.i42 ], [ %15, %while.end.i61 ], [ %15, %do.body6.i68 ]
+  %curelm.0.lcssa.sink.i65.sink = phi ptr [ %curelm.0.i, %while.end.i ], [ %branches.i, %do.body6.i ], [ %curelm.0.i33, %while.end.i35 ], [ %branches.i22, %do.body6.i42 ], [ %curelm.0.i59, %while.end.i61 ], [ %branches.i48, %do.body6.i68 ]
+  %use.0.lcssa23.sink.i.sink.ph = phi ptr [ %use.0.i, %while.end.i ], [ %3, %do.body6.i ], [ %use.0.i25, %while.end.i35 ], [ %10, %do.body6.i42 ], [ %use.0.i51, %while.end.i61 ], [ %17, %do.body6.i68 ]
+  %sqh_last36.i67 = getelementptr inbounds i8, ptr %.sink, i64 24
+  store ptr %curelm.0.lcssa.sink.i65.sink, ptr %sqh_last36.i67, align 8
   br label %do.body.sink.split
 
-do.body.sink.split:                               ; preds = %do.body.sink.split.sink.split, %while.end.i59, %do.body6.i64, %while.end.i35, %do.body6.i40, %while.end.i, %do.body6.i
-  %use.0.i.lcssa77.sink = phi ptr [ %use.0.i, %do.body6.i ], [ %use.0.i, %while.end.i ], [ %use.0.i25, %do.body6.i40 ], [ %use.0.i25, %while.end.i35 ], [ %use.0.i49, %do.body6.i64 ], [ %use.0.i49, %while.end.i59 ], [ %use.0.i.lcssa77.sink.ph, %do.body.sink.split.sink.split ]
-  store ptr null, ptr %use.0.i.lcssa77.sink, align 8
+do.body.sink.split:                               ; preds = %do.body.sink.split.sink.split, %while.end.i61, %do.body6.i68, %while.end.i35, %do.body6.i42, %while.end.i, %do.body6.i
+  %use.0.lcssa23.sink.i.sink = phi ptr [ %3, %do.body6.i ], [ %use.0.i, %while.end.i ], [ %10, %do.body6.i42 ], [ %use.0.i25, %while.end.i35 ], [ %17, %do.body6.i68 ], [ %use.0.i51, %while.end.i61 ], [ %use.0.lcssa23.sink.i.sink.ph, %do.body.sink.split.sink.split ]
+  store ptr null, ptr %use.0.lcssa23.sink.i.sink, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.sink.split, %entry

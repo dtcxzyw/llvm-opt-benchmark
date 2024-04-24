@@ -793,7 +793,7 @@ define internal i32 @nfs_server_return_marked_delegations(ptr noundef %0, ptr no
   br label %15
 
 15:                                               ; preds = %.thread, %8
-  %16 = phi ptr [ %14, %.thread ], [ %5, %8 ]
+  %16 = phi ptr [ %14, %.thread ], [ %10, %8 ]
   %17 = icmp eq ptr %16, %3
   br i1 %17, label %.loopexit, label %.preheader
 

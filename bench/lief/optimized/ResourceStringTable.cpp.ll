@@ -280,7 +280,7 @@ define void @_ZN4LIEF2PE19ResourceStringTableC2EsNSt7__cxx1112basic_stringIDsSt1
   tail call void @llvm.assume(i1 %12)
   %13 = shl nuw nsw i64 %11, 1
   %14 = add nuw nsw i64 %13, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(1) %6, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(1) %7, i64 %14, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEC2EOS4_.exit
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.i: ; preds = %3

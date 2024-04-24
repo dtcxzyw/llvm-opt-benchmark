@@ -169,9 +169,9 @@ define dso_local noundef i32 @drm_buddy_init(ptr nocapture noundef %0, i64 nound
 
 75:                                               ; preds = %65
   %76 = getelementptr inbounds i8, ptr %57, i64 40
-  %77 = getelementptr inbounds i8, ptr %70, i64 8
+  %77 = getelementptr inbounds i8, ptr %71, i64 8
   store ptr %76, ptr %77, align 8
-  store ptr %70, ptr %76, align 8
+  store ptr %71, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %57, i64 48
   store ptr %70, ptr %78, align 8
   store volatile ptr %76, ptr %70, align 8
@@ -191,12 +191,11 @@ define dso_local noundef i32 @drm_buddy_init(ptr nocapture noundef %0, i64 nound
   br i1 %87, label %88, label %79, !llvm.loop !19
 
 88:                                               ; preds = %83, %79
-  %.lcssa = phi ptr [ %81, %83 ], [ %70, %79 ]
   %89 = getelementptr inbounds i8, ptr %57, i64 40
-  %90 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %90 = getelementptr inbounds i8, ptr %81, i64 8
   %91 = load ptr, ptr %90, align 8
   store ptr %89, ptr %90, align 8
-  store ptr %.lcssa, ptr %89, align 8
+  store ptr %81, ptr %89, align 8
   %92 = getelementptr inbounds i8, ptr %57, i64 48
   store ptr %91, ptr %92, align 8
   store volatile ptr %89, ptr %91, align 8
@@ -455,9 +454,9 @@ define internal fastcc void @__drm_buddy_free(ptr nocapture noundef readonly %0,
 
 40:                                               ; preds = %.thread
   %41 = getelementptr inbounds i8, ptr %.lcssa5, i64 40
-  %42 = getelementptr inbounds i8, ptr %35, i64 8
+  %42 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %41, ptr %42, align 8
-  store ptr %35, ptr %41, align 8
+  store ptr %36, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %.lcssa5, i64 48
   store ptr %35, ptr %43, align 8
   store volatile ptr %41, ptr %35, align 8
@@ -477,12 +476,11 @@ define internal fastcc void @__drm_buddy_free(ptr nocapture noundef readonly %0,
   br i1 %52, label %53, label %44, !llvm.loop !19
 
 53:                                               ; preds = %48, %44
-  %.lcssa = phi ptr [ %46, %48 ], [ %35, %44 ]
   %54 = getelementptr inbounds i8, ptr %.lcssa5, i64 40
-  %55 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %55 = getelementptr inbounds i8, ptr %46, i64 8
   %56 = load ptr, ptr %55, align 8
   store ptr %54, ptr %55, align 8
-  store ptr %.lcssa, ptr %54, align 8
+  store ptr %46, ptr %54, align 8
   %57 = getelementptr inbounds i8, ptr %.lcssa5, i64 48
   store ptr %56, ptr %57, align 8
   store volatile ptr %54, ptr %56, align 8
@@ -610,7 +608,7 @@ define dso_local noundef i32 @drm_buddy_block_trim(ptr nocapture noundef %0, i64
   br label %48
 
 46:                                               ; preds = %31
-  %47 = getelementptr inbounds i8, ptr %41, i64 8
+  %47 = getelementptr inbounds i8, ptr %42, i64 8
   br label %60
 
 48:                                               ; preds = %52, %44
@@ -627,14 +625,13 @@ define dso_local noundef i32 @drm_buddy_block_trim(ptr nocapture noundef %0, i64
   br i1 %56, label %57, label %48, !llvm.loop !19
 
 57:                                               ; preds = %52, %48
-  %.lcssa = phi ptr [ %50, %52 ], [ %41, %48 ]
-  %58 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %58 = getelementptr inbounds i8, ptr %50, i64 8
   %59 = load ptr, ptr %58, align 8
   br label %60
 
 60:                                               ; preds = %57, %46
   %61 = phi ptr [ %47, %46 ], [ %58, %57 ]
-  %62 = phi ptr [ %41, %46 ], [ %.lcssa, %57 ]
+  %62 = phi ptr [ %42, %46 ], [ %50, %57 ]
   %63 = phi ptr [ %41, %46 ], [ %59, %57 ]
   store ptr %6, ptr %61, align 8
   store ptr %62, ptr %6, align 8
@@ -2124,9 +2121,9 @@ define internal fastcc noundef i32 @split_block(ptr nocapture noundef readonly %
 
 57:                                               ; preds = %44
   %58 = getelementptr inbounds i8, ptr %46, i64 40
-  %59 = getelementptr inbounds i8, ptr %52, i64 8
+  %59 = getelementptr inbounds i8, ptr %53, i64 8
   store ptr %58, ptr %59, align 8
-  store ptr %52, ptr %58, align 8
+  store ptr %53, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %46, i64 48
   store ptr %52, ptr %60, align 8
   store volatile ptr %58, ptr %52, align 8
@@ -2146,12 +2143,11 @@ define internal fastcc noundef i32 @split_block(ptr nocapture noundef readonly %
   br i1 %69, label %70, label %61, !llvm.loop !19
 
 70:                                               ; preds = %65, %61
-  %.lcssa12 = phi ptr [ %63, %65 ], [ %52, %61 ]
   %71 = getelementptr inbounds i8, ptr %46, i64 40
-  %72 = getelementptr inbounds i8, ptr %.lcssa12, i64 8
+  %72 = getelementptr inbounds i8, ptr %63, i64 8
   %73 = load ptr, ptr %72, align 8
   store ptr %71, ptr %72, align 8
-  store ptr %.lcssa12, ptr %71, align 8
+  store ptr %63, ptr %71, align 8
   %74 = getelementptr inbounds i8, ptr %46, i64 48
   store ptr %73, ptr %74, align 8
   store volatile ptr %71, ptr %73, align 8
@@ -2176,9 +2172,9 @@ define internal fastcc noundef i32 @split_block(ptr nocapture noundef readonly %
 
 87:                                               ; preds = %75
   %88 = getelementptr inbounds i8, ptr %76, i64 40
-  %89 = getelementptr inbounds i8, ptr %82, i64 8
+  %89 = getelementptr inbounds i8, ptr %83, i64 8
   store ptr %88, ptr %89, align 8
-  store ptr %82, ptr %88, align 8
+  store ptr %83, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %76, i64 48
   store ptr %82, ptr %90, align 8
   store volatile ptr %88, ptr %82, align 8
@@ -2198,12 +2194,11 @@ define internal fastcc noundef i32 @split_block(ptr nocapture noundef readonly %
   br i1 %99, label %100, label %91, !llvm.loop !19
 
 100:                                              ; preds = %95, %91
-  %.lcssa = phi ptr [ %93, %95 ], [ %82, %91 ]
   %101 = getelementptr inbounds i8, ptr %76, i64 40
-  %102 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %102 = getelementptr inbounds i8, ptr %93, i64 8
   %103 = load ptr, ptr %102, align 8
   store ptr %101, ptr %102, align 8
-  store ptr %.lcssa, ptr %101, align 8
+  store ptr %93, ptr %101, align 8
   %104 = getelementptr inbounds i8, ptr %76, i64 48
   store ptr %103, ptr %104, align 8
   store volatile ptr %101, ptr %103, align 8

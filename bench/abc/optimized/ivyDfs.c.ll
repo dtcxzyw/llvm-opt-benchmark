@@ -1453,20 +1453,20 @@ define i32 @Ivy_ManSetLevels_rec(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 5:                                                ; preds = %2
   %6 = lshr i32 %.val, 11
-  br label %74
+  br label %76
 
 7:                                                ; preds = %2
   %8 = or disjoint i32 %.val, 16
   store i32 %8, ptr %3, align 8
   %.val53 = load i32, ptr %0, align 8
   %.not63 = icmp eq i32 %.val53, 0
-  br i1 %.not63, label %74, label %9
+  br i1 %.not63, label %76, label %9
 
 9:                                                ; preds = %7
   %10 = and i32 %.val, 15
   switch i32 %10, label %11 [
-    i32 4, label %74
-    i32 1, label %74
+    i32 4, label %76
+    i32 1, label %76
   ]
 
 11:                                               ; preds = %9
@@ -1520,9 +1520,9 @@ define i32 @Ivy_ManSetLevels_rec(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 .sink.split:                                      ; preds = %26, %36
   %.sink = phi i32 [ 2039, %26 ], [ 2047, %36 ]
-  %.sink80 = phi i32 [ %33, %26 ], [ %38, %36 ]
+  %.sink78 = phi i32 [ %33, %26 ], [ %38, %36 ]
   %39 = and i32 %.val57, %.sink
-  %40 = or disjoint i32 %.sink80, %39
+  %40 = or disjoint i32 %.sink78, %39
   store i32 %40, ptr %3, align 8
   br label %41
 
@@ -1544,20 +1544,13 @@ define i32 @Ivy_ManSetLevels_rec(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %48, label %49, label %.loopexit
 
 49:                                               ; preds = %46
-  %.not5168 = icmp eq ptr %45, %0
-  br i1 %.not5168, label %._crit_edge.thread, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %49
   %50 = lshr i32 %42, 11
-  br label %.lr.ph
+  %.not5168 = icmp eq ptr %45, %0
+  br i1 %.not5168, label %._crit_edge, label %.lr.ph
 
-._crit_edge.thread:                               ; preds = %49
-  store i32 %42, ptr %3, align 8
-  br label %.loopexit
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.070 = phi i32 [ %.0., %.lr.ph ], [ %50, %.lr.ph.preheader ]
-  %.03969 = phi ptr [ %59, %.lr.ph ], [ %45, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %49, %.lr.ph
+  %.070 = phi i32 [ %.0., %.lr.ph ], [ %50, %49 ]
+  %.03969 = phi ptr [ %59, %.lr.ph ], [ %45, %49 ]
   %51 = tail call i32 @Ivy_ManSetLevels_rec(ptr noundef %.03969, i32 noundef %1), !range !24
   %52 = getelementptr inbounds i8, ptr %.03969, i64 8
   %53 = load i32, ptr %52, align 8
@@ -1569,44 +1562,50 @@ define i32 @Ivy_ManSetLevels_rec(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %58 = and i64 %57, -2
   %59 = inttoptr i64 %58 to ptr
   %.not51 = icmp eq ptr %59, %0
-  br i1 %.not51, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not51, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %3, align 8
   %.pre76 = load ptr, ptr %44, align 8
-  %60 = shl nuw i32 %.0., 11
-  %61 = and i32 %.pre, 2047
-  %62 = or disjoint i32 %61, %60
-  store i32 %62, ptr %3, align 8
-  %.not5271 = icmp eq ptr %.pre76, %0
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %49
+  %60 = phi ptr [ %45, %49 ], [ %.pre76, %._crit_edge.loopexit ]
+  %61 = phi i32 [ %42, %49 ], [ %.pre, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ %50, %49 ], [ %.0., %._crit_edge.loopexit ]
+  %62 = shl nuw i32 %.0.lcssa, 11
+  %63 = and i32 %61, 2047
+  %64 = or disjoint i32 %63, %62
+  store i32 %64, ptr %3, align 8
+  %.not5271 = icmp eq ptr %60, %0
   br i1 %.not5271, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %._crit_edge, %.lr.ph74
-  %.172 = phi ptr [ %71, %.lr.ph74 ], [ %.pre76, %._crit_edge ]
-  %63 = getelementptr inbounds i8, ptr %.172, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = and i32 %64, 2047
-  %66 = or disjoint i32 %65, %60
-  store i32 %66, ptr %63, align 8
-  %67 = getelementptr inbounds i8, ptr %.172, i64 72
-  %68 = load ptr, ptr %67, align 8
-  %69 = ptrtoint ptr %68 to i64
-  %70 = and i64 %69, -2
-  %71 = inttoptr i64 %70 to ptr
-  %.not52 = icmp eq ptr %71, %0
+  %.172 = phi ptr [ %73, %.lr.ph74 ], [ %60, %._crit_edge ]
+  %65 = getelementptr inbounds i8, ptr %.172, i64 8
+  %66 = load i32, ptr %65, align 8
+  %67 = and i32 %66, 2047
+  %68 = or disjoint i32 %67, %62
+  store i32 %68, ptr %65, align 8
+  %69 = getelementptr inbounds i8, ptr %.172, i64 72
+  %70 = load ptr, ptr %69, align 8
+  %71 = ptrtoint ptr %70 to i64
+  %72 = and i64 %71, -2
+  %73 = inttoptr i64 %72 to ptr
+  %.not52 = icmp eq ptr %73, %0
   br i1 %.not52, label %.loopexit.loopexit, label %.lr.ph74, !llvm.loop !27
 
 .loopexit.loopexit:                               ; preds = %.lr.ph74
   %.pre77 = load i32, ptr %3, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge.thread, %.loopexit.loopexit, %._crit_edge, %46, %43, %41
-  %72 = phi i32 [ %.pre77, %.loopexit.loopexit ], [ %62, %._crit_edge ], [ %42, %46 ], [ %42, %43 ], [ %42, %41 ], [ %42, %._crit_edge.thread ]
-  %73 = lshr i32 %72, 11
-  br label %74
+.loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge, %46, %43, %41
+  %74 = phi i32 [ %.pre77, %.loopexit.loopexit ], [ %64, %._crit_edge ], [ %42, %46 ], [ %42, %43 ], [ %42, %41 ]
+  %75 = lshr i32 %74, 11
+  br label %76
 
-74:                                               ; preds = %9, %9, %7, %.loopexit, %5
-  %.040 = phi i32 [ %6, %5 ], [ %73, %.loopexit ], [ 0, %9 ], [ 0, %7 ], [ 0, %9 ]
+76:                                               ; preds = %9, %9, %7, %.loopexit, %5
+  %.040 = phi i32 [ %6, %5 ], [ %75, %.loopexit ], [ 0, %9 ], [ 0, %7 ], [ 0, %9 ]
   ret i32 %.040
 }
 

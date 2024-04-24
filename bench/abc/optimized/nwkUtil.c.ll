@@ -1972,7 +1972,7 @@ define void @Nwk_ManRemoveDupFanins(ptr nocapture noundef readonly %0, i32 nound
 
 11:                                               ; preds = %.lr.ph55, %Nwk_ManMinimumBaseNode.exit
   %indvars.iv68 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next69, %Nwk_ManMinimumBaseNode.exit ]
-  %12 = phi ptr [ %8, %.lr.ph55 ], [ %83, %Nwk_ManMinimumBaseNode.exit ]
+  %12 = phi ptr [ %8, %.lr.ph55 ], [ %85, %Nwk_ManMinimumBaseNode.exit ]
   %13 = getelementptr i8, ptr %12, i64 8
   %.val40 = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds ptr, ptr %.val40, i64 %indvars.iv68
@@ -1999,7 +1999,7 @@ define void @Nwk_ManRemoveDupFanins(ptr nocapture noundef readonly %0, i32 nound
   %wide.trip.count66 = zext nneg i32 %21 to i64
   br label %25
 
-.critedge39.loopexit:                             ; preds = %82, %25
+.critedge39.loopexit:                             ; preds = %84, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
   br i1 %exitcond67.not, label %Nwk_ManMinimumBaseNode.exit, label %25, !llvm.loop !31
@@ -2017,124 +2017,126 @@ define void @Nwk_ManRemoveDupFanins(ptr nocapture noundef readonly %0, i32 nound
   %28 = load ptr, ptr %27, align 8
   br label %29
 
-29:                                               ; preds = %.lr.ph, %82
-  %indvars.iv60 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next61, %82 ]
+29:                                               ; preds = %.lr.ph, %84
+  %indvars.iv60 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next61, %84 ]
   %30 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv60
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %28, %31
-  br i1 %32, label %33, label %82
+  br i1 %32, label %33, label %84
 
 33:                                               ; preds = %29
   %34 = trunc nuw nsw i64 %indvars.iv63 to i32
   %35 = trunc nuw nsw i64 %indvars.iv60 to i32
-  br i1 %.not35, label %42, label %36
+  br i1 %.not35, label %44, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %15, i64 36
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds i8, ptr %28, i64 36
   %40 = load i32, ptr %39, align 4
-  %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %38, i32 noundef %40, i32 noundef %40)
-  br label %42
+  %41 = getelementptr inbounds i8, ptr %31, i64 36
+  %42 = load i32, ptr %41, align 4
+  %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %38, i32 noundef %40, i32 noundef %42)
+  br label %44
 
-42:                                               ; preds = %36, %33
-  %43 = load ptr, ptr %15, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 64
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %15, i64 8
+44:                                               ; preds = %36, %33
+  %45 = load ptr, ptr %15, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 64
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call ptr @Hop_IthVar(ptr noundef %45, i32 noundef %34) #16
-  %49 = tail call ptr @Hop_Compose(ptr noundef %45, ptr noundef %47, ptr noundef %48, i32 noundef %35) #16
-  store ptr %49, ptr %46, align 8
-  %50 = load ptr, ptr %15, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 64
-  %52 = load ptr, ptr %51, align 8
-  %53 = ptrtoint ptr %49 to i64
-  %54 = and i64 %53, -2
-  %55 = inttoptr i64 %54 to ptr
+  %48 = getelementptr inbounds i8, ptr %15, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call ptr @Hop_IthVar(ptr noundef %47, i32 noundef %34) #16
+  %51 = tail call ptr @Hop_Compose(ptr noundef %47, ptr noundef %49, ptr noundef %50, i32 noundef %35) #16
+  store ptr %51, ptr %48, align 8
+  %52 = load ptr, ptr %15, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 64
+  %54 = load ptr, ptr %53, align 8
+  %55 = ptrtoint ptr %51 to i64
+  %56 = and i64 %55, -2
+  %57 = inttoptr i64 %56 to ptr
   %.val45.i = load i32, ptr %20, align 4
-  %56 = tail call ptr @Hop_ManConvertAigToTruth(ptr noundef %52, ptr noundef %55, i32 noundef %.val45.i, ptr noundef nonnull %3, i32 noundef 0) #16
+  %58 = tail call ptr @Hop_ManConvertAigToTruth(ptr noundef %54, ptr noundef %57, i32 noundef %.val45.i, ptr noundef nonnull %3, i32 noundef 0) #16
   %.val44.i = load i32, ptr %20, align 4
-  %57 = tail call i32 @Kit_TruthSupportSize(ptr noundef %56, i32 noundef %.val44.i) #16
+  %59 = tail call i32 @Kit_TruthSupportSize(ptr noundef %58, i32 noundef %.val44.i) #16
   %.val43.i = load i32, ptr %20, align 4
-  %58 = icmp eq i32 %57, %.val43.i
-  br i1 %58, label %Nwk_ManMinimumBaseNode.exit, label %59
+  %60 = icmp eq i32 %59, %.val43.i
+  br i1 %60, label %Nwk_ManMinimumBaseNode.exit, label %61
 
-59:                                               ; preds = %42
-  %60 = tail call i32 @Kit_TruthSupport(ptr noundef %56, i32 noundef %.val43.i) #16
-  %61 = getelementptr i8, ptr %15, i64 64
-  %.val46.i = load i32, ptr %61, align 8
-  %62 = tail call ptr @Nwk_ManCreateNode(ptr noundef nonnull %50, i32 noundef %57, i32 noundef %.val46.i) #16
-  %63 = load i32, ptr %20, align 4
-  %64 = icmp sgt i32 %63, 0
-  br i1 %64, label %.lr.ph.i, label %.critedge.i
+61:                                               ; preds = %44
+  %62 = tail call i32 @Kit_TruthSupport(ptr noundef %58, i32 noundef %.val43.i) #16
+  %63 = getelementptr i8, ptr %15, i64 64
+  %.val46.i = load i32, ptr %63, align 8
+  %64 = tail call ptr @Nwk_ManCreateNode(ptr noundef nonnull %52, i32 noundef %59, i32 noundef %.val46.i) #16
+  %65 = load i32, ptr %20, align 4
+  %66 = icmp sgt i32 %65, 0
+  br i1 %66, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %59, %74
-  %65 = phi i32 [ %75, %74 ], [ %63, %59 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %74 ], [ 0, %59 ]
-  %66 = load ptr, ptr %23, align 8
-  %67 = getelementptr inbounds ptr, ptr %66, i64 %indvars.iv.i
-  %68 = load ptr, ptr %67, align 8
-  %.not.i42 = icmp eq ptr %68, null
-  br i1 %.not.i42, label %.critedge.i, label %69
+.lr.ph.i:                                         ; preds = %61, %76
+  %67 = phi i32 [ %77, %76 ], [ %65, %61 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %76 ], [ 0, %61 ]
+  %68 = load ptr, ptr %23, align 8
+  %69 = getelementptr inbounds ptr, ptr %68, i64 %indvars.iv.i
+  %70 = load ptr, ptr %69, align 8
+  %.not.i42 = icmp eq ptr %70, null
+  br i1 %.not.i42, label %.critedge.i, label %71
 
-69:                                               ; preds = %.lr.ph.i
-  %70 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %71 = shl nuw i32 1, %70
-  %72 = and i32 %71, %60
-  %.not39.i = icmp eq i32 %72, 0
-  br i1 %.not39.i, label %74, label %73
+71:                                               ; preds = %.lr.ph.i
+  %72 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %73 = shl nuw i32 1, %72
+  %74 = and i32 %73, %62
+  %.not39.i = icmp eq i32 %74, 0
+  br i1 %.not39.i, label %76, label %75
 
-73:                                               ; preds = %69
-  tail call void @Nwk_ObjAddFanin(ptr noundef %62, ptr noundef nonnull %68) #16
+75:                                               ; preds = %71
+  tail call void @Nwk_ObjAddFanin(ptr noundef %64, ptr noundef nonnull %70) #16
   %.pre.i = load i32, ptr %20, align 4
-  br label %74
+  br label %76
 
-74:                                               ; preds = %73, %69
-  %75 = phi i32 [ %65, %69 ], [ %.pre.i, %73 ]
+76:                                               ; preds = %75, %71
+  %77 = phi i32 [ %67, %71 ], [ %.pre.i, %75 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %76 = sext i32 %75 to i64
-  %77 = icmp slt i64 %indvars.iv.next.i, %76
-  br i1 %77, label %.lr.ph.i, label %.critedge.i, !llvm.loop !26
+  %78 = sext i32 %77 to i64
+  %79 = icmp slt i64 %indvars.iv.next.i, %78
+  br i1 %79, label %.lr.ph.i, label %.critedge.i, !llvm.loop !26
 
-.critedge.i:                                      ; preds = %74, %.lr.ph.i, %59
-  %.lcssa.i = phi i32 [ %63, %59 ], [ %65, %.lr.ph.i ], [ %75, %74 ]
-  %78 = load ptr, ptr %51, align 8
-  %79 = load ptr, ptr %46, align 8
-  %80 = tail call ptr @Hop_Remap(ptr noundef %78, ptr noundef %79, i32 noundef %60, i32 noundef %.lcssa.i) #16
-  %81 = getelementptr inbounds i8, ptr %62, i64 8
-  store ptr %80, ptr %81, align 8
-  tail call void @Nwk_ObjReplace(ptr noundef nonnull %15, ptr noundef nonnull %62) #16
+.critedge.i:                                      ; preds = %76, %.lr.ph.i, %61
+  %.lcssa.i = phi i32 [ %65, %61 ], [ %67, %.lr.ph.i ], [ %77, %76 ]
+  %80 = load ptr, ptr %53, align 8
+  %81 = load ptr, ptr %48, align 8
+  %82 = tail call ptr @Hop_Remap(ptr noundef %80, ptr noundef %81, i32 noundef %62, i32 noundef %.lcssa.i) #16
+  %83 = getelementptr inbounds i8, ptr %64, i64 8
+  store ptr %82, ptr %83, align 8
+  tail call void @Nwk_ObjReplace(ptr noundef nonnull %15, ptr noundef nonnull %64) #16
   br label %Nwk_ManMinimumBaseNode.exit
 
-82:                                               ; preds = %29
+84:                                               ; preds = %29
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count66
   br i1 %exitcond.not, label %.critedge39.loopexit, label %29, !llvm.loop !32
 
-Nwk_ManMinimumBaseNode.exit:                      ; preds = %.critedge39.loopexit, %.critedge39.preheader, %.critedge.i, %42, %17, %11
+Nwk_ManMinimumBaseNode.exit:                      ; preds = %.critedge39.loopexit, %.critedge39.preheader, %.critedge.i, %44, %17, %11
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %83 = load ptr, ptr %7, align 8
-  %84 = getelementptr i8, ptr %83, i64 4
-  %.val = load i32, ptr %84, align 4
-  %85 = sext i32 %.val to i64
-  %86 = icmp slt i64 %indvars.iv.next69, %85
-  br i1 %86, label %11, label %.critedge.loopexit, !llvm.loop !33
+  %85 = load ptr, ptr %7, align 8
+  %86 = getelementptr i8, ptr %85, i64 4
+  %.val = load i32, ptr %86, align 4
+  %87 = sext i32 %.val to i64
+  %88 = icmp slt i64 %indvars.iv.next69, %87
+  br i1 %88, label %11, label %.critedge.loopexit, !llvm.loop !33
 
 .critedge.loopexit:                               ; preds = %Nwk_ManMinimumBaseNode.exit
   %.pre = load ptr, ptr %6, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %2
-  %87 = phi ptr [ %.pre, %.critedge.loopexit ], [ %5, %2 ]
-  %.not.i = icmp eq ptr %87, null
-  br i1 %.not.i, label %Vec_IntFree.exit, label %88
+  %89 = phi ptr [ %.pre, %.critedge.loopexit ], [ %5, %2 ]
+  %.not.i = icmp eq ptr %89, null
+  br i1 %.not.i, label %Vec_IntFree.exit, label %90
 
-88:                                               ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %87) #16
+90:                                               ; preds = %.critedge
+  tail call void @free(ptr noundef nonnull %89) #16
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %.critedge, %88
+Vec_IntFree.exit:                                 ; preds = %.critedge, %90
   tail call void @free(ptr noundef nonnull %3) #16
   ret void
 }

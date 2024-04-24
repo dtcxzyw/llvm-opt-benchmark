@@ -4687,7 +4687,7 @@ if.then.i.i.i:                                    ; preds = %for.end
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i:                                    ; preds = %for.end
-  tail call void @_ZdlPv(ptr noundef %25) #23
+  tail call void @_ZdlPv(ptr noundef %26) #23
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %27 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i24 = getelementptr inbounds i8, ptr %27, i64 -8
@@ -6272,8 +6272,8 @@ _ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComp
   %this.val.i.i = load ptr, ptr %20, align 8
   %cmp.i.i2.i = icmp eq ptr %this.val.i.i, %retval.sroa.0.0.i.i
   %cmp.i3.i.i = icmp eq ptr %add.ptr.i.i.i, %retval.sroa.3.0.i.i
-  %or.cond.i.i = select i1 %cmp.i.i2.i, i1 %cmp.i3.i.i, i1 false
-  br i1 %or.cond.i.i, label %if.then.i.i, label %if.else.i.i
+  %or.cond.i = select i1 %cmp.i.i2.i, i1 %cmp.i3.i.i, i1 false
+  br i1 %or.cond.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE11equal_rangeERKS3_.exit.i
   tail call fastcc void @_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef %__x.014.i.i)
@@ -6286,10 +6286,10 @@ if.then.i.i:                                      ; preds = %_ZNSt8_Rb_treeIPN4n
 
 if.else.i.i:                                      ; preds = %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE11equal_rangeERKS3_.exit.i
   %cmp.i5.not8.i.i = icmp eq ptr %retval.sroa.0.0.i.i, %retval.sroa.3.0.i.i
-  br i1 %cmp.i5.not8.i.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE5eraseERKS3_.exit, label %while.body.i5.i
+  br i1 %cmp.i5.not8.i.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE5eraseERKS3_.exit, label %while.body.i4.i
 
-while.body.i5.i:                                  ; preds = %if.else.i.i, %while.body.i5.i
-  %__first.sroa.0.09.i.i = phi ptr [ %call.i.i.i, %while.body.i5.i ], [ %retval.sroa.0.0.i.i, %if.else.i.i ]
+while.body.i4.i:                                  ; preds = %if.else.i.i, %while.body.i4.i
+  %__first.sroa.0.09.i.i = phi ptr [ %call.i.i.i, %while.body.i4.i ], [ %retval.sroa.0.0.i.i, %if.else.i.i ]
   %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.09.i.i) #24
   %call.i7.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %__first.sroa.0.09.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #20
   tail call void @_ZdlPv(ptr noundef nonnull %call.i7.i.i) #23
@@ -6297,9 +6297,9 @@ while.body.i5.i:                                  ; preds = %if.else.i.i, %while
   %dec.i.i.i = add i64 %21, -1
   store i64 %dec.i.i.i, ptr %19, align 8
   %cmp.i5.not.i.i = icmp eq ptr %call.i.i.i, %retval.sroa.3.0.i.i
-  br i1 %cmp.i5.not.i.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE5eraseERKS3_.exit, label %while.body.i5.i, !llvm.loop !50
+  br i1 %cmp.i5.not.i.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE5eraseERKS3_.exit, label %while.body.i4.i, !llvm.loop !50
 
-_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE5eraseERKS3_.exit: ; preds = %while.body.i5.i, %if.then.i.i, %if.else.i.i
+_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE5eraseERKS3_.exit: ; preds = %while.body.i4.i, %if.then.i.i, %if.else.i.i
   ret void
 }
 

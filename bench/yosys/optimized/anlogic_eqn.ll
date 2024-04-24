@@ -2260,7 +2260,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AnlogicEqnPass8init2eqnEN5Yosys5
           to label %.preheader.us.preheader unwind label %.loopexit.split-lp.loopexit.split.us
 
 .preheader.us.preheader:                          ; preds = %25
-  %27 = trunc i64 %indvars.iv25 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv25 to i32
   br label %.preheader.us
 
 28:                                               ; preds = %._crit_edge.us, %22
@@ -2270,7 +2270,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AnlogicEqnPass8init2eqnEN5Yosys5
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %47
   %indvars.iv20 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next21, %47 ]
-  %29 = trunc i64 %indvars.iv20 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv20 to i32
   %30 = shl nuw nsw i32 1, %29
   %31 = and i32 %30, %27
   %.not.us = icmp eq i32 %31, 0
@@ -2715,7 +2715,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %74, %_ZNSt6vectorIP
   br label %102
 
 102:                                              ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit, %39
-  %103 = phi ptr [ %.pre76, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %36, %39 ]
+  %103 = phi ptr [ %.pre76, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %37, %39 ]
   %104 = phi ptr [ %.pre75, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %40, %39 ]
   %105 = phi ptr [ %.pre, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %41, %39 ]
   %106 = ptrtoint ptr %105 to i64
@@ -3408,7 +3408,7 @@ _ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE7do_hashERKS2_.exit: ; preds = %
   store i32 %65, ptr %44, align 8
   %66 = load ptr, ptr %0, align 8
   %67 = getelementptr inbounds i32, ptr %66, i64 %63
-  %68 = trunc i64 %indvars.iv to i32
+  %68 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %68, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load ptr, ptr %33, align 8

@@ -1759,8 +1759,8 @@ define noundef ptr @_ZN12MeshDocument15nextVisibleMeshEP9MeshModel(ptr noundef n
   br i1 %or.cond, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.us, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread
 
 _ZN12MeshDocument8nextMeshEP9MeshModel.exit.us:   ; preds = %.split.us
-  %7 = getelementptr inbounds i8, ptr %0, i64 1300
-  %.0.i.us = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds i8, ptr %.sroa.07.013.i.fr, i64 1220
+  %.0.i.us = getelementptr inbounds i8, ptr %.sroa.07.013.i.fr, i64 16
   %8 = load i8, ptr %7, align 4
   %9 = trunc i8 %8 to i1
   %spec.select = select i1 %9, ptr %.0.i.us, ptr null

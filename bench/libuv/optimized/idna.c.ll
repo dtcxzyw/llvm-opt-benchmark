@@ -1429,7 +1429,7 @@ if.then27:                                        ; preds = %if.else24
   %incdec.ptr29 = getelementptr inbounds i8, ptr %target.1142, i64 1
   store i8 %conv28, ptr %target.1142, align 1
   %cmp30 = icmp eq ptr %incdec.ptr29, %add.ptr
-  br i1 %cmp30, label %while.end.thread, label %if.end33
+  br i1 %cmp30, label %while.end, label %if.end33
 
 if.end33:                                         ; preds = %if.then27
   %12 = trunc i32 %retval.0.i to i8
@@ -1450,7 +1450,7 @@ if.then40:                                        ; preds = %if.else37
   %14 = trunc nuw i32 %shr41 to i8
   %conv43 = or disjoint i8 %14, -32
   store i8 %conv43, ptr %target.1142, align 1
-  br i1 %cmp45, label %while.end.thread, label %if.end48
+  br i1 %cmp45, label %while.end, label %if.end48
 
 if.end48:                                         ; preds = %if.then40
   %shr49 = lshr i32 %retval.0.i, 6
@@ -1460,7 +1460,7 @@ if.end48:                                         ; preds = %if.then40
   %incdec.ptr53 = getelementptr inbounds i8, ptr %target.1142, i64 2
   store i8 %conv52, ptr %incdec.ptr44, align 1
   %cmp54 = icmp eq ptr %incdec.ptr53, %add.ptr
-  br i1 %cmp54, label %while.end.thread, label %if.end57
+  br i1 %cmp54, label %while.end, label %if.end57
 
 if.end57:                                         ; preds = %if.end48
   %17 = trunc i32 %retval.0.i to i8
@@ -1475,7 +1475,7 @@ if.else62:                                        ; preds = %if.else37
   %19 = trunc nuw nsw i32 %shr63 to i8
   %conv65 = or disjoint i8 %19, -16
   store i8 %conv65, ptr %target.1142, align 1
-  br i1 %cmp45, label %while.end.thread, label %if.end70
+  br i1 %cmp45, label %while.end, label %if.end70
 
 if.end70:                                         ; preds = %if.else62
   %shr71 = lshr i32 %retval.0.i, 12
@@ -1485,7 +1485,7 @@ if.end70:                                         ; preds = %if.else62
   %incdec.ptr75 = getelementptr inbounds i8, ptr %target.1142, i64 2
   store i8 %conv74, ptr %incdec.ptr44, align 1
   %cmp76 = icmp eq ptr %incdec.ptr75, %add.ptr
-  br i1 %cmp76, label %while.end.thread, label %if.end79
+  br i1 %cmp76, label %while.end, label %if.end79
 
 if.end79:                                         ; preds = %if.end70
   %shr80 = lshr i32 %retval.0.i, 6
@@ -1495,7 +1495,7 @@ if.end79:                                         ; preds = %if.end70
   %incdec.ptr84 = getelementptr inbounds i8, ptr %target.1142, i64 3
   store i8 %conv83, ptr %incdec.ptr75, align 1
   %cmp85 = icmp eq ptr %incdec.ptr84, %add.ptr
-  br i1 %cmp85, label %while.end.thread, label %if.end88
+  br i1 %cmp85, label %while.end, label %if.end88
 
 if.end88:                                         ; preds = %if.end79
   %24 = trunc i32 %retval.0.i to i8
@@ -1526,15 +1526,11 @@ if.end100:                                        ; preds = %if.end88, %if.end33
   %27 = select i1 %cmp16, i1 %tobool, i1 false
   br i1 %27, label %while.body, label %while.end
 
-while.end.thread:                                 ; preds = %if.then27, %if.then40, %if.end48, %if.else62, %if.end70, %if.end79
-  %cmp110180 = icmp ne ptr %target_len_ptr, null
-  br label %if.end116
-
-while.end:                                        ; preds = %if.end100, %uv__get_surrogate_value.exit, %if.end15
-  %target_len.1.lcssa = phi i64 [ %target_len.0134137, %if.end15 ], [ %target_len.1141, %uv__get_surrogate_value.exit ], [ %sub.ptr.sub, %if.end100 ]
-  %w_source_ptr.addr.0.lcssa = phi ptr [ %w_source_ptr, %if.end15 ], [ %w_source_ptr.addr.0143, %uv__get_surrogate_value.exit ], [ %incdec.ptr101, %if.end100 ]
-  %w_source_len.addr.3 = phi i64 [ %w_source_len, %if.end15 ], [ 0, %uv__get_surrogate_value.exit ], [ %spec.select78, %if.end100 ]
-  %target.3 = phi ptr [ %target.0, %if.end15 ], [ %target.1142, %uv__get_surrogate_value.exit ], [ %target.2, %if.end100 ]
+while.end:                                        ; preds = %if.end100, %if.then27, %if.then40, %if.end48, %if.else62, %if.end70, %if.end79, %uv__get_surrogate_value.exit, %if.end15
+  %target_len.1.lcssa = phi i64 [ %target_len.0134137, %if.end15 ], [ %target_len.1141, %uv__get_surrogate_value.exit ], [ %target_len.1141, %if.end79 ], [ %target_len.1141, %if.end70 ], [ %target_len.1141, %if.else62 ], [ %target_len.1141, %if.end48 ], [ %target_len.1141, %if.then40 ], [ %target_len.1141, %if.then27 ], [ %sub.ptr.sub, %if.end100 ]
+  %w_source_ptr.addr.0.lcssa = phi ptr [ %w_source_ptr, %if.end15 ], [ %w_source_ptr.addr.0143, %uv__get_surrogate_value.exit ], [ %w_source_ptr.addr.0143, %if.end79 ], [ %w_source_ptr.addr.0143, %if.end70 ], [ %w_source_ptr.addr.0143, %if.else62 ], [ %w_source_ptr.addr.0143, %if.end48 ], [ %w_source_ptr.addr.0143, %if.then40 ], [ %w_source_ptr.addr.0143, %if.then27 ], [ %incdec.ptr101, %if.end100 ]
+  %w_source_len.addr.3 = phi i64 [ %w_source_len, %if.end15 ], [ 0, %uv__get_surrogate_value.exit ], [ %w_source_len.addr.0140, %if.end79 ], [ %w_source_len.addr.0140, %if.end70 ], [ %w_source_len.addr.0140, %if.else62 ], [ %w_source_len.addr.0140, %if.end48 ], [ %w_source_len.addr.0140, %if.then40 ], [ %w_source_len.addr.0140, %if.then27 ], [ %spec.select78, %if.end100 ]
+  %target.3 = phi ptr [ %target.0, %if.end15 ], [ %target.1142, %uv__get_surrogate_value.exit ], [ %incdec.ptr84, %if.end79 ], [ %incdec.ptr75, %if.end70 ], [ %incdec.ptr44, %if.else62 ], [ %incdec.ptr53, %if.end48 ], [ %incdec.ptr44, %if.then40 ], [ %incdec.ptr29, %if.then27 ], [ %target.2, %if.end100 ]
   %cmp107 = icmp ne ptr %target.3, %add.ptr
   %cmp110 = icmp ne ptr %target_len_ptr, null
   %or.cond1 = and i1 %cmp110, %cmp107
@@ -1548,33 +1544,28 @@ if.then112:                                       ; preds = %while.end
   store i64 %sub.ptr.sub115, ptr %target_len_ptr, align 8
   br label %if.end116
 
-if.end116:                                        ; preds = %while.end.thread, %if.then112, %while.end
-  %cmp110186 = phi i1 [ %cmp110180, %while.end.thread ], [ %cmp110, %if.then112 ], [ %cmp110, %while.end ]
-  %target.3185 = phi ptr [ %add.ptr, %while.end.thread ], [ %target.3, %if.then112 ], [ %target.3, %while.end ]
-  %w_source_len.addr.3184 = phi i64 [ %w_source_len.addr.0140, %while.end.thread ], [ %w_source_len.addr.3, %if.then112 ], [ %w_source_len.addr.3, %while.end ]
-  %w_source_ptr.addr.0.lcssa183 = phi ptr [ %w_source_ptr.addr.0143, %while.end.thread ], [ %w_source_ptr.addr.0.lcssa, %if.then112 ], [ %w_source_ptr.addr.0.lcssa, %while.end ]
-  %target_len.1.lcssa182 = phi i64 [ %target_len.1141, %while.end.thread ], [ %target_len.1.lcssa, %if.then112 ], [ %target_len.1.lcssa, %while.end ]
-  %cmp117 = icmp slt i64 %w_source_len.addr.3184, 0
-  %cmp120 = icmp eq ptr %target.3185, %add.ptr
+if.end116:                                        ; preds = %if.then112, %while.end
+  %cmp117 = icmp slt i64 %w_source_len.addr.3, 0
+  %cmp120 = icmp eq ptr %target.3, %add.ptr
   %or.cond79 = and i1 %cmp117, %cmp120
   br i1 %or.cond79, label %land.lhs.true122, label %if.end127
 
 land.lhs.true122:                                 ; preds = %if.end116
-  %29 = load i16, ptr %w_source_ptr.addr.0.lcssa183, align 2
+  %29 = load i16, ptr %w_source_ptr.addr.0.lcssa, align 2
   %cmp124 = icmp eq i16 %29, 0
-  %spec.select80 = select i1 %cmp124, i64 0, i64 %w_source_len.addr.3184
+  %spec.select80 = select i1 %cmp124, i64 0, i64 %w_source_len.addr.3
   br label %if.end127
 
 if.end127:                                        ; preds = %land.lhs.true122, %if.end116
-  %w_source_len.addr.4 = phi i64 [ %w_source_len.addr.3184, %if.end116 ], [ %spec.select80, %land.lhs.true122 ]
-  store i8 0, ptr %target.3185, align 1
+  %w_source_len.addr.4 = phi i64 [ %w_source_len.addr.3, %if.end116 ], [ %spec.select80, %land.lhs.true122 ]
+  store i8 0, ptr %target.3, align 1
   %tobool129.not = icmp ne i64 %w_source_len.addr.4, 0
-  %brmerge.not = and i1 %cmp110186, %tobool129.not
+  %brmerge.not = and i1 %cmp110, %tobool129.not
   %.mux = select i1 %tobool129.not, i32 -105, i32 0
   br i1 %brmerge.not, label %while.body.i83, label %return
 
 while.body.i83:                                   ; preds = %if.end127, %if.end18.i108
-  %w_source_ptr.addr.020.i84 = phi ptr [ %incdec.ptr19.i112, %if.end18.i108 ], [ %w_source_ptr.addr.0.lcssa183, %if.end127 ]
+  %w_source_ptr.addr.020.i84 = phi ptr [ %incdec.ptr19.i112, %if.end18.i108 ], [ %w_source_ptr.addr.0.lcssa, %if.end127 ]
   %target_len.019.i85 = phi i64 [ %target_len.1.i110, %if.end18.i108 ], [ 0, %if.end127 ]
   %w_source_len.addr.018.i86 = phi i64 [ %spec.select16.i115, %if.end18.i108 ], [ %w_source_len.addr.4, %if.end127 ]
   %30 = load i16, ptr %w_source_ptr.addr.020.i84, align 2
@@ -1651,7 +1642,7 @@ if.end18.i108:                                    ; preds = %if.else11.i102, %if
 
 uv_utf16_length_as_wtf8.exit132:                  ; preds = %uv__get_surrogate_value.exit.i91, %if.end18.i108
   %target_len.0.lcssa.i117 = phi i64 [ %target_len.019.i85, %uv__get_surrogate_value.exit.i91 ], [ %target_len.1.i110, %if.end18.i108 ]
-  %add135 = add i64 %target_len.0.lcssa.i117, %target_len.1.lcssa182
+  %add135 = add i64 %target_len.0.lcssa.i117, %target_len.1.lcssa
   store i64 %add135, ptr %target_len_ptr, align 8
   br label %return
 

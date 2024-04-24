@@ -324,7 +324,7 @@ if.end12:                                         ; preds = %while.body
   br label %while.cond, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body, %invoke.cont6
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %cmp13 = icmp eq i32 %5, %bufferLen
   br i1 %cmp13, label %land.lhs.true, label %if.end21
 
@@ -541,7 +541,7 @@ if.end43.thread:                                  ; preds = %if.then20
   %6 = load i32, ptr %size, align 8
   %conv33 = sext i32 %6 to i64
   %mul34 = mul nsw i64 %conv33, %conv31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call23, ptr nonnull align 16 %3, i64 %mul34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call23, ptr nonnull align 16 %staticArray, i64 %mul34, i1 false)
   br label %if.end50
 
 if.end43:                                         ; preds = %if.end17

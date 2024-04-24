@@ -308,7 +308,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .loopexit.split.us:                               ; preds = %.split.us, %.thread.us, %86
   %134 = phi ptr [ %53, %86 ], [ %53, %.thread.us ], [ %78, %.split.us ]
-  %135 = phi ptr [ %54, %86 ], [ %53, %.thread.us ], [ %79, %.split.us ]
+  %135 = phi ptr [ %54, %86 ], [ %54, %.thread.us ], [ %79, %.split.us ]
   %136 = phi i1 [ false, %86 ], [ true, %.thread.us ], [ %.fr, %.split.us ]
   %137 = phi ptr [ %59, %86 ], [ %59, %.thread.us ], [ %84, %.split.us ]
   %138 = phi ptr [ %60, %86 ], [ %60, %.thread.us ], [ %85, %.split.us ]

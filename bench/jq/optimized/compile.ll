@@ -1058,9 +1058,9 @@ define internal fastcc void @block_mark_referenced(ptr readonly %0) unnamed_addr
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %20
-  %.03 = phi ptr [ %22, %20 ], [ %0, %1 ]
-  %.0102 = phi i32 [ %.2, %20 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %16
+  %.03 = phi ptr [ %18, %16 ], [ %0, %1 ]
+  %.0102 = phi i32 [ %.2, %16 ], [ 0, %1 ]
   %.not12 = icmp ne i32 %.0102, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.03, i64 80
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -1072,48 +1072,38 @@ define internal fastcc void @block_mark_referenced(ptr readonly %0) unnamed_addr
   %4 = getelementptr inbounds i8, ptr %.03, i64 100
   %5 = load i32, ptr %4, align 4
   %.not13 = icmp eq i32 %5, 0
-  br i1 %.not13, label %20, label %.thread
+  br i1 %.not13, label %16, label %.lr.ph._crit_edge
 
-.thread:                                          ; preds = %3
+.lr.ph._crit_edge:                                ; preds = %.lr.ph, %3
   %6 = getelementptr inbounds i8, ptr %.03, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 35
-  %spec.select4 = select i1 %8, i32 1, i32 %.0102
-  br label %12
-
-.lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.03, i64 16
-  %10 = load i32, ptr %9, align 8
-  %11 = icmp eq i32 %10, 35
-  %spec.select = select i1 %11, i32 1, i32 %.0102
+  %spec.select = select i1 %8, i32 1, i32 %.0102
   %.not14 = icmp eq ptr %.pre, null
-  br i1 %.not14, label %15, label %12
+  br i1 %.not14, label %11, label %9
 
-12:                                               ; preds = %.thread, %.lr.ph._crit_edge
-  %spec.select6 = phi i32 [ %spec.select4, %.thread ], [ %spec.select, %.lr.ph._crit_edge ]
-  %13 = phi ptr [ %.03, %.thread ], [ %.pre, %.lr.ph._crit_edge ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 100
-  store i32 1, ptr %14, align 4
-  br label %15
+9:                                                ; preds = %.lr.ph._crit_edge
+  %10 = getelementptr inbounds i8, ptr %.pre, i64 100
+  store i32 1, ptr %10, align 4
+  br label %11
 
-15:                                               ; preds = %12, %.lr.ph._crit_edge
-  %spec.select7 = phi i32 [ %spec.select6, %12 ], [ %spec.select, %.lr.ph._crit_edge ]
-  %16 = getelementptr inbounds i8, ptr %.03, i64 136
-  %17 = load ptr, ptr %16, align 8
-  tail call fastcc void @block_mark_referenced(ptr %17)
-  %18 = getelementptr inbounds i8, ptr %.03, i64 120
-  %19 = load ptr, ptr %18, align 8
-  tail call fastcc void @block_mark_referenced(ptr %19)
-  br label %20
+11:                                               ; preds = %9, %.lr.ph._crit_edge
+  %12 = getelementptr inbounds i8, ptr %.03, i64 136
+  %13 = load ptr, ptr %12, align 8
+  tail call fastcc void @block_mark_referenced(ptr %13)
+  %14 = getelementptr inbounds i8, ptr %.03, i64 120
+  %15 = load ptr, ptr %14, align 8
+  tail call fastcc void @block_mark_referenced(ptr %15)
+  br label %16
 
-20:                                               ; preds = %3, %15
-  %.2 = phi i32 [ %spec.select7, %15 ], [ 1, %3 ]
-  %21 = getelementptr inbounds i8, ptr %.03, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %.not = icmp eq ptr %22, null
+16:                                               ; preds = %3, %11
+  %.2 = phi i32 [ %spec.select, %11 ], [ 1, %3 ]
+  %17 = getelementptr inbounds i8, ptr %.03, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %.not = icmp eq ptr %18, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %20, %1
+._crit_edge:                                      ; preds = %16, %1
   ret void
 }
 

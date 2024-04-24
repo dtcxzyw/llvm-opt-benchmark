@@ -1365,7 +1365,7 @@ rede_add_entry.exit157.i.i:                       ; preds = %222
   br i1 %.not123.i.i.i, label %367, label %next_cache_entry.exit.thread.i
 
 367:                                              ; preds = %363, %357, %354, %316
-  %.3.i.i.i = phi ptr [ %321, %354 ], [ %.1132.i.i.i, %363 ], [ %spec.select.i164.i.i, %357 ], [ %.1132.i.i.i, %316 ]
+  %.3.i.i.i = phi ptr [ %.2.i.i.i, %354 ], [ %.1132.i.i.i, %363 ], [ %spec.select.i164.i.i, %357 ], [ %.1132.i.i.i, %316 ]
   %368 = load i8, ptr %.0103133.i.i.i, align 1
   %369 = zext i8 %368 to i64
   %370 = getelementptr inbounds i8, ptr %.0103133.i.i.i, i64 %369

@@ -341,7 +341,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -400,7 +400,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -2845,10 +2845,10 @@ invoke.cont98:                                    ; preds = %invoke.cont93
           to label %invoke.cont106 unwind label %lpad
 
 invoke.cont106:                                   ; preds = %invoke.cont98
-  %fString.i60 = getelementptr inbounds i8, ptr %34, i64 8
-  %fLength.i61 = getelementptr inbounds i8, ptr %34, i64 140
-  %36 = load i32, ptr %fLength.i61, align 4
-  %call.i62 = invoke noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %fString.i60, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp104, i8 48, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %fString.i61 = getelementptr inbounds i8, ptr %34, i64 8
+  %fLength.i62 = getelementptr inbounds i8, ptr %34, i64 140
+  %36 = load i32, ptr %fLength.i62, align 4
+  %call.i63 = invoke noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %fString.i61, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp104, i8 48, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end113 unwind label %lpad108
 
 lpad67:                                           ; preds = %invoke.cont65
@@ -3621,16 +3621,16 @@ _ZNK6icu_7513UnicodeStringixEi.exit27:            ; preds = %_ZNK6icu_7513Unicod
   %cmp5 = icmp eq i16 %5, 72
   %cmp6 = icmp sgt i32 %cond.i, 1
   %or.cond = and i1 %cmp6, %cmp5
-  br i1 %or.cond, label %_ZNK6icu_7513UnicodeStringixEi.exit40, label %_ZNK6icu_7513UnicodeStringixEi.exit123
+  br i1 %or.cond, label %_ZNK6icu_7513UnicodeStringixEi.exit40, label %_ZNK6icu_7513UnicodeStringixEi.exit124
 
 land.lhs.true:                                    ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit
   %cmp6.old = icmp sgt i32 %cond.i, 1
-  br i1 %cmp6.old, label %_ZNK6icu_7513UnicodeStringixEi.exit40, label %_ZNK6icu_7513UnicodeStringixEi.exit136
+  br i1 %cmp6.old, label %_ZNK6icu_7513UnicodeStringixEi.exit40, label %_ZNK6icu_7513UnicodeStringixEi.exit138
 
 _ZNK6icu_7513UnicodeStringixEi.exit40:            ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit27, %land.lhs.true
   %arrayidx.i.i = getelementptr inbounds i8, ptr %cond.i2.i.i, i64 2
   %6 = load i16, ptr %arrayidx.i.i, align 2
-  switch i16 %6, label %_ZNK6icu_7513UnicodeStringixEi.exit136 [
+  switch i16 %6, label %_ZNK6icu_7513UnicodeStringixEi.exit138 [
     i16 105, label %land.lhs.true15
     i16 73, label %land.lhs.true15
   ]
@@ -3645,22 +3645,22 @@ _ZNK6icu_7513UnicodeStringixEi.exit68:            ; preds = %land.lhs.true15
   %8 = add i16 %7, -65
   %9 = tail call i16 @llvm.fshl.i16(i16 %8, i16 %8, i16 14)
   switch i16 %9, label %return [
-    i16 8, label %_ZNK6icu_7513UnicodeStringixEi.exit136
-    i16 0, label %_ZNK6icu_7513UnicodeStringixEi.exit136
-    i16 9, label %_ZNK6icu_7513UnicodeStringixEi.exit136
-    i16 1, label %_ZNK6icu_7513UnicodeStringixEi.exit136
+    i16 8, label %_ZNK6icu_7513UnicodeStringixEi.exit138
+    i16 0, label %_ZNK6icu_7513UnicodeStringixEi.exit138
+    i16 9, label %_ZNK6icu_7513UnicodeStringixEi.exit138
+    i16 1, label %_ZNK6icu_7513UnicodeStringixEi.exit138
   ]
 
-_ZNK6icu_7513UnicodeStringixEi.exit123:           ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit27
+_ZNK6icu_7513UnicodeStringixEi.exit124:           ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit27
   %cmp37 = icmp eq i16 %5, 105
-  br i1 %cmp37, label %return, label %_ZNK6icu_7513UnicodeStringixEi.exit136
+  br i1 %cmp37, label %return, label %_ZNK6icu_7513UnicodeStringixEi.exit138
 
-_ZNK6icu_7513UnicodeStringixEi.exit136:           ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit68, %_ZNK6icu_7513UnicodeStringixEi.exit68, %_ZNK6icu_7513UnicodeStringixEi.exit68, %_ZNK6icu_7513UnicodeStringixEi.exit68, %_ZNK6icu_7513UnicodeStringixEi.exit40, %land.lhs.true, %_ZNK6icu_7513UnicodeStringixEi.exit123
+_ZNK6icu_7513UnicodeStringixEi.exit138:           ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit68, %_ZNK6icu_7513UnicodeStringixEi.exit68, %_ZNK6icu_7513UnicodeStringixEi.exit68, %_ZNK6icu_7513UnicodeStringixEi.exit68, %_ZNK6icu_7513UnicodeStringixEi.exit40, %land.lhs.true, %_ZNK6icu_7513UnicodeStringixEi.exit124
   %cmp41 = icmp eq i16 %5, 73
   br label %return
 
-return:                                           ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit68, %_ZNK6icu_7513UnicodeStringixEi.exit136, %_ZNK6icu_7513UnicodeStringixEi.exit123, %land.lhs.true15, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %land.lhs.true15 ], [ true, %_ZNK6icu_7513UnicodeStringixEi.exit123 ], [ %cmp41, %_ZNK6icu_7513UnicodeStringixEi.exit136 ], [ true, %_ZNK6icu_7513UnicodeStringixEi.exit68 ]
+return:                                           ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit68, %_ZNK6icu_7513UnicodeStringixEi.exit138, %_ZNK6icu_7513UnicodeStringixEi.exit124, %land.lhs.true15, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %land.lhs.true15 ], [ true, %_ZNK6icu_7513UnicodeStringixEi.exit124 ], [ %cmp41, %_ZNK6icu_7513UnicodeStringixEi.exit138 ], [ true, %_ZNK6icu_7513UnicodeStringixEi.exit68 ]
   ret i1 %retval.0
 }
 
@@ -3799,30 +3799,30 @@ _ZNK6icu_7513UnicodeStringixEi.exit80:            ; preds = %_ZNK6icu_7513Unicod
 
 if.end29:                                         ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit67
   %cmp34 = icmp eq i16 %5, 49
-  %or.cond140 = and i1 %cmp19, %cmp34
-  br i1 %or.cond140, label %_ZNK6icu_7513UnicodeStringixEi.exit121, label %if.end46
+  %or.cond141 = and i1 %cmp19, %cmp34
+  br i1 %or.cond141, label %_ZNK6icu_7513UnicodeStringixEi.exit122, label %if.end46
 
-_ZNK6icu_7513UnicodeStringixEi.exit121:           ; preds = %if.end29
-  %arrayidx.i.i120 = getelementptr inbounds i8, ptr %cond.i2.i.i, i64 2
-  %8 = load i16, ptr %arrayidx.i.i120, align 2
+_ZNK6icu_7513UnicodeStringixEi.exit122:           ; preds = %if.end29
+  %arrayidx.i.i121 = getelementptr inbounds i8, ptr %cond.i2.i.i, i64 2
+  %8 = load i16, ptr %arrayidx.i.i121, align 2
   %cmp38 = icmp eq i16 %8, 49
   br i1 %cmp38, label %land.lhs.true39, label %if.end46
 
-land.lhs.true39:                                  ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit121
+land.lhs.true39:                                  ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit122
   %cmp40 = icmp eq i32 %cond.i, 2
-  br i1 %cmp40, label %return, label %_ZNK6icu_7513UnicodeStringixEi.exit135
+  br i1 %cmp40, label %return, label %_ZNK6icu_7513UnicodeStringixEi.exit136
 
-_ZNK6icu_7513UnicodeStringixEi.exit135:           ; preds = %land.lhs.true39
-  %arrayidx.i.i134 = getelementptr inbounds i8, ptr %cond.i2.i.i, i64 4
-  %9 = load i16, ptr %arrayidx.i.i134, align 2
+_ZNK6icu_7513UnicodeStringixEi.exit136:           ; preds = %land.lhs.true39
+  %arrayidx.i.i135 = getelementptr inbounds i8, ptr %cond.i2.i.i, i64 4
+  %9 = load i16, ptr %arrayidx.i.i135, align 2
   %cmp44 = icmp eq i16 %9, 32
   br i1 %cmp44, label %return, label %if.end46
 
-if.end46:                                         ; preds = %land.lhs.true, %_ZNK6icu_7513UnicodeStringixEi.exit135, %_ZNK6icu_7513UnicodeStringixEi.exit121, %if.end29
+if.end46:                                         ; preds = %land.lhs.true, %_ZNK6icu_7513UnicodeStringixEi.exit136, %_ZNK6icu_7513UnicodeStringixEi.exit122, %if.end29
   br label %return
 
-return:                                           ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit80, %_ZNK6icu_7513UnicodeStringixEi.exit, %_ZNK6icu_7513UnicodeStringixEi.exit, %_ZNK6icu_7513UnicodeStringixEi.exit, %land.lhs.true39, %_ZNK6icu_7513UnicodeStringixEi.exit135, %entry, %if.end46
-  %retval.0 = phi i1 [ false, %if.end46 ], [ false, %entry ], [ true, %_ZNK6icu_7513UnicodeStringixEi.exit ], [ true, %_ZNK6icu_7513UnicodeStringixEi.exit135 ], [ true, %land.lhs.true39 ], [ true, %_ZNK6icu_7513UnicodeStringixEi.exit ], [ true, %_ZNK6icu_7513UnicodeStringixEi.exit ], [ %switch.selectcmp, %_ZNK6icu_7513UnicodeStringixEi.exit80 ]
+return:                                           ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit80, %_ZNK6icu_7513UnicodeStringixEi.exit, %_ZNK6icu_7513UnicodeStringixEi.exit, %_ZNK6icu_7513UnicodeStringixEi.exit, %land.lhs.true39, %_ZNK6icu_7513UnicodeStringixEi.exit136, %entry, %if.end46
+  %retval.0 = phi i1 [ false, %if.end46 ], [ false, %entry ], [ true, %_ZNK6icu_7513UnicodeStringixEi.exit ], [ true, %_ZNK6icu_7513UnicodeStringixEi.exit136 ], [ true, %land.lhs.true39 ], [ true, %_ZNK6icu_7513UnicodeStringixEi.exit ], [ true, %_ZNK6icu_7513UnicodeStringixEi.exit ], [ %switch.selectcmp, %_ZNK6icu_7513UnicodeStringixEi.exit80 ]
   ret i1 %retval.0
 }
 

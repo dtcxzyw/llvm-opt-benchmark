@@ -4518,19 +4518,19 @@ _get_hash_idx.exit:                               ; preds = %slurm_conf_lock.exi
   %.013.i = phi i32 [ 0, %slurm_conf_lock.exit ], [ %23, %._crit_edge.i ]
   %24 = sext i32 %.013.i to i64
   %25 = getelementptr inbounds [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %24
-  %.032 = load ptr, ptr %25, align 8
-  %.not33 = icmp eq ptr %.032, null
-  br i1 %.not33, label %.critedge, label %.lr.ph
+  %.033 = load ptr, ptr %25, align 8
+  %.not34 = icmp eq ptr %.033, null
+  br i1 %.not34, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_get_hash_idx.exit, %98
-  %.034 = phi ptr [ %.0, %98 ], [ %.032, %_get_hash_idx.exit ]
-  %26 = load ptr, ptr %.034, align 8
+  %.035 = phi ptr [ %.0, %98 ], [ %.033, %_get_hash_idx.exit ]
+  %26 = load ptr, ptr %.035, align 8
   %27 = tail call i32 @xstrcmp(ptr noundef %26, ptr noundef %0) #18
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %98
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.034, i64 16
+  %30 = getelementptr inbounds i8, ptr %.035, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @xstrcmp(ptr noundef %31, ptr noundef %1) #18
   %.not19 = icmp eq i32 %32, 0
@@ -4540,12 +4540,12 @@ _get_hash_idx.exit:                               ; preds = %slurm_conf_lock.exi
   tail call void @slurm_xfree(ptr noundef nonnull %30) #18
   %34 = tail call ptr @xstrdup(ptr noundef %1) #18
   store ptr %34, ptr %30, align 8
-  %35 = getelementptr inbounds i8, ptr %.034, i64 296
+  %35 = getelementptr inbounds i8, ptr %.035, i64 296
   store i8 0, ptr %35, align 8
   br label %36
 
 36:                                               ; preds = %33, %29
-  %37 = getelementptr inbounds i8, ptr %.034, i64 8
+  %37 = getelementptr inbounds i8, ptr %.035, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @xstrcmp(ptr noundef %38, ptr noundef %2) #18
   %.not20 = icmp eq i32 %39, 0
@@ -4668,17 +4668,18 @@ _get_hash_idx.exit.i.i:                           ; preds = %._crit_edge.i.i.i, 
   br i1 %.not16.i31.i, label %_remove_host_to_node_link.exit.i, label %.lr.ph.i32.preheader.i
 
 .lr.ph.i32.preheader.i:                           ; preds = %_get_hash_idx.exit.i.i
-  %84 = icmp eq ptr %.01115.i.i, %.034
+  %84 = icmp eq ptr %.01115.i.i, %.035
   br i1 %84, label %.loopexit.sink.split.i.i, label %.lr.ph.i22
 
 .lr.ph.i32.i:                                     ; preds = %.lr.ph.i22
-  %85 = icmp eq ptr %.011.i.i, %.034
+  %85 = icmp eq ptr %.011.i.i, %.035
   br i1 %85, label %.loopexit.sink.split.i.i, label %.lr.ph.i22, !llvm.loop !24
 
 .loopexit.sink.split.i.i:                         ; preds = %.lr.ph.i32.i, %.lr.ph.i32.preheader.i
-  %.017.i.lcssa.i = phi ptr [ null, %.lr.ph.i32.preheader.i ], [ %.01118.i3339.i, %.lr.ph.i32.i ]
+  %.01118.i33.lcssa.i = phi ptr [ %.01115.i.i, %.lr.ph.i32.preheader.i ], [ %.011.i.i, %.lr.ph.i32.i ]
+  %.017.i.lcssa.i = phi ptr [ null, %.lr.ph.i32.preheader.i ], [ %.01118.i3340.i, %.lr.ph.i32.i ]
   %.not12.i.i = icmp eq ptr %.017.i.lcssa.i, null
-  %86 = getelementptr inbounds i8, ptr %.034, i64 312
+  %86 = getelementptr inbounds i8, ptr %.01118.i33.lcssa.i, i64 312
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %.017.i.lcssa.i, i64 312
   %.sink.i.i = select i1 %.not12.i.i, ptr %83, ptr %88
@@ -4686,14 +4687,14 @@ _get_hash_idx.exit.i.i:                           ; preds = %._crit_edge.i.i.i, 
   br label %_remove_host_to_node_link.exit.i
 
 .lr.ph.i22:                                       ; preds = %.lr.ph.i32.preheader.i, %.lr.ph.i32.i
-  %.01118.i3339.i = phi ptr [ %.011.i.i, %.lr.ph.i32.i ], [ %.01115.i.i, %.lr.ph.i32.preheader.i ]
-  %89 = getelementptr inbounds i8, ptr %.01118.i3339.i, i64 312
+  %.01118.i3340.i = phi ptr [ %.011.i.i, %.lr.ph.i32.i ], [ %.01115.i.i, %.lr.ph.i32.preheader.i ]
+  %89 = getelementptr inbounds i8, ptr %.01118.i3340.i, i64 312
   %.011.i.i = load ptr, ptr %89, align 8
   %.not.i34.i = icmp eq ptr %.011.i.i, null
   br i1 %.not.i34.i, label %_remove_host_to_node_link.exit.i, label %.lr.ph.i32.i, !llvm.loop !24
 
 _remove_host_to_node_link.exit.i:                 ; preds = %.lr.ph.i22, %.loopexit.sink.split.i.i, %_get_hash_idx.exit.i.i
-  %90 = getelementptr inbounds i8, ptr %.034, i64 312
+  %90 = getelementptr inbounds i8, ptr %.035, i64 312
   store ptr null, ptr %90, align 8
   %91 = sext i32 %.013.i29.i to i64
   %92 = getelementptr inbounds [512 x ptr], ptr @host_to_node_hashtbl, i64 0, i64 %91
@@ -4714,7 +4715,7 @@ _remove_host_to_node_link.exit.i:                 ; preds = %.lr.ph.i22, %.loope
 
 .sink.split.i:                                    ; preds = %.sink.split.i.loopexit, %_remove_host_to_node_link.exit.i
   %.sink.i = phi ptr [ %92, %_remove_host_to_node_link.exit.i ], [ %96, %.sink.split.i.loopexit ]
-  store ptr %.034, ptr %.sink.i, align 8
+  store ptr %.035, ptr %.sink.i, align 8
   br label %_reset_hostname.exit
 
 _reset_hostname.exit:                             ; preds = %_get_hash_idx.exit30.i, %.sink.split.i
@@ -4724,7 +4725,7 @@ _reset_hostname.exit:                             ; preds = %_get_hash_idx.exit3
   br label %100
 
 98:                                               ; preds = %.lr.ph
-  %99 = getelementptr inbounds i8, ptr %.034, i64 304
+  %99 = getelementptr inbounds i8, ptr %.035, i64 304
   %.0 = load ptr, ptr %99, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !26
@@ -10043,39 +10044,39 @@ define internal fastcc void @_internal_conf_remove_node(ptr noundef %0) unnamed_
 _get_hash_idx.exit:                               ; preds = %1, %._crit_edge.i
   %.013.i = phi i64 [ 0, %1 ], [ %16, %._crit_edge.i ]
   %17 = getelementptr inbounds [512 x ptr], ptr @node_to_host_hashtbl, i64 0, i64 %.013.i
-  %.025 = load ptr, ptr %17, align 8
-  %.not26 = icmp eq ptr %.025, null
-  br i1 %.not26, label %.critedge, label %.lr.ph.preheader
+  %.026 = load ptr, ptr %17, align 8
+  %.not27 = icmp eq ptr %.026, null
+  br i1 %.not27, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_get_hash_idx.exit
-  %18 = load ptr, ptr %.025, align 8
+  %18 = load ptr, ptr %.026, align 8
   %19 = tail call i32 @xstrcmp(ptr noundef %18, ptr noundef %0) #18
-  %.not1543 = icmp eq i32 %19, 0
-  br i1 %.not1543, label %.lr.ph._crit_edge, label %.lr.ph45
+  %.not1548 = icmp eq i32 %19, 0
+  br i1 %.not1548, label %.lr.ph._crit_edge, label %.lr.ph50
 
-.lr.ph:                                           ; preds = %.lr.ph45
+.lr.ph:                                           ; preds = %.lr.ph50
   %20 = load ptr, ptr %.0, align 8
   %21 = tail call i32 @xstrcmp(ptr noundef %20, ptr noundef %0) #18
   %.not15 = icmp eq i32 %21, 0
-  br i1 %.not15, label %.lr.ph._crit_edge, label %.lr.ph45, !llvm.loop !48
+  br i1 %.not15, label %.lr.ph._crit_edge, label %.lr.ph50, !llvm.loop !48
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.028.lcssa = phi ptr [ %.025, %.lr.ph.preheader ], [ %.0, %.lr.ph ]
-  %.01427.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.02844, %.lr.ph ]
-  %.not16 = icmp eq ptr %.01427.lcssa, null
-  %22 = getelementptr inbounds i8, ptr %.028.lcssa, i64 304
+  %.029.lcssa = phi ptr [ %.026, %.lr.ph.preheader ], [ %.0, %.lr.ph ]
+  %.01428.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.02949, %.lr.ph ]
+  %.not16 = icmp eq ptr %.01428.lcssa, null
+  %22 = getelementptr inbounds i8, ptr %.029.lcssa, i64 304
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.01427.lcssa, i64 304
+  %24 = getelementptr inbounds i8, ptr %.01428.lcssa, i64 304
   %.sink = select i1 %.not16, ptr %17, ptr %24
   store ptr %23, ptr %.sink, align 8
-  %25 = getelementptr inbounds i8, ptr %.028.lcssa, i64 8
+  %25 = getelementptr inbounds i8, ptr %.029.lcssa, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %_get_hash_idx.exit.i, label %.preheader.i.i
 
-.lr.ph45:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02844 = phi ptr [ %.0, %.lr.ph ], [ %.025, %.lr.ph.preheader ]
-  %28 = getelementptr inbounds i8, ptr %.02844, i64 304
+.lr.ph50:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.02949 = phi ptr [ %.0, %.lr.ph ], [ %.026, %.lr.ph.preheader ]
+  %28 = getelementptr inbounds i8, ptr %.02949, i64 304
   %.0 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !48
@@ -10119,42 +10120,43 @@ _get_hash_idx.exit.i:                             ; preds = %._crit_edge.i.i, %.
   br i1 %.not16.i17, label %_remove_host_to_node_link.exit, label %.lr.ph.i18.preheader
 
 .lr.ph.i18.preheader:                             ; preds = %_get_hash_idx.exit.i
-  %43 = icmp eq ptr %.01115.i, %.028.lcssa
-  br i1 %43, label %.loopexit.sink.split.i, label %.lr.ph30
+  %43 = icmp eq ptr %.01115.i, %.029.lcssa
+  br i1 %43, label %.loopexit.sink.split.i, label %.lr.ph31
 
-.lr.ph.i18:                                       ; preds = %.lr.ph30
-  %44 = icmp eq ptr %.011.i, %.028.lcssa
-  br i1 %44, label %.loopexit.sink.split.i, label %.lr.ph30, !llvm.loop !24
+.lr.ph.i18:                                       ; preds = %.lr.ph31
+  %44 = icmp eq ptr %.011.i, %.029.lcssa
+  br i1 %44, label %.loopexit.sink.split.i, label %.lr.ph31, !llvm.loop !24
 
 .loopexit.sink.split.i:                           ; preds = %.lr.ph.i18, %.lr.ph.i18.preheader
-  %.017.i.lcssa = phi ptr [ null, %.lr.ph.i18.preheader ], [ %.01118.i1929, %.lr.ph.i18 ]
+  %.01118.i19.lcssa = phi ptr [ %.01115.i, %.lr.ph.i18.preheader ], [ %.011.i, %.lr.ph.i18 ]
+  %.017.i.lcssa = phi ptr [ null, %.lr.ph.i18.preheader ], [ %.01118.i1930, %.lr.ph.i18 ]
   %.not12.i = icmp eq ptr %.017.i.lcssa, null
-  %45 = getelementptr inbounds i8, ptr %.028.lcssa, i64 312
+  %45 = getelementptr inbounds i8, ptr %.01118.i19.lcssa, i64 312
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %.017.i.lcssa, i64 312
   %.sink.i = select i1 %.not12.i, ptr %42, ptr %47
   store ptr %46, ptr %.sink.i, align 8
   br label %_remove_host_to_node_link.exit
 
-.lr.ph30:                                         ; preds = %.lr.ph.i18.preheader, %.lr.ph.i18
-  %.01118.i1929 = phi ptr [ %.011.i, %.lr.ph.i18 ], [ %.01115.i, %.lr.ph.i18.preheader ]
-  %48 = getelementptr inbounds i8, ptr %.01118.i1929, i64 312
+.lr.ph31:                                         ; preds = %.lr.ph.i18.preheader, %.lr.ph.i18
+  %.01118.i1930 = phi ptr [ %.011.i, %.lr.ph.i18 ], [ %.01115.i, %.lr.ph.i18.preheader ]
+  %48 = getelementptr inbounds i8, ptr %.01118.i1930, i64 312
   %.011.i = load ptr, ptr %48, align 8
   %.not.i20 = icmp eq ptr %.011.i, null
   br i1 %.not.i20, label %_remove_host_to_node_link.exit, label %.lr.ph.i18, !llvm.loop !24
 
-_remove_host_to_node_link.exit:                   ; preds = %.lr.ph30, %_get_hash_idx.exit.i, %.loopexit.sink.split.i
+_remove_host_to_node_link.exit:                   ; preds = %.lr.ph31, %_get_hash_idx.exit.i, %.loopexit.sink.split.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr %.028.lcssa, ptr %2, align 8
-  %49 = getelementptr inbounds i8, ptr %.028.lcssa, i64 16
+  store ptr %.029.lcssa, ptr %2, align 8
+  %49 = getelementptr inbounds i8, ptr %.029.lcssa, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %49) #18
-  tail call void @slurm_xfree(ptr noundef nonnull %.028.lcssa) #18
+  tail call void @slurm_xfree(ptr noundef nonnull %.029.lcssa) #18
   tail call void @slurm_xfree(ptr noundef nonnull %25) #18
   call void @slurm_xfree(ptr noundef nonnull %2) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph45, %_get_hash_idx.exit, %_remove_host_to_node_link.exit
+.critedge:                                        ; preds = %.lr.ph50, %_get_hash_idx.exit, %_remove_host_to_node_link.exit
   ret void
 }
 

@@ -669,8 +669,7 @@ define void @_ZN19EditPluginContainer30EditPluginFactoryRangeIterator5beginEv(pt
   br i1 %25, label %_ZN19ConstPluginIteratorI10EditPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit.loopexit, label %.preheader.i.i, !llvm.loop !11
 
 _ZN19ConstPluginIteratorI10EditPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit.loopexit: ; preds = %21, %.preheader.i.i
-  %.lcssa = phi ptr [ %20, %21 ], [ %13, %.preheader.i.i ]
-  store ptr %.lcssa, ptr %9, align 8
+  store ptr %20, ptr %9, align 8
   br label %_ZN19ConstPluginIteratorI10EditPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit
 
 _ZN19ConstPluginIteratorI10EditPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit: ; preds = %_ZN19ConstPluginIteratorI10EditPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit.loopexit, %2, %14

@@ -1788,19 +1788,19 @@ while.end:                                        ; preds = %if.end49, %if.end42
   br label %if.end52
 
 if.else:                                          ; preds = %Py_INCREF.exit
-  %41 = load i64, ptr %value.addr.0, align 8
+  %41 = load i64, ptr %34, align 8
   %42 = and i64 %41, 2147483648
   %cmp.i104.not = icmp eq i64 %42, 0
   br i1 %cmp.i104.not, label %if.end.i, label %if.end52
 
 if.end.i:                                         ; preds = %if.else
   %dec.i = add i64 %41, -1
-  store i64 %dec.i, ptr %value.addr.0, align 8
+  store i64 %dec.i, ptr %34, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %if.end52
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %value.addr.0) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %34) #16
   br label %if.end52
 
 if.end52:                                         ; preds = %while.end, %if.else, %if.then1.i, %if.end.i, %_PyErr_GetTopmostException.exit
@@ -1841,7 +1841,7 @@ return:                                           ; preds = %if.then1.i.i.i, %if
 define hidden noundef ptr @_PyErr_Format(ptr nocapture noundef %tstate, ptr noundef %exception, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %current_exception.i.i = getelementptr inbounds i8, ptr %tstate, i64 104
   %0 = load ptr, ptr %current_exception.i.i, align 8
   store ptr null, ptr %current_exception.i.i, align 8
@@ -1887,7 +1887,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %_PyErr_FormatV.exit
 
 _PyErr_FormatV.exit:                              ; preds = %_PyErr_Restore.exit, %if.then.i, %if.end.i.i, %if.then1.i.i
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret ptr null
 }
 
@@ -3266,14 +3266,11 @@ return:                                           ; preds = %if.end.i, %if.then1
 define hidden noalias noundef ptr @_PyErr_FormatFromCauseTstate(ptr nocapture noundef %tstate, ptr noundef %exception, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   call fastcc void @_PyErr_FormatVFromCause(ptr noundef %tstate, ptr noundef %exception, ptr noundef %format, ptr noundef nonnull %vargs)
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret ptr null
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_PyErr_FormatVFromCause(ptr nocapture noundef %tstate, ptr noundef %exception, ptr noundef %format, ptr noundef %vargs) unnamed_addr #0 {
@@ -3368,18 +3365,15 @@ _PyErr_SetRaisedException.exit:                   ; preds = %Py_DECREF.exit, %if
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
-
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @_PyErr_FormatFromCause(ptr noundef %exception, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   call fastcc void @_PyErr_FormatVFromCause(ptr noundef %1, ptr noundef %exception, ptr noundef %format, ptr noundef nonnull %vargs)
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret ptr null
 }
 
@@ -3549,12 +3543,12 @@ return:                                           ; preds = %Py_DECREF.exit48, %
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #8
 
 declare i32 @PyErr_CheckSignals() local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #10
+declare ptr @strerror(i32 noundef) local_unnamed_addr #9
 
 declare ptr @PyUnicode_DecodeLocale(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -3867,7 +3861,7 @@ entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %current_exception.i.i.i = getelementptr inbounds i8, ptr %1, i64 104
   %2 = load ptr, ptr %current_exception.i.i.i, align 8
   store ptr null, ptr %current_exception.i.i.i, align 8
@@ -3913,7 +3907,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %_PyErr_FormatV.exit
 
 _PyErr_FormatV.exit:                              ; preds = %_PyErr_Clear.exit, %if.then.i, %if.end.i.i, %if.then1.i.i
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret ptr null
 }
 
@@ -3930,9 +3924,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %call2 = call ptr @PyUnicode_FromFormatV(ptr noundef %format, ptr noundef nonnull %vargs) #16
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   %cmp4 = icmp eq ptr %call2, null
   br i1 %cmp4, label %if.end.i10, label %if.end6
 
@@ -4203,7 +4197,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #11
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 declare ptr @PyDict_New() local_unnamed_addr #2
 
@@ -4317,7 +4311,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyErr_FiniTypes(ptr noundef %interp) local_unnamed_addr #0 {
@@ -4789,9 +4783,9 @@ return:                                           ; preds = %if.end.i, %if.then1
 define dso_local void @PyErr_FormatUnraisable(ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   call fastcc void @format_unraisable_v(ptr noundef %format, ptr noundef nonnull %va, ptr noundef null)
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret void
 }
 
@@ -5437,9 +5431,9 @@ entry:
 define internal void @format_unraisable(ptr noundef %obj, ptr nocapture readnone %format, ...) unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   call fastcc void @format_unraisable_v(ptr noundef null, ptr noundef nonnull %va, ptr noundef %obj)
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret void
 }
 
@@ -6327,7 +6321,7 @@ declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #13
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #12
 
 declare ptr @PyObject_Repr(ptr noundef) local_unnamed_addr #2
 
@@ -6376,12 +6370,18 @@ declare ptr @PyObject_Str(ptr noundef) local_unnamed_addr #2
 declare ptr @Py_UniversalNewlineFgets(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #13
 
 declare ptr @PyUnicode_Decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
@@ -6397,13 +6397,13 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nounwind }
 attributes #17 = { noreturn nounwind }

@@ -148,10 +148,9 @@ invoke.cont20:                                    ; preds = %_ZNSt6vectorISt4pai
   br i1 %cmp.not, label %nrvo.skipdtor, label %for.body
 
 lpad15.loopexit:                                  ; preds = %cond.true.i.i.i.i, %for.body
-  %add.ptr19.i.i.i4854.lcssa = phi ptr [ %2, %cond.true.i.i.i.i ], [ %add.ptr19.i.i.i4854, %for.body ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %add.ptr19.i.i.i4854.lcssa, ptr %_M_end_of_storage.i.i, align 8, !tbaa !15
+  store ptr %add.ptr19.i.i.i4854, ptr %_M_end_of_storage.i.i, align 8, !tbaa !15
   store ptr %3, ptr %quantiles.i, align 8, !tbaa !16
   br label %ehcleanup23
 

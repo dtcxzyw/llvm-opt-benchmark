@@ -252,7 +252,7 @@ if.then16:                                        ; preds = %if.else
   %sub = sub nsw i32 %conv21, %conv20
   %sub29 = sub nsw i32 %conv20, %conv21
   %cond = select i1 %cmp22, i32 %sub, i32 %sub29
-  %5 = trunc i32 %cond to i16
+  %5 = trunc nsw i32 %cond to i16
   %conv31 = add nsw i16 %5, 1
   store i16 %conv31, ptr %_count8, align 2
   %conv34 = zext i16 %conv31 to i64
@@ -308,7 +308,7 @@ if.else57:                                        ; preds = %if.else
 
 if.then62:                                        ; preds = %if.else57
   %sub67 = sub nsw i32 %conv60, %conv59
-  %13 = trunc i32 %sub67 to i16
+  %13 = trunc nsw i32 %sub67 to i16
   %conv69 = add nsw i16 %13, 1
   store i16 %conv69, ptr %_count8, align 2
   %14 = load ptr, ptr %_next71, align 8
@@ -681,7 +681,7 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
   store i64 %add.i.i.i, ptr %_M_size.i.i.i.i.i, align 8
   %1 = load ptr, ptr %stack, align 8
   %cmp.i121124 = icmp eq ptr %1, %stack
-  br i1 %cmp.i121124, label %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit42, label %while.body.lr.ph
+  br i1 %cmp.i121124, label %if.end422, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit, %while.cond.outer.backedge
   %ret.0.ph125 = phi i32 [ %ret.0.ph.be, %while.cond.outer.backedge ], [ 0, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit ]
@@ -1023,7 +1023,7 @@ if.then194.do.end202_crit_edge:                   ; preds = %if.then194
   br label %do.end202
 
 do.end202.loopexit:                               ; preds = %for.body
-  %43 = trunc i64 %indvars.iv145 to i16
+  %43 = trunc nuw i64 %indvars.iv145 to i16
   br label %do.end202
 
 do.end202:                                        ; preds = %if.then194.do.end202_crit_edge, %do.end202.loopexit
@@ -1086,7 +1086,7 @@ if.then255.do.end263_crit_edge:                   ; preds = %if.then255
   br label %do.end263
 
 do.end263.loopexit:                               ; preds = %for.body236
-  %53 = trunc i64 %indvars.iv to i16
+  %53 = trunc nuw i64 %indvars.iv to i16
   br label %do.end263
 
 do.end263:                                        ; preds = %if.then255.do.end263_crit_edge, %do.end263.loopexit
@@ -1220,40 +1220,45 @@ if.end403:                                        ; preds = %_ZNSt7__cxx114listI
   br i1 %cmp.i, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %while.cond.outer.backedge, %if.end403
+  %74 = phi ptr [ %73, %if.end403 ], [ %18, %while.cond.outer.backedge ]
   %ret.0.ph.lcssa108 = phi i32 [ %ret.0.ph125, %if.end403 ], [ %ret.0.ph.be, %while.cond.outer.backedge ]
   %cmp404 = icmp eq i32 %ret.0.ph.lcssa108, 1
-  br i1 %cmp404, label %do.body406, label %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit42
+  br i1 %cmp404, label %do.body406, label %if.end422
 
 do.body406:                                       ; preds = %while.end
   %_num_prefixes = getelementptr inbounds i8, ptr %this, i64 8
-  %74 = load atomic i32, ptr %_num_prefixes seq_cst, align 8
-  %cmp408.not = icmp eq i32 %74, 0
-  br i1 %cmp408.not, label %if.then411, label %if.end422
+  %75 = load atomic i32, ptr %_num_prefixes seq_cst, align 8
+  %cmp408.not = icmp eq i32 %75, 0
+  br i1 %cmp408.not, label %if.then411, label %do.end419
 
 if.then411:                                       ; preds = %do.body406
-  %75 = load ptr, ptr @stderr, align 8
-  %call413 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 514) #18
   %76 = load ptr, ptr @stderr, align 8
-  %call415 = call i32 @fflush(ptr noundef %76)
+  %call413 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 514) #18
+  %77 = load ptr, ptr @stderr, align 8
+  %call415 = call i32 @fflush(ptr noundef %77)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.10)
-          to label %if.end422 unwind label %lpad.loopexit.split-lp
+          to label %do.end419 unwind label %lpad.loopexit.split-lp
 
-if.end422:                                        ; preds = %do.body406, %if.then411
-  %77 = atomicrmw sub ptr %_num_prefixes, i32 1 acq_rel, align 4
+do.end419:                                        ; preds = %if.then411, %do.body406
+  %78 = atomicrmw sub ptr %_num_prefixes, i32 1 acq_rel, align 4
   %.pre161 = load ptr, ptr %stack, align 8
-  %cmp.not4.i.i.i38 = icmp eq ptr %.pre161, %stack
+  br label %if.end422
+
+if.end422:                                        ; preds = %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit, %do.end419, %while.end
+  %ret.0.ph.lcssa108169 = phi i32 [ 1, %do.end419 ], [ %ret.0.ph.lcssa108, %while.end ], [ 0, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit ]
+  %79 = phi ptr [ %.pre161, %do.end419 ], [ %74, %while.end ], [ %1, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit ]
+  %cmp.not4.i.i.i38 = icmp eq ptr %79, %stack
   br i1 %cmp.not4.i.i.i38, label %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit42, label %while.body.i.i.i39
 
 while.body.i.i.i39:                               ; preds = %if.end422, %while.body.i.i.i39
-  %__cur.05.i.i.i40 = phi ptr [ %78, %while.body.i.i.i39 ], [ %.pre161, %if.end422 ]
-  %78 = load ptr, ptr %__cur.05.i.i.i40, align 8
+  %__cur.05.i.i.i40 = phi ptr [ %80, %while.body.i.i.i39 ], [ %79, %if.end422 ]
+  %80 = load ptr, ptr %__cur.05.i.i.i40, align 8
   call void @_ZdlPv(ptr noundef %__cur.05.i.i.i40) #17
-  %cmp.not.i.i.i41 = icmp eq ptr %78, %stack
+  %cmp.not.i.i.i41 = icmp eq ptr %80, %stack
   br i1 %cmp.not.i.i.i41, label %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit42, label %while.body.i.i.i39, !llvm.loop !11
 
-_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit42: ; preds = %while.body.i.i.i39, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit, %while.end, %if.end422
-  %ret.0.ph.lcssa108169172 = phi i32 [ 1, %if.end422 ], [ %ret.0.ph.lcssa108, %while.end ], [ 0, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit ], [ %ret.0.ph.lcssa108, %while.body.i.i.i39 ]
-  ret i32 %ret.0.ph.lcssa108169172
+_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit42: ; preds = %while.body.i.i.i39, %if.end422
+  ret i32 %ret.0.ph.lcssa108169
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1396,8 +1401,8 @@ _ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_ran
   %7 = load ptr, ptr %_M_left.i.i1, align 8
   %cmp.i.i2 = icmp eq ptr %7, %retval.sroa.0.0.i
   %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.3.0.i
-  %or.cond.i = select i1 %cmp.i.i2, i1 %cmp.i1.i, i1 false
-  br i1 %or.cond.i, label %if.then.i, label %if.else.i4
+  %or.cond = select i1 %cmp.i.i2, i1 %cmp.i1.i, i1 false
+  br i1 %or.cond, label %if.then.i, label %if.else.i3
 
 if.then.i:                                        ; preds = %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit
   invoke void @_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x.038.i)
@@ -1418,12 +1423,12 @@ _ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.ex
   store i64 0, ptr %_M_node_count.i, align 8
   br label %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS2_ESA_.exit
 
-if.else.i4:                                       ; preds = %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit
+if.else.i3:                                       ; preds = %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit
   %cmp.i3.not8.i = icmp eq ptr %retval.sroa.0.0.i, %retval.sroa.3.0.i
-  br i1 %cmp.i3.not8.i, label %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS2_ESA_.exit, label %while.body.i6
+  br i1 %cmp.i3.not8.i, label %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS2_ESA_.exit, label %while.body.i5
 
-while.body.i6:                                    ; preds = %if.else.i4, %while.body.i6
-  %__first.sroa.0.09.i = phi ptr [ %call.i.i, %while.body.i6 ], [ %retval.sroa.0.0.i, %if.else.i4 ]
+while.body.i5:                                    ; preds = %if.else.i3, %while.body.i5
+  %__first.sroa.0.09.i = phi ptr [ %call.i.i, %while.body.i5 ], [ %retval.sroa.0.0.i, %if.else.i3 ]
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.09.i) #23
   %call.i5.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %__first.sroa.0.09.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #19
   tail call void @_ZdlPv(ptr noundef nonnull %call.i5.i) #17
@@ -1431,10 +1436,10 @@ while.body.i6:                                    ; preds = %if.else.i4, %while.
   %dec.i.i = add i64 %10, -1
   store i64 %dec.i.i, ptr %_M_node_count.i, align 8
   %cmp.i3.not.i = icmp eq ptr %call.i.i, %retval.sroa.3.0.i
-  br i1 %cmp.i3.not.i, label %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS2_ESA_.exit, label %while.body.i6, !llvm.loop !20
+  br i1 %cmp.i3.not.i, label %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS2_ESA_.exit, label %while.body.i5, !llvm.loop !20
 
-_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS2_ESA_.exit: ; preds = %while.body.i6, %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.exit.i, %if.else.i4
-  %11 = phi i64 [ 0, %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.exit.i ], [ %6, %if.else.i4 ], [ %dec.i.i, %while.body.i6 ]
+_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS2_ESA_.exit: ; preds = %while.body.i5, %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.exit.i, %if.else.i3
+  %11 = phi i64 [ 0, %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.exit.i ], [ %6, %if.else.i3 ], [ %dec.i.i, %while.body.i5 ]
   %sub = sub i64 %6, %11
   ret i64 %sub
 }

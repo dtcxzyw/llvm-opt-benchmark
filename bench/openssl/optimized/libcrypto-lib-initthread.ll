@@ -407,7 +407,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
 if.end12.us:                                      ; preds = %while.body.us
   %handfn.us = getelementptr inbounds i8, ptr %curr.019.us, i64 16
   %8 = load ptr, ptr %handfn.us, align 8
-  tail call void %8(ptr noundef nonnull %arg) #2
+  tail call void %8(ptr noundef %7) #2
   %next16.us = getelementptr inbounds i8, ptr %curr.019.us, i64 24
   %9 = load ptr, ptr %next16.us, align 8
   store ptr %9, ptr %hands, align 8
@@ -432,7 +432,7 @@ if.then11:                                        ; preds = %while.body, %while.
 if.end12:                                         ; preds = %while.body
   %handfn = getelementptr inbounds i8, ptr %curr.019, i64 16
   %12 = load ptr, ptr %handfn, align 8
-  tail call void %12(ptr noundef nonnull %arg) #2
+  tail call void %12(ptr noundef %10) #2
   %next17 = getelementptr inbounds i8, ptr %curr.019, i64 24
   %13 = load ptr, ptr %next17, align 8
   store ptr %13, ptr %next18, align 8

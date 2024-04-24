@@ -729,7 +729,7 @@ if.then9.i:                                       ; preds = %if.then8.i
   br label %cleanup
 
 if.else.i:                                        ; preds = %if.then8.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.5, i32 noundef 248, ptr noundef nonnull @__func__.qdev_get_device_class, ptr noundef nonnull @.str.124, ptr noundef nonnull %call) #8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.5, i32 noundef 248, ptr noundef nonnull @__func__.qdev_get_device_class, ptr noundef nonnull @.str.124, ptr noundef nonnull %driver.0) #8
   br label %cleanup
 
 if.end11.i:                                       ; preds = %if.end5.i

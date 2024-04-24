@@ -709,7 +709,7 @@ if.then16:                                        ; preds = %if.end51.i.i
 
 if.end21:                                         ; preds = %for.inc.i, %if.end10
   %63 = phi i32 [ %12, %if.end10 ], [ %62, %for.inc.i ]
-  %64 = phi ptr [ %.pre, %if.end10 ], [ %incdec.ptr.i.i, %for.inc.i ]
+  %64 = phi ptr [ %.pre, %if.end10 ], [ %61, %for.inc.i ]
   %idx.ext.i = sext i32 %63 to i64
   %add.ptr.i = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %64, i64 %idx.ext.i
   %anyPolicy.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -16

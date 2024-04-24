@@ -425,7 +425,7 @@ define noundef i32 @_ZN6casadi6to_intEx(i64 noundef %0) local_unnamed_addr #3 pe
   br i1 %.6, label %.sink.split, label %91
 
 89:                                               ; preds = %55
-  %90 = trunc i64 %0 to i32
+  %90 = trunc nsw i64 %0 to i32
   ret i32 %90
 
 .sink.split.sink.split:                           ; preds = %.thread, %.thread60
@@ -731,7 +731,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %32, label %33, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
 
 33:                                               ; preds = %28
-  store ptr %20, ptr %13, align 8
+  store ptr %21, ptr %13, align 8
   store ptr %22, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.34) #21
           to label %.noexc8 unwind label %.loopexit.split-lp
@@ -2104,7 +2104,7 @@ _ZN6casadi12has_negativeIxEEbRKSt6vectorIT_SaIS2_EE.exit: ; preds = %.lr.ph.i, %
   br i1 %.not.i.i, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit, label %.lr.ph.i.i, !llvm.loop !18
 
 _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit: ; preds = %.lr.ph.i.i, %2, %60
-  %.sroa.02.2.i.i = phi ptr [ %15, %60 ], [ %14, %2 ], [ %spec.select.i.i, %.lr.ph.i.i ]
+  %.sroa.02.2.i.i = phi ptr [ %15, %60 ], [ %15, %2 ], [ %spec.select.i.i, %.lr.ph.i.i ]
   %68 = load i64, ptr %.sroa.02.2.i.i, align 8
   %69 = add nsw i64 %68, 1
   tail call void @_ZN6casadi12lookupvectorERKSt6vectorIxSaIxEEx(ptr dead_on_unwind writable sret(%"class.std::vector.8") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %69)

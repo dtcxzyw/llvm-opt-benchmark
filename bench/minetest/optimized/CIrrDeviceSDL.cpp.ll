@@ -332,7 +332,7 @@ if.then:                                          ; preds = %land.lhs.true
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.AbsoluteRect.sroa_idx.i, align 8, !tbaa.struct !27
   %pos.sroa.0.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i to i32
   %pos.sroa.0.sroa.7.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i, 32
-  %pos.sroa.0.sroa.7.0.extract.trunc = trunc i64 %pos.sroa.0.sroa.7.0.extract.shift to i32
+  %pos.sroa.0.sroa.7.0.extract.trunc = trunc nuw i64 %pos.sroa.0.sroa.7.0.extract.shift to i32
   %call6 = tail call i32 @SDL_IsTextInputActive() #21
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.then9, label %lor.lhs.false
@@ -355,7 +355,7 @@ _ZNK3irr4core4rectIiEneERKS2_.exit:               ; preds = %lor.lhs.false
   %Y.i.i7.i = getelementptr inbounds i8, ptr %this, i64 340
   %6 = load i32, ptr %Y.i.i7.i, align 4
   %pos.sroa.10.12.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i, 32
-  %pos.sroa.10.12.extract.trunc = trunc i64 %pos.sroa.10.12.extract.shift to i32
+  %pos.sroa.10.12.extract.trunc = trunc nuw i64 %pos.sroa.10.12.extract.shift to i32
   %cmp4.i.i9.i = icmp ne i32 %6, %pos.sroa.10.12.extract.trunc
   %.not.i10.i = select i1 %cmp.i.i6.i, i1 true, i1 %cmp4.i.i9.i
   br i1 %.not.i10.i, label %if.then9, label %if.end14
@@ -374,7 +374,7 @@ if.then9:                                         ; preds = %_ZNK3irr4core4rectI
   %w = getelementptr inbounds i8, ptr %rect, i64 8
   store i32 %sub.i, ptr %w, align 4, !tbaa !32
   %pos.sroa.10.12.extract.shift26 = lshr i64 %retval.sroa.2.0.copyload.i, 32
-  %pos.sroa.10.12.extract.trunc27 = trunc i64 %pos.sroa.10.12.extract.shift26 to i32
+  %pos.sroa.10.12.extract.trunc27 = trunc nuw i64 %pos.sroa.10.12.extract.shift26 to i32
   %sub.i18 = sub nsw i32 %pos.sroa.10.12.extract.trunc27, %pos.sroa.0.sroa.7.0.extract.trunc
   %h = getelementptr inbounds i8, ptr %rect, i64 12
   store i32 %sub.i18, ptr %h, align 4, !tbaa !33
@@ -16234,7 +16234,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %8 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %8 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %8, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -21754,7 +21754,7 @@ _ZSt8_DestroyIPN3irr13SJoystickInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; p
   br label %_ZSt8_DestroyIPN3irr13SJoystickInfoES1_EvT_S3_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN3irr13SJoystickInfoES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN3irr13SJoystickInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split, %_ZNSt6vectorIN3irr13SJoystickInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit, %_ZNSt12_Vector_baseIN3irr13SJoystickInfoESaIS1_EE11_M_allocateEm.exit.i
-  %8 = phi ptr [ %.pr, %_ZSt8_DestroyIPN3irr13SJoystickInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split ], [ %.pre, %_ZNSt6vectorIN3irr13SJoystickInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit ], [ %1, %_ZNSt12_Vector_baseIN3irr13SJoystickInfoESaIS1_EE11_M_allocateEm.exit.i ]
+  %8 = phi ptr [ %.pr, %_ZSt8_DestroyIPN3irr13SJoystickInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split ], [ %.pre39, %_ZNSt6vectorIN3irr13SJoystickInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit ], [ %1, %_ZNSt12_Vector_baseIN3irr13SJoystickInfoESaIS1_EE11_M_allocateEm.exit.i ]
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN3irr13SJoystickInfoESaIS1_EE13_M_deallocateEPS1_m.exit, label %if.then.i
 

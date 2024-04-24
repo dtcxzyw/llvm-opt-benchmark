@@ -4877,7 +4877,7 @@ invoke.contthread-pre-split.i59:                  ; preds = %_ZSt8_DestroyIN4abs
   br label %invoke.cont.i61
 
 invoke.cont.i61:                                  ; preds = %invoke.contthread-pre-split.i59, %_ZN4absl12lts_202308026StatusD2Ev.exit47
-  %30 = phi ptr [ %.pr.i60, %invoke.contthread-pre-split.i59 ], [ %.pre335, %_ZN4absl12lts_202308026StatusD2Ev.exit47 ]
+  %30 = phi ptr [ %.pr.i60, %invoke.contthread-pre-split.i59 ], [ %.pre334, %_ZN4absl12lts_202308026StatusD2Ev.exit47 ]
   %tobool.not.i.i.i62 = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i62, label %if.end49, label %if.then.i.i.i63
 

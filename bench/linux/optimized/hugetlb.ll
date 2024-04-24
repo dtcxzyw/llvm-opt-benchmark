@@ -4983,7 +4983,7 @@ define internal noundef i32 @hugepagesz_setup(ptr noundef %0) #10 section ".init
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %11, i64 56
+  %30 = getelementptr inbounds i8, ptr %27, i64 56
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %35, label %33

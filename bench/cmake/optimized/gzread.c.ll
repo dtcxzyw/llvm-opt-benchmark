@@ -558,49 +558,50 @@ gz_skip.exit:                                     ; preds = %36, %42, %13
   %72 = getelementptr inbounds i8, ptr %1, i64 56
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %71, %73
-  br i1 %74, label %.lr.ph.preheader, label %84
+  br i1 %74, label %75, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %69
-  %75 = zext i32 %66 to i64
-  %76 = getelementptr inbounds i8, ptr %71, i64 %75
-  %77 = zext i32 %46 to i64
-  %78 = getelementptr inbounds i8, ptr %71, i64 %77
-  br label %.lr.ph
+75:                                               ; preds = %69
+  %76 = zext i32 %46 to i64
+  %77 = getelementptr inbounds i8, ptr %73, i64 %76
+  %78 = zext i32 %66 to i64
+  %79 = getelementptr inbounds i8, ptr %73, i64 %78
+  %80 = icmp ugt ptr %77, %71
+  br i1 %80, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.056 = phi ptr [ %81, %.lr.ph ], [ %76, %.lr.ph.preheader ]
-  %.04255 = phi ptr [ %79, %.lr.ph ], [ %78, %.lr.ph.preheader ]
-  %79 = getelementptr inbounds i8, ptr %.04255, i64 -1
-  %80 = load i8, ptr %79, align 1
-  %81 = getelementptr inbounds i8, ptr %.056, i64 -1
-  store i8 %80, ptr %81, align 1
-  %82 = load ptr, ptr %72, align 8
-  %83 = icmp ugt ptr %79, %82
-  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+.lr.ph:                                           ; preds = %75, %.lr.ph
+  %.056 = phi ptr [ %83, %.lr.ph ], [ %79, %75 ]
+  %.04255 = phi ptr [ %81, %.lr.ph ], [ %77, %75 ]
+  %81 = getelementptr inbounds i8, ptr %.04255, i64 -1
+  %82 = load i8, ptr %81, align 1
+  %83 = getelementptr inbounds i8, ptr %.056, i64 -1
+  store i8 %82, ptr %83, align 1
+  %84 = load ptr, ptr %72, align 8
+  %85 = icmp ugt ptr %81, %84
+  br i1 %85, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre.pre = load i32, ptr %1, align 8
-  br label %84
+  br label %._crit_edge
 
-84:                                               ; preds = %._crit_edge, %69
-  %85 = phi ptr [ %81, %._crit_edge ], [ %71, %69 ]
-  %86 = phi i32 [ %.pre.pre, %._crit_edge ], [ %46, %69 ]
-  %87 = add i32 %86, 1
-  store i32 %87, ptr %1, align 8
-  %88 = getelementptr inbounds i8, ptr %85, i64 -1
-  store ptr %88, ptr %70, align 8
-  %89 = trunc i32 %0 to i8
-  store i8 %89, ptr %88, align 1
-  %90 = getelementptr inbounds i8, ptr %1, i64 16
-  %91 = load i64, ptr %90, align 8
-  %92 = add nsw i64 %91, -1
-  store i64 %92, ptr %90, align 8
-  %93 = getelementptr inbounds i8, ptr %1, i64 84
-  store i32 0, ptr %93, align 4
+._crit_edge:                                      ; preds = %75, %._crit_edge.loopexit, %69
+  %86 = phi ptr [ %71, %69 ], [ %79, %75 ], [ %83, %._crit_edge.loopexit ]
+  %87 = phi i32 [ %46, %69 ], [ %46, %75 ], [ %.pre.pre, %._crit_edge.loopexit ]
+  %88 = add i32 %87, 1
+  store i32 %88, ptr %1, align 8
+  %89 = getelementptr inbounds i8, ptr %86, i64 -1
+  store ptr %89, ptr %70, align 8
+  %90 = trunc i32 %0 to i8
+  store i8 %90, ptr %89, align 1
+  %91 = getelementptr inbounds i8, ptr %1, i64 16
+  %92 = load i64, ptr %91, align 8
+  %93 = add nsw i64 %92, -1
+  store i64 %93, ptr %91, align 8
+  %94 = getelementptr inbounds i8, ptr %1, i64 84
+  store i32 0, ptr %94, align 4
   br label %gz_skip.exit.thread
 
-gz_skip.exit.thread:                              ; preds = %39, %44, %gz_skip.exit, %4, %7, %2, %84, %68, %48
-  %.043 = phi i32 [ %0, %48 ], [ -1, %68 ], [ %0, %84 ], [ -1, %2 ], [ -1, %7 ], [ -1, %4 ], [ -1, %gz_skip.exit ], [ -1, %44 ], [ -1, %39 ]
+gz_skip.exit.thread:                              ; preds = %39, %44, %gz_skip.exit, %4, %7, %2, %._crit_edge, %68, %48
+  %.043 = phi i32 [ %0, %48 ], [ -1, %68 ], [ %0, %._crit_edge ], [ -1, %2 ], [ -1, %7 ], [ -1, %4 ], [ -1, %gz_skip.exit ], [ -1, %44 ], [ -1, %39 ]
   ret i32 %.043
 }
 

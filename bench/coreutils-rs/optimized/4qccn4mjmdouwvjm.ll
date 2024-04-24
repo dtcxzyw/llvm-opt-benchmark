@@ -3414,7 +3414,7 @@ _ZN3std4path4Path11starts_with17h69bda1a4b4b525f3E.exit.us.i: ; preds = %296
 
 339:                                              ; preds = %335, %333
   %.sroa.0177.1.i = phi ptr [ %.sroa.8179.0.i, %335 ], [ %.sroa.0177.0.i, %333 ]
-  %.sroa.5178.1.i = phi ptr [ %.sroa.8179.0.i, %335 ], [ %.sroa.5178.0.i, %333 ]
+  %.sroa.5178.1.i = phi ptr [ %.sroa.11.0.i, %335 ], [ %.sroa.5178.0.i, %333 ]
   %.sroa.8179.1.i = phi ptr [ %.sroa.0177.0.i, %335 ], [ %.sroa.8179.0.i, %333 ]
   %.sink6.i.i = phi ptr [ %.sroa.5178.0.i, %335 ], [ %.sroa.11.0.i, %333 ]
   %340 = getelementptr inbounds i8, ptr %.sink6.i.i, i64 -40

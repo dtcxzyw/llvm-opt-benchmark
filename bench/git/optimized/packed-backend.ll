@@ -2026,7 +2026,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 
 if.end7:                                          ; preds = %cmp_record_to_refname.exit.i.i, %if.end9.i.i, %if.else
   %22 = phi ptr [ %.pre, %if.else ], [ %call1.val31, %if.end9.i.i ], [ %call1.val31, %cmp_record_to_refname.exit.i.i ]
-  %start.0 = phi ptr [ %21, %if.else ], [ %p.addr.0.lcssa.i.i.i, %cmp_record_to_refname.exit.i.i ], [ %hi.1.i.i, %if.end9.i.i ]
+  %start.0 = phi ptr [ %21, %if.else ], [ %p.addr.0.lcssa.i.i.i, %cmp_record_to_refname.exit.i.i ], [ %lo.1.i.i, %if.end9.i.i ]
   %eof = getelementptr inbounds i8, ptr %call1, i64 32
   %cmp = icmp eq ptr %start.0, %22
   br i1 %cmp, label %if.then9, label %if.end11
@@ -2189,7 +2189,7 @@ if.end9.i.i.i:                                    ; preds = %if.end.i.i.i.i, %wh
   br i1 %cmp.not.i.i.i, label %while.body.lr.ph.i.i50.i, label %while.body.i.i.i41, !llvm.loop !16
 
 while.body.lr.ph.i.i50.i:                         ; preds = %if.end9.i.i.i, %cmp_record_to_refname.exit.i.i.i
-  %retval.0.i.i.i = phi ptr [ %p.addr.0.lcssa.i.i.i.i, %cmp_record_to_refname.exit.i.i.i ], [ %hi.1.i.i.i, %if.end9.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %p.addr.0.lcssa.i.i.i.i, %cmp_record_to_refname.exit.i.i.i ], [ %lo.1.i.i.i, %if.end9.i.i.i ]
   br label %while.body.i.i53.i
 
 while.body.i.i53.i:                               ; preds = %if.end9.i.i75.i, %while.body.lr.ph.i.i50.i
@@ -2291,7 +2291,7 @@ if.end9.i.i75.i:                                  ; preds = %while.body.i18.i.i9
   br i1 %cmp.not.i.i78.i, label %find_reference_location_end.exit.i, label %while.body.i.i53.i, !llvm.loop !16
 
 find_reference_location_end.exit.i:               ; preds = %if.end9.i.i75.i, %cmp_record_to_refname.exit.i.i99.i
-  %retval.0.i.i79.ph.i = phi ptr [ %hi.1.i.i76.i, %if.end9.i.i75.i ], [ %p.addr.0.lcssa.i.i.i63.i, %cmp_record_to_refname.exit.i.i99.i ]
+  %retval.0.i.i79.ph.i = phi ptr [ %lo.1.i.i77.i, %if.end9.i.i75.i ], [ %p.addr.0.lcssa.i.i.i63.i, %cmp_record_to_refname.exit.i.i99.i ]
   %cmp.i = icmp eq ptr %retval.0.i.i.i, %retval.0.i.i79.ph.i
   br i1 %cmp.i, label %for.inc.i, label %do.body.i
 

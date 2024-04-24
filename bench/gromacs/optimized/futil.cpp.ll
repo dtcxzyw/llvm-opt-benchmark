@@ -269,7 +269,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   br i1 %.not35, label %27, label %25
 
 25:                                               ; preds = %.critedge
-  %26 = tail call i32 @pclose(ptr noundef nonnull %0)
+  %26 = tail call i32 @pclose(ptr noundef nonnull %23)
   %.pre = load ptr, ptr %24, align 8
   br label %27
 

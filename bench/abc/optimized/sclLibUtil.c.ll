@@ -574,18 +574,18 @@ define void @Abc_SclShortNames(ptr nocapture noundef %0) local_unnamed_addr #9 {
 Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
   %.09.i = phi i32 [ %spec.select.i, %1 ], [ %7, %.lr.ph.i ]
   %8 = icmp sgt i32 %.val7.i, 0
-  br i1 %8, label %.lr.ph121, label %.critedge
+  br i1 %8, label %.lr.ph125, label %.critedge
 
-.lr.ph121:                                        ; preds = %Abc_Base10Log.exit
+.lr.ph125:                                        ; preds = %Abc_Base10Log.exit
   %9 = getelementptr i8, ptr %0, i64 120
   %10 = and i32 %.09.i, 255
   %nul.i.i.i = getelementptr inbounds i8, ptr %2, i64 1
   br label %11
 
-11:                                               ; preds = %.lr.ph121, %180
-  %indvars.iv136 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next137, %180 ]
+11:                                               ; preds = %.lr.ph125, %180
+  %indvars.iv140 = phi i64 [ 0, %.lr.ph125 ], [ %indvars.iv.next141, %180 ]
   %.val86 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds ptr, ptr %.val86, i64 %indvars.iv136
+  %12 = getelementptr inbounds ptr, ptr %.val86, i64 %indvars.iv140
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -621,37 +621,37 @@ Abc_SclClassCellNum.exit:                         ; preds = %14
 Abc_Base10Log.exit100:                            ; preds = %.lr.ph.i95, %Abc_SclClassCellNum.exit
   %.09.i99 = phi i32 [ %spec.select.i93, %Abc_SclClassCellNum.exit ], [ %23, %.lr.ph.i95 ]
   %24 = and i32 %.09.i99, 255
-  %25 = trunc nuw nsw i64 %indvars.iv136 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv140 to i32
   br label %26
 
 26:                                               ; preds = %Abc_Base10Log.exit100, %.critedge6
-  %.0118 = phi ptr [ %13, %Abc_Base10Log.exit100 ], [ %178, %.critedge6 ]
-  %.071117 = phi i32 [ 0, %Abc_Base10Log.exit100 ], [ %179, %.critedge6 ]
-  %27 = load ptr, ptr %.0118, align 8
+  %.0122 = phi ptr [ %13, %Abc_Base10Log.exit100 ], [ %178, %.critedge6 ]
+  %.071121 = phi i32 [ 0, %Abc_Base10Log.exit100 ], [ %179, %.critedge6 ]
+  %27 = load ptr, ptr %.0122, align 8
   %.not79 = icmp eq ptr %27, null
   br i1 %.not79, label %29, label %28
 
 28:                                               ; preds = %26
   tail call void @free(ptr noundef nonnull %27) #29
-  store ptr null, ptr %.0118, align 8
+  store ptr null, ptr %.0122, align 8
   br label %29
 
 29:                                               ; preds = %26, %28
-  %30 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %10, i32 noundef %25, i32 noundef %24, i32 noundef %.071117) #29
+  %30 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %10, i32 noundef %25, i32 noundef %24, i32 noundef %.071121) #29
   %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
   %32 = add i64 %31, 1
   %33 = tail call noalias ptr @malloc(i64 noundef %32) #28
   %34 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) %2) #29
-  store ptr %33, ptr %.0118, align 8
-  %35 = getelementptr inbounds i8, ptr %.0118, i64 64
+  store ptr %33, ptr %.0122, align 8
+  %35 = getelementptr inbounds i8, ptr %.0122, i64 64
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr i8, ptr %.0118, i64 52
-  %.val88110 = load i32, ptr %37, align 4
-  %38 = icmp slt i32 %36, %.val88110
+  %37 = getelementptr i8, ptr %.0122, i64 52
+  %.val88114 = load i32, ptr %37, align 4
+  %38 = icmp slt i32 %36, %.val88114
   br i1 %38, label %.lr.ph, label %.critedge2.preheader
 
 .lr.ph:                                           ; preds = %29
-  %39 = getelementptr i8, ptr %.0118, i64 56
+  %39 = getelementptr i8, ptr %.0122, i64 56
   %40 = sext i32 %36 to i64
   br label %44
 
@@ -660,13 +660,13 @@ Abc_Base10Log.exit100:                            ; preds = %.lr.ph.i95, %Abc_Sc
   br label %.critedge2.preheader
 
 .critedge2.preheader:                             ; preds = %.critedge2.preheader.loopexit, %29
-  %.val87114140 = phi i32 [ %.val88, %.critedge2.preheader.loopexit ], [ %.val88110, %29 ]
+  %.val87118144 = phi i32 [ %.val88, %.critedge2.preheader.loopexit ], [ %.val88114, %29 ]
   %41 = phi i32 [ %.pre, %.critedge2.preheader.loopexit ], [ %36, %29 ]
   %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.lr.ph113, label %.critedge4.preheader
+  br i1 %42, label %.lr.ph117, label %.critedge4.preheader
 
-.lr.ph113:                                        ; preds = %.critedge2.preheader
-  %43 = getelementptr i8, ptr %.0118, i64 56
+.lr.ph117:                                        ; preds = %.critedge2.preheader
+  %43 = getelementptr i8, ptr %.0122, i64 56
   br label %150
 
 44:                                               ; preds = %.lr.ph, %Abc_SclPinUpdate.exit
@@ -775,18 +775,18 @@ Abc_SclTimingsUpdate.exit.i:                      ; preds = %Abc_SclTimingUpdate
   %.pre62.i = phi i32 [ %.pre.i, %50 ], [ %.pre63.i, %Abc_SclTimingUpdate.exit.i.i ]
   %85 = phi i32 [ %.pre.i, %50 ], [ %82, %Abc_SclTimingUpdate.exit.i.i ]
   %86 = icmp sgt i32 %85, 0
-  br i1 %86, label %.lr.ph.i102, label %.critedge2.i
+  br i1 %86, label %.lr.ph.i103, label %.critedge2.i
 
-.lr.ph.i102:                                      ; preds = %Abc_SclTimingsUpdate.exit.i
+.lr.ph.i103:                                      ; preds = %Abc_SclTimingsUpdate.exit.i
   %87 = load ptr, ptr %52, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %.critedge2.i, label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i102, %101
-  %.pre61.i = phi i32 [ %.pre60.i, %101 ], [ %.pre62.i, %.lr.ph.i102 ]
-  %89 = phi i32 [ %102, %101 ], [ %85, %.lr.ph.i102 ]
-  %90 = phi ptr [ %103, %101 ], [ %87, %.lr.ph.i102 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %101 ], [ 0, %.lr.ph.i102 ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i103, %101
+  %.pre61.i = phi i32 [ %.pre60.i, %101 ], [ %.pre62.i, %.lr.ph.i103 ]
+  %89 = phi i32 [ %102, %101 ], [ %85, %.lr.ph.i103 ]
+  %90 = phi ptr [ %103, %101 ], [ %87, %.lr.ph.i103 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %101 ], [ 0, %.lr.ph.i103 ]
   %.not35.i = icmp eq ptr %90, null
   br i1 %.not35.i, label %101, label %91
 
@@ -822,8 +822,8 @@ Abc_UtilStrsav.exit.i:                            ; preds = %91
   %105 = icmp slt i64 %indvars.iv.next.i, %104
   br i1 %105, label %.lr.ph.split.i, label %.critedge2.i, !llvm.loop !18
 
-.critedge2.i:                                     ; preds = %101, %.lr.ph.i102, %Abc_SclTimingsUpdate.exit.i, %.lr.ph.i.i
-  %.pre59.i = phi i32 [ %.pre62.i, %Abc_SclTimingsUpdate.exit.i ], [ %.pre62.i, %.lr.ph.i102 ], [ %.pre.i, %.lr.ph.i.i ], [ %.pre60.i, %101 ]
+.critedge2.i:                                     ; preds = %101, %.lr.ph.i103, %Abc_SclTimingsUpdate.exit.i, %.lr.ph.i.i
+  %.pre59.i = phi i32 [ %.pre62.i, %Abc_SclTimingsUpdate.exit.i ], [ %.pre62.i, %.lr.ph.i103 ], [ %.pre.i, %.lr.ph.i.i ], [ %.pre60.i, %101 ]
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
   %.val38.i = load i32, ptr %47, align 4
   %106 = sext i32 %.val38.i to i64
@@ -917,8 +917,8 @@ Abc_SclShortFormula.exit.i:                       ; preds = %.backedge.i.i, %.cr
   %.0.lcssa.i.i = phi ptr [ %2, %.critedge.i ], [ %.0.be.i.i, %.backedge.i.i ]
   store i8 0, ptr %.0.lcssa.i.i, align 1
   %139 = load ptr, ptr %108, align 8
-  %.not.i101 = icmp eq ptr %139, null
-  br i1 %.not.i101, label %Abc_SclPinUpdate.exit, label %140
+  %.not.i102 = icmp eq ptr %139, null
+  br i1 %.not.i102, label %Abc_SclPinUpdate.exit, label %140
 
 140:                                              ; preds = %Abc_SclShortFormula.exit.i
   tail call void @free(ptr noundef nonnull %139) #29
@@ -937,24 +937,24 @@ Abc_SclPinUpdate.exit:                            ; preds = %Abc_SclShortFormula
   br i1 %146, label %44, label %.critedge2.preheader.loopexit, !llvm.loop !20
 
 .critedge4.preheader.loopexit:                    ; preds = %.critedge2
-  %.val87114.pre = load i32, ptr %37, align 4
+  %.val87118.pre = load i32, ptr %37, align 4
   br label %.critedge4.preheader
 
 .critedge4.preheader:                             ; preds = %.critedge4.preheader.loopexit, %.critedge2.preheader
-  %.val87114 = phi i32 [ %.val87114140, %.critedge2.preheader ], [ %.val87114.pre, %.critedge4.preheader.loopexit ]
-  %.lcssa108 = phi i32 [ %41, %.critedge2.preheader ], [ %160, %.critedge4.preheader.loopexit ]
-  %147 = icmp slt i32 %.lcssa108, %.val87114
-  br i1 %147, label %.lr.ph116, label %.critedge6
+  %.val87118 = phi i32 [ %.val87118144, %.critedge2.preheader ], [ %.val87118.pre, %.critedge4.preheader.loopexit ]
+  %.lcssa112 = phi i32 [ %41, %.critedge2.preheader ], [ %160, %.critedge4.preheader.loopexit ]
+  %147 = icmp slt i32 %.lcssa112, %.val87118
+  br i1 %147, label %.lr.ph120, label %.critedge6
 
-.lr.ph116:                                        ; preds = %.critedge4.preheader
-  %148 = getelementptr i8, ptr %.0118, i64 56
-  %149 = sext i32 %.lcssa108 to i64
+.lr.ph120:                                        ; preds = %.critedge4.preheader
+  %148 = getelementptr i8, ptr %.0122, i64 56
+  %149 = sext i32 %.lcssa112 to i64
   br label %163
 
-150:                                              ; preds = %.lr.ph113, %.critedge2
-  %indvars.iv130 = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next131, %.critedge2 ]
+150:                                              ; preds = %.lr.ph117, %.critedge2
+  %indvars.iv134 = phi i64 [ 0, %.lr.ph117 ], [ %indvars.iv.next135, %.critedge2 ]
   %.val84 = load ptr, ptr %43, align 8
-  %151 = getelementptr inbounds ptr, ptr %.val84, i64 %indvars.iv130
+  %151 = getelementptr inbounds ptr, ptr %.val84, i64 %indvars.iv134
   %152 = load ptr, ptr %151, align 8
   %153 = load ptr, ptr %152, align 8
   %.not81 = icmp eq ptr %153, null
@@ -965,7 +965,7 @@ Abc_SclPinUpdate.exit:                            ; preds = %Abc_SclShortFormula
   br label %.critedge2
 
 .critedge2:                                       ; preds = %150, %154
-  %155 = trunc i64 %indvars.iv130 to i8
+  %155 = trunc i64 %indvars.iv134 to i8
   %char82 = add i8 %155, 97
   store i8 %char82, ptr %2, align 16
   store i8 0, ptr %nul.i.i.i, align 1
@@ -974,16 +974,16 @@ Abc_SclPinUpdate.exit:                            ; preds = %Abc_SclShortFormula
   %158 = tail call noalias ptr @malloc(i64 noundef %157) #28
   %159 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(1) %2) #29
   store ptr %158, ptr %152, align 8
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %160 = load i32, ptr %35, align 8
   %161 = sext i32 %160 to i64
-  %162 = icmp slt i64 %indvars.iv.next131, %161
+  %162 = icmp slt i64 %indvars.iv.next135, %161
   br i1 %162, label %150, label %.critedge4.preheader.loopexit, !llvm.loop !21
 
-163:                                              ; preds = %.lr.ph116, %.critedge4
-  %indvars.iv133 = phi i64 [ %149, %.lr.ph116 ], [ %indvars.iv.next134, %.critedge4 ]
+163:                                              ; preds = %.lr.ph120, %.critedge4
+  %indvars.iv137 = phi i64 [ %149, %.lr.ph120 ], [ %indvars.iv.next138, %.critedge4 ]
   %.val = load ptr, ptr %148, align 8
-  %164 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv133
+  %164 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv137
   %165 = load ptr, ptr %164, align 8
   %166 = load ptr, ptr %165, align 8
   %.not80 = icmp eq ptr %166, null
@@ -996,7 +996,7 @@ Abc_SclPinUpdate.exit:                            ; preds = %Abc_SclShortFormula
 
 .critedge4:                                       ; preds = %163, %167
   %168 = load i32, ptr %35, align 8
-  %169 = trunc nsw i64 %indvars.iv133 to i32
+  %169 = trunc nsw i64 %indvars.iv137 to i32
   %reass.sub = sub i32 %168, %169
   %170 = trunc i32 %reass.sub to i8
   %char = add i8 %170, 122
@@ -1007,24 +1007,24 @@ Abc_SclPinUpdate.exit:                            ; preds = %Abc_SclShortFormula
   %173 = tail call noalias ptr @malloc(i64 noundef %172) #28
   %174 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) %2) #29
   store ptr %173, ptr %165, align 8
-  %indvars.iv.next134 = add nsw i64 %indvars.iv133, 1
+  %indvars.iv.next138 = add nsw i64 %indvars.iv137, 1
   %.val87 = load i32, ptr %37, align 4
   %175 = sext i32 %.val87 to i64
-  %176 = icmp slt i64 %indvars.iv.next134, %175
+  %176 = icmp slt i64 %indvars.iv.next138, %175
   br i1 %176, label %163, label %.critedge6, !llvm.loop !22
 
 .critedge6:                                       ; preds = %.critedge4, %.critedge4.preheader
-  %177 = getelementptr inbounds i8, ptr %.0118, i64 72
+  %177 = getelementptr inbounds i8, ptr %.0122, i64 72
   %178 = load ptr, ptr %177, align 8
-  %179 = add nuw nsw i32 %.071117, 1
-  %.not122 = icmp eq ptr %178, %13
-  br i1 %.not122, label %180, label %26, !llvm.loop !23
+  %179 = add nuw nsw i32 %.071121, 1
+  %.not126 = icmp eq ptr %178, %13
+  br i1 %.not126, label %180, label %26, !llvm.loop !23
 
 180:                                              ; preds = %.critedge6
-  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
+  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %.val89 = load i32, ptr %3, align 4
   %181 = sext i32 %.val89 to i64
-  %182 = icmp slt i64 %indvars.iv.next137, %181
+  %182 = icmp slt i64 %indvars.iv.next141, %181
   br i1 %182, label %11, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %180, %Abc_Base10Log.exit
@@ -1731,7 +1731,7 @@ SC_CellPinCapAve.exit:                            ; preds = %12, %.critedge
   br label %4, !llvm.loop !33
 
 32:                                               ; preds = %6
-  %33 = getelementptr inbounds i8, ptr %.010, i64 80
+  %33 = getelementptr inbounds i8, ptr %7, i64 80
   %34 = load ptr, ptr %33, align 8
   br label %.loopexit
 

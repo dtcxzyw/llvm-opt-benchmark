@@ -1502,7 +1502,7 @@ if.end.i:                                         ; preds = %for.end120
   %m_collisionObject.i6.i = getelementptr inbounds i8, ptr %144, i64 16
   %145 = load ptr, ptr %m_collisionObject.i6.i, align 8
   %. = select i1 %cmp.not.i, ptr %145, ptr %143
-  %.214 = select i1 %cmp.not.i, ptr %141, ptr %145
+  %.214 = select i1 %cmp.not.i, ptr %143, ptr %145
   %m_worldTransform.i5.sink.i = getelementptr inbounds i8, ptr %.214, i64 8
   %m_worldTransform.i7.i = getelementptr inbounds i8, ptr %., i64 8
   invoke void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %139, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i5.sink.i, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i7.i)
@@ -1586,7 +1586,7 @@ if.end.i154:                                      ; preds = %invoke.cont156
   %m_collisionObject.i6.i169 = getelementptr inbounds i8, ptr %161, i64 16
   %162 = load ptr, ptr %m_collisionObject.i6.i169, align 8
   %.215 = select i1 %cmp.not.i158, ptr %162, ptr %160
-  %.216 = select i1 %cmp.not.i158, ptr %158, ptr %162
+  %.216 = select i1 %cmp.not.i158, ptr %160, ptr %162
   %m_worldTransform.i5.sink.i165 = getelementptr inbounds i8, ptr %.216, i64 8
   %m_worldTransform.i7.i166 = getelementptr inbounds i8, ptr %.215, i64 8
   invoke void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %156, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i5.sink.i165, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i7.i166)

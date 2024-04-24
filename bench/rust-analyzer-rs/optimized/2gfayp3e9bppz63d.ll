@@ -24266,7 +24266,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
   br i1 %35, label %._crit_edge.i.i.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 ._crit_edge.i.i.loopexit.i.i.i:                   ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h4e225f4b68f22450E.exit.i.i.i.i.i"
-  store ptr %24, ptr %23, align 8, !alias.scope !9100, !noalias !9097
+  store ptr %30, ptr %23, align 8, !alias.scope !9100, !noalias !9097
   br label %._crit_edge.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.i.i.loopexit.i.i.i, %21
@@ -24395,7 +24395,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h4ee3f51bbafec08dE.exit.i.i.i.i: ; 
   br i1 %61, label %._crit_edge.i.i.loopexit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.loopexit.i.i.i.i.i.i:             ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h4e225f4b68f22450E.exit.i.i.i.i.i.i.i.i"
-  store ptr %46, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !9140, !noalias !9137
+  store ptr %56, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !9140, !noalias !9137
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !9131
   store ptr %7, ptr %6, align 8, !noalias !9131
   %62 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h71445d7c237ed2dbE.llvm.12214321796725142330(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
@@ -24499,7 +24499,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h79f587b4a66d4cd0E.exit.loopexit17.
   br i1 %90, label %._crit_edge.i.i34.loopexit.i.i.i, label %.lr.ph.i.i27.i.i.i
 
 ._crit_edge.i.i34.loopexit.i.i.i:                 ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h4e225f4b68f22450E.exit.i.i33.i.i.i"
-  store ptr %79, ptr %78, align 8, !alias.scope !9159, !noalias !9156
+  store ptr %85, ptr %78, align 8, !alias.scope !9159, !noalias !9156
   br label %._crit_edge.i.i34.i.i.i
 
 ._crit_edge.i.i34.i.i.i:                          ; preds = %._crit_edge.i.i34.loopexit.i.i.i, %76

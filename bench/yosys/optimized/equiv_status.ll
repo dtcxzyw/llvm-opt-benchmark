@@ -331,7 +331,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit: ; preds = %._crit_edge140, %
   br label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit53
 
 .loopexit.split-lp:                               ; preds = %43, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit56, %137, %139, %125, %128
-  %.sroa.076.2.ph = phi ptr [ null, %43 ], [ %.sroa.076.1.lcssa, %128 ], [ %.sroa.076.1.lcssa, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit56 ], [ %.sroa.076.1.lcssa, %137 ], [ %.sroa.11.1.lcssa, %139 ], [ %.sroa.11.1.lcssa, %125 ], [ %.sroa.11.1.lcssa, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit ]
+  %.sroa.076.2.ph = phi ptr [ null, %43 ], [ %.sroa.076.1.lcssa, %128 ], [ %.sroa.076.1.lcssa, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit56 ], [ %.sroa.076.1.lcssa, %137 ], [ %.sroa.076.1.lcssa, %139 ], [ %.sroa.076.1.lcssa, %125 ], [ %.sroa.076.1.lcssa, %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit53
@@ -1110,7 +1110,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %74, %_ZNSt6vectorIP
   br label %102
 
 102:                                              ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit, %39
-  %103 = phi ptr [ %.pre76, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %36, %39 ]
+  %103 = phi ptr [ %.pre76, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %37, %39 ]
   %104 = phi ptr [ %.pre75, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %40, %39 ]
   %105 = phi ptr [ %.pre, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %41, %39 ]
   %106 = ptrtoint ptr %105 to i64
@@ -1800,7 +1800,7 @@ _ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE7do_hashERKS2_.exit: ; preds = %
   store i32 %65, ptr %44, align 8
   %66 = load ptr, ptr %0, align 8
   %67 = getelementptr inbounds i32, ptr %66, i64 %63
-  %68 = trunc i64 %indvars.iv to i32
+  %68 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %68, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load ptr, ptr %33, align 8

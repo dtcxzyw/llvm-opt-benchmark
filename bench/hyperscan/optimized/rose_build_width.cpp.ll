@@ -717,7 +717,7 @@ for.inc98:                                        ; preds = %if.end84, %_ZNK3ue2
 
 do.end108:                                        ; preds = %for.inc98, %for.end
   %maxWidth.2.lcssa = phi i64 [ %maxWidth.0.lcssa, %for.end ], [ %maxWidth.4, %for.inc98 ]
-  %conv109 = trunc i64 %maxWidth.2.lcssa to i32
+  %conv109 = trunc nuw i64 %maxWidth.2.lcssa to i32
   br label %cleanup111
 
 cleanup111:                                       ; preds = %for.body, %if.end84, %if.end60, %if.then53, %land.lhs.true, %do.end108, %entry
@@ -1042,7 +1042,7 @@ for.inc155:                                       ; preds = %if.end133, %for.bod
   br i1 %cmp.i221.not, label %do.end167.loopexit, label %for.body47
 
 do.end167.loopexit:                               ; preds = %for.inc155
-  %36 = trunc i64 %maxWidth.2 to i32
+  %36 = trunc nuw i64 %maxWidth.2 to i32
   br label %cleanup169
 
 cleanup169:                                       ; preds = %if.end133, %invoke.cont109, %invoke.cont94, %invoke.cont65, %do.end167.loopexit, %invoke.cont37
@@ -1324,7 +1324,7 @@ _ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9u
   br label %invoke.cont48
 
 if.else.i.i289:                                   ; preds = %invoke.cont46
-  invoke void @_ZNSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEESaISI_EE17_M_realloc_insertIJSI_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %stack, ptr %11, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp38)
+  invoke void @_ZNSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEESaISI_EE17_M_realloc_insertIJSI_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %stack, ptr %12, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp38)
           to label %if.else.i.i289.invoke.cont48_crit_edge unwind label %lpad47
 
 if.else.i.i289.invoke.cont48_crit_edge:           ; preds = %if.else.i.i289
@@ -1675,7 +1675,7 @@ lpad177:                                          ; preds = %cleanup.cont.i96
   br label %ehcleanup186
 
 invoke.cont.i:                                    ; preds = %invoke.cont180, %invoke.cont48
-  %.lcssa = phi ptr [ %18, %invoke.cont48 ], [ %69, %invoke.cont180 ]
+  %.lcssa = phi ptr [ %19, %invoke.cont48 ], [ %69, %invoke.cont180 ]
   %tobool.not.i.i.i403 = icmp eq ptr %.lcssa, null
   br i1 %tobool.not.i.i.i403, label %_ZNSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEESaISI_EED2Ev.exit, label %if.then.i.i.i404
 

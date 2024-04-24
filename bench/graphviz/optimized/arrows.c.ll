@@ -240,7 +240,7 @@ arrow_match_name_frag.exit20.i:                   ; preds = %17, %12
   %20 = phi ptr [ %31, %29 ], [ @.str.13, %arrow_match_name_frag.exit20.i ]
   %.015.i22.i = phi ptr [ %30, %29 ], [ @Arrownames, %arrow_match_name_frag.exit20.i ]
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #12
-  %22 = tail call i32 @strncmp(ptr noundef %.0.i, ptr noundef nonnull %20, i64 noundef %21) #12
+  %22 = tail call i32 @strncmp(ptr noundef %.011.i19.i, ptr noundef nonnull %20, i64 noundef %21) #12
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %29
 
@@ -248,7 +248,7 @@ arrow_match_name_frag.exit20.i:                   ; preds = %17, %12
   %25 = getelementptr inbounds i8, ptr %.015.i22.i, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = or i32 %26, %.2.i
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 %21
+  %28 = getelementptr inbounds i8, ptr %.011.i19.i, i64 %21
   br label %arrow_match_shape.exit
 
 29:                                               ; preds = %.lr.ph.i21.i
@@ -259,7 +259,7 @@ arrow_match_name_frag.exit20.i:                   ; preds = %17, %12
 
 arrow_match_shape.exit:                           ; preds = %29, %arrow_match_name_frag.exit.i, %24
   %.4.i = phi i32 [ 49, %arrow_match_name_frag.exit.i ], [ %27, %24 ], [ %.2.i, %29 ]
-  %.1.i = phi ptr [ %7, %arrow_match_name_frag.exit.i ], [ %28, %24 ], [ %.0.i, %29 ]
+  %.1.i = phi ptr [ %7, %arrow_match_name_frag.exit.i ], [ %28, %24 ], [ %.011.i19.i, %29 ]
   %.not14.i = icmp ne i32 %.4.i, 0
   %32 = and i32 %.4.i, 15
   %.not15.i = icmp eq i32 %32, 0

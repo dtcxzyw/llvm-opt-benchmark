@@ -2355,7 +2355,7 @@ if.then.i85:                                      ; preds = %_ZSt4copyISt13_Bit_
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %idx.neg.i = sub nsw i64 0, %sub.ptr.div.i
-  %add.ptr.i = getelementptr inbounds i64, ptr %0, i64 %idx.neg.i
+  %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i) #22
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
@@ -3660,7 +3660,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit.i: ; preds = %if.then.i
 if.else.i:                                        ; preds = %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit.i, %for.body.i
   %26 = load i64, ptr %partitionOffset_.i, align 8
   %27 = trunc i64 %26 to i32
-  %28 = trunc i64 %indvars.iv.i to i32
+  %28 = trunc nuw nsw i64 %indvars.iv.i to i32
   %conv11.i = add i32 %27, %28
   %rawValues_.i.i.i = getelementptr inbounds i8, ptr %15, i64 152
   %29 = load ptr, ptr %rawValues_.i.i.i, align 8
@@ -3868,18 +3868,18 @@ if.then10.i.i:                                    ; preds = %if.end8.i.i
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.end8.i.i
-  %add64.i.i = add nsw i32 %mul.i.i.i, 64
-  %cmp15.not65.i.i = icmp sgt i32 %add64.i.i, %45
-  br i1 %cmp15.not65.i.i, label %for.end.i.i, label %for.body.i15.i
+  %add65.i.i = add nsw i32 %mul.i.i.i, 64
+  %cmp15.not66.i.i = icmp sgt i32 %add65.i.i, %45
+  br i1 %cmp15.not66.i.i, label %for.end.i.i, label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %if.end14.i.i, %for.body.i15.i
-  %add67.i.i = phi i32 [ %add.i16.i, %for.body.i15.i ], [ %add64.i.i, %if.end14.i.i ]
-  %i.066.i.i = phi i32 [ %add67.i.i, %for.body.i15.i ], [ %mul.i.i.i, %if.end14.i.i ]
-  %div16.i.i = sdiv i32 %i.066.i.i, 64
+  %add68.i.i = phi i32 [ %add.i16.i, %for.body.i15.i ], [ %add65.i.i, %if.end14.i.i ]
+  %i.067.i.i = phi i32 [ %add68.i.i, %for.body.i15.i ], [ %mul.i.i.i, %if.end14.i.i ]
+  %div16.i.i = sdiv i32 %i.067.i.i, 64
   %idxprom.i42.i.i = sext i32 %div16.i.i to i64
   %arrayidx.i43.i.i = getelementptr inbounds i64, ptr %43, i64 %idxprom.i42.i.i
   store i64 0, ptr %arrayidx.i43.i.i, align 8
-  %add.i16.i = add nsw i32 %add67.i.i, 64
+  %add.i16.i = add nsw i32 %add68.i.i, 64
   %cmp15.not.i.i = icmp sgt i32 %add.i16.i, %45
   br i1 %cmp15.not.i.i, label %for.end.i.i, label %for.body.i15.i, !llvm.loop !36
 
@@ -3899,8 +3899,8 @@ if.end16.sink.split.i:                            ; preds = %if.then19.i.i, %if.
   %idxprom2.i.i.i = sext i32 %div.i17.sink.i to i64
   %arrayidx3.i.i.i = getelementptr inbounds i64, ptr %43, i64 %idxprom2.i.i.i
   %47 = load i64, ptr %arrayidx3.i.i.i, align 8
-  %and4.i51.i.i = and i64 %47, %notmask.i45.i.sink.i
-  store i64 %and4.i51.i.i, ptr %arrayidx3.i.i.i, align 8
+  %and4.i52.i.i = and i64 %47, %notmask.i45.i.sink.i
+  store i64 %and4.i52.i.i, ptr %arrayidx3.i.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %for.body10.i.i, %for.body.i.i, %for.inc.i, %if.end16.sink.split.i, %for.end.i.i, %if.else11.i, %for.cond7.preheader.i.i, %if.then5.i, %_ZNRSt8optionalIjE5valueEv.exit.i
@@ -4125,9 +4125,9 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %10 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !37
   %11 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !37
   %cmp.not.i9.i = icmp ult i64 %11, %6
-  br i1 %cmp.not.i9.i, label %if.then.i11.i, label %_ZN8facebook5velox13AlignedBuffer8allocateIlEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
+  br i1 %cmp.not.i9.i, label %if.then.i12.i, label %_ZN8facebook5velox13AlignedBuffer8allocateIlEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
 
-if.then.i11.i:                                    ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i
+if.then.i12.i:                                    ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i
   tail call void @llvm.trap()
   unreachable
 

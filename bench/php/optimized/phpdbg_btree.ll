@@ -531,7 +531,7 @@ define hidden noundef i32 @phpdbg_btree_delete(ptr nocapture noundef %0, i64 nou
   %44 = add nuw nsw i32 %.15775, 1
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %37, ptr noundef nonnull align 8 dereferenceable(1) %43, i64 %46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %38, ptr noundef nonnull align 8 dereferenceable(1) %43, i64 %46, i1 false)
   %47 = getelementptr inbounds i8, ptr %0, i64 16
   %48 = load i8, ptr %47, align 8
   %49 = trunc i8 %48 to i1
@@ -547,7 +547,7 @@ define hidden noundef i32 @phpdbg_btree_delete(ptr nocapture noundef %0, i64 nou
   br label %53
 
 53:                                               ; preds = %52, %51
-  store ptr %37, ptr %42, align 8
+  store ptr %38, ptr %42, align 8
   %.not6679 = icmp eq i32 %.15775, 0
   br i1 %.not6679, label %.loopexit69.sink.split, label %.lr.ph83
 
@@ -560,7 +560,7 @@ define hidden noundef i32 @phpdbg_btree_delete(ptr nocapture noundef %0, i64 nou
 56:                                               ; preds = %.lr.ph83, %56
   %indvars.iv88 = phi i64 [ %54, %.lr.ph83 ], [ %indvars.iv.next89, %56 ]
   %.082 = phi ptr [ %43, %.lr.ph83 ], [ %60, %56 ]
-  %.15981 = phi ptr [ %37, %.lr.ph83 ], [ %gep, %56 ]
+  %.15981 = phi ptr [ %38, %.lr.ph83 ], [ %gep, %56 ]
   %indvars.iv.next89 = add nsw i64 %indvars.iv88, -1
   %57 = sub nsw i64 1, %indvars.iv88
   %gep = getelementptr %union._phpdbg_btree_branch, ptr %invariant.gep, i64 %57

@@ -2746,7 +2746,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %22 = lshr i16 %21, 8
-  %conv8.i = trunc i16 %22 to i8
+  %conv8.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i, ptr %out, align 1, !tbaa !21
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.exit
 
@@ -4237,7 +4237,7 @@ cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7
   br label %eh.resume
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 55, %switch.maskindex
   %6 = and i8 %switch.shifted, 1
   %switch.lobit.not = icmp eq i8 %6, 0
@@ -12573,7 +12573,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyINSt7_
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %invoke.cont15, %invoke.cont15.thread
-  %12 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %invoke.cont15 ], [ %7, %invoke.cont15.thread ]
+  %12 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre55, %invoke.cont15 ], [ %7, %invoke.cont15.thread ]
   %tobool.not.i.i.i47 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i47, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i48
 

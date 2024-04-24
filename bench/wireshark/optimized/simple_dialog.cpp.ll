@@ -3246,30 +3246,28 @@ _ZN17QArrayDataPointerI19VisibleAsyncMessageE6detachEPS1_.exit.i.i: ; preds = %_
   %.idx.mask.i.i = and i64 %16, 1152921504606846975
   %68 = icmp ne i64 %.idx.mask.i.i, 0
   %69 = load i64, ptr getelementptr inbounds (%class.QList.1, ptr @_ZL16visible_messages, i64 0, i32 0, i32 2), align 8
-  %.idx15.i.i.mask.i = and i64 %69, 1152921504606846975
-  %.not.i.i.i36 = icmp eq i64 %.idx15.i.i.mask.i, 1
+  %70 = getelementptr %struct.VisibleAsyncMessage, ptr %65, i64 %69
+  %.not.i.i.i36 = icmp eq ptr %67, %70
   %or.cond.i.i.i = select i1 %68, i1 true, i1 %.not.i.i.i36
-  br i1 %or.cond.i.i.i, label %._crit_edge.i.i.i, label %70
+  br i1 %or.cond.i.i.i, label %._crit_edge.i.i.i, label %71
 
-70:                                               ; preds = %_ZN17QArrayDataPointerI19VisibleAsyncMessageE6detachEPS1_.exit.i.i
+71:                                               ; preds = %_ZN17QArrayDataPointerI19VisibleAsyncMessageE6detachEPS1_.exit.i.i
   store ptr %67, ptr getelementptr inbounds (%class.QList.1, ptr @_ZL16visible_messages, i64 0, i32 0, i32 1), align 8
   br label %_ZN5QListI19VisibleAsyncMessageE8removeAtEx.exit
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN17QArrayDataPointerI19VisibleAsyncMessageE6detachEPS1_.exit.i.i
-  %71 = getelementptr %struct.VisibleAsyncMessage, ptr %65, i64 %69
-  %.not12.i.i.i = icmp eq ptr %67, %71
-  br i1 %.not12.i.i.i, label %_ZN5QListI19VisibleAsyncMessageE8removeAtEx.exit, label %72
+  br i1 %.not.i.i.i36, label %_ZN5QListI19VisibleAsyncMessageE8removeAtEx.exit, label %72
 
 72:                                               ; preds = %._crit_edge.i.i.i
-  %73 = ptrtoint ptr %71 to i64
+  %73 = ptrtoint ptr %70 to i64
   %74 = ptrtoint ptr %67 to i64
   %75 = sub i64 %73, %74
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %66, ptr align 1 %67, i64 %75, i1 false)
   %.pre14.i.i.i = load i64, ptr getelementptr inbounds (%class.QList.1, ptr @_ZL16visible_messages, i64 0, i32 0, i32 2), align 8
   br label %_ZN5QListI19VisibleAsyncMessageE8removeAtEx.exit
 
-_ZN5QListI19VisibleAsyncMessageE8removeAtEx.exit: ; preds = %70, %._crit_edge.i.i.i, %72
-  %76 = phi i64 [ %69, %._crit_edge.i.i.i ], [ %.pre14.i.i.i, %72 ], [ %69, %70 ]
+_ZN5QListI19VisibleAsyncMessageE8removeAtEx.exit: ; preds = %71, %._crit_edge.i.i.i, %72
+  %76 = phi i64 [ %69, %._crit_edge.i.i.i ], [ %.pre14.i.i.i, %72 ], [ %69, %71 ]
   %77 = add i64 %76, -1
   store i64 %77, ptr getelementptr inbounds (%class.QList.1, ptr @_ZL16visible_messages, i64 0, i32 0, i32 2), align 8
   br label %.loopexit

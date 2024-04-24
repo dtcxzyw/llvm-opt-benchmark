@@ -598,7 +598,7 @@ if.then.i134:                                     ; preds = %_ZN5eastl9hashtable
   %second.i135 = getelementptr inbounds i8, ptr %pNode.addr.05.i.i.i123, i64 8
   %61 = load i64, ptr %second.i135, align 4, !noalias !25
   %ref.tmp81.sroa.1.0.extract.shift = lshr i64 %61, 32
-  %ref.tmp81.sroa.1.0.extract.trunc = trunc i64 %ref.tmp81.sroa.1.0.extract.shift to i32
+  %ref.tmp81.sroa.1.0.extract.trunc = trunc nuw i64 %ref.tmp81.sroa.1.0.extract.shift to i32
   br label %invoke.cont83
 
 invoke.cont83:                                    ; preds = %for.inc.i.i.i125, %if.then.i134, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i130, %invoke.cont79
@@ -5683,8 +5683,6 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
-  %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %pNode.addr.05.i.i, i64 24
-  %storemerge1.i.i.i.i = load ptr, ptr %mpNext.i.i.i.i, align 8, !noalias !251
   %15 = load ptr, ptr %arrayidx.i, align 8, !noalias !251
   %cmp.i.i = icmp eq ptr %15, %pNode.addr.05.i.i
   br i1 %cmp.i.i, label %delete.notnull.i.i.i.i, label %while.cond.i.i
@@ -5701,12 +5699,15 @@ if.end.i.i:                                       ; preds = %while.cond.i.i
   br label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.end.i, %if.end.i.i
+  %pNodeNext.0.i.i.sink = phi ptr [ %pNodeNext.0.i.i, %if.end.i.i ], [ %15, %if.end.i ]
   %pNodeNext.0.in.i.i.le.sink = phi ptr [ %pNodeNext.0.in.i.i.le, %if.end.i.i ], [ %arrayidx.i, %if.end.i ]
-  store ptr %storemerge1.i.i.i.i, ptr %pNodeNext.0.in.i.i.le.sink, align 8, !noalias !251
+  %mpNext8.i.i = getelementptr inbounds i8, ptr %pNodeNext.0.i.i.sink, i64 24
+  %16 = load ptr, ptr %mpNext8.i.i, align 8, !noalias !251
+  store ptr %16, ptr %pNodeNext.0.in.i.i.le.sink, align 8, !noalias !251
   tail call void @_ZdaPv(ptr noundef nonnull %pNode.addr.05.i.i) #12, !noalias !251
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %16 = load i64, ptr %mnElementCount.i.i, align 8, !noalias !251
-  %dec.i.i4 = add i64 %16, -1
+  %17 = load i64, ptr %mnElementCount.i.i, align 8, !noalias !251
+  %dec.i.i4 = add i64 %17, -1
   store i64 %dec.i.i4, ptr %mnElementCount.i.i, align 8, !noalias !251
   br label %return
 
@@ -6943,13 +6944,13 @@ if.then.i:                                        ; preds = %_ZN5eastl9hashtable
 
 if.end.i:                                         ; preds = %if.then.i, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit
   %15 = phi ptr [ %.pre, %if.then.i ], [ %12, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit ]
-  %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %.sink.i, i64 24
-  %storemerge1.i.i.i.i = load ptr, ptr %mpNext.i.i.i.i, align 8, !noalias !320
   %cmp.i.i = icmp eq ptr %15, %.sink.i
   br i1 %cmp.i.i, label %if.end.i.thread.i, label %while.cond.i.i
 
 if.end.i.thread.i:                                ; preds = %if.end.i
-  store ptr %storemerge1.i.i.i.i, ptr %add.ptr8.sink.i, align 8, !noalias !320
+  %mpNext8.i4.i = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = load ptr, ptr %mpNext8.i4.i, align 8, !noalias !320
+  store ptr %16, ptr %add.ptr8.sink.i, align 8, !noalias !320
   br label %delete.notnull.i.i.i.i
 
 while.cond.i.i:                                   ; preds = %if.end.i, %while.cond.i.i
@@ -6961,7 +6962,9 @@ while.cond.i.i:                                   ; preds = %if.end.i, %while.co
 
 if.end.i.i:                                       ; preds = %while.cond.i.i
   %pNodeNext.0.in.i.i.le = getelementptr inbounds i8, ptr %pNodeCurrent.0.i.i, i64 24
-  store ptr %storemerge1.i.i.i.i, ptr %pNodeNext.0.in.i.i.le, align 8, !noalias !320
+  %mpNext8.i.i = getelementptr inbounds i8, ptr %pNodeNext.0.i.i, i64 24
+  %17 = load ptr, ptr %mpNext8.i.i, align 8, !noalias !320
+  store ptr %17, ptr %pNodeNext.0.in.i.i.le, align 8, !noalias !320
   %isnull.i.i.i.i = icmp eq ptr %.sink.i, null
   br i1 %isnull.i.i.i.i, label %_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS7_IKiSC_EELb0ELb0EEE.exit, label %delete.notnull.i.i.i.i
 
@@ -6971,8 +6974,8 @@ delete.notnull.i.i.i.i:                           ; preds = %if.end.i.i, %if.end
 
 _ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS7_IKiSC_EELb0ELb0EEE.exit: ; preds = %if.end.i.i, %delete.notnull.i.i.i.i
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %16 = load i64, ptr %mnElementCount.i.i, align 8, !noalias !320
-  %dec.i.i3 = add i64 %16, -1
+  %18 = load i64, ptr %mnElementCount.i.i, align 8, !noalias !320
+  %dec.i.i3 = add i64 %18, -1
   store i64 %dec.i.i3, ptr %mnElementCount.i.i, align 8, !noalias !320
   ret void
 }
@@ -7285,13 +7288,13 @@ if.then.i:                                        ; preds = %_ZN5eastl9hashtable
 
 if.end.i:                                         ; preds = %if.then.i, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit
   %15 = phi ptr [ %.pre, %if.then.i ], [ %12, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit ]
-  %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %.sink.i, i64 24
-  %storemerge1.i.i.i.i = load ptr, ptr %mpNext.i.i.i.i, align 8, !noalias !339
   %cmp.i.i = icmp eq ptr %15, %.sink.i
   br i1 %cmp.i.i, label %if.end.i.thread.i, label %while.cond.i.i
 
 if.end.i.thread.i:                                ; preds = %if.end.i
-  store ptr %storemerge1.i.i.i.i, ptr %add.ptr8.sink.i, align 8, !noalias !339
+  %mpNext8.i4.i = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = load ptr, ptr %mpNext8.i4.i, align 8, !noalias !339
+  store ptr %16, ptr %add.ptr8.sink.i, align 8, !noalias !339
   br label %delete.notnull.i.i.i.i
 
 while.cond.i.i:                                   ; preds = %if.end.i, %while.cond.i.i
@@ -7303,7 +7306,9 @@ while.cond.i.i:                                   ; preds = %if.end.i, %while.co
 
 if.end.i.i:                                       ; preds = %while.cond.i.i
   %pNodeNext.0.in.i.i.le = getelementptr inbounds i8, ptr %pNodeCurrent.0.i.i, i64 24
-  store ptr %storemerge1.i.i.i.i, ptr %pNodeNext.0.in.i.i.le, align 8, !noalias !339
+  %mpNext8.i.i = getelementptr inbounds i8, ptr %pNodeNext.0.i.i, i64 24
+  %17 = load ptr, ptr %mpNext8.i.i, align 8, !noalias !339
+  store ptr %17, ptr %pNodeNext.0.in.i.i.le, align 8, !noalias !339
   %isnull.i.i.i.i = icmp eq ptr %.sink.i, null
   br i1 %isnull.i.i.i.i, label %_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEE.exit, label %delete.notnull.i.i.i.i
 
@@ -7313,8 +7318,8 @@ delete.notnull.i.i.i.i:                           ; preds = %if.end.i.i, %if.end
 
 _ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEE.exit: ; preds = %if.end.i.i, %delete.notnull.i.i.i.i
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %16 = load i64, ptr %mnElementCount.i.i, align 8, !noalias !339
-  %dec.i.i3 = add i64 %16, -1
+  %18 = load i64, ptr %mnElementCount.i.i, align 8, !noalias !339
+  %dec.i.i3 = add i64 %18, -1
   store i64 %dec.i.i3, ptr %mnElementCount.i.i, align 8, !noalias !339
   ret void
 }
@@ -7685,13 +7690,13 @@ if.then.i:                                        ; preds = %_ZN5eastl9hashtable
 
 if.end.i:                                         ; preds = %if.then.i, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit
   %15 = phi ptr [ %.pre, %if.then.i ], [ %12, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IiNS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstIS8_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit ]
-  %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %.sink.i, i64 24
-  %storemerge1.i.i.i.i = load ptr, ptr %mpNext.i.i.i.i, align 8, !noalias !359
   %cmp.i.i = icmp eq ptr %15, %.sink.i
   br i1 %cmp.i.i, label %if.end.i.thread.i, label %while.cond.i.i
 
 if.end.i.thread.i:                                ; preds = %if.end.i
-  store ptr %storemerge1.i.i.i.i, ptr %add.ptr8.sink.i, align 8, !noalias !359
+  %mpNext8.i4.i = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = load ptr, ptr %mpNext8.i4.i, align 8, !noalias !359
+  store ptr %16, ptr %add.ptr8.sink.i, align 8, !noalias !359
   br label %delete.notnull.i.i.i.i
 
 while.cond.i.i:                                   ; preds = %if.end.i, %while.cond.i.i
@@ -7703,7 +7708,9 @@ while.cond.i.i:                                   ; preds = %if.end.i, %while.co
 
 if.end.i.i:                                       ; preds = %while.cond.i.i
   %pNodeNext.0.in.i.i.le = getelementptr inbounds i8, ptr %pNodeCurrent.0.i.i, i64 24
-  store ptr %storemerge1.i.i.i.i, ptr %pNodeNext.0.in.i.i.le, align 8, !noalias !359
+  %mpNext8.i.i = getelementptr inbounds i8, ptr %pNodeNext.0.i.i, i64 24
+  %17 = load ptr, ptr %mpNext8.i.i, align 8, !noalias !359
+  store ptr %17, ptr %pNodeNext.0.in.i.i.le, align 8, !noalias !359
   %isnull.i.i.i.i = icmp eq ptr %.sink.i, null
   br i1 %isnull.i.i.i.i, label %_ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS5_IKiSA_EELb0ELb0EEE.exit, label %delete.notnull.i.i.i.i
 
@@ -7713,8 +7720,8 @@ delete.notnull.i.i.i.i:                           ; preds = %if.end.i.i, %if.end
 
 _ZN5eastl9lru_cacheIiiNS_9allocatorENS_4listIiS1_EENS_8hash_mapIiNS_4pairIiNS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES1_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS5_IKiSA_EELb0ELb0EEE.exit: ; preds = %if.end.i.i, %delete.notnull.i.i.i.i
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %16 = load i64, ptr %mnElementCount.i.i, align 8, !noalias !359
-  %dec.i.i3 = add i64 %16, -1
+  %18 = load i64, ptr %mnElementCount.i.i, align 8, !noalias !359
+  %dec.i.i3 = add i64 %18, -1
   store i64 %dec.i.i3, ptr %mnElementCount.i.i, align 8, !noalias !359
   ret void
 }

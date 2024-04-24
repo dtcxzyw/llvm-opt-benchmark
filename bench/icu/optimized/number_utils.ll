@@ -255,7 +255,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -314,7 +314,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -991,7 +991,7 @@ entry.if.end.i_crit_edge:                         ; preds = %entry
   br label %if.end.i
 
 if.then.i.i:                                      ; preds = %entry
-  %narrow.i.i = add i64 %call, 12
+  %narrow.i.i = add nuw nsw i64 %call, 12
   %add.i.i = and i64 %narrow.i.i, 4294967295
   %call.i.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %add.i.i) #11
   %cmp2.not.i.i = icmp eq ptr %call.i.i, null
@@ -1127,7 +1127,7 @@ _ZN6icu_756number4impl6DecNum6_setToEPKciR10UErrorCode.exit: ; preds = %if.else1
   store i32 %add, ptr %exponent, align 4
   %9 = bitcast double %d to i64
   %10 = lshr i64 %9, 56
-  %11 = trunc i64 %10 to i8
+  %11 = trunc nuw i64 %10 to i8
   %conv9 = and i8 %11, -128
   %12 = load ptr, ptr %this, align 8
   %bits = getelementptr inbounds i8, ptr %12, i64 8

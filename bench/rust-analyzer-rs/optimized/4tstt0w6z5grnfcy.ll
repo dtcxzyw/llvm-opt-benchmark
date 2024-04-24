@@ -2488,9 +2488,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %37, label %_ZN4core4iter6traits8iterator8Iterator4fold17hb3ce061aa7c0af53E.exit.sink.split.i.i.i, label %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h29dea31d92d663faE.exit.i.i.i.i"
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hb3ce061aa7c0af53E.exit.sink.split.i.i.i: ; preds = %34, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h29dea31d92d663faE.exit.i.i.i.i"
-  %.lcssa.sink.i.i.i = phi ptr [ %.pre.i.i.i.i, %34 ], [ %33, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h29dea31d92d663faE.exit.i.i.i.i" ]
   %.val4.i.lcssa.ph.i.i.i = phi i64 [ %36, %34 ], [ %.val4.i1.i.i.i, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h29dea31d92d663faE.exit.i.i.i.i" ]
-  store ptr %.lcssa.sink.i.i.i, ptr %3, align 8, !alias.scope !840, !noalias !845
+  store ptr %33, ptr %3, align 8, !alias.scope !840, !noalias !845
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hfb543117b51a8430E.exit.i"
 
 38:                                               ; preds = %27

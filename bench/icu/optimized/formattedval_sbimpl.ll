@@ -254,7 +254,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -313,7 +313,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -807,7 +807,7 @@ if.end80:                                         ; preds = %for.body
   br i1 %cmp83, label %land.lhs.true, label %if.end115
 
 land.lhs.true:                                    ; preds = %if.end80
-  %tobool = trunc i8 %prevIsSpan.1251 to i1
+  %tobool = trunc nuw i8 %prevIsSpan.1251 to i1
   br i1 %tobool, label %if.then84, label %if.end115
 
 if.then84:                                        ; preds = %land.lhs.true
@@ -853,7 +853,7 @@ if.end115:                                        ; preds = %if.then84, %if.then
   br i1 %brmerge, label %if.end163, label %land.lhs.true124
 
 land.lhs.true124:                                 ; preds = %if.end115
-  %tobool125 = trunc i8 %prevIsNumeric.1249 to i1
+  %tobool125 = trunc nuw i8 %prevIsNumeric.1249 to i1
   br i1 %tobool125, label %if.end163, label %land.lhs.true126
 
 land.lhs.true126:                                 ; preds = %land.lhs.true124
@@ -897,7 +897,7 @@ for.inc:                                          ; preds = %land.rhs145, %land.
   br i1 %cmp144.not.not, label %land.rhs145, label %for.end, !llvm.loop !4
 
 for.end.split.loop.exit350:                       ; preds = %land.rhs145
-  %52 = trunc i64 %indvars.iv to i32
+  %52 = trunc nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.split.loop.exit350
@@ -920,7 +920,7 @@ land.lhs.true165:                                 ; preds = %if.end163
   br i1 %or.cond84, label %land.lhs.true174, label %if.end212
 
 land.lhs.true174:                                 ; preds = %land.lhs.true165
-  %tobool175 = trunc i8 %prevIsNumeric.1249 to i1
+  %tobool175 = trunc nuw i8 %prevIsNumeric.1249 to i1
   br i1 %tobool175, label %if.end212, label %land.lhs.true176
 
 land.lhs.true176:                                 ; preds = %land.lhs.true174
@@ -967,7 +967,7 @@ for.inc200:                                       ; preds = %land.rhs192
   br i1 %cmp191.not.not, label %land.rhs192, label %for.end202, !llvm.loop !6
 
 for.end202.split.loop.exit:                       ; preds = %land.rhs192
-  %63 = trunc i64 %indvars.iv300 to i32
+  %63 = trunc nsw i64 %indvars.iv300 to i32
   br label %for.end202
 
 for.end202:                                       ; preds = %for.inc200, %for.end202.split.loop.exit
@@ -980,7 +980,7 @@ for.end202:                                       ; preds = %for.inc200, %for.en
 
 if.end212:                                        ; preds = %land.lhs.true183, %land.lhs.true176, %land.lhs.true174, %land.lhs.true165, %if.end163
   %64 = phi i32 [ %53, %land.lhs.true183 ], [ %53, %land.lhs.true176 ], [ %53, %land.lhs.true174 ], [ %53, %land.lhs.true165 ], [ %44, %if.end163 ]
-  %tobool213 = trunc i8 %prevIsSpan.2 to i1
+  %tobool213 = trunc nuw i8 %prevIsSpan.2 to i1
   br i1 %tobool213, label %if.else282, label %land.rhs214
 
 land.rhs214:                                      ; preds = %if.end212
@@ -1221,7 +1221,7 @@ for.inc:                                          ; preds = %invoke.cont35, %inv
   br i1 %cmp29, label %invoke.cont35, label %for.end, !llvm.loop !8
 
 for.end.loopexit.split.loop.exit:                 ; preds = %if.else
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit, %if.then25
@@ -1511,8 +1511,8 @@ if.then9:                                         ; preds = %if.then.i, %if.then
 
 if.end11:                                         ; preds = %_ZN6icu_7515MaybeStackArrayINS_8SpanInfoELi8EE6resizeEii.exit, %if.end
   %6 = phi i32 [ %.pre, %_ZN6icu_7515MaybeStackArrayINS_8SpanInfoELi8EE6resizeEii.exit ], [ %2, %if.end ]
-  %cmp1311 = icmp sgt i32 %6, 0
-  br i1 %cmp1311, label %for.body.preheader, label %for.end
+  %cmp1312 = icmp sgt i32 %6, 0
+  br i1 %cmp1312, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end11
   %7 = zext nneg i32 %6 to i64

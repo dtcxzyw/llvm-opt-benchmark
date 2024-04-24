@@ -1683,7 +1683,7 @@ define dso_local zeroext i1 @nfs_ctx_key_to_expire(ptr noundef %0, ptr nocapture
   br label %54
 
 54:                                               ; preds = %51, %27
-  %55 = phi ptr [ %53, %51 ], [ %16, %27 ]
+  %55 = phi ptr [ %53, %51 ], [ %32, %27 ]
   %56 = phi i1 [ %52, %51 ], [ true, %27 ]
   call void @put_rpccred(ptr noundef %55) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16

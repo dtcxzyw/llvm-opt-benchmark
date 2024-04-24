@@ -3192,7 +3192,8 @@ if.then3:                                         ; preds = %cond.end.thread, %c
   br label %return
 
 datetime_utcoffset.exit:                          ; preds = %cond.end.thread, %cond.end
-  %call.i.i = tail call fastcc ptr @call_tzinfo_method(ptr noundef %self, ptr noundef nonnull @.str.23, ptr noundef nonnull %dt)
+  %cond.i = phi ptr [ @_Py_NoneStruct, %cond.end ], [ %3, %cond.end.thread ]
+  %call.i.i = tail call fastcc ptr @call_tzinfo_method(ptr noundef %cond.i, ptr noundef nonnull @.str.23, ptr noundef nonnull %dt)
   %cmp6 = icmp eq ptr %call.i.i, null
   br i1 %cmp6, label %return, label %if.end9
 
@@ -6407,8 +6408,8 @@ land.lhs.true.i.i:                                ; preds = %entry
 
 land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i
   %rem1.i.i.i.lhs.trunc = trunc nuw i32 %or to i16
-  %rem1.i.i.i61 = urem i16 %rem1.i.i.i.lhs.trunc, 100
-  %cmp2.not.i.i.i = icmp eq i16 %rem1.i.i.i61, 0
+  %rem1.i.i.i62 = urem i16 %rem1.i.i.i.lhs.trunc, 100
+  %cmp2.not.i.i.i = icmp eq i16 %rem1.i.i.i62, 0
   br i1 %cmp2.not.i.i.i, label %is_leap.exit.i.i, label %is_leap.exit.thread6.i.i
 
 is_leap.exit.thread6.i.i:                         ; preds = %land.rhs.i.i.i
@@ -6416,8 +6417,8 @@ is_leap.exit.thread6.i.i:                         ; preds = %land.rhs.i.i.i
   br label %ymd_to_ord.exit
 
 is_leap.exit.i.i:                                 ; preds = %land.rhs.i.i.i
-  %rem3.i.i.i62 = urem i16 %rem1.i.i.i.lhs.trunc, 400
-  %cmp4.i.not.i.i = icmp eq i16 %rem3.i.i.i62, 0
+  %rem3.i.i.i63 = urem i16 %rem1.i.i.i.lhs.trunc, 400
+  %cmp4.i.not.i.i = icmp eq i16 %rem3.i.i.i63, 0
   %inc.i.i = add i32 %4, 1
   br i1 %cmp4.i.not.i.i, label %ymd_to_ord.exit, label %is_leap.exit.thread.i.i
 
@@ -6472,24 +6473,24 @@ if.else:                                          ; preds = %ymd_to_ord.exit
   br i1 %cmp16, label %land.lhs.true, label %if.end22
 
 land.lhs.true:                                    ; preds = %if.else
-  %mul.i.i.i45 = mul nuw nsw i32 %or, 365
-  %div.i.i.i46636469 = lshr i32 %or, 2
-  %add.i.i.i47 = add nuw nsw i32 %mul.i.i.i45, %div.i.i.i46636469
-  %div1.neg.i.i.i4865.lhs.trunc = trunc nuw i32 %or to i16
-  %div1.neg.i.i.i486566 = udiv i16 %div1.neg.i.i.i4865.lhs.trunc, 100
-  %div1.neg.i.i.i4865.zext = zext nneg i16 %div1.neg.i.i.i486566 to i32
-  %sub2.i.i.i49 = sub nsw i32 %add.i.i.i47, %div1.neg.i.i.i4865.zext
-  %div3.i.i.i506768 = udiv i16 %div1.neg.i.i.i4865.lhs.trunc, 400
-  %div3.i.i.i5067.zext = zext nneg i16 %div3.i.i.i506768 to i32
-  %add4.i.i.i51 = add nsw i32 %sub2.i.i.i49, %div3.i.i.i5067.zext
-  %add.i.i52 = add nsw i32 %add4.i.i.i51, 1
-  %add.i53 = add nsw i32 %add4.i.i.i51, 7
-  %rem.i54 = srem i32 %add.i53, 7
-  %sub.i55 = sub nsw i32 %add.i.i52, %rem.i54
-  %cmp.i56 = icmp sgt i32 %rem.i54, 3
-  %add1.i57 = add nsw i32 %sub.i55, 7
-  %spec.select.i58 = select i1 %cmp.i56, i32 %add1.i57, i32 %sub.i55
-  %cmp19.not = icmp sge i32 %add2.i, %spec.select.i58
+  %mul.i.i.i46 = mul nuw nsw i32 %or, 365
+  %div.i.i.i47646570 = lshr i32 %or, 2
+  %add.i.i.i48 = add nuw nsw i32 %mul.i.i.i46, %div.i.i.i47646570
+  %div1.neg.i.i.i4966.lhs.trunc = trunc nuw i32 %or to i16
+  %div1.neg.i.i.i496667 = udiv i16 %div1.neg.i.i.i4966.lhs.trunc, 100
+  %div1.neg.i.i.i4966.zext = zext nneg i16 %div1.neg.i.i.i496667 to i32
+  %sub2.i.i.i50 = sub nsw i32 %add.i.i.i48, %div1.neg.i.i.i4966.zext
+  %div3.i.i.i516869 = udiv i16 %div1.neg.i.i.i4966.lhs.trunc, 400
+  %div3.i.i.i5168.zext = zext nneg i16 %div3.i.i.i516869 to i32
+  %add4.i.i.i52 = add nsw i32 %sub2.i.i.i50, %div3.i.i.i5168.zext
+  %add.i.i53 = add nsw i32 %add4.i.i.i52, 1
+  %add.i54 = add nsw i32 %add4.i.i.i52, 7
+  %rem.i55 = srem i32 %add.i54, 7
+  %sub.i56 = sub nsw i32 %add.i.i53, %rem.i55
+  %cmp.i57 = icmp sgt i32 %rem.i55, 3
+  %add1.i58 = add nsw i32 %sub.i56, 7
+  %spec.select.i59 = select i1 %cmp.i57, i32 %add1.i58, i32 %sub.i56
+  %cmp19.not = icmp sge i32 %add2.i, %spec.select.i59
   %add = zext i1 %cmp19.not to i32
   %spec.select = add nuw nsw i32 %or, %add
   %spec.select16 = select i1 %cmp19.not, i32 0, i32 %quo.0.i
@@ -6501,8 +6502,8 @@ if.end22:                                         ; preds = %land.lhs.true, %if.
   %week.0 = phi i32 [ %quo.0.i44, %if.then ], [ %spec.select16, %land.lhs.true ], [ %quo.0.i, %if.else ]
   %5 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_IsoCalendarDateType, i64 0, i32 36), align 8
   %call.i = tail call ptr %5(ptr noundef nonnull @PyDateTime_IsoCalendarDateType, i64 noundef 3) #15
-  %cmp.i59 = icmp eq ptr %call.i, null
-  br i1 %cmp.i59, label %iso_calendar_date_new_impl.exit, label %if.end.i
+  %cmp.i60 = icmp eq ptr %call.i, null
+  br i1 %cmp.i60, label %iso_calendar_date_new_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end22
   %add24 = add i32 %day.0, 1
@@ -6513,8 +6514,8 @@ if.end.i:                                         ; preds = %if.end22
   store ptr %call1.i, ptr %ob_item.i.i, align 8
   %conv2.i = sext i32 %add23 to i64
   %call3.i = tail call ptr @PyLong_FromLong(i64 noundef %conv2.i) #15
-  %arrayidx.i.i60 = getelementptr i8, ptr %call.i, i64 32
-  store ptr %call3.i, ptr %arrayidx.i.i60, align 8
+  %arrayidx.i.i61 = getelementptr i8, ptr %call.i, i64 32
+  store ptr %call3.i, ptr %arrayidx.i.i61, align 8
   %conv4.i = sext i32 %add24 to i64
   %call5.i = tail call ptr @PyLong_FromLong(i64 noundef %conv4.i) #15
   %arrayidx.i8.i = getelementptr i8, ptr %call.i, i64 40
@@ -9741,7 +9742,7 @@ if.then1.i178:                                    ; preds = %if.end.i175
 
 if.end46:                                         ; preds = %_Py_NewRef.exit, %if.then14, %if.then40, %delta_cmp.exit, %if.end34
   %offset1.0143 = phi ptr [ %call.i.i, %if.then40 ], [ %call.i.i, %delta_cmp.exit ], [ %call.i.i, %if.end34 ], [ @_Py_NoneStruct, %if.then14 ], [ @_Py_NoneStruct, %_Py_NewRef.exit ]
-  %offset2.0142 = phi ptr [ %call.i.i90, %if.then40 ], [ %call.i.i90, %delta_cmp.exit ], [ %call.i.i, %if.end34 ], [ @_Py_NoneStruct, %if.then14 ], [ @_Py_NoneStruct, %_Py_NewRef.exit ]
+  %offset2.0142 = phi ptr [ %call.i.i90, %if.then40 ], [ %call.i.i90, %delta_cmp.exit ], [ %call.i.i90, %if.end34 ], [ @_Py_NoneStruct, %if.then14 ], [ @_Py_NoneStruct, %_Py_NewRef.exit ]
   %offdiff.0 = phi ptr [ %call41, %if.then40 ], [ null, %delta_cmp.exit ], [ null, %if.end34 ], [ null, %if.then14 ], [ null, %_Py_NewRef.exit ]
   %28 = load i64, ptr %offset1.0143, align 8
   %29 = and i64 %28, 2147483648
@@ -10154,7 +10155,7 @@ if.then5.i25:                                     ; preds = %if.then.i20
 
 done:                                             ; preds = %if.then5.i25, %if.then.i20, %land.lhs.true10, %land.lhs.true, %if.then.i, %delta_cmp.exit, %if.end8
   %result.0 = phi i32 [ 0, %if.end8 ], [ 1, %delta_cmp.exit ], [ 1, %if.then.i ], [ 1, %land.lhs.true ], [ %15, %if.then5.i25 ], [ 1, %if.then.i20 ], [ 1, %land.lhs.true10 ]
-  %flip_offset.0 = phi ptr [ %offset_other, %if.end8 ], [ %call, %delta_cmp.exit ], [ %call, %if.then.i ], [ %call, %land.lhs.true ], [ %call5, %if.then5.i25 ], [ %call5, %if.then.i20 ], [ %call5, %land.lhs.true10 ]
+  %flip_offset.0 = phi ptr [ %call5, %if.end8 ], [ %call, %delta_cmp.exit ], [ %call, %if.then.i ], [ %call, %land.lhs.true ], [ %call5, %if.then5.i25 ], [ %call5, %if.then.i20 ], [ %call5, %land.lhs.true10 ]
   %16 = load i64, ptr %flip_offset.0, align 8
   %17 = and i64 %16, 2147483648
   %cmp.i28.not = icmp eq i64 %17, 0
@@ -13189,7 +13190,7 @@ if.end.i35:                                       ; preds = %for.body.i29
   br i1 %exitcond.not.i40, label %parse_digits.exit42, label %for.body.i29, !llvm.loop !9
 
 parse_digits.exit42:                              ; preds = %if.end.i35, %for.end
-  %retval.0.i41 = phi ptr [ %tstr_end, %for.end ], [ %incdec.ptr.i36, %if.end.i35 ]
+  %retval.0.i41 = phi ptr [ %p.2, %for.end ], [ %incdec.ptr.i36, %if.end.i35 ]
   %cmp42 = icmp eq ptr %retval.0.i41, null
   br i1 %cmp42, label %return, label %if.end45
 

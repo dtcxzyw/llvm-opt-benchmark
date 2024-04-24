@@ -174,15 +174,16 @@ define noundef i32 @hsearch_r(ptr %0, ptr %1, i32 noundef %2, ptr nocapture noun
   br i1 %.not48, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %25
-  %.sink54 = phi ptr [ %15, %25 ], [ %.0, %.preheader ]
-  %29 = load ptr, ptr %.042, align 8
-  store ptr %29, ptr %.sink54, align 8
+  %.sink56 = phi ptr [ %26, %25 ], [ %28, %.preheader ]
+  %.sink55 = phi ptr [ %15, %25 ], [ %.0, %.preheader ]
+  %29 = load ptr, ptr %.sink56, align 8
+  store ptr %29, ptr %.sink55, align 8
   %30 = load ptr, ptr %23, align 8
   tail call void @free(ptr noundef %30)
   %31 = getelementptr inbounds i8, ptr %.042, i64 16
   %32 = load ptr, ptr %31, align 8
   tail call void @free(ptr noundef %32)
-  tail call void @free(ptr noundef nonnull %.042)
+  tail call void @free(ptr noundef %.042)
   br label %43
 
 33:                                               ; preds = %.thread

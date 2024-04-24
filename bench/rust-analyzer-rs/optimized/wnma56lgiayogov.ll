@@ -90,7 +90,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %18, label %_ZN4core4iter6traits8iterator8Iterator4fold17hbd28910903913586E.llvm.8738125041999644318.exit.loopexit, label %.lr.ph.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hbd28910903913586E.llvm.8738125041999644318.exit.loopexit: ; preds = %.lr.ph.i
-  store ptr %6, ptr %5, align 8, !alias.scope !55, !noalias !41
+  store ptr %11, ptr %5, align 8, !alias.scope !55, !noalias !41
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17hbd28910903913586E.llvm.8738125041999644318.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hbd28910903913586E.llvm.8738125041999644318.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hbd28910903913586E.llvm.8738125041999644318.exit.loopexit, %2
@@ -4998,7 +4998,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   br i1 %16, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  store ptr %6, ptr %7, align 8, !alias.scope !937
+  store ptr %10, ptr %7, align 8, !alias.scope !937
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h642216e1e3632a6bE.llvm.8738125041999644318.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h642216e1e3632a6bE.llvm.8738125041999644318.exit: ; preds = %4, %._crit_edge.i
@@ -14402,7 +14402,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h64
   br i1 %17, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  store ptr %7, ptr %8, align 8, !alias.scope !2769
+  store ptr %11, ptr %8, align 8, !alias.scope !2769
   br label %18
 
 18:                                               ; preds = %._crit_edge, %5

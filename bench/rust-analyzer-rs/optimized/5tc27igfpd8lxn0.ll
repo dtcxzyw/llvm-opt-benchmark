@@ -2954,7 +2954,7 @@ default.unreachable:                              ; preds = %17
   br i1 %35, label %._crit_edge.i.i.loopexit.i, label %17
 
 ._crit_edge.i.i.loopexit.i:                       ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1d65cc4a0ee706deE.exit.i.i.i"
-  store ptr %9, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !874, !noalias !877
+  store ptr %19, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !874, !noalias !877
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.i.loopexit.i, %2
@@ -3087,7 +3087,7 @@ default.unreachable:                              ; preds = %18
   br i1 %29, label %._crit_edge.i.i.loopexit.i, label %18
 
 ._crit_edge.i.i.loopexit.i:                       ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbdbe5cd1c7a1271fE.exit.i.i.i"
-  store ptr %10, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !913, !noalias !916
+  store ptr %20, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !913, !noalias !916
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.i.loopexit.i, %2

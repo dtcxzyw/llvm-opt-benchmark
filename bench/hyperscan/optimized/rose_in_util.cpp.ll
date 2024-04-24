@@ -9603,7 +9603,7 @@ if.then.i:                                        ; preds = %if.then.i.i.thread,
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
   %12 = load i32, ptr %_M_storage.i.i.i, align 4, !noalias !218
-  store i32 %12, ptr %add.ptr.i.i.i, align 4, !noalias !218
+  store i32 %12, ptr %7, align 4, !noalias !218
   %13 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8, !noalias !218
   %add.i.i = add i64 %13, 1
   store i64 %add.i.i, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8, !noalias !218
@@ -10351,7 +10351,7 @@ _ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9u
   br label %invoke.cont46
 
 if.else.i.i282:                                   ; preds = %invoke.cont44
-  invoke void @_ZNSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_11RoseInGraphENS1_17RoseInVertexPropsENS1_15RoseInEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEESaISI_EE17_M_realloc_insertIJSI_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %stack, ptr %11, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp36)
+  invoke void @_ZNSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_11RoseInGraphENS1_17RoseInVertexPropsENS1_15RoseInEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEESaISI_EE17_M_realloc_insertIJSI_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %stack, ptr %12, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp36)
           to label %if.else.i.i282.invoke.cont46_crit_edge unwind label %lpad45
 
 if.else.i.i282.invoke.cont46_crit_edge:           ; preds = %if.else.i.i282
@@ -10702,7 +10702,7 @@ lpad172:                                          ; preds = %cleanup.cont.i96
   br label %ehcleanup179
 
 invoke.cont.i:                                    ; preds = %invoke.cont173, %invoke.cont46
-  %.lcssa = phi ptr [ %18, %invoke.cont46 ], [ %69, %invoke.cont173 ]
+  %.lcssa = phi ptr [ %19, %invoke.cont46 ], [ %69, %invoke.cont173 ]
   %tobool.not.i.i.i396 = icmp eq ptr %.lcssa, null
   br i1 %tobool.not.i.i.i396, label %_ZNSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_11RoseInGraphENS1_17RoseInVertexPropsENS1_15RoseInEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEESaISI_EED2Ev.exit, label %if.then.i.i.i397
 
@@ -11470,7 +11470,7 @@ _ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9u
   br label %invoke.cont47
 
 if.else.i.i292:                                   ; preds = %invoke.cont45
-  invoke void @_ZNSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_11RoseInGraphENS1_17RoseInVertexPropsENS1_15RoseInEdgePropsEEEEES0_IN5boost8optionalINSA_6detail29reverse_graph_edge_descriptorINS2_15edge_descriptorIS8_EEEEEES0_INSA_9iterators18transform_iteratorINSC_35reverse_graph_edge_descriptor_makerISF_EENS8_16in_edge_iteratorENSA_11use_defaultESN_EESO_EEESaISR_EE17_M_realloc_insertIJSR_EEEvN9__gnu_cxx17__normal_iteratorIPSR_ST_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %stack, ptr %11, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp37)
+  invoke void @_ZNSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_11RoseInGraphENS1_17RoseInVertexPropsENS1_15RoseInEdgePropsEEEEES0_IN5boost8optionalINSA_6detail29reverse_graph_edge_descriptorINS2_15edge_descriptorIS8_EEEEEES0_INSA_9iterators18transform_iteratorINSC_35reverse_graph_edge_descriptor_makerISF_EENS8_16in_edge_iteratorENSA_11use_defaultESN_EESO_EEESaISR_EE17_M_realloc_insertIJSR_EEEvN9__gnu_cxx17__normal_iteratorIPSR_ST_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %stack, ptr %12, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp37)
           to label %if.else.i.i292.invoke.cont47_crit_edge unwind label %lpad46
 
 if.else.i.i292.invoke.cont47_crit_edge:           ; preds = %if.else.i.i292
@@ -11822,7 +11822,7 @@ lpad183:                                          ; preds = %cleanup.cont.i96
   br label %ehcleanup190
 
 invoke.cont.i:                                    ; preds = %invoke.cont184, %invoke.cont47
-  %.lcssa = phi ptr [ %18, %invoke.cont47 ], [ %69, %invoke.cont184 ]
+  %.lcssa = phi ptr [ %19, %invoke.cont47 ], [ %69, %invoke.cont184 ]
   %tobool.not.i.i.i412 = icmp eq ptr %.lcssa, null
   br i1 %tobool.not.i.i.i412, label %_ZNSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_11RoseInGraphENS1_17RoseInVertexPropsENS1_15RoseInEdgePropsEEEEES0_IN5boost8optionalINSA_6detail29reverse_graph_edge_descriptorINS2_15edge_descriptorIS8_EEEEEES0_INSA_9iterators18transform_iteratorINSC_35reverse_graph_edge_descriptor_makerISF_EENS8_16in_edge_iteratorENSA_11use_defaultESN_EESO_EEESaISR_EED2Ev.exit, label %if.then.i.i.i413
 

@@ -605,7 +605,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 ossl_property_unlock.exit34:                      ; preds = %for.body
   %9 = getelementptr i8, ptr %call.i25, i64 32
   %method.val3.i = load ptr, ptr %9, align 8
-  tail call void %method.val3.i(ptr noundef %method) #6
+  tail call void %method.val3.i(ptr noundef %8) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i25, ptr noundef nonnull @.str, i32 noundef 204) #6
   %10 = load ptr, ptr %impls, align 8
   %call.i28 = tail call ptr @OPENSSL_sk_delete(ptr noundef %10, i32 noundef %i.045) #6

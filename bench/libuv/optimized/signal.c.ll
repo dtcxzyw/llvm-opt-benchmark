@@ -1419,14 +1419,14 @@ if.end.i21.i:                                     ; preds = %land.lhs.true.i.i, 
   br i1 %cmp20.i.i, label %do.body22.i.i, label %do.body76.i.i
 
 do.body22.i.i:                                    ; preds = %if.end.i21.i
-  %tree_entry25.i.i = getelementptr inbounds i8, ptr %elm.addr.03.i.i, i64 112
+  %tree_entry25.i.i = getelementptr inbounds i8, ptr %27, i64 112
   %28 = load ptr, ptr %tree_entry25.i.i, align 8
   store ptr %28, ptr %rbe_right19.i.i, align 8
   %cmp29.not.i.i = icmp eq ptr %28, null
   br i1 %cmp29.not.i.i, label %do.end37.thread.i.i, label %do.end37.i.i
 
 do.end37.thread.i.i:                              ; preds = %do.body22.i.i
-  %rbe_parent415.i.i = getelementptr inbounds i8, ptr %elm.addr.03.i.i, i64 128
+  %rbe_parent415.i.i = getelementptr inbounds i8, ptr %27, i64 128
   store ptr %22, ptr %rbe_parent415.i.i, align 8
   %.pre16.i = load ptr, ptr %rbe_parent4.i.i, align 8
   br label %if.then43.i.i
@@ -1435,7 +1435,7 @@ do.end37.i.i:                                     ; preds = %do.body22.i.i
   %rbe_parent34.i.i = getelementptr inbounds i8, ptr %28, i64 128
   store ptr %20, ptr %rbe_parent34.i.i, align 8
   %.pre4.i.i = load ptr, ptr %rbe_parent4.i.i, align 8
-  %rbe_parent41.i.i = getelementptr inbounds i8, ptr %elm.addr.03.i.i, i64 128
+  %rbe_parent41.i.i = getelementptr inbounds i8, ptr %27, i64 128
   store ptr %.pre4.i.i, ptr %rbe_parent41.i.i, align 8
   %cmp42.not.i.i = icmp eq ptr %.pre4.i.i, null
   br i1 %cmp42.not.i.i, label %if.end60.i.i, label %if.then43.i.i
@@ -1451,9 +1451,9 @@ if.then43.i.i:                                    ; preds = %do.end37.i.i, %do.e
 
 if.end60.i.i:                                     ; preds = %if.then43.i.i, %do.end37.i.i
   %tree_entry46.sink.i.i = phi ptr [ @uv__signal_tree, %do.end37.i.i ], [ %spec.select.i.i, %if.then43.i.i ]
-  store ptr %elm.addr.03.i.i, ptr %tree_entry46.sink.i.i, align 8
+  store ptr %27, ptr %tree_entry46.sink.i.i, align 8
   store ptr %20, ptr %tree_entry25.i.i, align 8
-  store ptr %elm.addr.03.i.i, ptr %rbe_parent4.i.i, align 8
+  store ptr %27, ptr %rbe_parent4.i.i, align 8
   br label %do.body76.i.i
 
 do.body76.i.i:                                    ; preds = %if.end60.i.i, %if.end.i21.i
@@ -1521,14 +1521,14 @@ if.end154.i.i:                                    ; preds = %land.lhs.true141.i.
   br i1 %cmp157.i.i, label %do.body159.i.i, label %do.body215.i.i
 
 do.body159.i.i:                                   ; preds = %if.end154.i.i
-  %rbe_right163.i.i = getelementptr inbounds i8, ptr %elm.addr.03.i.i, i64 120
+  %rbe_right163.i.i = getelementptr inbounds i8, ptr %36, i64 120
   %37 = load ptr, ptr %rbe_right163.i.i, align 8
   store ptr %37, ptr %tree_entry1.i.i, align 8
   %cmp166.not.i.i = icmp eq ptr %37, null
   br i1 %cmp166.not.i.i, label %do.end174.thread.i.i, label %do.end174.i.i
 
 do.end174.thread.i.i:                             ; preds = %do.body159.i.i
-  %rbe_parent1787.i.i = getelementptr inbounds i8, ptr %elm.addr.03.i.i, i64 128
+  %rbe_parent1787.i.i = getelementptr inbounds i8, ptr %36, i64 128
   store ptr %22, ptr %rbe_parent1787.i.i, align 8
   %.pre.i50 = load ptr, ptr %rbe_parent4.i.i, align 8
   br label %if.then180.i.i
@@ -1537,7 +1537,7 @@ do.end174.i.i:                                    ; preds = %do.body159.i.i
   %rbe_parent171.i.i = getelementptr inbounds i8, ptr %37, i64 128
   store ptr %20, ptr %rbe_parent171.i.i, align 8
   %.pre.i.i = load ptr, ptr %rbe_parent4.i.i, align 8
-  %rbe_parent178.i.i = getelementptr inbounds i8, ptr %elm.addr.03.i.i, i64 128
+  %rbe_parent178.i.i = getelementptr inbounds i8, ptr %36, i64 128
   store ptr %.pre.i.i, ptr %rbe_parent178.i.i, align 8
   %cmp179.not.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %cmp179.not.i.i, label %if.end199.i.i, label %if.then180.i.i
@@ -1553,9 +1553,9 @@ if.then180.i.i:                                   ; preds = %do.end174.i.i, %do.
 
 if.end199.i.i:                                    ; preds = %if.then180.i.i, %do.end174.i.i
   %tree_entry183.sink.i.i = phi ptr [ @uv__signal_tree, %do.end174.i.i ], [ %spec.select10.i.i, %if.then180.i.i ]
-  store ptr %elm.addr.03.i.i, ptr %tree_entry183.sink.i.i, align 8
+  store ptr %36, ptr %tree_entry183.sink.i.i, align 8
   store ptr %20, ptr %rbe_right163.i.i, align 8
-  store ptr %elm.addr.03.i.i, ptr %rbe_parent4.i.i, align 8
+  store ptr %36, ptr %rbe_parent4.i.i, align 8
   br label %do.body215.i.i
 
 do.body215.i.i:                                   ; preds = %if.end199.i.i, %if.end154.i.i

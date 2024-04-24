@@ -293,7 +293,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -352,7 +352,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -959,7 +959,7 @@ _ZNK6icu_7514DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCo
   br label %return
 
 return.loopexit.i:                                ; preds = %for.body21.i
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %if.end.i12
 
 if.end.i12:                                       ; preds = %return.loopexit.i, %if.then16.i
@@ -1016,7 +1016,7 @@ if.end30.i25:                                     ; preds = %for.inc28.i23, %for
   br label %return
 
 return.loopexit.i31:                              ; preds = %for.body.i27
-  %10 = trunc i64 %indvars.iv.i28 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.i28 to i32
   br label %if.end7
 
 if.end7:                                          ; preds = %return.loopexit.i31, %if.then26.i, %if.then5.i13, %if.end.i12
@@ -1101,7 +1101,7 @@ if.end30:                                         ; preds = %for.inc28, %for.inc
   br label %return
 
 return.loopexit:                                  ; preds = %for.body21
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %return.loopexit, %if.end, %entry, %if.end30, %if.then16, %if.then5
@@ -1169,7 +1169,7 @@ if.end30:                                         ; preds = %for.inc28, %for.inc
   br label %return
 
 return.loopexit:                                  ; preds = %for.body
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %return.loopexit, %if.end, %entry, %if.end30, %if.then26, %if.then5
@@ -1419,7 +1419,7 @@ if.end11.i.i:                                     ; preds = %while.body.i.i
   %mul.i.i = mul nsw i32 %setNum.016.i.i, 10
   %sub.i.i = add nsw i32 %conv.i.i, -48
   %add.i.i = add i32 %sub.i.i, %mul.i.i
-  %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %arrayidx.i.i = getelementptr inbounds i8, ptr %12, i64 %indvars.iv.next.i.i
   %17 = load i8, ptr %arrayidx.i.i, align 1
   %cmp4.not.i.i = icmp eq i8 %17, 0
@@ -1590,7 +1590,7 @@ if.end11.i:                                       ; preds = %while.body.i
   %mul.i = mul nsw i32 %setNum.016.i, 10
   %sub.i = add nsw i32 %conv.i6, -48
   %add.i = add i32 %sub.i, %mul.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next.i
   %8 = load i8, ptr %arrayidx.i, align 1
   %cmp4.not.i = icmp eq i8 %8, 0
@@ -1715,7 +1715,7 @@ if.end11.i:                                       ; preds = %while.body.i
   %mul.i = mul nsw i32 %setNum.016.i, 10
   %sub.i = add nsw i32 %conv.i34, -48
   %add.i = add i32 %sub.i, %mul.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next.i
   %6 = load i8, ptr %arrayidx.i, align 1
   %cmp4.not.i = icmp eq i8 %6, 0
@@ -1851,8 +1851,8 @@ if.end.i.i:                                       ; preds = %if.end.i44
   %23 = and i32 %cond.i.i.i, -2
   %or.cond.i.i = icmp eq i32 %23, 4
   %cmp.i.i23.i.i = icmp ugt i32 %cond.i.i.i, 2
-  %or.cond87.i.i = and i1 %cmp.i.i23.i.i, %or.cond.i.i
-  br i1 %or.cond87.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit.i.i, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i
+  %or.cond88.i.i = and i1 %cmp.i.i23.i.i, %or.cond.i.i
+  br i1 %or.cond88.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit.i.i, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i
 
 _ZNK6icu_7513UnicodeStringixEi.exit.i.i:          ; preds = %if.end.i.i
   %24 = and i16 %20, 2
@@ -1877,9 +1877,9 @@ _ZNK6icu_7513UnicodeStringixEi.exit53.i.i:        ; preds = %lor.lhs.false5.i.i
   %arrayidx.i.i52.i.i = getelementptr i8, ptr %28, i64 -2
   %30 = load i16, ptr %arrayidx.i.i52.i.i, align 2
   %cmp13.not.i.i = icmp eq i16 %30, 48
-  br i1 %cmp13.not.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit66.i.i, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i
+  br i1 %cmp13.not.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit67.i.i, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i
 
-_ZNK6icu_7513UnicodeStringixEi.exit66.i.i:        ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit53.i.i
+_ZNK6icu_7513UnicodeStringixEi.exit67.i.i:        ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit53.i.i
   %31 = load i16, ptr %cond.i2.i.i.i.i, align 2
   %conv17.i.i = zext i16 %31 to i32
   %sub18.i.i = add nsw i32 %conv17.i.i, -48
@@ -1887,11 +1887,11 @@ _ZNK6icu_7513UnicodeStringixEi.exit66.i.i:        ; preds = %_ZNK6icu_7513Unicod
   %or.cond1.i.i = icmp ult i16 %32, -10
   br i1 %or.cond1.i.i, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i, label %if.end23.i.i
 
-if.end23.i.i:                                     ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit66.i.i
+if.end23.i.i:                                     ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit67.i.i
   %cmp24.i.i = icmp eq i32 %sub.i.i, 2
-  br i1 %cmp24.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit80.i.i, label %if.end8.i
+  br i1 %cmp24.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit81.i.i, label %if.end8.i
 
-_ZNK6icu_7513UnicodeStringixEi.exit80.i.i:        ; preds = %if.end23.i.i
+_ZNK6icu_7513UnicodeStringixEi.exit81.i.i:        ; preds = %if.end23.i.i
   %.sroa.gep141 = getelementptr inbounds i8, ptr %25, i64 2
   %cond.i2.i.i.i.i.sroa.sel = select i1 %tobool.not.i.i.i.i.i, ptr %.sroa.gep141, ptr %fLength.i.i.i
   %33 = load i16, ptr %cond.i2.i.i.i.i.sroa.sel, align 2
@@ -1899,7 +1899,7 @@ _ZNK6icu_7513UnicodeStringixEi.exit80.i.i:        ; preds = %if.end23.i.i
   %or.cond2.i.i = icmp ult i16 %34, -10
   br i1 %or.cond2.i.i, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i, label %if.end33.i.i
 
-if.end33.i.i:                                     ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit80.i.i
+if.end33.i.i:                                     ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit81.i.i
   %conv27.i.i = zext nneg i16 %33 to i32
   %mul.i.i = mul nuw nsw i32 %sub18.i.i, 10
   %sub28.i.i = add nsw i32 %mul.i.i, -48
@@ -1907,7 +1907,7 @@ if.end33.i.i:                                     ; preds = %_ZNK6icu_7513Unicod
   %cmp35.i.i = icmp sgt i32 %add34.i.i, 24
   br i1 %cmp35.i.i, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i, label %if.end8.i
 
-_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i: ; preds = %if.end33.i.i, %_ZNK6icu_7513UnicodeStringixEi.exit80.i.i, %_ZNK6icu_7513UnicodeStringixEi.exit66.i.i, %_ZNK6icu_7513UnicodeStringixEi.exit53.i.i, %lor.lhs.false5.i.i, %_ZNK6icu_7513UnicodeStringixEi.exit.i.i, %if.end.i.i
+_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i: ; preds = %if.end33.i.i, %_ZNK6icu_7513UnicodeStringixEi.exit81.i.i, %_ZNK6icu_7513UnicodeStringixEi.exit67.i.i, %_ZNK6icu_7513UnicodeStringixEi.exit53.i.i, %lor.lhs.false5.i.i, %_ZNK6icu_7513UnicodeStringixEi.exit.i.i, %if.end.i.i
   store i32 3, ptr %errorCode, align 4
   br label %invoke.cont
 
@@ -2018,8 +2018,8 @@ if.end.i.i75:                                     ; preds = %if.end.i73
   %50 = and i32 %cond.i.i.i80, -2
   %or.cond.i.i82 = icmp eq i32 %50, 4
   %cmp.i.i23.i.i83 = icmp ugt i32 %cond.i.i.i80, 2
-  %or.cond87.i.i84 = and i1 %cmp.i.i23.i.i83, %or.cond.i.i82
-  br i1 %or.cond87.i.i84, label %_ZNK6icu_7513UnicodeStringixEi.exit.i.i86, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85
+  %or.cond88.i.i84 = and i1 %cmp.i.i23.i.i83, %or.cond.i.i82
+  br i1 %or.cond88.i.i84, label %_ZNK6icu_7513UnicodeStringixEi.exit.i.i86, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85
 
 _ZNK6icu_7513UnicodeStringixEi.exit.i.i86:        ; preds = %if.end.i.i75
   %51 = and i16 %47, 2
@@ -2044,9 +2044,9 @@ _ZNK6icu_7513UnicodeStringixEi.exit53.i.i97:      ; preds = %lor.lhs.false5.i.i9
   %arrayidx.i.i52.i.i98 = getelementptr i8, ptr %55, i64 -2
   %57 = load i16, ptr %arrayidx.i.i52.i.i98, align 2
   %cmp13.not.i.i99 = icmp eq i16 %57, 48
-  br i1 %cmp13.not.i.i99, label %_ZNK6icu_7513UnicodeStringixEi.exit66.i.i100, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85
+  br i1 %cmp13.not.i.i99, label %_ZNK6icu_7513UnicodeStringixEi.exit67.i.i100, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85
 
-_ZNK6icu_7513UnicodeStringixEi.exit66.i.i100:     ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit53.i.i97
+_ZNK6icu_7513UnicodeStringixEi.exit67.i.i100:     ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit53.i.i97
   %58 = load i16, ptr %cond.i2.i.i.i.i90, align 2
   %conv17.i.i101 = zext i16 %58 to i32
   %sub18.i.i102 = add nsw i32 %conv17.i.i101, -48
@@ -2054,11 +2054,11 @@ _ZNK6icu_7513UnicodeStringixEi.exit66.i.i100:     ; preds = %_ZNK6icu_7513Unicod
   %or.cond1.i.i103 = icmp ult i16 %59, -10
   br i1 %or.cond1.i.i103, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85, label %if.end23.i.i104
 
-if.end23.i.i104:                                  ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit66.i.i100
+if.end23.i.i104:                                  ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit67.i.i100
   %cmp24.i.i105 = icmp eq i32 %sub.i.i81, 2
-  br i1 %cmp24.i.i105, label %_ZNK6icu_7513UnicodeStringixEi.exit80.i.i113, label %if.end8.i106
+  br i1 %cmp24.i.i105, label %_ZNK6icu_7513UnicodeStringixEi.exit81.i.i113, label %if.end8.i106
 
-_ZNK6icu_7513UnicodeStringixEi.exit80.i.i113:     ; preds = %if.end23.i.i104
+_ZNK6icu_7513UnicodeStringixEi.exit81.i.i113:     ; preds = %if.end23.i.i104
   %.sroa.gep = getelementptr inbounds i8, ptr %52, i64 2
   %cond.i2.i.i.i.i90.sroa.sel = select i1 %tobool.not.i.i.i.i.i87, ptr %.sroa.gep, ptr %fLength.i.i.i79
   %60 = load i16, ptr %cond.i2.i.i.i.i90.sroa.sel, align 2
@@ -2066,7 +2066,7 @@ _ZNK6icu_7513UnicodeStringixEi.exit80.i.i113:     ; preds = %if.end23.i.i104
   %or.cond2.i.i115 = icmp ult i16 %61, -10
   br i1 %or.cond2.i.i115, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85, label %if.end33.i.i116
 
-if.end33.i.i116:                                  ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit80.i.i113
+if.end33.i.i116:                                  ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit81.i.i113
   %conv27.i.i117 = zext nneg i16 %60 to i32
   %mul.i.i118 = mul nuw nsw i32 %sub18.i.i102, 10
   %sub28.i.i119 = add nsw i32 %mul.i.i118, -48
@@ -2074,7 +2074,7 @@ if.end33.i.i116:                                  ; preds = %_ZNK6icu_7513Unicod
   %cmp35.i.i121 = icmp sgt i32 %add34.i.i120, 24
   br i1 %cmp35.i.i121, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85, label %if.end8.i106
 
-_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85: ; preds = %if.end33.i.i116, %_ZNK6icu_7513UnicodeStringixEi.exit80.i.i113, %_ZNK6icu_7513UnicodeStringixEi.exit66.i.i100, %_ZNK6icu_7513UnicodeStringixEi.exit53.i.i97, %lor.lhs.false5.i.i94, %_ZNK6icu_7513UnicodeStringixEi.exit.i.i86, %if.end.i.i75
+_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85: ; preds = %if.end33.i.i116, %_ZNK6icu_7513UnicodeStringixEi.exit81.i.i113, %_ZNK6icu_7513UnicodeStringixEi.exit67.i.i100, %_ZNK6icu_7513UnicodeStringixEi.exit53.i.i97, %lor.lhs.false5.i.i94, %_ZNK6icu_7513UnicodeStringixEi.exit.i.i86, %if.end.i.i75
   store i32 3, ptr %errorCode, align 4
   br label %invoke.cont52
 
@@ -2147,7 +2147,7 @@ if.end14.i:                                       ; preds = %if.then11.i, %if.th
   br i1 %or.cond18.i, label %for.inc42.i, label %for.cond26.preheader.i
 
 for.cond26.preheader.i:                           ; preds = %if.end14.i
-  %71 = trunc i64 %indvars.iv.i129 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv.i129 to i32
   br label %for.cond26.i
 
 for.cond26.i:                                     ; preds = %if.end29.i, %for.cond26.preheader.i

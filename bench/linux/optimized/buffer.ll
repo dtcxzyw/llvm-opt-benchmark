@@ -1250,10 +1250,10 @@ define dso_local ptr @__find_get_block(ptr noundef %0, i64 noundef %1, i32 nound
   br i1 %87, label %98, label %88
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %63, i64 24
+  %89 = getelementptr inbounds i8, ptr %79, i64 24
   %90 = load i64, ptr %89, align 8
-  %91 = load i64, ptr %63, align 8
-  %92 = getelementptr inbounds i8, ptr %63, i64 32
+  %91 = load i64, ptr %79, align 8
+  %92 = getelementptr inbounds i8, ptr %79, i64 32
   %93 = load i64, ptr %92, align 8
   %94 = load i8, ptr %53, align 2
   %95 = zext nneg i8 %94 to i32
@@ -3216,7 +3216,7 @@ define dso_local i32 @__block_write_full_folio(ptr noundef %0, ptr noundef %1, p
   br i1 %87, label %.preheader, label %44, !llvm.loop !126
 
 .preheader:                                       ; preds = %83, %124
-  %88 = phi ptr [ %126, %124 ], [ %32, %83 ]
+  %88 = phi ptr [ %126, %124 ], [ %85, %83 ]
   %89 = load volatile i64, ptr %88, align 8
   %90 = and i64 %89, 16
   %91 = icmp eq i64 %90, 0
@@ -3305,7 +3305,7 @@ define dso_local i32 @__block_write_full_folio(ptr noundef %0, ptr noundef %1, p
   br label %134
 
 134:                                              ; preds = %144, %133
-  %135 = phi ptr [ %32, %133 ], [ %138, %144 ]
+  %135 = phi ptr [ %126, %133 ], [ %138, %144 ]
   %136 = phi i32 [ 0, %133 ], [ %145, %144 ]
   %137 = getelementptr inbounds i8, ptr %135, i64 8
   %138 = load ptr, ptr %137, align 8
@@ -3445,7 +3445,7 @@ define dso_local i32 @__block_write_full_folio(ptr noundef %0, ptr noundef %1, p
   br label %209
 
 209:                                              ; preds = %219, %208
-  %210 = phi ptr [ %32, %208 ], [ %213, %219 ]
+  %210 = phi ptr [ %185, %208 ], [ %213, %219 ]
   %211 = phi i32 [ 0, %208 ], [ %220, %219 ]
   %212 = getelementptr inbounds i8, ptr %210, i64 8
   %213 = load ptr, ptr %212, align 8
@@ -6571,7 +6571,7 @@ define dso_local noundef zeroext i1 @try_to_free_buffers(ptr noundef %0) #2 alig
   br i1 %29, label %.preheader.i, label %17, !llvm.loop !199
 
 .preheader.i:                                     ; preds = %26, %46
-  %30 = phi ptr [ %32, %46 ], [ %16, %26 ]
+  %30 = phi ptr [ %32, %46 ], [ %28, %26 ]
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %30, i64 88
@@ -6653,7 +6653,7 @@ define dso_local noundef zeroext i1 @try_to_free_buffers(ptr noundef %0) #2 alig
   br i1 %75, label %.preheader.i2, label %63, !llvm.loop !199
 
 .preheader.i2:                                    ; preds = %72, %92
-  %76 = phi ptr [ %78, %92 ], [ %62, %72 ]
+  %76 = phi ptr [ %78, %92 ], [ %74, %72 ]
   %77 = getelementptr inbounds i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %76, i64 88

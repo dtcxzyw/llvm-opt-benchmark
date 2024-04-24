@@ -564,7 +564,7 @@ invoke.contthread-pre-split.i.i:                  ; preds = %for.body.i.i.i.i.i
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %for.end
-  %29 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %25, %for.end ]
+  %29 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %26, %for.end ]
   %tobool.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i.i, label %_ZN9grpc_core19Chttp2PingCallbacks12InflightPingD2Ev.exit, label %if.then.i.i.i.i10
 

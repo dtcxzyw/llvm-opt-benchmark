@@ -802,7 +802,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i: ; preds = %_ZN9QtPrivat
   br i1 %.not.i.i.i, label %"_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function26getFilterFunctionParameterERK7QStringE3$_0ET_S9_S9_T0_.exit", label %.lr.ph.i.i.i, !llvm.loop !9
 
 "_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function26getFilterFunctionParameterERK7QStringE3$_0ET_S9_S9_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function26getFilterFunctionParameterERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i", %12, %2
-  %.sroa.03.0.lcssa.i.i.i = phi ptr [ %4, %2 ], [ %.sroa.03.06.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function26getFilterFunctionParameterERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i" ], [ %4, %12 ]
+  %.sroa.03.0.lcssa.i.i.i = phi ptr [ %5, %2 ], [ %.sroa.03.06.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function26getFilterFunctionParameterERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i" ], [ %13, %12 ]
   %14 = getelementptr inbounds i8, ptr %.sroa.03.0.lcssa.i.i.i, i64 16
   ret ptr %14
 }

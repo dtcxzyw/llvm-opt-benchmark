@@ -5183,9 +5183,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ff45991c0f4b06E.llvm.7385733070074733004.exit.sink.split", label %8
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ff45991c0f4b06E.llvm.7385733070074733004.exit.sink.split": ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17ha1a06585321f47aaE.llvm.7385733070074733004.exit.backedge", %13
-  %.sink = phi ptr [ %10, %13 ], [ %4, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17ha1a06585321f47aaE.llvm.7385733070074733004.exit.backedge" ]
   %.lcssa.ph = phi i1 [ true, %13 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17ha1a06585321f47aaE.llvm.7385733070074733004.exit.backedge" ]
-  store ptr %.sink, ptr %0, align 8, !alias.scope !1168
+  store ptr %10, ptr %0, align 8, !alias.scope !1168
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ff45991c0f4b06E.llvm.7385733070074733004.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ff45991c0f4b06E.llvm.7385733070074733004.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ff45991c0f4b06E.llvm.7385733070074733004.exit.sink.split", %2
@@ -8999,13 +8998,13 @@ define internal void @_ZN4just8function5quote17hefd5df12577f4e32E(ptr noalias no
 
 .lr.ph.split.split.i.i.i:                         ; preds = %32, %.lr.ph.i.i.i
   %14 = phi i64 [ %29, %32 ], [ %.lcssa192226.i, %.lr.ph.i.i.i ]
-  %.sroa.3.0.i46.i.i.i = sub nuw i64 %3, %14
-  %.48.i.i.i = getelementptr inbounds i8, ptr %2, i64 %14
-  %15 = icmp ult i64 %.sroa.3.0.i46.i.i.i, 16
+  %.sroa.3.0.i47.i.i.i = sub nuw i64 %3, %14
+  %.49.i.i.i = getelementptr inbounds i8, ptr %2, i64 %14
+  %15 = icmp ult i64 %.sroa.3.0.i47.i.i.i, 16
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %.lr.ph.split.split.i.i.i
-  %17 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef 39, ptr noalias noundef nonnull readonly align 1 %.48.i.i.i, i64 noundef %.sroa.3.0.i46.i.i.i)
+  %17 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef 39, ptr noalias noundef nonnull readonly align 1 %.49.i.i.i, i64 noundef %.sroa.3.0.i47.i.i.i)
           to label %.noexc14.i unwind label %.loopexit.i, !noalias !2130
 
 18:                                               ; preds = %.lr.ph.split.split.i.i.i
@@ -9014,18 +9013,18 @@ define internal void @_ZN4just8function5quote17hefd5df12577f4e32E(ptr noalias no
 
 .lr.ph.i.i.i.i:                                   ; preds = %18, %22
   %.05.i.i.i.i = phi i64 [ %23, %22 ], [ 0, %18 ]
-  %19 = getelementptr inbounds [0 x i8], ptr %.48.i.i.i, i64 0, i64 %.05.i.i.i.i
+  %19 = getelementptr inbounds [0 x i8], ptr %.49.i.i.i, i64 0, i64 %.05.i.i.i.i
   %20 = load i8, ptr %19, align 1, !alias.scope !2131, !noalias !2134, !noundef !4
   %21 = icmp eq i8 %20, 39
   br i1 %21, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %22
 
 22:                                               ; preds = %.lr.ph.i.i.i.i
   %23 = add nuw i64 %.05.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %23, %.sroa.3.0.i46.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %23, %.sroa.3.0.i47.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %22, %.lr.ph.i.i.i.i, %18
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %18 ], [ %.05.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.3.0.i46.i.i.i, %22 ]
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %18 ], [ %.05.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.3.0.i47.i.i.i, %22 ]
   %.sroa.0.0.i25.i.i.i = phi i64 [ 0, %18 ], [ 1, %.lr.ph.i.i.i.i ], [ 0, %22 ]
   %24 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i25.i.i.i, 0
   %25 = insertvalue { i64, i64 } %24, i64 %.0.lcssa.i.i.i.i, 1

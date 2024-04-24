@@ -1163,7 +1163,7 @@ for.inc.i83:                                      ; preds = %if.else.i.i, %if.th
 if.end18:                                         ; preds = %for.inc.i83, %list_splice.exit, %if.end11
   %pos.08.i = load ptr, ptr %head, align 8
   %cmp.not9.i = icmp eq ptr %pos.08.i, %head
-  br i1 %cmp.not9.i, label %free_all.exit, label %for.body.lr.ph.i86
+  br i1 %cmp.not9.i, label %print_all.exit, label %for.body.lr.ph.i86
 
 for.body.lr.ph.i86:                               ; preds = %if.end18
   %trim_empty.i = getelementptr inbounds i8, ptr %opts, i64 4
@@ -1255,34 +1255,38 @@ if.else.i.i98:                                    ; preds = %if.end4.i.i
 for.inc.i93:                                      ; preds = %for.cond.i.i.i, %if.else.i.i98, %if.then7.i.i, %last_non_space_char.exit.i.i, %if.then.i.i101, %lor.lhs.false3.i, %lor.lhs.false.i
   %pos.0.i94 = load ptr, ptr %pos.010.i, align 8
   %cmp.not.i95 = icmp eq ptr %pos.0.i94, %head
-  br i1 %cmp.not.i95, label %print_all.exit, label %for.body.i88, !llvm.loop !15
+  br i1 %cmp.not.i95, label %print_all.exit.loopexit, label %for.body.i88, !llvm.loop !15
 
-print_all.exit:                                   ; preds = %for.inc.i93
+print_all.exit.loopexit:                          ; preds = %for.inc.i93
   %.pre180 = load ptr, ptr %head, align 8
-  %cmp.not7.i = icmp eq ptr %.pre180, %head
+  br label %print_all.exit
+
+print_all.exit:                                   ; preds = %print_all.exit.loopexit, %if.end18
+  %135 = phi ptr [ %.pre180, %print_all.exit.loopexit ], [ %pos.08.i, %if.end18 ]
+  %cmp.not7.i = icmp eq ptr %135, %head
   br i1 %cmp.not7.i, label %free_all.exit, label %for.body.i103
 
 for.body.i103:                                    ; preds = %print_all.exit, %for.body.i103
-  %pos.08.i104 = phi ptr [ %p.0.i, %for.body.i103 ], [ %.pre180, %print_all.exit ]
+  %pos.08.i104 = phi ptr [ %p.0.i, %for.body.i103 ], [ %135, %print_all.exit ]
   %p.0.i = load ptr, ptr %pos.08.i104, align 8
-  %135 = getelementptr i8, ptr %pos.08.i104, i64 8
-  %pos.0.val6.i = load ptr, ptr %135, align 8
+  %136 = getelementptr i8, ptr %pos.08.i104, i64 8
+  %pos.0.val6.i = load ptr, ptr %136, align 8
   %prev1.i.i.i105 = getelementptr inbounds i8, ptr %p.0.i, i64 8
   store ptr %pos.0.val6.i, ptr %prev1.i.i.i105, align 8
   store ptr %p.0.i, ptr %pos.0.val6.i, align 8
   %token.i.i106 = getelementptr inbounds i8, ptr %pos.08.i104, i64 16
-  %136 = load ptr, ptr %token.i.i106, align 8
-  call void @free(ptr noundef %136) #16
-  %value.i.i107 = getelementptr inbounds i8, ptr %pos.08.i104, i64 24
-  %137 = load ptr, ptr %value.i.i107, align 8
+  %137 = load ptr, ptr %token.i.i106, align 8
   call void @free(ptr noundef %137) #16
+  %value.i.i107 = getelementptr inbounds i8, ptr %pos.08.i104, i64 24
+  %138 = load ptr, ptr %value.i.i107, align 8
+  call void @free(ptr noundef %138) #16
   call void @free(ptr noundef %pos.08.i104) #16
   %cmp.not.i108 = icmp eq ptr %p.0.i, %head
   br i1 %cmp.not.i108, label %free_all.exit, label %for.body.i103, !llvm.loop !16
 
-free_all.exit:                                    ; preds = %for.body.i103, %if.end18, %print_all.exit
-  %138 = load i64, ptr %trailer_nr.i, align 8
-  %cmp5.not.i = icmp eq i64 %138, 0
+free_all.exit:                                    ; preds = %for.body.i103, %print_all.exit
+  %139 = load i64, ptr %trailer_nr.i, align 8
+  %cmp5.not.i = icmp eq i64 %139, 0
   %trailers1.i.phi.trans.insert = getelementptr inbounds i8, ptr %info, i64 24
   %.pre181 = load ptr, ptr %trailers1.i.phi.trans.insert, align 8
   br i1 %cmp5.not.i, label %trailer_info_release.exit, label %for.body.i112
@@ -1290,32 +1294,32 @@ free_all.exit:                                    ; preds = %for.body.i103, %if.
 for.body.i112:                                    ; preds = %free_all.exit, %for.body.i112
   %i.06.i = phi i64 [ %inc.i114, %for.body.i112 ], [ 0, %free_all.exit ]
   %arrayidx.i113 = getelementptr inbounds ptr, ptr %.pre181, i64 %i.06.i
-  %139 = load ptr, ptr %arrayidx.i113, align 8
-  call void @free(ptr noundef %139) #16
+  %140 = load ptr, ptr %arrayidx.i113, align 8
+  call void @free(ptr noundef %140) #16
   %inc.i114 = add nuw i64 %i.06.i, 1
-  %exitcond176.not = icmp eq i64 %inc.i114, %138
+  %exitcond176.not = icmp eq i64 %inc.i114, %139
   br i1 %exitcond176.not, label %trailer_info_release.exit, label %for.body.i112, !llvm.loop !17
 
 trailer_info_release.exit:                        ; preds = %for.body.i112, %free_all.exit
   call void @free(ptr noundef %.pre181) #16
-  %140 = load i32, ptr %only_trailers, align 8
-  %tobool20.not = icmp eq i32 %140, 0
+  %141 = load i32, ptr %only_trailers, align 8
+  %tobool20.not = icmp eq i32 %141, 0
   br i1 %tobool20.not, label %if.then21, label %if.end25
 
 if.then21:                                        ; preds = %trailer_info_release.exit
-  %141 = load ptr, ptr %buf, align 8
+  %142 = load ptr, ptr %buf, align 8
   %trailer_block_end = getelementptr inbounds i8, ptr %info, i64 16
-  %142 = load i64, ptr %trailer_block_end, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %141, i64 %142
+  %143 = load i64, ptr %trailer_block_end, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %142, i64 %143
   %len = getelementptr inbounds i8, ptr %sb, i64 8
-  %143 = load i64, ptr %len, align 8
-  %sub = sub i64 %143, %142
+  %144 = load i64, ptr %len, align 8
+  %sub = sub i64 %144, %143
   %call24 = call i64 @fwrite(ptr noundef %add.ptr, i64 noundef 1, i64 noundef %sub, ptr noundef %outfile.0)
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then21, %trailer_info_release.exit
-  %144 = load i32, ptr %opts, align 8
-  %tobool27.not = icmp eq i32 %144, 0
+  %145 = load i32, ptr %opts, align 8
+  %tobool27.not = icmp eq i32 %145, 0
   br i1 %tobool27.not, label %if.end34, label %if.then28
 
 if.then28:                                        ; preds = %if.end25
@@ -2398,15 +2402,15 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %find_separator.exit, %entry
-  %inc20 = phi i64 [ %inc, %find_separator.exit ], [ %cur.promoted, %entry ]
-  %cmp = icmp ult i64 %inc20, %0
+  %inc24 = phi i64 [ %inc, %find_separator.exit ], [ %cur.promoted, %entry ]
+  %cmp = icmp ult i64 %inc24, %0
   br i1 %cmp, label %while.body, label %return
 
 while.body:                                       ; preds = %while.cond
   %2 = load ptr, ptr %trailers, align 8
-  %inc = add nuw i64 %inc20, 1
+  %inc = add nuw i64 %inc24, 1
   store i64 %inc, ptr %cur, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %inc20
+  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %inc24
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load i8, ptr %3, align 1
   %tobool.not12.i = icmp eq i8 %4, 0
@@ -2478,25 +2482,25 @@ if.then4.i:                                       ; preds = %if.end
 
 strbuf_setlen.exit:                               ; preds = %if.end, %if.then4.i
   %val = getelementptr inbounds i8, ptr %iter, i64 24
-  %len2.i14 = getelementptr inbounds i8, ptr %iter, i64 32
-  store i64 0, ptr %len2.i14, align 8
-  %buf.i15 = getelementptr inbounds i8, ptr %iter, i64 40
-  %10 = load ptr, ptr %buf.i15, align 8
-  %cmp3.not.i16 = icmp eq ptr %10, @strbuf_slopbuf
-  br i1 %cmp3.not.i16, label %strbuf_setlen.exit18, label %if.then4.i17
+  %len2.i16 = getelementptr inbounds i8, ptr %iter, i64 32
+  store i64 0, ptr %len2.i16, align 8
+  %buf.i17 = getelementptr inbounds i8, ptr %iter, i64 40
+  %10 = load ptr, ptr %buf.i17, align 8
+  %cmp3.not.i18 = icmp eq ptr %10, @strbuf_slopbuf
+  br i1 %cmp3.not.i18, label %strbuf_setlen.exit22, label %if.then4.i19
 
-if.then4.i17:                                     ; preds = %strbuf_setlen.exit
+if.then4.i19:                                     ; preds = %strbuf_setlen.exit
   store i8 0, ptr %10, align 1
-  br label %strbuf_setlen.exit18
+  br label %strbuf_setlen.exit22
 
-strbuf_setlen.exit18:                             ; preds = %strbuf_setlen.exit, %if.then4.i17
+strbuf_setlen.exit22:                             ; preds = %strbuf_setlen.exit, %if.then4.i19
   %conv10 = and i64 %retval.0.i, 2147483647
   tail call fastcc void @parse_trailer(ptr noundef nonnull %iter, ptr noundef nonnull %val, ptr noundef null, ptr noundef nonnull %3, i64 noundef %conv10)
   tail call fastcc void @unfold_value(ptr noundef nonnull %val)
   br label %return
 
-return:                                           ; preds = %while.cond, %strbuf_setlen.exit18
-  %retval.0 = phi i32 [ 1, %strbuf_setlen.exit18 ], [ 0, %while.cond ]
+return:                                           ; preds = %while.cond, %strbuf_setlen.exit22
+  %retval.0 = phi i32 [ 1, %strbuf_setlen.exit22 ], [ 0, %while.cond ]
   ret i32 %retval.0
 }
 

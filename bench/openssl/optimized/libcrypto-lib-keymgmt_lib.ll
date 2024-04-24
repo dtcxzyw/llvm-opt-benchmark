@@ -770,7 +770,7 @@ if.end6:                                          ; preds = %if.end
 
 land.lhs.true:                                    ; preds = %if.end, %if.end6
   %to_keymgmt.033 = phi ptr [ %0, %if.end6 ], [ %3, %if.end ]
-  %dup = getelementptr inbounds i8, ptr %3, i64 224
+  %dup = getelementptr inbounds i8, ptr %to_keymgmt.033, i64 224
   %4 = load ptr, ptr %dup, align 8
   %cmp9 = icmp ne ptr %4, null
   %cmp11 = icmp eq ptr %1, null
@@ -778,14 +778,14 @@ land.lhs.true:                                    ; preds = %if.end, %if.end6
   br i1 %or.cond, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %land.lhs.true
-  %call = tail call ptr @evp_keymgmt_dup(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %selection) #4
+  %call = tail call ptr @evp_keymgmt_dup(ptr noundef nonnull %to_keymgmt.033, ptr noundef nonnull %2, i32 noundef %selection) #4
   %cmp14 = icmp eq ptr %call, null
   br i1 %cmp14, label %return, label %if.end33
 
 if.else:                                          ; preds = %land.lhs.true, %if.end6
   %to_keymgmt.032 = phi ptr [ %to_keymgmt.033, %land.lhs.true ], [ %0, %if.end6 ]
   %call.i = tail call ptr @EVP_KEYMGMT_get0_name(ptr noundef %3) #4
-  %call1.i = tail call i32 @EVP_KEYMGMT_is_a(ptr noundef %to_keymgmt.032, ptr noundef %call.i) #4
+  %call1.i = tail call i32 @EVP_KEYMGMT_is_a(ptr noundef nonnull %to_keymgmt.032, ptr noundef %call.i) #4
   %tobool.not = icmp eq i32 %call1.i, 0
   br i1 %tobool.not, label %if.else31, label %evp_keymgmt_util_export.exit
 
@@ -823,12 +823,12 @@ if.end33:                                         ; preds = %if.end26, %if.then1
   br i1 %cmp35, label %land.lhs.true36, label %if.end40
 
 land.lhs.true36:                                  ; preds = %if.end33
-  %call37 = call i32 @EVP_PKEY_set_type_by_keymgmt(ptr noundef nonnull %to, ptr noundef %to_keymgmt.031) #4
+  %call37 = call i32 @EVP_PKEY_set_type_by_keymgmt(ptr noundef nonnull %to, ptr noundef nonnull %to_keymgmt.031) #4
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %if.then39, label %if.end40
 
 if.then39:                                        ; preds = %land.lhs.true36
-  call void @evp_keymgmt_freedata(ptr noundef %to_keymgmt.031, ptr noundef %alloc_keydata.0) #4
+  call void @evp_keymgmt_freedata(ptr noundef nonnull %to_keymgmt.031, ptr noundef %alloc_keydata.0) #4
   br label %return
 
 if.end40:                                         ; preds = %land.lhs.true36, %if.end33

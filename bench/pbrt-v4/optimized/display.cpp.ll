@@ -2067,7 +2067,7 @@ for.inc81:                                        ; preds = %if.end27.i, %_ZN4pb
   br i1 %cmp71, label %for.body72, label %for.inc84, !llvm.loop !14
 
 for.inc84:                                        ; preds = %for.inc81, %_ZNKSt8functionIFvN4pbrt7Bounds2IiEEN4pstd4spanINS4_IfEEEEEEclES2_S6_.exit
-  %41 = phi ptr [ %27, %_ZNKSt8functionIFvN4pbrt7Bounds2IiEEN4pstd4spanINS4_IfEEEEEEclES2_S6_.exit ], [ %40, %for.inc81 ]
+  %41 = phi ptr [ %28, %_ZNKSt8functionIFvN4pbrt7Bounds2IiEEN4pstd4spanINS4_IfEEEEEEclES2_S6_.exit ], [ %40, %for.inc81 ]
   %42 = phi ptr [ %27, %_ZNKSt8functionIFvN4pbrt7Bounds2IiEEN4pstd4spanINS4_IfEEEEEEclES2_S6_.exit ], [ %39, %for.inc81 ]
   %indvars.iv.next127 = add nsw i64 %indvars.iv126, 1
   %43 = load i32, ptr %resolution, align 8
@@ -2075,7 +2075,7 @@ for.inc84:                                        ; preds = %for.inc81, %_ZNKSt8
   br i1 %cmp26, label %for.body27, label %for.inc88.loopexit, !llvm.loop !15
 
 for.inc88.loopexit:                               ; preds = %for.inc84
-  %44 = trunc i64 %indvars.iv.next127 to i32
+  %44 = trunc nsw i64 %indvars.iv.next127 to i32
   %.pre = load i32, ptr %y20, align 4
   br label %for.inc88
 
@@ -7916,19 +7916,18 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit
   %.pre30 = load ptr, ptr %this, align 8
   %.pre31 = ptrtoint ptr %.pre29 to i64
   %.pre32 = ptrtoint ptr %.pre30 to i64
+  %.pre33 = sub i64 %.pre31, %.pre32
+  %.pre34 = ashr exact i64 %.pre33, 3
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.loopexit, %if.then6
-  %sub.ptr.rhs.cast.i16.pre-phi = phi i64 [ %.pre32, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.loopexit ], [ %sub.ptr.rhs.cast.i, %if.then6 ]
-  %sub.ptr.lhs.cast.i15.pre-phi = phi i64 [ %.pre31, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.loopexit ], [ %sub.ptr.rhs.cast.i, %if.then6 ]
-  %5 = phi ptr [ %.pre29, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.loopexit ], [ %1, %if.then6 ]
-  %sub.ptr.sub.i17 = sub i64 %sub.ptr.lhs.cast.i15.pre-phi, %sub.ptr.rhs.cast.i16.pre-phi
-  %sub.ptr.div.i18 = ashr exact i64 %sub.ptr.sub.i17, 3
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.div.i18, %__n
+  %sub.ptr.div.i18.pre-phi = phi i64 [ %.pre34, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.loopexit ], [ %sub.ptr.div.i11, %if.then6 ]
+  %5 = phi ptr [ %.pre29, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.loopexit ], [ %3, %if.then6 ]
+  %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.div.i18.pre-phi, %__n
   br i1 %cmp.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit
-  %sub = sub i64 %__n, %sub.ptr.div.i18
+  %sub = sub i64 %__n, %sub.ptr.div.i18.pre-phi
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %5, i64 %sub
   %6 = load i64, ptr %__val, align 8
   br label %for.body.i.i.i.i.i.i.i

@@ -149,7 +149,7 @@ if.end18.i:                                       ; preds = %oideq.exit.i, %land
   br i1 %cmp19.i, label %land.lhs.true21.i, label %if.end25.i
 
 land.lhs.true21.i:                                ; preds = %if.end18.i
-  %call22.i = call i32 @repo_has_promisor_remote(ptr noundef %r) #11
+  %call22.i = call i32 @repo_has_promisor_remote(ptr noundef %16) #11
   %tobool23.not.i = icmp eq i32 %call22.i, 0
   br i1 %tobool23.not.i, label %if.end25.i, label %if.then24.i
 

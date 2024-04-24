@@ -1347,7 +1347,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN5draco9IndexTypeIj
   %.val7.i.i = load ptr, ptr %9, align 8
   %46 = getelementptr i8, ptr %.val7.i.i, i64 16
   %47 = getelementptr i8, ptr %.val7.i.i, i64 24
-  %48 = trunc i64 %indvars.iv to i32
+  %48 = trunc nuw i64 %indvars.iv to i32
   br label %49
 
 49:                                               ; preds = %"_ZNKSt8__detail15_Hashtable_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_1ZNS9_19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i", %45
@@ -1425,7 +1425,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 
 .lr.ph.i.i16.i.i:                                 ; preds = %76
   %wide.trip.count.i.i.i.i = and i64 %82, 2147483647
-  %85 = trunc i64 %indvars.iv to i32
+  %85 = trunc nuw i64 %indvars.iv to i32
   br label %86
 
 86:                                               ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i, %.lr.ph.i.i16.i.i
@@ -1475,7 +1475,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %108 = getelementptr i8, ptr %.val.i.i.i.i, i64 24
   %.phi.trans.insert.i.i.i.i = getelementptr i8, ptr %106, i64 16
   %.val20.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8
-  %109 = trunc i64 %indvars.iv to i32
+  %109 = trunc nuw i64 %indvars.iv to i32
   br label %110
 
 110:                                              ; preds = %141, %105
@@ -1603,7 +1603,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit: 
 .noexc18:                                         ; preds = %"_ZNSt13unordered_mapIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEES3_ZNS0_10PointCloud19DeduplicatePointIdsEvE3$_0ZNS4_19DeduplicatePointIdsEvE3$_1SaISt4pairIKS3_S3_EEE4findERS8_.exit.thread"
   store ptr null, ptr %153, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 8
-  %155 = trunc i64 %indvars.iv to i32
+  %155 = trunc nuw i64 %indvars.iv to i32
   store i32 %155, ptr %154, align 4
   %156 = getelementptr inbounds i8, ptr %153, i64 12
   store i32 %.0896, ptr %156, align 4
@@ -3017,7 +3017,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5draco17AttributeMetad
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit, %6, %2
-  %30 = phi ptr [ %.pre, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit ], [ %5, %6 ], [ %3, %2 ]
+  %30 = phi ptr [ %.pre, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit ], [ %5, %6 ], [ %5, %2 ]
   %31 = getelementptr inbounds i8, ptr %30, i64 -8
   store ptr %31, ptr %4, align 8
   %32 = load ptr, ptr %31, align 8

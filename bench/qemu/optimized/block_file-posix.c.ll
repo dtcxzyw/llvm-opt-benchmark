@@ -1491,7 +1491,7 @@ entry:
 define internal i32 @raw_co_copy_range_to(ptr noundef %bs, ptr nocapture noundef readonly %src, i64 noundef %src_offset, ptr nocapture noundef readonly %dst, i64 noundef %dst_offset, i64 noundef %bytes, i32 %read_flags, i32 %write_flags) #0 {
 entry:
   %acb = alloca %struct.RawPosixAIOData, align 8
-  %opaque = getelementptr i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %dst, align 8
   %cmp = icmp eq ptr %1, %bs
@@ -1519,11 +1519,14 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp.inv.i, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end5
-  %.val7.val = load i32, ptr %0, align 8
+  %7 = getelementptr i8, ptr %1, i64 24
+  %.val7 = load ptr, ptr %7, align 8
+  %.val7.val = load i32, ptr %.val7, align 8
   %cmp.inv.i8 = icmp slt i32 %.val7.val, 0
   br i1 %cmp.inv.i8, label %return, label %if.end14
 
 if.end14:                                         ; preds = %lor.lhs.false
+  %8 = load i32, ptr %0, align 8
   store ptr %bs, ptr %acb, align 8
   %.compoundliteral.sroa.2.0.acb.sroa_idx = getelementptr inbounds i8, ptr %acb, i64 8
   store i32 64, ptr %.compoundliteral.sroa.2.0.acb.sroa_idx, align 8
@@ -1534,7 +1537,7 @@ if.end14:                                         ; preds = %lor.lhs.false
   %.compoundliteral.sroa.5.0.acb.sroa_idx = getelementptr inbounds i8, ptr %acb, i64 24
   store i64 %bytes, ptr %.compoundliteral.sroa.5.0.acb.sroa_idx, align 8
   %.compoundliteral.sroa.6.0.acb.sroa_idx = getelementptr inbounds i8, ptr %acb, i64 32
-  store i32 %.val7.val, ptr %.compoundliteral.sroa.6.0.acb.sroa_idx, align 8
+  store i32 %8, ptr %.compoundliteral.sroa.6.0.acb.sroa_idx, align 8
   %.compoundliteral.sroa.71.0.acb.sroa_idx = getelementptr inbounds i8, ptr %acb, i64 40
   store i64 %dst_offset, ptr %.compoundliteral.sroa.71.0.acb.sroa_idx, align 8
   %call.i = call i32 @thread_pool_submit_co(ptr noundef nonnull @handle_aiocb_copy_range, ptr noundef nonnull %acb) #17

@@ -1263,7 +1263,7 @@ define internal ptr @php_stream_url_wrap_rfc2397(ptr noundef %0, ptr noundef %1,
   br i1 %54, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %53, %76
-  %.2212 = phi ptr [ %58, %76 ], [ %34, %53 ]
+  %.2212 = phi ptr [ %79, %76 ], [ %.1, %53 ]
   %.1164211 = phi i64 [ %78, %76 ], [ %.0163, %53 ]
   %55 = getelementptr inbounds i8, ptr %.2212, i64 1
   %56 = add i64 %.1164211, -1

@@ -795,7 +795,7 @@ define internal fastcc void @avlFree(ptr noundef %0, ptr noundef %1) unnamed_add
   br label %22
 
 22:                                               ; preds = %21, %19
-  %23 = phi ptr [ %.pre20, %21 ], [ %1, %19 ]
+  %23 = phi ptr [ %.pre20, %21 ], [ %20, %19 ]
   tail call void @pg_free(ptr noundef %23) #10
   br label %24
 

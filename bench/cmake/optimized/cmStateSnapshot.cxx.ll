@@ -1944,7 +1944,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 58:                                               ; preds = %._crit_edge.i
-  %59 = trunc i32 %.0.lcssa.i to i8
+  %59 = trunc nuw i32 %.0.lcssa.i to i8
   %60 = or disjoint i8 %59, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -3165,7 +3165,7 @@ _ZNSt10_HashtableIN2cm6StringESt4pairIKS1_N13cmDefinitions3DefEESaIS6_ENSt8__det
 
 19:                                               ; preds = %_ZNSt10_HashtableIN2cm6StringESt4pairIKS1_N13cmDefinitions3DefEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
   store ptr %10, ptr %0, align 8
-  %20 = load ptr, ptr %15, align 8
+  %20 = load ptr, ptr %16, align 8
   store ptr %20, ptr %10, align 8
   br label %21
 

@@ -748,7 +748,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %213
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %238 = phi ptr [ %1, %3 ], [ %.pre, %._crit_edge.loopexit ]
-  %.097.lcssa = phi ptr [ %1, %3 ], [ %2, %._crit_edge.loopexit ]
+  %.097.lcssa = phi ptr [ %1, %3 ], [ %237, %._crit_edge.loopexit ]
   %239 = ptrtoint ptr %.097.lcssa to i64
   %240 = ptrtoint ptr %238 to i64
   %241 = sub i64 %239, %240
@@ -1636,7 +1636,7 @@ define internal ptr @lxb_html_tokenizer_state_doctype_bogus(ptr noundef %0, ptr 
   br i1 %.not, label %.loopexit, label %6
 
 .loopexit:                                        ; preds = %61, %3, %48, %52, %21, %25, %53, %26
-  %.0 = phi ptr [ %2, %53 ], [ %31, %26 ], [ %2, %25 ], [ %2, %21 ], [ %2, %52 ], [ %2, %48 ], [ %1, %3 ], [ %2, %61 ]
+  %.0 = phi ptr [ %2, %53 ], [ %31, %26 ], [ %2, %25 ], [ %2, %21 ], [ %2, %52 ], [ %2, %48 ], [ %1, %3 ], [ %62, %61 ]
   ret ptr %.0
 }
 
@@ -2361,7 +2361,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %321
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %22
   %346 = phi ptr [ %1, %22 ], [ %.pre228, %._crit_edge.loopexit ]
-  %.0146.lcssa = phi ptr [ %1, %22 ], [ %2, %._crit_edge.loopexit ]
+  %.0146.lcssa = phi ptr [ %1, %22 ], [ %345, %._crit_edge.loopexit ]
   %347 = ptrtoint ptr %.0146.lcssa to i64
   %348 = ptrtoint ptr %346 to i64
   %349 = sub i64 %347, %348
@@ -2987,7 +2987,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %321
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %22
   %346 = phi ptr [ %1, %22 ], [ %.pre228, %._crit_edge.loopexit ]
-  %.0146.lcssa = phi ptr [ %1, %22 ], [ %2, %._crit_edge.loopexit ]
+  %.0146.lcssa = phi ptr [ %1, %22 ], [ %345, %._crit_edge.loopexit ]
   %347 = ptrtoint ptr %.0146.lcssa to i64
   %348 = ptrtoint ptr %346 to i64
   %349 = sub i64 %347, %348
@@ -3962,7 +3962,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %321
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %22
   %346 = phi ptr [ %1, %22 ], [ %.pre228, %._crit_edge.loopexit ]
-  %.0146.lcssa = phi ptr [ %1, %22 ], [ %2, %._crit_edge.loopexit ]
+  %.0146.lcssa = phi ptr [ %1, %22 ], [ %345, %._crit_edge.loopexit ]
   %347 = ptrtoint ptr %.0146.lcssa to i64
   %348 = ptrtoint ptr %346 to i64
   %349 = sub i64 %347, %348
@@ -4588,7 +4588,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %321
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %22
   %346 = phi ptr [ %1, %22 ], [ %.pre228, %._crit_edge.loopexit ]
-  %.0146.lcssa = phi ptr [ %1, %22 ], [ %2, %._crit_edge.loopexit ]
+  %.0146.lcssa = phi ptr [ %1, %22 ], [ %345, %._crit_edge.loopexit ]
   %347 = ptrtoint ptr %.0146.lcssa to i64
   %348 = ptrtoint ptr %346 to i64
   %349 = sub i64 %347, %348

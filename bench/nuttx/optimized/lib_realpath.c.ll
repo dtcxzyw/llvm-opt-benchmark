@@ -63,11 +63,16 @@ define noundef ptr @realpath(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %.053 = phi ptr [ %.056, %19 ], [ %spec.select, %23 ]
   %27 = ptrtoint ptr %.056 to i64
   %28 = getelementptr inbounds i8, ptr %3, i64 8
+  br label %.outer.outer
+
+.outer.outer:                                     ; preds = %.outer.outer.backedge, %26
+  %.057.ph.ph = phi ptr [ %0, %26 ], [ %38, %.outer.outer.backedge ]
+  %.1.ph.ph = phi ptr [ %.053, %26 ], [ %.1.ph.ph.be, %.outer.outer.backedge ]
+  %.not68 = icmp eq ptr %.1.ph.ph, %.056
   br label %.outer
 
-.outer:                                           ; preds = %.outer.backedge, %26
-  %.057.ph = phi ptr [ %0, %26 ], [ %38, %.outer.backedge ]
-  %.1.ph = phi ptr [ %.053, %26 ], [ %.1.ph.be, %.outer.backedge ]
+.outer:                                           ; preds = %.outer.outer, %51
+  %.057.ph = phi ptr [ %38, %51 ], [ %.057.ph.ph, %.outer.outer ]
   br label %29
 
 29:                                               ; preds = %.backedge, %.outer
@@ -87,16 +92,16 @@ define noundef ptr @realpath(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %29, !llvm.loop !6
 
 33:                                               ; preds = %29
-  %34 = icmp eq ptr %.1.ph, %.056
+  %34 = icmp eq ptr %.1.ph.ph, %.056
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %.056, i64 1
-  store i8 47, ptr %.056, align 1
+  %36 = getelementptr inbounds i8, ptr %.1.ph.ph, i64 1
+  store i8 47, ptr %.1.ph.ph, align 1
   br label %37
 
 37:                                               ; preds = %35, %33
-  %.2 = phi ptr [ %36, %35 ], [ %.1.ph, %33 ]
+  %.2 = phi ptr [ %36, %35 ], [ %.1.ph.ph, %33 ]
   store i8 0, ptr %.2, align 1
   br label %79
 
@@ -129,23 +134,22 @@ define noundef ptr @realpath(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %or.cond, label %51, label %.loopexit72
 
 51:                                               ; preds = %46
-  %.not68 = icmp eq ptr %.1.ph, %.056
-  br i1 %.not68, label %.outer.backedge, label %.preheader
+  br i1 %.not68, label %.outer, label %.preheader
 
 .preheader:                                       ; preds = %51, %.preheader
-  %.3 = phi ptr [ %52, %.preheader ], [ %.1.ph, %51 ]
+  %.3 = phi ptr [ %52, %.preheader ], [ %.1.ph.ph, %51 ]
   %52 = getelementptr inbounds i8, ptr %.3, i64 -1
   %53 = load i8, ptr %52, align 1
   %.not69 = icmp eq i8 %53, 47
-  br i1 %.not69, label %.outer.backedge, label %.preheader, !llvm.loop !8
+  br i1 %.not69, label %.outer.outer.backedge, label %.preheader, !llvm.loop !8
 
 .loopexit72.loopexit:                             ; preds = %.critedge
   %.pre = ptrtoint ptr %.158 to i64
   br label %.loopexit72
 
-.loopexit72:                                      ; preds = %.loopexit72.loopexit, %46
+.loopexit72:                                      ; preds = %46, %.loopexit72.loopexit
   %.pre-phi = phi i64 [ %.pre, %.loopexit72.loopexit ], [ %43, %46 ]
-  %54 = ptrtoint ptr %.1.ph to i64
+  %54 = ptrtoint ptr %.1.ph.ph to i64
   %55 = sub i64 %54, %27
   %56 = getelementptr i8, ptr %38, i64 %55
   %57 = getelementptr i8, ptr %56, i64 1
@@ -155,15 +159,15 @@ define noundef ptr @realpath(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %60, label %.loopexit71.sink.split, label %61
 
 61:                                               ; preds = %.loopexit72
-  store i8 47, ptr %.1.ph, align 1
-  %62 = getelementptr inbounds i8, ptr %.1.ph, i64 1
+  store i8 47, ptr %.1.ph.ph, align 1
+  %62 = getelementptr inbounds i8, ptr %.1.ph.ph, i64 1
   %63 = ptrtoint ptr %38 to i64
   %64 = sub i64 %63, %.pre-phi
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %.158, i64 %64, i1 false)
   %65 = getelementptr inbounds i8, ptr %.055, i64 2
   %66 = ptrtoint ptr %65 to i64
   %67 = sub i64 %66, %.pre-phi
-  %68 = getelementptr inbounds i8, ptr %.1.ph, i64 %67
+  %68 = getelementptr inbounds i8, ptr %.1.ph.ph, i64 %67
   store i8 0, ptr %68, align 1
   %69 = call i32 @lstat(ptr noundef nonnull %.056, ptr noundef nonnull %3)
   %70 = icmp eq i32 %69, -1
@@ -172,17 +176,17 @@ define noundef ptr @realpath(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 71:                                               ; preds = %61
   %72 = load i8, ptr %38, align 1
   %73 = icmp eq i8 %72, 47
-  br i1 %73, label %74, label %.outer.backedge
+  br i1 %73, label %74, label %.outer.outer.backedge
 
-.outer.backedge:                                  ; preds = %.preheader, %71, %74, %51
-  %.1.ph.be = phi ptr [ %68, %71 ], [ %68, %74 ], [ %.056, %51 ], [ %52, %.preheader ]
-  br label %.outer
+.outer.outer.backedge:                            ; preds = %.preheader, %71, %74
+  %.1.ph.ph.be = phi ptr [ %68, %74 ], [ %68, %71 ], [ %52, %.preheader ]
+  br label %.outer.outer
 
 74:                                               ; preds = %71
   %75 = load i32, ptr %28, align 8
   %76 = and i32 %75, 61440
   %77 = icmp eq i32 %76, 16384
-  br i1 %77, label %.outer.backedge, label %.loopexit71.sink.split
+  br i1 %77, label %.outer.outer.backedge, label %.loopexit71.sink.split
 
 .loopexit71.sink.split:                           ; preds = %74, %.loopexit72
   %.sink = phi i32 [ 36, %.loopexit72 ], [ 20, %74 ]

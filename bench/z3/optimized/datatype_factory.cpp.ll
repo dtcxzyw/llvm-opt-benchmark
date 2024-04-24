@@ -297,7 +297,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %cmp.not.i.i.i10, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %land.rhs.i.i.i, !llvm.loop !7
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit: ; preds = %land.rhs.i.i.i, %while.body.i.i.i, %if.then5
-  %retval.sroa.0.1.i = phi ptr [ %15, %if.then5 ], [ %add.ptr.i, %while.body.i.i.i ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
+  %retval.sroa.0.1.i = phi ptr [ %15, %if.then5 ], [ %incdec.ptr.i.i.i9, %while.body.i.i.i ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
   %18 = load ptr, ptr %retval.sroa.0.1.i, align 8
   br label %return
 
@@ -565,7 +565,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %cmp.not.i.i.i7, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %land.rhs.i.i.i, !llvm.loop !7
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit: ; preds = %land.rhs.i.i.i, %while.body.i.i.i, %if.else
-  %retval.sroa.0.1.i = phi ptr [ %10, %if.else ], [ %add.ptr.i, %while.body.i.i.i ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
+  %retval.sroa.0.1.i = phi ptr [ %10, %if.else ], [ %incdec.ptr.i.i.i6, %while.body.i.i.i ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
   %13 = load ptr, ptr %retval.sroa.0.1.i, align 8
   br label %if.end8
 
@@ -889,7 +889,7 @@ for.body21:                                       ; preds = %for.body21.lr.ph, %
   %recursive.0124 = phi i1 [ false, %for.body21.lr.ph ], [ %recursive.1, %for.inc ]
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_domain.i, i64 0, i64 %indvars.iv
   %15 = load ptr, ptr %arrayidx.i, align 8
-  %tobool = trunc i8 %found_fresh_arg.0126 to i1
+  %tobool = trunc nuw i8 %found_fresh_arg.0126 to i1
   br i1 %tobool, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body21
@@ -1176,7 +1176,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %recursive.1, label %if.then67, label %lor.lhs.false65
 
 lor.lhs.false65:                                  ; preds = %for.end
-  %tobool66 = trunc i8 %found_fresh_arg.1 to i1
+  %tobool66 = trunc nuw i8 %found_fresh_arg.1 to i1
   br i1 %tobool66, label %if.then67, label %cleanup
 
 if.then67:                                        ; preds = %lor.lhs.false65, %for.end
@@ -1552,7 +1552,7 @@ for.body24:                                       ; preds = %for.body24.preheade
   %found_fresh_arg.0356 = phi i8 [ 0, %for.body24.preheader ], [ %found_fresh_arg.1, %for.inc ]
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_domain.i, i64 0, i64 %indvars.iv
   %15 = load ptr, ptr %arrayidx.i, align 8
-  %tobool = trunc i8 %found_fresh_arg.0356 to i1
+  %tobool = trunc nuw i8 %found_fresh_arg.0356 to i1
   br i1 %tobool, label %if.end52, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body24
@@ -1834,7 +1834,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 
 invoke.cont63:                                    ; preds = %if.then.i.i.i, %if.end.i, %if.then2.i.i.i
   store ptr %call3.i86, ptr %new_value, align 8
-  %tobool65 = trunc i8 %found_fresh_arg.0.lcssa403 to i1
+  %tobool65 = trunc nuw i8 %found_fresh_arg.0.lcssa403 to i1
   %m_hash.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i86, i64 12
   %43 = load i32, ptr %m_hash.i.i.i.i.i, align 4
   %44 = load i32, ptr %m_capacity.i.i, align 8
@@ -2161,7 +2161,7 @@ for.body121:                                      ; preds = %for.body121.lr.ph, 
   %found_sibling.0362 = phi i8 [ 0, %for.body121.lr.ph ], [ %found_sibling.2, %for.inc175 ]
   %arrayidx.i153 = getelementptr inbounds [0 x ptr], ptr %m_domain.i151, i64 0, i64 %indvars.iv385
   %78 = load ptr, ptr %arrayidx.i153, align 8
-  %tobool125 = trunc i8 %found_sibling.0362 to i1
+  %tobool125 = trunc nuw i8 %found_sibling.0362 to i1
   br i1 %tobool125, label %if.else165, label %land.lhs.true126
 
 land.lhs.true126:                                 ; preds = %for.body121
@@ -2333,7 +2333,7 @@ for.inc175:                                       ; preds = %for.inc175.sink.spl
   br i1 %exitcond388.not, label %for.end177, label %for.body121, !llvm.loop !17
 
 for.end177:                                       ; preds = %for.inc175
-  %tobool178 = trunc i8 %found_sibling.2 to i1
+  %tobool178 = trunc nuw i8 %found_sibling.2 to i1
   br i1 %tobool178, label %if.then179, label %cleanup214
 
 if.then179:                                       ; preds = %for.end177

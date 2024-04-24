@@ -2335,7 +2335,7 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   br label %179
 
 .thread157:                                       ; preds = %77, %79, %.thread
-  %.0129 = phi ptr [ %76, %.thread ], [ %80, %79 ], [ %53, %77 ]
+  %.0129 = phi ptr [ %76, %.thread ], [ %80, %79 ], [ %54, %77 ]
   %.0127 = phi ptr [ %59, %.thread ], [ %54, %79 ], [ %53, %77 ]
   %83 = ptrtoint ptr %.0127 to i64
   %84 = and i64 %83, -2

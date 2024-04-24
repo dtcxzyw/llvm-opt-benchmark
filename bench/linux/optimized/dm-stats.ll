@@ -2548,7 +2548,7 @@ define internal fastcc i32 @dm_stats_create(ptr noundef %0, i64 noundef %1, i64 
 
 .loopexit:                                        ; preds = %186, %182, %.thread
   %190 = phi i32 [ 0, %.thread ], [ %176, %182 ], [ %187, %186 ]
-  %191 = phi ptr [ %173, %.thread ], [ %177, %182 ], [ %173, %186 ]
+  %191 = phi ptr [ %174, %.thread ], [ %177, %182 ], [ %188, %186 ]
   %192 = getelementptr inbounds i8, ptr %191, i64 8
   %193 = load ptr, ptr %192, align 8
   store ptr %191, ptr %63, align 8

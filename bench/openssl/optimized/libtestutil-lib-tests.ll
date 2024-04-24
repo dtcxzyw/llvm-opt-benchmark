@@ -112,7 +112,7 @@ declare i32 @test_printf_stderr(ptr noundef, ...) local_unnamed_addr #1
 define void @test_info_c90(ptr noundef %desc, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call.i.i = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #7
   %call15.i.i = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.6) #7
   %cmp.not.i = icmp eq ptr %desc, null
@@ -125,21 +125,15 @@ if.then.i:                                        ; preds = %entry
 
 test_fail_message_va.exit:                        ; preds = %entry, %if.then.i
   %call2.i = call i32 @test_flush_stderr() #7
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define void @test_info(ptr noundef %file, i32 noundef %line, ptr noundef %desc, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call.i.i = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #7
   %cmp11.not.i.i = icmp eq ptr %file, null
   br i1 %cmp11.not.i.i, label %test_fail_message_prefix.exit.i, label %if.then12.i.i
@@ -160,7 +154,7 @@ if.then.i:                                        ; preds = %test_fail_message_p
 
 test_fail_message_va.exit:                        ; preds = %test_fail_message_prefix.exit.i, %if.then.i
   %call2.i = call i32 @test_flush_stderr() #7
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
@@ -168,7 +162,7 @@ test_fail_message_va.exit:                        ; preds = %test_fail_message_p
 define void @test_error_c90(ptr noundef %desc, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call.i.i = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #7
   %call15.i.i = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.6) #7
   %cmp.not.i = icmp eq ptr %desc, null
@@ -181,7 +175,7 @@ if.then.i:                                        ; preds = %entry
 
 test_fail_message_va.exit:                        ; preds = %entry, %if.then.i
   %call2.i = call i32 @test_flush_stderr() #7
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %call = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.6) #7
   ret void
 }
@@ -190,7 +184,7 @@ test_fail_message_va.exit:                        ; preds = %entry, %if.then.i
 define void @test_error(ptr noundef %file, i32 noundef %line, ptr noundef %desc, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call.i.i = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #7
   %cmp11.not.i.i = icmp eq ptr %file, null
   br i1 %cmp11.not.i.i, label %test_fail_message_prefix.exit.i, label %if.then12.i.i
@@ -211,7 +205,7 @@ if.then.i:                                        ; preds = %test_fail_message_p
 
 test_fail_message_va.exit:                        ; preds = %test_fail_message_prefix.exit.i, %if.then.i
   %call2.i = call i32 @test_flush_stderr() #7
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %call = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.6) #7
   ret void
 }
@@ -227,10 +221,10 @@ entry:
 }
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #3
+declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @test_note(ptr noundef %fmt, ...) local_unnamed_addr #0 {
@@ -240,9 +234,9 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call i32 @test_vprintf_stderr(ptr noundef nonnull %fmt, ptr noundef nonnull %ap) #7
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %call3 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.6) #7
   br label %if.end
 
@@ -256,10 +250,10 @@ declare i32 @test_vprintf_stderr(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @test_flush_stderr() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_skip(ptr noundef %file, i32 noundef %line, ptr noundef %desc, ...) local_unnamed_addr #0 {
+define noundef i32 @test_skip(ptr noundef %file, i32 noundef %line, ptr noundef %desc, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call.i.i = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #7
   %cmp11.not.i.i = icmp eq ptr %file, null
   br i1 %cmp11.not.i.i, label %test_fail_message_prefix.exit.i, label %if.then12.i.i
@@ -280,15 +274,15 @@ if.then.i:                                        ; preds = %test_fail_message_p
 
 test_fail_message_va.exit:                        ; preds = %test_fail_message_prefix.exit.i, %if.then.i
   %call2.i = call i32 @test_flush_stderr() #7
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i32 123
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_skip_c90(ptr noundef %desc, ...) local_unnamed_addr #0 {
+define noundef i32 @test_skip_c90(ptr noundef %desc, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call.i.i = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #7
   %call15.i.i = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.6) #7
   %cmp.not.i = icmp eq ptr %desc, null
@@ -301,7 +295,7 @@ if.then.i:                                        ; preds = %entry
 
 test_fail_message_va.exit:                        ; preds = %entry, %if.then.i
   %call2.i = call i32 @test_flush_stderr() #7
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %call = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.6) #7
   ret i32 123
 }
@@ -321,7 +315,7 @@ declare i32 @openssl_error_cb(ptr noundef, i64 noundef, ptr noundef) #1
 declare void @ERR_clear_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_int_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_int_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -339,7 +333,7 @@ return:                                           ; preds = %entry, %if.end
 define internal void @test_fail_message(ptr nocapture readnone %prefix, ptr noundef %file, i32 noundef %line, ptr noundef %type, ptr noundef %left, ptr noundef %right, ptr noundef %op, ptr noundef %fmt, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call.i.i = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #7
   %tobool.not.i.i = icmp eq ptr %type, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -386,12 +380,12 @@ if.then.i:                                        ; preds = %test_fail_message_p
 
 test_fail_message_va.exit:                        ; preds = %test_fail_message_prefix.exit.i, %if.then.i
   %call2.i = call i32 @test_flush_stderr() #7
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_int_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_int_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -406,7 +400,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_int_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_int_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -421,7 +415,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_int_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_int_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp sgt i32 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -436,7 +430,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_int_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_int_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -451,7 +445,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_int_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_int_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp slt i32 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -466,7 +460,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uint_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uint_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -481,7 +475,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uint_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uint_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -496,7 +490,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uint_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uint_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -511,7 +505,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uint_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uint_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp ugt i32 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -526,7 +520,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uint_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uint_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -541,7 +535,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uint_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uint_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i32 noundef %t1, i32 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult i32 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -556,7 +550,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_char_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef signext %t1, i8 noundef signext %t2) local_unnamed_addr #0 {
+define noundef i32 @test_char_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef signext %t1, i8 noundef signext %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i8 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -573,7 +567,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_char_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef signext %t1, i8 noundef signext %t2) local_unnamed_addr #0 {
+define noundef i32 @test_char_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef signext %t1, i8 noundef signext %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i8 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -589,7 +583,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_char_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef signext %t1, i8 noundef signext %t2) local_unnamed_addr #0 {
+define noundef i32 @test_char_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef signext %t1, i8 noundef signext %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i8 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -606,7 +600,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_char_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef signext %t1, i8 noundef signext %t2) local_unnamed_addr #0 {
+define noundef i32 @test_char_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef signext %t1, i8 noundef signext %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp sgt i8 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -623,7 +617,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_char_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef signext %t1, i8 noundef signext %t2) local_unnamed_addr #0 {
+define noundef i32 @test_char_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef signext %t1, i8 noundef signext %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i8 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -640,7 +634,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_char_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef signext %t1, i8 noundef signext %t2) local_unnamed_addr #0 {
+define noundef i32 @test_char_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef signext %t1, i8 noundef signext %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp slt i8 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -657,7 +651,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uchar_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef zeroext %t1, i8 noundef zeroext %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uchar_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef zeroext %t1, i8 noundef zeroext %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i8 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -674,7 +668,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uchar_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef zeroext %t1, i8 noundef zeroext %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uchar_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef zeroext %t1, i8 noundef zeroext %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i8 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -690,7 +684,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uchar_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef zeroext %t1, i8 noundef zeroext %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uchar_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef zeroext %t1, i8 noundef zeroext %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i8 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -707,7 +701,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uchar_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef zeroext %t1, i8 noundef zeroext %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uchar_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef zeroext %t1, i8 noundef zeroext %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp ugt i8 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -724,7 +718,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uchar_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef zeroext %t1, i8 noundef zeroext %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uchar_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef zeroext %t1, i8 noundef zeroext %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i8 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -741,7 +735,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uchar_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef zeroext %t1, i8 noundef zeroext %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uchar_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i8 noundef zeroext %t1, i8 noundef zeroext %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult i8 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -758,7 +752,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_long_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_long_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -773,7 +767,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_long_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_long_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -788,7 +782,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_long_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_long_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i64 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -803,7 +797,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_long_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_long_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp sgt i64 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -818,7 +812,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_long_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_long_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i64 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -833,7 +827,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_long_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_long_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp slt i64 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -848,7 +842,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_ulong_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_ulong_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -863,7 +857,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_ulong_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_ulong_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -878,7 +872,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_ulong_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_ulong_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -893,7 +887,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_ulong_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_ulong_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp ugt i64 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -908,7 +902,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_ulong_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_ulong_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -923,7 +917,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_ulong_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_ulong_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult i64 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -938,7 +932,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_int64_t_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_int64_t_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -953,7 +947,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_int64_t_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_int64_t_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -968,7 +962,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_int64_t_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_int64_t_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i64 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -983,7 +977,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_int64_t_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_int64_t_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp sgt i64 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -998,7 +992,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_int64_t_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_int64_t_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i64 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -1013,7 +1007,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_int64_t_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_int64_t_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp slt i64 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -1028,7 +1022,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uint64_t_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uint64_t_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -1043,7 +1037,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uint64_t_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uint64_t_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -1058,7 +1052,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uint64_t_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uint64_t_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -1073,7 +1067,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uint64_t_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uint64_t_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp ugt i64 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -1088,7 +1082,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uint64_t_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uint64_t_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -1103,7 +1097,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_uint64_t_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_uint64_t_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult i64 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -1118,7 +1112,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_size_t_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_size_t_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -1133,7 +1127,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_size_t_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_size_t_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -1148,7 +1142,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_size_t_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_size_t_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -1163,7 +1157,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_size_t_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_size_t_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp ugt i64 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -1178,7 +1172,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_size_t_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_size_t_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -1193,7 +1187,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_size_t_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_size_t_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp ult i64 %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
@@ -1208,7 +1202,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_double_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, double noundef %t1, double noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_double_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, double noundef %t1, double noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = fcmp oeq double %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -1223,7 +1217,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_double_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, double noundef %t1, double noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_double_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, double noundef %t1, double noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = fcmp une double %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -1238,7 +1232,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_double_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, double noundef %t1, double noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_double_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, double noundef %t1, double noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = fcmp olt double %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -1253,7 +1247,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_double_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, double noundef %t1, double noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_double_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, double noundef %t1, double noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = fcmp ugt double %t1, %t2
   br i1 %cmp, label %if.end, label %return
@@ -1268,7 +1262,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_double_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, double noundef %t1, double noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_double_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, double noundef %t1, double noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = fcmp ogt double %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -1283,7 +1277,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_double_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, double noundef %t1, double noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_double_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, double noundef %t1, double noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = fcmp ult double %t1, %t2
   br i1 %cmp, label %if.end, label %return
@@ -1298,7 +1292,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_ptr_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_ptr_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %t1, %t2
   br i1 %cmp, label %return, label %if.end
@@ -1313,13 +1307,13 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_ptr_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, ptr noundef %t1, ptr noundef readnone %t2) local_unnamed_addr #0 {
+define noundef i32 @test_ptr_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %t1, %t2
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ...) @test_fail_message(ptr poison, ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.36, ptr noundef %s1, ptr noundef %s2, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.37, ptr noundef %t1, ptr noundef %t1)
+  tail call void (ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ...) @test_fail_message(ptr poison, ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.36, ptr noundef %s1, ptr noundef %s2, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.37, ptr noundef %t1, ptr noundef %t2)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1328,7 +1322,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_ptr_null(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %p) local_unnamed_addr #0 {
+define noundef i32 @test_ptr_null(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %p, null
   br i1 %cmp, label %return, label %if.end
@@ -1343,7 +1337,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_ptr(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef readnone %p) local_unnamed_addr #0 {
+define noundef i32 @test_ptr(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef readnone %p) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %p, null
   br i1 %cmp.not, label %if.end, label %return
@@ -1358,7 +1352,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_true(ptr noundef %file, i32 noundef %line, ptr noundef %s, i32 noundef %b) local_unnamed_addr #0 {
+define noundef i32 @test_true(ptr noundef %file, i32 noundef %line, ptr noundef %s, i32 noundef %b) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %b, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -1373,7 +1367,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_false(ptr noundef %file, i32 noundef %line, ptr noundef %s, i32 noundef %b) local_unnamed_addr #0 {
+define noundef i32 @test_false(ptr noundef %file, i32 noundef %line, ptr noundef %s, i32 noundef %b) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %b, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1388,7 +1382,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_str_eq(ptr noundef %file, i32 noundef %line, ptr noundef %st1, ptr noundef %st2, ptr noundef %s1, ptr noundef %s2) local_unnamed_addr #0 {
+define noundef i32 @test_str_eq(ptr noundef %file, i32 noundef %line, ptr noundef %st1, ptr noundef %st2, ptr noundef %s1, ptr noundef %s2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s1, null
   %cmp1 = icmp eq ptr %s2, null
@@ -1430,15 +1424,15 @@ return:                                           ; preds = %lor.lhs.false4, %en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 declare void @test_fail_string_message(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_str_ne(ptr noundef %file, i32 noundef %line, ptr noundef %st1, ptr noundef %st2, ptr noundef %s1, ptr noundef %s2) local_unnamed_addr #0 {
+define noundef i32 @test_str_ne(ptr noundef %file, i32 noundef %line, ptr noundef %st1, ptr noundef %st2, ptr noundef %s1, ptr noundef %s2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s1, null
   %cmp1 = icmp eq ptr %s2, null
@@ -1476,7 +1470,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_strn_eq(ptr noundef %file, i32 noundef %line, ptr noundef %st1, ptr noundef %st2, ptr noundef %s1, i64 noundef %n1, ptr noundef %s2, i64 noundef %n2) local_unnamed_addr #0 {
+define noundef i32 @test_strn_eq(ptr noundef %file, i32 noundef %line, ptr noundef %st1, ptr noundef %st2, ptr noundef %s1, i64 noundef %n1, ptr noundef %s2, i64 noundef %n2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s1, null
   %cmp1 = icmp eq ptr %s2, null
@@ -1520,12 +1514,12 @@ return:                                           ; preds = %lor.lhs.false6, %en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 declare i64 @OPENSSL_strnlen(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_strn_ne(ptr noundef %file, i32 noundef %line, ptr noundef %st1, ptr noundef %st2, ptr noundef %s1, i64 noundef %n1, ptr noundef %s2, i64 noundef %n2) local_unnamed_addr #0 {
+define noundef i32 @test_strn_ne(ptr noundef %file, i32 noundef %line, ptr noundef %st1, ptr noundef %st2, ptr noundef %s1, i64 noundef %n1, ptr noundef %s2, i64 noundef %n2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s1, null
   %cmp1 = icmp eq ptr %s2, null
@@ -1568,7 +1562,7 @@ return:                                           ; preds = %lor.lhs.false7, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_mem_eq(ptr noundef %file, i32 noundef %line, ptr noundef %st1, ptr noundef %st2, ptr noundef %s1, i64 noundef %n1, ptr noundef %s2, i64 noundef %n2) local_unnamed_addr #0 {
+define noundef i32 @test_mem_eq(ptr noundef %file, i32 noundef %line, ptr noundef %st1, ptr noundef %st2, ptr noundef %s1, i64 noundef %n1, ptr noundef %s2, i64 noundef %n2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s1, null
   %cmp1 = icmp eq ptr %s2, null
@@ -1598,7 +1592,7 @@ return:                                           ; preds = %lor.lhs.false6, %en
 declare void @test_fail_memory_message(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_mem_ne(ptr noundef %file, i32 noundef %line, ptr noundef %st1, ptr noundef %st2, ptr noundef %s1, i64 noundef %n1, ptr noundef %s2, i64 noundef %n2) local_unnamed_addr #0 {
+define noundef i32 @test_mem_ne(ptr noundef %file, i32 noundef %line, ptr noundef %st1, ptr noundef %st2, ptr noundef %s1, i64 noundef %n1, ptr noundef %s2, i64 noundef %n2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s1, null
   %0 = icmp ne ptr %s2, null
@@ -1625,7 +1619,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_BN_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_BN_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_cmp(ptr noundef %t1, ptr noundef %t2) #7
   %cmp = icmp eq i32 %call, 0
@@ -1645,7 +1639,7 @@ declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @test_fail_bignum_message(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_BN_eq_zero(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
+define noundef i32 @test_BN_eq_zero(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %a, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -1669,7 +1663,7 @@ declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 declare void @test_fail_bignum_mono_message(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_BN_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_BN_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_cmp(ptr noundef %t1, ptr noundef %t2) #7
   %cmp.not = icmp eq i32 %call, 0
@@ -1685,7 +1679,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_BN_ne_zero(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
+define noundef i32 @test_BN_ne_zero(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %a, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -1705,7 +1699,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_BN_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_BN_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_cmp(ptr noundef %t1, ptr noundef %t2) #7
   %cmp = icmp sgt i32 %call, 0
@@ -1721,7 +1715,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_BN_gt_zero(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
+define noundef i32 @test_BN_gt_zero(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %a, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -1748,7 +1742,7 @@ return:                                           ; preds = %land.lhs.true1, %if
 declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_BN_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_BN_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_cmp(ptr noundef %t1, ptr noundef %t2) #7
   %cmp = icmp sgt i32 %call, -1
@@ -1764,7 +1758,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_BN_ge_zero(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
+define noundef i32 @test_BN_ge_zero(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %a, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -1789,7 +1783,7 @@ return:                                           ; preds = %land.lhs.true, %lor
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_BN_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_BN_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_cmp(ptr noundef %t1, ptr noundef %t2) #7
   %cmp = icmp slt i32 %call, 0
@@ -1805,7 +1799,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_BN_lt_zero(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
+define noundef i32 @test_BN_lt_zero(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %a, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -1830,7 +1824,7 @@ return:                                           ; preds = %land.lhs.true1, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_BN_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_BN_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_cmp(ptr noundef %t1, ptr noundef %t2) #7
   %cmp = icmp slt i32 %call, 1
@@ -1846,7 +1840,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_BN_le_zero(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
+define noundef i32 @test_BN_le_zero(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %a, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -1871,7 +1865,7 @@ return:                                           ; preds = %land.lhs.true, %lor
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_BN_eq_one(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
+define noundef i32 @test_BN_eq_one(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %a, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -1893,7 +1887,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare i32 @BN_is_one(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_BN_odd(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
+define noundef i32 @test_BN_odd(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %a, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -1915,7 +1909,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare i32 @BN_is_odd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_BN_even(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
+define noundef i32 @test_BN_even(ptr noundef %file, i32 noundef %line, ptr noundef %s, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %a, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -1935,7 +1929,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_BN_eq_word(ptr noundef %file, i32 noundef %line, ptr noundef %bns, ptr noundef %ws, ptr noundef %a, i64 noundef %w) local_unnamed_addr #0 {
+define noundef i32 @test_BN_eq_word(ptr noundef %file, i32 noundef %line, ptr noundef %bns, ptr noundef %ws, ptr noundef %a, i64 noundef %w) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %a, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -1973,7 +1967,7 @@ declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_BN_abs_eq_word(ptr noundef %file, i32 noundef %line, ptr noundef %bns, ptr noundef %ws, ptr noundef %a, i64 noundef %w) local_unnamed_addr #0 {
+define noundef i32 @test_BN_abs_eq_word(ptr noundef %file, i32 noundef %line, ptr noundef %bns, ptr noundef %ws, ptr noundef %a, i64 noundef %w) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %a, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -2019,7 +2013,7 @@ declare ptr @BN_dup(ptr noundef) local_unnamed_addr #1
 declare void @BN_set_negative(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_time_t_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_time_t_eq(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ASN1_TIME_set(ptr noundef null, i64 noundef %t1) #7
   %call1 = tail call ptr @ASN1_TIME_set(ptr noundef null, i64 noundef %t2) #7
@@ -2069,7 +2063,7 @@ declare i32 @ASN1_TIME_compare(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_time_t_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_time_t_ne(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ASN1_TIME_set(ptr noundef null, i64 noundef %t1) #7
   %call1 = tail call ptr @ASN1_TIME_set(ptr noundef null, i64 noundef %t2) #7
@@ -2113,7 +2107,7 @@ if.end:                                           ; preds = %print_time.exit12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_time_t_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_time_t_gt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ASN1_TIME_set(ptr noundef null, i64 noundef %t1) #7
   %call1 = tail call ptr @ASN1_TIME_set(ptr noundef null, i64 noundef %t2) #7
@@ -2157,7 +2151,7 @@ if.end:                                           ; preds = %print_time.exit12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_time_t_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_time_t_ge(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ASN1_TIME_set(ptr noundef null, i64 noundef %t1) #7
   %call1 = tail call ptr @ASN1_TIME_set(ptr noundef null, i64 noundef %t2) #7
@@ -2201,7 +2195,7 @@ if.end:                                           ; preds = %print_time.exit12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_time_t_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_time_t_lt(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ASN1_TIME_set(ptr noundef null, i64 noundef %t1) #7
   %call1 = tail call ptr @ASN1_TIME_set(ptr noundef null, i64 noundef %t2) #7
@@ -2245,7 +2239,7 @@ if.end:                                           ; preds = %print_time.exit12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_time_t_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
+define noundef i32 @test_time_t_le(ptr noundef %file, i32 noundef %line, ptr noundef %s1, ptr noundef %s2, i64 noundef %t1, i64 noundef %t2) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ASN1_TIME_set(ptr noundef null, i64 noundef %t1) #7
   %call1 = tail call ptr @ASN1_TIME_set(ptr noundef null, i64 noundef %t2) #7
@@ -2290,15 +2284,21 @@ if.end:                                           ; preds = %print_time.exit12, 
 
 declare ptr @ASN1_STRING_get0_data(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(none) }

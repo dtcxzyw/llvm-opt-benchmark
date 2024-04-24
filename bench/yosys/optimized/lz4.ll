@@ -503,7 +503,7 @@ _ZL9LZ4_countPKhS0_S0_.exit:                      ; preds = %177, %196, %198
   br i1 %210, label %.lr.ph.i310, label %._crit_edge.i295
 
 .lr.ph.i310:                                      ; preds = %209, %212
-  %.03141.i311 = phi ptr [ %213, %212 ], [ %spec.select, %209 ]
+  %.03141.i311 = phi ptr [ %213, %212 ], [ %207, %209 ]
   %.03240.i312 = phi ptr [ %214, %212 ], [ %1, %209 ]
   %.032.val.i313 = load i64, ptr %.03240.i312, align 1
   %.031.val.i314 = load i64, ptr %.03141.i311, align 1
@@ -525,7 +525,7 @@ _ZL9LZ4_countPKhS0_S0_.exit:                      ; preds = %177, %196, %198
 
 ._crit_edge.i295:                                 ; preds = %212, %209
   %.032.lcssa.i296 = phi ptr [ %1, %209 ], [ %214, %212 ]
-  %.031.lcssa.i297 = phi ptr [ %spec.select, %209 ], [ %213, %212 ]
+  %.031.lcssa.i297 = phi ptr [ %207, %209 ], [ %213, %212 ]
   %220 = icmp ult ptr %.031.lcssa.i297, %65
   br i1 %220, label %221, label %226
 
@@ -579,7 +579,7 @@ _ZL9LZ4_countPKhS0_S0_.exit316:                   ; preds = %216, %233, %235
   %.0.i303 = trunc i64 %241 to i32
   %242 = add i32 %.0.i303, %.0.i294
   %243 = and i64 %241, 4294967295
-  %244 = getelementptr inbounds i8, ptr %spec.select, i64 %243
+  %244 = getelementptr inbounds i8, ptr %207, i64 %243
   br label %283
 
 245:                                              ; preds = %_ZL12LZ4_wildCopyPvPKvS_.exit
@@ -719,13 +719,13 @@ _ZL9LZ4_countPKhS0_S0_.exit338:                   ; preds = %254, %271, %273
 306:                                              ; preds = %303, %._crit_edge417
   %.5252 = phi ptr [ %305, %303 ], [ %.4251.lcssa, %._crit_edge417 ]
   %.2225 = phi i32 [ %304, %303 ], [ %.1224.lcssa, %._crit_edge417 ]
-  %307 = trunc i32 %.2225 to i8
+  %307 = trunc nuw i32 %.2225 to i8
   %308 = getelementptr inbounds i8, ptr %.5252, i64 1
   store i8 %307, ptr %.5252, align 1
   br label %312
 
 309:                                              ; preds = %289
-  %310 = trunc i32 %.0223.fr to i8
+  %310 = trunc nuw i32 %.0223.fr to i8
   %311 = add i8 %291, %310
   store i8 %311, ptr %.0235, align 1
   br label %312
@@ -893,12 +893,12 @@ _ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit345: ; preds = %350, %355
 ._crit_edge435:                                   ; preds = %.lr.ph434.preheader, %382
   %.0.lcssa = phi i64 [ %383, %382 ], [ %391, %.lr.ph434.preheader ]
   %.8.lcssa = phi ptr [ %.8430, %382 ], [ %scevgep481, %.lr.ph434.preheader ]
-  %392 = trunc i64 %.0.lcssa to i8
+  %392 = trunc nuw i64 %.0.lcssa to i8
   store i8 %392, ptr %.8.lcssa, align 1
   br label %395
 
 393:                                              ; preds = %380
-  %.tr272 = trunc i64 %369 to i8
+  %.tr272 = trunc nuw i64 %369 to i8
   %394 = shl nuw i8 %.tr272, 4
   store i8 %394, ptr %.7, align 1
   br label %395
@@ -1737,7 +1737,7 @@ define noundef i32 @LZ4_decompress_safe_continue(ptr nocapture noundef %0, ptr n
 
 11:                                               ; preds = %5
   %12 = sub i64 0, %10
-  %13 = getelementptr inbounds i8, ptr %2, i64 %12
+  %13 = getelementptr inbounds i8, ptr %7, i64 %12
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
@@ -1792,7 +1792,7 @@ define noundef i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr n
 
 10:                                               ; preds = %4
   %11 = sub i64 0, %9
-  %12 = getelementptr inbounds i8, ptr %2, i64 %11
+  %12 = getelementptr inbounds i8, ptr %6, i64 %11
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
@@ -2257,7 +2257,7 @@ _ZL21LZ4_putPositionOnHashPKhjPv11tableType_tS0_.exit: ; preds = %_ZL21LZ4_getPo
 ._crit_edge:                                      ; preds = %.lr.ph262.preheader, %92
   %.1185.lcssa = phi ptr [ %82, %92 ], [ %scevgep315, %.lr.ph262.preheader ]
   %.0170.lcssa = phi i32 [ %93, %92 ], [ %100, %.lr.ph262.preheader ]
-  %101 = trunc i32 %.0170.lcssa to i8
+  %101 = trunc nuw i32 %.0170.lcssa to i8
   %102 = getelementptr inbounds i8, ptr %.1185.lcssa, i64 1
   store i8 %101, ptr %.1185.lcssa, align 1
   br label %105
@@ -2410,13 +2410,13 @@ _ZL9LZ4_countPKhS0_S0_.exit:                      ; preds = %124, %141, %143
 ._crit_edge269:                                   ; preds = %.lr.ph268.preheader, %162
   %.4.lcssa = phi ptr [ %115, %162 ], [ %scevgep317, %.lr.ph268.preheader ]
   %.1.lcssa = phi i64 [ %165, %162 ], [ %170, %.lr.ph268.preheader ]
-  %171 = trunc i64 %.1.lcssa to i8
+  %171 = trunc nuw i64 %.1.lcssa to i8
   %172 = getelementptr inbounds i8, ptr %.4.lcssa, i64 1
   store i8 %171, ptr %.4.lcssa, align 1
   br label %177
 
 173:                                              ; preds = %_ZL9LZ4_countPKhS0_S0_.exit
-  %174 = trunc i64 %.0169 to i8
+  %174 = trunc nuw i64 %.0169 to i8
   %175 = load i8, ptr %.0177, align 1
   %176 = add i8 %175, %174
   store i8 %176, ptr %.0177, align 1
@@ -2566,13 +2566,13 @@ _ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit216: ; preds = %202, %206
 ._crit_edge288:                                   ; preds = %.lr.ph287.preheader, %248
   %.7.lcssa = phi ptr [ %231, %248 ], [ %scevgep318, %.lr.ph287.preheader ]
   %.0.lcssa = phi i64 [ %249, %248 ], [ %255, %.lr.ph287.preheader ]
-  %256 = trunc i64 %.0.lcssa to i8
+  %256 = trunc nuw i64 %.0.lcssa to i8
   %257 = getelementptr inbounds i8, ptr %.7.lcssa, i64 1
   store i8 %256, ptr %.7.lcssa, align 1
   br label %260
 
 258:                                              ; preds = %245
-  %.0168.tr = trunc i64 %.0168 to i8
+  %.0168.tr = trunc nuw i64 %.0168 to i8
   %259 = shl nuw i8 %.0168.tr, 4
   store i8 %259, ptr %.6, align 1
   br label %260

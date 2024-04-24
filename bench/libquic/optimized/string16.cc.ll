@@ -1179,7 +1179,7 @@ entry:
   %sub = sub i64 %__n1, %__n2
   %spec.select3 = tail call i64 @llvm.smax.i64(i64 %sub, i64 -2147483648)
   %retval.04 = tail call i64 @llvm.smin.i64(i64 %spec.select3, i64 2147483647)
-  %retval.0 = trunc i64 %retval.04 to i32
+  %retval.0 = trunc nsw i64 %retval.04 to i32
   ret i32 %retval.0
 }
 
@@ -1752,7 +1752,7 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.assume(i1 %cmp3.i)
   %add = shl nuw nsw i64 %3, 1
   %mul.i.i = add nuw nsw i64 %add, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %mul.i.i, i1 false)
   br label %invoke.cont11
 
 if.else:                                          ; preds = %entry
@@ -1903,7 +1903,7 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.assume(i1 %cmp3.i)
   %add = shl nuw nsw i64 %3, 1
   %mul.i.i = add nuw nsw i64 %add, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %mul.i.i, i1 false)
   %4 = load i64, ptr %_M_string_length.i, align 8
   %_M_string_length.i13 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %4, ptr %_M_string_length.i13, align 8
@@ -2219,8 +2219,8 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.thread.i: ; preds = %entry
   %3 = load i64, ptr %1, align 8
-  %cmp.not.i11.i = icmp eq i64 %3, 0
-  br i1 %cmp.not.i11.i, label %if.end10.i.thread.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEmt.exit
+  %cmp.not.i12.i = icmp eq i64 %3, 0
+  br i1 %cmp.not.i12.i, label %if.end10.i.thread.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEmt.exit
 
 if.end10.i.thread.i:                              ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.thread.i
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #20
@@ -2265,12 +2265,12 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.thread: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i
   %3 = load i64, ptr %2, align 8
-  %cmp.not.i11 = icmp ult i64 %3, %__n
-  br i1 %cmp.not.i11, label %land.lhs.true.i.i, label %if.end10.i
+  %cmp.not.i12 = icmp ult i64 %3, %__n
+  br i1 %cmp.not.i12, label %land.lhs.true.i.i, label %if.end10.i
 
 land.lhs.true.i.i:                                ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.thread
-  %cond.i.i1214 = phi i64 [ %3, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.thread ], [ 7, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i ]
-  %mul.i.i = shl nuw nsw i64 %cond.i.i1214, 1
+  %cond.i.i1315 = phi i64 [ %3, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.thread ], [ 7, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i ]
+  %mul.i.i = shl nuw nsw i64 %cond.i.i1315, 1
   %cmp3.i.i = icmp ugt i64 %mul.i.i, %__n
   %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %mul.i.i, i64 2305843009213693951)
   %__new_capacity.0.i = select i1 %cmp3.i.i, i64 %spec.store.select.i.i, i64 %__n
@@ -2392,7 +2392,7 @@ if.end28.thread:                                  ; preds = %if.end
   %13 = load i64, ptr %_M_string_length.i3337, align 8
   store i64 %13, ptr %_M_string_length.i30, align 8
   %14 = load i64, ptr %4, align 8
-  store i64 %14, ptr %0, align 8
+  store i64 %14, ptr %1, align 8
   br label %if.else33
 
 if.end28:                                         ; preds = %if.end.thread
@@ -3879,7 +3879,7 @@ if.end.thread.i:                                  ; preds = %entry
   br i1 %cmp.i1740.i, label %if.then13.i, label %if.end28.i
 
 if.then13.i:                                      ; preds = %if.end.thread.i, %if.end.i
-  %7 = phi ptr [ %5, %if.end.thread.i ], [ %4, %if.end.i ]
+  %7 = phi ptr [ %5, %if.end.thread.i ], [ %3, %if.end.i ]
   %_M_string_length.i19.i = getelementptr inbounds i8, ptr %__str, i64 8
   %8 = load i64, ptr %_M_string_length.i19.i, align 8
   %cmp3.i20.i = icmp ult i64 %8, 8
@@ -3919,7 +3919,7 @@ if.end28.thread.i:                                ; preds = %if.end.i
   %12 = load i64, ptr %_M_string_length.i3337.i, align 8
   store i64 %12, ptr %_M_string_length.i.i, align 8
   %13 = load i64, ptr %4, align 8
-  store i64 %13, ptr %0, align 8
+  store i64 %13, ptr %1, align 8
   br label %if.else33.i
 
 if.end28.i:                                       ; preds = %if.end.thread.i
@@ -4150,39 +4150,39 @@ if.else40:                                        ; preds = %if.else33
   %sub.ptr.sub44 = sub i64 %sub.ptr.lhs.cast42, %sub.ptr.rhs.cast43
   %sub.ptr.div45 = ashr exact i64 %sub.ptr.sub44, 1
   %cmp.i96 = icmp eq i64 %sub.ptr.sub44, 2
-  br i1 %cmp.i96, label %if.then.i98, label %if.else.i97
+  br i1 %cmp.i96, label %if.then.i99, label %if.else.i97
 
-if.then.i98:                                      ; preds = %if.else40
+if.then.i99:                                      ; preds = %if.else40
   %14 = load i16, ptr %__s, align 2
   store i16 %14, ptr %add.ptr, align 2
-  br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit99
+  br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit100
 
 if.else.i97:                                      ; preds = %if.else40
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr, ptr align 2 %__s, i64 %sub.ptr.sub44, i1 false)
-  br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit99
+  br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit100
 
-_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit99: ; preds = %if.then.i98, %if.else.i97
+_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit100: ; preds = %if.then.i99, %if.else.i97
   %add.ptr46 = getelementptr inbounds i8, ptr %add.ptr, i64 %sub.ptr.sub44
   %add.ptr47 = getelementptr inbounds i16, ptr %add.ptr, i64 %__len2
   %sub48 = sub i64 %__len2, %sub.ptr.div45
-  %cmp.i100 = icmp eq i64 %sub48, 1
-  br i1 %cmp.i100, label %if.then.i103, label %if.else.i101
+  %cmp.i101 = icmp eq i64 %sub48, 1
+  br i1 %cmp.i101, label %if.then.i104, label %if.else.i102
 
-if.then.i103:                                     ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit99
+if.then.i104:                                     ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit100
   %15 = load i16, ptr %add.ptr47, align 2
   store i16 %15, ptr %add.ptr46, align 2
   br label %if.end54
 
-if.else.i101:                                     ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit99
-  %mul.i.i.i102 = shl i64 %sub48, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr46, ptr nonnull align 2 %add.ptr47, i64 %mul.i.i.i102, i1 false)
+if.else.i102:                                     ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit100
+  %mul.i.i.i103 = shl i64 %sub48, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr46, ptr nonnull align 2 %add.ptr47, i64 %mul.i.i.i103, i1 false)
   br label %if.end54
 
 if.else53:                                        ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit
   tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__pos, i64 noundef %__len1, ptr noundef %__s, i64 noundef %__len2)
   br label %if.end54
 
-if.end54:                                         ; preds = %if.end, %if.else.i101, %if.then.i103, %if.else.i92, %if.then.i94, %if.else.i87, %if.then.i89, %if.else.i73, %if.then.i75, %if.end26, %if.else53
+if.end54:                                         ; preds = %if.end, %if.else.i102, %if.then.i104, %if.else.i92, %if.then.i94, %if.else.i87, %if.then.i89, %if.else.i73, %if.then.i75, %if.end26, %if.else53
   store i64 %sub, ptr %_M_string_length.i.i, align 8
   %16 = load ptr, ptr %this, align 8
   %arrayidx.i = getelementptr inbounds i16, ptr %16, i64 %sub
@@ -5404,8 +5404,8 @@ if.then10:                                        ; preds = %land.lhs.true
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %__tmp_data, ptr noundef nonnull align 8 dereferenceable(1) %4, i64 %mul.i.i, i1 false)
   %add18 = shl nuw nsw i64 %2, 1
   %mul.i.i39 = add nuw nsw i64 %add18, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %mul.i.i39, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull align 16 dereferenceable(1) %__tmp_data, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %mul.i.i39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 16 dereferenceable(1) %__tmp_data, i64 %mul.i.i, i1 false)
   br label %if.end79
 
 if.else:                                          ; preds = %if.then6
@@ -5414,7 +5414,7 @@ if.else:                                          ; preds = %if.then6
 if.then29:                                        ; preds = %if.else
   %add33 = shl nuw nsw i64 %5, 1
   %mul.i.i44 = add nuw nsw i64 %add33, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(1) %4, i64 %mul.i.i44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %4, i64 %mul.i.i44, i1 false)
   %6 = load i64, ptr %_M_string_length.i32, align 8
   store i64 %6, ptr %_M_string_length.i, align 8
   store i64 0, ptr %_M_string_length.i32, align 8
@@ -5425,7 +5425,7 @@ if.then29:                                        ; preds = %if.else
 if.then41:                                        ; preds = %land.lhs.true
   %add45 = shl nuw nsw i64 %2, 1
   %mul.i.i49 = add nuw nsw i64 %add45, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %mul.i.i49, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %mul.i.i49, i1 false)
   %8 = load i64, ptr %_M_string_length.i, align 8
   store i64 %8, ptr %_M_string_length.i32, align 8
   store i64 0, ptr %_M_string_length.i, align 8
@@ -5437,10 +5437,10 @@ if.else53:                                        ; preds = %if.then4
   %10 = load i64, ptr %4, align 8
   %add57 = shl nuw nsw i64 %2, 1
   %mul.i.i54 = add nuw nsw i64 %add57, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %mul.i.i54, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %mul.i.i54, i1 false)
   store ptr %3, ptr %this, align 8
   store ptr %4, ptr %__s, align 8
-  store i64 %10, ptr %0, align 8
+  store i64 %10, ptr %1, align 8
   br label %if.end79
 
 if.else63:                                        ; preds = %invoke.cont
@@ -5457,7 +5457,7 @@ if.then66:                                        ; preds = %if.else63
   tail call void @llvm.assume(i1 %cmp3.i58)
   %add70 = shl nuw nsw i64 %14, 1
   %mul.i.i61 = add nuw nsw i64 %add70, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %12, i64 %mul.i.i61, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %13, i64 %mul.i.i61, i1 false)
   store ptr %0, ptr %__s, align 8
   store ptr %1, ptr %this, align 8
   br label %if.end78
@@ -6843,7 +6843,7 @@ if.then:                                          ; preds = %if.end.i.i, %entry
   %sub.i = sub i64 %0, %1
   %spec.select3.i = tail call i64 @llvm.smax.i64(i64 %sub.i, i64 -2147483648)
   %retval.04.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i, i64 2147483647)
-  %retval.0.i = trunc i64 %retval.04.i to i32
+  %retval.0.i = trunc nsw i64 %retval.04.i to i32
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4base20string16_char_traits7compareEPKtS2_m.exit, %if.then
@@ -6903,7 +6903,7 @@ if.then:                                          ; preds = %if.end.i.i, %_ZNKSt
   %sub.i7 = sub i64 %spec.select.i, %1
   %spec.select3.i = tail call i64 @llvm.smax.i64(i64 %sub.i7, i64 -2147483648)
   %retval.04.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i, i64 2147483647)
-  %retval.0.i = trunc i64 %retval.04.i to i32
+  %retval.0.i = trunc nsw i64 %retval.04.i to i32
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4base20string16_char_traits7compareEPKtS2_m.exit, %if.then
@@ -6974,7 +6974,7 @@ if.then:                                          ; preds = %if.end.i.i, %_ZNKSt
   %sub.i17 = sub i64 %spec.select.i, %spec.select.i15
   %spec.select3.i = tail call i64 @llvm.smax.i64(i64 %sub.i17, i64 -2147483648)
   %retval.04.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i, i64 2147483647)
-  %retval.0.i = trunc i64 %retval.04.i to i32
+  %retval.0.i = trunc nsw i64 %retval.04.i to i32
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4base20string16_char_traits7compareEPKtS2_m.exit, %if.then
@@ -7034,7 +7034,7 @@ if.then:                                          ; preds = %if.end.i.i, %_ZN4ba
   %sub.i = sub i64 %0, %sub.ptr.div.i.i
   %spec.select3.i = tail call i64 @llvm.smax.i64(i64 %sub.i, i64 -2147483648)
   %retval.04.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i, i64 2147483647)
-  %retval.0.i = trunc i64 %retval.04.i to i32
+  %retval.0.i = trunc nsw i64 %retval.04.i to i32
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4base20string16_char_traits7compareEPKtS2_m.exit, %if.then
@@ -7105,7 +7105,7 @@ if.then:                                          ; preds = %if.end.i.i, %_ZN4ba
   %sub.i8 = sub i64 %spec.select.i, %sub.ptr.div.i.i
   %spec.select3.i = tail call i64 @llvm.smax.i64(i64 %sub.i8, i64 -2147483648)
   %retval.04.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i, i64 2147483647)
-  %retval.0.i = trunc i64 %retval.04.i to i32
+  %retval.0.i = trunc nsw i64 %retval.04.i to i32
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4base20string16_char_traits7compareEPKtS2_m.exit, %if.then
@@ -7162,7 +7162,7 @@ if.then:                                          ; preds = %if.end.i.i, %_ZNKSt
   %sub.i6 = sub i64 %spec.select.i, %__n2
   %spec.select3.i = tail call i64 @llvm.smax.i64(i64 %sub.i6, i64 -2147483648)
   %retval.04.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i, i64 2147483647)
-  %retval.0.i = trunc i64 %retval.04.i to i32
+  %retval.0.i = trunc nsw i64 %retval.04.i to i32
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4base20string16_char_traits7compareEPKtS2_m.exit, %if.then

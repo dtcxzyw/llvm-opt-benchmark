@@ -247,7 +247,7 @@ define hidden void @"_ZN13generic_array25ArrayBuilder$LT$T$C$N$GT$13iter_positio
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @"_ZN13generic_array25GenericArray$LT$T$C$N$GT$15from_exact_iter17h531cbfa500a4533cE"(ptr noalias nocapture noundef writeonly sret({ i8, [32 x i8] }) align 1 dereferenceable(33) %0, ptr noundef nonnull readonly %1, ptr noundef readnone %2) unnamed_addr #4 personality ptr @rust_eh_personality {
 .lr.ph.i.i:
   %3 = alloca { { [32 x i8] }, i64 }, align 8
@@ -267,34 +267,30 @@ define hidden void @"_ZN13generic_array25GenericArray$LT$T$C$N$GT$15from_exact_i
   %10 = load i8, ptr %6, align 1, !alias.scope !51, !noalias !56, !noundef !4
   store i8 %10, ptr %.ptr, align 1, !alias.scope !68, !noalias !73
   %11 = icmp eq i64 %8, 32
-  br i1 %11, label %13, label %4
+  br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit.thread, label %4
 
 _ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit: ; preds = %4
   %.not = icmp eq i64 %5, 32
-  br i1 %.not, label %.thread30, label %.thread
+  br i1 %.not, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit.thread, label %.thread
 
-.thread30:                                        ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit
-  %12 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %12)
-  br label %14
+_ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit.thread: ; preds = %7, %_ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit
+  %storemerge29 = phi ptr [ %6, %_ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit ], [ %9, %7 ]
+  %.not16 = icmp eq ptr %storemerge29, %2
+  br i1 %.not16, label %12, label %.thread
 
-13:                                               ; preds = %7
-  %.not16 = icmp eq ptr %9, %2
-  br i1 %.not16, label %14, label %.thread
-
-.thread:                                          ; preds = %13, %_ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit
+.thread:                                          ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit.thread, %_ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit
   store i8 0, ptr %0, align 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  br label %16
+  br label %14
 
-14:                                               ; preds = %.thread30, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+12:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit.thread
+  %13 = getelementptr inbounds i8, ptr %0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   store i8 1, ptr %0, align 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  br label %16
+  br label %14
 
-16:                                               ; preds = %.thread, %14
+14:                                               ; preds = %.thread, %12
   ret void
 }
 
@@ -2287,7 +2283,7 @@ attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "tar
 attributes #1 = { inlinehint nofree norecurse nosync nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

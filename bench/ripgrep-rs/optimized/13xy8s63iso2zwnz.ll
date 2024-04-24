@@ -42,7 +42,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 .critedge.i.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha1dc7fc48ce7413fE.exit.i.i"
   %14 = load ptr, ptr %8, align 8, !alias.scope !4, !nonnull !9, !noundef !9
   %.sroa.56.0.extract.shift.i.i.i.i = lshr i24 %1, 16
-  %.sroa.56.0.extract.trunc.i.i.i.i = trunc i24 %.sroa.56.0.extract.shift.i.i.i.i to i8
+  %.sroa.56.0.extract.trunc.i.i.i.i = trunc nuw i24 %.sroa.56.0.extract.shift.i.i.i.i to i8
   %.sroa.45.0.extract.shift.i.i.i.i = lshr i24 %1, 8
   %.sroa.45.0.extract.trunc.i.i.i.i = trunc i24 %.sroa.45.0.extract.shift.i.i.i.i to i8
   %15 = getelementptr inbounds { i8, i8 }, ptr %14, i64 %12
@@ -501,9 +501,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h2ec5f8917
   br i1 %30, label %_ZN4core4iter6traits8iterator8Iterator4fold17haa97ff0d000205c2E.exit.loopexit.i, label %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a3ee992b87e3decE.exit.i.i"
 
 _ZN4core4iter6traits8iterator8Iterator4fold17haa97ff0d000205c2E.exit.loopexit.i: ; preds = %27, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a3ee992b87e3decE.exit.i.i"
-  %.lcssa.i = phi ptr [ %21, %27 ], [ %26, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a3ee992b87e3decE.exit.i.i" ]
   %.val4.i.ph.i = phi i64 [ %29, %27 ], [ %24, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a3ee992b87e3decE.exit.i.i" ]
-  store ptr %.lcssa.i, ptr %3, align 8, !alias.scope !105, !noalias !106
+  store ptr %26, ptr %3, align 8, !alias.scope !105, !noalias !106
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17haa97ff0d000205c2E.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17haa97ff0d000205c2E.exit.i: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17haa97ff0d000205c2E.exit.loopexit.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he2784d42b38dd51dE.exit"
@@ -750,7 +749,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h41888752cfa2ee6d
   %24 = getelementptr i8, ptr %11, i64 -8
   %25 = load i8, ptr %24, align 8, !range !66, !alias.scope !120, !noalias !117, !noundef !9
   %26 = xor i8 %25, %23
-  %27 = trunc i8 %26 to i1
+  %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %21
@@ -853,7 +852,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h41888752cfa2ee6d
   %64 = getelementptr i8, ptr %51, i64 -8
   %65 = load i8, ptr %64, align 8, !range !66, !alias.scope !144, !noalias !141, !noundef !9
   %66 = xor i8 %65, %63
-  %67 = trunc i8 %66 to i1
+  %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %61
@@ -1462,7 +1461,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 .critedge.i.i.i.i.i:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha1dc7fc48ce7413fE.exit.i.i.i"
   %14 = load ptr, ptr %8, align 8, !alias.scope !274, !noalias !271, !nonnull !9, !noundef !9
   %.sroa.56.0.extract.shift.i.i.i.i.i = lshr i24 %1, 16
-  %.sroa.56.0.extract.trunc.i.i.i.i.i = trunc i24 %.sroa.56.0.extract.shift.i.i.i.i.i to i8
+  %.sroa.56.0.extract.trunc.i.i.i.i.i = trunc nuw i24 %.sroa.56.0.extract.shift.i.i.i.i.i to i8
   %.sroa.45.0.extract.shift.i.i.i.i.i = lshr i24 %1, 8
   %.sroa.45.0.extract.trunc.i.i.i.i.i = trunc i24 %.sroa.45.0.extract.shift.i.i.i.i.i to i8
   %15 = getelementptr inbounds { i8, i8 }, ptr %14, i64 %12

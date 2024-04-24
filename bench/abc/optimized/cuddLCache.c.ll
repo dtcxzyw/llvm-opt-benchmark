@@ -129,19 +129,20 @@ define void @cuddLocalCacheQuit(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %16, label %.lr.ph.i._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 .lr.ph.i._crit_edge.loopexit:                     ; preds = %.lr.ph.i
-  %17 = getelementptr inbounds i8, ptr %.016.i11, i64 64
+  %17 = getelementptr inbounds i8, ptr %.016.i12, i64 64
   br label %.lr.ph.i._crit_edge
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i._crit_edge.loopexit, %.lr.ph.i.preheader
+  %.016.i.lcssa = phi ptr [ %.013.i, %.lr.ph.i.preheader ], [ %.0.i, %.lr.ph.i._crit_edge.loopexit ]
   %.01015.i.lcssa = phi ptr [ %14, %.lr.ph.i.preheader ], [ %17, %.lr.ph.i._crit_edge.loopexit ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = getelementptr inbounds i8, ptr %.016.i.lcssa, i64 64
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %.01015.i.lcssa, align 8
   br label %cuddLocalCacheRemoveFromList.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.016.i11 = phi ptr [ %.0.i, %.lr.ph.i ], [ %.013.i, %.lr.ph.i.preheader ]
-  %20 = getelementptr inbounds i8, ptr %.016.i11, i64 64
+  %.016.i12 = phi ptr [ %.0.i, %.lr.ph.i ], [ %.013.i, %.lr.ph.i.preheader ]
+  %20 = getelementptr inbounds i8, ptr %.016.i12, i64 64
   %.0.i = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %cuddLocalCacheRemoveFromList.exit, label %.lr.ph.i, !llvm.loop !4
@@ -342,7 +343,7 @@ ddLCHash.exit:                                    ; preds = %.lr.ph.i, %2
 
 82:                                               ; preds = %108, %.lr.ph.i23
   %indvars.iv.i25 = phi i64 [ 0, %.lr.ph.i23 ], [ %indvars.iv.next.i26, %108 ]
-  %83 = trunc i64 %indvars.iv.i25 to i32
+  %83 = trunc nuw nsw i64 %indvars.iv.i25 to i32
   %84 = mul i32 %79, %83
   %85 = zext i32 %84 to i64
   %86 = getelementptr inbounds i8, ptr %22, i64 %85

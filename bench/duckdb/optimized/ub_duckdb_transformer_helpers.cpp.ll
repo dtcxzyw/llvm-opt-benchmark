@@ -1859,7 +1859,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %call11.i.noexc
-  %48 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %call11.i.noexc ]
+  %48 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %.pre348, %call11.i.noexc ]
   %tobool.not.i.i = icmp eq ptr %48, null
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i, label %if.then.i.i139
 
@@ -11729,7 +11729,7 @@ invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_tr
   %sub.ptr.div.i.i.i2469 = phi i64 [ %sub.ptr.div.i.i.i, %for.cond.cleanup265 ], [ %sub.ptr.div.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ 0, %for.cond.cleanup265.thread ]
   %_M_finish.i.i.i2468 = phi ptr [ %_M_finish.i.i1627, %for.cond.cleanup265 ], [ %_M_finish.i.i1627, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ %_M_finish.i.i.i2462, %for.cond.cleanup265.thread ]
   %168 = phi ptr [ %.pre2455, %for.cond.cleanup265 ], [ %.pre2455, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup265.thread ]
-  %169 = phi ptr [ %.pre2455, %for.cond.cleanup265 ], [ %.pre2456, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup265.thread ]
+  %169 = phi ptr [ %.pre2456, %for.cond.cleanup265 ], [ %.pre2456, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup265.thread ]
   %cond.i.i.i.i.i = phi ptr [ null, %for.cond.cleanup265 ], [ %call5.i.i.i.i4.i20.i.i1568, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup265.thread ]
   store ptr %cond.i.i.i.i.i, ptr %agg.tmp378, align 8, !tbaa !377
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp378, i64 8
@@ -13989,7 +13989,7 @@ cleanup.action813:                                ; preds = %ehcleanup808, %_ZNK
 
 if.end815:                                        ; preds = %if.end796
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp816) #18
-  %conv817 = trunc i64 %width.3 to i32
+  %conv817 = trunc nuw i64 %width.3 to i32
   %conv818 = trunc i64 %spec.select to i32
   invoke void @_ZN6duckdb11LogicalType7DECIMALEii(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::LogicalType") align 8 %ref.tmp816, i32 noundef %conv817, i32 noundef %conv818)
           to label %invoke.cont820 unwind label %lpad819

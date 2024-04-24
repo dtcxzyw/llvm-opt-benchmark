@@ -1831,18 +1831,18 @@ _ZNK3smt7context10get_theoryEi.exit:              ; preds = %_ZNK6vectorIPN3smt6
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i.i.i
   %.then.val.i.i = load ptr, ptr %arrayidx.i.i.i, align 8
   %tobool.not = icmp eq ptr %.then.val.i.i, null
-  br i1 %tobool.not, label %return, label %dynamic_cast.notnull
+  br i1 %tobool.not, label %return, label %dynamic_cast.end
 
-dynamic_cast.notnull:                             ; preds = %_ZNK3smt7context10get_theoryEi.exit
+dynamic_cast.end:                                 ; preds = %_ZNK3smt7context10get_theoryEi.exit
   %5 = call ptr @__dynamic_cast(ptr nonnull %.then.val.i.i, ptr nonnull @_ZTIN3smt6theoryE, ptr nonnull @_ZTIN3smt14theory_wmaxsatE, i64 0) #20
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i, %entry, %_ZNK3smt7context10get_theoryEi.exit, %dynamic_cast.notnull
-  %retval.0 = phi ptr [ %5, %dynamic_cast.notnull ], [ null, %_ZNK3smt7context10get_theoryEi.exit ], [ null, %entry ], [ null, %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i ], [ null, %if.end.i.i ]
+return:                                           ; preds = %if.end.i.i, %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i, %entry, %_ZNK3smt7context10get_theoryEi.exit, %dynamic_cast.end
+  %retval.0 = phi ptr [ %5, %dynamic_cast.end ], [ null, %_ZNK3smt7context10get_theoryEi.exit ], [ null, %entry ], [ null, %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i ], [ null, %if.end.i.i ]
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
@@ -2745,9 +2745,9 @@ entry:
   %m_msolver = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_msolver, align 8
   %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN10scoped_ptrIN3opt18maxsmt_solver_baseEEaSEPS1_.exit, label %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i
+  br i1 %cmp.not.i, label %_ZN10scoped_ptrIN3opt18maxsmt_solver_baseEEaSEPS1_.exit, label %if.then.i
 
-_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i: ; preds = %entry
+if.then.i:                                        ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
   %1 = load ptr, ptr %vtable.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(160) %0) #20
@@ -2755,7 +2755,7 @@ _Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i: ; preds = %entry
   store ptr null, ptr %m_msolver, align 8
   br label %_ZN10scoped_ptrIN3opt18maxsmt_solver_baseEEaSEPS1_.exit
 
-_ZN10scoped_ptrIN3opt18maxsmt_solver_baseEEaSEPS1_.exit: ; preds = %entry, %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i
+_ZN10scoped_ptrIN3opt18maxsmt_solver_baseEEaSEPS1_.exit: ; preds = %entry, %if.then.i
   %m_params = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %m_params, ptr %optp, align 8
   %g.i = getelementptr inbounds i8, ptr %optp, i64 8
@@ -2799,7 +2799,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   invoke void @_Z14verbose_unlockv()
           to label %if.end18 unwind label %lpad
 
-lpad:                                             ; preds = %invoke.cont129.invoke, %if.end.i.i48, %if.end.i.i39, %if.end.i.i30, %if.end.i.i21, %land.lhs.true, %invoke.cont261, %invoke.cont259, %invoke.cont257, %if.then256, %invoke.cont251, %invoke.cont249, %invoke.cont247, %if.else246, %if.end244, %invoke.cont241, %invoke.cont239, %invoke.cont237, %if.then236, %invoke.cont231, %invoke.cont229, %invoke.cont227, %invoke.cont226, %if.then225, %if.then222, %if.end218, %if.then210, %if.end206, %if.then158, %if.else134, %if.then125, %if.else120, %if.then111, %if.else106, %if.then97, %if.else92, %if.then83, %if.else78, %if.then69, %if.else64, %if.then55, %if.else50, %if.then41, %lor.lhs.false, %if.then24, %land.lhs.true21, %invoke.cont14, %if.else, %invoke.cont11, %invoke.cont9, %invoke.cont8, %if.then7, %if.then, %invoke.cont, %_ZN10scoped_ptrIN3opt18maxsmt_solver_baseEEaSEPS1_.exit
+lpad:                                             ; preds = %invoke.cont129.invoke, %if.end.i.i45, %if.end.i.i36, %if.end.i.i27, %if.end.i.i, %land.lhs.true, %invoke.cont261, %invoke.cont259, %invoke.cont257, %if.then256, %invoke.cont251, %invoke.cont249, %invoke.cont247, %if.else246, %if.end244, %invoke.cont241, %invoke.cont239, %invoke.cont237, %if.then236, %invoke.cont231, %invoke.cont229, %invoke.cont227, %invoke.cont226, %if.then225, %if.then222, %if.end218, %if.then210, %if.end206, %if.then158, %if.else134, %if.then125, %if.else120, %if.then111, %if.else106, %if.then97, %if.else92, %if.then83, %if.else78, %if.then69, %if.else64, %if.then55, %if.else50, %if.then41, %lor.lhs.false, %if.then24, %land.lhs.true21, %invoke.cont14, %if.else, %invoke.cont11, %invoke.cont9, %invoke.cont8, %if.then7, %if.then, %invoke.cont, %_ZN10scoped_ptrIN3opt18maxsmt_solver_baseEEaSEPS1_.exit
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -2844,17 +2844,17 @@ invoke.cont27:                                    ; preds = %if.then24
   br i1 %cmp.not.i18, label %if.end154, label %if.then.i19
 
 if.then.i19:                                      ; preds = %invoke.cont27
-  %cmp.i.i20 = icmp eq ptr %8, null
-  br i1 %cmp.i.i20, label %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i23, label %if.end.i.i21
+  %cmp.i.i = icmp eq ptr %8, null
+  br i1 %cmp.i.i, label %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i, label %if.end.i.i
 
-if.end.i.i21:                                     ; preds = %if.then.i19
-  %vtable.i.i22 = load ptr, ptr %8, align 8
-  %9 = load ptr, ptr %vtable.i.i22, align 8
+if.end.i.i:                                       ; preds = %if.then.i19
+  %vtable.i.i20 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %vtable.i.i20, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(160) %8) #20
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %8)
-          to label %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i23 unwind label %lpad
+          to label %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i unwind label %lpad
 
-_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i23: ; preds = %if.end.i.i21, %if.then.i19
+_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i: ; preds = %if.end.i.i, %if.then.i19
   store ptr %call28, ptr %m_msolver, align 8
   br label %if.end154
 
@@ -2877,10 +2877,10 @@ lor.lhs.false:                                    ; preds = %_ZNK6vectorIN3opt4s
 invoke.cont36:                                    ; preds = %lor.lhs.false
   %12 = load ptr, ptr %call2, align 8
   %13 = load ptr, ptr %ref.tmp, align 8
-  %cmp.i25 = icmp eq ptr %12, %13
+  %cmp.i22 = icmp eq ptr %12, %13
   %14 = load ptr, ptr @_ZN6symbol4nullE, align 8
-  %cmp.i26 = icmp eq ptr %12, %14
-  %or.cond = select i1 %cmp.i25, i1 true, i1 %cmp.i26
+  %cmp.i23 = icmp eq ptr %12, %14
+  %or.cond = select i1 %cmp.i22, i1 true, i1 %cmp.i23
   br i1 %or.cond, label %if.then41, label %if.else50
 
 if.then41:                                        ; preds = %if.else32, %invoke.cont36, %_ZNK6vectorIN3opt4softELb1EjE5emptyEv.exit
@@ -2892,21 +2892,21 @@ if.then41:                                        ; preds = %if.else32, %invoke.
 
 invoke.cont45:                                    ; preds = %if.then41
   %17 = load ptr, ptr %m_msolver, align 8
-  %cmp.not.i27 = icmp eq ptr %17, %call46
-  br i1 %cmp.not.i27, label %if.end154, label %if.then.i28
+  %cmp.not.i24 = icmp eq ptr %17, %call46
+  br i1 %cmp.not.i24, label %if.end154, label %if.then.i25
 
-if.then.i28:                                      ; preds = %invoke.cont45
-  %cmp.i.i29 = icmp eq ptr %17, null
-  br i1 %cmp.i.i29, label %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i32, label %if.end.i.i30
+if.then.i25:                                      ; preds = %invoke.cont45
+  %cmp.i.i26 = icmp eq ptr %17, null
+  br i1 %cmp.i.i26, label %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i29, label %if.end.i.i27
 
-if.end.i.i30:                                     ; preds = %if.then.i28
-  %vtable.i.i31 = load ptr, ptr %17, align 8
-  %18 = load ptr, ptr %vtable.i.i31, align 8
+if.end.i.i27:                                     ; preds = %if.then.i25
+  %vtable.i.i28 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %vtable.i.i28, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(160) %17) #20
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %17)
-          to label %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i32 unwind label %lpad
+          to label %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i29 unwind label %lpad
 
-_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i32: ; preds = %if.end.i.i30, %if.then.i28
+_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i29: ; preds = %if.end.i.i27, %if.then.i25
   store ptr %call46, ptr %m_msolver, align 8
   br label %if.end154
 
@@ -2917,8 +2917,8 @@ if.else50:                                        ; preds = %invoke.cont36
 invoke.cont52:                                    ; preds = %if.else50
   %19 = load ptr, ptr %call2, align 8
   %20 = load ptr, ptr %ref.tmp51, align 8
-  %cmp.i35 = icmp eq ptr %19, %20
-  br i1 %cmp.i35, label %if.then55, label %if.else64
+  %cmp.i32 = icmp eq ptr %19, %20
+  br i1 %cmp.i32, label %if.then55, label %if.else64
 
 if.then55:                                        ; preds = %invoke.cont52
   %21 = load ptr, ptr %m_c, align 8
@@ -2929,21 +2929,21 @@ if.then55:                                        ; preds = %invoke.cont52
 
 invoke.cont59:                                    ; preds = %if.then55
   %23 = load ptr, ptr %m_msolver, align 8
-  %cmp.not.i36 = icmp eq ptr %23, %call60
-  br i1 %cmp.not.i36, label %if.end154, label %if.then.i37
+  %cmp.not.i33 = icmp eq ptr %23, %call60
+  br i1 %cmp.not.i33, label %if.end154, label %if.then.i34
 
-if.then.i37:                                      ; preds = %invoke.cont59
-  %cmp.i.i38 = icmp eq ptr %23, null
-  br i1 %cmp.i.i38, label %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i41, label %if.end.i.i39
+if.then.i34:                                      ; preds = %invoke.cont59
+  %cmp.i.i35 = icmp eq ptr %23, null
+  br i1 %cmp.i.i35, label %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i38, label %if.end.i.i36
 
-if.end.i.i39:                                     ; preds = %if.then.i37
-  %vtable.i.i40 = load ptr, ptr %23, align 8
-  %24 = load ptr, ptr %vtable.i.i40, align 8
+if.end.i.i36:                                     ; preds = %if.then.i34
+  %vtable.i.i37 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %vtable.i.i37, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(160) %23) #20
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %23)
-          to label %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i41 unwind label %lpad
+          to label %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i38 unwind label %lpad
 
-_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i41: ; preds = %if.end.i.i39, %if.then.i37
+_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i38: ; preds = %if.end.i.i36, %if.then.i34
   store ptr %call60, ptr %m_msolver, align 8
   br label %if.end154
 
@@ -2954,8 +2954,8 @@ if.else64:                                        ; preds = %invoke.cont52
 invoke.cont66:                                    ; preds = %if.else64
   %25 = load ptr, ptr %call2, align 8
   %26 = load ptr, ptr %ref.tmp65, align 8
-  %cmp.i44 = icmp eq ptr %25, %26
-  br i1 %cmp.i44, label %if.then69, label %if.else78
+  %cmp.i41 = icmp eq ptr %25, %26
+  br i1 %cmp.i41, label %if.then69, label %if.else78
 
 if.then69:                                        ; preds = %invoke.cont66
   %27 = load ptr, ptr %m_c, align 8
@@ -2966,21 +2966,21 @@ if.then69:                                        ; preds = %invoke.cont66
 
 invoke.cont73:                                    ; preds = %if.then69
   %29 = load ptr, ptr %m_msolver, align 8
-  %cmp.not.i45 = icmp eq ptr %29, %call74
-  br i1 %cmp.not.i45, label %if.end154, label %if.then.i46
+  %cmp.not.i42 = icmp eq ptr %29, %call74
+  br i1 %cmp.not.i42, label %if.end154, label %if.then.i43
 
-if.then.i46:                                      ; preds = %invoke.cont73
-  %cmp.i.i47 = icmp eq ptr %29, null
-  br i1 %cmp.i.i47, label %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i50, label %if.end.i.i48
+if.then.i43:                                      ; preds = %invoke.cont73
+  %cmp.i.i44 = icmp eq ptr %29, null
+  br i1 %cmp.i.i44, label %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i47, label %if.end.i.i45
 
-if.end.i.i48:                                     ; preds = %if.then.i46
-  %vtable.i.i49 = load ptr, ptr %29, align 8
-  %30 = load ptr, ptr %vtable.i.i49, align 8
+if.end.i.i45:                                     ; preds = %if.then.i43
+  %vtable.i.i46 = load ptr, ptr %29, align 8
+  %30 = load ptr, ptr %vtable.i.i46, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(160) %29) #20
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %29)
-          to label %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i50 unwind label %lpad
+          to label %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i47 unwind label %lpad
 
-_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i50: ; preds = %if.end.i.i48, %if.then.i46
+_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i47: ; preds = %if.end.i.i45, %if.then.i43
   store ptr %call74, ptr %m_msolver, align 8
   br label %if.end154
 
@@ -2991,8 +2991,8 @@ if.else78:                                        ; preds = %invoke.cont66
 invoke.cont80:                                    ; preds = %if.else78
   %31 = load ptr, ptr %call2, align 8
   %32 = load ptr, ptr %ref.tmp79, align 8
-  %cmp.i53 = icmp eq ptr %31, %32
-  br i1 %cmp.i53, label %if.then83, label %if.else92
+  %cmp.i50 = icmp eq ptr %31, %32
+  br i1 %cmp.i50, label %if.then83, label %if.else92
 
 if.then83:                                        ; preds = %invoke.cont80
   %33 = load ptr, ptr %m_c, align 8
@@ -3008,8 +3008,8 @@ if.else92:                                        ; preds = %invoke.cont80
 invoke.cont94:                                    ; preds = %if.else92
   %35 = load ptr, ptr %call2, align 8
   %36 = load ptr, ptr %ref.tmp93, align 8
-  %cmp.i54 = icmp eq ptr %35, %36
-  br i1 %cmp.i54, label %if.then97, label %if.else106
+  %cmp.i51 = icmp eq ptr %35, %36
+  br i1 %cmp.i51, label %if.then97, label %if.else106
 
 if.then97:                                        ; preds = %invoke.cont94
   %37 = load ptr, ptr %m_c, align 8
@@ -3025,8 +3025,8 @@ if.else106:                                       ; preds = %invoke.cont94
 invoke.cont108:                                   ; preds = %if.else106
   %39 = load ptr, ptr %call2, align 8
   %40 = load ptr, ptr %ref.tmp107, align 8
-  %cmp.i55 = icmp eq ptr %39, %40
-  br i1 %cmp.i55, label %if.then111, label %if.else120
+  %cmp.i52 = icmp eq ptr %39, %40
+  br i1 %cmp.i52, label %if.then111, label %if.else120
 
 if.then111:                                       ; preds = %invoke.cont108
   %41 = load ptr, ptr %m_c, align 8
@@ -3042,8 +3042,8 @@ if.else120:                                       ; preds = %invoke.cont108
 invoke.cont122:                                   ; preds = %if.else120
   %43 = load ptr, ptr %call2, align 8
   %44 = load ptr, ptr %ref.tmp121, align 8
-  %cmp.i56 = icmp eq ptr %43, %44
-  br i1 %cmp.i56, label %if.then125, label %if.else134
+  %cmp.i53 = icmp eq ptr %43, %44
+  br i1 %cmp.i53, label %if.then125, label %if.else134
 
 if.then125:                                       ; preds = %invoke.cont122
   %45 = load ptr, ptr %m_c, align 8
@@ -3091,10 +3091,10 @@ if.end154thread-pre-split:                        ; preds = %invoke.cont129.invo
   %.pr = load ptr, ptr %m_msolver, align 8
   br label %if.end154
 
-if.end154:                                        ; preds = %if.end154thread-pre-split, %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i50, %invoke.cont73, %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i41, %invoke.cont59, %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i32, %invoke.cont45, %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i23, %invoke.cont27
-  %52 = phi ptr [ %.pr, %if.end154thread-pre-split ], [ %call74, %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i50 ], [ %call74, %invoke.cont73 ], [ %call60, %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i41 ], [ %call60, %invoke.cont59 ], [ %call46, %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i32 ], [ %call46, %invoke.cont45 ], [ %call28, %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i23 ], [ %call28, %invoke.cont27 ]
-  %cmp.i57.not = icmp eq ptr %52, null
-  br i1 %cmp.i57.not, label %if.end218, label %if.then158
+if.end154:                                        ; preds = %if.end154thread-pre-split, %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i47, %invoke.cont73, %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i38, %invoke.cont59, %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i29, %invoke.cont45, %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i, %invoke.cont27
+  %52 = phi ptr [ %.pr, %if.end154thread-pre-split ], [ %call74, %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i47 ], [ %29, %invoke.cont73 ], [ %call60, %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i38 ], [ %23, %invoke.cont59 ], [ %call46, %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i29 ], [ %17, %invoke.cont45 ], [ %call28, %_Z7deallocIN3opt18maxsmt_solver_baseEEvPT_.exit.i ], [ %8, %invoke.cont27 ]
+  %cmp.i54.not = icmp eq ptr %52, null
+  br i1 %cmp.i54.not, label %if.end218, label %if.then158
 
 if.then158:                                       ; preds = %if.end154
   %vtable163 = load ptr, ptr %52, align 8
@@ -3198,7 +3198,7 @@ try.cont:                                         ; preds = %invoke.cont165
   br i1 %cmp209.not, label %if.end218, label %if.then210
 
 if.then210:                                       ; preds = %if.end206, %try.cont
-  %is_sat.062 = phi i32 [ %call173, %try.cont ], [ 0, %if.end206 ]
+  %is_sat.059 = phi i32 [ %call173, %try.cont ], [ 0, %if.end206 ]
   %64 = load ptr, ptr %m_msolver, align 8
   %m_model = getelementptr inbounds i8, ptr %this, i64 144
   %m_labels = getelementptr inbounds i8, ptr %this, i64 152
@@ -3209,7 +3209,7 @@ if.then210:                                       ; preds = %if.end206, %try.con
           to label %if.end218 unwind label %lpad
 
 if.end218:                                        ; preds = %try.cont, %if.then210, %if.end154
-  %is_sat.1 = phi i32 [ %is_sat.062, %if.then210 ], [ -1, %try.cont ], [ 0, %if.end154 ]
+  %is_sat.1 = phi i32 [ %is_sat.059, %if.then210 ], [ -1, %try.cont ], [ 0, %if.end154 ]
   %call220 = invoke noundef i32 @_Z19get_verbosity_levelv()
           to label %invoke.cont219 unwind label %lpad
 
@@ -8098,7 +8098,7 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind memory(read) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nosync nounwind memory(none) }

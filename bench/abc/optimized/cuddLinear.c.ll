@@ -229,7 +229,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
   %61 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv
   store i32 %60, ptr %61, align 4
   %62 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv
-  %63 = trunc i64 %indvars.iv to i32
+  %63 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %63, ptr %62, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1083,7 +1083,7 @@ define i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 
 239:                                              ; preds = %231, %235, %160
   %.3274 = phi i32 [ %.1272, %160 ], [ %.2273, %235 ], [ %.2273, %231 ]
-  %.3253 = phi ptr [ %.0257, %160 ], [ %238, %235 ], [ %.2252, %231 ]
+  %.3253 = phi ptr [ %.1263, %160 ], [ %238, %235 ], [ %.2252, %231 ]
   store ptr %.3253, ptr %71, align 8
   %240 = ptrtoint ptr %.2256 to i64
   %241 = and i64 %240, -2

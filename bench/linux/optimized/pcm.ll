@@ -1777,20 +1777,20 @@ snd_pcm_free_stream.exit4:                        ; preds = %52, %56
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @snd_pcm_dev_register(ptr noundef readonly %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %77, label %3
+  br i1 %2, label %81, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %77, label %7
+  br i1 %6, label %81, label %7
 
 7:                                                ; preds = %3
   tail call void @mutex_lock(ptr noundef nonnull @register_mutex) #13
   %8 = getelementptr inbounds i8, ptr %5, i64 368
   %9 = load i8, ptr %8, align 8, !range !6, !noundef !7
   %10 = icmp eq i8 %9, 0
-  br i1 %10, label %11, label %43
+  br i1 %10, label %11, label %47
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @snd_pcm_devices, align 8
@@ -1803,7 +1803,7 @@ define internal i32 @snd_pcm_dev_register(ptr noundef readonly %0) #1 align 16 {
   br label %17
 
 17:                                               ; preds = %.thread6, %14
-  %18 = phi ptr [ %12, %14 ], [ %38, %.thread6 ]
+  %18 = phi ptr [ %12, %14 ], [ %42, %.thread6 ]
   %19 = getelementptr i8, ptr %18, i64 -8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %15
@@ -1814,109 +1814,113 @@ define internal i32 @snd_pcm_dev_register(ptr noundef readonly %0) #1 align 16 {
   %24 = load i32, ptr %23, align 8
   %25 = load i32, ptr %16, align 8
   %26 = icmp eq i32 %24, %25
-  br i1 %26, label %.loopexit11, label %30
+  br i1 %26, label %.loopexit11, label %27
+
+27:                                               ; preds = %22
+  %28 = load i32, ptr %20, align 8
+  %29 = load i32, ptr %15, align 8
+  %30 = icmp sgt i32 %28, %29
+  %31 = icmp sgt i32 %24, %25
+  %or.cond = or i1 %30, %31
+  br i1 %or.cond, label %35, label %.thread6
 
 .thread:                                          ; preds = %17
-  %27 = load i32, ptr %20, align 8
-  %28 = load i32, ptr %15, align 8
-  %29 = icmp sgt i32 %27, %28
-  br i1 %29, label %split, label %.thread6
+  %32 = load i32, ptr %20, align 8
+  %33 = load i32, ptr %15, align 8
+  %34 = icmp sgt i32 %32, %33
+  br i1 %34, label %35, label %.thread6
 
-30:                                               ; preds = %22
-  %31 = icmp sgt i32 %24, %25
-  br i1 %31, label %split, label %.thread6
+35:                                               ; preds = %.thread, %27
+  %36 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds i8, ptr %18, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  store ptr %36, ptr %40, align 8
+  store ptr %39, ptr %36, align 8
+  %41 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %38, ptr %41, align 8
+  store volatile ptr %36, ptr %38, align 8
+  br label %47
 
-split:                                            ; preds = %.thread, %30
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
-  %33 = getelementptr inbounds i8, ptr %18, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
-  store ptr %32, ptr %36, align 8
-  store ptr %35, ptr %32, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %34, ptr %37, align 8
-  store volatile ptr %32, ptr %34, align 8
-  br label %43
-
-.thread6:                                         ; preds = %.thread, %30
-  %38 = load ptr, ptr %18, align 8
-  %39 = icmp eq ptr %38, @snd_pcm_devices
-  br i1 %39, label %.loopexit13, label %17, !llvm.loop !31
+.thread6:                                         ; preds = %27, %.thread
+  %42 = load ptr, ptr %18, align 8
+  %43 = icmp eq ptr %42, @snd_pcm_devices
+  br i1 %43, label %.loopexit13, label %17, !llvm.loop !31
 
 .loopexit13:                                      ; preds = %.thread6, %11
-  %40 = getelementptr inbounds i8, ptr %5, i64 8
-  %41 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @snd_pcm_devices, i64 0, i32 1), align 8
-  store ptr %40, ptr getelementptr inbounds (%struct.list_head, ptr @snd_pcm_devices, i64 0, i32 1), align 8
-  store ptr @snd_pcm_devices, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %41, ptr %42, align 8
-  store volatile ptr %40, ptr %41, align 8
-  br label %43
+  %44 = getelementptr inbounds i8, ptr %5, i64 8
+  %45 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @snd_pcm_devices, i64 0, i32 1), align 8
+  store ptr %44, ptr getelementptr inbounds (%struct.list_head, ptr @snd_pcm_devices, i64 0, i32 1), align 8
+  store ptr @snd_pcm_devices, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %45, ptr %46, align 8
+  store volatile ptr %44, ptr %45, align 8
+  br label %47
 
-43:                                               ; preds = %split, %.loopexit13, %7
-  %44 = getelementptr inbounds i8, ptr %5, i64 184
-  %45 = getelementptr inbounds i8, ptr %5, i64 24
-  %46 = getelementptr inbounds i8, ptr %5, i64 8
-  %47 = getelementptr inbounds i8, ptr %5, i64 16
-  br label %48
+47:                                               ; preds = %35, %.loopexit13, %7
+  %48 = getelementptr inbounds i8, ptr %5, i64 184
+  %49 = getelementptr inbounds i8, ptr %5, i64 24
+  %50 = getelementptr inbounds i8, ptr %5, i64 8
+  %51 = getelementptr inbounds i8, ptr %5, i64 16
+  br label %52
 
-48:                                               ; preds = %.loopexit, %43
-  %49 = phi i32 [ 16, %43 ], [ 24, %.loopexit ]
-  %50 = phi i1 [ true, %43 ], [ false, %.loopexit ]
-  %51 = phi i64 [ 0, %43 ], [ 1, %.loopexit ]
-  %52 = phi i32 [ 0, %43 ], [ %.ph, %.loopexit ]
-  %53 = getelementptr [2 x %struct.snd_pcm_str], ptr %44, i64 0, i64 %51
-  %54 = getelementptr inbounds i8, ptr %53, i64 24
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %.loopexit, label %57
+52:                                               ; preds = %.loopexit, %47
+  %53 = phi i32 [ 16, %47 ], [ 24, %.loopexit ]
+  %54 = phi i1 [ true, %47 ], [ false, %.loopexit ]
+  %55 = phi i64 [ 0, %47 ], [ 1, %.loopexit ]
+  %56 = phi i32 [ 0, %47 ], [ %.ph, %.loopexit ]
+  %57 = getelementptr [2 x %struct.snd_pcm_str], ptr %48, i64 0, i64 %55
+  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %.loopexit, label %61
 
-57:                                               ; preds = %48
-  %58 = load ptr, ptr %5, align 8
-  %59 = load i32, ptr %45, align 8
-  %60 = getelementptr [2 x %struct.file_operations], ptr @snd_pcm_f_ops, i64 0, i64 %51
-  %61 = getelementptr inbounds i8, ptr %53, i64 48
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call i32 @snd_register_device(i32 noundef %49, ptr noundef %58, i32 noundef %59, ptr noundef %60, ptr noundef nonnull %5, ptr noundef %62) #13
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %72, label %65
+61:                                               ; preds = %52
+  %62 = load ptr, ptr %5, align 8
+  %63 = load i32, ptr %49, align 8
+  %64 = getelementptr [2 x %struct.file_operations], ptr @snd_pcm_f_ops, i64 0, i64 %55
+  %65 = getelementptr inbounds i8, ptr %57, i64 48
+  %66 = load ptr, ptr %65, align 8
+  %67 = tail call i32 @snd_register_device(i32 noundef %53, ptr noundef %62, i32 noundef %63, ptr noundef %64, ptr noundef nonnull %5, ptr noundef %66) #13
+  %68 = icmp slt i32 %67, 0
+  br i1 %68, label %76, label %69
 
-65:                                               ; preds = %57
-  %66 = load ptr, ptr %54, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %.loopexit, label %.preheader
-
-.preheader:                                       ; preds = %65, %.preheader
-  %68 = phi ptr [ %70, %.preheader ], [ %66, %65 ]
-  tail call void @snd_pcm_timer_init(ptr noundef nonnull %68) #13
-  %69 = getelementptr inbounds i8, ptr %68, i64 224
-  %70 = load ptr, ptr %69, align 8
+69:                                               ; preds = %61
+  %70 = load ptr, ptr %58, align 8
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %.loopexit, label %.preheader, !llvm.loop !32
+  br i1 %71, label %.loopexit, label %.preheader
 
-72:                                               ; preds = %57
-  %73 = load ptr, ptr %47, align 8
-  %74 = load ptr, ptr %46, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
-  store ptr %73, ptr %75, align 8
-  store volatile ptr %74, ptr %73, align 8
-  store volatile ptr %46, ptr %46, align 8
-  store volatile ptr %46, ptr %47, align 8
+.preheader:                                       ; preds = %69, %.preheader
+  %72 = phi ptr [ %74, %.preheader ], [ %70, %69 ]
+  tail call void @snd_pcm_timer_init(ptr noundef nonnull %72) #13
+  %73 = getelementptr inbounds i8, ptr %72, i64 224
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %.loopexit, label %.preheader, !llvm.loop !32
+
+76:                                               ; preds = %61
+  %77 = load ptr, ptr %51, align 8
+  %78 = load ptr, ptr %50, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  store ptr %77, ptr %79, align 8
+  store volatile ptr %78, ptr %77, align 8
+  store volatile ptr %50, ptr %50, align 8
+  store volatile ptr %50, ptr %51, align 8
   br label %.loopexit11
 
-.loopexit:                                        ; preds = %.preheader, %48, %65
-  %.ph = phi i32 [ %63, %65 ], [ %52, %48 ], [ %63, %.preheader ]
-  br i1 %50, label %48, label %.loopexit11, !llvm.loop !33
+.loopexit:                                        ; preds = %.preheader, %52, %69
+  %.ph = phi i32 [ %67, %69 ], [ %56, %52 ], [ %67, %.preheader ]
+  br i1 %54, label %52, label %.loopexit11, !llvm.loop !33
 
-.loopexit11:                                      ; preds = %22, %.loopexit, %72
-  %76 = phi i32 [ %63, %72 ], [ %.ph, %.loopexit ], [ -16, %22 ]
+.loopexit11:                                      ; preds = %22, %.loopexit, %76
+  %80 = phi i32 [ %67, %76 ], [ %.ph, %.loopexit ], [ -16, %22 ]
   tail call void @mutex_unlock(ptr noundef nonnull @register_mutex) #13
-  br label %77
+  br label %81
 
-77:                                               ; preds = %.loopexit11, %3, %1
-  %78 = phi i32 [ %76, %.loopexit11 ], [ -6, %3 ], [ -6, %1 ]
-  ret i32 %78
+81:                                               ; preds = %.loopexit11, %3, %1
+  %82 = phi i32 [ %80, %.loopexit11 ], [ -6, %3 ], [ -6, %1 ]
+  ret i32 %82
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

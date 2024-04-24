@@ -10709,7 +10709,7 @@ define hidden { i64, i64 } @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hed2e3a7f829900abE.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hed2e3a7f829900abE.exit": ; preds = %10, %12
-  %16 = phi ptr [ %13, %12 ], [ %4, %10 ]
+  %16 = phi ptr [ %13, %12 ], [ %7, %10 ]
   %17 = phi { i64, i64 } [ %15, %12 ], [ { i64 0, i64 undef }, %10 ]
   %.sroa.3.0.i = phi i64 [ %14, %12 ], [ undef, %10 ]
   %18 = extractvalue { i64, i64 } %17, 0

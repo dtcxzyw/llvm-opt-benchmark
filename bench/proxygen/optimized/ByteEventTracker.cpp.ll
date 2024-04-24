@@ -1151,11 +1151,11 @@ _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit70: ; preds = %invoke.cont72, 
 
 if.then81:                                        ; preds = %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit70
   %memptr.offset.i.i = getelementptr inbounds i8, ptr %call64, i64 8
-  %prev_.i8.i.i = getelementptr inbounds i8, ptr %i.sroa.0.0.lcssa, i64 8
+  %prev_.i8.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %prev_.i8.i.i, align 8
   %prev_.i6.i.i = getelementptr inbounds i8, ptr %call64, i64 16
   store ptr %29, ptr %prev_.i6.i.i, align 8
-  store ptr %i.sroa.0.0.lcssa, ptr %memptr.offset.i.i, align 8
+  store ptr %28, ptr %memptr.offset.i.i, align 8
   store ptr %memptr.offset.i.i, ptr %prev_.i8.i.i, align 8
   store ptr %memptr.offset.i.i, ptr %29, align 8
   br label %if.end111

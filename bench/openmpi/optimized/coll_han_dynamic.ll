@@ -330,7 +330,7 @@ define i32 @mca_coll_han_allgather_intra_dynamic(ptr noundef %0, i32 noundef %1,
   br label %74
 
 74:                                               ; preds = %64, %71, %59, %67, %37
-  %.047 = phi ptr [ %41, %37 ], [ %63, %59 ], [ %7, %67 ], [ %7, %71 ], [ %14, %64 ]
+  %.047 = phi ptr [ %41, %37 ], [ %63, %59 ], [ %14, %67 ], [ %14, %71 ], [ %14, %64 ]
   %.0 = phi ptr [ %39, %37 ], [ %61, %59 ], [ %69, %67 ], [ %mca_coll_han_allgather_intra_simple.mca_coll_han_allgather_intra, %71 ], [ %44, %64 ]
   %75 = tail call i32 %.0(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull %6, ptr noundef %.047) #8
   ret i32 %75
@@ -713,7 +713,7 @@ define i32 @mca_coll_han_allreduce_intra_dynamic(ptr noundef %0, ptr noundef %1,
   br label %86
 
 86:                                               ; preds = %73, %83, %76, %68, %79, %46
-  %.054 = phi ptr [ %50, %46 ], [ %72, %68 ], [ %6, %79 ], [ %6, %76 ], [ %6, %83 ], [ %23, %73 ]
+  %.054 = phi ptr [ %50, %46 ], [ %72, %68 ], [ %23, %79 ], [ %23, %76 ], [ %23, %83 ], [ %23, %73 ]
   %.053 = phi ptr [ %48, %46 ], [ %70, %68 ], [ %81, %79 ], [ @mca_coll_han_allreduce_reproducible, %76 ], [ %mca_coll_han_allreduce_intra_simple.mca_coll_han_allreduce_intra, %83 ], [ %53, %73 ]
   %87 = tail call i32 %.053(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %.054) #8
   br label %88
@@ -838,7 +838,7 @@ define i32 @mca_coll_han_barrier_intra_dynamic(ptr noundef %0, ptr noundef %1) l
   br label %72
 
 72:                                               ; preds = %65, %60, %68, %38
-  %.042 = phi ptr [ %42, %38 ], [ %64, %60 ], [ %1, %68 ], [ %15, %65 ]
+  %.042 = phi ptr [ %42, %38 ], [ %64, %60 ], [ %15, %68 ], [ %15, %65 ]
   %.041 = phi ptr [ %40, %38 ], [ %62, %60 ], [ %spec.store.select, %68 ], [ %45, %65 ]
   %73 = tail call i32 %.041(ptr noundef nonnull %0, ptr noundef %.042) #8
   br label %74
@@ -968,7 +968,7 @@ define i32 @mca_coll_han_bcast_intra_dynamic(ptr noundef %0, i32 noundef %1, ptr
   br label %82
 
 82:                                               ; preds = %72, %79, %67, %75, %45
-  %.052 = phi ptr [ %49, %45 ], [ %71, %67 ], [ %5, %75 ], [ %5, %79 ], [ %22, %72 ]
+  %.052 = phi ptr [ %49, %45 ], [ %71, %67 ], [ %22, %75 ], [ %22, %79 ], [ %22, %72 ]
   %.051 = phi ptr [ %47, %45 ], [ %69, %67 ], [ %77, %75 ], [ %mca_coll_han_bcast_intra_simple.mca_coll_han_bcast_intra, %79 ], [ %52, %72 ]
   %83 = tail call i32 %.051(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %.052) #8
   br label %84
@@ -1103,7 +1103,7 @@ define i32 @mca_coll_han_gather_intra_dynamic(ptr noundef %0, i32 noundef %1, pt
   br label %85
 
 85:                                               ; preds = %75, %82, %70, %78, %48
-  %.061 = phi ptr [ %52, %48 ], [ %74, %70 ], [ %8, %78 ], [ %8, %82 ], [ %25, %75 ]
+  %.061 = phi ptr [ %52, %48 ], [ %74, %70 ], [ %25, %78 ], [ %25, %82 ], [ %25, %75 ]
   %.060 = phi ptr [ %50, %48 ], [ %72, %70 ], [ %80, %78 ], [ %mca_coll_han_gather_intra_simple.mca_coll_han_gather_intra, %82 ], [ %55, %75 ]
   %86 = tail call i32 %.060(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %7, ptr noundef %.061) #8
   br label %87
@@ -1240,7 +1240,7 @@ define i32 @mca_coll_han_reduce_intra_dynamic(ptr noundef %0, ptr noundef %1, i3
   br label %87
 
 87:                                               ; preds = %74, %84, %77, %69, %80, %47
-  %.056 = phi ptr [ %51, %47 ], [ %73, %69 ], [ %7, %80 ], [ %7, %77 ], [ %7, %84 ], [ %24, %74 ]
+  %.056 = phi ptr [ %51, %47 ], [ %73, %69 ], [ %24, %80 ], [ %24, %77 ], [ %24, %84 ], [ %24, %74 ]
   %.055 = phi ptr [ %49, %47 ], [ %71, %69 ], [ %82, %80 ], [ @mca_coll_han_reduce_reproducible, %77 ], [ %mca_coll_han_reduce_intra_simple.mca_coll_han_reduce_intra, %84 ], [ %54, %74 ]
   %88 = tail call i32 %.055(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %6, ptr noundef %.056) #8
   br label %89
@@ -1377,7 +1377,7 @@ define i32 @mca_coll_han_scatter_intra_dynamic(ptr noundef %0, i32 noundef %1, p
   br label %85
 
 85:                                               ; preds = %75, %82, %70, %78, %48
-  %.061 = phi ptr [ %52, %48 ], [ %74, %70 ], [ %8, %78 ], [ %8, %82 ], [ %25, %75 ]
+  %.061 = phi ptr [ %52, %48 ], [ %74, %70 ], [ %25, %78 ], [ %25, %82 ], [ %25, %75 ]
   %.060 = phi ptr [ %50, %48 ], [ %72, %70 ], [ %80, %78 ], [ %mca_coll_han_scatter_intra_simple.mca_coll_han_scatter_intra, %82 ], [ %55, %75 ]
   %86 = tail call i32 %.060(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %7, ptr noundef %.061) #8
   br label %87

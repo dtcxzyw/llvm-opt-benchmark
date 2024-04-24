@@ -2033,7 +2033,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %24, ptr nonnull align 4 %17, i64 %26, i1 false)
   %27 = getelementptr inbounds i8, ptr %.sroa.013.031, i64 24
   %28 = load i8, ptr %27, align 8, !range !352, !alias.scope !353, !noalias !354, !noundef !11
-  %trunc.i = trunc i8 %28 to i1
+  %trunc.i = trunc nuw i8 %28 to i1
   %29 = getelementptr inbounds i8, ptr %.sroa.013.031, i64 25
   %30 = load i8, ptr %29, align 1, !alias.scope !353, !noalias !354
   %31 = getelementptr inbounds i8, ptr %.sroa.013.031, i64 26
@@ -2775,9 +2775,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h04cac035c
   br i1 %30, label %_ZN4core4iter6traits8iterator8Iterator4fold17h1c23db4695a60d1cE.exit.loopexit.i, label %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7aeb66739154f272E.exit.i.i"
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h1c23db4695a60d1cE.exit.loopexit.i: ; preds = %27, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7aeb66739154f272E.exit.i.i"
-  %.lcssa.i = phi ptr [ %21, %27 ], [ %26, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7aeb66739154f272E.exit.i.i" ]
   %.val4.i.ph.i = phi i64 [ %29, %27 ], [ %24, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7aeb66739154f272E.exit.i.i" ]
-  store ptr %.lcssa.i, ptr %3, align 8, !alias.scope !440, !noalias !441
+  store ptr %26, ptr %3, align 8, !alias.scope !440, !noalias !441
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h1c23db4695a60d1cE.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h1c23db4695a60d1cE.exit.i: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h1c23db4695a60d1cE.exit.loopexit.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h02438550c48ef4d8E.exit"
@@ -2898,9 +2897,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h4b565c2e6
   br i1 %30, label %_ZN4core4iter6traits8iterator8Iterator4fold17h6a676138a48a19e9E.exit.loopexit.i, label %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf935e98ff1b7cdecE.exit.i.i"
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h6a676138a48a19e9E.exit.loopexit.i: ; preds = %27, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf935e98ff1b7cdecE.exit.i.i"
-  %.lcssa.i = phi ptr [ %21, %27 ], [ %26, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf935e98ff1b7cdecE.exit.i.i" ]
   %.val5.i.ph.i = phi i64 [ %29, %27 ], [ %24, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf935e98ff1b7cdecE.exit.i.i" ]
-  store ptr %.lcssa.i, ptr %3, align 8, !alias.scope !496, !noalias !497
+  store ptr %26, ptr %3, align 8, !alias.scope !496, !noalias !497
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h6a676138a48a19e9E.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h6a676138a48a19e9E.exit.i: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h6a676138a48a19e9E.exit.loopexit.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h45d2a655d313bd7eE.exit"
@@ -3849,7 +3847,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h0355a2e865bf47d5
   %25 = getelementptr i8, ptr %11, i64 -8
   %26 = load i8, ptr %25, align 8, !range !352, !alias.scope !607, !noalias !604, !noundef !11
   %27 = xor i8 %26, %24
-  %28 = trunc i8 %27 to i1
+  %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %37
 
 29:                                               ; preds = %21
@@ -3948,7 +3946,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h0355a2e865bf47d5
   %63 = getelementptr i8, ptr %50, i64 -8
   %64 = load i8, ptr %63, align 8, !range !352, !alias.scope !631, !noalias !628, !noundef !11
   %65 = xor i8 %64, %62
-  %66 = trunc i8 %65 to i1
+  %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %60
@@ -4951,7 +4949,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %27, ptr nonnull align 4 %20, i64 %29, i1 false)
   %30 = getelementptr inbounds i8, ptr %.sroa.013.031.i, i64 24
   %31 = load i8, ptr %30, align 8, !range !352, !alias.scope !822, !noalias !823, !noundef !11
-  %trunc.i.i = trunc i8 %31 to i1
+  %trunc.i.i = trunc nuw i8 %31 to i1
   %32 = getelementptr inbounds i8, ptr %.sroa.013.031.i, i64 25
   %33 = load i8, ptr %32, align 1, !alias.scope !822, !noalias !823
   %34 = getelementptr inbounds i8, ptr %.sroa.013.031.i, i64 26

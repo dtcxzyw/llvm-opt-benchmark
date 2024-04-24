@@ -43,7 +43,7 @@ define hidden i64 @lexbor_dtoa(double noundef %0, ptr noundef %1, i64 noundef %2
   %.021 = phi ptr [ %18, %17 ], [ %1, %12 ]
   %.020 = phi i64 [ 1, %17 ], [ 0, %12 ]
   %21 = lshr i64 %.pre-phi, 52
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw nsw i64 %21 to i32
   %23 = and i32 %22, 2047
   %24 = and i64 %.pre-phi, 4503599627370495
   %.not.i.i = icmp eq i32 %23, 0
@@ -62,7 +62,7 @@ define hidden i64 @lexbor_dtoa(double noundef %0, ptr noundef %1, i64 noundef %2
   %.masked.leadingonepos.i.i.i = xor i64 %.masked.numleadingzeros.i.i.i, 63
   %.lr.ph.tripcount.i.i.i = sub nuw nsw i64 53, %.masked.leadingonepos.i.i.i
   %30 = shl i64 %28, %.lr.ph.tripcount.i.i.i
-  %31 = trunc i64 %.masked.numleadingzeros.i.i.i to i32
+  %31 = trunc nuw nsw i64 %.masked.numleadingzeros.i.i.i to i32
   %32 = sub nuw nsw i32 -1065, %31
   br label %lexbor_diyfp_normalize_boundaries.exit.i
 
@@ -273,7 +273,7 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   %.1103.i.i = phi i32 [ %159, %157 ], [ %156, %154 ], [ %153, %151 ], [ %150, %148 ], [ %147, %145 ], [ %144, %142 ], [ %141, %139 ], [ %138, %136 ], [ %135, %133 ], [ 0, %lexbor_dec_count.exit.i.i ]
   %.not118.i.i = icmp eq i32 %.0104.i.i, 0
   %.not119.i.i = icmp eq ptr %.0100.i.i, %.021
-  %or.cond.i.i = and i1 %.not119.i.i, %.not118.i.i
+  %or.cond.i.i = select i1 %.not118.i.i, i1 %.not119.i.i, i1 false
   br i1 %or.cond.i.i, label %170, label %161
 
 161:                                              ; preds = %160
@@ -291,7 +291,7 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   br label %lexbor_grisu2.exit
 
 170:                                              ; preds = %161, %160
-  %.1101.i.i = phi ptr [ %164, %161 ], [ %.021, %160 ]
+  %.1101.i.i = phi ptr [ %164, %161 ], [ %.0100.i.i, %160 ]
   %171 = add nsw i32 %.099.i.i, -1
   %172 = zext nneg i32 %.1103.i.i to i64
   %173 = shl i64 %172, %110
@@ -354,7 +354,7 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   %203 = and i64 %202, 255
   %.not.i45.i = icmp eq i64 %203, 0
   %.not117.i.i = icmp eq ptr %.2.i.i, %.021
-  %or.cond121.i.i = and i1 %.not117.i.i, %.not.i45.i
+  %or.cond121.i.i = select i1 %.not.i45.i, i1 %.not117.i.i, i1 false
   br i1 %or.cond121.i.i, label %213, label %204
 
 204:                                              ; preds = %.preheader.i.i
@@ -372,7 +372,7 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   br label %lexbor_grisu2.exit
 
 213:                                              ; preds = %204, %.preheader.i.i
-  %.3.i.i = phi ptr [ %207, %204 ], [ %.021, %.preheader.i.i ]
+  %.3.i.i = phi ptr [ %207, %204 ], [ %.2.i.i, %.preheader.i.i ]
   %214 = and i64 %200, %114
   %215 = add nsw i32 %.1.i.i, -1
   %216 = icmp ult i64 %214, %201
@@ -564,7 +564,7 @@ lexbor_grisu2.exit:                               ; preds = %lexbor_dec_count.ex
   %.018.i.i = phi ptr [ %306, %303 ], [ %311, %307 ]
   %.0.i.i25 = phi i32 [ %spec.select23.i.i, %303 ], [ %312, %307 ]
   %308 = urem i32 %.0.i.i25, 10
-  %309 = trunc i32 %308 to i8
+  %309 = trunc nuw nsw i32 %308 to i8
   %310 = or disjoint i8 %309, 48
   %311 = getelementptr inbounds i8, ptr %.018.i.i, i64 -1
   store i8 %310, ptr %311, align 1
@@ -627,7 +627,7 @@ lexbor_write_exponent.exit.i:                     ; preds = %313, %301
   %.018.i122.i = phi ptr [ %334, %332 ], [ %339, %335 ]
   %.0.i123.i = phi i32 [ %spec.select23.i121.i, %332 ], [ %340, %335 ]
   %336 = urem i32 %.0.i123.i, 10
-  %337 = trunc i32 %336 to i8
+  %337 = trunc nuw nsw i32 %336 to i8
   %338 = or disjoint i8 %337, 48
   %339 = getelementptr inbounds i8, ptr %.018.i122.i, i64 -1
   store i8 %338, ptr %339, align 1

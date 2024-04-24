@@ -152,7 +152,7 @@ if.else49:                                        ; preds = %if.else37
   br label %donefornow
 
 if.else56:                                        ; preds = %while.end
-  %conv57 = trunc nsw i32 %i.1.lcssa to i8
+  %conv57 = trunc nuw nsw i32 %i.1.lcssa to i8
   %18 = load ptr, ptr %converter, align 8
   %toULength59 = getelementptr inbounds i8, ptr %18, i64 64
   store i8 %conv57, ptr %toULength59, align 8
@@ -319,7 +319,7 @@ if.else52:                                        ; preds = %if.else38
   br label %donefornow
 
 if.else59:                                        ; preds = %while.end
-  %conv60 = trunc nsw i32 %i.1.lcssa to i8
+  %conv60 = trunc nuw nsw i32 %i.1.lcssa to i8
   %19 = load ptr, ptr %converter, align 8
   %toULength62 = getelementptr inbounds i8, ptr %19, i64 64
   store i8 %conv60, ptr %toULength62, align 8
@@ -976,7 +976,7 @@ if.else49:                                        ; preds = %if.else37
   br label %donefornow
 
 if.else56:                                        ; preds = %while.end
-  %conv57 = trunc nsw i32 %i.1.lcssa to i8
+  %conv57 = trunc nuw nsw i32 %i.1.lcssa to i8
   %19 = load ptr, ptr %converter, align 8
   %toULength59 = getelementptr inbounds i8, ptr %19, i64 64
   store i8 %conv57, ptr %toULength59, align 8
@@ -1145,7 +1145,7 @@ if.else52:                                        ; preds = %if.else38
   br label %donefornow
 
 if.else59:                                        ; preds = %while.end
-  %conv60 = trunc nsw i32 %i.1.lcssa to i8
+  %conv60 = trunc nuw nsw i32 %i.1.lcssa to i8
   %20 = load ptr, ptr %converter, align 8
   %toULength62 = getelementptr inbounds i8, ptr %20, i64 64
   store i8 %conv60, ptr %toULength62, align 8
@@ -1915,7 +1915,7 @@ sw.default85:                                     ; preds = %if.then81
   %add.ptr93 = getelementptr inbounds i8, ptr %add.ptr88, i64 %idx.ext92
   store ptr %add.ptr93, ptr %sourceLimit2, align 8
   tail call void @_ZL31T_UConverter_toUnicode_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef nonnull %pArgs, ptr noundef %pErrorCode)
-  store ptr %2, ptr %source1, align 8
+  store ptr %.us-phi94176, ptr %source1, align 8
   store ptr %2, ptr %sourceLimit2, align 8
   br label %if.end98
 

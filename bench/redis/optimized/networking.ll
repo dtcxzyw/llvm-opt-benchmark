@@ -1530,7 +1530,7 @@ if.end.i:                                         ; preds = %cond.end.i
   br i1 %cmp9.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %value.i = getelementptr inbounds i8, ptr %7, i64 16
+  %value.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %value.i, align 8
   %ref_block_pos.i = getelementptr inbounds i8, ptr %c, i64 704
   %11 = load i64, ptr %ref_block_pos.i, align 8
@@ -1608,7 +1608,7 @@ if.end:                                           ; preds = %cond.end
   br i1 %cmp9, label %land.lhs.true, label %if.end14
 
 land.lhs.true:                                    ; preds = %if.end
-  %value = getelementptr inbounds i8, ptr %5, i64 16
+  %value = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %value, align 8
   %ref_block_pos = getelementptr inbounds i8, ptr %c, i64 704
   %9 = load i64, ptr %ref_block_pos, align 8
@@ -5199,8 +5199,8 @@ if.end97:                                         ; preds = %if.then95, %if.end9
   br i1 %cmp, label %if.then99, label %if.end101
 
 if.then99:                                        ; preds = %if.end97
-  %incdec.ptr100 = getelementptr inbounds i8, ptr %flags, i64 1
-  store i8 78, ptr %flags, align 16
+  %incdec.ptr100 = getelementptr inbounds i8, ptr %p.15, i64 1
+  store i8 78, ptr %p.15, align 1
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then99, %if.end97
@@ -7541,7 +7541,7 @@ if.end.i:                                         ; preds = %cond.end.i
   br i1 %cmp9.i, label %land.lhs.true.i, label %while.body
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %value.i = getelementptr inbounds i8, ptr %6, i64 16
+  %value.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load ptr, ptr %value.i, align 8
   %10 = load i64, ptr %ref_block_pos.i, align 8
   %used.i = getelementptr inbounds i8, ptr %9, i64 32
@@ -7702,7 +7702,7 @@ if.end.i45:                                       ; preds = %cond.end.i42
   br i1 %cmp9.i47, label %land.lhs.true.i49, label %if.end54
 
 land.lhs.true.i49:                                ; preds = %if.end.i45
-  %value.i50 = getelementptr inbounds i8, ptr %37, i64 16
+  %value.i50 = getelementptr inbounds i8, ptr %39, i64 16
   %40 = load ptr, ptr %value.i50, align 8
   %41 = load i64, ptr %ref_block_pos.i, align 8
   %used.i52 = getelementptr inbounds i8, ptr %40, i64 32
@@ -7865,7 +7865,7 @@ if.end.i:                                         ; preds = %cond.end.i
   br i1 %cmp9.i, label %land.lhs.true.i, label %if.then15
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %value.i = getelementptr inbounds i8, ptr %12, i64 16
+  %value.i = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %value.i, align 8
   %ref_block_pos.i = getelementptr inbounds i8, ptr %2, i64 704
   %16 = load i64, ptr %ref_block_pos.i, align 8
@@ -10175,7 +10175,7 @@ if.end.i:                                         ; preds = %cond.end.i
   br i1 %cmp9.i, label %land.lhs.true.i, label %if.then8
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %value.i = getelementptr inbounds i8, ptr %9, i64 16
+  %value.i = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %value.i, align 8
   %ref_block_pos.i = getelementptr inbounds i8, ptr %c, i64 704
   %13 = load i64, ptr %ref_block_pos.i, align 8
@@ -12767,26 +12767,26 @@ if.then5:                                         ; preds = %if.end
 if.end7:                                          ; preds = %if.end.if.end7_crit_edge, %entry
   %5 = phi i32 [ %.pre, %if.end.if.end7_crit_edge ], [ %0, %entry ]
   %next_arg.0 = phi i32 [ 2, %if.end.if.end7_crit_edge ], [ 1, %entry ]
-  %cmp9224 = icmp slt i32 %next_arg.0, %5
-  br i1 %cmp9224, label %for.body.lr.ph, label %if.end63.thread
+  %cmp9227 = icmp slt i32 %next_arg.0, %5
+  br i1 %cmp9227, label %for.body.lr.ph, label %if.end63.thread
 
 for.body.lr.ph:                                   ; preds = %if.end7
   %argv12 = getelementptr inbounds i8, ptr %c, i64 96
   %original_argv.i.i = getelementptr inbounds i8, ptr %c, i64 112
   %original_argc.i.i = getelementptr inbounds i8, ptr %c, i64 108
-  %.pre233 = load ptr, ptr %argv12, align 8
+  %.pre236 = load ptr, ptr %argv12, align 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %6 = phi i32 [ %5, %for.body.lr.ph ], [ %55, %for.inc ]
-  %7 = phi ptr [ %.pre233, %for.body.lr.ph ], [ %56, %for.inc ]
-  %username.0228 = phi ptr [ null, %for.body.lr.ph ], [ %username.1, %for.inc ]
-  %password.0227 = phi ptr [ null, %for.body.lr.ph ], [ %password.1, %for.inc ]
-  %j.0226 = phi i32 [ %next_arg.0, %for.body.lr.ph ], [ %inc45, %for.inc ]
-  %clientname.0225 = phi ptr [ null, %for.body.lr.ph ], [ %clientname.1, %for.inc ]
-  %8 = xor i32 %j.0226, -1
+  %7 = phi ptr [ %.pre236, %for.body.lr.ph ], [ %56, %for.inc ]
+  %username.0231 = phi ptr [ null, %for.body.lr.ph ], [ %username.1, %for.inc ]
+  %password.0230 = phi ptr [ null, %for.body.lr.ph ], [ %password.1, %for.inc ]
+  %j.0229 = phi i32 [ %next_arg.0, %for.body.lr.ph ], [ %inc45, %for.inc ]
+  %clientname.0228 = phi ptr [ null, %for.body.lr.ph ], [ %clientname.1, %for.inc ]
+  %8 = xor i32 %j.0229, -1
   %sub11 = add i32 %6, %8
-  %idxprom13 = sext i32 %j.0226 to i64
+  %idxprom13 = sext i32 %j.0229 to i64
   %arrayidx14 = getelementptr inbounds ptr, ptr %7, i64 %idxprom13
   %9 = load ptr, ptr %arrayidx14, align 8
   %ptr = getelementptr inbounds i8, ptr %9, i64 8
@@ -12798,7 +12798,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond1, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %for.body
-  %add = add nsw i32 %j.0226, 1
+  %add = add nsw i32 %j.0229, 1
   %11 = load ptr, ptr %original_argv.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %retainOriginalCommandVector.exit.i
@@ -12850,8 +12850,8 @@ redactClientCommandArgument.exit:                 ; preds = %retainOriginalComma
   %24 = load ptr, ptr %original_argv.i.i, align 8
   %arrayidx6.i = getelementptr inbounds ptr, ptr %24, i64 %idxprom.i
   store ptr %23, ptr %arrayidx6.i, align 8
-  %.pre234 = load ptr, ptr %original_argv.i.i, align 8
-  %tobool.not.i.i66 = icmp eq ptr %.pre234, null
+  %.pre237 = load ptr, ptr %original_argv.i.i, align 8
+  %tobool.not.i.i66 = icmp eq ptr %.pre237, null
   br i1 %tobool.not.i.i66, label %if.end.i.i73, label %retainOriginalCommandVector.exit.i67
 
 if.end.i.i73:                                     ; preds = %redactClientCommandArgument.exit
@@ -12888,9 +12888,9 @@ retainOriginalCommandVector.exit.loopexit.i89:    ; preds = %for.body.i.i82
   br label %retainOriginalCommandVector.exit.i67
 
 retainOriginalCommandVector.exit.i67:             ; preds = %retainOriginalCommandVector.exit.i, %retainOriginalCommandVector.exit.loopexit.i89, %if.end.i.i73, %redactClientCommandArgument.exit
-  %34 = phi ptr [ %.pre.i90, %retainOriginalCommandVector.exit.loopexit.i89 ], [ %.pre234, %redactClientCommandArgument.exit ], [ %call.i.i78, %if.end.i.i73 ], [ %20, %retainOriginalCommandVector.exit.i ]
-  %add18239 = add nsw i32 %j.0226, 2
-  %idxprom.i68 = sext i32 %add18239 to i64
+  %34 = phi ptr [ %.pre.i90, %retainOriginalCommandVector.exit.loopexit.i89 ], [ %.pre237, %redactClientCommandArgument.exit ], [ %call.i.i78, %if.end.i.i73 ], [ %20, %retainOriginalCommandVector.exit.i ]
+  %add18242 = add nsw i32 %j.0229, 2
+  %idxprom.i68 = sext i32 %add18242 to i64
   %arrayidx.i69 = getelementptr inbounds ptr, ptr %34, i64 %idxprom.i68
   %35 = load ptr, ptr %arrayidx.i69, align 8
   %36 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 81), align 8
@@ -12911,7 +12911,7 @@ redactClientCommandArgument.exit91:               ; preds = %retainOriginalComma
   %40 = load ptr, ptr %arrayidx22, align 8
   %arrayidx26 = getelementptr inbounds ptr, ptr %39, i64 %idxprom.i68
   %41 = load ptr, ptr %arrayidx26, align 8
-  %.pre235 = load i32, ptr %argc, align 8
+  %.pre238 = load i32, ptr %argc, align 8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
@@ -12922,7 +12922,7 @@ if.else:                                          ; preds = %for.body
   br i1 %or.cond2, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else
-  %add34 = add nsw i32 %j.0226, 1
+  %add34 = add nsw i32 %j.0229, 1
   %idxprom35 = sext i32 %add34 to i64
   %arrayidx36 = getelementptr inbounds ptr, ptr %7, i64 %idxprom35
   %42 = load ptr, ptr %arrayidx36, align 8
@@ -13006,12 +13006,12 @@ if.else42:                                        ; preds = %if.else
   br label %return
 
 for.inc:                                          ; preds = %while.cond.i.i, %if.end.i94, %cond.true.i, %if.then32, %sdslen.exit.i, %redactClientCommandArgument.exit91
-  %55 = phi i32 [ %.pre235, %redactClientCommandArgument.exit91 ], [ %6, %sdslen.exit.i ], [ %6, %if.then32 ], [ %6, %cond.true.i ], [ %6, %if.end.i94 ], [ %6, %while.cond.i.i ]
+  %55 = phi i32 [ %.pre238, %redactClientCommandArgument.exit91 ], [ %6, %sdslen.exit.i ], [ %6, %if.then32 ], [ %6, %cond.true.i ], [ %6, %if.end.i94 ], [ %6, %while.cond.i.i ]
   %56 = phi ptr [ %39, %redactClientCommandArgument.exit91 ], [ %7, %sdslen.exit.i ], [ %7, %if.then32 ], [ %7, %cond.true.i ], [ %7, %if.end.i94 ], [ %7, %while.cond.i.i ]
-  %clientname.1 = phi ptr [ %clientname.0225, %redactClientCommandArgument.exit91 ], [ %42, %sdslen.exit.i ], [ null, %if.then32 ], [ %42, %cond.true.i ], [ %42, %if.end.i94 ], [ %42, %while.cond.i.i ]
-  %j.1 = phi i32 [ %add18239, %redactClientCommandArgument.exit91 ], [ %add34, %sdslen.exit.i ], [ %add34, %if.then32 ], [ %add34, %cond.true.i ], [ %add34, %if.end.i94 ], [ %add34, %while.cond.i.i ]
-  %password.1 = phi ptr [ %41, %redactClientCommandArgument.exit91 ], [ %password.0227, %sdslen.exit.i ], [ %password.0227, %if.then32 ], [ %password.0227, %cond.true.i ], [ %password.0227, %if.end.i94 ], [ %password.0227, %while.cond.i.i ]
-  %username.1 = phi ptr [ %40, %redactClientCommandArgument.exit91 ], [ %username.0228, %sdslen.exit.i ], [ %username.0228, %if.then32 ], [ %username.0228, %cond.true.i ], [ %username.0228, %if.end.i94 ], [ %username.0228, %while.cond.i.i ]
+  %clientname.1 = phi ptr [ %clientname.0228, %redactClientCommandArgument.exit91 ], [ %42, %sdslen.exit.i ], [ null, %if.then32 ], [ %42, %cond.true.i ], [ %42, %if.end.i94 ], [ %42, %while.cond.i.i ]
+  %j.1 = phi i32 [ %add18242, %redactClientCommandArgument.exit91 ], [ %add34, %sdslen.exit.i ], [ %add34, %if.then32 ], [ %add34, %cond.true.i ], [ %add34, %if.end.i94 ], [ %add34, %while.cond.i.i ]
+  %password.1 = phi ptr [ %41, %redactClientCommandArgument.exit91 ], [ %password.0230, %sdslen.exit.i ], [ %password.0230, %if.then32 ], [ %password.0230, %cond.true.i ], [ %password.0230, %if.end.i94 ], [ %password.0230, %while.cond.i.i ]
+  %username.1 = phi ptr [ %40, %redactClientCommandArgument.exit91 ], [ %username.0231, %sdslen.exit.i ], [ %username.0231, %if.then32 ], [ %username.0231, %cond.true.i ], [ %username.0231, %if.end.i94 ], [ %username.0231, %while.cond.i.i ]
   %inc45 = add nsw i32 %j.1, 1
   %cmp9 = icmp slt i32 %inc45, %55
   br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !35
@@ -13055,10 +13055,10 @@ if.end63:                                         ; preds = %if.end57, %for.end
   br i1 %tobool64.not, label %if.then65, label %if.end66
 
 if.end63.thread:                                  ; preds = %if.end7
-  %authenticated248 = getelementptr inbounds i8, ptr %c, i64 256
-  %60 = load i32, ptr %authenticated248, align 8
-  %tobool64.not249 = icmp eq i32 %60, 0
-  br i1 %tobool64.not249, label %if.then65, label %if.end70
+  %authenticated251 = getelementptr inbounds i8, ptr %c, i64 256
+  %60 = load i32, ptr %authenticated251, align 8
+  %tobool64.not252 = icmp eq i32 %60, 0
+  br i1 %tobool64.not252, label %if.then65, label %if.end70
 
 if.then65:                                        ; preds = %if.end63.thread, %if.end63
   call void @addReplyErrorLength(ptr noundef nonnull %c, ptr noundef nonnull @.str.217, i64 noundef 214)
@@ -13080,7 +13080,7 @@ if.end70:                                         ; preds = %if.end63.thread, %i
 
 if.end70.if.end73_crit_edge:                      ; preds = %if.end70
   %resp.i.phi.trans.insert = getelementptr inbounds i8, ptr %c, i64 24
-  %.pre236 = load i32, ptr %resp.i.phi.trans.insert, align 8
+  %.pre239 = load i32, ptr %resp.i.phi.trans.insert, align 8
   br label %if.end73
 
 if.then72:                                        ; preds = %if.end70
@@ -13090,16 +13090,16 @@ if.then72:                                        ; preds = %if.end70
   br label %if.end73
 
 if.end73:                                         ; preds = %if.end70.if.end73_crit_edge, %if.then72
-  %62 = phi i32 [ %.pre236, %if.end70.if.end73_crit_edge ], [ %conv, %if.then72 ]
+  %62 = phi i32 [ %.pre239, %if.end70.if.end73_crit_edge ], [ %conv, %if.then72 ]
   %63 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 27), align 4
   %tobool74.not = icmp eq i32 %63, 0
   %add75 = select i1 %tobool74.not, i64 7, i64 6
   %resp.i = getelementptr inbounds i8, ptr %c, i64 24
-  %cmp.i100 = icmp eq i32 %62, 2
-  %mul.i = zext i1 %cmp.i100 to i64
+  %cmp.i101 = icmp eq i32 %62, 2
+  %mul.i = zext i1 %cmp.i101 to i64
   %spec.select4.i = shl nuw nsw i64 %add75, %mul.i
-  %conv2.i.i101 = select i1 %cmp.i100, i8 42, i8 37
-  call void @addReplyLongLongWithPrefix(ptr noundef nonnull %c, i64 noundef %spec.select4.i, i8 noundef signext %conv2.i.i101)
+  %conv2.i.i102 = select i1 %cmp.i101, i8 42, i8 37
+  call void @addReplyLongLongWithPrefix(ptr noundef nonnull %c, i64 noundef %spec.select4.i, i8 noundef signext %conv2.i.i102)
   call void @addReplyLongLongWithPrefix(ptr noundef nonnull %c, i64 noundef 6, i8 noundef signext 36)
   %call.i.i4.i = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
   %cmp.not.i.i5.i = icmp eq i32 %call.i.i4.i, 0
@@ -13120,168 +13120,168 @@ if.end.i6.i.i:                                    ; preds = %addReplyProto.exit.
 
 addReplyBulkCString.exit:                         ; preds = %addReplyProto.exit.i.i, %if.end.i6.i.i
   call void @addReplyLongLongWithPrefix(ptr noundef nonnull %c, i64 noundef 5, i8 noundef signext 36)
-  %call.i.i4.i105 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i.i5.i106 = icmp eq i32 %call.i.i4.i105, 0
-  br i1 %cmp.not.i.i5.i106, label %if.end.i.i6.i112, label %addReplyProto.exit.i.i107
+  %call.i.i4.i106 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i.i5.i107 = icmp eq i32 %call.i.i4.i106, 0
+  br i1 %cmp.not.i.i5.i107, label %if.end.i.i6.i113, label %addReplyProto.exit.i.i108
 
-if.end.i.i6.i112:                                 ; preds = %addReplyBulkCString.exit
+if.end.i.i6.i113:                                 ; preds = %addReplyBulkCString.exit
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.218, i64 noundef 5)
-  br label %addReplyProto.exit.i.i107
+  br label %addReplyProto.exit.i.i108
 
-addReplyProto.exit.i.i107:                        ; preds = %if.end.i.i6.i112, %addReplyBulkCString.exit
-  %call.i4.i.i108 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i5.i.i109 = icmp eq i32 %call.i4.i.i108, 0
-  br i1 %cmp.not.i5.i.i109, label %if.end.i6.i.i111, label %addReplyBulkCString.exit113
+addReplyProto.exit.i.i108:                        ; preds = %if.end.i.i6.i113, %addReplyBulkCString.exit
+  %call.i4.i.i109 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i5.i.i110 = icmp eq i32 %call.i4.i.i109, 0
+  br i1 %cmp.not.i5.i.i110, label %if.end.i6.i.i112, label %addReplyBulkCString.exit114
 
-if.end.i6.i.i111:                                 ; preds = %addReplyProto.exit.i.i107
+if.end.i6.i.i112:                                 ; preds = %addReplyProto.exit.i.i108
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
-  br label %addReplyBulkCString.exit113
+  br label %addReplyBulkCString.exit114
 
-addReplyBulkCString.exit113:                      ; preds = %addReplyProto.exit.i.i107, %if.end.i6.i.i111
+addReplyBulkCString.exit114:                      ; preds = %addReplyProto.exit.i.i108, %if.end.i6.i.i112
   call void @addReplyLongLongWithPrefix(ptr noundef nonnull %c, i64 noundef 7, i8 noundef signext 36)
-  %call.i.i4.i115 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i.i5.i116 = icmp eq i32 %call.i.i4.i115, 0
-  br i1 %cmp.not.i.i5.i116, label %if.end.i.i6.i122, label %addReplyProto.exit.i.i117
+  %call.i.i4.i116 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i.i5.i117 = icmp eq i32 %call.i.i4.i116, 0
+  br i1 %cmp.not.i.i5.i117, label %if.end.i.i6.i123, label %addReplyProto.exit.i.i118
 
-if.end.i.i6.i122:                                 ; preds = %addReplyBulkCString.exit113
+if.end.i.i6.i123:                                 ; preds = %addReplyBulkCString.exit114
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.219, i64 noundef 7)
-  br label %addReplyProto.exit.i.i117
+  br label %addReplyProto.exit.i.i118
 
-addReplyProto.exit.i.i117:                        ; preds = %if.end.i.i6.i122, %addReplyBulkCString.exit113
-  %call.i4.i.i118 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i5.i.i119 = icmp eq i32 %call.i4.i.i118, 0
-  br i1 %cmp.not.i5.i.i119, label %if.end.i6.i.i121, label %addReplyBulkCString.exit123
+addReplyProto.exit.i.i118:                        ; preds = %if.end.i.i6.i123, %addReplyBulkCString.exit114
+  %call.i4.i.i119 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i5.i.i120 = icmp eq i32 %call.i4.i.i119, 0
+  br i1 %cmp.not.i5.i.i120, label %if.end.i6.i.i122, label %addReplyBulkCString.exit124
 
-if.end.i6.i.i121:                                 ; preds = %addReplyProto.exit.i.i117
+if.end.i6.i.i122:                                 ; preds = %addReplyProto.exit.i.i118
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
-  br label %addReplyBulkCString.exit123
+  br label %addReplyBulkCString.exit124
 
-addReplyBulkCString.exit123:                      ; preds = %addReplyProto.exit.i.i117, %if.end.i6.i.i121
+addReplyBulkCString.exit124:                      ; preds = %addReplyProto.exit.i.i118, %if.end.i6.i.i122
   call void @addReplyLongLongWithPrefix(ptr noundef nonnull %c, i64 noundef 11, i8 noundef signext 36)
-  %call.i.i4.i125 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i.i5.i126 = icmp eq i32 %call.i.i4.i125, 0
-  br i1 %cmp.not.i.i5.i126, label %if.end.i.i6.i132, label %addReplyProto.exit.i.i127
+  %call.i.i4.i126 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i.i5.i127 = icmp eq i32 %call.i.i4.i126, 0
+  br i1 %cmp.not.i.i5.i127, label %if.end.i.i6.i133, label %addReplyProto.exit.i.i128
 
-if.end.i.i6.i132:                                 ; preds = %addReplyBulkCString.exit123
+if.end.i.i6.i133:                                 ; preds = %addReplyBulkCString.exit124
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.220, i64 noundef 11)
-  br label %addReplyProto.exit.i.i127
+  br label %addReplyProto.exit.i.i128
 
-addReplyProto.exit.i.i127:                        ; preds = %if.end.i.i6.i132, %addReplyBulkCString.exit123
-  %call.i4.i.i128 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i5.i.i129 = icmp eq i32 %call.i4.i.i128, 0
-  br i1 %cmp.not.i5.i.i129, label %if.end.i6.i.i131, label %addReplyBulkCString.exit133
+addReplyProto.exit.i.i128:                        ; preds = %if.end.i.i6.i133, %addReplyBulkCString.exit124
+  %call.i4.i.i129 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i5.i.i130 = icmp eq i32 %call.i4.i.i129, 0
+  br i1 %cmp.not.i5.i.i130, label %if.end.i6.i.i132, label %addReplyBulkCString.exit134
 
-if.end.i6.i.i131:                                 ; preds = %addReplyProto.exit.i.i127
+if.end.i6.i.i132:                                 ; preds = %addReplyProto.exit.i.i128
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
-  br label %addReplyBulkCString.exit133
+  br label %addReplyBulkCString.exit134
 
-addReplyBulkCString.exit133:                      ; preds = %addReplyProto.exit.i.i127, %if.end.i6.i.i131
+addReplyBulkCString.exit134:                      ; preds = %addReplyProto.exit.i.i128, %if.end.i6.i.i132
   call void @addReplyLongLongWithPrefix(ptr noundef nonnull %c, i64 noundef 5, i8 noundef signext 36)
-  %call.i.i4.i135 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i.i5.i136 = icmp eq i32 %call.i.i4.i135, 0
-  br i1 %cmp.not.i.i5.i136, label %if.end.i.i6.i142, label %addReplyProto.exit.i.i137
+  %call.i.i4.i136 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i.i5.i137 = icmp eq i32 %call.i.i4.i136, 0
+  br i1 %cmp.not.i.i5.i137, label %if.end.i.i6.i143, label %addReplyProto.exit.i.i138
 
-if.end.i.i6.i142:                                 ; preds = %addReplyBulkCString.exit133
+if.end.i.i6.i143:                                 ; preds = %addReplyBulkCString.exit134
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.221, i64 noundef 5)
-  br label %addReplyProto.exit.i.i137
+  br label %addReplyProto.exit.i.i138
 
-addReplyProto.exit.i.i137:                        ; preds = %if.end.i.i6.i142, %addReplyBulkCString.exit133
-  %call.i4.i.i138 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i5.i.i139 = icmp eq i32 %call.i4.i.i138, 0
-  br i1 %cmp.not.i5.i.i139, label %if.end.i6.i.i141, label %addReplyBulkCString.exit143
+addReplyProto.exit.i.i138:                        ; preds = %if.end.i.i6.i143, %addReplyBulkCString.exit134
+  %call.i4.i.i139 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i5.i.i140 = icmp eq i32 %call.i4.i.i139, 0
+  br i1 %cmp.not.i5.i.i140, label %if.end.i6.i.i142, label %addReplyBulkCString.exit144
 
-if.end.i6.i.i141:                                 ; preds = %addReplyProto.exit.i.i137
+if.end.i6.i.i142:                                 ; preds = %addReplyProto.exit.i.i138
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
-  br label %addReplyBulkCString.exit143
+  br label %addReplyBulkCString.exit144
 
-addReplyBulkCString.exit143:                      ; preds = %addReplyProto.exit.i.i137, %if.end.i6.i.i141
+addReplyBulkCString.exit144:                      ; preds = %addReplyProto.exit.i.i138, %if.end.i6.i.i142
   %64 = load i32, ptr %resp.i, align 8
   %conv78 = sext i32 %64 to i64
   call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %conv78)
   call void @addReplyLongLongWithPrefix(ptr noundef nonnull %c, i64 noundef 2, i8 noundef signext 36)
-  %call.i.i4.i145 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i.i5.i146 = icmp eq i32 %call.i.i4.i145, 0
-  br i1 %cmp.not.i.i5.i146, label %if.end.i.i6.i152, label %addReplyProto.exit.i.i147
+  %call.i.i4.i146 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i.i5.i147 = icmp eq i32 %call.i.i4.i146, 0
+  br i1 %cmp.not.i.i5.i147, label %if.end.i.i6.i153, label %addReplyProto.exit.i.i148
 
-if.end.i.i6.i152:                                 ; preds = %addReplyBulkCString.exit143
+if.end.i.i6.i153:                                 ; preds = %addReplyBulkCString.exit144
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.151, i64 noundef 2)
-  br label %addReplyProto.exit.i.i147
+  br label %addReplyProto.exit.i.i148
 
-addReplyProto.exit.i.i147:                        ; preds = %if.end.i.i6.i152, %addReplyBulkCString.exit143
-  %call.i4.i.i148 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i5.i.i149 = icmp eq i32 %call.i4.i.i148, 0
-  br i1 %cmp.not.i5.i.i149, label %if.end.i6.i.i151, label %addReplyBulkCString.exit153
+addReplyProto.exit.i.i148:                        ; preds = %if.end.i.i6.i153, %addReplyBulkCString.exit144
+  %call.i4.i.i149 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i5.i.i150 = icmp eq i32 %call.i4.i.i149, 0
+  br i1 %cmp.not.i5.i.i150, label %if.end.i6.i.i152, label %addReplyBulkCString.exit154
 
-if.end.i6.i.i151:                                 ; preds = %addReplyProto.exit.i.i147
+if.end.i6.i.i152:                                 ; preds = %addReplyProto.exit.i.i148
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
-  br label %addReplyBulkCString.exit153
+  br label %addReplyBulkCString.exit154
 
-addReplyBulkCString.exit153:                      ; preds = %addReplyProto.exit.i.i147, %if.end.i6.i.i151
+addReplyBulkCString.exit154:                      ; preds = %addReplyProto.exit.i.i148, %if.end.i6.i.i152
   %65 = load i64, ptr %c, align 8
   call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %65)
   call void @addReplyLongLongWithPrefix(ptr noundef nonnull %c, i64 noundef 4, i8 noundef signext 36)
-  %call.i.i4.i155 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i.i5.i156 = icmp eq i32 %call.i.i4.i155, 0
-  br i1 %cmp.not.i.i5.i156, label %if.end.i.i6.i162, label %addReplyProto.exit.i.i157
+  %call.i.i4.i156 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i.i5.i157 = icmp eq i32 %call.i.i4.i156, 0
+  br i1 %cmp.not.i.i5.i157, label %if.end.i.i6.i163, label %addReplyProto.exit.i.i158
 
-if.end.i.i6.i162:                                 ; preds = %addReplyBulkCString.exit153
+if.end.i.i6.i163:                                 ; preds = %addReplyBulkCString.exit154
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.222, i64 noundef 4)
-  br label %addReplyProto.exit.i.i157
+  br label %addReplyProto.exit.i.i158
 
-addReplyProto.exit.i.i157:                        ; preds = %if.end.i.i6.i162, %addReplyBulkCString.exit153
-  %call.i4.i.i158 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i5.i.i159 = icmp eq i32 %call.i4.i.i158, 0
-  br i1 %cmp.not.i5.i.i159, label %if.end.i6.i.i161, label %addReplyBulkCString.exit163
+addReplyProto.exit.i.i158:                        ; preds = %if.end.i.i6.i163, %addReplyBulkCString.exit154
+  %call.i4.i.i159 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i5.i.i160 = icmp eq i32 %call.i4.i.i159, 0
+  br i1 %cmp.not.i5.i.i160, label %if.end.i6.i.i162, label %addReplyBulkCString.exit164
 
-if.end.i6.i.i161:                                 ; preds = %addReplyProto.exit.i.i157
+if.end.i6.i.i162:                                 ; preds = %addReplyProto.exit.i.i158
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
-  br label %addReplyBulkCString.exit163
+  br label %addReplyBulkCString.exit164
 
-addReplyBulkCString.exit163:                      ; preds = %addReplyProto.exit.i.i157, %if.end.i6.i.i161
+addReplyBulkCString.exit164:                      ; preds = %addReplyProto.exit.i.i158, %if.end.i6.i.i162
   %66 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 27), align 4
   %tobool79.not = icmp eq i32 %66, 0
   br i1 %tobool79.not, label %if.else81, label %if.then80
 
-if.then80:                                        ; preds = %addReplyBulkCString.exit163
+if.then80:                                        ; preds = %addReplyBulkCString.exit164
   call void @addReplyLongLongWithPrefix(ptr noundef nonnull %c, i64 noundef 8, i8 noundef signext 36)
-  %call.i.i4.i165 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i.i5.i166 = icmp eq i32 %call.i.i4.i165, 0
-  br i1 %cmp.not.i.i5.i166, label %if.end.i.i6.i172, label %addReplyProto.exit.i.i167
+  %call.i.i4.i166 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i.i5.i167 = icmp eq i32 %call.i.i4.i166, 0
+  br i1 %cmp.not.i.i5.i167, label %if.end.i.i6.i173, label %addReplyProto.exit.i.i168
 
-if.end.i.i6.i172:                                 ; preds = %if.then80
+if.end.i.i6.i173:                                 ; preds = %if.then80
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.223, i64 noundef 8)
-  br label %addReplyProto.exit.i.i167
+  br label %addReplyProto.exit.i.i168
 
-addReplyProto.exit.i.i167:                        ; preds = %if.end.i.i6.i172, %if.then80
-  %call.i4.i.i168 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i5.i.i169 = icmp eq i32 %call.i4.i.i168, 0
-  br i1 %cmp.not.i5.i.i169, label %if.end.i6.i.i171, label %if.end86
+addReplyProto.exit.i.i168:                        ; preds = %if.end.i.i6.i173, %if.then80
+  %call.i4.i.i169 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i5.i.i170 = icmp eq i32 %call.i4.i.i169, 0
+  br i1 %cmp.not.i5.i.i170, label %if.end.i6.i.i172, label %if.end86
 
-if.end.i6.i.i171:                                 ; preds = %addReplyProto.exit.i.i167
+if.end.i6.i.i172:                                 ; preds = %addReplyProto.exit.i.i168
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %if.end86
 
-if.else81:                                        ; preds = %addReplyBulkCString.exit163
+if.else81:                                        ; preds = %addReplyBulkCString.exit164
   %67 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
   %tobool82.not = icmp eq i32 %67, 0
   br i1 %tobool82.not, label %if.else84, label %if.then83
 
 if.then83:                                        ; preds = %if.else81
   call void @addReplyLongLongWithPrefix(ptr noundef nonnull %c, i64 noundef 7, i8 noundef signext 36)
-  %call.i.i4.i175 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i.i5.i176 = icmp eq i32 %call.i.i4.i175, 0
-  br i1 %cmp.not.i.i5.i176, label %if.end.i.i6.i182, label %addReplyProto.exit.i.i177
+  %call.i.i4.i176 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i.i5.i177 = icmp eq i32 %call.i.i4.i176, 0
+  br i1 %cmp.not.i.i5.i177, label %if.end.i.i6.i183, label %addReplyProto.exit.i.i178
 
-if.end.i.i6.i182:                                 ; preds = %if.then83
+if.end.i.i6.i183:                                 ; preds = %if.then83
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.224, i64 noundef 7)
-  br label %addReplyProto.exit.i.i177
+  br label %addReplyProto.exit.i.i178
 
-addReplyProto.exit.i.i177:                        ; preds = %if.end.i.i6.i182, %if.then83
-  %call.i4.i.i178 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i5.i.i179 = icmp eq i32 %call.i4.i.i178, 0
-  br i1 %cmp.not.i5.i.i179, label %if.end.i6.i.i181, label %if.end86
+addReplyProto.exit.i.i178:                        ; preds = %if.end.i.i6.i183, %if.then83
+  %call.i4.i.i179 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i5.i.i180 = icmp eq i32 %call.i4.i.i179, 0
+  br i1 %cmp.not.i5.i.i180, label %if.end.i6.i.i182, label %if.end86
 
-if.end.i6.i.i181:                                 ; preds = %addReplyProto.exit.i.i177
+if.end.i6.i.i182:                                 ; preds = %addReplyProto.exit.i.i178
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %if.end86
 
@@ -13289,77 +13289,77 @@ if.else84:                                        ; preds = %if.else81
   call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.225)
   br label %if.end86
 
-if.end86:                                         ; preds = %if.end.i6.i.i181, %addReplyProto.exit.i.i177, %if.end.i6.i.i171, %addReplyProto.exit.i.i167, %if.else84
+if.end86:                                         ; preds = %if.end.i6.i.i182, %addReplyProto.exit.i.i178, %if.end.i6.i.i172, %addReplyProto.exit.i.i168, %if.else84
   %68 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 27), align 4
   %tobool87.not = icmp eq i32 %68, 0
   br i1 %tobool87.not, label %if.then88, label %if.end90
 
 if.then88:                                        ; preds = %if.end86
   call void @addReplyLongLongWithPrefix(ptr noundef nonnull %c, i64 noundef 4, i8 noundef signext 36)
-  %call.i.i4.i185 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i.i5.i186 = icmp eq i32 %call.i.i4.i185, 0
-  br i1 %cmp.not.i.i5.i186, label %if.end.i.i6.i192, label %addReplyProto.exit.i.i187
+  %call.i.i4.i186 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i.i5.i187 = icmp eq i32 %call.i.i4.i186, 0
+  br i1 %cmp.not.i.i5.i187, label %if.end.i.i6.i193, label %addReplyProto.exit.i.i188
 
-if.end.i.i6.i192:                                 ; preds = %if.then88
+if.end.i.i6.i193:                                 ; preds = %if.then88
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.226, i64 noundef 4)
-  br label %addReplyProto.exit.i.i187
+  br label %addReplyProto.exit.i.i188
 
-addReplyProto.exit.i.i187:                        ; preds = %if.end.i.i6.i192, %if.then88
-  %call.i4.i.i188 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i5.i.i189 = icmp eq i32 %call.i4.i.i188, 0
-  br i1 %cmp.not.i5.i.i189, label %if.end.i6.i.i191, label %addReplyBulkCString.exit193
+addReplyProto.exit.i.i188:                        ; preds = %if.end.i.i6.i193, %if.then88
+  %call.i4.i.i189 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i5.i.i190 = icmp eq i32 %call.i4.i.i189, 0
+  br i1 %cmp.not.i5.i.i190, label %if.end.i6.i.i192, label %addReplyBulkCString.exit194
 
-if.end.i6.i.i191:                                 ; preds = %addReplyProto.exit.i.i187
+if.end.i6.i.i192:                                 ; preds = %addReplyProto.exit.i.i188
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
-  br label %addReplyBulkCString.exit193
+  br label %addReplyBulkCString.exit194
 
-addReplyBulkCString.exit193:                      ; preds = %addReplyProto.exit.i.i187, %if.end.i6.i.i191
+addReplyBulkCString.exit194:                      ; preds = %addReplyProto.exit.i.i188, %if.end.i6.i.i192
   %69 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
   %tobool89.not = icmp eq ptr %69, null
-  %call.i194 = select i1 %tobool89.not, i64 6, i64 7
-  call void @addReplyLongLongWithPrefix(ptr noundef nonnull %c, i64 noundef %call.i194, i8 noundef signext 36)
-  %call.i.i4.i195 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i.i5.i196 = icmp eq i32 %call.i.i4.i195, 0
-  br i1 %cmp.not.i.i5.i196, label %if.end.i.i6.i202, label %addReplyProto.exit.i.i197
+  %call.i196 = select i1 %tobool89.not, i64 6, i64 7
+  call void @addReplyLongLongWithPrefix(ptr noundef nonnull %c, i64 noundef %call.i196, i8 noundef signext 36)
+  %call.i.i4.i197 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i.i5.i198 = icmp eq i32 %call.i.i4.i197, 0
+  br i1 %cmp.not.i.i5.i198, label %if.end.i.i6.i204, label %addReplyProto.exit.i.i199
 
-if.end.i.i6.i202:                                 ; preds = %addReplyBulkCString.exit193
+if.end.i.i6.i204:                                 ; preds = %addReplyBulkCString.exit194
   %cond = select i1 %tobool89.not, ptr @.str.10, ptr @.str.11
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull %cond, i64 noundef %call.i194)
-  br label %addReplyProto.exit.i.i197
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull %cond, i64 noundef %call.i196)
+  br label %addReplyProto.exit.i.i199
 
-addReplyProto.exit.i.i197:                        ; preds = %if.end.i.i6.i202, %addReplyBulkCString.exit193
-  %call.i4.i.i198 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i5.i.i199 = icmp eq i32 %call.i4.i.i198, 0
-  br i1 %cmp.not.i5.i.i199, label %if.end.i6.i.i201, label %if.end90
+addReplyProto.exit.i.i199:                        ; preds = %if.end.i.i6.i204, %addReplyBulkCString.exit194
+  %call.i4.i.i200 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i5.i.i201 = icmp eq i32 %call.i4.i.i200, 0
+  br i1 %cmp.not.i5.i.i201, label %if.end.i6.i.i203, label %if.end90
 
-if.end.i6.i.i201:                                 ; preds = %addReplyProto.exit.i.i197
+if.end.i6.i.i203:                                 ; preds = %addReplyProto.exit.i.i199
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %if.end90
 
-if.end90:                                         ; preds = %if.end.i6.i.i201, %addReplyProto.exit.i.i197, %if.end86
+if.end90:                                         ; preds = %if.end.i6.i.i203, %addReplyProto.exit.i.i199, %if.end86
   call void @addReplyLongLongWithPrefix(ptr noundef nonnull %c, i64 noundef 7, i8 noundef signext 36)
-  %call.i.i4.i205 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i.i5.i206 = icmp eq i32 %call.i.i4.i205, 0
-  br i1 %cmp.not.i.i5.i206, label %if.end.i.i6.i212, label %addReplyProto.exit.i.i207
+  %call.i.i4.i208 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i.i5.i209 = icmp eq i32 %call.i.i4.i208, 0
+  br i1 %cmp.not.i.i5.i209, label %if.end.i.i6.i215, label %addReplyProto.exit.i.i210
 
-if.end.i.i6.i212:                                 ; preds = %if.end90
+if.end.i.i6.i215:                                 ; preds = %if.end90
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.227, i64 noundef 7)
-  br label %addReplyProto.exit.i.i207
+  br label %addReplyProto.exit.i.i210
 
-addReplyProto.exit.i.i207:                        ; preds = %if.end.i.i6.i212, %if.end90
-  %call.i4.i.i208 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
-  %cmp.not.i5.i.i209 = icmp eq i32 %call.i4.i.i208, 0
-  br i1 %cmp.not.i5.i.i209, label %if.end.i6.i.i211, label %addReplyBulkCString.exit213
+addReplyProto.exit.i.i210:                        ; preds = %if.end.i.i6.i215, %if.end90
+  %call.i4.i.i211 = call i32 @prepareClientToWrite(ptr noundef nonnull %c), !range !5
+  %cmp.not.i5.i.i212 = icmp eq i32 %call.i4.i.i211, 0
+  br i1 %cmp.not.i5.i.i212, label %if.end.i6.i.i214, label %addReplyBulkCString.exit216
 
-if.end.i6.i.i211:                                 ; preds = %addReplyProto.exit.i.i207
+if.end.i6.i.i214:                                 ; preds = %addReplyProto.exit.i.i210
   call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
-  br label %addReplyBulkCString.exit213
+  br label %addReplyBulkCString.exit216
 
-addReplyBulkCString.exit213:                      ; preds = %addReplyProto.exit.i.i207, %if.end.i6.i.i211
+addReplyBulkCString.exit216:                      ; preds = %addReplyProto.exit.i.i210, %if.end.i6.i.i214
   call void @addReplyLoadedModules(ptr noundef nonnull %c) #26
   br label %return
 
-return:                                           ; preds = %if.end57, %if.end57, %if.then, %addReplyBulkCString.exit213, %if.then65, %if.else42, %if.then39, %if.then5
+return:                                           ; preds = %if.end57, %if.end57, %if.then, %addReplyBulkCString.exit216, %if.then65, %if.else42, %if.then39, %if.then5
   ret void
 }
 
@@ -14137,7 +14137,7 @@ if.end.i:                                         ; preds = %cond.end.i
   br i1 %cmp9.i, label %land.lhs.true.i, label %if.then
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %value.i = getelementptr inbounds i8, ptr %13, i64 16
+  %value.i = getelementptr inbounds i8, ptr %15, i64 16
   %16 = load ptr, ptr %value.i, align 8
   %ref_block_pos.i = getelementptr inbounds i8, ptr %1, i64 704
   %17 = load i64, ptr %ref_block_pos.i, align 8
@@ -14901,7 +14901,7 @@ if.end.i:                                         ; preds = %cond.end.i
   br i1 %cmp9.i, label %land.lhs.true.i25, label %land.lhs.true.i30
 
 land.lhs.true.i25:                                ; preds = %if.end.i
-  %value.i = getelementptr inbounds i8, ptr %33, i64 16
+  %value.i = getelementptr inbounds i8, ptr %35, i64 16
   %36 = load ptr, ptr %value.i, align 8
   %ref_block_pos.i = getelementptr inbounds i8, ptr %25, i64 704
   %37 = load i64, ptr %ref_block_pos.i, align 8
@@ -15288,7 +15288,7 @@ if.end.i33:                                       ; preds = %cond.end.i
   br i1 %cmp9.i, label %land.lhs.true.i, label %if.then65
 
 land.lhs.true.i:                                  ; preds = %if.end.i33
-  %value.i = getelementptr inbounds i8, ptr %40, i64 16
+  %value.i = getelementptr inbounds i8, ptr %42, i64 16
   %43 = load ptr, ptr %value.i, align 8
   %ref_block_pos.i = getelementptr inbounds i8, ptr %34, i64 704
   %44 = load i64, ptr %ref_block_pos.i, align 8

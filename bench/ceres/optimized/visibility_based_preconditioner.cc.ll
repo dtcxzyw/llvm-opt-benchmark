@@ -2327,7 +2327,7 @@ _ZSt8_DestroyIPSt3setIiSt4lessIiESaIiEES4_EvT_S6_RSaIT0_E.exit.i.i: ; preds = %_
   br label %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE6resizeEm.exit
 
 _ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE6resizeEm.exit: ; preds = %.critedge, %_ZSt8_DestroyIPSt3setIiSt4lessIiESaIiEES4_EvT_S6_RSaIT0_E.exit.i.i
-  %21 = phi ptr [ %13, %.critedge ], [ %.pre, %_ZSt8_DestroyIPSt3setIiSt4lessIiESaIiEES4_EvT_S6_RSaIT0_E.exit.i.i ]
+  %21 = phi ptr [ %14, %.critedge ], [ %.pre, %_ZSt8_DestroyIPSt3setIiSt4lessIiESaIiEES4_EvT_S6_RSaIT0_E.exit.i.i ]
   %22 = phi ptr [ %13, %.critedge ], [ %14, %_ZSt8_DestroyIPSt3setIiSt4lessIiESaIiEES4_EvT_S6_RSaIT0_E.exit.i.i ]
   %23 = getelementptr inbounds i8, ptr %0, i64 84
   %24 = load i32, ptr %23, align 4

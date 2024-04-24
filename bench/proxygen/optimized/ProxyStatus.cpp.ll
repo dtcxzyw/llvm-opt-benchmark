@@ -4646,7 +4646,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i
   store ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i, ptr %parameterMap.i.i.i.i.i.i.i, align 8, !alias.scope !31, !noalias !34
-  %9 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !34, !noalias !31
   store ptr %9, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !31, !noalias !34
   br label %if.end.i.i.i.i.i.i.i.i.i.i
 
@@ -4715,7 +4715,7 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8prox
 
 if.then.i.i.i.i.i.i.i.i.i.i47:                    ; preds = %for.body.i.i.i19
   store ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i32, ptr %parameterMap.i.i.i.i.i.i.i22, align 8, !alias.scope !38, !noalias !41
-  %16 = load ptr, ptr %12, align 8
+  %16 = load ptr, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i.i.i33, align 8, !alias.scope !41, !noalias !38
   store ptr %16, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i32, align 8, !alias.scope !38, !noalias !41
   br label %if.end.i.i.i.i.i.i.i.i.i.i35
 

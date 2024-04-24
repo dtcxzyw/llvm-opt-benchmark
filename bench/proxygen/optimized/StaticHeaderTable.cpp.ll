@@ -329,11 +329,11 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub.i.i.i.i, i64 %7
   %add13.i.i.i = add i64 %cond.i.i.i.i, %conv.i.i
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %add13.i.i.i, 4294967295
-  %9 = shl i64 %add13.i.i.i, 32
+  %9 = shl nuw i64 %add13.i.i.i, 32
   %10 = or disjoint i64 %9, 1
   %retval.sroa.0.0.insert.insert.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 2818, i64 %10
   %ref.tmp11.sroa.21.0.extract.shift.i.i.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc nuw i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i to i32
   %11 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 3
   %cmp.i.i1.i.i = icmp eq i64 %11, 1
   %12 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
@@ -368,7 +368,7 @@ invoke.cont13:                                    ; preds = %for.end
   call void @_ZNSt8__detail15_List_node_base10_M_reverseEv(ptr noundef nonnull align 8 dereferenceable(16) %hlist) #22
   %__begin1.sroa.0.026 = load ptr, ptr %hlist, align 8
   %cmp.i.not27 = icmp eq ptr %__begin1.sroa.0.026, %hlist
-  br i1 %cmp.i.not27, label %_ZNSt7__cxx114listIN8proxygen11HPACKHeaderESaIS2_EED2Ev.exit, label %for.body19.lr.ph
+  br i1 %cmp.i.not27, label %for.end40, label %for.body19.lr.ph
 
 for.body19.lr.ph:                                 ; preds = %invoke.cont13
   %value.i = getelementptr inbounds i8, ptr %agg.tmp21, i64 8
@@ -435,23 +435,27 @@ cleanup.done:                                     ; preds = %invoke.cont23
   call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp21) #22
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.028, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %hlist
-  br i1 %cmp.i.not, label %for.end40, label %for.body19
+  br i1 %cmp.i.not, label %for.end40.loopexit, label %for.body19
 
-for.end40:                                        ; preds = %cleanup.done
+for.end40.loopexit:                               ; preds = %cleanup.done
   %.pre = load ptr, ptr %hlist, align 8
-  %cmp.not4.i.i.i = icmp eq ptr %.pre, %hlist
+  br label %for.end40
+
+for.end40:                                        ; preds = %for.end40.loopexit, %invoke.cont13
+  %17 = phi ptr [ %.pre, %for.end40.loopexit ], [ %__begin1.sroa.0.026, %invoke.cont13 ]
+  %cmp.not4.i.i.i = icmp eq ptr %17, %hlist
   br i1 %cmp.not4.i.i.i, label %_ZNSt7__cxx114listIN8proxygen11HPACKHeaderESaIS2_EED2Ev.exit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %for.end40, %while.body.i.i.i
-  %__cur.05.i.i.i = phi ptr [ %17, %while.body.i.i.i ], [ %.pre, %for.end40 ]
-  %17 = load ptr, ptr %__cur.05.i.i.i, align 8
+  %__cur.05.i.i.i = phi ptr [ %18, %while.body.i.i.i ], [ %17, %for.end40 ]
+  %18 = load ptr, ptr %__cur.05.i.i.i, align 8
   %_M_storage.i.i.i.i13 = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 16
   call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i13) #22
   call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #25
-  %cmp.not.i.i.i = icmp eq ptr %17, %hlist
+  %cmp.not.i.i.i = icmp eq ptr %18, %hlist
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIN8proxygen11HPACKHeaderESaIS2_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !6
 
-_ZNSt7__cxx114listIN8proxygen11HPACKHeaderESaIS2_EED2Ev.exit: ; preds = %while.body.i.i.i, %invoke.cont13, %for.end40
+_ZNSt7__cxx114listIN8proxygen11HPACKHeaderESaIS2_EED2Ev.exit: ; preds = %while.body.i.i.i, %for.end40
   ret void
 
 ehcleanup41:                                      ; preds = %lpad.loopexit16, %lpad.loopexit.split-lp17, %lpad22, %lpad9
@@ -520,7 +524,7 @@ if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then7.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
-  %3 = trunc i64 %sub.ptr.sub.i to i8
+  %3 = trunc nuw i64 %sub.ptr.sub.i to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %3
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1

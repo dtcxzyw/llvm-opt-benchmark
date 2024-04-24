@@ -1440,13 +1440,13 @@ if.end.i:                                         ; preds = %if.then12
   br i1 %cmp1.i.not, label %if.end5.i, label %return
 
 if.end5.i:                                        ; preds = %if.end.i
-  %mode.i = getelementptr inbounds i8, ptr %0, i64 12
+  %mode.i = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %mode.i, align 4
   %cmp6.i = icmp eq i32 %4, 1
   br i1 %cmp6.i, label %land.lhs.true.i, label %if.end11.i
 
 land.lhs.true.i:                                  ; preds = %if.end5.i
-  %end.i = getelementptr inbounds i8, ptr %0, i64 372
+  %end.i = getelementptr inbounds i8, ptr %1, i64 372
   %5 = load i32, ptr %end.i, align 4
   %bStateSize.i = getelementptr inbounds i8, ptr %scratch, i64 16
   %6 = load i32, ptr %bStateSize.i, align 16
@@ -1454,7 +1454,7 @@ land.lhs.true.i:                                  ; preds = %if.end5.i
   br i1 %cmp7.i, label %return, label %if.end11.i
 
 if.end11.i:                                       ; preds = %land.lhs.true.i, %if.end5.i
-  %queueCount.i = getelementptr inbounds i8, ptr %0, i64 156
+  %queueCount.i = getelementptr inbounds i8, ptr %1, i64 156
   %7 = load i32, ptr %queueCount.i, align 4
   %queueCount12.i = getelementptr inbounds i8, ptr %scratch, i64 8
   %8 = load i32, ptr %queueCount12.i, align 8

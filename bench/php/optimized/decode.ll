@@ -291,7 +291,7 @@ define hidden noundef i32 @lxb_encoding_decode_utf_8(ptr noundef %0, ptr nocaptu
   br label %130
 
 130:                                              ; preds = %.sink.split, %127
-  store ptr %2, ptr %1, align 8
+  store ptr %93, ptr %1, align 8
   store i32 2, ptr %33, align 8
   store i32 14, ptr %6, align 4
   br label %.loopexit
@@ -414,7 +414,7 @@ define hidden noundef i32 @lxb_encoding_decode_utf_8(ptr noundef %0, ptr nocaptu
   br label %184
 
 184:                                              ; preds = %.sink.split578, %181
-  store ptr %2, ptr %1, align 8
+  store ptr %93, ptr %1, align 8
   store i32 3, ptr %33, align 8
   store i32 14, ptr %6, align 4
   br label %.loopexit
@@ -615,7 +615,7 @@ define hidden noundef i32 @lxb_encoding_decode_utf_8(ptr noundef %0, ptr nocaptu
   br label %.preheader
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
-  %.0.lcssa = phi ptr [ %.0.ph, %.preheader ], [ %scevgep, %.backedge ]
+  %.0.lcssa = phi ptr [ %.0.ph, %.preheader ], [ %93, %.backedge ]
   store ptr %.0.lcssa, ptr %1, align 8
   br label %.loopexit
 
@@ -6738,13 +6738,13 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr nocapture noundef %0, pt
   %11 = load ptr, ptr %1, align 8
   %12 = load i8, ptr %11, align 1
   %13 = icmp ult i8 %12, %9
-  br i1 %13, label %134, label %14
+  br i1 %13, label %133, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 69
   %16 = load i8, ptr %15, align 1
   %17 = icmp ugt i8 %12, %16
-  br i1 %17, label %134, label %18
+  br i1 %17, label %133, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %11, i64 1
@@ -6767,7 +6767,7 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr nocapture noundef %0, pt
   %30 = load i8, ptr %28, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  br i1 %32, label %136, label %33
+  br i1 %32, label %135, label %33
 
 33:                                               ; preds = %27
   %34 = icmp ult i8 %30, -32
@@ -6775,7 +6775,7 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr nocapture noundef %0, pt
 
 35:                                               ; preds = %33
   %36 = icmp ult i8 %30, -62
-  br i1 %36, label %136, label %37
+  br i1 %36, label %135, label %37
 
 37:                                               ; preds = %35
   %38 = and i32 %31, 31
@@ -6796,7 +6796,7 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr nocapture noundef %0, pt
   br i1 %46, label %47, label %54
 
 47:                                               ; preds = %42
-  switch i8 %30, label %133 [
+  switch i8 %30, label %132 [
     i8 -32, label %48
     i8 -19, label %51
   ]
@@ -6806,14 +6806,14 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr nocapture noundef %0, pt
   store i8 -96, ptr %49, align 4
   %50 = getelementptr inbounds i8, ptr %0, i64 69
   store i8 -65, ptr %50, align 1
-  br label %133
+  br label %132
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds i8, ptr %0, i64 68
   store i8 -128, ptr %52, align 4
   %53 = getelementptr inbounds i8, ptr %0, i64 69
   store i8 -97, ptr %53, align 1
-  br label %133
+  br label %132
 
 54:                                               ; preds = %42
   switch i8 %30, label %108 [
@@ -6825,7 +6825,7 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr nocapture noundef %0, pt
   %56 = load i8, ptr %45, align 1
   %57 = add i8 %56, 64
   %or.cond = icmp ult i8 %57, -32
-  br i1 %or.cond, label %134, label %58
+  br i1 %or.cond, label %133, label %58
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds i8, ptr %45, i64 1
@@ -6841,7 +6841,7 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr nocapture noundef %0, pt
 65:                                               ; preds = %54
   %66 = load i8, ptr %45, align 1
   %or.cond5 = icmp sgt i8 %66, -97
-  br i1 %or.cond5, label %134, label %67
+  br i1 %or.cond5, label %133, label %67
 
 67:                                               ; preds = %65
   %68 = getelementptr inbounds i8, ptr %45, i64 1
@@ -6856,7 +6856,7 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr nocapture noundef %0, pt
 
 74:                                               ; preds = %40
   %75 = icmp ult i8 %30, -11
-  br i1 %75, label %76, label %136
+  br i1 %75, label %76, label %135
 
 76:                                               ; preds = %74
   %77 = and i32 %31, 7
@@ -6867,7 +6867,7 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr nocapture noundef %0, pt
   br i1 %80, label %81, label %88
 
 81:                                               ; preds = %76
-  switch i8 %30, label %133 [
+  switch i8 %30, label %132 [
     i8 -16, label %82
     i8 -12, label %85
   ]
@@ -6877,14 +6877,14 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr nocapture noundef %0, pt
   store i8 -112, ptr %83, align 4
   %84 = getelementptr inbounds i8, ptr %0, i64 69
   store i8 -65, ptr %84, align 1
-  br label %133
+  br label %132
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds i8, ptr %0, i64 68
   store i8 -128, ptr %86, align 4
   %87 = getelementptr inbounds i8, ptr %0, i64 69
   store i8 -113, ptr %87, align 1
-  br label %133
+  br label %132
 
 88:                                               ; preds = %76
   switch i8 %30, label %108 [
@@ -6896,7 +6896,7 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr nocapture noundef %0, pt
   %90 = load i8, ptr %79, align 1
   %91 = add i8 %90, 64
   %or.cond8 = icmp ult i8 %91, -48
-  br i1 %or.cond8, label %134, label %92
+  br i1 %or.cond8, label %133, label %92
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds i8, ptr %79, i64 1
@@ -6912,7 +6912,7 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr nocapture noundef %0, pt
 99:                                               ; preds = %88
   %100 = load i8, ptr %79, align 1
   %or.cond11 = icmp sgt i8 %100, -113
-  br i1 %or.cond11, label %134, label %101
+  br i1 %or.cond11, label %133, label %101
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds i8, ptr %79, i64 1
@@ -6938,61 +6938,59 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr nocapture noundef %0, pt
   %114 = add i32 %.0116, %113
   %115 = trunc i64 %4 to i32
   %116 = sub i32 %114, %115
-  %117 = sub i64 %4, %111
-  %scevgep = getelementptr i8, ptr %109, i64 %117
-  br label %118
+  br label %117
 
-118:                                              ; preds = %.lr.ph, %132
-  %.0137 = phi ptr [ %109, %.lr.ph ], [ %129, %132 ]
-  %.1136 = phi i32 [ %.0116, %.lr.ph ], [ %127, %132 ]
-  %119 = load i8, ptr %.0137, align 1
-  %or.cond14 = icmp sgt i8 %119, -65
-  br i1 %or.cond14, label %120, label %121
+117:                                              ; preds = %.lr.ph, %131
+  %.0137 = phi ptr [ %109, %.lr.ph ], [ %128, %131 ]
+  %.1136 = phi i32 [ %.0116, %.lr.ph ], [ %126, %131 ]
+  %118 = load i8, ptr %.0137, align 1
+  %or.cond14 = icmp sgt i8 %118, -65
+  br i1 %or.cond14, label %119, label %120
 
-120:                                              ; preds = %118
+119:                                              ; preds = %117
   store ptr %.0137, ptr %1, align 8
-  br label %134
-
-121:                                              ; preds = %118
-  %122 = load i32, ptr %112, align 8
-  %123 = shl i32 %122, 6
-  %124 = and i8 %119, 63
-  %125 = zext nneg i8 %124 to i32
-  %126 = or disjoint i32 %123, %125
-  store i32 %126, ptr %112, align 8
-  %127 = add i32 %.1136, -1
-  %128 = icmp eq i32 %127, 0
-  %129 = getelementptr inbounds i8, ptr %.0137, i64 1
-  br i1 %128, label %130, label %132
-
-130:                                              ; preds = %121
-  store ptr %129, ptr %1, align 8
-  %131 = load i32, ptr %112, align 8
-  br label %136
-
-132:                                              ; preds = %121
-  %exitcond.not = icmp eq ptr %129, %2
-  br i1 %exitcond.not, label %._crit_edge, label %118
-
-._crit_edge:                                      ; preds = %132, %108
-  %.1.lcssa = phi i32 [ %.0116, %108 ], [ %116, %132 ]
-  %.0.lcssa = phi ptr [ %109, %108 ], [ %scevgep, %132 ]
-  store ptr %.0.lcssa, ptr %1, align 8
   br label %133
 
-133:                                              ; preds = %81, %47, %85, %82, %51, %48, %._crit_edge
+120:                                              ; preds = %117
+  %121 = load i32, ptr %112, align 8
+  %122 = shl i32 %121, 6
+  %123 = and i8 %118, 63
+  %124 = zext nneg i8 %123 to i32
+  %125 = or disjoint i32 %122, %124
+  store i32 %125, ptr %112, align 8
+  %126 = add i32 %.1136, -1
+  %127 = icmp eq i32 %126, 0
+  %128 = getelementptr inbounds i8, ptr %.0137, i64 1
+  br i1 %127, label %129, label %131
+
+129:                                              ; preds = %120
+  store ptr %128, ptr %1, align 8
+  %130 = load i32, ptr %112, align 8
+  br label %135
+
+131:                                              ; preds = %120
+  %exitcond.not = icmp eq ptr %128, %2
+  br i1 %exitcond.not, label %._crit_edge, label %117
+
+._crit_edge:                                      ; preds = %131, %108
+  %.1.lcssa = phi i32 [ %.0116, %108 ], [ %116, %131 ]
+  %.0.lcssa = phi ptr [ %109, %108 ], [ %128, %131 ]
+  store ptr %.0.lcssa, ptr %1, align 8
+  br label %132
+
+132:                                              ; preds = %81, %47, %85, %82, %51, %48, %._crit_edge
   %.2 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 2, %48 ], [ 2, %51 ], [ 3, %82 ], [ 3, %85 ], [ 2, %47 ], [ 3, %81 ]
   store i32 %.2, ptr %5, align 8
-  br label %136
+  br label %135
 
-134:                                              ; preds = %99, %89, %65, %55, %10, %14, %120
-  %135 = getelementptr inbounds i8, ptr %0, i64 68
-  store i8 0, ptr %135, align 4
+133:                                              ; preds = %99, %89, %65, %55, %10, %14, %119
+  %134 = getelementptr inbounds i8, ptr %0, i64 68
+  store i8 0, ptr %134, align 4
   store i32 0, ptr %5, align 8
-  br label %136
+  br label %135
 
-136:                                              ; preds = %74, %35, %27, %134, %133, %130
-  %.0117 = phi i32 [ 2097151, %134 ], [ %131, %130 ], [ 3145727, %133 ], [ %31, %27 ], [ 2097151, %35 ], [ 2097151, %74 ]
+135:                                              ; preds = %74, %35, %27, %133, %132, %129
+  %.0117 = phi i32 [ 2097151, %133 ], [ %130, %129 ], [ 3145727, %132 ], [ %31, %27 ], [ 2097151, %35 ], [ 2097151, %74 ]
   ret i32 %.0117
 }
 

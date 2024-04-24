@@ -341,7 +341,7 @@ if.else81:                                        ; preds = %while.body, %while.
   br i1 %cmp65, label %while.body, label %while.end, !llvm.loop !4
 
 while.end.loopexit.split.loop.exit:               ; preds = %while.body
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %if.else81, %while.end.loopexit.split.loop.exit, %while.cond.preheader
@@ -995,7 +995,7 @@ for.cond.backedge:                                ; preds = %if.end112.thread, %
   br i1 %tobool.not, label %if.then14, label %if.end15
 
 if.else239:                                       ; preds = %eat_ws.exit264, %lor.lhs.false181
-  %pname.1 = phi ptr [ %p.addr.0.lcssa.i260, %lor.lhs.false181 ], [ %pname.0, %eat_ws.exit264 ]
+  %pname.1 = phi ptr [ %add.ptr177, %lor.lhs.false181 ], [ %pname.0, %eat_ws.exit264 ]
   %call240 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %pname.1, ptr noundef nonnull dereferenceable(9) @.str.7, i64 noundef 8) #14
   %cmp241 = icmp eq i32 %call240, 0
   br i1 %cmp241, label %cond.true243, label %if.else329
@@ -1702,7 +1702,7 @@ if.end23:                                         ; preds = %if.then17, %land.rh
   %13 = phi i8 [ %10, %is_keytype.exit142 ], [ %5, %is_keytype.exit132 ], [ %5, %land.rhs ], [ %10, %if.then17 ]
   %from.addr.2 = phi ptr [ %incdec.ptr18, %is_keytype.exit142 ], [ %from.addr.1, %is_keytype.exit132 ], [ %from.addr.1, %land.rhs ], [ %incdec.ptr18, %if.then17 ]
   %14 = load ptr, ptr %data, align 8
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds i8, ptr %14, i64 %indvars.iv
   store i8 %13, ptr %arrayidx, align 1
   br label %while.cond, !llvm.loop !12
@@ -1710,7 +1710,7 @@ if.end23:                                         ; preds = %if.then17, %land.rh
 while.end:                                        ; preds = %is_keytype.exit122, %is_keytype.exit142, %land.rhs
   %15 = phi i8 [ %5, %is_keytype.exit122 ], [ %10, %is_keytype.exit142 ], [ %0, %land.rhs ]
   %16 = phi i64 [ 1, %is_keytype.exit122 ], [ 2, %is_keytype.exit142 ], [ 1, %land.rhs ]
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nsw i64 %indvars.iv to i32
   %18 = getelementptr inbounds i8, ptr %from.addr.0.pn110, i64 %16
   %cmp26 = icmp eq i8 %15, %0
   %spec.select.idx = zext i1 %cmp26 to i64
@@ -1757,14 +1757,14 @@ if.end51:                                         ; preds = %if.then43, %while.b
   %26 = phi i8 [ %21, %while.body39 ], [ %0, %if.then43 ]
   %from.addr.5 = phi ptr [ %from.addr.4, %while.body39 ], [ %add.ptr, %if.then43 ]
   %27 = load ptr, ptr %data, align 8
-  %indvars.iv.next308 = add i64 %indvars.iv307, 1
+  %indvars.iv.next308 = add nsw i64 %indvars.iv307, 1
   %arrayidx56 = getelementptr inbounds i8, ptr %27, i64 %indvars.iv307
   store i8 %26, ptr %arrayidx56, align 1
   br label %while.cond36, !llvm.loop !13
 
 while.end57:                                      ; preds = %if.then43, %is_keytype.exit162
   %.lcssa = phi i8 [ %0, %if.then43 ], [ %21, %is_keytype.exit162 ]
-  %28 = trunc i64 %indvars.iv307 to i32
+  %28 = trunc nsw i64 %indvars.iv307 to i32
   %cmp59 = icmp eq i8 %.lcssa, %0
   %incdec.ptr62 = getelementptr inbounds i8, ptr %from.addr.0.pn, i64 2
   %spec.select111 = select i1 %cmp59, ptr %incdec.ptr62, ptr %from.addr.4
@@ -2015,7 +2015,7 @@ while.body209:                                    ; preds = %while.body209.prehe
   %p.0291 = phi ptr [ %call186, %while.body209.preheader ], [ %incdec.ptr210, %while.body209 ]
   %incdec.ptr210 = getelementptr inbounds i8, ptr %p.0291, i64 1
   %59 = load ptr, ptr %data, align 8
-  %indvars.iv.next311 = add i64 %indvars.iv310, 1
+  %indvars.iv.next311 = add nsw i64 %indvars.iv310, 1
   %arrayidx214 = getelementptr inbounds i8, ptr %59, i64 %indvars.iv310
   store i8 %58, ptr %arrayidx214, align 1
   %60 = load i8, ptr %incdec.ptr210, align 1
@@ -2023,7 +2023,7 @@ while.body209:                                    ; preds = %while.body209.prehe
   br i1 %tobool208.not, label %while.end215.loopexit, label %while.body209, !llvm.loop !16
 
 while.end215.loopexit:                            ; preds = %while.body209
-  %61 = trunc i64 %indvars.iv.next311 to i32
+  %61 = trunc nsw i64 %indvars.iv.next311 to i32
   br label %while.end215
 
 while.end215:                                     ; preds = %while.end215.loopexit, %while.cond207.preheader

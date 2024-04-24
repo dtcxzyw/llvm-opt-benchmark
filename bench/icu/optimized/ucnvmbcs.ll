@@ -6292,7 +6292,7 @@ if.else234:                                       ; preds = %if.else207
 if.end237:                                        ; preds = %while.end.thread, %if.then165, %if.then146, %if.then130, %if.then117, %if.then105, %if.then81, %if.then75, %if.then58, %do.end, %if.then223, %for.end, %if.else234, %while.end
   %state.3132 = phi i8 [ %state.3, %while.end ], [ %state.3, %if.else234 ], [ %state.3, %for.end ], [ %state.3, %if.then223 ], [ %state.3, %do.end ], [ %conv69, %if.then165 ], [ %conv69, %if.then146 ], [ %conv69, %if.then130 ], [ %conv69, %if.then117 ], [ %conv69, %if.then105 ], [ %conv69, %if.then81 ], [ %conv69, %if.then75 ], [ %conv62, %if.then58 ], [ %conv69, %while.end.thread ]
   %c.4 = phi i32 [ %c.3, %while.end ], [ 65535, %if.else234 ], [ 65535, %for.end ], [ 65535, %if.then223 ], [ 65535, %do.end ], [ %conv167, %if.then165 ], [ %add148, %if.then146 ], [ %conv133, %if.then130 ], [ %add123, %if.then117 ], [ %conv111, %if.then105 ], [ %conv87, %if.then81 ], [ %conv77, %if.then75 ], [ %conv56, %if.then58 ], [ 65535, %while.end.thread ]
-  %source.3 = phi ptr [ %source.1.ptr, %while.end ], [ %source.1.ptr, %if.else234 ], [ %lastSource.2.lcssa, %for.end ], [ %source.1.ptr, %if.then223 ], [ %7, %do.end ], [ %incdec.ptr.ptr, %if.then165 ], [ %incdec.ptr.ptr, %if.then146 ], [ %incdec.ptr.ptr, %if.then130 ], [ %incdec.ptr.ptr, %if.then117 ], [ %incdec.ptr.ptr, %if.then105 ], [ %incdec.ptr.ptr, %if.then81 ], [ %incdec.ptr.ptr, %if.then75 ], [ %incdec.ptr59, %if.then58 ], [ %source.1.ptr349, %while.end.thread ]
+  %source.3 = phi ptr [ %source.1.ptr, %while.end ], [ %source.1.ptr, %if.else234 ], [ %lastSource.2.lcssa, %for.end ], [ %source.1.ptr, %if.then223 ], [ %source.1.ptr, %do.end ], [ %incdec.ptr.ptr, %if.then165 ], [ %incdec.ptr.ptr, %if.then146 ], [ %incdec.ptr.ptr, %if.then130 ], [ %incdec.ptr.ptr, %if.then117 ], [ %incdec.ptr.ptr, %if.then105 ], [ %incdec.ptr.ptr, %if.then81 ], [ %incdec.ptr.ptr, %if.then75 ], [ %incdec.ptr59, %if.then58 ], [ %source.1.ptr349, %while.end.thread ]
   store i32 0, ptr %toUnicodeStatus, align 8
   %conv239 = zext i8 %state.3132 to i32
   store i32 %conv239, ptr %mode, align 4
@@ -7294,12 +7294,12 @@ cond.true.thread:                                 ; preds = %land.lhs.true112, %
 
 cond.true:                                        ; preds = %if.then190
   %cmp200 = icmp ugt i8 %.fr, -17
-  %spec.select468 = select i1 %cmp200, i8 3, i8 2
+  %spec.select469 = select i1 %cmp200, i8 3, i8 2
   br label %38
 
 38:                                               ; preds = %cond.true, %cond.true.thread
   %conv198391 = phi i8 [ %conv198388, %cond.true.thread ], [ 1, %cond.true ]
-  %39 = phi i8 [ 2, %cond.true.thread ], [ %spec.select468, %cond.true ]
+  %39 = phi i8 [ 2, %cond.true.thread ], [ %spec.select469, %cond.true ]
   %add203 = add nuw nsw i8 %39, %conv198391
   br label %moreBytes
 
@@ -7482,8 +7482,8 @@ if.then249:                                       ; preds = %if.then217, %if.the
   %sub252 = sub nsw i32 %c.3.lcssa396, %51
   %cmp254 = icmp sgt i8 %toULimit.1.fr, 3
   %tobool271.not = icmp eq i8 %12, 0
-  %or.cond469 = select i1 %cmp254, i1 %tobool271.not, i1 false
-  br i1 %or.cond469, label %if.end313, label %if.end311.sink.split
+  %or.cond470 = select i1 %cmp254, i1 %tobool271.not, i1 false
+  br i1 %or.cond470, label %if.end313, label %if.end311.sink.split
 
 if.else290:                                       ; preds = %while.end245
   %conv207.le233 = sext i8 %toULength.2.lcssa234 to i64
@@ -7667,7 +7667,7 @@ while.body384:                                    ; preds = %while.body384.prehe
 while.end393:                                     ; preds = %while.body384, %cond.end379
   %c.6.lcssa = phi i32 [ %conv356, %cond.end379 ], [ %add392, %while.body384 ]
   %toULength.3.lcssa = phi i8 [ 1, %cond.end379 ], [ %inc387, %while.body384 ]
-  %source.9.lcssa = phi ptr [ %source.9312, %cond.end379 ], [ %scevgep, %while.body384 ]
+  %source.9.lcssa = phi ptr [ %source.9312, %cond.end379 ], [ %source.9, %while.body384 ]
   %toUnicodeStatus394 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %c.6.lcssa, ptr %toUnicodeStatus394, align 8
   store i8 %toULength.3.lcssa, ptr %toULength24, align 8
@@ -8130,8 +8130,8 @@ if.then245:                                       ; preds = %if.then213, %if.the
   %sub248 = sub nsw i32 %c.3.lcssa348, %47
   %cmp250 = icmp sgt i8 %toULimit.1.fr, 3
   %tobool262.not = icmp eq i8 %12, 0
-  %or.cond392 = select i1 %cmp250, i1 %tobool262.not, i1 false
-  br i1 %or.cond392, label %if.end297, label %if.end297.sink.split
+  %or.cond393 = select i1 %cmp250, i1 %tobool262.not, i1 false
+  br i1 %or.cond393, label %if.end297, label %if.end297.sink.split
 
 if.else276:                                       ; preds = %while.end241
   %conv203.le214 = sext i8 %toULength.2.lcssa215 to i64
@@ -8304,7 +8304,7 @@ if.else360:                                       ; preds = %while.body
   br label %if.end416
 
 while.end361:                                     ; preds = %if.then93, %while.cond.preheader, %if.then350
-  %source.9.ph = phi ptr [ %source.0.ph, %while.cond.preheader ], [ %source.8, %if.then350 ], [ %scevgep, %if.then93 ]
+  %source.9.ph = phi ptr [ %source.0.ph, %while.cond.preheader ], [ %source.8, %if.then350 ], [ %incdec.ptr83, %if.then93 ]
   %.pr = load i32, ptr %pErrorCode, align 4
   %cmp.i186 = icmp sgt i32 %.pr, 0
   br i1 %cmp.i186, label %if.end416, label %land.lhs.true364
@@ -8374,7 +8374,7 @@ while.body402:                                    ; preds = %while.body402.prehe
 while.end411:                                     ; preds = %while.body402, %cond.end397
   %c.5.lcssa = phi i32 [ %conv374, %cond.end397 ], [ %add410, %while.body402 ]
   %toULength.3.lcssa = phi i8 [ 1, %cond.end397 ], [ %inc405, %while.body402 ]
-  %source.10.lcssa = phi ptr [ %source.10293, %cond.end397 ], [ %scevgep340, %while.body402 ]
+  %source.10.lcssa = phi ptr [ %source.10293, %cond.end397 ], [ %source.10, %while.body402 ]
   %toUnicodeStatus412 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %c.5.lcssa, ptr %toUnicodeStatus412, align 8
   store i8 %toULength.3.lcssa, ptr %toULength21, align 8

@@ -1953,7 +1953,7 @@ define internal noundef i32 @mqueue_flush_file(ptr nocapture noundef readonly %0
   br label %31
 
 31:                                               ; preds = %21, %17, %15
-  %32 = phi ptr [ %.pre, %21 ], [ %11, %17 ], [ null, %15 ]
+  %32 = phi ptr [ %.pre, %21 ], [ %13, %17 ], [ %13, %15 ]
   tail call void @put_pid(ptr noundef %32) #15
   %33 = getelementptr i8, ptr %4, i64 792
   store ptr null, ptr %12, align 8

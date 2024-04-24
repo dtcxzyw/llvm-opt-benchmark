@@ -2190,7 +2190,7 @@ _ZN5arrow6StatusD2Ev.exit38:                      ; preds = %if.then.i.i, %do.en
   br label %if.end9
 
 if.end9:                                          ; preds = %_ZN5arrow6StatusD2Ev.exit38, %entry
-  %26 = phi ptr [ %.pre48, %_ZN5arrow6StatusD2Ev.exit38 ], [ %0, %entry ]
+  %26 = phi ptr [ %.pre48, %_ZN5arrow6StatusD2Ev.exit38 ], [ %1, %entry ]
   %27 = phi ptr [ %.pre, %_ZN5arrow6StatusD2Ev.exit38 ], [ %0, %entry ]
   %current_offset_ = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %current_offset_, align 8

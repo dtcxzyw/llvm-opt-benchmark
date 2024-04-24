@@ -1198,14 +1198,14 @@ define void @"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..tr
   br label %.lr.ph.split.split.i.i
 
 .lr.ph.split.split.i.i:                           ; preds = %28, %3
-  %.sroa.3.0.i46.i.i = phi i64 [ %29, %28 ], [ %2, %3 ]
+  %.sroa.3.0.i47.i.i = phi i64 [ %29, %28 ], [ %2, %3 ]
   %9 = phi i64 [ %25, %28 ], [ 0, %3 ]
-  %.48.i.i = getelementptr inbounds i8, ptr %1, i64 %9
-  %10 = icmp ult i64 %.sroa.3.0.i46.i.i, 16
+  %.49.i.i = getelementptr inbounds i8, ptr %1, i64 %9
+  %10 = icmp ult i64 %.sroa.3.0.i47.i.i, 16
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %.lr.ph.split.split.i.i
-  %12 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef 45, ptr noalias noundef nonnull readonly align 1 %.48.i.i, i64 noundef %.sroa.3.0.i46.i.i), !noalias !191
+  %12 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef 45, ptr noalias noundef nonnull readonly align 1 %.49.i.i, i64 noundef %.sroa.3.0.i47.i.i), !noalias !191
   br label %21
 
 13:                                               ; preds = %.lr.ph.split.split.i.i
@@ -1214,18 +1214,18 @@ define void @"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..tr
 
 .lr.ph.i.i.i:                                     ; preds = %13, %17
   %.05.i.i.i = phi i64 [ %18, %17 ], [ 0, %13 ]
-  %14 = getelementptr inbounds [0 x i8], ptr %.48.i.i, i64 0, i64 %.05.i.i.i
+  %14 = getelementptr inbounds [0 x i8], ptr %.49.i.i, i64 0, i64 %.05.i.i.i
   %15 = load i8, ptr %14, align 1, !alias.scope !197, !noalias !191, !noundef !13
   %16 = icmp eq i8 %15, 45
   br i1 %16, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %17
 
 17:                                               ; preds = %.lr.ph.i.i.i
   %18 = add nuw i64 %.05.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %18, %.sroa.3.0.i46.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %18, %.sroa.3.0.i47.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %17, %.lr.ph.i.i.i, %13
-  %.0.lcssa.i.i.i = phi i64 [ 0, %13 ], [ %.sroa.3.0.i46.i.i, %17 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
+  %.0.lcssa.i.i.i = phi i64 [ 0, %13 ], [ %.sroa.3.0.i47.i.i, %17 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
   %.sroa.0.0.i25.i.i = phi i64 [ 0, %13 ], [ 0, %17 ], [ 1, %.lr.ph.i.i.i ]
   %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i25.i.i, 0
   %20 = insertvalue { i64, i64 } %19, i64 %.0.lcssa.i.i.i, 1
@@ -1690,7 +1690,7 @@ define void @_ZN6uucore8features6ranges5Range9from_list17h70bbf16599e55ca3E(ptr 
   %.sroa.17.1.ph = phi i64 [ %.sroa.17.074, %26 ], [ %68, %70 ], [ %.sroa.17.074, %.loopexit.i.i ], [ %.sroa.17.074, %55 ]
   %.sroa.14.4.ph = phi i64 [ %.sroa.14.075, %26 ], [ %68, %70 ], [ %.sroa.14.1, %55 ], [ %68, %.loopexit.i.i ]
   %.sroa.27.1.ph = phi i1 [ true, %26 ], [ false, %70 ], [ true, %.loopexit.i.i ], [ true, %55 ]
-  %.sroa.842.2.ph = phi ptr [ %18, %26 ], [ %.sink.in.i.i.i, %70 ], [ %57, %55 ], [ %18, %.loopexit.i.i ]
+  %.sroa.842.2.ph = phi ptr [ %.sroa.842.077, %26 ], [ %.sink.in.i.i.i, %70 ], [ %57, %55 ], [ %.sink.in.i.i.i, %.loopexit.i.i ]
   %.pn = phi i64 [ %2, %26 ], [ %.sroa.14.1, %70 ], [ %2, %.loopexit.i.i ], [ %2, %55 ]
   %.sroa.0.1.i.ph = getelementptr inbounds i8, ptr %1, i64 %.sroa.17.074
   %.sroa.4.1.i.ph = sub i64 %.pn, %.sroa.17.074

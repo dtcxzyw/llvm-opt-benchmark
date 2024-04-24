@@ -3369,28 +3369,28 @@ if.then.i:                                        ; preds = %_ZSt11lower_boundIN
   %m_capacity.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i66, i64 16
   %27 = load i64, ptr %m_capacity.i.i, align 8, !noalias !235
   %cmp.not.i = icmp eq i64 %27, %20
-  br i1 %cmp.not.i, label %if.then.i15, label %if.then4.i.i
+  br i1 %cmp.not.i, label %if.then.i16, label %if.then4.i.i
 
 if.then.i.thread:                                 ; preds = %lor.rhs.i
   store ptr %25, ptr %agg.tmp14.i, align 8, !noalias !234
-  %m_capacity.i.i17 = getelementptr inbounds i8, ptr %storemerge.i.i.i.i66, i64 16
-  %28 = load i64, ptr %m_capacity.i.i17, align 8, !noalias !238
-  %cmp.not.i18 = icmp eq i64 %28, %20
-  br i1 %cmp.not.i18, label %if.then.i15, label %if.then7.i.i
+  %m_capacity.i.i18 = getelementptr inbounds i8, ptr %storemerge.i.i.i.i66, i64 16
+  %28 = load i64, ptr %m_capacity.i.i18, align 8, !noalias !238
+  %cmp.not.i19 = icmp eq i64 %28, %20
+  br i1 %cmp.not.i19, label %if.then.i16, label %if.then7.i.i
 
-if.then.i15:                                      ; preds = %if.then.i.thread, %if.then.i
+if.then.i16:                                      ; preds = %if.then.i.thread, %if.then.i
   invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.258") align 8 %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(24) %storemerge.i.i.i.i66, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i, i64 noundef 1, ptr nonnull %id)
           to label %if.then.i.invoke.cont19_crit_edge unwind label %lpad18
 
 if.then4.i.i:                                     ; preds = %if.then.i
-  store i32 %m.sroa.0.0.extract.trunc, ptr %add.ptr.i.i74, align 4, !noalias !235
+  store i32 %m.sroa.0.0.extract.trunc, ptr %25, align 4, !noalias !235
   %29 = load i64, ptr %m_size.i.i, align 8, !noalias !235
   %add.i.i = add i64 %29, 1
   store i64 %add.i.i, ptr %m_size.i.i, align 8, !noalias !235
   br label %if.then.i.invoke.cont19_crit_edge
 
 if.then7.i.i:                                     ; preds = %if.then.i.thread
-  %sub.ptr.lhs.cast.i19 = ptrtoint ptr %25 to i64
+  %sub.ptr.lhs.cast.i20 = ptrtoint ptr %25 to i64
   %add.ptr.i.i12 = getelementptr inbounds i8, ptr %add.ptr.i.i74, i64 -4
   %tobool.i.i.not.i.i = icmp eq ptr %19, null
   br i1 %tobool.i.i.not.i.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i, label %if.then.i.i.i.i13, !prof !215
@@ -3410,7 +3410,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIv
 
 invoke.cont3.i.i.i:                               ; preds = %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i
   %sub.ptr.lhs.cast.i.i70.i.i = ptrtoint ptr %add.ptr.i.i12 to i64
-  %sub.ptr.sub.i.i71.i.i = sub i64 %sub.ptr.lhs.cast.i.i70.i.i, %sub.ptr.lhs.cast.i19
+  %sub.ptr.sub.i.i71.i.i = sub i64 %sub.ptr.lhs.cast.i.i70.i.i, %sub.ptr.lhs.cast.i20
   %sub.ptr.div.i.i72.i.i = ashr exact i64 %sub.ptr.sub.i.i71.i.i, 2
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i72.i.i
   %add.ptr.i73.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i74, i64 %idx.neg.i.i.i
@@ -3421,7 +3421,7 @@ _ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_a
   store i32 %m.sroa.0.0.extract.trunc, ptr %25, align 4, !noalias !235
   br label %if.then.i.invoke.cont19_crit_edge
 
-if.then.i.invoke.cont19_crit_edge:                ; preds = %if.then4.i.i, %_ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S6_E4typeES5_S5_S6_.exit.i.i, %if.then.i15
+if.then.i.invoke.cont19_crit_edge:                ; preds = %if.then4.i.i, %_ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S6_E4typeES5_S5_S6_.exit.i.i, %if.then.i16
   %.pre.pre = load i32, ptr %id, align 4
   br label %invoke.cont19
 
@@ -3448,7 +3448,7 @@ lpad9:                                            ; preds = %if.then8
           cleanup
   br label %ehcleanup27
 
-lpad18:                                           ; preds = %if.then.i15
+lpad18:                                           ; preds = %if.then.i16
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup27
@@ -4636,28 +4636,28 @@ if.then.i:                                        ; preds = %_ZSt11lower_boundIN
   %m_capacity.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i68, i64 16
   %27 = load i64, ptr %m_capacity.i.i, align 8, !noalias !264
   %cmp.not.i = icmp eq i64 %27, %20
-  br i1 %cmp.not.i, label %if.then.i15, label %if.then4.i.i
+  br i1 %cmp.not.i, label %if.then.i16, label %if.then4.i.i
 
 if.then.i.thread:                                 ; preds = %lor.rhs.i
   store ptr %25, ptr %agg.tmp14.i, align 8, !noalias !263
-  %m_capacity.i.i17 = getelementptr inbounds i8, ptr %storemerge.i.i.i.i68, i64 16
-  %28 = load i64, ptr %m_capacity.i.i17, align 8, !noalias !267
-  %cmp.not.i18 = icmp eq i64 %28, %20
-  br i1 %cmp.not.i18, label %if.then.i15, label %if.then7.i.i
+  %m_capacity.i.i18 = getelementptr inbounds i8, ptr %storemerge.i.i.i.i68, i64 16
+  %28 = load i64, ptr %m_capacity.i.i18, align 8, !noalias !267
+  %cmp.not.i19 = icmp eq i64 %28, %20
+  br i1 %cmp.not.i19, label %if.then.i16, label %if.then7.i.i
 
-if.then.i15:                                      ; preds = %if.then.i.thread, %if.then.i
+if.then.i16:                                      ; preds = %if.then.i.thread, %if.then.i
   invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.258") align 8 %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(24) %storemerge.i.i.i.i68, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i, i64 noundef 1, ptr nonnull %id)
           to label %if.then.i.invoke.cont19_crit_edge unwind label %lpad18
 
 if.then4.i.i:                                     ; preds = %if.then.i
-  store i32 %m.sroa.0.0.extract.trunc, ptr %add.ptr.i.i76, align 4, !noalias !264
+  store i32 %m.sroa.0.0.extract.trunc, ptr %25, align 4, !noalias !264
   %29 = load i64, ptr %m_size.i.i, align 8, !noalias !264
   %add.i.i = add i64 %29, 1
   store i64 %add.i.i, ptr %m_size.i.i, align 8, !noalias !264
   br label %if.then.i.invoke.cont19_crit_edge
 
 if.then7.i.i:                                     ; preds = %if.then.i.thread
-  %sub.ptr.lhs.cast.i19 = ptrtoint ptr %25 to i64
+  %sub.ptr.lhs.cast.i20 = ptrtoint ptr %25 to i64
   %add.ptr.i.i12 = getelementptr inbounds i8, ptr %add.ptr.i.i76, i64 -4
   %tobool.i.i.not.i.i = icmp eq ptr %19, null
   br i1 %tobool.i.i.not.i.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i, label %if.then.i.i.i.i13, !prof !215
@@ -4677,7 +4677,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIv
 
 invoke.cont3.i.i.i:                               ; preds = %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i
   %sub.ptr.lhs.cast.i.i70.i.i = ptrtoint ptr %add.ptr.i.i12 to i64
-  %sub.ptr.sub.i.i71.i.i = sub i64 %sub.ptr.lhs.cast.i.i70.i.i, %sub.ptr.lhs.cast.i19
+  %sub.ptr.sub.i.i71.i.i = sub i64 %sub.ptr.lhs.cast.i.i70.i.i, %sub.ptr.lhs.cast.i20
   %sub.ptr.div.i.i72.i.i = ashr exact i64 %sub.ptr.sub.i.i71.i.i, 2
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i72.i.i
   %add.ptr.i73.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i76, i64 %idx.neg.i.i.i
@@ -4688,7 +4688,7 @@ _ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_a
   store i32 %m.sroa.0.0.extract.trunc, ptr %25, align 4, !noalias !264
   br label %if.then.i.invoke.cont19_crit_edge
 
-if.then.i.invoke.cont19_crit_edge:                ; preds = %if.then4.i.i, %_ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S6_E4typeES5_S5_S6_.exit.i.i, %if.then.i15
+if.then.i.invoke.cont19_crit_edge:                ; preds = %if.then4.i.i, %_ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S6_E4typeES5_S5_S6_.exit.i.i, %if.then.i16
   %.pre.pre = load i32, ptr %id, align 4
   br label %invoke.cont19
 
@@ -4715,7 +4715,7 @@ lpad9:                                            ; preds = %if.then8
           cleanup
   br label %ehcleanup27
 
-lpad18:                                           ; preds = %if.then.i15
+lpad18:                                           ; preds = %if.then.i16
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup27

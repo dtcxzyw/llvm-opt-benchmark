@@ -1197,8 +1197,8 @@ if.then:                                          ; preds = %entry
 
 if.then9:                                         ; preds = %if.then
   %3 = load ptr, ptr %__x, align 8
-  store ptr %3, ptr %__position.coerce, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %__position.coerce, i64 8
+  store ptr %3, ptr %1, align 8
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 8
   %4 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
   store ptr %4, ptr %_M_refcount.i.i.i.i, align 8

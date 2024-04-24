@@ -1264,7 +1264,7 @@ define dso_local ptr @pick_next_task_fair(ptr noundef %0, ptr noundef %1, ptr no
   br label %126
 
 126:                                              ; preds = %124, %.thread8, %30
-  %127 = phi ptr [ %125, %124 ], [ %31, %.thread8 ], [ %1, %30 ]
+  %127 = phi ptr [ %125, %124 ], [ %31, %.thread8 ], [ %31, %30 ]
   %128 = getelementptr inbounds i8, ptr %127, i64 184
   %129 = getelementptr inbounds i8, ptr %0, i64 2592
   %130 = getelementptr inbounds i8, ptr %127, i64 192
@@ -8035,7 +8035,7 @@ define internal fastcc void @__dequeue_entity(ptr noundef %0, ptr noundef %1) un
 
 .thread:                                          ; preds = %105, %102, %65, %54
   %.pre-phi = phi i64 [ %71, %65 ], [ %.pre, %54 ], [ %71, %102 ], [ %71, %105 ]
-  %110 = phi ptr [ %60, %65 ], [ %12, %54 ], [ %61, %102 ], [ %61, %105 ]
+  %110 = phi ptr [ %61, %65 ], [ %12, %54 ], [ %61, %102 ], [ %61, %105 ]
   %111 = phi ptr [ %60, %65 ], [ %12, %54 ], [ %60, %102 ], [ %60, %105 ]
   %112 = phi ptr [ %67, %65 ], [ %56, %54 ], [ %67, %102 ], [ %67, %105 ]
   %113 = load ptr, ptr %13, align 8

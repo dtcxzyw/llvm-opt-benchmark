@@ -904,7 +904,7 @@ BeginStrongLockAcquire.exit:                      ; preds = %168, %172
   br i1 %.not43.i, label %253, label %222
 
 222:                                              ; preds = %217
-  %223 = trunc i64 %indvars.iv59.i to i32
+  %223 = trunc nuw nsw i64 %indvars.iv59.i to i32
   %224 = call fastcc ptr @SetupLockInTable(ptr noundef nonnull %19, ptr noundef %196, ptr noundef nonnull %0, i32 noundef %84, i32 noundef %223)
   %.not44.i = icmp eq ptr %224, null
   br i1 %.not44.i, label %261, label %225
@@ -1418,7 +1418,7 @@ define internal fastcc noundef zeroext i1 @FastPathGrantRelationLock(i32 noundef
   %9 = shl nuw nsw i64 7, %8
   %10 = and i64 %5, %9
   %11 = icmp eq i64 %10, 0
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %11, label %24, label %13
 
 13:                                               ; preds = %7
@@ -1428,7 +1428,7 @@ define internal fastcc noundef zeroext i1 @FastPathGrantRelationLock(i32 noundef
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %13
-  %18 = trunc i64 %8 to i32
+  %18 = trunc nuw nsw i64 %8 to i32
   %19 = add nsw i32 %1, -1
   %20 = add nuw nsw i32 %19, %18
   %21 = zext nneg i32 %20 to i64
@@ -1752,7 +1752,7 @@ define dso_local noundef zeroext i1 @LockCheckConflicts(ptr nocapture noundef re
 20:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %.04666 = phi i32 [ 0, %.lr.ph ], [ %.1, %31 ]
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = shl nuw i32 1, %21
   %23 = and i32 %22, %11
   %24 = icmp eq i32 %23, 0
@@ -1789,7 +1789,7 @@ define dso_local noundef zeroext i1 @LockCheckConflicts(ptr nocapture noundef re
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %36, i64 848
+  %40 = getelementptr inbounds i8, ptr %37, i64 848
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.loopexit, label %43
@@ -2514,7 +2514,7 @@ define internal fastcc zeroext i1 @FastPathUnGrantRelationLock(i32 noundef %0, i
   br i1 %12, label %14, label %._crit_edge
 
 14:                                               ; preds = %7
-  %15 = trunc i64 %13 to i32
+  %15 = trunc nuw nsw i64 %13 to i32
   %16 = add i32 %6, %15
   %17 = zext nneg i32 %16 to i64
   %18 = shl nuw i64 1, %17
@@ -2751,7 +2751,7 @@ VirtualXactLockTableCleanup.exit:                 ; preds = %15, %27
   unreachable
 
 103:                                              ; preds = %94
-  %104 = trunc i8 %.097.ph131 to i1
+  %104 = trunc nuw i8 %.097.ph131 to i1
   br i1 %104, label %109, label %105
 
 105:                                              ; preds = %103
@@ -2784,7 +2784,7 @@ VirtualXactLockTableCleanup.exit:                 ; preds = %15, %27
   br i1 %121, label %123, label %._crit_edge.i
 
 123:                                              ; preds = %116
-  %124 = trunc i64 %122 to i32
+  %124 = trunc nuw nsw i64 %122 to i32
   %125 = add i32 %115, %124
   %126 = zext nneg i32 %125 to i64
   %127 = shl nuw i64 1, %126
@@ -2855,7 +2855,7 @@ FastPathUnGrantRelationLock.exit:                 ; preds = %137
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %.backedge
   %.097.ph.lcssa122 = phi i8 [ %.097.ph131, %.backedge ], [ %.097.ph.be, %.outer.backedge ]
-  %154 = trunc i8 %.097.ph.lcssa122 to i1
+  %154 = trunc nuw i8 %.097.ph.lcssa122 to i1
   br i1 %154, label %155, label %.outer._crit_edge.thread
 
 155:                                              ; preds = %.outer._crit_edge
@@ -2953,7 +2953,7 @@ FastPathUnGrantRelationLock.exit:                 ; preds = %137
   %indvars.iv156 = phi i64 [ 1, %.lr.ph137 ], [ %indvars.iv.next157, %228 ]
   %.0135 = phi i1 [ false, %.lr.ph137 ], [ %.1, %228 ]
   %200 = load i32, ptr %186, align 4
-  %201 = trunc i64 %indvars.iv156 to i32
+  %201 = trunc nuw nsw i64 %indvars.iv156 to i32
   %202 = shl nuw i32 1, %201
   %203 = and i32 %200, %202
   %.not113 = icmp eq i32 %203, 0
@@ -3509,7 +3509,7 @@ define dso_local void @LockReassignCurrentOwner(ptr noundef readonly %0, i32 nou
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %18
   %24 = icmp eq ptr %22, %5
-  %25 = trunc i64 %indvars.iv.i to i32
+  %25 = trunc nuw nsw i64 %indvars.iv.i to i32
   %spec.select.i = select i1 %24, i32 %25, i32 %.036.i
   %.130.i = select i1 %23, i32 %25, i32 %.02935.i
   %.1.i = select i1 %23, i32 %.036.i, i32 %spec.select.i
@@ -3587,7 +3587,7 @@ LockReassignOwner.exit:                           ; preds = %.lr.ph26, %._crit_e
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, %55
   %61 = icmp eq ptr %59, %5
-  %62 = trunc i64 %indvars.iv.i12 to i32
+  %62 = trunc nuw nsw i64 %indvars.iv.i12 to i32
   %spec.select.i15 = select i1 %61, i32 %62, i32 %.036.i13
   %.130.i16 = select i1 %60, i32 %62, i32 %.02935.i14
   %.1.i17 = select i1 %60, i32 %.036.i13, i32 %spec.select.i15
@@ -4236,7 +4236,7 @@ CheckForSessionAndXactLocks.exit:                 ; preds = %.backedge.i, %0
   br i1 %114, label %160, label %115
 
 115:                                              ; preds = %109
-  %116 = trunc i64 %111 to i32
+  %116 = trunc nuw nsw i64 %111 to i32
   %117 = getelementptr inbounds i8, ptr %63, i64 16
   %118 = load i32, ptr %117, align 8
   %119 = add nsw i32 %116, -1
@@ -5774,7 +5774,7 @@ lock_twophase_postcommit.exit:                    ; preds = %4
 ; Function Attrs: nounwind uwtable
 define dso_local void @VirtualXactLockTableInsert(i64 %0) local_unnamed_addr #0 {
   %.sroa.1.0.extract.shift = lshr i64 %0, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %2 = load ptr, ptr @MyProc, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 752
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %3, i32 noundef 0) #16
@@ -5801,7 +5801,7 @@ define dso_local noundef zeroext i1 @VirtualXactLock(i64 %0, i1 noundef zeroext 
   %11 = alloca %struct.LOCKTAG, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.9.0.extract.shift = lshr i64 %0, 32
-  %.sroa.9.0.extract.trunc = trunc i64 %.sroa.9.0.extract.shift to i32
+  %.sroa.9.0.extract.trunc = trunc nuw i64 %.sroa.9.0.extract.shift to i32
   %12 = icmp eq i32 %.sroa.0.0.extract.trunc, -1
   br i1 %12, label %13, label %34
 

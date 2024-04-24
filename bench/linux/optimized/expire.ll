@@ -1050,7 +1050,7 @@ autofs_mount_busy.exit12.thread:                  ; preds = %276, %269
   br label %.thread14
 
 .thread14:                                        ; preds = %46, %291, %293, %173, %autofs_mount_busy.exit.thread, %.thread13, %165, %160, %156, %94, %84, %83, %76, %74, %69, %66, %62, %55, %53, %47, %4
-  %296 = phi ptr [ null, %.thread13 ], [ null, %4 ], [ %0, %46 ], [ %0, %66 ], [ null, %84 ], [ null, %94 ], [ %0, %62 ], [ null, %47 ], [ null, %55 ], [ null, %53 ], [ %0, %83 ], [ null, %69 ], [ null, %76 ], [ null, %74 ], [ %0, %156 ], [ %0, %165 ], [ %0, %160 ], [ null, %autofs_mount_busy.exit.thread ], [ %289, %291 ], [ %0, %293 ], [ null, %173 ]
+  %296 = phi ptr [ null, %.thread13 ], [ null, %4 ], [ %0, %46 ], [ %0, %66 ], [ null, %84 ], [ null, %94 ], [ %0, %62 ], [ null, %47 ], [ null, %55 ], [ null, %53 ], [ %0, %83 ], [ null, %69 ], [ null, %76 ], [ null, %74 ], [ %0, %156 ], [ %0, %165 ], [ %0, %160 ], [ null, %autofs_mount_busy.exit.thread ], [ %289, %291 ], [ %289, %293 ], [ null, %173 ]
   ret ptr %296
 }
 
@@ -1143,13 +1143,12 @@ define internal fastcc ptr @get_next_positive_dentry(ptr noundef %0, ptr noundef
   br label %.thread6
 
 .thread6:                                         ; preds = %.loopexit, %38
-  %42 = phi ptr [ %.sink23, %38 ], [ %1, %.loopexit ]
-  %43 = phi ptr [ %20, %38 ], [ null, %.loopexit ]
-  %44 = getelementptr inbounds i8, ptr %42, i64 96
-  tail call void @_raw_spin_unlock(ptr noundef %44) #7
+  %42 = phi ptr [ %20, %38 ], [ null, %.loopexit ]
+  %43 = getelementptr inbounds i8, ptr %.sink23, i64 96
+  tail call void @_raw_spin_unlock(ptr noundef %43) #7
   tail call void @_raw_spin_unlock(ptr noundef %7) #7
   tail call void @dput(ptr noundef nonnull %0) #7
-  ret ptr %43
+  ret ptr %42
 }
 
 ; Function Attrs: null_pointer_is_valid

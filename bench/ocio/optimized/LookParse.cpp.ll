@@ -755,7 +755,7 @@ invoke.contthread-pre-split.i49:                  ; preds = %for.body.i.i.i.i45
   br label %invoke.cont.i51
 
 invoke.cont.i51:                                  ; preds = %invoke.contthread-pre-split.i49, %for.end26
-  %40 = phi ptr [ %.pr.i50, %invoke.contthread-pre-split.i49 ], [ %30, %for.end26 ]
+  %40 = phi ptr [ %.pr.i50, %invoke.contthread-pre-split.i49 ], [ %31, %for.end26 ]
   %tobool.not.i.i.i52 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i52, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit54, label %if.then.i.i.i53
 

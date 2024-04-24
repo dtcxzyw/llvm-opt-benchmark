@@ -1603,7 +1603,7 @@ if.end10.i65:                                     ; preds = %if.end7.i62
 
 _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit71: ; preds = %if.end.i56, %if.end7.i62, %if.end10.i65, %if.then45
   %c.2 = phi i8 [ %c.1224, %if.then45 ], [ %13, %if.end10.i65 ], [ %13, %if.end7.i62 ], [ %13, %if.end.i56 ]
-  %pos.addr.2 = phi ptr [ %end, %if.then45 ], [ %incdec.ptr.i59, %if.end.i56 ], [ %scevgep261, %if.end7.i62 ], [ %scevgep, %if.end10.i65 ]
+  %pos.addr.2 = phi ptr [ %pos.addr.1221, %if.then45 ], [ %incdec.ptr.i59, %if.end.i56 ], [ %scevgep261, %if.end7.i62 ], [ %scevgep, %if.end10.i65 ]
   %digits.0.lcssa.i70 = phi i32 [ %digits.08.i54, %if.then45 ], [ %digits.011.i57, %if.end.i56 ], [ %digits.011.i57, %if.end7.i62 ], [ %digits.0.i68, %if.end10.i65 ]
   %flags47 = getelementptr inbounds i8, ptr %conv, i64 12
   %15 = load i8, ptr %flags47, align 4
@@ -1736,7 +1736,7 @@ if.end10.i106:                                    ; preds = %if.end7.i103
 
 _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit112: ; preds = %if.end.i97, %if.end7.i103, %if.end10.i106, %if.then107
   %c.5 = phi i8 [ %25, %if.then107 ], [ %29, %if.end10.i106 ], [ %29, %if.end7.i103 ], [ %29, %if.end.i97 ]
-  %pos.addr.5 = phi ptr [ %end, %if.then107 ], [ %incdec.ptr.i100, %if.end.i97 ], [ %scevgep264, %if.end7.i103 ], [ %scevgep263, %if.end10.i106 ]
+  %pos.addr.5 = phi ptr [ %incdec.ptr101, %if.then107 ], [ %incdec.ptr.i100, %if.end.i97 ], [ %scevgep264, %if.end7.i103 ], [ %scevgep263, %if.end10.i106 ]
   %digits.0.lcssa.i111 = phi i32 [ %digits.08.i95, %if.then107 ], [ %digits.011.i98, %if.end.i97 ], [ %digits.011.i98, %if.end7.i103 ], [ %digits.0.i109, %if.end10.i106 ]
   store i32 %digits.0.lcssa.i111, ptr %precision, align 4
   br label %if.end147
@@ -2027,7 +2027,7 @@ if.end33:                                         ; preds = %if.then29
 
 if.end35:                                         ; preds = %if.end10.i, %if.end7.i, %if.then25, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit
   %digits.0.lcssa.i118 = phi i32 [ %digits.011.i, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ %digits.08.i, %if.then25 ], [ %digits.0.i, %if.end10.i ], [ %digits.011.i, %if.end7.i ]
-  %pos.addr.1117 = phi ptr [ %incdec.ptr.i, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ %end, %if.then25 ], [ %scevgep148, %if.end10.i ], [ %scevgep, %if.end7.i ]
+  %pos.addr.1117 = phi ptr [ %incdec.ptr.i, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ %pos.addr.0129, %if.then25 ], [ %scevgep148, %if.end10.i ], [ %scevgep, %if.end7.i ]
   %c.1116 = phi i8 [ %7, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit ], [ %c.0132, %if.then25 ], [ %7, %if.end7.i ], [ %7, %if.end10.i ]
   %flags36 = getelementptr inbounds i8, ptr %conv, i64 12
   %10 = load i8, ptr %flags36, align 4
@@ -2115,7 +2115,7 @@ if.end10.i66:                                     ; preds = %if.end7.i63
 
 _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit72: ; preds = %if.end.i57, %if.end7.i63, %if.end10.i66, %if.then74
   %c.3 = phi i8 [ %15, %if.then74 ], [ %19, %if.end10.i66 ], [ %19, %if.end7.i63 ], [ %19, %if.end.i57 ]
-  %pos.addr.3 = phi ptr [ %end, %if.then74 ], [ %incdec.ptr.i60, %if.end.i57 ], [ %scevgep151, %if.end7.i63 ], [ %scevgep150, %if.end10.i66 ]
+  %pos.addr.3 = phi ptr [ %incdec.ptr68, %if.then74 ], [ %incdec.ptr.i60, %if.end.i57 ], [ %scevgep151, %if.end7.i63 ], [ %scevgep150, %if.end10.i66 ]
   %digits.0.lcssa.i71 = phi i32 [ %digits.08.i55, %if.then74 ], [ %digits.011.i58, %if.end.i57 ], [ %digits.011.i58, %if.end7.i63 ], [ %digits.0.i69, %if.end10.i66 ]
   store i32 %digits.0.lcssa.i71, ptr %precision, align 4
   br label %if.end94

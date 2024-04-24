@@ -1476,7 +1476,7 @@ yy_get_next_buffer.exit.thread.backedge:          ; preds = %762, %yy_get_next_b
   br i1 %exitcond101.not.i, label %.critedge.i, label %812, !llvm.loop !13
 
 .critedge.split.loop.exit.i:                      ; preds = %812, %812
-  %825 = trunc i64 %indvars.iv.i to i32
+  %825 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %815, %.critedge.split.loop.exit.i
@@ -1963,35 +1963,39 @@ define dso_local noundef ptr @boot_yy_create_buffer(ptr noundef %0, i32 noundef 
   br i1 %25, label %boot_yy_flush_buffer.exit.thread.i, label %boot_yy_flush_buffer.exit.i.thread
 
 boot_yy_flush_buffer.exit.thread.i:               ; preds = %21
-  store i32 0, ptr @yy_n_chars, align 4
-  store ptr %9, ptr @yy_c_buf_p, align 8
-  store ptr %9, ptr @boot_yytext, align 8
-  %26 = load ptr, ptr %23, align 8
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr @boot_yyin, align 8
-  %28 = load i8, ptr %9, align 1
-  store i8 %28, ptr @yy_hold_char, align 1
+  %26 = getelementptr inbounds i8, ptr %24, i64 28
+  %27 = load i32, ptr %26, align 4
+  store i32 %27, ptr @yy_n_chars, align 4
+  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = load ptr, ptr %28, align 8
+  store ptr %29, ptr @yy_c_buf_p, align 8
+  store ptr %29, ptr @boot_yytext, align 8
+  %30 = load ptr, ptr %23, align 8
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr @boot_yyin, align 8
+  %32 = load i8, ptr %29, align 1
+  store i8 %32, ptr @yy_hold_char, align 1
   %.pre = load ptr, ptr %23, align 8
   br label %boot_yy_flush_buffer.exit.i.thread
 
 boot_yy_flush_buffer.exit.i.thread:               ; preds = %boot_yy_flush_buffer.exit.thread.i, %21, %12
-  %29 = phi ptr [ null, %12 ], [ %.pre, %boot_yy_flush_buffer.exit.thread.i ], [ %24, %21 ]
+  %33 = phi ptr [ null, %12 ], [ %.pre, %boot_yy_flush_buffer.exit.thread.i ], [ %24, %21 ]
   store ptr %0, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 52
-  store i32 1, ptr %30, align 4
-  %.not9.i = icmp eq ptr %29, %3
-  br i1 %.not9.i, label %boot_yy_init_buffer.exit, label %31
+  %34 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %34, align 4
+  %.not9.i = icmp eq ptr %33, %3
+  br i1 %.not9.i, label %boot_yy_init_buffer.exit, label %35
 
-31:                                               ; preds = %boot_yy_flush_buffer.exit.i.thread
-  %32 = getelementptr inbounds i8, ptr %3, i64 44
-  store i32 1, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 0, ptr %33, align 8
+35:                                               ; preds = %boot_yy_flush_buffer.exit.i.thread
+  %36 = getelementptr inbounds i8, ptr %3, i64 44
+  store i32 1, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 0, ptr %37, align 8
   br label %boot_yy_init_buffer.exit
 
-boot_yy_init_buffer.exit:                         ; preds = %boot_yy_flush_buffer.exit.i.thread, %31
-  %34 = getelementptr inbounds i8, ptr %3, i64 36
-  store i32 0, ptr %34, align 4
+boot_yy_init_buffer.exit:                         ; preds = %boot_yy_flush_buffer.exit.i.thread, %35
+  %38 = getelementptr inbounds i8, ptr %3, i64 36
+  store i32 0, ptr %38, align 4
   store i32 %15, ptr %14, align 4
   ret ptr %3
 }

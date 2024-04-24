@@ -653,7 +653,7 @@ define internal void @drm_fb_xrgb8888_to_rgb332_line(ptr nocapture noundef write
   %16 = lshr i32 %10, 6
   %17 = and i32 %16, 3
   %18 = or disjoint i32 %15, %17
-  %19 = trunc i32 %18 to i8
+  %19 = trunc nuw i32 %18 to i8
   %20 = getelementptr i8, ptr %0, i64 %8
   store i8 %19, ptr %20, align 1
   %21 = add nuw nsw i64 %8, 1
@@ -696,7 +696,7 @@ define internal void @drm_fb_xrgb8888_to_rgb565_swab_line(ptr nocapture noundef 
   %16 = lshr i32 %10, 3
   %17 = and i32 %16, 31
   %18 = or disjoint i32 %15, %17
-  %19 = trunc i32 %18 to i16
+  %19 = trunc nuw i32 %18 to i16
   %20 = tail call i16 @llvm.bswap.i16(i16 %19)
   %21 = getelementptr i16, ptr %0, i64 %8
   store i16 %20, ptr %21, align 2
@@ -729,7 +729,7 @@ define internal void @drm_fb_xrgb8888_to_rgb565_line(ptr nocapture noundef write
   %16 = lshr i32 %10, 3
   %17 = and i32 %16, 31
   %18 = or disjoint i32 %15, %17
-  %19 = trunc i32 %18 to i16
+  %19 = trunc nuw i32 %18 to i16
   %20 = getelementptr i16, ptr %0, i64 %8
   store i16 %19, ptr %20, align 2
   %21 = add nuw nsw i64 %8, 1
@@ -771,7 +771,7 @@ define internal void @drm_fb_xrgb8888_to_xrgb1555_line(ptr nocapture noundef wri
   %16 = lshr i32 %10, 3
   %17 = and i32 %16, 31
   %18 = or disjoint i32 %15, %17
-  %19 = trunc i32 %18 to i16
+  %19 = trunc nuw nsw i32 %18 to i16
   %20 = getelementptr i16, ptr %0, i64 %8
   store i16 %19, ptr %20, align 2
   %21 = add nuw nsw i64 %8, 1
@@ -813,7 +813,7 @@ define internal void @drm_fb_xrgb8888_to_argb1555_line(ptr nocapture noundef wri
   %16 = lshr i32 %10, 3
   %17 = and i32 %16, 31
   %18 = or disjoint i32 %15, %17
-  %19 = trunc i32 %18 to i16
+  %19 = trunc nuw nsw i32 %18 to i16
   %20 = or disjoint i16 %19, -32768
   %21 = getelementptr i16, ptr %0, i64 %8
   store i16 %20, ptr %21, align 2
@@ -856,7 +856,7 @@ define internal void @drm_fb_xrgb8888_to_rgba5551_line(ptr nocapture noundef wri
   %16 = lshr i32 %10, 2
   %17 = and i32 %16, 62
   %18 = or disjoint i32 %15, %17
-  %19 = trunc i32 %18 to i16
+  %19 = trunc nuw i32 %18 to i16
   %20 = or disjoint i16 %19, 1
   %21 = getelementptr i16, ptr %0, i64 %8
   store i16 %20, ptr %21, align 2
@@ -1069,9 +1069,9 @@ define internal void @drm_fb_xrgb8888_to_gray8_line(ptr nocapture noundef writeo
   %18 = and i32 %11, 255
   %19 = add nuw nsw i32 %17, %18
   %20 = add nuw nsw i32 %19, %15
-  %.lhs.trunc = trunc i32 %20 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %20 to i16
   %21 = udiv i16 %.lhs.trunc, 10
-  %22 = trunc i16 %21 to i8
+  %22 = trunc nuw i16 %21 to i8
   %23 = getelementptr i8, ptr %9, i64 1
   store i8 %22, ptr %9, align 1
   %24 = add nuw nsw i64 %8, 1
@@ -1469,9 +1469,9 @@ define dso_local void @drm_fb_xrgb8888_to_mono(ptr nocapture noundef readonly %0
   %101 = and i32 %94, 255
   %102 = add nuw nsw i32 %100, %101
   %103 = add nuw nsw i32 %102, %98
-  %.lhs.trunc = trunc i32 %103 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %103 to i16
   %104 = udiv i16 %.lhs.trunc, 10
-  %105 = trunc i16 %104 to i8
+  %105 = trunc nuw i16 %104 to i8
   %106 = getelementptr i8, ptr %92, i64 1
   store i8 %105, ptr %92, align 1
   %107 = add nuw nsw i64 %91, 1
@@ -1665,7 +1665,7 @@ define dso_local i64 @drm_fb_build_fourcc_list(ptr noundef readonly %0, ptr noca
   br label %.loopexit17
 
 .loopexit17:                                      ; preds = %45, %39, %57, %52
-  %61 = phi ptr [ %8, %52 ], [ %60, %57 ], [ %21, %39 ], [ %21, %45 ]
+  %61 = phi ptr [ %21, %52 ], [ %60, %57 ], [ %21, %39 ], [ %21, %45 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
   %62 = add nuw i64 %20, 1
   %63 = icmp eq i64 %62, %2

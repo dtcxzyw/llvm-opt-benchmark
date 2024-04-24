@@ -502,13 +502,11 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %41, %43
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %49, %50
   %52 = ashr exact i64 %51, 3
-  br i1 %45, label %thread-pre-split, label %.preheader
-
-.preheader:                                       ; preds = %44
   %.not = icmp eq ptr %47, %48
-  br i1 %.not, label %thread-pre-split, label %.lr.ph
+  %or.cond = select i1 %45, i1 true, i1 %.not
+  br i1 %or.cond, label %thread-pre-split, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader
+.lr.ph:                                           ; preds = %44
   %53 = getelementptr inbounds i8, ptr %4, i64 16
   br label %54
 
@@ -661,9 +659,9 @@ _ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit: ; preds = %tailrecurse.i, %81,
   %121 = icmp ult i64 %114, %120
   br i1 %121, label %54, label %thread-pre-split, !llvm.loop !7
 
-thread-pre-split:                                 ; preds = %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit, %44, %.preheader, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
-  %122 = phi ptr [ %36, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ %47, %.preheader ], [ %48, %44 ], [ %116, %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit ]
-  %.025.in = phi i64 [ %40, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ %52, %.preheader ], [ %52, %44 ], [ %120, %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit ]
+thread-pre-split:                                 ; preds = %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit, %44, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
+  %122 = phi ptr [ %36, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ %48, %44 ], [ %116, %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit ]
+  %.025.in = phi i64 [ %40, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ %52, %44 ], [ %120, %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit ]
   %.not.i.i.i30 = icmp eq ptr %122, null
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit31, label %123
 

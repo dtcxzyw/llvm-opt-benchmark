@@ -1092,7 +1092,7 @@ define hidden void @zim_Closure_fromCallable(ptr noundef %0, ptr noundef %1) #0 
   br i1 %107, label %108, label %zend_create_closure_from_callable.exit.thread
 
 108:                                              ; preds = %102
-  %109 = getelementptr inbounds i8, ptr %5, i64 8
+  %109 = getelementptr inbounds i8, ptr %.050.i, i64 8
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 4
   %112 = load i32, ptr %111, align 4
@@ -2462,7 +2462,7 @@ define hidden void @zend_closure_from_frame(ptr noundef %0, ptr nocapture nounde
   br i1 %82, label %83, label %98
 
 83:                                               ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %4, i64 8
+  %84 = getelementptr inbounds i8, ptr %.0, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 4
   %87 = load i32, ptr %86, align 4

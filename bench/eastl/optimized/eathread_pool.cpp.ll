@@ -820,7 +820,7 @@ if.else:                                          ; preds = %for.body
   br label %if.end16
 
 if.end16:                                         ; preds = %delete.notnull.i.i15, %if.then.i.i12, %if.then11, %if.else
-  %it.sroa.0.1 = phi ptr [ %21, %if.else ], [ %16, %if.then.i.i12 ], [ %16, %delete.notnull.i.i15 ], [ %14, %if.then11 ]
+  %it.sroa.0.1 = phi ptr [ %21, %if.else ], [ %16, %if.then.i.i12 ], [ %16, %delete.notnull.i.i15 ], [ %15, %if.then11 ]
   %cmp.i.not = icmp eq ptr %10, %it.sroa.0.1
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !18
 

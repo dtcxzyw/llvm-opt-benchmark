@@ -5844,7 +5844,7 @@ select.unfold:                                    ; preds = %93, %.thread, %86
   br label %368
 
 368:                                              ; preds = %365, %361, %348, %347
-  %369 = call i32 %24(ptr noundef nonnull %10, ptr noundef %17, i64 noundef %195) #18
+  %369 = call i32 %179(ptr noundef nonnull %10, ptr noundef %17, i64 noundef %195) #18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_ata_slave_hardreset_end, i64 0, i32 1), i32 2) #18
           to label %390 [label %370], !srcloc !29
 
@@ -6099,7 +6099,7 @@ select.unfold:                                    ; preds = %93, %.thread, %86
 
 511:                                              ; preds = %506, %485, %410, %401, %397, %393, %.thread46
   %512 = phi i32 [ 0, %485 ], [ %392, %.thread46 ], [ %178, %506 ], [ %392, %393 ], [ %392, %397 ], [ %392, %410 ], [ %392, %401 ]
-  %513 = phi ptr [ %27, %485 ], [ %179, %.thread46 ], [ null, %506 ], [ %24, %393 ], [ %24, %397 ], [ %24, %410 ], [ %24, %401 ]
+  %513 = phi ptr [ %27, %485 ], [ %179, %.thread46 ], [ null, %506 ], [ %179, %393 ], [ %179, %397 ], [ %179, %410 ], [ %179, %401 ]
   %514 = phi i32 [ %180, %485 ], [ %180, %.thread46 ], [ %510, %506 ], [ %180, %393 ], [ %180, %397 ], [ %180, %410 ], [ %180, %401 ]
   %515 = call ptr @ata_dev_next(ptr noundef null, ptr noundef %0, i32 noundef 2) #18
   %516 = icmp eq ptr %515, null
@@ -6557,7 +6557,7 @@ select.unfold:                                    ; preds = %93, %.thread, %86
 
 772:                                              ; preds = %390, %667, %662, %485, %429, %424, %325
   %773 = phi i32 [ %280, %325 ], [ -22, %429 ], [ -22, %424 ], [ %464, %485 ], [ -11, %667 ], [ -11, %662 ], [ %369, %390 ]
-  %774 = phi ptr [ %179, %325 ], [ null, %429 ], [ null, %424 ], [ %27, %485 ], [ %513, %667 ], [ %513, %662 ], [ %24, %390 ]
+  %774 = phi ptr [ %179, %325 ], [ null, %429 ], [ null, %424 ], [ %27, %485 ], [ %513, %667 ], [ %513, %662 ], [ %179, %390 ]
   %775 = phi ptr [ %0, %325 ], [ %0, %429 ], [ %0, %424 ], [ %0, %485 ], [ %0, %667 ], [ %0, %662 ], [ %10, %390 ]
   %776 = phi i32 [ %180, %325 ], [ %180, %429 ], [ %180, %424 ], [ %180, %485 ], [ %514, %667 ], [ %514, %662 ], [ %180, %390 ]
   %777 = load ptr, ptr %0, align 64

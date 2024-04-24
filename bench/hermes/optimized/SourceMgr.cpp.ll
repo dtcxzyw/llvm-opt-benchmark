@@ -731,7 +731,7 @@ cond.true.i:                                      ; preds = %_ZSt11lower_boundIN
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhET_S7_S7_RKT0_.exit.i, %if.then8
-  %__first.sroa.0.0.lcssa.i.i17.i = phi ptr [ %__first.sroa.0.1.i.i.i, %cond.true.i ], [ %17, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhET_S7_S7_RKT0_.exit.i ], [ %17, %if.then8 ]
+  %__first.sroa.0.0.lcssa.i.i17.i = phi ptr [ %__first.sroa.0.1.i.i.i, %cond.true.i ], [ %__first.sroa.0.1.i.i.i, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhET_S7_S7_RKT0_.exit.i ], [ %17, %if.then8 ]
   %cond.i = phi ptr [ %add.ptr17.i, %cond.true.i ], [ %16, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhET_S7_S7_RKT0_.exit.i ], [ %16, %if.then8 ]
   %cmp.i10.not.i = icmp eq ptr %__first.sroa.0.0.lcssa.i.i17.i, %18
   br i1 %cmp.i10.not.i, label %cond.false28.i, label %cond.true22.i
@@ -808,7 +808,7 @@ cond.true.i64:                                    ; preds = %_ZSt11lower_boundIN
   br label %cond.end.i32
 
 cond.end.i32:                                     ; preds = %cond.true.i64, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtET_S7_S7_RKT0_.exit.i, %if.then12
-  %__first.sroa.0.0.lcssa.i.i17.i33 = phi ptr [ %__first.sroa.0.1.i.i.i60, %cond.true.i64 ], [ %26, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtET_S7_S7_RKT0_.exit.i ], [ %26, %if.then12 ]
+  %__first.sroa.0.0.lcssa.i.i17.i33 = phi ptr [ %__first.sroa.0.1.i.i.i60, %cond.true.i64 ], [ %__first.sroa.0.1.i.i.i60, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtET_S7_S7_RKT0_.exit.i ], [ %26, %if.then12 ]
   %cond.i34 = phi ptr [ %add.ptr17.i68, %cond.true.i64 ], [ %25, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtET_S7_S7_RKT0_.exit.i ], [ %25, %if.then12 ]
   %cmp.i10.not.i35 = icmp eq ptr %__first.sroa.0.0.lcssa.i.i17.i33, %27
   br i1 %cmp.i10.not.i35, label %cond.false28.i49, label %cond.true22.i36
@@ -886,7 +886,7 @@ cond.true.i106:                                   ; preds = %_ZSt11lower_boundIN
   br label %cond.end.i81
 
 cond.end.i81:                                     ; preds = %cond.true.i106, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjET_S7_S7_RKT0_.exit.i, %if.then17
-  %__first.sroa.0.0.lcssa.i.i17.i82 = phi ptr [ %__first.sroa.0.1.i.i.i102, %cond.true.i106 ], [ %35, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjET_S7_S7_RKT0_.exit.i ], [ %35, %if.then17 ]
+  %__first.sroa.0.0.lcssa.i.i17.i82 = phi ptr [ %__first.sroa.0.1.i.i.i102, %cond.true.i106 ], [ %__first.sroa.0.1.i.i.i102, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjET_S7_S7_RKT0_.exit.i ], [ %35, %if.then17 ]
   %cond.i83 = phi ptr [ %add.ptr16.i, %cond.true.i106 ], [ %34, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjET_S7_S7_RKT0_.exit.i ], [ %34, %if.then17 ]
   %cmp.i10.not.i84 = icmp eq ptr %__first.sroa.0.0.lcssa.i.i17.i82, %36
   br i1 %cmp.i10.not.i84, label %cond.false26.i, label %cond.true21.i
@@ -957,7 +957,7 @@ cond.true.i149:                                   ; preds = %_ZSt11lower_boundIN
   br label %cond.end.i121
 
 cond.end.i121:                                    ; preds = %cond.true.i149, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmET_S7_S7_RKT0_.exit.i, %if.else18
-  %__first.sroa.0.0.lcssa.i.i17.i122 = phi ptr [ %__first.sroa.0.1.i.i.i145, %cond.true.i149 ], [ %44, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmET_S7_S7_RKT0_.exit.i ], [ %44, %if.else18 ]
+  %__first.sroa.0.0.lcssa.i.i17.i122 = phi ptr [ %__first.sroa.0.1.i.i.i145, %cond.true.i149 ], [ %__first.sroa.0.1.i.i.i145, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmET_S7_S7_RKT0_.exit.i ], [ %44, %if.else18 ]
   %cond.i123 = phi ptr [ %add.ptr16.i152, %cond.true.i149 ], [ %43, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmET_S7_S7_RKT0_.exit.i ], [ %43, %if.else18 ]
   %cmp.i10.not.i124 = icmp eq ptr %__first.sroa.0.0.lcssa.i.i17.i122, %45
   br i1 %cmp.i10.not.i124, label %cond.false25.i, label %cond.true21.i125
@@ -2558,7 +2558,7 @@ if.end16.i:                                       ; preds = %if.end9.i
   %FirstCol.0.i = select i1 %cmp19.i, i32 0, i32 %conv.i228
   %conv24.i = zext i32 %FirstCol.0.i to i64
   %cmp25.i = icmp ugt i64 %PrevHintEndCol.056.i, %conv24.i
-  %67 = trunc i64 %PrevHintEndCol.056.i to i32
+  %67 = trunc nuw i64 %PrevHintEndCol.056.i to i32
   %conv27.i = add i32 %67, 1
   %HintCol.0.i = select i1 %cmp25.i, i32 %conv27.i, i32 %FirstCol.0.i
   %conv29.i = zext i32 %HintCol.0.i to i64
@@ -3333,7 +3333,7 @@ lor.rhs:                                          ; preds = %_ZNSt3mapIPKcjSt4le
   br i1 %cmp.i5, label %if.then, label %return
 
 if.then:                                          ; preds = %entry, %_ZNSt3mapIPKcjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit, %lor.rhs
-  %__y.addr.0.lcssa.i.i.i14 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapIPKcjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
+  %__y.addr.0.lcssa.i.i.i14 = phi ptr [ %__y.addr.1.i.i.i, %_ZNSt3mapIPKcjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   store ptr %.pre, ptr %_M_storage.i.i.i.i.i.i, align 8
@@ -3638,7 +3638,7 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %if.else
-  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %__position.coerce, %if.else ]
+  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
   %_M_left.i3.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %_M_left.i3.i, align 8
   %cmp.i4.i = icmp eq ptr %__y.0.lcssa25.i, %6
@@ -3797,8 +3797,8 @@ if.end12.i78:                                     ; preds = %if.else.i93, %while
   br label %return
 
 return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %11, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa25.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

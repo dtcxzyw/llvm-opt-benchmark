@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ossl_quic_stream_map_init(ptr noundef %qsm, ptr noundef %get_stream_limit_cb, ptr noundef %get_stream_limit_cb_arg, ptr noundef %max_streams_bidi_rxfc, ptr noundef %max_streams_uni_rxfc, i32 noundef %is_server) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @hash_stream, ptr noundef nonnull @cmp_stream) #10
+  %call.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @hash_stream, ptr noundef nonnull @cmp_stream) #11
   store ptr %call.i, ptr %qsm, align 8
   %active_list = getelementptr inbounds i8, ptr %qsm, i64 8
   %next = getelementptr inbounds i8, ptr %qsm, i64 16
@@ -73,9 +73,9 @@ entry:
 define void @ossl_quic_stream_map_cleanup(ptr noundef %qsm) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %qsm, align 8
-  tail call void @OPENSSL_LH_doall_arg(ptr noundef %0, ptr noundef nonnull @release_each, ptr noundef nonnull %qsm) #10
+  tail call void @OPENSSL_LH_doall_arg(ptr noundef %0, ptr noundef nonnull @release_each, ptr noundef nonnull %qsm) #11
   %1 = load ptr, ptr %qsm, align 8
-  tail call void @OPENSSL_LH_free(ptr noundef %1) #10
+  tail call void @OPENSSL_LH_free(ptr noundef %1) #11
   store ptr null, ptr %qsm, align 8
   ret void
 }
@@ -84,7 +84,7 @@ entry:
 define void @ossl_quic_stream_map_visit(ptr nocapture noundef readonly %qsm, ptr noundef %visit_cb, ptr noundef %visit_cb_arg) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %qsm, align 8
-  tail call void @OPENSSL_LH_doall_arg(ptr noundef %0, ptr noundef %visit_cb, ptr noundef %visit_cb_arg) #10
+  tail call void @OPENSSL_LH_doall_arg(ptr noundef %0, ptr noundef %visit_cb, ptr noundef %visit_cb_arg) #11
   ret void
 }
 
@@ -102,12 +102,12 @@ entry:
   %id = getelementptr inbounds i8, ptr %key, i64 56
   store i64 %stream_id, ptr %id, align 8
   %0 = load ptr, ptr %qsm, align 8
-  %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %0, ptr noundef nonnull %key) #10
+  %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %0, ptr noundef nonnull %key) #11
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = call noalias ptr @CRYPTO_zalloc(i64 noundef 264, ptr noundef nonnull @.str, i32 noundef 152) #10
+  %call1 = call noalias ptr @CRYPTO_zalloc(i64 noundef 264, ptr noundef nonnull @.str, i32 noundef 152) #11
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %return, label %if.end4
 
@@ -154,7 +154,7 @@ if.end4:                                          ; preds = %if.end
   %send_final_size = getelementptr inbounds i8, ptr %call1, i64 104
   store i64 -1, ptr %send_final_size, align 8
   %17 = load ptr, ptr %qsm, align 8
-  %call.i25 = call ptr @OPENSSL_LH_insert(ptr noundef %17, ptr noundef nonnull %call1) #10
+  %call.i25 = call ptr @OPENSSL_LH_insert(ptr noundef %17, ptr noundef nonnull %call1) #11
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end4
@@ -220,15 +220,15 @@ if.then12:                                        ; preds = %if.end9
 if.end14:                                         ; preds = %if.then12, %if.end9
   %sstream = getelementptr inbounds i8, ptr %stream, i64 112
   %9 = load ptr, ptr %sstream, align 8
-  tail call void @ossl_quic_sstream_free(ptr noundef %9) #10
+  tail call void @ossl_quic_sstream_free(ptr noundef %9) #11
   store ptr null, ptr %sstream, align 8
   %rstream = getelementptr inbounds i8, ptr %stream, i64 120
   %10 = load ptr, ptr %rstream, align 8
-  tail call void @ossl_quic_rstream_free(ptr noundef %10) #10
+  tail call void @ossl_quic_rstream_free(ptr noundef %10) #11
   store ptr null, ptr %rstream, align 8
   %11 = load ptr, ptr %qsm, align 8
-  %call.i = tail call ptr @OPENSSL_LH_delete(ptr noundef %11, ptr noundef nonnull %stream) #10
-  tail call void @CRYPTO_free(ptr noundef nonnull %stream, ptr noundef nonnull @.str, i32 noundef 193) #10
+  %call.i = tail call ptr @OPENSSL_LH_delete(ptr noundef %11, ptr noundef nonnull %stream) #11
+  tail call void @CRYPTO_free(ptr noundef nonnull %stream, ptr noundef nonnull @.str, i32 noundef 193) #11
   br label %return
 
 return:                                           ; preds = %entry, %if.end14
@@ -248,7 +248,7 @@ entry:
   %id = getelementptr inbounds i8, ptr %key, i64 56
   store i64 %stream_id, ptr %id, align 8
   %0 = load ptr, ptr %qsm, align 8
-  %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %0, ptr noundef nonnull %key) #10
+  %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %0, ptr noundef nonnull %key) #11
   ret ptr %call.i
 }
 
@@ -273,7 +273,7 @@ entry:
 if.end:                                           ; preds = %entry
   %get_stream_limit_cb_arg = getelementptr inbounds i8, ptr %qsm, i64 104
   %1 = load ptr, ptr %get_stream_limit_cb_arg, align 8
-  %call = tail call i64 %0(i32 noundef %is_uni, ptr noundef %1) #10
+  %call = tail call i64 %0(i32 noundef %is_uni, ptr noundef %1) #11
   %cmp2 = icmp ugt i64 %call, %stream_ordinal
   %conv = zext i1 %cmp2 to i32
   br label %return
@@ -312,7 +312,7 @@ if.end.i:                                         ; preds = %if.then
   %lnot.ext = and i32 %5, 1
   %get_stream_limit_cb_arg.i = getelementptr inbounds i8, ptr %qsm, i64 104
   %6 = load ptr, ptr %get_stream_limit_cb_arg.i, align 8
-  %call.i = tail call i64 %3(i32 noundef %lnot.ext, ptr noundef %6) #10
+  %call.i = tail call i64 %3(i32 noundef %lnot.ext, ptr noundef %6) #11
   %cmp2.i = icmp ugt i64 %call.i, %shr
   %conv.i47 = zext i1 %cmp2.i to i32
   %bf.load.pre.pre = load i64, ptr %0, align 8
@@ -334,7 +334,7 @@ if.end:                                           ; preds = %ossl_quic_stream_ma
 land.lhs.true:                                    ; preds = %if.end
   %sstream = getelementptr inbounds i8, ptr %s, i64 112
   %9 = load ptr, ptr %sstream, align 8
-  %call4 = tail call i32 @ossl_quic_sstream_is_totally_acked(ptr noundef %9) #10
+  %call4 = tail call i32 @ossl_quic_sstream_is_totally_acked(ptr noundef %9) #11
   %tobool5.not = icmp eq i32 %call4, 0
   %bf.load8.pre = load i64, ptr %0, align 8
   br i1 %tobool5.not, label %if.else, label %if.then6
@@ -349,7 +349,7 @@ sw.bb1.i:                                         ; preds = %if.then6
   %bf.set.i = or disjoint i64 %bf.clear4.i, 1024
   store i64 %bf.set.i, ptr %0, align 8
   %11 = load ptr, ptr %sstream, align 8
-  tail call void @ossl_quic_sstream_free(ptr noundef %11) #10
+  tail call void @ossl_quic_sstream_free(ptr noundef %11) #11
   store ptr null, ptr %sstream, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %12 = and i64 %bf.load.i.i, 549755813888
@@ -365,7 +365,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 land.lhs.true20:                                  ; preds = %if.else
   %sstream21 = getelementptr inbounds i8, ptr %s, i64 112
   %14 = load ptr, ptr %sstream21, align 8
-  %call22 = tail call i32 @ossl_quic_sstream_is_totally_acked(ptr noundef %14) #10
+  %call22 = tail call i32 @ossl_quic_sstream_is_totally_acked(ptr noundef %14) #11
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %if.end26, label %if.then24
 
@@ -465,7 +465,7 @@ land.lhs.true65:                                  ; preds = %land.lhs.true56
 
 lor.lhs.false:                                    ; preds = %land.lhs.true65
   %rxfc = getelementptr inbounds i8, ptr %s, i64 160
-  %call71 = tail call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef nonnull %rxfc, i32 noundef 0) #10
+  %call71 = tail call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef nonnull %rxfc, i32 noundef 0) #11
   %tobool72.not = icmp eq i32 %call71, 0
   %bf.load.i66.pre100 = load i64, ptr %0, align 8
   br i1 %tobool72.not, label %lor.lhs.false73, label %if.then95
@@ -495,7 +495,7 @@ sw.epilog.i:                                      ; preds = %land.rhs90
   store i64 2, ptr %num_iov.i, align 8
   %sstream.i58 = getelementptr inbounds i8, ptr %s, i64 112
   %33 = load ptr, ptr %sstream.i58, align 8
-  %call.i59 = call i32 @ossl_quic_sstream_get_stream_frame(ptr noundef %33, i64 noundef 0, ptr noundef nonnull %shdr.i, ptr noundef nonnull %iov.i, ptr noundef nonnull %num_iov.i) #10
+  %call.i59 = call i32 @ossl_quic_sstream_get_stream_frame(ptr noundef %33, i64 noundef 0, ptr noundef nonnull %shdr.i, ptr noundef nonnull %iov.i, ptr noundef nonnull %num_iov.i) #11
   %tobool.not.i60 = icmp eq i32 %call.i59, 0
   br i1 %tobool.not.i60, label %sw.epilog.i.stream_has_data_to_send.exit.thread_crit_edge, label %stream_has_data_to_send.exit
 
@@ -512,8 +512,8 @@ stream_has_data_to_send.exit.thread:              ; preds = %sw.epilog.i.stream_
 
 stream_has_data_to_send.exit:                     ; preds = %sw.epilog.i
   %txfc.i = getelementptr inbounds i8, ptr %s, i64 128
-  %call1.i = call i64 @ossl_quic_txfc_get_credit(ptr noundef nonnull %txfc.i, i64 noundef 0) #10
-  %call3.i = call i64 @ossl_quic_txfc_get_swm(ptr noundef nonnull %txfc.i) #10
+  %call1.i = call i64 @ossl_quic_txfc_get_credit(ptr noundef nonnull %txfc.i, i64 noundef 0) #11
+  %call3.i = call i64 @ossl_quic_txfc_get_swm(ptr noundef nonnull %txfc.i) #11
   %is_fin.i = getelementptr inbounds i8, ptr %shdr.i, i64 32
   %bf.load4.i = load i8, ptr %is_fin.i, align 8
   %34 = and i8 %bf.load4.i, 2
@@ -582,7 +582,7 @@ if.then1.i79:                                     ; preds = %if.end.i74
   br i1 %cmp.i.i81, label %if.then.i.i, label %list_next.exit.i
 
 if.then.i.i:                                      ; preds = %if.then1.i79
-  %next1.i.i = getelementptr inbounds i8, ptr %qsm, i64 16
+  %next1.i.i = getelementptr inbounds i8, ptr %s.val.i, i64 8
   %43 = load ptr, ptr %next1.i.i, align 8
   br label %list_next.exit.i
 
@@ -641,7 +641,7 @@ sw.bb1:                                           ; preds = %entry
   store i64 %bf.set, ptr %send_state, align 8
   %sstream = getelementptr inbounds i8, ptr %qs, i64 112
   %1 = load ptr, ptr %sstream, align 8
-  tail call void @ossl_quic_sstream_free(ptr noundef %1) #10
+  tail call void @ossl_quic_sstream_free(ptr noundef %1) #11
   store ptr null, ptr %sstream, align 8
   %bf.load.i = load i64, ptr %send_state, align 8
   %2 = and i64 %bf.load.i, 549755813888
@@ -703,7 +703,7 @@ sw.bb1:                                           ; preds = %entry
   %sstream = getelementptr inbounds i8, ptr %qs, i64 112
   %1 = load ptr, ptr %sstream, align 8
   %send_final_size = getelementptr inbounds i8, ptr %qs, i64 104
-  %call = tail call i32 @ossl_quic_sstream_get_final_size(ptr noundef %1, ptr noundef nonnull %send_final_size) #10
+  %call = tail call i32 @ossl_quic_sstream_get_final_size(ptr noundef %1, ptr noundef nonnull %send_final_size) #11
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -744,7 +744,7 @@ ossl_quic_stream_map_ensure_send_part_id.exit:    ; preds = %entry
 
 sw.bb2:                                           ; preds = %ossl_quic_stream_map_ensure_send_part_id.exit, %entry
   %txfc = getelementptr inbounds i8, ptr %qs, i64 128
-  %call3 = tail call i64 @ossl_quic_txfc_get_swm(ptr noundef nonnull %txfc) #10
+  %call3 = tail call i64 @ossl_quic_txfc_get_swm(ptr noundef nonnull %txfc) #11
   %send_final_size = getelementptr inbounds i8, ptr %qs, i64 104
   store i64 %call3, ptr %send_final_size, align 8
   %bf.load5.pre = load i64, ptr %send_state, align 8
@@ -759,7 +759,7 @@ sw.bb4:                                           ; preds = %sw.bb2, %entry
   store i64 %bf.set10, ptr %send_state, align 8
   %sstream = getelementptr inbounds i8, ptr %qs, i64 112
   %1 = load ptr, ptr %sstream, align 8
-  tail call void @ossl_quic_sstream_free(ptr noundef %1) #10
+  tail call void @ossl_quic_sstream_free(ptr noundef %1) #11
   store ptr null, ptr %sstream, align 8
   %bf.load.i13 = load i64, ptr %send_state, align 8
   %2 = and i64 %bf.load.i13, 549755813888
@@ -870,7 +870,7 @@ sw.bb1:                                           ; preds = %entry
   store i64 %bf.set, ptr %recv_state, align 8
   %rstream = getelementptr inbounds i8, ptr %qs, i64 120
   %1 = load ptr, ptr %rstream, align 8
-  tail call void @ossl_quic_rstream_free(ptr noundef %1) #10
+  tail call void @ossl_quic_rstream_free(ptr noundef %1) #11
   store ptr null, ptr %rstream, align 8
   br label %return
 
@@ -903,7 +903,7 @@ sw.bb1:                                           ; preds = %entry, %entry, %ent
 
 ossl_quic_stream_recv_get_final_size.exit:        ; preds = %sw.bb1
   %rxfc.i = getelementptr inbounds i8, ptr %qs, i64 160
-  %call.i = call i32 @ossl_quic_rxfc_get_final_size(ptr noundef nonnull %rxfc.i, ptr noundef nonnull %prev_final_size) #10
+  %call.i = call i32 @ossl_quic_rxfc_get_final_size(ptr noundef nonnull %rxfc.i, ptr noundef nonnull %prev_final_size) #11
   %cmp.not.i.not = icmp eq i32 %call.i, 0
   %1 = load i64, ptr %prev_final_size, align 8
   %cmp.not = icmp eq i64 %1, %final_size
@@ -923,7 +923,7 @@ if.end:                                           ; preds = %ossl_quic_stream_re
   store i64 %bf.clear6, ptr %recv_state, align 8
   %rstream = getelementptr inbounds i8, ptr %qs, i64 120
   %2 = load ptr, ptr %rstream, align 8
-  call void @ossl_quic_rstream_free(ptr noundef %2) #10
+  call void @ossl_quic_rstream_free(ptr noundef %2) #11
   store ptr null, ptr %rstream, align 8
   call void @ossl_quic_stream_map_update_state(ptr noundef %qsm, ptr noundef nonnull %qs)
   br label %return
@@ -1024,20 +1024,30 @@ return:                                           ; preds = %if.end7, %if.end, %
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_quic_stream_map_peek_accept_queue(ptr noundef readonly %qsm) local_unnamed_addr #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define ptr @ossl_quic_stream_map_peek_accept_queue(ptr noundef readonly %qsm) local_unnamed_addr #5 {
 entry:
   %accept_list = getelementptr inbounds i8, ptr %qsm, i64 24
   %0 = getelementptr i8, ptr %qsm, i64 32
   %accept_list.val = load ptr, ptr %0, align 8
   %cmp.i = icmp eq ptr %accept_list.val, %accept_list
-  %add.ptr.i = getelementptr inbounds i8, ptr %accept_list.val, i64 -16
-  %retval.0.i = select i1 %cmp.i, ptr null, ptr %add.ptr.i
+  br i1 %cmp.i, label %if.then.i, label %list_next.exit
+
+if.then.i:                                        ; preds = %entry
+  %next1.i = getelementptr inbounds i8, ptr %accept_list.val, i64 8
+  %1 = load ptr, ptr %next1.i, align 8
+  br label %list_next.exit
+
+list_next.exit:                                   ; preds = %entry, %if.then.i
+  %n.addr.0.i = phi ptr [ %1, %if.then.i ], [ %accept_list.val, %entry ]
+  %cmp2.i = icmp eq ptr %n.addr.0.i, %accept_list
+  %add.ptr.i = getelementptr inbounds i8, ptr %n.addr.0.i, i64 -16
+  %retval.0.i = select i1 %cmp2.i, ptr null, ptr %add.ptr.i
   ret ptr %retval.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ossl_quic_stream_map_push_accept_queue(ptr noundef %qsm, ptr noundef %s) local_unnamed_addr #5 {
+define void @ossl_quic_stream_map_push_accept_queue(ptr noundef %qsm, ptr noundef %s) local_unnamed_addr #6 {
 entry:
   %accept_list = getelementptr inbounds i8, ptr %qsm, i64 24
   %accept_node = getelementptr inbounds i8, ptr %s, i64 16
@@ -1082,7 +1092,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call2 = tail call i32 @ossl_quic_rxfc_on_retire(ptr noundef nonnull %cond.i, i64 noundef 1, i64 %rtt.coerce) #10
+  %call2 = tail call i32 @ossl_quic_rxfc_on_retire(ptr noundef nonnull %cond.i, i64 noundef 1, i64 %rtt.coerce) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1100,7 +1110,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @ossl_quic_stream_map_gc(ptr nocapture noundef readonly %qsm) local_unnamed_addr #6 {
+define void @ossl_quic_stream_map_gc(ptr nocapture noundef readonly %qsm) local_unnamed_addr #7 {
 entry:
   ret void
 }
@@ -1111,7 +1121,7 @@ entry:
   %num_shutdown_flush = getelementptr inbounds i8, ptr %qsm, i64 80
   store i64 0, ptr %num_shutdown_flush, align 8
   %0 = load ptr, ptr %qsm, align 8
-  tail call void @OPENSSL_LH_doall_arg(ptr noundef %0, ptr noundef nonnull @begin_shutdown_flush_each, ptr noundef nonnull %qsm) #10
+  tail call void @OPENSSL_LH_doall_arg(ptr noundef %0, ptr noundef nonnull @begin_shutdown_flush_each, ptr noundef nonnull %qsm) #11
   ret void
 }
 
@@ -1127,7 +1137,7 @@ entry:
 eligible_for_shutdown_flush.exit:                 ; preds = %entry
   %sstream.i = getelementptr inbounds i8, ptr %qs, i64 112
   %1 = load ptr, ptr %sstream.i, align 8
-  %call.i = tail call i32 @ossl_quic_sstream_is_totally_acked(ptr noundef %1) #10
+  %call.i = tail call i32 @ossl_quic_sstream_is_totally_acked(ptr noundef %1) #11
   %tobool.not.i.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i.not, label %lor.lhs.false, label %return
 
@@ -1161,7 +1171,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ossl_quic_stream_iter_init(ptr nocapture noundef writeonly %it, ptr noundef %qsm, i32 noundef %advance_rr) local_unnamed_addr #7 {
+define void @ossl_quic_stream_iter_init(ptr nocapture noundef writeonly %it, ptr noundef %qsm, i32 noundef %advance_rr) local_unnamed_addr #8 {
 entry:
   store ptr %qsm, ptr %it, align 8
   %rr_cur = getelementptr inbounds i8, ptr %qsm, i64 88
@@ -1195,7 +1205,7 @@ if.then:                                          ; preds = %land.lhs.true3
   br i1 %cmp.i, label %if.then.i, label %list_next.exit
 
 if.then.i:                                        ; preds = %if.then
-  %next1.i = getelementptr inbounds i8, ptr %qsm, i64 16
+  %next1.i = getelementptr inbounds i8, ptr %.val, i64 8
   %5 = load ptr, ptr %next1.i, align 8
   br label %list_next.exit
 
@@ -1211,7 +1221,7 @@ if.end:                                           ; preds = %list_next.exit, %la
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ossl_quic_stream_iter_next(ptr nocapture noundef %it) local_unnamed_addr #7 {
+define void @ossl_quic_stream_iter_next(ptr nocapture noundef %it) local_unnamed_addr #8 {
 entry:
   %stream = getelementptr inbounds i8, ptr %it, i64 16
   %0 = load ptr, ptr %stream, align 8
@@ -1227,7 +1237,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %list_next.exit
 
 if.then.i:                                        ; preds = %if.end
-  %next1.i = getelementptr inbounds i8, ptr %1, i64 16
+  %next1.i = getelementptr inbounds i8, ptr %.val, i64 8
   %3 = load ptr, ptr %next1.i, align 8
   br label %list_next.exit
 
@@ -1265,25 +1275,26 @@ declare i64 @ossl_quic_txfc_get_credit(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @ossl_quic_rxfc_get_final_size(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -711,7 +711,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.then2
-  %call = tail call ptr @BIO_pop(ptr noundef nonnull %1) #21
+  %call = tail call ptr @BIO_pop(ptr noundef %2) #21
   store ptr %call, ptr %wbio, align 8
   %.pre = load ptr, ptr %bbio, align 8
   br label %if.end8
@@ -878,10 +878,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end9
 
 if.then4:                                         ; preds = %if.then
-  %next_bio = getelementptr inbounds i8, ptr %0, i64 56
+  %next_bio = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load ptr, ptr %next_bio, align 8
   store ptr %2, ptr %wbio1, align 8
-  store ptr null, ptr %next_bio, align 8
+  %next_bio8 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr null, ptr %next_bio8, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then, %if.then4, %entry
@@ -2004,10 +2005,11 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp3.i, label %if.then4.i, label %if.end9.i
 
 if.then4.i:                                       ; preds = %if.then.i
-  %next_bio.i = getelementptr inbounds i8, ptr %0, i64 56
+  %next_bio.i = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load ptr, ptr %next_bio.i, align 8
   store ptr %2, ptr %wbio1.i, align 8
-  store ptr null, ptr %next_bio.i, align 8
+  %next_bio8.i = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr null, ptr %next_bio8.i, align 8
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then4.i, %if.then.i, %if.end
@@ -2095,16 +2097,17 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp3.i, label %if.end9.i, label %if.end14.i
 
 if.end9.i:                                        ; preds = %if.then.i
-  %next_bio.i = getelementptr inbounds i8, ptr %3, i64 56
+  %next_bio.i = getelementptr inbounds i8, ptr %4, i64 56
   %5 = load ptr, ptr %next_bio.i, align 8
   store ptr %5, ptr %wbio1.i, align 8
-  store ptr null, ptr %next_bio.i, align 8
-  %.pre31 = load ptr, ptr %rbio, align 8
-  %cmp11.not.i = icmp eq ptr %.pre31, %2
+  %next_bio8.i = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr null, ptr %next_bio8.i, align 8
+  %.pre32 = load ptr, ptr %rbio, align 8
+  %cmp11.not.i = icmp eq ptr %.pre32, %2
   br i1 %cmp11.not.i, label %if.end14.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  tail call void @BIO_free_all(ptr noundef %.pre31) #21
+  tail call void @BIO_free_all(ptr noundef %.pre32) #21
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end, %if.then.i, %if.then12.i, %if.end9.i
@@ -2141,10 +2144,11 @@ if.then.i15:                                      ; preds = %if.else
   br i1 %cmp3.i17, label %if.end9.i18, label %if.end14.i22
 
 if.end9.i18:                                      ; preds = %if.then.i15
-  %next_bio.i29 = getelementptr inbounds i8, ptr %9, i64 56
+  %next_bio.i29 = getelementptr inbounds i8, ptr %10, i64 56
   %11 = load ptr, ptr %next_bio.i29, align 8
   store ptr %11, ptr %wbio1.i16, align 8
-  store ptr null, ptr %next_bio.i29, align 8
+  %next_bio8.i30 = getelementptr inbounds i8, ptr %9, i64 56
+  store ptr null, ptr %next_bio8.i30, align 8
   %.pre = load ptr, ptr %rbio, align 8
   %cmp11.not.i20 = icmp eq ptr %.pre, %8
   br i1 %cmp11.not.i20, label %if.end14.i22, label %if.then12.i21
@@ -2157,24 +2161,24 @@ if.end14.i22:                                     ; preds = %if.else, %if.then.i
   %wbio15.i23 = getelementptr inbounds i8, ptr %ssl, i64 24
   %12 = load ptr, ptr %wbio15.i23, align 8
   %cmp16.not.i24 = icmp eq ptr %12, %8
-  br i1 %cmp16.not.i24, label %SSL_set_bio.exit30, label %land.lhs.true.i25
+  br i1 %cmp16.not.i24, label %SSL_set_bio.exit31, label %land.lhs.true.i25
 
 land.lhs.true.i25:                                ; preds = %if.end14.i22
   %13 = load ptr, ptr %rbio, align 8
   %cmp19.not.i26 = icmp eq ptr %13, %12
-  br i1 %cmp19.not.i26, label %SSL_set_bio.exit30, label %if.then20.i27
+  br i1 %cmp19.not.i26, label %SSL_set_bio.exit31, label %if.then20.i27
 
 if.then20.i27:                                    ; preds = %land.lhs.true.i25
   tail call void @BIO_free_all(ptr noundef %12) #21
-  br label %SSL_set_bio.exit30
+  br label %SSL_set_bio.exit31
 
-SSL_set_bio.exit30:                               ; preds = %if.end14.i22, %land.lhs.true.i25, %if.then20.i27
+SSL_set_bio.exit31:                               ; preds = %if.end14.i22, %land.lhs.true.i25, %if.then20.i27
   store ptr %8, ptr %rbio, align 8
   store ptr %8, ptr %wbio15.i23, align 8
   br label %return
 
-return:                                           ; preds = %SSL_set_bio.exit, %SSL_set_bio.exit30, %if.then10
-  %retval.0 = phi i32 [ 0, %if.then10 ], [ 1, %SSL_set_bio.exit30 ], [ 1, %SSL_set_bio.exit ]
+return:                                           ; preds = %SSL_set_bio.exit, %SSL_set_bio.exit31, %if.then10
+  %retval.0 = phi i32 [ 0, %if.then10 ], [ 1, %SSL_set_bio.exit31 ], [ 1, %SSL_set_bio.exit ]
   ret i32 %retval.0
 }
 
@@ -2223,7 +2227,8 @@ if.then4.i:                                       ; preds = %if.end
   %next_bio.i = getelementptr inbounds i8, ptr %2, i64 56
   %4 = load ptr, ptr %next_bio.i, align 8
   store ptr %4, ptr %wbio, align 8
-  store ptr null, ptr %next_bio.i, align 8
+  %next_bio8.i = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr null, ptr %next_bio8.i, align 8
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then4.i, %if.end
@@ -2261,14 +2266,15 @@ if.else:                                          ; preds = %lor.lhs.false3
   %9 = load ptr, ptr %bbio.i13, align 8
   %cmp.not.i14 = icmp ne ptr %9, null
   %cmp3.i17 = icmp eq ptr %8, %9
-  %or.cond31 = select i1 %cmp.not.i14, i1 %cmp3.i17, i1 false
-  br i1 %or.cond31, label %if.then4.i28, label %if.end9.i18
+  %or.cond32 = select i1 %cmp.not.i14, i1 %cmp3.i17, i1 false
+  br i1 %or.cond32, label %if.then4.i28, label %if.end9.i18
 
 if.then4.i28:                                     ; preds = %if.else
   %next_bio.i29 = getelementptr inbounds i8, ptr %8, i64 56
   %10 = load ptr, ptr %next_bio.i29, align 8
   store ptr %10, ptr %wbio, align 8
-  store ptr null, ptr %next_bio.i29, align 8
+  %next_bio8.i30 = getelementptr inbounds i8, ptr %9, i64 56
+  store ptr null, ptr %next_bio8.i30, align 8
   br label %if.end9.i18
 
 if.end9.i18:                                      ; preds = %if.then4.i28, %if.else
@@ -2284,24 +2290,24 @@ if.then12.i21:                                    ; preds = %if.end9.i18
 if.end14.i22:                                     ; preds = %if.then12.i21, %if.end9.i18
   %12 = load ptr, ptr %wbio, align 8
   %cmp16.not.i24 = icmp eq ptr %12, %8
-  br i1 %cmp16.not.i24, label %SSL_set_bio.exit30, label %land.lhs.true.i25
+  br i1 %cmp16.not.i24, label %SSL_set_bio.exit31, label %land.lhs.true.i25
 
 land.lhs.true.i25:                                ; preds = %if.end14.i22
   %13 = load ptr, ptr %rbio10.i19, align 8
   %cmp19.not.i26 = icmp eq ptr %13, %12
-  br i1 %cmp19.not.i26, label %SSL_set_bio.exit30, label %if.then20.i27
+  br i1 %cmp19.not.i26, label %SSL_set_bio.exit31, label %if.then20.i27
 
 if.then20.i27:                                    ; preds = %land.lhs.true.i25
   tail call void @BIO_free_all(ptr noundef %12) #21
-  br label %SSL_set_bio.exit30
+  br label %SSL_set_bio.exit31
 
-SSL_set_bio.exit30:                               ; preds = %if.end14.i22, %land.lhs.true.i25, %if.then20.i27
+SSL_set_bio.exit31:                               ; preds = %if.end14.i22, %land.lhs.true.i25, %if.then20.i27
   store ptr %8, ptr %rbio10.i19, align 8
   store ptr %8, ptr %wbio, align 8
   br label %return
 
-return:                                           ; preds = %SSL_set_bio.exit, %SSL_set_bio.exit30, %if.then10
-  %retval.0 = phi i32 [ 0, %if.then10 ], [ 1, %SSL_set_bio.exit30 ], [ 1, %SSL_set_bio.exit ]
+return:                                           ; preds = %SSL_set_bio.exit, %SSL_set_bio.exit31, %if.then10
+  %retval.0 = phi i32 [ 0, %if.then10 ], [ 1, %SSL_set_bio.exit31 ], [ 1, %SSL_set_bio.exit ]
   ret i32 %retval.0
 }
 
@@ -4093,7 +4099,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end14
 
 if.then9:                                         ; preds = %if.else
-  %call11 = tail call ptr @BIO_pop(ptr noundef nonnull %0) #21
+  %call11 = tail call ptr @BIO_pop(ptr noundef %1) #21
   store ptr %call11, ptr %wbio, align 8
   br label %if.end14
 
@@ -4159,7 +4165,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end6
 
 if.then3:                                         ; preds = %if.end
-  %call = tail call ptr @BIO_pop(ptr noundef nonnull %0) #21
+  %call = tail call ptr @BIO_pop(ptr noundef %1) #21
   store ptr %call, ptr %wbio, align 8
   %.pre = load ptr, ptr %bbio, align 8
   br label %if.end6
@@ -4295,7 +4301,7 @@ if.end5:                                          ; preds = %if.then4, %if.end
   br label %return
 
 return:                                           ; preds = %entry, %if.end5
-  %retval.0 = phi ptr [ %ctx.addr.0, %if.end5 ], [ %ctx, %entry ]
+  %retval.0 = phi ptr [ %ctx.addr.0, %if.end5 ], [ %0, %entry ]
   ret ptr %retval.0
 }
 

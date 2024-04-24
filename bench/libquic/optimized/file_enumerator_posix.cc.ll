@@ -457,7 +457,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br label %_ZNSt5stackIN4base8FilePathESt5dequeIS1_SaIS1_EEE3popEv.exit
 
 if.else.i.i:                                      ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef %9) #14
+  call void @_ZdlPv(ptr noundef %10) #14
   %11 = load ptr, ptr %_M_node5.i.i.i.i, align 8
   %add.ptr.i.i.i5 = getelementptr inbounds i8, ptr %11, i64 -8
   store ptr %add.ptr.i.i.i5, ptr %_M_node5.i.i.i.i, align 8
@@ -658,7 +658,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %cleanup78
-  %33 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %31, %cleanup78 ]
+  %33 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %32, %cleanup78 ]
   %tobool.not.i.i.i = icmp eq ptr %33, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4base14FileEnumerator8FileInfoESaIS2_EED2Ev.exit, label %if.then.i.i.i20
 

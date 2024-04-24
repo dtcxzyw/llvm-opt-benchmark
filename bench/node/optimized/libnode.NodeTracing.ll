@@ -2515,7 +2515,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -2827,7 +2827,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14def
   br label %_ZSt8_DestroyIPSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i.i.i.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i, %delete.notnull.i.i
-  %23 = phi ptr [ %.pr.i.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i ], [ %18, %delete.notnull.i.i ]
+  %23 = phi ptr [ %.pr.i.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i ], [ %20, %delete.notnull.i.i ]
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4node9inspector8protocol5ArrayINS2_15DictionaryValueEEEEclEPS5_.exit.i, label %if.then.i.i.i.i.i.i
 

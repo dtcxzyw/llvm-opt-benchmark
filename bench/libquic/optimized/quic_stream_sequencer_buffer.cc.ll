@@ -494,8 +494,7 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %cmp10.not, label %while.end, label %while.cond, !llvm.loop !8
 
 while.end:                                        ; preds = %while.cond, %land.rhs
-  %current_gap.sroa.0.0.lcssa = phi ptr [ %gaps_, %while.cond ], [ %current_gap.sroa.0.0, %land.rhs ]
-  %_M_storage.i.i71 = getelementptr inbounds i8, ptr %current_gap.sroa.0.0.lcssa, i64 16
+  %_M_storage.i.i71 = getelementptr inbounds i8, ptr %current_gap.sroa.0.0, i64 16
   %2 = load i64, ptr %_M_storage.i.i71, align 8
   %cmp13 = icmp ugt i64 %2, %starting_offset
   %add = add i64 %call, %starting_offset
@@ -850,7 +849,7 @@ ehcleanup87:                                      ; preds = %ehcleanup86, %lpad3
   br label %eh.resume
 
 if.end89:                                         ; preds = %while.end
-  %end_offset92 = getelementptr inbounds i8, ptr %current_gap.sroa.0.0.lcssa, i64 24
+  %end_offset92 = getelementptr inbounds i8, ptr %current_gap.sroa.0.0, i64 24
   %21 = load i64, ptr %end_offset92, align 8
   %cmp93 = icmp ugt i64 %add, %21
   br i1 %cmp93, label %if.then94, label %if.end164
@@ -1320,7 +1319,7 @@ if.end231:                                        ; preds = %if.then227, %if.end
 
 if.end250:                                        ; preds = %if.end231
   store i64 %add238, ptr %bytes_buffered, align 8
-  call void @_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %current_gap.sroa.0.0.lcssa, i64 noundef %starting_offset, i64 noundef %add238)
+  call void @_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %current_gap.sroa.0.0, i64 noundef %starting_offset, i64 noundef %add238)
   %frame_arrival_time_map_ = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %starting_offset, ptr %ref.tmp252, align 8, !alias.scope !41
   %second.i.i = getelementptr inbounds i8, ptr %ref.tmp252, i64 8
@@ -1782,7 +1781,7 @@ lor.rhs:                                          ; preds = %_ZNSt3mapImN3net25Q
   br i1 %cmp.i3, label %if.then, label %return
 
 if.then:                                          ; preds = %entry, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit, %lor.rhs
-  %__y.addr.0.lcssa.i.i.i11 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
+  %__y.addr.0.lcssa.i.i.i11 = phi ptr [ %__y.addr.1.i.i.i, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i.i, align 8
@@ -2394,11 +2393,11 @@ for.body:                                         ; preds = %land.rhs
 if.end31:                                         ; preds = %for.body
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %iter.sroa.0.039) #22
   %cmp.i21.not = icmp eq ptr %call.i, %add.ptr.i.i
-  br i1 %cmp.i21.not, label %if.then50, label %land.rhs, !llvm.loop !59
+  br i1 %cmp.i21.not, label %for.end, label %land.rhs, !llvm.loop !59
 
-for.end:                                          ; preds = %land.rhs, %for.body, %if.end
-  %iter.sroa.0.0.lcssa = phi ptr [ %11, %if.end ], [ %iter.sroa.0.039, %for.body ], [ %iter.sroa.0.039, %land.rhs ]
-  %region_len.0.lcssa = phi i64 [ 0, %if.end ], [ %region_len.040, %for.body ], [ %region_len.040, %land.rhs ]
+for.end:                                          ; preds = %land.rhs, %for.body, %if.end31, %if.end
+  %iter.sroa.0.0.lcssa = phi ptr [ %11, %if.end ], [ %call.i, %if.end31 ], [ %iter.sroa.0.039, %for.body ], [ %iter.sroa.0.039, %land.rhs ]
+  %region_len.0.lcssa = phi i64 [ 0, %if.end ], [ %add, %if.end31 ], [ %region_len.040, %for.body ], [ %region_len.040, %land.rhs ]
   %cmp.i26 = icmp eq ptr %iter.sroa.0.0.lcssa, %add.ptr.i.i
   br i1 %cmp.i26, label %if.then50, label %lor.rhs
 
@@ -2408,7 +2407,7 @@ lor.rhs:                                          ; preds = %for.end
   %cmp.i28 = icmp eq i64 %agg.tmp42.sroa.0.0.copyload, %12
   br i1 %cmp.i28, label %if.then50, label %if.end51
 
-if.then50:                                        ; preds = %if.end31, %for.end, %lor.rhs
+if.then50:                                        ; preds = %for.end, %lor.rhs
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then50, %lor.rhs
@@ -2677,7 +2676,7 @@ lor.rhs:                                          ; preds = %_ZNSt3mapImN3net25Q
   br i1 %cmp.i3, label %if.then, label %return
 
 if.then:                                          ; preds = %entry, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit, %lor.rhs
-  %__y.addr.0.lcssa.i.i.i11 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
+  %__y.addr.0.lcssa.i.i.i11 = phi ptr [ %__y.addr.1.i.i.i, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i.i, align 8
@@ -2928,7 +2927,7 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %while.end.i, %if.else
-  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %__position.coerce, %if.else ]
+  %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
   %_M_left.i3.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %_M_left.i3.i, align 8
   %cmp.i4.i = icmp eq ptr %__y.0.lcssa25.i, %6
@@ -3087,8 +3086,8 @@ if.end12.i78:                                     ; preds = %if.else.i93, %while
   br label %return
 
 return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %11, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa25.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

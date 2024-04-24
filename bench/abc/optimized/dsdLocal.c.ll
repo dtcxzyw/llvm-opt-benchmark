@@ -45,7 +45,7 @@ define noundef ptr @Dsd_TreeGetPrimeFunction(ptr noundef %0, ptr nocapture nound
 
 .lr.ph.preheader:                                 ; preds = %19
   %28 = sext i32 %.099116 to i64
-  %29 = trunc i64 %indvars.iv130 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv130 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -67,7 +67,7 @@ define noundef ptr @Dsd_TreeGetPrimeFunction(ptr noundef %0, ptr nocapture nound
   br i1 %.not110, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %37 = trunc i64 %indvars.iv.next to i32
+  %37 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
@@ -219,7 +219,7 @@ define internal fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %1, ptr n
   %11 = inttoptr i64 %10 to ptr
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 2147483647
-  br i1 %13, label %166, label %14
+  br i1 %13, label %154, label %14
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %11, i64 4
@@ -238,7 +238,7 @@ define internal fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %1, ptr n
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %8, align 8
-  br label %166
+  br label %154
 
 21:                                               ; preds = %._crit_edge, %14
   %22 = phi i32 [ %.pre, %._crit_edge ], [ %12, %14 ]
@@ -279,204 +279,192 @@ define internal fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %1, ptr n
   %50 = getelementptr inbounds i32, ptr %33, i64 %49
   %51 = load i32, ptr %50, align 4
   %.not.i = icmp sgt i32 %47, %51
-  br i1 %.not.i, label %69, label %52
+  br i1 %.not.i, label %66, label %52
 
 52:                                               ; preds = %37
   %.not43.i = icmp eq ptr %.tr4648.i, %40
-  br i1 %.not43.i, label %64, label %53
+  %53 = getelementptr inbounds i8, ptr %40, i64 16
+  %54 = getelementptr inbounds i8, ptr %40, i64 24
+  %55 = load ptr, ptr %54, align 8
+  br i1 %.not43.i, label %64, label %56
 
-53:                                               ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %40, i64 16
-  %55 = getelementptr inbounds i8, ptr %40, i64 24
-  %56 = load ptr, ptr %55, align 8
-  %57 = ptrtoint ptr %56 to i64
+56:                                               ; preds = %52
+  %57 = ptrtoint ptr %55 to i64
   %58 = xor i64 %57, 1
   %59 = inttoptr i64 %58 to ptr
-  %60 = load ptr, ptr %54, align 8
+  %60 = load ptr, ptr %53, align 8
   %61 = ptrtoint ptr %60 to i64
   %62 = xor i64 %61, 1
   %63 = inttoptr i64 %62 to ptr
-  br label %69
+  br label %66
 
 64:                                               ; preds = %52
-  %65 = getelementptr inbounds i8, ptr %.tr4648.i, i64 16
-  %66 = getelementptr inbounds i8, ptr %.tr4648.i, i64 24
-  %67 = load ptr, ptr %66, align 8
-  %68 = load ptr, ptr %65, align 8
-  br label %69
+  %65 = load ptr, ptr %53, align 8
+  br label %66
 
-69:                                               ; preds = %64, %53, %37
-  %.038.i = phi ptr [ %63, %53 ], [ %68, %64 ], [ %.tr4648.i, %37 ]
-  %.035.i = phi ptr [ %59, %53 ], [ %67, %64 ], [ %.tr4648.i, %37 ]
+66:                                               ; preds = %64, %56, %37
+  %.038.i = phi ptr [ %63, %56 ], [ %65, %64 ], [ %.tr4648.i, %37 ]
+  %.035.i = phi ptr [ %59, %56 ], [ %55, %64 ], [ %.tr4648.i, %37 ]
   %.not44.i = icmp sgt i32 %51, %47
-  br i1 %.not44.i, label %tailrecurse.i, label %70
+  br i1 %.not44.i, label %tailrecurse.i, label %67
 
-70:                                               ; preds = %69
+67:                                               ; preds = %66
   %.not45.i = icmp eq ptr %.tr4749.i, %43
-  br i1 %.not45.i, label %82, label %71
+  %68 = getelementptr inbounds i8, ptr %43, i64 16
+  %69 = getelementptr inbounds i8, ptr %43, i64 24
+  %70 = load ptr, ptr %69, align 8
+  br i1 %.not45.i, label %79, label %71
 
-71:                                               ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %43, i64 16
-  %73 = getelementptr inbounds i8, ptr %43, i64 24
-  %74 = load ptr, ptr %73, align 8
-  %75 = ptrtoint ptr %74 to i64
-  %76 = xor i64 %75, 1
-  %77 = inttoptr i64 %76 to ptr
-  %78 = load ptr, ptr %72, align 8
-  %79 = ptrtoint ptr %78 to i64
-  %80 = xor i64 %79, 1
-  %81 = inttoptr i64 %80 to ptr
+71:                                               ; preds = %67
+  %72 = ptrtoint ptr %70 to i64
+  %73 = xor i64 %72, 1
+  %74 = inttoptr i64 %73 to ptr
+  %75 = load ptr, ptr %68, align 8
+  %76 = ptrtoint ptr %75 to i64
+  %77 = xor i64 %76, 1
+  %78 = inttoptr i64 %77 to ptr
   br label %tailrecurse.i
 
-82:                                               ; preds = %70
-  %83 = getelementptr inbounds i8, ptr %.tr4749.i, i64 16
-  %84 = getelementptr inbounds i8, ptr %.tr4749.i, i64 24
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %83, align 8
+79:                                               ; preds = %67
+  %80 = load ptr, ptr %68, align 8
   br label %tailrecurse.i
 
-tailrecurse.i:                                    ; preds = %82, %71, %69
-  %.037.i = phi ptr [ %77, %71 ], [ %85, %82 ], [ %.tr4749.i, %69 ]
-  %.036.i = phi ptr [ %81, %71 ], [ %86, %82 ], [ %.tr4749.i, %69 ]
-  %87 = icmp eq ptr %.037.i, %36
-  %.038..035.i = select i1 %87, ptr %.038.i, ptr %.035.i
-  %.036..037.i = select i1 %87, ptr %.036.i, ptr %.037.i
-  %88 = icmp eq ptr %30, %.036..037.i
-  br i1 %88, label %Extra_bddNodePointedByCube.exit, label %37
+tailrecurse.i:                                    ; preds = %79, %71, %66
+  %.037.i = phi ptr [ %74, %71 ], [ %70, %79 ], [ %.tr4749.i, %66 ]
+  %.036.i = phi ptr [ %78, %71 ], [ %80, %79 ], [ %.tr4749.i, %66 ]
+  %81 = icmp eq ptr %.037.i, %36
+  %.038..035.i = select i1 %81, ptr %.038.i, ptr %.035.i
+  %.036..037.i = select i1 %81, ptr %.036.i, ptr %.037.i
+  %82 = icmp eq ptr %30, %.036..037.i
+  br i1 %82, label %Extra_bddNodePointedByCube.exit, label %37
 
 Extra_bddNodePointedByCube.exit:                  ; preds = %tailrecurse.i, %21
   %.tr46.lcssa.i = phi ptr [ %1, %21 ], [ %.038..035.i, %tailrecurse.i ]
-  %89 = getelementptr inbounds ptr, ptr %6, i64 %26
-  %90 = load ptr, ptr %89, align 8
-  %91 = icmp eq ptr %30, %90
-  br i1 %91, label %Extra_bddNodePointedByCube.exit62, label %.lr.ph.i47
+  %83 = getelementptr inbounds ptr, ptr %6, i64 %26
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %30, %84
+  br i1 %85, label %Extra_bddNodePointedByCube.exit62, label %.lr.ph.i47
 
 .lr.ph.i47:                                       ; preds = %Extra_bddNodePointedByCube.exit
-  %92 = getelementptr inbounds i8, ptr %0, i64 312
-  %93 = load ptr, ptr %92, align 8
-  %94 = ptrtoint ptr %30 to i64
-  %95 = xor i64 %94, 1
-  %96 = inttoptr i64 %95 to ptr
-  br label %97
+  %86 = getelementptr inbounds i8, ptr %0, i64 312
+  %87 = load ptr, ptr %86, align 8
+  %88 = ptrtoint ptr %30 to i64
+  %89 = xor i64 %88, 1
+  %90 = inttoptr i64 %89 to ptr
+  br label %91
 
-97:                                               ; preds = %tailrecurse.i56, %.lr.ph.i47
-  %.tr4749.i48 = phi ptr [ %90, %.lr.ph.i47 ], [ %.036..037.i60, %tailrecurse.i56 ]
+91:                                               ; preds = %tailrecurse.i56, %.lr.ph.i47
+  %.tr4749.i48 = phi ptr [ %84, %.lr.ph.i47 ], [ %.036..037.i60, %tailrecurse.i56 ]
   %.tr4648.i49 = phi ptr [ %1, %.lr.ph.i47 ], [ %.038..035.i59, %tailrecurse.i56 ]
-  %98 = ptrtoint ptr %.tr4648.i49 to i64
-  %99 = and i64 %98, -2
-  %100 = inttoptr i64 %99 to ptr
-  %101 = ptrtoint ptr %.tr4749.i48 to i64
-  %102 = and i64 %101, -2
-  %103 = inttoptr i64 %102 to ptr
-  %104 = load i32, ptr %100, align 8
-  %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds i32, ptr %93, i64 %105
-  %107 = load i32, ptr %106, align 4
-  %108 = load i32, ptr %103, align 8
-  %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds i32, ptr %93, i64 %109
-  %111 = load i32, ptr %110, align 4
-  %.not.i50 = icmp sgt i32 %107, %111
-  br i1 %.not.i50, label %129, label %112
+  %92 = ptrtoint ptr %.tr4648.i49 to i64
+  %93 = and i64 %92, -2
+  %94 = inttoptr i64 %93 to ptr
+  %95 = ptrtoint ptr %.tr4749.i48 to i64
+  %96 = and i64 %95, -2
+  %97 = inttoptr i64 %96 to ptr
+  %98 = load i32, ptr %94, align 8
+  %99 = zext i32 %98 to i64
+  %100 = getelementptr inbounds i32, ptr %87, i64 %99
+  %101 = load i32, ptr %100, align 4
+  %102 = load i32, ptr %97, align 8
+  %103 = zext i32 %102 to i64
+  %104 = getelementptr inbounds i32, ptr %87, i64 %103
+  %105 = load i32, ptr %104, align 4
+  %.not.i50 = icmp sgt i32 %101, %105
+  br i1 %.not.i50, label %120, label %106
 
-112:                                              ; preds = %97
-  %.not43.i51 = icmp eq ptr %.tr4648.i49, %100
-  br i1 %.not43.i51, label %124, label %113
+106:                                              ; preds = %91
+  %.not43.i51 = icmp eq ptr %.tr4648.i49, %94
+  %107 = getelementptr inbounds i8, ptr %94, i64 16
+  %108 = getelementptr inbounds i8, ptr %94, i64 24
+  %109 = load ptr, ptr %108, align 8
+  br i1 %.not43.i51, label %118, label %110
 
-113:                                              ; preds = %112
-  %114 = getelementptr inbounds i8, ptr %100, i64 16
-  %115 = getelementptr inbounds i8, ptr %100, i64 24
-  %116 = load ptr, ptr %115, align 8
-  %117 = ptrtoint ptr %116 to i64
-  %118 = xor i64 %117, 1
-  %119 = inttoptr i64 %118 to ptr
-  %120 = load ptr, ptr %114, align 8
-  %121 = ptrtoint ptr %120 to i64
-  %122 = xor i64 %121, 1
-  %123 = inttoptr i64 %122 to ptr
-  br label %129
+110:                                              ; preds = %106
+  %111 = ptrtoint ptr %109 to i64
+  %112 = xor i64 %111, 1
+  %113 = inttoptr i64 %112 to ptr
+  %114 = load ptr, ptr %107, align 8
+  %115 = ptrtoint ptr %114 to i64
+  %116 = xor i64 %115, 1
+  %117 = inttoptr i64 %116 to ptr
+  br label %120
 
-124:                                              ; preds = %112
-  %125 = getelementptr inbounds i8, ptr %.tr4648.i49, i64 16
-  %126 = getelementptr inbounds i8, ptr %.tr4648.i49, i64 24
-  %127 = load ptr, ptr %126, align 8
-  %128 = load ptr, ptr %125, align 8
-  br label %129
+118:                                              ; preds = %106
+  %119 = load ptr, ptr %107, align 8
+  br label %120
 
-129:                                              ; preds = %124, %113, %97
-  %.038.i52 = phi ptr [ %123, %113 ], [ %128, %124 ], [ %.tr4648.i49, %97 ]
-  %.035.i53 = phi ptr [ %119, %113 ], [ %127, %124 ], [ %.tr4648.i49, %97 ]
-  %.not44.i54 = icmp sgt i32 %111, %107
-  br i1 %.not44.i54, label %tailrecurse.i56, label %130
+120:                                              ; preds = %118, %110, %91
+  %.038.i52 = phi ptr [ %117, %110 ], [ %119, %118 ], [ %.tr4648.i49, %91 ]
+  %.035.i53 = phi ptr [ %113, %110 ], [ %109, %118 ], [ %.tr4648.i49, %91 ]
+  %.not44.i54 = icmp sgt i32 %105, %101
+  br i1 %.not44.i54, label %tailrecurse.i56, label %121
 
-130:                                              ; preds = %129
-  %.not45.i55 = icmp eq ptr %.tr4749.i48, %103
-  br i1 %.not45.i55, label %142, label %131
+121:                                              ; preds = %120
+  %.not45.i55 = icmp eq ptr %.tr4749.i48, %97
+  %122 = getelementptr inbounds i8, ptr %97, i64 16
+  %123 = getelementptr inbounds i8, ptr %97, i64 24
+  %124 = load ptr, ptr %123, align 8
+  br i1 %.not45.i55, label %133, label %125
 
-131:                                              ; preds = %130
-  %132 = getelementptr inbounds i8, ptr %103, i64 16
-  %133 = getelementptr inbounds i8, ptr %103, i64 24
-  %134 = load ptr, ptr %133, align 8
-  %135 = ptrtoint ptr %134 to i64
-  %136 = xor i64 %135, 1
-  %137 = inttoptr i64 %136 to ptr
-  %138 = load ptr, ptr %132, align 8
-  %139 = ptrtoint ptr %138 to i64
-  %140 = xor i64 %139, 1
-  %141 = inttoptr i64 %140 to ptr
+125:                                              ; preds = %121
+  %126 = ptrtoint ptr %124 to i64
+  %127 = xor i64 %126, 1
+  %128 = inttoptr i64 %127 to ptr
+  %129 = load ptr, ptr %122, align 8
+  %130 = ptrtoint ptr %129 to i64
+  %131 = xor i64 %130, 1
+  %132 = inttoptr i64 %131 to ptr
   br label %tailrecurse.i56
 
-142:                                              ; preds = %130
-  %143 = getelementptr inbounds i8, ptr %.tr4749.i48, i64 16
-  %144 = getelementptr inbounds i8, ptr %.tr4749.i48, i64 24
-  %145 = load ptr, ptr %144, align 8
-  %146 = load ptr, ptr %143, align 8
+133:                                              ; preds = %121
+  %134 = load ptr, ptr %122, align 8
   br label %tailrecurse.i56
 
-tailrecurse.i56:                                  ; preds = %142, %131, %129
-  %.037.i57 = phi ptr [ %137, %131 ], [ %145, %142 ], [ %.tr4749.i48, %129 ]
-  %.036.i58 = phi ptr [ %141, %131 ], [ %146, %142 ], [ %.tr4749.i48, %129 ]
-  %147 = icmp eq ptr %.037.i57, %96
-  %.038..035.i59 = select i1 %147, ptr %.038.i52, ptr %.035.i53
-  %.036..037.i60 = select i1 %147, ptr %.036.i58, ptr %.037.i57
-  %148 = icmp eq ptr %30, %.036..037.i60
-  br i1 %148, label %Extra_bddNodePointedByCube.exit62, label %97
+tailrecurse.i56:                                  ; preds = %133, %125, %120
+  %.037.i57 = phi ptr [ %128, %125 ], [ %124, %133 ], [ %.tr4749.i48, %120 ]
+  %.036.i58 = phi ptr [ %132, %125 ], [ %134, %133 ], [ %.tr4749.i48, %120 ]
+  %135 = icmp eq ptr %.037.i57, %90
+  %.038..035.i59 = select i1 %135, ptr %.038.i52, ptr %.035.i53
+  %.036..037.i60 = select i1 %135, ptr %.036.i58, ptr %.037.i57
+  %136 = icmp eq ptr %30, %.036..037.i60
+  br i1 %136, label %Extra_bddNodePointedByCube.exit62, label %91
 
 Extra_bddNodePointedByCube.exit62:                ; preds = %tailrecurse.i56, %Extra_bddNodePointedByCube.exit
   %.tr46.lcssa.i61 = phi ptr [ %1, %Extra_bddNodePointedByCube.exit ], [ %.038..035.i59, %tailrecurse.i56 ]
-  %149 = call fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %.tr46.lcssa.i, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  call void @Cudd_Ref(ptr noundef %149) #5
-  %150 = call fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %.tr46.lcssa.i61, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  call void @Cudd_Ref(ptr noundef %150) #5
-  %151 = getelementptr inbounds i8, ptr %0, i64 344
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i32, ptr %4, i64 %26
-  %154 = load i32, ptr %153, align 4
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds ptr, ptr %152, i64 %155
-  %157 = load ptr, ptr %156, align 8
-  %158 = call ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %157, ptr noundef %150, ptr noundef %149) #5
-  store ptr %158, ptr %8, align 8
-  call void @Cudd_Ref(ptr noundef %158) #5
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %149) #5
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %150) #5
-  %159 = load i32, ptr %15, align 4
-  %.not46 = icmp eq i32 %159, 1
-  br i1 %.not46, label %163, label %160
+  %137 = call fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %.tr46.lcssa.i, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  call void @Cudd_Ref(ptr noundef %137) #5
+  %138 = call fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %.tr46.lcssa.i61, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  call void @Cudd_Ref(ptr noundef %138) #5
+  %139 = getelementptr inbounds i8, ptr %0, i64 344
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds i32, ptr %4, i64 %26
+  %142 = load i32, ptr %141, align 4
+  %143 = sext i32 %142 to i64
+  %144 = getelementptr inbounds ptr, ptr %140, i64 %143
+  %145 = load ptr, ptr %144, align 8
+  %146 = call ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %145, ptr noundef %138, ptr noundef %137) #5
+  store ptr %146, ptr %8, align 8
+  call void @Cudd_Ref(ptr noundef %146) #5
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %137) #5
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %138) #5
+  %147 = load i32, ptr %15, align 4
+  %.not46 = icmp eq i32 %147, 1
+  br i1 %.not46, label %151, label %148
 
-160:                                              ; preds = %Extra_bddNodePointedByCube.exit62
-  %161 = load ptr, ptr %8, align 8
-  %162 = call i32 @st__insert(ptr noundef %2, ptr noundef %1, ptr noundef %161) #5
-  br label %163
+148:                                              ; preds = %Extra_bddNodePointedByCube.exit62
+  %149 = load ptr, ptr %8, align 8
+  %150 = call i32 @st__insert(ptr noundef %2, ptr noundef %1, ptr noundef %149) #5
+  br label %151
 
-163:                                              ; preds = %160, %Extra_bddNodePointedByCube.exit62
-  %164 = load ptr, ptr %8, align 8
-  call void @Cudd_Deref(ptr noundef %164) #5
-  %165 = load ptr, ptr %8, align 8
-  br label %166
+151:                                              ; preds = %148, %Extra_bddNodePointedByCube.exit62
+  %152 = load ptr, ptr %8, align 8
+  call void @Cudd_Deref(ptr noundef %152) #5
+  %153 = load ptr, ptr %8, align 8
+  br label %154
 
-166:                                              ; preds = %7, %163, %19
-  %.0 = phi ptr [ %20, %19 ], [ %165, %163 ], [ %1, %7 ]
+154:                                              ; preds = %7, %151, %19
+  %.0 = phi ptr [ %20, %19 ], [ %153, %151 ], [ %1, %7 ]
   ret ptr %.0
 }
 

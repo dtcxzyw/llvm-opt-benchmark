@@ -2919,19 +2919,19 @@ Vec_PtrPush.exit.i:                               ; preds = %51, %Vec_PtrGrow.ex
   br i1 %68, label %.preheader92.i, label %98
 
 .preheader92.i:                                   ; preds = %62
-  %69 = getelementptr i8, ptr %64, i64 28
+  %69 = getelementptr i8, ptr %67, i64 28
   %.val6893.i = load i32, ptr %69, align 4
   %70 = icmp sgt i32 %.val6893.i, 0
   br i1 %70, label %.lr.ph.i, label %.critedge2.i
 
 .lr.ph.i:                                         ; preds = %.preheader92.i
-  %71 = getelementptr i8, ptr %64, i64 32
-  %72 = getelementptr inbounds i8, ptr %64, i64 20
+  %71 = getelementptr i8, ptr %67, i64 32
+  %72 = getelementptr inbounds i8, ptr %67, i64 20
   br label %73
 
 73:                                               ; preds = %73, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %73 ]
-  %.val71.i = load ptr, ptr %64, align 8
+  %.val71.i = load ptr, ptr %67, align 8
   %.val72.i = load ptr, ptr %71, align 8
   %74 = getelementptr i8, ptr %.val71.i, i64 32
   %.val71.val.i = load ptr, ptr %74, align 8
@@ -2963,7 +2963,7 @@ Vec_PtrPush.exit.i:                               ; preds = %51, %Vec_PtrGrow.ex
   br i1 %94, label %73, label %.critedge2.i, !llvm.loop !39
 
 .critedge2.i:                                     ; preds = %73, %.preheader92.i
-  %95 = getelementptr inbounds i8, ptr %64, i64 20
+  %95 = getelementptr inbounds i8, ptr %67, i64 20
   %96 = load i32, ptr %95, align 4
   %97 = and i32 %96, 4047
   store i32 %97, ptr %95, align 4
@@ -3234,19 +3234,19 @@ Vec_PtrPush.exit.i9:                              ; preds = %208, %Vec_PtrGrow.e
   br i1 %225, label %.preheader92.i42, label %255
 
 .preheader92.i42:                                 ; preds = %219
-  %226 = getelementptr i8, ptr %221, i64 44
+  %226 = getelementptr i8, ptr %224, i64 44
   %.val7393.i = load i32, ptr %226, align 4
   %227 = icmp sgt i32 %.val7393.i, 0
   br i1 %227, label %.lr.ph.i44, label %.critedge2.i43
 
 .lr.ph.i44:                                       ; preds = %.preheader92.i42
-  %228 = getelementptr i8, ptr %221, i64 48
-  %229 = getelementptr inbounds i8, ptr %221, i64 20
+  %228 = getelementptr i8, ptr %224, i64 48
+  %229 = getelementptr inbounds i8, ptr %224, i64 20
   br label %230
 
 230:                                              ; preds = %230, %.lr.ph.i44
   %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.i44 ], [ %indvars.iv.next.i49, %230 ]
-  %.val75.i46 = load ptr, ptr %221, align 8
+  %.val75.i46 = load ptr, ptr %224, align 8
   %.val76.i47 = load ptr, ptr %228, align 8
   %231 = getelementptr i8, ptr %.val75.i46, i64 32
   %.val75.val.i = load ptr, ptr %231, align 8
@@ -3278,7 +3278,7 @@ Vec_PtrPush.exit.i9:                              ; preds = %208, %Vec_PtrGrow.e
   br i1 %251, label %230, label %.critedge2.i43, !llvm.loop !43
 
 .critedge2.i43:                                   ; preds = %230, %.preheader92.i42
-  %252 = getelementptr inbounds i8, ptr %221, i64 20
+  %252 = getelementptr inbounds i8, ptr %224, i64 20
   %253 = load i32, ptr %252, align 4
   %254 = and i32 %253, 4047
   store i32 %254, ptr %252, align 4

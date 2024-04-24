@@ -44,7 +44,7 @@ invoke.cont:                                      ; preds = %if.then3
   %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
   store i64 1, ptr %count.i, align 8
   store ptr %call.i41, ptr %allocator, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i41, ptr align 4 %destination, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i41, ptr align 4 %indices, i64 %mul.i, i1 false)
   br label %if.end4
 
 lpad:                                             ; preds = %invoke.cont19, %_ZN7meshoptL17calculateSortDataEPfPKjmPKfmS2_m.exit, %_ZN7meshoptL22generateSoftBoundariesEPjPKjmmS2_mjfS0_.exit.thread, %invoke.cont9, %invoke.cont5, %if.end4, %if.then3
@@ -381,7 +381,7 @@ for.end60.i:                                      ; preds = %for.inc58.i, %for.e
 
 _ZN7meshoptL22generateSoftBoundariesEPjPKjmmS2_mjfS0_.exit: ; preds = %for.end60.i
   %cmp.i108 = icmp ugt i64 %spec.select.i.fr, 4611686018427387903
-  %mul.i109 = shl i64 %spec.select.i.fr, 2
+  %mul.i109 = shl nuw i64 %spec.select.i.fr, 2
   %spec.select = select i1 %cmp.i108, i64 -1, i64 %mul.i109
   br label %_ZN7meshoptL22generateSoftBoundariesEPjPKjmmS2_mjfS0_.exit.thread
 
@@ -562,7 +562,7 @@ for.end126.i:                                     ; preds = %for.body33.i126, %c
 
 _ZN7meshoptL17calculateSortDataEPfPKjmPKfmS2_m.exit: ; preds = %for.end126.i, %for.end.i123
   %84 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
-  %mul.i132 = shl i64 %result.0.lcssa.i75169, 1
+  %mul.i132 = shl nuw i64 %result.0.lcssa.i75169, 1
   %cmp.inv.i = icmp sgt i64 %result.0.lcssa.i75169, -1
   %cond.i133 = select i1 %cmp.inv.i, i64 %mul.i132, i64 -1
   %call.i137 = invoke noundef ptr %84(i64 noundef %cond.i133)

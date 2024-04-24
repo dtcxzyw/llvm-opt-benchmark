@@ -326,7 +326,7 @@ if.end.i:                                         ; preds = %if.then37
   %m_collisionObject.i6.i = getelementptr inbounds i8, ptr %22, i64 16
   %23 = load ptr, ptr %m_collisionObject.i6.i, align 8
   %. = select i1 %cmp.not.i, ptr %23, ptr %21
-  %.21 = select i1 %cmp.not.i, ptr %19, ptr %23
+  %.21 = select i1 %cmp.not.i, ptr %21, ptr %23
   %m_worldTransform.i5.sink.i = getelementptr inbounds i8, ptr %.21, i64 8
   %m_worldTransform.i7.i = getelementptr inbounds i8, ptr %., i64 8
   call void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %17, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i5.sink.i, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i7.i)

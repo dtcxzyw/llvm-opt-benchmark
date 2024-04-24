@@ -699,7 +699,7 @@ define hidden void @"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT
   br label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h67c5dccf80f5b53cE.llvm.244484877986898017.exit.thread"
 
 "._ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h67c5dccf80f5b53cE.llvm.244484877986898017.exit.thread.loopexit_crit_edge8": ; preds = %.backedge
-  store ptr %5, ptr %3, align 8, !alias.scope !94, !noalias !84
+  store ptr %.sink.in.i, ptr %3, align 8, !alias.scope !94, !noalias !84
   br label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h67c5dccf80f5b53cE.llvm.244484877986898017.exit.thread"
 
 "_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h67c5dccf80f5b53cE.llvm.244484877986898017.exit.thread": ; preds = %2, %"._ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h67c5dccf80f5b53cE.llvm.244484877986898017.exit.thread.loopexit_crit_edge", %"._ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h67c5dccf80f5b53cE.llvm.244484877986898017.exit.thread.loopexit_crit_edge8", %50

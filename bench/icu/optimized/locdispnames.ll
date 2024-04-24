@@ -264,7 +264,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -323,7 +323,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -891,8 +891,8 @@ return:                                           ; preds = %if.then4.i27, %if.e
 ; Function Attrs: mustprogress uwtable
 define i32 @uloc_getDisplayScript_75(ptr noundef %locale, ptr noundef %displayLocale, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %pErrorCode) local_unnamed_addr #1 {
 if.end.i:
-  %localeBuffer.i35 = alloca [628 x i8], align 16
-  %localStatus.i36 = alloca i32, align 4
+  %localeBuffer.i37 = alloca [628 x i8], align 16
+  %localStatus.i38 = alloca i32, align 4
   %localeBuffer.i15 = alloca [628 x i8], align 16
   %localStatus.i16 = alloca i32, align 4
   %localeBuffer.i = alloca [628 x i8], align 16
@@ -954,40 +954,40 @@ if.then:                                          ; preds = %_ZL27_getDisplayNam
   call void @llvm.lifetime.start.p0(i64 628, ptr nonnull %localeBuffer.i15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i16)
   %cmp.i = icmp eq ptr %pErrorCode, null
-  br i1 %cmp.i, label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit34, label %lor.lhs.false.i
+  br i1 %cmp.i, label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit36, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then
   %2 = load i32, ptr %pErrorCode, align 4
   %cmp.i.i17 = icmp slt i32 %2, 1
-  br i1 %cmp.i.i17, label %if.end.i19, label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit34
+  br i1 %cmp.i.i17, label %if.end.i19, label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit36
 
 if.end.i19:                                       ; preds = %lor.lhs.false.i
   store i32 0, ptr %localStatus.i16, align 4
-  %call7.i23 = call noundef i32 @uloc_getScript_75(ptr noundef %locale, ptr noundef nonnull %localeBuffer.i15, i32 noundef 628, ptr noundef nonnull %localStatus.i16), !callees !4
+  %call7.i24 = call noundef i32 @uloc_getScript_75(ptr noundef %locale, ptr noundef nonnull %localeBuffer.i15, i32 noundef 628, ptr noundef nonnull %localStatus.i16), !callees !4
   %3 = load i32, ptr %localStatus.i16, align 4
-  %cmp.i14.i24 = icmp sgt i32 %3, 0
-  %cmp11.i25 = icmp eq i32 %3, -124
-  %or.cond1.i26 = or i1 %cmp.i14.i24, %cmp11.i25
-  br i1 %or.cond1.i26, label %if.then12.i33, label %if.end13.i27
+  %cmp.i14.i25 = icmp sgt i32 %3, 0
+  %cmp11.i26 = icmp eq i32 %3, -124
+  %or.cond1.i27 = or i1 %cmp.i14.i25, %cmp11.i26
+  br i1 %or.cond1.i27, label %if.then12.i34, label %if.end13.i28
 
-if.then12.i33:                                    ; preds = %if.end.i19
+if.then12.i34:                                    ; preds = %if.end.i19
   store i32 1, ptr %pErrorCode, align 4
-  br label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit34
+  br label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit36
 
-if.end13.i27:                                     ; preds = %if.end.i19
-  %cmp14.i28 = icmp eq i32 %call7.i23, 0
-  br i1 %cmp14.i28, label %if.then15.i31, label %if.end22.i29
+if.end13.i28:                                     ; preds = %if.end.i19
+  %cmp14.i29 = icmp eq i32 %call7.i24, 0
+  br i1 %cmp14.i29, label %if.then15.i32, label %if.end22.i30
 
-if.then15.i31:                                    ; preds = %if.end13.i27
-  %call20.i32 = call i32 @u_terminateUChars_75(ptr noundef %dest, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %pErrorCode)
-  br label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit34
+if.then15.i32:                                    ; preds = %if.end13.i28
+  %call20.i33 = call i32 @u_terminateUChars_75(ptr noundef %dest, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %pErrorCode)
+  br label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit36
 
-if.end22.i29:                                     ; preds = %if.end13.i27
-  %call26.i30 = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %displayLocale, ptr noundef nonnull @_ZL9_kScripts, ptr noundef null, ptr noundef nonnull %localeBuffer.i15, ptr noundef nonnull %localeBuffer.i15, ptr noundef %dest, i32 noundef 0, ptr noundef nonnull %pErrorCode)
-  br label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit34
+if.end22.i30:                                     ; preds = %if.end13.i28
+  %call26.i31 = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %displayLocale, ptr noundef nonnull @_ZL9_kScripts, ptr noundef null, ptr noundef nonnull %localeBuffer.i15, ptr noundef nonnull %localeBuffer.i15, ptr noundef %dest, i32 noundef 0, ptr noundef nonnull %pErrorCode)
+  br label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit36
 
-_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit34: ; preds = %if.then, %lor.lhs.false.i, %if.then12.i33, %if.then15.i31, %if.end22.i29
-  %retval.0.i18 = phi i32 [ 0, %if.then12.i33 ], [ %call26.i30, %if.end22.i29 ], [ %call20.i32, %if.then15.i31 ], [ 0, %lor.lhs.false.i ], [ 0, %if.then ]
+_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit36: ; preds = %if.then, %lor.lhs.false.i, %if.then12.i34, %if.then15.i32, %if.end22.i30
+  %retval.0.i18 = phi i32 [ 0, %if.then12.i34 ], [ %call26.i31, %if.end22.i30 ], [ %call20.i33, %if.then15.i32 ], [ 0, %lor.lhs.false.i ], [ 0, %if.then ]
   call void @llvm.lifetime.end.p0(i64 628, ptr nonnull %localeBuffer.i15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %localStatus.i16)
   %cond = call i32 @llvm.smax.i32(i32 %retval.0.i18, i32 %retval.0.i)
@@ -998,65 +998,65 @@ if.end:                                           ; preds = %_ZL27_getDisplayNam
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 628, ptr nonnull %localeBuffer.i35)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i36)
-  %cmp.i37 = icmp eq ptr %pErrorCode, null
-  br i1 %cmp.i37, label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit60, label %lor.lhs.false.i38
+  call void @llvm.lifetime.start.p0(i64 628, ptr nonnull %localeBuffer.i37)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i38)
+  %cmp.i39 = icmp eq ptr %pErrorCode, null
+  br i1 %cmp.i39, label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit62, label %lor.lhs.false.i40
 
-lor.lhs.false.i38:                                ; preds = %if.then5
+lor.lhs.false.i40:                                ; preds = %if.then5
   %4 = load i32, ptr %pErrorCode, align 4
-  %cmp.i.i39 = icmp slt i32 %4, 1
-  br i1 %cmp.i.i39, label %lor.lhs.false2.i43, label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit60
+  %cmp.i.i41 = icmp slt i32 %4, 1
+  br i1 %cmp.i.i41, label %lor.lhs.false2.i45, label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit62
 
-lor.lhs.false2.i43:                               ; preds = %lor.lhs.false.i38
-  %cmp3.i44 = icmp ne i32 %destCapacity, 0
-  %cmp4.i45 = icmp eq ptr %dest, null
-  %or.cond.i46 = and i1 %cmp4.i45, %cmp3.i44
-  br i1 %or.cond.i46, label %if.then5.i59, label %if.end6.i47
+lor.lhs.false2.i45:                               ; preds = %lor.lhs.false.i40
+  %cmp3.i46 = icmp ne i32 %destCapacity, 0
+  %cmp4.i47 = icmp eq ptr %dest, null
+  %or.cond.i48 = and i1 %cmp4.i47, %cmp3.i46
+  br i1 %or.cond.i48, label %if.then5.i61, label %if.end6.i49
 
-if.then5.i59:                                     ; preds = %lor.lhs.false2.i43
+if.then5.i61:                                     ; preds = %lor.lhs.false2.i45
   store i32 1, ptr %pErrorCode, align 4
-  br label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit60
+  br label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit62
 
-if.end6.i47:                                      ; preds = %lor.lhs.false2.i43
-  store i32 0, ptr %localStatus.i36, align 4
-  %call7.i48 = call noundef i32 @uloc_getScript_75(ptr noundef %locale, ptr noundef nonnull %localeBuffer.i35, i32 noundef 628, ptr noundef nonnull %localStatus.i36), !callees !4
-  %5 = load i32, ptr %localStatus.i36, align 4
-  %cmp.i14.i49 = icmp sgt i32 %5, 0
-  %cmp11.i50 = icmp eq i32 %5, -124
-  %or.cond1.i51 = or i1 %cmp.i14.i49, %cmp11.i50
-  br i1 %or.cond1.i51, label %if.then12.i58, label %if.end13.i52
+if.end6.i49:                                      ; preds = %lor.lhs.false2.i45
+  store i32 0, ptr %localStatus.i38, align 4
+  %call7.i50 = call noundef i32 @uloc_getScript_75(ptr noundef %locale, ptr noundef nonnull %localeBuffer.i37, i32 noundef 628, ptr noundef nonnull %localStatus.i38), !callees !4
+  %5 = load i32, ptr %localStatus.i38, align 4
+  %cmp.i14.i51 = icmp sgt i32 %5, 0
+  %cmp11.i52 = icmp eq i32 %5, -124
+  %or.cond1.i53 = or i1 %cmp.i14.i51, %cmp11.i52
+  br i1 %or.cond1.i53, label %if.then12.i60, label %if.end13.i54
 
-if.then12.i58:                                    ; preds = %if.end6.i47
+if.then12.i60:                                    ; preds = %if.end6.i49
   store i32 1, ptr %pErrorCode, align 4
-  br label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit60
+  br label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit62
 
-if.end13.i52:                                     ; preds = %if.end6.i47
-  %cmp14.i53 = icmp eq i32 %call7.i48, 0
-  br i1 %cmp14.i53, label %if.then15.i56, label %if.end22.i54
+if.end13.i54:                                     ; preds = %if.end6.i49
+  %cmp14.i55 = icmp eq i32 %call7.i50, 0
+  br i1 %cmp14.i55, label %if.then15.i58, label %if.end22.i56
 
-if.then15.i56:                                    ; preds = %if.end13.i52
-  %call20.i57 = call i32 @u_terminateUChars_75(ptr noundef %dest, i32 noundef %destCapacity, i32 noundef 0, ptr noundef nonnull %pErrorCode)
-  br label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit60
+if.then15.i58:                                    ; preds = %if.end13.i54
+  %call20.i59 = call i32 @u_terminateUChars_75(ptr noundef %dest, i32 noundef %destCapacity, i32 noundef 0, ptr noundef nonnull %pErrorCode)
+  br label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit62
 
-if.end22.i54:                                     ; preds = %if.end13.i52
-  %call26.i55 = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %displayLocale, ptr noundef nonnull @_ZL9_kScripts, ptr noundef null, ptr noundef nonnull %localeBuffer.i35, ptr noundef nonnull %localeBuffer.i35, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef nonnull %pErrorCode)
-  br label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit60
+if.end22.i56:                                     ; preds = %if.end13.i54
+  %call26.i57 = call fastcc noundef i32 @_ZL19_getStringOrCopyKeyPKcS0_S0_S0_S0_S0_PDsiP10UErrorCode(ptr noundef nonnull @.str, ptr noundef %displayLocale, ptr noundef nonnull @_ZL9_kScripts, ptr noundef null, ptr noundef nonnull %localeBuffer.i37, ptr noundef nonnull %localeBuffer.i37, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef nonnull %pErrorCode)
+  br label %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit62
 
-_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit60: ; preds = %if.then5, %lor.lhs.false.i38, %if.then5.i59, %if.then12.i58, %if.then15.i56, %if.end22.i54
-  %retval.0.i40 = phi i32 [ 0, %if.then5.i59 ], [ 0, %if.then12.i58 ], [ %call26.i55, %if.end22.i54 ], [ %call20.i57, %if.then15.i56 ], [ 0, %lor.lhs.false.i38 ], [ 0, %if.then5 ]
-  call void @llvm.lifetime.end.p0(i64 628, ptr nonnull %localeBuffer.i35)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %localStatus.i36)
+_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit62: ; preds = %if.then5, %lor.lhs.false.i40, %if.then5.i61, %if.then12.i60, %if.then15.i58, %if.end22.i56
+  %retval.0.i42 = phi i32 [ 0, %if.then5.i61 ], [ 0, %if.then12.i60 ], [ %call26.i57, %if.end22.i56 ], [ %call20.i59, %if.then15.i58 ], [ 0, %lor.lhs.false.i40 ], [ 0, %if.then5 ]
+  call void @llvm.lifetime.end.p0(i64 628, ptr nonnull %localeBuffer.i37)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %localStatus.i38)
   br label %return
 
 if.else:                                          ; preds = %if.end.thread, %if.end
-  %retval.0.i6568 = phi i32 [ 0, %if.end.thread ], [ %retval.0.i, %if.end ]
+  %retval.0.i6770 = phi i32 [ 0, %if.end.thread ], [ %retval.0.i, %if.end ]
   %6 = phi i32 [ 1, %if.end.thread ], [ %1, %if.end ]
   store i32 %6, ptr %pErrorCode, align 4
   br label %return
 
-return:                                           ; preds = %if.else, %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit60, %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit34
-  %retval.0 = phi i32 [ %cond, %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit34 ], [ %retval.0.i40, %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit60 ], [ %retval.0.i6568, %if.else ]
+return:                                           ; preds = %if.else, %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit62, %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit36
+  %retval.0 = phi i32 [ %cond, %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit36 ], [ %retval.0.i42, %_ZL27_getDisplayNameForComponentPKcS0_PDsiPFiS0_PciP10UErrorCodeES0_S4_.exit62 ], [ %retval.0.i6770, %if.else ]
   ret i32 %retval.0
 }
 
@@ -2417,7 +2417,7 @@ if.then251:                                       ; preds = %if.then248
           to label %if.end266 unwind label %lpad86
 
 if.end266.loopexit:                               ; preds = %for.body222
-  %39 = trunc i64 %indvars.iv.next309 to i32
+  %39 = trunc nsw i64 %indvars.iv.next309 to i32
   br label %if.end266
 
 if.end266:                                        ; preds = %if.end266.loopexit, %if.then216, %if.then248, %if.else234, %if.then210, %if.then239, %if.then251, %if.else237

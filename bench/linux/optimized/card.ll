@@ -371,28 +371,29 @@ define internal fastcc void @card_probe(ptr noundef %0, ptr noundef %1) unnamed_
   %55 = icmp eq ptr %54, %13
   br i1 %55, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %53, %64
-  %56 = phi ptr [ %65, %64 ], [ %54, %53 ]
+.preheader:                                       ; preds = %53, %65
+  %56 = phi ptr [ %66, %65 ], [ %54, %53 ]
   %57 = getelementptr i8, ptr %56, i64 56
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, %45
-  br i1 %59, label %60, label %64
+  br i1 %59, label %60, label %65
 
 60:                                               ; preds = %.preheader
   %61 = getelementptr i8, ptr %56, i64 -776
-  %62 = load ptr, ptr %48, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 104
-  store ptr @card_remove, ptr %63, align 8
+  %62 = getelementptr inbounds i8, ptr %58, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 104
+  store ptr @card_remove, ptr %64, align 8
   tail call void @device_release_driver(ptr noundef %61) #8
-  store ptr @card_remove_first, ptr %63, align 8
-  br label %64
+  store ptr @card_remove_first, ptr %64, align 8
+  br label %65
 
-64:                                               ; preds = %60, %.preheader
-  %65 = load ptr, ptr %56, align 8
-  %66 = icmp eq ptr %65, %13
-  br i1 %66, label %.loopexit, label %.preheader, !llvm.loop !13
+65:                                               ; preds = %60, %.preheader
+  %66 = load ptr, ptr %56, align 8
+  %67 = icmp eq ptr %66, %13
+  br i1 %67, label %.loopexit, label %.preheader, !llvm.loop !13
 
-.loopexit:                                        ; preds = %64, %53
+.loopexit:                                        ; preds = %65, %53
   tail call void @kfree(ptr noundef nonnull %45) #8
   br label %.thread10
 

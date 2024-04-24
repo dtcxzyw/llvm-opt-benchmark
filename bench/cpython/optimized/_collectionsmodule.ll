@@ -1830,7 +1830,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 for.end20:                                        ; preds = %for.end, %do.end
   %indexlo.0.lcssa = phi i64 [ %1, %do.end ], [ 0, %for.end ]
-  %b.0.lcssa = phi ptr [ %b.032, %do.end ], [ %5, %for.end ]
+  %b.0.lcssa = phi ptr [ %b.032, %do.end ], [ %b.0, %for.end ]
   %rightindex = getelementptr inbounds i8, ptr %deque, i64 48
   %6 = load i64, ptr %rightindex, align 8
   %cmp22.not37 = icmp sgt i64 %indexlo.0.lcssa, %6
@@ -3462,7 +3462,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @PySequence_List(ptr noundef nonnull %deque) #9
+  %call = tail call ptr @PySequence_List(ptr noundef %iterable) #9
   %cmp2 = icmp eq ptr %call, null
   br i1 %cmp2, label %return, label %if.end
 
@@ -4259,7 +4259,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @PySequence_List(ptr noundef nonnull %deque) #9
+  %call = tail call ptr @PySequence_List(ptr noundef %iterable) #9
   %cmp2 = icmp eq ptr %call, null
   br i1 %cmp2, label %return, label %if.end
 

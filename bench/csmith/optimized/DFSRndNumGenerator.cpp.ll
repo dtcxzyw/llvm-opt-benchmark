@@ -523,7 +523,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %37, %39
   br label %46
 
 _ZN18DFSRndNumGenerator19initialize_sequenceERKSt6vectorIiSaIiEE.exit: ; preds = %.noexc, %12
-  %40 = phi ptr [ %14, %12 ], [ %29, %.noexc ]
+  %40 = phi ptr [ %15, %12 ], [ %29, %.noexc ]
   %41 = load ptr, ptr @_ZN18DFSRndNumGenerator5impl_E, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 64
   store i8 1, ptr %42, align 8

@@ -67,11 +67,16 @@ entry:
   br i1 %cmp, label %do.body1, label %while.cond
 
 do.body1:                                         ; preds = %entry
-  %next = getelementptr inbounds i8, ptr %req, i64 40
+  %next = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %next, align 8
   store ptr %1, ptr %requests, align 8
   %cmp6 = icmp eq ptr %1, null
-  br i1 %cmp6, label %do.end36.sink.split, label %do.end36
+  br i1 %cmp6, label %if.then7, label %do.end36
+
+if.then7:                                         ; preds = %do.body1
+  %sqh_last = getelementptr inbounds i8, ptr %s, i64 56
+  store ptr %requests, ptr %sqh_last, align 8
+  br label %do.end36
 
 while.cond:                                       ; preds = %entry, %while.cond
   %curelm.0 = phi ptr [ %2, %while.cond ], [ %0, %entry ]
@@ -82,26 +87,28 @@ while.cond:                                       ; preds = %entry, %while.cond
 
 while.end:                                        ; preds = %while.cond
   %next15.le = getelementptr inbounds i8, ptr %curelm.0, i64 40
-  %next22 = getelementptr inbounds i8, ptr %req, i64 40
+  %next22 = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %next22, align 8
   store ptr %3, ptr %next15.le, align 8
   %cmp26 = icmp eq ptr %3, null
-  br i1 %cmp26, label %do.end36.sink.split, label %do.end36
+  br i1 %cmp26, label %if.then27, label %if.end32
 
-do.end36.sink.split:                              ; preds = %while.end, %do.body1
-  %next15.le.sink = phi ptr [ %requests, %do.body1 ], [ %next15.le, %while.end ]
-  %next.sink.ph = phi ptr [ %next, %do.body1 ], [ %next22, %while.end ]
+if.then27:                                        ; preds = %while.end
   %sqh_last31 = getelementptr inbounds i8, ptr %s, i64 56
-  store ptr %next15.le.sink, ptr %sqh_last31, align 8
+  store ptr %next15.le, ptr %sqh_last31, align 8
+  br label %if.end32
+
+if.end32:                                         ; preds = %if.then27, %while.end
+  %next33 = getelementptr inbounds i8, ptr %req, i64 40
   br label %do.end36
 
-do.end36:                                         ; preds = %do.end36.sink.split, %while.end, %do.body1
-  %next.sink = phi ptr [ %next, %do.body1 ], [ %next22, %while.end ], [ %next.sink.ph, %do.end36.sink.split ]
+do.end36:                                         ; preds = %do.body1, %if.then7, %if.end32
+  %next.sink = phi ptr [ %next33, %if.end32 ], [ %next, %if.then7 ], [ %next, %do.body1 ]
   store ptr null, ptr %next.sink, align 8
   %data.i = getelementptr inbounds i8, ptr %req, i64 8
   %4 = load ptr, ptr %data.i, align 8
   tail call void @g_free(ptr noundef %4) #3
-  tail call void @g_free(ptr noundef nonnull %req) #3
+  tail call void @g_free(ptr noundef %req) #3
   ret void
 }
 

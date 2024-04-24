@@ -1227,7 +1227,7 @@ if.end:                                           ; preds = %if.then, %for.body
   %7 = load ptr, ptr %m_solvers, align 8
   %arrayidx.i36 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx.i36, align 8
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw i64 %indvars.iv to i32
   call void @_ZN3sat6solver7set_parEPNS_8parallelEj(ptr noundef nonnull align 8 dereferenceable(4408) %8, ptr noundef nonnull %this, i32 noundef %9)
   %10 = load ptr, ptr %m_solvers, align 8
   %arrayidx.i38 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
@@ -2634,19 +2634,20 @@ _Z7deallocIN3sat6solverEEvPT_.exit.i:             ; preds = %if.end.i.i, %if.the
   br label %_ZN10scoped_ptrIN3sat6solverEEaSEPS1_.exit
 
 _ZN10scoped_ptrIN3sat6solverEEaSEPS1_.exit:       ; preds = %if.end27, %_Z7deallocIN3sat6solverEEvPT_.exit.i
-  tail call void @_ZN3sat6solver4copyERKS0_b(ptr noundef nonnull align 8 dereferenceable(4408) %call28, ptr noundef nonnull align 8 dereferenceable(4408) %s, i1 noundef zeroext true)
+  %13 = phi ptr [ %11, %if.end27 ], [ %call28, %_Z7deallocIN3sat6solverEEvPT_.exit.i ]
+  tail call void @_ZN3sat6solver4copyERKS0_b(ptr noundef nonnull align 8 dereferenceable(4408) %13, ptr noundef nonnull align 8 dereferenceable(4408) %s, i1 noundef zeroext true)
   %m_clauses33 = getelementptr inbounds i8, ptr %s, i64 3376
-  %13 = load ptr, ptr %m_clauses33, align 8
-  %cmp.i18 = icmp eq ptr %13, null
+  %14 = load ptr, ptr %m_clauses33, align 8
+  %cmp.i18 = icmp eq ptr %14, null
   br i1 %cmp.i18, label %_ZNK6vectorIPN3sat6clauseELb0EjE4sizeEv.exit22, label %if.end.i19
 
 if.end.i19:                                       ; preds = %_ZN10scoped_ptrIN3sat6solverEEaSEPS1_.exit
-  %arrayidx.i20 = getelementptr inbounds i8, ptr %13, i64 -4
-  %14 = load i32, ptr %arrayidx.i20, align 4
+  %arrayidx.i20 = getelementptr inbounds i8, ptr %14, i64 -4
+  %15 = load i32, ptr %arrayidx.i20, align 4
   br label %_ZNK6vectorIPN3sat6clauseELb0EjE4sizeEv.exit22
 
 _ZNK6vectorIPN3sat6clauseELb0EjE4sizeEv.exit22:   ; preds = %_ZN10scoped_ptrIN3sat6solverEEaSEPS1_.exit, %if.end.i19
-  %retval.0.i21 = phi i32 [ %14, %if.end.i19 ], [ 0, %_ZN10scoped_ptrIN3sat6solverEEaSEPS1_.exit ]
+  %retval.0.i21 = phi i32 [ %15, %if.end.i19 ], [ 0, %_ZN10scoped_ptrIN3sat6solverEEaSEPS1_.exit ]
   store i32 %retval.0.i21, ptr %m_num_clauses, align 8
   br label %if.end36
 

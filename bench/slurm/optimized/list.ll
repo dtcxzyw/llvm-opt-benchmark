@@ -2422,33 +2422,34 @@ define void @list_iterator_destroy(ptr noundef %0) #0 {
 
 .lr.ph.preheader:                                 ; preds = %9
   %13 = icmp eq ptr %12, %0
-  br i1 %13, label %.lr.ph._crit_edge, label %.lr.ph21
+  br i1 %13, label %.lr.ph._crit_edge, label %.lr.ph23
 
-.lr.ph:                                           ; preds = %.lr.ph21
+.lr.ph:                                           ; preds = %.lr.ph23
   %14 = icmp eq ptr %20, %0
-  br i1 %14, label %.lr.ph._crit_edge.loopexit, label %.lr.ph21, !llvm.loop !25
+  br i1 %14, label %.lr.ph._crit_edge.loopexit, label %.lr.ph23, !llvm.loop !25
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
   %15 = getelementptr inbounds i8, ptr %18, i64 32
   br label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph._crit_edge.loopexit, %.lr.ph.preheader
+  %.lcssa = phi ptr [ %12, %.lr.ph.preheader ], [ %20, %.lr.ph._crit_edge.loopexit ]
   %.016.lcssa = phi ptr [ %11, %.lr.ph.preheader ], [ %15, %.lr.ph._crit_edge.loopexit ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds i8, ptr %.lcssa, i64 32
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %.016.lcssa, align 8
   %.pre = load ptr, ptr %3, align 8
   br label %.loopexit
 
-.lr.ph21:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %18 = phi ptr [ %20, %.lr.ph ], [ %12, %.lr.ph.preheader ]
   %19 = getelementptr inbounds i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8
   %.not11 = icmp eq ptr %20, null
   br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
-.loopexit:                                        ; preds = %.lr.ph21, %9, %.lr.ph._crit_edge
-  %21 = phi ptr [ %10, %9 ], [ %.pre, %.lr.ph._crit_edge ], [ %10, %.lr.ph21 ]
+.loopexit:                                        ; preds = %.lr.ph23, %9, %.lr.ph._crit_edge
+  %21 = phi ptr [ %10, %9 ], [ %.pre, %.lr.ph._crit_edge ], [ %10, %.lr.ph23 ]
   %22 = getelementptr inbounds i8, ptr %21, i64 48
   %23 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %22) #9
   %.not12 = icmp eq i32 %23, 0

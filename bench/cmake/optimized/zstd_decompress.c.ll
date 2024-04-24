@@ -4471,7 +4471,7 @@ ZSTD_limitCopy.exit359:                           ; preds = %347, %354
 
 .loopexit:                                        ; preds = %ZSTD_limitCopy.exit359, %ZSTD_limitCopy.exit.thread, %292, %.loopexit.sink.split
   %.5.ph = phi ptr [ %.5.ph.ph, %.loopexit.sink.split ], [ %359, %ZSTD_limitCopy.exit359 ], [ %.0371419, %ZSTD_limitCopy.exit.thread ], [ %.0371419, %292 ]
-  %.2.ph = phi ptr [ %.2.ph.ph, %.loopexit.sink.split ], [ %.0271422.ph, %ZSTD_limitCopy.exit359 ], [ %11, %292 ], [ %.1, %ZSTD_limitCopy.exit.thread ]
+  %.2.ph = phi ptr [ %.2.ph.ph, %.loopexit.sink.split ], [ %.0271422.ph, %ZSTD_limitCopy.exit359 ], [ %.0271422.ph, %292 ], [ %.1, %ZSTD_limitCopy.exit.thread ]
   %371 = load ptr, ptr %2, align 8
   %372 = ptrtoint ptr %.2.ph to i64
   %373 = ptrtoint ptr %371 to i64

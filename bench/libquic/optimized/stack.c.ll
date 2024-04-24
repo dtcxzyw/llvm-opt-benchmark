@@ -352,7 +352,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @sk_delete_ptr(ptr noundef %sk, ptr noundef readnone %p) local_unnamed_addr #11 {
+define hidden ptr @sk_delete_ptr(ptr noundef %sk, ptr noundef readnone %p) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %sk, null
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -401,7 +401,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !9
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %entry, %sk_delete.exit
-  %retval.0 = phi ptr [ %p, %sk_delete.exit ], [ null, %entry ], [ null, %for.cond.preheader ], [ null, %for.inc ]
+  %retval.0 = phi ptr [ %2, %sk_delete.exit ], [ null, %entry ], [ null, %for.cond.preheader ], [ null, %for.inc ]
   ret ptr %retval.0
 }
 

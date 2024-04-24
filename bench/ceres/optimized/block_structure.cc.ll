@@ -181,7 +181,7 @@ _ZNSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE11_M_allocateEm.exit.i: ; pre
   br i1 %59, label %60, label %_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 60:                                               ; preds = %55
-  store ptr %46, ptr %36, align 8
+  store ptr %48, ptr %36, align 8
   store ptr %49, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #15
           to label %.noexc18 unwind label %.loopexit.split-lp
@@ -256,7 +256,7 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE12emplace_backIJRKiRiEEERS2_DpOT_.ex
 .loopexit:                                        ; preds = %66
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %46, ptr %36, align 8
+  store ptr %48, ptr %36, align 8
   store ptr %49, ptr %0, align 8
   br label %88
 

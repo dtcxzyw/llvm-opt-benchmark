@@ -5356,11 +5356,11 @@ zend_ssa_remove_use_of_phi_source.exit.i:         ; preds = %89, %.critedge.i.i
 
 zend_ssa_remove_uses_of_phi_sources.exit.loopexit: ; preds = %zend_ssa_remove_use_of_phi_source.exit.i
   %.pre = load i32, ptr %34, align 8
-  %.pre15 = sext i32 %.pre to i64
+  %.pre17 = sext i32 %.pre to i64
   br label %zend_ssa_remove_uses_of_phi_sources.exit
 
 zend_ssa_remove_uses_of_phi_sources.exit:         ; preds = %zend_ssa_remove_uses_of_phi_sources.exit.loopexit, %22
-  %.pre-phi = phi i64 [ %.pre15, %zend_ssa_remove_uses_of_phi_sources.exit.loopexit ], [ %27, %22 ]
+  %.pre-phi = phi i64 [ %.pre17, %zend_ssa_remove_uses_of_phi_sources.exit.loopexit ], [ %27, %22 ]
   %90 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %90, align 8
   %91 = getelementptr inbounds %struct._zend_ssa_block, ptr %.val, i64 %.pre-phi
@@ -5378,7 +5378,8 @@ zend_ssa_remove_uses_of_phi_sources.exit:         ; preds = %zend_ssa_remove_use
 
 zend_ssa_remove_phi_from_block.exit:              ; preds = %.lr.ph.i12, %zend_ssa_remove_uses_of_phi_sources.exit
   %.0.lcssa.i = phi ptr [ %91, %zend_ssa_remove_uses_of_phi_sources.exit ], [ %93, %.lr.ph.i12 ]
-  %96 = load ptr, ptr %1, align 8
+  %.lcssa.i = phi ptr [ %92, %zend_ssa_remove_uses_of_phi_sources.exit ], [ %95, %.lr.ph.i12 ]
+  %96 = load ptr, ptr %.lcssa.i, align 8
   store ptr %96, ptr %.0.lcssa.i, align 8
   %97 = load ptr, ptr %6, align 8
   %98 = load i32, ptr %3, align 4

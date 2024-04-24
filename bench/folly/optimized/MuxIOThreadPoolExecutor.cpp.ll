@@ -2687,7 +2687,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt10s
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup32, %_ZN5folly23MuxIOThreadPoolExecutor6wakeupEm.exit
-  %40 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %for.cond.cleanup32 ], [ %.pre22, %_ZN5folly23MuxIOThreadPoolExecutor6wakeupEm.exit ]
+  %40 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre153, %for.cond.cleanup32 ], [ %.pre21, %_ZN5folly23MuxIOThreadPoolExecutor6wakeupEm.exit ]
   %tobool.not.i.i.i109 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i109, label %_ZNSt6vectorISt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESaIS4_EED2Ev.exit, label %if.then.i.i.i110
 

@@ -1874,7 +1874,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
   %_M_string_length.i29.i18 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 %3, ptr %_M_string_length.i29.i18, align 8, !tbaa !30
   store i64 0, ptr %_M_string_length.i.i, align 8, !tbaa !30
-  store i8 0, ptr %1, align 1, !tbaa !31
+  store i8 0, ptr %2, align 1, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   %4 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   store ptr %4, ptr %agg.tmp.i, align 8, !tbaa !28
@@ -5358,12 +5358,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %if
   %50 = load ptr, ptr %entries, align 16, !tbaa !62
   %51 = load ptr, ptr %_M_finish.i, align 8, !tbaa !62
   %cmp.i133.not201 = icmp eq ptr %50, %51
-  br i1 %cmp.i133.not201, label %cleanup64.thread, label %for.body42.lr.ph
-
-cleanup64.thread:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131
-  store i8 1, ptr %qualify_database, align 1, !tbaa !122
-  store i8 1, ptr %qualify_schema, align 1, !tbaa !122
-  br label %invoke.cont.i173
+  br i1 %cmp.i133.not201, label %cleanup64, label %for.body42.lr.ph
 
 for.body42.lr.ph:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131
   %_M_string_length.i9.i142 = getelementptr inbounds i8, ptr %catalog_name, i64 8
@@ -5436,11 +5431,11 @@ for.inc55:                                        ; preds = %_ZSteqIcEN9__gnu_cx
   %cmp.i133.not = icmp eq ptr %incdec.ptr.i157, %51
   br i1 %cmp.i133.not, label %cleanup64, label %for.body42
 
-cleanup64:                                        ; preds = %land.rhs.i107, %land.lhs.true.us33, %land.rhs.i107.us, %land.rhs.i.us.us, %for.inc55, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit156, %land.rhs.i152
-  %.sink203 = phi i8 [ 1, %land.rhs.i152 ], [ 1, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit156 ], [ 1, %for.inc55 ], [ 0, %land.rhs.i.us.us ], [ 0, %land.rhs.i107.us ], [ 0, %land.lhs.true.us33 ], [ 0, %land.rhs.i107 ]
-  %.sink = phi i8 [ 1, %for.inc55 ], [ 0, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit156 ], [ 0, %land.rhs.i152 ], [ 1, %land.rhs.i.us.us ], [ 1, %land.rhs.i107.us ], [ 1, %land.lhs.true.us33 ], [ 1, %land.rhs.i107 ]
-  %65 = phi ptr [ %51, %land.rhs.i152 ], [ %51, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit156 ], [ %51, %for.inc55 ], [ %4, %land.rhs.i.us.us ], [ %4, %land.rhs.i107.us ], [ %4, %land.lhs.true.us33 ], [ %4, %land.rhs.i107 ]
-  %66 = phi ptr [ %50, %land.rhs.i152 ], [ %50, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit156 ], [ %50, %for.inc55 ], [ %3, %land.rhs.i.us.us ], [ %3, %land.rhs.i107.us ], [ %3, %land.lhs.true.us33 ], [ %3, %land.rhs.i107 ]
+cleanup64:                                        ; preds = %land.rhs.i107, %land.lhs.true.us33, %land.rhs.i107.us, %land.rhs.i.us.us, %for.inc55, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit156, %land.rhs.i152, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131
+  %.sink203 = phi i8 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131 ], [ 1, %land.rhs.i152 ], [ 1, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit156 ], [ 1, %for.inc55 ], [ 0, %land.rhs.i.us.us ], [ 0, %land.rhs.i107.us ], [ 0, %land.lhs.true.us33 ], [ 0, %land.rhs.i107 ]
+  %.sink = phi i8 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131 ], [ 1, %for.inc55 ], [ 0, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit156 ], [ 0, %land.rhs.i152 ], [ 1, %land.rhs.i.us.us ], [ 1, %land.rhs.i107.us ], [ 1, %land.lhs.true.us33 ], [ 1, %land.rhs.i107 ]
+  %65 = phi ptr [ %51, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131 ], [ %51, %land.rhs.i152 ], [ %51, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit156 ], [ %51, %for.inc55 ], [ %4, %land.rhs.i.us.us ], [ %4, %land.rhs.i107.us ], [ %4, %land.lhs.true.us33 ], [ %4, %land.rhs.i107 ]
+  %66 = phi ptr [ %50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131 ], [ %50, %land.rhs.i152 ], [ %50, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit156 ], [ %50, %for.inc55 ], [ %3, %land.rhs.i.us.us ], [ %3, %land.rhs.i107.us ], [ %3, %land.lhs.true.us33 ], [ %3, %land.rhs.i107 ]
   store i8 %.sink203, ptr %qualify_database, align 1, !tbaa !122
   store i8 %.sink, ptr %qualify_schema, align 1, !tbaa !122
   %cmp.not3.i.i.i.i159 = icmp eq ptr %66, %65
@@ -5491,8 +5486,8 @@ invoke.contthread-pre-split.i171:                 ; preds = %_ZSt8_DestroyIN6duc
   %.pr.i172 = load ptr, ptr %entries, align 16, !tbaa !106
   br label %invoke.cont.i173
 
-invoke.cont.i173:                                 ; preds = %cleanup64.thread, %invoke.contthread-pre-split.i171, %cleanup64
-  %73 = phi ptr [ %.pr.i172, %invoke.contthread-pre-split.i171 ], [ %65, %cleanup64 ], [ %50, %cleanup64.thread ]
+invoke.cont.i173:                                 ; preds = %invoke.contthread-pre-split.i171, %cleanup64
+  %73 = phi ptr [ %.pr.i172, %invoke.contthread-pre-split.i171 ], [ %65, %cleanup64 ]
   %tobool.not.i.i.i174 = icmp eq ptr %73, null
   br i1 %tobool.not.i.i.i174, label %_ZNSt6vectorIN6duckdb18CatalogSearchEntryESaIS1_EED2Ev.exit182, label %if.then.i.i.i175
 
@@ -12448,7 +12443,7 @@ invoke.contthread-pre-split.i257:                 ; preds = %_ZSt8_DestroyIN6duc
   br label %invoke.cont.i259
 
 invoke.cont.i259:                                 ; preds = %invoke.contthread-pre-split.i257, %if.end96.critedge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %72 = phi ptr [ %.pr.i258, %invoke.contthread-pre-split.i257 ], [ %.pre, %if.end96.critedge ], [ %4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %72 = phi ptr [ %.pr.i258, %invoke.contthread-pre-split.i257 ], [ %.pre276, %if.end96.critedge ], [ %4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %tobool.not.i.i.i260 = icmp eq ptr %72, null
   br i1 %tobool.not.i.i.i260, label %_ZNSt6vectorIN6duckdb18CatalogSearchEntryESaIS1_EED2Ev.exit268, label %if.then.i.i.i261
 
@@ -14822,7 +14817,7 @@ for.body66.lr.ph:                                 ; preds = %if.end58, %if.end58
   br label %for.body66
 
 for.cond.cleanup65:                               ; preds = %_ZNSt6vectorISt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESaIS3_EED2Ev.exit, %if.end58
-  %catalogs.sroa.0.5255 = phi ptr [ %catalogs.sroa.11.0.lcssa, %if.end58 ], [ %catalogs.sroa.0.5254, %_ZNSt6vectorISt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESaIS3_EED2Ev.exit ]
+  %catalogs.sroa.0.5255 = phi ptr [ %catalogs.sroa.0.0.lcssa, %if.end58 ], [ %catalogs.sroa.0.5254, %_ZNSt6vectorISt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESaIS3_EED2Ev.exit ]
   %tobool.not.i.i.i = icmp eq ptr %catalogs.sroa.0.5255, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt17reference_wrapperIN6duckdb7CatalogEESaIS3_EED2Ev.exit, label %if.then.i.i.i
 

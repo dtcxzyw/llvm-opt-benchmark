@@ -6569,7 +6569,7 @@ thread-pre-split:                                 ; preds = %38
   br label %65
 
 64:                                               ; preds = %45
-  tail call fastcc void @nfs4_update_changeattr_locked(ptr noundef %2, ptr noundef %51, i64 noundef %55, i64 noundef 2)
+  tail call fastcc void @nfs4_update_changeattr_locked(ptr noundef %1, ptr noundef %51, i64 noundef %55, i64 noundef 2)
   br label %65
 
 65:                                               ; preds = %64, %57

@@ -19983,7 +19983,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hb6f8464
   br label %54
 
 54:                                               ; preds = %53, %.thread.i.i.i
-  %55 = phi ptr [ %45, %53 ], [ %42, %.thread.i.i.i ]
+  %55 = phi ptr [ %45, %53 ], [ %43, %.thread.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !5700
   store ptr %13, ptr %3, align 8, !noalias !5700
   %56 = ptrtoint ptr %42 to i64

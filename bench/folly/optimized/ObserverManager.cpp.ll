@@ -5290,7 +5290,7 @@ if.end18:                                         ; preds = %if.end11
   br i1 %cmp.i.i, label %if.end.i.i.thread, label %_ZN5folly9FormatArgC2ENS_5RangeIPKcEE.exit
 
 if.end.i.i.thread:                                ; preds = %if.end18
-  %add.ptr20283 = getelementptr inbounds i8, ptr %call3, i64 2
+  %add.ptr20283 = getelementptr inbounds i8, ptr %call15, i64 1
   br label %if.end.i.i.if.then23_crit_edge
 
 _ZN5folly9FormatArgC2ENS_5RangeIPKcEE.exit:       ; preds = %if.end18
@@ -12465,7 +12465,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i
   unreachable
 
 invoke.cont.i55:                                  ; preds = %for.cond.i.i.i.i, %for.cond.cleanup8, %for.cond6.preheader, %entry
-  %79 = phi ptr [ %.pre, %for.cond.cleanup8 ], [ %77, %for.cond6.preheader ], [ %0, %entry ], [ %.pre, %for.cond.i.i.i.i ]
+  %79 = phi ptr [ %.pre, %for.cond.cleanup8 ], [ %78, %for.cond6.preheader ], [ %0, %entry ], [ %.pre, %for.cond.i.i.i.i ]
   %tobool.not.i.i.i = icmp eq ptr %79, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %if.then.i.i.i
 

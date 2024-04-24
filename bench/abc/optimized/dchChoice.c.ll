@@ -320,7 +320,7 @@ Aig_ObjRepr.exit:                                 ; preds = %13
   br i1 %narrow.i, label %Aig_ObjRepr.exit65, label %Aig_ObjRepr.exit69
 
 Aig_ObjRepr.exit65:                               ; preds = %20
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %26, i32 noundef %.val61)
   br label %Aig_ObjRepr.exit.thread
 
@@ -334,7 +334,7 @@ Aig_ObjRepr.exit69:                               ; preds = %20
 Aig_ObjRepr.exit75:                               ; preds = %Aig_ObjRepr.exit69
   %31 = getelementptr i8, ptr %30, i64 36
   %.val63 = load i32, ptr %31, align 4
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %32, i32 noundef %.val61, i32 noundef %.val63)
   br label %Aig_ObjRepr.exit.thread
 
@@ -415,7 +415,7 @@ define void @Dch_CheckChoices(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br i1 %.not51, label %29, label %26
 
 26:                                               ; preds = %24
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %27)
   %.pre = load i64, ptr %16, align 8
   br label %29
@@ -475,7 +475,7 @@ Dch_ObjCheckSuppRed.exit.thread:                  ; preds = %32, %Dch_ObjCheckSu
   br i1 %.not54, label %63, label %60
 
 60:                                               ; preds = %58
-  %61 = trunc i64 %indvars.iv to i32
+  %61 = trunc nuw nsw i64 %indvars.iv to i32
   %62 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %61, i32 noundef %.val61)
   %.pre68 = load i64, ptr %56, align 8
   br label %63
@@ -813,7 +813,7 @@ define noundef i32 @Aig_ManCheckAcyclic(ptr noundef %0, i32 noundef %1) local_un
   br i1 %.not19, label %.critedge, label %22
 
 22:                                               ; preds = %21
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.17, i32 noundef %23)
   br label %.critedge
 
@@ -1147,7 +1147,7 @@ Aig_ObjGetRepr.exit:                              ; preds = %Aig_ObjRepr.exit.i
   br i1 %121, label %Aig_ObjGetRepr.exit.thread, label %Aig_ObjRepr.exit.i
 
 Aig_ObjGetRepr.exit.thread:                       ; preds = %Aig_ObjGetRepr.exit, %Aig_ObjRepr.exit.i, %Aig_ObjChild1CopyRepr.exit
-  %.us-phi = phi ptr [ %98, %Aig_ObjChild1CopyRepr.exit ], [ %.0, %Aig_ObjRepr.exit.i ], [ %.0, %Aig_ObjGetRepr.exit ]
+  %.us-phi = phi ptr [ %98, %Aig_ObjChild1CopyRepr.exit ], [ %120, %Aig_ObjGetRepr.exit ], [ %.0, %Aig_ObjRepr.exit.i ]
   %122 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %.us-phi, ptr %122, align 8
   br i1 %.not73, label %175, label %123

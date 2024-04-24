@@ -1051,7 +1051,7 @@ define internal void @netlbl_unlhsh_free_iface(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
-  br i1 %4, label %.loopexit39, label %.preheader43
+  br i1 %4, label %.loopexit44, label %.preheader43
 
 .preheader43:                                     ; preds = %1, %9
   %5 = phi ptr [ %10, %9 ], [ %3, %1 ]
@@ -1065,129 +1065,129 @@ define internal void @netlbl_unlhsh_free_iface(ptr noundef %0) #0 align 16 {
   %11 = icmp eq ptr %10, %2
   br i1 %11, label %.loopexit44, label %.preheader43, !llvm.loop !18
 
-.loopexit44:                                      ; preds = %9, %.preheader43
-  %.ph50 = phi ptr [ %5, %.preheader43 ], [ %2, %9 ]
-  %.pre = load ptr, ptr %.ph50, align 8
-  %12 = icmp eq ptr %.pre, %2
-  br i1 %12, label %.loopexit41, label %.preheader40
+.loopexit44:                                      ; preds = %9, %.preheader43, %1
+  %12 = phi ptr [ %3, %1 ], [ %10, %9 ], [ %5, %.preheader43 ]
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, %2
+  br i1 %14, label %.loopexit41, label %.preheader40
 
-.preheader40:                                     ; preds = %.loopexit44, %17
-  %13 = phi ptr [ %18, %17 ], [ %.pre, %.loopexit44 ]
-  %14 = getelementptr i8, ptr %13, i64 -8
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %.loopexit41
+.preheader40:                                     ; preds = %.loopexit44, %19
+  %15 = phi ptr [ %20, %19 ], [ %13, %.loopexit44 ]
+  %16 = getelementptr i8, ptr %15, i64 -8
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %.loopexit41
 
-17:                                               ; preds = %.preheader40
-  %18 = load ptr, ptr %13, align 8
-  %19 = icmp eq ptr %18, %2
-  br i1 %19, label %.loopexit41, label %.preheader40, !llvm.loop !18
+19:                                               ; preds = %.preheader40
+  %20 = load ptr, ptr %15, align 8
+  %21 = icmp eq ptr %20, %2
+  br i1 %21, label %.loopexit41, label %.preheader40, !llvm.loop !18
 
-.loopexit41:                                      ; preds = %17, %.preheader40, %.loopexit44
-  %20 = phi ptr [ %2, %.loopexit44 ], [ %2, %17 ], [ %13, %.preheader40 ]
-  %21 = icmp eq ptr %.ph50, %2
-  br i1 %21, label %.loopexit39, label %.preheader38
+.loopexit41:                                      ; preds = %19, %.preheader40, %.loopexit44
+  %22 = phi ptr [ %13, %.loopexit44 ], [ %20, %19 ], [ %15, %.preheader40 ]
+  %23 = icmp eq ptr %12, %2
+  br i1 %23, label %.loopexit39, label %.preheader38
 
 .preheader38:                                     ; preds = %.loopexit41, %.loopexit36
-  %22 = phi ptr [ %23, %.loopexit36 ], [ %.ph50, %.loopexit41 ]
-  %23 = phi ptr [ %35, %.loopexit36 ], [ %20, %.loopexit41 ]
-  %24 = getelementptr i8, ptr %22, i64 -16
-  tail call void @netlbl_af4list_remove_entry(ptr noundef %24) #10
-  %25 = getelementptr i8, ptr %22, i64 -24
-  tail call void @kfree(ptr noundef %25) #10
-  %26 = load ptr, ptr %23, align 8
-  %27 = icmp eq ptr %26, %2
-  br i1 %27, label %.loopexit36, label %.preheader35
+  %24 = phi ptr [ %25, %.loopexit36 ], [ %12, %.loopexit41 ]
+  %25 = phi ptr [ %37, %.loopexit36 ], [ %22, %.loopexit41 ]
+  %26 = getelementptr i8, ptr %24, i64 -16
+  tail call void @netlbl_af4list_remove_entry(ptr noundef %26) #10
+  %27 = getelementptr i8, ptr %24, i64 -24
+  tail call void @kfree(ptr noundef %27) #10
+  %28 = load ptr, ptr %25, align 8
+  %29 = icmp eq ptr %28, %2
+  br i1 %29, label %.loopexit36, label %.preheader35
 
-.preheader35:                                     ; preds = %.preheader38, %32
-  %28 = phi ptr [ %33, %32 ], [ %26, %.preheader38 ]
-  %29 = getelementptr i8, ptr %28, i64 -8
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %.loopexit36
+.preheader35:                                     ; preds = %.preheader38, %34
+  %30 = phi ptr [ %35, %34 ], [ %28, %.preheader38 ]
+  %31 = getelementptr i8, ptr %30, i64 -8
+  %32 = load i32, ptr %31, align 8
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %.loopexit36
 
-32:                                               ; preds = %.preheader35
-  %33 = load ptr, ptr %28, align 8
-  %34 = icmp eq ptr %33, %2
-  br i1 %34, label %.loopexit36, label %.preheader35, !llvm.loop !18
+34:                                               ; preds = %.preheader35
+  %35 = load ptr, ptr %30, align 8
+  %36 = icmp eq ptr %35, %2
+  br i1 %36, label %.loopexit36, label %.preheader35, !llvm.loop !18
 
-.loopexit36:                                      ; preds = %32, %.preheader35, %.preheader38
-  %35 = phi ptr [ %2, %.preheader38 ], [ %2, %32 ], [ %28, %.preheader35 ]
-  %36 = icmp eq ptr %23, %2
-  br i1 %36, label %.loopexit39, label %.preheader38, !llvm.loop !19
+.loopexit36:                                      ; preds = %34, %.preheader35, %.preheader38
+  %37 = phi ptr [ %28, %.preheader38 ], [ %35, %34 ], [ %30, %.preheader35 ]
+  %38 = icmp eq ptr %25, %2
+  br i1 %38, label %.loopexit39, label %.preheader38, !llvm.loop !19
 
-.loopexit39:                                      ; preds = %.loopexit36, %1, %.loopexit41
-  %37 = getelementptr i8, ptr %0, i64 -40
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, %37
-  br i1 %39, label %.loopexit28, label %.preheader32
+.loopexit39:                                      ; preds = %.loopexit36, %.loopexit41
+  %39 = getelementptr i8, ptr %0, i64 -40
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp eq ptr %40, %39
+  br i1 %41, label %.loopexit33, label %.preheader32
 
-.preheader32:                                     ; preds = %.loopexit39, %44
-  %40 = phi ptr [ %45, %44 ], [ %38, %.loopexit39 ]
-  %41 = getelementptr i8, ptr %40, i64 -8
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %.loopexit33
+.preheader32:                                     ; preds = %.loopexit39, %46
+  %42 = phi ptr [ %47, %46 ], [ %40, %.loopexit39 ]
+  %43 = getelementptr i8, ptr %42, i64 -8
+  %44 = load i32, ptr %43, align 8
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %.loopexit33
 
-44:                                               ; preds = %.preheader32
-  %45 = load ptr, ptr %40, align 8
-  %46 = icmp eq ptr %45, %37
-  br i1 %46, label %.loopexit33, label %.preheader32, !llvm.loop !20
+46:                                               ; preds = %.preheader32
+  %47 = load ptr, ptr %42, align 8
+  %48 = icmp eq ptr %47, %39
+  br i1 %48, label %.loopexit33, label %.preheader32, !llvm.loop !20
 
-.loopexit33:                                      ; preds = %44, %.preheader32
-  %.ph47 = phi ptr [ %40, %.preheader32 ], [ %37, %44 ]
-  %.pre51 = load ptr, ptr %.ph47, align 8
-  %47 = icmp eq ptr %.pre51, %37
-  br i1 %47, label %.loopexit30, label %.preheader29
+.loopexit33:                                      ; preds = %46, %.preheader32, %.loopexit39
+  %49 = phi ptr [ %40, %.loopexit39 ], [ %47, %46 ], [ %42, %.preheader32 ]
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %50, %39
+  br i1 %51, label %.loopexit30, label %.preheader29
 
-.preheader29:                                     ; preds = %.loopexit33, %52
-  %48 = phi ptr [ %53, %52 ], [ %.pre51, %.loopexit33 ]
-  %49 = getelementptr i8, ptr %48, i64 -8
-  %50 = load i32, ptr %49, align 8
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %.loopexit30
+.preheader29:                                     ; preds = %.loopexit33, %56
+  %52 = phi ptr [ %57, %56 ], [ %50, %.loopexit33 ]
+  %53 = getelementptr i8, ptr %52, i64 -8
+  %54 = load i32, ptr %53, align 8
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %.loopexit30
 
-52:                                               ; preds = %.preheader29
-  %53 = load ptr, ptr %48, align 8
-  %54 = icmp eq ptr %53, %37
-  br i1 %54, label %.loopexit30, label %.preheader29, !llvm.loop !20
+56:                                               ; preds = %.preheader29
+  %57 = load ptr, ptr %52, align 8
+  %58 = icmp eq ptr %57, %39
+  br i1 %58, label %.loopexit30, label %.preheader29, !llvm.loop !20
 
-.loopexit30:                                      ; preds = %52, %.preheader29, %.loopexit33
-  %55 = phi ptr [ %37, %.loopexit33 ], [ %37, %52 ], [ %48, %.preheader29 ]
-  %56 = icmp eq ptr %.ph47, %37
-  br i1 %56, label %.loopexit28, label %.preheader27
+.loopexit30:                                      ; preds = %56, %.preheader29, %.loopexit33
+  %59 = phi ptr [ %50, %.loopexit33 ], [ %57, %56 ], [ %52, %.preheader29 ]
+  %60 = icmp eq ptr %49, %39
+  br i1 %60, label %.loopexit28, label %.preheader27
 
 .preheader27:                                     ; preds = %.loopexit30, %.loopexit
-  %57 = phi ptr [ %58, %.loopexit ], [ %.ph47, %.loopexit30 ]
-  %58 = phi ptr [ %70, %.loopexit ], [ %55, %.loopexit30 ]
-  %59 = getelementptr i8, ptr %57, i64 -40
-  tail call void @netlbl_af6list_remove_entry(ptr noundef %59) #10
-  %60 = getelementptr i8, ptr %57, i64 -48
-  tail call void @kfree(ptr noundef %60) #10
-  %61 = load ptr, ptr %58, align 8
-  %62 = icmp eq ptr %61, %37
-  br i1 %62, label %.loopexit, label %.preheader
+  %61 = phi ptr [ %62, %.loopexit ], [ %49, %.loopexit30 ]
+  %62 = phi ptr [ %74, %.loopexit ], [ %59, %.loopexit30 ]
+  %63 = getelementptr i8, ptr %61, i64 -40
+  tail call void @netlbl_af6list_remove_entry(ptr noundef %63) #10
+  %64 = getelementptr i8, ptr %61, i64 -48
+  tail call void @kfree(ptr noundef %64) #10
+  %65 = load ptr, ptr %62, align 8
+  %66 = icmp eq ptr %65, %39
+  br i1 %66, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.preheader27, %67
-  %63 = phi ptr [ %68, %67 ], [ %61, %.preheader27 ]
-  %64 = getelementptr i8, ptr %63, i64 -8
-  %65 = load i32, ptr %64, align 8
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %.loopexit
+.preheader:                                       ; preds = %.preheader27, %71
+  %67 = phi ptr [ %72, %71 ], [ %65, %.preheader27 ]
+  %68 = getelementptr i8, ptr %67, i64 -8
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %.loopexit
 
-67:                                               ; preds = %.preheader
-  %68 = load ptr, ptr %63, align 8
-  %69 = icmp eq ptr %68, %37
-  br i1 %69, label %.loopexit, label %.preheader, !llvm.loop !20
+71:                                               ; preds = %.preheader
+  %72 = load ptr, ptr %67, align 8
+  %73 = icmp eq ptr %72, %39
+  br i1 %73, label %.loopexit, label %.preheader, !llvm.loop !20
 
-.loopexit:                                        ; preds = %67, %.preheader, %.preheader27
-  %70 = phi ptr [ %37, %.preheader27 ], [ %37, %67 ], [ %63, %.preheader ]
-  %71 = icmp eq ptr %58, %37
-  br i1 %71, label %.loopexit28, label %.preheader27, !llvm.loop !21
+.loopexit:                                        ; preds = %71, %.preheader, %.preheader27
+  %74 = phi ptr [ %65, %.preheader27 ], [ %72, %71 ], [ %67, %.preheader ]
+  %75 = icmp eq ptr %62, %39
+  br i1 %75, label %.loopexit28, label %.preheader27, !llvm.loop !21
 
-.loopexit28:                                      ; preds = %.loopexit, %.loopexit39, %.loopexit30
-  %72 = getelementptr i8, ptr %0, i64 -64
-  tail call void @kfree(ptr noundef %72) #10
+.loopexit28:                                      ; preds = %.loopexit, %.loopexit30
+  %76 = getelementptr i8, ptr %0, i64 -64
+  tail call void @kfree(ptr noundef %76) #10
   ret void
 }
 
@@ -1492,10 +1492,10 @@ define internal i32 @netlbl_unlabel_staticlist(ptr noundef %0, ptr noundef %1) #
   br label %29
 
 29:                                               ; preds = %.loopexit40, %24
-  %30 = phi i64 [ %28, %24 ], [ %122, %.loopexit40 ]
+  %30 = phi i64 [ %28, %24 ], [ %126, %.loopexit40 ]
   %31 = phi i32 [ %27, %24 ], [ 0, %.loopexit40 ]
-  %32 = phi i32 [ %26, %24 ], [ %121, %.loopexit40 ]
-  %33 = phi i32 [ %25, %24 ], [ %120, %.loopexit40 ]
+  %32 = phi i32 [ %26, %24 ], [ %125, %.loopexit40 ]
+  %33 = phi i32 [ %25, %24 ], [ %124, %.loopexit40 ]
   %34 = load volatile ptr, ptr @netlbl_unlhsh, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr %struct.list_head, ptr %35, i64 %30
@@ -1504,10 +1504,10 @@ define internal i32 @netlbl_unlabel_staticlist(ptr noundef %0, ptr noundef %1) #
   br i1 %38, label %.loopexit40, label %.preheader39
 
 .preheader39:                                     ; preds = %29, %.loopexit30
-  %39 = phi ptr [ %118, %.loopexit30 ], [ %37, %29 ]
-  %40 = phi i32 [ %117, %.loopexit30 ], [ %32, %29 ]
-  %41 = phi i32 [ %116, %.loopexit30 ], [ 0, %29 ]
-  %42 = phi i32 [ %115, %.loopexit30 ], [ %33, %29 ]
+  %39 = phi ptr [ %122, %.loopexit30 ], [ %37, %29 ]
+  %40 = phi i32 [ %121, %.loopexit30 ], [ %32, %29 ]
+  %41 = phi i32 [ %120, %.loopexit30 ], [ 0, %29 ]
+  %42 = phi i32 [ %119, %.loopexit30 ], [ %33, %29 ]
   %43 = getelementptr i8, ptr %39, i64 -48
   %44 = getelementptr i8, ptr %39, i64 -8
   %45 = load i32, ptr %44, align 8
@@ -1523,7 +1523,7 @@ define internal i32 @netlbl_unlabel_staticlist(ptr noundef %0, ptr noundef %1) #
   %51 = getelementptr i8, ptr %39, i64 -40
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, %51
-  br i1 %53, label %.loopexit35, label %.preheader36
+  br i1 %53, label %.loopexit37, label %.preheader36
 
 .preheader36:                                     ; preds = %50, %58
   %54 = phi ptr [ %59, %58 ], [ %52, %50 ]
@@ -1535,145 +1535,149 @@ define internal i32 @netlbl_unlabel_staticlist(ptr noundef %0, ptr noundef %1) #
 58:                                               ; preds = %.preheader36
   %59 = load volatile ptr, ptr %54, align 8
   %60 = icmp eq ptr %59, %51
-  br i1 %60, label %.loopexit35, label %.preheader36, !llvm.loop !13
+  br i1 %60, label %.loopexit37, label %.preheader36, !llvm.loop !13
 
-.loopexit37:                                      ; preds = %.preheader36
-  %61 = icmp eq ptr %54, %51
-  br i1 %61, label %.loopexit35, label %.preheader34
+.loopexit37:                                      ; preds = %58, %.preheader36, %50
+  %61 = phi ptr [ %52, %50 ], [ %59, %58 ], [ %54, %.preheader36 ]
+  %62 = icmp eq ptr %61, %51
+  br i1 %62, label %.loopexit35, label %.preheader34
 
 .preheader34:                                     ; preds = %.loopexit37, %.loopexit27
-  %62 = phi i32 [ %64, %.loopexit27 ], [ 0, %.loopexit37 ]
-  %63 = phi ptr [ %75, %.loopexit27 ], [ %54, %.loopexit37 ]
-  %64 = add i32 %62, 1
-  %65 = icmp ult i32 %62, %40
-  br i1 %65, label %72, label %66
+  %63 = phi i32 [ %65, %.loopexit27 ], [ 0, %.loopexit37 ]
+  %64 = phi ptr [ %83, %.loopexit27 ], [ %61, %.loopexit37 ]
+  %65 = add i32 %63, 1
+  %66 = icmp ult i32 %63, %40
+  br i1 %66, label %73, label %67
 
-66:                                               ; preds = %.preheader34
-  %67 = getelementptr i8, ptr %63, i64 -24
-  %68 = call fastcc i32 @netlbl_unlabel_staticlist_gen(i32 noundef 5, ptr noundef %43, ptr noundef %67, ptr noundef null, ptr noundef nonnull %3)
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %72
+67:                                               ; preds = %.preheader34
+  %68 = getelementptr i8, ptr %64, i64 -24
+  %69 = call fastcc i32 @netlbl_unlabel_staticlist_gen(i32 noundef 5, ptr noundef %43, ptr noundef %68, ptr noundef null, ptr noundef nonnull %3)
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %71, label %73
 
-70:                                               ; preds = %66
-  %71 = zext i32 %62 to i64
+71:                                               ; preds = %67
+  %72 = zext i32 %63 to i64
   br label %.loopexit41
 
-72:                                               ; preds = %66, %.preheader34
-  %73 = load ptr, ptr %63, align 8
-  %74 = icmp eq ptr %73, %51
-  br i1 %74, label %.loopexit35, label %.preheader26
+73:                                               ; preds = %67, %.preheader34
+  %74 = load ptr, ptr %64, align 8
+  %75 = icmp eq ptr %74, %51
+  br i1 %75, label %.loopexit27, label %.preheader26
 
-.preheader26:                                     ; preds = %72, %79
-  %75 = phi ptr [ %80, %79 ], [ %73, %72 ]
-  %76 = getelementptr i8, ptr %75, i64 -8
-  %77 = load i32, ptr %76, align 8
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %.loopexit27
+.preheader26:                                     ; preds = %73, %80
+  %76 = phi ptr [ %81, %80 ], [ %74, %73 ]
+  %77 = getelementptr i8, ptr %76, i64 -8
+  %78 = load i32, ptr %77, align 8
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %.loopexit27
 
-79:                                               ; preds = %.preheader26
-  %80 = load volatile ptr, ptr %75, align 8
-  %81 = icmp eq ptr %80, %51
-  br i1 %81, label %.loopexit35, label %.preheader26, !llvm.loop !13
+80:                                               ; preds = %.preheader26
+  %81 = load volatile ptr, ptr %76, align 8
+  %82 = icmp eq ptr %81, %51
+  br i1 %82, label %.loopexit27, label %.preheader26, !llvm.loop !13
 
-.loopexit27:                                      ; preds = %.preheader26
-  %82 = icmp eq ptr %75, %51
-  br i1 %82, label %.loopexit35, label %.preheader34, !llvm.loop !24
+.loopexit27:                                      ; preds = %80, %.preheader26, %73
+  %83 = phi ptr [ %74, %73 ], [ %81, %80 ], [ %76, %.preheader26 ]
+  %84 = icmp eq ptr %83, %51
+  br i1 %84, label %.loopexit35, label %.preheader34, !llvm.loop !24
 
-.loopexit35:                                      ; preds = %58, %72, %.loopexit27, %79, %50, %.loopexit37
-  %83 = getelementptr i8, ptr %39, i64 -24
-  %84 = load ptr, ptr %83, align 8
-  %85 = icmp eq ptr %84, %83
-  br i1 %85, label %.loopexit30, label %.preheader31
+.loopexit35:                                      ; preds = %.loopexit27, %.loopexit37
+  %85 = getelementptr i8, ptr %39, i64 -24
+  %86 = load ptr, ptr %85, align 8
+  %87 = icmp eq ptr %86, %85
+  br i1 %87, label %.loopexit32, label %.preheader31
 
-.preheader31:                                     ; preds = %.loopexit35, %90
-  %86 = phi ptr [ %91, %90 ], [ %84, %.loopexit35 ]
-  %87 = getelementptr i8, ptr %86, i64 -8
-  %88 = load i32, ptr %87, align 8
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %.loopexit32
+.preheader31:                                     ; preds = %.loopexit35, %92
+  %88 = phi ptr [ %93, %92 ], [ %86, %.loopexit35 ]
+  %89 = getelementptr i8, ptr %88, i64 -8
+  %90 = load i32, ptr %89, align 8
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %92, label %.loopexit32
 
-90:                                               ; preds = %.preheader31
-  %91 = load volatile ptr, ptr %86, align 8
-  %92 = icmp eq ptr %91, %83
-  br i1 %92, label %.loopexit30, label %.preheader31, !llvm.loop !14
+92:                                               ; preds = %.preheader31
+  %93 = load volatile ptr, ptr %88, align 8
+  %94 = icmp eq ptr %93, %85
+  br i1 %94, label %.loopexit32, label %.preheader31, !llvm.loop !14
 
-.loopexit32:                                      ; preds = %.preheader31
-  %93 = icmp eq ptr %86, %83
-  br i1 %93, label %.loopexit30, label %.preheader29
+.loopexit32:                                      ; preds = %92, %.preheader31, %.loopexit35
+  %95 = phi ptr [ %86, %.loopexit35 ], [ %93, %92 ], [ %88, %.preheader31 ]
+  %96 = icmp eq ptr %95, %85
+  br i1 %96, label %.loopexit30, label %.preheader29
 
 .preheader29:                                     ; preds = %.loopexit32, %.loopexit
-  %94 = phi i32 [ %96, %.loopexit ], [ 0, %.loopexit32 ]
-  %95 = phi ptr [ %107, %.loopexit ], [ %86, %.loopexit32 ]
-  %96 = add i32 %94, 1
-  %97 = icmp ult i32 %94, %42
-  br i1 %97, label %104, label %98
+  %97 = phi i32 [ %99, %.loopexit ], [ 0, %.loopexit32 ]
+  %98 = phi ptr [ %117, %.loopexit ], [ %95, %.loopexit32 ]
+  %99 = add i32 %97, 1
+  %100 = icmp ult i32 %97, %42
+  br i1 %100, label %107, label %101
 
-98:                                               ; preds = %.preheader29
-  %99 = getelementptr i8, ptr %95, i64 -48
-  %100 = call fastcc i32 @netlbl_unlabel_staticlist_gen(i32 noundef 5, ptr noundef %43, ptr noundef null, ptr noundef %99, ptr noundef nonnull %3)
-  %101 = icmp slt i32 %100, 0
-  br i1 %101, label %102, label %104
+101:                                              ; preds = %.preheader29
+  %102 = getelementptr i8, ptr %98, i64 -48
+  %103 = call fastcc i32 @netlbl_unlabel_staticlist_gen(i32 noundef 5, ptr noundef %43, ptr noundef null, ptr noundef %102, ptr noundef nonnull %3)
+  %104 = icmp slt i32 %103, 0
+  br i1 %104, label %105, label %107
 
-102:                                              ; preds = %98
-  %103 = zext i32 %94 to i64
+105:                                              ; preds = %101
+  %106 = zext i32 %97 to i64
   br label %.loopexit41
 
-104:                                              ; preds = %98, %.preheader29
-  %105 = load ptr, ptr %95, align 8
-  %106 = icmp eq ptr %105, %83
-  br i1 %106, label %.loopexit30, label %.preheader
+107:                                              ; preds = %101, %.preheader29
+  %108 = load ptr, ptr %98, align 8
+  %109 = icmp eq ptr %108, %85
+  br i1 %109, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %104, %111
-  %107 = phi ptr [ %112, %111 ], [ %105, %104 ]
-  %108 = getelementptr i8, ptr %107, i64 -8
-  %109 = load i32, ptr %108, align 8
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %.loopexit
+.preheader:                                       ; preds = %107, %114
+  %110 = phi ptr [ %115, %114 ], [ %108, %107 ]
+  %111 = getelementptr i8, ptr %110, i64 -8
+  %112 = load i32, ptr %111, align 8
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %114, label %.loopexit
 
-111:                                              ; preds = %.preheader
-  %112 = load volatile ptr, ptr %107, align 8
-  %113 = icmp eq ptr %112, %83
-  br i1 %113, label %.loopexit30, label %.preheader, !llvm.loop !14
+114:                                              ; preds = %.preheader
+  %115 = load volatile ptr, ptr %110, align 8
+  %116 = icmp eq ptr %115, %85
+  br i1 %116, label %.loopexit, label %.preheader, !llvm.loop !14
 
-.loopexit:                                        ; preds = %.preheader
-  %114 = icmp eq ptr %107, %83
-  br i1 %114, label %.loopexit30, label %.preheader29, !llvm.loop !25
+.loopexit:                                        ; preds = %114, %.preheader, %107
+  %117 = phi ptr [ %108, %107 ], [ %115, %114 ], [ %110, %.preheader ]
+  %118 = icmp eq ptr %117, %85
+  br i1 %118, label %.loopexit30, label %.preheader29, !llvm.loop !25
 
-.loopexit30:                                      ; preds = %90, %104, %.loopexit, %111, %.loopexit35, %.loopexit32, %47, %.preheader39
-  %115 = phi i32 [ %42, %47 ], [ %42, %.preheader39 ], [ 0, %.loopexit32 ], [ 0, %.loopexit35 ], [ 0, %111 ], [ 0, %.loopexit ], [ 0, %104 ], [ 0, %90 ]
-  %116 = phi i32 [ %48, %47 ], [ %41, %.preheader39 ], [ %48, %.loopexit32 ], [ %48, %.loopexit35 ], [ %48, %111 ], [ %48, %.loopexit ], [ %48, %104 ], [ %48, %90 ]
-  %117 = phi i32 [ %40, %47 ], [ %40, %.preheader39 ], [ 0, %.loopexit32 ], [ 0, %.loopexit35 ], [ 0, %111 ], [ 0, %.loopexit ], [ 0, %104 ], [ 0, %90 ]
-  %118 = load volatile ptr, ptr %39, align 8
-  %119 = icmp eq ptr %118, %36
-  br i1 %119, label %.loopexit40, label %.preheader39, !llvm.loop !26
+.loopexit30:                                      ; preds = %.loopexit, %.loopexit32, %47, %.preheader39
+  %119 = phi i32 [ %42, %47 ], [ %42, %.preheader39 ], [ 0, %.loopexit32 ], [ 0, %.loopexit ]
+  %120 = phi i32 [ %48, %47 ], [ %41, %.preheader39 ], [ %48, %.loopexit32 ], [ %48, %.loopexit ]
+  %121 = phi i32 [ %40, %47 ], [ %40, %.preheader39 ], [ 0, %.loopexit32 ], [ 0, %.loopexit ]
+  %122 = load volatile ptr, ptr %39, align 8
+  %123 = icmp eq ptr %122, %36
+  br i1 %123, label %.loopexit40, label %.preheader39, !llvm.loop !26
 
 .loopexit40:                                      ; preds = %.loopexit30, %29
-  %120 = phi i32 [ %33, %29 ], [ %115, %.loopexit30 ]
-  %121 = phi i32 [ %32, %29 ], [ %117, %.loopexit30 ]
-  %122 = add nuw nsw i64 %30, 1
-  %123 = load volatile ptr, ptr @netlbl_unlhsh, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 8
-  %125 = load i32, ptr %124, align 8
-  %126 = zext i32 %125 to i64
-  %127 = icmp ult i64 %122, %126
-  br i1 %127, label %29, label %.loopexit41, !llvm.loop !27
+  %124 = phi i32 [ %33, %29 ], [ %119, %.loopexit30 ]
+  %125 = phi i32 [ %32, %29 ], [ %121, %.loopexit30 ]
+  %126 = add nuw nsw i64 %30, 1
+  %127 = load volatile ptr, ptr @netlbl_unlhsh, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 8
+  %129 = load i32, ptr %128, align 8
+  %130 = zext i32 %129 to i64
+  %131 = icmp ult i64 %126, %130
+  br i1 %131, label %29, label %.loopexit41, !llvm.loop !27
 
-.loopexit41:                                      ; preds = %.loopexit40, %102, %70, %2
-  %128 = phi i64 [ %30, %70 ], [ %30, %102 ], [ %6, %2 ], [ %122, %.loopexit40 ]
-  %129 = phi i64 [ 0, %70 ], [ %103, %102 ], [ 0, %2 ], [ 0, %.loopexit40 ]
-  %130 = phi i64 [ %71, %70 ], [ 0, %102 ], [ 0, %2 ], [ 0, %.loopexit40 ]
-  %131 = phi i32 [ %41, %70 ], [ %41, %102 ], [ 0, %2 ], [ 0, %.loopexit40 ]
+.loopexit41:                                      ; preds = %.loopexit40, %105, %71, %2
+  %132 = phi i64 [ %30, %71 ], [ %30, %105 ], [ %6, %2 ], [ %126, %.loopexit40 ]
+  %133 = phi i64 [ 0, %71 ], [ %106, %105 ], [ 0, %2 ], [ 0, %.loopexit40 ]
+  %134 = phi i64 [ %72, %71 ], [ 0, %105 ], [ 0, %2 ], [ 0, %.loopexit40 ]
+  %135 = phi i32 [ %41, %71 ], [ %41, %105 ], [ 0, %2 ], [ 0, %.loopexit40 ]
   tail call void @__rcu_read_unlock() #10
-  %132 = and i64 %128, 4294967295
-  store i64 %132, ptr %5, align 8
-  %133 = zext i32 %131 to i64
-  store i64 %133, ptr %8, align 8
-  store i64 %130, ptr %10, align 8
-  store i64 %129, ptr %12, align 8
-  %134 = getelementptr inbounds i8, ptr %0, i64 112
-  %135 = load i32, ptr %134, align 8
+  %136 = and i64 %132, 4294967295
+  store i64 %136, ptr %5, align 8
+  %137 = zext i32 %135 to i64
+  store i64 %137, ptr %8, align 8
+  store i64 %134, ptr %10, align 8
+  store i64 %133, ptr %12, align 8
+  %138 = getelementptr inbounds i8, ptr %0, i64 112
+  %139 = load i32, ptr %138, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
-  ret i32 %135
+  ret i32 %139
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1944,7 +1948,7 @@ define internal i32 @netlbl_unlabel_staticlistdef(ptr noundef %0, ptr noundef %1
   %18 = getelementptr inbounds i8, ptr %11, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %18
-  br i1 %20, label %.loopexit29, label %.preheader30
+  br i1 %20, label %.loopexit31, label %.preheader30
 
 .preheader30:                                     ; preds = %17, %25
   %21 = phi ptr [ %26, %25 ], [ %19, %17 ]
@@ -1956,132 +1960,136 @@ define internal i32 @netlbl_unlabel_staticlistdef(ptr noundef %0, ptr noundef %1
 25:                                               ; preds = %.preheader30
   %26 = load volatile ptr, ptr %21, align 8
   %27 = icmp eq ptr %26, %18
-  br i1 %27, label %.loopexit29, label %.preheader30, !llvm.loop !13
+  br i1 %27, label %.loopexit31, label %.preheader30, !llvm.loop !13
 
-.loopexit31:                                      ; preds = %.preheader30
-  %28 = icmp eq ptr %21, %18
-  br i1 %28, label %.loopexit29, label %29
+.loopexit31:                                      ; preds = %25, %.preheader30, %17
+  %28 = phi ptr [ %19, %17 ], [ %26, %25 ], [ %21, %.preheader30 ]
+  %29 = icmp eq ptr %28, %18
+  br i1 %29, label %.loopexit29, label %30
 
-29:                                               ; preds = %.loopexit31
-  %30 = getelementptr inbounds i8, ptr %1, i64 80
-  br label %31
+30:                                               ; preds = %.loopexit31
+  %31 = getelementptr inbounds i8, ptr %1, i64 80
+  br label %32
 
-31:                                               ; preds = %.loopexit26, %29
-  %32 = phi i32 [ 0, %29 ], [ %34, %.loopexit26 ]
-  %33 = phi ptr [ %21, %29 ], [ %45, %.loopexit26 ]
-  %34 = add i32 %32, 1
-  %35 = zext i32 %32 to i64
-  %36 = load i64, ptr %30, align 8
-  %37 = icmp sgt i64 %36, %35
-  br i1 %37, label %42, label %38
+32:                                               ; preds = %.loopexit26, %30
+  %33 = phi i32 [ 0, %30 ], [ %35, %.loopexit26 ]
+  %34 = phi ptr [ %28, %30 ], [ %53, %.loopexit26 ]
+  %35 = add i32 %33, 1
+  %36 = zext i32 %33 to i64
+  %37 = load i64, ptr %31, align 8
+  %38 = icmp sgt i64 %37, %36
+  br i1 %38, label %43, label %39
 
-38:                                               ; preds = %31
-  %39 = getelementptr i8, ptr %33, i64 -24
-  %40 = call fastcc i32 @netlbl_unlabel_staticlist_gen(i32 noundef 8, ptr noundef nonnull %11, ptr noundef %39, ptr noundef null, ptr noundef nonnull %3)
-  %41 = icmp slt i32 %40, 0
-  br i1 %41, label %.loopexit28, label %42
+39:                                               ; preds = %32
+  %40 = getelementptr i8, ptr %34, i64 -24
+  %41 = call fastcc i32 @netlbl_unlabel_staticlist_gen(i32 noundef 8, ptr noundef nonnull %11, ptr noundef %40, ptr noundef null, ptr noundef nonnull %3)
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %.loopexit28, label %43
 
-42:                                               ; preds = %38, %31
-  %43 = load ptr, ptr %33, align 8
-  %44 = icmp eq ptr %43, %18
-  br i1 %44, label %.loopexit29, label %.preheader25
+43:                                               ; preds = %39, %32
+  %44 = load ptr, ptr %34, align 8
+  %45 = icmp eq ptr %44, %18
+  br i1 %45, label %.loopexit26, label %.preheader25
 
-.preheader25:                                     ; preds = %42, %49
-  %45 = phi ptr [ %50, %49 ], [ %43, %42 ]
-  %46 = getelementptr i8, ptr %45, i64 -8
-  %47 = load i32, ptr %46, align 8
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %.loopexit26
+.preheader25:                                     ; preds = %43, %50
+  %46 = phi ptr [ %51, %50 ], [ %44, %43 ]
+  %47 = getelementptr i8, ptr %46, i64 -8
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %.loopexit26
 
-49:                                               ; preds = %.preheader25
-  %50 = load volatile ptr, ptr %45, align 8
-  %51 = icmp eq ptr %50, %18
-  br i1 %51, label %.loopexit29, label %.preheader25, !llvm.loop !13
+50:                                               ; preds = %.preheader25
+  %51 = load volatile ptr, ptr %46, align 8
+  %52 = icmp eq ptr %51, %18
+  br i1 %52, label %.loopexit26, label %.preheader25, !llvm.loop !13
 
-.loopexit26:                                      ; preds = %.preheader25
-  %52 = icmp eq ptr %45, %18
-  br i1 %52, label %.loopexit29, label %31, !llvm.loop !28
+.loopexit26:                                      ; preds = %50, %.preheader25, %43
+  %53 = phi ptr [ %44, %43 ], [ %51, %50 ], [ %46, %.preheader25 ]
+  %54 = icmp eq ptr %53, %18
+  br i1 %54, label %.loopexit29, label %32, !llvm.loop !28
 
-.loopexit29:                                      ; preds = %25, %42, %.loopexit26, %49, %17, %.loopexit31
-  %53 = phi i32 [ 0, %.loopexit31 ], [ 0, %17 ], [ %34, %49 ], [ %34, %.loopexit26 ], [ %34, %42 ], [ 0, %25 ]
-  %54 = getelementptr inbounds i8, ptr %11, i64 24
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, %54
-  br i1 %56, label %.loopexit28, label %.preheader22
+.loopexit29:                                      ; preds = %.loopexit26, %.loopexit31
+  %55 = phi i32 [ 0, %.loopexit31 ], [ %35, %.loopexit26 ]
+  %56 = getelementptr inbounds i8, ptr %11, i64 24
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp eq ptr %57, %56
+  br i1 %58, label %.loopexit23, label %.preheader22
 
-.preheader22:                                     ; preds = %.loopexit29, %61
-  %57 = phi ptr [ %62, %61 ], [ %55, %.loopexit29 ]
-  %58 = getelementptr i8, ptr %57, i64 -8
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %.loopexit23
+.preheader22:                                     ; preds = %.loopexit29, %63
+  %59 = phi ptr [ %64, %63 ], [ %57, %.loopexit29 ]
+  %60 = getelementptr i8, ptr %59, i64 -8
+  %61 = load i32, ptr %60, align 8
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %.loopexit23
 
-61:                                               ; preds = %.preheader22
-  %62 = load volatile ptr, ptr %57, align 8
-  %63 = icmp eq ptr %62, %54
-  br i1 %63, label %.loopexit28, label %.preheader22, !llvm.loop !14
+63:                                               ; preds = %.preheader22
+  %64 = load volatile ptr, ptr %59, align 8
+  %65 = icmp eq ptr %64, %56
+  br i1 %65, label %.loopexit23, label %.preheader22, !llvm.loop !14
 
-.loopexit23:                                      ; preds = %.preheader22
-  %64 = icmp eq ptr %57, %54
-  br i1 %64, label %.loopexit28, label %65
+.loopexit23:                                      ; preds = %63, %.preheader22, %.loopexit29
+  %66 = phi ptr [ %57, %.loopexit29 ], [ %64, %63 ], [ %59, %.preheader22 ]
+  %67 = icmp eq ptr %66, %56
+  br i1 %67, label %.loopexit28, label %68
 
-65:                                               ; preds = %.loopexit23
-  %66 = getelementptr i8, ptr %1, i64 88
-  br label %67
+68:                                               ; preds = %.loopexit23
+  %69 = getelementptr i8, ptr %1, i64 88
+  br label %70
 
-67:                                               ; preds = %.loopexit, %65
-  %68 = phi i32 [ 0, %65 ], [ %70, %.loopexit ]
-  %69 = phi ptr [ %57, %65 ], [ %81, %.loopexit ]
-  %70 = add i32 %68, 1
-  %71 = zext i32 %68 to i64
-  %72 = load i64, ptr %66, align 8
-  %73 = icmp sgt i64 %72, %71
-  br i1 %73, label %78, label %74
+70:                                               ; preds = %.loopexit, %68
+  %71 = phi i32 [ 0, %68 ], [ %73, %.loopexit ]
+  %72 = phi ptr [ %66, %68 ], [ %91, %.loopexit ]
+  %73 = add i32 %71, 1
+  %74 = zext i32 %71 to i64
+  %75 = load i64, ptr %69, align 8
+  %76 = icmp sgt i64 %75, %74
+  br i1 %76, label %81, label %77
 
-74:                                               ; preds = %67
-  %75 = getelementptr i8, ptr %69, i64 -48
-  %76 = call fastcc i32 @netlbl_unlabel_staticlist_gen(i32 noundef 8, ptr noundef nonnull %11, ptr noundef null, ptr noundef %75, ptr noundef nonnull %3)
-  %77 = icmp slt i32 %76, 0
-  br i1 %77, label %.loopexit28, label %78
+77:                                               ; preds = %70
+  %78 = getelementptr i8, ptr %72, i64 -48
+  %79 = call fastcc i32 @netlbl_unlabel_staticlist_gen(i32 noundef 8, ptr noundef nonnull %11, ptr noundef null, ptr noundef %78, ptr noundef nonnull %3)
+  %80 = icmp slt i32 %79, 0
+  br i1 %80, label %.loopexit28, label %81
 
-78:                                               ; preds = %74, %67
-  %79 = load ptr, ptr %69, align 8
-  %80 = icmp eq ptr %79, %54
-  br i1 %80, label %.loopexit._crit_edge, label %.preheader
+81:                                               ; preds = %77, %70
+  %82 = load ptr, ptr %72, align 8
+  %83 = icmp eq ptr %82, %56
+  br i1 %83, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %78, %85
-  %81 = phi ptr [ %86, %85 ], [ %79, %78 ]
-  %82 = getelementptr i8, ptr %81, i64 -8
-  %83 = load i32, ptr %82, align 8
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %.loopexit
+.preheader:                                       ; preds = %81, %88
+  %84 = phi ptr [ %89, %88 ], [ %82, %81 ]
+  %85 = getelementptr i8, ptr %84, i64 -8
+  %86 = load i32, ptr %85, align 8
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %88, label %.loopexit
 
-85:                                               ; preds = %.preheader
-  %86 = load volatile ptr, ptr %81, align 8
-  %87 = icmp eq ptr %86, %54
-  br i1 %87, label %.loopexit._crit_edge, label %.preheader, !llvm.loop !14
+88:                                               ; preds = %.preheader
+  %89 = load volatile ptr, ptr %84, align 8
+  %90 = icmp eq ptr %89, %56
+  br i1 %90, label %.loopexit, label %.preheader, !llvm.loop !14
 
-.loopexit:                                        ; preds = %.preheader
-  %88 = icmp eq ptr %81, %54
-  br i1 %88, label %.loopexit._crit_edge, label %67, !llvm.loop !29
+.loopexit:                                        ; preds = %88, %.preheader, %81
+  %91 = phi ptr [ %82, %81 ], [ %89, %88 ], [ %84, %.preheader ]
+  %92 = icmp eq ptr %91, %56
+  br i1 %92, label %.loopexit._crit_edge, label %70, !llvm.loop !29
 
-.loopexit._crit_edge:                             ; preds = %78, %.loopexit, %85
-  %.pre = zext i32 %70 to i64
+.loopexit._crit_edge:                             ; preds = %.loopexit
+  %.pre = zext i32 %73 to i64
   br label %.loopexit28
 
-.loopexit28:                                      ; preds = %38, %61, %74, %.loopexit29, %.loopexit._crit_edge, %.loopexit23, %13, %2
-  %89 = phi i64 [ 0, %2 ], [ 0, %13 ], [ 0, %.loopexit23 ], [ %.pre, %.loopexit._crit_edge ], [ 0, %.loopexit29 ], [ %71, %74 ], [ 0, %61 ], [ 0, %38 ]
-  %90 = phi i32 [ 0, %2 ], [ 0, %13 ], [ %53, %.loopexit23 ], [ %53, %.loopexit._crit_edge ], [ %53, %.loopexit29 ], [ %53, %74 ], [ %53, %61 ], [ %32, %38 ]
+.loopexit28:                                      ; preds = %39, %77, %.loopexit._crit_edge, %.loopexit23, %13, %2
+  %93 = phi i64 [ 0, %2 ], [ 0, %13 ], [ 0, %.loopexit23 ], [ %.pre, %.loopexit._crit_edge ], [ %74, %77 ], [ 0, %39 ]
+  %94 = phi i32 [ 0, %2 ], [ 0, %13 ], [ %55, %.loopexit23 ], [ %55, %.loopexit._crit_edge ], [ %55, %77 ], [ %33, %39 ]
   tail call void @__rcu_read_unlock() #10
-  %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds i8, ptr %1, i64 80
-  store i64 %91, ptr %92, align 8
-  %93 = getelementptr i8, ptr %1, i64 88
-  store i64 %89, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 112
-  %95 = load i32, ptr %94, align 8
+  %95 = zext i32 %94 to i64
+  %96 = getelementptr inbounds i8, ptr %1, i64 80
+  store i64 %95, ptr %96, align 8
+  %97 = getelementptr i8, ptr %1, i64 88
+  store i64 %93, ptr %97, align 8
+  %98 = getelementptr inbounds i8, ptr %0, i64 112
+  %99 = load i32, ptr %98, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
-  ret i32 %95
+  ret i32 %99
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2209,7 +2217,7 @@ define internal fastcc i32 @netlbl_unlabel_staticlist_gen(i32 noundef %0, ptr no
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds i8, ptr %4, i64 16
   %17 = load i32, ptr %16, align 8
-  %18 = trunc i32 %0 to i8
+  %18 = trunc nuw nsw i32 %0 to i8
   %19 = tail call ptr @genlmsg_put(ptr noundef %11, i32 noundef %15, i32 noundef %17, ptr noundef nonnull @netlbl_unlabel_gnl_family, i32 noundef 2, i8 noundef zeroext %18) #10
   %20 = icmp eq ptr %19, null
   br i1 %20, label %102, label %21

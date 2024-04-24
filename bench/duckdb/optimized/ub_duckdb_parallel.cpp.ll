@@ -7725,7 +7725,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt10s
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup174, %invoke.cont163
-  %250 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre1095, %for.cond.cleanup174 ], [ %241, %invoke.cont163 ]
+  %250 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre1096, %for.cond.cleanup174 ], [ %241, %invoke.cont163 ]
   %tobool.not.i.i.i = icmp eq ptr %250, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN6duckdb8PipelineEESaIS3_EED2Ev.exit, label %if.then.i.i.i777
 
@@ -12937,7 +12937,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt8we
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup62, %invoke.cont55
-  %95 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre299, %for.cond.cleanup62 ], [ %87, %invoke.cont55 ]
+  %95 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre300, %for.cond.cleanup62 ], [ %87, %invoke.cont55 ]
   %tobool.not.i.i.i250 = icmp eq ptr %95, null
   br i1 %tobool.not.i.i.i250, label %_ZNSt6vectorISt8weak_ptrIN6duckdb8PipelineEESaIS3_EED2Ev.exit, label %if.then.i.i.i251
 

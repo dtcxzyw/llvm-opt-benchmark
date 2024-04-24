@@ -8782,7 +8782,7 @@ invoke.cont12.thread:                             ; preds = %call3.i.i.i.noexc
   %_M_string_length.i24.i.i573 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i64 %12, ptr %_M_string_length.i24.i.i573, align 8, !tbaa !19, !alias.scope !134
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !19
-  store i8 0, ptr %10, align 8, !tbaa !14
+  store i8 0, ptr %11, align 8, !tbaa !14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 invoke.cont12:                                    ; preds = %call3.i.i.i.noexc

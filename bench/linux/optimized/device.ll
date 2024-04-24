@@ -68,7 +68,7 @@ define dso_local noundef i32 @snd_device_new(ptr noundef %0, i32 noundef %1, ptr
   br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !5
 
 .loopexit:                                        ; preds = %29, %.preheader, %14
-  %33 = phi ptr [ %21, %14 ], [ %25, %.preheader ], [ %21, %29 ]
+  %33 = phi ptr [ %23, %14 ], [ %25, %.preheader ], [ %31, %29 ]
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 8
   store ptr %12, ptr %35, align 8
@@ -402,7 +402,7 @@ define dso_local void @snd_device_free_all(ptr noundef readonly %0) local_unname
   %5 = getelementptr inbounds i8, ptr %0, i64 424
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %4
-  br i1 %7, label %.loopexit, label %.preheader5
+  br i1 %7, label %.loopexit6, label %.preheader5
 
 .preheader5:                                      ; preds = %3, %47
   %8 = phi ptr [ %10, %47 ], [ %6, %3 ]
@@ -478,79 +478,83 @@ __snd_device_free.exit:                           ; preds = %34, %39, %42
 
 47:                                               ; preds = %__snd_device_free.exit, %.preheader5, %.preheader5
   %48 = icmp eq ptr %10, %4
-  br i1 %48, label %.loopexit6, label %.preheader5, !llvm.loop !11
+  br i1 %48, label %.loopexit6.loopexit, label %.preheader5, !llvm.loop !11
 
-.loopexit6:                                       ; preds = %47
+.loopexit6.loopexit:                              ; preds = %47
   %.pre = load ptr, ptr %5, align 8
-  %49 = icmp eq ptr %.pre, %4
-  br i1 %49, label %.loopexit, label %.preheader
+  br label %.loopexit6
+
+.loopexit6:                                       ; preds = %.loopexit6.loopexit, %3
+  %49 = phi ptr [ %.pre, %.loopexit6.loopexit ], [ %6, %3 ]
+  %50 = icmp eq ptr %49, %4
+  br i1 %50, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit6, %__snd_device_free.exit4
-  %50 = phi ptr [ %52, %__snd_device_free.exit4 ], [ %.pre, %.loopexit6 ]
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
-  store ptr %52, ptr %54, align 8
-  store volatile ptr %53, ptr %52, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %50, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %51, align 8
-  %55 = getelementptr inbounds i8, ptr %50, i64 24
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp eq i32 %56, 1
-  br i1 %57, label %58, label %73
+  %51 = phi ptr [ %53, %__snd_device_free.exit4 ], [ %49, %.loopexit6 ]
+  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %51, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  store ptr %53, ptr %55, align 8
+  store volatile ptr %54, ptr %53, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %51, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %52, align 8
+  %56 = getelementptr inbounds i8, ptr %51, i64 24
+  %57 = load i32, ptr %56, align 8
+  %58 = icmp eq i32 %57, 1
+  br i1 %58, label %59, label %74
 
-58:                                               ; preds = %.preheader
-  %59 = getelementptr inbounds i8, ptr %50, i64 40
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %72, label %64
+59:                                               ; preds = %.preheader
+  %60 = getelementptr inbounds i8, ptr %51, i64 40
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %73, label %65
 
-64:                                               ; preds = %58
-  %65 = tail call i32 %62(ptr noundef %50) #6
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %72, label %67
+65:                                               ; preds = %59
+  %66 = tail call i32 %63(ptr noundef %51) #6
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %73, label %68
 
-67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %50, i64 16
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 640
-  %71 = load ptr, ptr %70, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %71, ptr noundef nonnull @.str.1) #7
-  br label %72
-
-72:                                               ; preds = %67, %64, %58
-  store i32 2, ptr %55, align 8
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds i8, ptr %51, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 640
+  %72 = load ptr, ptr %71, align 8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %72, ptr noundef nonnull @.str.1) #7
   br label %73
 
-73:                                               ; preds = %72, %.preheader
-  %74 = getelementptr inbounds i8, ptr %50, i64 40
-  %75 = load ptr, ptr %74, align 8
+73:                                               ; preds = %68, %65, %59
+  store i32 2, ptr %56, align 8
+  br label %74
+
+74:                                               ; preds = %73, %.preheader
+  %75 = getelementptr inbounds i8, ptr %51, i64 40
   %76 = load ptr, ptr %75, align 8
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %__snd_device_free.exit4, label %78
+  %77 = load ptr, ptr %76, align 8
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %__snd_device_free.exit4, label %79
 
-78:                                               ; preds = %73
-  %79 = tail call i32 %76(ptr noundef %50) #6
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %__snd_device_free.exit4, label %81
+79:                                               ; preds = %74
+  %80 = tail call i32 %77(ptr noundef %51) #6
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %__snd_device_free.exit4, label %82
 
-81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %50, i64 16
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 640
-  %85 = load ptr, ptr %84, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %85, ptr noundef nonnull @.str.2) #7
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds i8, ptr %51, i64 16
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 640
+  %86 = load ptr, ptr %85, align 8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %86, ptr noundef nonnull @.str.2) #7
   br label %__snd_device_free.exit4
 
-__snd_device_free.exit4:                          ; preds = %73, %78, %81
-  tail call void @kfree(ptr noundef %50) #6
-  %86 = icmp eq ptr %52, %4
-  br i1 %86, label %.loopexit, label %.preheader, !llvm.loop !12
+__snd_device_free.exit4:                          ; preds = %74, %79, %82
+  tail call void @kfree(ptr noundef %51) #6
+  %87 = icmp eq ptr %53, %4
+  br i1 %87, label %.loopexit, label %.preheader, !llvm.loop !12
 
-.loopexit:                                        ; preds = %__snd_device_free.exit4, %3, %.loopexit6, %1
+.loopexit:                                        ; preds = %__snd_device_free.exit4, %.loopexit6, %1
   ret void
 }
 

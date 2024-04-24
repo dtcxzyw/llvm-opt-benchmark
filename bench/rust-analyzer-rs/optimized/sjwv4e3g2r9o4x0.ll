@@ -293,9 +293,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   resume { ptr, i32 } %15
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h21d58ec3196a47e9E.llvm.3870958398981085830.exit.loopexit: ; preds = %21, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7dad0b9635b0728E.llvm.3870958398981085830.exit.i"
-  %.lcssa = phi ptr [ %11, %21 ], [ %19, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7dad0b9635b0728E.llvm.3870958398981085830.exit.i" ]
   %.ph = phi i64 [ %23, %21 ], [ %17, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7dad0b9635b0728E.llvm.3870958398981085830.exit.i" ]
-  store ptr %.lcssa, ptr %10, align 8, !alias.scope !90, !noalias !92
+  store ptr %19, ptr %10, align 8, !alias.scope !90, !noalias !92
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h21d58ec3196a47e9E.llvm.3870958398981085830.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h21d58ec3196a47e9E.llvm.3870958398981085830.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h21d58ec3196a47e9E.llvm.3870958398981085830.exit.loopexit, %2

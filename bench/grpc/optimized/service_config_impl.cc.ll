@@ -1401,7 +1401,7 @@ if.then20.i:                                      ; preds = %if.else18.i
   %conv.i32.i = zext i8 %86 to i32
   %conv3.i33.i = zext i8 %87 to i32
   %mul.i34.i = shl nuw nsw i64 %div6.i.i, 3
-  %sh_prom.i.i = trunc i64 %mul.i34.i to i32
+  %sh_prom.i.i = trunc nuw i64 %mul.i34.i to i32
   %shl.i35.i = shl nuw nsw i32 %conv3.i33.i, %sh_prom.i.i
   %or.i36.i = or i32 %shl.i35.i, %conv.i32.i
   %conv5.i.i = zext i8 %88 to i32
@@ -2149,7 +2149,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt3ma
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %cleanup
-  %15 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre12, %cleanup ]
+  %15 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %cleanup ]
   %tobool.not.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i, label %cleanup21, label %if.then.i.i.i
 
@@ -4136,7 +4136,7 @@ if.then20:                                        ; preds = %if.else18
   %conv.i32 = zext i8 %0 to i32
   %conv3.i33 = zext i8 %1 to i32
   %mul.i34 = shl nuw nsw i64 %div6.i, 3
-  %sh_prom.i = trunc i64 %mul.i34 to i32
+  %sh_prom.i = trunc nuw i64 %mul.i34 to i32
   %shl.i35 = shl nuw nsw i32 %conv3.i33, %sh_prom.i
   %or.i36 = or i32 %shl.i35, %conv.i32
   %conv5.i = zext i8 %2 to i32

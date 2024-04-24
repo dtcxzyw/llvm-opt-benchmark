@@ -1054,7 +1054,7 @@ while.body.i6.i12.i9.i.i.i.i.i:                   ; preds = %land.rhs.i4.i9.i6.i
   br i1 %cmp.not.i7.i14.i11.i.i.i.i.i, label %_ZN4llvh6detail12DenseSetImplIPN6hermes5ValueENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i.i.i, label %land.rhs.i4.i9.i6.i.i.i.i.i, !llvm.loop !21
 
 _ZN4llvh6detail12DenseSetImplIPN6hermes5ValueENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i.i.i: ; preds = %while.body.i6.i12.i9.i.i.i.i.i, %land.rhs.i4.i9.i6.i.i.i.i.i, %if.end8.i.i.i.i.i
-  %add.ptr.i.i.pn16.i.i.i.i.i = phi ptr [ %.pre18.i.i, %if.end8.i.i.i.i.i ], [ %add.ptr.i.i.i.i10.i.i.i, %while.body.i6.i12.i9.i.i.i.i.i ], [ %retval.sroa.0.2.i7.i.i.i.i.i, %land.rhs.i4.i9.i6.i.i.i.i.i ]
+  %add.ptr.i.i.pn16.i.i.i.i.i = phi ptr [ %.pre18.i.i, %if.end8.i.i.i.i.i ], [ %incdec.ptr.i.i13.i10.i.i.i.i.i, %while.body.i6.i12.i9.i.i.i.i.i ], [ %retval.sroa.0.2.i7.i.i.i.i.i, %land.rhs.i4.i9.i6.i.i.i.i.i ]
   %125 = load ptr, ptr %add.ptr.i.i.pn16.i.i.i.i.i, align 8
   %126 = load i8, ptr %125, align 8
   %127 = add i8 %126, -109
@@ -1203,7 +1203,7 @@ for.end22.loopexit:                               ; preds = %for.cond.loopexit
   br label %for.end22
 
 for.end22:                                        ; preds = %for.end22.loopexit, %entry
-  %142 = phi ptr [ %0, %entry ], [ %.pre, %for.end22.loopexit ]
+  %142 = phi ptr [ %1, %entry ], [ %.pre, %for.end22.loopexit ]
   %changed.0.lcssa = phi i1 [ false, %entry ], [ %changed.1.ph, %for.end22.loopexit ]
   %tobool.not.i.i.i.i = icmp eq ptr %142, null
   br i1 %tobool.not.i.i.i.i, label %_ZN6hermes17PostOrderAnalysisD2Ev.exit, label %if.then.i.i.i.i14

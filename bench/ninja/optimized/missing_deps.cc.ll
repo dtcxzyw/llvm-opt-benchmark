@@ -794,7 +794,7 @@ _ZNSt8_Rb_treeIP4NodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_N
   br label %121
 
 121:                                              ; preds = %.noexc60.us, %108
-  %122 = phi ptr [ %.pre198, %.noexc60.us ], [ %97, %108 ]
+  %122 = phi ptr [ %.pre198, %.noexc60.us ], [ %98, %108 ]
   %123 = load ptr, ptr %122, align 8
   %.02022.i.i.i61.us = load ptr, ptr %89, align 8
   %.not23.i.i.i62.us = icmp eq ptr %.02022.i.i.i61.us, null
@@ -1934,7 +1934,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIP4EdgeSt4pairIKS1_S
 
 24:                                               ; preds = %2
   store ptr %21, ptr %7, align 8
-  %25 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %22, align 8
   store ptr %25, ptr %21, align 8
   br label %26
 

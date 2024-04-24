@@ -73,7 +73,7 @@ while.body:                                       ; preds = %entry, %while.body
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %while.body, %entry
-  %data.0.lcssa = phi ptr [ %key, %entry ], [ %add.ptr, %while.body ]
+  %data.0.lcssa = phi ptr [ %key, %entry ], [ %add.ptr8, %while.body ]
   %h.0.lcssa = phi i64 [ %xor, %entry ], [ %mul7, %while.body ]
   switch i32 %and, label %sw.epilog [
     i32 7, label %sw.bb
@@ -186,7 +186,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %while.body.i, %entry
-  %data.0.lcssa.i = phi ptr [ %ele, %entry ], [ %add.ptr.i, %while.body.i ]
+  %data.0.lcssa.i = phi ptr [ %ele, %entry ], [ %add.ptr8.i, %while.body.i ]
   %h.0.lcssa.i = phi i64 [ %xor.i, %entry ], [ %mul7.i, %while.body.i ]
   switch i32 %and.i, label %MurmurHash64A.exit [
     i32 7, label %sw.bb.i

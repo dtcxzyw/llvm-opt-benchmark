@@ -49448,7 +49448,7 @@ define hidden void @"_ZN99_$LT$serde..__private..de..content..TaggedContentVisit
 
 "_ZN85_$LT$serde..__private..de..FlatMapAccess$LT$E$GT$$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17he20210c32ee84080E.exit.thread": ; preds = %27, %"_ZN85_$LT$serde..__private..de..FlatMapAccess$LT$E$GT$$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17he20210c32ee84080E.exit"
   %37 = phi ptr [ %34, %"_ZN85_$LT$serde..__private..de..FlatMapAccess$LT$E$GT$$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17he20210c32ee84080E.exit" ], [ %25, %27 ]
-  %38 = phi ptr [ %31, %"_ZN85_$LT$serde..__private..de..FlatMapAccess$LT$E$GT$$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17he20210c32ee84080E.exit" ], [ %.pre, %27 ]
+  %38 = phi ptr [ %31, %"_ZN85_$LT$serde..__private..de..FlatMapAccess$LT$E$GT$$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17he20210c32ee84080E.exit" ], [ %28, %27 ]
   %.sroa.0.147 = phi i8 [ %35, %"_ZN85_$LT$serde..__private..de..FlatMapAccess$LT$E$GT$$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17he20210c32ee84080E.exit" ], [ 23, %27 ]
   %.sroa.928.246 = phi ptr [ %.sroa.928.0.copyload30, %"_ZN85_$LT$serde..__private..de..FlatMapAccess$LT$E$GT$$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17he20210c32ee84080E.exit" ], [ %.sroa.928.0, %27 ]
   switch i8 %.sroa.0.147, label %43 [

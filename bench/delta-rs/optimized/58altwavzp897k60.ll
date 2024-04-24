@@ -1004,9 +1004,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   resume { ptr, i32 } %13
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h91b5bda73531f9cdE.llvm.11404550749661225208.exit.loopexit: ; preds = %19, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h192302777b811094E.llvm.11404550749661225208.exit.i"
-  %.lcssa = phi ptr [ %9, %19 ], [ %17, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h192302777b811094E.llvm.11404550749661225208.exit.i" ]
   %.ph = phi i64 [ %21, %19 ], [ %15, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h192302777b811094E.llvm.11404550749661225208.exit.i" ]
-  store ptr %.lcssa, ptr %8, align 8, !alias.scope !403, !noalias !405
+  store ptr %17, ptr %8, align 8, !alias.scope !403, !noalias !405
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h91b5bda73531f9cdE.llvm.11404550749661225208.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h91b5bda73531f9cdE.llvm.11404550749661225208.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h91b5bda73531f9cdE.llvm.11404550749661225208.exit.loopexit, %2
@@ -1143,9 +1142,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   resume { ptr, i32 } %13
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hf3b1d9ba94cc563eE.llvm.11404550749661225208.exit.loopexit: ; preds = %19, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdf06bf33814037bE.llvm.11404550749661225208.exit.i"
-  %.lcssa = phi ptr [ %9, %19 ], [ %17, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdf06bf33814037bE.llvm.11404550749661225208.exit.i" ]
   %.ph = phi i64 [ %21, %19 ], [ %15, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdf06bf33814037bE.llvm.11404550749661225208.exit.i" ]
-  store ptr %.lcssa, ptr %8, align 8, !alias.scope !454, !noalias !456
+  store ptr %17, ptr %8, align 8, !alias.scope !454, !noalias !456
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17hf3b1d9ba94cc563eE.llvm.11404550749661225208.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hf3b1d9ba94cc563eE.llvm.11404550749661225208.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hf3b1d9ba94cc563eE.llvm.11404550749661225208.exit.loopexit, %2

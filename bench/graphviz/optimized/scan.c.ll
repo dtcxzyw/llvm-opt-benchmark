@@ -2514,40 +2514,44 @@ define noundef ptr @aag_create_buffer(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %25, label %aag_flush_buffer.exit.thread.i, label %aag_flush_buffer.exit.i.thread
 
 aag_flush_buffer.exit.thread.i:                   ; preds = %21
-  store i32 0, ptr @yy_n_chars, align 4
-  store ptr %9, ptr @yy_c_buf_p, align 8
-  store ptr %9, ptr @aagtext, align 8
-  %26 = load ptr, ptr %23, align 8
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr @aagin, align 8
-  %28 = load i8, ptr %9, align 1
-  store i8 %28, ptr @yy_hold_char, align 1
+  %26 = getelementptr inbounds i8, ptr %24, i64 28
+  %27 = load i32, ptr %26, align 4
+  store i32 %27, ptr @yy_n_chars, align 4
+  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = load ptr, ptr %28, align 8
+  store ptr %29, ptr @yy_c_buf_p, align 8
+  store ptr %29, ptr @aagtext, align 8
+  %30 = load ptr, ptr %23, align 8
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr @aagin, align 8
+  %32 = load i8, ptr %29, align 1
+  store i8 %32, ptr @yy_hold_char, align 1
   %.pre = load ptr, ptr %23, align 8
   br label %aag_flush_buffer.exit.i.thread
 
 aag_flush_buffer.exit.i.thread:                   ; preds = %aag_flush_buffer.exit.thread.i, %21, %12
-  %29 = phi ptr [ null, %12 ], [ %.pre, %aag_flush_buffer.exit.thread.i ], [ %24, %21 ]
+  %33 = phi ptr [ null, %12 ], [ %.pre, %aag_flush_buffer.exit.thread.i ], [ %24, %21 ]
   store ptr %0, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 52
-  store i32 1, ptr %30, align 4
-  %.not10.i = icmp eq ptr %29, %3
-  br i1 %.not10.i, label %aag_init_buffer.exit, label %31
+  %34 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %34, align 4
+  %.not10.i = icmp eq ptr %33, %3
+  br i1 %.not10.i, label %aag_init_buffer.exit, label %35
 
-31:                                               ; preds = %aag_flush_buffer.exit.i.thread
-  %32 = getelementptr inbounds i8, ptr %3, i64 44
-  store i32 1, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 0, ptr %33, align 8
+35:                                               ; preds = %aag_flush_buffer.exit.i.thread
+  %36 = getelementptr inbounds i8, ptr %3, i64 44
+  store i32 1, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 0, ptr %37, align 8
   br label %aag_init_buffer.exit
 
-aag_init_buffer.exit:                             ; preds = %aag_flush_buffer.exit.i.thread, %31
+aag_init_buffer.exit:                             ; preds = %aag_flush_buffer.exit.i.thread, %35
   %.not11.i = icmp ne ptr %0, null
-  %34 = load i32, ptr @gv_isatty_suppression, align 4
-  %35 = icmp sgt i32 %34, 0
-  %narrow.i = select i1 %.not11.i, i1 %35, i1 false
-  %36 = zext i1 %narrow.i to i32
-  %37 = getelementptr inbounds i8, ptr %3, i64 36
-  store i32 %36, ptr %37, align 4
+  %38 = load i32, ptr @gv_isatty_suppression, align 4
+  %39 = icmp sgt i32 %38, 0
+  %narrow.i = select i1 %.not11.i, i1 %39, i1 false
+  %40 = zext i1 %narrow.i to i32
+  %41 = getelementptr inbounds i8, ptr %3, i64 36
+  store i32 %40, ptr %41, align 4
   store i32 %15, ptr %14, align 4
   ret ptr %3
 }
@@ -3770,16 +3774,16 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_copy(ptr nonnull %3, ptr nonnull %4)
+  call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
   %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #28
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   br label %vagxbprint.exit
 
 8:                                                ; preds = %2
@@ -3858,7 +3862,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
 
 vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %34, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4112,17 +4116,17 @@ declare ptr @agstrdup_html(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #20
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #21
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #21
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #21
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #21
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #21
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22

@@ -317,7 +317,7 @@ malloc_mutex_lock.exit.i22:                       ; preds = %if.then.i.i.i20, %i
   br i1 %cmp.i23, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %malloc_mutex_lock.exit.i22
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i27 = getelementptr inbounds i8, ptr %tsd, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i27 = getelementptr inbounds i8, ptr %15, i64 200
   %16 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i27, align 8
   store ptr %16, ptr @tsd_nominal_tsds.0, align 8
   br label %if.end.i

@@ -439,7 +439,7 @@ ehcleanup:                                        ; preds = %if.then.i.i99, %_ZN
 
 if.end44:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97, %if.end27
   %isdir.2 = phi i32 [ %and.lobit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97 ], [ %conv26, %if.end27 ]
-  %frombool = trunc i32 %isdir.2 to i8
+  %frombool = trunc nuw nsw i32 %isdir.2 to i8
   store i8 %frombool, ptr %dir, align 8, !tbaa !24
   %34 = load ptr, ptr %_M_finish.i, align 8, !tbaa !27
   %35 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !28
@@ -2869,7 +2869,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN2fs1
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %entry
-  %7 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %for.cond.cleanup ], [ %0, %entry ]
+  %7 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre119, %for.cond.cleanup ], [ %0, %entry ]
   %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN2fs11DirListNodeESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
@@ -3910,7 +3910,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN2fs1
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %cleanup57, %_ZN11StreamProxylsEPFRSoS0_E.exit
   %cmp.i.not.lcssa331 = phi i1 [ %cmp.i.not.lcssa.ph, %invoke.contthread-pre-split.i ], [ %cmp.i.not.lcssa.ph, %cleanup57 ], [ true, %_ZN11StreamProxylsEPFRSoS0_E.exit ]
-  %64 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %cleanup57 ], [ %11, %_ZN11StreamProxylsEPFRSoS0_E.exit ]
+  %64 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre328, %cleanup57 ], [ %11, %_ZN11StreamProxylsEPFRSoS0_E.exit ]
   %tobool.not.i.i.i = icmp eq ptr %64, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN2fs11DirListNodeESaIS1_EED2Ev.exit, label %if.then.i.i.i191
 
@@ -5048,7 +5048,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN2fs1
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %if.end
   %retval4.0.lcssa251 = phi i1 [ %9, %invoke.contthread-pre-split.i ], [ %9, %for.cond.cleanup ], [ true, %if.end ]
-  %13 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %for.cond.cleanup ], [ %2, %if.end ]
+  %13 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre248, %for.cond.cleanup ], [ %2, %if.end ]
   %tobool.not.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN2fs11DirListNodeESaIS1_EED2Ev.exit, label %if.then.i.i.i
 

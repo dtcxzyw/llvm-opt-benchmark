@@ -487,10 +487,10 @@ addNodeEdges.exit160:                             ; preds = %178, %addNodeEdges.
 
 217:                                              ; preds = %214, %.thread.i
   %218 = phi double [ %208, %.thread.i ], [ %216, %214 ]
-  %.0113237238.i = phi ptr [ %.pre.i, %.thread.i ], [ %201, %214 ]
-  %219 = getelementptr inbounds i8, ptr %.pre.i, i64 80
+  %.0113236239.i = phi ptr [ %.pre.i, %.thread.i ], [ %201, %214 ]
+  %219 = getelementptr inbounds i8, ptr %.0113236239.i, i64 80
   %220 = load double, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %.pre.i, i64 96
+  %221 = getelementptr inbounds i8, ptr %.0113236239.i, i64 96
   %222 = load double, ptr %221, align 8
   %223 = fadd double %220, %222
   %224 = fmul double %223, 5.000000e-01
@@ -498,12 +498,12 @@ addNodeEdges.exit160:                             ; preds = %178, %addNodeEdges.
 
 225:                                              ; preds = %214, %.thread.i
   %226 = phi double [ %208, %.thread.i ], [ %216, %214 ]
-  %.0113237239.i = phi ptr [ %.pre.i, %.thread.i ], [ %201, %214 ]
-  %227 = getelementptr inbounds i8, ptr %.pre.i, i64 88
+  %.0113236238.i = phi ptr [ %.pre.i, %.thread.i ], [ %201, %214 ]
+  %227 = getelementptr inbounds i8, ptr %.0113236238.i, i64 88
   %228 = load double, ptr %227, align 8
   %229 = fadd double %226, %228
   %230 = fmul double %229, 5.000000e-01
-  %231 = getelementptr inbounds i8, ptr %.pre.i, i64 80
+  %231 = getelementptr inbounds i8, ptr %.0113236238.i, i64 80
   %232 = load double, ptr %231, align 8
   br label %sidePt.exit.i
 
@@ -533,7 +533,7 @@ addNodeEdges.exit160:                             ; preds = %178, %addNodeEdges.
   br label %sidePt.exit.i
 
 sidePt.exit.i:                                    ; preds = %243, %234, %225, %217
-  %.0113236.i = phi ptr [ %.0113237238.i, %217 ], [ %.0113237239.i, %225 ], [ %201, %234 ], [ %201, %243 ]
+  %.0113237.i = phi ptr [ %.0113236239.i, %217 ], [ %.0113236238.i, %225 ], [ %201, %234 ], [ %201, %243 ]
   %.sroa.0.0.i.i = phi double [ %218, %217 ], [ %230, %225 ], [ %236, %234 ], [ %249, %243 ]
   %.sroa.5.0.i.i = phi double [ %224, %217 ], [ %232, %225 ], [ %242, %234 ], [ %251, %243 ]
   %252 = getelementptr inbounds i8, ptr %199, i64 8
@@ -547,7 +547,7 @@ sidePt.exit.i:                                    ; preds = %243, %234, %225, %2
   %.1222.i = phi ptr [ %.2.i, %380 ], [ %197, %sidePt.exit.i ]
   %.0110221.i = phi ptr [ %381, %380 ], [ %199, %sidePt.exit.i ]
   %.0111220.i = phi ptr [ %.0110221.i, %380 ], [ %197, %sidePt.exit.i ]
-  %.1114219.i = phi ptr [ %.2115.i, %380 ], [ %.0113236.i, %sidePt.exit.i ]
+  %.1114219.i = phi ptr [ %.2115.i, %380 ], [ %.0113237.i, %sidePt.exit.i ]
   %.sroa.4.0218.i = phi double [ %.sroa.4.1.i, %380 ], [ 0.000000e+00, %sidePt.exit.i ]
   %.sroa.014.0217.i = phi double [ %.sroa.014.1.i, %380 ], [ 0.000000e+00, %sidePt.exit.i ]
   %.sroa.019.0215.i = phi double [ %.sroa.019.1.i, %380 ], [ %.sroa.0.0.i.i, %sidePt.exit.i ]
@@ -797,7 +797,7 @@ sidePt.exit153.i:                                 ; preds = %setSeg.exit.i
   br label %380
 
 380:                                              ; preds = %sidePt.exit153.i, %setSeg.exit.i, %275
-  %381 = phi ptr [ %276, %275 ], [ %103, %sidePt.exit153.i ], [ %.pre234.i, %setSeg.exit.i ]
+  %381 = phi ptr [ %276, %275 ], [ %.pre234.i, %sidePt.exit153.i ], [ %.pre234.i, %setSeg.exit.i ]
   %.sroa.5.1.i = phi double [ %.sroa.5.0213.i, %275 ], [ %370, %sidePt.exit153.i ], [ %370, %setSeg.exit.i ]
   %.sroa.019.1.i = phi double [ %.sroa.019.0215.i, %275 ], [ %369, %sidePt.exit153.i ], [ %369, %setSeg.exit.i ]
   %.sroa.014.1.i = phi double [ %.sroa.014.0217.i, %275 ], [ %.sroa.019.0215.i, %sidePt.exit153.i ], [ %.sroa.019.0215.i, %setSeg.exit.i ]

@@ -562,7 +562,7 @@ _ZNSt7__cxx114listIP13RichParameterSaIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i.i, %
 define void @_ZN17RichParameterListD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.04.07.i = load ptr, ptr %0, align 8
   %.not8.i = icmp eq ptr %.sroa.04.07.i, %0
-  br i1 %.not8.i, label %_ZNSt7__cxx114listIP13RichParameterSaIS2_EED2Ev.exit, label %.lr.ph.i
+  br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %9
   %.sroa.04.09.i = phi ptr [ %.sroa.04.0.i, %9 ], [ %.sroa.04.07.i, %1 ]
@@ -581,26 +581,30 @@ define void @_ZN17RichParameterListD2Ev(ptr noundef nonnull align 8 dereferencea
 9:                                                ; preds = %5, %.lr.ph.i
   %.sroa.04.0.i = load ptr, ptr %.sroa.04.09.i, align 8
   %.not.i = icmp eq ptr %.sroa.04.0.i, %0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %9
+._crit_edge.loopexit.i:                           ; preds = %9
   %.pre.i = load ptr, ptr %0, align 8
-  %.not8.i.i.i = icmp eq ptr %.pre.i, %0
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %1
+  %10 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %.sroa.04.07.i, %1 ]
+  %.not8.i.i.i = icmp eq ptr %10, %0
   br i1 %.not8.i.i.i, label %_ZNSt7__cxx114listIP13RichParameterSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge.i, %.lr.ph.i.i.i
-  %.09.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i ], [ %.pre.i, %._crit_edge.i ]
-  %10 = load ptr, ptr %.09.i.i.i, align 8
+  %.09.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i ], [ %10, %._crit_edge.i ]
+  %11 = load ptr, ptr %.09.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #21
-  %.not.i.i.i = icmp eq ptr %10, %0
+  %.not.i.i.i = icmp eq ptr %11, %0
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP13RichParameterSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !10
 
-_ZNSt7__cxx114listIP13RichParameterSaIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i.i, %._crit_edge.i, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %0, ptr %11, align 8
+_ZNSt7__cxx114listIP13RichParameterSaIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i.i, %._crit_edge.i
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %0, ptr %12, align 8
   store ptr %0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 0, ptr %13, align 8
   ret void
 }
 
@@ -608,7 +612,7 @@ _ZNSt7__cxx114listIP13RichParameterSaIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i.i, %
 define void @_ZN17RichParameterList5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.04.07 = load ptr, ptr %0, align 8
   %.not8 = icmp eq ptr %.sroa.04.07, %0
-  br i1 %.not8, label %_ZNSt7__cxx114listIP13RichParameterSaIS2_EE5clearEv.exit, label %.lr.ph
+  br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %9
   %.sroa.04.09 = phi ptr [ %.sroa.04.0, %9 ], [ %.sroa.04.07, %1 ]
@@ -627,26 +631,30 @@ define void @_ZN17RichParameterList5clearEv(ptr noundef nonnull align 8 derefere
 9:                                                ; preds = %.lr.ph, %5
   %.sroa.04.0 = load ptr, ptr %.sroa.04.09, align 8
   %.not = icmp eq ptr %.sroa.04.0, %0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
-._crit_edge:                                      ; preds = %9
+._crit_edge.loopexit:                             ; preds = %9
   %.pre = load ptr, ptr %0, align 8
-  %.not8.i.i = icmp eq ptr %.pre, %0
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
+  %10 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.sroa.04.07, %1 ]
+  %.not8.i.i = icmp eq ptr %10, %0
   br i1 %.not8.i.i, label %_ZNSt7__cxx114listIP13RichParameterSaIS2_EE5clearEv.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge, %.lr.ph.i.i
-  %.09.i.i = phi ptr [ %10, %.lr.ph.i.i ], [ %.pre, %._crit_edge ]
-  %10 = load ptr, ptr %.09.i.i, align 8
+  %.09.i.i = phi ptr [ %11, %.lr.ph.i.i ], [ %10, %._crit_edge ]
+  %11 = load ptr, ptr %.09.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %.09.i.i) #21
-  %.not.i.i = icmp eq ptr %10, %0
+  %.not.i.i = icmp eq ptr %11, %0
   br i1 %.not.i.i, label %_ZNSt7__cxx114listIP13RichParameterSaIS2_EE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !10
 
-_ZNSt7__cxx114listIP13RichParameterSaIS2_EE5clearEv.exit: ; preds = %.lr.ph.i.i, %1, %._crit_edge
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %0, ptr %11, align 8
+_ZNSt7__cxx114listIP13RichParameterSaIS2_EE5clearEv.exit: ; preds = %.lr.ph.i.i, %._crit_edge
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %0, ptr %12, align 8
   store ptr %0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 0, ptr %13, align 8
   ret void
 }
 

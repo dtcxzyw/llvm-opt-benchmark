@@ -913,7 +913,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_
   store i32 %321, ptr %307, align 4
   %322 = load ptr, ptr %9, align 8
   %323 = getelementptr inbounds i32, ptr %322, i64 %319
-  %324 = trunc i64 %indvars.iv.i to i32
+  %324 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %324, ptr %323, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %325 = load ptr, ptr %175, align 8
@@ -953,7 +953,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_
   %346 = phi ptr [ %223, %215 ], [ %333, %338 ], [ %333, %.noexc66 ]
   %347 = phi ptr [ %213, %215 ], [ %335, %338 ], [ %335, %.noexc66 ]
   %348 = phi ptr [ %224, %215 ], [ %334, %338 ], [ %334, %.noexc66 ]
-  %349 = phi ptr [ %212, %215 ], [ %336, %338 ], [ %335, %.noexc66 ]
+  %349 = phi ptr [ %212, %215 ], [ %336, %338 ], [ %336, %.noexc66 ]
   %350 = phi i32 [ %222, %215 ], [ %345, %338 ], [ 0, %.noexc66 ]
   %351 = sext i32 %350 to i64
   %352 = getelementptr inbounds i32, ptr %349, i64 %351
@@ -1195,7 +1195,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_
   store i32 %470, ptr %456, align 4
   %471 = load ptr, ptr %9, align 8
   %472 = getelementptr inbounds i32, ptr %471, i64 %468
-  %473 = trunc i64 %indvars.iv.i96 to i32
+  %473 = trunc nuw nsw i64 %indvars.iv.i96 to i32
   store i32 %473, ptr %472, align 4
   %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i96, 1
   %474 = load ptr, ptr %175, align 8
@@ -1232,7 +1232,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_
 
 ._crit_edge.i.i67:                                ; preds = %486, %.noexc70, %367
   %494 = phi ptr [ %348, %367 ], [ %482, %486 ], [ %482, %.noexc70 ]
-  %495 = phi ptr [ %349, %367 ], [ %484, %486 ], [ %483, %.noexc70 ]
+  %495 = phi ptr [ %349, %367 ], [ %484, %486 ], [ %484, %.noexc70 ]
   %496 = phi i32 [ %373, %367 ], [ %493, %486 ], [ 0, %.noexc70 ]
   %497 = sext i32 %496 to i64
   %498 = getelementptr inbounds i32, ptr %495, i64 %497
@@ -2441,7 +2441,7 @@ _ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE7do_hashERKS2_.exit: ; preds = %
   store i32 %65, ptr %44, align 8
   %66 = load ptr, ptr %0, align 8
   %67 = getelementptr inbounds i32, ptr %66, i64 %63
-  %68 = trunc i64 %indvars.iv to i32
+  %68 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %68, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load ptr, ptr %33, align 8
@@ -3100,7 +3100,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %74, %_ZNSt6vectorIP
   br label %102
 
 102:                                              ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit, %39
-  %103 = phi ptr [ %.pre76, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %36, %39 ]
+  %103 = phi ptr [ %.pre76, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %37, %39 ]
   %104 = phi ptr [ %.pre75, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %40, %39 ]
   %105 = phi ptr [ %.pre, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %41, %39 ]
   %106 = ptrtoint ptr %105 to i64
@@ -4258,7 +4258,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_
   store i32 %58, ptr %44, align 4
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds i32, ptr %59, i64 %56
-  %61 = trunc i64 %indvars.iv to i32
+  %61 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %61, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = load ptr, ptr %33, align 8

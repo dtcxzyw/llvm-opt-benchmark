@@ -246,7 +246,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -305,7 +305,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -1941,7 +1941,7 @@ for.end.sink.split:                               ; preds = %if.then45, %if.end2
   br label %for.end
 
 for.end:                                          ; preds = %for.end.sink.split, %_ZN6icu_7512CollationFCD7hasTcccEi.exit, %land.lhs.true.i, %land.lhs.true, %land.lhs.true.i13, %_ZN6icu_7512CollationFCD7hasLcccEi.exit, %lor.lhs.false, %if.else
-  %14 = phi ptr [ %incdec.ptr, %_ZN6icu_7512CollationFCD7hasLcccEi.exit ], [ %3, %lor.lhs.false ], [ %incdec.ptr, %if.else ], [ %incdec.ptr, %land.lhs.true.i13 ], [ %incdec.ptr, %land.lhs.true ], [ %incdec.ptr, %land.lhs.true.i ], [ %incdec.ptr, %_ZN6icu_7512CollationFCD7hasTcccEi.exit ], [ %.ph, %for.end.sink.split ]
+  %14 = phi ptr [ %incdec.ptr, %_ZN6icu_7512CollationFCD7hasLcccEi.exit ], [ %incdec.ptr, %lor.lhs.false ], [ %incdec.ptr, %if.else ], [ %incdec.ptr, %land.lhs.true.i13 ], [ %incdec.ptr, %land.lhs.true ], [ %incdec.ptr, %land.lhs.true.i ], [ %incdec.ptr, %_ZN6icu_7512CollationFCD7hasTcccEi.exit ], [ %.ph, %for.end.sink.split ]
   %c.0 = phi i32 [ %conv5, %_ZN6icu_7512CollationFCD7hasLcccEi.exit ], [ %conv5, %lor.lhs.false ], [ %conv5, %if.else ], [ %conv5, %land.lhs.true.i13 ], [ %conv5, %land.lhs.true ], [ %conv5, %land.lhs.true.i ], [ %conv5, %_ZN6icu_7512CollationFCD7hasTcccEi.exit ], [ %conv25, %for.end.sink.split ]
   %and = and i32 %c.0, 64512
   %cmp52 = icmp eq i32 %and, 55296
@@ -2123,7 +2123,7 @@ for.end.sink.split:                               ; preds = %if.then35, %if.end2
   br label %for.end
 
 for.end:                                          ; preds = %for.end.sink.split, %land.lhs.true, %land.lhs.true.i12, %if.end, %land.lhs.true.i, %_ZN6icu_7512CollationFCD7hasLcccEi.exit, %_ZN6icu_7512CollationFCD7hasTcccEi.exit, %lor.lhs.false
-  %13 = phi ptr [ %incdec.ptr, %_ZN6icu_7512CollationFCD7hasTcccEi.exit ], [ %3, %lor.lhs.false ], [ %incdec.ptr, %_ZN6icu_7512CollationFCD7hasLcccEi.exit ], [ %incdec.ptr, %land.lhs.true.i ], [ %incdec.ptr, %if.end ], [ %incdec.ptr, %land.lhs.true.i12 ], [ %incdec.ptr, %land.lhs.true ], [ %incdec.ptr24.sink, %for.end.sink.split ]
+  %13 = phi ptr [ %incdec.ptr, %_ZN6icu_7512CollationFCD7hasTcccEi.exit ], [ %incdec.ptr, %lor.lhs.false ], [ %incdec.ptr, %_ZN6icu_7512CollationFCD7hasLcccEi.exit ], [ %incdec.ptr, %land.lhs.true.i ], [ %incdec.ptr, %if.end ], [ %incdec.ptr, %land.lhs.true.i12 ], [ %incdec.ptr, %land.lhs.true ], [ %incdec.ptr24.sink, %for.end.sink.split ]
   %c.0 = phi i32 [ %conv5, %_ZN6icu_7512CollationFCD7hasTcccEi.exit ], [ %conv5, %lor.lhs.false ], [ %conv5, %_ZN6icu_7512CollationFCD7hasLcccEi.exit ], [ %conv5, %land.lhs.true.i ], [ %conv5, %if.end ], [ %conv5, %land.lhs.true.i12 ], [ %conv5, %land.lhs.true ], [ %conv25, %for.end.sink.split ]
   %and = and i32 %c.0, 64512
   %cmp42 = icmp eq i32 %and, 56320

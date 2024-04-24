@@ -2625,7 +2625,7 @@ _ZN5cmsys13RegExpCompile4regcEc.exit55:           ; preds = %_ZN5cmsys13RegExpCo
   br i1 %.not.i56, label %117, label %114
 
 114:                                              ; preds = %.lr.ph.split
-  %115 = trunc i32 %.034 to i8
+  %115 = trunc nuw i32 %.034 to i8
   %116 = getelementptr inbounds i8, ptr %113, i64 1
   store ptr %116, ptr %85, align 8
   store i8 %115, ptr %113, align 1
@@ -3583,7 +3583,7 @@ _ZN5cmsysL7regnextEPKc.exit67:                    ; preds = %96
   br label %.critedge
 
 139:                                              ; preds = %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %29, %28, %90, %64, %55, %45, %34
-  %140 = phi ptr [ %6, %90 ], [ %6, %_ZN5cmsysL7regnextEPKc.exit ], [ %6, %_ZN5cmsysL7regnextEPKc.exit ], [ %65, %64 ], [ %56, %55 ], [ %46, %45 ], [ %35, %34 ], [ %6, %29 ], [ %4, %28 ]
+  %140 = phi ptr [ %6, %90 ], [ %6, %_ZN5cmsysL7regnextEPKc.exit ], [ %6, %_ZN5cmsysL7regnextEPKc.exit ], [ %65, %64 ], [ %56, %55 ], [ %46, %45 ], [ %35, %34 ], [ %6, %29 ], [ %6, %28 ]
   %.047 = phi ptr [ %91, %90 ], [ %.0.i, %_ZN5cmsysL7regnextEPKc.exit ], [ %.0.i, %_ZN5cmsysL7regnextEPKc.exit ], [ %.0.i, %64 ], [ %.0.i, %55 ], [ %.0.i, %45 ], [ %.0.i, %34 ], [ %.0.i, %29 ], [ %.0.i, %28 ]
   %.not = icmp eq ptr %.047, null
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !27

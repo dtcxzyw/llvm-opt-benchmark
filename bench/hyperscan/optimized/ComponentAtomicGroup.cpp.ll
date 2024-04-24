@@ -93,7 +93,7 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
-  %7 = phi ptr [ %.pre28, %for.end.loopexit ], [ %1, %if.end ]
+  %7 = phi ptr [ %.pre28, %for.end.loopexit ], [ %2, %if.end ]
   %8 = phi ptr [ %.pre, %for.end.loopexit ], [ %1, %if.end ]
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %8 to i64

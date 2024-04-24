@@ -17577,16 +17577,16 @@ _ZN8ImVectorItE6resizeEi.exit:                    ; preds = %if.end202, %if.end7
   %Capacity.i924 = getelementptr inbounds i8, ptr %0, i64 20180
   %82 = load i32, ptr %Capacity.i924, align 4
   %cmp.i925 = icmp slt i32 %82, 0
-  br i1 %cmp.i925, label %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i931, label %_ZN8ImVectorIcE6resizeEi.exit941
+  br i1 %cmp.i925, label %if.then.i926, label %_ZN8ImVectorIcE6resizeEi.exit941
 
-_ZNK8ImVectorIcE14_grow_capacityEi.exit.i931:     ; preds = %_ZN8ImVectorItE6resizeEi.exit
+if.then.i926:                                     ; preds = %_ZN8ImVectorItE6resizeEi.exit
   %call.i.i935 = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 0)
   %Data.i.i936 = getelementptr inbounds i8, ptr %0, i64 20184
   %83 = load ptr, ptr %Data.i.i936, align 8
   %tobool.not.i4.i937 = icmp eq ptr %83, null
   br i1 %tobool.not.i4.i937, label %if.end7.i.i940, label %if.then2.i.i938
 
-if.then2.i.i938:                                  ; preds = %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i931
+if.then2.i.i938:                                  ; preds = %if.then.i926
   %84 = load i32, ptr %TextA205, align 8
   %conv4.i.i939 = sext i32 %84 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i935, ptr nonnull align 1 %83, i64 %conv4.i.i939, i1 false)
@@ -17594,7 +17594,7 @@ if.then2.i.i938:                                  ; preds = %_ZNK8ImVectorIcE14_
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %85)
   br label %if.end7.i.i940
 
-if.end7.i.i940:                                   ; preds = %if.then2.i.i938, %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i931
+if.end7.i.i940:                                   ; preds = %if.then2.i.i938, %if.then.i926
   store ptr %call.i.i935, ptr %Data.i.i936, align 8
   store i32 0, ptr %Capacity.i924, align 4
   br label %_ZN8ImVectorIcE6resizeEi.exit941
@@ -18363,16 +18363,16 @@ if.end590:                                        ; preds = %for.inc, %if.then57
   %Capacity.i1001 = getelementptr inbounds i8, ptr %0, i64 14564
   %183 = load i32, ptr %Capacity.i1001, align 4
   %cmp.i1002 = icmp slt i32 %183, 0
-  br i1 %cmp.i1002, label %_ZNK8ImVectorItE14_grow_capacityEi.exit.i1008, label %_ZN8ImVectorItE6resizeEi.exit1020
+  br i1 %cmp.i1002, label %if.then.i1003, label %_ZN8ImVectorItE6resizeEi.exit1020
 
-_ZNK8ImVectorItE14_grow_capacityEi.exit.i1008:    ; preds = %if.end590
+if.then.i1003:                                    ; preds = %if.end590
   %call.i.i1013 = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 0)
   %Data.i.i1014 = getelementptr inbounds i8, ptr %0, i64 14568
   %184 = load ptr, ptr %Data.i.i1014, align 8
   %tobool.not.i4.i1015 = icmp eq ptr %184, null
   br i1 %tobool.not.i4.i1015, label %if.end7.i.i1019, label %if.then2.i.i1016
 
-if.then2.i.i1016:                                 ; preds = %_ZNK8ImVectorItE14_grow_capacityEi.exit.i1008
+if.then2.i.i1016:                                 ; preds = %if.then.i1003
   %185 = load i32, ptr %InputQueueCharacters, align 8
   %conv4.i.i1017 = sext i32 %185 to i64
   %mul5.i.i1018 = shl nsw i64 %conv4.i.i1017, 1
@@ -18381,7 +18381,7 @@ if.then2.i.i1016:                                 ; preds = %_ZNK8ImVectorItE14_
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %186)
   br label %if.end7.i.i1019
 
-if.end7.i.i1019:                                  ; preds = %if.then2.i.i1016, %_ZNK8ImVectorItE14_grow_capacityEi.exit.i1008
+if.end7.i.i1019:                                  ; preds = %if.then2.i.i1016, %if.then.i1003
   store ptr %call.i.i1013, ptr %Data.i.i1014, align 8
   store i32 0, ptr %Capacity.i1001, align 4
   br label %_ZN8ImVectorItE6resizeEi.exit1020
@@ -23340,16 +23340,16 @@ if.then4:                                         ; preds = %if.end
   %Capacity.i = getelementptr inbounds i8, ptr %0, i64 23876
   %3 = load i32, ptr %Capacity.i, align 4
   %cmp.i = icmp slt i32 %3, 0
-  br i1 %cmp.i, label %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i, label %_ZN8ImVectorIcE6resizeEi.exit
+  br i1 %cmp.i, label %if.then.i, label %_ZN8ImVectorIcE6resizeEi.exit
 
-_ZNK8ImVectorIcE14_grow_capacityEi.exit.i:        ; preds = %if.then4
+if.then.i:                                        ; preds = %if.then4
   %call.i.i = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 0)
   %Data.i.i = getelementptr inbounds i8, ptr %0, i64 23880
   %4 = load ptr, ptr %Data.i.i, align 8
   %tobool.not.i4.i = icmp eq ptr %4, null
   br i1 %tobool.not.i4.i, label %if.end7.i.i, label %if.then2.i.i
 
-if.then2.i.i:                                     ; preds = %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
+if.then2.i.i:                                     ; preds = %if.then.i
   %5 = load i32, ptr %TextA7, align 8
   %conv4.i.i = sext i32 %5 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull align 1 %4, i64 %conv4.i.i, i1 false)
@@ -23357,7 +23357,7 @@ if.then2.i.i:                                     ; preds = %_ZNK8ImVectorIcE14_
   tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %6)
   br label %if.end7.i.i
 
-if.end7.i.i:                                      ; preds = %if.then2.i.i, %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
+if.end7.i.i:                                      ; preds = %if.then2.i.i, %if.then.i
   store ptr %call.i.i, ptr %Data.i.i, align 8
   store i32 0, ptr %Capacity.i, align 4
   br label %_ZN8ImVectorIcE6resizeEi.exit
@@ -23373,50 +23373,50 @@ if.else:                                          ; preds = %if.end
   %Capacity.i11 = getelementptr inbounds i8, ptr %0, i64 23876
   %8 = load i32, ptr %Capacity.i11, align 4
   %cmp.i12.not = icmp sgt i32 %8, %7
-  br i1 %cmp.i12.not, label %if.else._ZN8ImVectorIcE6resizeEi.exit28_crit_edge, label %if.then.i13
+  br i1 %cmp.i12.not, label %if.else._ZN8ImVectorIcE6resizeEi.exit24_crit_edge, label %if.then.i13
 
-if.else._ZN8ImVectorIcE6resizeEi.exit28_crit_edge: ; preds = %if.else
+if.else._ZN8ImVectorIcE6resizeEi.exit24_crit_edge: ; preds = %if.else
   %Data.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 23880
   %.pre = load ptr, ptr %Data.phi.trans.insert, align 8
-  br label %_ZN8ImVectorIcE6resizeEi.exit28
+  br label %_ZN8ImVectorIcE6resizeEi.exit24
 
 if.then.i13:                                      ; preds = %if.else
-  %tobool.not.i.i14 = icmp eq i32 %8, 0
-  br i1 %tobool.not.i.i14, label %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i18, label %cond.true.i.i15
+  %tobool.not.i.i = icmp eq i32 %8, 0
+  br i1 %tobool.not.i.i, label %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i, label %cond.true.i.i
 
-cond.true.i.i15:                                  ; preds = %if.then.i13
-  %div.i.i16 = sdiv i32 %8, 2
-  %add.i.i17 = add nsw i32 %div.i.i16, %8
-  br label %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i18
+cond.true.i.i:                                    ; preds = %if.then.i13
+  %div.i.i14 = sdiv i32 %8, 2
+  %add.i.i15 = add nsw i32 %div.i.i14, %8
+  br label %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
 
-_ZNK8ImVectorIcE14_grow_capacityEi.exit.i18:      ; preds = %cond.true.i.i15, %if.then.i13
-  %cond.i.i19 = phi i32 [ %add.i.i17, %cond.true.i.i15 ], [ 8, %if.then.i13 ]
-  %cond7.i.i20 = tail call noundef i32 @llvm.smax.i32(i32 %cond.i.i19, i32 %add)
-  %conv.i.i21 = sext i32 %cond7.i.i20 to i64
-  %call.i.i22 = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %conv.i.i21)
-  %Data.i.i23 = getelementptr inbounds i8, ptr %0, i64 23880
-  %9 = load ptr, ptr %Data.i.i23, align 8
-  %tobool.not.i4.i24 = icmp eq ptr %9, null
-  br i1 %tobool.not.i4.i24, label %if.end7.i.i27, label %if.then2.i.i25
+_ZNK8ImVectorIcE14_grow_capacityEi.exit.i:        ; preds = %cond.true.i.i, %if.then.i13
+  %cond.i.i = phi i32 [ %add.i.i15, %cond.true.i.i ], [ 8, %if.then.i13 ]
+  %cond7.i.i16 = tail call noundef i32 @llvm.smax.i32(i32 %cond.i.i, i32 %add)
+  %conv.i.i17 = sext i32 %cond7.i.i16 to i64
+  %call.i.i18 = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %conv.i.i17)
+  %Data.i.i19 = getelementptr inbounds i8, ptr %0, i64 23880
+  %9 = load ptr, ptr %Data.i.i19, align 8
+  %tobool.not.i4.i20 = icmp eq ptr %9, null
+  br i1 %tobool.not.i4.i20, label %if.end7.i.i23, label %if.then2.i.i21
 
-if.then2.i.i25:                                   ; preds = %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i18
+if.then2.i.i21:                                   ; preds = %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
   %10 = load i32, ptr %TextA7, align 8
-  %conv4.i.i26 = sext i32 %10 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i22, ptr nonnull align 1 %9, i64 %conv4.i.i26, i1 false)
-  %11 = load ptr, ptr %Data.i.i23, align 8
+  %conv4.i.i22 = sext i32 %10 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i18, ptr nonnull align 1 %9, i64 %conv4.i.i22, i1 false)
+  %11 = load ptr, ptr %Data.i.i19, align 8
   tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %11)
-  br label %if.end7.i.i27
+  br label %if.end7.i.i23
 
-if.end7.i.i27:                                    ; preds = %if.then2.i.i25, %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i18
-  store ptr %call.i.i22, ptr %Data.i.i23, align 8
-  store i32 %cond7.i.i20, ptr %Capacity.i11, align 4
-  %.pre30 = load i32, ptr %CurLenA, align 8
-  %.pre31 = add nsw i32 %.pre30, 1
-  br label %_ZN8ImVectorIcE6resizeEi.exit28
+if.end7.i.i23:                                    ; preds = %if.then2.i.i21, %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
+  store ptr %call.i.i18, ptr %Data.i.i19, align 8
+  store i32 %cond7.i.i16, ptr %Capacity.i11, align 4
+  %.pre26 = load i32, ptr %CurLenA, align 8
+  %.pre27 = add nsw i32 %.pre26, 1
+  br label %_ZN8ImVectorIcE6resizeEi.exit24
 
-_ZN8ImVectorIcE6resizeEi.exit28:                  ; preds = %if.else._ZN8ImVectorIcE6resizeEi.exit28_crit_edge, %if.end7.i.i27
-  %add13.pre-phi = phi i32 [ %add, %if.else._ZN8ImVectorIcE6resizeEi.exit28_crit_edge ], [ %.pre31, %if.end7.i.i27 ]
-  %12 = phi ptr [ %.pre, %if.else._ZN8ImVectorIcE6resizeEi.exit28_crit_edge ], [ %call.i.i22, %if.end7.i.i27 ]
+_ZN8ImVectorIcE6resizeEi.exit24:                  ; preds = %if.else._ZN8ImVectorIcE6resizeEi.exit24_crit_edge, %if.end7.i.i23
+  %add13.pre-phi = phi i32 [ %add, %if.else._ZN8ImVectorIcE6resizeEi.exit24_crit_edge ], [ %.pre27, %if.end7.i.i23 ]
+  %12 = phi ptr [ %.pre, %if.else._ZN8ImVectorIcE6resizeEi.exit24_crit_edge ], [ %call.i.i18, %if.end7.i.i23 ]
   store i32 %add, ptr %TextA7, align 8
   %Data11 = getelementptr inbounds i8, ptr %0, i64 20184
   %13 = load ptr, ptr %Data11, align 8
@@ -23424,7 +23424,7 @@ _ZN8ImVectorIcE6resizeEi.exit28:                  ; preds = %if.else._ZN8ImVecto
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %13, i64 %conv, i1 false)
   br label %if.end14
 
-if.end14:                                         ; preds = %entry, %lor.lhs.false, %_ZN8ImVectorIcE6resizeEi.exit28, %_ZN8ImVectorIcE6resizeEi.exit
+if.end14:                                         ; preds = %entry, %lor.lhs.false, %_ZN8ImVectorIcE6resizeEi.exit24, %_ZN8ImVectorIcE6resizeEi.exit
   ret void
 }
 
@@ -29278,15 +29278,15 @@ for.end:                                          ; preds = %for.inc, %if.end47
   %Capacity.i = getelementptr inbounds i8, ptr %0, i64 14564
   %27 = load i32, ptr %Capacity.i, align 4
   %cmp.i = icmp slt i32 %27, 0
-  br i1 %cmp.i, label %_ZNK8ImVectorItE14_grow_capacityEi.exit.i, label %_ZN8ImVectorItE6resizeEi.exit
+  br i1 %cmp.i, label %if.then.i, label %_ZN8ImVectorItE6resizeEi.exit
 
-_ZNK8ImVectorItE14_grow_capacityEi.exit.i:        ; preds = %for.end
+if.then.i:                                        ; preds = %for.end
   %call.i.i = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 0)
   %28 = load ptr, ptr %Data.i, align 8
   %tobool.not.i4.i = icmp eq ptr %28, null
   br i1 %tobool.not.i4.i, label %if.end7.i.i, label %if.then2.i.i
 
-if.then2.i.i:                                     ; preds = %_ZNK8ImVectorItE14_grow_capacityEi.exit.i
+if.then2.i.i:                                     ; preds = %if.then.i
   %29 = load i32, ptr %InputQueueCharacters, align 8
   %conv4.i.i = sext i32 %29 to i64
   %mul5.i.i = shl nsw i64 %conv4.i.i, 1
@@ -29295,7 +29295,7 @@ if.then2.i.i:                                     ; preds = %_ZNK8ImVectorItE14_
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %30)
   br label %if.end7.i.i
 
-if.end7.i.i:                                      ; preds = %if.then2.i.i, %_ZNK8ImVectorItE14_grow_capacityEi.exit.i
+if.end7.i.i:                                      ; preds = %if.then2.i.i, %if.then.i
   store ptr %call.i.i, ptr %Data.i, align 8
   store i32 0, ptr %Capacity.i, align 4
   br label %_ZN8ImVectorItE6resizeEi.exit
@@ -31258,7 +31258,7 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true2
-  tail call void @_ZN5ImGui26FocusTopMostWindowUnderOneEP11ImGuiWindowS1_P13ImGuiViewporti(ptr noundef %1, ptr noundef null, ptr noundef null, i32 noundef 3)
+  tail call void @_ZN5ImGui26FocusTopMostWindowUnderOneEP11ImGuiWindowS1_P13ImGuiViewporti(ptr noundef %2, ptr noundef null, ptr noundef null, i32 noundef 3)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true2, %land.lhs.true, %entry
@@ -34045,16 +34045,16 @@ for.end393:                                       ; preds = %for.end380
   %Capacity.i390 = getelementptr inbounds i8, ptr %tab_bar, i64 148
   %160 = load i32, ptr %Capacity.i390, align 4
   %cmp.i391 = icmp slt i32 %160, 0
-  br i1 %cmp.i391, label %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i, label %_ZN8ImVectorIcE6resizeEi.exit
+  br i1 %cmp.i391, label %if.then.i393, label %_ZN8ImVectorIcE6resizeEi.exit
 
-_ZNK8ImVectorIcE14_grow_capacityEi.exit.i:        ; preds = %for.end393
+if.then.i393:                                     ; preds = %for.end393
   %call.i.i401 = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 0)
   %Data.i.i402 = getelementptr inbounds i8, ptr %tab_bar, i64 152
   %161 = load ptr, ptr %Data.i.i402, align 8
   %tobool.not.i4.i403 = icmp eq ptr %161, null
   br i1 %tobool.not.i4.i403, label %if.end7.i.i406, label %if.then2.i.i404
 
-if.then2.i.i404:                                  ; preds = %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
+if.then2.i.i404:                                  ; preds = %if.then.i393
   %162 = load i32, ptr %TabsNames, align 8
   %conv4.i.i405 = sext i32 %162 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i401, ptr nonnull align 1 %161, i64 %conv4.i.i405, i1 false)
@@ -34062,7 +34062,7 @@ if.then2.i.i404:                                  ; preds = %_ZNK8ImVectorIcE14_
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %163)
   br label %if.end7.i.i406
 
-if.end7.i.i406:                                   ; preds = %if.then2.i.i404, %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
+if.end7.i.i406:                                   ; preds = %if.then2.i.i404, %if.then.i393
   store ptr %call.i.i401, ptr %Data.i.i402, align 8
   store i32 0, ptr %Capacity.i390, align 4
   br label %_ZN8ImVectorIcE6resizeEi.exit

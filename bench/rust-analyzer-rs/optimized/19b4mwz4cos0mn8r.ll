@@ -1113,7 +1113,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h65e64e343
   br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h4da4b2af7831b9ebE.exit.loopexit.i, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h4da4b2af7831b9ebE.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  store ptr %20, ptr %3, align 8, !alias.scope !369, !noalias !357
+  store ptr %24, ptr %3, align 8, !alias.scope !369, !noalias !357
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h4da4b2af7831b9ebE.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h4da4b2af7831b9ebE.exit.i: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h4da4b2af7831b9ebE.exit.loopexit.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf654195efe1d1849E.exit"
@@ -1407,7 +1407,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   br i1 %.not.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h4da4b2af7831b9ebE.exit.loopexit.i.i, label %.lr.ph.i.i.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h4da4b2af7831b9ebE.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i
-  store ptr %20, ptr %3, align 8, !alias.scope !434, !noalias !422
+  store ptr %24, ptr %3, align 8, !alias.scope !434, !noalias !422
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h65e64e343550538aE.llvm.16890623524095722936.exit"
 
 "_ZN4core3ptr55drop_in_place$LT$alloc..vec..drain..Drain$LT$u8$GT$$GT$17h3a474475e2bb3fd0E.exit.i": ; preds = %28

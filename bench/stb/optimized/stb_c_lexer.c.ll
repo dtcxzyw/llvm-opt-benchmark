@@ -403,7 +403,7 @@ while.body25:                                     ; preds = %land.lhs.true16
   br i1 %cmp14.not, label %while.end27, label %land.lhs.true16, !llvm.loop !10
 
 while.end27:                                      ; preds = %while.body25, %land.lhs.true16, %land.lhs.true16, %while.cond12.preheader
-  %incdec.ptr26310.lcssa = phi ptr [ %1, %while.cond12.preheader ], [ %incdec.ptr26310312, %land.lhs.true16 ], [ %incdec.ptr26310312, %land.lhs.true16 ], [ %scevgep345, %while.body25 ]
+  %incdec.ptr26310.lcssa = phi ptr [ %incdec.ptr290293, %while.cond12.preheader ], [ %incdec.ptr26310312, %land.lhs.true16 ], [ %incdec.ptr26310312, %land.lhs.true16 ], [ %scevgep345, %while.body25 ]
   store ptr %incdec.ptr26310.lcssa, ptr %p, align 8
   br label %for.cond.backedge
 
@@ -437,14 +437,15 @@ while.body56:                                     ; preds = %land.rhs46, %lor.rh
   br i1 %cmp44.not, label %if.then62, label %land.rhs46, !llvm.loop !11
 
 if.then62:                                        ; preds = %if.then41, %while.body56
-  %add.ptr63 = getelementptr inbounds i8, ptr %1, i64 -1
+  %storemerge107.lcssa = phi ptr [ %incdec.ptr57, %while.body56 ], [ %add.ptr, %if.then41 ]
+  %add.ptr63 = getelementptr inbounds i8, ptr %storemerge107.lcssa, i64 -1
   %token1.i = getelementptr inbounds i8, ptr %lexer, i64 56
   store i64 257, ptr %token1.i, align 8
   %where_firstchar.i = getelementptr inbounds i8, ptr %lexer, i64 40
   store ptr %incdec.ptr290293, ptr %where_firstchar.i, align 8
   %where_lastchar.i = getelementptr inbounds i8, ptr %lexer, i64 48
   store ptr %add.ptr63, ptr %where_lastchar.i, align 8
-  store ptr %1, ptr %parse_point, align 8
+  store ptr %storemerge107.lcssa, ptr %parse_point, align 8
   br label %return
 
 if.end65:                                         ; preds = %lor.rhs
@@ -470,7 +471,7 @@ while.body90:                                     ; preds = %land.lhs.true81
   br i1 %cmp79.not, label %while.end92, label %land.lhs.true81, !llvm.loop !12
 
 while.end92:                                      ; preds = %while.body90, %land.lhs.true81, %land.lhs.true81, %while.cond77.preheader
-  %incdec.ptr91296.lcssa = phi ptr [ %1, %while.cond77.preheader ], [ %incdec.ptr91296298, %land.lhs.true81 ], [ %incdec.ptr91296298, %land.lhs.true81 ], [ %scevgep345, %while.body90 ]
+  %incdec.ptr91296.lcssa = phi ptr [ %incdec.ptr290293, %while.cond77.preheader ], [ %incdec.ptr91296298, %land.lhs.true81 ], [ %incdec.ptr91296298, %land.lhs.true81 ], [ %scevgep345, %while.body90 ]
   store ptr %incdec.ptr91296.lcssa, ptr %p, align 8
   br label %for.cond.backedge
 
@@ -544,8 +545,8 @@ if.end133:                                        ; preds = %if.then127, %do.bod
   %or.cond113 = icmp ult i8 %21, 10
   %or.cond279 = or i1 %or.cond113, %or.cond278
   %cmp183 = icmp slt i8 %.fr, 0
-  %or.cond376 = or i1 %or.cond279, %cmp183
-  br i1 %or.cond376, label %do.body.backedge, label %switch.early.test331
+  %or.cond377 = or i1 %or.cond279, %cmp183
+  br i1 %or.cond377, label %do.body.backedge, label %switch.early.test331
 
 switch.early.test331:                             ; preds = %if.end133
   switch i8 %.fr, label %do.end [

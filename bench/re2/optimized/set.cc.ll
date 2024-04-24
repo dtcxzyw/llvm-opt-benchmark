@@ -117,7 +117,7 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc, %entry
   %6 = phi ptr [ %0, %entry ], [ %4, %for.inc ]
-  %7 = phi ptr [ %0, %entry ], [ %5, %for.inc ]
+  %7 = phi ptr [ %1, %entry ], [ %5, %for.inc ]
   %prog_ = getelementptr inbounds i8, ptr %this, i64 64
   %8 = load ptr, ptr %prog_, align 8
   %cmp.not.i = icmp eq ptr %8, null
@@ -149,7 +149,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %_ZNSt10unique_ptrIN3re24ProgESt14default_deleteIS1_EED2Ev.exit
-  %11 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %9, %_ZNSt10unique_ptrIN3re24ProgESt14default_deleteIS1_EED2Ev.exit ]
+  %11 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %10, %_ZNSt10unique_ptrIN3re24ProgESt14default_deleteIS1_EED2Ev.exit ]
   %tobool.not.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3re26RegexpEESaISA_EED2Ev.exit, label %if.then.i.i.i
 

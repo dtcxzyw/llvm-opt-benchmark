@@ -559,7 +559,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont, %invoke.contthread-pre-split.i, %for.end
-  %9 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre59, %for.end ], [ %4, %invoke.cont ]
+  %9 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %for.end ], [ %4, %invoke.cont ]
   %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %if.end40.sink.split, label %if.then.i.i.i
 

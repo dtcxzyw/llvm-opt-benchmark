@@ -675,7 +675,7 @@ entry:
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %mRelations, align 8
   %cmp10.not = icmp eq ptr %0, %1
-  br i1 %cmp10.not, label %_ZNSt6vectorIPN6Assimp4D3MF22OpcPackageRelationshipESaIS3_EE5clearEv.exit, label %for.body
+  br i1 %cmp10.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %2 = phi ptr [ %5, %for.inc ], [ %1, %entry ]
@@ -708,21 +708,22 @@ for.inc:                                          ; preds = %for.body, %delete.n
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
-for.end:                                          ; preds = %for.inc
-  %tobool.not.i.i = icmp eq ptr %6, %5
+for.end:                                          ; preds = %for.inc, %entry
+  %.lcssa5 = phi ptr [ %0, %entry ], [ %6, %for.inc ]
+  %.lcssa = phi ptr [ %1, %entry ], [ %5, %for.inc ]
+  %tobool.not.i.i = icmp eq ptr %.lcssa5, %.lcssa
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIPN6Assimp4D3MF22OpcPackageRelationshipESaIS3_EE5clearEv.exit, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %for.end
-  store ptr %5, ptr %_M_finish.i, align 8
+  store ptr %.lcssa, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPN6Assimp4D3MF22OpcPackageRelationshipESaIS3_EE5clearEv.exit
 
-_ZNSt6vectorIPN6Assimp4D3MF22OpcPackageRelationshipESaIS3_EE5clearEv.exit: ; preds = %entry, %for.end, %invoke.cont.i.i
-  %.lcssa19 = phi ptr [ %5, %for.end ], [ %5, %invoke.cont.i.i ], [ %0, %entry ]
-  %tobool.not.i.i.i = icmp eq ptr %.lcssa19, null
+_ZNSt6vectorIPN6Assimp4D3MF22OpcPackageRelationshipESaIS3_EE5clearEv.exit: ; preds = %for.end, %invoke.cont.i.i
+  %tobool.not.i.i.i = icmp eq ptr %.lcssa, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN6Assimp4D3MF22OpcPackageRelationshipESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIPN6Assimp4D3MF22OpcPackageRelationshipESaIS3_EE5clearEv.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa19) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa) #17
   br label %_ZNSt6vectorIPN6Assimp4D3MF22OpcPackageRelationshipESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN6Assimp4D3MF22OpcPackageRelationshipESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN6Assimp4D3MF22OpcPackageRelationshipESaIS3_EE5clearEv.exit, %if.then.i.i.i
@@ -1837,7 +1838,7 @@ if.end7:                                          ; preds = %for.body
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %mModelOutput, ptr noundef nonnull @.str.18)
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @.str.47)
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call8, ptr noundef nonnull @.str.48)
-  %6 = trunc i64 %indvars.iv18 to i32
+  %6 = trunc nuw i64 %indvars.iv18 to i32
   %add = add i32 %6, 2
   %call10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call9, i32 noundef %add)
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call10, ptr noundef nonnull @.str.49)

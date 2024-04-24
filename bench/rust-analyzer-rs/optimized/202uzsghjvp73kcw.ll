@@ -42377,7 +42377,7 @@ define hidden void @_ZN9itertools9Itertools4join17hbe2fbb5277d505eaE(ptr noalias
   br i1 %39, label %21, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c068e7ba81822d0E.exit.i"
 
 "_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c068e7ba81822d0E.exit.i": ; preds = %24, %21
-  %.val = phi ptr [ %18, %21 ], [ %25, %24 ]
+  %.val = phi ptr [ %22, %21 ], [ %25, %24 ]
   %40 = phi { i64, ptr } [ { i64 16, ptr undef }, %21 ], [ %37, %24 ]
   %41 = extractvalue { i64, ptr } %40, 0
   %.not.i.i = icmp eq i64 %41, 16
@@ -43804,7 +43804,7 @@ define hidden void @_ZN9itertools9Itertools4join17hf99a28d7587becc2E(ptr noalias
   br label %"_ZN110_$LT$core..iter..adapters..inspect..Inspect$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb972f3b8315d6a31E.exit"
 
 "_ZN110_$LT$core..iter..adapters..inspect..Inspect$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb972f3b8315d6a31E.exit": ; preds = %4, %18
-  %.val = phi ptr [ %19, %18 ], [ %14, %4 ]
+  %.val = phi ptr [ %19, %18 ], [ %16, %4 ]
   %28 = phi { i64, ptr } [ %24, %18 ], [ { i64 16, ptr undef }, %4 ]
   %29 = extractvalue { i64, ptr } %28, 0
   %30 = icmp eq i64 %29, 16

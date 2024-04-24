@@ -308,7 +308,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   resume { ptr, i32 } %19
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hb08ffa7275978d67E.llvm.7315907467015768964.exit.loopexit: ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h426b1c14f8f79125E.llvm.7315907467015768964.exit.i"
-  store ptr %12, ptr %11, align 8, !alias.scope !112, !noalias !94
+  store ptr %24, ptr %11, align 8, !alias.scope !112, !noalias !94
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17hb08ffa7275978d67E.llvm.7315907467015768964.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hb08ffa7275978d67E.llvm.7315907467015768964.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hb08ffa7275978d67E.llvm.7315907467015768964.exit.loopexit, %.._crit_edge_crit_edge.i

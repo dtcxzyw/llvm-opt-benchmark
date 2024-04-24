@@ -3285,7 +3285,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.end
-  %tp_free6 = getelementptr inbounds i8, ptr %5, i64 320
+  %tp_free6 = getelementptr inbounds i8, ptr %self.val13, i64 320
   %12 = load ptr, ptr %tp_free6, align 8
   tail call void %12(ptr noundef nonnull %self) #10
   br label %if.end9

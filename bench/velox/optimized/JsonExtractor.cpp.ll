@@ -1761,7 +1761,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp.i.i62, label %if.then24, label %for.cond
 
 if.then24:                                        ; preds = %for.cond10.preheader, %for.end
-  %result.sroa.12.1.lcssa246 = phi ptr [ %result.sroa.12.6, %for.end ], [ %result.sroa.0.0208, %for.cond10.preheader ]
+  %result.sroa.0.1.lcssa246 = phi ptr [ %result.sroa.0.10, %for.end ], [ %result.sroa.0.0208, %for.cond10.preheader ]
   %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i8 0, ptr %hasValue.i.i, align 8
   br label %cleanup
@@ -1884,7 +1884,7 @@ for.end50:                                        ; preds = %for.inc48, %invoke.
 
 cleanup:                                          ; preds = %_ZN5folly8OptionalINS_7dynamicEEC2ERKS1_.exit, %for.end50, %if.then30, %if.then24
   %input.sroa.0.1182 = phi ptr [ %input.sroa.0.1212, %if.then24 ], [ %input.sroa.0.1.lcssa, %for.end50 ], [ %input.sroa.0.1.lcssa, %_ZN5folly8OptionalINS_7dynamicEEC2ERKS1_.exit ], [ %input.sroa.0.1.lcssa, %if.then30 ]
-  %result.sroa.0.11 = phi ptr [ %result.sroa.12.1.lcssa246, %if.then24 ], [ %result.sroa.0.0.lcssa, %for.end50 ], [ %result.sroa.0.0.lcssa, %_ZN5folly8OptionalINS_7dynamicEEC2ERKS1_.exit ], [ %result.sroa.0.0.lcssa, %if.then30 ]
+  %result.sroa.0.11 = phi ptr [ %result.sroa.0.1.lcssa246, %if.then24 ], [ %result.sroa.0.0.lcssa, %for.end50 ], [ %result.sroa.0.0.lcssa, %_ZN5folly8OptionalINS_7dynamicEEC2ERKS1_.exit ], [ %result.sroa.0.0.lcssa, %if.then30 ]
   %tobool.not.i.i.i = icmp eq ptr %result.sroa.0.11, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKN5folly7dynamicESaIS3_EED2Ev.exit, label %if.then.i.i.i86
 
@@ -2567,7 +2567,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #1
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i29
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #1
@@ -2579,11 +2579,11 @@ lpad17:                                           ; preds = %invoke.cont19
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i29:                                      ; preds = %lpad
+if.then.i32:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #23
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.then.i29, %if.end.thread
+invoke.cont19:                                    ; preds = %if.then.i32, %if.end.thread
   invoke void @__cxa_rethrow() #25
           to label %unreachable unwind label %lpad17
 
@@ -2941,7 +2941,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #1
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i29
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZN5folly7dynamic7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr) #1
@@ -2953,11 +2953,11 @@ lpad17:                                           ; preds = %invoke.cont19
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i29:                                      ; preds = %lpad
+if.then.i32:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #23
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.then.i29, %if.end.thread
+invoke.cont19:                                    ; preds = %if.then.i32, %if.end.thread
   invoke void @__cxa_rethrow() #25
           to label %unreachable unwind label %lpad17
 

@@ -177,7 +177,7 @@ define i32 @recvln(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nound
 23:                                               ; preds = %18
   %24 = load ptr, ptr %6, align 8
   %.not59 = icmp eq ptr %24, %0
-  br i1 %.not59, label %68, label %25
+  br i1 %.not59, label %69, label %25
 
 .loopexit:                                        ; preds = %19
   %.pre90 = load ptr, ptr %6, align 8
@@ -192,11 +192,11 @@ define i32 @recvln(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nound
 
 28:                                               ; preds = %25
   %29 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.2) #14
-  br label %68
+  br label %69
 
 30:                                               ; preds = %25
   %31 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.3) #14
-  br label %68
+  br label %69
 
 32:                                               ; preds = %._crit_edge, %9
   %33 = phi i32 [ %16, %._crit_edge ], [ %10, %9 ]
@@ -234,7 +234,7 @@ define i32 @recvln(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nound
   %. = select i1 %.not65, ptr %0, ptr %38
   store ptr %., ptr %6, align 8
   store ptr %., ptr %8, align 8
-  br label %68
+  br label %69
 
 51:                                               ; preds = %32
   %52 = load ptr, ptr %8, align 8
@@ -249,7 +249,7 @@ define i32 @recvln(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nound
 
 59:                                               ; preds = %51
   %60 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.4) #14
-  br label %68
+  br label %69
 
 61:                                               ; preds = %51
   %.not62 = icmp eq ptr %52, %0
@@ -264,12 +264,13 @@ define i32 @recvln(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nound
 
 64:                                               ; preds = %62, %61
   %65 = phi i32 [ %.pre89, %62 ], [ %57, %61 ]
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i8, ptr %0, i64 %66
-  store ptr %67, ptr %6, align 8
+  %66 = phi ptr [ %0, %62 ], [ %52, %61 ]
+  %67 = sext i32 %65 to i64
+  %68 = getelementptr inbounds i8, ptr %66, i64 %67
+  store ptr %68, ptr %6, align 8
   br label %.backedge
 
-68:                                               ; preds = %23, %28, %30, %59, %45
+69:                                               ; preds = %23, %28, %30, %59, %45
   %.0 = phi i32 [ %49, %45 ], [ -1, %59 ], [ -1, %30 ], [ -1, %28 ], [ 0, %23 ]
   ret i32 %.0
 }

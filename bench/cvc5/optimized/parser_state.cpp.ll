@@ -3782,7 +3782,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw i64 %indvars.iv to i32
   %call10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call8, i32 noundef %13)
           to label %invoke.cont9 unwind label %lpad6
 
@@ -7397,7 +7397,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %cond.true25, %invoke.contthread-pre-split.i, %for.end
-  %11 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre384, %for.end ], [ %6, %cond.true25 ]
+  %11 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %for.end ], [ %6, %cond.true25 ]
   %tobool.not.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4cvc54TermESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
@@ -7433,7 +7433,7 @@ invoke.contthread-pre-split.i354:                 ; preds = %for.body.i.i.i.i350
   br label %invoke.cont.i356
 
 invoke.cont.i356:                                 ; preds = %cond.true, %invoke.contthread-pre-split.i354, %for.end84
-  %12 = phi ptr [ %.pr.i355, %invoke.contthread-pre-split.i354 ], [ %.pre386, %for.end84 ], [ %3, %cond.true ]
+  %12 = phi ptr [ %.pr.i355, %invoke.contthread-pre-split.i354 ], [ %.pre385, %for.end84 ], [ %3, %cond.true ]
   %tobool.not.i.i.i357 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i357, label %return, label %if.then.i.i.i358
 

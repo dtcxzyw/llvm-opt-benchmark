@@ -1983,7 +1983,7 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %invoke.cont20
-  %25 = phi ptr [ %.pre36, %for.end.loopexit ], [ %16, %invoke.cont20 ]
+  %25 = phi ptr [ %.pre36, %for.end.loopexit ], [ %17, %invoke.cont20 ]
   %tobool.not.i.i.i25 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i25, label %_ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EED2Ev.exit27, label %if.then.i.i.i26
 

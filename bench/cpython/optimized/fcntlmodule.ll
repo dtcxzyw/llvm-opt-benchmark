@@ -381,9 +381,10 @@ if.end32.sink.split.i:                            ; preds = %if.else15.i, %if.th
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.end32.sink.split.i, %if.end23.i
+  %arg6.03.i = phi ptr [ %6, %if.end23.i ], [ %buf.i, %if.end32.sink.split.i ]
   %call27.i = call ptr @PyEval_SaveThread() #7
   %conv.i = and i64 %call7, 4294967295
-  %call28.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %5, i64 noundef %conv.i, ptr noundef nonnull %buf.i) #7
+  %call28.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %5, i64 noundef %conv.i, ptr noundef %arg6.03.i) #7
   call void @PyEval_RestoreThread(ptr noundef %call27.i) #7
   %cmp34.i = icmp slt i64 %7, 1025
   %or.cond.i = select i1 %tobool9.i, i1 %cmp34.i, i1 false

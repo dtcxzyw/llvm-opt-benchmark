@@ -80,13 +80,13 @@ if.then.i.i.i.i2:                                 ; preds = %call5.i.i.i.i1.i.i.
 
 if.else19.i:                                      ; preds = %entry
   %cmp.i.i16.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.i16.i, label %invoke.cont, label %_ZSt6fill_nIPhmhET_S1_T0_RKT1_.exit.i
+  br i1 %cmp.i.i16.i, label %invoke.cont, label %if.then.i.i.i.i17.i
 
-_ZSt6fill_nIPhmhET_S1_T0_RKT1_.exit.i:            ; preds = %if.else19.i
+if.then.i.i.i.i17.i:                              ; preds = %if.else19.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %sub.ptr.sub.i, i1 false)
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %_ZSt6fill_nIPhmhET_S1_T0_RKT1_.exit.i, %if.else19.i, %if.then.i.i.i.i2
+invoke.cont:                                      ; preds = %if.else19.i, %if.then.i.i.i.i17.i, %if.then.i.i.i.i2
   %.pr = load ptr, ptr %key_, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %.pr, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %key_, i8 0, i64 24, i1 false)
@@ -220,7 +220,7 @@ if.then.i.i.i.i.i27.i.i.i:                        ; preds = %_ZSt7advanceIPKhmEv
   br label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit29.i.i.i
 
 _ZSt4copyIPKhPhET0_T_S4_S3_.exit29.i.i.i:         ; preds = %if.then.i.i.i.i.i27.i.i.i, %_ZSt7advanceIPKhmEvRT_T0_.exit.i.i.i
-  %4 = phi ptr [ %1, %_ZSt7advanceIPKhmEvRT_T0_.exit.i.i.i ], [ %.pre46.i.i.i, %if.then.i.i.i.i.i27.i.i.i ]
+  %4 = phi ptr [ %2, %_ZSt7advanceIPKhmEvRT_T0_.exit.i.i.i ], [ %.pre46.i.i.i, %if.then.i.i.i.i.i27.i.i.i ]
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.lhs.cast.i.i.i.i.i23.i.i.i
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i16.i.i.i, %key_length
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -372,7 +372,7 @@ if.then.i.i.i.i.i27.i.i.i.i:                      ; preds = %_ZSt7advanceIPKhmEv
   br label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit29.i.i.i.i
 
 _ZSt4copyIPKhPhET0_T_S4_S3_.exit29.i.i.i.i:       ; preds = %if.then.i.i.i.i.i27.i.i.i.i, %_ZSt7advanceIPKhmEvRT_T0_.exit.i.i.i.i
-  %4 = phi ptr [ %1, %_ZSt7advanceIPKhmEvRT_T0_.exit.i.i.i.i ], [ %.pre46.i.i.i.i, %if.then.i.i.i.i.i27.i.i.i.i ]
+  %4 = phi ptr [ %2, %_ZSt7advanceIPKhmEvRT_T0_.exit.i.i.i.i ], [ %.pre46.i.i.i.i, %if.then.i.i.i.i.i27.i.i.i.i ]
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.lhs.cast.i.i.i.i.i23.i.i.i.i
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i16.i.i.i.i, %call2
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i

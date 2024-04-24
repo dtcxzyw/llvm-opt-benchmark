@@ -343,7 +343,7 @@ define internal i32 @_archive_write_disk_close(ptr noundef %0) #1 {
   br i1 %.not80, label %.critedge, label %.lr.ph, !llvm.loop !7
 
 .critedge:                                        ; preds = %.lr.ph104, %.lr.ph, %.lr.ph.preheader, %.preheader
-  %.lcssa = phi ptr [ %18, %.preheader ], [ %18, %.lr.ph.preheader ], [ %29, %.lr.ph ], [ %28, %.lr.ph104 ]
+  %.lcssa = phi ptr [ %18, %.preheader ], [ %18, %.lr.ph.preheader ], [ %29, %.lr.ph ], [ %29, %.lr.ph104 ]
   %30 = getelementptr inbounds i8, ptr %.074102, i64 160
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 0
@@ -3177,9 +3177,9 @@ define internal fastcc noundef i32 @cleanup_pathname_fsobj(ptr noundef %0, ptr n
 
 .sink.split:                                      ; preds = %.loopexit
   %.not51 = icmp eq i8 %.1.ph68, 0
-  %58 = getelementptr inbounds i8, ptr %0, i64 1
+  %58 = getelementptr inbounds i8, ptr %.3, i64 1
   %. = select i1 %.not51, i8 46, i8 47
-  store i8 %., ptr %0, align 1
+  store i8 %., ptr %.3, align 1
   br label %59
 
 59:                                               ; preds = %.sink.split, %.loopexit

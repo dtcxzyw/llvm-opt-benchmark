@@ -227,7 +227,7 @@ pmix_obj_run_constructors.exit70:                 ; preds = %.lr.ph.i67, %56
   %69 = getelementptr inbounds i8, ptr %67, i64 360
   %.09.i.i = load ptr, ptr %69, align 8
   %.not10.i.i = icmp eq ptr %.09.i.i, %68
-  br i1 %.not10.i.i, label %pmix_cmd_line_is_taken.exit80.thread172, label %.lr.ph.i.i
+  br i1 %.not10.i.i, label %pmix_cmd_line_is_taken.exit80.thread173, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %66, %74
   %.011.i.i = phi ptr [ %.0.i.i, %74 ], [ %.09.i.i, %66 ]
@@ -235,7 +235,7 @@ pmix_obj_run_constructors.exit70:                 ; preds = %.lr.ph.i67, %56
   %71 = load ptr, ptr %70, align 8
   %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(4) @.str.8) #12
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %pmix_cmd_line_is_taken.exit90.thread180.thread, label %74
+  br i1 %73, label %pmix_cmd_line_is_taken.exit90.thread181.thread, label %74
 
 74:                                               ; preds = %.lr.ph.i.i
   %75 = getelementptr inbounds i8, ptr %.011.i.i, i64 120
@@ -243,7 +243,7 @@ pmix_obj_run_constructors.exit70:                 ; preds = %.lr.ph.i67, %56
   %.not.i.i = icmp eq ptr %.0.i.i, %68
   br i1 %.not.i.i, label %.lr.ph.i.i73, label %.lr.ph.i.i, !llvm.loop !7
 
-pmix_cmd_line_is_taken.exit90.thread180.thread:   ; preds = %.lr.ph.i.i
+pmix_cmd_line_is_taken.exit90.thread181.thread:   ; preds = %.lr.ph.i.i
   tail call void @pmix_info_out(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #9
   %76 = load ptr, ptr @pmix_info_ver_full, align 8
   tail call void @pmix_info_show_pmix_version(ptr noundef %76) #9
@@ -251,7 +251,7 @@ pmix_cmd_line_is_taken.exit90.thread180.thread:   ; preds = %.lr.ph.i.i
   tail call void @pmix_info_do_arch() #9
   tail call void @pmix_info_do_hostname() #9
   tail call void @pmix_info_do_config(i1 noundef zeroext true) #9
-  br label %pmix_cmd_line_is_taken.exit120.thread209
+  br label %pmix_cmd_line_is_taken.exit120.thread210
 
 .lr.ph.i.i73:                                     ; preds = %74, %81
   %.011.i.i74 = phi ptr [ %.0.i.i75, %81 ], [ %.09.i.i, %74 ]
@@ -259,123 +259,123 @@ pmix_cmd_line_is_taken.exit90.thread180.thread:   ; preds = %.lr.ph.i.i
   %78 = load ptr, ptr %77, align 8
   %79 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(5) @.str.12) #12
   %80 = icmp eq i32 %79, 0
-  br i1 %80, label %pmix_cmd_line_is_taken.exit80.thread170, label %81
+  br i1 %80, label %pmix_cmd_line_is_taken.exit80.thread171, label %81
 
 81:                                               ; preds = %.lr.ph.i.i73
   %82 = getelementptr inbounds i8, ptr %.011.i.i74, i64 120
   %.0.i.i75 = load ptr, ptr %82, align 8
   %.not.i.i76 = icmp eq ptr %.0.i.i75, %68
-  br i1 %.not.i.i76, label %pmix_cmd_line_is_taken.exit80.thread172, label %.lr.ph.i.i73, !llvm.loop !7
+  br i1 %.not.i.i76, label %pmix_cmd_line_is_taken.exit80.thread173, label %.lr.ph.i.i73, !llvm.loop !7
 
-pmix_cmd_line_is_taken.exit80.thread170:          ; preds = %.lr.ph.i.i73
+pmix_cmd_line_is_taken.exit80.thread171:          ; preds = %.lr.ph.i.i73
   tail call void @pmix_info_do_path(i1 noundef zeroext false) #9
   %.pre = load ptr, ptr @pmix_info_cmd_line, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 360
   %.09.i.i81.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %pmix_cmd_line_is_taken.exit80.thread172
+  br label %pmix_cmd_line_is_taken.exit80.thread173
 
-pmix_cmd_line_is_taken.exit80.thread172:          ; preds = %81, %pmix_cmd_line_is_taken.exit80.thread170, %66
-  %.09.i.i81 = phi ptr [ %.09.i.i81.pre, %pmix_cmd_line_is_taken.exit80.thread170 ], [ %68, %66 ], [ %.09.i.i, %81 ]
-  %83 = phi ptr [ %.pre, %pmix_cmd_line_is_taken.exit80.thread170 ], [ %67, %66 ], [ %67, %81 ]
-  %.037178 = phi i1 [ true, %pmix_cmd_line_is_taken.exit80.thread170 ], [ false, %66 ], [ false, %81 ]
+pmix_cmd_line_is_taken.exit80.thread173:          ; preds = %81, %pmix_cmd_line_is_taken.exit80.thread171, %66
+  %.09.i.i81 = phi ptr [ %.09.i.i81.pre, %pmix_cmd_line_is_taken.exit80.thread171 ], [ %.09.i.i, %66 ], [ %.09.i.i, %81 ]
+  %83 = phi ptr [ %.pre, %pmix_cmd_line_is_taken.exit80.thread171 ], [ %67, %66 ], [ %67, %81 ]
+  %.037179 = phi i1 [ true, %pmix_cmd_line_is_taken.exit80.thread171 ], [ false, %66 ], [ false, %81 ]
   %84 = getelementptr inbounds i8, ptr %83, i64 240
   %.not10.i.i82 = icmp eq ptr %.09.i.i81, %84
-  br i1 %.not10.i.i82, label %pmix_cmd_line_is_taken.exit90.thread182, label %.lr.ph.i.i83
+  br i1 %.not10.i.i82, label %pmix_cmd_line_is_taken.exit90.thread183, label %.lr.ph.i.i83
 
-.lr.ph.i.i83:                                     ; preds = %pmix_cmd_line_is_taken.exit80.thread172, %89
-  %.011.i.i84 = phi ptr [ %.0.i.i85, %89 ], [ %.09.i.i81, %pmix_cmd_line_is_taken.exit80.thread172 ]
+.lr.ph.i.i83:                                     ; preds = %pmix_cmd_line_is_taken.exit80.thread173, %89
+  %.011.i.i84 = phi ptr [ %.0.i.i85, %89 ], [ %.09.i.i81, %pmix_cmd_line_is_taken.exit80.thread173 ]
   %85 = getelementptr inbounds i8, ptr %.011.i.i84, i64 144
   %86 = load ptr, ptr %85, align 8
   %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(5) @.str.13) #12
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %pmix_cmd_line_is_taken.exit90.thread180, label %89
+  br i1 %88, label %pmix_cmd_line_is_taken.exit90.thread181, label %89
 
 89:                                               ; preds = %.lr.ph.i.i83
   %90 = getelementptr inbounds i8, ptr %.011.i.i84, i64 120
   %.0.i.i85 = load ptr, ptr %90, align 8
   %.not.i.i86 = icmp eq ptr %.0.i.i85, %84
-  br i1 %.not.i.i86, label %pmix_cmd_line_is_taken.exit90.thread182, label %.lr.ph.i.i83, !llvm.loop !7
+  br i1 %.not.i.i86, label %pmix_cmd_line_is_taken.exit90.thread183, label %.lr.ph.i.i83, !llvm.loop !7
 
-pmix_cmd_line_is_taken.exit90.thread180:          ; preds = %.lr.ph.i.i83
+pmix_cmd_line_is_taken.exit90.thread181:          ; preds = %.lr.ph.i.i83
   tail call void @pmix_info_do_arch() #9
-  %.pre226 = load ptr, ptr @pmix_info_cmd_line, align 8
-  %.phi.trans.insert227 = getelementptr inbounds i8, ptr %.pre226, i64 360
-  %.09.i.i91.pre = load ptr, ptr %.phi.trans.insert227, align 8
-  br label %pmix_cmd_line_is_taken.exit90.thread182
+  %.pre227 = load ptr, ptr @pmix_info_cmd_line, align 8
+  %.phi.trans.insert228 = getelementptr inbounds i8, ptr %.pre227, i64 360
+  %.09.i.i91.pre = load ptr, ptr %.phi.trans.insert228, align 8
+  br label %pmix_cmd_line_is_taken.exit90.thread183
 
-pmix_cmd_line_is_taken.exit90.thread182:          ; preds = %89, %pmix_cmd_line_is_taken.exit90.thread180, %pmix_cmd_line_is_taken.exit80.thread172
-  %.09.i.i91 = phi ptr [ %.09.i.i91.pre, %pmix_cmd_line_is_taken.exit90.thread180 ], [ %.09.i.i81, %pmix_cmd_line_is_taken.exit80.thread172 ], [ %.09.i.i81, %89 ]
-  %91 = phi ptr [ %.pre226, %pmix_cmd_line_is_taken.exit90.thread180 ], [ %83, %pmix_cmd_line_is_taken.exit80.thread172 ], [ %83, %89 ]
-  %.1188 = phi i1 [ true, %pmix_cmd_line_is_taken.exit90.thread180 ], [ %.037178, %pmix_cmd_line_is_taken.exit80.thread172 ], [ %.037178, %89 ]
+pmix_cmd_line_is_taken.exit90.thread183:          ; preds = %89, %pmix_cmd_line_is_taken.exit90.thread181, %pmix_cmd_line_is_taken.exit80.thread173
+  %.09.i.i91 = phi ptr [ %.09.i.i91.pre, %pmix_cmd_line_is_taken.exit90.thread181 ], [ %.09.i.i81, %pmix_cmd_line_is_taken.exit80.thread173 ], [ %.09.i.i81, %89 ]
+  %91 = phi ptr [ %.pre227, %pmix_cmd_line_is_taken.exit90.thread181 ], [ %83, %pmix_cmd_line_is_taken.exit80.thread173 ], [ %83, %89 ]
+  %.1189 = phi i1 [ true, %pmix_cmd_line_is_taken.exit90.thread181 ], [ %.037179, %pmix_cmd_line_is_taken.exit80.thread173 ], [ %.037179, %89 ]
   %92 = getelementptr inbounds i8, ptr %91, i64 240
   %.not10.i.i92 = icmp eq ptr %.09.i.i91, %92
-  br i1 %.not10.i.i92, label %pmix_cmd_line_is_taken.exit100.thread192, label %.lr.ph.i.i93
+  br i1 %.not10.i.i92, label %pmix_cmd_line_is_taken.exit100.thread193, label %.lr.ph.i.i93
 
-.lr.ph.i.i93:                                     ; preds = %pmix_cmd_line_is_taken.exit90.thread182, %97
-  %.011.i.i94 = phi ptr [ %.0.i.i95, %97 ], [ %.09.i.i91, %pmix_cmd_line_is_taken.exit90.thread182 ]
+.lr.ph.i.i93:                                     ; preds = %pmix_cmd_line_is_taken.exit90.thread183, %97
+  %.011.i.i94 = phi ptr [ %.0.i.i95, %97 ], [ %.09.i.i91, %pmix_cmd_line_is_taken.exit90.thread183 ]
   %93 = getelementptr inbounds i8, ptr %.011.i.i94, i64 144
   %94 = load ptr, ptr %93, align 8
   %95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %94, ptr noundef nonnull dereferenceable(9) @.str.14) #12
   %96 = icmp eq i32 %95, 0
-  br i1 %96, label %pmix_cmd_line_is_taken.exit100.thread190, label %97
+  br i1 %96, label %pmix_cmd_line_is_taken.exit100.thread191, label %97
 
 97:                                               ; preds = %.lr.ph.i.i93
   %98 = getelementptr inbounds i8, ptr %.011.i.i94, i64 120
   %.0.i.i95 = load ptr, ptr %98, align 8
   %.not.i.i96 = icmp eq ptr %.0.i.i95, %92
-  br i1 %.not.i.i96, label %pmix_cmd_line_is_taken.exit100.thread192, label %.lr.ph.i.i93, !llvm.loop !7
+  br i1 %.not.i.i96, label %pmix_cmd_line_is_taken.exit100.thread193, label %.lr.ph.i.i93, !llvm.loop !7
 
-pmix_cmd_line_is_taken.exit100.thread190:         ; preds = %.lr.ph.i.i93
+pmix_cmd_line_is_taken.exit100.thread191:         ; preds = %.lr.ph.i.i93
   tail call void @pmix_info_do_hostname() #9
-  %.pre229 = load ptr, ptr @pmix_info_cmd_line, align 8
-  %.phi.trans.insert230 = getelementptr inbounds i8, ptr %.pre229, i64 360
-  %.09.i.i101.pre = load ptr, ptr %.phi.trans.insert230, align 8
-  br label %pmix_cmd_line_is_taken.exit100.thread192
+  %.pre230 = load ptr, ptr @pmix_info_cmd_line, align 8
+  %.phi.trans.insert231 = getelementptr inbounds i8, ptr %.pre230, i64 360
+  %.09.i.i101.pre = load ptr, ptr %.phi.trans.insert231, align 8
+  br label %pmix_cmd_line_is_taken.exit100.thread193
 
-pmix_cmd_line_is_taken.exit100.thread192:         ; preds = %97, %pmix_cmd_line_is_taken.exit100.thread190, %pmix_cmd_line_is_taken.exit90.thread182
-  %.09.i.i101 = phi ptr [ %.09.i.i101.pre, %pmix_cmd_line_is_taken.exit100.thread190 ], [ %.09.i.i91, %pmix_cmd_line_is_taken.exit90.thread182 ], [ %.09.i.i91, %97 ]
-  %99 = phi ptr [ %.pre229, %pmix_cmd_line_is_taken.exit100.thread190 ], [ %91, %pmix_cmd_line_is_taken.exit90.thread182 ], [ %91, %97 ]
-  %.2198 = phi i1 [ true, %pmix_cmd_line_is_taken.exit100.thread190 ], [ %.1188, %pmix_cmd_line_is_taken.exit90.thread182 ], [ %.1188, %97 ]
+pmix_cmd_line_is_taken.exit100.thread193:         ; preds = %97, %pmix_cmd_line_is_taken.exit100.thread191, %pmix_cmd_line_is_taken.exit90.thread183
+  %.09.i.i101 = phi ptr [ %.09.i.i101.pre, %pmix_cmd_line_is_taken.exit100.thread191 ], [ %.09.i.i91, %pmix_cmd_line_is_taken.exit90.thread183 ], [ %.09.i.i91, %97 ]
+  %99 = phi ptr [ %.pre230, %pmix_cmd_line_is_taken.exit100.thread191 ], [ %91, %pmix_cmd_line_is_taken.exit90.thread183 ], [ %91, %97 ]
+  %.2199 = phi i1 [ true, %pmix_cmd_line_is_taken.exit100.thread191 ], [ %.1189, %pmix_cmd_line_is_taken.exit90.thread183 ], [ %.1189, %97 ]
   %100 = getelementptr inbounds i8, ptr %99, i64 240
   %.not10.i.i102 = icmp eq ptr %.09.i.i101, %100
-  br i1 %.not10.i.i102, label %pmix_cmd_line_is_taken.exit110.thread202, label %.lr.ph.i.i103
+  br i1 %.not10.i.i102, label %pmix_cmd_line_is_taken.exit110.thread203, label %.lr.ph.i.i103
 
-.lr.ph.i.i103:                                    ; preds = %pmix_cmd_line_is_taken.exit100.thread192, %105
-  %.011.i.i104 = phi ptr [ %.0.i.i105, %105 ], [ %.09.i.i101, %pmix_cmd_line_is_taken.exit100.thread192 ]
+.lr.ph.i.i103:                                    ; preds = %pmix_cmd_line_is_taken.exit100.thread193, %105
+  %.011.i.i104 = phi ptr [ %.0.i.i105, %105 ], [ %.09.i.i101, %pmix_cmd_line_is_taken.exit100.thread193 ]
   %101 = getelementptr inbounds i8, ptr %.011.i.i104, i64 144
   %102 = load ptr, ptr %101, align 8
   %103 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(7) @.str.15) #12
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %pmix_cmd_line_is_taken.exit110.thread200, label %105
+  br i1 %104, label %pmix_cmd_line_is_taken.exit110.thread201, label %105
 
 105:                                              ; preds = %.lr.ph.i.i103
   %106 = getelementptr inbounds i8, ptr %.011.i.i104, i64 120
   %.0.i.i105 = load ptr, ptr %106, align 8
   %.not.i.i106 = icmp eq ptr %.0.i.i105, %100
-  br i1 %.not.i.i106, label %pmix_cmd_line_is_taken.exit110.thread202, label %.lr.ph.i.i103, !llvm.loop !7
+  br i1 %.not.i.i106, label %pmix_cmd_line_is_taken.exit110.thread203, label %.lr.ph.i.i103, !llvm.loop !7
 
-pmix_cmd_line_is_taken.exit110.thread200:         ; preds = %.lr.ph.i.i103
+pmix_cmd_line_is_taken.exit110.thread201:         ; preds = %.lr.ph.i.i103
   tail call void @pmix_info_do_config(i1 noundef zeroext true) #9
-  %.pre232 = load ptr, ptr @pmix_info_cmd_line, align 8
-  %.phi.trans.insert233 = getelementptr inbounds i8, ptr %.pre232, i64 360
-  %.09.i.i111.pre = load ptr, ptr %.phi.trans.insert233, align 8
-  br label %pmix_cmd_line_is_taken.exit110.thread202
+  %.pre233 = load ptr, ptr @pmix_info_cmd_line, align 8
+  %.phi.trans.insert234 = getelementptr inbounds i8, ptr %.pre233, i64 360
+  %.09.i.i111.pre = load ptr, ptr %.phi.trans.insert234, align 8
+  br label %pmix_cmd_line_is_taken.exit110.thread203
 
-pmix_cmd_line_is_taken.exit110.thread202:         ; preds = %105, %pmix_cmd_line_is_taken.exit110.thread200, %pmix_cmd_line_is_taken.exit100.thread192
-  %.09.i.i111 = phi ptr [ %.09.i.i111.pre, %pmix_cmd_line_is_taken.exit110.thread200 ], [ %.09.i.i101, %pmix_cmd_line_is_taken.exit100.thread192 ], [ %.09.i.i101, %105 ]
-  %107 = phi ptr [ %.pre232, %pmix_cmd_line_is_taken.exit110.thread200 ], [ %99, %pmix_cmd_line_is_taken.exit100.thread192 ], [ %99, %105 ]
-  %.3207 = phi i1 [ true, %pmix_cmd_line_is_taken.exit110.thread200 ], [ %.2198, %pmix_cmd_line_is_taken.exit100.thread192 ], [ %.2198, %105 ]
+pmix_cmd_line_is_taken.exit110.thread203:         ; preds = %105, %pmix_cmd_line_is_taken.exit110.thread201, %pmix_cmd_line_is_taken.exit100.thread193
+  %.09.i.i111 = phi ptr [ %.09.i.i111.pre, %pmix_cmd_line_is_taken.exit110.thread201 ], [ %.09.i.i101, %pmix_cmd_line_is_taken.exit100.thread193 ], [ %.09.i.i101, %105 ]
+  %107 = phi ptr [ %.pre233, %pmix_cmd_line_is_taken.exit110.thread201 ], [ %99, %pmix_cmd_line_is_taken.exit100.thread193 ], [ %99, %105 ]
+  %.3208 = phi i1 [ true, %pmix_cmd_line_is_taken.exit110.thread201 ], [ %.2199, %pmix_cmd_line_is_taken.exit100.thread193 ], [ %.2199, %105 ]
   %108 = getelementptr inbounds i8, ptr %107, i64 240
   %.not10.i.i112 = icmp eq ptr %.09.i.i111, %108
   br i1 %.not10.i.i112, label %pmix_cmd_line_is_taken.exit130, label %.lr.ph.i.i113
 
-.lr.ph.i.i113:                                    ; preds = %pmix_cmd_line_is_taken.exit110.thread202, %113
-  %.011.i.i114 = phi ptr [ %.0.i.i115, %113 ], [ %.09.i.i111, %pmix_cmd_line_is_taken.exit110.thread202 ]
+.lr.ph.i.i113:                                    ; preds = %pmix_cmd_line_is_taken.exit110.thread203, %113
+  %.011.i.i114 = phi ptr [ %.0.i.i115, %113 ], [ %.09.i.i111, %pmix_cmd_line_is_taken.exit110.thread203 ]
   %109 = getelementptr inbounds i8, ptr %.011.i.i114, i64 144
   %110 = load ptr, ptr %109, align 8
   %111 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull dereferenceable(6) @.str.16) #12
   %112 = icmp eq i32 %111, 0
-  br i1 %112, label %pmix_cmd_line_is_taken.exit120.thread209, label %113
+  br i1 %112, label %pmix_cmd_line_is_taken.exit120.thread210, label %113
 
 113:                                              ; preds = %.lr.ph.i.i113
   %114 = getelementptr inbounds i8, ptr %.011.i.i114, i64 120
@@ -389,7 +389,7 @@ pmix_cmd_line_is_taken.exit110.thread202:         ; preds = %105, %pmix_cmd_line
   %116 = load ptr, ptr %115, align 8
   %117 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(7) @.str.17) #12
   %118 = icmp eq i32 %117, 0
-  br i1 %118, label %pmix_cmd_line_is_taken.exit120.thread209, label %119
+  br i1 %118, label %pmix_cmd_line_is_taken.exit120.thread210, label %119
 
 119:                                              ; preds = %.lr.ph.i.i123
   %120 = getelementptr inbounds i8, ptr %.011.i.i124, i64 120
@@ -397,18 +397,18 @@ pmix_cmd_line_is_taken.exit110.thread202:         ; preds = %105, %pmix_cmd_line
   %.not.i.i126 = icmp eq ptr %.0.i.i125, %108
   br i1 %.not.i.i126, label %pmix_cmd_line_is_taken.exit130, label %.lr.ph.i.i123, !llvm.loop !7
 
-pmix_cmd_line_is_taken.exit120.thread209:         ; preds = %.lr.ph.i.i113, %.lr.ph.i.i123, %pmix_cmd_line_is_taken.exit90.thread180.thread
-  %.08.i.i161175185195206 = phi i1 [ true, %pmix_cmd_line_is_taken.exit90.thread180.thread ], [ false, %.lr.ph.i.i123 ], [ false, %.lr.ph.i.i113 ]
-  tail call void @pmix_info_do_params(i1 noundef zeroext %.08.i.i161175185195206) #9
-  %.pre235 = load ptr, ptr @pmix_info_cmd_line, align 8
-  %.phi.trans.insert236 = getelementptr inbounds i8, ptr %.pre235, i64 360
-  %.09.i.i131.pre = load ptr, ptr %.phi.trans.insert236, align 8
+pmix_cmd_line_is_taken.exit120.thread210:         ; preds = %.lr.ph.i.i113, %.lr.ph.i.i123, %pmix_cmd_line_is_taken.exit90.thread181.thread
+  %.08.i.i162176186196207 = phi i1 [ true, %pmix_cmd_line_is_taken.exit90.thread181.thread ], [ false, %.lr.ph.i.i123 ], [ false, %.lr.ph.i.i113 ]
+  tail call void @pmix_info_do_params(i1 noundef zeroext %.08.i.i162176186196207) #9
+  %.pre236 = load ptr, ptr @pmix_info_cmd_line, align 8
+  %.phi.trans.insert237 = getelementptr inbounds i8, ptr %.pre236, i64 360
+  %.09.i.i131.pre = load ptr, ptr %.phi.trans.insert237, align 8
   br label %pmix_cmd_line_is_taken.exit130
 
-pmix_cmd_line_is_taken.exit130:                   ; preds = %119, %pmix_cmd_line_is_taken.exit110.thread202, %pmix_cmd_line_is_taken.exit120.thread209
-  %.09.i.i131 = phi ptr [ %.09.i.i131.pre, %pmix_cmd_line_is_taken.exit120.thread209 ], [ %.09.i.i111, %pmix_cmd_line_is_taken.exit110.thread202 ], [ %.09.i.i111, %119 ]
-  %121 = phi ptr [ %.pre235, %pmix_cmd_line_is_taken.exit120.thread209 ], [ %107, %pmix_cmd_line_is_taken.exit110.thread202 ], [ %107, %119 ]
-  %.4 = phi i1 [ true, %pmix_cmd_line_is_taken.exit120.thread209 ], [ %.3207, %pmix_cmd_line_is_taken.exit110.thread202 ], [ %.3207, %119 ]
+pmix_cmd_line_is_taken.exit130:                   ; preds = %119, %pmix_cmd_line_is_taken.exit110.thread203, %pmix_cmd_line_is_taken.exit120.thread210
+  %.09.i.i131 = phi ptr [ %.09.i.i131.pre, %pmix_cmd_line_is_taken.exit120.thread210 ], [ %.09.i.i111, %pmix_cmd_line_is_taken.exit110.thread203 ], [ %.09.i.i111, %119 ]
+  %121 = phi ptr [ %.pre236, %pmix_cmd_line_is_taken.exit120.thread210 ], [ %107, %pmix_cmd_line_is_taken.exit110.thread203 ], [ %107, %119 ]
+  %.4 = phi i1 [ true, %pmix_cmd_line_is_taken.exit120.thread210 ], [ %.3208, %pmix_cmd_line_is_taken.exit110.thread203 ], [ %.3208, %119 ]
   %122 = getelementptr inbounds i8, ptr %121, i64 240
   %.not10.i.i132 = icmp eq ptr %.09.i.i131, %122
   br i1 %.not10.i.i132, label %pmix_cmd_line_is_taken.exit140, label %.lr.ph.i.i133
@@ -567,24 +567,24 @@ pmix_obj_run_destructors.exit154:                 ; preds = %.lr.ph.i151, %170
   %189 = getelementptr inbounds i8, ptr %188, i64 48
   %190 = load ptr, ptr %189, align 8
   %191 = load ptr, ptr %190, align 8
-  %.not6.i155 = icmp eq ptr %191, null
-  br i1 %.not6.i155, label %pmix_obj_run_destructors.exit159, label %.lr.ph.i156
+  %.not6.i156 = icmp eq ptr %191, null
+  br i1 %.not6.i156, label %pmix_obj_run_destructors.exit160, label %.lr.ph.i157
 
-.lr.ph.i156:                                      ; preds = %._crit_edge, %.lr.ph.i156
-  %192 = phi ptr [ %194, %.lr.ph.i156 ], [ %191, %._crit_edge ]
-  %.07.i157 = phi ptr [ %193, %.lr.ph.i156 ], [ %190, %._crit_edge ]
+.lr.ph.i157:                                      ; preds = %._crit_edge, %.lr.ph.i157
+  %192 = phi ptr [ %194, %.lr.ph.i157 ], [ %191, %._crit_edge ]
+  %.07.i158 = phi ptr [ %193, %.lr.ph.i157 ], [ %190, %._crit_edge ]
   tail call void %192(ptr noundef nonnull @pmix_component_map) #9
-  %193 = getelementptr inbounds i8, ptr %.07.i157, i64 8
+  %193 = getelementptr inbounds i8, ptr %.07.i158, i64 8
   %194 = load ptr, ptr %193, align 8
-  %.not.i158 = icmp eq ptr %194, null
-  br i1 %.not.i158, label %pmix_obj_run_destructors.exit159, label %.lr.ph.i156, !llvm.loop !8
+  %.not.i159 = icmp eq ptr %194, null
+  br i1 %.not.i159, label %pmix_obj_run_destructors.exit160, label %.lr.ph.i157, !llvm.loop !8
 
-pmix_obj_run_destructors.exit159:                 ; preds = %.lr.ph.i156, %._crit_edge
+pmix_obj_run_destructors.exit160:                 ; preds = %.lr.ph.i157, %._crit_edge
   tail call void @pmix_info_finalize() #9
   br label %195
 
-195:                                              ; preds = %40, %pmix_obj_run_constructors.exit, %pmix_obj_run_destructors.exit159, %37, %32, %27, %21, %16
-  %.038 = phi i32 [ %15, %16 ], [ %20, %21 ], [ -1, %27 ], [ -1, %32 ], [ -1, %37 ], [ 0, %pmix_obj_run_destructors.exit159 ], [ -1, %pmix_obj_run_constructors.exit ], [ %41, %40 ]
+195:                                              ; preds = %40, %pmix_obj_run_constructors.exit, %pmix_obj_run_destructors.exit160, %37, %32, %27, %21, %16
+  %.038 = phi i32 [ %15, %16 ], [ %20, %21 ], [ -1, %27 ], [ -1, %32 ], [ -1, %37 ], [ 0, %pmix_obj_run_destructors.exit160 ], [ -1, %pmix_obj_run_constructors.exit ], [ %41, %40 ]
   ret i32 %.038
 }
 

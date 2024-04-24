@@ -246,7 +246,7 @@ _ZNK9Stockfish8SetRangeclEi.exit40.i:             ; preds = %15, %_ZNK9Stockfish
   %.sroa.0.0.i38.i = phi i64 [ %16, %15 ], [ %.sroa.0.0.copyload.i.i, %_ZNK9Stockfish8SetRangeclEi.exit.thread.i ], [ %.sroa.0.0.copyload.i39.pre.i, %_ZNK9Stockfish8SetRangeclEi.exit._crit_edge.i ]
   %.sroa.012.0.extract.trunc69.i = trunc i64 %.sroa.012.0.extract.trunc69.in.i to i32
   %.sroa.111.0.extract.shift.i = lshr i64 %.sroa.0.0.i38.i, 32
-  %.sroa.111.0.extract.trunc.i = trunc i64 %.sroa.111.0.extract.shift.i to i32
+  %.sroa.111.0.extract.trunc.i = trunc nuw i64 %.sroa.111.0.extract.shift.i to i32
   %17 = icmp eq i32 %.sroa.012.0.extract.trunc69.i, %.sroa.111.0.extract.trunc.i
   br i1 %17, label %_ZN9StockfishL11make_optionEPNS_10OptionsMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKNS_8SetRangeE.exit, label %18
 
@@ -355,7 +355,7 @@ _ZNK9Stockfish8SetRangeclEi.exit48.i:             ; preds = %45, %_ZNK9Stockfish
   %.sroa.0.0.i46.i = phi i64 [ %46, %45 ], [ %.sroa.0.0.copyload.i43.i, %_ZNK9Stockfish8SetRangeclEi.exit44.thread.i ], [ %.sroa.0.0.copyload.i47.pre.i, %_ZNK9Stockfish8SetRangeclEi.exit44._crit_edge.i ]
   %.sroa.08.0.extract.trunc77.i = trunc i64 %.sroa.08.0.extract.trunc77.in.i to i32
   %.sroa.17.0.extract.shift.i = lshr i64 %.sroa.0.0.i46.i, 32
-  %.sroa.17.0.extract.trunc.i = trunc i64 %.sroa.17.0.extract.shift.i to i32
+  %.sroa.17.0.extract.trunc.i = trunc nuw i64 %.sroa.17.0.extract.shift.i to i32
   %47 = getelementptr inbounds i8, ptr %5, i64 16
   %48 = getelementptr inbounds i8, ptr %5, i64 24
   %49 = getelementptr inbounds i8, ptr %5, i64 8
@@ -430,7 +430,7 @@ _ZNK9Stockfish8SetRangeclEi.exit53.i:             ; preds = %68, %66
 _ZNK9Stockfish8SetRangeclEi.exit57.i:             ; preds = %75, %73
   %.sroa.0.0.i55.i = phi i64 [ %74, %73 ], [ %.sroa.0.0.copyload.i56.i, %75 ]
   %.sroa.13.0.extract.shift.i = lshr i64 %.sroa.0.0.i55.i, 32
-  %.sroa.13.0.extract.trunc.i = trunc i64 %.sroa.13.0.extract.shift.i to i32
+  %.sroa.13.0.extract.trunc.i = trunc nuw i64 %.sroa.13.0.extract.shift.i to i32
   %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %71, i32 noundef %.sroa.13.0.extract.trunc.i) #11
   %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull @.str) #11
   %79 = load ptr, ptr %11, align 8
@@ -461,7 +461,7 @@ _ZNK9Stockfish8SetRangeclEi.exit65.i:             ; preds = %82, %_ZNK9Stockfish
   %.sroa.1.0.extract.trunc84.in.in.i = phi i64 [ %81, %82 ], [ %.sroa.0.0.copyload.i60.i, %_ZNK9Stockfish8SetRangeclEi.exit61.thread.i ], [ %81, %_ZNK9Stockfish8SetRangeclEi.exit61._crit_edge.i ]
   %.sroa.0.0.i63.i = phi i64 [ %83, %82 ], [ %.sroa.0.0.copyload.i60.i, %_ZNK9Stockfish8SetRangeclEi.exit61.thread.i ], [ %.sroa.0.0.copyload.i64.pre.i, %_ZNK9Stockfish8SetRangeclEi.exit61._crit_edge.i ]
   %.sroa.1.0.extract.trunc84.in.i = lshr i64 %.sroa.1.0.extract.trunc84.in.in.i, 32
-  %.sroa.1.0.extract.trunc84.i = trunc i64 %.sroa.1.0.extract.trunc84.in.i to i32
+  %.sroa.1.0.extract.trunc84.i = trunc nuw i64 %.sroa.1.0.extract.trunc84.in.i to i32
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.i63.i to i32
   %84 = sub nsw i32 %.sroa.1.0.extract.trunc84.i, %.sroa.0.0.extract.trunc.i
   %85 = sitofp i32 %84 to double
@@ -704,7 +704,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_st
   br i1 %21, label %._crit_edge.thread.i, label %27
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %17
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %1, %17 ]
+  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %17 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %.019.lcssa28.i, %23
@@ -859,8 +859,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_st
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE24_M_get_insert_unique_posERS7_.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE24_M_get_insert_unique_posERS7_.exit: ; preds = %87, %._crit_edge.thread.i47, %57, %._crit_edge.thread.i27, %27, %._crit_edge.thread.i, %73, %44, %61, %64, %35, %15
-  %.sroa.070.0 = phi ptr [ null, %15 ], [ %1, %35 ], [ null, %64 ], [ %1, %61 ], [ %spec.select, %44 ], [ %spec.select72, %73 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %27 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %57 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %87 ]
-  %.sroa.12.0 = phi ptr [ %16, %15 ], [ %1, %35 ], [ %1, %64 ], [ null, %61 ], [ %spec.select71, %44 ], [ %spec.select73, %73 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %27 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %57 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %87 ]
+  %.sroa.070.0 = phi ptr [ null, %15 ], [ %37, %35 ], [ null, %64 ], [ %1, %61 ], [ %spec.select, %44 ], [ %spec.select72, %73 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %27 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %57 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %87 ]
+  %.sroa.12.0 = phi ptr [ %16, %15 ], [ %37, %35 ], [ %66, %64 ], [ null, %61 ], [ %spec.select71, %44 ], [ %spec.select73, %73 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %27 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %57 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %87 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

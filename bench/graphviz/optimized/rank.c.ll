@@ -3118,7 +3118,7 @@ define internal fastcc ptr @find(ptr noundef %0) unnamed_addr #9 {
   br i1 %.not9, label %common.ret10, label %7
 
 common.ret10:                                     ; preds = %6, %11, %7
-  %common.ret10.op = phi ptr [ %8, %7 ], [ %0, %11 ], [ %0, %6 ]
+  %common.ret10.op = phi ptr [ %8, %7 ], [ %5, %6 ], [ %0, %11 ]
   ret ptr %common.ret10.op
 
 7:                                                ; preds = %6

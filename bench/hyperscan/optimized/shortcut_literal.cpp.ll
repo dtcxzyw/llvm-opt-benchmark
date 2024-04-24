@@ -936,7 +936,7 @@ if.then.i.i:                                      ; preds = %_ZNSt5stackImSt5deq
   br label %_ZNSt5stackImSt5dequeImSaImEEE3popEv.exit
 
 if.else.i.i:                                      ; preds = %_ZNSt5stackImSt5dequeImSaImEEE3topEv.exit
-  call void @_ZdlPv(ptr noundef %7) #17
+  call void @_ZdlPv(ptr noundef %8) #17
   %_M_node.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %9 = load ptr, ptr %_M_node.i.i.i, align 8
   %add.ptr.i.i.i2 = getelementptr inbounds i8, ptr %9, i64 -8

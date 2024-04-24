@@ -4329,8 +4329,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %55, label %59, label %53
 
 .sink.split.i.i.i:                                ; preds = %46, %.loopexit.i.i.i.i
-  %.sink.i.i.i = phi ptr [ %47, %46 ], [ %7, %.loopexit.i.i.i.i ]
-  store ptr %.sink.i.i.i, ptr %6, align 8, !alias.scope !1445, !noalias !1422
+  %.sink.i.i.lcssa24.sink.i.i.i = phi ptr [ %47, %46 ], [ %.sink.i.i.i.i.i, %.loopexit.i.i.i.i ]
+  store ptr %.sink.i.i.lcssa24.sink.i.i.i, ptr %6, align 8, !alias.scope !1445, !noalias !1422
   br label %56
 
 56:                                               ; preds = %.sink.split.i.i.i, %2
@@ -40436,7 +40436,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h350a05b
   br label %52
 
 52:                                               ; preds = %51, %.thread.i.i.i
-  %53 = phi ptr [ %43, %51 ], [ %40, %.thread.i.i.i ]
+  %53 = phi ptr [ %43, %51 ], [ %41, %.thread.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !10099
   store ptr %13, ptr %3, align 8, !noalias !10099
   %54 = ptrtoint ptr %40 to i64
@@ -49648,8 +49648,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br label %61
 
 .loopexit.i.loopexit:                             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf000b57ec0e3f518E.exit.i.i.i.i", %17
-  %.lcssa14 = phi ptr [ %13, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf000b57ec0e3f518E.exit.i.i.i.i" ], [ %9, %17 ]
-  store ptr %.lcssa14, ptr %10, align 8, !alias.scope !12381, !noalias !12384
+  store ptr %13, ptr %10, align 8, !alias.scope !12381, !noalias !12384
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %2
@@ -49774,8 +49773,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hd518adc74aa01653E.exit.i.i.sink.split": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h233894e5e1b36850E.exit.i.i.i", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf000b57ec0e3f518E.exit.i.i.i.i.i.i", %40
-  %.sink = phi ptr [ %33, %40 ], [ %36, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf000b57ec0e3f518E.exit.i.i.i.i.i.i" ], [ %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h233894e5e1b36850E.exit.i.i.i" ]
-  store ptr %.sink, ptr %32, align 8, !alias.scope !12435, !noalias !12416
+  store ptr %36, ptr %32, align 8, !alias.scope !12435, !noalias !12416
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hd518adc74aa01653E.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hd518adc74aa01653E.exit.i.i": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hd518adc74aa01653E.exit.i.i.sink.split", %27
@@ -51253,7 +51251,8 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br label %85
 
 ._crit_edge:                                      ; preds = %18, %2
-  store ptr %15, ptr %16, align 8, !alias.scope !12798, !noalias !12801
+  %.lcssa = phi ptr [ %.promoted.i.i.i.i.i, %2 ], [ %21, %18 ]
+  store ptr %.lcssa, ptr %16, align 8, !alias.scope !12798, !noalias !12801
   store i64 0, ptr %0, align 8, !alias.scope !12774, !noalias !12777
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %29, align 8, !alias.scope !12774, !noalias !12777
@@ -51424,7 +51423,8 @@ common.resume.i:                                  ; preds = %85, %.body9.i, %32
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h30bd7821766f9ac5E.llvm.2651244455829285093.exit.i.i.i" unwind label %70, !noalias !12864
 
 ._crit_edge.i:                                    ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h30bd7821766f9ac5E.llvm.2651244455829285093.exit.i.i.i", %50, %40
-  store ptr %48, ptr %47, align 8, !alias.scope !12842, !noalias !12849
+  %.lcssa.i = phi ptr [ %.promoted.i.i, %40 ], [ %54, %50 ], [ %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h30bd7821766f9ac5E.llvm.2651244455829285093.exit.i.i.i" ]
+  store ptr %.lcssa.i, ptr %47, align 8, !alias.scope !12842, !noalias !12849
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !12869
   store ptr %9, ptr %3, align 8, !noalias !12869
   %73 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hd4bdb3a1d74df82bE.llvm.15005499655690089915(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9)
@@ -51614,7 +51614,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdbcc81d7b2345d4dE.exit.i.i.i", %..loopexit.loopexit_crit_edge, %2
-  %44 = phi ptr [ %15, %2 ], [ %.pre.pre, %..loopexit.loopexit_crit_edge ], [ %23, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdbcc81d7b2345d4dE.exit.i.i.i" ]
+  %44 = phi ptr [ %16, %2 ], [ %.pre.pre, %..loopexit.loopexit_crit_edge ], [ %23, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdbcc81d7b2345d4dE.exit.i.i.i" ]
   %.sroa.7.019.i.i.i = phi ptr [ %10, %2 ], [ %.pn11.i.i.i.i, %..loopexit.loopexit_crit_edge ], [ %.sroa.7.020.i.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdbcc81d7b2345d4dE.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %.sroa.2.i.i.i)
   %45 = ptrtoint ptr %.sroa.7.019.i.i.i to i64
@@ -53874,7 +53874,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br label %82
 
 .loopexit.i.loopexit:                             ; preds = %25
-  store ptr %16, ptr %17, align 8, !alias.scope !13481, !noalias !13484
+  store ptr %22, ptr %17, align 8, !alias.scope !13481, !noalias !13484
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %2
@@ -54037,7 +54037,7 @@ common.resume.i:                                  ; preds = %82, %.body.i, %32
   unreachable
 
 .loopexit.i.i.i.sink.split:                       ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hed640f886038be79E.exit.i.i.i", %54
-  store ptr %46, ptr %45, align 8, !alias.scope !13565, !noalias !13566
+  store ptr %51, ptr %45, align 8, !alias.scope !13565, !noalias !13566
   br label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %.loopexit.i.i.i.sink.split, %40
@@ -54459,12 +54459,11 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br label %109
 
 .loopexit.i.loopexit:                             ; preds = %35, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h029b70549367f9afE.exit.i.i.i.i"
-  %.lcssa = phi ptr [ %17, %35 ], [ %30, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h029b70549367f9afE.exit.i.i.i.i" ]
-  store ptr %.lcssa, ptr %18, align 8, !alias.scope !13718, !noalias !13719
+  store ptr %30, ptr %18, align 8, !alias.scope !13718, !noalias !13719
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %2
-  %39 = phi ptr [ %17, %2 ], [ %.lcssa, %.loopexit.i.loopexit ]
+  %39 = phi ptr [ %.promoted.i.i.i.i, %2 ], [ %30, %.loopexit.i.loopexit ]
   store i64 0, ptr %0, align 8, !alias.scope !13673, !noalias !13676
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %40, align 8, !alias.scope !13673, !noalias !13676
@@ -54676,12 +54675,11 @@ common.resume.i:                                  ; preds = %109, %.body.i, %46
   unreachable
 
 .loopexit8.i.i.i.sink.split:                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hece8a6179a9ea944E.exit.i.i.i", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h029b70549367f9afE.exit.i.i.i.i.i.i", %77
-  %.sink = phi ptr [ %60, %77 ], [ %72, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h029b70549367f9afE.exit.i.i.i.i.i.i" ], [ %60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hece8a6179a9ea944E.exit.i.i.i" ]
-  store ptr %.sink, ptr %59, align 8, !alias.scope !13781, !noalias !13782
+  store ptr %72, ptr %59, align 8, !alias.scope !13781, !noalias !13782
   br label %.loopexit8.i.i.i
 
 .loopexit8.i.i.i:                                 ; preds = %.loopexit8.i.i.i.sink.split, %54
-  %95 = phi ptr [ %60, %54 ], [ %.sink, %.loopexit8.i.i.i.sink.split ]
+  %95 = phi ptr [ %.promoted.i.i.i16.i.i.i, %54 ], [ %72, %.loopexit8.i.i.i.sink.split ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !13786
   store ptr %12, ptr %3, align 8, !noalias !13786
   %96 = ptrtoint ptr %60 to i64
@@ -56258,7 +56256,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdbcc81d7b2345d4dE.exit.i.i.i", %..loopexit.loopexit_crit_edge, %2
-  %32 = phi ptr [ %14, %2 ], [ %.pre.pre, %..loopexit.loopexit_crit_edge ], [ %19, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdbcc81d7b2345d4dE.exit.i.i.i" ]
+  %32 = phi ptr [ %15, %2 ], [ %.pre.pre, %..loopexit.loopexit_crit_edge ], [ %19, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdbcc81d7b2345d4dE.exit.i.i.i" ]
   %.sroa.7.017.i.i.i = phi ptr [ %9, %2 ], [ %.pn12.i.i.i.i, %..loopexit.loopexit_crit_edge ], [ %.sroa.7.018.i.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdbcc81d7b2345d4dE.exit.i.i.i" ]
   %33 = ptrtoint ptr %.sroa.7.017.i.i.i to i64
   %34 = ptrtoint ptr %9 to i64

@@ -2335,7 +2335,7 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %cmp39, label %if.then40, label %if.else
 
 if.then40:                                        ; preds = %while.body
-  invoke void @_ZN6icu_757UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40) %dest, ptr noundef %13, i32 noundef %di.091)
+  invoke void @_ZN6icu_757UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40) %dest, ptr noundef %14, i32 noundef %di.091)
           to label %invoke.cont41 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont41:                                    ; preds = %if.then40

@@ -17925,7 +17925,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 invoke.cont.i.i137:                               ; preds = %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i135, %for.cond.cleanup, %_ZN6duckdb6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeEELb1EEC2ERKSA_.exit
   %sub.ptr.div.i.i.i131235 = phi i64 [ %sub.ptr.div.i.i.i131, %for.cond.cleanup ], [ %sub.ptr.div.i.i.i131, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i135 ], [ 0, %_ZN6duckdb6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeEELb1EEC2ERKSA_.exit ]
   %7 = phi ptr [ %.pre228, %for.cond.cleanup ], [ %.pre228, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i135 ], [ %5, %_ZN6duckdb6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeEELb1EEC2ERKSA_.exit ]
-  %8 = phi ptr [ %.pre228, %for.cond.cleanup ], [ %.pre229, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i135 ], [ %5, %_ZN6duckdb6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeEELb1EEC2ERKSA_.exit ]
+  %8 = phi ptr [ %.pre229, %for.cond.cleanup ], [ %.pre229, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i135 ], [ %5, %_ZN6duckdb6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeEELb1EEC2ERKSA_.exit ]
   %cond.i.i.i.i.i138 = phi ptr [ null, %for.cond.cleanup ], [ %call5.i.i.i.i4.i20.i.i136148, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i135 ], [ null, %_ZN6duckdb6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeEELb1EEC2ERKSA_.exit ]
   store ptr %cond.i.i.i.i.i138, ptr %agg.tmp17, align 8, !tbaa !290
   %_M_finish.i.i.i.i139 = getelementptr inbounds i8, ptr %agg.tmp17, i64 8
@@ -21283,10 +21283,9 @@ invoke.cont10:                                    ; preds = %_ZNSt6vectorIN6duck
   br i1 %cmp.i22.not, label %return.loopexit, label %for.body
 
 lpad7.loopexit:                                   ; preds = %cond.true.i.i.i, %for.body
-  %.lcssa = phi ptr [ %4, %cond.true.i.i.i ], [ %5, %for.body ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %.lcssa, ptr %_M_end_of_storage.i.i, align 8, !tbaa !383
+  store ptr %5, ptr %_M_end_of_storage.i.i, align 8, !tbaa !383
   store ptr %cond.i31.i.i4448, ptr %agg.result, align 8, !tbaa !30
   br label %ehcleanup
 
@@ -33813,7 +33812,7 @@ invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_tr
   %sub.ptr.div.i.i.i184 = phi i64 [ %sub.ptr.div.i.i.i, %for.cond.cleanup ], [ %sub.ptr.div.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEEE8allocateERS8_m.exit.i.i.i.i.i ], [ 0, %for.cond.cleanup.thread ]
   %_M_finish.i.i.i183 = phi ptr [ %_M_finish.i70, %for.cond.cleanup ], [ %_M_finish.i70, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEEE8allocateERS8_m.exit.i.i.i.i.i ], [ %_M_finish.i.i.i177, %for.cond.cleanup.thread ]
   %3 = phi ptr [ %2, %for.cond.cleanup ], [ %2, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEEE8allocateERS8_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup.thread ]
-  %4 = phi ptr [ %2, %for.cond.cleanup ], [ %.pre176, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEEE8allocateERS8_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup.thread ]
+  %4 = phi ptr [ %.pre176, %for.cond.cleanup ], [ %.pre176, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEEE8allocateERS8_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup.thread ]
   %cond.i.i.i.i.i = phi ptr [ null, %for.cond.cleanup ], [ %call5.i.i.i.i4.i20.i.i58, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEEE8allocateERS8_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup.thread ]
   store ptr %cond.i.i.i.i.i, ptr %agg.tmp, align 8, !tbaa !678
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -49547,7 +49546,7 @@ _ZSt8_DestroyIN6duckdb10unique_ptrINS0_12SQLStatementESt14default_deleteIS2_ELb1
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !942
 
 invoke.cont.i.i.i.i:                              ; preds = %_ZSt8_DestroyIN6duckdb10unique_ptrINS0_12SQLStatementESt14default_deleteIS2_ELb1EEEEvPT_.exit.i.i.i.i.i.i.i, %for.cond.cleanup, %for.cond.cleanup.thread
-  %.lcssa285350 = phi ptr [ %0, %for.cond.cleanup.thread ], [ %87, %for.cond.cleanup ], [ %88, %_ZSt8_DestroyIN6duckdb10unique_ptrINS0_12SQLStatementESt14default_deleteIS2_ELb1EEEEvPT_.exit.i.i.i.i.i.i.i ]
+  %.lcssa285350 = phi ptr [ %0, %for.cond.cleanup.thread ], [ %88, %for.cond.cleanup ], [ %88, %_ZSt8_DestroyIN6duckdb10unique_ptrINS0_12SQLStatementESt14default_deleteIS2_ELb1EEEEvPT_.exit.i.i.i.i.i.i.i ]
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %.lcssa285350, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_12SQLStatementESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev.exit, label %if.then.i.i.i.i.i.i
 
@@ -73345,6 +73344,7 @@ cond.end.i:                                       ; preds = %if.then.i, %if.end1
   %29 = phi ptr [ %12, %if.end13.thread ], [ %25, %if.then.i ]
   %__n.16675 = phi ptr [ %14, %if.end13.thread ], [ %__n.1, %if.then.i ]
   %__bkt.06773 = phi i64 [ %rem.i.i.i29, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
+  %__prev_n.06971 = phi ptr [ %13, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
   %30 = phi ptr [ %18, %if.end13.thread ], [ %26, %if.then.i ]
   %add.ptr.i.i.i39 = getelementptr inbounds i8, ptr %30, i64 16
   %31 = load i64, ptr %add.ptr.i.i.i39, align 8, !tbaa !71
@@ -73363,7 +73363,7 @@ if.then3.i.i:                                     ; preds = %cond.end.i
 if.end.i.i:                                       ; preds = %if.then3.i.i, %if.then.i, %if.end13.thread
   %__n.16676 = phi ptr [ %__n.1, %if.then.i ], [ %__n.16675, %if.then3.i.i ], [ %14, %if.end13.thread ]
   %__bkt.06774 = phi i64 [ %__bkt.0, %if.then.i ], [ %__bkt.06773, %if.then3.i.i ], [ %rem.i.i.i29, %if.end13.thread ]
-  %__prev_n.06972 = phi ptr [ %24, %if.then.i ], [ %28, %if.then3.i.i ], [ %13, %if.end13.thread ]
+  %__prev_n.06972 = phi ptr [ %__prev_n.0, %if.then.i ], [ %__prev_n.06971, %if.then3.i.i ], [ %13, %if.end13.thread ]
   %32 = phi ptr [ null, %if.then.i ], [ %30, %if.then3.i.i ], [ null, %if.end13.thread ]
   %33 = phi ptr [ %24, %if.then.i ], [ %.pre43.i, %if.then3.i.i ], [ %13, %if.end13.thread ]
   %34 = phi ptr [ %25, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %12, %if.end13.thread ]
@@ -73396,7 +73396,7 @@ if.then11.i:                                      ; preds = %if.then6.i
   br label %_ZNSt10_HashtableISt17reference_wrapperIN6duckdb14UsingColumnSetEES3_SaIS3_ENSt8__detail9_IdentityENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb1EEE.exit
 
 _ZNSt10_HashtableISt17reference_wrapperIN6duckdb14UsingColumnSetEES3_SaIS3_ENSt8__detail9_IdentityENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseEmPNS5_15_Hash_node_baseEPNS5_10_Hash_nodeIS3_Lb1EEE.exit: ; preds = %if.then11.i, %if.then6.i, %if.else.i, %if.end11.i.i, %cond.end.i
-  %__prev_n.068 = phi ptr [ %28, %cond.end.i ], [ %__prev_n.06972, %if.end11.i.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.then11.i ]
+  %__prev_n.068 = phi ptr [ %__prev_n.06971, %cond.end.i ], [ %__prev_n.06972, %if.end11.i.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.then11.i ]
   %__n.165 = phi ptr [ %__n.16675, %cond.end.i ], [ %__n.16676, %if.end11.i.i ], [ %__n.1, %if.else.i ], [ %__n.1, %if.then6.i ], [ %__n.1, %if.then11.i ]
   %36 = load ptr, ptr %__n.165, align 8, !tbaa !67
   store ptr %36, ptr %__prev_n.068, align 8, !tbaa !67

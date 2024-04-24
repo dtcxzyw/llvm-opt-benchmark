@@ -268,7 +268,7 @@ _ZN20btAlignedObjectArrayIP20btCollisionAlgorithmED2Ev.exit: ; preds = %for.body
   store <2 x ptr> %15, ptr %m_collisionObject.i16, align 8
   store ptr null, ptr %m_preTransform.i, align 8
   store i32 -1, ptr %m_partId.i, align 8
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %16, ptr %m_index.i, align 4
   %17 = load ptr, ptr %m_dispatcher, align 8
   %18 = load ptr, ptr %m_sharedManifold, align 8
@@ -828,7 +828,7 @@ if.end.i61:                                       ; preds = %if.then44
   %m_collisionObject.i6.i = getelementptr inbounds i8, ptr %38, i64 16
   %39 = load ptr, ptr %m_collisionObject.i6.i, align 8
   %. = select i1 %cmp.not.i, ptr %39, ptr %37
-  %.283 = select i1 %cmp.not.i, ptr %35, ptr %39
+  %.283 = select i1 %cmp.not.i, ptr %37, ptr %39
   %m_worldTransform.i5.sink.i = getelementptr inbounds i8, ptr %.283, i64 8
   %m_worldTransform.i7.i = getelementptr inbounds i8, ptr %., i64 8
   tail call void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %32, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i5.sink.i, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i7.i)
@@ -1079,7 +1079,7 @@ invoke.cont95:                                    ; preds = %invoke.cont95.lr.ph
   %140 = load ptr, ptr %m_data.i.i118, align 8
   %m_childShape.i = getelementptr inbounds %struct.btCompoundShapeChild, ptr %140, i64 %indvars.iv271, i32 1
   %141 = load ptr, ptr %m_childShape.i, align 8
-  %142 = trunc i64 %indvars.iv271 to i32
+  %142 = trunc nuw nsw i64 %indvars.iv271 to i32
   call void @_ZN22btCompoundLeafCallback17ProcessChildShapeEPK16btCollisionShapei(ptr noundef nonnull align 8 dereferenceable(64) %callback, ptr noundef %141, i32 noundef %142)
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next272, %wide.trip.count

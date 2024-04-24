@@ -77,7 +77,7 @@ define void @CTEST_LOG(ptr nocapture noundef readonly %0, ...) local_unnamed_add
 
 6:                                                ; preds = %5, %1
   tail call void (ptr, ...) @print_errormsg(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1)
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %7 = load ptr, ptr @ctest_errormsg, align 8, !tbaa !7
   %8 = load i64, ptr @ctest_errorsize, align 8, !tbaa !9
   %9 = call i32 @vsnprintf(ptr noundef %7, i64 noundef %8, ptr noundef %0, ptr noundef nonnull %2) #14
@@ -103,7 +103,7 @@ define void @CTEST_LOG(ptr nocapture noundef readonly %0, ...) local_unnamed_add
   br label %22
 
 22:                                               ; preds = %13, %11
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   %23 = load i32, ptr @color_output, align 4, !tbaa !3
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %26, label %25
@@ -136,11 +136,8 @@ define internal fastcc void @msg_start() unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
 ; Function Attrs: inlinehint nofree nounwind uwtable
-define internal fastcc void @vprint_errormsg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @vprint_errormsg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr @ctest_errormsg, align 8, !tbaa !7
   %4 = load i64, ptr @ctest_errorsize, align 8, !tbaa !9
   %5 = tail call i32 @vsnprintf(ptr noundef %3, i64 noundef %4, ptr noundef %0, ptr noundef %1) #14
@@ -169,9 +166,6 @@ define internal fastcc void @vprint_errormsg(ptr nocapture noundef readonly %0, 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
-
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @msg_end() unnamed_addr #0 {
   %1 = load i32, ptr @color_output, align 4, !tbaa !3
@@ -191,23 +185,23 @@ define internal fastcc void @msg_end() unnamed_addr #0 {
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define void @CTEST_ERR(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #4 {
+define void @CTEST_ERR(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #3 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #14
   tail call fastcc void @msg_start()
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   call fastcc void @vprint_errormsg(ptr noundef %0, ptr noundef nonnull %2)
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   call fastcc void @msg_end()
   call void @longjmp(ptr noundef nonnull @ctest_err, i32 noundef 1) #15
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @assert_str(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define void @assert_str(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = icmp eq ptr %0, null
   %6 = icmp ne ptr %1, null
   %7 = and i1 %5, %6
@@ -237,10 +231,10 @@ define void @assert_str(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @assert_data(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #6 {
+define void @assert_data(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #5 {
   %7 = icmp eq i64 %1, %3
   br i1 %7, label %8, label %10
 
@@ -277,7 +271,7 @@ define void @assert_data(ptr nocapture noundef readonly %0, i64 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @assert_equal(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define void @assert_equal(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = icmp eq i64 %0, %1
   br i1 %5, label %7, label %6
 
@@ -290,7 +284,7 @@ define void @assert_equal(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @assert_equal_u(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define void @assert_equal_u(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = icmp eq i64 %0, %1
   br i1 %5, label %7, label %6
 
@@ -303,7 +297,7 @@ define void @assert_equal_u(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @assert_not_equal(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define void @assert_not_equal(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = icmp eq i64 %0, %1
   br i1 %5, label %6, label %7
 
@@ -316,7 +310,7 @@ define void @assert_not_equal(i64 noundef %0, i64 noundef %1, ptr noundef %2, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @assert_not_equal_u(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define void @assert_not_equal_u(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = icmp eq i64 %0, %1
   br i1 %5, label %6, label %7
 
@@ -329,7 +323,7 @@ define void @assert_not_equal_u(i64 noundef %0, i64 noundef %1, ptr noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @assert_interval(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #6 {
+define void @assert_interval(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = icmp slt i64 %2, %0
   %7 = icmp sgt i64 %2, %1
   %8 = or i1 %6, %7
@@ -344,7 +338,7 @@ define void @assert_interval(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @assert_dbl_near(double noundef %0, double noundef %1, double noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #6 {
+define void @assert_dbl_near(double noundef %0, double noundef %1, double noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = fsub double %0, %1
   %7 = fcmp olt double %6, 0.000000e+00
   %8 = fneg double %6
@@ -361,7 +355,7 @@ define void @assert_dbl_near(double noundef %0, double noundef %1, double nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @assert_dbl_far(double noundef %0, double noundef %1, double noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #6 {
+define void @assert_dbl_far(double noundef %0, double noundef %1, double noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = fsub double %0, %1
   %7 = fcmp olt double %6, 0.000000e+00
   %8 = fneg double %6
@@ -378,7 +372,7 @@ define void @assert_dbl_far(double noundef %0, double noundef %1, double noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @assert_null(ptr noundef readnone %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @assert_null(ptr noundef readnone %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %6, label %5
 
@@ -391,7 +385,7 @@ define void @assert_null(ptr noundef readnone %0, ptr noundef %1, i32 noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @assert_not_null(ptr noundef readnone %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @assert_not_null(ptr noundef readnone %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -404,7 +398,7 @@ define void @assert_not_null(ptr noundef readnone %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @assert_true(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @assert_true(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq i32 %0, 0
   br i1 %4, label %5, label %6
 
@@ -417,7 +411,7 @@ define void @assert_true(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define void @assert_false(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @assert_false(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq i32 %0, 0
   br i1 %4, label %6, label %5
 
@@ -430,13 +424,13 @@ define void @assert_false(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define void @assert_fail(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @assert_fail(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   tail call void (ptr, ...) @CTEST_ERR(ptr noundef nonnull @.str.17, ptr noundef %0, i32 noundef %1)
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
   %3 = alloca %struct.timeval, align 16
   %4 = alloca %struct.timeval, align 16
   %5 = alloca [80 x i8], align 16
@@ -504,19 +498,16 @@ define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_
 
 .thread:                                          ; preds = %.preheader15, %34
   %38 = icmp eq ptr %22, %31
-  br i1 %38, label %50, label %39
+  br i1 %38, label %49, label %39
 
 39:                                               ; preds = %.thread
   %40 = icmp eq ptr %22, %30
-  br i1 %40, label %.loopexit14, label %.preheader13.preheader
+  %.pre20 = load ptr, ptr %22, align 8, !tbaa !7
+  br i1 %40, label %.loopexit14, label %.preheader13
 
-.preheader13.preheader:                           ; preds = %39
-  %.pre = load ptr, ptr %22, align 8, !tbaa !7
-  br label %.preheader13
-
-.preheader13:                                     ; preds = %.preheader13.preheader, %.preheader13
-  %41 = phi ptr [ %44, %.preheader13 ], [ %.pre, %.preheader13.preheader ]
-  %42 = phi ptr [ %43, %.preheader13 ], [ %22, %.preheader13.preheader ]
+.preheader13:                                     ; preds = %39, %.preheader13
+  %41 = phi ptr [ %44, %.preheader13 ], [ %.pre20, %39 ]
+  %42 = phi ptr [ %43, %.preheader13 ], [ %22, %39 ]
   %43 = getelementptr inbounds i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !7
   %45 = getelementptr inbounds i8, ptr %41, i64 56
@@ -525,244 +516,243 @@ define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_
   br i1 %46, label %.loopexit14, label %.preheader13, !llvm.loop !17
 
 .loopexit14:                                      ; preds = %.preheader13, %39
-  %47 = phi ptr [ %22, %39 ], [ %30, %.preheader13 ]
-  %48 = load ptr, ptr %47, align 8, !tbaa !7
-  %49 = getelementptr inbounds i8, ptr %48, i64 56
-  store ptr null, ptr %49, align 8, !tbaa !15
-  br label %50
+  %47 = phi ptr [ %.pre20, %39 ], [ %44, %.preheader13 ]
+  %48 = getelementptr inbounds i8, ptr %47, i64 56
+  store ptr null, ptr %48, align 8, !tbaa !15
+  br label %49
 
-50:                                               ; preds = %.loopexit14, %.thread
+49:                                               ; preds = %.loopexit14, %.thread
   store ptr %22, ptr @__ctest_head_p, align 8, !tbaa !7
-  %51 = load ptr, ptr %22, align 8, !tbaa !7
-  store ptr %51, ptr @ctest_main.test, align 8, !tbaa !7
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %.loopexit12.thread, label %.preheader11
+  %50 = load ptr, ptr %22, align 8, !tbaa !7
+  store ptr %50, ptr @ctest_main.test, align 8, !tbaa !7
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %.loopexit12.thread, label %.preheader11
 
-.loopexit12.thread:                               ; preds = %50
+.loopexit12.thread:                               ; preds = %49
   store ptr null, ptr @ctest_main.test, align 8, !tbaa !7
   br label %.loopexit
 
-.preheader11:                                     ; preds = %50, %62
-  %53 = phi ptr [ %65, %62 ], [ %51, %50 ]
-  %54 = icmp eq ptr %53, @__ctest_suite_test
-  br i1 %54, label %62, label %55
+.preheader11:                                     ; preds = %49, %61
+  %52 = phi ptr [ %64, %61 ], [ %50, %49 ]
+  %53 = icmp eq ptr %52, @__ctest_suite_test
+  br i1 %53, label %61, label %54
 
-55:                                               ; preds = %.preheader11
-  %56 = load ptr, ptr @ctest_main.filter, align 8, !tbaa !7
-  %57 = call i32 %56(ptr noundef nonnull %53) #14, !callees !18
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %62, label %59
+54:                                               ; preds = %.preheader11
+  %55 = load ptr, ptr @ctest_main.filter, align 8, !tbaa !7
+  %56 = call i32 %55(ptr noundef nonnull %52) #14, !callees !18
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %61, label %58
 
-59:                                               ; preds = %55
-  %60 = load i32, ptr @ctest_main.total, align 4, !tbaa !3
-  %61 = add nsw i32 %60, 1
-  store i32 %61, ptr @ctest_main.total, align 4, !tbaa !3
-  br label %62
+58:                                               ; preds = %54
+  %59 = load i32, ptr @ctest_main.total, align 4, !tbaa !3
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr @ctest_main.total, align 4, !tbaa !3
+  br label %61
 
-62:                                               ; preds = %59, %55, %.preheader11
-  %63 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  %64 = getelementptr inbounds i8, ptr %63, i64 56
-  %65 = load ptr, ptr %64, align 8, !tbaa !7
-  store ptr %65, ptr @ctest_main.test, align 8, !tbaa !7
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %.loopexit12, label %.preheader11, !llvm.loop !19
+61:                                               ; preds = %58, %54, %.preheader11
+  %62 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
+  %63 = getelementptr inbounds i8, ptr %62, i64 56
+  %64 = load ptr, ptr %63, align 8, !tbaa !7
+  store ptr %64, ptr @ctest_main.test, align 8, !tbaa !7
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %.loopexit12, label %.preheader11, !llvm.loop !19
 
-.loopexit12:                                      ; preds = %62
-  %.pre20 = load ptr, ptr @__ctest_head_p, align 8, !tbaa !7
-  %.pre21 = load ptr, ptr %.pre20, align 8, !tbaa !7
-  store ptr %.pre21, ptr @ctest_main.test, align 8, !tbaa !7
-  %67 = icmp eq ptr %.pre21, null
-  br i1 %67, label %.loopexit, label %.preheader
+.loopexit12:                                      ; preds = %61
+  %.pre21 = load ptr, ptr @__ctest_head_p, align 8, !tbaa !7
+  %.pre22 = load ptr, ptr %.pre21, align 8, !tbaa !7
+  store ptr %.pre22, ptr @ctest_main.test, align 8, !tbaa !7
+  %66 = icmp eq ptr %.pre22, null
+  br i1 %66, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit12, %145
-  %68 = phi ptr [ %148, %145 ], [ %.pre21, %.loopexit12 ]
-  %69 = icmp eq ptr %68, @__ctest_suite_test
-  br i1 %69, label %145, label %70
+.preheader:                                       ; preds = %.loopexit12, %144
+  %67 = phi ptr [ %147, %144 ], [ %.pre22, %.loopexit12 ]
+  %68 = icmp eq ptr %67, @__ctest_suite_test
+  br i1 %68, label %144, label %69
 
-70:                                               ; preds = %.preheader
-  %71 = load ptr, ptr @ctest_main.filter, align 8, !tbaa !7
-  %72 = call i32 %71(ptr noundef nonnull %68) #14, !callees !18
-  %73 = icmp eq i32 %72, 0
-  %.pre24 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  br i1 %73, label %145, label %74
+69:                                               ; preds = %.preheader
+  %70 = load ptr, ptr @ctest_main.filter, align 8, !tbaa !7
+  %71 = call i32 %70(ptr noundef nonnull %67) #14, !callees !18
+  %72 = icmp eq i32 %71, 0
+  %.pre25 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
+  br i1 %72, label %144, label %73
 
-74:                                               ; preds = %70
+73:                                               ; preds = %69
   store i8 0, ptr @ctest_errorbuffer, align 16, !tbaa !11
   store i64 4095, ptr @ctest_errorsize, align 8, !tbaa !9
   store ptr @ctest_errorbuffer, ptr @ctest_errormsg, align 8, !tbaa !7
-  %75 = load i32, ptr @ctest_main.index, align 4, !tbaa !3
-  %76 = load i32, ptr @ctest_main.total, align 4, !tbaa !3
-  %77 = load ptr, ptr %.pre24, align 8, !tbaa !20
-  %78 = getelementptr inbounds i8, ptr %.pre24, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !21
-  %80 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %75, i32 noundef %76, ptr noundef %77, ptr noundef %79)
-  %81 = load ptr, ptr @stdout, align 8, !tbaa !7
-  %82 = call i32 @fflush(ptr noundef %81)
-  %83 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  %84 = getelementptr inbounds i8, ptr %83, i64 24
-  %85 = load i32, ptr %84, align 8, !tbaa !22
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %97, label %87
+  %74 = load i32, ptr @ctest_main.index, align 4, !tbaa !3
+  %75 = load i32, ptr @ctest_main.total, align 4, !tbaa !3
+  %76 = load ptr, ptr %.pre25, align 8, !tbaa !20
+  %77 = getelementptr inbounds i8, ptr %.pre25, i64 8
+  %78 = load ptr, ptr %77, align 8, !tbaa !21
+  %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %74, i32 noundef %75, ptr noundef %76, ptr noundef %78)
+  %80 = load ptr, ptr @stdout, align 8, !tbaa !7
+  %81 = call i32 @fflush(ptr noundef %80)
+  %82 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
+  %83 = getelementptr inbounds i8, ptr %82, i64 24
+  %84 = load i32, ptr %83, align 8, !tbaa !22
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %96, label %86
 
-87:                                               ; preds = %74
-  %88 = load i32, ptr @color_output, align 4, !tbaa !3
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %92, label %90
+86:                                               ; preds = %73
+  %87 = load i32, ptr @color_output, align 4, !tbaa !3
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %91, label %89
 
-90:                                               ; preds = %87
-  %91 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
-  br label %94
+89:                                               ; preds = %86
+  %90 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
+  br label %93
 
-92:                                               ; preds = %87
-  %93 = call i32 @puts(ptr nonnull dereferenceable(1) @.str.22)
-  br label %94
+91:                                               ; preds = %86
+  %92 = call i32 @puts(ptr nonnull dereferenceable(1) @.str.22)
+  br label %93
 
-94:                                               ; preds = %92, %90
-  %95 = load i32, ptr @ctest_main.num_skip, align 4, !tbaa !3
-  %96 = add nsw i32 %95, 1
-  store i32 %96, ptr @ctest_main.num_skip, align 4, !tbaa !3
-  br label %142
+93:                                               ; preds = %91, %89
+  %94 = load i32, ptr @ctest_main.num_skip, align 4, !tbaa !3
+  %95 = add nsw i32 %94, 1
+  store i32 %95, ptr @ctest_main.num_skip, align 4, !tbaa !3
+  br label %141
 
-97:                                               ; preds = %74
-  %98 = call i32 @_setjmp(ptr noundef nonnull @ctest_err) #17
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %127
+96:                                               ; preds = %73
+  %97 = call i32 @_setjmp(ptr noundef nonnull @ctest_err) #17
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %99, label %126
 
-100:                                              ; preds = %97
-  %101 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  %102 = getelementptr inbounds i8, ptr %101, i64 40
-  %103 = load ptr, ptr %102, align 8, !tbaa !23
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %108, label %105
+99:                                               ; preds = %96
+  %100 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
+  %101 = getelementptr inbounds i8, ptr %100, i64 40
+  %102 = load ptr, ptr %101, align 8, !tbaa !23
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %107, label %104
 
-105:                                              ; preds = %100
-  %106 = getelementptr inbounds i8, ptr %101, i64 32
-  %107 = load ptr, ptr %106, align 8, !tbaa !24
-  call void %103(ptr noundef %107) #14
-  %.pre22 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  br label %108
-
-108:                                              ; preds = %105, %100
-  %109 = phi ptr [ %.pre22, %105 ], [ %101, %100 ]
-  %110 = getelementptr inbounds i8, ptr %109, i64 32
-  %111 = load ptr, ptr %110, align 8, !tbaa !24
-  %112 = icmp eq ptr %111, null
-  %113 = getelementptr inbounds i8, ptr %109, i64 16
-  %114 = load ptr, ptr %113, align 8, !tbaa !25
-  br i1 %112, label %116, label %115
-
-115:                                              ; preds = %108
-  call void %114(ptr noundef nonnull %111) #14
-  br label %117
-
-116:                                              ; preds = %108
-  call void %114() #14
-  br label %117
-
-117:                                              ; preds = %116, %115
-  %118 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  %119 = getelementptr inbounds i8, ptr %118, i64 48
-  %120 = load ptr, ptr %119, align 8, !tbaa !26
-  %121 = icmp eq ptr %120, null
-  br i1 %121, label %125, label %122
-
-122:                                              ; preds = %117
-  %123 = getelementptr inbounds i8, ptr %118, i64 32
-  %124 = load ptr, ptr %123, align 8, !tbaa !24
-  call void %120(ptr noundef %124) #14
-  br label %125
-
-125:                                              ; preds = %122, %117
-  %126 = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %134
-
-127:                                              ; preds = %97
-  %128 = load i32, ptr @color_output, align 4, !tbaa !3
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %132, label %130
-
-130:                                              ; preds = %127
-  %131 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.24)
-  br label %134
-
-132:                                              ; preds = %127
-  %133 = call i32 @puts(ptr nonnull dereferenceable(1) @.str.24)
-  br label %134
-
-134:                                              ; preds = %132, %130, %125
-  %135 = phi ptr [ @ctest_main.num_ok, %125 ], [ @ctest_main.num_fail, %130 ], [ @ctest_main.num_fail, %132 ]
-  %136 = load i32, ptr %135, align 4, !tbaa !3
-  %137 = add nsw i32 %136, 1
-  store i32 %137, ptr %135, align 4, !tbaa !3
-  %138 = load i64, ptr @ctest_errorsize, align 8, !tbaa !9
-  %139 = icmp eq i64 %138, 4095
-  br i1 %139, label %142, label %140
-
-140:                                              ; preds = %134
-  %141 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull @ctest_errorbuffer)
-  br label %142
-
-142:                                              ; preds = %140, %134, %94
-  %143 = load i32, ptr @ctest_main.index, align 4, !tbaa !3
-  %144 = add nsw i32 %143, 1
-  store i32 %144, ptr @ctest_main.index, align 4, !tbaa !3
+104:                                              ; preds = %99
+  %105 = getelementptr inbounds i8, ptr %100, i64 32
+  %106 = load ptr, ptr %105, align 8, !tbaa !24
+  call void %102(ptr noundef %106) #14
   %.pre23 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  br label %145
+  br label %107
 
-145:                                              ; preds = %142, %70, %.preheader
-  %146 = phi ptr [ %.pre23, %142 ], [ %.pre24, %70 ], [ @__ctest_suite_test, %.preheader ]
-  %147 = getelementptr inbounds i8, ptr %146, i64 56
-  %148 = load ptr, ptr %147, align 8, !tbaa !7
-  store ptr %148, ptr @ctest_main.test, align 8, !tbaa !7
-  %149 = icmp eq ptr %148, null
-  br i1 %149, label %.loopexit, label %.preheader, !llvm.loop !27
+107:                                              ; preds = %104, %99
+  %108 = phi ptr [ %.pre23, %104 ], [ %100, %99 ]
+  %109 = getelementptr inbounds i8, ptr %108, i64 32
+  %110 = load ptr, ptr %109, align 8, !tbaa !24
+  %111 = icmp eq ptr %110, null
+  %112 = getelementptr inbounds i8, ptr %108, i64 16
+  %113 = load ptr, ptr %112, align 8, !tbaa !25
+  br i1 %111, label %115, label %114
 
-.loopexit:                                        ; preds = %145, %.loopexit12.thread, %.loopexit12
+114:                                              ; preds = %107
+  call void %113(ptr noundef nonnull %110) #14
+  br label %116
+
+115:                                              ; preds = %107
+  call void %113() #14
+  br label %116
+
+116:                                              ; preds = %115, %114
+  %117 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
+  %118 = getelementptr inbounds i8, ptr %117, i64 48
+  %119 = load ptr, ptr %118, align 8, !tbaa !26
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %124, label %121
+
+121:                                              ; preds = %116
+  %122 = getelementptr inbounds i8, ptr %117, i64 32
+  %123 = load ptr, ptr %122, align 8, !tbaa !24
+  call void %119(ptr noundef %123) #14
+  br label %124
+
+124:                                              ; preds = %121, %116
+  %125 = call i32 @puts(ptr nonnull dereferenceable(1) @str)
+  br label %133
+
+126:                                              ; preds = %96
+  %127 = load i32, ptr @color_output, align 4, !tbaa !3
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %131, label %129
+
+129:                                              ; preds = %126
+  %130 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.24)
+  br label %133
+
+131:                                              ; preds = %126
+  %132 = call i32 @puts(ptr nonnull dereferenceable(1) @.str.24)
+  br label %133
+
+133:                                              ; preds = %131, %129, %124
+  %134 = phi ptr [ @ctest_main.num_ok, %124 ], [ @ctest_main.num_fail, %129 ], [ @ctest_main.num_fail, %131 ]
+  %135 = load i32, ptr %134, align 4, !tbaa !3
+  %136 = add nsw i32 %135, 1
+  store i32 %136, ptr %134, align 4, !tbaa !3
+  %137 = load i64, ptr @ctest_errorsize, align 8, !tbaa !9
+  %138 = icmp eq i64 %137, 4095
+  br i1 %138, label %141, label %139
+
+139:                                              ; preds = %133
+  %140 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull @ctest_errorbuffer)
+  br label %141
+
+141:                                              ; preds = %139, %133, %93
+  %142 = load i32, ptr @ctest_main.index, align 4, !tbaa !3
+  %143 = add nsw i32 %142, 1
+  store i32 %143, ptr @ctest_main.index, align 4, !tbaa !3
+  %.pre24 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
+  br label %144
+
+144:                                              ; preds = %141, %69, %.preheader
+  %145 = phi ptr [ %.pre24, %141 ], [ %.pre25, %69 ], [ @__ctest_suite_test, %.preheader ]
+  %146 = getelementptr inbounds i8, ptr %145, i64 56
+  %147 = load ptr, ptr %146, align 8, !tbaa !7
+  store ptr %147, ptr @ctest_main.test, align 8, !tbaa !7
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %.loopexit, label %.preheader, !llvm.loop !27
+
+.loopexit:                                        ; preds = %144, %.loopexit12.thread, %.loopexit12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  %150 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
-  %151 = load <2 x i64>, ptr %3, align 16, !tbaa !9
+  %149 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
+  %150 = load <2 x i64>, ptr %3, align 16, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
-  %152 = load i32, ptr @ctest_main.total, align 4, !tbaa !3
-  %153 = load i32, ptr @ctest_main.num_ok, align 4, !tbaa !3
-  %154 = load i32, ptr @ctest_main.num_fail, align 4, !tbaa !3
-  %155 = load i32, ptr @ctest_main.num_skip, align 4, !tbaa !3
-  %156 = sub <2 x i64> %151, %20
-  %157 = extractelement <2 x i64> %156, i64 0
-  %158 = mul i64 %157, 1000000
-  %159 = extractelement <2 x i64> %156, i64 1
-  %160 = add i64 %159, %158
-  %161 = udiv i64 %160, 1000
-  %162 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %152, i32 noundef %153, i32 noundef %154, i32 noundef %155, i64 noundef %161) #14
-  %163 = load i32, ptr @color_output, align 4, !tbaa !3
-  %164 = icmp eq i32 %163, 0
-  br i1 %164, label %169, label %165
+  %151 = load i32, ptr @ctest_main.total, align 4, !tbaa !3
+  %152 = load i32, ptr @ctest_main.num_ok, align 4, !tbaa !3
+  %153 = load i32, ptr @ctest_main.num_fail, align 4, !tbaa !3
+  %154 = load i32, ptr @ctest_main.num_skip, align 4, !tbaa !3
+  %155 = sub <2 x i64> %150, %20
+  %156 = extractelement <2 x i64> %155, i64 0
+  %157 = mul i64 %156, 1000000
+  %158 = extractelement <2 x i64> %155, i64 1
+  %159 = add i64 %158, %157
+  %160 = udiv i64 %159, 1000
+  %161 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %151, i32 noundef %152, i32 noundef %153, i32 noundef %154, i64 noundef %160) #14
+  %162 = load i32, ptr @color_output, align 4, !tbaa !3
+  %163 = icmp eq i32 %162, 0
+  br i1 %163, label %168, label %164
 
-165:                                              ; preds = %.loopexit
-  %166 = icmp eq i32 %6, 0
-  %167 = select i1 %166, ptr @.str.19, ptr @.str.18
-  %168 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull %167, ptr noundef nonnull %5)
-  br label %171
+164:                                              ; preds = %.loopexit
+  %165 = icmp eq i32 %6, 0
+  %166 = select i1 %165, ptr @.str.19, ptr @.str.18
+  %167 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull %166, ptr noundef nonnull %5)
+  br label %170
 
-169:                                              ; preds = %.loopexit
-  %170 = call i32 @puts(ptr nonnull dereferenceable(1) %5)
-  br label %171
+168:                                              ; preds = %.loopexit
+  %169 = call i32 @puts(ptr nonnull dereferenceable(1) %5)
+  br label %170
 
-171:                                              ; preds = %169, %165
-  %172 = load i32, ptr @ctest_main.num_fail, align 4, !tbaa !3
+170:                                              ; preds = %168, %164
+  %171 = load i32, ptr @ctest_main.num_fail, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #14
-  ret i32 %172
+  ret i32 %171
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @suite_all(ptr nocapture readnone %0) #8 {
+define internal noundef i32 @suite_all(ptr nocapture readnone %0) #7 {
   ret i32 1
 }
 
 ; Function Attrs: nounwind
-declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #9
+declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal void @sighandler(i32 noundef %0) #6 {
+define internal void @sighandler(i32 noundef %0) #5 {
   %2 = alloca [128 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #14
   %3 = tail call ptr @strsignal(i32 noundef %0) #14
@@ -790,7 +780,7 @@ define internal void @sighandler(i32 noundef %0) #6 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @suite_filter(ptr nocapture noundef readonly %0) #10 {
+define internal i32 @suite_filter(ptr nocapture noundef readonly %0) #9 {
   %2 = load ptr, ptr @suite_name, align 8, !tbaa !7
   %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
@@ -801,7 +791,7 @@ define internal i32 @suite_filter(ptr nocapture noundef readonly %0) #10 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @suite_test_filter(ptr nocapture noundef readonly %0) #10 {
+define internal i32 @suite_test_filter(ptr nocapture noundef readonly %0) #9 {
   %2 = load ptr, ptr @suite_name, align 8, !tbaa !7
   %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
@@ -818,36 +808,36 @@ define internal i32 @suite_test_filter(ptr nocapture noundef readonly %0) #10 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @isatty(i32 noundef) local_unnamed_addr #9
+declare i32 @isatty(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #12
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
   %3 = tail call i32 @ctest_main(i32 noundef %0, ptr noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @__ctest_suite_test_run() #8 {
+define internal void @__ctest_suite_test_run() #7 {
   ret void
 }
 
 ; Function Attrs: inlinehint nofree nounwind uwtable
-define internal void @print_errormsg(ptr nocapture noundef readonly %0, ...) unnamed_addr #3 {
+define internal void @print_errormsg(ptr nocapture noundef readonly %0, ...) unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #14
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @ctest_errormsg, align 8, !tbaa !7
   %4 = load i64, ptr @ctest_errorsize, align 8, !tbaa !9
   %5 = call i32 @vsnprintf(ptr noundef %3, i64 noundef %4, ptr noundef %0, ptr noundef nonnull %2) #14
@@ -873,52 +863,58 @@ define internal void @print_errormsg(ptr nocapture noundef readonly %0, ...) unn
   br label %18
 
 18:                                               ; preds = %9, %7
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #14
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #11
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare ptr @strsignal(i32 noundef) local_unnamed_addr #9
+declare ptr @strsignal(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #9
+declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #9
+declare i32 @getpid() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
 
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { inlinehint nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #4 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #5 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #6 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #12 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #13 = { nofree nounwind }
+attributes #2 = { inlinehint nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #3 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #11 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #12 = { nofree nounwind }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nounwind }
 attributes #15 = { noreturn nounwind }
 attributes #16 = { nounwind willreturn memory(read) }

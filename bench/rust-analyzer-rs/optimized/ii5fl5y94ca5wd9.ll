@@ -424,13 +424,13 @@ define hidden { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !65
   br i1 %11, label %.invoke.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1f1bad206ec3a259E.exit.i.i"
 
-12:                                               ; preds = %37, %.invoke40.i, %23, %.invoke.i
+12:                                               ; preds = %44, %.invoke40.i, %23, %.invoke.i
   %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr154drop_in_place$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$alloc..vec..into_iter..IntoIter$LT$hir_def..TraitId$GT$$GT$$GT$17hf60d9b24fbd31549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #61
-          to label %.body unwind label %44
+          to label %.body unwind label %51
 
-14:                                               ; preds = %37
+14:                                               ; preds = %44
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1f1bad206ec3a259E.exit.i.i": ; preds = %1
@@ -468,82 +468,96 @@ define hidden { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$
 24:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4b55f931065f9310E.exit.i.i.i.i"
   store i64 1, ptr %21, align 8, !noalias !65
   %25 = icmp eq ptr %.val19.i, %.val.i
-  br i1 %25, label %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h58aeb107c21574edE.exit23.thread.i.thread", label %.lr.ph.i
+  br i1 %25, label %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h58aeb107c21574edE.exit23.thread.i", label %.lr.ph.i
+
+"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h58aeb107c21574edE.exit23.thread.i": ; preds = %24, %._crit_edge.i
+  %26 = phi ptr [ %48, %._crit_edge.i ], [ %.val.i, %24 ]
+  %27 = icmp eq ptr %26, %.val19.i
+  br i1 %27, label %36, label %33
 
 .lr.ph.i:                                         ; preds = %24
-  %26 = getelementptr i8, ptr %21, i64 8
+  %28 = getelementptr i8, ptr %21, i64 8
   %umax.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  br label %38
+  br label %45
 
-._crit_edge.i:                                    ; preds = %38
-  store ptr %41, ptr %5, align 8, !alias.scope !68
-  br i1 %43, label %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h58aeb107c21574edE.exit23.thread.i.thread", label %.invoke40.i
+._crit_edge.i:                                    ; preds = %45
+  store ptr %48, ptr %5, align 8, !alias.scope !68
+  br i1 %50, label %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h58aeb107c21574edE.exit23.thread.i", label %31
 
-27:                                               ; preds = %38
-  %28 = getelementptr inbounds i8, ptr %.034.i20, i64 4
-  br i1 %43, label %37, label %38
+29:                                               ; preds = %45
+  %30 = getelementptr inbounds i8, ptr %.034.i20, i64 4
+  br i1 %50, label %44, label %45
 
-.invoke40.i:                                      ; preds = %._crit_edge.i
-  %29 = getelementptr inbounds i8, ptr %39, i64 8
-  store ptr %29, ptr %5, align 8, !alias.scope !65
-  invoke void @_ZN3std9panicking11begin_panic17hd2f13eaee1a988eaE(ptr noalias noundef nonnull readonly align 1 @anon.4758def437df510d04930db3bddfd63b.146, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4758def437df510d04930db3bddfd63b.147) #59
+31:                                               ; preds = %._crit_edge.i
+  %32 = getelementptr inbounds i8, ptr %46, i64 8
+  br label %.invoke40.i
+
+33:                                               ; preds = %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h58aeb107c21574edE.exit23.thread.i"
+  %34 = getelementptr inbounds i8, ptr %26, i64 4
+  br label %.invoke40.i
+
+.invoke40.i:                                      ; preds = %33, %31
+  %.sink.i = phi ptr [ %32, %31 ], [ %34, %33 ]
+  %35 = phi ptr [ @anon.4758def437df510d04930db3bddfd63b.147, %31 ], [ @anon.4758def437df510d04930db3bddfd63b.148, %33 ]
+  store ptr %.sink.i, ptr %5, align 8, !alias.scope !65
+  invoke void @_ZN3std9panicking11begin_panic17hd2f13eaee1a988eaE(ptr noalias noundef nonnull readonly align 1 @anon.4758def437df510d04930db3bddfd63b.146, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35) #59
           to label %.cont41.i unwind label %12, !noalias !65
 
 .cont41.i:                                        ; preds = %.invoke40.i
   unreachable
 
-"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h58aeb107c21574edE.exit23.thread.i.thread": ; preds = %24, %._crit_edge.i
+36:                                               ; preds = %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h58aeb107c21574edE.exit23.thread.i"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !73
   store ptr %4, ptr %3, align 8, !noalias !73
-  %30 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h286ab756994b5d3dE.llvm.14212318151792154407(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
-          to label %"_ZN4core3ptr154drop_in_place$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$alloc..vec..into_iter..IntoIter$LT$hir_def..TraitId$GT$$GT$$GT$17hf60d9b24fbd31549E.exit.i" unwind label %31
+  %37 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h286ab756994b5d3dE.llvm.14212318151792154407(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
+          to label %"_ZN4core3ptr154drop_in_place$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$alloc..vec..into_iter..IntoIter$LT$hir_def..TraitId$GT$$GT$$GT$17hf60d9b24fbd31549E.exit.i" unwind label %38
 
-31:                                               ; preds = %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h58aeb107c21574edE.exit23.thread.i.thread"
-  %32 = landingpad { ptr, i32 }
+38:                                               ; preds = %36
+  %39 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfb4f5308019e0adE.llvm.18266587286026290509"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %.body unwind label %33
+          to label %.body unwind label %40
 
-33:                                               ; preds = %31
-  %34 = landingpad { ptr, i32 }
+40:                                               ; preds = %38
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #62
   unreachable
 
-"_ZN4core3ptr154drop_in_place$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$alloc..vec..into_iter..IntoIter$LT$hir_def..TraitId$GT$$GT$$GT$17hf60d9b24fbd31549E.exit.i": ; preds = %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h58aeb107c21574edE.exit23.thread.i.thread"
+"_ZN4core3ptr154drop_in_place$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$alloc..vec..into_iter..IntoIter$LT$hir_def..TraitId$GT$$GT$$GT$17hf60d9b24fbd31549E.exit.i": ; preds = %36
   call void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfb4f5308019e0adE.llvm.18266587286026290509"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !73
-  %35 = insertvalue { ptr, i64 } poison, ptr %21, 0
-  %36 = insertvalue { ptr, i64 } %35, i64 %10, 1
-  ret { ptr, i64 } %36
+  %42 = insertvalue { ptr, i64 } poison, ptr %21, 0
+  %43 = insertvalue { ptr, i64 } %42, i64 %10, 1
+  ret { ptr, i64 } %43
 
-37:                                               ; preds = %27
-  store ptr %.val19.i, ptr %5, align 8, !alias.scope !68
+44:                                               ; preds = %29
+  store ptr %48, ptr %5, align 8, !alias.scope !68
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.4758def437df510d04930db3bddfd63b.149, i64 noundef 38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4758def437df510d04930db3bddfd63b.150) #59
           to label %14 unwind label %12, !noalias !65
 
-38:                                               ; preds = %.lr.ph.i, %27
-  %39 = phi ptr [ %.val.i, %.lr.ph.i ], [ %41, %27 ]
-  %.sroa.04.033.i21 = phi i64 [ 0, %.lr.ph.i ], [ %40, %27 ]
-  %.034.i20 = phi ptr [ %26, %.lr.ph.i ], [ %28, %27 ]
+45:                                               ; preds = %.lr.ph.i, %29
+  %46 = phi ptr [ %.val.i, %.lr.ph.i ], [ %48, %29 ]
+  %.sroa.04.033.i21 = phi i64 [ 0, %.lr.ph.i ], [ %47, %29 ]
+  %.034.i20 = phi ptr [ %28, %.lr.ph.i ], [ %30, %29 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  %40 = add nuw nsw i64 %.sroa.04.033.i21, 1
-  %41 = getelementptr inbounds i8, ptr %39, i64 4
-  %42 = load i32, ptr %39, align 4, !range !82, !noalias !68, !noundef !4
-  store i32 %42, ptr %.034.i20, align 4, !noalias !65
-  %exitcond.not.i = icmp eq i64 %40, %umax.i
-  %43 = icmp eq ptr %41, %.val19.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %27
+  %47 = add nuw nsw i64 %.sroa.04.033.i21, 1
+  %48 = getelementptr inbounds i8, ptr %46, i64 4
+  %49 = load i32, ptr %46, align 4, !range !82, !noalias !68, !noundef !4
+  store i32 %49, ptr %.034.i20, align 4, !noalias !65
+  %exitcond.not.i = icmp eq i64 %47, %umax.i
+  %50 = icmp eq ptr %48, %.val19.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %29
 
-44:                                               ; preds = %12
-  %45 = landingpad { ptr, i32 }
+51:                                               ; preds = %12
+  %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #62
   unreachable
 
-.body:                                            ; preds = %31, %12
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %13, %12 ]
+.body:                                            ; preds = %38, %12
+  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %13, %12 ]
   resume { ptr, i32 } %eh.lpad-body
 }
 

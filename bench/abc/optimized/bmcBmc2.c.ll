@@ -1315,7 +1315,7 @@ Saig_BmcObjChild0.exit:                           ; preds = %52, %Aig_ManObj.exi
   br label %112
 
 112:                                              ; preds = %.thread87, %Saig_ObjIsLo.exit, %102, %Saig_BmcObjChild0.exit, %37
-  %.0 = phi ptr [ %40, %37 ], [ %51, %Saig_ObjIsLo.exit ], [ %88, %Saig_BmcObjChild0.exit ], [ %111, %102 ], [ %94, %.thread87 ]
+  %.0 = phi ptr [ %40, %37 ], [ %51, %Saig_ObjIsLo.exit ], [ %88, %Saig_BmcObjChild0.exit ], [ %111, %102 ], [ %100, %.thread87 ]
   tail call fastcc void @Saig_BmcObjSetFrame(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %.0)
   %.val = load i32, ptr %5, align 4
   %113 = getelementptr inbounds i8, ptr %3, i64 4

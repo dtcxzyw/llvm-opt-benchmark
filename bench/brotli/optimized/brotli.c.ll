@@ -1438,15 +1438,13 @@ if.then16.i.i:                                    ; preds = %if.end13.i.i
   %162 = load i64, ptr %total_out.i.i, align 8
   %add.i.i54 = add i64 %sub.ptr.sub.i.i, %162
   store i64 %add.i.i54, ptr %total_out.i.i, align 8
-  %cmp.i44.i = icmp eq ptr %160, %161
-  br i1 %cmp.i44.i, label %ProvideOutput.exit.i.i, label %if.end.i45.i
-
-if.end.i45.i:                                     ; preds = %if.then16.i.i
+  %cmp.i44.i = icmp ne ptr %160, %161
   %163 = load i32, ptr %test_integrity, align 8
   %tobool.not.i.i55 = icmp eq i32 %163, 0
-  br i1 %tobool.not.i.i55, label %if.end2.i.i, label %ProvideOutput.exit.i.i
+  %or.cond208 = select i1 %cmp.i44.i, i1 %tobool.not.i.i55, i1 false
+  br i1 %or.cond208, label %if.end2.i.i, label %ProvideOutput.exit.i.i
 
-if.end2.i.i:                                      ; preds = %if.end.i45.i
+if.end2.i.i:                                      ; preds = %if.then16.i.i
   %164 = load ptr, ptr %fout, align 8
   %call.i.i56 = call i64 @fwrite(ptr noundef %161, i64 noundef 1, i64 noundef %sub.ptr.sub.i.i, ptr noundef %164)
   %165 = load ptr, ptr %fout, align 8
@@ -1469,8 +1467,8 @@ WriteOutput.exit.i:                               ; preds = %if.end2.i.i
   %call11.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %166, ptr noundef nonnull @.str.65, ptr noundef nonnull %cond.i.i.i, ptr noundef %call10.i.i) #19
   br label %if.end52.thread.i
 
-ProvideOutput.exit.i.i:                           ; preds = %if.end2.i.ProvideOutput.exit.i_crit_edge.i, %if.end.i45.i, %if.then16.i.i
-  %169 = phi ptr [ %.pre62.i, %if.end2.i.ProvideOutput.exit.i_crit_edge.i ], [ %160, %if.then16.i.i ], [ %161, %if.end.i45.i ]
+ProvideOutput.exit.i.i:                           ; preds = %if.end2.i.ProvideOutput.exit.i_crit_edge.i, %if.then16.i.i
+  %169 = phi ptr [ %.pre62.i, %if.end2.i.ProvideOutput.exit.i_crit_edge.i ], [ %161, %if.then16.i.i ]
   store i64 524288, ptr %available_out.i.i.i, align 8
   store ptr %169, ptr %next_out.i.i.i, align 8
   br label %if.end21.i.i
@@ -1492,8 +1490,8 @@ if.then24.i.i:                                    ; preds = %if.end21.i.i
   %cmp.i147 = icmp ne ptr %170, %171
   %173 = load i32, ptr %test_integrity, align 8
   %tobool.not.i150 = icmp eq i32 %173, 0
-  %or.cond208 = select i1 %cmp.i147, i1 %tobool.not.i150, i1 false
-  br i1 %or.cond208, label %if.end2.i, label %if.end28.i.i
+  %or.cond209 = select i1 %cmp.i147, i1 %tobool.not.i150, i1 false
+  br i1 %or.cond209, label %if.end2.i, label %if.end28.i.i
 
 if.end2.i:                                        ; preds = %if.then24.i.i
   %174 = load ptr, ptr %fout, align 8
@@ -1623,8 +1621,8 @@ land.lhs.true.i93:                                ; preds = %if.end9.i92
   %tobool12.not.i94 = icmp eq ptr %194, null
   %195 = load i32, ptr %force_overwrite, align 4
   %tobool14.not.i = icmp eq i32 %195, 0
-  %or.cond209 = select i1 %tobool12.not.i94, i1 %tobool14.not.i, i1 false
-  br i1 %or.cond209, label %land.lhs.true15.i, label %if.then22.critedge.i
+  %or.cond210 = select i1 %tobool12.not.i94, i1 %tobool14.not.i, i1 false
+  br i1 %or.cond210, label %land.lhs.true15.i, label %if.then22.critedge.i
 
 land.lhs.true15.i:                                ; preds = %land.lhs.true.i93
   %call16.i132 = call i32 @isatty(i32 noundef 0) #21
@@ -1718,15 +1716,13 @@ if.then13.i.i:                                    ; preds = %for.cond.i.i97
   %215 = load i64, ptr %total_out.i.i78, align 8
   %add.i.i104 = add i64 %sub.ptr.sub.i.i103, %215
   store i64 %add.i.i104, ptr %total_out.i.i78, align 8
-  %cmp.i.i105 = icmp eq ptr %213, %214
-  br i1 %cmp.i.i105, label %ProvideOutput.exit.i.i108, label %if.end.i.i106
-
-if.end.i.i106:                                    ; preds = %if.then13.i.i
+  %cmp.i.i105 = icmp ne ptr %213, %214
   %216 = load i32, ptr %test_integrity, align 8
   %tobool.not.i.i107 = icmp eq i32 %216, 0
-  br i1 %tobool.not.i.i107, label %if.end2.i.i109, label %ProvideOutput.exit.i.i108
+  %or.cond211 = select i1 %cmp.i.i105, i1 %tobool.not.i.i107, i1 false
+  br i1 %or.cond211, label %if.end2.i.i109, label %ProvideOutput.exit.i.i108
 
-if.end2.i.i109:                                   ; preds = %if.end.i.i106
+if.end2.i.i109:                                   ; preds = %if.then13.i.i
   %217 = load ptr, ptr %fout, align 8
   %call.i.i110 = call i64 @fwrite(ptr noundef %214, i64 noundef 1, i64 noundef %sub.ptr.sub.i.i103, ptr noundef %217)
   %218 = load ptr, ptr %fout, align 8
@@ -1749,8 +1745,8 @@ WriteOutput.exit.i113:                            ; preds = %if.end2.i.i109
   %call11.i.i118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.65, ptr noundef nonnull %cond.i.i.i115, ptr noundef %call10.i.i117) #19
   br label %if.end24.thread.i
 
-ProvideOutput.exit.i.i108:                        ; preds = %if.end2.i.ProvideOutput.exit.i_crit_edge.i119, %if.end.i.i106, %if.then13.i.i
-  %222 = phi ptr [ %.pre.i120, %if.end2.i.ProvideOutput.exit.i_crit_edge.i119 ], [ %213, %if.then13.i.i ], [ %214, %if.end.i.i106 ]
+ProvideOutput.exit.i.i108:                        ; preds = %if.end2.i.ProvideOutput.exit.i_crit_edge.i119, %if.then13.i.i
+  %222 = phi ptr [ %.pre.i120, %if.end2.i.ProvideOutput.exit.i_crit_edge.i119 ], [ %214, %if.then13.i.i ]
   store i64 524288, ptr %available_out.i.i.i70, align 8
   store ptr %222, ptr %next_out.i.i.i72, align 8
   br label %if.end58.i.i
@@ -1767,8 +1763,8 @@ if.then20.i.i:                                    ; preds = %for.cond.i.i97
   %cmp.i166 = icmp ne ptr %223, %224
   %226 = load i32, ptr %test_integrity, align 8
   %tobool.not.i169 = icmp eq i32 %226, 0
-  %or.cond210 = select i1 %cmp.i166, i1 %tobool.not.i169, i1 false
-  br i1 %or.cond210, label %if.end2.i171, label %if.end24.i.i
+  %or.cond212 = select i1 %cmp.i166, i1 %tobool.not.i169, i1 false
+  br i1 %or.cond212, label %if.end2.i171, label %if.end24.i.i
 
 if.end2.i171:                                     ; preds = %if.then20.i.i
   %227 = load ptr, ptr %fout, align 8

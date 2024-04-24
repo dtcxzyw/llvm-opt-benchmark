@@ -2619,7 +2619,7 @@ if.end90:                                         ; preds = %if.then.i.i.i262, %
   br i1 %cmp.i.i, label %while.end, label %while.body, !llvm.loop !16
 
 while.end:                                        ; preds = %while.cond.loopexit, %if.end90
-  %visit.sroa.0.1.ph.lcssa444 = phi ptr [ %visit.sroa.0.1.ph465, %if.end90 ], [ %visit.sroa.8.2.lcssa, %while.cond.loopexit ]
+  %visit.sroa.0.1.ph.lcssa444 = phi ptr [ %visit.sroa.0.1.ph465, %if.end90 ], [ %visit.sroa.0.2.lcssa, %while.cond.loopexit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__node5.i.i263)
   %142 = ptrtoint ptr %this to i64
   %143 = load i64, ptr %_M_bucket_count.i.i, align 8

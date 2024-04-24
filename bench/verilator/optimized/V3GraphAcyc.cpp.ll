@@ -559,12 +559,12 @@ _ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE9push_backERKS6_.e
   %48 = getelementptr inbounds i8, ptr %2, i64 64
   %49 = load ptr, ptr %48, align 8
   %.not13 = icmp eq ptr %49, null
-  br i1 %.not13, label %61, label %.preheader
+  br i1 %.not13, label %62, label %.preheader
 
 .preheader:                                       ; preds = %46
   %.sroa.014.023 = load ptr, ptr %49, align 8
   %.not2224 = icmp eq ptr %.sroa.014.023, %49
-  br i1 %.not2224, label %_ZNSt7__cxx114listIP11V3GraphEdgeSaIS2_EE5clearEv.exit, label %.lr.ph
+  br i1 %.not2224, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %50 = getelementptr inbounds i8, ptr %47, i64 16
@@ -583,40 +583,44 @@ _ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE9push_backERKS6_.e
   store i64 %57, ptr %50, align 8
   %.sroa.014.0 = load ptr, ptr %.sroa.014.025, align 8
   %.not22 = icmp eq ptr %.sroa.014.0, %49
-  br i1 %.not22, label %._crit_edge, label %51
+  br i1 %.not22, label %._crit_edge.loopexit, label %51
 
-._crit_edge:                                      ; preds = %51
+._crit_edge.loopexit:                             ; preds = %51
   %.pre = load ptr, ptr %49, align 8
-  %.not8.i.i = icmp eq ptr %.pre, %49
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %58 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.sroa.014.023, %.preheader ]
+  %.not8.i.i = icmp eq ptr %58, %49
   br i1 %.not8.i.i, label %_ZNSt7__cxx114listIP11V3GraphEdgeSaIS2_EE5clearEv.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge, %.lr.ph.i.i
-  %.09.i.i = phi ptr [ %58, %.lr.ph.i.i ], [ %.pre, %._crit_edge ]
-  %58 = load ptr, ptr %.09.i.i, align 8
+  %.09.i.i = phi ptr [ %59, %.lr.ph.i.i ], [ %58, %._crit_edge ]
+  %59 = load ptr, ptr %.09.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %.09.i.i) #19
-  %.not.i.i = icmp eq ptr %58, %49
+  %.not.i.i = icmp eq ptr %59, %49
   br i1 %.not.i.i, label %_ZNSt7__cxx114listIP11V3GraphEdgeSaIS2_EE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !5
 
-_ZNSt7__cxx114listIP11V3GraphEdgeSaIS2_EE5clearEv.exit: ; preds = %.lr.ph.i.i, %.preheader, %._crit_edge
-  %59 = getelementptr inbounds i8, ptr %49, i64 8
-  store ptr %49, ptr %59, align 8
+_ZNSt7__cxx114listIP11V3GraphEdgeSaIS2_EE5clearEv.exit: ; preds = %.lr.ph.i.i, %._crit_edge
+  %60 = getelementptr inbounds i8, ptr %49, i64 8
+  store ptr %49, ptr %60, align 8
   store ptr %49, ptr %49, align 8
-  %60 = getelementptr inbounds i8, ptr %49, i64 16
-  store i64 0, ptr %60, align 8
-  br label %67
+  %61 = getelementptr inbounds i8, ptr %49, i64 16
+  store i64 0, ptr %61, align 8
+  br label %68
 
-61:                                               ; preds = %46
-  %62 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
-  store ptr %2, ptr %63, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull %47) #21
-  %64 = getelementptr inbounds i8, ptr %47, i64 16
-  %65 = load i64, ptr %64, align 8
-  %66 = add i64 %65, 1
-  store i64 %66, ptr %64, align 8
-  br label %67
+62:                                               ; preds = %46
+  %63 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
+  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  store ptr %2, ptr %64, align 8
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull %47) #21
+  %65 = getelementptr inbounds i8, ptr %47, i64 16
+  %66 = load i64, ptr %65, align 8
+  %67 = add i64 %66, 1
+  store i64 %67, ptr %65, align 8
+  br label %68
 
-67:                                               ; preds = %61, %_ZNSt7__cxx114listIP11V3GraphEdgeSaIS2_EE5clearEv.exit
+68:                                               ; preds = %62, %_ZNSt7__cxx114listIP11V3GraphEdgeSaIS2_EE5clearEv.exit
   ret void
 }
 

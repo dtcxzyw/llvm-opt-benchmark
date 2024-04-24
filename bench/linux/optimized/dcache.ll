@@ -213,7 +213,7 @@ define dso_local void @take_dentry_name_snapshot(ptr noundef %0, ptr noundef %1)
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, 1
   %16 = zext i32 %15 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %6, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %7, i64 %16, i1 false)
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %12, ptr %17, align 8
   br label %18
@@ -1807,7 +1807,7 @@ define internal fastcc void @d_walk(ptr noundef %0, ptr noundef %1, ptr nocaptur
 5:                                                ; preds = %.loopexit10.split.us.split.us.split.us, %3
   %6 = phi i1 [ true, %3 ], [ false, %.loopexit10.split.us.split.us.split.us ]
   %7 = phi i32 [ 0, %3 ], [ 1, %.loopexit10.split.us.split.us.split.us ]
-  %8 = phi i8 [ 1, %3 ], [ %154, %.loopexit10.split.us.split.us.split.us ]
+  %8 = phi i8 [ 1, %3 ], [ %155, %.loopexit10.split.us.split.us.split.us ]
   br i1 %6, label %9, label %17
 
 9:                                                ; preds = %5
@@ -1976,12 +1976,12 @@ select.unfold.us.us:                              ; preds = %.split49.us.us, %.s
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
   %92 = getelementptr i8, ptr %90, i64 -152
-  %spec.select176 = select i1 %91, ptr null, ptr %92
+  %spec.select177 = select i1 %91, ptr null, ptr %92
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.split49, %.split
   %93 = phi i8 [ %122, %.split ], [ %87, %.split49 ]
-  %94 = phi ptr [ %136, %.split ], [ %spec.select176, %.split49 ]
+  %94 = phi ptr [ %136, %.split ], [ %spec.select177, %.split49 ]
   %95 = phi ptr [ %127, %.split ], [ %88, %.split49 ]
   %96 = icmp eq ptr %94, null
   br i1 %96, label %.loopexit13, label %.preheader12
@@ -2088,15 +2088,16 @@ select.unfold:                                    ; preds = %.split49, %.split
 
 .loopexit11:                                      ; preds = %.loopexit13, %.loopexit13.us.us, %.loopexit, %.loopexit.us.us.us
   %147 = phi i8 [ %60, %.loopexit.us.us.us ], [ %122, %.loopexit ], [ %60, %.loopexit13.us.us ], [ %122, %.loopexit13 ]
-  br i1 %25, label %148, label %.thread7
+  %148 = phi ptr [ %64, %.loopexit.us.us.us ], [ %127, %.loopexit ], [ %34, %.loopexit13.us.us ], [ %95, %.loopexit13 ]
+  br i1 %25, label %149, label %.thread7
 
-148:                                              ; preds = %.loopexit11
+149:                                              ; preds = %.loopexit11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !55
-  %149 = load volatile i32, ptr @rename_lock, align 64
-  %.not8 = icmp eq i32 %149, %.fr
+  %150 = load volatile i32, ptr @rename_lock, align 64
+  %.not8 = icmp eq i32 %150, %.fr
   br i1 %.not8, label %.thread7, label %.loopexit10.split.us.split.us.split.us
 
-.thread7:                                         ; preds = %.loopexit11, %148
+.thread7:                                         ; preds = %.loopexit11, %149
   tail call void @__rcu_read_unlock() #17
   br label %.loopexit17
 
@@ -2106,27 +2107,27 @@ select.unfold:                                    ; preds = %.split49, %.split
 
 .loopexit17:                                      ; preds = %.loopexit17.loopexit, %.thread7, %.split51.us
   %.pre-phi = phi i32 [ %.pre, %.loopexit17.loopexit ], [ %24, %.thread7 ], [ %24, %.split51.us ]
-  %150 = phi ptr [ %0, %.loopexit17.loopexit ], [ %0, %.thread7 ], [ %.us-phi52, %.split51.us ]
-  %151 = getelementptr inbounds i8, ptr %150, i64 96
-  tail call void @_raw_spin_unlock(ptr noundef %151) #17
-  %152 = icmp eq i32 %.pre-phi, 0
-  br i1 %152, label %.loopexit18, label %153
+  %151 = phi ptr [ %0, %.loopexit17.loopexit ], [ %148, %.thread7 ], [ %.us-phi52, %.split51.us ]
+  %152 = getelementptr inbounds i8, ptr %151, i64 96
+  tail call void @_raw_spin_unlock(ptr noundef %152) #17
+  %153 = icmp eq i32 %.pre-phi, 0
+  br i1 %153, label %.loopexit18, label %154
 
-153:                                              ; preds = %.loopexit17
+154:                                              ; preds = %.loopexit17
   tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (%struct.seqlock_t, ptr @rename_lock, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0)) #17
   br label %.loopexit18
 
-.loopexit10.split.us.split.us.split.us:           ; preds = %.preheader9.us.us, %148
-  %154 = phi i8 [ %147, %148 ], [ %60, %.preheader9.us.us ]
-  %155 = phi ptr [ %0, %148 ], [ %64, %.preheader9.us.us ]
-  %156 = getelementptr inbounds i8, ptr %155, i64 96
-  tail call void @_raw_spin_unlock(ptr noundef %156) #17
+.loopexit10.split.us.split.us.split.us:           ; preds = %.preheader9.us.us, %149
+  %155 = phi i8 [ %147, %149 ], [ %60, %.preheader9.us.us ]
+  %156 = phi ptr [ %148, %149 ], [ %64, %.preheader9.us.us ]
+  %157 = getelementptr inbounds i8, ptr %156, i64 96
+  tail call void @_raw_spin_unlock(ptr noundef %157) #17
   tail call void @__rcu_read_unlock() #17
-  %157 = and i8 %154, 1
-  %158 = icmp eq i8 %157, 0
-  br i1 %158, label %.loopexit18, label %5
+  %158 = and i8 %155, 1
+  %159 = icmp eq i8 %158, 0
+  br i1 %159, label %.loopexit18, label %5
 
-.loopexit18:                                      ; preds = %.loopexit10.split.us.split.us.split.us, %153, %.loopexit17
+.loopexit18:                                      ; preds = %.loopexit10.split.us.split.us.split.us, %154, %.loopexit17
   ret void
 }
 
@@ -3925,7 +3926,7 @@ define dso_local ptr @d_alloc_parallel(ptr noundef %0, ptr noundef %1, ptr nound
 69:                                               ; preds = %58
   %70 = inttoptr i64 %67 to ptr
   %71 = lshr i64 %51, 32
-  %72 = trunc i64 %71 to i32
+  %72 = trunc nuw i64 %71 to i32
   br label %73
 
 73:                                               ; preds = %.thread4.i, %69
@@ -4651,7 +4652,7 @@ define dso_local ptr @__d_lookup_rcu(ptr noundef %0, ptr noundef %1, ptr nocaptu
 23:                                               ; preds = %12
   %24 = inttoptr i64 %21 to ptr
   %25 = lshr i64 %4, 32
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw i64 %25 to i32
   br label %27
 
 27:                                               ; preds = %.thread4, %23
@@ -5645,7 +5646,7 @@ define dso_local ptr @d_exact_alias(ptr noundef %0, ptr noundef %1) #1 align 16 
   br i1 %25, label %26, label %84
 
 26:                                               ; preds = %21
-  %27 = load i32, ptr %23, align 8
+  %27 = load i32, ptr %24, align 8
   %28 = and i32 %27, 2
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %61, !prof !6
@@ -5692,7 +5693,7 @@ define dso_local ptr @d_exact_alias(ptr noundef %0, ptr noundef %1) #1 align 16 
   br i1 %60, label %73, label %84
 
 61:                                               ; preds = %26
-  %62 = getelementptr inbounds i8, ptr %23, i64 104
+  %62 = getelementptr inbounds i8, ptr %24, i64 104
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 24
   %65 = load ptr, ptr %64, align 8
@@ -6053,7 +6054,7 @@ define internal fastcc void @__d_move(ptr noundef %0, ptr noundef %1, i1 noundef
   %156 = load i32, ptr %155, align 4
   %157 = add i32 %156, 1
   %158 = zext i32 %157 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %146, ptr align 1 %150, i64 %158, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %146, ptr align 1 %149, i64 %158, i1 false)
   store ptr %145, ptr %148, align 8
   store ptr %146, ptr %144, align 8
   br label %.loopexit
@@ -6066,7 +6067,7 @@ define internal fastcc void @__d_move(ptr noundef %0, ptr noundef %1, i1 noundef
   %162 = load i32, ptr %161, align 4
   %163 = add i32 %162, 1
   %164 = zext i32 %163 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %150, ptr align 1 %146, i64 %164, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %150, ptr align 1 %145, i64 %164, i1 false)
   store ptr %149, ptr %144, align 8
   store ptr %150, ptr %148, align 8
   br label %.loopexit
@@ -6541,7 +6542,7 @@ define dso_local void @d_mark_tmpfile(ptr nocapture noundef readonly %0, ptr noc
   tail call void @_raw_spin_lock(ptr noundef %24) #17
   %25 = getelementptr inbounds i8, ptr %1, i64 64
   %26 = load i64, ptr %25, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %6, ptr noundef nonnull dereferenceable(1) @.str.6, i64 noundef %26) #17
+  %27 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %7, ptr noundef nonnull dereferenceable(1) @.str.6, i64 noundef %26) #17
   %28 = getelementptr inbounds i8, ptr %4, i64 36
   store i32 %27, ptr %28, align 4
   tail call void @_raw_spin_unlock(ptr noundef %24) #17

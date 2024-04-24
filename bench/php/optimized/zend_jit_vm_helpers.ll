@@ -1270,46 +1270,46 @@ define hidden i32 @zend_jit_trace_execute(ptr noundef %0, ptr nocapture noundef 
   %.0626.ph = phi i32 [ %.2628, %654 ], [ -1, %65 ]
   %.0622.ph = phi i32 [ %.2624, %654 ], [ -1, %65 ]
   %.0618.ph = phi i32 [ %.2620, %654 ], [ 0, %65 ]
-  %.0616.ph = phi i32 [ %.0616.ph1463, %654 ], [ 0, %65 ]
-  %.0614.ph = phi i32 [ %.0614.ph1464, %654 ], [ -1, %65 ]
-  %.0612.ph = phi i32 [ %.0612.ph1465, %654 ], [ -1, %65 ]
+  %.0616.ph = phi i32 [ %.0616.ph1455, %654 ], [ 0, %65 ]
+  %.0614.ph = phi i32 [ %.0614.ph1456, %654 ], [ -1, %65 ]
+  %.0612.ph = phi i32 [ %.0612.ph1457, %654 ], [ -1, %65 ]
   %.0609.ph = phi ptr [ %.2611, %654 ], [ null, %65 ]
   %.0606.ph = phi ptr [ %.1607, %654 ], [ %0, %65 ]
   %.0603.ph = phi ptr [ %620, %654 ], [ %8, %65 ]
   %.0600.ph = phi ptr [ %.2602, %654 ], [ %10, %65 ]
-  br label %.outer1454
+  br label %.outer1446
 
-.outer1454:                                       ; preds = %.outer, %705
-  %.0663.ph1455 = phi i32 [ %.0663.ph, %.outer ], [ %.1664, %705 ]
-  %.0659.ph1456 = phi i32 [ %.0659.ph, %.outer ], [ %.1660, %705 ]
-  %.1655.ph1457 = phi ptr [ %.1655.ph, %.outer ], [ %.3657, %705 ]
-  %.0652.ph1458 = phi i64 [ %.0652.ph, %.outer ], [ %.1653, %705 ]
-  %.1649.ph1459 = phi i32 [ %.1649.ph, %.outer ], [ %.8, %705 ]
-  %.0626.ph1460 = phi i32 [ %.0626.ph, %.outer ], [ %.2628, %705 ]
-  %.0622.ph1461 = phi i32 [ %.0622.ph, %.outer ], [ %.2624, %705 ]
-  %.0618.ph1462 = phi i32 [ %.0618.ph, %.outer ], [ %.2620, %705 ]
-  %.0616.ph1463 = phi i32 [ %.0616.ph, %.outer ], [ %706, %705 ]
-  %.0614.ph1464 = phi i32 [ %.0614.ph, %.outer ], [ %.8, %705 ]
-  %.0612.ph1465 = phi i32 [ %.0612.ph, %.outer ], [ %.1664, %705 ]
-  %.0609.ph1466 = phi ptr [ %.0609.ph, %.outer ], [ %620, %705 ]
-  %.0606.ph1467 = phi ptr [ %.0606.ph, %.outer ], [ %.1607, %705 ]
-  %.0603.ph1468 = phi ptr [ %.0603.ph, %.outer ], [ %620, %705 ]
-  %.0600.ph1469 = phi ptr [ %.0600.ph, %.outer ], [ %.2602, %705 ]
+.outer1446:                                       ; preds = %.outer, %705
+  %.0663.ph1447 = phi i32 [ %.0663.ph, %.outer ], [ %.1664, %705 ]
+  %.0659.ph1448 = phi i32 [ %.0659.ph, %.outer ], [ %.1660, %705 ]
+  %.1655.ph1449 = phi ptr [ %.1655.ph, %.outer ], [ %.3657, %705 ]
+  %.0652.ph1450 = phi i64 [ %.0652.ph, %.outer ], [ %.1653, %705 ]
+  %.1649.ph1451 = phi i32 [ %.1649.ph, %.outer ], [ %.8, %705 ]
+  %.0626.ph1452 = phi i32 [ %.0626.ph, %.outer ], [ %.2628, %705 ]
+  %.0622.ph1453 = phi i32 [ %.0622.ph, %.outer ], [ %.2624, %705 ]
+  %.0618.ph1454 = phi i32 [ %.0618.ph, %.outer ], [ %.2620, %705 ]
+  %.0616.ph1455 = phi i32 [ %.0616.ph, %.outer ], [ %706, %705 ]
+  %.0614.ph1456 = phi i32 [ %.0614.ph, %.outer ], [ %.8, %705 ]
+  %.0612.ph1457 = phi i32 [ %.0612.ph, %.outer ], [ %.1664, %705 ]
+  %.0609.ph1458 = phi ptr [ %.0609.ph, %.outer ], [ %620, %705 ]
+  %.0606.ph1459 = phi ptr [ %.0606.ph, %.outer ], [ %.1607, %705 ]
+  %.0603.ph1460 = phi ptr [ %.0603.ph, %.outer ], [ %620, %705 ]
+  %.0600.ph1461 = phi ptr [ %.0600.ph, %.outer ], [ %.2602, %705 ]
   br label %67
 
-67:                                               ; preds = %.backedge, %.outer1454
-  %.0663 = phi i32 [ %.0663.ph1455, %.outer1454 ], [ %.1664, %.backedge ]
-  %.0659 = phi i32 [ %.0659.ph1456, %.outer1454 ], [ %.1660, %.backedge ]
-  %.1655 = phi ptr [ %.1655.ph1457, %.outer1454 ], [ %.3657, %.backedge ]
-  %.0652 = phi i64 [ %.0652.ph1458, %.outer1454 ], [ %.1653, %.backedge ]
-  %.1649 = phi i32 [ %.1649.ph1459, %.outer1454 ], [ %.8, %.backedge ]
-  %.0626 = phi i32 [ %.0626.ph1460, %.outer1454 ], [ %.2628, %.backedge ]
-  %.0622 = phi i32 [ %.0622.ph1461, %.outer1454 ], [ %.2624, %.backedge ]
-  %.0618 = phi i32 [ %.0618.ph1462, %.outer1454 ], [ %.2620, %.backedge ]
-  %.0609 = phi ptr [ %.0609.ph1466, %.outer1454 ], [ %.2611, %.backedge ]
-  %.0606 = phi ptr [ %.0606.ph1467, %.outer1454 ], [ %.1607, %.backedge ]
-  %.0603 = phi ptr [ %.0603.ph1468, %.outer1454 ], [ %620, %.backedge ]
-  %.0600 = phi ptr [ %.0600.ph1469, %.outer1454 ], [ %.2602, %.backedge ]
+67:                                               ; preds = %.backedge, %.outer1446
+  %.0663 = phi i32 [ %.0663.ph1447, %.outer1446 ], [ %.1664, %.backedge ]
+  %.0659 = phi i32 [ %.0659.ph1448, %.outer1446 ], [ %.1660, %.backedge ]
+  %.1655 = phi ptr [ %.1655.ph1449, %.outer1446 ], [ %.3657, %.backedge ]
+  %.0652 = phi i64 [ %.0652.ph1450, %.outer1446 ], [ %.1653, %.backedge ]
+  %.1649 = phi i32 [ %.1649.ph1451, %.outer1446 ], [ %.8, %.backedge ]
+  %.0626 = phi i32 [ %.0626.ph1452, %.outer1446 ], [ %.2628, %.backedge ]
+  %.0622 = phi i32 [ %.0622.ph1453, %.outer1446 ], [ %.2624, %.backedge ]
+  %.0618 = phi i32 [ %.0618.ph1454, %.outer1446 ], [ %.2620, %.backedge ]
+  %.0609 = phi ptr [ %.0609.ph1458, %.outer1446 ], [ %.2611, %.backedge ]
+  %.0606 = phi ptr [ %.0606.ph1459, %.outer1446 ], [ %.1607, %.backedge ]
+  %.0603 = phi ptr [ %.0603.ph1460, %.outer1446 ], [ %620, %.backedge ]
+  %.0600 = phi ptr [ %.0600.ph1461, %.outer1446 ], [ %.2602, %.backedge ]
   %68 = getelementptr inbounds i8, ptr %.0603, i64 29
   %69 = load i8, ptr %68, align 1
   %70 = and i8 %69, 14
@@ -1849,15 +1849,15 @@ define hidden i32 @zend_jit_trace_execute(ptr noundef %0, ptr nocapture noundef 
   br label %thread-pre-split.sink.split
 
 thread-pre-split.sink.split:                      ; preds = %317, %275
-  %.sink1312 = phi ptr [ %277, %275 ], [ %323, %317 ]
+  %.sink1308 = phi ptr [ %277, %275 ], [ %323, %317 ]
   %.0580.sink = phi i8 [ %.0580, %275 ], [ %325, %317 ]
-  %326 = getelementptr inbounds i8, ptr %.sink1312, i64 1
+  %326 = getelementptr inbounds i8, ptr %.sink1308, i64 1
   store i8 %.0580.sink, ptr %326, align 1
-  %327 = getelementptr inbounds i8, ptr %.sink1312, i64 2
+  %327 = getelementptr inbounds i8, ptr %.sink1308, i64 2
   store i8 0, ptr %327, align 1
-  %328 = getelementptr inbounds i8, ptr %.sink1312, i64 3
+  %328 = getelementptr inbounds i8, ptr %.sink1308, i64 3
   store i8 0, ptr %328, align 1
-  %329 = getelementptr inbounds i8, ptr %.sink1312, i64 8
+  %329 = getelementptr inbounds i8, ptr %.sink1308, i64 8
   store ptr null, ptr %329, align 8
   %330 = add nsw i32 %.3651, 1
   br label %thread-pre-split
@@ -2275,7 +2275,7 @@ zend_jit_trace_bad_stop_event.exit834:            ; preds = %532
 
 538:                                              ; preds = %433
   %539 = add nsw i32 %.0663, -1
-  %.not748 = icmp sgt i32 %.0663, %.0612.ph1465
+  %.not748 = icmp sgt i32 %.0663, %.0612.ph1457
   %spec.select799 = select i1 %.not748, ptr %.0609, ptr null
   %540 = sext i32 %.5 to i64
   %541 = getelementptr inbounds %struct._zend_jit_trace_rec, ptr %2, i64 %540
@@ -2622,7 +2622,7 @@ zend_jit_trace_bad_stop_event.exit852:            ; preds = %684
 
 690:                                              ; preds = %zend_jit_trace_bad_stop_event.exit846, %zend_jit_trace_bad_stop_event.exit846, %664, %zend_jit_trace_bad_stop_event.exit852
   %691 = icmp eq ptr %620, %.2611
-  %692 = icmp eq i32 %.1664, %.0612.ph1465
+  %692 = icmp eq i32 %.1664, %.0612.ph1457
   %or.cond814 = select i1 %691, i1 %692, i1 false
   br i1 %or.cond814, label %693, label %701
 
@@ -2632,11 +2632,11 @@ zend_jit_trace_bad_stop_event.exit852:            ; preds = %684
   store i8 0, ptr %31, align 1
   store ptr %.3657, ptr %32, align 8
   store i32 0, ptr %33, align 8
-  store ptr %.2611, ptr %34, align 8
+  store ptr %620, ptr %34, align 8
   %694 = getelementptr inbounds i8, ptr %2, i64 32
-  %695 = sext i32 %.0614.ph1464 to i64
+  %695 = sext i32 %.0614.ph1456 to i64
   %696 = getelementptr inbounds %struct._zend_jit_trace_rec, ptr %2, i64 %695
-  %697 = sub nsw i32 %.8, %.0614.ph1464
+  %697 = sub nsw i32 %.8, %.0614.ph1456
   %698 = sext i32 %697 to i64
   %699 = shl nsw i64 %698, 4
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %694, ptr nonnull align 8 %696, i64 %699, i1 false)
@@ -2644,14 +2644,14 @@ zend_jit_trace_bad_stop_event.exit852:            ; preds = %684
   br label %.critedge
 
 701:                                              ; preds = %690
-  %702 = sext i32 %.0616.ph1463 to i64
+  %702 = sext i32 %.0616.ph1455 to i64
   %703 = load i64, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 19), align 8
   %704 = icmp sgt i64 %703, %702
   br i1 %704, label %705, label %zend_jit_trace_bad_stop_event.exit.thread
 
 705:                                              ; preds = %701
-  %706 = add nsw i32 %.0616.ph1463, 1
-  br label %.outer1454
+  %706 = add nsw i32 %.0616.ph1455, 1
+  br label %.outer1446
 
 707:                                              ; preds = %658
   %708 = and i32 %629, 64
@@ -2759,7 +2759,7 @@ zend_jit_trace_bad_stop_event.exit858:            ; preds = %731
   br label %.critedge
 
 .critedge:                                        ; preds = %440, %443, %446, %570, %576, %483, %421, %366, %377, %364, %331, %331, %333, %660, %726, %.critedge.loopexit, %.loopexit, %731, %514, %516, %519, %zend_jit_trace_bad_stop_event.exit834, %693, %718, %zend_jit_trace_bad_stop_event.exit.thread, %720, %zend_jit_trace_bad_stop_event.exit858
-  %.0585907 = phi ptr [ %.2611, %693 ], [ %8, %718 ], [ %8, %zend_jit_trace_bad_stop_event.exit.thread ], [ %.2605.ph, %720 ], [ %.2605.ph, %zend_jit_trace_bad_stop_event.exit858 ], [ %369, %zend_jit_trace_bad_stop_event.exit834 ], [ %369, %519 ], [ %369, %516 ], [ %369, %514 ], [ %.2605.ph, %731 ], [ %.0585, %.loopexit ], [ %.0585, %.critedge.loopexit ], [ %.2605.ph, %726 ], [ %.1604, %570 ], [ %.1604, %576 ], [ %8, %483 ], [ %8, %421 ], [ %369, %366 ], [ %369, %377 ], [ null, %364 ], [ %.0603, %331 ], [ %.0603, %331 ], [ %.0603, %333 ], [ %369, %446 ], [ %369, %443 ], [ %369, %440 ], [ %8, %660 ]
+  %.0585907 = phi ptr [ %620, %693 ], [ %8, %718 ], [ %8, %zend_jit_trace_bad_stop_event.exit.thread ], [ %.2605.ph, %720 ], [ %.2605.ph, %zend_jit_trace_bad_stop_event.exit858 ], [ %369, %zend_jit_trace_bad_stop_event.exit834 ], [ %369, %519 ], [ %369, %516 ], [ %369, %514 ], [ %.2605.ph, %731 ], [ %.0585, %.loopexit ], [ %.0585, %.critedge.loopexit ], [ %.2605.ph, %726 ], [ %.1604, %570 ], [ %.1604, %576 ], [ %369, %483 ], [ %369, %421 ], [ %369, %366 ], [ %369, %377 ], [ null, %364 ], [ %.0603, %331 ], [ %.0603, %331 ], [ %.0603, %333 ], [ %369, %446 ], [ %369, %443 ], [ %369, %440 ], [ %620, %660 ]
   %.1599906 = phi i32 [ 0, %693 ], [ 2, %718 ], [ 1, %zend_jit_trace_bad_stop_event.exit.thread ], [ %.0598.ph, %720 ], [ 14, %zend_jit_trace_bad_stop_event.exit858 ], [ 3, %zend_jit_trace_bad_stop_event.exit834 ], [ 3, %519 ], [ 3, %516 ], [ 3, %514 ], [ 14, %731 ], [ 5, %.loopexit ], [ 5, %.critedge.loopexit ], [ 14, %726 ], [ 4, %570 ], [ 4, %576 ], [ 2, %483 ], [ 1, %421 ], [ 4, %366 ], [ 4, %377 ], [ 3, %364 ], [ 4, %331 ], [ 4, %331 ], [ 4, %333 ], [ 3, %446 ], [ 3, %443 ], [ 3, %440 ], [ 0, %660 ]
   %.3662905 = phi i32 [ 0, %693 ], [ %.3621.ph, %718 ], [ %.2661.ph, %zend_jit_trace_bad_stop_event.exit.thread ], [ %.2661.ph, %720 ], [ %.2661.ph, %zend_jit_trace_bad_stop_event.exit858 ], [ %.0659, %zend_jit_trace_bad_stop_event.exit834 ], [ %.0659, %519 ], [ %.0659, %516 ], [ %.0659, %514 ], [ %.2661.ph, %731 ], [ %.3662, %.loopexit ], [ %.3662, %.critedge.loopexit ], [ %.2661.ph, %726 ], [ %.1660, %570 ], [ %.1660, %576 ], [ %.0659, %483 ], [ %.0659, %421 ], [ %.0659, %366 ], [ %.0659, %377 ], [ %.0659, %364 ], [ %.0659, %331 ], [ %.0659, %331 ], [ %.0659, %333 ], [ %.0659, %446 ], [ %.0659, %443 ], [ %.0659, %440 ], [ %.1660, %660 ]
   %.0658889904 = phi i32 [ 0, %693 ], [ 0, %718 ], [ 0, %zend_jit_trace_bad_stop_event.exit.thread ], [ 0, %720 ], [ 0, %zend_jit_trace_bad_stop_event.exit858 ], [ 0, %zend_jit_trace_bad_stop_event.exit834 ], [ 0, %519 ], [ 0, %516 ], [ 0, %514 ], [ 0, %731 ], [ 0, %.loopexit ], [ 0, %.critedge.loopexit ], [ 0, %726 ], [ 0, %570 ], [ 0, %576 ], [ 0, %483 ], [ 0, %421 ], [ 0, %366 ], [ 0, %377 ], [ 64, %364 ], [ 0, %331 ], [ 0, %331 ], [ 0, %333 ], [ 0, %446 ], [ 0, %443 ], [ 0, %440 ], [ 0, %660 ]

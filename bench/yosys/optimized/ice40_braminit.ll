@@ -1015,7 +1015,7 @@ _ZN5Yosys5RTLILL7id2cstrERKNS0_8IdStringE.exit.i: ; preds = %317
 .lr.ph.i:                                         ; preds = %.preheader163.i, %363
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %363 ], [ 0, %.preheader163.i ]
   %.166176.i = phi i8 [ %.368.i, %363 ], [ %.065.i, %.preheader163.i ]
-  %346 = trunc i8 %.166176.i to i1
+  %346 = trunc nuw i8 %.166176.i to i1
   br i1 %346, label %347, label %.critedge.i
 
 347:                                              ; preds = %.lr.ph.i
@@ -1073,7 +1073,7 @@ _ZN5Yosys5RTLILL7id2cstrERKNS0_8IdStringE.exit.i: ; preds = %317
 
 359:                                              ; preds = %357, %349
   %.267.i = phi i8 [ %spec.select.i, %357 ], [ %.166176.i, %349 ]
-  %360 = trunc i8 %.267.i to i1
+  %360 = trunc nuw i8 %.267.i to i1
   br i1 %360, label %361, label %363
 
 361:                                              ; preds = %359
@@ -1990,7 +1990,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %74, %_ZNSt6vectorIP
   br label %102
 
 102:                                              ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit, %39
-  %103 = phi ptr [ %.pre76, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %36, %39 ]
+  %103 = phi ptr [ %.pre76, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %37, %39 ]
   %104 = phi ptr [ %.pre75, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %40, %39 ]
   %105 = phi ptr [ %.pre, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %41, %39 ]
   %106 = ptrtoint ptr %105 to i64
@@ -2683,7 +2683,7 @@ _ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE7do_hashERKS2_.exit: ; preds = %
   store i32 %65, ptr %44, align 8
   %66 = load ptr, ptr %0, align 8
   %67 = getelementptr inbounds i32, ptr %66, i64 %63
-  %68 = trunc i64 %indvars.iv to i32
+  %68 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %68, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load ptr, ptr %33, align 8

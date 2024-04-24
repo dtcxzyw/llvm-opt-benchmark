@@ -597,7 +597,7 @@ _ZNSt10_HashtableIN9Stockfish4Eval4NNUE7NetSizeESt4pairIKS3_NS1_8EvalFileEESaIS7
 
 22:                                               ; preds = %_ZNSt10_HashtableIN9Stockfish4Eval4NNUE7NetSizeESt4pairIKS3_NS1_8EvalFileEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
   store ptr %13, ptr %0, align 8
-  %23 = load ptr, ptr %18, align 8
+  %23 = load ptr, ptr %19, align 8
   store ptr %23, ptr %13, align 8
   br label %24
 
@@ -682,7 +682,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish10ThreadPoolD2Ev(ptr noundef no
   br i1 %.not1, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %19, %6, %1
-  %23 = phi ptr [ %8, %6 ], [ %4, %1 ], [ %20, %19 ]
+  %23 = phi ptr [ %9, %6 ], [ %5, %1 ], [ %20, %19 ]
   %.not.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN9Stockfish6ThreadESaIS2_EED2Ev.exit, label %24
 

@@ -163,9 +163,9 @@ if.end24:                                         ; preds = %if.else22, %if.then
   br label %return
 
 return:                                           ; preds = %if.end.i, %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit, %if.end24
-  %retval.0.i16 = phi ptr [ %cond.i, %if.end24 ], [ %cond.i, %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit ], [ %arrayidx24.i, %if.end.i ]
+  %retval.0.i18 = phi ptr [ %cond.i, %if.end24 ], [ %cond.i, %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit ], [ %arrayidx24.i, %if.end.i ]
   %retval.sroa.3.0 = phi i8 [ 1, %if.end24 ], [ 0, %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit ], [ 0, %if.end.i ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.0.i16, 0
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.0.i18, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert
 }
@@ -594,7 +594,7 @@ if.then.i17:                                      ; preds = %if.else16
   br label %if.end25.sink.split
 
 if.end25.sink.split:                              ; preds = %if.then.i17, %if.else16, %if.then.i, %if.then12, %if.then6, %if.end
-  %call.i15.sink = phi ptr [ %.pre, %if.then6 ], [ %0, %if.end ], [ %call.i, %if.then12 ], [ %call.i, %if.then.i ], [ %call.i15, %if.else16 ], [ %call.i15, %if.then.i17 ]
+  %call.i15.sink = phi ptr [ %.pre, %if.then6 ], [ %1, %if.end ], [ %call.i, %if.then12 ], [ %call.i, %if.then.i ], [ %call.i15, %if.else16 ], [ %call.i15, %if.then.i17 ]
   store ptr %call.i15.sink, ptr %CurArray.i, align 8
   br label %if.end25
 
@@ -820,7 +820,7 @@ if.end49:                                         ; preds = %land.lhs.true29
   br i1 %cmp.not5.i, label %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end49, %for.body.i
-  %__first2.addr.07.i = phi ptr [ %incdec.ptr1.i, %for.body.i ], [ %2, %if.end49 ]
+  %__first2.addr.07.i = phi ptr [ %incdec.ptr1.i, %for.body.i ], [ %3, %if.end49 ]
   %__first1.addr.06.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %1, %if.end49 ]
   %31 = load ptr, ptr %__first1.addr.06.i, align 8
   %32 = load ptr, ptr %__first2.addr.07.i, align 8

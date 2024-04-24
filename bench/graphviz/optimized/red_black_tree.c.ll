@@ -180,7 +180,7 @@ TreeInsertHelp.exit:                              ; preds = %._crit_edge.i.threa
 
 57:                                               ; preds = %53
   %.val = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds i8, ptr %.04565, i64 24
+  %58 = getelementptr inbounds i8, ptr %55, i64 24
   %59 = load ptr, ptr %58, align 8
   store ptr %59, ptr %54, align 8
   %.not.i55 = icmp eq ptr %59, %.val
@@ -194,20 +194,20 @@ TreeInsertHelp.exit:                              ; preds = %._crit_edge.i.threa
 
 LeftRotate.exit:                                  ; preds = %57, %60
   %62 = phi ptr [ %36, %57 ], [ %.pre69, %60 ]
-  %63 = getelementptr inbounds i8, ptr %.04565, i64 40
+  %63 = getelementptr inbounds i8, ptr %55, i64 40
   store ptr %62, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %62, i64 24
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, %.pre72
   %67 = getelementptr inbounds i8, ptr %62, i64 32
   %.sink.i = select i1 %66, ptr %64, ptr %67
-  store ptr %.04565, ptr %.sink.i, align 8
+  store ptr %55, ptr %.sink.i, align 8
   store ptr %.pre72, ptr %58, align 8
-  store ptr %.04565, ptr %35, align 8
+  store ptr %55, ptr %35, align 8
   br label %._crit_edge70
 
 ._crit_edge70:                                    ; preds = %53, %LeftRotate.exit
-  %68 = phi ptr [ %.04565, %LeftRotate.exit ], [ %.pre72, %53 ]
+  %68 = phi ptr [ %55, %LeftRotate.exit ], [ %.pre72, %53 ]
   %.1 = phi ptr [ %.pre72, %LeftRotate.exit ], [ %.04565, %53 ]
   %69 = getelementptr inbounds i8, ptr %.1, i64 40
   %70 = getelementptr inbounds i8, ptr %68, i64 16
@@ -276,7 +276,7 @@ RightRotate.exit:                                 ; preds = %._crit_edge70, %82
 
 106:                                              ; preds = %102
   %.val54 = load ptr, ptr %8, align 8
-  %107 = getelementptr inbounds i8, ptr %.04565, i64 32
+  %107 = getelementptr inbounds i8, ptr %104, i64 32
   %108 = load ptr, ptr %107, align 8
   store ptr %108, ptr %103, align 8
   %.not.i58 = icmp eq ptr %108, %.val54
@@ -290,20 +290,20 @@ RightRotate.exit:                                 ; preds = %._crit_edge70, %82
 
 RightRotate.exit60:                               ; preds = %106, %109
   %111 = phi ptr [ %36, %106 ], [ %.pre66, %109 ]
-  %112 = getelementptr inbounds i8, ptr %.04565, i64 40
+  %112 = getelementptr inbounds i8, ptr %104, i64 40
   store ptr %111, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %111, i64 24
   %114 = load ptr, ptr %113, align 8
   %115 = icmp eq ptr %114, %.pre72
   %116 = getelementptr inbounds i8, ptr %111, i64 32
   %.sink.i59 = select i1 %115, ptr %113, ptr %116
-  store ptr %.04565, ptr %.sink.i59, align 8
+  store ptr %104, ptr %.sink.i59, align 8
   store ptr %.pre72, ptr %107, align 8
-  store ptr %.04565, ptr %35, align 8
+  store ptr %104, ptr %35, align 8
   br label %._crit_edge67
 
 ._crit_edge67:                                    ; preds = %102, %RightRotate.exit60
-  %117 = phi ptr [ %.04565, %RightRotate.exit60 ], [ %.pre72, %102 ]
+  %117 = phi ptr [ %104, %RightRotate.exit60 ], [ %.pre72, %102 ]
   %.2 = phi ptr [ %.pre72, %RightRotate.exit60 ], [ %.04565, %102 ]
   %118 = getelementptr inbounds i8, ptr %.2, i64 40
   %119 = getelementptr inbounds i8, ptr %117, i64 16
@@ -530,7 +530,7 @@ define void @RBDelete(ptr nocapture noundef readonly %0, ptr noundef %1) local_u
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %4
-  br i1 %9, label %TreeSuccessor.exit.thread, label %10
+  br i1 %9, label %TreeSuccessor.exit, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %1, i64 32
@@ -543,122 +543,116 @@ define void @RBDelete(ptr nocapture noundef readonly %0, ptr noundef %1) local_u
   %14 = getelementptr inbounds i8, ptr %.019.i, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not23.i = icmp eq ptr %15, %4
-  br i1 %.not23.i, label %TreeSuccessor.exit.thread, label %.preheader24.i
+  br i1 %.not23.i, label %TreeSuccessor.exit, label %.preheader24.i
 
-TreeSuccessor.exit.thread:                        ; preds = %.preheader24.i, %2
-  %.ph = phi ptr [ %1, %2 ], [ %.019.i, %.preheader24.i ]
-  %16 = getelementptr inbounds i8, ptr %.ph, i64 24
-  br label %19
+TreeSuccessor.exit:                               ; preds = %.preheader24.i, %2, %10
+  %16 = phi ptr [ %8, %10 ], [ %8, %2 ], [ %15, %.preheader24.i ]
+  %17 = phi ptr [ %1, %10 ], [ %1, %2 ], [ %.019.i, %.preheader24.i ]
+  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %19 = icmp eq ptr %16, %4
+  br i1 %19, label %20, label %23
 
-TreeSuccessor.exit:                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
-  %18 = icmp eq ptr %8, %4
-  br i1 %18, label %19, label %24
+20:                                               ; preds = %TreeSuccessor.exit
+  %21 = getelementptr inbounds i8, ptr %17, i64 32
+  %22 = load ptr, ptr %21, align 8
+  br label %23
 
-19:                                               ; preds = %TreeSuccessor.exit.thread, %TreeSuccessor.exit
-  %20 = phi ptr [ %16, %TreeSuccessor.exit.thread ], [ %17, %TreeSuccessor.exit ]
-  %21 = phi ptr [ %.ph, %TreeSuccessor.exit.thread ], [ %1, %TreeSuccessor.exit ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
-  %23 = load ptr, ptr %22, align 8
-  br label %24
+23:                                               ; preds = %TreeSuccessor.exit, %20
+  %24 = phi ptr [ %22, %20 ], [ %16, %TreeSuccessor.exit ]
+  %25 = getelementptr inbounds i8, ptr %17, i64 40
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %24, i64 40
+  store ptr %26, ptr %27, align 8
+  %28 = icmp eq ptr %6, %26
+  br i1 %28, label %29, label %31
 
-24:                                               ; preds = %TreeSuccessor.exit, %19
-  %25 = phi ptr [ %20, %19 ], [ %17, %TreeSuccessor.exit ]
-  %26 = phi ptr [ %21, %19 ], [ %1, %TreeSuccessor.exit ]
-  %27 = phi ptr [ %23, %19 ], [ %8, %TreeSuccessor.exit ]
-  %28 = getelementptr inbounds i8, ptr %26, i64 40
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 40
-  store ptr %29, ptr %30, align 8
-  %31 = icmp eq ptr %6, %29
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %23
+  %30 = getelementptr inbounds i8, ptr %6, i64 24
+  br label %36
 
-32:                                               ; preds = %24
-  %33 = getelementptr inbounds i8, ptr %6, i64 24
-  br label %39
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds i8, ptr %26, i64 24
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %17, %33
+  %35 = getelementptr inbounds i8, ptr %26, i64 32
+  %spec.select = select i1 %34, ptr %32, ptr %35
+  br label %36
 
-34:                                               ; preds = %24
-  %35 = getelementptr inbounds i8, ptr %29, i64 24
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %26, %36
-  %38 = getelementptr inbounds i8, ptr %29, i64 32
-  %spec.select = select i1 %37, ptr %35, ptr %38
-  br label %39
+36:                                               ; preds = %31, %29
+  %.sink = phi ptr [ %30, %29 ], [ %spec.select, %31 ]
+  store ptr %24, ptr %.sink, align 8
+  %.not = icmp eq ptr %17, %1
+  br i1 %.not, label %66, label %37
 
-39:                                               ; preds = %34, %32
-  %.sink = phi ptr [ %33, %32 ], [ %spec.select, %34 ]
-  store ptr %27, ptr %.sink, align 8
-  %.not = icmp eq ptr %26, %1
-  br i1 %.not, label %69, label %40
+37:                                               ; preds = %36
+  %38 = getelementptr inbounds i8, ptr %17, i64 16
+  %39 = load i32, ptr %38, align 8
+  %.not64 = icmp eq i32 %39, 0
+  br i1 %.not64, label %40, label %41
 
-40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %26, i64 16
-  %42 = load i32, ptr %41, align 8
-  %.not64 = icmp eq i32 %42, 0
-  br i1 %.not64, label %43, label %44
+40:                                               ; preds = %37
+  tail call fastcc void @RBDeleteFixUp(ptr noundef %0, ptr noundef nonnull %24)
+  br label %41
 
-43:                                               ; preds = %40
-  tail call fastcc void @RBDeleteFixUp(ptr noundef %0, ptr noundef nonnull %27)
-  br label %44
-
-44:                                               ; preds = %43, %40
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+41:                                               ; preds = %40, %37
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %1, align 8
+  tail call void %43(ptr noundef %44) #7
+  %45 = getelementptr inbounds i8, ptr %0, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr %1, align 8
-  tail call void %46(ptr noundef %47) #7
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = load ptr, ptr %47, align 8
+  tail call void %46(ptr noundef %48) #7
+  %49 = load ptr, ptr %7, align 8
+  store ptr %49, ptr %18, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 32
   %51 = load ptr, ptr %50, align 8
-  tail call void %49(ptr noundef %51) #7
-  %52 = load ptr, ptr %7, align 8
-  store ptr %52, ptr %25, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 32
+  %52 = getelementptr inbounds i8, ptr %17, i64 32
+  store ptr %51, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %1, i64 40
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %26, i64 32
-  store ptr %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 40
-  %57 = load ptr, ptr %56, align 8
-  store ptr %57, ptr %28, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 16
-  %59 = load i32, ptr %58, align 8
-  store i32 %59, ptr %41, align 8
-  %60 = load ptr, ptr %53, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 40
-  store ptr %26, ptr %61, align 8
-  %62 = load ptr, ptr %7, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 40
-  store ptr %26, ptr %63, align 8
-  %64 = load ptr, ptr %56, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %66, %1
-  %68 = getelementptr inbounds i8, ptr %64, i64 32
-  %.sink65 = select i1 %67, ptr %65, ptr %68
-  store ptr %26, ptr %.sink65, align 8
-  br label %80
+  store ptr %54, ptr %25, align 8
+  %55 = getelementptr inbounds i8, ptr %1, i64 16
+  %56 = load i32, ptr %55, align 8
+  store i32 %56, ptr %38, align 8
+  %57 = load ptr, ptr %50, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 40
+  store ptr %17, ptr %58, align 8
+  %59 = load ptr, ptr %7, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 40
+  store ptr %17, ptr %60, align 8
+  %61 = load ptr, ptr %53, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 24
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, %1
+  %65 = getelementptr inbounds i8, ptr %61, i64 32
+  %.sink65 = select i1 %64, ptr %62, ptr %65
+  store ptr %17, ptr %.sink65, align 8
+  br label %77
 
-69:                                               ; preds = %39
-  %70 = getelementptr inbounds i8, ptr %0, i64 8
+66:                                               ; preds = %36
+  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %17, align 8
+  tail call void %68(ptr noundef %69) #7
+  %70 = getelementptr inbounds i8, ptr %0, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %1, align 8
-  tail call void %71(ptr noundef %72) #7
-  %73 = getelementptr inbounds i8, ptr %0, i64 16
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 8
-  %76 = load ptr, ptr %75, align 8
-  tail call void %74(ptr noundef %76) #7
-  %77 = getelementptr inbounds i8, ptr %1, i64 16
-  %78 = load i32, ptr %77, align 8
-  %.not63 = icmp eq i32 %78, 0
-  br i1 %.not63, label %79, label %80
+  %72 = getelementptr inbounds i8, ptr %17, i64 8
+  %73 = load ptr, ptr %72, align 8
+  tail call void %71(ptr noundef %73) #7
+  %74 = getelementptr inbounds i8, ptr %17, i64 16
+  %75 = load i32, ptr %74, align 8
+  %.not63 = icmp eq i32 %75, 0
+  br i1 %.not63, label %76, label %77
 
-79:                                               ; preds = %69
-  tail call fastcc void @RBDeleteFixUp(ptr noundef nonnull %0, ptr noundef nonnull %27)
-  br label %80
+76:                                               ; preds = %66
+  tail call fastcc void @RBDeleteFixUp(ptr noundef nonnull %0, ptr noundef nonnull %24)
+  br label %77
 
-80:                                               ; preds = %69, %79, %44
-  tail call void @free(ptr noundef nonnull %1) #7
+77:                                               ; preds = %66, %76, %41
+  %.sink66 = phi ptr [ %1, %41 ], [ %17, %76 ], [ %17, %66 ]
+  tail call void @free(ptr noundef nonnull %.sink66) #7
   ret void
 }
 

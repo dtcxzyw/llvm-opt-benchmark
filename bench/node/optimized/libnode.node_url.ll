@@ -4139,10 +4139,10 @@ if.end:                                           ; preds = %cond.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %escaped_file_path) #22
   br label %do.body
 
-do.body:                                          ; preds = %if.then.i12, %if.end
-  %file_path.sroa.0.0 = phi i64 [ %file_path.coerce0, %if.end ], [ %sub.i, %if.then.i12 ]
-  %file_path.sroa.10.0 = phi ptr [ %file_path.coerce1, %if.end ], [ %add.ptr.i, %if.then.i12 ]
-  %pos.0 = phi i64 [ %sub.ptr.sub.i, %if.end ], [ %sub.ptr.sub.i19, %if.then.i12 ]
+do.body:                                          ; preds = %if.then.i13, %if.end
+  %file_path.sroa.0.0 = phi i64 [ %file_path.coerce0, %if.end ], [ %sub.i, %if.then.i13 ]
+  %file_path.sroa.10.0 = phi ptr [ %file_path.coerce1, %if.end ], [ %add.ptr.i, %if.then.i13 ]
+  %pos.0 = phi i64 [ %sub.ptr.sub.i, %if.end ], [ %sub.ptr.sub.i22, %if.then.i13 ]
   %add = add nuw i64 %pos.0, 1
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %file_path.sroa.0.0, i64 %add)
   %call3.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %escaped_file_path, ptr noundef %file_path.sroa.10.0, i64 noundef %.sroa.speculated.i) #22
@@ -4157,21 +4157,21 @@ if.then.i.i:                                      ; preds = %do.body
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %do.body
   %sub.i = sub i64 %file_path.sroa.0.0, %add
   %add.ptr.i = getelementptr inbounds i8, ptr %file_path.sroa.10.0, i64 %add
-  %cmp.i9 = icmp eq i64 %sub.i, 0
-  br i1 %cmp.i9, label %do.end, label %if.then.i12
+  %cmp.i10 = icmp eq i64 %sub.i, 0
+  br i1 %cmp.i10, label %do.end, label %if.then.i13
 
-if.then.i12:                                      ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
-  %call.i.i14 = call ptr @memchr(ptr noundef nonnull %add.ptr.i, i32 noundef 37, i64 noundef %sub.i) #22
-  %tobool.not.i15 = icmp eq ptr %call.i.i14, null
-  %sub.ptr.lhs.cast.i17 = ptrtoint ptr %call.i.i14 to i64
-  %sub.ptr.rhs.cast.i18 = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i19 = sub i64 %sub.ptr.lhs.cast.i17, %sub.ptr.rhs.cast.i18
-  %cmp14.not = icmp eq i64 %sub.ptr.sub.i19, -1
-  %or.cond = select i1 %tobool.not.i15, i1 true, i1 %cmp14.not
+if.then.i13:                                      ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
+  %call.i.i17 = call ptr @memchr(ptr noundef nonnull %add.ptr.i, i32 noundef 37, i64 noundef %sub.i) #22
+  %tobool.not.i18 = icmp eq ptr %call.i.i17, null
+  %sub.ptr.lhs.cast.i20 = ptrtoint ptr %call.i.i17 to i64
+  %sub.ptr.rhs.cast.i21 = ptrtoint ptr %add.ptr.i to i64
+  %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i21
+  %cmp14.not = icmp eq i64 %sub.ptr.sub.i22, -1
+  %or.cond = select i1 %tobool.not.i18, i1 true, i1 %cmp14.not
   br i1 %or.cond, label %do.end, label %do.body, !llvm.loop !35
 
-do.end:                                           ; preds = %if.then.i12, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
-  %call3.i.i24 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %escaped_file_path, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #22
+do.end:                                           ; preds = %if.then.i13, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
+  %call3.i.i27 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %escaped_file_path, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #22
   %call17 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %escaped_file_path) #22
   %0 = extractvalue { i64, ptr } %call17, 0
   %1 = extractvalue { i64, ptr } %call17, 1
@@ -4682,7 +4682,7 @@ if.then.i.i.i35:                                  ; preds = %do.end36
   br label %_ZN4node13MemoryTracker7PopNodeEv.exit
 
 if.else.i.i.i37:                                  ; preds = %do.end36
-  call void @_ZdlPv(ptr noundef %31) #26
+  call void @_ZdlPv(ptr noundef %39) #26
   %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %40 = load ptr, ptr %_M_node.i.i.i.i, align 8
   %add.ptr.i.i.i.i38 = getelementptr inbounds i8, ptr %40, i64 -8

@@ -418,13 +418,13 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
 
 .sink.split.i.i:                                  ; preds = %46, %.loopexit.i.i.i
   %63 = phi i64 [ %19, %46 ], [ %59, %.loopexit.i.i.i ]
-  %.lcssa.sink.i.i = phi ptr [ %48, %46 ], [ %8, %.loopexit.i.i.i ]
+  %.lcssa.sink.i.i = phi ptr [ %48, %46 ], [ %.sink.in.i.i.i.i, %.loopexit.i.i.i ]
   store ptr %.lcssa.sink.i.i, ptr %6, align 8, !alias.scope !98, !noalias !76
   br label %64
 
 64:                                               ; preds = %.sink.split.i.i, %14
   %65 = phi i64 [ %63, %.sink.split.i.i ], [ %15, %14 ]
-  %.lcssa.sink.i.i20 = phi ptr [ %.lcssa.sink.i.i, %.sink.split.i.i ], [ %8, %14 ]
+  %.lcssa.sink.i.i20 = phi ptr [ %.lcssa.sink.i.i, %.sink.split.i.i ], [ %.lcssa.sink.i.i21, %14 ]
   store i8 1, ptr %2, align 1, !alias.scope !99
   %.not.i.i.i = icmp ne i64 %13, %.lcssa24
   %or.cond.not = select i1 %12, i1 true, i1 %.not.i.i.i

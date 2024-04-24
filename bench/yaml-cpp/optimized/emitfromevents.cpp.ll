@@ -706,7 +706,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3popEv.exit
 
 if.else.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %1) #14
+  tail call void @_ZdlPv(ptr noundef %2) #14
   %_M_node.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %3 = load ptr, ptr %_M_node.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
@@ -858,7 +858,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3popEv.exit
 
 if.else.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %1) #14
+  tail call void @_ZdlPv(ptr noundef %2) #14
   %_M_node.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %3 = load ptr, ptr %_M_node.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8

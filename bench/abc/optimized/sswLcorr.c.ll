@@ -1072,7 +1072,7 @@ Ssw_ObjIsConst1Cand.exit:                         ; preds = %118, %129
   br i1 %.not, label %137, label %138
 
 137:                                              ; preds = %Ssw_ObjIsConst1Cand.exit
-  tail call void @Ssw_ManSweepLatchOne(ptr noundef nonnull %0, ptr noundef %135, ptr noundef %127)
+  tail call void @Ssw_ManSweepLatchOne(ptr noundef nonnull %0, ptr noundef %.val.i132, ptr noundef %127)
   br label %.critedge6
 
 138:                                              ; preds = %Ssw_ObjIsConst1Cand.exit

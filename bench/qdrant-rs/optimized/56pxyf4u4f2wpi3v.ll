@@ -135,7 +135,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %19, label %._crit_edge7.i.loopexit, label %.lr.ph.i
 
 ._crit_edge7.i.loopexit:                          ; preds = %.lr.ph.i
-  store ptr %7, ptr %6, align 8, !alias.scope !46, !noalias !32
+  store ptr %12, ptr %6, align 8, !alias.scope !46, !noalias !32
   br label %._crit_edge7.i
 
 ._crit_edge7.i:                                   ; preds = %._crit_edge7.i.loopexit, %2
@@ -1728,7 +1728,7 @@ define hidden void @_ZN6sparse6common18scores_memory_pool16ScoresMemoryPool11ret
 10:                                               ; preds = %.body, %12
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %eh.lpad-body, %.body ]
   %.0 = phi i8 [ %.1, %12 ], [ %.2.lpad-body, %.body ]
-  %11 = trunc i8 %.0 to i1
+  %11 = trunc nuw i8 %.0 to i1
   br i1 %11, label %56, label %55
 
 12:                                               ; preds = %34, %32, %.noexc, %7
@@ -1817,7 +1817,7 @@ define hidden void @_ZN6sparse6common18scores_memory_pool16ScoresMemoryPool11ret
 
 "_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$f32$GT$$GT$$GT$$GT$17h30d11c9acf762c07E.llvm.952538468121597485.exit": ; preds = %.noexc4, %34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %42 = trunc i8 %.3 to i1
+  %42 = trunc nuw i8 %.3 to i1
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17h4fbf934b5652eaaeE.exit", %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$f32$GT$$GT$$GT$$GT$17h30d11c9acf762c07E.llvm.952538468121597485.exit"

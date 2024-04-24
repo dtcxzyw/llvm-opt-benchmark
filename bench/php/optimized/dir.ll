@@ -571,7 +571,7 @@ define hidden void @zif_closedir(ptr noundef %0, ptr nocapture readnone %1) #1 {
   br i1 %.not.i, label %php_set_default_dir.exit, label %68
 
 68:                                               ; preds = %67
-  %69 = tail call i32 @zend_list_delete(ptr noundef nonnull %64) #13
+  %69 = tail call i32 @zend_list_delete(ptr noundef nonnull %65) #13
   br label %php_set_default_dir.exit
 
 php_set_default_dir.exit:                         ; preds = %67, %68

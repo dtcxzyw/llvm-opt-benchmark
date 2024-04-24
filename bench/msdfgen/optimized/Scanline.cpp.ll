@@ -543,16 +543,15 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   %.pre44 = load ptr, ptr %_M_finish.i, align 8
   %.pre45 = ptrtoint ptr %.pre42 to i64
   %.pre46 = ptrtoint ptr %.pre43 to i64
+  %.pre47 = sub i64 %.pre45, %.pre46
   br label %_ZSt4copyIPN7msdfgen8Scanline12IntersectionES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPN7msdfgen8Scanline12IntersectionES3_ET0_T_S5_S4_.exit: ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.rhs.cast.i39.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i15, %if.else49 ], [ %.pre46, %if.then.i.i.i.i.i35 ]
-  %sub.ptr.lhs.cast.i38.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i15, %if.else49 ], [ %.pre45, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
-  %6 = phi ptr [ %3, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
+  %6 = phi ptr [ %4, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
-  %sub.ptr.sub.i40 = sub i64 %sub.ptr.lhs.cast.i38.pre-phi, %sub.ptr.rhs.cast.i39.pre-phi
-  %add.ptr62 = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i40
+  %add.ptr62 = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i40.pre-phi
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, %add.ptr62
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.end69, label %if.then.i.i.i.i.i.i.i.i
 
@@ -685,11 +684,11 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %cmp23, label %if.end24.loopexit19.split.loop.exit20, label %while.cond, !llvm.loop !10
 
 if.end24.loopexit:                                ; preds = %if.end9
-  %7 = trunc i64 %indvars.iv.next17 to i32
+  %7 = trunc nsw i64 %indvars.iv.next17 to i32
   br label %return.sink.split
 
 if.end24.loopexit19.split.loop.exit20:            ; preds = %land.rhs
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nsw i64 %indvars.iv to i32
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %while.cond, %do.body, %if.end24.loopexit, %if.end24.loopexit19.split.loop.exit20
@@ -757,11 +756,11 @@ land.rhs.i:                                       ; preds = %while.cond.i
   br i1 %cmp23.i, label %if.end24.loopexit19.split.loop.exit20.i, label %while.cond.i, !llvm.loop !10
 
 if.end24.loopexit.i:                              ; preds = %if.end9.i
-  %7 = trunc i64 %indvars.iv.next17.i to i32
+  %7 = trunc nsw i64 %indvars.iv.next17.i to i32
   br label %return.sink.split.i
 
 if.end24.loopexit19.split.loop.exit20.i:          ; preds = %land.rhs.i
-  %8 = trunc i64 %indvars.iv.i to i32
+  %8 = trunc nsw i64 %indvars.iv.i to i32
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %while.cond.i, %do.body.i, %if.end24.loopexit19.split.loop.exit20.i, %if.end24.loopexit.i
@@ -834,11 +833,11 @@ land.rhs.i:                                       ; preds = %while.cond.i
   br i1 %cmp23.i, label %if.end24.loopexit19.split.loop.exit20.i, label %while.cond.i, !llvm.loop !10
 
 if.end24.loopexit.i:                              ; preds = %if.end9.i
-  %7 = trunc i64 %indvars.iv.next17.i to i32
+  %7 = trunc nsw i64 %indvars.iv.next17.i to i32
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit
 
 if.end24.loopexit19.split.loop.exit20.i:          ; preds = %land.rhs.i
-  %8 = trunc i64 %indvars.iv.i to i32
+  %8 = trunc nsw i64 %indvars.iv.i to i32
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit
 
 _ZNK7msdfgen8Scanline6moveToEd.exit:              ; preds = %while.cond.i, %if.end24.loopexit.i, %if.end24.loopexit19.split.loop.exit20.i
@@ -916,11 +915,11 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
   br i1 %cmp23.i.i, label %if.end24.loopexit19.split.loop.exit20.i.i, label %while.cond.i.i, !llvm.loop !10
 
 if.end24.loopexit.i.i:                            ; preds = %if.end9.i.i
-  %7 = trunc i64 %indvars.iv.next17.i.i to i32
+  %7 = trunc nsw i64 %indvars.iv.next17.i.i to i32
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit.i
 
 if.end24.loopexit19.split.loop.exit20.i.i:        ; preds = %land.rhs.i.i
-  %8 = trunc i64 %indvars.iv.i.i to i32
+  %8 = trunc nsw i64 %indvars.iv.i.i to i32
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit.i
 
 _ZNK7msdfgen8Scanline6moveToEd.exit.i:            ; preds = %while.cond.i.i, %if.end24.loopexit19.split.loop.exit20.i.i, %if.end24.loopexit.i.i

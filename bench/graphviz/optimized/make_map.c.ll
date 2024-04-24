@@ -2410,7 +2410,7 @@ define internal fastcc void @make_map_internal(i1 noundef zeroext %0, i32 nounde
   %237 = tail call fastcc ptr @gv_calloc(i64 noundef %236, i64 noundef 4)
   %238 = sext i32 %.0423 to i64
   %239 = shl nsw i64 %238, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %237, ptr align 4 %4, i64 %239, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %237, ptr align 4 %.0460, i64 %239, i1 false)
   br label %245
 
 240:                                              ; preds = %231

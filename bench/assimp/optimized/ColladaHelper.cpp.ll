@@ -67,7 +67,7 @@ if.then.i5:                                       ; preds = %invoke.cont
   br label %nrvo.skipdtor
 
 if.else.i8:                                       ; preds = %invoke.cont
-  invoke void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE17_M_realloc_insertIJRA10_KcRA22_SB_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %.pre12, ptr noundef nonnull align 1 dereferenceable(10) @.str.2, ptr noundef nonnull align 1 dereferenceable(22) @.str.3)
+  invoke void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE17_M_realloc_insertIJRA10_KcRA22_SB_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %.pre, ptr noundef nonnull align 1 dereferenceable(10) @.str.2, ptr noundef nonnull align 1 dereferenceable(22) @.str.3)
           to label %nrvo.skipdtor unwind label %lpad
 
 lpad:                                             ; preds = %if.else.i8, %if.then.i5, %if.else.i
@@ -239,7 +239,7 @@ if.end:                                           ; preds = %entry
   %0 = load i8, ptr %call1, align 1
   %1 = add i8 %0, -97
   %or.cond.i = icmp ult i8 %1, 26
-  %sub.i = add i8 %0, -32
+  %sub.i = add nsw i8 %0, -32
   %cond.i = select i1 %or.cond.i, i8 %sub.i, i8 %0
   store i8 %cond.i, ptr %call1, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %call1, i64 1
@@ -263,7 +263,7 @@ if.then19:                                        ; preds = %if.then10
   %3 = load i8, ptr %call13, align 1
   %4 = add i8 %3, -97
   %or.cond.i6 = icmp ult i8 %4, 26
-  %sub.i7 = add i8 %3, -32
+  %sub.i7 = add nsw i8 %3, -32
   %cond.i8 = select i1 %or.cond.i6, i8 %sub.i7, i8 %3
   store i8 %cond.i8, ptr %call13, align 1
   br label %if.end28
@@ -271,7 +271,7 @@ if.then19:                                        ; preds = %if.then10
 if.else:                                          ; preds = %for.body
   %5 = add i8 %2, -65
   %or.cond.i9 = icmp ult i8 %5, 26
-  %add.i = add i8 %2, 32
+  %add.i = add nuw nsw i8 %2, 32
   %cond.i10 = select i1 %or.cond.i9, i8 %add.i, i8 %2
   store i8 %cond.i10, ptr %it.sroa.0.025, align 1
   %incdec.ptr.i11 = getelementptr inbounds i8, ptr %it.sroa.0.025, i64 1
@@ -447,7 +447,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #12
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i31
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i34
 
 if.end.thread:                                    ; preds = %lpad
   %second.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
@@ -461,11 +461,11 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i31:                                      ; preds = %lpad
+if.then.i34:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #13
   br label %invoke.cont21
 
-invoke.cont21:                                    ; preds = %if.then.i31, %if.end.thread
+invoke.cont21:                                    ; preds = %if.then.i34, %if.end.thread
   invoke void @__cxa_rethrow() #15
           to label %unreachable unwind label %lpad19
 
@@ -780,7 +780,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #12
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i31
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i34
 
 if.end.thread:                                    ; preds = %lpad
   %second.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
@@ -794,11 +794,11 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i31:                                      ; preds = %lpad
+if.then.i34:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #13
   br label %invoke.cont21
 
-invoke.cont21:                                    ; preds = %if.then.i31, %if.end.thread
+invoke.cont21:                                    ; preds = %if.then.i34, %if.end.thread
   invoke void @__cxa_rethrow() #15
           to label %unreachable unwind label %lpad19
 

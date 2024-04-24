@@ -1461,7 +1461,7 @@ if.then81:                                        ; preds = %if.then78
   br i1 %cmp87, label %if.then89, label %if.end
 
 if.then89:                                        ; preds = %if.then81
-  %call92 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %4)
+  %call92 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %5)
   %6 = load ptr, ptr %argv, align 8
   call fastcc void @help(ptr noundef %6)
   br label %return
@@ -1482,7 +1482,7 @@ if.then97:                                        ; preds = %if.end
   br i1 %cmp102, label %if.then104, label %if.end111
 
 if.then104:                                       ; preds = %if.then97
-  %call107 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %8)
+  %call107 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %9)
   %10 = load ptr, ptr %argv, align 8
   call fastcc void @help(ptr noundef %10)
   br label %return
@@ -2224,7 +2224,7 @@ if.end:                                           ; preds = %getTestOption.exit,
   br i1 %7, label %switch.hole_check, label %sw.epilog
 
 switch.hole_check:                                ; preds = %if.end
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 123, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.epilog

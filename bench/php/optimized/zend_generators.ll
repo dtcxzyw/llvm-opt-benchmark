@@ -1729,7 +1729,7 @@ zend_generator_freeze_call_stack.exit:            ; preds = %295
   br i1 %44, label %300, label %313
 
 300:                                              ; preds = %299
-  tail call void @zend_generator_close(ptr noundef nonnull %0, i1 noundef zeroext false)
+  tail call void @zend_generator_close(ptr noundef nonnull %.084199, i1 noundef zeroext false)
   %301 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
   %.not112 = icmp eq ptr %301, null
   br i1 %.not112, label %302, label %303

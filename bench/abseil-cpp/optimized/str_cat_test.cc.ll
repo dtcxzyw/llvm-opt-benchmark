@@ -20753,7 +20753,7 @@ if.then.i85:                                      ; preds = %_ZSt4copyISt13_Bit_
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %idx.neg.i = sub nsw i64 0, %sub.ptr.div.i
-  %add.ptr.i = getelementptr inbounds i64, ptr %0, i64 %idx.neg.i
+  %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i) #23
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
@@ -25189,7 +25189,7 @@ invoke.cont29.i.i:                                ; preds = %invoke.cont28.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i68.i.i) #22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i68.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i.i) #22
-  %29 = trunc i64 %indvars.iv.i.i to i32
+  %29 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %call32.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %expected.i.i, i64 noundef 256, ptr noundef nonnull @.str.291, i32 noundef %29, i32 noundef %conv) #22
   %call.i.i.i73.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %actual22.i.i, ptr noundef nonnull %expected.i.i) #22, !noalias !1239
   %cmp.i.i.i74.i.i = icmp eq i32 %call.i.i.i73.i.i, 0
@@ -25863,7 +25863,7 @@ invoke.cont29.i65.i:                              ; preds = %invoke.cont28.i64.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i87.i.i) #22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i87.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i12.i) #22
-  %87 = trunc i64 %indvars.iv.i61.i to i32
+  %87 = trunc nuw nsw i64 %indvars.iv.i61.i to i32
   %call32.i66.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %expected.i5.i, i64 noundef 256, ptr noundef nonnull @.str.294, i32 noundef %87, i32 noundef %conv) #22
   %call.i.i.i92.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %actual22.i11.i, ptr noundef nonnull %expected.i5.i) #22, !noalias !1266
   %cmp.i.i.i93.i.i = icmp eq i32 %call.i.i.i92.i.i, 0
@@ -26554,7 +26554,7 @@ for.body.i165.i:                                  ; preds = %_ZN7testing15Assert
   %indvars.iv.i166.i = phi i64 [ 2, %_ZN7testing15AssertionResultD2Ev.exit.i164.i ], [ %indvars.iv.next.i197.i, %_ZN7testing15AssertionResultD2Ev.exit137.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i91.i, i8 0, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i91.i) #22
-  %149 = trunc i64 %indvars.iv.i166.i to i32
+  %149 = trunc nuw nsw i64 %indvars.iv.i166.i to i32
   %150 = or i32 %129, %149
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buffer.i.i.i38.i.i)
   %idx.neg.i.i.i46.i.i = sub nsw i64 0, %indvars.iv.i166.i
@@ -27456,7 +27456,7 @@ invoke.cont29.i:                                  ; preds = %invoke.cont28.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i67.i) #22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i67.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i) #22
-  %29 = trunc i64 %indvars.iv.i to i32
+  %29 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call32.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %expected.i, i64 noundef 256, ptr noundef nonnull @.str.277, i32 noundef %29, i64 noundef %v) #22
   %call.i.i.i72.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %actual22.i, ptr noundef nonnull %expected.i) #22, !noalias !1318
   %cmp.i.i.i73.i = icmp eq i32 %call.i.i.i72.i, 0
@@ -28130,7 +28130,7 @@ invoke.cont29.i64:                                ; preds = %invoke.cont28.i63
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i86.i) #22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i86.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i13) #22
-  %87 = trunc i64 %indvars.iv.i60 to i32
+  %87 = trunc nuw nsw i64 %indvars.iv.i60 to i32
   %call32.i65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %expected.i6, i64 noundef 256, ptr noundef nonnull @.str.280, i32 noundef %87, i64 noundef %v) #22
   %call.i.i.i91.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %actual22.i12, ptr noundef nonnull %expected.i6) #22, !noalias !1344
   %cmp.i.i.i92.i = icmp eq i32 %call.i.i.i91.i, 0
@@ -28898,7 +28898,7 @@ invoke.cont29.i169:                               ; preds = %invoke.cont28.i168
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i89.i) #22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i89.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i90) #22
-  %150 = trunc i64 %indvars.iv.i165 to i32
+  %150 = trunc nuw nsw i64 %indvars.iv.i165 to i32
   %call32.i170 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %expected.i83, i64 noundef 256, ptr noundef nonnull @.str.283, i32 noundef %150, i64 noundef %v) #22
   %call.i.i.i94.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %actual22.i89, ptr noundef nonnull %expected.i83) #22, !noalias !1370
   %cmp.i.i.i95.i = icmp eq i32 %call.i.i.i94.i, 0
@@ -29624,7 +29624,7 @@ invoke.cont29.i344:                               ; preds = %invoke.cont28.i343
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i68.i) #22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i68.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i265) #22
-  %220 = trunc i64 %indvars.iv.i340 to i32
+  %220 = trunc nuw nsw i64 %indvars.iv.i340 to i32
   %call32.i345 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %expected.i258, i64 noundef 256, ptr noundef nonnull @.str.277, i32 noundef %220, ptr noundef %195) #22
   %call.i.i.i73.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %actual22.i264, ptr noundef nonnull %expected.i258) #22, !noalias !1396
   %cmp.i.i.i74.i = icmp eq i32 %call.i.i.i73.i, 0

@@ -3921,9 +3921,9 @@ _ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit:
 
 .thread:                                          ; preds = %38
   tail call void @_ZN23nbnxn_atomdata_output_tD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %26) #20
-  br label %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit37
+  br label %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit39
 
-42:                                               ; preds = %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit37
+42:                                               ; preds = %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit39
   %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -3931,9 +3931,9 @@ _ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit:
 
 44:                                               ; preds = %38
   tail call void @_ZdlPv(ptr noundef nonnull %25) #31
-  br label %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit37
+  br label %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit39
 
-_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %44, %.thread
+_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit39: ; preds = %44, %.thread
   invoke void @__cxa_rethrow() #28
           to label %49 unwind label %42
 
@@ -3947,7 +3947,7 @@ _ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit3
   tail call void @__clang_call_terminate(ptr %48) #29
   unreachable
 
-49:                                               ; preds = %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit37
+49:                                               ; preds = %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit39
   unreachable
 }
 
@@ -4355,7 +4355,7 @@ _ZL26nbnxn_atomdata_set_chargesP16nbnxn_atomdata_tRKN5Nbnxm7GridSetEN3gmx8ArrayR
   br label %_ZL26nbnxn_atomdata_set_chargesP16nbnxn_atomdata_tRKN5Nbnxm7GridSetEN3gmx8ArrayRefIKfEE.exit
 
 _ZL26nbnxn_atomdata_set_chargesP16nbnxn_atomdata_tRKN5Nbnxm7GridSetEN3gmx8ArrayRefIKfEE.exit: ; preds = %_ZL26nbnxn_atomdata_set_chargesP16nbnxn_atomdata_tRKN5Nbnxm7GridSetEN3gmx8ArrayRefIKfEE.exit.loopexit, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i
-  %.pre67 = phi ptr [ %.pre67.pre, %_ZL26nbnxn_atomdata_set_chargesP16nbnxn_atomdata_tRKN5Nbnxm7GridSetEN3gmx8ArrayRefIKfEE.exit.loopexit ], [ %111, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i ]
+  %.pre67 = phi ptr [ %.pre67.pre, %_ZL26nbnxn_atomdata_set_chargesP16nbnxn_atomdata_tRKN5Nbnxm7GridSetEN3gmx8ArrayRefIKfEE.exit.loopexit ], [ %112, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i ]
   %187 = getelementptr inbounds i8, ptr %1, i64 112
   %188 = load i8, ptr %187, align 8
   %189 = trunc i8 %188 to i1

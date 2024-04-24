@@ -3726,7 +3726,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hbdbd8751fc957fe0E.exit.i.i.
   br i1 %65, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e64b9fa6bfbf5d7E.exit.thread8.sink.split", label %.lr.ph
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e64b9fa6bfbf5d7E.exit.thread8.sink.split": ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17hbdbd8751fc957fe0E.exit.i.i.i, %45, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e64b9fa6bfbf5d7E.exit", %.backedge, %43
-  %.lcssa25.sink = phi ptr [ %41, %43 ], [ %3, %.backedge ], [ %32, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e64b9fa6bfbf5d7E.exit" ], [ %41, %45 ], [ %41, %_ZN4core7unicode12unicode_data11white_space6lookup17hbdbd8751fc957fe0E.exit.i.i.i ]
+  %.lcssa25.sink = phi ptr [ %41, %43 ], [ %41, %.backedge ], [ %32, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e64b9fa6bfbf5d7E.exit" ], [ %41, %45 ], [ %41, %_ZN4core7unicode12unicode_data11white_space6lookup17hbdbd8751fc957fe0E.exit.i.i.i ]
   %.not6.ph = phi i1 [ true, %43 ], [ false, %.backedge ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e64b9fa6bfbf5d7E.exit" ], [ true, %45 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17hbdbd8751fc957fe0E.exit.i.i.i ]
   store ptr %.lcssa25.sink, ptr %0, align 8, !alias.scope !645
   br label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e64b9fa6bfbf5d7E.exit.thread8"
@@ -13472,7 +13472,7 @@ _ZN4core3ops8function6FnOnce9call_once17h907c86ee53e00719E.exit.i.i.i.i: ; preds
   br i1 %.not.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h907c86ee53e00719E.exit.thread.i.i.i.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2957856072367455E.exit"
 
 _ZN4core3ops8function6FnOnce9call_once17h907c86ee53e00719E.exit.thread.i.i.i.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h907c86ee53e00719E.exit.i.i.i.i, %36
-  %41 = phi ptr [ %40, %_ZN4core3ops8function6FnOnce9call_once17h907c86ee53e00719E.exit.i.i.i.i ], [ %37, %36 ]
+  %41 = phi ptr [ %40, %_ZN4core3ops8function6FnOnce9call_once17h907c86ee53e00719E.exit.i.i.i.i ], [ %38, %36 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !2200
   store ptr %22, ptr %3, align 8, !noalias !2200
   %42 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h968ed04cba6382d7E.llvm.4073844125802496097(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %22)

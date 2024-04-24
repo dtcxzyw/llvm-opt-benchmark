@@ -886,7 +886,7 @@ define ptr @cuddBddIntersectRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %93
-  tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef nonnull %8) #5
+  tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef nonnull %84) #5
   br label %126
 
 97:                                               ; preds = %86, %93

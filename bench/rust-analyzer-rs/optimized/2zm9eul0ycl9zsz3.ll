@@ -396,10 +396,9 @@ define hidden { i64, i64 } @"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT
   br i1 %19, label %.sink.split.i, label %.lr.ph.i.i
 
 .sink.split.i:                                    ; preds = %17, %.lr.ph.i.i
-  %.lcssa23.sink.i = phi ptr [ %13, %.lr.ph.i.i ], [ %8, %17 ]
   %.017.i.ph.i = phi i64 [ 0, %.lr.ph.i.i ], [ %18, %17 ]
   %switch.ph.i = phi i64 [ 0, %.lr.ph.i.i ], [ 1, %17 ]
-  store ptr %.lcssa23.sink.i, ptr %9, align 8, !alias.scope !13, !noalias !16
+  store ptr %13, ptr %9, align 8, !alias.scope !13, !noalias !16
   br label %20
 
 20:                                               ; preds = %.sink.split.i, %6
@@ -566,10 +565,9 @@ define hidden { i64, i64 } @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT
   br i1 %19, label %.sink.split, label %.lr.ph.i
 
 .sink.split:                                      ; preds = %17, %.lr.ph.i
-  %.lcssa23.sink = phi ptr [ %13, %.lr.ph.i ], [ %8, %17 ]
   %.017.i.ph = phi i64 [ 0, %.lr.ph.i ], [ %18, %17 ]
   %switch.ph = phi i64 [ 0, %.lr.ph.i ], [ 1, %17 ]
-  store ptr %.lcssa23.sink, ptr %9, align 8, !alias.scope !32, !noalias !35
+  store ptr %13, ptr %9, align 8, !alias.scope !32, !noalias !35
   br label %20
 
 20:                                               ; preds = %.sink.split, %6
@@ -11476,10 +11474,9 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   br i1 %20, label %.sink.split.i.i.i, label %.lr.ph.i.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %18, %.lr.ph.i.i.i.i
-  %.lcssa23.sink.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i ], [ %9, %18 ]
   %.017.i.ph.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %19, %18 ]
   %switch.ph.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ 1, %18 ]
-  store ptr %.lcssa23.sink.i.i.i, ptr %10, align 8, !alias.scope !2388, !noalias !2391
+  store ptr %14, ptr %10, align 8, !alias.scope !2388, !noalias !2391
   br label %21
 
 21:                                               ; preds = %.sink.split.i.i.i, %7
@@ -11878,10 +11875,9 @@ define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   br i1 %20, label %.sink.split.i.i, label %.lr.ph.i.i.i
 
 .sink.split.i.i:                                  ; preds = %18, %.lr.ph.i.i.i
-  %.lcssa23.sink.i.i = phi ptr [ %14, %.lr.ph.i.i.i ], [ %9, %18 ]
   %.017.i.ph.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %19, %18 ]
   %switch.ph.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ 1, %18 ]
-  store ptr %.lcssa23.sink.i.i, ptr %10, align 8, !alias.scope !2421, !noalias !2424
+  store ptr %14, ptr %10, align 8, !alias.scope !2421, !noalias !2424
   br label %21
 
 21:                                               ; preds = %.sink.split.i.i, %7
@@ -13147,7 +13143,7 @@ define hidden void @_ZN14ide_completion11completions3dot15complete_fields17hb9f8
   br label %.thread
 
 .thread:                                          ; preds = %116, %..thread.loopexit_crit_edge, %39
-  %75 = phi ptr [ %42, %39 ], [ %.pre.pre, %..thread.loopexit_crit_edge ], [ %117, %116 ]
+  %75 = phi ptr [ %43, %39 ], [ %.pre.pre, %..thread.loopexit_crit_edge ], [ %118, %116 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2584)
   call void @llvm.experimental.noalias.scope.decl(metadata !2585)
   call void @llvm.experimental.noalias.scope.decl(metadata !2586)
@@ -14157,7 +14153,7 @@ define hidden void @_ZN14ide_completion11completions3dot15complete_fields17hf120
   br label %.thread
 
 .thread:                                          ; preds = %129, %..thread.loopexit_crit_edge, %40
-  %88 = phi ptr [ %43, %40 ], [ %.pre.pre, %..thread.loopexit_crit_edge ], [ %130, %129 ]
+  %88 = phi ptr [ %44, %40 ], [ %.pre.pre, %..thread.loopexit_crit_edge ], [ %131, %129 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2883)
   call void @llvm.experimental.noalias.scope.decl(metadata !2884)
   call void @llvm.experimental.noalias.scope.decl(metadata !2885)
@@ -17181,7 +17177,7 @@ _ZN3hir4Type19iterate_assoc_items17h5165499f9f396ee1E.exit: ; preds = %586
   br i1 %609, label %._crit_edge.i.loopexit, label %600
 
 ._crit_edge.i.loopexit:                           ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he401ba89f8eba8c9E.exit.i"
-  store ptr %593, ptr %595, align 8, !alias.scope !3477, !noalias !3480
+  store ptr %602, ptr %595, align 8, !alias.scope !3477, !noalias !3480
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %592
@@ -29032,7 +29028,7 @@ _ZN3hir4Type19iterate_assoc_items17hddcef3f98ab10ed3E.exit: ; preds = %394
   br i1 %424, label %._crit_edge.i.loopexit, label %409
 
 ._crit_edge.i.loopexit:                           ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17heab81555ea0edfb5E.exit.i"
-  store ptr %401, ptr %403, align 8, !alias.scope !6343, !noalias !6346
+  store ptr %411, ptr %403, align 8, !alias.scope !6343, !noalias !6346
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %400

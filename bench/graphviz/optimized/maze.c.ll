@@ -147,79 +147,77 @@ updateWt.exit:                                    ; preds = %.lr.ph60, %72
 
 .lr.ph43:                                         ; preds = %._crit_edge
   %81 = zext nneg i32 %.0.lcssa to i64
-  br i1 %.not.not, label %.lr.ph43.split.preheader, label %.lr.ph43.split.us
-
-.lr.ph43.split.preheader:                         ; preds = %.lr.ph43
-  %82 = getelementptr inbounds i8, ptr %2, i64 8
-  br label %.lr.ph43.split
+  br i1 %.not.not, label %.lr.ph43.split, label %.lr.ph43.split.us
 
 .lr.ph43.split.us:                                ; preds = %.lr.ph43, %updateWt.exit37.us
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %updateWt.exit37.us ], [ %81, %.lr.ph43 ]
-  %83 = getelementptr inbounds [6 x ptr], ptr %35, i64 0, i64 %indvars.iv48
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr %4, align 8
-  %86 = getelementptr inbounds i8, ptr %84, i64 12
-  %87 = load i32, ptr %86, align 4
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds %struct.snode, ptr %85, i64 %88, i32 9
-  %90 = load i8, ptr %89, align 4
-  %91 = trunc i8 %90 to i1
-  %92 = select i1 %91, i32 %27, i32 %33
-  %93 = getelementptr inbounds i8, ptr %84, i64 8
-  %94 = load i32, ptr %93, align 8
-  %95 = add nsw i32 %94, 1
-  store i32 %95, ptr %93, align 8
-  %.not.i36.us = icmp slt i32 %94, %92
-  br i1 %.not.i36.us, label %updateWt.exit37.us, label %96
+  %82 = getelementptr inbounds [6 x ptr], ptr %35, i64 0, i64 %indvars.iv48
+  %83 = load ptr, ptr %82, align 8
+  %84 = load ptr, ptr %4, align 8
+  %85 = getelementptr inbounds i8, ptr %83, i64 12
+  %86 = load i32, ptr %85, align 4
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds %struct.snode, ptr %84, i64 %87, i32 9
+  %89 = load i8, ptr %88, align 4
+  %90 = trunc i8 %89 to i1
+  %91 = select i1 %90, i32 %27, i32 %33
+  %92 = getelementptr inbounds i8, ptr %83, i64 8
+  %93 = load i32, ptr %92, align 8
+  %94 = add nsw i32 %93, 1
+  store i32 %94, ptr %92, align 8
+  %.not.i36.us = icmp slt i32 %93, %91
+  br i1 %.not.i36.us, label %updateWt.exit37.us, label %95
 
-96:                                               ; preds = %.lr.ph43.split.us
-  store i32 0, ptr %93, align 8
-  %97 = load double, ptr %84, align 8
-  %98 = fadd double %97, 1.638400e+04
-  store double %98, ptr %84, align 8
+95:                                               ; preds = %.lr.ph43.split.us
+  store i32 0, ptr %92, align 8
+  %96 = load double, ptr %83, align 8
+  %97 = fadd double %96, 1.638400e+04
+  store double %97, ptr %83, align 8
   br label %updateWt.exit37.us
 
-updateWt.exit37.us:                               ; preds = %96, %.lr.ph43.split.us
+updateWt.exit37.us:                               ; preds = %95, %.lr.ph43.split.us
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %99 = load i32, ptr %36, align 4
-  %100 = trunc i64 %indvars.iv.next49 to i32
-  %101 = icmp sgt i32 %99, %100
-  br i1 %101, label %.lr.ph43.split.us, label %._crit_edge44
+  %98 = load i32, ptr %36, align 4
+  %99 = trunc nuw i64 %indvars.iv.next49 to i32
+  %100 = icmp sgt i32 %98, %99
+  br i1 %100, label %.lr.ph43.split.us, label %._crit_edge44
 
-.lr.ph43.split:                                   ; preds = %.lr.ph43.split.preheader, %updateWt.exit37
-  %indvars.iv52 = phi i64 [ %81, %.lr.ph43.split.preheader ], [ %indvars.iv.next53, %updateWt.exit37 ]
-  %102 = getelementptr inbounds [6 x ptr], ptr %35, i64 0, i64 %indvars.iv52
-  %103 = load ptr, ptr %102, align 8
-  %104 = icmp eq ptr %103, %2
-  br i1 %104, label %105, label %updateWt.exit37
+.lr.ph43.split:                                   ; preds = %.lr.ph43, %updateWt.exit37
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %updateWt.exit37 ], [ %81, %.lr.ph43 ]
+  %101 = getelementptr inbounds [6 x ptr], ptr %35, i64 0, i64 %indvars.iv52
+  %102 = load ptr, ptr %101, align 8
+  %103 = icmp eq ptr %102, %2
+  br i1 %103, label %104, label %updateWt.exit37
 
-105:                                              ; preds = %.lr.ph43.split
-  %106 = load ptr, ptr %4, align 8
-  %107 = load i32, ptr %6, align 4
+104:                                              ; preds = %.lr.ph43.split
+  %105 = load ptr, ptr %4, align 8
+  %106 = getelementptr inbounds i8, ptr %102, i64 12
+  %107 = load i32, ptr %106, align 4
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds %struct.snode, ptr %106, i64 %108, i32 9
+  %109 = getelementptr inbounds %struct.snode, ptr %105, i64 %108, i32 9
   %110 = load i8, ptr %109, align 4
   %111 = trunc i8 %110 to i1
   %112 = select i1 %111, i32 %27, i32 %33
-  %113 = load i32, ptr %82, align 8
-  %114 = add nsw i32 %113, 1
-  store i32 %114, ptr %82, align 8
-  %.not.i36 = icmp slt i32 %113, %112
-  br i1 %.not.i36, label %updateWt.exit37, label %115
+  %113 = getelementptr inbounds i8, ptr %102, i64 8
+  %114 = load i32, ptr %113, align 8
+  %115 = add nsw i32 %114, 1
+  store i32 %115, ptr %113, align 8
+  %.not.i36 = icmp slt i32 %114, %112
+  br i1 %.not.i36, label %updateWt.exit37, label %116
 
-115:                                              ; preds = %105
-  store i32 0, ptr %82, align 8
-  %116 = load double, ptr %2, align 8
-  %117 = fadd double %116, 1.638400e+04
-  store double %117, ptr %2, align 8
+116:                                              ; preds = %104
+  store i32 0, ptr %113, align 8
+  %117 = load double, ptr %102, align 8
+  %118 = fadd double %117, 1.638400e+04
+  store double %118, ptr %102, align 8
   br label %updateWt.exit37
 
-updateWt.exit37:                                  ; preds = %115, %105, %.lr.ph43.split
+updateWt.exit37:                                  ; preds = %116, %104, %.lr.ph43.split
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %118 = load i32, ptr %36, align 4
-  %119 = trunc i64 %indvars.iv.next53 to i32
-  %120 = icmp sgt i32 %118, %119
-  br i1 %120, label %.lr.ph43.split, label %._crit_edge44
+  %119 = load i32, ptr %36, align 4
+  %120 = trunc nuw i64 %indvars.iv.next53 to i32
+  %121 = icmp sgt i32 %119, %120
+  br i1 %121, label %.lr.ph43.split, label %._crit_edge44
 
 ._crit_edge44:                                    ; preds = %updateWt.exit37.us, %updateWt.exit37, %._crit_edge
   ret void
@@ -1260,7 +1258,7 @@ createSEdges.exit.i:                              ; preds = %555, %553, %549
 
 570:                                              ; preds = %.lr.ph.i183.i
   %571 = load ptr, ptr @stderr, align 8
-  %572 = trunc i64 %indvars.iv.i184.i to i32
+  %572 = trunc nuw nsw i64 %indvars.iv.i184.i to i32
   %573 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %571, ptr noundef nonnull @.str.11, i32 noundef %572) #14
   br label %574
 
@@ -1272,7 +1270,7 @@ createSEdges.exit.i:                              ; preds = %555, %553, %549
 
 577:                                              ; preds = %574
   %578 = load ptr, ptr @stderr, align 8
-  %579 = trunc i64 %indvars.iv.i184.i to i32
+  %579 = trunc nuw nsw i64 %indvars.iv.i184.i to i32
   %580 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %578, ptr noundef nonnull @.str.12, i32 noundef %579) #14
   br label %581
 

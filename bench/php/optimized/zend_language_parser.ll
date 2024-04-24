@@ -453,7 +453,7 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
   %.11569 = phi i32 [ 0, %0 ], [ %.01568, %14 ]
   %.11565 = phi i32 [ 0, %0 ], [ %.01564, %14 ]
   %.1 = phi i32 [ -2, %0 ], [ %.01559, %14 ]
-  %17 = trunc i32 %.11565 to i16
+  %17 = trunc nsw i32 %.11565 to i16
   store i16 %17, ptr %.11579, align 2
   %18 = getelementptr inbounds i16, ptr %.01573, i64 %.01571
   %19 = getelementptr inbounds i8, ptr %18, i64 -2
@@ -4867,7 +4867,7 @@ define noundef i32 @zendparse() local_unnamed_addr #0 {
   %.41604 = phi i64 [ 0, %.loopexit1689 ], [ %2458, %.loopexit.loopexit1707 ], [ 0, %2444 ], [ 0, %45 ]
   %.01599 = phi i32 [ 2, %.loopexit1689 ], [ 1, %.loopexit.loopexit1707 ], [ 1, %2444 ], [ 0, %45 ]
   %.71596 = phi ptr [ %.61595, %.loopexit1689 ], [ %.51594.ph, %.loopexit.loopexit1707 ], [ %.41593, %2444 ], [ %.21591, %45 ]
-  %.71585 = phi ptr [ %.61584, %.loopexit1689 ], [ %.51583.ph, %.loopexit.loopexit1707 ], [ %.11574, %2444 ], [ %.21580, %45 ]
+  %.71585 = phi ptr [ %.61584, %.loopexit1689 ], [ %.51583.ph, %.loopexit.loopexit1707 ], [ %.41582, %2444 ], [ %.21580, %45 ]
   %.41577 = phi ptr [ %.31576, %.loopexit1689 ], [ %.21575.ph, %.loopexit.loopexit1707 ], [ %.11574, %2444 ], [ %.11574, %45 ]
   %.10 = phi i32 [ %.9, %.loopexit1689 ], [ %.8.ph, %.loopexit.loopexit1707 ], [ %.7, %2444 ], [ %.1, %45 ]
   %.not1670 = icmp eq i32 %.10, -2
@@ -5033,14 +5033,14 @@ define internal fastcc noundef i32 @yysyntax_error(ptr nocapture noundef %0, ptr
   %20 = sext i32 %16 to i64
   br label %.lr.ph.split.i.i
 
-.lr.ph.split.i.i:                                 ; preds = %38, %.lr.ph.i.i
+.lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %38
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %38 ], [ %18, %.lr.ph.i.i ]
   %.0353.i.i = phi i32 [ %.2.i.fr.i, %38 ], [ 0, %.lr.ph.i.i ]
   %21 = add nsw i64 %indvars.iv.i.i, %19
   %22 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = sext i16 %23 to i32
-  %25 = trunc i64 %indvars.iv.i.i to i32
+  %25 = trunc nsw i64 %indvars.iv.i.i to i32
   %26 = icmp eq i32 %25, %24
   %27 = icmp ne i64 %indvars.iv.i.i, 1
   %or.cond.i.i = and i1 %27, %26
@@ -6390,7 +6390,7 @@ thread-pre-split:                                 ; preds = %46
 
 90:                                               ; preds = %.thread162
   %91 = trunc i64 %.196135148169 to i32
-  %92 = trunc i64 %.2170 to i32
+  %92 = trunc nuw nsw i64 %.2170 to i32
   %93 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 120, ptr noundef nonnull @.str.28, i32 noundef %91, ptr noundef %.199133149168, i32 noundef %92, ptr noundef nonnull %.094150167) #12
   %strcpy = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %3)
   br label %94

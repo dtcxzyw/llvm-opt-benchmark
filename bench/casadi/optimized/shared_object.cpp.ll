@@ -785,7 +785,7 @@ _ZN6casadi12SharedObjectaSERKS0_.exitthread-pre-split: ; preds = %_ZN6casadi12Sh
   br label %_ZN6casadi12SharedObjectaSERKS0_.exit
 
 _ZN6casadi12SharedObjectaSERKS0_.exit:            ; preds = %_ZN6casadi12SharedObjectaSERKS0_.exitthread-pre-split, %2
-  %26 = phi ptr [ %.pr, %_ZN6casadi12SharedObjectaSERKS0_.exitthread-pre-split ], [ %4, %2 ]
+  %26 = phi ptr [ %.pr, %_ZN6casadi12SharedObjectaSERKS0_.exitthread-pre-split ], [ %5, %2 ]
   %27 = load ptr, ptr %3, align 8
   %28 = icmp eq ptr %26, %27
   br i1 %28, label %_ZN6casadi12SharedObjectaSERKS0_.exit9, label %29

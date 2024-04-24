@@ -172,7 +172,7 @@ define hidden noundef i32 @ini_parse() local_unnamed_addr #0 {
   %.0333 = phi i64 [ 200, %0 ], [ %.1334, %14 ]
   %.1328 = phi i32 [ 0, %0 ], [ %.0327, %14 ]
   %.1 = phi i32 [ -2, %0 ], [ %.0322, %14 ]
-  %17 = trunc i32 %.1328 to i8
+  %17 = trunc nsw i32 %.1328 to i8
   store i8 %17, ptr %.1356, align 1
   %18 = getelementptr inbounds i8, ptr %.0335, i64 %.0333
   %19 = getelementptr inbounds i8, ptr %18, i64 -1
@@ -1473,10 +1473,10 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
 
 .loopexit:                                        ; preds = %37, %41, %.lr.ph, %.loopexit503, %.loopexit501
   %.4454 = phi ptr [ %.3453, %.loopexit501 ], [ %.2452, %.loopexit503 ], [ %.2452, %.lr.ph ], [ %9, %41 ], [ %9, %37 ]
-  %.6361 = phi ptr [ %.5360, %.loopexit501 ], [ %.2357, %.loopexit503 ], [ %.1336, %.lr.ph ], [ %38, %37 ], [ %.2357, %41 ]
+  %.6361 = phi ptr [ %.5360, %.loopexit501 ], [ %.2357, %.loopexit503 ], [ %565, %.lr.ph ], [ %38, %37 ], [ %.2357, %41 ]
   %.6351 = phi ptr [ %.5350, %.loopexit501 ], [ %.2347, %.loopexit503 ], [ %564, %.lr.ph ], [ %40, %37 ], [ %.2347, %41 ]
   %.0343 = phi i32 [ 2, %.loopexit501 ], [ 1, %.loopexit503 ], [ 1, %.lr.ph ], [ 1, %37 ], [ 0, %41 ]
-  %.4339 = phi ptr [ %.3338, %.loopexit501 ], [ %.2357, %.loopexit503 ], [ %.1336, %.lr.ph ], [ %30, %37 ], [ %.1336, %41 ]
+  %.4339 = phi ptr [ %.3338, %.loopexit501 ], [ %.1336, %.loopexit503 ], [ %.1336, %.lr.ph ], [ %30, %37 ], [ %.1336, %41 ]
   %.9 = phi i32 [ %.8, %.loopexit501 ], [ %.6, %.loopexit503 ], [ %.6, %.lr.ph ], [ %.1, %41 ], [ %.1, %37 ]
   %.not417 = icmp eq i32 %.9, -2
   br i1 %.not417, label %576, label %569
@@ -2152,14 +2152,14 @@ define internal fastcc noundef i32 @yysyntax_error(ptr nocapture noundef %0, ptr
   %19 = zext nneg i32 %15 to i64
   br label %.lr.ph.split.i.i
 
-.lr.ph.split.i.i:                                 ; preds = %33, %.lr.ph.i.i
+.lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %33
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %33 ], [ %17, %.lr.ph.i.i ]
   %.0333.i.i = phi i32 [ %.2.i.fr.i, %33 ], [ 0, %.lr.ph.i.i ]
   %20 = add nsw i64 %indvars.iv.i.i, %18
   %21 = getelementptr inbounds [144 x i8], ptr @yycheck, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = sext i8 %22 to i32
-  %24 = trunc i64 %indvars.iv.i.i to i32
+  %24 = trunc nsw i64 %indvars.iv.i.i to i32
   %25 = icmp eq i32 %24, %23
   %26 = icmp ne i64 %indvars.iv.i.i, 1
   %or.cond.i.i = and i1 %26, %25

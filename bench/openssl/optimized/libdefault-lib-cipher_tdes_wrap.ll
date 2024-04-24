@@ -56,7 +56,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then2.i
-  %conv.i.i = trunc i64 %add1.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %add1.i.i to i32
   br label %des_ede3_wrap.exit.i
 
 if.end.i.i:                                       ; preds = %if.then2.i
@@ -93,7 +93,7 @@ if.end13.i.i:                                     ; preds = %if.end3.i.i
   %cipher23.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %cipher23.i.i, align 8
   %call24.i.i = call i32 %8(ptr noundef nonnull %vctx, ptr noundef nonnull %out, ptr noundef nonnull %out, i64 noundef %add1.i.i) #4
-  %conv25.i.i = trunc i64 %add1.i.i to i32
+  %conv25.i.i = trunc nuw nsw i64 %add1.i.i to i32
   br label %des_ede3_wrap.exit.i
 
 des_ede3_wrap.exit.i:                             ; preds = %if.end13.i.i, %if.end3.i.i, %if.end.i.i, %if.then.i.i
@@ -113,7 +113,7 @@ if.end.i11.i:                                     ; preds = %if.else.i
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end3.i12.i
 
 if.then2.i.i:                                     ; preds = %if.end.i11.i
-  %9 = trunc i64 %inl to i32
+  %9 = trunc nuw i64 %inl to i32
   %conv.i19.i = add nsw i32 %9, -16
   br label %des_ede3_unwrap.exit.i
 
@@ -132,7 +132,7 @@ if.then8.i.i:                                     ; preds = %if.end3.i12.i
   %add.ptr.i18.i = getelementptr inbounds i8, ptr %out, i64 8
   %sub9.i.i = add nsw i64 %inl, -8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %out, ptr nonnull align 1 %add.ptr.i18.i, i64 %sub9.i.i, i1 false)
-  %add.ptr10.i.i = getelementptr inbounds i8, ptr %out, i64 -8
+  %add.ptr10.i.i = getelementptr inbounds i8, ptr %in, i64 -8
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.then8.i.i, %if.end3.i12.i
@@ -167,7 +167,7 @@ if.end11.i.i:                                     ; preds = %if.then8.i.i, %if.e
 land.lhs.true.i.i:                                ; preds = %if.end11.i.i
   %call42.i.i = call i32 @CRYPTO_memcmp(ptr noundef nonnull %sha1tmp.i9.i, ptr noundef nonnull %icv.i.i, i64 noundef 8) #4
   %cmp43.i.i = icmp eq i32 %call42.i.i, 0
-  %conv47.i.i = trunc i64 %sub15.i.i to i32
+  %conv47.i.i = trunc nuw nsw i64 %sub15.i.i to i32
   %spec.select = select i1 %cmp43.i.i, i32 %conv47.i.i, i32 -1
   br label %if.end48.i.i
 

@@ -1147,7 +1147,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN3ue2
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %_ZNSt10unique_ptrIN3ue29HWLMProtoESt14default_deleteIS1_EED2Ev.exit29
-  %20 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre47, %_ZNSt10unique_ptrIN3ue29HWLMProtoESt14default_deleteIS1_EED2Ev.exit29 ]
+  %20 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %_ZNSt10unique_ptrIN3ue29HWLMProtoESt14default_deleteIS1_EED2Ev.exit29 ]
   %tobool.not.i.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i, label %_ZNSt10unique_ptrIN3ue29HWLMProtoESt14default_deleteIS1_EED2Ev.exit34, label %if.then.i.i.i
 

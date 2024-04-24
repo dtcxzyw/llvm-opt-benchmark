@@ -257,7 +257,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -316,7 +316,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -1382,7 +1382,7 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %cmp10, label %while.cond, label %while.end.split.loop.exit12, !llvm.loop !6
 
 while.end.split.loop.exit12:                      ; preds = %land.rhs
-  %15 = trunc i64 %indvars.iv.next to i32
+  %15 = trunc nsw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.cond, %while.end.split.loop.exit12
@@ -1434,7 +1434,7 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %cmp8, label %while.cond, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %land.rhs
-  %8 = trunc i64 %indvars.iv.next to i32
+  %8 = trunc nsw i64 %indvars.iv.next to i32
   %inc10 = add nuw nsw i32 %length.0, 1
   br label %do.body
 
@@ -1482,7 +1482,7 @@ while.cond:                                       ; preds = %while.cond, %do.bod
   br i1 %cmp, label %while.cond, label %do.cond, !llvm.loop !8
 
 do.cond:                                          ; preds = %while.cond
-  %7 = trunc i64 %indvars.iv.next to i32
+  %7 = trunc nsw i64 %indvars.iv.next to i32
   %dec = add nsw i32 %count.addr.0, -1
   %cmp9 = icmp sgt i32 %count.addr.0, 1
   br i1 %cmp9, label %do.body, label %do.end, !llvm.loop !9
@@ -1522,7 +1522,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   br i1 %cmp, label %while.cond, label %while.end, !llvm.loop !10
 
 while.end:                                        ; preds = %while.cond
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nsw i64 %indvars.iv to i32
   ret i32 %6
 }
 
@@ -2035,7 +2035,7 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %shr = lshr i32 %i, 24
-  %conv6 = trunc i32 %shr to i8
+  %conv6 = trunc nuw i32 %shr to i8
   %arrayidx7 = getelementptr inbounds i8, ptr %intBytes, i64 1
   store i8 %conv6, ptr %arrayidx7, align 1
   %shr8 = lshr i32 %i, 16
@@ -2057,14 +2057,14 @@ if.else:                                          ; preds = %if.end
 
 if.then17:                                        ; preds = %if.else
   %shr18 = lshr i32 %i, 8
-  %1 = trunc i32 %shr18 to i8
+  %1 = trunc nuw i32 %shr18 to i8
   %conv20 = add nuw nsw i8 %1, 81
   br label %if.end38
 
 if.else22:                                        ; preds = %if.else
   %cmp23 = icmp ult i32 %i, 1179648
   %shr25 = lshr i32 %i, 16
-  %2 = trunc i32 %shr25 to i8
+  %2 = trunc nuw i32 %shr25 to i8
   br i1 %cmp23, label %if.then24, label %if.else29
 
 if.then24:                                        ; preds = %if.else22
@@ -2218,7 +2218,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %shr.i = lshr i32 %sub, 8
-  %2 = trunc i32 %shr.i to i8
+  %2 = trunc nuw i32 %shr.i to i8
   %conv3.i = or disjoint i8 %2, -64
   store i8 %conv3.i, ptr %intBytes, align 1
   br label %_ZN6icu_7516BytesTrieBuilder19internalEncodeDeltaEiPc.exit
@@ -2229,7 +2229,7 @@ if.else.i:                                        ; preds = %if.end.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %shr7.i = lshr i32 %sub, 16
-  %3 = trunc i32 %shr7.i to i8
+  %3 = trunc nuw i32 %shr7.i to i8
   %conv9.i = or disjoint i8 %3, -16
   store i8 %conv9.i, ptr %intBytes, align 1
   br label %if.end24.i
@@ -2240,7 +2240,7 @@ if.else11.i:                                      ; preds = %if.else.i
 
 if.else15.i:                                      ; preds = %if.else11.i
   %shr17.i = lshr i32 %sub, 24
-  %conv18.i = trunc i32 %shr17.i to i8
+  %conv18.i = trunc nuw i32 %shr17.i to i8
   %arrayidx19.i = getelementptr inbounds i8, ptr %intBytes, i64 1
   store i8 %conv18.i, ptr %arrayidx19.i, align 1
   br label %if.end20.i
@@ -2359,7 +2359,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %shr = lshr i32 %i, 8
-  %0 = trunc i32 %shr to i8
+  %0 = trunc nuw i32 %shr to i8
   %conv3 = or disjoint i8 %0, -64
   store i8 %conv3, ptr %intBytes, align 1
   br label %if.end30
@@ -2370,7 +2370,7 @@ if.else:                                          ; preds = %if.end
 
 if.then6:                                         ; preds = %if.else
   %shr7 = lshr i32 %i, 16
-  %1 = trunc i32 %shr7 to i8
+  %1 = trunc nuw i32 %shr7 to i8
   %conv9 = or disjoint i8 %1, -16
   store i8 %conv9, ptr %intBytes, align 1
   br label %if.end24
@@ -2381,7 +2381,7 @@ if.else11:                                        ; preds = %if.else
 
 if.else15:                                        ; preds = %if.else11
   %shr17 = lshr i32 %i, 24
-  %conv18 = trunc i32 %shr17 to i8
+  %conv18 = trunc nuw i32 %shr17 to i8
   %arrayidx19 = getelementptr inbounds i8, ptr %intBytes, i64 1
   store i8 %conv18, ptr %arrayidx19, align 1
   br label %if.end20

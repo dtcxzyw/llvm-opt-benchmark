@@ -2892,7 +2892,7 @@ define internal fastcc void @php_do_pcre_match(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_preg_match_2(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2) #0 {
+define hidden void @zflf_preg_match_2(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca ptr, align 8
@@ -3019,8 +3019,9 @@ define hidden void @zflf_preg_match_2(ptr nocapture noundef writeonly %0, ptr no
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %.thread, %61
+  %.184 = phi ptr [ %4, %.thread ], [ %.071, %61 ]
   %.17383 = phi ptr [ %2, %.thread ], [ %.173, %61 ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull %.184) #23
   br label %64
 
 64:                                               ; preds = %63, %61
@@ -3029,7 +3030,7 @@ define hidden void @zflf_preg_match_2(ptr nocapture noundef writeonly %0, ptr no
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %64
-  call void @zval_ptr_dtor(ptr noundef nonnull %5) #23
+  call void @zval_ptr_dtor(ptr noundef %.17382) #23
   br label %67
 
 67:                                               ; preds = %66, %64, %52
@@ -3978,7 +3979,7 @@ define internal fastcc void @preg_replace_common(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_preg_replace_3(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) #0 {
+define hidden void @zflf_preg_replace_3(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4128,9 +4129,10 @@ define hidden void @zflf_preg_replace_3(ptr nocapture noundef writeonly %0, ptr 
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %.thread, %61
+  %.182 = phi ptr [ %8, %.thread ], [ %.0, %61 ]
   %.16481 = phi ptr [ %2, %.thread ], [ %.164, %61 ]
   %.16679 = phi ptr [ %3, %.thread ], [ %.166, %61 ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %8) #23
+  call void @zval_ptr_dtor(ptr noundef nonnull %.182) #23
   br label %64
 
 64:                                               ; preds = %63, %61
@@ -4140,7 +4142,7 @@ define hidden void @zflf_preg_replace_3(ptr nocapture noundef writeonly %0, ptr 
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %64
-  call void @zval_ptr_dtor(ptr noundef nonnull %9) #23
+  call void @zval_ptr_dtor(ptr noundef %.16480) #23
   br label %67
 
 67:                                               ; preds = %66, %64
@@ -4148,7 +4150,7 @@ define hidden void @zflf_preg_replace_3(ptr nocapture noundef writeonly %0, ptr 
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %67
-  call void @zval_ptr_dtor(ptr noundef nonnull %10) #23
+  call void @zval_ptr_dtor(ptr noundef %.16678) #23
   br label %70
 
 70:                                               ; preds = %69, %67

@@ -234,7 +234,7 @@ zend_get_property_info_for_slot.exit:             ; preds = %40, %48
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %19
   %83 = phi ptr [ %22, %19 ], [ %.pre79, %.loopexit.loopexit ]
-  %.1 = phi ptr [ %20, %19 ], [ %27, %.loopexit.loopexit ]
+  %.1 = phi ptr [ %20, %19 ], [ %82, %.loopexit.loopexit ]
   %84 = getelementptr inbounds i8, ptr %83, i64 28
   %85 = load i32, ptr %84, align 4
   %86 = and i32 %85, 2048

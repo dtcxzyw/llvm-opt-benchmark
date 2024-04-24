@@ -1584,7 +1584,7 @@ deriveGraph.exit:                                 ; preds = %._crit_edge233.i
   br i1 %exitcond.not.i.i, label %.critedge.i.i, label %.lr.ph83.i.i
 
 .critedge.split.loop.exit.i.i:                    ; preds = %.lr.ph83.i.i
-  %555 = trunc i64 %indvars.iv94.i.i to i32
+  %555 = trunc nsw i64 %indvars.iv94.i.i to i32
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %554, %.critedge.split.loop.exit.i.i
@@ -2414,7 +2414,7 @@ define internal fastcc void @evalPositions(ptr noundef %0, ptr noundef %1) unnam
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv46
   %43 = load ptr, ptr %42, align 8
-  tail call fastcc void @evalPositions(ptr noundef %43, ptr noundef nonnull %0)
+  tail call fastcc void @evalPositions(ptr noundef %43, ptr noundef %1)
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %44 = load ptr, ptr %3, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 236

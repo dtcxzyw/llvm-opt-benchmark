@@ -24,12 +24,11 @@ define dso_local void @acpi_ps_delete_parse_tree(ptr noundef %0) local_unnamed_a
   br i1 %10, label %11, label %5, !llvm.loop !5
 
 11:                                               ; preds = %8, %5
-  %.lcssa = phi ptr [ %6, %8 ], [ %3, %5 ]
-  %12 = getelementptr inbounds i8, ptr %.lcssa, i64 24
+  %12 = getelementptr inbounds i8, ptr %6, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %.lcssa, align 8
-  tail call void @acpi_ps_free_op(ptr noundef nonnull %.lcssa) #2
-  %15 = icmp eq ptr %.lcssa, %0
+  %14 = load ptr, ptr %6, align 8
+  tail call void @acpi_ps_free_op(ptr noundef nonnull %6) #2
+  %15 = icmp eq ptr %6, %0
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %11

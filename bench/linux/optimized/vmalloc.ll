@@ -2429,7 +2429,7 @@ define dso_local void @vm_unmap_ram(ptr noundef %0, i32 noundef %1) #1 align 16 
   %51 = tail call ptr @xa_load(ptr noundef %46, i64 noundef %50) #21
   tail call void @_raw_spin_lock(ptr noundef %51) #21
   %52 = getelementptr inbounds i8, ptr %51, i64 32
-  %53 = trunc i64 %34 to i32
+  %53 = trunc nuw nsw i64 %34 to i32
   %54 = zext nneg i32 %32 to i64
   %55 = shl nuw i64 1, %54
   %56 = trunc i64 %55 to i32
@@ -3059,7 +3059,7 @@ define dso_local ptr @vm_map_ram(ptr nocapture noundef readonly %0, i32 noundef 
 
 .thread45:                                        ; preds = %279, %274, %240, %229
   %.pre-phi = phi i64 [ %246, %240 ], [ %.pre, %229 ], [ %246, %274 ], [ %246, %279 ]
-  %284 = phi ptr [ %235, %240 ], [ %189, %229 ], [ %236, %274 ], [ %236, %279 ]
+  %284 = phi ptr [ %236, %240 ], [ %189, %229 ], [ %236, %274 ], [ %236, %279 ]
   %285 = phi ptr [ %235, %240 ], [ %189, %229 ], [ %235, %274 ], [ %235, %279 ]
   %286 = phi ptr [ %242, %240 ], [ %231, %229 ], [ %242, %274 ], [ %242, %279 ]
   %287 = load ptr, ptr %190, align 8
@@ -3761,7 +3761,7 @@ select.unfold:                                    ; preds = %146
 
 .thread46:                                        ; preds = %252, %247, %213, %202
   %.pre-phi = phi i64 [ %219, %213 ], [ %.pre96, %202 ], [ %219, %247 ], [ %219, %252 ]
-  %257 = phi ptr [ %208, %213 ], [ %162, %202 ], [ %209, %247 ], [ %209, %252 ]
+  %257 = phi ptr [ %209, %213 ], [ %162, %202 ], [ %209, %247 ], [ %209, %252 ]
   %258 = phi ptr [ %208, %213 ], [ %162, %202 ], [ %208, %247 ], [ %208, %252 ]
   %259 = phi ptr [ %215, %213 ], [ %204, %202 ], [ %215, %247 ], [ %215, %252 ]
   %260 = load ptr, ptr %163, align 8
@@ -6119,7 +6119,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br i1 %130, label %.preheader58, label %131
 
 131:                                              ; preds = %124
-  %132 = trunc i64 %126 to i32
+  %132 = trunc nuw nsw i64 %126 to i32
   %133 = tail call i64 @copy_page_to_iter_nofault(ptr noundef nonnull %129, i32 noundef %132, i64 noundef %128, ptr noundef %0) #21
   br label %153
 
@@ -6300,7 +6300,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br i1 %264, label %.preheader, label %265
 
 265:                                              ; preds = %258
-  %266 = trunc i64 %260 to i32
+  %266 = trunc nuw nsw i64 %260 to i32
   %267 = tail call i64 @copy_page_to_iter_nofault(ptr noundef nonnull %263, i32 noundef %266, i64 noundef %262, ptr noundef %0) #21
   br label %287
 
@@ -6422,7 +6422,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br i1 %341, label %.preheader57, label %342
 
 342:                                              ; preds = %335
-  %343 = trunc i64 %337 to i32
+  %343 = trunc nuw nsw i64 %337 to i32
   %344 = tail call i64 @copy_page_to_iter_nofault(ptr noundef nonnull %340, i32 noundef %343, i64 noundef %339, ptr noundef %0) #21
   br label %364
 
@@ -6770,7 +6770,7 @@ define dso_local ptr @pcpu_get_vm_areas(ptr nocapture noundef readonly %0, ptr n
   %44 = getelementptr i64, ptr %0, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = icmp ugt i64 %31, %45
-  %47 = trunc i64 %indvars.iv276 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv276 to i32
   %48 = select i1 %46, i32 %47, i32 %29
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
   %49 = icmp ult i64 %indvars.iv.next277, %26
@@ -7369,7 +7369,7 @@ select.unfold:                                    ; preds = %297
 
 .thread89:                                        ; preds = %404, %399, %365, %354
   %.pre-phi283 = phi i64 [ %371, %365 ], [ %.pre282, %354 ], [ %371, %399 ], [ %371, %404 ]
-  %409 = phi ptr [ %360, %365 ], [ %314, %354 ], [ %361, %399 ], [ %361, %404 ]
+  %409 = phi ptr [ %361, %365 ], [ %314, %354 ], [ %361, %399 ], [ %361, %404 ]
   %410 = phi ptr [ %360, %365 ], [ %314, %354 ], [ %360, %399 ], [ %360, %404 ]
   %411 = phi ptr [ %367, %365 ], [ %356, %354 ], [ %367, %399 ], [ %367, %404 ]
   %412 = load ptr, ptr %315, align 8
@@ -9247,7 +9247,7 @@ define internal fastcc zeroext i1 @__purge_vmap_area_lazy(i64 noundef %0, i64 no
 
 .thread38:                                        ; preds = %184, %179, %145, %134
   %.pre-phi = phi i64 [ %151, %145 ], [ %.pre, %134 ], [ %151, %179 ], [ %151, %184 ]
-  %189 = phi ptr [ %140, %145 ], [ %94, %134 ], [ %141, %179 ], [ %141, %184 ]
+  %189 = phi ptr [ %141, %145 ], [ %94, %134 ], [ %141, %179 ], [ %141, %184 ]
   %190 = phi ptr [ %140, %145 ], [ %94, %134 ], [ %140, %179 ], [ %140, %184 ]
   %191 = phi ptr [ %147, %145 ], [ %136, %134 ], [ %147, %179 ], [ %147, %184 ]
   %192 = load ptr, ptr %95, align 8

@@ -511,7 +511,7 @@ define dso_local ptr @intel_frontbuffer_get(ptr noundef %0) local_unnamed_addr #
   br label %54
 
 54:                                               ; preds = %.thread13, %20, %53, %51, %.thread
-  %55 = phi ptr [ %10, %20 ], [ null, %.thread ], [ %33, %53 ], [ %22, %51 ], [ %22, %.thread13 ]
+  %55 = phi ptr [ %10, %20 ], [ null, %.thread ], [ %33, %53 ], [ %33, %51 ], [ %22, %.thread13 ]
   ret ptr %55
 }
 

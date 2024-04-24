@@ -4561,19 +4561,19 @@ if.end31:                                         ; preds = %if.end26
 if.end3.i.i:                                      ; preds = %if.end31
   %11 = load i32, ptr %call.i.i95, align 8
   %cmp4.i.i = icmp eq i32 %11, 6
-  br i1 %cmp4.i.i, label %clusterManagerNodeIsCluster.exit.thread128, label %clusterManagerNodeIsCluster.exit
+  br i1 %cmp4.i.i, label %clusterManagerNodeIsCluster.exit.thread129, label %clusterManagerNodeIsCluster.exit
 
-clusterManagerNodeIsCluster.exit.thread128:       ; preds = %if.end3.i.i
+clusterManagerNodeIsCluster.exit.thread129:       ; preds = %if.end3.i.i
   %len.i.i = getelementptr inbounds i8, ptr %call.i.i95, i64 24
   %12 = load i64, ptr %len.i.i, align 8
   %add.i.i = add i64 %12, 1
-  %call8.i.i99 = call noalias ptr @zmalloc(i64 noundef %add.i.i) #35
-  store ptr %call8.i.i99, ptr %err, align 8
+  %call8.i.i100 = call noalias ptr @zmalloc(i64 noundef %add.i.i) #35
+  store ptr %call8.i.i100, ptr %err, align 8
   %str.i.i = getelementptr inbounds i8, ptr %call.i.i95, i64 32
   %13 = load ptr, ptr %str.i.i, align 8
   %14 = load i64, ptr %len.i.i, align 8
   %add10.i.i = add i64 %14, 1
-  %call11.i.i = call i64 @redis_strlcpy(ptr noundef %call8.i.i99, ptr noundef %13, i64 noundef %add10.i.i) #33
+  %call11.i.i = call i64 @redis_strlcpy(ptr noundef %call8.i.i100, ptr noundef %13, i64 noundef %add10.i.i) #33
   call void @freeReplyObject(ptr noundef nonnull %call.i.i95) #33
   br label %if.then34
 
@@ -4586,12 +4586,12 @@ clusterManagerNodeIsCluster.exit:                 ; preds = %if.end3.i.i
   %tobool33.not = icmp eq i64 %16, 0
   br i1 %tobool33.not, label %if.then34, label %if.end38
 
-if.then34:                                        ; preds = %if.end31, %clusterManagerNodeIsCluster.exit.thread128, %clusterManagerNodeIsCluster.exit
+if.then34:                                        ; preds = %if.end31, %clusterManagerNodeIsCluster.exit.thread129, %clusterManagerNodeIsCluster.exit
   %17 = load ptr, ptr %err, align 8
   %call27.val60 = load ptr, ptr %ip1.i84, align 8
   %call27.val61 = load i32, ptr %port2.i85, align 8
-  %tobool.not.i100 = icmp eq ptr %17, null
-  %cond.i = select i1 %tobool.not.i100, ptr @.str.187, ptr %17
+  %tobool.not.i101 = icmp eq ptr %17, null
+  %cond.i = select i1 %tobool.not.i101, ptr @.str.187, ptr %17
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.188, ptr noundef %call27.val60, i32 noundef %call27.val61, ptr noundef nonnull %cond.i)
   %18 = load ptr, ptr %err, align 8
   %tobool35.not = icmp eq ptr %18, null
@@ -4628,8 +4628,8 @@ if.then50:                                        ; preds = %if.end47
   %23 = load ptr, ptr %err, align 8
   %call27.val62 = load ptr, ptr %ip1.i84, align 8
   %call27.val63 = load i32, ptr %port2.i85, align 8
-  %tobool.not.i101 = icmp eq ptr %23, null
-  %.str.207.err.i = select i1 %tobool.not.i101, ptr @.str.207, ptr %23
+  %tobool.not.i102 = icmp eq ptr %23, null
+  %.str.207.err.i = select i1 %tobool.not.i102, ptr @.str.207, ptr %23
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.188, ptr noundef %call27.val62, i32 noundef %call27.val63, ptr noundef nonnull %.str.207.err.i)
   %24 = load ptr, ptr %err, align 8
   %tobool51.not = icmp eq ptr %24, null
@@ -4730,15 +4730,15 @@ if.end99:                                         ; preds = %if.then64, %if.then
   br i1 %tobool100.not, label %if.end102, label %if.then101
 
 if.then101:                                       ; preds = %if.end83, %if.end99
-  %function_restore_reply.0144 = phi ptr [ null, %if.end99 ], [ %call85, %if.end83 ]
-  %function_list_reply.0143 = phi ptr [ null, %if.end99 ], [ %call68, %if.end83 ]
+  %function_restore_reply.0145 = phi ptr [ null, %if.end99 ], [ %call85, %if.end83 ]
+  %function_list_reply.0144 = phi ptr [ null, %if.end99 ], [ %call68, %if.end83 ]
   call void @freeReplyObject(ptr noundef nonnull %call58) #33
   br label %if.end102
 
 if.end102:                                        ; preds = %if.end54, %if.then101, %if.end99
-  %reply.0137 = phi ptr [ %call58, %if.then101 ], [ null, %if.end99 ], [ null, %if.end54 ]
-  %function_restore_reply.0136 = phi ptr [ %function_restore_reply.0144, %if.then101 ], [ null, %if.end99 ], [ null, %if.end54 ]
-  %function_list_reply.0135 = phi ptr [ %function_list_reply.0143, %if.then101 ], [ null, %if.end99 ], [ null, %if.end54 ]
+  %reply.0138 = phi ptr [ %call58, %if.then101 ], [ null, %if.end99 ], [ null, %if.end54 ]
+  %function_restore_reply.0137 = phi ptr [ %function_restore_reply.0145, %if.then101 ], [ null, %if.end99 ], [ null, %if.end54 ]
+  %function_list_reply.0136 = phi ptr [ %function_list_reply.0144, %if.then101 ], [ null, %if.end99 ], [ null, %if.end54 ]
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.342, ptr noundef nonnull %2, i32 noundef %call8.i.i73)
   %ip103 = getelementptr inbounds i8, ptr %27, i64 16
   %40 = load ptr, ptr %ip103, align 8
@@ -4774,15 +4774,15 @@ if.else119:                                       ; preds = %if.end109
 
 if.end125:                                        ; preds = %if.else119, %if.then114
   %reply.1 = phi ptr [ %call118, %if.then114 ], [ %call124, %if.else119 ]
-  %tobool.not.i102 = icmp eq ptr %reply.1, null
-  br i1 %tobool.not.i102, label %if.end148, label %lor.lhs.false.i
+  %tobool.not.i103 = icmp eq ptr %reply.1, null
+  br i1 %tobool.not.i103, label %if.end148, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end125
   %45 = load i32, ptr %reply.1, align 8
-  %cmp.i103 = icmp eq i32 %45, 6
-  br i1 %cmp.i103, label %if.end145.thread193, label %if.end129
+  %cmp.i104 = icmp eq i32 %45, 6
+  br i1 %cmp.i104, label %if.end145.thread194, label %if.end129
 
-if.end145.thread193:                              ; preds = %lor.lhs.false.i
+if.end145.thread194:                              ; preds = %lor.lhs.false.i
   %46 = load ptr, ptr %ip1.i84, align 8
   %47 = load i32, ptr %port2.i85, align 8
   %str9.i = getelementptr inbounds i8, ptr %reply.1, i64 32
@@ -4820,38 +4820,38 @@ if.then144:                                       ; preds = %if.then30, %if.then
   br label %return
 
 if.end145:                                        ; preds = %if.then106, %if.end141, %if.then131, %if.then82, %if.then78, %if.then71
-  %function_list_reply.1.ph = phi ptr [ %call68, %if.then71 ], [ %call68, %if.then78 ], [ %call68, %if.then82 ], [ %function_list_reply.0135, %if.then131 ], [ %function_list_reply.0135, %if.end141 ], [ %function_list_reply.0135, %if.then106 ]
-  %function_restore_reply.1.ph = phi ptr [ null, %if.then71 ], [ null, %if.then78 ], [ null, %if.then82 ], [ %function_restore_reply.0136, %if.then131 ], [ %function_restore_reply.0136, %if.end141 ], [ %function_restore_reply.0136, %if.then106 ]
-  %reply.3.ph = phi ptr [ %call58, %if.then71 ], [ %call58, %if.then78 ], [ %call58, %if.then82 ], [ %call136, %if.then131 ], [ %reply.2, %if.end141 ], [ %reply.0137, %if.then106 ]
+  %function_list_reply.1.ph = phi ptr [ %call68, %if.then71 ], [ %call68, %if.then78 ], [ %call68, %if.then82 ], [ %function_list_reply.0136, %if.then131 ], [ %function_list_reply.0136, %if.end141 ], [ %function_list_reply.0136, %if.then106 ]
+  %function_restore_reply.1.ph = phi ptr [ null, %if.then71 ], [ null, %if.then78 ], [ null, %if.then82 ], [ %function_restore_reply.0137, %if.then131 ], [ %function_restore_reply.0137, %if.end141 ], [ %function_restore_reply.0137, %if.then106 ]
+  %reply.3.ph = phi ptr [ %call58, %if.then71 ], [ %call58, %if.then78 ], [ %call58, %if.then82 ], [ %call136, %if.then131 ], [ %reply.2, %if.end141 ], [ %reply.0138, %if.then106 ]
   %success.1.ph = phi i32 [ 0, %if.then71 ], [ 0, %if.then78 ], [ 0, %if.then82 ], [ 0, %if.then131 ], [ 1, %if.end141 ], [ 0, %if.then106 ]
   %tobool146.not = icmp eq ptr %reply.3.ph, null
   br i1 %tobool146.not, label %if.end148, label %if.then147
 
-if.then147:                                       ; preds = %if.end145.thread193, %if.then95, %if.then88, %if.end145
-  %success.1.ph177 = phi i32 [ %success.1.ph, %if.end145 ], [ 0, %if.then88 ], [ 0, %if.then95 ], [ 0, %if.end145.thread193 ]
-  %reply.3.ph176 = phi ptr [ %reply.3.ph, %if.end145 ], [ %call58, %if.then88 ], [ %call58, %if.then95 ], [ %reply.1, %if.end145.thread193 ]
-  %function_restore_reply.1.ph175 = phi ptr [ %function_restore_reply.1.ph, %if.end145 ], [ %call85, %if.then88 ], [ %call85, %if.then95 ], [ %function_restore_reply.0136, %if.end145.thread193 ]
-  %function_list_reply.1.ph174 = phi ptr [ %function_list_reply.1.ph, %if.end145 ], [ %call68, %if.then88 ], [ %call68, %if.then95 ], [ %function_list_reply.0135, %if.end145.thread193 ]
-  call void @freeReplyObject(ptr noundef nonnull %reply.3.ph176) #33
+if.then147:                                       ; preds = %if.end145.thread194, %if.then95, %if.then88, %if.end145
+  %success.1.ph178 = phi i32 [ %success.1.ph, %if.end145 ], [ 0, %if.then88 ], [ 0, %if.then95 ], [ 0, %if.end145.thread194 ]
+  %reply.3.ph177 = phi ptr [ %reply.3.ph, %if.end145 ], [ %call58, %if.then88 ], [ %call58, %if.then95 ], [ %reply.1, %if.end145.thread194 ]
+  %function_restore_reply.1.ph176 = phi ptr [ %function_restore_reply.1.ph, %if.end145 ], [ %call85, %if.then88 ], [ %call85, %if.then95 ], [ %function_restore_reply.0137, %if.end145.thread194 ]
+  %function_list_reply.1.ph175 = phi ptr [ %function_list_reply.1.ph, %if.end145 ], [ %call68, %if.then88 ], [ %call68, %if.then95 ], [ %function_list_reply.0136, %if.end145.thread194 ]
+  call void @freeReplyObject(ptr noundef nonnull %reply.3.ph177) #33
   br label %if.end148
 
 if.end148:                                        ; preds = %if.end125, %if.then147, %if.end145
-  %function_list_reply.1155166 = phi ptr [ %function_list_reply.1.ph174, %if.then147 ], [ %function_list_reply.1.ph, %if.end145 ], [ %function_list_reply.0135, %if.end125 ]
-  %function_restore_reply.1156165 = phi ptr [ %function_restore_reply.1.ph175, %if.then147 ], [ %function_restore_reply.1.ph, %if.end145 ], [ %function_restore_reply.0136, %if.end125 ]
-  %success.1158164 = phi i32 [ %success.1.ph177, %if.then147 ], [ %success.1.ph, %if.end145 ], [ 0, %if.end125 ]
-  %tobool149.not = icmp eq ptr %function_restore_reply.1156165, null
+  %function_list_reply.1156167 = phi ptr [ %function_list_reply.1.ph175, %if.then147 ], [ %function_list_reply.1.ph, %if.end145 ], [ %function_list_reply.0136, %if.end125 ]
+  %function_restore_reply.1157166 = phi ptr [ %function_restore_reply.1.ph176, %if.then147 ], [ %function_restore_reply.1.ph, %if.end145 ], [ %function_restore_reply.0137, %if.end125 ]
+  %success.1159165 = phi i32 [ %success.1.ph178, %if.then147 ], [ %success.1.ph, %if.end145 ], [ 0, %if.end125 ]
+  %tobool149.not = icmp eq ptr %function_restore_reply.1157166, null
   br i1 %tobool149.not, label %if.end151, label %if.then150
 
 if.then150:                                       ; preds = %if.end148
-  call void @freeReplyObject(ptr noundef nonnull %function_restore_reply.1156165) #33
+  call void @freeReplyObject(ptr noundef nonnull %function_restore_reply.1157166) #33
   br label %if.end151
 
 if.end151:                                        ; preds = %if.then150, %if.end148
-  %tobool152.not = icmp eq ptr %function_list_reply.1155166, null
+  %tobool152.not = icmp eq ptr %function_list_reply.1156167, null
   br i1 %tobool152.not, label %return, label %if.then153
 
 if.then153:                                       ; preds = %if.end151
-  call void @freeReplyObject(ptr noundef nonnull %function_list_reply.1155166) #33
+  call void @freeReplyObject(ptr noundef nonnull %function_list_reply.1156167) #33
   br label %return
 
 invalid_args:                                     ; preds = %if.end4.i.i68, %parseClusterNodeAddress.exit.i71, %if.end4.i.i, %if.end5.i
@@ -4860,7 +4860,7 @@ invalid_args:                                     ; preds = %if.end4.i.i68, %par
   br label %return
 
 return:                                           ; preds = %if.then144, %if.end151, %if.then153, %if.end9, %if.end4, %invalid_args, %if.then19
-  %retval.0 = phi i32 [ 0, %if.then19 ], [ 0, %invalid_args ], [ 0, %if.end4 ], [ 0, %if.end9 ], [ %success.1158164, %if.then153 ], [ %success.1158164, %if.end151 ], [ 0, %if.then144 ]
+  %retval.0 = phi i32 [ 0, %if.then19 ], [ 0, %invalid_args ], [ 0, %if.end4 ], [ 0, %if.end9 ], [ %success.1159165, %if.then153 ], [ %success.1159165, %if.end151 ], [ 0, %if.then144 ]
   ret i32 %retval.0
 }
 
@@ -19446,7 +19446,7 @@ if.end368.if.then370_crit_edge.i:                 ; preds = %if.end368.i
   br label %if.then370.i
 
 if.then370.i:                                     ; preds = %if.end368.if.then370_crit_edge.i, %if.then346.i
-  %186 = phi ptr [ %.pre607.i, %if.end368.if.then370_crit_edge.i ], [ %owner.1.i, %if.then346.i ]
+  %186 = phi ptr [ %.pre607.i, %if.end368.if.then370_crit_edge.i ], [ %119, %if.then346.i ]
   %ip374.i = getelementptr inbounds i8, ptr %186, i64 16
   %187 = load ptr, ptr %ip374.i, align 8
   %port375.i = getelementptr inbounds i8, ptr %186, i64 24
@@ -21994,8 +21994,8 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.end9.thread13.i:                               ; preds = %for.body.i
   %30 = and i64 %i.030.i, 4294967295
-  %cmp.i2616.not.i = icmp eq i64 %30, 1
-  br i1 %cmp.i2616.not.i, label %return.sink.split, label %if.end15.for.inc_crit_edge.i
+  %cmp.i2916.not.i = icmp eq i64 %30, 1
+  br i1 %cmp.i2916.not.i, label %return.sink.split, label %if.end15.for.inc_crit_edge.i
 
 lor.lhs.false.i21.i:                              ; preds = %for.body.i
   %31 = load i32, ptr %29, align 8
@@ -22013,12 +22013,12 @@ if.end9.i:                                        ; preds = %lor.lhs.false.i21.i
   %add7.i.i = add i64 %34, 1
   %call8.i.i = tail call i64 @redis_strlcpy(ptr noundef %call.i.i, ptr noundef %33, i64 noundef %add7.i.i) #33
   %35 = and i64 %i.030.i, 4294967295
-  %cmp.i26.not.i = icmp eq i64 %35, 1
+  %cmp.i29.not.i = icmp eq i64 %35, 1
   %tobool10.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool10.not.i, label %if.end15.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end9.i
-  br i1 %cmp.i26.not.i, label %if.end14.i, label %if.end14.thread.i
+  br i1 %cmp.i29.not.i, label %if.end14.i, label %if.end14.thread.i
 
 if.end14.thread.i:                                ; preds = %if.then11.i
   tail call void @zfree(ptr noundef nonnull %call.i.i) #33
@@ -22032,7 +22032,7 @@ if.end14.i:                                       ; preds = %if.then11.i
   br label %return.sink.split
 
 if.end15.i:                                       ; preds = %if.end9.i
-  br i1 %cmp.i26.not.i, label %return.sink.split, label %if.end15.for.inc_crit_edge.i
+  br i1 %cmp.i29.not.i, label %return.sink.split, label %if.end15.for.inc_crit_edge.i
 
 if.end15.for.inc_crit_edge.i:                     ; preds = %if.end15.i, %if.end14.thread.i, %if.end9.thread13.i
   %.pre.i = load i64, ptr %elements.i, align 8

@@ -850,7 +850,7 @@ define void @zend_do_inheritance_ex(ptr noundef %0, ptr noundef %1, i1 noundef z
 
 123:                                              ; preds = %117, %108
   %.01060 = phi ptr [ %109, %108 ], [ %118, %117 ]
-  %.11058 = phi ptr [ %98, %108 ], [ %121, %117 ]
+  %.11058 = phi ptr [ %101, %108 ], [ %121, %117 ]
   %124 = getelementptr inbounds i8, ptr %1, i64 40
   %125 = load ptr, ptr %124, align 8
   %126 = load i32, ptr %74, align 8
@@ -1034,7 +1034,7 @@ define void @zend_do_inheritance_ex(ptr noundef %0, ptr noundef %1, i1 noundef z
   br label %223
 
 223:                                              ; preds = %217, %208
-  %.11051 = phi ptr [ %194, %208 ], [ %221, %217 ]
+  %.11051 = phi ptr [ %197, %208 ], [ %221, %217 ]
   %.01049 = phi ptr [ %209, %208 ], [ %218, %217 ]
   %224 = getelementptr inbounds i8, ptr %1, i64 48
   %225 = load ptr, ptr %224, align 8
@@ -1153,10 +1153,10 @@ define void @zend_do_inheritance_ex(ptr noundef %0, ptr noundef %1, i1 noundef z
   br label %.sink.split
 
 .sink.split:                                      ; preds = %287, %289
-  %.sink1359.in = phi ptr [ %279, %289 ], [ %170, %287 ]
-  %.sink1358 = phi i32 [ %291, %289 ], [ %288, %287 ]
-  %.sink1359 = load i32, ptr %.sink1359.in, align 4
-  %292 = add i32 %.sink1358, %.sink1359
+  %.sink1361.in = phi ptr [ %279, %289 ], [ %170, %287 ]
+  %.sink1360 = phi i32 [ %291, %289 ], [ %288, %287 ]
+  %.sink1361 = load i32, ptr %.sink1361.in, align 4
+  %292 = add i32 %.sink1360, %.sink1361
   store i32 %292, ptr %279, align 8
   br label %293
 
@@ -1995,11 +1995,11 @@ do_inherit_class_constant.exit:                   ; preds = %603, %535, %532, %5
   br i1 %.not1165, label %zend_duplicate_internal_function.exit.sink.split, label %zend_duplicate_internal_function.exit
 
 zend_duplicate_internal_function.exit.sink.split: ; preds = %770, %757
-  %.sink1363 = phi ptr [ %756, %757 ], [ %769, %770 ]
+  %.sink1365 = phi ptr [ %756, %757 ], [ %769, %770 ]
   %.01038.ph = phi ptr [ %.0.i1188, %757 ], [ %649, %770 ]
-  %774 = load i32, ptr %.sink1363, align 4
+  %774 = load i32, ptr %.sink1365, align 4
   %775 = add i32 %774, 1
-  store i32 %775, ptr %.sink1363, align 4
+  store i32 %775, ptr %.sink1365, align 4
   br label %zend_duplicate_internal_function.exit
 
 zend_duplicate_internal_function.exit:            ; preds = %zend_duplicate_internal_function.exit.sink.split, %757, %754, %770, %767
@@ -2217,11 +2217,11 @@ zend_duplicate_internal_function.exit:            ; preds = %zend_duplicate_inte
   br i1 %.not1153, label %zend_duplicate_internal_function.exit1196.sink.split, label %zend_duplicate_internal_function.exit1196
 
 zend_duplicate_internal_function.exit1196.sink.split: ; preds = %891, %878
-  %.sink1367 = phi ptr [ %877, %878 ], [ %890, %891 ]
+  %.sink1369 = phi ptr [ %877, %878 ], [ %890, %891 ]
   %.01036.ph = phi ptr [ %.0.i1191, %878 ], [ %829, %891 ]
-  %895 = load i32, ptr %.sink1367, align 4
+  %895 = load i32, ptr %.sink1369, align 4
   %896 = add i32 %895, 1
-  store i32 %896, ptr %.sink1367, align 4
+  store i32 %896, ptr %.sink1369, align 4
   br label %zend_duplicate_internal_function.exit1196
 
 zend_duplicate_internal_function.exit1196:        ; preds = %zend_duplicate_internal_function.exit1196.sink.split, %878, %875, %891, %888

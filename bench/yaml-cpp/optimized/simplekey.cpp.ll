@@ -530,7 +530,7 @@ invoke.contthread-pre-split.i.i:                  ; preds = %for.body.i.i.i.i.i
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %invoke.cont
-  %27 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre26, %invoke.cont ]
+  %27 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre25, %invoke.cont ]
   %tobool.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4YAML5TokenD2Ev.exit, label %if.then.i.i.i.i
 
@@ -730,7 +730,7 @@ if.then.i.i:                                      ; preds = %_ZN4YAML7Scanner9Si
   br label %_ZNSt5stackIN4YAML7Scanner9SimpleKeyESt5dequeIS2_SaIS2_EEE3popEv.exit
 
 if.else.i.i:                                      ; preds = %_ZN4YAML7Scanner9SimpleKey10InvalidateEv.exit
-  tail call void @_ZdlPv(ptr noundef %16) #18
+  tail call void @_ZdlPv(ptr noundef %17) #18
   %_M_node.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
   %18 = load ptr, ptr %_M_node.i.i.i, align 8
   %add.ptr.i.i.i5 = getelementptr inbounds i8, ptr %18, i64 -8
@@ -831,7 +831,7 @@ if.then.i.i:                                      ; preds = %if.end6
   br label %_ZNSt5stackIN4YAML7Scanner9SimpleKeyESt5dequeIS2_SaIS2_EEE3popEv.exit
 
 if.else.i.i:                                      ; preds = %if.end6
-  tail call void @_ZdlPv(ptr noundef %0) #18
+  tail call void @_ZdlPv(ptr noundef %2) #18
   %_M_node.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
   %12 = load ptr, ptr %_M_node.i.i.i, align 8
   %add.ptr.i.i.i5 = getelementptr inbounds i8, ptr %12, i64 -8

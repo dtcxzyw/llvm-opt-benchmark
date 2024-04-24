@@ -296,7 +296,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -355,7 +355,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -993,7 +993,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %numBreaks.0111 = phi i32 [ 1, %for.body.preheader ], [ %call31, %for.inc ]
   %numCodeUnits.0109 = phi i32 [ %call18, %for.body.preheader ], [ %numCodeUnits.1, %for.inc ]
-  %9 = trunc i64 %indvars.iv119 to i32
+  %9 = trunc nuw nsw i64 %indvars.iv119 to i32
   %call31 = invoke noundef i32 @_ZNK6icu_7513MlBreakEngine18evaluateBreakpointERKNS_13UnicodeStringEPiiiiRNS_9UVector32ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1556) %this, ptr noundef nonnull align 8 dereferenceable(64) %inString, ptr noundef nonnull %call13, i32 noundef %9, i32 noundef %numCodeUnits.0109, i32 noundef %numBreaks.0111, ptr noundef nonnull align 8 dereferenceable(32) %boundary, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont30 unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -1680,7 +1680,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont17
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %call26 = invoke noundef signext i8 @_ZNK6icu_7513ResourceArray8getValueEiRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(21) %stringArray, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(8) %modelKey)
           to label %invoke.cont25 unwind label %lpad7.loopexit
 

@@ -1114,7 +1114,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %invoke.cont
-  %2 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre297, %for.cond.cleanup ], [ %0, %invoke.cont ]
+  %2 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre298, %for.cond.cleanup ], [ %0, %invoke.cont ]
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
@@ -3644,7 +3644,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %invoke.cont
-  %2 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre298, %for.cond.cleanup ], [ %0, %invoke.cont ]
+  %2 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre299, %for.cond.cleanup ], [ %0, %invoke.cont ]
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
@@ -6041,7 +6041,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %invoke.cont
-  %2 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre298, %for.cond.cleanup ], [ %0, %invoke.cont ]
+  %2 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre299, %for.cond.cleanup ], [ %0, %invoke.cont ]
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
@@ -8437,7 +8437,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %invoke.cont
-  %2 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre277, %for.cond.cleanup ], [ %0, %invoke.cont ]
+  %2 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre278, %for.cond.cleanup ], [ %0, %invoke.cont ]
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
@@ -9844,7 +9844,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %invoke.cont
-  %2 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre298, %for.cond.cleanup ], [ %0, %invoke.cont ]
+  %2 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre299, %for.cond.cleanup ], [ %0, %invoke.cont ]
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
@@ -11920,7 +11920,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %for.cond.cleanup, %invoke.cont
-  %2 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre298, %for.cond.cleanup ], [ %0, %invoke.cont ]
+  %2 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre299, %for.cond.cleanup ], [ %0, %invoke.cont ]
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit, label %if.then.i.i.i
 

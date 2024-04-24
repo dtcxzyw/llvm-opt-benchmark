@@ -373,7 +373,7 @@ while.body.i8.i15.i28.i.i:                        ; preds = %land.rhs.i4.i10.i20
 _ZN4llvh12DenseMapBaseINS_13SmallDenseMapIN6hermes2vm6detail10TransitionENS3_7WeakRefINS3_11HiddenClassEEELj8ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit.i: ; preds = %while.body.i8.i15.i28.i.i, %land.rhs.i4.i10.i20.i.i, %if.end8.i.i, %if.then.i.i
   %idx.ext.i.i.i.pre-phi = phi i64 [ 0, %if.end8.i.i ], [ %idx.ext.i.i.i.i, %if.then.i.i ], [ %idx.ext.i17.i.i, %land.rhs.i4.i10.i20.i.i ], [ %idx.ext.i17.i.i, %while.body.i8.i15.i28.i.i ]
   %cond.i.i.i.i.i1.i.pre-phi = phi ptr [ %cond.i.i.i9.i.i, %if.end8.i.i ], [ %cond.i.i.i.i.i.i.i, %if.then.i.i ], [ %cond.i.i.i9.i.i, %land.rhs.i4.i10.i20.i.i ], [ %cond.i.i.i9.i.i, %while.body.i8.i15.i28.i.i ]
-  %add.ptr.i.i.pn32.i.i = phi ptr [ %cond.i.i.i9.i.i, %if.end8.i.i ], [ %add.ptr.i.i.i.i, %if.then.i.i ], [ %add.ptr.i18.i.i, %while.body.i8.i15.i28.i.i ], [ %retval.sroa.0.2.i21.i.i, %land.rhs.i4.i10.i20.i.i ]
+  %add.ptr.i.i.pn32.i.i = phi ptr [ %cond.i.i.i9.i.i, %if.end8.i.i ], [ %add.ptr.i.i.i.i, %if.then.i.i ], [ %incdec.ptr.i.i16.i29.i.i, %while.body.i8.i15.i28.i.i ], [ %retval.sroa.0.2.i21.i.i, %land.rhs.i4.i10.i20.i.i ]
   %add.ptr.i.i.pn.i.i = phi ptr [ %add.ptr.i18.i.i, %if.end8.i.i ], [ %add.ptr.i.i.i.i, %if.then.i.i ], [ %add.ptr.i18.i.i, %land.rhs.i4.i10.i20.i.i ], [ %add.ptr.i18.i.i, %while.body.i8.i15.i28.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %cond.i.i.i.i.i1.i.pre-phi, i64 %idx.ext.i.i.i.pre-phi
   %cmp.i.i2.not5.i = icmp eq ptr %add.ptr.i.i.pn32.i.i, %add.ptr.i.i.i
@@ -407,7 +407,7 @@ while.body.i8.i.i:                                ; preds = %land.rhs.i4.i.i
   br i1 %cmp.not.i9.i.i, label %_ZN4llvh16DenseMapIteratorIN6hermes2vm6detail10TransitionENS2_7WeakRefINS2_11HiddenClassEEENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EELb0EEppEv.exit.i, label %land.rhs.i4.i.i, !llvm.loop !6
 
 _ZN4llvh16DenseMapIteratorIN6hermes2vm6detail10TransitionENS2_7WeakRefINS2_11HiddenClassEEENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EELb0EEppEv.exit.i: ; preds = %while.body.i8.i.i, %land.rhs.i4.i.i, %for.body.i
-  %it.sroa.0.2.i = phi ptr [ %add.ptr.i.i.pn.i.i, %for.body.i ], [ %add.ptr.i.i.pn.i.i, %while.body.i8.i.i ], [ %it.sroa.0.1.i, %land.rhs.i4.i.i ]
+  %it.sroa.0.2.i = phi ptr [ %incdec.ptr3.i.i, %for.body.i ], [ %incdec.ptr.i.i.i, %while.body.i8.i.i ], [ %it.sroa.0.1.i, %land.rhs.i4.i.i ]
   %cmp.i.i2.not.i = icmp eq ptr %it.sroa.0.2.i, %add.ptr.i.i.i
   br i1 %cmp.i.i2.not.i, label %if.end6, label %for.body.i, !llvm.loop !7
 
@@ -3627,7 +3627,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %key, align 4
   %transition.sroa.0.0.extract.trunc.i.i.i.i.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i to i32
   %transition.sroa.2.0.extract.shift.i.i.i.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i, 32
-  %transition.sroa.2.0.extract.trunc.i.i.i.i.i.i = trunc i64 %transition.sroa.2.0.extract.shift.i.i.i.i.i.i to i32
+  %transition.sroa.2.0.extract.trunc.i.i.i.i.i.i = trunc nuw i64 %transition.sroa.2.0.extract.shift.i.i.i.i.i.i to i32
   %conv.i.i.i.i.i.i = and i32 %transition.sroa.2.0.extract.trunc.i.i.i.i.i.i, 65535
   %xor.i.i.i.i.i.i = xor i32 %conv.i.i.i.i.i.i, %transition.sroa.0.0.extract.trunc.i.i.i.i.i.i
   %sub.i.i.i.i = add i32 %cond.i.i18.i.i.i.i, -1
@@ -3752,7 +3752,7 @@ if.end.i.i:                                       ; preds = %entry
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %Key, align 4
   %transition.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i.i to i32
   %transition.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 32
-  %transition.sroa.2.0.extract.trunc.i.i.i.i = trunc i64 %transition.sroa.2.0.extract.shift.i.i.i.i to i32
+  %transition.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %transition.sroa.2.0.extract.shift.i.i.i.i to i32
   %conv.i.i.i.i = and i32 %transition.sroa.2.0.extract.trunc.i.i.i.i, 65535
   %xor.i.i.i.i = xor i32 %conv.i.i.i.i, %transition.sroa.0.0.extract.trunc.i.i.i.i
   %sub.i.i = add i32 %cond.i.i18.i.i, -1
@@ -3895,7 +3895,7 @@ _ZN4llvh12DenseMapBaseINS_13SmallDenseMapIN6hermes2vm6detail10TransitionENS3_7We
   %bf.clear.i.i.i.i.i.pre-phi = phi i32 [ %bf.load.i.i.i, %if.then.i ], [ %bf.clear.i.i.i6.i, %if.end8.i ], [ %bf.clear.i.i.i6.i, %while.body.i8.i15.i28.i ], [ %bf.clear.i.i.i6.i, %land.rhs.i4.i10.i20.i ]
   %9 = phi i32 [ %2, %if.then.i ], [ %4, %if.end8.i ], [ %4, %while.body.i8.i15.i28.i ], [ %4, %land.rhs.i4.i10.i20.i ]
   %10 = phi ptr [ %1, %if.then.i ], [ %3, %if.end8.i ], [ %3, %while.body.i8.i15.i28.i ], [ %3, %land.rhs.i4.i10.i20.i ]
-  %add.ptr.i.i.pn32.i = phi ptr [ %add.ptr.i.i.i, %if.then.i ], [ %cond.i.i.i9.i, %if.end8.i ], [ %retval.sroa.0.2.i21.i, %land.rhs.i4.i10.i20.i ], [ %add.ptr.i18.i, %while.body.i8.i15.i28.i ]
+  %add.ptr.i.i.pn32.i = phi ptr [ %add.ptr.i.i.i, %if.then.i ], [ %cond.i.i.i9.i, %if.end8.i ], [ %retval.sroa.0.2.i21.i, %land.rhs.i4.i10.i20.i ], [ %incdec.ptr.i.i16.i29.i, %while.body.i8.i15.i28.i ]
   %add.ptr.i.i.pn.i = phi ptr [ %add.ptr.i.i.i, %if.then.i ], [ %add.ptr.i18.i, %if.end8.i ], [ %add.ptr.i18.i, %while.body.i8.i15.i28.i ], [ %add.ptr.i18.i, %land.rhs.i4.i10.i20.i ]
   %tobool.not.i.i.i.i.i = icmp eq i32 %bf.clear.i.i.i.i.i.pre-phi, 0
   %storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3955,7 +3955,7 @@ while.body.i8.i:                                  ; preds = %land.rhs.i4.i
   br i1 %cmp.not.i9.i, label %_ZN4llvh16DenseMapIteratorIN6hermes2vm6detail10TransitionENS2_7WeakRefINS2_11HiddenClassEEENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EELb0EEppEv.exit, label %land.rhs.i4.i, !llvm.loop !6
 
 _ZN4llvh16DenseMapIteratorIN6hermes2vm6detail10TransitionENS2_7WeakRefINS2_11HiddenClassEEENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EELb0EEppEv.exit: ; preds = %land.rhs.i4.i, %while.body.i8.i, %for.inc
-  %it.sroa.0.2 = phi ptr [ %add.ptr.i.i.pn.i, %for.inc ], [ %it.sroa.0.1, %land.rhs.i4.i ], [ %add.ptr.i.i.pn.i, %while.body.i8.i ]
+  %it.sroa.0.2 = phi ptr [ %incdec.ptr3.i, %for.inc ], [ %it.sroa.0.1, %land.rhs.i4.i ], [ %incdec.ptr.i.i, %while.body.i8.i ]
   %cmp.i.i2.not = icmp eq ptr %it.sroa.0.2, %add.ptr.i.i
   br i1 %cmp.i.i2.not, label %for.end, label %for.body, !llvm.loop !29
 
@@ -4004,7 +4004,7 @@ if.end.i.i:                                       ; preds = %if.then
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %Lookup, align 4
   %transition.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i.i to i32
   %transition.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 32
-  %transition.sroa.2.0.extract.trunc.i.i.i.i = trunc i64 %transition.sroa.2.0.extract.shift.i.i.i.i to i32
+  %transition.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %transition.sroa.2.0.extract.shift.i.i.i.i to i32
   %conv.i.i.i.i = and i32 %transition.sroa.2.0.extract.trunc.i.i.i.i, 65535
   %xor.i.i.i.i = xor i32 %conv.i.i.i.i, %transition.sroa.0.0.extract.trunc.i.i.i.i
   %sub.i.i = add i32 %cond.i.i18.i.i, -1
@@ -4083,7 +4083,7 @@ if.end.i.i24:                                     ; preds = %if.then10
   %agg.tmp.sroa.0.0.copyload.i.i.i25 = load i64, ptr %Lookup, align 4
   %transition.sroa.0.0.extract.trunc.i.i.i.i26 = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i.i25 to i32
   %transition.sroa.2.0.extract.shift.i.i.i.i27 = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i25, 32
-  %transition.sroa.2.0.extract.trunc.i.i.i.i28 = trunc i64 %transition.sroa.2.0.extract.shift.i.i.i.i27 to i32
+  %transition.sroa.2.0.extract.trunc.i.i.i.i28 = trunc nuw i64 %transition.sroa.2.0.extract.shift.i.i.i.i27 to i32
   %conv.i.i.i.i29 = and i32 %transition.sroa.2.0.extract.trunc.i.i.i.i28, 65535
   %xor.i.i.i.i30 = xor i32 %conv.i.i.i.i29, %transition.sroa.0.0.extract.trunc.i.i.i.i26
   %sub.i.i31 = add i32 %cond.i.i18.i.i22, -1
@@ -4182,7 +4182,7 @@ if.then:                                          ; preds = %entry
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %0 = trunc i64 %or8.i to i32
+  %0 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %0, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   br label %if.end
@@ -4331,7 +4331,7 @@ if.then:                                          ; preds = %for.body
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %B.029, align 4
   %transition.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i.i to i32
   %transition.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 32
-  %transition.sroa.2.0.extract.trunc.i.i.i.i = trunc i64 %transition.sroa.2.0.extract.shift.i.i.i.i to i32
+  %transition.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %transition.sroa.2.0.extract.shift.i.i.i.i to i32
   %conv.i.i.i.i = and i32 %transition.sroa.2.0.extract.trunc.i.i.i.i, 65535
   %xor.i.i.i.i = xor i32 %conv.i.i.i.i, %transition.sroa.0.0.extract.trunc.i.i.i.i
   %sub.i.i = add i32 %cond.i.i18.i.i, -1

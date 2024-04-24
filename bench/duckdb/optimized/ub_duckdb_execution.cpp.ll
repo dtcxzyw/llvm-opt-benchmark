@@ -61528,7 +61528,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i54
 
 invoke.cont.i54:                                  ; preds = %invoke.contthread-pre-split.i, %if.end, %invoke.cont23
-  %24 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %if.end ], [ %17, %invoke.cont23 ]
+  %24 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre55, %if.end ], [ %17, %invoke.cont23 ]
   %tobool.not.i.i.i = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit, label %if.then.i.i.i
 

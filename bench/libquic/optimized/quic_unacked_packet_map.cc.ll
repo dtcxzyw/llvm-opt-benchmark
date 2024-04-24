@@ -1402,7 +1402,7 @@ define dso_local void @_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPN
 entry:
   %__begin1.sroa.0.06 = load ptr, ptr %ack_listeners, align 8
   %cmp.i.not7 = icmp eq ptr %__begin1.sroa.0.06, %ack_listeners
-  br i1 %cmp.i.not7, label %_ZNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EE5clearEv.exit, label %for.body
+  br i1 %cmp.i.not7, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %__begin1.sroa.0.08 = phi ptr [ %__begin1.sroa.0.0, %for.body ], [ %__begin1.sroa.0.06, %entry ]
@@ -1416,23 +1416,27 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %conv, i64 %ack_delay_time.coerce0, i64 %ack_delay_time.coerce1)
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.08, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %ack_listeners
-  br i1 %cmp.i.not, label %for.end, label %for.body
+  br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
 
-for.end:                                          ; preds = %for.body
+for.end.loopexit:                                 ; preds = %for.body
   %.pre = load ptr, ptr %ack_listeners, align 8
-  %cmp.not4.i.i = icmp eq ptr %.pre, %ack_listeners
+  br label %for.end
+
+for.end:                                          ; preds = %for.end.loopexit, %entry
+  %3 = phi ptr [ %.pre, %for.end.loopexit ], [ %__begin1.sroa.0.06, %entry ]
+  %cmp.not4.i.i = icmp eq ptr %3, %ack_listeners
   br i1 %cmp.not4.i.i, label %_ZNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EE5clearEv.exit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %for.end, %while.body.i.i
-  %__cur.05.i.i = phi ptr [ %3, %while.body.i.i ], [ %.pre, %for.end ]
-  %3 = load ptr, ptr %__cur.05.i.i, align 8
+  %__cur.05.i.i = phi ptr [ %4, %while.body.i.i ], [ %3, %for.end ]
+  %4 = load ptr, ptr %__cur.05.i.i, align 8
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 16
   tail call void @_ZN3net18AckListenerWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(10) %_M_storage.i.i.i) #16
   tail call void @_ZdlPv(ptr noundef %__cur.05.i.i) #18
-  %cmp.not.i.i = icmp eq ptr %3, %ack_listeners
+  %cmp.not.i.i = icmp eq ptr %4, %ack_listeners
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EE5clearEv.exit, label %while.body.i.i, !llvm.loop !52
 
-_ZNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EE5clearEv.exit: ; preds = %while.body.i.i, %entry, %for.end
+_ZNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EE5clearEv.exit: ; preds = %while.body.i.i, %for.end
   %_M_prev.i.i.i = getelementptr inbounds i8, ptr %ack_listeners, i64 8
   store ptr %ack_listeners, ptr %_M_prev.i.i.i, align 8
   store ptr %ack_listeners, ptr %ack_listeners, align 8
@@ -1493,7 +1497,7 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i.
   %ack_listeners = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 56
   %__begin1.sroa.0.06.i = load ptr, ptr %ack_listeners, align 8
   %cmp.i.not7.i = icmp eq ptr %__begin1.sroa.0.06.i, %ack_listeners
-  br i1 %cmp.i.not7.i, label %_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18AckListenerWrapperESaIS3_EEENS_8QuicTime5DeltaE.exit, label %for.body.i
+  br i1 %cmp.i.not7.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit, %for.body.i
   %__begin1.sroa.0.08.i = phi ptr [ %__begin1.sroa.0.0.i, %for.body.i ], [ %__begin1.sroa.0.06.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit ]
@@ -1507,23 +1511,27 @@ for.body.i:                                       ; preds = %_ZNSt5dequeIN3net16
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef %conv.i, i64 %ack_delay_time.coerce0, i64 %ack_delay_time.coerce1)
   %__begin1.sroa.0.0.i = load ptr, ptr %__begin1.sroa.0.08.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin1.sroa.0.0.i, %ack_listeners
-  br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
+  br i1 %cmp.i.not.i, label %for.end.loopexit.i, label %for.body.i
 
-for.end.i:                                        ; preds = %for.body.i
+for.end.loopexit.i:                               ; preds = %for.body.i
   %.pre.i = load ptr, ptr %ack_listeners, align 8
-  %cmp.not4.i.i.i = icmp eq ptr %.pre.i, %ack_listeners
+  br label %for.end.i
+
+for.end.i:                                        ; preds = %for.end.loopexit.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
+  %9 = phi ptr [ %.pre.i, %for.end.loopexit.i ], [ %__begin1.sroa.0.06.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit ]
+  %cmp.not4.i.i.i = icmp eq ptr %9, %ack_listeners
   br i1 %cmp.not4.i.i.i, label %_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18AckListenerWrapperESaIS3_EEENS_8QuicTime5DeltaE.exit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %for.end.i, %while.body.i.i.i
-  %__cur.05.i.i.i = phi ptr [ %9, %while.body.i.i.i ], [ %.pre.i, %for.end.i ]
-  %9 = load ptr, ptr %__cur.05.i.i.i, align 8
+  %__cur.05.i.i.i = phi ptr [ %10, %while.body.i.i.i ], [ %9, %for.end.i ]
+  %10 = load ptr, ptr %__cur.05.i.i.i, align 8
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 16
   tail call void @_ZN3net18AckListenerWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(10) %_M_storage.i.i.i.i) #16
   tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #18
-  %cmp.not.i.i.i = icmp eq ptr %9, %ack_listeners
+  %cmp.not.i.i.i = icmp eq ptr %10, %ack_listeners
   br i1 %cmp.not.i.i.i, label %_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18AckListenerWrapperESaIS3_EEENS_8QuicTime5DeltaE.exit, label %while.body.i.i.i, !llvm.loop !52
 
-_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18AckListenerWrapperESaIS3_EEENS_8QuicTime5DeltaE.exit: ; preds = %while.body.i.i.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit, %for.end.i
+_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18AckListenerWrapperESaIS3_EEENS_8QuicTime5DeltaE.exit: ; preds = %while.body.i.i.i, %for.end.i
   %_M_prev.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 64
   store ptr %ack_listeners, ptr %_M_prev.i.i.i.i, align 8
   store ptr %ack_listeners, ptr %ack_listeners, align 8
@@ -1970,7 +1978,6 @@ if.then.i.i13:                                    ; preds = %if.then
   br label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit17
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit17: ; preds = %if.then.thread, %if.then.i.i13
-  %it.sroa.0.05969 = phi ptr [ %it.sroa.7.060, %if.then.i.i13 ], [ %it.sroa.0.059, %if.then.thread ]
   %8 = phi ptr [ %add.ptr.i.i.i16, %if.then.i.i13 ], [ %it.sroa.0.059, %if.then.thread ]
   %sent_time = getelementptr inbounds i8, ptr %8, i64 -48
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %sent_time, align 8
@@ -1997,7 +2004,7 @@ if.then.i.i21:                                    ; preds = %if.then, %invoke.co
   br label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit25
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit25: ; preds = %invoke.cont14, %if.then.thread, %cleanup.done, %if.then.i.i21
-  %10 = phi ptr [ %add.ptr.i.i.i24, %if.then.i.i21 ], [ %it.sroa.0.05969, %cleanup.done ], [ %it.sroa.0.059, %if.then.thread ], [ %it.sroa.0.05969, %invoke.cont14 ]
+  %10 = phi ptr [ %add.ptr.i.i.i24, %if.then.i.i21 ], [ %it.sroa.0.059, %cleanup.done ], [ %it.sroa.0.059, %if.then.thread ], [ %it.sroa.0.059, %invoke.cont14 ]
   %sent_time21 = getelementptr inbounds i8, ptr %10, i64 -48
   %retval.sroa.0.0.copyload = load i64, ptr %sent_time21, align 8
   br label %return

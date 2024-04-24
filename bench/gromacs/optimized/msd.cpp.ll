@@ -1563,9 +1563,9 @@ _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE11_S_rel
 
 .thread.i.i:                                      ; preds = %268
   call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %209) #21
-  br label %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE13_M_deallocateEPS3_m.exit45.i.i
+  br label %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE13_M_deallocateEPS3_m.exit47.i.i
 
-272:                                              ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE13_M_deallocateEPS3_m.exit45.i.i
+272:                                              ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE13_M_deallocateEPS3_m.exit47.i.i
   %273 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -1573,9 +1573,9 @@ _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE11_S_rel
 
 274:                                              ; preds = %268
   call void @_ZdlPv(ptr noundef nonnull %208) #22
-  br label %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE13_M_deallocateEPS3_m.exit45.i.i
+  br label %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE13_M_deallocateEPS3_m.exit47.i.i
 
-_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE13_M_deallocateEPS3_m.exit45.i.i: ; preds = %274, %.thread.i.i
+_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE13_M_deallocateEPS3_m.exit47.i.i: ; preds = %274, %.thread.i.i
   invoke void @__cxa_rethrow() #24
           to label %279 unwind label %272
 
@@ -1589,7 +1589,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE1
   call void @__clang_call_terminate(ptr %278) #23
   unreachable
 
-279:                                              ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE13_M_deallocateEPS3_m.exit45.i.i
+279:                                              ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE13_M_deallocateEPS3_m.exit47.i.i
   unreachable
 
 _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE17_M_realloc_insertIJRKNS0_9SelectionERS_INS2_12MoleculeDataESaISA_EERS_IiSaIiEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %267, %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i
@@ -1660,7 +1660,7 @@ define void @_ZN3gmx15analysismodules3Msd12analyzeFrameEiRK10t_trxframeP5t_pbcPN
   br label %30
 
 30:                                               ; preds = %._crit_edge156, %26, %20
-  %31 = phi ptr [ %.pre, %._crit_edge156 ], [ %24, %26 ], [ %22, %20 ]
+  %31 = phi ptr [ %.pre, %._crit_edge156 ], [ %24, %26 ], [ %24, %20 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 168
   %33 = fpext float %15 to double
   %34 = getelementptr inbounds i8, ptr %0, i64 176

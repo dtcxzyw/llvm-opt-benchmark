@@ -1675,7 +1675,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt10shared_ptrIN
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2269,24 +2269,24 @@ if.end:                                           ; preds = %entry
   %4 = load double, ptr %m_offsetParams.i, align 8
   %arrayidx11 = getelementptr inbounds i8, ptr %vec9, i64 24
   store double %4, ptr %arrayidx11, align 8
-  %arrayidx.i18 = getelementptr inbounds i8, ptr %this, i64 248
-  %5 = load double, ptr %arrayidx.i18, align 8
+  %arrayidx.i19 = getelementptr inbounds i8, ptr %this, i64 248
+  %5 = load double, ptr %arrayidx.i19, align 8
   %arrayidx13 = getelementptr inbounds i8, ptr %vec9, i64 32
   store double %5, ptr %arrayidx13, align 8
-  %arrayidx.i19 = getelementptr inbounds i8, ptr %this, i64 256
-  %6 = load double, ptr %arrayidx.i19, align 8
+  %arrayidx.i20 = getelementptr inbounds i8, ptr %this, i64 256
+  %6 = load double, ptr %arrayidx.i20, align 8
   %arrayidx15 = getelementptr inbounds i8, ptr %vec9, i64 40
   store double %6, ptr %arrayidx15, align 8
   %m_powerParams.i = getelementptr inbounds i8, ptr %this, i64 264
   %7 = load double, ptr %m_powerParams.i, align 8
   %arrayidx19 = getelementptr inbounds i8, ptr %vec9, i64 48
   store double %7, ptr %arrayidx19, align 8
-  %arrayidx.i21 = getelementptr inbounds i8, ptr %this, i64 272
-  %8 = load double, ptr %arrayidx.i21, align 8
+  %arrayidx.i23 = getelementptr inbounds i8, ptr %this, i64 272
+  %8 = load double, ptr %arrayidx.i23, align 8
   %arrayidx21 = getelementptr inbounds i8, ptr %vec9, i64 56
   store double %8, ptr %arrayidx21, align 8
-  %arrayidx.i22 = getelementptr inbounds i8, ptr %this, i64 280
-  %9 = load double, ptr %arrayidx.i22, align 8
+  %arrayidx.i24 = getelementptr inbounds i8, ptr %this, i64 280
+  %9 = load double, ptr %arrayidx.i24, align 8
   %arrayidx23 = getelementptr inbounds i8, ptr %vec9, i64 64
   store double %9, ptr %arrayidx23, align 8
   ret void
@@ -2551,7 +2551,7 @@ if.end.loopexit.i.i:                              ; preds = %for.body.i.i.i.i.i.
   br label %_ZNSt6vectorIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.exit
 
 _ZNSt6vectorIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.exit: ; preds = %if.else14, %if.then.i.i, %if.end.loopexit.i.i
-  %11 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %10, %if.then.i.i ], [ %add.ptr.i.i.i, %if.else14 ]
+  %11 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %10, %if.then.i.i ], [ %10, %if.else14 ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 -120
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i, align 8
   %vtable.i.i.i.i = load ptr, ptr %incdec.ptr.i.i, align 8
@@ -3096,7 +3096,7 @@ attributes #4 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind memory(read) }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #9 = { nofree nosync nounwind memory(none) }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

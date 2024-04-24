@@ -237,7 +237,7 @@ if.then:                                          ; preds = %entry
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -296,7 +296,7 @@ if.then:                                          ; preds = %invoke.cont
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %4, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont
@@ -538,7 +538,7 @@ do.body23:                                        ; preds = %do.body
   br i1 %cmp24, label %if.then25, label %if.else30
 
 if.then25:                                        ; preds = %do.body23
-  %conv26 = trunc i16 %3 to i8
+  %conv26 = trunc nuw i16 %3 to i8
   %inc27 = add nsw i32 %j.068, 1
   %idxprom28 = sext i32 %j.068 to i64
   %arrayidx29 = getelementptr inbounds i8, ptr %call9, i64 %idxprom28
@@ -551,7 +551,7 @@ if.else30:                                        ; preds = %do.body23
 
 if.then32:                                        ; preds = %if.else30
   %shr = lshr i16 %3, 6
-  %4 = trunc i16 %shr to i8
+  %4 = trunc nuw i16 %shr to i8
   %conv33 = or disjoint i8 %4, -64
   br label %if.end68
 
@@ -571,7 +571,7 @@ if.then39:                                        ; preds = %if.else30, %if.else
   %c.0505464 = phi i32 [ %sub21, %if.else37 ], [ %conv, %if.else30 ]
   %i.2495762 = phi i32 [ %inc17, %if.else37 ], [ %inc, %if.else30 ]
   %shr40 = lshr i32 %c.0505464, 12
-  %6 = trunc i32 %shr40 to i8
+  %6 = trunc nuw nsw i32 %shr40 to i8
   %conv42 = or disjoint i8 %6, -32
   %inc43 = add nsw i32 %j.068, 1
   %idxprom44 = sext i32 %j.068 to i64
@@ -581,7 +581,7 @@ if.then39:                                        ; preds = %if.else30, %if.else
 
 if.else46:                                        ; preds = %if.else37
   %shr47 = lshr i32 %sub21, 18
-  %7 = trunc i32 %shr47 to i8
+  %7 = trunc nuw i32 %shr47 to i8
   %conv49 = or i8 %7, -16
   %idxprom51 = sext i32 %j.068 to i64
   %arrayidx52 = getelementptr inbounds i8, ptr %call9, i64 %idxprom51
@@ -702,7 +702,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i32 %c to i8
+  %conv = trunc nuw nsw i32 %c to i8
   store i8 %conv, ptr %s8, align 1
   br label %do.end
 
@@ -712,7 +712,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %shr = lshr i32 %c, 6
-  %0 = trunc i32 %shr to i8
+  %0 = trunc nuw i32 %shr to i8
   %conv3 = or disjoint i8 %0, -64
   store i8 %conv3, ptr %s8, align 1
   br label %if.end36
@@ -723,7 +723,7 @@ if.else7:                                         ; preds = %if.else
 
 if.then9:                                         ; preds = %if.else7
   %shr10 = lshr i32 %c, 12
-  %1 = trunc i32 %shr10 to i8
+  %1 = trunc nuw i32 %shr10 to i8
   %conv12 = or disjoint i8 %1, -32
   br label %if.end
 

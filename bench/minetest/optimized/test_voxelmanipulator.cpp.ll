@@ -435,7 +435,7 @@ if.then.i240:                                     ; preds = %invoke.cont39
   br label %invoke.cont49
 
 if.else.i262:                                     ; preds = %invoke.cont39
-  invoke void @_ZNSt6vectorI9VoxelAreaSaIS0_EE17_M_realloc_insertIJN3irr4core8vector3dIsEES7_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %results, ptr %.pre, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp43, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp46)
+  invoke void @_ZNSt6vectorI9VoxelAreaSaIS0_EE17_M_realloc_insertIJN3irr4core8vector3dIsEES7_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %results, ptr %.pre380, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp43, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp46)
           to label %if.else.i262.invoke.cont49_crit_edge unwind label %lpad47
 
 if.else.i262.invoke.cont49_crit_edge:             ; preds = %if.else.i262

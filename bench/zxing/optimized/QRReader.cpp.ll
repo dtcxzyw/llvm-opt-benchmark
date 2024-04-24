@@ -214,7 +214,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
 65:                                               ; preds = %62, %37
   %66 = phi ptr [ %64, %62 ], [ %41, %37 ]
   %67 = phi ptr [ %63, %62 ], [ %39, %37 ]
-  %68 = phi ptr [ null, %62 ], [ %43, %37 ]
+  %68 = phi ptr [ null, %62 ], [ %45, %37 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #14
   invoke void @_ZN5ZXing6QRCode13DetectPureMQRERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DetectorResult") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %23) #15
           to label %69 unwind label %94

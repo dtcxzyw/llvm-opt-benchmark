@@ -237,7 +237,7 @@ if.else62:                                        ; preds = %if.else
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end.loopexit.split.loop.exit:                 ; preds = %for.body
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %if.else62, %for.end.loopexit.split.loop.exit, %if.end48
@@ -251,7 +251,7 @@ if.end70:                                         ; preds = %for.end
   %add72 = add nsw i32 %13, 1
   %pixel_type = getelementptr inbounds i8, ptr %nent, i64 16
   store i32 %ptype, ptr %pixel_type, align 8
-  %conv73 = trunc i32 %islinear to i8
+  %conv73 = trunc nuw i32 %islinear to i8
   %p_linear = getelementptr inbounds i8, ptr %nent, i64 20
   store i8 %conv73, ptr %p_linear, align 4
   %x_sampling = getelementptr inbounds i8, ptr %nent, i64 24
@@ -341,7 +341,7 @@ if.then130:                                       ; preds = %for.body117, %for.c
 
 if.end131.critedge:                               ; preds = %for.end107
   store i32 %add72, ptr %clist, align 8
-  store ptr %8, ptr %entries, align 8
+  store ptr %nlist.0, ptr %entries, align 8
   br label %return
 
 return:                                           ; preds = %if.then130, %if.end131.critedge, %for.end, %entry, %if.then88, %if.then59, %if.then45, %if.then36, %if.then27, %if.then16, %if.then10, %if.then2

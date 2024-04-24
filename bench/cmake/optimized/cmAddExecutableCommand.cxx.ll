@@ -190,7 +190,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %59, label %68, label %60
 
 60:                                               ; preds = %57
-  %61 = trunc i8 %.0110208 to i1
+  %61 = trunc nuw i8 %.0110208 to i1
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %60
@@ -223,11 +223,11 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.0100.lcssa = phi i8 [ %.1101, %68 ], [ %.0100212, %65 ]
   %.098.lcssa = phi i8 [ %.199, %68 ], [ %.098213, %65 ]
   %.sroa.0180.0.lcssa = phi ptr [ %.sroa.0180.0, %68 ], [ %.sroa.0180.0214, %65 ]
-  %70 = trunc i8 %.0110.lcssa to i1
+  %70 = trunc nuw i8 %.0110.lcssa to i1
   br i1 %70, label %71, label %._crit_edge.thread
 
 71:                                               ; preds = %._crit_edge
-  %72 = trunc i8 %.0107.lcssa to i1
+  %72 = trunc nuw i8 %.0107.lcssa to i1
   br i1 %72, label %._crit_edge.thread, label %73
 
 73:                                               ; preds = %71
@@ -237,7 +237,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 ._crit_edge.thread:                               ; preds = %47, %73, %71, %._crit_edge
   %76 = phi i1 [ true, %71 ], [ true, %73 ], [ false, %._crit_edge ], [ false, %47 ]
-  %.sroa.0180.0.lcssa240 = phi ptr [ %.sroa.0180.0.lcssa, %71 ], [ %.sroa.0180.0.lcssa, %73 ], [ %.sroa.0180.0.lcssa, %._crit_edge ], [ %35, %47 ]
+  %.sroa.0180.0.lcssa240 = phi ptr [ %.sroa.0180.0.lcssa, %71 ], [ %.sroa.0180.0.lcssa, %73 ], [ %.sroa.0180.0.lcssa, %._crit_edge ], [ %.sroa.0180.0206, %47 ]
   %.098.lcssa239 = phi i8 [ %.098.lcssa, %71 ], [ %.098.lcssa, %73 ], [ %.098.lcssa, %._crit_edge ], [ 0, %47 ]
   %.0100.lcssa238 = phi i8 [ %.0100.lcssa, %71 ], [ %.0100.lcssa, %73 ], [ %.0100.lcssa, %._crit_edge ], [ 0, %47 ]
   %.0102.lcssa237 = phi i8 [ %.0102.lcssa, %71 ], [ %.0102.lcssa, %73 ], [ %.0102.lcssa, %._crit_edge ], [ 0, %47 ]
@@ -252,7 +252,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %brmerge, label %85, label %80
 
 80:                                               ; preds = %78
-  %81 = trunc i8 %.0105.lcssa236 to i1
+  %81 = trunc nuw i8 %.0105.lcssa236 to i1
   br i1 %81, label %85, label %82
 
 82:                                               ; preds = %80
@@ -271,15 +271,15 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %76, label %88, label %.thread201
 
 88:                                               ; preds = %87
-  %89 = trunc i8 %.098.lcssa239 to i1
+  %89 = trunc nuw i8 %.098.lcssa239 to i1
   br i1 %89, label %.critedge, label %90
 
 90:                                               ; preds = %88
-  %91 = trunc i8 %.0100.lcssa238 to i1
+  %91 = trunc nuw i8 %.0100.lcssa238 to i1
   br i1 %91, label %103, label %92
 
 92:                                               ; preds = %90
-  %93 = trunc i8 %.0102.lcssa237 to i1
+  %93 = trunc nuw i8 %.0102.lcssa237 to i1
   br i1 %93, label %112, label %121
 
 .critedge:                                        ; preds = %88
@@ -390,11 +390,11 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %.body173
 
 121:                                              ; preds = %92
-  %122 = trunc i8 %.0105.lcssa236 to i1
+  %122 = trunc nuw i8 %.0105.lcssa236 to i1
   br i1 %122, label %124, label %197
 
 .thread201:                                       ; preds = %87
-  %123 = trunc i8 %.0105.lcssa236 to i1
+  %123 = trunc nuw i8 %.0105.lcssa236 to i1
   br i1 %123, label %124, label %.thread202
 
 124:                                              ; preds = %.thread201, %121
@@ -418,7 +418,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %.body173
 
 131:                                              ; preds = %124
-  %132 = trunc i8 %.0102.lcssa237 to i1
+  %132 = trunc nuw i8 %.0102.lcssa237 to i1
   br i1 %132, label %133, label %143
 
 133:                                              ; preds = %131
@@ -470,7 +470,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %76, label %146, label %144
 
 144:                                              ; preds = %143
-  %145 = trunc i8 %.2109 to i1
+  %145 = trunc nuw i8 %.2109 to i1
   br i1 %145, label %146, label %155
 
 146:                                              ; preds = %144, %143
@@ -663,7 +663,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %.body173
 
 212:                                              ; preds = %197
-  %213 = trunc i8 %.2109 to i1
+  %213 = trunc nuw i8 %.2109 to i1
   %214 = tail call noundef ptr @_ZN10cmMakefile17AddImportedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEb(ptr noundef nonnull align 8 dereferenceable(3520) %48, ptr noundef nonnull align 8 dereferenceable(32) %33, i32 noundef 0, i1 noundef zeroext %213)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
@@ -709,12 +709,12 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %.body173
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2IN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEvEET_SE_RKS6_.exit: ; preds = %222
-  %228 = trunc i8 %.0102.lcssa237 to i1
+  %228 = trunc nuw i8 %.0102.lcssa237 to i1
   %229 = invoke noundef ptr @_ZN10cmMakefile13AddExecutableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EEb(ptr noundef nonnull align 8 dereferenceable(3520) %48, ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(24) %24, i1 noundef zeroext %228)
           to label %230 unwind label %235
 
 230:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2IN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEvEET_SE_RKS6_.exit
-  %231 = trunc i8 %.098.lcssa239 to i1
+  %231 = trunc nuw i8 %.098.lcssa239 to i1
   br i1 %231, label %232, label %245
 
 232:                                              ; preds = %230
@@ -771,7 +771,7 @@ _ZN8cmTarget11SetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br label %265
 
 245:                                              ; preds = %_ZN8cmTarget11SetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit, %230
-  %246 = trunc i8 %.0100.lcssa238 to i1
+  %246 = trunc nuw i8 %.0100.lcssa238 to i1
   br i1 %246, label %247, label %258
 
 247:                                              ; preds = %245

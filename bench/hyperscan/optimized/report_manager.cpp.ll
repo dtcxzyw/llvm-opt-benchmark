@@ -258,7 +258,7 @@ lpad:                                             ; preds = %if.then11
 
 if.end12:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size) #19
-  %conv14 = trunc i64 %sub.ptr.div.i.i to i32
+  %conv14 = trunc nuw i64 %sub.ptr.div.i.i to i32
   store i32 %conv14, ptr %size, align 4
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 216
   %6 = load ptr, ptr %_M_end_of_storage.i, align 8
@@ -976,7 +976,7 @@ if.then.i18.if.then.i74.invoke.cont9_crit_edge_crit_edge: ; preds = %if.then.i18
 
 if.then4.i.i:                                     ; preds = %if.then.i74
   %24 = load i32, ptr %i, align 4
-  store i32 %24, ptr %add.ptr.i.i, align 4, !noalias !30
+  store i32 %24, ptr %19, align 4, !noalias !30
   %25 = load i64, ptr %m_size.i.i, align 8, !noalias !30
   %add.i.i = add i64 %25, 1
   store i64 %add.i.i, ptr %m_size.i.i, align 8, !noalias !30
@@ -1309,7 +1309,7 @@ if.end10:                                         ; preds = %for.cond.i.i.i.i, %
   br label %return
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 29183, %switch.maskindex
   %13 = and i16 %switch.shifted, 1
   %switch.lobit.not = icmp eq i16 %13, 0

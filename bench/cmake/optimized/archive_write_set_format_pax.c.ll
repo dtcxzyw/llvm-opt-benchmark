@@ -950,7 +950,7 @@ has_non_ASCII.exit.thread:                        ; preds = %.critedge565, %has_
   br i1 %271, label %272, label %275
 
 272:                                              ; preds = %267
-  %273 = getelementptr inbounds i8, ptr %256, i64 1
+  %273 = getelementptr inbounds i8, ptr %270, i64 1
   %274 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %273, i32 noundef 47) #17
   br label %275
 

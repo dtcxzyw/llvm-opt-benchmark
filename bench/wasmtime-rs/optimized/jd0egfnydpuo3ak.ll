@@ -5514,7 +5514,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %2
   %30 = phi ptr [ %14, %2 ], [ %.pre29, %.loopexit.loopexit ]
-  %31 = phi ptr [ %14, %2 ], [ %.pre, %.loopexit.loopexit ]
+  %31 = phi ptr [ %.promoted.i.i, %2 ], [ %.pre, %.loopexit.loopexit ]
   %.sroa.7.0.i.lcssa.i.i = phi ptr [ %9, %2 ], [ %.sroa.7.0.i.lcssa.i.i.ph, %.loopexit.loopexit ]
   %32 = ptrtoint ptr %.sroa.7.0.i.lcssa.i.i to i64
   %33 = ptrtoint ptr %9 to i64

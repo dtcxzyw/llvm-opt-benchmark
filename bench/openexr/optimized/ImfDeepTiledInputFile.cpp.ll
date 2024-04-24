@@ -236,16 +236,16 @@ _ZNKSt6vectorIPN7Imf_3_212_GLOBAL__N_110TileBufferESaIS3_EE12_M_check_lenEmPKc.e
 
 call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIPN7Imf_3_212_GLOBAL__N_110TileBufferESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   store ptr null, ptr %call5.i.i.i.i.i7, align 8
-  %cmp.i.i.i.i.i27.i.i = icmp eq i32 %.sroa.speculated, 1
-  br i1 %cmp.i.i.i.i.i27.i.i, label %invoke.cont13, label %if.end.i.i.i.i.i28.i.i
+  %cmp.i.i.i.i.i28.i.i = icmp eq i32 %.sroa.speculated, 1
+  br i1 %cmp.i.i.i.i.i28.i.i, label %invoke.cont13, label %if.end.i.i.i.i.i29.i.i
 
-if.end.i.i.i.i.i28.i.i:                           ; preds = %call5.i.i.i.i.i.noexc
-  %incdec.ptr.i.i.i25.i.i = getelementptr i8, ptr %call5.i.i.i.i.i7, i64 8
+if.end.i.i.i.i.i29.i.i:                           ; preds = %call5.i.i.i.i.i.noexc
+  %incdec.ptr.i.i.i26.i.i = getelementptr i8, ptr %call5.i.i.i.i.i7, i64 8
   %2 = add nsw i64 %mul.i.i.i.i.i, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i25.i.i, i8 0, i64 %2, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i26.i.i, i8 0, i64 %2, i1 false)
   br label %invoke.cont13
 
-invoke.cont13:                                    ; preds = %call5.i.i.i.i.i.noexc, %if.end.i.i.i.i.i28.i.i
+invoke.cont13:                                    ; preds = %call5.i.i.i.i.i.noexc, %if.end.i.i.i.i.i29.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 384
   %3 = getelementptr inbounds i8, ptr %this, i64 376
   store ptr %call5.i.i.i.i.i7, ptr %tileBuffers, align 8
@@ -3303,14 +3303,13 @@ if.then.i.i.i.i.i44.i:                            ; preds = %if.else49.i
   %this.val14.pre.i = load ptr, ptr %44, align 8
   %.pre53.i = ptrtoint ptr %this.val14.pre.i to i64
   %.pre54.i = ptrtoint ptr %this.val.pre.i to i64
+  %.pre55.i = sub i64 %.pre53.i, %.pre54.i
   br label %_ZSt4copyIPPN7Imf_3_212_GLOBAL__N_112TInSliceInfoES4_ET0_T_S6_S5_.exit.i
 
 _ZSt4copyIPPN7Imf_3_212_GLOBAL__N_112TInSliceInfoES4_ET0_T_S6_S5_.exit.i: ; preds = %if.then.i.i.i.i.i44.i, %if.else49.i
-  %sub.ptr.rhs.cast.i47.pre-phi.i = phi i64 [ %sub.ptr.rhs.cast.i.lcssa, %if.else49.i ], [ %.pre54.i, %if.then.i.i.i.i.i44.i ]
-  %sub.ptr.lhs.cast.i46.pre-phi.i = phi i64 [ %sub.ptr.rhs.cast.i.lcssa, %if.else49.i ], [ %.pre53.i, %if.then.i.i.i.i.i44.i ]
-  %this.val14.i = phi ptr [ %slices230.val.lcssa, %if.else49.i ], [ %this.val14.pre.i, %if.then.i.i.i.i.i44.i ]
-  %sub.ptr.sub.i48.i = sub i64 %sub.ptr.lhs.cast.i46.pre-phi.i, %sub.ptr.rhs.cast.i47.pre-phi.i
-  %add.ptr62.i = getelementptr inbounds i8, ptr %cond.i12.i.i.i141239, i64 %sub.ptr.sub.i48.i
+  %sub.ptr.sub.i48.pre-phi.i = phi i64 [ %sub.ptr.sub.i.lcssa, %if.else49.i ], [ %.pre55.i, %if.then.i.i.i.i.i44.i ]
+  %this.val14.i = phi ptr [ %slices230.val27.lcssa, %if.else49.i ], [ %this.val14.pre.i, %if.then.i.i.i.i.i44.i ]
+  %add.ptr62.i = getelementptr inbounds i8, ptr %cond.i12.i.i.i141239, i64 %sub.ptr.sub.i48.pre-phi.i
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i146242, %add.ptr62.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %if.end69.i, label %if.then.i.i.i.i.i.i.i.i.i
 

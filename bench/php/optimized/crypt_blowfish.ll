@@ -85,12 +85,12 @@ _crypt_output_magic.exit:                         ; preds = %4, %11, %16, %20
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %37
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(29) %38, ptr noundef nonnull dereferenceable(29) %5, i64 29)
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(29) %40, ptr noundef nonnull dereferenceable(29) %5, i64 29)
   %.not33 = icmp eq i32 %bcmp, 0
   br i1 %.not33, label %43, label %45
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %5, i64 59
+  %44 = getelementptr inbounds i8, ptr %40, i64 29
   %bcmp34 = call i32 @bcmp(ptr noundef nonnull dereferenceable(34) %44, ptr noundef nonnull dereferenceable(34) %.031, i64 34)
   %.not35 = icmp eq i32 %bcmp34, 0
   br label %45
