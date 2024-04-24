@@ -4874,13 +4874,12 @@ entry:
   %target.sroa.0.0.copyload = load i64, ptr %emulation, align 8
   %target.sroa.18.0.emulation.sroa_idx = getelementptr inbounds i8, ptr %ctx, i64 216
   %target.sroa.18.0.copyload = load ptr, ptr %target.sroa.18.0.emulation.sroa_idx, align 8
-  switch i64 %target.sroa.0.0.copyload, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit160 [
+  switch i64 %target.sroa.0.0.copyload, label %if.end86 [
     i64 4, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
     i64 5, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i36
     i64 7, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i52
     i64 9, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i60
     i64 3, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i132
-    i64 11, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i148
   ]
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %entry
@@ -4940,7 +4939,7 @@ if.then30:                                        ; preds = %_ZNSt11char_traitsI
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i76: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i60
   %bcmp.i77 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %target.sroa.18.0.copyload, ptr noundef nonnull dereferenceable(9) @.str.121, i64 9)
   %cmp.i.i78 = icmp eq i32 %bcmp.i77, 0
-  br i1 %cmp.i.i78, label %if.then36, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit160
+  br i1 %cmp.i.i78, label %if.then36, label %if.end86
 
 if.then36:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i76
   %call37 = tail call noundef i32 @_ZN4mold3elf8elf_mainINS0_6RV32BEEEEiiPPc(i32 noundef %argc, ptr noundef %argv) #15
@@ -4985,7 +4984,7 @@ if.then60:                                        ; preds = %_ZNSt11char_traitsI
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i116: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i100
   %bcmp.i117 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %target.sroa.18.0.copyload, ptr noundef nonnull dereferenceable(7) @.str.126, i64 7)
   %cmp.i.i118 = icmp eq i32 %bcmp.i117, 0
-  br i1 %cmp.i.i118, label %if.then66, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit160
+  br i1 %cmp.i.i118, label %if.then66, label %if.end86
 
 if.then66:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i116
   %call67 = tail call noundef i32 @_ZN4mold3elf8elf_mainINS0_7SPARC64EEEiiPPc(i32 noundef %argc, ptr noundef %argv) #15
@@ -4994,7 +4993,7 @@ if.then66:                                        ; preds = %_ZNSt11char_traitsI
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i124: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   %bcmp.i125 = tail call i32 @bcmp(ptr %target.sroa.18.0.copyload, ptr nonnull @.str.127, i64 %target.sroa.0.0.copyload)
   %cmp.i.i126 = icmp eq i32 %bcmp.i125, 0
-  br i1 %cmp.i.i126, label %if.then72, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit160
+  br i1 %cmp.i.i126, label %if.then72, label %if.end86
 
 if.then72:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i124
   %call73 = tail call noundef i32 @_ZN4mold3elf8elf_mainINS0_4M68KEEEiiPPc(i32 noundef %argc, ptr noundef %argv) #15
@@ -5003,7 +5002,7 @@ if.then72:                                        ; preds = %_ZNSt11char_traitsI
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i132: ; preds = %entry
   %bcmp.i133 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %target.sroa.18.0.copyload, ptr noundef nonnull dereferenceable(3) @.str.128, i64 3)
   %cmp.i.i134 = icmp eq i32 %bcmp.i133, 0
-  br i1 %cmp.i.i134, label %if.then78, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit160
+  br i1 %cmp.i.i134, label %if.then78, label %if.end86
 
 if.then78:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i132
   %call79 = tail call noundef i32 @_ZN4mold3elf8elf_mainINS0_3SH4EEEiiPPc(i32 noundef %argc, ptr noundef %argv) #15
@@ -5012,34 +5011,32 @@ if.then78:                                        ; preds = %_ZNSt11char_traitsI
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i140: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i108
   %bcmp.i141 = tail call i32 @bcmp(ptr %target.sroa.18.0.copyload, ptr nonnull @.str.129, i64 %target.sroa.0.0.copyload)
   %cmp.i.i142 = icmp eq i32 %bcmp.i141, 0
-  br i1 %cmp.i.i142, label %if.then84, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit160
+  br i1 %cmp.i.i142, label %if.then84, label %if.end86
 
 if.then84:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i140
   %call85 = tail call noundef i32 @_ZN4mold3elf8elf_mainINS0_5ALPHAEEEiiPPc(i32 noundef %argc, ptr noundef %argv) #15
   br label %return
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i148: ; preds = %entry
+if.end86:                                         ; preds = %entry, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i116, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i76, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i132, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i124, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i140
+  %cmp.i145 = icmp eq i64 %target.sroa.0.0.copyload, 11
+  tail call void @llvm.assume(i1 %cmp.i145)
   %bcmp.i149 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %target.sroa.18.0.copyload, ptr noundef nonnull dereferenceable(11) @.str.130, i64 11)
   %cmp.i.i150 = icmp eq i32 %bcmp.i149, 0
   br i1 %cmp.i.i150, label %if.then90, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i156
 
-if.then90:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i148
+if.then90:                                        ; preds = %if.end86
   %call91 = tail call noundef i32 @_ZN4mold3elf8elf_mainINS0_11LOONGARCH32EEEiiPPc(i32 noundef %argc, ptr noundef %argv) #15
   br label %return
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i156: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i148
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i156: ; preds = %if.end86
   %bcmp.i157 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %target.sroa.18.0.copyload, ptr noundef nonnull dereferenceable(11) @.str.131, i64 11)
   %cmp.i.i158 = icmp eq i32 %bcmp.i157, 0
-  br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit160
-
-_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit160: ; preds = %entry, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i132, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i124, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i116, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i76, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i140, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i156
-  %0 = phi i1 [ %cmp.i.i158, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i156 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i140 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i76 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i116 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i124 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i132 ], [ false, %entry ]
-  tail call void @llvm.assume(i1 %0)
+  tail call void @llvm.assume(i1 %cmp.i.i158)
   %call97 = tail call noundef i32 @_ZN4mold3elf8elf_mainINS0_11LOONGARCH64EEEiiPPc(i32 noundef %argc, ptr noundef %argv) #15
   br label %return
 
-return:                                           ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit160, %if.then90, %if.then84, %if.then78, %if.then72, %if.then66, %if.then60, %if.then54, %if.then48, %if.then42, %if.then36, %if.then30, %if.then24, %if.then18, %if.then12, %if.then6, %if.then
-  %retval.0 = phi i32 [ %call2, %if.then ], [ %call7, %if.then6 ], [ %call13, %if.then12 ], [ %call19, %if.then18 ], [ %call25, %if.then24 ], [ %call31, %if.then30 ], [ %call37, %if.then36 ], [ %call43, %if.then42 ], [ %call49, %if.then48 ], [ %call55, %if.then54 ], [ %call61, %if.then60 ], [ %call67, %if.then66 ], [ %call73, %if.then72 ], [ %call79, %if.then78 ], [ %call85, %if.then84 ], [ %call91, %if.then90 ], [ %call97, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit160 ]
+return:                                           ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i156, %if.then90, %if.then84, %if.then78, %if.then72, %if.then66, %if.then60, %if.then54, %if.then48, %if.then42, %if.then36, %if.then30, %if.then24, %if.then18, %if.then12, %if.then6, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call7, %if.then6 ], [ %call13, %if.then12 ], [ %call19, %if.then18 ], [ %call25, %if.then24 ], [ %call31, %if.then30 ], [ %call37, %if.then36 ], [ %call43, %if.then42 ], [ %call49, %if.then48 ], [ %call55, %if.then54 ], [ %call61, %if.then60 ], [ %call67, %if.then66 ], [ %call73, %if.then72 ], [ %call79, %if.then78 ], [ %call85, %if.then84 ], [ %call91, %if.then90 ], [ %call97, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i156 ]
   ret i32 %retval.0
 }
 
@@ -43509,8 +43506,6 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %shr.i.i.i37.i.i.i = lshr i128 %mul.i.i.i36.i.i.i, 64
   %xor1.i.i38.i.i.i = xor i128 %shr.i.i.i37.i.i.i, %mul.i.i.i36.i.i.i
   %xor.i.i39.i.i.i = trunc i128 %xor1.i.i38.i.i.i to i64
-  %cmp17.i.i.i = icmp ugt i32 %conv.i.i.i, 127
-  tail call void @llvm.assume(i1 %cmp17.i.i.i)
   %shr.i.i.i40.i.i = lshr i64 %add.i39.i.i, 37
   %xor.i.i40.i.i.i = xor i64 %shr.i.i.i40.i.i, %add.i39.i.i
   %mul.i.i41.i.i = mul i64 %xor.i.i40.i.i.i, 1609587791953885689

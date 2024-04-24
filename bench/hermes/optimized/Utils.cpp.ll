@@ -559,9 +559,7 @@ if.end5:                                          ; preds = %if.then, %entry
   %call9 = tail call noundef ptr @_ZN6hermes10BasicBlock13getTerminatorEv(ptr noundef nonnull align 8 dereferenceable(80) %from) #3
   %call10 = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %call9) #3
   %cmp1141 = icmp sgt i32 %call10, 0
-  br i1 %cmp1141, label %for.body.lr.ph, label %for.end46
-
-for.body.lr.ph:                                   ; preds = %if.end5
+  tail call void @llvm.assume(i1 %cmp1141)
   %5 = icmp eq ptr %to, null
   %add.ptr = getelementptr inbounds i8, ptr %to, i64 16
   %spec.select = select i1 %5, ptr null, ptr %add.ptr
@@ -572,9 +570,9 @@ for.body.lr.ph:                                   ; preds = %if.end5
   %InstList.i = getelementptr inbounds i8, ptr %to, i64 56
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc44
-  %updates.043 = phi i32 [ 0, %for.body.lr.ph ], [ %updates.1, %for.inc44 ]
-  %i.042 = phi i32 [ 0, %for.body.lr.ph ], [ %inc45, %for.inc44 ]
+for.body:                                         ; preds = %if.end5, %for.inc44
+  %updates.043 = phi i32 [ 0, %if.end5 ], [ %updates.1, %for.inc44 ]
+  %i.042 = phi i32 [ 0, %if.end5 ], [ %inc45, %for.inc44 ]
   %call12 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %call9, i32 noundef %i.042) #3
   %cmp13 = icmp eq ptr %call12, %spec.select
   br i1 %cmp13, label %if.then14, label %for.inc44
@@ -634,15 +632,11 @@ for.inc44:                                        ; preds = %for.body, %for.end4
 
 for.end46.loopexit:                               ; preds = %for.inc44
   %10 = icmp ne i32 %updates.1, 0
-  br label %for.end46
-
-for.end46:                                        ; preds = %for.end46.loopexit, %if.end5
-  %updates.0.lcssa = phi i1 [ false, %if.end5 ], [ %10, %for.end46.loopexit ]
-  tail call void @llvm.assume(i1 %updates.0.lcssa)
+  tail call void @llvm.assume(i1 %10)
   tail call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %call8) #3
   br label %return
 
-return:                                           ; preds = %for.end46, %if.then3
+return:                                           ; preds = %for.end46.loopexit, %if.then3
   ret void
 }
 

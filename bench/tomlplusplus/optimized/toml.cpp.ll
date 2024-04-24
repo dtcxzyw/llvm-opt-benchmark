@@ -14677,11 +14677,9 @@ entry:
   ]
 
 lor.rhs:                                          ; preds = %entry
-  %2 = add i32 %1, -123
-  %or.cond.i.i = icmp ult i32 %2, -78
-  br i1 %or.cond.i.i, label %lor.end, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %lor.rhs
+  %2 = add i32 %1, -45
+  %or.cond.i.i = icmp ult i32 %2, 78
+  tail call void @llvm.assume(i1 %or.cond.i.i)
   %conv.i.i = zext nneg i32 %1 to i64
   %sub.i.i = add nsw i64 %conv.i.i, -45
   %cmp2.not.i.i = icmp ugt i64 %sub.i.i, 63
@@ -14691,8 +14689,8 @@ if.end.i.i:                                       ; preds = %lor.rhs
   %3 = select i1 %cmp2.not.i.i, i1 true, i1 %tobool.i.i
   br label %lor.end
 
-lor.end:                                          ; preds = %entry, %entry, %if.end.i.i, %lor.rhs
-  %4 = phi i1 [ true, %entry ], [ %3, %if.end.i.i ], [ false, %lor.rhs ], [ true, %entry ]
+lor.end:                                          ; preds = %entry, %entry, %lor.rhs
+  %4 = phi i1 [ true, %entry ], [ %3, %lor.rhs ], [ true, %entry ]
   tail call void @llvm.assume(i1 %4)
   %current_scope = getelementptr inbounds i8, ptr %this, i64 3472
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ps_3345.sroa.3, ptr noundef nonnull align 8 dereferenceable(16) %current_scope, i64 16, i1 false)
@@ -34161,16 +34159,16 @@ _ZN4toml2v34impl21is_bare_key_characterEDi.exit11: ; preds = %while.cond
   %and.i.i8 = and i64 %shl.i.i7, -3307330977390599
   %tobool.i.i9 = icmp ne i64 %and.i.i8, 0
   %15 = select i1 %cmp2.not.i.i6, i1 true, i1 %tobool.i.i9
-  br i1 %15, label %_ZN4toml2v34impl21is_bare_key_characterEDi.exit.i, label %if.else
+  br i1 %15, label %if.then, label %if.else
 
-_ZN4toml2v34impl21is_bare_key_characterEDi.exit.i: ; preds = %_ZN4toml2v34impl21is_bare_key_characterEDi.exit11
+if.then:                                          ; preds = %_ZN4toml2v34impl21is_bare_key_characterEDi.exit11
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %string_buffer.i) #39
   %16 = load ptr, ptr %cp, align 8
   %tobool.not12.i = icmp eq ptr %16, null
   br i1 %tobool.not12.i, label %invoke.cont, label %while.body.i
 
-while.body.i:                                     ; preds = %_ZN4toml2v34impl21is_bare_key_characterEDi.exit.i, %.noexc
-  %17 = phi ptr [ %23, %.noexc ], [ %16, %_ZN4toml2v34impl21is_bare_key_characterEDi.exit.i ]
+while.body.i:                                     ; preds = %if.then, %.noexc
+  %17 = phi ptr [ %23, %.noexc ], [ %16, %if.then ]
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, -123
   %or.cond.i.i1.i = icmp ult i32 %19, -78
@@ -34205,7 +34203,7 @@ call12.i.noexc:                                   ; preds = %if.end.i13
   %tobool.not.i14 = icmp eq ptr %23, null
   br i1 %tobool.not.i14, label %invoke.cont, label %while.body.i, !llvm.loop !269
 
-invoke.cont:                                      ; preds = %.noexc, %_ZN4toml2v34impl21is_bare_key_characterEDi.exit10.i, %while.body.i, %_ZN4toml2v34impl21is_bare_key_characterEDi.exit.i
+invoke.cont:                                      ; preds = %.noexc, %_ZN4toml2v34impl21is_bare_key_characterEDi.exit10.i, %while.body.i, %if.then
   %call16.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %string_buffer.i) #39
   %24 = extractvalue { i64, ptr } %call16.i, 0
   %25 = extractvalue { i64, ptr } %call16.i, 1

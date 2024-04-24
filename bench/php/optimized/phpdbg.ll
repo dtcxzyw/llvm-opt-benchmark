@@ -1669,8 +1669,8 @@ phpdbg_add_empty_array.exit179:                   ; preds = %79, %82
 115:                                              ; preds = %111, %101
   %.0139 = phi i64 [ %107, %101 ], [ %114, %111 ]
   %116 = icmp ne ptr %.3, null
-  %117 = icmp ne ptr %.1146, null
   call void @llvm.assume(i1 %116)
+  %117 = icmp ne ptr %.1146, null
   call void @llvm.assume(i1 %117)
   %118 = call ptr @zend_hash_index_find(ptr noundef nonnull %.3, i64 noundef %.0139) #25
   %.not173 = icmp eq ptr %118, null

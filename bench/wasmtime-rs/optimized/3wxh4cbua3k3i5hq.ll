@@ -10445,9 +10445,9 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$hashbrown..set..HashSet$LT$T$C$S$C$
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h0233249503f59073E.exit.i.loopexit"
   %17 = phi i64 [ %35, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h0233249503f59073E.exit.i.loopexit" ], [ %4, %.lr.ph.preheader ]
-  %.lcssa815.i18 = phi ptr [ %.lcssa813.i, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h0233249503f59073E.exit.i.loopexit" ], [ %8, %.lr.ph.preheader ]
+  %.lcssa815.i19 = phi ptr [ %.lcssa813.i, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h0233249503f59073E.exit.i.loopexit" ], [ %8, %.lr.ph.preheader ]
   %18 = phi i16 [ %30, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h0233249503f59073E.exit.i.loopexit" ], [ %15, %.lr.ph.preheader ]
-  %.lcssa20.i17 = phi ptr [ %.lcssa18.i, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h0233249503f59073E.exit.i.loopexit" ], [ %12, %.lr.ph.preheader ]
+  %.lcssa20.i18 = phi ptr [ %.lcssa18.i, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h0233249503f59073E.exit.i.loopexit" ], [ %12, %.lr.ph.preheader ]
   %.not9.i.i.i.i = icmp eq i16 %18, 0
   br i1 %.not9.i.i.i.i, label %.lr.ph.i.i.i.i, label %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h0a5c848514d229caE.exit.i.i.i"
 
@@ -10458,8 +10458,8 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$hashbrown..set..HashSet$LT$T$C$S$C$
   br label %"_ZN88_$LT$hashbrown..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a88e0b64ee5767aE.exit.i"
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph, %.lr.ph.i.i.i.i
-  %22 = phi ptr [ %27, %.lr.ph.i.i.i.i ], [ %.lcssa20.i17, %.lr.ph ]
-  %.val810.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %.lcssa815.i18, %.lr.ph ]
+  %22 = phi ptr [ %27, %.lr.ph.i.i.i.i ], [ %.lcssa20.i18, %.lr.ph ]
+  %.val810.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %.lcssa815.i19, %.lr.ph ]
   %23 = load <16 x i8>, ptr %22, align 16, !noalias !2157
   %24 = icmp slt <16 x i8> %23, zeroinitializer
   %25 = bitcast <16 x i1> %24 to i16
@@ -10474,9 +10474,9 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$hashbrown..set..HashSet$LT$T$C$S$C$
   br label %"_ZN88_$LT$hashbrown..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a88e0b64ee5767aE.exit.i"
 
 "_ZN88_$LT$hashbrown..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a88e0b64ee5767aE.exit.i": ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h0a5c848514d229caE.exit.i.i.i", %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h0a5c848514d229caE.exit.thread.i.i.i"
-  %.lcssa18.i = phi ptr [ %27, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h0a5c848514d229caE.exit.thread.i.i.i" ], [ %.lcssa20.i17, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h0a5c848514d229caE.exit.i.i.i" ]
+  %.lcssa18.i = phi ptr [ %27, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h0a5c848514d229caE.exit.thread.i.i.i" ], [ %.lcssa20.i18, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h0a5c848514d229caE.exit.i.i.i" ]
   %30 = phi i16 [ %21, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h0a5c848514d229caE.exit.thread.i.i.i" ], [ %29, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h0a5c848514d229caE.exit.i.i.i" ]
-  %.lcssa813.i = phi ptr [ %26, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h0a5c848514d229caE.exit.thread.i.i.i" ], [ %.lcssa815.i18, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h0a5c848514d229caE.exit.i.i.i" ]
+  %.lcssa813.i = phi ptr [ %26, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h0a5c848514d229caE.exit.thread.i.i.i" ], [ %.lcssa815.i19, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h0a5c848514d229caE.exit.i.i.i" ]
   %.lcssa.i15.i.i.i = phi i16 [ %19, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h0a5c848514d229caE.exit.thread.i.i.i" ], [ %18, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h0a5c848514d229caE.exit.i.i.i" ]
   %31 = tail call i16 @llvm.cttz.i16(i16 %.lcssa.i15.i.i.i, i1 true), !range !16
   %32 = zext nneg i16 %31 to i64
@@ -10536,8 +10536,8 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$hashbrown..set..HashSet$LT$T$C$S$C$
   %61 = add i64 %.sroa.01.0.i.i.i.i.i.i.i, %60
   br label %42
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h59c879983f4d8961E.llvm.10043242345734795027.exit": ; preds = %"_ZN88_$LT$hashbrown..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a88e0b64ee5767aE.exit.i", %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h0233249503f59073E.exit.i.loopexit", %47, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %7 ], [ false, %47 ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h0233249503f59073E.exit.i.loopexit" ], [ true, %"_ZN88_$LT$hashbrown..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a88e0b64ee5767aE.exit.i" ]
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h59c879983f4d8961E.llvm.10043242345734795027.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h0233249503f59073E.exit.i.loopexit", %"_ZN88_$LT$hashbrown..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a88e0b64ee5767aE.exit.i", %47, %7, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %7 ], [ false, %47 ], [ true, %"_ZN88_$LT$hashbrown..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a88e0b64ee5767aE.exit.i" ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h0233249503f59073E.exit.i.loopexit" ]
   ret i1 %.0
 }
 

@@ -85478,7 +85478,7 @@ define hidden noundef zeroext i1 @_ZN13rust_analyzer6reload20eq_ignore_underscor
 
 5:                                                ; preds = %4
   %.not7 = icmp eq i64 %1, 0
-  br i1 %.not7, label %.sink.split.i.thread, label %.lr.ph.i
+  br i1 %.not7, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he4d85dc6c5510521E.llvm.15439407322995335751.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %.critedge.backedge.i
   %6 = phi i1 [ %13, %.critedge.backedge.i ], [ true, %5 ]
@@ -85510,13 +85510,11 @@ define hidden noundef zeroext i1 @_ZN13rust_analyzer6reload20eq_ignore_underscor
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hd209f20f3350b13eE.llvm.15439407322995335751.exit: ; preds = %12, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h235f323c696f922fE.exit.i", %.critedge.backedge.i
   %.lcssa.i = phi i1 [ %13, %.critedge.backedge.i ], [ %6, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h235f323c696f922fE.exit.i" ], [ %6, %12 ]
-  br i1 %.lcssa.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he4d85dc6c5510521E.llvm.15439407322995335751.exit", label %.sink.split.i.thread
-
-.sink.split.i.thread:                             ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd209f20f3350b13eE.llvm.15439407322995335751.exit, %5
+  %not..lcssa.i = xor i1 %.lcssa.i, true
   br label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he4d85dc6c5510521E.llvm.15439407322995335751.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he4d85dc6c5510521E.llvm.15439407322995335751.exit": ; preds = %.sink.split.i.thread, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd209f20f3350b13eE.llvm.15439407322995335751.exit, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd209f20f3350b13eE.llvm.15439407322995335751.exit ], [ true, %.sink.split.i.thread ]
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he4d85dc6c5510521E.llvm.15439407322995335751.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd209f20f3350b13eE.llvm.15439407322995335751.exit, %5, %4
+  %.0 = phi i1 [ false, %4 ], [ true, %5 ], [ %not..lcssa.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd209f20f3350b13eE.llvm.15439407322995335751.exit ]
   ret i1 %.0
 }
 

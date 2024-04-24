@@ -1627,126 +1627,120 @@ switch.edge:
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct.zend_type, align 8
   %6 = alloca %struct._zend_class_entry, align 8
-  %7 = zext nneg i8 %1 to i32
+  %7 = zext i8 %1 to i32
   %8 = icmp eq i8 %1, 0
-  %9 = icmp ult i8 %1, 7
-  %switch.cast = trunc i8 %1 to i7
-  %switch.downshift = lshr i7 -47, %switch.cast
-  %switch.masked = trunc i7 %switch.downshift to i1
-  tail call void @llvm.assume(i1 %9)
-  tail call void @llvm.assume(i1 %switch.masked)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %6, i8 0, i64 512, i1 false)
-  %10 = load ptr, ptr @zend_string_init_interned, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
-  %12 = tail call ptr %10(ptr noundef %0, i64 noundef %11, i1 noundef zeroext true) #12
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 360
-  store ptr @std_object_handlers, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 496
-  store ptr %2, ptr %15, align 8
-  %16 = call ptr @zend_register_internal_class(ptr noundef nonnull %6) #12
-  %17 = getelementptr inbounds i8, ptr %16, i64 28
-  %18 = load i32, ptr %17, align 4
-  %19 = or i32 %18, 268435456
-  store i32 %19, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 472
-  store i32 %7, ptr %20, align 8
-  br i1 %8, label %36, label %21
+  %9 = load ptr, ptr @zend_string_init_interned, align 8
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
+  %11 = tail call ptr %9(ptr noundef %0, i64 noundef %10, i1 noundef zeroext true) #12
+  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %6, i64 360
+  store ptr @std_object_handlers, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %6, i64 496
+  store ptr %2, ptr %14, align 8
+  %15 = call ptr @zend_register_internal_class(ptr noundef nonnull %6) #12
+  %16 = getelementptr inbounds i8, ptr %15, i64 28
+  %17 = load i32, ptr %16, align 4
+  %18 = or i32 %17, 268435456
+  store i32 %18, ptr %16, align 4
+  %19 = getelementptr inbounds i8, ptr %15, i64 472
+  store i32 %7, ptr %19, align 8
+  br i1 %8, label %35, label %20
 
-21:                                               ; preds = %switch.edge
-  %22 = call noalias dereferenceable_or_null(56) ptr @__zend_malloc(i64 noundef 56) #17
-  call void @_zend_hash_init(ptr noundef %22, i32 noundef 0, ptr noundef nonnull @zval_ptr_dtor, i1 noundef zeroext true) #12
-  %23 = getelementptr inbounds i8, ptr %16, i64 232
-  %24 = load ptr, ptr %23, align 8
-  %.not31 = icmp eq ptr %24, null
-  br i1 %.not31, label %34, label %25
+20:                                               ; preds = %switch.edge
+  %21 = call noalias dereferenceable_or_null(56) ptr @__zend_malloc(i64 noundef 56) #17
+  call void @_zend_hash_init(ptr noundef %21, i32 noundef 0, ptr noundef nonnull @zval_ptr_dtor, i1 noundef zeroext true) #12
+  %22 = getelementptr inbounds i8, ptr %15, i64 232
+  %23 = load ptr, ptr %22, align 8
+  %.not31 = icmp eq ptr %23, null
+  br i1 %.not31, label %33, label %24
 
-25:                                               ; preds = %21
-  %26 = load i8, ptr %16, align 8
-  %27 = icmp eq i8 %26, 2
-  br i1 %27, label %28, label %34
+24:                                               ; preds = %20
+  %25 = load i8, ptr %15, align 8
+  %26 = icmp eq i8 %25, 2
+  br i1 %26, label %27, label %33
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 37), align 8
-  %30 = ptrtoint ptr %24 to i64
-  %31 = getelementptr inbounds i8, ptr %29, i64 %30
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+27:                                               ; preds = %24
+  %28 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 37), align 8
+  %29 = ptrtoint ptr %23 to i64
+  %30 = getelementptr inbounds i8, ptr %28, i64 %29
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 24
   br label %.sink.split
 
-34:                                               ; preds = %25, %21
-  %35 = getelementptr inbounds i8, ptr %16, i64 480
+33:                                               ; preds = %24, %20
+  %34 = getelementptr inbounds i8, ptr %15, i64 480
   br label %.sink.split
 
-.sink.split:                                      ; preds = %34, %28
-  %.sink = phi ptr [ %33, %28 ], [ %35, %34 ]
-  store ptr %22, ptr %.sink, align 8
-  br label %36
+.sink.split:                                      ; preds = %33, %27
+  %.sink = phi ptr [ %32, %27 ], [ %34, %33 ]
+  store ptr %21, ptr %.sink, align 8
+  br label %35
 
-36:                                               ; preds = %.sink.split, %switch.edge
+35:                                               ; preds = %.sink.split, %switch.edge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %37 = load i32, ptr %17, align 4
-  %38 = or i32 %37, 8192
-  store i32 %38, ptr %17, align 4
-  %39 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 0, ptr %39, align 8
-  %40 = load ptr, ptr @zend_known_strings, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 352
-  %42 = load ptr, ptr %41, align 8
-  %43 = call ptr @zend_declare_typed_property(ptr noundef nonnull %16, ptr noundef %42, ptr noundef nonnull %3, i32 noundef 129, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 @__const.zend_enum_register_props.name_type) #12
-  %44 = load i32, ptr %20, align 8
-  %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %zend_enum_register_props.exit, label %45
+  %36 = load i32, ptr %16, align 4
+  %37 = or i32 %36, 8192
+  store i32 %37, ptr %16, align 4
+  %38 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 0, ptr %38, align 8
+  %39 = load ptr, ptr @zend_known_strings, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 352
+  %41 = load ptr, ptr %40, align 8
+  %42 = call ptr @zend_declare_typed_property(ptr noundef nonnull %15, ptr noundef %41, ptr noundef nonnull %3, i32 noundef 129, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 @__const.zend_enum_register_props.name_type) #12
+  %43 = load i32, ptr %19, align 8
+  %.not.i = icmp eq i32 %43, 0
+  br i1 %.not.i, label %zend_enum_register_props.exit, label %44
 
-45:                                               ; preds = %36
-  %46 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 0, ptr %46, align 8
+44:                                               ; preds = %35
+  %45 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 0, ptr %45, align 8
   store ptr null, ptr %5, align 8
-  %47 = getelementptr inbounds i8, ptr %5, i64 8
-  switch i32 %44, label %48 [
-    i32 18, label %50
+  %46 = getelementptr inbounds i8, ptr %5, i64 8
+  switch i32 %43, label %47 [
+    i32 18, label %49
     i32 13, label %.fold.split.i
     i32 16, label %.fold.split8.i
   ]
 
-48:                                               ; preds = %45
-  %49 = shl nuw i32 1, %44
-  br label %50
+47:                                               ; preds = %44
+  %48 = shl nuw i32 1, %43
+  br label %49
 
-.fold.split.i:                                    ; preds = %45
-  br label %50
+.fold.split.i:                                    ; preds = %44
+  br label %49
 
-.fold.split8.i:                                   ; preds = %45
-  br label %50
+.fold.split8.i:                                   ; preds = %44
+  br label %49
 
-50:                                               ; preds = %.fold.split8.i, %.fold.split.i, %48, %45
-  %51 = phi i32 [ 12, %45 ], [ %49, %48 ], [ 2097152, %.fold.split.i ], [ 1022, %.fold.split8.i ]
-  store i32 %51, ptr %47, align 8
-  %52 = load ptr, ptr @zend_known_strings, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 160
-  %54 = load ptr, ptr %53, align 8
-  %55 = call ptr @zend_declare_typed_property(ptr noundef nonnull %16, ptr noundef %54, ptr noundef nonnull %4, i32 noundef 129, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %5) #12
+49:                                               ; preds = %.fold.split8.i, %.fold.split.i, %47, %44
+  %50 = phi i32 [ 12, %44 ], [ %48, %47 ], [ 2097152, %.fold.split.i ], [ 1022, %.fold.split8.i ]
+  store i32 %50, ptr %46, align 8
+  %51 = load ptr, ptr @zend_known_strings, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 160
+  %53 = load ptr, ptr %52, align 8
+  %54 = call ptr @zend_declare_typed_property(ptr noundef nonnull %15, ptr noundef %53, ptr noundef nonnull %4, i32 noundef 129, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %5) #12
   br label %zend_enum_register_props.exit
 
-zend_enum_register_props.exit:                    ; preds = %36, %50
+zend_enum_register_props.exit:                    ; preds = %35, %49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %56 = getelementptr inbounds i8, ptr %16, i64 64
-  %57 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 54), align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 140
-  %59 = load i8, ptr %58, align 4
-  %60 = zext i8 %59 to i32
+  %55 = getelementptr inbounds i8, ptr %15, i64 64
+  %56 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 54), align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 140
+  %58 = load i8, ptr %57, align 4
+  %59 = zext i8 %58 to i32
   %unit_enum_methods.backed_enum_methods = select i1 %8, ptr @unit_enum_methods, ptr @backed_enum_methods
-  %61 = call i32 @zend_register_functions(ptr noundef nonnull %16, ptr noundef nonnull %unit_enum_methods.backed_enum_methods, ptr noundef nonnull %56, i32 noundef %60) #12
+  %60 = call i32 @zend_register_functions(ptr noundef nonnull %15, ptr noundef nonnull %unit_enum_methods.backed_enum_methods, ptr noundef nonnull %55, i32 noundef %59) #12
   %zend_ce_unit_enum.val = load ptr, ptr @zend_ce_unit_enum, align 8
   %zend_ce_backed_enum.val = load ptr, ptr @zend_ce_backed_enum, align 8
-  %62 = select i1 %8, ptr %zend_ce_unit_enum.val, ptr %zend_ce_backed_enum.val
-  call void (ptr, i32, ...) @zend_class_implements(ptr noundef nonnull %16, i32 noundef 1, ptr noundef %62) #12
-  ret ptr %16
+  %61 = select i1 %8, ptr %zend_ce_unit_enum.val, ptr %zend_ce_backed_enum.val
+  call void (ptr, i32, ...) @zend_class_implements(ptr noundef nonnull %15, i32 noundef 1, ptr noundef %61) #12
+  ret ptr %15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

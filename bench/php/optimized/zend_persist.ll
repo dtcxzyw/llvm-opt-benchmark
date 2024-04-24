@@ -3498,9 +3498,9 @@ define internal fastcc void @zend_hash_persist(ptr nocapture noundef %0) unnamed
   %115 = zext i32 %114 to i64
   %116 = shl nuw nsw i64 %115, 2
   %117 = icmp ugt i32 %114, 15
+  tail call void @llvm.assume(i1 %117)
   %118 = and i64 %115, 15
   %119 = icmp eq i64 %118, 0
-  tail call void @llvm.assume(i1 %117)
   tail call void @llvm.assume(i1 %119)
   br label %120
 
@@ -3558,7 +3558,7 @@ define internal fastcc void @zend_hash_persist(ptr nocapture noundef %0) unnamed
   store i32 %149, ptr %150, align 4
   %151 = load ptr, ptr %87, align 8
   %152 = getelementptr inbounds i32, ptr %151, i64 %147
-  %153 = trunc i64 %indvars.iv to i32
+  %153 = trunc nuw i64 %indvars.iv to i32
   store i32 %153, ptr %152, align 4
   %.pre125 = load i32, ptr %32, align 8
   br label %154
@@ -4472,7 +4472,7 @@ define hidden void @zend_update_parent_ce(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not298.not, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %40
-  %41 = trunc i64 %indvars.iv.next to i32
+  %41 = trunc nsw i64 %indvars.iv.next to i32
   %.pre = load ptr, ptr %23, align 8
   br label %._crit_edge
 

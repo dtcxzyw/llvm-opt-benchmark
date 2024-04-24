@@ -21132,7 +21132,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !1491
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
-  %conv.i.i.i = trunc i64 %length to i32
+  %conv.i.i.i = trunc nuw i64 %length to i32
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %data, i64 %length
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   %add.ptr13.val.i.i.i = load i64, ptr %add.ptr13.i.i.i, align 1, !alias.scope !1490
@@ -21146,8 +21146,6 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %shr.i.i.i37.i.i.i = lshr i128 %mul.i.i.i36.i.i.i, 64
   %xor1.i.i38.i.i.i = xor i128 %shr.i.i.i37.i.i.i, %mul.i.i.i36.i.i.i
   %xor.i.i39.i.i.i = trunc i128 %xor1.i.i38.i.i.i to i64
-  %cmp17.i.i.i = icmp ugt i32 %conv.i.i.i, 127
-  tail call void @llvm.assume(i1 %cmp17.i.i.i)
   %shr.i.i.i31.i.i = lshr i64 %add.i30.i.i, 37
   %xor.i.i40.i.i.i = xor i64 %shr.i.i.i31.i.i, %add.i30.i.i
   %mul.i.i32.i.i = mul i64 %xor.i.i40.i.i.i, 1609587791953885689
@@ -43042,7 +43040,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %15 = load <2 x i64>, ptr %retval.sroa.0.i.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.sroa.0.i.i.i)
   %16 = lshr <2 x i64> %15, <i64 32, i64 32>
-  %17 = trunc <2 x i64> %16 to <2 x i32>
+  %17 = trunc nuw <2 x i64> %16 to <2 x i32>
   br label %_ZN5arrow4util12ToBinaryViewEPKviii.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i

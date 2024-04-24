@@ -160551,33 +160551,25 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE6assureI11no_eto_typeEEPKDaj.exit.i
   %add.ptr.i.i.i.i.i16.i = getelementptr inbounds i64, ptr %114, i64 %and.i.i.i.i14.i
   br label %for.cond.i.i.i17.i
 
-for.cond.i.i.i17.i:                               ; preds = %for.body.i.i.i21.i, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE6assureI11no_eto_typeEEPKDaj.exit.i442
-  %it.sroa.5.0.in.i.i.i18.i = phi ptr [ %add.ptr.i.i.i.i.i16.i, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE6assureI11no_eto_typeEEPKDaj.exit.i442 ], [ %arrayidx.i.i.i.i.i.i22.i, %for.body.i.i.i21.i ]
+for.cond.i.i.i17.i:                               ; preds = %for.cond.i.i.i17.i, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE6assureI11no_eto_typeEEPKDaj.exit.i442
+  %it.sroa.5.0.in.i.i.i18.i = phi ptr [ %add.ptr.i.i.i.i.i16.i, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE6assureI11no_eto_typeEEPKDaj.exit.i442 ], [ %arrayidx.i.i.i.i.i.i22.i, %for.cond.i.i.i17.i ]
   %it.sroa.5.0.i.i.i19.i = load i64, ptr %it.sroa.5.0.in.i.i.i18.i, align 8, !tbaa !25, !noalias !1579
-  %cmp.i.i.not.i.i.i20.i = icmp eq i64 %it.sroa.5.0.i.i.i19.i, -1
-  br i1 %cmp.i.i.not.i.i.i20.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE6assureIiEEPKDaj.exit.i, label %for.body.i.i.i21.i
-
-for.body.i.i.i21.i:                               ; preds = %for.cond.i.i.i17.i
+  %cmp.i.i.not.i.i.i20.i = icmp ne i64 %it.sroa.5.0.i.i.i19.i, -1
+  call void @llvm.assume(i1 %cmp.i.i.not.i.i.i20.i)
   %arrayidx.i.i.i.i.i.i22.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.407", ptr %115, i64 %it.sroa.5.0.i.i.i19.i
   %element.i.i.i.i.i23.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i22.i, i64 8
   %118 = load i32, ptr %element.i.i.i.i.i23.i, align 4, !tbaa !26, !noalias !1579
   %cmp.i.i.i.i24.i = icmp eq i32 %118, -1779859874
   br i1 %cmp.i.i.i.i24.i, label %_ZNK4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE4findERSB_.exit.i25.i, label %for.cond.i.i.i17.i, !llvm.loop !226
 
-_ZNK4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE4findERSB_.exit.i25.i: ; preds = %for.body.i.i.i21.i
+_ZNK4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE4findERSB_.exit.i25.i: ; preds = %for.cond.i.i.i17.i
   %.pre.i27.i = load ptr, ptr %_M_finish.i.i.phi.trans.insert.i.i, align 8, !tbaa !24, !noalias !1579
-  %cmp.i.i.i13.not.i28.i = icmp eq ptr %arrayidx.i.i.i.i.i.i22.i, %.pre.i27.i
-  br i1 %cmp.i.i.i13.not.i28.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE6assureIiEEPKDaj.exit.i, label %if.then.i29.i
-
-if.then.i29.i:                                    ; preds = %_ZNK4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE4findERSB_.exit.i25.i
+  %cmp.i.i.i13.not.i28.i = icmp ne ptr %arrayidx.i.i.i.i.i.i22.i, %.pre.i27.i
+  call void @llvm.assume(i1 %cmp.i.i.i13.not.i28.i)
   %second.i.i.i30.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i22.i, i64 16
   %119 = load ptr, ptr %second.i.i.i30.i, align 8, !tbaa !227, !noalias !1579
   %120 = icmp ne ptr %119, null
-  br label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE6assureIiEEPKDaj.exit.i
-
-_ZNK4entt14basic_registryINS_6entityESaIS1_EE6assureIiEEPKDaj.exit.i: ; preds = %for.cond.i.i.i17.i, %if.then.i29.i, %_ZNK4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE4findERSB_.exit.i25.i
-  %spec.select.i31.i = phi i1 [ %120, %if.then.i29.i ], [ false, %_ZNK4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE4findERSB_.exit.i25.i ], [ false, %for.cond.i.i.i17.i ]
-  call void @llvm.assume(i1 %spec.select.i31.i)
+  call void @llvm.assume(i1 %120)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar128) #22
   %sparse.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i416, i64 8
   %121 = load ptr, ptr %sparse.i.i.i.i.i.i.i, align 8, !tbaa !88, !noalias !1582
@@ -160612,11 +160604,11 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE6assureIiEEPKDaj.exit.i: ; preds = 
   %cmp.i.i.i466 = icmp eq ptr %arrayidx.i.i.i.i.i.i449, %arrayidx.i.i.i.i.i464
   br i1 %cmp.i.i.i466, label %if.then.i.i468, label %if.end.i.i467
 
-if.then.i.i468:                                   ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE6assureIiEEPKDaj.exit.i
+if.then.i.i468:                                   ; preds = %_ZNK4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE4findERSB_.exit.i25.i
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar128)
           to label %invoke.cont137 unwind label %lpad134
 
-if.end.i.i467:                                    ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE6assureIiEEPKDaj.exit.i
+if.end.i.i467:                                    ; preds = %_ZNK4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setINS_6entityESaIS3_EEEENS_8identityESt8equal_toIjESaISt4pairIKjS6_EEE4findERSB_.exit.i25.i
   invoke void @_ZN7testing8internal18CmpHelperEQFailureI11no_eto_typeS2_EENS_15AssertionResultEPKcS5_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar128, ptr noundef nonnull @.str.523, ptr noundef nonnull @.str.524, ptr noundef nonnull align 1 dereferenceable(1) %arrayidx.i.i.i.i.i.i449, ptr noundef nonnull align 1 dereferenceable(1) %arrayidx.i.i.i.i.i464)
           to label %invoke.cont137 unwind label %lpad134
 

@@ -5949,94 +5949,87 @@ define hidden void @zif_register_shutdown_function(ptr nocapture noundef readonl
   %9 = getelementptr inbounds i8, ptr %4, i64 64
   %10 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.21, ptr noundef nonnull %4, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %6) #18
   %11 = icmp eq i32 %10, -1
-  br i1 %11, label %12, label %15
+  br i1 %11, label %12, label %14
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %14 = icmp ne ptr %13, null
-  br label %47
+  br label %43
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %4, i64 17
-  %.val1 = load i8, ptr %16, align 1
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds i8, ptr %4, i64 17
+  %.val1 = load i8, ptr %15, align 1
   %.not.i = icmp eq i8 %.val1, 0
-  br i1 %.not.i, label %21, label %17
+  br i1 %.not.i, label %20, label %16
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
-  %.val = load ptr, ptr %18, align 8
-  %19 = load i32, ptr %.val, align 4
-  %20 = add i32 %19, 1
-  store i32 %20, ptr %.val, align 4
-  br label %21
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %.val = load ptr, ptr %17, align 8
+  %18 = load i32, ptr %.val, align 4
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %.val, align 4
+  br label %20
 
-21:                                               ; preds = %17, %15
-  %22 = getelementptr inbounds i8, ptr %4, i64 88
-  %23 = load ptr, ptr %22, align 8
-  %.not8.i = icmp eq ptr %23, null
-  br i1 %.not8.i, label %fci_addref.exit, label %24
+20:                                               ; preds = %16, %14
+  %21 = getelementptr inbounds i8, ptr %4, i64 88
+  %22 = load ptr, ptr %21, align 8
+  %.not8.i = icmp eq ptr %22, null
+  br i1 %.not8.i, label %fci_addref.exit, label %23
 
-24:                                               ; preds = %21
-  %25 = load i32, ptr %23, align 4
-  %26 = add i32 %25, 1
-  store i32 %26, ptr %23, align 4
+23:                                               ; preds = %20
+  %24 = load i32, ptr %22, align 4
+  %25 = add i32 %24, 1
+  store i32 %25, ptr %22, align 4
   br label %fci_addref.exit
 
-fci_addref.exit:                                  ; preds = %21, %24
-  %27 = load i32, ptr %6, align 4
-  %28 = load ptr, ptr %5, align 8
-  call void @zend_fcall_info_argp(ptr noundef nonnull %4, i32 noundef %27, ptr noundef %28) #18
+fci_addref.exit:                                  ; preds = %20, %23
+  %26 = load i32, ptr %6, align 4
+  %27 = load ptr, ptr %5, align 8
+  call void @zend_fcall_info_argp(ptr noundef nonnull %4, i32 noundef %26, ptr noundef %27) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %29 = load ptr, ptr @basic_globals, align 8
-  %.not.i2 = icmp eq ptr %29, null
-  br i1 %.not.i2, label %30, label %32
+  %28 = load ptr, ptr @basic_globals, align 8
+  %.not.i2 = icmp eq ptr %28, null
+  br i1 %.not.i2, label %29, label %31
 
-30:                                               ; preds = %fci_addref.exit
-  %31 = call noalias ptr @_emalloc_56() #18
-  store ptr %31, ptr @basic_globals, align 8
-  call void @_zend_hash_init(ptr noundef %31, i32 noundef 0, ptr noundef nonnull @user_shutdown_function_dtor, i1 noundef zeroext false) #18
+29:                                               ; preds = %fci_addref.exit
+  %30 = call noalias ptr @_emalloc_56() #18
+  store ptr %30, ptr @basic_globals, align 8
+  call void @_zend_hash_init(ptr noundef %30, i32 noundef 0, ptr noundef nonnull @user_shutdown_function_dtor, i1 noundef zeroext false) #18
   %.pre.i = load ptr, ptr @basic_globals, align 8
-  br label %32
+  br label %31
 
-32:                                               ; preds = %30, %fci_addref.exit
-  %33 = phi ptr [ %.pre.i, %30 ], [ %29, %fci_addref.exit ]
+31:                                               ; preds = %29, %fci_addref.exit
+  %32 = phi ptr [ %.pre.i, %29 ], [ %28, %fci_addref.exit ]
   store ptr null, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 13, ptr %34, align 8
-  %35 = call ptr @zend_hash_next_index_insert(ptr noundef %33, ptr noundef nonnull %3) #18
-  %.not46.i = icmp eq ptr %35, null
-  br i1 %.not46.i, label %append_user_shutdown_function.exit, label %36
+  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 13, ptr %33, align 8
+  %34 = call ptr @zend_hash_next_index_insert(ptr noundef %32, ptr noundef nonnull %3) #18
+  %.not46.i = icmp ne ptr %34, null
+  call void @llvm.assume(i1 %.not46.i)
+  %35 = getelementptr inbounds i8, ptr %32, i64 4
+  %36 = load i32, ptr %35, align 4
+  %37 = and i32 %36, 128
+  %.not47.i = icmp eq i32 %37, 0
+  br i1 %.not47.i, label %40, label %38
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %33, i64 4
-  %38 = load i32, ptr %37, align 4
-  %39 = and i32 %38, 128
-  %.not47.i = icmp eq i32 %39, 0
-  br i1 %.not47.i, label %42, label %40
-
-40:                                               ; preds = %36
-  %41 = call noalias dereferenceable_or_null(104) ptr @__zend_malloc(i64 noundef 104) #20
-  br label %44
-
-42:                                               ; preds = %36
-  %43 = call noalias ptr @_emalloc_112() #18
-  br label %44
-
-44:                                               ; preds = %42, %40
-  %45 = phi ptr [ %41, %40 ], [ %43, %42 ]
-  store ptr %45, ptr %35, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %45, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 104, i1 false)
-  %46 = icmp ne ptr %45, null
+38:                                               ; preds = %31
+  %39 = call noalias dereferenceable_or_null(104) ptr @__zend_malloc(i64 noundef 104) #20
   br label %append_user_shutdown_function.exit
 
-append_user_shutdown_function.exit:               ; preds = %32, %44
-  %.0.i = phi i1 [ %46, %44 ], [ false, %32 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %47
+40:                                               ; preds = %31
+  %41 = call noalias ptr @_emalloc_112() #18
+  br label %append_user_shutdown_function.exit
 
-47:                                               ; preds = %append_user_shutdown_function.exit, %12
-  %.0.i.sink = phi i1 [ %.0.i, %append_user_shutdown_function.exit ], [ %14, %12 ]
-  call void @llvm.assume(i1 %.0.i.sink)
+append_user_shutdown_function.exit:               ; preds = %40, %38
+  %42 = phi ptr [ %39, %38 ], [ %41, %40 ]
+  store ptr %42, ptr %34, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %42, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 104, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  br label %43
+
+43:                                               ; preds = %append_user_shutdown_function.exit, %12
+  %.sink.in = phi ptr [ %42, %append_user_shutdown_function.exit ], [ %13, %12 ]
+  %.sink = icmp ne ptr %.sink.in, null
+  call void @llvm.assume(i1 %.sink)
   ret void
 }
 

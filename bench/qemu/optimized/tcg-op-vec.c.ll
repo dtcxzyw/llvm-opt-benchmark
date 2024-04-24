@@ -1351,16 +1351,12 @@ if.then21.i.i.i:                                  ; preds = %entry
   br label %tcg_gen_sub_vec.exit
 
 if.else.i.i.i:                                    ; preds = %entry
-  %cmp22.i.i.i = icmp slt i32 %call19.i.i.i, 0
-  br i1 %cmp22.i.i.i, label %if.then23.i.i.i, label %tcg_gen_sub_vec.exit
-
-if.then23.i.i.i:                                  ; preds = %if.else.i.i.i
+  %cmp22.i.i.i = icmp ne i32 %call19.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp22.i.i.i)
   tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %tcg_gen_sub_vec.exit
 
-tcg_gen_sub_vec.exit:                             ; preds = %if.then21.i.i.i, %if.else.i.i.i, %if.then23.i.i.i
-  %retval.0.i.i.i = phi i1 [ false, %if.else.i.i.i ], [ true, %if.then23.i.i.i ], [ true, %if.then21.i.i.i ]
-  tail call void @llvm.assume(i1 %retval.0.i.i.i)
+tcg_gen_sub_vec.exit:                             ; preds = %if.then21.i.i.i, %if.else.i.i.i
   ret void
 }
 
@@ -1418,16 +1414,12 @@ if.then21.i.i:                                    ; preds = %entry
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp slt i32 %call19.i.i, 0
-  br i1 %cmp22.i.i, label %if.then23.i.i, label %do_op3_nofail.exit
-
-if.then23.i.i:                                    ; preds = %if.else.i.i
+  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
+  tail call void @llvm.assume(i1 %cmp22.i.i)
   tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i, %if.then23.i.i
-  %retval.0.i.i = phi i1 [ false, %if.else.i.i ], [ true, %if.then23.i.i ], [ true, %if.then21.i.i ]
-  tail call void @llvm.assume(i1 %retval.0.i.i)
+do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
   ret void
 }
 
@@ -1547,16 +1539,12 @@ if.then21.i.i.i.i:                                ; preds = %if.then7
   br label %tcg_gen_neg_vec.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.then7
-  %cmp22.i.i.i.i = icmp slt i32 %call19.i.i.i.i, 0
-  br i1 %cmp22.i.i.i.i, label %if.then23.i.i.i.i, label %tcg_gen_neg_vec.exit
-
-if.then23.i.i.i.i:                                ; preds = %if.else.i.i.i.i
+  %cmp22.i.i.i.i = icmp ne i32 %call19.i.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp22.i.i.i.i)
   tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i.i, i32 noundef %vece, i64 noundef %16, i64 noundef %17, i64 noundef %18) #5
   br label %tcg_gen_neg_vec.exit
 
-tcg_gen_neg_vec.exit:                             ; preds = %if.then21.i.i.i.i, %if.else.i.i.i.i, %if.then23.i.i.i.i
-  %retval.0.i.i.i.i = phi i1 [ false, %if.else.i.i.i.i ], [ true, %if.then23.i.i.i.i ], [ true, %if.then21.i.i.i.i ]
-  tail call void @llvm.assume(i1 %retval.0.i.i.i.i)
+tcg_gen_neg_vec.exit:                             ; preds = %if.then21.i.i.i.i, %if.else.i.i.i.i
   tail call fastcc void @do_minmax(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %call3, i32 noundef 166, i32 noundef 11)
   br label %if.end14
 
@@ -1706,22 +1694,15 @@ if.then21.i.i.i:                                  ; preds = %if.end13
   store i64 %48, ptr %arrayidx7.i.i.i.i, align 8
   %arrayidx9.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 48
   store i64 %49, ptr %arrayidx9.i.i.i.i, align 8
-  br label %tcg_gen_sub_vec.exit
-
-if.else.i.i.i:                                    ; preds = %if.end13
-  %cmp22.i.i.i = icmp slt i32 %call19.i.i.i, 0
-  br i1 %cmp22.i.i.i, label %if.then23.i.i.i, label %tcg_gen_sub_vec.exit
-
-if.then23.i.i.i:                                  ; preds = %if.else.i.i.i
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece, i64 noundef %48, i64 noundef %48, i64 noundef %49) #5
-  br label %tcg_gen_sub_vec.exit
-
-tcg_gen_sub_vec.exit:                             ; preds = %if.then21.i.i.i, %if.else.i.i.i, %if.then23.i.i.i
-  %retval.0.i.i.i = phi i1 [ false, %if.else.i.i.i ], [ true, %if.then23.i.i.i ], [ true, %if.then21.i.i.i ]
-  tail call void @llvm.assume(i1 %retval.0.i.i.i)
   br label %if.end14
 
-if.end14:                                         ; preds = %tcg_gen_sub_vec.exit, %tcg_gen_neg_vec.exit
+if.else.i.i.i:                                    ; preds = %if.end13
+  %cmp22.i.i.i = icmp ne i32 %call19.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp22.i.i.i)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece, i64 noundef %48, i64 noundef %48, i64 noundef %49) #5
+  br label %if.end14
+
+if.end14:                                         ; preds = %if.else.i.i.i, %if.then21.i.i.i, %tcg_gen_neg_vec.exit
   tail call void @tcg_temp_free_vec(ptr noundef %call3) #5
   br label %if.end15
 
@@ -1988,16 +1969,12 @@ if.then21.i.i:                                    ; preds = %entry
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp slt i32 %call19.i.i, 0
-  br i1 %cmp22.i.i, label %if.then23.i.i, label %do_op3_nofail.exit
-
-if.then23.i.i:                                    ; preds = %if.else.i.i
+  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
+  tail call void @llvm.assume(i1 %cmp22.i.i)
   tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 155, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i, %if.then23.i.i
-  %retval.0.i.i = phi i1 [ false, %if.else.i.i ], [ true, %if.then23.i.i ], [ true, %if.then21.i.i ]
-  tail call void @llvm.assume(i1 %retval.0.i.i)
+do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
   ret void
 }
 
@@ -2055,16 +2032,12 @@ if.then21.i.i:                                    ; preds = %entry
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp slt i32 %call19.i.i, 0
-  br i1 %cmp22.i.i, label %if.then23.i.i, label %do_op3_nofail.exit
-
-if.then23.i.i:                                    ; preds = %if.else.i.i
+  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
+  tail call void @llvm.assume(i1 %cmp22.i.i)
   tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 157, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i, %if.then23.i.i
-  %retval.0.i.i = phi i1 [ false, %if.else.i.i ], [ true, %if.then23.i.i ], [ true, %if.then21.i.i ]
-  tail call void @llvm.assume(i1 %retval.0.i.i)
+do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
   ret void
 }
 
@@ -2122,16 +2095,12 @@ if.then21.i.i:                                    ; preds = %entry
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp slt i32 %call19.i.i, 0
-  br i1 %cmp22.i.i, label %if.then23.i.i, label %do_op3_nofail.exit
-
-if.then23.i.i:                                    ; preds = %if.else.i.i
+  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
+  tail call void @llvm.assume(i1 %cmp22.i.i)
   tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 160, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i, %if.then23.i.i
-  %retval.0.i.i = phi i1 [ false, %if.else.i.i ], [ true, %if.then23.i.i ], [ true, %if.then21.i.i ]
-  tail call void @llvm.assume(i1 %retval.0.i.i)
+do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
   ret void
 }
 
@@ -2327,16 +2296,12 @@ if.then21.i.i.i:                                  ; preds = %tcg_gen_not_vec.exi
   br label %tcg_gen_add_vec.exit
 
 if.else.i.i.i:                                    ; preds = %tcg_gen_not_vec.exit
-  %cmp22.i.i.i = icmp slt i32 %call19.i.i.i, 0
-  br i1 %cmp22.i.i.i, label %if.then23.i.i.i, label %tcg_gen_add_vec.exit
-
-if.then23.i.i.i:                                  ; preds = %if.else.i.i.i
+  %cmp22.i.i.i = icmp ne i32 %call19.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp22.i.i.i)
   tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 155, i32 noundef %bf.cast.i.i.i17, i32 noundef %vece, i64 noundef %37, i64 noundef %38, i64 noundef %39) #5
   br label %tcg_gen_add_vec.exit
 
-tcg_gen_add_vec.exit:                             ; preds = %if.then21.i.i.i, %if.else.i.i.i, %if.then23.i.i.i
-  %retval.0.i.i.i = phi i1 [ false, %if.else.i.i.i ], [ true, %if.then23.i.i.i ], [ true, %if.then21.i.i.i ]
-  tail call void @llvm.assume(i1 %retval.0.i.i.i)
+tcg_gen_add_vec.exit:                             ; preds = %if.then21.i.i.i, %if.else.i.i.i
   tail call void @tcg_temp_free_vec(ptr noundef %call2) #5
   br label %if.end
 
@@ -2405,16 +2370,12 @@ if.then21.i.i:                                    ; preds = %entry
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp slt i32 %call19.i.i, 0
-  br i1 %cmp22.i.i, label %if.then23.i.i, label %do_op3_nofail.exit
-
-if.then23.i.i:                                    ; preds = %if.else.i.i
+  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
+  tail call void @llvm.assume(i1 %cmp22.i.i)
   tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 162, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i, %if.then23.i.i
-  %retval.0.i.i = phi i1 [ false, %if.else.i.i ], [ true, %if.then23.i.i ], [ true, %if.then21.i.i ]
-  tail call void @llvm.assume(i1 %retval.0.i.i)
+do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
   ret void
 }
 
@@ -2530,16 +2491,12 @@ if.then21.i.i.i:                                  ; preds = %if.then
   br label %tcg_gen_sub_vec.exit
 
 if.else.i.i.i:                                    ; preds = %if.then
-  %cmp22.i.i.i = icmp slt i32 %call19.i.i.i, 0
-  br i1 %cmp22.i.i.i, label %if.then23.i.i.i, label %tcg_gen_sub_vec.exit
-
-if.then23.i.i.i:                                  ; preds = %if.else.i.i.i
+  %cmp22.i.i.i = icmp ne i32 %call19.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp22.i.i.i)
   tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece, i64 noundef %16, i64 noundef %17, i64 noundef %18) #5
   br label %tcg_gen_sub_vec.exit
 
-tcg_gen_sub_vec.exit:                             ; preds = %if.then21.i.i.i, %if.else.i.i.i, %if.then23.i.i.i
-  %retval.0.i.i.i = phi i1 [ false, %if.else.i.i.i ], [ true, %if.then23.i.i.i ], [ true, %if.then21.i.i.i ]
-  tail call void @llvm.assume(i1 %retval.0.i.i.i)
+tcg_gen_sub_vec.exit:                             ; preds = %if.then21.i.i.i, %if.else.i.i.i
   tail call void @tcg_temp_free_vec(ptr noundef %call2) #5
   br label %if.end
 
@@ -2684,16 +2641,12 @@ if.then21.i.i:                                    ; preds = %entry
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp slt i32 %call19.i.i, 0
-  br i1 %cmp22.i.i, label %if.then23.i.i, label %do_op3_nofail.exit
-
-if.then23.i.i:                                    ; preds = %if.else.i.i
+  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
+  tail call void @llvm.assume(i1 %cmp22.i.i)
   tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 185, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i, %if.then23.i.i
-  %retval.0.i.i = phi i1 [ false, %if.else.i.i ], [ true, %if.then23.i.i ], [ true, %if.then21.i.i ]
-  tail call void @llvm.assume(i1 %retval.0.i.i)
+do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
   ret void
 }
 
@@ -2751,16 +2704,12 @@ if.then21.i.i:                                    ; preds = %entry
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp slt i32 %call19.i.i, 0
-  br i1 %cmp22.i.i, label %if.then23.i.i, label %do_op3_nofail.exit
-
-if.then23.i.i:                                    ; preds = %if.else.i.i
+  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
+  tail call void @llvm.assume(i1 %cmp22.i.i)
   tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 186, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i, %if.then23.i.i
-  %retval.0.i.i = phi i1 [ false, %if.else.i.i ], [ true, %if.then23.i.i ], [ true, %if.then21.i.i ]
-  tail call void @llvm.assume(i1 %retval.0.i.i)
+do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
   ret void
 }
 
@@ -2818,16 +2767,12 @@ if.then21.i.i:                                    ; preds = %entry
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp slt i32 %call19.i.i, 0
-  br i1 %cmp22.i.i, label %if.then23.i.i, label %do_op3_nofail.exit
-
-if.then23.i.i:                                    ; preds = %if.else.i.i
+  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
+  tail call void @llvm.assume(i1 %cmp22.i.i)
   tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 187, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i, %if.then23.i.i
-  %retval.0.i.i = phi i1 [ false, %if.else.i.i ], [ true, %if.then23.i.i ], [ true, %if.then21.i.i ]
-  tail call void @llvm.assume(i1 %retval.0.i.i)
+do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
   ret void
 }
 
@@ -2885,16 +2830,12 @@ if.then21.i.i:                                    ; preds = %entry
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp slt i32 %call19.i.i, 0
-  br i1 %cmp22.i.i, label %if.then23.i.i, label %do_op3_nofail.exit
-
-if.then23.i.i:                                    ; preds = %if.else.i.i
+  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
+  tail call void @llvm.assume(i1 %cmp22.i.i)
   tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 188, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i, %if.then23.i.i
-  %retval.0.i.i = phi i1 [ false, %if.else.i.i ], [ true, %if.then23.i.i ], [ true, %if.then21.i.i ]
-  tail call void @llvm.assume(i1 %retval.0.i.i)
+do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
   ret void
 }
 
@@ -2952,16 +2893,12 @@ if.then21.i.i:                                    ; preds = %entry
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp slt i32 %call19.i.i, 0
-  br i1 %cmp22.i.i, label %if.then23.i.i, label %do_op3_nofail.exit
-
-if.then23.i.i:                                    ; preds = %if.else.i.i
+  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
+  tail call void @llvm.assume(i1 %cmp22.i.i)
   tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 189, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i, %if.then23.i.i
-  %retval.0.i.i = phi i1 [ false, %if.else.i.i ], [ true, %if.then23.i.i ], [ true, %if.then21.i.i ]
-  tail call void @llvm.assume(i1 %retval.0.i.i)
+do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
   ret void
 }
 

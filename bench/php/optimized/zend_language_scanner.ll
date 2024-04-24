@@ -375,64 +375,56 @@ define noundef i32 @zend_lex_tstring(ptr nocapture noundef writeonly %0, ptr nou
   %12 = ptrtoint ptr %1 to i64
   %13 = sub i64 %11, %12
   %14 = icmp eq ptr %.075, %1
-  br i1 %14, label %15, label %30
+  br i1 %14, label %15, label %26
 
 15:                                               ; preds = %10
   %16 = load i8, ptr %1, align 1
   %17 = icmp eq i8 %16, 60
-  br i1 %17, label %18, label %26
+  tail call void @llvm.assume(i1 %17)
+  %18 = getelementptr inbounds i8, ptr %1, i64 1
+  %19 = load i8, ptr %18, align 1
+  %20 = icmp eq i8 %19, 63
+  tail call void @llvm.assume(i1 %20)
+  %21 = getelementptr inbounds i8, ptr %1, i64 2
+  %22 = load i8, ptr %21, align 1
+  %23 = icmp eq i8 %22, 61
+  tail call void @llvm.assume(i1 %23)
+  %24 = load ptr, ptr @zend_ce_parse_error, align 8
+  %25 = tail call ptr @zend_throw_exception(ptr noundef %24, ptr noundef nonnull @.str, i64 noundef 0) #16
+  br label %40
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 1
-  %20 = load i8, ptr %19, align 1
-  %21 = icmp eq i8 %20, 63
-  br i1 %21, label %22, label %26
+26:                                               ; preds = %10
+  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 23), align 8
+  %.not = icmp eq ptr %27, null
+  br i1 %.not, label %30, label %28
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 2
-  %24 = load i8, ptr %23, align 1
-  %25 = icmp eq i8 %24, 61
-  br label %26
+28:                                               ; preds = %26
+  %29 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 24), align 8
+  tail call void %27(i32 noundef 1, i32 noundef 262, i32 noundef 0, ptr noundef %1, i64 noundef %13, ptr noundef %29) #16
+  br label %30
 
-26:                                               ; preds = %22, %18, %15
-  %27 = phi i1 [ false, %18 ], [ false, %15 ], [ %25, %22 ]
-  tail call void @llvm.assume(i1 %27)
-  %28 = load ptr, ptr @zend_ce_parse_error, align 8
-  %29 = tail call ptr @zend_throw_exception(ptr noundef %28, ptr noundef nonnull @.str, i64 noundef 0) #16
-  br label %44
+30:                                               ; preds = %28, %26
+  %31 = and i64 %13, -8
+  %32 = add i64 %31, 32
+  %33 = tail call noalias ptr @_emalloc(i64 noundef %32) #17
+  store i32 1, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  store i32 22, ptr %34, align 4
+  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  store i64 0, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %33, i64 16
+  store i64 %13, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %33, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr align 1 %1, i64 %13, i1 false)
+  %38 = getelementptr inbounds [1 x i8], ptr %37, i64 0, i64 %13
+  store i8 0, ptr %38, align 1
+  store ptr %33, ptr %0, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 262, ptr %39, align 8
+  br label %40
 
-30:                                               ; preds = %10
-  %31 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 23), align 8
-  %.not = icmp eq ptr %31, null
-  br i1 %.not, label %34, label %32
-
-32:                                               ; preds = %30
-  %33 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 24), align 8
-  tail call void %31(i32 noundef 1, i32 noundef 262, i32 noundef 0, ptr noundef %1, i64 noundef %13, ptr noundef %33) #16
-  br label %34
-
-34:                                               ; preds = %32, %30
-  %35 = and i64 %13, -8
-  %36 = add i64 %35, 32
-  %37 = tail call noalias ptr @_emalloc(i64 noundef %36) #17
-  store i32 1, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
-  store i32 22, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %37, i64 8
-  store i64 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %37, i64 16
-  store i64 %13, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %41, ptr align 1 %1, i64 %13, i1 false)
-  %42 = getelementptr inbounds [1 x i8], ptr %41, i64 0, i64 %13
-  store i8 0, ptr %42, align 1
-  store ptr %37, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 262, ptr %43, align 8
-  br label %44
-
-44:                                               ; preds = %34, %26
-  %.0 = phi i32 [ -1, %26 ], [ 0, %34 ]
+40:                                               ; preds = %30, %15
+  %.0 = phi i32 [ -1, %15 ], [ 0, %30 ]
   ret i32 %.0
 }
 
@@ -6543,10 +6535,10 @@ strip_underscores.exit6698:                       ; preds = %1817
   store i32 4, ptr %28, align 8
   %1833 = load i32, ptr %1831, align 4
   %.not6575 = icmp eq i32 %1833, 0
+  tail call void @llvm.assume(i1 %.not6575)
   %1834 = load ptr, ptr %17, align 8
   %1835 = getelementptr inbounds i8, ptr %.15348, i64 %.36747
   %1836 = icmp eq ptr %1834, %1835
-  tail call void @llvm.assume(i1 %.not6575)
   tail call void @llvm.assume(i1 %1836)
   br label %1837
 
@@ -6873,10 +6865,10 @@ strip_underscores.exit6706:                       ; preds = %1936
   store i32 4, ptr %28, align 8
   %1956 = load i32, ptr %1954, align 4
   %.not6567 = icmp eq i32 %1956, 0
+  tail call void @llvm.assume(i1 %.not6567)
   %1957 = load ptr, ptr %19, align 8
   %1958 = getelementptr inbounds i8, ptr %.15353, i64 %.36739
   %1959 = icmp eq ptr %1957, %1958
-  tail call void @llvm.assume(i1 %.not6567)
   tail call void @llvm.assume(i1 %1959)
   br label %1960
 

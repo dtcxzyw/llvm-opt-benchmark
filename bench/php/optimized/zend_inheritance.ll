@@ -204,9 +204,9 @@ define internal fastcc i32 @zend_perform_covariant_type_check(ptr noundef %0, pt
   store i32 %2, ptr %9, align 8
   %10 = and i32 %2, 33554431
   %11 = icmp ne i32 %10, 0
+  tail call void @llvm.assume(i1 %11)
   %12 = and i32 %5, 33554431
   %13 = icmp ne i32 %12, 0
-  tail call void @llvm.assume(i1 %11)
   tail call void @llvm.assume(i1 %13)
   %14 = and i32 %5, 262143
   %15 = icmp eq i32 %14, 1022

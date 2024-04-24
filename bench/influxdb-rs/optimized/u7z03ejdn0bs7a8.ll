@@ -11227,7 +11227,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 5:                                                ; preds = %4
   %.not12 = icmp eq i64 %1, 0
-  br i1 %.not12, label %.sink.split.i.thread, label %.lr.ph.i
+  br i1 %.not12, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h843933bde0394dceE.llvm.15769799167173126418.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %.critedge.backedge.i
   %6 = phi i1 [ %15, %.critedge.backedge.i ], [ true, %5 ]
@@ -11253,13 +11253,11 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h18f66aade4fe7bc0E.llvm.15769799167173126418.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h96d37b25b1e7290eE.exit.i", %.critedge.backedge.i
   %.lcssa.i = phi i1 [ %15, %.critedge.backedge.i ], [ %6, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h96d37b25b1e7290eE.exit.i" ]
-  br i1 %.lcssa.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h843933bde0394dceE.llvm.15769799167173126418.exit", label %.sink.split.i.thread
-
-.sink.split.i.thread:                             ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17h18f66aade4fe7bc0E.llvm.15769799167173126418.exit, %5
+  %not..lcssa.i = xor i1 %.lcssa.i, true
   br label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h843933bde0394dceE.llvm.15769799167173126418.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h843933bde0394dceE.llvm.15769799167173126418.exit": ; preds = %.sink.split.i.thread, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h18f66aade4fe7bc0E.llvm.15769799167173126418.exit, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h18f66aade4fe7bc0E.llvm.15769799167173126418.exit ], [ true, %.sink.split.i.thread ]
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h843933bde0394dceE.llvm.15769799167173126418.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17h18f66aade4fe7bc0E.llvm.15769799167173126418.exit, %5, %4
+  %.0 = phi i1 [ false, %4 ], [ true, %5 ], [ %not..lcssa.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h18f66aade4fe7bc0E.llvm.15769799167173126418.exit ]
   ret i1 %.0
 }
 
@@ -11270,7 +11268,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 5:                                                ; preds = %4
   %.not12 = icmp eq i64 %1, 0
-  br i1 %.not12, label %.sink.split.i.thread, label %.lr.ph.i.preheader
+  br i1 %.not12, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h843933bde0394dceE.llvm.15769799167173126418.exit", label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %5
   %.fca.0.extract.val.i13 = load i8, ptr %0, align 8, !noalias !1909, !noundef !5
@@ -11285,7 +11283,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %.fca.0.extract.val.i = load i8, ptr %8, align 8, !noalias !1909, !noundef !5
   %.fca.1.extract.val.i = load i8, ptr %9, align 8, !noalias !1909, !noundef !5
   %10 = icmp eq i8 %.fca.0.extract.val.i, %.fca.1.extract.val.i
-  br i1 %10, label %.lr.ph, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h647b72346b85551bE.llvm.15769799167173126418.exit
+  br i1 %10, label %.lr.ph, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h647b72346b85551bE.llvm.15769799167173126418.exit.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.pn = phi ptr [ %9, %.lr.ph.i ], [ %2, %.lr.ph.i.preheader ]
@@ -11303,22 +11301,20 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %14 = getelementptr inbounds i8, ptr %.fca.0.extract.val6.i17, i64 16
   %15 = getelementptr inbounds i8, ptr %.fca.1.extract.val7.i18, i64 16
   %16 = tail call noundef zeroext i1 @"_ZN67_$LT$arrow_schema..field..Field$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc92152cb97b3f151E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %15), !noalias !1909
-  br i1 %16, label %.critedge.backedge.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h647b72346b85551bE.llvm.15769799167173126418.exit
+  br i1 %16, label %.critedge.backedge.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h647b72346b85551bE.llvm.15769799167173126418.exit.loopexit
 
 .critedge.backedge.i:                             ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hd8208c278809b542E.exit.i", %.lr.ph
   %17 = icmp ult i64 %11, %1
   %exitcond.not.i = icmp eq i64 %11, %1
-  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h647b72346b85551bE.llvm.15769799167173126418.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h647b72346b85551bE.llvm.15769799167173126418.exit.loopexit, label %.lr.ph.i
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h647b72346b85551bE.llvm.15769799167173126418.exit: ; preds = %.critedge.backedge.i, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hd8208c278809b542E.exit.i", %.lr.ph.i
-  %.lcssa.i = phi i1 [ %17, %.lr.ph.i ], [ %12, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hd8208c278809b542E.exit.i" ], [ %17, %.critedge.backedge.i ]
-  br i1 %.lcssa.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h843933bde0394dceE.llvm.15769799167173126418.exit", label %.sink.split.i.thread
-
-.sink.split.i.thread:                             ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17h647b72346b85551bE.llvm.15769799167173126418.exit, %5
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h647b72346b85551bE.llvm.15769799167173126418.exit.loopexit: ; preds = %.lr.ph.i, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hd8208c278809b542E.exit.i", %.critedge.backedge.i
+  %.lcssa.i.ph = phi i1 [ %17, %.critedge.backedge.i ], [ %12, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hd8208c278809b542E.exit.i" ], [ %17, %.lr.ph.i ]
+  %18 = xor i1 %.lcssa.i.ph, true
   br label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h843933bde0394dceE.llvm.15769799167173126418.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h843933bde0394dceE.llvm.15769799167173126418.exit": ; preds = %.lr.ph.i.preheader, %.sink.split.i.thread, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h647b72346b85551bE.llvm.15769799167173126418.exit, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h647b72346b85551bE.llvm.15769799167173126418.exit ], [ true, %.sink.split.i.thread ], [ false, %.lr.ph.i.preheader ]
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h843933bde0394dceE.llvm.15769799167173126418.exit": ; preds = %.lr.ph.i.preheader, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h647b72346b85551bE.llvm.15769799167173126418.exit.loopexit, %5, %4
+  %.0 = phi i1 [ false, %4 ], [ true, %5 ], [ false, %.lr.ph.i.preheader ], [ %18, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h647b72346b85551bE.llvm.15769799167173126418.exit.loopexit ]
   ret i1 %.0
 }
 
