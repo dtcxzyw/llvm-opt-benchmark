@@ -2625,12 +2625,15 @@ define internal fastcc noundef i32 @internal_flush() unnamed_addr #0 {
   %7 = getelementptr i8, ptr %1, i64 %6
   %8 = ptrtoint ptr %7 to i64
   %9 = icmp ult ptr %4, %7
-  br i1 %9, label %.outer.split, label %.outer._crit_edge
+  br i1 %9, label %.outer.split.preheader, label %.outer._crit_edge
 
-.outer.split:                                     ; preds = %0, %.outer
-  %.09.ph20 = phi ptr [ %28, %.outer ], [ %4, %0 ]
-  %.pn = ptrtoint ptr %.09.ph20 to i64
-  %10 = sub i64 %8, %.pn
+.outer.split.preheader:                           ; preds = %0
+  %gepdiff = sub nsw i64 %6, %3
+  br label %.outer.split
+
+.outer.split:                                     ; preds = %.outer.split.preheader, %.outer
+  %10 = phi i64 [ %33, %.outer ], [ %gepdiff, %.outer.split.preheader ]
+  %.09.ph20 = phi ptr [ %28, %.outer ], [ %4, %.outer.split.preheader ]
   br label %11
 
 11:                                               ; preds = %.outer.split, %16
@@ -2679,6 +2682,8 @@ define internal fastcc noundef i32 @internal_flush() unnamed_addr #0 {
   %30 = add i32 %29, %14
   store i32 %30, ptr @PqSendStart, align 4
   %31 = icmp ult ptr %28, %7
+  %32 = ptrtoint ptr %28 to i64
+  %33 = sub i64 %8, %32
   br i1 %31, label %.outer.split, label %.outer._crit_edge, !llvm.loop !16
 
 .outer._crit_edge:                                ; preds = %.outer, %0

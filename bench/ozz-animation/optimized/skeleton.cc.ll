@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.ozz::math::SoaTransform" = type { %"struct.ozz::math::SoaFloat3", %"struct.ozz::math::SoaQuaternion", %"struct.ozz::math::SoaFloat3" }
-%"struct.ozz::math::SoaQuaternion" = type { <4 x float>, <4 x float>, <4 x float>, <4 x float> }
-%"struct.ozz::math::SoaFloat3" = type { <4 x float>, <4 x float>, <4 x float> }
 %"class.ozz::log::Err" = type { %"class.ozz::log::Logger.base", [7 x i8] }
 %"class.ozz::log::Logger.base" = type <{ ptr, i8 }>
 
@@ -165,38 +162,40 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN3ozz9animation8Skeleton8AllocateEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %24, label %5
+  br i1 %4, label %27, label %5
 
 5:                                                ; preds = %3
   %6 = add i64 %2, 3
   %7 = lshr i64 %6, 2
   %8 = mul i64 %7, 160
-  %reass.mul = mul i64 %2, 10
-  %9 = add i64 %reass.mul, %1
-  %10 = add i64 %9, %8
-  %11 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %10, i64 noundef 16)
-  %16 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %15, i64 %7
-  store ptr %15, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %7, ptr %17, align 8
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %2
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %16, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %2, ptr %20, align 8
-  %21 = getelementptr inbounds i16, ptr %18, i64 %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %18, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = shl i64 %2, 3
+  %10 = shl i64 %2, 1
+  %11 = add i64 %9, %1
+  %12 = add i64 %11, %10
+  %13 = add i64 %12, %8
+  %14 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %13, i64 noundef 16)
+  %19 = getelementptr inbounds i8, ptr %18, i64 %8
+  store ptr %18, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %19, i64 %9
+  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %19, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %2, ptr %23, align 8
-  br label %24
+  %24 = getelementptr inbounds i8, ptr %21, i64 %10
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %21, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %2, ptr %26, align 8
+  br label %27
 
-24:                                               ; preds = %3, %5
-  %.0 = phi ptr [ %21, %5 ], [ null, %3 ]
+27:                                               ; preds = %3, %5
+  %.0 = phi ptr [ %24, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -389,7 +388,7 @@ _ZN3ozz3log6LoggerlsIA30_cEERSoRKT_.exit:         ; preds = %12
 
 20:                                               ; preds = %18
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %6) #14
-  br label %90
+  br label %93
 
 21:                                               ; preds = %12, %18, %16, %_ZN3ozz3log6LoggerlsIA30_cEERSoRKT_.exit
   %22 = landingpad { ptr, i32 }
@@ -412,7 +411,7 @@ _ZN3ozz3log6LoggerlsIA30_cEERSoRKT_.exit:         ; preds = %12
   %33 = select i1 %31, i32 %.sroa.0.0.insert.insert.i, i32 %32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %.not32 = icmp eq i32 %33, 0
-  br i1 %.not32, label %90, label %_ZN3ozz9animation8Skeleton8AllocateEmm.exit
+  br i1 %.not32, label %93, label %_ZN3ozz9animation8Skeleton8AllocateEmm.exit
 
 _ZN3ozz9animation8Skeleton8AllocateEmm.exit:      ; preds = %23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -432,88 +431,90 @@ _ZN3ozz9animation8Skeleton8AllocateEmm.exit:      ; preds = %23
   %45 = add nsw i64 %44, 3
   %46 = lshr i64 %45, 2
   %47 = mul i64 %46, 160
-  %reass.mul.i = mul nsw i64 %44, 10
-  %48 = add i64 %47, %reass.mul.i
-  %49 = add i64 %48, %43
-  %50 = call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
-  %53 = load ptr, ptr %52, align 8
-  %54 = call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(8) %50, i64 noundef %49, i64 noundef 16)
-  %55 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %54, i64 %46
-  store ptr %54, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %46, ptr %56, align 8
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %44
-  %58 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %55, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %44, ptr %59, align 8
-  %60 = getelementptr inbounds i16, ptr %57, i64 %44
-  %61 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %57, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = shl nsw i64 %44, 3
+  %49 = shl nsw i64 %44, 1
+  %50 = mul nsw i64 %44, 10
+  %51 = add i64 %50, %47
+  %52 = add i64 %51, %43
+  %53 = call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %56 = load ptr, ptr %55, align 8
+  %57 = call noundef ptr %56(ptr noundef nonnull align 8 dereferenceable(8) %53, i64 noundef %52, i64 noundef 16)
+  %58 = getelementptr inbounds i8, ptr %57, i64 %47
+  store ptr %57, ptr %0, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %46, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %58, i64 %48
+  %61 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %58, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %44, ptr %62, align 8
-  %63 = load ptr, ptr %1, align 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = call noundef i64 %66(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull %60, i64 noundef %43)
-  %68 = icmp sgt i32 %33, 0
-  br i1 %68, label %.lr.ph, label %._crit_edge
+  %63 = getelementptr inbounds i8, ptr %60, i64 %49
+  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %60, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %44, ptr %65, align 8
+  %66 = load ptr, ptr %1, align 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = call noundef i64 %69(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull %63, i64 noundef %43)
+  %71 = icmp sgt i32 %33, 0
+  br i1 %71, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN3ozz9animation8Skeleton8AllocateEmm.exit
   %wide.trip.count = zext nneg i32 %33 to i64
-  br label %69
+  br label %72
 
-69:                                               ; preds = %.lr.ph, %69
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
-  %.050 = phi ptr [ %60, %.lr.ph ], [ %74, %69 ]
-  %70 = load ptr, ptr %58, align 8
-  %71 = getelementptr inbounds ptr, ptr %70, i64 %indvars.iv
-  store ptr %.050, ptr %71, align 8
-  %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.050) #15
-  %73 = add i64 %72, 1
-  %74 = getelementptr inbounds i8, ptr %.050, i64 %73
+72:                                               ; preds = %.lr.ph, %72
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
+  %.050 = phi ptr [ %63, %.lr.ph ], [ %77, %72 ]
+  %73 = load ptr, ptr %61, align 8
+  %74 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv
+  store ptr %.050, ptr %74, align 8
+  %75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.050) #15
+  %76 = add i64 %75, 1
+  %77 = getelementptr inbounds i8, ptr %.050, i64 %76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %69, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %72, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %69, %_ZN3ozz9animation8Skeleton8AllocateEmm.exit
-  %.sroa.01.0.copyload = load ptr, ptr %61, align 8
-  %.sroa.22.0.copyload = load i64, ptr %62, align 8
-  %75 = shl i64 %.sroa.22.0.copyload, 1
-  %76 = load ptr, ptr %1, align 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = call noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef %.sroa.01.0.copyload, i64 noundef %75)
-  %81 = load i8, ptr %29, align 8
-  %82 = trunc i8 %81 to i1
-  %.not30.i.i = icmp ne i64 %75, 0
-  %or.cond.not = and i1 %.not30.i.i, %82
+._crit_edge:                                      ; preds = %72, %_ZN3ozz9animation8Skeleton8AllocateEmm.exit
+  %.sroa.01.0.copyload = load ptr, ptr %64, align 8
+  %.sroa.22.0.copyload = load i64, ptr %65, align 8
+  %78 = shl i64 %.sroa.22.0.copyload, 1
+  %79 = load ptr, ptr %1, align 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = call noundef i64 %82(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef %.sroa.01.0.copyload, i64 noundef %78)
+  %84 = load i8, ptr %29, align 8
+  %85 = trunc i8 %84 to i1
+  %.not30.i.i = icmp ne i64 %78, 0
+  %or.cond.not = and i1 %.not30.i.i, %85
   br i1 %or.cond.not, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIsEEEEvRT_.exit
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge, %.lr.ph.i.i
-  %.02627.i.i = phi i64 [ %88, %.lr.ph.i.i ], [ 0, %._crit_edge ]
-  %83 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %.02627.i.i
-  %84 = or disjoint i64 %.02627.i.i, 1
-  %85 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %84
-  %86 = load i8, ptr %83, align 1
-  %87 = load i8, ptr %85, align 1
-  store i8 %86, ptr %85, align 1
-  store i8 %87, ptr %83, align 1
-  %88 = add nuw i64 %.02627.i.i, 2
-  %89 = icmp ult i64 %88, %75
-  br i1 %89, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIsEEEEvRT_.exit, !llvm.loop !10
+  %.02627.i.i = phi i64 [ %91, %.lr.ph.i.i ], [ 0, %._crit_edge ]
+  %86 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %.02627.i.i
+  %87 = or disjoint i64 %.02627.i.i, 1
+  %88 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %87
+  %89 = load i8, ptr %86, align 1
+  %90 = load i8, ptr %88, align 1
+  store i8 %89, ptr %88, align 1
+  store i8 %90, ptr %86, align 1
+  %91 = add nuw i64 %.02627.i.i, 2
+  %92 = icmp ult i64 %91, %78
+  br i1 %92, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIsEEEEvRT_.exit, !llvm.loop !10
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIsEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %._crit_edge
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
-  %.sroa.2.0.copyload = load i64, ptr %56, align 8
+  %.sroa.2.0.copyload = load i64, ptr %59, align 8
   call void @_ZN3ozz2io6ExternINS_4math12SoaTransformEE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef %.sroa.0.0.copyload, i64 noundef %.sroa.2.0.copyload, i32 noundef 0)
-  br label %90
+  br label %93
 
-90:                                               ; preds = %23, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIsEEEEvRT_.exit, %20
+93:                                               ; preds = %23, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIsEEEEvRT_.exit, %20
   ret void
 }
 

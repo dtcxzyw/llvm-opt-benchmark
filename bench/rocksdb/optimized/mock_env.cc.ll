@@ -16037,11 +16037,9 @@ if.end:                                           ; preds = %for.cond, %if.else
   br i1 %cmp9, label %if.then10, label %if.end20
 
 if.then10:                                        ; preds = %if.end
-  %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   call void @llvm.va_copy.p0(ptr nonnull %backup_ap, ptr %ap)
-  %sub.ptr.rhs.cast13 = ptrtoint ptr %add.ptr8 to i64
-  %sub.ptr.sub14 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast13
-  %call16 = call i32 @vsnprintf(ptr noundef nonnull %add.ptr8, i64 noundef %sub.ptr.sub14, ptr noundef %format, ptr noundef nonnull %backup_ap) #28
+  %gepdiff = sub nsw i64 %bufsize.0, %idx.ext7
+  %call16 = call i32 @vsnprintf(ptr noundef nonnull %add.ptr8, i64 noundef %gepdiff, ptr noundef %format, ptr noundef nonnull %backup_ap) #28
   %idx.ext17 = sext i32 %call16 to i64
   %add.ptr18 = getelementptr inbounds i8, ptr %add.ptr8, i64 %idx.ext17
   call void @llvm.va_end.p0(ptr nonnull %backup_ap)

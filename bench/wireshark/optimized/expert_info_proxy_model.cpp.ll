@@ -2367,168 +2367,166 @@ define linkonce_odr noundef zeroext i1 @_ZN9QtPrivate20sequential_erase_oneI5QLi
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr i32, ptr %4, i64 %6
-  %8 = ptrtoint ptr %7 to i64
-  %9 = ptrtoint ptr %4 to i64
-  %.idx = shl i64 %6, 2
-  %10 = ashr i64 %.idx, 4
-  %11 = icmp sgt i64 %10, 0
-  br i1 %11, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  %.idx11 = shl i64 %6, 2
+  %7 = getelementptr i8, ptr %4, i64 %.idx11
+  %8 = ptrtoint ptr %4 to i64
+  %9 = ashr i64 %.idx11, 4
+  %10 = icmp sgt i64 %9, 0
+  br i1 %10, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
-  %12 = load i32, ptr %1, align 4
-  %13 = and i64 %.idx, -16
-  %scevgep.i.i.i = getelementptr i8, ptr %4, i64 %13
-  br label %14
+  %11 = load i32, ptr %1, align 4
+  %12 = and i64 %.idx11, -16
+  %scevgep.i.i.i = getelementptr i8, ptr %4, i64 %12
+  br label %13
 
-14:                                               ; preds = %29, %.lr.ph.i.i.i
-  %.052.i.i.i = phi i64 [ %10, %.lr.ph.i.i.i ], [ %31, %29 ]
-  %.sroa.034.051.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %30, %29 ]
-  %15 = load i32, ptr %.sroa.034.051.i.i.i, align 4
-  %16 = icmp eq i32 %15, %12
-  br i1 %16, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit, label %17
+13:                                               ; preds = %28, %.lr.ph.i.i.i
+  %.052.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i ], [ %30, %28 ]
+  %.sroa.034.051.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %29, %28 ]
+  %14 = load i32, ptr %.sroa.034.051.i.i.i, align 4
+  %15 = icmp eq i32 %14, %11
+  br i1 %15, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit, label %16
 
-17:                                               ; preds = %14
-  %18 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 4
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp eq i32 %19, %12
-  br i1 %20, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit, label %21
+16:                                               ; preds = %13
+  %17 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 4
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %18, %11
+  br i1 %19, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit, label %20
 
-21:                                               ; preds = %17
-  %22 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 8
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp eq i32 %23, %12
-  br i1 %24, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit23, label %25
+20:                                               ; preds = %16
+  %21 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 8
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp eq i32 %22, %11
+  br i1 %23, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit24, label %24
 
-25:                                               ; preds = %21
-  %26 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 12
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp eq i32 %27, %12
-  br i1 %28, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit25, label %29
+24:                                               ; preds = %20
+  %25 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 12
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp eq i32 %26, %11
+  br i1 %27, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit26, label %28
 
-29:                                               ; preds = %25
-  %30 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 16
-  %31 = add nsw i64 %.052.i.i.i, -1
-  %32 = icmp sgt i64 %.052.i.i.i, 1
-  br i1 %32, label %14, label %._crit_edge.loopexit.i.i.i, !llvm.loop !82
+28:                                               ; preds = %24
+  %29 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 16
+  %30 = add nsw i64 %.052.i.i.i, -1
+  %31 = icmp sgt i64 %.052.i.i.i, 1
+  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i, !llvm.loop !82
 
-._crit_edge.loopexit.i.i.i:                       ; preds = %29
-  %.pre59.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
-  %.pre60.i.i.i = sub i64 %8, %.pre59.i.i.i
+._crit_edge.loopexit.i.i.i:                       ; preds = %28
+  %gepdiff = and i64 %.idx11, 12
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %2
-  %.pre-phi61.i.i.i = phi i64 [ %.pre60.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %.idx, %2 ]
+  %.pre-phi61.i.i.i = phi i64 [ %gepdiff, %._crit_edge.loopexit.i.i.i ], [ %.idx11, %2 ]
   %.sroa.034.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %4, %2 ]
-  %33 = ashr exact i64 %.pre-phi61.i.i.i, 2
-  switch i64 %33, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.thread [
-    i64 3, label %34
+  %32 = ashr exact i64 %.pre-phi61.i.i.i, 2
+  switch i64 %32, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.thread [
+    i64 3, label %33
     i64 2, label %._crit_edge._crit_edge.i.i.i
     i64 1, label %._crit_edge._crit_edge57.i.i.i
   ]
 
 ._crit_edge._crit_edge57.i.i.i:                   ; preds = %._crit_edge.i.i.i
   %.pre58.i.i.i = load i32, ptr %1, align 4
-  br label %46
+  br label %45
 
 ._crit_edge._crit_edge.i.i.i:                     ; preds = %._crit_edge.i.i.i
   %.pre.i.i.i = load i32, ptr %1, align 4
-  br label %40
+  br label %39
 
-34:                                               ; preds = %._crit_edge.i.i.i
-  %35 = load i32, ptr %.sroa.034.0.lcssa.i.i.i, align 4
-  %36 = load i32, ptr %1, align 4
-  %37 = icmp eq i32 %35, %36
-  br i1 %37, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit, label %38
+33:                                               ; preds = %._crit_edge.i.i.i
+  %34 = load i32, ptr %.sroa.034.0.lcssa.i.i.i, align 4
+  %35 = load i32, ptr %1, align 4
+  %36 = icmp eq i32 %34, %35
+  br i1 %36, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit, label %37
 
-38:                                               ; preds = %34
-  %39 = getelementptr i8, ptr %.sroa.034.0.lcssa.i.i.i, i64 4
-  br label %40
+37:                                               ; preds = %33
+  %38 = getelementptr i8, ptr %.sroa.034.0.lcssa.i.i.i, i64 4
+  br label %39
 
-40:                                               ; preds = %38, %._crit_edge._crit_edge.i.i.i
-  %41 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %36, %38 ]
-  %.sroa.034.1.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %39, %38 ]
-  %42 = load i32, ptr %.sroa.034.1.i.i.i, align 4
-  %43 = icmp eq i32 %42, %41
-  br i1 %43, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit, label %44
+39:                                               ; preds = %37, %._crit_edge._crit_edge.i.i.i
+  %40 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %35, %37 ]
+  %.sroa.034.1.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %38, %37 ]
+  %41 = load i32, ptr %.sroa.034.1.i.i.i, align 4
+  %42 = icmp eq i32 %41, %40
+  br i1 %42, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit, label %43
 
-44:                                               ; preds = %40
-  %45 = getelementptr i8, ptr %.sroa.034.1.i.i.i, i64 4
-  br label %46
+43:                                               ; preds = %39
+  %44 = getelementptr i8, ptr %.sroa.034.1.i.i.i, i64 4
+  br label %45
 
-46:                                               ; preds = %44, %._crit_edge._crit_edge57.i.i.i
-  %47 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %41, %44 ]
-  %.sroa.034.2.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %45, %44 ]
-  %48 = load i32, ptr %.sroa.034.2.i.i.i, align 4
-  %49 = icmp eq i32 %48, %47
-  %spec.select.i.i.i = select i1 %49, ptr %.sroa.034.2.i.i.i, ptr %7
+45:                                               ; preds = %43, %._crit_edge._crit_edge57.i.i.i
+  %46 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %40, %43 ]
+  %.sroa.034.2.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %44, %43 ]
+  %47 = load i32, ptr %.sroa.034.2.i.i.i, align 4
+  %48 = icmp eq i32 %47, %46
+  %spec.select.i.i.i = select i1 %48, ptr %.sroa.034.2.i.i.i, ptr %7
   br label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit
 
-_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit: ; preds = %17
-  %50 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 4
+_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit: ; preds = %16
+  %49 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 4
   br label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit
 
-_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit23: ; preds = %21
-  %51 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 8
+_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit24: ; preds = %20
+  %50 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 8
   br label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit
 
-_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit25: ; preds = %25
-  %52 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 12
+_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit26: ; preds = %24
+  %51 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 12
   br label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit
 
-_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit: ; preds = %14, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit23, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit25, %34, %40, %46
-  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %34 ], [ %.sroa.034.1.i.i.i, %40 ], [ %spec.select.i.i.i, %46 ], [ %50, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit ], [ %51, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit23 ], [ %52, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit25 ], [ %.sroa.034.051.i.i.i, %14 ]
-  %53 = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i, %7
-  br i1 %53, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.thread, label %54
+_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit: ; preds = %13, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit24, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit26, %33, %39, %45
+  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %33 ], [ %.sroa.034.1.i.i.i, %39 ], [ %spec.select.i.i.i, %45 ], [ %49, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit24 ], [ %51, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit26 ], [ %.sroa.034.051.i.i.i, %13 ]
+  %52 = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i, %7
+  br i1 %52, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.thread, label %53
 
-54:                                               ; preds = %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit
-  %55 = ptrtoint ptr %.sroa.010.0.in.sroa.speculated.i.i.i to i64
-  %56 = sub i64 %55, %9
-  %57 = load ptr, ptr %0, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %57, null
+53:                                               ; preds = %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit
+  %54 = ptrtoint ptr %.sroa.010.0.in.sroa.speculated.i.i.i to i64
+  %55 = sub i64 %54, %8
+  %56 = load ptr, ptr %0, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %56, null
   br i1 %.not.i.i.i.i.i, label %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i, label %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i.i.i.i
 
-_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i.i.i.i: ; preds = %54
-  %58 = load atomic i32, ptr %57 monotonic, align 4
-  %59 = icmp sgt i32 %58, 1
-  br i1 %59, label %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i, label %_ZN17QArrayDataPointerIiE6detachEPS0_.exit.i.i.i
+_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i.i.i.i: ; preds = %53
+  %57 = load atomic i32, ptr %56 monotonic, align 4
+  %58 = icmp sgt i32 %57, 1
+  br i1 %58, label %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i, label %_ZN17QArrayDataPointerIiE6detachEPS0_.exit.i.i.i
 
-_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i: ; preds = %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i.i.i.i, %54
+_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i: ; preds = %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i.i.i.i, %53
   tail call void @_ZN17QArrayDataPointerIiE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0, i64 noundef 0, ptr noundef null)
   %.pre.i.i = load ptr, ptr %3, align 8
   %.pre = load i64, ptr %5, align 8
   br label %_ZN17QArrayDataPointerIiE6detachEPS0_.exit.i.i.i
 
 _ZN17QArrayDataPointerIiE6detachEPS0_.exit.i.i.i: ; preds = %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i.i.i.i
-  %60 = phi i64 [ %.pre, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i ], [ %6, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i.i.i.i ]
-  %61 = phi ptr [ %.pre.i.i, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i ], [ %4, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i.i.i.i ]
-  %62 = getelementptr i8, ptr %61, i64 %56
-  %63 = getelementptr i8, ptr %62, i64 4
-  %64 = icmp ugt i64 %56, 3
-  %65 = getelementptr i32, ptr %61, i64 %60
-  %.not.i.i.i.i = icmp eq ptr %63, %65
-  %or.cond.i.i.i.i = select i1 %64, i1 true, i1 %.not.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %67, label %66
+  %59 = phi i64 [ %.pre, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i ], [ %6, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i.i.i.i ]
+  %60 = phi ptr [ %.pre.i.i, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i ], [ %4, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.i.i.i.i ]
+  %61 = getelementptr i8, ptr %60, i64 %55
+  %62 = getelementptr i8, ptr %61, i64 4
+  %63 = icmp ugt i64 %55, 3
+  %64 = getelementptr i32, ptr %60, i64 %59
+  %.not.i.i.i.i = icmp eq ptr %62, %64
+  %or.cond.i.i.i.i = select i1 %63, i1 true, i1 %.not.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %66, label %65
 
-66:                                               ; preds = %_ZN17QArrayDataPointerIiE6detachEPS0_.exit.i.i.i
-  store ptr %63, ptr %3, align 8
+65:                                               ; preds = %_ZN17QArrayDataPointerIiE6detachEPS0_.exit.i.i.i
+  store ptr %62, ptr %3, align 8
   br label %_ZN5QListIiE5eraseENS0_14const_iteratorE.exit
 
-67:                                               ; preds = %_ZN17QArrayDataPointerIiE6detachEPS0_.exit.i.i.i
-  br i1 %.not.i.i.i.i, label %_ZN5QListIiE5eraseENS0_14const_iteratorE.exit, label %68
+66:                                               ; preds = %_ZN17QArrayDataPointerIiE6detachEPS0_.exit.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN5QListIiE5eraseENS0_14const_iteratorE.exit, label %67
 
-68:                                               ; preds = %67
-  %69 = ptrtoint ptr %65 to i64
-  %70 = ptrtoint ptr %63 to i64
-  %71 = sub i64 %69, %70
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %62, ptr align 1 %63, i64 %71, i1 false)
+67:                                               ; preds = %66
+  %68 = ptrtoint ptr %64 to i64
+  %69 = ptrtoint ptr %62 to i64
+  %70 = sub i64 %68, %69
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %61, ptr align 1 %62, i64 %70, i1 false)
   %.pre.i.i.i.i = load i64, ptr %5, align 8
   br label %_ZN5QListIiE5eraseENS0_14const_iteratorE.exit
 
-_ZN5QListIiE5eraseENS0_14const_iteratorE.exit:    ; preds = %66, %67, %68
-  %72 = phi i64 [ %60, %67 ], [ %.pre.i.i.i.i, %68 ], [ %60, %66 ]
-  %73 = add i64 %72, -1
-  store i64 %73, ptr %5, align 8
+_ZN5QListIiE5eraseENS0_14const_iteratorE.exit:    ; preds = %65, %66, %67
+  %71 = phi i64 [ %59, %66 ], [ %.pre.i.i.i.i, %67 ], [ %59, %65 ]
+  %72 = add i64 %71, -1
+  store i64 %72, ptr %5, align 8
   br label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.thread
 
 _ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.thread: ; preds = %._crit_edge.i.i.i, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit, %_ZN5QListIiE5eraseENS0_14const_iteratorE.exit

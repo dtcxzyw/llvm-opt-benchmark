@@ -513,22 +513,22 @@ cond.false151:                                    ; preds = %if.then141
 cond.end153:                                      ; preds = %cond.false151, %cond.true147
   %26 = phi ptr [ %.pre, %cond.true147 ], [ %25, %cond.false151 ]
   %cond = phi i64 [ %23, %cond.true147 ], [ %sub.ptr.div.i473, %cond.false151 ]
-  %add.ptr.i474 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %26, i64 %21
-  %add.ptr.i475 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %26, i64 %22
-  %add.ptr.i476 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %26, i64 %cond
+  %add.ptr.i474.idx = shl nsw i64 %21, 4
+  %add.ptr.i474 = getelementptr inbounds i8, ptr %26, i64 %add.ptr.i474.idx
+  %add.ptr.i475.idx = shl nsw i64 %22, 4
+  %add.ptr.i475 = getelementptr inbounds i8, ptr %26, i64 %add.ptr.i475.idx
+  %add.ptr.i476.idx = shl nsw i64 %cond, 4
+  %add.ptr.i476 = getelementptr inbounds i8, ptr %26, i64 %add.ptr.i476.idx
   %cmp.i.i574 = icmp eq i64 %21, %22
   %cmp.i40.i = icmp eq i64 %22, %cond
   %or.cond.i = select i1 %cmp.i.i574, i1 true, i1 %cmp.i40.i
   br i1 %or.cond.i, label %for.inc184, label %if.end.i575
 
 if.end.i575:                                      ; preds = %cond.end153
-  %sub.ptr.lhs.cast.i.i.i.i576 = ptrtoint ptr %add.ptr.i475 to i64
-  %sub.ptr.rhs.cast.i.i.i.i577 = ptrtoint ptr %add.ptr.i474 to i64
-  %sub.ptr.sub.i.i.i.i578 = sub i64 %sub.ptr.lhs.cast.i.i.i.i576, %sub.ptr.rhs.cast.i.i.i.i577
-  %sub.ptr.div.i.i.i.i579 = ashr exact i64 %sub.ptr.sub.i.i.i.i578, 4
-  %sub.ptr.lhs.cast.i.i.i41.i = ptrtoint ptr %add.ptr.i476 to i64
-  %sub.ptr.sub.i.i.i43.i = sub i64 %sub.ptr.lhs.cast.i.i.i41.i, %sub.ptr.lhs.cast.i.i.i.i576
-  %sub.ptr.div.i.i.i44.i = ashr exact i64 %sub.ptr.sub.i.i.i43.i, 4
+  %gepdiff = sub nsw i64 %add.ptr.i475.idx, %add.ptr.i474.idx
+  %sub.ptr.div.i.i.i.i579 = ashr exact i64 %gepdiff, 4
+  %gepdiff7 = sub nsw i64 %add.ptr.i476.idx, %add.ptr.i475.idx
+  %sub.ptr.div.i.i.i44.i = ashr exact i64 %gepdiff7, 4
   %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 %sub.ptr.div.i.i.i44.i, i64 %sub.ptr.div.i.i.i.i579)
   %cmp118.i.i.i = icmp sgt i64 %.sroa.speculated.i, 0
   br i1 %cmp118.i.i.i, label %while.body.i.i.i, label %if.then17.i

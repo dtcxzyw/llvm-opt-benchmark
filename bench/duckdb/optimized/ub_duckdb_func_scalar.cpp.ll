@@ -8134,12 +8134,9 @@ cleanup422.thread:                                ; preds = %while.end415, %whil
   br label %cleanup614
 
 cleanup422:                                       ; preds = %while.end415
-  %add.ptr416 = getelementptr inbounds i8, ptr %data11.0, i64 %.lcssa1320
   %194 = load i64, ptr %_M_string_length.i.i.i1127, align 8, !tbaa !15
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr416 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %call3.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %tz, i64 noundef 0, i64 noundef %194, ptr noundef nonnull %add.ptr, i64 noundef %sub.ptr.sub.i.i)
+  %gepdiff = sub nsw i64 %.lcssa1320, %pos.promoted1857
+  %call3.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %tz, i64 noundef 0, i64 noundef %194, ptr noundef nonnull %add.ptr, i64 noundef %gepdiff)
   br label %for.inc448
 
 sw.default425:                                    ; preds = %if.else315

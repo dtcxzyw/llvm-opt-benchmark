@@ -55,7 +55,7 @@ define internal ptr @gre_gso_segment(ptr noundef %0, i64 noundef %1) #2 align 16
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i64
   %10 = sub nsw i64 %6, %9
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nsw i64 %10 to i32
   %12 = getelementptr inbounds i8, ptr %0, i64 182
   %13 = load i16, ptr %12, align 2
   %14 = getelementptr inbounds i8, ptr %0, i64 176
@@ -300,8 +300,8 @@ define internal ptr @gre_gso_segment(ptr noundef %0, i64 noundef %1) #2 align 16
   %188 = icmp eq ptr %187, null
   br i1 %188, label %.loopexit, label %.split.us, !llvm.loop !9
 
-.split:                                           ; preds = %122, %289
-  %189 = phi ptr [ %290, %289 ], [ %107, %122 ]
+.split:                                           ; preds = %122, %285
+  %189 = phi ptr [ %286, %285 ], [ %107, %122 ]
   %190 = getelementptr inbounds i8, ptr %189, i64 128
   %191 = load i8, ptr %190, align 8
   %192 = and i8 %191, 96
@@ -383,7 +383,7 @@ define internal ptr @gre_gso_segment(ptr noundef %0, i64 noundef %1) #2 align 16
   %248 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %246, i32 %247) #8, !srcloc !12
   %249 = xor i32 %248, -1
   %250 = lshr i32 %249, 16
-  %251 = trunc i32 %250 to i16
+  %251 = trunc nuw i32 %250 to i16
   %252 = xor i16 %251, -1
   br label %253
 
@@ -397,7 +397,7 @@ define internal ptr @gre_gso_segment(ptr noundef %0, i64 noundef %1) #2 align 16
   %258 = and i24 %257, 8192
   %259 = icmp ne i24 %258, 0
   %260 = select i1 %259, i1 true, i1 %106
-  br i1 %260, label %261, label %283
+  br i1 %260, label %261, label %279
 
 261:                                              ; preds = %253
   %262 = load ptr, ptr %216, align 8
@@ -407,44 +407,41 @@ define internal ptr @gre_gso_segment(ptr noundef %0, i64 noundef %1) #2 align 16
   %266 = getelementptr i8, ptr %189, i64 84
   %267 = load i16, ptr %266, align 4
   %268 = zext i16 %267 to i64
-  %269 = getelementptr i8, ptr %262, i64 %268
-  %270 = ptrtoint ptr %269 to i64
-  %271 = ptrtoint ptr %265 to i64
-  %272 = sub i64 %270, %271
-  %273 = trunc i64 %272 to i32
-  %274 = getelementptr i8, ptr %189, i64 80
-  %275 = load i32, ptr %274, align 4
-  store i32 0, ptr %274, align 4
+  %gepdiff = sub nsw i64 %268, %264
+  %269 = trunc nsw i64 %gepdiff to i32
+  %270 = getelementptr i8, ptr %189, i64 80
+  %271 = load i32, ptr %270, align 4
+  store i32 0, ptr %270, align 4
   store i16 %263, ptr %266, align 4
-  %276 = tail call i32 @csum_partial(ptr noundef %265, i32 noundef %273, i32 noundef %275) #7
-  %277 = shl i32 %276, 16
-  %278 = and i32 %276, -65536
-  %279 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %277, i32 %278) #8, !srcloc !12
-  %280 = xor i32 %279, -1
-  %281 = lshr i32 %280, 16
-  %282 = trunc i32 %281 to i16
-  store i16 %282, ptr %229, align 2
-  br label %289
+  %272 = tail call i32 @csum_partial(ptr noundef %265, i32 noundef %269, i32 noundef %271) #7
+  %273 = shl i32 %272, 16
+  %274 = and i32 %272, -65536
+  %275 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %273, i32 %274) #8, !srcloc !12
+  %276 = xor i32 %275, -1
+  %277 = lshr i32 %276, 16
+  %278 = trunc nuw i32 %277 to i16
+  store i16 %278, ptr %229, align 2
+  br label %285
 
-283:                                              ; preds = %253
-  %284 = load i8, ptr %190, align 8
-  %285 = or i8 %284, 96
-  store i8 %285, ptr %190, align 8
-  %286 = load i16, ptr %225, align 2
-  %287 = getelementptr inbounds i8, ptr %189, i64 136
-  store i16 %286, ptr %287, align 8
-  %288 = getelementptr inbounds i8, ptr %189, i64 138
-  store i16 4, ptr %288, align 2
-  br label %289
+279:                                              ; preds = %253
+  %280 = load i8, ptr %190, align 8
+  %281 = or i8 %280, 96
+  store i8 %281, ptr %190, align 8
+  %282 = load i16, ptr %225, align 2
+  %283 = getelementptr inbounds i8, ptr %189, i64 136
+  store i16 %282, ptr %283, align 8
+  %284 = getelementptr inbounds i8, ptr %189, i64 138
+  store i16 4, ptr %284, align 2
+  br label %285
 
-289:                                              ; preds = %283, %261
-  %290 = load ptr, ptr %189, align 8
-  %291 = icmp eq ptr %290, null
-  br i1 %291, label %.loopexit, label %.split, !llvm.loop !9
+285:                                              ; preds = %279, %261
+  %286 = load ptr, ptr %189, align 8
+  %287 = icmp eq ptr %286, null
+  br i1 %287, label %.loopexit, label %.split, !llvm.loop !9
 
-.loopexit:                                        ; preds = %289, %167, %111, %34, %32, %2
-  %292 = phi ptr [ inttoptr (i64 -22 to ptr), %34 ], [ %107, %111 ], [ inttoptr (i64 -22 to ptr), %2 ], [ inttoptr (i64 -22 to ptr), %32 ], [ %107, %167 ], [ %107, %289 ]
-  ret ptr %292
+.loopexit:                                        ; preds = %285, %167, %111, %34, %32, %2
+  %288 = phi ptr [ inttoptr (i64 -22 to ptr), %34 ], [ %107, %111 ], [ inttoptr (i64 -22 to ptr), %2 ], [ inttoptr (i64 -22 to ptr), %32 ], [ %107, %167 ], [ %107, %285 ]
+  ret ptr %288
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -229,7 +229,7 @@ define dso_local noundef i32 @ipv6_parse_hopopts(ptr noundef %0) local_unnamed_a
 
 51:                                               ; preds = %44
   %52 = load i16, ptr %22, align 2
-  %53 = trunc i32 %40 to i16
+  %53 = trunc nuw nsw i32 %40 to i16
   %54 = add i16 %52, %53
   store i16 %54, ptr %22, align 2
   %55 = getelementptr inbounds i8, ptr %0, i64 54
@@ -2461,7 +2461,7 @@ define internal noundef i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 align 16 {
   br label %ipv6_srh_rcv.exit
 
 628:                                              ; preds = %607
-  %629 = trunc i64 %577 to i8
+  %629 = trunc nuw i64 %577 to i8
   %630 = tail call i32 @ipv6_chk_rpl_srh_loop(ptr noundef %425, ptr noundef %622, i8 noundef zeroext %629) #10
   %631 = icmp eq i32 %630, 0
   br i1 %631, label %634, label %632
@@ -2781,7 +2781,7 @@ define internal noundef i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 align 16 {
   %839 = getelementptr inbounds i8, ptr %70, i64 3
   %840 = load i8, ptr %839, align 1
   %841 = icmp eq i8 %840, 0
-  br i1 %841, label %842, label %860
+  br i1 %841, label %842, label %856
 
 842:                                              ; preds = %838
   %843 = sub i16 %68, %72
@@ -2801,43 +2801,39 @@ define internal noundef i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 align 16 {
   %854 = getelementptr inbounds i8, ptr %0, i64 46
   store i16 %853, ptr %854, align 2
   store i16 0, ptr %852, align 2
-  %855 = ptrtoint ptr %70 to i64
-  %856 = ptrtoint ptr %74 to i64
-  %857 = sub i64 %855, %856
-  %858 = trunc i64 %857 to i16
-  %859 = getelementptr inbounds i8, ptr %0, i64 54
-  store i16 %858, ptr %859, align 2
+  %855 = getelementptr inbounds i8, ptr %0, i64 54
+  store i16 %843, ptr %855, align 2
   br label %ipv6_srh_rcv.exit
 
-860:                                              ; preds = %838
-  br i1 %11, label %865, label %861, !prof !5
+856:                                              ; preds = %838
+  br i1 %11, label %861, label %857, !prof !5
 
-861:                                              ; preds = %860
-  %862 = getelementptr inbounds i8, ptr %8, i64 912
+857:                                              ; preds = %856
+  %858 = getelementptr inbounds i8, ptr %8, i64 912
+  %859 = load ptr, ptr %858, align 8
+  %860 = getelementptr i8, ptr %859, i64 56
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %860, ptr elementtype(i64) %860) #10, !srcloc !30
+  br label %861
+
+861:                                              ; preds = %857, %856
+  %862 = getelementptr inbounds i8, ptr %10, i64 416
   %863 = load ptr, ptr %862, align 8
   %864 = getelementptr i8, ptr %863, i64 56
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %864, ptr elementtype(i64) %864) #10, !srcloc !30
-  br label %865
-
-865:                                              ; preds = %861, %860
-  %866 = getelementptr inbounds i8, ptr %10, i64 416
-  %867 = load ptr, ptr %866, align 8
-  %868 = getelementptr i8, ptr %867, i64 56
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %868, ptr elementtype(i64) %868) #10, !srcloc !31
-  %869 = load ptr, ptr %12, align 8
-  %870 = load i16, ptr %71, align 4
-  %871 = zext i16 %870 to i64
-  %872 = getelementptr i8, ptr %869, i64 %871
-  %873 = ptrtoint ptr %94 to i64
-  %874 = ptrtoint ptr %872 to i64
-  %875 = sub i64 %873, %874
-  %876 = trunc i64 %875 to i32
-  tail call void @icmpv6_param_prob_reason(ptr noundef %0, i8 noundef zeroext 0, i32 noundef %876, i32 noundef 2) #10
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %864, ptr elementtype(i64) %864) #10, !srcloc !31
+  %865 = load ptr, ptr %12, align 8
+  %866 = load i16, ptr %71, align 4
+  %867 = zext i16 %866 to i64
+  %868 = getelementptr i8, ptr %865, i64 %867
+  %869 = ptrtoint ptr %94 to i64
+  %870 = ptrtoint ptr %868 to i64
+  %871 = sub i64 %869, %870
+  %872 = trunc i64 %871 to i32
+  tail call void @icmpv6_param_prob_reason(ptr noundef %0, i8 noundef zeroext 0, i32 noundef %872, i32 noundef 2) #10
   br label %ipv6_srh_rcv.exit
 
-ipv6_srh_rcv.exit:                                ; preds = %836, %834, %830, %811, %789, %787, %783, %701, %632, %627, %.thread.i7, %589, %579, %535, %529, %445, %420, %418, %414, %400, %378, %376, %372, %293, %255, %221, %215, %127, %865, %842, %89, %63
-  %877 = phi i32 [ -1, %89 ], [ 1, %842 ], [ -1, %865 ], [ -1, %63 ], [ -1, %215 ], [ 1, %221 ], [ -1, %255 ], [ -1, %293 ], [ -1, %400 ], [ -1, %127 ], [ -1, %372 ], [ -1, %376 ], [ -1, %378 ], [ -1, %414 ], [ -1, %418 ], [ -1, %420 ], [ -1, %529 ], [ 1, %535 ], [ -1, %579 ], [ -1, %589 ], [ -1, %.thread.i7 ], [ -1, %627 ], [ -1, %632 ], [ -1, %701 ], [ -1, %811 ], [ -1, %445 ], [ -1, %783 ], [ -1, %787 ], [ -1, %789 ], [ -1, %830 ], [ -1, %834 ], [ -1, %836 ]
-  ret i32 %877
+ipv6_srh_rcv.exit:                                ; preds = %836, %834, %830, %811, %789, %787, %783, %701, %632, %627, %.thread.i7, %589, %579, %535, %529, %445, %420, %418, %414, %400, %378, %376, %372, %293, %255, %221, %215, %127, %861, %842, %89, %63
+  %873 = phi i32 [ -1, %89 ], [ 1, %842 ], [ -1, %861 ], [ -1, %63 ], [ -1, %215 ], [ 1, %221 ], [ -1, %255 ], [ -1, %293 ], [ -1, %400 ], [ -1, %127 ], [ -1, %372 ], [ -1, %376 ], [ -1, %378 ], [ -1, %414 ], [ -1, %418 ], [ -1, %420 ], [ -1, %529 ], [ 1, %535 ], [ -1, %579 ], [ -1, %589 ], [ -1, %.thread.i7 ], [ -1, %627 ], [ -1, %632 ], [ -1, %701 ], [ -1, %811 ], [ -1, %445 ], [ -1, %783 ], [ -1, %787 ], [ -1, %789 ], [ -1, %830 ], [ -1, %834 ], [ -1, %836 ]
+  ret i32 %873
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3038,7 +3034,7 @@ define internal noundef i32 @ipv6_destopt_rcv(ptr noundef %0) #3 align 16 {
 
 86:                                               ; preds = %77
   %87 = load i16, ptr %14, align 2
-  %88 = trunc i32 %.pre-phi27 to i16
+  %88 = trunc nuw nsw i32 %.pre-phi27 to i16
   %89 = add i16 %87, %88
   store i16 %89, ptr %14, align 2
   %90 = load i16, ptr %81, align 2

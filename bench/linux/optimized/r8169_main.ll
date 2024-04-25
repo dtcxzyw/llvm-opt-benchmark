@@ -12657,7 +12657,7 @@ define internal fastcc i32 @rtl_quirk_packet_padto(ptr nocapture noundef readonl
   %10 = icmp ugt i32 %9, 41
   %11 = icmp ult i32 %7, 175
   %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %13, label %170
+  br i1 %12, label %13, label %166
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %1, i64 192
@@ -12886,45 +12886,42 @@ define internal fastcc i32 @rtl_quirk_packet_padto(ptr nocapture noundef readonl
   br i1 %140, label %thread-pre-split, label %141
 
 141:                                              ; preds = %137
-  %142 = load ptr, ptr %14, align 8
-  %143 = getelementptr inbounds i8, ptr %1, i64 184
-  %144 = load i32, ptr %143, align 8
-  %145 = zext i32 %144 to i64
-  %146 = getelementptr i8, ptr %142, i64 %145
-  %147 = zext i16 %139 to i64
-  %148 = getelementptr i8, ptr %142, i64 %147
-  %149 = ptrtoint ptr %146 to i64
-  %150 = ptrtoint ptr %148 to i64
-  %151 = sub i64 %149, %150
-  %152 = trunc i64 %151 to i32
-  %153 = and i64 %151, 4294967295
-  %154 = icmp ugt i64 %153, 3
-  %155 = icmp ult i32 %152, 47
-  %156 = and i1 %154, %155
-  br i1 %156, label %157, label %163
+  %142 = getelementptr inbounds i8, ptr %1, i64 184
+  %143 = load i32, ptr %142, align 8
+  %144 = zext i32 %143 to i64
+  %145 = zext i16 %139 to i64
+  %gepdiff = sub nsw i64 %144, %145
+  %146 = trunc i64 %gepdiff to i32
+  %147 = and i64 %gepdiff, 4294967295
+  %148 = icmp ugt i64 %147, 3
+  %149 = icmp ult i32 %146, 47
+  %150 = and i1 %148, %149
+  br i1 %150, label %151, label %159
 
-157:                                              ; preds = %141
-  %158 = getelementptr inbounds i8, ptr %148, i64 2
-  %159 = load i16, ptr %158, align 2
-  switch i16 %159, label %163 [
-    i16 16385, label %160
-    i16 16129, label %160
+151:                                              ; preds = %141
+  %152 = load ptr, ptr %14, align 8
+  %153 = getelementptr i8, ptr %152, i64 %145
+  %154 = getelementptr inbounds i8, ptr %153, i64 2
+  %155 = load i16, ptr %154, align 2
+  switch i16 %155, label %159 [
+    i16 16385, label %156
+    i16 16129, label %156
   ]
 
-160:                                              ; preds = %157, %157
-  %161 = add nuw nsw i32 %7, 47
-  %162 = sub nuw nsw i32 %161, %152
-  br label %163
+156:                                              ; preds = %151, %151
+  %157 = add nuw nsw i32 %7, 47
+  %158 = sub nuw nsw i32 %157, %146
+  br label %159
 
-163:                                              ; preds = %160, %157, %141
-  %164 = phi i32 [ 0, %141 ], [ %162, %160 ], [ 0, %157 ]
-  %165 = icmp ult i64 %153, 8
-  br i1 %165, label %166, label %thread-pre-split
+159:                                              ; preds = %156, %151, %141
+  %160 = phi i32 [ 0, %141 ], [ %158, %156 ], [ 0, %151 ]
+  %161 = icmp ult i64 %147, 8
+  br i1 %161, label %162, label %thread-pre-split
 
-166:                                              ; preds = %163
-  %167 = add nuw nsw i32 %7, 8
-  %168 = sub i32 %167, %152
-  %169 = call i32 @llvm.umax.i32(i32 %164, i32 %168)
+162:                                              ; preds = %159
+  %163 = add nuw nsw i32 %7, 8
+  %164 = sub i32 %163, %146
+  %165 = call i32 @llvm.umax.i32(i32 %160, i32 %164)
   br label %thread-pre-split
 
 .thread11:                                        ; preds = %122, %120, %102, %100, %.thread9, %35, %125, %105, %.loopexit
@@ -12932,27 +12929,27 @@ define internal fastcc i32 @rtl_quirk_packet_padto(ptr nocapture noundef readonl
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #19
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %133, %137, %163, %166, %.thread11
-  %.ph = phi i32 [ 0, %.thread11 ], [ %164, %163 ], [ %169, %166 ], [ 0, %133 ], [ 0, %137 ]
+thread-pre-split:                                 ; preds = %133, %137, %159, %162, %.thread11
+  %.ph = phi i32 [ 0, %.thread11 ], [ %160, %159 ], [ %165, %162 ], [ 0, %133 ], [ 0, %137 ]
   %.pr = load i32, ptr %8, align 8
-  br label %170
+  br label %166
 
-170:                                              ; preds = %thread-pre-split, %2
-  %171 = phi i32 [ %.pr, %thread-pre-split ], [ %9, %2 ]
-  %172 = phi i32 [ %.ph, %thread-pre-split ], [ 0, %2 ]
-  switch i32 %171, label %175 [
-    i32 27, label %173
-    i32 42, label %173
-    i32 43, label %173
+166:                                              ; preds = %thread-pre-split, %2
+  %167 = phi i32 [ %.pr, %thread-pre-split ], [ %9, %2 ]
+  %168 = phi i32 [ %.ph, %thread-pre-split ], [ 0, %2 ]
+  switch i32 %167, label %171 [
+    i32 27, label %169
+    i32 42, label %169
+    i32 43, label %169
   ]
 
-173:                                              ; preds = %170, %170, %170
-  %174 = call i32 @llvm.umax.i32(i32 %172, i32 60)
-  br label %175
+169:                                              ; preds = %166, %166, %166
+  %170 = call i32 @llvm.umax.i32(i32 %168, i32 60)
+  br label %171
 
-175:                                              ; preds = %173, %170
-  %176 = phi i32 [ %172, %170 ], [ %174, %173 ]
-  ret i32 %176
+171:                                              ; preds = %169, %166
+  %172 = phi i32 [ %168, %166 ], [ %170, %169 ]
+  ret i32 %172
 }
 
 ; Function Attrs: null_pointer_is_valid

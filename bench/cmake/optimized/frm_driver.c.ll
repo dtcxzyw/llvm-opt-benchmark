@@ -5464,7 +5464,7 @@ define internal noundef i32 @FE_Delete_Word(ptr nocapture noundef %0) #0 {
   tail call fastcc void @Synchronize_Buffer(ptr noundef %0)
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 32
-  br i1 %18, label %100, label %19
+  br i1 %18, label %97, label %19
 
 19:                                               ; preds = %1
   %20 = sext i32 %7 to i64
@@ -5520,91 +5520,88 @@ Adjust_Cursor_Position.exit:                      ; preds = %After_Last_Whitespa
   %53 = load ptr, ptr %50, align 8
   %54 = tail call i32 @wclrtoeol(ptr noundef %53) #13
   %55 = ptrtoint ptr %21 to i64
-  %56 = ptrtoint ptr %16 to i64
-  %57 = sub i64 %55, %56
-  %58 = trunc i64 %57 to i32
-  %sext = shl i64 %57, 32
-  %59 = ashr exact i64 %sext, 32
-  %60 = getelementptr inbounds i8, ptr %16, i64 %59
-  %61 = icmp sgt i32 %58, 0
-  br i1 %61, label %.lr.ph.i, label %Get_First_Whitespace_Character.exit
+  %gepdiff = sub i32 %7, %14
+  %56 = sext i32 %gepdiff to i64
+  %57 = getelementptr inbounds i8, ptr %16, i64 %56
+  %58 = icmp sgt i32 %gepdiff, 0
+  br i1 %58, label %.lr.ph.i, label %Get_First_Whitespace_Character.exit
 
-.lr.ph.i:                                         ; preds = %Adjust_Cursor_Position.exit, %63
-  %.010.i = phi ptr [ %64, %63 ], [ %16, %Adjust_Cursor_Position.exit ]
-  %62 = load i8, ptr %.010.i, align 1
-  %.not.i35 = icmp eq i8 %62, 32
-  br i1 %.not.i35, label %Get_First_Whitespace_Character.exit, label %63
+.lr.ph.i:                                         ; preds = %Adjust_Cursor_Position.exit, %60
+  %.010.i = phi ptr [ %61, %60 ], [ %16, %Adjust_Cursor_Position.exit ]
+  %59 = load i8, ptr %.010.i, align 1
+  %.not.i35 = icmp eq i8 %59, 32
+  br i1 %.not.i35, label %Get_First_Whitespace_Character.exit, label %60
 
-63:                                               ; preds = %.lr.ph.i
-  %64 = getelementptr inbounds i8, ptr %.010.i, i64 1
-  %65 = icmp ult ptr %64, %60
-  br i1 %65, label %.lr.ph.i, label %Get_First_Whitespace_Character.exit, !llvm.loop !37
+60:                                               ; preds = %.lr.ph.i
+  %61 = getelementptr inbounds i8, ptr %.010.i, i64 1
+  %62 = icmp ult ptr %61, %57
+  br i1 %62, label %.lr.ph.i, label %Get_First_Whitespace_Character.exit, !llvm.loop !37
 
-Get_First_Whitespace_Character.exit:              ; preds = %.lr.ph.i, %63, %Adjust_Cursor_Position.exit
-  %.0.lcssa.i = phi ptr [ %16, %Adjust_Cursor_Position.exit ], [ %.010.i, %.lr.ph.i ], [ %64, %63 ]
-  %66 = icmp eq ptr %.0.lcssa.i, %60
-  %67 = select i1 %66, ptr %16, ptr %.0.lcssa.i
-  %68 = ptrtoint ptr %67 to i64
-  %69 = sub i64 %55, %68
-  %70 = trunc i64 %69 to i32
-  %sext40 = shl i64 %69, 32
-  %71 = ashr exact i64 %sext40, 32
-  %72 = getelementptr inbounds i8, ptr %67, i64 %71
-  %73 = icmp sgt i32 %70, 0
-  br i1 %73, label %.lr.ph.i37, label %Get_Start_Of_Data.exit
+Get_First_Whitespace_Character.exit:              ; preds = %.lr.ph.i, %60, %Adjust_Cursor_Position.exit
+  %.0.lcssa.i = phi ptr [ %16, %Adjust_Cursor_Position.exit ], [ %.010.i, %.lr.ph.i ], [ %61, %60 ]
+  %63 = icmp eq ptr %.0.lcssa.i, %57
+  %64 = select i1 %63, ptr %16, ptr %.0.lcssa.i
+  %65 = ptrtoint ptr %64 to i64
+  %66 = sub i64 %55, %65
+  %67 = trunc i64 %66 to i32
+  %sext = shl i64 %66, 32
+  %68 = ashr exact i64 %sext, 32
+  %69 = getelementptr inbounds i8, ptr %64, i64 %68
+  %70 = icmp sgt i32 %67, 0
+  br i1 %70, label %.lr.ph.i37, label %Get_Start_Of_Data.exit
 
-.lr.ph.i37:                                       ; preds = %Get_First_Whitespace_Character.exit, %76
-  %.010.i38 = phi ptr [ %77, %76 ], [ %67, %Get_First_Whitespace_Character.exit ]
-  %74 = load i8, ptr %.010.i38, align 1
-  %75 = icmp eq i8 %74, 32
-  br i1 %75, label %76, label %Get_Start_Of_Data.exit
+.lr.ph.i37:                                       ; preds = %Get_First_Whitespace_Character.exit, %73
+  %.010.i38 = phi ptr [ %74, %73 ], [ %64, %Get_First_Whitespace_Character.exit ]
+  %71 = load i8, ptr %.010.i38, align 1
+  %72 = icmp eq i8 %71, 32
+  br i1 %72, label %73, label %Get_Start_Of_Data.exit
 
-76:                                               ; preds = %.lr.ph.i37
-  %77 = getelementptr inbounds i8, ptr %.010.i38, i64 1
-  %78 = icmp ult ptr %77, %72
-  br i1 %78, label %.lr.ph.i37, label %Get_Start_Of_Data.exit, !llvm.loop !13
+73:                                               ; preds = %.lr.ph.i37
+  %74 = getelementptr inbounds i8, ptr %.010.i38, i64 1
+  %75 = icmp ult ptr %74, %69
+  br i1 %75, label %.lr.ph.i37, label %Get_Start_Of_Data.exit, !llvm.loop !13
 
-Get_Start_Of_Data.exit:                           ; preds = %.lr.ph.i37, %76, %Get_First_Whitespace_Character.exit
-  %.0.lcssa.i36 = phi ptr [ %67, %Get_First_Whitespace_Character.exit ], [ %.010.i38, %.lr.ph.i37 ], [ %77, %76 ]
-  %79 = icmp eq ptr %.0.lcssa.i36, %72
-  %80 = select i1 %79, ptr %67, ptr %.0.lcssa.i36
-  %.not = icmp eq ptr %80, %16
-  br i1 %.not, label %100, label %81
+Get_Start_Of_Data.exit:                           ; preds = %.lr.ph.i37, %73, %Get_First_Whitespace_Character.exit
+  %.0.lcssa.i36 = phi ptr [ %64, %Get_First_Whitespace_Character.exit ], [ %.010.i38, %.lr.ph.i37 ], [ %74, %73 ]
+  %76 = icmp eq ptr %.0.lcssa.i36, %69
+  %77 = select i1 %76, ptr %64, ptr %.0.lcssa.i36
+  %.not = icmp eq ptr %77, %16
+  br i1 %.not, label %97, label %78
 
-81:                                               ; preds = %Get_Start_Of_Data.exit
-  %82 = load i8, ptr %80, align 1
-  %83 = icmp eq i8 %82, 32
-  br i1 %83, label %100, label %84
+78:                                               ; preds = %Get_Start_Of_Data.exit
+  %79 = load i8, ptr %77, align 1
+  %80 = icmp eq i8 %79, 32
+  br i1 %80, label %97, label %81
 
-84:                                               ; preds = %81
-  %85 = load ptr, ptr %50, align 8
-  %86 = ptrtoint ptr %80 to i64
-  %87 = sub i64 %55, %86
-  %sext41 = shl i64 %87, 32
-  %88 = ashr exact i64 %sext41, 32
-  %89 = getelementptr inbounds i8, ptr %80, i64 %88
-  br label %90
+81:                                               ; preds = %78
+  %82 = load ptr, ptr %50, align 8
+  %83 = ptrtoint ptr %77 to i64
+  %84 = sub i64 %55, %83
+  %sext40 = shl i64 %84, 32
+  %85 = ashr exact i64 %sext40, 32
+  %86 = getelementptr inbounds i8, ptr %77, i64 %85
+  br label %87
 
-90:                                               ; preds = %92, %84
-  %.0.i39 = phi ptr [ %89, %84 ], [ %93, %92 ]
-  %91 = icmp ugt ptr %.0.i39, %80
-  br i1 %91, label %92, label %After_End_Of_Data.exit
+87:                                               ; preds = %89, %81
+  %.0.i39 = phi ptr [ %86, %81 ], [ %90, %89 ]
+  %88 = icmp ugt ptr %.0.i39, %77
+  br i1 %88, label %89, label %After_End_Of_Data.exit
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %.0.i39, i64 -1
-  %94 = load i8, ptr %93, align 1
-  %95 = icmp eq i8 %94, 32
-  br i1 %95, label %90, label %After_End_Of_Data.exit, !llvm.loop !14
+89:                                               ; preds = %87
+  %90 = getelementptr inbounds i8, ptr %.0.i39, i64 -1
+  %91 = load i8, ptr %90, align 1
+  %92 = icmp eq i8 %91, 32
+  br i1 %92, label %87, label %After_End_Of_Data.exit, !llvm.loop !14
 
-After_End_Of_Data.exit:                           ; preds = %90, %92
-  %96 = ptrtoint ptr %.0.i39 to i64
-  %97 = sub i64 %86, %96
-  %98 = trunc i64 %97 to i32
-  %99 = tail call i32 @waddnstr(ptr noundef %85, ptr noundef nonnull %80, i32 noundef %98) #13
-  br label %100
+After_End_Of_Data.exit:                           ; preds = %87, %89
+  %93 = ptrtoint ptr %.0.i39 to i64
+  %94 = sub i64 %83, %93
+  %95 = trunc i64 %94 to i32
+  %96 = tail call i32 @waddnstr(ptr noundef %82, ptr noundef nonnull %77, i32 noundef %95) #13
+  br label %97
 
-100:                                              ; preds = %Get_Start_Of_Data.exit, %81, %After_End_Of_Data.exit, %1
-  %.0 = phi i32 [ -12, %1 ], [ 0, %After_End_Of_Data.exit ], [ 0, %81 ], [ 0, %Get_Start_Of_Data.exit ]
+97:                                               ; preds = %Get_Start_Of_Data.exit, %78, %After_End_Of_Data.exit, %1
+  %.0 = phi i32 [ -12, %1 ], [ 0, %After_End_Of_Data.exit ], [ 0, %78 ], [ 0, %Get_Start_Of_Data.exit ]
   ret i32 %.0
 }
 

@@ -2773,8 +2773,8 @@ define hidden void @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFutur
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5alloc3str17join_generic_copy17he43bc2a8d492da64E(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, i64 }, i64 }, align 8
-  %.idx320 = mul nsw i64 %2, 24
-  %7 = getelementptr inbounds i8, ptr %1, i64 %.idx320
+  %.idx = mul nsw i64 %2, 24
+  %7 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %8 = icmp eq i64 %2, 0
   br i1 %8, label %9, label %11
 
@@ -2786,7 +2786,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17he43bc2a8d492da64E(ptr noa
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %1, i64 24
-  %gepdiff = add nsw i64 %.idx320, -24
+  %gepdiff = add nsw i64 %.idx, -24
   %13 = udiv exact i64 %gepdiff, 24
   %14 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %4, i64 %13)
   %15 = extractvalue { i64, i1 } %14, 1

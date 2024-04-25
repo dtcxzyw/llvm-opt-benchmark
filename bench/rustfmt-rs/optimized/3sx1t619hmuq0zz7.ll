@@ -29121,6 +29121,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6chains20ChainFormatterShared13
   %25 = load ptr, ptr %24, align 8, !nonnull !10, !noundef !10
   %26 = getelementptr inbounds i8, ptr %1, i64 16
   %27 = load i64, ptr %26, align 8, !noundef !10
+  %.idx = mul nsw i64 %27, 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %33, label %34
@@ -29161,7 +29162,6 @@ define internal fastcc void @_ZN15rustfmt_nightly6chains20ChainFormatterShared13
   %41 = load ptr, ptr %40, align 8, !nonnull !10, !align !11, !noundef !10
   %42 = getelementptr inbounds i8, ptr %1, i64 32
   %43 = load i64, ptr %42, align 8, !noundef !10
-  %.idx = mul nsw i64 %27, 24
   %gepdiff = add nsw i64 %.idx, -24
   %44 = udiv exact i64 %gepdiff, 24
   %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %44, i64 %43)

@@ -984,9 +984,7 @@ if.end90:                                         ; preds = %_ZNSt7__cxx1112basi
   %.fr.i = freeze ptr %92
   %_M_string_length.i.i333 = getelementptr inbounds i8, ptr %retval.0.i331, i64 8
   %93 = load i64, ptr %_M_string_length.i.i333, align 8, !tbaa !16
-  %add.ptr.i334 = getelementptr inbounds i8, ptr %.fr.i, i64 %93
   %mul95 = shl i64 %add75, 2
-  %sub.ptr.lhs.cast.i336 = ptrtoint ptr %add.ptr.i334 to i64
   %add97 = add i64 %93, %mul95
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %add97)
           to label %while.cond unwind label %lpad98
@@ -998,13 +996,13 @@ while.cond:                                       ; preds = %if.end90, %invoke.c
 
 if.end.i.i:                                       ; preds = %while.cond
   %add.ptr.i.i = getelementptr i8, ptr %.fr.i, i64 %idx.0
-  %sub.ptr.rhs.cast.i.i15.i = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.sub.i.i16.i = sub i64 %sub.ptr.lhs.cast.i336, %sub.ptr.rhs.cast.i.i15.i
-  %call3.i.i = call noundef ptr @memchr(ptr noundef %add.ptr.i.i, i32 noundef 10, i64 noundef %sub.ptr.sub.i.i16.i) #24
+  %gepdiff = sub i64 %93, %idx.0
+  %call3.i.i = call noundef ptr @memchr(ptr noundef %add.ptr.i.i, i32 noundef 10, i64 noundef %gepdiff) #24
   %cmp.i17.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp.i17.i, label %if.then103, label %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i
 
 _ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i: ; preds = %if.end.i.i
+  %sub.ptr.rhs.cast.i.i15.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.lhs.cast.i18.i = ptrtoint ptr %call3.i.i to i64
   %sub.ptr.sub.i19.i = sub i64 %sub.ptr.lhs.cast.i18.i, %sub.ptr.rhs.cast.i.i15.i
   %cmp6.i = icmp eq i64 %sub.ptr.sub.i19.i, -1

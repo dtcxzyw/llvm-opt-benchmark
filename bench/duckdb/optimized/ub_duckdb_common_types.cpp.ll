@@ -43661,12 +43661,9 @@ for.end:                                          ; preds = %for.inc, %switch.ea
   br i1 %tobool.not, label %if.end75, label %if.then70
 
 if.then70:                                        ; preds = %for.end
-  %add.ptr69 = getelementptr inbounds i8, ptr %str, i64 %inc68168.lcssa
-  %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr64 to i64
-  %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr69 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
+  %gepdiff = sub nsw i64 %inc68168.lcssa, %inc58
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp71.sroa.4)
-  %conv72 = trunc i64 %sub.ptr.sub to i32
+  %conv72 = trunc i64 %gepdiff to i32
   %cmp.i.i = icmp ult i32 %conv72, 13
   br i1 %cmp.i.i, label %if.then.i143, label %if.else.i
 
@@ -43676,7 +43673,7 @@ if.then.i143:                                     ; preds = %if.then70
   br i1 %cmp.i144, label %_ZN6duckdb8string_tC2EPKcj.exit, label %if.end.i145
 
 if.end.i145:                                      ; preds = %if.then.i143
-  %conv.i.i = and i64 %sub.ptr.sub, 15
+  %conv.i.i = and i64 %gepdiff, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %ref.tmp71.sroa.4, ptr nonnull align 1 %add.ptr64, i64 %conv.i.i, i1 false)
   br label %_ZN6duckdb8string_tC2EPKcj.exit
 

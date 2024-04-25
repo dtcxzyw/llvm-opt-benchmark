@@ -1750,27 +1750,30 @@ define dso_local void @_ZN3ozz9animation11SamplingJob7ContextC2Ei(ptr nocapture 
   %27 = getelementptr inbounds i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(8) %25, i64 noundef %24, i64 noundef 16)
-  %30 = getelementptr inbounds %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %29, i64 %18
+  %.idx.i.i = shl nuw nsw i64 %18, 7
+  %30 = getelementptr inbounds i8, ptr %29, i64 %.idx.i.i
   store ptr %29, ptr %7, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 144
   store i64 %18, ptr %31, align 8
-  %32 = getelementptr inbounds %"struct.ozz::animation::internal::InterpSoaQuaternion", ptr %30, i64 %18
+  %.idx.i24.i = mul nuw nsw i64 %18, 160
+  %32 = getelementptr inbounds i8, ptr %30, i64 %.idx.i24.i
   store ptr %30, ptr %8, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %18, ptr %33, align 8
-  %34 = getelementptr inbounds %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %32, i64 %18
+  %34 = getelementptr inbounds i8, ptr %32, i64 %.idx.i.i
   store ptr %32, ptr %9, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 176
   store i64 %18, ptr %35, align 8
-  %36 = getelementptr inbounds i32, ptr %34, i64 %19
+  %.idx.i32.i = shl nuw nsw i64 %18, 4
+  %36 = getelementptr inbounds i8, ptr %34, i64 %.idx.i32.i
   store ptr %34, ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %19, ptr %37, align 8
-  %38 = getelementptr inbounds i32, ptr %36, i64 %19
+  %38 = getelementptr inbounds i8, ptr %36, i64 %.idx.i32.i
   store ptr %36, ptr %5, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 64
   store i64 %19, ptr %39, align 8
-  %40 = getelementptr inbounds i32, ptr %38, i64 %19
+  %40 = getelementptr inbounds i8, ptr %38, i64 %.idx.i32.i
   store ptr %38, ptr %6, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 104
   store i64 %19, ptr %41, align 8
@@ -1826,31 +1829,34 @@ define dso_local void @_ZN3ozz9animation11SamplingJob7Context6ResizeEi(ptr nocap
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %23, i64 noundef 16)
-  %29 = getelementptr inbounds %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %28, i64 %17
+  %.idx.i = shl nuw nsw i64 %17, 7
+  %29 = getelementptr inbounds i8, ptr %28, i64 %.idx.i
   store ptr %28, ptr %8, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 144
   store i64 %17, ptr %30, align 8
-  %31 = getelementptr inbounds %"struct.ozz::animation::internal::InterpSoaQuaternion", ptr %29, i64 %17
+  %.idx.i24 = mul nuw nsw i64 %17, 160
+  %31 = getelementptr inbounds i8, ptr %29, i64 %.idx.i24
   %32 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %29, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %17, ptr %33, align 8
-  %34 = getelementptr inbounds %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %31, i64 %17
+  %34 = getelementptr inbounds i8, ptr %31, i64 %.idx.i
   %35 = getelementptr inbounds i8, ptr %0, i64 168
   store ptr %31, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 176
   store i64 %17, ptr %36, align 8
-  %37 = getelementptr inbounds i32, ptr %34, i64 %18
+  %.idx.i32 = shl nuw nsw i64 %17, 4
+  %37 = getelementptr inbounds i8, ptr %34, i64 %.idx.i32
   %38 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %34, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %18, ptr %39, align 8
-  %40 = getelementptr inbounds i32, ptr %37, i64 %18
+  %40 = getelementptr inbounds i8, ptr %37, i64 %.idx.i32
   %41 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %37, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 64
   store i64 %18, ptr %42, align 8
-  %43 = getelementptr inbounds i32, ptr %40, i64 %18
+  %43 = getelementptr inbounds i8, ptr %40, i64 %.idx.i32
   %44 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %40, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 104

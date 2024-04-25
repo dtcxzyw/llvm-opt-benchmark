@@ -864,7 +864,7 @@ define dso_local void @_ZN5vcpkg9url_headsENS_4SpanIKNSt7__cxx1112basic_stringIc
           cleanup
   br label %12
 
-.loopexit.split-lp:                               ; preds = %23, %16
+.loopexit.split-lp:                               ; preds = %19, %16
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %12
@@ -884,34 +884,31 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %12, %14
 
 15:                                               ; preds = %8
   %.not12 = icmp eq i64 %.0, %2
-  br i1 %.not12, label %23, label %16
+  br i1 %.not12, label %19, label %16
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1, i64 %.0
-  %18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1, i64 %2
-  %19 = ptrtoint ptr %18 to i64
-  %20 = ptrtoint ptr %17 to i64
-  %21 = sub i64 %19, %20
-  %22 = ashr exact i64 %21, 5
-  invoke fastcc void @_ZN5vcpkgL15url_heads_innerENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_PSt6vectorIiSaIiEES8_(ptr %17, i64 %22, ptr %3, i64 %4, ptr noundef nonnull %0, ptr %.sroa.018.0.copyload, i64 %.sroa.219.0.copyload)
-          to label %23 unwind label %.loopexit.split-lp
+  %.idx28 = shl nsw i64 %.0, 5
+  %17 = getelementptr inbounds i8, ptr %1, i64 %.idx28
+  %18 = sub nsw i64 %2, %.0
+  invoke fastcc void @_ZN5vcpkgL15url_heads_innerENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_PSt6vectorIiSaIiEES8_(ptr %17, i64 %18, ptr %3, i64 %4, ptr noundef nonnull %0, ptr %.sroa.018.0.copyload, i64 %.sroa.219.0.copyload)
+          to label %19 unwind label %.loopexit.split-lp
 
-23:                                               ; preds = %16, %15
+19:                                               ; preds = %16, %15
   store i32 439, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr @.str.1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %0, align 8
-  %28 = ptrtoint ptr %26 to i64
-  %29 = ptrtoint ptr %27 to i64
-  %30 = sub i64 %28, %29
-  %31 = ashr exact i64 %30, 2
-  %32 = icmp eq i64 %31, %2
-  invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %7, i1 noundef zeroext %32)
-          to label %33 unwind label %.loopexit.split-lp
+  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr @.str.1, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %0, align 8
+  %24 = ptrtoint ptr %22 to i64
+  %25 = ptrtoint ptr %23 to i64
+  %26 = sub i64 %24, %25
+  %27 = ashr exact i64 %26, 2
+  %28 = icmp eq i64 %27, %2
+  invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %7, i1 noundef zeroext %28)
+          to label %29 unwind label %.loopexit.split-lp
 
-33:                                               ; preds = %23
+29:                                               ; preds = %19
   ret void
 }
 
@@ -1327,13 +1324,13 @@ define dso_local void @_ZN5vcpkg14download_filesERKNS_10FilesystemENS_4SpanIKSt4
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %18, %35
+.loopexit.split-lp:                               ; preds = %18, %31
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %37
-  %eh.lpad-body = phi { ptr, i32 } [ %38, %37 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %33
+  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %15 = load ptr, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %16
@@ -1347,54 +1344,51 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.body, %16
 
 17:                                               ; preds = %11
   %.not17 = icmp eq i64 %.0, %3
-  br i1 %.not17, label %25, label %18
+  br i1 %.not17, label %21, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %.0
-  %20 = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %3
-  %21 = ptrtoint ptr %20 to i64
-  %22 = ptrtoint ptr %19 to i64
-  %23 = sub i64 %21, %22
-  %24 = ashr exact i64 %23, 6
-  invoke fastcc void @_ZN5vcpkgL20download_files_innerERKNS_10FilesystemENS_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4PathEEEENS3_IKSA_EEPSt6vectorIiSaIiEE(ptr %19, i64 %24, ptr %4, i64 %5, ptr noundef nonnull %0)
-          to label %25 unwind label %.loopexit.split-lp
+  %.idx27 = shl nsw i64 %.0, 6
+  %19 = getelementptr inbounds i8, ptr %2, i64 %.idx27
+  %20 = sub nsw i64 %3, %.0
+  invoke fastcc void @_ZN5vcpkgL20download_files_innerERKNS_10FilesystemENS_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4PathEEEENS3_IKSA_EEPSt6vectorIiSaIiEE(ptr %19, i64 %20, ptr %4, i64 %5, ptr noundef nonnull %0)
+          to label %21 unwind label %.loopexit.split-lp
 
-25:                                               ; preds = %18, %17
+21:                                               ; preds = %18, %17
   store i32 512, ptr %8, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr @.str.1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %0, align 8
-  %30 = ptrtoint ptr %28 to i64
-  %31 = ptrtoint ptr %29 to i64
-  %32 = sub i64 %30, %31
-  %33 = ashr exact i64 %32, 2
-  %34 = icmp eq i64 %33, %3
+  %22 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr @.str.1, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %0, align 8
+  %26 = ptrtoint ptr %24 to i64
+  %27 = ptrtoint ptr %25 to i64
+  %28 = sub i64 %26, %27
+  %29 = ashr exact i64 %28, 2
+  %30 = icmp eq i64 %29, %3
   %.sroa.02.0.copyload = load i64, ptr @_ZN5vcpkg38msgCurlReturnedUnexpectedResponseCodesE, align 8
-  store i64 %33, ptr %9, align 8
+  store i64 %29, ptr %9, align 8
   store i64 %3, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  br i1 %34, label %39, label %35
+  br i1 %30, label %35, label %31
 
-35:                                               ; preds = %25
+31:                                               ; preds = %21
   invoke void @_ZN5vcpkg3msg6formatIJNS0_8actual_tENS0_10expected_tEEJmmEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS6_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %7, i64 %.sroa.02.0.copyload, ptr nonnull %9, ptr nonnull %10)
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %35
+.noexc:                                           ; preds = %31
   invoke void @_ZN5vcpkg6Checks21msg_exit_with_messageERKNS_8LineInfoERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %7) #23
-          to label %36 unwind label %37
+          to label %32 unwind label %33
 
-36:                                               ; preds = %.noexc
+32:                                               ; preds = %.noexc
   unreachable
 
-37:                                               ; preds = %.noexc
-  %38 = landingpad { ptr, i32 }
+33:                                               ; preds = %.noexc
+  %34 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   br label %.body
 
-39:                                               ; preds = %25
+35:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   ret void
 }

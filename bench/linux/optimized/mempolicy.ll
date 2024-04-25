@@ -5309,7 +5309,7 @@ define dso_local void @mpol_to_str(ptr noundef %0, i32 noundef %1, ptr noundef r
   tail call void asm sideeffect "511: nop\0A\09.pushsection .discard.instr_end\0A\09.long 511b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 511) #19, !srcloc !75
   %21 = sext i32 %1 to i64
   %22 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %21, ptr noundef nonnull @.str.6) #19
-  br label %59
+  br label %57
 
 .thread:                                          ; preds = %3, %8, %16, %13, %13
   %23 = phi i1 [ %19, %16 ], [ true, %13 ], [ true, %13 ], [ true, %8 ], [ true, %3 ]
@@ -5323,45 +5323,44 @@ define dso_local void @mpol_to_str(ptr noundef %0, i32 noundef %1, ptr noundef r
   %30 = sext i32 %29 to i64
   %31 = getelementptr i8, ptr %0, i64 %30
   %32 = icmp ult i16 %.shrunk, 8192
-  br i1 %32, label %51, label %33
+  br i1 %32, label %49, label %33
 
 33:                                               ; preds = %.thread
   %34 = getelementptr i8, ptr %0, i64 %25
   %35 = ptrtoint ptr %34 to i64
-  %36 = ptrtoint ptr %31 to i64
-  %37 = sub i64 %35, %36
-  %38 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %31, i64 noundef %37, ptr noundef nonnull @.str.8) #19
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr i8, ptr %31, i64 %39
-  %41 = icmp sgt i16 %.shrunk, -1
-  br i1 %41, label %42, label %44
+  %gepdiff = sub nsw i64 %25, %30
+  %36 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %31, i64 noundef %gepdiff, ptr noundef nonnull @.str.8) #19
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr i8, ptr %31, i64 %37
+  %39 = icmp sgt i16 %.shrunk, -1
+  br i1 %39, label %40, label %42
 
-42:                                               ; preds = %33
-  %43 = icmp ult i16 %.shrunk, 16384
-  br i1 %43, label %51, label %44
+40:                                               ; preds = %33
+  %41 = icmp ult i16 %.shrunk, 16384
+  br i1 %41, label %49, label %42
 
-44:                                               ; preds = %42, %33
-  %45 = phi ptr [ @.str.4, %33 ], [ @.str.5, %42 ]
-  %46 = ptrtoint ptr %40 to i64
-  %47 = sub i64 %35, %46
-  %48 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %40, i64 noundef %47, ptr noundef nonnull %45) #19
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr i8, ptr %40, i64 %49
-  br label %51
+42:                                               ; preds = %40, %33
+  %43 = phi ptr [ @.str.4, %33 ], [ @.str.5, %40 ]
+  %44 = ptrtoint ptr %38 to i64
+  %45 = sub i64 %35, %44
+  %46 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %38, i64 noundef %45, ptr noundef nonnull %43) #19
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr i8, ptr %38, i64 %47
+  br label %49
 
-51:                                               ; preds = %44, %42, %.thread
-  %52 = phi ptr [ %40, %42 ], [ %31, %.thread ], [ %50, %44 ]
-  br i1 %23, label %59, label %53
+49:                                               ; preds = %42, %40, %.thread
+  %50 = phi ptr [ %38, %40 ], [ %31, %.thread ], [ %48, %42 ]
+  br i1 %23, label %57, label %51
 
-53:                                               ; preds = %51
-  %54 = getelementptr i8, ptr %0, i64 %25
-  %55 = ptrtoint ptr %54 to i64
-  %56 = ptrtoint ptr %52 to i64
-  %57 = sub i64 %55, %56
-  %58 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %52, i64 noundef %57, ptr noundef nonnull @.str.9, i32 noundef 64, ptr noundef nonnull %4) #19
-  br label %59
+51:                                               ; preds = %49
+  %52 = getelementptr i8, ptr %0, i64 %25
+  %53 = ptrtoint ptr %52 to i64
+  %54 = ptrtoint ptr %50 to i64
+  %55 = sub i64 %53, %54
+  %56 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %50, i64 noundef %55, ptr noundef nonnull @.str.9, i32 noundef 64, ptr noundef nonnull %4) #19
+  br label %57
 
-59:                                               ; preds = %53, %51, %20
+57:                                               ; preds = %51, %49, %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
   ret void
 }

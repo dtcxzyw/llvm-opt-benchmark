@@ -3571,30 +3571,22 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %this, align 8, !tbaa !38
   %conv = sext i32 %left to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CMeshCache::MeshEntry", ptr %0, i64 %conv
+  %add.ptr.i.i.i.i.idx = mul nsw i64 %conv, 72
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.i.i.i.idx
   %conv9 = sext i32 %right to i64
-  %add.ptr.i.i.i.i42 = getelementptr inbounds %"struct.irr::scene::CMeshCache::MeshEntry", ptr %0, i64 %conv9
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i42 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %cmp16.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
-  br i1 %cmp16.i.i, label %while.body.lr.ph.i.i, label %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEEET_SC_NSt15iterator_traitsISC_E15difference_typeE.exit48._ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit_crit_edge
-
-_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEEET_SC_NSt15iterator_traitsISC_E15difference_typeE.exit48._ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit_crit_edge: ; preds = %if.end
-  %_M_string_length.i10.i.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %element, i64 40
-  %.pre = load i64, ptr %_M_string_length.i10.i.i.i.i.i.phi.trans.insert, align 8, !tbaa !10
-  br label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
-
-while.body.lr.ph.i.i:                             ; preds = %if.end
-  %sub.ptr.div.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i, 72
+  %add.ptr.i.i.i.i42.idx1 = sub nsw i64 %conv9, %conv
+  %cmp16.i.i = icmp sgt i64 %add.ptr.i.i.i.i42.idx1, 0
   %_M_string_length.i10.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %element, i64 40
   %1 = load i64, ptr %_M_string_length.i10.i.i.i.i.i.i.i.i, align 8, !tbaa !10
+  br i1 %cmp16.i.i, label %while.body.lr.ph.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
+
+while.body.lr.ph.i.i:                             ; preds = %if.end
   %InternalName2.i.i.i.i.i = getelementptr inbounds i8, ptr %element, i64 32
   %2 = load ptr, ptr %InternalName2.i.i.i.i.i, align 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i, %while.body.lr.ph.i.i
-  %__len.018.i.i = phi i64 [ %sub.ptr.div.i.i.i.i.i, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
+  %__len.018.i.i = phi i64 [ %add.ptr.i.i.i.i42.idx1, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
   %__first.sroa.0.017.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i ], [ %__first.sroa.0.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
   %shr.i.i = lshr i64 %__len.018.i.i, 1
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CMeshCache::MeshEntry", ptr %__first.sroa.0.017.i.i, i64 %shr.i.i
@@ -3629,38 +3621,37 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5scene10CMe
   %cmp.i.i = icmp sgt i64 %__len.1.i.i, 0
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit, !llvm.loop !76
 
-_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i, %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEEET_SC_NSt15iterator_traitsISC_E15difference_typeE.exit48._ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit_crit_edge
-  %6 = phi i64 [ %.pre, %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEEET_SC_NSt15iterator_traitsISC_E15difference_typeE.exit48._ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit_crit_edge ], [ %1, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
-  %__first.sroa.0.0.lcssa.i.i = phi ptr [ %add.ptr.i.i.i.i, %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEEET_SC_NSt15iterator_traitsISC_E15difference_typeE.exit48._ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit_crit_edge ], [ %__first.sroa.0.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
+_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i, %if.end
+  %__first.sroa.0.0.lcssa.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.end ], [ %__first.sroa.0.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i, i64 40
-  %7 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !10
-  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %6, i64 %7)
+  %6 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !10
+  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %6)
   %cmp.i11.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
   br i1 %cmp.i11.i.i.i.i.i, label %_ZNK3irr5scene10CMeshCache9MeshEntryltERKS2_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
   %InternalName2.i.i = getelementptr inbounds i8, ptr %element, i64 32
   %InternalName.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i, i64 32
-  %8 = load ptr, ptr %InternalName2.i.i, align 8, !tbaa !3
-  %9 = load ptr, ptr %InternalName.i.i, align 8, !tbaa !3
-  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %9, ptr noundef %8, i64 noundef %.sroa.speculated.i.i.i.i.i) #18
+  %7 = load ptr, ptr %InternalName2.i.i, align 8, !tbaa !3
+  %8 = load ptr, ptr %InternalName.i.i, align 8, !tbaa !3
+  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %8, ptr noundef %7, i64 noundef %.sroa.speculated.i.i.i.i.i) #18
   %tobool.not.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZNK3irr5scene10CMeshCache9MeshEntryltERKS2_.exit.thread71, label %_ZNK3irr5scene10CMeshCache9MeshEntryltERKS2_.exit.thread
 
 _ZNK3irr5scene10CMeshCache9MeshEntryltERKS2_.exit: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
-  %sub.i.i.i.i.i.i = sub i64 %7, %6
+  %sub.i.i.i.i.i.i = sub i64 %6, %1
   %spec.select6.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i, i64 2147483647)
-  %10 = and i64 %retval.07.i.i.i.i.i.i, 2147483648
-  %cmp.i.i.i.i49.not = icmp eq i64 %10, 0
+  %9 = and i64 %retval.07.i.i.i.i.i.i, 2147483648
+  %cmp.i.i.i.i49.not = icmp eq i64 %9, 0
   br i1 %cmp.i.i.i.i49.not, label %if.then.i.i.i.i.i61, label %return
 
 _ZNK3irr5scene10CMeshCache9MeshEntryltERKS2_.exit.thread71: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
-  %sub.i.i.i.i.i.i72 = sub i64 %7, %6
+  %sub.i.i.i.i.i.i72 = sub i64 %6, %1
   %spec.select6.i.i.i.i.i.i73 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i72, i64 -2147483648)
   %retval.07.i.i.i.i.i.i74 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i73, i64 2147483647)
-  %11 = and i64 %retval.07.i.i.i.i.i.i74, 2147483648
-  %cmp.i.i.i.i4976.not = icmp eq i64 %11, 0
+  %10 = and i64 %retval.07.i.i.i.i.i.i74, 2147483648
+  %cmp.i.i.i.i4976.not = icmp eq i64 %10, 0
   br i1 %cmp.i.i.i.i4976.not, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54, label %return
 
 _ZNK3irr5scene10CMeshCache9MeshEntryltERKS2_.exit.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
@@ -3668,12 +3659,12 @@ _ZNK3irr5scene10CMeshCache9MeshEntryltERKS2_.exit.thread: ; preds = %_ZNSt11char
   br i1 %cmp.i.i.i.i4970, label %return, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54: ; preds = %_ZNK3irr5scene10CMeshCache9MeshEntryltERKS2_.exit.thread, %_ZNK3irr5scene10CMeshCache9MeshEntryltERKS2_.exit.thread71
-  %call.i.i.i.i.i.i57 = tail call i32 @memcmp(ptr noundef %8, ptr noundef %9, i64 noundef %.sroa.speculated.i.i.i.i.i) #18
+  %call.i.i.i.i.i.i57 = tail call i32 @memcmp(ptr noundef %7, ptr noundef %8, i64 noundef %.sroa.speculated.i.i.i.i.i) #18
   %tobool.not.i.i.i.i.i58 = icmp eq i32 %call.i.i.i.i.i.i57, 0
   br i1 %tobool.not.i.i.i.i.i58, label %if.then.i.i.i.i.i61, label %_ZNK3irr5scene10CMeshCache9MeshEntryltERKS2_.exit66
 
 if.then.i.i.i.i.i61:                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54, %_ZNK3irr5scene10CMeshCache9MeshEntryltERKS2_.exit
-  %sub.i.i.i.i.i.i62 = sub i64 %6, %7
+  %sub.i.i.i.i.i.i62 = sub i64 %1, %6
   %spec.select6.i.i.i.i.i.i63 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i62, i64 -2147483648)
   %retval.07.i.i.i.i.i.i64 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i63, i64 2147483647)
   %retval.0.i12.i.i.i.i.i65 = trunc nsw i64 %retval.07.i.i.i.i.i.i64 to i32

@@ -1363,26 +1363,23 @@ define dso_local void @nghttp2_frame_unpack_altsvc_payload(ptr nocapture noundef
   store i64 %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 %3
-  %11 = ptrtoint ptr %10 to i64
-  %12 = ptrtoint ptr %7 to i64
-  %13 = sub i64 %11, %12
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
-  store i64 %13, ptr %14, align 8
+  %gepdiff = sub nsw i64 %3, %1
+  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  store i64 %gepdiff, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @nghttp2_frame_unpack_altsvc_payload2(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp ult i64 %2, 2
-  br i1 %5, label %24, label %6
+  br i1 %5, label %20, label %6
 
 6:                                                ; preds = %4
   %7 = tail call zeroext i16 @nghttp2_get_uint16(ptr noundef %1) #17
   %8 = add i64 %2, -2
   %9 = tail call ptr @nghttp2_mem_malloc(ptr noundef %3, i64 noundef %8) #17
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %24, label %10
+  br i1 %.not, label %20, label %10
 
 10:                                               ; preds = %6
   %11 = zext i16 %7 to i64
@@ -1396,15 +1393,12 @@ define dso_local noundef i32 @nghttp2_frame_unpack_altsvc_payload2(ptr nocapture
   store i64 %11, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %15, i64 16
   store ptr %16, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 %8
-  %20 = ptrtoint ptr %19 to i64
-  %21 = ptrtoint ptr %16 to i64
-  %22 = sub i64 %20, %21
-  %23 = getelementptr inbounds i8, ptr %15, i64 24
-  store i64 %22, ptr %23, align 8
-  br label %24
+  %gepdiff.i = sub nsw i64 %8, %11
+  %19 = getelementptr inbounds i8, ptr %15, i64 24
+  store i64 %gepdiff.i, ptr %19, align 8
+  br label %20
 
-24:                                               ; preds = %6, %4, %10
+20:                                               ; preds = %6, %4, %10
   %.0 = phi i32 [ 0, %10 ], [ 6, %4 ], [ -901, %6 ]
   ret i32 %.0
 }

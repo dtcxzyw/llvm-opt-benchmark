@@ -904,13 +904,10 @@ if.then.i.i.i.i.i:                                ; preds = %if.then
   %s_orig = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %s_orig, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %i.0
-  %add.ptr.i50 = getelementptr inbounds i8, ptr %8, i64 %7
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i50 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
+  %gepdiff = sub nsw i64 %7, %i.0
   %9 = load ptr, ptr %this, align 8
   %add.ptr.i51 = getelementptr inbounds i8, ptr %9, i64 %i.0
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i51, ptr nonnull align 1 %add.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i51, ptr nonnull align 1 %add.ptr.i, i64 %gepdiff, i1 false)
   br label %return
 
 for.end:                                          ; preds = %for.cond
@@ -1281,7 +1278,7 @@ define hidden void @_ZN3ue211ue2_literalC2Ecb(ptr noundef nonnull align 8 derefe
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i:
   %0 = add i8 %c, -123
   %1 = icmp ult i8 %0, -26
-  %sub.i = add i8 %c, -32
+  %sub.i = add nsw i8 %c, -32
   %retval.0.i = select i1 %1, i8 %c, i8 %sub.i
   %cond = select i1 %nc, i8 %retval.0.i, i8 %c
   %2 = getelementptr inbounds i8, ptr %this, i64 16
@@ -1888,7 +1885,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   %13 = phi ptr [ %.pre.i, %if.then.i ], [ %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ]
   %14 = add i8 %c, -123
   %15 = icmp ult i8 %14, -26
-  %sub.i = add i8 %c, -32
+  %sub.i = add nsw i8 %c, -32
   %retval.0.i = select i1 %15, i8 %c, i8 %sub.i
   %c.addr.0 = select i1 %nc, i8 %retval.0.i, i8 %c
   %arrayidx.i = getelementptr inbounds i8, ptr %13, i64 %9

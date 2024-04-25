@@ -622,12 +622,11 @@ if.end12.i.i.i.i:                                 ; preds = %if.end8.i.i.i.i
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.loopexit.i.i.i.i, !llvm.loop !109
 
 for.end.loopexit.i.i.i.i:                         ; preds = %if.end12.i.i.i.i
-  %.pre.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i to i64
-  %.pre82.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %.pre.i.i.i.i
+  %gepdiff = and i64 %14, 31
   br label %for.end.i.i.i.i
 
 for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.i.i.i, %while.exit16.i
-  %sub.ptr.sub16.pre-phi.i.i.i.i = phi i64 [ %.pre82.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %14, %while.exit16.i ]
+  %sub.ptr.sub16.pre-phi.i.i.i.i = phi i64 [ %gepdiff, %for.end.loopexit.i.i.i.i ], [ %14, %while.exit16.i ]
   %__first.addr.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %13, %while.exit16.i ]
   %sub.ptr.div17.i.i.i.i = ashr exact i64 %sub.ptr.sub16.pre-phi.i.i.i.i, 3
   switch i64 %sub.ptr.div17.i.i.i.i, label %sw.default.i.i.i.i [

@@ -1452,106 +1452,103 @@ ct_sip_header_search.exit.thread:                 ; preds = %ct_sip_header_searc
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %162 = getelementptr inbounds i8, ptr %0, i64 50
   %163 = load i16, ptr %162, align 2
-  switch i16 %163, label %192 [
+  switch i16 %163, label %188 [
     i16 2, label %164
-    i16 10, label %171
+    i16 10, label %167
   ]
 
 164:                                              ; preds = %161
-  %165 = ptrtoint ptr %15 to i64
-  %166 = ptrtoint ptr %159 to i64
-  %167 = sub i64 %165, %166
-  %168 = trunc i64 %167 to i32
-  %169 = call i32 @in4_pton(ptr noundef %159, i32 noundef %168, ptr noundef %8, i32 noundef -1, ptr noundef nonnull %11) #14
-  %170 = icmp eq i32 %169, 0
-  br i1 %170, label %sip_parse_addr.exit.thread, label %._crit_edge
+  %gepdiff = sub i32 %3, %157
+  %165 = call i32 @in4_pton(ptr noundef %159, i32 noundef %gepdiff, ptr noundef %8, i32 noundef -1, ptr noundef nonnull %11) #14
+  %166 = icmp eq i32 %165, 0
+  br i1 %166, label %sip_parse_addr.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %164
   %.pre = load ptr, ptr %11, align 8
-  br label %193
+  br label %189
 
-171:                                              ; preds = %161
-  %172 = icmp ult ptr %159, %15
-  br i1 %172, label %173, label %sip_parse_addr.exit.thread
+167:                                              ; preds = %161
+  %168 = icmp ult ptr %159, %15
+  br i1 %168, label %169, label %sip_parse_addr.exit.thread
 
-173:                                              ; preds = %171
-  %174 = load i8, ptr %159, align 1
-  %175 = icmp eq i8 %174, 91
-  br i1 %175, label %176, label %sip_parse_addr.exit.thread
+169:                                              ; preds = %167
+  %170 = load i8, ptr %159, align 1
+  %171 = icmp eq i8 %170, 91
+  br i1 %171, label %172, label %sip_parse_addr.exit.thread
 
-176:                                              ; preds = %173
-  %177 = getelementptr i8, ptr %159, i64 1
-  %178 = ptrtoint ptr %15 to i64
-  %179 = ptrtoint ptr %177 to i64
-  %180 = sub i64 %178, %179
-  %181 = trunc i64 %180 to i32
-  %182 = call i32 @in6_pton(ptr noundef %177, i32 noundef %181, ptr noundef %8, i32 noundef -1, ptr noundef nonnull %11) #14
-  %183 = icmp eq i32 %182, 0
-  br i1 %183, label %sip_parse_addr.exit.thread, label %184
+172:                                              ; preds = %169
+  %173 = getelementptr i8, ptr %159, i64 1
+  %174 = ptrtoint ptr %15 to i64
+  %175 = ptrtoint ptr %173 to i64
+  %176 = sub i64 %174, %175
+  %177 = trunc i64 %176 to i32
+  %178 = call i32 @in6_pton(ptr noundef %173, i32 noundef %177, ptr noundef %8, i32 noundef -1, ptr noundef nonnull %11) #14
+  %179 = icmp eq i32 %178, 0
+  br i1 %179, label %sip_parse_addr.exit.thread, label %180
 
-184:                                              ; preds = %176
-  %185 = load ptr, ptr %11, align 8
-  %186 = icmp ult ptr %185, %15
-  br i1 %186, label %187, label %sip_parse_addr.exit.thread
+180:                                              ; preds = %172
+  %181 = load ptr, ptr %11, align 8
+  %182 = icmp ult ptr %181, %15
+  br i1 %182, label %183, label %sip_parse_addr.exit.thread
 
-187:                                              ; preds = %184
-  %188 = load i8, ptr %185, align 1
-  %189 = icmp eq i8 %188, 93
-  br i1 %189, label %190, label %sip_parse_addr.exit.thread
+183:                                              ; preds = %180
+  %184 = load i8, ptr %181, align 1
+  %185 = icmp eq i8 %184, 93
+  br i1 %185, label %186, label %sip_parse_addr.exit.thread
 
-190:                                              ; preds = %187
-  %191 = getelementptr i8, ptr %185, i64 1
-  br label %193
+186:                                              ; preds = %183
+  %187 = getelementptr i8, ptr %181, i64 1
+  br label %189
 
-192:                                              ; preds = %161
+188:                                              ; preds = %161
   call void asm sideeffect "1021: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1021b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1021) #14, !srcloc !11
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 176, i32 0, i64 12) #14, !srcloc !12
   unreachable
 
-sip_parse_addr.exit.thread:                       ; preds = %156, %164, %176, %173, %171, %187, %184
+sip_parse_addr.exit.thread:                       ; preds = %156, %164, %172, %169, %167, %183, %180
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
   br label %.loopexit
 
-193:                                              ; preds = %._crit_edge, %190
-  %194 = phi ptr [ %.pre, %._crit_edge ], [ %191, %190 ]
+189:                                              ; preds = %._crit_edge, %186
+  %190 = phi ptr [ %.pre, %._crit_edge ], [ %187, %186 ]
+  store ptr %190, ptr %13, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
+  %191 = load i8, ptr %190, align 1
+  %192 = icmp eq i8 %191, 58
+  br i1 %192, label %193, label %202
+
+193:                                              ; preds = %189
+  %194 = getelementptr i8, ptr %190, i64 1
   store ptr %194, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  %195 = load i8, ptr %194, align 1
-  %196 = icmp eq i8 %195, 58
-  br i1 %196, label %197, label %206
+  %195 = call i64 @simple_strtoul(ptr noundef %194, ptr noundef nonnull %13, i32 noundef 10) #14
+  %196 = trunc i64 %195 to i32
+  %197 = add i32 %196, -65536
+  %198 = icmp ult i32 %197, -64512
+  br i1 %198, label %.loopexit, label %199
 
-197:                                              ; preds = %193
-  %198 = getelementptr i8, ptr %194, i64 1
-  store ptr %198, ptr %13, align 8
-  %199 = call i64 @simple_strtoul(ptr noundef %198, ptr noundef nonnull %13, i32 noundef 10) #14
-  %200 = trunc i64 %199 to i32
-  %201 = add i32 %200, -65536
-  %202 = icmp ult i32 %201, -64512
-  br i1 %202, label %.loopexit, label %203
+199:                                              ; preds = %193
+  %200 = trunc i64 %195 to i16
+  %201 = call i16 @llvm.bswap.i16(i16 %200)
+  br label %202
 
-203:                                              ; preds = %197
-  %204 = trunc i64 %199 to i16
-  %205 = call i16 @llvm.bswap.i16(i16 %204)
-  br label %206
+202:                                              ; preds = %199, %189
+  %203 = phi i16 [ %201, %199 ], [ -15341, %189 ]
+  store i16 %203, ptr %9, align 2
+  br i1 %16, label %.loopexit, label %204
 
-206:                                              ; preds = %203, %193
-  %207 = phi i16 [ %205, %203 ], [ -15341, %193 ]
-  store i16 %207, ptr %9, align 2
-  br i1 %16, label %.loopexit, label %208
-
-208:                                              ; preds = %206
-  %209 = load ptr, ptr %13, align 8
-  %210 = ptrtoint ptr %209 to i64
-  %211 = ptrtoint ptr %1 to i64
-  %212 = sub i64 %210, %211
-  %213 = trunc i64 %212 to i32
-  store i32 %213, ptr %2, align 4
+204:                                              ; preds = %202
+  %205 = load ptr, ptr %13, align 8
+  %206 = ptrtoint ptr %205 to i64
+  %207 = ptrtoint ptr %1 to i64
+  %208 = sub i64 %206, %207
+  %209 = trunc i64 %208 to i32
+  store i32 %209, ptr %2, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %sip_parse_addr.exit.thread, %208, %206, %197
-  %214 = phi i32 [ -1, %197 ], [ 1, %208 ], [ 1, %206 ], [ -1, %sip_parse_addr.exit.thread ], [ 0, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %sip_parse_addr.exit.thread, %204, %202, %193
+  %210 = phi i32 [ -1, %193 ], [ 1, %204 ], [ 1, %202 ], [ -1, %sip_parse_addr.exit.thread ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  ret i32 %214
+  ret i32 %210
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

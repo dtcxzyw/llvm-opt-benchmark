@@ -1620,12 +1620,9 @@ entry:
   store i64 %origin_len, ptr %origin_len2, align 8
   %field_value = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %add.ptr, ptr %field_value, align 8
-  %add.ptr3 = getelementptr inbounds i8, ptr %payload, i64 %payloadlen
-  %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr3 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
+  %gepdiff = sub nsw i64 %payloadlen, %origin_len
   %field_value_len = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %sub.ptr.sub, ptr %field_value_len, align 8
+  store i64 %gepdiff, ptr %field_value_len, align 8
   ret void
 }
 
@@ -1654,12 +1651,9 @@ if.end3:                                          ; preds = %if.end
   store i64 %conv, ptr %origin_len2.i, align 8
   %field_value.i = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %add.ptr.i, ptr %field_value.i, align 8
-  %add.ptr3.i = getelementptr inbounds i8, ptr %call1, i64 %sub
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr3.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %gepdiff.i = sub nsw i64 %sub, %conv
   %field_value_len.i = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %sub.ptr.sub.i, ptr %field_value_len.i, align 8
+  store i64 %gepdiff.i, ptr %field_value_len.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end3

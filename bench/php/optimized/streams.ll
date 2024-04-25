@@ -2318,67 +2318,65 @@ define internal fastcc ptr @_php_stream_search_delim(ptr nocapture noundef reado
   %23 = getelementptr i8, ptr %15, i64 %.
   %24 = icmp uge ptr %23, %16
   tail call void @llvm.assume(i1 %24)
-  %25 = ptrtoint ptr %23 to i64
-  %26 = ptrtoint ptr %16 to i64
-  %27 = sub i64 %25, %26
-  %28 = icmp ult i64 %27, %4
-  br i1 %28, label %.loopexit, label %29
+  %gepdiff = sub i64 %., %2
+  %25 = icmp ult i64 %gepdiff, %4
+  br i1 %25, label %.loopexit, label %26
 
-29:                                               ; preds = %22
-  %30 = icmp ult i64 %27, 1024
-  %31 = icmp ult i64 %4, 9
-  %32 = or i1 %31, %30
-  br i1 %32, label %33, label %57
+26:                                               ; preds = %22
+  %27 = icmp ult i64 %gepdiff, 1024
+  %28 = icmp ult i64 %4, 9
+  %29 = or i1 %28, %27
+  br i1 %29, label %30, label %54
 
-33:                                               ; preds = %29
-  %34 = add i64 %4, -1
-  %35 = getelementptr inbounds i8, ptr %3, i64 %34
-  %36 = load i8, ptr %35, align 1
-  %37 = sub i64 0, %4
-  %38 = getelementptr inbounds i8, ptr %23, i64 %37
-  %39 = getelementptr inbounds i8, ptr %3, i64 1
-  %.not7275 = icmp ugt ptr %16, %38
+30:                                               ; preds = %26
+  %31 = add i64 %4, -1
+  %32 = getelementptr inbounds i8, ptr %3, i64 %31
+  %33 = load i8, ptr %32, align 1
+  %34 = sub i64 0, %4
+  %35 = getelementptr inbounds i8, ptr %23, i64 %34
+  %36 = getelementptr inbounds i8, ptr %3, i64 1
+  %.not7275 = icmp ugt ptr %16, %35
   br i1 %.not7275, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %33
-  %40 = load i8, ptr %3, align 1
-  %41 = sext i8 %40 to i32
-  %42 = ptrtoint ptr %38 to i64
-  %43 = add i64 %42, 1
-  %44 = add i64 %4, -2
-  br label %45
+.lr.ph:                                           ; preds = %30
+  %37 = load i8, ptr %3, align 1
+  %38 = sext i8 %37 to i32
+  %39 = ptrtoint ptr %35 to i64
+  %40 = add i64 %39, 1
+  %41 = add i64 %4, -2
+  br label %42
 
-45:                                               ; preds = %.lr.ph, %55
-  %.06276 = phi ptr [ %16, %.lr.ph ], [ %56, %55 ]
-  %46 = ptrtoint ptr %.06276 to i64
-  %47 = sub i64 %43, %46
-  %48 = tail call ptr @memchr(ptr noundef %.06276, i32 noundef %41, i64 noundef %47) #28
-  %.not73 = icmp eq ptr %48, null
-  br i1 %.not73, label %.loopexit, label %49
+42:                                               ; preds = %.lr.ph, %52
+  %.06276 = phi ptr [ %16, %.lr.ph ], [ %53, %52 ]
+  %43 = ptrtoint ptr %.06276 to i64
+  %44 = sub i64 %40, %43
+  %45 = tail call ptr @memchr(ptr noundef %.06276, i32 noundef %38, i64 noundef %44) #28
+  %.not73 = icmp eq ptr %45, null
+  br i1 %.not73, label %.loopexit, label %46
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %48, i64 %34
-  %51 = load i8, ptr %50, align 1
-  %52 = icmp eq i8 %36, %51
-  br i1 %52, label %53, label %55
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds i8, ptr %45, i64 %31
+  %48 = load i8, ptr %47, align 1
+  %49 = icmp eq i8 %33, %48
+  br i1 %49, label %50, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %48, i64 1
-  %bcmp = tail call i32 @bcmp(ptr nonnull %39, ptr nonnull %54, i64 %44)
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds i8, ptr %45, i64 1
+  %bcmp = tail call i32 @bcmp(ptr nonnull %36, ptr nonnull %51, i64 %41)
   %.not74 = icmp eq i32 %bcmp, 0
-  br i1 %.not74, label %.loopexit, label %55
+  br i1 %.not74, label %.loopexit, label %52
 
-55:                                               ; preds = %53, %49
-  %56 = getelementptr inbounds i8, ptr %48, i64 1
-  %.not72 = icmp ugt ptr %56, %38
-  br i1 %.not72, label %.loopexit, label %45
+52:                                               ; preds = %50, %46
+  %53 = getelementptr inbounds i8, ptr %45, i64 1
+  %.not72 = icmp ugt ptr %53, %35
+  br i1 %.not72, label %.loopexit, label %42
 
-57:                                               ; preds = %29
-  %58 = tail call ptr @zend_memnstr_ex(ptr noundef %16, ptr noundef %3, i64 noundef %4, ptr noundef %23) #27
+54:                                               ; preds = %26
+  %55 = tail call ptr @zend_memnstr_ex(ptr noundef %16, ptr noundef %3, i64 noundef %4, ptr noundef %23) #27
   br label %.loopexit
 
-.loopexit:                                        ; preds = %55, %45, %53, %33, %57, %22, %5, %17
-  %.063 = phi ptr [ %21, %17 ], [ null, %5 ], [ %58, %57 ], [ null, %22 ], [ null, %33 ], [ null, %55 ], [ null, %45 ], [ %48, %53 ]
+.loopexit:                                        ; preds = %52, %42, %50, %30, %54, %22, %5, %17
+  %.063 = phi ptr [ %21, %17 ], [ null, %5 ], [ %55, %54 ], [ null, %22 ], [ null, %30 ], [ null, %52 ], [ null, %42 ], [ %45, %50 ]
   ret ptr %.063
 }
 

@@ -241,7 +241,7 @@ define dso_local void @udp6_set_csum(i1 noundef zeroext %0, ptr nocapture nounde
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %11, i64 6
   store i16 0, ptr %13, align 2
-  br label %63
+  br label %60
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i8, ptr %1, i64 188
@@ -258,14 +258,14 @@ define dso_local void @udp6_set_csum(i1 noundef zeroext %0, ptr nocapture nounde
   %24 = xor i16 %23, -1
   %25 = getelementptr inbounds i8, ptr %11, i64 6
   store i16 %24, ptr %25, align 2
-  br label %63
+  br label %60
 
 26:                                               ; preds = %14
   %27 = getelementptr inbounds i8, ptr %1, i64 128
   %28 = load i8, ptr %27, align 8
   %29 = and i8 %28, 96
   %30 = icmp eq i8 %29, 96
-  br i1 %30, label %31, label %56
+  br i1 %30, label %31, label %53
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds i8, ptr %11, i64 6
@@ -285,31 +285,29 @@ define dso_local void @udp6_set_csum(i1 noundef zeroext %0, ptr nocapture nounde
   %45 = load i16, ptr %44, align 2
   %46 = zext i16 %45 to i32
   %47 = xor i32 %46, -1
-  %48 = ptrtoint ptr %37 to i64
-  %49 = ptrtoint ptr %40 to i64
-  %50 = sub i64 %48, %49
-  %51 = trunc i64 %50 to i32
-  %52 = tail call i32 @csum_partial(ptr noundef %40, i32 noundef %51, i32 noundef %47) #3
-  %53 = tail call zeroext i16 @csum_ipv6_magic(ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext 17, i32 noundef %52) #3
-  %54 = icmp eq i16 %53, 0
-  %55 = select i1 %54, i16 -1, i16 %53
-  store i16 %55, ptr %32, align 2
-  br label %63
+  %gepdiff = sub nsw i64 %36, %39
+  %48 = trunc nsw i64 %gepdiff to i32
+  %49 = tail call i32 @csum_partial(ptr noundef %40, i32 noundef %48, i32 noundef %47) #3
+  %50 = tail call zeroext i16 @csum_ipv6_magic(ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext 17, i32 noundef %49) #3
+  %51 = icmp eq i16 %50, 0
+  %52 = select i1 %51, i16 -1, i16 %50
+  store i16 %52, ptr %32, align 2
+  br label %60
 
-56:                                               ; preds = %26
-  %57 = or i8 %28, 96
-  store i8 %57, ptr %27, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 136
-  store i16 %9, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 138
-  store i16 6, ptr %59, align 2
-  %60 = tail call zeroext i16 @csum_ipv6_magic(ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext 17, i32 noundef 0) #3
-  %61 = xor i16 %60, -1
-  %62 = getelementptr inbounds i8, ptr %11, i64 6
-  store i16 %61, ptr %62, align 2
-  br label %63
+53:                                               ; preds = %26
+  %54 = or i8 %28, 96
+  store i8 %54, ptr %27, align 8
+  %55 = getelementptr inbounds i8, ptr %1, i64 136
+  store i16 %9, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %1, i64 138
+  store i16 6, ptr %56, align 2
+  %57 = tail call zeroext i16 @csum_ipv6_magic(ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext 17, i32 noundef 0) #3
+  %58 = xor i16 %57, -1
+  %59 = getelementptr inbounds i8, ptr %11, i64 6
+  store i16 %58, ptr %59, align 2
+  br label %60
 
-63:                                               ; preds = %56, %31, %22, %12
+60:                                               ; preds = %53, %31, %22, %12
   ret void
 }
 

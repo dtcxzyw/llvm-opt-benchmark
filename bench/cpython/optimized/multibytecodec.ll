@@ -1804,11 +1804,9 @@ expand_encodebuffer.exit113:                      ; preds = %if.end.i100
   %.val.i107 = load i64, ptr %18, align 8
   %add.ptr18.i108 = getelementptr i8, ptr %ob_sval.i15.i105, i64 %.val.i107
   store ptr %add.ptr18.i108, ptr %outbuf_end, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr18.i108 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr.i106 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
+  %gepdiff = sub i64 %.val.i107, %sub.ptr.sub.i92
   %19 = load ptr, ptr %encode, align 8
-  %call16 = call i64 %19(ptr noundef %state, ptr noundef nonnull %codec, i32 noundef %bf.clear, ptr noundef %retval.0.i85, ptr noundef nonnull %inpos8, i64 noundef 1, ptr noundef nonnull %outbuf, i64 noundef %sub.ptr.sub, i32 noundef 0) #7
+  %call16 = call i64 %19(ptr noundef %state, ptr noundef nonnull %codec, i32 noundef %bf.clear, ptr noundef %retval.0.i85, ptr noundef nonnull %inpos8, i64 noundef 1, ptr noundef nonnull %outbuf, i64 noundef %gepdiff, i32 noundef 0) #7
   %cmp17 = icmp eq i64 %call16, -1
   br i1 %cmp17, label %do.body19, label %for.end
 

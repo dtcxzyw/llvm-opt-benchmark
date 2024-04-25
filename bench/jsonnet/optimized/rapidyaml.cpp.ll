@@ -810,41 +810,38 @@ _ZSt5alignmmRPvRm.exit.thread:                    ; preds = %7, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2c410mem_repeatEPvPKvmm(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
+define dso_local void @_ZN2c410mem_repeatEPvPKvmm(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq i64 %3, 0
-  br i1 %5, label %21, label %6
+  br i1 %5, label %17, label %6
 
 6:                                                ; preds = %4
   %7 = mul i64 %3, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %1, i64 %2, i1 false)
-  %9 = shl i64 %2, 1
-  %10 = icmp slt i64 %9, %7
-  br i1 %10, label %.lr.ph, label %._crit_edge
+  %8 = shl i64 %2, 1
+  %9 = icmp slt i64 %8, %7
+  br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
-  %11 = phi i64 [ %13, %.lr.ph ], [ %9, %6 ]
-  %.028 = phi i64 [ %11, %.lr.ph ], [ %2, %6 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 %.028
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %0, i64 %.028, i1 false)
-  %13 = shl i64 %11, 1
-  %14 = icmp slt i64 %13, %7
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  %10 = phi i64 [ %12, %.lr.ph ], [ %8, %6 ]
+  %.028 = phi i64 [ %10, %.lr.ph ], [ %2, %6 ]
+  %11 = getelementptr inbounds i8, ptr %0, i64 %.028
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %0, i64 %.028, i1 false)
+  %12 = shl i64 %10, 1
+  %13 = icmp slt i64 %12, %7
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
-  %.0.lcssa = phi i64 [ %2, %6 ], [ %11, %.lr.ph ]
-  %15 = icmp slt i64 %.0.lcssa, %7
-  br i1 %15, label %16, label %21
+  %.0.lcssa = phi i64 [ %2, %6 ], [ %10, %.lr.ph ]
+  %14 = icmp slt i64 %.0.lcssa, %7
+  br i1 %14, label %15, label %17
 
-16:                                               ; preds = %._crit_edge
-  %17 = getelementptr inbounds i8, ptr %0, i64 %.0.lcssa
-  %18 = ptrtoint ptr %8 to i64
-  %19 = ptrtoint ptr %17 to i64
-  %20 = sub i64 %18, %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %0, i64 %20, i1 false)
-  br label %21
+15:                                               ; preds = %._crit_edge
+  %16 = getelementptr inbounds i8, ptr %0, i64 %.0.lcssa
+  %gepdiff = sub nsw i64 %7, %.0.lcssa
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %0, i64 %gepdiff, i1 false)
+  br label %17
 
-21:                                               ; preds = %4, %16, %._crit_edge
+17:                                               ; preds = %4, %15, %._crit_edge
   ret void
 }
 
@@ -3543,7 +3540,7 @@ _ZN2c43yml4Tree12_clear_rangeEmm.exit:            ; preds = %38, %._crit_edge.i
   store i64 %85, ptr %87, align 8
   %88 = add i64 %1, -1
   store i64 %88, ptr %71, align 8
-  %.pre24 = load i64, ptr %58, align 8
+  %.pre23 = load i64, ptr %58, align 8
   br label %103
 
 89:                                               ; preds = %_ZN2c43yml4Tree12_clear_rangeEmm.exit
@@ -3577,7 +3574,7 @@ _ZN2c43yml4Tree12_clear_rangeEmm.exit:            ; preds = %38, %._crit_edge.i
 
 103:                                              ; preds = %81, %101
   %104 = phi i64 [ %88, %81 ], [ %102, %101 ]
-  %105 = phi i64 [ %.pre24, %81 ], [ %39, %101 ]
+  %105 = phi i64 [ %.pre23, %81 ], [ %39, %101 ]
   %106 = icmp eq i64 %105, -1
   %107 = icmp ult i64 %105, %1
   %or.cond = or i1 %106, %107
@@ -3599,11 +3596,11 @@ _ZN2c43yml4Tree12_clear_rangeEmm.exit:            ; preds = %38, %._crit_edge.i
   %115 = load ptr, ptr %21, align 8
   call void %110(ptr noundef nonnull %13, i64 noundef 79, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %14, ptr noundef %115)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
-  %.pre25 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre24 = load i64, ptr %.phi.trans.insert, align 8
   br label %116
 
 116:                                              ; preds = %108, %103
-  %117 = phi i64 [ %.pre25, %108 ], [ %104, %103 ]
+  %117 = phi i64 [ %.pre24, %108 ], [ %104, %103 ]
   %118 = icmp eq i64 %117, -1
   %119 = icmp ult i64 %117, %1
   %or.cond22 = or i1 %118, %119
@@ -5304,17 +5301,17 @@ define dso_local void @_ZN2c43yml4Tree14_set_hierarchyEmmm(ptr nocapture noundef
 .critedge:                                        ; preds = %47
   %75 = load ptr, ptr %0, align 8
   %76 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %75, i64 %2
-  br i1 %36, label %.thread, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit85
+  br i1 %36, label %.thread, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit84
 
 .thread:                                          ; preds = %.critedge
   %77 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %75, i64 %2, i32 4
   %78 = load i64, ptr %77, align 8
   %79 = icmp eq i64 %78, -1
-  %.not65122 = icmp eq ptr %75, null
-  %or.cond131 = or i1 %.not65122, %79
-  br i1 %or.cond131, label %.thread113, label %.thread126
+  %.not65121 = icmp eq ptr %75, null
+  %or.cond130 = or i1 %.not65121, %79
+  br i1 %or.cond130, label %.thread112, label %.thread125
 
-_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit85:      ; preds = %.critedge
+_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit84:      ; preds = %.critedge
   %80 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %75, i64 %3, i32 6
   %81 = load i64, ptr %80, align 8
   %82 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %75, i64 %3
@@ -5334,7 +5331,7 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit85:      ; preds = %.critedge
   %or.cond72 = or i1 %92, %.not64
   br i1 %or.cond72, label %102, label %93
 
-93:                                               ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit85
+93:                                               ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(93) %13, ptr noundef nonnull align 16 dereferenceable(93) @__const._ZN2c43yml4Tree14_set_hierarchyEmmm.msg.113, i64 93, i1 false)
   %94 = getelementptr inbounds i8, ptr %0, i64 64
   %95 = getelementptr inbounds i8, ptr %0, i64 88
@@ -5352,14 +5349,14 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit85:      ; preds = %.critedge
   call void %96(ptr noundef nonnull %13, i64 noundef 93, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %14, ptr noundef %101)
   br label %102
 
-102:                                              ; preds = %93, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit85
-  %.not65135 = icmp eq ptr %75, null
-  %.not65 = select i1 %83, i1 true, i1 %.not65135
-  br i1 %.not65, label %.thread113, label %104
+102:                                              ; preds = %93, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit84
+  %.not65134 = icmp eq ptr %75, null
+  %.not65 = select i1 %83, i1 true, i1 %.not65134
+  br i1 %.not65, label %.thread112, label %104
 
-.thread126:                                       ; preds = %.thread
+.thread125:                                       ; preds = %.thread
   %103 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %75, i64 %78, i32 7
-  br label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit88
+  br label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit87
 
 104:                                              ; preds = %102
   %105 = load ptr, ptr %0, align 8
@@ -5368,19 +5365,19 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit85:      ; preds = %.critedge
   %108 = ptrtoint ptr %105 to i64
   %109 = sub i64 %107, %108
   %110 = sdiv exact i64 %109, 144
-  br label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit88
+  br label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit87
 
-_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit88:      ; preds = %.thread126, %104
-  %111 = phi ptr [ %105, %104 ], [ %75, %.thread126 ]
-  %.in = phi ptr [ %106, %104 ], [ %103, %.thread126 ]
-  %.pn = phi i64 [ %81, %104 ], [ %78, %.thread126 ]
-  %.0.i87 = phi i64 [ %110, %104 ], [ -1, %.thread126 ]
-  %.0.i78111124130 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %75, i64 %.pn
+_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit87:      ; preds = %.thread125, %104
+  %111 = phi ptr [ %105, %104 ], [ %75, %.thread125 ]
+  %.in = phi ptr [ %106, %104 ], [ %103, %.thread125 ]
+  %.pn = phi i64 [ %81, %104 ], [ %78, %.thread125 ]
+  %.0.i86 = phi i64 [ %110, %104 ], [ -1, %.thread125 ]
+  %.0.i77110123129 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %75, i64 %.pn
   %112 = load i64, ptr %.in, align 8
-  %113 = icmp eq i64 %112, %.0.i87
-  br i1 %113, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit94, label %114
+  %113 = icmp eq i64 %112, %.0.i86
+  br i1 %113, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit93, label %114
 
-114:                                              ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit88
+114:                                              ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %15, ptr noundef nonnull align 16 dereferenceable(56) @__const._ZN2c43yml4Tree14_set_hierarchyEmmm.msg.114, i64 56, i1 false)
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = getelementptr inbounds i8, ptr %0, i64 88
@@ -5396,12 +5393,12 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit88:      ; preds = %.thread126, %104
   store i64 127, ptr %121, align 8
   %122 = load ptr, ptr %115, align 8
   call void %117(ptr noundef nonnull %15, i64 noundef 56, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %16, ptr noundef %122)
-  %.pre133 = load ptr, ptr %0, align 8
-  br label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit94
+  %.pre132 = load ptr, ptr %0, align 8
+  br label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit93
 
-_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit94:      ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit88, %114
-  %123 = phi ptr [ %111, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit88 ], [ %.pre133, %114 ]
-  %124 = ptrtoint ptr %.0.i78111124130 to i64
+_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit93:      ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit87, %114
+  %123 = phi ptr [ %111, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit87 ], [ %.pre132, %114 ]
+  %124 = ptrtoint ptr %.0.i77110123129 to i64
   %125 = ptrtoint ptr %123 to i64
   %126 = sub i64 %124, %125
   %127 = sdiv exact i64 %126, 144
@@ -5411,16 +5408,16 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit94:      ; preds = %_ZNK2c43yml4Tree2id
   %130 = ptrtoint ptr %128 to i64
   %131 = sub i64 %129, %130
   %132 = sdiv exact i64 %131, 144
-  %133 = getelementptr inbounds i8, ptr %.0.i78111124130, i64 136
+  %133 = getelementptr inbounds i8, ptr %.0.i77110123129, i64 136
   store i64 %132, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %.0.i78111124130, i64 128
+  %134 = getelementptr inbounds i8, ptr %.0.i77110123129, i64 128
   %135 = load i64, ptr %134, align 8
   %.not66 = icmp ne i64 %132, %135
   %136 = icmp eq i64 %131, -144
   %or.cond73 = or i1 %136, %.not66
-  br i1 %or.cond73, label %.thread113, label %137
+  br i1 %or.cond73, label %.thread112, label %137
 
-137:                                              ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit94
+137:                                              ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(93) %17, ptr noundef nonnull align 16 dereferenceable(93) @__const._ZN2c43yml4Tree14_set_hierarchyEmmm.msg.115, i64 93, i1 false)
   %138 = getelementptr inbounds i8, ptr %0, i64 64
   %139 = getelementptr inbounds i8, ptr %0, i64 88
@@ -5436,19 +5433,19 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit94:      ; preds = %_ZNK2c43yml4Tree2id
   store i64 127, ptr %144, align 8
   %145 = load ptr, ptr %138, align 8
   call void %140(ptr noundef nonnull %17, i64 noundef 93, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %18, ptr noundef %145)
-  br label %.thread113
+  br label %.thread112
 
-.thread113:                                       ; preds = %.thread, %137, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit94, %102
+.thread112:                                       ; preds = %.thread, %137, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit93, %102
   %146 = getelementptr inbounds i8, ptr %76, i64 112
   %147 = load i64, ptr %146, align 8
   %148 = icmp eq i64 %147, -1
   br i1 %148, label %149, label %171
 
-149:                                              ; preds = %.thread113
+149:                                              ; preds = %.thread112
   %150 = getelementptr inbounds i8, ptr %76, i64 120
   %151 = load i64, ptr %150, align 8
   %152 = icmp eq i64 %151, -1
-  br i1 %152, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit100, label %153
+  br i1 %152, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit99, label %153
 
 153:                                              ; preds = %149
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(45) %19, ptr noundef nonnull align 16 dereferenceable(45) @__const._ZN2c43yml4Tree14_set_hierarchyEmmm.msg.116, i64 45, i1 false)
@@ -5466,9 +5463,9 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit94:      ; preds = %_ZNK2c43yml4Tree2id
   store i64 127, ptr %160, align 8
   %161 = load ptr, ptr %154, align 8
   call void %156(ptr noundef nonnull %19, i64 noundef 45, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %20, ptr noundef %161)
-  br label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit100
+  br label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit99
 
-_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit100:     ; preds = %149, %153
+_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit99:      ; preds = %149, %153
   %162 = load ptr, ptr %0, align 8
   %163 = ptrtoint ptr %.0.i to i64
   %164 = ptrtoint ptr %162 to i64
@@ -5482,12 +5479,12 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit100:     ; preds = %149, %153
   store i64 %170, ptr %150, align 8
   br label %189
 
-171:                                              ; preds = %.thread113
+171:                                              ; preds = %.thread112
   %172 = load i64, ptr %53, align 8
   %173 = icmp eq i64 %172, %147
-  br i1 %173, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit103, label %179
+  br i1 %173, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit102, label %179
 
-_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit103:     ; preds = %171
+_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit102:     ; preds = %171
   %174 = load ptr, ptr %0, align 8
   %175 = ptrtoint ptr %.0.i to i64
   %176 = ptrtoint ptr %174 to i64
@@ -5496,14 +5493,14 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit103:     ; preds = %171
   store i64 %178, ptr %146, align 8
   br label %179
 
-179:                                              ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit103, %171
+179:                                              ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit102, %171
   %180 = load i64, ptr %52, align 8
   %181 = getelementptr inbounds i8, ptr %76, i64 120
   %182 = load i64, ptr %181, align 8
   %183 = icmp eq i64 %180, %182
-  br i1 %183, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit106, label %189
+  br i1 %183, label %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit105, label %189
 
-_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit106:     ; preds = %179
+_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit105:     ; preds = %179
   %184 = load ptr, ptr %0, align 8
   %185 = ptrtoint ptr %.0.i to i64
   %186 = ptrtoint ptr %184 to i64
@@ -5512,7 +5509,7 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit106:     ; preds = %179
   store i64 %188, ptr %181, align 8
   br label %189
 
-189:                                              ; preds = %65, %66, %179, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit106, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit100
+189:                                              ; preds = %65, %66, %179, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit105, %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit99
   ret void
 }
 
@@ -32931,11 +32928,11 @@ define dso_local noundef zeroext i1 @_ZN2c43yml6Parser32_rval_dash_start_or_cont
   call void %21(ptr noundef nonnull %6, i64 noundef 39, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %7, ptr noundef %26)
   %.pre = load ptr, ptr %8, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 144
-  %.pre10 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre9 = load i64, ptr %.phi.trans.insert, align 8
   br label %27
 
 27:                                               ; preds = %1, %18
-  %28 = phi i64 [ %17, %1 ], [ %.pre10, %18 ]
+  %28 = phi i64 [ %17, %1 ], [ %.pre9, %18 ]
   %29 = phi ptr [ %9, %1 ], [ %.pre, %18 ]
   %.not7 = icmp ne i64 %15, %28
   %30 = load i32, ptr %29, align 8
@@ -39755,7 +39752,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZNK2c415basic_substringIKcE12first_
   %10 = load ptr, ptr %0, align 8
   br label %.preheader28.i
 
-.preheader28.i:                                   ; preds = %.preheader28.lr.ph.i, %._crit_edge.i
+.preheader28.i:                                   ; preds = %._crit_edge.i, %.preheader28.lr.ph.i
   %.02541.i = phi i64 [ %26, %._crit_edge.i ], [ 0, %.preheader28.lr.ph.i ]
   %11 = getelementptr i8, ptr %10, i64 %.02541.i
   br label %12

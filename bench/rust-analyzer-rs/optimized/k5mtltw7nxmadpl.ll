@@ -55539,7 +55539,7 @@ _ZN13rust_analyzer6config21doc_comment_to_string17h125604ea00d91849E.exit: ; pre
   %.sroa.4.0.i.ph24.i.i.i = phi i32 [ %677, %.thread19.i.i.i ], [ %702, %698 ]
   %.sroa.6.5.ph23.i.i.i = phi ptr [ %668, %.thread19.i.i.i ], [ %.sroa.6.2.i.i.i, %698 ]
   %703 = ptrtoint ptr %.sroa.6.5.ph23.i.i.i to i64
-  %704 = sub i64 %703, %662
+  %704 = sub nuw i64 %703, %662
   %.not.i.i = icmp eq i32 %.sroa.4.0.i.ph24.i.i.i, 10
   br i1 %.not.i.i, label %663, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h5d64494e34fd3f88E.exit"
 

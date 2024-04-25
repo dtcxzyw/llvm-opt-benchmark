@@ -1268,7 +1268,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp4.i.i, label %for.inc.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
-  %8 = trunc i64 %indvars.iv.i.i to i32
+  %8 = trunc nuw i64 %indvars.iv.i.i to i32
   store i32 %8, ptr %bucket_index_.i, align 8
   %and.i.i.i.i = and i64 %7, 1
   %cmp.i.not.i.i.i = icmp eq i64 %and.i.i.i.i, 0
@@ -2417,7 +2417,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   br i1 %cmp4.i.i.i, label %for.inc.i.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
-  %57 = trunc i64 %indvars.iv.i.i.i105 to i32
+  %57 = trunc nuw i64 %indvars.iv.i.i.i105 to i32
   store i32 %57, ptr %ref.tmp.sroa.4.0.it.sroa_idx, align 8
   %and.i.i.i.i.i107 = and i64 %56, 1
   %cmp.i.not.i.i.i.i = icmp eq i64 %and.i.i.i.i.i107, 0
@@ -5564,7 +5564,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   br i1 %cmp4.i.i.i, label %for.inc.i.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
-  %18 = trunc i64 %indvars.iv.i.i.i to i32
+  %18 = trunc nuw i64 %indvars.iv.i.i.i to i32
   %and.i.i.i.i.i10 = and i64 %17, 1
   %cmp.i.not.i.i.i.i11 = icmp eq i64 %and.i.i.i.i.i10, 0
   br i1 %cmp.i.not.i.i.i.i11, label %if.then5.i.i.i, label %if.else.i.i.i12
@@ -5839,7 +5839,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   br i1 %cmp4.i.i.i, label %for.inc.i.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
-  %29 = trunc i64 %indvars.iv.i.i.i to i32
+  %29 = trunc nuw i64 %indvars.iv.i.i.i to i32
   %and.i.i.i.i.i40 = and i64 %28, 1
   %cmp.i.not.i.i.i.i41 = icmp eq i64 %and.i.i.i.i.i40, 0
   br i1 %cmp.i.not.i.i.i.i41, label %if.then5.i.i.i, label %if.else.i.i.i42
@@ -6170,7 +6170,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   br i1 %cmp4.i.i.i, label %for.inc.i.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
-  %31 = trunc i64 %indvars.iv.i.i.i to i32
+  %31 = trunc nuw i64 %indvars.iv.i.i.i to i32
   %and.i.i.i.i.i50 = and i64 %30, 1
   %cmp.i.not.i.i.i.i51 = icmp eq i64 %and.i.i.i.i.i50, 0
   br i1 %cmp.i.not.i.i.i.i51, label %if.then5.i.i.i, label %if.else.i.i.i52
@@ -6282,7 +6282,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   br i1 %cmp4.i.i.i, label %for.inc.i.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
-  %15 = trunc i64 %indvars.iv.i.i.i to i32
+  %15 = trunc nuw i64 %indvars.iv.i.i.i to i32
   %and.i.i.i.i.i7 = and i64 %14, 1
   %cmp.i.not.i.i.i.i8 = icmp eq i64 %and.i.i.i.i.i7, 0
   br i1 %cmp.i.not.i.i.i.i8, label %if.then5.i.i.i, label %if.else.i.i.i9
@@ -7691,7 +7691,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
 
 while.body:                                       ; preds = %land.rhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = trunc i64 %indvars.iv.next to i32
+  %20 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %20, ptr %index_of_first_non_null_, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end14, label %land.rhs, !llvm.loop !47
@@ -7873,7 +7873,7 @@ if.then20:                                        ; preds = %if.else18
   %conv.i32 = zext i8 %0 to i32
   %conv3.i33 = zext i8 %1 to i32
   %mul.i34 = shl nuw nsw i64 %div6.i, 3
-  %sh_prom.i = trunc i64 %mul.i34 to i32
+  %sh_prom.i = trunc nuw i64 %mul.i34 to i32
   %shl.i35 = shl nuw nsw i32 %conv3.i33, %sh_prom.i
   %or.i36 = or i32 %shl.i35, %conv.i32
   %conv5.i = zext i8 %2 to i32
@@ -8332,7 +8332,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i
   br i1 %cmp4.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i
-  %28 = trunc i64 %indvars.iv.i.i.i.i.i.i to i32
+  %28 = trunc nuw i64 %indvars.iv.i.i.i.i.i.i to i32
   %and.i.i.i.i.i.i.i.i = and i64 %27, 1
   %cmp.i.not.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i.i.i.i.i, label %if.then5.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
@@ -8452,7 +8452,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, 
   br i1 %cmp4.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i
-  %51 = trunc i64 %indvars.iv.i.i.i.i.i to i32
+  %51 = trunc nuw i64 %indvars.iv.i.i.i.i.i to i32
   %and.i.i.i.i.i.i.i10 = and i64 %50, 1
   %cmp.i.not.i.i.i.i.i.i11 = icmp eq i64 %and.i.i.i.i.i.i.i10, 0
   br i1 %cmp.i.not.i.i.i.i.i.i11, label %if.then5.i.i.i.i.i, label %if.else.i.i.i.i.i12
@@ -8609,7 +8609,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
   br i1 %cmp4.i.i.i.i, label %for.inc.i.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
-  %16 = trunc i64 %indvars.iv.i.i.i.i to i32
+  %16 = trunc nuw i64 %indvars.iv.i.i.i.i to i32
   %and.i.i.i.i.i.i = and i64 %15, 1
   %cmp.i.not.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i.i.i, label %if.then5.i.i.i.i, label %if.else.i.i.i.i
@@ -8960,6 +8960,7 @@ for.end:                                          ; preds = %for.inc, %_ZN6googl
 
 if.then.i:                                        ; preds = %for.end
   %conv.i21 = zext i32 %0 to i64
+  %mul.i = shl nuw nsw i64 %conv.i21, 3
   %16 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
   %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i64, ptr %last_lifecycle_id_seen.i.i.i.i, align 8
@@ -8970,10 +8971,9 @@ if.then.i:                                        ; preds = %for.end
 if.then.i.i.i:                                    ; preds = %if.then.i
   %last_serial_arena.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 16
   %19 = load ptr, ptr %last_serial_arena.i.i.i.i, align 16
-  %mul.i = shl nuw nsw i64 %conv.i21, 3
   %cmp.i2.i.i.i = icmp ne i32 %0, 0
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
-  %20 = tail call i64 @llvm.ctlz.i64(i64 %mul.i, i1 true), !range !63
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %mul.i, i1 true)
   %sub.i.i.i.i = sub nuw nsw i64 59, %20
   %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 80
   %21 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
@@ -8997,27 +8997,24 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
   %idx.ext1117.i.i.i.i = phi i64 [ %23, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
-  %add.ptr13.i.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %conv.i21
-  %add.ptr12.i.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %idx.ext1117.i.i.i.i
-  %__last5.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr13.i.i.i.i to i64
-  %__first6.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr12.i.i.i.i to i64
-  %reass.sub.i.i.i.i.i.i = sub i64 %__last5.i.i.i.i.i.i.i, %__first6.i.i.i.i.i.i.i
-  %24 = and i64 %reass.sub.i.i.i.i.i.i, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr12.i.i.i.i, i8 0, i64 %24, i1 false)
+  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1117.i.i.i.i, 3
+  %add.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 %add.ptr12.idx.i.i.i.i
+  %gepdiff.i.i.i.i = sub nsw i64 %mul.i, %add.ptr12.idx.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr12.i.i.i.i, i8 0, i64 %gepdiff.i.i.i.i, i1 false)
   br label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i
 
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %6, ptr %cached_blocks_19.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %conv.i21, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %return
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %25 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %25, i64 %sub.i.i.i.i
-  %26 = load ptr, ptr %arrayidx.i.i.i.i, align 8
-  store ptr %26, ptr %6, align 8
+  %24 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %24, i64 %sub.i.i.i.i
+  %25 = load ptr, ptr %arrayidx.i.i.i.i, align 8
+  store ptr %25, ptr %6, align 8
   store ptr %6, ptr %arrayidx.i.i.i.i, align 8
   br label %return
 
@@ -9125,7 +9122,7 @@ if.else7.i:                                       ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12InsertUniqueEjPNS1_7KeyNodeIS3_EE.exit: ; preds = %if.then.i, %if.then6.i, %if.else7.i
   %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !64
+  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !63
 
 do.end:                                           ; preds = %_ZN6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12InsertUniqueEjPNS1_7KeyNodeIS3_EE.exit
   ret void
@@ -9470,5 +9467,4 @@ attributes #28 = { allocsize(0) }
 !60 = distinct !{!60, !8}
 !61 = !{i64 11993323}
 !62 = distinct !{!62, !8}
-!63 = !{i64 0, i64 65}
-!64 = distinct !{!64, !8}
+!63 = distinct !{!63, !8}

@@ -353,7 +353,6 @@ if.end15:                                         ; preds = %if.end11
   %and.i.i.i.i67 = and i32 %sub.i.i.i.i66, -8
   %idx.ext.i.i.i.i68 = sext i32 %add.i.i.i45 to i64
   %add.ptr.i.i.i.i69 = getelementptr i8, ptr %call12, i64 %idx.ext.i.i.i.i68
-  %add.i.i.i70 = add i32 %and.i.i.i.i67, %add.i.i.i45
   store i32 2, ptr %add.ptr.i.i.i.i69, align 8
   %5 = trunc i64 %call.i.i.i64 to i16
   %conv7.i.i.i71 = add i16 %5, 8
@@ -370,12 +369,9 @@ if.end15:                                         ; preds = %if.end11
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i.i80, i8 0, i64 %conv17.i.i.i83, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov.i.i61)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %value.addr.i62)
-  %idx.ext.i.i85 = sext i32 %add.i.i.i70 to i64
-  %add.ptr.i.i86 = getelementptr i8, ptr %call12, i64 %idx.ext.i.i85
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i.i86 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i.i.i.i20 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %conv.i = trunc i64 %sub.ptr.sub.i to i16
+  %add.i.i.i70 = add i32 %and.i.i.i.i42, %and.i.i.i.i18
+  %gepdiff = add i32 %add.i.i.i70, %and.i.i.i.i67
+  %conv.i = trunc i32 %gepdiff to i16
   store i16 %conv.i, ptr %len9.i.i.i23, align 4
   %call20 = call i32 @desc_set_buf(ptr noundef nonnull %call, i64 noundef 56) #13
   br label %err_no_mem
@@ -574,7 +570,6 @@ if.end26:                                         ; preds = %if.end22
   %and.i.i.i.i76 = and i32 %sub.i.i.i.i75, -8
   %idx.ext.i.i.i.i77 = sext i32 %add.i.i to i64
   %add.ptr.i.i.i.i78 = getelementptr i8, ptr %call23, i64 %idx.ext.i.i.i.i77
-  %add.i.i.i79 = add i32 %and.i.i.i.i76, %add.i.i
   store i32 3, ptr %add.ptr.i.i.i.i78, align 8
   %8 = trunc i64 %call.i.i.i73 to i16
   %conv7.i.i.i80 = add i16 %8, 8
@@ -591,12 +586,9 @@ if.end26:                                         ; preds = %if.end22
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i.i89, i8 0, i64 %conv17.i.i.i92, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov.i.i70)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.addr.i71)
-  %idx.ext.i.i94 = sext i32 %add.i.i.i79 to i64
-  %add.ptr.i.i95 = getelementptr i8, ptr %call23, i64 %idx.ext.i.i94
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i.i95 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i.i.i.i23 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %conv.i = trunc i64 %sub.ptr.sub.i to i16
+  %add.i.i.i79 = sub i32 %add.i.i, %and.i.i.i.i
+  %gepdiff = add i32 %add.i.i.i79, %and.i.i.i.i76
+  %conv.i = trunc i32 %gepdiff to i16
   store i16 %conv.i, ptr %len9.i.i.i26, align 4
   %call28 = call i32 @desc_set_buf(ptr noundef nonnull %call6, i64 noundef 72) #13
   br label %err_no_mem
@@ -848,7 +840,7 @@ if.end41:                                         ; preds = %if.end21
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i.i102, i8 0, i64 %conv17.i.i.i105, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov.i.i83)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.addr.i84)
-  %conv45 = trunc i64 %call3 to i16
+  %conv45 = trunc nuw i64 %call3 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.addr.i109)
   store i16 %conv45, ptr %value.addr.i109, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %iov.i.i108)
@@ -1182,7 +1174,7 @@ for.body91.lr.ph:                                 ; preds = %for.cond87.preheade
 
 for.body:                                         ; preds = %if.end52, %if.end83
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end83 ], [ 0, %if.end52 ]
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %call59 = tail call ptr @desc_ring_alloc(ptr noundef nonnull %call.i, i32 noundef %16) #13
   switch i32 %16, label %if.else66 [
     i32 0, label %if.then62
@@ -2495,7 +2487,7 @@ sw.bb5.i:                                         ; preds = %if.then.i
   %8 = load ptr, ptr %arrayidx8.i, align 8
   %call9.i = tail call i64 @desc_ring_get_base_addr(ptr noundef %8) #13
   %shr10.i = lshr i64 %call9.i, 32
-  %conv11.i = trunc i64 %shr10.i to i32
+  %conv11.i = trunc nuw i64 %shr10.i to i32
   br label %rocker_io_readl.exit
 
 sw.bb12.i:                                        ; preds = %if.then.i
@@ -2590,7 +2582,7 @@ sw.bb46.i:                                        ; preds = %if.end.i
   %test_dma_addr47.i = getelementptr inbounds i8, ptr %opaque, i64 3712
   %23 = load i64, ptr %test_dma_addr47.i, align 16
   %shr48.i = lshr i64 %23, 32
-  %conv49.i = trunc i64 %shr48.i to i32
+  %conv49.i = trunc nuw i64 %shr48.i to i32
   br label %rocker_io_readl.exit
 
 sw.bb50.i:                                        ; preds = %if.end.i
@@ -2650,7 +2642,7 @@ for.body.i39.i:                                   ; preds = %for.body.i39.i, %fo
 
 rocker_port_phys_link_status.exit52.loopexit.i:   ; preds = %for.body.i39.i
   %29 = lshr i64 %status.1.i49.i, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   br label %rocker_io_readl.exit
 
 sw.bb58.i:                                        ; preds = %if.end.i
@@ -2707,7 +2699,7 @@ for.body.i71.i:                                   ; preds = %for.body.i71.i, %fo
 
 rocker_port_phys_enable_read.exit84.loopexit.i:   ; preds = %for.body.i71.i
   %36 = lshr i64 %ret.1.i81.i, 32
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nuw i64 %36 to i32
   br label %rocker_io_readl.exit
 
 sw.bb65.i:                                        ; preds = %if.end.i
@@ -2720,7 +2712,7 @@ sw.bb67.i:                                        ; preds = %if.end.i
   %switch_id68.i = getelementptr inbounds i8, ptr %opaque, i64 3192
   %39 = load i64, ptr %switch_id68.i, align 8
   %shr69.i = lshr i64 %39, 32
-  %conv70.i = trunc i64 %shr69.i to i32
+  %conv70.i = trunc nuw i64 %shr69.i to i32
   br label %rocker_io_readl.exit
 
 sw.default71.i:                                   ; preds = %if.end.i

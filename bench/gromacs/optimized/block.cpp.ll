@@ -360,58 +360,66 @@ _ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit: ; preds = 
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   %32 = icmp sgt i64 %31, 4
-  br i1 %32, label %.lr.ph50, label %.loopexit
+  br i1 %32, label %.lr.ph51, label %.loopexit
 
-.lr.ph50:                                         ; preds = %_ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit
+.lr.ph51:                                         ; preds = %_ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit
   %33 = getelementptr inbounds i8, ptr %3, i64 24
   %34 = add nsw i32 %.0.i, 3
   br label %35
 
-35:                                               ; preds = %.lr.ph50, %._crit_edge
-  %.049 = phi i64 [ 0, %.lr.ph50 ], [ %69, %._crit_edge ]
+35:                                               ; preds = %.lr.ph51, %._crit_edge
+  %.050 = phi i64 [ 0, %.lr.ph51 ], [ %69, %._crit_edge ]
   %36 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %.0.i)
   %37 = load ptr, ptr %33, align 8
   %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr i32, ptr %38, i64 %.049
+  %39 = getelementptr i32, ptr %38, i64 %.050
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr i8, ptr %39, i64 4
-  %42 = load i32, ptr %41, align 4
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i32, ptr %37, i64 %43
-  %45 = icmp eq i32 %40, %42
-  %46 = trunc i64 %.049 to i32
-  br i1 %45, label %.thread, label %.lr.ph.preheader
+  %41 = sext i32 %40 to i64
+  %.idx45 = shl nsw i64 %41, 2
+  %42 = getelementptr inbounds i8, ptr %37, i64 %.idx45
+  %43 = getelementptr i8, ptr %39, i64 4
+  %44 = load i32, ptr %43, align 4
+  %45 = sext i32 %44 to i64
+  %.idx = shl nsw i64 %45, 2
+  %46 = getelementptr inbounds i8, ptr %37, i64 %.idx
+  %47 = icmp eq i32 %40, %44
+  %48 = trunc i64 %.050 to i32
+  br i1 %47, label %49, label %51
 
-.thread:                                          ; preds = %35
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %2, i32 noundef %46) #6
-  br label %._crit_edge
+49:                                               ; preds = %35
+  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %2, i32 noundef %48) #6
+  br label %55
 
-.lr.ph.preheader:                                 ; preds = %35
-  %48 = sext i32 %40 to i64
-  %49 = getelementptr inbounds i32, ptr %37, i64 %48
-  %50 = select i1 %4, i32 %46, i32 -1
-  %51 = ptrtoint ptr %44 to i64
-  %52 = ptrtoint ptr %49 to i64
-  %53 = sub i64 %51, %52
-  %54 = ashr exact i64 %53, 2
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %2, i32 noundef %50, i64 noundef %54) #6
-  %.038 = add nsw i32 %55, %36
+51:                                               ; preds = %35
+  %52 = select i1 %4, i32 %48, i32 -1
+  %gepdiff = sub nsw i64 %.idx, %.idx45
+  %53 = ashr exact i64 %gepdiff, 2
+  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %2, i32 noundef %52, i64 noundef %53) #6
+  br label %55
+
+55:                                               ; preds = %51, %49
+  %.pn = phi i32 [ %50, %49 ], [ %54, %51 ]
+  %.not46 = icmp eq i64 %.idx45, %.idx
+  br i1 %.not46, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %55
+  %.038 = add nsw i32 %.pn, %36
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %64
-  %.148 = phi i32 [ %66, %64 ], [ %.038, %.lr.ph.preheader ]
-  %.03947 = phi i1 [ false, %64 ], [ true, %.lr.ph.preheader ]
-  %.sroa.0.046 = phi ptr [ %67, %64 ], [ %49, %.lr.ph.preheader ]
-  %56 = load i32, ptr %.sroa.0.046, align 4
-  br i1 %.03947, label %60, label %57
+  %.149 = phi i32 [ %66, %64 ], [ %.038, %.lr.ph.preheader ]
+  %.03948 = phi i1 [ false, %64 ], [ true, %.lr.ph.preheader ]
+  %.sroa.0.047 = phi ptr [ %67, %64 ], [ %42, %.lr.ph.preheader ]
+  %56 = load i32, ptr %.sroa.0.047, align 4
+  br i1 %.03948, label %60, label %57
 
 57:                                               ; preds = %.lr.ph
   %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9) #6
-  %59 = add nsw i32 %58, %.148
+  %59 = add nsw i32 %58, %.149
   br label %60
 
 60:                                               ; preds = %57, %.lr.ph
-  %.2 = phi i32 [ %.148, %.lr.ph ], [ %59, %57 ]
+  %.2 = phi i32 [ %.149, %.lr.ph ], [ %59, %57 ]
   %61 = icmp sgt i32 %.2, 70
   br i1 %61, label %62, label %64
 
@@ -424,13 +432,13 @@ _ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit: ; preds = 
   %.3 = phi i32 [ %63, %62 ], [ %.2, %60 ]
   %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %56) #6
   %66 = add nsw i32 %65, %.3
-  %67 = getelementptr inbounds i8, ptr %.sroa.0.046, i64 4
-  %.not = icmp eq ptr %67, %44
+  %67 = getelementptr inbounds i8, ptr %.sroa.0.047, i64 4
+  %.not = icmp eq ptr %67, %46
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %64, %.thread
+._crit_edge:                                      ; preds = %64, %55
   %68 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 2, i64 1, ptr %0)
-  %69 = add nuw nsw i64 %.049, 1
+  %69 = add nuw nsw i64 %.050, 1
   %70 = load ptr, ptr %26, align 8
   %71 = load ptr, ptr %3, align 8
   %72 = ptrtoint ptr %70 to i64

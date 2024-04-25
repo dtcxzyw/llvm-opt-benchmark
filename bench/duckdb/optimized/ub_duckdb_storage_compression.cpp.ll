@@ -53341,8 +53341,6 @@ while.body.lr.ph:                                 ; preds = %entry
   %add.ptr25 = getelementptr i8, ptr %0, i64 %result_offset
   %current_constant31 = getelementptr inbounds i8, ptr %call, i64 2098
   %current_frame_of_reference = getelementptr i8, ptr %call, i64 2097
-  %add.ptr11 = getelementptr inbounds i8, ptr %add.ptr25, i64 %scan_count
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr11 to i64
   %current_group_ptr = getelementptr i8, ptr %call, i64 2112
   %current_width = getelementptr inbounds i8, ptr %call, i64 2096
   %decompression_buffer = getelementptr inbounds i8, ptr %call, i64 40
@@ -53379,10 +53377,8 @@ if.then6:                                         ; preds = %if.end
   %sub8 = sub i64 2048, %2
   %cond.i = tail call noundef i64 @llvm.umin.i64(i64 %sub41, i64 %sub8)
   %add.ptr10 = getelementptr inbounds i8, ptr %add.ptr25, i64 %scanned.0183
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr10 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %4 = load i8, ptr %current_constant31, align 2, !tbaa !115
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr10, i8 %4, i64 %sub.ptr.sub.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr10, i8 %4, i64 %sub41, i1 false)
   %5 = load i64, ptr %current_group_offset, align 8, !tbaa !1349
   %add13 = add i64 %5, %cond.i
   br label %cleanup
@@ -68654,8 +68650,6 @@ while.body.lr.ph:                                 ; preds = %entry
   %add.ptr25 = getelementptr i8, ptr %0, i64 %result_offset
   %current_constant31 = getelementptr inbounds i8, ptr %call, i64 2098
   %current_frame_of_reference = getelementptr i8, ptr %call, i64 2097
-  %add.ptr11 = getelementptr inbounds i8, ptr %add.ptr25, i64 %scan_count
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr11 to i64
   %current_group_ptr = getelementptr i8, ptr %call, i64 2112
   %current_width = getelementptr inbounds i8, ptr %call, i64 2096
   %decompression_buffer = getelementptr inbounds i8, ptr %call, i64 40
@@ -68692,10 +68686,8 @@ if.then6:                                         ; preds = %if.end
   %sub8 = sub i64 2048, %2
   %cond.i = tail call noundef i64 @llvm.umin.i64(i64 %sub41, i64 %sub8)
   %add.ptr10 = getelementptr inbounds i8, ptr %add.ptr25, i64 %scanned.0182
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr10 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %4 = load i8, ptr %current_constant31, align 2, !tbaa !115
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr10, i8 %4, i64 %sub.ptr.sub.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr10, i8 %4, i64 %sub41, i1 false)
   %5 = load i64, ptr %current_group_offset, align 8, !tbaa !1685
   %add13 = add i64 %5, %cond.i
   br label %cleanup

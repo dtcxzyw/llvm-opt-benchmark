@@ -12657,17 +12657,14 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %this, align 8, !tbaa !118
   %conv = sext i32 %left to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.irr::video::CNullDriver::SSurface", ptr %0, i64 %conv
+  %add.ptr.i.i.i.i.idx = shl nsw i64 %conv, 3
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.i.i.i.idx
   %conv9 = sext i32 %right to i64
-  %add.ptr.i.i.i.i42 = getelementptr inbounds %"struct.irr::video::CNullDriver::SSurface", ptr %0, i64 %conv9
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i42 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
-  %cmp16.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i, 0
+  %1 = sub nsw i64 %conv9, %conv
+  %cmp16.i.i = icmp sgt i64 %1, 0
   %.pre = load ptr, ptr %element, align 8, !tbaa !158
   %_M_string_length.i10.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pre, i64 48
-  %1 = load i64, ptr %_M_string_length.i10.i.i.i.i.i.i.i.i, align 8, !tbaa !138
+  %2 = load i64, ptr %_M_string_length.i10.i.i.i.i.i.i.i.i, align 8, !tbaa !138
   br i1 %cmp16.i.i, label %while.body.lr.ph.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver8SSurfaceESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
 
 while.body.lr.ph.i.i:                             ; preds = %if.end
@@ -12675,27 +12672,27 @@ while.body.lr.ph.i.i:                             ; preds = %if.end
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i, %while.body.lr.ph.i.i
-  %__len.018.i.i = phi i64 [ %sub.ptr.div.i.i.i.i.i, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
+  %__len.018.i.i = phi i64 [ %1, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
   %__first.sroa.0.017.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i ], [ %__first.sroa.0.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
   %shr.i.i = lshr i64 %__len.018.i.i, 1
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.irr::video::CNullDriver::SSurface", ptr %__first.sroa.0.017.i.i, i64 %shr.i.i
-  %2 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !158
-  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 48
-  %3 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !138
-  %.sroa.speculated.i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
+  %3 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !158
+  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !138
+  %.sroa.speculated.i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %4)
   %cmp.i11.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i11.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %while.body.i.i
-  %InternalName.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 40
-  %4 = load ptr, ptr %InternalName2.i.i.i.i.i, align 8, !tbaa !135
-  %5 = load ptr, ptr %InternalName.i.i.i.i.i, align 8, !tbaa !135
-  %call.i.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %5, ptr noundef %4, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i) #24
+  %InternalName.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
+  %5 = load ptr, ptr %InternalName2.i.i.i.i.i, align 8, !tbaa !135
+  %6 = load ptr, ptr %InternalName.i.i.i.i.i, align 8, !tbaa !135
+  %call.i.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %6, ptr noundef %5, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i) #24
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i, %while.body.i.i
-  %sub.i.i.i.i.i.i.i.i.i = sub i64 %3, %1
+  %sub.i.i.i.i.i.i.i.i.i = sub i64 %4, %2
   %spec.select6.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i.i.i, i64 2147483647)
   %retval.0.i12.i.i.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i.i.i to i32
@@ -12705,8 +12702,8 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5video11CNu
   %__r.0.i.i.i.i.i.i.i.i = phi i32 [ %call.i.i.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i ], [ %retval.0.i12.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp slt i32 %__r.0.i.i.i.i.i.i.i.i, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
-  %6 = xor i64 %shr.i.i, -1
-  %sub9.i.i = add nsw i64 %__len.018.i.i, %6
+  %7 = xor i64 %shr.i.i, -1
+  %sub9.i.i = add nsw i64 %__len.018.i.i, %7
   %__first.sroa.0.1.i.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.sroa.0.017.i.i
   %__len.1.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 %sub9.i.i, i64 %shr.i.i
   %cmp.i.i = icmp sgt i64 %__len.1.i.i, 0
@@ -12714,36 +12711,36 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5video11CNu
 
 _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver8SSurfaceESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i, %if.end
   %__first.sroa.0.0.lcssa.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.end ], [ %__first.sroa.0.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
-  %7 = load ptr, ptr %__first.sroa.0.0.lcssa.i.i, align 8, !tbaa !158
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
-  %8 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !138
-  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %8)
+  %8 = load ptr, ptr %__first.sroa.0.0.lcssa.i.i, align 8, !tbaa !158
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !138
+  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %9)
   %cmp.i11.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
   br i1 %cmp.i11.i.i.i.i.i, label %_ZNK3irr5video11CNullDriver8SSurfaceltERKS2_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver8SSurfaceESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
   %InternalName2.i.i = getelementptr inbounds i8, ptr %.pre, i64 40
-  %InternalName.i.i = getelementptr inbounds i8, ptr %7, i64 40
-  %9 = load ptr, ptr %InternalName2.i.i, align 8, !tbaa !135
-  %10 = load ptr, ptr %InternalName.i.i, align 8, !tbaa !135
-  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %10, ptr noundef %9, i64 noundef %.sroa.speculated.i.i.i.i.i) #24
+  %InternalName.i.i = getelementptr inbounds i8, ptr %8, i64 40
+  %10 = load ptr, ptr %InternalName2.i.i, align 8, !tbaa !135
+  %11 = load ptr, ptr %InternalName.i.i, align 8, !tbaa !135
+  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %11, ptr noundef %10, i64 noundef %.sroa.speculated.i.i.i.i.i) #24
   %tobool.not.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZNK3irr5video11CNullDriver8SSurfaceltERKS2_.exit.thread71, label %_ZNK3irr5video11CNullDriver8SSurfaceltERKS2_.exit.thread
 
 _ZNK3irr5video11CNullDriver8SSurfaceltERKS2_.exit: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver8SSurfaceESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
-  %sub.i.i.i.i.i.i = sub i64 %8, %1
+  %sub.i.i.i.i.i.i = sub i64 %9, %2
   %spec.select6.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i, i64 2147483647)
-  %11 = and i64 %retval.07.i.i.i.i.i.i, 2147483648
-  %cmp.i.i.i.i49.not = icmp eq i64 %11, 0
+  %12 = and i64 %retval.07.i.i.i.i.i.i, 2147483648
+  %cmp.i.i.i.i49.not = icmp eq i64 %12, 0
   br i1 %cmp.i.i.i.i49.not, label %if.then.i.i.i.i.i61, label %return
 
 _ZNK3irr5video11CNullDriver8SSurfaceltERKS2_.exit.thread71: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
-  %sub.i.i.i.i.i.i72 = sub i64 %8, %1
+  %sub.i.i.i.i.i.i72 = sub i64 %9, %2
   %spec.select6.i.i.i.i.i.i73 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i72, i64 -2147483648)
   %retval.07.i.i.i.i.i.i74 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i73, i64 2147483647)
-  %12 = and i64 %retval.07.i.i.i.i.i.i74, 2147483648
-  %cmp.i.i.i.i4976.not = icmp eq i64 %12, 0
+  %13 = and i64 %retval.07.i.i.i.i.i.i74, 2147483648
+  %cmp.i.i.i.i4976.not = icmp eq i64 %13, 0
   br i1 %cmp.i.i.i.i4976.not, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54, label %return
 
 _ZNK3irr5video11CNullDriver8SSurfaceltERKS2_.exit.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
@@ -12751,12 +12748,12 @@ _ZNK3irr5video11CNullDriver8SSurfaceltERKS2_.exit.thread: ; preds = %_ZNSt11char
   br i1 %cmp.i.i.i.i4970, label %return, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54: ; preds = %_ZNK3irr5video11CNullDriver8SSurfaceltERKS2_.exit.thread, %_ZNK3irr5video11CNullDriver8SSurfaceltERKS2_.exit.thread71
-  %call.i.i.i.i.i.i57 = tail call i32 @memcmp(ptr noundef %9, ptr noundef %10, i64 noundef %.sroa.speculated.i.i.i.i.i) #24
+  %call.i.i.i.i.i.i57 = tail call i32 @memcmp(ptr noundef %10, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #24
   %tobool.not.i.i.i.i.i58 = icmp eq i32 %call.i.i.i.i.i.i57, 0
   br i1 %tobool.not.i.i.i.i.i58, label %if.then.i.i.i.i.i61, label %_ZNK3irr5video11CNullDriver8SSurfaceltERKS2_.exit66
 
 if.then.i.i.i.i.i61:                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54, %_ZNK3irr5video11CNullDriver8SSurfaceltERKS2_.exit
-  %sub.i.i.i.i.i.i62 = sub i64 %1, %8
+  %sub.i.i.i.i.i.i62 = sub i64 %2, %9
   %spec.select6.i.i.i.i.i.i63 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i62, i64 -2147483648)
   %retval.07.i.i.i.i.i.i64 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i63, i64 2147483647)
   %retval.0.i12.i.i.i.i.i65 = trunc nsw i64 %retval.07.i.i.i.i.i.i64 to i32

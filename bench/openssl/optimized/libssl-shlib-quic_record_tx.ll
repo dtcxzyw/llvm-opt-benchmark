@@ -926,12 +926,9 @@ if.end94.i:                                       ; preds = %if.end3.i.i, %if.en
   br i1 %cmp1.not22.i.i, label %if.end3.lr.ph.i.i, label %if.end106.i
 
 if.else100.i:                                     ; preds = %if.end84.i
-  %add.ptr87.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %add.i50.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr87.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %gepdiff.i = sub nsw i64 %add.i50.i, %72
   %87 = load i64, ptr %pn.i, align 8
-  %call102.i = call fastcc i32 @qtx_encrypt_into_txe(ptr noundef nonnull %qtx, ptr noundef nonnull %cur.i, ptr noundef nonnull %retval.0.i91, i32 noundef %retval.0.i201235, i64 noundef %87, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull %ptrs.i), !range !8
+  %call102.i = call fastcc i32 @qtx_encrypt_into_txe(ptr noundef nonnull %qtx, ptr noundef nonnull %cur.i, ptr noundef nonnull %retval.0.i91, i32 noundef %retval.0.i201235, i64 noundef %87, ptr noundef nonnull %add.ptr.i, i64 noundef %gepdiff.i, ptr noundef nonnull %ptrs.i), !range !8
   %tobool103.not.i = icmp eq i32 %call102.i, 0
   br i1 %tobool103.not.i, label %err.i, label %if.end106.i
 

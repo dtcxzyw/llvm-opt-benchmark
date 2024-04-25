@@ -787,14 +787,13 @@ if.end.i.i:                                       ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %pos
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 %0
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %shr.i.i.i.i.i = ashr i64 %sub.ptr.sub.i.i.i.i.i, 2
+  %gepdiff.i.i = sub nsw i64 %0, %pos
+  %shr.i.i.i.i.i = ashr i64 %gepdiff.i.i, 2
   %cmp48.i.i.i.i.i = icmp sgt i64 %shr.i.i.i.i.i, 0
   br i1 %cmp48.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i, label %for.end.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.end.i.i
-  %2 = and i64 %sub.ptr.sub.i.i.i.i.i, -4
+  %2 = and i64 %gepdiff.i.i, -4
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 %2
   br label %for.body.i.i.i.i.i
 
@@ -827,15 +826,11 @@ if.end11.i.i.i.i.i:                               ; preds = %if.end7.i.i.i.i.i
   %incdec.ptr12.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i = add nsw i64 %__trip_count.050.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp sgt i64 %__trip_count.050.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %for.end.loopexit.i.i.i.i.i, !llvm.loop !5
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %for.end.i.i.i.i.i, !llvm.loop !5
 
-for.end.loopexit.i.i.i.i.i:                       ; preds = %if.end11.i.i.i.i.i
-  %.pre56.i.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i.i to i64
-  br label %for.end.i.i.i.i.i
-
-for.end.i.i.i.i.i:                                ; preds = %for.end.loopexit.i.i.i.i.i, %if.end.i.i
-  %sub.ptr.rhs.cast14.pre-phi.i.i.i.i.i = phi i64 [ %.pre56.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %if.end.i.i ]
-  %__first.addr.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i ], [ %add.ptr.i.i, %if.end.i.i ]
+for.end.i.i.i.i.i:                                ; preds = %if.end11.i.i.i.i.i, %if.end.i.i
+  %__first.addr.0.lcssa.i.i.i.i.i = phi ptr [ %add.ptr.i.i, %if.end.i.i ], [ %scevgep.i.i.i.i.i, %if.end11.i.i.i.i.i ]
+  %sub.ptr.rhs.cast14.pre-phi.i.i.i.i.i = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i.i to i64
   %sub.ptr.sub15.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast14.pre-phi.i.i.i.i.i
   switch i64 %sub.ptr.sub15.i.i.i.i.i, label %_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit [
     i64 3, label %sw.bb.i.i.i.i.i
@@ -909,14 +904,13 @@ if.end.i:                                         ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %pos
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %0
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %shr.i.i.i.i = ashr i64 %sub.ptr.sub.i.i.i.i, 2
+  %gepdiff.i = sub nsw i64 %0, %pos
+  %shr.i.i.i.i = ashr i64 %gepdiff.i, 2
   %cmp48.i.i.i.i = icmp sgt i64 %shr.i.i.i.i, 0
   br i1 %cmp48.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %for.end.i.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
-  %2 = and i64 %sub.ptr.sub.i.i.i.i, -4
+  %2 = and i64 %gepdiff.i, -4
   %scevgep.i.i.i.i = getelementptr i8, ptr %add.ptr.i, i64 %2
   br label %for.body.i.i.i.i
 
@@ -949,15 +943,11 @@ if.end11.i.i.i.i:                                 ; preds = %if.end7.i.i.i.i
   %incdec.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i, i64 4
   %dec.i.i.i.i = add nsw i64 %__trip_count.050.i.i.i.i, -1
   %cmp.i.i.i.i = icmp sgt i64 %__trip_count.050.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.loopexit.i.i.i.i, !llvm.loop !5
+  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.i.i.i.i, !llvm.loop !5
 
-for.end.loopexit.i.i.i.i:                         ; preds = %if.end11.i.i.i.i
-  %.pre56.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i to i64
-  br label %for.end.i.i.i.i
-
-for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.i.i.i, %if.end.i
-  %sub.ptr.rhs.cast14.pre-phi.i.i.i.i = phi i64 [ %.pre56.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i, %if.end.i ]
-  %__first.addr.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %add.ptr.i, %if.end.i ]
+for.end.i.i.i.i:                                  ; preds = %if.end11.i.i.i.i, %if.end.i
+  %__first.addr.0.lcssa.i.i.i.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %scevgep.i.i.i.i, %if.end11.i.i.i.i ]
+  %sub.ptr.rhs.cast14.pre-phi.i.i.i.i = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i to i64
   %sub.ptr.sub15.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast14.pre-phi.i.i.i.i
   switch i64 %sub.ptr.sub15.i.i.i.i, label %_ZN4base8internal5findTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit [
     i64 3, label %sw.bb.i.i.i.i
@@ -1273,14 +1263,13 @@ if.end.i.i:                                       ; preds = %if.then5
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %pos
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 %0
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %shr.i.i.i.i.i = ashr i64 %sub.ptr.sub.i.i.i.i.i, 2
+  %gepdiff.i.i = sub nsw i64 %0, %pos
+  %shr.i.i.i.i.i = ashr i64 %gepdiff.i.i, 2
   %cmp48.i.i.i.i.i = icmp sgt i64 %shr.i.i.i.i.i, 0
   br i1 %cmp48.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i, label %for.end.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.end.i.i
-  %5 = and i64 %sub.ptr.sub.i.i.i.i.i, -4
+  %5 = and i64 %gepdiff.i.i, -4
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 %5
   br label %for.body.i.i.i.i.i
 
@@ -1313,15 +1302,11 @@ if.end11.i.i.i.i.i:                               ; preds = %if.end7.i.i.i.i.i
   %incdec.ptr12.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i = add nsw i64 %__trip_count.050.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp sgt i64 %__trip_count.050.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %for.end.loopexit.i.i.i.i.i, !llvm.loop !5
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %for.end.i.i.i.i.i, !llvm.loop !5
 
-for.end.loopexit.i.i.i.i.i:                       ; preds = %if.end11.i.i.i.i.i
-  %.pre56.i.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i.i to i64
-  br label %for.end.i.i.i.i.i
-
-for.end.i.i.i.i.i:                                ; preds = %for.end.loopexit.i.i.i.i.i, %if.end.i.i
-  %sub.ptr.rhs.cast14.pre-phi.i.i.i.i.i = phi i64 [ %.pre56.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %if.end.i.i ]
-  %__first.addr.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i ], [ %add.ptr.i.i, %if.end.i.i ]
+for.end.i.i.i.i.i:                                ; preds = %if.end11.i.i.i.i.i, %if.end.i.i
+  %__first.addr.0.lcssa.i.i.i.i.i = phi ptr [ %add.ptr.i.i, %if.end.i.i ], [ %scevgep.i.i.i.i.i, %if.end11.i.i.i.i.i ]
+  %sub.ptr.rhs.cast14.pre-phi.i.i.i.i.i = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i.i to i64
   %sub.ptr.sub15.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast14.pre-phi.i.i.i.i.i
   switch i64 %sub.ptr.sub15.i.i.i.i.i, label %return [
     i64 3, label %sw.bb.i.i.i.i.i
@@ -1434,14 +1419,13 @@ if.end.i.i.i:                                     ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 %pos
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %0
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %shr.i.i.i.i.i.i = ashr i64 %sub.ptr.sub.i.i.i.i.i.i, 2
+  %gepdiff.i.i.i = sub nsw i64 %0, %pos
+  %shr.i.i.i.i.i.i = ashr i64 %gepdiff.i.i.i, 2
   %cmp48.i.i.i.i.i.i = icmp sgt i64 %shr.i.i.i.i.i.i, 0
   br i1 %cmp48.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i
-  %2 = and i64 %sub.ptr.sub.i.i.i.i.i.i, -4
+  %2 = and i64 %gepdiff.i.i.i, -4
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 %2
   br label %for.body.i.i.i.i.i.i
 
@@ -1474,15 +1458,11 @@ if.end11.i.i.i.i.i.i:                             ; preds = %if.end7.i.i.i.i.i.i
   %incdec.ptr12.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i.i = add nsw i64 %__trip_count.050.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp sgt i64 %__trip_count.050.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %for.end.loopexit.i.i.i.i.i.i, !llvm.loop !5
+  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i, !llvm.loop !5
 
-for.end.loopexit.i.i.i.i.i.i:                     ; preds = %if.end11.i.i.i.i.i.i
-  %.pre56.i.i.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i.i.i to i64
-  br label %for.end.i.i.i.i.i.i
-
-for.end.i.i.i.i.i.i:                              ; preds = %for.end.loopexit.i.i.i.i.i.i, %if.end.i.i.i
-  %sub.ptr.rhs.cast14.pre-phi.i.i.i.i.i.i = phi i64 [ %.pre56.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i, %if.end.i.i.i ]
-  %__first.addr.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.end.i.i.i ]
+for.end.i.i.i.i.i.i:                              ; preds = %if.end11.i.i.i.i.i.i, %if.end.i.i.i
+  %__first.addr.0.lcssa.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.end.i.i.i ], [ %scevgep.i.i.i.i.i.i, %if.end11.i.i.i.i.i.i ]
+  %sub.ptr.rhs.cast14.pre-phi.i.i.i.i.i.i = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i.i.i to i64
   %sub.ptr.sub15.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast14.pre-phi.i.i.i.i.i.i
   switch i64 %sub.ptr.sub15.i.i.i.i.i.i, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findEcm.exit [
     i64 3, label %sw.bb.i.i.i.i.i.i
@@ -2784,17 +2764,18 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %1, i64 %pos
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %1, i64 %0
+  %add.ptr.idx.i.i = shl nsw i64 %pos, 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx.i.i
+  %add.ptr.i.idx.i.i = shl nsw i64 %0, 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %shr.i.i.i.i.i = ashr i64 %sub.ptr.sub.i.i.i.i.i, 3
+  %gepdiff.i.i = sub nsw i64 %add.ptr.i.idx.i.i, %add.ptr.idx.i.i
+  %shr.i.i.i.i.i = ashr i64 %gepdiff.i.i, 3
   %cmp48.i.i.i.i.i = icmp sgt i64 %shr.i.i.i.i.i, 0
   br i1 %cmp48.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i, label %for.end.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.end.i.i
-  %2 = and i64 %sub.ptr.sub.i.i.i.i.i, -8
+  %2 = and i64 %gepdiff.i.i, -8
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 %2
   br label %for.body.i.i.i.i.i
 
@@ -2835,7 +2816,7 @@ for.end.loopexit.i.i.i.i.i:                       ; preds = %if.end11.i.i.i.i.i
   br label %for.end.i.i.i.i.i
 
 for.end.i.i.i.i.i:                                ; preds = %for.end.loopexit.i.i.i.i.i, %if.end.i.i
-  %sub.ptr.sub15.pre-phi.i.i.i.i.i = phi i64 [ %.pre57.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i ], [ %sub.ptr.sub.i.i.i.i.i, %if.end.i.i ]
+  %sub.ptr.sub15.pre-phi.i.i.i.i.i = phi i64 [ %.pre57.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i ], [ %gepdiff.i.i, %if.end.i.i ]
   %__first.addr.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i ], [ %add.ptr.i.i, %if.end.i.i ]
   %sub.ptr.div16.i.i.i.i.i = ashr exact i64 %sub.ptr.sub15.pre-phi.i.i.i.i.i, 1
   switch i64 %sub.ptr.div16.i.i.i.i.i, label %_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit [
@@ -2908,17 +2889,18 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %1 = load ptr, ptr %self, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %1, i64 %pos
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %1, i64 %0
+  %add.ptr.idx.i = shl nsw i64 %pos, 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx.i
+  %add.ptr.i.idx.i = shl nsw i64 %0, 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx.i
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %shr.i.i.i.i = ashr i64 %sub.ptr.sub.i.i.i.i, 3
+  %gepdiff.i = sub nsw i64 %add.ptr.i.idx.i, %add.ptr.idx.i
+  %shr.i.i.i.i = ashr i64 %gepdiff.i, 3
   %cmp48.i.i.i.i = icmp sgt i64 %shr.i.i.i.i, 0
   br i1 %cmp48.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %for.end.i.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i
-  %2 = and i64 %sub.ptr.sub.i.i.i.i, -8
+  %2 = and i64 %gepdiff.i, -8
   %scevgep.i.i.i.i = getelementptr i8, ptr %add.ptr.i, i64 %2
   br label %for.body.i.i.i.i
 
@@ -2959,7 +2941,7 @@ for.end.loopexit.i.i.i.i:                         ; preds = %if.end11.i.i.i.i
   br label %for.end.i.i.i.i
 
 for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.i.i.i, %if.end.i
-  %sub.ptr.sub15.pre-phi.i.i.i.i = phi i64 [ %.pre57.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %sub.ptr.sub.i.i.i.i, %if.end.i ]
+  %sub.ptr.sub15.pre-phi.i.i.i.i = phi i64 [ %.pre57.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %gepdiff.i, %if.end.i ]
   %__first.addr.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %add.ptr.i, %if.end.i ]
   %sub.ptr.div16.i.i.i.i = ashr exact i64 %sub.ptr.sub15.pre-phi.i.i.i.i, 1
   switch i64 %sub.ptr.div16.i.i.i.i, label %_ZN4base8internal5findTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit [
@@ -3368,17 +3350,18 @@ entry:
 
 if.end.i.i.i:                                     ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %1, i64 %pos
-  %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %1, i64 %0
+  %add.ptr.idx.i.i.i = shl nsw i64 %pos, 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx.i.i.i
+  %add.ptr.i.idx.i.i.i = shl nsw i64 %0, 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %shr.i.i.i.i.i.i = ashr i64 %sub.ptr.sub.i.i.i.i.i.i, 3
+  %gepdiff.i.i.i = sub nsw i64 %add.ptr.i.idx.i.i.i, %add.ptr.idx.i.i.i
+  %shr.i.i.i.i.i.i = ashr i64 %gepdiff.i.i.i, 3
   %cmp48.i.i.i.i.i.i = icmp sgt i64 %shr.i.i.i.i.i.i, 0
   br i1 %cmp48.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i
-  %2 = and i64 %sub.ptr.sub.i.i.i.i.i.i, -8
+  %2 = and i64 %gepdiff.i.i.i, -8
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 %2
   br label %for.body.i.i.i.i.i.i
 
@@ -3419,7 +3402,7 @@ for.end.loopexit.i.i.i.i.i.i:                     ; preds = %if.end11.i.i.i.i.i.
   br label %for.end.i.i.i.i.i.i
 
 for.end.i.i.i.i.i.i:                              ; preds = %for.end.loopexit.i.i.i.i.i.i, %if.end.i.i.i
-  %sub.ptr.sub15.pre-phi.i.i.i.i.i.i = phi i64 [ %.pre57.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i ], [ %sub.ptr.sub.i.i.i.i.i.i, %if.end.i.i.i ]
+  %sub.ptr.sub15.pre-phi.i.i.i.i.i.i = phi i64 [ %.pre57.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i ], [ %gepdiff.i.i.i, %if.end.i.i.i ]
   %__first.addr.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.end.i.i.i ]
   %sub.ptr.div16.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub15.pre-phi.i.i.i.i.i.i, 1
   switch i64 %sub.ptr.div16.i.i.i.i.i.i, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE4findEtm.exit [

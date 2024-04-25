@@ -144,8 +144,6 @@ entry:
   %initialized_ = getelementptr inbounds i8, ptr %this, i64 4
   store i8 1, ptr %initialized_, align 4
   %key_ = getelementptr inbounds i8, ptr %this, i64 8
-  %add.ptr = getelementptr inbounds i8, ptr %key, i64 %key_length
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %1 = load ptr, ptr %key_, align 8
@@ -210,7 +208,6 @@ invoke.cont.i.i.i.i:                              ; preds = %_ZSt4copyIPKhPhET0_
 
 _ZSt7advanceIPKhmEvRT_T0_.exit.i.i.i:             ; preds = %if.else.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %key, i64 %sub.ptr.sub.i16.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i23.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %tobool.not.i.i.i.i.i26.i.i.i = icmp eq ptr %2, %1
   br i1 %tobool.not.i.i.i.i.i26.i.i.i, label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit29.i.i.i, label %if.then.i.i.i.i.i27.i.i.i
 
@@ -221,16 +218,16 @@ if.then.i.i.i.i.i27.i.i.i:                        ; preds = %_ZSt7advanceIPKhmEv
 
 _ZSt4copyIPKhPhET0_T_S4_S3_.exit29.i.i.i:         ; preds = %if.then.i.i.i.i.i27.i.i.i, %_ZSt7advanceIPKhmEvRT_T0_.exit.i.i.i
   %4 = phi ptr [ %2, %_ZSt7advanceIPKhmEvRT_T0_.exit.i.i.i ], [ %.pre46.i.i.i, %if.then.i.i.i.i.i27.i.i.i ]
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.lhs.cast.i.i.i.i.i23.i.i.i
+  %gepdiff = sub nsw i64 %key_length, %sub.ptr.sub.i16.i.i.i
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i16.i.i.i, %key_length
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZSt4copyIPKhPhET0_T_S4_S3_.exit29.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %4, ptr align 1 %add.ptr.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %4, ptr align 1 %add.ptr.i.i.i.i.i, i64 %gepdiff, i1 false)
   br label %_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i.i.i
 
 _ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit29.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %gepdiff
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   br label %_ZNSt6vectorIhSaIhEE6assignIPKhvEEvT_S5_.exit
 
@@ -296,8 +293,6 @@ entry:
   %initialized_.i = getelementptr inbounds i8, ptr %this, i64 4
   store i8 1, ptr %initialized_.i, align 4
   %key_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 %call2
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %1 = load ptr, ptr %key_.i, align 8
@@ -362,7 +357,6 @@ invoke.cont.i.i.i.i.i:                            ; preds = %_ZSt4copyIPKhPhET0_
 
 _ZSt7advanceIPKhmEvRT_T0_.exit.i.i.i.i:           ; preds = %if.else.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 %sub.ptr.sub.i16.i.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i23.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i.i to i64
   %tobool.not.i.i.i.i.i26.i.i.i.i = icmp eq ptr %2, %1
   br i1 %tobool.not.i.i.i.i.i26.i.i.i.i, label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit29.i.i.i.i, label %if.then.i.i.i.i.i27.i.i.i.i
 
@@ -373,16 +367,16 @@ if.then.i.i.i.i.i27.i.i.i.i:                      ; preds = %_ZSt7advanceIPKhmEv
 
 _ZSt4copyIPKhPhET0_T_S4_S3_.exit29.i.i.i.i:       ; preds = %if.then.i.i.i.i.i27.i.i.i.i, %_ZSt7advanceIPKhmEvRT_T0_.exit.i.i.i.i
   %4 = phi ptr [ %2, %_ZSt7advanceIPKhmEvRT_T0_.exit.i.i.i.i ], [ %.pre46.i.i.i.i, %if.then.i.i.i.i.i27.i.i.i.i ]
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.lhs.cast.i.i.i.i.i23.i.i.i.i
+  %gepdiff = sub nsw i64 %call2, %sub.ptr.sub.i16.i.i.i.i
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i16.i.i.i.i, %call2
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZSt4copyIPKhPhET0_T_S4_S3_.exit29.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %4, ptr align 1 %add.ptr.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %4, ptr align 1 %add.ptr.i.i.i.i.i.i, i64 %gepdiff, i1 false)
   br label %_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i.i.i.i
 
 _ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit29.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %gepdiff
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
   br label %_ZN6crypto4HMAC4InitEPKhm.exit
 

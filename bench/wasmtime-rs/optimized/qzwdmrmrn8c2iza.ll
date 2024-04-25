@@ -77895,12 +77895,12 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
   %.not3 = icmp eq i64 %9, %.val
   br i1 %.not3, label %10, label %14
 
-"_ZN4core3ptr304drop_in_place$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h86346c0690617e32E.exit.sink.split": ; preds = %18, %42, %84
-  %.sink = phi i64 [ %85, %84 ], [ %43, %42 ], [ %25, %18 ]
+"_ZN4core3ptr304drop_in_place$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h86346c0690617e32E.exit.sink.split": ; preds = %18, %40, %84
+  %.sink = phi i64 [ %85, %84 ], [ %41, %40 ], [ %25, %18 ]
   store i64 %.sink, ptr %8, align 8
   br label %"_ZN4core3ptr304drop_in_place$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h86346c0690617e32E.exit"
 
-"_ZN4core3ptr304drop_in_place$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h86346c0690617e32E.exit": ; preds = %"_ZN4core3ptr304drop_in_place$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h86346c0690617e32E.exit.sink.split", %"_ZN4core3ptr282drop_in_place$LT$$u5b$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$u5d$$GT$17h5ecfd6430a6d51ebE.llvm.5456684732158232753.exit.i.i", %41, %10, %1
+"_ZN4core3ptr304drop_in_place$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h86346c0690617e32E.exit": ; preds = %"_ZN4core3ptr304drop_in_place$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h86346c0690617e32E.exit.sink.split", %"_ZN4core3ptr282drop_in_place$LT$$u5b$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$u5d$$GT$17h5ecfd6430a6d51ebE.llvm.5456684732158232753.exit.i.i", %38, %10, %1
   ret void
 
 10:                                               ; preds = %6
@@ -77943,23 +77943,32 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
   store i64 %29, ptr %8, align 8, !alias.scope !32215, !noalias !32220
   %31 = getelementptr inbounds i8, ptr %7, i64 8
   %32 = load ptr, ptr %31, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %33 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %32, i64 %29
+  %.idx11 = shl nsw i64 %29, 4
+  %33 = getelementptr inbounds i8, ptr %32, i64 %.idx11
   %34 = sub i64 %9, %30
-  %35 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %32, i64 %30
-  %36 = ptrtoint ptr %35 to i64
-  %37 = ptrtoint ptr %33 to i64
-  %38 = sub nuw i64 %36, %37
-  %39 = lshr exact i64 %38, 4
-  %40 = icmp eq i64 %30, %29
-  br i1 %40, label %41, label %53
+  %.idx = shl nsw i64 %30, 4
+  %35 = getelementptr inbounds i8, ptr %32, i64 %.idx
+  %gepdiff = sub nsw i64 %.idx, %.idx11
+  %36 = lshr exact i64 %gepdiff, 4
+  %37 = icmp eq i64 %.idx, %.idx11
+  br i1 %37, label %38, label %53
 
-41:                                               ; preds = %27
-  %.not.i.i.i.i = icmp eq i64 %9, %29
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr304drop_in_place$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h86346c0690617e32E.exit", label %42
+38:                                               ; preds = %27
+  %.not.i.i.i.i = icmp eq i64 %9, %30
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr304drop_in_place$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h86346c0690617e32E.exit", label %39
 
-42:                                               ; preds = %41
-  %43 = add i64 %34, %29
+39:                                               ; preds = %38
+  %.not3.i.i.i.i = icmp eq i64 %30, %29
+  br i1 %.not3.i.i.i.i, label %40, label %42
+
+40:                                               ; preds = %42, %39
+  %41 = add i64 %34, %29
   br label %"_ZN4core3ptr304drop_in_place$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h86346c0690617e32E.exit.sink.split"
+
+42:                                               ; preds = %39
+  %43 = shl i64 %34, 4
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 8 %35, i64 %43, i1 false), !noalias !32221
+  br label %40
 
 .body.i.i:                                        ; preds = %.body.i.i.i
   %.not.i.i = icmp eq i64 %9, %30
@@ -77987,17 +77996,17 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
   resume { ptr, i32 } %61
 
 53:                                               ; preds = %27
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32221)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32226)
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN4core3ptr272drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$17h585bb56649bb84dbE.llvm.5456684732158232753.exit.i.i.i", %53
   %.09.i.i.i = phi i64 [ %55, %"_ZN4core3ptr272drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$17h585bb56649bb84dbE.llvm.5456684732158232753.exit.i.i.i" ], [ 0, %53 ]
   %54 = getelementptr inbounds [0 x { { { { ptr, ptr } }, {} }, {} }], ptr %33, i64 0, i64 %.09.i.i.i
   %55 = add nuw i64 %.09.i.i.i, 1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32224)
-  %56 = load ptr, ptr %54, align 8, !alias.scope !32227, !noalias !32228, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32229)
+  %56 = load ptr, ptr %54, align 8, !alias.scope !32232, !noalias !32221, !noundef !4
   %57 = getelementptr inbounds i8, ptr %54, i64 8
-  %58 = load ptr, ptr %57, align 8, !alias.scope !32227, !noalias !32228, !nonnull !4, !align !5, !noundef !4
+  %58 = load ptr, ptr %57, align 8, !alias.scope !32232, !noalias !32221, !nonnull !4, !align !5, !noundef !4
   %59 = load ptr, ptr %58, align 8, !invariant.load !4, !noalias !32233, !nonnull !4
   invoke void %59(ptr noundef nonnull align 1 %56)
           to label %68 unwind label %60, !noalias !32233
@@ -78036,19 +78045,19 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
   br label %"_ZN4core3ptr272drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$17h585bb56649bb84dbE.llvm.5456684732158232753.exit.i.i.i"
 
 "_ZN4core3ptr272drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$17h585bb56649bb84dbE.llvm.5456684732158232753.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.5456684732158232753.exit.i1.i.i.i.i", %68
-  %75 = icmp eq i64 %55, %39
+  %75 = icmp eq i64 %55, %36
   br i1 %75, label %"_ZN4core3ptr282drop_in_place$LT$$u5b$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$u5d$$GT$17h5ecfd6430a6d51ebE.llvm.5456684732158232753.exit.i.i", label %.lr.ph.i.i.i
 
 .body.i.i.i:                                      ; preds = %.body.i.i.i.preheader, %77
   %.1.i.i.i = phi i64 [ %79, %77 ], [ %55, %.body.i.i.i.preheader ]
-  %76 = icmp eq i64 %.1.i.i.i, %39
+  %76 = icmp eq i64 %.1.i.i.i, %36
   br i1 %76, label %.body.i.i, label %77
 
 77:                                               ; preds = %.body.i.i.i
   %78 = getelementptr inbounds [0 x { { { { ptr, ptr } }, {} }, {} }], ptr %33, i64 0, i64 %.1.i.i.i
   %79 = add i64 %.1.i.i.i, 1
   invoke void @"_ZN4core3ptr272drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$17h585bb56649bb84dbE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(16) %78) #37
-          to label %.body.i.i.i unwind label %80, !noalias !32228
+          to label %.body.i.i.i unwind label %80, !noalias !32221
 
 80:                                               ; preds = %77
   %81 = landingpad { ptr, i32 }
@@ -78061,7 +78070,7 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
   br i1 %.not.i.i10.i.i, label %"_ZN4core3ptr304drop_in_place$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h86346c0690617e32E.exit", label %82
 
 82:                                               ; preds = %"_ZN4core3ptr282drop_in_place$LT$$u5b$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$u5d$$GT$17h5ecfd6430a6d51ebE.llvm.5456684732158232753.exit.i.i"
-  %83 = load i64, ptr %8, align 8, !noalias !32228, !noundef !4
+  %83 = load i64, ptr %8, align 8, !noalias !32221, !noundef !4
   %.not3.i.i11.i.i = icmp eq i64 %30, %83
   br i1 %.not3.i.i11.i.i, label %84, label %86
 
@@ -78070,11 +78079,11 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
   br label %"_ZN4core3ptr304drop_in_place$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h86346c0690617e32E.exit.sink.split"
 
 86:                                               ; preds = %82
-  %87 = load ptr, ptr %31, align 8, !noalias !32228, !nonnull !4, !noundef !4
+  %87 = load ptr, ptr %31, align 8, !noalias !32221, !nonnull !4, !noundef !4
   %88 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %87, i64 %30
   %89 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %87, i64 %83
   %90 = shl i64 %34, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %89, ptr nonnull align 8 %88, i64 %90, i1 false), !noalias !32228
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %89, ptr nonnull align 8 %88, i64 %90, i1 false), !noalias !32221
   br label %84
 }
 
@@ -78096,12 +78105,12 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
   %.not3 = icmp eq i64 %9, %.val
   br i1 %.not3, label %10, label %14
 
-"_ZN4core3ptr207drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17he5f718060c0cf02aE.exit.sink.split": ; preds = %18, %42, %74
-  %.sink = phi i64 [ %75, %74 ], [ %43, %42 ], [ %25, %18 ]
+"_ZN4core3ptr207drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17he5f718060c0cf02aE.exit.sink.split": ; preds = %18, %40, %74
+  %.sink = phi i64 [ %75, %74 ], [ %41, %40 ], [ %25, %18 ]
   store i64 %.sink, ptr %8, align 8
   br label %"_ZN4core3ptr207drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17he5f718060c0cf02aE.exit"
 
-"_ZN4core3ptr207drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17he5f718060c0cf02aE.exit": ; preds = %"_ZN4core3ptr207drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17he5f718060c0cf02aE.exit.sink.split", %"_ZN4core3ptr185drop_in_place$LT$$u5b$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$u5d$$GT$17hfee8a58d1b446bc5E.llvm.5456684732158232753.exit.i.i", %41, %10, %1
+"_ZN4core3ptr207drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17he5f718060c0cf02aE.exit": ; preds = %"_ZN4core3ptr207drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17he5f718060c0cf02aE.exit.sink.split", %"_ZN4core3ptr185drop_in_place$LT$$u5b$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$u5d$$GT$17hfee8a58d1b446bc5E.llvm.5456684732158232753.exit.i.i", %38, %10, %1
   ret void
 
 10:                                               ; preds = %6
@@ -78144,23 +78153,32 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
   store i64 %29, ptr %8, align 8, !alias.scope !32241, !noalias !32246
   %31 = getelementptr inbounds i8, ptr %7, i64 8
   %32 = load ptr, ptr %31, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %33 = getelementptr inbounds { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }, ptr %32, i64 %29
+  %.idx12 = shl nsw i64 %29, 6
+  %33 = getelementptr inbounds i8, ptr %32, i64 %.idx12
   %34 = sub i64 %9, %30
-  %35 = getelementptr inbounds { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }, ptr %32, i64 %30
-  %36 = ptrtoint ptr %35 to i64
-  %37 = ptrtoint ptr %33 to i64
-  %38 = sub nuw i64 %36, %37
-  %39 = lshr exact i64 %38, 6
-  %40 = icmp eq i64 %30, %29
-  br i1 %40, label %41, label %.lr.ph.i.i.i
+  %.idx = shl nsw i64 %30, 6
+  %35 = getelementptr inbounds i8, ptr %32, i64 %.idx
+  %gepdiff = sub nsw i64 %.idx, %.idx12
+  %36 = lshr exact i64 %gepdiff, 6
+  %37 = icmp eq i64 %.idx, %.idx12
+  br i1 %37, label %38, label %.lr.ph.i.i.i
 
-41:                                               ; preds = %27
-  %.not.i.i.i.i = icmp eq i64 %9, %29
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr207drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17he5f718060c0cf02aE.exit", label %42
+38:                                               ; preds = %27
+  %.not.i.i.i.i = icmp eq i64 %9, %30
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr207drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17he5f718060c0cf02aE.exit", label %39
 
-42:                                               ; preds = %41
-  %43 = add i64 %34, %29
+39:                                               ; preds = %38
+  %.not3.i.i.i.i = icmp eq i64 %30, %29
+  br i1 %.not3.i.i.i.i, label %40, label %42
+
+40:                                               ; preds = %42, %39
+  %41 = add i64 %34, %29
   br label %"_ZN4core3ptr207drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17he5f718060c0cf02aE.exit.sink.split"
+
+42:                                               ; preds = %39
+  %43 = shl i64 %34, 6
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 8 %35, i64 %43, i1 false), !noalias !32247
+  br label %40
 
 .body.i.i:                                        ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit8.i.i.i", %60
   %.not.i.i = icmp eq i64 %9, %30
@@ -78191,12 +78209,12 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
   %.09.i.i.i = phi i64 [ %54, %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i" ], [ 0, %27 ]
   %53 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %33, i64 0, i64 %.09.i.i.i
   %54 = add nuw i64 %.09.i.i.i, 1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32247)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32250)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32253)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32256)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32259)
-  %55 = load ptr, ptr %53, align 8, !alias.scope !32262, !noalias !32265, !nonnull !4, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32252)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32255)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32258)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32261)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32264)
+  %55 = load ptr, ptr %53, align 8, !alias.scope !32267, !noalias !32247, !nonnull !4, !noundef !4
   %56 = atomicrmw sub ptr %55, i64 1 release, align 8, !noalias !32270
   %57 = icmp eq i64 %56, 1
   br i1 %57, label %58, label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i"
@@ -78204,16 +78222,16 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
 58:                                               ; preds = %.lr.ph.i.i.i
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he67b28f4aa043c70E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
-          to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i" unwind label %60, !noalias !32265
+          to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i" unwind label %60, !noalias !32247
 
 "_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i": ; preds = %58, %.lr.ph.i.i.i
-  %59 = icmp eq i64 %54, %39
+  %59 = icmp eq i64 %54, %36
   br i1 %59, label %"_ZN4core3ptr185drop_in_place$LT$$u5b$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$u5d$$GT$17hfee8a58d1b446bc5E.llvm.5456684732158232753.exit.i.i", label %.lr.ph.i.i.i
 
 60:                                               ; preds = %58
   %61 = landingpad { ptr, i32 }
           cleanup
-  %62 = icmp eq i64 %54, %39
+  %62 = icmp eq i64 %54, %36
   br i1 %62, label %.body.i.i, label %.lr.ph12.i.i.i
 
 .lr.ph12.i.i.i:                                   ; preds = %60, %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit8.i.i.i"
@@ -78225,7 +78243,7 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32277)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32280)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32283)
-  %65 = load ptr, ptr %63, align 8, !alias.scope !32286, !noalias !32265, !nonnull !4, !noundef !4
+  %65 = load ptr, ptr %63, align 8, !alias.scope !32286, !noalias !32247, !nonnull !4, !noundef !4
   %66 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !32287
   %67 = icmp eq i64 %66, 1
   br i1 %67, label %68, label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit8.i.i.i"
@@ -78233,16 +78251,16 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
 68:                                               ; preds = %.lr.ph12.i.i.i
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he67b28f4aa043c70E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %63)
-          to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit8.i.i.i" unwind label %70, !noalias !32265
+          to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit8.i.i.i" unwind label %70, !noalias !32247
 
 "_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit8.i.i.i": ; preds = %68, %.lr.ph12.i.i.i
-  %69 = icmp eq i64 %64, %39
+  %69 = icmp eq i64 %64, %36
   br i1 %69, label %.body.i.i, label %.lr.ph12.i.i.i
 
 70:                                               ; preds = %68
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !32265
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !32247
   unreachable
 
 "_ZN4core3ptr185drop_in_place$LT$$u5b$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$u5d$$GT$17hfee8a58d1b446bc5E.llvm.5456684732158232753.exit.i.i": ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i"
@@ -78250,7 +78268,7 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
   br i1 %.not.i.i10.i.i, label %"_ZN4core3ptr207drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17he5f718060c0cf02aE.exit", label %72
 
 72:                                               ; preds = %"_ZN4core3ptr185drop_in_place$LT$$u5b$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$u5d$$GT$17hfee8a58d1b446bc5E.llvm.5456684732158232753.exit.i.i"
-  %73 = load i64, ptr %8, align 8, !noalias !32265, !noundef !4
+  %73 = load i64, ptr %8, align 8, !noalias !32247, !noundef !4
   %.not3.i.i11.i.i = icmp eq i64 %30, %73
   br i1 %.not3.i.i11.i.i, label %74, label %76
 
@@ -78259,11 +78277,11 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
   br label %"_ZN4core3ptr207drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17he5f718060c0cf02aE.exit.sink.split"
 
 76:                                               ; preds = %72
-  %77 = load ptr, ptr %31, align 8, !noalias !32265, !nonnull !4, !noundef !4
+  %77 = load ptr, ptr %31, align 8, !noalias !32247, !nonnull !4, !noundef !4
   %78 = getelementptr inbounds { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }, ptr %77, i64 %30
   %79 = getelementptr inbounds { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }, ptr %77, i64 %73
   %80 = shl i64 %34, 6
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %79, ptr nonnull align 8 %78, i64 %80, i1 false), !noalias !32265
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %79, ptr nonnull align 8 %78, i64 %80, i1 false), !noalias !32247
   br label %74
 }
 
@@ -127514,56 +127532,56 @@ attributes #39 = { cold "function-inline-cost-multiplier"="2" }
 !32218 = !{!32219, !32216}
 !32219 = distinct !{!32219, !32217, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17he9cb65d3eaafff7eE: argument 0"}
 !32220 = !{!32219}
-!32221 = !{!32222}
-!32222 = distinct !{!32222, !32223, !"_ZN4core3ptr282drop_in_place$LT$$u5b$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$u5d$$GT$17h5ecfd6430a6d51ebE.llvm.5456684732158232753: argument 0"}
-!32223 = distinct !{!32223, !"_ZN4core3ptr282drop_in_place$LT$$u5b$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$u5d$$GT$17h5ecfd6430a6d51ebE.llvm.5456684732158232753"}
-!32224 = !{!32225}
-!32225 = distinct !{!32225, !32226, !"_ZN4core3ptr272drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$17h585bb56649bb84dbE.llvm.5456684732158232753: argument 0"}
-!32226 = distinct !{!32226, !"_ZN4core3ptr272drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$17h585bb56649bb84dbE.llvm.5456684732158232753"}
-!32227 = !{!32225, !32222}
-!32228 = !{!32229, !32231}
-!32229 = distinct !{!32229, !32230, !"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5b5bc86515ef94f0E: argument 0"}
-!32230 = distinct !{!32230, !"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5b5bc86515ef94f0E"}
-!32231 = distinct !{!32231, !32232, !"_ZN4core3ptr304drop_in_place$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h86346c0690617e32E: argument 0"}
-!32232 = distinct !{!32232, !"_ZN4core3ptr304drop_in_place$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h86346c0690617e32E"}
-!32233 = !{!32225, !32222, !32229, !32231}
-!32234 = !{!32235, !32225, !32222, !32229, !32231}
+!32221 = !{!32222, !32224}
+!32222 = distinct !{!32222, !32223, !"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5b5bc86515ef94f0E: argument 0"}
+!32223 = distinct !{!32223, !"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5b5bc86515ef94f0E"}
+!32224 = distinct !{!32224, !32225, !"_ZN4core3ptr304drop_in_place$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h86346c0690617e32E: argument 0"}
+!32225 = distinct !{!32225, !"_ZN4core3ptr304drop_in_place$LT$alloc..vec..drain..Drain$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h86346c0690617e32E"}
+!32226 = !{!32227}
+!32227 = distinct !{!32227, !32228, !"_ZN4core3ptr282drop_in_place$LT$$u5b$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$u5d$$GT$17h5ecfd6430a6d51ebE.llvm.5456684732158232753: argument 0"}
+!32228 = distinct !{!32228, !"_ZN4core3ptr282drop_in_place$LT$$u5b$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$u5d$$GT$17h5ecfd6430a6d51ebE.llvm.5456684732158232753"}
+!32229 = !{!32230}
+!32230 = distinct !{!32230, !32231, !"_ZN4core3ptr272drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$17h585bb56649bb84dbE.llvm.5456684732158232753: argument 0"}
+!32231 = distinct !{!32231, !"_ZN4core3ptr272drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$17h585bb56649bb84dbE.llvm.5456684732158232753"}
+!32232 = !{!32230, !32227}
+!32233 = !{!32230, !32227, !32222, !32224}
+!32234 = !{!32235, !32230, !32227, !32222, !32224}
 !32235 = distinct !{!32235, !32236, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6ea68b934e2ac9ecE.llvm.5456684732158232753: argument 0"}
 !32236 = distinct !{!32236, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6ea68b934e2ac9ecE.llvm.5456684732158232753"}
-!32237 = !{!32238, !32225, !32222, !32229, !32231}
+!32237 = !{!32238, !32230, !32227, !32222, !32224}
 !32238 = distinct !{!32238, !32239, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6ea68b934e2ac9ecE.llvm.5456684732158232753: argument 0"}
 !32239 = distinct !{!32239, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6ea68b934e2ac9ecE.llvm.5456684732158232753"}
-!32240 = !{!32222, !32229, !32231}
+!32240 = !{!32227, !32222, !32224}
 !32241 = !{!32242}
 !32242 = distinct !{!32242, !32243, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hca21cd4a2b153db8E: argument 1"}
 !32243 = distinct !{!32243, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hca21cd4a2b153db8E"}
 !32244 = !{!32245, !32242}
 !32245 = distinct !{!32245, !32243, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hca21cd4a2b153db8E: argument 0"}
 !32246 = !{!32245}
-!32247 = !{!32248}
-!32248 = distinct !{!32248, !32249, !"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753: argument 0"}
-!32249 = distinct !{!32249, !"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753"}
-!32250 = !{!32251}
-!32251 = distinct !{!32251, !32252, !"_ZN4core3ptr119drop_in_place$LT$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17hcfc23ae2c49a3c42E: argument 0"}
-!32252 = distinct !{!32252, !"_ZN4core3ptr119drop_in_place$LT$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17hcfc23ae2c49a3c42E"}
-!32253 = !{!32254}
-!32254 = distinct !{!32254, !32255, !"_ZN4core3ptr68drop_in_place$LT$wasmparser..validator..core..ValidatorResources$GT$17h3a2bcfa79cdad8c0E: argument 0"}
-!32255 = distinct !{!32255, !"_ZN4core3ptr68drop_in_place$LT$wasmparser..validator..core..ValidatorResources$GT$17h3a2bcfa79cdad8c0E"}
-!32256 = !{!32257}
-!32257 = distinct !{!32257, !32258, !"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$wasmparser..validator..core..Module$GT$$GT$17h577d37b0fea7be57E.llvm.5456684732158232753: argument 0"}
-!32258 = distinct !{!32258, !"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$wasmparser..validator..core..Module$GT$$GT$17h577d37b0fea7be57E.llvm.5456684732158232753"}
-!32259 = !{!32260}
-!32260 = distinct !{!32260, !32261, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753: argument 0"}
-!32261 = distinct !{!32261, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"}
-!32262 = !{!32260, !32257, !32254, !32251, !32248, !32263}
-!32263 = distinct !{!32263, !32264, !"_ZN4core3ptr185drop_in_place$LT$$u5b$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$u5d$$GT$17hfee8a58d1b446bc5E.llvm.5456684732158232753: argument 0"}
-!32264 = distinct !{!32264, !"_ZN4core3ptr185drop_in_place$LT$$u5b$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$u5d$$GT$17hfee8a58d1b446bc5E.llvm.5456684732158232753"}
-!32265 = !{!32266, !32268}
-!32266 = distinct !{!32266, !32267, !"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc9a008dc6f1ce90fE: argument 0"}
-!32267 = distinct !{!32267, !"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc9a008dc6f1ce90fE"}
-!32268 = distinct !{!32268, !32269, !"_ZN4core3ptr207drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17he5f718060c0cf02aE: argument 0"}
-!32269 = distinct !{!32269, !"_ZN4core3ptr207drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17he5f718060c0cf02aE"}
-!32270 = !{!32260, !32257, !32254, !32251, !32248, !32266, !32268}
+!32247 = !{!32248, !32250}
+!32248 = distinct !{!32248, !32249, !"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc9a008dc6f1ce90fE: argument 0"}
+!32249 = distinct !{!32249, !"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc9a008dc6f1ce90fE"}
+!32250 = distinct !{!32250, !32251, !"_ZN4core3ptr207drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17he5f718060c0cf02aE: argument 0"}
+!32251 = distinct !{!32251, !"_ZN4core3ptr207drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17he5f718060c0cf02aE"}
+!32252 = !{!32253}
+!32253 = distinct !{!32253, !32254, !"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753: argument 0"}
+!32254 = distinct !{!32254, !"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753"}
+!32255 = !{!32256}
+!32256 = distinct !{!32256, !32257, !"_ZN4core3ptr119drop_in_place$LT$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17hcfc23ae2c49a3c42E: argument 0"}
+!32257 = distinct !{!32257, !"_ZN4core3ptr119drop_in_place$LT$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17hcfc23ae2c49a3c42E"}
+!32258 = !{!32259}
+!32259 = distinct !{!32259, !32260, !"_ZN4core3ptr68drop_in_place$LT$wasmparser..validator..core..ValidatorResources$GT$17h3a2bcfa79cdad8c0E: argument 0"}
+!32260 = distinct !{!32260, !"_ZN4core3ptr68drop_in_place$LT$wasmparser..validator..core..ValidatorResources$GT$17h3a2bcfa79cdad8c0E"}
+!32261 = !{!32262}
+!32262 = distinct !{!32262, !32263, !"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$wasmparser..validator..core..Module$GT$$GT$17h577d37b0fea7be57E.llvm.5456684732158232753: argument 0"}
+!32263 = distinct !{!32263, !"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$wasmparser..validator..core..Module$GT$$GT$17h577d37b0fea7be57E.llvm.5456684732158232753"}
+!32264 = !{!32265}
+!32265 = distinct !{!32265, !32266, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753: argument 0"}
+!32266 = distinct !{!32266, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"}
+!32267 = !{!32265, !32262, !32259, !32256, !32253, !32268}
+!32268 = distinct !{!32268, !32269, !"_ZN4core3ptr185drop_in_place$LT$$u5b$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$u5d$$GT$17hfee8a58d1b446bc5E.llvm.5456684732158232753: argument 0"}
+!32269 = distinct !{!32269, !"_ZN4core3ptr185drop_in_place$LT$$u5b$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$u5d$$GT$17hfee8a58d1b446bc5E.llvm.5456684732158232753"}
+!32270 = !{!32265, !32262, !32259, !32256, !32253, !32248, !32250}
 !32271 = !{!32272}
 !32272 = distinct !{!32272, !32273, !"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753: argument 0"}
 !32273 = distinct !{!32273, !"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753"}
@@ -127579,8 +127597,8 @@ attributes #39 = { cold "function-inline-cost-multiplier"="2" }
 !32283 = !{!32284}
 !32284 = distinct !{!32284, !32285, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753: argument 0"}
 !32285 = distinct !{!32285, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"}
-!32286 = !{!32284, !32281, !32278, !32275, !32272, !32263}
-!32287 = !{!32284, !32281, !32278, !32275, !32272, !32266, !32268}
+!32286 = !{!32284, !32281, !32278, !32275, !32272, !32268}
+!32287 = !{!32284, !32281, !32278, !32275, !32272, !32248, !32250}
 !32288 = !{!32289, !32291, !32292, !32294, !32295, !32296, !32298}
 !32289 = distinct !{!32289, !32290, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hf10f2e4361d7e8dfE: argument 0"}
 !32290 = distinct !{!32290, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hf10f2e4361d7e8dfE"}

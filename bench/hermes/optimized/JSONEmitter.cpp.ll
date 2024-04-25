@@ -608,7 +608,7 @@ if.then.i20:                                      ; preds = %if.end.i.i, %if.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp135.i.i)
   store ptr %.sink33.i.sroa.gep, ptr %utf16Chars, align 8
   store i32 2, ptr %Capacity2.i.i.i.i.i, align 4
-  %conv.i = trunc i32 %retval.0.i.i.ph to i16
+  %conv.i = trunc nuw i32 %retval.0.i.i.ph to i16
   br label %for.body.preheader
 
 _ZNSt20back_insert_iteratorIN4llvh11SmallVectorIDsLj2EEEEaSEODs.exit19.i: ; preds = %if.end128.i.i
@@ -621,7 +621,7 @@ _ZNSt20back_insert_iteratorIN4llvh11SmallVectorIDsLj2EEEEaSEODs.exit19.i: ; pred
   store i32 2, ptr %Capacity2.i.i.i.i.i, align 4
   %sub.i = add nuw nsw i32 %or121.i.i, 983040
   %shr.i = lshr i32 %sub.i, 10
-  %15 = trunc i32 %shr.i to i16
+  %15 = trunc nuw nsw i32 %shr.i to i16
   %16 = and i16 %15, 1023
   %conv4.i = or disjoint i16 %16, -10240
   store i16 %conv4.i, ptr %.sink33.i.sroa.gep, align 8
@@ -1618,14 +1618,13 @@ if.end37:                                         ; preds = %if.then.i.i.i.i.i46
 
 if.then.i.i:                                      ; preds = %if.end37
   %11 = load ptr, ptr %RHS, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::JSONEmitter::State", ptr %11, i64 %conv.i50
-  %add.ptr39 = getelementptr inbounds %"struct.hermes::JSONEmitter::State", ptr %11, i64 %CurSize.0
+  %add.ptr39.idx = mul nuw nsw i64 %CurSize.0, 5
+  %add.ptr39 = getelementptr inbounds i8, ptr %11, i64 %add.ptr39.idx
   %12 = load ptr, ptr %this, align 8
   %add.ptr42 = getelementptr inbounds %"struct.hermes::JSONEmitter::State", ptr %12, i64 %CurSize.0
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr39 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 1 %add.ptr39, i64 %sub.ptr.sub.i.i, i1 false)
+  %add.ptr.i.idx55 = sub nsw i64 %conv.i50, %CurSize.0
+  %gepdiff = mul nsw i64 %add.ptr.i.idx55, 5
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 1 %add.ptr39, i64 %gepdiff, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes11JSONEmitter5StateELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
 
 _ZN4llvh23SmallVectorTemplateBaseIN6hermes11JSONEmitter5StateELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit: ; preds = %if.end37, %if.then.i.i

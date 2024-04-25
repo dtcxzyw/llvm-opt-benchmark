@@ -1944,16 +1944,13 @@ _ZNK5folly10symbolizer7ElfFile2atI9Elf64_SymEERKT_m.exit.i.i.i.i.i.i: ; preds = 
   br i1 %cmp354.not.i.i.i.i.i.i, label %for.inc.i, label %while.body.lr.ph.i.i.i.i.i.i
 
 while.body.lr.ph.i.i.i.i.i.i:                     ; preds = %_ZNK5folly10symbolizer7ElfFile2atI9Elf64_SymEERKT_m.exit.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, i64 %agg.tmp.sroa.2.0.copyload.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i.i to i64
+  %add.ptr.i.i.i.i.i.i.i.i.idx = shl nsw i64 %agg.tmp.sroa.2.0.copyload.i.i.i, 2
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, i64 %add.ptr.i.i.i.i.i.i.i.i.idx
   %shr.i.i.i.i.i.i.i.i.i.i = ashr i64 %agg.tmp.sroa.2.0.copyload.i.i.i, 2
   %cmp79.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %shr.i.i.i.i.i.i.i.i.i.i, 0
-  %add.ptr.i.idx.i.i.i.i.i.i.i = shl nsw i64 %agg.tmp.sroa.2.0.copyload.i.i.i, 2
-  %16 = and i64 %add.ptr.i.idx.i.i.i.i.i.i.i, -16
+  %16 = and i64 %add.ptr.i.i.i.i.i.i.i.i.idx, -16
   %scevgep.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, i64 %16
-  %.pre87.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i.i.i.i.i.i.i to i64
-  %.pre88.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i.i, %.pre87.i.i.i.i.i.i.i.i.i.i
-  %17 = ashr exact i64 %.pre88.i.i.i.i.i.i.i.i.i.i, 2
+  %17 = and i64 %agg.tmp.sroa.2.0.copyload.i.i.i, 3
   %conv5.i.i.i.i.i.i.i.i = zext i32 %10 to i64
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %.fr.i.i.i, 64
   %e_shnum.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 60
