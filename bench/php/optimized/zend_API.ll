@@ -9790,7 +9790,7 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
   %. = select i1 %7, i32 32, i32 2
   %.not = icmp eq ptr %2, null
   %8 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 5), align 8
-  %.0457 = select i1 %.not, ptr %8, ptr %2
+  %.0456 = select i1 %.not, ptr %8, ptr %2
   store i8 1, ptr %6, align 8
   %9 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 54), align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 88
@@ -9800,10 +9800,10 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
   %12 = getelementptr inbounds i8, ptr %6, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false)
   %13 = load ptr, ptr %1, align 8
-  %.not485583 = icmp eq ptr %13, null
-  br i1 %.not485583, label %.critedge540, label %.lr.ph587
+  %.not484582 = icmp eq ptr %13, null
+  br i1 %.not484582, label %.critedge539, label %.lr.ph586
 
-.lr.ph587:                                        ; preds = %4
+.lr.ph586:                                        ; preds = %4
   %14 = getelementptr inbounds i8, ptr %6, i64 80
   %15 = getelementptr inbounds i8, ptr %6, i64 64
   %16 = getelementptr inbounds i8, ptr %6, i64 8
@@ -9818,29 +9818,29 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
   %25 = getelementptr inbounds i8, ptr %6, i64 40
   %26 = getelementptr inbounds i8, ptr %6, i64 32
   %27 = getelementptr inbounds i8, ptr %6, i64 36
-  %.not497 = icmp eq ptr %0, null
+  %.not496 = icmp eq ptr %0, null
   %28 = getelementptr inbounds i8, ptr %0, i64 28
   %29 = getelementptr inbounds i8, ptr %5, i64 8
   br label %30
 
-30:                                               ; preds = %.lr.ph587, %397
-  %31 = phi ptr [ %13, %.lr.ph587 ], [ %398, %397 ]
-  %.0449585 = phi ptr [ %1, %.lr.ph587 ], [ %383, %397 ]
-  %.0451584 = phi i32 [ 0, %.lr.ph587 ], [ %384, %397 ]
+30:                                               ; preds = %.lr.ph586, %397
+  %31 = phi ptr [ %13, %.lr.ph586 ], [ %398, %397 ]
+  %.0448584 = phi ptr [ %1, %.lr.ph586 ], [ %383, %397 ]
+  %.0450583 = phi i32 [ 0, %.lr.ph586 ], [ %384, %397 ]
   %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #34
-  %33 = getelementptr inbounds i8, ptr %.0449585, i64 8
+  %33 = getelementptr inbounds i8, ptr %.0448584, i64 8
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %14, align 8
-  %35 = getelementptr inbounds i8, ptr %.0449585, i64 40
+  %35 = getelementptr inbounds i8, ptr %.0448584, i64 40
   %36 = load ptr, ptr %35, align 8
-  %.not486 = icmp eq ptr %36, null
-  br i1 %.not486, label %41, label %37
+  %.not485 = icmp eq ptr %36, null
+  br i1 %.not485, label %41, label %37
 
 37:                                               ; preds = %30
   %38 = load ptr, ptr @zend_string_init_interned, align 8
   %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #34
   %40 = call ptr %38(ptr noundef nonnull %36, i64 noundef %39, i1 noundef zeroext true) #33
-  %.pre = load ptr, ptr %.0449585, align 8
+  %.pre = load ptr, ptr %.0448584, align 8
   br label %41
 
 41:                                               ; preds = %30, %37
@@ -9853,7 +9853,7 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
   store ptr %0, ptr %17, align 8
   store ptr null, ptr %18, align 8
   store ptr null, ptr %19, align 8
-  %46 = getelementptr inbounds i8, ptr %.0449585, i64 32
+  %46 = getelementptr inbounds i8, ptr %.0448584, i64 32
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %20, align 8
   %48 = load i8, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 55), align 8
@@ -9865,8 +9865,8 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
   %52 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %51, i64 1) #38, !srcloc !6
   %53 = extractvalue { i64, i64 } %52, 0
   %54 = extractvalue { i64, i64 } %52, 1
-  %.not487.not = icmp eq i64 %54, 0
-  br i1 %.not487.not, label %56, label %55
+  %.not486.not = icmp eq i64 %54, 0
+  br i1 %.not486.not, label %56, label %55
 
 55:                                               ; preds = %50
   call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.166, i64 noundef %51, i64 noundef 1) #35
@@ -9882,8 +9882,8 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %58 to i64
   %65 = sub i64 %63, %64
-  %.not488 = icmp ugt i64 %60, %65
-  br i1 %.not488, label %68, label %66
+  %.not487 = icmp ugt i64 %60, %65
+  br i1 %.not487, label %68, label %66
 
 66:                                               ; preds = %56
   %67 = getelementptr inbounds i8, ptr %58, i64 %60
@@ -9894,12 +9894,12 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
   %69 = add i64 %60, 24
   %70 = ptrtoint ptr %57 to i64
   %71 = sub i64 %63, %70
-  %.538 = call i64 @llvm.umax.i64(i64 %69, i64 %71)
-  %72 = call noalias ptr @_emalloc(i64 noundef %.538) #36
+  %.537 = call i64 @llvm.umax.i64(i64 %69, i64 %71)
+  %72 = call noalias ptr @_emalloc(i64 noundef %.537) #36
   %73 = getelementptr inbounds i8, ptr %72, i64 24
   %74 = getelementptr inbounds i8, ptr %73, i64 %60
   store ptr %74, ptr %72, align 8
-  %75 = getelementptr inbounds i8, ptr %72, i64 %.538
+  %75 = getelementptr inbounds i8, ptr %72, i64 %.537
   %76 = getelementptr inbounds i8, ptr %72, i64 8
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %72, i64 16
@@ -9908,8 +9908,8 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
   br label %78
 
 78:                                               ; preds = %68, %66
-  %.0444 = phi ptr [ %58, %66 ], [ %73, %68 ]
-  call void @llvm.memset.p0.i64(ptr align 1 %.0444, i8 0, i64 %53, i1 false)
+  %.0443 = phi ptr [ %58, %66 ], [ %73, %68 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %.0443, i8 0, i64 %53, i1 false)
   br label %81
 
 79:                                               ; preds = %41
@@ -9917,17 +9917,17 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
   br label %81
 
 81:                                               ; preds = %79, %78
-  %storemerge627 = phi ptr [ %80, %79 ], [ %.0444, %78 ]
-  store ptr %storemerge627, ptr %21, align 8
-  %82 = getelementptr inbounds i8, ptr %.0449585, i64 28
+  %storemerge626 = phi ptr [ %80, %79 ], [ %.0443, %78 ]
+  store ptr %storemerge626, ptr %21, align 8
+  %82 = getelementptr inbounds i8, ptr %.0448584, i64 28
   %83 = load i32, ptr %82, align 4
-  %.not489 = icmp eq i32 %83, 0
-  br i1 %.not489, label %95, label %84
+  %.not488 = icmp eq i32 %83, 0
+  br i1 %.not488, label %95, label %84
 
 84:                                               ; preds = %81
   %85 = and i32 %83, 7
-  %.not490 = icmp eq i32 %85, 0
-  br i1 %.not490, label %86, label %95
+  %.not489 = icmp eq i32 %85, 0
+  br i1 %.not489, label %86, label %95
 
 86:                                               ; preds = %84
   %87 = icmp ne i32 %83, 2048
@@ -9937,41 +9937,41 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
 88:                                               ; preds = %86
   %89 = load ptr, ptr %24, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 24
-  %91 = load ptr, ptr %.0449585, align 8
+  %91 = load ptr, ptr %.0448584, align 8
   call void (i32, ptr, ...) @zend_error(i32 noundef %., ptr noundef nonnull @.str.98, ptr noundef nonnull %90, ptr noundef %91) #33
-  %.pre620 = load i32, ptr %82, align 4
+  %.pre619 = load i32, ptr %82, align 4
   br label %92
 
 92:                                               ; preds = %88, %86
-  %93 = phi i32 [ %.pre620, %88 ], [ %83, %86 ]
+  %93 = phi i32 [ %.pre619, %88 ], [ %83, %86 ]
   %94 = or i32 %93, 1
   br label %95
 
 95:                                               ; preds = %81, %84, %92
   %.sink = phi i32 [ %94, %92 ], [ %83, %84 ], [ 1, %81 ]
   store i32 %.sink, ptr %22, align 4
-  %96 = getelementptr inbounds i8, ptr %.0449585, i64 16
+  %96 = getelementptr inbounds i8, ptr %.0448584, i64 16
   %97 = load ptr, ptr %96, align 8
-  %.not491 = icmp eq ptr %97, null
-  br i1 %.not491, label %135, label %98
+  %.not490 = icmp eq ptr %97, null
+  br i1 %.not490, label %135, label %98
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds i8, ptr %97, i64 32
   store ptr %99, ptr %25, align 8
-  %100 = getelementptr inbounds i8, ptr %.0449585, i64 24
+  %100 = getelementptr inbounds i8, ptr %.0448584, i64 24
   %101 = load i32, ptr %100, align 8
   store i32 %101, ptr %26, align 8
   %102 = load i64, ptr %97, align 8
   %103 = icmp eq i64 %102, -1
   %104 = trunc i64 %102 to i32
-  %spec.select653 = select i1 %103, i32 %101, i32 %104
-  store i32 %spec.select653, ptr %27, align 4
+  %spec.select652 = select i1 %103, i32 %101, i32 %104
+  store i32 %spec.select652, ptr %27, align 4
   %105 = getelementptr inbounds i8, ptr %97, i64 8
   %106 = getelementptr inbounds i8, ptr %97, i64 16
   %107 = load i32, ptr %106, align 8
   %108 = and i32 %107, 100663296
-  %.not493 = icmp eq i32 %108, 0
-  br i1 %.not493, label %111, label %109
+  %.not492 = icmp eq i32 %108, 0
+  br i1 %.not492, label %111, label %109
 
 109:                                              ; preds = %98
   %110 = or i32 %.sink, 4096
@@ -9984,42 +9984,42 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
   %114 = getelementptr inbounds %struct._zend_internal_arg_info, ptr %97, i64 %113, i32 1, i32 1
   %115 = load i32, ptr %114, align 8
   %116 = and i32 %115, 134217728
-  %.not494 = icmp eq i32 %116, 0
-  br i1 %.not494, label %120, label %117
+  %.not493 = icmp eq i32 %116, 0
+  br i1 %.not493, label %120, label %117
 
 117:                                              ; preds = %111
   %118 = or i32 %112, 16384
   store i32 %118, ptr %22, align 4
   %119 = add i32 %101, -1
   store i32 %119, ptr %26, align 8
-  %.pre621 = load i32, ptr %106, align 8
+  %.pre620 = load i32, ptr %106, align 8
   br label %120
 
 120:                                              ; preds = %117, %111
   %121 = phi i32 [ %118, %117 ], [ %112, %111 ]
-  %122 = phi i32 [ %.pre621, %117 ], [ %107, %111 ]
+  %122 = phi i32 [ %.pre620, %117 ], [ %107, %111 ]
   %123 = and i32 %122, 33554431
-  %.not495 = icmp eq i32 %123, 0
-  br i1 %.not495, label %143, label %124
+  %.not494 = icmp eq i32 %123, 0
+  br i1 %.not494, label %143, label %124
 
 124:                                              ; preds = %120
   %125 = and i32 %122, 16777216
-  %.not496 = icmp eq i32 %125, 0
-  br i1 %.not496, label %133, label %126
+  %.not495 = icmp eq i32 %125, 0
+  br i1 %.not495, label %133, label %126
 
 126:                                              ; preds = %124
   %127 = load ptr, ptr %105, align 8
-  br i1 %.not497, label %128, label %133
+  br i1 %.not496, label %128, label %133
 
 128:                                              ; preds = %126
   %129 = call i32 @strcasecmp(ptr noundef %127, ptr noundef nonnull @.str.99) #34
-  %.not498 = icmp eq i32 %129, 0
-  br i1 %.not498, label %132, label %130
+  %.not497 = icmp eq i32 %129, 0
+  br i1 %.not497, label %132, label %130
 
 130:                                              ; preds = %128
   %131 = call i32 @strcasecmp(ptr noundef %127, ptr noundef nonnull @.str.100) #34
-  %.not499 = icmp eq i32 %131, 0
-  br i1 %.not499, label %132, label %133
+  %.not498 = icmp eq i32 %131, 0
+  br i1 %.not498, label %132, label %133
 
 132:                                              ; preds = %130, %128
   call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 16, ptr noundef nonnull @.str.101, ptr noundef %127) #35
@@ -10031,7 +10031,7 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
   br label %143
 
 135:                                              ; preds = %95
-  br i1 %.not497, label %139, label %136
+  br i1 %.not496, label %139, label %136
 
 136:                                              ; preds = %135
   %137 = load ptr, ptr %24, align 8
@@ -10041,13 +10041,13 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
 139:                                              ; preds = %135, %136
   %140 = phi ptr [ @.str.103, %136 ], [ @.str.22, %135 ]
   %141 = phi ptr [ %138, %136 ], [ @.str.22, %135 ]
-  %142 = load ptr, ptr %.0449585, align 8
+  %142 = load ptr, ptr %.0448584, align 8
   call void (i32, ptr, ...) @zend_error(i32 noundef 32, ptr noundef nonnull @.str.102, ptr noundef nonnull %141, ptr noundef nonnull %140, ptr noundef %142) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   br label %143
 
 143:                                              ; preds = %120, %133, %139
-  br i1 %.not497, label %160, label %144
+  br i1 %.not496, label %160, label %144
 
 144:                                              ; preds = %143
   %145 = load ptr, ptr %16, align 8
@@ -10059,14 +10059,14 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
 149:                                              ; preds = %144
   %150 = getelementptr inbounds i8, ptr %145, i64 24
   %151 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %150, i64 noundef 10, ptr noundef nonnull @.str.93, i64 noundef 10) #33
-  %.not501 = icmp eq i32 %151, 0
-  br i1 %.not501, label %152, label %160
+  %.not500 = icmp eq i32 %151, 0
+  br i1 %.not500, label %152, label %160
 
 152:                                              ; preds = %149
   %153 = load i32, ptr %22, align 4
   %154 = and i32 %153, 8192
-  %.not502 = icmp eq i32 %154, 0
-  br i1 %.not502, label %155, label %160
+  %.not501 = icmp eq i32 %154, 0
+  br i1 %.not501, label %155, label %160
 
 155:                                              ; preds = %152
   %156 = load ptr, ptr %24, align 8
@@ -10084,31 +10084,31 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
   call void @zend_set_function_arg_flags(ptr noundef nonnull %6) #33
   %161 = load i32, ptr %82, align 4
   %162 = and i32 %161, 64
-  %.not503 = icmp eq i32 %162, 0
-  br i1 %.not503, label %177, label %163
+  %.not502 = icmp eq i32 %162, 0
+  br i1 %.not502, label %177, label %163
 
 163:                                              ; preds = %160
-  br i1 %.not497, label %.thread, label %164
+  br i1 %.not496, label %.thread, label %164
 
 164:                                              ; preds = %163
   %165 = load i32, ptr %28, align 4
   %166 = and i32 %165, 1
-  %.not506 = icmp eq i32 %166, 0
-  %spec.select547.v = select i1 %.not506, i32 80, i32 16
-  %spec.select547 = or i32 %165, %spec.select547.v
-  store i32 %spec.select547, ptr %28, align 4
+  %.not505 = icmp eq i32 %166, 0
+  %spec.select546.v = select i1 %.not505, i32 80, i32 16
+  %spec.select546 = or i32 %165, %spec.select546.v
+  store i32 %spec.select546, ptr %28, align 4
   %167 = load i32, ptr %82, align 4
   %168 = and i32 %167, 16
-  %.not507 = icmp ne i32 %168, 0
+  %.not506 = icmp ne i32 %168, 0
   %169 = and i32 %165, 1
-  %.not508 = icmp eq i32 %169, 0
-  %or.cond654 = select i1 %.not507, i1 %.not508, i1 false
-  br i1 %or.cond654, label %171, label %194
+  %.not507 = icmp eq i32 %169, 0
+  %or.cond653 = select i1 %.not506, i1 %.not507, i1 false
+  br i1 %or.cond653, label %171, label %194
 
 .thread:                                          ; preds = %163
   %170 = and i32 %161, 16
-  %.not507541 = icmp eq i32 %170, 0
-  br i1 %.not507541, label %194, label %.critedge
+  %.not506540 = icmp eq i32 %170, 0
+  br i1 %.not506540, label %194, label %.critedge
 
 171:                                              ; preds = %164
   %172 = load ptr, ptr %24, align 8
@@ -10118,50 +10118,50 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
 .critedge:                                        ; preds = %.thread, %171
   %174 = phi ptr [ @.str.103, %171 ], [ @.str.22, %.thread ]
   %175 = phi ptr [ %173, %171 ], [ @.str.22, %.thread ]
-  %176 = load ptr, ptr %.0449585, align 8
+  %176 = load ptr, ptr %.0448584, align 8
   call void (i32, ptr, ...) @zend_error(i32 noundef %., ptr noundef nonnull @.str.105, ptr noundef nonnull %175, ptr noundef nonnull %174, ptr noundef %176) #33
   br label %194
 
 177:                                              ; preds = %160
-  br i1 %.not497, label %185, label %178
+  br i1 %.not496, label %185, label %178
 
 178:                                              ; preds = %177
   %179 = load i32, ptr %28, align 4
   %180 = and i32 %179, 1
-  %.not504 = icmp eq i32 %180, 0
-  br i1 %.not504, label %.thread543, label %181
+  %.not503 = icmp eq i32 %180, 0
+  br i1 %.not503, label %.thread542, label %181
 
 181:                                              ; preds = %178
   %182 = load ptr, ptr %24, align 8
   %183 = getelementptr inbounds i8, ptr %182, i64 24
-  %184 = load ptr, ptr %.0449585, align 8
+  %184 = load ptr, ptr %.0448584, align 8
   call void (i32, ptr, ...) @zend_error(i32 noundef %., ptr noundef nonnull @.str.106, ptr noundef nonnull %183, ptr noundef %184) #33
-  br label %.critedge540
+  br label %.critedge539
 
 185:                                              ; preds = %177
   %186 = load ptr, ptr %14, align 8
-  %.not505 = icmp eq ptr %186, null
-  br i1 %.not505, label %.loopexit551, label %194
+  %.not504 = icmp eq ptr %186, null
+  br i1 %.not504, label %.loopexit550, label %194
 
-.thread543:                                       ; preds = %178
+.thread542:                                       ; preds = %178
   %187 = load ptr, ptr %14, align 8
-  %.not505544 = icmp eq ptr %187, null
-  br i1 %.not505544, label %188, label %194
+  %.not504543 = icmp eq ptr %187, null
+  br i1 %.not504543, label %188, label %194
 
-188:                                              ; preds = %.thread543
+188:                                              ; preds = %.thread542
   %189 = load ptr, ptr %24, align 8
   %190 = getelementptr inbounds i8, ptr %189, i64 24
-  br label %.loopexit551
+  br label %.loopexit550
 
-.loopexit551:                                     ; preds = %185, %188
+.loopexit550:                                     ; preds = %185, %188
   %191 = phi ptr [ @.str.103, %188 ], [ @.str.22, %185 ]
   %192 = phi ptr [ %190, %188 ], [ @.str.22, %185 ]
-  %193 = load ptr, ptr %.0449585, align 8
+  %193 = load ptr, ptr %.0448584, align 8
   call void (i32, ptr, ...) @zend_error(i32 noundef %., ptr noundef nonnull @.str.107, ptr noundef nonnull %192, ptr noundef nonnull %191, ptr noundef %193) #33
-  call void @zend_unregister_functions(ptr noundef nonnull %1, i32 noundef %.0451584, ptr noundef %.0457)
-  br label %.critedge540
+  call void @zend_unregister_functions(ptr noundef nonnull %1, i32 noundef %.0450583, ptr noundef %.0456)
+  br label %.critedge539
 
-194:                                              ; preds = %.thread543, %.thread, %185, %164, %.critedge
+194:                                              ; preds = %.thread542, %.thread, %185, %164, %.critedge
   %195 = load ptr, ptr %16, align 8
   %196 = call ptr @zend_string_tolower_ex(ptr noundef %195, i1 noundef zeroext %7) #33
   %197 = load ptr, ptr @zend_new_interned_string, align 8
@@ -10170,17 +10170,17 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %199, ptr noundef nonnull align 8 dereferenceable(152) %6, i64 152, i1 false)
   store ptr %199, ptr %5, align 8
   store i32 13, ptr %29, align 8
-  %200 = call ptr @zend_hash_add(ptr noundef %.0457, ptr noundef %198, ptr noundef nonnull %5) #33
-  %.not509 = icmp eq ptr %200, null
-  br i1 %.not509, label %201, label %214
+  %200 = call ptr @zend_hash_add(ptr noundef %.0456, ptr noundef %198, ptr noundef nonnull %5) #33
+  %.not508 = icmp eq ptr %200, null
+  br i1 %.not508, label %201, label %214
 
 201:                                              ; preds = %194
   call void @free(ptr noundef nonnull %199) #33
   %202 = getelementptr inbounds i8, ptr %198, i64 4
   %203 = load i32, ptr %202, align 4
   %204 = and i32 %203, 64
-  %.not532 = icmp eq i32 %204, 0
-  br i1 %.not532, label %205, label %399
+  %.not531 = icmp eq i32 %204, 0
+  br i1 %.not531, label %205, label %399
 
 205:                                              ; preds = %201
   %206 = load i32, ptr %198, align 4
@@ -10193,8 +10193,8 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
 
 210:                                              ; preds = %205
   %211 = and i32 %203, 128
-  %.not533 = icmp eq i32 %211, 0
-  br i1 %.not533, label %213, label %212
+  %.not532 = icmp eq i32 %211, 0
+  br i1 %.not532, label %213, label %212
 
 212:                                              ; preds = %210
   call void @free(ptr noundef nonnull %198) #33
@@ -10207,27 +10207,27 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
 214:                                              ; preds = %194
   %215 = getelementptr inbounds i8, ptr %199, i64 96
   %216 = load ptr, ptr %215, align 8
-  %.not510 = icmp eq ptr %216, null
-  br i1 %.not510, label %251, label %.preheader550
+  %.not509 = icmp eq ptr %216, null
+  br i1 %.not509, label %251, label %.preheader549
 
-.preheader550:                                    ; preds = %214
+.preheader549:                                    ; preds = %214
   %217 = load ptr, ptr %216, align 8
-  %.not511572 = icmp eq ptr %217, null
-  %.pre625 = load i64, ptr @zend_flf_count, align 8
-  br i1 %.not511572, label %._crit_edge, label %.lr.ph
+  %.not510571 = icmp eq ptr %217, null
+  %.pre624 = load i64, ptr @zend_flf_count, align 8
+  br i1 %.not510571, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader550, %233
-  %218 = phi ptr [ %244, %233 ], [ %217, %.preheader550 ]
-  %219 = phi i64 [ %242, %233 ], [ %.pre625, %.preheader550 ]
-  %.0456573 = phi ptr [ %243, %233 ], [ %216, %.preheader550 ]
+.lr.ph:                                           ; preds = %.preheader549, %233
+  %218 = phi ptr [ %244, %233 ], [ %217, %.preheader549 ]
+  %219 = phi i64 [ %242, %233 ], [ %.pre624, %.preheader549 ]
+  %.0455572 = phi ptr [ %243, %233 ], [ %216, %.preheader549 ]
   %220 = load i64, ptr @zend_flf_capacity, align 8
   %221 = icmp eq i64 %219, %220
   br i1 %221, label %222, label %233
 
 222:                                              ; preds = %.lr.ph
-  %.not531 = icmp eq i64 %219, 0
+  %.not530 = icmp eq i64 %219, 0
   %223 = shl i64 %219, 1
-  %storemerge = select i1 %.not531, i64 8, i64 %223
+  %storemerge = select i1 %.not530, i64 8, i64 %223
   store i64 %storemerge, ptr @zend_flf_capacity, align 8
   %224 = load ptr, ptr @zend_flf_handlers, align 8
   %225 = shl i64 %storemerge, 3
@@ -10240,13 +10240,13 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
   %231 = add i64 %230, 8
   %232 = call ptr @realloc(ptr noundef %228, i64 noundef %231) #37
   store ptr %232, ptr @zend_flf_functions, align 8
-  %.pre623 = load ptr, ptr %.0456573, align 8
-  %.pre624 = load i64, ptr @zend_flf_count, align 8
+  %.pre622 = load ptr, ptr %.0455572, align 8
+  %.pre623 = load i64, ptr @zend_flf_count, align 8
   br label %233
 
 233:                                              ; preds = %222, %.lr.ph
-  %234 = phi i64 [ %.pre624, %222 ], [ %219, %.lr.ph ]
-  %235 = phi ptr [ %.pre623, %222 ], [ %218, %.lr.ph ]
+  %234 = phi i64 [ %.pre623, %222 ], [ %219, %.lr.ph ]
+  %235 = phi ptr [ %.pre622, %222 ], [ %218, %.lr.ph ]
   %236 = load ptr, ptr @zend_flf_handlers, align 8
   %237 = getelementptr inbounds ptr, ptr %236, i64 %234
   store ptr %235, ptr %237, align 8
@@ -10257,13 +10257,13 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
   %241 = load i64, ptr @zend_flf_count, align 8
   %242 = add i64 %241, 1
   store i64 %242, ptr @zend_flf_count, align 8
-  %243 = getelementptr inbounds i8, ptr %.0456573, i64 16
+  %243 = getelementptr inbounds i8, ptr %.0455572, i64 16
   %244 = load ptr, ptr %243, align 8
-  %.not511 = icmp eq ptr %244, null
-  br i1 %.not511, label %._crit_edge, label %.lr.ph
+  %.not510 = icmp eq ptr %244, null
+  br i1 %.not510, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %233, %.preheader550
-  %245 = phi i64 [ %.pre625, %.preheader550 ], [ %242, %233 ]
+._crit_edge:                                      ; preds = %233, %.preheader549
+  %245 = phi i64 [ %.pre624, %.preheader549 ], [ %242, %233 ]
   %246 = load ptr, ptr @zend_flf_handlers, align 8
   %247 = getelementptr inbounds ptr, ptr %246, i64 %245
   store ptr null, ptr %247, align 8
@@ -10302,8 +10302,8 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
   %266 = getelementptr inbounds i8, ptr %263, i64 16
   %267 = load i32, ptr %266, align 8
   %268 = and i32 %267, 33554431
-  %.not530 = icmp eq i32 %268, 0
-  br i1 %.not530, label %271, label %269
+  %.not529 = icmp eq i32 %268, 0
+  br i1 %.not529, label %271, label %269
 
 269:                                              ; preds = %.preheader
   %270 = or i32 %262, 256
@@ -10317,14 +10317,14 @@ define noundef i32 @zend_register_functions(ptr noundef %0, ptr nocapture nounde
   br i1 %exitcond.not, label %thread-pre-split.thread, label %.preheader
 
 thread-pre-split:                                 ; preds = %251
-  %.not513 = icmp eq ptr %259, null
-  br i1 %.not513, label %.loopexit549, label %thread-pre-split.thread
+  %.not512 = icmp eq ptr %259, null
+  br i1 %.not512, label %.loopexit548, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %271, %thread-pre-split
   %273 = phi i32 [ %255, %thread-pre-split ], [ %272, %271 ]
   %274 = and i32 %273, 8448
-  %.not514 = icmp eq i32 %274, 0
-  br i1 %.not514, label %.loopexit549, label %275
+  %.not513 = icmp eq i32 %274, 0
+  br i1 %.not513, label %.loopexit548, label %275
 
 275:                                              ; preds = %thread-pre-split.thread
   %276 = getelementptr inbounds i8, ptr %259, i64 -32
@@ -10335,40 +10335,40 @@ thread-pre-split.thread:                          ; preds = %271, %thread-pre-sp
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %280, ptr nonnull align 8 %276, i64 %279, i1 false)
   %281 = getelementptr inbounds i8, ptr %280, i64 32
   store ptr %281, ptr %258, align 8
-  %.not593 = icmp eq i32 %277, 0
-  br i1 %.not593, label %.loopexit549, label %.lr.ph582
+  %.not592 = icmp eq i32 %277, 0
+  br i1 %.not592, label %.loopexit548, label %.lr.ph581
 
-.lr.ph582:                                        ; preds = %275, %380
-  %indvars.iv615 = phi i64 [ %indvars.iv.next616, %380 ], [ 0, %275 ]
-  %282 = getelementptr inbounds %struct._zend_internal_arg_info, ptr %280, i64 %indvars.iv615, i32 1
+.lr.ph581:                                        ; preds = %275, %380
+  %indvars.iv614 = phi i64 [ %indvars.iv.next615, %380 ], [ 0, %275 ]
+  %282 = getelementptr inbounds %struct._zend_internal_arg_info, ptr %280, i64 %indvars.iv614, i32 1
   %283 = getelementptr inbounds i8, ptr %282, i64 8
   %284 = load i32, ptr %283, align 8
   %285 = and i32 %284, 8388608
-  %.not517 = icmp eq i32 %285, 0
-  br i1 %.not517, label %.loopexit548, label %286
+  %.not516 = icmp eq i32 %285, 0
+  br i1 %.not516, label %.loopexit547, label %286
 
-286:                                              ; preds = %.lr.ph582
+286:                                              ; preds = %.lr.ph581
   %287 = load ptr, ptr %282, align 8
   %288 = and i32 %284, -8388609
   store i32 %288, ptr %283, align 8
   %289 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %287, i32 noundef 124) #34
-  %.not518575 = icmp eq ptr %289, null
-  br i1 %.not518575, label %._crit_edge579.thread, label %.lr.ph578
+  %.not517574 = icmp eq ptr %289, null
+  br i1 %.not517574, label %._crit_edge578.thread, label %.lr.ph577
 
-.lr.ph578:                                        ; preds = %286, %.lr.ph578
-  %290 = phi ptr [ %293, %.lr.ph578 ], [ %289, %286 ]
-  %.0447576 = phi i64 [ %291, %.lr.ph578 ], [ 1, %286 ]
-  %291 = add i64 %.0447576, 1
+.lr.ph577:                                        ; preds = %286, %.lr.ph577
+  %290 = phi ptr [ %293, %.lr.ph577 ], [ %289, %286 ]
+  %.0446575 = phi i64 [ %291, %.lr.ph577 ], [ 1, %286 ]
+  %291 = add i64 %.0446575, 1
   %292 = getelementptr inbounds i8, ptr %290, i64 1
   %293 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %292, i32 noundef 124) #34
-  %.not518 = icmp eq ptr %293, null
-  br i1 %.not518, label %._crit_edge579, label %.lr.ph578
+  %.not517 = icmp eq ptr %293, null
+  br i1 %.not517, label %._crit_edge578, label %.lr.ph577
 
-._crit_edge579:                                   ; preds = %.lr.ph578
-  %294 = icmp eq i64 %.0447576, 0
-  br i1 %294, label %._crit_edge579.thread, label %300
+._crit_edge578:                                   ; preds = %.lr.ph577
+  %294 = icmp eq i64 %.0446575, 0
+  br i1 %294, label %._crit_edge578.thread, label %300
 
-._crit_edge579.thread:                            ; preds = %286, %._crit_edge579
+._crit_edge578.thread:                            ; preds = %286, %._crit_edge578
   %295 = load ptr, ptr @zend_string_init_interned, align 8
   %296 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %287) #34
   %297 = call ptr %295(ptr noundef %287, i64 noundef %296, i1 noundef zeroext true) #33
@@ -10377,9 +10377,9 @@ thread-pre-split.thread:                          ; preds = %271, %thread-pre-sp
   %298 = load i32, ptr %283, align 8
   %299 = or i32 %298, 16777216
   store i32 %299, ptr %283, align 8
-  br label %.loopexit548
+  br label %.loopexit547
 
-300:                                              ; preds = %._crit_edge579
+300:                                              ; preds = %._crit_edge578
   %301 = shl i64 %291, 4
   %302 = or disjoint i64 %301, 8
   %303 = call noalias ptr @malloc(i64 noundef %302) #36
@@ -10393,50 +10393,50 @@ thread-pre-split.thread:                          ; preds = %271, %thread-pre-sp
   br label %308
 
 308:                                              ; preds = %322, %300
-  %.0443 = phi ptr [ %287, %300 ], [ %323, %322 ]
-  %.0442 = phi i32 [ 0, %300 ], [ %324, %322 ]
-  %309 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0443, i32 noundef 124) #34
+  %.0442 = phi ptr [ %287, %300 ], [ %323, %322 ]
+  %.0441 = phi i32 [ 0, %300 ], [ %324, %322 ]
+  %309 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0442, i32 noundef 124) #34
   %310 = load ptr, ptr @zend_string_init_interned, align 8
-  %.not519 = icmp eq ptr %309, null
-  br i1 %.not519, label %315, label %311
+  %.not518 = icmp eq ptr %309, null
+  br i1 %.not518, label %315, label %311
 
 311:                                              ; preds = %308
   %312 = ptrtoint ptr %309 to i64
-  %313 = ptrtoint ptr %.0443 to i64
+  %313 = ptrtoint ptr %.0442 to i64
   %314 = sub i64 %312, %313
   br label %317
 
 315:                                              ; preds = %308
-  %316 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0443) #34
+  %316 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0442) #34
   br label %317
 
 317:                                              ; preds = %315, %311
   %318 = phi i64 [ %314, %311 ], [ %316, %315 ]
-  %319 = call ptr %310(ptr noundef %.0443, i64 noundef %318, i1 noundef zeroext true) #33
+  %319 = call ptr %310(ptr noundef %.0442, i64 noundef %318, i1 noundef zeroext true) #33
   call void @zend_alloc_ce_cache(ptr noundef %319) #33
-  %320 = zext i32 %.0442 to i64
+  %320 = zext i32 %.0441 to i64
   %321 = getelementptr inbounds [1 x %struct.zend_type], ptr %307, i64 0, i64 %320
   store ptr %319, ptr %321, align 8
-  %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %321, i64 8
-  store i32 16777216, ptr %.sroa.28.0..sroa_idx, align 8
-  br i1 %.not519, label %.loopexit548.loopexit, label %322
+  %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %321, i64 8
+  store i32 16777216, ptr %.sroa.27.0..sroa_idx, align 8
+  br i1 %.not518, label %.loopexit547.loopexit, label %322
 
 322:                                              ; preds = %317
   %323 = getelementptr inbounds i8, ptr %309, i64 1
-  %324 = add i32 %.0442, 1
+  %324 = add i32 %.0441, 1
   br label %308
 
-.loopexit548.loopexit:                            ; preds = %317
-  %.pre626 = load i32, ptr %283, align 8
-  br label %.loopexit548
+.loopexit547.loopexit:                            ; preds = %317
+  %.pre625 = load i32, ptr %283, align 8
+  br label %.loopexit547
 
-.loopexit548:                                     ; preds = %.loopexit548.loopexit, %._crit_edge579.thread, %.lr.ph582
-  %325 = phi i32 [ %.pre626, %.loopexit548.loopexit ], [ %299, %._crit_edge579.thread ], [ %284, %.lr.ph582 ]
+.loopexit547:                                     ; preds = %.loopexit547.loopexit, %._crit_edge578.thread, %.lr.ph581
+  %325 = phi i32 [ %.pre625, %.loopexit547.loopexit ], [ %299, %._crit_edge578.thread ], [ %284, %.lr.ph581 ]
   %326 = and i32 %325, 2097152
-  %.not520 = icmp eq i32 %326, 0
-  br i1 %.not520, label %332, label %327
+  %.not519 = icmp eq i32 %326, 0
+  br i1 %.not519, label %332, label %327
 
-327:                                              ; preds = %.loopexit548
+327:                                              ; preds = %.loopexit547
   %328 = load ptr, ptr @zend_known_strings, align 8
   %329 = getelementptr inbounds i8, ptr %328, i64 472
   %330 = load ptr, ptr %329, align 8
@@ -10445,25 +10445,25 @@ thread-pre-split.thread:                          ; preds = %271, %thread-pre-sp
   store i32 %331, ptr %283, align 8
   br label %332
 
-332:                                              ; preds = %327, %.loopexit548
-  %333 = phi i32 [ %331, %327 ], [ %325, %.loopexit548 ]
+332:                                              ; preds = %327, %.loopexit547
+  %333 = phi i32 [ %331, %327 ], [ %325, %.loopexit547 ]
   %334 = and i32 %333, 8388608
-  %.not521 = icmp eq i32 %334, 0
-  call void @llvm.assume(i1 %.not521)
+  %.not520 = icmp eq i32 %334, 0
+  call void @llvm.assume(i1 %.not520)
   %335 = and i32 %333, 262143
-  %.not522 = icmp eq i32 %335, 1022
-  br i1 %.not522, label %338, label %336
+  %.not521 = icmp eq i32 %335, 1022
+  br i1 %.not521, label %338, label %336
 
 336:                                              ; preds = %332
   %337 = and i32 %333, 512
-  %.not523 = icmp eq i32 %337, 0
-  call void @llvm.assume(i1 %.not523)
+  %.not522 = icmp eq i32 %337, 0
+  call void @llvm.assume(i1 %.not522)
   br label %338
 
 338:                                              ; preds = %336, %332
   %339 = and i32 %333, 4194304
-  %.not524 = icmp eq i32 %339, 0
-  br i1 %.not524, label %346, label %340
+  %.not523 = icmp eq i32 %339, 0
+  br i1 %.not523, label %346, label %340
 
 340:                                              ; preds = %338
   %341 = load ptr, ptr %282, align 8
@@ -10478,17 +10478,17 @@ thread-pre-split.thread:                          ; preds = %271, %thread-pre-sp
   br label %348
 
 348:                                              ; preds = %346, %340
-  %.0438 = phi ptr [ %345, %340 ], [ %347, %346 ]
-  %.0437 = phi ptr [ %342, %340 ], [ %282, %346 ]
+  %.0437 = phi ptr [ %345, %340 ], [ %347, %346 ]
+  %.0436 = phi ptr [ %342, %340 ], [ %282, %346 ]
   br label %349
 
 349:                                              ; preds = %.loopexit, %348
-  %.1 = phi ptr [ %.0437, %348 ], [ %378, %.loopexit ]
+  %.1 = phi ptr [ %.0436, %348 ], [ %378, %.loopexit ]
   %350 = getelementptr inbounds i8, ptr %.1, i64 8
   %351 = load i32, ptr %350, align 8
   %352 = and i32 %351, 16777216
-  %.not525 = icmp eq i32 %352, 0
-  br i1 %.not525, label %357, label %353
+  %.not524 = icmp eq i32 %352, 0
+  br i1 %.not524, label %357, label %353
 
 353:                                              ; preds = %349
   %354 = load ptr, ptr @zend_new_interned_string, align 8
@@ -10500,8 +10500,8 @@ thread-pre-split.thread:                          ; preds = %271, %thread-pre-sp
 
 357:                                              ; preds = %349
   %358 = and i32 %351, 4194304
-  %.not526 = icmp eq i32 %358, 0
-  br i1 %.not526, label %.loopexit, label %359
+  %.not525 = icmp eq i32 %358, 0
+  br i1 %.not525, label %.loopexit, label %359
 
 359:                                              ; preds = %357
   %360 = load ptr, ptr %.1, align 8
@@ -10512,55 +10512,58 @@ thread-pre-split.thread:                          ; preds = %271, %thread-pre-sp
   br label %365
 
 365:                                              ; preds = %375, %359
-  %.1440 = phi ptr [ %361, %359 ], [ %376, %375 ]
-  %366 = getelementptr inbounds i8, ptr %.1440, i64 8
+  %.1439 = phi ptr [ %361, %359 ], [ %376, %375 ]
+  %366 = getelementptr inbounds i8, ptr %.1439, i64 8
   %367 = load i32, ptr %366, align 8
-  %368 = and i32 %367, 12582912
-  %369 = icmp eq i32 %368, 0
-  call void @llvm.assume(i1 %369)
+  %368 = and i32 %367, 8388608
+  %.not526 = icmp eq i32 %368, 0
+  call void @llvm.assume(i1 %.not526)
+  %369 = and i32 %367, 4194304
+  %.not527 = icmp eq i32 %369, 0
+  call void @llvm.assume(i1 %.not527)
   %370 = and i32 %367, 16777216
-  %.not529 = icmp eq i32 %370, 0
-  br i1 %.not529, label %375, label %371
+  %.not528 = icmp eq i32 %370, 0
+  br i1 %.not528, label %375, label %371
 
 371:                                              ; preds = %365
   %372 = load ptr, ptr @zend_new_interned_string, align 8
-  %373 = load ptr, ptr %.1440, align 8
+  %373 = load ptr, ptr %.1439, align 8
   %374 = call ptr %372(ptr noundef %373) #33
   call void @zend_alloc_ce_cache(ptr noundef %374) #33
-  store ptr %374, ptr %.1440, align 8
+  store ptr %374, ptr %.1439, align 8
   br label %375
 
 375:                                              ; preds = %371, %365
-  %376 = getelementptr inbounds i8, ptr %.1440, i64 16
+  %376 = getelementptr inbounds i8, ptr %.1439, i64 16
   %377 = icmp ult ptr %376, %364
   br i1 %377, label %365, label %.loopexit
 
 .loopexit:                                        ; preds = %375, %357, %353
   %378 = getelementptr inbounds i8, ptr %.1, i64 16
-  %379 = icmp ult ptr %378, %.0438
+  %379 = icmp ult ptr %378, %.0437
   br i1 %379, label %349, label %380
 
 380:                                              ; preds = %.loopexit
-  %indvars.iv.next616 = add nuw nsw i64 %indvars.iv615, 1
-  %exitcond619.not = icmp eq i64 %indvars.iv.next616, %278
-  br i1 %exitcond619.not, label %.loopexit549, label %.lr.ph582
+  %indvars.iv.next615 = add nuw nsw i64 %indvars.iv614, 1
+  %exitcond618.not = icmp eq i64 %indvars.iv.next615, %278
+  br i1 %exitcond618.not, label %.loopexit548, label %.lr.ph581
 
-.loopexit549:                                     ; preds = %380, %275, %thread-pre-split.thread, %thread-pre-split
-  br i1 %.not497, label %382, label %381
+.loopexit548:                                     ; preds = %380, %275, %thread-pre-split.thread, %thread-pre-split
+  br i1 %.not496, label %382, label %381
 
-381:                                              ; preds = %.loopexit549
+381:                                              ; preds = %.loopexit548
   call void @zend_check_magic_method_implementation(ptr noundef nonnull %0, ptr noundef %199, ptr noundef %198, i32 noundef 16)
   call void @zend_add_magic_method(ptr noundef nonnull %0, ptr noundef %199, ptr noundef %198)
   br label %382
 
-382:                                              ; preds = %381, %.loopexit549
-  %383 = getelementptr inbounds i8, ptr %.0449585, i64 48
-  %384 = add nuw nsw i32 %.0451584, 1
+382:                                              ; preds = %381, %.loopexit548
+  %383 = getelementptr inbounds i8, ptr %.0448584, i64 48
+  %384 = add nuw nsw i32 %.0450583, 1
   %385 = getelementptr inbounds i8, ptr %198, i64 4
   %386 = load i32, ptr %385, align 4
   %387 = and i32 %386, 64
-  %.not515 = icmp eq i32 %387, 0
-  br i1 %.not515, label %388, label %397
+  %.not514 = icmp eq i32 %387, 0
+  br i1 %.not514, label %388, label %397
 
 388:                                              ; preds = %382
   %389 = load i32, ptr %198, align 4
@@ -10573,8 +10576,8 @@ thread-pre-split.thread:                          ; preds = %271, %thread-pre-sp
 
 393:                                              ; preds = %388
   %394 = and i32 %386, 128
-  %.not516 = icmp eq i32 %394, 0
-  br i1 %.not516, label %396, label %395
+  %.not515 = icmp eq i32 %394, 0
+  br i1 %.not515, label %396, label %395
 
 395:                                              ; preds = %393
   call void @free(ptr noundef nonnull %198) #33
@@ -10586,17 +10589,17 @@ thread-pre-split.thread:                          ; preds = %271, %thread-pre-sp
 
 397:                                              ; preds = %388, %396, %395, %382
   %398 = load ptr, ptr %383, align 8
-  %.not485 = icmp eq ptr %398, null
-  br i1 %.not485, label %.critedge540, label %30
+  %.not484 = icmp eq ptr %398, null
+  br i1 %.not484, label %.critedge539, label %30
 
 399:                                              ; preds = %201, %212, %213, %205
-  %400 = load ptr, ptr %.0449585, align 8
-  %.not535588 = icmp eq ptr %400, null
-  br i1 %.not535588, label %._crit_edge592, label %.lr.ph591
+  %400 = load ptr, ptr %.0448584, align 8
+  %.not534587 = icmp eq ptr %400, null
+  br i1 %.not534587, label %._crit_edge591, label %.lr.ph590
 
-.lr.ph591:                                        ; preds = %399, %421
+.lr.ph590:                                        ; preds = %399, %421
   %401 = phi ptr [ %423, %421 ], [ %400, %399 ]
-  %.1450589 = phi ptr [ %422, %421 ], [ %.0449585, %399 ]
+  %.1449588 = phi ptr [ %422, %421 ], [ %.0448584, %399 ]
   %402 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %401) #34
   %403 = and i64 %402, -8
   %404 = add i64 %403, 32
@@ -10609,14 +10612,14 @@ thread-pre-split.thread:                          ; preds = %271, %thread-pre-sp
   %408 = getelementptr inbounds i8, ptr %405, i64 16
   store i64 %402, ptr %408, align 8
   %409 = getelementptr inbounds i8, ptr %405, i64 24
-  %410 = load ptr, ptr %.1450589, align 8
+  %410 = load ptr, ptr %.1449588, align 8
   %411 = call ptr @zend_str_tolower_copy(ptr noundef nonnull %409, ptr noundef %410, i64 noundef %402) #33
-  %412 = call ptr @zend_hash_find(ptr noundef %.0457, ptr noundef nonnull %405) #33
-  %.not536 = icmp eq ptr %412, null
-  br i1 %.not536, label %421, label %413
+  %412 = call ptr @zend_hash_find(ptr noundef %.0456, ptr noundef nonnull %405) #33
+  %.not535 = icmp eq ptr %412, null
+  br i1 %.not535, label %421, label %413
 
-413:                                              ; preds = %.lr.ph591
-  br i1 %.not497, label %417, label %414
+413:                                              ; preds = %.lr.ph590
+  br i1 %.not496, label %417, label %414
 
 414:                                              ; preds = %413
   %415 = load ptr, ptr %24, align 8
@@ -10626,24 +10629,24 @@ thread-pre-split.thread:                          ; preds = %271, %thread-pre-sp
 417:                                              ; preds = %413, %414
   %418 = phi ptr [ @.str.103, %414 ], [ @.str.22, %413 ]
   %419 = phi ptr [ %416, %414 ], [ @.str.22, %413 ]
-  %420 = load ptr, ptr %.1450589, align 8
+  %420 = load ptr, ptr %.1449588, align 8
   call void (i32, ptr, ...) @zend_error(i32 noundef %., ptr noundef nonnull @.str.109, ptr noundef nonnull %419, ptr noundef nonnull %418, ptr noundef %420) #33
   br label %421
 
-421:                                              ; preds = %417, %.lr.ph591
+421:                                              ; preds = %417, %.lr.ph590
   call void @_efree(ptr noundef nonnull %405) #33
-  %422 = getelementptr inbounds i8, ptr %.1450589, i64 48
+  %422 = getelementptr inbounds i8, ptr %.1449588, i64 48
   %423 = load ptr, ptr %422, align 8
-  %.not535 = icmp eq ptr %423, null
-  br i1 %.not535, label %._crit_edge592, label %.lr.ph591
+  %.not534 = icmp eq ptr %423, null
+  br i1 %.not534, label %._crit_edge591, label %.lr.ph590
 
-._crit_edge592:                                   ; preds = %421, %399
-  call void @zend_unregister_functions(ptr noundef nonnull %1, i32 noundef %.0451584, ptr noundef %.0457)
-  br label %.critedge540
+._crit_edge591:                                   ; preds = %421, %399
+  call void @zend_unregister_functions(ptr noundef nonnull %1, i32 noundef %.0450583, ptr noundef %.0456)
+  br label %.critedge539
 
-.critedge540:                                     ; preds = %397, %4, %._crit_edge592, %.loopexit551, %181
-  %.0448 = phi i32 [ -1, %._crit_edge592 ], [ -1, %181 ], [ -1, %.loopexit551 ], [ 0, %4 ], [ 0, %397 ]
-  ret i32 %.0448
+.critedge539:                                     ; preds = %397, %4, %._crit_edge591, %.loopexit550, %181
+  %.0447 = phi i32 [ -1, %._crit_edge591 ], [ -1, %181 ], [ -1, %.loopexit550 ], [ 0, %4 ], [ 0, %397 ]
+  ret i32 %.0447
 }
 
 declare i32 @zend_hash_del(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -10700,11 +10703,11 @@ define void @zend_check_magic_method_implementation(ptr noundef readonly %0, ptr
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.156, ptr noundef nonnull %24, ptr noundef nonnull %7) #33
-  %.pre522 = load i32, ptr %18, align 4
+  %.pre521 = load i32, ptr %18, align 4
   br label %zend_check_magic_method_non_static.exit
 
 zend_check_magic_method_non_static.exit:          ; preds = %17, %21
-  %25 = phi i32 [ %19, %17 ], [ %.pre522, %21 ]
+  %25 = phi i32 [ %19, %17 ], [ %.pre521, %21 ]
   %26 = and i32 %25, 8192
   %.not.i388 = icmp eq i32 %26, 0
   br i1 %.not.i388, label %.critedge38, label %27
@@ -10751,11 +10754,11 @@ zend_check_magic_method_args.exit:                ; preds = %35, %38
   %49 = load ptr, ptr %5, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.156, ptr noundef nonnull %48, ptr noundef nonnull %50) #33
-  %.pre518 = load i32, ptr %42, align 4
+  %.pre517 = load i32, ptr %42, align 4
   br label %zend_check_magic_method_non_static.exit391
 
 zend_check_magic_method_non_static.exit391:       ; preds = %zend_check_magic_method_args.exit, %45
-  %51 = phi i32 [ %43, %zend_check_magic_method_args.exit ], [ %.pre518, %45 ]
+  %51 = phi i32 [ %43, %zend_check_magic_method_args.exit ], [ %.pre517, %45 ]
   %52 = and i32 %51, 8192
   %.not.i392 = icmp eq i32 %52, 0
   br i1 %.not.i392, label %.critedge38, label %53
@@ -10802,11 +10805,11 @@ zend_check_magic_method_args.exit396:             ; preds = %61, %64
   %75 = load ptr, ptr %5, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.156, ptr noundef nonnull %74, ptr noundef nonnull %76) #33
-  %.pre516 = load i32, ptr %68, align 4
+  %.pre515 = load i32, ptr %68, align 4
   br label %zend_check_magic_method_non_static.exit398
 
 zend_check_magic_method_non_static.exit398:       ; preds = %zend_check_magic_method_args.exit396, %71
-  %77 = phi i32 [ %69, %zend_check_magic_method_args.exit396 ], [ %.pre516, %71 ]
+  %77 = phi i32 [ %69, %zend_check_magic_method_args.exit396 ], [ %.pre515, %71 ]
   %78 = and i32 %77, 8192
   %.not.i399 = icmp eq i32 %78, 0
   br i1 %.not.i399, label %.critedge38, label %79
@@ -10874,11 +10877,11 @@ zend_check_magic_method_args.exit402:             ; preds = %zend_check_magic_me
   %111 = load ptr, ptr %5, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.156, ptr noundef nonnull %110, ptr noundef nonnull %112) #33
-  %.pre513 = load i32, ptr %104, align 4
+  %.pre512 = load i32, ptr %104, align 4
   br label %zend_check_magic_method_non_static.exit404
 
 zend_check_magic_method_non_static.exit404:       ; preds = %zend_check_magic_method_args.exit402, %107
-  %113 = phi i32 [ %105, %zend_check_magic_method_args.exit402 ], [ %.pre513, %107 ]
+  %113 = phi i32 [ %105, %zend_check_magic_method_args.exit402 ], [ %.pre512, %107 ]
   %114 = and i32 %113, 1
   %.not.i405 = icmp eq i32 %114, 0
   br i1 %.not.i405, label %115, label %zend_check_magic_method_public.exit
@@ -10973,11 +10976,11 @@ zend_check_magic_method_args.exit412:             ; preds = %146, %142, %152
   %163 = load ptr, ptr %5, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.156, ptr noundef nonnull %162, ptr noundef nonnull %164) #33
-  %.pre512 = load i32, ptr %156, align 4
+  %.pre511 = load i32, ptr %156, align 4
   br label %zend_check_magic_method_non_static.exit414
 
 zend_check_magic_method_non_static.exit414:       ; preds = %zend_check_magic_method_args.exit412, %159
-  %165 = phi i32 [ %157, %zend_check_magic_method_args.exit412 ], [ %.pre512, %159 ]
+  %165 = phi i32 [ %157, %zend_check_magic_method_args.exit412 ], [ %.pre511, %159 ]
   %166 = and i32 %165, 1
   %.not.i415 = icmp eq i32 %166, 0
   br i1 %.not.i415, label %167, label %zend_check_magic_method_public.exit416
@@ -11029,9 +11032,9 @@ zend_check_magic_method_arg_type.exit420:         ; preds = %zend_check_magic_me
   %195 = and i32 %194, 131072
   %.not15.i422 = icmp ne i32 %195, 0
   %196 = and i32 %194, 29474815
-  %or.cond19.i428.not = icmp eq i32 %196, 0
-  %or.cond509 = or i1 %.not15.i422, %or.cond19.i428.not
-  br i1 %or.cond509, label %.critedge38, label %197
+  %or.cond19.i427.not = icmp eq i32 %196, 0
+  %or.cond508 = or i1 %.not15.i422, %or.cond19.i427.not
+  br i1 %or.cond508, label %.critedge38, label %197
 
 197:                                              ; preds = %191
   %198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11054,8 +11057,8 @@ zend_check_magic_method_arg_type.exit420:         ; preds = %zend_check_magic_me
   %207 = getelementptr inbounds i8, ptr %1, i64 4
   %208 = load i32, ptr %207, align 4
   %209 = and i32 %208, 16
-  %.not.i430 = icmp eq i32 %209, 0
-  br i1 %.not.i430, label %zend_check_magic_method_non_static.exit431, label %210
+  %.not.i429 = icmp eq i32 %209, 0
+  br i1 %.not.i429, label %zend_check_magic_method_non_static.exit430, label %210
 
 210:                                              ; preds = %206
   %211 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11064,25 +11067,25 @@ zend_check_magic_method_arg_type.exit420:         ; preds = %zend_check_magic_me
   %214 = load ptr, ptr %5, align 8
   %215 = getelementptr inbounds i8, ptr %214, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.156, ptr noundef nonnull %213, ptr noundef nonnull %215) #33
-  %.pre515 = load i32, ptr %207, align 4
-  br label %zend_check_magic_method_non_static.exit431
+  %.pre514 = load i32, ptr %207, align 4
+  br label %zend_check_magic_method_non_static.exit430
 
-zend_check_magic_method_non_static.exit431:       ; preds = %206, %210
-  %216 = phi i32 [ %208, %206 ], [ %.pre515, %210 ]
+zend_check_magic_method_non_static.exit430:       ; preds = %206, %210
+  %216 = phi i32 [ %208, %206 ], [ %.pre514, %210 ]
   %217 = and i32 %216, 1
-  %.not.i432 = icmp eq i32 %217, 0
-  br i1 %.not.i432, label %218, label %zend_check_magic_method_public.exit433
+  %.not.i431 = icmp eq i32 %217, 0
+  br i1 %.not.i431, label %218, label %zend_check_magic_method_public.exit432
 
-218:                                              ; preds = %zend_check_magic_method_non_static.exit431
+218:                                              ; preds = %zend_check_magic_method_non_static.exit430
   %219 = getelementptr inbounds i8, ptr %0, i64 8
   %220 = load ptr, ptr %219, align 8
   %221 = getelementptr inbounds i8, ptr %220, i64 24
   %222 = load ptr, ptr %5, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.163, ptr noundef nonnull %221, ptr noundef nonnull %223) #33
-  br label %zend_check_magic_method_public.exit433
+  br label %zend_check_magic_method_public.exit432
 
-zend_check_magic_method_public.exit433:           ; preds = %zend_check_magic_method_non_static.exit431, %218
+zend_check_magic_method_public.exit432:           ; preds = %zend_check_magic_method_non_static.exit430, %218
   tail call fastcc void @zend_check_magic_method_arg_type(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 64)
   tail call fastcc void @zend_check_magic_method_return_type(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 16384)
   br label %.critedge38
@@ -11097,8 +11100,8 @@ zend_check_magic_method_public.exit433:           ; preds = %zend_check_magic_me
   %225 = getelementptr inbounds i8, ptr %1, i64 4
   %226 = load i32, ptr %225, align 4
   %227 = and i32 %226, 16
-  %.not.i434 = icmp eq i32 %227, 0
-  br i1 %.not.i434, label %zend_check_magic_method_non_static.exit435, label %228
+  %.not.i433 = icmp eq i32 %227, 0
+  br i1 %.not.i433, label %zend_check_magic_method_non_static.exit434, label %228
 
 228:                                              ; preds = %224
   %229 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11107,25 +11110,25 @@ zend_check_magic_method_public.exit433:           ; preds = %zend_check_magic_me
   %232 = load ptr, ptr %5, align 8
   %233 = getelementptr inbounds i8, ptr %232, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.156, ptr noundef nonnull %231, ptr noundef nonnull %233) #33
-  %.pre514 = load i32, ptr %225, align 4
-  br label %zend_check_magic_method_non_static.exit435
+  %.pre513 = load i32, ptr %225, align 4
+  br label %zend_check_magic_method_non_static.exit434
 
-zend_check_magic_method_non_static.exit435:       ; preds = %224, %228
-  %234 = phi i32 [ %226, %224 ], [ %.pre514, %228 ]
+zend_check_magic_method_non_static.exit434:       ; preds = %224, %228
+  %234 = phi i32 [ %226, %224 ], [ %.pre513, %228 ]
   %235 = and i32 %234, 1
-  %.not.i436 = icmp eq i32 %235, 0
-  br i1 %.not.i436, label %236, label %zend_check_magic_method_public.exit437
+  %.not.i435 = icmp eq i32 %235, 0
+  br i1 %.not.i435, label %236, label %zend_check_magic_method_public.exit436
 
-236:                                              ; preds = %zend_check_magic_method_non_static.exit435
+236:                                              ; preds = %zend_check_magic_method_non_static.exit434
   %237 = getelementptr inbounds i8, ptr %0, i64 8
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds i8, ptr %238, i64 24
   %240 = load ptr, ptr %5, align 8
   %241 = getelementptr inbounds i8, ptr %240, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.163, ptr noundef nonnull %239, ptr noundef nonnull %241) #33
-  br label %zend_check_magic_method_public.exit437
+  br label %zend_check_magic_method_public.exit436
 
-zend_check_magic_method_public.exit437:           ; preds = %zend_check_magic_method_non_static.exit435, %236
+zend_check_magic_method_public.exit436:           ; preds = %zend_check_magic_method_non_static.exit434, %236
   tail call fastcc void @zend_check_magic_method_arg_type(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 64)
   tail call fastcc void @zend_check_magic_method_return_type(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 12)
   br label %.critedge38
@@ -11141,8 +11144,8 @@ zend_check_magic_method_public.exit437:           ; preds = %zend_check_magic_me
   %245 = getelementptr inbounds i8, ptr %1, i64 4
   %246 = load i32, ptr %245, align 4
   %247 = and i32 %246, 16
-  %.not.i438 = icmp eq i32 %247, 0
-  br i1 %.not.i438, label %zend_check_magic_method_non_static.exit439, label %248
+  %.not.i437 = icmp eq i32 %247, 0
+  br i1 %.not.i437, label %zend_check_magic_method_non_static.exit438, label %248
 
 248:                                              ; preds = %244
   %249 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11151,25 +11154,25 @@ zend_check_magic_method_public.exit437:           ; preds = %zend_check_magic_me
   %252 = load ptr, ptr %5, align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.156, ptr noundef nonnull %251, ptr noundef nonnull %253) #33
-  %.pre511 = load i32, ptr %245, align 4
-  br label %zend_check_magic_method_non_static.exit439
+  %.pre510 = load i32, ptr %245, align 4
+  br label %zend_check_magic_method_non_static.exit438
 
-zend_check_magic_method_non_static.exit439:       ; preds = %244, %248
-  %254 = phi i32 [ %246, %244 ], [ %.pre511, %248 ]
+zend_check_magic_method_non_static.exit438:       ; preds = %244, %248
+  %254 = phi i32 [ %246, %244 ], [ %.pre510, %248 ]
   %255 = and i32 %254, 1
-  %.not.i440 = icmp eq i32 %255, 0
-  br i1 %.not.i440, label %256, label %zend_check_magic_method_public.exit441
+  %.not.i439 = icmp eq i32 %255, 0
+  br i1 %.not.i439, label %256, label %zend_check_magic_method_public.exit440
 
-256:                                              ; preds = %zend_check_magic_method_non_static.exit439
+256:                                              ; preds = %zend_check_magic_method_non_static.exit438
   %257 = getelementptr inbounds i8, ptr %0, i64 8
   %258 = load ptr, ptr %257, align 8
   %259 = getelementptr inbounds i8, ptr %258, i64 24
   %260 = load ptr, ptr %5, align 8
   %261 = getelementptr inbounds i8, ptr %260, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.163, ptr noundef nonnull %259, ptr noundef nonnull %261) #33
-  br label %zend_check_magic_method_public.exit441
+  br label %zend_check_magic_method_public.exit440
 
-zend_check_magic_method_public.exit441:           ; preds = %zend_check_magic_method_non_static.exit439, %256
+zend_check_magic_method_public.exit440:           ; preds = %zend_check_magic_method_non_static.exit438, %256
   tail call fastcc void @zend_check_magic_method_arg_type(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 64)
   tail call fastcc void @zend_check_magic_method_arg_type(i32 noundef 1, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 128)
   br label %.critedge38
@@ -11185,8 +11188,8 @@ zend_check_magic_method_public.exit441:           ; preds = %zend_check_magic_me
   %265 = getelementptr inbounds i8, ptr %1, i64 4
   %266 = load i32, ptr %265, align 4
   %267 = and i32 %266, 16
-  %.not.i442 = icmp eq i32 %267, 0
-  br i1 %.not.i442, label %268, label %zend_check_magic_method_static.exit
+  %.not.i441 = icmp eq i32 %267, 0
+  br i1 %.not.i441, label %268, label %zend_check_magic_method_static.exit
 
 268:                                              ; preds = %264
   %269 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11195,14 +11198,14 @@ zend_check_magic_method_public.exit441:           ; preds = %zend_check_magic_me
   %272 = load ptr, ptr %5, align 8
   %273 = getelementptr inbounds i8, ptr %272, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.165, ptr noundef nonnull %271, ptr noundef nonnull %273) #33
-  %.pre510 = load i32, ptr %265, align 4
+  %.pre509 = load i32, ptr %265, align 4
   br label %zend_check_magic_method_static.exit
 
 zend_check_magic_method_static.exit:              ; preds = %264, %268
-  %274 = phi i32 [ %266, %264 ], [ %.pre510, %268 ]
+  %274 = phi i32 [ %266, %264 ], [ %.pre509, %268 ]
   %275 = and i32 %274, 1
-  %.not.i443 = icmp eq i32 %275, 0
-  br i1 %.not.i443, label %276, label %zend_check_magic_method_public.exit444
+  %.not.i442 = icmp eq i32 %275, 0
+  br i1 %.not.i442, label %276, label %zend_check_magic_method_public.exit443
 
 276:                                              ; preds = %zend_check_magic_method_static.exit
   %277 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11211,9 +11214,9 @@ zend_check_magic_method_static.exit:              ; preds = %264, %268
   %280 = load ptr, ptr %5, align 8
   %281 = getelementptr inbounds i8, ptr %280, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.163, ptr noundef nonnull %279, ptr noundef nonnull %281) #33
-  br label %zend_check_magic_method_public.exit444
+  br label %zend_check_magic_method_public.exit443
 
-zend_check_magic_method_public.exit444:           ; preds = %zend_check_magic_method_static.exit, %276
+zend_check_magic_method_public.exit443:           ; preds = %zend_check_magic_method_static.exit, %276
   tail call fastcc void @zend_check_magic_method_arg_type(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 64)
   tail call fastcc void @zend_check_magic_method_arg_type(i32 noundef 1, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 128)
   br label %.critedge38
@@ -11226,49 +11229,49 @@ zend_check_magic_method_public.exit444:           ; preds = %zend_check_magic_me
 283:                                              ; preds = %282
   %284 = getelementptr inbounds i8, ptr %1, i64 32
   %285 = load i32, ptr %284, align 8
-  %.not.i445 = icmp eq i32 %285, 0
-  br i1 %.not.i445, label %zend_check_magic_method_args.exit447, label %286
+  %.not.i444 = icmp eq i32 %285, 0
+  br i1 %.not.i444, label %zend_check_magic_method_args.exit446, label %286
 
 286:                                              ; preds = %283
   %287 = getelementptr inbounds i8, ptr %0, i64 8
   %288 = load ptr, ptr %287, align 8
   %289 = getelementptr inbounds i8, ptr %288, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.158, ptr noundef nonnull %289, ptr noundef nonnull %7) #33
-  br label %zend_check_magic_method_args.exit447
+  br label %zend_check_magic_method_args.exit446
 
-zend_check_magic_method_args.exit447:             ; preds = %283, %286
+zend_check_magic_method_args.exit446:             ; preds = %283, %286
   %290 = getelementptr inbounds i8, ptr %1, i64 4
   %291 = load i32, ptr %290, align 4
   %292 = and i32 %291, 16
-  %.not.i448 = icmp eq i32 %292, 0
-  br i1 %.not.i448, label %zend_check_magic_method_non_static.exit449, label %293
+  %.not.i447 = icmp eq i32 %292, 0
+  br i1 %.not.i447, label %zend_check_magic_method_non_static.exit448, label %293
 
-293:                                              ; preds = %zend_check_magic_method_args.exit447
+293:                                              ; preds = %zend_check_magic_method_args.exit446
   %294 = getelementptr inbounds i8, ptr %0, i64 8
   %295 = load ptr, ptr %294, align 8
   %296 = getelementptr inbounds i8, ptr %295, i64 24
   %297 = load ptr, ptr %5, align 8
   %298 = getelementptr inbounds i8, ptr %297, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.156, ptr noundef nonnull %296, ptr noundef nonnull %298) #33
-  %.pre517 = load i32, ptr %290, align 4
-  br label %zend_check_magic_method_non_static.exit449
+  %.pre516 = load i32, ptr %290, align 4
+  br label %zend_check_magic_method_non_static.exit448
 
-zend_check_magic_method_non_static.exit449:       ; preds = %zend_check_magic_method_args.exit447, %293
-  %299 = phi i32 [ %291, %zend_check_magic_method_args.exit447 ], [ %.pre517, %293 ]
+zend_check_magic_method_non_static.exit448:       ; preds = %zend_check_magic_method_args.exit446, %293
+  %299 = phi i32 [ %291, %zend_check_magic_method_args.exit446 ], [ %.pre516, %293 ]
   %300 = and i32 %299, 1
-  %.not.i450 = icmp eq i32 %300, 0
-  br i1 %.not.i450, label %301, label %zend_check_magic_method_public.exit451
+  %.not.i449 = icmp eq i32 %300, 0
+  br i1 %.not.i449, label %301, label %zend_check_magic_method_public.exit450
 
-301:                                              ; preds = %zend_check_magic_method_non_static.exit449
+301:                                              ; preds = %zend_check_magic_method_non_static.exit448
   %302 = getelementptr inbounds i8, ptr %0, i64 8
   %303 = load ptr, ptr %302, align 8
   %304 = getelementptr inbounds i8, ptr %303, i64 24
   %305 = load ptr, ptr %5, align 8
   %306 = getelementptr inbounds i8, ptr %305, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.163, ptr noundef nonnull %304, ptr noundef nonnull %306) #33
-  br label %zend_check_magic_method_public.exit451
+  br label %zend_check_magic_method_public.exit450
 
-zend_check_magic_method_public.exit451:           ; preds = %zend_check_magic_method_non_static.exit449, %301
+zend_check_magic_method_public.exit450:           ; preds = %zend_check_magic_method_non_static.exit448, %301
   tail call fastcc void @zend_check_magic_method_return_type(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 64)
   br label %.critedge38
 
@@ -11280,49 +11283,49 @@ zend_check_magic_method_public.exit451:           ; preds = %zend_check_magic_me
 307:                                              ; preds = %.critedge18
   %308 = getelementptr inbounds i8, ptr %1, i64 32
   %309 = load i32, ptr %308, align 8
-  %.not.i452 = icmp eq i32 %309, 0
-  br i1 %.not.i452, label %zend_check_magic_method_args.exit454, label %310
+  %.not.i451 = icmp eq i32 %309, 0
+  br i1 %.not.i451, label %zend_check_magic_method_args.exit453, label %310
 
 310:                                              ; preds = %307
   %311 = getelementptr inbounds i8, ptr %0, i64 8
   %312 = load ptr, ptr %311, align 8
   %313 = getelementptr inbounds i8, ptr %312, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.158, ptr noundef nonnull %313, ptr noundef nonnull %7) #33
-  br label %zend_check_magic_method_args.exit454
+  br label %zend_check_magic_method_args.exit453
 
-zend_check_magic_method_args.exit454:             ; preds = %307, %310
+zend_check_magic_method_args.exit453:             ; preds = %307, %310
   %314 = getelementptr inbounds i8, ptr %1, i64 4
   %315 = load i32, ptr %314, align 4
   %316 = and i32 %315, 16
-  %.not.i455 = icmp eq i32 %316, 0
-  br i1 %.not.i455, label %zend_check_magic_method_non_static.exit456, label %317
+  %.not.i454 = icmp eq i32 %316, 0
+  br i1 %.not.i454, label %zend_check_magic_method_non_static.exit455, label %317
 
-317:                                              ; preds = %zend_check_magic_method_args.exit454
+317:                                              ; preds = %zend_check_magic_method_args.exit453
   %318 = getelementptr inbounds i8, ptr %0, i64 8
   %319 = load ptr, ptr %318, align 8
   %320 = getelementptr inbounds i8, ptr %319, i64 24
   %321 = load ptr, ptr %5, align 8
   %322 = getelementptr inbounds i8, ptr %321, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.156, ptr noundef nonnull %320, ptr noundef nonnull %322) #33
-  %.pre521 = load i32, ptr %314, align 4
-  br label %zend_check_magic_method_non_static.exit456
+  %.pre520 = load i32, ptr %314, align 4
+  br label %zend_check_magic_method_non_static.exit455
 
-zend_check_magic_method_non_static.exit456:       ; preds = %zend_check_magic_method_args.exit454, %317
-  %323 = phi i32 [ %315, %zend_check_magic_method_args.exit454 ], [ %.pre521, %317 ]
+zend_check_magic_method_non_static.exit455:       ; preds = %zend_check_magic_method_args.exit453, %317
+  %323 = phi i32 [ %315, %zend_check_magic_method_args.exit453 ], [ %.pre520, %317 ]
   %324 = and i32 %323, 1
-  %.not.i457 = icmp eq i32 %324, 0
-  br i1 %.not.i457, label %325, label %zend_check_magic_method_public.exit458
+  %.not.i456 = icmp eq i32 %324, 0
+  br i1 %.not.i456, label %325, label %zend_check_magic_method_public.exit457
 
-325:                                              ; preds = %zend_check_magic_method_non_static.exit456
+325:                                              ; preds = %zend_check_magic_method_non_static.exit455
   %326 = getelementptr inbounds i8, ptr %0, i64 8
   %327 = load ptr, ptr %326, align 8
   %328 = getelementptr inbounds i8, ptr %327, i64 24
   %329 = load ptr, ptr %5, align 8
   %330 = getelementptr inbounds i8, ptr %329, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.163, ptr noundef nonnull %328, ptr noundef nonnull %330) #33
-  br label %zend_check_magic_method_public.exit458
+  br label %zend_check_magic_method_public.exit457
 
-zend_check_magic_method_public.exit458:           ; preds = %zend_check_magic_method_non_static.exit456, %325
+zend_check_magic_method_public.exit457:           ; preds = %zend_check_magic_method_non_static.exit455, %325
   tail call fastcc void @zend_check_magic_method_return_type(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 130)
   br label %.critedge38
 
@@ -11334,49 +11337,49 @@ zend_check_magic_method_public.exit458:           ; preds = %zend_check_magic_me
 332:                                              ; preds = %331
   %333 = getelementptr inbounds i8, ptr %1, i64 32
   %334 = load i32, ptr %333, align 8
-  %.not.i459 = icmp eq i32 %334, 0
-  br i1 %.not.i459, label %zend_check_magic_method_args.exit461, label %335
+  %.not.i458 = icmp eq i32 %334, 0
+  br i1 %.not.i458, label %zend_check_magic_method_args.exit460, label %335
 
 335:                                              ; preds = %332
   %336 = getelementptr inbounds i8, ptr %0, i64 8
   %337 = load ptr, ptr %336, align 8
   %338 = getelementptr inbounds i8, ptr %337, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.158, ptr noundef nonnull %338, ptr noundef nonnull %7) #33
-  br label %zend_check_magic_method_args.exit461
+  br label %zend_check_magic_method_args.exit460
 
-zend_check_magic_method_args.exit461:             ; preds = %332, %335
+zend_check_magic_method_args.exit460:             ; preds = %332, %335
   %339 = getelementptr inbounds i8, ptr %1, i64 4
   %340 = load i32, ptr %339, align 4
   %341 = and i32 %340, 16
-  %.not.i462 = icmp eq i32 %341, 0
-  br i1 %.not.i462, label %zend_check_magic_method_non_static.exit463, label %342
+  %.not.i461 = icmp eq i32 %341, 0
+  br i1 %.not.i461, label %zend_check_magic_method_non_static.exit462, label %342
 
-342:                                              ; preds = %zend_check_magic_method_args.exit461
+342:                                              ; preds = %zend_check_magic_method_args.exit460
   %343 = getelementptr inbounds i8, ptr %0, i64 8
   %344 = load ptr, ptr %343, align 8
   %345 = getelementptr inbounds i8, ptr %344, i64 24
   %346 = load ptr, ptr %5, align 8
   %347 = getelementptr inbounds i8, ptr %346, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.156, ptr noundef nonnull %345, ptr noundef nonnull %347) #33
-  %.pre520 = load i32, ptr %339, align 4
-  br label %zend_check_magic_method_non_static.exit463
+  %.pre519 = load i32, ptr %339, align 4
+  br label %zend_check_magic_method_non_static.exit462
 
-zend_check_magic_method_non_static.exit463:       ; preds = %zend_check_magic_method_args.exit461, %342
-  %348 = phi i32 [ %340, %zend_check_magic_method_args.exit461 ], [ %.pre520, %342 ]
+zend_check_magic_method_non_static.exit462:       ; preds = %zend_check_magic_method_args.exit460, %342
+  %348 = phi i32 [ %340, %zend_check_magic_method_args.exit460 ], [ %.pre519, %342 ]
   %349 = and i32 %348, 1
-  %.not.i464 = icmp eq i32 %349, 0
-  br i1 %.not.i464, label %350, label %zend_check_magic_method_public.exit465
+  %.not.i463 = icmp eq i32 %349, 0
+  br i1 %.not.i463, label %350, label %zend_check_magic_method_public.exit464
 
-350:                                              ; preds = %zend_check_magic_method_non_static.exit463
+350:                                              ; preds = %zend_check_magic_method_non_static.exit462
   %351 = getelementptr inbounds i8, ptr %0, i64 8
   %352 = load ptr, ptr %351, align 8
   %353 = getelementptr inbounds i8, ptr %352, i64 24
   %354 = load ptr, ptr %5, align 8
   %355 = getelementptr inbounds i8, ptr %354, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.163, ptr noundef nonnull %353, ptr noundef nonnull %355) #33
-  br label %zend_check_magic_method_public.exit465
+  br label %zend_check_magic_method_public.exit464
 
-zend_check_magic_method_public.exit465:           ; preds = %zend_check_magic_method_non_static.exit463, %350
+zend_check_magic_method_public.exit464:           ; preds = %zend_check_magic_method_non_static.exit462, %350
   tail call fastcc void @zend_check_magic_method_return_type(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 128)
   br label %.critedge38
 
@@ -11391,8 +11394,8 @@ zend_check_magic_method_public.exit465:           ; preds = %zend_check_magic_me
   %359 = getelementptr inbounds i8, ptr %1, i64 4
   %360 = load i32, ptr %359, align 4
   %361 = and i32 %360, 16
-  %.not.i466 = icmp eq i32 %361, 0
-  br i1 %.not.i466, label %zend_check_magic_method_non_static.exit467, label %362
+  %.not.i465 = icmp eq i32 %361, 0
+  br i1 %.not.i465, label %zend_check_magic_method_non_static.exit466, label %362
 
 362:                                              ; preds = %358
   %363 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11402,24 +11405,24 @@ zend_check_magic_method_public.exit465:           ; preds = %zend_check_magic_me
   %367 = getelementptr inbounds i8, ptr %366, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.156, ptr noundef nonnull %365, ptr noundef nonnull %367) #33
   %.pre = load i32, ptr %359, align 4
-  br label %zend_check_magic_method_non_static.exit467
+  br label %zend_check_magic_method_non_static.exit466
 
-zend_check_magic_method_non_static.exit467:       ; preds = %358, %362
+zend_check_magic_method_non_static.exit466:       ; preds = %358, %362
   %368 = phi i32 [ %360, %358 ], [ %.pre, %362 ]
   %369 = and i32 %368, 1
-  %.not.i468 = icmp eq i32 %369, 0
-  br i1 %.not.i468, label %370, label %zend_check_magic_method_public.exit469
+  %.not.i467 = icmp eq i32 %369, 0
+  br i1 %.not.i467, label %370, label %zend_check_magic_method_public.exit468
 
-370:                                              ; preds = %zend_check_magic_method_non_static.exit467
+370:                                              ; preds = %zend_check_magic_method_non_static.exit466
   %371 = getelementptr inbounds i8, ptr %0, i64 8
   %372 = load ptr, ptr %371, align 8
   %373 = getelementptr inbounds i8, ptr %372, i64 24
   %374 = load ptr, ptr %5, align 8
   %375 = getelementptr inbounds i8, ptr %374, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.163, ptr noundef nonnull %373, ptr noundef nonnull %375) #33
-  br label %zend_check_magic_method_public.exit469
+  br label %zend_check_magic_method_public.exit468
 
-zend_check_magic_method_public.exit469:           ; preds = %zend_check_magic_method_non_static.exit467, %370
+zend_check_magic_method_public.exit468:           ; preds = %zend_check_magic_method_non_static.exit466, %370
   tail call fastcc void @zend_check_magic_method_arg_type(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 128)
   tail call fastcc void @zend_check_magic_method_return_type(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 16384)
   br label %.critedge38
@@ -11434,8 +11437,8 @@ zend_check_magic_method_public.exit469:           ; preds = %zend_check_magic_me
   %377 = getelementptr inbounds i8, ptr %1, i64 4
   %378 = load i32, ptr %377, align 4
   %379 = and i32 %378, 16
-  %.not.i470 = icmp eq i32 %379, 0
-  br i1 %.not.i470, label %380, label %zend_check_magic_method_static.exit471
+  %.not.i469 = icmp eq i32 %379, 0
+  br i1 %.not.i469, label %380, label %zend_check_magic_method_static.exit470
 
 380:                                              ; preds = %376
   %381 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11444,25 +11447,25 @@ zend_check_magic_method_public.exit469:           ; preds = %zend_check_magic_me
   %384 = load ptr, ptr %5, align 8
   %385 = getelementptr inbounds i8, ptr %384, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.165, ptr noundef nonnull %383, ptr noundef nonnull %385) #33
-  %.pre519 = load i32, ptr %377, align 4
-  br label %zend_check_magic_method_static.exit471
+  %.pre518 = load i32, ptr %377, align 4
+  br label %zend_check_magic_method_static.exit470
 
-zend_check_magic_method_static.exit471:           ; preds = %376, %380
-  %386 = phi i32 [ %378, %376 ], [ %.pre519, %380 ]
+zend_check_magic_method_static.exit470:           ; preds = %376, %380
+  %386 = phi i32 [ %378, %376 ], [ %.pre518, %380 ]
   %387 = and i32 %386, 1
-  %.not.i472 = icmp eq i32 %387, 0
-  br i1 %.not.i472, label %388, label %zend_check_magic_method_public.exit473
+  %.not.i471 = icmp eq i32 %387, 0
+  br i1 %.not.i471, label %388, label %zend_check_magic_method_public.exit472
 
-388:                                              ; preds = %zend_check_magic_method_static.exit471
+388:                                              ; preds = %zend_check_magic_method_static.exit470
   %389 = getelementptr inbounds i8, ptr %0, i64 8
   %390 = load ptr, ptr %389, align 8
   %391 = getelementptr inbounds i8, ptr %390, i64 24
   %392 = load ptr, ptr %5, align 8
   %393 = getelementptr inbounds i8, ptr %392, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.163, ptr noundef nonnull %391, ptr noundef nonnull %393) #33
-  br label %zend_check_magic_method_public.exit473
+  br label %zend_check_magic_method_public.exit472
 
-zend_check_magic_method_public.exit473:           ; preds = %zend_check_magic_method_static.exit471, %388
+zend_check_magic_method_public.exit472:           ; preds = %zend_check_magic_method_static.exit470, %388
   tail call fastcc void @zend_check_magic_method_arg_type(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 128)
   tail call fastcc void @zend_check_magic_method_return_type(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 256)
   br label %.critedge38
@@ -11485,15 +11488,15 @@ zend_check_magic_method_public.exit473:           ; preds = %zend_check_magic_me
   br i1 %403, label %.critedge28, label %..critedge30_crit_edge
 
 ..critedge30_crit_edge:                           ; preds = %402
-  %.pre523 = load ptr, ptr @zend_known_strings, align 8
+  %.pre522 = load ptr, ptr @zend_known_strings, align 8
   br label %.critedge30
 
 .critedge28:                                      ; preds = %.critedge26, %402
   %404 = getelementptr inbounds i8, ptr %1, i64 4
   %405 = load i32, ptr %404, align 4
   %406 = and i32 %405, 16
-  %.not.i474 = icmp eq i32 %406, 0
-  br i1 %.not.i474, label %zend_check_magic_method_non_static.exit475, label %407
+  %.not.i473 = icmp eq i32 %406, 0
+  br i1 %.not.i473, label %zend_check_magic_method_non_static.exit474, label %407
 
 407:                                              ; preds = %.critedge28
   %408 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11502,16 +11505,16 @@ zend_check_magic_method_public.exit473:           ; preds = %zend_check_magic_me
   %411 = load ptr, ptr %5, align 8
   %412 = getelementptr inbounds i8, ptr %411, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.156, ptr noundef nonnull %410, ptr noundef nonnull %412) #33
-  %.pre527 = load i32, ptr %404, align 4
-  br label %zend_check_magic_method_non_static.exit475
+  %.pre526 = load i32, ptr %404, align 4
+  br label %zend_check_magic_method_non_static.exit474
 
-zend_check_magic_method_non_static.exit475:       ; preds = %.critedge28, %407
-  %413 = phi i32 [ %405, %.critedge28 ], [ %.pre527, %407 ]
+zend_check_magic_method_non_static.exit474:       ; preds = %.critedge28, %407
+  %413 = phi i32 [ %405, %.critedge28 ], [ %.pre526, %407 ]
   %414 = and i32 %413, 1
-  %.not.i476 = icmp eq i32 %414, 0
-  br i1 %.not.i476, label %415, label %.critedge38
+  %.not.i475 = icmp eq i32 %414, 0
+  br i1 %.not.i475, label %415, label %.critedge38
 
-415:                                              ; preds = %zend_check_magic_method_non_static.exit475
+415:                                              ; preds = %zend_check_magic_method_non_static.exit474
   %416 = getelementptr inbounds i8, ptr %0, i64 8
   %417 = load ptr, ptr %416, align 8
   %418 = getelementptr inbounds i8, ptr %417, i64 24
@@ -11521,7 +11524,7 @@ zend_check_magic_method_non_static.exit475:       ; preds = %.critedge28, %407
   br label %.critedge38
 
 .critedge30:                                      ; preds = %..critedge30_crit_edge, %398
-  %421 = phi ptr [ %.pre523, %..critedge30_crit_edge ], [ %394, %398 ]
+  %421 = phi ptr [ %.pre522, %..critedge30_crit_edge ], [ %394, %398 ]
   %422 = getelementptr inbounds i8, ptr %421, i64 480
   %423 = load ptr, ptr %422, align 8
   %424 = icmp eq ptr %423, %2
@@ -11539,14 +11542,14 @@ zend_check_magic_method_non_static.exit475:       ; preds = %.critedge28, %407
   br i1 %431, label %.critedge32, label %..critedge34_crit_edge
 
 ..critedge34_crit_edge:                           ; preds = %430
-  %.pre524 = load ptr, ptr @zend_known_strings, align 8
+  %.pre523 = load ptr, ptr @zend_known_strings, align 8
   br label %.critedge34
 
 .critedge32:                                      ; preds = %.critedge30, %430
   %432 = getelementptr inbounds i8, ptr %1, i64 32
   %433 = load i32, ptr %432, align 8
-  %.not.i478 = icmp eq i32 %433, 0
-  br i1 %.not.i478, label %zend_check_magic_method_args.exit480, label %434
+  %.not.i477 = icmp eq i32 %433, 0
+  br i1 %.not.i477, label %zend_check_magic_method_args.exit479, label %434
 
 434:                                              ; preds = %.critedge32
   %435 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11555,46 +11558,46 @@ zend_check_magic_method_non_static.exit475:       ; preds = %.critedge28, %407
   %438 = load ptr, ptr %5, align 8
   %439 = getelementptr inbounds i8, ptr %438, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.158, ptr noundef nonnull %437, ptr noundef nonnull %439) #33
-  br label %zend_check_magic_method_args.exit480
+  br label %zend_check_magic_method_args.exit479
 
-zend_check_magic_method_args.exit480:             ; preds = %.critedge32, %434
+zend_check_magic_method_args.exit479:             ; preds = %.critedge32, %434
   %440 = getelementptr inbounds i8, ptr %1, i64 4
   %441 = load i32, ptr %440, align 4
   %442 = and i32 %441, 16
-  %.not.i481 = icmp eq i32 %442, 0
-  br i1 %.not.i481, label %zend_check_magic_method_non_static.exit482, label %443
+  %.not.i480 = icmp eq i32 %442, 0
+  br i1 %.not.i480, label %zend_check_magic_method_non_static.exit481, label %443
 
-443:                                              ; preds = %zend_check_magic_method_args.exit480
+443:                                              ; preds = %zend_check_magic_method_args.exit479
   %444 = getelementptr inbounds i8, ptr %0, i64 8
   %445 = load ptr, ptr %444, align 8
   %446 = getelementptr inbounds i8, ptr %445, i64 24
   %447 = load ptr, ptr %5, align 8
   %448 = getelementptr inbounds i8, ptr %447, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.156, ptr noundef nonnull %446, ptr noundef nonnull %448) #33
-  %.pre526 = load i32, ptr %440, align 4
-  br label %zend_check_magic_method_non_static.exit482
+  %.pre525 = load i32, ptr %440, align 4
+  br label %zend_check_magic_method_non_static.exit481
 
-zend_check_magic_method_non_static.exit482:       ; preds = %zend_check_magic_method_args.exit480, %443
-  %449 = phi i32 [ %441, %zend_check_magic_method_args.exit480 ], [ %.pre526, %443 ]
+zend_check_magic_method_non_static.exit481:       ; preds = %zend_check_magic_method_args.exit479, %443
+  %449 = phi i32 [ %441, %zend_check_magic_method_args.exit479 ], [ %.pre525, %443 ]
   %450 = and i32 %449, 1
-  %.not.i483 = icmp eq i32 %450, 0
-  br i1 %.not.i483, label %451, label %zend_check_magic_method_public.exit484
+  %.not.i482 = icmp eq i32 %450, 0
+  br i1 %.not.i482, label %451, label %zend_check_magic_method_public.exit483
 
-451:                                              ; preds = %zend_check_magic_method_non_static.exit482
+451:                                              ; preds = %zend_check_magic_method_non_static.exit481
   %452 = getelementptr inbounds i8, ptr %0, i64 8
   %453 = load ptr, ptr %452, align 8
   %454 = getelementptr inbounds i8, ptr %453, i64 24
   %455 = load ptr, ptr %5, align 8
   %456 = getelementptr inbounds i8, ptr %455, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.163, ptr noundef nonnull %454, ptr noundef nonnull %456) #33
-  br label %zend_check_magic_method_public.exit484
+  br label %zend_check_magic_method_public.exit483
 
-zend_check_magic_method_public.exit484:           ; preds = %zend_check_magic_method_non_static.exit482, %451
+zend_check_magic_method_public.exit483:           ; preds = %zend_check_magic_method_non_static.exit481, %451
   tail call fastcc void @zend_check_magic_method_return_type(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 128)
   br label %.critedge38
 
 .critedge34:                                      ; preds = %..critedge34_crit_edge, %425
-  %457 = phi ptr [ %.pre524, %..critedge34_crit_edge ], [ %421, %425 ]
+  %457 = phi ptr [ %.pre523, %..critedge34_crit_edge ], [ %421, %425 ]
   %458 = getelementptr inbounds i8, ptr %457, i64 488
   %459 = load ptr, ptr %458, align 8
   %460 = icmp eq ptr %459, %2
@@ -11614,8 +11617,8 @@ zend_check_magic_method_public.exit484:           ; preds = %zend_check_magic_me
 .critedge36:                                      ; preds = %.critedge34, %466
   %468 = getelementptr inbounds i8, ptr %1, i64 32
   %469 = load i32, ptr %468, align 8
-  %.not.i485 = icmp eq i32 %469, 0
-  br i1 %.not.i485, label %zend_check_magic_method_args.exit487, label %470
+  %.not.i484 = icmp eq i32 %469, 0
+  br i1 %.not.i484, label %zend_check_magic_method_args.exit486, label %470
 
 470:                                              ; preds = %.critedge36
   %471 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11624,45 +11627,45 @@ zend_check_magic_method_public.exit484:           ; preds = %zend_check_magic_me
   %474 = load ptr, ptr %5, align 8
   %475 = getelementptr inbounds i8, ptr %474, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.158, ptr noundef nonnull %473, ptr noundef nonnull %475) #33
-  br label %zend_check_magic_method_args.exit487
+  br label %zend_check_magic_method_args.exit486
 
-zend_check_magic_method_args.exit487:             ; preds = %.critedge36, %470
+zend_check_magic_method_args.exit486:             ; preds = %.critedge36, %470
   %476 = getelementptr inbounds i8, ptr %1, i64 4
   %477 = load i32, ptr %476, align 4
   %478 = and i32 %477, 16
-  %.not.i488 = icmp eq i32 %478, 0
-  br i1 %.not.i488, label %zend_check_magic_method_non_static.exit489, label %479
+  %.not.i487 = icmp eq i32 %478, 0
+  br i1 %.not.i487, label %zend_check_magic_method_non_static.exit488, label %479
 
-479:                                              ; preds = %zend_check_magic_method_args.exit487
+479:                                              ; preds = %zend_check_magic_method_args.exit486
   %480 = getelementptr inbounds i8, ptr %0, i64 8
   %481 = load ptr, ptr %480, align 8
   %482 = getelementptr inbounds i8, ptr %481, i64 24
   %483 = load ptr, ptr %5, align 8
   %484 = getelementptr inbounds i8, ptr %483, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.156, ptr noundef nonnull %482, ptr noundef nonnull %484) #33
-  %.pre525 = load i32, ptr %476, align 4
-  br label %zend_check_magic_method_non_static.exit489
+  %.pre524 = load i32, ptr %476, align 4
+  br label %zend_check_magic_method_non_static.exit488
 
-zend_check_magic_method_non_static.exit489:       ; preds = %zend_check_magic_method_args.exit487, %479
-  %485 = phi i32 [ %477, %zend_check_magic_method_args.exit487 ], [ %.pre525, %479 ]
+zend_check_magic_method_non_static.exit488:       ; preds = %zend_check_magic_method_args.exit486, %479
+  %485 = phi i32 [ %477, %zend_check_magic_method_args.exit486 ], [ %.pre524, %479 ]
   %486 = and i32 %485, 1
-  %.not.i490 = icmp eq i32 %486, 0
-  br i1 %.not.i490, label %487, label %zend_check_magic_method_public.exit491
+  %.not.i489 = icmp eq i32 %486, 0
+  br i1 %.not.i489, label %487, label %zend_check_magic_method_public.exit490
 
-487:                                              ; preds = %zend_check_magic_method_non_static.exit489
+487:                                              ; preds = %zend_check_magic_method_non_static.exit488
   %488 = getelementptr inbounds i8, ptr %0, i64 8
   %489 = load ptr, ptr %488, align 8
   %490 = getelementptr inbounds i8, ptr %489, i64 24
   %491 = load ptr, ptr %5, align 8
   %492 = getelementptr inbounds i8, ptr %491, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.163, ptr noundef nonnull %490, ptr noundef nonnull %492) #33
-  br label %zend_check_magic_method_public.exit491
+  br label %zend_check_magic_method_public.exit490
 
-zend_check_magic_method_public.exit491:           ; preds = %zend_check_magic_method_non_static.exit489, %487
+zend_check_magic_method_public.exit490:           ; preds = %zend_check_magic_method_non_static.exit488, %487
   tail call fastcc void @zend_check_magic_method_return_type(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef 16384)
   br label %.critedge38
 
-.critedge38:                                      ; preds = %415, %zend_check_magic_method_non_static.exit475, %197, %191, %zend_check_magic_method_arg_type.exit420, %127, %zend_check_magic_method_public.exit, %86, %79, %zend_check_magic_method_non_static.exit398, %zend_check_magic_method_non_static.exit391, %zend_check_magic_method_non_static.exit, %zend_check_magic_method_public.exit433, %zend_check_magic_method_public.exit441, %zend_check_magic_method_public.exit451, %zend_check_magic_method_public.exit465, %zend_check_magic_method_public.exit473, %zend_check_magic_method_public.exit484, %461, %zend_check_magic_method_public.exit491, %466, %zend_check_magic_method_public.exit469, %zend_check_magic_method_public.exit458, %zend_check_magic_method_public.exit444, %zend_check_magic_method_public.exit437, %4, %9
+.critedge38:                                      ; preds = %415, %zend_check_magic_method_non_static.exit474, %197, %191, %zend_check_magic_method_arg_type.exit420, %127, %zend_check_magic_method_public.exit, %86, %79, %zend_check_magic_method_non_static.exit398, %zend_check_magic_method_non_static.exit391, %zend_check_magic_method_non_static.exit, %zend_check_magic_method_public.exit432, %zend_check_magic_method_public.exit440, %zend_check_magic_method_public.exit450, %zend_check_magic_method_public.exit464, %zend_check_magic_method_public.exit472, %zend_check_magic_method_public.exit483, %461, %zend_check_magic_method_public.exit490, %466, %zend_check_magic_method_public.exit468, %zend_check_magic_method_public.exit457, %zend_check_magic_method_public.exit443, %zend_check_magic_method_public.exit436, %4, %9
   ret void
 }
 
@@ -17176,9 +17179,12 @@ define ptr @zend_declare_typed_property(ptr noundef %0, ptr noundef %1, ptr noun
   %.1286 = phi ptr [ %351, %349 ], [ %366, %365 ]
   %356 = getelementptr inbounds i8, ptr %.1286, i64 8
   %357 = load i32, ptr %356, align 8
-  %358 = and i32 %357, 12582912
-  %359 = icmp eq i32 %358, 0
-  tail call void @llvm.assume(i1 %359)
+  %358 = and i32 %357, 8388608
+  %.not334 = icmp eq i32 %358, 0
+  tail call void @llvm.assume(i1 %.not334)
+  %359 = and i32 %357, 4194304
+  %.not335 = icmp eq i32 %359, 0
+  tail call void @llvm.assume(i1 %.not335)
   %360 = and i32 %357, 16777216
   %.not336 = icmp eq i32 %360, 0
   br i1 %.not336, label %365, label %361

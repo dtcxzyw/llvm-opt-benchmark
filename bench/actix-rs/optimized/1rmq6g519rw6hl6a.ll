@@ -67,6 +67,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E = external global { i64 }
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h69aea7d610fd51a6E" = private unnamed_addr constant [6 x i64] [i64 2, i64 4, i64 4, i64 6, i64 8, i64 8], align 8
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h69aea7d610fd51a6E.53" = private unnamed_addr constant [6 x ptr] [ptr @anon.fb31e637add031379ea14bd5f4512cef.76, ptr @anon.fb31e637add031379ea14bd5f4512cef.77, ptr @anon.fb31e637add031379ea14bd5f4512cef.78, ptr @anon.fb31e637add031379ea14bd5f4512cef.79, ptr @anon.fb31e637add031379ea14bd5f4512cef.80, ptr @anon.fb31e637add031379ea14bd5f4512cef.81], align 8
+@"switch.table._ZN89_$LT$std..io..error..Error$u20$as$u20$actix_web..error..response_error..ResponseError$GT$11status_code17h02dbffcc2bd2e242E" = private unnamed_addr constant [41 x i16] [i16 404, i16 403, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500, i16 500], align 2
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN10actix_http8requests4head12REQUEST_POOL7__getit17hcebb413577009c91E.llvm.1452856836283925457(ptr noalias noundef align 8 dereferenceable_or_null(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -7083,230 +7084,55 @@ define noundef i16 @"_ZN89_$LT$std..io..error..Error$u20$as$u20$actix_web..error
   %2 = ptrtoint ptr %.val to i64
   %3 = and i64 %2, 3
   switch i64 %3, label %default.unreachable [
-    i64 2, label %48
-    i64 3, label %4
-    i64 0, label %53
-    i64 1, label %56
+    i64 2, label %5
+    i64 3, label %switch.lookup
+    i64 0, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
+    i64 1, label %8
   ]
 
 default.unreachable:                              ; preds = %1
   unreachable
 
-4:                                                ; preds = %1
-  %5 = lshr i64 %2, 32
-  %6 = trunc nuw i64 %5 to i32
-  switch i32 %6, label %47 [
-    i32 0, label %51
-    i32 1, label %7
-    i32 2, label %8
-    i32 3, label %9
-    i32 4, label %10
-    i32 5, label %11
-    i32 6, label %12
-    i32 7, label %13
-    i32 8, label %14
-    i32 9, label %15
-    i32 10, label %16
-    i32 11, label %17
-    i32 12, label %18
-    i32 13, label %19
-    i32 14, label %20
-    i32 15, label %21
-    i32 16, label %22
-    i32 17, label %23
-    i32 18, label %24
-    i32 19, label %25
-    i32 20, label %26
-    i32 21, label %27
-    i32 22, label %28
-    i32 23, label %29
-    i32 24, label %30
-    i32 25, label %31
-    i32 26, label %32
-    i32 27, label %33
-    i32 28, label %34
-    i32 29, label %35
-    i32 30, label %36
-    i32 31, label %37
-    i32 32, label %38
-    i32 33, label %39
-    i32 34, label %40
-    i32 35, label %41
-    i32 39, label %42
-    i32 37, label %43
-    i32 36, label %44
-    i32 38, label %45
-    i32 40, label %46
-  ]
+switch.lookup:                                    ; preds = %1
+  %4 = ashr i64 %2, 32
+  %switch.gep = getelementptr inbounds [41 x i16], ptr @"switch.table._ZN89_$LT$std..io..error..Error$u20$as$u20$actix_web..error..response_error..ResponseError$GT$11status_code17h02dbffcc2bd2e242E", i64 0, i64 %4
+  %switch.load = load i16, ptr %switch.gep, align 2
+  br label %.thread
 
-7:                                                ; preds = %4
-  br label %51
-
-8:                                                ; preds = %4
-  br label %51
-
-9:                                                ; preds = %4
-  br label %51
-
-10:                                               ; preds = %4
-  br label %51
-
-11:                                               ; preds = %4
-  br label %51
-
-12:                                               ; preds = %4
-  br label %51
-
-13:                                               ; preds = %4
-  br label %51
-
-14:                                               ; preds = %4
-  br label %51
-
-15:                                               ; preds = %4
-  br label %51
-
-16:                                               ; preds = %4
-  br label %51
-
-17:                                               ; preds = %4
-  br label %51
-
-18:                                               ; preds = %4
-  br label %51
-
-19:                                               ; preds = %4
-  br label %51
-
-20:                                               ; preds = %4
-  br label %51
-
-21:                                               ; preds = %4
-  br label %51
-
-22:                                               ; preds = %4
-  br label %51
-
-23:                                               ; preds = %4
-  br label %51
-
-24:                                               ; preds = %4
-  br label %51
-
-25:                                               ; preds = %4
-  br label %51
-
-26:                                               ; preds = %4
-  br label %51
-
-27:                                               ; preds = %4
-  br label %51
-
-28:                                               ; preds = %4
-  br label %51
-
-29:                                               ; preds = %4
-  br label %51
-
-30:                                               ; preds = %4
-  br label %51
-
-31:                                               ; preds = %4
-  br label %51
-
-32:                                               ; preds = %4
-  br label %51
-
-33:                                               ; preds = %4
-  br label %51
-
-34:                                               ; preds = %4
-  br label %51
-
-35:                                               ; preds = %4
-  br label %51
-
-36:                                               ; preds = %4
-  br label %51
-
-37:                                               ; preds = %4
-  br label %51
-
-38:                                               ; preds = %4
-  br label %51
-
-39:                                               ; preds = %4
-  br label %51
-
-40:                                               ; preds = %4
-  br label %51
-
-41:                                               ; preds = %4
-  br label %51
-
-42:                                               ; preds = %4
-  br label %51
-
-43:                                               ; preds = %4
-  br label %51
-
-44:                                               ; preds = %4
-  br label %51
-
-45:                                               ; preds = %4
-  br label %51
-
-46:                                               ; preds = %4
-  br label %51
-
-47:                                               ; preds = %4
-  br label %51
-
-48:                                               ; preds = %1
-  %49 = lshr i64 %2, 32
-  %50 = trunc nuw i64 %49 to i32
-  switch i32 %50, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread [
+5:                                                ; preds = %1
+  %6 = lshr i64 %2, 32
+  %7 = trunc nuw i64 %6 to i32
+  switch i32 %7, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread [
     i32 1, label %.thread
     i32 13, label %.thread
-    i32 2, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread15
+    i32 2, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread17
   ]
 
-51:                                               ; preds = %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %4
-  %52 = phi i1 [ true, %7 ], [ true, %8 ], [ true, %9 ], [ true, %10 ], [ true, %11 ], [ true, %12 ], [ true, %13 ], [ true, %14 ], [ true, %15 ], [ true, %16 ], [ true, %17 ], [ true, %18 ], [ true, %19 ], [ true, %20 ], [ true, %21 ], [ true, %22 ], [ true, %23 ], [ true, %24 ], [ true, %25 ], [ true, %26 ], [ true, %27 ], [ true, %28 ], [ true, %29 ], [ true, %30 ], [ true, %31 ], [ true, %32 ], [ true, %33 ], [ true, %34 ], [ true, %35 ], [ true, %36 ], [ true, %37 ], [ true, %38 ], [ true, %39 ], [ true, %40 ], [ true, %41 ], [ true, %42 ], [ true, %43 ], [ true, %44 ], [ true, %45 ], [ true, %46 ], [ false, %47 ], [ true, %4 ]
-  %.0.i.i.i = phi i8 [ 1, %7 ], [ 2, %8 ], [ 3, %9 ], [ 4, %10 ], [ 5, %11 ], [ 6, %12 ], [ 7, %13 ], [ 8, %14 ], [ 9, %15 ], [ 10, %16 ], [ 11, %17 ], [ 12, %18 ], [ 13, %19 ], [ 14, %20 ], [ 15, %21 ], [ 16, %22 ], [ 17, %23 ], [ 18, %24 ], [ 19, %25 ], [ 20, %26 ], [ 21, %27 ], [ 22, %28 ], [ 23, %29 ], [ 24, %30 ], [ 25, %31 ], [ 26, %32 ], [ 27, %33 ], [ 28, %34 ], [ 29, %35 ], [ 30, %36 ], [ 31, %37 ], [ 32, %38 ], [ 33, %39 ], [ 34, %40 ], [ 35, %41 ], [ 39, %42 ], [ 37, %43 ], [ 36, %44 ], [ 38, %45 ], [ 40, %46 ], [ 41, %47 ], [ 0, %4 ]
-  tail call void @llvm.assume(i1 %52)
+8:                                                ; preds = %1
+  %9 = getelementptr i8, ptr %.val, i64 -1
+  %10 = icmp ne ptr %9, null
+  tail call void @llvm.assume(i1 %10)
   br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
 
-53:                                               ; preds = %1
-  %54 = getelementptr inbounds i8, ptr %.val, i64 16
-  %55 = load i8, ptr %54, align 8, !range !960, !noundef !8
-  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
-
-56:                                               ; preds = %1
-  %57 = getelementptr i8, ptr %.val, i64 -1
-  %58 = icmp ne ptr %57, null
-  tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr i8, ptr %.val, i64 15
-  %60 = load i8, ptr %59, align 8, !range !960, !noundef !8
-  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
-
-_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit: ; preds = %51, %53, %56
-  %.0.i = phi i8 [ %60, %56 ], [ %55, %53 ], [ %.0.i.i.i, %51 ]
+_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit: ; preds = %1, %8
+  %.sink = phi i64 [ 15, %8 ], [ 16, %1 ]
+  %11 = getelementptr i8, ptr %.val, i64 %.sink
+  %.0.i = load i8, ptr %11, align 8, !range !960, !noundef !8
   %switch.selectcmp = icmp eq i8 %.0.i, 0
   %switch.select = select i1 %switch.selectcmp, i16 404, i16 500
-  %switch.selectcmp18 = icmp eq i8 %.0.i, 1
-  %switch.select19 = select i1 %switch.selectcmp18, i16 403, i16 %switch.select
+  %switch.selectcmp20 = icmp eq i8 %.0.i, 1
+  %switch.select21 = select i1 %switch.selectcmp20, i16 403, i16 %switch.select
   br label %.thread
 
-_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread: ; preds = %48
+_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread: ; preds = %5
   br label %.thread
 
-_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread15: ; preds = %48
+_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread17: ; preds = %5
   br label %.thread
 
-.thread:                                          ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit, %48, %48, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread15
-  %61 = phi i16 [ 404, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread15 ], [ 403, %48 ], [ 403, %48 ], [ 500, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread ], [ %switch.select19, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit ]
-  ret i16 %61
+.thread:                                          ; preds = %switch.lookup, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit, %5, %5, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread17
+  %12 = phi i16 [ 404, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread17 ], [ 403, %5 ], [ 403, %5 ], [ 500, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread ], [ %switch.select21, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit ], [ %switch.load, %switch.lookup ]
+  ret i16 %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

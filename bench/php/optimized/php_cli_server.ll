@@ -8584,45 +8584,32 @@ define internal noundef i32 @php_cli_server_client_read_request_on_query_string(
   store ptr %10, ptr %6, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 184
   store i64 %2, ptr %11, align 8
-  br label %32
+  br label %27
 
 12:                                               ; preds = %3
   %13 = icmp ult i64 %2, 81921
-  br i1 %13, label %14, label %._crit_edge
+  tail call void @llvm.assume(i1 %13)
+  %14 = sub nuw nsw i64 81920, %2
+  %15 = getelementptr inbounds i8, ptr %5, i64 184
+  %16 = load i64, ptr %15, align 8
+  %17 = icmp uge i64 %14, %16
+  tail call void @llvm.assume(i1 %17)
+  %18 = add nuw nsw i64 %2, 1
+  %19 = add nuw i64 %18, %16
+  %20 = tail call ptr @__zend_realloc(ptr noundef nonnull %7, i64 noundef %19) #37
+  store ptr %20, ptr %6, align 8
+  %21 = load i64, ptr %15, align 8
+  %22 = getelementptr inbounds i8, ptr %20, i64 %21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %1, i64 %2, i1 false)
+  %23 = load i64, ptr %15, align 8
+  %24 = add i64 %23, %2
+  store i64 %24, ptr %15, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 %24
+  store i8 0, ptr %26, align 1
+  br label %27
 
-._crit_edge:                                      ; preds = %12
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 184
-  %.pre = load i64, ptr %.phi.trans.insert, align 8
-  br label %19
-
-14:                                               ; preds = %12
-  %15 = sub nuw nsw i64 81920, %2
-  %16 = getelementptr inbounds i8, ptr %5, i64 184
-  %17 = load i64, ptr %16, align 8
-  %18 = icmp uge i64 %15, %17
-  br label %19
-
-19:                                               ; preds = %._crit_edge, %14
-  %20 = phi i64 [ %.pre, %._crit_edge ], [ %17, %14 ]
-  %21 = phi i1 [ false, %._crit_edge ], [ %18, %14 ]
-  tail call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds i8, ptr %5, i64 184
-  %23 = add i64 %2, 1
-  %24 = add i64 %23, %20
-  %25 = tail call ptr @__zend_realloc(ptr noundef nonnull %7, i64 noundef %24) #37
-  store ptr %25, ptr %6, align 8
-  %26 = load i64, ptr %22, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 %26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %1, i64 %2, i1 false)
-  %28 = load i64, ptr %22, align 8
-  %29 = add i64 %28, %2
-  store i64 %29, ptr %22, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 %29
-  store i8 0, ptr %31, align 1
-  br label %32
-
-32:                                               ; preds = %19, %9
+27:                                               ; preds = %12, %9
   ret i32 0
 }
 
@@ -8654,7 +8641,7 @@ define internal noundef i32 @php_cli_server_client_read_request_on_url(ptr nocap
   %20 = getelementptr inbounds i8, ptr %16, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr align 1 %1, i64 %2, i1 false)
   %21 = getelementptr inbounds [1 x i8], ptr %20, i64 0, i64 %2
-  br label %77
+  br label %74
 
 22:                                               ; preds = %3
   %23 = load i32, ptr %6, align 8
@@ -8664,89 +8651,83 @@ define internal noundef i32 @php_cli_server_client_read_request_on_url(ptr nocap
   %27 = icmp eq i32 %23, %26
   tail call void @llvm.assume(i1 %27)
   %28 = icmp ult i64 %2, 81921
-  br i1 %28, label %29, label %34
+  tail call void @llvm.assume(i1 %28)
+  %29 = sub nuw nsw i64 81920, %2
+  %30 = getelementptr inbounds i8, ptr %5, i64 184
+  %31 = load i64, ptr %30, align 8
+  %32 = icmp uge i64 %29, %31
+  tail call void @llvm.assume(i1 %32)
+  %33 = getelementptr inbounds i8, ptr %8, i64 16
+  %34 = load i64, ptr %33, align 8
+  %35 = add i64 %34, %2
+  %36 = icmp uge i64 %35, %34
+  tail call void @llvm.assume(i1 %36)
+  %37 = getelementptr inbounds i8, ptr %8, i64 4
+  %38 = load i32, ptr %37, align 4
+  %39 = and i32 %38, 64
+  %.not.i = icmp eq i32 %39, 0
+  br i1 %.not.i, label %40, label %52
 
-29:                                               ; preds = %22
-  %30 = sub nuw nsw i64 81920, %2
-  %31 = getelementptr inbounds i8, ptr %5, i64 184
-  %32 = load i64, ptr %31, align 8
-  %33 = icmp uge i64 %30, %32
-  br label %34
+40:                                               ; preds = %22
+  %41 = load i32, ptr %8, align 4
+  %42 = icmp eq i32 %41, 1
+  br i1 %42, label %43, label %52
 
-34:                                               ; preds = %29, %22
-  %35 = phi i1 [ false, %22 ], [ %33, %29 ]
-  tail call void @llvm.assume(i1 %35)
-  %36 = getelementptr inbounds i8, ptr %8, i64 16
-  %37 = load i64, ptr %36, align 8
-  %38 = add i64 %37, %2
-  %39 = icmp uge i64 %38, %37
-  tail call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds i8, ptr %8, i64 4
-  %41 = load i32, ptr %40, align 4
-  %42 = and i32 %41, 64
-  %.not.i = icmp eq i32 %42, 0
-  br i1 %.not.i, label %43, label %55
-
-43:                                               ; preds = %34
-  %44 = load i32, ptr %8, align 4
-  %45 = icmp eq i32 %44, 1
-  br i1 %45, label %46, label %55
-
-46:                                               ; preds = %43
-  %47 = and i64 %38, -8
-  %48 = add i64 %47, 32
-  %49 = tail call ptr @__zend_realloc(ptr noundef nonnull %8, i64 noundef %48) #37
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
-  store i64 %38, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
-  store i64 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 4
-  %53 = load i32, ptr %52, align 4
-  %54 = and i32 %53, -513
-  store i32 %54, ptr %52, align 4
+43:                                               ; preds = %40
+  %44 = and i64 %35, -8
+  %45 = add i64 %44, 32
+  %46 = tail call ptr @__zend_realloc(ptr noundef nonnull %8, i64 noundef %45) #37
+  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  store i64 %35, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %46, i64 8
+  store i64 0, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %46, i64 4
+  %50 = load i32, ptr %49, align 4
+  %51 = and i32 %50, -513
+  store i32 %51, ptr %49, align 4
   br label %cli_concat_persistent_zstr_with_char.exit
 
-55:                                               ; preds = %43, %34
-  %56 = and i64 %38, -8
-  %57 = add i64 %56, 32
-  %58 = tail call noalias ptr @__zend_malloc(i64 noundef %57) #31
-  store i32 1, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
-  store i32 150, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %58, i64 8
-  store i64 0, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %58, i64 16
-  store i64 %38, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %58, i64 24
-  %63 = getelementptr inbounds i8, ptr %8, i64 24
-  %64 = load i64, ptr %36, align 8
-  %65 = add i64 %64, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %62, ptr nonnull align 8 %63, i64 %65, i1 false)
-  %66 = load i32, ptr %40, align 4
-  %67 = and i32 %66, 64
-  %.not86.i = icmp eq i32 %67, 0
-  br i1 %.not86.i, label %68, label %cli_concat_persistent_zstr_with_char.exit
+52:                                               ; preds = %40, %22
+  %53 = and i64 %35, -8
+  %54 = add i64 %53, 32
+  %55 = tail call noalias ptr @__zend_malloc(i64 noundef %54) #31
+  store i32 1, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  store i32 150, ptr %56, align 4
+  %57 = getelementptr inbounds i8, ptr %55, i64 8
+  store i64 0, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %55, i64 16
+  store i64 %35, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %55, i64 24
+  %60 = getelementptr inbounds i8, ptr %8, i64 24
+  %61 = load i64, ptr %33, align 8
+  %62 = add i64 %61, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 8 %60, i64 %62, i1 false)
+  %63 = load i32, ptr %37, align 4
+  %64 = and i32 %63, 64
+  %.not86.i = icmp eq i32 %64, 0
+  br i1 %.not86.i, label %65, label %cli_concat_persistent_zstr_with_char.exit
 
-68:                                               ; preds = %55
-  %69 = load i32, ptr %8, align 4
-  %70 = icmp ne i32 %69, 0
-  tail call void @llvm.assume(i1 %70)
-  %71 = add i32 %69, -1
-  store i32 %71, ptr %8, align 4
+65:                                               ; preds = %52
+  %66 = load i32, ptr %8, align 4
+  %67 = icmp ne i32 %66, 0
+  tail call void @llvm.assume(i1 %67)
+  %68 = add i32 %66, -1
+  store i32 %68, ptr %8, align 4
   br label %cli_concat_persistent_zstr_with_char.exit
 
-cli_concat_persistent_zstr_with_char.exit:        ; preds = %46, %55, %68
-  %.0.i = phi ptr [ %49, %46 ], [ %58, %68 ], [ %58, %55 ]
-  %72 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  %73 = getelementptr inbounds i8, ptr %72, i64 %37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr align 1 %1, i64 %2, i1 false)
-  %74 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds [1 x i8], ptr %72, i64 0, i64 %75
-  br label %77
+cli_concat_persistent_zstr_with_char.exit:        ; preds = %43, %52, %65
+  %.0.i = phi ptr [ %46, %43 ], [ %55, %65 ], [ %55, %52 ]
+  %69 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %70 = getelementptr inbounds i8, ptr %69, i64 %34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr align 1 %1, i64 %2, i1 false)
+  %71 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %72 = load i64, ptr %71, align 8
+  %73 = getelementptr inbounds [1 x i8], ptr %69, i64 0, i64 %72
+  br label %74
 
-77:                                               ; preds = %cli_concat_persistent_zstr_with_char.exit, %10
-  %.sink = phi ptr [ %76, %cli_concat_persistent_zstr_with_char.exit ], [ %21, %10 ]
+74:                                               ; preds = %cli_concat_persistent_zstr_with_char.exit, %10
+  %.sink = phi ptr [ %73, %cli_concat_persistent_zstr_with_char.exit ], [ %21, %10 ]
   %storemerge = phi ptr [ %.0.i, %cli_concat_persistent_zstr_with_char.exit ], [ %16, %10 ]
   store i8 0, ptr %.sink, align 1
   store ptr %storemerge, ptr %7, align 8

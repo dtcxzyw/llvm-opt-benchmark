@@ -24106,27 +24106,29 @@ do.body7:                                         ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %entry, %entry
+  %cmp = icmp sgt i32 %0, -1
+  tail call void @llvm.assume(i1 %cmp)
   %bf.lshr10 = lshr i32 %bf.load3, 8
   %bf.clear11 = and i32 %bf.lshr10, 255
   %cmp.i.i = icmp ult i32 %bf.clear11, 6
-  br i1 %cmp.i.i, label %if.then.i, label %if.then35.i.i.i
+  br i1 %cmp.i.i, label %if.then.i, label %if.then.i.i
 
 sw.epilog.thread:                                 ; preds = %entry
-  %bf.lshr104 = lshr i32 %bf.load3, 8
-  %bf.clear115 = and i32 %bf.lshr104, 255
-  %cmp.i.i6 = icmp ult i32 %bf.clear115, 6
-  br i1 %cmp.i.i6, label %if.then.i, label %tcg_out_opc.exit.i.i
+  %bf.lshr102 = lshr i32 %bf.load3, 8
+  %bf.clear113 = and i32 %bf.lshr102, 255
+  %cmp.i.i4 = icmp ult i32 %bf.clear113, 6
+  br i1 %cmp.i.i4, label %if.then.i, label %tcg_out_opc.exit.i.i
 
 if.then.i:                                        ; preds = %sw.epilog.thread, %sw.epilog
-  %bf.clear1110 = phi i32 [ %bf.clear115, %sw.epilog.thread ], [ %bf.clear11, %sw.epilog ]
-  %type.08 = phi i32 [ 0, %sw.epilog.thread ], [ 1, %sw.epilog ]
-  %idxprom.i = zext nneg i32 %bf.clear1110 to i64
+  %bf.clear118 = phi i32 [ %bf.clear113, %sw.epilog.thread ], [ %bf.clear11, %sw.epilog ]
+  %type.06 = phi i32 [ 0, %sw.epilog.thread ], [ 1, %sw.epilog ]
+  %idxprom.i = zext nneg i32 %bf.clear118 to i64
   %arrayidx.i = getelementptr [6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 %idxprom.i
   %1 = load i32, ptr %arrayidx.i, align 4
-  tail call fastcc void @tcg_out_movi(ptr noundef %s, i32 noundef %type.08, i32 noundef %1, i64 noundef %conv)
+  tail call fastcc void @tcg_out_movi(ptr noundef %s, i32 noundef %type.06, i32 noundef %1, i64 noundef %conv)
   br label %tcg_out_helper_load_imm.exit
 
-if.then35.i.i.i:                                  ; preds = %sw.epilog
+if.then.i.i:                                      ; preds = %sw.epilog
   %code_ptr.i36.i.i.i = getelementptr inbounds i8, ptr %s, i64 128
   %2 = load ptr, ptr %code_ptr.i36.i.i.i, align 8
   %incdec.ptr.i37.i.i.i = getelementptr i8, ptr %2, i64 1
@@ -24134,10 +24136,10 @@ if.then35.i.i.i:                                  ; preds = %sw.epilog
   store i8 72, ptr %2, align 1
   br label %tcg_out_opc.exit.i.i
 
-tcg_out_opc.exit.i.i:                             ; preds = %sw.epilog.thread, %if.then35.i.i.i
-  %sub.i.i.i14.in = phi i32 [ %bf.clear11, %if.then35.i.i.i ], [ %bf.clear115, %sw.epilog.thread ]
-  %sub.i.i.i14 = shl nuw nsw i32 %sub.i.i.i14.in, 3
-  %3 = add nsw i32 %sub.i.i.i14, -48
+tcg_out_opc.exit.i.i:                             ; preds = %sw.epilog.thread, %if.then.i.i
+  %sub.i.i.i13.in = phi i32 [ %bf.clear11, %if.then.i.i ], [ %bf.clear113, %sw.epilog.thread ]
+  %sub.i.i.i13 = shl nuw nsw i32 %sub.i.i.i13.in, 3
+  %3 = add nsw i32 %sub.i.i.i13, -48
   %code_ptr.i44.i.i.i = getelementptr inbounds i8, ptr %s, i64 128
   %4 = load ptr, ptr %code_ptr.i44.i.i.i, align 8
   %incdec.ptr.i45.i.i.i = getelementptr i8, ptr %4, i64 1
@@ -24145,7 +24147,7 @@ tcg_out_opc.exit.i.i:                             ; preds = %sw.epilog.thread, %
   store i8 -57, ptr %4, align 1
   %cmp25.i.not.i = icmp eq i32 %3, 0
   %cmp35.i.i = icmp ugt i32 %3, 127
-  %5 = add nsw i32 %sub.i.i.i14, -49
+  %5 = add nsw i32 %sub.i.i.i13, -49
   %cmp80.i.i = icmp ult i32 %5, 127
   %6 = select i1 %cmp35.i.i, i8 -124, i8 68
   %conv71.i.i = select i1 %cmp25.i.not.i, i8 4, i8 %6
@@ -24166,25 +24168,25 @@ if.then82.i.i:                                    ; preds = %tcg_out_opc.exit.i.
   store ptr %incdec.ptr.i53.i.i, ptr %code_ptr.i44.i.i.i, align 8
   store i8 %conv83.i.i, ptr %9, align 1
   %.pre.i = load ptr, ptr %code_ptr.i44.i.i.i, align 8
-  br label %tcg_out_sti.exit.i
+  br label %tcg_out_sib_offset.exit.i
 
 if.else84.i.i:                                    ; preds = %tcg_out_opc.exit.i.i
   %.pre3.i = load ptr, ptr %code_ptr.i44.i.i.i, align 8
-  br i1 %cmp35.i.i, label %if.then87.i.i, label %tcg_out_sti.exit.i
+  br i1 %cmp35.i.i, label %if.then87.i.i, label %tcg_out_sib_offset.exit.i
 
 if.then87.i.i:                                    ; preds = %if.else84.i.i
   store i32 %3, ptr %.pre3.i, align 1
   %add.ptr.i55.i.i = getelementptr i8, ptr %.pre3.i, i64 4
-  br label %tcg_out_sti.exit.i
+  br label %tcg_out_sib_offset.exit.i
 
-tcg_out_sti.exit.i:                               ; preds = %if.then82.i.i, %if.else84.i.i, %if.then87.i.i
+tcg_out_sib_offset.exit.i:                        ; preds = %if.then87.i.i, %if.else84.i.i, %if.then82.i.i
   %10 = phi ptr [ %.pre.i, %if.then82.i.i ], [ %.pre3.i, %if.else84.i.i ], [ %add.ptr.i55.i.i, %if.then87.i.i ]
   store i32 %0, ptr %10, align 1
   %add.ptr.i.i.i = getelementptr i8, ptr %10, i64 4
   store ptr %add.ptr.i.i.i, ptr %code_ptr.i44.i.i.i, align 8
   br label %tcg_out_helper_load_imm.exit
 
-tcg_out_helper_load_imm.exit:                     ; preds = %if.then.i, %tcg_out_sti.exit.i
+tcg_out_helper_load_imm.exit:                     ; preds = %if.then.i, %tcg_out_sib_offset.exit.i
   %inc = add nuw nsw i32 %next_arg, 1
   %idxprom13 = zext nneg i32 %inc to i64
   %arrayidx14 = getelementptr [14 x %struct.TCGCallArgumentLoc], ptr %in, i64 0, i64 %idxprom13

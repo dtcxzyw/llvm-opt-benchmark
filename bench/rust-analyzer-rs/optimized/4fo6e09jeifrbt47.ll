@@ -31006,7 +31006,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h07e216440be6b717E.exit: ; pred
   %.lcssa.i = phi i1 [ %21, %.backedge.i ], [ %23, %33 ]
   br i1 %.lcssa.i, label %37, label %.critedge
 
-.critedge:                                        ; preds = %18, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h07e216440be6b717E.exit, %40, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit, %37, %64, %48
+.critedge:                                        ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17h07e216440be6b717E.exit, %18, %40, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit, %37, %64, %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   ret void

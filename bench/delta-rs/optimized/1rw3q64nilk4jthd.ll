@@ -59758,44 +59758,36 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12359)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %28, label %11
+  br i1 %10, label %28, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 56)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
-
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add nuw i64 %15, 15
-  %17 = and i64 %16, -16
-  %18 = add i64 %5, 17
-  %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %18)
-  %20 = extractvalue { i64, i1 } %19, 1
-  br i1 %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %21
-
-21:                                               ; preds = %14
-  %22 = extractvalue { i64, i1 } %19, 0
-  %23 = icmp ugt i64 %22, 9223372036854775792
-  br i1 %23, label %24, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-24:                                               ; preds = %21
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %24, %21, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %24 ], [ undef, %14 ], [ %17, %21 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %24 ], [ undef, %14 ], [ %22, %21 ], [ undef, %11 ]
-  %25 = phi i1 [ false, %24 ], [ false, %14 ], [ true, %21 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %24 ], [ 0, %14 ], [ 16, %21 ], [ 0, %11 ]
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 56)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 15)
+  %16 = extractvalue { i64, i1 } %15, 1
+  %17 = xor i1 %16, true
+  tail call void @llvm.assume(i1 %17)
+  %18 = extractvalue { i64, i1 } %15, 0
+  %19 = and i64 %18, -16
+  %20 = add i64 %5, 17
+  %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %19, i64 %20)
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = xor i1 %22, true
+  tail call void @llvm.assume(i1 %23)
+  %24 = extractvalue { i64, i1 } %21, 0
+  %25 = icmp ult i64 %24, 9223372036854775793
   tail call void @llvm.assume(i1 %25)
-  %26 = sub nsw i64 0, %.sroa.9.0.i.i
+  %26 = sub nsw i64 0, %19
   %27 = getelementptr inbounds i8, ptr %3, i64 %26
   br label %28
 
 28:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %24, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
   %.sroa.5.sroa.4.0.i.i = phi ptr [ %27, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
   %29 = getelementptr inbounds i8, ptr %3, i64 16
   %30 = icmp slt <16 x i8> %7, zeroinitializer
   %31 = bitcast <16 x i1> %30 to i16
@@ -59830,55 +59822,43 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12373)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %26, label %11
+  br i1 %10, label %23, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 368)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 368)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = add i64 %5, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
+  tail call void @llvm.assume(i1 %20)
+  %21 = sub nsw i64 0, %14
+  %22 = getelementptr inbounds i8, ptr %3, i64 %21
+  br label %23
 
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add i64 %5, 17
-  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
-  %18 = extractvalue { i64, i1 } %17, 1
-  br i1 %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %19
-
-19:                                               ; preds = %14
-  %20 = extractvalue { i64, i1 } %17, 0
-  %21 = icmp ugt i64 %20, 9223372036854775792
-  br i1 %21, label %22, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-22:                                               ; preds = %19
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %22, %19, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %15, %19 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %20, %19 ], [ undef, %11 ]
-  %23 = phi i1 [ false, %22 ], [ false, %14 ], [ true, %19 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %22 ], [ 0, %14 ], [ 16, %19 ], [ 0, %11 ]
-  tail call void @llvm.assume(i1 %23)
-  %24 = sub nsw i64 0, %.sroa.9.0.i.i
-  %25 = getelementptr inbounds i8, ptr %3, i64 %24
-  br label %26
-
-26:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0.i.i = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
-  %28 = icmp slt <16 x i8> %7, zeroinitializer
-  %29 = bitcast <16 x i1> %28 to i16
-  %30 = xor i16 %29, -1
-  %31 = getelementptr inbounds i8, ptr %3, i64 %6
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %3, ptr %32, align 8, !alias.scope !12376, !noalias !12378
+23:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0.i.i = phi ptr [ %22, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = icmp slt <16 x i8> %7, zeroinitializer
+  %26 = bitcast <16 x i1> %25 to i16
+  %27 = xor i16 %26, -1
+  %28 = getelementptr inbounds i8, ptr %3, i64 %6
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %3, ptr %29, align 8, !alias.scope !12376, !noalias !12378
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %27, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12376, !noalias !12378
+  store ptr %24, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12376, !noalias !12378
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %31, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12376, !noalias !12378
+  store ptr %28, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12376, !noalias !12378
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store i16 %30, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12376, !noalias !12378
+  store i16 %27, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12376, !noalias !12378
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %9, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !12376, !noalias !12378
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !12380, !noalias !12381
@@ -59900,55 +59880,43 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12387)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %26, label %11
+  br i1 %10, label %23, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = add i64 %5, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
+  tail call void @llvm.assume(i1 %20)
+  %21 = sub nsw i64 0, %14
+  %22 = getelementptr inbounds i8, ptr %3, i64 %21
+  br label %23
 
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add i64 %5, 17
-  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
-  %18 = extractvalue { i64, i1 } %17, 1
-  br i1 %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %19
-
-19:                                               ; preds = %14
-  %20 = extractvalue { i64, i1 } %17, 0
-  %21 = icmp ugt i64 %20, 9223372036854775792
-  br i1 %21, label %22, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-22:                                               ; preds = %19
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %22, %19, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %15, %19 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %20, %19 ], [ undef, %11 ]
-  %23 = phi i1 [ false, %22 ], [ false, %14 ], [ true, %19 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %22 ], [ 0, %14 ], [ 16, %19 ], [ 0, %11 ]
-  tail call void @llvm.assume(i1 %23)
-  %24 = sub nsw i64 0, %.sroa.9.0.i.i
-  %25 = getelementptr inbounds i8, ptr %3, i64 %24
-  br label %26
-
-26:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0.i.i = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
-  %28 = icmp slt <16 x i8> %7, zeroinitializer
-  %29 = bitcast <16 x i1> %28 to i16
-  %30 = xor i16 %29, -1
-  %31 = getelementptr inbounds i8, ptr %3, i64 %6
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %3, ptr %32, align 8, !alias.scope !12390, !noalias !12392
+23:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0.i.i = phi ptr [ %22, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = icmp slt <16 x i8> %7, zeroinitializer
+  %26 = bitcast <16 x i1> %25 to i16
+  %27 = xor i16 %26, -1
+  %28 = getelementptr inbounds i8, ptr %3, i64 %6
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %3, ptr %29, align 8, !alias.scope !12390, !noalias !12392
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %27, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12390, !noalias !12392
+  store ptr %24, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12390, !noalias !12392
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %31, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12390, !noalias !12392
+  store ptr %28, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12390, !noalias !12392
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store i16 %30, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12390, !noalias !12392
+  store i16 %27, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12390, !noalias !12392
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %9, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !12390, !noalias !12392
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !12394, !noalias !12395
@@ -59970,55 +59938,43 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12401)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %26, label %11
+  br i1 %10, label %23, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 96)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 96)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = add i64 %5, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
+  tail call void @llvm.assume(i1 %20)
+  %21 = sub nsw i64 0, %14
+  %22 = getelementptr inbounds i8, ptr %3, i64 %21
+  br label %23
 
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add i64 %5, 17
-  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
-  %18 = extractvalue { i64, i1 } %17, 1
-  br i1 %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %19
-
-19:                                               ; preds = %14
-  %20 = extractvalue { i64, i1 } %17, 0
-  %21 = icmp ugt i64 %20, 9223372036854775792
-  br i1 %21, label %22, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-22:                                               ; preds = %19
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %22, %19, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %15, %19 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %20, %19 ], [ undef, %11 ]
-  %23 = phi i1 [ false, %22 ], [ false, %14 ], [ true, %19 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %22 ], [ 0, %14 ], [ 16, %19 ], [ 0, %11 ]
-  tail call void @llvm.assume(i1 %23)
-  %24 = sub nsw i64 0, %.sroa.9.0.i.i
-  %25 = getelementptr inbounds i8, ptr %3, i64 %24
-  br label %26
-
-26:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0.i.i = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
-  %28 = icmp slt <16 x i8> %7, zeroinitializer
-  %29 = bitcast <16 x i1> %28 to i16
-  %30 = xor i16 %29, -1
-  %31 = getelementptr inbounds i8, ptr %3, i64 %6
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %3, ptr %32, align 8, !alias.scope !12404, !noalias !12406
+23:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0.i.i = phi ptr [ %22, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = icmp slt <16 x i8> %7, zeroinitializer
+  %26 = bitcast <16 x i1> %25 to i16
+  %27 = xor i16 %26, -1
+  %28 = getelementptr inbounds i8, ptr %3, i64 %6
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %3, ptr %29, align 8, !alias.scope !12404, !noalias !12406
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %27, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12404, !noalias !12406
+  store ptr %24, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12404, !noalias !12406
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %31, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12404, !noalias !12406
+  store ptr %28, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12404, !noalias !12406
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store i16 %30, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12404, !noalias !12406
+  store i16 %27, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12404, !noalias !12406
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %9, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !12404, !noalias !12406
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !12408, !noalias !12409
@@ -60040,44 +59996,36 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12415)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %28, label %11
+  br i1 %10, label %28, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 728)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
-
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add nuw i64 %15, 15
-  %17 = and i64 %16, -16
-  %18 = add i64 %5, 17
-  %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %18)
-  %20 = extractvalue { i64, i1 } %19, 1
-  br i1 %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %21
-
-21:                                               ; preds = %14
-  %22 = extractvalue { i64, i1 } %19, 0
-  %23 = icmp ugt i64 %22, 9223372036854775792
-  br i1 %23, label %24, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-24:                                               ; preds = %21
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %24, %21, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %24 ], [ undef, %14 ], [ %17, %21 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %24 ], [ undef, %14 ], [ %22, %21 ], [ undef, %11 ]
-  %25 = phi i1 [ false, %24 ], [ false, %14 ], [ true, %21 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %24 ], [ 0, %14 ], [ 16, %21 ], [ 0, %11 ]
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 728)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 15)
+  %16 = extractvalue { i64, i1 } %15, 1
+  %17 = xor i1 %16, true
+  tail call void @llvm.assume(i1 %17)
+  %18 = extractvalue { i64, i1 } %15, 0
+  %19 = and i64 %18, -16
+  %20 = add i64 %5, 17
+  %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %19, i64 %20)
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = xor i1 %22, true
+  tail call void @llvm.assume(i1 %23)
+  %24 = extractvalue { i64, i1 } %21, 0
+  %25 = icmp ult i64 %24, 9223372036854775793
   tail call void @llvm.assume(i1 %25)
-  %26 = sub nsw i64 0, %.sroa.9.0.i.i
+  %26 = sub nsw i64 0, %19
   %27 = getelementptr inbounds i8, ptr %3, i64 %26
   br label %28
 
 28:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %24, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
   %.sroa.5.sroa.4.0.i.i = phi ptr [ %27, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
   %29 = getelementptr inbounds i8, ptr %3, i64 16
   %30 = icmp slt <16 x i8> %7, zeroinitializer
   %31 = bitcast <16 x i1> %30 to i16
@@ -60112,44 +60060,36 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12429)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %28, label %11
+  br i1 %10, label %28, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 24)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
-
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add nuw i64 %15, 15
-  %17 = and i64 %16, -16
-  %18 = add i64 %5, 17
-  %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %18)
-  %20 = extractvalue { i64, i1 } %19, 1
-  br i1 %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %21
-
-21:                                               ; preds = %14
-  %22 = extractvalue { i64, i1 } %19, 0
-  %23 = icmp ugt i64 %22, 9223372036854775792
-  br i1 %23, label %24, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-24:                                               ; preds = %21
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %24, %21, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %24 ], [ undef, %14 ], [ %17, %21 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %24 ], [ undef, %14 ], [ %22, %21 ], [ undef, %11 ]
-  %25 = phi i1 [ false, %24 ], [ false, %14 ], [ true, %21 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %24 ], [ 0, %14 ], [ 16, %21 ], [ 0, %11 ]
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 24)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 15)
+  %16 = extractvalue { i64, i1 } %15, 1
+  %17 = xor i1 %16, true
+  tail call void @llvm.assume(i1 %17)
+  %18 = extractvalue { i64, i1 } %15, 0
+  %19 = and i64 %18, -16
+  %20 = add i64 %5, 17
+  %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %19, i64 %20)
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = xor i1 %22, true
+  tail call void @llvm.assume(i1 %23)
+  %24 = extractvalue { i64, i1 } %21, 0
+  %25 = icmp ult i64 %24, 9223372036854775793
   tail call void @llvm.assume(i1 %25)
-  %26 = sub nsw i64 0, %.sroa.9.0.i.i
+  %26 = sub nsw i64 0, %19
   %27 = getelementptr inbounds i8, ptr %3, i64 %26
   br label %28
 
 28:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %24, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
   %.sroa.5.sroa.4.0.i.i = phi ptr [ %27, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
   %29 = getelementptr inbounds i8, ptr %3, i64 16
   %30 = icmp slt <16 x i8> %7, zeroinitializer
   %31 = bitcast <16 x i1> %30 to i16
@@ -60184,44 +60124,36 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12443)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %28, label %11
+  br i1 %10, label %28, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 632)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
-
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add nuw i64 %15, 15
-  %17 = and i64 %16, -16
-  %18 = add i64 %5, 17
-  %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %18)
-  %20 = extractvalue { i64, i1 } %19, 1
-  br i1 %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %21
-
-21:                                               ; preds = %14
-  %22 = extractvalue { i64, i1 } %19, 0
-  %23 = icmp ugt i64 %22, 9223372036854775792
-  br i1 %23, label %24, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-24:                                               ; preds = %21
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %24, %21, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %24 ], [ undef, %14 ], [ %17, %21 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %24 ], [ undef, %14 ], [ %22, %21 ], [ undef, %11 ]
-  %25 = phi i1 [ false, %24 ], [ false, %14 ], [ true, %21 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %24 ], [ 0, %14 ], [ 16, %21 ], [ 0, %11 ]
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 632)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 15)
+  %16 = extractvalue { i64, i1 } %15, 1
+  %17 = xor i1 %16, true
+  tail call void @llvm.assume(i1 %17)
+  %18 = extractvalue { i64, i1 } %15, 0
+  %19 = and i64 %18, -16
+  %20 = add i64 %5, 17
+  %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %19, i64 %20)
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = xor i1 %22, true
+  tail call void @llvm.assume(i1 %23)
+  %24 = extractvalue { i64, i1 } %21, 0
+  %25 = icmp ult i64 %24, 9223372036854775793
   tail call void @llvm.assume(i1 %25)
-  %26 = sub nsw i64 0, %.sroa.9.0.i.i
+  %26 = sub nsw i64 0, %19
   %27 = getelementptr inbounds i8, ptr %3, i64 %26
   br label %28
 
 28:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %24, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
   %.sroa.5.sroa.4.0.i.i = phi ptr [ %27, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
   %29 = getelementptr inbounds i8, ptr %3, i64 16
   %30 = icmp slt <16 x i8> %7, zeroinitializer
   %31 = bitcast <16 x i1> %30 to i16
@@ -60256,44 +60188,36 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12457)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %28, label %11
+  br i1 %10, label %28, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 152)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
-
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add nuw i64 %15, 15
-  %17 = and i64 %16, -16
-  %18 = add i64 %5, 17
-  %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %18)
-  %20 = extractvalue { i64, i1 } %19, 1
-  br i1 %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %21
-
-21:                                               ; preds = %14
-  %22 = extractvalue { i64, i1 } %19, 0
-  %23 = icmp ugt i64 %22, 9223372036854775792
-  br i1 %23, label %24, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-24:                                               ; preds = %21
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %24, %21, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %24 ], [ undef, %14 ], [ %17, %21 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %24 ], [ undef, %14 ], [ %22, %21 ], [ undef, %11 ]
-  %25 = phi i1 [ false, %24 ], [ false, %14 ], [ true, %21 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %24 ], [ 0, %14 ], [ 16, %21 ], [ 0, %11 ]
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 152)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 15)
+  %16 = extractvalue { i64, i1 } %15, 1
+  %17 = xor i1 %16, true
+  tail call void @llvm.assume(i1 %17)
+  %18 = extractvalue { i64, i1 } %15, 0
+  %19 = and i64 %18, -16
+  %20 = add i64 %5, 17
+  %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %19, i64 %20)
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = xor i1 %22, true
+  tail call void @llvm.assume(i1 %23)
+  %24 = extractvalue { i64, i1 } %21, 0
+  %25 = icmp ult i64 %24, 9223372036854775793
   tail call void @llvm.assume(i1 %25)
-  %26 = sub nsw i64 0, %.sroa.9.0.i.i
+  %26 = sub nsw i64 0, %19
   %27 = getelementptr inbounds i8, ptr %3, i64 %26
   br label %28
 
 28:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %24, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
   %.sroa.5.sroa.4.0.i.i = phi ptr [ %27, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
   %29 = getelementptr inbounds i8, ptr %3, i64 16
   %30 = icmp slt <16 x i8> %7, zeroinitializer
   %31 = bitcast <16 x i1> %30 to i16
@@ -60328,55 +60252,43 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12471)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %26, label %11
+  br i1 %10, label %23, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 96)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 96)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = add i64 %5, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
+  tail call void @llvm.assume(i1 %20)
+  %21 = sub nsw i64 0, %14
+  %22 = getelementptr inbounds i8, ptr %3, i64 %21
+  br label %23
 
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add i64 %5, 17
-  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
-  %18 = extractvalue { i64, i1 } %17, 1
-  br i1 %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %19
-
-19:                                               ; preds = %14
-  %20 = extractvalue { i64, i1 } %17, 0
-  %21 = icmp ugt i64 %20, 9223372036854775792
-  br i1 %21, label %22, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-22:                                               ; preds = %19
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %22, %19, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %15, %19 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %20, %19 ], [ undef, %11 ]
-  %23 = phi i1 [ false, %22 ], [ false, %14 ], [ true, %19 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %22 ], [ 0, %14 ], [ 16, %19 ], [ 0, %11 ]
-  tail call void @llvm.assume(i1 %23)
-  %24 = sub nsw i64 0, %.sroa.9.0.i.i
-  %25 = getelementptr inbounds i8, ptr %3, i64 %24
-  br label %26
-
-26:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0.i.i = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
-  %28 = icmp slt <16 x i8> %7, zeroinitializer
-  %29 = bitcast <16 x i1> %28 to i16
-  %30 = xor i16 %29, -1
-  %31 = getelementptr inbounds i8, ptr %3, i64 %6
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %3, ptr %32, align 8, !alias.scope !12474, !noalias !12476
+23:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0.i.i = phi ptr [ %22, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = icmp slt <16 x i8> %7, zeroinitializer
+  %26 = bitcast <16 x i1> %25 to i16
+  %27 = xor i16 %26, -1
+  %28 = getelementptr inbounds i8, ptr %3, i64 %6
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %3, ptr %29, align 8, !alias.scope !12474, !noalias !12476
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %27, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12474, !noalias !12476
+  store ptr %24, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12474, !noalias !12476
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %31, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12474, !noalias !12476
+  store ptr %28, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12474, !noalias !12476
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store i16 %30, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12474, !noalias !12476
+  store i16 %27, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12474, !noalias !12476
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %9, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !12474, !noalias !12476
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !12478, !noalias !12479
@@ -60398,55 +60310,43 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12485)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %26, label %11
+  br i1 %10, label %23, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = add i64 %5, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
+  tail call void @llvm.assume(i1 %20)
+  %21 = sub nsw i64 0, %14
+  %22 = getelementptr inbounds i8, ptr %3, i64 %21
+  br label %23
 
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add i64 %5, 17
-  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
-  %18 = extractvalue { i64, i1 } %17, 1
-  br i1 %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %19
-
-19:                                               ; preds = %14
-  %20 = extractvalue { i64, i1 } %17, 0
-  %21 = icmp ugt i64 %20, 9223372036854775792
-  br i1 %21, label %22, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-22:                                               ; preds = %19
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %22, %19, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %15, %19 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %20, %19 ], [ undef, %11 ]
-  %23 = phi i1 [ false, %22 ], [ false, %14 ], [ true, %19 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %22 ], [ 0, %14 ], [ 16, %19 ], [ 0, %11 ]
-  tail call void @llvm.assume(i1 %23)
-  %24 = sub nsw i64 0, %.sroa.9.0.i.i
-  %25 = getelementptr inbounds i8, ptr %3, i64 %24
-  br label %26
-
-26:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0.i.i = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
-  %28 = icmp slt <16 x i8> %7, zeroinitializer
-  %29 = bitcast <16 x i1> %28 to i16
-  %30 = xor i16 %29, -1
-  %31 = getelementptr inbounds i8, ptr %3, i64 %6
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %3, ptr %32, align 8, !alias.scope !12488, !noalias !12490
+23:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0.i.i = phi ptr [ %22, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = icmp slt <16 x i8> %7, zeroinitializer
+  %26 = bitcast <16 x i1> %25 to i16
+  %27 = xor i16 %26, -1
+  %28 = getelementptr inbounds i8, ptr %3, i64 %6
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %3, ptr %29, align 8, !alias.scope !12488, !noalias !12490
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %27, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12488, !noalias !12490
+  store ptr %24, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12488, !noalias !12490
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %31, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12488, !noalias !12490
+  store ptr %28, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12488, !noalias !12490
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store i16 %30, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12488, !noalias !12490
+  store i16 %27, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12488, !noalias !12490
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %9, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !12488, !noalias !12490
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !12492, !noalias !12493
@@ -60468,55 +60368,43 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12499)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %26, label %11
+  br i1 %10, label %23, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = add i64 %5, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
+  tail call void @llvm.assume(i1 %20)
+  %21 = sub nsw i64 0, %14
+  %22 = getelementptr inbounds i8, ptr %3, i64 %21
+  br label %23
 
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add i64 %5, 17
-  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
-  %18 = extractvalue { i64, i1 } %17, 1
-  br i1 %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %19
-
-19:                                               ; preds = %14
-  %20 = extractvalue { i64, i1 } %17, 0
-  %21 = icmp ugt i64 %20, 9223372036854775792
-  br i1 %21, label %22, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-22:                                               ; preds = %19
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %22, %19, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %15, %19 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %20, %19 ], [ undef, %11 ]
-  %23 = phi i1 [ false, %22 ], [ false, %14 ], [ true, %19 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %22 ], [ 0, %14 ], [ 16, %19 ], [ 0, %11 ]
-  tail call void @llvm.assume(i1 %23)
-  %24 = sub nsw i64 0, %.sroa.9.0.i.i
-  %25 = getelementptr inbounds i8, ptr %3, i64 %24
-  br label %26
-
-26:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0.i.i = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
-  %28 = icmp slt <16 x i8> %7, zeroinitializer
-  %29 = bitcast <16 x i1> %28 to i16
-  %30 = xor i16 %29, -1
-  %31 = getelementptr inbounds i8, ptr %3, i64 %6
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %3, ptr %32, align 8, !alias.scope !12502, !noalias !12504
+23:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0.i.i = phi ptr [ %22, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = icmp slt <16 x i8> %7, zeroinitializer
+  %26 = bitcast <16 x i1> %25 to i16
+  %27 = xor i16 %26, -1
+  %28 = getelementptr inbounds i8, ptr %3, i64 %6
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %3, ptr %29, align 8, !alias.scope !12502, !noalias !12504
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %27, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12502, !noalias !12504
+  store ptr %24, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12502, !noalias !12504
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %31, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12502, !noalias !12504
+  store ptr %28, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12502, !noalias !12504
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store i16 %30, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12502, !noalias !12504
+  store i16 %27, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12502, !noalias !12504
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %9, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !12502, !noalias !12504
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !12506, !noalias !12507
@@ -60538,44 +60426,36 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12513)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %28, label %11
+  br i1 %10, label %28, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 632)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
-
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add nuw i64 %15, 15
-  %17 = and i64 %16, -16
-  %18 = add i64 %5, 17
-  %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %18)
-  %20 = extractvalue { i64, i1 } %19, 1
-  br i1 %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %21
-
-21:                                               ; preds = %14
-  %22 = extractvalue { i64, i1 } %19, 0
-  %23 = icmp ugt i64 %22, 9223372036854775792
-  br i1 %23, label %24, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-24:                                               ; preds = %21
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %24, %21, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %24 ], [ undef, %14 ], [ %17, %21 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %24 ], [ undef, %14 ], [ %22, %21 ], [ undef, %11 ]
-  %25 = phi i1 [ false, %24 ], [ false, %14 ], [ true, %21 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %24 ], [ 0, %14 ], [ 16, %21 ], [ 0, %11 ]
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 632)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 15)
+  %16 = extractvalue { i64, i1 } %15, 1
+  %17 = xor i1 %16, true
+  tail call void @llvm.assume(i1 %17)
+  %18 = extractvalue { i64, i1 } %15, 0
+  %19 = and i64 %18, -16
+  %20 = add i64 %5, 17
+  %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %19, i64 %20)
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = xor i1 %22, true
+  tail call void @llvm.assume(i1 %23)
+  %24 = extractvalue { i64, i1 } %21, 0
+  %25 = icmp ult i64 %24, 9223372036854775793
   tail call void @llvm.assume(i1 %25)
-  %26 = sub nsw i64 0, %.sroa.9.0.i.i
+  %26 = sub nsw i64 0, %19
   %27 = getelementptr inbounds i8, ptr %3, i64 %26
   br label %28
 
 28:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %24, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
   %.sroa.5.sroa.4.0.i.i = phi ptr [ %27, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
   %29 = getelementptr inbounds i8, ptr %3, i64 16
   %30 = icmp slt <16 x i8> %7, zeroinitializer
   %31 = bitcast <16 x i1> %30 to i16
@@ -60610,55 +60490,43 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12527)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %26, label %11
+  br i1 %10, label %23, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = add i64 %5, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
+  tail call void @llvm.assume(i1 %20)
+  %21 = sub nsw i64 0, %14
+  %22 = getelementptr inbounds i8, ptr %3, i64 %21
+  br label %23
 
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add i64 %5, 17
-  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
-  %18 = extractvalue { i64, i1 } %17, 1
-  br i1 %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %19
-
-19:                                               ; preds = %14
-  %20 = extractvalue { i64, i1 } %17, 0
-  %21 = icmp ugt i64 %20, 9223372036854775792
-  br i1 %21, label %22, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-22:                                               ; preds = %19
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %22, %19, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %15, %19 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %20, %19 ], [ undef, %11 ]
-  %23 = phi i1 [ false, %22 ], [ false, %14 ], [ true, %19 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %22 ], [ 0, %14 ], [ 16, %19 ], [ 0, %11 ]
-  tail call void @llvm.assume(i1 %23)
-  %24 = sub nsw i64 0, %.sroa.9.0.i.i
-  %25 = getelementptr inbounds i8, ptr %3, i64 %24
-  br label %26
-
-26:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0.i.i = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
-  %28 = icmp slt <16 x i8> %7, zeroinitializer
-  %29 = bitcast <16 x i1> %28 to i16
-  %30 = xor i16 %29, -1
-  %31 = getelementptr inbounds i8, ptr %3, i64 %6
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %3, ptr %32, align 8, !alias.scope !12530, !noalias !12532
+23:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0.i.i = phi ptr [ %22, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = icmp slt <16 x i8> %7, zeroinitializer
+  %26 = bitcast <16 x i1> %25 to i16
+  %27 = xor i16 %26, -1
+  %28 = getelementptr inbounds i8, ptr %3, i64 %6
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %3, ptr %29, align 8, !alias.scope !12530, !noalias !12532
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %27, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12530, !noalias !12532
+  store ptr %24, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12530, !noalias !12532
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %31, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12530, !noalias !12532
+  store ptr %28, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12530, !noalias !12532
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store i16 %30, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12530, !noalias !12532
+  store i16 %27, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12530, !noalias !12532
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %9, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !12530, !noalias !12532
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !12534, !noalias !12535
@@ -60680,44 +60548,36 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12541)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %28, label %11
+  br i1 %10, label %28, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 120)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
-
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add nuw i64 %15, 15
-  %17 = and i64 %16, -16
-  %18 = add i64 %5, 17
-  %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %18)
-  %20 = extractvalue { i64, i1 } %19, 1
-  br i1 %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %21
-
-21:                                               ; preds = %14
-  %22 = extractvalue { i64, i1 } %19, 0
-  %23 = icmp ugt i64 %22, 9223372036854775792
-  br i1 %23, label %24, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-24:                                               ; preds = %21
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %24, %21, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %24 ], [ undef, %14 ], [ %17, %21 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %24 ], [ undef, %14 ], [ %22, %21 ], [ undef, %11 ]
-  %25 = phi i1 [ false, %24 ], [ false, %14 ], [ true, %21 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %24 ], [ 0, %14 ], [ 16, %21 ], [ 0, %11 ]
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 120)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 15)
+  %16 = extractvalue { i64, i1 } %15, 1
+  %17 = xor i1 %16, true
+  tail call void @llvm.assume(i1 %17)
+  %18 = extractvalue { i64, i1 } %15, 0
+  %19 = and i64 %18, -16
+  %20 = add i64 %5, 17
+  %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %19, i64 %20)
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = xor i1 %22, true
+  tail call void @llvm.assume(i1 %23)
+  %24 = extractvalue { i64, i1 } %21, 0
+  %25 = icmp ult i64 %24, 9223372036854775793
   tail call void @llvm.assume(i1 %25)
-  %26 = sub nsw i64 0, %.sroa.9.0.i.i
+  %26 = sub nsw i64 0, %19
   %27 = getelementptr inbounds i8, ptr %3, i64 %26
   br label %28
 
 28:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %24, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
   %.sroa.5.sroa.4.0.i.i = phi ptr [ %27, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
   %29 = getelementptr inbounds i8, ptr %3, i64 16
   %30 = icmp slt <16 x i8> %7, zeroinitializer
   %31 = bitcast <16 x i1> %30 to i16
@@ -60752,55 +60612,43 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12555)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %26, label %11
+  br i1 %10, label %23, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 368)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 368)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = add i64 %5, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
+  tail call void @llvm.assume(i1 %20)
+  %21 = sub nsw i64 0, %14
+  %22 = getelementptr inbounds i8, ptr %3, i64 %21
+  br label %23
 
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add i64 %5, 17
-  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
-  %18 = extractvalue { i64, i1 } %17, 1
-  br i1 %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %19
-
-19:                                               ; preds = %14
-  %20 = extractvalue { i64, i1 } %17, 0
-  %21 = icmp ugt i64 %20, 9223372036854775792
-  br i1 %21, label %22, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-22:                                               ; preds = %19
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %22, %19, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %15, %19 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %20, %19 ], [ undef, %11 ]
-  %23 = phi i1 [ false, %22 ], [ false, %14 ], [ true, %19 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %22 ], [ 0, %14 ], [ 16, %19 ], [ 0, %11 ]
-  tail call void @llvm.assume(i1 %23)
-  %24 = sub nsw i64 0, %.sroa.9.0.i.i
-  %25 = getelementptr inbounds i8, ptr %3, i64 %24
-  br label %26
-
-26:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0.i.i = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
-  %28 = icmp slt <16 x i8> %7, zeroinitializer
-  %29 = bitcast <16 x i1> %28 to i16
-  %30 = xor i16 %29, -1
-  %31 = getelementptr inbounds i8, ptr %3, i64 %6
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %3, ptr %32, align 8, !alias.scope !12558, !noalias !12560
+23:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0.i.i = phi ptr [ %22, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = icmp slt <16 x i8> %7, zeroinitializer
+  %26 = bitcast <16 x i1> %25 to i16
+  %27 = xor i16 %26, -1
+  %28 = getelementptr inbounds i8, ptr %3, i64 %6
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %3, ptr %29, align 8, !alias.scope !12558, !noalias !12560
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %27, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12558, !noalias !12560
+  store ptr %24, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12558, !noalias !12560
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %31, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12558, !noalias !12560
+  store ptr %28, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12558, !noalias !12560
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store i16 %30, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12558, !noalias !12560
+  store i16 %27, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12558, !noalias !12560
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %9, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !12558, !noalias !12560
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !12562, !noalias !12563
@@ -60822,55 +60670,43 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12569)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %26, label %11
+  br i1 %10, label %23, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 304)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 304)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = add i64 %5, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
+  tail call void @llvm.assume(i1 %20)
+  %21 = sub nsw i64 0, %14
+  %22 = getelementptr inbounds i8, ptr %3, i64 %21
+  br label %23
 
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add i64 %5, 17
-  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
-  %18 = extractvalue { i64, i1 } %17, 1
-  br i1 %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %19
-
-19:                                               ; preds = %14
-  %20 = extractvalue { i64, i1 } %17, 0
-  %21 = icmp ugt i64 %20, 9223372036854775792
-  br i1 %21, label %22, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-22:                                               ; preds = %19
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %22, %19, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %15, %19 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %20, %19 ], [ undef, %11 ]
-  %23 = phi i1 [ false, %22 ], [ false, %14 ], [ true, %19 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %22 ], [ 0, %14 ], [ 16, %19 ], [ 0, %11 ]
-  tail call void @llvm.assume(i1 %23)
-  %24 = sub nsw i64 0, %.sroa.9.0.i.i
-  %25 = getelementptr inbounds i8, ptr %3, i64 %24
-  br label %26
-
-26:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0.i.i = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
-  %28 = icmp slt <16 x i8> %7, zeroinitializer
-  %29 = bitcast <16 x i1> %28 to i16
-  %30 = xor i16 %29, -1
-  %31 = getelementptr inbounds i8, ptr %3, i64 %6
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %3, ptr %32, align 8, !alias.scope !12572, !noalias !12574
+23:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0.i.i = phi ptr [ %22, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = icmp slt <16 x i8> %7, zeroinitializer
+  %26 = bitcast <16 x i1> %25 to i16
+  %27 = xor i16 %26, -1
+  %28 = getelementptr inbounds i8, ptr %3, i64 %6
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %3, ptr %29, align 8, !alias.scope !12572, !noalias !12574
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %27, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12572, !noalias !12574
+  store ptr %24, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12572, !noalias !12574
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %31, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12572, !noalias !12574
+  store ptr %28, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12572, !noalias !12574
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store i16 %30, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12572, !noalias !12574
+  store i16 %27, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12572, !noalias !12574
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %9, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !12572, !noalias !12574
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !12576, !noalias !12577
@@ -60892,44 +60728,36 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12583)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %28, label %11
+  br i1 %10, label %28, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 120)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
-
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add nuw i64 %15, 15
-  %17 = and i64 %16, -16
-  %18 = add i64 %5, 17
-  %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %18)
-  %20 = extractvalue { i64, i1 } %19, 1
-  br i1 %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %21
-
-21:                                               ; preds = %14
-  %22 = extractvalue { i64, i1 } %19, 0
-  %23 = icmp ugt i64 %22, 9223372036854775792
-  br i1 %23, label %24, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-24:                                               ; preds = %21
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %24, %21, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %24 ], [ undef, %14 ], [ %17, %21 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %24 ], [ undef, %14 ], [ %22, %21 ], [ undef, %11 ]
-  %25 = phi i1 [ false, %24 ], [ false, %14 ], [ true, %21 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %24 ], [ 0, %14 ], [ 16, %21 ], [ 0, %11 ]
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 120)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 15)
+  %16 = extractvalue { i64, i1 } %15, 1
+  %17 = xor i1 %16, true
+  tail call void @llvm.assume(i1 %17)
+  %18 = extractvalue { i64, i1 } %15, 0
+  %19 = and i64 %18, -16
+  %20 = add i64 %5, 17
+  %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %19, i64 %20)
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = xor i1 %22, true
+  tail call void @llvm.assume(i1 %23)
+  %24 = extractvalue { i64, i1 } %21, 0
+  %25 = icmp ult i64 %24, 9223372036854775793
   tail call void @llvm.assume(i1 %25)
-  %26 = sub nsw i64 0, %.sroa.9.0.i.i
+  %26 = sub nsw i64 0, %19
   %27 = getelementptr inbounds i8, ptr %3, i64 %26
   br label %28
 
 28:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %24, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
   %.sroa.5.sroa.4.0.i.i = phi ptr [ %27, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
   %29 = getelementptr inbounds i8, ptr %3, i64 16
   %30 = icmp slt <16 x i8> %7, zeroinitializer
   %31 = bitcast <16 x i1> %30 to i16
@@ -60964,55 +60792,43 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12597)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %26, label %11
+  br i1 %10, label %23, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 96)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 96)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = add i64 %5, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
+  tail call void @llvm.assume(i1 %20)
+  %21 = sub nsw i64 0, %14
+  %22 = getelementptr inbounds i8, ptr %3, i64 %21
+  br label %23
 
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add i64 %5, 17
-  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
-  %18 = extractvalue { i64, i1 } %17, 1
-  br i1 %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %19
-
-19:                                               ; preds = %14
-  %20 = extractvalue { i64, i1 } %17, 0
-  %21 = icmp ugt i64 %20, 9223372036854775792
-  br i1 %21, label %22, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-22:                                               ; preds = %19
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %22, %19, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %15, %19 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %20, %19 ], [ undef, %11 ]
-  %23 = phi i1 [ false, %22 ], [ false, %14 ], [ true, %19 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %22 ], [ 0, %14 ], [ 16, %19 ], [ 0, %11 ]
-  tail call void @llvm.assume(i1 %23)
-  %24 = sub nsw i64 0, %.sroa.9.0.i.i
-  %25 = getelementptr inbounds i8, ptr %3, i64 %24
-  br label %26
-
-26:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0.i.i = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
-  %28 = icmp slt <16 x i8> %7, zeroinitializer
-  %29 = bitcast <16 x i1> %28 to i16
-  %30 = xor i16 %29, -1
-  %31 = getelementptr inbounds i8, ptr %3, i64 %6
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %3, ptr %32, align 8, !alias.scope !12600, !noalias !12602
+23:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0.i.i = phi ptr [ %22, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = icmp slt <16 x i8> %7, zeroinitializer
+  %26 = bitcast <16 x i1> %25 to i16
+  %27 = xor i16 %26, -1
+  %28 = getelementptr inbounds i8, ptr %3, i64 %6
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %3, ptr %29, align 8, !alias.scope !12600, !noalias !12602
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %27, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12600, !noalias !12602
+  store ptr %24, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12600, !noalias !12602
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %31, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12600, !noalias !12602
+  store ptr %28, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12600, !noalias !12602
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store i16 %30, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12600, !noalias !12602
+  store i16 %27, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12600, !noalias !12602
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %9, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !12600, !noalias !12602
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !12604, !noalias !12605
@@ -61034,55 +60850,43 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12611)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %26, label %11
+  br i1 %10, label %23, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 320)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 320)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = add i64 %5, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
+  tail call void @llvm.assume(i1 %20)
+  %21 = sub nsw i64 0, %14
+  %22 = getelementptr inbounds i8, ptr %3, i64 %21
+  br label %23
 
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add i64 %5, 17
-  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
-  %18 = extractvalue { i64, i1 } %17, 1
-  br i1 %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %19
-
-19:                                               ; preds = %14
-  %20 = extractvalue { i64, i1 } %17, 0
-  %21 = icmp ugt i64 %20, 9223372036854775792
-  br i1 %21, label %22, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-22:                                               ; preds = %19
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %22, %19, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %15, %19 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %20, %19 ], [ undef, %11 ]
-  %23 = phi i1 [ false, %22 ], [ false, %14 ], [ true, %19 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %22 ], [ 0, %14 ], [ 16, %19 ], [ 0, %11 ]
-  tail call void @llvm.assume(i1 %23)
-  %24 = sub nsw i64 0, %.sroa.9.0.i.i
-  %25 = getelementptr inbounds i8, ptr %3, i64 %24
-  br label %26
-
-26:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0.i.i = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
-  %28 = icmp slt <16 x i8> %7, zeroinitializer
-  %29 = bitcast <16 x i1> %28 to i16
-  %30 = xor i16 %29, -1
-  %31 = getelementptr inbounds i8, ptr %3, i64 %6
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %3, ptr %32, align 8, !alias.scope !12614, !noalias !12616
+23:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0.i.i = phi ptr [ %22, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = icmp slt <16 x i8> %7, zeroinitializer
+  %26 = bitcast <16 x i1> %25 to i16
+  %27 = xor i16 %26, -1
+  %28 = getelementptr inbounds i8, ptr %3, i64 %6
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %3, ptr %29, align 8, !alias.scope !12614, !noalias !12616
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %27, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12614, !noalias !12616
+  store ptr %24, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12614, !noalias !12616
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %31, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12614, !noalias !12616
+  store ptr %28, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12614, !noalias !12616
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store i16 %30, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12614, !noalias !12616
+  store i16 %27, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12614, !noalias !12616
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %9, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !12614, !noalias !12616
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !12618, !noalias !12619
@@ -61098,62 +60902,48 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %3 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = add i64 %5, 1
-  %7 = load <16 x i8>, ptr %3, align 16, !noalias !12620
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
-  %9 = load i64, ptr %8, align 8, !noundef !4
+  %6 = load <16 x i8>, ptr %3, align 16, !noalias !12620
+  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = load i64, ptr %7, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12625)
-  %10 = icmp eq i64 %5, 0
-  br i1 %10, label %25, label %11
+  %9 = icmp eq i64 %5, 0
+  br i1 %9, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = icmp ugt i64 %6, 144115188075855871
-  br i1 %12, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %13
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %10 = shl i64 %5, 7
+  %11 = add i64 %10, 128
+  %12 = add i64 %5, 17
+  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %11, i64 %12)
+  %14 = extractvalue { i64, i1 } %13, 1
+  %15 = xor i1 %14, true
+  tail call void @llvm.assume(i1 %15)
+  %16 = extractvalue { i64, i1 } %13, 0
+  %17 = icmp ult i64 %16, 9223372036854775793
+  tail call void @llvm.assume(i1 %17)
+  %18 = sub nuw nsw i64 -128, %10
+  %19 = getelementptr inbounds i8, ptr %3, i64 %18
+  br label %20
 
-13:                                               ; preds = %11
-  %14 = shl nuw i64 %6, 7
-  %15 = add nsw i64 %5, 17
-  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
-  %17 = extractvalue { i64, i1 } %16, 1
-  br i1 %17, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %18
-
-18:                                               ; preds = %13
-  %19 = extractvalue { i64, i1 } %16, 0
-  %20 = icmp ugt i64 %19, 9223372036854775792
-  br i1 %20, label %21, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-21:                                               ; preds = %18
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %21, %18, %13, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %21 ], [ undef, %13 ], [ %14, %18 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %21 ], [ undef, %13 ], [ %19, %18 ], [ undef, %11 ]
-  %22 = phi i1 [ false, %21 ], [ false, %13 ], [ true, %18 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %21 ], [ 0, %13 ], [ 16, %18 ], [ 0, %11 ]
-  tail call void @llvm.assume(i1 %22)
-  %23 = sub nsw i64 0, %.sroa.9.0.i.i
-  %24 = getelementptr inbounds i8, ptr %3, i64 %23
-  br label %25
-
-25:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0.i.i = phi ptr [ %24, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
-  %26 = getelementptr inbounds i8, ptr %3, i64 16
-  %27 = icmp slt <16 x i8> %7, zeroinitializer
-  %28 = bitcast <16 x i1> %27 to i16
-  %29 = xor i16 %28, -1
-  %30 = getelementptr inbounds i8, ptr %3, i64 %6
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %3, ptr %31, align 8, !alias.scope !12628, !noalias !12630
+20:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0.i.i = phi ptr [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = icmp slt <16 x i8> %6, zeroinitializer
+  %23 = bitcast <16 x i1> %22 to i16
+  %24 = xor i16 %23, -1
+  %25 = getelementptr i8, ptr %3, i64 %5
+  %26 = getelementptr i8, ptr %25, i64 1
+  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %3, ptr %27, align 8, !alias.scope !12628, !noalias !12630
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %26, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12628, !noalias !12630
+  store ptr %21, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12628, !noalias !12630
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %30, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12628, !noalias !12630
+  store ptr %26, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12628, !noalias !12630
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store i16 %29, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12628, !noalias !12630
+  store i16 %24, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12628, !noalias !12630
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 %9, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !12628, !noalias !12630
+  store i64 %8, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !12628, !noalias !12630
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !12632, !noalias !12633
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !12632, !noalias !12633
@@ -61173,55 +60963,43 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12639)
   %10 = icmp eq i64 %5, 0
-  br i1 %10, label %26, label %11
+  br i1 %10, label %23, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
 
-11:                                               ; preds = %2
-  %12 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %14
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %2
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = add i64 %5, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
+  tail call void @llvm.assume(i1 %20)
+  %21 = sub nsw i64 0, %14
+  %22 = getelementptr inbounds i8, ptr %3, i64 %21
+  br label %23
 
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = add i64 %5, 17
-  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
-  %18 = extractvalue { i64, i1 } %17, 1
-  br i1 %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, label %19
-
-19:                                               ; preds = %14
-  %20 = extractvalue { i64, i1 } %17, 0
-  %21 = icmp ugt i64 %20, 9223372036854775792
-  br i1 %21, label %22, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-22:                                               ; preds = %19
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i: ; preds = %22, %19, %14, %11
-  %.sroa.9.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %15, %19 ], [ undef, %11 ]
-  %.sroa.7.0.i.i = phi i64 [ undef, %22 ], [ undef, %14 ], [ %20, %19 ], [ undef, %11 ]
-  %23 = phi i1 [ false, %22 ], [ false, %14 ], [ true, %19 ], [ false, %11 ]
-  %.sroa.0.07.i.i = phi i64 [ 0, %22 ], [ 0, %14 ], [ 16, %19 ], [ 0, %11 ]
-  tail call void @llvm.assume(i1 %23)
-  %24 = sub nsw i64 0, %.sroa.9.0.i.i
-  %25 = getelementptr inbounds i8, ptr %3, i64 %24
-  br label %26
-
-26:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
-  %.sroa.5.sroa.0.0.i.i = phi i64 [ %.sroa.7.0.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0.i.i = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.07.i.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
-  %28 = icmp slt <16 x i8> %7, zeroinitializer
-  %29 = bitcast <16 x i1> %28 to i16
-  %30 = xor i16 %29, -1
-  %31 = getelementptr inbounds i8, ptr %3, i64 %6
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %3, ptr %32, align 8, !alias.scope !12642, !noalias !12644
+23:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i, %2
+  %.sroa.5.sroa.0.0.i.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0.i.i = phi ptr [ %22, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ undef, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i.i ], [ 0, %2 ]
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = icmp slt <16 x i8> %7, zeroinitializer
+  %26 = bitcast <16 x i1> %25 to i16
+  %27 = xor i16 %26, -1
+  %28 = getelementptr inbounds i8, ptr %3, i64 %6
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %3, ptr %29, align 8, !alias.scope !12642, !noalias !12644
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %27, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12642, !noalias !12644
+  store ptr %24, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !12642, !noalias !12644
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %31, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12642, !noalias !12644
+  store ptr %28, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !12642, !noalias !12644
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store i16 %30, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12642, !noalias !12644
+  store i16 %27, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !12642, !noalias !12644
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %9, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !12642, !noalias !12644
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !12646, !noalias !12647
@@ -84104,51 +83882,43 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14in
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17h0840bec932c5f49bE.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h10236574c7b414acE.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h10236574c7b414acE.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 24)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add nuw i64 %10, 15
-  %12 = and i64 %11, -16
-  %13 = add i64 %.sroa.4.0.copyload, 17
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %12, i64 %13)
-  %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %16
-
-16:                                               ; preds = %9
-  %17 = extractvalue { i64, i1 } %14, 0
-  %18 = icmp ugt i64 %17, 9223372036854775792
-  br i1 %18, label %19, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-19:                                               ; preds = %16
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %19, %16, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %19 ], [ undef, %9 ], [ %12, %16 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %19 ], [ undef, %9 ], [ %17, %16 ], [ undef, %5 ]
-  %20 = phi i1 [ false, %19 ], [ false, %9 ], [ true, %16 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %19 ], [ 0, %9 ], [ 16, %16 ], [ 0, %5 ]
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 24)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 15)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = xor i1 %11, true
+  tail call void @llvm.assume(i1 %12)
+  %13 = extractvalue { i64, i1 } %10, 0
+  %14 = and i64 %13, -16
+  %15 = add i64 %.sroa.4.0.copyload, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne ptr %.sroa.01.0.copyload, null
   tail call void @llvm.assume(i1 %21)
-  %22 = sub nsw i64 0, %.sroa.9.0.i
+  %22 = sub nsw i64 0, %14
   %23 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %22
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h10236574c7b414acE.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h10236574c7b414acE.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.0.0.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
   %.sroa.5.sroa.4.0.i = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
   %24 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
@@ -84161,51 +83931,39 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17h09933316be2e23c3E.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h3e3c37532f799abfE.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h3e3c37532f799abfE.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add i64 %.sroa.4.0.copyload, 17
-  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %14
-
-14:                                               ; preds = %9
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = icmp ugt i64 %15, 9223372036854775792
-  br i1 %16, label %17, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-17:                                               ; preds = %14
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %17, %14, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %10, %14 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %15, %14 ], [ undef, %5 ]
-  %18 = phi i1 [ false, %17 ], [ false, %9 ], [ true, %14 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %17 ], [ 0, %9 ], [ 16, %14 ], [ 0, %5 ]
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = sub nsw i64 0, %.sroa.9.0.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %20
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 48)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = add i64 %.sroa.4.0.copyload, 17
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %10)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = icmp ult i64 %14, 9223372036854775793
+  tail call void @llvm.assume(i1 %15)
+  %16 = icmp ne ptr %.sroa.01.0.copyload, null
+  tail call void @llvm.assume(i1 %16)
+  %17 = sub nsw i64 0, %9
+  %18 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %17
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h3e3c37532f799abfE.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h3e3c37532f799abfE.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.5.sroa.4.0.i = phi ptr [ %21, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %.sroa.5.sroa.0.0.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.4.0.i = phi ptr [ %18, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -84216,51 +83974,39 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17h33eec07c164323deE.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h412151cf771ef343E.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h412151cf771ef343E.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add i64 %.sroa.4.0.copyload, 17
-  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %14
-
-14:                                               ; preds = %9
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = icmp ugt i64 %15, 9223372036854775792
-  br i1 %16, label %17, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-17:                                               ; preds = %14
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %17, %14, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %10, %14 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %15, %14 ], [ undef, %5 ]
-  %18 = phi i1 [ false, %17 ], [ false, %9 ], [ true, %14 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %17 ], [ 0, %9 ], [ 16, %14 ], [ 0, %5 ]
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = sub nsw i64 0, %.sroa.9.0.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %20
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 48)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = add i64 %.sroa.4.0.copyload, 17
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %10)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = icmp ult i64 %14, 9223372036854775793
+  tail call void @llvm.assume(i1 %15)
+  %16 = icmp ne ptr %.sroa.01.0.copyload, null
+  tail call void @llvm.assume(i1 %16)
+  %17 = sub nsw i64 0, %9
+  %18 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %17
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h412151cf771ef343E.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h412151cf771ef343E.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.5.sroa.4.0.i = phi ptr [ %21, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %.sroa.5.sroa.0.0.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.4.0.i = phi ptr [ %18, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -84271,51 +84017,39 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17h3c99cb630363e185E.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h5fd63d6d5fae2849E.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h5fd63d6d5fae2849E.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add i64 %.sroa.4.0.copyload, 17
-  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %14
-
-14:                                               ; preds = %9
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = icmp ugt i64 %15, 9223372036854775792
-  br i1 %16, label %17, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-17:                                               ; preds = %14
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %17, %14, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %10, %14 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %15, %14 ], [ undef, %5 ]
-  %18 = phi i1 [ false, %17 ], [ false, %9 ], [ true, %14 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %17 ], [ 0, %9 ], [ 16, %14 ], [ 0, %5 ]
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = sub nsw i64 0, %.sroa.9.0.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %20
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 48)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = add i64 %.sroa.4.0.copyload, 17
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %10)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = icmp ult i64 %14, 9223372036854775793
+  tail call void @llvm.assume(i1 %15)
+  %16 = icmp ne ptr %.sroa.01.0.copyload, null
+  tail call void @llvm.assume(i1 %16)
+  %17 = sub nsw i64 0, %9
+  %18 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %17
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h5fd63d6d5fae2849E.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h5fd63d6d5fae2849E.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.5.sroa.4.0.i = phi ptr [ %21, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %.sroa.5.sroa.0.0.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.4.0.i = phi ptr [ %18, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -84326,51 +84060,43 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17h4ab3071662798cc8E.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h4fdc525d321cb1b1E.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h4fdc525d321cb1b1E.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 56)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add nuw i64 %10, 15
-  %12 = and i64 %11, -16
-  %13 = add i64 %.sroa.4.0.copyload, 17
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %12, i64 %13)
-  %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %16
-
-16:                                               ; preds = %9
-  %17 = extractvalue { i64, i1 } %14, 0
-  %18 = icmp ugt i64 %17, 9223372036854775792
-  br i1 %18, label %19, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-19:                                               ; preds = %16
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %19, %16, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %19 ], [ undef, %9 ], [ %12, %16 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %19 ], [ undef, %9 ], [ %17, %16 ], [ undef, %5 ]
-  %20 = phi i1 [ false, %19 ], [ false, %9 ], [ true, %16 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %19 ], [ 0, %9 ], [ 16, %16 ], [ 0, %5 ]
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 56)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 15)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = xor i1 %11, true
+  tail call void @llvm.assume(i1 %12)
+  %13 = extractvalue { i64, i1 } %10, 0
+  %14 = and i64 %13, -16
+  %15 = add i64 %.sroa.4.0.copyload, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne ptr %.sroa.01.0.copyload, null
   tail call void @llvm.assume(i1 %21)
-  %22 = sub nsw i64 0, %.sroa.9.0.i
+  %22 = sub nsw i64 0, %14
   %23 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %22
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h4fdc525d321cb1b1E.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h4fdc525d321cb1b1E.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.0.0.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
   %.sroa.5.sroa.4.0.i = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
   %24 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
@@ -84383,51 +84109,43 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17h5dc5864a7f16d707E.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h17b2b31673db2ae6E.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h17b2b31673db2ae6E.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 728)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add nuw i64 %10, 15
-  %12 = and i64 %11, -16
-  %13 = add i64 %.sroa.4.0.copyload, 17
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %12, i64 %13)
-  %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %16
-
-16:                                               ; preds = %9
-  %17 = extractvalue { i64, i1 } %14, 0
-  %18 = icmp ugt i64 %17, 9223372036854775792
-  br i1 %18, label %19, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-19:                                               ; preds = %16
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %19, %16, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %19 ], [ undef, %9 ], [ %12, %16 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %19 ], [ undef, %9 ], [ %17, %16 ], [ undef, %5 ]
-  %20 = phi i1 [ false, %19 ], [ false, %9 ], [ true, %16 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %19 ], [ 0, %9 ], [ 16, %16 ], [ 0, %5 ]
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 728)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 15)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = xor i1 %11, true
+  tail call void @llvm.assume(i1 %12)
+  %13 = extractvalue { i64, i1 } %10, 0
+  %14 = and i64 %13, -16
+  %15 = add i64 %.sroa.4.0.copyload, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne ptr %.sroa.01.0.copyload, null
   tail call void @llvm.assume(i1 %21)
-  %22 = sub nsw i64 0, %.sroa.9.0.i
+  %22 = sub nsw i64 0, %14
   %23 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %22
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h17b2b31673db2ae6E.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h17b2b31673db2ae6E.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.0.0.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
   %.sroa.5.sroa.4.0.i = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
   %24 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
@@ -84440,51 +84158,39 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17h7217c0e4b52c02efE.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h5162c618377b0870E.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h5162c618377b0870E.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 96)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add i64 %.sroa.4.0.copyload, 17
-  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %14
-
-14:                                               ; preds = %9
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = icmp ugt i64 %15, 9223372036854775792
-  br i1 %16, label %17, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-17:                                               ; preds = %14
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %17, %14, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %10, %14 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %15, %14 ], [ undef, %5 ]
-  %18 = phi i1 [ false, %17 ], [ false, %9 ], [ true, %14 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %17 ], [ 0, %9 ], [ 16, %14 ], [ 0, %5 ]
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = sub nsw i64 0, %.sroa.9.0.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %20
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 96)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = add i64 %.sroa.4.0.copyload, 17
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %10)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = icmp ult i64 %14, 9223372036854775793
+  tail call void @llvm.assume(i1 %15)
+  %16 = icmp ne ptr %.sroa.01.0.copyload, null
+  tail call void @llvm.assume(i1 %16)
+  %17 = sub nsw i64 0, %9
+  %18 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %17
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h5162c618377b0870E.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h5162c618377b0870E.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.5.sroa.4.0.i = phi ptr [ %21, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %.sroa.5.sroa.0.0.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.4.0.i = phi ptr [ %18, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -84495,51 +84201,39 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17h80490e74437189cdE.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h98727ff40fa457c5E.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h98727ff40fa457c5E.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 368)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add i64 %.sroa.4.0.copyload, 17
-  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %14
-
-14:                                               ; preds = %9
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = icmp ugt i64 %15, 9223372036854775792
-  br i1 %16, label %17, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-17:                                               ; preds = %14
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %17, %14, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %10, %14 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %15, %14 ], [ undef, %5 ]
-  %18 = phi i1 [ false, %17 ], [ false, %9 ], [ true, %14 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %17 ], [ 0, %9 ], [ 16, %14 ], [ 0, %5 ]
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = sub nsw i64 0, %.sroa.9.0.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %20
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 368)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = add i64 %.sroa.4.0.copyload, 17
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %10)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = icmp ult i64 %14, 9223372036854775793
+  tail call void @llvm.assume(i1 %15)
+  %16 = icmp ne ptr %.sroa.01.0.copyload, null
+  tail call void @llvm.assume(i1 %16)
+  %17 = sub nsw i64 0, %9
+  %18 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %17
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h98727ff40fa457c5E.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h98727ff40fa457c5E.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.5.sroa.4.0.i = phi ptr [ %21, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %.sroa.5.sroa.0.0.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.4.0.i = phi ptr [ %18, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -84550,51 +84244,43 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17h8bdef4582f5d5084E.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h711b9947b0280525E.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h711b9947b0280525E.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 120)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add nuw i64 %10, 15
-  %12 = and i64 %11, -16
-  %13 = add i64 %.sroa.4.0.copyload, 17
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %12, i64 %13)
-  %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %16
-
-16:                                               ; preds = %9
-  %17 = extractvalue { i64, i1 } %14, 0
-  %18 = icmp ugt i64 %17, 9223372036854775792
-  br i1 %18, label %19, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-19:                                               ; preds = %16
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %19, %16, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %19 ], [ undef, %9 ], [ %12, %16 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %19 ], [ undef, %9 ], [ %17, %16 ], [ undef, %5 ]
-  %20 = phi i1 [ false, %19 ], [ false, %9 ], [ true, %16 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %19 ], [ 0, %9 ], [ 16, %16 ], [ 0, %5 ]
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 120)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 15)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = xor i1 %11, true
+  tail call void @llvm.assume(i1 %12)
+  %13 = extractvalue { i64, i1 } %10, 0
+  %14 = and i64 %13, -16
+  %15 = add i64 %.sroa.4.0.copyload, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne ptr %.sroa.01.0.copyload, null
   tail call void @llvm.assume(i1 %21)
-  %22 = sub nsw i64 0, %.sroa.9.0.i
+  %22 = sub nsw i64 0, %14
   %23 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %22
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h711b9947b0280525E.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h711b9947b0280525E.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.0.0.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
   %.sroa.5.sroa.4.0.i = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
   %24 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
@@ -84607,51 +84293,43 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17ha0edf42ade349c64E.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h1daa7e2d04f5ac53E.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h1daa7e2d04f5ac53E.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 632)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add nuw i64 %10, 15
-  %12 = and i64 %11, -16
-  %13 = add i64 %.sroa.4.0.copyload, 17
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %12, i64 %13)
-  %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %16
-
-16:                                               ; preds = %9
-  %17 = extractvalue { i64, i1 } %14, 0
-  %18 = icmp ugt i64 %17, 9223372036854775792
-  br i1 %18, label %19, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-19:                                               ; preds = %16
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %19, %16, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %19 ], [ undef, %9 ], [ %12, %16 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %19 ], [ undef, %9 ], [ %17, %16 ], [ undef, %5 ]
-  %20 = phi i1 [ false, %19 ], [ false, %9 ], [ true, %16 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %19 ], [ 0, %9 ], [ 16, %16 ], [ 0, %5 ]
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 632)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 15)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = xor i1 %11, true
+  tail call void @llvm.assume(i1 %12)
+  %13 = extractvalue { i64, i1 } %10, 0
+  %14 = and i64 %13, -16
+  %15 = add i64 %.sroa.4.0.copyload, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne ptr %.sroa.01.0.copyload, null
   tail call void @llvm.assume(i1 %21)
-  %22 = sub nsw i64 0, %.sroa.9.0.i
+  %22 = sub nsw i64 0, %14
   %23 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %22
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h1daa7e2d04f5ac53E.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h1daa7e2d04f5ac53E.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.0.0.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
   %.sroa.5.sroa.4.0.i = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
   %24 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
@@ -84664,51 +84342,39 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17hab52f31f561370bbE.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h2c4457cd8181c435E.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h2c4457cd8181c435E.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 368)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add i64 %.sroa.4.0.copyload, 17
-  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %14
-
-14:                                               ; preds = %9
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = icmp ugt i64 %15, 9223372036854775792
-  br i1 %16, label %17, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-17:                                               ; preds = %14
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %17, %14, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %10, %14 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %15, %14 ], [ undef, %5 ]
-  %18 = phi i1 [ false, %17 ], [ false, %9 ], [ true, %14 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %17 ], [ 0, %9 ], [ 16, %14 ], [ 0, %5 ]
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = sub nsw i64 0, %.sroa.9.0.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %20
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 368)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = add i64 %.sroa.4.0.copyload, 17
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %10)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = icmp ult i64 %14, 9223372036854775793
+  tail call void @llvm.assume(i1 %15)
+  %16 = icmp ne ptr %.sroa.01.0.copyload, null
+  tail call void @llvm.assume(i1 %16)
+  %17 = sub nsw i64 0, %9
+  %18 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %17
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h2c4457cd8181c435E.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h2c4457cd8181c435E.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.5.sroa.4.0.i = phi ptr [ %21, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %.sroa.5.sroa.0.0.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.4.0.i = phi ptr [ %18, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -84719,51 +84385,39 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17hb2b449cd65df1561E.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17he6b99669fbb55596E.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17he6b99669fbb55596E.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add i64 %.sroa.4.0.copyload, 17
-  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %14
-
-14:                                               ; preds = %9
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = icmp ugt i64 %15, 9223372036854775792
-  br i1 %16, label %17, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-17:                                               ; preds = %14
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %17, %14, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %10, %14 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %15, %14 ], [ undef, %5 ]
-  %18 = phi i1 [ false, %17 ], [ false, %9 ], [ true, %14 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %17 ], [ 0, %9 ], [ 16, %14 ], [ 0, %5 ]
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = sub nsw i64 0, %.sroa.9.0.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %20
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 48)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = add i64 %.sroa.4.0.copyload, 17
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %10)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = icmp ult i64 %14, 9223372036854775793
+  tail call void @llvm.assume(i1 %15)
+  %16 = icmp ne ptr %.sroa.01.0.copyload, null
+  tail call void @llvm.assume(i1 %16)
+  %17 = sub nsw i64 0, %9
+  %18 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %17
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17he6b99669fbb55596E.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17he6b99669fbb55596E.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.5.sroa.4.0.i = phi ptr [ %21, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %.sroa.5.sroa.0.0.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.4.0.i = phi ptr [ %18, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -84774,51 +84428,39 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17hb2bead2a9e6e82c6E.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17hd870da64316d3523E.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17hd870da64316d3523E.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 320)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add i64 %.sroa.4.0.copyload, 17
-  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %14
-
-14:                                               ; preds = %9
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = icmp ugt i64 %15, 9223372036854775792
-  br i1 %16, label %17, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-17:                                               ; preds = %14
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %17, %14, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %10, %14 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %15, %14 ], [ undef, %5 ]
-  %18 = phi i1 [ false, %17 ], [ false, %9 ], [ true, %14 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %17 ], [ 0, %9 ], [ 16, %14 ], [ 0, %5 ]
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = sub nsw i64 0, %.sroa.9.0.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %20
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 320)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = add i64 %.sroa.4.0.copyload, 17
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %10)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = icmp ult i64 %14, 9223372036854775793
+  tail call void @llvm.assume(i1 %15)
+  %16 = icmp ne ptr %.sroa.01.0.copyload, null
+  tail call void @llvm.assume(i1 %16)
+  %17 = sub nsw i64 0, %9
+  %18 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %17
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17hd870da64316d3523E.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17hd870da64316d3523E.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.5.sroa.4.0.i = phi ptr [ %21, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %.sroa.5.sroa.0.0.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.4.0.i = phi ptr [ %18, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -84829,51 +84471,43 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17hcbe182c47cb4d11dE.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h72d93af285dd8f27E.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h72d93af285dd8f27E.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 120)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add nuw i64 %10, 15
-  %12 = and i64 %11, -16
-  %13 = add i64 %.sroa.4.0.copyload, 17
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %12, i64 %13)
-  %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %16
-
-16:                                               ; preds = %9
-  %17 = extractvalue { i64, i1 } %14, 0
-  %18 = icmp ugt i64 %17, 9223372036854775792
-  br i1 %18, label %19, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-19:                                               ; preds = %16
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %19, %16, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %19 ], [ undef, %9 ], [ %12, %16 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %19 ], [ undef, %9 ], [ %17, %16 ], [ undef, %5 ]
-  %20 = phi i1 [ false, %19 ], [ false, %9 ], [ true, %16 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %19 ], [ 0, %9 ], [ 16, %16 ], [ 0, %5 ]
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 120)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 15)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = xor i1 %11, true
+  tail call void @llvm.assume(i1 %12)
+  %13 = extractvalue { i64, i1 } %10, 0
+  %14 = and i64 %13, -16
+  %15 = add i64 %.sroa.4.0.copyload, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne ptr %.sroa.01.0.copyload, null
   tail call void @llvm.assume(i1 %21)
-  %22 = sub nsw i64 0, %.sroa.9.0.i
+  %22 = sub nsw i64 0, %14
   %23 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %22
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h72d93af285dd8f27E.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h72d93af285dd8f27E.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.0.0.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
   %.sroa.5.sroa.4.0.i = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
   %24 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
@@ -84886,51 +84520,43 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17hcf46d54810e62f53E.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17he282edf8975b82c5E.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17he282edf8975b82c5E.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 632)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add nuw i64 %10, 15
-  %12 = and i64 %11, -16
-  %13 = add i64 %.sroa.4.0.copyload, 17
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %12, i64 %13)
-  %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %16
-
-16:                                               ; preds = %9
-  %17 = extractvalue { i64, i1 } %14, 0
-  %18 = icmp ugt i64 %17, 9223372036854775792
-  br i1 %18, label %19, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-19:                                               ; preds = %16
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %19, %16, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %19 ], [ undef, %9 ], [ %12, %16 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %19 ], [ undef, %9 ], [ %17, %16 ], [ undef, %5 ]
-  %20 = phi i1 [ false, %19 ], [ false, %9 ], [ true, %16 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %19 ], [ 0, %9 ], [ 16, %16 ], [ 0, %5 ]
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 632)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 15)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = xor i1 %11, true
+  tail call void @llvm.assume(i1 %12)
+  %13 = extractvalue { i64, i1 } %10, 0
+  %14 = and i64 %13, -16
+  %15 = add i64 %.sroa.4.0.copyload, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne ptr %.sroa.01.0.copyload, null
   tail call void @llvm.assume(i1 %21)
-  %22 = sub nsw i64 0, %.sroa.9.0.i
+  %22 = sub nsw i64 0, %14
   %23 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %22
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17he282edf8975b82c5E.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17he282edf8975b82c5E.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.0.0.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
   %.sroa.5.sroa.4.0.i = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
   %24 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
@@ -84943,51 +84569,39 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17hd05f75317e8b7493E.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h5f31e5dd3d484e1dE.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h5f31e5dd3d484e1dE.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 304)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add i64 %.sroa.4.0.copyload, 17
-  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %14
-
-14:                                               ; preds = %9
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = icmp ugt i64 %15, 9223372036854775792
-  br i1 %16, label %17, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-17:                                               ; preds = %14
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %17, %14, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %10, %14 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %15, %14 ], [ undef, %5 ]
-  %18 = phi i1 [ false, %17 ], [ false, %9 ], [ true, %14 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %17 ], [ 0, %9 ], [ 16, %14 ], [ 0, %5 ]
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = sub nsw i64 0, %.sroa.9.0.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %20
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 304)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = add i64 %.sroa.4.0.copyload, 17
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %10)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = icmp ult i64 %14, 9223372036854775793
+  tail call void @llvm.assume(i1 %15)
+  %16 = icmp ne ptr %.sroa.01.0.copyload, null
+  tail call void @llvm.assume(i1 %16)
+  %17 = sub nsw i64 0, %9
+  %18 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %17
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h5f31e5dd3d484e1dE.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h5f31e5dd3d484e1dE.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.5.sroa.4.0.i = phi ptr [ %21, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %.sroa.5.sroa.0.0.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.4.0.i = phi ptr [ %18, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -84998,51 +84612,39 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17he80939580e0af2f3E.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h4ad9c3733774efcdE.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h4ad9c3733774efcdE.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 96)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add i64 %.sroa.4.0.copyload, 17
-  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %14
-
-14:                                               ; preds = %9
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = icmp ugt i64 %15, 9223372036854775792
-  br i1 %16, label %17, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-17:                                               ; preds = %14
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %17, %14, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %10, %14 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %15, %14 ], [ undef, %5 ]
-  %18 = phi i1 [ false, %17 ], [ false, %9 ], [ true, %14 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %17 ], [ 0, %9 ], [ 16, %14 ], [ 0, %5 ]
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = sub nsw i64 0, %.sroa.9.0.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %20
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 96)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = add i64 %.sroa.4.0.copyload, 17
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %10)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = icmp ult i64 %14, 9223372036854775793
+  tail call void @llvm.assume(i1 %15)
+  %16 = icmp ne ptr %.sroa.01.0.copyload, null
+  tail call void @llvm.assume(i1 %16)
+  %17 = sub nsw i64 0, %9
+  %18 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %17
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h4ad9c3733774efcdE.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h4ad9c3733774efcdE.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.5.sroa.4.0.i = phi ptr [ %21, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %.sroa.5.sroa.0.0.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.4.0.i = phi ptr [ %18, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -85053,51 +84655,39 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17hf4c2b1b65c5a18c1E.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h93d2bbe6b512c440E.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h93d2bbe6b512c440E.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 96)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add i64 %.sroa.4.0.copyload, 17
-  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %14
-
-14:                                               ; preds = %9
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = icmp ugt i64 %15, 9223372036854775792
-  br i1 %16, label %17, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-17:                                               ; preds = %14
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %17, %14, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %10, %14 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %15, %14 ], [ undef, %5 ]
-  %18 = phi i1 [ false, %17 ], [ false, %9 ], [ true, %14 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %17 ], [ 0, %9 ], [ 16, %14 ], [ 0, %5 ]
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = sub nsw i64 0, %.sroa.9.0.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %20
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 96)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = add i64 %.sroa.4.0.copyload, 17
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %10)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = icmp ult i64 %14, 9223372036854775793
+  tail call void @llvm.assume(i1 %15)
+  %16 = icmp ne ptr %.sroa.01.0.copyload, null
+  tail call void @llvm.assume(i1 %16)
+  %17 = sub nsw i64 0, %9
+  %18 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %17
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h93d2bbe6b512c440E.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h93d2bbe6b512c440E.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.5.sroa.4.0.i = phi ptr [ %21, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %.sroa.5.sroa.0.0.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.4.0.i = phi ptr [ %18, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -85108,50 +84698,33 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17hf847292e54fcb150E.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h9ef24d7edeea4c89E.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h9ef24d7edeea4c89E.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = icmp ugt i64 %6, 144115188075855871
-  br i1 %7, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %8
-
-8:                                                ; preds = %5
-  %9 = shl nuw i64 %6, 7
-  %10 = add nsw i64 %.sroa.4.0.copyload, 17
-  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %10)
-  %12 = extractvalue { i64, i1 } %11, 1
-  br i1 %12, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %13
-
-13:                                               ; preds = %8
-  %14 = extractvalue { i64, i1 } %11, 0
-  %15 = icmp ugt i64 %14, 9223372036854775792
-  br i1 %15, label %16, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-16:                                               ; preds = %13
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %16, %13, %8, %5
-  %.sroa.9.0.i = phi i64 [ undef, %16 ], [ undef, %8 ], [ %9, %13 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %16 ], [ undef, %8 ], [ %14, %13 ], [ undef, %5 ]
-  %17 = phi i1 [ false, %16 ], [ false, %8 ], [ true, %13 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %16 ], [ 0, %8 ], [ 16, %13 ], [ 0, %5 ]
-  tail call void @llvm.assume(i1 %17)
-  %18 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %18)
-  %19 = sub nsw i64 0, %.sroa.9.0.i
-  %20 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %19
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %5 = shl i64 %.sroa.4.0.copyload, 7
+  %6 = add i64 %5, 128
+  %7 = add i64 %.sroa.4.0.copyload, 17
+  %8 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %6, i64 %7)
+  %9 = extractvalue { i64, i1 } %8, 1
+  %10 = xor i1 %9, true
+  tail call void @llvm.assume(i1 %10)
+  %11 = extractvalue { i64, i1 } %8, 0
+  %12 = icmp ult i64 %11, 9223372036854775793
+  tail call void @llvm.assume(i1 %12)
+  %13 = sub nuw nsw i64 -128, %5
+  %14 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %13
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h9ef24d7edeea4c89E.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h9ef24d7edeea4c89E.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.5.sroa.4.0.i = phi ptr [ %20, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %.sroa.5.sroa.0.0.i = phi i64 [ %11, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.4.0.i = phi ptr [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -85162,51 +84735,39 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17hfb22b00e5811a054E.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h4d220899eed07da6E.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h4d220899eed07da6E.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add i64 %.sroa.4.0.copyload, 17
-  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %14
-
-14:                                               ; preds = %9
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = icmp ugt i64 %15, 9223372036854775792
-  br i1 %16, label %17, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-17:                                               ; preds = %14
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %17, %14, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %10, %14 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %17 ], [ undef, %9 ], [ %15, %14 ], [ undef, %5 ]
-  %18 = phi i1 [ false, %17 ], [ false, %9 ], [ true, %14 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %17 ], [ 0, %9 ], [ 16, %14 ], [ 0, %5 ]
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = sub nsw i64 0, %.sroa.9.0.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %20
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 48)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = add i64 %.sroa.4.0.copyload, 17
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %10)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = icmp ult i64 %14, 9223372036854775793
+  tail call void @llvm.assume(i1 %15)
+  %16 = icmp ne ptr %.sroa.01.0.copyload, null
+  tail call void @llvm.assume(i1 %16)
+  %17 = sub nsw i64 0, %9
+  %18 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %17
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h4d220899eed07da6E.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h4d220899eed07da6E.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.5.sroa.4.0.i = phi ptr [ %21, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %.sroa.5.sroa.0.0.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.4.0.i = phi ptr [ %18, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -85217,51 +84778,43 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14into_iter_from17hfbecb60d0ffde31fE.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.4.0.copyload, 0
-  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17he71f21828bde2021E.llvm.240573438051967091.exit", label %5
+  br i1 %4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17he71f21828bde2021E.llvm.240573438051967091.exit", label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
 
-5:                                                ; preds = %3
-  %6 = add i64 %.sroa.4.0.copyload, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 152)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %9
-
-9:                                                ; preds = %5
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add nuw i64 %10, 15
-  %12 = and i64 %11, -16
-  %13 = add i64 %.sroa.4.0.copyload, 17
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %12, i64 %13)
-  %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i, label %16
-
-16:                                               ; preds = %9
-  %17 = extractvalue { i64, i1 } %14, 0
-  %18 = icmp ugt i64 %17, 9223372036854775792
-  br i1 %18, label %19, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-19:                                               ; preds = %16
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %19, %16, %9, %5
-  %.sroa.9.0.i = phi i64 [ undef, %19 ], [ undef, %9 ], [ %12, %16 ], [ undef, %5 ]
-  %.sroa.7.0.i = phi i64 [ undef, %19 ], [ undef, %9 ], [ %17, %16 ], [ undef, %5 ]
-  %20 = phi i1 [ false, %19 ], [ false, %9 ], [ true, %16 ], [ false, %5 ]
-  %.sroa.0.07.i = phi i64 [ 0, %19 ], [ 0, %9 ], [ 16, %16 ], [ 0, %5 ]
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i: ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %1, align 8
+  %5 = add i64 %.sroa.4.0.copyload, 1
+  %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 152)
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = xor i1 %7, true
+  tail call void @llvm.assume(i1 %8)
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 15)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = xor i1 %11, true
+  tail call void @llvm.assume(i1 %12)
+  %13 = extractvalue { i64, i1 } %10, 0
+  %14 = and i64 %13, -16
+  %15 = add i64 %.sroa.4.0.copyload, 17
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = xor i1 %17, true
+  tail call void @llvm.assume(i1 %18)
+  %19 = extractvalue { i64, i1 } %16, 0
+  %20 = icmp ult i64 %19, 9223372036854775793
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne ptr %.sroa.01.0.copyload, null
   tail call void @llvm.assume(i1 %21)
-  %22 = sub nsw i64 0, %.sroa.9.0.i
+  %22 = sub nsw i64 0, %14
   %23 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %22
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17he71f21828bde2021E.llvm.240573438051967091.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17he71f21828bde2021E.llvm.240573438051967091.exit": ; preds = %3, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i
-  %.sroa.5.sroa.0.0.i = phi i64 [ %.sroa.7.0.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
+  %.sroa.5.sroa.0.0.i = phi i64 [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
   %.sroa.5.sroa.4.0.i = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ undef, %3 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.07.i, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
+  %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit.i ], [ 0, %3 ]
   %24 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
@@ -105001,52 +104554,44 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %21, label %6
+  br i1 %5, label %25, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 24)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 24)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 15)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = and i64 %14, -16
+  %16 = add i64 %4, 17
+  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
+  %18 = extractvalue { i64, i1 } %17, 1
+  %19 = xor i1 %18, true
+  tail call void @llvm.assume(i1 %19)
+  %20 = extractvalue { i64, i1 } %17, 0
+  %21 = icmp ult i64 %20, 9223372036854775793
+  tail call void @llvm.assume(i1 %21)
+  %22 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %23 = sub nsw i64 0, %15
+  %24 = getelementptr inbounds i8, ptr %22, i64 %23
+  br label %25
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add nuw i64 %11, 15
-  %13 = and i64 %12, -16
-  %14 = add i64 %4, 17
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %14)
-  %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %17
-
-17:                                               ; preds = %10
-  %18 = extractvalue { i64, i1 } %15, 0
-  %19 = icmp ugt i64 %18, 9223372036854775792
-  br i1 %19, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-20:                                               ; preds = %17
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-21:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+25:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %20, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %24, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %20, %10, %17, %6
-  %.sroa.9.0 = phi i64 [ undef, %20 ], [ undef, %10 ], [ %13, %17 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %20 ], [ undef, %10 ], [ %18, %17 ], [ undef, %6 ]
-  %22 = phi i1 [ false, %20 ], [ false, %10 ], [ true, %17 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %20 ], [ 0, %10 ], [ 16, %17 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %22)
-  %23 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %24 = sub nsw i64 0, %.sroa.9.0
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
-  br label %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105054,52 +104599,44 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %21, label %6
+  br i1 %5, label %25, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 728)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 728)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 15)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = and i64 %14, -16
+  %16 = add i64 %4, 17
+  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
+  %18 = extractvalue { i64, i1 } %17, 1
+  %19 = xor i1 %18, true
+  tail call void @llvm.assume(i1 %19)
+  %20 = extractvalue { i64, i1 } %17, 0
+  %21 = icmp ult i64 %20, 9223372036854775793
+  tail call void @llvm.assume(i1 %21)
+  %22 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %23 = sub nsw i64 0, %15
+  %24 = getelementptr inbounds i8, ptr %22, i64 %23
+  br label %25
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add nuw i64 %11, 15
-  %13 = and i64 %12, -16
-  %14 = add i64 %4, 17
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %14)
-  %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %17
-
-17:                                               ; preds = %10
-  %18 = extractvalue { i64, i1 } %15, 0
-  %19 = icmp ugt i64 %18, 9223372036854775792
-  br i1 %19, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-20:                                               ; preds = %17
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-21:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+25:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %20, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %24, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %20, %10, %17, %6
-  %.sroa.9.0 = phi i64 [ undef, %20 ], [ undef, %10 ], [ %13, %17 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %20 ], [ undef, %10 ], [ %18, %17 ], [ undef, %6 ]
-  %22 = phi i1 [ false, %20 ], [ false, %10 ], [ true, %17 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %20 ], [ 0, %10 ], [ 16, %17 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %22)
-  %23 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %24 = sub nsw i64 0, %.sroa.9.0
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
-  br label %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105107,52 +104644,44 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %21, label %6
+  br i1 %5, label %25, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 632)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 632)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 15)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = and i64 %14, -16
+  %16 = add i64 %4, 17
+  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
+  %18 = extractvalue { i64, i1 } %17, 1
+  %19 = xor i1 %18, true
+  tail call void @llvm.assume(i1 %19)
+  %20 = extractvalue { i64, i1 } %17, 0
+  %21 = icmp ult i64 %20, 9223372036854775793
+  tail call void @llvm.assume(i1 %21)
+  %22 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %23 = sub nsw i64 0, %15
+  %24 = getelementptr inbounds i8, ptr %22, i64 %23
+  br label %25
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add nuw i64 %11, 15
-  %13 = and i64 %12, -16
-  %14 = add i64 %4, 17
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %14)
-  %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %17
-
-17:                                               ; preds = %10
-  %18 = extractvalue { i64, i1 } %15, 0
-  %19 = icmp ugt i64 %18, 9223372036854775792
-  br i1 %19, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-20:                                               ; preds = %17
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-21:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+25:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %20, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %24, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %20, %10, %17, %6
-  %.sroa.9.0 = phi i64 [ undef, %20 ], [ undef, %10 ], [ %13, %17 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %20 ], [ undef, %10 ], [ %18, %17 ], [ undef, %6 ]
-  %22 = phi i1 [ false, %20 ], [ false, %10 ], [ true, %17 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %20 ], [ 0, %10 ], [ 16, %17 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %22)
-  %23 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %24 = sub nsw i64 0, %.sroa.9.0
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
-  br label %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105160,50 +104689,38 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %19, label %6
+  br i1 %5, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 368)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 368)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = add i64 %4, 17
+  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
+  %13 = extractvalue { i64, i1 } %12, 1
+  %14 = xor i1 %13, true
+  tail call void @llvm.assume(i1 %14)
+  %15 = extractvalue { i64, i1 } %12, 0
+  %16 = icmp ult i64 %15, 9223372036854775793
+  tail call void @llvm.assume(i1 %16)
+  %17 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %18 = sub nsw i64 0, %10
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
+  br label %20
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add i64 %4, 17
-  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %11, i64 %12)
-  %14 = extractvalue { i64, i1 } %13, 1
-  br i1 %14, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %15
-
-15:                                               ; preds = %10
-  %16 = extractvalue { i64, i1 } %13, 0
-  %17 = icmp ugt i64 %16, 9223372036854775792
-  br i1 %17, label %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-18:                                               ; preds = %15
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-19:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+20:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %15, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %18, %10, %15, %6
-  %.sroa.9.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %11, %15 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %16, %15 ], [ undef, %6 ]
-  %20 = phi i1 [ false, %18 ], [ false, %10 ], [ true, %15 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %18 ], [ 0, %10 ], [ 16, %15 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %20)
-  %21 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %22 = sub nsw i64 0, %.sroa.9.0
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  br label %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105211,50 +104728,38 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %19, label %6
+  br i1 %5, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 48)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = add i64 %4, 17
+  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
+  %13 = extractvalue { i64, i1 } %12, 1
+  %14 = xor i1 %13, true
+  tail call void @llvm.assume(i1 %14)
+  %15 = extractvalue { i64, i1 } %12, 0
+  %16 = icmp ult i64 %15, 9223372036854775793
+  tail call void @llvm.assume(i1 %16)
+  %17 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %18 = sub nsw i64 0, %10
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
+  br label %20
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add i64 %4, 17
-  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %11, i64 %12)
-  %14 = extractvalue { i64, i1 } %13, 1
-  br i1 %14, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %15
-
-15:                                               ; preds = %10
-  %16 = extractvalue { i64, i1 } %13, 0
-  %17 = icmp ugt i64 %16, 9223372036854775792
-  br i1 %17, label %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-18:                                               ; preds = %15
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-19:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+20:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %15, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %18, %10, %15, %6
-  %.sroa.9.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %11, %15 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %16, %15 ], [ undef, %6 ]
-  %20 = phi i1 [ false, %18 ], [ false, %10 ], [ true, %15 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %18 ], [ 0, %10 ], [ 16, %15 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %20)
-  %21 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %22 = sub nsw i64 0, %.sroa.9.0
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  br label %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105262,50 +104767,38 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %19, label %6
+  br i1 %5, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 48)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = add i64 %4, 17
+  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
+  %13 = extractvalue { i64, i1 } %12, 1
+  %14 = xor i1 %13, true
+  tail call void @llvm.assume(i1 %14)
+  %15 = extractvalue { i64, i1 } %12, 0
+  %16 = icmp ult i64 %15, 9223372036854775793
+  tail call void @llvm.assume(i1 %16)
+  %17 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %18 = sub nsw i64 0, %10
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
+  br label %20
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add i64 %4, 17
-  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %11, i64 %12)
-  %14 = extractvalue { i64, i1 } %13, 1
-  br i1 %14, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %15
-
-15:                                               ; preds = %10
-  %16 = extractvalue { i64, i1 } %13, 0
-  %17 = icmp ugt i64 %16, 9223372036854775792
-  br i1 %17, label %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-18:                                               ; preds = %15
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-19:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+20:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %15, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %18, %10, %15, %6
-  %.sroa.9.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %11, %15 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %16, %15 ], [ undef, %6 ]
-  %20 = phi i1 [ false, %18 ], [ false, %10 ], [ true, %15 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %18 ], [ 0, %10 ], [ 16, %15 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %20)
-  %21 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %22 = sub nsw i64 0, %.sroa.9.0
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  br label %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105313,50 +104806,38 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %19, label %6
+  br i1 %5, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 96)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 96)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = add i64 %4, 17
+  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
+  %13 = extractvalue { i64, i1 } %12, 1
+  %14 = xor i1 %13, true
+  tail call void @llvm.assume(i1 %14)
+  %15 = extractvalue { i64, i1 } %12, 0
+  %16 = icmp ult i64 %15, 9223372036854775793
+  tail call void @llvm.assume(i1 %16)
+  %17 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %18 = sub nsw i64 0, %10
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
+  br label %20
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add i64 %4, 17
-  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %11, i64 %12)
-  %14 = extractvalue { i64, i1 } %13, 1
-  br i1 %14, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %15
-
-15:                                               ; preds = %10
-  %16 = extractvalue { i64, i1 } %13, 0
-  %17 = icmp ugt i64 %16, 9223372036854775792
-  br i1 %17, label %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-18:                                               ; preds = %15
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-19:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+20:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %15, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %18, %10, %15, %6
-  %.sroa.9.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %11, %15 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %16, %15 ], [ undef, %6 ]
-  %20 = phi i1 [ false, %18 ], [ false, %10 ], [ true, %15 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %18 ], [ 0, %10 ], [ 16, %15 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %20)
-  %21 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %22 = sub nsw i64 0, %.sroa.9.0
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  br label %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105364,50 +104845,38 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %19, label %6
+  br i1 %5, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 48)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = add i64 %4, 17
+  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
+  %13 = extractvalue { i64, i1 } %12, 1
+  %14 = xor i1 %13, true
+  tail call void @llvm.assume(i1 %14)
+  %15 = extractvalue { i64, i1 } %12, 0
+  %16 = icmp ult i64 %15, 9223372036854775793
+  tail call void @llvm.assume(i1 %16)
+  %17 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %18 = sub nsw i64 0, %10
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
+  br label %20
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add i64 %4, 17
-  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %11, i64 %12)
-  %14 = extractvalue { i64, i1 } %13, 1
-  br i1 %14, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %15
-
-15:                                               ; preds = %10
-  %16 = extractvalue { i64, i1 } %13, 0
-  %17 = icmp ugt i64 %16, 9223372036854775792
-  br i1 %17, label %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-18:                                               ; preds = %15
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-19:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+20:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %15, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %18, %10, %15, %6
-  %.sroa.9.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %11, %15 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %16, %15 ], [ undef, %6 ]
-  %20 = phi i1 [ false, %18 ], [ false, %10 ], [ true, %15 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %18 ], [ 0, %10 ], [ 16, %15 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %20)
-  %21 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %22 = sub nsw i64 0, %.sroa.9.0
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  br label %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105415,52 +104884,44 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %21, label %6
+  br i1 %5, label %25, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 56)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 56)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 15)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = and i64 %14, -16
+  %16 = add i64 %4, 17
+  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
+  %18 = extractvalue { i64, i1 } %17, 1
+  %19 = xor i1 %18, true
+  tail call void @llvm.assume(i1 %19)
+  %20 = extractvalue { i64, i1 } %17, 0
+  %21 = icmp ult i64 %20, 9223372036854775793
+  tail call void @llvm.assume(i1 %21)
+  %22 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %23 = sub nsw i64 0, %15
+  %24 = getelementptr inbounds i8, ptr %22, i64 %23
+  br label %25
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add nuw i64 %11, 15
-  %13 = and i64 %12, -16
-  %14 = add i64 %4, 17
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %14)
-  %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %17
-
-17:                                               ; preds = %10
-  %18 = extractvalue { i64, i1 } %15, 0
-  %19 = icmp ugt i64 %18, 9223372036854775792
-  br i1 %19, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-20:                                               ; preds = %17
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-21:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+25:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %20, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %24, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %20, %10, %17, %6
-  %.sroa.9.0 = phi i64 [ undef, %20 ], [ undef, %10 ], [ %13, %17 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %20 ], [ undef, %10 ], [ %18, %17 ], [ undef, %6 ]
-  %22 = phi i1 [ false, %20 ], [ false, %10 ], [ true, %17 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %20 ], [ 0, %10 ], [ 16, %17 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %22)
-  %23 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %24 = sub nsw i64 0, %.sroa.9.0
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
-  br label %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105468,50 +104929,38 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %19, label %6
+  br i1 %5, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 96)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 96)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = add i64 %4, 17
+  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
+  %13 = extractvalue { i64, i1 } %12, 1
+  %14 = xor i1 %13, true
+  tail call void @llvm.assume(i1 %14)
+  %15 = extractvalue { i64, i1 } %12, 0
+  %16 = icmp ult i64 %15, 9223372036854775793
+  tail call void @llvm.assume(i1 %16)
+  %17 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %18 = sub nsw i64 0, %10
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
+  br label %20
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add i64 %4, 17
-  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %11, i64 %12)
-  %14 = extractvalue { i64, i1 } %13, 1
-  br i1 %14, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %15
-
-15:                                               ; preds = %10
-  %16 = extractvalue { i64, i1 } %13, 0
-  %17 = icmp ugt i64 %16, 9223372036854775792
-  br i1 %17, label %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-18:                                               ; preds = %15
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-19:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+20:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %15, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %18, %10, %15, %6
-  %.sroa.9.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %11, %15 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %16, %15 ], [ undef, %6 ]
-  %20 = phi i1 [ false, %18 ], [ false, %10 ], [ true, %15 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %18 ], [ 0, %10 ], [ 16, %15 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %20)
-  %21 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %22 = sub nsw i64 0, %.sroa.9.0
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  br label %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105519,50 +104968,38 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %19, label %6
+  br i1 %5, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 304)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 304)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = add i64 %4, 17
+  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
+  %13 = extractvalue { i64, i1 } %12, 1
+  %14 = xor i1 %13, true
+  tail call void @llvm.assume(i1 %14)
+  %15 = extractvalue { i64, i1 } %12, 0
+  %16 = icmp ult i64 %15, 9223372036854775793
+  tail call void @llvm.assume(i1 %16)
+  %17 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %18 = sub nsw i64 0, %10
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
+  br label %20
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add i64 %4, 17
-  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %11, i64 %12)
-  %14 = extractvalue { i64, i1 } %13, 1
-  br i1 %14, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %15
-
-15:                                               ; preds = %10
-  %16 = extractvalue { i64, i1 } %13, 0
-  %17 = icmp ugt i64 %16, 9223372036854775792
-  br i1 %17, label %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-18:                                               ; preds = %15
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-19:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+20:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %15, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %18, %10, %15, %6
-  %.sroa.9.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %11, %15 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %16, %15 ], [ undef, %6 ]
-  %20 = phi i1 [ false, %18 ], [ false, %10 ], [ true, %15 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %18 ], [ 0, %10 ], [ 16, %15 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %20)
-  %21 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %22 = sub nsw i64 0, %.sroa.9.0
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  br label %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105570,50 +105007,38 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %19, label %6
+  br i1 %5, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 48)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = add i64 %4, 17
+  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
+  %13 = extractvalue { i64, i1 } %12, 1
+  %14 = xor i1 %13, true
+  tail call void @llvm.assume(i1 %14)
+  %15 = extractvalue { i64, i1 } %12, 0
+  %16 = icmp ult i64 %15, 9223372036854775793
+  tail call void @llvm.assume(i1 %16)
+  %17 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %18 = sub nsw i64 0, %10
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
+  br label %20
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add i64 %4, 17
-  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %11, i64 %12)
-  %14 = extractvalue { i64, i1 } %13, 1
-  br i1 %14, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %15
-
-15:                                               ; preds = %10
-  %16 = extractvalue { i64, i1 } %13, 0
-  %17 = icmp ugt i64 %16, 9223372036854775792
-  br i1 %17, label %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-18:                                               ; preds = %15
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-19:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+20:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %15, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %18, %10, %15, %6
-  %.sroa.9.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %11, %15 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %16, %15 ], [ undef, %6 ]
-  %20 = phi i1 [ false, %18 ], [ false, %10 ], [ true, %15 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %18 ], [ 0, %10 ], [ 16, %15 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %20)
-  %21 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %22 = sub nsw i64 0, %.sroa.9.0
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  br label %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105621,52 +105046,44 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %21, label %6
+  br i1 %5, label %25, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 120)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 120)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 15)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = and i64 %14, -16
+  %16 = add i64 %4, 17
+  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
+  %18 = extractvalue { i64, i1 } %17, 1
+  %19 = xor i1 %18, true
+  tail call void @llvm.assume(i1 %19)
+  %20 = extractvalue { i64, i1 } %17, 0
+  %21 = icmp ult i64 %20, 9223372036854775793
+  tail call void @llvm.assume(i1 %21)
+  %22 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %23 = sub nsw i64 0, %15
+  %24 = getelementptr inbounds i8, ptr %22, i64 %23
+  br label %25
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add nuw i64 %11, 15
-  %13 = and i64 %12, -16
-  %14 = add i64 %4, 17
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %14)
-  %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %17
-
-17:                                               ; preds = %10
-  %18 = extractvalue { i64, i1 } %15, 0
-  %19 = icmp ugt i64 %18, 9223372036854775792
-  br i1 %19, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-20:                                               ; preds = %17
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-21:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+25:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %20, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %24, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %20, %10, %17, %6
-  %.sroa.9.0 = phi i64 [ undef, %20 ], [ undef, %10 ], [ %13, %17 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %20 ], [ undef, %10 ], [ %18, %17 ], [ undef, %6 ]
-  %22 = phi i1 [ false, %20 ], [ false, %10 ], [ true, %17 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %20 ], [ 0, %10 ], [ 16, %17 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %22)
-  %23 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %24 = sub nsw i64 0, %.sroa.9.0
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
-  br label %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105674,52 +105091,44 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %21, label %6
+  br i1 %5, label %25, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 120)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 120)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 15)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = and i64 %14, -16
+  %16 = add i64 %4, 17
+  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
+  %18 = extractvalue { i64, i1 } %17, 1
+  %19 = xor i1 %18, true
+  tail call void @llvm.assume(i1 %19)
+  %20 = extractvalue { i64, i1 } %17, 0
+  %21 = icmp ult i64 %20, 9223372036854775793
+  tail call void @llvm.assume(i1 %21)
+  %22 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %23 = sub nsw i64 0, %15
+  %24 = getelementptr inbounds i8, ptr %22, i64 %23
+  br label %25
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add nuw i64 %11, 15
-  %13 = and i64 %12, -16
-  %14 = add i64 %4, 17
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %14)
-  %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %17
-
-17:                                               ; preds = %10
-  %18 = extractvalue { i64, i1 } %15, 0
-  %19 = icmp ugt i64 %18, 9223372036854775792
-  br i1 %19, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-20:                                               ; preds = %17
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-21:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+25:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %20, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %24, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %20, %10, %17, %6
-  %.sroa.9.0 = phi i64 [ undef, %20 ], [ undef, %10 ], [ %13, %17 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %20 ], [ undef, %10 ], [ %18, %17 ], [ undef, %6 ]
-  %22 = phi i1 [ false, %20 ], [ false, %10 ], [ true, %17 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %20 ], [ 0, %10 ], [ 16, %17 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %22)
-  %23 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %24 = sub nsw i64 0, %.sroa.9.0
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
-  br label %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105727,50 +105136,38 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %19, label %6
+  br i1 %5, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 96)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 96)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = add i64 %4, 17
+  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
+  %13 = extractvalue { i64, i1 } %12, 1
+  %14 = xor i1 %13, true
+  tail call void @llvm.assume(i1 %14)
+  %15 = extractvalue { i64, i1 } %12, 0
+  %16 = icmp ult i64 %15, 9223372036854775793
+  tail call void @llvm.assume(i1 %16)
+  %17 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %18 = sub nsw i64 0, %10
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
+  br label %20
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add i64 %4, 17
-  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %11, i64 %12)
-  %14 = extractvalue { i64, i1 } %13, 1
-  br i1 %14, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %15
-
-15:                                               ; preds = %10
-  %16 = extractvalue { i64, i1 } %13, 0
-  %17 = icmp ugt i64 %16, 9223372036854775792
-  br i1 %17, label %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-18:                                               ; preds = %15
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-19:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+20:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %15, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %18, %10, %15, %6
-  %.sroa.9.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %11, %15 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %16, %15 ], [ undef, %6 ]
-  %20 = phi i1 [ false, %18 ], [ false, %10 ], [ true, %15 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %18 ], [ 0, %10 ], [ 16, %15 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %20)
-  %21 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %22 = sub nsw i64 0, %.sroa.9.0
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  br label %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105778,50 +105175,38 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %19, label %6
+  br i1 %5, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 368)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 368)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = add i64 %4, 17
+  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
+  %13 = extractvalue { i64, i1 } %12, 1
+  %14 = xor i1 %13, true
+  tail call void @llvm.assume(i1 %14)
+  %15 = extractvalue { i64, i1 } %12, 0
+  %16 = icmp ult i64 %15, 9223372036854775793
+  tail call void @llvm.assume(i1 %16)
+  %17 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %18 = sub nsw i64 0, %10
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
+  br label %20
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add i64 %4, 17
-  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %11, i64 %12)
-  %14 = extractvalue { i64, i1 } %13, 1
-  br i1 %14, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %15
-
-15:                                               ; preds = %10
-  %16 = extractvalue { i64, i1 } %13, 0
-  %17 = icmp ugt i64 %16, 9223372036854775792
-  br i1 %17, label %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-18:                                               ; preds = %15
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-19:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+20:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %15, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %18, %10, %15, %6
-  %.sroa.9.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %11, %15 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %16, %15 ], [ undef, %6 ]
-  %20 = phi i1 [ false, %18 ], [ false, %10 ], [ true, %15 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %18 ], [ 0, %10 ], [ 16, %15 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %20)
-  %21 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %22 = sub nsw i64 0, %.sroa.9.0
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  br label %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105829,49 +105214,34 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %18, label %6
+  br i1 %5, label %17, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = icmp ugt i64 %7, 144115188075855871
-  br i1 %8, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %9
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = shl i64 %4, 7
+  %7 = add i64 %6, 128
+  %8 = add i64 %4, 17
+  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %7, i64 %8)
+  %10 = extractvalue { i64, i1 } %9, 1
+  %11 = xor i1 %10, true
+  tail call void @llvm.assume(i1 %11)
+  %12 = extractvalue { i64, i1 } %9, 0
+  %13 = icmp ult i64 %12, 9223372036854775793
+  tail call void @llvm.assume(i1 %13)
+  %14 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %15 = sub nuw nsw i64 -128, %6
+  %16 = getelementptr inbounds i8, ptr %14, i64 %15
+  br label %17
 
-9:                                                ; preds = %6
-  %10 = shl nuw i64 %7, 7
-  %11 = add nsw i64 %4, 17
-  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %14
-
-14:                                               ; preds = %9
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = icmp ugt i64 %15, 9223372036854775792
-  br i1 %16, label %17, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-17:                                               ; preds = %14
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-18:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %22, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+17:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %12, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %17, %9, %14, %6
-  %.sroa.9.0 = phi i64 [ undef, %17 ], [ undef, %9 ], [ %10, %14 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %17 ], [ undef, %9 ], [ %15, %14 ], [ undef, %6 ]
-  %19 = phi i1 [ false, %17 ], [ false, %9 ], [ true, %14 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %17 ], [ 0, %9 ], [ 16, %14 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %19)
-  %20 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %21 = sub nsw i64 0, %.sroa.9.0
-  %22 = getelementptr inbounds i8, ptr %20, i64 %21
-  br label %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105879,50 +105249,38 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %19, label %6
+  br i1 %5, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 320)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 320)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = add i64 %4, 17
+  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
+  %13 = extractvalue { i64, i1 } %12, 1
+  %14 = xor i1 %13, true
+  tail call void @llvm.assume(i1 %14)
+  %15 = extractvalue { i64, i1 } %12, 0
+  %16 = icmp ult i64 %15, 9223372036854775793
+  tail call void @llvm.assume(i1 %16)
+  %17 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %18 = sub nsw i64 0, %10
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
+  br label %20
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add i64 %4, 17
-  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %11, i64 %12)
-  %14 = extractvalue { i64, i1 } %13, 1
-  br i1 %14, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %15
-
-15:                                               ; preds = %10
-  %16 = extractvalue { i64, i1 } %13, 0
-  %17 = icmp ugt i64 %16, 9223372036854775792
-  br i1 %17, label %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-18:                                               ; preds = %15
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-19:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+20:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %15, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %18, %10, %15, %6
-  %.sroa.9.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %11, %15 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %16, %15 ], [ undef, %6 ]
-  %20 = phi i1 [ false, %18 ], [ false, %10 ], [ true, %15 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %18 ], [ 0, %10 ], [ 16, %15 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %20)
-  %21 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %22 = sub nsw i64 0, %.sroa.9.0
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  br label %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105930,52 +105288,44 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %21, label %6
+  br i1 %5, label %25, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 632)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 632)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 15)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = and i64 %14, -16
+  %16 = add i64 %4, 17
+  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
+  %18 = extractvalue { i64, i1 } %17, 1
+  %19 = xor i1 %18, true
+  tail call void @llvm.assume(i1 %19)
+  %20 = extractvalue { i64, i1 } %17, 0
+  %21 = icmp ult i64 %20, 9223372036854775793
+  tail call void @llvm.assume(i1 %21)
+  %22 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %23 = sub nsw i64 0, %15
+  %24 = getelementptr inbounds i8, ptr %22, i64 %23
+  br label %25
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add nuw i64 %11, 15
-  %13 = and i64 %12, -16
-  %14 = add i64 %4, 17
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %14)
-  %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %17
-
-17:                                               ; preds = %10
-  %18 = extractvalue { i64, i1 } %15, 0
-  %19 = icmp ugt i64 %18, 9223372036854775792
-  br i1 %19, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-20:                                               ; preds = %17
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-21:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+25:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %20, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %24, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %20, %10, %17, %6
-  %.sroa.9.0 = phi i64 [ undef, %20 ], [ undef, %10 ], [ %13, %17 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %20 ], [ undef, %10 ], [ %18, %17 ], [ undef, %6 ]
-  %22 = phi i1 [ false, %20 ], [ false, %10 ], [ true, %17 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %20 ], [ 0, %10 ], [ 16, %17 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %22)
-  %23 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %24 = sub nsw i64 0, %.sroa.9.0
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
-  br label %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -105983,50 +105333,38 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %19, label %6
+  br i1 %5, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 48)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 48)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = add i64 %4, 17
+  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
+  %13 = extractvalue { i64, i1 } %12, 1
+  %14 = xor i1 %13, true
+  tail call void @llvm.assume(i1 %14)
+  %15 = extractvalue { i64, i1 } %12, 0
+  %16 = icmp ult i64 %15, 9223372036854775793
+  tail call void @llvm.assume(i1 %16)
+  %17 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %18 = sub nsw i64 0, %10
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
+  br label %20
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add i64 %4, 17
-  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %11, i64 %12)
-  %14 = extractvalue { i64, i1 } %13, 1
-  br i1 %14, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %15
-
-15:                                               ; preds = %10
-  %16 = extractvalue { i64, i1 } %13, 0
-  %17 = icmp ugt i64 %16, 9223372036854775792
-  br i1 %17, label %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-18:                                               ; preds = %15
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-19:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %23, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+20:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %15, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %19, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %18, %10, %15, %6
-  %.sroa.9.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %11, %15 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ %16, %15 ], [ undef, %6 ]
-  %20 = phi i1 [ false, %18 ], [ false, %10 ], [ true, %15 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %18 ], [ 0, %10 ], [ 16, %15 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %20)
-  %21 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %22 = sub nsw i64 0, %.sroa.9.0
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  br label %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -106034,52 +105372,44 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %21, label %6
+  br i1 %5, label %25, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
 
-6:                                                ; preds = %2
-  %7 = add i64 %4, 1
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 152)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %10
+_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %2
+  %6 = add i64 %4, 1
+  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 152)
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = xor i1 %8, true
+  tail call void @llvm.assume(i1 %9)
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 15)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = xor i1 %12, true
+  tail call void @llvm.assume(i1 %13)
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = and i64 %14, -16
+  %16 = add i64 %4, 17
+  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
+  %18 = extractvalue { i64, i1 } %17, 1
+  %19 = xor i1 %18, true
+  tail call void @llvm.assume(i1 %19)
+  %20 = extractvalue { i64, i1 } %17, 0
+  %21 = icmp ult i64 %20, 9223372036854775793
+  tail call void @llvm.assume(i1 %21)
+  %22 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %23 = sub nsw i64 0, %15
+  %24 = getelementptr inbounds i8, ptr %22, i64 %23
+  br label %25
 
-10:                                               ; preds = %6
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = add nuw i64 %11, 15
-  %13 = and i64 %12, -16
-  %14 = add i64 %4, 17
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %14)
-  %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit, label %17
-
-17:                                               ; preds = %10
-  %18 = extractvalue { i64, i1 } %15, 0
-  %19 = icmp ugt i64 %18, 9223372036854775792
-  br i1 %19, label %20, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-20:                                               ; preds = %17
-  br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-
-21:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.7.0, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0 = phi ptr [ %25, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.07, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
+25:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit
+  %.sroa.5.sroa.0.0 = phi i64 [ %20, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0 = phi ptr [ %24, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit ], [ 0, %2 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   ret void
-
-_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.240573438051967091.exit: ; preds = %20, %10, %17, %6
-  %.sroa.9.0 = phi i64 [ undef, %20 ], [ undef, %10 ], [ %13, %17 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i64 [ undef, %20 ], [ undef, %10 ], [ %18, %17 ], [ undef, %6 ]
-  %22 = phi i1 [ false, %20 ], [ false, %10 ], [ true, %17 ], [ false, %6 ]
-  %.sroa.0.07 = phi i64 [ 0, %20 ], [ 0, %10 ], [ 16, %17 ], [ 0, %6 ]
-  tail call void @llvm.assume(i1 %22)
-  %23 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %24 = sub nsw i64 0, %.sroa.9.0
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
-  br label %21
 }
 
 ; Function Attrs: nonlazybind uwtable

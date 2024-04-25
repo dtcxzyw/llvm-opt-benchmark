@@ -8500,7 +8500,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 5:                                                ; preds = %4
   %.not12 = icmp eq i64 %1, 0
-  br i1 %.not12, label %.sink.split.i.thread, label %.lr.ph.i.preheader
+  br i1 %.not12, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3c3af0b085029788E.llvm.17476841346288807550.exit", label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1303)
@@ -8531,7 +8531,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %16 = load i64, ptr %13, align 8, !range !30, !alias.scope !1338, !noalias !1339, !noundef !8
   %17 = icmp eq i64 %16, -9223372036854775808
   %18 = xor i1 %15, %17
-  br i1 %18, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd30a7b63917c01b7E.llvm.17476841346288807550.exit, label %.lr.ph
+  br i1 %18, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd30a7b63917c01b7E.llvm.17476841346288807550.exit.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %19 = phi i1 [ %17, %.lr.ph.i ], [ %9, %.lr.ph.i.preheader ]
@@ -8555,7 +8555,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %27 = getelementptr inbounds i8, ptr %21, i64 16
   %.val3.i.i.i.i = load i64, ptr %27, align 8, !alias.scope !1354, !noalias !1355, !noundef !8
   %.not.i.i.i.i.i = icmp eq i64 %.val5.i.i.i.i, %.val3.i.i.i.i
-  br i1 %.not.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17ha62a5066fdbec280E.exit.i", label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd30a7b63917c01b7E.llvm.17476841346288807550.exit
+  br i1 %.not.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17ha62a5066fdbec280E.exit.i", label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd30a7b63917c01b7E.llvm.17476841346288807550.exit.loopexit
 
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17ha62a5066fdbec280E.exit.i": ; preds = %25
   %28 = getelementptr inbounds i8, ptr %21, i64 8
@@ -8564,22 +8564,20 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %.val4.i.i.i.i = load ptr, ptr %29, align 8, !alias.scope !1352, !noalias !1353, !nonnull !8, !noundef !8
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val4.i.i.i.i, ptr nonnull %.val.i.i.i.i, i64 %.val5.i.i.i.i), !alias.scope !1356, !noalias !1360
   %.not.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not.i, label %.critedge.backedge.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd30a7b63917c01b7E.llvm.17476841346288807550.exit
+  br i1 %.not.i, label %.critedge.backedge.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd30a7b63917c01b7E.llvm.17476841346288807550.exit.loopexit
 
 .critedge.backedge.i:                             ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17ha62a5066fdbec280E.exit.i", %.lr.ph
   %30 = icmp ult i64 %23, %1
   %exitcond.not.i = icmp eq i64 %23, %1
-  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd30a7b63917c01b7E.llvm.17476841346288807550.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd30a7b63917c01b7E.llvm.17476841346288807550.exit.loopexit, label %.lr.ph.i
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17hd30a7b63917c01b7E.llvm.17476841346288807550.exit: ; preds = %.critedge.backedge.i, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17ha62a5066fdbec280E.exit.i", %25, %.lr.ph.i
-  %.lcssa.i = phi i1 [ %30, %.lr.ph.i ], [ %24, %25 ], [ %24, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17ha62a5066fdbec280E.exit.i" ], [ %30, %.critedge.backedge.i ]
-  br i1 %.lcssa.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3c3af0b085029788E.llvm.17476841346288807550.exit", label %.sink.split.i.thread
-
-.sink.split.i.thread:                             ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd30a7b63917c01b7E.llvm.17476841346288807550.exit, %5
+_ZN4core4iter6traits8iterator8Iterator8try_fold17hd30a7b63917c01b7E.llvm.17476841346288807550.exit.loopexit: ; preds = %.lr.ph.i, %25, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17ha62a5066fdbec280E.exit.i", %.critedge.backedge.i
+  %.lcssa.i.ph = phi i1 [ %30, %.critedge.backedge.i ], [ %24, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17ha62a5066fdbec280E.exit.i" ], [ %24, %25 ], [ %30, %.lr.ph.i ]
+  %31 = xor i1 %.lcssa.i.ph, true
   br label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3c3af0b085029788E.llvm.17476841346288807550.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3c3af0b085029788E.llvm.17476841346288807550.exit": ; preds = %.lr.ph.i.preheader, %.sink.split.i.thread, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd30a7b63917c01b7E.llvm.17476841346288807550.exit, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd30a7b63917c01b7E.llvm.17476841346288807550.exit ], [ true, %.sink.split.i.thread ], [ false, %.lr.ph.i.preheader ]
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3c3af0b085029788E.llvm.17476841346288807550.exit": ; preds = %.lr.ph.i.preheader, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd30a7b63917c01b7E.llvm.17476841346288807550.exit.loopexit, %5, %4
+  %.0 = phi i1 [ false, %4 ], [ true, %5 ], [ false, %.lr.ph.i.preheader ], [ %31, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd30a7b63917c01b7E.llvm.17476841346288807550.exit.loopexit ]
   ret i1 %.0
 }
 

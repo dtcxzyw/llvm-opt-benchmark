@@ -170,183 +170,133 @@ define hidden noundef ptr @_ZN3std2os4unix2fs7FileExt13read_exact_at17h949910427
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   br label %10
 
-10:                                               ; preds = %.lr.ph, %43
-  %.sroa.0.044 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.125, %43 ]
-  %.sroa.4.043 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.123, %43 ]
-  %.042 = phi i64 [ %3, %.lr.ph ], [ %.121, %43 ]
+10:                                               ; preds = %.lr.ph, %42
+  %.sroa.0.036 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.125, %42 ]
+  %.sroa.4.035 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.123, %42 ]
+  %.034 = phi i64 [ %3, %.lr.ph ], [ %.121, %42 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @"_ZN60_$LT$std..fs..File$u20$as$u20$std..os..unix..fs..FileExt$GT$7read_at17h0fc2eb666001e423E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %0, ptr noalias noundef nonnull align 1 %.sroa.0.044, i64 noundef %.sroa.4.043, i64 noundef %.042)
+  call void @"_ZN60_$LT$std..fs..File$u20$as$u20$std..os..unix..fs..FileExt$GT$7read_at17h0fc2eb666001e423E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %0, ptr noalias noundef nonnull align 1 %.sroa.0.036, i64 noundef %.sroa.4.035, i64 noundef %.034)
   %11 = load i64, ptr %6, align 8, !range !4, !noundef !5
-  %trunc = trunc i64 %11 to i1
+  %trunc = trunc nuw i64 %11 to i1
   br i1 %trunc, label %16, label %12
 
 12:                                               ; preds = %10
   %13 = load i64, ptr %8, align 8, !noundef !5
   %14 = icmp eq i64 %13, 0
   %15 = inttoptr i64 %13 to ptr
-  br i1 %14, label %32, label %33
+  br i1 %14, label %31, label %32
 
 16:                                               ; preds = %10
   %.val = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
   %17 = ptrtoint ptr %.val to i64
   %18 = and i64 %17, 3
   switch i64 %18, label %default.unreachable [
-    i64 2, label %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit
-    i64 3, label %19
-    i64 0, label %22
-    i64 1, label %26
+    i64 2, label %19
+    i64 3, label %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit
+    i64 0, label %21
+    i64 1, label %25
   ]
 
 default.unreachable:                              ; preds = %16
   unreachable
 
 19:                                               ; preds = %16
-  %20 = lshr i64 %17, 32
-  %21 = trunc i64 %20 to i32
-  switch i32 %21, label %.thread26 [
-    i32 0, label %.thread26.loopexit
-    i32 1, label %.thread26.loopexit
-    i32 2, label %.thread26.loopexit
-    i32 3, label %.thread26.loopexit
-    i32 4, label %.thread26.loopexit
-    i32 5, label %.thread26.loopexit
-    i32 6, label %.thread26.loopexit
-    i32 7, label %.thread26.loopexit
-    i32 8, label %.thread26.loopexit
-    i32 9, label %.thread26.loopexit
-    i32 10, label %.thread26.loopexit
-    i32 11, label %.thread26.loopexit
-    i32 12, label %.thread26.loopexit
-    i32 13, label %.thread26.loopexit
-    i32 14, label %.thread26.loopexit
-    i32 15, label %.thread26.loopexit
-    i32 16, label %.thread26.loopexit
-    i32 17, label %.thread26.loopexit
-    i32 18, label %.thread26.loopexit
-    i32 19, label %.thread26.loopexit
-    i32 20, label %.thread26.loopexit
-    i32 21, label %.thread26.loopexit
-    i32 22, label %.thread26.loopexit
-    i32 23, label %.thread26.loopexit
-    i32 24, label %.thread26.loopexit
-    i32 25, label %.thread26.loopexit
-    i32 26, label %.thread26.loopexit
-    i32 27, label %.thread26.loopexit
-    i32 28, label %.thread26.loopexit
-    i32 29, label %.thread26.loopexit
-    i32 30, label %.thread26.loopexit
-    i32 31, label %.thread26.loopexit
-    i32 32, label %.thread26.loopexit
-    i32 33, label %.thread26.loopexit
-    i32 34, label %.thread26.loopexit
-    i32 35, label %.thread
-    i32 39, label %.thread26.loopexit
-    i32 37, label %.thread26.loopexit
-    i32 36, label %.thread26.loopexit
-    i32 38, label %.thread26.loopexit
-    i32 40, label %.thread26.loopexit
-  ]
+  %.mask.i = and i64 %17, -4294967296
+  %20 = icmp eq i64 %.mask.i, 17179869184
+  br i1 %20, label %.thread, label %41
 
-.thread26.loopexit:                               ; preds = %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19
-  br label %.thread26
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds i8, ptr %.val, i64 16
+  %23 = load i8, ptr %22, align 8, !range !22, !noundef !5
+  %24 = icmp eq i8 %23, 35
+  br i1 %24, label %.thread, label %41
 
-.thread26:                                        ; preds = %19, %.thread26.loopexit
-  %.ph = phi i1 [ true, %.thread26.loopexit ], [ false, %19 ]
-  call void @llvm.assume(i1 %.ph)
-  br label %.loopexit27
+25:                                               ; preds = %16
+  %26 = getelementptr i8, ptr %.val, i64 -1
+  %27 = icmp ne ptr %26, null
+  call void @llvm.assume(i1 %27)
+  %28 = getelementptr i8, ptr %.val, i64 15
+  %29 = load i8, ptr %28, align 8, !range !22, !noundef !5
+  %30 = icmp eq i8 %29, 35
+  br i1 %30, label %.thread, label %41
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %.val, i64 16
-  %24 = load i8, ptr %23, align 8, !range !22, !noundef !5
-  %25 = icmp eq i8 %24, 35
-  br i1 %25, label %.thread, label %.loopexit27
-
-26:                                               ; preds = %16
-  %27 = getelementptr i8, ptr %.val, i64 -1
-  %28 = icmp ne ptr %27, null
-  call void @llvm.assume(i1 %28)
-  %29 = getelementptr i8, ptr %.val, i64 15
-  %30 = load i8, ptr %29, align 8, !range !22, !noundef !5
-  %31 = icmp eq i8 %30, 35
-  br i1 %31, label %.thread, label %.loopexit27
+31:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  br label %.loopexit
 
 32:                                               ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %.loopexit
+  %33 = icmp ugt i64 %13, %.sroa.4.035
+  br i1 %33, label %34, label %37
 
-33:                                               ; preds = %12
-  %34 = icmp ugt i64 %13, %.sroa.4.043
-  br i1 %34, label %35, label %38
+34:                                               ; preds = %32
+  invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %13, i64 noundef %.sroa.4.035, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6e741e01b7b5a639ae95c17ad421bc03.6) #22
+          to label %.noexc unwind label %35
 
-35:                                               ; preds = %33
-  invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %13, i64 noundef %.sroa.4.043, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6e741e01b7b5a639ae95c17ad421bc03.6) #22
-          to label %.noexc unwind label %36
-
-.noexc:                                           ; preds = %35
+.noexc:                                           ; preds = %34
   unreachable
 
-.loopexit:                                        ; preds = %43, %4, %32, %.loopexit27
-  %.013 = phi ptr [ %.val, %.loopexit27 ], [ @anon.6e741e01b7b5a639ae95c17ad421bc03.4, %32 ], [ null, %4 ], [ null, %43 ]
+.loopexit:                                        ; preds = %42, %4, %31, %41
+  %.013 = phi ptr [ %.val, %41 ], [ @anon.6e741e01b7b5a639ae95c17ad421bc03.4, %31 ], [ null, %4 ], [ null, %42 ]
   ret ptr %.013
 
-36:                                               ; preds = %35
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %34
+  %36 = landingpad { ptr, i32 }
           cleanup
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %48, label %49
+  br i1 %.not, label %47, label %48
 
-38:                                               ; preds = %33
-  %39 = sub nuw i64 %.sroa.4.043, %13
-  %40 = getelementptr inbounds i8, ptr %.sroa.0.044, i64 %13
-  %41 = add i64 %13, %.042
+37:                                               ; preds = %32
+  %38 = sub nuw i64 %.sroa.4.035, %13
+  %39 = getelementptr inbounds i8, ptr %.sroa.0.036, i64 %13
+  %40 = add i64 %13, %.034
   %.not15 = icmp eq i64 %11, 0
-  br i1 %.not15, label %43, label %.thread
+  br i1 %.not15, label %42, label %.thread
 
 _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %16
-  %.mask.i = and i64 %17, -4294967296
-  %42 = icmp eq i64 %.mask.i, 17179869184
-  br i1 %42, label %.thread, label %.loopexit27
+  %.mask20.i = and i64 %17, -4294967296
+  %switch.i = icmp eq i64 %.mask20.i, 150323855360
+  br i1 %switch.i, label %.thread, label %41
 
-.loopexit27:                                      ; preds = %22, %26, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %.thread26
+41:                                               ; preds = %19, %21, %25, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %.loopexit
 
-43:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he8aa6200c24a6803E.exit", %38
-  %.sroa.0.125 = phi ptr [ %.sroa.0.124, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he8aa6200c24a6803E.exit" ], [ %40, %38 ]
-  %.sroa.4.123 = phi i64 [ %.sroa.4.122, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he8aa6200c24a6803E.exit" ], [ %39, %38 ]
-  %.121 = phi i64 [ %.120, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he8aa6200c24a6803E.exit" ], [ %41, %38 ]
+42:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he8aa6200c24a6803E.exit", %37
+  %.sroa.0.125 = phi ptr [ %.sroa.0.124, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he8aa6200c24a6803E.exit" ], [ %39, %37 ]
+  %.sroa.4.123 = phi i64 [ %.sroa.4.122, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he8aa6200c24a6803E.exit" ], [ %38, %37 ]
+  %.121 = phi i64 [ %.120, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he8aa6200c24a6803E.exit" ], [ %40, %37 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %44 = icmp eq i64 %.sroa.4.123, 0
-  br i1 %44, label %.loopexit, label %10
+  %43 = icmp eq i64 %.sroa.4.123, 0
+  br i1 %43, label %.loopexit, label %10
 
-.thread:                                          ; preds = %19, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %26, %22, %38
-  %45 = phi ptr [ %15, %38 ], [ %.val, %22 ], [ %.val, %26 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %.val, %19 ]
-  %.sroa.0.124 = phi ptr [ %40, %38 ], [ %.sroa.0.044, %22 ], [ %.sroa.0.044, %26 ], [ %.sroa.0.044, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %.sroa.0.044, %19 ]
-  %.sroa.4.122 = phi i64 [ %39, %38 ], [ %.sroa.4.043, %22 ], [ %.sroa.4.043, %26 ], [ %.sroa.4.043, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %.sroa.4.043, %19 ]
-  %.120 = phi i64 [ %41, %38 ], [ %.042, %22 ], [ %.042, %26 ], [ %.042, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %.042, %19 ]
+.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %25, %21, %19, %37
+  %44 = phi ptr [ %15, %37 ], [ %.val, %19 ], [ %.val, %21 ], [ %.val, %25 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ]
+  %.sroa.0.124 = phi ptr [ %39, %37 ], [ %.sroa.0.036, %19 ], [ %.sroa.0.036, %21 ], [ %.sroa.0.036, %25 ], [ %.sroa.0.036, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ]
+  %.sroa.4.122 = phi i64 [ %38, %37 ], [ %.sroa.4.035, %19 ], [ %.sroa.4.035, %21 ], [ %.sroa.4.035, %25 ], [ %.sroa.4.035, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ]
+  %.120 = phi i64 [ %40, %37 ], [ %.034, %19 ], [ %.034, %21 ], [ %.034, %25 ], [ %.034, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !23
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h77b86a63e6b4a41eE.llvm.8684371289217427975(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noundef nonnull %45), !noalias !23
-  %46 = load i8, ptr %5, align 8, !range !30, !alias.scope !31, !noalias !23, !noundef !5
-  %switch.not.i.i.i.i = icmp eq i8 %46, 3
-  br i1 %switch.not.i.i.i.i, label %47, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he8aa6200c24a6803E.exit"
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h77b86a63e6b4a41eE.llvm.8684371289217427975(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noundef nonnull %44), !noalias !23
+  %45 = load i8, ptr %5, align 8, !range !30, !alias.scope !31, !noalias !23, !noundef !5
+  %switch.not.i.i.i.i = icmp eq i8 %45, 3
+  br i1 %switch.not.i.i.i.i, label %46, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he8aa6200c24a6803E.exit"
 
-47:                                               ; preds = %.thread
+46:                                               ; preds = %.thread
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h6a85b4f87d8343b4E.llvm.8684371289217427975"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9), !noalias !23
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he8aa6200c24a6803E.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he8aa6200c24a6803E.exit": ; preds = %.thread, %47
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he8aa6200c24a6803E.exit": ; preds = %.thread, %46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !23
-  br label %43
+  br label %42
 
-48:                                               ; preds = %49, %36
-  resume { ptr, i32 } %37
+47:                                               ; preds = %48, %35
+  resume { ptr, i32 } %36
 
-49:                                               ; preds = %36
+48:                                               ; preds = %35
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he8aa6200c24a6803E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8) #23
-          to label %48 unwind label %50
+          to label %47 unwind label %49
 
-50:                                               ; preds = %49
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %48
+  %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #24
   unreachable

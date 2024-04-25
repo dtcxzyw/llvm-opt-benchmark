@@ -18,117 +18,67 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr no
   %6 = load ptr, ptr %0, align 8, !alias.scope !4, !noalias !7, !nonnull !10, !align !11, !noundef !10
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !12
-  br i1 %8, label %.lr.ph49, label %.loopexit
+  br i1 %8, label %.lr.ph37, label %.loopexit
 
-.loopexit:                                        ; preds = %15, %19, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %26, %.lr.ph, %.thread30, %3
-  %.0 = phi ptr [ null, %3 ], [ %9, %.thread30 ], [ null, %.lr.ph ], [ null, %26 ], [ %9, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %9, %19 ], [ %9, %15 ]
+.loopexit:                                        ; preds = %12, %14, %18, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %24, %.lr.ph, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ null, %24 ], [ %9, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %9, %18 ], [ %9, %14 ], [ %9, %12 ]
   ret ptr %.0
 
-.lr.ph49:                                         ; preds = %.lr.ph, %26
+.lr.ph37:                                         ; preds = %.lr.ph, %24
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %9 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17h33be6581caccd802E(i8 noundef 39, ptr noalias noundef nonnull readonly align 1 @anon.7b12c2ab9e1ce74a96d00cd7e4c1ea31.28.llvm.8370777945629324, i64 noundef 9), !noalias !14
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 3
   switch i64 %11, label %default.unreachable [
-    i64 2, label %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit
-    i64 3, label %12
-    i64 0, label %15
-    i64 1, label %19
+    i64 2, label %12
+    i64 3, label %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit
+    i64 0, label %14
+    i64 1, label %18
   ]
 
-default.unreachable:                              ; preds = %.lr.ph49
+default.unreachable:                              ; preds = %.lr.ph37
   unreachable
 
-12:                                               ; preds = %.lr.ph49
-  %13 = lshr i64 %10, 32
-  %14 = trunc i64 %13 to i32
-  switch i32 %14, label %.thread30 [
-    i32 0, label %.thread30.loopexit
-    i32 1, label %.thread30.loopexit
-    i32 2, label %.thread30.loopexit
-    i32 3, label %.thread30.loopexit
-    i32 4, label %.thread30.loopexit
-    i32 5, label %.thread30.loopexit
-    i32 6, label %.thread30.loopexit
-    i32 7, label %.thread30.loopexit
-    i32 8, label %.thread30.loopexit
-    i32 9, label %.thread30.loopexit
-    i32 10, label %.thread30.loopexit
-    i32 11, label %.thread30.loopexit
-    i32 12, label %.thread30.loopexit
-    i32 13, label %.thread30.loopexit
-    i32 14, label %.thread30.loopexit
-    i32 15, label %.thread30.loopexit
-    i32 16, label %.thread30.loopexit
-    i32 17, label %.thread30.loopexit
-    i32 18, label %.thread30.loopexit
-    i32 19, label %.thread30.loopexit
-    i32 20, label %.thread30.loopexit
-    i32 21, label %.thread30.loopexit
-    i32 22, label %.thread30.loopexit
-    i32 23, label %.thread30.loopexit
-    i32 24, label %.thread30.loopexit
-    i32 25, label %.thread30.loopexit
-    i32 26, label %.thread30.loopexit
-    i32 27, label %.thread30.loopexit
-    i32 28, label %.thread30.loopexit
-    i32 29, label %.thread30.loopexit
-    i32 30, label %.thread30.loopexit
-    i32 31, label %.thread30.loopexit
-    i32 32, label %.thread30.loopexit
-    i32 33, label %.thread30.loopexit
-    i32 34, label %.thread30.loopexit
-    i32 35, label %28
-    i32 39, label %.thread30.loopexit
-    i32 37, label %.thread30.loopexit
-    i32 36, label %.thread30.loopexit
-    i32 38, label %.thread30.loopexit
-    i32 40, label %.thread30.loopexit
-  ]
-
-.thread30.loopexit:                               ; preds = %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12
-  br label %.thread30
-
-.thread30:                                        ; preds = %12, %.thread30.loopexit
-  %.ph = phi i1 [ true, %.thread30.loopexit ], [ false, %12 ]
-  call void @llvm.assume(i1 %.ph)
-  br label %.loopexit
-
-15:                                               ; preds = %.lr.ph49
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
-  %17 = load i8, ptr %16, align 8, !range !15, !noundef !10
-  %18 = icmp eq i8 %17, 35
-  br i1 %18, label %28, label %.loopexit
-
-19:                                               ; preds = %.lr.ph49
-  %20 = getelementptr i8, ptr %9, i64 -1
-  %21 = icmp ne ptr %20, null
-  call void @llvm.assume(i1 %21)
-  %22 = getelementptr i8, ptr %9, i64 15
-  %23 = load i8, ptr %22, align 8, !range !15, !noundef !10
-  %24 = icmp eq i8 %23, 35
-  br i1 %24, label %28, label %.loopexit
-
-_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %.lr.ph49
+12:                                               ; preds = %.lr.ph37
   %.mask.i = and i64 %10, -4294967296
-  %25 = icmp eq i64 %.mask.i, 17179869184
-  br i1 %25, label %28, label %.loopexit
+  %13 = icmp eq i64 %.mask.i, 17179869184
+  br i1 %13, label %26, label %.loopexit
 
-26:                                               ; preds = %30, %28
+14:                                               ; preds = %.lr.ph37
+  %15 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = load i8, ptr %15, align 8, !range !15, !noundef !10
+  %17 = icmp eq i8 %16, 35
+  br i1 %17, label %26, label %.loopexit
+
+18:                                               ; preds = %.lr.ph37
+  %19 = getelementptr i8, ptr %9, i64 -1
+  %20 = icmp ne ptr %19, null
+  call void @llvm.assume(i1 %20)
+  %21 = getelementptr i8, ptr %9, i64 15
+  %22 = load i8, ptr %21, align 8, !range !15, !noundef !10
+  %23 = icmp eq i8 %22, 35
+  br i1 %23, label %26, label %.loopexit
+
+_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %.lr.ph37
+  %.mask20.i = and i64 %10, -4294967296
+  %switch.i = icmp eq i64 %.mask20.i, 150323855360
+  br i1 %switch.i, label %26, label %.loopexit
+
+24:                                               ; preds = %28, %26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !16
-  %27 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !23
-  br i1 %27, label %.lr.ph49, label %.loopexit
+  %25 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !23
+  br i1 %25, label %.lr.ph37, label %.loopexit
 
-28:                                               ; preds = %12, %15, %19, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit
+26:                                               ; preds = %12, %14, %18, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !16
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h90361b2b4881ae37E.llvm.12266911530922283489(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noundef nonnull %9), !noalias !16
-  %29 = load i8, ptr %4, align 8, !range !25, !alias.scope !26, !noalias !16, !noundef !10
-  %switch.not.i.i.i.i = icmp eq i8 %29, 3
-  br i1 %switch.not.i.i.i.i, label %30, label %26
+  %27 = load i8, ptr %4, align 8, !range !25, !alias.scope !26, !noalias !16, !noundef !10
+  %switch.not.i.i.i.i = icmp eq i8 %27, 3
+  br i1 %switch.not.i.i.i.i, label %28, label %24
 
-30:                                               ; preds = %28
+28:                                               ; preds = %26
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h6e7a12bdcfbd04d8E.llvm.12266911530922283489"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7), !noalias !16
-  br label %26
+  br label %24
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -362,8 +312,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h41eeeaed8e02873eE"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !range !66, !noundef !10
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %7, label %3
+  %.not.not = icmp eq i64 %2, 0
+  br i1 %.not.not, label %7, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -373,7 +323,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 
 7:                                                ; preds = %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hd6164a78f528b522E.llvm.12841644863924027351.exit", %3, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select = select i1 %.not, ptr null, ptr %8
+  %spec.select = select i1 %.not.not, ptr null, ptr %8
   ret ptr %spec.select
 
 9:                                                ; preds = %3
@@ -404,8 +354,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hfb9e1ba601dd7bc2E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !range !66, !noundef !10
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %7, label %3
+  %.not.not = icmp eq i64 %2, 0
+  br i1 %.not.not, label %7, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -415,7 +365,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 
 7:                                                ; preds = %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h29e9b4d53caa48e3E.llvm.12841644863924027351.exit", %3, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select = select i1 %.not, ptr null, ptr %8
+  %spec.select = select i1 %.not.not, ptr null, ptr %8
   ret ptr %spec.select
 
 9:                                                ; preds = %3

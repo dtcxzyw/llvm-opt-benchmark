@@ -153,7 +153,7 @@ define dso_local noundef i32 @zend_fiber_init_context(ptr noundef %0, ptr nounde
 
 6:                                                ; preds = %4
   %7 = tail call i64 @zend_get_page_size() #22
-  %8 = tail call i64 @llvm.ctpop.i64(i64 %7), !range !5
+  %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %7)
   %or.cond.i.i = icmp eq i64 %8, 1
   %spec.store.select.i.i = select i1 %or.cond.i.i, i64 %7, i64 4096
   store i64 %spec.store.select.i.i, ptr @zend_fiber_get_page_size.page_size, align 8
@@ -271,7 +271,7 @@ define internal void @zend_fiber_trampoline(ptr %0, ptr nocapture readonly %1) #
 
 16:                                               ; preds = %12
   %17 = tail call i64 @zend_get_page_size() #22
-  %18 = tail call i64 @llvm.ctpop.i64(i64 %17), !range !5
+  %18 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %17)
   %or.cond.i.i.i = icmp eq i64 %18, 1
   %spec.store.select.i.i.i = select i1 %or.cond.i.i.i, i64 %17, i64 4096
   store i64 %spec.store.select.i.i.i, ptr @zend_fiber_get_page_size.page_size, align 8
@@ -325,7 +325,7 @@ define dso_local void @zend_fiber_destroy_context(ptr noundef %0) local_unnamed_
 
 9:                                                ; preds = %5
   %10 = tail call i64 @zend_get_page_size() #22
-  %11 = tail call i64 @llvm.ctpop.i64(i64 %10), !range !5
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
   %or.cond.i.i = icmp eq i64 %11, 1
   %spec.store.select.i.i = select i1 %or.cond.i.i, i64 %10, i64 4096
   store i64 %spec.store.select.i.i, ptr @zend_fiber_get_page_size.page_size, align 8
@@ -349,115 +349,102 @@ declare void @zend_observer_fiber_destroy_notify(ptr noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_fiber_switch_context(ptr noundef %0) local_unnamed_addr #6 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 69), align 8
-  %3 = load ptr, ptr %0, align 8
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %10, label %4
+  %2 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 69), align 8, !nonnull !5, !noundef !5
+  %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp ne ptr %4, null
+  tail call void @llvm.assume(i1 %5)
+  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ne i32 %7, 3
+  tail call void @llvm.assume(i1 %8)
+  %9 = icmp ne ptr %3, %2
+  tail call void @llvm.assume(i1 %9)
+  tail call void @zend_observer_fiber_switch_notify(ptr noundef nonnull %2, ptr noundef nonnull %3) #22
+  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 15), align 8
+  %11 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 13), align 8
+  %12 = load i64, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 16), align 8
+  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  %14 = load i32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 8), align 8
+  %15 = load i32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 19), align 8
+  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8
+  %18 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 31), align 8
+  store i32 1, ptr %6, align 8
+  %19 = getelementptr inbounds i8, ptr %2, i64 40
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp eq i32 %20, 1
+  br i1 %21, label %22, label %23
 
-4:                                                ; preds = %1
-  %5 = load ptr, ptr %3, align 8
-  %.not46 = icmp eq ptr %5, null
-  br i1 %.not46, label %10, label %6
+22:                                               ; preds = %1
+  store i32 2, ptr %19, align 8
+  br label %23
 
-6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 40
-  %8 = load i32, ptr %7, align 8
-  %9 = icmp ne i32 %8, 3
-  br label %10
-
-10:                                               ; preds = %6, %4, %1
-  %11 = phi i1 [ false, %4 ], [ false, %1 ], [ %9, %6 ]
-  tail call void @llvm.assume(i1 %11)
-  %12 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %12)
-  %13 = icmp ne ptr %3, %2
-  tail call void @llvm.assume(i1 %13)
-  tail call void @zend_observer_fiber_switch_notify(ptr noundef nonnull %2, ptr noundef %3) #22
-  %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 15), align 8
-  %15 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 13), align 8
-  %16 = load i64, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 16), align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
-  %18 = load i32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 8), align 8
-  %19 = load i32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 19), align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8
-  %22 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 31), align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 40
-  store i32 1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 40
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp eq i32 %25, 1
-  br i1 %26, label %27, label %28
-
-27:                                               ; preds = %10
-  store i32 2, ptr %24, align 8
-  br label %28
-
-28:                                               ; preds = %27, %10
+23:                                               ; preds = %22, %1
   store ptr %2, ptr %0, align 8
   store ptr %3, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 69), align 8
-  %29 = load ptr, ptr %3, align 8
-  %30 = tail call { ptr, ptr } @jump_fcontext(ptr noundef %29, ptr noundef nonnull %0) #22
-  %31 = extractvalue { ptr, ptr } %30, 0
-  %32 = extractvalue { ptr, ptr } %30, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false)
-  %33 = load ptr, ptr %0, align 8
-  store ptr %31, ptr %33, align 8
+  %24 = load ptr, ptr %3, align 8
+  %25 = tail call { ptr, ptr } @jump_fcontext(ptr noundef %24, ptr noundef nonnull %0) #22
+  %26 = extractvalue { ptr, ptr } %25, 0
+  %27 = extractvalue { ptr, ptr } %25, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 32, i1 false)
+  %28 = load ptr, ptr %0, align 8
+  store ptr %26, ptr %28, align 8
   store ptr %2, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 69), align 8
-  store ptr %14, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 15), align 8
-  store <2 x ptr> %15, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 13), align 8
-  store i64 %16, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 16), align 8
-  store ptr %17, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
-  store i32 %18, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 8), align 8
-  store i32 %19, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 19), align 8
-  store ptr %20, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
-  store ptr %21, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8
-  store <2 x ptr> %22, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 31), align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 40
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp eq i32 %35, 3
-  br i1 %36, label %37, label %57
+  store ptr %10, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 15), align 8
+  store <2 x ptr> %11, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 13), align 8
+  store i64 %12, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 16), align 8
+  store ptr %13, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  store i32 %14, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 8), align 8
+  store i32 %15, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 19), align 8
+  store ptr %16, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 7), align 8
+  store ptr %17, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8
+  store <2 x ptr> %18, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 31), align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 40
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp eq i32 %30, 3
+  br i1 %31, label %32, label %52
 
-37:                                               ; preds = %28
-  tail call void @zend_observer_fiber_destroy_notify(ptr noundef nonnull %33) #22
-  %38 = getelementptr inbounds i8, ptr %33, i64 24
-  %39 = load ptr, ptr %38, align 8
-  %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %41, label %40
+32:                                               ; preds = %23
+  tail call void @zend_observer_fiber_destroy_notify(ptr noundef nonnull %28) #22
+  %33 = getelementptr inbounds i8, ptr %28, i64 24
+  %34 = load ptr, ptr %33, align 8
+  %.not.i = icmp eq ptr %34, null
+  br i1 %.not.i, label %36, label %35
 
-40:                                               ; preds = %37
-  tail call void %39(ptr noundef nonnull %33) #22
-  br label %41
+35:                                               ; preds = %32
+  tail call void %34(ptr noundef nonnull %28) #22
+  br label %36
 
-41:                                               ; preds = %40, %37
-  %42 = getelementptr inbounds i8, ptr %33, i64 32
-  %43 = load ptr, ptr %42, align 8
-  %44 = load i64, ptr @zend_fiber_get_page_size.page_size, align 8
-  %.not.i.i.i = icmp eq i64 %44, 0
-  br i1 %.not.i.i.i, label %45, label %zend_fiber_destroy_context.exit
+36:                                               ; preds = %35, %32
+  %37 = getelementptr inbounds i8, ptr %28, i64 32
+  %38 = load ptr, ptr %37, align 8
+  %39 = load i64, ptr @zend_fiber_get_page_size.page_size, align 8
+  %.not.i.i.i = icmp eq i64 %39, 0
+  br i1 %.not.i.i.i, label %40, label %zend_fiber_destroy_context.exit
 
-45:                                               ; preds = %41
-  %46 = tail call i64 @zend_get_page_size() #22
-  %47 = tail call i64 @llvm.ctpop.i64(i64 %46), !range !5
-  %or.cond.i.i.i = icmp eq i64 %47, 1
-  %spec.store.select.i.i.i = select i1 %or.cond.i.i.i, i64 %46, i64 4096
+40:                                               ; preds = %36
+  %41 = tail call i64 @zend_get_page_size() #22
+  %42 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %41)
+  %or.cond.i.i.i = icmp eq i64 %42, 1
+  %spec.store.select.i.i.i = select i1 %or.cond.i.i.i, i64 %41, i64 4096
   store i64 %spec.store.select.i.i.i, ptr @zend_fiber_get_page_size.page_size, align 8
   br label %zend_fiber_destroy_context.exit
 
-zend_fiber_destroy_context.exit:                  ; preds = %41, %45
-  %48 = phi i64 [ %spec.store.select.i.i.i, %45 ], [ %44, %41 ]
-  %49 = load ptr, ptr %43, align 8
-  %50 = ptrtoint ptr %49 to i64
-  %51 = sub i64 %50, %48
-  %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr inbounds i8, ptr %43, i64 8
-  %54 = load i64, ptr %53, align 8
-  %55 = add i64 %54, %48
-  %56 = tail call i32 @munmap(ptr noundef %52, i64 noundef %55) #22
-  tail call void @_efree(ptr noundef nonnull %43) #22
-  br label %57
+zend_fiber_destroy_context.exit:                  ; preds = %36, %40
+  %43 = phi i64 [ %spec.store.select.i.i.i, %40 ], [ %39, %36 ]
+  %44 = load ptr, ptr %38, align 8
+  %45 = ptrtoint ptr %44 to i64
+  %46 = sub i64 %45, %43
+  %47 = inttoptr i64 %46 to ptr
+  %48 = getelementptr inbounds i8, ptr %38, i64 8
+  %49 = load i64, ptr %48, align 8
+  %50 = add i64 %49, %43
+  %51 = tail call i32 @munmap(ptr noundef %47, i64 noundef %50) #22
+  tail call void @_efree(ptr noundef nonnull %38) #22
+  br label %52
 
-57:                                               ; preds = %zend_fiber_destroy_context.exit, %28
+52:                                               ; preds = %zend_fiber_destroy_context.exit, %23
   ret void
 }
 
@@ -897,7 +884,7 @@ define hidden void @zim_Fiber_suspend(ptr nocapture noundef readonly %0, ptr noc
   %36 = getelementptr inbounds i8, ptr %35, i64 48
   store ptr null, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %11, i64 168
-  %38 = load ptr, ptr %37, align 8, !noalias !13, !nonnull !16, !noundef !16
+  %38 = load ptr, ptr %37, align 8, !noalias !13, !nonnull !5, !noundef !5
   %39 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 69), align 8, !noalias !13
   %40 = getelementptr inbounds i8, ptr %11, i64 176
   store ptr %39, ptr %40, align 8, !noalias !13
@@ -905,8 +892,8 @@ define hidden void @zim_Fiber_suspend(ptr nocapture noundef readonly %0, ptr noc
   %41 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8, !noalias !13
   %42 = getelementptr inbounds i8, ptr %11, i64 288
   store ptr %41, ptr %42, align 8, !noalias !13
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  store ptr %38, ptr %3, align 8, !alias.scope !17
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  store ptr %38, ptr %3, align 8, !alias.scope !16
   %43 = getelementptr inbounds i8, ptr %3, i64 8
   %44 = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %43, i8 0, i64 17, i1 false)
@@ -931,7 +918,7 @@ define hidden void @zim_Fiber_suspend(ptr nocapture noundef readonly %0, ptr noc
 
 54:                                               ; preds = %30
   %55 = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 1, ptr %55, align 8, !alias.scope !17
+  store i32 1, ptr %55, align 8, !alias.scope !16
   br label %56
 
 56:                                               ; preds = %45, %51, %54
@@ -943,7 +930,7 @@ define hidden void @zim_Fiber_suspend(ptr nocapture noundef readonly %0, ptr noc
   br i1 %.not80, label %61, label %60
 
 60:                                               ; preds = %56
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !17
+  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !16
   call void @_zend_bailout(ptr noundef nonnull @.str.25, i32 noundef 649) #24
   unreachable
 
@@ -1028,23 +1015,23 @@ define hidden void @zim_Fiber_resume(ptr nocapture noundef readonly %0, ptr noca
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 48
   store ptr %28, ptr %31, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !20
+  %32 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !19
   %.not77 = icmp eq ptr %32, null
   br i1 %.not77, label %35, label %33
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds i8, ptr %32, i64 288
-  store ptr %28, ptr %34, align 8, !noalias !20
+  store ptr %28, ptr %34, align 8, !noalias !19
   br label %35
 
 35:                                               ; preds = %33, %27
-  %36 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 69), align 8, !noalias !20
-  store ptr %36, ptr %22, align 8, !noalias !20
-  store ptr %18, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !20
+  %36 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 69), align 8, !noalias !19
+  store ptr %36, ptr %22, align 8, !noalias !19
+  store ptr %18, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !19
   %37 = getelementptr inbounds i8, ptr %18, i64 176
-  %38 = load ptr, ptr %37, align 8, !noalias !20
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  store ptr %38, ptr %3, align 8, !alias.scope !23
+  %38 = load ptr, ptr %37, align 8, !noalias !19
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  store ptr %38, ptr %3, align 8, !alias.scope !22
   %39 = getelementptr inbounds i8, ptr %3, i64 8
   %40 = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %39, i8 0, i64 17, i1 false)
@@ -1069,7 +1056,7 @@ define hidden void @zim_Fiber_resume(ptr nocapture noundef readonly %0, ptr noca
 
 50:                                               ; preds = %35
   %51 = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 1, ptr %51, align 8, !alias.scope !23
+  store i32 1, ptr %51, align 8, !alias.scope !22
   br label %52
 
 52:                                               ; preds = %41, %47, %50
@@ -1080,12 +1067,12 @@ define hidden void @zim_Fiber_resume(ptr nocapture noundef readonly %0, ptr noca
   br i1 %.not80, label %56, label %55
 
 55:                                               ; preds = %52
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !23
+  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !22
   call void @_zend_bailout(ptr noundef nonnull @.str.25, i32 noundef 649) #24
   unreachable
 
 56:                                               ; preds = %52
-  store ptr %32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !20
+  store ptr %32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !19
   %57 = and i8 %53, 1
   %.not81 = icmp eq i8 %57, 0
   %58 = load ptr, ptr %39, align 8
@@ -1210,28 +1197,28 @@ thread-pre-split:                                 ; preds = %20
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 48
   store ptr %45, ptr %48, align 8
-  %49 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !26
+  %49 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !25
   %.not98 = icmp eq ptr %49, null
   br i1 %.not98, label %52, label %50
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds i8, ptr %49, i64 288
-  store ptr %45, ptr %51, align 8, !noalias !26
+  store ptr %45, ptr %51, align 8, !noalias !25
   br label %52
 
 52:                                               ; preds = %44, %50
-  %53 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 69), align 8, !noalias !26
-  store ptr %53, ptr %39, align 8, !noalias !26
-  store ptr %35, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !26
+  %53 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 69), align 8, !noalias !25
+  store ptr %53, ptr %39, align 8, !noalias !25
+  store ptr %35, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !25
   %54 = getelementptr inbounds i8, ptr %35, i64 176
-  %55 = load ptr, ptr %54, align 8, !noalias !26
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  store ptr %55, ptr %3, align 8, !alias.scope !29
+  %55 = load ptr, ptr %54, align 8, !noalias !25
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  store ptr %55, ptr %3, align 8, !alias.scope !28
   %56 = getelementptr inbounds i8, ptr %3, i64 8
   %57 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 0, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %3, i64 24
-  store i8 1, ptr %58, align 8, !alias.scope !29
+  store i8 1, ptr %58, align 8, !alias.scope !28
   %59 = load ptr, ptr %9, align 8
   %60 = load i32, ptr %11, align 8
   store ptr %59, ptr %56, align 8
@@ -1255,12 +1242,12 @@ thread-pre-split:                                 ; preds = %20
   br i1 %.not101, label %70, label %69
 
 69:                                               ; preds = %66
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !29
+  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !28
   call void @_zend_bailout(ptr noundef nonnull @.str.25, i32 noundef 649) #24
   unreachable
 
 70:                                               ; preds = %66
-  store ptr %49, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !26
+  store ptr %49, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !25
   %71 = and i8 %67, 1
   %.not102 = icmp eq i8 %71, 0
   %72 = load ptr, ptr %56, align 8
@@ -1635,30 +1622,30 @@ define internal void @zend_fiber_object_destroy(ptr noundef %0) #6 {
   %11 = load i8, ptr %10, align 8
   %12 = or i8 %11, 4
   store i8 %12, ptr %10, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !32
+  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !31
   %.not35 = icmp eq ptr %13, null
   br i1 %.not35, label %17, label %14
 
 14:                                               ; preds = %6
-  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8, !noalias !32
+  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8, !noalias !31
   %16 = getelementptr inbounds i8, ptr %13, i64 288
-  store ptr %15, ptr %16, align 8, !noalias !32
+  store ptr %15, ptr %16, align 8, !noalias !31
   br label %17
 
 17:                                               ; preds = %14, %6
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 69), align 8, !noalias !32
+  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 69), align 8, !noalias !31
   %19 = getelementptr inbounds i8, ptr %0, i64 168
-  store ptr %18, ptr %19, align 8, !noalias !32
-  store ptr %0, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !32
+  store ptr %18, ptr %19, align 8, !noalias !31
+  store ptr %0, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !31
   %20 = getelementptr inbounds i8, ptr %0, i64 176
-  %21 = load ptr, ptr %20, align 8, !noalias !32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  store ptr %21, ptr %3, align 8, !alias.scope !35
+  %21 = load ptr, ptr %20, align 8, !noalias !31
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  store ptr %21, ptr %3, align 8, !alias.scope !34
   %22 = getelementptr inbounds i8, ptr %3, i64 8
   %23 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %3, i64 24
-  store i8 1, ptr %24, align 8, !alias.scope !35
+  store i8 1, ptr %24, align 8, !alias.scope !34
   store ptr %8, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 776, ptr %25, align 8
@@ -1666,18 +1653,18 @@ define internal void @zend_fiber_object_destroy(ptr noundef %0) #6 {
   %27 = add i32 %26, 1
   store i32 %27, ptr %8, align 4
   call void @zend_fiber_switch_context(ptr noundef nonnull %3)
-  %28 = load i8, ptr %24, align 8, !alias.scope !35
+  %28 = load i8, ptr %24, align 8, !alias.scope !34
   %29 = and i8 %28, 2
   %.not37 = icmp eq i8 %29, 0
   br i1 %.not37, label %31, label %30
 
 30:                                               ; preds = %17
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !35
+  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !34
   call void @_zend_bailout(ptr noundef nonnull @.str.25, i32 noundef 649) #24
   unreachable
 
 31:                                               ; preds = %17
-  store ptr %13, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !32
+  store ptr %13, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 70), align 8, !noalias !31
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #22
   %32 = load i8, ptr %24, align 8
   %33 = and i8 %32, 1
@@ -2149,7 +2136,7 @@ attributes #27 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
+!5 = !{}
 !6 = !{i32 -1, i32 1}
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"zend_fiber_resume: argument 0"}
@@ -2160,25 +2147,24 @@ attributes #27 = { nounwind allocsize(0,1) }
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"zend_fiber_suspend: argument 0"}
 !15 = distinct !{!15, !"zend_fiber_suspend"}
-!16 = !{}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"zend_fiber_switch_to: argument 0"}
-!19 = distinct !{!19, !"zend_fiber_switch_to"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"zend_fiber_resume: argument 0"}
-!22 = distinct !{!22, !"zend_fiber_resume"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"zend_fiber_switch_to: argument 0"}
-!25 = distinct !{!25, !"zend_fiber_switch_to"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"zend_fiber_resume: argument 0"}
-!28 = distinct !{!28, !"zend_fiber_resume"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"zend_fiber_switch_to: argument 0"}
-!31 = distinct !{!31, !"zend_fiber_switch_to"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"zend_fiber_resume: argument 0"}
-!34 = distinct !{!34, !"zend_fiber_resume"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"zend_fiber_switch_to: argument 0"}
-!37 = distinct !{!37, !"zend_fiber_switch_to"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"zend_fiber_switch_to: argument 0"}
+!18 = distinct !{!18, !"zend_fiber_switch_to"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"zend_fiber_resume: argument 0"}
+!21 = distinct !{!21, !"zend_fiber_resume"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"zend_fiber_switch_to: argument 0"}
+!24 = distinct !{!24, !"zend_fiber_switch_to"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"zend_fiber_resume: argument 0"}
+!27 = distinct !{!27, !"zend_fiber_resume"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"zend_fiber_switch_to: argument 0"}
+!30 = distinct !{!30, !"zend_fiber_switch_to"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"zend_fiber_resume: argument 0"}
+!33 = distinct !{!33, !"zend_fiber_resume"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"zend_fiber_switch_to: argument 0"}
+!36 = distinct !{!36, !"zend_fiber_switch_to"}
