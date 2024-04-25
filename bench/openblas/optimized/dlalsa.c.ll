@@ -427,7 +427,7 @@ thread-pre-split13:                               ; preds = %108
   %326 = getelementptr inbounds double, ptr %42, i64 %325
   %327 = sext i32 %317 to i64
   %328 = getelementptr i32, ptr %303, i64 %327
-  %329 = getelementptr inbounds i32, ptr %54, i64 %320
+  %329 = getelementptr i32, ptr %16, i64 %306
   %330 = add nsw i32 %317, %297
   %331 = sext i32 %330 to i64
   %332 = getelementptr inbounds i32, ptr %59, i64 %331
@@ -439,9 +439,9 @@ thread-pre-split13:                               ; preds = %108
   %338 = getelementptr inbounds double, ptr %50, i64 %337
   %339 = getelementptr inbounds double, ptr %49, i64 %334
   %340 = getelementptr inbounds double, ptr %48, i64 %337
-  %341 = getelementptr inbounds i32, ptr %53, i64 %320
-  %342 = getelementptr inbounds double, ptr %60, i64 %320
-  %343 = getelementptr inbounds double, ptr %61, i64 %320
+  %341 = getelementptr i32, ptr %11, i64 %306
+  %342 = getelementptr double, ptr %21, i64 %306
+  %343 = getelementptr double, ptr %22, i64 %306
   call void @dlals0_(ptr noundef nonnull %0, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %29, ptr noundef nonnull %3, ptr noundef %323, ptr noundef nonnull %5, ptr noundef %326, ptr noundef nonnull %7, ptr noundef %328, ptr noundef nonnull %329, ptr noundef %332, ptr noundef nonnull %18, ptr noundef %335, ptr noundef nonnull %9, ptr noundef %336, ptr noundef %338, ptr noundef %339, ptr noundef %340, ptr noundef nonnull %341, ptr noundef nonnull %342, ptr noundef nonnull %343, ptr noundef %23, ptr noundef nonnull %25) #3
   %344 = icmp sgt i64 %305, %302
   br i1 %344, label %304, label %345, !llvm.loop !14

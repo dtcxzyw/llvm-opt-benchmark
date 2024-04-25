@@ -31856,21 +31856,19 @@ if.then.i.i.i.i.i:                                ; preds = %if.then35
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad37
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i32, i64 %add
+  %add.ptr.i.i.i = getelementptr i32, ptr %call5.i.i.i.i2.i.i32, i64 %add
   store i32 0, ptr %call5.i.i.i.i2.i.i32, align 4
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i32, i64 4
-  %sub.i.i.i.i.i = add nsw i64 %add, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %add, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont38, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
   %50 = add nsw i64 %mul.i.i.i.i.i.i, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %50, i1 false)
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
   br label %invoke.cont38
 
 invoke.cont38:                                    ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ]
   br i1 %cmp.i21.not39, label %while.end80, label %for.body47
 
 for.body47:                                       ; preds = %invoke.cont38, %for.inc70
@@ -51884,7 +51882,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then
   %conv1.i.i = and i64 %sub.ptr.div.i, 127
   %call5.i.i.i.i1.i.i4.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv1.i.i) #30, !noalias !1480
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i4.i.i, i64 %conv1.i.i
+  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i4.i.i, i64 %conv1.i.i
   store i8 0, ptr %call5.i.i.i.i1.i.i4.i.i, align 1, !noalias !1480
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i4.i.i, i64 1
   %sub.i.i.i.i.i.i.i = add nsw i64 %conv1.i.i, -1
@@ -52038,7 +52036,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then
   %conv1.i.i = and i64 %sub.ptr.div.i, 127
   %call5.i.i.i.i1.i.i4.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv1.i.i) #30, !noalias !1486
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i4.i.i, i64 %conv1.i.i
+  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i4.i.i, i64 %conv1.i.i
   store i8 0, ptr %call5.i.i.i.i1.i.i4.i.i, align 1, !noalias !1486
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i4.i.i, i64 1
   %sub.i.i.i.i.i.i.i = add nsw i64 %conv1.i.i, -1
@@ -52951,7 +52949,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then
   %conv1.i.i = and i64 %sub.ptr.div.i, 127
   %call5.i.i.i.i1.i.i4.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv1.i.i) #30, !noalias !1501
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i4.i.i, i64 %conv1.i.i
+  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i4.i.i, i64 %conv1.i.i
   store i8 0, ptr %call5.i.i.i.i1.i.i4.i.i, align 1, !noalias !1501
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i4.i.i, i64 1
   %sub.i.i.i.i.i.i.i = add nsw i64 %conv1.i.i, -1
@@ -53306,7 +53304,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then
   %conv1.i.i = and i64 %sub.ptr.div.i, 127
   %call5.i.i.i.i1.i.i4.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv1.i.i) #30, !noalias !1506
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i4.i.i, i64 %conv1.i.i
+  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i4.i.i, i64 %conv1.i.i
   store i8 0, ptr %call5.i.i.i.i1.i.i4.i.i, align 1, !noalias !1506
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i4.i.i, i64 1
   %sub.i.i.i.i.i.i.i = add nsw i64 %conv1.i.i, -1
@@ -70836,25 +70834,23 @@ if.then.i.i.i.i.i15:                              ; preds = %_ZNSt6vectorIiSaIiE
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i15
   store ptr %call5.i.i.i.i2.i.i18, ptr %concatenated_indices, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i18, i64 %add
+  %add.ptr.i.i.i = getelementptr i32, ptr %call5.i.i.i.i2.i.i18, i64 %add
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %concatenated_indices, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i32 0, ptr %call5.i.i.i.i2.i.i18, align 4
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i18, i64 4
-  %sub.i.i.i.i.i = add nsw i64 %add, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %add, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont10, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
   %22 = add nsw i64 %mul.i.i.i.i.i.i, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %22, i1 false)
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc
   %23 = phi ptr [ %add.ptr.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %24 = phi ptr [ %call5.i.i.i.i2.i.i18, %call5.i.i.i.i2.i.i.noexc ], [ %call5.i.i.i.i2.i.i18, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %25 = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %25 = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %concatenated_indices, i64 8
   store ptr %25, ptr %_M_finish.i.i7.i, align 8
   store ptr %prefix, ptr %ref.tmp13, align 8

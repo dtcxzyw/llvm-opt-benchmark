@@ -629,7 +629,7 @@ _ZN3irr5scene19IBillboardSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKN
   %9 = tail call noundef float @llvm.fabs.f32(float %8)
   %cmp.i.i93 = fcmp ugt float %9, 0x3EB0C6F7A0000000
   %10 = lshr i64 %6, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   %12 = bitcast i32 %11 to float
   br i1 %cmp.i.i93, label %if.end.i, label %if.then.i
 
@@ -1576,7 +1576,7 @@ entry:
   %3 = tail call noundef float @llvm.fabs.f32(float %2)
   %cmp.i = fcmp ugt float %3, 0x3EB0C6F7A0000000
   %4 = lshr i64 %0, 32
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw i64 %4 to i32
   %6 = bitcast i32 %5 to float
   br i1 %cmp.i, label %if.end, label %if.then
 
@@ -1637,7 +1637,7 @@ entry:
   %7 = tail call noundef float @llvm.fabs.f32(float %6)
   %cmp.i.i = fcmp ugt float %7, 0x3EB0C6F7A0000000
   %8 = lshr i64 %4, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   %10 = bitcast i32 %9 to float
   br i1 %cmp.i.i, label %if.end.i, label %if.then.i
 
@@ -5362,15 +5362,14 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store i16 0, ptr %0, align 2, !tbaa !62
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 2
-  %sub.i.i.i = add nsw i64 %__n, -1
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 1
   %4 = add nsw i64 %3, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !62
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i16, ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr i16, ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i

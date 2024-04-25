@@ -3428,11 +3428,10 @@ define hidden { ptr, ptr } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
 "_ZN17cranelift_codegen2ir3dfg13DataFlowGraph11inst_values28_$u7b$$u7b$closure$u7d$$u7d$17h68c79c46fabca264E.llvm.16803308262639080379.exit": ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit.i.i"
   %22 = getelementptr inbounds i32, ptr %13, i64 %10
   %23 = getelementptr inbounds i8, ptr %22, i64 4
-  %24 = getelementptr i32, ptr %23, i64 %9
-  %25 = getelementptr i8, ptr %24, i64 -4
-  %26 = insertvalue { ptr, ptr } poison, ptr %23, 0
-  %27 = insertvalue { ptr, ptr } %26, ptr %25, 1
-  ret { ptr, ptr } %27
+  %24 = getelementptr i32, ptr %22, i64 %9
+  %25 = insertvalue { ptr, ptr } poison, ptr %23, 0
+  %26 = insertvalue { ptr, ptr } %25, ptr %24, 1
+  ret { ptr, ptr } %26
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -51141,11 +51140,10 @@ define hidden { ptr, ptr } @"_ZN17cranelift_codegen2ir3dfg13DataFlowGraph11inst_
 _ZN17cranelift_codegen2ir12instructions9BlockCall10args_slice17h91cdf405de2a376aE.exit: ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit.i"
   %22 = getelementptr inbounds i32, ptr %13, i64 %10
   %23 = getelementptr inbounds i8, ptr %22, i64 4
-  %24 = getelementptr i32, ptr %23, i64 %9
-  %25 = getelementptr i8, ptr %24, i64 -4
-  %26 = insertvalue { ptr, ptr } poison, ptr %23, 0
-  %27 = insertvalue { ptr, ptr } %26, ptr %25, 1
-  ret { ptr, ptr } %27
+  %24 = getelementptr i32, ptr %22, i64 %9
+  %25 = insertvalue { ptr, ptr } poison, ptr %23, 0
+  %26 = insertvalue { ptr, ptr } %25, ptr %24, 1
+  ret { ptr, ptr } %26
 }
 
 ; Function Attrs: nonlazybind uwtable

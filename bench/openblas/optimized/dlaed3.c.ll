@@ -206,12 +206,12 @@ thread-pre-split14:                               ; preds = %64
   %131 = add nuw nsw i64 %130, 1
   %132 = getelementptr double, ptr %114, i64 %131
   %133 = load double, ptr %132, align 8, !tbaa !7
-  %134 = getelementptr inbounds double, ptr %25, i64 %131
+  %134 = getelementptr double, ptr %7, i64 %130
   %135 = load double, ptr %134, align 8, !tbaa !7
   %136 = load double, ptr %113, align 8, !tbaa !7
   %137 = fsub double %135, %136
   %138 = fdiv double %133, %137
-  %139 = getelementptr inbounds double, ptr %28, i64 %131
+  %139 = getelementptr double, ptr %11, i64 %130
   %140 = load double, ptr %139, align 8, !tbaa !7
   %141 = fmul double %140, %138
   store double %141, ptr %139, align 8, !tbaa !7

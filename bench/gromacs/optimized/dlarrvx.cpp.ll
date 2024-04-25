@@ -131,7 +131,7 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
 
 89:                                               ; preds = %87
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %90 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv.next
+  %90 = getelementptr i32, ptr %6, i64 %indvars.iv
   %91 = load i32, ptr %90, align 4
   %92 = zext i32 %91 to i64
   %93 = icmp eq i64 %indvars.iv707, %92
@@ -199,7 +199,7 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %gep726 = getelementptr double, ptr %invariant.gep725, i64 %indvars.iv649
   store double %122, ptr %gep726, align 8
   %indvars.iv.next650 = add nuw nsw i64 %indvars.iv649, 1
-  %123 = getelementptr inbounds double, ptr %50, i64 %indvars.iv.next650
+  %123 = getelementptr double, ptr %13, i64 %indvars.iv649
   %124 = load double, ptr %123, align 8
   %125 = load double, ptr %119, align 8
   %126 = fsub double %124, %125

@@ -2704,7 +2704,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes16FixBadPixelsListC2ERK
   store ptr %87, ptr %81, align 8, !tbaa !208
   %88 = trunc i64 %9 to i32
   %89 = lshr i64 %9, 32
-  %90 = trunc i64 %89 to i32
+  %90 = trunc nuw i64 %89 to i32
   br label %106
 
 .loopexit26:                                      ; preds = %194, %75
@@ -3258,14 +3258,14 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes9ROIOpcodeC2ERKNS_8RawI
 
 70:                                               ; preds = %60
   %71 = lshr i64 %7, 32
-  %72 = trunc i64 %71 to i32
+  %72 = trunc nuw i64 %71 to i32
   %73 = trunc i64 %7 to i32
   br label %93
 
 74:                                               ; preds = %60
   %75 = trunc i64 %7 to i32
   %76 = lshr i64 %7, 32
-  %77 = trunc i64 %76 to i32
+  %77 = trunc nuw i64 %76 to i32
   %78 = icmp sle i32 %42, %75
   %79 = icmp sle i32 %30, %77
   %80 = select i1 %78, i1 %79, i1 false
@@ -3590,7 +3590,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapC2ERKNS_8RawIm
 172:                                              ; preds = %167
   %173 = getelementptr inbounds i8, ptr %30, i64 %168
   %174 = load i16, ptr %173, align 1
-  %175 = trunc i64 %170 to i32
+  %175 = trunc nuw i64 %170 to i32
   store i32 %175, ptr %15, align 8, !tbaa !6
   %176 = getelementptr inbounds i16, ptr %6, i64 %169
   store i16 %174, ptr %176, align 2, !tbaa !206
@@ -3633,7 +3633,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapC2ERKNS_8RawIm
   %192 = getelementptr inbounds i8, ptr %30, i64 %186
   %193 = load i16, ptr %192, align 1
   %194 = tail call i16 @llvm.bswap.i16(i16 %193)
-  %195 = trunc i64 %188 to i32
+  %195 = trunc nuw i64 %188 to i32
   store i32 %195, ptr %15, align 8, !tbaa !6
   %196 = getelementptr inbounds i16, ptr %6, i64 %187
   store i16 %194, ptr %196, align 2, !tbaa !206
@@ -4279,7 +4279,7 @@ declare i64 @llvm.bswap.i64(i64) #9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq i64 %1, 0
-  br i1 %3, label %55, label %4
+  br i1 %3, label %54, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4300,78 +4300,77 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr n
   %19 = icmp ule i64 %16, %18
   tail call void @llvm.assume(i1 %19)
   %20 = icmp ult i64 %16, %1
-  br i1 %20, label %31, label %21
+  br i1 %20, label %30, label %21
 
 21:                                               ; preds = %4
   store i16 0, ptr %6, align 2, !tbaa !206
   %22 = getelementptr i8, ptr %6, i64 2
-  %23 = add nsw i64 %1, -1
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %29, label %25
+  %23 = icmp eq i64 %1, 1
+  br i1 %23, label %28, label %24
 
-25:                                               ; preds = %21
-  %26 = shl nuw nsw i64 %1, 1
-  %27 = add nsw i64 %26, -2
-  tail call void @llvm.memset.p0.i64(ptr align 2 %22, i8 0, i64 %27, i1 false), !tbaa !206
-  %28 = getelementptr inbounds i16, ptr %22, i64 %23
-  br label %29
+24:                                               ; preds = %21
+  %25 = shl nuw nsw i64 %1, 1
+  %26 = add nsw i64 %25, -2
+  tail call void @llvm.memset.p0.i64(ptr align 2 %22, i8 0, i64 %26, i1 false), !tbaa !206
+  %27 = getelementptr i16, ptr %6, i64 %1
+  br label %28
 
-29:                                               ; preds = %25, %21
-  %30 = phi ptr [ %22, %21 ], [ %28, %25 ]
-  store ptr %30, ptr %5, align 8, !tbaa !238
-  br label %55
+28:                                               ; preds = %24, %21
+  %29 = phi ptr [ %22, %21 ], [ %27, %24 ]
+  store ptr %29, ptr %5, align 8, !tbaa !238
+  br label %54
 
-31:                                               ; preds = %4
-  %32 = icmp ult i64 %18, %1
-  br i1 %32, label %33, label %34
+30:                                               ; preds = %4
+  %31 = icmp ult i64 %18, %1
+  br i1 %31, label %32, label %33
 
-33:                                               ; preds = %31
+32:                                               ; preds = %30
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.34) #29
   unreachable
 
-34:                                               ; preds = %31
-  %35 = tail call i64 @llvm.umax.i64(i64 %11, i64 %1)
-  %36 = add nuw nsw i64 %35, %11
-  %37 = tail call i64 @llvm.umin.i64(i64 %36, i64 4611686018427387903)
-  %38 = shl nuw nsw i64 %37, 1
-  %39 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #27
-  %40 = getelementptr inbounds i8, ptr %39, i64 %10
-  store i16 0, ptr %40, align 2, !tbaa !206
-  %41 = icmp eq i64 %1, 1
-  br i1 %41, label %46, label %42
+33:                                               ; preds = %30
+  %34 = tail call i64 @llvm.umax.i64(i64 %11, i64 %1)
+  %35 = add nuw nsw i64 %34, %11
+  %36 = tail call i64 @llvm.umin.i64(i64 %35, i64 4611686018427387903)
+  %37 = shl nuw nsw i64 %36, 1
+  %38 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %37) #27
+  %39 = getelementptr inbounds i8, ptr %38, i64 %10
+  store i16 0, ptr %39, align 2, !tbaa !206
+  %40 = icmp eq i64 %1, 1
+  br i1 %40, label %45, label %41
 
-42:                                               ; preds = %34
-  %43 = getelementptr i8, ptr %40, i64 2
-  %44 = shl nuw nsw i64 %1, 1
-  %45 = add nsw i64 %44, -2
-  tail call void @llvm.memset.p0.i64(ptr align 2 %43, i8 0, i64 %45, i1 false), !tbaa !206
-  br label %46
+41:                                               ; preds = %33
+  %42 = getelementptr i8, ptr %39, i64 2
+  %43 = shl nuw nsw i64 %1, 1
+  %44 = add nsw i64 %43, -2
+  tail call void @llvm.memset.p0.i64(ptr align 2 %42, i8 0, i64 %44, i1 false), !tbaa !206
+  br label %45
 
-46:                                               ; preds = %42, %34
-  %47 = icmp sgt i64 %10, 0
-  br i1 %47, label %48, label %49
+45:                                               ; preds = %41, %33
+  %46 = icmp sgt i64 %10, 0
+  br i1 %46, label %47, label %48
 
-48:                                               ; preds = %46
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %39, ptr align 2 %7, i64 %10, i1 false)
-  br label %49
+47:                                               ; preds = %45
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %38, ptr align 2 %7, i64 %10, i1 false)
+  br label %48
 
-49:                                               ; preds = %48, %46
-  %50 = icmp eq ptr %7, null
-  br i1 %50, label %52, label %51
+48:                                               ; preds = %47, %45
+  %49 = icmp eq ptr %7, null
+  br i1 %49, label %51, label %50
 
-51:                                               ; preds = %49
+50:                                               ; preds = %48
   tail call void @_ZdlPv(ptr noundef nonnull %7) #30
-  br label %52
+  br label %51
 
-52:                                               ; preds = %51, %49
-  store ptr %39, ptr %0, align 8, !tbaa !214
-  %53 = getelementptr inbounds i16, ptr %40, i64 %1
-  store ptr %53, ptr %5, align 8, !tbaa !238
-  %54 = getelementptr inbounds i16, ptr %39, i64 %37
-  store ptr %54, ptr %12, align 8, !tbaa !237
-  br label %55
+51:                                               ; preds = %50, %48
+  store ptr %38, ptr %0, align 8, !tbaa !214
+  %52 = getelementptr inbounds i16, ptr %39, i64 %1
+  store ptr %52, ptr %5, align 8, !tbaa !238
+  %53 = getelementptr inbounds i16, ptr %38, i64 %36
+  store ptr %53, ptr %12, align 8, !tbaa !237
+  br label %54
 
-55:                                               ; preds = %52, %29, %2
+54:                                               ; preds = %51, %28, %2
   ret void
 }
 
@@ -5188,7 +5187,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %212 = add nsw <16 x i32> %133, %211
   %213 = tail call <16 x i32> @llvm.smax.v16i32(<16 x i32> %212, <16 x i32> zeroinitializer)
   %214 = tail call <16 x i32> @llvm.umin.v16i32(<16 x i32> %213, <16 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %215 = trunc <16 x i32> %214 to <16 x i16>
+  %215 = trunc nuw <16 x i32> %214 to <16 x i16>
   store <16 x i16> %215, ptr %209, align 2, !tbaa !206
   %216 = add nuw nsw i64 %152, 16
   %217 = add <16 x i32> %153, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
@@ -5203,7 +5202,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
 
 ._crit_edge:                                      ; preds = %147, %220
   %221 = phi i64 [ %91, %220 ], [ 0, %147 ]
-  %222 = trunc i64 %221 to i32
+  %222 = trunc nuw i64 %221 to i32
   %223 = insertelement <8 x i32> poison, i32 %222, i64 0
   %224 = shufflevector <8 x i32> %223, <8 x i32> poison, <8 x i32> zeroinitializer
   %225 = or disjoint <8 x i32> %224, <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
@@ -5275,7 +5274,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %265 = add nsw <8 x i32> %135, %264
   %266 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %265, <8 x i32> zeroinitializer)
   %267 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %266, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %268 = trunc <8 x i32> %267 to <8 x i16>
+  %268 = trunc nuw <8 x i32> %267 to <8 x i16>
   store <8 x i16> %268, ptr %262, align 2, !tbaa !206
   %269 = add nuw i64 %229, 8
   %270 = add <8 x i32> %230, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
@@ -5312,7 +5311,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %289 = add nsw i32 %130, %288
   %290 = tail call i32 @llvm.smax.i32(i32 %289, i32 0)
   %291 = tail call i32 @llvm.umin.i32(i32 %290, i32 65535)
-  %292 = trunc i32 %291 to i16
+  %292 = trunc nuw i32 %291 to i16
   store i16 %292, ptr %286, align 2, !tbaa !206
   %293 = add nuw nsw i64 %277, 1
   %294 = add nuw nsw i64 %278, 1
@@ -5350,7 +5349,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %315 = add nsw i32 %130, %314
   %316 = tail call i32 @llvm.smax.i32(i32 %315, i32 0)
   %317 = tail call i32 @llvm.umin.i32(i32 %316, i32 65535)
-  %318 = trunc i32 %317 to i16
+  %318 = trunc nuw i32 %317 to i16
   store i16 %318, ptr %312, align 2, !tbaa !206
   %319 = add i32 %300, %305
   %320 = icmp sgt i32 %319, -1
@@ -5367,7 +5366,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %328 = add nsw i32 %130, %327
   %329 = tail call i32 @llvm.smax.i32(i32 %328, i32 0)
   %330 = tail call i32 @llvm.umin.i32(i32 %329, i32 65535)
-  %331 = trunc i32 %330 to i16
+  %331 = trunc nuw i32 %330 to i16
   store i16 %331, ptr %325, align 2, !tbaa !206
   %332 = add i32 %301, %305
   %333 = icmp sgt i32 %332, -1
@@ -5384,7 +5383,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %341 = add nsw i32 %130, %340
   %342 = tail call i32 @llvm.smax.i32(i32 %341, i32 0)
   %343 = tail call i32 @llvm.umin.i32(i32 %342, i32 65535)
-  %344 = trunc i32 %343 to i16
+  %344 = trunc nuw i32 %343 to i16
   store i16 %344, ptr %338, align 2, !tbaa !206
   %345 = add i32 %302, %305
   %346 = icmp sgt i32 %345, -1
@@ -5401,7 +5400,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %354 = add nsw i32 %130, %353
   %355 = tail call i32 @llvm.smax.i32(i32 %354, i32 0)
   %356 = tail call i32 @llvm.umin.i32(i32 %355, i32 65535)
-  %357 = trunc i32 %356 to i16
+  %357 = trunc nuw i32 %356 to i16
   store i16 %357, ptr %351, align 2, !tbaa !206
   %358 = add nuw nsw i64 %304, 4
   %359 = icmp eq i64 %358, %88
@@ -5591,7 +5590,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
 
 138:                                              ; preds = %.loopexit, %105
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %105 ]
-  %139 = trunc i64 %indvars.iv to i32
+  %139 = trunc nuw nsw i64 %indvars.iv to i32
   %140 = mul i32 %51, %139
   %reass.add = add i32 %126, %140
   %reass.mul = mul i32 %reass.add, %8
@@ -6803,7 +6802,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %210 = add nsw <16 x i32> %145, %209
   %211 = tail call <16 x i32> @llvm.smax.v16i32(<16 x i32> %210, <16 x i32> zeroinitializer)
   %212 = tail call <16 x i32> @llvm.umin.v16i32(<16 x i32> %211, <16 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %213 = trunc <16 x i32> %212 to <16 x i16>
+  %213 = trunc nuw <16 x i32> %212 to <16 x i16>
   store <16 x i16> %213, ptr %207, align 2, !tbaa !206
   %214 = add nuw nsw i64 %150, 16
   %215 = add <16 x i32> %151, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
@@ -6819,7 +6818,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
 219:                                              ; preds = %._crit_edge, %218
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %146, %218 ]
   %220 = phi i64 [ 0, %._crit_edge ], [ %90, %218 ]
-  %221 = trunc i64 %220 to i32
+  %221 = trunc nuw i64 %220 to i32
   %222 = insertelement <8 x i32> poison, i32 %221, i64 0
   %223 = shufflevector <8 x i32> %222, <8 x i32> poison, <8 x i32> zeroinitializer
   %224 = or disjoint <8 x i32> %223, <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
@@ -6893,7 +6892,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %266 = add nsw <8 x i32> %226, %265
   %267 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %266, <8 x i32> zeroinitializer)
   %268 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %267, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %269 = trunc <8 x i32> %268 to <8 x i16>
+  %269 = trunc nuw <8 x i32> %268 to <8 x i16>
   store <8 x i16> %269, ptr %263, align 2, !tbaa !206
   %270 = add nuw i64 %230, 8
   %271 = add <8 x i32> %231, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
@@ -6930,7 +6929,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %290 = add nsw i32 %138, %289
   %291 = tail call i32 @llvm.smax.i32(i32 %290, i32 0)
   %292 = tail call i32 @llvm.umin.i32(i32 %291, i32 65535)
-  %293 = trunc i32 %292 to i16
+  %293 = trunc nuw i32 %292 to i16
   store i16 %293, ptr %287, align 2, !tbaa !206
   %294 = add nuw nsw i64 %278, 1
   %295 = add nuw nsw i64 %279, 1
@@ -6968,7 +6967,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %316 = add nsw i32 %138, %315
   %317 = tail call i32 @llvm.smax.i32(i32 %316, i32 0)
   %318 = tail call i32 @llvm.umin.i32(i32 %317, i32 65535)
-  %319 = trunc i32 %318 to i16
+  %319 = trunc nuw i32 %318 to i16
   store i16 %319, ptr %313, align 2, !tbaa !206
   %320 = add i32 %301, %306
   %321 = icmp sgt i32 %320, -1
@@ -6985,7 +6984,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %329 = add nsw i32 %138, %328
   %330 = tail call i32 @llvm.smax.i32(i32 %329, i32 0)
   %331 = tail call i32 @llvm.umin.i32(i32 %330, i32 65535)
-  %332 = trunc i32 %331 to i16
+  %332 = trunc nuw i32 %331 to i16
   store i16 %332, ptr %326, align 2, !tbaa !206
   %333 = add i32 %302, %306
   %334 = icmp sgt i32 %333, -1
@@ -7002,7 +7001,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %342 = add nsw i32 %138, %341
   %343 = tail call i32 @llvm.smax.i32(i32 %342, i32 0)
   %344 = tail call i32 @llvm.umin.i32(i32 %343, i32 65535)
-  %345 = trunc i32 %344 to i16
+  %345 = trunc nuw i32 %344 to i16
   store i16 %345, ptr %339, align 2, !tbaa !206
   %346 = add i32 %303, %306
   %347 = icmp sgt i32 %346, -1
@@ -7019,7 +7018,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %355 = add nsw i32 %138, %354
   %356 = tail call i32 @llvm.smax.i32(i32 %355, i32 0)
   %357 = tail call i32 @llvm.umin.i32(i32 %356, i32 65535)
-  %358 = trunc i32 %357 to i16
+  %358 = trunc nuw i32 %357 to i16
   store i16 %358, ptr %352, align 2, !tbaa !206
   %359 = add nuw nsw i64 %305, 4
   %360 = icmp eq i64 %359, %87
@@ -7797,7 +7796,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %88 = zext i32 %78 to i64
   %89 = add nsw i64 %88, -1
   %90 = icmp ult i32 %78, 8
-  %91 = trunc i64 %89 to i32
+  %91 = trunc nuw i64 %89 to i32
   %92 = icmp ult i32 %78, 16
   %93 = and i64 %88, 4294967280
   %94 = insertelement <16 x i32> poison, i32 %33, i64 0
@@ -7990,7 +7989,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %214 = ashr <16 x i32> %213, <i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10>
   %215 = tail call <16 x i32> @llvm.smax.v16i32(<16 x i32> %214, <16 x i32> zeroinitializer)
   %216 = tail call <16 x i32> @llvm.umin.v16i32(<16 x i32> %215, <16 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %217 = trunc <16 x i32> %216 to <16 x i16>
+  %217 = trunc nuw <16 x i32> %216 to <16 x i16>
   store <16 x i16> %217, ptr %209, align 2, !tbaa !206
   %218 = add nuw nsw i64 %152, 16
   %219 = add <16 x i32> %153, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
@@ -8005,7 +8004,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
 
 ._crit_edge:                                      ; preds = %147, %222
   %223 = phi i64 [ %93, %222 ], [ 0, %147 ]
-  %224 = trunc i64 %223 to i32
+  %224 = trunc nuw i64 %223 to i32
   %225 = insertelement <8 x i32> poison, i32 %224, i64 0
   %226 = shufflevector <8 x i32> %225, <8 x i32> poison, <8 x i32> zeroinitializer
   %227 = or disjoint <8 x i32> %226, <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
@@ -8079,7 +8078,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %269 = ashr <8 x i32> %268, <i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10>
   %270 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %269, <8 x i32> zeroinitializer)
   %271 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %270, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %272 = trunc <8 x i32> %271 to <8 x i16>
+  %272 = trunc nuw <8 x i32> %271 to <8 x i16>
   store <8 x i16> %272, ptr %264, align 2, !tbaa !206
   %273 = add nuw i64 %231, 8
   %274 = add <8 x i32> %232, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
@@ -8094,7 +8093,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   br i1 %112, label %298, label %279
 
 279:                                              ; preds = %277
-  %280 = trunc i64 %278 to i32
+  %280 = trunc nuw i64 %278 to i32
   %281 = add i32 %142, %119
   %282 = add i32 %281, %280
   %283 = icmp sgt i32 %282, -1
@@ -8113,7 +8112,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %293 = ashr i32 %292, 10
   %294 = tail call i32 @llvm.smax.i32(i32 %293, i32 0)
   %295 = tail call i32 @llvm.umin.i32(i32 %294, i32 65535)
-  %296 = trunc i32 %295 to i16
+  %296 = trunc nuw i32 %295 to i16
   store i16 %296, ptr %288, align 2, !tbaa !206
   %297 = or disjoint i64 %278, 1
   br label %298
@@ -8148,7 +8147,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %317 = ashr i32 %316, 10
   %318 = tail call i32 @llvm.smax.i32(i32 %317, i32 0)
   %319 = tail call i32 @llvm.umin.i32(i32 %318, i32 65535)
-  %320 = trunc i32 %319 to i16
+  %320 = trunc nuw i32 %319 to i16
   store i16 %320, ptr %312, align 2, !tbaa !206
   %321 = add i32 %302, %305
   %322 = icmp sgt i32 %321, -1
@@ -8167,7 +8166,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %332 = ashr i32 %331, 10
   %333 = tail call i32 @llvm.smax.i32(i32 %332, i32 0)
   %334 = tail call i32 @llvm.umin.i32(i32 %333, i32 65535)
-  %335 = trunc i32 %334 to i16
+  %335 = trunc nuw i32 %334 to i16
   store i16 %335, ptr %327, align 2, !tbaa !206
   %336 = add nuw nsw i64 %304, 2
   %337 = icmp eq i64 %336, %88
@@ -8357,7 +8356,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
 
 138:                                              ; preds = %.loopexit, %105
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %105 ]
-  %139 = trunc i64 %indvars.iv to i32
+  %139 = trunc nuw nsw i64 %indvars.iv to i32
   %140 = mul i32 %51, %139
   %reass.add = add i32 %126, %140
   %reass.mul = mul i32 %reass.add, %8
@@ -8949,7 +8948,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %87 = zext i32 %77 to i64
   %88 = add nsw i64 %87, -1
   %89 = icmp ult i32 %77, 8
-  %90 = trunc i64 %88 to i32
+  %90 = trunc nuw i64 %88 to i32
   %91 = icmp ult i32 %77, 16
   %92 = and i64 %87, 4294967280
   %93 = insertelement <16 x i32> poison, i32 %33, i64 0
@@ -9144,7 +9143,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %212 = ashr <16 x i32> %211, <i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10>
   %213 = tail call <16 x i32> @llvm.smax.v16i32(<16 x i32> %212, <16 x i32> zeroinitializer)
   %214 = tail call <16 x i32> @llvm.umin.v16i32(<16 x i32> %213, <16 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %215 = trunc <16 x i32> %214 to <16 x i16>
+  %215 = trunc nuw <16 x i32> %214 to <16 x i16>
   store <16 x i16> %215, ptr %207, align 2, !tbaa !206
   %216 = add nuw nsw i64 %150, 16
   %217 = add <16 x i32> %151, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
@@ -9160,7 +9159,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
 221:                                              ; preds = %._crit_edge, %220
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %146, %220 ]
   %222 = phi i64 [ 0, %._crit_edge ], [ %92, %220 ]
-  %223 = trunc i64 %222 to i32
+  %223 = trunc nuw i64 %222 to i32
   %224 = insertelement <8 x i32> poison, i32 %223, i64 0
   %225 = shufflevector <8 x i32> %224, <8 x i32> poison, <8 x i32> zeroinitializer
   %226 = or disjoint <8 x i32> %225, <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
@@ -9236,7 +9235,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %270 = ashr <8 x i32> %269, <i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10>
   %271 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %270, <8 x i32> zeroinitializer)
   %272 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %271, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %273 = trunc <8 x i32> %272 to <8 x i16>
+  %273 = trunc nuw <8 x i32> %272 to <8 x i16>
   store <8 x i16> %273, ptr %265, align 2, !tbaa !206
   %274 = add nuw i64 %232, 8
   %275 = add <8 x i32> %233, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
@@ -9251,7 +9250,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   br i1 %111, label %299, label %280
 
 280:                                              ; preds = %278
-  %281 = trunc i64 %279 to i32
+  %281 = trunc nuw i64 %279 to i32
   %282 = add i32 %135, %117
   %283 = add i32 %282, %281
   %284 = icmp sgt i32 %283, -1
@@ -9270,7 +9269,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %294 = ashr i32 %293, 10
   %295 = tail call i32 @llvm.smax.i32(i32 %294, i32 0)
   %296 = tail call i32 @llvm.umin.i32(i32 %295, i32 65535)
-  %297 = trunc i32 %296 to i16
+  %297 = trunc nuw i32 %296 to i16
   store i16 %297, ptr %289, align 2, !tbaa !206
   %298 = or disjoint i64 %279, 1
   br label %299
@@ -9305,7 +9304,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %318 = ashr i32 %317, 10
   %319 = tail call i32 @llvm.smax.i32(i32 %318, i32 0)
   %320 = tail call i32 @llvm.umin.i32(i32 %319, i32 65535)
-  %321 = trunc i32 %320 to i16
+  %321 = trunc nuw i32 %320 to i16
   store i16 %321, ptr %313, align 2, !tbaa !206
   %322 = add i32 %303, %306
   %323 = icmp sgt i32 %322, -1
@@ -9324,7 +9323,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %333 = ashr i32 %332, 10
   %334 = tail call i32 @llvm.smax.i32(i32 %333, i32 0)
   %335 = tail call i32 @llvm.umin.i32(i32 %334, i32 65535)
-  %336 = trunc i32 %335 to i16
+  %336 = trunc nuw i32 %335 to i16
   store i16 %336, ptr %328, align 2, !tbaa !206
   %337 = add nuw nsw i64 %305, 2
   %338 = icmp eq i64 %337, %87

@@ -69,7 +69,7 @@ define void @dlatdf_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %48 = load i32, ptr %1, align 4, !tbaa !3
   %49 = sub nsw i32 %48, %40
   store i32 %49, ptr %11, align 4, !tbaa !3
-  %50 = getelementptr inbounds double, ptr %22, i64 %42
+  %50 = getelementptr double, ptr %4, i64 %35
   %51 = call double @ddot_(ptr noundef nonnull %11, ptr noundef %45, ptr noundef nonnull @c__1, ptr noundef nonnull %50, ptr noundef nonnull @c__1) #5
   %52 = load double, ptr %37, align 8, !tbaa !7
   %53 = fmul double %47, %52
@@ -173,7 +173,7 @@ define void @dlatdf_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %116 = fneg double %111
   %117 = call double @llvm.fmuladd.f64(double %116, double %115, double %108)
   store double %117, ptr %96, align 8, !tbaa !7
-  %118 = getelementptr inbounds double, ptr %22, i64 %109
+  %118 = getelementptr double, ptr %4, i64 %106
   %119 = load double, ptr %118, align 8, !tbaa !7
   %120 = fneg double %119
   %121 = call double @llvm.fmuladd.f64(double %120, double %115, double %107)

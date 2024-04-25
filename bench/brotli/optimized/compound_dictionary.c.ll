@@ -153,8 +153,8 @@ if.then97.i:                                      ; preds = %if.end87.us.i, %for
 for.end106.i:                                     ; preds = %if.then97.i
   %conv113.i = zext i32 %add100.i to i64
   %mul114.i = shl nuw nsw i64 %conv113.i, 2
-  %add112.i = add nuw i64 %shl5.i, 32
-  %add115.i = add i64 %add112.i, %shl9.i
+  %add112.i = add nuw nsw i64 %shl5.i, 32
+  %add115.i = add nuw i64 %add112.i, %shl9.i
   %add116.i = add i64 %add115.i, %mul114.i
   %cmp117.not.i = icmp eq i64 %add116.i, 0
   br i1 %cmp117.not.i, label %cond.end123.i, label %cond.true119.i
@@ -172,7 +172,7 @@ cond.end123.i:                                    ; preds = %cond.true119.i, %fo
   store i32 -558043677, ptr %cond124.i, align 4
   %num_items.i = getelementptr inbounds i8, ptr %cond124.i, i64 4
   store i32 %add100.i, ptr %num_items.i, align 4
-  %conv132.i = trunc i64 %source_size to i32
+  %conv132.i = trunc nuw i64 %source_size to i32
   %source_size133.i = getelementptr inbounds i8, ptr %cond124.i, i64 8
   store i32 %conv132.i, ptr %source_size133.i, align 4
   %hash_bits134.i = getelementptr inbounds i8, ptr %cond124.i, i64 12
@@ -183,10 +183,6 @@ cond.end123.i:                                    ; preds = %cond.true119.i, %fo
   store i32 %slot_bits.0.lcssa, ptr %slot_bits136.i, align 4
   store ptr %source, ptr %arrayidx131.i, align 1
   br label %for.body140.i
-
-for.cond151.preheader.i:                          ; preds = %for.body140.i
-  %invariant.gep.i = getelementptr i8, ptr %arrayidx129.i, i64 -4
-  br label %for.body154.i
 
 for.body140.i:                                    ; preds = %for.body140.i, %cond.end123.i
   %indvars.iv145.i = phi i64 [ 0, %cond.end123.i ], [ %indvars.iv.next146.i, %for.body140.i ]
@@ -199,11 +195,11 @@ for.body140.i:                                    ; preds = %for.body140.i, %con
   store i32 0, ptr %arrayidx144.i, align 4
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %exitcond150.not.i = icmp eq i64 %indvars.iv.next146.i, %idxprom.i
-  br i1 %exitcond150.not.i, label %for.cond151.preheader.i, label %for.body140.i, !llvm.loop !9
+  br i1 %exitcond150.not.i, label %for.body154.i, label %for.body140.i, !llvm.loop !9
 
-for.body154.i:                                    ; preds = %for.inc204.i, %for.cond151.preheader.i
-  %indvars.iv152.i = phi i64 [ 0, %for.cond151.preheader.i ], [ %indvars.iv.next153.i, %for.inc204.i ]
-  %5 = trunc i64 %indvars.iv152.i to i32
+for.body154.i:                                    ; preds = %for.body140.i, %for.inc204.i
+  %indvars.iv152.i = phi i64 [ %indvars.iv.next153.i, %for.inc204.i ], [ 0, %for.body140.i ]
+  %5 = trunc nuw i64 %indvars.iv152.i to i32
   %and155.i = and i32 %sub3.i, %5
   %arrayidx158.i = getelementptr inbounds i16, ptr %arrayidx25.i, i64 %indvars.iv152.i
   %6 = load i16, ptr %arrayidx158.i, align 2
@@ -244,7 +240,7 @@ for.body194.i:                                    ; preds = %for.body194.i, %if.
   %pos.0.in140.i = phi ptr [ %arrayidx189.i, %if.end177.i ], [ %arrayidx198.i, %for.body194.i ]
   %pos.0.i = load i32, ptr %pos.0.in140.i, align 4
   %inc195.i = add nuw nsw i64 %cursor.0142.i, 1
-  %arrayidx196.i = getelementptr inbounds i32, ptr %arrayidx129.i, i64 %cursor.0142.i
+  %arrayidx196.i = getelementptr i32, ptr %arrayidx129.i, i64 %cursor.0142.i
   store i32 %pos.0.i, ptr %arrayidx196.i, align 4
   %idxprom197.i = zext i32 %pos.0.i to i64
   %arrayidx198.i = getelementptr inbounds i32, ptr %arrayidx29.i, i64 %idxprom197.i
@@ -253,9 +249,9 @@ for.body194.i:                                    ; preds = %for.body194.i, %if.
   br i1 %exitcond151.not.i, label %for.end201.i, label %for.body194.i, !llvm.loop !10
 
 for.end201.i:                                     ; preds = %for.body194.i
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %inc195.i
+  %arrayidx196.i.le = getelementptr i32, ptr %arrayidx129.i, i64 %cursor.0142.i
   %or.i = or i32 %pos.0.i, -2147483648
-  store i32 %or.i, ptr %gep.i, align 4
+  store i32 %or.i, ptr %arrayidx196.i.le, align 4
   br label %for.inc204.i
 
 for.inc204.i:                                     ; preds = %for.end201.i, %if.then174.i

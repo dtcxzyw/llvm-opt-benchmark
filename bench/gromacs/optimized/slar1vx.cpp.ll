@@ -149,7 +149,7 @@ define void @slar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %indvars.iv531 = phi i32 [ %indvars.iv.next532, %92 ], [ %91, %88 ]
   %indvars.iv528 = phi i64 [ %indvars.iv.next529, %92 ], [ %90, %88 ]
   %indvars.iv.next529 = add nsw i64 %indvars.iv528, 1
-  %93 = getelementptr float, ptr %17, i64 %indvars.iv.next529
+  %93 = getelementptr float, ptr %15, i64 %indvars.iv528
   %94 = getelementptr float, ptr %93, i64 %67
   %95 = load float, ptr %94, align 4
   %96 = fcmp uno float %95, 0.000000e+00
@@ -590,7 +590,7 @@ define void @slar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %305 = load float, ptr %304, align 4
   %306 = fneg float %303
   %307 = fmul float %305, %306
-  %308 = getelementptr inbounds float, ptr %18, i64 %indvars.iv.next562.lver.orig
+  %308 = getelementptr float, ptr %10, i64 %indvars.iv561.lver.orig
   store float %307, ptr %308, align 4
   %309 = load float, ptr %11, align 4
   %310 = tail call float @llvm.fmuladd.f32(float %307, float %307, float %309)
@@ -615,7 +615,7 @@ define void @slar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %316 = load float, ptr %315, align 4
   %317 = fneg float %316
   %318 = fmul float %store_forwarded, %317
-  %319 = getelementptr inbounds float, ptr %18, i64 %indvars.iv.next562
+  %319 = getelementptr float, ptr %10, i64 %indvars.iv561
   store float %318, ptr %319, align 4
   %320 = load float, ptr %11, align 4
   %321 = tail call float @llvm.fmuladd.f32(float %318, float %318, float %320)

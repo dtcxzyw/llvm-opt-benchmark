@@ -527,7 +527,7 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %301 = phi double [ %294, %297 ], [ %309, %299 ]
   %302 = phi i32 [ 0, %297 ], [ %308, %299 ]
   %303 = add nsw i64 %300, 1
-  %304 = getelementptr inbounds double, ptr %39, i64 %303
+  %304 = getelementptr double, ptr %12, i64 %300
   %305 = load double, ptr %304, align 8, !tbaa !7
   %306 = fcmp olt double %305, %301
   %307 = trunc i64 %303 to i32

@@ -149,7 +149,7 @@ define void @sgetri_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   store i32 %64, ptr %8, align 4
   %65 = mul nsw i64 %53, %51
   %gep198 = getelementptr float, ptr %invariant.gep197245, i64 %65
-  %66 = getelementptr inbounds float, ptr %19, i64 %53
+  %66 = getelementptr float, ptr %4, i64 %indvars.iv229
   %67 = mul nsw i64 %indvars.iv229, %51
   %gep200 = getelementptr float, ptr %invariant.gep197245, i64 %67
   call void @sgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef %gep198, ptr noundef nonnull %2, ptr noundef nonnull %66, ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef %gep200, ptr noundef nonnull %12)

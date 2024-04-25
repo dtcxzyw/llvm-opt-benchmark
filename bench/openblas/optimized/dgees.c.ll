@@ -408,7 +408,7 @@ define void @dgees_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readon
 
 232:                                              ; preds = %225
   store double 0.000000e+00, ptr %220, align 8, !tbaa !7
-  %233 = getelementptr inbounds double, ptr %36, i64 %226
+  %233 = getelementptr double, ptr %8, i64 %214
   br label %272
 
 234:                                              ; preds = %225

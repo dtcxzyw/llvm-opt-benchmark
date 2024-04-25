@@ -157,7 +157,7 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store double %100, ptr %98, align 8, !tbaa !7
   %101 = load double, ptr %20, align 8, !tbaa !7
   %102 = add nuw nsw i64 %97, 1
-  %103 = getelementptr inbounds double, ptr %22, i64 %102
+  %103 = getelementptr double, ptr %6, i64 %97
   %104 = load double, ptr %103, align 8, !tbaa !7
   %105 = fmul double %101, %104
   store double %105, ptr %99, align 8, !tbaa !7
@@ -185,7 +185,7 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store double %119, ptr %117, align 8, !tbaa !7
   %120 = load double, ptr %20, align 8, !tbaa !7
   %121 = add nuw nsw i64 %116, 1
-  %122 = getelementptr inbounds double, ptr %22, i64 %121
+  %122 = getelementptr double, ptr %6, i64 %116
   %123 = load double, ptr %122, align 8, !tbaa !7
   %124 = fmul double %120, %123
   store double %124, ptr %118, align 8, !tbaa !7
@@ -262,7 +262,7 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store double %161, ptr %159, align 8, !tbaa !7
   %162 = load double, ptr %20, align 8, !tbaa !7
   %163 = add nuw nsw i64 %158, 1
-  %164 = getelementptr inbounds double, ptr %22, i64 %163
+  %164 = getelementptr double, ptr %6, i64 %158
   %165 = load double, ptr %164, align 8, !tbaa !7
   %166 = fmul double %162, %165
   store double %166, ptr %160, align 8, !tbaa !7
@@ -290,7 +290,7 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store double %180, ptr %178, align 8, !tbaa !7
   %181 = load double, ptr %20, align 8, !tbaa !7
   %182 = add nuw nsw i64 %177, 1
-  %183 = getelementptr inbounds double, ptr %22, i64 %182
+  %183 = getelementptr double, ptr %6, i64 %177
   %184 = load double, ptr %183, align 8, !tbaa !7
   %185 = fmul double %181, %184
   store double %185, ptr %179, align 8, !tbaa !7

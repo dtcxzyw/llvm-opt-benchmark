@@ -280,7 +280,7 @@ thread-pre-split357:                              ; preds = %47, %31, %36
   %159 = load i32, ptr %1, align 4
   %160 = trunc nuw i64 %158 to i32
   %.not354 = icmp slt i32 %159, %160
-  br i1 %.not354, label %170, label %161
+  br i1 %.not354, label %171, label %161
 
 161:                                              ; preds = %.lr.ph400
   %162 = getelementptr inbounds float, ptr %11, i64 %indvars.iv434
@@ -291,31 +291,35 @@ thread-pre-split357:                              ; preds = %47, %31, %36
   %167 = load float, ptr %166, align 4
   %168 = fneg float %165
   %169 = tail call float @llvm.fmuladd.f32(float %168, float %167, float %163)
+  %170 = getelementptr inbounds float, ptr %11, i64 %158
   br label %.sink.split463
 
-170:                                              ; preds = %.lr.ph400
-  %171 = add nuw nsw i64 %indvars.iv434, 1
-  %172 = zext i32 %159 to i64
-  %173 = icmp eq i64 %171, %172
-  %174 = getelementptr inbounds float, ptr %11, i64 %indvars.iv434
-  %175 = load float, ptr %174, align 4
-  br i1 %173, label %.sink.split463, label %184
+171:                                              ; preds = %.lr.ph400
+  %172 = add nuw nsw i64 %indvars.iv434, 1
+  %173 = zext i32 %159 to i64
+  %174 = icmp eq i64 %172, %173
+  %175 = getelementptr inbounds float, ptr %11, i64 %indvars.iv434
+  %176 = load float, ptr %175, align 4
+  br i1 %174, label %177, label %184
 
-.sink.split463:                                   ; preds = %170, %161
-  %176 = phi ptr [ %5, %161 ], [ %3, %170 ]
-  %.sink469 = phi i64 [ %158, %161 ], [ %171, %170 ]
-  %.sink466 = phi float [ %169, %161 ], [ %175, %170 ]
-  %177 = getelementptr inbounds i8, ptr %176, i64 -4
-  %178 = getelementptr inbounds float, ptr %177, i64 %indvars.iv434
-  %179 = load float, ptr %178, align 4
-  %180 = getelementptr inbounds float, ptr %11, i64 %.sink469
-  %181 = load float, ptr %180, align 4
-  %182 = fneg float %179
+177:                                              ; preds = %171
+  %178 = getelementptr float, ptr %7, i64 %indvars.iv434
+  br label %.sink.split463
+
+.sink.split463:                                   ; preds = %161, %177
+  %.sink468 = phi ptr [ %178, %177 ], [ %170, %161 ]
+  %179 = phi ptr [ %3, %177 ], [ %5, %161 ]
+  %.sink466 = phi float [ %176, %177 ], [ %169, %161 ]
+  %180 = getelementptr inbounds i8, ptr %179, i64 -4
+  %.sink467.in = getelementptr inbounds float, ptr %180, i64 %indvars.iv434
+  %.sink467 = load float, ptr %.sink467.in, align 4
+  %181 = load float, ptr %.sink468, align 4
+  %182 = fneg float %.sink467
   %183 = tail call float @llvm.fmuladd.f32(float %182, float %181, float %.sink466)
   br label %184
 
-184:                                              ; preds = %.sink.split463, %170
-  %.2324 = phi float [ %175, %170 ], [ %183, %.sink.split463 ]
+184:                                              ; preds = %.sink.split463, %171
+  %.2324 = phi float [ %176, %171 ], [ %183, %.sink.split463 ]
   %185 = getelementptr inbounds float, ptr %16, i64 %indvars.iv434
   %186 = load float, ptr %185, align 4
   %187 = tail call noundef float @llvm.fabs.f32(float %186)
@@ -611,18 +615,18 @@ thread-pre-split357:                              ; preds = %47, %31, %36
   br label %343
 
 343:                                              ; preds = %.lr.ph387, %342
-  %.sink473 = phi ptr [ %338, %342 ], [ %340, %.lr.ph387 ]
-  %.sink476.in = getelementptr inbounds float, ptr %14, i64 %indvars.iv.next427
-  %.sink476 = load float, ptr %.sink476.in, align 4
-  %344 = fneg float %.sink476
+  %.sink470 = phi ptr [ %338, %342 ], [ %340, %.lr.ph387 ]
+  %.sink473.in = getelementptr inbounds float, ptr %14, i64 %indvars.iv.next427
+  %.sink473 = load float, ptr %.sink473.in, align 4
+  %344 = fneg float %.sink473
   %345 = tail call float @llvm.fmuladd.f32(float %344, float %339, float %341)
-  store float %345, ptr %.sink473, align 4
+  store float %345, ptr %.sink470, align 4
   %346 = icmp ugt i64 %indvars.iv426, 2
   br i1 %346, label %.lr.ph387, label %.thread, !llvm.loop !11
 
 .thread.sink.split:                               ; preds = %21, %10, %141, %150, %260, %269
-  %.sink477 = phi i32 [ %270, %269 ], [ %261, %260 ], [ %151, %150 ], [ %142, %141 ], [ -1, %10 ], [ -2, %21 ]
-  store i32 %.sink477, ptr %9, align 4
+  %.sink474 = phi i32 [ %270, %269 ], [ %261, %260 ], [ %151, %150 ], [ %142, %141 ], [ -1, %10 ], [ -2, %21 ]
+  store i32 %.sink474, ptr %9, align 4
   br label %.thread
 
 .thread:                                          ; preds = %343, %.loopexit, %152, %.thread.sink.split, %214, %274, %.loopexit361, %156, %100, %24

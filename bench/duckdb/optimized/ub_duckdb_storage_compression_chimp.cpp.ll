@@ -1796,7 +1796,7 @@ if.then52:                                        ; preds = %if.end44.thread
   %10 = load i32, ptr %flag_buffer53, align 8, !tbaa !74
   %inc.i155 = add i32 %10, 1
   store i32 %inc.i155, ptr %flag_buffer53, align 8, !tbaa !74
-  %11 = trunc i32 %5 to i8
+  %11 = trunc nuw nsw i32 %5 to i8
   %12 = add i8 %9, %11
   %conv60 = sub i8 32, %12
   %packed_data_buffer = getelementptr inbounds i8, ptr %state, i64 64
@@ -2752,7 +2752,7 @@ _ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit176: ; preds 
   %idxprom58 = zext i8 %11 to i64
   %arrayidx59 = getelementptr inbounds [64 x i8], ptr @_ZN6duckdb14ChimpConstants11Compression22LEADING_REPRESENTATIONE, i64 0, i64 %idxprom58
   %20 = load i8, ptr %arrayidx59, align 1, !tbaa !63
-  %21 = trunc i32 %6 to i8
+  %21 = trunc nuw nsw i32 %6 to i8
   %22 = add i8 %11, %21
   %conv60 = sub i8 32, %22
   %23 = shl i8 %20, 5
@@ -3045,7 +3045,7 @@ if.end18:                                         ; preds = %_ZN6duckdb15OutputB
 
 if.end.thread.i:                                  ; preds = %if.end18
   %shr.i = lshr i32 %value.addr.0, 24
-  %conv2.i62 = trunc i32 %shr.i to i8
+  %conv2.i62 = trunc nuw i32 %shr.i to i8
   %14 = load ptr, ptr %this, align 8, !tbaa !185
   %stream_index.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load i64, ptr %stream_index.i.i, align 8, !tbaa !195
@@ -3158,7 +3158,7 @@ _ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit: ; preds = %if.end
   %sub = zext nneg i8 %6 to i32
   %conv6 = zext i8 %value to i32
   %shr = lshr i32 %conv6, %sub
-  %conv7 = trunc i32 %shr to i8
+  %conv7 = trunc nuw nsw i32 %shr to i8
   %notmask = shl nsw i8 -1, %1
   %sub.i.i36 = xor i8 %notmask, -1
   %and10.i = and i8 %conv7, %sub.i.i36
@@ -3345,7 +3345,7 @@ if.end20:                                         ; preds = %_ZN6duckdb15OutputB
 
 if.end.thread.i:                                  ; preds = %if.end20
   %shr.i = lshr i32 %value.addr.0, 24
-  %conv2.i76 = trunc i32 %shr.i to i8
+  %conv2.i76 = trunc nuw i32 %shr.i to i8
   %17 = load ptr, ptr %this, align 8, !tbaa !185
   %stream_index.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load i64, ptr %stream_index.i.i, align 8, !tbaa !195
@@ -3631,7 +3631,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %6 = load i8, ptr %arrayidx10.i.i, align 1, !tbaa !63
   %conv11.i.i = zext nneg i8 %6 to i32
   %shr12.i.i = lshr i32 %and6.i.i, %conv11.i.i
-  %conv13.i.i = trunc i32 %shr12.i.i to i8
+  %conv13.i.i = trunc nuw i32 %shr12.i.i to i8
   %add.i43 = add nuw i64 %i.011.i, 1
   %arrayidx3.i = getelementptr inbounds [1025 x i8], ptr %flags.i, i64 0, i64 %add.i43
   store i8 %conv13.i.i, ptr %arrayidx3.i, align 1, !tbaa !207
@@ -3770,7 +3770,7 @@ for.body.i57:                                     ; preds = %for.body.i57, %for.
   %28 = load i16, ptr %arrayidx.i58, align 2, !tbaa !196
   %arrayidx2.i59 = getelementptr inbounds [1024 x %"struct.duckdb::UnpackedData"], ptr %unpacked_data_blocks.i, i64 0, i64 %i.024.i
   %shr.i.i60 = lshr i16 %28, 9
-  %conv1.i.i = trunc i16 %shr.i.i60 to i8
+  %conv1.i.i = trunc nuw nsw i16 %shr.i.i60 to i8
   %index.i.i = getelementptr inbounds i8, ptr %arrayidx2.i59, i64 2
   store i8 %conv1.i.i, ptr %index.i.i, align 1, !tbaa !218
   %shr3.i.i = lshr i16 %28, 6
@@ -4009,27 +4009,26 @@ for.body.lr.ph.i.i:                               ; preds = %sw.bb2
 
 for.body.lr.ph.i.i.new:                           ; preds = %for.body.lr.ph.i.i
   %unroll_iter247 = and i64 %wide.trip.count.i.i, 30
-  %invariant.gep6 = getelementptr i8, ptr %16, i64 1
+  %22 = getelementptr i8, ptr %16, i64 2
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i.new
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.new ], [ %indvars.iv.next.i.i.1, %for.body.i.i ]
   %result.027.i.i = phi i32 [ 0, %for.body.lr.ph.i.i.new ], [ %or.i.i.1, %for.body.i.i ]
   %arrayidx.i22.i.i = getelementptr i8, ptr %16, i64 %indvars.iv.i.i
-  %22 = load i8, ptr %arrayidx.i22.i.i, align 1, !tbaa !63
+  %23 = load i8, ptr %arrayidx.i22.i.i, align 1, !tbaa !63
   %arrayidx10.i.i.i = getelementptr i8, ptr %arrayidx.i22.i.i, i64 1
-  %23 = load i8, ptr %arrayidx10.i.i.i, align 1, !tbaa !63
-  %and21.i.i.i = and i8 %23, %19
-  %conv19.i23.i.i = tail call noundef i8 @llvm.fshl.i8(i8 %22, i8 %and21.i.i.i, i8 %20)
+  %24 = load i8, ptr %arrayidx10.i.i.i, align 1, !tbaa !63
+  %and21.i.i.i = and i8 %24, %19
+  %conv19.i23.i.i = tail call noundef i8 @llvm.fshl.i8(i8 %23, i8 %and21.i.i.i, i8 %20)
   %conv3.i.i = zext i8 %conv19.i23.i.i to i32
-  %indvars.iv.next.i.i = or disjoint i64 %indvars.iv.i.i, 1
-  %24 = shl i32 %result.027.i.i, 16
-  %25 = shl nuw nsw i32 %conv3.i.i, 8
-  %shl.i.i.1 = or disjoint i32 %25, %24
-  %gep7 = getelementptr i8, ptr %invariant.gep6, i64 %indvars.iv.next.i.i
-  %26 = load i8, ptr %gep7, align 1, !tbaa !63
-  %and21.i.i.i.1 = and i8 %26, %19
-  %conv19.i23.i.i.1 = tail call noundef i8 @llvm.fshl.i8(i8 %23, i8 %and21.i.i.i.1, i8 %20)
+  %25 = shl i32 %result.027.i.i, 16
+  %26 = shl nuw nsw i32 %conv3.i.i, 8
+  %shl.i.i.1 = or disjoint i32 %26, %25
+  %gep7 = getelementptr i8, ptr %22, i64 %indvars.iv.i.i
+  %27 = load i8, ptr %gep7, align 1, !tbaa !63
+  %and21.i.i.i.1 = and i8 %27, %19
+  %conv19.i23.i.i.1 = tail call noundef i8 @llvm.fshl.i8(i8 %24, i8 %and21.i.i.i.1, i8 %20)
   %conv3.i.i.1 = zext i8 %conv19.i23.i.i.1 to i32
   %or.i.i.1 = or disjoint i32 %shl.i.i.1, %conv3.i.i.1
   %indvars.iv.next.i.i.1 = add nuw i64 %indvars.iv.i.i, 2
@@ -4037,23 +4036,23 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %niter248.ncmp.1, label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa.loopexit, label %for.body.i.i, !llvm.loop !227
 
 _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa.loopexit: ; preds = %for.body.i.i
-  %27 = shl i32 %or.i.i.1, 8
+  %28 = shl i32 %or.i.i.1, 8
   br label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa
 
 _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa: ; preds = %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa.loopexit, %for.body.lr.ph.i.i
   %or.i.i.lcssa.ph = phi i32 [ undef, %for.body.lr.ph.i.i ], [ %or.i.i.1, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa.loopexit ]
   %indvars.iv.i.i.unr = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %unroll_iter247, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa.loopexit ]
-  %result.027.i.i.unr = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %27, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa.loopexit ]
+  %result.027.i.i.unr = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %28, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa.loopexit ]
   %lcmp.mod245.not = icmp eq i64 %xtraiter244, 0
   br i1 %lcmp.mod245.not, label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit, label %for.body.i.i.epil
 
 for.body.i.i.epil:                                ; preds = %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa
   %arrayidx.i22.i.i.epil = getelementptr i8, ptr %16, i64 %indvars.iv.i.i.unr
-  %28 = load i8, ptr %arrayidx.i22.i.i.epil, align 1, !tbaa !63
+  %29 = load i8, ptr %arrayidx.i22.i.i.epil, align 1, !tbaa !63
   %arrayidx10.i.i.i.epil = getelementptr i8, ptr %arrayidx.i22.i.i.epil, i64 1
-  %29 = load i8, ptr %arrayidx10.i.i.i.epil, align 1, !tbaa !63
-  %and21.i.i.i.epil = and i8 %29, %19
-  %conv19.i23.i.i.epil = tail call noundef i8 @llvm.fshl.i8(i8 %28, i8 %and21.i.i.i.epil, i8 %20)
+  %30 = load i8, ptr %arrayidx10.i.i.i.epil, align 1, !tbaa !63
+  %and21.i.i.i.epil = and i8 %30, %19
+  %conv19.i23.i.i.epil = tail call noundef i8 @llvm.fshl.i8(i8 %29, i8 %and21.i.i.i.epil, i8 %20)
   %conv3.i.i.epil = zext i8 %conv19.i23.i.i.epil to i32
   %or.i.i.epil = or disjoint i32 %result.027.i.i.unr, %conv3.i.i.epil
   br label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit
@@ -4063,13 +4062,13 @@ _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit:     ; preds = %for.body.i.i.epil, 
   %conv10.i.pre-phi.i.i = phi i32 [ %.pre33.i.i, %entry.for.cond.cleanup_crit_edge.i.i ], [ %17, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa ], [ %17, %for.body.i.i.epil ]
   %.pre-phi.i.i = phi i8 [ %.pre32.i.i, %entry.for.cond.cleanup_crit_edge.i.i ], [ %20, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa ], [ %20, %for.body.i.i.epil ]
   %conv13.i.pre-phi.i.i = phi i64 [ 0, %entry.for.cond.cleanup_crit_edge.i.i ], [ %wide.trip.count.i.i, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa ], [ %wide.trip.count.i.i, %for.body.i.i.epil ]
-  %30 = phi ptr [ %.pre30.i.i, %entry.for.cond.cleanup_crit_edge.i.i ], [ %14, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa ], [ %14, %for.body.i.i.epil ]
-  %31 = phi i32 [ %.pre.i.i, %entry.for.cond.cleanup_crit_edge.i.i ], [ %15, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa ], [ %15, %for.body.i.i.epil ]
+  %31 = phi ptr [ %.pre30.i.i, %entry.for.cond.cleanup_crit_edge.i.i ], [ %14, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa ], [ %14, %for.body.i.i.epil ]
+  %32 = phi i32 [ %.pre.i.i, %entry.for.cond.cleanup_crit_edge.i.i ], [ %15, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa ], [ %15, %for.body.i.i.epil ]
   %result.0.lcssa.i.i = phi i32 [ 0, %entry.for.cond.cleanup_crit_edge.i.i ], [ %or.i.i.lcssa.ph, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit.loopexit.unr-lcssa ], [ %or.i.i.epil, %for.body.i.i.epil ]
-  %32 = and i8 %12, 7
-  %conv4.i.i = zext nneg i8 %32 to i32
+  %33 = and i8 %12, 7
+  %conv4.i.i = zext nneg i8 %33 to i32
   %shl5.i.i = shl i32 %result.0.lcssa.i.i, %conv4.i.i
-  %sub.i.i.i = sub nuw nsw i8 8, %32
+  %sub.i.i.i = sub nuw nsw i8 8, %33
   %index.i.i.i.i80 = getelementptr inbounds i8, ptr %state, i64 8
   %conv.i.i.i.i = and i8 %.pre-phi.i.i, 7
   %add.i.i.i = add i8 %12, %.pre-phi.i.i
@@ -4077,50 +4076,50 @@ _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit:     ; preds = %for.body.i.i.epil, 
   %and.i.i.i82 = and i8 %sub6.i.i.i81, 7
   %add11.i.i.i = add nuw nsw i32 %conv10.i.pre-phi.i.i, %conv4.i.i
   %cmp.i.i.i83 = icmp ugt i32 %add11.i.i.i, 7
-  %33 = getelementptr i8, ptr %30, i64 %conv.i50.i.pre-phi.i.i
-  %arrayidx.i.i.i = getelementptr i8, ptr %33, i64 %conv13.i.pre-phi.i.i
-  %34 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !63
-  %conv15.i.i.i84 = zext i8 %34 to i32
+  %34 = getelementptr i8, ptr %31, i64 %conv.i50.i.pre-phi.i.i
+  %arrayidx.i.i.i = getelementptr i8, ptr %34, i64 %conv13.i.pre-phi.i.i
+  %35 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !63
+  %conv15.i.i.i84 = zext i8 %35 to i32
   %shl.i.i.i85 = shl nuw nsw i32 %conv15.i.i.i84, %conv10.i.pre-phi.i.i
-  %idxprom.i.i.i = zext nneg i8 %32 to i64
+  %idxprom.i.i.i = zext nneg i8 %33 to i64
   %arrayidx18.i.i.i = getelementptr inbounds [16 x i8], ptr @_ZN6duckdb9BitReader5MASKSE, i64 0, i64 %idxprom.i.i.i
-  %35 = load i8, ptr %arrayidx18.i.i.i, align 1, !tbaa !63
-  %conv19.i.i.i = zext i8 %35 to i32
+  %36 = load i8, ptr %arrayidx18.i.i.i, align 1, !tbaa !63
+  %conv19.i.i.i = zext i8 %36 to i32
   %and20.i.i.i86 = and i32 %shl.i.i.i85, %conv19.i.i.i
   %conv21.i.i.i = zext nneg i8 %sub.i.i.i to i32
   %shr.i.i.i87 = lshr i32 %and20.i.i.i86, %conv21.i.i.i
   %conv26.i.i.i88 = zext i1 %cmp.i.i.i83 to i64
   %arrayidx28.i.i.i89 = getelementptr i8, ptr %arrayidx.i.i.i, i64 %conv26.i.i.i88
-  %36 = load i8, ptr %arrayidx28.i.i.i89, align 1, !tbaa !63
-  %narrow.i90 = add nuw nsw i8 %conv.i.i.i.i, %32
+  %37 = load i8, ptr %arrayidx28.i.i.i89, align 1, !tbaa !63
+  %narrow.i90 = add nuw nsw i8 %conv.i.i.i.i, %33
   %add33.i.i.i = zext nneg i8 %narrow.i90 to i64
   %arrayidx35.i.i.i91 = getelementptr inbounds [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %add33.i.i.i
-  %37 = load i8, ptr %arrayidx35.i.i.i91, align 1, !tbaa !63
-  %and3746.i.i.i92 = and i8 %37, %36
+  %38 = load i8, ptr %arrayidx35.i.i.i91, align 1, !tbaa !63
+  %and3746.i.i.i92 = and i8 %38, %37
   %and37.i.i.i93 = zext i8 %and3746.i.i.i92 to i32
   %conv38.i.i.i = zext nneg i8 %and.i.i.i82 to i32
   %shr39.i.i.i94 = lshr i32 %and37.i.i.i93, %conv38.i.i.i
   %or.i.i.i95 = or i32 %shr.i.i.i87, %shl5.i.i
   %or8.i.i = or i32 %or.i.i.i95, %shr39.i.i.i94
   %add.i.i = zext i8 %12 to i32
-  %add12.i.i = add i32 %31, %add.i.i
+  %add12.i.i = add i32 %32, %add.i.i
   store i32 %add12.i.i, ptr %index.i.i.i.i80, align 8, !tbaa !199
   %conv13 = zext nneg i8 %sub7 to i32
   %shl = shl i32 %or8.i.i, %conv13
   %ring_buffer14 = getelementptr inbounds i8, ptr %state, i64 24
   %index15 = getelementptr inbounds i8, ptr %arrayidx, i64 2
-  %38 = load i8, ptr %index15, align 1, !tbaa !63
-  %idxprom.i96 = zext i8 %38 to i64
+  %39 = load i8, ptr %index15, align 1, !tbaa !63
+  %idxprom.i96 = zext i8 %39 to i64
   %arrayidx.i97 = getelementptr inbounds [128 x i64], ptr %ring_buffer14, i64 0, i64 %idxprom.i96
-  %39 = load i64, ptr %arrayidx.i97, align 8, !tbaa !69
-  %40 = trunc i64 %39 to i32
-  %conv18 = xor i32 %shl, %40
+  %40 = load i64, ptr %arrayidx.i97, align 8, !tbaa !69
+  %41 = trunc i64 %40 to i32
+  %conv18 = xor i32 %shl, %41
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %entry
   %leading_zeros21 = getelementptr inbounds i8, ptr %state, i64 16
-  %41 = load i8, ptr %leading_zeros21, align 8, !tbaa !201
-  %sub23 = sub i8 32, %41
+  %42 = load i8, ptr %leading_zeros21, align 8, !tbaa !201
+  %sub23 = sub i8 32, %42
   %cmp25.not.i.i98 = icmp ult i8 %sub23, 8
   br i1 %cmp25.not.i.i98, label %entry.for.cond.cleanup_crit_edge.i.i155, label %for.body.lr.ph.i.i99
 
@@ -4135,47 +4134,46 @@ entry.for.cond.cleanup_crit_edge.i.i155:          ; preds = %sw.bb19
   br label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163
 
 for.body.lr.ph.i.i99:                             ; preds = %sw.bb19
-  %42 = lshr i8 %sub23, 3
-  %43 = load ptr, ptr %state, align 8, !tbaa !198
+  %43 = lshr i8 %sub23, 3
+  %44 = load ptr, ptr %state, align 8, !tbaa !198
   %index.i.i19.i.i100 = getelementptr inbounds i8, ptr %state, i64 8
-  %44 = load i32, ptr %index.i.i19.i.i100, align 8, !tbaa !199
-  %shr.i.i20.i.i101 = lshr i32 %44, 3
+  %45 = load i32, ptr %index.i.i19.i.i100, align 8, !tbaa !199
+  %shr.i.i20.i.i101 = lshr i32 %45, 3
   %conv.i.i21.i.i102 = zext nneg i32 %shr.i.i20.i.i101 to i64
-  %45 = getelementptr i8, ptr %43, i64 %conv.i.i21.i.i102
-  %46 = and i32 %44, 7
-  %47 = or disjoint i32 %46, 8
-  %add14.i.i.i103 = zext nneg i32 %47 to i64
+  %46 = getelementptr i8, ptr %44, i64 %conv.i.i21.i.i102
+  %47 = and i32 %45, 7
+  %48 = or disjoint i32 %47, 8
+  %add14.i.i.i103 = zext nneg i32 %48 to i64
   %arrayidx15.i.i.i104 = getelementptr inbounds [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %add14.i.i.i103
-  %48 = load i8, ptr %arrayidx15.i.i.i104, align 1, !tbaa !63
-  %49 = trunc i32 %44 to i8
-  %wide.trip.count.i.i105 = zext nneg i8 %42 to i64
+  %49 = load i8, ptr %arrayidx15.i.i.i104, align 1, !tbaa !63
+  %50 = trunc i32 %45 to i8
+  %wide.trip.count.i.i105 = zext nneg i8 %43 to i64
   %xtraiter239 = and i64 %wide.trip.count.i.i105, 1
-  %50 = icmp eq i8 %42, 1
-  br i1 %50, label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa, label %for.body.lr.ph.i.i99.new
+  %51 = icmp eq i8 %43, 1
+  br i1 %51, label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa, label %for.body.lr.ph.i.i99.new
 
 for.body.lr.ph.i.i99.new:                         ; preds = %for.body.lr.ph.i.i99
   %unroll_iter242 = and i64 %wide.trip.count.i.i105, 30
-  %invariant.gep4 = getelementptr i8, ptr %45, i64 1
+  %52 = getelementptr i8, ptr %46, i64 2
   br label %for.body.i.i106
 
 for.body.i.i106:                                  ; preds = %for.body.i.i106, %for.body.lr.ph.i.i99.new
   %indvars.iv.i.i107 = phi i64 [ 0, %for.body.lr.ph.i.i99.new ], [ %indvars.iv.next.i.i116.1, %for.body.i.i106 ]
   %result.027.i.i108 = phi i32 [ 0, %for.body.lr.ph.i.i99.new ], [ %or.i.i115.1, %for.body.i.i106 ]
-  %arrayidx.i22.i.i110 = getelementptr i8, ptr %45, i64 %indvars.iv.i.i107
-  %51 = load i8, ptr %arrayidx.i22.i.i110, align 1, !tbaa !63
+  %arrayidx.i22.i.i110 = getelementptr i8, ptr %46, i64 %indvars.iv.i.i107
+  %53 = load i8, ptr %arrayidx.i22.i.i110, align 1, !tbaa !63
   %arrayidx10.i.i.i111 = getelementptr i8, ptr %arrayidx.i22.i.i110, i64 1
-  %52 = load i8, ptr %arrayidx10.i.i.i111, align 1, !tbaa !63
-  %and21.i.i.i112 = and i8 %52, %48
-  %conv19.i23.i.i113 = tail call noundef i8 @llvm.fshl.i8(i8 %51, i8 %and21.i.i.i112, i8 %49)
+  %54 = load i8, ptr %arrayidx10.i.i.i111, align 1, !tbaa !63
+  %and21.i.i.i112 = and i8 %54, %49
+  %conv19.i23.i.i113 = tail call noundef i8 @llvm.fshl.i8(i8 %53, i8 %and21.i.i.i112, i8 %50)
   %conv3.i.i114 = zext i8 %conv19.i23.i.i113 to i32
-  %indvars.iv.next.i.i116 = or disjoint i64 %indvars.iv.i.i107, 1
-  %53 = shl i32 %result.027.i.i108, 16
-  %54 = shl nuw nsw i32 %conv3.i.i114, 8
-  %shl.i.i109.1 = or disjoint i32 %54, %53
-  %gep5 = getelementptr i8, ptr %invariant.gep4, i64 %indvars.iv.next.i.i116
-  %55 = load i8, ptr %gep5, align 1, !tbaa !63
-  %and21.i.i.i112.1 = and i8 %55, %48
-  %conv19.i23.i.i113.1 = tail call noundef i8 @llvm.fshl.i8(i8 %52, i8 %and21.i.i.i112.1, i8 %49)
+  %55 = shl i32 %result.027.i.i108, 16
+  %56 = shl nuw nsw i32 %conv3.i.i114, 8
+  %shl.i.i109.1 = or disjoint i32 %56, %55
+  %gep5 = getelementptr i8, ptr %52, i64 %indvars.iv.i.i107
+  %57 = load i8, ptr %gep5, align 1, !tbaa !63
+  %and21.i.i.i112.1 = and i8 %57, %49
+  %conv19.i23.i.i113.1 = tail call noundef i8 @llvm.fshl.i8(i8 %54, i8 %and21.i.i.i112.1, i8 %50)
   %conv3.i.i114.1 = zext i8 %conv19.i23.i.i113.1 to i32
   %or.i.i115.1 = or disjoint i32 %shl.i.i109.1, %conv3.i.i114.1
   %indvars.iv.next.i.i116.1 = add nuw i64 %indvars.iv.i.i107, 2
@@ -4183,88 +4181,88 @@ for.body.i.i106:                                  ; preds = %for.body.i.i106, %f
   br i1 %niter243.ncmp.1, label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa.loopexit, label %for.body.i.i106, !llvm.loop !227
 
 _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa.loopexit: ; preds = %for.body.i.i106
-  %56 = shl i32 %or.i.i115.1, 8
+  %58 = shl i32 %or.i.i115.1, 8
   br label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa
 
 _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa: ; preds = %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa.loopexit, %for.body.lr.ph.i.i99
   %or.i.i115.lcssa.ph = phi i32 [ undef, %for.body.lr.ph.i.i99 ], [ %or.i.i115.1, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa.loopexit ]
   %indvars.iv.i.i107.unr = phi i64 [ 0, %for.body.lr.ph.i.i99 ], [ %unroll_iter242, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa.loopexit ]
-  %result.027.i.i108.unr = phi i32 [ 0, %for.body.lr.ph.i.i99 ], [ %56, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa.loopexit ]
+  %result.027.i.i108.unr = phi i32 [ 0, %for.body.lr.ph.i.i99 ], [ %58, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa.loopexit ]
   %lcmp.mod240.not = icmp eq i64 %xtraiter239, 0
   br i1 %lcmp.mod240.not, label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163, label %for.body.i.i106.epil
 
 for.body.i.i106.epil:                             ; preds = %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa
-  %arrayidx.i22.i.i110.epil = getelementptr i8, ptr %45, i64 %indvars.iv.i.i107.unr
-  %57 = load i8, ptr %arrayidx.i22.i.i110.epil, align 1, !tbaa !63
+  %arrayidx.i22.i.i110.epil = getelementptr i8, ptr %46, i64 %indvars.iv.i.i107.unr
+  %59 = load i8, ptr %arrayidx.i22.i.i110.epil, align 1, !tbaa !63
   %arrayidx10.i.i.i111.epil = getelementptr i8, ptr %arrayidx.i22.i.i110.epil, i64 1
-  %58 = load i8, ptr %arrayidx10.i.i.i111.epil, align 1, !tbaa !63
-  %and21.i.i.i112.epil = and i8 %58, %48
-  %conv19.i23.i.i113.epil = tail call noundef i8 @llvm.fshl.i8(i8 %57, i8 %and21.i.i.i112.epil, i8 %49)
+  %60 = load i8, ptr %arrayidx10.i.i.i111.epil, align 1, !tbaa !63
+  %and21.i.i.i112.epil = and i8 %60, %49
+  %conv19.i23.i.i113.epil = tail call noundef i8 @llvm.fshl.i8(i8 %59, i8 %and21.i.i.i112.epil, i8 %50)
   %conv3.i.i114.epil = zext i8 %conv19.i23.i.i113.epil to i32
   %or.i.i115.epil = or disjoint i32 %result.027.i.i108.unr, %conv3.i.i114.epil
   br label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163
 
 _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163:  ; preds = %for.body.i.i106.epil, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa, %entry.for.cond.cleanup_crit_edge.i.i155
   %conv.i50.i.pre-phi.i.i118 = phi i64 [ %.pre35.i.i162, %entry.for.cond.cleanup_crit_edge.i.i155 ], [ %conv.i.i21.i.i102, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa ], [ %conv.i.i21.i.i102, %for.body.i.i106.epil ]
-  %conv10.i.pre-phi.i.i119 = phi i32 [ %.pre33.i.i160, %entry.for.cond.cleanup_crit_edge.i.i155 ], [ %46, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa ], [ %46, %for.body.i.i106.epil ]
-  %.pre-phi.i.i120 = phi i8 [ %.pre32.i.i159, %entry.for.cond.cleanup_crit_edge.i.i155 ], [ %49, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa ], [ %49, %for.body.i.i106.epil ]
+  %conv10.i.pre-phi.i.i119 = phi i32 [ %.pre33.i.i160, %entry.for.cond.cleanup_crit_edge.i.i155 ], [ %47, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa ], [ %47, %for.body.i.i106.epil ]
+  %.pre-phi.i.i120 = phi i8 [ %.pre32.i.i159, %entry.for.cond.cleanup_crit_edge.i.i155 ], [ %50, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa ], [ %50, %for.body.i.i106.epil ]
   %conv13.i.pre-phi.i.i121 = phi i64 [ 0, %entry.for.cond.cleanup_crit_edge.i.i155 ], [ %wide.trip.count.i.i105, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa ], [ %wide.trip.count.i.i105, %for.body.i.i106.epil ]
-  %59 = phi ptr [ %.pre30.i.i158, %entry.for.cond.cleanup_crit_edge.i.i155 ], [ %43, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa ], [ %43, %for.body.i.i106.epil ]
-  %60 = phi i32 [ %.pre.i.i157, %entry.for.cond.cleanup_crit_edge.i.i155 ], [ %44, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa ], [ %44, %for.body.i.i106.epil ]
+  %61 = phi ptr [ %.pre30.i.i158, %entry.for.cond.cleanup_crit_edge.i.i155 ], [ %44, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa ], [ %44, %for.body.i.i106.epil ]
+  %62 = phi i32 [ %.pre.i.i157, %entry.for.cond.cleanup_crit_edge.i.i155 ], [ %45, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa ], [ %45, %for.body.i.i106.epil ]
   %result.0.lcssa.i.i122 = phi i32 [ 0, %entry.for.cond.cleanup_crit_edge.i.i155 ], [ %or.i.i115.lcssa.ph, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163.loopexit.unr-lcssa ], [ %or.i.i115.epil, %for.body.i.i106.epil ]
-  %61 = and i8 %sub23, 7
-  %conv4.i.i123 = zext nneg i8 %61 to i32
+  %63 = and i8 %sub23, 7
+  %conv4.i.i123 = zext nneg i8 %63 to i32
   %shl5.i.i124 = shl i32 %result.0.lcssa.i.i122, %conv4.i.i123
-  %sub.i.i.i125 = sub nuw nsw i8 8, %61
+  %sub.i.i.i125 = sub nuw nsw i8 8, %63
   %index.i.i.i.i126 = getelementptr inbounds i8, ptr %state, i64 8
   %conv.i.i.i.i127 = and i8 %.pre-phi.i.i120, 7
-  %add.i.i.i128.neg = sub i8 %41, %.pre-phi.i.i120
+  %add.i.i.i128.neg = sub i8 %42, %.pre-phi.i.i120
   %and.i.i.i130 = and i8 %add.i.i.i128.neg, 7
   %add11.i.i.i131 = add nuw nsw i32 %conv10.i.pre-phi.i.i119, %conv4.i.i123
   %cmp.i.i.i132 = icmp ugt i32 %add11.i.i.i131, 7
-  %62 = getelementptr i8, ptr %59, i64 %conv.i50.i.pre-phi.i.i118
-  %arrayidx.i.i.i133 = getelementptr i8, ptr %62, i64 %conv13.i.pre-phi.i.i121
-  %63 = load i8, ptr %arrayidx.i.i.i133, align 1, !tbaa !63
-  %conv15.i.i.i134 = zext i8 %63 to i32
+  %64 = getelementptr i8, ptr %61, i64 %conv.i50.i.pre-phi.i.i118
+  %arrayidx.i.i.i133 = getelementptr i8, ptr %64, i64 %conv13.i.pre-phi.i.i121
+  %65 = load i8, ptr %arrayidx.i.i.i133, align 1, !tbaa !63
+  %conv15.i.i.i134 = zext i8 %65 to i32
   %shl.i.i.i135 = shl nuw nsw i32 %conv15.i.i.i134, %conv10.i.pre-phi.i.i119
-  %idxprom.i.i.i136 = zext nneg i8 %61 to i64
+  %idxprom.i.i.i136 = zext nneg i8 %63 to i64
   %arrayidx18.i.i.i137 = getelementptr inbounds [16 x i8], ptr @_ZN6duckdb9BitReader5MASKSE, i64 0, i64 %idxprom.i.i.i136
-  %64 = load i8, ptr %arrayidx18.i.i.i137, align 1, !tbaa !63
-  %conv19.i.i.i138 = zext i8 %64 to i32
+  %66 = load i8, ptr %arrayidx18.i.i.i137, align 1, !tbaa !63
+  %conv19.i.i.i138 = zext i8 %66 to i32
   %and20.i.i.i139 = and i32 %shl.i.i.i135, %conv19.i.i.i138
   %conv21.i.i.i140 = zext nneg i8 %sub.i.i.i125 to i32
   %shr.i.i.i141 = lshr i32 %and20.i.i.i139, %conv21.i.i.i140
   %conv26.i.i.i142 = zext i1 %cmp.i.i.i132 to i64
   %arrayidx28.i.i.i143 = getelementptr i8, ptr %arrayidx.i.i.i133, i64 %conv26.i.i.i142
-  %65 = load i8, ptr %arrayidx28.i.i.i143, align 1, !tbaa !63
-  %narrow.i144 = add nuw nsw i8 %conv.i.i.i.i127, %61
+  %67 = load i8, ptr %arrayidx28.i.i.i143, align 1, !tbaa !63
+  %narrow.i144 = add nuw nsw i8 %conv.i.i.i.i127, %63
   %add33.i.i.i145 = zext nneg i8 %narrow.i144 to i64
   %arrayidx35.i.i.i146 = getelementptr inbounds [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %add33.i.i.i145
-  %66 = load i8, ptr %arrayidx35.i.i.i146, align 1, !tbaa !63
-  %and3746.i.i.i147 = and i8 %66, %65
+  %68 = load i8, ptr %arrayidx35.i.i.i146, align 1, !tbaa !63
+  %and3746.i.i.i147 = and i8 %68, %67
   %and37.i.i.i148 = zext i8 %and3746.i.i.i147 to i32
   %conv38.i.i.i149 = zext nneg i8 %and.i.i.i130 to i32
   %shr39.i.i.i150 = lshr i32 %and37.i.i.i148, %conv38.i.i.i149
   %or.i.i.i151 = or i32 %shr.i.i.i141, %shl5.i.i124
   %or8.i.i152 = or i32 %or.i.i.i151, %shr39.i.i.i150
   %add.i.i153 = zext i8 %sub23 to i32
-  %add12.i.i154 = add i32 %60, %add.i.i153
+  %add12.i.i154 = add i32 %62, %add.i.i153
   store i32 %add12.i.i154, ptr %index.i.i.i.i126, align 8, !tbaa !199
   %reference_value = getelementptr inbounds i8, ptr %state, i64 20
-  %67 = load i32, ptr %reference_value, align 4, !tbaa !205
-  %xor26 = xor i32 %or8.i.i152, %67
+  %69 = load i32, ptr %reference_value, align 4, !tbaa !205
+  %xor26 = xor i32 %or8.i.i152, %69
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %entry
-  %68 = load i32, ptr %leading_zero_index, align 4, !tbaa !64
-  %inc28 = add i32 %68, 1
+  %70 = load i32, ptr %leading_zero_index, align 4, !tbaa !64
+  %inc28 = add i32 %70, 1
   store i32 %inc28, ptr %leading_zero_index, align 4, !tbaa !64
-  %idxprom29 = zext i32 %68 to i64
+  %idxprom29 = zext i32 %70 to i64
   %arrayidx30 = getelementptr inbounds i8, ptr %leading_zeros, i64 %idxprom29
-  %69 = load i8, ptr %arrayidx30, align 1, !tbaa !63
+  %71 = load i8, ptr %arrayidx30, align 1, !tbaa !63
   %leading_zeros31 = getelementptr inbounds i8, ptr %state, i64 16
-  store i8 %69, ptr %leading_zeros31, align 8, !tbaa !201
-  %sub36 = sub i8 32, %69
+  store i8 %71, ptr %leading_zeros31, align 8, !tbaa !201
+  %sub36 = sub i8 32, %71
   %cmp25.not.i.i164 = icmp ult i8 %sub36, 8
   br i1 %cmp25.not.i.i164, label %entry.for.cond.cleanup_crit_edge.i.i221, label %for.body.lr.ph.i.i165
 
@@ -4279,47 +4277,46 @@ entry.for.cond.cleanup_crit_edge.i.i221:          ; preds = %sw.bb27
   br label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229
 
 for.body.lr.ph.i.i165:                            ; preds = %sw.bb27
-  %70 = lshr i8 %sub36, 3
-  %71 = load ptr, ptr %state, align 8, !tbaa !198
+  %72 = lshr i8 %sub36, 3
+  %73 = load ptr, ptr %state, align 8, !tbaa !198
   %index.i.i19.i.i166 = getelementptr inbounds i8, ptr %state, i64 8
-  %72 = load i32, ptr %index.i.i19.i.i166, align 8, !tbaa !199
-  %shr.i.i20.i.i167 = lshr i32 %72, 3
+  %74 = load i32, ptr %index.i.i19.i.i166, align 8, !tbaa !199
+  %shr.i.i20.i.i167 = lshr i32 %74, 3
   %conv.i.i21.i.i168 = zext nneg i32 %shr.i.i20.i.i167 to i64
-  %73 = getelementptr i8, ptr %71, i64 %conv.i.i21.i.i168
-  %74 = and i32 %72, 7
-  %75 = or disjoint i32 %74, 8
-  %add14.i.i.i169 = zext nneg i32 %75 to i64
+  %75 = getelementptr i8, ptr %73, i64 %conv.i.i21.i.i168
+  %76 = and i32 %74, 7
+  %77 = or disjoint i32 %76, 8
+  %add14.i.i.i169 = zext nneg i32 %77 to i64
   %arrayidx15.i.i.i170 = getelementptr inbounds [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %add14.i.i.i169
-  %76 = load i8, ptr %arrayidx15.i.i.i170, align 1, !tbaa !63
-  %77 = trunc i32 %72 to i8
-  %wide.trip.count.i.i171 = zext nneg i8 %70 to i64
+  %78 = load i8, ptr %arrayidx15.i.i.i170, align 1, !tbaa !63
+  %79 = trunc i32 %74 to i8
+  %wide.trip.count.i.i171 = zext nneg i8 %72 to i64
   %xtraiter = and i64 %wide.trip.count.i.i171, 1
-  %78 = icmp eq i8 %70, 1
-  br i1 %78, label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa, label %for.body.lr.ph.i.i165.new
+  %80 = icmp eq i8 %72, 1
+  br i1 %80, label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa, label %for.body.lr.ph.i.i165.new
 
 for.body.lr.ph.i.i165.new:                        ; preds = %for.body.lr.ph.i.i165
   %unroll_iter = and i64 %wide.trip.count.i.i171, 30
-  %invariant.gep = getelementptr i8, ptr %73, i64 1
+  %81 = getelementptr i8, ptr %75, i64 2
   br label %for.body.i.i172
 
 for.body.i.i172:                                  ; preds = %for.body.i.i172, %for.body.lr.ph.i.i165.new
   %indvars.iv.i.i173 = phi i64 [ 0, %for.body.lr.ph.i.i165.new ], [ %indvars.iv.next.i.i182.1, %for.body.i.i172 ]
   %result.027.i.i174 = phi i32 [ 0, %for.body.lr.ph.i.i165.new ], [ %or.i.i181.1, %for.body.i.i172 ]
-  %arrayidx.i22.i.i176 = getelementptr i8, ptr %73, i64 %indvars.iv.i.i173
-  %79 = load i8, ptr %arrayidx.i22.i.i176, align 1, !tbaa !63
+  %arrayidx.i22.i.i176 = getelementptr i8, ptr %75, i64 %indvars.iv.i.i173
+  %82 = load i8, ptr %arrayidx.i22.i.i176, align 1, !tbaa !63
   %arrayidx10.i.i.i177 = getelementptr i8, ptr %arrayidx.i22.i.i176, i64 1
-  %80 = load i8, ptr %arrayidx10.i.i.i177, align 1, !tbaa !63
-  %and21.i.i.i178 = and i8 %80, %76
-  %conv19.i23.i.i179 = tail call noundef i8 @llvm.fshl.i8(i8 %79, i8 %and21.i.i.i178, i8 %77)
+  %83 = load i8, ptr %arrayidx10.i.i.i177, align 1, !tbaa !63
+  %and21.i.i.i178 = and i8 %83, %78
+  %conv19.i23.i.i179 = tail call noundef i8 @llvm.fshl.i8(i8 %82, i8 %and21.i.i.i178, i8 %79)
   %conv3.i.i180 = zext i8 %conv19.i23.i.i179 to i32
-  %indvars.iv.next.i.i182 = or disjoint i64 %indvars.iv.i.i173, 1
-  %81 = shl i32 %result.027.i.i174, 16
-  %82 = shl nuw nsw i32 %conv3.i.i180, 8
-  %shl.i.i175.1 = or disjoint i32 %82, %81
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv.next.i.i182
-  %83 = load i8, ptr %gep, align 1, !tbaa !63
-  %and21.i.i.i178.1 = and i8 %83, %76
-  %conv19.i23.i.i179.1 = tail call noundef i8 @llvm.fshl.i8(i8 %80, i8 %and21.i.i.i178.1, i8 %77)
+  %84 = shl i32 %result.027.i.i174, 16
+  %85 = shl nuw nsw i32 %conv3.i.i180, 8
+  %shl.i.i175.1 = or disjoint i32 %85, %84
+  %gep = getelementptr i8, ptr %81, i64 %indvars.iv.i.i173
+  %86 = load i8, ptr %gep, align 1, !tbaa !63
+  %and21.i.i.i178.1 = and i8 %86, %78
+  %conv19.i23.i.i179.1 = tail call noundef i8 @llvm.fshl.i8(i8 %83, i8 %and21.i.i.i178.1, i8 %79)
   %conv3.i.i180.1 = zext i8 %conv19.i23.i.i179.1 to i32
   %or.i.i181.1 = or disjoint i32 %shl.i.i175.1, %conv3.i.i180.1
   %indvars.iv.next.i.i182.1 = add nuw i64 %indvars.iv.i.i173, 2
@@ -4327,76 +4324,76 @@ for.body.i.i172:                                  ; preds = %for.body.i.i172, %f
   br i1 %niter.ncmp.1, label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa.loopexit, label %for.body.i.i172, !llvm.loop !227
 
 _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa.loopexit: ; preds = %for.body.i.i172
-  %84 = shl i32 %or.i.i181.1, 8
+  %87 = shl i32 %or.i.i181.1, 8
   br label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa
 
 _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa: ; preds = %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa.loopexit, %for.body.lr.ph.i.i165
   %or.i.i181.lcssa.ph = phi i32 [ undef, %for.body.lr.ph.i.i165 ], [ %or.i.i181.1, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa.loopexit ]
   %indvars.iv.i.i173.unr = phi i64 [ 0, %for.body.lr.ph.i.i165 ], [ %unroll_iter, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa.loopexit ]
-  %result.027.i.i174.unr = phi i32 [ 0, %for.body.lr.ph.i.i165 ], [ %84, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa.loopexit ]
+  %result.027.i.i174.unr = phi i32 [ 0, %for.body.lr.ph.i.i165 ], [ %87, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa.loopexit ]
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229, label %for.body.i.i172.epil
 
 for.body.i.i172.epil:                             ; preds = %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa
-  %arrayidx.i22.i.i176.epil = getelementptr i8, ptr %73, i64 %indvars.iv.i.i173.unr
-  %85 = load i8, ptr %arrayidx.i22.i.i176.epil, align 1, !tbaa !63
+  %arrayidx.i22.i.i176.epil = getelementptr i8, ptr %75, i64 %indvars.iv.i.i173.unr
+  %88 = load i8, ptr %arrayidx.i22.i.i176.epil, align 1, !tbaa !63
   %arrayidx10.i.i.i177.epil = getelementptr i8, ptr %arrayidx.i22.i.i176.epil, i64 1
-  %86 = load i8, ptr %arrayidx10.i.i.i177.epil, align 1, !tbaa !63
-  %and21.i.i.i178.epil = and i8 %86, %76
-  %conv19.i23.i.i179.epil = tail call noundef i8 @llvm.fshl.i8(i8 %85, i8 %and21.i.i.i178.epil, i8 %77)
+  %89 = load i8, ptr %arrayidx10.i.i.i177.epil, align 1, !tbaa !63
+  %and21.i.i.i178.epil = and i8 %89, %78
+  %conv19.i23.i.i179.epil = tail call noundef i8 @llvm.fshl.i8(i8 %88, i8 %and21.i.i.i178.epil, i8 %79)
   %conv3.i.i180.epil = zext i8 %conv19.i23.i.i179.epil to i32
   %or.i.i181.epil = or disjoint i32 %result.027.i.i174.unr, %conv3.i.i180.epil
   br label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229
 
 _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229:  ; preds = %for.body.i.i172.epil, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa, %entry.for.cond.cleanup_crit_edge.i.i221
   %conv.i50.i.pre-phi.i.i184 = phi i64 [ %.pre35.i.i228, %entry.for.cond.cleanup_crit_edge.i.i221 ], [ %conv.i.i21.i.i168, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa ], [ %conv.i.i21.i.i168, %for.body.i.i172.epil ]
-  %conv10.i.pre-phi.i.i185 = phi i32 [ %.pre33.i.i226, %entry.for.cond.cleanup_crit_edge.i.i221 ], [ %74, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa ], [ %74, %for.body.i.i172.epil ]
-  %.pre-phi.i.i186 = phi i8 [ %.pre32.i.i225, %entry.for.cond.cleanup_crit_edge.i.i221 ], [ %77, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa ], [ %77, %for.body.i.i172.epil ]
+  %conv10.i.pre-phi.i.i185 = phi i32 [ %.pre33.i.i226, %entry.for.cond.cleanup_crit_edge.i.i221 ], [ %76, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa ], [ %76, %for.body.i.i172.epil ]
+  %.pre-phi.i.i186 = phi i8 [ %.pre32.i.i225, %entry.for.cond.cleanup_crit_edge.i.i221 ], [ %79, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa ], [ %79, %for.body.i.i172.epil ]
   %conv13.i.pre-phi.i.i187 = phi i64 [ 0, %entry.for.cond.cleanup_crit_edge.i.i221 ], [ %wide.trip.count.i.i171, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa ], [ %wide.trip.count.i.i171, %for.body.i.i172.epil ]
-  %87 = phi ptr [ %.pre30.i.i224, %entry.for.cond.cleanup_crit_edge.i.i221 ], [ %71, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa ], [ %71, %for.body.i.i172.epil ]
-  %88 = phi i32 [ %.pre.i.i223, %entry.for.cond.cleanup_crit_edge.i.i221 ], [ %72, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa ], [ %72, %for.body.i.i172.epil ]
+  %90 = phi ptr [ %.pre30.i.i224, %entry.for.cond.cleanup_crit_edge.i.i221 ], [ %73, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa ], [ %73, %for.body.i.i172.epil ]
+  %91 = phi i32 [ %.pre.i.i223, %entry.for.cond.cleanup_crit_edge.i.i221 ], [ %74, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa ], [ %74, %for.body.i.i172.epil ]
   %result.0.lcssa.i.i188 = phi i32 [ 0, %entry.for.cond.cleanup_crit_edge.i.i221 ], [ %or.i.i181.lcssa.ph, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229.loopexit.unr-lcssa ], [ %or.i.i181.epil, %for.body.i.i172.epil ]
-  %89 = and i8 %sub36, 7
-  %conv4.i.i189 = zext nneg i8 %89 to i32
+  %92 = and i8 %sub36, 7
+  %conv4.i.i189 = zext nneg i8 %92 to i32
   %shl5.i.i190 = shl i32 %result.0.lcssa.i.i188, %conv4.i.i189
-  %sub.i.i.i191 = sub nuw nsw i8 8, %89
+  %sub.i.i.i191 = sub nuw nsw i8 8, %92
   %index.i.i.i.i192 = getelementptr inbounds i8, ptr %state, i64 8
   %conv.i.i.i.i193 = and i8 %.pre-phi.i.i186, 7
-  %add.i.i.i194.neg = sub i8 %69, %.pre-phi.i.i186
+  %add.i.i.i194.neg = sub i8 %71, %.pre-phi.i.i186
   %and.i.i.i196 = and i8 %add.i.i.i194.neg, 7
   %add11.i.i.i197 = add nuw nsw i32 %conv10.i.pre-phi.i.i185, %conv4.i.i189
   %cmp.i.i.i198 = icmp ugt i32 %add11.i.i.i197, 7
-  %90 = getelementptr i8, ptr %87, i64 %conv.i50.i.pre-phi.i.i184
-  %arrayidx.i.i.i199 = getelementptr i8, ptr %90, i64 %conv13.i.pre-phi.i.i187
-  %91 = load i8, ptr %arrayidx.i.i.i199, align 1, !tbaa !63
-  %conv15.i.i.i200 = zext i8 %91 to i32
+  %93 = getelementptr i8, ptr %90, i64 %conv.i50.i.pre-phi.i.i184
+  %arrayidx.i.i.i199 = getelementptr i8, ptr %93, i64 %conv13.i.pre-phi.i.i187
+  %94 = load i8, ptr %arrayidx.i.i.i199, align 1, !tbaa !63
+  %conv15.i.i.i200 = zext i8 %94 to i32
   %shl.i.i.i201 = shl nuw nsw i32 %conv15.i.i.i200, %conv10.i.pre-phi.i.i185
-  %idxprom.i.i.i202 = zext nneg i8 %89 to i64
+  %idxprom.i.i.i202 = zext nneg i8 %92 to i64
   %arrayidx18.i.i.i203 = getelementptr inbounds [16 x i8], ptr @_ZN6duckdb9BitReader5MASKSE, i64 0, i64 %idxprom.i.i.i202
-  %92 = load i8, ptr %arrayidx18.i.i.i203, align 1, !tbaa !63
-  %conv19.i.i.i204 = zext i8 %92 to i32
+  %95 = load i8, ptr %arrayidx18.i.i.i203, align 1, !tbaa !63
+  %conv19.i.i.i204 = zext i8 %95 to i32
   %and20.i.i.i205 = and i32 %shl.i.i.i201, %conv19.i.i.i204
   %conv21.i.i.i206 = zext nneg i8 %sub.i.i.i191 to i32
   %shr.i.i.i207 = lshr i32 %and20.i.i.i205, %conv21.i.i.i206
   %conv26.i.i.i208 = zext i1 %cmp.i.i.i198 to i64
   %arrayidx28.i.i.i209 = getelementptr i8, ptr %arrayidx.i.i.i199, i64 %conv26.i.i.i208
-  %93 = load i8, ptr %arrayidx28.i.i.i209, align 1, !tbaa !63
-  %narrow.i210 = add nuw nsw i8 %conv.i.i.i.i193, %89
+  %96 = load i8, ptr %arrayidx28.i.i.i209, align 1, !tbaa !63
+  %narrow.i210 = add nuw nsw i8 %conv.i.i.i.i193, %92
   %add33.i.i.i211 = zext nneg i8 %narrow.i210 to i64
   %arrayidx35.i.i.i212 = getelementptr inbounds [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %add33.i.i.i211
-  %94 = load i8, ptr %arrayidx35.i.i.i212, align 1, !tbaa !63
-  %and3746.i.i.i213 = and i8 %94, %93
+  %97 = load i8, ptr %arrayidx35.i.i.i212, align 1, !tbaa !63
+  %and3746.i.i.i213 = and i8 %97, %96
   %and37.i.i.i214 = zext i8 %and3746.i.i.i213 to i32
   %conv38.i.i.i215 = zext nneg i8 %and.i.i.i196 to i32
   %shr39.i.i.i216 = lshr i32 %and37.i.i.i214, %conv38.i.i.i215
   %or.i.i.i217 = or i32 %shr.i.i.i207, %shl5.i.i190
   %or8.i.i218 = or i32 %or.i.i.i217, %shr39.i.i.i216
   %add.i.i219 = zext i8 %sub36 to i32
-  %add12.i.i220 = add i32 %88, %add.i.i219
+  %add12.i.i220 = add i32 %91, %add.i.i219
   store i32 %add12.i.i220, ptr %index.i.i.i.i192, align 8, !tbaa !199
   %reference_value39 = getelementptr inbounds i8, ptr %state, i64 20
-  %95 = load i32, ptr %reference_value39, align 4, !tbaa !205
-  %xor40 = xor i32 %or8.i.i218, %95
+  %98 = load i32, ptr %reference_value39, align 4, !tbaa !205
+  %xor40 = xor i32 %or8.i.i218, %98
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -4415,7 +4412,7 @@ invoke.cont44:                                    ; preds = %invoke.cont
           to label %unreachable unwind label %lpad43
 
 ehcleanup.thread:                                 ; preds = %sw.default
-  %96 = landingpad { ptr, i32 }
+  %99 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp42) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp41) #16
@@ -4423,35 +4420,35 @@ ehcleanup.thread:                                 ; preds = %sw.default
 
 lpad43:                                           ; preds = %invoke.cont44, %invoke.cont
   %cleanup.isactive.0 = phi i1 [ false, %invoke.cont44 ], [ true, %invoke.cont ]
-  %97 = landingpad { ptr, i32 }
+  %100 = landingpad { ptr, i32 }
           cleanup
-  %98 = load ptr, ptr %ref.tmp41, align 8, !tbaa !3
-  %99 = getelementptr inbounds i8, ptr %ref.tmp41, i64 16
-  %cmp.i.i.i230 = icmp eq ptr %98, %99
+  %101 = load ptr, ptr %ref.tmp41, align 8, !tbaa !3
+  %102 = getelementptr inbounds i8, ptr %ref.tmp41, i64 16
+  %cmp.i.i.i230 = icmp eq ptr %101, %102
   br i1 %cmp.i.i.i230, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad43
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 8
-  %100 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !10
-  %cmp3.i.i.i = icmp ult i64 %100, 16
+  %103 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !10
+  %cmp3.i.i.i = icmp ult i64 %103, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp42) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp41) #16
   br i1 %cleanup.isactive.0, label %cleanup.action, label %cleanup.done
 
 ehcleanup:                                        ; preds = %lpad43
-  call void @_ZdlPv(ptr noundef %98) #18
+  call void @_ZdlPv(ptr noundef %101) #18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp42) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp41) #16
   br i1 %cleanup.isactive.0, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %ehcleanup.thread
-  %.pn235 = phi { ptr, i32 } [ %96, %ehcleanup.thread ], [ %97, %ehcleanup ], [ %97, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn235 = phi { ptr, i32 } [ %99, %ehcleanup.thread ], [ %100, %ehcleanup ], [ %100, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @__cxa_free_exception(ptr %exception) #16
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %.pn234 = phi { ptr, i32 } [ %.pn235, %cleanup.action ], [ %97, %ehcleanup ], [ %97, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn234 = phi { ptr, i32 } [ %.pn235, %cleanup.action ], [ %100, %ehcleanup ], [ %100, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   resume { ptr, i32 } %.pn234
 
 sw.epilog:                                        ; preds = %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit229, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit163, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit, %sw.bb
@@ -4461,8 +4458,8 @@ sw.epilog:                                        ; preds = %_ZN6duckdb9BitReade
   %ring_buffer49 = getelementptr inbounds i8, ptr %state, i64 24
   %conv50 = zext i32 %result.0 to i64
   %index.i = getelementptr inbounds i8, ptr %state, i64 1048
-  %101 = load i64, ptr %index.i, align 8, !tbaa !81
-  %inc.i = add i64 %101, 1
+  %104 = load i64, ptr %index.i, align 8, !tbaa !81
+  %inc.i = add i64 %104, 1
   store i64 %inc.i, ptr %index.i, align 8, !tbaa !81
   %rem.i = and i64 %inc.i, 127
   %arrayidx.i231 = getelementptr inbounds [128 x i64], ptr %ring_buffer49, i64 0, i64 %rem.i
@@ -6048,7 +6045,7 @@ if.then:                                          ; preds = %entry
   %3 = load i64, ptr %arrayidx.i132, align 8, !tbaa !69
   %xor = xor i64 %3, %in
   %4 = tail call i64 @llvm.cttz.i64(i64 %xor, i1 false), !range !280
-  %cast.i = trunc i64 %4 to i32
+  %cast.i = trunc nuw nsw i64 %4 to i32
   %cmp14 = icmp ugt i32 %cast.i, 13
   br i1 %cmp14, label %if.end34.thread, label %if.end34
 
@@ -6085,7 +6082,7 @@ if.then42:                                        ; preds = %if.end34.thread
   %9 = load i32, ptr %flag_buffer43, align 8, !tbaa !74
   %inc.i140 = add i32 %9, 1
   store i32 %inc.i140, ptr %flag_buffer43, align 8, !tbaa !74
-  %10 = trunc i64 %4 to i8
+  %10 = trunc nuw nsw i64 %4 to i8
   %11 = add i8 %8, %10
   %conv50 = sub i8 64, %11
   %packed_data_buffer = getelementptr inbounds i8, ptr %state, i64 64
@@ -6822,7 +6819,7 @@ if.then:                                          ; preds = %entry
   %4 = load i64, ptr %arrayidx.i132, align 8, !tbaa !69
   %xor = xor i64 %4, %in
   %5 = tail call i64 @llvm.cttz.i64(i64 %xor, i1 false), !range !280
-  %cast.i = trunc i64 %5 to i32
+  %cast.i = trunc nuw nsw i64 %5 to i32
   %cmp14 = icmp ugt i32 %cast.i, 13
   br i1 %cmp14, label %if.end34.thread, label %if.end34
 
@@ -6912,7 +6909,7 @@ _ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit161: ; preds 
   %idxprom48 = zext i8 %10 to i64
   %arrayidx49 = getelementptr inbounds [64 x i8], ptr @_ZN6duckdb14ChimpConstants11Compression22LEADING_REPRESENTATIONE, i64 0, i64 %idxprom48
   %19 = load i8, ptr %arrayidx49, align 1, !tbaa !63
-  %20 = trunc i64 %5 to i8
+  %20 = trunc nuw nsw i64 %5 to i8
   %21 = add i8 %10, %20
   %conv50 = sub i8 64, %21
   %add.i = shl i16 %conv47, 9
@@ -7215,7 +7212,7 @@ entry:
 
 if.end.thread:                                    ; preds = %entry
   %shr = lshr i64 %value, 56
-  %conv2 = trunc i64 %shr to i8
+  %conv2 = trunc nuw i64 %shr to i8
   %0 = load ptr, ptr %this, align 8, !tbaa !185
   %stream_index.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %stream_index.i, align 8, !tbaa !195
@@ -7627,7 +7624,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %6 = load i8, ptr %arrayidx10.i.i, align 1, !tbaa !63
   %conv11.i.i = zext nneg i8 %6 to i32
   %shr12.i.i = lshr i32 %and6.i.i, %conv11.i.i
-  %conv13.i.i = trunc i32 %shr12.i.i to i8
+  %conv13.i.i = trunc nuw i32 %shr12.i.i to i8
   %add.i43 = add nuw i64 %i.011.i, 1
   %arrayidx3.i = getelementptr inbounds [1025 x i8], ptr %flags.i, i64 0, i64 %add.i43
   store i8 %conv13.i.i, ptr %arrayidx3.i, align 1, !tbaa !207
@@ -7766,7 +7763,7 @@ for.body.i57:                                     ; preds = %for.body.i57, %for.
   %28 = load i16, ptr %arrayidx.i58, align 2, !tbaa !196
   %arrayidx2.i59 = getelementptr inbounds [1024 x %"struct.duckdb::UnpackedData"], ptr %unpacked_data_blocks.i, i64 0, i64 %i.024.i
   %shr.i.i60 = lshr i16 %28, 9
-  %conv1.i.i = trunc i16 %shr.i.i60 to i8
+  %conv1.i.i = trunc nuw nsw i16 %shr.i.i60 to i8
   %index.i.i = getelementptr inbounds i8, ptr %arrayidx2.i59, i64 2
   store i8 %conv1.i.i, ptr %index.i.i, align 1, !tbaa !218
   %shr3.i.i = lshr i16 %28, 6
@@ -8032,27 +8029,26 @@ for.body.lr.ph.i.i:                               ; preds = %sw.bb2
 
 for.body.lr.ph.i.i.new:                           ; preds = %for.body.lr.ph.i.i
   %unroll_iter246 = and i64 %wide.trip.count.i.i, 30
-  %invariant.gep6 = getelementptr i8, ptr %16, i64 1
+  %22 = getelementptr i8, ptr %16, i64 2
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i.new
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.new ], [ %indvars.iv.next.i.i.1, %for.body.i.i ]
   %result.027.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.new ], [ %or.i.i.1, %for.body.i.i ]
   %arrayidx.i22.i.i = getelementptr i8, ptr %16, i64 %indvars.iv.i.i
-  %22 = load i8, ptr %arrayidx.i22.i.i, align 1, !tbaa !63
+  %23 = load i8, ptr %arrayidx.i22.i.i, align 1, !tbaa !63
   %arrayidx10.i.i.i = getelementptr i8, ptr %arrayidx.i22.i.i, i64 1
-  %23 = load i8, ptr %arrayidx10.i.i.i, align 1, !tbaa !63
-  %and21.i.i.i = and i8 %23, %19
-  %conv19.i23.i.i = tail call noundef i8 @llvm.fshl.i8(i8 %22, i8 %and21.i.i.i, i8 %20)
+  %24 = load i8, ptr %arrayidx10.i.i.i, align 1, !tbaa !63
+  %and21.i.i.i = and i8 %24, %19
+  %conv19.i23.i.i = tail call noundef i8 @llvm.fshl.i8(i8 %23, i8 %and21.i.i.i, i8 %20)
   %conv3.i.i = zext i8 %conv19.i23.i.i to i64
-  %indvars.iv.next.i.i = or disjoint i64 %indvars.iv.i.i, 1
-  %24 = shl i64 %result.027.i.i, 16
-  %25 = shl nuw nsw i64 %conv3.i.i, 8
-  %shl.i.i.1 = or disjoint i64 %25, %24
-  %gep7 = getelementptr i8, ptr %invariant.gep6, i64 %indvars.iv.next.i.i
-  %26 = load i8, ptr %gep7, align 1, !tbaa !63
-  %and21.i.i.i.1 = and i8 %26, %19
-  %conv19.i23.i.i.1 = tail call noundef i8 @llvm.fshl.i8(i8 %23, i8 %and21.i.i.i.1, i8 %20)
+  %25 = shl i64 %result.027.i.i, 16
+  %26 = shl nuw nsw i64 %conv3.i.i, 8
+  %shl.i.i.1 = or disjoint i64 %26, %25
+  %gep7 = getelementptr i8, ptr %22, i64 %indvars.iv.i.i
+  %27 = load i8, ptr %gep7, align 1, !tbaa !63
+  %and21.i.i.i.1 = and i8 %27, %19
+  %conv19.i23.i.i.1 = tail call noundef i8 @llvm.fshl.i8(i8 %24, i8 %and21.i.i.i.1, i8 %20)
   %conv3.i.i.1 = zext i8 %conv19.i23.i.i.1 to i64
   %or.i.i.1 = or disjoint i64 %shl.i.i.1, %conv3.i.i.1
   %indvars.iv.next.i.i.1 = add nuw i64 %indvars.iv.i.i, 2
@@ -8060,23 +8056,23 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %niter247.ncmp.1, label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa.loopexit, label %for.body.i.i, !llvm.loop !315
 
 _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa.loopexit: ; preds = %for.body.i.i
-  %27 = shl i64 %or.i.i.1, 8
+  %28 = shl i64 %or.i.i.1, 8
   br label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa
 
 _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa: ; preds = %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa.loopexit, %for.body.lr.ph.i.i
   %or.i.i.lcssa.ph = phi i64 [ undef, %for.body.lr.ph.i.i ], [ %or.i.i.1, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa.loopexit ]
   %indvars.iv.i.i.unr = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %unroll_iter246, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa.loopexit ]
-  %result.027.i.i.unr = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %27, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa.loopexit ]
+  %result.027.i.i.unr = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %28, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa.loopexit ]
   %lcmp.mod244.not = icmp eq i64 %xtraiter243, 0
   br i1 %lcmp.mod244.not, label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit, label %for.body.i.i.epil
 
 for.body.i.i.epil:                                ; preds = %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa
   %arrayidx.i22.i.i.epil = getelementptr i8, ptr %16, i64 %indvars.iv.i.i.unr
-  %28 = load i8, ptr %arrayidx.i22.i.i.epil, align 1, !tbaa !63
+  %29 = load i8, ptr %arrayidx.i22.i.i.epil, align 1, !tbaa !63
   %arrayidx10.i.i.i.epil = getelementptr i8, ptr %arrayidx.i22.i.i.epil, i64 1
-  %29 = load i8, ptr %arrayidx10.i.i.i.epil, align 1, !tbaa !63
-  %and21.i.i.i.epil = and i8 %29, %19
-  %conv19.i23.i.i.epil = tail call noundef i8 @llvm.fshl.i8(i8 %28, i8 %and21.i.i.i.epil, i8 %20)
+  %30 = load i8, ptr %arrayidx10.i.i.i.epil, align 1, !tbaa !63
+  %and21.i.i.i.epil = and i8 %30, %19
+  %conv19.i23.i.i.epil = tail call noundef i8 @llvm.fshl.i8(i8 %29, i8 %and21.i.i.i.epil, i8 %20)
   %conv3.i.i.epil = zext i8 %conv19.i23.i.i.epil to i64
   %or.i.i.epil = or disjoint i64 %result.027.i.i.unr, %conv3.i.i.epil
   br label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit
@@ -8086,40 +8082,40 @@ _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit:     ; preds = %for.body.i.i.epil, 
   %conv10.i.pre-phi.i.i = phi i32 [ %.pre33.i.i, %entry.for.cond.cleanup_crit_edge.i.i ], [ %17, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa ], [ %17, %for.body.i.i.epil ]
   %.pre-phi.i.i = phi i8 [ %.pre32.i.i, %entry.for.cond.cleanup_crit_edge.i.i ], [ %20, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa ], [ %20, %for.body.i.i.epil ]
   %conv13.i.pre-phi.i.i = phi i64 [ 0, %entry.for.cond.cleanup_crit_edge.i.i ], [ %wide.trip.count.i.i, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa ], [ %wide.trip.count.i.i, %for.body.i.i.epil ]
-  %30 = phi ptr [ %.pre30.i.i, %entry.for.cond.cleanup_crit_edge.i.i ], [ %14, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa ], [ %14, %for.body.i.i.epil ]
-  %31 = phi i32 [ %.pre.i.i, %entry.for.cond.cleanup_crit_edge.i.i ], [ %15, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa ], [ %15, %for.body.i.i.epil ]
+  %31 = phi ptr [ %.pre30.i.i, %entry.for.cond.cleanup_crit_edge.i.i ], [ %14, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa ], [ %14, %for.body.i.i.epil ]
+  %32 = phi i32 [ %.pre.i.i, %entry.for.cond.cleanup_crit_edge.i.i ], [ %15, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa ], [ %15, %for.body.i.i.epil ]
   %result.0.lcssa.i.i = phi i64 [ 0, %entry.for.cond.cleanup_crit_edge.i.i ], [ %or.i.i.lcssa.ph, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit.loopexit.unr-lcssa ], [ %or.i.i.epil, %for.body.i.i.epil ]
-  %32 = and i8 %12, 7
-  %sh_prom.i.i = zext nneg i8 %32 to i64
+  %33 = and i8 %12, 7
+  %sh_prom.i.i = zext nneg i8 %33 to i64
   %shl5.i.i = shl i64 %result.0.lcssa.i.i, %sh_prom.i.i
-  %sub.i.i.i = sub nuw nsw i8 8, %32
+  %sub.i.i.i = sub nuw nsw i8 8, %33
   %index.i.i.i.i76 = getelementptr inbounds i8, ptr %state, i64 8
   %conv.i.i.i.i = and i8 %.pre-phi.i.i, 7
   %add.i.i.i = add i8 %12, %.pre-phi.i.i
   %sub6.i.i.i77 = sub i8 0, %add.i.i.i
   %and.i.i.i78 = and i8 %sub6.i.i.i77, 7
-  %conv8.i.i.i = zext nneg i8 %32 to i32
+  %conv8.i.i.i = zext nneg i8 %33 to i32
   %add11.i.i.i = add nuw nsw i32 %conv10.i.pre-phi.i.i, %conv8.i.i.i
   %cmp.i.i.i79 = icmp ugt i32 %add11.i.i.i, 7
-  %33 = getelementptr i8, ptr %30, i64 %conv.i50.i.pre-phi.i.i
-  %arrayidx.i.i.i = getelementptr i8, ptr %33, i64 %conv13.i.pre-phi.i.i
-  %34 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !63
-  %conv15.i.i.i80 = zext i8 %34 to i32
+  %34 = getelementptr i8, ptr %31, i64 %conv.i50.i.pre-phi.i.i
+  %arrayidx.i.i.i = getelementptr i8, ptr %34, i64 %conv13.i.pre-phi.i.i
+  %35 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !63
+  %conv15.i.i.i80 = zext i8 %35 to i32
   %shl.i.i.i81 = shl nuw nsw i32 %conv15.i.i.i80, %conv10.i.pre-phi.i.i
   %arrayidx18.i.i.i = getelementptr inbounds [16 x i8], ptr @_ZN6duckdb9BitReader5MASKSE, i64 0, i64 %sh_prom.i.i
-  %35 = load i8, ptr %arrayidx18.i.i.i, align 1, !tbaa !63
-  %conv19.i.i.i = zext i8 %35 to i32
+  %36 = load i8, ptr %arrayidx18.i.i.i, align 1, !tbaa !63
+  %conv19.i.i.i = zext i8 %36 to i32
   %and20.i.i.i82 = and i32 %shl.i.i.i81, %conv19.i.i.i
   %conv21.i.i.i = zext nneg i8 %sub.i.i.i to i32
   %shr.i.i.i83 = lshr i32 %and20.i.i.i82, %conv21.i.i.i
   %conv26.i.i.i84 = zext i1 %cmp.i.i.i79 to i64
   %arrayidx28.i.i.i85 = getelementptr i8, ptr %arrayidx.i.i.i, i64 %conv26.i.i.i84
-  %36 = load i8, ptr %arrayidx28.i.i.i85, align 1, !tbaa !63
-  %narrow.i86 = add nuw nsw i8 %conv.i.i.i.i, %32
+  %37 = load i8, ptr %arrayidx28.i.i.i85, align 1, !tbaa !63
+  %narrow.i86 = add nuw nsw i8 %conv.i.i.i.i, %33
   %add33.i.i.i = zext nneg i8 %narrow.i86 to i64
   %arrayidx35.i.i.i87 = getelementptr inbounds [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %add33.i.i.i
-  %37 = load i8, ptr %arrayidx35.i.i.i87, align 1, !tbaa !63
-  %and3746.i.i.i88 = and i8 %37, %36
+  %38 = load i8, ptr %arrayidx35.i.i.i87, align 1, !tbaa !63
+  %and3746.i.i.i88 = and i8 %38, %37
   %and37.i.i.i89 = zext i8 %and3746.i.i.i88 to i32
   %conv38.i.i.i = zext nneg i8 %and.i.i.i78 to i32
   %shr39.i.i.i90 = lshr i32 %and37.i.i.i89, %conv38.i.i.i
@@ -8127,23 +8123,23 @@ _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit:     ; preds = %for.body.i.i.epil, 
   %conv40.i.i.i92 = zext nneg i32 %or.i.i.i91 to i64
   %or8.i.i = or i64 %shl5.i.i, %conv40.i.i.i92
   %add.i.i = zext i8 %12 to i32
-  %add12.i.i = add i32 %31, %add.i.i
+  %add12.i.i = add i32 %32, %add.i.i
   store i32 %add12.i.i, ptr %index.i.i.i.i76, align 8, !tbaa !199
   %sh_prom = zext nneg i8 %sub6 to i64
   %shl = shl i64 %or8.i.i, %sh_prom
   %ring_buffer13 = getelementptr inbounds i8, ptr %state, i64 32
   %index14 = getelementptr inbounds i8, ptr %arrayidx, i64 2
-  %38 = load i8, ptr %index14, align 1, !tbaa !63
-  %idxprom.i93 = zext i8 %38 to i64
+  %39 = load i8, ptr %index14, align 1, !tbaa !63
+  %idxprom.i93 = zext i8 %39 to i64
   %arrayidx.i94 = getelementptr inbounds [128 x i64], ptr %ring_buffer13, i64 0, i64 %idxprom.i93
-  %39 = load i64, ptr %arrayidx.i94, align 8, !tbaa !69
-  %xor = xor i64 %shl, %39
+  %40 = load i64, ptr %arrayidx.i94, align 8, !tbaa !69
+  %xor = xor i64 %shl, %40
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %entry
   %leading_zeros18 = getelementptr inbounds i8, ptr %state, i64 16
-  %40 = load i8, ptr %leading_zeros18, align 8, !tbaa !299
-  %sub20 = sub i8 64, %40
+  %41 = load i8, ptr %leading_zeros18, align 8, !tbaa !299
+  %sub20 = sub i8 64, %41
   %cmp25.not.i.i95 = icmp ult i8 %sub20, 8
   br i1 %cmp25.not.i.i95, label %entry.for.cond.cleanup_crit_edge.i.i153, label %for.body.lr.ph.i.i96
 
@@ -8158,47 +8154,46 @@ entry.for.cond.cleanup_crit_edge.i.i153:          ; preds = %sw.bb16
   br label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161
 
 for.body.lr.ph.i.i96:                             ; preds = %sw.bb16
-  %41 = lshr i8 %sub20, 3
-  %42 = load ptr, ptr %state, align 8, !tbaa !198
+  %42 = lshr i8 %sub20, 3
+  %43 = load ptr, ptr %state, align 8, !tbaa !198
   %index.i.i19.i.i97 = getelementptr inbounds i8, ptr %state, i64 8
-  %43 = load i32, ptr %index.i.i19.i.i97, align 8, !tbaa !199
-  %shr.i.i20.i.i98 = lshr i32 %43, 3
+  %44 = load i32, ptr %index.i.i19.i.i97, align 8, !tbaa !199
+  %shr.i.i20.i.i98 = lshr i32 %44, 3
   %conv.i.i21.i.i99 = zext nneg i32 %shr.i.i20.i.i98 to i64
-  %44 = getelementptr i8, ptr %42, i64 %conv.i.i21.i.i99
-  %45 = and i32 %43, 7
-  %46 = or disjoint i32 %45, 8
-  %add14.i.i.i100 = zext nneg i32 %46 to i64
+  %45 = getelementptr i8, ptr %43, i64 %conv.i.i21.i.i99
+  %46 = and i32 %44, 7
+  %47 = or disjoint i32 %46, 8
+  %add14.i.i.i100 = zext nneg i32 %47 to i64
   %arrayidx15.i.i.i101 = getelementptr inbounds [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %add14.i.i.i100
-  %47 = load i8, ptr %arrayidx15.i.i.i101, align 1, !tbaa !63
-  %48 = trunc i32 %43 to i8
-  %wide.trip.count.i.i102 = zext nneg i8 %41 to i64
+  %48 = load i8, ptr %arrayidx15.i.i.i101, align 1, !tbaa !63
+  %49 = trunc i32 %44 to i8
+  %wide.trip.count.i.i102 = zext nneg i8 %42 to i64
   %xtraiter238 = and i64 %wide.trip.count.i.i102, 1
-  %49 = icmp eq i8 %41, 1
-  br i1 %49, label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa, label %for.body.lr.ph.i.i96.new
+  %50 = icmp eq i8 %42, 1
+  br i1 %50, label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa, label %for.body.lr.ph.i.i96.new
 
 for.body.lr.ph.i.i96.new:                         ; preds = %for.body.lr.ph.i.i96
   %unroll_iter241 = and i64 %wide.trip.count.i.i102, 30
-  %invariant.gep4 = getelementptr i8, ptr %44, i64 1
+  %51 = getelementptr i8, ptr %45, i64 2
   br label %for.body.i.i103
 
 for.body.i.i103:                                  ; preds = %for.body.i.i103, %for.body.lr.ph.i.i96.new
   %indvars.iv.i.i104 = phi i64 [ 0, %for.body.lr.ph.i.i96.new ], [ %indvars.iv.next.i.i113.1, %for.body.i.i103 ]
   %result.027.i.i105 = phi i64 [ 0, %for.body.lr.ph.i.i96.new ], [ %or.i.i112.1, %for.body.i.i103 ]
-  %arrayidx.i22.i.i107 = getelementptr i8, ptr %44, i64 %indvars.iv.i.i104
-  %50 = load i8, ptr %arrayidx.i22.i.i107, align 1, !tbaa !63
+  %arrayidx.i22.i.i107 = getelementptr i8, ptr %45, i64 %indvars.iv.i.i104
+  %52 = load i8, ptr %arrayidx.i22.i.i107, align 1, !tbaa !63
   %arrayidx10.i.i.i108 = getelementptr i8, ptr %arrayidx.i22.i.i107, i64 1
-  %51 = load i8, ptr %arrayidx10.i.i.i108, align 1, !tbaa !63
-  %and21.i.i.i109 = and i8 %51, %47
-  %conv19.i23.i.i110 = tail call noundef i8 @llvm.fshl.i8(i8 %50, i8 %and21.i.i.i109, i8 %48)
+  %53 = load i8, ptr %arrayidx10.i.i.i108, align 1, !tbaa !63
+  %and21.i.i.i109 = and i8 %53, %48
+  %conv19.i23.i.i110 = tail call noundef i8 @llvm.fshl.i8(i8 %52, i8 %and21.i.i.i109, i8 %49)
   %conv3.i.i111 = zext i8 %conv19.i23.i.i110 to i64
-  %indvars.iv.next.i.i113 = or disjoint i64 %indvars.iv.i.i104, 1
-  %52 = shl i64 %result.027.i.i105, 16
-  %53 = shl nuw nsw i64 %conv3.i.i111, 8
-  %shl.i.i106.1 = or disjoint i64 %53, %52
-  %gep5 = getelementptr i8, ptr %invariant.gep4, i64 %indvars.iv.next.i.i113
-  %54 = load i8, ptr %gep5, align 1, !tbaa !63
-  %and21.i.i.i109.1 = and i8 %54, %47
-  %conv19.i23.i.i110.1 = tail call noundef i8 @llvm.fshl.i8(i8 %51, i8 %and21.i.i.i109.1, i8 %48)
+  %54 = shl i64 %result.027.i.i105, 16
+  %55 = shl nuw nsw i64 %conv3.i.i111, 8
+  %shl.i.i106.1 = or disjoint i64 %55, %54
+  %gep5 = getelementptr i8, ptr %51, i64 %indvars.iv.i.i104
+  %56 = load i8, ptr %gep5, align 1, !tbaa !63
+  %and21.i.i.i109.1 = and i8 %56, %48
+  %conv19.i23.i.i110.1 = tail call noundef i8 @llvm.fshl.i8(i8 %53, i8 %and21.i.i.i109.1, i8 %49)
   %conv3.i.i111.1 = zext i8 %conv19.i23.i.i110.1 to i64
   %or.i.i112.1 = or disjoint i64 %shl.i.i106.1, %conv3.i.i111.1
   %indvars.iv.next.i.i113.1 = add nuw i64 %indvars.iv.i.i104, 2
@@ -8206,65 +8201,65 @@ for.body.i.i103:                                  ; preds = %for.body.i.i103, %f
   br i1 %niter242.ncmp.1, label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa.loopexit, label %for.body.i.i103, !llvm.loop !315
 
 _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa.loopexit: ; preds = %for.body.i.i103
-  %55 = shl i64 %or.i.i112.1, 8
+  %57 = shl i64 %or.i.i112.1, 8
   br label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa
 
 _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa: ; preds = %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa.loopexit, %for.body.lr.ph.i.i96
   %or.i.i112.lcssa.ph = phi i64 [ undef, %for.body.lr.ph.i.i96 ], [ %or.i.i112.1, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa.loopexit ]
   %indvars.iv.i.i104.unr = phi i64 [ 0, %for.body.lr.ph.i.i96 ], [ %unroll_iter241, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa.loopexit ]
-  %result.027.i.i105.unr = phi i64 [ 0, %for.body.lr.ph.i.i96 ], [ %55, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa.loopexit ]
+  %result.027.i.i105.unr = phi i64 [ 0, %for.body.lr.ph.i.i96 ], [ %57, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa.loopexit ]
   %lcmp.mod239.not = icmp eq i64 %xtraiter238, 0
   br i1 %lcmp.mod239.not, label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161, label %for.body.i.i103.epil
 
 for.body.i.i103.epil:                             ; preds = %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa
-  %arrayidx.i22.i.i107.epil = getelementptr i8, ptr %44, i64 %indvars.iv.i.i104.unr
-  %56 = load i8, ptr %arrayidx.i22.i.i107.epil, align 1, !tbaa !63
+  %arrayidx.i22.i.i107.epil = getelementptr i8, ptr %45, i64 %indvars.iv.i.i104.unr
+  %58 = load i8, ptr %arrayidx.i22.i.i107.epil, align 1, !tbaa !63
   %arrayidx10.i.i.i108.epil = getelementptr i8, ptr %arrayidx.i22.i.i107.epil, i64 1
-  %57 = load i8, ptr %arrayidx10.i.i.i108.epil, align 1, !tbaa !63
-  %and21.i.i.i109.epil = and i8 %57, %47
-  %conv19.i23.i.i110.epil = tail call noundef i8 @llvm.fshl.i8(i8 %56, i8 %and21.i.i.i109.epil, i8 %48)
+  %59 = load i8, ptr %arrayidx10.i.i.i108.epil, align 1, !tbaa !63
+  %and21.i.i.i109.epil = and i8 %59, %48
+  %conv19.i23.i.i110.epil = tail call noundef i8 @llvm.fshl.i8(i8 %58, i8 %and21.i.i.i109.epil, i8 %49)
   %conv3.i.i111.epil = zext i8 %conv19.i23.i.i110.epil to i64
   %or.i.i112.epil = or disjoint i64 %result.027.i.i105.unr, %conv3.i.i111.epil
   br label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161
 
 _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161:  ; preds = %for.body.i.i103.epil, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa, %entry.for.cond.cleanup_crit_edge.i.i153
   %conv.i50.i.pre-phi.i.i115 = phi i64 [ %.pre35.i.i160, %entry.for.cond.cleanup_crit_edge.i.i153 ], [ %conv.i.i21.i.i99, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa ], [ %conv.i.i21.i.i99, %for.body.i.i103.epil ]
-  %conv10.i.pre-phi.i.i116 = phi i32 [ %.pre33.i.i158, %entry.for.cond.cleanup_crit_edge.i.i153 ], [ %45, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa ], [ %45, %for.body.i.i103.epil ]
-  %.pre-phi.i.i117 = phi i8 [ %.pre32.i.i157, %entry.for.cond.cleanup_crit_edge.i.i153 ], [ %48, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa ], [ %48, %for.body.i.i103.epil ]
+  %conv10.i.pre-phi.i.i116 = phi i32 [ %.pre33.i.i158, %entry.for.cond.cleanup_crit_edge.i.i153 ], [ %46, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa ], [ %46, %for.body.i.i103.epil ]
+  %.pre-phi.i.i117 = phi i8 [ %.pre32.i.i157, %entry.for.cond.cleanup_crit_edge.i.i153 ], [ %49, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa ], [ %49, %for.body.i.i103.epil ]
   %conv13.i.pre-phi.i.i118 = phi i64 [ 0, %entry.for.cond.cleanup_crit_edge.i.i153 ], [ %wide.trip.count.i.i102, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa ], [ %wide.trip.count.i.i102, %for.body.i.i103.epil ]
-  %58 = phi ptr [ %.pre30.i.i156, %entry.for.cond.cleanup_crit_edge.i.i153 ], [ %42, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa ], [ %42, %for.body.i.i103.epil ]
-  %59 = phi i32 [ %.pre.i.i155, %entry.for.cond.cleanup_crit_edge.i.i153 ], [ %43, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa ], [ %43, %for.body.i.i103.epil ]
+  %60 = phi ptr [ %.pre30.i.i156, %entry.for.cond.cleanup_crit_edge.i.i153 ], [ %43, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa ], [ %43, %for.body.i.i103.epil ]
+  %61 = phi i32 [ %.pre.i.i155, %entry.for.cond.cleanup_crit_edge.i.i153 ], [ %44, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa ], [ %44, %for.body.i.i103.epil ]
   %result.0.lcssa.i.i119 = phi i64 [ 0, %entry.for.cond.cleanup_crit_edge.i.i153 ], [ %or.i.i112.lcssa.ph, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161.loopexit.unr-lcssa ], [ %or.i.i112.epil, %for.body.i.i103.epil ]
-  %60 = and i8 %sub20, 7
-  %sh_prom.i.i120 = zext nneg i8 %60 to i64
+  %62 = and i8 %sub20, 7
+  %sh_prom.i.i120 = zext nneg i8 %62 to i64
   %shl5.i.i121 = shl i64 %result.0.lcssa.i.i119, %sh_prom.i.i120
-  %sub.i.i.i122 = sub nuw nsw i8 8, %60
+  %sub.i.i.i122 = sub nuw nsw i8 8, %62
   %index.i.i.i.i123 = getelementptr inbounds i8, ptr %state, i64 8
   %conv.i.i.i.i124 = and i8 %.pre-phi.i.i117, 7
-  %add.i.i.i125.neg = sub i8 %40, %.pre-phi.i.i117
+  %add.i.i.i125.neg = sub i8 %41, %.pre-phi.i.i117
   %and.i.i.i127 = and i8 %add.i.i.i125.neg, 7
-  %conv8.i.i.i128 = zext nneg i8 %60 to i32
+  %conv8.i.i.i128 = zext nneg i8 %62 to i32
   %add11.i.i.i129 = add nuw nsw i32 %conv10.i.pre-phi.i.i116, %conv8.i.i.i128
   %cmp.i.i.i130 = icmp ugt i32 %add11.i.i.i129, 7
-  %61 = getelementptr i8, ptr %58, i64 %conv.i50.i.pre-phi.i.i115
-  %arrayidx.i.i.i131 = getelementptr i8, ptr %61, i64 %conv13.i.pre-phi.i.i118
-  %62 = load i8, ptr %arrayidx.i.i.i131, align 1, !tbaa !63
-  %conv15.i.i.i132 = zext i8 %62 to i32
+  %63 = getelementptr i8, ptr %60, i64 %conv.i50.i.pre-phi.i.i115
+  %arrayidx.i.i.i131 = getelementptr i8, ptr %63, i64 %conv13.i.pre-phi.i.i118
+  %64 = load i8, ptr %arrayidx.i.i.i131, align 1, !tbaa !63
+  %conv15.i.i.i132 = zext i8 %64 to i32
   %shl.i.i.i133 = shl nuw nsw i32 %conv15.i.i.i132, %conv10.i.pre-phi.i.i116
   %arrayidx18.i.i.i134 = getelementptr inbounds [16 x i8], ptr @_ZN6duckdb9BitReader5MASKSE, i64 0, i64 %sh_prom.i.i120
-  %63 = load i8, ptr %arrayidx18.i.i.i134, align 1, !tbaa !63
-  %conv19.i.i.i135 = zext i8 %63 to i32
+  %65 = load i8, ptr %arrayidx18.i.i.i134, align 1, !tbaa !63
+  %conv19.i.i.i135 = zext i8 %65 to i32
   %and20.i.i.i136 = and i32 %shl.i.i.i133, %conv19.i.i.i135
   %conv21.i.i.i137 = zext nneg i8 %sub.i.i.i122 to i32
   %shr.i.i.i138 = lshr i32 %and20.i.i.i136, %conv21.i.i.i137
   %conv26.i.i.i139 = zext i1 %cmp.i.i.i130 to i64
   %arrayidx28.i.i.i140 = getelementptr i8, ptr %arrayidx.i.i.i131, i64 %conv26.i.i.i139
-  %64 = load i8, ptr %arrayidx28.i.i.i140, align 1, !tbaa !63
-  %narrow.i141 = add nuw nsw i8 %conv.i.i.i.i124, %60
+  %66 = load i8, ptr %arrayidx28.i.i.i140, align 1, !tbaa !63
+  %narrow.i141 = add nuw nsw i8 %conv.i.i.i.i124, %62
   %add33.i.i.i142 = zext nneg i8 %narrow.i141 to i64
   %arrayidx35.i.i.i143 = getelementptr inbounds [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %add33.i.i.i142
-  %65 = load i8, ptr %arrayidx35.i.i.i143, align 1, !tbaa !63
-  %and3746.i.i.i144 = and i8 %65, %64
+  %67 = load i8, ptr %arrayidx35.i.i.i143, align 1, !tbaa !63
+  %and3746.i.i.i144 = and i8 %67, %66
   %and37.i.i.i145 = zext i8 %and3746.i.i.i144 to i32
   %conv38.i.i.i146 = zext nneg i8 %and.i.i.i127 to i32
   %shr39.i.i.i147 = lshr i32 %and37.i.i.i145, %conv38.i.i.i146
@@ -8272,23 +8267,23 @@ _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161:  ; preds = %for.body.i.i103.epi
   %conv40.i.i.i149 = zext nneg i32 %or.i.i.i148 to i64
   %or8.i.i150 = or i64 %shl5.i.i121, %conv40.i.i.i149
   %add.i.i151 = zext i8 %sub20 to i32
-  %add12.i.i152 = add i32 %59, %add.i.i151
+  %add12.i.i152 = add i32 %61, %add.i.i151
   store i32 %add12.i.i152, ptr %index.i.i.i.i123, align 8, !tbaa !199
   %reference_value = getelementptr inbounds i8, ptr %state, i64 24
-  %66 = load i64, ptr %reference_value, align 8, !tbaa !302
-  %xor23 = xor i64 %or8.i.i150, %66
+  %68 = load i64, ptr %reference_value, align 8, !tbaa !302
+  %xor23 = xor i64 %or8.i.i150, %68
   br label %sw.epilog
 
 sw.bb24:                                          ; preds = %entry
-  %67 = load i32, ptr %leading_zero_index, align 4, !tbaa !64
-  %inc25 = add i32 %67, 1
+  %69 = load i32, ptr %leading_zero_index, align 4, !tbaa !64
+  %inc25 = add i32 %69, 1
   store i32 %inc25, ptr %leading_zero_index, align 4, !tbaa !64
-  %idxprom26 = zext i32 %67 to i64
+  %idxprom26 = zext i32 %69 to i64
   %arrayidx27 = getelementptr inbounds i8, ptr %leading_zeros, i64 %idxprom26
-  %68 = load i8, ptr %arrayidx27, align 1, !tbaa !63
+  %70 = load i8, ptr %arrayidx27, align 1, !tbaa !63
   %leading_zeros28 = getelementptr inbounds i8, ptr %state, i64 16
-  store i8 %68, ptr %leading_zeros28, align 8, !tbaa !299
-  %sub33 = sub i8 64, %68
+  store i8 %70, ptr %leading_zeros28, align 8, !tbaa !299
+  %sub33 = sub i8 64, %70
   %cmp25.not.i.i162 = icmp ult i8 %sub33, 8
   br i1 %cmp25.not.i.i162, label %entry.for.cond.cleanup_crit_edge.i.i220, label %for.body.lr.ph.i.i163
 
@@ -8303,47 +8298,46 @@ entry.for.cond.cleanup_crit_edge.i.i220:          ; preds = %sw.bb24
   br label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228
 
 for.body.lr.ph.i.i163:                            ; preds = %sw.bb24
-  %69 = lshr i8 %sub33, 3
-  %70 = load ptr, ptr %state, align 8, !tbaa !198
+  %71 = lshr i8 %sub33, 3
+  %72 = load ptr, ptr %state, align 8, !tbaa !198
   %index.i.i19.i.i164 = getelementptr inbounds i8, ptr %state, i64 8
-  %71 = load i32, ptr %index.i.i19.i.i164, align 8, !tbaa !199
-  %shr.i.i20.i.i165 = lshr i32 %71, 3
+  %73 = load i32, ptr %index.i.i19.i.i164, align 8, !tbaa !199
+  %shr.i.i20.i.i165 = lshr i32 %73, 3
   %conv.i.i21.i.i166 = zext nneg i32 %shr.i.i20.i.i165 to i64
-  %72 = getelementptr i8, ptr %70, i64 %conv.i.i21.i.i166
-  %73 = and i32 %71, 7
-  %74 = or disjoint i32 %73, 8
-  %add14.i.i.i167 = zext nneg i32 %74 to i64
+  %74 = getelementptr i8, ptr %72, i64 %conv.i.i21.i.i166
+  %75 = and i32 %73, 7
+  %76 = or disjoint i32 %75, 8
+  %add14.i.i.i167 = zext nneg i32 %76 to i64
   %arrayidx15.i.i.i168 = getelementptr inbounds [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %add14.i.i.i167
-  %75 = load i8, ptr %arrayidx15.i.i.i168, align 1, !tbaa !63
-  %76 = trunc i32 %71 to i8
-  %wide.trip.count.i.i169 = zext nneg i8 %69 to i64
+  %77 = load i8, ptr %arrayidx15.i.i.i168, align 1, !tbaa !63
+  %78 = trunc i32 %73 to i8
+  %wide.trip.count.i.i169 = zext nneg i8 %71 to i64
   %xtraiter = and i64 %wide.trip.count.i.i169, 1
-  %77 = icmp eq i8 %69, 1
-  br i1 %77, label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa, label %for.body.lr.ph.i.i163.new
+  %79 = icmp eq i8 %71, 1
+  br i1 %79, label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa, label %for.body.lr.ph.i.i163.new
 
 for.body.lr.ph.i.i163.new:                        ; preds = %for.body.lr.ph.i.i163
   %unroll_iter = and i64 %wide.trip.count.i.i169, 30
-  %invariant.gep = getelementptr i8, ptr %72, i64 1
+  %80 = getelementptr i8, ptr %74, i64 2
   br label %for.body.i.i170
 
 for.body.i.i170:                                  ; preds = %for.body.i.i170, %for.body.lr.ph.i.i163.new
   %indvars.iv.i.i171 = phi i64 [ 0, %for.body.lr.ph.i.i163.new ], [ %indvars.iv.next.i.i180.1, %for.body.i.i170 ]
   %result.027.i.i172 = phi i64 [ 0, %for.body.lr.ph.i.i163.new ], [ %or.i.i179.1, %for.body.i.i170 ]
-  %arrayidx.i22.i.i174 = getelementptr i8, ptr %72, i64 %indvars.iv.i.i171
-  %78 = load i8, ptr %arrayidx.i22.i.i174, align 1, !tbaa !63
+  %arrayidx.i22.i.i174 = getelementptr i8, ptr %74, i64 %indvars.iv.i.i171
+  %81 = load i8, ptr %arrayidx.i22.i.i174, align 1, !tbaa !63
   %arrayidx10.i.i.i175 = getelementptr i8, ptr %arrayidx.i22.i.i174, i64 1
-  %79 = load i8, ptr %arrayidx10.i.i.i175, align 1, !tbaa !63
-  %and21.i.i.i176 = and i8 %79, %75
-  %conv19.i23.i.i177 = tail call noundef i8 @llvm.fshl.i8(i8 %78, i8 %and21.i.i.i176, i8 %76)
+  %82 = load i8, ptr %arrayidx10.i.i.i175, align 1, !tbaa !63
+  %and21.i.i.i176 = and i8 %82, %77
+  %conv19.i23.i.i177 = tail call noundef i8 @llvm.fshl.i8(i8 %81, i8 %and21.i.i.i176, i8 %78)
   %conv3.i.i178 = zext i8 %conv19.i23.i.i177 to i64
-  %indvars.iv.next.i.i180 = or disjoint i64 %indvars.iv.i.i171, 1
-  %80 = shl i64 %result.027.i.i172, 16
-  %81 = shl nuw nsw i64 %conv3.i.i178, 8
-  %shl.i.i173.1 = or disjoint i64 %81, %80
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv.next.i.i180
-  %82 = load i8, ptr %gep, align 1, !tbaa !63
-  %and21.i.i.i176.1 = and i8 %82, %75
-  %conv19.i23.i.i177.1 = tail call noundef i8 @llvm.fshl.i8(i8 %79, i8 %and21.i.i.i176.1, i8 %76)
+  %83 = shl i64 %result.027.i.i172, 16
+  %84 = shl nuw nsw i64 %conv3.i.i178, 8
+  %shl.i.i173.1 = or disjoint i64 %84, %83
+  %gep = getelementptr i8, ptr %80, i64 %indvars.iv.i.i171
+  %85 = load i8, ptr %gep, align 1, !tbaa !63
+  %and21.i.i.i176.1 = and i8 %85, %77
+  %conv19.i23.i.i177.1 = tail call noundef i8 @llvm.fshl.i8(i8 %82, i8 %and21.i.i.i176.1, i8 %78)
   %conv3.i.i178.1 = zext i8 %conv19.i23.i.i177.1 to i64
   %or.i.i179.1 = or disjoint i64 %shl.i.i173.1, %conv3.i.i178.1
   %indvars.iv.next.i.i180.1 = add nuw i64 %indvars.iv.i.i171, 2
@@ -8351,65 +8345,65 @@ for.body.i.i170:                                  ; preds = %for.body.i.i170, %f
   br i1 %niter.ncmp.1, label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa.loopexit, label %for.body.i.i170, !llvm.loop !315
 
 _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa.loopexit: ; preds = %for.body.i.i170
-  %83 = shl i64 %or.i.i179.1, 8
+  %86 = shl i64 %or.i.i179.1, 8
   br label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa
 
 _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa: ; preds = %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa.loopexit, %for.body.lr.ph.i.i163
   %or.i.i179.lcssa.ph = phi i64 [ undef, %for.body.lr.ph.i.i163 ], [ %or.i.i179.1, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa.loopexit ]
   %indvars.iv.i.i171.unr = phi i64 [ 0, %for.body.lr.ph.i.i163 ], [ %unroll_iter, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa.loopexit ]
-  %result.027.i.i172.unr = phi i64 [ 0, %for.body.lr.ph.i.i163 ], [ %83, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa.loopexit ]
+  %result.027.i.i172.unr = phi i64 [ 0, %for.body.lr.ph.i.i163 ], [ %86, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa.loopexit ]
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228, label %for.body.i.i170.epil
 
 for.body.i.i170.epil:                             ; preds = %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa
-  %arrayidx.i22.i.i174.epil = getelementptr i8, ptr %72, i64 %indvars.iv.i.i171.unr
-  %84 = load i8, ptr %arrayidx.i22.i.i174.epil, align 1, !tbaa !63
+  %arrayidx.i22.i.i174.epil = getelementptr i8, ptr %74, i64 %indvars.iv.i.i171.unr
+  %87 = load i8, ptr %arrayidx.i22.i.i174.epil, align 1, !tbaa !63
   %arrayidx10.i.i.i175.epil = getelementptr i8, ptr %arrayidx.i22.i.i174.epil, i64 1
-  %85 = load i8, ptr %arrayidx10.i.i.i175.epil, align 1, !tbaa !63
-  %and21.i.i.i176.epil = and i8 %85, %75
-  %conv19.i23.i.i177.epil = tail call noundef i8 @llvm.fshl.i8(i8 %84, i8 %and21.i.i.i176.epil, i8 %76)
+  %88 = load i8, ptr %arrayidx10.i.i.i175.epil, align 1, !tbaa !63
+  %and21.i.i.i176.epil = and i8 %88, %77
+  %conv19.i23.i.i177.epil = tail call noundef i8 @llvm.fshl.i8(i8 %87, i8 %and21.i.i.i176.epil, i8 %78)
   %conv3.i.i178.epil = zext i8 %conv19.i23.i.i177.epil to i64
   %or.i.i179.epil = or disjoint i64 %result.027.i.i172.unr, %conv3.i.i178.epil
   br label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228
 
 _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228:  ; preds = %for.body.i.i170.epil, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa, %entry.for.cond.cleanup_crit_edge.i.i220
   %conv.i50.i.pre-phi.i.i182 = phi i64 [ %.pre35.i.i227, %entry.for.cond.cleanup_crit_edge.i.i220 ], [ %conv.i.i21.i.i166, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa ], [ %conv.i.i21.i.i166, %for.body.i.i170.epil ]
-  %conv10.i.pre-phi.i.i183 = phi i32 [ %.pre33.i.i225, %entry.for.cond.cleanup_crit_edge.i.i220 ], [ %73, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa ], [ %73, %for.body.i.i170.epil ]
-  %.pre-phi.i.i184 = phi i8 [ %.pre32.i.i224, %entry.for.cond.cleanup_crit_edge.i.i220 ], [ %76, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa ], [ %76, %for.body.i.i170.epil ]
+  %conv10.i.pre-phi.i.i183 = phi i32 [ %.pre33.i.i225, %entry.for.cond.cleanup_crit_edge.i.i220 ], [ %75, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa ], [ %75, %for.body.i.i170.epil ]
+  %.pre-phi.i.i184 = phi i8 [ %.pre32.i.i224, %entry.for.cond.cleanup_crit_edge.i.i220 ], [ %78, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa ], [ %78, %for.body.i.i170.epil ]
   %conv13.i.pre-phi.i.i185 = phi i64 [ 0, %entry.for.cond.cleanup_crit_edge.i.i220 ], [ %wide.trip.count.i.i169, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa ], [ %wide.trip.count.i.i169, %for.body.i.i170.epil ]
-  %86 = phi ptr [ %.pre30.i.i223, %entry.for.cond.cleanup_crit_edge.i.i220 ], [ %70, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa ], [ %70, %for.body.i.i170.epil ]
-  %87 = phi i32 [ %.pre.i.i222, %entry.for.cond.cleanup_crit_edge.i.i220 ], [ %71, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa ], [ %71, %for.body.i.i170.epil ]
+  %89 = phi ptr [ %.pre30.i.i223, %entry.for.cond.cleanup_crit_edge.i.i220 ], [ %72, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa ], [ %72, %for.body.i.i170.epil ]
+  %90 = phi i32 [ %.pre.i.i222, %entry.for.cond.cleanup_crit_edge.i.i220 ], [ %73, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa ], [ %73, %for.body.i.i170.epil ]
   %result.0.lcssa.i.i186 = phi i64 [ 0, %entry.for.cond.cleanup_crit_edge.i.i220 ], [ %or.i.i179.lcssa.ph, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228.loopexit.unr-lcssa ], [ %or.i.i179.epil, %for.body.i.i170.epil ]
-  %88 = and i8 %sub33, 7
-  %sh_prom.i.i187 = zext nneg i8 %88 to i64
+  %91 = and i8 %sub33, 7
+  %sh_prom.i.i187 = zext nneg i8 %91 to i64
   %shl5.i.i188 = shl i64 %result.0.lcssa.i.i186, %sh_prom.i.i187
-  %sub.i.i.i189 = sub nuw nsw i8 8, %88
+  %sub.i.i.i189 = sub nuw nsw i8 8, %91
   %index.i.i.i.i190 = getelementptr inbounds i8, ptr %state, i64 8
   %conv.i.i.i.i191 = and i8 %.pre-phi.i.i184, 7
-  %add.i.i.i192.neg = sub i8 %68, %.pre-phi.i.i184
+  %add.i.i.i192.neg = sub i8 %70, %.pre-phi.i.i184
   %and.i.i.i194 = and i8 %add.i.i.i192.neg, 7
-  %conv8.i.i.i195 = zext nneg i8 %88 to i32
+  %conv8.i.i.i195 = zext nneg i8 %91 to i32
   %add11.i.i.i196 = add nuw nsw i32 %conv10.i.pre-phi.i.i183, %conv8.i.i.i195
   %cmp.i.i.i197 = icmp ugt i32 %add11.i.i.i196, 7
-  %89 = getelementptr i8, ptr %86, i64 %conv.i50.i.pre-phi.i.i182
-  %arrayidx.i.i.i198 = getelementptr i8, ptr %89, i64 %conv13.i.pre-phi.i.i185
-  %90 = load i8, ptr %arrayidx.i.i.i198, align 1, !tbaa !63
-  %conv15.i.i.i199 = zext i8 %90 to i32
+  %92 = getelementptr i8, ptr %89, i64 %conv.i50.i.pre-phi.i.i182
+  %arrayidx.i.i.i198 = getelementptr i8, ptr %92, i64 %conv13.i.pre-phi.i.i185
+  %93 = load i8, ptr %arrayidx.i.i.i198, align 1, !tbaa !63
+  %conv15.i.i.i199 = zext i8 %93 to i32
   %shl.i.i.i200 = shl nuw nsw i32 %conv15.i.i.i199, %conv10.i.pre-phi.i.i183
   %arrayidx18.i.i.i201 = getelementptr inbounds [16 x i8], ptr @_ZN6duckdb9BitReader5MASKSE, i64 0, i64 %sh_prom.i.i187
-  %91 = load i8, ptr %arrayidx18.i.i.i201, align 1, !tbaa !63
-  %conv19.i.i.i202 = zext i8 %91 to i32
+  %94 = load i8, ptr %arrayidx18.i.i.i201, align 1, !tbaa !63
+  %conv19.i.i.i202 = zext i8 %94 to i32
   %and20.i.i.i203 = and i32 %shl.i.i.i200, %conv19.i.i.i202
   %conv21.i.i.i204 = zext nneg i8 %sub.i.i.i189 to i32
   %shr.i.i.i205 = lshr i32 %and20.i.i.i203, %conv21.i.i.i204
   %conv26.i.i.i206 = zext i1 %cmp.i.i.i197 to i64
   %arrayidx28.i.i.i207 = getelementptr i8, ptr %arrayidx.i.i.i198, i64 %conv26.i.i.i206
-  %92 = load i8, ptr %arrayidx28.i.i.i207, align 1, !tbaa !63
-  %narrow.i208 = add nuw nsw i8 %conv.i.i.i.i191, %88
+  %95 = load i8, ptr %arrayidx28.i.i.i207, align 1, !tbaa !63
+  %narrow.i208 = add nuw nsw i8 %conv.i.i.i.i191, %91
   %add33.i.i.i209 = zext nneg i8 %narrow.i208 to i64
   %arrayidx35.i.i.i210 = getelementptr inbounds [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %add33.i.i.i209
-  %93 = load i8, ptr %arrayidx35.i.i.i210, align 1, !tbaa !63
-  %and3746.i.i.i211 = and i8 %93, %92
+  %96 = load i8, ptr %arrayidx35.i.i.i210, align 1, !tbaa !63
+  %and3746.i.i.i211 = and i8 %96, %95
   %and37.i.i.i212 = zext i8 %and3746.i.i.i211 to i32
   %conv38.i.i.i213 = zext nneg i8 %and.i.i.i194 to i32
   %shr39.i.i.i214 = lshr i32 %and37.i.i.i212, %conv38.i.i.i213
@@ -8417,11 +8411,11 @@ _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228:  ; preds = %for.body.i.i170.epi
   %conv40.i.i.i216 = zext nneg i32 %or.i.i.i215 to i64
   %or8.i.i217 = or i64 %shl5.i.i188, %conv40.i.i.i216
   %add.i.i218 = zext i8 %sub33 to i32
-  %add12.i.i219 = add i32 %87, %add.i.i218
+  %add12.i.i219 = add i32 %90, %add.i.i218
   store i32 %add12.i.i219, ptr %index.i.i.i.i190, align 8, !tbaa !199
   %reference_value36 = getelementptr inbounds i8, ptr %state, i64 24
-  %94 = load i64, ptr %reference_value36, align 8, !tbaa !302
-  %xor37 = xor i64 %or8.i.i217, %94
+  %97 = load i64, ptr %reference_value36, align 8, !tbaa !302
+  %xor37 = xor i64 %or8.i.i217, %97
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -8440,7 +8434,7 @@ invoke.cont41:                                    ; preds = %invoke.cont
           to label %unreachable unwind label %lpad40
 
 ehcleanup.thread:                                 ; preds = %sw.default
-  %95 = landingpad { ptr, i32 }
+  %98 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp39) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp38) #16
@@ -8448,35 +8442,35 @@ ehcleanup.thread:                                 ; preds = %sw.default
 
 lpad40:                                           ; preds = %invoke.cont41, %invoke.cont
   %cleanup.isactive.0 = phi i1 [ false, %invoke.cont41 ], [ true, %invoke.cont ]
-  %96 = landingpad { ptr, i32 }
+  %99 = landingpad { ptr, i32 }
           cleanup
-  %97 = load ptr, ptr %ref.tmp38, align 8, !tbaa !3
-  %98 = getelementptr inbounds i8, ptr %ref.tmp38, i64 16
-  %cmp.i.i.i229 = icmp eq ptr %97, %98
+  %100 = load ptr, ptr %ref.tmp38, align 8, !tbaa !3
+  %101 = getelementptr inbounds i8, ptr %ref.tmp38, i64 16
+  %cmp.i.i.i229 = icmp eq ptr %100, %101
   br i1 %cmp.i.i.i229, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad40
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp38, i64 8
-  %99 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !10
-  %cmp3.i.i.i = icmp ult i64 %99, 16
+  %102 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !10
+  %cmp3.i.i.i = icmp ult i64 %102, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp39) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp38) #16
   br i1 %cleanup.isactive.0, label %cleanup.action, label %cleanup.done
 
 ehcleanup:                                        ; preds = %lpad40
-  call void @_ZdlPv(ptr noundef %97) #18
+  call void @_ZdlPv(ptr noundef %100) #18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp39) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp38) #16
   br i1 %cleanup.isactive.0, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %ehcleanup.thread
-  %.pn234 = phi { ptr, i32 } [ %95, %ehcleanup.thread ], [ %96, %ehcleanup ], [ %96, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn234 = phi { ptr, i32 } [ %98, %ehcleanup.thread ], [ %99, %ehcleanup ], [ %99, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @__cxa_free_exception(ptr %exception) #16
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %.pn233 = phi { ptr, i32 } [ %.pn234, %cleanup.action ], [ %96, %ehcleanup ], [ %96, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn233 = phi { ptr, i32 } [ %.pn234, %cleanup.action ], [ %99, %ehcleanup ], [ %99, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   resume { ptr, i32 } %.pn233
 
 sw.epilog:                                        ; preds = %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit228, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit161, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit, %sw.bb
@@ -8485,8 +8479,8 @@ sw.epilog:                                        ; preds = %_ZN6duckdb9BitReade
   store i64 %result.0, ptr %reference_value45, align 8, !tbaa !302
   %ring_buffer46 = getelementptr inbounds i8, ptr %state, i64 32
   %index.i = getelementptr inbounds i8, ptr %state, i64 1056
-  %100 = load i64, ptr %index.i, align 8, !tbaa !264
-  %inc.i = add i64 %100, 1
+  %103 = load i64, ptr %index.i, align 8, !tbaa !264
+  %inc.i = add i64 %103, 1
   store i64 %inc.i, ptr %index.i, align 8, !tbaa !264
   %rem.i = and i64 %inc.i, 127
   %arrayidx.i230 = getelementptr inbounds [128 x i64], ptr %ring_buffer46, i64 0, i64 %rem.i

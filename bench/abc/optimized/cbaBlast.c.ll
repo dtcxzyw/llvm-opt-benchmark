@@ -85,7 +85,7 @@ Cba_NtkCleanFonCopies.exit:                       ; preds = %18, %Vec_IntGrow.ex
   br i1 %30, label %Cba_NtkRangeSize.exit.i, label %Cba_FonRange.exit.i
 
 Cba_FonRange.exit.i:                              ; preds = %28
-  %31 = trunc i64 %.pre to i32
+  %31 = trunc nuw nsw i64 %.pre to i32
   tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %26, i32 noundef %31, i32 noundef 0)
   %.val.i.i.i.i = load ptr, ptr %27, align 8
   %32 = getelementptr inbounds i32, ptr %.val.i.i.i.i, i64 %indvars.iv
@@ -1058,7 +1058,7 @@ define void @Cba_BlastShiftRight(ptr noundef %0, ptr nocapture noundef readonly 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv63 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next64, %._crit_edge.us ]
   %.045.us = phi i32 [ 0, %.preheader.us.preheader ], [ %.us-phi.us, %._crit_edge.us ]
-  %20 = trunc i64 %indvars.iv63 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv63 to i32
   %21 = shl nuw i32 1, %20
   %.fr = freeze i32 %21
   %22 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv63
@@ -1175,7 +1175,7 @@ define void @Cba_BlastShiftLeft(ptr noundef %0, ptr nocapture noundef readonly %
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv67 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next68, %._crit_edge.us ]
   %.047.us = phi i32 [ 0, %.preheader.us.preheader ], [ %.us-phi.us, %._crit_edge.us ]
-  %17 = trunc i64 %indvars.iv67 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv67 to i32
   %18 = shl nuw i32 1, %17
   %.fr = freeze i32 %18
   %19 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv67
@@ -1209,7 +1209,7 @@ define void @Cba_BlastShiftLeft(ptr noundef %0, ptr nocapture noundef readonly %
   store i32 %30, ptr %28, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not38.not.us56 = icmp sgt i64 %indvars.iv, %16
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nsw i64 %indvars.iv to i32
   br i1 %.not38.not.us56, label %.lr.ph.split.us59, label %._crit_edge.us, !llvm.loop !17
 
 ._crit_edge.us:                                   ; preds = %27, %37
@@ -1243,7 +1243,7 @@ define void @Cba_BlastShiftLeft(ptr noundef %0, ptr nocapture noundef readonly %
   store i32 %40, ptr %38, align 4
   %indvars.iv.next65 = add nsw i64 %indvars.iv64, -1
   %.not38.not.us.us = icmp sgt i64 %indvars.iv64, %16
-  %41 = trunc i64 %indvars.iv64 to i32
+  %41 = trunc nsw i64 %indvars.iv64 to i32
   br i1 %.not38.not.us.us, label %.lr.ph.split.us.us, label %._crit_edge.us, !llvm.loop !17
 
 ._crit_edge48:                                    ; preds = %._crit_edge.us, %11
@@ -1272,7 +1272,7 @@ define void @Cba_BlastRotateRight(ptr noundef %0, ptr nocapture noundef readonly
   %indvars.iv36 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next37, %._crit_edge.us ]
   %.02630.us = phi ptr [ %7, %.preheader.us.preheader ], [ %28, %._crit_edge.us ]
   %13 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv36
-  %14 = trunc i64 %indvars.iv36 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv36 to i32
   %15 = shl nuw i32 1, %14
   br label %16
 
@@ -1346,7 +1346,7 @@ define void @Cba_BlastRotateLeft(ptr noundef %0, ptr nocapture noundef readonly 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv47 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next48, %._crit_edge.us ]
   %.042.us = phi ptr [ %7, %.preheader.us.preheader ], [ %35, %._crit_edge.us ]
-  %13 = trunc i64 %indvars.iv47 to i32
+  %13 = trunc nuw nsw i64 %indvars.iv47 to i32
   %14 = shl nuw i32 1, %13
   %15 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv47
   %16 = sext i32 %14 to i64
@@ -1491,7 +1491,7 @@ define i32 @Cba_BlastLess2(ptr noundef %0, ptr nocapture noundef readonly %1, pt
   %indvars.iv = phi i64 [ %10, %9 ], [ %5, %4 ]
   %.019 = phi i32 [ %21, %9 ], [ 0, %4 ]
   %.0 = phi i32 [ %17, %9 ], [ 0, %4 ]
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw i64 %indvars.iv to i32
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %23
 
@@ -1833,7 +1833,7 @@ Vec_IntFill.exit:                                 ; preds = %22
 39:                                               ; preds = %37, %35
   %40 = phi ptr [ %36, %35 ], [ %38, %37 ]
   store ptr %40, ptr %26, align 8
-  %41 = trunc i64 %indvars.iv40 to i32
+  %41 = trunc nuw nsw i64 %indvars.iv40 to i32
   store i32 %41, ptr %4, align 8
   br label %Vec_IntGrow.exit.i24
 
@@ -1851,7 +1851,7 @@ Vec_IntGrow.exit.i24:                             ; preds = %39, %29
   br i1 %exitcond.not.i29, label %.lr.ph, label %.lr.ph.i25, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.lr.ph.i25, %Vec_IntGrow.exit.i24
-  %44 = trunc i64 %indvars.iv40 to i32
+  %44 = trunc nuw nsw i64 %indvars.iv40 to i32
   store i32 %44, ptr %27, align 4
   %45 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv40
   br label %46
@@ -2412,7 +2412,6 @@ define void @Cba_BlastDivider2(ptr noundef %0, ptr nocapture noundef readonly %1
 
 ._crit_edge:                                      ; preds = %18, %7
   %21 = add nsw i32 %2, -1
-  %invariant.gep = getelementptr i8, ptr %11, i64 4
   %22 = icmp sgt i32 %2, 0
   br i1 %22, label %.lr.ph81, label %._crit_edge82
 
@@ -2425,19 +2424,19 @@ define void @Cba_BlastDivider2(ptr noundef %0, ptr nocapture noundef readonly %1
   %24 = add nuw i32 %4, 1
   %25 = zext nneg i32 %21 to i64
   %wide.trip.count92 = zext i32 %24 to i64
-  %invariant.gep108 = getelementptr i32, ptr %.val, i64 %23
+  %invariant.gep107 = getelementptr i32, ptr %.val, i64 %23
   br label %.lr.ph81.split
 
 .lr.ph81.split.us.preheader:                      ; preds = %.lr.ph81
   %26 = sext i32 %4 to i64
-  %invariant.gep110 = getelementptr i32, ptr %.val, i64 %26
+  %invariant.gep109 = getelementptr i32, ptr %.val, i64 %26
   br label %.lr.ph81.split.us
 
 .lr.ph81.split.us:                                ; preds = %.lr.ph81.split.us.preheader, %.lr.ph81.split.us
   %indvars.iv97.in = phi i64 [ %9, %.lr.ph81.split.us.preheader ], [ %indvars.iv97, %.lr.ph81.split.us ]
   %indvars.iv97 = add nsw i64 %indvars.iv97.in, -1
-  %gep111 = getelementptr i32, ptr %invariant.gep110, i64 %indvars.iv97
-  %27 = load i32, ptr %gep111, align 4
+  %gep110 = getelementptr i32, ptr %invariant.gep109, i64 %indvars.iv97
+  %27 = load i32, ptr %gep110, align 4
   %28 = xor i32 %27, 1
   %29 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv97
   store i32 %28, ptr %29, align 4
@@ -2451,13 +2450,13 @@ define void @Cba_BlastDivider2(ptr noundef %0, ptr nocapture noundef readonly %1
   br i1 %31, label %.lr.ph77, label %32
 
 32:                                               ; preds = %.lr.ph81.split
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv94
+  %gep = getelementptr i32, ptr %11, i64 %indvars.iv94.in
   %33 = load i32, ptr %gep, align 4
   br label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %.lr.ph81.split, %32
   %34 = phi i32 [ %33, %32 ], [ 1, %.lr.ph81.split ]
-  %invariant.gep106 = getelementptr i32, ptr %.val, i64 %indvars.iv94
+  %invariant.gep = getelementptr i32, ptr %.val, i64 %indvars.iv94
   br label %35
 
 35:                                               ; preds = %.lr.ph77, %40
@@ -2473,8 +2472,8 @@ define void @Cba_BlastDivider2(ptr noundef %0, ptr nocapture noundef readonly %1
 
 40:                                               ; preds = %35, %37
   %41 = phi i32 [ %39, %37 ], [ 0, %35 ]
-  %gep107 = getelementptr i32, ptr %invariant.gep106, i64 %indvars.iv89
-  %42 = load i32, ptr %gep107, align 4
+  %gep106 = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv89
+  %42 = load i32, ptr %gep106, align 4
   %43 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %41, i32 noundef %34) #20
   %44 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %43, i32 noundef %42) #20
   %45 = xor i32 %43, 1
@@ -2487,15 +2486,15 @@ define void @Cba_BlastDivider2(ptr noundef %0, ptr nocapture noundef readonly %1
   %52 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %51, i32 noundef %48) #20
   %53 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %50, i32 noundef %52) #20
   %54 = xor i32 %53, 1
-  store i32 %54, ptr %gep107, align 4
+  store i32 %54, ptr %gep106, align 4
   %55 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %44, i32 noundef %50) #20
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
   br i1 %exitcond93.not, label %._crit_edge78, label %35, !llvm.loop !42
 
 ._crit_edge78:                                    ; preds = %40
-  %gep109 = getelementptr i32, ptr %invariant.gep108, i64 %indvars.iv94
-  %56 = load i32, ptr %gep109, align 4
+  %gep108 = getelementptr i32, ptr %invariant.gep107, i64 %indvars.iv94
+  %56 = load i32, ptr %gep108, align 4
   %57 = xor i32 %56, 1
   %58 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv94
   store i32 %57, ptr %58, align 4
@@ -3682,7 +3681,7 @@ Vec_IntFill.exit78:                               ; preds = %42
   %116 = load ptr, ptr %112, align 8
   %117 = getelementptr inbounds i32, ptr %116, i64 %indvars.iv.i80
   %118 = load i32, ptr %117, align 4
-  %119 = trunc i64 %indvars.iv.i80 to i32
+  %119 = trunc nuw nsw i64 %indvars.iv.i80 to i32
   %120 = xor i32 %119, -1
   %121 = add i32 %115, %120
   %122 = sext i32 %121 to i64

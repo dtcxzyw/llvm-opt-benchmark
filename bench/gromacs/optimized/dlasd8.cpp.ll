@@ -74,8 +74,8 @@ define void @dlasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %52 = sext i32 %26 to i64
   %invariant.gep = getelementptr double, ptr %25, i64 %51
   %invariant.gep256 = getelementptr double, ptr %25, i64 %52
-  %invariant.gep258 = getelementptr double, ptr %25, i64 %51
-  %invariant.gep260 = getelementptr double, ptr %25, i64 %52
+  %invariant.gep258 = getelementptr double, ptr %10, i64 %51
+  %invariant.gep260 = getelementptr double, ptr %10, i64 %52
   br label %53
 
 53:                                               ; preds = %.lr.ph208, %._crit_edge204
@@ -157,15 +157,15 @@ define void @dlasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 98:                                               ; preds = %.lr.ph203, %98
   %indvars.iv233 = phi i64 [ %63, %.lr.ph203 ], [ %indvars.iv.next234, %98 ]
   %indvars.iv.next234 = add nsw i64 %indvars.iv233, 1
-  %gep259 = getelementptr double, ptr %invariant.gep258, i64 %indvars.iv.next234
+  %gep259 = getelementptr double, ptr %invariant.gep258, i64 %indvars.iv233
   %99 = load double, ptr %gep259, align 8
-  %100 = getelementptr inbounds double, ptr %25, i64 %indvars.iv.next234
+  %100 = getelementptr double, ptr %10, i64 %indvars.iv233
   %101 = load double, ptr %100, align 8
   %102 = fmul double %99, %101
-  %gep261 = getelementptr double, ptr %invariant.gep260, i64 %indvars.iv.next234
+  %gep261 = getelementptr double, ptr %invariant.gep260, i64 %indvars.iv233
   %103 = load double, ptr %gep261, align 8
   %104 = fmul double %102, %103
-  %105 = getelementptr inbounds double, ptr %24, i64 %indvars.iv.next234
+  %105 = getelementptr double, ptr %9, i64 %indvars.iv233
   %106 = load double, ptr %105, align 8
   %107 = load double, ptr %97, align 8
   %108 = fsub double %106, %107
@@ -297,16 +297,16 @@ define void @dlasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .lr.ph223:                                        ; preds = %.lr.ph223.preheader, %.lr.ph223
   %indvars.iv248 = phi i64 [ %124, %.lr.ph223.preheader ], [ %indvars.iv.next249, %.lr.ph223 ]
   %indvars.iv.next249 = add nsw i64 %indvars.iv248, 1
-  %161 = getelementptr inbounds double, ptr %19, i64 %indvars.iv.next249
+  %161 = getelementptr double, ptr %3, i64 %indvars.iv248
   %162 = load double, ptr %161, align 8
-  %163 = getelementptr inbounds double, ptr %24, i64 %indvars.iv.next249
+  %163 = getelementptr double, ptr %9, i64 %indvars.iv248
   %164 = load double, ptr %163, align 8
   %165 = fadd double %.1, %164
   %166 = fsub double %165, %.1184
   %167 = fdiv double %162, %166
   %168 = fadd double %128, %164
   %169 = fdiv double %167, %168
-  %170 = getelementptr inbounds double, ptr %25, i64 %indvars.iv.next249
+  %170 = getelementptr double, ptr %10, i64 %indvars.iv248
   store double %169, ptr %170, align 8
   %exitcond252.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count251
   br i1 %exitcond252.not, label %._crit_edge224, label %.lr.ph223, !llvm.loop !10

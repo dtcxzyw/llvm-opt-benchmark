@@ -1686,24 +1686,23 @@ find_all_cycles.exit.i:                           ; preds = %nodes_delete.exit.i
   %or.cond.i3.i.i = select i1 %99, i1 %100, i1 false
   br i1 %or.cond.i3.i.i, label %cycle_contains_edge.exit.thread.i.i, label %.lr.ph.i25.i
 
-.lr.ph.i25.i:                                     ; preds = %.lr.ph.i.i.i, %102
-  %.02025.i4.i.i = phi i64 [ %101, %102 ], [ 0, %.lr.ph.i.i.i ]
-  %101 = add nuw i64 %.02025.i4.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %101, %.val.i.i
-  br i1 %exitcond.not.i.i.i, label %cycle_contains_edge.exit.i.thread.i, label %102
+.lr.ph.i25.i:                                     ; preds = %.lr.ph.i.i.i, %103
+  %101 = phi ptr [ %105, %103 ], [ %98, %.lr.ph.i.i.i ]
+  %.02025.i4.i.i = phi i64 [ %102, %103 ], [ 0, %.lr.ph.i.i.i ]
+  %102 = add nuw i64 %.02025.i4.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %102, %.val.i.i
+  br i1 %exitcond.not.i.i.i, label %cycle_contains_edge.exit.i.thread.i, label %103
 
-102:                                              ; preds = %.lr.ph.i25.i
-  %gep.i.i.i = getelementptr ptr, ptr %invariant.gep.i.i.i, i64 %101
-  %103 = load ptr, ptr %gep.i.i.i, align 8
-  %104 = getelementptr inbounds ptr, ptr %.val24.i.i.i, i64 %101
+103:                                              ; preds = %.lr.ph.i25.i
+  %104 = getelementptr inbounds ptr, ptr %.val24.i.i.i, i64 %102
   %105 = load ptr, ptr %104, align 8
-  %106 = icmp eq ptr %103, %94
+  %106 = icmp eq ptr %101, %94
   %107 = icmp eq ptr %105, %96
   %or.cond.i.i.i = select i1 %106, i1 %107, i1 false
   br i1 %or.cond.i.i.i, label %cycle_contains_edge.exit.i.i, label %.lr.ph.i25.i
 
-cycle_contains_edge.exit.i.i:                     ; preds = %102
-  %108 = icmp ult i64 %101, %.val.i.i
+cycle_contains_edge.exit.i.i:                     ; preds = %103
+  %108 = icmp ult i64 %102, %.val.i.i
   %cond.fr.i.i = freeze i1 %108
   br i1 %cond.fr.i.i, label %cycle_contains_edge.exit.thread.i.i, label %cycle_contains_edge.exit.i.thread.i
 

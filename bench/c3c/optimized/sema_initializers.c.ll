@@ -4004,7 +4004,7 @@ expand_.exit35:                                   ; preds = %188, %192
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv132 = phi i64 [ %235, %.lr.ph82.preheader ], [ %237, %.lr.ph82 ]
   %237 = add nsw i64 %indvars.iv132, -1
-  %238 = getelementptr inbounds ptr, ptr %232, i64 %237
+  %238 = getelementptr ptr, ptr %.1.i28, i64 %indvars.iv132
   %239 = load ptr, ptr %238, align 8
   %240 = getelementptr inbounds ptr, ptr %232, i64 %indvars.iv132
   store ptr %239, ptr %240, align 8

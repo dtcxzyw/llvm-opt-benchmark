@@ -133,7 +133,7 @@ define void @slasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store float %81, ptr %79, align 4
   %82 = load float, ptr %20, align 4
   %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
-  %83 = getelementptr inbounds float, ptr %25, i64 %indvars.iv.next301
+  %83 = getelementptr float, ptr %6, i64 %indvars.iv300
   %84 = load float, ptr %83, align 4
   %85 = fmul float %82, %84
   store float %85, ptr %80, align 4
@@ -161,7 +161,7 @@ define void @slasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store float %97, ptr %95, align 4
   %98 = load float, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %99 = getelementptr inbounds float, ptr %25, i64 %indvars.iv.next
+  %99 = getelementptr float, ptr %6, i64 %indvars.iv
   %100 = load float, ptr %99, align 4
   %101 = fmul float %98, %100
   store float %101, ptr %96, align 4
@@ -237,7 +237,7 @@ define void @slasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store float %137, ptr %135, align 4
   %138 = load float, ptr %20, align 4
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
-  %139 = getelementptr inbounds float, ptr %25, i64 %indvars.iv.next311
+  %139 = getelementptr float, ptr %6, i64 %indvars.iv310
   %140 = load float, ptr %139, align 4
   %141 = fmul float %138, %140
   store float %141, ptr %136, align 4
@@ -265,7 +265,7 @@ define void @slasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store float %153, ptr %151, align 4
   %154 = load float, ptr %20, align 4
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
-  %155 = getelementptr inbounds float, ptr %25, i64 %indvars.iv.next306
+  %155 = getelementptr float, ptr %6, i64 %indvars.iv305
   %156 = load float, ptr %155, align 4
   %157 = fmul float %154, %156
   store float %157, ptr %152, align 4

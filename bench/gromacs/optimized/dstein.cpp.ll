@@ -223,12 +223,12 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %indvars.iv350 = phi i64 [ %indvars.iv.next351, %.lr.ph291 ], [ %100, %99 ]
   %.0289 = phi double [ %134, %.lr.ph291 ], [ %122, %99 ]
   %indvars.iv.next351 = add nsw i64 %indvars.iv350, 1
-  %124 = getelementptr inbounds double, ptr %25, i64 %indvars.iv.next351
+  %124 = getelementptr double, ptr %1, i64 %indvars.iv350
   %125 = load double, ptr %124, align 8
   %126 = call noundef double @llvm.fabs.f64(double %125)
   %127 = call noundef double @llvm.fabs.f64(double %123)
   %128 = fadd double %126, %127
-  %129 = getelementptr inbounds double, ptr %26, i64 %indvars.iv.next351
+  %129 = getelementptr double, ptr %2, i64 %indvars.iv350
   %130 = load double, ptr %129, align 8
   %131 = call noundef double @llvm.fabs.f64(double %130)
   %132 = fadd double %128, %131

@@ -568,7 +568,7 @@ split:                                            ; preds = %170, %._crit_edge95
   %410 = phi i64 [ %405, %404 ], [ %412, %440 ]
   %411 = phi i32 [ 0, %404 ], [ %441, %440 ]
   %412 = add nsw i64 %410, 1
-  %413 = getelementptr inbounds double, ptr %35, i64 %412
+  %413 = getelementptr double, ptr %17, i64 %410
   %414 = load double, ptr %413, align 8, !tbaa !7
   %415 = fcmp une double %414, 0.000000e+00
   br i1 %415, label %416, label %440
@@ -586,7 +586,7 @@ split:                                            ; preds = %170, %._crit_edge95
   %426 = fmul double %424, %425
   %427 = fcmp ole double %426, 0.000000e+00
   %428 = select i1 %427, double 0.000000e+00, double %426
-  %429 = getelementptr inbounds double, ptr %36, i64 %412
+  %429 = getelementptr double, ptr %18, i64 %410
   %430 = load double, ptr %429, align 8, !tbaa !7
   %431 = fdiv double %414, %430
   store double %431, ptr %27, align 8, !tbaa !7

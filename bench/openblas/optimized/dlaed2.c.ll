@@ -294,7 +294,7 @@ thread-pre-split21:                               ; preds = %79
   br i1 %201, label %._crit_edge, label %.lr.ph
 
 202:                                              ; preds = %234
-  %203 = getelementptr inbounds i32, ptr %35, i64 %235
+  %203 = getelementptr i32, ptr %12, i64 %227
   %204 = load i32, ptr %203, align 4, !tbaa !3
   %205 = sext i32 %204 to i64
   %206 = getelementptr inbounds double, ptr %31, i64 %205
@@ -354,7 +354,7 @@ thread-pre-split21:                               ; preds = %79
   %239 = phi i32 [ %218, %222 ], [ %340, %338 ]
   %240 = phi i32 [ %217, %222 ], [ %339, %338 ]
   %241 = add nsw i64 %238, 1
-  %242 = getelementptr inbounds i32, ptr %35, i64 %241
+  %242 = getelementptr i32, ptr %12, i64 %238
   %243 = load i32, ptr %242, align 4, !tbaa !3
   %244 = load double, ptr %7, align 8, !tbaa !7
   %245 = sext i32 %243 to i64

@@ -731,7 +731,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp, label %if.then5, label %if.end26
 
 if.then5:                                         ; preds = %if.end
-  %conv8 = trunc i64 %sub.ptr.div.i to i32
+  %conv8 = trunc nuw i64 %sub.ptr.div.i to i32
   %conv.i74111 = trunc i64 %sub.ptr.div.i.i to i32
   %cmp11112 = icmp ult i32 %conv8, %conv.i74111
   br i1 %cmp11112, label %for.body, label %for.cond.cleanup
@@ -1003,7 +1003,7 @@ if.end:                                           ; preds = %if.else, %if.then3
   %tobool15.not = icmp eq i8 %7, 0
   %8 = trunc i64 %storemerge to i32
   %9 = lshr i64 %storemerge, 32
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   %.pr.pr.pre = load ptr, ptr %texture, align 8, !tbaa !34
   %cmp = icmp eq ptr %.pr.pr.pre, null
   br i1 %tobool15.not, label %lor.lhs.false, label %if.end23
@@ -3267,15 +3267,14 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store ptr null, ptr %0, align 8, !tbaa !34
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add nsw i64 %__n, -1
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPPN3irr5video8ITextureEmS3_ET_S5_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 3
   %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !34
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr ptr, ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPPN3irr5video8ITextureEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN3irr5video8ITextureEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i

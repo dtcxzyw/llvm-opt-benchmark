@@ -67,7 +67,7 @@ define void @slagtf_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1
   %.0127137 = phi float [ %41, %.lr.ph.preheader ], [ %.1, %125 ]
   %42 = load float, ptr %2, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = getelementptr inbounds float, ptr %14, i64 %indvars.iv.next
+  %43 = getelementptr float, ptr %1, i64 %indvars.iv
   %44 = load float, ptr %43, align 4
   %45 = fsub float %44, %42
   store float %45, ptr %43, align 4
@@ -83,7 +83,7 @@ define void @slagtf_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %.lr.ph
-  %56 = getelementptr inbounds float, ptr %13, i64 %indvars.iv.next
+  %56 = getelementptr float, ptr %3, i64 %indvars.iv
   %57 = load float, ptr %56, align 4
   %58 = tail call noundef float @llvm.fabs.f32(float %57)
   %59 = fadd float %50, %58
@@ -162,7 +162,7 @@ define void @slagtf_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1
   br i1 %106, label %107, label %112
 
 107:                                              ; preds = %94
-  %108 = getelementptr inbounds float, ptr %13, i64 %indvars.iv.next
+  %108 = getelementptr float, ptr %3, i64 %indvars.iv
   %109 = load float, ptr %108, align 4
   %110 = getelementptr inbounds float, ptr %11, i64 %indvars.iv
   store float %109, ptr %110, align 4

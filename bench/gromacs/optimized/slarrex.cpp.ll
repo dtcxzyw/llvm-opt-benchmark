@@ -344,13 +344,13 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %192 = load float, ptr %191, align 4
   %193 = fmul float %190, %192
   %indvars.iv.next870 = add nsw i64 %indvars.iv869, 1
-  %194 = getelementptr inbounds float, ptr %35, i64 %indvars.iv.next870
+  %194 = getelementptr float, ptr %6, i64 %indvars.iv869
   %195 = load float, ptr %194, align 4
   %196 = fsub float %195, %185
   %197 = fneg float %193
   %198 = call float @llvm.fmuladd.f32(float %197, float %192, float %196)
   %indvars.iv.next872 = add nuw nsw i64 %indvars.iv871, 1
-  %199 = getelementptr inbounds float, ptr %28, i64 %indvars.iv.next872
+  %199 = getelementptr float, ptr %16, i64 %indvars.iv871
   store float %198, ptr %199, align 4
   %gep1014 = getelementptr float, ptr %invariant.gep1013, i64 %indvars.iv871
   store float %193, ptr %gep1014, align 4

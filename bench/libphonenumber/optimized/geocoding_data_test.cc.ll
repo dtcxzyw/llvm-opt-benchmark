@@ -6506,7 +6506,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %5, %7
-  br i1 %.not, label %77, label %8
+  br i1 %.not, label %76, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %5, i64 8
@@ -6546,7 +6546,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %32 = sub nsw i32 %31, %.sroa.speculated81
   store i32 %32, ptr %4, align 4
   %33 = icmp slt i32 %32, 0
-  br i1 %33, label %34, label %109
+  br i1 %33, label %34, label %108
 
 34:                                               ; preds = %30
   %35 = load i8, ptr %18, align 1
@@ -6559,134 +6559,133 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %40 = getelementptr inbounds i8, ptr %6, i64 10
   %41 = load i8, ptr %40, align 1
   %42 = icmp ult i8 %10, %41
-  br i1 %42, label %43, label %72
+  br i1 %42, label %43, label %71
 
 43:                                               ; preds = %39
   %44 = zext i8 %10 to i64
-  %45 = getelementptr inbounds i8, ptr %6, i64 256
+  %45 = getelementptr i8, ptr %6, i64 264
   %46 = getelementptr ptr, ptr %45, i64 %44
-  %47 = getelementptr i8, ptr %46, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 10
-  %50 = load i8, ptr %49, align 1
-  %51 = icmp ult i8 %50, 61
-  br i1 %51, label %52, label %72
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 10
+  %49 = load i8, ptr %48, align 1
+  %50 = icmp ult i8 %49, 61
+  br i1 %50, label %51, label %71
 
-52:                                               ; preds = %43
-  %.lhs.trunc = sub nuw nsw i8 61, %50
-  %53 = load i32, ptr %4, align 4
-  %.inv = icmp sgt i32 %53, 0
-  %54 = zext i1 %.inv to i8
-  %55 = lshr i8 %.lhs.trunc, %54
-  %56 = tail call i8 @llvm.umax.i8(i8 %55, i8 1)
-  %.sroa.speculated = zext nneg i8 %56 to i32
-  %57 = getelementptr inbounds i8, ptr %5, i64 10
-  %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i32
-  %60 = sub nsw i32 %59, %.sroa.speculated
-  %.not73 = icmp sle i32 %53, %60
-  %narrow = add nuw nsw i8 %56, %50
-  %61 = icmp ult i8 %narrow, 61
-  %or.cond91 = select i1 %.not73, i1 true, i1 %61
-  br i1 %or.cond91, label %62, label %72
+51:                                               ; preds = %43
+  %.lhs.trunc = sub nuw nsw i8 61, %49
+  %52 = load i32, ptr %4, align 4
+  %.inv = icmp sgt i32 %52, 0
+  %53 = zext i1 %.inv to i8
+  %54 = lshr i8 %.lhs.trunc, %53
+  %55 = tail call i8 @llvm.umax.i8(i8 %54, i8 1)
+  %.sroa.speculated = zext nneg i8 %55 to i32
+  %56 = getelementptr inbounds i8, ptr %5, i64 10
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i32
+  %59 = sub nsw i32 %58, %.sroa.speculated
+  %.not73 = icmp sle i32 %52, %59
+  %narrow = add nuw nsw i8 %55, %49
+  %60 = icmp ult i8 %narrow, 61
+  %or.cond91 = select i1 %.not73, i1 true, i1 %60
+  br i1 %or.cond91, label %61, label %71
 
-62:                                               ; preds = %52
-  tail call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE23rebalance_left_to_rightEiPS8_PS6_(ptr noundef nonnull align 1 dereferenceable(1) %5, i32 noundef %.sroa.speculated, ptr noundef nonnull %48, ptr noundef nonnull %0)
-  %63 = load i32, ptr %4, align 4
-  %64 = load ptr, ptr %1, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 10
-  %66 = load i8, ptr %65, align 1
-  %67 = zext i8 %66 to i32
-  %68 = icmp sgt i32 %63, %67
-  br i1 %68, label %69, label %109
+61:                                               ; preds = %51
+  tail call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE23rebalance_left_to_rightEiPS8_PS6_(ptr noundef nonnull align 1 dereferenceable(1) %5, i32 noundef %.sroa.speculated, ptr noundef nonnull %47, ptr noundef nonnull %0)
+  %62 = load i32, ptr %4, align 4
+  %63 = load ptr, ptr %1, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 10
+  %65 = load i8, ptr %64, align 1
+  %66 = zext i8 %65 to i32
+  %67 = icmp sgt i32 %62, %66
+  br i1 %67, label %68, label %108
 
-69:                                               ; preds = %62
-  %70 = xor i32 %67, -1
-  %71 = add nsw i32 %63, %70
+68:                                               ; preds = %61
+  %69 = xor i32 %66, -1
+  %70 = add nsw i32 %62, %69
   br label %.sink.split
 
-72:                                               ; preds = %52, %43, %39
-  %73 = icmp eq i8 %41, 61
-  br i1 %73, label %74, label %82
+71:                                               ; preds = %51, %43, %39
+  %72 = icmp eq i8 %41, 61
+  br i1 %72, label %73, label %81
 
-74:                                               ; preds = %72
-  %75 = zext i8 %10 to i32
+73:                                               ; preds = %71
+  %74 = zext i8 %10 to i32
   store ptr %6, ptr %3, align 8
-  %76 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 %75, ptr %76, align 8
+  %75 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %74, ptr %75, align 8
   call void @_ZN4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE18rebalance_or_splitEPNS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %3)
-  br label %82
+  br label %81
 
-77:                                               ; preds = %2
-  %78 = tail call noalias noundef nonnull dereferenceable(752) ptr @_Znwm(i64 noundef 752) #19
-  store ptr %6, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
-  store i32 0, ptr %79, align 1
-  %80 = getelementptr inbounds i8, ptr %78, i64 256
-  store ptr %7, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %7, i64 8
-  store i8 0, ptr %81, align 1
-  store ptr %78, ptr %7, align 8
-  store ptr %78, ptr %0, align 8
-  br label %82
+76:                                               ; preds = %2
+  %77 = tail call noalias noundef nonnull dereferenceable(752) ptr @_Znwm(i64 noundef 752) #19
+  store ptr %6, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  store i32 0, ptr %78, align 1
+  %79 = getelementptr inbounds i8, ptr %77, i64 256
+  store ptr %7, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %7, i64 8
+  store i8 0, ptr %80, align 1
+  store ptr %77, ptr %7, align 8
+  store ptr %77, ptr %0, align 8
+  br label %81
 
-82:                                               ; preds = %72, %74, %77
-  %.071 = phi ptr [ %6, %74 ], [ %6, %72 ], [ %78, %77 ]
-  %83 = load ptr, ptr %1, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 11
-  %85 = load i8, ptr %84, align 1
-  %.not93 = icmp eq i8 %85, 0
-  br i1 %.not93, label %95, label %86
+81:                                               ; preds = %71, %73, %76
+  %.071 = phi ptr [ %6, %73 ], [ %6, %71 ], [ %77, %76 ]
+  %82 = load ptr, ptr %1, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 11
+  %84 = load i8, ptr %83, align 1
+  %.not93 = icmp eq i8 %84, 0
+  br i1 %.not93, label %94, label %85
 
-86:                                               ; preds = %82
-  %87 = call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #19
-  store ptr %.071, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 61>, ptr %88, align 1
-  %89 = load i32, ptr %4, align 4
-  call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE5splitEiPS8_PS6_(ptr noundef nonnull align 1 dereferenceable(1) %83, i32 noundef %89, ptr noundef nonnull %87, ptr noundef nonnull %0)
-  %90 = getelementptr inbounds i8, ptr %0, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = load ptr, ptr %1, align 8
-  %93 = icmp eq ptr %91, %92
-  br i1 %93, label %94, label %99
+85:                                               ; preds = %81
+  %86 = call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #19
+  store ptr %.071, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  store <4 x i8> <i8 0, i8 0, i8 0, i8 61>, ptr %87, align 1
+  %88 = load i32, ptr %4, align 4
+  call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE5splitEiPS8_PS6_(ptr noundef nonnull align 1 dereferenceable(1) %82, i32 noundef %88, ptr noundef nonnull %86, ptr noundef nonnull %0)
+  %89 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = load ptr, ptr %89, align 8
+  %91 = load ptr, ptr %1, align 8
+  %92 = icmp eq ptr %90, %91
+  br i1 %92, label %93, label %98
 
-94:                                               ; preds = %86
-  store ptr %87, ptr %90, align 8
-  br label %99
+93:                                               ; preds = %85
+  store ptr %86, ptr %89, align 8
+  br label %98
 
-95:                                               ; preds = %82
-  %96 = call noalias noundef nonnull dereferenceable(752) ptr @_Znwm(i64 noundef 752) #19
-  store ptr %.071, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
-  store i32 0, ptr %97, align 1
-  %98 = load i32, ptr %4, align 4
-  call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE5splitEiPS8_PS6_(ptr noundef nonnull align 1 dereferenceable(1) %83, i32 noundef %98, ptr noundef nonnull %96, ptr noundef nonnull %0)
-  br label %99
+94:                                               ; preds = %81
+  %95 = call noalias noundef nonnull dereferenceable(752) ptr @_Znwm(i64 noundef 752) #19
+  store ptr %.071, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 8
+  store i32 0, ptr %96, align 1
+  %97 = load i32, ptr %4, align 4
+  call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE5splitEiPS8_PS6_(ptr noundef nonnull align 1 dereferenceable(1) %82, i32 noundef %97, ptr noundef nonnull %95, ptr noundef nonnull %0)
+  br label %98
 
-99:                                               ; preds = %86, %94, %95
-  %.0 = phi ptr [ %87, %94 ], [ %87, %86 ], [ %96, %95 ]
-  %100 = load i32, ptr %4, align 4
-  %101 = load ptr, ptr %1, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 10
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i32
-  %105 = icmp sgt i32 %100, %104
-  br i1 %105, label %106, label %109
+98:                                               ; preds = %85, %93, %94
+  %.0 = phi ptr [ %86, %93 ], [ %86, %85 ], [ %95, %94 ]
+  %99 = load i32, ptr %4, align 4
+  %100 = load ptr, ptr %1, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 10
+  %102 = load i8, ptr %101, align 1
+  %103 = zext i8 %102 to i32
+  %104 = icmp sgt i32 %99, %103
+  br i1 %104, label %105, label %108
 
-106:                                              ; preds = %99
-  %107 = xor i32 %104, -1
-  %108 = add nsw i32 %100, %107
+105:                                              ; preds = %98
+  %106 = xor i32 %103, -1
+  %107 = add nsw i32 %99, %106
   br label %.sink.split
 
-.sink.split:                                      ; preds = %106, %34, %69
-  %.sink94 = phi i32 [ %71, %69 ], [ %38, %34 ], [ %108, %106 ]
-  %.sink = phi ptr [ %48, %69 ], [ %17, %34 ], [ %.0, %106 ]
+.sink.split:                                      ; preds = %105, %34, %68
+  %.sink94 = phi i32 [ %70, %68 ], [ %38, %34 ], [ %107, %105 ]
+  %.sink = phi ptr [ %47, %68 ], [ %17, %34 ], [ %.0, %105 ]
   store i32 %.sink94, ptr %4, align 4
   store ptr %.sink, ptr %1, align 8
-  br label %109
+  br label %108
 
-109:                                              ; preds = %.sink.split, %62, %30, %99
+108:                                              ; preds = %.sink.split, %61, %30, %98
   ret void
 }
 

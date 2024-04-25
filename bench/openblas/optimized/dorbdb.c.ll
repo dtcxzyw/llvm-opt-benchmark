@@ -726,7 +726,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %492 = getelementptr double, ptr %36, i64 %491
   %493 = getelementptr double, ptr %492, i64 %470
   %494 = select i1 %488, ptr %493, ptr %483
-  %495 = getelementptr inbounds double, ptr %50, i64 %470
+  %495 = getelementptr double, ptr %18, i64 %468
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %483, ptr noundef %494, ptr noundef nonnull %8, ptr noundef nonnull %495) #6
   store double 1.000000e+00, ptr %483, align 8, !tbaa !7
   %496 = load i32, ptr %3, align 4, !tbaa !3
@@ -772,7 +772,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br label %523
 
 523:                                              ; preds = %515, %508
-  %524 = trunc i64 %468 to i32
+  %524 = trunc nsw i64 %468 to i32
   %525 = sub i32 -2, %524
   %526 = icmp slt i64 %470, %466
   br i1 %526, label %467, label %.loopexit98.loopexit, !llvm.loop !12

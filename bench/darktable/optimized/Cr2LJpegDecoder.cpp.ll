@@ -1220,161 +1220,159 @@ define linkonce_odr hidden void @_ZNK8rawspeed20AbstractLJpegDecoder20getInitial
 
 7:                                                ; preds = %3
   %8 = icmp eq i32 %2, 0
-  br i1 %8, label %31, label %9
+  br i1 %8, label %29, label %9
 
 9:                                                ; preds = %7
   %10 = shl nuw nsw i64 %4, 1
   %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #22
   %12 = ptrtoint ptr %11 to i64
   store ptr %11, ptr %0, align 8, !tbaa !148
-  %13 = getelementptr inbounds i16, ptr %11, i64 %4
+  %13 = getelementptr i16, ptr %11, i64 %4
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %13, ptr %14, align 8, !tbaa !157
   store i16 0, ptr %11, align 2, !tbaa !149
   %15 = getelementptr i8, ptr %11, i64 2
-  %16 = add nsw i64 %4, -1
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %21, label %18
+  %16 = icmp eq i32 %2, 1
+  br i1 %16, label %19, label %17
 
-18:                                               ; preds = %9
-  %19 = add nsw i64 %10, -2
-  tail call void @llvm.memset.p0.i64(ptr align 2 %15, i8 0, i64 %19, i1 false), !tbaa !149
-  %20 = getelementptr inbounds i16, ptr %15, i64 %16
-  br label %21
+17:                                               ; preds = %9
+  %18 = add nsw i64 %10, -2
+  tail call void @llvm.memset.p0.i64(ptr align 2 %15, i8 0, i64 %18, i1 false), !tbaa !149
+  br label %19
 
-21:                                               ; preds = %18, %9
-  %22 = phi ptr [ %15, %9 ], [ %20, %18 ]
-  %23 = ptrtoint ptr %22 to i64
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %22, ptr %24, align 8, !tbaa !158
-  %25 = getelementptr inbounds i8, ptr %1, i64 220
-  %26 = load i32, ptr %25, align 4, !tbaa !159
-  %27 = getelementptr inbounds i8, ptr %1, i64 56
-  %28 = load i32, ptr %27, align 8, !tbaa !160
-  %29 = add i32 %28, 1
-  %30 = icmp ult i32 %26, %29
-  br i1 %30, label %38, label %46
+19:                                               ; preds = %17, %9
+  %20 = phi ptr [ %15, %9 ], [ %13, %17 ]
+  %21 = ptrtoint ptr %20 to i64
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %20, ptr %22, align 8, !tbaa !158
+  %23 = getelementptr inbounds i8, ptr %1, i64 220
+  %24 = load i32, ptr %23, align 4, !tbaa !159
+  %25 = getelementptr inbounds i8, ptr %1, i64 56
+  %26 = load i32, ptr %25, align 8, !tbaa !160
+  %27 = add i32 %26, 1
+  %28 = icmp ult i32 %24, %27
+  br i1 %28, label %36, label %44
 
-31:                                               ; preds = %7
-  %32 = getelementptr inbounds i8, ptr %1, i64 220
+29:                                               ; preds = %7
+  %30 = getelementptr inbounds i8, ptr %1, i64 220
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %33 = load i32, ptr %32, align 4, !tbaa !159
-  %34 = getelementptr inbounds i8, ptr %1, i64 56
-  %35 = load i32, ptr %34, align 8, !tbaa !160
-  %36 = add i32 %35, 1
-  %37 = icmp ult i32 %33, %36
-  br i1 %37, label %38, label %.loopexit
+  %31 = load i32, ptr %30, align 4, !tbaa !159
+  %32 = getelementptr inbounds i8, ptr %1, i64 56
+  %33 = load i32, ptr %32, align 8, !tbaa !160
+  %34 = add i32 %33, 1
+  %35 = icmp ult i32 %31, %34
+  br i1 %35, label %36, label %.loopexit
 
-38:                                               ; preds = %31, %21
-  %39 = phi i32 [ %35, %31 ], [ %28, %21 ]
-  %40 = phi i32 [ %33, %31 ], [ %26, %21 ]
-  %41 = phi ptr [ null, %31 ], [ %11, %21 ]
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed20AbstractLJpegDecoder20getInitialPredictorsEi, i32 noundef %40, i32 noundef %39) #20
-          to label %42 unwind label %43
+36:                                               ; preds = %29, %19
+  %37 = phi i32 [ %33, %29 ], [ %26, %19 ]
+  %38 = phi i32 [ %31, %29 ], [ %24, %19 ]
+  %39 = phi ptr [ null, %29 ], [ %11, %19 ]
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed20AbstractLJpegDecoder20getInitialPredictorsEi, i32 noundef %38, i32 noundef %37) #20
+          to label %40 unwind label %41
 
-42:                                               ; preds = %38
+40:                                               ; preds = %36
   unreachable
 
-43:                                               ; preds = %38
-  %44 = landingpad { ptr, i32 }
+41:                                               ; preds = %36
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %45 = icmp eq ptr %41, null
-  br i1 %45, label %99, label %98
+  %43 = icmp eq ptr %39, null
+  br i1 %43, label %97, label %96
 
-46:                                               ; preds = %21
-  %47 = icmp eq ptr %11, %22
-  br i1 %47, label %.loopexit, label %48
+44:                                               ; preds = %19
+  %45 = icmp eq ptr %11, %20
+  br i1 %45, label %.loopexit, label %46
 
-48:                                               ; preds = %46
-  %49 = xor i32 %28, -1
-  %50 = add i32 %26, %49
-  %51 = shl nuw i32 1, %50
-  %52 = trunc i32 %51 to i16
-  %reass.sub = sub i64 %23, %12
-  %53 = add i64 %reass.sub, -2
-  %54 = lshr i64 %53, 1
-  %55 = add nuw i64 %54, 1
-  %56 = icmp ult i64 %53, 14
-  br i1 %56, label %.preheader, label %57
+46:                                               ; preds = %44
+  %47 = xor i32 %26, -1
+  %48 = add i32 %24, %47
+  %49 = shl nuw i32 1, %48
+  %50 = trunc i32 %49 to i16
+  %reass.sub = sub i64 %21, %12
+  %51 = add i64 %reass.sub, -2
+  %52 = lshr i64 %51, 1
+  %53 = add nuw i64 %52, 1
+  %54 = icmp ult i64 %51, 14
+  br i1 %54, label %.preheader, label %55
 
-57:                                               ; preds = %48
-  %58 = icmp ult i64 %53, 126
-  br i1 %58, label %79, label %59
+55:                                               ; preds = %46
+  %56 = icmp ult i64 %51, 126
+  br i1 %56, label %77, label %57
 
-59:                                               ; preds = %57
-  %60 = and i64 %55, -64
-  %61 = insertelement <16 x i16> poison, i16 %52, i64 0
-  %62 = shufflevector <16 x i16> %61, <16 x i16> poison, <16 x i32> zeroinitializer
-  br label %63
+57:                                               ; preds = %55
+  %58 = and i64 %53, -64
+  %59 = insertelement <16 x i16> poison, i16 %50, i64 0
+  %60 = shufflevector <16 x i16> %59, <16 x i16> poison, <16 x i32> zeroinitializer
+  br label %61
 
-63:                                               ; preds = %63, %59
-  %64 = phi i64 [ 0, %59 ], [ %70, %63 ]
-  %65 = shl i64 %64, 1
-  %66 = getelementptr i8, ptr %11, i64 %65
-  %67 = getelementptr i8, ptr %66, i64 32
-  %68 = getelementptr i8, ptr %66, i64 64
-  %69 = getelementptr i8, ptr %66, i64 96
-  store <16 x i16> %62, ptr %66, align 2, !tbaa !149
-  store <16 x i16> %62, ptr %67, align 2, !tbaa !149
-  store <16 x i16> %62, ptr %68, align 2, !tbaa !149
-  store <16 x i16> %62, ptr %69, align 2, !tbaa !149
-  %70 = add nuw i64 %64, 64
-  %71 = icmp eq i64 %70, %60
-  br i1 %71, label %72, label %63, !llvm.loop !161
+61:                                               ; preds = %61, %57
+  %62 = phi i64 [ 0, %57 ], [ %68, %61 ]
+  %63 = shl i64 %62, 1
+  %64 = getelementptr i8, ptr %11, i64 %63
+  %65 = getelementptr i8, ptr %64, i64 32
+  %66 = getelementptr i8, ptr %64, i64 64
+  %67 = getelementptr i8, ptr %64, i64 96
+  store <16 x i16> %60, ptr %64, align 2, !tbaa !149
+  store <16 x i16> %60, ptr %65, align 2, !tbaa !149
+  store <16 x i16> %60, ptr %66, align 2, !tbaa !149
+  store <16 x i16> %60, ptr %67, align 2, !tbaa !149
+  %68 = add nuw i64 %62, 64
+  %69 = icmp eq i64 %68, %58
+  br i1 %69, label %70, label %61, !llvm.loop !161
 
-72:                                               ; preds = %63
-  %73 = icmp eq i64 %55, %60
-  br i1 %73, label %.loopexit, label %74
+70:                                               ; preds = %61
+  %71 = icmp eq i64 %53, %58
+  br i1 %71, label %.loopexit, label %72
 
-74:                                               ; preds = %72
-  %75 = shl i64 %60, 1
-  %76 = getelementptr i8, ptr %11, i64 %75
-  %77 = and i64 %55, 56
-  %78 = icmp eq i64 %77, 0
-  br i1 %78, label %.preheader, label %79
+72:                                               ; preds = %70
+  %73 = shl i64 %58, 1
+  %74 = getelementptr i8, ptr %11, i64 %73
+  %75 = and i64 %53, 56
+  %76 = icmp eq i64 %75, 0
+  br i1 %76, label %.preheader, label %77
 
-79:                                               ; preds = %74, %57
-  %80 = phi i64 [ %60, %74 ], [ 0, %57 ]
-  %81 = and i64 %55, -8
-  %82 = shl i64 %81, 1
-  %83 = insertelement <8 x i16> poison, i16 %52, i64 0
-  %84 = shufflevector <8 x i16> %83, <8 x i16> poison, <8 x i32> zeroinitializer
-  br label %85
+77:                                               ; preds = %72, %55
+  %78 = phi i64 [ %58, %72 ], [ 0, %55 ]
+  %79 = and i64 %53, -8
+  %80 = shl i64 %79, 1
+  %81 = insertelement <8 x i16> poison, i16 %50, i64 0
+  %82 = shufflevector <8 x i16> %81, <8 x i16> poison, <8 x i32> zeroinitializer
+  br label %83
 
-85:                                               ; preds = %85, %79
-  %86 = phi i64 [ %80, %79 ], [ %89, %85 ]
-  %87 = shl i64 %86, 1
-  %88 = getelementptr i8, ptr %11, i64 %87
-  store <8 x i16> %84, ptr %88, align 2, !tbaa !149
-  %89 = add nuw i64 %86, 8
-  %90 = icmp eq i64 %89, %81
-  br i1 %90, label %91, label %85, !llvm.loop !164
+83:                                               ; preds = %83, %77
+  %84 = phi i64 [ %78, %77 ], [ %87, %83 ]
+  %85 = shl i64 %84, 1
+  %86 = getelementptr i8, ptr %11, i64 %85
+  store <8 x i16> %82, ptr %86, align 2, !tbaa !149
+  %87 = add nuw i64 %84, 8
+  %88 = icmp eq i64 %87, %79
+  br i1 %88, label %89, label %83, !llvm.loop !164
 
-91:                                               ; preds = %85
-  %92 = getelementptr i8, ptr %11, i64 %82
-  %93 = icmp eq i64 %55, %81
-  br i1 %93, label %.loopexit, label %.preheader
+89:                                               ; preds = %83
+  %90 = getelementptr i8, ptr %11, i64 %80
+  %91 = icmp eq i64 %53, %79
+  br i1 %91, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %91, %74, %48
-  %.ph = phi ptr [ %92, %91 ], [ %76, %74 ], [ %11, %48 ]
-  br label %94
+.preheader:                                       ; preds = %89, %72, %46
+  %.ph = phi ptr [ %90, %89 ], [ %74, %72 ], [ %11, %46 ]
+  br label %92
 
-94:                                               ; preds = %.preheader, %94
-  %95 = phi ptr [ %96, %94 ], [ %.ph, %.preheader ]
-  store i16 %52, ptr %95, align 2, !tbaa !149
-  %96 = getelementptr inbounds i8, ptr %95, i64 2
-  %97 = icmp eq ptr %96, %22
-  br i1 %97, label %.loopexit, label %94, !llvm.loop !165
+92:                                               ; preds = %.preheader, %92
+  %93 = phi ptr [ %94, %92 ], [ %.ph, %.preheader ]
+  store i16 %50, ptr %93, align 2, !tbaa !149
+  %94 = getelementptr inbounds i8, ptr %93, i64 2
+  %95 = icmp eq ptr %94, %20
+  br i1 %95, label %.loopexit, label %92, !llvm.loop !165
 
-.loopexit:                                        ; preds = %94, %91, %72, %46, %31
+.loopexit:                                        ; preds = %92, %89, %70, %44, %29
   ret void
 
-98:                                               ; preds = %43
-  tail call void @_ZdlPv(ptr noundef nonnull %41) #23
-  br label %99
+96:                                               ; preds = %41
+  tail call void @_ZdlPv(ptr noundef nonnull %39) #23
+  br label %97
 
-99:                                               ; preds = %98, %43
-  resume { ptr, i32 } %44
+97:                                               ; preds = %96, %41
+  resume { ptr, i32 } %42
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

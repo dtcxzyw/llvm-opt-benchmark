@@ -315,7 +315,7 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.0.i = phi i64 [ 0, %6 ], [ %30, %11 ]
+  %.0.i = phi i64 [ 0, %6 ], [ %29, %11 ]
   %12 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 %.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
@@ -329,61 +329,59 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
   %19 = add i64 %18, -1
   %20 = and i64 %19, -16
   %21 = getelementptr i8, ptr %13, i64 %20
-  %22 = getelementptr i8, ptr %21, i64 16
-  %23 = add i64 %17, -1
-  %24 = and i64 %23, -112
-  %25 = getelementptr i8, ptr %22, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 112
-  %27 = getelementptr inbounds i8, ptr %15, i64 24
-  %28 = load ptr, ptr %27, align 8, !invariant.load !5, !noalias !68, !nonnull !5
-  %29 = tail call noundef zeroext i1 %28(ptr noundef align 1 %26), !noalias !68
-  %30 = add nuw i64 %.0.i, 1
-  %31 = icmp eq i64 %30, %10
-  br i1 %31, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc5e09ef3c3042f57E.llvm.6880954279671448737.exit", label %11
+  %22 = add i64 %17, -1
+  %23 = and i64 %22, -112
+  %24 = getelementptr i8, ptr %21, i64 128
+  %25 = getelementptr i8, ptr %24, i64 %23
+  %26 = getelementptr inbounds i8, ptr %15, i64 24
+  %27 = load ptr, ptr %26, align 8, !invariant.load !5, !noalias !68, !nonnull !5
+  %28 = tail call noundef zeroext i1 %27(ptr noundef align 1 %25), !noalias !68
+  %29 = add nuw i64 %.0.i, 1
+  %30 = icmp eq i64 %29, %10
+  br i1 %30, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc5e09ef3c3042f57E.llvm.6880954279671448737.exit", label %11
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc5e09ef3c3042f57E.llvm.6880954279671448737.exit": ; preds = %11, %1
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = load ptr, ptr %34, align 8, !nonnull !5, !noundef !5
-  %36 = icmp eq ptr %33, %35
-  br i1 %36, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc5e09ef3c3042f57E.llvm.6880954279671448737.exit2", label %37
+  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = load ptr, ptr %31, align 8, !nonnull !5, !noundef !5
+  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = load ptr, ptr %33, align 8, !nonnull !5, !noundef !5
+  %35 = icmp eq ptr %32, %34
+  br i1 %35, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc5e09ef3c3042f57E.llvm.6880954279671448737.exit2", label %36
 
-37:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc5e09ef3c3042f57E.llvm.6880954279671448737.exit"
-  %38 = ptrtoint ptr %35 to i64
-  %39 = ptrtoint ptr %33 to i64
-  %40 = sub nuw i64 %38, %39
-  %41 = lshr exact i64 %40, 4
-  br label %42
+36:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc5e09ef3c3042f57E.llvm.6880954279671448737.exit"
+  %37 = ptrtoint ptr %34 to i64
+  %38 = ptrtoint ptr %32 to i64
+  %39 = sub nuw i64 %37, %38
+  %40 = lshr exact i64 %39, 4
+  br label %41
 
-42:                                               ; preds = %42, %37
-  %.0.i1 = phi i64 [ 0, %37 ], [ %61, %42 ]
-  %43 = getelementptr inbounds { ptr, ptr }, ptr %33, i64 %.0.i1
+41:                                               ; preds = %41, %36
+  %.0.i1 = phi i64 [ 0, %36 ], [ %59, %41 ]
+  %42 = getelementptr inbounds { ptr, ptr }, ptr %32, i64 %.0.i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  %44 = load ptr, ptr %43, align 8, !alias.scope !79, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
-  %46 = load ptr, ptr %45, align 8, !alias.scope !79, !nonnull !5, !align !28, !noundef !5
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
-  %48 = load i64, ptr %47, align 8, !range !69, !invariant.load !5, !noalias !79
-  %49 = tail call i64 @llvm.umax.i64(i64 %48, i64 8)
-  %50 = add i64 %49, -1
-  %51 = and i64 %50, -16
-  %52 = getelementptr i8, ptr %44, i64 %51
-  %53 = getelementptr i8, ptr %52, i64 16
-  %54 = add i64 %48, -1
-  %55 = and i64 %54, -112
-  %56 = getelementptr i8, ptr %53, i64 %55
-  %57 = getelementptr i8, ptr %56, i64 112
-  %58 = getelementptr inbounds i8, ptr %46, i64 24
-  %59 = load ptr, ptr %58, align 8, !invariant.load !5, !noalias !79, !nonnull !5
-  %60 = tail call noundef zeroext i1 %59(ptr noundef align 1 %57), !noalias !79
-  %61 = add nuw i64 %.0.i1, 1
-  %62 = icmp eq i64 %61, %41
-  br i1 %62, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc5e09ef3c3042f57E.llvm.6880954279671448737.exit2", label %42
+  %43 = load ptr, ptr %42, align 8, !alias.scope !79, !nonnull !5, !noundef !5
+  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %45 = load ptr, ptr %44, align 8, !alias.scope !79, !nonnull !5, !align !28, !noundef !5
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = load i64, ptr %46, align 8, !range !69, !invariant.load !5, !noalias !79
+  %48 = tail call i64 @llvm.umax.i64(i64 %47, i64 8)
+  %49 = add i64 %48, -1
+  %50 = and i64 %49, -16
+  %51 = getelementptr i8, ptr %43, i64 %50
+  %52 = add i64 %47, -1
+  %53 = and i64 %52, -112
+  %54 = getelementptr i8, ptr %51, i64 128
+  %55 = getelementptr i8, ptr %54, i64 %53
+  %56 = getelementptr inbounds i8, ptr %45, i64 24
+  %57 = load ptr, ptr %56, align 8, !invariant.load !5, !noalias !79, !nonnull !5
+  %58 = tail call noundef zeroext i1 %57(ptr noundef align 1 %55), !noalias !79
+  %59 = add nuw i64 %.0.i1, 1
+  %60 = icmp eq i64 %59, %40
+  br i1 %60, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc5e09ef3c3042f57E.llvm.6880954279671448737.exit2", label %41
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc5e09ef3c3042f57E.llvm.6880954279671448737.exit2": ; preds = %42, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc5e09ef3c3042f57E.llvm.6880954279671448737.exit"
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc5e09ef3c3042f57E.llvm.6880954279671448737.exit2": ; preds = %41, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc5e09ef3c3042f57E.llvm.6880954279671448737.exit"
   ret void
 }
 
@@ -403,7 +401,7 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.0.i = phi i64 [ 0, %6 ], [ %30, %11 ]
+  %.0.i = phi i64 [ 0, %6 ], [ %29, %11 ]
   %12 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 %.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
@@ -417,61 +415,59 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
   %19 = add i64 %18, -1
   %20 = and i64 %19, -16
   %21 = getelementptr i8, ptr %13, i64 %20
-  %22 = getelementptr i8, ptr %21, i64 16
-  %23 = add i64 %17, -1
-  %24 = and i64 %23, -64
-  %25 = getelementptr i8, ptr %22, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 64
-  %27 = getelementptr inbounds i8, ptr %15, i64 24
-  %28 = load ptr, ptr %27, align 8, !invariant.load !5, !noalias !89, !nonnull !5
-  %29 = tail call noundef zeroext i1 %28(ptr noundef align 1 %26), !noalias !89
-  %30 = add nuw i64 %.0.i, 1
-  %31 = icmp eq i64 %30, %10
-  br i1 %31, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4be6688873b50ebaE.llvm.6880954279671448737.exit", label %11
+  %22 = add i64 %17, -1
+  %23 = and i64 %22, -64
+  %24 = getelementptr i8, ptr %21, i64 80
+  %25 = getelementptr i8, ptr %24, i64 %23
+  %26 = getelementptr inbounds i8, ptr %15, i64 24
+  %27 = load ptr, ptr %26, align 8, !invariant.load !5, !noalias !89, !nonnull !5
+  %28 = tail call noundef zeroext i1 %27(ptr noundef align 1 %25), !noalias !89
+  %29 = add nuw i64 %.0.i, 1
+  %30 = icmp eq i64 %29, %10
+  br i1 %30, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4be6688873b50ebaE.llvm.6880954279671448737.exit", label %11
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4be6688873b50ebaE.llvm.6880954279671448737.exit": ; preds = %11, %1
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = load ptr, ptr %34, align 8, !nonnull !5, !noundef !5
-  %36 = icmp eq ptr %33, %35
-  br i1 %36, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4be6688873b50ebaE.llvm.6880954279671448737.exit2", label %37
+  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = load ptr, ptr %31, align 8, !nonnull !5, !noundef !5
+  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = load ptr, ptr %33, align 8, !nonnull !5, !noundef !5
+  %35 = icmp eq ptr %32, %34
+  br i1 %35, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4be6688873b50ebaE.llvm.6880954279671448737.exit2", label %36
 
-37:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4be6688873b50ebaE.llvm.6880954279671448737.exit"
-  %38 = ptrtoint ptr %35 to i64
-  %39 = ptrtoint ptr %33 to i64
-  %40 = sub nuw i64 %38, %39
-  %41 = lshr exact i64 %40, 4
-  br label %42
+36:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4be6688873b50ebaE.llvm.6880954279671448737.exit"
+  %37 = ptrtoint ptr %34 to i64
+  %38 = ptrtoint ptr %32 to i64
+  %39 = sub nuw i64 %37, %38
+  %40 = lshr exact i64 %39, 4
+  br label %41
 
-42:                                               ; preds = %42, %37
-  %.0.i1 = phi i64 [ 0, %37 ], [ %61, %42 ]
-  %43 = getelementptr inbounds { ptr, ptr }, ptr %33, i64 %.0.i1
+41:                                               ; preds = %41, %36
+  %.0.i1 = phi i64 [ 0, %36 ], [ %59, %41 ]
+  %42 = getelementptr inbounds { ptr, ptr }, ptr %32, i64 %.0.i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
-  %44 = load ptr, ptr %43, align 8, !alias.scope !99, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
-  %46 = load ptr, ptr %45, align 8, !alias.scope !99, !nonnull !5, !align !28, !noundef !5
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
-  %48 = load i64, ptr %47, align 8, !range !69, !invariant.load !5, !noalias !99
-  %49 = tail call i64 @llvm.umax.i64(i64 %48, i64 8)
-  %50 = add i64 %49, -1
-  %51 = and i64 %50, -16
-  %52 = getelementptr i8, ptr %44, i64 %51
-  %53 = getelementptr i8, ptr %52, i64 16
-  %54 = add i64 %48, -1
-  %55 = and i64 %54, -64
-  %56 = getelementptr i8, ptr %53, i64 %55
-  %57 = getelementptr i8, ptr %56, i64 64
-  %58 = getelementptr inbounds i8, ptr %46, i64 24
-  %59 = load ptr, ptr %58, align 8, !invariant.load !5, !noalias !99, !nonnull !5
-  %60 = tail call noundef zeroext i1 %59(ptr noundef align 1 %57), !noalias !99
-  %61 = add nuw i64 %.0.i1, 1
-  %62 = icmp eq i64 %61, %41
-  br i1 %62, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4be6688873b50ebaE.llvm.6880954279671448737.exit2", label %42
+  %43 = load ptr, ptr %42, align 8, !alias.scope !99, !nonnull !5, !noundef !5
+  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %45 = load ptr, ptr %44, align 8, !alias.scope !99, !nonnull !5, !align !28, !noundef !5
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = load i64, ptr %46, align 8, !range !69, !invariant.load !5, !noalias !99
+  %48 = tail call i64 @llvm.umax.i64(i64 %47, i64 8)
+  %49 = add i64 %48, -1
+  %50 = and i64 %49, -16
+  %51 = getelementptr i8, ptr %43, i64 %50
+  %52 = add i64 %47, -1
+  %53 = and i64 %52, -64
+  %54 = getelementptr i8, ptr %51, i64 80
+  %55 = getelementptr i8, ptr %54, i64 %53
+  %56 = getelementptr inbounds i8, ptr %45, i64 24
+  %57 = load ptr, ptr %56, align 8, !invariant.load !5, !noalias !99, !nonnull !5
+  %58 = tail call noundef zeroext i1 %57(ptr noundef align 1 %55), !noalias !99
+  %59 = add nuw i64 %.0.i1, 1
+  %60 = icmp eq i64 %59, %40
+  br i1 %60, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4be6688873b50ebaE.llvm.6880954279671448737.exit2", label %41
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4be6688873b50ebaE.llvm.6880954279671448737.exit2": ; preds = %42, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4be6688873b50ebaE.llvm.6880954279671448737.exit"
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4be6688873b50ebaE.llvm.6880954279671448737.exit2": ; preds = %41, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4be6688873b50ebaE.llvm.6880954279671448737.exit"
   ret void
 }
 
@@ -491,7 +487,7 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.0.i = phi i64 [ 0, %6 ], [ %30, %11 ]
+  %.0.i = phi i64 [ 0, %6 ], [ %29, %11 ]
   %12 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 %.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
@@ -505,61 +501,59 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
   %19 = add i64 %18, -1
   %20 = and i64 %19, -16
   %21 = getelementptr i8, ptr %13, i64 %20
-  %22 = getelementptr i8, ptr %21, i64 16
-  %23 = add i64 %17, -1
-  %24 = and i64 %23, -64
-  %25 = getelementptr i8, ptr %22, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 64
-  %27 = getelementptr inbounds i8, ptr %15, i64 24
-  %28 = load ptr, ptr %27, align 8, !invariant.load !5, !noalias !109, !nonnull !5
-  %29 = tail call noundef zeroext i1 %28(ptr noundef align 1 %26), !noalias !109
-  %30 = add nuw i64 %.0.i, 1
-  %31 = icmp eq i64 %30, %10
-  br i1 %31, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h84db20e42d22188bE.llvm.6880954279671448737.exit", label %11
+  %22 = add i64 %17, -1
+  %23 = and i64 %22, -64
+  %24 = getelementptr i8, ptr %21, i64 80
+  %25 = getelementptr i8, ptr %24, i64 %23
+  %26 = getelementptr inbounds i8, ptr %15, i64 24
+  %27 = load ptr, ptr %26, align 8, !invariant.load !5, !noalias !109, !nonnull !5
+  %28 = tail call noundef zeroext i1 %27(ptr noundef align 1 %25), !noalias !109
+  %29 = add nuw i64 %.0.i, 1
+  %30 = icmp eq i64 %29, %10
+  br i1 %30, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h84db20e42d22188bE.llvm.6880954279671448737.exit", label %11
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h84db20e42d22188bE.llvm.6880954279671448737.exit": ; preds = %11, %1
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = load ptr, ptr %34, align 8, !nonnull !5, !noundef !5
-  %36 = icmp eq ptr %33, %35
-  br i1 %36, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h84db20e42d22188bE.llvm.6880954279671448737.exit2", label %37
+  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = load ptr, ptr %31, align 8, !nonnull !5, !noundef !5
+  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = load ptr, ptr %33, align 8, !nonnull !5, !noundef !5
+  %35 = icmp eq ptr %32, %34
+  br i1 %35, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h84db20e42d22188bE.llvm.6880954279671448737.exit2", label %36
 
-37:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h84db20e42d22188bE.llvm.6880954279671448737.exit"
-  %38 = ptrtoint ptr %35 to i64
-  %39 = ptrtoint ptr %33 to i64
-  %40 = sub nuw i64 %38, %39
-  %41 = lshr exact i64 %40, 4
-  br label %42
+36:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h84db20e42d22188bE.llvm.6880954279671448737.exit"
+  %37 = ptrtoint ptr %34 to i64
+  %38 = ptrtoint ptr %32 to i64
+  %39 = sub nuw i64 %37, %38
+  %40 = lshr exact i64 %39, 4
+  br label %41
 
-42:                                               ; preds = %42, %37
-  %.0.i1 = phi i64 [ 0, %37 ], [ %61, %42 ]
-  %43 = getelementptr inbounds { ptr, ptr }, ptr %33, i64 %.0.i1
+41:                                               ; preds = %41, %36
+  %.0.i1 = phi i64 [ 0, %36 ], [ %59, %41 ]
+  %42 = getelementptr inbounds { ptr, ptr }, ptr %32, i64 %.0.i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
-  %44 = load ptr, ptr %43, align 8, !alias.scope !119, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
-  %46 = load ptr, ptr %45, align 8, !alias.scope !119, !nonnull !5, !align !28, !noundef !5
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
-  %48 = load i64, ptr %47, align 8, !range !69, !invariant.load !5, !noalias !119
-  %49 = tail call i64 @llvm.umax.i64(i64 %48, i64 8)
-  %50 = add i64 %49, -1
-  %51 = and i64 %50, -16
-  %52 = getelementptr i8, ptr %44, i64 %51
-  %53 = getelementptr i8, ptr %52, i64 16
-  %54 = add i64 %48, -1
-  %55 = and i64 %54, -64
-  %56 = getelementptr i8, ptr %53, i64 %55
-  %57 = getelementptr i8, ptr %56, i64 64
-  %58 = getelementptr inbounds i8, ptr %46, i64 24
-  %59 = load ptr, ptr %58, align 8, !invariant.load !5, !noalias !119, !nonnull !5
-  %60 = tail call noundef zeroext i1 %59(ptr noundef align 1 %57), !noalias !119
-  %61 = add nuw i64 %.0.i1, 1
-  %62 = icmp eq i64 %61, %41
-  br i1 %62, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h84db20e42d22188bE.llvm.6880954279671448737.exit2", label %42
+  %43 = load ptr, ptr %42, align 8, !alias.scope !119, !nonnull !5, !noundef !5
+  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %45 = load ptr, ptr %44, align 8, !alias.scope !119, !nonnull !5, !align !28, !noundef !5
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = load i64, ptr %46, align 8, !range !69, !invariant.load !5, !noalias !119
+  %48 = tail call i64 @llvm.umax.i64(i64 %47, i64 8)
+  %49 = add i64 %48, -1
+  %50 = and i64 %49, -16
+  %51 = getelementptr i8, ptr %43, i64 %50
+  %52 = add i64 %47, -1
+  %53 = and i64 %52, -64
+  %54 = getelementptr i8, ptr %51, i64 80
+  %55 = getelementptr i8, ptr %54, i64 %53
+  %56 = getelementptr inbounds i8, ptr %45, i64 24
+  %57 = load ptr, ptr %56, align 8, !invariant.load !5, !noalias !119, !nonnull !5
+  %58 = tail call noundef zeroext i1 %57(ptr noundef align 1 %55), !noalias !119
+  %59 = add nuw i64 %.0.i1, 1
+  %60 = icmp eq i64 %59, %40
+  br i1 %60, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h84db20e42d22188bE.llvm.6880954279671448737.exit2", label %41
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h84db20e42d22188bE.llvm.6880954279671448737.exit2": ; preds = %42, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h84db20e42d22188bE.llvm.6880954279671448737.exit"
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h84db20e42d22188bE.llvm.6880954279671448737.exit2": ; preds = %41, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h84db20e42d22188bE.llvm.6880954279671448737.exit"
   ret void
 }
 
@@ -579,7 +573,7 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.0.i = phi i64 [ 0, %6 ], [ %30, %11 ]
+  %.0.i = phi i64 [ 0, %6 ], [ %29, %11 ]
   %12 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 %.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
@@ -593,61 +587,59 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
   %19 = add i64 %18, -1
   %20 = and i64 %19, -16
   %21 = getelementptr i8, ptr %13, i64 %20
-  %22 = getelementptr i8, ptr %21, i64 16
-  %23 = add i64 %17, -1
-  %24 = and i64 %23, -112
-  %25 = getelementptr i8, ptr %22, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 112
-  %27 = getelementptr inbounds i8, ptr %15, i64 24
-  %28 = load ptr, ptr %27, align 8, !invariant.load !5, !noalias !129, !nonnull !5
-  %29 = tail call noundef zeroext i1 %28(ptr noundef align 1 %26), !noalias !129
-  %30 = add nuw i64 %.0.i, 1
-  %31 = icmp eq i64 %30, %10
-  br i1 %31, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2c9c18340a4675feE.llvm.6880954279671448737.exit", label %11
+  %22 = add i64 %17, -1
+  %23 = and i64 %22, -112
+  %24 = getelementptr i8, ptr %21, i64 128
+  %25 = getelementptr i8, ptr %24, i64 %23
+  %26 = getelementptr inbounds i8, ptr %15, i64 24
+  %27 = load ptr, ptr %26, align 8, !invariant.load !5, !noalias !129, !nonnull !5
+  %28 = tail call noundef zeroext i1 %27(ptr noundef align 1 %25), !noalias !129
+  %29 = add nuw i64 %.0.i, 1
+  %30 = icmp eq i64 %29, %10
+  br i1 %30, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2c9c18340a4675feE.llvm.6880954279671448737.exit", label %11
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2c9c18340a4675feE.llvm.6880954279671448737.exit": ; preds = %11, %1
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = load ptr, ptr %34, align 8, !nonnull !5, !noundef !5
-  %36 = icmp eq ptr %33, %35
-  br i1 %36, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2c9c18340a4675feE.llvm.6880954279671448737.exit2", label %37
+  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = load ptr, ptr %31, align 8, !nonnull !5, !noundef !5
+  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = load ptr, ptr %33, align 8, !nonnull !5, !noundef !5
+  %35 = icmp eq ptr %32, %34
+  br i1 %35, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2c9c18340a4675feE.llvm.6880954279671448737.exit2", label %36
 
-37:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2c9c18340a4675feE.llvm.6880954279671448737.exit"
-  %38 = ptrtoint ptr %35 to i64
-  %39 = ptrtoint ptr %33 to i64
-  %40 = sub nuw i64 %38, %39
-  %41 = lshr exact i64 %40, 4
-  br label %42
+36:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2c9c18340a4675feE.llvm.6880954279671448737.exit"
+  %37 = ptrtoint ptr %34 to i64
+  %38 = ptrtoint ptr %32 to i64
+  %39 = sub nuw i64 %37, %38
+  %40 = lshr exact i64 %39, 4
+  br label %41
 
-42:                                               ; preds = %42, %37
-  %.0.i1 = phi i64 [ 0, %37 ], [ %61, %42 ]
-  %43 = getelementptr inbounds { ptr, ptr }, ptr %33, i64 %.0.i1
+41:                                               ; preds = %41, %36
+  %.0.i1 = phi i64 [ 0, %36 ], [ %59, %41 ]
+  %42 = getelementptr inbounds { ptr, ptr }, ptr %32, i64 %.0.i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
-  %44 = load ptr, ptr %43, align 8, !alias.scope !139, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
-  %46 = load ptr, ptr %45, align 8, !alias.scope !139, !nonnull !5, !align !28, !noundef !5
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
-  %48 = load i64, ptr %47, align 8, !range !69, !invariant.load !5, !noalias !139
-  %49 = tail call i64 @llvm.umax.i64(i64 %48, i64 8)
-  %50 = add i64 %49, -1
-  %51 = and i64 %50, -16
-  %52 = getelementptr i8, ptr %44, i64 %51
-  %53 = getelementptr i8, ptr %52, i64 16
-  %54 = add i64 %48, -1
-  %55 = and i64 %54, -112
-  %56 = getelementptr i8, ptr %53, i64 %55
-  %57 = getelementptr i8, ptr %56, i64 112
-  %58 = getelementptr inbounds i8, ptr %46, i64 24
-  %59 = load ptr, ptr %58, align 8, !invariant.load !5, !noalias !139, !nonnull !5
-  %60 = tail call noundef zeroext i1 %59(ptr noundef align 1 %57), !noalias !139
-  %61 = add nuw i64 %.0.i1, 1
-  %62 = icmp eq i64 %61, %41
-  br i1 %62, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2c9c18340a4675feE.llvm.6880954279671448737.exit2", label %42
+  %43 = load ptr, ptr %42, align 8, !alias.scope !139, !nonnull !5, !noundef !5
+  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %45 = load ptr, ptr %44, align 8, !alias.scope !139, !nonnull !5, !align !28, !noundef !5
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = load i64, ptr %46, align 8, !range !69, !invariant.load !5, !noalias !139
+  %48 = tail call i64 @llvm.umax.i64(i64 %47, i64 8)
+  %49 = add i64 %48, -1
+  %50 = and i64 %49, -16
+  %51 = getelementptr i8, ptr %43, i64 %50
+  %52 = add i64 %47, -1
+  %53 = and i64 %52, -112
+  %54 = getelementptr i8, ptr %51, i64 128
+  %55 = getelementptr i8, ptr %54, i64 %53
+  %56 = getelementptr inbounds i8, ptr %45, i64 24
+  %57 = load ptr, ptr %56, align 8, !invariant.load !5, !noalias !139, !nonnull !5
+  %58 = tail call noundef zeroext i1 %57(ptr noundef align 1 %55), !noalias !139
+  %59 = add nuw i64 %.0.i1, 1
+  %60 = icmp eq i64 %59, %40
+  br i1 %60, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2c9c18340a4675feE.llvm.6880954279671448737.exit2", label %41
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2c9c18340a4675feE.llvm.6880954279671448737.exit2": ; preds = %42, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2c9c18340a4675feE.llvm.6880954279671448737.exit"
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2c9c18340a4675feE.llvm.6880954279671448737.exit2": ; preds = %41, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2c9c18340a4675feE.llvm.6880954279671448737.exit"
   ret void
 }
 
@@ -8276,7 +8268,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.0 = phi i64 [ 0, %6 ], [ %30, %11 ]
+  %.0 = phi i64 [ 0, %6 ], [ %29, %11 ]
   %12 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1407)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1410)
@@ -8290,17 +8282,16 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %19 = add i64 %18, -1
   %20 = and i64 %19, -16
   %21 = getelementptr i8, ptr %13, i64 %20
-  %22 = getelementptr i8, ptr %21, i64 16
-  %23 = add i64 %17, -1
-  %24 = and i64 %23, -112
-  %25 = getelementptr i8, ptr %22, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 112
-  %27 = getelementptr inbounds i8, ptr %15, i64 24
-  %28 = load ptr, ptr %27, align 8, !invariant.load !5, !noalias !1416, !nonnull !5
-  %29 = tail call noundef zeroext i1 %28(ptr noundef align 1 %26), !noalias !1416
-  %30 = add nuw i64 %.0, 1
-  %31 = icmp eq i64 %30, %10
-  br i1 %31, label %.loopexit, label %11
+  %22 = add i64 %17, -1
+  %23 = and i64 %22, -112
+  %24 = getelementptr i8, ptr %21, i64 128
+  %25 = getelementptr i8, ptr %24, i64 %23
+  %26 = getelementptr inbounds i8, ptr %15, i64 24
+  %27 = load ptr, ptr %26, align 8, !invariant.load !5, !noalias !1416, !nonnull !5
+  %28 = tail call noundef zeroext i1 %27(ptr noundef align 1 %25), !noalias !1416
+  %29 = add nuw i64 %.0, 1
+  %30 = icmp eq i64 %29, %10
+  br i1 %30, label %.loopexit, label %11
 
 .loopexit:                                        ; preds = %11, %3
   ret void
@@ -8321,7 +8312,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.0 = phi i64 [ 0, %6 ], [ %30, %11 ]
+  %.0 = phi i64 [ 0, %6 ], [ %29, %11 ]
   %12 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1417)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1420)
@@ -8335,17 +8326,16 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %19 = add i64 %18, -1
   %20 = and i64 %19, -16
   %21 = getelementptr i8, ptr %13, i64 %20
-  %22 = getelementptr i8, ptr %21, i64 16
-  %23 = add i64 %17, -1
-  %24 = and i64 %23, -64
-  %25 = getelementptr i8, ptr %22, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 64
-  %27 = getelementptr inbounds i8, ptr %15, i64 24
-  %28 = load ptr, ptr %27, align 8, !invariant.load !5, !noalias !1426, !nonnull !5
-  %29 = tail call noundef zeroext i1 %28(ptr noundef align 1 %26), !noalias !1426
-  %30 = add nuw i64 %.0, 1
-  %31 = icmp eq i64 %30, %10
-  br i1 %31, label %.loopexit, label %11
+  %22 = add i64 %17, -1
+  %23 = and i64 %22, -64
+  %24 = getelementptr i8, ptr %21, i64 80
+  %25 = getelementptr i8, ptr %24, i64 %23
+  %26 = getelementptr inbounds i8, ptr %15, i64 24
+  %27 = load ptr, ptr %26, align 8, !invariant.load !5, !noalias !1426, !nonnull !5
+  %28 = tail call noundef zeroext i1 %27(ptr noundef align 1 %25), !noalias !1426
+  %29 = add nuw i64 %.0, 1
+  %30 = icmp eq i64 %29, %10
+  br i1 %30, label %.loopexit, label %11
 
 .loopexit:                                        ; preds = %11, %3
   ret void
@@ -8366,7 +8356,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.0 = phi i64 [ 0, %6 ], [ %30, %11 ]
+  %.0 = phi i64 [ 0, %6 ], [ %29, %11 ]
   %12 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1427)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1430)
@@ -8380,17 +8370,16 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %19 = add i64 %18, -1
   %20 = and i64 %19, -16
   %21 = getelementptr i8, ptr %13, i64 %20
-  %22 = getelementptr i8, ptr %21, i64 16
-  %23 = add i64 %17, -1
-  %24 = and i64 %23, -64
-  %25 = getelementptr i8, ptr %22, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 64
-  %27 = getelementptr inbounds i8, ptr %15, i64 24
-  %28 = load ptr, ptr %27, align 8, !invariant.load !5, !noalias !1436, !nonnull !5
-  %29 = tail call noundef zeroext i1 %28(ptr noundef align 1 %26), !noalias !1436
-  %30 = add nuw i64 %.0, 1
-  %31 = icmp eq i64 %30, %10
-  br i1 %31, label %.loopexit, label %11
+  %22 = add i64 %17, -1
+  %23 = and i64 %22, -64
+  %24 = getelementptr i8, ptr %21, i64 80
+  %25 = getelementptr i8, ptr %24, i64 %23
+  %26 = getelementptr inbounds i8, ptr %15, i64 24
+  %27 = load ptr, ptr %26, align 8, !invariant.load !5, !noalias !1436, !nonnull !5
+  %28 = tail call noundef zeroext i1 %27(ptr noundef align 1 %25), !noalias !1436
+  %29 = add nuw i64 %.0, 1
+  %30 = icmp eq i64 %29, %10
+  br i1 %30, label %.loopexit, label %11
 
 .loopexit:                                        ; preds = %11, %3
   ret void
@@ -8411,7 +8400,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.0 = phi i64 [ 0, %6 ], [ %30, %11 ]
+  %.0 = phi i64 [ 0, %6 ], [ %29, %11 ]
   %12 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1437)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1440)
@@ -8425,17 +8414,16 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %19 = add i64 %18, -1
   %20 = and i64 %19, -16
   %21 = getelementptr i8, ptr %13, i64 %20
-  %22 = getelementptr i8, ptr %21, i64 16
-  %23 = add i64 %17, -1
-  %24 = and i64 %23, -112
-  %25 = getelementptr i8, ptr %22, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 112
-  %27 = getelementptr inbounds i8, ptr %15, i64 24
-  %28 = load ptr, ptr %27, align 8, !invariant.load !5, !noalias !1446, !nonnull !5
-  %29 = tail call noundef zeroext i1 %28(ptr noundef align 1 %26), !noalias !1446
-  %30 = add nuw i64 %.0, 1
-  %31 = icmp eq i64 %30, %10
-  br i1 %31, label %.loopexit, label %11
+  %22 = add i64 %17, -1
+  %23 = and i64 %22, -112
+  %24 = getelementptr i8, ptr %21, i64 128
+  %25 = getelementptr i8, ptr %24, i64 %23
+  %26 = getelementptr inbounds i8, ptr %15, i64 24
+  %27 = load ptr, ptr %26, align 8, !invariant.load !5, !noalias !1446, !nonnull !5
+  %28 = tail call noundef zeroext i1 %27(ptr noundef align 1 %25), !noalias !1446
+  %29 = add nuw i64 %.0, 1
+  %30 = icmp eq i64 %29, %10
+  br i1 %30, label %.loopexit, label %11
 
 .loopexit:                                        ; preds = %11, %3
   ret void

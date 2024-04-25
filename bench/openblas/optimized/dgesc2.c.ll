@@ -143,7 +143,7 @@ define void @dgesc2_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %99 = phi i64 [ %85, %96 ], [ %101, %98 ]
   %100 = phi double [ %94, %96 ], [ %109, %98 ]
   %101 = add nuw nsw i64 %99, 1
-  %102 = getelementptr inbounds double, ptr %16, i64 %101
+  %102 = getelementptr double, ptr %3, i64 %99
   %103 = load double, ptr %102, align 8, !tbaa !7
   %104 = mul nsw i64 %101, %83
   %105 = getelementptr double, ptr %97, i64 %104

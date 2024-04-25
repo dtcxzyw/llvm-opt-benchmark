@@ -367,7 +367,7 @@ thread-pre-split:                                 ; preds = %204, %221
   br i1 %246, label %247, label %.loopexit44.loopexit
 
 247:                                              ; preds = %236
-  %248 = getelementptr inbounds double, ptr %29, i64 %243
+  %248 = getelementptr double, ptr %6, i64 %237
   %249 = load double, ptr %248, align 8, !tbaa !7
   store double %249, ptr %23, align 8, !tbaa !7
   %250 = fcmp ogt double %249, 0.000000e+00
@@ -383,7 +383,7 @@ thread-pre-split:                                 ; preds = %204, %221
   %256 = fcmp ole double %255, %249
   %257 = fdiv double %92, %249
   %258 = fcmp olt double %252, %257
-  %259 = getelementptr inbounds double, ptr %30, i64 %243
+  %259 = getelementptr double, ptr %5, i64 %237
   br i1 %258, label %260, label %272
 
 260:                                              ; preds = %254
@@ -425,7 +425,7 @@ thread-pre-split:                                 ; preds = %204, %221
   %288 = call double @ddot_(ptr noundef %1, ptr noundef %232, ptr noundef nonnull @c__1, ptr noundef %286, ptr noundef nonnull @c__1) #6
   %289 = load double, ptr %233, align 8, !tbaa !7
   %290 = fmul double %288, %289
-  %291 = getelementptr inbounds double, ptr %30, i64 %243
+  %291 = getelementptr double, ptr %5, i64 %237
   %292 = load double, ptr %291, align 8, !tbaa !7
   %293 = fmul double %290, %292
   %294 = load double, ptr %23, align 8, !tbaa !7
@@ -436,7 +436,7 @@ thread-pre-split:                                 ; preds = %204, %221
 
 298:                                              ; preds = %280
   call void @dcopy_(ptr noundef %1, ptr noundef %286, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull @c__1) #6
-  %299 = getelementptr inbounds double, ptr %30, i64 %243
+  %299 = getelementptr double, ptr %5, i64 %237
   call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull %299, ptr noundef %1, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
   %300 = call double @ddot_(ptr noundef %1, ptr noundef %14, ptr noundef nonnull @c__1, ptr noundef %232, ptr noundef nonnull @c__1) #6
   %301 = load double, ptr %233, align 8, !tbaa !7
@@ -491,7 +491,7 @@ thread-pre-split:                                 ; preds = %204, %221
   %340 = fdiv double 5.000000e-01, %334
   store double %340, ptr %26, align 8, !tbaa !7
   %341 = load double, ptr %233, align 8, !tbaa !7
-  %342 = getelementptr inbounds double, ptr %30, i64 %243
+  %342 = getelementptr double, ptr %5, i64 %237
   %343 = load double, ptr %342, align 8, !tbaa !7
   %344 = fneg double %340
   %345 = insertelement <2 x double> poison, double %340, i64 0
@@ -579,7 +579,7 @@ thread-pre-split:                                 ; preds = %204, %221
   %406 = fmul double %321, %sqrt28
   store double %406, ptr %22, align 8, !tbaa !7
   %407 = load double, ptr %233, align 8, !tbaa !7
-  %408 = getelementptr inbounds double, ptr %30, i64 %243
+  %408 = getelementptr double, ptr %5, i64 %237
   %409 = load double, ptr %408, align 8, !tbaa !7
   %410 = insertelement <2 x double> poison, double %409, i64 0
   %411 = insertelement <2 x double> %410, double %407, i64 1
@@ -756,7 +756,7 @@ thread-pre-split:                                 ; preds = %204, %221
   call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull @c_b42, ptr noundef %1, ptr noundef nonnull @c__1, ptr noundef %506, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
   %507 = load double, ptr %233, align 8, !tbaa !7
   %508 = fmul double %507, %309
-  %509 = getelementptr inbounds double, ptr %30, i64 %243
+  %509 = getelementptr double, ptr %5, i64 %237
   %510 = load double, ptr %509, align 8, !tbaa !7
   %511 = fdiv double %508, %510
   store double %511, ptr %25, align 8, !tbaa !7
@@ -811,7 +811,7 @@ thread-pre-split:                                 ; preds = %204, %221
 
 542:                                              ; preds = %535, %531
   %543 = phi double [ %534, %531 ], [ %541, %535 ]
-  %544 = getelementptr inbounds double, ptr %30, i64 %243
+  %544 = getelementptr double, ptr %5, i64 %237
   %545 = load double, ptr %544, align 8, !tbaa !7
   %546 = fmul double %543, %545
   store double %546, ptr %248, align 8, !tbaa !7
@@ -1000,7 +1000,7 @@ thread-pre-split:                                 ; preds = %204, %221
   %663 = phi i32 [ %639, %647 ], [ %1023, %653 ]
   %664 = phi i32 [ 0, %647 ], [ %1022, %653 ]
   %665 = add nsw i64 %658, 1
-  %666 = getelementptr inbounds double, ptr %29, i64 %665
+  %666 = getelementptr double, ptr %6, i64 %658
   %667 = load double, ptr %666, align 8, !tbaa !7
   store double %667, ptr %23, align 8, !tbaa !7
   %668 = fcmp ogt double %667, 0.000000e+00
@@ -1020,7 +1020,7 @@ thread-pre-split:                                 ; preds = %204, %221
   %678 = select i1 %672, i1 %677, i1 %675
   %679 = fdiv double %92, %667
   %680 = fcmp olt double %670, %679
-  %681 = getelementptr inbounds double, ptr %30, i64 %665
+  %681 = getelementptr double, ptr %5, i64 %658
   br i1 %680, label %682, label %694
 
 682:                                              ; preds = %673
@@ -1065,7 +1065,7 @@ thread-pre-split:                                 ; preds = %204, %221
   %713 = call double @ddot_(ptr noundef %1, ptr noundef %649, ptr noundef nonnull @c__1, ptr noundef %711, ptr noundef nonnull @c__1) #6
   %714 = load double, ptr %650, align 8, !tbaa !7
   %715 = fmul double %713, %714
-  %716 = getelementptr inbounds double, ptr %30, i64 %665
+  %716 = getelementptr double, ptr %5, i64 %658
   %717 = load double, ptr %716, align 8, !tbaa !7
   %718 = fmul double %715, %717
   %719 = load double, ptr %23, align 8, !tbaa !7
@@ -1076,7 +1076,7 @@ thread-pre-split:                                 ; preds = %204, %221
 
 723:                                              ; preds = %702
   call void @dcopy_(ptr noundef %1, ptr noundef %711, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull @c__1) #6
-  %724 = getelementptr inbounds double, ptr %30, i64 %665
+  %724 = getelementptr double, ptr %5, i64 %658
   call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull %724, ptr noundef %1, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
   %725 = call double @ddot_(ptr noundef %1, ptr noundef %14, ptr noundef nonnull @c__1, ptr noundef %649, ptr noundef nonnull @c__1) #6
   %726 = load double, ptr %650, align 8, !tbaa !7
@@ -1132,7 +1132,7 @@ thread-pre-split:                                 ; preds = %204, %221
   %766 = fdiv double 5.000000e-01, %760
   store double %766, ptr %26, align 8, !tbaa !7
   %767 = load double, ptr %650, align 8, !tbaa !7
-  %768 = getelementptr inbounds double, ptr %30, i64 %665
+  %768 = getelementptr double, ptr %5, i64 %658
   %769 = load double, ptr %768, align 8, !tbaa !7
   %770 = fneg double %766
   %771 = insertelement <2 x double> poison, double %766, i64 0
@@ -1221,7 +1221,7 @@ thread-pre-split:                                 ; preds = %204, %221
   %833 = fmul double %744, %sqrt35
   store double %833, ptr %22, align 8, !tbaa !7
   %834 = load double, ptr %650, align 8, !tbaa !7
-  %835 = getelementptr inbounds double, ptr %30, i64 %665
+  %835 = getelementptr double, ptr %5, i64 %658
   %836 = load double, ptr %835, align 8, !tbaa !7
   %837 = insertelement <2 x double> poison, double %836, i64 0
   %838 = insertelement <2 x double> %837, double %834, i64 1
@@ -1414,7 +1414,7 @@ thread-pre-split:                                 ; preds = %204, %221
   call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull @c_b42, ptr noundef %1, ptr noundef nonnull @c__1, ptr noundef %942, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
   %943 = load double, ptr %650, align 8, !tbaa !7
   %944 = fmul double %943, %734
-  %945 = getelementptr inbounds double, ptr %30, i64 %665
+  %945 = getelementptr double, ptr %5, i64 %658
   %946 = load double, ptr %945, align 8, !tbaa !7
   %947 = fdiv double %944, %946
   store double %947, ptr %25, align 8, !tbaa !7
@@ -1435,7 +1435,7 @@ thread-pre-split:                                 ; preds = %204, %221
   call void @dcopy_(ptr noundef %1, ptr noundef %955, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull @c__1) #6
   call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull @c_b42, ptr noundef %1, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
   call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %22, ptr noundef nonnull @c_b42, ptr noundef %1, ptr noundef nonnull @c__1, ptr noundef %649, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
-  %956 = getelementptr inbounds double, ptr %30, i64 %665
+  %956 = getelementptr double, ptr %5, i64 %658
   %957 = load double, ptr %956, align 8, !tbaa !7
   %958 = fmul double %957, %734
   %959 = load double, ptr %650, align 8, !tbaa !7
@@ -1488,7 +1488,7 @@ thread-pre-split:                                 ; preds = %204, %221
 
 988:                                              ; preds = %981, %977
   %989 = phi double [ %980, %977 ], [ %987, %981 ]
-  %990 = getelementptr inbounds double, ptr %30, i64 %665
+  %990 = getelementptr double, ptr %5, i64 %658
   %991 = load double, ptr %990, align 8, !tbaa !7
   %992 = fmul double %989, %991
   store double %992, ptr %666, align 8, !tbaa !7

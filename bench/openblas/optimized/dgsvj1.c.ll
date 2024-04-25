@@ -322,7 +322,7 @@ cdce.end:                                         ; preds = %cdce.call, %88
   %219 = phi i32 [ %196, %204 ], [ %579, %211 ]
   %220 = phi i32 [ 0, %204 ], [ %578, %211 ]
   %221 = add nsw i64 %214, 1
-  %222 = getelementptr inbounds double, ptr %29, i64 %221
+  %222 = getelementptr double, ptr %7, i64 %214
   %223 = load double, ptr %222, align 8, !tbaa !7
   store double %223, ptr %23, align 8, !tbaa !7
   %224 = fcmp ogt double %223, 0.000000e+00
@@ -342,7 +342,7 @@ cdce.end:                                         ; preds = %cdce.call, %88
   %234 = select i1 %228, i1 %233, i1 %231
   %235 = fdiv double %95, %223
   %236 = fcmp olt double %226, %235
-  %237 = getelementptr inbounds double, ptr %30, i64 %221
+  %237 = getelementptr double, ptr %6, i64 %214
   br i1 %236, label %238, label %250
 
 238:                                              ; preds = %229
@@ -387,7 +387,7 @@ cdce.end:                                         ; preds = %cdce.call, %88
   %269 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %206, ptr noundef nonnull @c__1, ptr noundef %267, ptr noundef nonnull @c__1) #6
   %270 = load double, ptr %207, align 8, !tbaa !7
   %271 = fmul double %269, %270
-  %272 = getelementptr inbounds double, ptr %30, i64 %221
+  %272 = getelementptr double, ptr %6, i64 %214
   %273 = load double, ptr %272, align 8, !tbaa !7
   %274 = fmul double %271, %273
   %275 = load double, ptr %23, align 8, !tbaa !7
@@ -398,7 +398,7 @@ cdce.end:                                         ; preds = %cdce.call, %88
 
 279:                                              ; preds = %258
   call void @dcopy_(ptr noundef nonnull %1, ptr noundef %267, ptr noundef nonnull @c__1, ptr noundef %15, ptr noundef nonnull @c__1) #6
-  %280 = getelementptr inbounds double, ptr %30, i64 %221
+  %280 = getelementptr double, ptr %6, i64 %214
   call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull %280, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %15, ptr noundef nonnull %5, ptr noundef nonnull %24) #6
   %281 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %15, ptr noundef nonnull @c__1, ptr noundef %206, ptr noundef nonnull @c__1) #6
   %282 = load double, ptr %207, align 8, !tbaa !7
@@ -454,7 +454,7 @@ cdce.end:                                         ; preds = %cdce.call, %88
   %322 = fdiv double 5.000000e-01, %316
   store double %322, ptr %26, align 8, !tbaa !7
   %323 = load double, ptr %207, align 8, !tbaa !7
-  %324 = getelementptr inbounds double, ptr %30, i64 %221
+  %324 = getelementptr double, ptr %6, i64 %214
   %325 = load double, ptr %324, align 8, !tbaa !7
   %326 = fneg double %322
   %327 = insertelement <2 x double> poison, double %322, i64 0
@@ -543,7 +543,7 @@ cdce.end:                                         ; preds = %cdce.call, %88
   %389 = fmul double %300, %sqrt21
   store double %389, ptr %22, align 8, !tbaa !7
   %390 = load double, ptr %207, align 8, !tbaa !7
-  %391 = getelementptr inbounds double, ptr %30, i64 %221
+  %391 = getelementptr double, ptr %6, i64 %214
   %392 = load double, ptr %391, align 8, !tbaa !7
   %393 = insertelement <2 x double> poison, double %392, i64 0
   %394 = insertelement <2 x double> %393, double %390, i64 1
@@ -736,7 +736,7 @@ cdce.end:                                         ; preds = %cdce.call, %88
   call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull @c_b35, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %498, ptr noundef nonnull %5, ptr noundef nonnull %24) #6
   %499 = load double, ptr %207, align 8, !tbaa !7
   %500 = fmul double %499, %290
-  %501 = getelementptr inbounds double, ptr %30, i64 %221
+  %501 = getelementptr double, ptr %6, i64 %214
   %502 = load double, ptr %501, align 8, !tbaa !7
   %503 = fdiv double %500, %502
   store double %503, ptr %25, align 8, !tbaa !7
@@ -757,7 +757,7 @@ cdce.end:                                         ; preds = %cdce.call, %88
   call void @dcopy_(ptr noundef nonnull %1, ptr noundef %511, ptr noundef nonnull @c__1, ptr noundef %15, ptr noundef nonnull @c__1) #6
   call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull @c_b35, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %15, ptr noundef nonnull %5, ptr noundef nonnull %24) #6
   call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %22, ptr noundef nonnull @c_b35, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %206, ptr noundef nonnull %5, ptr noundef nonnull %24) #6
-  %512 = getelementptr inbounds double, ptr %30, i64 %221
+  %512 = getelementptr double, ptr %6, i64 %214
   %513 = load double, ptr %512, align 8, !tbaa !7
   %514 = fmul double %513, %290
   %515 = load double, ptr %207, align 8, !tbaa !7
@@ -810,7 +810,7 @@ cdce.end:                                         ; preds = %cdce.call, %88
 
 544:                                              ; preds = %537, %533
   %545 = phi double [ %536, %533 ], [ %543, %537 ]
-  %546 = getelementptr inbounds double, ptr %30, i64 %221
+  %546 = getelementptr double, ptr %6, i64 %214
   %547 = load double, ptr %546, align 8, !tbaa !7
   %548 = fmul double %545, %547
   store double %548, ptr %222, align 8, !tbaa !7

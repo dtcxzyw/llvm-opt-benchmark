@@ -1983,19 +1983,17 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.cond.cleanup
 
 call5.i.i.i.i4.i.i.i.noexc:                       ; preds = %if.then.i.i.i.i.i.i
   store ptr %call5.i.i.i.i4.i.i.i119, ptr %sel_data, align 8, !tbaa !184
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i4.i.i.i119, i64 %count
+  %add.ptr.i.i.i.i = getelementptr i32, ptr %call5.i.i.i.i4.i.i.i119, i64 %count
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %sel_data, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !186
   store i32 0, ptr %call5.i.i.i.i4.i.i.i119, align 4, !tbaa !136
   %incdec.ptr.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i4.i.i.i119, i64 4
-  %sub.i.i.i.i.i.i = add nsw i64 %count, -1
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %count, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %invoke.cont16, label %if.end.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %call5.i.i.i.i4.i.i.i.noexc
   %23 = add nsw i64 %mul.i.i.i.i.i.i.i, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i.i, i8 0, i64 %23, i1 false), !tbaa !136
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i
   br label %invoke.cont16
 
 lpad:                                             ; preds = %if.end
@@ -2069,7 +2067,7 @@ for.body:                                         ; preds = %for.body, %for.body
   br i1 %niter.ncmp.3, label %for.cond.cleanup.loopexit173.unr-lcssa, label %for.body, !llvm.loop !180
 
 invoke.cont16:                                    ; preds = %if.end.i.i.i.i.i.i.i.i, %call5.i.i.i.i4.i.i.i.noexc
-  %__first.addr.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %call5.i.i.i.i4.i.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %call5.i.i.i.i4.i.i.i.noexc ], [ %add.ptr.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i9.i.i = getelementptr inbounds i8, ptr %sel_data, i64 8
   store ptr %__first.addr.0.i.i.i.i.i.i, ptr %_M_finish.i.i9.i.i, align 8, !tbaa !187
   br label %for.body21

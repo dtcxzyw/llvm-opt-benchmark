@@ -60067,14 +60067,13 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %9 = add i64 %8, -1
   %10 = and i64 %9, -16
   %11 = getelementptr i8, ptr %3, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 16
-  %13 = add i64 %7, -1
-  %14 = and i64 %13, -64
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 64
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
-  %18 = load ptr, ptr %17, align 8, !invariant.load !4, !noalias !8246, !nonnull !4
-  %19 = tail call noundef zeroext i1 %18(ptr noundef align 1 %16), !noalias !8246
+  %12 = add i64 %7, -1
+  %13 = and i64 %12, -64
+  %14 = getelementptr i8, ptr %11, i64 80
+  %15 = getelementptr i8, ptr %14, i64 %13
+  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !8246, !nonnull !4
+  %18 = tail call noundef zeroext i1 %17(ptr noundef align 1 %15), !noalias !8246
   ret void
 }
 
@@ -60091,14 +60090,13 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %9 = add i64 %8, -1
   %10 = and i64 %9, -16
   %11 = getelementptr i8, ptr %3, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 16
-  %13 = add i64 %7, -1
-  %14 = and i64 %13, -112
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 112
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
-  %18 = load ptr, ptr %17, align 8, !invariant.load !4, !noalias !8253, !nonnull !4
-  %19 = tail call noundef zeroext i1 %18(ptr noundef align 1 %16), !noalias !8253
+  %12 = add i64 %7, -1
+  %13 = and i64 %12, -112
+  %14 = getelementptr i8, ptr %11, i64 128
+  %15 = getelementptr i8, ptr %14, i64 %13
+  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !8253, !nonnull !4
+  %18 = tail call noundef zeroext i1 %17(ptr noundef align 1 %15), !noalias !8253
   ret void
 }
 
@@ -60224,14 +60222,13 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %9 = add i64 %8, -1
   %10 = and i64 %9, -16
   %11 = getelementptr i8, ptr %3, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 16
-  %13 = add i64 %7, -1
-  %14 = and i64 %13, -112
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 112
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
-  %18 = load ptr, ptr %17, align 8, !invariant.load !4, !noalias !8317, !nonnull !4
-  %19 = tail call noundef zeroext i1 %18(ptr noundef align 1 %16), !noalias !8317
+  %12 = add i64 %7, -1
+  %13 = and i64 %12, -112
+  %14 = getelementptr i8, ptr %11, i64 128
+  %15 = getelementptr i8, ptr %14, i64 %13
+  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !8317, !nonnull !4
+  %18 = tail call noundef zeroext i1 %17(ptr noundef align 1 %15), !noalias !8317
   ret void
 }
 
@@ -60248,14 +60245,13 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %9 = add i64 %8, -1
   %10 = and i64 %9, -16
   %11 = getelementptr i8, ptr %3, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 16
-  %13 = add i64 %7, -1
-  %14 = and i64 %13, -64
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 64
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
-  %18 = load ptr, ptr %17, align 8, !invariant.load !4, !noalias !8324, !nonnull !4
-  %19 = tail call noundef zeroext i1 %18(ptr noundef align 1 %16), !noalias !8324
+  %12 = add i64 %7, -1
+  %13 = and i64 %12, -64
+  %14 = getelementptr i8, ptr %11, i64 80
+  %15 = getelementptr i8, ptr %14, i64 %13
+  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !8324, !nonnull !4
+  %18 = tail call noundef zeroext i1 %17(ptr noundef align 1 %15), !noalias !8324
   ret void
 }
 
@@ -85741,14 +85737,13 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b
   %9 = add i64 %8, -1
   %10 = and i64 %9, -16
   %11 = getelementptr i8, ptr %3, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 16
-  %13 = add i64 %7, -1
-  %14 = and i64 %13, -112
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 112
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
-  %18 = load ptr, ptr %17, align 8, !invariant.load !4, !noalias !13107, !nonnull !4
-  %19 = tail call noundef zeroext i1 %18(ptr noundef align 1 %16), !noalias !13107
+  %12 = add i64 %7, -1
+  %13 = and i64 %12, -112
+  %14 = getelementptr i8, ptr %11, i64 128
+  %15 = getelementptr i8, ptr %14, i64 %13
+  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !13107, !nonnull !4
+  %18 = tail call noundef zeroext i1 %17(ptr noundef align 1 %15), !noalias !13107
   ret void
 }
 
@@ -85778,14 +85773,13 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b
   %9 = add i64 %8, -1
   %10 = and i64 %9, -16
   %11 = getelementptr i8, ptr %3, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 16
-  %13 = add i64 %7, -1
-  %14 = and i64 %13, -64
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 64
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
-  %18 = load ptr, ptr %17, align 8, !invariant.load !4, !noalias !13115, !nonnull !4
-  %19 = tail call noundef zeroext i1 %18(ptr noundef align 1 %16), !noalias !13115
+  %12 = add i64 %7, -1
+  %13 = and i64 %12, -64
+  %14 = getelementptr i8, ptr %11, i64 80
+  %15 = getelementptr i8, ptr %14, i64 %13
+  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !13115, !nonnull !4
+  %18 = tail call noundef zeroext i1 %17(ptr noundef align 1 %15), !noalias !13115
   ret void
 }
 
@@ -85801,14 +85795,13 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b
   %9 = add i64 %8, -1
   %10 = and i64 %9, -16
   %11 = getelementptr i8, ptr %3, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 16
-  %13 = add i64 %7, -1
-  %14 = and i64 %13, -112
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 112
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
-  %18 = load ptr, ptr %17, align 8, !invariant.load !4, !noalias !13118, !nonnull !4
-  %19 = tail call noundef zeroext i1 %18(ptr noundef align 1 %16), !noalias !13118
+  %12 = add i64 %7, -1
+  %13 = and i64 %12, -112
+  %14 = getelementptr i8, ptr %11, i64 128
+  %15 = getelementptr i8, ptr %14, i64 %13
+  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !13118, !nonnull !4
+  %18 = tail call noundef zeroext i1 %17(ptr noundef align 1 %15), !noalias !13118
   ret void
 }
 
@@ -85824,14 +85817,13 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b
   %9 = add i64 %8, -1
   %10 = and i64 %9, -16
   %11 = getelementptr i8, ptr %3, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 16
-  %13 = add i64 %7, -1
-  %14 = and i64 %13, -64
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 64
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
-  %18 = load ptr, ptr %17, align 8, !invariant.load !4, !noalias !13121, !nonnull !4
-  %19 = tail call noundef zeroext i1 %18(ptr noundef align 1 %16), !noalias !13121
+  %12 = add i64 %7, -1
+  %13 = and i64 %12, -64
+  %14 = getelementptr i8, ptr %11, i64 80
+  %15 = getelementptr i8, ptr %14, i64 %13
+  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !13121, !nonnull !4
+  %18 = tail call noundef zeroext i1 %17(ptr noundef align 1 %15), !noalias !13121
   ret void
 }
 
@@ -91746,14 +91738,13 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$14disconnect_all28_$u7b$$u7b$clos
   %9 = add i64 %8, -1
   %10 = and i64 %9, -16
   %11 = getelementptr i8, ptr %3, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 16
-  %13 = add i64 %7, -1
-  %14 = and i64 %13, -112
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 112
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
-  %18 = load ptr, ptr %17, align 8, !invariant.load !4, !nonnull !4
-  %19 = tail call noundef zeroext i1 %18(ptr noundef align 1 %16)
+  %12 = add i64 %7, -1
+  %13 = and i64 %12, -112
+  %14 = getelementptr i8, ptr %11, i64 128
+  %15 = getelementptr i8, ptr %14, i64 %13
+  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !nonnull !4
+  %18 = tail call noundef zeroext i1 %17(ptr noundef align 1 %15)
   ret void
 }
 
@@ -91768,14 +91759,13 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$14disconnect_all28_$u7b$$u7b$clos
   %9 = add i64 %8, -1
   %10 = and i64 %9, -16
   %11 = getelementptr i8, ptr %3, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 16
-  %13 = add i64 %7, -1
-  %14 = and i64 %13, -112
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 112
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
-  %18 = load ptr, ptr %17, align 8, !invariant.load !4, !nonnull !4
-  %19 = tail call noundef zeroext i1 %18(ptr noundef align 1 %16)
+  %12 = add i64 %7, -1
+  %13 = and i64 %12, -112
+  %14 = getelementptr i8, ptr %11, i64 128
+  %15 = getelementptr i8, ptr %14, i64 %13
+  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !nonnull !4
+  %18 = tail call noundef zeroext i1 %17(ptr noundef align 1 %15)
   ret void
 }
 
@@ -91790,14 +91780,13 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$14disconnect_all28_$u7b$$u7b$clos
   %9 = add i64 %8, -1
   %10 = and i64 %9, -16
   %11 = getelementptr i8, ptr %3, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 16
-  %13 = add i64 %7, -1
-  %14 = and i64 %13, -64
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 64
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
-  %18 = load ptr, ptr %17, align 8, !invariant.load !4, !nonnull !4
-  %19 = tail call noundef zeroext i1 %18(ptr noundef align 1 %16)
+  %12 = add i64 %7, -1
+  %13 = and i64 %12, -64
+  %14 = getelementptr i8, ptr %11, i64 80
+  %15 = getelementptr i8, ptr %14, i64 %13
+  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !nonnull !4
+  %18 = tail call noundef zeroext i1 %17(ptr noundef align 1 %15)
   ret void
 }
 
@@ -91812,14 +91801,13 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$14disconnect_all28_$u7b$$u7b$clos
   %9 = add i64 %8, -1
   %10 = and i64 %9, -16
   %11 = getelementptr i8, ptr %3, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 16
-  %13 = add i64 %7, -1
-  %14 = and i64 %13, -64
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 64
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
-  %18 = load ptr, ptr %17, align 8, !invariant.load !4, !nonnull !4
-  %19 = tail call noundef zeroext i1 %18(ptr noundef align 1 %16)
+  %12 = add i64 %7, -1
+  %13 = and i64 %12, -64
+  %14 = getelementptr i8, ptr %11, i64 80
+  %15 = getelementptr i8, ptr %14, i64 %13
+  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !nonnull !4
+  %18 = tail call noundef zeroext i1 %17(ptr noundef align 1 %15)
   ret void
 }
 

@@ -223,12 +223,12 @@ define void @sstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %indvars.iv350 = phi i64 [ %indvars.iv.next351, %.lr.ph291 ], [ %100, %99 ]
   %.0289 = phi float [ %134, %.lr.ph291 ], [ %122, %99 ]
   %indvars.iv.next351 = add nsw i64 %indvars.iv350, 1
-  %124 = getelementptr inbounds float, ptr %25, i64 %indvars.iv.next351
+  %124 = getelementptr float, ptr %1, i64 %indvars.iv350
   %125 = load float, ptr %124, align 4
   %126 = call noundef float @llvm.fabs.f32(float %125)
   %127 = call noundef float @llvm.fabs.f32(float %123)
   %128 = fadd float %126, %127
-  %129 = getelementptr inbounds float, ptr %26, i64 %indvars.iv.next351
+  %129 = getelementptr float, ptr %2, i64 %indvars.iv350
   %130 = load float, ptr %129, align 4
   %131 = call noundef float @llvm.fabs.f32(float %130)
   %132 = fadd float %128, %131

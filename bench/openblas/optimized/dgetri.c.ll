@@ -170,7 +170,7 @@ thread-pre-split21:                               ; preds = %59, %.thread20
   store i32 %97, ptr %8, align 4, !tbaa !3
   %98 = mul nsw i64 %81, %76
   %99 = getelementptr double, ptr %71, i64 %98
-  %100 = getelementptr inbounds double, ptr %17, i64 %81
+  %100 = getelementptr double, ptr %4, i64 %78
   %101 = getelementptr double, ptr %71, i64 %86
   call void @dgemv_(ptr noundef nonnull @.str.4, ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @c_b20, ptr noundef %99, ptr noundef nonnull %2, ptr noundef nonnull %100, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b22, ptr noundef %101, ptr noundef nonnull @c__1) #5
   br label %.critedge

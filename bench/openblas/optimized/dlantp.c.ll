@@ -118,7 +118,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %69 = phi i64 [ %66, %65 ], [ %71, %._crit_edge103 ]
   %70 = phi double [ %59, %65 ], [ %81, %._crit_edge103 ]
   %71 = add nsw i64 %69, 1
-  %72 = getelementptr inbounds double, ptr %13, i64 %71
+  %72 = getelementptr double, ptr %4, i64 %69
   %73 = load double, ptr %72, align 8, !tbaa !7
   %74 = fcmp oge double %73, 0.000000e+00
   %75 = fneg double %73
@@ -397,7 +397,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %236 = phi i64 [ %233, %232 ], [ %238, %235 ]
   %237 = phi double [ 1.000000e+00, %232 ], [ %244, %235 ]
   %238 = add nsw i64 %236, 1
-  %239 = getelementptr inbounds double, ptr %13, i64 %238
+  %239 = getelementptr double, ptr %4, i64 %236
   %240 = load double, ptr %239, align 8, !tbaa !7
   %241 = fcmp oge double %240, 0.000000e+00
   %242 = fneg double %240
@@ -618,7 +618,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %380 = fcmp oge double %379, 0.000000e+00
   %381 = fneg double %379
   %382 = select i1 %380, double %379, double %381
-  %383 = getelementptr inbounds double, ptr %12, i64 %377
+  %383 = getelementptr double, ptr %5, i64 %375
   %384 = load double, ptr %383, align 8, !tbaa !7
   %385 = fadd double %384, %382
   store double %385, ptr %383, align 8, !tbaa !7

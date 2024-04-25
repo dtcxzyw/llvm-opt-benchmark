@@ -110,33 +110,32 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef double @_Z7pj_mlfndddPKd(double noundef %0, double noundef %1, double noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #2 {
   %5 = load double, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = fsub double %2, %1
-  %8 = fmul double %7, 2.000000e+00
-  %9 = fadd double %1, %2
-  %10 = fmul double %9, %8
-  br label %11
+  %6 = fsub double %2, %1
+  %7 = fmul double %6, 2.000000e+00
+  %8 = fadd double %1, %2
+  %9 = fmul double %8, %7
+  br label %10
 
-11:                                               ; preds = %11, %4
-  %indvars.iv.i = phi i64 [ 6, %4 ], [ %indvars.iv.next.i, %11 ]
-  %.01417.i = phi double [ 0.000000e+00, %4 ], [ %16, %11 ]
-  %.01516.i = phi double [ 0.000000e+00, %4 ], [ %.01417.i, %11 ]
-  %12 = fneg double %.01516.i
-  %13 = tail call double @llvm.fmuladd.f64(double %10, double %.01417.i, double %12)
+10:                                               ; preds = %10, %4
+  %indvars.iv.i = phi i64 [ 6, %4 ], [ %indvars.iv.next.i, %10 ]
+  %.01417.i = phi double [ 0.000000e+00, %4 ], [ %15, %10 ]
+  %.01516.i = phi double [ 0.000000e+00, %4 ], [ %.01417.i, %10 ]
+  %11 = fneg double %.01516.i
+  %12 = tail call double @llvm.fmuladd.f64(double %9, double %.01417.i, double %11)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %14 = getelementptr inbounds double, ptr %6, i64 %indvars.iv.next.i
-  %15 = load double, ptr %14, align 8
-  %16 = fadd double %13, %15
-  %17 = icmp ugt i64 %indvars.iv.i, 1
-  br i1 %17, label %11, label %_ZL8clenshawddPKdi.exit, !llvm.loop !7
+  %13 = getelementptr double, ptr %3, i64 %indvars.iv.i
+  %14 = load double, ptr %13, align 8
+  %15 = fadd double %12, %14
+  %16 = icmp ugt i64 %indvars.iv.i, 1
+  br i1 %16, label %10, label %_ZL8clenshawddPKdi.exit, !llvm.loop !7
 
-_ZL8clenshawddPKdi.exit:                          ; preds = %11
-  %18 = fmul double %1, 2.000000e+00
-  %19 = fmul double %18, %2
-  %20 = fmul double %19, %16
-  %21 = fadd double %20, %0
-  %22 = fmul double %5, %21
-  ret double %22
+_ZL8clenshawddPKdi.exit:                          ; preds = %10
+  %17 = fmul double %1, 2.000000e+00
+  %18 = fmul double %17, %2
+  %19 = fmul double %18, %15
+  %20 = fadd double %19, %0
+  %21 = fmul double %5, %20
+  ret double %21
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable

@@ -522,7 +522,7 @@ lpEncodeBacklen.exit:                             ; preds = %if.end.i, %if.else3
   %retval.0.i16 = phi i64 [ %or.i, %lpDecodeBacklen.exit ], [ %or.i, %if.else.i ], [ %or.i, %if.else12.i ], [ %or.i, %if.else31.i ], [ -1, %if.end.i ]
   %retval.0.i12.neg28 = phi i64 [ -1, %lpDecodeBacklen.exit ], [ -2, %if.else.i ], [ -3, %if.else12.i ], [ %spec.select.neg, %if.else31.i ], [ -5, %if.end.i ]
   %reass.sub = sub i64 %retval.0.i12.neg28, %retval.0.i16
-  %add.ptr = getelementptr inbounds i8, ptr %p, i64 %reass.sub
+  %add.ptr = getelementptr i8, ptr %p, i64 %reass.sub
   %2 = load i32, ptr %lp, align 1
   %3 = zext i32 %2 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i)
@@ -630,7 +630,7 @@ lpEncodeBacklen.exit.i:                           ; preds = %if.end.i.i, %if.els
   %retval.0.i16.i = phi i64 [ %or.i.i, %lpDecodeBacklen.exit.i ], [ %or.i.i, %if.else.i.i ], [ %or.i.i, %if.else12.i.i ], [ %or.i.i, %if.else31.i.i ], [ -1, %if.end.i.i ]
   %retval.0.i12.neg28.i = phi i64 [ -1, %lpDecodeBacklen.exit.i ], [ -2, %if.else.i.i ], [ -3, %if.else12.i.i ], [ %spec.select.neg.i, %if.else31.i.i ], [ -5, %if.end.i.i ]
   %reass.sub.i = sub i64 %retval.0.i12.neg28.i, %retval.0.i16.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr12, i64 %reass.sub.i
+  %add.ptr.i = getelementptr i8, ptr %add.ptr12, i64 %reass.sub.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   store ptr %add.ptr.i, ptr %p.addr.i.i, align 8
   %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %1), !range !7
@@ -707,7 +707,7 @@ do.body:                                          ; preds = %if.end, %while.end
   %conv10 = trunc i32 %count.0.lcssa19 to i8
   store i8 %conv10, ptr %arrayidx, align 1
   %shr = lshr i32 %count.0.lcssa19, 8
-  %conv13 = trunc i32 %shr to i8
+  %conv13 = trunc nuw i32 %shr to i8
   store i8 %conv13, ptr %arrayidx1, align 1
   br label %return
 
@@ -1542,7 +1542,7 @@ if.then.i:                                        ; preds = %if.else81.i.i, %if.
 
 if.then.i.i:                                      ; preds = %if.then.i, %if.else81.thread.i.i, %land.lhs.true.i.i
   %sub79.sink.i15.i = phi i64 [ %sub79.sink.i.i, %if.then.i ], [ %sub60.i.i, %if.else81.thread.i.i ], [ 0, %land.lhs.true.i.i ]
-  %conv.i.i105 = trunc i64 %sub79.sink.i15.i to i8
+  %conv.i.i105 = trunc nuw nsw i64 %sub79.sink.i15.i to i8
   store i8 %conv.i.i105, ptr %intenc, align 1
   br label %if.end39
 
@@ -1640,7 +1640,7 @@ if.else84.i.i:                                    ; preds = %if.else57.i.i
   %arrayidx112.i.i = getelementptr inbounds i8, ptr %intenc, i64 7
   store i8 %conv111.i.i, ptr %arrayidx112.i.i, align 1
   %shr113.i.i = lshr i64 %sub79.sink.i.i, 56
-  %conv114.i.i = trunc i64 %shr113.i.i to i8
+  %conv114.i.i = trunc nuw i64 %shr113.i.i to i8
   %arrayidx115.i.i = getelementptr inbounds i8, ptr %intenc, i64 8
   store i8 %conv114.i.i, ptr %arrayidx115.i.i, align 1
   br label %if.end39
@@ -1688,7 +1688,7 @@ cond.true41:                                      ; preds = %if.end39.thread, %i
   br i1 %cmp.i107, label %if.then.i111, label %if.else.i108
 
 if.then.i111:                                     ; preds = %cond.true41
-  %conv.i112 = trunc i64 %enclen.0151 to i8
+  %conv.i112 = trunc nuw nsw i64 %enclen.0151 to i8
   store i8 %conv.i112, ptr %backlen, align 1
   br label %cond.end45
 
@@ -1698,7 +1698,7 @@ if.else.i108:                                     ; preds = %cond.true41
 
 if.then4.i:                                       ; preds = %if.else.i108
   %shr.i = lshr i64 %enclen.0151, 7
-  %conv7.i = trunc i64 %shr.i to i8
+  %conv7.i = trunc nuw nsw i64 %shr.i to i8
   store i8 %conv7.i, ptr %backlen, align 1
   %23 = trunc i64 %enclen.0151 to i8
   %conv9.i110 = or i8 %23, -128
@@ -1712,7 +1712,7 @@ if.else12.i:                                      ; preds = %if.else.i108
 
 if.then15.i:                                      ; preds = %if.else12.i
   %shr18.i = lshr i64 %enclen.0151, 14
-  %conv19.i = trunc i64 %shr18.i to i8
+  %conv19.i = trunc nuw nsw i64 %shr18.i to i8
   store i8 %conv19.i, ptr %backlen, align 1
   %shr21.i = lshr i64 %enclen.0151, 7
   %24 = trunc i64 %shr21.i to i8
@@ -1731,7 +1731,7 @@ if.else31.i:                                      ; preds = %if.else12.i
 
 if.then34.i:                                      ; preds = %if.else31.i
   %shr37.i = lshr i64 %enclen.0151, 21
-  %conv38.i = trunc i64 %shr37.i to i8
+  %conv38.i = trunc nuw nsw i64 %shr37.i to i8
   store i8 %conv38.i, ptr %backlen, align 1
   %shr40.i = lshr i64 %enclen.0151, 14
   %26 = trunc i64 %shr40.i to i8
@@ -1751,7 +1751,7 @@ if.then34.i:                                      ; preds = %if.else31.i
 
 if.else55.i:                                      ; preds = %if.else31.i
   %shr58.i = lshr i64 %enclen.0151, 28
-  %conv59.i = trunc i64 %shr58.i to i8
+  %conv59.i = trunc nuw nsw i64 %shr58.i to i8
   store i8 %conv59.i, ptr %backlen, align 1
   %shr61.i = lshr i64 %enclen.0151, 21
   %29 = trunc i64 %shr61.i to i8
@@ -1981,7 +1981,7 @@ if.then173:                                       ; preds = %if.else171
   br i1 %cmp.i133, label %if.then.i141, label %if.else.i134
 
 if.then.i141:                                     ; preds = %if.then173
-  %44 = trunc i32 %size to i8
+  %44 = trunc nuw i32 %size to i8
   %conv.i142 = or disjoint i8 %44, -128
   store i8 %conv.i142, ptr %dst.1, align 1
   br label %lpEncodeString.exit
@@ -1992,7 +1992,7 @@ if.else.i134:                                     ; preds = %if.then173
 
 if.then4.i139:                                    ; preds = %if.else.i134
   %shr.i140 = lshr i32 %size, 8
-  %45 = trunc i32 %shr.i140 to i8
+  %45 = trunc nuw i32 %shr.i140 to i8
   %conv6.i = or disjoint i8 %45, -32
   store i8 %conv6.i, ptr %dst.1, align 1
   %conv8.i = trunc i32 %size to i8
@@ -2014,7 +2014,7 @@ if.else12.i136:                                   ; preds = %if.else.i134
   %arrayidx24.i = getelementptr inbounds i8, ptr %dst.1, i64 3
   store i8 %conv23.i, ptr %arrayidx24.i, align 1
   %shr25.i = lshr i32 %size, 24
-  %conv27.i = trunc i32 %shr25.i to i8
+  %conv27.i = trunc nuw i32 %shr25.i to i8
   %arrayidx28.i = getelementptr inbounds i8, ptr %dst.1, i64 4
   store i8 %conv27.i, ptr %arrayidx28.i, align 1
   br label %lpEncodeString.exit
@@ -2092,7 +2092,7 @@ do.body221:                                       ; preds = %do.body221.sink.spl
   %arrayidx232 = getelementptr inbounds i8, ptr %lp.addr.1, i64 2
   store i8 %conv231, ptr %arrayidx232, align 1
   %shr233 = lshr i64 %sub, 24
-  %conv235 = trunc i64 %shr233 to i8
+  %conv235 = trunc nuw i64 %shr233 to i8
   %arrayidx236 = getelementptr inbounds i8, ptr %lp.addr.1, i64 3
   store i8 %conv235, ptr %arrayidx236, align 1
   br label %return
@@ -2123,7 +2123,7 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %conv.i = trunc i64 %lval to i8
+  %conv.i = trunc nuw nsw i64 %lval to i8
   store i8 %conv.i, ptr %intenc, align 1
   br label %lpEncodeIntegerGetType.exit
 
@@ -2221,7 +2221,7 @@ if.else84.i:                                      ; preds = %if.else57.i
   %arrayidx112.i = getelementptr inbounds i8, ptr %intenc, i64 7
   store i8 %conv111.i, ptr %arrayidx112.i, align 1
   %shr113.i = lshr i64 %lval, 56
-  %conv114.i = trunc i64 %shr113.i to i8
+  %conv114.i = trunc nuw i64 %shr113.i to i8
   %arrayidx115.i = getelementptr inbounds i8, ptr %intenc, i64 8
   store i8 %conv114.i, ptr %arrayidx115.i, align 1
   br label %lpEncodeIntegerGetType.exit
@@ -2755,7 +2755,7 @@ lpEncodeBacklen.exit.i.i:                         ; preds = %if.end.i.i.i, %if.e
   %retval.0.i16.i.i = phi i64 [ %or.i.i.i, %lpDecodeBacklen.exit.i.i ], [ %or.i.i.i, %if.else.i.i.i ], [ %or.i.i.i, %if.else12.i.i.i ], [ %or.i.i.i, %if.else31.i.i.i ], [ -1, %if.end.i.i.i ]
   %retval.0.i12.neg28.i.i = phi i64 [ -1, %lpDecodeBacklen.exit.i.i ], [ -2, %if.else.i.i.i ], [ -3, %if.else12.i.i.i ], [ %spec.select.neg.i.i, %if.else31.i.i.i ], [ -5, %if.end.i.i.i ]
   %reass.sub.i.i = sub i64 %retval.0.i12.neg28.i.i, %retval.0.i16.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr12.i, i64 %reass.sub.i.i
+  %add.ptr.i.i = getelementptr i8, ptr %add.ptr12.i, i64 %reass.sub.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i.i)
   store ptr %add.ptr.i.i, ptr %p.addr.i.i.i, align 8
   %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %7), !range !7
@@ -2770,7 +2770,9 @@ cond.false.i.i.i:                                 ; preds = %lpEncodeBacklen.exi
 lpLast.exit:                                      ; preds = %lpEncodeBacklen.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.addr.i.i.i)
   %cmp3847 = icmp slt i64 %index.addr.138, -1
-  br i1 %cmp3847, label %cond.end.i, label %return
+  %tobool4148 = icmp ne ptr %add.ptr.i.i, null
+  %10 = select i1 %cmp3847, i1 %tobool4148, i1 false
+  br i1 %10, label %cond.end.i, label %return
 
 cond.end.i:                                       ; preds = %lpLast.exit, %lpPrev.exit
   %ele35.050 = phi ptr [ %add.ptr.i32, %lpPrev.exit ], [ %add.ptr.i.i, %lpLast.exit ]
@@ -2785,12 +2787,12 @@ do.body.i.i:                                      ; preds = %cond.end.i, %if.end
   %val.0.i.i = phi i64 [ %or.i.i, %if.end.i.i ], [ 0, %cond.end.i ]
   %shift.0.i.i = phi i64 [ %add.i.i, %if.end.i.i ], [ 0, %cond.end.i ]
   %p.addr.0.i.i = getelementptr inbounds i8, ptr %p.pn.i, i64 -1
-  %10 = load i8, ptr %p.addr.0.i.i, align 1
-  %11 = and i8 %10, 127
-  %conv1.i.i = zext nneg i8 %11 to i64
+  %11 = load i8, ptr %p.addr.0.i.i, align 1
+  %12 = and i8 %11, 127
+  %conv1.i.i = zext nneg i8 %12 to i64
   %shl.i.i = shl nuw nsw i64 %conv1.i.i, %shift.0.i.i
   %or.i.i = or i64 %shl.i.i, %val.0.i.i
-  %tobool.not.i.i30 = icmp sgt i8 %10, -1
+  %tobool.not.i.i30 = icmp sgt i8 %11, -1
   br i1 %tobool.not.i.i30, label %lpDecodeBacklen.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %do.body.i.i
@@ -2819,7 +2821,7 @@ lpEncodeBacklen.exit.i:                           ; preds = %if.end.i.i, %if.els
   %retval.0.i16.i = phi i64 [ %or.i.i, %lpDecodeBacklen.exit.i ], [ %or.i.i, %if.else.i.i ], [ %or.i.i, %if.else12.i.i ], [ %or.i.i, %if.else31.i.i ], [ -1, %if.end.i.i ]
   %retval.0.i12.neg28.i = phi i64 [ -1, %lpDecodeBacklen.exit.i ], [ -2, %if.else.i.i ], [ -3, %if.else12.i.i ], [ %spec.select.neg.i, %if.else31.i.i ], [ -5, %if.end.i.i ]
   %reass.sub.i = sub i64 %retval.0.i12.neg28.i, %retval.0.i16.i
-  %add.ptr.i32 = getelementptr inbounds i8, ptr %ele35.050, i64 %reass.sub.i
+  %add.ptr.i32 = getelementptr i8, ptr %ele35.050, i64 %reass.sub.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i28)
   store ptr %add.ptr.i32, ptr %p.addr.i.i28, align 8
   %call.i.i33 = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i28, i64 noundef %7), !range !7
@@ -2835,9 +2837,9 @@ lpPrev.exit:                                      ; preds = %lpEncodeBacklen.exi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.addr.i.i28)
   %inc = add nuw nsw i64 %index.addr.349, 1
   %cmp38 = icmp slt i64 %index.addr.349, -2
-  %tobool41 = icmp ne ptr %ele35.050, null
-  %12 = and i1 %cmp38, %tobool41
-  br i1 %12, label %cond.end.i, label %return, !llvm.loop !12
+  %tobool41 = icmp ne ptr %add.ptr.i32, null
+  %13 = select i1 %cmp38, i1 %tobool41, i1 false
+  br i1 %13, label %cond.end.i, label %return, !llvm.loop !12
 
 return:                                           ; preds = %while.body, %cond.end.i, %lpPrev.exit, %if.else34, %if.then29, %lpFirst.exit, %lpLast.exit, %if.then
   %retval.0 = phi ptr [ null, %if.then ], [ %add.ptr.i.i, %lpLast.exit ], [ %add.ptr.i, %lpFirst.exit ], [ null, %if.then29 ], [ null, %if.else34 ], [ null, %cond.end.i ], [ %add.ptr.i32, %lpPrev.exit ], [ %call33, %while.body ]
@@ -3152,7 +3154,7 @@ do.body.i:                                        ; preds = %while.end.i, %if.en
   %conv10.i = trunc i32 %count.0.lcssa19.i to i8
   store i8 %conv10.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i32 %count.0.lcssa19.i, 8
-  %conv13.i = trunc i32 %shr.i to i8
+  %conv13.i = trunc nuw i32 %shr.i to i8
   store i8 %conv13.i, ptr %arrayidx1.i, align 1
   br label %lpLength.exit
 
@@ -3212,7 +3214,7 @@ do.body.i78:                                      ; preds = %while.end.i76, %if.
   %conv10.i80 = trunc i32 %count.0.lcssa19.i79 to i8
   store i8 %conv10.i80, ptr %arrayidx.i54, align 1
   %shr.i81 = lshr i32 %count.0.lcssa19.i79, 8
-  %conv13.i82 = trunc i32 %shr.i81 to i8
+  %conv13.i82 = trunc nuw i32 %shr.i81 to i8
   store i8 %conv13.i82, ptr %arrayidx1.i56, align 1
   br label %lpLength.exit84
 
@@ -3262,7 +3264,7 @@ do.body:                                          ; preds = %if.then26, %if.else
   %arrayidx = getelementptr inbounds i8, ptr %call24, i64 4
   store i8 %conv37, ptr %arrayidx, align 1
   %shr = lshr i64 %cond, 8
-  %conv39 = trunc i64 %shr to i8
+  %conv39 = trunc nuw i64 %shr to i8
   %arrayidx40 = getelementptr inbounds i8, ptr %call24, i64 5
   store i8 %conv39, ptr %arrayidx40, align 1
   %conv43 = trunc i64 %sub15 to i8
@@ -3276,7 +3278,7 @@ do.body:                                          ; preds = %if.then26, %if.else
   %arrayidx52 = getelementptr inbounds i8, ptr %call24, i64 2
   store i8 %conv51, ptr %arrayidx52, align 1
   %shr53 = lshr i64 %sub15, 24
-  %conv55 = trunc i64 %shr53 to i8
+  %conv55 = trunc nuw i64 %shr53 to i8
   %arrayidx56 = getelementptr inbounds i8, ptr %call24, i64 3
   store i8 %conv55, ptr %arrayidx56, align 1
   %13 = load ptr, ptr %first.second86, align 8
@@ -3897,7 +3899,7 @@ do.body.i:                                        ; preds = %while.end.i, %if.en
   %conv10.i = trunc i32 %count.0.lcssa19.i to i8
   store i8 %conv10.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i32 %count.0.lcssa19.i, 8
-  %conv13.i = trunc i32 %shr.i to i8
+  %conv13.i = trunc nuw i32 %shr.i to i8
   store i8 %conv13.i, ptr %arrayidx1.i, align 1
   br label %lpLength.exit
 
@@ -3923,7 +3925,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx = getelementptr inbounds %struct.pick, ptr %call, i64 %indvars.iv
   store i32 %rem, ptr %arrayidx, align 4
   %order = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw i64 %indvars.iv to i32
   store i32 %5, ptr %order, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
@@ -4332,7 +4334,7 @@ do.body.i:                                        ; preds = %while.end.i, %if.en
   %conv10.i = trunc i32 %count.0.lcssa19.i to i8
   store i8 %conv10.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i32 %count.0.lcssa19.i, 8
-  %conv13.i = trunc i32 %shr.i to i8
+  %conv13.i = trunc nuw i32 %shr.i to i8
   store i8 %conv13.i, ptr %arrayidx1.i, align 1
   br label %lpLength.exit
 
@@ -4360,7 +4362,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx = getelementptr inbounds %struct.rand_pick, ptr %call, i64 %indvars.iv
   store i32 %mul8, ptr %arrayidx, align 4
   %order = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw i64 %indvars.iv to i32
   store i32 %6, ptr %order, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
@@ -4410,7 +4412,7 @@ land.rhs35.us.us.preheader:                       ; preds = %cond.end30.us
   br label %land.rhs35.us.us
 
 while.end.us.loopexit.split.loop.exit:            ; preds = %land.rhs35.us.us
-  %11 = trunc i64 %indvars.iv71 to i32
+  %11 = trunc nuw i64 %indvars.iv71 to i32
   br label %while.end.us
 
 while.end.us:                                     ; preds = %while.body42.us.us, %while.end.us.loopexit.split.loop.exit, %cond.end30.us
@@ -4512,7 +4514,7 @@ while.body42:                                     ; preds = %land.rhs35
   br i1 %exitcond70.not, label %while.end, label %land.rhs35, !llvm.loop !20
 
 while.end.loopexit.split.loop.exit79:             ; preds = %land.rhs35
-  %20 = trunc i64 %indvars.iv67 to i32
+  %20 = trunc nuw i64 %indvars.iv67 to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body42, %while.end.loopexit.split.loop.exit79, %cond.end30
@@ -4589,7 +4591,7 @@ do.body.i:                                        ; preds = %while.end.i, %if.en
   %conv10.i = trunc i32 %count.0.lcssa19.i to i8
   store i8 %conv10.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i32 %count.0.lcssa19.i, 8
-  %conv13.i = trunc i32 %shr.i to i8
+  %conv13.i = trunc nuw i32 %shr.i to i8
   store i8 %conv13.i, ptr %arrayidx1.i, align 1
   br label %lpLength.exit
 
@@ -4734,11 +4736,11 @@ cond.end21:                                       ; preds = %cond.end
   br i1 %16, label %while.body, label %while.end.loopexit54, !llvm.loop !21
 
 while.end.loopexit:                               ; preds = %cond.end21.us
-  %17 = trunc i64 %indvars.iv.next57 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.next57 to i32
   br label %while.end
 
 while.end.loopexit54:                             ; preds = %cond.end21
-  %18 = trunc i64 %indvars.iv.next to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %lpLength.exit, %while.end.loopexit54, %while.end.loopexit, %lpFirst.exit
@@ -4803,7 +4805,7 @@ do.body.i:                                        ; preds = %while.end.i, %if.en
   %conv10.i = trunc i32 %count.0.lcssa19.i to i8
   store i8 %conv10.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i32 %count.0.lcssa19.i, 8
-  %conv13.i = trunc i32 %shr.i to i8
+  %conv13.i = trunc nuw i32 %shr.i to i8
   store i8 %conv13.i, ptr %arrayidx1.i, align 1
   br label %lpLength.exit
 
@@ -4955,7 +4957,7 @@ do.body.i:                                        ; preds = %while.end.i, %if.en
   %conv10.i = trunc i32 %count.0.lcssa19.i to i8
   store i8 %conv10.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i32 %count.0.lcssa19.i, 8
-  %conv13.i = trunc i32 %shr.i to i8
+  %conv13.i = trunc nuw i32 %shr.i to i8
   store i8 %conv13.i, ptr %arrayidx1.i, align 1
   br label %lpLength.exit
 

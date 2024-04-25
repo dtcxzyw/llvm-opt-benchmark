@@ -233,7 +233,7 @@ define void @dgetrf2_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nou
 144:                                              ; preds = %144, %141
   %145 = phi i64 [ %142, %141 ], [ %146, %144 ]
   %146 = add nsw i64 %145, 1
-  %147 = getelementptr inbounds i32, ptr %17, i64 %146
+  %147 = getelementptr i32, ptr %4, i64 %145
   %148 = load i32, ptr %147, align 4, !tbaa !3
   %149 = add nsw i32 %148, %.pre
   store i32 %149, ptr %147, align 4, !tbaa !3

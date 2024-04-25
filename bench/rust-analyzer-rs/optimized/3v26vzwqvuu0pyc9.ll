@@ -3674,7 +3674,7 @@ define { ptr, i64 } @"_ZN73_$LT$base_db..FileTextQuery$u20$as$u20$salsa..plumbin
 29:                                               ; preds = %.noexc.i
   %30 = getelementptr inbounds i8, ptr %14, i64 12
   %31 = getelementptr inbounds i8, ptr %25, i64 %24
-  %32 = getelementptr inbounds i8, ptr %17, i64 %15
+  %32 = getelementptr i8, ptr %17, i64 %15
   %.0.sroa.speculated.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %22, i64 19)
   %33 = sub nsw i64 0, %.0.sroa.speculated.i.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %32, i64 %33

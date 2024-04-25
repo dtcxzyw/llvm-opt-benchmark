@@ -40,23 +40,21 @@ if.end:                                           ; preds = %entry
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv, 2
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #9
   store ptr %call5.i.i.i.i.i.i, ptr %index, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i.i.i, i64 %conv
+  %add.ptr.i.i.i = getelementptr i32, ptr %call5.i.i.i.i.i.i, i64 %conv
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %index, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i32 0, ptr %call5.i.i.i.i.i.i, align 4
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i.i.i, i64 4
-  %sub.i.i.i.i.i = add nsw i64 %conv, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %sub, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.end
   %1 = add nsw i64 %mul.i.i.i.i.i.i, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %1, i1 false)
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
   br label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %if.end, %if.end.i.i.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.end ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.end ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ]
   store ptr %__first.addr.0.i.i.i.i.i, ptr %0, align 8
   %cmp116.not = icmp eq i32 %end, %begin
   br i1 %cmp116.not, label %for.end, label %for.body
@@ -64,7 +62,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %if.end, %if.end.i.i
 for.body:                                         ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ]
   %add.ptr.i = getelementptr inbounds i32, ptr %call5.i.i.i.i.i.i, i64 %indvars.iv
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw i64 %indvars.iv to i32
   store i32 %2, ptr %add.ptr.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
@@ -138,11 +136,11 @@ for.inc16.i:                                      ; preds = %for.inc.i, %if.end7
   br i1 %cmp1.not.i, label %if.then.i.i.i, label %for.cond2.preheader.i, !llvm.loop !7
 
 cleanup:                                          ; preds = %for.end
-  %10 = tail call i32 @llvm.ctlz.i32(i32 %sub, i1 true), !range !8
+  %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub, i1 true)
   %conv.i = shl nuw nsw i32 %10, 1
   %mul = xor i32 %conv.i, 62
   %sub6 = add i32 %end, -1
-  %call7 = call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_111doQuickSortEPNS0_9SortModelERSt6vectorIjSaIjEEijj(ptr noundef %sm, ptr noundef nonnull align 8 dereferenceable(24) %index, i32 noundef %mul, i32 noundef %begin, i32 noundef %sub6), !range !9
+  %call7 = call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_111doQuickSortEPNS0_9SortModelERSt6vectorIjSaIjEEijj(ptr noundef %sm, ptr noundef nonnull align 8 dereferenceable(24) %index, i32 noundef %mul, i32 noundef %begin, i32 noundef %sub6), !range !8
   %.pre = load ptr, ptr %index, align 8
   %tobool.not.i.i.i = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
@@ -187,14 +185,14 @@ if.end.i:                                         ; preds = %if.then
 
 do.body.i:                                        ; preds = %do.cond.i, %if.end.i
   %start.0.i = phi i32 [ %add.i, %if.end.i ], [ %dec.i, %do.cond.i ]
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_111heapFixDownEPNS0_9SortModelERSt6vectorIjSaIjEEjjj(ptr noundef %sm, ptr noundef nonnull align 8 dereferenceable(24) %index, i32 noundef %l.addr.0.lcssa, i32 noundef %start.0.i, i32 noundef %add), !range !9
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_111heapFixDownEPNS0_9SortModelERSt6vectorIjSaIjEEjjj(ptr noundef %sm, ptr noundef nonnull align 8 dereferenceable(24) %index, i32 noundef %l.addr.0.lcssa, i32 noundef %start.0.i, i32 noundef %add), !range !8
   %cmp3.i = icmp eq i32 %call.i, 0
   br i1 %cmp3.i, label %return, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
   %dec.i = add i32 %start.0.i, -1
   %cmp6.not.i = icmp eq i32 %start.0.i, %l.addr.0.lcssa
-  br i1 %cmp6.not.i, label %while.cond.preheader.i, label %do.body.i, !llvm.loop !10
+  br i1 %cmp6.not.i, label %while.cond.preheader.i, label %do.body.i, !llvm.loop !9
 
 while.cond.preheader.i:                           ; preds = %do.cond.i
   %conv.i.i = zext i32 %l.addr.0.lcssa to i64
@@ -223,9 +221,9 @@ if.end13.i:                                       ; preds = %while.body.i
   %3 = load i32, ptr %add.ptr.i4.i.i, align 4
   store i32 %3, ptr %add.ptr.i.i.i, align 4
   store i32 %2, ptr %add.ptr.i4.i.i, align 4
-  %call14.i = tail call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_111heapFixDownEPNS0_9SortModelERSt6vectorIjSaIjEEjjj(ptr noundef nonnull %sm, ptr noundef nonnull align 8 dereferenceable(24) %index, i32 noundef %l.addr.0.lcssa, i32 noundef %l.addr.0.lcssa, i32 noundef %dec9.i), !range !9
+  %call14.i = tail call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_111heapFixDownEPNS0_9SortModelERSt6vectorIjSaIjEEjjj(ptr noundef nonnull %sm, ptr noundef nonnull align 8 dereferenceable(24) %index, i32 noundef %l.addr.0.lcssa, i32 noundef %l.addr.0.lcssa, i32 noundef %dec9.i), !range !8
   %cmp15.i = icmp eq i32 %call14.i, 0
-  br i1 %cmp15.i, label %return, label %while.cond.i, !llvm.loop !11
+  br i1 %cmp15.i, label %return, label %while.cond.i, !llvm.loop !10
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.then71
   %limit.addr.0398 = phi i32 [ %limit.addr.0.ph405, %if.end.lr.ph ], [ %dec, %if.then71 ]
@@ -421,7 +419,7 @@ if.end.i174:                                      ; preds = %if.end.i.i
 for.inc.i:                                        ; preds = %if.end.i174, %cond.true.i.i
   %inc.i = add i32 %i.195.i, 1
   %cmp.not.i173 = icmp ugt i32 %inc.i, %j.0.i
-  br i1 %cmp.not.i173, label %for.end.i, label %for.body.i, !llvm.loop !12
+  br i1 %cmp.not.i173, label %for.end.i, label %for.body.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end.i174, %cond.true.i.i, %for.cond.i
   %i.1.lcssa.i = phi i32 [ %i.0.i, %for.cond.i ], [ %inc.i, %for.inc.i ], [ %i.195.i, %if.end.i174 ], [ %i.195.i, %cond.true.i.i ]
@@ -459,7 +457,7 @@ if.end14.i:                                       ; preds = %if.end.i32.i
 for.inc18.i:                                      ; preds = %if.end14.i, %cond.true.i34.i
   %dec.i172 = add i32 %j.198.i, -1
   %cmp8.not.i = icmp ugt i32 %i.1.lcssa.i, %dec.i172
-  br i1 %cmp8.not.i, label %for.end19.i, label %for.body9.i, !llvm.loop !13
+  br i1 %cmp8.not.i, label %for.end19.i, label %for.body9.i, !llvm.loop !12
 
 for.end19.i:                                      ; preds = %for.inc18.i, %if.end14.i, %cond.true.i34.i, %for.end.i
   %j.1.lcssa.i = phi i32 [ %j.0.i, %for.end.i ], [ %dec.i172, %for.inc18.i ], [ %j.198.i, %if.end14.i ], [ %j.198.i, %cond.true.i34.i ]
@@ -485,7 +483,7 @@ if.end26.i:                                       ; preds = %if.end22.i
   store i32 %47, ptr %add.ptr.i4.i.i171, align 4
   %inc27.i = add nuw i32 %i.1.lcssa.i, 1
   %dec28.i = add i32 %j.1.lcssa.i, -1
-  br label %for.cond.i, !llvm.loop !14
+  br label %for.cond.i, !llvm.loop !13
 
 for.end29.i:                                      ; preds = %for.end19.i
   %cmp30.not.i = icmp eq i32 %j.1.lcssa.i, %add1
@@ -523,7 +521,7 @@ if.then56:                                        ; preds = %if.end51
 if.then58:                                        ; preds = %if.then56
   %sub59 = add nsw i32 %limit.addr.0398, -1
   %sub60 = add i32 %retval.sroa.6.0.i, -1
-  %call61 = tail call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_111doQuickSortEPNS0_9SortModelERSt6vectorIjSaIjEEijj(ptr noundef nonnull %sm, ptr noundef nonnull align 8 dereferenceable(24) %index, i32 noundef %sub59, i32 noundef %l.addr.0397, i32 noundef %sub60), !range !9
+  %call61 = tail call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_111doQuickSortEPNS0_9SortModelERSt6vectorIjSaIjEEijj(ptr noundef nonnull %sm, ptr noundef nonnull align 8 dereferenceable(24) %index, i32 noundef %sub59, i32 noundef %l.addr.0397, i32 noundef %sub60), !range !8
   %cmp62 = icmp eq i32 %call61, 0
   br i1 %cmp62, label %return, label %if.end69
 
@@ -680,7 +678,7 @@ if.else81:                                        ; preds = %if.end51
 if.then83:                                        ; preds = %if.else81
   %sub84 = add nsw i32 %limit.addr.0398, -1
   %add85 = add i32 %retval.sroa.6.0.i, 1
-  %call86 = tail call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_111doQuickSortEPNS0_9SortModelERSt6vectorIjSaIjEEijj(ptr noundef nonnull %sm, ptr noundef nonnull align 8 dereferenceable(24) %index, i32 noundef %sub84, i32 noundef %add85, i32 noundef %r.addr.0.ph403), !range !9
+  %call86 = tail call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_111doQuickSortEPNS0_9SortModelERSt6vectorIjSaIjEEijj(ptr noundef nonnull %sm, ptr noundef nonnull align 8 dereferenceable(24) %index, i32 noundef %sub84, i32 noundef %add85, i32 noundef %r.addr.0.ph403), !range !8
   %cmp87 = icmp eq i32 %call86, 0
   br i1 %cmp87, label %return, label %if.end97
 
@@ -944,7 +942,7 @@ _ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit: ; p
   store i32 %13, ptr %add.ptr.i.i53, align 4
   store i32 %12, ptr %add.ptr.i4.i, align 4
   %cmp3.not = icmp ugt i32 %j.0, %add
-  br i1 %cmp3.not, label %return, label %while.body, !llvm.loop !15
+  br i1 %cmp3.not, label %return, label %while.body, !llvm.loop !14
 
 return:                                           ; preds = %if.end22, %_ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit, %if.then9, %if.end17, %if.end25, %cond.true.i29, %if.end, %entry
   %retval.0 = phi i32 [ 1, %entry ], [ 1, %if.end ], [ 1, %cond.true.i29 ], [ 1, %if.end22 ], [ 1, %_ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit ], [ 0, %if.then9 ], [ 0, %if.end17 ], [ 0, %if.end25 ]
@@ -986,11 +984,10 @@ attributes #11 = { builtin nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 33}
-!9 = !{i32 0, i32 2}
+!8 = !{i32 0, i32 2}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}

@@ -341,13 +341,13 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %189 = load double, ptr %188, align 8
   %190 = fmul double %187, %189
   %indvars.iv.next872 = add nsw i64 %indvars.iv871, 1
-  %191 = getelementptr inbounds double, ptr %35, i64 %indvars.iv.next872
+  %191 = getelementptr double, ptr %6, i64 %indvars.iv871
   %192 = load double, ptr %191, align 8
   %193 = fsub double %192, %182
   %194 = fneg double %190
   %195 = call double @llvm.fmuladd.f64(double %194, double %189, double %193)
   %indvars.iv.next874 = add nuw nsw i64 %indvars.iv873, 1
-  %196 = getelementptr inbounds double, ptr %28, i64 %indvars.iv.next874
+  %196 = getelementptr double, ptr %16, i64 %indvars.iv873
   store double %195, ptr %196, align 8
   %gep1016 = getelementptr double, ptr %invariant.gep1015, i64 %indvars.iv873
   store double %190, ptr %gep1016, align 8

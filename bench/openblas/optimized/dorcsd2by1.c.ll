@@ -771,7 +771,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %495 = load i32, ptr %5, align 4, !tbaa !3
   %496 = trunc i64 %494 to i32
   %497 = sub nsw i32 %496, %495
-  %498 = getelementptr inbounds i32, ptr %54, i64 %494
+  %498 = getelementptr i32, ptr %19, i64 %493
   store i32 %497, ptr %498, align 4, !tbaa !3
   %499 = icmp slt i64 %494, %491
   br i1 %499, label %492, label %.loopexit.loopexit, !llvm.loop !13
@@ -955,7 +955,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %605 = load i32, ptr %5, align 4, !tbaa !3
   %606 = trunc i64 %604 to i32
   %607 = sub nsw i32 %606, %605
-  %608 = getelementptr inbounds i32, ptr %54, i64 %604
+  %608 = getelementptr i32, ptr %19, i64 %603
   store i32 %607, ptr %608, align 4, !tbaa !3
   %609 = icmp slt i64 %604, %601
   br i1 %609, label %602, label %.loopexit45.loopexit, !llvm.loop !16
@@ -1148,7 +1148,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 716:                                              ; preds = %716, %713
   %717 = phi i64 [ %714, %713 ], [ %718, %716 ]
   %718 = add nsw i64 %717, 1
-  %719 = getelementptr inbounds i32, ptr %54, i64 %718
+  %719 = getelementptr i32, ptr %19, i64 %717
   %720 = trunc i64 %718 to i32
   %721 = sub i32 %720, %695
   store i32 %721, ptr %719, align 4, !tbaa !3
@@ -1426,7 +1426,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 896:                                              ; preds = %896, %893
   %897 = phi i64 [ %894, %893 ], [ %898, %896 ]
   %898 = add nsw i64 %897, 1
-  %899 = getelementptr inbounds i32, ptr %54, i64 %898
+  %899 = getelementptr i32, ptr %19, i64 %897
   %900 = trunc i64 %898 to i32
   %901 = sub i32 %900, %875
   store i32 %901, ptr %899, align 4, !tbaa !3

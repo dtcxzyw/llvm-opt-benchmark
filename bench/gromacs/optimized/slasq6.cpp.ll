@@ -10,7 +10,7 @@ define void @slasq6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %13 = load i32, ptr %0, align 4
   %14 = sub i32 %13, %12
   %15 = icmp sgt i32 %14, -2
-  br i1 %15, label %218, label %16
+  br i1 %15, label %216, label %16
 
 16:                                               ; preds = %10
   %17 = shl i32 %13, 2
@@ -31,7 +31,7 @@ define void @slasq6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %31 = load i32, ptr %0, align 4
   %32 = shl i32 %31, 2
   %.not274288 = icmp sgt i32 %32, %30
-  br i1 %27, label %33, label %72
+  br i1 %27, label %33, label %70
 
 33:                                               ; preds = %16
   br i1 %.not274288, label %.loopexit, label %.lr.ph292.preheader
@@ -41,10 +41,10 @@ define void @slasq6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %35 = sext i32 %30 to i64
   br label %.lr.ph292
 
-.lr.ph292:                                        ; preds = %.lr.ph292.preheader, %68
-  %indvars.iv298 = phi i64 [ %34, %.lr.ph292.preheader ], [ %indvars.iv.next299, %68 ]
-  %.0291 = phi float [ %23, %.lr.ph292.preheader ], [ %71, %68 ]
-  %.0259289 = phi float [ %25, %.lr.ph292.preheader ], [ %.1260, %68 ]
+.lr.ph292:                                        ; preds = %.lr.ph292.preheader, %66
+  %indvars.iv298 = phi i64 [ %34, %.lr.ph292.preheader ], [ %indvars.iv.next299, %66 ]
+  %.0291 = phi float [ %23, %.lr.ph292.preheader ], [ %69, %66 ]
+  %.0259289 = phi float [ %25, %.lr.ph292.preheader ], [ %.1260, %66 ]
   %36 = getelementptr float, ptr %11, i64 %indvars.iv298
   %37 = getelementptr i8, ptr %36, i64 -4
   %38 = load float, ptr %37, align 4
@@ -53,307 +53,305 @@ define void @slasq6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store float %39, ptr %40, align 4
   %41 = tail call noundef float @llvm.fabs.f32(float %39)
   %42 = fcmp olt float %41, 0x3810000000000000
-  br i1 %42, label %43, label %47
+  br i1 %42, label %43, label %46
 
 43:                                               ; preds = %.lr.ph292
   store float 0.000000e+00, ptr %36, align 4
-  %44 = or disjoint i64 %indvars.iv298, 1
-  %45 = getelementptr inbounds float, ptr %11, i64 %44
-  %46 = load float, ptr %45, align 4
-  store float %46, ptr %4, align 4
-  br label %64
+  %44 = getelementptr float, ptr %2, i64 %indvars.iv298
+  %45 = load float, ptr %44, align 4
+  store float %45, ptr %4, align 4
+  br label %62
 
-47:                                               ; preds = %.lr.ph292
-  %48 = or disjoint i64 %indvars.iv298, 1
-  %49 = getelementptr inbounds float, ptr %11, i64 %48
-  %50 = load float, ptr %49, align 4
-  %51 = fmul float %50, 0x3810000020000000
-  %52 = fcmp olt float %51, %39
-  %53 = fmul float %39, 0x3810000020000000
-  %54 = fcmp olt float %53, %50
-  %or.cond = and i1 %54, %52
-  br i1 %or.cond, label %55, label %59
+46:                                               ; preds = %.lr.ph292
+  %47 = getelementptr float, ptr %2, i64 %indvars.iv298
+  %48 = load float, ptr %47, align 4
+  %49 = fmul float %48, 0x3810000020000000
+  %50 = fcmp olt float %49, %39
+  %51 = fmul float %39, 0x3810000020000000
+  %52 = fcmp olt float %51, %48
+  %or.cond = and i1 %52, %50
+  br i1 %or.cond, label %53, label %57
 
-55:                                               ; preds = %47
-  %56 = fdiv float %50, %39
-  %57 = fmul float %38, %56
-  store float %57, ptr %36, align 4
-  %58 = fmul float %.0259289, %56
-  br label %64
+53:                                               ; preds = %46
+  %54 = fdiv float %48, %39
+  %55 = fmul float %38, %54
+  store float %55, ptr %36, align 4
+  %56 = fmul float %.0259289, %54
+  br label %62
 
-59:                                               ; preds = %47
-  %60 = fdiv float %38, %39
-  %61 = fmul float %60, %50
-  store float %61, ptr %36, align 4
-  %62 = fdiv float %.0259289, %39
-  %63 = fmul float %62, %50
-  br label %64
+57:                                               ; preds = %46
+  %58 = fdiv float %38, %39
+  %59 = fmul float %58, %48
+  store float %59, ptr %36, align 4
+  %60 = fdiv float %.0259289, %39
+  %61 = fmul float %60, %48
+  br label %62
 
-64:                                               ; preds = %55, %59, %43
-  %.1260 = phi float [ %46, %43 ], [ %58, %55 ], [ %63, %59 ]
-  %.1 = phi float [ 0.000000e+00, %43 ], [ %.0291, %55 ], [ %.0291, %59 ]
-  %65 = load float, ptr %4, align 4
-  %66 = fcmp olt float %.1260, %65
-  br i1 %66, label %67, label %68
+62:                                               ; preds = %53, %57, %43
+  %.1260 = phi float [ %45, %43 ], [ %56, %53 ], [ %61, %57 ]
+  %.1 = phi float [ 0.000000e+00, %43 ], [ %.0291, %53 ], [ %.0291, %57 ]
+  %63 = load float, ptr %4, align 4
+  %64 = fcmp olt float %.1260, %63
+  br i1 %64, label %65, label %66
 
-67:                                               ; preds = %64
+65:                                               ; preds = %62
   store float %.1260, ptr %4, align 4
-  br label %68
+  br label %66
 
-68:                                               ; preds = %67, %64
-  %69 = load float, ptr %36, align 4
-  %70 = fcmp olt float %.1, %69
-  %71 = select i1 %70, float %.1, float %69
+66:                                               ; preds = %65, %62
+  %67 = load float, ptr %36, align 4
+  %68 = fcmp olt float %.1, %67
+  %69 = select i1 %68, float %.1, float %67
   %indvars.iv.next299 = add nsw i64 %indvars.iv298, 4
   %.not274 = icmp sgt i64 %indvars.iv.next299, %35
   br i1 %.not274, label %.loopexit, label %.lr.ph292, !llvm.loop !4
 
-72:                                               ; preds = %16
+70:                                               ; preds = %16
   br i1 %.not274288, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %72
-  %73 = sext i32 %32 to i64
-  %74 = sext i32 %30 to i64
+.lr.ph.preheader:                                 ; preds = %70
+  %71 = sext i32 %32 to i64
+  %72 = sext i32 %30 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %108
-  %indvars.iv = phi i64 [ %73, %.lr.ph.preheader ], [ %indvars.iv.next, %108 ]
-  %.2286 = phi float [ %23, %.lr.ph.preheader ], [ %112, %108 ]
-  %.2261284 = phi float [ %25, %.lr.ph.preheader ], [ %.3262, %108 ]
-  %75 = getelementptr inbounds float, ptr %11, i64 %indvars.iv
-  %76 = load float, ptr %75, align 4
-  %77 = fadd float %.2261284, %76
-  %78 = getelementptr i8, ptr %75, i64 -12
-  store float %77, ptr %78, align 4
-  %79 = tail call noundef float @llvm.fabs.f32(float %77)
-  %80 = fcmp olt float %79, 0x3810000000000000
-  br i1 %80, label %81, label %86
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %106
+  %indvars.iv = phi i64 [ %71, %.lr.ph.preheader ], [ %indvars.iv.next, %106 ]
+  %.2286 = phi float [ %23, %.lr.ph.preheader ], [ %110, %106 ]
+  %.2261284 = phi float [ %25, %.lr.ph.preheader ], [ %.3262, %106 ]
+  %73 = getelementptr inbounds float, ptr %11, i64 %indvars.iv
+  %74 = load float, ptr %73, align 4
+  %75 = fadd float %.2261284, %74
+  %76 = getelementptr i8, ptr %73, i64 -12
+  store float %75, ptr %76, align 4
+  %77 = tail call noundef float @llvm.fabs.f32(float %75)
+  %78 = fcmp olt float %77, 0x3810000000000000
+  br i1 %78, label %79, label %84
 
-81:                                               ; preds = %.lr.ph
-  %82 = getelementptr i8, ptr %75, i64 -4
-  store float 0.000000e+00, ptr %82, align 4
-  %83 = or disjoint i64 %indvars.iv, 2
-  %84 = getelementptr inbounds float, ptr %11, i64 %83
-  %85 = load float, ptr %84, align 4
-  store float %85, ptr %4, align 4
-  br label %104
+79:                                               ; preds = %.lr.ph
+  %80 = getelementptr i8, ptr %73, i64 -4
+  store float 0.000000e+00, ptr %80, align 4
+  %81 = or disjoint i64 %indvars.iv, 2
+  %82 = getelementptr inbounds float, ptr %11, i64 %81
+  %83 = load float, ptr %82, align 4
+  store float %83, ptr %4, align 4
+  br label %102
 
-86:                                               ; preds = %.lr.ph
-  %87 = or disjoint i64 %indvars.iv, 2
-  %88 = getelementptr inbounds float, ptr %11, i64 %87
-  %89 = load float, ptr %88, align 4
-  %90 = fmul float %89, 0x3810000020000000
-  %91 = fcmp olt float %90, %77
-  %92 = fmul float %77, 0x3810000020000000
-  %93 = fcmp olt float %92, %89
-  %or.cond277 = and i1 %93, %91
-  %94 = getelementptr i8, ptr %75, i64 -4
-  br i1 %or.cond277, label %95, label %99
+84:                                               ; preds = %.lr.ph
+  %85 = or disjoint i64 %indvars.iv, 2
+  %86 = getelementptr inbounds float, ptr %11, i64 %85
+  %87 = load float, ptr %86, align 4
+  %88 = fmul float %87, 0x3810000020000000
+  %89 = fcmp olt float %88, %75
+  %90 = fmul float %75, 0x3810000020000000
+  %91 = fcmp olt float %90, %87
+  %or.cond277 = and i1 %91, %89
+  %92 = getelementptr i8, ptr %73, i64 -4
+  br i1 %or.cond277, label %93, label %97
 
-95:                                               ; preds = %86
-  %96 = fdiv float %89, %77
-  %97 = fmul float %76, %96
-  store float %97, ptr %94, align 4
-  %98 = fmul float %.2261284, %96
-  br label %104
+93:                                               ; preds = %84
+  %94 = fdiv float %87, %75
+  %95 = fmul float %74, %94
+  store float %95, ptr %92, align 4
+  %96 = fmul float %.2261284, %94
+  br label %102
 
-99:                                               ; preds = %86
-  %100 = fdiv float %76, %77
-  %101 = fmul float %100, %89
-  store float %101, ptr %94, align 4
-  %102 = fdiv float %.2261284, %77
-  %103 = fmul float %102, %89
-  br label %104
+97:                                               ; preds = %84
+  %98 = fdiv float %74, %75
+  %99 = fmul float %98, %87
+  store float %99, ptr %92, align 4
+  %100 = fdiv float %.2261284, %75
+  %101 = fmul float %100, %87
+  br label %102
 
-104:                                              ; preds = %95, %99, %81
-  %.3262 = phi float [ %85, %81 ], [ %98, %95 ], [ %103, %99 ]
-  %.3 = phi float [ 0.000000e+00, %81 ], [ %.2286, %95 ], [ %.2286, %99 ]
-  %105 = load float, ptr %4, align 4
-  %106 = fcmp olt float %.3262, %105
-  br i1 %106, label %107, label %108
+102:                                              ; preds = %93, %97, %79
+  %.3262 = phi float [ %83, %79 ], [ %96, %93 ], [ %101, %97 ]
+  %.3 = phi float [ 0.000000e+00, %79 ], [ %.2286, %93 ], [ %.2286, %97 ]
+  %103 = load float, ptr %4, align 4
+  %104 = fcmp olt float %.3262, %103
+  br i1 %104, label %105, label %106
 
-107:                                              ; preds = %104
+105:                                              ; preds = %102
   store float %.3262, ptr %4, align 4
-  br label %108
+  br label %106
 
-108:                                              ; preds = %107, %104
-  %109 = getelementptr i8, ptr %75, i64 -4
-  %110 = load float, ptr %109, align 4
-  %111 = fcmp olt float %.3, %110
-  %112 = select i1 %111, float %.3, float %110
+106:                                              ; preds = %105, %102
+  %107 = getelementptr i8, ptr %73, i64 -4
+  %108 = load float, ptr %107, align 4
+  %109 = fcmp olt float %.3, %108
+  %110 = select i1 %109, float %.3, float %108
   %indvars.iv.next = add nsw i64 %indvars.iv, 4
-  %.not = icmp sgt i64 %indvars.iv.next, %74
+  %.not = icmp sgt i64 %indvars.iv.next, %72
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
-.loopexit:                                        ; preds = %108, %68, %72, %33
-  %.4263 = phi float [ %25, %33 ], [ %25, %72 ], [ %.1260, %68 ], [ %.3262, %108 ]
-  %.4 = phi float [ %23, %33 ], [ %23, %72 ], [ %71, %68 ], [ %112, %108 ]
+.loopexit:                                        ; preds = %106, %66, %70, %33
+  %.4263 = phi float [ %25, %33 ], [ %25, %70 ], [ %.1260, %66 ], [ %.3262, %106 ]
+  %.4 = phi float [ %23, %33 ], [ %23, %70 ], [ %69, %66 ], [ %110, %106 ]
   store float %.4263, ptr %9, align 4
-  %113 = load float, ptr %4, align 4
-  store float %113, ptr %6, align 4
-  %114 = load i32, ptr %1, align 4
-  %115 = shl i32 %114, 2
-  %116 = add i32 %115, -8
-  %117 = load i32, ptr %3, align 4
-  %118 = sub i32 %116, %117
-  %119 = shl i32 %117, 1
-  %120 = add nsw i32 %118, %119
-  %121 = load float, ptr %9, align 4
-  %122 = sext i32 %120 to i64
-  %123 = getelementptr float, ptr %11, i64 %122
-  %124 = getelementptr i8, ptr %123, i64 -4
-  %125 = load float, ptr %124, align 4
-  %126 = fadd float %121, %125
-  %127 = sext i32 %118 to i64
-  %128 = getelementptr float, ptr %11, i64 %127
-  %129 = getelementptr i8, ptr %128, i64 -8
-  store float %126, ptr %129, align 4
-  %130 = tail call noundef float @llvm.fabs.f32(float %126)
-  %131 = fcmp olt float %130, 0x3810000000000000
-  br i1 %131, label %132, label %135
+  %111 = load float, ptr %4, align 4
+  store float %111, ptr %6, align 4
+  %112 = load i32, ptr %1, align 4
+  %113 = shl i32 %112, 2
+  %114 = add i32 %113, -8
+  %115 = load i32, ptr %3, align 4
+  %116 = sub i32 %114, %115
+  %117 = shl i32 %115, 1
+  %118 = add nsw i32 %116, %117
+  %119 = load float, ptr %9, align 4
+  %120 = sext i32 %118 to i64
+  %121 = getelementptr float, ptr %11, i64 %120
+  %122 = getelementptr i8, ptr %121, i64 -4
+  %123 = load float, ptr %122, align 4
+  %124 = fadd float %119, %123
+  %125 = sext i32 %116 to i64
+  %126 = getelementptr float, ptr %11, i64 %125
+  %127 = getelementptr i8, ptr %126, i64 -8
+  store float %124, ptr %127, align 4
+  %128 = tail call noundef float @llvm.fabs.f32(float %124)
+  %129 = fcmp olt float %128, 0x3810000000000000
+  br i1 %129, label %130, label %133
 
-132:                                              ; preds = %.loopexit
-  store float 0.000000e+00, ptr %128, align 4
-  %133 = getelementptr i8, ptr %123, i64 4
-  %134 = load float, ptr %133, align 4
-  store float %134, ptr %8, align 4
-  store float %134, ptr %4, align 4
+130:                                              ; preds = %.loopexit
+  store float 0.000000e+00, ptr %126, align 4
+  %131 = getelementptr i8, ptr %121, i64 4
+  %132 = load float, ptr %131, align 4
+  store float %132, ptr %8, align 4
+  store float %132, ptr %4, align 4
   %.pre = load float, ptr %8, align 4
-  br label %156
+  br label %154
 
-135:                                              ; preds = %.loopexit
-  %136 = getelementptr i8, ptr %123, i64 4
-  %137 = load float, ptr %136, align 4
-  %138 = fmul float %137, 0x3810000020000000
-  %139 = fcmp olt float %138, %126
-  %140 = fmul float %126, 0x3810000020000000
-  %141 = fcmp olt float %140, %137
-  %or.cond279 = and i1 %141, %139
-  br i1 %or.cond279, label %142, label %148
+133:                                              ; preds = %.loopexit
+  %134 = getelementptr i8, ptr %121, i64 4
+  %135 = load float, ptr %134, align 4
+  %136 = fmul float %135, 0x3810000020000000
+  %137 = fcmp olt float %136, %124
+  %138 = fmul float %124, 0x3810000020000000
+  %139 = fcmp olt float %138, %135
+  %or.cond279 = and i1 %139, %137
+  br i1 %or.cond279, label %140, label %146
 
-142:                                              ; preds = %135
-  %143 = fdiv float %137, %126
-  %144 = load float, ptr %124, align 4
-  %145 = fmul float %143, %144
-  store float %145, ptr %128, align 4
-  %146 = load float, ptr %9, align 4
-  %147 = fmul float %143, %146
-  store float %147, ptr %8, align 4
-  br label %156
+140:                                              ; preds = %133
+  %141 = fdiv float %135, %124
+  %142 = load float, ptr %122, align 4
+  %143 = fmul float %141, %142
+  store float %143, ptr %126, align 4
+  %144 = load float, ptr %9, align 4
+  %145 = fmul float %141, %144
+  store float %145, ptr %8, align 4
+  br label %154
 
-148:                                              ; preds = %135
-  %149 = load float, ptr %124, align 4
-  %150 = fdiv float %149, %126
-  %151 = fmul float %137, %150
-  store float %151, ptr %128, align 4
-  %152 = load float, ptr %136, align 4
-  %153 = load float, ptr %9, align 4
-  %154 = fdiv float %153, %126
-  %155 = fmul float %152, %154
-  store float %155, ptr %8, align 4
-  br label %156
+146:                                              ; preds = %133
+  %147 = load float, ptr %122, align 4
+  %148 = fdiv float %147, %124
+  %149 = fmul float %135, %148
+  store float %149, ptr %126, align 4
+  %150 = load float, ptr %134, align 4
+  %151 = load float, ptr %9, align 4
+  %152 = fdiv float %151, %124
+  %153 = fmul float %150, %152
+  store float %153, ptr %8, align 4
+  br label %154
 
-156:                                              ; preds = %142, %148, %132
-  %157 = phi float [ %.pre, %132 ], [ %147, %142 ], [ %155, %148 ]
-  %.5 = phi float [ 0.000000e+00, %132 ], [ %.4, %142 ], [ %.4, %148 ]
-  %158 = load float, ptr %4, align 4
-  %159 = fcmp olt float %157, %158
-  br i1 %159, label %160, label %161
+154:                                              ; preds = %140, %146, %130
+  %155 = phi float [ %.pre, %130 ], [ %145, %140 ], [ %153, %146 ]
+  %.5 = phi float [ 0.000000e+00, %130 ], [ %.4, %140 ], [ %.4, %146 ]
+  %156 = load float, ptr %4, align 4
+  %157 = fcmp olt float %155, %156
+  br i1 %157, label %158, label %159
 
-160:                                              ; preds = %156
-  store float %157, ptr %4, align 4
-  br label %161
+158:                                              ; preds = %154
+  store float %155, ptr %4, align 4
+  br label %159
 
-161:                                              ; preds = %160, %156
-  %162 = phi float [ %157, %160 ], [ %158, %156 ]
-  store float %162, ptr %5, align 4
-  %163 = add nsw i32 %118, 4
-  %164 = load i32, ptr %3, align 4
-  %165 = shl i32 %164, 1
-  %166 = add nsw i32 %165, %163
-  %167 = load float, ptr %8, align 4
-  %168 = sext i32 %166 to i64
-  %169 = getelementptr float, ptr %11, i64 %168
-  %170 = getelementptr i8, ptr %169, i64 -4
-  %171 = load float, ptr %170, align 4
-  %172 = fadd float %167, %171
-  %173 = getelementptr i8, ptr %128, i64 8
-  store float %172, ptr %173, align 4
-  %174 = tail call noundef float @llvm.fabs.f32(float %172)
-  %175 = fcmp olt float %174, 0x3810000000000000
-  br i1 %175, label %176, label %181
+159:                                              ; preds = %158, %154
+  %160 = phi float [ %155, %158 ], [ %156, %154 ]
+  store float %160, ptr %5, align 4
+  %161 = add nsw i32 %116, 4
+  %162 = load i32, ptr %3, align 4
+  %163 = shl i32 %162, 1
+  %164 = add nsw i32 %163, %161
+  %165 = load float, ptr %8, align 4
+  %166 = sext i32 %164 to i64
+  %167 = getelementptr float, ptr %11, i64 %166
+  %168 = getelementptr i8, ptr %167, i64 -4
+  %169 = load float, ptr %168, align 4
+  %170 = fadd float %165, %169
+  %171 = getelementptr i8, ptr %126, i64 8
+  store float %170, ptr %171, align 4
+  %172 = tail call noundef float @llvm.fabs.f32(float %170)
+  %173 = fcmp olt float %172, 0x3810000000000000
+  br i1 %173, label %174, label %179
 
-176:                                              ; preds = %161
-  %177 = sext i32 %163 to i64
-  %178 = getelementptr inbounds float, ptr %11, i64 %177
-  store float 0.000000e+00, ptr %178, align 4
-  %179 = getelementptr i8, ptr %169, i64 4
-  %180 = load float, ptr %179, align 4
-  store float %180, ptr %7, align 4
-  store float %180, ptr %4, align 4
+174:                                              ; preds = %159
+  %175 = sext i32 %161 to i64
+  %176 = getelementptr inbounds float, ptr %11, i64 %175
+  store float 0.000000e+00, ptr %176, align 4
+  %177 = getelementptr i8, ptr %167, i64 4
+  %178 = load float, ptr %177, align 4
+  store float %178, ptr %7, align 4
+  store float %178, ptr %4, align 4
   %.pre301 = load float, ptr %7, align 4
-  br label %204
+  br label %202
 
-181:                                              ; preds = %161
-  %182 = getelementptr i8, ptr %169, i64 4
-  %183 = load float, ptr %182, align 4
-  %184 = fmul float %183, 0x3810000020000000
-  %185 = fcmp olt float %184, %172
-  %186 = fmul float %172, 0x3810000020000000
-  %187 = fcmp olt float %186, %183
-  %or.cond281 = and i1 %187, %185
-  %188 = sext i32 %163 to i64
-  %189 = getelementptr inbounds float, ptr %11, i64 %188
-  br i1 %or.cond281, label %190, label %196
+179:                                              ; preds = %159
+  %180 = getelementptr i8, ptr %167, i64 4
+  %181 = load float, ptr %180, align 4
+  %182 = fmul float %181, 0x3810000020000000
+  %183 = fcmp olt float %182, %170
+  %184 = fmul float %170, 0x3810000020000000
+  %185 = fcmp olt float %184, %181
+  %or.cond281 = and i1 %185, %183
+  %186 = sext i32 %161 to i64
+  %187 = getelementptr inbounds float, ptr %11, i64 %186
+  br i1 %or.cond281, label %188, label %194
 
-190:                                              ; preds = %181
-  %191 = fdiv float %183, %172
-  %192 = load float, ptr %170, align 4
-  %193 = fmul float %191, %192
-  store float %193, ptr %189, align 4
-  %194 = load float, ptr %8, align 4
-  %195 = fmul float %191, %194
-  store float %195, ptr %7, align 4
-  br label %204
+188:                                              ; preds = %179
+  %189 = fdiv float %181, %170
+  %190 = load float, ptr %168, align 4
+  %191 = fmul float %189, %190
+  store float %191, ptr %187, align 4
+  %192 = load float, ptr %8, align 4
+  %193 = fmul float %189, %192
+  store float %193, ptr %7, align 4
+  br label %202
 
-196:                                              ; preds = %181
-  %197 = load float, ptr %170, align 4
-  %198 = fdiv float %197, %172
-  %199 = fmul float %183, %198
-  store float %199, ptr %189, align 4
-  %200 = load float, ptr %182, align 4
-  %201 = load float, ptr %8, align 4
-  %202 = fdiv float %201, %172
-  %203 = fmul float %200, %202
-  store float %203, ptr %7, align 4
-  br label %204
+194:                                              ; preds = %179
+  %195 = load float, ptr %168, align 4
+  %196 = fdiv float %195, %170
+  %197 = fmul float %181, %196
+  store float %197, ptr %187, align 4
+  %198 = load float, ptr %180, align 4
+  %199 = load float, ptr %8, align 4
+  %200 = fdiv float %199, %170
+  %201 = fmul float %198, %200
+  store float %201, ptr %7, align 4
+  br label %202
 
-204:                                              ; preds = %190, %196, %176
-  %205 = phi float [ %.pre301, %176 ], [ %195, %190 ], [ %203, %196 ]
-  %.6 = phi float [ 0.000000e+00, %176 ], [ %.5, %190 ], [ %.5, %196 ]
-  %206 = load float, ptr %4, align 4
-  %207 = fcmp olt float %205, %206
-  br i1 %207, label %208, label %209
+202:                                              ; preds = %188, %194, %174
+  %203 = phi float [ %.pre301, %174 ], [ %193, %188 ], [ %201, %194 ]
+  %.6 = phi float [ 0.000000e+00, %174 ], [ %.5, %188 ], [ %.5, %194 ]
+  %204 = load float, ptr %4, align 4
+  %205 = fcmp olt float %203, %204
+  br i1 %205, label %206, label %207
 
-208:                                              ; preds = %204
-  store float %205, ptr %4, align 4
+206:                                              ; preds = %202
+  store float %203, ptr %4, align 4
   %.pre302 = load float, ptr %7, align 4
-  br label %209
+  br label %207
 
-209:                                              ; preds = %208, %204
-  %210 = phi float [ %.pre302, %208 ], [ %205, %204 ]
-  %211 = getelementptr i8, ptr %128, i64 24
-  store float %210, ptr %211, align 4
-  %212 = load i32, ptr %1, align 4
-  %213 = shl i32 %212, 2
-  %214 = load i32, ptr %3, align 4
-  %215 = sub nsw i32 %213, %214
-  %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds float, ptr %11, i64 %216
-  store float %.6, ptr %217, align 4
-  br label %218
+207:                                              ; preds = %206, %202
+  %208 = phi float [ %.pre302, %206 ], [ %203, %202 ]
+  %209 = getelementptr i8, ptr %126, i64 24
+  store float %208, ptr %209, align 4
+  %210 = load i32, ptr %1, align 4
+  %211 = shl i32 %210, 2
+  %212 = load i32, ptr %3, align 4
+  %213 = sub nsw i32 %211, %212
+  %214 = sext i32 %213 to i64
+  %215 = getelementptr inbounds float, ptr %11, i64 %214
+  store float %.6, ptr %215, align 4
+  br label %216
 
-218:                                              ; preds = %10, %209
+216:                                              ; preds = %10, %207
   ret void
 }
 

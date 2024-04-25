@@ -65567,23 +65567,26 @@ _ZN6hir_ty5infer16InferenceContext6err_ty17hf3183a5204e0ca17E.exit48: ; preds = 
           to label %.noexc55 unwind label %92
 
 .noexc55:                                         ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %97, i64 16
-  %101 = extractvalue { i64, ptr } %99, 0
-  %102 = extractvalue { i64, ptr } %99, 1
-  store i64 %101, ptr %14, align 8, !noalias !15459
-  %103 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr %102, ptr %103, align 8, !noalias !15459
-  %104 = getelementptr inbounds i8, ptr %14, i64 16
-  %105 = getelementptr inbounds ptr, ptr %100, i64 %98
-  %106 = icmp eq i64 %101, 0
-  br i1 %106, label %.loopexit, label %.lr.ph.i
+  %100 = extractvalue { i64, ptr } %99, 0
+  %101 = extractvalue { i64, ptr } %99, 1
+  store i64 %100, ptr %14, align 8, !noalias !15459
+  %102 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %101, ptr %102, align 8, !noalias !15459
+  %103 = getelementptr inbounds i8, ptr %14, i64 16
+  %104 = getelementptr ptr, ptr %97, i64 %88
+  %105 = icmp eq i64 %100, 0
+  br i1 %105, label %.loopexit, label %.lr.ph.i.preheader
 
-.lr.ph.i:                                         ; preds = %.noexc55, %"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h14b855e8f6095170E.exit.i"
-  %.sroa.10.028.i = phi i64 [ %107, %"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h14b855e8f6095170E.exit.i" ], [ %101, %.noexc55 ]
-  %.sroa.013.027.i = phi ptr [ %114, %"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h14b855e8f6095170E.exit.i" ], [ %100, %.noexc55 ]
-  %.sroa.7.026.i = phi i64 [ %113, %"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h14b855e8f6095170E.exit.i" ], [ 0, %.noexc55 ]
+.lr.ph.i.preheader:                               ; preds = %.noexc55
+  %106 = getelementptr inbounds i8, ptr %97, i64 16
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h14b855e8f6095170E.exit.i"
+  %.sroa.10.028.i = phi i64 [ %107, %"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h14b855e8f6095170E.exit.i" ], [ %100, %.lr.ph.i.preheader ]
+  %.sroa.013.027.i = phi ptr [ %114, %"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h14b855e8f6095170E.exit.i" ], [ %106, %.lr.ph.i.preheader ]
+  %.sroa.7.026.i = phi i64 [ %113, %"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h14b855e8f6095170E.exit.i" ], [ 0, %.lr.ph.i.preheader ]
   %107 = add i64 %.sroa.10.028.i, -1
-  %108 = icmp eq ptr %.sroa.013.027.i, %105
+  %108 = icmp eq ptr %.sroa.013.027.i, %104
   br i1 %108, label %.loopexit.loopexit, label %109
 
 109:                                              ; preds = %.lr.ph.i
@@ -65602,7 +65605,7 @@ _ZN6hir_ty5infer16InferenceContext6err_ty17hf3183a5204e0ca17E.exit48: ; preds = 
 "_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h14b855e8f6095170E.exit.i": ; preds = %109
   %113 = add nuw nsw i64 %.sroa.7.026.i, 1
   %114 = getelementptr inbounds i8, ptr %.sroa.013.027.i, i64 8
-  %115 = getelementptr inbounds [0 x ptr], ptr %102, i64 0, i64 %.sroa.7.026.i
+  %115 = getelementptr inbounds [0 x ptr], ptr %101, i64 0, i64 %.sroa.7.026.i
   store ptr %.sroa.6.0.val.i, ptr %115, align 8
   %116 = icmp eq i64 %107, 0
   br i1 %116, label %.loopexit.loopexit, label %.lr.ph.i
@@ -65616,7 +65619,7 @@ _ZN6hir_ty5infer16InferenceContext6err_ty17hf3183a5204e0ca17E.exit48: ; preds = 
 119:                                              ; preds = %112
   %120 = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.7.026.i, ptr %104, align 8, !noalias !15459
+  store i64 %.sroa.7.026.i, ptr %103, align 8, !noalias !15459
   invoke void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h235b2885e0299b31E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #55
           to label %.body unwind label %117, !noalias !15464
 
@@ -65630,7 +65633,7 @@ _ZN6hir_ty5infer16InferenceContext6err_ty17hf3183a5204e0ca17E.exit48: ; preds = 
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.noexc55
   %122 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %84, %.noexc55 ]
-  store i64 %98, ptr %104, align 8, !noalias !15459
+  store i64 %98, ptr %103, align 8, !noalias !15459
   %123 = getelementptr inbounds i8, ptr %21, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %123, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !15459

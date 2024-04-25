@@ -197,7 +197,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %88 = getelementptr inbounds double, ptr %17, i64 %indvars.iv464
   %89 = load double, ptr %88, align 8
   %indvars.iv.next465 = add nsw i64 %indvars.iv464, 1
-  %90 = getelementptr inbounds double, ptr %17, i64 %indvars.iv.next465
+  %90 = getelementptr double, ptr %1, i64 %indvars.iv464
   %91 = load double, ptr %90, align 8
   %92 = fmul double %89, %91
   %93 = call noundef double @llvm.fabs.f64(double %92)
@@ -480,7 +480,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %246 = shufflevector <2 x double> %245, <2 x double> poison, <2 x i32> zeroinitializer
   %247 = fdiv <2 x double> %244, %246
   %indvars.iv.next477 = add nsw i64 %indvars.iv476, 1
-  %248 = getelementptr inbounds double, ptr %17, i64 %indvars.iv.next477
+  %248 = getelementptr double, ptr %1, i64 %indvars.iv476
   %249 = load double, ptr %248, align 8
   %250 = fsub double %249, %227
   %251 = extractelement <2 x double> %247, i64 1

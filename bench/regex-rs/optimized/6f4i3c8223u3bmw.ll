@@ -7020,9 +7020,8 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA5state17he41afc9d81615eb8E.exit41: ; pre
   %161 = load ptr, ptr %160, align 8, !nonnull !5, !align !36
   %162 = load i32, ptr %161, align 4, !noundef !5
   %163 = getelementptr inbounds i8, ptr %161, i64 4
-  %164 = getelementptr i32, ptr %163, i64 %139
-  %165 = getelementptr i8, ptr %164, i64 -4
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hcc373fc48ddc9686E.llvm.3371294817895845771"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %163, ptr noundef %165)
+  %164 = getelementptr i32, ptr %161, i64 %139
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hcc373fc48ddc9686E.llvm.3371294817895845771"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %163, ptr noundef %164)
   br label %.backedge
 }
 

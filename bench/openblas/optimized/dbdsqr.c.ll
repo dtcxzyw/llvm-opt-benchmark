@@ -202,7 +202,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %118, ptr %116, align 8, !tbaa !7
   %119 = load double, ptr %32, align 8, !tbaa !7
   %120 = add nuw nsw i64 %115, 1
-  %121 = getelementptr inbounds double, ptr %33, i64 %120
+  %121 = getelementptr double, ptr %5, i64 %115
   %122 = load double, ptr %121, align 8, !tbaa !7
   %123 = fmul double %119, %122
   store double %123, ptr %117, align 8, !tbaa !7
@@ -735,7 +735,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 460:                                              ; preds = %445
   %461 = add nsw i64 %446, 1
-  %462 = getelementptr inbounds double, ptr %33, i64 %461
+  %462 = getelementptr double, ptr %5, i64 %446
   %463 = load double, ptr %462, align 8, !tbaa !7
   store double %463, ptr %18, align 8, !tbaa !7
   %464 = fcmp oge double %463, 0.000000e+00
@@ -976,7 +976,7 @@ thread-pre-split56:                               ; preds = %570, %577
   %607 = fmul double %606, %.pre284
   store double %607, ptr %17, align 8, !tbaa !7
   %608 = add nsw i64 %595, 1
-  %609 = getelementptr inbounds double, ptr %33, i64 %608
+  %609 = getelementptr double, ptr %5, i64 %595
   %610 = load double, ptr %609, align 8, !tbaa !7
   %611 = load double, ptr %32, align 8, !tbaa !7
   %612 = fmul double %610, %611
@@ -985,7 +985,7 @@ thread-pre-split56:                               ; preds = %570, %577
   %613 = load double, ptr %31, align 8, !tbaa !7
   %614 = sub nsw i64 %595, %592
   %615 = add nuw nsw i64 %614, 1
-  %616 = getelementptr inbounds double, ptr %47, i64 %615
+  %616 = getelementptr double, ptr %13, i64 %614
   store double %613, ptr %616, align 8, !tbaa !7
   %617 = load double, ptr %32, align 8, !tbaa !7
   %618 = trunc i64 %614 to i32
@@ -1264,7 +1264,7 @@ thread-pre-split56:                               ; preds = %570, %577
   %788 = call double @llvm.fmuladd.f64(double %778, double %783, double %787)
   store double %788, ptr %782, align 8, !tbaa !7
   %789 = add nsw i64 %772, 1
-  %790 = getelementptr inbounds double, ptr %33, i64 %789
+  %790 = getelementptr double, ptr %5, i64 %772
   %791 = load double, ptr %790, align 8, !tbaa !7
   %792 = fmul double %781, %791
   store double %792, ptr %24, align 8, !tbaa !7
@@ -1288,7 +1288,7 @@ thread-pre-split56:                               ; preds = %570, %577
   br i1 %804, label %805, label %810
 
 805:                                              ; preds = %777
-  %806 = getelementptr inbounds double, ptr %34, i64 %789
+  %806 = getelementptr double, ptr %6, i64 %772
   %807 = load double, ptr %806, align 8, !tbaa !7
   %808 = fmul double %797, %807
   store double %808, ptr %24, align 8, !tbaa !7
@@ -1300,7 +1300,7 @@ thread-pre-split56:                               ; preds = %570, %577
   %811 = load double, ptr %21, align 8, !tbaa !7
   %812 = sub nsw i64 %772, %757
   %813 = add nuw nsw i64 %812, 1
-  %814 = getelementptr inbounds double, ptr %47, i64 %813
+  %814 = getelementptr double, ptr %13, i64 %812
   store double %811, ptr %814, align 8, !tbaa !7
   %815 = load double, ptr %22, align 8, !tbaa !7
   %816 = trunc i64 %812 to i32

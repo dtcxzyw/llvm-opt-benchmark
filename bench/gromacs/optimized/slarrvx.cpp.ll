@@ -131,7 +131,7 @@ define void @slarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
 
 89:                                               ; preds = %87
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %90 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv.next
+  %90 = getelementptr i32, ptr %6, i64 %indvars.iv
   %91 = load i32, ptr %90, align 4
   %92 = zext i32 %91 to i64
   %93 = icmp eq i64 %indvars.iv707, %92
@@ -199,7 +199,7 @@ define void @slarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %gep726 = getelementptr float, ptr %invariant.gep725, i64 %indvars.iv649
   store float %122, ptr %gep726, align 4
   %indvars.iv.next650 = add nuw nsw i64 %indvars.iv649, 1
-  %123 = getelementptr inbounds float, ptr %50, i64 %indvars.iv.next650
+  %123 = getelementptr float, ptr %13, i64 %indvars.iv649
   %124 = load float, ptr %123, align 4
   %125 = load float, ptr %119, align 4
   %126 = fsub float %124, %125

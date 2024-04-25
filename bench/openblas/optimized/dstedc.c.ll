@@ -332,7 +332,7 @@ define void @dstedc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %190 = call double @sqrt(double noundef %189) #4
   %191 = fmul double %168, %190
   %192 = add nsw i64 %180, 1
-  %193 = getelementptr inbounds double, ptr %17, i64 %192
+  %193 = getelementptr double, ptr %2, i64 %180
   %194 = load double, ptr %193, align 8, !tbaa !9
   %195 = fcmp oge double %194, 0.000000e+00
   %196 = fneg double %194

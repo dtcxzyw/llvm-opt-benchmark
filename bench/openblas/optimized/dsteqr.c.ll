@@ -190,7 +190,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %103 = select i1 %101, double %100, double %102
   %104 = call double @sqrt(double noundef %103) #5
   %105 = add nsw i64 %87, 1
-  %106 = getelementptr inbounds double, ptr %21, i64 %105
+  %106 = getelementptr double, ptr %2, i64 %87
   %107 = load double, ptr %106, align 8, !tbaa !7
   %108 = fcmp oge double %107, 0.000000e+00
   %109 = fneg double %107
@@ -329,7 +329,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %196 = select i1 %194, double %193, double %195
   %197 = fmul double %57, %196
   %198 = add nsw i64 %183, 1
-  %199 = getelementptr inbounds double, ptr %21, i64 %198
+  %199 = getelementptr double, ptr %2, i64 %183
   %200 = load double, ptr %199, align 8, !tbaa !7
   %201 = fcmp oge double %200, 0.000000e+00
   %202 = fneg double %200
@@ -692,7 +692,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %425 = load double, ptr %424, align 8, !tbaa !7
   %426 = fsub double %425, %414
   %427 = add nsw i64 %413, 1
-  %428 = getelementptr inbounds double, ptr %21, i64 %427
+  %428 = getelementptr double, ptr %2, i64 %413
   %429 = load double, ptr %428, align 8, !tbaa !7
   %430 = fsub double %429, %426
   %431 = load double, ptr %14, align 8, !tbaa !7

@@ -157,7 +157,7 @@ define void @dbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %86, ptr %84, align 8
   %87 = load double, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %88 = getelementptr inbounds double, ptr %30, i64 %indvars.iv.next
+  %88 = getelementptr double, ptr %3, i64 %indvars.iv
   %89 = load double, ptr %88, align 8
   %90 = fmul double %87, %89
   store double %90, ptr %85, align 8

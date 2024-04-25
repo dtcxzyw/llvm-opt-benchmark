@@ -665,7 +665,7 @@ thread-pre-split:                                 ; preds = %21, %34
   %486 = fmul double %483, %485
   %487 = fneg double %486
   %488 = add nsw i64 %481, 1
-  %489 = getelementptr inbounds double, ptr %25, i64 %488
+  %489 = getelementptr double, ptr %10, i64 %481
   store double %487, ptr %489, align 8, !tbaa !7
   %490 = fcmp oge double %485, 0.000000e+00
   %491 = fneg double %485

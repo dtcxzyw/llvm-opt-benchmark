@@ -199,9 +199,9 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %121 = sext i32 %120 to i64
   %122 = getelementptr inbounds double, ptr %26, i64 %121
   %123 = load double, ptr %122, align 8, !tbaa !7
-  %124 = getelementptr inbounds double, ptr %27, i64 %118
+  %124 = getelementptr double, ptr %7, i64 %117
   store double %123, ptr %124, align 8, !tbaa !7
-  %125 = getelementptr inbounds double, ptr %28, i64 %118
+  %125 = getelementptr double, ptr %8, i64 %117
   store double 0.000000e+00, ptr %125, align 8, !tbaa !7
   %126 = icmp eq i64 %118, %115
   br i1 %126, label %.loopexit19, label %116, !llvm.loop !12

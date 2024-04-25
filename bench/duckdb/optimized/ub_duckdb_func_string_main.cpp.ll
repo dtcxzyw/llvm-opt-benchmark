@@ -39234,7 +39234,7 @@ if.then.i.i.i.i.i.i299:                           ; preds = %for.inc.i.i.i.i.i.i
 
 call5.i.i.i.i4.i.i.i.noexc306:                    ; preds = %if.then.i.i.i.i.i.i299
   store ptr %call5.i.i.i.i4.i.i.i307, ptr %groups, align 8, !tbaa !743
-  %add.ptr.i.i.i.i300 = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i.i.i307, i64 %sub.ptr.sub.i
+  %add.ptr.i.i.i.i300 = getelementptr i8, ptr %call5.i.i.i.i4.i.i.i307, i64 %sub.ptr.sub.i
   %_M_end_of_storage.i.i.i.i301 = getelementptr inbounds i8, ptr %groups, i64 16
   store ptr %add.ptr.i.i.i.i300, ptr %_M_end_of_storage.i.i.i.i301, align 8, !tbaa !745
   store ptr null, ptr %call5.i.i.i.i4.i.i.i307, align 8, !tbaa !21
@@ -39245,11 +39245,10 @@ call5.i.i.i.i4.i.i.i.noexc306:                    ; preds = %if.then.i.i.i.i.i.i
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %call5.i.i.i.i4.i.i.i.noexc306
   %21 = add nsw i64 %sub.ptr.sub.i, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i.i302, i8 0, i64 %21, i1 false), !tbaa !21
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %incdec.ptr.i.i.i.i.i.i302, i64 %6
   br label %for.inc.preheader.i.i.i.i.i.i
 
 for.inc.preheader.i.i.i.i.i.i:                    ; preds = %if.end.i.i.i.i.i.i.i.i, %call5.i.i.i.i4.i.i.i.noexc306
-  %__first.addr.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i302, %call5.i.i.i.i4.i.i.i.noexc306 ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i302, %call5.i.i.i.i4.i.i.i.noexc306 ], [ %add.ptr.i.i.i.i300, %if.end.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i9.i.i303 = getelementptr inbounds i8, ptr %groups, i64 8
   store ptr %__first.addr.0.i.i.i.i.i.i, ptr %_M_finish.i.i9.i.i303, align 8, !tbaa !746
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ws) #30

@@ -169,16 +169,16 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.0184 = phi double [ %48, %58 ], [ %., %60 ], [ %51, %62 ], [ %.218, %64 ]
   %67 = add nsw i32 %20, -1
   %68 = add nsw i32 %24, 1
-  br i1 %switch.masked, label %.preheader309, label %.preheader310
+  br i1 %switch.masked, label %.preheader307, label %.preheader308
 
-.preheader309:                                    ; preds = %66, %84
+.preheader307:                                    ; preds = %66, %84
   %.2190 = phi i32 [ %75, %84 ], [ %68, %66 ]
   %.2 = phi i32 [ %82, %84 ], [ %67, %66 ]
   %69 = sext i32 %.2190 to i64
   br label %70
 
-70:                                               ; preds = %70, %.preheader309
-  %indvars.iv275 = phi i64 [ %indvars.iv.next276, %70 ], [ %69, %.preheader309 ]
+70:                                               ; preds = %70, %.preheader307
+  %indvars.iv275 = phi i64 [ %indvars.iv.next276, %70 ], [ %69, %.preheader307 ]
   %indvars.iv.next276 = add nsw i64 %indvars.iv275, -1
   %71 = getelementptr inbounds double, ptr %6, i64 %indvars.iv.next276
   %72 = load double, ptr %71, align 8
@@ -194,7 +194,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 77:                                               ; preds = %.preheader225, %77
   %indvars.iv278 = phi i64 [ %76, %.preheader225 ], [ %indvars.iv.next279, %77 ]
   %indvars.iv.next279 = add nsw i64 %indvars.iv278, 1
-  %78 = getelementptr inbounds double, ptr %6, i64 %indvars.iv.next279
+  %78 = getelementptr double, ptr %2, i64 %indvars.iv278
   %79 = load double, ptr %78, align 8
   %80 = fcmp ogt double %79, %.0184
   br i1 %80, label %77, label %81
@@ -205,10 +205,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds double, ptr %6, i64 %indvars.iv.next279
+  %85 = getelementptr double, ptr %2, i64 %indvars.iv278
   store double %72, ptr %85, align 8
   store double %79, ptr %74, align 8
-  br label %.preheader309
+  br label %.preheader307
 
 86:                                               ; preds = %81
   %87 = trunc nsw i64 %indvars.iv275 to i32
@@ -237,14 +237,14 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i32 %75, ptr %98, align 4
   br label %.loopexit
 
-.preheader310:                                    ; preds = %66, %116
+.preheader308:                                    ; preds = %66, %116
   %.4192 = phi i32 [ %107, %116 ], [ %68, %66 ]
   %.4 = phi i32 [ %114, %116 ], [ %67, %66 ]
   %101 = sext i32 %.4192 to i64
   br label %102
 
-102:                                              ; preds = %102, %.preheader310
-  %indvars.iv = phi i64 [ %indvars.iv.next, %102 ], [ %101, %.preheader310 ]
+102:                                              ; preds = %102, %.preheader308
+  %indvars.iv = phi i64 [ %indvars.iv.next, %102 ], [ %101, %.preheader308 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %103 = getelementptr inbounds double, ptr %6, i64 %indvars.iv.next
   %104 = load double, ptr %103, align 8
@@ -260,7 +260,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 109:                                              ; preds = %.preheader226, %109
   %indvars.iv272 = phi i64 [ %108, %.preheader226 ], [ %indvars.iv.next273, %109 ]
   %indvars.iv.next273 = add nsw i64 %indvars.iv272, 1
-  %110 = getelementptr inbounds double, ptr %6, i64 %indvars.iv.next273
+  %110 = getelementptr double, ptr %2, i64 %indvars.iv272
   %111 = load double, ptr %110, align 8
   %112 = fcmp olt double %111, %.0184
   br i1 %112, label %109, label %113
@@ -271,10 +271,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %113
-  %117 = getelementptr inbounds double, ptr %6, i64 %indvars.iv.next273
+  %117 = getelementptr double, ptr %2, i64 %indvars.iv272
   store double %104, ptr %117, align 8
   store double %111, ptr %106, align 8
-  br label %.preheader310
+  br label %.preheader308
 
 118:                                              ; preds = %113
   %119 = trunc nsw i64 %indvars.iv to i32

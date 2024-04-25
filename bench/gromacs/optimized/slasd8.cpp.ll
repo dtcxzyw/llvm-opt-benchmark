@@ -74,8 +74,8 @@ define void @slasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %52 = sext i32 %26 to i64
   %invariant.gep = getelementptr float, ptr %25, i64 %51
   %invariant.gep256 = getelementptr float, ptr %25, i64 %52
-  %invariant.gep258 = getelementptr float, ptr %25, i64 %51
-  %invariant.gep260 = getelementptr float, ptr %25, i64 %52
+  %invariant.gep258 = getelementptr float, ptr %10, i64 %51
+  %invariant.gep260 = getelementptr float, ptr %10, i64 %52
   br label %53
 
 53:                                               ; preds = %.lr.ph208, %._crit_edge204
@@ -157,15 +157,15 @@ define void @slasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 98:                                               ; preds = %.lr.ph203, %98
   %indvars.iv233 = phi i64 [ %63, %.lr.ph203 ], [ %indvars.iv.next234, %98 ]
   %indvars.iv.next234 = add nsw i64 %indvars.iv233, 1
-  %gep259 = getelementptr float, ptr %invariant.gep258, i64 %indvars.iv.next234
+  %gep259 = getelementptr float, ptr %invariant.gep258, i64 %indvars.iv233
   %99 = load float, ptr %gep259, align 4
-  %100 = getelementptr inbounds float, ptr %25, i64 %indvars.iv.next234
+  %100 = getelementptr float, ptr %10, i64 %indvars.iv233
   %101 = load float, ptr %100, align 4
   %102 = fmul float %99, %101
-  %gep261 = getelementptr float, ptr %invariant.gep260, i64 %indvars.iv.next234
+  %gep261 = getelementptr float, ptr %invariant.gep260, i64 %indvars.iv233
   %103 = load float, ptr %gep261, align 4
   %104 = fmul float %102, %103
-  %105 = getelementptr inbounds float, ptr %24, i64 %indvars.iv.next234
+  %105 = getelementptr float, ptr %9, i64 %indvars.iv233
   %106 = load float, ptr %105, align 4
   %107 = load float, ptr %97, align 4
   %108 = fsub float %106, %107
@@ -297,16 +297,16 @@ define void @slasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .lr.ph223:                                        ; preds = %.lr.ph223.preheader, %.lr.ph223
   %indvars.iv248 = phi i64 [ %124, %.lr.ph223.preheader ], [ %indvars.iv.next249, %.lr.ph223 ]
   %indvars.iv.next249 = add nsw i64 %indvars.iv248, 1
-  %161 = getelementptr inbounds float, ptr %19, i64 %indvars.iv.next249
+  %161 = getelementptr float, ptr %3, i64 %indvars.iv248
   %162 = load float, ptr %161, align 4
-  %163 = getelementptr inbounds float, ptr %24, i64 %indvars.iv.next249
+  %163 = getelementptr float, ptr %9, i64 %indvars.iv248
   %164 = load float, ptr %163, align 4
   %165 = fadd float %.1, %164
   %166 = fsub float %165, %.1184
   %167 = fdiv float %162, %166
   %168 = fadd float %128, %164
   %169 = fdiv float %167, %168
-  %170 = getelementptr inbounds float, ptr %25, i64 %indvars.iv.next249
+  %170 = getelementptr float, ptr %10, i64 %indvars.iv248
   store float %169, ptr %170, align 4
   %exitcond252.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count251
   br i1 %exitcond252.not, label %._crit_edge224, label %.lr.ph223, !llvm.loop !10

@@ -127,13 +127,12 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_Z31grpc_channel_stack_last_elementP18grpc_channel_stack(ptr noundef readonly %channel_stack) local_unnamed_addr #5 {
+define noundef ptr @_Z31grpc_channel_stack_last_elementP18grpc_channel_stack(ptr noundef readonly %channel_stack) local_unnamed_addr #5 {
 entry:
   %count = getelementptr inbounds i8, ptr %channel_stack, i64 40
   %0 = load i64, ptr %count, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %channel_stack, i64 112
-  %1 = getelementptr %struct.grpc_channel_element, ptr %add.ptr.i, i64 %0
-  %add.ptr1.i = getelementptr i8, ptr %1, i64 -16
+  %1 = getelementptr i8, ptr %channel_stack, i64 96
+  %add.ptr1.i = getelementptr %struct.grpc_channel_element, ptr %1, i64 %0
   ret ptr %add.ptr1.i
 }
 
@@ -1046,9 +1045,8 @@ if.end.i:
   %agg.tmp = alloca %"struct.grpc_core::CallArgs", align 8
   %count = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %count, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 112
-  %1 = getelementptr %struct.grpc_channel_element, ptr %add.ptr.i, i64 %0
-  %add.ptr1.i = getelementptr i8, ptr %1, i64 -16
+  %1 = getelementptr inbounds i8, ptr %this, i64 96
+  %add.ptr1.i = getelementptr %struct.grpc_channel_element, ptr %1, i64 %0
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -1369,7 +1367,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i2.i.i.i
 _ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i.i.i: ; preds = %.noexc.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
   %16 = phi i16 [ %14, %if.end.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i ]
   %17 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !34
   store i16 0, ptr %waiter_.i.i.i.i.i.i, align 2
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %18, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 24
@@ -2117,7 +2115,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i2.i.i.i
 _ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i.i.i: ; preds = %.noexc.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
   %16 = phi i16 [ %14, %if.end.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i ]
   %17 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !noalias !50
   store i16 0, ptr %waiter_.i.i.i.i.i.i, align 2
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %18, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 24

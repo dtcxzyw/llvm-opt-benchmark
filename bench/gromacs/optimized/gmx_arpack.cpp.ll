@@ -759,7 +759,7 @@ define void @_Z7dsaupd_PiPKcS_S1_S_PdS2_S_S2_S_S_S_S2_S_S2_S_S_(ptr nocapture no
   %388 = call noundef double @llvm.fabs.f64(double %387)
   %389 = fmul double %388, 0x3970000000000000
   %indvars.iv.next616.i.i.i = add nsw i64 %indvars.iv615.i.i.i, 1
-  %390 = getelementptr inbounds double, ptr %198, i64 %indvars.iv.next616.i.i.i
+  %390 = getelementptr double, ptr %183, i64 %indvars.iv615.i.i.i
   %391 = load double, ptr %390, align 8
   %392 = call noundef double @llvm.fabs.f64(double %391)
   %393 = call double @llvm.fmuladd.f64(double %389, double %392, double 0x350000000000000)
@@ -1073,7 +1073,7 @@ define void @_Z7dsaupd_PiPKcS_S1_S_PdS2_S_S2_S_S_S_S2_S_S2_S_S_(ptr nocapture no
   %568 = load double, ptr %567, align 8
   %569 = fsub double %568, %.1440541.i.i.i
   %indvars.iv.next613.i.i.i = add nsw i64 %indvars.iv612.i.i.i, 1
-  %570 = getelementptr inbounds double, ptr %198, i64 %indvars.iv.next613.i.i.i
+  %570 = getelementptr double, ptr %183, i64 %indvars.iv612.i.i.i
   %571 = load double, ptr %570, align 8
   %572 = fsub double %571, %569
   %573 = load double, ptr %37, align 8
@@ -2625,7 +2625,7 @@ define void @_Z7dseupd_PiPKcS_PdS2_S_S2_S1_S_S1_S_S2_S2_S_S2_S_S_S_S2_S2_S_S_(pt
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %219 ]
   %.0517676 = phi i32 [ 0, %.lr.ph ], [ %.1518, %219 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %153 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv.next
+  %153 = getelementptr i32, ptr %2, i64 %indvars.iv
   store i32 0, ptr %153, align 4
   %154 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(3) @.str, i64 noundef 2) #10
   %.not604 = icmp eq i32 %154, 0
@@ -4487,7 +4487,7 @@ define void @_Z7ssaupd_PiPKcS_S1_S_PfS2_S_S2_S_S_S_S2_S_S2_S_S_(ptr nocapture no
   %388 = call noundef float @llvm.fabs.f32(float %387)
   %389 = fmul float %388, 0x3D10000000000000
   %indvars.iv.next615.i.i.i = add nsw i64 %indvars.iv614.i.i.i, 1
-  %390 = getelementptr inbounds float, ptr %198, i64 %indvars.iv.next615.i.i.i
+  %390 = getelementptr float, ptr %183, i64 %indvars.iv614.i.i.i
   %391 = load float, ptr %390, align 4
   %392 = call noundef float @llvm.fabs.f32(float %391)
   %393 = call float @llvm.fmuladd.f32(float %389, float %392, float 0x3980000000000000)
@@ -4811,7 +4811,7 @@ define void @_Z7ssaupd_PiPKcS_S1_S_PfS2_S_S2_S_S_S_S2_S_S2_S_S_(ptr nocapture no
   %578 = load float, ptr %577, align 4
   %579 = fsub float %578, %.1440540.i.i.i
   %indvars.iv.next612.i.i.i = add nsw i64 %indvars.iv611.i.i.i, 1
-  %580 = getelementptr inbounds float, ptr %198, i64 %indvars.iv.next612.i.i.i
+  %580 = getelementptr float, ptr %183, i64 %indvars.iv611.i.i.i
   %581 = load float, ptr %580, align 4
   %582 = fsub float %581, %579
   %583 = load float, ptr %37, align 4
@@ -6364,7 +6364,7 @@ define void @_Z7sseupd_PiPKcS_PfS2_S_S2_S1_S_S1_S_S2_S2_S_S2_S_S_S_S2_S2_S_S_(pt
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %219 ]
   %.0517674 = phi i32 [ 0, %.lr.ph ], [ %.1518, %219 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %153 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv.next
+  %153 = getelementptr i32, ptr %2, i64 %indvars.iv
   store i32 0, ptr %153, align 4
   %154 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(3) @.str, i64 noundef 2) #10
   %.not604 = icmp eq i32 %154, 0

@@ -2039,68 +2039,70 @@ define noundef i64 @rsock_inspect_sockaddr(ptr noundef %0, i32 noundef %1, i64 n
   %.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.0.add.i
   %80 = load i8, ptr %.ptr.i, align 1
   %81 = icmp eq i8 %80, 0
-  br i1 %81, label %.preheader, label %.lr.ph212.preheader, !llvm.loop !21
+  br i1 %81, label %.preheader, label %.thread224, !llvm.loop !21
 
 unixsocket_len.exit:                              ; preds = %.preheader
   %82 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.21, i64 noundef 27) #19
   br label %.loopexit
 
-.lr.ph212.preheader:                              ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %0, i64 %.0.idx.i
-  br label %.lr.ph212
+.thread224:                                       ; preds = %79
+  %83 = getelementptr i8, ptr %0, i64 %.0.idx.i
+  %84 = icmp ult ptr %11, %83
+  br i1 %84, label %.lr.ph212, label %._crit_edge.thread
 
-.lr.ph212:                                        ; preds = %.lr.ph212.preheader, %90
-  %.0211 = phi ptr [ %93, %90 ], [ %11, %.lr.ph212.preheader ]
-  %.0165210 = phi i32 [ %92, %90 ], [ 1, %.lr.ph212.preheader ]
+.lr.ph212:                                        ; preds = %.thread224, %91
+  %.0211 = phi ptr [ %94, %91 ], [ %11, %.thread224 ]
+  %.0165210 = phi i32 [ %93, %91 ], [ 1, %.thread224 ]
   %.not177 = icmp eq i32 %.0165210, 0
-  br i1 %.not177, label %90, label %84
+  br i1 %.not177, label %91, label %85
 
-84:                                               ; preds = %.lr.ph212
-  %85 = load i8, ptr %.0211, align 1
-  %86 = sext i8 %85 to i32
-  %87 = add nsw i32 %86, -32
-  %88 = icmp ult i32 %87, 95
-  %89 = icmp ne i8 %85, 32
-  %spec.select229 = select i1 %88, i1 %89, i1 false
-  br label %90
+85:                                               ; preds = %.lr.ph212
+  %86 = load i8, ptr %.0211, align 1
+  %87 = sext i8 %86 to i32
+  %88 = add nsw i32 %87, -32
+  %89 = icmp ult i32 %88, 95
+  %90 = icmp ne i8 %86, 32
+  %spec.select231 = select i1 %89, i1 %90, i1 false
+  br label %91
 
-90:                                               ; preds = %84, %.lr.ph212
-  %91 = phi i1 [ false, %.lr.ph212 ], [ %spec.select229, %84 ]
-  %92 = zext i1 %91 to i32
-  %93 = getelementptr inbounds i8, ptr %.0211, i64 1
-  %94 = icmp ult ptr %93, %83
-  br i1 %94, label %.lr.ph212, label %._crit_edge, !llvm.loop !27
+91:                                               ; preds = %85, %.lr.ph212
+  %92 = phi i1 [ false, %.lr.ph212 ], [ %spec.select231, %85 ]
+  %93 = zext i1 %92 to i32
+  %94 = getelementptr inbounds i8, ptr %.0211, i64 1
+  %95 = icmp ult ptr %94, %83
+  br i1 %95, label %.lr.ph212, label %._crit_edge, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %90
-  br i1 %91, label %95, label %.lr.ph216.preheader
+._crit_edge:                                      ; preds = %91
+  br i1 %92, label %._crit_edge.thread, label %103
 
-95:                                               ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %.thread224, %._crit_edge
+  %.0.lcssa229 = phi ptr [ %83, %._crit_edge ], [ %11, %.thread224 ]
   %96 = load i8, ptr %11, align 1
   %.not176 = icmp eq i8 %96, 47
   br i1 %.not176, label %99, label %97
 
-97:                                               ; preds = %95
+97:                                               ; preds = %._crit_edge.thread
   %98 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.22, i64 noundef 5) #19
   br label %99
 
-99:                                               ; preds = %97, %95
-  %100 = ptrtoint ptr %93 to i64
+99:                                               ; preds = %97, %._crit_edge.thread
+  %100 = ptrtoint ptr %.0.lcssa229 to i64
   %101 = sub i64 %100, %12
   %102 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull %11, i64 noundef %101) #19
   br label %.loopexit
 
-.lr.ph216.preheader:                              ; preds = %._crit_edge
-  %103 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.23, i64 noundef 4) #19
-  br label %.lr.ph216
+103:                                              ; preds = %._crit_edge
+  %104 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.23, i64 noundef 4) #19
+  br i1 %84, label %.lr.ph216, label %.loopexit
 
-.lr.ph216:                                        ; preds = %.lr.ph216.preheader, %.lr.ph216
-  %.0164214 = phi ptr [ %104, %.lr.ph216 ], [ %11, %.lr.ph216.preheader ]
-  %104 = getelementptr inbounds i8, ptr %.0164214, i64 1
-  %105 = load i8, ptr %.0164214, align 1
-  %106 = zext i8 %105 to i32
-  %107 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.24, i32 noundef %106) #19
-  %108 = icmp ult ptr %104, %83
-  br i1 %108, label %.lr.ph216, label %.loopexit, !llvm.loop !28
+.lr.ph216:                                        ; preds = %103, %.lr.ph216
+  %.0164214 = phi ptr [ %105, %.lr.ph216 ], [ %11, %103 ]
+  %105 = getelementptr inbounds i8, ptr %.0164214, i64 1
+  %106 = load i8, ptr %.0164214, align 1
+  %107 = zext i8 %106 to i32
+  %108 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.24, i32 noundef %107) #19
+  %exitcond220.not = icmp eq ptr %105, %83
+  br i1 %exitcond220.not, label %.loopexit, label %.lr.ph216, !llvm.loop !28
 
 109:                                              ; preds = %16
   %110 = tail call i64 @rb_str_cat(i64 noundef %2, ptr noundef nonnull @.str.26, i64 noundef 6) #19
@@ -2274,7 +2276,7 @@ unixsocket_len.exit:                              ; preds = %.preheader
   %203 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.46, ptr noundef %202) #19
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph216, %14, %197, %201, %99, %unixsocket_len.exit, %60, %75, %74, %55, %56, %191, %18, %7
+.loopexit:                                        ; preds = %.lr.ph216, %103, %14, %197, %201, %99, %unixsocket_len.exit, %60, %75, %74, %55, %56, %191, %18, %7
   ret i64 %2
 }
 

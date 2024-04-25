@@ -594,31 +594,31 @@ define hidden void @_ZN7globset4glob13MatchStrategy3new17h53c0d656562dfba1E(ptr 
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %37, i64 32
-  %43 = getelementptr { i64, [3 x i64] }, ptr %42, i64 %35
-  %44 = getelementptr i8, ptr %43, i64 -32
-  %45 = icmp ne ptr %44, null
-  tail call void @llvm.assume(i1 %45)
-  %46 = icmp eq ptr %42, %44
-  br i1 %46, label %.loopexit17.i, label %.lr.ph.i.i
+  %.idx.i.i = shl i64 %35, 5
+  %43 = getelementptr i8, ptr %37, i64 %.idx.i.i
+  %44 = icmp ne ptr %43, null
+  tail call void @llvm.assume(i1 %44)
+  %45 = icmp eq i64 %.idx.i.i, 32
+  br i1 %45, label %.loopexit17.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %1, i64 73
-  %48 = load i8, ptr %47, align 1, !range !97, !alias.scope !98, !noalias !89
-  %.fr52.i.i = freeze i8 %48
-  %49 = trunc i8 %.fr52.i.i to i1
-  br i1 %49, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
+  %46 = getelementptr inbounds i8, ptr %1, i64 73
+  %47 = load i8, ptr %46, align 1, !range !97, !alias.scope !98, !noalias !89
+  %.fr52.i.i = freeze i8 %47
+  %48 = trunc i8 %.fr52.i.i to i1
+  br i1 %48, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
-.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %59
-  %.sroa.0.04851.us.i.i = phi ptr [ %50, %59 ], [ %42, %.lr.ph.i.i ]
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.04851.us.i.i, i64 32
-  %51 = load i64, ptr %.sroa.0.04851.us.i.i, align 8, !range !34, !noalias !99, !noundef !8
-  %52 = xor i64 %51, -9223372036854775808
-  %53 = icmp ult i64 %52, 8
-  %54 = select i1 %53, i64 %52, i64 6
-  switch i64 %54, label %.split.us.i.i [
-    i64 0, label %55
-    i64 1, label %59
-    i64 2, label %59
+.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %58
+  %.sroa.0.04851.us.i.i = phi ptr [ %49, %58 ], [ %42, %.lr.ph.i.i ]
+  %49 = getelementptr inbounds i8, ptr %.sroa.0.04851.us.i.i, i64 32
+  %50 = load i64, ptr %.sroa.0.04851.us.i.i, align 8, !range !34, !noalias !99, !noundef !8
+  %51 = xor i64 %50, -9223372036854775808
+  %52 = icmp ult i64 %51, 8
+  %53 = select i1 %52, i64 %51, i64 6
+  switch i64 %53, label %.split.us.i.i [
+    i64 0, label %54
+    i64 1, label %58
+    i64 2, label %58
     i64 3, label %_ZN7globset4glob4Glob16basename_literal17hb2eaf43ea56644f9E.exit.thread
     i64 4, label %_ZN7globset4glob4Glob16basename_literal17hb2eaf43ea56644f9E.exit.thread
     i64 5, label %_ZN7globset4glob4Glob16basename_literal17hb2eaf43ea56644f9E.exit.thread
@@ -626,52 +626,53 @@ define hidden void @_ZN7globset4glob13MatchStrategy3new17h53c0d656562dfba1E(ptr 
     i64 7, label %_ZN7globset4glob4Glob16basename_literal17hb2eaf43ea56644f9E.exit.thread
   ]
 
-55:                                               ; preds = %.lr.ph.split.us.i.i
-  %56 = getelementptr inbounds i8, ptr %.sroa.0.04851.us.i.i, i64 8
-  %57 = load i32, ptr %56, align 8, !range !100, !noalias !99, !noundef !8
-  %58 = icmp eq i32 %57, 47
-  br i1 %58, label %_ZN7globset4glob4Glob16basename_literal17hb2eaf43ea56644f9E.exit.thread, label %59
+54:                                               ; preds = %.lr.ph.split.us.i.i
+  %55 = getelementptr inbounds i8, ptr %.sroa.0.04851.us.i.i, i64 8
+  %56 = load i32, ptr %55, align 8, !range !100, !noalias !99, !noundef !8
+  %57 = icmp eq i32 %56, 47
+  br i1 %57, label %_ZN7globset4glob4Glob16basename_literal17hb2eaf43ea56644f9E.exit.thread, label %58
 
-59:                                               ; preds = %55, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i
-  %60 = icmp eq ptr %50, %44
-  br i1 %60, label %.loopexit17.i, label %.lr.ph.split.us.i.i
+58:                                               ; preds = %54, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i
+  %59 = icmp eq ptr %49, %43
+  br i1 %59, label %.loopexit17.i, label %.lr.ph.split.us.i.i
 
 .split.us.i.i:                                    ; preds = %.lr.ph.split.us.i.i
   unreachable
 
-.lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %67
-  %.sroa.0.04851.i.i = phi ptr [ %61, %67 ], [ %42, %.lr.ph.i.i ]
-  %61 = getelementptr inbounds i8, ptr %.sroa.0.04851.i.i, i64 32
-  %62 = load i64, ptr %.sroa.0.04851.i.i, align 8, !range !34, !noalias !99, !noundef !8
-  %switch53.i.i = icmp eq i64 %62, -9223372036854775808
-  br i1 %switch53.i.i, label %63, label %_ZN7globset4glob4Glob16basename_literal17hb2eaf43ea56644f9E.exit.thread
+.lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %66
+  %.sroa.0.04851.i.i = phi ptr [ %60, %66 ], [ %42, %.lr.ph.i.i ]
+  %60 = getelementptr inbounds i8, ptr %.sroa.0.04851.i.i, i64 32
+  %61 = load i64, ptr %.sroa.0.04851.i.i, align 8, !range !34, !noalias !99, !noundef !8
+  %switch53.i.i = icmp eq i64 %61, -9223372036854775808
+  br i1 %switch53.i.i, label %62, label %_ZN7globset4glob4Glob16basename_literal17hb2eaf43ea56644f9E.exit.thread
 
-63:                                               ; preds = %.lr.ph.split.i.i
-  %64 = getelementptr inbounds i8, ptr %.sroa.0.04851.i.i, i64 8
-  %65 = load i32, ptr %64, align 8, !range !100, !noalias !99, !noundef !8
-  %66 = icmp eq i32 %65, 47
-  br i1 %66, label %_ZN7globset4glob4Glob16basename_literal17hb2eaf43ea56644f9E.exit.thread, label %67
+62:                                               ; preds = %.lr.ph.split.i.i
+  %63 = getelementptr inbounds i8, ptr %.sroa.0.04851.i.i, i64 8
+  %64 = load i32, ptr %63, align 8, !range !100, !noalias !99, !noundef !8
+  %65 = icmp eq i32 %64, 47
+  br i1 %65, label %_ZN7globset4glob4Glob16basename_literal17hb2eaf43ea56644f9E.exit.thread, label %66
 
-67:                                               ; preds = %63
-  %68 = icmp eq ptr %61, %44
-  br i1 %68, label %.loopexit17.i, label %.lr.ph.split.i.i
+66:                                               ; preds = %62
+  %67 = icmp eq ptr %60, %43
+  br i1 %67, label %.loopexit17.i, label %.lr.ph.split.i.i
 
-.loopexit17.i:                                    ; preds = %67, %59, %41
+.loopexit17.i:                                    ; preds = %66, %58, %41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24), !noalias !101
   store i64 0, ptr %24, align 8, !noalias !101
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %24, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !101
   %.sroa.59.0..sroa_idx.i = getelementptr inbounds i8, ptr %24, i64 16
   store i64 0, ptr %.sroa.59.0..sroa_idx.i, align 8, !noalias !101
+  %68 = getelementptr { i64, [3 x i64] }, ptr %37, i64 %35
   br label %69
 
-_ZN7globset4glob4Glob16basename_literal17hb2eaf43ea56644f9E.exit.thread: ; preds = %.lr.ph.split.i.i, %63, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %55, %2, %33, %38
+_ZN7globset4glob4Glob16basename_literal17hb2eaf43ea56644f9E.exit.thread: ; preds = %.lr.ph.split.i.i, %62, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %54, %2, %33, %38
   store i64 -9223372036854775808, ptr %29, align 8, !alias.scope !89, !noalias !92
   br label %93
 
 69:                                               ; preds = %77, %.loopexit17.i
   %.sroa.0.0.i = phi ptr [ %42, %.loopexit17.i ], [ %78, %77 ]
-  %70 = icmp eq ptr %.sroa.0.0.i, %44
+  %70 = icmp eq ptr %.sroa.0.0.i, %68
   br i1 %70, label %73, label %74
 
 71:                                               ; preds = %77

@@ -4504,7 +4504,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNSt6vecto
   store ptr %8, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 %1
+  %13 = getelementptr i8, ptr %8, i64 %1
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %13, ptr %14, align 8
   store i8 0, ptr %8, align 1
@@ -4553,7 +4553,7 @@ _ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit: ; preds = %3
 _ZNSt12_Vector_baseIwSaIwEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %21
+  br label %19
 
 _ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit
   %8 = shl nuw nsw i64 %1, 2
@@ -4570,25 +4570,23 @@ _ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNSt6vecto
   store ptr %9, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %13, align 8
-  %14 = getelementptr inbounds i32, ptr %9, i64 %1
+  %14 = getelementptr i32, ptr %9, i64 %1
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %14, ptr %15, align 8
   store i32 0, ptr %9, align 4
   %16 = getelementptr i8, ptr %9, i64 4
-  %17 = add nsw i64 %1, -1
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %21, label %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.loopexit.i.i.i.i
+  %17 = icmp eq i64 %1, 1
+  br i1 %17, label %19, label %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.loopexit.i.i.i.i
 
 _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %12
-  %19 = add nsw i64 %8, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 %19, i1 false)
-  %20 = getelementptr inbounds i32, ptr %16, i64 %17
-  br label %21
+  %18 = add nsw i64 %8, -4
+  call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 %18, i1 false)
+  br label %19
 
-21:                                               ; preds = %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %12, %_ZNSt12_Vector_baseIwSaIwEEC2EmRKS0_.exit.thread
-  %22 = phi ptr [ %13, %12 ], [ %13, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %7, %_ZNSt12_Vector_baseIwSaIwEEC2EmRKS0_.exit.thread ]
-  %.0.i.i.i.i = phi ptr [ %16, %12 ], [ %20, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIwSaIwEEC2EmRKS0_.exit.thread ]
-  store ptr %.0.i.i.i.i, ptr %22, align 8
+19:                                               ; preds = %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %12, %_ZNSt12_Vector_baseIwSaIwEEC2EmRKS0_.exit.thread
+  %20 = phi ptr [ %13, %12 ], [ %13, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %7, %_ZNSt12_Vector_baseIwSaIwEEC2EmRKS0_.exit.thread ]
+  %.0.i.i.i.i = phi ptr [ %16, %12 ], [ %14, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIwSaIwEEC2EmRKS0_.exit.thread ]
+  store ptr %.0.i.i.i.i, ptr %20, align 8
   ret void
 }
 

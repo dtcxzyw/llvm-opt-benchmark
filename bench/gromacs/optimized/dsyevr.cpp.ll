@@ -426,7 +426,7 @@ define void @dsyevr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.0280345 = phi i32 [ 0, %.lr.ph346.preheader ], [ %.1, %.lr.ph346 ]
   %.0282343 = phi double [ %187, %.lr.ph346.preheader ], [ %.1283, %.lr.ph346 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %189 = getelementptr inbounds double, ptr %35, i64 %indvars.iv.next
+  %189 = getelementptr double, ptr %12, i64 %indvars.iv
   %190 = load double, ptr %189, align 8
   %191 = fcmp olt double %190, %.0282343
   %.1283 = select i1 %191, double %190, double %.0282343

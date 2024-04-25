@@ -149,7 +149,7 @@ define void @dlar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %indvars.iv531 = phi i32 [ %indvars.iv.next532, %92 ], [ %91, %88 ]
   %indvars.iv528 = phi i64 [ %indvars.iv.next529, %92 ], [ %90, %88 ]
   %indvars.iv.next529 = add nsw i64 %indvars.iv528, 1
-  %93 = getelementptr double, ptr %17, i64 %indvars.iv.next529
+  %93 = getelementptr double, ptr %15, i64 %indvars.iv528
   %94 = getelementptr double, ptr %93, i64 %67
   %95 = load double, ptr %94, align 8
   %96 = fcmp uno double %95, 0.000000e+00
@@ -590,7 +590,7 @@ define void @dlar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %305 = load double, ptr %304, align 8
   %306 = fneg double %303
   %307 = fmul double %305, %306
-  %308 = getelementptr inbounds double, ptr %18, i64 %indvars.iv.next562.lver.orig
+  %308 = getelementptr double, ptr %10, i64 %indvars.iv561.lver.orig
   store double %307, ptr %308, align 8
   %309 = load double, ptr %11, align 8
   %310 = tail call double @llvm.fmuladd.f64(double %307, double %307, double %309)
@@ -615,7 +615,7 @@ define void @dlar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %316 = load double, ptr %315, align 8
   %317 = fneg double %316
   %318 = fmul double %store_forwarded, %317
-  %319 = getelementptr inbounds double, ptr %18, i64 %indvars.iv.next562
+  %319 = getelementptr double, ptr %10, i64 %indvars.iv561
   store double %318, ptr %319, align 8
   %320 = load double, ptr %11, align 8
   %321 = tail call double @llvm.fmuladd.f64(double %318, double %318, double %320)

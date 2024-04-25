@@ -2105,8 +2105,8 @@ entry:
   %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load double, ptr %arrayidx15, align 8
   %mul18 = fmul double %4, %5
-  %arrayidx.i100 = getelementptr inbounds i8, ptr %this, i64 64
-  %6 = load double, ptr %arrayidx.i100, align 8
+  %arrayidx.i96 = getelementptr inbounds i8, ptr %this, i64 64
+  %6 = load double, ptr %arrayidx.i96, align 8
   %mul23 = fmul double %3, %6
   %arrayidx30 = getelementptr inbounds i8, ptr %this, i64 80
   %7 = load double, ptr %arrayidx30, align 8
@@ -2127,17 +2127,17 @@ entry:
   %cmp.i = fcmp une double %16, 0.000000e+00
   %arrayidx53 = getelementptr inbounds i8, ptr %this, i64 56
   %17 = load double, ptr %arrayidx53, align 8
-  %cmp.i111 = fcmp une double %17, 0.000000e+00
-  %or.cond.not349 = select i1 %cmp.i, i1 true, i1 %cmp.i111
+  %cmp.i105 = fcmp une double %17, 0.000000e+00
+  %or.cond.not304 = select i1 %cmp.i, i1 true, i1 %cmp.i105
   %arrayidx58 = getelementptr inbounds i8, ptr %this, i64 88
   %18 = load double, ptr %arrayidx58, align 8
-  %cmp.i113 = fcmp une double %18, 0.000000e+00
-  %or.cond346.not348 = select i1 %or.cond.not349, i1 true, i1 %cmp.i113
+  %cmp.i107 = fcmp une double %18, 0.000000e+00
+  %or.cond301.not303 = select i1 %or.cond.not304, i1 true, i1 %cmp.i107
   %arrayidx62 = getelementptr inbounds i8, ptr %this, i64 120
   %19 = load double, ptr %arrayidx62, align 8
-  %cmp.i115 = fcmp une double %19, 1.000000e+00
-  %or.cond347 = select i1 %or.cond346.not348, i1 true, i1 %cmp.i115
-  br i1 %or.cond347, label %if.then, label %if.end
+  %cmp.i109 = fcmp une double %19, 1.000000e+00
+  %or.cond302 = select i1 %or.cond301.not303, i1 true, i1 %cmp.i109
+  br i1 %or.cond302, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -2159,26 +2159,26 @@ if.then:                                          ; preds = %entry
   %29 = tail call noundef double @llvm.fmuladd.f64(double %6, double %21, double %neg.i47.i)
   %30 = tail call noundef double @llvm.fmuladd.f64(double %1, double %29, double %27)
   %31 = fneg double %3
-  %neg.i.i124 = fmul double %21, %31
-  %32 = tail call noundef double @llvm.fmuladd.f64(double %5, double %20, double %neg.i.i124)
+  %neg.i.i117 = fmul double %21, %31
+  %32 = tail call noundef double @llvm.fmuladd.f64(double %5, double %20, double %neg.i.i117)
   %33 = fneg double %0
-  %neg.i32.i128 = fmul double %20, %33
-  %34 = tail call noundef double @llvm.fmuladd.f64(double %3, double %24, double %neg.i32.i128)
-  %mul8.i129 = fmul double %7, %34
-  %35 = tail call double @llvm.fmuladd.f64(double %6, double %32, double %mul8.i129)
-  %neg.i47.i131 = fmul double %24, %14
-  %36 = tail call noundef double @llvm.fmuladd.f64(double %0, double %21, double %neg.i47.i131)
+  %neg.i32.i120 = fmul double %20, %33
+  %34 = tail call noundef double @llvm.fmuladd.f64(double %3, double %24, double %neg.i32.i120)
+  %mul8.i121 = fmul double %7, %34
+  %35 = tail call double @llvm.fmuladd.f64(double %6, double %32, double %mul8.i121)
+  %neg.i47.i123 = fmul double %24, %14
+  %36 = tail call noundef double @llvm.fmuladd.f64(double %0, double %21, double %neg.i47.i123)
   %37 = tail call noundef double @llvm.fmuladd.f64(double %8, double %36, double %35)
   %mul72 = fmul double %17, %37
   %38 = tail call double @llvm.fmuladd.f64(double %16, double %30, double %mul72)
-  %neg.i.i138 = fmul double %2, %31
-  %39 = tail call noundef double @llvm.fmuladd.f64(double %5, double %1, double %neg.i.i138)
-  %neg.i32.i142 = fmul double %1, %33
-  %40 = tail call noundef double @llvm.fmuladd.f64(double %3, double %4, double %neg.i32.i142)
-  %mul8.i143 = fmul double %21, %40
-  %41 = tail call double @llvm.fmuladd.f64(double %24, double %39, double %mul8.i143)
-  %neg.i47.i145 = fmul double %4, %14
-  %42 = tail call noundef double @llvm.fmuladd.f64(double %0, double %2, double %neg.i47.i145)
+  %neg.i.i130 = fmul double %2, %31
+  %39 = tail call noundef double @llvm.fmuladd.f64(double %5, double %1, double %neg.i.i130)
+  %neg.i32.i133 = fmul double %1, %33
+  %40 = tail call noundef double @llvm.fmuladd.f64(double %3, double %4, double %neg.i32.i133)
+  %mul8.i134 = fmul double %21, %40
+  %41 = tail call double @llvm.fmuladd.f64(double %24, double %39, double %mul8.i134)
+  %neg.i47.i136 = fmul double %4, %14
+  %42 = tail call noundef double @llvm.fmuladd.f64(double %0, double %2, double %neg.i47.i136)
   %43 = tail call noundef double @llvm.fmuladd.f64(double %20, double %42, double %41)
   %44 = tail call double @llvm.fmuladd.f64(double %18, double %43, double %38)
   %45 = tail call double @llvm.fmuladd.f64(double %19, double %15, double %44)
@@ -2192,8 +2192,8 @@ if.end:                                           ; preds = %entry, %if.then
 
 if.else86:                                        ; preds = %if.end
   %47 = tail call noundef double @llvm.fabs.f64(double %15)
-  %cmp.i.i149 = fcmp ule double %47, 1.000000e-08
-  br i1 %cmp.i.i149, label %if.then90, label %if.else93
+  %cmp.i.i140 = fcmp ule double %47, 1.000000e-08
+  br i1 %cmp.i.i140, label %if.then90, label %if.else93
 
 if.then90:                                        ; preds = %if.else86
   %call91 = tail call noundef zeroext i1 @_ZNK7openvdb5v11_04math4Mat4IdE6invertERS3_d(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(128) %agg.result, double noundef %tolerance)
@@ -2217,8 +2217,8 @@ if.else93:                                        ; preds = %if.else86
   %mul145 = fmul double %2, %6
   %55 = tail call double @llvm.fmuladd.f64(double %fneg137, double %7, double %mul145)
   %mul146 = fmul double %55, %div
-  %arrayidx.i169 = getelementptr inbounds i8, ptr %agg.result, i64 32
-  store double %mul146, ptr %arrayidx.i169, align 8
+  %arrayidx.i153 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  store double %mul146, ptr %arrayidx.i153, align 8
   %56 = tail call double @llvm.fmuladd.f64(double %0, double %7, double %neg48)
   %arrayidx157 = getelementptr inbounds i8, ptr %agg.result, i64 40
   %sub = fsub double %mul18, %mul8
@@ -2226,8 +2226,8 @@ if.else93:                                        ; preds = %if.else86
   %neg171 = fmul double %6, %57
   %58 = tail call double @llvm.fmuladd.f64(double %4, double %8, double %neg171)
   %mul172 = fmul double %58, %div
-  %arrayidx.i178 = getelementptr inbounds i8, ptr %agg.result, i64 64
-  store double %mul172, ptr %arrayidx.i178, align 8
+  %arrayidx.i161 = getelementptr inbounds i8, ptr %agg.result, i64 64
+  store double %mul172, ptr %arrayidx.i161, align 8
   %neg180 = fneg double %0
   %59 = tail call double @llvm.fmuladd.f64(double %neg180, double %8, double %mul23)
   %arrayidx183 = getelementptr inbounds i8, ptr %agg.result, i64 72
@@ -2249,11 +2249,11 @@ if.else93:                                        ; preds = %if.else86
   %72 = insertelement <2 x double> %71, double %sub184, i64 1
   %73 = fmul <2 x double> %72, %66
   store <2 x double> %73, ptr %arrayidx183, align 8
-  %arrayidx.i183 = getelementptr inbounds i8, ptr %this, i64 96
-  %74 = load double, ptr %arrayidx.i183, align 8
+  %arrayidx.i165 = getelementptr inbounds i8, ptr %this, i64 96
+  %74 = load double, ptr %arrayidx.i165, align 8
   %arrayidx196 = getelementptr inbounds i8, ptr %this, i64 104
   %75 = load double, ptr %arrayidx196, align 8
-  br i1 %or.cond347, label %if.then189, label %if.else381
+  br i1 %or.cond302, label %if.then189, label %if.else381
 
 if.then189:                                       ; preds = %if.else93
   %arrayidx201 = getelementptr inbounds i8, ptr %this, i64 112
@@ -2273,13 +2273,13 @@ if.then189:                                       ; preds = %if.else93
   %86 = tail call double @llvm.fmuladd.f64(double %mul172, double %16, double %mul279)
   %87 = extractelement <2 x double> %73, i64 1
   %88 = tail call double @llvm.fmuladd.f64(double %87, double %18, double %86)
-  %mul8.i230 = fmul double %75, %84
-  %89 = tail call double @llvm.fmuladd.f64(double %80, double %74, double %mul8.i230)
+  %mul8.i201 = fmul double %75, %84
+  %89 = tail call double @llvm.fmuladd.f64(double %80, double %74, double %mul8.i201)
   %90 = tail call noundef double @llvm.fmuladd.f64(double %88, double %76, double %89)
   %sub296 = fsub double %19, %90
   %91 = tail call noundef double @llvm.fabs.f64(double %sub296)
-  %cmp.i.i233 = fcmp ule double %91, %tolerance
-  br i1 %cmp.i.i233, label %if.then448, label %if.else300
+  %cmp.i.i204 = fcmp ule double %91, %tolerance
+  br i1 %cmp.i.i204, label %if.then448, label %if.else300
 
 if.else300:                                       ; preds = %if.then189
   %92 = insertelement <2 x double> poison, double %75, i64 0
@@ -2324,13 +2324,13 @@ if.else300:                                       ; preds = %if.then189
   %112 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %111, <2 x double> %102, <2 x double> %67)
   store <2 x double> %112, ptr %arrayidx120, align 8
   %113 = tail call double @llvm.fmuladd.f64(double %mul4.i, double %96, double %mul146)
-  store double %113, ptr %arrayidx.i169, align 8
+  store double %113, ptr %arrayidx.i153, align 8
   %114 = insertelement <2 x double> poison, double %mul4.i, i64 0
   %115 = shufflevector <2 x double> %114, <2 x double> poison, <2 x i32> zeroinitializer
   %116 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %115, <2 x double> %102, <2 x double> %70)
   store <2 x double> %116, ptr %arrayidx157, align 8
   %117 = tail call double @llvm.fmuladd.f64(double %mul7.i, double %96, double %mul172)
-  store double %117, ptr %arrayidx.i178, align 8
+  store double %117, ptr %arrayidx.i161, align 8
   %118 = insertelement <2 x double> poison, double %mul7.i, i64 0
   %119 = shufflevector <2 x double> %118, <2 x double> poison, <2 x i32> zeroinitializer
   %120 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %119, <2 x double> %102, <2 x double> %73)
@@ -2340,7 +2340,7 @@ if.else300:                                       ; preds = %if.then189
 if.else381:                                       ; preds = %if.else93
   %arrayidx393 = getelementptr inbounds i8, ptr %this, i64 112
   %121 = load double, ptr %arrayidx393, align 8
-  %arrayidx.i282 = getelementptr inbounds i8, ptr %agg.result, i64 96
+  %arrayidx.i240 = getelementptr inbounds i8, ptr %agg.result, i64 96
   %122 = shufflevector <2 x double> %70, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
   %123 = insertelement <2 x double> %122, double %mul146, i64 0
   %124 = insertelement <2 x double> poison, double %75, i64 0
@@ -2357,7 +2357,7 @@ if.else381:                                       ; preds = %if.else93
   %135 = insertelement <2 x double> %134, double %mul172, i64 0
   %136 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %133, <2 x double> %135, <2 x double> %131)
   %137 = fneg <2 x double> %136
-  store <2 x double> %137, ptr %arrayidx.i282, align 8
+  store <2 x double> %137, ptr %arrayidx.i240, align 8
   %138 = extractelement <2 x double> %70, i64 1
   %mul427 = fmul double %138, %75
   %139 = extractelement <2 x double> %67, i64 1
@@ -3180,7 +3180,7 @@ cond.false.i.i.i.i.i.i:                           ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i.i.i = phi i32 [ %shr.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %22, %cond.false.loopexit.i.i.i.i.i.i ]
   %b.0.lcssa.i.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %not13.i.i.i.i.i.i, %cond.false.loopexit.i.i.i.i.i.i ]
   %shl15.i.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i, 6
-  %23 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i, i1 true), !range !48
+  %23 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i, i1 true)
   %24 = trunc nuw nsw i64 %23 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl15.i.i.i.i.i.i, %24
   br label %_ZN7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4nextEj.exit.thread596
@@ -3310,7 +3310,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj
   %n.0.lcssa.i.i.i.i.i.i86 = phi i32 [ %shr.i.i.i.i.i.i71, %if.end4.i.i.i.i.i.i80 ], [ %37, %cond.false.loopexit.i.i.i.i.i.i101 ]
   %b.0.lcssa.i.i.i.i.i.i87 = phi i64 [ %and7.i.i.i.i.i.i83, %if.end4.i.i.i.i.i.i80 ], [ %not13.i.i.i.i.i.i102, %cond.false.loopexit.i.i.i.i.i.i101 ]
   %shl15.i.i.i.i.i.i88 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i86, 6
-  %38 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i87, i1 true), !range !48
+  %38 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i87, i1 true)
   %39 = trunc nuw nsw i64 %38 to i32
   %add.i.i.i.i.i.i89 = or disjoint i32 %shl15.i.i.i.i.i.i88, %39
   store i32 %add.i.i.i.i.i.i89, ptr %mMaskIter.i.i.i, align 8
@@ -3452,7 +3452,7 @@ cond.false.i.i.i.i.i.i169:                        ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i.i.i170 = phi i32 [ %shr.i.i.i.i.i.i155, %if.end4.i.i.i.i.i.i164 ], [ %57, %cond.false.loopexit.i.i.i.i.i.i185 ]
   %b.0.lcssa.i.i.i.i.i.i171 = phi i64 [ %and7.i.i.i.i.i.i167, %if.end4.i.i.i.i.i.i164 ], [ %not13.i.i.i.i.i.i186, %cond.false.loopexit.i.i.i.i.i.i185 ]
   %shl15.i.i.i.i.i.i172 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i170, 6
-  %58 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i171, i1 true), !range !48
+  %58 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i171, i1 true)
   %59 = trunc nuw nsw i64 %58 to i32
   %add.i.i.i.i.i.i173 = or disjoint i32 %shl15.i.i.i.i.i.i172, %59
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE4nextEv.exit.i.i174
@@ -3802,7 +3802,7 @@ cond.false.i.i.i.i.i.i341:                        ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i.i.i342 = phi i32 [ %shr.i.i.i.i.i.i327, %if.end4.i.i.i.i.i.i336 ], [ %101, %cond.false.loopexit.i.i.i.i.i.i357 ]
   %b.0.lcssa.i.i.i.i.i.i343 = phi i64 [ %and7.i.i.i.i.i.i339, %if.end4.i.i.i.i.i.i336 ], [ %not13.i.i.i.i.i.i358, %cond.false.loopexit.i.i.i.i.i.i357 ]
   %shl15.i.i.i.i.i.i344 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i342, 6
-  %102 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i343, i1 true), !range !48
+  %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i343, i1 true)
   %103 = trunc nuw nsw i64 %102 to i32
   %add.i.i.i.i.i.i345 = or disjoint i32 %shl15.i.i.i.i.i.i344, %103
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE4nextEv.exit.i.i346
@@ -4004,7 +4004,7 @@ cond.false.i.i.i.i.i.i448:                        ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i.i.i449 = phi i32 [ %shr.i.i.i.i.i.i434, %if.end4.i.i.i.i.i.i443 ], [ %127, %cond.false.loopexit.i.i.i.i.i.i464 ]
   %b.0.lcssa.i.i.i.i.i.i450 = phi i64 [ %and7.i.i.i.i.i.i446, %if.end4.i.i.i.i.i.i443 ], [ %not13.i.i.i.i.i.i465, %cond.false.loopexit.i.i.i.i.i.i464 ]
   %shl15.i.i.i.i.i.i451 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i449, 6
-  %128 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i450, i1 true), !range !48
+  %128 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i450, i1 true)
   %129 = trunc nuw nsw i64 %128 to i32
   %add.i.i.i.i.i.i452 = or disjoint i32 %shl15.i.i.i.i.i.i451, %129
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE4nextEv.exit.i.i453
@@ -4019,7 +4019,7 @@ cond.false.i.i470:                                ; preds = %cond.true.i.i.i412,
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %cond.false.i.i470, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE4nextEv.exit.i.i453, %cond.true.i466, %cond.true.i.i.i412, %cond.true.i.i416, %cond.true.i419, %cond.false.i.i363, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE4nextEv.exit.i.i346, %cond.true.i359, %cond.true.i.i.i305, %cond.true.i.i309, %cond.true.i312, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4testEj.exit429, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit411, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit304, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4testEj.exit322
-  br label %while.cond, !llvm.loop !49
+  br label %while.cond, !llvm.loop !48
 
 while.cond105:                                    ; preds = %while.cond105.preheader, %if.end116
   %dontIncrement.addr.1 = phi i8 [ 1, %if.end116 ], [ %dontIncrement.addr.0, %while.cond105.preheader ]
@@ -4079,10 +4079,10 @@ if.end116:                                        ; preds = %cond.true.i.i.i474,
   %inc = add i32 %130, 1
   store i32 %inc, ptr %mLevel, align 8
   %call120 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4nextEj(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %inc)
-  br label %while.cond105, !llvm.loop !50
+  br label %while.cond105, !llvm.loop !49
 
 do.cond:                                          ; preds = %cond.true.i.i.i474, %cond.true.i.i478, %cond.true.i481, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4testEj.exit, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4testEj.exit491
-  br i1 %recurse.0, label %do.body, label %return, !llvm.loop !51
+  br i1 %recurse.0, label %do.body, label %return, !llvm.loop !50
 
 return:                                           ; preds = %do.cond, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit216, %if.then14, %while.body112
   %retval.0 = phi i1 [ false, %while.body112 ], [ true, %if.then14 ], [ true, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit216 ], [ true, %do.cond ]
@@ -4134,7 +4134,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %arrayidx12.i.i.i.i = getelementptr inbounds [8 x i64], ptr %0, i64 0, i64 %indvars.iv.next.i.i.i.i
   %3 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %3, 0
-  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !52
+  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !51
 
 cond.false.loopexit.i.i.i.i:                      ; preds = %while.body.i.i.i.i
   %4 = trunc nuw nsw i64 %indvars.iv.next.i.i.i.i to i32
@@ -4144,7 +4144,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i, %if.end4.i.i.i.i ], [ %4, %cond.false.loopexit.i.i.i.i ]
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %3, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
-  %5 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !48
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
   %6 = trunc nuw nsw i64 %5 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %6
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IfEELj3EEEE4nextEv.exit
@@ -4192,7 +4192,7 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %arrayidx12.i.i.i.i.i = getelementptr inbounds [64 x i64], ptr %7, i64 0, i64 %indvars.iv.next.i.i.i.i.i
   %10 = load i64, ptr %arrayidx12.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i = icmp eq i64 %10, 0
-  br i1 %tobool8.not.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i, !llvm.loop !53
+  br i1 %tobool8.not.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i, !llvm.loop !52
 
 cond.false.loopexit.i.i.i.i.i:                    ; preds = %while.body.i.i.i.i.i
   %11 = trunc nuw nsw i64 %indvars.iv.next.i.i.i.i.i to i32
@@ -4202,7 +4202,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ %shr.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %11, %cond.false.loopexit.i.i.i.i.i ]
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %10, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
-  %12 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !48
+  %12 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true)
   %13 = trunc nuw nsw i64 %12 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %13
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE4nextEv.exit.i
@@ -4260,7 +4260,7 @@ cond.false.i:                                     ; preds = %if.then.i
 land.rhs.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, %cond.false.i
   %w.012.i.i.i.i.i = phi ptr [ %mChildMask.i.i.i, %cond.false.i ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %n.011.i.i.i.i.i = phi i32 [ 0, %cond.false.i ], [ %inc.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  %2 = load i64, ptr %w.012.i.i.i.i.i, align 8, !noalias !54
+  %2 = load i64, ptr %w.012.i.i.i.i.i, align 8, !noalias !53
   %tobool.not.i.i.i.i.i = icmp eq i64 %2, -1
   br i1 %tobool.not.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
@@ -4268,12 +4268,12 @@ for.inc.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %w.012.i.i.i.i.i, i64 8
   %inc.i.i.i.i.i = add nuw nsw i32 %n.011.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i, 64
-  br i1 %exitcond.not.i.i.i.i.i, label %cond.end.i, label %land.rhs.i.i.i.i.i, !llvm.loop !59
+  br i1 %exitcond.not.i.i.i.i.i, label %cond.end.i, label %land.rhs.i.i.i.i.i, !llvm.loop !58
 
 cond.false.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %shl.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i, 6
   %not3.i.i.i.i.i = xor i64 %2, -1
-  %3 = tail call i64 @llvm.cttz.i64(i64 %not3.i.i.i.i.i, i1 true), !range !48
+  %3 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not3.i.i.i.i.i, i1 true)
   %4 = trunc nuw nsw i64 %3 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i, %4
   br label %cond.end.i
@@ -4306,7 +4306,7 @@ cond.false.i.i:                                   ; preds = %if.then.i.i
 land.rhs.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i, %cond.false.i.i
   %w.012.i.i.i.i.i.i = phi ptr [ %mChildMask.i.i.i.i, %cond.false.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ]
   %n.011.i.i.i.i.i.i = phi i32 [ 0, %cond.false.i.i ], [ %inc.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ]
-  %6 = load i64, ptr %w.012.i.i.i.i.i.i, align 8, !noalias !60
+  %6 = load i64, ptr %w.012.i.i.i.i.i.i, align 8, !noalias !59
   %tobool.not.i.i.i.i.i.i = icmp eq i64 %6, -1
   br i1 %tobool.not.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
@@ -4314,12 +4314,12 @@ for.inc.i.i.i.i.i.i:                              ; preds = %land.rhs.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w.012.i.i.i.i.i.i, i64 8
   %inc.i.i.i.i.i.i = add nuw nsw i32 %n.011.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i.i, 512
-  br i1 %exitcond.not.i.i.i.i.i.i, label %cond.end.i.i, label %land.rhs.i.i.i.i.i.i, !llvm.loop !65
+  br i1 %exitcond.not.i.i.i.i.i.i, label %cond.end.i.i, label %land.rhs.i.i.i.i.i.i, !llvm.loop !64
 
 cond.false.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %shl.i.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i.i, 6
   %not3.i.i.i.i.i.i = xor i64 %6, -1
-  %7 = tail call i64 @llvm.cttz.i64(i64 %not3.i.i.i.i.i.i, i1 true), !range !48
+  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not3.i.i.i.i.i.i, i1 true)
   %8 = trunc nuw nsw i64 %7 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i, %8
   br label %cond.end.i.i
@@ -4360,7 +4360,7 @@ land.rhs.i.i.i.i.i.i.i:                           ; preds = %cond.false.i.i.i, %
 while.body.i.i.i.i.i.i.i:                         ; preds = %land.rhs.i.i.i.i.i.i.i
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %retval.sroa.2.0.i.i.i.i.i) #23
   %cmp.i.i.not.i.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i.i.i.i, label %cond.end.i.i.i, label %land.rhs.i.i.i.i.i.i.i, !llvm.loop !66
+  br i1 %cmp.i.i.not.i.i.i.i.i.i.i, label %cond.end.i.i.i, label %land.rhs.i.i.i.i.i.i.i, !llvm.loop !65
 
 cond.end.i.i.i:                                   ; preds = %while.body.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i, %cond.false.i.i.i, %if.then.i.i.i
   %ref.tmp.sroa.3.0.i.i.i = phi ptr [ null, %if.then.i.i.i ], [ %10, %cond.false.i.i.i ], [ %retval.sroa.2.0.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
@@ -4430,7 +4430,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %arrayidx12.i.i.i.i = getelementptr inbounds [512 x i64], ptr %0, i64 0, i64 %indvars.iv.next.i.i.i.i
   %4 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %4, -1
-  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !67
+  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !66
 
 cond.false.loopexit.i.i.i.i:                      ; preds = %while.body.i.i.i.i
   %not13.i.i.i.i = xor i64 %4, -1
@@ -4441,7 +4441,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i, %if.end4.i.i.i.i ], [ %5, %cond.false.loopexit.i.i.i.i ]
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %not13.i.i.i.i, %cond.false.loopexit.i.i.i.i ]
   %shl15.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
-  %6 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !48
+  %6 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
   %7 = trunc nuw nsw i64 %6 to i32
   %add.i.i.i.i = or disjoint i32 %shl15.i.i.i.i, %7
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE4nextEv.exit
@@ -4482,7 +4482,7 @@ while.body.i.i.i.i3:                              ; preds = %land.rhs.i.i.i.i2
   %call.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %call.i13.i.i.i.i) #23
   store ptr %call.i.i.i.i.i, ptr %mIter.i.i.i.i, align 8
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, %add.ptr.i.i.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE8BaseIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueAllPredEE4nextEv.exit.i, label %land.rhs.i.i.i.i2, !llvm.loop !66
+  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE8BaseIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueAllPredEE4nextEv.exit.i, label %land.rhs.i.i.i.i2, !llvm.loop !65
 
 _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE8BaseIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueAllPredEE4nextEv.exit.i: ; preds = %while.body.i.i.i.i3, %land.rhs.i.i.i.i2, %if.end.i.i.i
   %11 = phi ptr [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i ], [ %call.i13.i.i.i.i, %land.rhs.i.i.i.i2 ], [ %add.ptr.i.i.i.i.i.i, %while.body.i.i.i.i3 ]
@@ -4539,7 +4539,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %arrayidx12.i.i.i.i = getelementptr inbounds [512 x i64], ptr %0, i64 0, i64 %indvars.iv.next.i.i.i.i
   %3 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %3, 0
-  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !68
+  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !67
 
 cond.false.loopexit.i.i.i.i:                      ; preds = %while.body.i.i.i.i
   %4 = trunc nuw nsw i64 %indvars.iv.next.i.i.i.i to i32
@@ -4549,7 +4549,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i, %if.end4.i.i.i.i ], [ %4, %cond.false.loopexit.i.i.i.i ]
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %3, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
-  %5 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !48
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
   %6 = trunc nuw nsw i64 %5 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %6
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE4nextEv.exit
@@ -4590,7 +4590,7 @@ while.body.i.i.i.i4:                              ; preds = %land.rhs.i.i.i.i2
   %call.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %call.i13.i.i.i.i) #23
   store ptr %call.i.i.i.i.i, ptr %mIter.i.i.i.i, align 8
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, %add.ptr.i.i.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE8BaseIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEE4nextEv.exit.i, label %land.rhs.i.i.i.i2, !llvm.loop !69
+  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE8BaseIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEE4nextEv.exit.i, label %land.rhs.i.i.i.i2, !llvm.loop !68
 
 _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE8BaseIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEE4nextEv.exit.i: ; preds = %while.body.i.i.i.i4, %land.rhs.i.i.i.i2, %if.end.i.i.i
   %10 = phi ptr [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i ], [ %call.i13.i.i.i.i, %land.rhs.i.i.i.i2 ], [ %add.ptr.i.i.i.i.i.i, %while.body.i.i.i.i4 ]
@@ -4669,7 +4669,7 @@ if.then6.i:                                       ; preds = %if.then.i
 land.rhs.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, %if.then6.i
   %w.012.i.i.i.i.i = phi ptr [ %mChildMask.i.i.i, %if.then6.i ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %n.011.i.i.i.i.i = phi i32 [ 0, %if.then6.i ], [ %inc.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  %8 = load i64, ptr %w.012.i.i.i.i.i, align 8, !noalias !70
+  %8 = load i64, ptr %w.012.i.i.i.i.i, align 8, !noalias !69
   %tobool.not.i.i.i.i.i = icmp eq i64 %8, 0
   br i1 %tobool.not.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
@@ -4677,11 +4677,11 @@ for.inc.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %w.012.i.i.i.i.i, i64 8
   %inc.i.i.i.i.i = add nuw nsw i32 %n.011.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i, 64
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_.exit.i, label %land.rhs.i.i.i.i.i, !llvm.loop !75
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_.exit.i, label %land.rhs.i.i.i.i.i, !llvm.loop !74
 
 cond.false.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %shl.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i, 6
-  %9 = tail call i64 @llvm.cttz.i64(i64 %8, i1 true), !range !48
+  %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %8, i1 true)
   %10 = trunc nuw nsw i64 %9 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i, %10
   br label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_.exit.i
@@ -4723,7 +4723,7 @@ if.then6.i.i:                                     ; preds = %if.then.i.i
 land.rhs.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i, %if.then6.i.i
   %w.012.i.i.i.i.i.i = phi ptr [ %mChildMask.i.i.i.i, %if.then6.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ]
   %n.011.i.i.i.i.i.i = phi i32 [ 0, %if.then6.i.i ], [ %inc.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ]
-  %15 = load i64, ptr %w.012.i.i.i.i.i.i, align 8, !noalias !76
+  %15 = load i64, ptr %w.012.i.i.i.i.i.i, align 8, !noalias !75
   %tobool.not.i.i.i.i.i.i = icmp eq i64 %15, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
@@ -4731,11 +4731,11 @@ for.inc.i.i.i.i.i.i:                              ; preds = %land.rhs.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w.012.i.i.i.i.i.i, i64 8
   %inc.i.i.i.i.i.i = add nuw nsw i32 %n.011.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i.i, 512
-  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_.exit.i.i, label %land.rhs.i.i.i.i.i.i, !llvm.loop !81
+  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_.exit.i.i, label %land.rhs.i.i.i.i.i.i, !llvm.loop !80
 
 cond.false.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %shl.i.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i.i, 6
-  %16 = tail call i64 @llvm.cttz.i64(i64 %15, i1 true), !range !48
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 true)
   %17 = trunc nuw nsw i64 %16 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i, %17
   br label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_.exit.i.i
@@ -5242,7 +5242,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %15 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %16 = add i32 %15, -1
   %cmp.i.i = icmp sgt i32 %16, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -5293,7 +5293,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %8 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %9 = add i32 %8, -1
   %cmp.i.i = icmp sgt i32 %9, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -5388,7 +5388,7 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp.i9, label %do.body.backedge, label %if.end.i10
 
 do.body.backedge:                                 ; preds = %land.rhs, %if.then4.i15
-  br label %do.body, !llvm.loop !83
+  br label %do.body, !llvm.loop !82
 
 if.end.i10:                                       ; preds = %land.rhs
   %tobool.not.i11 = icmp eq i64 %9, 0
@@ -5582,7 +5582,7 @@ land.rhs:                                         ; preds = %do.cond
   %29 = load ptr, ptr %28, align 8
   %retval.0.i.i = select i1 %cmp.i.i.i, ptr %29, ptr %26
   %call2.i28 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %retval.0.i.i)
-  br i1 %call2.i28, label %if.end36, label %do.body, !llvm.loop !84
+  br i1 %call2.i28, label %if.end36, label %do.body, !llvm.loop !83
 
 if.end36:                                         ; preds = %land.rhs, %do.cond, %if.then
   ret void
@@ -5693,7 +5693,7 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
 
 _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i: ; preds = %do.cond.i.i.i.i, %do.body.i.i.i.i
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !85
+  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !84
 
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
@@ -5930,7 +5930,7 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
 
 _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i: ; preds = %do.cond.i.i.i.i, %do.body.i.i.i.i
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEC2ERSR_N3tbb6detail2d05splitE.exit.loopexit, label %land.rhs.i.i, !llvm.loop !85
+  br i1 %cmp.not.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEC2ERSR_N3tbb6detail2d05splitE.exit.loopexit, label %land.rhs.i.i, !llvm.loop !84
 
 _ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEC2ERSR_N3tbb6detail2d05splitE.exit.loopexit: ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i
   %.pre37 = load i8, ptr %this, align 8
@@ -5949,7 +5949,7 @@ _ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_
   %inc32 = add i8 %17, 1
   store i8 %inc32, ptr %my_size, align 2
   %cmp = icmp ult i8 %inc32, 8
-  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !86
+  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !85
 
 while.end:                                        ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEELh8EE12is_divisibleEh.exit, %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEC2ERSR_N3tbb6detail2d05splitE.exit, %land.rhs, %entry
   ret void
@@ -6150,23 +6150,23 @@ entry:
   %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 64
   %arrayidx21.i = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load double, ptr %arrayidx21.i, align 8, !noalias !87
+  %4 = load double, ptr %arrayidx21.i, align 8, !noalias !86
   %arrayidx24.i = getelementptr inbounds i8, ptr %this, i64 48
-  %5 = load double, ptr %arrayidx24.i, align 8, !noalias !87
+  %5 = load double, ptr %arrayidx24.i, align 8, !noalias !86
   %mul25.i = fmul double %5, %conv3.i
   %6 = tail call double @llvm.fmuladd.f64(double %conv.i, double %4, double %mul25.i)
   %arrayidx28.i = getelementptr inbounds i8, ptr %this, i64 80
-  %7 = load double, ptr %arrayidx28.i, align 8, !noalias !87
+  %7 = load double, ptr %arrayidx28.i, align 8, !noalias !86
   %8 = tail call double @llvm.fmuladd.f64(double %conv7.i, double %7, double %6)
-  %9 = load <2 x double>, ptr %this, align 8, !noalias !87
-  %10 = load <2 x double>, ptr %arrayidx4.i, align 8, !noalias !87
+  %9 = load <2 x double>, ptr %this, align 8, !noalias !86
+  %10 = load <2 x double>, ptr %arrayidx4.i, align 8, !noalias !86
   %11 = insertelement <2 x double> poison, double %conv3.i, i64 0
   %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
   %13 = fmul <2 x double> %10, %12
   %14 = insertelement <2 x double> poison, double %conv.i, i64 0
   %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
   %16 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %15, <2 x double> %9, <2 x double> %13)
-  %17 = load <2 x double>, ptr %arrayidx8.i, align 8, !noalias !87
+  %17 = load <2 x double>, ptr %arrayidx8.i, align 8, !noalias !86
   %18 = insertelement <2 x double> poison, double %conv7.i, i64 0
   %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
   %20 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %17, <2 x double> %16)
@@ -6275,7 +6275,7 @@ if.then:                                          ; preds = %entry
   %0 = load i32, ptr %mMaskIter.i.i, align 8
   %1 = load atomic i8, ptr @_ZGVZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE2atEjE5sZero acquire, align 8
   %guard.uninitialized.i.i.i.i = icmp eq i8 %1, 0
-  br i1 %guard.uninitialized.i.i.i.i, label %init.check.i.i.i.i, label %init.end.i.i.i.i, !prof !90
+  br i1 %guard.uninitialized.i.i.i.i, label %init.check.i.i.i.i, label %init.end.i.i.i.i, !prof !89
 
 init.check.i.i.i.i:                               ; preds = %if.then
   %2 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE2atEjE5sZero) #14
@@ -6434,7 +6434,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i, %w
   %dec.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
   %cmp.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !91
+  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !90
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %if.then.i.i.i.i
   %mul.i.i.i.i = shl nsw i32 %backoff.sroa.0.03.i.i.i, 1
@@ -6448,7 +6448,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %if.else.i.i.i.i
   %backoff.sroa.0.1.i.i.i = phi i32 [ %mul.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i, %if.else.i.i.i.i ]
   %2 = atomicrmw xchg ptr %mMutex, i8 1 seq_cst, align 1
   %tobool3.i.i.i.i.i = trunc i8 %2 to i1
-  br i1 %tobool3.i.i.i.i.i, label %while.body.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit, !llvm.loop !92
+  br i1 %tobool3.i.i.i.i.i, label %while.body.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit, !llvm.loop !91
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %if.end
   %3 = load atomic i32, ptr %mOutOfCore.i seq_cst, align 8
@@ -6947,12 +6947,12 @@ for.body.i:                                       ; preds = %invoke.cont134, %fo
   %sum.03.i = phi i32 [ %add.i, %for.body.i ], [ 0, %invoke.cont134 ]
   %dec.i = add nsw i32 %n.04.i, -1
   %24 = load i64, ptr %w.05.i, align 8
-  %25 = call i64 @llvm.ctpop.i64(i64 %24), !range !48
+  %25 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %24)
   %conv.i.i = trunc nuw nsw i64 %25 to i32
   %add.i = add i32 %sum.03.i, %conv.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %w.05.i, i64 8
   %tobool.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool.not.i, label %invoke.cont138, label %for.body.i, !llvm.loop !93
+  br i1 %tobool.not.i, label %invoke.cont138, label %for.body.i, !llvm.loop !92
 
 invoke.cont138:                                   ; preds = %for.body.i
   br i1 %cmp, label %if.end149, label %land.lhs.true141
@@ -7039,7 +7039,7 @@ for.inc:                                          ; preds = %if.then176, %if.els
   %tempIdx.1 = phi i32 [ %inc, %if.then176 ], [ %tempIdx.0154, %if.else179 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %if.end189, label %for.body, !llvm.loop !94
+  br i1 %exitcond.not, label %if.end189, label %for.body, !llvm.loop !93
 
 if.end189:                                        ; preds = %for.inc, %if.end166
   %cmp.not.i74 = icmp eq ptr %scopedTempBuf.sroa.0.1, null
@@ -7360,7 +7360,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08MetadataEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, label %while.body.i.i.i, !llvm.loop !95
+  br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08MetadataEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, label %while.body.i.i.i, !llvm.loop !94
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08MetadataEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS7_.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
@@ -7422,31 +7422,31 @@ if.then13.critedge:                               ; preds = %land.rhs.i
   br label %if.then13
 
 if.then13:                                        ; preds = %if.then13.critedge, %if.end.i.i
-  call void @llvm.experimental.noalias.scope.decl(metadata !96)
-  call void @llvm.experimental.noalias.scope.decl(metadata !99)
-  %8 = load ptr, ptr %second, align 8, !noalias !102
-  store ptr %8, ptr %agg.result, align 8, !alias.scope !102
+  call void @llvm.experimental.noalias.scope.decl(metadata !95)
+  call void @llvm.experimental.noalias.scope.decl(metadata !98)
+  %8 = load ptr, ptr %second, align 8, !noalias !101
+  store ptr %8, ptr %agg.result, align 8, !alias.scope !101
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 72
-  %9 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !102
-  store ptr %9, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !102
+  %9 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !101
+  store ptr %9, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !101
   %cmp.not.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i.i.i, label %return, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then13
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !102
+  %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !101
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %11 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !102
+  %11 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !101
   %add.i.i.i.i.i.i.i = add nsw i32 %11, 1
-  store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !102
+  store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !101
   br label %return
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %12 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !102
+  %12 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !101
   br label %return
 
 lpad:                                             ; preds = %if.end
@@ -7610,25 +7610,21 @@ if.then.i.i.i.i.i:                                ; preds = %if.end
   %conv = zext i32 %count to i64
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %conv, 6
   %call5.i.i.i.i2.i.i10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #24
+  %add.ptr.i.i.i = getelementptr %"class.openvdb::v11_0::math::Vec3.144", ptr %call5.i.i.i.i2.i.i10, i64 %conv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i10, i8 0, i64 6, i1 false)
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i10, i64 6
-  %sub.i.i.i.i.i = add nsw i64 %conv, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i17, label %if.end.i.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %count, 1
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i17, label %for.body.i.i.i.i.i.i.i.i.i
 
-if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.144", ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
-  br label %for.body.i.i.i.i.i.i.i.i.i
-
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i10, i64 6, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 6
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %if.else.i17, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !103
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %if.else.i17, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !102
 
 if.else.i17:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %and9.i18 = and i32 %compression, 4
   %tobool10.not.i19 = icmp eq i32 %and9.i18, 0
   br i1 %tobool10.not.i19, label %if.else12.i23, label %if.then11.i20
@@ -7673,7 +7669,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %for.body.i.i.i.i.i
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 12
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3INS2_8internal4halfEEESaIS6_EED2Ev.exit, !llvm.loop !104
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3INS2_8internal4halfEEESaIS6_EED2Ev.exit, !llvm.loop !103
 
 _ZNSt6vectorIN7openvdb5v11_04math4Vec3INS2_8internal4halfEEESaIS6_EED2Ev.exit: ; preds = %call.i.i.i.i.i.noexc, %invoke.cont4
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i10) #21
@@ -7909,7 +7905,7 @@ if.else9.i.i:                                     ; preds = %entry
   br i1 %cmp10.not.i.i, label %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.else9.i.i
-  %1 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true), !range !105
+  %1 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true)
   %sub.i.i = add nsw i32 %1, -8
   %shl13.i.i = shl i32 %shr.i.i, %sub.i.i
   %or12.i.i = or i32 %shl3.i.i, %shl13.i.i
@@ -7949,7 +7945,7 @@ if.else9.i.i9:                                    ; preds = %_ZNK7openvdb5v11_04
   br i1 %cmp10.not.i.i10, label %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit26, label %if.then11.i.i11
 
 if.then11.i.i11:                                  ; preds = %if.else9.i.i9
-  %3 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i5, i1 true), !range !105
+  %3 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i5, i1 true)
   %sub.i.i12 = add nsw i32 %3, -8
   %shl13.i.i13 = shl i32 %shr.i.i5, %sub.i.i12
   %or12.i.i14 = or i32 %shl3.i.i7, %shl13.i.i13
@@ -7990,7 +7986,7 @@ if.else9.i.i34:                                   ; preds = %_ZNK7openvdb5v11_04
   br i1 %cmp10.not.i.i35, label %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit51, label %if.then11.i.i36
 
 if.then11.i.i36:                                  ; preds = %if.else9.i.i34
-  %5 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i30, i1 true), !range !105
+  %5 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i30, i1 true)
   %sub.i.i37 = add nsw i32 %5, -8
   %shl13.i.i38 = shl i32 %shr.i.i30, %sub.i.i37
   %or12.i.i39 = or i32 %shl3.i.i32, %shl13.i.i38
@@ -8371,7 +8367,7 @@ land.rhs.i.i.i.i:                                 ; preds = %entry, %while.body.
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %call.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %retval.sroa.2.0.i.i) #23
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE5beginERSE_.exit, label %land.rhs.i.i.i.i, !llvm.loop !69
+  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE5beginERSE_.exit, label %land.rhs.i.i.i.i, !llvm.loop !68
 
 _ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE5beginERSE_.exit: ; preds = %land.rhs.i.i.i.i, %while.body.i.i.i.i, %entry
   %retval.sroa.2.1.i.i = phi ptr [ %0, %entry ], [ %retval.sroa.2.0.i.i, %land.rhs.i.i.i.i ], [ %call.i.i.i.i.i, %while.body.i.i.i.i ]
@@ -8393,7 +8389,7 @@ land.rhs.i.i.i.i19:                               ; preds = %_ZN7openvdb5v11_04t
 while.body.i.i.i.i22:                             ; preds = %land.rhs.i.i.i.i19
   %call.i.i.i.i.i23 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %retval.sroa.2.0.i.i20) #23
   %cmp.i.i.not.i.i.i.i24 = icmp eq ptr %call.i.i.i.i.i23, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i24, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEENSC_9ValueIterISC_St17_Rb_tree_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_12ValueAllPredES8_EEE5beginERSC_.exit, label %land.rhs.i.i.i.i19, !llvm.loop !66
+  br i1 %cmp.i.i.not.i.i.i.i24, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEENSC_9ValueIterISC_St17_Rb_tree_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_12ValueAllPredES8_EEE5beginERSC_.exit, label %land.rhs.i.i.i.i19, !llvm.loop !65
 
 _ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEENSC_9ValueIterISC_St17_Rb_tree_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_12ValueAllPredES8_EEE5beginERSC_.exit: ; preds = %land.rhs.i.i.i.i19, %while.body.i.i.i.i22, %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE5beginERSE_.exit
   %retval.sroa.2.1.i.i25 = phi ptr [ %2, %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE5beginERSE_.exit ], [ %call.i.i.i.i.i23, %while.body.i.i.i.i22 ], [ %retval.sroa.2.0.i.i20, %land.rhs.i.i.i.i19 ]
@@ -8600,7 +8596,7 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
 _ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit: ; preds = %do.body.i.i.i.i, %do.cond.i.i.i.i
   %.pre = load i64, ptr %mSize.i.i, align 8
   %cmp.i.i = icmp eq i64 %.pre, 0
-  br i1 %cmp.i.i, label %for.end, label %lor.rhs.i.i, !llvm.loop !106
+  br i1 %cmp.i.i, label %for.end, label %lor.rhs.i.i, !llvm.loop !104
 
 for.end:                                          ; preds = %for.body, %_ZNK7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEcvbEv.exit, %cond.true.i.i.i.i, %cond.true.i.i.i.i.i, %cond.true.i.i.i.i.i.i, %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, %entry
   ret void
@@ -8903,7 +8899,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %15 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %16 = add i32 %15, -1
   %cmp.i.i = icmp sgt i32 %16, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -8954,7 +8950,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %8 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %9 = add i32 %8, -1
   %cmp.i.i = icmp sgt i32 %9, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -9044,7 +9040,7 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp.i9, label %do.body.backedge, label %if.end.i10
 
 do.body.backedge:                                 ; preds = %land.rhs, %if.then4.i15
-  br label %do.body, !llvm.loop !107
+  br label %do.body, !llvm.loop !105
 
 if.end.i10:                                       ; preds = %land.rhs
   %tobool.not.i11 = icmp eq i64 %9, 0
@@ -9236,7 +9232,7 @@ land.rhs:                                         ; preds = %do.cond
   %29 = load ptr, ptr %28, align 8
   %retval.0.i.i = select i1 %cmp.i.i.i, ptr %29, ptr %26
   %call2.i28 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %retval.0.i.i)
-  br i1 %call2.i28, label %if.end31, label %do.body, !llvm.loop !108
+  br i1 %call2.i28, label %if.end31, label %do.body, !llvm.loop !106
 
 if.end31:                                         ; preds = %land.rhs, %do.cond, %if.then
   ret void
@@ -9345,7 +9341,7 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
 
 _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i: ; preds = %do.cond.i.i.i.i, %do.body.i.i.i.i
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !85
+  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !84
 
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
@@ -9612,26 +9608,26 @@ entry:
   %conv7.i = fpext float %3 to double
   %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 64
-  %4 = load <2 x double>, ptr %this, align 8, !noalias !109
-  %5 = load <2 x double>, ptr %arrayidx4.i, align 8, !noalias !109
+  %4 = load <2 x double>, ptr %this, align 8, !noalias !107
+  %5 = load <2 x double>, ptr %arrayidx4.i, align 8, !noalias !107
   %6 = insertelement <2 x double> poison, double %conv3.i, i64 0
   %7 = shufflevector <2 x double> %6, <2 x double> poison, <2 x i32> zeroinitializer
   %8 = fmul <2 x double> %5, %7
   %9 = insertelement <2 x double> poison, double %conv.i, i64 0
   %10 = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> zeroinitializer
   %11 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %10, <2 x double> %4, <2 x double> %8)
-  %12 = load <2 x double>, ptr %arrayidx8.i, align 8, !noalias !109
+  %12 = load <2 x double>, ptr %arrayidx8.i, align 8, !noalias !107
   %13 = insertelement <2 x double> poison, double %conv7.i, i64 0
   %14 = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> zeroinitializer
   %15 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %14, <2 x double> %12, <2 x double> %11)
   %arrayidx21.i = getelementptr inbounds i8, ptr %this, i64 16
-  %16 = load double, ptr %arrayidx21.i, align 8, !noalias !109
+  %16 = load double, ptr %arrayidx21.i, align 8, !noalias !107
   %arrayidx24.i = getelementptr inbounds i8, ptr %this, i64 48
-  %17 = load double, ptr %arrayidx24.i, align 8, !noalias !109
+  %17 = load double, ptr %arrayidx24.i, align 8, !noalias !107
   %mul25.i = fmul double %17, %conv3.i
   %18 = tail call double @llvm.fmuladd.f64(double %conv.i, double %16, double %mul25.i)
   %arrayidx28.i = getelementptr inbounds i8, ptr %this, i64 80
-  %19 = load double, ptr %arrayidx28.i, align 8, !noalias !109
+  %19 = load double, ptr %arrayidx28.i, align 8, !noalias !107
   %20 = tail call double @llvm.fmuladd.f64(double %conv7.i, double %19, double %18)
   %21 = fptrunc <2 x double> %15 to <2 x float>
   %conv7.i8 = fptrunc double %20 to float
@@ -9901,7 +9897,7 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
 _ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit: ; preds = %do.body.i.i.i.i, %do.cond.i.i.i.i
   %.pre = load i64, ptr %mSize.i.i, align 8
   %cmp.i.i = icmp eq i64 %.pre, 0
-  br i1 %cmp.i.i, label %for.end, label %lor.rhs.i.i, !llvm.loop !112
+  br i1 %cmp.i.i, label %for.end, label %lor.rhs.i.i, !llvm.loop !110
 
 for.end:                                          ; preds = %for.body, %_ZNK7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEcvbEv.exit, %cond.true.i.i.i.i, %cond.true.i.i.i.i.i, %cond.true.i.i.i.i.i.i, %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, %entry
   ret void
@@ -10204,7 +10200,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %15 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %16 = add i32 %15, -1
   %cmp.i.i = icmp sgt i32 %16, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -10255,7 +10251,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %8 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %9 = add i32 %8, -1
   %cmp.i.i = icmp sgt i32 %9, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -10345,7 +10341,7 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp.i9, label %do.body.backedge, label %if.end.i10
 
 do.body.backedge:                                 ; preds = %land.rhs, %if.then4.i15
-  br label %do.body, !llvm.loop !113
+  br label %do.body, !llvm.loop !111
 
 if.end.i10:                                       ; preds = %land.rhs
   %tobool.not.i11 = icmp eq i64 %9, 0
@@ -10537,7 +10533,7 @@ land.rhs:                                         ; preds = %do.cond
   %29 = load ptr, ptr %28, align 8
   %retval.0.i.i = select i1 %cmp.i.i.i, ptr %29, ptr %26
   %call2.i28 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %retval.0.i.i)
-  br i1 %call2.i28, label %if.end31, label %do.body, !llvm.loop !114
+  br i1 %call2.i28, label %if.end31, label %do.body, !llvm.loop !112
 
 if.end31:                                         ; preds = %land.rhs, %do.cond, %if.then
   ret void
@@ -10646,7 +10642,7 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
 
 _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i: ; preds = %do.cond.i.i.i.i, %do.body.i.i.i.i
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !85
+  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !84
 
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
@@ -10912,16 +10908,16 @@ entry:
   %3 = load float, ptr %arrayidx.i.i3.i, align 4
   %conv7.i = fpext float %3 to double
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 24
-  %4 = load double, ptr %arrayidx.i, align 8, !noalias !115
+  %4 = load double, ptr %arrayidx.i, align 8, !noalias !113
   %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 56
-  %5 = load double, ptr %arrayidx4.i, align 8, !noalias !115
+  %5 = load double, ptr %arrayidx4.i, align 8, !noalias !113
   %mul5.i = fmul double %5, %conv3.i
   %6 = tail call double @llvm.fmuladd.f64(double %conv.i, double %4, double %mul5.i)
   %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 88
-  %7 = load double, ptr %arrayidx8.i, align 8, !noalias !115
+  %7 = load double, ptr %arrayidx8.i, align 8, !noalias !113
   %8 = tail call double @llvm.fmuladd.f64(double %conv7.i, double %7, double %6)
   %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 120
-  %9 = load double, ptr %arrayidx10.i, align 8, !noalias !115
+  %9 = load double, ptr %arrayidx10.i, align 8, !noalias !113
   %add.i = fadd double %9, %8
   %cmp.i.i = fcmp oeq double %add.i, 0.000000e+00
   br i1 %cmp.i.i, label %_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit, label %if.then.i
@@ -10930,34 +10926,34 @@ if.then.i:                                        ; preds = %entry
   %arrayidx17.i = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx21.i = getelementptr inbounds i8, ptr %this, i64 64
   %arrayidx23.i = getelementptr inbounds i8, ptr %this, i64 96
-  %10 = load <2 x double>, ptr %this, align 8, !noalias !115
-  %11 = load <2 x double>, ptr %arrayidx17.i, align 8, !noalias !115
+  %10 = load <2 x double>, ptr %this, align 8, !noalias !113
+  %11 = load <2 x double>, ptr %arrayidx17.i, align 8, !noalias !113
   %12 = insertelement <2 x double> poison, double %conv3.i, i64 0
   %13 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
   %14 = fmul <2 x double> %11, %13
   %15 = insertelement <2 x double> poison, double %conv.i, i64 0
   %16 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> zeroinitializer
   %17 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %16, <2 x double> %10, <2 x double> %14)
-  %18 = load <2 x double>, ptr %arrayidx21.i, align 8, !noalias !115
+  %18 = load <2 x double>, ptr %arrayidx21.i, align 8, !noalias !113
   %19 = insertelement <2 x double> poison, double %conv7.i, i64 0
   %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> zeroinitializer
   %21 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %20, <2 x double> %18, <2 x double> %17)
-  %22 = load <2 x double>, ptr %arrayidx23.i, align 8, !noalias !115
+  %22 = load <2 x double>, ptr %arrayidx23.i, align 8, !noalias !113
   %23 = fadd <2 x double> %22, %21
   %24 = insertelement <2 x double> poison, double %add.i, i64 0
   %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
   %26 = fdiv <2 x double> %23, %25
   %arrayidx41.i = getelementptr inbounds i8, ptr %this, i64 16
-  %27 = load double, ptr %arrayidx41.i, align 8, !noalias !115
+  %27 = load double, ptr %arrayidx41.i, align 8, !noalias !113
   %arrayidx44.i = getelementptr inbounds i8, ptr %this, i64 48
-  %28 = load double, ptr %arrayidx44.i, align 8, !noalias !115
+  %28 = load double, ptr %arrayidx44.i, align 8, !noalias !113
   %mul45.i = fmul double %28, %conv3.i
   %29 = tail call double @llvm.fmuladd.f64(double %conv.i, double %27, double %mul45.i)
   %arrayidx48.i = getelementptr inbounds i8, ptr %this, i64 80
-  %30 = load double, ptr %arrayidx48.i, align 8, !noalias !115
+  %30 = load double, ptr %arrayidx48.i, align 8, !noalias !113
   %31 = tail call double @llvm.fmuladd.f64(double %conv7.i, double %30, double %29)
   %arrayidx50.i = getelementptr inbounds i8, ptr %this, i64 112
-  %32 = load double, ptr %arrayidx50.i, align 8, !noalias !115
+  %32 = load double, ptr %arrayidx50.i, align 8, !noalias !113
   %add51.i = fadd double %32, %31
   %div52.i = fdiv double %add51.i, %add.i
   %33 = fptrunc <2 x double> %26 to <2 x float>
@@ -11228,12 +11224,12 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %11 = load i32, ptr %mMaxLevel.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %9, %11
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, !llvm.loop !118
+  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, !llvm.loop !116
 
 _ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit: ; preds = %do.body.i.i.i.i, %do.cond.i.i.i.i
   %.pre = load i64, ptr %mSize.i.i, align 8
   %cmp.i.i = icmp eq i64 %.pre, 0
-  br i1 %cmp.i.i, label %for.end, label %lor.rhs.i.i, !llvm.loop !119
+  br i1 %cmp.i.i, label %for.end, label %lor.rhs.i.i, !llvm.loop !117
 
 for.end:                                          ; preds = %for.body, %_ZNK7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEcvbEv.exit, %cond.true.i.i.i.i, %cond.true.i.i.i.i.i, %cond.true.i.i.i.i.i.i, %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, %entry
   ret void
@@ -11349,10 +11345,10 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   %11 = load i32, ptr %mMaxLevel.i, align 8
   %cmp3.i.i = icmp sgt i32 %.pre.pre, %11
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp3.i.i
-  br i1 %or.cond.i.i, label %do.body.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit, !llvm.loop !118
+  br i1 %or.cond.i.i, label %do.body.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit, !llvm.loop !116
 
 _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit: ; preds = %do.body.i.i, %do.cond.i.i
-  br label %for.cond, !llvm.loop !120
+  br label %for.cond, !llvm.loop !118
 
 for.end:                                          ; preds = %cond.true.i.i.i.i, %cond.true.i.i.i, %cond.true.i.i, %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE4testEv.exit
   ret i64 %n.0
@@ -11421,7 +11417,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i) #23
   %inc.i.i.i.i.i.i.i = add i32 %__n.05.i.i.i.i.i.i.i, 1
   %cmp.i.not.i.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i.i, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i
-  br i1 %cmp.i.not.i.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit, label %while.body.i.i.i.i.i.i.i, !llvm.loop !121
+  br i1 %cmp.i.not.i.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit, label %while.body.i.i.i.i.i.i.i, !llvm.loop !119
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit: ; preds = %while.body.i.i.i.i.i.i.i, %do.body
   %cond.i = phi i32 [ -1, %do.body ], [ %inc.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
@@ -11466,7 +11462,7 @@ while.body.i.i.i.i.i.i.i15:                       ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i18 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i17) #23
   %inc.i.i.i.i.i.i.i19 = add i32 %__n.05.i.i.i.i.i.i.i16, 1
   %cmp.i.not.i.i.i.i.i.i.i20 = icmp eq ptr %call.i.i.i.i.i.i.i.i18, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i13
-  br i1 %cmp.i.not.i.i.i.i.i.i.i20, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit, label %while.body.i.i.i.i.i.i.i15, !llvm.loop !122
+  br i1 %cmp.i.not.i.i.i.i.i.i.i20, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit, label %while.body.i.i.i.i.i.i.i15, !llvm.loop !120
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit: ; preds = %while.body.i.i.i.i.i.i.i15, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit, %cond.true.i26, %cond.true.i.i24, %cond.true.i.i.i22, %cond.true.i.i.i.i7, %cond.false.i.i.i.i.i10
   %cond.i511 = phi i32 [ %cond.i514, %cond.true.i26 ], [ %cond.i517, %cond.true.i.i24 ], [ %cond.i520, %cond.true.i.i.i22 ], [ %cond.i510, %cond.true.i.i.i.i7 ], [ %cond.i510, %cond.false.i.i.i.i.i10 ], [ %cond.i, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit ], [ %cond.i510, %while.body.i.i.i.i.i.i.i15 ]
@@ -11558,7 +11554,7 @@ cond.false.i.i.i.i.i.i:                           ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i.i.i = phi i32 [ %shr.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %22, %cond.false.loopexit.i.i.i.i.i.i ]
   %b.0.lcssa.i.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %not13.i.i.i.i.i.i, %cond.false.loopexit.i.i.i.i.i.i ]
   %shl15.i.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i, 6
-  %23 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i, i1 true), !range !48
+  %23 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i, i1 true)
   %24 = trunc nuw nsw i64 %23 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl15.i.i.i.i.i.i, %24
   br label %_ZN7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4nextEj.exit.thread596
@@ -11608,7 +11604,7 @@ while.body.i.i.i.i.i.i.i53:                       ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i56 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i55) #23
   %inc.i.i.i.i.i.i.i57 = add i32 %__n.05.i.i.i.i.i.i.i54, 1
   %cmp.i.not.i.i.i.i.i.i.i58 = icmp eq ptr %call.i.i.i.i.i.i.i.i56, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i51
-  br i1 %cmp.i.not.i.i.i.i.i.i.i58, label %if.end, label %while.body.i.i.i.i.i.i.i53, !llvm.loop !121
+  br i1 %cmp.i.not.i.i.i.i.i.i.i58, label %if.end, label %while.body.i.i.i.i.i.i.i53, !llvm.loop !119
 
 if.end:                                           ; preds = %while.body.i.i.i.i.i.i.i53, %cond.false.i.i.i.i.i48, %cond.true.i.i.i.i45, %cond.true.i.i.i60, %cond.true.i.i62, %cond.true.i64, %cond.true.i.i.i28, %cond.true.i.i31, %cond.true.i33, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4testEj.exit, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit
   %30 = phi i32 [ %0, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4testEj.exit ], [ %0, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit ], [ 0, %cond.true.i33 ], [ 1, %cond.true.i.i31 ], [ 2, %cond.true.i.i.i28 ], [ 0, %cond.true.i64 ], [ 1, %cond.true.i.i62 ], [ 2, %cond.true.i.i.i60 ], [ 3, %cond.true.i.i.i.i45 ], [ 3, %cond.false.i.i.i.i.i48 ], [ 3, %while.body.i.i.i.i.i.i.i53 ]
@@ -11688,7 +11684,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj
   %n.0.lcssa.i.i.i.i.i.i86 = phi i32 [ %shr.i.i.i.i.i.i71, %if.end4.i.i.i.i.i.i80 ], [ %37, %cond.false.loopexit.i.i.i.i.i.i101 ]
   %b.0.lcssa.i.i.i.i.i.i87 = phi i64 [ %and7.i.i.i.i.i.i83, %if.end4.i.i.i.i.i.i80 ], [ %not13.i.i.i.i.i.i102, %cond.false.loopexit.i.i.i.i.i.i101 ]
   %shl15.i.i.i.i.i.i88 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i86, 6
-  %38 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i87, i1 true), !range !48
+  %38 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i87, i1 true)
   %39 = trunc nuw nsw i64 %38 to i32
   %add.i.i.i.i.i.i89 = or disjoint i32 %shl15.i.i.i.i.i.i88, %39
   store i32 %add.i.i.i.i.i.i89, ptr %mMaskIter.i.i.i, align 8
@@ -11738,7 +11734,7 @@ while.body.i.i.i.i.i.i.i119:                      ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i122 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i121) #23
   %inc.i.i.i.i.i.i.i123 = add i32 %__n.05.i.i.i.i.i.i.i120, 1
   %cmp.i.not.i.i.i.i.i.i.i124 = icmp eq ptr %call.i.i.i.i.i.i.i.i122, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i117
-  br i1 %cmp.i.not.i.i.i.i.i.i.i124, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit132, label %while.body.i.i.i.i.i.i.i119, !llvm.loop !121
+  br i1 %cmp.i.not.i.i.i.i.i.i.i124, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit132, label %while.body.i.i.i.i.i.i.i119, !llvm.loop !119
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit132: ; preds = %while.body.i.i.i.i.i.i.i119, %if.then20, %cond.true.i130, %cond.true.i.i128, %cond.true.i.i.i126, %cond.true.i.i.i.i111, %cond.false.i.i.i.i.i114
   %45 = phi i32 [ 0, %cond.true.i130 ], [ 1, %cond.true.i.i128 ], [ 2, %cond.true.i.i.i126 ], [ 3, %cond.true.i.i.i.i111 ], [ 3, %cond.false.i.i.i.i.i114 ], [ %.pre594, %if.then20 ], [ %.pre594, %while.body.i.i.i.i.i.i.i119 ]
@@ -11830,7 +11826,7 @@ cond.false.i.i.i.i.i.i169:                        ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i.i.i170 = phi i32 [ %shr.i.i.i.i.i.i155, %if.end4.i.i.i.i.i.i164 ], [ %57, %cond.false.loopexit.i.i.i.i.i.i185 ]
   %b.0.lcssa.i.i.i.i.i.i171 = phi i64 [ %and7.i.i.i.i.i.i167, %if.end4.i.i.i.i.i.i164 ], [ %not13.i.i.i.i.i.i186, %cond.false.loopexit.i.i.i.i.i.i185 ]
   %shl15.i.i.i.i.i.i172 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i170, 6
-  %58 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i171, i1 true), !range !48
+  %58 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i171, i1 true)
   %59 = trunc nuw nsw i64 %58 to i32
   %add.i.i.i.i.i.i173 = or disjoint i32 %shl15.i.i.i.i.i.i172, %59
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE4nextEv.exit.i.i174
@@ -11884,7 +11880,7 @@ while.body.i.i.i.i.i.i.i203:                      ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i206 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i205) #23
   %inc.i.i.i.i.i.i.i207 = add i32 %__n.05.i.i.i.i.i.i.i204, 1
   %cmp.i.not.i.i.i.i.i.i.i208 = icmp eq ptr %call.i.i.i.i.i.i.i.i206, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i201
-  br i1 %cmp.i.not.i.i.i.i.i.i.i208, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit216, label %while.body.i.i.i.i.i.i.i203, !llvm.loop !121
+  br i1 %cmp.i.not.i.i.i.i.i.i.i208, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit216, label %while.body.i.i.i.i.i.i.i203, !llvm.loop !119
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit216: ; preds = %while.body.i.i.i.i.i.i.i203, %cond.true.i214, %cond.true.i.i212, %cond.true.i.i.i210, %cond.true.i.i.i.i195, %cond.false.i.i.i.i.i198
   %cond.i209 = phi i32 [ %61, %cond.true.i214 ], [ %62, %cond.true.i.i212 ], [ %63, %cond.true.i.i.i210 ], [ 0, %cond.true.i.i.i.i195 ], [ 0, %cond.false.i.i.i.i.i198 ], [ %inc.i.i.i.i.i.i.i207, %while.body.i.i.i.i.i.i.i203 ]
@@ -11942,7 +11938,7 @@ while.body.i.i.i.i.i.i.i225:                      ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i228 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i227) #23
   %inc.i.i.i.i.i.i.i229 = add i32 %__n.05.i.i.i.i.i.i.i226, 1
   %cmp.i.not.i.i.i.i.i.i.i230 = icmp eq ptr %call.i.i.i.i.i.i.i.i228, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i223
-  br i1 %cmp.i.not.i.i.i.i.i.i.i230, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit238, label %while.body.i.i.i.i.i.i.i225, !llvm.loop !122
+  br i1 %cmp.i.not.i.i.i.i.i.i.i230, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit238, label %while.body.i.i.i.i.i.i.i225, !llvm.loop !120
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit238: ; preds = %while.body.i.i.i.i.i.i.i225, %while.cond
   %cond.i231 = phi i32 [ -1, %while.cond ], [ %inc.i.i.i.i.i.i.i229, %while.body.i.i.i.i.i.i.i225 ]
@@ -11987,7 +11983,7 @@ while.body.i.i.i.i.i.i.i247:                      ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i250 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i249) #23
   %inc.i.i.i.i.i.i.i251 = add i32 %__n.05.i.i.i.i.i.i.i248, 1
   %cmp.i.not.i.i.i.i.i.i.i252 = icmp eq ptr %call.i.i.i.i.i.i.i.i250, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i245
-  br i1 %cmp.i.not.i.i.i.i.i.i.i252, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit260, label %while.body.i.i.i.i.i.i.i247, !llvm.loop !121
+  br i1 %cmp.i.not.i.i.i.i.i.i.i252, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit260, label %while.body.i.i.i.i.i.i.i247, !llvm.loop !119
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit260: ; preds = %while.body.i.i.i.i.i.i.i247, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit238, %cond.true.i258, %cond.true.i.i256, %cond.true.i.i.i254
   %cond.i231529 = phi i32 [ %cond.i231532, %cond.true.i258 ], [ %cond.i231535, %cond.true.i.i256 ], [ %cond.i231538, %cond.true.i.i.i254 ], [ %cond.i231, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit238 ], [ %cond.i231528, %while.body.i.i.i.i.i.i.i247 ]
@@ -12043,7 +12039,7 @@ while.body.i.i.i.i.i.i.i269:                      ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i272 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i271) #23
   %inc.i.i.i.i.i.i.i273 = add i32 %__n.05.i.i.i.i.i.i.i270, 1
   %cmp.i.not.i.i.i.i.i.i.i274 = icmp eq ptr %call.i.i.i.i.i.i.i.i272, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i267
-  br i1 %cmp.i.not.i.i.i.i.i.i.i274, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit282, label %while.body.i.i.i.i.i.i.i269, !llvm.loop !121
+  br i1 %cmp.i.not.i.i.i.i.i.i.i274, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit282, label %while.body.i.i.i.i.i.i.i269, !llvm.loop !119
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit282: ; preds = %while.body.i.i.i.i.i.i.i269, %if.then57
   %cond.i275 = phi i32 [ -1, %if.then57 ], [ %inc.i.i.i.i.i.i.i273, %while.body.i.i.i.i.i.i.i269 ]
@@ -12088,7 +12084,7 @@ while.body.i.i.i.i.i.i.i291:                      ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i294 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i293) #23
   %inc.i.i.i.i.i.i.i295 = add i32 %__n.05.i.i.i.i.i.i.i292, 1
   %cmp.i.not.i.i.i.i.i.i.i296 = icmp eq ptr %call.i.i.i.i.i.i.i.i294, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i289
-  br i1 %cmp.i.not.i.i.i.i.i.i.i296, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit304, label %while.body.i.i.i.i.i.i.i291, !llvm.loop !122
+  br i1 %cmp.i.not.i.i.i.i.i.i.i296, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit304, label %while.body.i.i.i.i.i.i.i291, !llvm.loop !120
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit304: ; preds = %while.body.i.i.i.i.i.i.i291, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit282, %cond.true.i302, %cond.true.i.i300, %cond.true.i.i.i298, %cond.true.i.i.i.i283, %cond.false.i.i.i.i.i286
   %cond.i275544 = phi i32 [ %cond.i275547, %cond.true.i302 ], [ %cond.i275550, %cond.true.i.i300 ], [ %cond.i275553, %cond.true.i.i.i298 ], [ %cond.i275543, %cond.true.i.i.i.i283 ], [ %cond.i275543, %cond.false.i.i.i.i.i286 ], [ %cond.i275, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit282 ], [ %cond.i275543, %while.body.i.i.i.i.i.i.i291 ]
@@ -12180,7 +12176,7 @@ cond.false.i.i.i.i.i.i341:                        ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i.i.i342 = phi i32 [ %shr.i.i.i.i.i.i327, %if.end4.i.i.i.i.i.i336 ], [ %101, %cond.false.loopexit.i.i.i.i.i.i357 ]
   %b.0.lcssa.i.i.i.i.i.i343 = phi i64 [ %and7.i.i.i.i.i.i339, %if.end4.i.i.i.i.i.i336 ], [ %not13.i.i.i.i.i.i358, %cond.false.loopexit.i.i.i.i.i.i357 ]
   %shl15.i.i.i.i.i.i344 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i342, 6
-  %102 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i343, i1 true), !range !48
+  %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i343, i1 true)
   %103 = trunc nuw nsw i64 %102 to i32
   %add.i.i.i.i.i.i345 = or disjoint i32 %shl15.i.i.i.i.i.i344, %103
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE4nextEv.exit.i.i346
@@ -12245,7 +12241,7 @@ while.body.i.i.i.i.i.i.i376:                      ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i379 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i378) #23
   %inc.i.i.i.i.i.i.i380 = add i32 %__n.05.i.i.i.i.i.i.i377, 1
   %cmp.i.not.i.i.i.i.i.i.i381 = icmp eq ptr %call.i.i.i.i.i.i.i.i379, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i374
-  br i1 %cmp.i.not.i.i.i.i.i.i.i381, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit389, label %while.body.i.i.i.i.i.i.i376, !llvm.loop !121
+  br i1 %cmp.i.not.i.i.i.i.i.i.i381, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit389, label %while.body.i.i.i.i.i.i.i376, !llvm.loop !119
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit389: ; preds = %while.body.i.i.i.i.i.i.i376, %if.then81
   %cond.i382 = phi i32 [ -1, %if.then81 ], [ %inc.i.i.i.i.i.i.i380, %while.body.i.i.i.i.i.i.i376 ]
@@ -12290,7 +12286,7 @@ while.body.i.i.i.i.i.i.i398:                      ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i401 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i400) #23
   %inc.i.i.i.i.i.i.i402 = add i32 %__n.05.i.i.i.i.i.i.i399, 1
   %cmp.i.not.i.i.i.i.i.i.i403 = icmp eq ptr %call.i.i.i.i.i.i.i.i401, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i396
-  br i1 %cmp.i.not.i.i.i.i.i.i.i403, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit411, label %while.body.i.i.i.i.i.i.i398, !llvm.loop !122
+  br i1 %cmp.i.not.i.i.i.i.i.i.i403, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit411, label %while.body.i.i.i.i.i.i.i398, !llvm.loop !120
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit411: ; preds = %while.body.i.i.i.i.i.i.i398, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit389, %cond.true.i409, %cond.true.i.i407, %cond.true.i.i.i405, %cond.true.i.i.i.i390, %cond.false.i.i.i.i.i393
   %cond.i382558 = phi i32 [ %cond.i382561, %cond.true.i409 ], [ %cond.i382564, %cond.true.i.i407 ], [ %cond.i382567, %cond.true.i.i.i405 ], [ %cond.i382557, %cond.true.i.i.i.i390 ], [ %cond.i382557, %cond.false.i.i.i.i.i393 ], [ %cond.i382, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit389 ], [ %cond.i382557, %while.body.i.i.i.i.i.i.i398 ]
@@ -12382,7 +12378,7 @@ cond.false.i.i.i.i.i.i448:                        ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i.i.i449 = phi i32 [ %shr.i.i.i.i.i.i434, %if.end4.i.i.i.i.i.i443 ], [ %127, %cond.false.loopexit.i.i.i.i.i.i464 ]
   %b.0.lcssa.i.i.i.i.i.i450 = phi i64 [ %and7.i.i.i.i.i.i446, %if.end4.i.i.i.i.i.i443 ], [ %not13.i.i.i.i.i.i465, %cond.false.loopexit.i.i.i.i.i.i464 ]
   %shl15.i.i.i.i.i.i451 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i449, 6
-  %128 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i450, i1 true), !range !48
+  %128 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i450, i1 true)
   %129 = trunc nuw nsw i64 %128 to i32
   %add.i.i.i.i.i.i452 = or disjoint i32 %shl15.i.i.i.i.i.i451, %129
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE4nextEv.exit.i.i453
@@ -12397,7 +12393,7 @@ cond.false.i.i470:                                ; preds = %cond.true.i.i.i412,
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %cond.false.i.i470, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE4nextEv.exit.i.i453, %cond.true.i466, %cond.true.i.i.i412, %cond.true.i.i416, %cond.true.i419, %cond.false.i.i363, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE4nextEv.exit.i.i346, %cond.true.i359, %cond.true.i.i.i305, %cond.true.i.i309, %cond.true.i312, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4testEj.exit429, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit411, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit304, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4testEj.exit322
-  br label %while.cond, !llvm.loop !123
+  br label %while.cond, !llvm.loop !121
 
 while.cond105:                                    ; preds = %while.cond105.preheader, %if.end116
   %dontIncrement.addr.1 = phi i8 [ 1, %if.end116 ], [ %dontIncrement.addr.0, %while.cond105.preheader ]
@@ -12457,10 +12453,10 @@ if.end116:                                        ; preds = %cond.true.i.i.i474,
   %inc = add i32 %130, 1
   store i32 %inc, ptr %mLevel, align 8
   %call120 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4nextEj(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %inc)
-  br label %while.cond105, !llvm.loop !124
+  br label %while.cond105, !llvm.loop !122
 
 do.cond:                                          ; preds = %cond.true.i.i.i474, %cond.true.i.i478, %cond.true.i481, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4testEj.exit, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4testEj.exit491
-  br i1 %recurse.0, label %do.body, label %return, !llvm.loop !125
+  br i1 %recurse.0, label %do.body, label %return, !llvm.loop !123
 
 return:                                           ; preds = %do.cond, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit216, %if.then14, %while.body112
   %retval.0 = phi i1 [ false, %while.body112 ], [ true, %if.then14 ], [ true, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit216 ], [ true, %do.cond ]
@@ -12512,7 +12508,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %arrayidx12.i.i.i.i = getelementptr inbounds [8 x i64], ptr %0, i64 0, i64 %indvars.iv.next.i.i.i.i
   %3 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %3, 0
-  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !52
+  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !51
 
 cond.false.loopexit.i.i.i.i:                      ; preds = %while.body.i.i.i.i
   %4 = trunc nuw nsw i64 %indvars.iv.next.i.i.i.i to i32
@@ -12522,7 +12518,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i, %if.end4.i.i.i.i ], [ %4, %cond.false.loopexit.i.i.i.i ]
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %3, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
-  %5 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !48
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
   %6 = trunc nuw nsw i64 %5 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %6
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IdEELj3EEEE4nextEv.exit
@@ -12570,7 +12566,7 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %arrayidx12.i.i.i.i.i = getelementptr inbounds [64 x i64], ptr %7, i64 0, i64 %indvars.iv.next.i.i.i.i.i
   %10 = load i64, ptr %arrayidx12.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i = icmp eq i64 %10, 0
-  br i1 %tobool8.not.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i, !llvm.loop !53
+  br i1 %tobool8.not.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i, !llvm.loop !52
 
 cond.false.loopexit.i.i.i.i.i:                    ; preds = %while.body.i.i.i.i.i
   %11 = trunc nuw nsw i64 %indvars.iv.next.i.i.i.i.i to i32
@@ -12580,7 +12576,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ %shr.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %11, %cond.false.loopexit.i.i.i.i.i ]
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %10, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
-  %12 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !48
+  %12 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true)
   %13 = trunc nuw nsw i64 %12 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %13
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE4nextEv.exit.i
@@ -12638,7 +12634,7 @@ cond.false.i:                                     ; preds = %if.then.i
 land.rhs.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, %cond.false.i
   %w.012.i.i.i.i.i = phi ptr [ %mChildMask.i.i.i, %cond.false.i ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %n.011.i.i.i.i.i = phi i32 [ 0, %cond.false.i ], [ %inc.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  %2 = load i64, ptr %w.012.i.i.i.i.i, align 8, !noalias !126
+  %2 = load i64, ptr %w.012.i.i.i.i.i, align 8, !noalias !124
   %tobool.not.i.i.i.i.i = icmp eq i64 %2, -1
   br i1 %tobool.not.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
@@ -12646,12 +12642,12 @@ for.inc.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %w.012.i.i.i.i.i, i64 8
   %inc.i.i.i.i.i = add nuw nsw i32 %n.011.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i, 64
-  br i1 %exitcond.not.i.i.i.i.i, label %cond.end.i, label %land.rhs.i.i.i.i.i, !llvm.loop !59
+  br i1 %exitcond.not.i.i.i.i.i, label %cond.end.i, label %land.rhs.i.i.i.i.i, !llvm.loop !58
 
 cond.false.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %shl.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i, 6
   %not3.i.i.i.i.i = xor i64 %2, -1
-  %3 = tail call i64 @llvm.cttz.i64(i64 %not3.i.i.i.i.i, i1 true), !range !48
+  %3 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not3.i.i.i.i.i, i1 true)
   %4 = trunc nuw nsw i64 %3 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i, %4
   br label %cond.end.i
@@ -12684,7 +12680,7 @@ cond.false.i.i:                                   ; preds = %if.then.i.i
 land.rhs.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i, %cond.false.i.i
   %w.012.i.i.i.i.i.i = phi ptr [ %mChildMask.i.i.i.i, %cond.false.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ]
   %n.011.i.i.i.i.i.i = phi i32 [ 0, %cond.false.i.i ], [ %inc.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ]
-  %6 = load i64, ptr %w.012.i.i.i.i.i.i, align 8, !noalias !131
+  %6 = load i64, ptr %w.012.i.i.i.i.i.i, align 8, !noalias !129
   %tobool.not.i.i.i.i.i.i = icmp eq i64 %6, -1
   br i1 %tobool.not.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
@@ -12692,12 +12688,12 @@ for.inc.i.i.i.i.i.i:                              ; preds = %land.rhs.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w.012.i.i.i.i.i.i, i64 8
   %inc.i.i.i.i.i.i = add nuw nsw i32 %n.011.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i.i, 512
-  br i1 %exitcond.not.i.i.i.i.i.i, label %cond.end.i.i, label %land.rhs.i.i.i.i.i.i, !llvm.loop !65
+  br i1 %exitcond.not.i.i.i.i.i.i, label %cond.end.i.i, label %land.rhs.i.i.i.i.i.i, !llvm.loop !64
 
 cond.false.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %shl.i.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i.i, 6
   %not3.i.i.i.i.i.i = xor i64 %6, -1
-  %7 = tail call i64 @llvm.cttz.i64(i64 %not3.i.i.i.i.i.i, i1 true), !range !48
+  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not3.i.i.i.i.i.i, i1 true)
   %8 = trunc nuw nsw i64 %7 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i, %8
   br label %cond.end.i.i
@@ -12738,7 +12734,7 @@ land.rhs.i.i.i.i.i.i.i:                           ; preds = %cond.false.i.i.i, %
 while.body.i.i.i.i.i.i.i:                         ; preds = %land.rhs.i.i.i.i.i.i.i
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %retval.sroa.2.0.i.i.i.i.i) #23
   %cmp.i.i.not.i.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i.i.i.i, label %cond.end.i.i.i, label %land.rhs.i.i.i.i.i.i.i, !llvm.loop !136
+  br i1 %cmp.i.i.not.i.i.i.i.i.i.i, label %cond.end.i.i.i, label %land.rhs.i.i.i.i.i.i.i, !llvm.loop !134
 
 cond.end.i.i.i:                                   ; preds = %while.body.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i, %cond.false.i.i.i, %if.then.i.i.i
   %ref.tmp.sroa.3.0.i.i.i = phi ptr [ null, %if.then.i.i.i ], [ %10, %cond.false.i.i.i ], [ %retval.sroa.2.0.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
@@ -12802,7 +12798,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %arrayidx12.i.i.i.i = getelementptr inbounds [512 x i64], ptr %0, i64 0, i64 %indvars.iv.next.i.i.i.i
   %4 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %4, -1
-  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !67
+  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !66
 
 cond.false.loopexit.i.i.i.i:                      ; preds = %while.body.i.i.i.i
   %not13.i.i.i.i = xor i64 %4, -1
@@ -12813,7 +12809,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i, %if.end4.i.i.i.i ], [ %5, %cond.false.loopexit.i.i.i.i ]
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %not13.i.i.i.i, %cond.false.loopexit.i.i.i.i ]
   %shl15.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
-  %6 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !48
+  %6 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
   %7 = trunc nuw nsw i64 %6 to i32
   %add.i.i.i.i = or disjoint i32 %shl15.i.i.i.i, %7
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE4nextEv.exit
@@ -12854,7 +12850,7 @@ while.body.i.i.i.i3:                              ; preds = %land.rhs.i.i.i.i2
   %call.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %call.i13.i.i.i.i) #23
   store ptr %call.i.i.i.i.i, ptr %mIter.i.i.i.i, align 8
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, %add.ptr.i.i.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE8BaseIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueAllPredEE4nextEv.exit.i, label %land.rhs.i.i.i.i2, !llvm.loop !136
+  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE8BaseIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueAllPredEE4nextEv.exit.i, label %land.rhs.i.i.i.i2, !llvm.loop !134
 
 _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE8BaseIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueAllPredEE4nextEv.exit.i: ; preds = %while.body.i.i.i.i3, %land.rhs.i.i.i.i2, %if.end.i.i.i
   %11 = phi ptr [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i ], [ %call.i13.i.i.i.i, %land.rhs.i.i.i.i2 ], [ %add.ptr.i.i.i.i.i.i, %while.body.i.i.i.i3 ]
@@ -12911,7 +12907,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %arrayidx12.i.i.i.i = getelementptr inbounds [512 x i64], ptr %0, i64 0, i64 %indvars.iv.next.i.i.i.i
   %3 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %3, 0
-  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !68
+  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !67
 
 cond.false.loopexit.i.i.i.i:                      ; preds = %while.body.i.i.i.i
   %4 = trunc nuw nsw i64 %indvars.iv.next.i.i.i.i to i32
@@ -12921,7 +12917,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i, %if.end4.i.i.i.i ], [ %4, %cond.false.loopexit.i.i.i.i ]
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %3, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
-  %5 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !48
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
   %6 = trunc nuw nsw i64 %5 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %6
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE4nextEv.exit
@@ -12962,7 +12958,7 @@ while.body.i.i.i.i4:                              ; preds = %land.rhs.i.i.i.i2
   %call.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %call.i13.i.i.i.i) #23
   store ptr %call.i.i.i.i.i, ptr %mIter.i.i.i.i, align 8
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, %add.ptr.i.i.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE8BaseIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEE4nextEv.exit.i, label %land.rhs.i.i.i.i2, !llvm.loop !137
+  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE8BaseIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEE4nextEv.exit.i, label %land.rhs.i.i.i.i2, !llvm.loop !135
 
 _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE8BaseIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEE4nextEv.exit.i: ; preds = %while.body.i.i.i.i4, %land.rhs.i.i.i.i2, %if.end.i.i.i
   %10 = phi ptr [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i ], [ %call.i13.i.i.i.i, %land.rhs.i.i.i.i2 ], [ %add.ptr.i.i.i.i.i.i, %while.body.i.i.i.i4 ]
@@ -13041,7 +13037,7 @@ if.then6.i:                                       ; preds = %if.then.i
 land.rhs.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, %if.then6.i
   %w.012.i.i.i.i.i = phi ptr [ %mChildMask.i.i.i, %if.then6.i ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %n.011.i.i.i.i.i = phi i32 [ 0, %if.then6.i ], [ %inc.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  %8 = load i64, ptr %w.012.i.i.i.i.i, align 8, !noalias !138
+  %8 = load i64, ptr %w.012.i.i.i.i.i, align 8, !noalias !136
   %tobool.not.i.i.i.i.i = icmp eq i64 %8, 0
   br i1 %tobool.not.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
@@ -13049,11 +13045,11 @@ for.inc.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %w.012.i.i.i.i.i, i64 8
   %inc.i.i.i.i.i = add nuw nsw i32 %n.011.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i, 64
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_.exit.i, label %land.rhs.i.i.i.i.i, !llvm.loop !75
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_.exit.i, label %land.rhs.i.i.i.i.i, !llvm.loop !74
 
 cond.false.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %shl.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i, 6
-  %9 = tail call i64 @llvm.cttz.i64(i64 %8, i1 true), !range !48
+  %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %8, i1 true)
   %10 = trunc nuw nsw i64 %9 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i, %10
   br label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_.exit.i
@@ -13095,7 +13091,7 @@ if.then6.i.i:                                     ; preds = %if.then.i.i
 land.rhs.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i, %if.then6.i.i
   %w.012.i.i.i.i.i.i = phi ptr [ %mChildMask.i.i.i.i, %if.then6.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ]
   %n.011.i.i.i.i.i.i = phi i32 [ 0, %if.then6.i.i ], [ %inc.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ]
-  %15 = load i64, ptr %w.012.i.i.i.i.i.i, align 8, !noalias !143
+  %15 = load i64, ptr %w.012.i.i.i.i.i.i, align 8, !noalias !141
   %tobool.not.i.i.i.i.i.i = icmp eq i64 %15, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
@@ -13103,11 +13099,11 @@ for.inc.i.i.i.i.i.i:                              ; preds = %land.rhs.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w.012.i.i.i.i.i.i, i64 8
   %inc.i.i.i.i.i.i = add nuw nsw i32 %n.011.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i.i, 512
-  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_.exit.i.i, label %land.rhs.i.i.i.i.i.i, !llvm.loop !81
+  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_.exit.i.i, label %land.rhs.i.i.i.i.i.i, !llvm.loop !80
 
 cond.false.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %shl.i.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i.i, 6
-  %16 = tail call i64 @llvm.cttz.i64(i64 %15, i1 true), !range !48
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 true)
   %17 = trunc nuw nsw i64 %16 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i, %17
   br label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_.exit.i.i
@@ -13563,7 +13559,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %15 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %16 = add i32 %15, -1
   %cmp.i.i = icmp sgt i32 %16, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -13614,7 +13610,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %8 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %9 = add i32 %8, -1
   %cmp.i.i = icmp sgt i32 %9, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -13704,7 +13700,7 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp.i9, label %do.body.backedge, label %if.end.i10
 
 do.body.backedge:                                 ; preds = %land.rhs, %if.then4.i15
-  br label %do.body, !llvm.loop !148
+  br label %do.body, !llvm.loop !146
 
 if.end.i10:                                       ; preds = %land.rhs
   %tobool.not.i11 = icmp eq i64 %9, 0
@@ -13896,7 +13892,7 @@ land.rhs:                                         ; preds = %do.cond
   %29 = load ptr, ptr %28, align 8
   %retval.0.i.i = select i1 %cmp.i.i.i, ptr %29, ptr %26
   %call2.i28 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %retval.0.i.i)
-  br i1 %call2.i28, label %if.end34, label %do.body, !llvm.loop !149
+  br i1 %call2.i28, label %if.end34, label %do.body, !llvm.loop !147
 
 if.end34:                                         ; preds = %land.rhs, %do.cond, %if.then
   ret void
@@ -14001,11 +13997,11 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %10 = load i32, ptr %mMaxLevel6.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %8, %10
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, !llvm.loop !118
+  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, !llvm.loop !116
 
 _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i: ; preds = %do.cond.i.i.i.i, %do.body.i.i.i.i
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !150
+  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !148
 
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
@@ -14236,11 +14232,11 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %14 = load i32, ptr %mMaxLevel.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %12, %14
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, !llvm.loop !118
+  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, !llvm.loop !116
 
 _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i: ; preds = %do.cond.i.i.i.i, %do.body.i.i.i.i
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEC2ERSR_N3tbb6detail2d05splitE.exit.loopexit, label %land.rhs.i.i, !llvm.loop !150
+  br i1 %cmp.not.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEC2ERSR_N3tbb6detail2d05splitE.exit.loopexit, label %land.rhs.i.i, !llvm.loop !148
 
 _ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEC2ERSR_N3tbb6detail2d05splitE.exit.loopexit: ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i
   %.pre37 = load i8, ptr %this, align 8
@@ -14259,7 +14255,7 @@ _ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_
   %inc32 = add i8 %17, 1
   store i8 %inc32, ptr %my_size, align 2
   %cmp = icmp ult i8 %inc32, 8
-  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !151
+  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !149
 
 while.end:                                        ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEELh8EE12is_divisibleEh.exit, %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEC2ERSR_N3tbb6detail2d05splitE.exit, %land.rhs, %entry
   ret void
@@ -14447,23 +14443,23 @@ entry:
   %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 64
   %arrayidx21.i = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load double, ptr %arrayidx21.i, align 8, !noalias !152
+  %1 = load double, ptr %arrayidx21.i, align 8, !noalias !150
   %arrayidx24.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load double, ptr %arrayidx24.i, align 8, !noalias !152
+  %2 = load double, ptr %arrayidx24.i, align 8, !noalias !150
   %mul25.i = fmul double %v.sroa.6.0.copyload, %2
   %3 = tail call double @llvm.fmuladd.f64(double %v.sroa.0.0.copyload, double %1, double %mul25.i)
   %arrayidx28.i = getelementptr inbounds i8, ptr %this, i64 80
-  %4 = load double, ptr %arrayidx28.i, align 8, !noalias !152
+  %4 = load double, ptr %arrayidx28.i, align 8, !noalias !150
   %5 = tail call double @llvm.fmuladd.f64(double %v.sroa.10.0.copyload, double %4, double %3)
-  %6 = load <2 x double>, ptr %this, align 8, !noalias !152
-  %7 = load <2 x double>, ptr %arrayidx4.i, align 8, !noalias !152
+  %6 = load <2 x double>, ptr %this, align 8, !noalias !150
+  %7 = load <2 x double>, ptr %arrayidx4.i, align 8, !noalias !150
   %8 = insertelement <2 x double> poison, double %v.sroa.6.0.copyload, i64 0
   %9 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> zeroinitializer
   %10 = fmul <2 x double> %9, %7
   %11 = insertelement <2 x double> poison, double %v.sroa.0.0.copyload, i64 0
   %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
   %13 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %12, <2 x double> %6, <2 x double> %10)
-  %14 = load <2 x double>, ptr %arrayidx8.i, align 8, !noalias !152
+  %14 = load <2 x double>, ptr %arrayidx8.i, align 8, !noalias !150
   %15 = insertelement <2 x double> poison, double %v.sroa.10.0.copyload, i64 0
   %16 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> zeroinitializer
   %17 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %16, <2 x double> %14, <2 x double> %13)
@@ -14565,7 +14561,7 @@ if.then:                                          ; preds = %entry
   %0 = load i32, ptr %mMaskIter.i.i, align 8
   %1 = load atomic i8, ptr @_ZGVZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE2atEjE5sZero acquire, align 8
   %guard.uninitialized.i.i.i.i = icmp eq i8 %1, 0
-  br i1 %guard.uninitialized.i.i.i.i, label %init.check.i.i.i.i, label %init.end.i.i.i.i, !prof !90
+  br i1 %guard.uninitialized.i.i.i.i, label %init.check.i.i.i.i, label %init.end.i.i.i.i, !prof !89
 
 init.check.i.i.i.i:                               ; preds = %if.then
   %2 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE2atEjE5sZero) #14
@@ -14573,7 +14569,7 @@ init.check.i.i.i.i:                               ; preds = %if.then
   br i1 %tobool.not.i.i.i.i, label %init.end.i.i.i.i, label %invoke.cont.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %init.check.i.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE2atEjE5sZero, i8 0, i64 24, i1 false), !alias.scope !155
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE2atEjE5sZero, i8 0, i64 24, i1 false), !alias.scope !153
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE2atEjE5sZero) #14
   br label %init.end.i.i.i.i
 
@@ -14723,7 +14719,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i, %w
   %dec.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
   %cmp.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !91
+  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !90
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %if.then.i.i.i.i
   %mul.i.i.i.i = shl nsw i32 %backoff.sroa.0.03.i.i.i, 1
@@ -14737,7 +14733,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %if.else.i.i.i.i
   %backoff.sroa.0.1.i.i.i = phi i32 [ %mul.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i, %if.else.i.i.i.i ]
   %2 = atomicrmw xchg ptr %mMutex, i8 1 seq_cst, align 1
   %tobool3.i.i.i.i.i = trunc i8 %2 to i1
-  br i1 %tobool3.i.i.i.i.i, label %while.body.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit, !llvm.loop !92
+  br i1 %tobool3.i.i.i.i.i, label %while.body.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit, !llvm.loop !91
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %if.end
   %3 = load atomic i32, ptr %mOutOfCore.i seq_cst, align 8
@@ -15126,9 +15122,9 @@ invoke.cont97.thread158:                          ; preds = %if.end65
 cond.end:                                         ; preds = %if.end65
   %fneg7.i.i = fneg double %background.sroa.6.0
   %16 = fneg <2 x double> %14
-  store <2 x double> %16, ptr %inactiveVal0, align 16, !alias.scope !158
+  store <2 x double> %16, ptr %inactiveVal0, align 16, !alias.scope !156
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %inactiveVal0, i64 16
-  store double %fneg7.i.i, ptr %arrayidx5.i.i.i, align 16, !alias.scope !158
+  store double %fneg7.i.i, ptr %arrayidx5.i.i.i, align 16, !alias.scope !156
   switch i8 %15, label %invoke.cont97 [
     i8 5, label %if.then75
     i8 4, label %if.then75
@@ -15228,12 +15224,12 @@ for.body.i:                                       ; preds = %invoke.cont128, %fo
   %sum.03.i = phi i32 [ %add.i, %for.body.i ], [ 0, %invoke.cont128 ]
   %dec.i = add nsw i32 %n.04.i, -1
   %26 = load i64, ptr %w.05.i, align 8
-  %27 = call i64 @llvm.ctpop.i64(i64 %26), !range !48
+  %27 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
   %conv.i.i = trunc nuw nsw i64 %27 to i32
   %add.i = add i32 %sum.03.i, %conv.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %w.05.i, i64 8
   %tobool.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool.not.i, label %invoke.cont132, label %for.body.i, !llvm.loop !93
+  br i1 %tobool.not.i, label %invoke.cont132, label %for.body.i, !llvm.loop !92
 
 invoke.cont132:                                   ; preds = %for.body.i
   br i1 %cmp, label %if.end143, label %land.lhs.true135
@@ -15320,7 +15316,7 @@ for.inc:                                          ; preds = %if.then169, %if.els
   %tempIdx.1 = phi i32 [ %inc, %if.then169 ], [ %tempIdx.0156, %if.else172 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %if.end181, label %for.body, !llvm.loop !163
+  br i1 %exitcond.not, label %if.end181, label %for.body, !llvm.loop !161
 
 if.end181:                                        ; preds = %for.inc, %if.end160
   %cmp.not.i74 = icmp eq ptr %scopedTempBuf.sroa.0.1, null
@@ -15559,25 +15555,21 @@ if.then.i.i.i.i.i:                                ; preds = %if.end
   %conv = zext i32 %count to i64
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %conv, 6
   %call5.i.i.i.i2.i.i10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #24
+  %add.ptr.i.i.i = getelementptr %"class.openvdb::v11_0::math::Vec3.144", ptr %call5.i.i.i.i2.i.i10, i64 %conv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i10, i8 0, i64 6, i1 false)
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i10, i64 6
-  %sub.i.i.i.i.i = add nsw i64 %conv, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i17, label %if.end.i.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %count, 1
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i17, label %for.body.i.i.i.i.i.i.i.i.i
 
-if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.144", ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
-  br label %for.body.i.i.i.i.i.i.i.i.i
-
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i10, i64 6, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 6
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %if.else.i17, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !103
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %if.else.i17, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !102
 
 if.else.i17:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %and9.i18 = and i32 %compression, 4
   %tobool10.not.i19 = icmp eq i32 %and9.i18, 0
   br i1 %tobool10.not.i19, label %if.else12.i23, label %if.then11.i20
@@ -15622,7 +15614,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %for.body.i.i.i.i.i
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 24
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3INS2_8internal4halfEEESaIS6_EED2Ev.exit, !llvm.loop !164
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3INS2_8internal4halfEEESaIS6_EED2Ev.exit, !llvm.loop !162
 
 _ZNSt6vectorIN7openvdb5v11_04math4Vec3INS2_8internal4halfEEESaIS6_EED2Ev.exit: ; preds = %call.i.i.i.i.i.noexc, %invoke.cont4
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i10) #21
@@ -15730,7 +15722,7 @@ if.else9.i.i:                                     ; preds = %entry
   br i1 %cmp10.not.i.i, label %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.else9.i.i
-  %1 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true), !range !105
+  %1 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true)
   %sub.i.i = add nsw i32 %1, -8
   %shl13.i.i = shl i32 %shr.i.i, %sub.i.i
   %or12.i.i = or i32 %shl3.i.i, %shl13.i.i
@@ -15772,7 +15764,7 @@ if.else9.i.i9:                                    ; preds = %_ZNK7openvdb5v11_04
   br i1 %cmp10.not.i.i10, label %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit26, label %if.then11.i.i11
 
 if.then11.i.i11:                                  ; preds = %if.else9.i.i9
-  %4 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i5, i1 true), !range !105
+  %4 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i5, i1 true)
   %sub.i.i12 = add nsw i32 %4, -8
   %shl13.i.i13 = shl i32 %shr.i.i5, %sub.i.i12
   %or12.i.i14 = or i32 %shl3.i.i7, %shl13.i.i13
@@ -15815,7 +15807,7 @@ if.else9.i.i34:                                   ; preds = %_ZNK7openvdb5v11_04
   br i1 %cmp10.not.i.i35, label %_ZNK7openvdb5v11_04math8internal4halfcvfEv.exit51, label %if.then11.i.i36
 
 if.then11.i.i36:                                  ; preds = %if.else9.i.i34
-  %7 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i30, i1 true), !range !105
+  %7 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i30, i1 true)
   %sub.i.i37 = add nsw i32 %7, -8
   %shl13.i.i38 = shl i32 %shr.i.i30, %sub.i.i37
   %or12.i.i39 = or i32 %shl3.i.i32, %shl13.i.i38
@@ -16195,7 +16187,7 @@ land.rhs.i.i.i.i:                                 ; preds = %entry, %while.body.
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %call.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %retval.sroa.2.0.i.i) #23
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE5beginERSE_.exit, label %land.rhs.i.i.i.i, !llvm.loop !137
+  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE5beginERSE_.exit, label %land.rhs.i.i.i.i, !llvm.loop !135
 
 _ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE5beginERSE_.exit: ; preds = %land.rhs.i.i.i.i, %while.body.i.i.i.i, %entry
   %retval.sroa.2.1.i.i = phi ptr [ %0, %entry ], [ %retval.sroa.2.0.i.i, %land.rhs.i.i.i.i ], [ %call.i.i.i.i.i, %while.body.i.i.i.i ]
@@ -16217,7 +16209,7 @@ land.rhs.i.i.i.i19:                               ; preds = %_ZN7openvdb5v11_04t
 while.body.i.i.i.i22:                             ; preds = %land.rhs.i.i.i.i19
   %call.i.i.i.i.i23 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %retval.sroa.2.0.i.i20) #23
   %cmp.i.i.not.i.i.i.i24 = icmp eq ptr %call.i.i.i.i.i23, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i24, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEENSC_9ValueIterISC_St17_Rb_tree_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_12ValueAllPredES8_EEE5beginERSC_.exit, label %land.rhs.i.i.i.i19, !llvm.loop !136
+  br i1 %cmp.i.i.not.i.i.i.i24, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEENSC_9ValueIterISC_St17_Rb_tree_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_12ValueAllPredES8_EEE5beginERSC_.exit, label %land.rhs.i.i.i.i19, !llvm.loop !134
 
 _ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEENSC_9ValueIterISC_St17_Rb_tree_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_12ValueAllPredES8_EEE5beginERSC_.exit: ; preds = %land.rhs.i.i.i.i19, %while.body.i.i.i.i22, %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE5beginERSE_.exit
   %retval.sroa.2.1.i.i25 = phi ptr [ %2, %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE5beginERSE_.exit ], [ %call.i.i.i.i.i23, %while.body.i.i.i.i22 ], [ %retval.sroa.2.0.i.i20, %land.rhs.i.i.i.i19 ]
@@ -16419,12 +16411,12 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %11 = load i32, ptr %mMaxLevel.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %9, %11
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, !llvm.loop !118
+  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, !llvm.loop !116
 
 _ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit: ; preds = %do.body.i.i.i.i, %do.cond.i.i.i.i
   %.pre = load i64, ptr %mSize.i.i, align 8
   %cmp.i.i = icmp eq i64 %.pre, 0
-  br i1 %cmp.i.i, label %for.end, label %lor.rhs.i.i, !llvm.loop !165
+  br i1 %cmp.i.i, label %for.end, label %lor.rhs.i.i, !llvm.loop !163
 
 for.end:                                          ; preds = %for.body, %_ZNK7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEcvbEv.exit, %cond.true.i.i.i.i, %cond.true.i.i.i.i.i, %cond.true.i.i.i.i.i.i, %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, %entry
   ret void
@@ -16727,7 +16719,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %15 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %16 = add i32 %15, -1
   %cmp.i.i = icmp sgt i32 %16, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -16778,7 +16770,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %8 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %9 = add i32 %8, -1
   %cmp.i.i = icmp sgt i32 %9, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -16868,7 +16860,7 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp.i9, label %do.body.backedge, label %if.end.i10
 
 do.body.backedge:                                 ; preds = %land.rhs, %if.then4.i15
-  br label %do.body, !llvm.loop !166
+  br label %do.body, !llvm.loop !164
 
 if.end.i10:                                       ; preds = %land.rhs
   %tobool.not.i11 = icmp eq i64 %9, 0
@@ -17060,7 +17052,7 @@ land.rhs:                                         ; preds = %do.cond
   %29 = load ptr, ptr %28, align 8
   %retval.0.i.i = select i1 %cmp.i.i.i, ptr %29, ptr %26
   %call2.i28 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %retval.0.i.i)
-  br i1 %call2.i28, label %if.end31, label %do.body, !llvm.loop !167
+  br i1 %call2.i28, label %if.end31, label %do.body, !llvm.loop !165
 
 if.end31:                                         ; preds = %land.rhs, %do.cond, %if.then
   ret void
@@ -17165,11 +17157,11 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %10 = load i32, ptr %mMaxLevel6.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %8, %10
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, !llvm.loop !118
+  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, !llvm.loop !116
 
 _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i: ; preds = %do.cond.i.i.i.i, %do.body.i.i.i.i
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !150
+  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !148
 
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
@@ -17433,26 +17425,26 @@ entry:
   %v.sroa.3.0.copyload = load double, ptr %v.sroa.3.0.call.i.i.sroa_idx, align 8
   %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 64
-  %1 = load <2 x double>, ptr %this, align 8, !noalias !168
-  %2 = load <2 x double>, ptr %arrayidx4.i, align 8, !noalias !168
+  %1 = load <2 x double>, ptr %this, align 8, !noalias !166
+  %2 = load <2 x double>, ptr %arrayidx4.i, align 8, !noalias !166
   %3 = insertelement <2 x double> poison, double %v.sroa.2.0.copyload, i64 0
   %4 = shufflevector <2 x double> %3, <2 x double> poison, <2 x i32> zeroinitializer
   %5 = fmul <2 x double> %4, %2
   %6 = insertelement <2 x double> poison, double %v.sroa.0.0.copyload, i64 0
   %7 = shufflevector <2 x double> %6, <2 x double> poison, <2 x i32> zeroinitializer
   %8 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %7, <2 x double> %1, <2 x double> %5)
-  %9 = load <2 x double>, ptr %arrayidx8.i, align 8, !noalias !168
+  %9 = load <2 x double>, ptr %arrayidx8.i, align 8, !noalias !166
   %10 = insertelement <2 x double> poison, double %v.sroa.3.0.copyload, i64 0
   %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> zeroinitializer
   %12 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %11, <2 x double> %9, <2 x double> %8)
   %arrayidx21.i = getelementptr inbounds i8, ptr %this, i64 16
-  %13 = load double, ptr %arrayidx21.i, align 8, !noalias !168
+  %13 = load double, ptr %arrayidx21.i, align 8, !noalias !166
   %arrayidx24.i = getelementptr inbounds i8, ptr %this, i64 48
-  %14 = load double, ptr %arrayidx24.i, align 8, !noalias !168
+  %14 = load double, ptr %arrayidx24.i, align 8, !noalias !166
   %mul25.i = fmul double %v.sroa.2.0.copyload, %14
   %15 = tail call double @llvm.fmuladd.f64(double %v.sroa.0.0.copyload, double %13, double %mul25.i)
   %arrayidx28.i = getelementptr inbounds i8, ptr %this, i64 80
-  %16 = load double, ptr %arrayidx28.i, align 8, !noalias !168
+  %16 = load double, ptr %arrayidx28.i, align 8, !noalias !166
   %17 = tail call double @llvm.fmuladd.f64(double %v.sroa.3.0.copyload, double %16, double %15)
   %18 = load i32, ptr %mLevel.i.i, align 8
   switch i32 %18, label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit [
@@ -17710,12 +17702,12 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %11 = load i32, ptr %mMaxLevel.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %9, %11
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, !llvm.loop !118
+  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, !llvm.loop !116
 
 _ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit: ; preds = %do.body.i.i.i.i, %do.cond.i.i.i.i
   %.pre = load i64, ptr %mSize.i.i, align 8
   %cmp.i.i = icmp eq i64 %.pre, 0
-  br i1 %cmp.i.i, label %for.end, label %lor.rhs.i.i, !llvm.loop !171
+  br i1 %cmp.i.i, label %for.end, label %lor.rhs.i.i, !llvm.loop !169
 
 for.end:                                          ; preds = %for.body, %_ZNK7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEcvbEv.exit, %cond.true.i.i.i.i, %cond.true.i.i.i.i.i, %cond.true.i.i.i.i.i.i, %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, %entry
   ret void
@@ -18018,7 +18010,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %15 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %16 = add i32 %15, -1
   %cmp.i.i = icmp sgt i32 %16, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -18069,7 +18061,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %8 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %9 = add i32 %8, -1
   %cmp.i.i = icmp sgt i32 %9, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -18159,7 +18151,7 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp.i9, label %do.body.backedge, label %if.end.i10
 
 do.body.backedge:                                 ; preds = %land.rhs, %if.then4.i15
-  br label %do.body, !llvm.loop !172
+  br label %do.body, !llvm.loop !170
 
 if.end.i10:                                       ; preds = %land.rhs
   %tobool.not.i11 = icmp eq i64 %9, 0
@@ -18351,7 +18343,7 @@ land.rhs:                                         ; preds = %do.cond
   %29 = load ptr, ptr %28, align 8
   %retval.0.i.i = select i1 %cmp.i.i.i, ptr %29, ptr %26
   %call2.i28 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %retval.0.i.i)
-  br i1 %call2.i28, label %if.end31, label %do.body, !llvm.loop !173
+  br i1 %call2.i28, label %if.end31, label %do.body, !llvm.loop !171
 
 if.end31:                                         ; preds = %land.rhs, %do.cond, %if.then
   ret void
@@ -18456,11 +18448,11 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %10 = load i32, ptr %mMaxLevel6.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %8, %10
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, !llvm.loop !118
+  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, !llvm.loop !116
 
 _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i: ; preds = %do.cond.i.i.i.i, %do.body.i.i.i.i
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !150
+  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !148
 
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
@@ -18723,16 +18715,16 @@ entry:
   %v.sroa.3.0.call.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %v.sroa.3.0.copyload = load double, ptr %v.sroa.3.0.call.i.i.sroa_idx, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load double, ptr %arrayidx.i, align 8, !noalias !174
+  %1 = load double, ptr %arrayidx.i, align 8, !noalias !172
   %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 56
-  %2 = load double, ptr %arrayidx4.i, align 8, !noalias !174
+  %2 = load double, ptr %arrayidx4.i, align 8, !noalias !172
   %mul5.i = fmul double %v.sroa.2.0.copyload, %2
   %3 = tail call double @llvm.fmuladd.f64(double %v.sroa.0.0.copyload, double %1, double %mul5.i)
   %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load double, ptr %arrayidx8.i, align 8, !noalias !174
+  %4 = load double, ptr %arrayidx8.i, align 8, !noalias !172
   %5 = tail call double @llvm.fmuladd.f64(double %v.sroa.3.0.copyload, double %4, double %3)
   %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 120
-  %6 = load double, ptr %arrayidx10.i, align 8, !noalias !174
+  %6 = load double, ptr %arrayidx10.i, align 8, !noalias !172
   %add.i = fadd double %6, %5
   %cmp.i.i = fcmp oeq double %add.i, 0.000000e+00
   br i1 %cmp.i.i, label %_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit, label %if.then.i
@@ -18741,34 +18733,34 @@ if.then.i:                                        ; preds = %entry
   %arrayidx17.i = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx21.i = getelementptr inbounds i8, ptr %this, i64 64
   %arrayidx23.i = getelementptr inbounds i8, ptr %this, i64 96
-  %7 = load <2 x double>, ptr %this, align 8, !noalias !174
-  %8 = load <2 x double>, ptr %arrayidx17.i, align 8, !noalias !174
+  %7 = load <2 x double>, ptr %this, align 8, !noalias !172
+  %8 = load <2 x double>, ptr %arrayidx17.i, align 8, !noalias !172
   %9 = insertelement <2 x double> poison, double %v.sroa.2.0.copyload, i64 0
   %10 = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> zeroinitializer
   %11 = fmul <2 x double> %10, %8
   %12 = insertelement <2 x double> poison, double %v.sroa.0.0.copyload, i64 0
   %13 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
   %14 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %13, <2 x double> %7, <2 x double> %11)
-  %15 = load <2 x double>, ptr %arrayidx21.i, align 8, !noalias !174
+  %15 = load <2 x double>, ptr %arrayidx21.i, align 8, !noalias !172
   %16 = insertelement <2 x double> poison, double %v.sroa.3.0.copyload, i64 0
   %17 = shufflevector <2 x double> %16, <2 x double> poison, <2 x i32> zeroinitializer
   %18 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %17, <2 x double> %15, <2 x double> %14)
-  %19 = load <2 x double>, ptr %arrayidx23.i, align 8, !noalias !174
+  %19 = load <2 x double>, ptr %arrayidx23.i, align 8, !noalias !172
   %20 = fadd <2 x double> %19, %18
   %21 = insertelement <2 x double> poison, double %add.i, i64 0
   %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
   %23 = fdiv <2 x double> %20, %22
   %arrayidx41.i = getelementptr inbounds i8, ptr %this, i64 16
-  %24 = load double, ptr %arrayidx41.i, align 8, !noalias !174
+  %24 = load double, ptr %arrayidx41.i, align 8, !noalias !172
   %arrayidx44.i = getelementptr inbounds i8, ptr %this, i64 48
-  %25 = load double, ptr %arrayidx44.i, align 8, !noalias !174
+  %25 = load double, ptr %arrayidx44.i, align 8, !noalias !172
   %mul45.i = fmul double %v.sroa.2.0.copyload, %25
   %26 = tail call double @llvm.fmuladd.f64(double %v.sroa.0.0.copyload, double %24, double %mul45.i)
   %arrayidx48.i = getelementptr inbounds i8, ptr %this, i64 80
-  %27 = load double, ptr %arrayidx48.i, align 8, !noalias !174
+  %27 = load double, ptr %arrayidx48.i, align 8, !noalias !172
   %28 = tail call double @llvm.fmuladd.f64(double %v.sroa.3.0.copyload, double %27, double %26)
   %arrayidx50.i = getelementptr inbounds i8, ptr %this, i64 112
-  %29 = load double, ptr %arrayidx50.i, align 8, !noalias !174
+  %29 = load double, ptr %arrayidx50.i, align 8, !noalias !172
   %add51.i = fadd double %29, %28
   %div52.i = fdiv double %add51.i, %add.i
   br label %_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit
@@ -19032,12 +19024,12 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %11 = load i32, ptr %mMaxLevel.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %9, %11
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, !llvm.loop !177
+  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, !llvm.loop !175
 
 _ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit: ; preds = %do.body.i.i.i.i, %do.cond.i.i.i.i
   %.pre = load i64, ptr %mSize.i.i, align 8
   %cmp.i.i = icmp eq i64 %.pre, 0
-  br i1 %cmp.i.i, label %for.end, label %lor.rhs.i.i, !llvm.loop !178
+  br i1 %cmp.i.i, label %for.end, label %lor.rhs.i.i, !llvm.loop !176
 
 for.end:                                          ; preds = %for.body, %_ZNK7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEcvbEv.exit, %cond.true.i.i.i.i, %cond.true.i.i.i.i.i, %cond.true.i.i.i.i.i.i, %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, %entry
   ret void
@@ -19153,10 +19145,10 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   %11 = load i32, ptr %mMaxLevel.i, align 8
   %cmp3.i.i = icmp sgt i32 %.pre.pre, %11
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp3.i.i
-  br i1 %or.cond.i.i, label %do.body.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit, !llvm.loop !177
+  br i1 %or.cond.i.i, label %do.body.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit, !llvm.loop !175
 
 _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit: ; preds = %do.body.i.i, %do.cond.i.i
-  br label %for.cond, !llvm.loop !179
+  br label %for.cond, !llvm.loop !177
 
 for.end:                                          ; preds = %cond.true.i.i.i.i, %cond.true.i.i.i, %cond.true.i.i, %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE4testEv.exit
   ret i64 %n.0
@@ -19225,7 +19217,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i) #23
   %inc.i.i.i.i.i.i.i = add i32 %__n.05.i.i.i.i.i.i.i, 1
   %cmp.i.not.i.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i.i, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i
-  br i1 %cmp.i.not.i.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit, label %while.body.i.i.i.i.i.i.i, !llvm.loop !180
+  br i1 %cmp.i.not.i.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit, label %while.body.i.i.i.i.i.i.i, !llvm.loop !178
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit: ; preds = %while.body.i.i.i.i.i.i.i, %do.body
   %cond.i = phi i32 [ -1, %do.body ], [ %inc.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
@@ -19270,7 +19262,7 @@ while.body.i.i.i.i.i.i.i15:                       ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i18 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i17) #23
   %inc.i.i.i.i.i.i.i19 = add i32 %__n.05.i.i.i.i.i.i.i16, 1
   %cmp.i.not.i.i.i.i.i.i.i20 = icmp eq ptr %call.i.i.i.i.i.i.i.i18, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i13
-  br i1 %cmp.i.not.i.i.i.i.i.i.i20, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit, label %while.body.i.i.i.i.i.i.i15, !llvm.loop !181
+  br i1 %cmp.i.not.i.i.i.i.i.i.i20, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit, label %while.body.i.i.i.i.i.i.i15, !llvm.loop !179
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit: ; preds = %while.body.i.i.i.i.i.i.i15, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit, %cond.true.i26, %cond.true.i.i24, %cond.true.i.i.i22, %cond.true.i.i.i.i7, %cond.false.i.i.i.i.i10
   %cond.i511 = phi i32 [ %cond.i514, %cond.true.i26 ], [ %cond.i517, %cond.true.i.i24 ], [ %cond.i520, %cond.true.i.i.i22 ], [ %cond.i510, %cond.true.i.i.i.i7 ], [ %cond.i510, %cond.false.i.i.i.i.i10 ], [ %cond.i, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit ], [ %cond.i510, %while.body.i.i.i.i.i.i.i15 ]
@@ -19362,7 +19354,7 @@ cond.false.i.i.i.i.i.i:                           ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i.i.i = phi i32 [ %shr.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %22, %cond.false.loopexit.i.i.i.i.i.i ]
   %b.0.lcssa.i.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %not13.i.i.i.i.i.i, %cond.false.loopexit.i.i.i.i.i.i ]
   %shl15.i.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i, 6
-  %23 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i, i1 true), !range !48
+  %23 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i, i1 true)
   %24 = trunc nuw nsw i64 %23 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl15.i.i.i.i.i.i, %24
   br label %_ZN7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4nextEj.exit.thread596
@@ -19412,7 +19404,7 @@ while.body.i.i.i.i.i.i.i53:                       ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i56 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i55) #23
   %inc.i.i.i.i.i.i.i57 = add i32 %__n.05.i.i.i.i.i.i.i54, 1
   %cmp.i.not.i.i.i.i.i.i.i58 = icmp eq ptr %call.i.i.i.i.i.i.i.i56, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i51
-  br i1 %cmp.i.not.i.i.i.i.i.i.i58, label %if.end, label %while.body.i.i.i.i.i.i.i53, !llvm.loop !180
+  br i1 %cmp.i.not.i.i.i.i.i.i.i58, label %if.end, label %while.body.i.i.i.i.i.i.i53, !llvm.loop !178
 
 if.end:                                           ; preds = %while.body.i.i.i.i.i.i.i53, %cond.false.i.i.i.i.i48, %cond.true.i.i.i.i45, %cond.true.i.i.i60, %cond.true.i.i62, %cond.true.i64, %cond.true.i.i.i28, %cond.true.i.i31, %cond.true.i33, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4testEj.exit, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit
   %30 = phi i32 [ %0, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4testEj.exit ], [ %0, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit ], [ 0, %cond.true.i33 ], [ 1, %cond.true.i.i31 ], [ 2, %cond.true.i.i.i28 ], [ 0, %cond.true.i64 ], [ 1, %cond.true.i.i62 ], [ 2, %cond.true.i.i.i60 ], [ 3, %cond.true.i.i.i.i45 ], [ 3, %cond.false.i.i.i.i.i48 ], [ 3, %while.body.i.i.i.i.i.i.i53 ]
@@ -19492,7 +19484,7 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj
   %n.0.lcssa.i.i.i.i.i.i86 = phi i32 [ %shr.i.i.i.i.i.i71, %if.end4.i.i.i.i.i.i80 ], [ %37, %cond.false.loopexit.i.i.i.i.i.i101 ]
   %b.0.lcssa.i.i.i.i.i.i87 = phi i64 [ %and7.i.i.i.i.i.i83, %if.end4.i.i.i.i.i.i80 ], [ %not13.i.i.i.i.i.i102, %cond.false.loopexit.i.i.i.i.i.i101 ]
   %shl15.i.i.i.i.i.i88 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i86, 6
-  %38 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i87, i1 true), !range !48
+  %38 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i87, i1 true)
   %39 = trunc nuw nsw i64 %38 to i32
   %add.i.i.i.i.i.i89 = or disjoint i32 %shl15.i.i.i.i.i.i88, %39
   store i32 %add.i.i.i.i.i.i89, ptr %mMaskIter.i.i.i, align 8
@@ -19542,7 +19534,7 @@ while.body.i.i.i.i.i.i.i119:                      ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i122 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i121) #23
   %inc.i.i.i.i.i.i.i123 = add i32 %__n.05.i.i.i.i.i.i.i120, 1
   %cmp.i.not.i.i.i.i.i.i.i124 = icmp eq ptr %call.i.i.i.i.i.i.i.i122, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i117
-  br i1 %cmp.i.not.i.i.i.i.i.i.i124, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit132, label %while.body.i.i.i.i.i.i.i119, !llvm.loop !180
+  br i1 %cmp.i.not.i.i.i.i.i.i.i124, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit132, label %while.body.i.i.i.i.i.i.i119, !llvm.loop !178
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit132: ; preds = %while.body.i.i.i.i.i.i.i119, %if.then20, %cond.true.i130, %cond.true.i.i128, %cond.true.i.i.i126, %cond.true.i.i.i.i111, %cond.false.i.i.i.i.i114
   %45 = phi i32 [ 0, %cond.true.i130 ], [ 1, %cond.true.i.i128 ], [ 2, %cond.true.i.i.i126 ], [ 3, %cond.true.i.i.i.i111 ], [ 3, %cond.false.i.i.i.i.i114 ], [ %.pre594, %if.then20 ], [ %.pre594, %while.body.i.i.i.i.i.i.i119 ]
@@ -19634,7 +19626,7 @@ cond.false.i.i.i.i.i.i169:                        ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i.i.i170 = phi i32 [ %shr.i.i.i.i.i.i155, %if.end4.i.i.i.i.i.i164 ], [ %57, %cond.false.loopexit.i.i.i.i.i.i185 ]
   %b.0.lcssa.i.i.i.i.i.i171 = phi i64 [ %and7.i.i.i.i.i.i167, %if.end4.i.i.i.i.i.i164 ], [ %not13.i.i.i.i.i.i186, %cond.false.loopexit.i.i.i.i.i.i185 ]
   %shl15.i.i.i.i.i.i172 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i170, 6
-  %58 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i171, i1 true), !range !48
+  %58 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i171, i1 true)
   %59 = trunc nuw nsw i64 %58 to i32
   %add.i.i.i.i.i.i173 = or disjoint i32 %shl15.i.i.i.i.i.i172, %59
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE4nextEv.exit.i.i174
@@ -19688,7 +19680,7 @@ while.body.i.i.i.i.i.i.i203:                      ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i206 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i205) #23
   %inc.i.i.i.i.i.i.i207 = add i32 %__n.05.i.i.i.i.i.i.i204, 1
   %cmp.i.not.i.i.i.i.i.i.i208 = icmp eq ptr %call.i.i.i.i.i.i.i.i206, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i201
-  br i1 %cmp.i.not.i.i.i.i.i.i.i208, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit216, label %while.body.i.i.i.i.i.i.i203, !llvm.loop !180
+  br i1 %cmp.i.not.i.i.i.i.i.i.i208, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit216, label %while.body.i.i.i.i.i.i.i203, !llvm.loop !178
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit216: ; preds = %while.body.i.i.i.i.i.i.i203, %cond.true.i214, %cond.true.i.i212, %cond.true.i.i.i210, %cond.true.i.i.i.i195, %cond.false.i.i.i.i.i198
   %cond.i209 = phi i32 [ %61, %cond.true.i214 ], [ %62, %cond.true.i.i212 ], [ %63, %cond.true.i.i.i210 ], [ 0, %cond.true.i.i.i.i195 ], [ 0, %cond.false.i.i.i.i.i198 ], [ %inc.i.i.i.i.i.i.i207, %while.body.i.i.i.i.i.i.i203 ]
@@ -19746,7 +19738,7 @@ while.body.i.i.i.i.i.i.i225:                      ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i228 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i227) #23
   %inc.i.i.i.i.i.i.i229 = add i32 %__n.05.i.i.i.i.i.i.i226, 1
   %cmp.i.not.i.i.i.i.i.i.i230 = icmp eq ptr %call.i.i.i.i.i.i.i.i228, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i223
-  br i1 %cmp.i.not.i.i.i.i.i.i.i230, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit238, label %while.body.i.i.i.i.i.i.i225, !llvm.loop !181
+  br i1 %cmp.i.not.i.i.i.i.i.i.i230, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit238, label %while.body.i.i.i.i.i.i.i225, !llvm.loop !179
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit238: ; preds = %while.body.i.i.i.i.i.i.i225, %while.cond
   %cond.i231 = phi i32 [ -1, %while.cond ], [ %inc.i.i.i.i.i.i.i229, %while.body.i.i.i.i.i.i.i225 ]
@@ -19791,7 +19783,7 @@ while.body.i.i.i.i.i.i.i247:                      ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i250 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i249) #23
   %inc.i.i.i.i.i.i.i251 = add i32 %__n.05.i.i.i.i.i.i.i248, 1
   %cmp.i.not.i.i.i.i.i.i.i252 = icmp eq ptr %call.i.i.i.i.i.i.i.i250, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i245
-  br i1 %cmp.i.not.i.i.i.i.i.i.i252, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit260, label %while.body.i.i.i.i.i.i.i247, !llvm.loop !180
+  br i1 %cmp.i.not.i.i.i.i.i.i.i252, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit260, label %while.body.i.i.i.i.i.i.i247, !llvm.loop !178
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit260: ; preds = %while.body.i.i.i.i.i.i.i247, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit238, %cond.true.i258, %cond.true.i.i256, %cond.true.i.i.i254
   %cond.i231529 = phi i32 [ %cond.i231532, %cond.true.i258 ], [ %cond.i231535, %cond.true.i.i256 ], [ %cond.i231538, %cond.true.i.i.i254 ], [ %cond.i231, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit238 ], [ %cond.i231528, %while.body.i.i.i.i.i.i.i247 ]
@@ -19847,7 +19839,7 @@ while.body.i.i.i.i.i.i.i269:                      ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i272 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i271) #23
   %inc.i.i.i.i.i.i.i273 = add i32 %__n.05.i.i.i.i.i.i.i270, 1
   %cmp.i.not.i.i.i.i.i.i.i274 = icmp eq ptr %call.i.i.i.i.i.i.i.i272, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i267
-  br i1 %cmp.i.not.i.i.i.i.i.i.i274, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit282, label %while.body.i.i.i.i.i.i.i269, !llvm.loop !180
+  br i1 %cmp.i.not.i.i.i.i.i.i.i274, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit282, label %while.body.i.i.i.i.i.i.i269, !llvm.loop !178
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit282: ; preds = %while.body.i.i.i.i.i.i.i269, %if.then57
   %cond.i275 = phi i32 [ -1, %if.then57 ], [ %inc.i.i.i.i.i.i.i273, %while.body.i.i.i.i.i.i.i269 ]
@@ -19892,7 +19884,7 @@ while.body.i.i.i.i.i.i.i291:                      ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i294 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i293) #23
   %inc.i.i.i.i.i.i.i295 = add i32 %__n.05.i.i.i.i.i.i.i292, 1
   %cmp.i.not.i.i.i.i.i.i.i296 = icmp eq ptr %call.i.i.i.i.i.i.i.i294, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i289
-  br i1 %cmp.i.not.i.i.i.i.i.i.i296, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit304, label %while.body.i.i.i.i.i.i.i291, !llvm.loop !181
+  br i1 %cmp.i.not.i.i.i.i.i.i.i296, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit304, label %while.body.i.i.i.i.i.i.i291, !llvm.loop !179
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit304: ; preds = %while.body.i.i.i.i.i.i.i291, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit282, %cond.true.i302, %cond.true.i.i300, %cond.true.i.i.i298, %cond.true.i.i.i.i283, %cond.false.i.i.i.i.i286
   %cond.i275544 = phi i32 [ %cond.i275547, %cond.true.i302 ], [ %cond.i275550, %cond.true.i.i300 ], [ %cond.i275553, %cond.true.i.i.i298 ], [ %cond.i275543, %cond.true.i.i.i.i283 ], [ %cond.i275543, %cond.false.i.i.i.i.i286 ], [ %cond.i275, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit282 ], [ %cond.i275543, %while.body.i.i.i.i.i.i.i291 ]
@@ -19984,7 +19976,7 @@ cond.false.i.i.i.i.i.i341:                        ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i.i.i342 = phi i32 [ %shr.i.i.i.i.i.i327, %if.end4.i.i.i.i.i.i336 ], [ %101, %cond.false.loopexit.i.i.i.i.i.i357 ]
   %b.0.lcssa.i.i.i.i.i.i343 = phi i64 [ %and7.i.i.i.i.i.i339, %if.end4.i.i.i.i.i.i336 ], [ %not13.i.i.i.i.i.i358, %cond.false.loopexit.i.i.i.i.i.i357 ]
   %shl15.i.i.i.i.i.i344 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i342, 6
-  %102 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i343, i1 true), !range !48
+  %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i343, i1 true)
   %103 = trunc nuw nsw i64 %102 to i32
   %add.i.i.i.i.i.i345 = or disjoint i32 %shl15.i.i.i.i.i.i344, %103
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE4nextEv.exit.i.i346
@@ -20049,7 +20041,7 @@ while.body.i.i.i.i.i.i.i376:                      ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i379 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i378) #23
   %inc.i.i.i.i.i.i.i380 = add i32 %__n.05.i.i.i.i.i.i.i377, 1
   %cmp.i.not.i.i.i.i.i.i.i381 = icmp eq ptr %call.i.i.i.i.i.i.i.i379, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i374
-  br i1 %cmp.i.not.i.i.i.i.i.i.i381, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit389, label %while.body.i.i.i.i.i.i.i376, !llvm.loop !180
+  br i1 %cmp.i.not.i.i.i.i.i.i.i381, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit389, label %while.body.i.i.i.i.i.i.i376, !llvm.loop !178
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit389: ; preds = %while.body.i.i.i.i.i.i.i376, %if.then81
   %cond.i382 = phi i32 [ -1, %if.then81 ], [ %inc.i.i.i.i.i.i.i380, %while.body.i.i.i.i.i.i.i376 ]
@@ -20094,7 +20086,7 @@ while.body.i.i.i.i.i.i.i398:                      ; preds = %cond.false.i.i.i.i.
   %call.i.i.i.i.i.i.i.i401 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i.i.i.i.i.i400) #23
   %inc.i.i.i.i.i.i.i402 = add i32 %__n.05.i.i.i.i.i.i.i399, 1
   %cmp.i.not.i.i.i.i.i.i.i403 = icmp eq ptr %call.i.i.i.i.i.i.i.i401, %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i396
-  br i1 %cmp.i.not.i.i.i.i.i.i.i403, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit411, label %while.body.i.i.i.i.i.i.i398, !llvm.loop !181
+  br i1 %cmp.i.not.i.i.i.i.i.i.i403, label %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit411, label %while.body.i.i.i.i.i.i.i398, !llvm.loop !179
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit411: ; preds = %while.body.i.i.i.i.i.i.i398, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit389, %cond.true.i409, %cond.true.i.i407, %cond.true.i.i.i405, %cond.true.i.i.i.i390, %cond.false.i.i.i.i.i393
   %cond.i382558 = phi i32 [ %cond.i382561, %cond.true.i409 ], [ %cond.i382564, %cond.true.i.i407 ], [ %cond.i382567, %cond.true.i.i.i405 ], [ %cond.i382557, %cond.true.i.i.i.i390 ], [ %cond.i382557, %cond.false.i.i.i.i.i393 ], [ %cond.i382, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit389 ], [ %cond.i382557, %while.body.i.i.i.i.i.i.i398 ]
@@ -20186,7 +20178,7 @@ cond.false.i.i.i.i.i.i448:                        ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i.i.i449 = phi i32 [ %shr.i.i.i.i.i.i434, %if.end4.i.i.i.i.i.i443 ], [ %127, %cond.false.loopexit.i.i.i.i.i.i464 ]
   %b.0.lcssa.i.i.i.i.i.i450 = phi i64 [ %and7.i.i.i.i.i.i446, %if.end4.i.i.i.i.i.i443 ], [ %not13.i.i.i.i.i.i465, %cond.false.loopexit.i.i.i.i.i.i464 ]
   %shl15.i.i.i.i.i.i451 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i449, 6
-  %128 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i450, i1 true), !range !48
+  %128 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i450, i1 true)
   %129 = trunc nuw nsw i64 %128 to i32
   %add.i.i.i.i.i.i452 = or disjoint i32 %shl15.i.i.i.i.i.i451, %129
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE4nextEv.exit.i.i453
@@ -20201,7 +20193,7 @@ cond.false.i.i470:                                ; preds = %cond.true.i.i.i412,
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %cond.false.i.i470, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE4nextEv.exit.i.i453, %cond.true.i466, %cond.true.i.i.i412, %cond.true.i.i416, %cond.true.i419, %cond.false.i.i363, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE4nextEv.exit.i.i346, %cond.true.i359, %cond.true.i.i.i305, %cond.true.i.i309, %cond.true.i312, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4testEj.exit429, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit411, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit304, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4testEj.exit322
-  br label %while.cond, !llvm.loop !182
+  br label %while.cond, !llvm.loop !180
 
 while.cond105:                                    ; preds = %while.cond105.preheader, %if.end116
   %dontIncrement.addr.1 = phi i8 [ 1, %if.end116 ], [ %dontIncrement.addr.0, %while.cond105.preheader ]
@@ -20261,10 +20253,10 @@ if.end116:                                        ; preds = %cond.true.i.i.i474,
   %inc = add i32 %130, 1
   store i32 %inc, ptr %mLevel, align 8
   %call120 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4nextEj(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %inc)
-  br label %while.cond105, !llvm.loop !183
+  br label %while.cond105, !llvm.loop !181
 
 do.cond:                                          ; preds = %cond.true.i.i.i474, %cond.true.i.i478, %cond.true.i481, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4testEj.exit, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevChildItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE4testEj.exit491
-  br i1 %recurse.0, label %do.body, label %return, !llvm.loop !184
+  br i1 %recurse.0, label %do.body, label %return, !llvm.loop !182
 
 return:                                           ; preds = %do.cond, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit216, %if.then14, %while.body112
   %retval.0 = phi i1 [ false, %while.body112 ], [ true, %if.then14 ], [ true, %_ZNK7openvdb5v11_04tree12IterListItemINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEE13PrevValueItemENS0_8TypeListIJSB_SC_SD_SE_EEELm4ELj0EE3posEj.exit216 ], [ true, %do.cond ]
@@ -20316,7 +20308,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %arrayidx12.i.i.i.i = getelementptr inbounds [8 x i64], ptr %0, i64 0, i64 %indvars.iv.next.i.i.i.i
   %3 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %3, 0
-  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !52
+  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !51
 
 cond.false.loopexit.i.i.i.i:                      ; preds = %while.body.i.i.i.i
   %4 = trunc nuw nsw i64 %indvars.iv.next.i.i.i.i to i32
@@ -20326,7 +20318,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i, %if.end4.i.i.i.i ], [ %4, %cond.false.loopexit.i.i.i.i ]
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %3, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
-  %5 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !48
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
   %6 = trunc nuw nsw i64 %5 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %6
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_4math4Vec3IiEELj3EEEE4nextEv.exit
@@ -20374,7 +20366,7 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %arrayidx12.i.i.i.i.i = getelementptr inbounds [64 x i64], ptr %7, i64 0, i64 %indvars.iv.next.i.i.i.i.i
   %10 = load i64, ptr %arrayidx12.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i = icmp eq i64 %10, 0
-  br i1 %tobool8.not.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i, !llvm.loop !53
+  br i1 %tobool8.not.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i, !llvm.loop !52
 
 cond.false.loopexit.i.i.i.i.i:                    ; preds = %while.body.i.i.i.i.i
   %11 = trunc nuw nsw i64 %indvars.iv.next.i.i.i.i.i to i32
@@ -20384,7 +20376,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ %shr.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %11, %cond.false.loopexit.i.i.i.i.i ]
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %10, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
-  %12 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !48
+  %12 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true)
   %13 = trunc nuw nsw i64 %12 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %13
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE4nextEv.exit.i
@@ -20442,7 +20434,7 @@ cond.false.i:                                     ; preds = %if.then.i
 land.rhs.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, %cond.false.i
   %w.012.i.i.i.i.i = phi ptr [ %mChildMask.i.i.i, %cond.false.i ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %n.011.i.i.i.i.i = phi i32 [ 0, %cond.false.i ], [ %inc.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  %2 = load i64, ptr %w.012.i.i.i.i.i, align 8, !noalias !185
+  %2 = load i64, ptr %w.012.i.i.i.i.i, align 8, !noalias !183
   %tobool.not.i.i.i.i.i = icmp eq i64 %2, -1
   br i1 %tobool.not.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
@@ -20450,12 +20442,12 @@ for.inc.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %w.012.i.i.i.i.i, i64 8
   %inc.i.i.i.i.i = add nuw nsw i32 %n.011.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i, 64
-  br i1 %exitcond.not.i.i.i.i.i, label %cond.end.i, label %land.rhs.i.i.i.i.i, !llvm.loop !59
+  br i1 %exitcond.not.i.i.i.i.i, label %cond.end.i, label %land.rhs.i.i.i.i.i, !llvm.loop !58
 
 cond.false.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %shl.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i, 6
   %not3.i.i.i.i.i = xor i64 %2, -1
-  %3 = tail call i64 @llvm.cttz.i64(i64 %not3.i.i.i.i.i, i1 true), !range !48
+  %3 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not3.i.i.i.i.i, i1 true)
   %4 = trunc nuw nsw i64 %3 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i, %4
   br label %cond.end.i
@@ -20488,7 +20480,7 @@ cond.false.i.i:                                   ; preds = %if.then.i.i
 land.rhs.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i, %cond.false.i.i
   %w.012.i.i.i.i.i.i = phi ptr [ %mChildMask.i.i.i.i, %cond.false.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ]
   %n.011.i.i.i.i.i.i = phi i32 [ 0, %cond.false.i.i ], [ %inc.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ]
-  %6 = load i64, ptr %w.012.i.i.i.i.i.i, align 8, !noalias !190
+  %6 = load i64, ptr %w.012.i.i.i.i.i.i, align 8, !noalias !188
   %tobool.not.i.i.i.i.i.i = icmp eq i64 %6, -1
   br i1 %tobool.not.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
@@ -20496,12 +20488,12 @@ for.inc.i.i.i.i.i.i:                              ; preds = %land.rhs.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w.012.i.i.i.i.i.i, i64 8
   %inc.i.i.i.i.i.i = add nuw nsw i32 %n.011.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i.i, 512
-  br i1 %exitcond.not.i.i.i.i.i.i, label %cond.end.i.i, label %land.rhs.i.i.i.i.i.i, !llvm.loop !65
+  br i1 %exitcond.not.i.i.i.i.i.i, label %cond.end.i.i, label %land.rhs.i.i.i.i.i.i, !llvm.loop !64
 
 cond.false.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %shl.i.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i.i, 6
   %not3.i.i.i.i.i.i = xor i64 %6, -1
-  %7 = tail call i64 @llvm.cttz.i64(i64 %not3.i.i.i.i.i.i, i1 true), !range !48
+  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not3.i.i.i.i.i.i, i1 true)
   %8 = trunc nuw nsw i64 %7 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i, %8
   br label %cond.end.i.i
@@ -20542,7 +20534,7 @@ land.rhs.i.i.i.i.i.i.i:                           ; preds = %cond.false.i.i.i, %
 while.body.i.i.i.i.i.i.i:                         ; preds = %land.rhs.i.i.i.i.i.i.i
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %retval.sroa.2.0.i.i.i.i.i) #23
   %cmp.i.i.not.i.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i.i.i.i, label %cond.end.i.i.i, label %land.rhs.i.i.i.i.i.i.i, !llvm.loop !195
+  br i1 %cmp.i.i.not.i.i.i.i.i.i.i, label %cond.end.i.i.i, label %land.rhs.i.i.i.i.i.i.i, !llvm.loop !193
 
 cond.end.i.i.i:                                   ; preds = %while.body.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i, %cond.false.i.i.i, %if.then.i.i.i
   %ref.tmp.sroa.3.0.i.i.i = phi ptr [ null, %if.then.i.i.i ], [ %10, %cond.false.i.i.i ], [ %retval.sroa.2.0.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
@@ -20606,7 +20598,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %arrayidx12.i.i.i.i = getelementptr inbounds [512 x i64], ptr %0, i64 0, i64 %indvars.iv.next.i.i.i.i
   %4 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %4, -1
-  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !67
+  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !66
 
 cond.false.loopexit.i.i.i.i:                      ; preds = %while.body.i.i.i.i
   %not13.i.i.i.i = xor i64 %4, -1
@@ -20617,7 +20609,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i, %if.end4.i.i.i.i ], [ %5, %cond.false.loopexit.i.i.i.i ]
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %not13.i.i.i.i, %cond.false.loopexit.i.i.i.i ]
   %shl15.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
-  %6 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !48
+  %6 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
   %7 = trunc nuw nsw i64 %6 to i32
   %add.i.i.i.i = or disjoint i32 %shl15.i.i.i.i, %7
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE4nextEv.exit
@@ -20658,7 +20650,7 @@ while.body.i.i.i.i3:                              ; preds = %land.rhs.i.i.i.i2
   %call.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %call.i13.i.i.i.i) #23
   store ptr %call.i.i.i.i.i, ptr %mIter.i.i.i.i, align 8
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, %add.ptr.i.i.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE8BaseIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueAllPredEE4nextEv.exit.i, label %land.rhs.i.i.i.i2, !llvm.loop !195
+  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE8BaseIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueAllPredEE4nextEv.exit.i, label %land.rhs.i.i.i.i2, !llvm.loop !193
 
 _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE8BaseIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueAllPredEE4nextEv.exit.i: ; preds = %while.body.i.i.i.i3, %land.rhs.i.i.i.i2, %if.end.i.i.i
   %11 = phi ptr [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i ], [ %call.i13.i.i.i.i, %land.rhs.i.i.i.i2 ], [ %add.ptr.i.i.i.i.i.i, %while.body.i.i.i.i3 ]
@@ -20715,7 +20707,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %arrayidx12.i.i.i.i = getelementptr inbounds [512 x i64], ptr %0, i64 0, i64 %indvars.iv.next.i.i.i.i
   %3 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %3, 0
-  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !68
+  br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !67
 
 cond.false.loopexit.i.i.i.i:                      ; preds = %while.body.i.i.i.i
   %4 = trunc nuw nsw i64 %indvars.iv.next.i.i.i.i to i32
@@ -20725,7 +20717,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i, %if.end4.i.i.i.i ], [ %4, %cond.false.loopexit.i.i.i.i ]
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %3, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
-  %5 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !48
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
   %6 = trunc nuw nsw i64 %5 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %6
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE4nextEv.exit
@@ -20766,7 +20758,7 @@ while.body.i.i.i.i4:                              ; preds = %land.rhs.i.i.i.i2
   %call.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %call.i13.i.i.i.i) #23
   store ptr %call.i.i.i.i.i, ptr %mIter.i.i.i.i, align 8
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, %add.ptr.i.i.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE8BaseIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEE4nextEv.exit.i, label %land.rhs.i.i.i.i2, !llvm.loop !196
+  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE8BaseIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEE4nextEv.exit.i, label %land.rhs.i.i.i.i2, !llvm.loop !194
 
 _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE8BaseIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEE4nextEv.exit.i: ; preds = %while.body.i.i.i.i4, %land.rhs.i.i.i.i2, %if.end.i.i.i
   %10 = phi ptr [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i ], [ %call.i13.i.i.i.i, %land.rhs.i.i.i.i2 ], [ %add.ptr.i.i.i.i.i.i, %while.body.i.i.i.i4 ]
@@ -20845,7 +20837,7 @@ if.then6.i:                                       ; preds = %if.then.i
 land.rhs.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, %if.then6.i
   %w.012.i.i.i.i.i = phi ptr [ %mChildMask.i.i.i, %if.then6.i ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %n.011.i.i.i.i.i = phi i32 [ 0, %if.then6.i ], [ %inc.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  %8 = load i64, ptr %w.012.i.i.i.i.i, align 8, !noalias !197
+  %8 = load i64, ptr %w.012.i.i.i.i.i, align 8, !noalias !195
   %tobool.not.i.i.i.i.i = icmp eq i64 %8, 0
   br i1 %tobool.not.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
@@ -20853,11 +20845,11 @@ for.inc.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %w.012.i.i.i.i.i, i64 8
   %inc.i.i.i.i.i = add nuw nsw i32 %n.011.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i, 64
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_.exit.i, label %land.rhs.i.i.i.i.i, !llvm.loop !75
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_.exit.i, label %land.rhs.i.i.i.i.i, !llvm.loop !74
 
 cond.false.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %shl.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i, 6
-  %9 = tail call i64 @llvm.cttz.i64(i64 %8, i1 true), !range !48
+  %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %8, i1 true)
   %10 = trunc nuw nsw i64 %9 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i, %10
   br label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_.exit.i
@@ -20899,7 +20891,7 @@ if.then6.i.i:                                     ; preds = %if.then.i.i
 land.rhs.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i, %if.then6.i.i
   %w.012.i.i.i.i.i.i = phi ptr [ %mChildMask.i.i.i.i, %if.then6.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ]
   %n.011.i.i.i.i.i.i = phi i32 [ 0, %if.then6.i.i ], [ %inc.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ]
-  %15 = load i64, ptr %w.012.i.i.i.i.i.i, align 8, !noalias !202
+  %15 = load i64, ptr %w.012.i.i.i.i.i.i, align 8, !noalias !200
   %tobool.not.i.i.i.i.i.i = icmp eq i64 %15, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
@@ -20907,11 +20899,11 @@ for.inc.i.i.i.i.i.i:                              ; preds = %land.rhs.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w.012.i.i.i.i.i.i, i64 8
   %inc.i.i.i.i.i.i = add nuw nsw i32 %n.011.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i.i, 512
-  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_.exit.i.i, label %land.rhs.i.i.i.i.i.i, !llvm.loop !81
+  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_.exit.i.i, label %land.rhs.i.i.i.i.i.i, !llvm.loop !80
 
 cond.false.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %shl.i.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i.i, 6
-  %16 = tail call i64 @llvm.cttz.i64(i64 %15, i1 true), !range !48
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 true)
   %17 = trunc nuw nsw i64 %16 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i, %17
   br label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_.exit.i.i
@@ -21367,7 +21359,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %15 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %16 = add i32 %15, -1
   %cmp.i.i = icmp sgt i32 %16, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -21418,7 +21410,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %8 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %9 = add i32 %8, -1
   %cmp.i.i = icmp sgt i32 %9, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -21508,7 +21500,7 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp.i9, label %do.body.backedge, label %if.end.i10
 
 do.body.backedge:                                 ; preds = %land.rhs, %if.then4.i15
-  br label %do.body, !llvm.loop !207
+  br label %do.body, !llvm.loop !205
 
 if.end.i10:                                       ; preds = %land.rhs
   %tobool.not.i11 = icmp eq i64 %9, 0
@@ -21700,7 +21692,7 @@ land.rhs:                                         ; preds = %do.cond
   %29 = load ptr, ptr %28, align 8
   %retval.0.i.i = select i1 %cmp.i.i.i, ptr %29, ptr %26
   %call2.i28 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %retval.0.i.i)
-  br i1 %call2.i28, label %if.end34, label %do.body, !llvm.loop !208
+  br i1 %call2.i28, label %if.end34, label %do.body, !llvm.loop !206
 
 if.end34:                                         ; preds = %land.rhs, %do.cond, %if.then
   ret void
@@ -21805,11 +21797,11 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %10 = load i32, ptr %mMaxLevel6.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %8, %10
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, !llvm.loop !177
+  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, !llvm.loop !175
 
 _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i: ; preds = %do.cond.i.i.i.i, %do.body.i.i.i.i
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !209
+  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !207
 
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
@@ -22040,11 +22032,11 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %14 = load i32, ptr %mMaxLevel.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %12, %14
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, !llvm.loop !177
+  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, !llvm.loop !175
 
 _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i: ; preds = %do.cond.i.i.i.i, %do.body.i.i.i.i
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEC2ERSR_N3tbb6detail2d05splitE.exit.loopexit, label %land.rhs.i.i, !llvm.loop !209
+  br i1 %cmp.not.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEC2ERSR_N3tbb6detail2d05splitE.exit.loopexit, label %land.rhs.i.i, !llvm.loop !207
 
 _ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEC2ERSR_N3tbb6detail2d05splitE.exit.loopexit: ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i
   %.pre37 = load i8, ptr %this, align 8
@@ -22063,7 +22055,7 @@ _ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_
   %inc32 = add i8 %17, 1
   store i8 %inc32, ptr %my_size, align 2
   %cmp = icmp ult i8 %inc32, 8
-  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !210
+  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !208
 
 while.end:                                        ; preds = %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEELh8EE12is_divisibleEh.exit, %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEC2ERSR_N3tbb6detail2d05splitE.exit, %land.rhs, %entry
   ret void
@@ -22254,23 +22246,23 @@ entry:
   %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 64
   %arrayidx21.i = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load double, ptr %arrayidx21.i, align 8, !noalias !211
+  %4 = load double, ptr %arrayidx21.i, align 8, !noalias !209
   %arrayidx24.i = getelementptr inbounds i8, ptr %this, i64 48
-  %5 = load double, ptr %arrayidx24.i, align 8, !noalias !211
+  %5 = load double, ptr %arrayidx24.i, align 8, !noalias !209
   %mul25.i = fmul double %5, %conv3.i
   %6 = tail call double @llvm.fmuladd.f64(double %conv.i, double %4, double %mul25.i)
   %arrayidx28.i = getelementptr inbounds i8, ptr %this, i64 80
-  %7 = load double, ptr %arrayidx28.i, align 8, !noalias !211
+  %7 = load double, ptr %arrayidx28.i, align 8, !noalias !209
   %8 = tail call double @llvm.fmuladd.f64(double %conv7.i, double %7, double %6)
-  %9 = load <2 x double>, ptr %this, align 8, !noalias !211
-  %10 = load <2 x double>, ptr %arrayidx4.i, align 8, !noalias !211
+  %9 = load <2 x double>, ptr %this, align 8, !noalias !209
+  %10 = load <2 x double>, ptr %arrayidx4.i, align 8, !noalias !209
   %11 = insertelement <2 x double> poison, double %conv3.i, i64 0
   %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
   %13 = fmul <2 x double> %10, %12
   %14 = insertelement <2 x double> poison, double %conv.i, i64 0
   %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
   %16 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %15, <2 x double> %9, <2 x double> %13)
-  %17 = load <2 x double>, ptr %arrayidx8.i, align 8, !noalias !211
+  %17 = load <2 x double>, ptr %arrayidx8.i, align 8, !noalias !209
   %18 = insertelement <2 x double> poison, double %conv7.i, i64 0
   %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
   %20 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %17, <2 x double> %16)
@@ -22379,7 +22371,7 @@ if.then:                                          ; preds = %entry
   %0 = load i32, ptr %mMaskIter.i.i, align 8
   %1 = load atomic i8, ptr @_ZGVZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE2atEjE5sZero acquire, align 8
   %guard.uninitialized.i.i.i.i = icmp eq i8 %1, 0
-  br i1 %guard.uninitialized.i.i.i.i, label %init.check.i.i.i.i, label %init.end.i.i.i.i, !prof !90
+  br i1 %guard.uninitialized.i.i.i.i, label %init.check.i.i.i.i, label %init.end.i.i.i.i, !prof !89
 
 init.check.i.i.i.i:                               ; preds = %if.then
   %2 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE2atEjE5sZero) #14
@@ -22538,7 +22530,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i, %w
   %dec.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
   %cmp.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !91
+  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !90
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %if.then.i.i.i.i
   %mul.i.i.i.i = shl nsw i32 %backoff.sroa.0.03.i.i.i, 1
@@ -22552,7 +22544,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %if.else.i.i.i.i
   %backoff.sroa.0.1.i.i.i = phi i32 [ %mul.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i, %if.else.i.i.i.i ]
   %2 = atomicrmw xchg ptr %mMutex, i8 1 seq_cst, align 1
   %tobool3.i.i.i.i.i = trunc i8 %2 to i1
-  br i1 %tobool3.i.i.i.i.i, label %while.body.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit, !llvm.loop !92
+  br i1 %tobool3.i.i.i.i.i, label %while.body.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit, !llvm.loop !91
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %if.end
   %3 = load atomic i32, ptr %mOutOfCore.i seq_cst, align 8
@@ -23056,12 +23048,12 @@ for.body.i:                                       ; preds = %invoke.cont134, %fo
   %sum.03.i = phi i32 [ %add.i, %for.body.i ], [ 0, %invoke.cont134 ]
   %dec.i = add nsw i32 %n.04.i, -1
   %23 = load i64, ptr %w.05.i, align 8
-  %24 = call i64 @llvm.ctpop.i64(i64 %23), !range !48
+  %24 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %23)
   %conv.i.i = trunc nuw nsw i64 %24 to i32
   %add.i = add i32 %sum.03.i, %conv.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %w.05.i, i64 8
   %tobool.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool.not.i, label %invoke.cont138, label %for.body.i, !llvm.loop !93
+  br i1 %tobool.not.i, label %invoke.cont138, label %for.body.i, !llvm.loop !92
 
 invoke.cont138:                                   ; preds = %for.body.i
   br i1 %cmp, label %if.end149, label %land.lhs.true141
@@ -23141,7 +23133,7 @@ for.inc:                                          ; preds = %if.then175, %if.els
   %tempIdx.1 = phi i32 [ %inc, %if.then175 ], [ %tempIdx.0165, %if.else178 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %if.end187, label %for.body, !llvm.loop !214
+  br i1 %exitcond.not, label %if.end187, label %for.body, !llvm.loop !212
 
 if.end187:                                        ; preds = %for.inc, %if.end166
   %cmp.not.i75 = icmp eq ptr %scopedTempBuf.sroa.0.1, null
@@ -23743,7 +23735,7 @@ land.rhs.i.i.i.i:                                 ; preds = %entry, %while.body.
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %call.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %retval.sroa.2.0.i.i) #23
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE5beginERSE_.exit, label %land.rhs.i.i.i.i, !llvm.loop !196
+  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE5beginERSE_.exit, label %land.rhs.i.i.i.i, !llvm.loop !194
 
 _ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE5beginERSE_.exit: ; preds = %land.rhs.i.i.i.i, %while.body.i.i.i.i, %entry
   %retval.sroa.2.1.i.i = phi ptr [ %0, %entry ], [ %retval.sroa.2.0.i.i, %land.rhs.i.i.i.i ], [ %call.i.i.i.i.i, %while.body.i.i.i.i ]
@@ -23765,7 +23757,7 @@ land.rhs.i.i.i.i19:                               ; preds = %_ZN7openvdb5v11_04t
 while.body.i.i.i.i22:                             ; preds = %land.rhs.i.i.i.i19
   %call.i.i.i.i.i23 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %retval.sroa.2.0.i.i20) #23
   %cmp.i.i.not.i.i.i.i24 = icmp eq ptr %call.i.i.i.i.i23, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i24, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEENSC_9ValueIterISC_St17_Rb_tree_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_12ValueAllPredES8_EEE5beginERSC_.exit, label %land.rhs.i.i.i.i19, !llvm.loop !195
+  br i1 %cmp.i.i.not.i.i.i.i24, label %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEENSC_9ValueIterISC_St17_Rb_tree_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_12ValueAllPredES8_EEE5beginERSC_.exit, label %land.rhs.i.i.i.i19, !llvm.loop !193
 
 _ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEENSC_9ValueIterISC_St17_Rb_tree_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_12ValueAllPredES8_EEE5beginERSC_.exit: ; preds = %land.rhs.i.i.i.i19, %while.body.i.i.i.i22, %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE5beginERSE_.exit
   %retval.sroa.2.1.i.i25 = phi ptr [ %2, %_ZN7openvdb5v11_04tree10IterTraitsINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS6_5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE5beginERSE_.exit ], [ %call.i.i.i.i.i23, %while.body.i.i.i.i22 ], [ %retval.sroa.2.0.i.i20, %land.rhs.i.i.i.i19 ]
@@ -23967,12 +23959,12 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %11 = load i32, ptr %mMaxLevel.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %9, %11
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, !llvm.loop !177
+  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, !llvm.loop !175
 
 _ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit: ; preds = %do.body.i.i.i.i, %do.cond.i.i.i.i
   %.pre = load i64, ptr %mSize.i.i, align 8
   %cmp.i.i = icmp eq i64 %.pre, 0
-  br i1 %cmp.i.i, label %for.end, label %lor.rhs.i.i, !llvm.loop !215
+  br i1 %cmp.i.i, label %for.end, label %lor.rhs.i.i, !llvm.loop !213
 
 for.end:                                          ; preds = %for.body, %_ZNK7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEcvbEv.exit, %cond.true.i.i.i.i, %cond.true.i.i.i.i.i, %cond.true.i.i.i.i.i.i, %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, %entry
   ret void
@@ -24275,7 +24267,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %15 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %16 = add i32 %15, -1
   %cmp.i.i = icmp sgt i32 %16, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -24326,7 +24318,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %8 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %9 = add i32 %8, -1
   %cmp.i.i = icmp sgt i32 %9, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -24416,7 +24408,7 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp.i9, label %do.body.backedge, label %if.end.i10
 
 do.body.backedge:                                 ; preds = %land.rhs, %if.then4.i15
-  br label %do.body, !llvm.loop !216
+  br label %do.body, !llvm.loop !214
 
 if.end.i10:                                       ; preds = %land.rhs
   %tobool.not.i11 = icmp eq i64 %9, 0
@@ -24608,7 +24600,7 @@ land.rhs:                                         ; preds = %do.cond
   %29 = load ptr, ptr %28, align 8
   %retval.0.i.i = select i1 %cmp.i.i.i, ptr %29, ptr %26
   %call2.i28 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %retval.0.i.i)
-  br i1 %call2.i28, label %if.end31, label %do.body, !llvm.loop !217
+  br i1 %call2.i28, label %if.end31, label %do.body, !llvm.loop !215
 
 if.end31:                                         ; preds = %land.rhs, %do.cond, %if.then
   ret void
@@ -24713,11 +24705,11 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %10 = load i32, ptr %mMaxLevel6.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %8, %10
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, !llvm.loop !177
+  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, !llvm.loop !175
 
 _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i: ; preds = %do.cond.i.i.i.i, %do.body.i.i.i.i
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !209
+  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !207
 
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
@@ -24984,26 +24976,26 @@ entry:
   %conv7.i = sitofp i32 %3 to double
   %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 64
-  %4 = load <2 x double>, ptr %this, align 8, !noalias !218
-  %5 = load <2 x double>, ptr %arrayidx4.i, align 8, !noalias !218
+  %4 = load <2 x double>, ptr %this, align 8, !noalias !216
+  %5 = load <2 x double>, ptr %arrayidx4.i, align 8, !noalias !216
   %6 = insertelement <2 x double> poison, double %conv3.i, i64 0
   %7 = shufflevector <2 x double> %6, <2 x double> poison, <2 x i32> zeroinitializer
   %8 = fmul <2 x double> %5, %7
   %9 = insertelement <2 x double> poison, double %conv.i, i64 0
   %10 = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> zeroinitializer
   %11 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %10, <2 x double> %4, <2 x double> %8)
-  %12 = load <2 x double>, ptr %arrayidx8.i, align 8, !noalias !218
+  %12 = load <2 x double>, ptr %arrayidx8.i, align 8, !noalias !216
   %13 = insertelement <2 x double> poison, double %conv7.i, i64 0
   %14 = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> zeroinitializer
   %15 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %14, <2 x double> %12, <2 x double> %11)
   %arrayidx21.i = getelementptr inbounds i8, ptr %this, i64 16
-  %16 = load double, ptr %arrayidx21.i, align 8, !noalias !218
+  %16 = load double, ptr %arrayidx21.i, align 8, !noalias !216
   %arrayidx24.i = getelementptr inbounds i8, ptr %this, i64 48
-  %17 = load double, ptr %arrayidx24.i, align 8, !noalias !218
+  %17 = load double, ptr %arrayidx24.i, align 8, !noalias !216
   %mul25.i = fmul double %17, %conv3.i
   %18 = tail call double @llvm.fmuladd.f64(double %conv.i, double %16, double %mul25.i)
   %arrayidx28.i = getelementptr inbounds i8, ptr %this, i64 80
-  %19 = load double, ptr %arrayidx28.i, align 8, !noalias !218
+  %19 = load double, ptr %arrayidx28.i, align 8, !noalias !216
   %20 = tail call double @llvm.fmuladd.f64(double %conv7.i, double %19, double %18)
   %21 = fptosi <2 x double> %15 to <2 x i32>
   %conv7.i8 = fptosi double %20 to i32
@@ -25268,12 +25260,12 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %11 = load i32, ptr %mMaxLevel.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %9, %11
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, !llvm.loop !177
+  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, !llvm.loop !175
 
 _ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit: ; preds = %do.body.i.i.i.i, %do.cond.i.i.i.i
   %.pre = load i64, ptr %mSize.i.i, align 8
   %cmp.i.i = icmp eq i64 %.pre, 0
-  br i1 %cmp.i.i, label %for.end, label %lor.rhs.i.i, !llvm.loop !221
+  br i1 %cmp.i.i, label %for.end, label %lor.rhs.i.i, !llvm.loop !219
 
 for.end:                                          ; preds = %for.body, %_ZNK7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEcvbEv.exit, %cond.true.i.i.i.i, %cond.true.i.i.i.i.i, %cond.true.i.i.i.i.i.i, %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit, %entry
   ret void
@@ -25576,7 +25568,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %15 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %16 = add i32 %15, -1
   %cmp.i.i = icmp sgt i32 %16, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -25627,7 +25619,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %8 = atomicrmw sub ptr %m_ref_count.i.i, i32 1 seq_cst, align 4
   %9 = add i32 %8, -1
   %cmp.i.i = icmp sgt i32 %9, 0
-  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !82
+  br i1 %cmp.i.i, label %_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %if.end.i.i, !llvm.loop !81
 
 for.end.i.i:                                      ; preds = %if.end.i.i
   %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %n.addr.013.i.i, i64 24
@@ -25717,7 +25709,7 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp.i9, label %do.body.backedge, label %if.end.i10
 
 do.body.backedge:                                 ; preds = %land.rhs, %if.then4.i15
-  br label %do.body, !llvm.loop !222
+  br label %do.body, !llvm.loop !220
 
 if.end.i10:                                       ; preds = %land.rhs
   %tobool.not.i11 = icmp eq i64 %9, 0
@@ -25909,7 +25901,7 @@ land.rhs:                                         ; preds = %do.cond
   %29 = load ptr, ptr %28, align 8
   %retval.0.i.i = select i1 %cmp.i.i.i, ptr %29, ptr %26
   %call2.i28 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %retval.0.i.i)
-  br i1 %call2.i28, label %if.end31, label %do.body, !llvm.loop !223
+  br i1 %call2.i28, label %if.end31, label %do.body, !llvm.loop !221
 
 if.end31:                                         ; preds = %land.rhs, %do.cond, %if.then
   ret void
@@ -26014,11 +26006,11 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %10 = load i32, ptr %mMaxLevel6.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %8, %10
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, !llvm.loop !177
+  br i1 %or.cond.i.i.i.i, label %do.body.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, !llvm.loop !175
 
 _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i: ; preds = %do.cond.i.i.i.i, %do.body.i.i.i.i
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !209
+  br i1 %cmp.not.i.i, label %invoke.cont8, label %land.rhs.i.i, !llvm.loop !207
 
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
@@ -26284,16 +26276,16 @@ entry:
   %3 = load i32, ptr %arrayidx.i.i3.i, align 4
   %conv7.i = sitofp i32 %3 to double
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 24
-  %4 = load double, ptr %arrayidx.i, align 8, !noalias !224
+  %4 = load double, ptr %arrayidx.i, align 8, !noalias !222
   %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 56
-  %5 = load double, ptr %arrayidx4.i, align 8, !noalias !224
+  %5 = load double, ptr %arrayidx4.i, align 8, !noalias !222
   %mul5.i = fmul double %5, %conv3.i
   %6 = tail call double @llvm.fmuladd.f64(double %conv.i, double %4, double %mul5.i)
   %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 88
-  %7 = load double, ptr %arrayidx8.i, align 8, !noalias !224
+  %7 = load double, ptr %arrayidx8.i, align 8, !noalias !222
   %8 = tail call double @llvm.fmuladd.f64(double %conv7.i, double %7, double %6)
   %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 120
-  %9 = load double, ptr %arrayidx10.i, align 8, !noalias !224
+  %9 = load double, ptr %arrayidx10.i, align 8, !noalias !222
   %add.i = fadd double %9, %8
   %cmp.i.i = fcmp oeq double %add.i, 0.000000e+00
   br i1 %cmp.i.i, label %_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit, label %if.then.i
@@ -26302,34 +26294,34 @@ if.then.i:                                        ; preds = %entry
   %arrayidx17.i = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx21.i = getelementptr inbounds i8, ptr %this, i64 64
   %arrayidx23.i = getelementptr inbounds i8, ptr %this, i64 96
-  %10 = load <2 x double>, ptr %this, align 8, !noalias !224
-  %11 = load <2 x double>, ptr %arrayidx17.i, align 8, !noalias !224
+  %10 = load <2 x double>, ptr %this, align 8, !noalias !222
+  %11 = load <2 x double>, ptr %arrayidx17.i, align 8, !noalias !222
   %12 = insertelement <2 x double> poison, double %conv3.i, i64 0
   %13 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
   %14 = fmul <2 x double> %11, %13
   %15 = insertelement <2 x double> poison, double %conv.i, i64 0
   %16 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> zeroinitializer
   %17 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %16, <2 x double> %10, <2 x double> %14)
-  %18 = load <2 x double>, ptr %arrayidx21.i, align 8, !noalias !224
+  %18 = load <2 x double>, ptr %arrayidx21.i, align 8, !noalias !222
   %19 = insertelement <2 x double> poison, double %conv7.i, i64 0
   %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> zeroinitializer
   %21 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %20, <2 x double> %18, <2 x double> %17)
-  %22 = load <2 x double>, ptr %arrayidx23.i, align 8, !noalias !224
+  %22 = load <2 x double>, ptr %arrayidx23.i, align 8, !noalias !222
   %23 = fadd <2 x double> %22, %21
   %24 = insertelement <2 x double> poison, double %add.i, i64 0
   %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
   %26 = fdiv <2 x double> %23, %25
   %arrayidx41.i = getelementptr inbounds i8, ptr %this, i64 16
-  %27 = load double, ptr %arrayidx41.i, align 8, !noalias !224
+  %27 = load double, ptr %arrayidx41.i, align 8, !noalias !222
   %arrayidx44.i = getelementptr inbounds i8, ptr %this, i64 48
-  %28 = load double, ptr %arrayidx44.i, align 8, !noalias !224
+  %28 = load double, ptr %arrayidx44.i, align 8, !noalias !222
   %mul45.i = fmul double %28, %conv3.i
   %29 = tail call double @llvm.fmuladd.f64(double %conv.i, double %27, double %mul45.i)
   %arrayidx48.i = getelementptr inbounds i8, ptr %this, i64 80
-  %30 = load double, ptr %arrayidx48.i, align 8, !noalias !224
+  %30 = load double, ptr %arrayidx48.i, align 8, !noalias !222
   %31 = tail call double @llvm.fmuladd.f64(double %conv7.i, double %30, double %29)
   %arrayidx50.i = getelementptr inbounds i8, ptr %this, i64 112
-  %32 = load double, ptr %arrayidx50.i, align 8, !noalias !224
+  %32 = load double, ptr %arrayidx50.i, align 8, !noalias !222
   %add51.i = fadd double %32, %31
   %div52.i = fdiv double %add51.i, %add.i
   %33 = fptosi <2 x double> %26 to <2 x i32>
@@ -26521,182 +26513,180 @@ attributes #24 = { builtin allocsize(0) }
 !45 = distinct !{!45, !33}
 !46 = distinct !{!46, !33}
 !47 = distinct !{!47, !33}
-!48 = !{i64 0, i64 65}
+!48 = distinct !{!48, !33}
 !49 = distinct !{!49, !33}
 !50 = distinct !{!50, !33}
 !51 = distinct !{!51, !33}
 !52 = distinct !{!52, !33}
-!53 = distinct !{!53, !33}
-!54 = !{!55, !57}
-!55 = distinct !{!55, !56, !"_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE13beginValueAllEv: %agg.result"}
-!56 = distinct !{!56, !"_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE13beginValueAllEv"}
-!57 = distinct !{!57, !58, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEENS9_9ValueIterIS9_KS7_NS0_4util15OffMaskIteratorINSC_8NodeMaskILj4EEEEENS9_8ValueAllEEEE5beginERS9_: %agg.result"}
-!58 = distinct !{!58, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEENS9_9ValueIterIS9_KS7_NS0_4util15OffMaskIteratorINSC_8NodeMaskILj4EEEEENS9_8ValueAllEEEE5beginERS9_"}
-!59 = distinct !{!59, !33}
-!60 = !{!61, !63}
-!61 = distinct !{!61, !62, !"_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE13beginValueAllEv: %agg.result"}
-!62 = distinct !{!62, !"_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE13beginValueAllEv"}
-!63 = distinct !{!63, !64, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEENSA_9ValueIterISA_KS7_NS0_4util15OffMaskIteratorINSD_8NodeMaskILj5EEEEENSA_8ValueAllEEEE5beginERSA_: %agg.result"}
-!64 = distinct !{!64, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEENSA_9ValueIterISA_KS7_NS0_4util15OffMaskIteratorINSD_8NodeMaskILj5EEEEENSA_8ValueAllEEEE5beginERSA_"}
+!53 = !{!54, !56}
+!54 = distinct !{!54, !55, !"_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE13beginValueAllEv: %agg.result"}
+!55 = distinct !{!55, !"_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE13beginValueAllEv"}
+!56 = distinct !{!56, !57, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEENS9_9ValueIterIS9_KS7_NS0_4util15OffMaskIteratorINSC_8NodeMaskILj4EEEEENS9_8ValueAllEEEE5beginERS9_: %agg.result"}
+!57 = distinct !{!57, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEENS9_9ValueIterIS9_KS7_NS0_4util15OffMaskIteratorINSC_8NodeMaskILj4EEEEENS9_8ValueAllEEEE5beginERS9_"}
+!58 = distinct !{!58, !33}
+!59 = !{!60, !62}
+!60 = distinct !{!60, !61, !"_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE13beginValueAllEv: %agg.result"}
+!61 = distinct !{!61, !"_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE13beginValueAllEv"}
+!62 = distinct !{!62, !63, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEENSA_9ValueIterISA_KS7_NS0_4util15OffMaskIteratorINSD_8NodeMaskILj5EEEEENSA_8ValueAllEEEE5beginERSA_: %agg.result"}
+!63 = distinct !{!63, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEENSA_9ValueIterISA_KS7_NS0_4util15OffMaskIteratorINSD_8NodeMaskILj5EEEEENSA_8ValueAllEEEE5beginERSA_"}
+!64 = distinct !{!64, !33}
 !65 = distinct !{!65, !33}
 !66 = distinct !{!66, !33}
 !67 = distinct !{!67, !33}
 !68 = distinct !{!68, !33}
-!69 = distinct !{!69, !33}
-!70 = !{!71, !73}
-!71 = distinct !{!71, !72, !"_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE13cbeginChildOnEv: %agg.result"}
-!72 = distinct !{!72, !"_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE13cbeginChildOnEv"}
-!73 = distinct !{!73, !74, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_: %agg.result"}
-!74 = distinct !{!74, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_"}
-!75 = distinct !{!75, !33}
-!76 = !{!77, !79}
-!77 = distinct !{!77, !78, !"_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE13cbeginChildOnEv: %agg.result"}
-!78 = distinct !{!78, !"_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE13cbeginChildOnEv"}
-!79 = distinct !{!79, !80, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_: %agg.result"}
-!80 = distinct !{!80, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_"}
+!69 = !{!70, !72}
+!70 = distinct !{!70, !71, !"_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE13cbeginChildOnEv: %agg.result"}
+!71 = distinct !{!71, !"_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE13cbeginChildOnEv"}
+!72 = distinct !{!72, !73, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_: %agg.result"}
+!73 = distinct !{!73, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_"}
+!74 = distinct !{!74, !33}
+!75 = !{!76, !78}
+!76 = distinct !{!76, !77, !"_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE13cbeginChildOnEv: %agg.result"}
+!77 = distinct !{!77, !"_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE13cbeginChildOnEv"}
+!78 = distinct !{!78, !79, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_: %agg.result"}
+!79 = distinct !{!79, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_"}
+!80 = distinct !{!80, !33}
 !81 = distinct !{!81, !33}
 !82 = distinct !{!82, !33}
 !83 = distinct !{!83, !33}
 !84 = distinct !{!84, !33}
 !85 = distinct !{!85, !33}
-!86 = distinct !{!86, !33}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_: %agg.result"}
-!89 = distinct !{!89, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_"}
-!90 = !{!"branch_weights", i32 1, i32 1048575}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_: %agg.result"}
+!88 = distinct !{!88, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_"}
+!89 = !{!"branch_weights", i32 1, i32 1048575}
+!90 = distinct !{!90, !33}
 !91 = distinct !{!91, !33}
 !92 = distinct !{!92, !33}
 !93 = distinct !{!93, !33}
 !94 = distinct !{!94, !33}
-!95 = distinct !{!95, !33}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZN7openvdb5v11_013StaticPtrCastINS0_2io19DelayedLoadMetadataENS0_8MetadataEEESt10shared_ptrIT_ERKS5_IT0_E: %agg.result"}
-!98 = distinct !{!98, !"_ZN7openvdb5v11_013StaticPtrCastINS0_2io19DelayedLoadMetadataENS0_8MetadataEEESt10shared_ptrIT_ERKS5_IT0_E"}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZSt19static_pointer_castIN7openvdb5v11_02io19DelayedLoadMetadataENS1_8MetadataEESt10shared_ptrIT_ERKS5_IT0_E: %agg.result"}
-!101 = distinct !{!101, !"_ZSt19static_pointer_castIN7openvdb5v11_02io19DelayedLoadMetadataENS1_8MetadataEESt10shared_ptrIT_ERKS5_IT0_E"}
-!102 = !{!100, !97}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZN7openvdb5v11_013StaticPtrCastINS0_2io19DelayedLoadMetadataENS0_8MetadataEEESt10shared_ptrIT_ERKS5_IT0_E: %agg.result"}
+!97 = distinct !{!97, !"_ZN7openvdb5v11_013StaticPtrCastINS0_2io19DelayedLoadMetadataENS0_8MetadataEEESt10shared_ptrIT_ERKS5_IT0_E"}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZSt19static_pointer_castIN7openvdb5v11_02io19DelayedLoadMetadataENS1_8MetadataEESt10shared_ptrIT_ERKS5_IT0_E: %agg.result"}
+!100 = distinct !{!100, !"_ZSt19static_pointer_castIN7openvdb5v11_02io19DelayedLoadMetadataENS1_8MetadataEESt10shared_ptrIT_ERKS5_IT0_E"}
+!101 = !{!99, !96}
+!102 = distinct !{!102, !33}
 !103 = distinct !{!103, !33}
 !104 = distinct !{!104, !33}
-!105 = !{i32 9, i32 33}
+!105 = distinct !{!105, !33}
 !106 = distinct !{!106, !33}
-!107 = distinct !{!107, !33}
-!108 = distinct !{!108, !33}
-!109 = !{!110}
-!110 = distinct !{!110, !111, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_: %agg.result"}
-!111 = distinct !{!111, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_"}
+!107 = !{!108}
+!108 = distinct !{!108, !109, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_: %agg.result"}
+!109 = distinct !{!109, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_"}
+!110 = distinct !{!110, !33}
+!111 = distinct !{!111, !33}
 !112 = distinct !{!112, !33}
-!113 = distinct !{!113, !33}
-!114 = distinct !{!114, !33}
-!115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_: %agg.result"}
-!117 = distinct !{!117, !"_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_"}
+!113 = !{!114}
+!114 = distinct !{!114, !115, !"_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_: %agg.result"}
+!115 = distinct !{!115, !"_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_"}
+!116 = distinct !{!116, !33}
+!117 = distinct !{!117, !33}
 !118 = distinct !{!118, !33}
 !119 = distinct !{!119, !33}
 !120 = distinct !{!120, !33}
 !121 = distinct !{!121, !33}
 !122 = distinct !{!122, !33}
 !123 = distinct !{!123, !33}
-!124 = distinct !{!124, !33}
-!125 = distinct !{!125, !33}
-!126 = !{!127, !129}
-!127 = distinct !{!127, !128, !"_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE13beginValueAllEv: %agg.result"}
-!128 = distinct !{!128, !"_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE13beginValueAllEv"}
-!129 = distinct !{!129, !130, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEENS9_9ValueIterIS9_KS7_NS0_4util15OffMaskIteratorINSC_8NodeMaskILj4EEEEENS9_8ValueAllEEEE5beginERS9_: %agg.result"}
-!130 = distinct !{!130, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEENS9_9ValueIterIS9_KS7_NS0_4util15OffMaskIteratorINSC_8NodeMaskILj4EEEEENS9_8ValueAllEEEE5beginERS9_"}
-!131 = !{!132, !134}
-!132 = distinct !{!132, !133, !"_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE13beginValueAllEv: %agg.result"}
-!133 = distinct !{!133, !"_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE13beginValueAllEv"}
-!134 = distinct !{!134, !135, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEENSA_9ValueIterISA_KS7_NS0_4util15OffMaskIteratorINSD_8NodeMaskILj5EEEEENSA_8ValueAllEEEE5beginERSA_: %agg.result"}
-!135 = distinct !{!135, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEENSA_9ValueIterISA_KS7_NS0_4util15OffMaskIteratorINSD_8NodeMaskILj5EEEEENSA_8ValueAllEEEE5beginERSA_"}
-!136 = distinct !{!136, !33}
-!137 = distinct !{!137, !33}
-!138 = !{!139, !141}
-!139 = distinct !{!139, !140, !"_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE13cbeginChildOnEv: %agg.result"}
-!140 = distinct !{!140, !"_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE13cbeginChildOnEv"}
-!141 = distinct !{!141, !142, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_: %agg.result"}
-!142 = distinct !{!142, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_"}
-!143 = !{!144, !146}
-!144 = distinct !{!144, !145, !"_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE13cbeginChildOnEv: %agg.result"}
-!145 = distinct !{!145, !"_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE13cbeginChildOnEv"}
-!146 = distinct !{!146, !147, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_: %agg.result"}
-!147 = distinct !{!147, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_"}
+!124 = !{!125, !127}
+!125 = distinct !{!125, !126, !"_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE13beginValueAllEv: %agg.result"}
+!126 = distinct !{!126, !"_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE13beginValueAllEv"}
+!127 = distinct !{!127, !128, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEENS9_9ValueIterIS9_KS7_NS0_4util15OffMaskIteratorINSC_8NodeMaskILj4EEEEENS9_8ValueAllEEEE5beginERS9_: %agg.result"}
+!128 = distinct !{!128, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEENS9_9ValueIterIS9_KS7_NS0_4util15OffMaskIteratorINSC_8NodeMaskILj4EEEEENS9_8ValueAllEEEE5beginERS9_"}
+!129 = !{!130, !132}
+!130 = distinct !{!130, !131, !"_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE13beginValueAllEv: %agg.result"}
+!131 = distinct !{!131, !"_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE13beginValueAllEv"}
+!132 = distinct !{!132, !133, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEENSA_9ValueIterISA_KS7_NS0_4util15OffMaskIteratorINSD_8NodeMaskILj5EEEEENSA_8ValueAllEEEE5beginERSA_: %agg.result"}
+!133 = distinct !{!133, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEENSA_9ValueIterISA_KS7_NS0_4util15OffMaskIteratorINSD_8NodeMaskILj5EEEEENSA_8ValueAllEEEE5beginERSA_"}
+!134 = distinct !{!134, !33}
+!135 = distinct !{!135, !33}
+!136 = !{!137, !139}
+!137 = distinct !{!137, !138, !"_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE13cbeginChildOnEv: %agg.result"}
+!138 = distinct !{!138, !"_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE13cbeginChildOnEv"}
+!139 = distinct !{!139, !140, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_: %agg.result"}
+!140 = distinct !{!140, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_"}
+!141 = !{!142, !144}
+!142 = distinct !{!142, !143, !"_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE13cbeginChildOnEv: %agg.result"}
+!143 = distinct !{!143, !"_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE13cbeginChildOnEv"}
+!144 = distinct !{!144, !145, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_: %agg.result"}
+!145 = distinct !{!145, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_"}
+!146 = distinct !{!146, !33}
+!147 = distinct !{!147, !33}
 !148 = distinct !{!148, !33}
 !149 = distinct !{!149, !33}
-!150 = distinct !{!150, !33}
-!151 = distinct !{!151, !33}
-!152 = !{!153}
-!153 = distinct !{!153, !154, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_: %agg.result"}
-!154 = distinct !{!154, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_"}
-!155 = !{!156}
-!156 = distinct !{!156, !157, !"_ZN7openvdb5v11_07zeroValINS0_4math4Vec3IdEEEET_v: %agg.result"}
-!157 = distinct !{!157, !"_ZN7openvdb5v11_07zeroValINS0_4math4Vec3IdEEEET_v"}
-!158 = !{!159, !161}
-!159 = distinct !{!159, !160, !"_ZNK7openvdb5v11_04math4Vec3IdEngEv: %agg.result"}
-!160 = distinct !{!160, !"_ZNK7openvdb5v11_04math4Vec3IdEngEv"}
-!161 = distinct !{!161, !162, !"_ZN7openvdb5v11_04math8negativeINS1_4Vec3IdEEEET_RKS5_: %agg.result"}
-!162 = distinct !{!162, !"_ZN7openvdb5v11_04math8negativeINS1_4Vec3IdEEEET_RKS5_"}
+!150 = !{!151}
+!151 = distinct !{!151, !152, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_: %agg.result"}
+!152 = distinct !{!152, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_"}
+!153 = !{!154}
+!154 = distinct !{!154, !155, !"_ZN7openvdb5v11_07zeroValINS0_4math4Vec3IdEEEET_v: %agg.result"}
+!155 = distinct !{!155, !"_ZN7openvdb5v11_07zeroValINS0_4math4Vec3IdEEEET_v"}
+!156 = !{!157, !159}
+!157 = distinct !{!157, !158, !"_ZNK7openvdb5v11_04math4Vec3IdEngEv: %agg.result"}
+!158 = distinct !{!158, !"_ZNK7openvdb5v11_04math4Vec3IdEngEv"}
+!159 = distinct !{!159, !160, !"_ZN7openvdb5v11_04math8negativeINS1_4Vec3IdEEEET_RKS5_: %agg.result"}
+!160 = distinct !{!160, !"_ZN7openvdb5v11_04math8negativeINS1_4Vec3IdEEEET_RKS5_"}
+!161 = distinct !{!161, !33}
+!162 = distinct !{!162, !33}
 !163 = distinct !{!163, !33}
 !164 = distinct !{!164, !33}
 !165 = distinct !{!165, !33}
-!166 = distinct !{!166, !33}
-!167 = distinct !{!167, !33}
-!168 = !{!169}
-!169 = distinct !{!169, !170, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_: %agg.result"}
-!170 = distinct !{!170, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_"}
+!166 = !{!167}
+!167 = distinct !{!167, !168, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_: %agg.result"}
+!168 = distinct !{!168, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_"}
+!169 = distinct !{!169, !33}
+!170 = distinct !{!170, !33}
 !171 = distinct !{!171, !33}
-!172 = distinct !{!172, !33}
-!173 = distinct !{!173, !33}
-!174 = !{!175}
-!175 = distinct !{!175, !176, !"_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_: %agg.result"}
-!176 = distinct !{!176, !"_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_"}
+!172 = !{!173}
+!173 = distinct !{!173, !174, !"_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_: %agg.result"}
+!174 = distinct !{!174, !"_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_"}
+!175 = distinct !{!175, !33}
+!176 = distinct !{!176, !33}
 !177 = distinct !{!177, !33}
 !178 = distinct !{!178, !33}
 !179 = distinct !{!179, !33}
 !180 = distinct !{!180, !33}
 !181 = distinct !{!181, !33}
 !182 = distinct !{!182, !33}
-!183 = distinct !{!183, !33}
-!184 = distinct !{!184, !33}
-!185 = !{!186, !188}
-!186 = distinct !{!186, !187, !"_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE13beginValueAllEv: %agg.result"}
-!187 = distinct !{!187, !"_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE13beginValueAllEv"}
-!188 = distinct !{!188, !189, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEENS9_9ValueIterIS9_KS7_NS0_4util15OffMaskIteratorINSC_8NodeMaskILj4EEEEENS9_8ValueAllEEEE5beginERS9_: %agg.result"}
-!189 = distinct !{!189, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEENS9_9ValueIterIS9_KS7_NS0_4util15OffMaskIteratorINSC_8NodeMaskILj4EEEEENS9_8ValueAllEEEE5beginERS9_"}
-!190 = !{!191, !193}
-!191 = distinct !{!191, !192, !"_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE13beginValueAllEv: %agg.result"}
-!192 = distinct !{!192, !"_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE13beginValueAllEv"}
-!193 = distinct !{!193, !194, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEENSA_9ValueIterISA_KS7_NS0_4util15OffMaskIteratorINSD_8NodeMaskILj5EEEEENSA_8ValueAllEEEE5beginERSA_: %agg.result"}
-!194 = distinct !{!194, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEENSA_9ValueIterISA_KS7_NS0_4util15OffMaskIteratorINSD_8NodeMaskILj5EEEEENSA_8ValueAllEEEE5beginERSA_"}
-!195 = distinct !{!195, !33}
-!196 = distinct !{!196, !33}
-!197 = !{!198, !200}
-!198 = distinct !{!198, !199, !"_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE13cbeginChildOnEv: %agg.result"}
-!199 = distinct !{!199, !"_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE13cbeginChildOnEv"}
-!200 = distinct !{!200, !201, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_: %agg.result"}
-!201 = distinct !{!201, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_"}
-!202 = !{!203, !205}
-!203 = distinct !{!203, !204, !"_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE13cbeginChildOnEv: %agg.result"}
-!204 = distinct !{!204, !"_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE13cbeginChildOnEv"}
-!205 = distinct !{!205, !206, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_: %agg.result"}
-!206 = distinct !{!206, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_"}
+!183 = !{!184, !186}
+!184 = distinct !{!184, !185, !"_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE13beginValueAllEv: %agg.result"}
+!185 = distinct !{!185, !"_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE13beginValueAllEv"}
+!186 = distinct !{!186, !187, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEENS9_9ValueIterIS9_KS7_NS0_4util15OffMaskIteratorINSC_8NodeMaskILj4EEEEENS9_8ValueAllEEEE5beginERS9_: %agg.result"}
+!187 = distinct !{!187, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEENS9_9ValueIterIS9_KS7_NS0_4util15OffMaskIteratorINSC_8NodeMaskILj4EEEEENS9_8ValueAllEEEE5beginERS9_"}
+!188 = !{!189, !191}
+!189 = distinct !{!189, !190, !"_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE13beginValueAllEv: %agg.result"}
+!190 = distinct !{!190, !"_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE13beginValueAllEv"}
+!191 = distinct !{!191, !192, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEENSA_9ValueIterISA_KS7_NS0_4util15OffMaskIteratorINSD_8NodeMaskILj5EEEEENSA_8ValueAllEEEE5beginERSA_: %agg.result"}
+!192 = distinct !{!192, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEENSA_9ValueIterISA_KS7_NS0_4util15OffMaskIteratorINSD_8NodeMaskILj5EEEEENSA_8ValueAllEEEE5beginERSA_"}
+!193 = distinct !{!193, !33}
+!194 = distinct !{!194, !33}
+!195 = !{!196, !198}
+!196 = distinct !{!196, !197, !"_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE13cbeginChildOnEv: %agg.result"}
+!197 = distinct !{!197, !"_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE13cbeginChildOnEv"}
+!198 = distinct !{!198, !199, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_: %agg.result"}
+!199 = distinct !{!199, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEENS9_9ChildIterIKS9_KS8_NS0_4util14OnMaskIteratorINSD_8NodeMaskILj4EEEEENS9_7ChildOnEEEE5beginERSB_"}
+!200 = !{!201, !203}
+!201 = distinct !{!201, !202, !"_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE13cbeginChildOnEv: %agg.result"}
+!202 = distinct !{!202, !"_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE13cbeginChildOnEv"}
+!203 = distinct !{!203, !204, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_: %agg.result"}
+!204 = distinct !{!204, !"_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEENSA_9ChildIterIKSA_KS9_NS0_4util14OnMaskIteratorINSE_8NodeMaskILj5EEEEENSA_7ChildOnEEEE5beginERSC_"}
+!205 = distinct !{!205, !33}
+!206 = distinct !{!206, !33}
 !207 = distinct !{!207, !33}
 !208 = distinct !{!208, !33}
-!209 = distinct !{!209, !33}
-!210 = distinct !{!210, !33}
-!211 = !{!212}
-!212 = distinct !{!212, !213, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_: %agg.result"}
-!213 = distinct !{!213, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_"}
+!209 = !{!210}
+!210 = distinct !{!210, !211, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_: %agg.result"}
+!211 = distinct !{!211, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_"}
+!212 = distinct !{!212, !33}
+!213 = distinct !{!213, !33}
 !214 = distinct !{!214, !33}
 !215 = distinct !{!215, !33}
-!216 = distinct !{!216, !33}
-!217 = distinct !{!217, !33}
-!218 = !{!219}
-!219 = distinct !{!219, !220, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_: %agg.result"}
-!220 = distinct !{!220, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_"}
+!216 = !{!217}
+!217 = distinct !{!217, !218, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_: %agg.result"}
+!218 = distinct !{!218, !"_ZNK7openvdb5v11_04math4Mat4IdE12transform3x3IdEENS1_4Vec3IT_EERKS7_"}
+!219 = distinct !{!219, !33}
+!220 = distinct !{!220, !33}
 !221 = distinct !{!221, !33}
-!222 = distinct !{!222, !33}
-!223 = distinct !{!223, !33}
-!224 = !{!225}
-!225 = distinct !{!225, !226, !"_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_: %agg.result"}
-!226 = distinct !{!226, !"_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_"}
+!222 = !{!223}
+!223 = distinct !{!223, !224, !"_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_: %agg.result"}
+!224 = distinct !{!224, !"_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_"}

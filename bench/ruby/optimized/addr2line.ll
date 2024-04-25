@@ -3734,65 +3734,63 @@ define internal fastcc noundef i32 @parse_debug_line_header(ptr noundef %0, ptr 
   %57 = load i8, ptr %53, align 1
   %58 = getelementptr inbounds i8, ptr %2, i64 28
   store i8 %57, ptr %58, align 4
-  %59 = getelementptr i8, ptr %.2, i64 4
-  %60 = load i8, ptr %56, align 1
-  %61 = getelementptr inbounds i8, ptr %2, i64 29
-  store i8 %60, ptr %61, align 1
-  %62 = zext i8 %60 to i64
-  %63 = getelementptr i8, ptr %59, i64 %62
-  %64 = getelementptr i8, ptr %63, i64 -1
-  %65 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr %64, ptr %65, align 8
-  br i1 %31, label %66, label %69
+  %59 = load i8, ptr %56, align 1
+  %60 = getelementptr inbounds i8, ptr %2, i64 29
+  store i8 %59, ptr %60, align 1
+  %61 = zext i8 %59 to i64
+  %62 = getelementptr i8, ptr %56, i64 %61
+  %63 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr %62, ptr %63, align 8
+  br i1 %31, label %64, label %67
 
-66:                                               ; preds = %49
-  %67 = tail call fastcc ptr @parse_ver5_debug_line_header(ptr noundef %64, i32 noundef -1, i8 noundef zeroext %32, ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef %3)
-  %68 = getelementptr inbounds i8, ptr %2, i64 40
-  store ptr %67, ptr %68, align 8
+64:                                               ; preds = %49
+  %65 = tail call fastcc ptr @parse_ver5_debug_line_header(ptr noundef %62, i32 noundef -1, i8 noundef zeroext %32, ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef %3)
+  %66 = getelementptr inbounds i8, ptr %2, i64 40
+  store ptr %65, ptr %66, align 8
   %.pre = load ptr, ptr %40, align 8
-  br label %81
+  br label %79
 
-69:                                               ; preds = %49
-  %.not71 = icmp ult ptr %64, %33
+67:                                               ; preds = %49
+  %.not71 = icmp ult ptr %62, %33
   br i1 %.not71, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %69
-  %70 = load i8, ptr %64, align 1
-  %.not7275 = icmp eq i8 %70, 0
+.preheader:                                       ; preds = %67
+  %68 = load i8, ptr %62, align 1
+  %.not7275 = icmp eq i8 %68, 0
   br i1 %.not7275, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %71 = ptrtoint ptr %33 to i64
-  br label %75
+  %69 = ptrtoint ptr %33 to i64
+  br label %73
 
-72:                                               ; preds = %75
-  %73 = getelementptr i8, ptr %78, i64 1
-  %74 = load i8, ptr %73, align 1
-  %.not72 = icmp eq i8 %74, 0
-  br i1 %.not72, label %._crit_edge, label %75, !llvm.loop !29
+70:                                               ; preds = %73
+  %71 = getelementptr i8, ptr %76, i64 1
+  %72 = load i8, ptr %71, align 1
+  %.not72 = icmp eq i8 %72, 0
+  br i1 %.not72, label %._crit_edge, label %73, !llvm.loop !29
 
-75:                                               ; preds = %.lr.ph, %72
-  %.376 = phi ptr [ %64, %.lr.ph ], [ %73, %72 ]
-  %76 = ptrtoint ptr %.376 to i64
-  %77 = sub i64 %71, %76
-  %78 = tail call ptr @memchr(ptr noundef nonnull %.376, i32 noundef 0, i64 noundef %77) #18
-  %.not73 = icmp eq ptr %78, null
-  br i1 %.not73, label %.loopexit, label %72
+73:                                               ; preds = %.lr.ph, %70
+  %.376 = phi ptr [ %62, %.lr.ph ], [ %71, %70 ]
+  %74 = ptrtoint ptr %.376 to i64
+  %75 = sub i64 %69, %74
+  %76 = tail call ptr @memchr(ptr noundef nonnull %.376, i32 noundef 0, i64 noundef %75) #18
+  %.not73 = icmp eq ptr %76, null
+  br i1 %.not73, label %.loopexit, label %70
 
-._crit_edge:                                      ; preds = %72, %.preheader
-  %.3.lcssa = phi ptr [ %64, %.preheader ], [ %73, %72 ]
-  %79 = getelementptr i8, ptr %.3.lcssa, i64 1
-  %80 = getelementptr inbounds i8, ptr %2, i64 40
-  store ptr %79, ptr %80, align 8
-  br label %81
+._crit_edge:                                      ; preds = %70, %.preheader
+  %.3.lcssa = phi ptr [ %62, %.preheader ], [ %71, %70 ]
+  %77 = getelementptr i8, ptr %.3.lcssa, i64 1
+  %78 = getelementptr inbounds i8, ptr %2, i64 40
+  store ptr %77, ptr %78, align 8
+  br label %79
 
-81:                                               ; preds = %._crit_edge, %66
-  %82 = phi ptr [ %39, %._crit_edge ], [ %.pre, %66 ]
-  store ptr %82, ptr %1, align 8
+79:                                               ; preds = %._crit_edge, %64
+  %80 = phi ptr [ %39, %._crit_edge ], [ %.pre, %64 ]
+  store ptr %80, ptr %1, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %75, %.thread, %69, %45, %10, %81
-  %.067 = phi i32 [ 0, %81 ], [ -1, %10 ], [ -1, %45 ], [ -1, %69 ], [ -1, %.thread ], [ -1, %75 ]
+.loopexit:                                        ; preds = %73, %.thread, %67, %45, %10, %79
+  %.067 = phi i32 [ 0, %79 ], [ -1, %10 ], [ -1, %45 ], [ -1, %67 ], [ -1, %.thread ], [ -1, %73 ]
   ret i32 %.067
 }
 

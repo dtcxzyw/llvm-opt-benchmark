@@ -64,7 +64,7 @@ define void @dlarrc_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %44 = load double, ptr %43, align 8, !tbaa !7
   %45 = fmul double %44, %44
   %46 = add nuw nsw i64 %40, 1
-  %47 = getelementptr inbounds double, ptr %13, i64 %46
+  %47 = getelementptr double, ptr %4, i64 %40
   %48 = load double, ptr %47, align 8, !tbaa !7
   %49 = fsub double %48, %21
   %50 = fdiv double %45, %42

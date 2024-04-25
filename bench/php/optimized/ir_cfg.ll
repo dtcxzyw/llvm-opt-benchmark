@@ -1407,7 +1407,7 @@ ir_optimize_merge.exit.thread:                    ; preds = %629, %477, %485, %4
 772:                                              ; preds = %.lr.ph824, %787
   %.0679823 = phi i64 [ %769, %.lr.ph824 ], [ %776, %787 ]
   %773 = phi i32 [ %.lcssa821827828, %.lr.ph824 ], [ %788, %787 ]
-  %774 = tail call i64 @llvm.cttz.i64(i64 %.0679823, i1 true), !range !4
+  %774 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0679823, i1 true)
   %775 = add i64 %.0679823, -1
   %776 = and i64 %775, %.0679823
   %777 = load i64, ptr %770, align 8
@@ -1844,7 +1844,7 @@ thread-pre-split:                                 ; preds = %953, %919, %917, %.
 
 1005:                                             ; preds = %.lr.ph865, %1016
   %.0675864 = phi i64 [ %.0675.ph880, %.lr.ph865 ], [ %1010, %1016 ]
-  %1006 = tail call i64 @llvm.cttz.i64(i64 %.0675864, i1 true), !range !4
+  %1006 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0675864, i1 true)
   %1007 = trunc nuw nsw i64 %1006 to i32
   %1008 = or disjoint i32 %1003, %1007
   %1009 = add i64 %.0675864, -1
@@ -3230,7 +3230,7 @@ define hidden noundef i32 @ir_find_loops(ptr nocapture noundef %0) local_unnamed
 113:                                              ; preds = %.lr.ph490, %.loopexit431
   %indvars.iv520 = phi i64 [ %101, %.lr.ph490 ], [ %114, %.loopexit431 ]
   %114 = add nsw i64 %indvars.iv520, -1
-  %115 = getelementptr inbounds i32, ptr %31, i64 %114
+  %115 = getelementptr i32, ptr %30, i64 %indvars.iv520
   %116 = load i32, ptr %115, align 4
   %117 = zext i32 %116 to i64
   %118 = getelementptr inbounds %struct._ir_block, ptr %3, i64 %117
@@ -3579,7 +3579,7 @@ define hidden noundef i32 @ir_schedule_blocks(ptr nocapture noundef %0) local_un
 
 38:                                               ; preds = %32
   %39 = shl i32 %.0323, 6
-  %40 = tail call i64 @llvm.cttz.i64(i64 %33, i1 true), !range !4
+  %40 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %33, i1 true)
   %41 = trunc nuw nsw i64 %40 to i32
   %42 = or disjoint i32 %39, %41
   %43 = add i64 %33, -1
@@ -5119,4 +5119,3 @@ attributes #13 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 0, i64 65}

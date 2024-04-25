@@ -197,7 +197,7 @@ define void @ssterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %88 = getelementptr inbounds float, ptr %17, i64 %indvars.iv464
   %89 = load float, ptr %88, align 4
   %indvars.iv.next465 = add nsw i64 %indvars.iv464, 1
-  %90 = getelementptr inbounds float, ptr %17, i64 %indvars.iv.next465
+  %90 = getelementptr float, ptr %1, i64 %indvars.iv464
   %91 = load float, ptr %90, align 4
   %92 = fmul float %89, %91
   %93 = call noundef float @llvm.fabs.f32(float %92)
@@ -486,7 +486,7 @@ define void @ssterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %252 = shufflevector <2 x float> %251, <2 x float> poison, <2 x i32> zeroinitializer
   %253 = fdiv <2 x float> %250, %252
   %indvars.iv.next477 = add nsw i64 %indvars.iv476, 1
-  %254 = getelementptr inbounds float, ptr %17, i64 %indvars.iv.next477
+  %254 = getelementptr float, ptr %1, i64 %indvars.iv476
   %255 = load float, ptr %254, align 4
   %256 = fsub float %255, %233
   %257 = extractelement <2 x float> %253, i64 1

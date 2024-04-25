@@ -2707,13 +2707,13 @@ default.unreachable:                              ; preds = %185
   br i1 %212, label %.thread146.i, label %.lr.ph.split.i.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit.i.i.i.i": ; preds = %209
-  %213 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %210
+  %213 = getelementptr i8, ptr %.sroa.0.0.i.i, i64 %210
   %lhsc155.i = load i8, ptr %213, align 1
   %214 = icmp eq i8 %lhsc155.i, 39
   br i1 %214, label %215, label %211
 
 215:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit.i.i.i.i"
-  %216 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %210
+  %216 = getelementptr i8, ptr %.sroa.0.0.i.i, i64 %210
   %.not.i.i44.i = icmp eq i64 %210, 0
   br i1 %.not.i.i44.i, label %.thread146.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i"
 
@@ -2743,13 +2743,13 @@ default.unreachable:                              ; preds = %185
   br i1 %227, label %.thread146.i, label %.lr.ph.split.i.i.i47.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit.i.i.i52.i": ; preds = %224
-  %228 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %225
+  %228 = getelementptr i8, ptr %.sroa.0.0.i.i, i64 %225
   %lhsc.i = load i8, ptr %228, align 1
   %229 = icmp eq i8 %lhsc.i, 39
   br i1 %229, label %230, label %226
 
 230:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit.i.i.i52.i"
-  %231 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %225
+  %231 = getelementptr i8, ptr %.sroa.0.0.i.i, i64 %225
   %.not.i.i54.i = icmp ult i64 %225, 2
   br i1 %.not.i.i54.i, label %.thread146.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i58.i"
 

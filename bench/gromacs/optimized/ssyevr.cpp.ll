@@ -426,7 +426,7 @@ define void @ssyevr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.0280348 = phi i32 [ 0, %.lr.ph349.preheader ], [ %.1, %.lr.ph349 ]
   %.0282346 = phi float [ %187, %.lr.ph349.preheader ], [ %.1283, %.lr.ph349 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %189 = getelementptr inbounds float, ptr %35, i64 %indvars.iv.next
+  %189 = getelementptr float, ptr %12, i64 %indvars.iv
   %190 = load float, ptr %189, align 4
   %191 = fcmp olt float %190, %.0282346
   %.1283 = select i1 %191, float %190, float %.0282346

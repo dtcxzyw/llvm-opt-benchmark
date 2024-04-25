@@ -2378,7 +2378,7 @@ invoke.cont39:                                    ; preds = %if.then.i.i1088, %_
   %31 = bitcast i32 %30 to float
   %add.i = fadd nsz float %mul, %31
   %32 = lshr i64 %26, 32
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw i64 %32 to i32
   %34 = bitcast i32 %33 to float
   %add4.i = fadd nsz float %mul35, %34
   %m_color = getelementptr inbounds i8, ptr %this, i64 496
@@ -4379,7 +4379,7 @@ if.end8:                                          ; preds = %if.end
   %p.sroa.2.0.extract.shift.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 16
   %p.sroa.2.0.extract.trunc.i = trunc i48 %p.sroa.2.0.extract.shift.i to i16
   %p.sroa.3.0.extract.shift.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 32
-  %p.sroa.3.0.extract.trunc.i = trunc i48 %p.sroa.3.0.extract.shift.i to i16
+  %p.sroa.3.0.extract.trunc.i = trunc nuw i48 %p.sroa.3.0.extract.shift.i to i16
   %conv.i = sitofp i16 %p.sroa.0.0.extract.trunc.i to float
   %mul.i = fmul nsz float %conv.i, 1.000000e+01
   %conv1.i = sitofp i16 %p.sroa.2.0.extract.trunc.i to float
@@ -4557,18 +4557,18 @@ entry:
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %color_ambient, align 8, !tbaa !76
   %shr.i.i = lshr i32 %agg.tmp.sroa.0.0.copyload, 16
   %and.i.i = and i32 %shr.i.i, 255
-  %conv.i = uitofp i32 %and.i.i to float
+  %conv.i = uitofp nneg i32 %and.i.i to float
   %mul.i = fmul nsz float %conv.i, 0x3F70101020000000
   %shr.i11.i = lshr i32 %agg.tmp.sroa.0.0.copyload, 8
   %color_bright = getelementptr inbounds i8, ptr %this, i64 516
   %agg.tmp2.sroa.0.0.copyload = load i32, ptr %color_bright, align 4, !tbaa !76
   %shr.i.i62 = lshr i32 %agg.tmp2.sroa.0.0.copyload, 16
   %and.i.i63 = and i32 %shr.i.i62, 255
-  %conv.i64 = uitofp i32 %and.i.i63 to float
+  %conv.i64 = uitofp nneg i32 %and.i.i63 to float
   %mul.i65 = fmul nsz float %conv.i64, 0x3F70101020000000
   %shr.i11.i66 = lshr i32 %agg.tmp2.sroa.0.0.copyload, 8
   %shr.i14.i75 = lshr i32 %agg.tmp2.sroa.0.0.copyload, 24
-  %conv9.i76 = uitofp i32 %shr.i14.i75 to float
+  %conv9.i76 = uitofp nneg i32 %shr.i14.i75 to float
   %mul10.i77 = fmul nsz float %conv9.i76, 0x3F70101020000000
   %0 = load float, ptr %color_diffuse, align 4, !tbaa !182
   %mul = fmul nsz float %0, %mul.i65
@@ -4583,12 +4583,12 @@ entry:
   %3 = insertelement <2 x i32> poison, i32 %shr.i11.i, i64 0
   %4 = insertelement <2 x i32> %3, i32 %agg.tmp.sroa.0.0.copyload, i64 1
   %5 = and <2 x i32> %4, <i32 255, i32 255>
-  %6 = uitofp <2 x i32> %5 to <2 x float>
+  %6 = uitofp nneg <2 x i32> %5 to <2 x float>
   %7 = fmul nsz <2 x float> %6, <float 0x3F70101020000000, float 0x3F70101020000000>
   %8 = insertelement <2 x i32> poison, i32 %shr.i11.i66, i64 0
   %9 = insertelement <2 x i32> %8, i32 %agg.tmp2.sroa.0.0.copyload, i64 1
   %10 = and <2 x i32> %9, <i32 255, i32 255>
-  %11 = uitofp <2 x i32> %10 to <2 x float>
+  %11 = uitofp nneg <2 x i32> %10 to <2 x float>
   %12 = fmul nsz <2 x float> %11, <float 0x3F70101020000000, float 0x3F70101020000000>
   %13 = load <2 x float>, ptr %g, align 4, !tbaa !7
   %14 = fmul nsz <2 x float> %13, %12
@@ -7547,15 +7547,14 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store i16 0, ptr %0, align 2, !tbaa !130
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 2
-  %sub.i.i.i = add nsw i64 %__n, -1
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 1
   %4 = add nsw i64 %3, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !130
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i16, ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr i16, ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i

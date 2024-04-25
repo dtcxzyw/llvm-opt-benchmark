@@ -2078,7 +2078,7 @@ define hidden void @_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llv
   tail call void @"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h9f0f42301bbc2773E.llvm.16528140993567049526"(float noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 9
   %5 = load i8, ptr %4, align 1, !range !244, !noundef !13
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit", %2
@@ -2135,7 +2135,7 @@ define hidden void @_ZN10pdf_writer6object3Obj9primitive17h44973ec2be0caef3E.llv
   %.02638.i.i.i = phi i64 [ %17, %.lr.ph.i.i.i ], [ 11, %2 ]
   %9 = urem i32 %.139.i.i.i, 10000
   %10 = udiv i32 %.139.i.i.i, 10000
-  %.lhs.trunc.i.i.i = trunc i32 %9 to i16
+  %.lhs.trunc.i.i.i = trunc nuw nsw i32 %9 to i16
   %11 = udiv i16 %.lhs.trunc.i.i.i, 100
   %12 = shl nuw nsw i16 %11, 1
   %13 = zext nneg i16 %12 to i64
@@ -2155,7 +2155,7 @@ define hidden void @_ZN10pdf_writer6object3Obj9primitive17h44973ec2be0caef3E.llv
   br i1 %23, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 24:                                               ; preds = %._crit_edge.i.i.i
-  %.lhs.trunc34.i.i.i = trunc i32 %.1.lcssa.i.i.i to i16
+  %.lhs.trunc34.i.i.i = trunc nuw i32 %.1.lcssa.i.i.i to i16
   %25 = urem i16 %.lhs.trunc34.i.i.i, 100
   %26 = shl nuw nsw i16 %25, 1
   %27 = zext nneg i16 %26 to i64
@@ -2185,7 +2185,7 @@ define hidden void @_ZN10pdf_writer6object3Obj9primitive17h44973ec2be0caef3E.llv
 
 41:                                               ; preds = %33
   %42 = add i64 %.127.i.i.i, -1
-  %43 = trunc i64 %.025.i.i.i to i8
+  %43 = trunc nuw nsw i64 %.025.i.i.i to i8
   %44 = getelementptr inbounds i8, ptr %3, i64 %42
   %45 = or disjoint i8 %43, 48
   store i8 %45, ptr %44, align 1, !alias.scope !592, !noalias !591
@@ -2229,7 +2229,7 @@ define hidden void @_ZN10pdf_writer6object3Obj9primitive17h44973ec2be0caef3E.llv
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !591
   %63 = getelementptr inbounds i8, ptr %0, i64 9
   %64 = load i8, ptr %63, align 1, !range !244, !noundef !13
-  %65 = trunc i8 %64 to i1
+  %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %67, label %66
 
 66:                                               ; preds = %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit", %"_ZN53_$LT$i32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17hf7c6579870e85f2cE.llvm.16528140993567049526.exit"
@@ -2263,7 +2263,7 @@ define hidden void @_ZN10pdf_writer6object3Obj9primitive17h937adb078916dd44E.llv
   tail call void @"_ZN73_$LT$pdf_writer..object..Ref$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h679329a5c79f8f0cE.llvm.16528140993567049526"(i32 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 9
   %5 = load i8, ptr %4, align 1, !range !244, !noundef !13
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit", %2
@@ -2300,7 +2300,7 @@ define hidden void @_ZN10pdf_writer6object3Obj9primitive17hc4e68b86401d806aE.llv
   tail call void @"_ZN73_$LT$pdf_writer..object..Str$u20$as$u20$pdf_writer..object..Primitive$GT$5write17ha1c21d531ecc7f59E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   %5 = getelementptr inbounds i8, ptr %0, i64 9
   %6 = load i8, ptr %5, align 1, !range !244, !noundef !13
-  %7 = trunc i8 %6 to i1
+  %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit", %3
@@ -4215,7 +4215,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT
   store i64 %13, ptr %3, align 8, !alias.scope !1032, !noalias !1029
   %14 = getelementptr inbounds i8, ptr %0, i64 13
   %15 = load i8, ptr %14, align 1, !range !244, !alias.scope !1029, !noundef !13
-  %16 = trunc i8 %15 to i1
+  %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %"_ZN67_$LT$pdf_writer..object..Array$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9b247888d8866a1aE.llvm.16528140993567049526.exit"
 
 17:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.16528140993567049526.exit.i"
@@ -4248,7 +4248,7 @@ define internal fastcc void @"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1041)
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !range !244, !alias.scope !1041, !noundef !13
-  %4 = trunc i8 %3 to i1
+  %4 = trunc nuw i8 %3 to i1
   %.pre.i = load ptr, ptr %0, align 8, !alias.scope !1041
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 16
   %.pre4.i = load i64, ptr %.phi.trans.insert.i, align 8, !noalias !1041
@@ -5370,7 +5370,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i: ; preds = %16, %14
   %.02638.i.i = phi i64 [ %47, %.lr.ph.i.i ], [ 11, %34 ]
   %39 = urem i32 %.139.i.i, 10000
   %40 = udiv i32 %.139.i.i, 10000
-  %.lhs.trunc.i.i = trunc i32 %39 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i32 %39 to i16
   %41 = udiv i16 %.lhs.trunc.i.i, 100
   %42 = shl nuw nsw i16 %41, 1
   %43 = zext nneg i16 %42 to i64
@@ -5390,7 +5390,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i: ; preds = %16, %14
   br i1 %53, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 54:                                               ; preds = %._crit_edge.i.i
-  %.lhs.trunc34.i.i = trunc i32 %.1.lcssa.i.i to i16
+  %.lhs.trunc34.i.i = trunc nuw i32 %.1.lcssa.i.i to i16
   %55 = urem i16 %.lhs.trunc34.i.i, 100
   %56 = shl nuw nsw i16 %55, 1
   %57 = zext nneg i16 %56 to i64
@@ -5420,7 +5420,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i: ; preds = %16, %14
 
 71:                                               ; preds = %63
   %72 = add i64 %.127.i.i, -1
-  %73 = trunc i64 %.025.i.i to i8
+  %73 = trunc nuw nsw i64 %.025.i.i to i8
   %74 = getelementptr inbounds i8, ptr %3, i64 %72
   %75 = or disjoint i8 %73, 48
   store i8 %75, ptr %74, align 1, !alias.scope !1339, !noalias !1336
@@ -5492,7 +5492,7 @@ define hidden void @"_ZN53_$LT$i32$u20$as$u20$pdf_writer..object..Primitive$GT$5
   %.02638.i.i = phi i64 [ %16, %.lr.ph.i.i ], [ 11, %2 ]
   %8 = urem i32 %.139.i.i, 10000
   %9 = udiv i32 %.139.i.i, 10000
-  %.lhs.trunc.i.i = trunc i32 %8 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i32 %8 to i16
   %10 = udiv i16 %.lhs.trunc.i.i, 100
   %11 = shl nuw nsw i16 %10, 1
   %12 = zext nneg i16 %11 to i64
@@ -5512,7 +5512,7 @@ define hidden void @"_ZN53_$LT$i32$u20$as$u20$pdf_writer..object..Primitive$GT$5
   br i1 %22, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 23:                                               ; preds = %._crit_edge.i.i
-  %.lhs.trunc34.i.i = trunc i32 %.1.lcssa.i.i to i16
+  %.lhs.trunc34.i.i = trunc nuw i32 %.1.lcssa.i.i to i16
   %24 = urem i16 %.lhs.trunc34.i.i, 100
   %25 = shl nuw nsw i16 %24, 1
   %26 = zext nneg i16 %25 to i64
@@ -5542,7 +5542,7 @@ define hidden void @"_ZN53_$LT$i32$u20$as$u20$pdf_writer..object..Primitive$GT$5
 
 40:                                               ; preds = %32
   %41 = add i64 %.127.i.i, -1
-  %42 = trunc i64 %.025.i.i to i8
+  %42 = trunc nuw nsw i64 %.025.i.i to i8
   %43 = getelementptr inbounds i8, ptr %3, i64 %41
   %44 = or disjoint i8 %42, 48
   store i8 %44, ptr %43, align 1, !alias.scope !1352, !noalias !1349
@@ -6081,7 +6081,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.ll
 define hidden noundef zeroext i1 @"_ZN5typst11foundations4auto14Smart$LT$T$GT$14unwrap_or_else17ha8bdf9f9bc5102d1E"(i8 noundef %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = alloca { { ptr, i64 }, ptr }, align 8
   %4 = icmp eq i8 %0, 2
-  br i1 %4, label %5, label %25
+  br i1 %4, label %5, label %24
 
 5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1573)
@@ -6094,28 +6094,27 @@ define hidden noundef zeroext i1 @"_ZN5typst11foundations4auto14Smart$LT$T$GT$14
   %12 = add i64 %11, -1
   %13 = and i64 %12, -16
   %14 = getelementptr i8, ptr %6, i64 %13
-  %15 = getelementptr i8, ptr %14, i64 16
-  %16 = and i64 %12, -80
-  %17 = getelementptr i8, ptr %15, i64 %16
-  %18 = getelementptr i8, ptr %17, i64 80
-  %19 = add i64 %10, -1
-  %20 = and i64 %19, -16
-  %21 = getelementptr i8, ptr %18, i64 %20
-  %22 = getelementptr i8, ptr %21, i64 16
+  %15 = and i64 %12, -80
+  %16 = getelementptr i8, ptr %14, i64 96
+  %17 = getelementptr i8, ptr %16, i64 %15
+  %18 = add i64 %10, -1
+  %19 = and i64 %18, -16
+  %20 = getelementptr i8, ptr %17, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1573
   store ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.80, ptr %3, align 8, !noalias !1573
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false), !noalias !1573
-  %24 = call noundef zeroext i1 @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..HeadingElem$GT$8outlined17he20bce34ef3c5c1fE"(ptr noalias noundef readonly align 8 dereferenceable(144) %22, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3), !noalias !1573
+  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false), !noalias !1573
+  %23 = call noundef zeroext i1 @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..HeadingElem$GT$8outlined17he20bce34ef3c5c1fE"(ptr noalias noundef readonly align 8 dereferenceable(144) %21, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3), !noalias !1573
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1573
-  br label %27
+  br label %26
 
-25:                                               ; preds = %2
-  %26 = trunc i8 %0 to i1
-  br label %27
+24:                                               ; preds = %2
+  %25 = trunc i8 %0 to i1
+  br label %26
 
-27:                                               ; preds = %5, %25
-  %.0 = phi i1 [ %24, %5 ], [ %26, %25 ]
+26:                                               ; preds = %5, %24
+  %.0 = phi i1 [ %23, %5 ], [ %25, %24 ]
   ret i1 %.0
 }
 
@@ -6814,14 +6813,14 @@ define internal noundef zeroext i1 @"_ZN60_$LT$ecow..string..EcoString$u20$as$u2
 
 11:                                               ; preds = %7
   %12 = lshr i32 %1, 6
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nuw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %5, align 4, !alias.scope !1640, !noalias !1637
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i
 
 15:                                               ; preds = %9
   %16 = lshr i32 %1, 12
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %5, align 4, !alias.scope !1640, !noalias !1637
   %19 = lshr i32 %1, 6
@@ -6861,7 +6860,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %23
   br label %_ZN4ecow6string9EcoString4push17ha76aaffb08413f6eE.exit
 
 .critedge.i:                                      ; preds = %2
-  %40 = trunc i32 %1 to i8
+  %40 = trunc nuw i32 %1 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1643)
   %41 = getelementptr inbounds i8, ptr %0, i64 15
   %42 = load i8, ptr %41, align 1, !alias.scope !1646, !noundef !13
@@ -7420,7 +7419,7 @@ define hidden void @"_ZN67_$LT$pdf_writer..object..Array$u20$as$u20$core..ops..d
   store i64 %13, ptr %3, align 8, !alias.scope !1716
   %14 = getelementptr inbounds i8, ptr %0, i64 13
   %15 = load i8, ptr %14, align 1, !range !244, !noundef !13
-  %16 = trunc i8 %15 to i1
+  %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.16528140993567049526.exit"
@@ -7870,7 +7869,7 @@ define hidden void @"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..
   %.02638.i = phi i64 [ %16, %.lr.ph.i ], [ 11, %2 ]
   %8 = urem i32 %.139.i, 10000
   %9 = udiv i32 %.139.i, 10000
-  %.lhs.trunc.i = trunc i32 %8 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %8 to i16
   %10 = udiv i16 %.lhs.trunc.i, 100
   %11 = shl nuw nsw i16 %10, 1
   %12 = zext nneg i16 %11 to i64
@@ -7890,7 +7889,7 @@ define hidden void @"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..
   br i1 %22, label %.lr.ph.i, label %._crit_edge.i
 
 23:                                               ; preds = %._crit_edge.i
-  %.lhs.trunc34.i = trunc i32 %.1.lcssa.i to i16
+  %.lhs.trunc34.i = trunc nuw i32 %.1.lcssa.i to i16
   %24 = urem i16 %.lhs.trunc34.i, 100
   %25 = shl nuw nsw i16 %24, 1
   %26 = zext nneg i16 %25 to i64
@@ -7920,7 +7919,7 @@ define hidden void @"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..
 
 40:                                               ; preds = %32
   %41 = add i64 %.127.i, -1
-  %42 = trunc i64 %.025.i to i8
+  %42 = trunc nuw nsw i64 %.025.i to i8
   %43 = getelementptr inbounds i8, ptr %3, i64 %41
   %44 = or disjoint i8 %42, 48
   store i8 %44, ptr %43, align 1, !alias.scope !1790
@@ -8465,7 +8464,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h177ec2b
 
 12:                                               ; preds = %7
   %.sroa.414.0.extract.shift = lshr i64 %8, 32
-  %.sroa.5.4.extract.trunc = trunc i64 %.sroa.414.0.extract.shift to i32
+  %.sroa.5.4.extract.trunc = trunc nuw i64 %.sroa.414.0.extract.shift to i32
   %13 = tail call noundef nonnull ptr @"_ZN6flate23mem107_$LT$impl$u20$core..convert..From$LT$flate2..mem..DecompressError$GT$$u20$for$u20$std..io..error..Error$GT$4from17habd9c5571da4e9f3E"(i32 noundef %.sroa.013.0.extract.trunc, i32 %.sroa.5.4.extract.trunc)
   br label %.loopexit
 
@@ -8832,7 +8831,7 @@ define hidden void @"_ZN73_$LT$pdf_writer..object..Ref$u20$as$u20$pdf_writer..ob
   %.02638.i.i = phi i64 [ %17, %.lr.ph.i.i ], [ 11, %2 ]
   %9 = urem i32 %.139.i.i, 10000
   %10 = udiv i32 %.139.i.i, 10000
-  %.lhs.trunc.i.i = trunc i32 %9 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i32 %9 to i16
   %11 = udiv i16 %.lhs.trunc.i.i, 100
   %12 = shl nuw nsw i16 %11, 1
   %13 = zext nneg i16 %12 to i64
@@ -8852,7 +8851,7 @@ define hidden void @"_ZN73_$LT$pdf_writer..object..Ref$u20$as$u20$pdf_writer..ob
   br i1 %23, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 24:                                               ; preds = %._crit_edge.i.i
-  %.lhs.trunc34.i.i = trunc i32 %.1.lcssa.i.i to i16
+  %.lhs.trunc34.i.i = trunc nuw i32 %.1.lcssa.i.i to i16
   %25 = urem i16 %.lhs.trunc34.i.i, 100
   %26 = shl nuw nsw i16 %25, 1
   %27 = zext nneg i16 %26 to i64
@@ -8882,7 +8881,7 @@ define hidden void @"_ZN73_$LT$pdf_writer..object..Ref$u20$as$u20$pdf_writer..ob
 
 41:                                               ; preds = %33
   %42 = add i64 %.127.i.i, -1
-  %43 = trunc i64 %.025.i.i to i8
+  %43 = trunc nuw nsw i64 %.025.i.i to i8
   %44 = getelementptr inbounds i8, ptr %3, i64 %42
   %45 = or disjoint i8 %43, 48
   store i8 %45, ptr %44, align 1, !alias.scope !1897, !noalias !1894
@@ -10392,21 +10391,20 @@ define hidden noundef zeroext i1 @"_ZN9typst_pdf7outline11HeadingNode4leaf28_$u7
   %9 = add i64 %8, -1
   %10 = and i64 %9, -16
   %11 = getelementptr i8, ptr %3, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 16
-  %13 = and i64 %9, -80
-  %14 = getelementptr i8, ptr %12, i64 %13
-  %15 = getelementptr i8, ptr %14, i64 80
-  %16 = add i64 %7, -1
-  %17 = and i64 %16, -16
-  %18 = getelementptr i8, ptr %15, i64 %17
-  %19 = getelementptr i8, ptr %18, i64 16
+  %12 = and i64 %9, -80
+  %13 = getelementptr i8, ptr %11, i64 96
+  %14 = getelementptr i8, ptr %13, i64 %12
+  %15 = add i64 %7, -1
+  %16 = and i64 %15, -16
+  %17 = getelementptr i8, ptr %14, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.80, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  %21 = call noundef zeroext i1 @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..HeadingElem$GT$8outlined17he20bce34ef3c5c1fE"(ptr noalias noundef readonly align 8 dereferenceable(144) %19, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2)
+  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
+  %20 = call noundef zeroext i1 @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..HeadingElem$GT$8outlined17he20bce34ef3c5c1fE"(ptr noalias noundef readonly align 8 dereferenceable(144) %18, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  ret i1 %21
+  ret i1 %20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -3019,7 +3019,7 @@ try.cont:                                         ; preds = %_ZNSt12_Vector_base
 if.then.i53:                                      ; preds = %try.cont
   %sub.i = sub nuw nsw i64 2, %sub.ptr.div.i.i49
   tail call void @_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %_slots, i64 noundef %sub.i)
-  %.pre104 = load ptr, ptr %_slots, align 8
+  %.pre103 = load ptr, ptr %_slots, align 8
   br label %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEm.exit
 
 if.else.i:                                        ; preds = %try.cont
@@ -3036,7 +3036,7 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEm.exit
 
 _ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEm.exit: ; preds = %if.then.i53, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %20 = phi ptr [ %.pre104, %if.then.i53 ], [ %18, %if.else.i ], [ %18, %if.then5.i ], [ %18, %invoke.cont.i.i ]
+  %20 = phi ptr [ %.pre103, %if.then.i53 ], [ %18, %if.else.i ], [ %18, %if.then5.i ], [ %18, %invoke.cont.i.i ]
   %_term_mailbox = getelementptr inbounds i8, ptr %this, i64 304
   store ptr %_term_mailbox, ptr %20, align 8
   %call9 = tail call noalias noundef dereferenceable_or_null(240) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 240, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #27
@@ -3048,8 +3048,8 @@ new.notnull:                                      ; preds = %_ZNSt6vectorIPN3zmq
           to label %if.end unwind label %lpad10
 
 if.then:                                          ; preds = %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEm.exit
-  %_reaper85 = getelementptr inbounds i8, ptr %this, i64 248
-  store ptr null, ptr %_reaper85, align 8
+  %_reaper84 = getelementptr inbounds i8, ptr %this, i64 248
+  store ptr null, ptr %_reaper84, align 8
   %call13 = tail call ptr @__errno_location() #24
   store i32 12, ptr %call13, align 4
   br label %fail_cleanup_slots
@@ -3071,42 +3071,42 @@ if.end18:                                         ; preds = %if.end
   %22 = load ptr, ptr %_reaper, align 8
   %call20 = tail call noundef ptr @_ZN3zmq8reaper_t11get_mailboxEv(ptr noundef nonnull align 8 dereferenceable(240) %22)
   %23 = load ptr, ptr %_slots, align 8
-  %add.ptr.i55 = getelementptr inbounds i8, ptr %23, i64 8
-  store ptr %call20, ptr %add.ptr.i55, align 8
+  %add.ptr.i54 = getelementptr inbounds i8, ptr %23, i64 8
+  store ptr %call20, ptr %add.ptr.i54, align 8
   %24 = load ptr, ptr %_reaper, align 8
   tail call void @_ZN3zmq8reaper_t5startEv(ptr noundef nonnull align 8 dereferenceable(240) %24)
   store ptr null, ptr %ref.tmp, align 8
   %25 = load ptr, ptr %_M_finish.i.i45, align 8
   %26 = load ptr, ptr %_slots, align 8
-  %sub.ptr.lhs.cast.i.i57 = ptrtoint ptr %25 to i64
-  %sub.ptr.rhs.cast.i.i58 = ptrtoint ptr %26 to i64
-  %sub.ptr.sub.i.i59 = sub i64 %sub.ptr.lhs.cast.i.i57, %sub.ptr.rhs.cast.i.i58
-  %sub.ptr.div.i.i60 = ashr exact i64 %sub.ptr.sub.i.i59, 3
-  %cmp.i61 = icmp ult i64 %sub.ptr.div.i.i60, %conv
-  br i1 %cmp.i61, label %if.then.i66, label %if.else.i62
+  %sub.ptr.lhs.cast.i.i56 = ptrtoint ptr %25 to i64
+  %sub.ptr.rhs.cast.i.i57 = ptrtoint ptr %26 to i64
+  %sub.ptr.sub.i.i58 = sub i64 %sub.ptr.lhs.cast.i.i56, %sub.ptr.rhs.cast.i.i57
+  %sub.ptr.div.i.i59 = ashr exact i64 %sub.ptr.sub.i.i58, 3
+  %cmp.i60 = icmp ult i64 %sub.ptr.div.i.i59, %conv
+  br i1 %cmp.i60, label %if.then.i65, label %if.else.i61
 
-if.then.i66:                                      ; preds = %if.end18
-  %sub.i67 = sub nsw i64 %conv, %sub.ptr.div.i.i60
-  call void @_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %_slots, ptr %25, i64 noundef %sub.i67, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+if.then.i65:                                      ; preds = %if.end18
+  %sub.i66 = sub nsw i64 %conv, %sub.ptr.div.i.i59
+  call void @_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %_slots, ptr %25, i64 noundef %sub.i66, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   br label %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEmRKS2_.exit
 
-if.else.i62:                                      ; preds = %if.end18
-  %cmp6.i = icmp ugt i64 %sub.ptr.div.i.i60, %conv
+if.else.i61:                                      ; preds = %if.end18
+  %cmp6.i = icmp ugt i64 %sub.ptr.div.i.i59, %conv
   br i1 %cmp6.i, label %if.then7.i, label %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEmRKS2_.exit
 
-if.then7.i:                                       ; preds = %if.else.i62
-  %add.ptr.i63 = getelementptr inbounds ptr, ptr %26, i64 %conv
-  %tobool.not.i.i64 = icmp eq ptr %25, %add.ptr.i63
-  br i1 %tobool.not.i.i64, label %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEmRKS2_.exit, label %invoke.cont.i.i65
+if.then7.i:                                       ; preds = %if.else.i61
+  %add.ptr.i62 = getelementptr inbounds ptr, ptr %26, i64 %conv
+  %tobool.not.i.i63 = icmp eq ptr %25, %add.ptr.i62
+  br i1 %tobool.not.i.i63, label %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEmRKS2_.exit, label %invoke.cont.i.i64
 
-invoke.cont.i.i65:                                ; preds = %if.then7.i
-  store ptr %add.ptr.i63, ptr %_M_finish.i.i45, align 8
+invoke.cont.i.i64:                                ; preds = %if.then7.i
+  store ptr %add.ptr.i62, ptr %_M_finish.i.i45, align 8
   br label %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEmRKS2_.exit
 
-_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEmRKS2_.exit: ; preds = %if.then.i66, %if.else.i62, %if.then7.i, %invoke.cont.i.i65
+_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEmRKS2_.exit: ; preds = %if.then.i65, %if.else.i61, %if.then7.i, %invoke.cont.i.i64
   %add26 = add nsw i32 %3, 2
-  %cmp.not95 = icmp eq i32 %3, 0
-  br i1 %cmp.not95, label %for.end, label %for.body.lr.ph
+  %cmp.not94 = icmp eq i32 %3, 0
+  br i1 %cmp.not94, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEmRKS2_.exit
   %_io_threads = getelementptr inbounds i8, ptr %this, i64 256
@@ -3151,16 +3151,16 @@ if.end45:                                         ; preds = %if.end41
   %30 = load ptr, ptr %_M_finish.i, align 8
   %31 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %30, %31
-  br i1 %cmp.not.i, label %if.else.i70, label %if.then.i68
+  br i1 %cmp.not.i, label %if.else.i69, label %if.then.i67
 
-if.then.i68:                                      ; preds = %if.end45
+if.then.i67:                                      ; preds = %if.end45
   store ptr %call27, ptr %30, align 8
   %32 = load ptr, ptr %_M_finish.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPN3zmq11io_thread_tESaIS2_EE9push_backERKS2_.exit
 
-if.else.i70:                                      ; preds = %if.end45
+if.else.i69:                                      ; preds = %if.end45
   %33 = load ptr, ptr %_io_threads, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %30 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %33 to i64
@@ -3168,11 +3168,11 @@ if.else.i70:                                      ; preds = %if.end45
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIPN3zmq11io_thread_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
-if.then.i.i.i:                                    ; preds = %if.else.i70
+if.then.i.i.i:                                    ; preds = %if.else.i69
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #26
   unreachable
 
-_ZNKSt6vectorIPN3zmq11io_thread_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i70
+_ZNKSt6vectorIPN3zmq11io_thread_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i69
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
@@ -3215,11 +3215,11 @@ _ZNSt6vectorIPN3zmq11io_thread_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_c
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIPN3zmq11io_thread_tESaIS2_EE9push_backERKS2_.exit
 
-_ZNSt6vectorIPN3zmq11io_thread_tESaIS2_EE9push_backERKS2_.exit: ; preds = %if.then.i68, %_ZNSt6vectorIPN3zmq11io_thread_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
+_ZNSt6vectorIPN3zmq11io_thread_tESaIS2_EE9push_backERKS2_.exit: ; preds = %if.then.i67, %_ZNSt6vectorIPN3zmq11io_thread_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   %call46 = call noundef ptr @_ZN3zmq11io_thread_t11get_mailboxEv(ptr noundef nonnull align 8 dereferenceable(224) %call27)
   %35 = load ptr, ptr %_slots, align 8
-  %add.ptr.i71 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv
-  store ptr %call46, ptr %add.ptr.i71, align 8
+  %add.ptr.i70 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv
+  store ptr %call46, ptr %add.ptr.i70, align 8
   call void @_ZN3zmq11io_thread_t5startEv(ptr noundef nonnull align 8 dereferenceable(224) %call27)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp.not = icmp eq i64 %indvars.iv.next, %27
@@ -3233,27 +3233,27 @@ for.end:                                          ; preds = %_ZNSt6vectorIPN3zmq
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 3
   %conv53 = trunc i64 %sub.ptr.div.i to i32
-  %cmp57.not.not97 = icmp slt i32 %add26, %conv53
-  br i1 %cmp57.not.not97, label %for.body58.lr.ph, label %for.end62
+  %cmp57.not.not96 = icmp slt i32 %add26, %conv53
+  br i1 %cmp57.not.not96, label %for.body58.lr.ph, label %for.end62
 
 for.body58.lr.ph:                                 ; preds = %for.end
-  %_M_finish.i.i73 = getelementptr inbounds i8, ptr %this, i64 176
-  %.pre105 = load ptr, ptr %_M_finish.i.i73, align 8
+  %_M_finish.i.i72 = getelementptr inbounds i8, ptr %this, i64 176
+  %.pre104 = load ptr, ptr %_M_finish.i.i72, align 8
   br label %for.body58
 
 for.body58:                                       ; preds = %for.body58.lr.ph, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
-  %38 = phi ptr [ %.pre105, %for.body58.lr.ph ], [ %43, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
-  %i50.0.in98 = phi i32 [ %conv53, %for.body58.lr.ph ], [ %i50.0, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
-  %i50.0 = add nsw i32 %i50.0.in98, -1
+  %38 = phi ptr [ %.pre104, %for.body58.lr.ph ], [ %43, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
+  %i50.0.in97 = phi i32 [ %conv53, %for.body58.lr.ph ], [ %i50.0, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
+  %i50.0 = add nsw i32 %i50.0.in97, -1
   %39 = load ptr, ptr %_M_end_of_storage.i.i25, align 8
   %cmp.not.i.i = icmp eq ptr %38, %39
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i75
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i74
 
-if.then.i.i75:                                    ; preds = %for.body58
+if.then.i.i74:                                    ; preds = %for.body58
   store i32 %i50.0, ptr %38, align 4
-  %40 = load ptr, ptr %_M_finish.i.i73, align 8
-  %incdec.ptr.i.i76 = getelementptr inbounds i8, ptr %40, i64 4
-  store ptr %incdec.ptr.i.i76, ptr %_M_finish.i.i73, align 8
+  %40 = load ptr, ptr %_M_finish.i.i72, align 8
+  %incdec.ptr.i.i75 = getelementptr inbounds i8, ptr %40, i64 4
+  store ptr %incdec.ptr.i.i75, ptr %_M_finish.i.i72, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 if.else.i.i:                                      ; preds = %for.body58
@@ -3306,13 +3306,13 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIjSaIjE
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i
   store ptr %cond.i10.i.i.i, ptr %_empty_slots, align 8
-  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i73, align 8
+  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i72, align 8
   %add.ptr19.i.i.i = getelementptr inbounds i32, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i25, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
-_ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %if.then.i.i75, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
-  %43 = phi ptr [ %incdec.ptr.i.i76, %if.then.i.i75 ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ]
+_ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %if.then.i.i74, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
+  %43 = phi ptr [ %incdec.ptr.i.i75, %if.then.i.i74 ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ]
   %cmp57.not.not = icmp sgt i32 %i50.0, %add26
   br i1 %cmp57.not.not, label %for.body58, label %for.end62, !llvm.loop !16
 
@@ -3340,15 +3340,15 @@ delete.end67:                                     ; preds = %delete.notnull66, %
 fail_cleanup_slots:                               ; preds = %delete.end67, %if.then
   %46 = load ptr, ptr %_slots, align 8
   %47 = load ptr, ptr %_M_finish.i.i45, align 8
-  %tobool.not.i.i78 = icmp eq ptr %47, %46
-  br i1 %tobool.not.i.i78, label %return, label %invoke.cont.i.i79
+  %tobool.not.i.i77 = icmp eq ptr %47, %46
+  br i1 %tobool.not.i.i77, label %return, label %invoke.cont.i.i78
 
-invoke.cont.i.i79:                                ; preds = %fail_cleanup_slots
+invoke.cont.i.i78:                                ; preds = %fail_cleanup_slots
   store ptr %46, ptr %_M_finish.i.i45, align 8
   br label %return
 
-return:                                           ; preds = %invoke.cont.i.i79, %fail_cleanup_slots, %for.end62, %catch
-  %retval.0 = phi i1 [ true, %for.end62 ], [ false, %catch ], [ false, %fail_cleanup_slots ], [ false, %invoke.cont.i.i79 ]
+return:                                           ; preds = %invoke.cont.i.i78, %fail_cleanup_slots, %for.end62, %catch
+  %retval.0 = phi i1 [ true, %for.end62 ], [ false, %catch ], [ false, %fail_cleanup_slots ], [ false, %invoke.cont.i.i78 ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad32, %lpad10, %lpad
@@ -6438,15 +6438,14 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store ptr null, ptr %0, align 8
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add i64 %__n, -1
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPPN3zmq9i_mailboxEmS2_ET_S4_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl i64 %__n, 3
   %4 = add i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr ptr, ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPPN3zmq9i_mailboxEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN3zmq9i_mailboxEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -6470,17 +6469,17 @@ _ZNKSt6vectorIPN3zmq9i_mailboxESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %if.e
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store ptr null, ptr %add.ptr, align 8
-  %cmp.i.i.i.i.i25 = icmp eq i64 %__n, 1
-  br i1 %cmp.i.i.i.i.i25, label %try.cont, label %if.end.i.i.i.i.i26
+  %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
+  br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
 
-if.end.i.i.i.i.i26:                               ; preds = %_ZNKSt6vectorIPN3zmq9i_mailboxESaIS2_EE12_M_check_lenEmPKc.exit
-  %incdec.ptr.i.i.i23 = getelementptr i8, ptr %add.ptr, i64 8
+if.end.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorIPN3zmq9i_mailboxESaIS2_EE12_M_check_lenEmPKc.exit
+  %incdec.ptr.i.i.i22 = getelementptr i8, ptr %add.ptr, i64 8
   %6 = shl nuw nsw i64 %__n, 3
   %7 = add nsw i64 %6, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i23, i8 0, i64 %7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i26, %_ZNKSt6vectorIPN3zmq9i_mailboxESaIS2_EE12_M_check_lenEmPKc.exit
+try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %_ZNKSt6vectorIPN3zmq9i_mailboxESaIS2_EE12_M_check_lenEmPKc.exit
   %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 
@@ -6489,14 +6488,14 @@ if.then.i.i.i.i:                                  ; preds = %try.cont
   br label %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 
 _ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %try.cont, %if.then.i.i.i.i
-  %tobool.not.i31 = icmp eq ptr %1, null
-  br i1 %tobool.not.i31, label %_ZNSt12_Vector_baseIPN3zmq9i_mailboxESaIS2_EE13_M_deallocateEPS2_m.exit33, label %if.then.i32
+  %tobool.not.i29 = icmp eq ptr %1, null
+  br i1 %tobool.not.i29, label %_ZNSt12_Vector_baseIPN3zmq9i_mailboxESaIS2_EE13_M_deallocateEPS2_m.exit31, label %if.then.i30
 
-if.then.i32:                                      ; preds = %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
+if.then.i30:                                      ; preds = %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %1) #20
-  br label %_ZNSt12_Vector_baseIPN3zmq9i_mailboxESaIS2_EE13_M_deallocateEPS2_m.exit33
+  br label %_ZNSt12_Vector_baseIPN3zmq9i_mailboxESaIS2_EE13_M_deallocateEPS2_m.exit31
 
-_ZNSt12_Vector_baseIPN3zmq9i_mailboxESaIS2_EE13_M_deallocateEPS2_m.exit33: ; preds = %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i32
+_ZNSt12_Vector_baseIPN3zmq9i_mailboxESaIS2_EE13_M_deallocateEPS2_m.exit31: ; preds = %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i30
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds ptr, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
@@ -6504,7 +6503,7 @@ _ZNSt12_Vector_baseIPN3zmq9i_mailboxESaIS2_EE13_M_deallocateEPS2_m.exit33: ; pre
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
-if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPPN3zmq9i_mailboxEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIPN3zmq9i_mailboxESaIS2_EE13_M_deallocateEPS2_m.exit33, %entry
+if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPPN3zmq9i_mailboxEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIPN3zmq9i_mailboxESaIS2_EE13_M_deallocateEPS2_m.exit31, %entry
   ret void
 }
 

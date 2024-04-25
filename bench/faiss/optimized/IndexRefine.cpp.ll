@@ -2304,9 +2304,9 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.us: ;
 36:                                               ; preds = %.lr.ph.i
   %37 = getelementptr inbounds float, ptr %7, i64 %34
   %38 = load float, ptr %37, align 4
-  %39 = getelementptr inbounds float, ptr %7, i64 %33
+  %39 = getelementptr float, ptr %1, i64 %34
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds i64, ptr %8, i64 %33
+  %41 = getelementptr i64, ptr %2, i64 %34
   %42 = load i64, ptr %41, align 8
   %43 = fcmp ogt float %38, %40
   br i1 %43, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i
@@ -2391,9 +2391,9 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 79:                                               ; preds = %.lr.ph.i28
   %80 = getelementptr inbounds float, ptr %18, i64 %77
   %81 = load float, ptr %80, align 4
-  %82 = getelementptr inbounds float, ptr %18, i64 %76
+  %82 = getelementptr float, ptr %1, i64 %77
   %83 = load float, ptr %82, align 4
-  %84 = getelementptr inbounds i64, ptr %19, i64 %76
+  %84 = getelementptr i64, ptr %2, i64 %77
   %85 = load i64, ptr %84, align 8
   %86 = fcmp ogt float %81, %83
   br i1 %86, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i36, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i30
@@ -2497,9 +2497,9 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1T
 18:                                               ; preds = %.lr.ph.i
   %19 = getelementptr inbounds float, ptr %4, i64 %16
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds float, ptr %4, i64 %15
+  %21 = getelementptr float, ptr %1, i64 %16
   %22 = load float, ptr %21, align 4
-  %23 = getelementptr inbounds i64, ptr %5, i64 %15
+  %23 = getelementptr i64, ptr %2, i64 %16
   %24 = load i64, ptr %23, align 8
   %25 = fcmp ogt float %20, %22
   br i1 %25, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i
@@ -2885,9 +2885,9 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.us: ;
 36:                                               ; preds = %.lr.ph.i
   %37 = getelementptr inbounds float, ptr %7, i64 %34
   %38 = load float, ptr %37, align 4
-  %39 = getelementptr inbounds float, ptr %7, i64 %33
+  %39 = getelementptr float, ptr %1, i64 %34
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds i64, ptr %8, i64 %33
+  %41 = getelementptr i64, ptr %2, i64 %34
   %42 = load i64, ptr %41, align 8
   %43 = fcmp olt float %38, %40
   br i1 %43, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.i
@@ -2972,9 +2972,9 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 79:                                               ; preds = %.lr.ph.i28
   %80 = getelementptr inbounds float, ptr %18, i64 %77
   %81 = load float, ptr %80, align 4
-  %82 = getelementptr inbounds float, ptr %18, i64 %76
+  %82 = getelementptr float, ptr %1, i64 %77
   %83 = load float, ptr %82, align 4
-  %84 = getelementptr inbounds i64, ptr %19, i64 %76
+  %84 = getelementptr i64, ptr %2, i64 %77
   %85 = load i64, ptr %84, align 8
   %86 = fcmp olt float %81, %83
   br i1 %86, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i36, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.i30
@@ -3078,9 +3078,9 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1T
 18:                                               ; preds = %.lr.ph.i
   %19 = getelementptr inbounds float, ptr %4, i64 %16
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds float, ptr %4, i64 %15
+  %21 = getelementptr float, ptr %1, i64 %16
   %22 = load float, ptr %21, align 4
-  %23 = getelementptr inbounds i64, ptr %5, i64 %15
+  %23 = getelementptr i64, ptr %2, i64 %16
   %24 = load i64, ptr %23, align 8
   %25 = fcmp olt float %20, %22
   br i1 %25, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.i

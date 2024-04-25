@@ -294,7 +294,7 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %208 = phi i64 [ %203, %202 ], [ %210, %238 ]
   %209 = phi i32 [ 0, %202 ], [ %239, %238 ]
   %210 = add nsw i64 %208, 1
-  %211 = getelementptr inbounds double, ptr %25, i64 %210
+  %211 = getelementptr double, ptr %9, i64 %208
   %212 = load double, ptr %211, align 8, !tbaa !7
   %213 = fcmp une double %212, 0.000000e+00
   br i1 %213, label %214, label %238
@@ -312,7 +312,7 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %224 = fmul double %222, %223
   %225 = fcmp ole double %224, 0.000000e+00
   %226 = select i1 %225, double 0.000000e+00, double %224
-  %227 = getelementptr inbounds double, ptr %26, i64 %210
+  %227 = getelementptr double, ptr %10, i64 %208
   %228 = load double, ptr %227, align 8, !tbaa !7
   %229 = fdiv double %212, %228
   store double %229, ptr %17, align 8, !tbaa !7

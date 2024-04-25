@@ -37483,7 +37483,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
 
 .loopexit:                                        ; preds = %21, %2
   %.039 = phi i64 [ 0, %2 ], [ %.042, %21 ]
-  %.121 = phi i64 [ 0, %2 ], [ %56, %21 ]
+  %.121 = phi i64 [ 0, %2 ], [ %54, %21 ]
   %13 = icmp ult i64 %.121, %5
   br i1 %13, label %.lr.ph45.lr.ph, label %.outer._crit_edge
 
@@ -37499,12 +37499,12 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   br label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %.lr.ph45.lr.ph, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit"
-  %.1.ph51 = phi i64 [ %.039, %.lr.ph45.lr.ph ], [ %104, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit" ]
-  %.2.ph50 = phi i64 [ %.121, %.lr.ph45.lr.ph ], [ %103, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit" ]
-  br label %59
+  %.1.ph51 = phi i64 [ %.039, %.lr.ph45.lr.ph ], [ %100, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit" ]
+  %.2.ph50 = phi i64 [ %.121, %.lr.ph45.lr.ph ], [ %99, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit" ]
+  br label %57
 
-21:                                               ; preds = %.lr.ph, %57
-  %.042 = phi i64 [ 0, %.lr.ph ], [ %56, %57 ]
+21:                                               ; preds = %.lr.ph, %55
+  %.042 = phi i64 [ 0, %.lr.ph ], [ %54, %55 ]
   %22 = add i64 %7, %.042
   %.not.i.i = icmp ult i64 %22, %8
   %23 = select i1 %.not.i.i, i64 0, i64 %8
@@ -37519,124 +37519,120 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   %29 = add i64 %28, -1
   %30 = and i64 %29, -16
   %31 = getelementptr i8, ptr %.val22, i64 %30
-  %32 = getelementptr i8, ptr %31, i64 16
-  %33 = add i64 %27, -1
-  %34 = and i64 %33, -96
-  %35 = getelementptr i8, ptr %32, i64 %34
-  %36 = getelementptr i8, ptr %35, i64 96
-  %37 = getelementptr inbounds i8, ptr %.val23, i64 40
-  %38 = load ptr, ptr %37, align 8, !invariant.load !4, !nonnull !4
-  %39 = tail call noundef ptr %38(ptr noundef align 1 %36)
+  %32 = add i64 %27, -1
+  %33 = and i64 %32, -96
+  %34 = getelementptr i8, ptr %31, i64 112
+  %35 = getelementptr i8, ptr %34, i64 %33
+  %36 = getelementptr inbounds i8, ptr %.val23, i64 40
+  %37 = load ptr, ptr %36, align 8, !invariant.load !4, !nonnull !4
+  %38 = tail call noundef ptr %37(ptr noundef align 1 %35)
   tail call void @llvm.assume(i1 %11)
-  %40 = load ptr, ptr %.val.i, align 8, !nonnull !4, !noundef !4
-  %41 = load ptr, ptr %12, align 8, !nonnull !4, !align !103, !noundef !4
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
-  %43 = load i64, ptr %42, align 8, !range !430, !invariant.load !4
-  %44 = tail call i64 @llvm.umax.i64(i64 %43, i64 8)
-  %45 = add i64 %44, -1
-  %46 = and i64 %45, -16
-  %47 = getelementptr i8, ptr %40, i64 %46
-  %48 = getelementptr i8, ptr %47, i64 16
-  %49 = add i64 %43, -1
-  %50 = and i64 %49, -96
-  %51 = getelementptr i8, ptr %48, i64 %50
-  %52 = getelementptr i8, ptr %51, i64 96
-  %53 = getelementptr inbounds i8, ptr %41, i64 40
-  %54 = load ptr, ptr %53, align 8, !invariant.load !4, !nonnull !4
-  %55 = tail call noundef ptr %54(ptr noundef align 1 %52)
-  %.not34 = icmp eq ptr %39, %55
-  %56 = add nuw i64 %.042, 1
-  br i1 %.not34, label %.loopexit, label %57
+  %39 = load ptr, ptr %.val.i, align 8, !nonnull !4, !noundef !4
+  %40 = load ptr, ptr %12, align 8, !nonnull !4, !align !103, !noundef !4
+  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %42 = load i64, ptr %41, align 8, !range !430, !invariant.load !4
+  %43 = tail call i64 @llvm.umax.i64(i64 %42, i64 8)
+  %44 = add i64 %43, -1
+  %45 = and i64 %44, -16
+  %46 = getelementptr i8, ptr %39, i64 %45
+  %47 = add i64 %42, -1
+  %48 = and i64 %47, -96
+  %49 = getelementptr i8, ptr %46, i64 112
+  %50 = getelementptr i8, ptr %49, i64 %48
+  %51 = getelementptr inbounds i8, ptr %40, i64 40
+  %52 = load ptr, ptr %51, align 8, !invariant.load !4, !nonnull !4
+  %53 = tail call noundef ptr %52(ptr noundef align 1 %50)
+  %.not34 = icmp eq ptr %38, %53
+  %54 = add nuw i64 %.042, 1
+  br i1 %.not34, label %.loopexit, label %55
 
-57:                                               ; preds = %21
-  %exitcond.not = icmp eq i64 %56, %5
+55:                                               ; preds = %21
+  %exitcond.not = icmp eq i64 %54, %5
   br i1 %exitcond.not, label %.outer._crit_edge.thread, label %21
 
-.outer._crit_edge:                                ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit", %94, %.loopexit
-  %.1.ph.lcssa37 = phi i64 [ %.039, %.loopexit ], [ %.1.ph51, %94 ], [ %104, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit" ]
-  %.2.lcssa = phi i64 [ %.121, %.loopexit ], [ %95, %94 ], [ %103, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit" ]
+.outer._crit_edge:                                ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit", %90, %.loopexit
+  %.1.ph.lcssa37 = phi i64 [ %.039, %.loopexit ], [ %.1.ph51, %90 ], [ %100, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit" ]
+  %.2.lcssa = phi i64 [ %.121, %.loopexit ], [ %91, %90 ], [ %99, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit" ]
   %.not = icmp eq i64 %.2.lcssa, %.1.ph.lcssa37
-  br i1 %.not, label %.outer._crit_edge.thread, label %58
+  br i1 %.not, label %.outer._crit_edge.thread, label %56
 
-58:                                               ; preds = %.outer._crit_edge
+56:                                               ; preds = %.outer._crit_edge
   tail call fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17h8cc0d07ab38574d0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.1.ph.lcssa37)
   br label %.outer._crit_edge.thread
 
-.outer._crit_edge.thread:                         ; preds = %57, %58, %.outer._crit_edge
+.outer._crit_edge.thread:                         ; preds = %55, %56, %.outer._crit_edge
   ret void
 
-59:                                               ; preds = %.lr.ph45, %94
-  %.244 = phi i64 [ %.2.ph50, %.lr.ph45 ], [ %95, %94 ]
-  %60 = add i64 %15, %.244
-  %.not.i.i28 = icmp ult i64 %60, %16
-  %61 = select i1 %.not.i.i28, i64 0, i64 %16
-  %.0.i.i29 = sub i64 %60, %61
-  %62 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 %.0.i.i29
-  %.val25 = load ptr, ptr %62, align 8, !nonnull !4, !noundef !4
-  %63 = getelementptr i8, ptr %62, i64 8
-  %.val26 = load ptr, ptr %63, align 8, !nonnull !4, !align !103, !noundef !4
-  %64 = getelementptr inbounds i8, ptr %.val26, i64 16
-  %65 = load i64, ptr %64, align 8, !range !430, !invariant.load !4
-  %66 = tail call i64 @llvm.umax.i64(i64 %65, i64 8)
-  %67 = add i64 %66, -1
-  %68 = and i64 %67, -16
-  %69 = getelementptr i8, ptr %.val25, i64 %68
-  %70 = getelementptr i8, ptr %69, i64 16
-  %71 = add i64 %65, -1
-  %72 = and i64 %71, -96
-  %73 = getelementptr i8, ptr %70, i64 %72
-  %74 = getelementptr i8, ptr %73, i64 96
-  %75 = getelementptr inbounds i8, ptr %.val26, i64 40
-  %76 = load ptr, ptr %75, align 8, !invariant.load !4, !nonnull !4
-  %77 = tail call noundef ptr %76(ptr noundef align 1 %74)
+57:                                               ; preds = %.lr.ph45, %90
+  %.244 = phi i64 [ %.2.ph50, %.lr.ph45 ], [ %91, %90 ]
+  %58 = add i64 %15, %.244
+  %.not.i.i28 = icmp ult i64 %58, %16
+  %59 = select i1 %.not.i.i28, i64 0, i64 %16
+  %.0.i.i29 = sub i64 %58, %59
+  %60 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 %.0.i.i29
+  %.val25 = load ptr, ptr %60, align 8, !nonnull !4, !noundef !4
+  %61 = getelementptr i8, ptr %60, i64 8
+  %.val26 = load ptr, ptr %61, align 8, !nonnull !4, !align !103, !noundef !4
+  %62 = getelementptr inbounds i8, ptr %.val26, i64 16
+  %63 = load i64, ptr %62, align 8, !range !430, !invariant.load !4
+  %64 = tail call i64 @llvm.umax.i64(i64 %63, i64 8)
+  %65 = add i64 %64, -1
+  %66 = and i64 %65, -16
+  %67 = getelementptr i8, ptr %.val25, i64 %66
+  %68 = add i64 %63, -1
+  %69 = and i64 %68, -96
+  %70 = getelementptr i8, ptr %67, i64 112
+  %71 = getelementptr i8, ptr %70, i64 %69
+  %72 = getelementptr inbounds i8, ptr %.val26, i64 40
+  %73 = load ptr, ptr %72, align 8, !invariant.load !4, !nonnull !4
+  %74 = tail call noundef ptr %73(ptr noundef align 1 %71)
   tail call void @llvm.assume(i1 %19)
-  %78 = load ptr, ptr %.val.i31, align 8, !nonnull !4, !noundef !4
-  %79 = load ptr, ptr %20, align 8, !nonnull !4, !align !103, !noundef !4
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
-  %81 = load i64, ptr %80, align 8, !range !430, !invariant.load !4
-  %82 = tail call i64 @llvm.umax.i64(i64 %81, i64 8)
-  %83 = add i64 %82, -1
-  %84 = and i64 %83, -16
-  %85 = getelementptr i8, ptr %78, i64 %84
-  %86 = getelementptr i8, ptr %85, i64 16
-  %87 = add i64 %81, -1
-  %88 = and i64 %87, -96
-  %89 = getelementptr i8, ptr %86, i64 %88
-  %90 = getelementptr i8, ptr %89, i64 96
-  %91 = getelementptr inbounds i8, ptr %79, i64 40
-  %92 = load ptr, ptr %91, align 8, !invariant.load !4, !nonnull !4
-  %93 = tail call noundef ptr %92(ptr noundef align 1 %90)
-  %.not35 = icmp eq ptr %77, %93
-  br i1 %.not35, label %94, label %97
+  %75 = load ptr, ptr %.val.i31, align 8, !nonnull !4, !noundef !4
+  %76 = load ptr, ptr %20, align 8, !nonnull !4, !align !103, !noundef !4
+  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %78 = load i64, ptr %77, align 8, !range !430, !invariant.load !4
+  %79 = tail call i64 @llvm.umax.i64(i64 %78, i64 8)
+  %80 = add i64 %79, -1
+  %81 = and i64 %80, -16
+  %82 = getelementptr i8, ptr %75, i64 %81
+  %83 = add i64 %78, -1
+  %84 = and i64 %83, -96
+  %85 = getelementptr i8, ptr %82, i64 112
+  %86 = getelementptr i8, ptr %85, i64 %84
+  %87 = getelementptr inbounds i8, ptr %76, i64 40
+  %88 = load ptr, ptr %87, align 8, !invariant.load !4, !nonnull !4
+  %89 = tail call noundef ptr %88(ptr noundef align 1 %86)
+  %.not35 = icmp eq ptr %74, %89
+  br i1 %.not35, label %90, label %93
 
-94:                                               ; preds = %59
-  %95 = add nuw i64 %.244, 1
-  %96 = icmp ult i64 %95, %5
-  br i1 %96, label %59, label %.outer._crit_edge
+90:                                               ; preds = %57
+  %91 = add nuw i64 %.244, 1
+  %92 = icmp ult i64 %91, %5
+  br i1 %92, label %57, label %.outer._crit_edge
 
-97:                                               ; preds = %59
-  %98 = icmp ugt i64 %5, %.1.ph51
-  br i1 %98, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit", label %99
+93:                                               ; preds = %57
+  %94 = icmp ugt i64 %5, %.1.ph51
+  br i1 %94, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit", label %95
 
-99:                                               ; preds = %97
+95:                                               ; preds = %93
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8554c8e21b8cbc9380508c54347b7519.81, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8554c8e21b8cbc9380508c54347b7519.82) #47, !noalias !17507
   unreachable
 
-"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit": ; preds = %97
-  %100 = add i64 %15, %.1.ph51
-  %.not.i.i32 = icmp ult i64 %100, %16
-  %101 = select i1 %.not.i.i32, i64 0, i64 %16
-  %.0.i.i33 = sub i64 %100, %101
-  %102 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 %.0.i.i33
+"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit": ; preds = %93
+  %96 = add i64 %15, %.1.ph51
+  %.not.i.i32 = icmp ult i64 %96, %16
+  %97 = select i1 %.not.i.i32, i64 0, i64 %16
+  %.0.i.i33 = sub i64 %96, %97
+  %98 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 %.0.i.i33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false), !noalias !17507
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !noalias !17507
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !noalias !17507
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false), !noalias !17507
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !noalias !17507
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !noalias !17507
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %103 = add nuw i64 %.244, 1
-  %104 = add nuw i64 %.1.ph51, 1
-  %105 = icmp ult i64 %103, %5
-  br i1 %105, label %.lr.ph45, label %.outer._crit_edge
+  %99 = add nuw i64 %.244, 1
+  %100 = add nuw i64 %.1.ph51, 1
+  %101 = icmp ult i64 %99, %5
+  br i1 %101, label %.lr.ph45, label %.outer._crit_edge
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37660,7 +37656,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
 
 .loopexit:                                        ; preds = %21, %2
   %.039 = phi i64 [ 0, %2 ], [ %.042, %21 ]
-  %.121 = phi i64 [ 0, %2 ], [ %56, %21 ]
+  %.121 = phi i64 [ 0, %2 ], [ %54, %21 ]
   %13 = icmp ult i64 %.121, %5
   br i1 %13, label %.lr.ph45.lr.ph, label %.outer._crit_edge
 
@@ -37676,12 +37672,12 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   br label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %.lr.ph45.lr.ph, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit"
-  %.1.ph51 = phi i64 [ %.039, %.lr.ph45.lr.ph ], [ %104, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit" ]
-  %.2.ph50 = phi i64 [ %.121, %.lr.ph45.lr.ph ], [ %103, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit" ]
-  br label %59
+  %.1.ph51 = phi i64 [ %.039, %.lr.ph45.lr.ph ], [ %100, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit" ]
+  %.2.ph50 = phi i64 [ %.121, %.lr.ph45.lr.ph ], [ %99, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit" ]
+  br label %57
 
-21:                                               ; preds = %.lr.ph, %57
-  %.042 = phi i64 [ 0, %.lr.ph ], [ %56, %57 ]
+21:                                               ; preds = %.lr.ph, %55
+  %.042 = phi i64 [ 0, %.lr.ph ], [ %54, %55 ]
   %22 = add i64 %7, %.042
   %.not.i.i = icmp ult i64 %22, %8
   %23 = select i1 %.not.i.i, i64 0, i64 %8
@@ -37696,124 +37692,120 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   %29 = add i64 %28, -1
   %30 = and i64 %29, -16
   %31 = getelementptr i8, ptr %.val22, i64 %30
-  %32 = getelementptr i8, ptr %31, i64 16
-  %33 = add i64 %27, -1
-  %34 = and i64 %33, -128
-  %35 = getelementptr i8, ptr %32, i64 %34
-  %36 = getelementptr i8, ptr %35, i64 128
-  %37 = getelementptr inbounds i8, ptr %.val23, i64 40
-  %38 = load ptr, ptr %37, align 8, !invariant.load !4, !nonnull !4
-  %39 = tail call noundef ptr %38(ptr noundef align 1 %36)
+  %32 = add i64 %27, -1
+  %33 = and i64 %32, -128
+  %34 = getelementptr i8, ptr %31, i64 144
+  %35 = getelementptr i8, ptr %34, i64 %33
+  %36 = getelementptr inbounds i8, ptr %.val23, i64 40
+  %37 = load ptr, ptr %36, align 8, !invariant.load !4, !nonnull !4
+  %38 = tail call noundef ptr %37(ptr noundef align 1 %35)
   tail call void @llvm.assume(i1 %11)
-  %40 = load ptr, ptr %.val.i, align 8, !nonnull !4, !noundef !4
-  %41 = load ptr, ptr %12, align 8, !nonnull !4, !align !103, !noundef !4
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
-  %43 = load i64, ptr %42, align 8, !range !430, !invariant.load !4
-  %44 = tail call i64 @llvm.umax.i64(i64 %43, i64 8)
-  %45 = add i64 %44, -1
-  %46 = and i64 %45, -16
-  %47 = getelementptr i8, ptr %40, i64 %46
-  %48 = getelementptr i8, ptr %47, i64 16
-  %49 = add i64 %43, -1
-  %50 = and i64 %49, -128
-  %51 = getelementptr i8, ptr %48, i64 %50
-  %52 = getelementptr i8, ptr %51, i64 128
-  %53 = getelementptr inbounds i8, ptr %41, i64 40
-  %54 = load ptr, ptr %53, align 8, !invariant.load !4, !nonnull !4
-  %55 = tail call noundef ptr %54(ptr noundef align 1 %52)
-  %.not34 = icmp eq ptr %39, %55
-  %56 = add nuw i64 %.042, 1
-  br i1 %.not34, label %.loopexit, label %57
+  %39 = load ptr, ptr %.val.i, align 8, !nonnull !4, !noundef !4
+  %40 = load ptr, ptr %12, align 8, !nonnull !4, !align !103, !noundef !4
+  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %42 = load i64, ptr %41, align 8, !range !430, !invariant.load !4
+  %43 = tail call i64 @llvm.umax.i64(i64 %42, i64 8)
+  %44 = add i64 %43, -1
+  %45 = and i64 %44, -16
+  %46 = getelementptr i8, ptr %39, i64 %45
+  %47 = add i64 %42, -1
+  %48 = and i64 %47, -128
+  %49 = getelementptr i8, ptr %46, i64 144
+  %50 = getelementptr i8, ptr %49, i64 %48
+  %51 = getelementptr inbounds i8, ptr %40, i64 40
+  %52 = load ptr, ptr %51, align 8, !invariant.load !4, !nonnull !4
+  %53 = tail call noundef ptr %52(ptr noundef align 1 %50)
+  %.not34 = icmp eq ptr %38, %53
+  %54 = add nuw i64 %.042, 1
+  br i1 %.not34, label %.loopexit, label %55
 
-57:                                               ; preds = %21
-  %exitcond.not = icmp eq i64 %56, %5
+55:                                               ; preds = %21
+  %exitcond.not = icmp eq i64 %54, %5
   br i1 %exitcond.not, label %.outer._crit_edge.thread, label %21
 
-.outer._crit_edge:                                ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit", %94, %.loopexit
-  %.1.ph.lcssa37 = phi i64 [ %.039, %.loopexit ], [ %.1.ph51, %94 ], [ %104, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit" ]
-  %.2.lcssa = phi i64 [ %.121, %.loopexit ], [ %95, %94 ], [ %103, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit" ]
+.outer._crit_edge:                                ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit", %90, %.loopexit
+  %.1.ph.lcssa37 = phi i64 [ %.039, %.loopexit ], [ %.1.ph51, %90 ], [ %100, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit" ]
+  %.2.lcssa = phi i64 [ %.121, %.loopexit ], [ %91, %90 ], [ %99, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit" ]
   %.not = icmp eq i64 %.2.lcssa, %.1.ph.lcssa37
-  br i1 %.not, label %.outer._crit_edge.thread, label %58
+  br i1 %.not, label %.outer._crit_edge.thread, label %56
 
-58:                                               ; preds = %.outer._crit_edge
+56:                                               ; preds = %.outer._crit_edge
   tail call fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17h83752418fb7a90f5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.1.ph.lcssa37)
   br label %.outer._crit_edge.thread
 
-.outer._crit_edge.thread:                         ; preds = %57, %58, %.outer._crit_edge
+.outer._crit_edge.thread:                         ; preds = %55, %56, %.outer._crit_edge
   ret void
 
-59:                                               ; preds = %.lr.ph45, %94
-  %.244 = phi i64 [ %.2.ph50, %.lr.ph45 ], [ %95, %94 ]
-  %60 = add i64 %15, %.244
-  %.not.i.i28 = icmp ult i64 %60, %16
-  %61 = select i1 %.not.i.i28, i64 0, i64 %16
-  %.0.i.i29 = sub i64 %60, %61
-  %62 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 %.0.i.i29
-  %.val25 = load ptr, ptr %62, align 8, !nonnull !4, !noundef !4
-  %63 = getelementptr i8, ptr %62, i64 8
-  %.val26 = load ptr, ptr %63, align 8, !nonnull !4, !align !103, !noundef !4
-  %64 = getelementptr inbounds i8, ptr %.val26, i64 16
-  %65 = load i64, ptr %64, align 8, !range !430, !invariant.load !4
-  %66 = tail call i64 @llvm.umax.i64(i64 %65, i64 8)
-  %67 = add i64 %66, -1
-  %68 = and i64 %67, -16
-  %69 = getelementptr i8, ptr %.val25, i64 %68
-  %70 = getelementptr i8, ptr %69, i64 16
-  %71 = add i64 %65, -1
-  %72 = and i64 %71, -128
-  %73 = getelementptr i8, ptr %70, i64 %72
-  %74 = getelementptr i8, ptr %73, i64 128
-  %75 = getelementptr inbounds i8, ptr %.val26, i64 40
-  %76 = load ptr, ptr %75, align 8, !invariant.load !4, !nonnull !4
-  %77 = tail call noundef ptr %76(ptr noundef align 1 %74)
+57:                                               ; preds = %.lr.ph45, %90
+  %.244 = phi i64 [ %.2.ph50, %.lr.ph45 ], [ %91, %90 ]
+  %58 = add i64 %15, %.244
+  %.not.i.i28 = icmp ult i64 %58, %16
+  %59 = select i1 %.not.i.i28, i64 0, i64 %16
+  %.0.i.i29 = sub i64 %58, %59
+  %60 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 %.0.i.i29
+  %.val25 = load ptr, ptr %60, align 8, !nonnull !4, !noundef !4
+  %61 = getelementptr i8, ptr %60, i64 8
+  %.val26 = load ptr, ptr %61, align 8, !nonnull !4, !align !103, !noundef !4
+  %62 = getelementptr inbounds i8, ptr %.val26, i64 16
+  %63 = load i64, ptr %62, align 8, !range !430, !invariant.load !4
+  %64 = tail call i64 @llvm.umax.i64(i64 %63, i64 8)
+  %65 = add i64 %64, -1
+  %66 = and i64 %65, -16
+  %67 = getelementptr i8, ptr %.val25, i64 %66
+  %68 = add i64 %63, -1
+  %69 = and i64 %68, -128
+  %70 = getelementptr i8, ptr %67, i64 144
+  %71 = getelementptr i8, ptr %70, i64 %69
+  %72 = getelementptr inbounds i8, ptr %.val26, i64 40
+  %73 = load ptr, ptr %72, align 8, !invariant.load !4, !nonnull !4
+  %74 = tail call noundef ptr %73(ptr noundef align 1 %71)
   tail call void @llvm.assume(i1 %19)
-  %78 = load ptr, ptr %.val.i31, align 8, !nonnull !4, !noundef !4
-  %79 = load ptr, ptr %20, align 8, !nonnull !4, !align !103, !noundef !4
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
-  %81 = load i64, ptr %80, align 8, !range !430, !invariant.load !4
-  %82 = tail call i64 @llvm.umax.i64(i64 %81, i64 8)
-  %83 = add i64 %82, -1
-  %84 = and i64 %83, -16
-  %85 = getelementptr i8, ptr %78, i64 %84
-  %86 = getelementptr i8, ptr %85, i64 16
-  %87 = add i64 %81, -1
-  %88 = and i64 %87, -128
-  %89 = getelementptr i8, ptr %86, i64 %88
-  %90 = getelementptr i8, ptr %89, i64 128
-  %91 = getelementptr inbounds i8, ptr %79, i64 40
-  %92 = load ptr, ptr %91, align 8, !invariant.load !4, !nonnull !4
-  %93 = tail call noundef ptr %92(ptr noundef align 1 %90)
-  %.not35 = icmp eq ptr %77, %93
-  br i1 %.not35, label %94, label %97
+  %75 = load ptr, ptr %.val.i31, align 8, !nonnull !4, !noundef !4
+  %76 = load ptr, ptr %20, align 8, !nonnull !4, !align !103, !noundef !4
+  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %78 = load i64, ptr %77, align 8, !range !430, !invariant.load !4
+  %79 = tail call i64 @llvm.umax.i64(i64 %78, i64 8)
+  %80 = add i64 %79, -1
+  %81 = and i64 %80, -16
+  %82 = getelementptr i8, ptr %75, i64 %81
+  %83 = add i64 %78, -1
+  %84 = and i64 %83, -128
+  %85 = getelementptr i8, ptr %82, i64 144
+  %86 = getelementptr i8, ptr %85, i64 %84
+  %87 = getelementptr inbounds i8, ptr %76, i64 40
+  %88 = load ptr, ptr %87, align 8, !invariant.load !4, !nonnull !4
+  %89 = tail call noundef ptr %88(ptr noundef align 1 %86)
+  %.not35 = icmp eq ptr %74, %89
+  br i1 %.not35, label %90, label %93
 
-94:                                               ; preds = %59
-  %95 = add nuw i64 %.244, 1
-  %96 = icmp ult i64 %95, %5
-  br i1 %96, label %59, label %.outer._crit_edge
+90:                                               ; preds = %57
+  %91 = add nuw i64 %.244, 1
+  %92 = icmp ult i64 %91, %5
+  br i1 %92, label %57, label %.outer._crit_edge
 
-97:                                               ; preds = %59
-  %98 = icmp ugt i64 %5, %.1.ph51
-  br i1 %98, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit", label %99
+93:                                               ; preds = %57
+  %94 = icmp ugt i64 %5, %.1.ph51
+  br i1 %94, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit", label %95
 
-99:                                               ; preds = %97
+95:                                               ; preds = %93
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8554c8e21b8cbc9380508c54347b7519.81, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8554c8e21b8cbc9380508c54347b7519.82) #47, !noalias !17516
   unreachable
 
-"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit": ; preds = %97
-  %100 = add i64 %15, %.1.ph51
-  %.not.i.i32 = icmp ult i64 %100, %16
-  %101 = select i1 %.not.i.i32, i64 0, i64 %16
-  %.0.i.i33 = sub i64 %100, %101
-  %102 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 %.0.i.i33
+"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit": ; preds = %93
+  %96 = add i64 %15, %.1.ph51
+  %.not.i.i32 = icmp ult i64 %96, %16
+  %97 = select i1 %.not.i.i32, i64 0, i64 %16
+  %.0.i.i33 = sub i64 %96, %97
+  %98 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 %.0.i.i33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false), !noalias !17516
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !noalias !17516
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !noalias !17516
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false), !noalias !17516
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !noalias !17516
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !noalias !17516
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %103 = add nuw i64 %.244, 1
-  %104 = add nuw i64 %.1.ph51, 1
-  %105 = icmp ult i64 %103, %5
-  br i1 %105, label %.lr.ph45, label %.outer._crit_edge
+  %99 = add nuw i64 %.244, 1
+  %100 = add nuw i64 %.1.ph51, 1
+  %101 = icmp ult i64 %99, %5
+  br i1 %101, label %.lr.ph45, label %.outer._crit_edge
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37837,7 +37829,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
 
 .loopexit:                                        ; preds = %21, %2
   %.039 = phi i64 [ 0, %2 ], [ %.042, %21 ]
-  %.121 = phi i64 [ 0, %2 ], [ %56, %21 ]
+  %.121 = phi i64 [ 0, %2 ], [ %54, %21 ]
   %13 = icmp ult i64 %.121, %5
   br i1 %13, label %.lr.ph45.lr.ph, label %.outer._crit_edge
 
@@ -37853,12 +37845,12 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   br label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %.lr.ph45.lr.ph, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit"
-  %.1.ph51 = phi i64 [ %.039, %.lr.ph45.lr.ph ], [ %104, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit" ]
-  %.2.ph50 = phi i64 [ %.121, %.lr.ph45.lr.ph ], [ %103, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit" ]
-  br label %59
+  %.1.ph51 = phi i64 [ %.039, %.lr.ph45.lr.ph ], [ %100, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit" ]
+  %.2.ph50 = phi i64 [ %.121, %.lr.ph45.lr.ph ], [ %99, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit" ]
+  br label %57
 
-21:                                               ; preds = %.lr.ph, %57
-  %.042 = phi i64 [ 0, %.lr.ph ], [ %56, %57 ]
+21:                                               ; preds = %.lr.ph, %55
+  %.042 = phi i64 [ 0, %.lr.ph ], [ %54, %55 ]
   %22 = add i64 %7, %.042
   %.not.i.i = icmp ult i64 %22, %8
   %23 = select i1 %.not.i.i, i64 0, i64 %8
@@ -37873,124 +37865,120 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   %29 = add i64 %28, -1
   %30 = and i64 %29, -16
   %31 = getelementptr i8, ptr %.val22, i64 %30
-  %32 = getelementptr i8, ptr %31, i64 16
-  %33 = add i64 %27, -1
-  %34 = and i64 %33, -128
-  %35 = getelementptr i8, ptr %32, i64 %34
-  %36 = getelementptr i8, ptr %35, i64 128
-  %37 = getelementptr inbounds i8, ptr %.val23, i64 40
-  %38 = load ptr, ptr %37, align 8, !invariant.load !4, !nonnull !4
-  %39 = tail call noundef ptr %38(ptr noundef align 1 %36)
+  %32 = add i64 %27, -1
+  %33 = and i64 %32, -128
+  %34 = getelementptr i8, ptr %31, i64 144
+  %35 = getelementptr i8, ptr %34, i64 %33
+  %36 = getelementptr inbounds i8, ptr %.val23, i64 40
+  %37 = load ptr, ptr %36, align 8, !invariant.load !4, !nonnull !4
+  %38 = tail call noundef ptr %37(ptr noundef align 1 %35)
   tail call void @llvm.assume(i1 %11)
-  %40 = load ptr, ptr %.val.i, align 8, !nonnull !4, !noundef !4
-  %41 = load ptr, ptr %12, align 8, !nonnull !4, !align !103, !noundef !4
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
-  %43 = load i64, ptr %42, align 8, !range !430, !invariant.load !4
-  %44 = tail call i64 @llvm.umax.i64(i64 %43, i64 8)
-  %45 = add i64 %44, -1
-  %46 = and i64 %45, -16
-  %47 = getelementptr i8, ptr %40, i64 %46
-  %48 = getelementptr i8, ptr %47, i64 16
-  %49 = add i64 %43, -1
-  %50 = and i64 %49, -128
-  %51 = getelementptr i8, ptr %48, i64 %50
-  %52 = getelementptr i8, ptr %51, i64 128
-  %53 = getelementptr inbounds i8, ptr %41, i64 40
-  %54 = load ptr, ptr %53, align 8, !invariant.load !4, !nonnull !4
-  %55 = tail call noundef ptr %54(ptr noundef align 1 %52)
-  %.not34 = icmp eq ptr %39, %55
-  %56 = add nuw i64 %.042, 1
-  br i1 %.not34, label %.loopexit, label %57
+  %39 = load ptr, ptr %.val.i, align 8, !nonnull !4, !noundef !4
+  %40 = load ptr, ptr %12, align 8, !nonnull !4, !align !103, !noundef !4
+  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %42 = load i64, ptr %41, align 8, !range !430, !invariant.load !4
+  %43 = tail call i64 @llvm.umax.i64(i64 %42, i64 8)
+  %44 = add i64 %43, -1
+  %45 = and i64 %44, -16
+  %46 = getelementptr i8, ptr %39, i64 %45
+  %47 = add i64 %42, -1
+  %48 = and i64 %47, -128
+  %49 = getelementptr i8, ptr %46, i64 144
+  %50 = getelementptr i8, ptr %49, i64 %48
+  %51 = getelementptr inbounds i8, ptr %40, i64 40
+  %52 = load ptr, ptr %51, align 8, !invariant.load !4, !nonnull !4
+  %53 = tail call noundef ptr %52(ptr noundef align 1 %50)
+  %.not34 = icmp eq ptr %38, %53
+  %54 = add nuw i64 %.042, 1
+  br i1 %.not34, label %.loopexit, label %55
 
-57:                                               ; preds = %21
-  %exitcond.not = icmp eq i64 %56, %5
+55:                                               ; preds = %21
+  %exitcond.not = icmp eq i64 %54, %5
   br i1 %exitcond.not, label %.outer._crit_edge.thread, label %21
 
-.outer._crit_edge:                                ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit", %94, %.loopexit
-  %.1.ph.lcssa37 = phi i64 [ %.039, %.loopexit ], [ %.1.ph51, %94 ], [ %104, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit" ]
-  %.2.lcssa = phi i64 [ %.121, %.loopexit ], [ %95, %94 ], [ %103, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit" ]
+.outer._crit_edge:                                ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit", %90, %.loopexit
+  %.1.ph.lcssa37 = phi i64 [ %.039, %.loopexit ], [ %.1.ph51, %90 ], [ %100, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit" ]
+  %.2.lcssa = phi i64 [ %.121, %.loopexit ], [ %91, %90 ], [ %99, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit" ]
   %.not = icmp eq i64 %.2.lcssa, %.1.ph.lcssa37
-  br i1 %.not, label %.outer._crit_edge.thread, label %58
+  br i1 %.not, label %.outer._crit_edge.thread, label %56
 
-58:                                               ; preds = %.outer._crit_edge
+56:                                               ; preds = %.outer._crit_edge
   tail call fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17h83752418fb7a90f5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.1.ph.lcssa37)
   br label %.outer._crit_edge.thread
 
-.outer._crit_edge.thread:                         ; preds = %57, %58, %.outer._crit_edge
+.outer._crit_edge.thread:                         ; preds = %55, %56, %.outer._crit_edge
   ret void
 
-59:                                               ; preds = %.lr.ph45, %94
-  %.244 = phi i64 [ %.2.ph50, %.lr.ph45 ], [ %95, %94 ]
-  %60 = add i64 %15, %.244
-  %.not.i.i28 = icmp ult i64 %60, %16
-  %61 = select i1 %.not.i.i28, i64 0, i64 %16
-  %.0.i.i29 = sub i64 %60, %61
-  %62 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 %.0.i.i29
-  %.val25 = load ptr, ptr %62, align 8, !nonnull !4, !noundef !4
-  %63 = getelementptr i8, ptr %62, i64 8
-  %.val26 = load ptr, ptr %63, align 8, !nonnull !4, !align !103, !noundef !4
-  %64 = getelementptr inbounds i8, ptr %.val26, i64 16
-  %65 = load i64, ptr %64, align 8, !range !430, !invariant.load !4
-  %66 = tail call i64 @llvm.umax.i64(i64 %65, i64 8)
-  %67 = add i64 %66, -1
-  %68 = and i64 %67, -16
-  %69 = getelementptr i8, ptr %.val25, i64 %68
-  %70 = getelementptr i8, ptr %69, i64 16
-  %71 = add i64 %65, -1
-  %72 = and i64 %71, -128
-  %73 = getelementptr i8, ptr %70, i64 %72
-  %74 = getelementptr i8, ptr %73, i64 128
-  %75 = getelementptr inbounds i8, ptr %.val26, i64 40
-  %76 = load ptr, ptr %75, align 8, !invariant.load !4, !nonnull !4
-  %77 = tail call noundef ptr %76(ptr noundef align 1 %74)
+57:                                               ; preds = %.lr.ph45, %90
+  %.244 = phi i64 [ %.2.ph50, %.lr.ph45 ], [ %91, %90 ]
+  %58 = add i64 %15, %.244
+  %.not.i.i28 = icmp ult i64 %58, %16
+  %59 = select i1 %.not.i.i28, i64 0, i64 %16
+  %.0.i.i29 = sub i64 %58, %59
+  %60 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 %.0.i.i29
+  %.val25 = load ptr, ptr %60, align 8, !nonnull !4, !noundef !4
+  %61 = getelementptr i8, ptr %60, i64 8
+  %.val26 = load ptr, ptr %61, align 8, !nonnull !4, !align !103, !noundef !4
+  %62 = getelementptr inbounds i8, ptr %.val26, i64 16
+  %63 = load i64, ptr %62, align 8, !range !430, !invariant.load !4
+  %64 = tail call i64 @llvm.umax.i64(i64 %63, i64 8)
+  %65 = add i64 %64, -1
+  %66 = and i64 %65, -16
+  %67 = getelementptr i8, ptr %.val25, i64 %66
+  %68 = add i64 %63, -1
+  %69 = and i64 %68, -128
+  %70 = getelementptr i8, ptr %67, i64 144
+  %71 = getelementptr i8, ptr %70, i64 %69
+  %72 = getelementptr inbounds i8, ptr %.val26, i64 40
+  %73 = load ptr, ptr %72, align 8, !invariant.load !4, !nonnull !4
+  %74 = tail call noundef ptr %73(ptr noundef align 1 %71)
   tail call void @llvm.assume(i1 %19)
-  %78 = load ptr, ptr %.val.i31, align 8, !nonnull !4, !noundef !4
-  %79 = load ptr, ptr %20, align 8, !nonnull !4, !align !103, !noundef !4
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
-  %81 = load i64, ptr %80, align 8, !range !430, !invariant.load !4
-  %82 = tail call i64 @llvm.umax.i64(i64 %81, i64 8)
-  %83 = add i64 %82, -1
-  %84 = and i64 %83, -16
-  %85 = getelementptr i8, ptr %78, i64 %84
-  %86 = getelementptr i8, ptr %85, i64 16
-  %87 = add i64 %81, -1
-  %88 = and i64 %87, -128
-  %89 = getelementptr i8, ptr %86, i64 %88
-  %90 = getelementptr i8, ptr %89, i64 128
-  %91 = getelementptr inbounds i8, ptr %79, i64 40
-  %92 = load ptr, ptr %91, align 8, !invariant.load !4, !nonnull !4
-  %93 = tail call noundef ptr %92(ptr noundef align 1 %90)
-  %.not35 = icmp eq ptr %77, %93
-  br i1 %.not35, label %94, label %97
+  %75 = load ptr, ptr %.val.i31, align 8, !nonnull !4, !noundef !4
+  %76 = load ptr, ptr %20, align 8, !nonnull !4, !align !103, !noundef !4
+  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %78 = load i64, ptr %77, align 8, !range !430, !invariant.load !4
+  %79 = tail call i64 @llvm.umax.i64(i64 %78, i64 8)
+  %80 = add i64 %79, -1
+  %81 = and i64 %80, -16
+  %82 = getelementptr i8, ptr %75, i64 %81
+  %83 = add i64 %78, -1
+  %84 = and i64 %83, -128
+  %85 = getelementptr i8, ptr %82, i64 144
+  %86 = getelementptr i8, ptr %85, i64 %84
+  %87 = getelementptr inbounds i8, ptr %76, i64 40
+  %88 = load ptr, ptr %87, align 8, !invariant.load !4, !nonnull !4
+  %89 = tail call noundef ptr %88(ptr noundef align 1 %86)
+  %.not35 = icmp eq ptr %74, %89
+  br i1 %.not35, label %90, label %93
 
-94:                                               ; preds = %59
-  %95 = add nuw i64 %.244, 1
-  %96 = icmp ult i64 %95, %5
-  br i1 %96, label %59, label %.outer._crit_edge
+90:                                               ; preds = %57
+  %91 = add nuw i64 %.244, 1
+  %92 = icmp ult i64 %91, %5
+  br i1 %92, label %57, label %.outer._crit_edge
 
-97:                                               ; preds = %59
-  %98 = icmp ugt i64 %5, %.1.ph51
-  br i1 %98, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit", label %99
+93:                                               ; preds = %57
+  %94 = icmp ugt i64 %5, %.1.ph51
+  br i1 %94, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit", label %95
 
-99:                                               ; preds = %97
+95:                                               ; preds = %93
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8554c8e21b8cbc9380508c54347b7519.81, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8554c8e21b8cbc9380508c54347b7519.82) #47, !noalias !17525
   unreachable
 
-"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit": ; preds = %97
-  %100 = add i64 %15, %.1.ph51
-  %.not.i.i32 = icmp ult i64 %100, %16
-  %101 = select i1 %.not.i.i32, i64 0, i64 %16
-  %.0.i.i33 = sub i64 %100, %101
-  %102 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 %.0.i.i33
+"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17haf6b3b2f53950d87E.exit": ; preds = %93
+  %96 = add i64 %15, %.1.ph51
+  %.not.i.i32 = icmp ult i64 %96, %16
+  %97 = select i1 %.not.i.i32, i64 0, i64 %16
+  %.0.i.i33 = sub i64 %96, %97
+  %98 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 %.0.i.i33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false), !noalias !17525
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !noalias !17525
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !noalias !17525
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false), !noalias !17525
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !noalias !17525
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !noalias !17525
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %103 = add nuw i64 %.244, 1
-  %104 = add nuw i64 %.1.ph51, 1
-  %105 = icmp ult i64 %103, %5
-  br i1 %105, label %.lr.ph45, label %.outer._crit_edge
+  %99 = add nuw i64 %.244, 1
+  %100 = add nuw i64 %.1.ph51, 1
+  %101 = icmp ult i64 %99, %5
+  br i1 %101, label %.lr.ph45, label %.outer._crit_edge
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -38014,7 +38002,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
 
 .loopexit:                                        ; preds = %21, %2
   %.039 = phi i64 [ 0, %2 ], [ %.042, %21 ]
-  %.121 = phi i64 [ 0, %2 ], [ %56, %21 ]
+  %.121 = phi i64 [ 0, %2 ], [ %54, %21 ]
   %13 = icmp ult i64 %.121, %5
   br i1 %13, label %.lr.ph45.lr.ph, label %.outer._crit_edge
 
@@ -38030,12 +38018,12 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   br label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %.lr.ph45.lr.ph, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit"
-  %.1.ph51 = phi i64 [ %.039, %.lr.ph45.lr.ph ], [ %104, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit" ]
-  %.2.ph50 = phi i64 [ %.121, %.lr.ph45.lr.ph ], [ %103, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit" ]
-  br label %59
+  %.1.ph51 = phi i64 [ %.039, %.lr.ph45.lr.ph ], [ %100, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit" ]
+  %.2.ph50 = phi i64 [ %.121, %.lr.ph45.lr.ph ], [ %99, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit" ]
+  br label %57
 
-21:                                               ; preds = %.lr.ph, %57
-  %.042 = phi i64 [ 0, %.lr.ph ], [ %56, %57 ]
+21:                                               ; preds = %.lr.ph, %55
+  %.042 = phi i64 [ 0, %.lr.ph ], [ %54, %55 ]
   %22 = add i64 %7, %.042
   %.not.i.i = icmp ult i64 %22, %8
   %23 = select i1 %.not.i.i, i64 0, i64 %8
@@ -38050,124 +38038,120 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   %29 = add i64 %28, -1
   %30 = and i64 %29, -16
   %31 = getelementptr i8, ptr %.val22, i64 %30
-  %32 = getelementptr i8, ptr %31, i64 16
-  %33 = add i64 %27, -1
-  %34 = and i64 %33, -96
-  %35 = getelementptr i8, ptr %32, i64 %34
-  %36 = getelementptr i8, ptr %35, i64 96
-  %37 = getelementptr inbounds i8, ptr %.val23, i64 40
-  %38 = load ptr, ptr %37, align 8, !invariant.load !4, !nonnull !4
-  %39 = tail call noundef ptr %38(ptr noundef align 1 %36)
+  %32 = add i64 %27, -1
+  %33 = and i64 %32, -96
+  %34 = getelementptr i8, ptr %31, i64 112
+  %35 = getelementptr i8, ptr %34, i64 %33
+  %36 = getelementptr inbounds i8, ptr %.val23, i64 40
+  %37 = load ptr, ptr %36, align 8, !invariant.load !4, !nonnull !4
+  %38 = tail call noundef ptr %37(ptr noundef align 1 %35)
   tail call void @llvm.assume(i1 %11)
-  %40 = load ptr, ptr %.val.i, align 8, !nonnull !4, !noundef !4
-  %41 = load ptr, ptr %12, align 8, !nonnull !4, !align !103, !noundef !4
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
-  %43 = load i64, ptr %42, align 8, !range !430, !invariant.load !4
-  %44 = tail call i64 @llvm.umax.i64(i64 %43, i64 8)
-  %45 = add i64 %44, -1
-  %46 = and i64 %45, -16
-  %47 = getelementptr i8, ptr %40, i64 %46
-  %48 = getelementptr i8, ptr %47, i64 16
-  %49 = add i64 %43, -1
-  %50 = and i64 %49, -96
-  %51 = getelementptr i8, ptr %48, i64 %50
-  %52 = getelementptr i8, ptr %51, i64 96
-  %53 = getelementptr inbounds i8, ptr %41, i64 40
-  %54 = load ptr, ptr %53, align 8, !invariant.load !4, !nonnull !4
-  %55 = tail call noundef ptr %54(ptr noundef align 1 %52)
-  %.not34 = icmp eq ptr %39, %55
-  %56 = add nuw i64 %.042, 1
-  br i1 %.not34, label %.loopexit, label %57
+  %39 = load ptr, ptr %.val.i, align 8, !nonnull !4, !noundef !4
+  %40 = load ptr, ptr %12, align 8, !nonnull !4, !align !103, !noundef !4
+  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %42 = load i64, ptr %41, align 8, !range !430, !invariant.load !4
+  %43 = tail call i64 @llvm.umax.i64(i64 %42, i64 8)
+  %44 = add i64 %43, -1
+  %45 = and i64 %44, -16
+  %46 = getelementptr i8, ptr %39, i64 %45
+  %47 = add i64 %42, -1
+  %48 = and i64 %47, -96
+  %49 = getelementptr i8, ptr %46, i64 112
+  %50 = getelementptr i8, ptr %49, i64 %48
+  %51 = getelementptr inbounds i8, ptr %40, i64 40
+  %52 = load ptr, ptr %51, align 8, !invariant.load !4, !nonnull !4
+  %53 = tail call noundef ptr %52(ptr noundef align 1 %50)
+  %.not34 = icmp eq ptr %38, %53
+  %54 = add nuw i64 %.042, 1
+  br i1 %.not34, label %.loopexit, label %55
 
-57:                                               ; preds = %21
-  %exitcond.not = icmp eq i64 %56, %5
+55:                                               ; preds = %21
+  %exitcond.not = icmp eq i64 %54, %5
   br i1 %exitcond.not, label %.outer._crit_edge.thread, label %21
 
-.outer._crit_edge:                                ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit", %94, %.loopexit
-  %.1.ph.lcssa37 = phi i64 [ %.039, %.loopexit ], [ %.1.ph51, %94 ], [ %104, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit" ]
-  %.2.lcssa = phi i64 [ %.121, %.loopexit ], [ %95, %94 ], [ %103, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit" ]
+.outer._crit_edge:                                ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit", %90, %.loopexit
+  %.1.ph.lcssa37 = phi i64 [ %.039, %.loopexit ], [ %.1.ph51, %90 ], [ %100, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit" ]
+  %.2.lcssa = phi i64 [ %.121, %.loopexit ], [ %91, %90 ], [ %99, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit" ]
   %.not = icmp eq i64 %.2.lcssa, %.1.ph.lcssa37
-  br i1 %.not, label %.outer._crit_edge.thread, label %58
+  br i1 %.not, label %.outer._crit_edge.thread, label %56
 
-58:                                               ; preds = %.outer._crit_edge
+56:                                               ; preds = %.outer._crit_edge
   tail call fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8truncate17h8cc0d07ab38574d0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.1.ph.lcssa37)
   br label %.outer._crit_edge.thread
 
-.outer._crit_edge.thread:                         ; preds = %57, %58, %.outer._crit_edge
+.outer._crit_edge.thread:                         ; preds = %55, %56, %.outer._crit_edge
   ret void
 
-59:                                               ; preds = %.lr.ph45, %94
-  %.244 = phi i64 [ %.2.ph50, %.lr.ph45 ], [ %95, %94 ]
-  %60 = add i64 %15, %.244
-  %.not.i.i28 = icmp ult i64 %60, %16
-  %61 = select i1 %.not.i.i28, i64 0, i64 %16
-  %.0.i.i29 = sub i64 %60, %61
-  %62 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 %.0.i.i29
-  %.val25 = load ptr, ptr %62, align 8, !nonnull !4, !noundef !4
-  %63 = getelementptr i8, ptr %62, i64 8
-  %.val26 = load ptr, ptr %63, align 8, !nonnull !4, !align !103, !noundef !4
-  %64 = getelementptr inbounds i8, ptr %.val26, i64 16
-  %65 = load i64, ptr %64, align 8, !range !430, !invariant.load !4
-  %66 = tail call i64 @llvm.umax.i64(i64 %65, i64 8)
-  %67 = add i64 %66, -1
-  %68 = and i64 %67, -16
-  %69 = getelementptr i8, ptr %.val25, i64 %68
-  %70 = getelementptr i8, ptr %69, i64 16
-  %71 = add i64 %65, -1
-  %72 = and i64 %71, -96
-  %73 = getelementptr i8, ptr %70, i64 %72
-  %74 = getelementptr i8, ptr %73, i64 96
-  %75 = getelementptr inbounds i8, ptr %.val26, i64 40
-  %76 = load ptr, ptr %75, align 8, !invariant.load !4, !nonnull !4
-  %77 = tail call noundef ptr %76(ptr noundef align 1 %74)
+57:                                               ; preds = %.lr.ph45, %90
+  %.244 = phi i64 [ %.2.ph50, %.lr.ph45 ], [ %91, %90 ]
+  %58 = add i64 %15, %.244
+  %.not.i.i28 = icmp ult i64 %58, %16
+  %59 = select i1 %.not.i.i28, i64 0, i64 %16
+  %.0.i.i29 = sub i64 %58, %59
+  %60 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 %.0.i.i29
+  %.val25 = load ptr, ptr %60, align 8, !nonnull !4, !noundef !4
+  %61 = getelementptr i8, ptr %60, i64 8
+  %.val26 = load ptr, ptr %61, align 8, !nonnull !4, !align !103, !noundef !4
+  %62 = getelementptr inbounds i8, ptr %.val26, i64 16
+  %63 = load i64, ptr %62, align 8, !range !430, !invariant.load !4
+  %64 = tail call i64 @llvm.umax.i64(i64 %63, i64 8)
+  %65 = add i64 %64, -1
+  %66 = and i64 %65, -16
+  %67 = getelementptr i8, ptr %.val25, i64 %66
+  %68 = add i64 %63, -1
+  %69 = and i64 %68, -96
+  %70 = getelementptr i8, ptr %67, i64 112
+  %71 = getelementptr i8, ptr %70, i64 %69
+  %72 = getelementptr inbounds i8, ptr %.val26, i64 40
+  %73 = load ptr, ptr %72, align 8, !invariant.load !4, !nonnull !4
+  %74 = tail call noundef ptr %73(ptr noundef align 1 %71)
   tail call void @llvm.assume(i1 %19)
-  %78 = load ptr, ptr %.val.i31, align 8, !nonnull !4, !noundef !4
-  %79 = load ptr, ptr %20, align 8, !nonnull !4, !align !103, !noundef !4
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
-  %81 = load i64, ptr %80, align 8, !range !430, !invariant.load !4
-  %82 = tail call i64 @llvm.umax.i64(i64 %81, i64 8)
-  %83 = add i64 %82, -1
-  %84 = and i64 %83, -16
-  %85 = getelementptr i8, ptr %78, i64 %84
-  %86 = getelementptr i8, ptr %85, i64 16
-  %87 = add i64 %81, -1
-  %88 = and i64 %87, -96
-  %89 = getelementptr i8, ptr %86, i64 %88
-  %90 = getelementptr i8, ptr %89, i64 96
-  %91 = getelementptr inbounds i8, ptr %79, i64 40
-  %92 = load ptr, ptr %91, align 8, !invariant.load !4, !nonnull !4
-  %93 = tail call noundef ptr %92(ptr noundef align 1 %90)
-  %.not35 = icmp eq ptr %77, %93
-  br i1 %.not35, label %94, label %97
+  %75 = load ptr, ptr %.val.i31, align 8, !nonnull !4, !noundef !4
+  %76 = load ptr, ptr %20, align 8, !nonnull !4, !align !103, !noundef !4
+  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %78 = load i64, ptr %77, align 8, !range !430, !invariant.load !4
+  %79 = tail call i64 @llvm.umax.i64(i64 %78, i64 8)
+  %80 = add i64 %79, -1
+  %81 = and i64 %80, -16
+  %82 = getelementptr i8, ptr %75, i64 %81
+  %83 = add i64 %78, -1
+  %84 = and i64 %83, -96
+  %85 = getelementptr i8, ptr %82, i64 112
+  %86 = getelementptr i8, ptr %85, i64 %84
+  %87 = getelementptr inbounds i8, ptr %76, i64 40
+  %88 = load ptr, ptr %87, align 8, !invariant.load !4, !nonnull !4
+  %89 = tail call noundef ptr %88(ptr noundef align 1 %86)
+  %.not35 = icmp eq ptr %74, %89
+  br i1 %.not35, label %90, label %93
 
-94:                                               ; preds = %59
-  %95 = add nuw i64 %.244, 1
-  %96 = icmp ult i64 %95, %5
-  br i1 %96, label %59, label %.outer._crit_edge
+90:                                               ; preds = %57
+  %91 = add nuw i64 %.244, 1
+  %92 = icmp ult i64 %91, %5
+  br i1 %92, label %57, label %.outer._crit_edge
 
-97:                                               ; preds = %59
-  %98 = icmp ugt i64 %5, %.1.ph51
-  br i1 %98, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit", label %99
+93:                                               ; preds = %57
+  %94 = icmp ugt i64 %5, %.1.ph51
+  br i1 %94, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit", label %95
 
-99:                                               ; preds = %97
+95:                                               ; preds = %93
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8554c8e21b8cbc9380508c54347b7519.81, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8554c8e21b8cbc9380508c54347b7519.82) #47, !noalias !17534
   unreachable
 
-"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit": ; preds = %97
-  %100 = add i64 %15, %.1.ph51
-  %.not.i.i32 = icmp ult i64 %100, %16
-  %101 = select i1 %.not.i.i32, i64 0, i64 %16
-  %.0.i.i33 = sub i64 %100, %101
-  %102 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 %.0.i.i33
+"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4swap17hb198210548be0b27E.exit": ; preds = %93
+  %96 = add i64 %15, %.1.ph51
+  %.not.i.i32 = icmp ult i64 %96, %16
+  %97 = select i1 %.not.i.i32, i64 0, i64 %16
+  %.0.i.i33 = sub i64 %96, %97
+  %98 = getelementptr inbounds { ptr, ptr }, ptr %18, i64 %.0.i.i33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false), !noalias !17534
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !noalias !17534
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !noalias !17534
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false), !noalias !17534
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !noalias !17534
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !noalias !17534
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %103 = add nuw i64 %.244, 1
-  %104 = add nuw i64 %.1.ph51, 1
-  %105 = icmp ult i64 %103, %5
-  br i1 %105, label %.lr.ph45, label %.outer._crit_edge
+  %99 = add nuw i64 %.244, 1
+  %100 = add nuw i64 %.1.ph51, 1
+  %101 = icmp ult i64 %99, %5
+  br i1 %101, label %.lr.ph45, label %.outer._crit_edge
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

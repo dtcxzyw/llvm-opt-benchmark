@@ -1572,15 +1572,14 @@ if.then.i.i735:                                   ; preds = %_ZN3irr4core5arrayI
 if.then.i.i.i.i1162:                              ; preds = %if.then.i.i735
   store i16 0, ptr %verticesLinkBuffer.sroa.19.41296, align 2, !tbaa !119
   %incdec.ptr.i.i.i.i1163 = getelementptr i8, ptr %verticesLinkBuffer.sroa.19.41296, i64 2
-  %sub.i.i.i.i1164 = add nsw i64 %sub.i.i736, -1
-  %cmp.i.i.i.i.i.i1165 = icmp eq i64 %sub.i.i.i.i1164, 0
+  %cmp.i.i.i.i.i.i1165 = icmp eq i64 %sub.i.i736, 1
   br i1 %cmp.i.i.i.i.i.i1165, label %if.end156, label %if.end.i.i.i.i.i.i1166
 
 if.end.i.i.i.i.i.i1166:                           ; preds = %if.then.i.i.i.i1162
   %109 = shl nuw nsw i64 %sub.i.i736, 1
   %110 = add nsw i64 %109, -2
   call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i1163, i8 0, i64 %110, i1 false), !tbaa !119
-  %add.ptr.i.i.i.i.i.i1167 = getelementptr inbounds i16, ptr %incdec.ptr.i.i.i.i1163, i64 %sub.i.i.i.i1164
+  %add.ptr.i.i.i.i.i.i1167 = getelementptr i16, ptr %verticesLinkBuffer.sroa.19.41296, i64 %sub.i.i736
   br label %if.end156
 
 if.else.i1170:                                    ; preds = %if.then.i.i735
@@ -5215,15 +5214,14 @@ if.then.i.i674:                                   ; preds = %if.end36
 if.then.i.i.i.i911:                               ; preds = %if.then.i.i674
   store i32 0, ptr %polygonfaces.sroa.11.0946, align 4, !tbaa !110
   %incdec.ptr.i.i.i.i = getelementptr i8, ptr %polygonfaces.sroa.11.0946, i64 4
-  %sub.i.i.i.i = add nsw i64 %sub.i.i675, -1
-  %cmp.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i = icmp eq i64 %sub.i.i675, 1
   br i1 %cmp.i.i.i.i.i.i, label %_ZN3irr4core5arrayIjE8set_usedEj.exit676, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i911
   %29 = shl nuw nsw i64 %sub.i.i675, 2
   %30 = add nsw i64 %29, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i, i8 0, i64 %30, i1 false), !tbaa !110
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i.i, i64 %sub.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr i32, ptr %polygonfaces.sroa.11.0946, i64 %sub.i.i675
   br label %_ZN3irr4core5arrayIjE8set_usedEj.exit676
 
 if.else.i:                                        ; preds = %if.then.i.i674
@@ -8735,15 +8733,14 @@ if.then.i.i198:                                   ; preds = %if.else
 if.then.i.i.i.i378:                               ; preds = %if.then.i.i198
   store i32 0, ptr %polygonfaces.sroa.11.0462, align 4, !tbaa !110
   %incdec.ptr.i.i.i.i379 = getelementptr i8, ptr %polygonfaces.sroa.11.0462, i64 4
-  %sub.i.i.i.i380 = add nsw i64 %sub.i.i199, -1
-  %cmp.i.i.i.i.i.i381 = icmp eq i64 %sub.i.i.i.i380, 0
+  %cmp.i.i.i.i.i.i381 = icmp eq i64 %sub.i.i199, 1
   br i1 %cmp.i.i.i.i.i.i381, label %_ZN3irr4core5arrayIjE8set_usedEj.exit200, label %if.end.i.i.i.i.i.i382
 
 if.end.i.i.i.i.i.i382:                            ; preds = %if.then.i.i.i.i378
   %97 = shl nuw nsw i64 %sub.i.i199, 2
   %98 = add nsw i64 %97, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i379, i8 0, i64 %98, i1 false), !tbaa !110
-  %add.ptr.i.i.i.i.i.i383 = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i.i379, i64 %sub.i.i.i.i380
+  %add.ptr.i.i.i.i.i.i383 = getelementptr i32, ptr %polygonfaces.sroa.11.0462, i64 %sub.i.i199
   br label %_ZN3irr4core5arrayIjE8set_usedEj.exit200
 
 if.else.i386:                                     ; preds = %if.then.i.i198
@@ -15261,15 +15258,14 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store ptr null, ptr %0, align 8, !tbaa !39
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add nsw i64 %__n, -1
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPPN3irr5scene15SSkinMeshBufferEmS3_ET_S5_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 3
   %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !39
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr ptr, ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPPN3irr5scene15SSkinMeshBufferEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN3irr5scene15SSkinMeshBufferEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i
@@ -15364,15 +15360,14 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store i32 0, ptr %0, align 4, !tbaa !110
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 4
-  %sub.i.i.i = add nsw i64 %__n, -1
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 2
   %4 = add nsw i64 %3, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !110
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr i32, ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i
@@ -15836,15 +15831,14 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store i16 0, ptr %0, align 2, !tbaa !119
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 2
-  %sub.i.i.i = add nsw i64 %__n, -1
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 1
   %4 = add nsw i64 %3, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !119
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i16, ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr i16, ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i

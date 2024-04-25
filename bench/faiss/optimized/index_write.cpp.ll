@@ -15560,31 +15560,29 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit: ; preds = %3
 
 _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %16
+  br label %14
 
 6:                                                ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit
   %7 = shl nuw nsw i64 %1, 3
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #22
   store ptr %8, ptr %0, align 8
-  %9 = getelementptr inbounds i64, ptr %8, i64 %1
+  %9 = getelementptr i64, ptr %8, i64 %1
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8
   store i64 0, ptr %8, align 8
   %11 = getelementptr i8, ptr %8, i64 8
-  %12 = add nsw i64 %1, -1
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %16, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i
+  %12 = icmp eq i64 %1, 1
+  br i1 %12, label %14, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i
 
 _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %6
-  %14 = add nsw i64 %7, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %14, i1 false)
-  %15 = getelementptr inbounds i64, ptr %11, i64 %12
-  br label %16
+  %13 = add nsw i64 %7, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %13, i1 false)
+  br label %14
 
-16:                                               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %6, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread
-  %.0.i.i.i.i = phi ptr [ %11, %6 ], [ %15, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.0.i.i.i.i, ptr %17, align 8
+14:                                               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %6, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread
+  %.0.i.i.i.i = phi ptr [ %11, %6 ], [ %9, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread ]
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.0.i.i.i.i, ptr %15, align 8
   ret void
 }
 
@@ -20304,7 +20302,7 @@ _ZN5faissL23write_binary_ivf_headerEPKNS_14IndexBinaryIVFEPNS_8IOWriterE.exit: ;
 
 648:                                              ; preds = %645
   %649 = getelementptr inbounds %"class.std::unordered_map.106", ptr %642, i64 %indvars.iv
-  %650 = trunc i64 %indvars.iv.i to i32
+  %650 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %650, ptr %3, align 4
   %651 = load ptr, ptr %1, align 8
   %652 = load ptr, ptr %651, align 8
@@ -20439,7 +20437,7 @@ _ZN5faissL23write_binary_ivf_headerEPKNS_14IndexBinaryIVFEPNS_8IOWriterE.exit: ;
   br i1 %724, label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.i, label %725
 
 725:                                              ; preds = %.noexc.i
-  %726 = getelementptr inbounds i8, ptr %721, i64 %720
+  %726 = getelementptr i8, ptr %721, i64 %720
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %722, i8 0, i64 %723, i1 false)
   br label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.i
 
@@ -20473,7 +20471,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.i:             ; preds = %725, %.noexc.i, %71
   %735 = getelementptr inbounds i8, ptr %.sroa.082.0124.i, i64 8
   %736 = load i64, ptr %735, align 8
   %737 = and i64 %.sroa.11.0123.i, 7
-  %738 = trunc i64 %737 to i32
+  %738 = trunc nuw nsw i64 %737 to i32
   %739 = sub nuw nsw i32 8, %738
   %.not.i.i = icmp slt i32 %739, %643
   br i1 %.not.i.i, label %747, label %740
@@ -20526,7 +20524,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit.i:       ; preds = %.lr.ph.i.i, %747, %
   %767 = sub i64 %765, %766
   %768 = ashr exact i64 %767, 3
   %769 = and i64 %.sroa.11.1.i, 7
-  %770 = trunc i64 %769 to i32
+  %770 = trunc nuw nsw i64 %769 to i32
   %771 = sub nuw nsw i32 8, %770
   %.not.i60.i = icmp slt i32 %771, %711
   br i1 %.not.i60.i, label %779, label %772
@@ -20580,7 +20578,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit67.i:     ; preds = %.lr.ph.i62.i, %779,
   %.sroa.11.3119.i = phi i64 [ %.sroa.11.4.i, %_ZN5faiss15BitstringWriter5writeEmi.exit75.i ], [ %.sroa.11.2.i, %_ZN5faiss15BitstringWriter5writeEmi.exit67.i ]
   %795 = load i64, ptr %.sroa.078.0120.i, align 8
   %796 = and i64 %.sroa.11.3119.i, 7
-  %797 = trunc i64 %796 to i32
+  %797 = trunc nuw nsw i64 %796 to i32
   %798 = sub nuw nsw i32 8, %797
   %.not.i68.i = icmp slt i32 %798, %711
   br i1 %.not.i68.i, label %806, label %799
@@ -21200,7 +21198,7 @@ define internal fastcc void @_ZN5faissL26write_binary_hash_invlistsERKSt13unorde
   br i1 %.not, label %58, label %57, !llvm.loop !20
 
 58:                                               ; preds = %57
-  %59 = trunc i64 %indvars.iv to i32
+  %59 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %59, ptr %6, align 4
   %60 = load ptr, ptr %2, align 8
   %61 = load ptr, ptr %60, align 8
@@ -21275,7 +21273,7 @@ define internal fastcc void @_ZN5faissL26write_binary_hash_invlistsERKSt13unorde
   br i1 %99, label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit, label %100
 
 100:                                              ; preds = %.noexc
-  %101 = getelementptr inbounds i8, ptr %96, i64 %95
+  %101 = getelementptr i8, ptr %96, i64 %95
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %97, i8 0, i64 %98, i1 false)
   br label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
 
@@ -21303,7 +21301,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %100, %.noexc, %88
   %110 = getelementptr inbounds i8, ptr %.sroa.0122.0174, i64 8
   %111 = load i64, ptr %110, align 8
   %112 = and i64 %.sroa.8.0173, 7
-  %113 = trunc i64 %112 to i32
+  %113 = trunc nuw nsw i64 %112 to i32
   %114 = sub nuw nsw i32 8, %113
   %.not.i = icmp slt i32 %114, %1
   br i1 %.not.i, label %122, label %115
@@ -21356,7 +21354,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %115, %12
   %142 = sub i64 %140, %141
   %143 = ashr exact i64 %142, 3
   %144 = and i64 %.sroa.8.1, 7
-  %145 = trunc i64 %144 to i32
+  %145 = trunc nuw nsw i64 %144 to i32
   %146 = sub nuw nsw i32 8, %145
   %.not.i105 = icmp slt i32 %146, %89
   br i1 %.not.i105, label %154, label %147

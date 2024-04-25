@@ -133,7 +133,7 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %81, ptr %79, align 8
   %82 = load double, ptr %20, align 8
   %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
-  %83 = getelementptr inbounds double, ptr %25, i64 %indvars.iv.next301
+  %83 = getelementptr double, ptr %6, i64 %indvars.iv300
   %84 = load double, ptr %83, align 8
   %85 = fmul double %82, %84
   store double %85, ptr %80, align 8
@@ -161,7 +161,7 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %97, ptr %95, align 8
   %98 = load double, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %99 = getelementptr inbounds double, ptr %25, i64 %indvars.iv.next
+  %99 = getelementptr double, ptr %6, i64 %indvars.iv
   %100 = load double, ptr %99, align 8
   %101 = fmul double %98, %100
   store double %101, ptr %96, align 8
@@ -237,7 +237,7 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %137, ptr %135, align 8
   %138 = load double, ptr %20, align 8
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
-  %139 = getelementptr inbounds double, ptr %25, i64 %indvars.iv.next311
+  %139 = getelementptr double, ptr %6, i64 %indvars.iv310
   %140 = load double, ptr %139, align 8
   %141 = fmul double %138, %140
   store double %141, ptr %136, align 8
@@ -265,7 +265,7 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %153, ptr %151, align 8
   %154 = load double, ptr %20, align 8
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
-  %155 = getelementptr inbounds double, ptr %25, i64 %indvars.iv.next306
+  %155 = getelementptr double, ptr %6, i64 %indvars.iv305
   %156 = load double, ptr %155, align 8
   %157 = fmul double %154, %156
   store double %157, ptr %152, align 8

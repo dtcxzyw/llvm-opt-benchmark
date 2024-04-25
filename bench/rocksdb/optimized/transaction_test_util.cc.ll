@@ -422,19 +422,17 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont3
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store i16 0, ptr %call5.i.i.i.i2.i.i57, align 2
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i57, i64 2
-  %sub.i.i.i.i.i = add nsw i64 %conv, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i = icmp eq i16 %1, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.preheader, label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %call5.i.i.i.i2.i.i.noexc
+  %add.ptr.i.i.i = getelementptr i16, ptr %call5.i.i.i.i2.i.i57, i64 %conv
   %2 = add nsw i64 %mul.i.i.i.i.i.i, -2
   call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i.i, i8 0, i64 %2, i1 false)
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i16, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
-  %cmp.i.not4.i = icmp eq ptr %call5.i.i.i.i2.i.i57, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.i.not4.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtEvT_S7_T0_.exit, label %for.body.i.preheader
+  br label %for.body.i.preheader
 
-for.body.i.preheader:                             ; preds = %call5.i.i.i.i2.i.i.noexc, %invoke.cont5
-  %__first.addr.0.i.i.i.i.i424 = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %invoke.cont5 ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
+for.body.i.preheader:                             ; preds = %invoke.cont5, %call5.i.i.i.i2.i.i.noexc
+  %__first.addr.0.i.i.i.i.i424 = phi ptr [ %add.ptr.i.i.i, %invoke.cont5 ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
@@ -446,9 +444,9 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %__first.addr.0.i.i.i.i.i424
   br i1 %cmp.i.not.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtEvT_S7_T0_.exit, label %for.body.i, !llvm.loop !4
 
-_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtEvT_S7_T0_.exit: ; preds = %for.body.i, %invoke.cont3, %invoke.cont5
-  %__first.addr.0.i.i.i.i.i372 = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %invoke.cont5 ], [ null, %invoke.cont3 ], [ %__first.addr.0.i.i.i.i.i424, %for.body.i ]
-  %set_vec.sroa.0.0363 = phi ptr [ %call5.i.i.i.i2.i.i57, %invoke.cont5 ], [ null, %invoke.cont3 ], [ %call5.i.i.i.i2.i.i57, %for.body.i ]
+_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtEvT_S7_T0_.exit: ; preds = %for.body.i, %invoke.cont3
+  %__first.addr.0.i.i.i.i.i372 = phi ptr [ null, %invoke.cont3 ], [ %__first.addr.0.i.i.i.i.i424, %for.body.i ]
+  %set_vec.sroa.0.0363 = phi ptr [ null, %invoke.cont3 ], [ %call5.i.i.i.i2.i.i57, %for.body.i ]
   invoke void @_ZN7rocksdb13RandomShuffleIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEEEvT_S8_(ptr %set_vec.sroa.0.0363, ptr %__first.addr.0.i.i.i.i.i372)
           to label %for.cond.preheader unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -3346,19 +3344,17 @@ if.then.i.i.i.i.i:                                ; preds = %if.end
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store i16 0, ptr %call5.i.i.i.i2.i.i41, align 2
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i41, i64 2
-  %sub.i.i.i.i.i = add nsw i64 %conv8, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i = icmp eq i16 %num_sets, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.preheader, label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %call5.i.i.i.i2.i.i.noexc
+  %add.ptr.i.i.i = getelementptr i16, ptr %call5.i.i.i.i2.i.i41, i64 %conv8
   %7 = add nsw i64 %mul.i.i.i.i.i.i, -2
   call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i.i, i8 0, i64 %7, i1 false)
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i16, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
-  %cmp.i.not4.i = icmp eq ptr %call5.i.i.i.i2.i.i41, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.i.not4.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtEvT_S7_T0_.exit, label %for.body.i.preheader
+  br label %for.body.i.preheader
 
-for.body.i.preheader:                             ; preds = %call5.i.i.i.i2.i.i.noexc, %invoke.cont11
-  %__first.addr.0.i.i.i.i.i238 = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %invoke.cont11 ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
+for.body.i.preheader:                             ; preds = %invoke.cont11, %call5.i.i.i.i2.i.i.noexc
+  %__first.addr.0.i.i.i.i.i238 = phi ptr [ %add.ptr.i.i.i, %invoke.cont11 ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
@@ -3370,9 +3366,9 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %__first.addr.0.i.i.i.i.i238
   br i1 %cmp.i.not.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtEvT_S7_T0_.exit, label %for.body.i, !llvm.loop !4
 
-_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtEvT_S7_T0_.exit: ; preds = %for.body.i, %if.end, %invoke.cont11
-  %__first.addr.0.i.i.i.i.i114 = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %invoke.cont11 ], [ null, %if.end ], [ %__first.addr.0.i.i.i.i.i238, %for.body.i ]
-  %set_vec.sroa.0.0110 = phi ptr [ %call5.i.i.i.i2.i.i41, %invoke.cont11 ], [ null, %if.end ], [ %call5.i.i.i.i2.i.i41, %for.body.i ]
+_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtEvT_S7_T0_.exit: ; preds = %for.body.i, %if.end
+  %__first.addr.0.i.i.i.i.i114 = phi ptr [ null, %if.end ], [ %__first.addr.0.i.i.i.i.i238, %for.body.i ]
+  %set_vec.sroa.0.0110 = phi ptr [ null, %if.end ], [ %call5.i.i.i.i2.i.i41, %for.body.i ]
   invoke void @_ZN7rocksdb13RandomShuffleIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEEEvT_S8_(ptr %set_vec.sroa.0.0110, ptr %__first.addr.0.i.i.i.i.i114)
           to label %for.cond.preheader unwind label %lpad18.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

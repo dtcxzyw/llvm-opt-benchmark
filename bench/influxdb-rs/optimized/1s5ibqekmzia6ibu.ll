@@ -6235,7 +6235,7 @@ _ZN4core5slice4sort12choose_pivot17he156a7edb75c1365E.exit: ; preds = %"_ZN4core
 
 99:                                               ; preds = %91
   %100 = add i64 %.0.i, -1
-  %101 = getelementptr inbounds { { { { { ptr, i64 }, i64 } } }, i64, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { i32, i32 }, i32 }, {} }, [1 x i32] }, ptr %79, i64 %100
+  %101 = getelementptr { { { { { ptr, i64 }, i64 } } }, i64, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { i32, i32 }, i32 }, {} }, [1 x i32] }, ptr %.sroa.0.0148181, i64 %.0.i
   %.val.i = load ptr, ptr %101, align 8, !alias.scope !813, !nonnull !4, !noundef !4
   %102 = getelementptr i8, ptr %101, i64 16
   %.val21.i = load i64, ptr %102, align 8, !alias.scope !813, !noundef !4
@@ -6592,7 +6592,7 @@ _ZN4core5slice4sort12choose_pivot17he156a7edb75c1365E.exit: ; preds = %"_ZN4core
   br i1 %.not25.i63, label %246, label %_ZN4core5slice4sort15partition_equal17hf7046a99b75a2cc7E.exit
 
 246:                                              ; preds = %244
-  %247 = getelementptr inbounds { { { { { ptr, i64 }, i64 } } }, i64, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { i32, i32 }, i32 }, {} }, [1 x i32] }, ptr %228, i64 %245
+  %247 = getelementptr { { { { { ptr, i64 }, i64 } } }, i64, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { i32, i32 }, i32 }, {} }, [1 x i32] }, ptr %.sroa.0.0148, i64 %.1.i
   call void @llvm.assume(i1 %231)
   %.val27.i = load ptr, ptr %247, align 8, !alias.scope !852, !nonnull !4, !noundef !4
   %248 = getelementptr i8, ptr %247, i64 16

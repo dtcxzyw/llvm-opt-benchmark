@@ -210,7 +210,7 @@ define noundef i32 @_ZN8triggers9trigger_t15legalize_actionEmmm(i64 noundef %0, 
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %12, %10
-  %19 = trunc i64 %8 to i32
+  %19 = trunc nuw nsw i64 %8 to i32
   br label %20
 
 20:                                               ; preds = %3, %12, %18
@@ -410,7 +410,7 @@ define void @_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm(ptr nocapture 
   %46 = tail call noundef zeroext i1 @_ZNK10misa_csr_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(64) %45, i8 noundef zeroext 83) #20
   %47 = and i64 %2, 3
   %.not = icmp eq i64 %47, 3
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %spec.select = select i1 %.not, i32 0, i32 %48
   %49 = select i1 %46, i32 %spec.select, i32 0
   %50 = getelementptr inbounds i8, ptr %0, i64 24
@@ -510,7 +510,7 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(
 12:                                               ; preds = %7, %12
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %12 ]
   %.03246 = phi i64 [ %9, %7 ], [ %.1, %12 ]
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   %14 = shl nuw nsw i32 1, %13
   %15 = and i32 %11, %14
   %.not39 = icmp eq i32 %15, 0
@@ -601,7 +601,7 @@ _ZNK8triggers9trigger_t18interpret_mhselectEb.exit: ; preds = %51
   %.sroa.23.0.copyload.i = load i32, ptr %.sroa.23.0..sroa_idx.i, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.02.0.copyload.i to i32
   %.sroa.3.0.extract.shift = lshr i64 %.sroa.02.0.copyload.i, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %.sroa.7.8.extract.shift = lshr i32 %.sroa.23.0.copyload.i, 8
   switch i32 %.sroa.3.0.extract.trunc, label %117 [
     i32 1, label %71
@@ -969,7 +969,7 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %26, 
   %34 = icmp eq i64 %.zext, 1
   %35 = icmp ugt i64 %13, %10
   %or.cond = select i1 %34, i1 %35, i1 false
-  %36 = trunc i64 %.zext to i32
+  %36 = trunc nuw nsw i64 %.zext to i32
   %37 = select i1 %33, i1 true, i1 %or.cond
   %38 = select i1 %37, i32 0, i32 %36
   %39 = getelementptr inbounds i8, ptr %0, i64 48
@@ -983,7 +983,7 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %26, 
   %45 = lshr i64 %2, 7
   %46 = and i64 %45, 15
   %switch.i = icmp ult i64 %46, 6
-  %47 = trunc i64 %46 to i32
+  %47 = trunc nuw nsw i64 %46 to i32
   %.0.i21 = select i1 %switch.i, i32 %47, i32 0
   %48 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %.0.i21, ptr %48, align 8
@@ -1605,7 +1605,7 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %34, 
   %43 = icmp eq i64 %.zext, 1
   %44 = icmp ugt i64 %13, %10
   %or.cond = select i1 %43, i1 %44, i1 false
-  %45 = trunc i64 %.zext to i32
+  %45 = trunc nuw nsw i64 %.zext to i32
   %46 = select i1 %42, i1 true, i1 %or.cond
   %47 = select i1 %46, i32 0, i32 %45
   %48 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1619,7 +1619,7 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %34, 
   %54 = lshr i64 %2, 7
   %55 = and i64 %54, 15
   %switch.i = icmp ult i64 %55, 6
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw nsw i64 %55 to i32
   %.0.i23 = select i1 %switch.i, i32 %56, i32 0
   %57 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %.0.i23, ptr %57, align 8
@@ -2115,7 +2115,7 @@ define void @_ZN8triggers8icount_t12tdata1_writeEP11processor_tmb(ptr nocapture 
   br i1 %72, label %_ZN8triggers9trigger_t15legalize_actionEmmm.exit, label %73
 
 73:                                               ; preds = %67, %65
-  %74 = trunc i64 %63 to i32
+  %74 = trunc nuw nsw i64 %63 to i32
   br label %_ZN8triggers9trigger_t15legalize_actionEmmm.exit
 
 _ZN8triggers9trigger_t15legalize_actionEmmm.exit: ; preds = %._crit_edge, %67, %73
@@ -2301,7 +2301,7 @@ _ZN8triggers9trigger_t15legalize_actionEmmm.exit:
   %59 = icmp eq i64 %57, 1
   %60 = icmp ugt i64 %12, %9
   %or.cond = select i1 %59, i1 %60, i1 false
-  %61 = trunc i64 %57 to i32
+  %61 = trunc nuw nsw i64 %57 to i32
   %62 = select i1 %58, i1 true, i1 %or.cond
   %63 = select i1 %62, i32 0, i32 %61
   %64 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2641,7 +2641,7 @@ _ZN8triggers9trigger_t15legalize_actionEmmm.exit:
   %55 = icmp eq i64 %53, 1
   %56 = icmp ugt i64 %12, %9
   %or.cond = select i1 %55, i1 %56, i1 false
-  %57 = trunc i64 %53 to i32
+  %57 = trunc nuw nsw i64 %53 to i32
   %58 = select i1 %54, i1 true, i1 %or.cond
   %59 = select i1 %58, i32 0, i32 %57
   %60 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2666,70 +2666,68 @@ define void @_ZN8triggers8module_tC2Ej(ptr nocapture noundef nonnull align 8 der
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq i32 %1, 0
-  br i1 %.not.i.i.i.i, label %14, label %.noexc
+  br i1 %.not.i.i.i.i, label %12, label %.noexc
 
 .noexc:                                           ; preds = %2
   %4 = zext i32 %1 to i64
   %5 = shl nuw nsw i64 %4, 3
   %6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #21
   store ptr %6, ptr %3, align 8
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %4
+  %7 = getelementptr ptr, ptr %6, i64 %4
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %7, ptr %8, align 8
   store ptr null, ptr %6, align 8
   %9 = getelementptr i8, ptr %6, i64 8
-  %10 = add nsw i64 %4, -1
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %.lr.ph.preheader, label %_ZSt6fill_nIPPN8triggers9trigger_tEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %10 = icmp eq i32 %1, 1
+  br i1 %10, label %.lr.ph.preheader, label %_ZSt6fill_nIPPN8triggers9trigger_tEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPPN8triggers9trigger_tEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
-  %12 = add nsw i64 %5, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %12, i1 false)
-  %13 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = add nsw i64 %5, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %11, i1 false)
   br label %.lr.ph.preheader
 
-14:                                               ; preds = %2
+12:                                               ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   br label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZSt6fill_nIPPN8triggers9trigger_tEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i.ph = phi ptr [ %13, %_ZSt6fill_nIPPN8triggers9trigger_tEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %9, %.noexc ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.0.i.i.i.i.i.ph, ptr %15, align 8
+  %.0.i.i.i.i.i.ph = phi ptr [ %7, %_ZSt6fill_nIPPN8triggers9trigger_tEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %9, %.noexc ]
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.0.i.i.i.i.i.ph, ptr %13, align 8
   %wide.trip.count = zext i32 %1 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %17
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
-  %16 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
-          to label %17 unwind label %20
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %15
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
+  %14 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
+          to label %15 unwind label %18
 
-17:                                               ; preds = %.lr.ph
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %16, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN8triggers18disabled_trigger_tE, i64 0, i32 0, i64 2), ptr %16, align 8
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv
-  store ptr %16, ptr %19, align 8
+15:                                               ; preds = %.lr.ph
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %14, i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN8triggers18disabled_trigger_tE, i64 0, i32 0, i64 2), ptr %14, align 8
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  store ptr %14, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-20:                                               ; preds = %.lr.ph
-  %21 = landingpad { ptr, i32 }
+18:                                               ; preds = %.lr.ph
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %22 = load ptr, ptr %3, align 8
-  %.not.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN8triggers9trigger_tESaIS2_EED2Ev.exit, label %23
+  %20 = load ptr, ptr %3, align 8
+  %.not.i.i.i = icmp eq ptr %20, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN8triggers9trigger_tESaIS2_EED2Ev.exit, label %21
 
-23:                                               ; preds = %20
-  tail call void @_ZdlPv(ptr noundef nonnull %22) #22
+21:                                               ; preds = %18
+  tail call void @_ZdlPv(ptr noundef nonnull %20) #22
   br label %_ZNSt6vectorIPN8triggers9trigger_tESaIS2_EED2Ev.exit
 
-._crit_edge:                                      ; preds = %17, %14
+._crit_edge:                                      ; preds = %15, %12
   ret void
 
-_ZNSt6vectorIPN8triggers9trigger_tESaIS2_EED2Ev.exit: ; preds = %23, %20
-  resume { ptr, i32 } %21
+_ZNSt6vectorIPN8triggers9trigger_tESaIS2_EED2Ev.exit: ; preds = %21, %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -3085,7 +3083,7 @@ _ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit: ; preds = %131, %179
   %190 = tail call noundef zeroext i1 @_ZNK10misa_csr_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(64) %189, i8 noundef zeroext 83) #20
   %191 = and i64 %99, 3
   %.not.i = icmp eq i64 %191, 3
-  %192 = trunc i64 %191 to i32
+  %192 = trunc nuw nsw i64 %191 to i32
   %spec.select.i = select i1 %.not.i, i32 0, i32 %192
   %193 = select i1 %190, i32 %spec.select.i, i32 0
   %194 = getelementptr inbounds i8, ptr %147, i64 24
@@ -3257,7 +3255,7 @@ _ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit: ; preds = %18, %52
   %63 = tail call noundef zeroext i1 @_ZNK10misa_csr_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(64) %62, i8 noundef zeroext 83) #20
   %64 = and i64 %2, 3
   %.not.i = icmp eq i64 %64, 3
-  %65 = trunc i64 %64 to i32
+  %65 = trunc nuw nsw i64 %64 to i32
   %spec.select.i = select i1 %.not.i, i32 0, i32 %65
   %66 = select i1 %63, i32 %spec.select.i, i32 0
   %67 = getelementptr inbounds i8, ptr %21, i64 24
@@ -3323,7 +3321,7 @@ define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11opera
   %.fca.0.extract = extractvalue { i64, i8 } %29, 0
   %.fca.1.extract = extractvalue { i64, i8 } %29, 1
   %.sroa.0.sroa.2.0.extract.shift = lshr i64 %.fca.0.extract, 32
-  %.sroa.0.sroa.2.0.extract.trunc = trunc i64 %.sroa.0.sroa.2.0.extract.shift to i32
+  %.sroa.0.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift to i32
   %30 = trunc i8 %.fca.1.extract to i1
   %31 = load ptr, ptr %16, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 40
@@ -3442,7 +3440,7 @@ define { i64, i8 } @_ZN8triggers8module_t19detect_icount_matchEv(ptr nocapture n
 
 30:                                               ; preds = %28
   %.sroa.017.sroa.2.0.extract.shift = lshr i64 %.fca.0.extract, 32
-  %.sroa.017.sroa.2.0.extract.trunc = trunc i64 %.sroa.017.sroa.2.0.extract.shift to i32
+  %.sroa.017.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.017.sroa.2.0.extract.shift to i32
   %31 = trunc i8 %.sroa.4.045 to i1
   %32 = icmp sge i32 %.sroa.2.044, %.sroa.017.sroa.2.0.extract.trunc
   %or.cond.not = select i1 %31, i1 %32, i1 false
@@ -3558,7 +3556,7 @@ define { i64, i8 } @_ZN8triggers8module_t17detect_trap_matchERK6trap_t(ptr nocap
 
 20:                                               ; preds = %.lr.ph
   %.sroa.0.sroa.2.0.extract.shift = lshr i64 %.fca.0.extract, 32
-  %.sroa.0.sroa.2.0.extract.trunc = trunc i64 %.sroa.0.sroa.2.0.extract.shift to i32
+  %.sroa.0.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift to i32
   %21 = trunc i8 %.sroa.314.020 to i1
   %22 = icmp sge i32 %.sroa.2.019, %.sroa.0.sroa.2.0.extract.trunc
   %or.cond.not = select i1 %21, i1 %22, i1 false

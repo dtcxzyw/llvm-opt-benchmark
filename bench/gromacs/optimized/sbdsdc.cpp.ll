@@ -157,7 +157,7 @@ define void @sbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store float %86, ptr %84, align 4
   %87 = load float, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %88 = getelementptr inbounds float, ptr %30, i64 %indvars.iv.next
+  %88 = getelementptr float, ptr %3, i64 %indvars.iv
   %89 = load float, ptr %88, align 4
   %90 = fmul float %87, %89
   store float %90, ptr %85, align 4

@@ -2704,9 +2704,9 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.us.i:
 88:                                               ; preds = %.lr.ph.i28.i
   %89 = getelementptr inbounds float, ptr %71, i64 %86
   %90 = load float, ptr %89, align 4
-  %91 = getelementptr inbounds float, ptr %71, i64 %85
+  %91 = getelementptr float, ptr %63, i64 %86
   %92 = load float, ptr %91, align 4
-  %93 = getelementptr inbounds i64, ptr %72, i64 %85
+  %93 = getelementptr i64, ptr %65, i64 %86
   %94 = load i64, ptr %93, align 8
   %95 = fcmp olt float %90, %92
   br i1 %95, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i36.i, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.i30.i
@@ -2860,9 +2860,9 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1T
 18:                                               ; preds = %.lr.ph.i
   %19 = getelementptr inbounds float, ptr %4, i64 %16
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds float, ptr %4, i64 %15
+  %21 = getelementptr float, ptr %1, i64 %16
   %22 = load float, ptr %21, align 4
-  %23 = getelementptr inbounds i64, ptr %5, i64 %15
+  %23 = getelementptr i64, ptr %2, i64 %16
   %24 = load i64, ptr %23, align 8
   %25 = fcmp olt float %20, %22
   br i1 %25, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.i
@@ -3270,9 +3270,9 @@ _ZN5faiss15maxheap_heapifyIfEEvmPT_PlPKS1_PKlm.exit: ; preds = %.lr.ph46.i.i, %_
 95:                                               ; preds = %.lr.ph.i43
   %96 = getelementptr inbounds float, ptr %73, i64 %93
   %97 = load float, ptr %96, align 4
-  %98 = getelementptr inbounds float, ptr %73, i64 %92
+  %98 = getelementptr float, ptr %44, i64 %93
   %99 = load float, ptr %98, align 4
-  %100 = getelementptr inbounds i64, ptr %74, i64 %92
+  %100 = getelementptr i64, ptr %46, i64 %93
   %101 = load i64, ptr %100, align 8
   %102 = fcmp ogt float %97, %99
   br i1 %102, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i
@@ -3426,9 +3426,9 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1T
 18:                                               ; preds = %.lr.ph.i
   %19 = getelementptr inbounds float, ptr %4, i64 %16
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds float, ptr %4, i64 %15
+  %21 = getelementptr float, ptr %1, i64 %16
   %22 = load float, ptr %21, align 4
-  %23 = getelementptr inbounds i64, ptr %5, i64 %15
+  %23 = getelementptr i64, ptr %2, i64 %16
   %24 = load i64, ptr %23, align 8
   %25 = fcmp ogt float %20, %22
   br i1 %25, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i
@@ -4036,14 +4036,14 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   br label %_ZN5faiss15BitstringReader4readEi.exit
 
 _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit.thread, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit, %64
-  %.012.lcssa.i19 = phi float [ %54, %64 ], [ %54, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit ], [ 0.000000e+00, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit.thread ]
+  %.012.lcssa.i16 = phi float [ %54, %64 ], [ %54, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit ], [ 0.000000e+00, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit.thread ]
   %.0.i = phi i32 [ %71, %64 ], [ %63, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit ], [ %7, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit.thread ]
   %72 = getelementptr inbounds i8, ptr %0, i64 184
   %73 = load ptr, ptr %72, align 8
   %74 = zext nneg i32 %.0.i to i64
   %75 = getelementptr inbounds float, ptr %73, i64 %74
   %76 = load float, ptr %75, align 4
-  %77 = tail call float @llvm.fmuladd.f32(float %.012.lcssa.i19, float -2.000000e+00, float %76)
+  %77 = tail call float @llvm.fmuladd.f32(float %.012.lcssa.i16, float -2.000000e+00, float %76)
   ret float %77
 }
 
@@ -4317,7 +4317,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
 
 64:                                               ; preds = %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit.thread, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit
   %65 = phi i32 [ %7, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit.thread ], [ %63, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit ]
-  %.012.lcssa.i20 = phi float [ 0.000000e+00, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit.thread ], [ %54, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit ]
+  %.012.lcssa.i17 = phi float [ 0.000000e+00, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit.thread ], [ %54, %_ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15BitstringReaderEPKhPKf.exit ]
   %66 = trunc nuw nsw i32 %65 to i16
   br label %_ZN5faiss15BitstringReader4readEi.exit
 
@@ -4337,7 +4337,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   br label %_ZN5faiss15BitstringReader4readEi.exit
 
 _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %64, %67
-  %.012.lcssa.i19 = phi float [ %.012.lcssa.i20, %64 ], [ %54, %67 ]
+  %.012.lcssa.i16 = phi float [ %.012.lcssa.i17, %64 ], [ %54, %67 ]
   %.0.i = phi i16 [ %66, %64 ], [ %78, %67 ]
   %79 = trunc i16 %.0.i to i8
   %80 = getelementptr inbounds i8, ptr %0, i64 300
@@ -4352,7 +4352,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %64, %67
   %89 = fpext float %81 to double
   %90 = tail call double @llvm.fmuladd.f64(double %86, double %88, double %89)
   %91 = fptrunc double %90 to float
-  %92 = tail call float @llvm.fmuladd.f32(float %.012.lcssa.i19, float -2.000000e+00, float %91)
+  %92 = tail call float @llvm.fmuladd.f32(float %.012.lcssa.i16, float -2.000000e+00, float %91)
   ret float %92
 }
 

@@ -511,7 +511,7 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 299:                                              ; preds = %292
   store double 0.000000e+00, ptr %287, align 8, !tbaa !7
-  %300 = getelementptr inbounds double, ptr %38, i64 %293
+  %300 = getelementptr double, ptr %9, i64 %281
   br label %339
 
 301:                                              ; preds = %292
