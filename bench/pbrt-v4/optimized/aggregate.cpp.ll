@@ -11312,8 +11312,8 @@ invoke.cont18.i.i.i.i.i.i.i.i.i:                  ; preds = %invoke.cont9.i.i.i.
   %sub.i.i.i.i.i.i.i.i.i = fsub float %seg.sroa.4.0.copyload.i.i.i.i.i.i.i.i.i, %seg.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
   %110 = call float @llvm.fabs.f32(float %sub.i.i.i.i.i.i.i.i.i)
   %111 = fcmp oeq float %110, 0x7FF0000000000000
-  %dt.0.i.i.i.i.i.i.i.i.i = select i1 %111, float 0x47EFFFFFE0000000, float %sub.i.i.i.i.i.i.i.i.i
-  %fneg.i.i.i.i.i.i.i.i.i = fneg float %dt.0.i.i.i.i.i.i.i.i.i
+  %sub.neg.i.i.i.i.i.i.i.i.i = fneg float %sub.i.i.i.i.i.i.i.i.i
+  %fneg.i.i.i.i.i.i.i.i.i = select i1 %111, float 0xC7EFFFFFE0000000, float %sub.neg.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i.i.i.i.i.i.i.i.i)
   store <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i.i.i.i.i, ptr %retval.i.i.i.i.i.i.i.i.i.i.i, align 8
   store <2 x float> %seg.sroa.13.0.copyload.i.i.i.i.i.i.i.i.i, ptr %seg.sroa.13.8.retval.i.i.sroa_idx.i.i.i.i.i.i.i.i.i, align 8
@@ -11323,7 +11323,7 @@ for.body.i.i30.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i30.i.i.
   %indvars.iv.i.i31.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %invoke.cont18.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i32.i.i.i.i.i.i.i.i.i, %for.body.i.i30.i.i.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %retval.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i31.i.i.i.i.i.i.i.i.i
   %112 = load float, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %mul.i.i.i.i.i.i.i.i.i.i.i = fmul float %112, %fneg.i.i.i.i.i.i.i.i.i
+  %mul.i.i.i.i.i.i.i.i.i.i.i = fmul float %fneg.i.i.i.i.i.i.i.i.i, %112
   store float %mul.i.i.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i32.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i31.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i33.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i32.i.i.i.i.i.i.i.i.i, 4
@@ -11546,8 +11546,8 @@ invoke.cont104.i.i.i.i.i.i.i.i.i:                 ; preds = %invoke.cont53.i.i.i
   %sub103.i.i.i.i.i.i.i.i.i = fsub float %seg.sroa.4.0.copyload.i.i.i.i.i.i.i.i.i, %tMin39.0.i.i.i.i.i.i.i.i.i
   %142 = call float @llvm.fabs.f32(float %sub103.i.i.i.i.i.i.i.i.i)
   %143 = fcmp oeq float %142, 0x7FF0000000000000
-  %dt99.0.i.i.i.i.i.i.i.i.i = select i1 %143, float 0x47EFFFFFE0000000, float %sub103.i.i.i.i.i.i.i.i.i
-  %fneg111.i.i.i.i.i.i.i.i.i = fneg float %dt99.0.i.i.i.i.i.i.i.i.i
+  %sub103.neg.i.i.i.i.i.i.i.i.i = fneg float %sub103.i.i.i.i.i.i.i.i.i
+  %fneg111.i.i.i.i.i.i.i.i.i = select i1 %143, float 0xC7EFFFFFE0000000, float %sub103.neg.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i158.i.i.i.i.i.i.i.i.i)
   store <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i.i.i.i.i, ptr %retval.i.i158.i.i.i.i.i.i.i.i.i, align 8
   store <2 x float> %seg.sroa.13.0.copyload.i.i.i.i.i.i.i.i.i, ptr %seg.sroa.13.8.retval.i.i158.sroa_idx.i.i.i.i.i.i.i.i.i, align 8
@@ -11557,7 +11557,7 @@ for.body.i.i159.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i159.i.i
   %indvars.iv.i.i160.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %invoke.cont104.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i163.i.i.i.i.i.i.i.i.i, %for.body.i.i159.i.i.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i161.i.i.i.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %retval.i.i158.i.i.i.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i160.i.i.i.i.i.i.i.i.i
   %144 = load float, ptr %arrayidx.i.i.i161.i.i.i.i.i.i.i.i.i, align 4
-  %mul.i.i162.i.i.i.i.i.i.i.i.i = fmul float %144, %fneg111.i.i.i.i.i.i.i.i.i
+  %mul.i.i162.i.i.i.i.i.i.i.i.i = fmul float %fneg111.i.i.i.i.i.i.i.i.i, %144
   store float %mul.i.i162.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i161.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i163.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i160.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i164.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i163.i.i.i.i.i.i.i.i.i, 4
@@ -11748,8 +11748,8 @@ invoke.cont17.i.i.i.i.i.i.i.i.i:                  ; preds = %invoke.cont.i.i.i.i
   %sub.i.i88.i.i.i.i.i.i.i = fsub float %162, %163
   %164 = call float @llvm.fabs.f32(float %sub.i.i88.i.i.i.i.i.i.i)
   %165 = fcmp oeq float %164, 0x7FF0000000000000
-  %dt.0.i.i89.i.i.i.i.i.i.i = select i1 %165, float 0x47EFFFFFE0000000, float %sub.i.i88.i.i.i.i.i.i.i
-  %fneg.i.i90.i.i.i.i.i.i.i = fneg float %dt.0.i.i89.i.i.i.i.i.i.i
+  %sub.neg.i.i89.i.i.i.i.i.i.i = fneg float %sub.i.i88.i.i.i.i.i.i.i
+  %fneg.i.i90.i.i.i.i.i.i.i = select i1 %165, float 0xC7EFFFFFE0000000, float %sub.neg.i.i89.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i.i11.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i11.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %sigma_maj.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
   br label %for.body.i.i29.i.i.i.i.i.i.i.i.i
@@ -11758,7 +11758,7 @@ for.body.i.i29.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i29.i.i.
   %indvars.iv.i.i30.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %invoke.cont17.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i31.i.i.i.i.i.i.i.i.i, %for.body.i.i29.i.i.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i91.i.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %retval.i.i.i.i11.i.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i30.i.i.i.i.i.i.i.i.i
   %166 = load float, ptr %arrayidx.i.i.i.i.i91.i.i.i.i.i.i.i, align 4
-  %mul.i.i.i.i92.i.i.i.i.i.i.i = fmul float %166, %fneg.i.i90.i.i.i.i.i.i.i
+  %mul.i.i.i.i92.i.i.i.i.i.i.i = fmul float %fneg.i.i90.i.i.i.i.i.i.i, %166
   store float %mul.i.i.i.i92.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i91.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i31.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i30.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i32.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i31.i.i.i.i.i.i.i.i.i, 4
@@ -12007,8 +12007,8 @@ invoke.cont103.i.i.i.i.i.i.i.i.i:                 ; preds = %invoke.cont52.i.i.i
   %sub102.i.i.i.i.i.i.i.i.i = fsub float %184, %tMin38.0240.i.i.i.i.i.i.i.i.i
   %202 = call float @llvm.fabs.f32(float %sub102.i.i.i.i.i.i.i.i.i)
   %203 = fcmp oeq float %202, 0x7FF0000000000000
-  %dt98.0.i.i.i.i.i.i.i.i.i = select i1 %203, float 0x47EFFFFFE0000000, float %sub102.i.i.i.i.i.i.i.i.i
-  %fneg110.i.i.i.i.i.i.i.i.i = fneg float %dt98.0.i.i.i.i.i.i.i.i.i
+  %sub102.neg.i.i.i.i.i.i.i.i.i = fneg float %sub102.i.i.i.i.i.i.i.i.i
+  %fneg110.i.i.i.i.i.i.i.i.i = select i1 %203, float 0xC7EFFFFFE0000000, float %sub102.neg.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i157.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i157.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %sigma_maj.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
   br label %for.body.i.i158.i.i.i.i.i.i.i.i.i
@@ -12017,7 +12017,7 @@ for.body.i.i158.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i158.i.i
   %indvars.iv.i.i159.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %invoke.cont103.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i162.i.i.i.i.i.i.i.i.i, %for.body.i.i158.i.i.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i160.i.i.i.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %retval.i.i157.i.i.i.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i159.i.i.i.i.i.i.i.i.i
   %204 = load float, ptr %arrayidx.i.i.i160.i.i.i.i.i.i.i.i.i, align 4
-  %mul.i.i161.i.i.i.i.i.i.i.i.i = fmul float %204, %fneg110.i.i.i.i.i.i.i.i.i
+  %mul.i.i161.i.i.i.i.i.i.i.i.i = fmul float %fneg110.i.i.i.i.i.i.i.i.i, %204
   store float %mul.i.i161.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i160.i.i.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i162.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i159.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i163.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i162.i.i.i.i.i.i.i.i.i, 4
@@ -12218,8 +12218,8 @@ invoke.cont17.i.i349.i.i.i.i.i.i.i:               ; preds = %invoke.cont.i.i210.
   %sub.i.i350.i.i.i.i.i.i.i = fsub float %223, %224
   %225 = call float @llvm.fabs.f32(float %sub.i.i350.i.i.i.i.i.i.i)
   %226 = fcmp oeq float %225, 0x7FF0000000000000
-  %dt.0.i.i351.i.i.i.i.i.i.i = select i1 %226, float 0x47EFFFFFE0000000, float %sub.i.i350.i.i.i.i.i.i.i
-  %fneg.i.i352.i.i.i.i.i.i.i = fneg float %dt.0.i.i351.i.i.i.i.i.i.i
+  %sub.neg.i.i351.i.i.i.i.i.i.i = fneg float %sub.i.i350.i.i.i.i.i.i.i
+  %fneg.i.i352.i.i.i.i.i.i.i = select i1 %226, float 0xC7EFFFFFE0000000, float %sub.neg.i.i351.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i.i122.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i122.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %sigma_maj.i.i178.i.i.i.i.i.i.i, i64 16, i1 false)
   br label %for.body.i.i29.i.i353.i.i.i.i.i.i.i
@@ -12228,7 +12228,7 @@ for.body.i.i29.i.i353.i.i.i.i.i.i.i:              ; preds = %for.body.i.i29.i.i3
   %indvars.iv.i.i30.i.i354.i.i.i.i.i.i.i = phi i64 [ 0, %invoke.cont17.i.i349.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i31.i.i357.i.i.i.i.i.i.i, %for.body.i.i29.i.i353.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i355.i.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %retval.i.i.i.i122.i.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i30.i.i354.i.i.i.i.i.i.i
   %227 = load float, ptr %arrayidx.i.i.i.i.i355.i.i.i.i.i.i.i, align 4
-  %mul.i.i.i.i356.i.i.i.i.i.i.i = fmul float %227, %fneg.i.i352.i.i.i.i.i.i.i
+  %mul.i.i.i.i356.i.i.i.i.i.i.i = fmul float %fneg.i.i352.i.i.i.i.i.i.i, %227
   store float %mul.i.i.i.i356.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i355.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i31.i.i357.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i30.i.i354.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i32.i.i358.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i31.i.i357.i.i.i.i.i.i.i, 4
@@ -12473,8 +12473,8 @@ invoke.cont103.i.i234.i.i.i.i.i.i.i:              ; preds = %invoke.cont52.i.i23
   %sub102.i.i235.i.i.i.i.i.i.i = fsub float %245, %tMin38.0240.i.i215.i.i.i.i.i.i.i
   %263 = call float @llvm.fabs.f32(float %sub102.i.i235.i.i.i.i.i.i.i)
   %264 = fcmp oeq float %263, 0x7FF0000000000000
-  %dt98.0.i.i236.i.i.i.i.i.i.i = select i1 %264, float 0x47EFFFFFE0000000, float %sub102.i.i235.i.i.i.i.i.i.i
-  %fneg110.i.i237.i.i.i.i.i.i.i = fneg float %dt98.0.i.i236.i.i.i.i.i.i.i
+  %sub102.neg.i.i236.i.i.i.i.i.i.i = fneg float %sub102.i.i235.i.i.i.i.i.i.i
+  %fneg110.i.i237.i.i.i.i.i.i.i = select i1 %264, float 0xC7EFFFFFE0000000, float %sub102.neg.i.i236.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i157.i.i118.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i157.i.i118.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %sigma_maj.i.i178.i.i.i.i.i.i.i, i64 16, i1 false)
   br label %for.body.i.i158.i.i238.i.i.i.i.i.i.i
@@ -12483,7 +12483,7 @@ for.body.i.i158.i.i238.i.i.i.i.i.i.i:             ; preds = %for.body.i.i158.i.i
   %indvars.iv.i.i159.i.i239.i.i.i.i.i.i.i = phi i64 [ 0, %invoke.cont103.i.i234.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i162.i.i242.i.i.i.i.i.i.i, %for.body.i.i158.i.i238.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i160.i.i240.i.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %retval.i.i157.i.i118.i.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i159.i.i239.i.i.i.i.i.i.i
   %265 = load float, ptr %arrayidx.i.i.i160.i.i240.i.i.i.i.i.i.i, align 4
-  %mul.i.i161.i.i241.i.i.i.i.i.i.i = fmul float %265, %fneg110.i.i237.i.i.i.i.i.i.i
+  %mul.i.i161.i.i241.i.i.i.i.i.i.i = fmul float %fneg110.i.i237.i.i.i.i.i.i.i, %265
   store float %mul.i.i161.i.i241.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i160.i.i240.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i162.i.i242.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i159.i.i239.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i163.i.i243.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i162.i.i242.i.i.i.i.i.i.i, 4
@@ -12677,8 +12677,8 @@ invoke.cont17.i.i625.i.i.i.i.i.i.i:               ; preds = %invoke.cont.i.i477.
   %sub.i.i626.i.i.i.i.i.i.i = fsub float %seg.sroa.4.0.copyload.i.i480.i.i.i.i.i.i.i, %seg.sroa.0.0.copyload.i.i479.i.i.i.i.i.i.i
   %283 = call float @llvm.fabs.f32(float %sub.i.i626.i.i.i.i.i.i.i)
   %284 = fcmp oeq float %283, 0x7FF0000000000000
-  %dt.0.i.i627.i.i.i.i.i.i.i = select i1 %284, float 0x47EFFFFFE0000000, float %sub.i.i626.i.i.i.i.i.i.i
-  %fneg.i.i628.i.i.i.i.i.i.i = fneg float %dt.0.i.i627.i.i.i.i.i.i.i
+  %sub.neg.i.i627.i.i.i.i.i.i.i = fneg float %sub.i.i626.i.i.i.i.i.i.i
+  %fneg.i.i628.i.i.i.i.i.i.i = select i1 %284, float 0xC7EFFFFFE0000000, float %sub.neg.i.i627.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i.i406.i.i.i.i.i.i.i)
   store <2 x float> %seg.sroa.7.0.copyload.i.i481.i.i.i.i.i.i.i, ptr %retval.i.i.i.i406.i.i.i.i.i.i.i, align 8
   store <2 x float> %seg.sroa.13.0.copyload.i.i482.i.i.i.i.i.i.i, ptr %seg.sroa.13.8.retval.i.i.sroa_idx.i.i474.i.i.i.i.i.i.i, align 8
@@ -12688,7 +12688,7 @@ for.body.i.i30.i.i629.i.i.i.i.i.i.i:              ; preds = %for.body.i.i30.i.i6
   %indvars.iv.i.i31.i.i630.i.i.i.i.i.i.i = phi i64 [ 0, %invoke.cont17.i.i625.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i32.i.i633.i.i.i.i.i.i.i, %for.body.i.i30.i.i629.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i631.i.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %retval.i.i.i.i406.i.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i31.i.i630.i.i.i.i.i.i.i
   %285 = load float, ptr %arrayidx.i.i.i.i.i631.i.i.i.i.i.i.i, align 4
-  %mul.i.i.i.i632.i.i.i.i.i.i.i = fmul float %285, %fneg.i.i628.i.i.i.i.i.i.i
+  %mul.i.i.i.i632.i.i.i.i.i.i.i = fmul float %fneg.i.i628.i.i.i.i.i.i.i, %285
   store float %mul.i.i.i.i632.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i631.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i32.i.i633.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i31.i.i630.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i33.i.i634.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i32.i.i633.i.i.i.i.i.i.i, 4
@@ -12911,8 +12911,8 @@ invoke.cont103.i.i502.i.i.i.i.i.i.i:              ; preds = %invoke.cont52.i.i48
   %sub102.i.i503.i.i.i.i.i.i.i = fsub float %seg.sroa.4.0.copyload.i.i480.i.i.i.i.i.i.i, %tMin38.0.i.i.i.i.i.i.i.i.i
   %315 = call float @llvm.fabs.f32(float %sub102.i.i503.i.i.i.i.i.i.i)
   %316 = fcmp oeq float %315, 0x7FF0000000000000
-  %dt98.0.i.i504.i.i.i.i.i.i.i = select i1 %316, float 0x47EFFFFFE0000000, float %sub102.i.i503.i.i.i.i.i.i.i
-  %fneg110.i.i505.i.i.i.i.i.i.i = fneg float %dt98.0.i.i504.i.i.i.i.i.i.i
+  %sub102.neg.i.i504.i.i.i.i.i.i.i = fneg float %sub102.i.i503.i.i.i.i.i.i.i
+  %fneg110.i.i505.i.i.i.i.i.i.i = select i1 %316, float 0xC7EFFFFFE0000000, float %sub102.neg.i.i504.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i158.i.i402.i.i.i.i.i.i.i)
   store <2 x float> %seg.sroa.7.0.copyload.i.i481.i.i.i.i.i.i.i, ptr %retval.i.i158.i.i402.i.i.i.i.i.i.i, align 8
   store <2 x float> %seg.sroa.13.0.copyload.i.i482.i.i.i.i.i.i.i, ptr %seg.sroa.13.8.retval.i.i158.sroa_idx.i.i472.i.i.i.i.i.i.i, align 8
@@ -12922,7 +12922,7 @@ for.body.i.i159.i.i506.i.i.i.i.i.i.i:             ; preds = %for.body.i.i159.i.i
   %indvars.iv.i.i160.i.i507.i.i.i.i.i.i.i = phi i64 [ 0, %invoke.cont103.i.i502.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i163.i.i510.i.i.i.i.i.i.i, %for.body.i.i159.i.i506.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i161.i.i508.i.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %retval.i.i158.i.i402.i.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i160.i.i507.i.i.i.i.i.i.i
   %317 = load float, ptr %arrayidx.i.i.i161.i.i508.i.i.i.i.i.i.i, align 4
-  %mul.i.i162.i.i509.i.i.i.i.i.i.i = fmul float %317, %fneg110.i.i505.i.i.i.i.i.i.i
+  %mul.i.i162.i.i509.i.i.i.i.i.i.i = fmul float %fneg110.i.i505.i.i.i.i.i.i.i, %317
   store float %mul.i.i162.i.i509.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i161.i.i508.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i163.i.i510.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i160.i.i507.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i164.i.i511.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i163.i.i510.i.i.i.i.i.i.i, 4
@@ -13113,8 +13113,8 @@ invoke.cont17.i.i902.i.i.i.i.i.i.i:               ; preds = %invoke.cont.i.i763.
   %sub.i.i903.i.i.i.i.i.i.i = fsub float %335, %336
   %337 = call float @llvm.fabs.f32(float %sub.i.i903.i.i.i.i.i.i.i)
   %338 = fcmp oeq float %337, 0x7FF0000000000000
-  %dt.0.i.i904.i.i.i.i.i.i.i = select i1 %338, float 0x47EFFFFFE0000000, float %sub.i.i903.i.i.i.i.i.i.i
-  %fneg.i.i905.i.i.i.i.i.i.i = fneg float %dt.0.i.i904.i.i.i.i.i.i.i
+  %sub.neg.i.i904.i.i.i.i.i.i.i = fneg float %sub.i.i903.i.i.i.i.i.i.i
+  %fneg.i.i905.i.i.i.i.i.i.i = select i1 %338, float 0xC7EFFFFFE0000000, float %sub.neg.i.i904.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i.i675.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i675.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %sigma_maj.i.i731.i.i.i.i.i.i.i, i64 16, i1 false)
   br label %for.body.i.i29.i.i906.i.i.i.i.i.i.i
@@ -13123,7 +13123,7 @@ for.body.i.i29.i.i906.i.i.i.i.i.i.i:              ; preds = %for.body.i.i29.i.i9
   %indvars.iv.i.i30.i.i907.i.i.i.i.i.i.i = phi i64 [ 0, %invoke.cont17.i.i902.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i31.i.i910.i.i.i.i.i.i.i, %for.body.i.i29.i.i906.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i908.i.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %retval.i.i.i.i675.i.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i30.i.i907.i.i.i.i.i.i.i
   %339 = load float, ptr %arrayidx.i.i.i.i.i908.i.i.i.i.i.i.i, align 4
-  %mul.i.i.i.i909.i.i.i.i.i.i.i = fmul float %339, %fneg.i.i905.i.i.i.i.i.i.i
+  %mul.i.i.i.i909.i.i.i.i.i.i.i = fmul float %fneg.i.i905.i.i.i.i.i.i.i, %339
   store float %mul.i.i.i.i909.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i908.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i31.i.i910.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i30.i.i907.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i32.i.i911.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i31.i.i910.i.i.i.i.i.i.i, 4
@@ -13368,8 +13368,8 @@ invoke.cont103.i.i787.i.i.i.i.i.i.i:              ; preds = %invoke.cont52.i.i78
   %sub102.i.i788.i.i.i.i.i.i.i = fsub float %357, %tMin38.0240.i.i768.i.i.i.i.i.i.i
   %375 = call float @llvm.fabs.f32(float %sub102.i.i788.i.i.i.i.i.i.i)
   %376 = fcmp oeq float %375, 0x7FF0000000000000
-  %dt98.0.i.i789.i.i.i.i.i.i.i = select i1 %376, float 0x47EFFFFFE0000000, float %sub102.i.i788.i.i.i.i.i.i.i
-  %fneg110.i.i790.i.i.i.i.i.i.i = fneg float %dt98.0.i.i789.i.i.i.i.i.i.i
+  %sub102.neg.i.i789.i.i.i.i.i.i.i = fneg float %sub102.i.i788.i.i.i.i.i.i.i
+  %fneg110.i.i790.i.i.i.i.i.i.i = select i1 %376, float 0xC7EFFFFFE0000000, float %sub102.neg.i.i789.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i157.i.i671.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i157.i.i671.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %sigma_maj.i.i731.i.i.i.i.i.i.i, i64 16, i1 false)
   br label %for.body.i.i158.i.i791.i.i.i.i.i.i.i
@@ -13378,7 +13378,7 @@ for.body.i.i158.i.i791.i.i.i.i.i.i.i:             ; preds = %for.body.i.i158.i.i
   %indvars.iv.i.i159.i.i792.i.i.i.i.i.i.i = phi i64 [ 0, %invoke.cont103.i.i787.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i162.i.i795.i.i.i.i.i.i.i, %for.body.i.i158.i.i791.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i160.i.i793.i.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %retval.i.i157.i.i671.i.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i159.i.i792.i.i.i.i.i.i.i
   %377 = load float, ptr %arrayidx.i.i.i160.i.i793.i.i.i.i.i.i.i, align 4
-  %mul.i.i161.i.i794.i.i.i.i.i.i.i = fmul float %377, %fneg110.i.i790.i.i.i.i.i.i.i
+  %mul.i.i161.i.i794.i.i.i.i.i.i.i = fmul float %fneg110.i.i790.i.i.i.i.i.i.i, %377
   store float %mul.i.i161.i.i794.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i160.i.i793.i.i.i.i.i.i.i, align 4
   %indvars.iv.next.i.i162.i.i795.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i159.i.i792.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i163.i.i796.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i162.i.i795.i.i.i.i.i.i.i, 4

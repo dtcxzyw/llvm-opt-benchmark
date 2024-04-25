@@ -136,7 +136,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %invIB = getelementptr inbounds i8, ptr %add.ptr, i64 132
   store float %29, ptr %invIB, align 4
   %contactIndex = getelementptr inbounds i8, ptr %add.ptr, i64 156
-  %30 = trunc i64 %indvars.iv87 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv87 to i32
   store i32 %30, ptr %contactIndex, align 4
   %pointCount25 = getelementptr inbounds i8, ptr %add.ptr, i64 152
   store i32 %18, ptr %pointCount25, align 4
@@ -1469,8 +1469,8 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   %cmp.i.i = fcmp olt float %mul, 0.000000e+00
   %cond.i.i = select i1 %cmp.i.i, float %mul, float 0.000000e+00
   %cmp.i1.i = fcmp olt float %cond.i.i, 0xBFC99999A0000000
-  %cond.i2.i = select i1 %cmp.i1.i, float 0xBFC99999A0000000, float %cond.i.i
-  %fneg = fneg float %cond.i2.i
+  %cond.i.i.neg = fneg float %cond.i.i
+  %fneg = select i1 %cmp.i1.i, float 0x3FC99999A0000000, float %cond.i.i.neg
   %58 = load <2 x float>, ptr %psm, align 16
   %59 = extractelement <2 x float> %58, i64 1
   %60 = shufflevector <4 x float> %56, <4 x float> poison, <2 x i32> <i32 2, i32 2>
@@ -1934,8 +1934,8 @@ for.body27:                                       ; preds = %for.body27.lr.ph, %
   %cmp.i.i = fcmp olt float %mul, 0.000000e+00
   %cond.i.i = select i1 %cmp.i.i, float %mul, float 0.000000e+00
   %cmp.i1.i = fcmp olt float %cond.i.i, 0xBFC99999A0000000
-  %cond.i2.i = select i1 %cmp.i1.i, float 0xBFC99999A0000000, float %cond.i.i
-  %fneg = fneg float %cond.i2.i
+  %cond.i.i.neg = fneg float %cond.i.i
+  %fneg = select i1 %cmp.i1.i, float 0x3FC99999A0000000, float %cond.i.i.neg
   %58 = load <2 x float>, ptr %psm, align 16
   %59 = extractelement <2 x float> %58, i64 1
   %60 = shufflevector <4 x float> %56, <4 x float> poison, <2 x i32> <i32 2, i32 2>

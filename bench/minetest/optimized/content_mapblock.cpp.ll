@@ -9171,26 +9171,22 @@ if.then4.1.i:                                     ; preds = %cleanup.i
 _ZN21MapblockMeshGenerator14getSpecialTileEiP8TileSpecb.exit: ; preds = %if.then4.1.i, %cleanup.i
   %68 = load <4 x i8>, ptr %nb, align 16, !tbaa !64
   %69 = icmp eq <4 x i8> %68, zeroinitializer
-  %70 = extractelement <4 x i1> %69, i64 3
-  %cond211 = select nsz i1 %70, float 0x4011851EC0000000, float 0x4013E147A0000000
-  %fneg212 = fneg nsz float %cond211
-  %71 = extractelement <4 x i1> %69, i64 2
-  %cond215 = select nsz i1 %71, float 0x4011851EC0000000, float 0x4013E147A0000000
-  %72 = extractelement <4 x i1> %69, i64 1
-  %cond218 = select nsz i1 %72, float 0x4011851EC0000000, float 0x4013E147A0000000
+  %70 = extractelement <4 x i1> %69, i64 1
+  %cond218 = select nsz i1 %70, float 0x4011851EC0000000, float 0x4013E147A0000000
   %mul = fmul nsz float %62, %cond218
-  %73 = extractelement <4 x i1> %69, i64 0
-  %cond221 = select nsz i1 %73, float 0x4011851EC0000000, float 0x4013E147A0000000
-  %74 = load <2 x i8>, ptr %arrayidx115.2, align 4, !tbaa !64
-  %75 = icmp eq <2 x i8> %74, zeroinitializer
-  %76 = select <2 x i1> %75, <2 x float> <float 0x4011851EC0000000, float 0x4011851EC0000000>, <2 x float> <float 0x4013E147A0000000, float 0x4013E147A0000000>
-  %77 = shufflevector <2 x float> %76, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %78 = fneg nsz <2 x float> %77
-  store <2 x float> %78, ptr %agg.tmp201, align 8, !tbaa !49
+  %71 = extractelement <4 x i1> %69, i64 0
+  %cond221 = select nsz i1 %71, float 0x4011851EC0000000, float 0x4013E147A0000000
+  %72 = load <2 x i8>, ptr %arrayidx115.2, align 4, !tbaa !64
+  %73 = icmp eq <2 x i8> %72, zeroinitializer
+  %74 = select <2 x i1> %73, <2 x float> <float 0x4011851EC0000000, float 0x4011851EC0000000>, <2 x float> <float 0x4013E147A0000000, float 0x4013E147A0000000>
+  %75 = shufflevector <2 x float> %74, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %76 = fneg nsz <2 x float> %75
+  store <2 x float> %76, ptr %agg.tmp201, align 8, !tbaa !49
   %Z.i.i = getelementptr inbounds i8, ptr %agg.tmp201, i64 8
-  store float %fneg212, ptr %Z.i.i, align 8, !tbaa !50
-  %MaxEdge.i = getelementptr inbounds i8, ptr %agg.tmp201, i64 12
-  store float %cond215, ptr %MaxEdge.i, align 4, !tbaa !107
+  %77 = shufflevector <4 x i1> %69, <4 x i1> poison, <2 x i32> <i32 2, i32 3>
+  %78 = select <2 x i1> %77, <2 x float> <float 0x4011851EC0000000, float 0xC011851EC0000000>, <2 x float> <float 0x4013E147A0000000, float 0xC013E147A0000000>
+  %79 = shufflevector <2 x float> %78, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x float> %79, ptr %Z.i.i, align 8, !tbaa !49
   %Y.i2.i = getelementptr inbounds i8, ptr %agg.tmp201, i64 16
   store float %mul, ptr %Y.i2.i, align 8, !tbaa !104
   %Z.i3.i = getelementptr inbounds i8, ptr %agg.tmp201, i64 20

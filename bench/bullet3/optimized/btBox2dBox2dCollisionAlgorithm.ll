@@ -634,8 +634,7 @@ for.body.lr.ph:                                   ; preds = %if.end86
   %retval.sroa.0.4.vec.insert.i187 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i186, float %mul.i.i.i, i64 1
   %manifoldNormal.sroa.0.0 = select i1 %cmp5, <2 x float> %frontNormal.sroa.0.4.vec.insert, <2 x float> %retval.sroa.0.4.vec.insert.i187
   %119 = fneg <2 x float> %manifoldNormal.sroa.0.0
-  %manifoldNormal.sroa.4.8.vec.extract = select i1 %cmp5, float 0.000000e+00, float -0.000000e+00
-  %fneg8.i200 = fneg float %manifoldNormal.sroa.4.8.vec.extract
+  %fneg8.i200 = select i1 %cmp5, float -0.000000e+00, float 0.000000e+00
   %retval.sroa.3.12.vec.insert.i203 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg8.i200, i64 0
   %120 = getelementptr inbounds i8, ptr %ref.tmp99, i64 8
   br label %for.body

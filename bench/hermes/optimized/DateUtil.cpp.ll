@@ -536,8 +536,7 @@ if.end:                                           ; preds = %entry
   %tm_isdst = getelementptr inbounds i8, ptr %call1, i64 32
   %1 = load i32, ptr %tm_isdst, align 8
   %tobool4.not = icmp eq i32 %1, 0
-  %cond = select i1 %tobool4.not, double 0.000000e+00, double 3.600000e+06
-  %neg = fneg double %cond
+  %neg = select i1 %tobool4.not, double -0.000000e+00, double -3.600000e+06
   %2 = call double @llvm.fmuladd.f64(double %conv, double 1.000000e+03, double %neg)
   br label %return
 
@@ -702,8 +701,7 @@ if.end.i:                                         ; preds = %entry
   %tm_isdst.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   %1 = load i32, ptr %tm_isdst.i, align 8
   %tobool4.not.i = icmp eq i32 %1, 0
-  %cond.i = select i1 %tobool4.not.i, double 0.000000e+00, double 3.600000e+06
-  %neg.i = fneg double %cond.i
+  %neg.i = select i1 %tobool4.not.i, double -0.000000e+00, double -3.600000e+06
   %2 = call double @llvm.fmuladd.f64(double %conv.i, double 1.000000e+03, double %neg.i)
   br label %_ZN6hermes2vm8localTZAEv.exit
 
@@ -735,14 +733,14 @@ if.end11.i:                                       ; preds = %if.end5.i
   %tm_isdst.i4 = getelementptr inbounds i8, ptr %call8.i, i64 32
   %6 = load i32, ptr %tm_isdst.i4, align 8
   %tobool12.not.i = icmp eq i32 %6, 0
-  %cond.i5 = select i1 %tobool12.not.i, double 0.000000e+00, double 3.600000e+06
+  %cond.i = select i1 %tobool12.not.i, double 0.000000e+00, double 3.600000e+06
   br label %_ZN6hermes2vm16daylightSavingTAEd.exit
 
 _ZN6hermes2vm16daylightSavingTAEd.exit:           ; preds = %_ZN6hermes2vm8localTZAEv.exit, %if.end.i2, %if.end5.i, %if.end11.i
-  %retval.0.i6 = phi double [ %cond.i5, %if.end11.i ], [ 0x7FF8000000000000, %_ZN6hermes2vm8localTZAEv.exit ], [ 0x7FF8000000000000, %if.end.i2 ], [ 0x7FF8000000000000, %if.end5.i ]
+  %retval.0.i5 = phi double [ %cond.i, %if.end11.i ], [ 0x7FF8000000000000, %_ZN6hermes2vm8localTZAEv.exit ], [ 0x7FF8000000000000, %if.end.i2 ], [ 0x7FF8000000000000, %if.end5.i ]
   %add = fadd double %retval.0.i, %t
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local.i)
-  %add2 = fadd double %add, %retval.0.i6
+  %add2 = fadd double %add, %retval.0.i5
   ret double %add2
 }
 
@@ -768,8 +766,7 @@ if.end.i:                                         ; preds = %entry
   %tm_isdst.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   %1 = load i32, ptr %tm_isdst.i, align 8
   %tobool4.not.i = icmp eq i32 %1, 0
-  %cond.i = select i1 %tobool4.not.i, double 0.000000e+00, double 3.600000e+06
-  %neg.i = fneg double %cond.i
+  %neg.i = select i1 %tobool4.not.i, double -0.000000e+00, double -3.600000e+06
   %2 = call double @llvm.fmuladd.f64(double %conv.i, double 1.000000e+03, double %neg.i)
   br label %_ZN6hermes2vm8localTZAEv.exit
 
@@ -803,13 +800,13 @@ if.end11.i:                                       ; preds = %if.end5.i
   %tm_isdst.i5 = getelementptr inbounds i8, ptr %call8.i, i64 32
   %6 = load i32, ptr %tm_isdst.i5, align 8
   %tobool12.not.i = icmp eq i32 %6, 0
-  %cond.i6 = select i1 %tobool12.not.i, double 0.000000e+00, double 3.600000e+06
+  %cond.i = select i1 %tobool12.not.i, double 0.000000e+00, double 3.600000e+06
   br label %_ZN6hermes2vm16daylightSavingTAEd.exit
 
 _ZN6hermes2vm16daylightSavingTAEd.exit:           ; preds = %_ZN6hermes2vm8localTZAEv.exit, %if.end.i3, %if.end5.i, %if.end11.i
-  %retval.0.i7 = phi double [ %cond.i6, %if.end11.i ], [ 0x7FF8000000000000, %_ZN6hermes2vm8localTZAEv.exit ], [ 0x7FF8000000000000, %if.end.i3 ], [ 0x7FF8000000000000, %if.end5.i ]
+  %retval.0.i6 = phi double [ %cond.i, %if.end11.i ], [ 0x7FF8000000000000, %_ZN6hermes2vm8localTZAEv.exit ], [ 0x7FF8000000000000, %if.end.i3 ], [ 0x7FF8000000000000, %if.end5.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local.i)
-  %sub4 = fsub double %sub, %retval.0.i7
+  %sub4 = fsub double %sub, %retval.0.i6
   ret double %sub4
 }
 

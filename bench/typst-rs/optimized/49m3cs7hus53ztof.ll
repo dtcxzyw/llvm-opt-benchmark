@@ -61393,44 +61393,68 @@ define hidden { ptr, ptr } @"_ZN59_$LT$T$u20$as$u20$typst..foundations..styles..
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { double, double } @_ZN5typst6layout3pad6shrink17h6498975e9b98e485E(double noundef %0, double noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(64) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %4 = alloca { double, double, double, double }, align 16
+  %4 = alloca { double, double, double, double }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @"_ZN5typst6layout5sides67Sides$LT$typst..layout..rel..Rel$LT$typst..layout..abs..Abs$GT$$GT$11relative_to17hcd4a67a8051a9d2aE"(ptr noalias nocapture noundef nonnull sret({ double, double, double, double }) align 8 dereferenceable(32) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %2, double noundef %0, double noundef %1)
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
-  %6 = load <2 x double>, ptr %4, align 16, !alias.scope !9905
-  %7 = load <2 x double>, ptr %5, align 16, !alias.scope !9905
-  %8 = fadd <2 x double> %6, %7
-  %9 = bitcast <2 x double> %8 to <2 x i64>
-  %10 = and <2 x i64> %9, <i64 9218868437227405312, i64 9218868437227405312>
-  %11 = icmp eq <2 x i64> %10, <i64 9218868437227405312, i64 9218868437227405312>
-  %12 = and <2 x i64> %9, <i64 4503599627370495, i64 4503599627370495>
-  %13 = icmp ne <2 x i64> %12, zeroinitializer
-  %14 = and <2 x i1> %11, %13
-  %15 = select <2 x i1> %14, <2 x double> zeroinitializer, <2 x double> %8
+  %5 = load double, ptr %4, align 8, !alias.scope !9905, !noundef !16
+  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = load double, ptr %6, align 8, !alias.scope !9905, !noundef !16
+  %8 = fadd double %5, %7
+  %9 = bitcast double %8 to i64
+  %10 = and i64 %9, 9218868437227405312
+  %11 = icmp eq i64 %10, 9218868437227405312
+  %.mask.i.i.i.i.i = and i64 %9, 4503599627370495
+  %12 = icmp ne i64 %.mask.i.i.i.i.i, 0
+  %.0.i.i.i.i.i = and i1 %11, %12
+  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = load double, ptr %13, align 8, !alias.scope !9905, !noundef !16
+  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %16 = load double, ptr %15, align 8, !alias.scope !9905, !noundef !16
+  %17 = fadd double %14, %16
+  %18 = bitcast double %17 to i64
+  %19 = and i64 %18, 9218868437227405312
+  %20 = icmp eq i64 %19, 9218868437227405312
+  %.mask.i.i.i.i3.i = and i64 %18, 4503599627370495
+  %21 = icmp ne i64 %.mask.i.i.i.i3.i, 0
+  %.0.i.i.i.i4.i = and i1 %20, %21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %16 = fneg <2 x double> %15
-  %17 = bitcast <2 x double> %16 to <2 x i64>
-  %18 = and <2 x i64> %17, <i64 9218868437227405312, i64 9218868437227405312>
-  %19 = icmp eq <2 x i64> %18, <i64 9218868437227405312, i64 9218868437227405312>
-  %20 = and <2 x i64> %17, <i64 4503599627370495, i64 4503599627370495>
-  %21 = icmp ne <2 x i64> %20, zeroinitializer
-  %22 = and <2 x i1> %19, %21
-  %23 = select <2 x i1> %22, <2 x double> zeroinitializer, <2 x double> %16
-  %24 = insertelement <2 x double> poison, double %0, i64 0
-  %25 = insertelement <2 x double> %24, double %1, i64 1
-  %26 = fadd <2 x double> %23, %25
-  %27 = bitcast <2 x double> %26 to <2 x i64>
-  %28 = and <2 x i64> %27, <i64 9218868437227405312, i64 9218868437227405312>
-  %29 = icmp eq <2 x i64> %28, <i64 9218868437227405312, i64 9218868437227405312>
-  %30 = and <2 x i64> %27, <i64 4503599627370495, i64 4503599627370495>
-  %31 = icmp ne <2 x i64> %30, zeroinitializer
-  %32 = and <2 x i1> %29, %31
-  %33 = select <2 x i1> %32, <2 x double> zeroinitializer, <2 x double> %26
-  %34 = extractelement <2 x double> %33, i64 0
-  %35 = insertvalue { double, double } poison, double %34, 0
-  %36 = extractelement <2 x double> %33, i64 1
-  %37 = insertvalue { double, double } %35, double %36, 1
-  ret { double, double } %37
+  %.neg = fneg double %8
+  %22 = select i1 %.0.i.i.i.i.i, double -0.000000e+00, double %.neg
+  %23 = bitcast double %22 to i64
+  %24 = and i64 %23, 9218868437227405312
+  %25 = icmp eq i64 %24, 9218868437227405312
+  %.mask.i.i.i.i.i.i = and i64 %23, 4503599627370495
+  %26 = icmp ne i64 %.mask.i.i.i.i.i.i, 0
+  %.0.i.i.i.i.i.i = and i1 %25, %26
+  %.0.i.i.i.i.i1 = select i1 %.0.i.i.i.i.i.i, double 0.000000e+00, double %22
+  %.neg2 = fneg double %17
+  %27 = select i1 %.0.i.i.i.i4.i, double -0.000000e+00, double %.neg2
+  %28 = bitcast double %27 to i64
+  %29 = and i64 %28, 9218868437227405312
+  %30 = icmp eq i64 %29, 9218868437227405312
+  %.mask.i.i.i.i1.i.i = and i64 %28, 4503599627370495
+  %31 = icmp ne i64 %.mask.i.i.i.i1.i.i, 0
+  %.0.i.i.i.i2.i.i = and i1 %30, %31
+  %.0.i.i.i3.i.i = select i1 %.0.i.i.i.i2.i.i, double 0.000000e+00, double %27
+  %32 = fadd double %.0.i.i.i.i.i1, %0
+  %33 = bitcast double %32 to i64
+  %34 = and i64 %33, 9218868437227405312
+  %35 = icmp eq i64 %34, 9218868437227405312
+  %.mask.i.i.i.i.i1.i = and i64 %33, 4503599627370495
+  %36 = icmp ne i64 %.mask.i.i.i.i.i1.i, 0
+  %.0.i.i.i.i.i2.i = and i1 %35, %36
+  %.0.i.i.i.i3.i = select i1 %.0.i.i.i.i.i2.i, double 0.000000e+00, double %32
+  %37 = fadd double %.0.i.i.i3.i.i, %1
+  %38 = bitcast double %37 to i64
+  %39 = and i64 %38, 9218868437227405312
+  %40 = icmp eq i64 %39, 9218868437227405312
+  %.mask.i.i.i.i1.i4.i = and i64 %38, 4503599627370495
+  %41 = icmp ne i64 %.mask.i.i.i.i1.i4.i, 0
+  %.0.i.i.i.i2.i5.i = and i1 %40, %41
+  %.0.i.i.i3.i6.i = select i1 %.0.i.i.i.i2.i5.i, double 0.000000e+00, double %37
+  %42 = insertvalue { double, double } poison, double %.0.i.i.i.i3.i, 0
+  %43 = insertvalue { double, double } %42, double %.0.i.i.i3.i6.i, 1
+  ret { double, double } %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

@@ -28216,15 +28216,16 @@ GetCameraForward.exit:
   %.sroa.617.0.i.i = select i1 %10, float %15, float %4
   %16 = fadd float %sqrt.i, %1
   %17 = fcmp ugt float %16, 0.000000e+00
-  %.0 = select i1 %17, float %16, float 0x3F50624DE0000000
-  %18 = insertelement <2 x float> poison, float %.0, i64 0
-  %19 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> zeroinitializer
-  %20 = fmul <2 x float> %19, %.sroa.013.0.i.i
-  %21 = fsub <2 x float> %.sroa.021.0.copyload, %20
-  %22 = fmul float %.0, %.sroa.617.0.i.i
-  %23 = fsub float %.sroa.222.0.copyload, %22
-  store <2 x float> %21, ptr %0, align 4
-  store float %23, ptr %.sroa.224.0..sroa_idx, align 4
+  %.neg = fneg float %16
+  %18 = select i1 %17, float %.neg, float 0xBF50624DE0000000
+  %19 = fmul float %18, %.sroa.617.0.i.i
+  %20 = insertelement <2 x float> poison, float %18, i64 0
+  %21 = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> zeroinitializer
+  %22 = fmul <2 x float> %21, %.sroa.013.0.i.i
+  %23 = fadd <2 x float> %.sroa.021.0.copyload, %22
+  %24 = fadd float %.sroa.222.0.copyload, %19
+  store <2 x float> %23, ptr %0, align 4
+  store float %24, ptr %.sroa.224.0..sroa_idx, align 4
   ret void
 }
 
@@ -28975,27 +28976,27 @@ define void @UpdateCamera(ptr noundef %0, i32 noundef %1) local_unnamed_addr #30
   %30 = fmul <2 x float> %.sroa.03.0.copyload.i, %29
   %31 = fmul float %.sroa.24.0.copyload.i, %27
   %32 = fmul <2 x float> %30, %30
-  %.pre868 = extractelement <2 x float> %32, i64 1
+  %.pre867 = extractelement <2 x float> %32, i64 1
   %33 = extractelement <2 x float> %30, i64 0
-  %.pre869 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %.pre868)
-  %.pre871 = tail call float @llvm.fmuladd.f32(float %31, float %31, float %.pre869)
+  %.pre868 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %.pre867)
+  %.pre870 = tail call float @llvm.fmuladd.f32(float %31, float %31, float %.pre868)
   br label %GetCameraUp.exit
 
 GetCameraUp.exit:                                 ; preds = %18, %26
-  %.pre-phi872 = phi float [ %24, %18 ], [ %.pre871, %26 ]
-  %.pre-phi = phi float [ %21, %18 ], [ %.pre868, %26 ]
+  %.pre-phi871 = phi float [ %24, %18 ], [ %.pre870, %26 ]
+  %.pre-phi = phi float [ %21, %18 ], [ %.pre867, %26 ]
   %.sroa.617.0.i.i = phi float [ %.sroa.24.0.copyload.i, %18 ], [ %31, %26 ]
   %34 = phi <2 x float> [ %.sroa.03.0.copyload.i, %18 ], [ %30, %26 ]
   %35 = load double, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 4), align 8
   %36 = fptrunc double %35 to float
   %37 = fmul float %36, 5.000000e-01
-  %38 = fcmp une float %.pre-phi872, 1.000000e+00
-  %39 = fcmp une float %.pre-phi872, 0.000000e+00
+  %38 = fcmp une float %.pre-phi871, 1.000000e+00
+  %39 = fcmp une float %.pre-phi871, 0.000000e+00
   %or.cond.i = and i1 %38, %39
   br i1 %or.cond.i, label %40, label %MatrixRotate.exit
 
 40:                                               ; preds = %GetCameraUp.exit
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %.pre-phi872)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %.pre-phi871)
   %41 = fdiv float 1.000000e+00, %sqrt.i
   %42 = insertelement <2 x float> poison, float %41, i64 0
   %43 = shufflevector <2 x float> %42, <2 x float> poison, <2 x i32> zeroinitializer
@@ -29285,8 +29286,8 @@ GetCameraUp.exit.i138:                            ; preds = %192, %183
   %241 = fadd float %202, %237
   %242 = fadd <2 x float> %240, %238
   %243 = fadd float %241, %239
-  %cond873 = icmp eq i32 %1, 4
-  br i1 %cond873, label %244, label %247
+  %cond872 = icmp eq i32 %1, 4
+  br i1 %cond872, label %244, label %247
 
 244:                                              ; preds = %GetCameraUp.exit.i138
   %245 = fsub <2 x float> %.sroa.033.0.copyload.i143, %242
@@ -29851,8 +29852,8 @@ GetCameraUp.exit.i314:                            ; preds = %549, %539
   %606 = fadd float %559, %602
   %607 = fadd <2 x float> %605, %603
   %608 = fadd float %606, %604
-  %cond875 = icmp eq i32 %1, 4
-  br i1 %cond875, label %609, label %612
+  %cond874 = icmp eq i32 %1, 4
+  br i1 %cond874, label %609, label %612
 
 609:                                              ; preds = %GetCameraUp.exit.i314
   %.sroa.013.0.copyload.i335 = load <2 x float>, ptr %558, align 4
@@ -30335,8 +30336,8 @@ GetCameraUp.exit.i522:                            ; preds = %815, %GetGamepadAxi
   %872 = fadd float %825, %868
   %873 = fadd <2 x float> %871, %869
   %874 = fadd float %872, %870
-  %cond874 = icmp eq i32 %1, 4
-  br i1 %cond874, label %875, label %878
+  %cond873 = icmp eq i32 %1, 4
+  br i1 %cond873, label %875, label %878
 
 875:                                              ; preds = %GetCameraUp.exit.i522
   %.sroa.013.0.copyload.i543 = load <2 x float>, ptr %824, align 4
@@ -30454,8 +30455,8 @@ GetGamepadAxisMovement.exit557.thread:            ; preds = %GetGamepadAxisMovem
   %929 = tail call float @llvm.fabs.f32(float %928)
   %930 = fcmp ule float %929, 0x3FB99999A0000000
   %931 = fcmp ugt float %928, -2.500000e-01
-  %or.cond852 = select i1 %930, i1 true, i1 %931
-  br i1 %or.cond852, label %GetGamepadAxisMovement.exit591.thread, label %GetCameraForward.exit.i.i605
+  %or.cond851 = select i1 %930, i1 true, i1 %931
+  br i1 %or.cond851, label %GetGamepadAxisMovement.exit591.thread, label %GetCameraForward.exit.i.i605
 
 GetCameraForward.exit.i.i605:                     ; preds = %927
   %.sroa.011.0.copyload.i.i.i592 = load <2 x float>, ptr %824, align 4
@@ -30559,11 +30560,11 @@ CameraMoveRight.exit642:                          ; preds = %GetCameraRight.exit
   %985 = fadd float %.sroa.212.0.copyload.i.i.i594, %980
   store <2 x float> %984, ptr %824, align 4
   store float %985, ptr %.sroa.234.0..sroa_idx.i528, align 4
-  %.pre859 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 0), align 4
+  %.pre858 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 0), align 4
   br label %GetGamepadAxisMovement.exit591.thread
 
 GetGamepadAxisMovement.exit591.thread:            ; preds = %GetGamepadAxisMovement.exit557.thread, %927, %CameraMoveRight.exit642
-  %986 = phi i8 [ %925, %GetGamepadAxisMovement.exit557.thread ], [ %925, %927 ], [ %.pre859, %CameraMoveRight.exit642 ]
+  %986 = phi i8 [ %925, %GetGamepadAxisMovement.exit557.thread ], [ %925, %927 ], [ %.pre858, %CameraMoveRight.exit642 ]
   %987 = trunc i8 %986 to i1
   br i1 %987, label %988, label %GetGamepadAxisMovement.exit644.thread
 
@@ -30572,8 +30573,8 @@ GetGamepadAxisMovement.exit591.thread:            ; preds = %GetGamepadAxisMovem
   %990 = tail call float @llvm.fabs.f32(float %989)
   %991 = fcmp ule float %990, 0x3FB99999A0000000
   %992 = fcmp ult float %989, 2.500000e-01
-  %or.cond853 = select i1 %991, i1 true, i1 %992
-  br i1 %or.cond853, label %GetGamepadAxisMovement.exit644.thread, label %GetCameraForward.exit.i658
+  %or.cond852 = select i1 %991, i1 true, i1 %992
+  br i1 %or.cond852, label %GetGamepadAxisMovement.exit644.thread, label %GetCameraForward.exit.i658
 
 GetCameraForward.exit.i658:                       ; preds = %988
   %.sroa.011.0.copyload.i.i645 = load <2 x float>, ptr %824, align 4
@@ -30629,11 +30630,11 @@ CameraMoveForward.exit676:                        ; preds = %GetCameraForward.ex
   %1020 = fadd float %.sroa.212.0.copyload.i.i647, %1015
   store <2 x float> %1019, ptr %824, align 4
   store float %1020, ptr %.sroa.234.0..sroa_idx.i528, align 4
-  %.pre860 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 0), align 4
+  %.pre859 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 3, i32 2, i64 0), align 4
   br label %GetGamepadAxisMovement.exit644.thread
 
 GetGamepadAxisMovement.exit644.thread:            ; preds = %GetGamepadAxisMovement.exit591.thread, %988, %CameraMoveForward.exit676
-  %1021 = phi i8 [ %986, %GetGamepadAxisMovement.exit591.thread ], [ %986, %988 ], [ %.pre860, %CameraMoveForward.exit676 ]
+  %1021 = phi i8 [ %986, %GetGamepadAxisMovement.exit591.thread ], [ %986, %988 ], [ %.pre859, %CameraMoveForward.exit676 ]
   %1022 = trunc i8 %1021 to i1
   br i1 %1022, label %1023, label %GetGamepadAxisMovement.exit678.thread
 
@@ -30642,8 +30643,8 @@ GetGamepadAxisMovement.exit644.thread:            ; preds = %GetGamepadAxisMovem
   %1025 = tail call float @llvm.fabs.f32(float %1024)
   %1026 = fcmp ule float %1025, 0x3FB99999A0000000
   %1027 = fcmp ult float %1024, 2.500000e-01
-  %or.cond854 = select i1 %1026, i1 true, i1 %1027
-  br i1 %or.cond854, label %GetGamepadAxisMovement.exit678.thread, label %GetCameraForward.exit.i.i692
+  %or.cond853 = select i1 %1026, i1 true, i1 %1027
+  br i1 %or.cond853, label %GetGamepadAxisMovement.exit678.thread, label %GetCameraForward.exit.i.i692
 
 GetCameraForward.exit.i.i692:                     ; preds = %1023
   %.sroa.011.0.copyload.i.i.i679 = load <2 x float>, ptr %824, align 4
@@ -30755,7 +30756,7 @@ GetGamepadAxisMovement.exit678.thread:            ; preds = %GetGamepadAxisMovem
 1082:                                             ; preds = %GetGamepadAxisMovement.exit678.thread
   %1083 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 32), align 4
   %1084 = icmp eq i8 %1083, 1
-  %.sroa.023.0.copyload.i.pre861.pre = load <2 x float>, ptr %0, align 4
+  %.sroa.023.0.copyload.i.pre860.pre = load <2 x float>, ptr %0, align 4
   br i1 %1084, label %1085, label %1108
 
 1085:                                             ; preds = %1082
@@ -30783,7 +30784,7 @@ GetGamepadAxisMovement.exit678.thread:            ; preds = %GetGamepadAxisMovem
   %1100 = shufflevector <2 x i1> %1099, <2 x i1> poison, <2 x i32> zeroinitializer
   %1101 = select <2 x i1> %1100, <2 x float> %1098, <2 x float> %.sroa.03.0.copyload.i.i732
   %1102 = fmul <2 x float> %1101, <float 0x3FB70A3D80000000, float 0x3FB70A3D80000000>
-  %1103 = fadd <2 x float> %.sroa.023.0.copyload.i.pre861.pre, %1102
+  %1103 = fadd <2 x float> %.sroa.023.0.copyload.i.pre860.pre, %1102
   %1104 = fadd float %.sroa.214.0.copyload.i743, %1095
   store <2 x float> %1103, ptr %0, align 4
   store float %1104, ptr %.sroa.214.0..sroa_idx.i742, align 4
@@ -30798,7 +30799,7 @@ GetGamepadAxisMovement.exit678.thread:            ; preds = %GetGamepadAxisMovem
   br label %1108
 
 1108:                                             ; preds = %1085, %1082
-  %.sroa.023.0.copyload.i.pre861 = phi <2 x float> [ %1103, %1085 ], [ %.sroa.023.0.copyload.i.pre861.pre, %1082 ]
+  %.sroa.023.0.copyload.i.pre860 = phi <2 x float> [ %1103, %1085 ], [ %.sroa.023.0.copyload.i.pre860.pre, %1082 ]
   %1109 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 341), align 1
   %1110 = icmp eq i8 %1109, 1
   br i1 %1110, label %1111, label %.thread
@@ -30828,7 +30829,7 @@ GetGamepadAxisMovement.exit678.thread:            ; preds = %GetGamepadAxisMovem
   %1126 = shufflevector <2 x i1> %1125, <2 x i1> poison, <2 x i32> zeroinitializer
   %1127 = select <2 x i1> %1126, <2 x float> %1124, <2 x float> %.sroa.03.0.copyload.i.i757
   %1128 = fmul <2 x float> %1127, <float 0xBFB70A3D80000000, float 0xBFB70A3D80000000>
-  %1129 = fadd <2 x float> %.sroa.023.0.copyload.i.pre861, %1128
+  %1129 = fadd <2 x float> %.sroa.023.0.copyload.i.pre860, %1128
   %1130 = fadd float %.sroa.214.0.copyload.i768, %1121
   store <2 x float> %1129, ptr %0, align 4
   store float %1130, ptr %.sroa.214.0..sroa_idx.i767, align 4
@@ -30843,14 +30844,14 @@ GetGamepadAxisMovement.exit678.thread:            ; preds = %GetGamepadAxisMovem
   br label %.thread
 
 1134:                                             ; preds = %GetGamepadAxisMovement.exit678.thread
-  br i1 %9, label %..thread_crit_edge, label %IsKeyPressed.exit821.thread
+  br i1 %9, label %..thread_crit_edge, label %IsKeyPressed.exit820.thread
 
 ..thread_crit_edge:                               ; preds = %1134
   %.sroa.023.0.copyload.i.pre = load <2 x float>, ptr %0, align 4
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %MatrixRotate.exit, %1108, %1111
-  %.sroa.023.0.copyload.i = phi <2 x float> [ %.sroa.023.0.copyload.i.pre, %..thread_crit_edge ], [ %101, %MatrixRotate.exit ], [ %.sroa.023.0.copyload.i.pre861, %1108 ], [ %1129, %1111 ]
+  %.sroa.023.0.copyload.i = phi <2 x float> [ %.sroa.023.0.copyload.i.pre, %..thread_crit_edge ], [ %101, %MatrixRotate.exit ], [ %.sroa.023.0.copyload.i.pre860, %1108 ], [ %1129, %1111 ]
   %1135 = load <2 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 9), align 4
   %1136 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %1135)
   %1137 = extractelement <2 x float> %1136, i64 0
@@ -30883,93 +30884,96 @@ GetGamepadAxisMovement.exit678.thread:            ; preds = %GetGamepadAxisMovem
   %.sroa.617.0.i.i.i787 = select i1 %1150, float %1155, float %1144
   %1156 = fsub float %sqrt.i.i782, %..i
   %1157 = fcmp ugt float %1156, 0.000000e+00
-  %.0.i788 = select i1 %1157, float %1156, float 0x3F50624DE0000000
-  %1158 = insertelement <2 x float> poison, float %.0.i788, i64 0
-  %1159 = shufflevector <2 x float> %1158, <2 x float> poison, <2 x i32> zeroinitializer
-  %1160 = fmul <2 x float> %1159, %.sroa.013.0.i.i.i786
-  %1161 = fsub <2 x float> %.sroa.021.0.copyload.i, %1160
-  %1162 = fmul float %.0.i788, %.sroa.617.0.i.i.i787
-  %1163 = fsub float %.sroa.222.0.copyload.i, %1162
-  store <2 x float> %1161, ptr %0, align 4
-  store float %1163, ptr %.sroa.224.0..sroa_idx.i, align 4
-  %1164 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 2, i64 333), align 1
-  %1165 = icmp eq i8 %1164, 0
-  %1166 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 333), align 1
-  %1167 = icmp eq i8 %1166, 1
-  %or.cond856 = select i1 %1165, i1 %1167, i1 false
-  br i1 %or.cond856, label %CameraMoveToTarget.exit819, label %IsKeyPressed.exit.thread
+  %.neg.i = fneg float %1156
+  %1158 = select i1 %1157, float %.neg.i, float 0xBF50624DE0000000
+  %1159 = fmul float %1158, %.sroa.617.0.i.i.i787
+  %1160 = insertelement <2 x float> poison, float %1158, i64 0
+  %1161 = shufflevector <2 x float> %1160, <2 x float> poison, <2 x i32> zeroinitializer
+  %1162 = fmul <2 x float> %1161, %.sroa.013.0.i.i.i786
+  %1163 = fadd <2 x float> %.sroa.021.0.copyload.i, %1162
+  %1164 = fadd float %.sroa.222.0.copyload.i, %1159
+  store <2 x float> %1163, ptr %0, align 4
+  store float %1164, ptr %.sroa.224.0..sroa_idx.i, align 4
+  %1165 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 2, i64 333), align 1
+  %1166 = icmp eq i8 %1165, 0
+  %1167 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 333), align 1
+  %1168 = icmp eq i8 %1167, 1
+  %or.cond855 = select i1 %1166, i1 %1168, i1 false
+  br i1 %or.cond855, label %CameraMoveToTarget.exit818, label %IsKeyPressed.exit.thread
 
-CameraMoveToTarget.exit819:                       ; preds = %.thread
-  %1168 = fsub <2 x float> %.sroa.021.0.copyload.i, %1161
-  %1169 = fsub float %.sroa.222.0.copyload.i, %1163
-  %1170 = fmul <2 x float> %1168, %1168
-  %1171 = extractelement <2 x float> %1170, i64 1
-  %1172 = extractelement <2 x float> %1168, i64 0
-  %1173 = tail call float @llvm.fmuladd.f32(float %1172, float %1172, float %1171)
-  %1174 = tail call float @llvm.fmuladd.f32(float %1169, float %1169, float %1173)
-  %sqrt.i.i806 = tail call float @llvm.sqrt.f32(float %1174)
-  %1175 = fcmp une float %sqrt.i.i806, 0.000000e+00
-  %1176 = fdiv float 1.000000e+00, %sqrt.i.i806
-  %1177 = insertelement <2 x float> poison, float %1176, i64 0
-  %1178 = shufflevector <2 x float> %1177, <2 x float> poison, <2 x i32> zeroinitializer
-  %1179 = fmul <2 x float> %1168, %1178
-  %1180 = fmul float %1169, %1176
-  %.sroa.013.0.i.i.i810 = select i1 %1175, <2 x float> %1179, <2 x float> %1168
-  %.sroa.617.0.i.i.i811 = select i1 %1175, float %1180, float %1169
-  %1181 = fadd float %sqrt.i.i806, 2.000000e+00
-  %1182 = fcmp ugt float %1181, 0.000000e+00
-  %.0.i812 = select i1 %1182, float %1181, float 0x3F50624DE0000000
-  %1183 = insertelement <2 x float> poison, float %.0.i812, i64 0
-  %1184 = shufflevector <2 x float> %1183, <2 x float> poison, <2 x i32> zeroinitializer
-  %1185 = fmul <2 x float> %1184, %.sroa.013.0.i.i.i810
-  %1186 = fsub <2 x float> %.sroa.021.0.copyload.i, %1185
-  %1187 = fmul float %.0.i812, %.sroa.617.0.i.i.i811
-  %1188 = fsub float %.sroa.222.0.copyload.i, %1187
-  store <2 x float> %1186, ptr %0, align 4
-  store float %1188, ptr %.sroa.224.0..sroa_idx.i, align 4
+CameraMoveToTarget.exit818:                       ; preds = %.thread
+  %1169 = fsub <2 x float> %.sroa.021.0.copyload.i, %1163
+  %1170 = fsub float %.sroa.222.0.copyload.i, %1164
+  %1171 = fmul <2 x float> %1169, %1169
+  %1172 = extractelement <2 x float> %1171, i64 1
+  %1173 = extractelement <2 x float> %1169, i64 0
+  %1174 = tail call float @llvm.fmuladd.f32(float %1173, float %1173, float %1172)
+  %1175 = tail call float @llvm.fmuladd.f32(float %1170, float %1170, float %1174)
+  %sqrt.i.i805 = tail call float @llvm.sqrt.f32(float %1175)
+  %1176 = fcmp une float %sqrt.i.i805, 0.000000e+00
+  %1177 = fdiv float 1.000000e+00, %sqrt.i.i805
+  %1178 = insertelement <2 x float> poison, float %1177, i64 0
+  %1179 = shufflevector <2 x float> %1178, <2 x float> poison, <2 x i32> zeroinitializer
+  %1180 = fmul <2 x float> %1169, %1179
+  %1181 = fmul float %1170, %1177
+  %.sroa.013.0.i.i.i809 = select i1 %1176, <2 x float> %1180, <2 x float> %1169
+  %.sroa.617.0.i.i.i810 = select i1 %1176, float %1181, float %1170
+  %1182 = fadd float %sqrt.i.i805, 2.000000e+00
+  %1183 = fcmp ugt float %1182, 0.000000e+00
+  %.neg.i811 = fneg float %1182
+  %1184 = select i1 %1183, float %.neg.i811, float 0xBF50624DE0000000
+  %1185 = fmul float %1184, %.sroa.617.0.i.i.i810
+  %1186 = insertelement <2 x float> poison, float %1184, i64 0
+  %1187 = shufflevector <2 x float> %1186, <2 x float> poison, <2 x i32> zeroinitializer
+  %1188 = fmul <2 x float> %1187, %.sroa.013.0.i.i.i809
+  %1189 = fadd <2 x float> %.sroa.021.0.copyload.i, %1188
+  %1190 = fadd float %.sroa.222.0.copyload.i, %1185
+  store <2 x float> %1189, ptr %0, align 4
+  store float %1190, ptr %.sroa.224.0..sroa_idx.i, align 4
   br label %IsKeyPressed.exit.thread
 
-IsKeyPressed.exit.thread:                         ; preds = %.thread, %CameraMoveToTarget.exit819
-  %.sroa.224.0.copyload.i824 = phi float [ %1163, %.thread ], [ %1188, %CameraMoveToTarget.exit819 ]
-  %.sroa.023.0.copyload.i822 = phi <2 x float> [ %1161, %.thread ], [ %1186, %CameraMoveToTarget.exit819 ]
-  %1189 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 2, i64 334), align 2
-  %1190 = icmp eq i8 %1189, 0
-  %1191 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 334), align 2
-  %1192 = icmp eq i8 %1191, 1
-  %or.cond858 = select i1 %1190, i1 %1192, i1 false
-  br i1 %or.cond858, label %CameraMoveToTarget.exit845, label %IsKeyPressed.exit821.thread
+IsKeyPressed.exit.thread:                         ; preds = %.thread, %CameraMoveToTarget.exit818
+  %.sroa.224.0.copyload.i823 = phi float [ %1164, %.thread ], [ %1190, %CameraMoveToTarget.exit818 ]
+  %.sroa.023.0.copyload.i821 = phi <2 x float> [ %1163, %.thread ], [ %1189, %CameraMoveToTarget.exit818 ]
+  %1191 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 2, i64 334), align 2
+  %1192 = icmp eq i8 %1191, 0
+  %1193 = load i8, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 0, i32 1, i64 334), align 2
+  %1194 = icmp eq i8 %1193, 1
+  %or.cond857 = select i1 %1192, i1 %1194, i1 false
+  br i1 %or.cond857, label %CameraMoveToTarget.exit844, label %IsKeyPressed.exit820.thread
 
-CameraMoveToTarget.exit845:                       ; preds = %IsKeyPressed.exit.thread
-  %1193 = fsub <2 x float> %.sroa.021.0.copyload.i, %.sroa.023.0.copyload.i822
-  %1194 = fsub float %.sroa.222.0.copyload.i, %.sroa.224.0.copyload.i824
-  %1195 = fmul <2 x float> %1193, %1193
-  %1196 = extractelement <2 x float> %1195, i64 1
-  %1197 = extractelement <2 x float> %1193, i64 0
-  %1198 = tail call float @llvm.fmuladd.f32(float %1197, float %1197, float %1196)
-  %1199 = tail call float @llvm.fmuladd.f32(float %1194, float %1194, float %1198)
-  %sqrt.i.i832 = tail call float @llvm.sqrt.f32(float %1199)
-  %1200 = fcmp une float %sqrt.i.i832, 0.000000e+00
-  %1201 = fdiv float 1.000000e+00, %sqrt.i.i832
-  %1202 = insertelement <2 x float> poison, float %1201, i64 0
-  %1203 = shufflevector <2 x float> %1202, <2 x float> poison, <2 x i32> zeroinitializer
-  %1204 = fmul <2 x float> %1193, %1203
-  %1205 = fmul float %1194, %1201
-  %.sroa.013.0.i.i.i836 = select i1 %1200, <2 x float> %1204, <2 x float> %1193
-  %.sroa.617.0.i.i.i837 = select i1 %1200, float %1205, float %1194
-  %1206 = fadd float %sqrt.i.i832, -2.000000e+00
-  %1207 = fcmp ugt float %1206, 0.000000e+00
-  %.0.i838 = select i1 %1207, float %1206, float 0x3F50624DE0000000
-  %1208 = insertelement <2 x float> poison, float %.0.i838, i64 0
-  %1209 = shufflevector <2 x float> %1208, <2 x float> poison, <2 x i32> zeroinitializer
-  %1210 = fmul <2 x float> %1209, %.sroa.013.0.i.i.i836
-  %1211 = fsub <2 x float> %.sroa.021.0.copyload.i, %1210
-  %1212 = fmul float %.0.i838, %.sroa.617.0.i.i.i837
-  %1213 = fsub float %.sroa.222.0.copyload.i, %1212
-  store <2 x float> %1211, ptr %0, align 4
-  store float %1213, ptr %.sroa.224.0..sroa_idx.i, align 4
-  br label %IsKeyPressed.exit821.thread
+CameraMoveToTarget.exit844:                       ; preds = %IsKeyPressed.exit.thread
+  %1195 = fsub <2 x float> %.sroa.021.0.copyload.i, %.sroa.023.0.copyload.i821
+  %1196 = fsub float %.sroa.222.0.copyload.i, %.sroa.224.0.copyload.i823
+  %1197 = fmul <2 x float> %1195, %1195
+  %1198 = extractelement <2 x float> %1197, i64 1
+  %1199 = extractelement <2 x float> %1195, i64 0
+  %1200 = tail call float @llvm.fmuladd.f32(float %1199, float %1199, float %1198)
+  %1201 = tail call float @llvm.fmuladd.f32(float %1196, float %1196, float %1200)
+  %sqrt.i.i831 = tail call float @llvm.sqrt.f32(float %1201)
+  %1202 = fcmp une float %sqrt.i.i831, 0.000000e+00
+  %1203 = fdiv float 1.000000e+00, %sqrt.i.i831
+  %1204 = insertelement <2 x float> poison, float %1203, i64 0
+  %1205 = shufflevector <2 x float> %1204, <2 x float> poison, <2 x i32> zeroinitializer
+  %1206 = fmul <2 x float> %1195, %1205
+  %1207 = fmul float %1196, %1203
+  %.sroa.013.0.i.i.i835 = select i1 %1202, <2 x float> %1206, <2 x float> %1195
+  %.sroa.617.0.i.i.i836 = select i1 %1202, float %1207, float %1196
+  %1208 = fadd float %sqrt.i.i831, -2.000000e+00
+  %1209 = fcmp ugt float %1208, 0.000000e+00
+  %.neg.i837 = fneg float %1208
+  %1210 = select i1 %1209, float %.neg.i837, float 0xBF50624DE0000000
+  %1211 = fmul float %1210, %.sroa.617.0.i.i.i836
+  %1212 = insertelement <2 x float> poison, float %1210, i64 0
+  %1213 = shufflevector <2 x float> %1212, <2 x float> poison, <2 x i32> zeroinitializer
+  %1214 = fmul <2 x float> %1213, %.sroa.013.0.i.i.i835
+  %1215 = fadd <2 x float> %.sroa.021.0.copyload.i, %1214
+  %1216 = fadd float %.sroa.222.0.copyload.i, %1211
+  store <2 x float> %1215, ptr %0, align 4
+  store float %1216, ptr %.sroa.224.0..sroa_idx.i, align 4
+  br label %IsKeyPressed.exit820.thread
 
-IsKeyPressed.exit821.thread:                      ; preds = %1134, %IsKeyPressed.exit.thread, %CameraMoveToTarget.exit845
+IsKeyPressed.exit820.thread:                      ; preds = %1134, %IsKeyPressed.exit.thread, %CameraMoveToTarget.exit844
   ret void
 }
 
@@ -31445,15 +31449,16 @@ CameraMoveRight.exit:                             ; preds = %CameraMoveForward.e
   %.sroa.617.0.i.i.i78 = select i1 %250, float %255, float %244
   %256 = fadd float %sqrt.i.i73, %5
   %257 = fcmp ugt float %256, 0.000000e+00
-  %.0.i = select i1 %257, float %256, float 0x3F50624DE0000000
-  %258 = insertelement <2 x float> poison, float %.0.i, i64 0
-  %259 = shufflevector <2 x float> %258, <2 x float> poison, <2 x i32> zeroinitializer
-  %260 = fmul <2 x float> %259, %.sroa.013.0.i.i.i77
-  %261 = fsub <2 x float> %239, %260
-  %262 = fmul float %.0.i, %.sroa.617.0.i.i.i78
-  %263 = fsub float %240, %262
-  store <2 x float> %261, ptr %0, align 4
-  store float %263, ptr %.sroa.232.0..sroa_idx.i, align 4
+  %.neg.i = fneg float %256
+  %258 = select i1 %257, float %.neg.i, float 0xBF50624DE0000000
+  %259 = fmul float %258, %.sroa.617.0.i.i.i78
+  %260 = insertelement <2 x float> poison, float %258, i64 0
+  %261 = shufflevector <2 x float> %260, <2 x float> poison, <2 x i32> zeroinitializer
+  %262 = fmul <2 x float> %261, %.sroa.013.0.i.i.i77
+  %263 = fadd <2 x float> %239, %262
+  %264 = fadd float %240, %259
+  store <2 x float> %263, ptr %0, align 4
+  store float %264, ptr %.sroa.232.0..sroa_idx.i, align 4
   ret void
 }
 
@@ -32058,7 +32063,7 @@ msf_cook_frame.exit:                              ; preds = %207, %._crit_edge31
   %323 = getelementptr inbounds i8, ptr %8, i64 %231
   %324 = load i8, ptr %323, align 1
   %325 = add nsw i32 %.0115.lcssa.i, -1
-  %326 = tail call i32 @llvm.ctlz.i32(i32 %325, i1 true), !range !20
+  %326 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %325, i1 true)
   %327 = sub nuw nsw i32 32, %326
   %328 = tail call i32 @llvm.umax.i32(i32 %327, i32 2)
   %329 = shl nuw i32 1, %328
@@ -32131,7 +32136,7 @@ msf_put_code.exit.i:                              ; preds = %342, %338, %335
   tail call void @llvm.memset.p0.i64(ptr align 2 %220, i8 -1, i64 %357, i1 false)
   %358 = add nuw nsw i32 %329, 2
   %359 = add nuw nsw i32 %329, 1
-  %360 = tail call i32 @llvm.ctlz.i32(i32 %359, i1 true), !range !20
+  %360 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %359, i1 true)
   %361 = getelementptr inbounds i8, ptr %352, i64 2
   %362 = trunc i32 %329 to i8
   store i8 %362, ptr %361, align 1
@@ -32204,7 +32209,7 @@ msf_put_code.exit.i:                              ; preds = %342, %338, %335
 
 400:                                              ; preds = %391
   %401 = add nsw i32 %.sroa.5.072.i, -1
-  %402 = tail call i32 @llvm.ctlz.i32(i32 %401, i1 true), !range !20
+  %402 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %401, i1 true)
   %403 = sub nuw nsw i32 32, %402
   %404 = lshr i32 %.16274.i, 3
   %405 = and i32 %.16274.i, 7
@@ -32326,7 +32331,7 @@ msf_put_code.exit131.i:                           ; preds = %458, %435
   %.162.lcssa.i = phi i32 [ %369, %378 ], [ %.4.i, %471 ]
   %.0117.lcssa.i = phi i32 [ %379, %378 ], [ %.1118.i, %471 ]
   %472 = add nsw i32 %.sroa.5.0.lcssa.i, -1
-  %473 = tail call i32 @llvm.ctlz.i32(i32 %472, i1 true), !range !20
+  %473 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %472, i1 true)
   %474 = sub nuw nsw i32 32, %473
   %475 = tail call i32 @llvm.umin.i32(i32 %474, i32 12)
   %476 = lshr i32 %.162.lcssa.i, 3
@@ -32373,7 +32378,7 @@ msf_put_code.exit131.i:                           ; preds = %458, %435
 msf_put_code.exit132.i:                           ; preds = %498, %._crit_edge79.i
   %.568.i = phi ptr [ %500, %498 ], [ %.164.lcssa.i, %._crit_edge79.i ]
   %.5.i = phi i32 [ %499, %498 ], [ %496, %._crit_edge79.i ]
-  %506 = tail call i32 @llvm.ctlz.i32(i32 %.sroa.5.0.lcssa.i, i1 true), !range !20
+  %506 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.sroa.5.0.lcssa.i, i1 true)
   %507 = sub nuw nsw i32 32, %506
   %508 = tail call i32 @llvm.umin.i32(i32 %507, i32 12)
   %509 = lshr i32 %.5.i, 3
@@ -34201,7 +34206,7 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   %153 = add nsw i32 %.sroa.0165.5, -1
   %.not.i.i.i = icmp eq i32 %153, 0
   %154 = sext i32 %153 to i64
-  %155 = call i64 @llvm.ctlz.i64(i64 %154, i1 true), !range !21
+  %155 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %154, i1 true)
   %156 = trunc nuw nsw i64 %155 to i32
   %157 = xor i32 %156, 63
   %158 = shl nuw i32 2, %157
@@ -34209,7 +34214,7 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   %160 = select i1 %.not.i.i.i, i32 0, i32 %159
   %.not.i11.i.i = icmp eq i32 %160, 0
   %161 = sext i32 %160 to i64
-  %162 = call i64 @llvm.ctlz.i64(i64 %161, i1 true), !range !21
+  %162 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %161, i1 true)
   %163 = trunc nuw nsw i64 %162 to i32
   %164 = xor i32 %163, 63
   %.not.i3.i = icmp eq i32 %164, 0
@@ -35174,14 +35179,14 @@ sdefl_put.exit204.i:                              ; preds = %sdefl_put.exit204.l
   %656 = add nuw nsw i64 %655, 257
   %657 = xor i32 %612, -1
   %.not.i.i.i.i = icmp eq i32 %612, -1
-  %658 = call i32 @llvm.ctlz.i32(i32 %657, i1 true), !range !22
+  %658 = call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %657, i1 true)
   %659 = xor i32 %658, 31
   %660 = shl nuw i32 2, %659
   %661 = ashr i32 %660, 2
   %662 = select i1 %.not.i.i.i.i, i32 0, i32 %661
   %.not.i11.i.i.i = icmp eq i32 %662, 0
   %663 = sext i32 %662 to i64
-  %664 = call i64 @llvm.ctlz.i64(i64 %663, i1 true), !range !21
+  %664 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %663, i1 true)
   %665 = trunc nuw nsw i64 %664 to i32
   %666 = xor i32 %665, 63
   %.0.i12.i.i.i = select i1 %.not.i11.i.i.i, i32 0, i32 %666
@@ -38897,7 +38902,7 @@ define void @InitWindow(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_un
   store i32 256, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2), align 8
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 1), align 4
   store i32 1, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 4), align 4
-  %15 = tail call i32 @InitPlatform(), !range !23
+  %15 = tail call i32 @InitPlatform(), !range !20
   %16 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13), align 4
   %17 = load i32, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13, i32 1), align 8
   tail call void @rlglInit(i32 noundef %16, i32 noundef %17)
@@ -39330,37 +39335,37 @@ define void @BeginDrawing() local_unnamed_addr #0 {
   %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 13), align 8
   %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 14), align 4
   %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
-  store float %.sroa.01.0.copyload, ptr %1, align 4, !alias.scope !24
+  store float %.sroa.01.0.copyload, ptr %1, align 4, !alias.scope !21
   %6 = getelementptr inbounds i8, ptr %1, i64 4
-  store float %.sroa.53.0.copyload, ptr %6, align 4, !alias.scope !24
+  store float %.sroa.53.0.copyload, ptr %6, align 4, !alias.scope !21
   %7 = getelementptr inbounds i8, ptr %1, i64 8
-  store float %.sroa.97.0.copyload, ptr %7, align 4, !alias.scope !24
+  store float %.sroa.97.0.copyload, ptr %7, align 4, !alias.scope !21
   %8 = getelementptr inbounds i8, ptr %1, i64 12
-  store float %.sroa.1311.0.copyload, ptr %8, align 4, !alias.scope !24
+  store float %.sroa.1311.0.copyload, ptr %8, align 4, !alias.scope !21
   %9 = getelementptr inbounds i8, ptr %1, i64 16
-  store float %.sroa.2.0.copyload, ptr %9, align 4, !alias.scope !24
+  store float %.sroa.2.0.copyload, ptr %9, align 4, !alias.scope !21
   %10 = getelementptr inbounds i8, ptr %1, i64 20
-  store float %.sroa.64.0.copyload, ptr %10, align 4, !alias.scope !24
+  store float %.sroa.64.0.copyload, ptr %10, align 4, !alias.scope !21
   %11 = getelementptr inbounds i8, ptr %1, i64 24
-  store float %.sroa.108.0.copyload, ptr %11, align 4, !alias.scope !24
+  store float %.sroa.108.0.copyload, ptr %11, align 4, !alias.scope !21
   %12 = getelementptr inbounds i8, ptr %1, i64 28
-  store float %.sroa.1412.0.copyload, ptr %12, align 4, !alias.scope !24
+  store float %.sroa.1412.0.copyload, ptr %12, align 4, !alias.scope !21
   %13 = getelementptr inbounds i8, ptr %1, i64 32
-  store float %.sroa.3.0.copyload, ptr %13, align 4, !alias.scope !24
+  store float %.sroa.3.0.copyload, ptr %13, align 4, !alias.scope !21
   %14 = getelementptr inbounds i8, ptr %1, i64 36
-  store float %.sroa.75.0.copyload, ptr %14, align 4, !alias.scope !24
+  store float %.sroa.75.0.copyload, ptr %14, align 4, !alias.scope !21
   %15 = getelementptr inbounds i8, ptr %1, i64 40
-  store float %.sroa.119.0.copyload, ptr %15, align 4, !alias.scope !24
+  store float %.sroa.119.0.copyload, ptr %15, align 4, !alias.scope !21
   %16 = getelementptr inbounds i8, ptr %1, i64 44
-  store float %.sroa.1513.0.copyload, ptr %16, align 4, !alias.scope !24
+  store float %.sroa.1513.0.copyload, ptr %16, align 4, !alias.scope !21
   %17 = getelementptr inbounds i8, ptr %1, i64 48
-  store float %.sroa.42.0.copyload, ptr %17, align 4, !alias.scope !24
+  store float %.sroa.42.0.copyload, ptr %17, align 4, !alias.scope !21
   %18 = getelementptr inbounds i8, ptr %1, i64 52
-  store float %.sroa.86.0.copyload, ptr %18, align 4, !alias.scope !24
+  store float %.sroa.86.0.copyload, ptr %18, align 4, !alias.scope !21
   %19 = getelementptr inbounds i8, ptr %1, i64 56
-  store float %.sroa.1210.0.copyload, ptr %19, align 4, !alias.scope !24
+  store float %.sroa.1210.0.copyload, ptr %19, align 4, !alias.scope !21
   %20 = getelementptr inbounds i8, ptr %1, i64 60
-  store float %.sroa.1614.0.copyload, ptr %20, align 4, !alias.scope !24
+  store float %.sroa.1614.0.copyload, ptr %20, align 4, !alias.scope !21
   call void @rlMultMatrixf(ptr noundef nonnull %1)
   ret void
 }
@@ -40720,37 +40725,37 @@ define void @BeginMode2D(ptr nocapture noundef readonly byval(%struct.Camera2D) 
   %.sroa.17.0.copyload = load float, ptr %.sroa.17.0..sroa_idx, align 8
   %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 60
   %.sroa.18.0.copyload = load float, ptr %.sroa.18.0..sroa_idx, align 4
-  store float %.sroa.0.0.copyload, ptr %3, align 4, !alias.scope !27
+  store float %.sroa.0.0.copyload, ptr %3, align 4, !alias.scope !24
   %6 = getelementptr inbounds i8, ptr %3, i64 4
-  store float %.sroa.7.0.copyload, ptr %6, align 4, !alias.scope !27
+  store float %.sroa.7.0.copyload, ptr %6, align 4, !alias.scope !24
   %7 = getelementptr inbounds i8, ptr %3, i64 8
-  store float %.sroa.11.0.copyload, ptr %7, align 4, !alias.scope !27
+  store float %.sroa.11.0.copyload, ptr %7, align 4, !alias.scope !24
   %8 = getelementptr inbounds i8, ptr %3, i64 12
-  store float %.sroa.15.0.copyload, ptr %8, align 4, !alias.scope !27
+  store float %.sroa.15.0.copyload, ptr %8, align 4, !alias.scope !24
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  store float %.sroa.4.0.copyload, ptr %9, align 4, !alias.scope !27
+  store float %.sroa.4.0.copyload, ptr %9, align 4, !alias.scope !24
   %10 = getelementptr inbounds i8, ptr %3, i64 20
-  store float %.sroa.8.0.copyload, ptr %10, align 4, !alias.scope !27
+  store float %.sroa.8.0.copyload, ptr %10, align 4, !alias.scope !24
   %11 = getelementptr inbounds i8, ptr %3, i64 24
-  store float %.sroa.12.0.copyload, ptr %11, align 4, !alias.scope !27
+  store float %.sroa.12.0.copyload, ptr %11, align 4, !alias.scope !24
   %12 = getelementptr inbounds i8, ptr %3, i64 28
-  store float %.sroa.16.0.copyload, ptr %12, align 4, !alias.scope !27
+  store float %.sroa.16.0.copyload, ptr %12, align 4, !alias.scope !24
   %13 = getelementptr inbounds i8, ptr %3, i64 32
-  store float %.sroa.5.0.copyload, ptr %13, align 4, !alias.scope !27
+  store float %.sroa.5.0.copyload, ptr %13, align 4, !alias.scope !24
   %14 = getelementptr inbounds i8, ptr %3, i64 36
-  store float %.sroa.9.0.copyload, ptr %14, align 4, !alias.scope !27
+  store float %.sroa.9.0.copyload, ptr %14, align 4, !alias.scope !24
   %15 = getelementptr inbounds i8, ptr %3, i64 40
-  store float %.sroa.13.0.copyload, ptr %15, align 4, !alias.scope !27
+  store float %.sroa.13.0.copyload, ptr %15, align 4, !alias.scope !24
   %16 = getelementptr inbounds i8, ptr %3, i64 44
-  store float %.sroa.17.0.copyload, ptr %16, align 4, !alias.scope !27
+  store float %.sroa.17.0.copyload, ptr %16, align 4, !alias.scope !24
   %17 = getelementptr inbounds i8, ptr %3, i64 48
-  store float %.sroa.6.0.copyload, ptr %17, align 4, !alias.scope !27
+  store float %.sroa.6.0.copyload, ptr %17, align 4, !alias.scope !24
   %18 = getelementptr inbounds i8, ptr %3, i64 52
-  store float %.sroa.10.0.copyload, ptr %18, align 4, !alias.scope !27
+  store float %.sroa.10.0.copyload, ptr %18, align 4, !alias.scope !24
   %19 = getelementptr inbounds i8, ptr %3, i64 56
-  store float %.sroa.14.0.copyload, ptr %19, align 4, !alias.scope !27
+  store float %.sroa.14.0.copyload, ptr %19, align 4, !alias.scope !24
   %20 = getelementptr inbounds i8, ptr %3, i64 60
-  store float %.sroa.18.0.copyload, ptr %20, align 4, !alias.scope !27
+  store float %.sroa.18.0.copyload, ptr %20, align 4, !alias.scope !24
   call void @rlMultMatrixf(ptr noundef nonnull %3)
   ret void
 }
@@ -40766,8 +40771,8 @@ define void @GetCameraMatrix2D(ptr dead_on_unwind noalias nocapture writable wri
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load float, ptr %9, align 8
   %11 = fmul float %10, 0x3F91DF46A0000000
-  %12 = tail call float @sinf(float noundef %11) #55, !noalias !30
-  %13 = tail call float @cosf(float noundef %11) #55, !noalias !30
+  %12 = tail call float @sinf(float noundef %11) #55, !noalias !27
+  %13 = tail call float @cosf(float noundef %11) #55, !noalias !27
   %14 = fsub float 1.000000e+00, %13
   %15 = tail call float @llvm.fmuladd.f32(float %14, float 0.000000e+00, float %13)
   %16 = tail call float @llvm.fmuladd.f32(float %14, float 0.000000e+00, float %12)
@@ -40983,37 +40988,37 @@ define void @EndMode2D() local_unnamed_addr #0 {
   %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 13), align 8
   %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 14), align 4
   %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
-  store float %.sroa.01.0.copyload, ptr %2, align 4, !alias.scope !33
+  store float %.sroa.01.0.copyload, ptr %2, align 4, !alias.scope !30
   %9 = getelementptr inbounds i8, ptr %2, i64 4
-  store float %.sroa.53.0.copyload, ptr %9, align 4, !alias.scope !33
+  store float %.sroa.53.0.copyload, ptr %9, align 4, !alias.scope !30
   %10 = getelementptr inbounds i8, ptr %2, i64 8
-  store float %.sroa.97.0.copyload, ptr %10, align 4, !alias.scope !33
+  store float %.sroa.97.0.copyload, ptr %10, align 4, !alias.scope !30
   %11 = getelementptr inbounds i8, ptr %2, i64 12
-  store float %.sroa.1311.0.copyload, ptr %11, align 4, !alias.scope !33
+  store float %.sroa.1311.0.copyload, ptr %11, align 4, !alias.scope !30
   %12 = getelementptr inbounds i8, ptr %2, i64 16
-  store float %.sroa.2.0.copyload, ptr %12, align 4, !alias.scope !33
+  store float %.sroa.2.0.copyload, ptr %12, align 4, !alias.scope !30
   %13 = getelementptr inbounds i8, ptr %2, i64 20
-  store float %.sroa.64.0.copyload, ptr %13, align 4, !alias.scope !33
+  store float %.sroa.64.0.copyload, ptr %13, align 4, !alias.scope !30
   %14 = getelementptr inbounds i8, ptr %2, i64 24
-  store float %.sroa.108.0.copyload, ptr %14, align 4, !alias.scope !33
+  store float %.sroa.108.0.copyload, ptr %14, align 4, !alias.scope !30
   %15 = getelementptr inbounds i8, ptr %2, i64 28
-  store float %.sroa.1412.0.copyload, ptr %15, align 4, !alias.scope !33
+  store float %.sroa.1412.0.copyload, ptr %15, align 4, !alias.scope !30
   %16 = getelementptr inbounds i8, ptr %2, i64 32
-  store float %.sroa.3.0.copyload, ptr %16, align 4, !alias.scope !33
+  store float %.sroa.3.0.copyload, ptr %16, align 4, !alias.scope !30
   %17 = getelementptr inbounds i8, ptr %2, i64 36
-  store float %.sroa.75.0.copyload, ptr %17, align 4, !alias.scope !33
+  store float %.sroa.75.0.copyload, ptr %17, align 4, !alias.scope !30
   %18 = getelementptr inbounds i8, ptr %2, i64 40
-  store float %.sroa.119.0.copyload, ptr %18, align 4, !alias.scope !33
+  store float %.sroa.119.0.copyload, ptr %18, align 4, !alias.scope !30
   %19 = getelementptr inbounds i8, ptr %2, i64 44
-  store float %.sroa.1513.0.copyload, ptr %19, align 4, !alias.scope !33
+  store float %.sroa.1513.0.copyload, ptr %19, align 4, !alias.scope !30
   %20 = getelementptr inbounds i8, ptr %2, i64 48
-  store float %.sroa.42.0.copyload, ptr %20, align 4, !alias.scope !33
+  store float %.sroa.42.0.copyload, ptr %20, align 4, !alias.scope !30
   %21 = getelementptr inbounds i8, ptr %2, i64 52
-  store float %.sroa.86.0.copyload, ptr %21, align 4, !alias.scope !33
+  store float %.sroa.86.0.copyload, ptr %21, align 4, !alias.scope !30
   %22 = getelementptr inbounds i8, ptr %2, i64 56
-  store float %.sroa.1210.0.copyload, ptr %22, align 4, !alias.scope !33
+  store float %.sroa.1210.0.copyload, ptr %22, align 4, !alias.scope !30
   %23 = getelementptr inbounds i8, ptr %2, i64 60
-  store float %.sroa.1614.0.copyload, ptr %23, align 4, !alias.scope !33
+  store float %.sroa.1614.0.copyload, ptr %23, align 4, !alias.scope !30
   call void @rlMultMatrixf(ptr noundef nonnull %2)
   br label %24
 
@@ -41180,29 +41185,29 @@ rlPushMatrix.exit:                                ; preds = %1, %.._crit_edge.i_
   %88 = tail call float @llvm.fmuladd.f32(float %58, float %.sroa.069.0.vec.extract.i, float %87)
   %89 = tail call float @llvm.fmuladd.f32(float %60, float %.sroa.24.0.copyload, float %88)
   %90 = fneg float %89
-  store float %76, ptr %2, align 4, !alias.scope !36
+  store float %76, ptr %2, align 4, !alias.scope !33
   %91 = getelementptr inbounds i8, ptr %2, i64 4
-  store float %81, ptr %91, align 4, !alias.scope !36
+  store float %81, ptr %91, align 4, !alias.scope !33
   %92 = getelementptr inbounds i8, ptr %2, i64 8
-  store float %58, ptr %92, align 4, !alias.scope !36
+  store float %58, ptr %92, align 4, !alias.scope !33
   %93 = getelementptr inbounds i8, ptr %2, i64 12
-  store float 0.000000e+00, ptr %93, align 4, !alias.scope !36
+  store float 0.000000e+00, ptr %93, align 4, !alias.scope !33
   %94 = getelementptr inbounds i8, ptr %2, i64 16
-  store float %77, ptr %94, align 4, !alias.scope !36
+  store float %77, ptr %94, align 4, !alias.scope !33
   %95 = getelementptr inbounds i8, ptr %2, i64 20
-  store float %84, ptr %95, align 4, !alias.scope !36
+  store float %84, ptr %95, align 4, !alias.scope !33
   %96 = getelementptr inbounds i8, ptr %2, i64 24
-  store float %59, ptr %96, align 4, !alias.scope !36
+  store float %59, ptr %96, align 4, !alias.scope !33
   %97 = getelementptr inbounds i8, ptr %2, i64 28
-  store float 0.000000e+00, ptr %97, align 4, !alias.scope !36
+  store float 0.000000e+00, ptr %97, align 4, !alias.scope !33
   %98 = getelementptr inbounds i8, ptr %2, i64 32
-  store float %78, ptr %98, align 4, !alias.scope !36
+  store float %78, ptr %98, align 4, !alias.scope !33
   %99 = getelementptr inbounds i8, ptr %2, i64 36
-  store float %86, ptr %99, align 4, !alias.scope !36
+  store float %86, ptr %99, align 4, !alias.scope !33
   %100 = getelementptr inbounds i8, ptr %2, i64 40
-  store float %60, ptr %100, align 4, !alias.scope !36
+  store float %60, ptr %100, align 4, !alias.scope !33
   %101 = getelementptr inbounds i8, ptr %2, i64 44
-  store float 0.000000e+00, ptr %101, align 4, !alias.scope !36
+  store float 0.000000e+00, ptr %101, align 4, !alias.scope !33
   %102 = getelementptr inbounds i8, ptr %2, i64 48
   %103 = shufflevector <2 x float> %.sroa.03.0.copyload, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %104 = insertelement <2 x float> poison, float %77, i64 0
@@ -41218,11 +41223,11 @@ rlPushMatrix.exit:                                ; preds = %1, %.._crit_edge.i_
   %114 = shufflevector <2 x float> %113, <2 x float> poison, <2 x i32> zeroinitializer
   %115 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %112, <2 x float> %114, <2 x float> %110)
   %116 = fneg <2 x float> %115
-  store <2 x float> %116, ptr %102, align 4, !alias.scope !36
+  store <2 x float> %116, ptr %102, align 4, !alias.scope !33
   %117 = getelementptr inbounds i8, ptr %2, i64 56
-  store float %90, ptr %117, align 4, !alias.scope !36
+  store float %90, ptr %117, align 4, !alias.scope !33
   %118 = getelementptr inbounds i8, ptr %2, i64 60
-  store float 1.000000e+00, ptr %118, align 4, !alias.scope !36
+  store float 1.000000e+00, ptr %118, align 4, !alias.scope !33
   call void @rlMultMatrixf(ptr noundef nonnull %2)
   %119 = load ptr, ptr @glad_glEnable, align 8
   tail call void %119(i32 noundef 2929) #55
@@ -41283,37 +41288,37 @@ rlPopMatrix.exit:                                 ; preds = %0, %6
   %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 13), align 8
   %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 14), align 4
   %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
-  store float %.sroa.01.0.copyload, ptr %2, align 4, !alias.scope !39
+  store float %.sroa.01.0.copyload, ptr %2, align 4, !alias.scope !36
   %14 = getelementptr inbounds i8, ptr %2, i64 4
-  store float %.sroa.53.0.copyload, ptr %14, align 4, !alias.scope !39
+  store float %.sroa.53.0.copyload, ptr %14, align 4, !alias.scope !36
   %15 = getelementptr inbounds i8, ptr %2, i64 8
-  store float %.sroa.97.0.copyload, ptr %15, align 4, !alias.scope !39
+  store float %.sroa.97.0.copyload, ptr %15, align 4, !alias.scope !36
   %16 = getelementptr inbounds i8, ptr %2, i64 12
-  store float %.sroa.1311.0.copyload, ptr %16, align 4, !alias.scope !39
+  store float %.sroa.1311.0.copyload, ptr %16, align 4, !alias.scope !36
   %17 = getelementptr inbounds i8, ptr %2, i64 16
-  store float %.sroa.2.0.copyload, ptr %17, align 4, !alias.scope !39
+  store float %.sroa.2.0.copyload, ptr %17, align 4, !alias.scope !36
   %18 = getelementptr inbounds i8, ptr %2, i64 20
-  store float %.sroa.64.0.copyload, ptr %18, align 4, !alias.scope !39
+  store float %.sroa.64.0.copyload, ptr %18, align 4, !alias.scope !36
   %19 = getelementptr inbounds i8, ptr %2, i64 24
-  store float %.sroa.108.0.copyload, ptr %19, align 4, !alias.scope !39
+  store float %.sroa.108.0.copyload, ptr %19, align 4, !alias.scope !36
   %20 = getelementptr inbounds i8, ptr %2, i64 28
-  store float %.sroa.1412.0.copyload, ptr %20, align 4, !alias.scope !39
+  store float %.sroa.1412.0.copyload, ptr %20, align 4, !alias.scope !36
   %21 = getelementptr inbounds i8, ptr %2, i64 32
-  store float %.sroa.3.0.copyload, ptr %21, align 4, !alias.scope !39
+  store float %.sroa.3.0.copyload, ptr %21, align 4, !alias.scope !36
   %22 = getelementptr inbounds i8, ptr %2, i64 36
-  store float %.sroa.75.0.copyload, ptr %22, align 4, !alias.scope !39
+  store float %.sroa.75.0.copyload, ptr %22, align 4, !alias.scope !36
   %23 = getelementptr inbounds i8, ptr %2, i64 40
-  store float %.sroa.119.0.copyload, ptr %23, align 4, !alias.scope !39
+  store float %.sroa.119.0.copyload, ptr %23, align 4, !alias.scope !36
   %24 = getelementptr inbounds i8, ptr %2, i64 44
-  store float %.sroa.1513.0.copyload, ptr %24, align 4, !alias.scope !39
+  store float %.sroa.1513.0.copyload, ptr %24, align 4, !alias.scope !36
   %25 = getelementptr inbounds i8, ptr %2, i64 48
-  store float %.sroa.42.0.copyload, ptr %25, align 4, !alias.scope !39
+  store float %.sroa.42.0.copyload, ptr %25, align 4, !alias.scope !36
   %26 = getelementptr inbounds i8, ptr %2, i64 52
-  store float %.sroa.86.0.copyload, ptr %26, align 4, !alias.scope !39
+  store float %.sroa.86.0.copyload, ptr %26, align 4, !alias.scope !36
   %27 = getelementptr inbounds i8, ptr %2, i64 56
-  store float %.sroa.1210.0.copyload, ptr %27, align 4, !alias.scope !39
+  store float %.sroa.1210.0.copyload, ptr %27, align 4, !alias.scope !36
   %28 = getelementptr inbounds i8, ptr %2, i64 60
-  store float %.sroa.1614.0.copyload, ptr %28, align 4, !alias.scope !39
+  store float %.sroa.1614.0.copyload, ptr %28, align 4, !alias.scope !36
   call void @rlMultMatrixf(ptr noundef nonnull %2)
   br label %29
 
@@ -41419,37 +41424,37 @@ define void @EndTextureMode() local_unnamed_addr #0 {
   %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 13), align 8
   %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 14), align 4
   %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
-  store float %.sroa.01.0.copyload, ptr %1, align 4, !alias.scope !42
+  store float %.sroa.01.0.copyload, ptr %1, align 4, !alias.scope !39
   %15 = getelementptr inbounds i8, ptr %1, i64 4
-  store float %.sroa.53.0.copyload, ptr %15, align 4, !alias.scope !42
+  store float %.sroa.53.0.copyload, ptr %15, align 4, !alias.scope !39
   %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store float %.sroa.97.0.copyload, ptr %16, align 4, !alias.scope !42
+  store float %.sroa.97.0.copyload, ptr %16, align 4, !alias.scope !39
   %17 = getelementptr inbounds i8, ptr %1, i64 12
-  store float %.sroa.1311.0.copyload, ptr %17, align 4, !alias.scope !42
+  store float %.sroa.1311.0.copyload, ptr %17, align 4, !alias.scope !39
   %18 = getelementptr inbounds i8, ptr %1, i64 16
-  store float %.sroa.2.0.copyload, ptr %18, align 4, !alias.scope !42
+  store float %.sroa.2.0.copyload, ptr %18, align 4, !alias.scope !39
   %19 = getelementptr inbounds i8, ptr %1, i64 20
-  store float %.sroa.64.0.copyload, ptr %19, align 4, !alias.scope !42
+  store float %.sroa.64.0.copyload, ptr %19, align 4, !alias.scope !39
   %20 = getelementptr inbounds i8, ptr %1, i64 24
-  store float %.sroa.108.0.copyload, ptr %20, align 4, !alias.scope !42
+  store float %.sroa.108.0.copyload, ptr %20, align 4, !alias.scope !39
   %21 = getelementptr inbounds i8, ptr %1, i64 28
-  store float %.sroa.1412.0.copyload, ptr %21, align 4, !alias.scope !42
+  store float %.sroa.1412.0.copyload, ptr %21, align 4, !alias.scope !39
   %22 = getelementptr inbounds i8, ptr %1, i64 32
-  store float %.sroa.3.0.copyload, ptr %22, align 4, !alias.scope !42
+  store float %.sroa.3.0.copyload, ptr %22, align 4, !alias.scope !39
   %23 = getelementptr inbounds i8, ptr %1, i64 36
-  store float %.sroa.75.0.copyload, ptr %23, align 4, !alias.scope !42
+  store float %.sroa.75.0.copyload, ptr %23, align 4, !alias.scope !39
   %24 = getelementptr inbounds i8, ptr %1, i64 40
-  store float %.sroa.119.0.copyload, ptr %24, align 4, !alias.scope !42
+  store float %.sroa.119.0.copyload, ptr %24, align 4, !alias.scope !39
   %25 = getelementptr inbounds i8, ptr %1, i64 44
-  store float %.sroa.1513.0.copyload, ptr %25, align 4, !alias.scope !42
+  store float %.sroa.1513.0.copyload, ptr %25, align 4, !alias.scope !39
   %26 = getelementptr inbounds i8, ptr %1, i64 48
-  store float %.sroa.42.0.copyload, ptr %26, align 4, !alias.scope !42
+  store float %.sroa.42.0.copyload, ptr %26, align 4, !alias.scope !39
   %27 = getelementptr inbounds i8, ptr %1, i64 52
-  store float %.sroa.86.0.copyload, ptr %27, align 4, !alias.scope !42
+  store float %.sroa.86.0.copyload, ptr %27, align 4, !alias.scope !39
   %28 = getelementptr inbounds i8, ptr %1, i64 56
-  store float %.sroa.1210.0.copyload, ptr %28, align 4, !alias.scope !42
+  store float %.sroa.1210.0.copyload, ptr %28, align 4, !alias.scope !39
   %29 = getelementptr inbounds i8, ptr %1, i64 60
-  store float %.sroa.1614.0.copyload, ptr %29, align 4, !alias.scope !42
+  store float %.sroa.1614.0.copyload, ptr %29, align 4, !alias.scope !39
   call void @rlMultMatrixf(ptr noundef nonnull %1)
   %30 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
   store <2 x i32> %30, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13), align 4
@@ -41675,7 +41680,7 @@ define void @LoadVrStereoConfig(ptr dead_on_unwind noalias nocapture writable wr
   %58 = fpext float %56 to double
   %59 = fpext float %9 to double
   %60 = fmul double %58, 5.000000e-01
-  %61 = tail call double @tan(double noundef %60) #55, !noalias !45
+  %61 = tail call double @tan(double noundef %60) #55, !noalias !42
   %62 = fmul double %61, 1.000000e-02
   %63 = fmul double %62, %59
   %64 = fadd double %63, %63
@@ -42200,15 +42205,15 @@ define void @GetViewRay(ptr dead_on_unwind noalias nocapture writable writeonly 
   %68 = tail call float @llvm.fmuladd.f32(float %35, float %56, float %67)
   %69 = fmul float %56, %37
   %70 = tail call float @llvm.fmuladd.f32(float %65, float %61, float %69)
-  store float %56, ptr %6, align 8, !alias.scope !48
-  store float %64, ptr %18, align 8, !alias.scope !48
-  store float %68, ptr %22, align 4, !alias.scope !48
-  store <2 x float> %34, ptr %19, align 8, !alias.scope !48
-  store <2 x float> %59, ptr %21, align 4, !alias.scope !48
+  store float %56, ptr %6, align 8, !alias.scope !45
+  store float %64, ptr %18, align 8, !alias.scope !45
+  store float %68, ptr %22, align 4, !alias.scope !45
+  store <2 x float> %34, ptr %19, align 8, !alias.scope !45
+  store <2 x float> %59, ptr %21, align 4, !alias.scope !45
   %71 = getelementptr inbounds i8, ptr %6, i64 24
-  store float %70, ptr %71, align 8, !alias.scope !48
+  store float %70, ptr %71, align 8, !alias.scope !45
   %72 = getelementptr inbounds i8, ptr %6, i64 40
-  store float %35, ptr %72, align 8, !alias.scope !48
+  store float %35, ptr %72, align 8, !alias.scope !45
   %73 = extractelement <2 x float> %.sroa.056.0.copyload, i64 1
   %74 = fmul float %73, %61
   %75 = extractelement <2 x float> %.sroa.056.0.copyload, i64 0
@@ -42216,29 +42221,29 @@ define void @GetViewRay(ptr dead_on_unwind noalias nocapture writable writeonly 
   %77 = tail call float @llvm.fmuladd.f32(float %63, float %.sroa.257.0.copyload, float %76)
   %78 = fneg float %77
   %79 = getelementptr inbounds i8, ptr %6, i64 12
-  store float %78, ptr %79, align 4, !alias.scope !48
+  store float %78, ptr %79, align 4, !alias.scope !45
   %80 = fmul float %73, %68
   %81 = tail call float @llvm.fmuladd.f32(float %64, float %75, float %80)
   %82 = tail call float @llvm.fmuladd.f32(float %70, float %.sroa.257.0.copyload, float %81)
   %83 = fneg float %82
   %84 = getelementptr inbounds i8, ptr %6, i64 28
-  store float %83, ptr %84, align 4, !alias.scope !48
+  store float %83, ptr %84, align 4, !alias.scope !45
   %85 = fmul float %73, %36
   %86 = tail call float @llvm.fmuladd.f32(float %65, float %75, float %85)
   %87 = tail call float @llvm.fmuladd.f32(float %35, float %.sroa.257.0.copyload, float %86)
   %88 = fneg float %87
   %89 = getelementptr inbounds i8, ptr %6, i64 44
-  store float %88, ptr %89, align 4, !alias.scope !48
-  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %20, align 8, !alias.scope !48
+  store float %88, ptr %89, align 4, !alias.scope !45
+  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %20, align 8, !alias.scope !45
   %90 = getelementptr inbounds i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %90, i8 0, i64 56, i1 false), !alias.scope !51
-  store float 1.000000e+00, ptr %7, align 8, !alias.scope !51
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %90, i8 0, i64 56, i1 false), !alias.scope !48
+  store float 1.000000e+00, ptr %7, align 8, !alias.scope !48
   %91 = getelementptr inbounds i8, ptr %7, i64 20
-  store float 1.000000e+00, ptr %91, align 4, !alias.scope !51
+  store float 1.000000e+00, ptr %91, align 4, !alias.scope !48
   %92 = getelementptr inbounds i8, ptr %7, i64 40
-  store float 1.000000e+00, ptr %92, align 8, !alias.scope !51
+  store float 1.000000e+00, ptr %92, align 8, !alias.scope !48
   %93 = getelementptr inbounds i8, ptr %7, i64 60
-  store float 1.000000e+00, ptr %93, align 4, !alias.scope !51
+  store float 1.000000e+00, ptr %93, align 4, !alias.scope !48
   %94 = getelementptr inbounds i8, ptr %2, i64 40
   %95 = load i32, ptr %94, align 8
   switch i32 %95, label %Vector3Normalize.exit [
@@ -42255,7 +42260,7 @@ define void @GetViewRay(ptr dead_on_unwind noalias nocapture writable writeonly 
   %102 = fpext float %4 to double
   %103 = fdiv double %101, %102
   %104 = fmul double %100, 5.000000e-01
-  %105 = tail call double @tan(double noundef %104) #55, !noalias !54
+  %105 = tail call double @tan(double noundef %104) #55, !noalias !51
   %106 = fmul double %105, 1.000000e-02
   %107 = fmul double %103, %106
   %108 = fadd double %107, %107
@@ -42450,15 +42455,15 @@ define void @GetCameraMatrix(ptr dead_on_unwind noalias nocapture writable write
   %56 = tail call float @llvm.fmuladd.f32(float %23, float %44, float %55)
   %57 = fmul float %44, %25
   %58 = tail call float @llvm.fmuladd.f32(float %53, float %49, float %57)
-  store float %44, ptr %0, align 4, !alias.scope !57
-  store float %52, ptr %6, align 4, !alias.scope !57
-  store float %56, ptr %10, align 4, !alias.scope !57
-  store <2 x float> %22, ptr %7, align 4, !alias.scope !57
-  store <2 x float> %47, ptr %9, align 4, !alias.scope !57
+  store float %44, ptr %0, align 4, !alias.scope !54
+  store float %52, ptr %6, align 4, !alias.scope !54
+  store float %56, ptr %10, align 4, !alias.scope !54
+  store <2 x float> %22, ptr %7, align 4, !alias.scope !54
+  store <2 x float> %47, ptr %9, align 4, !alias.scope !54
   %59 = getelementptr inbounds i8, ptr %0, i64 24
-  store float %58, ptr %59, align 4, !alias.scope !57
+  store float %58, ptr %59, align 4, !alias.scope !54
   %60 = getelementptr inbounds i8, ptr %0, i64 40
-  store float %23, ptr %60, align 4, !alias.scope !57
+  store float %23, ptr %60, align 4, !alias.scope !54
   %61 = extractelement <2 x float> %.sroa.03.0.copyload, i64 1
   %62 = fmul float %61, %49
   %63 = extractelement <2 x float> %.sroa.03.0.copyload, i64 0
@@ -42466,20 +42471,20 @@ define void @GetCameraMatrix(ptr dead_on_unwind noalias nocapture writable write
   %65 = tail call float @llvm.fmuladd.f32(float %51, float %.sroa.24.0.copyload, float %64)
   %66 = fneg float %65
   %67 = getelementptr inbounds i8, ptr %0, i64 12
-  store float %66, ptr %67, align 4, !alias.scope !57
+  store float %66, ptr %67, align 4, !alias.scope !54
   %68 = fmul float %61, %56
   %69 = tail call float @llvm.fmuladd.f32(float %52, float %63, float %68)
   %70 = tail call float @llvm.fmuladd.f32(float %58, float %.sroa.24.0.copyload, float %69)
   %71 = fneg float %70
   %72 = getelementptr inbounds i8, ptr %0, i64 28
-  store float %71, ptr %72, align 4, !alias.scope !57
+  store float %71, ptr %72, align 4, !alias.scope !54
   %73 = fmul float %61, %24
   %74 = tail call float @llvm.fmuladd.f32(float %53, float %63, float %73)
   %75 = tail call float @llvm.fmuladd.f32(float %23, float %.sroa.24.0.copyload, float %74)
   %76 = fneg float %75
   %77 = getelementptr inbounds i8, ptr %0, i64 44
-  store float %76, ptr %77, align 4, !alias.scope !57
-  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %8, align 4, !alias.scope !57
+  store float %76, ptr %77, align 4, !alias.scope !54
+  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %8, align 4, !alias.scope !54
   ret void
 }
 
@@ -42509,7 +42514,7 @@ define <2 x float> @GetWorldToScreenEx(<2 x float> %0, float %1, ptr nocapture n
   %14 = sitofp i32 %4 to double
   %15 = fdiv double %13, %14
   %16 = fmul double %12, 5.000000e-01
-  %17 = tail call double @tan(double noundef %16) #55, !noalias !60
+  %17 = tail call double @tan(double noundef %16) #55, !noalias !57
   %18 = fmul double %17, 1.000000e-02
   %19 = fmul double %15, %18
   %20 = insertelement <2 x double> poison, double %19, i64 0
@@ -45281,7 +45286,7 @@ define internal fastcc void @sinfl_build(ptr nocapture noundef %0, ptr nocapture
 72:                                               ; preds = %58
   %73 = getelementptr inbounds i8, ptr %.sroa.3147.1, i64 2
   %74 = xor i32 %.sroa.24.1, %57
-  %75 = tail call i32 @llvm.ctlz.i32(i32 %74, i1 true), !range !20
+  %75 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %74, i1 true)
   %76 = xor i32 %75, 31
   %77 = shl nuw i32 1, %76
   %78 = add i32 %77, -1
@@ -45419,7 +45424,7 @@ define internal fastcc void @sinfl_build(ptr nocapture noundef %0, ptr nocapture
 127:                                              ; preds = %125
   %128 = getelementptr inbounds i8, ptr %.sroa.3147.3, i64 2
   %129 = xor i32 %.sroa.24.3, %97
-  %130 = tail call i32 @llvm.ctlz.i32(i32 %129, i1 true), !range !20
+  %130 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %129, i1 true)
   %131 = xor i32 %130, 31
   %132 = shl nuw i32 1, %131
   %133 = add nsw i32 %132, -1
@@ -46115,19 +46120,19 @@ attributes #59 = { nounwind allocsize(1) }
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"MatrixRotate: argument 0"}
 !19 = distinct !{!19, !"MatrixRotate"}
-!20 = !{i32 0, i32 33}
-!21 = !{i64 0, i64 65}
-!22 = !{i32 1, i32 33}
-!23 = !{i32 -1, i32 1}
+!20 = !{i32 -1, i32 1}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"MatrixToFloatV: argument 0"}
+!23 = distinct !{!23, !"MatrixToFloatV"}
 !24 = !{!25}
 !25 = distinct !{!25, !26, !"MatrixToFloatV: argument 0"}
 !26 = distinct !{!26, !"MatrixToFloatV"}
 !27 = !{!28}
-!28 = distinct !{!28, !29, !"MatrixToFloatV: argument 0"}
-!29 = distinct !{!29, !"MatrixToFloatV"}
+!28 = distinct !{!28, !29, !"MatrixRotate: argument 0"}
+!29 = distinct !{!29, !"MatrixRotate"}
 !30 = !{!31}
-!31 = distinct !{!31, !32, !"MatrixRotate: argument 0"}
-!32 = distinct !{!32, !"MatrixRotate"}
+!31 = distinct !{!31, !32, !"MatrixToFloatV: argument 0"}
+!32 = distinct !{!32, !"MatrixToFloatV"}
 !33 = !{!34}
 !34 = distinct !{!34, !35, !"MatrixToFloatV: argument 0"}
 !35 = distinct !{!35, !"MatrixToFloatV"}
@@ -46138,23 +46143,20 @@ attributes #59 = { nounwind allocsize(1) }
 !40 = distinct !{!40, !41, !"MatrixToFloatV: argument 0"}
 !41 = distinct !{!41, !"MatrixToFloatV"}
 !42 = !{!43}
-!43 = distinct !{!43, !44, !"MatrixToFloatV: argument 0"}
-!44 = distinct !{!44, !"MatrixToFloatV"}
+!43 = distinct !{!43, !44, !"MatrixPerspective: argument 0"}
+!44 = distinct !{!44, !"MatrixPerspective"}
 !45 = !{!46}
-!46 = distinct !{!46, !47, !"MatrixPerspective: argument 0"}
-!47 = distinct !{!47, !"MatrixPerspective"}
+!46 = distinct !{!46, !47, !"MatrixLookAt: argument 0"}
+!47 = distinct !{!47, !"MatrixLookAt"}
 !48 = !{!49}
-!49 = distinct !{!49, !50, !"MatrixLookAt: argument 0"}
-!50 = distinct !{!50, !"MatrixLookAt"}
+!49 = distinct !{!49, !50, !"MatrixIdentity: argument 0"}
+!50 = distinct !{!50, !"MatrixIdentity"}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"MatrixIdentity: argument 0"}
-!53 = distinct !{!53, !"MatrixIdentity"}
+!52 = distinct !{!52, !53, !"MatrixPerspective: argument 0"}
+!53 = distinct !{!53, !"MatrixPerspective"}
 !54 = !{!55}
-!55 = distinct !{!55, !56, !"MatrixPerspective: argument 0"}
-!56 = distinct !{!56, !"MatrixPerspective"}
+!55 = distinct !{!55, !56, !"MatrixLookAt: argument 0"}
+!56 = distinct !{!56, !"MatrixLookAt"}
 !57 = !{!58}
-!58 = distinct !{!58, !59, !"MatrixLookAt: argument 0"}
-!59 = distinct !{!59, !"MatrixLookAt"}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"MatrixPerspective: argument 0"}
-!62 = distinct !{!62, !"MatrixPerspective"}
+!58 = distinct !{!58, !59, !"MatrixPerspective: argument 0"}
+!59 = distinct !{!59, !"MatrixPerspective"}

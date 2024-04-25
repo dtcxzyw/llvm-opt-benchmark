@@ -117497,8 +117497,8 @@ define hidden { i64, i64 } @_ZN5typst4text4font4book8FontBook17find_best_variant
   %.mask.i.i.i.i1.i = and i64 %22, 4503599627370495
   %25 = icmp ne i64 %.mask.i.i.i.i1.i, 0
   %.0.i.i.i.i2.i = and i1 %24, %25
-  %.0.i.i.i3.i = select i1 %.0.i.i.i.i2.i, double 0.000000e+00, double %21
-  %26 = fneg double %.0.i.i.i3.i
+  %.neg.i = fneg double %21
+  %26 = select i1 %.0.i.i.i.i2.i, double -0.000000e+00, double %.neg.i
   %27 = bitcast double %26 to i64
   %28 = and i64 %27, 9218868437227405312
   %29 = icmp eq i64 %28, 9218868437227405312
@@ -117818,8 +117818,8 @@ define hidden { i64, i64 } @_ZN5typst4text4font4book8FontBook17find_best_variant
   %.mask.i.i.i.i1.i = and i64 %20, 4503599627370495
   %23 = icmp ne i64 %.mask.i.i.i.i1.i, 0
   %.0.i.i.i.i2.i = and i1 %22, %23
-  %.0.i.i.i3.i = select i1 %.0.i.i.i.i2.i, double 0.000000e+00, double %19
-  %24 = fneg double %.0.i.i.i3.i
+  %.neg.i = fneg double %19
+  %24 = select i1 %.0.i.i.i.i2.i, double -0.000000e+00, double %.neg.i
   %25 = bitcast double %24 to i64
   %26 = and i64 %25, 9218868437227405312
   %27 = icmp eq i64 %26, 9218868437227405312

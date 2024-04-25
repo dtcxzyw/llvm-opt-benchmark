@@ -2302,9 +2302,9 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_13Rdf12analyzeFrameEi
   %50 = load i8, ptr %49, align 1
   %51 = trunc i8 %50 to i1
   %.sroa.12.0 = select i1 %51, float 0.000000e+00, float %44
-  %.sroa.15.0 = select i1 %51, float 0.000000e+00, float %46
   %.sroa.18.0 = select i1 %51, float 1.000000e+00, float %48
-  %52 = fneg float %.sroa.15.0
+  %.neg = fneg float %46
+  %52 = select i1 %51, float -0.000000e+00, float %.neg
   %53 = fmul float %42, %52
   %54 = call float @llvm.fmuladd.f32(float %40, float %.sroa.18.0, float %53)
   %55 = fmul float %36, %52

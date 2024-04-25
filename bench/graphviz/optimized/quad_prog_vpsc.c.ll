@@ -194,9 +194,9 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   %81 = extractelement <2 x float> %80, i64 0
   %82 = fcmp une float %81, 0.000000e+00
   %83 = extractelement <2 x float> %80, i64 1
-  %84 = fdiv float %83, %81
-  %.0152 = select i1 %82, float %84, float 1.000000e+00
-  %85 = fneg float %.0152
+  %84 = fneg float %83
+  %.neg = fdiv float %84, %81
+  %85 = select i1 %82, float %.neg, float -1.000000e+00
   br label %86
 
 86:                                               ; preds = %.lr.ph198, %86
@@ -423,7 +423,7 @@ gv_alloc.exit:                                    ; preds = %5
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = tail call ptr @newVariable(i32 noundef %27, double noundef 1.000000e+00, double noundef 1.000000e+00) #12
   %29 = load ptr, ptr %25, align 8
   %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv
@@ -665,7 +665,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
 .lr.ph225:                                        ; preds = %._crit_edge222, %.lr.ph225
   %indvars.iv261 = phi i64 [ %indvars.iv.next262, %.lr.ph225 ], [ 0, %._crit_edge222 ]
   %143 = add nsw i64 %indvars.iv261, %23
-  %144 = trunc i64 %143 to i32
+  %144 = trunc nsw i64 %143 to i32
   %145 = call ptr @newVariable(i32 noundef %144, double noundef 1.000000e+00, double noundef 0x3EB0C6F7A0B5ED8D) #12
   %146 = load ptr, ptr %25, align 8
   %147 = getelementptr inbounds ptr, ptr %146, i64 %143
@@ -1613,7 +1613,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %247 = load ptr, ptr %15, align 8
   %248 = getelementptr inbounds i8, ptr %247, i64 24
   %249 = load i32, ptr %248, align 8
-  %250 = trunc i64 %indvars.iv448 to i32
+  %250 = trunc nsw i64 %indvars.iv448 to i32
   %251 = sub nsw i32 %250, %249
   %252 = getelementptr inbounds %struct.boxf, ptr %176, i64 %indvars.iv448
   %.sink480 = getelementptr inbounds i8, ptr %252, i64 %.sink480.idx
@@ -1810,7 +1810,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 
 351:                                              ; preds = %344
   %352 = load ptr, ptr %7, align 8
-  %353 = trunc i64 %indvars.iv462 to i32
+  %353 = trunc nuw nsw i64 %indvars.iv462 to i32
   %354 = sub nsw i32 %353, %345
   %355 = sext i32 %354 to i64
   %356 = getelementptr inbounds ptr, ptr %352, i64 %355
