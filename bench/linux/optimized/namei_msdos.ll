@@ -137,56 +137,55 @@ define internal ptr @msdos_lookup(ptr noundef %0, ptr noundef %1, i32 %2) #2 ali
   %35 = load i8, ptr %34, align 1
   %36 = and i8 %35, 2
   %37 = icmp eq i8 %36, 0
-  %38 = icmp ne i8 %36, 0
-  %39 = select i1 %31, i1 %38, i1 %37
-  br i1 %39, label %msdos_find.exit.thread2, label %40
+  %38 = xor i1 %31, %37
+  br i1 %38, label %msdos_find.exit.thread2, label %39
 
-40:                                               ; preds = %29
-  %41 = getelementptr inbounds i8, ptr %5, i64 32
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %msdos_find.exit.thread, label %44
+39:                                               ; preds = %29
+  %40 = getelementptr inbounds i8, ptr %5, i64 32
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %msdos_find.exit.thread, label %43
 
-44:                                               ; preds = %40
-  call void @__brelse(ptr noundef nonnull %42) #12
+43:                                               ; preds = %39
+  call void @__brelse(ptr noundef nonnull %41) #12
   br label %msdos_find.exit.thread
 
-msdos_find.exit.thread:                           ; preds = %3, %40, %44
+msdos_find.exit.thread:                           ; preds = %3, %39, %43
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %4) #12
-  br label %55
+  br label %54
 
 msdos_find.exit.thread2:                          ; preds = %.msdos_find.exit.thread2_crit_edge, %29
-  %45 = phi ptr [ %.pre, %.msdos_find.exit.thread2_crit_edge ], [ %33, %29 ]
+  %44 = phi ptr [ %.pre, %.msdos_find.exit.thread2_crit_edge ], [ %33, %29 ]
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %4) #12
-  %46 = load i64, ptr %5, align 8
-  %47 = call ptr @fat_build_inode(ptr noundef %7, ptr noundef %45, i64 noundef %46) #12
-  %48 = getelementptr inbounds i8, ptr %5, i64 32
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %55, label %51
+  %45 = load i64, ptr %5, align 8
+  %46 = call ptr @fat_build_inode(ptr noundef %7, ptr noundef %44, i64 noundef %45) #12
+  %47 = getelementptr inbounds i8, ptr %5, i64 32
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %54, label %50
 
 msdos_find.exit:                                  ; preds = %21
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %4) #12
   %cond = icmp eq i32 %22, -2
-  br i1 %cond, label %55, label %52
+  br i1 %cond, label %54, label %51
 
-51:                                               ; preds = %msdos_find.exit.thread2
-  call void @__brelse(ptr noundef nonnull %49) #12
-  br label %55
+50:                                               ; preds = %msdos_find.exit.thread2
+  call void @__brelse(ptr noundef nonnull %48) #12
+  br label %54
 
-52:                                               ; preds = %msdos_find.exit
-  %53 = sext i32 %22 to i64
-  %54 = inttoptr i64 %53 to ptr
-  br label %55
+51:                                               ; preds = %msdos_find.exit
+  %52 = sext i32 %22 to i64
+  %53 = inttoptr i64 %52 to ptr
+  br label %54
 
-55:                                               ; preds = %msdos_find.exit, %msdos_find.exit.thread, %52, %51, %msdos_find.exit.thread2
-  %56 = phi ptr [ %54, %52 ], [ null, %msdos_find.exit ], [ %47, %msdos_find.exit.thread2 ], [ %47, %51 ], [ null, %msdos_find.exit.thread ]
-  %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 136
-  call void @mutex_unlock(ptr noundef %58) #12
-  %59 = call ptr @d_splice_alias(ptr noundef %56, ptr noundef %1) #12
+54:                                               ; preds = %msdos_find.exit, %msdos_find.exit.thread, %51, %50, %msdos_find.exit.thread2
+  %55 = phi ptr [ %53, %51 ], [ null, %msdos_find.exit ], [ %46, %msdos_find.exit.thread2 ], [ %46, %50 ], [ null, %msdos_find.exit.thread ]
+  %56 = load ptr, ptr %8, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 136
+  call void @mutex_unlock(ptr noundef %57) #12
+  %58 = call ptr @d_splice_alias(ptr noundef %55, ptr noundef %1) #12
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
-  ret ptr %59
+  ret ptr %58
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -342,7 +341,7 @@ define internal i32 @msdos_unlink(ptr noundef %0, ptr nocapture noundef readonly
   %28 = load i16, ptr %27, align 8
   %29 = and i16 %28, 8
   %30 = icmp eq i16 %29, 0
-  br i1 %30, label %47, label %31
+  br i1 %30, label %46, label %31
 
 31:                                               ; preds = %26
   %32 = load i8, ptr %13, align 1
@@ -353,52 +352,51 @@ define internal i32 @msdos_unlink(ptr noundef %0, ptr nocapture noundef readonly
   %37 = load i8, ptr %36, align 1
   %38 = and i8 %37, 2
   %39 = icmp eq i8 %38, 0
-  %40 = icmp ne i8 %38, 0
-  %41 = select i1 %33, i1 %40, i1 %39
-  br i1 %41, label %47, label %42
+  %40 = xor i1 %33, %39
+  br i1 %40, label %46, label %41
 
-42:                                               ; preds = %31
-  %43 = getelementptr inbounds i8, ptr %4, i64 32
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %msdos_find.exit.thread, label %46
+41:                                               ; preds = %31
+  %42 = getelementptr inbounds i8, ptr %4, i64 32
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %msdos_find.exit.thread, label %45
 
-46:                                               ; preds = %42
-  call void @__brelse(ptr noundef nonnull %44) #12
+45:                                               ; preds = %41
+  call void @__brelse(ptr noundef nonnull %43) #12
   br label %msdos_find.exit.thread
 
-msdos_find.exit.thread:                           ; preds = %2, %23, %42, %46
-  %.ph = phi i32 [ -2, %46 ], [ -2, %42 ], [ %24, %23 ], [ -2, %2 ]
+msdos_find.exit.thread:                           ; preds = %2, %23, %41, %45
+  %.ph = phi i32 [ -2, %45 ], [ -2, %41 ], [ %24, %23 ], [ -2, %2 ]
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %3) #12
   br label %.thread
 
-47:                                               ; preds = %31, %26
+46:                                               ; preds = %31, %26
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %3) #12
-  %48 = call i32 @fat_remove_entries(ptr noundef %0, ptr noundef nonnull %4) #12
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %52, label %.thread
+  %47 = call i32 @fat_remove_entries(ptr noundef %0, ptr noundef nonnull %4) #12
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %51, label %.thread
 
-.thread:                                          ; preds = %47, %msdos_find.exit.thread
-  %.ph3 = phi i32 [ %.ph, %msdos_find.exit.thread ], [ %48, %47 ]
-  %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 136
-  call void @mutex_unlock(ptr noundef %51) #12
-  br label %57
+.thread:                                          ; preds = %46, %msdos_find.exit.thread
+  %.ph3 = phi i32 [ %.ph, %msdos_find.exit.thread ], [ %47, %46 ]
+  %49 = load ptr, ptr %9, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 136
+  call void @mutex_unlock(ptr noundef %50) #12
+  br label %56
 
-52:                                               ; preds = %47
+51:                                               ; preds = %46
   call void @clear_nlink(ptr noundef %6) #12
-  %53 = call i32 @fat_truncate_time(ptr noundef %6, ptr noundef null, i32 noundef 4) #12
+  %52 = call i32 @fat_truncate_time(ptr noundef %6, ptr noundef null, i32 noundef 4) #12
   call void @fat_detach(ptr noundef %6) #12
-  %54 = load ptr, ptr %9, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 136
-  call void @mutex_unlock(ptr noundef %55) #12
-  %56 = call i32 @fat_flush_inodes(ptr noundef %8, ptr noundef %0, ptr noundef %6) #12
-  br label %57
+  %53 = load ptr, ptr %9, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 136
+  call void @mutex_unlock(ptr noundef %54) #12
+  %55 = call i32 @fat_flush_inodes(ptr noundef %8, ptr noundef %0, ptr noundef %6) #12
+  br label %56
 
-57:                                               ; preds = %.thread, %52
-  %58 = phi i32 [ %56, %52 ], [ %.ph3, %.thread ]
+56:                                               ; preds = %.thread, %51
+  %57 = phi i32 [ %55, %51 ], [ %.ph3, %.thread ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
-  ret i32 %58
+  ret i32 %57
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -562,7 +560,7 @@ define internal i32 @msdos_rmdir(ptr noundef %0, ptr nocapture noundef readonly 
   %30 = load i16, ptr %29, align 8
   %31 = and i16 %30, 8
   %32 = icmp eq i16 %31, 0
-  br i1 %32, label %49, label %33
+  br i1 %32, label %48, label %33
 
 33:                                               ; preds = %28
   %34 = load i8, ptr %16, align 1
@@ -573,53 +571,52 @@ define internal i32 @msdos_rmdir(ptr noundef %0, ptr nocapture noundef readonly 
   %39 = load i8, ptr %38, align 1
   %40 = and i8 %39, 2
   %41 = icmp eq i8 %40, 0
-  %42 = icmp ne i8 %40, 0
-  %43 = select i1 %35, i1 %42, i1 %41
-  br i1 %43, label %49, label %44
+  %42 = xor i1 %35, %41
+  br i1 %42, label %48, label %43
 
-44:                                               ; preds = %33
-  %45 = getelementptr inbounds i8, ptr %4, i64 32
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %msdos_find.exit.thread, label %48
+43:                                               ; preds = %33
+  %44 = getelementptr inbounds i8, ptr %4, i64 32
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %msdos_find.exit.thread, label %47
 
-48:                                               ; preds = %44
-  call void @__brelse(ptr noundef nonnull %46) #12
+47:                                               ; preds = %43
+  call void @__brelse(ptr noundef nonnull %45) #12
   br label %msdos_find.exit.thread
 
-msdos_find.exit.thread:                           ; preds = %14, %25, %44, %48
-  %.ph = phi i32 [ -2, %48 ], [ -2, %44 ], [ %26, %25 ], [ -2, %14 ]
+msdos_find.exit.thread:                           ; preds = %14, %25, %43, %47
+  %.ph = phi i32 [ -2, %47 ], [ -2, %43 ], [ %26, %25 ], [ -2, %14 ]
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %3) #12
   br label %.thread
 
-49:                                               ; preds = %33, %28
+48:                                               ; preds = %33, %28
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %3) #12
-  %50 = call i32 @fat_remove_entries(ptr noundef %0, ptr noundef nonnull %4) #12
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %54, label %.thread
+  %49 = call i32 @fat_remove_entries(ptr noundef %0, ptr noundef nonnull %4) #12
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %53, label %.thread
 
-.thread:                                          ; preds = %2, %49, %msdos_find.exit.thread
-  %.ph4 = phi i32 [ %.ph, %msdos_find.exit.thread ], [ %50, %49 ], [ %12, %2 ]
-  %52 = load ptr, ptr %9, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 136
-  call void @mutex_unlock(ptr noundef %53) #12
-  br label %59
+.thread:                                          ; preds = %2, %48, %msdos_find.exit.thread
+  %.ph4 = phi i32 [ %.ph, %msdos_find.exit.thread ], [ %49, %48 ], [ %12, %2 ]
+  %51 = load ptr, ptr %9, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 136
+  call void @mutex_unlock(ptr noundef %52) #12
+  br label %58
 
-54:                                               ; preds = %49
+53:                                               ; preds = %48
   call void @drop_nlink(ptr noundef %0) #12
   call void @clear_nlink(ptr noundef %8) #12
-  %55 = call i32 @fat_truncate_time(ptr noundef %8, ptr noundef null, i32 noundef 4) #12
+  %54 = call i32 @fat_truncate_time(ptr noundef %8, ptr noundef null, i32 noundef 4) #12
   call void @fat_detach(ptr noundef %8) #12
-  %56 = load ptr, ptr %9, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 136
-  call void @mutex_unlock(ptr noundef %57) #12
-  %58 = call i32 @fat_flush_inodes(ptr noundef %6, ptr noundef %0, ptr noundef %8) #12
-  br label %59
+  %55 = load ptr, ptr %9, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 136
+  call void @mutex_unlock(ptr noundef %56) #12
+  %57 = call i32 @fat_flush_inodes(ptr noundef %6, ptr noundef %0, ptr noundef %8) #12
+  br label %58
 
-59:                                               ; preds = %.thread, %54
-  %60 = phi i32 [ %58, %54 ], [ %.ph4, %.thread ]
+58:                                               ; preds = %.thread, %53
+  %59 = phi i32 [ %57, %53 ], [ %.ph4, %.thread ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
-  ret i32 %60
+  ret i32 %59
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -869,7 +866,7 @@ define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr
   %163 = getelementptr inbounds i8, ptr %159, i64 26
   store i16 %162, ptr %163, align 2
   %164 = lshr i32 %161, 16
-  %165 = trunc i32 %164 to i16
+  %165 = trunc nuw i32 %164 to i16
   %166 = getelementptr inbounds i8, ptr %159, i64 20
   store i16 %165, ptr %166, align 4
   %167 = load ptr, ptr %7, align 8
@@ -992,7 +989,7 @@ define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr
   %225 = getelementptr inbounds i8, ptr %221, i64 26
   store i16 %224, ptr %225, align 2
   %226 = lshr i32 %223, 16
-  %227 = trunc i32 %226 to i16
+  %227 = trunc nuw i32 %226 to i16
   %228 = getelementptr inbounds i8, ptr %221, i64 20
   store i16 %227, ptr %228, align 4
   %229 = load ptr, ptr %7, align 8
@@ -1424,7 +1421,7 @@ define internal fastcc i32 @msdos_add_entry(ptr noundef %0, ptr nocapture nounde
   %29 = getelementptr inbounds i8, ptr %8, i64 26
   store i16 %28, ptr %29, align 2
   %30 = lshr i32 %4, 16
-  %31 = trunc i32 %30 to i16
+  %31 = trunc nuw nsw i32 %30 to i16
   %32 = getelementptr inbounds i8, ptr %8, i64 20
   store i16 %31, ptr %32, align 4
   %33 = getelementptr inbounds i8, ptr %8, i64 28

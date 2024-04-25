@@ -87974,13 +87974,13 @@ define internal fastcc noundef zeroext i1 @"_ZN66_$LT$chalk_ir..TyKind$LT$I$GT$$
     i8 17, label %170
     i8 18, label %182
     i8 19, label %194
-    i8 20, label %208
-    i8 21, label %232
-    i8 22, label %244
+    i8 20, label %207
+    i8 21, label %231
+    i8 22, label %243
   ]
 
-"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit": ; preds = %228, %216, %208, %.sink.split.i, %194, %190, %182, %44, %42, %40, %39, %33, %244, %232, %170, %152, %140, %128, %116, %104, %88, %94, %76, %58, %46, %21, %7, %6, %2, %250, %238, %176, %158, %146, %134, %122, %110, %98, %82, %64, %52, %27, %15, %164, %70
-  %.0.shrunk = phi i1 [ %255, %250 ], [ %243, %238 ], [ %181, %176 ], [ %169, %164 ], [ %163, %158 ], [ %151, %146 ], [ %139, %134 ], [ %127, %122 ], [ %115, %110 ], [ %103, %98 ], [ %87, %82 ], [ %75, %70 ], [ %69, %64 ], [ %57, %52 ], [ %32, %27 ], [ %20, %15 ], [ false, %2 ], [ true, %6 ], [ false, %7 ], [ false, %21 ], [ false, %46 ], [ false, %58 ], [ false, %76 ], [ false, %94 ], [ false, %88 ], [ false, %104 ], [ false, %116 ], [ false, %128 ], [ false, %140 ], [ false, %152 ], [ false, %170 ], [ false, %232 ], [ false, %244 ], [ false, %33 ], [ true, %39 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %193, %190 ], [ false, %182 ], [ false, %194 ], [ %spec.select.i10.i, %.sink.split.i ], [ %231, %228 ], [ false, %216 ], [ false, %208 ]
+"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit": ; preds = %227, %215, %207, %.sink.split.i, %194, %190, %182, %44, %42, %40, %39, %33, %243, %231, %170, %152, %140, %128, %116, %104, %88, %94, %76, %58, %46, %21, %7, %6, %2, %249, %237, %176, %158, %146, %134, %122, %110, %98, %82, %64, %52, %27, %15, %164, %70
+  %.0.shrunk = phi i1 [ %254, %249 ], [ %242, %237 ], [ %181, %176 ], [ %169, %164 ], [ %163, %158 ], [ %151, %146 ], [ %139, %134 ], [ %127, %122 ], [ %115, %110 ], [ %103, %98 ], [ %87, %82 ], [ %75, %70 ], [ %69, %64 ], [ %57, %52 ], [ %32, %27 ], [ %20, %15 ], [ false, %2 ], [ true, %6 ], [ false, %7 ], [ false, %21 ], [ false, %46 ], [ false, %58 ], [ false, %76 ], [ false, %94 ], [ false, %88 ], [ false, %104 ], [ false, %116 ], [ false, %128 ], [ false, %140 ], [ false, %152 ], [ false, %170 ], [ false, %231 ], [ false, %243 ], [ false, %33 ], [ true, %39 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %193, %190 ], [ false, %182 ], [ false, %194 ], [ %spec.select.i10.i, %.sink.split.i ], [ %230, %227 ], [ false, %215 ], [ false, %207 ]
   ret i1 %.0.shrunk
 
 7:                                                ; preds = %6
@@ -88310,86 +88310,85 @@ define internal fastcc noundef zeroext i1 @"_ZN66_$LT$chalk_ir..TyKind$LT$I$GT$$
   %201 = getelementptr inbounds i8, ptr %1, i64 16
   %202 = getelementptr inbounds i8, ptr %0, i64 24
   %203 = getelementptr inbounds i8, ptr %1, i64 24
-  %204 = icmp ne i64 %197, 0
-  %205 = icmp eq i64 %197, 0
-  %.sink.i = select i1 %trunc.i, i1 %204, i1 %205
+  %204 = icmp eq i64 %197, 0
+  %.sink.i = xor i1 %204, %trunc.i
   tail call void @llvm.assume(i1 %.sink.i)
   %.val6.i = load ptr, ptr %200, align 8, !alias.scope !14816, !noalias !14819
   %.val7.i = load i32, ptr %202, align 8, !alias.scope !14816, !noalias !14819, !noundef !137
   %.val8.i = load ptr, ptr %201, align 8, !alias.scope !14819, !noalias !14816
   %.val9.i = load i32, ptr %203, align 8, !alias.scope !14819, !noalias !14816, !noundef !137
-  %206 = icmp eq i32 %.val7.i, %.val9.i
-  %207 = icmp eq ptr %.val6.i, %.val8.i
-  %spec.select.i10.i = select i1 %206, i1 %207, i1 false
+  %205 = icmp eq i32 %.val7.i, %.val9.i
+  %206 = icmp eq ptr %.val6.i, %.val8.i
+  %spec.select.i10.i = select i1 %205, i1 %206, i1 false
   br label %"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit"
 
-208:                                              ; preds = %6
-  %209 = getelementptr inbounds i8, ptr %0, i64 8
-  %210 = getelementptr inbounds i8, ptr %1, i64 8
+207:                                              ; preds = %6
+  %208 = getelementptr inbounds i8, ptr %0, i64 8
+  %209 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14821)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14824)
-  %211 = getelementptr inbounds i8, ptr %0, i64 16
-  %212 = load i64, ptr %211, align 8, !alias.scope !14821, !noalias !14824, !noundef !137
-  %213 = getelementptr inbounds i8, ptr %1, i64 16
-  %214 = load i64, ptr %213, align 8, !alias.scope !14824, !noalias !14821, !noundef !137
-  %215 = icmp eq i64 %212, %214
-  br i1 %215, label %216, label %"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit"
+  %210 = getelementptr inbounds i8, ptr %0, i64 16
+  %211 = load i64, ptr %210, align 8, !alias.scope !14821, !noalias !14824, !noundef !137
+  %212 = getelementptr inbounds i8, ptr %1, i64 16
+  %213 = load i64, ptr %212, align 8, !alias.scope !14824, !noalias !14821, !noundef !137
+  %214 = icmp eq i64 %211, %213
+  br i1 %214, label %215, label %"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit"
 
-216:                                              ; preds = %208
-  %217 = getelementptr inbounds i8, ptr %0, i64 24
-  %218 = getelementptr inbounds i8, ptr %1, i64 24
+215:                                              ; preds = %207
+  %216 = getelementptr inbounds i8, ptr %0, i64 24
+  %217 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14826)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14829)
-  %219 = load i8, ptr %217, align 8, !range !5150, !alias.scope !14831, !noalias !14832, !noundef !137
-  %220 = load i8, ptr %218, align 8, !range !5150, !alias.scope !14832, !noalias !14831, !noundef !137
-  %221 = icmp ne i8 %219, %220
-  %222 = getelementptr inbounds i8, ptr %0, i64 25
-  %223 = load i8, ptr %222, align 1, !range !5150, !alias.scope !14831, !noalias !14832
-  %224 = getelementptr inbounds i8, ptr %1, i64 25
-  %225 = load i8, ptr %224, align 1, !range !5150, !alias.scope !14832, !noalias !14831
-  %226 = xor i8 %225, %223
-  %227 = trunc nuw i8 %226 to i1
-  %.0.i.not.i = select i1 %221, i1 true, i1 %227
-  br i1 %.0.i.not.i, label %"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit", label %228
+  %218 = load i8, ptr %216, align 8, !range !5150, !alias.scope !14831, !noalias !14832, !noundef !137
+  %219 = load i8, ptr %217, align 8, !range !5150, !alias.scope !14832, !noalias !14831, !noundef !137
+  %220 = icmp ne i8 %218, %219
+  %221 = getelementptr inbounds i8, ptr %0, i64 25
+  %222 = load i8, ptr %221, align 1, !range !5150, !alias.scope !14831, !noalias !14832
+  %223 = getelementptr inbounds i8, ptr %1, i64 25
+  %224 = load i8, ptr %223, align 1, !range !5150, !alias.scope !14832, !noalias !14831
+  %225 = xor i8 %224, %222
+  %226 = trunc nuw i8 %225 to i1
+  %.0.i.not.i = select i1 %220, i1 true, i1 %226
+  br i1 %.0.i.not.i, label %"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit", label %227
 
-228:                                              ; preds = %216
+227:                                              ; preds = %215
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14833)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14836)
-  %229 = load ptr, ptr %209, align 8, !alias.scope !14838, !noalias !14839, !nonnull !137, !noundef !137
-  %230 = load ptr, ptr %210, align 8, !alias.scope !14839, !noalias !14838, !nonnull !137, !noundef !137
-  %231 = icmp eq ptr %229, %230
+  %228 = load ptr, ptr %208, align 8, !alias.scope !14838, !noalias !14839, !nonnull !137, !noundef !137
+  %229 = load ptr, ptr %209, align 8, !alias.scope !14839, !noalias !14838, !nonnull !137, !noundef !137
+  %230 = icmp eq ptr %228, %229
   br label %"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit"
 
-232:                                              ; preds = %6
-  %233 = getelementptr inbounds i8, ptr %0, i64 16
-  %234 = load i32, ptr %233, align 8, !noundef !137
-  %235 = getelementptr inbounds i8, ptr %1, i64 16
-  %236 = load i32, ptr %235, align 8, !noundef !137
-  %237 = icmp eq i32 %234, %236
-  br i1 %237, label %238, label %"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit"
+231:                                              ; preds = %6
+  %232 = getelementptr inbounds i8, ptr %0, i64 16
+  %233 = load i32, ptr %232, align 8, !noundef !137
+  %234 = getelementptr inbounds i8, ptr %1, i64 16
+  %235 = load i32, ptr %234, align 8, !noundef !137
+  %236 = icmp eq i32 %233, %235
+  br i1 %236, label %237, label %"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit"
 
-238:                                              ; preds = %232
-  %239 = getelementptr inbounds i8, ptr %1, i64 8
-  %240 = getelementptr inbounds i8, ptr %0, i64 8
-  %241 = load i64, ptr %240, align 8, !noundef !137
-  %242 = load i64, ptr %239, align 8, !noundef !137
-  %243 = icmp eq i64 %241, %242
+237:                                              ; preds = %231
+  %238 = getelementptr inbounds i8, ptr %1, i64 8
+  %239 = getelementptr inbounds i8, ptr %0, i64 8
+  %240 = load i64, ptr %239, align 8, !noundef !137
+  %241 = load i64, ptr %238, align 8, !noundef !137
+  %242 = icmp eq i64 %240, %241
   br label %"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit"
 
-244:                                              ; preds = %6
-  %245 = getelementptr inbounds i8, ptr %0, i64 4
-  %246 = load i32, ptr %245, align 4, !noundef !137
-  %247 = getelementptr inbounds i8, ptr %1, i64 4
-  %248 = load i32, ptr %247, align 4, !noundef !137
-  %249 = icmp eq i32 %246, %248
-  br i1 %249, label %250, label %"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit"
+243:                                              ; preds = %6
+  %244 = getelementptr inbounds i8, ptr %0, i64 4
+  %245 = load i32, ptr %244, align 4, !noundef !137
+  %246 = getelementptr inbounds i8, ptr %1, i64 4
+  %247 = load i32, ptr %246, align 4, !noundef !137
+  %248 = icmp eq i32 %245, %247
+  br i1 %248, label %249, label %"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit"
 
-250:                                              ; preds = %244
-  %251 = getelementptr inbounds i8, ptr %0, i64 1
-  %252 = load i8, ptr %251, align 1, !range !191, !noundef !137
-  %253 = getelementptr inbounds i8, ptr %1, i64 1
-  %254 = load i8, ptr %253, align 1, !range !191, !noundef !137
-  %255 = icmp eq i8 %252, %254
+249:                                              ; preds = %243
+  %250 = getelementptr inbounds i8, ptr %0, i64 1
+  %251 = load i8, ptr %250, align 1, !range !191, !noundef !137
+  %252 = getelementptr inbounds i8, ptr %1, i64 1
+  %253 = load i8, ptr %252, align 1, !range !191, !noundef !137
+  %254 = icmp eq i8 %251, %253
   br label %"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit"
 }
 

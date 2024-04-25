@@ -989,7 +989,7 @@ _ZN6hermes2vm11Interpreter30tryGetPrimitiveOwnPropertyByIdERNS0_7RuntimeENS0_6Ha
   %lengthAndUniquedFlag_.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %lengthAndUniquedFlag_.i.i, align 4
   %and.i.i = and i32 %2, 2147483647
-  %conv.i.i = uitofp i32 %and.i.i to double
+  %conv.i.i = uitofp nneg i32 %and.i.i to double
   %3 = bitcast double %conv.i.i to i64
   %shr.i.mask.i = and i64 %3, -140737488355328
   %cmp.i = icmp eq i64 %shr.i.mask.i, -1970324836974592
@@ -4787,7 +4787,7 @@ _ZN6hermes2vm11Interpreter30tryGetPrimitiveOwnPropertyByIdERNS0_7RuntimeENS0_6Ha
   %lengthAndUniquedFlag_.i.i.i = getelementptr inbounds i8, ptr %369, i64 4
   %370 = load i32, ptr %lengthAndUniquedFlag_.i.i.i, align 4
   %and.i.i.i3074 = and i32 %370, 2147483647
-  %conv.i.i.i3075 = uitofp i32 %and.i.i.i3074 to double
+  %conv.i.i.i3075 = uitofp nneg i32 %and.i.i.i3074 to double
   %371 = bitcast double %conv.i.i.i3075 to i64
   %shr.i.mask.i.i3076 = and i64 %371, -140737488355328
   %cmp.i.i3077 = icmp eq i64 %shr.i.mask.i.i3076, -1970324836974592
@@ -6523,16 +6523,14 @@ case_Neq:                                         ; preds = %indirectgoto
   br i1 %cmp.i3681, label %exceptionthread-pre-split.loopexit5510, label %if.end2646
 
 if.end2646:                                       ; preds = %case_Neq
-  %eqRes.sroa.0.0.extract.trunc = trunc i32 %call2642 to i16
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
   store ptr %chunks_.i, ptr %curChunkEnd_.i, align 8
   store i32 0, ptr %curChunkIndex_.i, align 8
   %663 = load i8, ptr %662, align 1
   %cmp2648 = icmp eq i8 %663, 14
-  %664 = and i16 %eqRes.sroa.0.0.extract.trunc, 256
-  %bf.cast.i.i3689 = icmp ne i16 %664, 0
-  %bf.cast.i.i3691.not = icmp eq i16 %664, 0
-  %cond2655 = select i1 %cmp2648, i1 %bf.cast.i.i3689, i1 %bf.cast.i.i3691.not
+  %664 = and i32 %call2642, 256
+  %bf.cast.i.i3691.not = icmp eq i32 %664, 0
+  %cond2655 = xor i1 %cmp2648, %bf.cast.i.i3691.not
   %conv.i3692 = zext i1 %cond2655 to i64
   %or.i.i3693 = or disjoint i64 %conv.i3692, -1407374883553280
   %op12658 = getelementptr inbounds i8, ptr %662, i64 1

@@ -47,10 +47,9 @@ define i32 @softfloat_subMagsF32(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %22 = and i64 %0, 2147483648
   %23 = icmp ne i64 %22, 0
   %24 = icmp slt i64 %21, 0
-  %.not76 = icmp eq i64 %22, 0
   %.064 = tail call i64 @llvm.abs.i64(i64 %21, i1 true)
-  %.062 = select i1 %24, i1 %.not76, i1 %23
-  %25 = trunc i64 %.064 to i32
+  %.062 = xor i1 %23, %24
+  %25 = trunc nuw nsw i64 %.064 to i32
   %26 = icmp ult i32 %25, 65536
   %27 = shl nuw i32 %25, 16
   %spec.select.i = select i1 %26, i32 %27, i32 %25
@@ -69,7 +68,7 @@ define i32 @softfloat_subMagsF32(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %37 = sext i8 %36 to i64
   %38 = sub nsw i64 %spec.select, %37
   %39 = icmp slt i64 %38, 0
-  %40 = trunc i64 %spec.select to i8
+  %40 = trunc nuw i64 %spec.select to i8
   %.061 = select i1 %39, i8 %40, i8 %36
   %.060 = tail call i64 @llvm.smax.i64(i64 %38, i64 0)
   %41 = select i1 %.062, i64 2147483648, i64 0
@@ -134,12 +133,12 @@ define i32 @softfloat_subMagsF32(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %.0 = phi i64 [ %62, %60 ], [ %69, %67 ]
   %.059 = add nuw nsw i64 %.059.in, 1073741824
   %.1 = add nsw i64 %.1.in, -1
-  %73 = trunc i64 %.0 to i32
+  %73 = trunc nuw nsw i64 %.0 to i32
   %74 = icmp ult i64 %.066, 31
   br i1 %74, label %75, label %84
 
 75:                                               ; preds = %72
-  %76 = trunc i64 %.066 to i32
+  %76 = trunc nuw nsw i64 %.066 to i32
   %77 = lshr i32 %73, %76
   %78 = sub nsw i32 0, %76
   %79 = and i32 %78, 31

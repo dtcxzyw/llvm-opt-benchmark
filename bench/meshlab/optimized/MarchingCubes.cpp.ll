@@ -875,9 +875,8 @@ _ZN6Square11EdgeCornersEiRiS0_.exit:              ; preds = %_ZN6Square15FactorE
   %16 = load i32, ptr %15, align 4
   %17 = shl nuw i32 1, %16
   %18 = and i32 %17, %8
-  %.not7 = icmp ne i32 %18, 0
   %.not5 = icmp eq i32 %18, 0
-  %19 = select i1 %.not, i1 %.not7, i1 %.not5
+  %19 = xor i1 %.not, %.not5
   ret i1 %19
 }
 
@@ -2336,9 +2335,8 @@ _ZN4Cube11EdgeCornersEiRiS0_.exit:                ; preds = %7, %12, %16, %2
   %26 = load i32, ptr %25, align 4
   %27 = shl nuw i32 1, %26
   %28 = and i32 %27, %18
-  %.not7 = icmp ne i32 %28, 0
   %.not5 = icmp eq i32 %28, 0
-  %29 = select i1 %.not, i1 %.not7, i1 %.not5
+  %29 = xor i1 %.not, %.not5
   ret i1 %29
 }
 

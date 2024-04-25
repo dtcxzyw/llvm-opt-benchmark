@@ -1838,10 +1838,10 @@ entry:
 if.end.i:                                         ; preds = %entry
   %sub5.i = add i64 %0, -1
   %div34.i = lshr i64 %sub5.i, 1
-  %cmp6.not.i = icmp ugt i64 %cond2.i, %div34.i
+  %cmp6.i = icmp ugt i64 %cond2.i, %div34.i
   %sub11.i = sub i64 %sub5.i, %cond2.i
-  %seek_forward.0.v.i = select i1 %cmp6.not.i, i1 %not.cmp.i, i1 %cmp.i
-  %seek_index.0.i = select i1 %cmp6.not.i, i64 %sub11.i, i64 %cond2.i
+  %seek_forward.0.v.i = xor i1 %cmp.i, %cmp6.i
+  %seek_index.0.i = select i1 %cmp6.i, i64 %sub11.i, i64 %cond2.i
   %cond17.in.idx.i = select i1 %seek_forward.0.v.i, i64 0, i64 8
   %cond17.in.i = getelementptr inbounds i8, ptr %quicklist, i64 %cond17.in.idx.i
   %n.037.i = load ptr, ptr %cond17.in.i, align 8
@@ -1871,7 +1871,7 @@ if.else.i:                                        ; preds = %while.body.i
 
 if.end:                                           ; preds = %while.body.i
   %sub52.i = sub i64 %0, %add.i
-  %spec.select.i = select i1 %cmp6.not.i, i64 %sub52.i, i64 %accum.039.i
+  %spec.select.i = select i1 %cmp6.i, i64 %sub52.i, i64 %accum.039.i
   %call.i.i = tail call noalias dereferenceable_or_null(40) ptr @zmalloc(i64 noundef 40) #22
   %direction6.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i32 1, ptr %direction6.i.i, align 8
@@ -3167,10 +3167,10 @@ if.end14:                                         ; preds = %land.lhs.true, %lan
 if.end.i:                                         ; preds = %if.end14
   %sub5.i = add i64 %1, -1
   %div34.i = lshr i64 %sub5.i, 1
-  %cmp6.not.i = icmp ugt i64 %cond2.i, %div34.i
+  %cmp6.i = icmp ugt i64 %cond2.i, %div34.i
   %sub11.i = sub i64 %sub5.i, %cond2.i
-  %seek_forward.0.v.i = select i1 %cmp6.not.i, i1 %not.cmp.i, i1 %cmp1
-  %seek_index.0.i = select i1 %cmp6.not.i, i64 %sub11.i, i64 %cond2.i
+  %seek_forward.0.v.i = xor i1 %cmp1, %cmp6.i
+  %seek_index.0.i = select i1 %cmp6.i, i64 %sub11.i, i64 %cond2.i
   %cond17.in.idx.i = select i1 %seek_forward.0.v.i, i64 0, i64 8
   %cond17.in.i = getelementptr inbounds i8, ptr %quicklist, i64 %cond17.in.idx.i
   %n.037.i = load ptr, ptr %cond17.in.i, align 8
@@ -3201,7 +3201,7 @@ if.else.i:                                        ; preds = %while.body.i
 do.body.i:                                        ; preds = %while.body.i
   %count24.i.le = getelementptr inbounds i8, ptr %n.040.i, i64 32
   %sub52.i = sub i64 %1, %add.i
-  %spec.select.i = select i1 %cmp6.not.i, i64 %sub52.i, i64 %accum.039.i
+  %spec.select.i = select i1 %cmp6.i, i64 %sub52.i, i64 %accum.039.i
   %call.i.i = tail call noalias dereferenceable_or_null(40) ptr @zmalloc(i64 noundef 40) #22
   %direction6.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i32 1, ptr %direction6.i.i, align 8
@@ -3397,10 +3397,10 @@ entry:
 if.end:                                           ; preds = %entry
   %sub5 = add i64 %0, -1
   %div34 = lshr i64 %sub5, 1
-  %cmp6.not = icmp ugt i64 %cond2, %div34
+  %cmp6 = icmp ugt i64 %cond2, %div34
   %sub11 = sub i64 %sub5, %cond2
-  %seek_forward.0.v = select i1 %cmp6.not, i1 %not.cmp, i1 %cmp
-  %seek_index.0 = select i1 %cmp6.not, i64 %sub11, i64 %cond2
+  %seek_forward.0.v = xor i1 %cmp, %cmp6
+  %seek_index.0 = select i1 %cmp6, i64 %sub11, i64 %cond2
   %cond17.in.idx = select i1 %seek_forward.0.v, i64 0, i64 8
   %cond17.in = getelementptr inbounds i8, ptr %quicklist, i64 %cond17.in.idx
   %n.037 = load ptr, ptr %cond17.in, align 8
@@ -3430,7 +3430,7 @@ if.else:                                          ; preds = %while.body
 
 if.end42:                                         ; preds = %while.body
   %sub52 = sub i64 %0, %add
-  %spec.select = select i1 %cmp6.not, i64 %sub52, i64 %accum.039
+  %spec.select = select i1 %cmp6, i64 %sub52, i64 %accum.039
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @zmalloc(i64 noundef 40) #22
   %direction6.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 %direction, ptr %direction6.i, align 8

@@ -8595,7 +8595,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %trunc1.i = trunc nuw i8 %12 to i1
   %19 = icmp eq i64 %15, 36
   %20 = icmp ne i64 %15, 36
-  %.0.in.i = select i1 %trunc1.i, i1 %19, i1 %20
+  %.0.in.i = xor i1 %20, %trunc1.i
   br i1 %19, label %"_ZN4core3ptr129drop_in_place$LT$$LP$ide_assists..utils..DefaultMethods$C$core..option..Option$LT$syntax..ast..generated..nodes..Expr$GT$$RP$$GT$17h20eb22c49e3dce87E.exit.i", label %21
 
 21:                                               ; preds = %10
@@ -8614,7 +8614,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %trunc.i = trunc nuw i8 %24 to i1
   %27 = icmp eq ptr %26, null
   %28 = icmp ne ptr %26, null
-  %.2.in.i = select i1 %trunc.i, i1 %27, i1 %28
+  %.2.in.i = xor i1 %28, %trunc.i
   br i1 %27, label %"_ZN11ide_assists5utils18filter_assoc_items28_$u7b$$u7b$closure$u7d$$u7d$17h7435ad8884a532ffE.llvm.17197147422070727095.exit", label %29
 
 29:                                               ; preds = %22
@@ -44284,7 +44284,7 @@ define hidden noundef zeroext i1 @"_ZN11ide_assists5utils18filter_assoc_items28_
   %trunc1 = trunc nuw i8 %11 to i1
   %18 = icmp eq i64 %14, 36
   %19 = icmp ne i64 %14, 36
-  %.0.in = select i1 %trunc1, i1 %18, i1 %19
+  %.0.in = xor i1 %19, %trunc1
   br i1 %18, label %"_ZN4core3ptr129drop_in_place$LT$$LP$ide_assists..utils..DefaultMethods$C$core..option..Option$LT$syntax..ast..generated..nodes..Expr$GT$$RP$$GT$17h20eb22c49e3dce87E.exit", label %20
 
 20:                                               ; preds = %9
@@ -44303,7 +44303,7 @@ define hidden noundef zeroext i1 @"_ZN11ide_assists5utils18filter_assoc_items28_
   %trunc = trunc nuw i8 %23 to i1
   %26 = icmp eq ptr %25, null
   %27 = icmp ne ptr %25, null
-  %.2.in = select i1 %trunc, i1 %26, i1 %27
+  %.2.in = xor i1 %27, %trunc
   br i1 %26, label %"_ZN4core3ptr134drop_in_place$LT$$LP$ide_assists..utils..DefaultMethods$C$core..option..Option$LT$syntax..ast..generated..nodes..BlockExpr$GT$$RP$$GT$17hc15983e889a667f9E.exit", label %28
 
 28:                                               ; preds = %21

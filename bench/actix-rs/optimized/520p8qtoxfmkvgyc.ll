@@ -4355,18 +4355,17 @@ define hidden void @"_ZN89_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter
   %5 = load i64, ptr %1, align 8, !range !185, !noalias !4, !noundef !4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = icmp ne i64 %5, 0
-  %9 = icmp eq i64 %5, 0
-  %.sink = select i1 %4, i1 %8, i1 %9
+  %8 = icmp eq i64 %5, 0
+  %.sink = xor i1 %4, %8
   %.sink2.i8 = select i1 %4, i64 %7, i64 %3
   %.sink2.i2 = select i1 %4, ptr %6, ptr %2
   tail call void @llvm.assume(i1 %.sink)
   store i64 0, ptr %.sink2.i2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, i64 176, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 176
-  store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 184
-  store i64 %.sink2.i8, ptr %11, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 176
+  store i64 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 184
+  store i64 %.sink2.i8, ptr %10, align 8
   ret void
 }
 
@@ -11175,9 +11174,8 @@ define void @_ZN10actix_http6header3map9HeaderMap6insert17h2b0590807be57f54E(ptr
   %.sroa.03.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 168
   %.sroa.03.sroa.4.0.copyload.i = load i64, ptr %.sroa.03.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2286, !noalias !2283
   %10 = icmp ugt i64 %.sroa.03.sroa.4.0.copyload.i, 4
-  %11 = icmp ne i64 %8, 0
-  %12 = icmp eq i64 %8, 0
-  %.sink.i.i = select i1 %10, i1 %11, i1 %12
+  %11 = icmp eq i64 %8, 0
+  %.sink.i.i = xor i1 %11, %10
   %.sink2.i8.i.i = select i1 %10, i64 %.sroa.03.sroa.2.0.copyload.i, i64 %.sroa.03.sroa.4.0.copyload.i
   tail call void @llvm.assume(i1 %.sink.i.i)
   %spec.select.i = select i1 %10, i64 %.sroa.03.sroa.4.0.copyload.i, i64 0
@@ -12407,7 +12405,7 @@ define void @_ZN10actix_http6header3map7Removed3new17hfd80cc8b9b80747cE(ptr noal
   %.sroa.3.sroa.0.sroa.2 = alloca [19 x i64], align 8
   %3 = load i64, ptr %1, align 8, !range !256, !noundef !4
   %4 = icmp eq i64 %3, 2
-  br i1 %4, label %8, label %.cont
+  br i1 %4, label %7, label %.cont
 
 .cont:                                            ; preds = %2
   %.sroa.03.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
@@ -12417,16 +12415,15 @@ define void @_ZN10actix_http6header3map7Removed3new17hfd80cc8b9b80747cE(ptr noal
   %.sroa.03.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 168
   %.sroa.03.sroa.4.0.copyload = load i64, ptr %.sroa.03.sroa.4.0..sroa_idx, align 8
   %5 = icmp ugt i64 %.sroa.03.sroa.4.0.copyload, 4
-  %6 = icmp ne i64 %3, 0
-  %7 = icmp eq i64 %3, 0
-  %.sink.i = select i1 %5, i1 %6, i1 %7
+  %6 = icmp eq i64 %3, 0
+  %.sink.i = xor i1 %6, %5
   %.sink2.i8.i = select i1 %5, i64 %.sroa.03.sroa.2.0.copyload, i64 %.sroa.03.sroa.4.0.copyload
   tail call void @llvm.assume(i1 %.sink.i)
   %spec.select = select i1 %5, i64 %.sroa.03.sroa.4.0.copyload, i64 0
   %spec.select10 = select i1 %5, i64 0, i64 %.sroa.03.sroa.2.0.copyload
-  br label %8
+  br label %7
 
-8:                                                ; preds = %2, %.cont
+7:                                                ; preds = %2, %.cont
   %.sroa.3.sroa.3.0 = phi i64 [ undef, %2 ], [ %.sink2.i8.i, %.cont ]
   %.sroa.3.sroa.0.sroa.0.0 = phi i64 [ undef, %2 ], [ %spec.select10, %.cont ]
   %.sroa.3.sroa.0.sroa.3.0 = phi i64 [ undef, %2 ], [ %spec.select, %.cont ]
@@ -13093,9 +13090,8 @@ tailrecurse:                                      ; preds = %"_ZN4core3ptr169dro
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.031)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.733.sroa.4)
   %95 = icmp ugt i64 %.sroa.733.sroa.5.0.copyload, 4
-  %96 = icmp ne i64 %.sroa.432.0.copyload, 0
-  %97 = icmp eq i64 %.sroa.432.0.copyload, 0
-  %.sink.i = select i1 %95, i1 %96, i1 %97
+  %96 = icmp eq i64 %.sroa.432.0.copyload, 0
+  %.sink.i = xor i1 %96, %95
   tail call void @llvm.assume(i1 %.sink.i)
   %spec.select69 = select i1 %95, i64 0, i64 %.sroa.733.sroa.0.0.copyload
   %spec.select = select i1 %95, i64 %.sroa.733.sroa.5.0.copyload, i64 0
