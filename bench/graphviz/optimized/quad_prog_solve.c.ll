@@ -20,12 +20,12 @@ define noalias noundef ptr @unpackMatrix(ptr nocapture noundef readonly %0, i32 
   br i1 %8, label %.lr.ph.preheader, label %.preheader36
 
 .lr.ph.preheader:                                 ; preds = %2
-  %wide.trip.count = zext nneg i32 %1 to i64
+  %9 = zext nneg i32 %1 to i64
   br label %.lr.ph
 
 .preheader36:                                     ; preds = %.lr.ph, %2
-  %9 = icmp sgt i32 %1, 0
-  br i1 %9, label %.preheader.preheader, label %._crit_edge
+  %10 = icmp sgt i32 %1, 0
+  br i1 %10, label %.preheader.preheader, label %._crit_edge
 
 .preheader.preheader:                             ; preds = %.preheader36
   %wide.trip.count55 = zext nneg i32 %1 to i64
@@ -33,45 +33,45 @@ define noalias noundef ptr @unpackMatrix(ptr nocapture noundef readonly %0, i32 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = mul nsw i64 %indvars.iv, %3
-  %11 = getelementptr inbounds float, ptr %7, i64 %10
-  %12 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
-  store ptr %11, ptr %12, align 8
+  %11 = mul nuw nsw i64 %indvars.iv, %9
+  %12 = getelementptr inbounds float, ptr %7, i64 %11
+  %13 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  store ptr %12, ptr %13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %9
   br i1 %exitcond.not, label %.preheader36, label %.lr.ph
 
-.preheader:                                       ; preds = %.preheader.preheader, %23
-  %indvars.iv45 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next46, %23 ]
-  %.03140 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next44, %23 ]
-  %13 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv45
-  %14 = load ptr, ptr %13, align 8
+.preheader:                                       ; preds = %.preheader.preheader, %24
+  %indvars.iv45 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next46, %24 ]
+  %.03140 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next44, %24 ]
+  %14 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv45
+  %15 = load ptr, ptr %14, align 8
   %sext = shl i64 %.03140, 32
-  %15 = ashr exact i64 %sext, 32
-  br label %16
+  %16 = ashr exact i64 %sext, 32
+  br label %17
 
-16:                                               ; preds = %.preheader, %16
-  %indvars.iv47 = phi i64 [ %indvars.iv45, %.preheader ], [ %indvars.iv.next48, %16 ]
-  %indvars.iv43 = phi i64 [ %15, %.preheader ], [ %indvars.iv.next44, %16 ]
-  %17 = getelementptr inbounds float, ptr %0, i64 %indvars.iv43
-  %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds float, ptr %14, i64 %indvars.iv47
-  store float %18, ptr %19, align 4
-  %20 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv47
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds float, ptr %21, i64 %indvars.iv45
-  store float %18, ptr %22, align 4
+17:                                               ; preds = %.preheader, %17
+  %indvars.iv47 = phi i64 [ %indvars.iv45, %.preheader ], [ %indvars.iv.next48, %17 ]
+  %indvars.iv43 = phi i64 [ %16, %.preheader ], [ %indvars.iv.next44, %17 ]
+  %18 = getelementptr inbounds float, ptr %0, i64 %indvars.iv43
+  %19 = load float, ptr %18, align 4
+  %20 = getelementptr inbounds float, ptr %15, i64 %indvars.iv47
+  store float %19, ptr %20, align 4
+  %21 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv47
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds float, ptr %22, i64 %indvars.iv45
+  store float %19, ptr %23, align 4
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count55
-  br i1 %exitcond53.not, label %23, label %16
+  br i1 %exitcond53.not, label %24, label %17
 
-23:                                               ; preds = %16
+24:                                               ; preds = %17
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count55
   br i1 %exitcond56.not, label %._crit_edge, label %.preheader
 
-._crit_edge:                                      ; preds = %23, %.preheader36
+._crit_edge:                                      ; preds = %24, %.preheader36
   ret ptr %4
 }
 
@@ -1050,12 +1050,12 @@ gv_alloc.exit:                                    ; preds = %5
   br i1 %20, label %.lr.ph.preheader.i, label %.preheader36.i
 
 .lr.ph.preheader.i:                               ; preds = %gv_alloc.exit
-  %wide.trip.count.i = zext nneg i32 %1 to i64
+  %21 = zext nneg i32 %1 to i64
   br label %.lr.ph.i
 
 .preheader36.i:                                   ; preds = %.lr.ph.i, %gv_alloc.exit
-  %21 = icmp sgt i32 %1, 0
-  br i1 %21, label %.preheader.preheader.i, label %unpackMatrix.exit
+  %22 = icmp sgt i32 %1, 0
+  br i1 %22, label %.preheader.preheader.i, label %unpackMatrix.exit
 
 .preheader.preheader.i:                           ; preds = %.preheader36.i
   %wide.trip.count55.i = zext nneg i32 %1 to i64
@@ -1063,64 +1063,64 @@ gv_alloc.exit:                                    ; preds = %5
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %22 = mul nsw i64 %indvars.iv.i, %15
-  %23 = getelementptr inbounds float, ptr %19, i64 %22
-  %24 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv.i
-  store ptr %23, ptr %24, align 8
+  %23 = mul nuw nsw i64 %indvars.iv.i, %21
+  %24 = getelementptr inbounds float, ptr %19, i64 %23
+  %25 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv.i
+  store ptr %24, ptr %25, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %21
   br i1 %exitcond.not.i, label %.preheader36.i, label %.lr.ph.i
 
-.preheader.i:                                     ; preds = %35, %.preheader.preheader.i
-  %indvars.iv45.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next46.i, %35 ]
-  %.03140.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next44.i, %35 ]
-  %25 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv45.i
-  %26 = load ptr, ptr %25, align 8
+.preheader.i:                                     ; preds = %36, %.preheader.preheader.i
+  %indvars.iv45.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next46.i, %36 ]
+  %.03140.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next44.i, %36 ]
+  %26 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv45.i
+  %27 = load ptr, ptr %26, align 8
   %sext.i = shl i64 %.03140.i, 32
-  %27 = ashr exact i64 %sext.i, 32
-  br label %28
+  %28 = ashr exact i64 %sext.i, 32
+  br label %29
 
-28:                                               ; preds = %28, %.preheader.i
-  %indvars.iv47.i = phi i64 [ %indvars.iv45.i, %.preheader.i ], [ %indvars.iv.next48.i, %28 ]
-  %indvars.iv43.i = phi i64 [ %27, %.preheader.i ], [ %indvars.iv.next44.i, %28 ]
-  %29 = getelementptr inbounds float, ptr %0, i64 %indvars.iv43.i
-  %30 = load float, ptr %29, align 4
-  %31 = getelementptr inbounds float, ptr %26, i64 %indvars.iv47.i
-  store float %30, ptr %31, align 4
-  %32 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv47.i
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds float, ptr %33, i64 %indvars.iv45.i
-  store float %30, ptr %34, align 4
+29:                                               ; preds = %29, %.preheader.i
+  %indvars.iv47.i = phi i64 [ %indvars.iv45.i, %.preheader.i ], [ %indvars.iv.next48.i, %29 ]
+  %indvars.iv43.i = phi i64 [ %28, %.preheader.i ], [ %indvars.iv.next44.i, %29 ]
+  %30 = getelementptr inbounds float, ptr %0, i64 %indvars.iv43.i
+  %31 = load float, ptr %30, align 4
+  %32 = getelementptr inbounds float, ptr %27, i64 %indvars.iv47.i
+  store float %31, ptr %32, align 4
+  %33 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv47.i
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds float, ptr %34, i64 %indvars.iv45.i
+  store float %31, ptr %35, align 4
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %indvars.iv.next44.i = add nsw i64 %indvars.iv43.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count55.i
-  br i1 %exitcond53.not.i, label %35, label %28
+  br i1 %exitcond53.not.i, label %36, label %29
 
-35:                                               ; preds = %28
+36:                                               ; preds = %29
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond56.not.i = icmp eq i64 %indvars.iv.next46.i, %wide.trip.count55.i
   br i1 %exitcond56.not.i, label %unpackMatrix.exit, label %.preheader.i
 
-unpackMatrix.exit:                                ; preds = %35, %.preheader36.i
+unpackMatrix.exit:                                ; preds = %36, %.preheader36.i
   store ptr %16, ptr %6, align 8
-  %36 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
-  %37 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %36, ptr %37, align 8
-  %38 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
-  %39 = getelementptr inbounds i8, ptr %6, i64 40
-  store ptr %38, ptr %39, align 8
-  %40 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
-  %41 = getelementptr inbounds i8, ptr %6, i64 48
-  store ptr %40, ptr %41, align 8
-  %42 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
-  %43 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr %42, ptr %43, align 8
-  %44 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
-  %45 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %44, ptr %45, align 8
-  %46 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
-  %47 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %46, ptr %47, align 8
+  %37 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
+  %38 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %37, ptr %38, align 8
+  %39 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
+  %40 = getelementptr inbounds i8, ptr %6, i64 40
+  store ptr %39, ptr %40, align 8
+  %41 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
+  %42 = getelementptr inbounds i8, ptr %6, i64 48
+  store ptr %41, ptr %42, align 8
+  %43 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
+  %44 = getelementptr inbounds i8, ptr %6, i64 56
+  store ptr %43, ptr %44, align 8
+  %45 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
+  %46 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %45, ptr %46, align 8
+  %47 = tail call fastcc ptr @gv_calloc(i64 noundef %15, i64 noundef 4)
+  %48 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr %47, ptr %48, align 8
   ret ptr %6
 }
 

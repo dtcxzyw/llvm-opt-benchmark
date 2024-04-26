@@ -952,19 +952,18 @@ if.end:                                           ; preds = %entry
 
 for.cond1.preheader.us.preheader:                 ; preds = %if.end
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %numChannels, i32 3)
+  %0 = zext nneg i32 %numChannels to i64
   %wide.trip.count22 = zext nneg i32 %numElements to i64
   %wide.trip.count = zext nneg i32 %.sroa.speculated to i64
   br label %for.cond1.preheader.us
 
 for.cond1.preheader.us:                           ; preds = %for.cond1.preheader.us.preheader, %for.cond1.for.inc6_crit_edge.us
   %indvars.iv18 = phi i64 [ 0, %for.cond1.preheader.us.preheader ], [ %indvars.iv.next19, %for.cond1.for.inc6_crit_edge.us ]
-  %0 = trunc nuw nsw i64 %indvars.iv18 to i32
-  %conv4.us = uitofp nneg i32 %0 to float
+  %1 = trunc nuw nsw i64 %indvars.iv18 to i32
+  %conv4.us = uitofp nneg i32 %1 to float
   %mul.us = fmul float %div, %conv4.us
-  %1 = trunc i64 %indvars.iv18 to i32
-  %2 = mul i32 %1, %numChannels
-  %3 = zext i32 %2 to i64
-  %invariant.gep = getelementptr float, ptr %img, i64 %3
+  %2 = mul nuw nsw i64 %indvars.iv18, %0
+  %invariant.gep = getelementptr float, ptr %img, i64 %2
   br label %for.body3.us
 
 for.body3.us:                                     ; preds = %for.cond1.preheader.us, %for.body3.us
@@ -1003,27 +1002,26 @@ for.body.lr.ph:                                   ; preds = %if.end
   br i1 %cmp511, label %for.body.us.preheader, label %for.end9
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
+  %0 = zext nneg i32 %numChannels to i64
   %wide.trip.count22 = zext nneg i32 %numElements to i64
   %wide.trip.count = zext nneg i32 %.sroa.speculated to i64
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond4.for.inc7_crit_edge.us
   %indvars.iv18 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next19, %for.cond4.for.inc7_crit_edge.us ]
-  %0 = trunc nuw nsw i64 %indvars.iv18 to i32
-  %conv.us = uitofp nneg i32 %0 to double
+  %1 = trunc nuw nsw i64 %indvars.iv18 to i32
+  %conv.us = uitofp nneg i32 %1 to double
   %div.us = fdiv double %conv.us, %conv1
   %conv2.us = fptrunc double %div.us to float
-  %1 = tail call noundef float @llvm.fmuladd.f32(float %sub.i, float %conv2.us, float %start)
-  %2 = trunc i64 %indvars.iv18 to i32
-  %3 = mul i32 %2, %numChannels
-  %4 = zext i32 %3 to i64
-  %invariant.gep = getelementptr float, ptr %img, i64 %4
+  %2 = tail call noundef float @llvm.fmuladd.f32(float %sub.i, float %conv2.us, float %start)
+  %3 = mul nuw nsw i64 %indvars.iv18, %0
+  %invariant.gep = getelementptr float, ptr %img, i64 %3
   br label %for.body6.us
 
 for.body6.us:                                     ; preds = %for.body.us, %for.body6.us
   %indvars.iv = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next, %for.body6.us ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
-  store float %1, ptr %gep, align 4
+  store float %2, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond4.for.inc7_crit_edge.us, label %for.body6.us, !llvm.loop !7

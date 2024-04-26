@@ -408,9 +408,9 @@ declare ptr @cuddUniqueInterZdd(ptr noundef, i32 noundef, ptr noundef, ptr nound
 declare void @Cudd_RecursiveDerefZdd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_zddVarsFromBddVars(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_zddVarsFromBddVars(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, 1
-  br i1 %3, label %122, label %4
+  br i1 %3, label %120, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 140
@@ -426,10 +426,10 @@ define noundef i32 @Cudd_zddVarsFromBddVars(ptr noundef %0, i32 noundef %1) loca
   %13 = add nsw i32 %10, -1
   %14 = tail call i32 @cuddResizeTableZdd(ptr noundef nonnull %0, i32 noundef %13) #20
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %122, label %16
+  br i1 %15, label %120, label %16
 
 16:                                               ; preds = %12, %4
-  br i1 %7, label %.preheader123, label %59
+  br i1 %7, label %.preheader123, label %58
 
 .preheader123:                                    ; preds = %16
   %17 = load i32, ptr %8, align 8
@@ -440,238 +440,236 @@ define noundef i32 @Cudd_zddVarsFromBddVars(ptr noundef %0, i32 noundef %1) loca
   %19 = getelementptr inbounds i8, ptr %0, i64 312
   %20 = getelementptr inbounds i8, ptr %0, i64 320
   %21 = getelementptr inbounds i8, ptr %0, i64 336
+  %22 = zext nneg i32 %1 to i64
   %wide.trip.count156 = zext nneg i32 %1 to i64
   br label %.preheader122.us
 
 .preheader122.us:                                 ; preds = %.preheader122.us.preheader, %._crit_edge132.us
   %indvars.iv158 = phi i64 [ 0, %.preheader122.us.preheader ], [ %indvars.iv.next159, %._crit_edge132.us ]
-  %22 = trunc i64 %indvars.iv158 to i32
-  %23 = mul i32 %22, %1
-  %24 = zext i32 %23 to i64
-  br label %25
+  %23 = mul nuw nsw i64 %indvars.iv158, %22
+  br label %24
 
-25:                                               ; preds = %.preheader122.us, %25
-  %indvars.iv152 = phi i64 [ 0, %.preheader122.us ], [ %indvars.iv.next153, %25 ]
-  %26 = load ptr, ptr %19, align 8
-  %27 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv158
-  %28 = load i32, ptr %27, align 4
-  %29 = mul nsw i32 %28, %1
-  %30 = trunc nuw nsw i64 %indvars.iv152 to i32
-  %31 = add nsw i32 %29, %30
-  %32 = load ptr, ptr %20, align 8
-  %33 = add nuw nsw i64 %indvars.iv152, %24
-  %34 = getelementptr inbounds i32, ptr %32, i64 %33
-  store i32 %31, ptr %34, align 4
-  %35 = load ptr, ptr %21, align 8
-  %36 = load ptr, ptr %20, align 8
-  %37 = getelementptr inbounds i32, ptr %36, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i32, ptr %35, i64 %39
-  %41 = trunc nuw i64 %33 to i32
-  store i32 %41, ptr %40, align 4
+24:                                               ; preds = %.preheader122.us, %24
+  %indvars.iv152 = phi i64 [ 0, %.preheader122.us ], [ %indvars.iv.next153, %24 ]
+  %25 = load ptr, ptr %19, align 8
+  %26 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv158
+  %27 = load i32, ptr %26, align 4
+  %28 = mul nsw i32 %27, %1
+  %29 = trunc nuw nsw i64 %indvars.iv152 to i32
+  %30 = add nsw i32 %28, %29
+  %31 = load ptr, ptr %20, align 8
+  %32 = add nuw nsw i64 %indvars.iv152, %23
+  %33 = getelementptr inbounds i32, ptr %31, i64 %32
+  store i32 %30, ptr %33, align 4
+  %34 = load ptr, ptr %21, align 8
+  %35 = load ptr, ptr %20, align 8
+  %36 = getelementptr inbounds i32, ptr %35, i64 %32
+  %37 = load i32, ptr %36, align 4
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i32, ptr %34, i64 %38
+  %40 = trunc nuw i64 %32 to i32
+  store i32 %40, ptr %39, align 4
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count156
-  br i1 %exitcond157.not, label %._crit_edge132.us, label %25, !llvm.loop !11
+  br i1 %exitcond157.not, label %._crit_edge132.us, label %24, !llvm.loop !11
 
-._crit_edge132.us:                                ; preds = %25
+._crit_edge132.us:                                ; preds = %24
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
-  %42 = load i32, ptr %8, align 8
-  %43 = sext i32 %42 to i64
-  %44 = icmp slt i64 %indvars.iv.next159, %43
-  br i1 %44, label %.preheader122.us, label %.preheader121, !llvm.loop !12
+  %41 = load i32, ptr %8, align 8
+  %42 = sext i32 %41 to i64
+  %43 = icmp slt i64 %indvars.iv.next159, %42
+  br i1 %43, label %.preheader122.us, label %.preheader121, !llvm.loop !12
 
 .preheader121:                                    ; preds = %._crit_edge132.us, %.preheader123
-  %45 = load i32, ptr %5, align 4
-  %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %.lr.ph135, label %.loopexit
+  %44 = load i32, ptr %5, align 4
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %.lr.ph135, label %.loopexit
 
 .lr.ph135:                                        ; preds = %.preheader121
-  %47 = getelementptr inbounds i8, ptr %0, i64 336
-  %48 = getelementptr inbounds i8, ptr %0, i64 360
-  br label %49
+  %46 = getelementptr inbounds i8, ptr %0, i64 336
+  %47 = getelementptr inbounds i8, ptr %0, i64 360
+  br label %48
 
-49:                                               ; preds = %.lr.ph135, %49
-  %indvars.iv161 = phi i64 [ 0, %.lr.ph135 ], [ %indvars.iv.next162, %49 ]
-  %50 = load ptr, ptr %47, align 8
-  %51 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv161
-  %52 = load i32, ptr %51, align 4
-  %53 = load ptr, ptr %48, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv161
-  %55 = load ptr, ptr %54, align 8
-  store i32 %52, ptr %55, align 8
+48:                                               ; preds = %.lr.ph135, %48
+  %indvars.iv161 = phi i64 [ 0, %.lr.ph135 ], [ %indvars.iv.next162, %48 ]
+  %49 = load ptr, ptr %46, align 8
+  %50 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv161
+  %51 = load i32, ptr %50, align 4
+  %52 = load ptr, ptr %47, align 8
+  %53 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv161
+  %54 = load ptr, ptr %53, align 8
+  store i32 %51, ptr %54, align 8
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
-  %56 = load i32, ptr %5, align 4
-  %57 = sext i32 %56 to i64
-  %58 = icmp slt i64 %indvars.iv.next162, %57
-  br i1 %58, label %49, label %.loopexit, !llvm.loop !13
+  %55 = load i32, ptr %5, align 4
+  %56 = sext i32 %55 to i64
+  %57 = icmp slt i64 %indvars.iv.next162, %56
+  br i1 %57, label %48, label %.loopexit, !llvm.loop !13
 
-59:                                               ; preds = %16
-  %60 = load i32, ptr %5, align 4
-  %61 = sext i32 %60 to i64
-  %62 = shl nsw i64 %61, 2
-  %63 = tail call noalias ptr @malloc(i64 noundef %62) #21
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %77, label %.preheader125
+58:                                               ; preds = %16
+  %59 = load i32, ptr %5, align 4
+  %60 = sext i32 %59 to i64
+  %61 = shl nsw i64 %60, 2
+  %62 = tail call noalias ptr @malloc(i64 noundef %61) #21
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %75, label %.preheader125
 
-.preheader125:                                    ; preds = %59
-  %65 = load i32, ptr %8, align 8
-  %66 = icmp sgt i32 %65, 0
-  br i1 %66, label %.preheader124.lr.ph.split.us, label %._crit_edge128
+.preheader125:                                    ; preds = %58
+  %64 = load i32, ptr %8, align 8
+  %65 = icmp sgt i32 %64, 0
+  br i1 %65, label %.preheader124.lr.ph.split.us, label %._crit_edge128
 
 .preheader124.lr.ph.split.us:                     ; preds = %.preheader125
-  %67 = getelementptr inbounds i8, ptr %0, i64 328
-  %68 = load ptr, ptr %67, align 8
-  %wide.trip.count145 = zext nneg i32 %65 to i64
+  %66 = getelementptr inbounds i8, ptr %0, i64 328
+  %67 = load ptr, ptr %66, align 8
+  %68 = zext nneg i32 %1 to i64
+  %wide.trip.count145 = zext nneg i32 %64 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.preheader124.us
 
 .preheader124.us:                                 ; preds = %._crit_edge.us, %.preheader124.lr.ph.split.us
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %._crit_edge.us ], [ 0, %.preheader124.lr.ph.split.us ]
-  %69 = getelementptr inbounds i32, ptr %68, i64 %indvars.iv142
-  %70 = trunc i64 %indvars.iv142 to i32
-  %71 = mul i32 %70, %1
-  %72 = zext i32 %71 to i64
+  %69 = getelementptr inbounds i32, ptr %67, i64 %indvars.iv142
+  %70 = mul nuw nsw i64 %indvars.iv142, %68
   %.pre = load i32, ptr %69, align 4
-  %73 = mul nsw i32 %.pre, %1
-  %invariant.gep = getelementptr i32, ptr %63, i64 %72
-  br label %74
+  %71 = mul nsw i32 %.pre, %1
+  %invariant.gep = getelementptr i32, ptr %62, i64 %70
+  br label %72
 
-74:                                               ; preds = %.preheader124.us, %74
-  %indvars.iv = phi i64 [ 0, %.preheader124.us ], [ %indvars.iv.next, %74 ]
-  %75 = trunc nuw nsw i64 %indvars.iv to i32
-  %76 = add nsw i32 %73, %75
+72:                                               ; preds = %.preheader124.us, %72
+  %indvars.iv = phi i64 [ 0, %.preheader124.us ], [ %indvars.iv.next, %72 ]
+  %73 = trunc nuw nsw i64 %indvars.iv to i32
+  %74 = add nsw i32 %71, %73
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  store i32 %76, ptr %gep, align 4
+  store i32 %74, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %74, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge.us, label %72, !llvm.loop !14
 
-._crit_edge.us:                                   ; preds = %74
+._crit_edge.us:                                   ; preds = %72
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
   br i1 %exitcond146.not, label %._crit_edge128, label %.preheader124.us, !llvm.loop !15
 
-77:                                               ; preds = %59
-  %78 = getelementptr inbounds i8, ptr %0, i64 624
-  store i32 1, ptr %78, align 8
-  br label %122
+75:                                               ; preds = %58
+  %76 = getelementptr inbounds i8, ptr %0, i64 624
+  store i32 1, ptr %76, align 8
+  br label %120
 
 ._crit_edge128:                                   ; preds = %._crit_edge.us, %.preheader125
-  %79 = mul nsw i32 %65, %1
-  %80 = icmp slt i32 %79, %60
-  br i1 %80, label %.lr.ph.preheader, label %._crit_edge
+  %77 = mul nsw i32 %64, %1
+  %78 = icmp slt i32 %77, %59
+  br i1 %78, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge128
-  %81 = sext i32 %79 to i64
+  %79 = sext i32 %77 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv147 = phi i64 [ %81, %.lr.ph.preheader ], [ %indvars.iv.next148, %.lr.ph ]
-  %82 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv147
-  %83 = trunc nsw i64 %indvars.iv147 to i32
-  store i32 %83, ptr %82, align 4
+  %indvars.iv147 = phi i64 [ %79, %.lr.ph.preheader ], [ %indvars.iv.next148, %.lr.ph ]
+  %80 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv147
+  %81 = trunc nsw i64 %indvars.iv147 to i32
+  store i32 %81, ptr %80, align 4
   %indvars.iv.next148 = add nsw i64 %indvars.iv147, 1
-  %exitcond151.not = icmp eq i64 %indvars.iv.next148, %61
+  %exitcond151.not = icmp eq i64 %indvars.iv.next148, %60
   br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge128
-  %84 = tail call i32 @Cudd_zddShuffleHeap(ptr noundef %0, ptr noundef nonnull %63) #20
-  tail call void @free(ptr noundef nonnull %63) #20
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %122, label %.loopexit
+  %82 = tail call i32 @Cudd_zddShuffleHeap(ptr noundef %0, ptr noundef nonnull %62) #20
+  tail call void @free(ptr noundef nonnull %62) #20
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %120, label %.loopexit
 
-.loopexit:                                        ; preds = %49, %.preheader121, %._crit_edge
-  %86 = getelementptr inbounds i8, ptr %0, i64 528
-  %87 = load ptr, ptr %86, align 8
-  %.not = icmp eq ptr %87, null
-  br i1 %.not, label %88, label %Cudd_FreeZddTree.exit
+.loopexit:                                        ; preds = %48, %.preheader121, %._crit_edge
+  %84 = getelementptr inbounds i8, ptr %0, i64 528
+  %85 = load ptr, ptr %84, align 8
+  %.not = icmp eq ptr %85, null
+  br i1 %.not, label %86, label %Cudd_FreeZddTree.exit
 
 Cudd_FreeZddTree.exit:                            ; preds = %.loopexit
-  tail call void @Mtr_FreeTree(ptr noundef nonnull %87) #20
-  store ptr null, ptr %86, align 8
-  br label %88
+  tail call void @Mtr_FreeTree(ptr noundef nonnull %85) #20
+  store ptr null, ptr %84, align 8
+  br label %86
 
-88:                                               ; preds = %Cudd_FreeZddTree.exit, %.loopexit
-  %89 = getelementptr inbounds i8, ptr %0, i64 520
-  %90 = load ptr, ptr %89, align 8
-  %.not117 = icmp eq ptr %90, null
-  br i1 %.not117, label %94, label %91
+86:                                               ; preds = %Cudd_FreeZddTree.exit, %.loopexit
+  %87 = getelementptr inbounds i8, ptr %0, i64 520
+  %88 = load ptr, ptr %87, align 8
+  %.not117 = icmp eq ptr %88, null
+  br i1 %.not117, label %92, label %89
 
-91:                                               ; preds = %88
-  %92 = tail call ptr @Mtr_CopyTree(ptr noundef nonnull %90, i32 noundef %1) #20
-  store ptr %92, ptr %86, align 8
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %122, label %103
+89:                                               ; preds = %86
+  %90 = tail call ptr @Mtr_CopyTree(ptr noundef nonnull %88, i32 noundef %1) #20
+  store ptr %90, ptr %84, align 8
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %120, label %101
 
-94:                                               ; preds = %88
+92:                                               ; preds = %86
   %cond = icmp eq i32 %1, 1
-  br i1 %cond, label %121, label %95
+  br i1 %cond, label %119, label %93
 
-95:                                               ; preds = %94
-  %96 = load i32, ptr %5, align 4
-  %97 = tail call ptr @Mtr_InitGroupTree(i32 noundef 0, i32 noundef %96) #20
-  store ptr %97, ptr %86, align 8
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %122, label %.thread
+93:                                               ; preds = %92
+  %94 = load i32, ptr %5, align 4
+  %95 = tail call ptr @Mtr_InitGroupTree(i32 noundef 0, i32 noundef %94) #20
+  store ptr %95, ptr %84, align 8
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %120, label %.thread
 
-.thread:                                          ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %0, i64 336
-  %100 = load ptr, ptr %99, align 8
-  %101 = load i32, ptr %100, align 4
-  %102 = getelementptr inbounds i8, ptr %97, i64 12
-  store i32 %101, ptr %102, align 4
-  br label %104
+.thread:                                          ; preds = %93
+  %97 = getelementptr inbounds i8, ptr %0, i64 336
+  %98 = load ptr, ptr %97, align 8
+  %99 = load i32, ptr %98, align 4
+  %100 = getelementptr inbounds i8, ptr %95, i64 12
+  store i32 %99, ptr %100, align 4
+  br label %102
 
-103:                                              ; preds = %91
+101:                                              ; preds = %89
   %.not119 = icmp eq i32 %1, 1
-  br i1 %.not119, label %121, label %104
+  br i1 %.not119, label %119, label %102
 
-104:                                              ; preds = %.thread, %103
-  %105 = load i32, ptr %8, align 8
-  %106 = sext i32 %105 to i64
-  %107 = tail call noalias ptr @malloc(i64 noundef %106) #21
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %109, label %111
+102:                                              ; preds = %.thread, %101
+  %103 = load i32, ptr %8, align 8
+  %104 = sext i32 %103 to i64
+  %105 = tail call noalias ptr @malloc(i64 noundef %104) #21
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %107, label %109
 
-109:                                              ; preds = %104
-  %110 = getelementptr inbounds i8, ptr %0, i64 624
-  store i32 1, ptr %110, align 8
-  br label %122
+107:                                              ; preds = %102
+  %108 = getelementptr inbounds i8, ptr %0, i64 624
+  store i32 1, ptr %108, align 8
+  br label %120
 
-111:                                              ; preds = %104
-  %112 = tail call noalias ptr @malloc(i64 noundef %106) #21
-  %113 = icmp eq ptr %112, null
-  br i1 %113, label %116, label %.preheader
+109:                                              ; preds = %102
+  %110 = tail call noalias ptr @malloc(i64 noundef %104) #21
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %114, label %.preheader
 
-.preheader:                                       ; preds = %111
-  %114 = icmp sgt i32 %105, 0
-  br i1 %114, label %.lr.ph137.preheader, label %._crit_edge138
+.preheader:                                       ; preds = %109
+  %112 = icmp sgt i32 %103, 0
+  br i1 %112, label %.lr.ph137.preheader, label %._crit_edge138
 
 .lr.ph137.preheader:                              ; preds = %.preheader
-  %115 = zext nneg i32 %105 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %112, i8 0, i64 %115, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %107, i8 0, i64 %115, i1 false)
+  %113 = zext nneg i32 %103 to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %110, i8 0, i64 %113, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %105, i8 0, i64 %113, i1 false)
   br label %._crit_edge138
 
-116:                                              ; preds = %111
-  %117 = getelementptr inbounds i8, ptr %0, i64 624
-  store i32 1, ptr %117, align 8
-  br label %122
+114:                                              ; preds = %109
+  %115 = getelementptr inbounds i8, ptr %0, i64 624
+  store i32 1, ptr %115, align 8
+  br label %120
 
 ._crit_edge138:                                   ; preds = %.lr.ph137.preheader, %.preheader
-  %118 = load ptr, ptr %86, align 8
-  %119 = tail call fastcc i32 @addMultiplicityGroups(ptr noundef nonnull %0, ptr noundef %118, i32 noundef %1, ptr noundef nonnull %107, ptr noundef nonnull %112), !range !17
-  tail call void @free(ptr noundef nonnull %107) #20
-  tail call void @free(ptr noundef nonnull %112) #20
-  %120 = icmp eq i32 %119, 0
-  br i1 %120, label %122, label %121
+  %116 = load ptr, ptr %84, align 8
+  %117 = tail call fastcc i32 @addMultiplicityGroups(ptr noundef nonnull %0, ptr noundef %116, i32 noundef %1, ptr noundef nonnull %105, ptr noundef nonnull %110)
+  tail call void @free(ptr noundef nonnull %105) #20
+  tail call void @free(ptr noundef nonnull %110) #20
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %120, label %119
 
-121:                                              ; preds = %94, %._crit_edge138, %103
-  br label %122
+119:                                              ; preds = %92, %._crit_edge138, %101
+  br label %120
 
-122:                                              ; preds = %._crit_edge138, %95, %91, %._crit_edge, %12, %2, %121, %116, %109, %77
-  %.0 = phi i32 [ 0, %109 ], [ 0, %116 ], [ 1, %121 ], [ 0, %77 ], [ 0, %2 ], [ 0, %12 ], [ 0, %._crit_edge ], [ 0, %91 ], [ 0, %95 ], [ 0, %._crit_edge138 ]
+120:                                              ; preds = %._crit_edge138, %93, %89, %._crit_edge, %12, %2, %119, %114, %107, %75
+  %.0 = phi i32 [ 0, %107 ], [ 0, %114 ], [ 1, %119 ], [ 0, %75 ], [ 0, %2 ], [ 0, %12 ], [ 0, %._crit_edge ], [ 0, %89 ], [ 0, %93 ], [ 0, %._crit_edge138 ]
   ret i32 %.0
 }
 
@@ -706,7 +704,7 @@ declare ptr @Mtr_CopyTree(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @Mtr_InitGroupTree(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @addMultiplicityGroups(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @addMultiplicityGroups(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %.not50 = icmp eq ptr %1, null
   br i1 %.not50, label %.loopexit, label %.lr.ph53
 
@@ -724,7 +722,7 @@ define internal fastcc noundef i32 @addMultiplicityGroups(ptr nocapture noundef 
   br i1 %.not45, label %14, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call fastcc i32 @addMultiplicityGroups(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %2, ptr noundef %3, ptr noundef %4), !range !17
+  %13 = tail call fastcc i32 @addMultiplicityGroups(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %14
 
 14:                                               ; preds = %12, %9
@@ -768,7 +766,7 @@ define internal fastcc noundef i32 @addMultiplicityGroups(ptr nocapture noundef 
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %38, label %.preheader, label %39, !llvm.loop !18
+  br i1 %38, label %.preheader, label %39, !llvm.loop !17
 
 39:                                               ; preds = %.preheader
   %40 = trunc nuw i64 %indvars.iv to i32
@@ -793,13 +791,13 @@ define internal fastcc noundef i32 @addMultiplicityGroups(ptr nocapture noundef 
   %.2 = phi i32 [ %40, %44 ], [ %.04149, %.lr.ph ]
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
   %52 = icmp slt i64 %indvars.iv.next57, %31
-  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %51, %14
   %53 = getelementptr inbounds i8, ptr %.04051, i64 40
   %54 = load ptr, ptr %53, align 8
   %.not = icmp eq ptr %54, null
-  br i1 %.not, label %.loopexit, label %9, !llvm.loop !20
+  br i1 %.not, label %.loopexit, label %9, !llvm.loop !19
 
 .loopexit:                                        ; preds = %._crit_edge, %39, %5
   %.0 = phi i32 [ 1, %5 ], [ 0, %39 ], [ 1, %._crit_edge ]
@@ -815,7 +813,7 @@ define ptr @Cudd_addConst(ptr noundef %0, double noundef %1) local_unnamed_addr 
 declare ptr @cuddUniqueConst(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Cudd_IsNonConstant(ptr noundef %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Cudd_IsNonConstant(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
   br i1 %2, label %10, label %3
 
@@ -1091,7 +1089,7 @@ define double @Cudd_ReadCacheUsedSlots(ptr nocapture noundef readonly %0) local_
   %11 = add i64 %.0910, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %12 = uitofp i64 %11 to double
@@ -1280,13 +1278,13 @@ define double @Cudd_ReadUsedSlots(ptr noundef readonly %0) local_unnamed_addr #9
   %spec.select = add i64 %.150, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.1.lcssa = phi i64 [ %.052, %7 ], [ %spec.select, %.lr.ph ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
-  br i1 %exitcond83.not, label %._crit_edge55, label %7, !llvm.loop !23
+  br i1 %exitcond83.not, label %._crit_edge55, label %7, !llvm.loop !22
 
 ._crit_edge55:                                    ; preds = %._crit_edge, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %.1.lcssa, %._crit_edge ]
@@ -1325,13 +1323,13 @@ define double @Cudd_ReadUsedSlots(ptr noundef readonly %0) local_unnamed_addr #9
   %spec.select47 = add i64 %.458, %27
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge61, label %.lr.ph60, !llvm.loop !24
+  br i1 %exitcond88.not, label %._crit_edge61, label %.lr.ph60, !llvm.loop !23
 
 ._crit_edge61:                                    ; preds = %.lr.ph60, %20
   %.4.lcssa = phi i64 [ %.364, %20 ], [ %spec.select47, %.lr.ph60 ]
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
-  br i1 %exitcond93.not, label %._crit_edge67, label %20, !llvm.loop !25
+  br i1 %exitcond93.not, label %._crit_edge67, label %20, !llvm.loop !24
 
 ._crit_edge67:                                    ; preds = %._crit_edge61, %._crit_edge55
   %.3.lcssa = phi i64 [ %.0.lcssa, %._crit_edge55 ], [ %.4.lcssa, %._crit_edge61 ]
@@ -1356,7 +1354,7 @@ define double @Cudd_ReadUsedSlots(ptr noundef readonly %0) local_unnamed_addr #9
   %spec.select48 = add i64 %.670, %34
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %._crit_edge73, label %.lr.ph72, !llvm.loop !26
+  br i1 %exitcond98.not, label %._crit_edge73, label %.lr.ph72, !llvm.loop !25
 
 ._crit_edge73:                                    ; preds = %.lr.ph72, %._crit_edge67
   %.6.lcssa = phi i64 [ %.3.lcssa, %._crit_edge67 ], [ %spec.select48, %.lr.ph72 ]
@@ -1397,7 +1395,7 @@ define double @Cudd_ExpectedUsedSlots(ptr nocapture noundef readonly %0) local_u
   %18 = tail call double @llvm.fmuladd.f64(double %11, double %17, double %.029)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %6, %1
   %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %18, %6 ]
@@ -1428,7 +1426,7 @@ define double @Cudd_ExpectedUsedSlots(ptr nocapture noundef readonly %0) local_u
   %35 = tail call double @llvm.fmuladd.f64(double %28, double %34, double %.131)
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count41
-  br i1 %exitcond42.not, label %._crit_edge34, label %23, !llvm.loop !28
+  br i1 %exitcond42.not, label %._crit_edge34, label %23, !llvm.loop !27
 
 ._crit_edge34:                                    ; preds = %23, %._crit_edge
   %.1.lcssa = phi double [ %.0.lcssa, %._crit_edge ], [ %35, %23 ]
@@ -1919,7 +1917,7 @@ define void @Cudd_DisableGarbageCollection(ptr nocapture noundef writeonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Cudd_DeadAreCounted(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Cudd_DeadAreCounted(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 512
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -2019,7 +2017,7 @@ define i64 @Cudd_ReadMemoryInUse(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_PrintInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_PrintInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str) #20
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %274, label %5
@@ -2210,7 +2208,7 @@ define noundef i32 @Cudd_PrintInfo(ptr noundef %0, ptr noundef %1) local_unnamed
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not.i = icmp eq ptr %.0.i, null
   %132 = add nuw nsw i64 %.04.i, 1022
-  br i1 %.not.i, label %Cudd_ReadPeakNodeCount.exit, label %131, !llvm.loop !29
+  br i1 %.not.i, label %Cudd_ReadPeakNodeCount.exit, label %131, !llvm.loop !28
 
 Cudd_ReadPeakNodeCount.exit:                      ; preds = %131
   %133 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.26, i64 noundef %.04.i) #20
@@ -2435,7 +2433,7 @@ define i64 @Cudd_ReadPeakNodeCount(ptr nocapture noundef readonly %0) local_unna
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
   %4 = add nuw nsw i64 %.04, 1022
-  br i1 %.not, label %5, label %3, !llvm.loop !29
+  br i1 %.not, label %5, label %3, !llvm.loop !28
 
 5:                                                ; preds = %3
   ret i64 %.04
@@ -2496,7 +2494,7 @@ define i64 @Cudd_ReadNodeCount(ptr noundef %0) local_unnamed_addr #0 {
   %spec.select = add nsw i64 %.01517, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %13, %1
   %.015.lcssa = phi i64 [ %7, %1 ], [ %spec.select, %13 ]
@@ -2525,7 +2523,7 @@ define i64 @Cudd_ReadNodeCount(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @Cudd_zddReadNodeCount(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define range(i64 0, 4294967296) i64 @Cudd_zddReadNodeCount(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 240
@@ -2537,7 +2535,7 @@ define i64 @Cudd_zddReadNodeCount(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @Cudd_AddHook(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #16 {
+define range(i32 0, 3) i32 @Cudd_AddHook(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #16 {
   %4 = icmp ult i32 %2, 4
   br i1 %4, label %switch.lookup, label %.loopexit
 
@@ -2554,7 +2552,7 @@ switch.lookup:                                    ; preds = %3
   %9 = getelementptr inbounds i8, ptr %.01824, i64 8
   %.018 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %.018, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !30
 
 .lr.ph:                                           ; preds = %switch.lookup, %8
   %.01824 = phi ptr [ %.018, %8 ], [ %.01822, %switch.lookup ]
@@ -2590,7 +2588,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_RemoveHook(ptr nocapture noundef %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_RemoveHook(ptr nocapture noundef %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ult i32 %2, 4
   br i1 %4, label %switch.lookup, label %.loopexit
 
@@ -2611,7 +2609,7 @@ switch.lookup:                                    ; preds = %3
 .lr.ph:                                           ; preds = %.lr.ph30
   %10 = load ptr, ptr %.0, align 8
   %11 = icmp eq ptr %10, %1
-  br i1 %11, label %.lr.ph._crit_edge.loopexit, label %.lr.ph30, !llvm.loop !32
+  br i1 %11, label %.lr.ph._crit_edge.loopexit, label %.lr.ph30, !llvm.loop !31
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
   %12 = getelementptr inbounds i8, ptr %.02229, i64 8
@@ -2631,7 +2629,7 @@ switch.lookup:                                    ; preds = %3
   %15 = getelementptr inbounds i8, ptr %.02229, i64 8
   %.0 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph30, %3, %switch.lookup, %.lr.ph._crit_edge
   %.016 = phi i32 [ 1, %.lr.ph._crit_edge ], [ 0, %3 ], [ 0, %switch.lookup ], [ 0, %.lr.ph30 ]
@@ -2639,7 +2637,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Cudd_IsInHook(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Cudd_IsInHook(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = icmp ult i32 %2, 4
   br i1 %4, label %switch.lookup, label %.loopexit
 
@@ -2656,7 +2654,7 @@ switch.lookup:                                    ; preds = %3
   %9 = getelementptr inbounds i8, ptr %.112, i64 8
   %.1 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 .lr.ph:                                           ; preds = %switch.lookup, %8
   %.112 = phi ptr [ %.1, %8 ], [ %.110, %switch.lookup ]
@@ -2670,7 +2668,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_StdPreReordHook(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define range(i32 0, 2) i32 @Cudd_StdPreReordHook(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = ptrtoint ptr %2 to i64
   %5 = trunc i64 %4 to i32
   %6 = getelementptr inbounds i8, ptr %0, i64 608
@@ -2791,7 +2789,7 @@ switch.lookup:                                    ; preds = %15
   %spec.select.i = add nsw i64 %.01517.i, %53
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Cudd_ReadNodeCount.exit, label %47, !llvm.loop !30
+  br i1 %exitcond.not.i, label %Cudd_ReadNodeCount.exit, label %47, !llvm.loop !29
 
 Cudd_ReadNodeCount.exit:                          ; preds = %47, %35
   %.015.lcssa.i = phi i64 [ %41, %35 ], [ %spec.select.i, %47 ]
@@ -2851,7 +2849,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_StdPostReordHook(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define range(i32 0, 2) i32 @Cudd_StdPostReordHook(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = ptrtoint ptr %2 to i64
   %5 = tail call i64 (...) @Extra_CpuTime() #20
   %6 = sub nsw i64 %5, %4
@@ -2894,7 +2892,7 @@ define noundef i32 @Cudd_StdPostReordHook(ptr noundef %0, ptr nocapture noundef 
   %spec.select.i = add nsw i64 %.01517.i, %31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Cudd_ReadNodeCount.exit, label %25, !llvm.loop !30
+  br i1 %exitcond.not.i, label %Cudd_ReadNodeCount.exit, label %25, !llvm.loop !29
 
 Cudd_ReadNodeCount.exit:                          ; preds = %25, %13
   %.015.lcssa.i = phi i64 [ %19, %13 ], [ %spec.select.i, %25 ]
@@ -2952,7 +2950,7 @@ Cudd_ReadNodeCount.exit:                          ; preds = %25, %13
 declare i64 @Extra_CpuTime(...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @Cudd_EnableReorderingReporting(ptr nocapture noundef %0) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @Cudd_EnableReorderingReporting(ptr nocapture noundef %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 592
   %.01822.i = load ptr, ptr %2, align 8
   %.not23.i = icmp eq ptr %.01822.i, null
@@ -2962,7 +2960,7 @@ define noundef i32 @Cudd_EnableReorderingReporting(ptr nocapture noundef %0) loc
   %4 = getelementptr inbounds i8, ptr %.01824.i, i64 8
   %.018.i = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.018.i, null
-  br i1 %.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !31
+  br i1 %.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !30
 
 .lr.ph.i:                                         ; preds = %1, %3
   %.01824.i = phi ptr [ %.018.i, %3 ], [ %.01822.i, %1 ]
@@ -3002,7 +3000,7 @@ Cudd_AddHook.exit:                                ; preds = %._crit_edge.i
   %15 = getelementptr inbounds i8, ptr %.01824.i6, i64 8
   %.018.i7 = load ptr, ptr %15, align 8
   %.not.i8 = icmp eq ptr %.018.i7, null
-  br i1 %.not.i8, label %._crit_edge.i10.loopexit, label %.lr.ph.i5, !llvm.loop !31
+  br i1 %.not.i8, label %._crit_edge.i10.loopexit, label %.lr.ph.i5, !llvm.loop !30
 
 .lr.ph.i5:                                        ; preds = %.loopexit, %14
   %.01824.i6 = phi ptr [ %.018.i7, %14 ], [ %.01822.i3, %.loopexit ]
@@ -3038,7 +3036,7 @@ Cudd_AddHook.exit13.thread:                       ; preds = %.lr.ph.i5, %21, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_DisableReorderingReporting(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_DisableReorderingReporting(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 592
   %.019.i = load ptr, ptr %2, align 8
   %.not20.i = icmp eq ptr %.019.i, null
@@ -3052,14 +3050,14 @@ define noundef i32 @Cudd_DisableReorderingReporting(ptr nocapture noundef %0) lo
 .lr.ph.i:                                         ; preds = %.lr.ph
   %5 = load ptr, ptr %.0.i, align 8
   %6 = icmp eq ptr %5, @Cudd_StdPreReordHook
-  br i1 %6, label %.lr.ph.i._crit_edge.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %6, label %.lr.ph.i._crit_edge.loopexit, label %.lr.ph, !llvm.loop !31
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.022.i21 = phi ptr [ %.0.i, %.lr.ph.i ], [ %.019.i, %.lr.ph.i.preheader ]
   %7 = getelementptr inbounds i8, ptr %.022.i21, i64 8
   %.0.i = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %Cudd_RemoveHook.exit.thread, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not.i, label %Cudd_RemoveHook.exit.thread, label %.lr.ph.i, !llvm.loop !31
 
 .lr.ph.i._crit_edge.loopexit:                     ; preds = %.lr.ph.i
   %8 = getelementptr inbounds i8, ptr %.022.i21, i64 8
@@ -3085,14 +3083,14 @@ define noundef i32 @Cudd_DisableReorderingReporting(ptr nocapture noundef %0) lo
 .lr.ph.i5:                                        ; preds = %.lr.ph24
   %14 = load ptr, ptr %.0.i8, align 8
   %15 = icmp eq ptr %14, @Cudd_StdPostReordHook
-  br i1 %15, label %Cudd_RemoveHook.exit11.loopexit, label %.lr.ph24, !llvm.loop !32
+  br i1 %15, label %Cudd_RemoveHook.exit11.loopexit, label %.lr.ph24, !llvm.loop !31
 
 .lr.ph24:                                         ; preds = %.lr.ph.i5.preheader, %.lr.ph.i5
   %.022.i623 = phi ptr [ %.0.i8, %.lr.ph.i5 ], [ %.019.i3, %.lr.ph.i5.preheader ]
   %16 = getelementptr inbounds i8, ptr %.022.i623, i64 8
   %.0.i8 = load ptr, ptr %16, align 8
   %.not.i9 = icmp eq ptr %.0.i8, null
-  br i1 %.not.i9, label %Cudd_RemoveHook.exit.thread, label %.lr.ph.i5, !llvm.loop !32
+  br i1 %.not.i9, label %Cudd_RemoveHook.exit.thread, label %.lr.ph.i5, !llvm.loop !31
 
 Cudd_RemoveHook.exit11.loopexit:                  ; preds = %.lr.ph.i5
   %17 = getelementptr inbounds i8, ptr %.022.i623, i64 8
@@ -3113,7 +3111,7 @@ Cudd_RemoveHook.exit.thread:                      ; preds = %.lr.ph, %.lr.ph24, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Cudd_ReorderingReporting(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Cudd_ReorderingReporting(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 592
   %.110.i = load ptr, ptr %2, align 8
   %.not11.i = icmp eq ptr %.110.i, null
@@ -3123,7 +3121,7 @@ define noundef i32 @Cudd_ReorderingReporting(ptr nocapture noundef readonly %0) 
   %4 = getelementptr inbounds i8, ptr %.112.i, i64 8
   %.1.i = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.1.i, null
-  br i1 %.not.i, label %Cudd_IsInHook.exit, label %.lr.ph.i, !llvm.loop !33
+  br i1 %.not.i, label %Cudd_IsInHook.exit, label %.lr.ph.i, !llvm.loop !32
 
 .lr.ph.i:                                         ; preds = %1, %3
   %.112.i = phi ptr [ %.1.i, %3 ], [ %.110.i, %1 ]
@@ -3219,7 +3217,7 @@ define void @Cudd_SetMaxMemory(ptr nocapture noundef writeonly %0, i64 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Cudd_bddBindVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @Cudd_bddBindVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = icmp sle i32 %4, %1
@@ -3246,7 +3244,7 @@ define noundef i32 @Cudd_bddBindVar(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Cudd_bddUnbindVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @Cudd_bddUnbindVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = icmp sle i32 %4, %1
@@ -3300,7 +3298,7 @@ define i32 @Cudd_bddVarIsBound(ptr nocapture noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Cudd_bddSetPiVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @Cudd_bddSetPiVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = icmp sle i32 %4, %1
@@ -3327,7 +3325,7 @@ define noundef i32 @Cudd_bddSetPiVar(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Cudd_bddSetPsVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @Cudd_bddSetPsVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = icmp sle i32 %4, %1
@@ -3354,7 +3352,7 @@ define noundef i32 @Cudd_bddSetPsVar(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Cudd_bddSetNsVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @Cudd_bddSetNsVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = icmp sle i32 %4, %1
@@ -3381,7 +3379,7 @@ define noundef i32 @Cudd_bddSetNsVar(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Cudd_bddIsPiVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @Cudd_bddIsPiVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = icmp sle i32 %4, %1
@@ -3410,7 +3408,7 @@ define i32 @Cudd_bddIsPiVar(ptr nocapture noundef readonly %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Cudd_bddIsPsVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @Cudd_bddIsPsVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = icmp sle i32 %4, %1
@@ -3439,7 +3437,7 @@ define i32 @Cudd_bddIsPsVar(ptr nocapture noundef readonly %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Cudd_bddIsNsVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @Cudd_bddIsNsVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = icmp sle i32 %4, %1
@@ -3468,7 +3466,7 @@ define i32 @Cudd_bddIsNsVar(ptr nocapture noundef readonly %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Cudd_bddSetPairIndex(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @Cudd_bddSetPairIndex(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #18 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8
   %6 = icmp sle i32 %5, %1
@@ -3522,7 +3520,7 @@ define i32 @Cudd_bddReadPairIndex(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Cudd_bddSetVarToBeGrouped(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @Cudd_bddSetVarToBeGrouped(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = icmp sle i32 %4, %1
@@ -3554,7 +3552,7 @@ define noundef i32 @Cudd_bddSetVarToBeGrouped(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Cudd_bddSetVarHardGroup(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @Cudd_bddSetVarHardGroup(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = icmp sle i32 %4, %1
@@ -3581,7 +3579,7 @@ define noundef i32 @Cudd_bddSetVarHardGroup(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Cudd_bddResetVarToBeGrouped(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @Cudd_bddResetVarToBeGrouped(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = icmp sle i32 %4, %1
@@ -3613,7 +3611,7 @@ define noundef i32 @Cudd_bddResetVarToBeGrouped(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Cudd_bddIsVarToBeGrouped(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 4, 3) i32 @Cudd_bddIsVarToBeGrouped(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = icmp sle i32 %4, %1
@@ -3642,7 +3640,7 @@ define i32 @Cudd_bddIsVarToBeGrouped(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Cudd_bddSetVarToBeUngrouped(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @Cudd_bddSetVarToBeUngrouped(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = icmp sle i32 %4, %1
@@ -3669,7 +3667,7 @@ define noundef i32 @Cudd_bddSetVarToBeUngrouped(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Cudd_bddIsVarToBeUngrouped(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @Cudd_bddIsVarToBeUngrouped(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = icmp sle i32 %4, %1
@@ -3698,7 +3696,7 @@ define i32 @Cudd_bddIsVarToBeUngrouped(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Cudd_bddIsVarHardGroup(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @Cudd_bddIsVarHardGroup(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = icmp sle i32 %4, %1
@@ -3775,7 +3773,7 @@ attributes #23 = { nounwind willreturn memory(read) }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 0, i32 2}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
@@ -3791,4 +3789,3 @@ attributes #23 = { nounwind willreturn memory(read) }
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}

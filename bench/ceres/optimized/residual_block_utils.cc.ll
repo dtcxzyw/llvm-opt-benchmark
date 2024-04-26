@@ -236,7 +236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 8
   %58 = load i32, ptr %57, align 8
-  %59 = trunc i64 %indvars.iv125 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv125 to i32
   invoke void (ptr, ptr, ...) @_ZN5ceres8internal13StringAppendFEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %59, i32 noundef %58)
           to label %60 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us
 
@@ -314,7 +314,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 8
   %75 = load i32, ptr %74, align 8
-  %76 = trunc i64 %indvars.iv114 to i32
+  %76 = trunc nuw nsw i64 %indvars.iv114 to i32
   invoke void (ptr, ptr, ...) @_ZN5ceres8internal13StringAppendFEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %76, i32 noundef %75)
           to label %77 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split
 
@@ -339,7 +339,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
   %80 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv114
   %81 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv114
   %82 = zext nneg i32 %75 to i64
-  %wide.trip.count112 = zext nneg i32 %75 to i64
   br label %83
 
 83:                                               ; preds = %.lr.ph70.us, %87
@@ -355,14 +354,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
 
 87:                                               ; preds = %._crit_edge.split.us73.us
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
+  %exitcond113.not = icmp eq i64 %indvars.iv.next110, %82
   br i1 %exitcond113.not, label %._crit_edge71.split.us.split.us84, label %83, !llvm.loop !7
 
 .preheader.us.us83:                               ; preds = %86, %93
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %93 ], [ 0, %86 ]
   %88 = load ptr, ptr %81, align 8
   %.not50.us.us = icmp eq ptr %88, null
-  %89 = mul nsw i64 %indvars.iv104, %82
+  %89 = mul nuw nsw i64 %indvars.iv104, %82
   %90 = getelementptr inbounds double, ptr %88, i64 %89
   %91 = getelementptr inbounds double, ptr %90, i64 %indvars.iv109
   %92 = select i1 %.not50.us.us, ptr null, ptr %91
@@ -400,7 +399,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i32, ptr %97, align 8
-  %99 = trunc i64 %indvars.iv99 to i32
+  %99 = trunc nuw nsw i64 %indvars.iv99 to i32
   invoke void (ptr, ptr, ...) @_ZN5ceres8internal13StringAppendFEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %99, i32 noundef %98)
           to label %100 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split
 

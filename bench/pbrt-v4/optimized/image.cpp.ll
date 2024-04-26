@@ -1821,7 +1821,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4pbrt10TexelBytesENS_11PixelFormatE(i32 noundef %format) local_unnamed_addr #7 {
+define dso_local noundef range(i32 1, 5) i32 @_ZN4pbrt10TexelBytesENS_11PixelFormatE(i32 noundef %format) local_unnamed_addr #7 {
 entry:
   %0 = icmp ult i32 %format, 3
   br i1 %0, label %switch.lookup, label %sw.default
@@ -25381,9 +25381,8 @@ invoke.cont60:                                    ; preds = %invoke.cont35
 
 for.cond66.preheader:                             ; preds = %invoke.cont60
   %agg.tmp69.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp69.sroa.2.0.insert.shift, %indvars.iv70
-  %20 = mul i64 %indvars.iv70, 3
-  %21 = and i64 %20, 4294967295
-  %invariant.gep80 = getelementptr float, ptr %call.i29, i64 %21
+  %20 = mul nuw nsw i64 %indvars.iv70, 3
+  %invariant.gep80 = getelementptr float, ptr %call.i29, i64 %20
   br label %invoke.cont72
 
 if.then63:                                        ; preds = %invoke.cont60
@@ -25395,8 +25394,8 @@ invoke.cont64:                                    ; preds = %if.then63
 
 invoke.cont72:                                    ; preds = %for.cond66.preheader, %invoke.cont76
   %indvars.iv = phi i64 [ 0, %for.cond66.preheader ], [ %indvars.iv.next, %invoke.cont76 ]
-  %22 = trunc nuw nsw i64 %indvars.iv to i32
-  %call77 = invoke noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %this, i64 %agg.tmp69.sroa.0.0.insert.insert, i32 noundef %22, i64 4294967297)
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
+  %call77 = invoke noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %this, i64 %agg.tmp69.sroa.0.0.insert.insert, i32 noundef %21, i64 4294967297)
           to label %invoke.cont76 unwind label %lpad5.loopexit
 
 invoke.cont76:                                    ; preds = %invoke.cont72
@@ -25408,18 +25407,18 @@ invoke.cont76:                                    ; preds = %invoke.cont72
 
 for.inc84:                                        ; preds = %invoke.cont76, %invoke.cont45
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %23 = load i32, ptr %resolution, align 4
-  %24 = sext i32 %23 to i64
-  %cmp33 = icmp slt i64 %indvars.iv.next71, %24
+  %22 = load i32, ptr %resolution, align 4
+  %23 = sext i32 %22 to i64
+  %cmp33 = icmp slt i64 %indvars.iv.next71, %23
   br i1 %cmp33, label %invoke.cont35, label %for.end86, !llvm.loop !225
 
 for.end86:                                        ; preds = %for.inc84, %for.cond30.preheader
-  %.lcssa = phi i32 [ %17, %for.cond30.preheader ], [ %23, %for.inc84 ]
+  %.lcssa = phi i32 [ %17, %for.cond30.preheader ], [ %22, %for.inc84 ]
   %mul91 = mul nsw i32 %.lcssa, 3
   %conv92 = sext i32 %mul91 to i64
   %call94 = call i64 @fwrite(ptr noundef nonnull %call.i29, i64 noundef 4, i64 noundef %conv92, ptr noundef nonnull %call)
-  %25 = load i32, ptr %resolution, align 4
-  %mul97 = mul nsw i32 %25, 3
+  %24 = load i32, ptr %resolution, align 4
+  %mul97 = mul nsw i32 %24, 3
   %conv98 = sext i32 %mul97 to i64
   %cmp99 = icmp ult i64 %call94, %conv98
   br i1 %cmp99, label %fail, label %for.cond, !llvm.loop !226
@@ -25431,12 +25430,12 @@ fail:                                             ; preds = %for.end86, %if.end1
           to label %_ZN4pbrt12StringPrintfIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES6_PKcDpOT_.exit.i43 unwind label %lpad.i.i40
 
 common.resume.i41:                                ; preds = %lpad.i45, %lpad.i.i40
-  %common.resume.op.i42 = phi { ptr, i32 } [ %26, %lpad.i.i40 ], [ %27, %lpad.i45 ]
+  %common.resume.op.i42 = phi { ptr, i32 } [ %25, %lpad.i.i40 ], [ %26, %lpad.i45 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i39) #31
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
 
 lpad.i.i40:                                       ; preds = %fail
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i41
 
@@ -25446,7 +25445,7 @@ _ZN4pbrt12StringPrintfIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE
           to label %invoke.cont106 unwind label %lpad.i45
 
 lpad.i45:                                         ; preds = %_ZN4pbrt12StringPrintfIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES6_PKcDpOT_.exit.i43
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i41
 
@@ -41165,7 +41164,7 @@ for.cond154.preheader.us.preheader.i.i.i:         ; preds = %for.cond154.prehead
   %wide.trip.count218.i.i.i = zext nneg i32 %sub37.i.i.i to i64
   %cmp201178.us.i.i.i = icmp sgt i32 %conv.i49.i.i.i, 0
   %mul219.us.i.i.i = shl nuw nsw i32 %mul143.i.i.i, 1
-  %mul227.us.i.i.i = mul nsw i32 %mul143.i.i.i, 3
+  %mul227.us.i.i.i = mul nuw nsw i32 %mul143.i.i.i, 3
   %55 = zext nneg i32 %mul143.i.i.i to i64
   %56 = zext nneg i32 %mul219.us.i.i.i to i64
   %57 = zext nneg i32 %mul227.us.i.i.i to i64

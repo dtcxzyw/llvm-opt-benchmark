@@ -105,7 +105,7 @@ define i32 @Extra_Power3(i32 noundef %0) local_unnamed_addr #2 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.07 = phi i32 [ %3, %.lr.ph ], [ 1, %1 ]
   %.056 = phi i32 [ %4, %.lr.ph ], [ 0, %1 ]
-  %3 = mul nsw i32 %.07, 3
+  %3 = mul nuw nsw i32 %.07, 3
   %4 = add nuw nsw i32 %.056, 1
   %exitcond.not = icmp eq i32 %4, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -198,7 +198,7 @@ define i32 @Extra_Factorial(i32 noundef %0) local_unnamed_addr #2 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.09 = phi i32 [ %2, %.lr.ph ], [ 1, %1 ]
   %.068 = phi i32 [ %3, %.lr.ph ], [ 1, %1 ]
-  %2 = mul nsw i32 %.09, %.068
+  %2 = mul nuw nsw i32 %.09, %.068
   %3 = add nuw i32 %.068, 1
   %exitcond.not = icmp eq i32 %.068, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -217,7 +217,7 @@ define noundef ptr @Extra_Permutations(i32 noundef %0) local_unnamed_addr #5 {
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.09.i = phi i32 [ %3, %.lr.ph.i ], [ 1, %1 ]
   %.068.i = phi i32 [ %4, %.lr.ph.i ], [ 1, %1 ]
-  %3 = mul nsw i32 %.068.i, %.09.i
+  %3 = mul nuw nsw i32 %.068.i, %.09.i
   %4 = add nuw i32 %.068.i, 1
   %exitcond.not.i = icmp eq i32 %.068.i, %0
   br i1 %exitcond.not.i, label %Extra_Factorial.exit, label %.lr.ph.i, !llvm.loop !10
@@ -241,7 +241,7 @@ Extra_Factorial.exit:                             ; preds = %.lr.ph.i, %1
 
 13:                                               ; preds = %13, %.lr.ph.i12
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i12 ], [ %indvars.iv.next.i, %13 ]
-  %14 = trunc i64 %indvars.iv.i to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   %15 = mul i32 %14, %0
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %11, i64 %16
@@ -293,7 +293,7 @@ define noundef ptr @Extra_ArrayAlloc(i32 noundef %0, i32 noundef %1, i32 noundef
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = mul i32 %5, %14
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %11, i64 %16
@@ -420,7 +420,7 @@ define void @Extra_TruthPermute_int(ptr nocapture noundef readonly %0, i32 nound
 12:                                               ; preds = %.preheader.us, %24
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %24 ]
   %13 = load i32, ptr %10, align 4
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = shl nuw i32 1, %14
   %16 = and i32 %13, %15
   %.not.us = icmp eq i32 %16, 0
@@ -471,7 +471,7 @@ define i32 @Extra_TruthPermute(i32 noundef %0, ptr nocapture noundef readonly %1
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %10 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %11, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -496,7 +496,7 @@ define i32 @Extra_TruthPermute(i32 noundef %0, ptr nocapture noundef readonly %1
 
 16:                                               ; preds = %27, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %27 ]
-  %17 = trunc i64 %indvars.iv.i to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i to i32
   %18 = shl nuw i32 1, %17
   %19 = and i32 %18, %15
   %.not.us.i = icmp eq i32 %19, 0
@@ -550,7 +550,7 @@ Extra_TruthPermute_int.exit:                      ; preds = %._crit_edge.us.i, %
   %30 = shl nuw i32 1, %29
   %31 = and i32 %30, %0
   %.not44 = icmp eq i32 %31, 0
-  %32 = trunc i64 %indvars.iv60 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv60 to i32
   %33 = shl nuw i32 1, %32
   %34 = select i1 %.not44, i32 0, i32 %33
   %.137 = or i32 %34, %.03648
@@ -561,7 +561,7 @@ Extra_TruthPermute_int.exit:                      ; preds = %._crit_edge.us.i, %
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %43
   %indvars.iv66 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next67, %43 ]
   %.251 = phi i32 [ 0, %.lr.ph53.preheader ], [ %.3, %43 ]
-  %35 = trunc i64 %indvars.iv66 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv66 to i32
   %36 = shl nuw i32 1, %35
   %37 = and i32 %36, %0
   %.not41 = icmp eq i32 %37, 0
@@ -619,7 +619,7 @@ define i32 @Extra_TruthPolarize(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
   %.01920 = phi i32 [ %0, %.lr.ph.preheader ], [ %.1, %17 ]
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %6 = shl nuw i32 1, %5
   %7 = and i32 %6, %1
   %.not = icmp eq i32 %7, 0
@@ -667,7 +667,7 @@ define i32 @Extra_TruthCanonN(i32 noundef %0, i32 noundef %1) local_unnamed_addr
 .lr.ph.i.us:                                      ; preds = %17, %.lr.ph.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %17 ]
   %.01920.i.us = phi i32 [ %0, %.lr.ph.preheader.i.us ], [ %.1.i.us, %17 ]
-  %5 = trunc i64 %indvars.iv.i.us to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i.us to i32
   %6 = shl nuw i32 1, %5
   %7 = and i32 %6, %.014.us
   %.not.i.us = icmp eq i32 %7, 0
@@ -733,7 +733,7 @@ define i32 @Extra_TruthCanonNN(i32 noundef %0, i32 noundef %1) local_unnamed_add
 .lr.ph.i.us:                                      ; preds = %21, %.lr.ph.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %21 ]
   %.01920.i.us = phi i32 [ %0, %.lr.ph.preheader.i.us ], [ %.1.i.us, %21 ]
-  %9 = trunc i64 %indvars.iv.i.us to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.i.us to i32
   %10 = shl nuw i32 1, %9
   %11 = and i32 %10, %.037.us
   %.not.i.us = icmp eq i32 %11, 0
@@ -759,7 +759,7 @@ define i32 @Extra_TruthCanonNN(i32 noundef %0, i32 noundef %1) local_unnamed_add
 .lr.ph.i25.us:                                    ; preds = %21, %34
   %indvars.iv.i26.us = phi i64 [ %indvars.iv.next.i30.us, %34 ], [ 0, %21 ]
   %.01920.i27.us = phi i32 [ %.1.i29.us, %34 ], [ %7, %21 ]
-  %22 = trunc i64 %indvars.iv.i26.us to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.i26.us to i32
   %23 = shl nuw i32 1, %22
   %24 = and i32 %23, %.037.us
   %.not.i28.us = icmp eq i32 %24, 0
@@ -823,7 +823,7 @@ Extra_Factorial.exit.thread:                      ; preds = %7
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
   %.09.i = phi i32 [ %8, %.lr.ph.i ], [ 1, %7 ]
   %.068.i = phi i32 [ %9, %.lr.ph.i ], [ 1, %7 ]
-  %8 = mul nsw i32 %.068.i, %.09.i
+  %8 = mul nuw nsw i32 %.068.i, %.09.i
   %9 = add nuw i32 %.068.i, 1
   %exitcond.not.i = icmp eq i32 %.068.i, %1
   br i1 %exitcond.not.i, label %Extra_Factorial.exit, label %.lr.ph.i, !llvm.loop !10
@@ -836,7 +836,7 @@ Extra_Factorial.exit:                             ; preds = %.lr.ph.i
 .lr.ph.i.i:                                       ; preds = %Extra_Factorial.exit, %.lr.ph.i.i
   %.09.i.i = phi i32 [ %10, %.lr.ph.i.i ], [ 1, %Extra_Factorial.exit ]
   %.068.i.i = phi i32 [ %11, %.lr.ph.i.i ], [ 1, %Extra_Factorial.exit ]
-  %10 = mul nsw i32 %.068.i.i, %.09.i.i
+  %10 = mul nuw nsw i32 %.068.i.i, %.09.i.i
   %11 = add nuw i32 %.068.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %.068.i.i, %1
   br i1 %exitcond.not.i.i, label %Extra_Factorial.exit.i, label %.lr.ph.i.i, !llvm.loop !10
@@ -860,7 +860,7 @@ Extra_Factorial.exit.i:                           ; preds = %.lr.ph.i.i, %Extra_
 
 20:                                               ; preds = %20, %.lr.ph.i12.i
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.i12.i ], [ %indvars.iv.next.i.i, %20 ]
-  %21 = trunc i64 %indvars.iv.i.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %22 = mul i32 %21, %1
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %18, i64 %23
@@ -910,7 +910,7 @@ Extra_Factorial.exit28.thread:                    ; preds = %31
 .lr.ph.i23:                                       ; preds = %31, %.lr.ph.i23
   %.09.i24 = phi i32 [ %32, %.lr.ph.i23 ], [ 1, %31 ]
   %.068.i25 = phi i32 [ %33, %.lr.ph.i23 ], [ 1, %31 ]
-  %32 = mul nsw i32 %.068.i25, %.09.i24
+  %32 = mul nuw nsw i32 %.068.i25, %.09.i24
   %33 = add nuw i32 %.068.i25, 1
   %exitcond.not.i26 = icmp eq i32 %.068.i25, %1
   br i1 %exitcond.not.i26, label %Extra_Factorial.exit28, label %.lr.ph.i23, !llvm.loop !10
@@ -923,7 +923,7 @@ Extra_Factorial.exit28:                           ; preds = %.lr.ph.i23
 .lr.ph.i.i30:                                     ; preds = %Extra_Factorial.exit28, %.lr.ph.i.i30
   %.09.i.i31 = phi i32 [ %34, %.lr.ph.i.i30 ], [ 1, %Extra_Factorial.exit28 ]
   %.068.i.i32 = phi i32 [ %35, %.lr.ph.i.i30 ], [ 1, %Extra_Factorial.exit28 ]
-  %34 = mul nsw i32 %.068.i.i32, %.09.i.i31
+  %34 = mul nuw nsw i32 %.068.i.i32, %.09.i.i31
   %35 = add nuw i32 %.068.i.i32, 1
   %exitcond.not.i.i33 = icmp eq i32 %.068.i.i32, %1
   br i1 %exitcond.not.i.i33, label %Extra_Factorial.exit.i34, label %.lr.ph.i.i30, !llvm.loop !10
@@ -947,7 +947,7 @@ Extra_Factorial.exit.i34:                         ; preds = %.lr.ph.i.i30, %Extr
 
 44:                                               ; preds = %44, %.lr.ph.i12.i43
   %indvars.iv.i.i45 = phi i64 [ 1, %.lr.ph.i12.i43 ], [ %indvars.iv.next.i.i46, %44 ]
-  %45 = trunc i64 %indvars.iv.i.i45 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.i.i45 to i32
   %46 = mul i32 %45, %1
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i8, ptr %42, i64 %47
@@ -1029,7 +1029,7 @@ Extra_Factorial.exit.thread:                      ; preds = %7
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
   %.09.i = phi i32 [ %8, %.lr.ph.i ], [ 1, %7 ]
   %.068.i = phi i32 [ %9, %.lr.ph.i ], [ 1, %7 ]
-  %8 = mul nsw i32 %.068.i, %.09.i
+  %8 = mul nuw nsw i32 %.068.i, %.09.i
   %9 = add nuw i32 %.068.i, 1
   %exitcond.not.i = icmp eq i32 %.068.i, %1
   br i1 %exitcond.not.i, label %Extra_Factorial.exit, label %.lr.ph.i, !llvm.loop !10
@@ -1042,7 +1042,7 @@ Extra_Factorial.exit:                             ; preds = %.lr.ph.i
 .lr.ph.i.i:                                       ; preds = %Extra_Factorial.exit, %.lr.ph.i.i
   %.09.i.i = phi i32 [ %10, %.lr.ph.i.i ], [ 1, %Extra_Factorial.exit ]
   %.068.i.i = phi i32 [ %11, %.lr.ph.i.i ], [ 1, %Extra_Factorial.exit ]
-  %10 = mul nsw i32 %.068.i.i, %.09.i.i
+  %10 = mul nuw nsw i32 %.068.i.i, %.09.i.i
   %11 = add nuw i32 %.068.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %.068.i.i, %1
   br i1 %exitcond.not.i.i, label %Extra_Factorial.exit.i, label %.lr.ph.i.i, !llvm.loop !10
@@ -1066,7 +1066,7 @@ Extra_Factorial.exit.i:                           ; preds = %.lr.ph.i.i, %Extra_
 
 20:                                               ; preds = %20, %.lr.ph.i12.i
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.i12.i ], [ %indvars.iv.next.i.i, %20 ]
-  %21 = trunc i64 %indvars.iv.i.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %22 = mul i32 %21, %1
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %18, i64 %23
@@ -1116,7 +1116,7 @@ Extra_Factorial.exit36.thread:                    ; preds = %31
 .lr.ph.i31:                                       ; preds = %31, %.lr.ph.i31
   %.09.i32 = phi i32 [ %32, %.lr.ph.i31 ], [ 1, %31 ]
   %.068.i33 = phi i32 [ %33, %.lr.ph.i31 ], [ 1, %31 ]
-  %32 = mul nsw i32 %.068.i33, %.09.i32
+  %32 = mul nuw nsw i32 %.068.i33, %.09.i32
   %33 = add nuw i32 %.068.i33, 1
   %exitcond.not.i34 = icmp eq i32 %.068.i33, %1
   br i1 %exitcond.not.i34, label %Extra_Factorial.exit36, label %.lr.ph.i31, !llvm.loop !10
@@ -1129,7 +1129,7 @@ Extra_Factorial.exit36:                           ; preds = %.lr.ph.i31
 .lr.ph.i.i38:                                     ; preds = %Extra_Factorial.exit36, %.lr.ph.i.i38
   %.09.i.i39 = phi i32 [ %34, %.lr.ph.i.i38 ], [ 1, %Extra_Factorial.exit36 ]
   %.068.i.i40 = phi i32 [ %35, %.lr.ph.i.i38 ], [ 1, %Extra_Factorial.exit36 ]
-  %34 = mul nsw i32 %.068.i.i40, %.09.i.i39
+  %34 = mul nuw nsw i32 %.068.i.i40, %.09.i.i39
   %35 = add nuw i32 %.068.i.i40, 1
   %exitcond.not.i.i41 = icmp eq i32 %.068.i.i40, %1
   br i1 %exitcond.not.i.i41, label %Extra_Factorial.exit.i42, label %.lr.ph.i.i38, !llvm.loop !10
@@ -1153,7 +1153,7 @@ Extra_Factorial.exit.i42:                         ; preds = %.lr.ph.i.i38, %Extr
 
 44:                                               ; preds = %44, %.lr.ph.i12.i51
   %indvars.iv.i.i53 = phi i64 [ 1, %.lr.ph.i12.i51 ], [ %indvars.iv.next.i.i54, %44 ]
-  %45 = trunc i64 %indvars.iv.i.i53 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.i.i53 to i32
   %46 = mul i32 %45, %1
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i8, ptr %42, i64 %47
@@ -1217,7 +1217,7 @@ Extra_Permutations.exit56:                        ; preds = %.lr.ph.i47, %Extra_
 .lr.ph.i59:                                       ; preds = %61, %74
   %indvars.iv.i60 = phi i64 [ %indvars.iv.next.i61, %74 ], [ 0, %61 ]
   %.01920.i = phi i32 [ %.1.i, %74 ], [ %0, %61 ]
-  %62 = trunc i64 %indvars.iv.i60 to i32
+  %62 = trunc nuw nsw i64 %indvars.iv.i60 to i32
   %63 = shl nuw i32 1, %62
   %64 = and i32 %63, %.081
   %.not.i = icmp eq i32 %64, 0
@@ -1256,7 +1256,7 @@ Extra_TruthPolarize.exit:                         ; preds = %74, %61
 .lr.ph.i65:                                       ; preds = %.lr.ph.i65, %.lr.ph.preheader.i63
   %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.preheader.i63 ], [ %indvars.iv.next.i67, %.lr.ph.i65 ]
   %79 = getelementptr inbounds i32, ptr %77, i64 %indvars.iv.i66
-  %80 = trunc i64 %indvars.iv.i66 to i32
+  %80 = trunc nuw nsw i64 %indvars.iv.i66 to i32
   store i32 %80, ptr %79, align 4
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66, 1
   %exitcond.not.i68 = icmp eq i64 %indvars.iv.next.i67, %wide.trip.count.i64
@@ -1275,7 +1275,7 @@ Extra_TruthPolarize.exit:                         ; preds = %74, %61
 
 84:                                               ; preds = %95, %.preheader.us.i.i
   %indvars.iv.i.i70 = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i71, %95 ]
-  %85 = trunc i64 %indvars.iv.i.i70 to i32
+  %85 = trunc nuw nsw i64 %indvars.iv.i.i70 to i32
   %86 = shl nuw i32 1, %85
   %87 = and i32 %86, %83
   %.not.us.i.i = icmp eq i32 %87, 0
@@ -1307,7 +1307,7 @@ Extra_TruthPolarize.exit:                         ; preds = %74, %61
 .lr.ph53.i:                                       ; preds = %.lr.ph53.i.preheader, %104
   %indvars.iv66.i = phi i64 [ %indvars.iv.next67.i, %104 ], [ 0, %.lr.ph53.i.preheader ]
   %.251.i = phi i32 [ %.3.i, %104 ], [ 0, %.lr.ph53.i.preheader ]
-  %96 = trunc i64 %indvars.iv66.i to i32
+  %96 = trunc nuw nsw i64 %indvars.iv66.i to i32
   %97 = shl nuw i32 1, %96
   %98 = and i32 %97, %.019.lcssa.i
   %.not41.i = icmp eq i32 %98, 0
@@ -1379,7 +1379,7 @@ Extra_Factorial.exit.thread:                      ; preds = %7
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
   %.09.i = phi i32 [ %8, %.lr.ph.i ], [ 1, %7 ]
   %.068.i = phi i32 [ %9, %.lr.ph.i ], [ 1, %7 ]
-  %8 = mul nsw i32 %.068.i, %.09.i
+  %8 = mul nuw nsw i32 %.068.i, %.09.i
   %9 = add nuw i32 %.068.i, 1
   %exitcond.not.i = icmp eq i32 %.068.i, %1
   br i1 %exitcond.not.i, label %Extra_Factorial.exit, label %.lr.ph.i, !llvm.loop !10
@@ -1392,7 +1392,7 @@ Extra_Factorial.exit:                             ; preds = %.lr.ph.i
 .lr.ph.i.i:                                       ; preds = %Extra_Factorial.exit, %.lr.ph.i.i
   %.09.i.i = phi i32 [ %10, %.lr.ph.i.i ], [ 1, %Extra_Factorial.exit ]
   %.068.i.i = phi i32 [ %11, %.lr.ph.i.i ], [ 1, %Extra_Factorial.exit ]
-  %10 = mul nsw i32 %.068.i.i, %.09.i.i
+  %10 = mul nuw nsw i32 %.068.i.i, %.09.i.i
   %11 = add nuw i32 %.068.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %.068.i.i, %1
   br i1 %exitcond.not.i.i, label %Extra_Factorial.exit.i, label %.lr.ph.i.i, !llvm.loop !10
@@ -1416,7 +1416,7 @@ Extra_Factorial.exit.i:                           ; preds = %.lr.ph.i.i, %Extra_
 
 20:                                               ; preds = %20, %.lr.ph.i12.i
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.i12.i ], [ %indvars.iv.next.i.i, %20 ]
-  %21 = trunc i64 %indvars.iv.i.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %22 = mul i32 %21, %1
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %18, i64 %23
@@ -1466,7 +1466,7 @@ Extra_Factorial.exit52.thread:                    ; preds = %31
 .lr.ph.i47:                                       ; preds = %31, %.lr.ph.i47
   %.09.i48 = phi i32 [ %32, %.lr.ph.i47 ], [ 1, %31 ]
   %.068.i49 = phi i32 [ %33, %.lr.ph.i47 ], [ 1, %31 ]
-  %32 = mul nsw i32 %.068.i49, %.09.i48
+  %32 = mul nuw nsw i32 %.068.i49, %.09.i48
   %33 = add nuw i32 %.068.i49, 1
   %exitcond.not.i50 = icmp eq i32 %.068.i49, %1
   br i1 %exitcond.not.i50, label %Extra_Factorial.exit52, label %.lr.ph.i47, !llvm.loop !10
@@ -1479,7 +1479,7 @@ Extra_Factorial.exit52:                           ; preds = %.lr.ph.i47
 .lr.ph.i.i54:                                     ; preds = %Extra_Factorial.exit52, %.lr.ph.i.i54
   %.09.i.i55 = phi i32 [ %34, %.lr.ph.i.i54 ], [ 1, %Extra_Factorial.exit52 ]
   %.068.i.i56 = phi i32 [ %35, %.lr.ph.i.i54 ], [ 1, %Extra_Factorial.exit52 ]
-  %34 = mul nsw i32 %.068.i.i56, %.09.i.i55
+  %34 = mul nuw nsw i32 %.068.i.i56, %.09.i.i55
   %35 = add nuw i32 %.068.i.i56, 1
   %exitcond.not.i.i57 = icmp eq i32 %.068.i.i56, %1
   br i1 %exitcond.not.i.i57, label %Extra_Factorial.exit.i58, label %.lr.ph.i.i54, !llvm.loop !10
@@ -1503,7 +1503,7 @@ Extra_Factorial.exit.i58:                         ; preds = %.lr.ph.i.i54, %Extr
 
 44:                                               ; preds = %44, %.lr.ph.i12.i67
   %indvars.iv.i.i69 = phi i64 [ 1, %.lr.ph.i12.i67 ], [ %indvars.iv.next.i.i70, %44 ]
-  %45 = trunc i64 %indvars.iv.i.i69 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.i.i69 to i32
   %46 = mul i32 %45, %1
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i8, ptr %42, i64 %47
@@ -1573,7 +1573,7 @@ Extra_Permutations.exit72:                        ; preds = %.lr.ph.i63, %Extra_
 .lr.ph.i75:                                       ; preds = %65, %78
   %indvars.iv.i76 = phi i64 [ %indvars.iv.next.i77, %78 ], [ 0, %65 ]
   %.01920.i = phi i32 [ %.1.i, %78 ], [ %0, %65 ]
-  %66 = trunc i64 %indvars.iv.i76 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv.i76 to i32
   %67 = shl nuw i32 1, %66
   %68 = and i32 %67, %.0153
   %.not.i = icmp eq i32 %68, 0
@@ -1612,7 +1612,7 @@ Extra_TruthPolarize.exit:                         ; preds = %78, %65
 .lr.ph.i81:                                       ; preds = %.lr.ph.i81.preheader, %.lr.ph.i81
   %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i83, %.lr.ph.i81 ], [ 0, %.lr.ph.i81.preheader ]
   %83 = getelementptr inbounds i32, ptr %81, i64 %indvars.iv.i82
-  %84 = trunc i64 %indvars.iv.i82 to i32
+  %84 = trunc nuw nsw i64 %indvars.iv.i82 to i32
   store i32 %84, ptr %83, align 4
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
   %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, %wide.trip.count.i80
@@ -1631,7 +1631,7 @@ Extra_TruthPolarize.exit:                         ; preds = %78, %65
 
 88:                                               ; preds = %99, %.preheader.us.i.i
   %indvars.iv.i.i86 = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i87, %99 ]
-  %89 = trunc i64 %indvars.iv.i.i86 to i32
+  %89 = trunc nuw nsw i64 %indvars.iv.i.i86 to i32
   %90 = shl nuw i32 1, %89
   %91 = and i32 %90, %87
   %.not.us.i.i = icmp eq i32 %91, 0
@@ -1663,7 +1663,7 @@ Extra_TruthPolarize.exit:                         ; preds = %78, %65
 .lr.ph53.i:                                       ; preds = %.lr.ph53.i.preheader, %108
   %indvars.iv66.i = phi i64 [ %indvars.iv.next67.i, %108 ], [ 0, %.lr.ph53.i.preheader ]
   %.251.i = phi i32 [ %.3.i, %108 ], [ 0, %.lr.ph53.i.preheader ]
-  %100 = trunc i64 %indvars.iv66.i to i32
+  %100 = trunc nuw nsw i64 %indvars.iv66.i to i32
   %101 = shl nuw i32 1, %100
   %102 = and i32 %101, %.019.lcssa.i
   %.not41.i = icmp eq i32 %102, 0
@@ -1711,7 +1711,7 @@ Extra_TruthPermute.exit:                          ; preds = %110, %111
 .lr.ph.i93:                                       ; preds = %._crit_edge, %124
   %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i98, %124 ], [ 0, %._crit_edge ]
   %.01920.i95 = phi i32 [ %.1.i97, %124 ], [ %59, %._crit_edge ]
-  %112 = trunc i64 %indvars.iv.i94 to i32
+  %112 = trunc nuw nsw i64 %indvars.iv.i94 to i32
   %113 = shl nuw i32 1, %112
   %114 = and i32 %113, %.0153
   %.not.i96 = icmp eq i32 %114, 0
@@ -1750,7 +1750,7 @@ Extra_TruthPolarize.exit100:                      ; preds = %124, %._crit_edge
 .lr.ph.i105:                                      ; preds = %.lr.ph.i105.preheader, %.lr.ph.i105
   %indvars.iv.i106 = phi i64 [ %indvars.iv.next.i107, %.lr.ph.i105 ], [ 0, %.lr.ph.i105.preheader ]
   %129 = getelementptr inbounds i32, ptr %127, i64 %indvars.iv.i106
-  %130 = trunc i64 %indvars.iv.i106 to i32
+  %130 = trunc nuw nsw i64 %indvars.iv.i106 to i32
   store i32 %130, ptr %129, align 4
   %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i106, 1
   %exitcond.not.i108 = icmp eq i64 %indvars.iv.next.i107, %wide.trip.count.i80
@@ -1769,7 +1769,7 @@ Extra_TruthPolarize.exit100:                      ; preds = %124, %._crit_edge
 
 134:                                              ; preds = %145, %.preheader.us.i.i128
   %indvars.iv.i.i130 = phi i64 [ 0, %.preheader.us.i.i128 ], [ %indvars.iv.next.i.i132, %145 ]
-  %135 = trunc i64 %indvars.iv.i.i130 to i32
+  %135 = trunc nuw nsw i64 %indvars.iv.i.i130 to i32
   %136 = shl nuw i32 1, %135
   %137 = and i32 %136, %133
   %.not.us.i.i131 = icmp eq i32 %137, 0
@@ -1801,7 +1801,7 @@ Extra_TruthPolarize.exit100:                      ; preds = %124, %._crit_edge
 .lr.ph53.i114:                                    ; preds = %.lr.ph53.i114.preheader, %154
   %indvars.iv66.i115 = phi i64 [ %indvars.iv.next67.i119, %154 ], [ 0, %.lr.ph53.i114.preheader ]
   %.251.i116 = phi i32 [ %.3.i118, %154 ], [ 0, %.lr.ph53.i114.preheader ]
-  %146 = trunc i64 %indvars.iv66.i115 to i32
+  %146 = trunc nuw nsw i64 %indvars.iv66.i115 to i32
   %147 = shl nuw i32 1, %146
   %148 = and i32 %147, %.019.lcssa.i90
   %.not41.i117 = icmp eq i32 %148, 0
@@ -1869,7 +1869,7 @@ define void @Extra_Truth4VarNPN(ptr noundef writeonly %0, ptr noundef writeonly 
 
 7:                                                ; preds = %7, %.lr.ph.i12.i
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.i12.i ], [ %indvars.iv.next.i.i, %7 ]
-  %8 = trunc i64 %indvars.iv.i.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %9 = shl i32 %8, 2
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %6, i64 %10
@@ -1916,7 +1916,7 @@ Extra_Permutations.exit:                          ; preds = %.lr.ph.i
 26:                                               ; preds = %15
   %27 = getelementptr inbounds i8, ptr %calloc192, i64 %indvars.iv187
   store i8 %.0108180, ptr %27, align 1
-  %28 = trunc i64 %indvars.iv187 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv187 to i32
   %29 = trunc i64 %indvars.iv187 to i16
   %30 = xor i32 %28, 65535
   br label %.lr.ph.i130.preheader
@@ -1928,7 +1928,7 @@ Extra_Permutations.exit:                          ; preds = %.lr.ph.i
 .lr.ph.i130:                                      ; preds = %.lr.ph.i130.preheader, %43
   %indvars.iv.i131 = phi i64 [ %indvars.iv.next.i132, %43 ], [ 0, %.lr.ph.i130.preheader ]
   %.01920.i = phi i32 [ %.1.i, %43 ], [ %28, %.lr.ph.i130.preheader ]
-  %31 = trunc i64 %indvars.iv.i131 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv.i131 to i32
   %32 = shl nuw i32 1, %31
   %33 = and i32 %32, %.0107178
   %.not.i = icmp eq i32 %33, 0
@@ -1952,7 +1952,7 @@ Extra_Permutations.exit:                          ; preds = %.lr.ph.i
   br i1 %exitcond.not.i133, label %Extra_TruthPolarize.exit.preheader, label %.lr.ph.i130, !llvm.loop !20
 
 Extra_TruthPolarize.exit.preheader:               ; preds = %43
-  %44 = trunc i32 %.0107178 to i8
+  %44 = trunc nuw i32 %.0107178 to i8
   %45 = or disjoint i8 %44, 16
   br label %46
 
@@ -1967,7 +1967,7 @@ Extra_TruthPolarize.exit.preheader:               ; preds = %43
 .lr.ph.i134:                                      ; preds = %.lr.ph.i134, %46
   %indvars.iv.i135 = phi i64 [ 0, %46 ], [ %indvars.iv.next.i136, %.lr.ph.i134 ]
   %51 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv.i135
-  %52 = trunc i64 %indvars.iv.i135 to i32
+  %52 = trunc nuw nsw i64 %indvars.iv.i135 to i32
   store i32 %52, ptr %51, align 4
   %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i135, 1
   %exitcond.not.i137 = icmp eq i64 %indvars.iv.next.i136, 16
@@ -1986,7 +1986,7 @@ Extra_TruthPolarize.exit.preheader:               ; preds = %43
 
 56:                                               ; preds = %67, %.preheader.us.i.i
   %indvars.iv.i.i138 = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i139, %67 ]
-  %57 = trunc i64 %indvars.iv.i.i138 to i32
+  %57 = trunc nuw nsw i64 %indvars.iv.i.i138 to i32
   %58 = shl nuw i32 1, %57
   %59 = and i32 %58, %55
   %.not.us.i.i = icmp eq i32 %59, 0
@@ -2015,7 +2015,7 @@ Extra_TruthPolarize.exit.preheader:               ; preds = %43
 .lr.ph53.i:                                       ; preds = %._crit_edge.us.i.i, %76
   %indvars.iv66.i = phi i64 [ %indvars.iv.next67.i, %76 ], [ 0, %._crit_edge.us.i.i ]
   %.251.i = phi i32 [ %.3.i, %76 ], [ 0, %._crit_edge.us.i.i ]
-  %68 = trunc i64 %indvars.iv66.i to i32
+  %68 = trunc nuw nsw i64 %indvars.iv66.i to i32
   %69 = shl nuw i32 1, %68
   %70 = and i32 %69, %.1.i
   %.not41.i = icmp eq i32 %70, 0
@@ -2083,7 +2083,7 @@ Extra_TruthPolarize.exit:                         ; preds = %84, %Extra_TruthPer
 .lr.ph.i141:                                      ; preds = %Extra_TruthPolarize.exit, %106
   %indvars.iv.i142 = phi i64 [ %indvars.iv.next.i146, %106 ], [ 0, %Extra_TruthPolarize.exit ]
   %.01920.i143 = phi i32 [ %.1.i145, %106 ], [ %30, %Extra_TruthPolarize.exit ]
-  %94 = trunc i64 %indvars.iv.i142 to i32
+  %94 = trunc nuw nsw i64 %indvars.iv.i142 to i32
   %95 = shl nuw i32 1, %94
   %96 = and i32 %95, %.0107178
   %.not.i144 = icmp eq i32 %96, 0
@@ -2117,7 +2117,7 @@ Extra_TruthPolarize.exit149.preheader:            ; preds = %106, %Extra_TruthPo
 .lr.ph.i150:                                      ; preds = %.lr.ph.i150, %Extra_TruthPolarize.exit149.preheader
   %indvars.iv.i151 = phi i64 [ 0, %Extra_TruthPolarize.exit149.preheader ], [ %indvars.iv.next.i152, %.lr.ph.i150 ]
   %111 = getelementptr inbounds i32, ptr %109, i64 %indvars.iv.i151
-  %112 = trunc i64 %indvars.iv.i151 to i32
+  %112 = trunc nuw nsw i64 %indvars.iv.i151 to i32
   store i32 %112, ptr %111, align 4
   %indvars.iv.next.i152 = add nuw nsw i64 %indvars.iv.i151, 1
   %exitcond.not.i153 = icmp eq i64 %indvars.iv.next.i152, 16
@@ -2136,7 +2136,7 @@ Extra_TruthPolarize.exit149.preheader:            ; preds = %106, %Extra_TruthPo
 
 116:                                              ; preds = %127, %.preheader.us.i.i155
   %indvars.iv.i.i157 = phi i64 [ 0, %.preheader.us.i.i155 ], [ %indvars.iv.next.i.i159, %127 ]
-  %117 = trunc i64 %indvars.iv.i.i157 to i32
+  %117 = trunc nuw nsw i64 %indvars.iv.i.i157 to i32
   %118 = shl nuw i32 1, %117
   %119 = and i32 %118, %115
   %.not.us.i.i158 = icmp eq i32 %119, 0
@@ -2165,7 +2165,7 @@ Extra_TruthPolarize.exit149.preheader:            ; preds = %106, %Extra_TruthPo
 .lr.ph53.i165:                                    ; preds = %._crit_edge.us.i.i161, %136
   %indvars.iv66.i166 = phi i64 [ %indvars.iv.next67.i170, %136 ], [ 0, %._crit_edge.us.i.i161 ]
   %.251.i167 = phi i32 [ %.3.i169, %136 ], [ 0, %._crit_edge.us.i.i161 ]
-  %128 = trunc i64 %indvars.iv66.i166 to i32
+  %128 = trunc nuw nsw i64 %indvars.iv66.i166 to i32
   %129 = shl nuw i32 1, %128
   %130 = and i32 %129, %.1.i145
   %.not41.i168 = icmp eq i32 %130, 0
@@ -2319,7 +2319,7 @@ define void @Extra_Truth3VarN(ptr noundef writeonly %0, ptr noundef writeonly %1
 
 6:                                                ; preds = %6, %3
   %indvars.iv.i = phi i64 [ 1, %3 ], [ %indvars.iv.next.i, %6 ]
-  %7 = trunc i64 %indvars.iv.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %8 = shl i32 %7, 3
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %5, i64 %9
@@ -2341,7 +2341,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %6, %Extra_ArrayAllo
   br i1 %.not80, label %.lr.ph.i.preheader, label %.lr.ph.i.preheader.us.preheader
 
 .lr.ph.i.preheader.us.preheader:                  ; preds = %14
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = trunc i64 %indvars.iv to i32
   %17 = mul i32 %16, 16843009
   br label %.lr.ph.i.preheader.us
@@ -2353,7 +2353,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %6, %Extra_ArrayAllo
 .lr.ph.i.us:                                      ; preds = %30, %.lr.ph.i.preheader.us
   %indvars.iv.i72.us = phi i64 [ %indvars.iv.next.i73.us, %30 ], [ 0, %.lr.ph.i.preheader.us ]
   %.01920.i.us = phi i32 [ %.1.i.us, %30 ], [ %15, %.lr.ph.i.preheader.us ]
-  %18 = trunc i64 %indvars.iv.i72.us to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i72.us to i32
   %19 = shl nuw i32 1, %18
   %20 = and i32 %19, %.075.us
   %.not.i.us = icmp eq i32 %20, 0
@@ -2385,7 +2385,7 @@ Extra_TruthPolarize.exit.us:                      ; preds = %30
 
 35:                                               ; preds = %Extra_TruthPolarize.exit.us
   store i32 %17, ptr %32, align 4
-  %36 = trunc i32 %.075.us to i8
+  %36 = trunc nuw i32 %.075.us to i8
   %37 = getelementptr inbounds ptr, ptr %4, i64 %31
   %38 = load ptr, ptr %37, align 8
   store i8 %36, ptr %38, align 1
@@ -2400,7 +2400,7 @@ Extra_TruthPolarize.exit.us:                      ; preds = %30
   br i1 %43, label %44, label %51
 
 44:                                               ; preds = %40
-  %45 = trunc i32 %.075.us to i8
+  %45 = trunc nuw i32 %.075.us to i8
   %46 = getelementptr inbounds ptr, ptr %4, i64 %31
   %47 = load ptr, ptr %46, align 8
   %48 = add nsw i8 %42, 1
@@ -2422,7 +2422,7 @@ Extra_TruthPolarize.exit.us:                      ; preds = %30
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %65
   %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i73, %65 ], [ 0, %.lr.ph.i.preheader ]
   %.01920.i = phi i32 [ %.1.i, %65 ], [ 0, %.lr.ph.i.preheader ]
-  %53 = trunc i64 %indvars.iv.i72 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv.i72 to i32
   %54 = shl nuw i32 1, %53
   %55 = and i32 %54, %.075
   %.not.i = icmp eq i32 %55, 0
@@ -2469,7 +2469,7 @@ Extra_TruthPolarize.exit:                         ; preds = %65
   br i1 %77, label %78, label %85
 
 78:                                               ; preds = %74
-  %79 = trunc i32 %.075 to i8
+  %79 = trunc nuw i32 %.075 to i8
   %80 = getelementptr inbounds ptr, ptr %4, i64 %66
   %81 = load ptr, ptr %80, align 8
   %82 = add nsw i8 %76, 1
@@ -2547,7 +2547,7 @@ define void @Extra_Truth4VarN(ptr noundef writeonly %0, ptr noundef writeonly %1
 
 10:                                               ; preds = %10, %4
   %indvars.iv.i = phi i64 [ 1, %4 ], [ %indvars.iv.next.i, %10 ]
-  %11 = trunc i64 %indvars.iv.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i to i32
   %12 = mul i32 %11, %3
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %9, i64 %13
@@ -2566,7 +2566,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %10, %Extra_ArrayAll
 
 18:                                               ; preds = %Extra_ArrayAlloc.exit.preheader
   %.not76 = icmp eq i64 %indvars.iv, 0
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = trunc i64 %indvars.iv to i16
   br i1 %.not76, label %.lr.ph.i.preheader, label %.lr.ph.i.preheader.us
 
@@ -2577,7 +2577,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %10, %Extra_ArrayAll
 .lr.ph.i.us:                                      ; preds = %33, %.lr.ph.i.preheader.us
   %indvars.iv.i68.us = phi i64 [ %indvars.iv.next.i69.us, %33 ], [ 0, %.lr.ph.i.preheader.us ]
   %.01920.i.us = phi i32 [ %.1.i.us, %33 ], [ %19, %.lr.ph.i.preheader.us ]
-  %21 = trunc i64 %indvars.iv.i68.us to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i68.us to i32
   %22 = shl nuw i32 1, %21
   %23 = and i32 %22, %.071.us
   %.not.i.us = icmp eq i32 %23, 0
@@ -2609,7 +2609,7 @@ Extra_TruthPolarize.exit.us:                      ; preds = %33
 
 38:                                               ; preds = %Extra_TruthPolarize.exit.us
   store i16 %20, ptr %35, align 2
-  %39 = trunc i32 %.071.us to i8
+  %39 = trunc nuw i32 %.071.us to i8
   %40 = getelementptr inbounds ptr, ptr %8, i64 %34
   %41 = load ptr, ptr %40, align 8
   store i8 %39, ptr %41, align 1
@@ -2625,7 +2625,7 @@ Extra_TruthPolarize.exit.us:                      ; preds = %33
   br i1 %47, label %48, label %55
 
 48:                                               ; preds = %43
-  %49 = trunc i32 %.071.us to i8
+  %49 = trunc nuw i32 %.071.us to i8
   %50 = getelementptr inbounds ptr, ptr %8, i64 %34
   %51 = load ptr, ptr %50, align 8
   %52 = add i8 %45, 1
@@ -2647,7 +2647,7 @@ Extra_TruthPolarize.exit.us:                      ; preds = %33
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %69
   %indvars.iv.i68 = phi i64 [ %indvars.iv.next.i69, %69 ], [ 0, %.lr.ph.i.preheader ]
   %.01920.i = phi i32 [ %.1.i, %69 ], [ 0, %.lr.ph.i.preheader ]
-  %57 = trunc i64 %indvars.iv.i68 to i32
+  %57 = trunc nuw nsw i64 %indvars.iv.i68 to i32
   %58 = shl nuw i32 1, %57
   %59 = and i32 %58, %.071
   %.not.i = icmp eq i32 %59, 0
@@ -2696,7 +2696,7 @@ Extra_TruthPolarize.exit:                         ; preds = %69
   br i1 %83, label %84, label %91
 
 84:                                               ; preds = %79
-  %85 = trunc i32 %.071 to i8
+  %85 = trunc nuw i32 %.071 to i8
   %86 = getelementptr inbounds ptr, ptr %8, i64 %70
   %87 = load ptr, ptr %86, align 8
   %88 = add i8 %81, 1
@@ -2796,7 +2796,7 @@ define zeroext i16 @Extra_TruthPerm4One(i32 noundef %0, i32 noundef %1) local_un
   %17 = shl nuw i32 1, %16
   %18 = and i32 %17, %.02231
   %.not27 = icmp eq i32 %18, 0
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = shl nuw nsw i32 1, %19
   %21 = select i1 %.not27, i32 0, i32 %20
   %.120 = or i32 %21, %.01930
@@ -2856,7 +2856,7 @@ define i32 @Extra_TruthPerm5One(i32 noundef %0, i32 noundef %1) local_unnamed_ad
   %15 = shl nuw i32 1, %14
   %16 = and i32 %15, %.02231
   %.not27 = icmp eq i32 %16, 0
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = shl nuw nsw i32 1, %17
   %19 = select i1 %.not27, i32 0, i32 %18
   %.120 = or i32 %19, %.01930
@@ -2948,7 +2948,7 @@ define void @Extra_TruthPerm6One(ptr nocapture noundef readonly %0, i32 noundef 
   %34 = shl nuw i32 1, %33
   %35 = and i32 %34, %.04759
   %.not53 = icmp eq i32 %35, 0
-  %36 = trunc i64 %indvars.iv61 to i32
+  %36 = trunc nuw nsw i64 %indvars.iv61 to i32
   %37 = shl nuw nsw i32 1, %36
   %38 = select i1 %.not53, i32 0, i32 %37
   %.1 = or i32 %38, %.058
@@ -2989,7 +2989,7 @@ define void @Extra_TruthPerm6One(ptr nocapture noundef readonly %0, i32 noundef 
   %55 = shl nuw i32 1, %54
   %56 = and i32 %55, %.04759
   %.not51 = icmp eq i32 %56, 0
-  %57 = trunc i64 %indvars.iv to i32
+  %57 = trunc nuw nsw i64 %indvars.iv to i32
   %58 = shl nuw nsw i32 1, %57
   %59 = select i1 %.not51, i32 0, i32 %58
   %.3 = or i32 %59, %.256
@@ -3108,7 +3108,7 @@ define void @Extra_TruthExpand(i32 noundef %0, i32 noundef %1, ptr nocapture nou
   %33 = shl nuw i32 1, %32
   %34 = and i32 %33, %.098136.us
   %.not116.us = icmp eq i32 %34, 0
-  %35 = trunc i64 %indvars.iv166 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv166 to i32
   %36 = shl nuw i32 1, %35
   %37 = select i1 %.not116.us, i32 0, i32 %36
   %.1107.us = or i32 %37, %.0106133.us
@@ -3174,7 +3174,7 @@ define void @Extra_TruthExpand(i32 noundef %0, i32 noundef %1, ptr nocapture nou
   %60 = shl nuw i32 1, %59
   %61 = and i32 %60, %.0103129
   %.not114 = icmp eq i32 %61, 0
-  %62 = trunc i64 %indvars.iv to i32
+  %62 = trunc nuw nsw i64 %indvars.iv to i32
   %63 = shl nuw nsw i32 1, %62
   %64 = select i1 %.not114, i32 0, i32 %63
   %.1100 = or i32 %64, %.099128
@@ -3226,7 +3226,7 @@ define void @Extra_TruthExpand(i32 noundef %0, i32 noundef %1, ptr nocapture nou
   %88 = shl nuw i32 1, %87
   %89 = and i32 %88, %.1104132
   %.not112 = icmp eq i32 %89, 0
-  %90 = trunc i64 %indvars.iv160 to i32
+  %90 = trunc nuw nsw i64 %indvars.iv160 to i32
   %91 = shl nuw nsw i32 1, %90
   %92 = select i1 %.not112, i32 0, i32 %91
   %.3 = or i32 %92, %.2131
@@ -3297,7 +3297,7 @@ define void @Extra_TruthExpand(i32 noundef %0, i32 noundef %1, ptr nocapture nou
   %121 = shl nuw i32 1, %120
   %122 = and i32 %121, %.197144
   %.not110 = icmp eq i32 %122, 0
-  %123 = trunc i64 %indvars.iv175 to i32
+  %123 = trunc nuw nsw i64 %indvars.iv175 to i32
   %124 = shl nuw nsw i32 1, %123
   %125 = select i1 %.not110, i32 0, i32 %124
   %.1 = or i32 %125, %.093143
@@ -3334,7 +3334,7 @@ define noundef ptr @Extra_TruthPerm43() local_unnamed_addr #5 {
 
 3:                                                ; preds = %3, %0
   %indvars.iv.i = phi i64 [ 1, %0 ], [ %indvars.iv.next.i, %3 ]
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %5 = shl i32 %4, 5
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i8, ptr %2, i64 %6
@@ -3349,7 +3349,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
   %9 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv18
   %10 = trunc i64 %indvars.iv18 to i32
   %11 = mul i32 %10, 257
-  %12 = trunc i32 %11 to i16
+  %12 = trunc nuw i32 %11 to i16
   br label %13
 
 13:                                               ; preds = %Extra_ArrayAlloc.exit.preheader, %Extra_TruthPerm4One.exit
@@ -3383,7 +3383,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
   %25 = shl nuw i32 1, %24
   %26 = and i32 %25, %.02231.i
   %.not27.i = icmp eq i32 %26, 0
-  %27 = trunc i64 %indvars.iv.i12 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv.i12 to i32
   %28 = shl nuw nsw i32 1, %27
   %29 = select i1 %.not27.i, i32 0, i32 %28
   %.120.i = or i32 %29, %.01930.i
@@ -3433,7 +3433,7 @@ define noundef ptr @Extra_TruthPerm53() local_unnamed_addr #5 {
 
 3:                                                ; preds = %3, %0
   %indvars.iv.i = phi i64 [ 1, %0 ], [ %indvars.iv.next.i, %3 ]
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %5 = shl i32 %4, 7
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i8, ptr %2, i64 %6
@@ -3481,7 +3481,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
   %24 = shl nuw i32 1, %23
   %25 = and i32 %24, %.02231.i
   %.not27.i = icmp eq i32 %25, 0
-  %26 = trunc i64 %indvars.iv.i14 to i32
+  %26 = trunc nuw nsw i64 %indvars.iv.i14 to i32
   %27 = shl nuw nsw i32 1, %26
   %28 = select i1 %.not27.i, i32 0, i32 %27
   %.120.i = or i32 %28, %.01930.i
@@ -3527,7 +3527,7 @@ define noundef ptr @Extra_TruthPerm54() local_unnamed_addr #5 {
 
 3:                                                ; preds = %3, %0
   %indvars.iv.i = phi i64 [ 1, %0 ], [ %indvars.iv.next.i, %3 ]
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %5 = shl i32 %4, 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i8, ptr %2, i64 %6
@@ -3559,7 +3559,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_TruthPerm
   %15 = shl nuw i32 1, %14
   %16 = and i32 %15, %.02231.i
   %.not27.i = icmp eq i32 %16, 0
-  %17 = trunc i64 %indvars.iv.i16 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i16 to i32
   %18 = shl nuw nsw i32 1, %17
   %19 = select i1 %.not27.i, i32 0, i32 %18
   %.120.i = or i32 %19, %.01930.i
@@ -3600,7 +3600,7 @@ Extra_TruthPerm5One.exit:                         ; preds = %23
   %31 = shl nuw i32 1, %30
   %32 = and i32 %31, %.02231.i21
   %.not27.i26 = icmp eq i32 %32, 0
-  %33 = trunc i64 %indvars.iv.i24 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv.i24 to i32
   %34 = shl nuw nsw i32 1, %33
   %35 = select i1 %.not27.i26, i32 0, i32 %34
   %.120.i27 = or i32 %35, %.01930.i25
@@ -3641,7 +3641,7 @@ Extra_TruthPerm5One.exit32:                       ; preds = %39
   %47 = shl nuw i32 1, %46
   %48 = and i32 %47, %.02231.i35
   %.not27.i40 = icmp eq i32 %48, 0
-  %49 = trunc i64 %indvars.iv.i38 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv.i38 to i32
   %50 = shl nuw nsw i32 1, %49
   %51 = select i1 %.not27.i40, i32 0, i32 %50
   %.120.i41 = or i32 %51, %.01930.i39
@@ -3682,7 +3682,7 @@ Extra_TruthPerm5One.exit46:                       ; preds = %55
   %63 = shl nuw i32 1, %62
   %64 = and i32 %63, %.02231.i49
   %.not27.i54 = icmp eq i32 %64, 0
-  %65 = trunc i64 %indvars.iv.i52 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv.i52 to i32
   %66 = shl nuw nsw i32 1, %65
   %67 = select i1 %.not27.i54, i32 0, i32 %66
   %.120.i55 = or i32 %67, %.01930.i53
@@ -3722,7 +3722,7 @@ define noundef ptr @Extra_TruthPerm63() local_unnamed_addr #5 {
 
 3:                                                ; preds = %3, %0
   %indvars.iv.i = phi i64 [ 1, %0 ], [ %indvars.iv.next.i, %3 ]
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %5 = shl i32 %4, 9
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i8, ptr %2, i64 %6
@@ -3736,9 +3736,9 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %Extra_ArrayAlloc.exit ], [ 0, %3 ]
   %9 = mul nuw nsw i64 %indvars.iv21, 16843009
   %10 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv21
-  %11 = trunc i64 %9 to i32
-  %12 = trunc i64 %9 to i32
-  %13 = trunc i64 %9 to i32
+  %11 = trunc nuw i64 %9 to i32
+  %12 = trunc nuw i64 %9 to i32
+  %13 = trunc nuw i64 %9 to i32
   br label %14
 
 14:                                               ; preds = %Extra_ArrayAlloc.exit.preheader, %Extra_TruthPerm6One.exit
@@ -3805,7 +3805,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
   %41 = shl nuw i32 1, %40
   %42 = and i32 %41, %.04759.i
   %.not53.i = icmp eq i32 %42, 0
-  %43 = trunc i64 %indvars.iv61.i to i32
+  %43 = trunc nuw nsw i64 %indvars.iv61.i to i32
   %44 = shl nuw nsw i32 1, %43
   %45 = select i1 %.not53.i, i32 0, i32 %44
   %.1.i = or i32 %45, %.058.i
@@ -3845,7 +3845,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
   %61 = shl nuw i32 1, %60
   %62 = and i32 %61, %.04759.i
   %.not51.i = icmp eq i32 %62, 0
-  %63 = trunc i64 %indvars.iv.i13 to i32
+  %63 = trunc nuw nsw i64 %indvars.iv.i13 to i32
   %64 = shl nuw nsw i32 1, %63
   %65 = select i1 %.not51.i, i32 0, i32 %64
   %.3.i = or i32 %65, %.256.i
@@ -3908,7 +3908,7 @@ define void @Extra_BubbleSort(ptr nocapture noundef %0, ptr nocapture noundef re
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %7, ptr %6, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4182,7 +4182,7 @@ define noalias noundef ptr @Extra_GreyCodeSchedule(i32 noundef %0) local_unnamed
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !70
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %15 = trunc i64 %indvars.iv.next to i32
+  %15 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
@@ -4211,7 +4211,7 @@ define noalias noundef ptr @Extra_PermSchedule(i32 noundef %0) local_unnamed_add
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.09.i = phi i32 [ %2, %.lr.ph.i ], [ 1, %1 ]
   %.068.i = phi i32 [ %3, %.lr.ph.i ], [ 1, %1 ]
-  %2 = mul nsw i32 %.068.i, %.09.i
+  %2 = mul nuw nsw i32 %.068.i, %.09.i
   %3 = add nuw i32 %.068.i, 1
   %exitcond.not.i = icmp eq i32 %.068.i, %0
   br i1 %exitcond.not.i, label %Extra_Factorial.exit, label %.lr.ph.i, !llvm.loop !10
@@ -4257,7 +4257,7 @@ Extra_Factorial.exit:                             ; preds = %.lr.ph.i, %1
   br label %28
 
 ._crit_edge51.us:                                 ; preds = %.lr.ph50.us
-  %19 = trunc i64 %indvars.iv83 to i32
+  %19 = trunc nsw i64 %indvars.iv83 to i32
   %20 = or disjoint i64 %32, 1
   %21 = getelementptr inbounds i32, ptr %14, i64 %20
   %22 = load i32, ptr %21, align 4
@@ -4480,7 +4480,7 @@ define internal fastcc noundef i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0)
   %7 = load i64, ptr %6, align 8
   %8 = xor i64 %7, -1
   %9 = and i64 %.117, %8
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = shl nuw i32 1, %10
   %12 = zext i32 %11 to i64
   %13 = shl i64 %9, %12
@@ -4593,7 +4593,7 @@ define noundef ptr @Extra_NpnRead(ptr nocapture noundef readonly %0, i32 noundef
 
 .lr.ph17:                                         ; preds = %.lr.ph17.preheader, %.lr.ph17
   %indvars.iv20 = phi i64 [ 0, %.lr.ph17.preheader ], [ %indvars.iv.next21, %.lr.ph17 ]
-  %18 = trunc i64 %indvars.iv20 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv20 to i32
   %19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %18)
   %20 = load ptr, ptr @stdout, align 8
   %21 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv20
@@ -4624,7 +4624,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #16
 declare void @Extra_PrintHex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @CompareWords(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #21 {
+define range(i32 -1, 2) i32 @CompareWords(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #21 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %5 = icmp ult i64 %3, %4
@@ -4686,7 +4686,7 @@ define void @Extra_NpnTest2() local_unnamed_addr #13 {
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !70
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %12 = trunc i64 %indvars.iv.next.i to i32
+  %12 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %4
@@ -4830,7 +4830,7 @@ Abc_Clock.exit:                                   ; preds = %0, %5
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !70
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %19 = trunc i64 %indvars.iv.next.i to i32
+  %19 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %11
@@ -4933,7 +4933,7 @@ Extra_Truth6MinimumExact.exit:                    ; preds = %64
 
 70:                                               ; preds = %69, %70
   %indvars.iv41 = phi i64 [ 0, %69 ], [ %indvars.iv.next42, %70 ]
-  %71 = trunc i64 %indvars.iv41 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv41 to i32
   %72 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %71)
   %73 = load ptr, ptr @stdout, align 8
   %74 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv41
@@ -5047,7 +5047,7 @@ define void @Extra_NtkPowerTest() local_unnamed_addr #22 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 4, %.lr.ph.i.preheader ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %6 = lshr i64 %indvars.iv31, %indvars.iv.next.i
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw nsw i64 %6 to i32
   %8 = and i32 %7, 1
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %8)
   %10 = icmp ugt i64 %indvars.iv.i, 1
@@ -5057,7 +5057,7 @@ define void @Extra_NtkPowerTest() local_unnamed_addr #22 {
   %indvars.iv.i9 = phi i64 [ %indvars.iv.next.i10, %.lr.ph.i8 ], [ 4, %.lr.ph.i ]
   %indvars.iv.next.i10 = add nsw i64 %indvars.iv.i9, -1
   %11 = lshr i64 %indvars.iv, %indvars.iv.next.i10
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %13 = and i32 %12, 1
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %13)
   %15 = icmp ugt i64 %indvars.iv.i9, 1
@@ -5116,7 +5116,7 @@ define void @Extra_Transpose32(ptr nocapture noundef %0) local_unnamed_addr #8 {
   %13 = xor i32 %12, %7
   %14 = zext i32 %13 to i64
   %15 = and i64 %.02326, %14
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw i64 %15 to i32
   %17 = xor i32 %7, %16
   store i32 %17, ptr %6, align 4
   %18 = shl nuw nsw i64 %15, %2
@@ -5462,61 +5462,59 @@ define void @Extra_BitMatrixShow(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %6, label %.lr.ph18.split.us.preheader, label %.lr.ph18.split
 
 .lr.ph18.split.us.preheader:                      ; preds = %.lr.ph18
+  %8 = zext nneg i32 %1 to i64
   %wide.trip.count26 = zext nneg i32 %4 to i64
-  %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph18.split.us
 
 .lr.ph18.split.us:                                ; preds = %.lr.ph18.split.us.preheader, %._crit_edge.us
   %indvars.iv23 = phi i64 [ 0, %.lr.ph18.split.us.preheader ], [ %indvars.iv.next24, %._crit_edge.us ]
-  %8 = and i64 %indvars.iv23, 63
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %.lr.ph.us
+  %9 = and i64 %indvars.iv23, 63
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %11, label %.lr.ph.us
 
-10:                                               ; preds = %.lr.ph18.split.us
+11:                                               ; preds = %.lr.ph18.split.us
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7)
   br label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %10, %.lr.ph18.split.us
-  %11 = trunc i64 %indvars.iv23 to i32
-  %12 = mul i32 %11, %1
-  %13 = zext i32 %12 to i64
-  br label %14
+.lr.ph.us:                                        ; preds = %11, %.lr.ph18.split.us
+  %12 = mul nuw nsw i64 %indvars.iv23, %8
+  br label %13
 
-14:                                               ; preds = %.lr.ph.us, %14
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %14 ]
-  %15 = load ptr, ptr @stdout, align 8
+13:                                               ; preds = %.lr.ph.us, %13
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %13 ]
+  %14 = load ptr, ptr @stdout, align 8
   %.val.us = load ptr, ptr %7, align 8
-  %16 = getelementptr i64, ptr %.val.us, i64 %indvars.iv
-  %17 = getelementptr i64, ptr %16, i64 %13
-  tail call void @Extra_PrintBinary2(ptr noundef %15, ptr noundef %17, i32 noundef 64) #32
+  %15 = getelementptr i64, ptr %.val.us, i64 %indvars.iv
+  %16 = getelementptr i64, ptr %15, i64 %12
+  tail call void @Extra_PrintBinary2(ptr noundef %14, ptr noundef %16, i32 noundef 64) #32
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond22.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond22.not, label %._crit_edge.us, label %14, !llvm.loop !100
+  %exitcond22.not = icmp eq i64 %indvars.iv.next, %8
+  br i1 %exitcond22.not, label %._crit_edge.us, label %13, !llvm.loop !100
 
-._crit_edge.us:                                   ; preds = %14
+._crit_edge.us:                                   ; preds = %13
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7)
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count26
   br i1 %exitcond27.not, label %._crit_edge19, label %.lr.ph18.split.us, !llvm.loop !101
 
-.lr.ph18.split:                                   ; preds = %.lr.ph18, %21
-  %.016 = phi i32 [ %22, %21 ], [ 0, %.lr.ph18 ]
-  %18 = and i32 %.016, 63
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %21
+.lr.ph18.split:                                   ; preds = %.lr.ph18, %20
+  %.016 = phi i32 [ %21, %20 ], [ 0, %.lr.ph18 ]
+  %17 = and i32 %.016, 63
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %20
 
-20:                                               ; preds = %.lr.ph18.split
+19:                                               ; preds = %.lr.ph18.split
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7)
-  br label %21
+  br label %20
 
-21:                                               ; preds = %20, %.lr.ph18.split
+20:                                               ; preds = %19, %.lr.ph18.split
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7)
-  %22 = add nuw nsw i32 %.016, 1
-  %exitcond.not = icmp eq i32 %22, %4
+  %21 = add nuw nsw i32 %.016, 1
+  %exitcond.not = icmp eq i32 %21, %4
   br i1 %exitcond.not, label %._crit_edge19, label %.lr.ph18.split, !llvm.loop !101
 
-._crit_edge19:                                    ; preds = %21, %._crit_edge.us, %2
+._crit_edge19:                                    ; preds = %20, %._crit_edge.us, %2
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7)
   ret void
 }
@@ -5687,7 +5685,7 @@ Extra_Transpose64p.exit.us.i:                     ; preds = %37
 .preheader.i:                                     ; preds = %72, %.lr.ph.i.i
   %indvars.iv21.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next22.i, %72 ]
   %51 = mul nuw nsw i64 %indvars.iv21.i, 100
-  %52 = trunc i64 %indvars.iv21.i to i32
+  %52 = trunc nuw nsw i64 %indvars.iv21.i to i32
   %53 = and i32 %52, 31
   %54 = shl nuw i32 1, %53
   %55 = lshr i64 %indvars.iv21.i, 5
@@ -5698,7 +5696,7 @@ Extra_Transpose64p.exit.us.i:                     ; preds = %37
 
 58:                                               ; preds = %71, %.preheader.i
   %indvars.iv.i26 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i27, %71 ]
-  %59 = trunc i64 %indvars.iv.i26 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv.i26 to i32
   %60 = lshr i64 %indvars.iv.i26, 5
   %61 = and i64 %60, 134217727
   %62 = getelementptr inbounds i32, ptr %57, i64 %61

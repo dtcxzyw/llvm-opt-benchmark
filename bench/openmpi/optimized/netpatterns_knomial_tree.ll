@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.netpatterns_payload_t = type { i32, i32, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %0)
   store i32 %spec.select, ptr %4, align 8
   %6 = icmp sgt i32 %0, 1
@@ -76,7 +76,7 @@ define noundef i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node
   br i1 %exitcond704.not, label %.critedge, label %.lr.ph551, !llvm.loop !7
 
 .critedge.loopexit.split.loop.exit869:            ; preds = %.lr.ph551
-  %27 = trunc i64 %indvars.iv700 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv700 to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %26, %.critedge.loopexit.split.loop.exit869, %.preheader534
@@ -120,7 +120,7 @@ define noundef i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node
   %indvars.iv710 = phi i64 [ 0, %.lr.ph559.preheader ], [ %indvars.iv.next711, %.lr.ph559 ]
   %45 = load ptr, ptr %37, align 8
   %46 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv710
-  %47 = trunc i64 %indvars.iv710 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv710 to i32
   store i32 %47, ptr %46, align 4
   %indvars.iv.next711 = add nuw nsw i64 %indvars.iv710, 1
   %exitcond714.not = icmp eq i64 %indvars.iv.next711, %wide.trip.count713
@@ -147,7 +147,7 @@ define noundef i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node
   br label %.lr.ph564
 
 .preheader531.loopexit:                           ; preds = %.lr.ph564
-  %56 = trunc i64 %indvars.iv.next716 to i32
+  %56 = trunc nsw i64 %indvars.iv.next716 to i32
   br label %.preheader531
 
 .preheader531:                                    ; preds = %.preheader531.loopexit, %._crit_edge560
@@ -212,7 +212,7 @@ define noundef i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node
   %78 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv723
   store i32 %77, ptr %78, align 4
   %indvars.iv.next724 = add nsw i64 %indvars.iv723, 1
-  %79 = trunc i64 %indvars.iv723 to i32
+  %79 = trunc nsw i64 %indvars.iv723 to i32
   %lftr.wideiv = trunc i64 %indvars.iv.next724 to i32
   %exitcond726.not = icmp eq i32 %lftr.wideiv, %0
   br i1 %exitcond726.not, label %.loopexit530, label %.lr.ph573, !llvm.loop !11
@@ -221,7 +221,7 @@ define noundef i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node
   %indvars.iv705 = phi i64 [ 0, %.lr.ph556.preheader ], [ %indvars.iv.next706, %.lr.ph556 ]
   %80 = load ptr, ptr %37, align 8
   %81 = getelementptr inbounds i32, ptr %80, i64 %indvars.iv705
-  %82 = trunc i64 %indvars.iv705 to i32
+  %82 = trunc nuw nsw i64 %indvars.iv705 to i32
   store i32 %82, ptr %81, align 4
   %indvars.iv.next706 = add nuw nsw i64 %indvars.iv705, 1
   %exitcond709.not = icmp eq i64 %indvars.iv.next706, %wide.trip.count708
@@ -244,7 +244,7 @@ define noundef i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node
   br i1 %88, label %89, label %92
 
 89:                                               ; preds = %85
-  %90 = trunc i64 %indvars.iv727 to i32
+  %90 = trunc nuw nsw i64 %indvars.iv727 to i32
   %91 = getelementptr inbounds i8, ptr %4, i64 80
   store i32 %90, ptr %91, align 8
   br i1 %83, label %.preheader528.preheader, label %._crit_edge578
@@ -276,7 +276,7 @@ define noundef i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node
   br i1 %.not505, label %98, label %94, !llvm.loop !14
 
 98:                                               ; preds = %94
-  %99 = trunc i64 %indvars.iv732 to i32
+  %99 = trunc nuw nsw i64 %indvars.iv732 to i32
   %100 = load ptr, ptr %39, align 8
   %101 = getelementptr inbounds i32, ptr %100, i64 %indvars.iv735
   store i32 %99, ptr %101, align 4
@@ -375,7 +375,7 @@ define noundef i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node
   br i1 %exitcond752.not, label %._crit_edge585, label %135, !llvm.loop !17
 
 ._crit_edge585.split.loop.exit871:                ; preds = %135
-  %141 = trunc i64 %indvars.iv748 to i32
+  %141 = trunc nuw nsw i64 %indvars.iv748 to i32
   br label %._crit_edge585
 
 ._crit_edge585:                                   ; preds = %140, %._crit_edge585.split.loop.exit871
@@ -418,7 +418,7 @@ define noundef i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node
   %.2649 = phi i32 [ %.0433.lcssa, %.preheader520.lr.ph ], [ %.3.lcssa845, %._crit_edge645 ]
   %.0436648 = phi i32 [ 1, %.preheader520.lr.ph ], [ %273, %._crit_edge645 ]
   %.0438647 = phi i32 [ %spec.select, %.preheader520.lr.ph ], [ %272, %._crit_edge645 ]
-  %157 = trunc i64 %indvars.iv802 to i32
+  %157 = trunc nuw nsw i64 %indvars.iv802 to i32
   %umax = tail call i32 @llvm.umax.i32(i32 %157, i32 1)
   br i1 %102, label %.lr.ph639, label %._crit_edge645
 
@@ -452,7 +452,7 @@ define noundef i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node
   br i1 %exitcond763.not, label %._crit_edge599, label %163, !llvm.loop !20
 
 ._crit_edge599.split.loop.exit873:                ; preds = %163
-  %169 = trunc i64 %indvars.iv759 to i32
+  %169 = trunc nuw nsw i64 %indvars.iv759 to i32
   br label %._crit_edge599
 
 ._crit_edge599:                                   ; preds = %168, %._crit_edge599.split.loop.exit873
@@ -518,7 +518,7 @@ define noundef i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node
 .preheader516:                                    ; preds = %190, %.preheader516
   %.0426606 = phi i32 [ %201, %.preheader516 ], [ 0, %190 ]
   %.0428605 = phi i32 [ %200, %.preheader516 ], [ 1, %190 ]
-  %200 = mul nsw i32 %.0428605, %spec.select
+  %200 = mul nuw nsw i32 %.0428605, %spec.select
   %201 = add nuw nsw i32 %.0426606, 1
   %202 = zext nneg i32 %201 to i64
   %exitcond767.not = icmp eq i64 %indvars.iv802, %202
@@ -526,7 +526,7 @@ define noundef i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node
 
 .preheader515:                                    ; preds = %.preheader516, %.preheader515
   %.0427 = phi i32 [ %204, %.preheader515 ], [ 1, %.preheader516 ]
-  %203 = mul nsw i32 %.0427, %200
+  %203 = mul nuw nsw i32 %.0427, %200
   %.not498 = icmp slt i32 %186, %203
   %204 = add nuw nsw i32 %.0427, 1
   br i1 %.not498, label %205, label %.preheader515, !llvm.loop !24
@@ -566,14 +566,14 @@ define noundef i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node
 219:                                              ; preds = %._crit_edge611, %219
   %.0423614 = phi i32 [ 0, %._crit_edge611 ], [ %221, %219 ]
   %.0425613 = phi i32 [ 1, %._crit_edge611 ], [ %220, %219 ]
-  %220 = mul nsw i32 %.0425613, %spec.select
+  %220 = mul nuw nsw i32 %.0425613, %spec.select
   %221 = add nuw nsw i32 %.0423614, 1
   %exitcond773.not = icmp eq i32 %221, %umax
   br i1 %exitcond773.not, label %.preheader514, label %219, !llvm.loop !26
 
 .preheader514:                                    ; preds = %219, %.preheader514
   %.0424 = phi i32 [ %223, %.preheader514 ], [ 1, %219 ]
-  %222 = mul nsw i32 %.0424, %220
+  %222 = mul nuw nsw i32 %.0424, %220
   %.not499 = icmp slt i32 %.4, %222
   %223 = add nuw nsw i32 %.0424, 1
   br i1 %.not499, label %224, label %.preheader514, !llvm.loop !27
@@ -1115,7 +1115,7 @@ define void @ompi_netpatterns_cleanup_recursive_knomial_allgather_tree_node(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_netpatterns_setup_recursive_knomial_tree_node(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_tree_node(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %0, 2
   %6 = icmp slt i32 %2, 2
   %or.cond = or i1 %5, %6
@@ -1129,134 +1129,127 @@ define noundef i32 @ompi_netpatterns_setup_recursive_knomial_tree_node(i32 nound
 8:                                                ; preds = %7, %8
   %.0112132 = phi i32 [ 0, %7 ], [ %10, %8 ]
   %.0113131 = phi i32 [ 1, %7 ], [ %9, %8 ]
-  %9 = mul nsw i32 %.0113131, %spec.select
+  %9 = mul nuw nsw i32 %.0113131, %spec.select
   %10 = add nuw nsw i32 %.0112132, 1
   %11 = icmp slt i32 %9, %0
   br i1 %11, label %8, label %12, !llvm.loop !45
 
 12:                                               ; preds = %8
   %13 = icmp sgt i32 %9, %0
-  br i1 %13, label %14, label %16
+  %spec.select165 = select i1 %13, i32 %.0113131, i32 %9
+  %spec.select166 = select i1 %13, i32 %.0112132, i32 %10
+  %14 = getelementptr inbounds i8, ptr %3, i64 44
+  store i32 %spec.select166, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 %spec.select165, ptr %15, align 8
+  %.not = icmp sgt i32 %spec.select165, %1
+  %16 = getelementptr inbounds i8, ptr %3, i64 52
+  %17 = getelementptr inbounds i8, ptr %3, i64 24
+  br i1 %.not, label %18, label %44
 
-14:                                               ; preds = %12
-  %15 = udiv i32 %9, %spec.select
-  br label %16
+18:                                               ; preds = %12
+  store i32 0, ptr %16, align 4
+  %19 = add nsw i32 %spec.select, -1
+  %20 = mul nsw i32 %19, %1
+  %21 = add nsw i32 %spec.select165, %20
+  %22 = icmp slt i32 %21, %0
+  %23 = icmp sgt i32 %spec.select, 1
+  %24 = and i1 %22, %23
+  br i1 %24, label %25, label %.loopexit130.thread
 
-16:                                               ; preds = %14, %12
-  %.1114 = phi i32 [ %15, %14 ], [ %9, %12 ]
-  %17 = phi i32 [ %.0112132, %14 ], [ %10, %12 ]
-  %18 = getelementptr inbounds i8, ptr %3, i64 44
-  store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 %.1114, ptr %19, align 8
-  %.not = icmp sgt i32 %.1114, %1
-  %20 = getelementptr inbounds i8, ptr %3, i64 52
-  %21 = getelementptr inbounds i8, ptr %3, i64 24
-  br i1 %.not, label %22, label %48
+25:                                               ; preds = %18
+  %26 = xor i32 %20, -1
+  %27 = add i32 %26, %0
+  %28 = sub i32 %27, %spec.select165
+  %29 = add nsw i32 %spec.select, -2
+  %umin = tail call i32 @llvm.umin.i32(i32 %28, i32 %29)
+  %30 = add nuw nsw i32 %umin, 1
+  store i32 %30, ptr %17, align 8
+  %31 = zext nneg i32 %30 to i64
+  %32 = shl nuw nsw i64 %31, 2
+  %33 = tail call noalias ptr @malloc(i64 noundef %32) #8
+  %34 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %33, ptr %34, align 8
+  %35 = icmp eq ptr %33, null
+  br i1 %35, label %.loopexit128, label %.lr.ph137.preheader
 
-22:                                               ; preds = %16
-  store i32 0, ptr %20, align 4
-  %23 = add nsw i32 %spec.select, -1
-  %24 = mul nsw i32 %23, %1
-  %25 = add nsw i32 %.1114, %24
-  %26 = icmp slt i32 %25, %0
-  %27 = icmp sgt i32 %spec.select, 1
-  %28 = and i1 %26, %27
-  br i1 %28, label %29, label %.loopexit130.thread
-
-29:                                               ; preds = %22
-  %30 = xor i32 %24, -1
-  %31 = add i32 %30, %0
-  %32 = sub i32 %31, %.1114
-  %33 = add nsw i32 %spec.select, -2
-  %umin = tail call i32 @llvm.umin.i32(i32 %32, i32 %33)
-  %34 = add nuw nsw i32 %umin, 1
-  store i32 %34, ptr %21, align 8
-  %35 = zext nneg i32 %34 to i64
-  %36 = shl nuw nsw i64 %35, 2
-  %37 = tail call noalias ptr @malloc(i64 noundef %36) #8
-  %38 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr %37, ptr %38, align 8
-  %39 = icmp eq ptr %37, null
-  br i1 %39, label %.loopexit128, label %.lr.ph137.preheader
-
-.lr.ph137.preheader:                              ; preds = %29
-  %40 = zext nneg i32 %23 to i64
+.lr.ph137.preheader:                              ; preds = %25
+  %36 = zext nneg i32 %19 to i64
   br label %.lr.ph137
 
 .lr.ph137:                                        ; preds = %.lr.ph137.preheader, %.lr.ph137
   %indvars.iv = phi i64 [ 0, %.lr.ph137.preheader ], [ %indvars.iv.next, %.lr.ph137 ]
-  %.1116136 = phi i32 [ %25, %.lr.ph137.preheader ], [ %43, %.lr.ph137 ]
-  %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv
-  store i32 %.1116136, ptr %42, align 4
+  %.1116136 = phi i32 [ %21, %.lr.ph137.preheader ], [ %39, %.lr.ph137 ]
+  %37 = load ptr, ptr %34, align 8
+  %38 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv
+  store i32 %.1116136, ptr %38, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = add nsw i32 %.1116136, 1
-  %44 = icmp ult i64 %indvars.iv.next, %40
-  %45 = icmp slt i32 %43, %0
-  %46 = select i1 %44, i1 %45, i1 false
-  br i1 %46, label %.lr.ph137, label %.loopexit130, !llvm.loop !46
+  %39 = add nsw i32 %.1116136, 1
+  %40 = icmp ult i64 %indvars.iv.next, %36
+  %41 = icmp slt i32 %39, %0
+  %42 = select i1 %40, i1 %41, i1 false
+  br i1 %42, label %.lr.ph137, label %.loopexit130, !llvm.loop !46
 
-.loopexit130.thread:                              ; preds = %22
-  store i32 0, ptr %21, align 8
-  %47 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr null, ptr %47, align 8
-  br label %56
+.loopexit130.thread:                              ; preds = %18
+  store i32 0, ptr %17, align 8
+  %43 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr null, ptr %43, align 8
+  br label %52
 
-48:                                               ; preds = %16
-  store i32 1, ptr %20, align 4
-  store i32 1, ptr %21, align 8
-  %49 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #8
-  %50 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr %49, ptr %50, align 8
-  %51 = icmp eq ptr %49, null
-  br i1 %51, label %.loopexit128, label %.loopexit130.thread162
+44:                                               ; preds = %12
+  store i32 1, ptr %16, align 4
+  store i32 1, ptr %17, align 8
+  %45 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #8
+  %46 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %45, ptr %46, align 8
+  %47 = icmp eq ptr %45, null
+  br i1 %47, label %.loopexit128, label %.loopexit130.thread162
 
-.loopexit130.thread162:                           ; preds = %48
-  %52 = sub nsw i32 %1, %.1114
-  %53 = add nsw i32 %spec.select, -1
-  %54 = sdiv i32 %52, %53
-  store i32 %54, ptr %49, align 4
-  br label %97
+.loopexit130.thread162:                           ; preds = %44
+  %48 = sub nsw i32 %1, %spec.select165
+  %49 = add nsw i32 %spec.select, -1
+  %50 = sdiv i32 %48, %49
+  store i32 %50, ptr %45, align 4
+  br label %92
 
 .loopexit130:                                     ; preds = %.lr.ph137
-  %.pre = load i32, ptr %20, align 4
-  %55 = icmp eq i32 %.pre, 0
-  br i1 %55, label %56, label %97
+  %.pre = load i32, ptr %16, align 4
+  %51 = icmp eq i32 %.pre, 0
+  br i1 %51, label %52, label %92
 
-56:                                               ; preds = %.loopexit130.thread, %.loopexit130
-  %57 = getelementptr inbounds i8, ptr %3, i64 4
-  store i32 %17, ptr %57, align 4
-  %58 = sext i32 %17 to i64
-  %59 = shl nsw i64 %58, 3
-  %60 = tail call noalias ptr @malloc(i64 noundef %59) #8
-  %61 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %60, ptr %61, align 8
-  %62 = icmp eq ptr %60, null
-  br i1 %62, label %.loopexit128, label %.preheader127
+52:                                               ; preds = %.loopexit130.thread, %.loopexit130
+  %53 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 %spec.select166, ptr %53, align 4
+  %54 = zext nneg i32 %spec.select166 to i64
+  %55 = shl nuw nsw i64 %54, 3
+  %56 = tail call noalias ptr @malloc(i64 noundef %55) #8
+  %57 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %56, ptr %57, align 8
+  %58 = icmp eq ptr %56, null
+  br i1 %58, label %.loopexit128, label %.preheader127
 
-.preheader127:                                    ; preds = %56
-  %63 = icmp sgt i32 %17, 0
-  br i1 %63, label %.lr.ph139, label %.loopexit
+.preheader127:                                    ; preds = %52
+  %.not168 = icmp eq i32 %spec.select166, 0
+  br i1 %.not168, label %.loopexit, label %.lr.ph139
 
 .lr.ph139:                                        ; preds = %.preheader127
-  %64 = add nsw i32 %spec.select, -1
-  %65 = zext nneg i32 %64 to i64
-  %66 = shl nuw nsw i64 %65, 2
-  br label %91
+  %59 = add nsw i32 %spec.select, -1
+  %60 = zext nneg i32 %59 to i64
+  %61 = shl nuw nsw i64 %60, 2
+  br label %86
 
-67:                                               ; preds = %91
+62:                                               ; preds = %86
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
-  %68 = load i32, ptr %57, align 4
-  %69 = sext i32 %68 to i64
-  %70 = icmp slt i64 %indvars.iv.next152, %69
-  br i1 %70, label %91, label %.preheader, !llvm.loop !47
+  %63 = load i32, ptr %53, align 4
+  %64 = sext i32 %63 to i64
+  %65 = icmp slt i64 %indvars.iv.next152, %64
+  br i1 %65, label %86, label %.preheader, !llvm.loop !47
 
-.preheader:                                       ; preds = %67
-  %71 = icmp sgt i32 %68, 0
-  %72 = icmp sgt i32 %spec.select, 1
-  %or.cond165 = and i1 %71, %72
-  br i1 %or.cond165, label %.lr.ph142.us.preheader, label %.loopexit
+.preheader:                                       ; preds = %62
+  %66 = icmp sgt i32 %63, 0
+  %67 = icmp sgt i32 %spec.select, 1
+  %or.cond167 = and i1 %66, %67
+  br i1 %or.cond167, label %.lr.ph142.us.preheader, label %.loopexit
 
 .lr.ph142.us.preheader:                           ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %spec.select to i64
@@ -1264,111 +1257,111 @@ define noundef i32 @ompi_netpatterns_setup_recursive_knomial_tree_node(i32 nound
 
 .lr.ph142.us:                                     ; preds = %.lr.ph142.us.preheader, %._crit_edge143.us
   %indvars.iv157 = phi i64 [ 0, %.lr.ph142.us.preheader ], [ %indvars.iv.next158, %._crit_edge143.us ]
-  %.0110145.us = phi i32 [ 1, %.lr.ph142.us.preheader ], [ %73, %._crit_edge143.us ]
-  %73 = mul nsw i32 %.0110145.us, %spec.select
-  %74 = sdiv i32 %1, %73
-  %75 = mul nsw i32 %74, %73
-  br label %76
+  %.0110145.us = phi i32 [ 1, %.lr.ph142.us.preheader ], [ %68, %._crit_edge143.us ]
+  %68 = mul nuw nsw i32 %.0110145.us, %spec.select
+  %69 = sdiv i32 %1, %68
+  %70 = mul nsw i32 %69, %68
+  br label %71
 
-76:                                               ; preds = %.lr.ph142.us, %76
-  %indvars.iv154 = phi i64 [ 1, %.lr.ph142.us ], [ %indvars.iv.next155, %76 ]
-  %77 = trunc i64 %indvars.iv154 to i32
-  %78 = mul i32 %.0110145.us, %77
-  %79 = add i32 %78, %1
-  %80 = sdiv i32 %79, %73
-  %81 = srem i32 %79, %73
-  %.not126.us = icmp eq i32 %74, %80
-  %82 = add nsw i32 %81, %75
-  %.0.us = select i1 %.not126.us, i32 %79, i32 %82
-  %83 = load ptr, ptr %61, align 8
-  %84 = getelementptr inbounds ptr, ptr %83, i64 %indvars.iv157
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr i32, ptr %85, i64 %indvars.iv154
-  %87 = getelementptr i8, ptr %86, i64 -4
-  store i32 %.0.us, ptr %87, align 4
+71:                                               ; preds = %.lr.ph142.us, %71
+  %indvars.iv154 = phi i64 [ 1, %.lr.ph142.us ], [ %indvars.iv.next155, %71 ]
+  %72 = trunc i64 %indvars.iv154 to i32
+  %73 = mul i32 %.0110145.us, %72
+  %74 = add nsw i32 %73, %1
+  %75 = sdiv i32 %74, %68
+  %76 = srem i32 %74, %68
+  %.not126.us = icmp eq i32 %69, %75
+  %77 = add nsw i32 %76, %70
+  %.0.us = select i1 %.not126.us, i32 %74, i32 %77
+  %78 = load ptr, ptr %57, align 8
+  %79 = getelementptr inbounds ptr, ptr %78, i64 %indvars.iv157
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr i32, ptr %80, i64 %indvars.iv154
+  %82 = getelementptr i8, ptr %81, i64 -4
+  store i32 %.0.us, ptr %82, align 4
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge143.us, label %76, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge143.us, label %71, !llvm.loop !48
 
-._crit_edge143.us:                                ; preds = %76
+._crit_edge143.us:                                ; preds = %71
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %88 = load i32, ptr %57, align 4
-  %89 = sext i32 %88 to i64
-  %90 = icmp slt i64 %indvars.iv.next158, %89
-  br i1 %90, label %.lr.ph142.us, label %.loopexit, !llvm.loop !49
+  %83 = load i32, ptr %53, align 4
+  %84 = sext i32 %83 to i64
+  %85 = icmp slt i64 %indvars.iv.next158, %84
+  br i1 %85, label %.lr.ph142.us, label %.loopexit, !llvm.loop !49
 
-91:                                               ; preds = %.lr.ph139, %67
-  %92 = phi ptr [ %60, %.lr.ph139 ], [ %95, %67 ]
-  %indvars.iv151 = phi i64 [ 0, %.lr.ph139 ], [ %indvars.iv.next152, %67 ]
-  %93 = tail call noalias ptr @malloc(i64 noundef %66) #8
-  %94 = getelementptr inbounds ptr, ptr %92, i64 %indvars.iv151
-  store ptr %93, ptr %94, align 8
-  %95 = load ptr, ptr %61, align 8
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %.loopexit128, label %67
+86:                                               ; preds = %.lr.ph139, %62
+  %87 = phi ptr [ %56, %.lr.ph139 ], [ %90, %62 ]
+  %indvars.iv151 = phi i64 [ 0, %.lr.ph139 ], [ %indvars.iv.next152, %62 ]
+  %88 = tail call noalias ptr @malloc(i64 noundef %61) #8
+  %89 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv151
+  store ptr %88, ptr %89, align 8
+  %90 = load ptr, ptr %57, align 8
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %.loopexit128, label %62
 
-97:                                               ; preds = %.loopexit130.thread162, %.loopexit130
-  %98 = getelementptr inbounds i8, ptr %3, i64 4
-  store i32 0, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr null, ptr %99, align 8
+92:                                               ; preds = %.loopexit130.thread162, %.loopexit130
+  %93 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 0, ptr %93, align 4
+  %94 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr null, ptr %94, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge143.us, %.preheader127, %.preheader, %97
-  %100 = mul nsw i32 %17, %spec.select
-  %101 = add nsw i32 %100, 1
-  %102 = getelementptr inbounds i8, ptr %3, i64 40
-  store i32 %101, ptr %102, align 8
+.loopexit:                                        ; preds = %._crit_edge143.us, %.preheader127, %.preheader, %92
+  %95 = mul nuw nsw i32 %spec.select166, %spec.select
+  %96 = add nuw nsw i32 %95, 1
+  %97 = getelementptr inbounds i8, ptr %3, i64 40
+  store i32 %96, ptr %97, align 8
   br label %ompi_netpatterns_cleanup_recursive_knomial_tree_node.exit
 
-.loopexit128:                                     ; preds = %91, %56, %48, %29, %4
-  %103 = getelementptr inbounds i8, ptr %3, i64 24
-  %104 = load i32, ptr %103, align 8
-  %105 = icmp sgt i32 %104, 0
-  br i1 %105, label %106, label %109
+.loopexit128:                                     ; preds = %86, %52, %44, %25, %4
+  %98 = getelementptr inbounds i8, ptr %3, i64 24
+  %99 = load i32, ptr %98, align 8
+  %100 = icmp sgt i32 %99, 0
+  br i1 %100, label %101, label %104
 
-106:                                              ; preds = %.loopexit128
-  %107 = getelementptr inbounds i8, ptr %3, i64 32
-  %108 = load ptr, ptr %107, align 8
-  tail call void @free(ptr noundef %108) #9
-  store ptr null, ptr %107, align 8
-  store i32 0, ptr %103, align 8
+101:                                              ; preds = %.loopexit128
+  %102 = getelementptr inbounds i8, ptr %3, i64 32
+  %103 = load ptr, ptr %102, align 8
+  tail call void @free(ptr noundef %103) #9
+  store ptr null, ptr %102, align 8
+  store i32 0, ptr %98, align 8
+  br label %104
+
+104:                                              ; preds = %101, %.loopexit128
+  %105 = getelementptr inbounds i8, ptr %3, i64 4
+  %106 = load i32, ptr %105, align 4
+  %107 = icmp sgt i32 %106, 0
+  br i1 %107, label %.lr.ph.i, label %ompi_netpatterns_cleanup_recursive_knomial_tree_node.exit
+
+.lr.ph.i:                                         ; preds = %104
+  %108 = getelementptr inbounds i8, ptr %3, i64 16
   br label %109
 
-109:                                              ; preds = %106, %.loopexit128
-  %110 = getelementptr inbounds i8, ptr %3, i64 4
-  %111 = load i32, ptr %110, align 4
-  %112 = icmp sgt i32 %111, 0
-  br i1 %112, label %.lr.ph.i, label %ompi_netpatterns_cleanup_recursive_knomial_tree_node.exit
-
-.lr.ph.i:                                         ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %3, i64 16
-  br label %114
-
-114:                                              ; preds = %114, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %114 ]
-  %115 = load ptr, ptr %113, align 8
-  %116 = getelementptr inbounds ptr, ptr %115, i64 %indvars.iv.i
-  %117 = load ptr, ptr %116, align 8
-  tail call void @free(ptr noundef %117) #9
-  %118 = load ptr, ptr %113, align 8
-  %119 = getelementptr inbounds ptr, ptr %118, i64 %indvars.iv.i
-  store ptr null, ptr %119, align 8
+109:                                              ; preds = %109, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %109 ]
+  %110 = load ptr, ptr %108, align 8
+  %111 = getelementptr inbounds ptr, ptr %110, i64 %indvars.iv.i
+  %112 = load ptr, ptr %111, align 8
+  tail call void @free(ptr noundef %112) #9
+  %113 = load ptr, ptr %108, align 8
+  %114 = getelementptr inbounds ptr, ptr %113, i64 %indvars.iv.i
+  store ptr null, ptr %114, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %120 = load i32, ptr %110, align 4
-  %121 = sext i32 %120 to i64
-  %122 = icmp slt i64 %indvars.iv.next.i, %121
-  br i1 %122, label %114, label %._crit_edge.i, !llvm.loop !50
+  %115 = load i32, ptr %105, align 4
+  %116 = sext i32 %115 to i64
+  %117 = icmp slt i64 %indvars.iv.next.i, %116
+  br i1 %117, label %109, label %._crit_edge.i, !llvm.loop !50
 
-._crit_edge.i:                                    ; preds = %114
-  %123 = load ptr, ptr %113, align 8
-  tail call void @free(ptr noundef %123) #9
-  store ptr null, ptr %113, align 8
-  store i32 0, ptr %110, align 4
+._crit_edge.i:                                    ; preds = %109
+  %118 = load ptr, ptr %108, align 8
+  tail call void @free(ptr noundef %118) #9
+  store ptr null, ptr %108, align 8
+  store i32 0, ptr %105, align 4
   br label %ompi_netpatterns_cleanup_recursive_knomial_tree_node.exit
 
-ompi_netpatterns_cleanup_recursive_knomial_tree_node.exit: ; preds = %._crit_edge.i, %109, %.loopexit
-  %.0111 = phi i32 [ 0, %.loopexit ], [ -1, %109 ], [ -1, %._crit_edge.i ]
+ompi_netpatterns_cleanup_recursive_knomial_tree_node.exit: ; preds = %._crit_edge.i, %104, %.loopexit
+  %.0111 = phi i32 [ 0, %.loopexit ], [ -1, %104 ], [ -1, %._crit_edge.i ]
   ret i32 %.0111
 }
 
@@ -1425,7 +1418,7 @@ define void @ompi_netpatterns_cleanup_recursive_knomial_tree_node(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_netpatterns_setup_recursive_doubling_n_tree_node(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_doubling_n_tree_node(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %2, %0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -1615,7 +1608,7 @@ define noundef i32 @ompi_netpatterns_setup_recursive_doubling_n_tree_node(i32 no
 78:                                               ; preds = %.preheader.us, %78
   %indvars.iv148 = phi i64 [ %76, %.preheader.us ], [ %indvars.iv.next149, %78 ]
   %.0136.us = phi i32 [ 1, %.preheader.us ], [ %83, %78 ]
-  %79 = mul nsw i32 %.0136.us, %.095141.us
+  %79 = mul nuw nsw i32 %.0136.us, %.095141.us
   %80 = xor i32 %79, %1
   %81 = load ptr, ptr %72, align 8
   %82 = getelementptr inbounds i32, ptr %81, i64 %indvars.iv148
@@ -1627,7 +1620,7 @@ define noundef i32 @ompi_netpatterns_setup_recursive_doubling_n_tree_node(i32 no
   br i1 %exitcond151.not, label %._crit_edge138.us, label %78, !llvm.loop !56
 
 ._crit_edge138.us:                                ; preds = %78
-  %84 = mul nsw i32 %.095141.us, %.0105.lcssa
+  %84 = mul nuw nsw i32 %.095141.us, %.0105.lcssa
   %85 = load i32, ptr %68, align 4
   %86 = icmp slt i32 %77, %85
   br i1 %86, label %.preheader.us, label %.loopexit, !llvm.loop !57
@@ -1690,8 +1683,8 @@ define void @ompi_netpatterns_cleanup_recursive_doubling_tree_node(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_netpatterns_setup_recursive_doubling_tree_node(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @ompi_netpatterns_setup_recursive_doubling_n_tree_node(i32 noundef %0, i32 noundef %1, i32 noundef 2, ptr noundef %2), !range !58
+define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_doubling_tree_node(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+  %4 = tail call i32 @ompi_netpatterns_setup_recursive_doubling_n_tree_node(i32 noundef %0, i32 noundef %1, i32 noundef 2, ptr noundef %2)
   ret i32 %4
 }
 
@@ -1778,4 +1771,3 @@ attributes #9 = { nounwind }
 !55 = distinct !{!55, !5}
 !56 = distinct !{!56, !5}
 !57 = distinct !{!57, !5}
-!58 = !{i32 -1, i32 1}

@@ -9279,7 +9279,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i739: ; preds = %_ZN9QtPrivate8RefCo
 _ZNKSt6vectorIN3vcg6Point2IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i739, %_ZN9QtPrivate8RefCount5derefEv.exit.i740, %1135
   %1140 = call i32 @llvm.smax.i32(i32 %1134, i32 1)
   %spec.store.select = add nuw i32 %1140, 1
-  %1141 = mul nsw i32 %spec.store.select, %spec.store.select
+  %1141 = mul nuw nsw i32 %spec.store.select, %spec.store.select
   %1142 = zext nneg i32 %1141 to i64
   %1143 = shl nuw nsw i64 %1142, 3
   %1144 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1143) #29
@@ -12057,100 +12057,98 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %18, %21
   br i1 %.not4048, label %.lr.ph52.split.us, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph52
+  %28 = zext nneg i32 %13 to i64
   %wide.trip.count59 = zext i32 %14 to i64
-  %wide.trip.count = zext nneg i32 %13 to i64
   br label %.lr.ph
 
 .lr.ph52.split.us:                                ; preds = %.lr.ph52, %.lr.ph52.split.us
-  %.051.us = phi i32 [ %33, %.lr.ph52.split.us ], [ 0, %.lr.ph52 ]
-  %28 = urem i32 %.051.us, %3
-  %29 = uitofp nneg i32 %28 to float
-  %30 = fmul float %12, %29
-  %31 = call noundef float @cosf(float noundef %30) #26
-  %32 = call noundef float @sinf(float noundef %30) #26
-  %33 = add nuw i32 %.051.us, 1
+  %.051.us = phi i32 [ %34, %.lr.ph52.split.us ], [ 0, %.lr.ph52 ]
+  %29 = urem i32 %.051.us, %3
+  %30 = uitofp nneg i32 %29 to float
+  %31 = fmul float %12, %30
+  %32 = call noundef float @cosf(float noundef %31) #26
+  %33 = call noundef float @sinf(float noundef %31) #26
+  %34 = add nuw i32 %.051.us, 1
   %exitcond61.not = icmp eq i32 %.051.us, %3
   br i1 %exitcond61.not, label %._crit_edge53, label %.lr.ph52.split.us, !llvm.loop !66
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %._crit_edge
   %indvars.iv56 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next57, %._crit_edge ]
-  %34 = trunc nuw nsw i64 %indvars.iv56 to i32
-  %35 = urem i32 %34, %3
-  %36 = uitofp nneg i32 %35 to float
-  %37 = fmul float %12, %36
-  %38 = call noundef float @cosf(float noundef %37) #26
-  %39 = call noundef float @sinf(float noundef %37) #26
-  %40 = fsub float 1.000000e+00, %38
-  %41 = fneg float %39
-  %42 = call float @llvm.fmuladd.f32(float %40, float 0.000000e+00, float %41)
-  %43 = insertelement <2 x float> poison, float %40, i64 0
-  %44 = shufflevector <2 x float> %43, <2 x float> poison, <2 x i32> zeroinitializer
-  %45 = insertelement <2 x float> poison, float %38, i64 0
-  %46 = insertelement <2 x float> %45, float %39, i64 1
-  %47 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %44, <2 x float> zeroinitializer, <2 x float> %46)
-  %48 = shufflevector <2 x float> %46, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %49 = fmul <2 x float> %48, <float 0.000000e+00, float -0.000000e+00>
-  %50 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %44, <2 x float> zeroinitializer, <2 x float> %49)
-  %51 = fadd float %38, %40
-  %52 = shufflevector <2 x float> %47, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
-  %53 = insertelement <2 x float> %52, float %42, i64 0
-  %54 = fmul <2 x float> %53, zeroinitializer
-  %55 = extractelement <2 x float> %50, i64 0
-  %56 = fmul float %55, 0.000000e+00
-  %57 = trunc i64 %indvars.iv56 to i32
-  %58 = mul i32 %13, %57
-  %59 = zext i32 %58 to i64
-  %60 = extractelement <2 x float> %50, i64 1
-  br label %61
+  %35 = trunc nuw nsw i64 %indvars.iv56 to i32
+  %36 = urem i32 %35, %3
+  %37 = uitofp nneg i32 %36 to float
+  %38 = fmul float %12, %37
+  %39 = call noundef float @cosf(float noundef %38) #26
+  %40 = call noundef float @sinf(float noundef %38) #26
+  %41 = fsub float 1.000000e+00, %39
+  %42 = fneg float %40
+  %43 = call float @llvm.fmuladd.f32(float %41, float 0.000000e+00, float %42)
+  %44 = insertelement <2 x float> poison, float %41, i64 0
+  %45 = shufflevector <2 x float> %44, <2 x float> poison, <2 x i32> zeroinitializer
+  %46 = insertelement <2 x float> poison, float %39, i64 0
+  %47 = insertelement <2 x float> %46, float %40, i64 1
+  %48 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %45, <2 x float> zeroinitializer, <2 x float> %47)
+  %49 = shufflevector <2 x float> %47, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %50 = fmul <2 x float> %49, <float 0.000000e+00, float -0.000000e+00>
+  %51 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %45, <2 x float> zeroinitializer, <2 x float> %50)
+  %52 = fadd float %39, %41
+  %53 = shufflevector <2 x float> %48, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
+  %54 = insertelement <2 x float> %53, float %43, i64 0
+  %55 = fmul <2 x float> %54, zeroinitializer
+  %56 = extractelement <2 x float> %51, i64 0
+  %57 = fmul float %56, 0.000000e+00
+  %58 = mul nuw nsw i64 %indvars.iv56, %28
+  %59 = extractelement <2 x float> %51, i64 1
+  br label %60
 
-61:                                               ; preds = %.lr.ph, %61
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
-  %62 = trunc nuw nsw i64 %indvars.iv to i32
-  %63 = urem i32 %62, %4
-  %64 = uitofp nneg i32 %63 to float
-  %65 = fmul float %9, %64
-  %66 = call noundef float @cosf(float noundef %65) #26
-  %67 = call float @llvm.fmuladd.f32(float %2, float %66, float %1)
-  %68 = call noundef float @sinf(float noundef %65) #26
-  %69 = fmul float %68, %2
-  %70 = insertelement <2 x float> poison, float %67, i64 0
-  %71 = shufflevector <2 x float> %70, <2 x float> poison, <2 x i32> zeroinitializer
-  %72 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %47, <2 x float> %71, <2 x float> %54)
-  %73 = insertelement <2 x float> poison, float %69, i64 0
-  %74 = shufflevector <2 x float> %73, <2 x float> poison, <2 x i32> zeroinitializer
-  %75 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %50, <2 x float> %74, <2 x float> %72)
-  %76 = fadd <2 x float> %75, zeroinitializer
-  %77 = call float @llvm.fmuladd.f32(float %60, float %67, float %56)
-  %78 = call float @llvm.fmuladd.f32(float %51, float %69, float %77)
-  %79 = fadd float %78, 0.000000e+00
-  %80 = call float @llvm.fmuladd.f32(float %67, float 0.000000e+00, float 0.000000e+00)
-  %81 = call float @llvm.fmuladd.f32(float %69, float 0.000000e+00, float %80)
-  %82 = fadd float %81, 1.000000e+00
-  %83 = fcmp une float %82, 0.000000e+00
-  %84 = insertelement <2 x float> poison, float %82, i64 0
-  %85 = shufflevector <2 x float> %84, <2 x float> poison, <2 x i32> zeroinitializer
-  %86 = fdiv <2 x float> %76, %85
-  %87 = fdiv float %79, %82
-  %.sroa.7.0.i = select i1 %83, float %87, float %79
-  %.sroa.0.0.i41 = select i1 %83, <2 x float> %86, <2 x float> %76
-  %88 = add nuw nsw i64 %indvars.iv, %59
-  %89 = load ptr, ptr %27, align 8
-  %90 = getelementptr inbounds %class.CVertexO, ptr %89, i64 %88, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  store <2 x float> %.sroa.0.0.i41, ptr %90, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %90, i64 8
+60:                                               ; preds = %.lr.ph, %60
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
+  %61 = trunc nuw nsw i64 %indvars.iv to i32
+  %62 = urem i32 %61, %4
+  %63 = uitofp nneg i32 %62 to float
+  %64 = fmul float %9, %63
+  %65 = call noundef float @cosf(float noundef %64) #26
+  %66 = call float @llvm.fmuladd.f32(float %2, float %65, float %1)
+  %67 = call noundef float @sinf(float noundef %64) #26
+  %68 = fmul float %67, %2
+  %69 = insertelement <2 x float> poison, float %66, i64 0
+  %70 = shufflevector <2 x float> %69, <2 x float> poison, <2 x i32> zeroinitializer
+  %71 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %48, <2 x float> %70, <2 x float> %55)
+  %72 = insertelement <2 x float> poison, float %68, i64 0
+  %73 = shufflevector <2 x float> %72, <2 x float> poison, <2 x i32> zeroinitializer
+  %74 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %51, <2 x float> %73, <2 x float> %71)
+  %75 = fadd <2 x float> %74, zeroinitializer
+  %76 = call float @llvm.fmuladd.f32(float %59, float %66, float %57)
+  %77 = call float @llvm.fmuladd.f32(float %52, float %68, float %76)
+  %78 = fadd float %77, 0.000000e+00
+  %79 = call float @llvm.fmuladd.f32(float %66, float 0.000000e+00, float 0.000000e+00)
+  %80 = call float @llvm.fmuladd.f32(float %68, float 0.000000e+00, float %79)
+  %81 = fadd float %80, 1.000000e+00
+  %82 = fcmp une float %81, 0.000000e+00
+  %83 = insertelement <2 x float> poison, float %81, i64 0
+  %84 = shufflevector <2 x float> %83, <2 x float> poison, <2 x i32> zeroinitializer
+  %85 = fdiv <2 x float> %75, %84
+  %86 = fdiv float %78, %81
+  %.sroa.7.0.i = select i1 %82, float %86, float %78
+  %.sroa.0.0.i41 = select i1 %82, <2 x float> %85, <2 x float> %75
+  %87 = add nuw nsw i64 %indvars.iv, %58
+  %88 = load ptr, ptr %27, align 8
+  %89 = getelementptr inbounds %class.CVertexO, ptr %88, i64 %87, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  store <2 x float> %.sroa.0.0.i41, ptr %89, align 4
+  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %89, i64 8
   store float %.sroa.7.0.i, ptr %.sroa.22.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !67
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %28
+  br i1 %exitcond.not, label %._crit_edge, label %60, !llvm.loop !67
 
-._crit_edge:                                      ; preds = %61
+._crit_edge:                                      ; preds = %60
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
   br i1 %exitcond60.not, label %._crit_edge53, label %.lr.ph, !llvm.loop !66
 
 ._crit_edge53:                                    ; preds = %._crit_edge, %.lr.ph52.split.us, %_ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit
   call void @_ZN3vcg3tri8FaceGridI6CMeshOEEvRT_ii(ptr noundef nonnull align 8 dereferenceable(1196) %0, i32 noundef %13, i32 noundef %14)
-  %91 = call noundef i32 @_ZN3vcg3tri5CleanI6CMeshOE21RemoveDuplicateVertexERS2_b(ptr noundef nonnull align 8 dereferenceable(1196) %0, i1 noundef zeroext true)
+  %90 = call noundef i32 @_ZN3vcg3tri5CleanI6CMeshOE21RemoveDuplicateVertexERS2_b(ptr noundef nonnull align 8 dereferenceable(1196) %0, i1 noundef zeroext true)
   call void @_ZN3vcg3tri9AllocatorI6CMeshOE18CompactEveryVectorERS2_(ptr noundef nonnull align 8 dereferenceable(1196) %0)
   ret void
 }
@@ -12703,9 +12701,9 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %11, %14
 .preheader66.us:                                  ; preds = %.preheader66.us.preheader, %._crit_edge.us
   %indvars.iv72 = phi i64 [ 0, %.preheader66.us.preheader ], [ %indvars.iv.next73, %._crit_edge.us ]
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %26 = mul nsw i64 %indvars.iv.next73, %24
-  %27 = mul nsw i64 %indvars.iv72, %25
-  %28 = mul nsw i64 %indvars.iv72, %24
+  %26 = mul nuw nsw i64 %indvars.iv.next73, %24
+  %27 = mul nuw nsw i64 %indvars.iv72, %25
+  %28 = mul nuw nsw i64 %indvars.iv72, %24
   br label %29
 
 29:                                               ; preds = %.preheader66.us, %29
@@ -26359,7 +26357,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEE
   store float %178, ptr %189, align 4
   %191 = mul nuw nsw i64 %.0100.us, 3
   %192 = getelementptr inbounds float, ptr %4, i64 %191
-  %193 = mul nsw i64 %188, 3
+  %193 = mul nuw nsw i64 %188, 3
   %194 = getelementptr inbounds float, ptr %4, i64 %193
   %195 = load <2 x float>, ptr %192, align 4
   %196 = load <2 x float>, ptr %194, align 4
@@ -26930,7 +26928,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEE
   store double %178, ptr %189, align 8
   %191 = mul nuw nsw i64 %.0100.us, 3
   %192 = getelementptr inbounds double, ptr %4, i64 %191
-  %193 = mul nsw i64 %188, 3
+  %193 = mul nuw nsw i64 %188, 3
   %194 = getelementptr inbounds double, ptr %4, i64 %193
   %195 = load <2 x double>, ptr %194, align 8
   %196 = load <2 x double>, ptr %192, align 8
@@ -34744,7 +34742,7 @@ define linkonce_odr void @_ZN3vcg3tri6SmoothI6CMeshOE20VertexCoordLaplacianERS2_
   br i1 %.not, label %25, label %15
 
 15:                                               ; preds = %14
-  %16 = mul nsw i32 %.050, 100
+  %16 = mul nuw nsw i32 %.050, 100
   %17 = udiv i32 %16, %1
   %18 = invoke noundef zeroext i1 %4(i32 noundef %17, ptr noundef nonnull @.str.147)
           to label %25 unwind label %19
@@ -42222,7 +42220,7 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE14PerVertexClearERS2_b.exit: ; preds = %_ZN3vc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK12FilterCreate8getClassEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 0, 65) i32 @_ZNK12FilterCreate8getClassEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -42234,7 +42232,7 @@ define noundef i32 @_ZNK12FilterCreate8getClassEPK7QAction(ptr noundef nonnull a
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK12FilterCreate8getClassEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
+define noundef range(i32 0, 65) i32 @_ZThn16_NK12FilterCreate8getClassEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8

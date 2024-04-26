@@ -838,7 +838,6 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %"_ZN5ZXing15
 
 .lr.ph223.preheader:                              ; preds = %197
   %204 = and i64 %201, 2147483647
-  %wide.trip.count = and i64 %201, 2147483647
   br label %.lr.ph223
 
 .lr.ph223:                                        ; preds = %.lr.ph223.preheader, %._crit_edge
@@ -1029,7 +1028,7 @@ _ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS1_IPhS3_IhSaI
   %258 = load ptr, ptr %207, align 8
   %259 = getelementptr inbounds i8, ptr %258, i64 %indvars.iv
   %260 = load i8, ptr %259, align 1
-  %261 = mul nsw i64 %indvars.iv, %204
+  %261 = mul nuw nsw i64 %indvars.iv, %204
   %262 = load ptr, ptr %54, align 8
   %263 = getelementptr i8, ptr %262, i64 %261
   %264 = getelementptr i8, ptr %263, i64 %indvars.iv275
@@ -1042,7 +1041,7 @@ _ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS1_IPhS3_IhSaI
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next276, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next276, %204
   br i1 %exitcond.not, label %._crit_edge224, label %.lr.ph223, !llvm.loop !14
 
 ._crit_edge224:                                   ; preds = %._crit_edge, %197

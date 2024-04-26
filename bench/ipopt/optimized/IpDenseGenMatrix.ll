@@ -1156,80 +1156,76 @@ define noundef zeroext i1 @_ZN5Ipopt14DenseGenMatrix21ComputeCholeskyFactorERKNS
 
 .preheader34.lr.ph:                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 80
-  %wide.trip.count44 = zext nneg i32 %7 to i64
+  %12 = zext nneg i32 %7 to i64
   br label %.preheader34
 
-.preheader34:                                     ; preds = %.preheader34.lr.ph, %21
-  %indvars.iv = phi i64 [ 0, %.preheader34.lr.ph ], [ %indvars.iv.next, %21 ]
-  %12 = trunc i64 %indvars.iv to i32
-  %13 = mul i32 %7, %12
-  %14 = zext i32 %13 to i64
-  br label %15
+.preheader34:                                     ; preds = %.preheader34.lr.ph, %20
+  %indvars.iv = phi i64 [ 0, %.preheader34.lr.ph ], [ %indvars.iv.next, %20 ]
+  %13 = mul nuw nsw i64 %indvars.iv, %12
+  br label %14
 
-15:                                               ; preds = %.preheader34, %15
-  %indvars.iv40 = phi i64 [ %indvars.iv, %.preheader34 ], [ %indvars.iv.next41, %15 ]
-  %16 = add nuw nsw i64 %indvars.iv40, %14
-  %17 = getelementptr inbounds double, ptr %9, i64 %16
-  %18 = load double, ptr %17, align 8
-  %19 = load ptr, ptr %11, align 8
-  %20 = getelementptr inbounds double, ptr %19, i64 %16
-  store double %18, ptr %20, align 8
+14:                                               ; preds = %.preheader34, %14
+  %indvars.iv40 = phi i64 [ %indvars.iv, %.preheader34 ], [ %indvars.iv.next41, %14 ]
+  %15 = add nuw nsw i64 %indvars.iv40, %13
+  %16 = getelementptr inbounds double, ptr %9, i64 %15
+  %17 = load double, ptr %16, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = getelementptr inbounds double, ptr %18, i64 %15
+  store double %17, ptr %19, align 8
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count44
-  br i1 %exitcond.not, label %21, label %15, !llvm.loop !24
+  %exitcond.not = icmp eq i64 %indvars.iv.next41, %12
+  br i1 %exitcond.not, label %20, label %14, !llvm.loop !24
 
-21:                                               ; preds = %15
+20:                                               ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond45.not = icmp eq i64 %indvars.iv.next, %wide.trip.count44
+  %exitcond45.not = icmp eq i64 %indvars.iv.next, %12
   br i1 %exitcond45.not, label %._crit_edge, label %.preheader34, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %21, %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
-  %23 = load ptr, ptr %22, align 8
-  call void @_ZN5Ipopt13IpLapackPotrfEiPdiRi(i32 noundef %7, ptr noundef %23, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %24 = load i32, ptr %3, align 4
-  %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %.preheader33, label %35
+._crit_edge:                                      ; preds = %20, %2
+  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = load ptr, ptr %21, align 8
+  call void @_ZN5Ipopt13IpLapackPotrfEiPdiRi(i32 noundef %7, ptr noundef %22, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %23 = load i32, ptr %3, align 4
+  %.not = icmp eq i32 %23, 0
+  br i1 %.not, label %.preheader33, label %33
 
 .preheader33:                                     ; preds = %._crit_edge
-  %25 = icmp sgt i32 %7, 1
-  br i1 %25, label %.preheader.preheader, label %._crit_edge39
+  %24 = icmp sgt i32 %7, 1
+  br i1 %24, label %.preheader.preheader, label %._crit_edge39
 
 .preheader.preheader:                             ; preds = %.preheader33
-  %wide.trip.count54 = zext nneg i32 %7 to i64
+  %25 = zext nneg i32 %7 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %33
-  %indvars.iv51 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next52, %33 ]
-  %26 = trunc i64 %indvars.iv51 to i32
-  %27 = mul i32 %7, %26
-  %28 = zext i32 %27 to i64
-  br label %29
+.preheader:                                       ; preds = %.preheader.preheader, %31
+  %indvars.iv51 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next52, %31 ]
+  %26 = mul nuw nsw i64 %indvars.iv51, %25
+  br label %27
 
-29:                                               ; preds = %.preheader, %29
-  %indvars.iv46 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next47, %29 ]
-  %30 = load ptr, ptr %22, align 8
-  %31 = getelementptr double, ptr %30, i64 %indvars.iv46
-  %32 = getelementptr double, ptr %31, i64 %28
-  store double 0.000000e+00, ptr %32, align 8
+27:                                               ; preds = %.preheader, %27
+  %indvars.iv46 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next47, %27 ]
+  %28 = load ptr, ptr %21, align 8
+  %29 = getelementptr double, ptr %28, i64 %indvars.iv46
+  %30 = getelementptr double, ptr %29, i64 %26
+  store double 0.000000e+00, ptr %30, align 8
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %indvars.iv51
-  br i1 %exitcond50.not, label %33, label %29, !llvm.loop !26
+  br i1 %exitcond50.not, label %31, label %27, !llvm.loop !26
 
-33:                                               ; preds = %29
+31:                                               ; preds = %27
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
+  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %25
   br i1 %exitcond55.not, label %._crit_edge39, label %.preheader, !llvm.loop !27
 
-._crit_edge39:                                    ; preds = %33, %.preheader33
-  %34 = getelementptr inbounds i8, ptr %0, i64 92
-  store i32 2, ptr %34, align 4
-  br label %35
+._crit_edge39:                                    ; preds = %31, %.preheader33
+  %32 = getelementptr inbounds i8, ptr %0, i64 92
+  store i32 2, ptr %32, align 4
+  br label %33
 
-35:                                               ; preds = %._crit_edge, %._crit_edge39
+33:                                               ; preds = %._crit_edge, %._crit_edge39
   %.sink = phi i8 [ 1, %._crit_edge39 ], [ 0, %._crit_edge ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 88
-  store i8 %.sink, ptr %36, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 88
+  store i8 %.sink, ptr %34, align 8
   ret i1 %.not
 }
 
@@ -1249,92 +1245,90 @@ define noundef zeroext i1 @_ZN5Ipopt14DenseGenMatrix19ComputeEigenVectorsERKNS_1
 
 .preheader.lr.ph:                                 ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 80
-  %wide.trip.count29 = zext nneg i32 %8 to i64
+  %13 = zext nneg i32 %8 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %22
-  %indvars.iv = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next, %22 ]
-  %13 = trunc i64 %indvars.iv to i32
-  %14 = mul i32 %8, %13
-  %15 = zext i32 %14 to i64
-  br label %16
+.preheader:                                       ; preds = %.preheader.lr.ph, %21
+  %indvars.iv = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next, %21 ]
+  %14 = mul nuw nsw i64 %indvars.iv, %13
+  br label %15
 
-16:                                               ; preds = %.preheader, %16
-  %indvars.iv25 = phi i64 [ %indvars.iv, %.preheader ], [ %indvars.iv.next26, %16 ]
-  %17 = add nuw nsw i64 %indvars.iv25, %15
-  %18 = getelementptr inbounds double, ptr %10, i64 %17
-  %19 = load double, ptr %18, align 8
-  %20 = load ptr, ptr %12, align 8
-  %21 = getelementptr inbounds double, ptr %20, i64 %17
-  store double %19, ptr %21, align 8
+15:                                               ; preds = %.preheader, %15
+  %indvars.iv25 = phi i64 [ %indvars.iv, %.preheader ], [ %indvars.iv.next26, %15 ]
+  %16 = add nuw nsw i64 %indvars.iv25, %14
+  %17 = getelementptr inbounds double, ptr %10, i64 %16
+  %18 = load double, ptr %17, align 8
+  %19 = load ptr, ptr %12, align 8
+  %20 = getelementptr inbounds double, ptr %19, i64 %16
+  store double %18, ptr %20, align 8
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count29
-  br i1 %exitcond.not, label %22, label %16, !llvm.loop !28
+  %exitcond.not = icmp eq i64 %indvars.iv.next26, %13
+  br i1 %exitcond.not, label %21, label %15, !llvm.loop !28
 
-22:                                               ; preds = %16
+21:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond30.not = icmp eq i64 %indvars.iv.next, %wide.trip.count29
+  %exitcond30.not = icmp eq i64 %indvars.iv.next, %13
   br i1 %exitcond30.not, label %._crit_edge, label %.preheader, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %22, %3
-  %23 = getelementptr inbounds i8, ptr %2, i64 232
-  %24 = load i8, ptr %23, align 8
-  %25 = trunc i8 %24 to i1
-  br i1 %25, label %26, label %31
+._crit_edge:                                      ; preds = %21, %3
+  %22 = getelementptr inbounds i8, ptr %2, i64 232
+  %23 = load i8, ptr %22, align 8
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %30
 
-26:                                               ; preds = %._crit_edge
-  %27 = getelementptr inbounds i8, ptr %2, i64 233
-  %28 = load i8, ptr %27, align 1
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %31
+25:                                               ; preds = %._crit_edge
+  %26 = getelementptr inbounds i8, ptr %2, i64 233
+  %27 = load i8, ptr %26, align 1
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %30
 
-30:                                               ; preds = %26
+29:                                               ; preds = %25
   tail call void @_ZN5Ipopt11DenseVector22set_values_from_scalarEv(ptr noundef nonnull align 8 dereferenceable(248) %2)
-  br label %31
+  br label %30
 
-31:                                               ; preds = %30, %26, %._crit_edge
+30:                                               ; preds = %29, %25, %._crit_edge
   tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
-  store i8 1, ptr %23, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 233
-  store i8 0, ptr %32, align 1
-  %33 = getelementptr inbounds i8, ptr %2, i64 216
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %_ZN5Ipopt11DenseVector6ValuesEv.exit
+  store i8 1, ptr %22, align 8
+  %31 = getelementptr inbounds i8, ptr %2, i64 233
+  store i8 0, ptr %31, align 1
+  %32 = getelementptr inbounds i8, ptr %2, i64 216
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %_ZN5Ipopt11DenseVector6ValuesEv.exit
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %2, i64 208
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 12
-  %40 = load i32, ptr %39, align 4
-  %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %42, label %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
+35:                                               ; preds = %30
+  %36 = getelementptr inbounds i8, ptr %2, i64 208
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 12
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %41, label %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
 
-42:                                               ; preds = %36
-  %43 = zext nneg i32 %40 to i64
-  %44 = shl nuw nsw i64 %43, 3
-  %45 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %44) #17
+41:                                               ; preds = %35
+  %42 = zext nneg i32 %39 to i64
+  %43 = shl nuw nsw i64 %42, 3
+  %44 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %43) #17
   br label %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
 
-_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i: ; preds = %42, %36
-  %.0.i.i.i = phi ptr [ %45, %42 ], [ null, %36 ]
-  store ptr %.0.i.i.i, ptr %33, align 8
+_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i: ; preds = %41, %35
+  %.0.i.i.i = phi ptr [ %44, %41 ], [ null, %35 ]
+  store ptr %.0.i.i.i, ptr %32, align 8
   br label %_ZN5Ipopt11DenseVector6ValuesEv.exit
 
-_ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %31, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
-  %46 = phi ptr [ %34, %31 ], [ %.0.i.i.i, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i ]
-  %47 = getelementptr inbounds i8, ptr %0, i64 80
-  %48 = load ptr, ptr %47, align 8
-  call void @_ZN5Ipopt12IpLapackSyevEbiPdiS0_Ri(i1 noundef zeroext true, i32 noundef %8, ptr noundef %48, i32 noundef %8, ptr noundef %46, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  %49 = load i32, ptr %4, align 4
-  %50 = icmp eq i32 %49, 0
-  %51 = getelementptr inbounds i8, ptr %0, i64 88
-  %52 = zext i1 %50 to i8
-  store i8 %52, ptr %51, align 8
+_ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %30, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
+  %45 = phi ptr [ %33, %30 ], [ %.0.i.i.i, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i ]
+  %46 = getelementptr inbounds i8, ptr %0, i64 80
+  %47 = load ptr, ptr %46, align 8
+  call void @_ZN5Ipopt12IpLapackSyevEbiPdiS0_Ri(i1 noundef zeroext true, i32 noundef %8, ptr noundef %47, i32 noundef %8, ptr noundef %45, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %48 = load i32, ptr %4, align 4
+  %49 = icmp eq i32 %48, 0
+  %50 = getelementptr inbounds i8, ptr %0, i64 88
+  %51 = zext i1 %49 to i8
+  store i8 %51, ptr %50, align 8
   call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %53 = load i32, ptr %4, align 4
-  %54 = icmp eq i32 %53, 0
-  ret i1 %54
+  %52 = load i32, ptr %4, align 4
+  %53 = icmp eq i32 %52, 0
+  ret i1 %53
 }
 
 declare void @_ZN5Ipopt12IpLapackSyevEbiPdiS0_Ri(i1 noundef zeroext, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5

@@ -286,7 +286,6 @@ define hidden void @_ZN5ceres8internal9Corrector15CorrectJacobianEiiPdS2_(ptr no
 
 .preheader35.us.preheader:                        ; preds = %.preheader36
   %11 = zext nneg i32 %2 to i64
-  %wide.trip.count61 = zext nneg i32 %2 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph.us.preheader
 
@@ -298,7 +297,7 @@ define hidden void @_ZN5ceres8internal9Corrector15CorrectJacobianEiiPdS2_(ptr no
 12:                                               ; preds = %.preheader.us, %12
   %indvars.iv53 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next54, %12 ]
   %13 = load double, ptr %0, align 8
-  %14 = mul nsw i64 %indvars.iv53, %11
+  %14 = mul nuw nsw i64 %indvars.iv53, %11
   %gep65 = getelementptr double, ptr %invariant.gep64, i64 %14
   %15 = load double, ptr %gep65, align 8
   %16 = load double, ptr %6, align 8
@@ -316,7 +315,7 @@ define hidden void @_ZN5ceres8internal9Corrector15CorrectJacobianEiiPdS2_(ptr no
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %.lr.ph.us ]
   %.03138.us = phi double [ 0.000000e+00, %.lr.ph.us.preheader ], [ %27, %.lr.ph.us ]
-  %23 = mul nsw i64 %indvars.iv, %11
+  %23 = mul nuw nsw i64 %indvars.iv, %11
   %gep = getelementptr double, ptr %invariant.gep, i64 %23
   %24 = load double, ptr %gep, align 8
   %25 = getelementptr inbounds double, ptr %3, i64 %indvars.iv
@@ -332,7 +331,7 @@ define hidden void @_ZN5ceres8internal9Corrector15CorrectJacobianEiiPdS2_(ptr no
 
 ._crit_edge.us:                                   ; preds = %12
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %11
   br i1 %exitcond62.not, label %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEmLERKd.exit, label %.lr.ph.us.preheader, !llvm.loop !12
 
 28:                                               ; preds = %5

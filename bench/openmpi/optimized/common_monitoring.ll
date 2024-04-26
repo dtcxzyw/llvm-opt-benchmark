@@ -110,7 +110,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.54 = private unnamed_addr constant [33 x i8] c"C\09%d\09%d\09%zu bytes\09%zu msgs sent\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_common_monitoring_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mca_common_monitoring_init() local_unnamed_addr #0 {
   %1 = load i32, ptr @mca_common_monitoring_enabled, align 4
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %29, label %2
@@ -208,7 +208,7 @@ define void @mca_common_monitoring_finalize() local_unnamed_addr #0 {
 6:                                                ; preds = %2
   %7 = load i32, ptr @mca_common_monitoring_output_enabled, align 4
   %8 = load ptr, ptr @mca_common_monitoring_current_filename, align 8
-  %9 = tail call fastcc i32 @mca_common_monitoring_flush(i32 noundef %7, ptr noundef %8), !range !6
+  %9 = tail call fastcc i32 @mca_common_monitoring_flush(i32 noundef %7, ptr noundef %8)
   store i32 0, ptr @mca_common_monitoring_enabled, align 4
   %10 = load i32, ptr @mca_common_monitoring_output_stream_id, align 4
   tail call void @opal_output_close(i32 noundef %10) #19
@@ -256,7 +256,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %19, %22
   %33 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
@@ -284,7 +284,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mca_common_monitoring_flush(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @mca_common_monitoring_flush(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr @mca_common_monitoring_current_state, align 4
   %5 = icmp eq i32 %4, 0
@@ -406,7 +406,7 @@ define internal noundef i32 @mca_common_monitoring_get_flush(ptr nocapture readn
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @mca_common_monitoring_set_flush(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_set_flush(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
   %4 = load ptr, ptr @mca_common_monitoring_current_filename, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -441,7 +441,7 @@ define internal noundef i32 @mca_common_monitoring_set_flush(ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_common_monitoring_notify_flush(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_notify_flush(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #0 {
   switch i32 %1, label %23 [
     i32 0, label %5
     i32 3, label %24
@@ -479,7 +479,7 @@ define internal noundef i32 @mca_common_monitoring_notify_flush(ptr nocapture re
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr @mca_common_monitoring_current_filename, align 8
-  %22 = tail call fastcc i32 @mca_common_monitoring_flush(i32 noundef 3, ptr noundef %21), !range !6
+  %22 = tail call fastcc i32 @mca_common_monitoring_flush(i32 noundef 3, ptr noundef %21)
   br label %24
 
 23:                                               ; preds = %4
@@ -491,7 +491,7 @@ define internal noundef i32 @mca_common_monitoring_notify_flush(ptr nocapture re
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal noundef i32 @mca_common_monitoring_get_pml_count(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) #8 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_pml_count(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) #8 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -518,7 +518,7 @@ define internal noundef i32 @mca_common_monitoring_get_pml_count(ptr nocapture r
   store i64 %11, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3
   %.0 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
@@ -526,7 +526,7 @@ define internal noundef i32 @mca_common_monitoring_get_pml_count(ptr nocapture r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @mca_common_monitoring_comm_size_notify(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #9 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_comm_size_notify(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #9 {
   switch i32 %1, label %11 [
     i32 0, label %5
     i32 3, label %12
@@ -560,7 +560,7 @@ define internal noundef i32 @mca_common_monitoring_comm_size_notify(ptr nocaptur
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal noundef i32 @mca_common_monitoring_get_pml_size(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) #8 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_pml_size(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) #8 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -587,7 +587,7 @@ define internal noundef i32 @mca_common_monitoring_get_pml_size(ptr nocapture re
   store i64 %11, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3
   %.011 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
@@ -595,7 +595,7 @@ define internal noundef i32 @mca_common_monitoring_get_pml_size(ptr nocapture re
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal noundef i32 @mca_common_monitoring_get_osc_sent_count(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) #8 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_sent_count(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) #8 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -623,7 +623,7 @@ define internal noundef i32 @mca_common_monitoring_get_osc_sent_count(ptr nocapt
   store i64 %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !9
 
 .loopexit:                                        ; preds = %11, %.preheader, %3
   %.0 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ 0, %11 ]
@@ -631,7 +631,7 @@ define internal noundef i32 @mca_common_monitoring_get_osc_sent_count(ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal noundef i32 @mca_common_monitoring_get_osc_sent_size(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) #8 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_sent_size(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) #8 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -659,7 +659,7 @@ define internal noundef i32 @mca_common_monitoring_get_osc_sent_size(ptr nocaptu
   store i64 %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !10
 
 .loopexit:                                        ; preds = %11, %.preheader, %3
   %.011 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ 0, %11 ]
@@ -667,7 +667,7 @@ define internal noundef i32 @mca_common_monitoring_get_osc_sent_size(ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal noundef i32 @mca_common_monitoring_get_osc_recv_count(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) #8 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_recv_count(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) #8 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -695,7 +695,7 @@ define internal noundef i32 @mca_common_monitoring_get_osc_recv_count(ptr nocapt
   store i64 %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !11
 
 .loopexit:                                        ; preds = %11, %.preheader, %3
   %.0 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ 0, %11 ]
@@ -703,7 +703,7 @@ define internal noundef i32 @mca_common_monitoring_get_osc_recv_count(ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal noundef i32 @mca_common_monitoring_get_osc_recv_size(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) #8 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_recv_size(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) #8 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -731,7 +731,7 @@ define internal noundef i32 @mca_common_monitoring_get_osc_recv_size(ptr nocaptu
   store i64 %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !12
 
 .loopexit:                                        ; preds = %11, %.preheader, %3
   %.011 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ 0, %11 ]
@@ -739,7 +739,7 @@ define internal noundef i32 @mca_common_monitoring_get_osc_recv_size(ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal noundef i32 @mca_common_monitoring_get_coll_count(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) #8 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_coll_count(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) #8 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -767,7 +767,7 @@ define internal noundef i32 @mca_common_monitoring_get_coll_count(ptr nocapture 
   store i64 %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !13
 
 .loopexit:                                        ; preds = %11, %.preheader, %3
   %.0 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ 0, %11 ]
@@ -775,7 +775,7 @@ define internal noundef i32 @mca_common_monitoring_get_coll_count(ptr nocapture 
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal noundef i32 @mca_common_monitoring_get_coll_size(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) #8 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_coll_size(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) #8 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -803,7 +803,7 @@ define internal noundef i32 @mca_common_monitoring_get_coll_size(ptr nocapture r
   store i64 %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !14
 
 .loopexit:                                        ; preds = %11, %.preheader, %3
   %.011 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ 0, %11 ]
@@ -825,7 +825,7 @@ declare i32 @mca_common_monitoring_coll_get_a2a_count(ptr noundef, ptr noundef, 
 declare i32 @mca_common_monitoring_coll_get_a2a_size(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_common_monitoring_add_procs(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_common_monitoring_add_procs(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @rank_world, align 4
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %7
@@ -974,12 +974,12 @@ ompi_group_get_proc_name.exit:                    ; preds = %54, %58
   %68 = load i32, ptr @nprocs_world, align 4
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %47, label %.loopexit, !llvm.loop !16
+  br i1 %70, label %47, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %67, %62, %41
   %71 = add nuw i64 %.02836, 1
   %exitcond.not = icmp eq i64 %71, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph37, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph37, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %62, %.loopexit, %30
   %.0 = phi i32 [ 0, %30 ], [ 0, %.loopexit ], [ -2, %62 ]
@@ -1137,32 +1137,31 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
   %14 = load volatile i64, ptr %8, align 8
   %15 = trunc nuw nsw i64 %indvars.iv89 to i32
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.44, i32 noundef %1, i32 noundef %15, i64 noundef %13, i64 noundef %14) #19
-  %17 = mul i64 %indvars.iv89, 66
-  %18 = and i64 %17, 4294967294
-  br label %19
+  %17 = mul nuw nsw i64 %indvars.iv89, 66
+  br label %18
 
-19:                                               ; preds = %10, %19
-  %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %19 ]
-  %20 = load ptr, ptr @size_histogram, align 8
-  %21 = getelementptr i64, ptr %20, i64 %indvars.iv
-  %22 = getelementptr i64, ptr %21, i64 %18
-  %23 = load volatile i64, ptr %22, align 8
+18:                                               ; preds = %10, %18
+  %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %18 ]
+  %19 = load ptr, ptr @size_histogram, align 8
+  %20 = getelementptr i64, ptr %19, i64 %indvars.iv
+  %21 = getelementptr i64, ptr %20, i64 %17
+  %22 = load volatile i64, ptr %21, align 8
   %.not71 = icmp eq i64 %indvars.iv, 65
-  %24 = select i1 %.not71, ptr @.str.47, ptr @.str.46
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef %23, ptr noundef nonnull %24) #19
+  %23 = select i1 %.not71, ptr @.str.47, ptr @.str.46
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef %22, ptr noundef nonnull %23) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 66
-  br i1 %exitcond.not, label %.loopexit74, label %19, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit74, label %18, !llvm.loop !17
 
-.loopexit74:                                      ; preds = %19, %.lr.ph
+.loopexit74:                                      ; preds = %18, %.lr.ph
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count
-  br i1 %exitcond92.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond92.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit74
-  %26 = load i32, ptr @mca_common_monitoring_current_state, align 4
-  %27 = icmp sgt i32 %26, 1
-  %or.cond = and i1 %27, %5
+  %25 = load i32, ptr @mca_common_monitoring_current_state, align 4
+  %26 = icmp sgt i32 %25, 1
+  %or.cond = and i1 %26, %5
   br i1 %or.cond, label %.lr.ph79.preheader, label %.loopexit73
 
 .lr.ph79.preheader:                               ; preds = %._crit_edge
@@ -1171,105 +1170,104 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
 
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.loopexit
   %indvars.iv97 = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next98, %.loopexit ]
-  %28 = load ptr, ptr @filtered_pml_count, align 8
-  %29 = getelementptr inbounds i64, ptr %28, i64 %indvars.iv97
-  %30 = load volatile i64, ptr %29, align 8
-  %.not68 = icmp eq i64 %30, 0
-  br i1 %.not68, label %.loopexit, label %31
+  %27 = load ptr, ptr @filtered_pml_count, align 8
+  %28 = getelementptr inbounds i64, ptr %27, i64 %indvars.iv97
+  %29 = load volatile i64, ptr %28, align 8
+  %.not68 = icmp eq i64 %29, 0
+  br i1 %.not68, label %.loopexit, label %30
 
-31:                                               ; preds = %.lr.ph79
-  %32 = load ptr, ptr @filtered_pml_data, align 8
-  %33 = getelementptr inbounds i64, ptr %32, i64 %indvars.iv97
-  %34 = load volatile i64, ptr %33, align 8
-  %35 = load volatile i64, ptr %29, align 8
-  %36 = load ptr, ptr @pml_count, align 8
-  %37 = getelementptr inbounds i64, ptr %36, i64 %indvars.iv97
-  %38 = load volatile i64, ptr %37, align 8
-  %39 = icmp eq i64 %38, 0
-  %40 = select i1 %39, ptr @.str.49, ptr @.str.47
-  %41 = trunc nuw nsw i64 %indvars.iv97 to i32
-  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.48, i32 noundef %1, i32 noundef %41, i64 noundef %34, i64 noundef %35, ptr noundef nonnull %40) #19
-  %43 = load ptr, ptr @pml_count, align 8
-  %44 = getelementptr inbounds i64, ptr %43, i64 %indvars.iv97
-  %45 = load volatile i64, ptr %44, align 8
-  %46 = icmp eq i64 %45, 0
-  br i1 %46, label %.preheader, label %.loopexit
+30:                                               ; preds = %.lr.ph79
+  %31 = load ptr, ptr @filtered_pml_data, align 8
+  %32 = getelementptr inbounds i64, ptr %31, i64 %indvars.iv97
+  %33 = load volatile i64, ptr %32, align 8
+  %34 = load volatile i64, ptr %28, align 8
+  %35 = load ptr, ptr @pml_count, align 8
+  %36 = getelementptr inbounds i64, ptr %35, i64 %indvars.iv97
+  %37 = load volatile i64, ptr %36, align 8
+  %38 = icmp eq i64 %37, 0
+  %39 = select i1 %38, ptr @.str.49, ptr @.str.47
+  %40 = trunc nuw nsw i64 %indvars.iv97 to i32
+  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.48, i32 noundef %1, i32 noundef %40, i64 noundef %33, i64 noundef %34, ptr noundef nonnull %39) #19
+  %42 = load ptr, ptr @pml_count, align 8
+  %43 = getelementptr inbounds i64, ptr %42, i64 %indvars.iv97
+  %44 = load volatile i64, ptr %43, align 8
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %31
-  %47 = mul i64 %indvars.iv97, 66
-  %48 = and i64 %47, 4294967294
-  br label %49
+.preheader:                                       ; preds = %30
+  %46 = mul nuw nsw i64 %indvars.iv97, 66
+  br label %47
 
-49:                                               ; preds = %.preheader, %49
-  %indvars.iv93 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next94, %49 ]
-  %50 = load ptr, ptr @size_histogram, align 8
-  %51 = getelementptr i64, ptr %50, i64 %indvars.iv93
-  %52 = getelementptr i64, ptr %51, i64 %48
-  %53 = load volatile i64, ptr %52, align 8
+47:                                               ; preds = %.preheader, %47
+  %indvars.iv93 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next94, %47 ]
+  %48 = load ptr, ptr @size_histogram, align 8
+  %49 = getelementptr i64, ptr %48, i64 %indvars.iv93
+  %50 = getelementptr i64, ptr %49, i64 %46
+  %51 = load volatile i64, ptr %50, align 8
   %.not69 = icmp eq i64 %indvars.iv93, 65
-  %54 = select i1 %.not69, ptr @.str.47, ptr @.str.46
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef %53, ptr noundef nonnull %54) #19
+  %52 = select i1 %.not69, ptr @.str.47, ptr @.str.46
+  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef %51, ptr noundef nonnull %52) #19
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, 66
-  br i1 %exitcond96.not, label %.loopexit, label %49, !llvm.loop !20
+  br i1 %exitcond96.not, label %.loopexit, label %47, !llvm.loop !19
 
-.loopexit:                                        ; preds = %49, %.lr.ph79, %31
+.loopexit:                                        ; preds = %47, %.lr.ph79, %30
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %.loopexit73, label %.lr.ph79, !llvm.loop !21
+  br i1 %exitcond101.not, label %.loopexit73, label %.lr.ph79, !llvm.loop !20
 
 .loopexit73:                                      ; preds = %.loopexit, %._crit_edge
-  %56 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 6, i64 1, ptr %0)
+  %54 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 6, i64 1, ptr %0)
   br i1 %5, label %.lr.ph82.preheader, label %._crit_edge83.thread
 
 .lr.ph82.preheader:                               ; preds = %.loopexit73
   %wide.trip.count105 = zext nneg i32 %2 to i64
   br label %.lr.ph82
 
-.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %78
-  %indvars.iv102 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next103, %78 ]
-  %57 = load ptr, ptr @osc_count_s, align 8
-  %58 = getelementptr inbounds i64, ptr %57, i64 %indvars.iv102
-  %59 = load volatile i64, ptr %58, align 8
-  %.not66 = icmp eq i64 %59, 0
-  br i1 %.not66, label %67, label %60
+.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %76
+  %indvars.iv102 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next103, %76 ]
+  %55 = load ptr, ptr @osc_count_s, align 8
+  %56 = getelementptr inbounds i64, ptr %55, i64 %indvars.iv102
+  %57 = load volatile i64, ptr %56, align 8
+  %.not66 = icmp eq i64 %57, 0
+  br i1 %.not66, label %65, label %58
 
-60:                                               ; preds = %.lr.ph82
-  %61 = load ptr, ptr @osc_data_s, align 8
-  %62 = getelementptr inbounds i64, ptr %61, i64 %indvars.iv102
-  %63 = load volatile i64, ptr %62, align 8
-  %64 = load volatile i64, ptr %58, align 8
-  %65 = trunc nuw nsw i64 %indvars.iv102 to i32
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1, i32 noundef %65, i64 noundef %63, i64 noundef %64) #19
-  br label %67
+58:                                               ; preds = %.lr.ph82
+  %59 = load ptr, ptr @osc_data_s, align 8
+  %60 = getelementptr inbounds i64, ptr %59, i64 %indvars.iv102
+  %61 = load volatile i64, ptr %60, align 8
+  %62 = load volatile i64, ptr %56, align 8
+  %63 = trunc nuw nsw i64 %indvars.iv102 to i32
+  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1, i32 noundef %63, i64 noundef %61, i64 noundef %62) #19
+  br label %65
 
-67:                                               ; preds = %60, %.lr.ph82
-  %68 = load ptr, ptr @osc_count_r, align 8
-  %69 = getelementptr inbounds i64, ptr %68, i64 %indvars.iv102
-  %70 = load volatile i64, ptr %69, align 8
-  %.not67 = icmp eq i64 %70, 0
-  br i1 %.not67, label %78, label %71
+65:                                               ; preds = %58, %.lr.ph82
+  %66 = load ptr, ptr @osc_count_r, align 8
+  %67 = getelementptr inbounds i64, ptr %66, i64 %indvars.iv102
+  %68 = load volatile i64, ptr %67, align 8
+  %.not67 = icmp eq i64 %68, 0
+  br i1 %.not67, label %76, label %69
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr @osc_data_r, align 8
-  %73 = getelementptr inbounds i64, ptr %72, i64 %indvars.iv102
-  %74 = load volatile i64, ptr %73, align 8
-  %75 = load volatile i64, ptr %69, align 8
-  %76 = trunc nuw nsw i64 %indvars.iv102 to i32
-  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, i32 noundef %1, i32 noundef %76, i64 noundef %74, i64 noundef %75) #19
-  br label %78
+69:                                               ; preds = %65
+  %70 = load ptr, ptr @osc_data_r, align 8
+  %71 = getelementptr inbounds i64, ptr %70, i64 %indvars.iv102
+  %72 = load volatile i64, ptr %71, align 8
+  %73 = load volatile i64, ptr %67, align 8
+  %74 = trunc nuw nsw i64 %indvars.iv102 to i32
+  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, i32 noundef %1, i32 noundef %74, i64 noundef %72, i64 noundef %73) #19
+  br label %76
 
-78:                                               ; preds = %67, %71
+76:                                               ; preds = %65, %69
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge83, label %.lr.ph82, !llvm.loop !22
+  br i1 %exitcond106.not, label %._crit_edge83, label %.lr.ph82, !llvm.loop !21
 
 ._crit_edge83.thread:                             ; preds = %.loopexit73.thread, %.loopexit73
-  %79 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 14, i64 1, ptr %0)
+  %77 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 14, i64 1, ptr %0)
   br label %._crit_edge87
 
-._crit_edge83:                                    ; preds = %78
-  %80 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 14, i64 1, ptr %0)
+._crit_edge83:                                    ; preds = %76
+  %78 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 14, i64 1, ptr %0)
   br i1 %5, label %.lr.ph86.preheader, label %._crit_edge87
 
 .lr.ph86.preheader:                               ; preds = %._crit_edge83
@@ -1277,31 +1275,31 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
   %.pre112 = load ptr, ptr @coll_count, align 8
   br label %.lr.ph86
 
-.lr.ph86:                                         ; preds = %.lr.ph86.preheader, %91
-  %81 = phi ptr [ %.pre112, %.lr.ph86.preheader ], [ %92, %91 ]
-  %indvars.iv107 = phi i64 [ 0, %.lr.ph86.preheader ], [ %indvars.iv.next108, %91 ]
-  %82 = getelementptr inbounds i64, ptr %81, i64 %indvars.iv107
-  %83 = load volatile i64, ptr %82, align 8
-  %.not65 = icmp eq i64 %83, 0
-  br i1 %.not65, label %91, label %84
+.lr.ph86:                                         ; preds = %.lr.ph86.preheader, %89
+  %79 = phi ptr [ %.pre112, %.lr.ph86.preheader ], [ %90, %89 ]
+  %indvars.iv107 = phi i64 [ 0, %.lr.ph86.preheader ], [ %indvars.iv.next108, %89 ]
+  %80 = getelementptr inbounds i64, ptr %79, i64 %indvars.iv107
+  %81 = load volatile i64, ptr %80, align 8
+  %.not65 = icmp eq i64 %81, 0
+  br i1 %.not65, label %89, label %82
 
-84:                                               ; preds = %.lr.ph86
-  %85 = load ptr, ptr @coll_data, align 8
-  %86 = getelementptr inbounds i64, ptr %85, i64 %indvars.iv107
-  %87 = load volatile i64, ptr %86, align 8
-  %88 = load volatile i64, ptr %82, align 8
-  %89 = trunc nuw nsw i64 %indvars.iv107 to i32
-  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.54, i32 noundef %1, i32 noundef %89, i64 noundef %87, i64 noundef %88) #19
+82:                                               ; preds = %.lr.ph86
+  %83 = load ptr, ptr @coll_data, align 8
+  %84 = getelementptr inbounds i64, ptr %83, i64 %indvars.iv107
+  %85 = load volatile i64, ptr %84, align 8
+  %86 = load volatile i64, ptr %80, align 8
+  %87 = trunc nuw nsw i64 %indvars.iv107 to i32
+  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.54, i32 noundef %1, i32 noundef %87, i64 noundef %85, i64 noundef %86) #19
   %.pre = load ptr, ptr @coll_count, align 8
-  br label %91
+  br label %89
 
-91:                                               ; preds = %.lr.ph86, %84
-  %92 = phi ptr [ %81, %.lr.ph86 ], [ %.pre, %84 ]
+89:                                               ; preds = %.lr.ph86, %82
+  %90 = phi ptr [ %79, %.lr.ph86 ], [ %.pre, %82 ]
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
-  br i1 %exitcond111.not, label %._crit_edge87, label %.lr.ph86, !llvm.loop !23
+  br i1 %exitcond111.not, label %._crit_edge87, label %.lr.ph86, !llvm.loop !22
 
-._crit_edge87:                                    ; preds = %91, %._crit_edge83.thread, %._crit_edge83
+._crit_edge87:                                    ; preds = %89, %._crit_edge83.thread, %._crit_edge83
   tail call void @mca_common_monitoring_coll_flush_all(ptr noundef %0) #19
   ret void
 }
@@ -1355,7 +1353,7 @@ attributes #22 = { nounwind allocsize(0,1) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -1, i32 1}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -1372,4 +1370,3 @@ attributes #22 = { nounwind allocsize(0,1) }
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}

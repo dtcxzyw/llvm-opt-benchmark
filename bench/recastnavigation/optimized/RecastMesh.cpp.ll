@@ -645,7 +645,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %9, %13
   %.0354573 = phi i32 [ 0, %.lr.ph580 ], [ %.2356, %.loopexit510 ]
   %.2491572 = phi i32 [ %.1490744, %.lr.ph580 ], [ %.6495, %.loopexit510 ]
   %.2498571 = phi i32 [ %.1497743, %.lr.ph580 ], [ %.6502, %.loopexit510 ]
-  %268 = mul nsw i64 %indvars.iv651, %77
+  %268 = mul nuw nsw i64 %indvars.iv651, %wide.trip.count.i.i
   %269 = getelementptr inbounds i16, ptr %136, i64 %268
   %indvars.iv.next652 = add nuw nsw i64 %indvars.iv651, 1
   %270 = trunc nuw nsw i64 %indvars.iv651 to i32
@@ -660,7 +660,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %9, %13
   %.1355558 = phi i32 [ %.0354573, %.lr.ph.preheader.i.i.preheader ], [ %.2356, %425 ]
   %.3492557 = phi i32 [ %.2491572, %.lr.ph.preheader.i.i.preheader ], [ %.6495, %425 ]
   %.3499556 = phi i32 [ %.2498571, %.lr.ph.preheader.i.i.preheader ], [ %.6502, %425 ]
-  %271 = mul nsw i64 %indvars.iv648, %77
+  %271 = mul nuw nsw i64 %indvars.iv648, %wide.trip.count.i.i
   %272 = getelementptr inbounds i16, ptr %136, i64 %271
   br label %.lr.ph.i.i
 
@@ -3543,7 +3543,7 @@ _ZL9pushFrontiPiRi.exit464:                       ; preds = %.lr.ph.preheader.i4
   %.0354720 = phi i32 [ 0, %.lr.ph725 ], [ %.2356, %.loopexit628 ]
   %.0357719 = phi i32 [ 0, %.lr.ph725 ], [ %.2359, %.loopexit628 ]
   %.0360718 = phi i32 [ 0, %.lr.ph725 ], [ %.2362, %.loopexit628 ]
-  %435 = mul nsw i64 %indvars.iv796, %33
+  %435 = mul nuw nsw i64 %indvars.iv796, %wide.trip.count.i.i
   %436 = getelementptr inbounds i16, ptr %347, i64 %435
   %indvars.iv.next797 = add nuw nsw i64 %indvars.iv796, 1
   %437 = trunc nuw nsw i64 %indvars.iv796 to i32
@@ -3556,7 +3556,7 @@ _ZL9pushFrontiPiRi.exit464:                       ; preds = %.lr.ph.preheader.i4
   %.1355707 = phi i32 [ %.0354720, %.lr.ph712.preheader ], [ %.2356, %446 ]
   %.1358706 = phi i32 [ %.0357719, %.lr.ph712.preheader ], [ %.2359, %446 ]
   %.1361705 = phi i32 [ %.0360718, %.lr.ph712.preheader ], [ %.2362, %446 ]
-  %438 = mul nsw i64 %indvars.iv793, %33
+  %438 = mul nuw nsw i64 %indvars.iv793, %wide.trip.count.i.i
   %439 = getelementptr inbounds i16, ptr %347, i64 %438
   %440 = call fastcc noundef i32 @_ZL17getPolyMergeValuePtS_PKtRiS2_i(ptr noundef nonnull %436, ptr noundef nonnull %439, ptr noundef %434, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %8)
   %441 = icmp sgt i32 %440, %.1361705
@@ -3759,7 +3759,7 @@ _ZL14mergePolyVertsPtS_iiS_i.exit:                ; preds = %479, %.preheader.i
   br i1 %511, label %.lr.ph735, label %._crit_edge736
 
 .lr.ph735:                                        ; preds = %517
-  %522 = mul nsw i64 %indvars.iv812, %33
+  %522 = mul nuw nsw i64 %indvars.iv812, %33
   %invariant.gep = getelementptr i16, ptr %347, i64 %522
   br label %523
 

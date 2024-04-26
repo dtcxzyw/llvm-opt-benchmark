@@ -4497,6 +4497,7 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 .preheader94.us.preheader:                        ; preds = %._crit_edge
   %29 = getelementptr inbounds i8, ptr %20, i64 24
   %smax117 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
+  %30 = zext nneg i32 %1 to i64
   %smax128 = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
   %wide.trip.count129 = zext nneg i32 %smax128 to i64
   %wide.trip.count123 = zext nneg i32 %smax117 to i64
@@ -4504,35 +4505,32 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 
 .preheader94.us:                                  ; preds = %.preheader94.us.preheader, %._crit_edge102.split.us.us
   %indvars.iv125 = phi i64 [ 0, %.preheader94.us.preheader ], [ %indvars.iv.next126, %._crit_edge102.split.us.us ]
-  %30 = trunc i64 %indvars.iv125 to i32
-  %31 = mul i32 %30, %1
+  %31 = mul nuw nsw i64 %indvars.iv125, %30
   br label %.preheader93.us.us
 
 .preheader93.us.us:                               ; preds = %._crit_edge100.us.us, %.preheader94.us
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %._crit_edge100.us.us ], [ 0, %.preheader94.us ]
-  %32 = trunc i64 %indvars.iv120 to i32
-  %33 = add i32 %31, %32
-  %34 = mul nsw i32 %33, %1
-  %35 = zext i32 %34 to i64
-  %invariant.gep = getelementptr double, ptr %4, i64 %35
-  br label %36
+  %32 = add nuw nsw i64 %indvars.iv120, %31
+  %33 = mul nuw nsw i64 %32, %30
+  %invariant.gep = getelementptr double, ptr %4, i64 %33
+  br label %34
 
-36:                                               ; preds = %36, %.preheader93.us.us
-  %indvars.iv114 = phi i64 [ %indvars.iv.next115, %36 ], [ 0, %.preheader93.us.us ]
+34:                                               ; preds = %34, %.preheader93.us.us
+  %indvars.iv114 = phi i64 [ %indvars.iv.next115, %34 ], [ 0, %.preheader93.us.us ]
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv114
-  %37 = load double, ptr %gep, align 8
-  %38 = load ptr, ptr %29, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv125
+  %35 = load double, ptr %gep, align 8
+  %36 = load ptr, ptr %29, align 8
+  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv125
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv120
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv120
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds double, ptr %42, i64 %indvars.iv114
-  store double %37, ptr %43, align 8
+  %41 = getelementptr inbounds double, ptr %40, i64 %indvars.iv114
+  store double %35, ptr %41, align 8
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count123
-  br i1 %exitcond119.not, label %._crit_edge100.us.us, label %36
+  br i1 %exitcond119.not, label %._crit_edge100.us.us, label %34
 
-._crit_edge100.us.us:                             ; preds = %36
+._crit_edge100.us.us:                             ; preds = %34
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
   br i1 %exitcond124.not, label %._crit_edge102.split.us.us, label %.preheader93.us.us
@@ -4547,8 +4545,9 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
   br i1 %or.cond13, label %.preheader91.us.preheader, label %.loopexit
 
 .preheader91.us.preheader:                        ; preds = %.loopexit96
-  %44 = getelementptr inbounds i8, ptr %20, i64 32
+  %42 = getelementptr inbounds i8, ptr %20, i64 32
   %smax134 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
+  %43 = zext nneg i32 %1 to i64
   %smax145 = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
   %wide.trip.count146 = zext nneg i32 %smax145 to i64
   %wide.trip.count140 = zext nneg i32 %smax134 to i64
@@ -4556,35 +4555,32 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 
 .preheader91.us:                                  ; preds = %.preheader91.us.preheader, %._crit_edge108.split.us.us
   %indvars.iv142 = phi i64 [ 0, %.preheader91.us.preheader ], [ %indvars.iv.next143, %._crit_edge108.split.us.us ]
-  %45 = trunc i64 %indvars.iv142 to i32
-  %46 = mul i32 %45, %1
+  %44 = mul nuw nsw i64 %indvars.iv142, %43
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %._crit_edge106.us.us, %.preheader91.us
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %._crit_edge106.us.us ], [ 0, %.preheader91.us ]
-  %47 = trunc i64 %indvars.iv137 to i32
-  %48 = add i32 %46, %47
-  %49 = mul nsw i32 %48, %1
-  %50 = zext i32 %49 to i64
-  %invariant.gep148 = getelementptr double, ptr %5, i64 %50
-  br label %51
+  %45 = add nuw nsw i64 %indvars.iv137, %44
+  %46 = mul nuw nsw i64 %45, %43
+  %invariant.gep148 = getelementptr double, ptr %5, i64 %46
+  br label %47
 
-51:                                               ; preds = %51, %.preheader.us.us
-  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %51 ], [ 0, %.preheader.us.us ]
+47:                                               ; preds = %47, %.preheader.us.us
+  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %47 ], [ 0, %.preheader.us.us ]
   %gep149 = getelementptr double, ptr %invariant.gep148, i64 %indvars.iv131
-  %52 = load double, ptr %gep149, align 8
-  %53 = load ptr, ptr %44, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv142
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv137
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds double, ptr %57, i64 %indvars.iv131
-  store double %52, ptr %58, align 8
+  %48 = load double, ptr %gep149, align 8
+  %49 = load ptr, ptr %42, align 8
+  %50 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv142
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv137
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds double, ptr %53, i64 %indvars.iv131
+  store double %48, ptr %54, align 8
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count140
-  br i1 %exitcond136.not, label %._crit_edge106.us.us, label %51
+  br i1 %exitcond136.not, label %._crit_edge106.us.us, label %47
 
-._crit_edge106.us.us:                             ; preds = %51
+._crit_edge106.us.us:                             ; preds = %47
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
   br i1 %exitcond141.not, label %._crit_edge108.split.us.us, label %.preheader.us.us
@@ -5016,7 +5012,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly %0, ptr nocapture nounde
 
 .lr.ph138:                                        ; preds = %.preheader105, %._crit_edge136
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %._crit_edge136 ], [ 0, %.preheader105 ]
-  %61 = trunc i64 %indvars.iv178 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv178 to i32
   %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.19, i32 noundef %61) #15
   %63 = load i32, ptr %39, align 4
   %64 = icmp sgt i32 %63, 0
@@ -5073,7 +5069,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly %0, ptr nocapture nounde
 
 .lr.ph148:                                        ; preds = %.preheader, %._crit_edge146
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %._crit_edge146 ], [ 0, %.preheader ]
-  %88 = trunc i64 %indvars.iv187 to i32
+  %88 = trunc nuw nsw i64 %indvars.iv187 to i32
   %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.22, i32 noundef %88) #15
   %90 = load i32, ptr %39, align 4
   %91 = icmp sgt i32 %90, 0
@@ -5126,7 +5122,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly %0, ptr nocapture nounde
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @mriStepCoupling_GetStageType(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = icmp slt i32 %1, 1
   br i1 %3, label %42, label %4
 
@@ -5205,7 +5201,7 @@ define i32 @mriStepCoupling_GetStageType(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @mriStepCoupling_GetStageMap(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #11 {
+define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge.thread, label %4
 

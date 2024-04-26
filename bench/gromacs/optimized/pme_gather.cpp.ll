@@ -484,7 +484,6 @@ define noundef float @_Z22gather_energy_bsplinesP9gmx_pme_tN3gmx8ArrayRefIKfEEP1
 .lr.ph76.split.us.preheader:                      ; preds = %.lr.ph76
   %22 = zext nneg i32 %.fr78 to i64
   %wide.trip.count99 = zext nneg i32 %8 to i64
-  %wide.trip.count94 = zext nneg i32 %.fr78 to i64
   br label %.lr.ph76.split.us
 
 .lr.ph76.split.us:                                ; preds = %.lr.ph76.split.us.preheader, %42
@@ -498,7 +497,7 @@ define noundef float @_Z22gather_energy_bsplinesP9gmx_pme_tN3gmx8ArrayRefIKfEEP1
 .lr.ph.us:                                        ; preds = %.lr.ph76.split.us
   %26 = load ptr, ptr %15, align 8
   %27 = getelementptr inbounds %"class.gmx::BasicVector.106", ptr %26, i64 %indvars.iv96
-  %28 = mul nsw i64 %indvars.iv96, %22
+  %28 = mul nuw nsw i64 %indvars.iv96, %22
   %29 = load i32, ptr %27, align 4
   %30 = getelementptr inbounds i8, ptr %27, i64 4
   %31 = load i32, ptr %30, align 4
@@ -556,17 +555,17 @@ define noundef float @_Z22gather_energy_bsplinesP9gmx_pme_tN3gmx8ArrayRefIKfEEP1
   %64 = fmul float %55, %63
   %65 = tail call float @llvm.fmuladd.f32(float %64, float %61, float %.263.us.us.us)
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count94
+  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %22
   br i1 %exitcond85.not, label %._crit_edge.us.us.us, label %56, !llvm.loop !24
 
 ._crit_edge.us.us.us:                             ; preds = %56
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count94
+  %exitcond90.not = icmp eq i64 %indvars.iv.next87, %22
   br i1 %exitcond90.not, label %._crit_edge69.split.us.us.us, label %.lr.ph.us.us.us, !llvm.loop !25
 
 ._crit_edge69.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
+  %exitcond95.not = icmp eq i64 %indvars.iv.next92, %22
   br i1 %exitcond95.not, label %._crit_edge.split.us.us, label %.lr.ph68.us.us, !llvm.loop !26
 
 ._crit_edge.split.us.us:                          ; preds = %._crit_edge69.split.us.us.us

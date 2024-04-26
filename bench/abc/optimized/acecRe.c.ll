@@ -160,7 +160,7 @@ define void @Ree_TruthPrecompute2() local_unnamed_addr #0 {
 1:                                                ; preds = %.preheader, %14
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
   %.013 = phi i64 [ 232, %.preheader ], [ %.1, %14 ]
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %3 = shl nuw nsw i32 1, %2
   %4 = and i32 %3, %.01114
   %.not = icmp eq i32 %4, 0
@@ -205,7 +205,7 @@ define void @Ree_ManCutPrint(ptr nocapture noundef readonly %0, i32 noundef %1, 
   br i1 %.not8, label %.lr.ph11.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph
-  %8 = trunc i64 %indvars.iv.next to i32
+  %8 = trunc nuw i64 %indvars.iv.next to i32
   %9 = icmp ult i32 %8, 5
   br i1 %9, label %.lr.ph11.preheader, label %._crit_edge
 
@@ -1296,7 +1296,7 @@ define internal fastcc i32 @Hsh_Int3ManInsert(ptr nocapture noundef readonly %0,
 
 17:                                               ; preds = %.lr.ph.i
   %18 = add nuw nsw i32 %.01116.i, 2
-  %19 = mul nsw i32 %18, %18
+  %19 = mul nuw nsw i32 %18, %18
   %.not.i = icmp ugt i32 %19, %15
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !24
 
@@ -1428,7 +1428,7 @@ Hash_IntObj.exit.i:                               ; preds = %78, %Hash_IntObj.ex
 
 Hsh_Int3ManLookup.exit:                           ; preds = %74, %78, %.lr.ph
   %.0.lcssa.i = phi ptr [ %60, %.lr.ph ], [ %.021.i, %74 ], [ %79, %78 ]
-  %81 = trunc i64 %indvars.iv to i32
+  %81 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %81, ptr %.0.lcssa.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2197,7 +2197,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %102, ptr %45, align 4
   %103 = sext i32 %78 to i64
   %104 = getelementptr inbounds i32, ptr %101, i64 %103
-  %105 = trunc i64 %indvars.iv237 to i32
+  %105 = trunc nuw nsw i64 %indvars.iv237 to i32
   store i32 %105, ptr %104, align 4
   %106 = add nsw i32 %.0140217, 1
   %.val170 = load ptr, ptr %54, align 8
@@ -2439,11 +2439,11 @@ Hash_IntObj.exit:                                 ; preds = %156, %161
   br i1 %exitcond249.not, label %.thread, label %.preheader, !llvm.loop !31
 
 .thread.loopexit233:                              ; preds = %193
-  %202 = trunc i64 %indvars.iv243 to i32
+  %202 = trunc nuw nsw i64 %indvars.iv243 to i32
   br label %.thread
 
 .thread.loopexit.split.loop.exit:                 ; preds = %.preheader
-  %203 = trunc i64 %indvars.iv246 to i32
+  %203 = trunc nuw nsw i64 %indvars.iv246 to i32
   br label %.thread
 
 .thread:                                          ; preds = %201, %.thread.loopexit.split.loop.exit, %.thread.loopexit233
@@ -2700,7 +2700,7 @@ Vec_IntPush.exit9:                                ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Ree_ManCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define range(i32 -1, 2) i32 @Ree_ManCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 12
@@ -2751,7 +2751,7 @@ define noalias noundef ptr @Ree_ManComputeCuts(ptr noundef %0, ptr noundef %1, i
 
 7:                                                ; preds = %.lr.ph.i.i
   %8 = add nuw nsw i32 %.01116.i.i, 2
-  %9 = mul nsw i32 %8, %8
+  %9 = mul nuw nsw i32 %8, %8
   %.not.i.i = icmp ugt i32 %9, %5
   br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !24
 
@@ -3227,7 +3227,7 @@ Vec_IntPush.exit138:                              ; preds = %.Vec_IntGrow.exit10
 
 221:                                              ; preds = %216
   %222 = and i64 %.val90, 536870911
-  %223 = trunc i64 %indvars.iv185 to i32
+  %223 = trunc nuw nsw i64 %indvars.iv185 to i32
   %224 = sub nsw i64 %indvars.iv185, %222
   %.val105 = load ptr, ptr %77, align 8
   %sext = shl i64 %224, 32
@@ -3563,9 +3563,9 @@ define void @Ree_ManRemoveTrivial(ptr noundef %0, ptr nocapture noundef %1) loca
   %.val33 = phi i32 [ %.val3343, %38 ], [ %.val33.pre, %42 ]
   %.1 = phi i32 [ %.041, %38 ], [ %43, %42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = mul nsw i64 %indvars.iv.next, 6
-  %49 = sext i32 %.val33 to i64
-  %50 = icmp slt i64 %48, %49
+  %48 = mul nuw nsw i64 %indvars.iv.next, 6
+  %49 = trunc nuw i64 %48 to i32
+  %50 = icmp sgt i32 %.val33, %49
   br i1 %50, label %11, label %._crit_edge.loopexit, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %47
@@ -3644,9 +3644,9 @@ define void @Ree_ManRemoveContained(ptr noundef %0, ptr nocapture noundef %1) lo
   %.val23 = phi i32 [ %.val2333, %25 ], [ %.val23.pre, %35 ]
   %.1 = phi i32 [ %.031, %25 ], [ %36, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = mul nsw i64 %indvars.iv.next, 6
-  %42 = sext i32 %.val23 to i64
-  %43 = icmp slt i64 %41, %42
+  %41 = mul nuw nsw i64 %indvars.iv.next, 6
+  %42 = trunc nuw i64 %41 to i32
+  %43 = icmp sgt i32 %.val23, %42
   br i1 %43, label %8, label %._crit_edge.loopexit, !llvm.loop !40
 
 ._crit_edge.loopexit:                             ; preds = %40
@@ -3984,7 +3984,7 @@ Vec_BitStart.exit46:                              ; preds = %Vec_BitStart.exit, 
   %.val = phi i32 [ %.val50, %29 ], [ %.val.pre, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = trunc i64 %indvars.iv.next to i32
-  %70 = mul nsw i32 %69, 6
+  %70 = mul i32 %69, 6
   %71 = icmp slt i32 %70, %.val
   br i1 %71, label %29, label %._crit_edge.loopexit, !llvm.loop !42
 
@@ -4065,7 +4065,7 @@ define void @Ree_ManPrintAdders(ptr nocapture noundef readonly %0, i32 noundef %
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %6 = phi i32 [ %36, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %7)
   %.val22 = load ptr, ptr %5, align 8
   %9 = zext nneg i32 %6 to i64
@@ -4101,9 +4101,9 @@ define void @Ree_ManPrintAdders(ptr nocapture noundef readonly %0, i32 noundef %
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %33)
   %putchar = tail call i32 @putchar(i32 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = trunc i64 %indvars.iv.next to i32
-  %36 = mul nsw i32 %35, 6
   %.val = load i32, ptr %3, align 4
+  %35 = trunc i64 %indvars.iv.next to i32
+  %36 = mul i32 %35, 6
   %37 = icmp slt i32 %36, %.val
   br i1 %37, label %.lr.ph.split, label %._crit_edge, !llvm.loop !44
 

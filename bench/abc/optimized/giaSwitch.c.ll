@@ -370,7 +370,7 @@ Abc_Clock.exit130:                                ; preds = %57, %87
 
 .lr.ph.preheader.i.i:                             ; preds = %Gia_ManSwiSimInfoRandom.exit.i, %.lr.ph.split.i.preheader
   %.022.i = phi i32 [ 0, %.lr.ph.split.i.preheader ], [ %115, %Gia_ManSwiSimInfoRandom.exit.i ]
-  %109 = mul nsw i32 %.022.i, %28
+  %109 = mul nuw nsw i32 %.022.i, %28
   %110 = zext nneg i32 %109 to i64
   %111 = getelementptr inbounds i32, ptr %42, i64 %110
   br label %.lr.ph.i.i
@@ -416,7 +416,7 @@ Gia_ManSwiSimInfoInit.exit:                       ; preds = %Gia_ManSwiSimInfoZe
 .lr.ph:                                           ; preds = %Gia_ManSwiSimInfoInit.exit
   %126 = getelementptr inbounds i8, ptr %1, i64 8
   %127 = icmp slt i32 %28, 1
-  %128 = zext nneg i32 %28 to i64
+  %128 = zext i32 %28 to i64
   %129 = shl nuw nsw i64 %128, 2
   %130 = getelementptr inbounds i8, ptr %26, i64 24
   %131 = getelementptr i8, ptr %26, i64 32
@@ -461,7 +461,7 @@ Gia_ManSwiSimInfoZero.exit.i134:                  ; preds = %.lr.ph.preheader.i.
   %149 = sext i32 %148 to i64
   %150 = getelementptr inbounds i32, ptr %35, i64 %149
   %151 = lshr i64 %.val36.i, 32
-  %152 = trunc i64 %151 to i32
+  %152 = trunc nuw i64 %151 to i32
   %153 = and i32 %152, 536870911
   %154 = mul nsw i32 %153, %28
   %155 = sext i32 %154 to i64
@@ -549,7 +549,7 @@ Gia_ManSwiSimInfoZero.exit.i134:                  ; preds = %.lr.ph.preheader.i.
   %193 = and i64 %.val36.i, 536870911
   %.not.i = icmp eq i64 %193, 536870911
   %194 = lshr i64 %.val36.i, 32
-  %195 = trunc i64 %194 to i32
+  %195 = trunc nuw i64 %194 to i32
   %196 = and i32 %195, 536870911
   br i1 %.not.i, label %216, label %197
 
@@ -849,15 +849,15 @@ Gia_ManSwiSimInfoRandomShift.exit.us46.i:         ; preds = %.lr.ph21.i.us43.i, 
   br label %.loopexit.i.i
 
 .preheader.i140.loopexit:                         ; preds = %Gia_ManSwiSimInfoRandomShift.exit.us.i
-  %345 = trunc i64 %indvars.iv.next283 to i32
+  %345 = trunc nuw nsw i64 %indvars.iv.next283 to i32
   br label %.preheader.i140
 
 .preheader.i140.loopexit265:                      ; preds = %Gia_ManSwiSimInfoRandomShift.exit.us46.i
-  %346 = trunc i64 %indvars.iv.next280 to i32
+  %346 = trunc nuw nsw i64 %indvars.iv.next280 to i32
   br label %.preheader.i140
 
 .preheader.i140.loopexit266:                      ; preds = %Gia_ManSwiSimInfoRandomShift.exit.i
-  %347 = trunc i64 %indvars.iv.next to i32
+  %347 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.preheader.i140
 
 .preheader.i140:                                  ; preds = %.preheader.i140.loopexit266, %.preheader.i140.loopexit265, %.preheader.i140.loopexit, %303
@@ -877,7 +877,7 @@ Gia_ManSwiSimInfoRandomShift.exit.us46.i:         ; preds = %.lr.ph21.i.us43.i, 
 
 .loopexit.i.i:                                    ; preds = %.loopexit.i.i.preheader, %Gia_ManSwiSimInfoRandomShift.exit.i
   %indvars.iv = phi i64 [ 0, %.loopexit.i.i.preheader ], [ %indvars.iv.next, %Gia_ManSwiSimInfoRandomShift.exit.i ]
-  %352 = mul nsw i64 %indvars.iv, %134
+  %352 = mul nuw nsw i64 %indvars.iv, %128
   %353 = getelementptr inbounds i32, ptr %.val22.i, i64 %352
   br label %.lr.ph21.i.i
 
@@ -906,7 +906,7 @@ Gia_ManSwiSimInfoRandomShift.exit.i:              ; preds = %.lr.ph21.i.i
 
 .lr.ph66.split.i:                                 ; preds = %.lr.ph66.split.i.preheader, %Gia_ManSwiSimInfoCopyShift.exit.i
   %indvars.iv285 = phi i64 [ %350, %.lr.ph66.split.i.preheader ], [ %indvars.iv.next286, %Gia_ManSwiSimInfoCopyShift.exit.i ]
-  %364 = mul nsw i64 %indvars.iv285, %134
+  %364 = mul nuw nsw i64 %indvars.iv285, %134
   %365 = getelementptr inbounds i32, ptr %.val24.i, i64 %364
   %366 = add nsw i64 %indvars.iv285, %351
   %367 = mul nsw i64 %366, %134
@@ -1048,15 +1048,15 @@ Gia_ManSwiSimInfoRandom.exit.us43.i:              ; preds = %.lr.ph32.i.us.i, %4
   br label %.lr.ph.split.split.split.split.i
 
 .preheader.i157.loopexit:                         ; preds = %Gia_ManSwiSimInfoRandom.exit.us.i
-  %420 = trunc i64 %indvars.iv.next295 to i32
+  %420 = trunc nuw nsw i64 %indvars.iv.next295 to i32
   br label %.preheader.i157
 
 .preheader.i157.loopexit262:                      ; preds = %Gia_ManSwiSimInfoRandom.exit.us43.i
-  %421 = trunc i64 %indvars.iv.next292 to i32
+  %421 = trunc nuw nsw i64 %indvars.iv.next292 to i32
   br label %.preheader.i157
 
 .preheader.i157.loopexit263:                      ; preds = %Gia_ManSwiSimInfoRandom.exit.i172
-  %422 = trunc i64 %indvars.iv.next289 to i32
+  %422 = trunc nuw nsw i64 %indvars.iv.next289 to i32
   br label %.preheader.i157
 
 .preheader.i157:                                  ; preds = %.preheader.i157.loopexit263, %.preheader.i157.loopexit262, %.preheader.i157.loopexit, %.lr.ph.split.split.split.us.i168, %380
@@ -1076,7 +1076,7 @@ Gia_ManSwiSimInfoRandom.exit.us43.i:              ; preds = %.lr.ph32.i.us.i, %4
 
 .lr.ph.split.split.split.split.i:                 ; preds = %.lr.ph.split.split.split.split.i.preheader, %Gia_ManSwiSimInfoRandom.exit.i172
   %indvars.iv288 = phi i64 [ 0, %.lr.ph.split.split.split.split.i.preheader ], [ %indvars.iv.next289, %Gia_ManSwiSimInfoRandom.exit.i172 ]
-  %427 = mul nsw i64 %indvars.iv288, %134
+  %427 = mul nuw nsw i64 %indvars.iv288, %128
   %428 = getelementptr inbounds i32, ptr %.val22.i171, i64 %427
   br label %.lr.ph.i.i178
 
@@ -1102,7 +1102,7 @@ Gia_ManSwiSimInfoRandom.exit.i172:                ; preds = %.lr.ph.i.i178
 
 .lr.ph70.split.i:                                 ; preds = %.lr.ph70.split.i.preheader, %Gia_ManSwiSimInfoCopy.exit.i
   %indvars.iv298 = phi i64 [ %425, %.lr.ph70.split.i.preheader ], [ %indvars.iv.next299, %Gia_ManSwiSimInfoCopy.exit.i ]
-  %436 = mul nsw i64 %indvars.iv298, %134
+  %436 = mul nuw nsw i64 %indvars.iv298, %134
   %437 = getelementptr i32, ptr %.val24.i160, i64 %436
   %438 = add nsw i64 %indvars.iv298, %426
   %439 = mul nsw i64 %438, %134
@@ -1399,7 +1399,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #16
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1418,7 +1418,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1850,19 +1850,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #4
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #13
@@ -1887,8 +1887,8 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nofree nounwind }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

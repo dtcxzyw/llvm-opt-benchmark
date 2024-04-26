@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.stbcc__build_all_connections_for_cluster.5 = private unnamed_addr constant [4 x i32] [i32 0, i32 0, i32 1, i32 1], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @stbcc_query_grid_node_connection(ptr nocapture noundef readonly %g, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @stbcc_query_grid_node_connection(ptr nocapture noundef readonly %g, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #0 {
 entry:
   %clump_for_node = getelementptr inbounds i8, ptr %g, i64 131092
   %idxprom = sext i32 %y1 to i64
@@ -64,7 +64,7 @@ return:                                           ; preds = %if.end, %entry
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @stbcc_query_grid_open(ptr nocapture noundef readonly %g, i32 noundef %x, i32 noundef %y) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @stbcc_query_grid_open(ptr nocapture noundef readonly %g, i32 noundef %x, i32 noundef %y) local_unnamed_addr #0 {
 entry:
   %map = getelementptr inbounds i8, ptr %g, i64 20
   %idxprom = sext i32 %y to i64
@@ -327,7 +327,7 @@ for.body96:                                       ; preds = %for.cond93.preheade
 for.body108.lr.ph:                                ; preds = %for.body96
   %17 = shl nuw nsw i64 %indvars.iv101, 12
   %18 = add nuw nsw i64 %17, %15
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   br label %for.body108
 
 for.body108:                                      ; preds = %for.body108.lr.ph, %for.body108
@@ -452,13 +452,13 @@ for.body24:                                       ; preds = %if.end, %if.end95
   %k.081 = phi i32 [ 0, %if.end ], [ %inc98, %if.end95 ]
   %17 = add nsw i64 %indvars.iv98, %1
   %18 = add nsw i64 %indvars.iv, %0
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nsw i64 %18 to i32
   %shr = ashr i32 %19, 3
   %idxprom29 = sext i32 %shr to i64
   %arrayidx30 = getelementptr inbounds [1024 x [128 x i8]], ptr %map, i64 0, i64 %17, i64 %idxprom29
   %20 = load i8, ptr %arrayidx30, align 1
   %conv = zext i8 %20 to i32
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nsw i64 %indvars.iv to i32
   %and = and i32 %21, 7
   %shl = shl nuw nsw i32 1, %and
   %and32 = and i32 %shl, %conv
@@ -468,7 +468,7 @@ for.body24:                                       ; preds = %if.end, %if.end95
 land.lhs.true:                                    ; preds = %for.body24
   %22 = add nsw i64 %17, %16
   %23 = add nsw i64 %18, %13
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nsw i64 %23 to i32
   %shr40 = ashr i32 %24, 3
   %idxprom41 = sext i32 %shr40 to i64
   %arrayidx42 = getelementptr inbounds [1024 x [128 x i8]], ptr %map, i64 0, i64 %22, i64 %idxprom41
@@ -499,7 +499,7 @@ if.then50:                                        ; preds = %land.lhs.true
   br i1 %cmp77, label %if.then79, label %if.end95
 
 if.then79:                                        ; preds = %if.then50
-  %29 = trunc i32 %shl75 to i8
+  %29 = trunc nuw i32 %shl75 to i8
   %conv90 = or i8 %28, %29
   store i8 %conv90, ptr %arrayidx71, align 1
   %arrayidx92 = getelementptr inbounds [512 x i8], ptr %num_adj, i64 0, i64 %idxprom66
@@ -518,8 +518,8 @@ if.end95:                                         ; preds = %if.then50, %if.then
   br i1 %exitcond.not, label %for.inc99.loopexit, label %for.body24, !llvm.loop !15
 
 for.inc99.loopexit:                               ; preds = %if.end95
-  %31 = trunc i64 %indvars.iv.next99 to i32
-  %32 = trunc i64 %indvars.iv.next to i32
+  %31 = trunc nsw i64 %indvars.iv.next99 to i32
+  %32 = trunc nsw i64 %indvars.iv.next to i32
   br label %for.inc99
 
 for.inc99:                                        ; preds = %for.inc99.loopexit, %sw.epilog, %lor.lhs.false, %lor.lhs.false16, %lor.lhs.false19
@@ -573,7 +573,7 @@ for.body132:                                      ; preds = %for.body132.lr.ph, 
   %arrayidx143 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump, i64 0, i64 %indvars.iv106
   %adjacent_clump_list_index = getelementptr inbounds i8, ptr %arrayidx143, i64 6
   store i8 %conv141, ptr %adjacent_clump_list_index, align 2
-  %conv144 = trunc i32 %spec.store.select to i8
+  %conv144 = trunc nuw nsw i32 %spec.store.select to i8
   %max_adjacent = getelementptr inbounds i8, ptr %arrayidx143, i64 5
   store i8 %conv144, ptr %max_adjacent, align 1
   %num_adjacent = getelementptr inbounds i8, ptr %arrayidx143, i64 4
@@ -688,7 +688,7 @@ for.body:                                         ; preds = %if.end39, %if.end12
   %arrayidx46 = getelementptr inbounds [1024 x [128 x i8]], ptr %map, i64 0, i64 %7, i64 %idxprom45
   %9 = load i8, ptr %arrayidx46, align 1
   %conv = zext i8 %9 to i32
-  %10 = trunc i64 %indvars.iv75 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv75 to i32
   %and = and i32 %10, 7
   %shl = shl nuw nsw i32 1, %and
   %and48 = and i32 %shl, %conv
@@ -698,7 +698,7 @@ for.body:                                         ; preds = %if.end39, %if.end12
 land.lhs.true:                                    ; preds = %for.body
   %11 = add nsw i64 %7, %4
   %12 = add nsw i64 %8, %6
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nsw i64 %12 to i32
   %shr57 = ashr i32 %13, 3
   %idxprom58 = sext i32 %shr57 to i64
   %arrayidx59 = getelementptr inbounds [1024 x [128 x i8]], ptr %map, i64 0, i64 %11, i64 %idxprom58
@@ -729,7 +729,7 @@ if.then67:                                        ; preds = %land.lhs.true
   br i1 %cmp94, label %if.then96, label %if.end124
 
 if.then96:                                        ; preds = %if.then67
-  %18 = trunc i32 %shl92 to i8
+  %18 = trunc nuw i32 %shl92 to i8
   %conv107 = or i8 %17, %18
   store i8 %conv107, ptr %arrayidx88, align 1
   %shr.i = lshr i64 %8, 5
@@ -863,7 +863,7 @@ if.end19:                                         ; preds = %if.else, %if.then
   %idxprom32 = sext i32 %shr31 to i64
   %arrayidx33 = getelementptr inbounds [1024 x [128 x i8]], ptr %map28, i64 0, i64 %idxprom29, i64 %idxprom32
   %1 = load i8, ptr %arrayidx33, align 1
-  %2 = trunc i32 %shl27 to i8
+  %2 = trunc nuw i32 %shl27 to i8
   %3 = xor i8 %2, -1
   %conv47 = and i8 %1, %3
   %conv35 = or i8 %1, %2
@@ -1091,7 +1091,7 @@ for.body:                                         ; preds = %if.end35, %if.end10
   %arrayidx40 = getelementptr inbounds [1024 x [128 x i8]], ptr %map, i64 0, i64 %6, i64 %idxprom39
   %8 = load i8, ptr %arrayidx40, align 1
   %conv = zext i8 %8 to i32
-  %9 = trunc i64 %indvars.iv71 to i32
+  %9 = trunc nuw nsw i64 %indvars.iv71 to i32
   %and = and i32 %9, 7
   %shl = shl nuw nsw i32 1, %and
   %and42 = and i32 %shl, %conv
@@ -1101,7 +1101,7 @@ for.body:                                         ; preds = %if.end35, %if.end10
 land.lhs.true:                                    ; preds = %for.body
   %10 = add nsw i64 %6, %3
   %11 = add nsw i64 %7, %5
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nsw i64 %11 to i32
   %shr50 = ashr i32 %12, 3
   %idxprom51 = sext i32 %shr50 to i64
   %arrayidx52 = getelementptr inbounds [1024 x [128 x i8]], ptr %map, i64 0, i64 %10, i64 %idxprom51
@@ -1132,7 +1132,7 @@ if.then60:                                        ; preds = %land.lhs.true
   br i1 %cmp87, label %if.then89, label %if.end108
 
 if.then89:                                        ; preds = %if.then60
-  %17 = trunc i32 %shl85 to i8
+  %17 = trunc nuw i32 %shl85 to i8
   %conv100 = or i8 %16, %17
   store i8 %conv100, ptr %arrayidx81, align 1
   %shr.i = lshr i64 %7, 5
@@ -1252,7 +1252,7 @@ for.body21:                                       ; preds = %for.cond18.preheade
 for.cond24.preheader:                             ; preds = %for.body21
   %1 = or disjoint i64 %indvars.iv326, %0
   %2 = add nsw i64 %1, 1
-  %3 = trunc i64 %indvars.iv326 to i32
+  %3 = trunc nuw nsw i64 %indvars.iv326 to i32
   %4 = trunc i64 %indvars.iv326 to i32
   %5 = add i32 %4, 1
   br label %for.body27
@@ -1292,7 +1292,7 @@ if.then51:                                        ; preds = %land.lhs.true
   br i1 %or.cond.i, label %for.inc53, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then51
-  %q.sroa.3.0.extract.trunc.i = trunc i16 %q.sroa.3.0.extract.shift.i to i8
+  %q.sroa.3.0.extract.trunc.i = trunc nuw i16 %q.sroa.3.0.extract.shift.i to i8
   %q.sroa.0.0.extract.trunc.i = trunc i16 %call1.i to i8
   %p.sroa.3.0.extract.trunc.i = zext nneg i16 %p.sroa.3.0.extract.shift.i to i64
   %10 = and i16 %call.i, 255
@@ -1310,7 +1310,7 @@ for.inc53:                                        ; preds = %if.end.i, %if.then5
 
 if.end56:                                         ; preds = %for.inc53, %for.body21
   %.pre-phi = phi i64 [ %.pre, %for.body21 ], [ %1, %for.inc53 ]
-  %11 = trunc i64 %indvars.iv326 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv326 to i32
   br label %for.body60
 
 for.body60:                                       ; preds = %if.end56, %for.inc95
@@ -1354,7 +1354,7 @@ if.then92:                                        ; preds = %land.lhs.true75
   br i1 %or.cond.i259, label %for.inc95, label %if.end.i260
 
 if.end.i260:                                      ; preds = %if.then92
-  %q.sroa.3.0.extract.trunc.i261 = trunc i16 %q.sroa.3.0.extract.shift.i256 to i8
+  %q.sroa.3.0.extract.trunc.i261 = trunc nuw i16 %q.sroa.3.0.extract.shift.i256 to i8
   %q.sroa.0.0.extract.trunc.i262 = trunc i16 %call1.i255 to i8
   %p.sroa.3.0.extract.trunc.i263 = zext nneg i16 %p.sroa.3.0.extract.shift.i254 to i64
   %16 = and i16 %call.i253, 255
@@ -1422,7 +1422,7 @@ for.body134:                                      ; preds = %for.cond131.prehead
   br i1 %tobool148.not, label %if.end195, label %if.then149
 
 if.then149:                                       ; preds = %for.body134
-  %20 = trunc i64 %indvars.iv342 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv342 to i32
   %call = call i16 @stbcc__incluster_find(ptr noundef nonnull %cbi, i32 noundef 0, i32 noundef %20)
   %p.sroa.5.0.extract.shift = lshr i16 %call, 8
   %p.sroa.0.0.extract.trunc.mask = and i16 %call, 255
@@ -1470,7 +1470,7 @@ if.end195:                                        ; preds = %if.end195.sink.spli
   br i1 %tobool209.not, label %for.inc261, label %if.then210
 
 if.then210:                                       ; preds = %if.end195
-  %25 = trunc i64 %indvars.iv342 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv342 to i32
   %call212 = call i16 @stbcc__incluster_find(ptr noundef nonnull %cbi, i32 noundef 31, i32 noundef %25)
   %p211.sroa.5.0.extract.shift = lshr i16 %call212, 8
   %p211.sroa.0.0.extract.trunc.mask = and i16 %call212, 255
@@ -1526,7 +1526,7 @@ for.body267:                                      ; preds = %for.cond264.prehead
   %arrayidx275 = getelementptr inbounds [1024 x [128 x i8]], ptr %map, i64 0, i64 %0, i64 %idxprom274
   %31 = load i8, ptr %arrayidx275, align 1
   %conv276 = zext i8 %31 to i32
-  %32 = trunc i64 %indvars.iv347 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv347 to i32
   %and278 = and i32 %32, 7
   %shl279 = shl nuw nsw i32 1, %and278
   %and280 = and i32 %shl279, %conv276
@@ -1669,7 +1669,7 @@ if.then429:                                       ; preds = %land.lhs.true424
   %arrayidx437 = getelementptr inbounds [1024 x [128 x i8]], ptr %map, i64 0, i64 %37, i64 %idxprom436
   %42 = load i8, ptr %arrayidx437, align 1
   %conv438 = zext i8 %42 to i32
-  %43 = trunc i64 %indvars.iv352 to i32
+  %43 = trunc nuw nsw i64 %indvars.iv352 to i32
   %and440 = and i32 %43, 7
   %shl441 = shl nuw nsw i32 1, %and440
   %and442 = and i32 %shl441, %conv438
@@ -1696,12 +1696,12 @@ for.inc463:                                       ; preds = %for.inc460
 for.cond470.preheader:                            ; preds = %for.inc463, %for.inc534
   %indvars.iv367 = phi i64 [ %indvars.iv.next368, %for.inc534 ], [ 0, %for.inc463 ]
   %44 = or disjoint i64 %indvars.iv367, %0
-  %45 = trunc i64 %indvars.iv367 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv367 to i32
   br label %for.body473
 
 for.body473:                                      ; preds = %for.cond470.preheader, %if.end514
   %indvars.iv362 = phi i64 [ 0, %for.cond470.preheader ], [ %indvars.iv.next363, %if.end514 ]
-  %46 = trunc i64 %indvars.iv362 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv362 to i32
   %call475 = call i16 @stbcc__incluster_find(ptr noundef nonnull %cbi, i32 noundef %46, i32 noundef %45)
   %p474.sroa.3.0.extract.shift = lshr i16 %call475, 8
   %p474.sroa.3.0.extract.trunc = zext nneg i16 %p474.sroa.3.0.extract.shift to i64
@@ -1808,7 +1808,7 @@ for.body582.lr.ph:                                ; preds = %for.end574
 
 for.body582:                                      ; preds = %for.body582.lr.ph, %for.body582
   %indvars.iv383 = phi i64 [ %63, %for.body582.lr.ph ], [ %indvars.iv.next384, %for.body582 ]
-  %65 = trunc i64 %indvars.iv383 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv383 to i32
   %bf.value589 = and i32 %65, 4095
   %bf.set591 = or disjoint i32 %bf.value589, %bf.set587
   %arrayidx594 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump592, i64 0, i64 %indvars.iv383
@@ -1870,13 +1870,13 @@ for.cond4.preheader.lr.ph:                        ; preds = %entry
 
 for.cond4.preheader.us.preheader:                 ; preds = %for.cond4.preheader.lr.ph
   %0 = zext nneg i32 %w to i64
+  %1 = zext nneg i32 %w to i64
   %wide.trip.count = zext nneg i32 %h to i64
   br label %for.cond4.preheader.us
 
 for.cond4.preheader.us:                           ; preds = %for.cond4.preheader.us.preheader, %for.cond4.for.inc24_crit_edge.us
   %indvars.iv71 = phi i64 [ 0, %for.cond4.preheader.us.preheader ], [ %indvars.iv.next72, %for.cond4.for.inc24_crit_edge.us ]
-  %1 = trunc i64 %indvars.iv71 to i32
-  %2 = mul i32 %1, %w
+  %2 = mul nuw nsw i64 %indvars.iv71, %1
   br label %for.cond7.preheader.us
 
 for.end.us:                                       ; preds = %for.body9.us
@@ -1890,14 +1890,15 @@ for.end.us:                                       ; preds = %for.body9.us
 for.body9.us:                                     ; preds = %for.cond7.preheader.us, %for.body9.us
   %indvars.iv = phi i64 [ 0, %for.cond7.preheader.us ], [ %indvars.iv.next, %for.body9.us ]
   %c.047.us = phi i8 [ 0, %for.cond7.preheader.us ], [ %c.1.us, %for.body9.us ]
-  %4 = trunc i64 %indvars.iv to i32
-  %add10.us = add i32 %8, %4
-  %idxprom.us = sext i32 %add10.us to i64
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
+  %add10.us = add nuw i64 %7, %indvars.iv
+  %sext = shl i64 %add10.us, 32
+  %idxprom.us = ashr exact i64 %sext, 32
   %arrayidx.us = getelementptr inbounds i8, ptr %map, i64 %idxprom.us
   %5 = load i8, ptr %arrayidx.us, align 1
   %cmp11.us = icmp eq i8 %5, 0
   %shl.us = shl nuw nsw i32 1, %4
-  %6 = trunc i32 %shl.us to i8
+  %6 = trunc nuw i32 %shl.us to i8
   %conv14.us = select i1 %cmp11.us, i8 %6, i8 0
   %c.1.us = or i8 %conv14.us, %c.047.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1906,8 +1907,7 @@ for.body9.us:                                     ; preds = %for.cond7.preheader
 
 for.cond7.preheader.us:                           ; preds = %for.cond4.preheader.us, %for.end.us
   %indvars.iv66 = phi i64 [ 0, %for.cond4.preheader.us ], [ %indvars.iv.next67, %for.end.us ]
-  %7 = trunc i64 %indvars.iv66 to i32
-  %8 = add i32 %2, %7
+  %7 = add nuw nsw i64 %indvars.iv66, %2
   br label %for.body9.us
 
 for.cond4.for.inc24_crit_edge.us:                 ; preds = %for.end.us
@@ -1917,29 +1917,29 @@ for.cond4.for.inc24_crit_edge.us:                 ; preds = %for.end.us
 
 for.cond27.preheader:                             ; preds = %for.cond4.for.inc24_crit_edge.us, %for.cond4.preheader.lr.ph, %entry
   %cmp2955 = icmp sgt i32 %shr3, 0
-  %9 = icmp sgt i32 %shr, 0
-  %or.cond = and i1 %cmp2955, %9
+  %8 = icmp sgt i32 %shr, 0
+  %or.cond = and i1 %cmp2955, %8
   br i1 %or.cond, label %for.cond32.preheader, label %for.end58
 
 for.cond32.preheader:                             ; preds = %for.cond27.preheader, %for.inc40
-  %10 = phi i32 [ %14, %for.inc40 ], [ %shr3, %for.cond27.preheader ]
-  %11 = phi i32 [ %15, %for.inc40 ], [ %shr, %for.cond27.preheader ]
+  %9 = phi i32 [ %13, %for.inc40 ], [ %shr3, %for.cond27.preheader ]
+  %10 = phi i32 [ %14, %for.inc40 ], [ %shr, %for.cond27.preheader ]
   %j.156 = phi i32 [ %inc41, %for.inc40 ], [ 0, %for.cond27.preheader ]
-  %cmp3453 = icmp sgt i32 %11, 0
+  %cmp3453 = icmp sgt i32 %10, 0
   br i1 %cmp3453, label %for.body36, label %for.inc40
 
 for.cond43.preheader:                             ; preds = %for.inc40
-  %cmp4559 = icmp sgt i32 %14, 0
-  %12 = icmp sgt i32 %15, 0
-  %or.cond83 = and i1 %cmp4559, %12
+  %cmp4559 = icmp sgt i32 %13, 0
+  %11 = icmp sgt i32 %14, 0
+  %or.cond83 = and i1 %cmp4559, %11
   br i1 %or.cond83, label %for.cond48.preheader, label %for.end58
 
 for.body36:                                       ; preds = %for.cond32.preheader, %for.body36
   %i.154 = phi i32 [ %inc38, %for.body36 ], [ 0, %for.cond32.preheader ]
   tail call void @stbcc__build_clumps_for_cluster(ptr noundef nonnull %g, i32 noundef %i.154, i32 noundef %j.156)
   %inc38 = add nuw nsw i32 %i.154, 1
-  %13 = load i32, ptr %cw, align 4
-  %cmp34 = icmp slt i32 %inc38, %13
+  %12 = load i32, ptr %cw, align 4
+  %cmp34 = icmp slt i32 %inc38, %12
   br i1 %cmp34, label %for.body36, label %for.inc40.loopexit, !llvm.loop !40
 
 for.inc40.loopexit:                               ; preds = %for.body36
@@ -1947,25 +1947,25 @@ for.inc40.loopexit:                               ; preds = %for.body36
   br label %for.inc40
 
 for.inc40:                                        ; preds = %for.inc40.loopexit, %for.cond32.preheader
-  %14 = phi i32 [ %.pre, %for.inc40.loopexit ], [ %10, %for.cond32.preheader ]
-  %15 = phi i32 [ %13, %for.inc40.loopexit ], [ %11, %for.cond32.preheader ]
+  %13 = phi i32 [ %.pre, %for.inc40.loopexit ], [ %9, %for.cond32.preheader ]
+  %14 = phi i32 [ %12, %for.inc40.loopexit ], [ %10, %for.cond32.preheader ]
   %inc41 = add nuw nsw i32 %j.156, 1
-  %cmp29 = icmp slt i32 %inc41, %14
+  %cmp29 = icmp slt i32 %inc41, %13
   br i1 %cmp29, label %for.cond32.preheader, label %for.cond43.preheader, !llvm.loop !41
 
 for.cond48.preheader:                             ; preds = %for.cond43.preheader, %for.inc56
+  %15 = phi i32 [ %18, %for.inc56 ], [ %13, %for.cond43.preheader ]
   %16 = phi i32 [ %19, %for.inc56 ], [ %14, %for.cond43.preheader ]
-  %17 = phi i32 [ %20, %for.inc56 ], [ %15, %for.cond43.preheader ]
   %j.260 = phi i32 [ %inc57, %for.inc56 ], [ 0, %for.cond43.preheader ]
-  %cmp5057 = icmp sgt i32 %17, 0
+  %cmp5057 = icmp sgt i32 %16, 0
   br i1 %cmp5057, label %for.body52, label %for.inc56
 
 for.body52:                                       ; preds = %for.cond48.preheader, %for.body52
   %i.258 = phi i32 [ %inc54, %for.body52 ], [ 0, %for.cond48.preheader ]
   tail call void @stbcc__build_all_connections_for_cluster(ptr noundef nonnull %g, i32 noundef %i.258, i32 noundef %j.260)
   %inc54 = add nuw nsw i32 %i.258, 1
-  %18 = load i32, ptr %cw, align 4
-  %cmp50 = icmp slt i32 %inc54, %18
+  %17 = load i32, ptr %cw, align 4
+  %cmp50 = icmp slt i32 %inc54, %17
   br i1 %cmp50, label %for.body52, label %for.inc56.loopexit, !llvm.loop !43
 
 for.inc56.loopexit:                               ; preds = %for.body52
@@ -1973,10 +1973,10 @@ for.inc56.loopexit:                               ; preds = %for.body52
   br label %for.inc56
 
 for.inc56:                                        ; preds = %for.inc56.loopexit, %for.cond48.preheader
-  %19 = phi i32 [ %.pre76, %for.inc56.loopexit ], [ %16, %for.cond48.preheader ]
-  %20 = phi i32 [ %18, %for.inc56.loopexit ], [ %17, %for.cond48.preheader ]
+  %18 = phi i32 [ %.pre76, %for.inc56.loopexit ], [ %15, %for.cond48.preheader ]
+  %19 = phi i32 [ %17, %for.inc56.loopexit ], [ %16, %for.cond48.preheader ]
   %inc57 = add nuw nsw i32 %j.260, 1
-  %cmp45 = icmp slt i32 %inc57, %19
+  %cmp45 = icmp slt i32 %inc57, %18
   br i1 %cmp45, label %for.cond48.preheader, label %for.end58, !llvm.loop !44
 
 for.end58:                                        ; preds = %for.inc56, %for.cond27.preheader, %for.cond43.preheader
@@ -2148,7 +2148,7 @@ if.end:                                           ; preds = %entry
   store i16 %call, ptr %arrayidx2, align 2
   %retval.sroa.0.0.extract.trunc = trunc i16 %call to i8
   %retval.sroa.3.0.extract.shift = lshr i16 %call, 8
-  %retval.sroa.3.0.extract.trunc = trunc i16 %retval.sroa.3.0.extract.shift to i8
+  %retval.sroa.3.0.extract.trunc = trunc nuw i16 %retval.sroa.3.0.extract.shift to i8
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -2176,7 +2176,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %q.sroa.3.0.extract.trunc = trunc i16 %q.sroa.3.0.extract.shift to i8
+  %q.sroa.3.0.extract.trunc = trunc nuw i16 %q.sroa.3.0.extract.shift to i8
   %q.sroa.0.0.extract.trunc = trunc i16 %call1 to i8
   %p.sroa.3.0.extract.trunc = zext nneg i16 %p.sroa.3.0.extract.shift to i64
   %2 = and i16 %call, 255

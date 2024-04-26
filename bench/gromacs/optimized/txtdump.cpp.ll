@@ -64,7 +64,7 @@ _Z9pr_indentP8_IO_FILEi.exit:                     ; preds = %.lr.ph.i, %6
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_Z8pr_titleP8_IO_FILEiPKc(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef range(i32 -2147483645, -2147483648) i32 @_Z8pr_titleP8_IO_FILEiPKc(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.i, label %_Z9pr_indentP8_IO_FILEi.exit
 
@@ -82,7 +82,7 @@ _Z9pr_indentP8_IO_FILEi.exit:                     ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_Z10pr_title_nP8_IO_FILEiPKci(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef range(i32 -2147483645, -2147483648) i32 @_Z10pr_title_nP8_IO_FILEiPKci(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph.i, label %_Z9pr_indentP8_IO_FILEi.exit
 
@@ -100,7 +100,7 @@ _Z9pr_indentP8_IO_FILEi.exit:                     ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_Z12pr_title_nxnP8_IO_FILEiPKcii(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef range(i32 -2147483645, -2147483648) i32 @_Z12pr_title_nxnP8_IO_FILEiPKcii(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph.i, label %_Z9pr_indentP8_IO_FILEi.exit
 
@@ -279,8 +279,8 @@ _Z12pr_title_nxnP8_IO_FILEiPKcii.exit:            ; preds = %.lr.ph.i.i34, %_Z9a
   br i1 %17, label %.lr.ph42.split.us.preheader, label %.lr.ph42.split
 
 .lr.ph42.split.us.preheader:                      ; preds = %.lr.ph42
+  %18 = zext nneg i32 %5 to i64
   %wide.trip.count59 = zext nneg i32 %4 to i64
-  %wide.trip.count = zext nneg i32 %5 to i64
   br label %.lr.ph42.split.us
 
 .lr.ph42.split.us:                                ; preds = %.lr.ph42.split.us.preheader, %._crit_edge.us
@@ -288,41 +288,39 @@ _Z12pr_title_nxnP8_IO_FILEiPKcii.exit:            ; preds = %.lr.ph.i.i34, %_Z9a
   br i1 %15, label %.lr.ph.i.us, label %_Z9pr_indentP8_IO_FILEi.exit.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph42.split.us, %.lr.ph.i.us
-  %.05.i.us = phi i32 [ %18, %.lr.ph.i.us ], [ 0, %.lr.ph42.split.us ]
+  %.05.i.us = phi i32 [ %19, %.lr.ph.i.us ], [ 0, %.lr.ph42.split.us ]
   %fputc.i.us = tail call i32 @fputc(i32 32, ptr %0)
-  %18 = add nuw nsw i32 %.05.i.us, 1
+  %19 = add nuw nsw i32 %.05.i.us, 1
   %exitcond.not.i.us = icmp eq i32 %.05.i.us, %16
   br i1 %exitcond.not.i.us, label %_Z9pr_indentP8_IO_FILEi.exit.us, label %.lr.ph.i.us, !llvm.loop !5
 
 _Z9pr_indentP8_IO_FILEi.exit.us:                  ; preds = %.lr.ph.i.us, %.lr.ph42.split.us
-  %19 = trunc nuw nsw i64 %indvars.iv56 to i32
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %2, i32 noundef %19) #6
-  %21 = trunc i64 %indvars.iv56 to i32
-  %22 = mul i32 %21, %5
-  %23 = zext i32 %22 to i64
-  %invariant.gep = getelementptr float, ptr %3, i64 %23
-  br label %24
+  %20 = trunc nuw nsw i64 %indvars.iv56 to i32
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %2, i32 noundef %20) #6
+  %22 = mul nuw nsw i64 %indvars.iv56, %18
+  %invariant.gep = getelementptr float, ptr %3, i64 %22
+  br label %23
 
-24:                                               ; preds = %_Z9pr_indentP8_IO_FILEi.exit.us, %27
-  %indvars.iv = phi i64 [ 0, %_Z9pr_indentP8_IO_FILEi.exit.us ], [ %indvars.iv.next, %27 ]
+23:                                               ; preds = %_Z9pr_indentP8_IO_FILEi.exit.us, %26
+  %indvars.iv = phi i64 [ 0, %_Z9pr_indentP8_IO_FILEi.exit.us ], [ %indvars.iv.next, %26 ]
   %.not32.us = icmp eq i64 %indvars.iv, 0
-  br i1 %.not32.us, label %27, label %25
+  br i1 %.not32.us, label %26, label %24
 
-25:                                               ; preds = %24
-  %26 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 2, i64 1, ptr %0)
-  br label %27
+24:                                               ; preds = %23
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 2, i64 1, ptr %0)
+  br label %26
 
-27:                                               ; preds = %25, %24
+26:                                               ; preds = %24, %23
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
-  %28 = load float, ptr %gep, align 4
-  %29 = fpext float %28 to double
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %8, double noundef %29) #6
+  %27 = load float, ptr %gep, align 4
+  %28 = fpext float %27 to double
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %8, double noundef %28) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond55.not, label %._crit_edge.us, label %24, !llvm.loop !9
+  %exitcond55.not = icmp eq i64 %indvars.iv.next, %18
+  br i1 %exitcond55.not, label %._crit_edge.us, label %23, !llvm.loop !9
 
-._crit_edge.us:                                   ; preds = %27
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 2, i64 1, ptr %0)
+._crit_edge.us:                                   ; preds = %26
+  %30 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 2, i64 1, ptr %0)
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
   br i1 %exitcond60.not, label %.loopexit, label %.lr.ph42.split.us, !llvm.loop !10
@@ -331,33 +329,33 @@ _Z9pr_indentP8_IO_FILEi.exit.us:                  ; preds = %.lr.ph.i.us, %.lr.p
   br i1 %15, label %.lr.ph.i.preheader.us49, label %_Z9pr_indentP8_IO_FILEi.exit
 
 .lr.ph.i.preheader.us49:                          ; preds = %.lr.ph42.split, %_Z9pr_indentP8_IO_FILEi.exit.loopexit.us50
-  %.03041.us43 = phi i32 [ %35, %_Z9pr_indentP8_IO_FILEi.exit.loopexit.us50 ], [ 0, %.lr.ph42.split ]
+  %.03041.us43 = phi i32 [ %34, %_Z9pr_indentP8_IO_FILEi.exit.loopexit.us50 ], [ 0, %.lr.ph42.split ]
   br label %.lr.ph.i.us44
 
 .lr.ph.i.us44:                                    ; preds = %.lr.ph.i.preheader.us49, %.lr.ph.i.us44
-  %.05.i.us45 = phi i32 [ %32, %.lr.ph.i.us44 ], [ 0, %.lr.ph.i.preheader.us49 ]
+  %.05.i.us45 = phi i32 [ %31, %.lr.ph.i.us44 ], [ 0, %.lr.ph.i.preheader.us49 ]
   %fputc.i.us46 = tail call i32 @fputc(i32 32, ptr %0)
-  %32 = add nuw nsw i32 %.05.i.us45, 1
+  %31 = add nuw nsw i32 %.05.i.us45, 1
   %exitcond.not.i.us47 = icmp eq i32 %.05.i.us45, %16
   br i1 %exitcond.not.i.us47, label %_Z9pr_indentP8_IO_FILEi.exit.loopexit.us50, label %.lr.ph.i.us44, !llvm.loop !5
 
 _Z9pr_indentP8_IO_FILEi.exit.loopexit.us50:       ; preds = %.lr.ph.i.us44
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %2, i32 noundef %.03041.us43) #6
-  %34 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 2, i64 1, ptr %0)
-  %35 = add nuw nsw i32 %.03041.us43, 1
-  %exitcond53.not = icmp eq i32 %35, %4
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %2, i32 noundef %.03041.us43) #6
+  %33 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 2, i64 1, ptr %0)
+  %34 = add nuw nsw i32 %.03041.us43, 1
+  %exitcond53.not = icmp eq i32 %34, %4
   br i1 %exitcond53.not, label %.loopexit, label %.lr.ph.i.preheader.us49, !llvm.loop !10
 
 _Z9pr_indentP8_IO_FILEi.exit:                     ; preds = %.lr.ph42.split, %_Z9pr_indentP8_IO_FILEi.exit
-  %.03041 = phi i32 [ %38, %_Z9pr_indentP8_IO_FILEi.exit ], [ 0, %.lr.ph42.split ]
-  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %2, i32 noundef %.03041) #6
-  %37 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 2, i64 1, ptr %0)
-  %38 = add nuw nsw i32 %.03041, 1
-  %exitcond.not = icmp eq i32 %38, %4
+  %.03041 = phi i32 [ %37, %_Z9pr_indentP8_IO_FILEi.exit ], [ 0, %.lr.ph42.split ]
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %2, i32 noundef %.03041) #6
+  %36 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 2, i64 1, ptr %0)
+  %37 = add nuw nsw i32 %.03041, 1
+  %exitcond.not = icmp eq i32 %37, %4
   br i1 %exitcond.not, label %.loopexit, label %_Z9pr_indentP8_IO_FILEi.exit, !llvm.loop !10
 
 .loopexit.sink.split:                             ; preds = %.lr.ph.i.i, %10
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %2) #6
+  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %2) #6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_Z9pr_indentP8_IO_FILEi.exit, %_Z9pr_indentP8_IO_FILEi.exit.loopexit.us50, %._crit_edge.us, %.loopexit.sink.split, %_Z12pr_title_nxnP8_IO_FILEiPKcii.exit

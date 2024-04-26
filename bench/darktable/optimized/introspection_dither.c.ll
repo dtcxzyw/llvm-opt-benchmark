@@ -639,8 +639,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br label %509
 
 357:                                              ; preds = %322
-  %358 = mul nsw i32 %344, 15
-  %359 = icmp ult i32 %358, 15
+  %358 = mul nuw nsw i32 %344, 15
+  %359 = icmp eq i32 %344, 0
   %360 = tail call i32 @llvm.umin.i32(i32 %358, i32 255)
   %361 = add nuw nsw i32 %360, 1
   %362 = select i1 %359, i32 16, i32 %361
@@ -2826,7 +2826,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !509
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

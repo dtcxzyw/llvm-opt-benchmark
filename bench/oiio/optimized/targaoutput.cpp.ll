@@ -2625,19 +2625,20 @@ _ZNSt6vectorIhSaIhEE6assignIPhvEEvT_S4_.exit149:  ; preds = %if.else182, %_ZNSt1
   br i1 %cmp191175, label %for.body192.preheader, label %for.end202
 
 for.body192.preheader:                            ; preds = %_ZNSt6vectorIhSaIhEE6assignIPhvEEvT_S4_.exit149
+  %65 = zext nneg i32 %59 to i64
   %wide.trip.count = zext nneg i32 %64 to i64
   br label %for.body192
 
 for.body192:                                      ; preds = %for.body192.preheader, %for.body192
   %indvars.iv = phi i64 [ 0, %for.body192.preheader ], [ %indvars.iv.next, %for.body192 ]
-  %65 = mul nsw i64 %indvars.iv, %conv172
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf183.sroa.0.0, i64 %65
-  %66 = add nuw nsw i64 %65, 2
-  %add.ptr.i150 = getelementptr inbounds i8, ptr %buf183.sroa.0.0, i64 %66
-  %67 = load i8, ptr %add.ptr.i, align 1
-  %68 = load i8, ptr %add.ptr.i150, align 1
-  store i8 %68, ptr %add.ptr.i, align 1
-  store i8 %67, ptr %add.ptr.i150, align 1
+  %66 = mul nuw nsw i64 %indvars.iv, %65
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf183.sroa.0.0, i64 %66
+  %67 = add nuw nsw i64 %66, 2
+  %add.ptr.i150 = getelementptr inbounds i8, ptr %buf183.sroa.0.0, i64 %67
+  %68 = load i8, ptr %add.ptr.i, align 1
+  %69 = load i8, ptr %add.ptr.i150, align 1
+  store i8 %69, ptr %add.ptr.i, align 1
+  store i8 %68, ptr %add.ptr.i150, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end202, label %for.body192, !llvm.loop !13

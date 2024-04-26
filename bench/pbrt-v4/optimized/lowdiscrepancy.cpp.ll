@@ -574,6 +574,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %mul41.i.i.us = mul i64 %xor40.i.i.us, -4132994306676758123
   %shr42.i.i.us = lshr i64 %mul41.i.i.us, 47
   %xor43.i.i.us = xor i64 %shr42.i.i.us, %mul41.i.i.us
+  %4 = mul nuw nsw i64 %indvars.iv29, %buf.sroa.0.0.insert.ext.i
   %conv18.us = trunc i64 %xor43.i.i.us to i32
   %shr9.i.us = lshr i32 %conv18.us, 16
   %shr13.i.us = lshr i32 %conv18.us, 8
@@ -581,25 +582,22 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %shr21.i.us = lshr i32 %conv18.us, 27
   %or22.i.us = or i32 %shr21.i.us, 1
   %mul23.i.us = mul i32 %or22.i.us, 1765145193
-  %4 = trunc i64 %indvars.iv29 to i32
-  %5 = mul i32 %4, %base
-  %6 = zext i32 %5 to i64
   br label %for.body16.us
 
 for.body16.us:                                    ; preds = %for.body.us, %_ZN4pbrt18PermutationElementEjjj.exit.us
   %indvars.iv = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next, %_ZN4pbrt18PermutationElementEjjj.exit.us ]
-  %7 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   br label %do.body.i.us
 
 do.body.i.us:                                     ; preds = %do.body.i.us, %for.body16.us
-  %i.addr.0.i.us = phi i32 [ %7, %for.body16.us ], [ %xor39.i.us, %do.body.i.us ]
+  %i.addr.0.i.us = phi i32 [ %5, %for.body16.us ], [ %xor39.i.us, %do.body.i.us ]
   %xor.i.us = xor i32 %i.addr.0.i.us, %conv18.us
   %mul.i16.us = mul i32 %xor.i.us, -512718531
   %xor10.i.us = xor i32 %mul.i16.us, %shr9.i.us
   %and.i.us = and i32 %xor10.i.us, %or8.i
   %shr11.i.us = lshr i32 %and.i.us, 4
-  %8 = xor i32 %shr13.i.us, %shr11.i.us
-  %xor14.i.us = xor i32 %8, %xor10.i.us
+  %6 = xor i32 %shr13.i.us, %shr11.i.us
+  %xor14.i.us = xor i32 %6, %xor10.i.us
   %mul15.i.us = mul i32 %xor14.i.us, 153742143
   %xor17.i.us = xor i32 %mul15.i.us, %shr16.i.us
   %and18.i.us = and i32 %xor17.i.us, %or8.i
@@ -628,9 +626,9 @@ _ZN4pbrt18PermutationElementEjjj.exit.us:         ; preds = %do.body.i.us
   %add.i.us = add i32 %xor39.i.us, %conv18.us
   %rem.i.us = urem i32 %add.i.us, %base
   %conv20.us = trunc i32 %rem.i.us to i16
-  %9 = load ptr, ptr %permutations, align 8
-  %10 = getelementptr i16, ptr %9, i64 %indvars.iv
-  %arrayidx.us = getelementptr i16, ptr %10, i64 %6
+  %7 = load ptr, ptr %permutations, align 8
+  %8 = getelementptr i16, ptr %7, i64 %indvars.iv
+  %arrayidx.us = getelementptr i16, ptr %8, i64 %4
   store i16 %conv20.us, ptr %arrayidx.us, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %buf.sroa.0.0.insert.ext.i
@@ -638,9 +636,9 @@ _ZN4pbrt18PermutationElementEjjj.exit.us:         ; preds = %do.body.i.us
 
 for.cond14.for.inc23_crit_edge.us:                ; preds = %_ZN4pbrt18PermutationElementEjjj.exit.us
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %11 = load i32, ptr %nDigits, align 4
-  %12 = sext i32 %11 to i64
-  %cmp12.us = icmp slt i64 %indvars.iv.next30, %12
+  %9 = load i32, ptr %nDigits, align 4
+  %10 = sext i32 %9 to i64
+  %cmp12.us = icmp slt i64 %indvars.iv.next30, %10
   br i1 %cmp12.us, label %for.body.us, label %for.end25, !llvm.loop !14
 
 for.end25:                                        ; preds = %for.cond14.for.inc23_crit_edge.us, %for.body.lr.ph, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectItEEPT_m.exit

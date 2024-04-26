@@ -74,7 +74,7 @@ define ptr @SUNNonlinSol_FixedPoint(ptr noundef %0, i32 noundef %1, ptr noundef 
   %48 = load ptr, ptr %4, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 24
   store ptr %47, ptr %49, align 8
-  %50 = mul nsw i32 %1, %1
+  %50 = mul nuw nsw i32 %1, %1
   %51 = zext nneg i32 %50 to i64
   %52 = shl nuw nsw i64 %51, 3
   %53 = tail call noalias ptr @malloc(i64 noundef %52) #13
@@ -300,7 +300,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
 103:                                              ; preds = %103, %.lr.ph9.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph9.i ], [ %indvars.iv.next.i, %103 ]
   %104 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv.i
-  %105 = trunc i64 %indvars.iv.i to i32
+  %105 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %105, ptr %104, align 4
   %106 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv.i
   %107 = load ptr, ptr %106, align 8
@@ -376,8 +376,8 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
   %indvars.iv54.i = phi i64 [ 2, %.lr.ph16.preheader.i ], [ %indvars.iv.next55.i, %._crit_edge14.i ]
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %indvars.i = trunc i64 %indvars.iv.next62.i to i32
-  %132 = mul nsw i32 %32, %indvars.i
-  %133 = sext i32 %132 to i64
+  %132 = mul nuw nsw i32 %32, %indvars.i
+  %133 = zext i32 %132 to i64
   %134 = getelementptr double, ptr %55, i64 %indvars.iv61.i
   %135 = getelementptr double, ptr %134, i64 %133
   %136 = getelementptr i8, ptr %135, i64 8
@@ -578,7 +578,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
   br i1 %221, label %229, label %222
 
 222:                                              ; preds = %._crit_edge39.i
-  %223 = trunc i64 %indvars.iv103.i to i32
+  %223 = trunc nuw nsw i64 %indvars.iv103.i to i32
   %224 = mul i32 %.5371.i, %223
   %225 = sext i32 %224 to i64
   %226 = getelementptr inbounds double, ptr %55, i64 %225
@@ -652,7 +652,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
   br i1 %.not139.i, label %.loopexit.loopexit.i, label %.lr.ph48.i
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph48.i
-  %258 = trunc i64 %indvars.iv.next111.i to i32
+  %258 = trunc nuw i64 %indvars.iv.next111.i to i32
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.thread124.i, %._crit_edge42.thread.i, %._crit_edge42.i

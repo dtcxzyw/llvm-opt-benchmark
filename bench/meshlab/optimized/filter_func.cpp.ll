@@ -4441,7 +4441,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6appendERKS_(
 declare void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK20FilterFunctionPlugin8getClassEPK7QAction(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 0, 8193) i32 @_ZNK20FilterFunctionPlugin8getClassEPK7QAction(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -4462,7 +4462,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK20FilterFunctionPlugin8getClassEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #16 align 2 {
+define noundef range(i32 0, 8193) i32 @_ZThn16_NK20FilterFunctionPlugin8getClassEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #16 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -4482,7 +4482,7 @@ _ZNK20FilterFunctionPlugin8getClassEPK7QAction.exit: ; preds = %2, %switch.looku
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK20FilterFunctionPlugin13postConditionEPK7QAction(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 -1, 50331649) i32 @_ZNK20FilterFunctionPlugin13postConditionEPK7QAction(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -4503,7 +4503,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK20FilterFunctionPlugin13postConditionEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #16 align 2 {
+define noundef range(i32 -1, 50331649) i32 @_ZThn16_NK20FilterFunctionPlugin13postConditionEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #16 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -4523,7 +4523,7 @@ _ZNK20FilterFunctionPlugin13postConditionEPK7QAction.exit: ; preds = %2, %switch
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN20FilterFunctionPlugin15getRequirementsEPK7QAction(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 0, 2097153) i32 @_ZN20FilterFunctionPlugin15getRequirementsEPK7QAction(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -4554,7 +4554,7 @@ define noundef i32 @_ZN20FilterFunctionPlugin15getRequirementsEPK7QAction(ptr no
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_N20FilterFunctionPlugin15getRequirementsEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #16 align 2 {
+define noundef range(i32 0, 2097153) i32 @_ZThn16_N20FilterFunctionPlugin15getRequirementsEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #16 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -38916,72 +38916,68 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %11, %14
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %.not = icmp eq ptr %5, null
+  %29 = zext nneg i32 %1 to i64
   %wide.trip.count61 = zext nneg i32 %2 to i64
-  %wide.trip.count56 = zext nneg i32 %1 to i64
   br i1 %.not, label %.preheader.us.us, label %.preheader.us
 
 .preheader.us.us:                                 ; preds = %.preheader.lr.ph.split.us, %._crit_edge.split.us.us.us
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %._crit_edge.split.us.us.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %29 = trunc nuw nsw i64 %indvars.iv58 to i32
-  %30 = uitofp nneg i32 %29 to float
-  %31 = fmul float %25, %30
-  %32 = trunc i64 %indvars.iv58 to i32
-  %33 = mul i32 %32, %1
-  %34 = zext i32 %33 to i64
-  br label %35
+  %30 = trunc nuw nsw i64 %indvars.iv58 to i32
+  %31 = uitofp nneg i32 %30 to float
+  %32 = fmul float %25, %31
+  %33 = mul nuw nsw i64 %indvars.iv58, %29
+  br label %34
 
-35:                                               ; preds = %35, %.preheader.us.us
-  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %35 ], [ 0, %.preheader.us.us ]
-  %36 = trunc nuw nsw i64 %indvars.iv53 to i32
-  %37 = uitofp nneg i32 %36 to float
-  %38 = fmul float %22, %37
-  %39 = add nuw nsw i64 %indvars.iv53, %34
-  %40 = load ptr, ptr %28, align 8
-  %41 = getelementptr inbounds %class.CVertexO, ptr %40, i64 %39, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  store float %38, ptr %41, align 4
-  %.sroa.2.0..sroa_idx.us.us.us = getelementptr inbounds i8, ptr %41, i64 4
-  store float %31, ptr %.sroa.2.0..sroa_idx.us.us.us, align 4
-  %.sroa.3.0..sroa_idx.us.us.us = getelementptr inbounds i8, ptr %41, i64 8
+34:                                               ; preds = %34, %.preheader.us.us
+  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %34 ], [ 0, %.preheader.us.us ]
+  %35 = trunc nuw nsw i64 %indvars.iv53 to i32
+  %36 = uitofp nneg i32 %35 to float
+  %37 = fmul float %22, %36
+  %38 = add nuw nsw i64 %indvars.iv53, %33
+  %39 = load ptr, ptr %28, align 8
+  %40 = getelementptr inbounds %class.CVertexO, ptr %39, i64 %38, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  store float %37, ptr %40, align 4
+  %.sroa.2.0..sroa_idx.us.us.us = getelementptr inbounds i8, ptr %40, i64 4
+  store float %32, ptr %.sroa.2.0..sroa_idx.us.us.us, align 4
+  %.sroa.3.0..sroa_idx.us.us.us = getelementptr inbounds i8, ptr %40, i64 8
   store float 0.000000e+00, ptr %.sroa.3.0..sroa_idx.us.us.us, align 4
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %._crit_edge.split.us.us.us, label %35, !llvm.loop !153
+  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %29
+  br i1 %exitcond57.not, label %._crit_edge.split.us.us.us, label %34, !llvm.loop !153
 
-._crit_edge.split.us.us.us:                       ; preds = %35
+._crit_edge.split.us.us.us:                       ; preds = %34
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
   br i1 %exitcond62.not, label %._crit_edge39, label %.preheader.us.us, !llvm.loop !154
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph.split.us, %._crit_edge.split.us43
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %._crit_edge.split.us43 ], [ 0, %.preheader.lr.ph.split.us ]
+  %41 = mul nuw nsw i64 %indvars.iv48, %29
   %42 = trunc nuw nsw i64 %indvars.iv48 to i32
   %43 = uitofp nneg i32 %42 to float
   %44 = fmul float %25, %43
-  %45 = trunc i64 %indvars.iv48 to i32
-  %46 = mul i32 %45, %1
-  %47 = zext i32 %46 to i64
-  br label %48
+  br label %45
 
-48:                                               ; preds = %.preheader.us, %48
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %48 ]
-  %49 = add nuw nsw i64 %indvars.iv, %47
-  %50 = getelementptr inbounds float, ptr %5, i64 %49
-  %51 = load float, ptr %50, align 4
-  %52 = trunc nuw nsw i64 %indvars.iv to i32
-  %53 = uitofp nneg i32 %52 to float
-  %54 = fmul float %22, %53
-  %55 = load ptr, ptr %28, align 8
-  %56 = getelementptr inbounds %class.CVertexO, ptr %55, i64 %49, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  store float %54, ptr %56, align 4
-  %.sroa.2.0..sroa_idx.us41 = getelementptr inbounds i8, ptr %56, i64 4
+45:                                               ; preds = %.preheader.us, %45
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %45 ]
+  %46 = add nuw nsw i64 %indvars.iv, %41
+  %47 = getelementptr inbounds float, ptr %5, i64 %46
+  %48 = load float, ptr %47, align 4
+  %49 = trunc nuw nsw i64 %indvars.iv to i32
+  %50 = uitofp nneg i32 %49 to float
+  %51 = fmul float %22, %50
+  %52 = load ptr, ptr %28, align 8
+  %53 = getelementptr inbounds %class.CVertexO, ptr %52, i64 %46, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  store float %51, ptr %53, align 4
+  %.sroa.2.0..sroa_idx.us41 = getelementptr inbounds i8, ptr %53, i64 4
   store float %44, ptr %.sroa.2.0..sroa_idx.us41, align 4
-  %.sroa.3.0..sroa_idx.us42 = getelementptr inbounds i8, ptr %56, i64 8
-  store float %51, ptr %.sroa.3.0..sroa_idx.us42, align 4
+  %.sroa.3.0..sroa_idx.us42 = getelementptr inbounds i8, ptr %53, i64 8
+  store float %48, ptr %.sroa.3.0..sroa_idx.us42, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count56
-  br i1 %exitcond.not, label %._crit_edge.split.us43, label %48, !llvm.loop !153
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %29
+  br i1 %exitcond.not, label %._crit_edge.split.us43, label %45, !llvm.loop !153
 
-._crit_edge.split.us43:                           ; preds = %48
+._crit_edge.split.us43:                           ; preds = %45
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count61
   br i1 %exitcond52.not, label %._crit_edge39, label %.preheader.us, !llvm.loop !154
@@ -44506,9 +44502,9 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %11, %14
 .preheader66.us:                                  ; preds = %.preheader66.us.preheader, %._crit_edge.us
   %indvars.iv72 = phi i64 [ 0, %.preheader66.us.preheader ], [ %indvars.iv.next73, %._crit_edge.us ]
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %26 = mul nsw i64 %indvars.iv.next73, %24
-  %27 = mul nsw i64 %indvars.iv72, %25
-  %28 = mul nsw i64 %indvars.iv72, %24
+  %26 = mul nuw nsw i64 %indvars.iv.next73, %24
+  %27 = mul nuw nsw i64 %indvars.iv72, %25
+  %28 = mul nuw nsw i64 %indvars.iv72, %24
   br label %29
 
 29:                                               ; preds = %.preheader66.us, %29
@@ -57458,7 +57454,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17fin
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK20FilterFunctionPlugin11filterArityEPK7QAction(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK20FilterFunctionPlugin11filterArityEPK7QAction(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -57479,7 +57475,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK20FilterFunctionPlugin11filterArityEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #16 align 2 {
+define noundef range(i32 0, 2) i32 @_ZThn16_NK20FilterFunctionPlugin11filterArityEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #16 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8

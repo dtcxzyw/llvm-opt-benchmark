@@ -300,7 +300,7 @@ comp_conv_to_mtf_byte.exit.loopexit.us.us:        ; preds = %37
   br i1 %exitcond46.not, label %.split23.us, label %.preheader.us.us, !llvm.loop !13
 
 ._crit_edge.us.us:                                ; preds = %38
-  %44 = mul nsw i64 %indvars.iv43, %6
+  %44 = mul nuw nsw i64 %indvars.iv43, %wide.trip.count.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5)
   br label %11
@@ -533,7 +533,7 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr nocapture noundef readonly %0
 
 .split.us.split.us:                               ; preds = %3, %._crit_edge.us.us
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %._crit_edge.us.us ], [ 0, %3 ]
-  %11 = mul nsw i64 %indvars.iv42, %6
+  %11 = mul nuw nsw i64 %indvars.iv42, %wide.trip.count.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5)
   br label %12

@@ -113,63 +113,63 @@ define noalias noundef ptr @compute_apsp(ptr noundef %0, i32 noundef %1) local_u
   %8 = sext i32 %1 to i64
   %9 = tail call fastcc ptr @gv_calloc(i64 noundef %8, i64 noundef 8)
   %10 = icmp sgt i32 %1, 0
-  br i1 %.not, label %18, label %11
+  br i1 %.not, label %19, label %11
 
 11:                                               ; preds = %2
   br i1 %10, label %.lr.ph.preheader.i, label %compute_apsp_dijkstra.exit
 
 .lr.ph.preheader.i:                               ; preds = %11
-  %wide.trip.count.i = zext nneg i32 %1 to i64
+  %12 = zext nneg i32 %1 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %12 = mul nsw i64 %indvars.iv.i, %8
-  %13 = getelementptr inbounds i32, ptr %7, i64 %12
-  %14 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i
-  store ptr %13, ptr %14, align 8
+  %13 = mul nuw nsw i64 %indvars.iv.i, %12
+  %14 = getelementptr inbounds i32, ptr %7, i64 %13
+  %15 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i
+  store ptr %14, ptr %15, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %12
   br i1 %exitcond.not.i, label %.lr.ph23.i, label %.lr.ph.i
 
 .lr.ph23.i:                                       ; preds = %.lr.ph.i, %.lr.ph23.i
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %.lr.ph23.i ], [ 0, %.lr.ph.i ]
-  %15 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv25.i
-  %16 = load ptr, ptr %15, align 8
-  %17 = trunc i64 %indvars.iv25.i to i32
-  tail call void @dijkstra(i32 noundef %17, ptr noundef %0, i32 noundef %1, ptr noundef %16) #16
+  %16 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv25.i
+  %17 = load ptr, ptr %16, align 8
+  %18 = trunc nuw nsw i64 %indvars.iv25.i to i32
+  tail call void @dijkstra(i32 noundef %18, ptr noundef %0, i32 noundef %1, ptr noundef %17) #16
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
-  %exitcond29.not.i = icmp eq i64 %indvars.iv.next26.i, %wide.trip.count.i
+  %exitcond29.not.i = icmp eq i64 %indvars.iv.next26.i, %12
   br i1 %exitcond29.not.i, label %compute_apsp_dijkstra.exit, label %.lr.ph23.i
 
-18:                                               ; preds = %2
+19:                                               ; preds = %2
   br i1 %10, label %.lr.ph.preheader.i5, label %compute_apsp_dijkstra.exit
 
-.lr.ph.preheader.i5:                              ; preds = %18
-  %wide.trip.count.i6 = zext nneg i32 %1 to i64
-  br label %.lr.ph.i7
+.lr.ph.preheader.i5:                              ; preds = %19
+  %20 = zext nneg i32 %1 to i64
+  br label %.lr.ph.i6
 
-.lr.ph.i7:                                        ; preds = %.lr.ph.i7, %.lr.ph.preheader.i5
-  %indvars.iv.i8 = phi i64 [ 0, %.lr.ph.preheader.i5 ], [ %indvars.iv.next.i9, %.lr.ph.i7 ]
-  %19 = mul nsw i64 %indvars.iv.i8, %8
-  %20 = getelementptr inbounds i32, ptr %7, i64 %19
-  %21 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i8
-  store ptr %20, ptr %21, align 8
-  %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
-  %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, %wide.trip.count.i6
-  br i1 %exitcond.not.i10, label %.lr.ph23.i14, label %.lr.ph.i7
+.lr.ph.i6:                                        ; preds = %.lr.ph.i6, %.lr.ph.preheader.i5
+  %indvars.iv.i7 = phi i64 [ 0, %.lr.ph.preheader.i5 ], [ %indvars.iv.next.i8, %.lr.ph.i6 ]
+  %21 = mul nuw nsw i64 %indvars.iv.i7, %20
+  %22 = getelementptr inbounds i32, ptr %7, i64 %21
+  %23 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i7
+  store ptr %22, ptr %23, align 8
+  %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
+  %exitcond.not.i9 = icmp eq i64 %indvars.iv.next.i8, %20
+  br i1 %exitcond.not.i9, label %.lr.ph23.i13, label %.lr.ph.i6
 
-.lr.ph23.i14:                                     ; preds = %.lr.ph.i7, %.lr.ph23.i14
-  %indvars.iv25.i15 = phi i64 [ %indvars.iv.next26.i16, %.lr.ph23.i14 ], [ 0, %.lr.ph.i7 ]
-  %22 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv25.i15
-  %23 = load ptr, ptr %22, align 8
-  %24 = trunc i64 %indvars.iv25.i15 to i32
-  tail call void @bfs(i32 noundef %24, ptr noundef %0, i32 noundef %1, ptr noundef %23) #16
-  %indvars.iv.next26.i16 = add nuw nsw i64 %indvars.iv25.i15, 1
-  %exitcond29.not.i17 = icmp eq i64 %indvars.iv.next26.i16, %wide.trip.count.i6
-  br i1 %exitcond29.not.i17, label %compute_apsp_dijkstra.exit, label %.lr.ph23.i14
+.lr.ph23.i13:                                     ; preds = %.lr.ph.i6, %.lr.ph23.i13
+  %indvars.iv25.i14 = phi i64 [ %indvars.iv.next26.i15, %.lr.ph23.i13 ], [ 0, %.lr.ph.i6 ]
+  %24 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv25.i14
+  %25 = load ptr, ptr %24, align 8
+  %26 = trunc nuw nsw i64 %indvars.iv25.i14 to i32
+  tail call void @bfs(i32 noundef %26, ptr noundef %0, i32 noundef %1, ptr noundef %25) #16
+  %indvars.iv.next26.i15 = add nuw nsw i64 %indvars.iv25.i14, 1
+  %exitcond29.not.i16 = icmp eq i64 %indvars.iv.next26.i15, %20
+  br i1 %exitcond29.not.i16, label %compute_apsp_dijkstra.exit, label %.lr.ph23.i13
 
-compute_apsp_dijkstra.exit:                       ; preds = %.lr.ph23.i, %.lr.ph23.i14, %18, %11
+compute_apsp_dijkstra.exit:                       ; preds = %.lr.ph23.i, %.lr.ph23.i13, %19, %11
   ret ptr %9
 }
 
@@ -187,54 +187,54 @@ define noalias noundef ptr @compute_apsp_artificial_weights(ptr noundef %0, i32 
   br i1 %10, label %.lr.ph.preheader.i, label %compute_apsp_dijkstra.exit
 
 .lr.ph.preheader.i:                               ; preds = %2
-  %wide.trip.count.i = zext nneg i32 %1 to i64
+  %11 = zext nneg i32 %1 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %11 = mul nsw i64 %indvars.iv.i, %8
-  %12 = getelementptr inbounds i32, ptr %7, i64 %11
-  %13 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i
-  store ptr %12, ptr %13, align 8
+  %12 = mul nuw nsw i64 %indvars.iv.i, %11
+  %13 = getelementptr inbounds i32, ptr %7, i64 %12
+  %14 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i
+  store ptr %13, ptr %14, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %11
   br i1 %exitcond.not.i, label %.lr.ph23.i, label %.lr.ph.i
 
 .lr.ph23.i:                                       ; preds = %.lr.ph.i, %.lr.ph23.i
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %.lr.ph23.i ], [ 0, %.lr.ph.i ]
-  %14 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv25.i
-  %15 = load ptr, ptr %14, align 8
-  %16 = trunc i64 %indvars.iv25.i to i32
-  tail call void @dijkstra(i32 noundef %16, ptr noundef %0, i32 noundef %1, ptr noundef %15) #16
+  %15 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv25.i
+  %16 = load ptr, ptr %15, align 8
+  %17 = trunc nuw nsw i64 %indvars.iv25.i to i32
+  tail call void @dijkstra(i32 noundef %17, ptr noundef %0, i32 noundef %1, ptr noundef %16) #16
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
-  %exitcond29.not.i = icmp eq i64 %indvars.iv.next26.i, %wide.trip.count.i
+  %exitcond29.not.i = icmp eq i64 %indvars.iv.next26.i, %11
   br i1 %exitcond29.not.i, label %compute_apsp_dijkstra.exit, label %.lr.ph23.i
 
 compute_apsp_dijkstra.exit:                       ; preds = %.lr.ph23.i, %2
-  %17 = load ptr, ptr %3, align 8
-  tail call void @free(ptr noundef %17) #16
+  %18 = load ptr, ptr %3, align 8
+  tail call void @free(ptr noundef %18) #16
   store ptr null, ptr %3, align 8
   %.not.i = icmp ne ptr %4, null
   %or.cond.i = and i1 %10, %.not.i
   br i1 %or.cond.i, label %.lr.ph.preheader.i8, label %restore_old_weights.exit
 
 .lr.ph.preheader.i8:                              ; preds = %compute_apsp_dijkstra.exit
-  %wide.trip.count.i9 = zext nneg i32 %1 to i64
-  br label %.lr.ph.i10
+  %wide.trip.count.i = zext nneg i32 %1 to i64
+  br label %.lr.ph.i9
 
-.lr.ph.i10:                                       ; preds = %.lr.ph.i10, %.lr.ph.preheader.i8
-  %indvars.iv.i11 = phi i64 [ 0, %.lr.ph.preheader.i8 ], [ %indvars.iv.next.i12, %.lr.ph.i10 ]
-  %.01113.i = phi ptr [ %4, %.lr.ph.preheader.i8 ], [ %21, %.lr.ph.i10 ]
-  %18 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %indvars.iv.i11
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
-  store ptr %.01113.i, ptr %19, align 8
-  %20 = load i64, ptr %18, align 8
-  %21 = getelementptr inbounds float, ptr %.01113.i, i64 %20
-  %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
-  %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, %wide.trip.count.i9
-  br i1 %exitcond.not.i13, label %restore_old_weights.exit, label %.lr.ph.i10
+.lr.ph.i9:                                        ; preds = %.lr.ph.i9, %.lr.ph.preheader.i8
+  %indvars.iv.i10 = phi i64 [ 0, %.lr.ph.preheader.i8 ], [ %indvars.iv.next.i11, %.lr.ph.i9 ]
+  %.01113.i = phi ptr [ %4, %.lr.ph.preheader.i8 ], [ %22, %.lr.ph.i9 ]
+  %19 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %indvars.iv.i10
+  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  store ptr %.01113.i, ptr %20, align 8
+  %21 = load i64, ptr %19, align 8
+  %22 = getelementptr inbounds float, ptr %.01113.i, i64 %21
+  %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
+  %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, %wide.trip.count.i
+  br i1 %exitcond.not.i12, label %restore_old_weights.exit, label %.lr.ph.i9
 
-restore_old_weights.exit:                         ; preds = %.lr.ph.i10, %compute_apsp_dijkstra.exit
+restore_old_weights.exit:                         ; preds = %.lr.ph.i9, %compute_apsp_dijkstra.exit
   ret ptr %9
 }
 
@@ -481,7 +481,7 @@ gv_sort.exit:                                     ; preds = %6, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fcmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #7 {
+define internal range(i32 -1, 2) i32 @fcmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #7 {
   %4 = load i32, ptr %0, align 4
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds float, ptr %2, i64 %5
@@ -518,7 +518,7 @@ gv_sort.exit:                                     ; preds = %3, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #7 {
+define internal range(i32 -1, 2) i32 @cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #7 {
   %4 = load i32, ptr %0, align 4
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds double, ptr %2, i64 %5

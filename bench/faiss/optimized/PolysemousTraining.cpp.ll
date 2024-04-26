@@ -256,48 +256,46 @@ define noundef double @_ZNK5faiss27ReproduceDistancesObjective12compute_costEPKi
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
-  %wide.trip.count30 = zext nneg i32 %4 to i64
+  %12 = zext nneg i32 %4 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %.023.us = phi double [ %32, %._crit_edge.us ], [ 0.000000e+00, %.preheader.lr.ph ]
-  %12 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv27
-  %13 = load i32, ptr %12, align 4
-  %14 = mul nsw i32 %13, %4
-  %15 = trunc i64 %indvars.iv27 to i32
-  %16 = mul i32 %4, %15
-  %17 = zext i32 %16 to i64
-  br label %18
+  %.023.us = phi double [ %31, %._crit_edge.us ], [ 0.000000e+00, %.preheader.lr.ph ]
+  %13 = mul nuw nsw i64 %indvars.iv27, %12
+  %14 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv27
+  %15 = load i32, ptr %14, align 4
+  %16 = mul nsw i32 %15, %4
+  br label %17
 
-18:                                               ; preds = %.preheader.us, %18
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %18 ]
-  %.121.us = phi double [ %.023.us, %.preheader.us ], [ %32, %18 ]
-  %19 = add nuw nsw i64 %indvars.iv, %17
-  %20 = getelementptr inbounds double, ptr %7, i64 %19
-  %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds double, ptr %9, i64 %19
-  %23 = load double, ptr %22, align 8
-  %24 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %25 = load i32, ptr %24, align 4
-  %26 = add nsw i32 %14, %25
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds double, ptr %11, i64 %27
-  %29 = load double, ptr %28, align 8
-  %30 = fsub double %21, %29
-  %31 = fmul double %30, %30
-  %32 = tail call double @llvm.fmuladd.f64(double %23, double %31, double %.121.us)
+17:                                               ; preds = %.preheader.us, %17
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %17 ]
+  %.121.us = phi double [ %.023.us, %.preheader.us ], [ %31, %17 ]
+  %18 = add nuw nsw i64 %indvars.iv, %13
+  %19 = getelementptr inbounds double, ptr %7, i64 %18
+  %20 = load double, ptr %19, align 8
+  %21 = getelementptr inbounds double, ptr %9, i64 %18
+  %22 = load double, ptr %21, align 8
+  %23 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %24 = load i32, ptr %23, align 4
+  %25 = add nsw i32 %16, %24
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds double, ptr %11, i64 %26
+  %28 = load double, ptr %27, align 8
+  %29 = fsub double %20, %28
+  %30 = fmul double %29, %29
+  %31 = tail call double @llvm.fmuladd.f64(double %22, double %30, double %.121.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count30
-  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !5
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %12
+  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !5
 
-._crit_edge.us:                                   ; preds = %18
+._crit_edge.us:                                   ; preds = %17
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
+  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %12
   br i1 %exitcond31.not, label %._crit_edge24, label %.preheader.us, !llvm.loop !7
 
 ._crit_edge24:                                    ; preds = %._crit_edge.us, %2
-  %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ %32, %._crit_edge.us ]
+  %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ %31, %._crit_edge.us ]
   ret double %.0.lcssa
 }
 
@@ -428,7 +426,7 @@ define noundef double @_ZNK5faiss27ReproduceDistancesObjective11cost_updateEPKii
   br i1 %exitcond.not, label %.loopexit, label %68, !llvm.loop !9
 
 99:                                               ; preds = %62
-  %100 = mul nsw i64 %indvars.iv136, %20
+  %100 = mul nuw nsw i64 %indvars.iv136, %20
   %101 = add nsw i64 %100, %12
   %102 = getelementptr inbounds double, ptr %9, i64 %101
   %103 = load double, ptr %102, align 8
@@ -2432,48 +2430,46 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
-  %wide.trip.count30 = zext nneg i32 %4 to i64
+  %10 = zext nneg i32 %4 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %.023.us = phi double [ %30, %._crit_edge.us ], [ 0.000000e+00, %.preheader.lr.ph ]
-  %10 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv27
-  %11 = load i32, ptr %10, align 4
-  %12 = trunc i64 %indvars.iv27 to i32
-  %13 = mul i32 %4, %12
-  %14 = zext i32 %13 to i64
-  br label %15
+  %.023.us = phi double [ %29, %._crit_edge.us ], [ 0.000000e+00, %.preheader.lr.ph ]
+  %11 = mul nuw nsw i64 %indvars.iv27, %10
+  %12 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv27
+  %13 = load i32, ptr %12, align 4
+  br label %14
 
-15:                                               ; preds = %.preheader.us, %15
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %15 ]
-  %.121.us = phi double [ %.023.us, %.preheader.us ], [ %30, %15 ]
-  %16 = add nuw nsw i64 %indvars.iv, %14
-  %17 = getelementptr inbounds double, ptr %7, i64 %16
-  %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds double, ptr %9, i64 %16
-  %20 = load double, ptr %19, align 8
-  %21 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %22 = load i32, ptr %21, align 4
-  %23 = xor i32 %22, %11
-  %24 = sext i32 %23 to i64
-  %25 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %24)
-  %26 = trunc nuw nsw i64 %25 to i32
-  %27 = uitofp nneg i32 %26 to double
-  %28 = fsub double %18, %27
-  %29 = fmul double %28, %28
-  %30 = tail call double @llvm.fmuladd.f64(double %20, double %29, double %.121.us)
+14:                                               ; preds = %.preheader.us, %14
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %14 ]
+  %.121.us = phi double [ %.023.us, %.preheader.us ], [ %29, %14 ]
+  %15 = add nuw nsw i64 %indvars.iv, %11
+  %16 = getelementptr inbounds double, ptr %7, i64 %15
+  %17 = load double, ptr %16, align 8
+  %18 = getelementptr inbounds double, ptr %9, i64 %15
+  %19 = load double, ptr %18, align 8
+  %20 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %21 = load i32, ptr %20, align 4
+  %22 = xor i32 %21, %13
+  %23 = sext i32 %22 to i64
+  %24 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %23)
+  %25 = trunc nuw nsw i64 %24 to i32
+  %26 = uitofp nneg i32 %25 to double
+  %27 = fsub double %17, %26
+  %28 = fmul double %27, %27
+  %29 = tail call double @llvm.fmuladd.f64(double %19, double %28, double %.121.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count30
-  br i1 %exitcond.not, label %._crit_edge.us, label %15, !llvm.loop !27
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %10
+  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !27
 
-._crit_edge.us:                                   ; preds = %15
+._crit_edge.us:                                   ; preds = %14
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
+  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %10
   br i1 %exitcond31.not, label %._crit_edge24, label %.preheader.us, !llvm.loop !28
 
 ._crit_edge24:                                    ; preds = %._crit_edge.us, %2
-  %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ %30, %._crit_edge.us ]
+  %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ %29, %._crit_edge.us ]
   ret double %.0.lcssa
 }
 
@@ -2602,7 +2598,7 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   br i1 %exitcond.not, label %.loopexit, label %64, !llvm.loop !30
 
 97:                                               ; preds = %60
-  %98 = mul nsw i64 %indvars.iv136, %18
+  %98 = mul nuw nsw i64 %indvars.iv136, %18
   %99 = add nsw i64 %98, %12
   %100 = getelementptr inbounds double, ptr %9, i64 %99
   %101 = load double, ptr %100, align 8
