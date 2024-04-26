@@ -5331,88 +5331,85 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15
 define linkonce_odr void @_ZSt4swapIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_15LogExpectedItemENS1_8hash_opsIS8_EEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISG_ESt18is_move_assignableISG_EEE5valueEvE4typeERSG_SP_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(49) %1) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Yosys::hashlib::dict", align 16
   %4 = getelementptr inbounds i8, ptr %3, i64 24
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
-  %7 = getelementptr inbounds i8, ptr %3, i64 40
-  store i64 0, ptr %7, align 8
-  %8 = load ptr, ptr %0, align 8
-  store ptr %8, ptr %3, align 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %6, align 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 0, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  %11 = load <2 x ptr>, ptr %0, align 8
+  store <2 x ptr> %11, ptr %3, align 16
+  %12 = load ptr, ptr %8, align 8
+  store ptr %12, ptr %5, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %14 = getelementptr inbounds i8, ptr %3, i64 32
-  %15 = load ptr, ptr %13, align 8
-  store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = load ptr, ptr %9, align 8
+  store ptr %13, ptr %4, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %10, align 16
+  %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %14, align 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
-  %19 = load ptr, ptr %18, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  tail call void @_ZNSt6vectorIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_15LogExpectedItemENS1_8hash_opsIS8_EEE7entry_tESaISD_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #27
-  %20 = load ptr, ptr %11, align 8
-  %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
-  %24 = load <2 x ptr>, ptr %0, align 8
-  store ptr %21, ptr %0, align 8
-  %25 = load ptr, ptr %22, align 8
-  store ptr %25, ptr %9, align 8
-  %26 = load ptr, ptr %23, align 8
-  store ptr %26, ptr %11, align 8
-  store <2 x ptr> %24, ptr %1, align 8
-  store ptr %20, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
-  %28 = load ptr, ptr %18, align 8
-  %29 = load ptr, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
-  %31 = getelementptr inbounds i8, ptr %1, i64 40
-  %32 = load <2 x ptr>, ptr %13, align 8
-  store ptr %29, ptr %13, align 8
-  %33 = load ptr, ptr %30, align 8
-  store ptr %33, ptr %16, align 8
-  %34 = load ptr, ptr %31, align 8
-  store ptr %34, ptr %18, align 8
-  store <2 x ptr> %32, ptr %27, align 8
-  store ptr %28, ptr %31, align 8
-  %35 = load ptr, ptr %1, align 8
-  %36 = load ptr, ptr %22, align 8
-  %.not.i.i.i.i5 = icmp eq ptr %36, %35
-  br i1 %.not.i.i.i.i5, label %38, label %37
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  tail call void @_ZNSt6vectorIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_15LogExpectedItemENS1_8hash_opsIS8_EEE7entry_tESaISD_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #27
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %1, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = load <2 x ptr>, ptr %0, align 8
+  store ptr %19, ptr %0, align 8
+  %23 = load ptr, ptr %20, align 8
+  store ptr %23, ptr %7, align 8
+  %24 = load ptr, ptr %21, align 8
+  store ptr %24, ptr %8, align 8
+  store <2 x ptr> %22, ptr %1, align 8
+  store ptr %18, ptr %21, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = load ptr, ptr %16, align 8
+  %27 = load ptr, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = load <2 x ptr>, ptr %9, align 8
+  store ptr %27, ptr %9, align 8
+  %31 = load ptr, ptr %28, align 8
+  store ptr %31, ptr %14, align 8
+  %32 = load ptr, ptr %29, align 8
+  store ptr %32, ptr %16, align 8
+  store <2 x ptr> %30, ptr %25, align 8
+  store ptr %26, ptr %29, align 8
+  %33 = load ptr, ptr %1, align 8
+  %34 = load ptr, ptr %20, align 8
+  %.not.i.i.i.i5 = icmp eq ptr %34, %33
+  br i1 %.not.i.i.i.i5, label %36, label %35
 
-37:                                               ; preds = %2
-  store ptr %35, ptr %22, align 8
-  br label %38
+35:                                               ; preds = %2
+  store ptr %33, ptr %20, align 8
+  br label %36
 
-38:                                               ; preds = %37, %2
-  tail call void @_ZNSt6vectorIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_15LogExpectedItemENS1_8hash_opsIS8_EEE7entry_tESaISD_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %27) #27
-  %39 = load <2 x ptr>, ptr %1, align 8
-  store ptr %8, ptr %1, align 8
-  store ptr %10, ptr %22, align 8
-  store <2 x ptr> %39, ptr %3, align 16
-  %40 = load <2 x ptr>, ptr %23, align 8
-  store ptr %12, ptr %23, align 8
-  store ptr %15, ptr %27, align 8
-  store <2 x ptr> %40, ptr %6, align 16
-  %41 = load <2 x ptr>, ptr %30, align 8
-  store ptr %17, ptr %30, align 8
-  store ptr %19, ptr %31, align 8
-  store <2 x ptr> %41, ptr %14, align 16
+36:                                               ; preds = %35, %2
+  tail call void @_ZNSt6vectorIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_15LogExpectedItemENS1_8hash_opsIS8_EEE7entry_tESaISD_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %25) #27
+  %37 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %37, ptr %3, align 16
+  %38 = shufflevector <2 x ptr> %11, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %39 = insertelement <4 x ptr> %38, ptr %12, i64 2
+  %40 = insertelement <4 x ptr> %39, ptr %13, i64 3
+  %41 = load <2 x ptr>, ptr %21, align 8
+  store <4 x ptr> %40, ptr %1, align 8
+  store <2 x ptr> %41, ptr %5, align 16
+  %42 = load <2 x ptr>, ptr %28, align 8
+  store ptr %15, ptr %28, align 8
+  store ptr %17, ptr %29, align 8
+  store <2 x ptr> %42, ptr %10, align 16
   call void @_ZNSt6vectorIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_15LogExpectedItemENS1_8hash_opsIS8_EEE7entry_tESaISD_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #27
-  %42 = load ptr, ptr %3, align 16
-  %.not.i.i.i.i7 = icmp eq ptr %42, null
-  br i1 %.not.i.i.i.i7, label %_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LogExpectedItemENS0_8hash_opsIS7_EEED2Ev.exit, label %43
+  %43 = load ptr, ptr %3, align 16
+  %.not.i.i.i.i7 = icmp eq ptr %43, null
+  br i1 %.not.i.i.i.i7, label %_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LogExpectedItemENS0_8hash_opsIS7_EEED2Ev.exit, label %44
 
-43:                                               ; preds = %38
-  call void @_ZdlPv(ptr noundef nonnull %42) #26
+44:                                               ; preds = %36
+  call void @_ZdlPv(ptr noundef nonnull %43) #26
   br label %_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LogExpectedItemENS0_8hash_opsIS7_EEED2Ev.exit
 
-_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LogExpectedItemENS0_8hash_opsIS7_EEED2Ev.exit: ; preds = %38, %43
+_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LogExpectedItemENS0_8hash_opsIS7_EEED2Ev.exit: ; preds = %36, %44
   ret void
 }
 

@@ -138,7 +138,7 @@ $_ZN3CFF10cs_opset_tINS_8number_tE20cff1_cs_opset_seac_tNS_20cff1_cs_interp_env_
 @_hb_CrapPool = external hidden local_unnamed_addr global [80 x i64], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN2OT4cff133lookup_standard_encoding_for_codeEj(i32 noundef %sid) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 256) i32 @_ZN2OT4cff133lookup_standard_encoding_for_codeEj(i32 noundef %sid) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp ult i32 %sid, 150
   br i1 %cmp, label %if.then, label %return
@@ -156,7 +156,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN2OT4cff131lookup_expert_encoding_for_codeEj(i32 noundef %sid) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 256) i32 @_ZN2OT4cff131lookup_expert_encoding_for_codeEj(i32 noundef %sid) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp ult i32 %sid, 379
   br i1 %cmp, label %if.then, label %return
@@ -174,7 +174,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN2OT4cff129lookup_expert_charset_for_sidEj(i32 noundef %glyph) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 65536) i32 @_ZN2OT4cff129lookup_expert_charset_for_sidEj(i32 noundef %glyph) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp ult i32 %glyph, 166
   br i1 %cmp, label %if.then, label %return
@@ -192,7 +192,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN2OT4cff136lookup_expert_subset_charset_for_sidEj(i32 noundef %glyph) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 65536) i32 @_ZN2OT4cff136lookup_expert_subset_charset_for_sidEj(i32 noundef %glyph) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp ult i32 %glyph, 87
   br i1 %cmp, label %if.then, label %return
@@ -210,7 +210,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN2OT4cff131lookup_expert_charset_for_glyphEj(i32 noundef %sid) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 256) i32 @_ZN2OT4cff131lookup_expert_charset_for_glyphEj(i32 noundef %sid) local_unnamed_addr #0 align 2 {
 while.body.lr.ph.i.i.i.i:
   %conv.i.i.i.i.i = trunc i32 %sid to i16
   br label %while.body.i.i.i.i
@@ -257,7 +257,7 @@ cond.end:                                         ; preds = %if.end8.i.i.i.i, %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN2OT4cff138lookup_expert_subset_charset_for_glyphEj(i32 noundef %sid) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 256) i32 @_ZN2OT4cff138lookup_expert_subset_charset_for_glyphEj(i32 noundef %sid) local_unnamed_addr #0 align 2 {
 while.body.lr.ph.i.i.i.i:
   %conv.i.i.i.i.i = trunc i32 %sid to i16
   br label %while.body.i.i.i.i
@@ -304,7 +304,7 @@ cond.end:                                         ; preds = %if.end8.i.i.i.i, %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN2OT4cff132lookup_standard_encoding_for_sidEj(i32 noundef %code) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 256) i32 @_ZN2OT4cff132lookup_standard_encoding_for_sidEj(i32 noundef %code) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp ult i32 %code, 256
   br i1 %cmp, label %if.then, label %return
@@ -2125,28 +2125,31 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27.thread: ; preds = %_ZN3CFF1
   %.pre105 = load double, ptr %arrayidx.i26, align 8
   %cff110 = getelementptr inbounds i8, ptr %param, i64 40
   %4 = load ptr, ptr %cff110, align 8
+  %5 = insertelement <2 x double> poison, double %3, i64 0
+  %6 = insertelement <2 x double> %5, double %.pre105, i64 1
   br label %if.end.i32
 
 _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27: ; preds = %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit
-  %5 = load i64, ptr @_hb_NullPool, align 16
-  store i64 %5, ptr @_hb_CrapPool, align 16
-  %6 = bitcast i64 %5 to double
+  %7 = load i64, ptr @_hb_NullPool, align 16
+  store i64 %7, ptr @_hb_CrapPool, align 16
+  %8 = bitcast i64 %7 to double
   %cff = getelementptr inbounds i8, ptr %param, i64 40
-  %7 = load ptr, ptr %cff, align 8
+  %9 = load ptr, ptr %cff, align 8
   %cmp.not.i29 = icmp ugt i32 %0, 1
+  %10 = insertelement <2 x double> poison, double %2, i64 0
+  %11 = insertelement <2 x double> %10, double %8, i64 1
   br i1 %cmp.not.i29, label %if.end.i32, label %if.then.i30
 
 if.then.i30:                                      ; preds = %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27
-  %8 = load i64, ptr @_hb_NullPool, align 16
-  store i64 %8, ptr @_hb_CrapPool, align 16
-  %9 = bitcast i64 %8 to double
+  %12 = load i64, ptr @_hb_NullPool, align 16
+  store i64 %12, ptr @_hb_CrapPool, align 16
+  %13 = bitcast i64 %12 to double
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit36
 
 if.end.i32:                                       ; preds = %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27.thread, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27
-  %10 = phi ptr [ %4, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27.thread ], [ %7, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27 ]
+  %14 = phi ptr [ %4, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27.thread ], [ %9, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27 ]
   %cff113 = phi ptr [ %cff110, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27.thread ], [ %cff, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27 ]
-  %11 = phi double [ %.pre105, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27.thread ], [ %6, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27 ]
-  %12 = phi double [ %3, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27.thread ], [ %2, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27 ]
+  %15 = phi <2 x double> [ %6, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27.thread ], [ %11, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27 ]
   %sub7 = add i32 %0, -2
   %elements.i33 = getelementptr inbounds i8, ptr %env, i64 24
   %idxprom.i34 = zext i32 %sub7 to i64
@@ -2155,54 +2158,54 @@ if.end.i32:                                       ; preds = %_ZN3CFF11cff_stack_
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit36
 
 _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit36: ; preds = %if.then.i30, %if.end.i32
-  %13 = phi ptr [ %7, %if.then.i30 ], [ %10, %if.end.i32 ]
+  %16 = phi ptr [ %9, %if.then.i30 ], [ %14, %if.end.i32 ]
   %cff112 = phi ptr [ %cff, %if.then.i30 ], [ %cff113, %if.end.i32 ]
-  %14 = phi double [ %6, %if.then.i30 ], [ %11, %if.end.i32 ]
-  %15 = phi double [ %2, %if.then.i30 ], [ %12, %if.end.i32 ]
-  %16 = phi double [ %9, %if.then.i30 ], [ %.pre106, %if.end.i32 ]
-  %conv.i = fptosi double %16 to i32
+  %17 = phi double [ %13, %if.then.i30 ], [ %.pre106, %if.end.i32 ]
+  %18 = phi <2 x double> [ %11, %if.then.i30 ], [ %15, %if.end.i32 ]
+  %19 = shufflevector <2 x double> %18, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %conv.i = fptosi double %17 to i32
   %cmp.i.i = icmp ult i32 %conv.i, 256
   br i1 %cmp.i.i, label %_ZN2OT4cff132lookup_standard_encoding_for_sidEj.exit.i, label %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit
 
 _ZN2OT4cff132lookup_standard_encoding_for_sidEj.exit.i: ; preds = %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit36
   %idxprom.i.i = zext nneg i32 %conv.i to i64
   %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @_ZL24standard_encoding_to_sid, i64 0, i64 %idxprom.i.i
-  %17 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i = zext i8 %17 to i32
-  %charset.i = getelementptr inbounds i8, ptr %13, i64 80
-  %18 = load ptr, ptr %charset.i, align 8
-  %cmp3.not.i = icmp eq ptr %18, @_hb_NullPool
+  %20 = load i8, ptr %arrayidx.i.i, align 1
+  %conv.i.i = zext i8 %20 to i32
+  %charset.i = getelementptr inbounds i8, ptr %16, i64 80
+  %21 = load ptr, ptr %charset.i, align 8
+  %cmp3.not.i = icmp eq ptr %21, @_hb_NullPool
   br i1 %cmp3.not.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN2OT4cff132lookup_standard_encoding_for_sidEj.exit.i
-  %num_glyphs.i = getelementptr inbounds i8, ptr %13, i64 296
-  %19 = load i32, ptr %num_glyphs.i, align 8
-  %call6.i = tail call noundef i32 @_ZNK3CFF7Charset9get_glyphEjj(ptr noundef nonnull align 1 dereferenceable(5) %18, i32 noundef %conv.i.i, i32 noundef %19)
+  %num_glyphs.i = getelementptr inbounds i8, ptr %16, i64 296
+  %22 = load i32, ptr %num_glyphs.i, align 8
+  %call6.i = tail call noundef i32 @_ZNK3CFF7Charset9get_glyphEjj(ptr noundef nonnull align 1 dereferenceable(5) %21, i32 noundef %conv.i.i, i32 noundef %22)
   %.pre107 = load i32, ptr %count.i, align 4
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit
 
 if.else.i:                                        ; preds = %_ZN2OT4cff132lookup_standard_encoding_for_sidEj.exit.i
-  %CharsetOffset.i = getelementptr inbounds i8, ptr %13, i64 244
-  %20 = load i32, ptr %CharsetOffset.i, align 4
-  %cmp7.i = icmp eq i32 %20, 0
+  %CharsetOffset.i = getelementptr inbounds i8, ptr %16, i64 244
+  %23 = load i32, ptr %CharsetOffset.i, align 4
+  %cmp7.i = icmp eq i32 %23, 0
   %cmp8.i = icmp ult i32 %conv.i, 229
   %or.cond.i = and i1 %cmp8.i, %cmp7.i
   %call..i = select i1 %or.cond.i, i32 %conv.i.i, i32 0
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit
 
 _ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit: ; preds = %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit36, %if.then4.i, %if.else.i
-  %21 = phi i32 [ %.pre107, %if.then4.i ], [ %0, %if.else.i ], [ %0, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit36 ]
+  %24 = phi i32 [ %.pre107, %if.then4.i ], [ %0, %if.else.i ], [ %0, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit36 ]
   %retval.0.i37 = phi i32 [ %call6.i, %if.then4.i ], [ %call..i, %if.else.i ], [ 0, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit36 ]
-  %22 = load ptr, ptr %cff112, align 8
+  %25 = load ptr, ptr %cff112, align 8
   %sub13 = add i32 %0, -1
-  %cmp.not.i39 = icmp ugt i32 %21, %sub13
+  %cmp.not.i39 = icmp ugt i32 %24, %sub13
   br i1 %cmp.not.i39, label %if.end.i42, label %if.then.i40
 
 if.then.i40:                                      ; preds = %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit
   store i8 1, ptr %argStack, align 8
-  %23 = load i64, ptr @_hb_NullPool, align 16
-  store i64 %23, ptr @_hb_CrapPool, align 16
-  %24 = bitcast i64 %23 to double
+  %26 = load i64, ptr @_hb_NullPool, align 16
+  store i64 %26, ptr @_hb_CrapPool, align 16
+  %27 = bitcast i64 %26 to double
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit46
 
 if.end.i42:                                       ; preds = %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit
@@ -2213,31 +2216,31 @@ if.end.i42:                                       ; preds = %_ZNK2OT4cff119accel
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit46
 
 _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit46: ; preds = %if.then.i40, %if.end.i42
-  %25 = phi double [ %24, %if.then.i40 ], [ %.pre108, %if.end.i42 ]
-  %conv.i47 = fptosi double %25 to i32
+  %28 = phi double [ %27, %if.then.i40 ], [ %.pre108, %if.end.i42 ]
+  %conv.i47 = fptosi double %28 to i32
   %cmp.i.i48 = icmp ult i32 %conv.i47, 256
   br i1 %cmp.i.i48, label %_ZN2OT4cff132lookup_standard_encoding_for_sidEj.exit.i50, label %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit65
 
 _ZN2OT4cff132lookup_standard_encoding_for_sidEj.exit.i50: ; preds = %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit46
   %idxprom.i.i51 = zext nneg i32 %conv.i47 to i64
   %arrayidx.i.i52 = getelementptr inbounds [256 x i8], ptr @_ZL24standard_encoding_to_sid, i64 0, i64 %idxprom.i.i51
-  %26 = load i8, ptr %arrayidx.i.i52, align 1
-  %conv.i.i53 = zext i8 %26 to i32
-  %charset.i54 = getelementptr inbounds i8, ptr %22, i64 80
-  %27 = load ptr, ptr %charset.i54, align 8
-  %cmp3.not.i55 = icmp eq ptr %27, @_hb_NullPool
+  %29 = load i8, ptr %arrayidx.i.i52, align 1
+  %conv.i.i53 = zext i8 %29 to i32
+  %charset.i54 = getelementptr inbounds i8, ptr %25, i64 80
+  %30 = load ptr, ptr %charset.i54, align 8
+  %cmp3.not.i55 = icmp eq ptr %30, @_hb_NullPool
   br i1 %cmp3.not.i55, label %if.else.i59, label %if.then4.i56
 
 if.then4.i56:                                     ; preds = %_ZN2OT4cff132lookup_standard_encoding_for_sidEj.exit.i50
-  %num_glyphs.i57 = getelementptr inbounds i8, ptr %22, i64 296
-  %28 = load i32, ptr %num_glyphs.i57, align 8
-  %call6.i58 = tail call noundef i32 @_ZNK3CFF7Charset9get_glyphEjj(ptr noundef nonnull align 1 dereferenceable(5) %27, i32 noundef %conv.i.i53, i32 noundef %28)
+  %num_glyphs.i57 = getelementptr inbounds i8, ptr %25, i64 296
+  %31 = load i32, ptr %num_glyphs.i57, align 8
+  %call6.i58 = tail call noundef i32 @_ZNK3CFF7Charset9get_glyphEjj(ptr noundef nonnull align 1 dereferenceable(5) %30, i32 noundef %conv.i.i53, i32 noundef %31)
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit65
 
 if.else.i59:                                      ; preds = %_ZN2OT4cff132lookup_standard_encoding_for_sidEj.exit.i50
-  %CharsetOffset.i60 = getelementptr inbounds i8, ptr %22, i64 244
-  %29 = load i32, ptr %CharsetOffset.i60, align 4
-  %cmp7.i61 = icmp eq i32 %29, 0
+  %CharsetOffset.i60 = getelementptr inbounds i8, ptr %25, i64 244
+  %32 = load i32, ptr %CharsetOffset.i60, align 4
+  %cmp7.i61 = icmp eq i32 %32, 0
   %cmp8.i62 = icmp ult i32 %conv.i47, 229
   %or.cond.i63 = and i1 %cmp8.i62, %cmp7.i61
   %call..i64 = select i1 %or.cond.i63, i32 %conv.i.i53, i32 0
@@ -2248,8 +2251,8 @@ _ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_pr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %base_bounds, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %accent_bounds, i8 0, i64 32, i1 false)
   %in_seac = getelementptr inbounds i8, ptr %env, i64 4480
-  %30 = load i8, ptr %in_seac, align 8
-  %tobool = trunc i8 %30 to i1
+  %33 = load i8, ptr %in_seac, align 8
+  %tobool = trunc i8 %33 to i1
   %tobool.not = xor i1 %tobool, true
   %tobool17 = icmp ne i32 %retval.0.i37, 0
   %or.cond = and i1 %tobool17, %tobool.not
@@ -2258,28 +2261,28 @@ _ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_pr
   br i1 %or.cond1, label %land.lhs.true20, label %if.else
 
 land.lhs.true20:                                  ; preds = %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit65
-  %31 = load ptr, ptr %cff112, align 8
-  %call22 = call fastcc noundef zeroext i1 @_ZL11_get_boundsPKN2OT4cff113accelerator_tEjR8bounds_tb(ptr noundef %31, i32 noundef %retval.0.i37, ptr noundef nonnull align 8 dereferenceable(32) %base_bounds, i1 noundef zeroext true)
+  %34 = load ptr, ptr %cff112, align 8
+  %call22 = call fastcc noundef zeroext i1 @_ZL11_get_boundsPKN2OT4cff113accelerator_tEjR8bounds_tb(ptr noundef %34, i32 noundef %retval.0.i37, ptr noundef nonnull align 8 dereferenceable(32) %base_bounds, i1 noundef zeroext true)
   br i1 %call22, label %land.lhs.true23, label %if.else
 
 land.lhs.true23:                                  ; preds = %land.lhs.true20
-  %32 = load ptr, ptr %cff112, align 8
-  %call25 = call fastcc noundef zeroext i1 @_ZL11_get_boundsPKN2OT4cff113accelerator_tEjR8bounds_tb(ptr noundef %32, i32 noundef %retval.0.i49, ptr noundef nonnull align 8 dereferenceable(32) %accent_bounds, i1 noundef zeroext true)
+  %35 = load ptr, ptr %cff112, align 8
+  %call25 = call fastcc noundef zeroext i1 @_ZL11_get_boundsPKN2OT4cff113accelerator_tEjR8bounds_tb(ptr noundef %35, i32 noundef %retval.0.i49, ptr noundef nonnull align 8 dereferenceable(32) %accent_bounds, i1 noundef zeroext true)
   br i1 %call25, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true23
   %bounds = getelementptr inbounds i8, ptr %param, i64 8
   %max.i.i = getelementptr inbounds i8, ptr %param, i64 24
-  %33 = load double, ptr %max.i.i, align 8
-  %34 = load double, ptr %bounds, align 8
-  %cmp.i.i.i.i.i = fcmp ule double %33, %34
+  %36 = load double, ptr %max.i.i, align 8
+  %37 = load double, ptr %bounds, align 8
+  %cmp.i.i.i.i.i = fcmp ule double %36, %37
   %y.i.i = getelementptr inbounds i8, ptr %param, i64 16
   %y5.i.i = getelementptr inbounds i8, ptr %param, i64 32
-  %35 = load double, ptr %y5.i.i, align 8
-  %36 = load double, ptr %y.i.i, align 8
-  %cmp.i.i.i1.i.i = fcmp ule double %35, %36
-  %37 = select i1 %cmp.i.i.i.i.i, i1 true, i1 %cmp.i.i.i1.i.i
-  br i1 %37, label %if.then.i69, label %if.else.i66
+  %38 = load double, ptr %y5.i.i, align 8
+  %39 = load double, ptr %y.i.i, align 8
+  %cmp.i.i.i1.i.i = fcmp ule double %38, %39
+  %40 = select i1 %cmp.i.i.i.i.i, i1 true, i1 %cmp.i.i.i1.i.i
+  br i1 %40, label %if.then.i69, label %if.else.i66
 
 if.then.i69:                                      ; preds = %if.then
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bounds, ptr noundef nonnull align 8 dereferenceable(32) %base_bounds, i64 32, i1 false)
@@ -2287,133 +2290,129 @@ if.then.i69:                                      ; preds = %if.then
 
 if.else.i66:                                      ; preds = %if.then
   %max.i10.i = getelementptr inbounds i8, ptr %base_bounds, i64 16
-  %38 = load double, ptr %max.i10.i, align 8
-  %39 = load double, ptr %base_bounds, align 8
-  %cmp.i.i.i.i11.i = fcmp ule double %38, %39
+  %41 = load double, ptr %max.i10.i, align 8
+  %42 = load double, ptr %base_bounds, align 8
+  %cmp.i.i.i.i11.i = fcmp ule double %41, %42
   %y.i12.i = getelementptr inbounds i8, ptr %base_bounds, i64 8
   %y5.i13.i = getelementptr inbounds i8, ptr %base_bounds, i64 24
-  %40 = load double, ptr %y5.i13.i, align 8
-  %41 = load double, ptr %y.i12.i, align 8
-  %cmp.i.i.i1.i14.i = fcmp ule double %40, %41
-  %42 = select i1 %cmp.i.i.i.i11.i, i1 true, i1 %cmp.i.i.i1.i14.i
-  br i1 %42, label %_ZN8bounds_t5mergeERKS_.exit, label %if.then3.i
+  %43 = load double, ptr %y5.i13.i, align 8
+  %44 = load double, ptr %y.i12.i, align 8
+  %cmp.i.i.i1.i14.i = fcmp ule double %43, %44
+  %45 = select i1 %cmp.i.i.i.i11.i, i1 true, i1 %cmp.i.i.i1.i14.i
+  br i1 %45, label %_ZN8bounds_t5mergeERKS_.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.else.i66
-  %cmp.i.i.i = fcmp ogt double %34, %39
+  %cmp.i.i.i = fcmp ogt double %37, %42
   br i1 %cmp.i.i.i, label %if.then7.i, label %if.end.i67
 
 if.then7.i:                                       ; preds = %if.then3.i
-  store double %39, ptr %bounds, align 8
+  store double %42, ptr %bounds, align 8
   br label %if.end.i67
 
 if.end.i67:                                       ; preds = %if.then7.i, %if.then3.i
-  %cmp.i.i68 = fcmp ogt double %38, %33
+  %cmp.i.i68 = fcmp ogt double %41, %36
   br i1 %cmp.i.i68, label %if.then16.i, label %if.end21.i
 
 if.then16.i:                                      ; preds = %if.end.i67
-  store double %38, ptr %max.i.i, align 8
+  store double %41, ptr %max.i.i, align 8
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then16.i, %if.end.i67
-  %cmp.i.i15.i = fcmp ogt double %36, %41
+  %cmp.i.i15.i = fcmp ogt double %39, %44
   br i1 %cmp.i.i15.i, label %if.then26.i, label %if.end31.i
 
 if.then26.i:                                      ; preds = %if.end21.i
-  store double %41, ptr %y.i.i, align 8
+  store double %44, ptr %y.i.i, align 8
   br label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.then26.i, %if.end21.i
-  %cmp.i16.i = fcmp ogt double %40, %35
+  %cmp.i16.i = fcmp ogt double %43, %38
   br i1 %cmp.i16.i, label %if.then37.i, label %_ZN8bounds_t5mergeERKS_.exit
 
 if.then37.i:                                      ; preds = %if.end31.i
-  store double %40, ptr %y5.i.i, align 8
+  store double %43, ptr %y5.i.i, align 8
   br label %_ZN8bounds_t5mergeERKS_.exit
 
 _ZN8bounds_t5mergeERKS_.exit:                     ; preds = %if.then.i69, %if.else.i66, %if.end31.i, %if.then37.i
-  %max.i.i70 = getelementptr inbounds i8, ptr %accent_bounds, i64 16
-  %43 = load double, ptr %max.i.i70, align 8
-  %44 = load double, ptr %accent_bounds, align 8
-  %cmp.i.i.i.i.i71 = fcmp ule double %43, %44
-  %y.i.i72 = getelementptr inbounds i8, ptr %accent_bounds, i64 8
-  %y5.i.i73 = getelementptr inbounds i8, ptr %accent_bounds, i64 24
-  %45 = load double, ptr %y5.i.i73, align 8
-  %46 = load double, ptr %y.i.i72, align 8
-  %cmp.i.i.i1.i.i74 = fcmp ule double %45, %46
-  %47 = select i1 %cmp.i.i.i.i.i71, i1 true, i1 %cmp.i.i.i1.i.i74
-  br i1 %47, label %_ZN8bounds_t6offsetERKN3CFF7point_tE.exit, label %if.then.i75
+  %46 = load <4 x double>, ptr %accent_bounds, align 8
+  %47 = extractelement <4 x double> %46, i64 0
+  %48 = extractelement <4 x double> %46, i64 2
+  %cmp.i.i.i.i.i71 = fcmp ule double %48, %47
+  %49 = extractelement <4 x double> %46, i64 1
+  %50 = extractelement <4 x double> %46, i64 3
+  %cmp.i.i.i1.i.i74 = fcmp ule double %50, %49
+  %51 = select i1 %cmp.i.i.i.i.i71, i1 true, i1 %cmp.i.i.i1.i.i74
+  br i1 %51, label %_ZN8bounds_t6offsetERKN3CFF7point_tE.exit, label %if.then.i75
 
 if.then.i75:                                      ; preds = %_ZN8bounds_t5mergeERKS_.exit
-  %add.i.i.i.i = fadd double %15, %44
-  store double %add.i.i.i.i, ptr %accent_bounds, align 8
-  %add.i.i2.i.i = fadd double %14, %46
-  store double %add.i.i2.i.i, ptr %y.i.i72, align 8
-  %add.i.i.i3.i = fadd double %15, %43
-  store double %add.i.i.i3.i, ptr %max.i.i70, align 8
-  %add.i.i2.i6.i = fadd double %14, %45
-  store double %add.i.i2.i6.i, ptr %y5.i.i73, align 8
+  %52 = fadd <4 x double> %19, %46
+  store <4 x double> %52, ptr %accent_bounds, align 8
+  %53 = extractelement <4 x double> %52, i64 0
+  %54 = extractelement <4 x double> %52, i64 1
+  %55 = extractelement <4 x double> %52, i64 2
+  %56 = extractelement <4 x double> %52, i64 3
   br label %_ZN8bounds_t6offsetERKN3CFF7point_tE.exit
 
 _ZN8bounds_t6offsetERKN3CFF7point_tE.exit:        ; preds = %_ZN8bounds_t5mergeERKS_.exit, %if.then.i75
-  %48 = phi double [ %46, %_ZN8bounds_t5mergeERKS_.exit ], [ %add.i.i2.i.i, %if.then.i75 ]
-  %49 = phi double [ %45, %_ZN8bounds_t5mergeERKS_.exit ], [ %add.i.i2.i6.i, %if.then.i75 ]
-  %50 = phi double [ %44, %_ZN8bounds_t5mergeERKS_.exit ], [ %add.i.i.i.i, %if.then.i75 ]
-  %51 = phi double [ %43, %_ZN8bounds_t5mergeERKS_.exit ], [ %add.i.i.i3.i, %if.then.i75 ]
-  %52 = load double, ptr %max.i.i, align 8
-  %53 = load double, ptr %bounds, align 8
-  %cmp.i.i.i.i.i78 = fcmp ule double %52, %53
-  %54 = load double, ptr %y5.i.i, align 8
-  %55 = load double, ptr %y.i.i, align 8
-  %cmp.i.i.i1.i.i81 = fcmp ule double %54, %55
-  %56 = select i1 %cmp.i.i.i.i.i78, i1 true, i1 %cmp.i.i.i1.i.i81
-  br i1 %56, label %if.then.i101, label %if.else.i82
+  %57 = phi double [ %49, %_ZN8bounds_t5mergeERKS_.exit ], [ %54, %if.then.i75 ]
+  %58 = phi double [ %50, %_ZN8bounds_t5mergeERKS_.exit ], [ %56, %if.then.i75 ]
+  %59 = phi double [ %47, %_ZN8bounds_t5mergeERKS_.exit ], [ %53, %if.then.i75 ]
+  %60 = phi double [ %48, %_ZN8bounds_t5mergeERKS_.exit ], [ %55, %if.then.i75 ]
+  %61 = load double, ptr %max.i.i, align 8
+  %62 = load double, ptr %bounds, align 8
+  %cmp.i.i.i.i.i78 = fcmp ule double %61, %62
+  %63 = load double, ptr %y5.i.i, align 8
+  %64 = load double, ptr %y.i.i, align 8
+  %cmp.i.i.i1.i.i81 = fcmp ule double %63, %64
+  %65 = select i1 %cmp.i.i.i.i.i78, i1 true, i1 %cmp.i.i.i1.i.i81
+  br i1 %65, label %if.then.i101, label %if.else.i82
 
 if.then.i101:                                     ; preds = %_ZN8bounds_t6offsetERKN3CFF7point_tE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bounds, ptr noundef nonnull align 8 dereferenceable(32) %accent_bounds, i64 32, i1 false)
   br label %if.end
 
 if.else.i82:                                      ; preds = %_ZN8bounds_t6offsetERKN3CFF7point_tE.exit
-  %cmp.i.i.i.i11.i84 = fcmp ule double %51, %50
-  %cmp.i.i.i1.i14.i87 = fcmp ule double %49, %48
-  %57 = select i1 %cmp.i.i.i.i11.i84, i1 true, i1 %cmp.i.i.i1.i14.i87
-  br i1 %57, label %if.end, label %if.then3.i88
+  %cmp.i.i.i.i11.i84 = fcmp ule double %60, %59
+  %cmp.i.i.i1.i14.i87 = fcmp ule double %58, %57
+  %66 = select i1 %cmp.i.i.i.i11.i84, i1 true, i1 %cmp.i.i.i1.i14.i87
+  br i1 %66, label %if.end, label %if.then3.i88
 
 if.then3.i88:                                     ; preds = %if.else.i82
-  %cmp.i.i.i89 = fcmp ogt double %53, %50
+  %cmp.i.i.i89 = fcmp ogt double %62, %59
   br i1 %cmp.i.i.i89, label %if.then7.i99, label %if.end.i90
 
 if.then7.i99:                                     ; preds = %if.then3.i88
-  store double %50, ptr %bounds, align 8
+  store double %59, ptr %bounds, align 8
   br label %if.end.i90
 
 if.end.i90:                                       ; preds = %if.then7.i99, %if.then3.i88
-  %cmp.i.i91 = fcmp ogt double %51, %52
+  %cmp.i.i91 = fcmp ogt double %60, %61
   br i1 %cmp.i.i91, label %if.then16.i98, label %if.end21.i92
 
 if.then16.i98:                                    ; preds = %if.end.i90
-  store double %51, ptr %max.i.i, align 8
+  store double %60, ptr %max.i.i, align 8
   br label %if.end21.i92
 
 if.end21.i92:                                     ; preds = %if.then16.i98, %if.end.i90
-  %cmp.i.i15.i93 = fcmp ogt double %55, %48
+  %cmp.i.i15.i93 = fcmp ogt double %64, %57
   br i1 %cmp.i.i15.i93, label %if.then26.i97, label %if.end31.i94
 
 if.then26.i97:                                    ; preds = %if.end21.i92
-  store double %48, ptr %y.i.i, align 8
+  store double %57, ptr %y.i.i, align 8
   br label %if.end31.i94
 
 if.end31.i94:                                     ; preds = %if.then26.i97, %if.end21.i92
-  %cmp.i16.i95 = fcmp ogt double %49, %54
+  %cmp.i16.i95 = fcmp ogt double %58, %63
   br i1 %cmp.i16.i95, label %if.then37.i96, label %if.end
 
 if.then37.i96:                                    ; preds = %if.end31.i94
-  store double %49, ptr %y5.i.i, align 8
+  store double %58, ptr %y5.i.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %land.lhs.true23, %land.lhs.true20, %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit65
   %length.i.i = getelementptr inbounds i8, ptr %env, i64 8
-  %58 = load i32, ptr %length.i.i, align 8
-  %add.i.i = add i32 %58, 1
+  %67 = load i32, ptr %length.i.i, align 8
+  %add.i.i = add i32 %67, 1
   %backwards_length.i.i = getelementptr inbounds i8, ptr %env, i64 12
   store i32 %add.i.i, ptr %backwards_length.i.i, align 4
   br label %if.end

@@ -7164,7 +7164,7 @@ _ZN7jsonnet8internal11SortImports19duplicatedVariablesERKSt6vectorINS1_10ImportE
   %36 = ptrtoint ptr %32 to i64
   %37 = sub i64 %35, %36
   %38 = sdiv exact i64 %37, 232
-  %39 = call i64 @llvm.ctlz.i64(i64 %38, i1 true), !range !45
+  %39 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %38, i1 true)
   %40 = shl nuw nsw i64 %39, 1
   %41 = xor i64 %40, 126
   call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_less_iterEEvT_SD_T0_T1_(ptr %32, ptr %33, i64 noundef %41)
@@ -7182,7 +7182,7 @@ _ZN7jsonnet8internal11SortImports19duplicatedVariablesERKSt6vectorINS1_10ImportE
   call void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_(ptr nonnull %.sroa.0.05.i.i.i.i)
   %45 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i.i.i, i64 232
   %.not.i.i.i.i = icmp eq ptr %45, %33
-  br i1 %.not.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !46
+  br i1 %.not.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !45
 
 46:                                               ; preds = %34
   call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_T0_(ptr %32, ptr %33)
@@ -7269,7 +7269,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE9push_backERKS2_.exit: ; 
   %43 = sub i64 %41, %42
   %44 = sdiv exact i64 %43, 40
   %45 = icmp ugt i64 %44, %38
-  br i1 %45, label %25, label %.loopexit, !llvm.loop !47
+  br i1 %45, label %25, label %.loopexit, !llvm.loop !46
 
 .loopexit15:                                      ; preds = %31, %36
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -7401,7 +7401,7 @@ _ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %47 = add nsw i64 %.012.i.i.i.i.i, -1
   %48 = icmp ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %48, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !48
+  br i1 %48, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !47
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
   %.pre = load ptr, ptr %35, align 8
@@ -7452,7 +7452,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i35: ; preds = %58, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i33
   %59 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i.i, i64 40
   %.not.i.i.i36 = icmp eq ptr %59, %49
-  br i1 %.not.i.i.i36, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RSaIT0_E.exit, label %.lr.ph.i.i.i26, !llvm.loop !49
+  br i1 %.not.i.i.i36, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RSaIT0_E.exit, label %.lr.ph.i.i.i26, !llvm.loop !48
 
 60:                                               ; preds = %34
   %61 = icmp sgt i64 %38, 0
@@ -7474,7 +7474,7 @@ _ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i35: ; preds = %5
   %67 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i41, i64 40
   %68 = add nsw i64 %.012.i.i.i.i.i40, -1
   %69 = icmp ugt i64 %.012.i.i.i.i.i40, 1
-  br i1 %69, label %.lr.ph.i.i.i.i.i39, label %_ZSt4copyIPN7jsonnet8internal13FodderElementES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !50
+  br i1 %69, label %.lr.ph.i.i.i.i.i39, label %_ZSt4copyIPN7jsonnet8internal13FodderElementES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !49
 
 _ZSt4copyIPN7jsonnet8internal13FodderElementES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i39
   %.pre47 = load ptr, ptr %1, align 8
@@ -7508,7 +7508,7 @@ _ZSt10_ConstructIN7jsonnet8internal13FodderElementEJRS2_EEvPT_DpOT0_.exit.i.i.i.
   %76 = getelementptr inbounds i8, ptr %.01215.i.i.i.i, i64 40
   %77 = getelementptr inbounds i8, ptr %.016.i.i.i.i, i64 40
   %.not.i.i.i.i = icmp eq ptr %76, %70
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RSaIT0_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !51
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RSaIT0_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !50
 
 78:                                               ; preds = %.lr.ph.i.i.i.i
   %79 = landingpad { ptr, i32 }
@@ -7673,7 +7673,7 @@ _ZSt8_DestroyIPN7jsonnet8internal5Local4BindEEvT_S5_.exit.i.i.i.i.i: ; preds = %
   call void @_ZN7jsonnet8internal5Local4BindD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %.05.i.i.i.i) #24
   %55 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 176
   %.not.i.i.i.i = icmp eq ptr %55, %54
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal5Local4BindES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !52
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal5Local4BindES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !51
 
 _ZSt8_DestroyIPN7jsonnet8internal5Local4BindES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %8, align 8
@@ -7748,7 +7748,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit: ; preds = %_ZS
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %70 = icmp sgt i64 %indvars.iv, 0
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, -1
-  br i1 %70, label %.invoke, label %._crit_edge.loopexit, !llvm.loop !53
+  br i1 %70, label %.invoke, label %._crit_edge.loopexit, !llvm.loop !52
 
 71:                                               ; preds = %34
   %72 = landingpad { ptr, i32 }
@@ -8047,22 +8047,22 @@ _ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERKjS8_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i ], [ %26, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERKjS8_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i ], [ %9, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERKjS8_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !alias.scope !59
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !alias.scope !58
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %35 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %36 = load <2 x ptr>, ptr %35, align 8, !alias.scope !57, !noalias !54
-  store <2 x ptr> %36, ptr %34, align 8, !alias.scope !54, !noalias !57
+  %36 = load <2 x ptr>, ptr %35, align 8, !alias.scope !56, !noalias !53
+  store <2 x ptr> %36, ptr %34, align 8, !alias.scope !53, !noalias !56
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  %39 = load ptr, ptr %38, align 8, !alias.scope !57, !noalias !54
-  store ptr %39, ptr %37, align 8, !alias.scope !54, !noalias !57
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !57, !noalias !54
+  %39 = load ptr, ptr %38, align 8, !alias.scope !56, !noalias !53
+  store ptr %39, ptr %37, align 8, !alias.scope !53, !noalias !56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !56, !noalias !53
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
   %41 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %40, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !59
 
 _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERKjS8_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %26, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERKjS8_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_.exit ], [ %41, %.lr.ph.i.i.i ]
@@ -8073,22 +8073,22 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_R
 .lr.ph.i.i.i30:                                   ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i30
   %.012.i.i.i31 = phi ptr [ %50, %.lr.ph.i.i.i30 ], [ %42, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %.0911.i.i.i32 = phi ptr [ %49, %.lr.ph.i.i.i30 ], [ %1, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i31, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i32, i64 12, i1 false), !alias.scope !66
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i31, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i32, i64 12, i1 false), !alias.scope !65
   %43 = getelementptr inbounds i8, ptr %.012.i.i.i31, i64 16
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i32, i64 16
-  %45 = load <2 x ptr>, ptr %44, align 8, !alias.scope !64, !noalias !61
-  store <2 x ptr> %45, ptr %43, align 8, !alias.scope !61, !noalias !64
+  %45 = load <2 x ptr>, ptr %44, align 8, !alias.scope !63, !noalias !60
+  store <2 x ptr> %45, ptr %43, align 8, !alias.scope !60, !noalias !63
   %46 = getelementptr inbounds i8, ptr %.012.i.i.i31, i64 32
   %47 = getelementptr inbounds i8, ptr %.0911.i.i.i32, i64 32
-  %48 = load ptr, ptr %47, align 8, !alias.scope !64, !noalias !61
-  store ptr %48, ptr %46, align 8, !alias.scope !61, !noalias !64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !64, !noalias !61
+  %48 = load ptr, ptr %47, align 8, !alias.scope !63, !noalias !60
+  store ptr %48, ptr %46, align 8, !alias.scope !60, !noalias !63
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !63, !noalias !60
   %49 = getelementptr inbounds i8, ptr %.0911.i.i.i32, i64 40
   %50 = getelementptr inbounds i8, ptr %.012.i.i.i31, i64 40
   %.not.i.i.i33 = icmp eq ptr %49, %8
-  br i1 %.not.i.i.i33, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !60
+  br i1 %.not.i.i.i33, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !59
 
 _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35: ; preds = %.lr.ph.i.i.i30, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %.0.lcssa.i.i.i34 = phi ptr [ %42, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %50, %.lr.ph.i.i.i30 ]
@@ -8184,7 +8184,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
   %20 = getelementptr inbounds i8, ptr %.sroa.08.013.i.i.i.i, i64 32
   %21 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %20, %19
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !67
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !66
 
 22:                                               ; preds = %.lr.ph.i.i.i.i
   %23 = landingpad { ptr, i32 }
@@ -8375,22 +8375,22 @@ _ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiRKjSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i ], [ %26, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiRKjSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i ], [ %9, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiRKjSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !alias.scope !73
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !alias.scope !72
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %35 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %36 = load <2 x ptr>, ptr %35, align 8, !alias.scope !71, !noalias !68
-  store <2 x ptr> %36, ptr %34, align 8, !alias.scope !68, !noalias !71
+  %36 = load <2 x ptr>, ptr %35, align 8, !alias.scope !70, !noalias !67
+  store <2 x ptr> %36, ptr %34, align 8, !alias.scope !67, !noalias !70
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  %39 = load ptr, ptr %38, align 8, !alias.scope !71, !noalias !68
-  store ptr %39, ptr %37, align 8, !alias.scope !68, !noalias !71
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !71, !noalias !68
+  %39 = load ptr, ptr %38, align 8, !alias.scope !70, !noalias !67
+  store ptr %39, ptr %37, align 8, !alias.scope !67, !noalias !70
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !70, !noalias !67
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
   %41 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %40, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !59
 
 _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiRKjSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %26, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiRKjSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_.exit ], [ %41, %.lr.ph.i.i.i ]
@@ -8401,22 +8401,22 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_R
 .lr.ph.i.i.i30:                                   ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i30
   %.012.i.i.i31 = phi ptr [ %50, %.lr.ph.i.i.i30 ], [ %42, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %.0911.i.i.i32 = phi ptr [ %49, %.lr.ph.i.i.i30 ], [ %1, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i31, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i32, i64 12, i1 false), !alias.scope !79
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i31, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i32, i64 12, i1 false), !alias.scope !78
   %43 = getelementptr inbounds i8, ptr %.012.i.i.i31, i64 16
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i32, i64 16
-  %45 = load <2 x ptr>, ptr %44, align 8, !alias.scope !77, !noalias !74
-  store <2 x ptr> %45, ptr %43, align 8, !alias.scope !74, !noalias !77
+  %45 = load <2 x ptr>, ptr %44, align 8, !alias.scope !76, !noalias !73
+  store <2 x ptr> %45, ptr %43, align 8, !alias.scope !73, !noalias !76
   %46 = getelementptr inbounds i8, ptr %.012.i.i.i31, i64 32
   %47 = getelementptr inbounds i8, ptr %.0911.i.i.i32, i64 32
-  %48 = load ptr, ptr %47, align 8, !alias.scope !77, !noalias !74
-  store ptr %48, ptr %46, align 8, !alias.scope !74, !noalias !77
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !77, !noalias !74
+  %48 = load ptr, ptr %47, align 8, !alias.scope !76, !noalias !73
+  store ptr %48, ptr %46, align 8, !alias.scope !73, !noalias !76
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !76, !noalias !73
   %49 = getelementptr inbounds i8, ptr %.0911.i.i.i32, i64 40
   %50 = getelementptr inbounds i8, ptr %.012.i.i.i31, i64 40
   %.not.i.i.i33 = icmp eq ptr %49, %8
-  br i1 %.not.i.i.i33, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !60
+  br i1 %.not.i.i.i33, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !59
 
 _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35: ; preds = %.lr.ph.i.i.i30, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %.0.lcssa.i.i.i34 = phi ptr [ %42, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %50, %.lr.ph.i.i.i30 ]
@@ -8513,22 +8513,22 @@ _ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JRK
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !alias.scope !85
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !alias.scope !84
   %27 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %28 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %29 = load <2 x ptr>, ptr %28, align 8, !alias.scope !83, !noalias !80
-  store <2 x ptr> %29, ptr %27, align 8, !alias.scope !80, !noalias !83
+  %29 = load <2 x ptr>, ptr %28, align 8, !alias.scope !82, !noalias !79
+  store <2 x ptr> %29, ptr %27, align 8, !alias.scope !79, !noalias !82
   %30 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %31 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  %32 = load ptr, ptr %31, align 8, !alias.scope !83, !noalias !80
-  store ptr %32, ptr %30, align 8, !alias.scope !80, !noalias !83
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false), !alias.scope !83, !noalias !80
+  %32 = load ptr, ptr %31, align 8, !alias.scope !82, !noalias !79
+  store ptr %32, ptr %30, align 8, !alias.scope !79, !noalias !82
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false), !alias.scope !82, !noalias !79
   %33 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %33, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !59
 
 _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %34, %.lr.ph.i.i.i ]
@@ -8539,22 +8539,22 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_R
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i27
   %.012.i.i.i28 = phi ptr [ %43, %.lr.ph.i.i.i27 ], [ %35, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %.0911.i.i.i29 = phi ptr [ %42, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i29, i64 12, i1 false), !alias.scope !91
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i29, i64 12, i1 false), !alias.scope !90
   %36 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 16
   %37 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 16
-  %38 = load <2 x ptr>, ptr %37, align 8, !alias.scope !89, !noalias !86
-  store <2 x ptr> %38, ptr %36, align 8, !alias.scope !86, !noalias !89
+  %38 = load <2 x ptr>, ptr %37, align 8, !alias.scope !88, !noalias !85
+  store <2 x ptr> %38, ptr %36, align 8, !alias.scope !85, !noalias !88
   %39 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 32
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 32
-  %41 = load ptr, ptr %40, align 8, !alias.scope !89, !noalias !86
-  store ptr %41, ptr %39, align 8, !alias.scope !86, !noalias !89
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false), !alias.scope !89, !noalias !86
+  %41 = load ptr, ptr %40, align 8, !alias.scope !88, !noalias !85
+  store ptr %41, ptr %39, align 8, !alias.scope !85, !noalias !88
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false), !alias.scope !88, !noalias !85
   %42 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 40
   %43 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 40
   %.not.i.i.i30 = icmp eq ptr %42, %5
-  br i1 %.not.i.i.i30, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !60
+  br i1 %.not.i.i.i30, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !59
 
 _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32: ; preds = %.lr.ph.i.i.i27, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %.0.lcssa.i.i.i31 = phi ptr [ %35, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %43, %.lr.ph.i.i.i27 ]
@@ -8657,22 +8657,22 @@ _ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERKjS8_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i ], [ %26, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERKjS8_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i ], [ %9, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERKjS8_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !alias.scope !97
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !alias.scope !96
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %35 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %36 = load <2 x ptr>, ptr %35, align 8, !alias.scope !95, !noalias !92
-  store <2 x ptr> %36, ptr %34, align 8, !alias.scope !92, !noalias !95
+  %36 = load <2 x ptr>, ptr %35, align 8, !alias.scope !94, !noalias !91
+  store <2 x ptr> %36, ptr %34, align 8, !alias.scope !91, !noalias !94
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  %39 = load ptr, ptr %38, align 8, !alias.scope !95, !noalias !92
-  store ptr %39, ptr %37, align 8, !alias.scope !92, !noalias !95
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !95, !noalias !92
+  %39 = load ptr, ptr %38, align 8, !alias.scope !94, !noalias !91
+  store ptr %39, ptr %37, align 8, !alias.scope !91, !noalias !94
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !94, !noalias !91
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
   %41 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %40, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !59
 
 _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERKjS8_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %26, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERKjS8_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_.exit ], [ %41, %.lr.ph.i.i.i ]
@@ -8683,22 +8683,22 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_R
 .lr.ph.i.i.i30:                                   ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i30
   %.012.i.i.i31 = phi ptr [ %50, %.lr.ph.i.i.i30 ], [ %42, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %.0911.i.i.i32 = phi ptr [ %49, %.lr.ph.i.i.i30 ], [ %1, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i31, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i32, i64 12, i1 false), !alias.scope !103
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i31, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i32, i64 12, i1 false), !alias.scope !102
   %43 = getelementptr inbounds i8, ptr %.012.i.i.i31, i64 16
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i32, i64 16
-  %45 = load <2 x ptr>, ptr %44, align 8, !alias.scope !101, !noalias !98
-  store <2 x ptr> %45, ptr %43, align 8, !alias.scope !98, !noalias !101
+  %45 = load <2 x ptr>, ptr %44, align 8, !alias.scope !100, !noalias !97
+  store <2 x ptr> %45, ptr %43, align 8, !alias.scope !97, !noalias !100
   %46 = getelementptr inbounds i8, ptr %.012.i.i.i31, i64 32
   %47 = getelementptr inbounds i8, ptr %.0911.i.i.i32, i64 32
-  %48 = load ptr, ptr %47, align 8, !alias.scope !101, !noalias !98
-  store ptr %48, ptr %46, align 8, !alias.scope !98, !noalias !101
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !101, !noalias !98
+  %48 = load ptr, ptr %47, align 8, !alias.scope !100, !noalias !97
+  store ptr %48, ptr %46, align 8, !alias.scope !97, !noalias !100
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !100, !noalias !97
   %49 = getelementptr inbounds i8, ptr %.0911.i.i.i32, i64 40
   %50 = getelementptr inbounds i8, ptr %.012.i.i.i31, i64 40
   %.not.i.i.i33 = icmp eq ptr %49, %8
-  br i1 %.not.i.i.i33, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !60
+  br i1 %.not.i.i.i33, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !59
 
 _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35: ; preds = %.lr.ph.i.i.i30, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %.0.lcssa.i.i.i34 = phi ptr [ %42, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %50, %.lr.ph.i.i.i30 ]
@@ -9012,7 +9012,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit18: ; preds = %_
   tail call void @_ZN7jsonnet8internal8ArgParamD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %.05.i.i.i.i21) #24
   %34 = getelementptr inbounds i8, ptr %.05.i.i.i.i21, i64 88
   %.not.i.i.i.i22 = icmp eq ptr %34, %33
-  br i1 %.not.i.i.i.i22, label %_ZSt8_DestroyIPN7jsonnet8internal8ArgParamES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i20, !llvm.loop !104
+  br i1 %.not.i.i.i.i22, label %_ZSt8_DestroyIPN7jsonnet8internal8ArgParamES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i20, !llvm.loop !103
 
 _ZSt8_DestroyIPN7jsonnet8internal8ArgParamES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i20
   %.pr.i23 = load ptr, ptr %30, align 8
@@ -9208,7 +9208,7 @@ define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev(
   tail call void @_ZN7jsonnet8internal8ArgParamD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %.05.i.i.i) #24
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 88
   %.not.i.i.i = icmp eq ptr %5, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal8ArgParamES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !104
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal8ArgParamES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !103
 
 _ZSt8_DestroyIPN7jsonnet8internal8ArgParamES2_EvT_S4_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -9278,7 +9278,7 @@ _ZSt10_ConstructIN7jsonnet8internal8ArgParamEJRKS2_EEvPT_DpOT0_.exit: ; preds = 
   %20 = getelementptr inbounds i8, ptr %.sroa.08.018, i64 88
   %21 = getelementptr inbounds i8, ptr %.019, i64 88
   %.not = icmp eq ptr %20, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !105
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
 
 22:                                               ; preds = %.lr.ph
   %23 = landingpad { ptr, i32 }
@@ -9297,7 +9297,7 @@ _ZSt10_ConstructIN7jsonnet8internal8ArgParamEJRKS2_EEvPT_DpOT0_.exit: ; preds = 
   tail call void @_ZN7jsonnet8internal8ArgParamD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %.05.i.i) #24
   %26 = getelementptr inbounds i8, ptr %.05.i.i, i64 88
   %.not.i.i = icmp eq ptr %26, %.019
-  br i1 %.not.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal8ArgParamEEvT_S4_.exit, label %.lr.ph.i.i, !llvm.loop !104
+  br i1 %.not.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal8ArgParamEEvT_S4_.exit, label %.lr.ph.i.i, !llvm.loop !103
 
 _ZSt8_DestroyIPN7jsonnet8internal8ArgParamEEvT_S4_.exit: ; preds = %.lr.ph.i.i, %.body
   invoke void @__cxa_rethrow() #28
@@ -9546,7 +9546,7 @@ _ZNSt16allocator_traitsISaIN7jsonnet8internal11SortImports10ImportElemEEE9constr
   %27 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 232
   %28 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 232
   %.not.i.i.i = icmp eq ptr %27, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !106
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !105
 
 _ZNSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN7jsonnet8internal11SortImports10ImportElemEEE9constructIS3_JNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEERSt6vectorINS1_13FodderElementESaISE_EERNS1_5Local4BindEEEEvRS4_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %25, %_ZNSt16allocator_traitsISaIN7jsonnet8internal11SortImports10ImportElemEEE9constructIS3_JNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEERSt6vectorINS1_13FodderElementESaISE_EERNS1_5Local4BindEEEEvRS4_PT_DpOT0_.exit ], [ %28, %.lr.ph.i.i.i ]
@@ -9561,7 +9561,7 @@ _ZNSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_S_relocateEP
   %30 = getelementptr inbounds i8, ptr %.0911.i.i.i31, i64 232
   %31 = getelementptr inbounds i8, ptr %.012.i.i.i30, i64 232
   %.not.i.i.i32 = icmp eq ptr %30, %7
-  br i1 %.not.i.i.i32, label %_ZNSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34, label %.lr.ph.i.i.i29, !llvm.loop !106
+  br i1 %.not.i.i.i32, label %_ZNSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34, label %.lr.ph.i.i.i29, !llvm.loop !105
 
 _ZNSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34: ; preds = %.lr.ph.i.i.i29, %_ZNSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   %.0.lcssa.i.i.i33 = phi ptr [ %29, %_ZNSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %31, %.lr.ph.i.i.i29 ]
@@ -10333,7 +10333,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.
 _ZSt8_DestroyIN7jsonnet8internal11SortImports10ImportElemEEvPT_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i.i.i
   %24 = getelementptr inbounds i8, ptr %.05, i64 232
   %.not = icmp eq ptr %24, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !107
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %_ZSt8_DestroyIN7jsonnet8internal11SortImports10ImportElemEEvPT_.exit, %2
   ret void
@@ -10378,7 +10378,7 @@ define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal11SortImports10ImportEl
   %24 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i, i64 232
   %25 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i, i64 232
   %.not.i.i.i.i.i = icmp eq ptr %24, %13
-  br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !108
+  br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !107
 
 _ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i
   %.pre114 = load ptr, ptr %12, align 8
@@ -10402,7 +10402,7 @@ _ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaI
   %33 = tail call noundef nonnull align 8 dereferenceable(232) ptr @_ZN7jsonnet8internal11SortImports10ImportElemaSEOS2_(ptr noundef nonnull align 8 dereferenceable(232) %32, ptr noundef nonnull align 8 dereferenceable(232) %31) #24
   %34 = add nsw i64 %.010.i.i.i.i.i, -1
   %35 = icmp ugt i64 %.010.i.i.i.i.i, 1
-  br i1 %35, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN7jsonnet8internal11SortImports10ImportElemES4_ET0_T_S6_S5_.exit, !llvm.loop !109
+  br i1 %35, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN7jsonnet8internal11SortImports10ImportElemES4_ET0_T_S6_S5_.exit, !llvm.loop !108
 
 _ZSt13move_backwardIPN7jsonnet8internal11SortImports10ImportElemES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i51, %_ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit
   %36 = icmp sgt i64 %8, 0
@@ -10421,7 +10421,7 @@ _ZSt13move_backwardIPN7jsonnet8internal11SortImports10ImportElemES4_ET0_T_S6_S5_
   %40 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 232
   %41 = add nsw i64 %.012.i.i.i.i.i, -1
   %42 = icmp ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %42, label %.lr.ph.i.i.i.i.i53, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !110
+  br i1 %42, label %.lr.ph.i.i.i.i.i53, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !109
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit: ; preds = %17
   %43 = getelementptr inbounds i8, ptr %2, i64 %19
@@ -10438,7 +10438,7 @@ _ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.e
   %44 = getelementptr inbounds i8, ptr %.sroa.08.013.i.i.i.i, i64 232
   %45 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 232
   %.not.i.i.i.i = icmp eq ptr %44, %3
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !111
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !110
 
 46:                                               ; preds = %.lr.ph.i.i.i.i
   %47 = landingpad { ptr, i32 }
@@ -10491,7 +10491,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal1
   %59 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i57, i64 232
   %60 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i56, i64 232
   %.not.i.i.i.i.i58 = icmp eq ptr %59, %13
-  br i1 %.not.i.i.i.i.i58, label %_ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit60.loopexit, label %.lr.ph.i.i.i.i.i55, !llvm.loop !108
+  br i1 %.not.i.i.i.i.i58, label %_ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit60.loopexit, label %.lr.ph.i.i.i.i.i55, !llvm.loop !107
 
 _ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit60.loopexit: ; preds = %.lr.ph.i.i.i.i.i55
   %.pre113 = load ptr, ptr %12, align 8
@@ -10517,7 +10517,7 @@ _ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaI
   %67 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i65, i64 232
   %68 = add nsw i64 %.012.i.i.i.i.i64, -1
   %69 = icmp ugt i64 %.012.i.i.i.i.i64, 1
-  br i1 %69, label %.lr.ph.i.i.i.i.i63, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !110
+  br i1 %69, label %.lr.ph.i.i.i.i.i63, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !109
 
 70:                                               ; preds = %5
   %71 = load ptr, ptr %0, align 8
@@ -10558,7 +10558,7 @@ _ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_M_all
   %86 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i71, i64 232
   %87 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i70, i64 232
   %.not.i.i.i.i.i72 = icmp eq ptr %86, %1
-  br i1 %.not.i.i.i.i.i72, label %.lr.ph.i.i.i.i75.preheader, label %.lr.ph.i.i.i.i.i69, !llvm.loop !108
+  br i1 %.not.i.i.i.i.i72, label %.lr.ph.i.i.i.i75.preheader, label %.lr.ph.i.i.i.i.i69, !llvm.loop !107
 
 .lr.ph.i.i.i.i75.preheader:                       ; preds = %.lr.ph.i.i.i.i.i69, %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i.i73 = phi ptr [ %85, %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_M_allocateEm.exit ], [ %87, %.lr.ph.i.i.i.i.i69 ]
@@ -10574,7 +10574,7 @@ _ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.e
   %88 = getelementptr inbounds i8, ptr %.sroa.08.013.i.i.i.i77, i64 232
   %89 = getelementptr inbounds i8, ptr %.014.i.i.i.i76, i64 232
   %.not.i.i.i.i80 = icmp eq ptr %88, %3
-  br i1 %.not.i.i.i.i80, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit82, label %.lr.ph.i.i.i.i75, !llvm.loop !111
+  br i1 %.not.i.i.i.i80, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit82, label %.lr.ph.i.i.i.i75, !llvm.loop !110
 
 90:                                               ; preds = %.lr.ph.i.i.i.i75
   %91 = landingpad { ptr, i32 }
@@ -10615,7 +10615,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal1
   %100 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i86, i64 232
   %101 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i85, i64 232
   %.not.i.i.i.i.i87 = icmp eq ptr %100, %13
-  br i1 %.not.i.i.i.i.i87, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit89, label %.lr.ph.i.i.i.i.i84, !llvm.loop !108
+  br i1 %.not.i.i.i.i.i87, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit89, label %.lr.ph.i.i.i.i.i84, !llvm.loop !107
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit89: ; preds = %.lr.ph.i.i.i.i.i84, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit82
   %.0.lcssa.i.i.i.i.i88 = phi ptr [ %89, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit82 ], [ %101, %.lr.ph.i.i.i.i.i84 ]
@@ -11046,7 +11046,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEaSEOS4_.exit41: ; preds =
   tail call void @_ZN7jsonnet8internal8ArgParamD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %.05.i.i.i.i.i.i44) #24
   %77 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i44, i64 88
   %.not.i.i.i.i.i.i45 = icmp eq ptr %77, %70
-  br i1 %.not.i.i.i.i.i.i45, label %_ZSt8_DestroyIPN7jsonnet8internal8ArgParamES2_EvT_S4_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i43, !llvm.loop !104
+  br i1 %.not.i.i.i.i.i.i45, label %_ZSt8_DestroyIPN7jsonnet8internal8ArgParamES2_EvT_S4_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i43, !llvm.loop !103
 
 _ZSt8_DestroyIPN7jsonnet8internal8ArgParamES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i43, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEaSEOS4_.exit41
   %.not.i.i.i.i.i46 = icmp eq ptr %68, null
@@ -11356,7 +11356,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   tail call void @_ZN7jsonnet8internal8ArgParamD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %.05.i.i.i) #24
   %23 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 88
   %.not.i.i.i = icmp eq ptr %23, %22
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal8ArgParamES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !104
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal8ArgParamES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !103
 
 _ZSt8_DestroyIPN7jsonnet8internal8ArgParamES2_EvT_S4_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -11416,7 +11416,7 @@ _ZNSt12_Vector_baseIN7jsonnet8internal8ArgParamESaIS2_EE13_M_deallocateEPS2_m.ex
   %49 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 88
   %50 = add nsw i64 %.012.i.i.i.i.i, -1
   %51 = icmp ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %51, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal8ArgParamESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !112
+  br i1 %51, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal8ArgParamESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !111
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal8ArgParamESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
   %.pre = load ptr, ptr %28, align 8
@@ -11440,7 +11440,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal8ArgParamESt6vector
   tail call void @_ZN7jsonnet8internal8ArgParamD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.01.05.i.i.i) #24
   %55 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i.i, i64 88
   %.not.i.i.i27 = icmp eq ptr %55, %52
-  br i1 %.not.i.i.i27, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal8ArgParamESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RSaIT0_E.exit, label %.lr.ph.i.i.i26, !llvm.loop !113
+  br i1 %.not.i.i.i27, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal8ArgParamESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RSaIT0_E.exit, label %.lr.ph.i.i.i26, !llvm.loop !112
 
 56:                                               ; preds = %27
   %57 = icmp sgt i64 %31, 0
@@ -11473,7 +11473,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal8ArgParamESt6vector
   %73 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 88
   %74 = add nsw i64 %.012.i.i.i.i.i31, -1
   %75 = icmp ugt i64 %.012.i.i.i.i.i31, 1
-  br i1 %75, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPN7jsonnet8internal8ArgParamES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !114
+  br i1 %75, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPN7jsonnet8internal8ArgParamES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !113
 
 _ZSt4copyIPN7jsonnet8internal8ArgParamES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30
   %.pre34 = load ptr, ptr %1, align 8
@@ -11626,7 +11626,7 @@ _ZSt10_ConstructIN7jsonnet8internal8ArgParamEJRS2_EEvPT_DpOT0_.exit: ; preds = %
   %20 = getelementptr inbounds i8, ptr %.01220, i64 88
   %21 = getelementptr inbounds i8, ptr %.021, i64 88
   %.not = icmp eq ptr %20, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !115
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !114
 
 22:                                               ; preds = %.lr.ph
   %23 = landingpad { ptr, i32 }
@@ -11645,7 +11645,7 @@ _ZSt10_ConstructIN7jsonnet8internal8ArgParamEJRS2_EEvPT_DpOT0_.exit: ; preds = %
   tail call void @_ZN7jsonnet8internal8ArgParamD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %.05.i.i) #24
   %26 = getelementptr inbounds i8, ptr %.05.i.i, i64 88
   %.not.i.i = icmp eq ptr %26, %.021
-  br i1 %.not.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal8ArgParamEEvT_S4_.exit, label %.lr.ph.i.i, !llvm.loop !104
+  br i1 %.not.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal8ArgParamEEvT_S4_.exit, label %.lr.ph.i.i, !llvm.loop !103
 
 _ZSt8_DestroyIPN7jsonnet8internal8ArgParamEEvT_S4_.exit: ; preds = %.lr.ph.i.i, %.body
   invoke void @__cxa_rethrow() #28
@@ -11815,7 +11815,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDiSt11
 17:                                               ; preds = %.lr.ph.i.i.i.i.i
   %18 = add nuw i64 %.012.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %18, %.sroa.speculated.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !115
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %9, %17
   %.012.i.i.i.i.i = phi i64 [ %18, %17 ], [ 0, %9 ]
@@ -11884,7 +11884,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDiSt1
 13:                                               ; preds = %20
   %14 = add nuw i64 %.012.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %14, %.sroa.speculated.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !115
 
 .lr.ph.i.i.i.i:                                   ; preds = %8, %13
   %.012.i.i.i.i = phi i64 [ %14, %13 ], [ 0, %8 ]
@@ -11916,7 +11916,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
   %24 = getelementptr inbounds i8, ptr %.03044, i64 %.sink
   %.030 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %.030, null
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !117
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !116
 
 ._crit_edge:                                      ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit.thread
   br i1 %.0.i.i.i32, label %._crit_edge.thread, label %30
@@ -11949,7 +11949,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
 38:                                               ; preds = %45
   %39 = add nuw i64 %.012.i.i.i.i8, 1
   %exitcond.not.i.i.i.i9 = icmp eq i64 %39, %.sroa.speculated.i.i.i5
-  br i1 %exitcond.not.i.i.i.i9, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit14, label %.lr.ph.i.i.i.i7, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i9, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit14, label %.lr.ph.i.i.i.i7, !llvm.loop !115
 
 .lr.ph.i.i.i.i7:                                  ; preds = %30, %38
   %.012.i.i.i.i8 = phi i64 [ %39, %38 ], [ 0, %30 ]
@@ -12100,7 +12100,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #25
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !118
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit, %2
   ret void
@@ -12136,7 +12136,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %6
   %15 = icmp sgt i64 %14, 232
-  br i1 %15, label %.lr.ph.i8.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit, !llvm.loop !119
+  br i1 %15, label %.lr.ph.i8.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit, !llvm.loop !118
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit: ; preds = %.lr.ph.i8.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
@@ -12149,7 +12149,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImp
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %19, %6
   %21 = icmp sgt i64 %20, 3712
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !120
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !119
 
 .loopexit:                                        ; preds = %16, %3, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit
   ret void
@@ -12187,7 +12187,7 @@ define linkonce_odr ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal
 18:                                               ; preds = %25
   %19 = add nuw i64 %.012.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %19, %.sroa.speculated.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !115
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %14, %18
   %.012.i.i.i.i.i.i = phi i64 [ %19, %18 ], [ 0, %14 ]
@@ -12212,7 +12212,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8intern
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i
   %29 = getelementptr inbounds i8, ptr %.sroa.020.1.i, i64 232
-  br label %14, !llvm.loop !121
+  br label %14, !llvm.loop !120
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread24.i.preheader: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i, %25
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread24.i
@@ -12230,7 +12230,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8intern
 33:                                               ; preds = %40
   %34 = add nuw i64 %.012.i.i.i.i.i11.i, 1
   %exitcond.not.i.i.i.i.i12.i = icmp eq i64 %34, %.sroa.speculated.i.i.i.i8.i
-  br i1 %exitcond.not.i.i.i.i.i12.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit17.i, label %.lr.ph.i.i.i.i.i10.i, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i.i12.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit17.i, label %.lr.ph.i.i.i.i.i10.i, !llvm.loop !115
 
 .lr.ph.i.i.i.i.i10.i:                             ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread24.i, %33
   %.012.i.i.i.i.i11.i = phi i64 [ %34, %33 ], [ 0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread24.i ]
@@ -12239,7 +12239,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8intern
   %37 = load i32, ptr %35, align 4
   %38 = load i32, ptr %36, align 4
   %39 = icmp ult i32 %37, %38
-  br i1 %39, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread24.i.backedge, label %40, !llvm.loop !122
+  br i1 %39, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread24.i.backedge, label %40, !llvm.loop !121
 
 40:                                               ; preds = %.lr.ph.i.i.i.i.i10.i
   %41 = icmp ult i32 %38, %37
@@ -12254,7 +12254,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8intern
   br i1 %.not29.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit17.thread27.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread24.i.backedge
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread24.i.backedge: ; preds = %.lr.ph.i.i.i.i.i10.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit17.i
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread24.i, !llvm.loop !122
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread24.i, !llvm.loop !121
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit17.thread27.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit17.i, %40
   %44 = icmp ult ptr %.sroa.020.1.i, %.sroa.0.1.i
@@ -12263,7 +12263,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8intern
 45:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit17.thread27.i
   tail call void @_ZSt4swapIN7jsonnet8internal11SortImports10ImportElemEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(232) %.sroa.020.1.i, ptr noundef nonnull align 8 dereferenceable(232) %.sroa.0.1.i) #24
   %46 = getelementptr inbounds i8, ptr %.sroa.020.1.i, i64 232
-  br label %11, !llvm.loop !123
+  br label %11, !llvm.loop !122
 
 _ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEET_SD_SD_SD_T0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit17.thread27.i
   ret ptr %.sroa.020.1.i
@@ -12289,334 +12289,307 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7js
   %17 = getelementptr inbounds i8, ptr %4, i64 40
   %18 = getelementptr inbounds i8, ptr %4, i64 48
   %19 = getelementptr inbounds i8, ptr %4, i64 56
-  %20 = getelementptr inbounds i8, ptr %4, i64 64
-  %21 = getelementptr inbounds i8, ptr %4, i64 72
-  %22 = getelementptr inbounds i8, ptr %4, i64 80
-  %23 = getelementptr inbounds i8, ptr %4, i64 88
-  %24 = getelementptr inbounds i8, ptr %4, i64 96
-  %25 = getelementptr inbounds i8, ptr %4, i64 104
-  %26 = getelementptr inbounds i8, ptr %4, i64 112
-  %27 = getelementptr inbounds i8, ptr %4, i64 128
-  %28 = getelementptr inbounds i8, ptr %4, i64 136
-  %29 = getelementptr inbounds i8, ptr %4, i64 144
-  %30 = getelementptr inbounds i8, ptr %4, i64 152
-  %31 = getelementptr inbounds i8, ptr %4, i64 160
-  %32 = getelementptr inbounds i8, ptr %4, i64 168
-  %33 = getelementptr inbounds i8, ptr %4, i64 176
-  %34 = getelementptr inbounds i8, ptr %4, i64 184
-  %35 = getelementptr inbounds i8, ptr %4, i64 192
-  %36 = getelementptr inbounds i8, ptr %4, i64 200
-  %37 = getelementptr inbounds i8, ptr %4, i64 208
-  %38 = getelementptr inbounds i8, ptr %4, i64 216
-  %39 = getelementptr inbounds i8, ptr %4, i64 224
-  %40 = getelementptr inbounds i8, ptr %5, i64 16
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
-  %42 = getelementptr inbounds i8, ptr %5, i64 32
-  %43 = getelementptr inbounds i8, ptr %5, i64 40
-  %44 = getelementptr inbounds i8, ptr %5, i64 48
-  %45 = getelementptr inbounds i8, ptr %5, i64 56
-  %46 = getelementptr inbounds i8, ptr %5, i64 64
-  %47 = getelementptr inbounds i8, ptr %5, i64 72
-  %48 = getelementptr inbounds i8, ptr %5, i64 80
-  %49 = getelementptr inbounds i8, ptr %5, i64 88
-  %50 = getelementptr inbounds i8, ptr %5, i64 96
-  %51 = getelementptr inbounds i8, ptr %5, i64 104
-  %52 = getelementptr inbounds i8, ptr %5, i64 112
-  %53 = getelementptr inbounds i8, ptr %5, i64 128
-  %54 = getelementptr inbounds i8, ptr %5, i64 136
-  %55 = getelementptr inbounds i8, ptr %5, i64 144
-  %56 = getelementptr inbounds i8, ptr %5, i64 152
-  %57 = getelementptr inbounds i8, ptr %5, i64 160
-  %58 = getelementptr inbounds i8, ptr %5, i64 168
-  %59 = getelementptr inbounds i8, ptr %5, i64 176
-  %60 = getelementptr inbounds i8, ptr %5, i64 184
-  %61 = getelementptr inbounds i8, ptr %5, i64 192
-  %62 = getelementptr inbounds i8, ptr %5, i64 200
-  %63 = getelementptr inbounds i8, ptr %5, i64 208
-  %64 = getelementptr inbounds i8, ptr %5, i64 216
-  %65 = getelementptr inbounds i8, ptr %5, i64 224
-  br label %66
+  %20 = getelementptr inbounds i8, ptr %4, i64 72
+  %21 = getelementptr inbounds i8, ptr %4, i64 80
+  %22 = getelementptr inbounds i8, ptr %4, i64 88
+  %23 = getelementptr inbounds i8, ptr %4, i64 96
+  %24 = getelementptr inbounds i8, ptr %4, i64 104
+  %25 = getelementptr inbounds i8, ptr %4, i64 112
+  %26 = getelementptr inbounds i8, ptr %4, i64 128
+  %27 = getelementptr inbounds i8, ptr %4, i64 144
+  %28 = getelementptr inbounds i8, ptr %4, i64 152
+  %29 = getelementptr inbounds i8, ptr %4, i64 176
+  %30 = getelementptr inbounds i8, ptr %4, i64 184
+  %31 = getelementptr inbounds i8, ptr %4, i64 200
+  %32 = getelementptr inbounds i8, ptr %4, i64 208
+  %33 = getelementptr inbounds i8, ptr %5, i64 16
+  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = getelementptr inbounds i8, ptr %5, i64 32
+  %36 = getelementptr inbounds i8, ptr %5, i64 40
+  %37 = getelementptr inbounds i8, ptr %5, i64 56
+  %38 = getelementptr inbounds i8, ptr %5, i64 64
+  %39 = getelementptr inbounds i8, ptr %5, i64 96
+  %40 = getelementptr inbounds i8, ptr %5, i64 104
+  %41 = getelementptr inbounds i8, ptr %5, i64 112
+  %42 = getelementptr inbounds i8, ptr %5, i64 128
+  %43 = getelementptr inbounds i8, ptr %5, i64 160
+  %44 = getelementptr inbounds i8, ptr %5, i64 168
+  %45 = getelementptr inbounds i8, ptr %5, i64 176
+  %46 = getelementptr inbounds i8, ptr %5, i64 184
+  %47 = getelementptr inbounds i8, ptr %5, i64 216
+  %48 = getelementptr inbounds i8, ptr %5, i64 224
+  br label %49
 
-66:                                               ; preds = %_ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit31, %11
-  %.08 = phi i64 [ %13, %11 ], [ %152, %_ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit31 ]
-  %67 = getelementptr inbounds %"struct.jsonnet::internal::SortImports::ImportElem", ptr %0, i64 %.08
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %67, i64 16
-  %70 = icmp eq ptr %68, %69
-  br i1 %70, label %71, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i
+49:                                               ; preds = %_ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit31, %11
+  %.08 = phi i64 [ %13, %11 ], [ %148, %_ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit31 ]
+  %50 = getelementptr inbounds %"struct.jsonnet::internal::SortImports::ImportElem", ptr %0, i64 %.08
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %50, i64 16
+  %53 = icmp eq ptr %51, %52
+  br i1 %53, label %54, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i
 
-71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %67, i64 8
-  %73 = load i64, ptr %72, align 8
-  %74 = icmp ult i64 %73, 4
-  call void @llvm.assume(i1 %74)
-  %75 = shl nuw nsw i64 %73, 2
-  %76 = add nuw nsw i64 %75, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(1) %69, i64 %76, i1 false)
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds i8, ptr %50, i64 8
+  %56 = load i64, ptr %55, align 8
+  %57 = icmp ult i64 %56, 4
+  call void @llvm.assume(i1 %57)
+  %58 = shl nuw nsw i64 %56, 2
+  %59 = add nuw nsw i64 %58, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(1) %52, i64 %59, i1 false)
   br label %_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit
 
-_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i: ; preds = %66
-  store ptr %68, ptr %4, align 8
-  %77 = load i64, ptr %69, align 8
-  store i64 %77, ptr %14, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %67, i64 8
+_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i: ; preds = %49
+  store ptr %51, ptr %4, align 8
+  %60 = load i64, ptr %52, align 8
+  store i64 %60, ptr %14, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %50, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit
 
-_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit: ; preds = %71, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i
-  %78 = phi ptr [ %14, %71 ], [ %68, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i ]
-  %79 = phi i64 [ %73, %71 ], [ %.pre, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i ]
-  %80 = getelementptr inbounds i8, ptr %67, i64 8
-  store i64 %79, ptr %15, align 8
-  store ptr %69, ptr %67, align 8
-  store i64 0, ptr %80, align 8
-  store i32 0, ptr %69, align 4
-  %81 = getelementptr inbounds i8, ptr %67, i64 32
-  %82 = load ptr, ptr %81, align 8
-  store ptr %82, ptr %16, align 8
-  %83 = getelementptr inbounds i8, ptr %67, i64 40
-  %84 = load ptr, ptr %83, align 8
-  store ptr %84, ptr %17, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
-  %86 = load ptr, ptr %85, align 8
-  store ptr %86, ptr %18, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
-  %87 = getelementptr inbounds i8, ptr %67, i64 56
-  %88 = load ptr, ptr %87, align 8
-  store ptr %88, ptr %19, align 8
-  %89 = getelementptr inbounds i8, ptr %67, i64 64
-  %90 = load ptr, ptr %89, align 8
-  store ptr %90, ptr %20, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
-  %92 = load ptr, ptr %91, align 8
-  store ptr %92, ptr %21, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, i8 0, i64 24, i1 false)
-  %93 = getelementptr inbounds i8, ptr %67, i64 80
-  %94 = load ptr, ptr %93, align 8
-  store ptr %94, ptr %22, align 8
-  %95 = getelementptr inbounds i8, ptr %67, i64 88
-  %96 = load ptr, ptr %95, align 8
-  store ptr %96, ptr %23, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 96
-  %98 = load ptr, ptr %97, align 8
-  store ptr %98, ptr %24, align 8
-  %99 = getelementptr inbounds i8, ptr %67, i64 104
-  %100 = load ptr, ptr %99, align 8
-  store ptr %100, ptr %25, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %95, i8 0, i64 24, i1 false)
-  %101 = getelementptr inbounds i8, ptr %67, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull align 8 dereferenceable(9) %101, i64 9, i1 false)
-  %102 = getelementptr inbounds i8, ptr %67, i64 128
-  %103 = load ptr, ptr %102, align 8
-  store ptr %103, ptr %27, align 8
-  %104 = getelementptr inbounds i8, ptr %67, i64 136
-  %105 = load ptr, ptr %104, align 8
-  store ptr %105, ptr %28, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 144
-  %107 = load ptr, ptr %106, align 8
-  store ptr %107, ptr %29, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, i8 0, i64 24, i1 false)
-  %108 = getelementptr inbounds i8, ptr %67, i64 152
-  %109 = load ptr, ptr %108, align 8
-  store ptr %109, ptr %30, align 8
-  %110 = getelementptr inbounds i8, ptr %67, i64 160
-  %111 = load ptr, ptr %110, align 8
-  store ptr %111, ptr %31, align 8
-  %112 = getelementptr inbounds i8, ptr %67, i64 168
-  %113 = load ptr, ptr %112, align 8
-  store ptr %113, ptr %32, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, i8 0, i64 24, i1 false)
-  %114 = getelementptr inbounds i8, ptr %67, i64 176
-  %115 = load i8, ptr %114, align 8
-  %116 = and i8 %115, 1
-  store i8 %116, ptr %33, align 8
-  %117 = getelementptr inbounds i8, ptr %67, i64 184
-  %118 = load ptr, ptr %117, align 8
-  store ptr %118, ptr %34, align 8
-  %119 = getelementptr inbounds i8, ptr %67, i64 192
-  %120 = load ptr, ptr %119, align 8
-  store ptr %120, ptr %35, align 8
-  %121 = getelementptr inbounds i8, ptr %67, i64 200
-  %122 = load ptr, ptr %121, align 8
-  store ptr %122, ptr %36, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, i8 0, i64 24, i1 false)
-  %123 = getelementptr inbounds i8, ptr %67, i64 208
-  %124 = load ptr, ptr %123, align 8
-  store ptr %124, ptr %37, align 8
-  %125 = getelementptr inbounds i8, ptr %67, i64 216
-  %126 = load ptr, ptr %125, align 8
-  store ptr %126, ptr %38, align 8
-  %127 = getelementptr inbounds i8, ptr %67, i64 224
-  %128 = load ptr, ptr %127, align 8
-  store ptr %128, ptr %39, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %123, i8 0, i64 24, i1 false)
-  store ptr %40, ptr %5, align 8
-  %129 = icmp eq ptr %78, %14
-  br i1 %129, label %130, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i9
+_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit: ; preds = %54, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i
+  %61 = phi ptr [ %14, %54 ], [ %51, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i ]
+  %62 = phi i64 [ %56, %54 ], [ %.pre, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i ]
+  %63 = getelementptr inbounds i8, ptr %50, i64 8
+  store i64 %62, ptr %15, align 8
+  store ptr %52, ptr %50, align 8
+  store i64 0, ptr %63, align 8
+  store i32 0, ptr %52, align 4
+  %64 = getelementptr inbounds i8, ptr %50, i64 32
+  %65 = getelementptr inbounds i8, ptr %50, i64 48
+  %66 = getelementptr inbounds i8, ptr %50, i64 56
+  %67 = load <2 x ptr>, ptr %64, align 8
+  store <2 x ptr> %67, ptr %16, align 8
+  %68 = load ptr, ptr %65, align 8
+  store ptr %68, ptr %18, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
+  %69 = getelementptr inbounds i8, ptr %50, i64 72
+  %70 = getelementptr inbounds i8, ptr %50, i64 80
+  %71 = getelementptr inbounds i8, ptr %50, i64 88
+  %72 = load <2 x ptr>, ptr %66, align 8
+  store <2 x ptr> %72, ptr %19, align 8
+  %73 = load ptr, ptr %69, align 8
+  store ptr %73, ptr %20, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, i8 0, i64 24, i1 false)
+  %74 = load <2 x ptr>, ptr %70, align 8
+  store <2 x ptr> %74, ptr %21, align 8
+  %75 = getelementptr inbounds i8, ptr %50, i64 96
+  %76 = load ptr, ptr %75, align 8
+  store ptr %76, ptr %23, align 8
+  %77 = getelementptr inbounds i8, ptr %50, i64 104
+  %78 = load ptr, ptr %77, align 8
+  store ptr %78, ptr %24, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
+  %79 = getelementptr inbounds i8, ptr %50, i64 112
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %25, ptr noundef nonnull align 8 dereferenceable(9) %79, i64 9, i1 false)
+  %80 = getelementptr inbounds i8, ptr %50, i64 128
+  %81 = getelementptr inbounds i8, ptr %50, i64 144
+  %82 = getelementptr inbounds i8, ptr %50, i64 152
+  %83 = load <2 x ptr>, ptr %80, align 8
+  store <2 x ptr> %83, ptr %26, align 8
+  %84 = getelementptr inbounds i8, ptr %50, i64 160
+  %85 = getelementptr inbounds i8, ptr %50, i64 168
+  %86 = load ptr, ptr %81, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, i8 0, i64 24, i1 false)
+  %87 = load ptr, ptr %82, align 8
+  %88 = load ptr, ptr %84, align 8
+  %89 = load ptr, ptr %85, align 8
+  %90 = insertelement <4 x ptr> poison, ptr %86, i64 0
+  %91 = insertelement <4 x ptr> %90, ptr %87, i64 1
+  %92 = insertelement <4 x ptr> %91, ptr %88, i64 2
+  %93 = insertelement <4 x ptr> %92, ptr %89, i64 3
+  store <4 x ptr> %93, ptr %27, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, i8 0, i64 24, i1 false)
+  %94 = getelementptr inbounds i8, ptr %50, i64 176
+  %95 = load i8, ptr %94, align 8
+  %96 = and i8 %95, 1
+  store i8 %96, ptr %29, align 8
+  %97 = getelementptr inbounds i8, ptr %50, i64 184
+  %98 = getelementptr inbounds i8, ptr %50, i64 200
+  %99 = getelementptr inbounds i8, ptr %50, i64 208
+  %100 = load <2 x ptr>, ptr %97, align 8
+  store <2 x ptr> %100, ptr %30, align 8
+  %101 = getelementptr inbounds i8, ptr %50, i64 216
+  %102 = getelementptr inbounds i8, ptr %50, i64 224
+  %103 = load ptr, ptr %98, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, i8 0, i64 24, i1 false)
+  %104 = load ptr, ptr %99, align 8
+  %105 = load ptr, ptr %101, align 8
+  %106 = load ptr, ptr %102, align 8
+  %107 = insertelement <4 x ptr> poison, ptr %103, i64 0
+  %108 = insertelement <4 x ptr> %107, ptr %104, i64 1
+  %109 = insertelement <4 x ptr> %108, ptr %105, i64 2
+  %110 = insertelement <4 x ptr> %109, ptr %106, i64 3
+  store <4 x ptr> %110, ptr %31, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
+  store ptr %33, ptr %5, align 8
+  %111 = icmp eq ptr %61, %14
+  br i1 %111, label %112, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i9
 
-130:                                              ; preds = %_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit
-  %131 = icmp ult i64 %79, 4
-  call void @llvm.assume(i1 %131)
-  %132 = shl nuw nsw i64 %79, 2
-  %133 = add nuw nsw i64 %132, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %40, ptr noundef nonnull align 8 dereferenceable(1) %14, i64 %133, i1 false)
+112:                                              ; preds = %_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit
+  %113 = icmp ult i64 %62, 4
+  call void @llvm.assume(i1 %113)
+  %114 = shl nuw nsw i64 %62, 2
+  %115 = add nuw nsw i64 %114, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %33, ptr noundef nonnull align 8 dereferenceable(1) %14, i64 %115, i1 false)
   br label %_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit10
 
 _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i9: ; preds = %_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit
-  store ptr %78, ptr %5, align 8
-  %134 = load i64, ptr %14, align 8
-  store i64 %134, ptr %40, align 8
+  store ptr %61, ptr %5, align 8
+  %116 = load i64, ptr %14, align 8
+  store i64 %116, ptr %33, align 8
   br label %_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit10
 
-_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit10: ; preds = %130, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i9
-  store i64 %79, ptr %41, align 8
+_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit10: ; preds = %112, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i9
+  store i64 %62, ptr %34, align 8
   store ptr %14, ptr %4, align 8
   store i64 0, ptr %15, align 8
   store i32 0, ptr %14, align 8
-  store ptr %82, ptr %42, align 8
-  store ptr %84, ptr %43, align 8
-  store ptr %86, ptr %44, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  store ptr %88, ptr %45, align 8
-  store ptr %90, ptr %46, align 8
-  store ptr %92, ptr %47, align 8
+  %117 = shufflevector <2 x ptr> %67, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %118 = insertelement <4 x ptr> %117, ptr %68, i64 2
+  %119 = shufflevector <2 x ptr> %72, <2 x ptr> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %120 = shufflevector <4 x ptr> %118, <4 x ptr> %119, <4 x i32> <i32 0, i32 1, i32 2, i32 4>
+  store <4 x ptr> %120, ptr %35, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
-  store ptr %94, ptr %48, align 8
-  store ptr %96, ptr %49, align 8
-  store ptr %98, ptr %50, align 8
-  store ptr %100, ptr %51, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %52, ptr noundef nonnull align 8 dereferenceable(9) %26, i64 9, i1 false)
-  store ptr %103, ptr %53, align 8
-  store ptr %105, ptr %54, align 8
-  store ptr %107, ptr %55, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
-  store ptr %109, ptr %56, align 8
-  store ptr %111, ptr %57, align 8
-  store ptr %113, ptr %58, align 8
+  %121 = shufflevector <2 x ptr> %72, <2 x ptr> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %122 = insertelement <4 x ptr> %121, ptr %73, i64 1
+  %123 = shufflevector <2 x ptr> %74, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %124 = shufflevector <4 x ptr> %122, <4 x ptr> %123, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  store <4 x ptr> %124, ptr %38, align 8
+  store ptr %76, ptr %39, align 8
+  store ptr %78, ptr %40, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %41, ptr noundef nonnull align 8 dereferenceable(9) %25, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
+  %125 = shufflevector <2 x ptr> %83, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %126 = insertelement <4 x ptr> %125, ptr %86, i64 2
+  %127 = insertelement <4 x ptr> %126, ptr %87, i64 3
+  store <4 x ptr> %127, ptr %42, align 8
+  store ptr %88, ptr %43, align 8
+  store ptr %89, ptr %44, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
+  store i8 %96, ptr %45, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  store i8 %116, ptr %59, align 8
-  store ptr %118, ptr %60, align 8
-  store ptr %120, ptr %61, align 8
-  store ptr %122, ptr %62, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
-  store ptr %124, ptr %63, align 8
-  store ptr %126, ptr %64, align 8
-  store ptr %128, ptr %65, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
+  %128 = shufflevector <2 x ptr> %100, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %129 = insertelement <4 x ptr> %128, ptr %103, i64 2
+  %130 = insertelement <4 x ptr> %129, ptr %104, i64 3
+  store <4 x ptr> %130, ptr %46, align 8
+  store ptr %105, ptr %47, align 8
+  store ptr %106, ptr %48, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_(ptr nonnull %0, i64 noundef %.08, i64 noundef %9, ptr noundef nonnull %5)
-          to label %135 unwind label %169
+          to label %131 unwind label %165
 
-135:                                              ; preds = %_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit10
-  call void @_ZN7jsonnet8internal5Local4BindD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %45) #24
-  %136 = load ptr, ptr %42, align 8
-  %137 = load ptr, ptr %43, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %136, %137
+131:                                              ; preds = %_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit10
+  call void @_ZN7jsonnet8internal5Local4BindD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %37) #24
+  %132 = load ptr, ptr %35, align 8
+  %133 = load ptr, ptr %36, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %132, %133
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %135, %_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %145, %_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i ], [ %136, %135 ]
-  %138 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
-  %141 = load ptr, ptr %140, align 8
-  %.not4.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %139, %141
+.lr.ph.i.i.i.i.i:                                 ; preds = %131, %_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %141, %_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i ], [ %132, %131 ]
+  %134 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
+  %137 = load ptr, ptr %136, align 8
+  %.not4.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %135, %137
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %142, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %139, %.lr.ph.i.i.i.i.i ]
+  %.05.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %138, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %135, %.lr.ph.i.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i.i.i.i.i.i) #24
-  %142 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %142, %141
+  %138 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %138, %137
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !7
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
-  %.pr.i.i.i.i.i.i.i.i = load ptr, ptr %138, align 8
+  %.pr.i.i.i.i.i.i.i.i = load ptr, ptr %134, align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %143 = phi ptr [ %.pr.i.i.i.i.i.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i ], [ %139, %.lr.ph.i.i.i.i.i ]
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %143, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i, label %144
+  %139 = phi ptr [ %.pr.i.i.i.i.i.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i ], [ %135, %.lr.ph.i.i.i.i.i ]
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %139, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i, label %140
 
-144:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %143) #25
+140:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %139) #25
   br label %_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i: ; preds = %144, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i
-  %145 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 40
-  %.not.i.i.i.i.i = icmp eq ptr %145, %137
+_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i: ; preds = %140, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i
+  %141 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 40
+  %.not.i.i.i.i.i = icmp eq ptr %141, %133
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
 
 _ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %42, align 8
+  %.pr.i.i = load ptr, ptr %35, align 8
   br label %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, %135
-  %146 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i ], [ %136, %135 ]
-  %.not.i.i.i.i = icmp eq ptr %146, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit.i, label %147
+_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, %131
+  %142 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i ], [ %132, %131 ]
+  %.not.i.i.i.i = icmp eq ptr %142, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit.i, label %143
 
-147:                                              ; preds = %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %146) #25
+143:                                              ; preds = %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %142) #25
   br label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit.i
 
-_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit.i: ; preds = %147, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i
-  %148 = load ptr, ptr %5, align 8
-  %149 = icmp eq ptr %148, %40
-  br i1 %149, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i.i
+_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit.i: ; preds = %143, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i
+  %144 = load ptr, ptr %5, align 8
+  %145 = icmp eq ptr %144, %33
+  br i1 %145, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit.i
-  %150 = load i64, ptr %41, align 8
-  %151 = icmp ult i64 %150, 4
-  call void @llvm.assume(i1 %151)
+  %146 = load i64, ptr %34, align 8
+  %147 = icmp ult i64 %146, 4
+  call void @llvm.assume(i1 %147)
   br label %_ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef %148) #25
+  call void @_ZdlPv(ptr noundef %144) #25
   br label %_ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit
 
 _ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i.i
   %.not = icmp eq i64 %.08, 0
-  %152 = add nsw i64 %.08, -1
+  %148 = add nsw i64 %.08, -1
   call void @_ZN7jsonnet8internal5Local4BindD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %19) #24
-  %153 = load ptr, ptr %16, align 8
-  %154 = load ptr, ptr %17, align 8
-  %.not4.i.i.i.i.i11 = icmp eq ptr %153, %154
+  %149 = load ptr, ptr %16, align 8
+  %150 = load ptr, ptr %17, align 8
+  %.not4.i.i.i.i.i11 = icmp eq ptr %149, %150
   br i1 %.not4.i.i.i.i.i11, label %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i26, label %.lr.ph.i.i.i.i.i12
 
 .lr.ph.i.i.i.i.i12:                               ; preds = %_ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit, %_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i22
-  %.05.i.i.i.i.i13 = phi ptr [ %162, %_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i22 ], [ %153, %_ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit ]
-  %155 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i13, i64 16
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i13, i64 24
-  %158 = load ptr, ptr %157, align 8
-  %.not4.i.i.i.i.i.i.i.i.i.i.i14 = icmp eq ptr %156, %158
+  %.05.i.i.i.i.i13 = phi ptr [ %158, %_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i22 ], [ %149, %_ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit ]
+  %151 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i13, i64 16
+  %152 = load ptr, ptr %151, align 8
+  %153 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i13, i64 24
+  %154 = load ptr, ptr %153, align 8
+  %.not4.i.i.i.i.i.i.i.i.i.i.i14 = icmp eq ptr %152, %154
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i14, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i20, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i15
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i15:                   ; preds = %.lr.ph.i.i.i.i.i12, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i15
-  %.05.i.i.i.i.i.i.i.i.i.i.i16 = phi ptr [ %159, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i15 ], [ %156, %.lr.ph.i.i.i.i.i12 ]
+  %.05.i.i.i.i.i.i.i.i.i.i.i16 = phi ptr [ %155, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i15 ], [ %152, %.lr.ph.i.i.i.i.i12 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i.i.i.i.i.i16) #24
-  %159 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i16, i64 32
-  %.not.i.i.i.i.i.i.i.i.i.i.i17 = icmp eq ptr %159, %158
+  %155 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i16, i64 32
+  %.not.i.i.i.i.i.i.i.i.i.i.i17 = icmp eq ptr %155, %154
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i17, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i18, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i15, !llvm.loop !7
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i18: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i15
-  %.pr.i.i.i.i.i.i.i.i19 = load ptr, ptr %155, align 8
+  %.pr.i.i.i.i.i.i.i.i19 = load ptr, ptr %151, align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i20
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i20: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i18, %.lr.ph.i.i.i.i.i12
-  %160 = phi ptr [ %.pr.i.i.i.i.i.i.i.i19, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i18 ], [ %156, %.lr.ph.i.i.i.i.i12 ]
-  %.not.i.i.i.i.i.i.i.i.i.i21 = icmp eq ptr %160, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i21, label %_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i22, label %161
+  %156 = phi ptr [ %.pr.i.i.i.i.i.i.i.i19, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i18 ], [ %152, %.lr.ph.i.i.i.i.i12 ]
+  %.not.i.i.i.i.i.i.i.i.i.i21 = icmp eq ptr %156, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i21, label %_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i22, label %157
 
-161:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i20
-  call void @_ZdlPv(ptr noundef nonnull %160) #25
+157:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i20
+  call void @_ZdlPv(ptr noundef nonnull %156) #25
   br label %_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i22
 
-_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i22: ; preds = %161, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i20
-  %162 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i13, i64 40
-  %.not.i.i.i.i.i23 = icmp eq ptr %162, %154
+_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i22: ; preds = %157, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i20
+  %158 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i13, i64 40
+  %.not.i.i.i.i.i23 = icmp eq ptr %158, %150
   br i1 %.not.i.i.i.i.i23, label %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i24, label %.lr.ph.i.i.i.i.i12, !llvm.loop !8
 
 _ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i24: ; preds = %_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i.i.i22
@@ -12624,38 +12597,38 @@ _ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exitthread-p
   br label %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i26
 
 _ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i26: ; preds = %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i24, %_ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit
-  %163 = phi ptr [ %.pr.i.i25, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i24 ], [ %153, %_ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit ]
-  %.not.i.i.i.i27 = icmp eq ptr %163, null
-  br i1 %.not.i.i.i.i27, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit.i28, label %164
+  %159 = phi ptr [ %.pr.i.i25, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i24 ], [ %149, %_ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit ]
+  %.not.i.i.i.i27 = icmp eq ptr %159, null
+  br i1 %.not.i.i.i.i27, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit.i28, label %160
 
-164:                                              ; preds = %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i26
-  call void @_ZdlPv(ptr noundef nonnull %163) #25
+160:                                              ; preds = %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i26
+  call void @_ZdlPv(ptr noundef nonnull %159) #25
   br label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit.i28
 
-_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit.i28: ; preds = %164, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i26
-  %165 = load ptr, ptr %4, align 8
-  %166 = icmp eq ptr %165, %14
-  br i1 %166, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i30, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i.i29
+_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit.i28: ; preds = %160, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i26
+  %161 = load ptr, ptr %4, align 8
+  %162 = icmp eq ptr %161, %14
+  br i1 %162, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i30, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i.i29
 
 _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i30: ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit.i28
-  %167 = load i64, ptr %15, align 8
-  %168 = icmp ult i64 %167, 4
-  call void @llvm.assume(i1 %168)
+  %163 = load i64, ptr %15, align 8
+  %164 = icmp ult i64 %163, 4
+  call void @llvm.assume(i1 %164)
   br label %_ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit31
 
 _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i.i29: ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit.i28
-  call void @_ZdlPv(ptr noundef %165) #25
+  call void @_ZdlPv(ptr noundef %161) #25
   br label %_ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit31
 
 _ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit31: ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i30, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i.i29
-  br i1 %.not, label %.loopexit, label %66
+  br i1 %.not, label %.loopexit, label %49
 
-169:                                              ; preds = %_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit10
-  %170 = landingpad { ptr, i32 }
+165:                                              ; preds = %_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit10
+  %166 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7jsonnet8internal11SortImports10ImportElemD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %5) #24
   call void @_ZN7jsonnet8internal11SortImports10ImportElemD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %4) #24
-  resume { ptr, i32 } %170
+  resume { ptr, i32 } %166
 
 .loopexit:                                        ; preds = %_ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit31, %3
   ret void
@@ -13042,7 +13015,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
 20:                                               ; preds = %27
   %21 = add nuw i64 %.012.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %21, %.sroa.speculated.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !115
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph, %20
   %.012.i.i.i.i.i = phi i64 [ %21, %20 ], [ 0, %.lr.ph ]
@@ -13075,7 +13048,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8intern
   %33 = getelementptr inbounds %"struct.jsonnet::internal::SortImports::ImportElem", ptr %0, i64 %.043
   %34 = tail call noundef nonnull align 8 dereferenceable(232) ptr @_ZN7jsonnet8internal11SortImports10ImportElemaSEOS2_(ptr noundef nonnull align 8 dereferenceable(232) %33, ptr noundef nonnull align 8 dereferenceable(232) %32) #24
   %35 = icmp slt i64 %31, %7
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !124
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread38, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %31, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread38 ]
@@ -13225,7 +13198,7 @@ _ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit: ; preds = %53, %_ZNKS
 120:                                              ; preds = %127
   %121 = add nuw i64 %.012.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %121, %.sroa.speculated.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !115
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i, %120
   %.012.i.i.i.i.i.i = phi i64 [ %121, %120 ], [ 0, %.lr.ph.i ]
@@ -13252,7 +13225,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN7jsonnet8interna
   %131 = getelementptr inbounds %"struct.jsonnet::internal::SortImports::ImportElem", ptr %0, i64 %.024.i
   %132 = call noundef nonnull align 8 dereferenceable(232) ptr @_ZN7jsonnet8internal11SortImports10ImportElemaSEOS2_(ptr noundef nonnull align 8 dereferenceable(232) %131, ptr noundef nonnull align 8 dereferenceable(232) %114) #24
   %133 = icmp sgt i64 %.0925.i, %1
-  br i1 %133, label %.lr.ph.i, label %.loopexit, !llvm.loop !125
+  br i1 %133, label %.lr.ph.i, label %.loopexit, !llvm.loop !124
 
 .loopexit:                                        ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.thread.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i, %127, %_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit
   %.021.i = phi i64 [ %.1, %_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit ], [ %.024.i, %127 ], [ %.0925.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.thread.i ], [ %.024.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i ]
@@ -13345,7 +13318,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
 11:                                               ; preds = %18
   %12 = add nuw i64 %.012.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %12, %.sroa.speculated.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !115
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %4, %11
   %.012.i.i.i.i.i = phi i64 [ %12, %11 ], [ 0, %4 ]
@@ -13379,7 +13352,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8intern
 25:                                               ; preds = %32
   %26 = add nuw i64 %.012.i.i.i.i.i29, 1
   %exitcond.not.i.i.i.i.i30 = icmp eq i64 %26, %.sroa.speculated.i.i.i.i26
-  br i1 %exitcond.not.i.i.i.i.i30, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit35, label %.lr.ph.i.i.i.i.i28, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i.i30, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit35, label %.lr.ph.i.i.i.i.i28, !llvm.loop !115
 
 .lr.ph.i.i.i.i.i28:                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread, %25
   %.012.i.i.i.i.i29 = phi i64 [ %26, %25 ], [ 0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread ]
@@ -13410,7 +13383,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8intern
 36:                                               ; preds = %43
   %37 = add nuw i64 %.012.i.i.i.i.i39, 1
   %exitcond.not.i.i.i.i.i40 = icmp eq i64 %37, %.sroa.speculated.i.i.i.i36
-  br i1 %exitcond.not.i.i.i.i.i40, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit45, label %.lr.ph.i.i.i.i.i38, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i.i40, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit45, label %.lr.ph.i.i.i.i.i38, !llvm.loop !115
 
 .lr.ph.i.i.i.i.i38:                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit35.thread70, %36
   %.012.i.i.i.i.i39 = phi i64 [ %37, %36 ], [ 0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit35.thread70 ]
@@ -13447,7 +13420,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8intern
 50:                                               ; preds = %57
   %51 = add nuw i64 %.012.i.i.i.i.i49, 1
   %exitcond.not.i.i.i.i.i50 = icmp eq i64 %51, %.sroa.speculated.i.i.i.i46
-  br i1 %exitcond.not.i.i.i.i.i50, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit55, label %.lr.ph.i.i.i.i.i48, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i.i50, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit55, label %.lr.ph.i.i.i.i.i48, !llvm.loop !115
 
 .lr.ph.i.i.i.i.i48:                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread67, %50
   %.012.i.i.i.i.i49 = phi i64 [ %51, %50 ], [ 0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread67 ]
@@ -13478,7 +13451,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8intern
 61:                                               ; preds = %68
   %62 = add nuw i64 %.012.i.i.i.i.i59, 1
   %exitcond.not.i.i.i.i.i60 = icmp eq i64 %62, %.sroa.speculated.i.i.i.i56
-  br i1 %exitcond.not.i.i.i.i.i60, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit65, label %.lr.ph.i.i.i.i.i58, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i.i60, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit65, label %.lr.ph.i.i.i.i.i58, !llvm.loop !115
 
 .lr.ph.i.i.i.i.i58:                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit55.thread76, %61
   %.012.i.i.i.i.i59 = phi i64 [ %62, %61 ], [ 0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit55.thread76 ]
@@ -13746,7 +13719,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
 32:                                               ; preds = %39
   %33 = add nuw i64 %.012.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %33, %.sroa.speculated.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !115
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %26, %32
   %.012.i.i.i.i.i = phi i64 [ %33, %32 ], [ 0, %26 ]
@@ -14022,7 +13995,7 @@ _ZN7jsonnet8internal11SortImports10ImportElemaSEOS2_.exit: ; preds = %_ZSt8_Dest
   %151 = call noundef nonnull align 8 dereferenceable(176) ptr @_ZN7jsonnet8internal5Local4BindaSEOS2_(ptr noundef nonnull align 8 dereferenceable(176) %149, ptr noundef nonnull align 8 dereferenceable(176) %150) #24
   %152 = add nsw i64 %.010.i.i.i.i.i, -1
   %153 = icmp ugt i64 %.010.i.i.i.i.i, 1
-  br i1 %153, label %.lr.ph.i.i.i.i.i7, label %.loopexit, !llvm.loop !109
+  br i1 %153, label %.lr.ph.i.i.i.i.i7, label %.loopexit, !llvm.loop !108
 
 .loopexit:                                        ; preds = %_ZN7jsonnet8internal11SortImports10ImportElemaSEOS2_.exit, %_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit
   %154 = call noundef nonnull align 8 dereferenceable(232) ptr @_ZN7jsonnet8internal11SortImports10ImportElemaSEOS2_(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(232) %3) #24
@@ -14101,7 +14074,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8intern
 _ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread20
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 232
   %.not = icmp eq ptr %.sroa.0.0, %1
-  br i1 %.not, label %.loopexit23, label %26, !llvm.loop !126
+  br i1 %.not, label %.loopexit23, label %26, !llvm.loop !125
 
 .loopexit23:                                      ; preds = %_ZN7jsonnet8internal11SortImports10ImportElemD2Ev.exit, %.preheader, %2
   ret void
@@ -14233,7 +14206,7 @@ _ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit: ; preds = %7, %_ZNKSt
 73:                                               ; preds = %80
   %74 = add nuw i64 %.012.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %74, %.sroa.speculated.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7jsonnet8internal11SortImports10ImportElemENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7jsonnet8internal11SortImports10ImportElemENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !115
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %67, %73
   %.012.i.i.i.i.i = phi i64 [ %74, %73 ], [ 0, %67 ]
@@ -14258,7 +14231,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7jsonnet8internal11SortImports10ImportEl
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7jsonnet8internal11SortImports10ImportElemENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7jsonnet8internal11SortImports10ImportElemENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit
   %84 = call noundef nonnull align 8 dereferenceable(232) ptr @_ZN7jsonnet8internal11SortImports10ImportElemaSEOS2_(ptr noundef nonnull align 8 dereferenceable(232) %.sroa.05.0, ptr noundef nonnull align 8 dereferenceable(232) %.sroa.0.0) #24
-  br label %67, !llvm.loop !127
+  br label %67, !llvm.loop !126
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7jsonnet8internal11SortImports10ImportElemENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread9: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7jsonnet8internal11SortImports10ImportElemENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit, %80
   %85 = call noundef nonnull align 8 dereferenceable(232) ptr @_ZN7jsonnet8internal11SortImports10ImportElemaSEOS2_(ptr noundef nonnull align 8 dereferenceable(232) %.sroa.05.0, ptr noundef nonnull align 8 dereferenceable(232) %2) #24
@@ -14522,7 +14495,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %36 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
   %37 = add nsw i64 %.012.i.i.i.i.i, -1
   %38 = icmp ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %38, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit.loopexit, !llvm.loop !128
+  br i1 %38, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit.loopexit, !llvm.loop !127
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
   %.pre = load ptr, ptr %28, align 8
@@ -14546,7 +14519,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i.i.i) #24
   %42 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i.i, i64 32
   %.not.i.i.i27 = icmp eq ptr %42, %39
-  br i1 %.not.i.i.i27, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_EvT_SD_RSaIT0_E.exit, label %.lr.ph.i.i.i26, !llvm.loop !129
+  br i1 %.not.i.i.i27, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_EvT_SD_RSaIT0_E.exit, label %.lr.ph.i.i.i26, !llvm.loop !128
 
 43:                                               ; preds = %27
   %44 = ashr exact i64 %31, 5
@@ -14562,7 +14535,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i31, i64 32
   %49 = add nsw i64 %.012.i.i.i.i.i30, -1
   %50 = icmp ugt i64 %.012.i.i.i.i.i30, 1
-  br i1 %50, label %.lr.ph.i.i.i.i.i29, label %_ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.loopexit, !llvm.loop !130
+  br i1 %50, label %.lr.ph.i.i.i.i.i29, label %_ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.loopexit, !llvm.loop !129
 
 _ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i29
   %.pre37 = load ptr, ptr %1, align 8
@@ -14593,7 +14566,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRS5_EEvPT_
   %55 = getelementptr inbounds i8, ptr %.01215.i.i.i.i, i64 32
   %56 = getelementptr inbounds i8, ptr %.016.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %55, %51
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_EvT_SD_RSaIT0_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !131
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_EvT_SD_RSaIT0_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !130
 
 57:                                               ; preds = %.lr.ph.i.i.i.i
   %58 = landingpad { ptr, i32 }
@@ -14685,7 +14658,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
   %14 = getelementptr inbounds i8, ptr %.sroa.08.013.i.i.i.i, i64 32
   %15 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %14, %3
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !67
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !66
 
 16:                                               ; preds = %.lr.ph.i.i.i.i
   %17 = landingpad { ptr, i32 }
@@ -14838,7 +14811,7 @@ define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal5Local4BindESaIS3_EED2E
   tail call void @_ZN7jsonnet8internal5Local4BindD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %.05.i.i.i) #24
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 176
   %.not.i.i.i = icmp eq ptr %5, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal5Local4BindES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !52
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal5Local4BindES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !51
 
 _ZSt8_DestroyIPN7jsonnet8internal5Local4BindES3_EvT_S5_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -14905,7 +14878,7 @@ _ZSt10_ConstructIN7jsonnet8internal5Local4BindEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i: 
   %20 = getelementptr inbounds i8, ptr %.sroa.08.013.i.i.i.i, i64 176
   %21 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 176
   %.not.i.i.i.i = icmp eq ptr %20, %19
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal5Local4BindESt6vectorIS5_SaIS5_EEEEPS5_S5_ET0_T_SE_SD_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !132
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal5Local4BindESt6vectorIS5_SaIS5_EEEEPS5_S5_ET0_T_SE_SD_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !131
 
 22:                                               ; preds = %.lr.ph.i.i.i.i
   %23 = landingpad { ptr, i32 }
@@ -14920,7 +14893,7 @@ _ZSt10_ConstructIN7jsonnet8internal5Local4BindEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i: 
   tail call void @_ZN7jsonnet8internal5Local4BindD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %.05.i.i.i.i.i.i) #24
   %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 176
   %.not.i.i.i.i.i.i = icmp eq ptr %26, %.014.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal5Local4BindEEvT_S5_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !52
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal5Local4BindEEvT_S5_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !51
 
 _ZSt8_DestroyIPN7jsonnet8internal5Local4BindEEvT_S5_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %22
   invoke void @__cxa_rethrow() #28
@@ -14975,7 +14948,7 @@ define linkonce_odr void @_ZN7jsonnet8internal5LocalD2Ev(ptr noundef nonnull ali
   tail call void @_ZN7jsonnet8internal5Local4BindD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %.05.i.i.i.i) #24
   %6 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 176
   %.not.i.i.i.i = icmp eq ptr %6, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal5Local4BindES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !52
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal5Local4BindES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !51
 
 _ZSt8_DestroyIPN7jsonnet8internal5Local4BindES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %2, align 8
@@ -15010,7 +14983,7 @@ define linkonce_odr void @_ZN7jsonnet8internal5LocalD0Ev(ptr noundef nonnull ali
   tail call void @_ZN7jsonnet8internal5Local4BindD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %.05.i.i.i.i.i) #24
   %6 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 176
   %.not.i.i.i.i.i = icmp eq ptr %6, %5
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal5Local4BindES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !52
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7jsonnet8internal5Local4BindES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !51
 
 _ZSt8_DestroyIPN7jsonnet8internal5Local4BindES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %2, align 8
@@ -18029,22 +18002,22 @@ _ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiiRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvRS3_PT_DpOT0_.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i ], [ %26, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiiRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvRS3_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i ], [ %9, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiiRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvRS3_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !alias.scope !138
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !alias.scope !137
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %35 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %36 = load <2 x ptr>, ptr %35, align 8, !alias.scope !136, !noalias !133
-  store <2 x ptr> %36, ptr %34, align 8, !alias.scope !133, !noalias !136
+  %36 = load <2 x ptr>, ptr %35, align 8, !alias.scope !135, !noalias !132
+  store <2 x ptr> %36, ptr %34, align 8, !alias.scope !132, !noalias !135
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  %39 = load ptr, ptr %38, align 8, !alias.scope !136, !noalias !133
-  store ptr %39, ptr %37, align 8, !alias.scope !133, !noalias !136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !136, !noalias !133
+  %39 = load ptr, ptr %38, align 8, !alias.scope !135, !noalias !132
+  store ptr %39, ptr %37, align 8, !alias.scope !132, !noalias !135
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !135, !noalias !132
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
   %41 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %40, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !59
 
 _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiiRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %26, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiiRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvRS3_PT_DpOT0_.exit ], [ %41, %.lr.ph.i.i.i ]
@@ -18055,22 +18028,22 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_R
 .lr.ph.i.i.i30:                                   ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i30
   %.012.i.i.i31 = phi ptr [ %50, %.lr.ph.i.i.i30 ], [ %42, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %.0911.i.i.i32 = phi ptr [ %49, %.lr.ph.i.i.i30 ], [ %1, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i31, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i32, i64 12, i1 false), !alias.scope !144
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i31, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i32, i64 12, i1 false), !alias.scope !143
   %43 = getelementptr inbounds i8, ptr %.012.i.i.i31, i64 16
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i32, i64 16
-  %45 = load <2 x ptr>, ptr %44, align 8, !alias.scope !142, !noalias !139
-  store <2 x ptr> %45, ptr %43, align 8, !alias.scope !139, !noalias !142
+  %45 = load <2 x ptr>, ptr %44, align 8, !alias.scope !141, !noalias !138
+  store <2 x ptr> %45, ptr %43, align 8, !alias.scope !138, !noalias !141
   %46 = getelementptr inbounds i8, ptr %.012.i.i.i31, i64 32
   %47 = getelementptr inbounds i8, ptr %.0911.i.i.i32, i64 32
-  %48 = load ptr, ptr %47, align 8, !alias.scope !142, !noalias !139
-  store ptr %48, ptr %46, align 8, !alias.scope !139, !noalias !142
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !142, !noalias !139
+  %48 = load ptr, ptr %47, align 8, !alias.scope !141, !noalias !138
+  store ptr %48, ptr %46, align 8, !alias.scope !138, !noalias !141
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !141, !noalias !138
   %49 = getelementptr inbounds i8, ptr %.0911.i.i.i32, i64 40
   %50 = getelementptr inbounds i8, ptr %.012.i.i.i31, i64 40
   %.not.i.i.i33 = icmp eq ptr %49, %8
-  br i1 %.not.i.i.i33, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !60
+  br i1 %.not.i.i.i33, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !59
 
 _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35: ; preds = %.lr.ph.i.i.i30, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %.0.lcssa.i.i.i34 = phi ptr [ %42, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %50, %.lr.ph.i.i.i30 ]
@@ -18173,22 +18146,22 @@ _ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiiSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvRS3_PT_DpOT0_.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i ], [ %26, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiiSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvRS3_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i ], [ %9, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiiSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvRS3_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !alias.scope !150
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !alias.scope !149
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %35 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %36 = load <2 x ptr>, ptr %35, align 8, !alias.scope !148, !noalias !145
-  store <2 x ptr> %36, ptr %34, align 8, !alias.scope !145, !noalias !148
+  %36 = load <2 x ptr>, ptr %35, align 8, !alias.scope !147, !noalias !144
+  store <2 x ptr> %36, ptr %34, align 8, !alias.scope !144, !noalias !147
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  %39 = load ptr, ptr %38, align 8, !alias.scope !148, !noalias !145
-  store ptr %39, ptr %37, align 8, !alias.scope !145, !noalias !148
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !148, !noalias !145
+  %39 = load ptr, ptr %38, align 8, !alias.scope !147, !noalias !144
+  store ptr %39, ptr %37, align 8, !alias.scope !144, !noalias !147
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !147, !noalias !144
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
   %41 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %40, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !59
 
 _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiiSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %26, %_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiiSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvRS3_PT_DpOT0_.exit ], [ %41, %.lr.ph.i.i.i ]
@@ -18199,22 +18172,22 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_R
 .lr.ph.i.i.i30:                                   ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i30
   %.012.i.i.i31 = phi ptr [ %50, %.lr.ph.i.i.i30 ], [ %42, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %.0911.i.i.i32 = phi ptr [ %49, %.lr.ph.i.i.i30 ], [ %1, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !151)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i31, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i32, i64 12, i1 false), !alias.scope !156
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !150)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i31, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i32, i64 12, i1 false), !alias.scope !155
   %43 = getelementptr inbounds i8, ptr %.012.i.i.i31, i64 16
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i32, i64 16
-  %45 = load <2 x ptr>, ptr %44, align 8, !alias.scope !154, !noalias !151
-  store <2 x ptr> %45, ptr %43, align 8, !alias.scope !151, !noalias !154
+  %45 = load <2 x ptr>, ptr %44, align 8, !alias.scope !153, !noalias !150
+  store <2 x ptr> %45, ptr %43, align 8, !alias.scope !150, !noalias !153
   %46 = getelementptr inbounds i8, ptr %.012.i.i.i31, i64 32
   %47 = getelementptr inbounds i8, ptr %.0911.i.i.i32, i64 32
-  %48 = load ptr, ptr %47, align 8, !alias.scope !154, !noalias !151
-  store ptr %48, ptr %46, align 8, !alias.scope !151, !noalias !154
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !154, !noalias !151
+  %48 = load ptr, ptr %47, align 8, !alias.scope !153, !noalias !150
+  store ptr %48, ptr %46, align 8, !alias.scope !150, !noalias !153
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !153, !noalias !150
   %49 = getelementptr inbounds i8, ptr %.0911.i.i.i32, i64 40
   %50 = getelementptr inbounds i8, ptr %.012.i.i.i31, i64 40
   %.not.i.i.i33 = icmp eq ptr %49, %8
-  br i1 %.not.i.i.i33, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !60
+  br i1 %.not.i.i.i33, label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !59
 
 _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35: ; preds = %.lr.ph.i.i.i30, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %.0.lcssa.i.i.i34 = phi ptr [ %42, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %50, %.lr.ph.i.i.i30 ]
@@ -18545,8 +18518,8 @@ define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal16PrettyFieldNames12
 
 ._crit_edge:                                      ; preds = %16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
-  %.val.i = load ptr, ptr %1, align 8, !noalias !157
-  %.val3.i = load i64, ptr %4, align 8, !noalias !157
+  %.val.i = load ptr, ptr %1, align 8, !noalias !156
+  %.val3.i = load i64, ptr %4, align 8, !noalias !156
   %18 = getelementptr inbounds i32, ptr %.val.i, i64 %.val3.i
   %.not4.i.i = icmp eq i64 %.val3.i, 0
   br i1 %.not4.i.i, label %_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE.exit, label %.lr.ph.i.i
@@ -18616,7 +18589,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator14makeIdentifierE
 10:                                               ; preds = %17
   %11 = add nuw i64 %.012.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %11, %.sroa.speculated.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !115
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i, %10
   %.012.i.i.i.i.i.i.i = phi i64 [ %11, %10 ], [ 0, %.lr.ph.i.i.i ]
@@ -18648,7 +18621,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
   %21 = getelementptr inbounds i8, ptr %.016.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %21, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEESt4pairIKS5_PKN7jsonnet8internal10IdentifierEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !160
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEESt4pairIKS5_PKN7jsonnet8internal10IdentifierEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !159
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEESt4pairIKS5_PKN7jsonnet8internal10IdentifierEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS7_.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit.thread11.i.i.i
   %22 = icmp eq ptr %.19.i.i.i, %5
@@ -18666,7 +18639,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEESt4pairIKS
 28:                                               ; preds = %35
   %29 = add nuw i64 %.012.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %29, %.sroa.speculated.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !115
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %23, %28
   %.012.i.i.i.i.i.i = phi i64 [ %29, %28 ], [ 0, %23 ]
@@ -18893,7 +18866,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINS
 16:                                               ; preds = %23
   %17 = add nuw i64 %.012.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %17, %.sroa.speculated.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !115
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %11, %16
   %.012.i.i.i.i.i.i.i = phi i64 [ %17, %16 ], [ 0, %11 ]
@@ -18925,7 +18898,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
   %27 = getelementptr inbounds i8, ptr %.016.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %27, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEPKN7jsonnet8internal10IdentifierESt4lessIS5_ESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit, label %11, !llvm.loop !160
+  br i1 %.not.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEPKN7jsonnet8internal10IdentifierESt4lessIS5_ESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit, label %11, !llvm.loop !159
 
 _ZNSt3mapINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEPKN7jsonnet8internal10IdentifierESt4lessIS5_ESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit.thread11.i.i.i
   %28 = icmp eq ptr %.19.i.i.i, %7
@@ -18943,7 +18916,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEPKN7jsonnet8int
 34:                                               ; preds = %41
   %35 = add nuw i64 %.012.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %35, %.sroa.speculated.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !115
 
 .lr.ph.i.i.i.i:                                   ; preds = %29, %34
   %.012.i.i.i.i = phi i64 [ %35, %34 ], [ 0, %29 ]
@@ -19018,7 +18991,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDiSt11char_tra
 25:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %26 = add nuw i64 %.012.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %26, %.sroa.speculated.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !115
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %17, %25
   %.012.i.i.i.i.i.i = phi i64 [ %26, %25 ], [ 0, %17 ]
@@ -19111,7 +19084,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDiSt1
 19:                                               ; preds = %26
   %20 = add nuw i64 %.012.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %20, %.sroa.speculated.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !115
 
 .lr.ph.i.i.i.i:                                   ; preds = %9, %19
   %.012.i.i.i.i = phi i64 [ %20, %19 ], [ 0, %9 ]
@@ -19155,7 +19128,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
 41:                                               ; preds = %48
   %42 = add nuw i64 %.012.i.i.i.i13, 1
   %exitcond.not.i.i.i.i14 = icmp eq i64 %42, %.sroa.speculated.i.i.i10
-  br i1 %exitcond.not.i.i.i.i14, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit19, label %.lr.ph.i.i.i.i12, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i14, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit19, label %.lr.ph.i.i.i.i12, !llvm.loop !115
 
 .lr.ph.i.i.i.i12:                                 ; preds = %33, %41
   %.012.i.i.i.i13 = phi i64 [ %42, %41 ], [ 0, %33 ]
@@ -19197,7 +19170,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
 61:                                               ; preds = %68
   %62 = add nuw i64 %.012.i.i.i.i23, 1
   %exitcond.not.i.i.i.i24 = icmp eq i64 %62, %.sroa.speculated.i.i.i20
-  br i1 %exitcond.not.i.i.i.i24, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit29, label %.lr.ph.i.i.i.i22, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i24, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit29, label %.lr.ph.i.i.i.i22, !llvm.loop !115
 
 .lr.ph.i.i.i.i22:                                 ; preds = %55, %61
   %.012.i.i.i.i23 = phi i64 [ %62, %61 ], [ 0, %55 ]
@@ -19240,7 +19213,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
 78:                                               ; preds = %85
   %79 = add nuw i64 %.012.i.i.i.i33, 1
   %exitcond.not.i.i.i.i34 = icmp eq i64 %79, %.sroa.speculated.i.i.i10
-  br i1 %exitcond.not.i.i.i.i34, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit39, label %.lr.ph.i.i.i.i32, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i34, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit39, label %.lr.ph.i.i.i.i32, !llvm.loop !115
 
 .lr.ph.i.i.i.i32:                                 ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit19.thread75, %78
   %.012.i.i.i.i33 = phi i64 [ %79, %78 ], [ 0, %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit19.thread75 ]
@@ -19282,7 +19255,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
 98:                                               ; preds = %105
   %99 = add nuw i64 %.012.i.i.i.i43, 1
   %exitcond.not.i.i.i.i44 = icmp eq i64 %99, %.sroa.speculated.i.i.i40
-  br i1 %exitcond.not.i.i.i.i44, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit49, label %.lr.ph.i.i.i.i42, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i44, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit49, label %.lr.ph.i.i.i.i42, !llvm.loop !115
 
 .lr.ph.i.i.i.i42:                                 ; preds = %92, %98
   %.012.i.i.i.i43 = phi i64 [ %99, %98 ], [ 0, %92 ]
@@ -19476,7 +19449,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDiSt1
 13:                                               ; preds = %20
   %14 = add nuw i64 %.012.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %14, %.sroa.speculated.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !115
 
 .lr.ph.i.i.i.i:                                   ; preds = %8, %13
   %.012.i.i.i.i = phi i64 [ %14, %13 ], [ 0, %8 ]
@@ -19508,7 +19481,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
   %24 = getelementptr inbounds i8, ptr %.03044, i64 %.sink
   %.030 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %.030, null
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !161
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !160
 
 ._crit_edge:                                      ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit.thread
   br i1 %.0.i.i.i32, label %._crit_edge.thread, label %30
@@ -19541,7 +19514,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
 38:                                               ; preds = %45
   %39 = add nuw i64 %.012.i.i.i.i8, 1
   %exitcond.not.i.i.i.i9 = icmp eq i64 %39, %.sroa.speculated.i.i.i5
-  br i1 %exitcond.not.i.i.i.i9, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit14, label %.lr.ph.i.i.i.i7, !llvm.loop !116
+  br i1 %exitcond.not.i.i.i.i9, label %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit14, label %.lr.ph.i.i.i.i7, !llvm.loop !115
 
 .lr.ph.i.i.i.i7:                                  ; preds = %30, %38
   %.012.i.i.i.i8 = phi i64 [ %39, %38 ], [ 0, %30 ]
@@ -20063,7 +20036,7 @@ _ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementE
 
 _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit: ; preds = %._crit_edge.i.i.i, %70
   %73 = icmp eq ptr %1, null
-  br i1 %73, label %.thread1078, label %74
+  br i1 %73, label %.thread1077, label %74
 
 74:                                               ; preds = %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit
   %75 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
@@ -20223,9 +20196,9 @@ _ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit.
   %137 = load ptr, ptr %136, align 8
   %138 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %137)
   %.not7.i.i.i = icmp eq ptr %138, null
-  br i1 %.not7.i.i.i, label %_ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit.thread1144, label %.lr.ph.i.i.i
+  br i1 %.not7.i.i.i, label %_ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit.thread1143, label %.lr.ph.i.i.i
 
-_ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit.thread1144: ; preds = %135
+_ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit.thread1143: ; preds = %135
   %139 = getelementptr inbounds i8, ptr %137, i64 80
   br label %.lr.ph.preheader
 
@@ -20239,29 +20212,29 @@ _ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit:
   %141 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 80
   br i1 %130, label %.critedge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %132, %_ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit.thread1144, %_ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit
-  %142 = phi ptr [ %141, %_ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit ], [ %139, %_ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit.thread1144 ], [ %129, %132 ]
+.lr.ph.preheader:                                 ; preds = %132, %_ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit.thread1143, %_ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit
+  %142 = phi ptr [ %141, %_ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit ], [ %139, %_ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit.thread1143 ], [ %129, %132 ]
   br label %.lr.ph.outer
 
 .lr.ph.outer:                                     ; preds = %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit.thread, %.lr.ph.preheader
-  %.01094.ph = phi i1 [ true, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit.thread ], [ false, %.lr.ph.preheader ]
-  %.03661093.ph = phi i1 [ false, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit.thread ], [ true, %.lr.ph.preheader ]
-  %.sroa.0985.01092.ph = phi ptr [ %169, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit.thread ], [ %129, %.lr.ph.preheader ]
+  %.01093.ph = phi i1 [ true, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit.thread ], [ false, %.lr.ph.preheader ]
+  %.03661092.ph = phi i1 [ false, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit.thread ], [ true, %.lr.ph.preheader ]
+  %.sroa.0984.01091.ph = phi ptr [ %169, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit.thread ], [ %129, %.lr.ph.preheader ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit
-  %.03661093 = phi i1 [ false, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit ], [ %.03661093.ph, %.lr.ph.outer ]
-  %.sroa.0985.01092 = phi ptr [ %168, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit ], [ %.sroa.0985.01092.ph, %.lr.ph.outer ]
-  br i1 %.03661093, label %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit, label %143
+  %.03661092 = phi i1 [ false, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit ], [ %.03661092.ph, %.lr.ph.outer ]
+  %.sroa.0984.01091 = phi ptr [ %168, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit ], [ %.sroa.0984.01091.ph, %.lr.ph.outer ]
+  br i1 %.03661092, label %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit, label %143
 
 143:                                              ; preds = %.lr.ph
-  %144 = getelementptr inbounds i8, ptr %.sroa.0985.01092, i64 24
+  %144 = getelementptr inbounds i8, ptr %.sroa.0984.01091, i64 24
   %145 = load ptr, ptr %144, align 8
   %.not.i490 = icmp eq ptr %145, null
   br i1 %.not.i490, label %146, label %_ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit498
 
 146:                                              ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %.sroa.0985.01092, i64 56
+  %147 = getelementptr inbounds i8, ptr %.sroa.0984.01091, i64 56
   %148 = load ptr, ptr %147, align 8
   %149 = call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %148)
   %.not7.i.i.i492 = icmp eq ptr %149, null
@@ -20270,8 +20243,8 @@ _ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit:
 .lr.ph.i.i.i493:                                  ; preds = %146, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
   %.08.i.i.i494 = phi ptr [ %160, %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit ], [ %149, %146 ]
   %150 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i.i494, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ApplyE, i64 0) #24
-  %.not.i959 = icmp eq ptr %150, null
-  br i1 %.not.i959, label %151, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
+  %.not.i958 = icmp eq ptr %150, null
+  br i1 %.not.i958, label %151, label %_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE.exit
 
 151:                                              ; preds = %.lr.ph.i.i.i493
   %152 = call ptr @__dynamic_cast(ptr nonnull %.08.i.i.i494, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
@@ -20306,7 +20279,7 @@ _ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit.i496: ; preds = %157, %_ZN7js
   br label %_ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit498
 
 _ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit498: ; preds = %143, %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit.i496
-  %.0.i491 = phi ptr [ %161, %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit.i496 ], [ %.sroa.0985.01092, %143 ]
+  %.0.i491 = phi ptr [ %161, %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit.i496 ], [ %.sroa.0984.01091, %143 ]
   %162 = load ptr, ptr %.0.i491, align 8
   %163 = getelementptr inbounds i8, ptr %.0.i491, i64 8
   %164 = load ptr, ptr %163, align 8
@@ -20325,17 +20298,17 @@ _ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit4
   br i1 %.not.not.i, label %165, label %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit.thread
 
 _ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit: ; preds = %165, %_ZN7jsonnet8internal14FixIndentation19argParamFirstFodderERKNS0_8ArgParamE.exit498, %.lr.ph
-  %168 = getelementptr inbounds i8, ptr %.sroa.0985.01092, i64 88
-  %.not1080 = icmp eq ptr %168, %128
-  br i1 %.not1080, label %._crit_edge, label %.lr.ph
+  %168 = getelementptr inbounds i8, ptr %.sroa.0984.01091, i64 88
+  %.not1079 = icmp eq ptr %168, %128
+  br i1 %.not1079, label %._crit_edge, label %.lr.ph
 
 _ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit.thread: ; preds = %.lr.ph.i
-  %169 = getelementptr inbounds i8, ptr %.sroa.0985.01092, i64 88
-  %.not10801147 = icmp eq ptr %169, %128
-  br i1 %.not10801147, label %._crit_edge.thread, label %.lr.ph.outer
+  %169 = getelementptr inbounds i8, ptr %.sroa.0984.01091, i64 88
+  %.not10791146 = icmp eq ptr %169, %128
+  br i1 %.not10791146, label %._crit_edge.thread, label %.lr.ph.outer
 
 ._crit_edge:                                      ; preds = %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit
-  br i1 %.01094.ph, label %._crit_edge.thread, label %.critedge
+  br i1 %.01093.ph, label %._crit_edge.thread, label %.critedge
 
 ._crit_edge.thread:                               ; preds = %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit.thread, %._crit_edge
   %170 = getelementptr inbounds i8, ptr %142, i64 8
@@ -20398,16 +20371,16 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 197:                                              ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit, %_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit
   %storemerge459 = phi i64 [ %.sroa.0.0.insert.insert.i508, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit ], [ %.sroa.0.0.insert.insert.i502, %_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit ]
   store i64 %storemerge459, ptr %6, align 8
-  br i1 %130, label %._crit_edge1100, label %.lr.ph1099
+  br i1 %130, label %._crit_edge1099, label %.lr.ph1098
 
-.lr.ph1099:                                       ; preds = %197
+.lr.ph1098:                                       ; preds = %197
   %198 = getelementptr inbounds i8, ptr %6, i64 4
   br label %199
 
-199:                                              ; preds = %.lr.ph1099, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit556
-  %.21097 = phi i1 [ true, %.lr.ph1099 ], [ false, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit556 ]
-  %.sroa.0981.01096 = phi ptr [ %129, %.lr.ph1099 ], [ %269, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit556 ]
-  br i1 %.21097, label %203, label %200
+199:                                              ; preds = %.lr.ph1098, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit556
+  %.21096 = phi i1 [ true, %.lr.ph1098 ], [ false, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit556 ]
+  %.sroa.0980.01095 = phi ptr [ %129, %.lr.ph1098 ], [ %269, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit556 ]
+  br i1 %.21096, label %203, label %200
 
 200:                                              ; preds = %199
   %201 = load i32, ptr %82, align 4
@@ -20416,16 +20389,16 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   br label %203
 
 203:                                              ; preds = %200, %199
-  %204 = xor i1 %.21097, true
-  %205 = getelementptr inbounds i8, ptr %.sroa.0981.01096, i64 24
+  %204 = xor i1 %.21096, true
+  %205 = getelementptr inbounds i8, ptr %.sroa.0980.01095, i64 24
   %206 = load ptr, ptr %205, align 8
   %.not460 = icmp eq ptr %206, null
   br i1 %.not460, label %240, label %207
 
 207:                                              ; preds = %203
   %208 = load i32, ptr %198, align 4
-  %209 = load ptr, ptr %.sroa.0981.01096, align 8
-  %210 = getelementptr inbounds i8, ptr %.sroa.0981.01096, i64 8
+  %209 = load ptr, ptr %.sroa.0980.01095, align 8
+  %210 = getelementptr inbounds i8, ptr %.sroa.0980.01095, i64 8
   %211 = load ptr, ptr %210, align 8
   %.not2527.i.i.i509 = icmp eq ptr %209, %211
   br i1 %.not2527.i.i.i509, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit532, label %.lr.ph33.i.i.i510
@@ -20447,7 +20420,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   br i1 %.not26.i.i.i514, label %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i515, label %.lr.ph33.i.i.i510
 
 _ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i515: ; preds = %214
-  %.val.pre.i.i516 = load ptr, ptr %.sroa.0981.01096, align 8
+  %.val.pre.i.i516 = load ptr, ptr %.sroa.0980.01095, align 8
   %.val6.pre.i.i517 = load ptr, ptr %210, align 8
   %.not4.i.i.i518 = icmp eq ptr %.val.pre.i.i516, %.val6.pre.i.i517
   br i1 %.not4.i.i.i518, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit532, label %.lr.ph.i7.i.i520
@@ -20510,13 +20483,13 @@ _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_E
 
 240:                                              ; preds = %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit532, %203
   %.0368 = phi i1 [ false, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit532 ], [ %204, %203 ]
-  %241 = getelementptr inbounds i8, ptr %.sroa.0981.01096, i64 56
+  %241 = getelementptr inbounds i8, ptr %.sroa.0980.01095, i64 56
   %242 = load ptr, ptr %241, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %242, ptr noundef nonnull align 4 dereferenceable(8) %6, i1 noundef zeroext %.0368)
-  %243 = getelementptr inbounds i8, ptr %.sroa.0981.01096, i64 64
+  %243 = getelementptr inbounds i8, ptr %.sroa.0980.01095, i64 64
   %244 = load i32, ptr %198, align 4
   %245 = load ptr, ptr %243, align 8
-  %246 = getelementptr inbounds i8, ptr %.sroa.0981.01096, i64 72
+  %246 = getelementptr inbounds i8, ptr %.sroa.0980.01095, i64 72
   %247 = load ptr, ptr %246, align 8
   %.not2527.i.i.i533 = icmp eq ptr %245, %247
   br i1 %.not2527.i.i.i533, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit556, label %.lr.ph33.i.i.i534
@@ -20589,23 +20562,23 @@ _ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementE
   br i1 %.not.i9.i.i551, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit556, label %.lr.ph.i7.i.i544
 
 _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit556: ; preds = %267, %240, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i539
-  %269 = getelementptr inbounds i8, ptr %.sroa.0981.01096, i64 88
-  %.not1081 = icmp eq ptr %269, %128
-  br i1 %.not1081, label %._crit_edge1100, label %199
+  %269 = getelementptr inbounds i8, ptr %.sroa.0980.01095, i64 88
+  %.not1080 = icmp eq ptr %269, %128
+  br i1 %.not1080, label %._crit_edge1099, label %199
 
-._crit_edge1100:                                  ; preds = %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit556, %197
+._crit_edge1099:                                  ; preds = %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit556, %197
   %270 = getelementptr inbounds i8, ptr %75, i64 184
   %271 = load i8, ptr %270, align 8
   %272 = trunc i8 %271 to i1
   br i1 %272, label %273, label %276
 
-273:                                              ; preds = %._crit_edge1100
+273:                                              ; preds = %._crit_edge1099
   %274 = load i32, ptr %82, align 4
   %275 = add i32 %274, 1
   store i32 %275, ptr %82, align 4
   br label %276
 
-276:                                              ; preds = %273, %._crit_edge1100
+276:                                              ; preds = %273, %._crit_edge1099
   %277 = getelementptr inbounds i8, ptr %75, i64 192
   %278 = getelementptr inbounds i8, ptr %6, i64 4
   %279 = load i32, ptr %278, align 4
@@ -20706,7 +20679,7 @@ _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_E
   %312 = getelementptr inbounds i8, ptr %75, i64 240
   %313 = load i8, ptr %312, align 8
   %314 = trunc i8 %313 to i1
-  br i1 %314, label %315, label %common.ret1182
+  br i1 %314, label %315, label %common.ret1181
 
 315:                                              ; preds = %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit
   %316 = getelementptr inbounds i8, ptr %75, i64 216
@@ -20740,7 +20713,7 @@ _ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementE
   br i1 %.not4.i.i.i568, label %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i565.._crit_edge.i.i.i579.thread_crit_edge, label %.lr.ph.i7.i.i570
 
 _ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i565.._crit_edge.i.i.i579.thread_crit_edge: ; preds = %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i565
-  %.pre1141 = load i32, ptr %82, align 4
+  %.pre1140 = load i32, ptr %82, align 4
   br label %._crit_edge.i.i.i579.thread
 
 .lr.ph.i7.i.i570:                                 ; preds = %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i565, %341
@@ -20791,20 +20764,20 @@ _ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementE
 
 ._crit_edge.i.i.i579:                             ; preds = %341
   %343 = trunc nuw i8 %.1.i.i.i576 to i1
-  %.pre1142 = load i32, ptr %82, align 4
+  %.pre1141 = load i32, ptr %82, align 4
   br i1 %343, label %._crit_edge.i.i.i579.thread, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit582
 
 ._crit_edge.i.i.i579.thread:                      ; preds = %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i565.._crit_edge.i.i.i579.thread_crit_edge, %315, %._crit_edge.i.i.i579
-  %344 = phi i32 [ %.pre1141, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i565.._crit_edge.i.i.i579.thread_crit_edge ], [ %311, %315 ], [ %.pre1142, %._crit_edge.i.i.i579 ]
+  %344 = phi i32 [ %.pre1140, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i565.._crit_edge.i.i.i579.thread_crit_edge ], [ %311, %315 ], [ %.pre1141, %._crit_edge.i.i.i579 ]
   %345 = add i32 %344, 1
   store i32 %345, ptr %82, align 4
   br label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit582
 
 _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit582: ; preds = %._crit_edge.i.i.i579, %._crit_edge.i.i.i579.thread
-  %346 = phi i32 [ %345, %._crit_edge.i.i.i579.thread ], [ %.pre1142, %._crit_edge.i.i.i579 ]
+  %346 = phi i32 [ %345, %._crit_edge.i.i.i579.thread ], [ %.pre1141, %._crit_edge.i.i.i579 ]
   %347 = add i32 %346, 10
   store i32 %347, ptr %82, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 348:                                              ; preds = %74
   %349 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10ApplyBraceE, i64 0) #24
@@ -20865,7 +20838,7 @@ _ZN7jsonnet8internal14FixIndentation5alignERKSt6vectorINS0_13FodderElementESaIS3
   %371 = getelementptr inbounds i8, ptr %349, i64 136
   %372 = load ptr, ptr %371, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %372, ptr noundef nonnull align 4 dereferenceable(8) %7, i1 noundef zeroext true)
-  br label %common.ret1182
+  br label %common.ret1181
 
 373:                                              ; preds = %348
   %374 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ArrayE, i64 0) #24
@@ -20888,16 +20861,16 @@ _ZN7jsonnet8internal14FixIndentation5alignERKSt6vectorINS0_13FodderElementESaIS3
   %384 = load ptr, ptr %382, align 8
   %385 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %384)
   %.not7.i.i599 = icmp eq ptr %385, null
-  br i1 %.not7.i.i599, label %.thread1150, label %.lr.ph.i.i600
+  br i1 %.not7.i.i599, label %.thread1149, label %.lr.ph.i.i600
 
-.thread1150:                                      ; preds = %383
+.thread1149:                                      ; preds = %383
   %386 = getelementptr inbounds i8, ptr %384, i64 80
   %387 = getelementptr inbounds i8, ptr %0, i64 20
   %388 = load i8, ptr %387, align 4
   %389 = and i8 %388, 1
   %390 = zext nneg i8 %389 to i32
   %391 = add i32 %378, %390
-  br label %.lr.ph1106.preheader
+  br label %.lr.ph1105.preheader
 
 .lr.ph.i.i600:                                    ; preds = %383, %.lr.ph.i.i600
   %.08.i.i601 = phi ptr [ %392, %.lr.ph.i.i600 ], [ %385, %383 ]
@@ -20912,7 +20885,7 @@ _ZN7jsonnet8internal14FixIndentation5alignERKSt6vectorINS0_13FodderElementESaIS3
   %396 = and i8 %395, 1
   %397 = zext nneg i8 %396 to i32
   %398 = add i32 %378, %397
-  br label %.critedge1134
+  br label %.critedge1133
 
 399:                                              ; preds = %.lr.ph.i.i600
   %400 = getelementptr inbounds i8, ptr %.08.i.i601, i64 80
@@ -20921,27 +20894,27 @@ _ZN7jsonnet8internal14FixIndentation5alignERKSt6vectorINS0_13FodderElementESaIS3
   %403 = and i8 %402, 1
   %404 = zext nneg i8 %403 to i32
   %405 = add i32 %378, %404
-  br i1 %.not457, label %.critedge1134, label %.lr.ph1106.preheader
+  br i1 %.not457, label %.critedge1133, label %.lr.ph1105.preheader
 
-.lr.ph1106.preheader:                             ; preds = %.thread1150, %399
-  %406 = phi i32 [ %391, %.thread1150 ], [ %405, %399 ]
-  %407 = phi ptr [ %387, %.thread1150 ], [ %401, %399 ]
-  %408 = phi ptr [ %386, %.thread1150 ], [ %400, %399 ]
-  br label %.lr.ph1106.outer
+.lr.ph1105.preheader:                             ; preds = %.thread1149, %399
+  %406 = phi i32 [ %391, %.thread1149 ], [ %405, %399 ]
+  %407 = phi ptr [ %387, %.thread1149 ], [ %401, %399 ]
+  %408 = phi ptr [ %386, %.thread1149 ], [ %400, %399 ]
+  br label %.lr.ph1105.outer
 
-.lr.ph1106.outer:                                 ; preds = %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617.thread, %.lr.ph1106.preheader
-  %.03691104.ph = phi i1 [ true, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617.thread ], [ false, %.lr.ph1106.preheader ]
-  %.03711103.ph = phi i1 [ false, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617.thread ], [ true, %.lr.ph1106.preheader ]
-  %.sroa.0977.01102.ph = phi ptr [ %421, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617.thread ], [ %382, %.lr.ph1106.preheader ]
-  br label %.lr.ph1106
+.lr.ph1105.outer:                                 ; preds = %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617.thread, %.lr.ph1105.preheader
+  %.03691103.ph = phi i1 [ true, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617.thread ], [ false, %.lr.ph1105.preheader ]
+  %.03711102.ph = phi i1 [ false, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617.thread ], [ true, %.lr.ph1105.preheader ]
+  %.sroa.0976.01101.ph = phi ptr [ %421, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617.thread ], [ %382, %.lr.ph1105.preheader ]
+  br label %.lr.ph1105
 
-.lr.ph1106:                                       ; preds = %.lr.ph1106.outer, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617
-  %.03711103 = phi i1 [ false, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617 ], [ %.03711103.ph, %.lr.ph1106.outer ]
-  %.sroa.0977.01102 = phi ptr [ %420, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617 ], [ %.sroa.0977.01102.ph, %.lr.ph1106.outer ]
-  br i1 %.03711103, label %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617, label %409
+.lr.ph1105:                                       ; preds = %.lr.ph1105.outer, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617
+  %.03711102 = phi i1 [ false, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617 ], [ %.03711102.ph, %.lr.ph1105.outer ]
+  %.sroa.0976.01101 = phi ptr [ %420, %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617 ], [ %.sroa.0976.01101.ph, %.lr.ph1105.outer ]
+  br i1 %.03711102, label %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617, label %409
 
-409:                                              ; preds = %.lr.ph1106
-  %410 = load ptr, ptr %.sroa.0977.01102, align 8
+409:                                              ; preds = %.lr.ph1105
+  %410 = load ptr, ptr %.sroa.0976.01101, align 8
   %411 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %410)
   %.not7.i.i605 = icmp eq ptr %411, null
   br i1 %.not7.i.i605, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit610, label %.lr.ph.i.i606
@@ -20972,27 +20945,27 @@ _ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit610: ; preds = %.lr.ph.i.i606,
   %.not.not.i614 = icmp eq i32 %419, 1
   br i1 %.not.not.i614, label %417, label %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617.thread
 
-_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617: ; preds = %417, %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit610, %.lr.ph1106
-  %420 = getelementptr inbounds i8, ptr %.sroa.0977.01102, i64 32
-  %.not1082 = icmp eq ptr %420, %381
-  br i1 %.not1082, label %._crit_edge1107, label %.lr.ph1106
+_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617: ; preds = %417, %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit610, %.lr.ph1105
+  %420 = getelementptr inbounds i8, ptr %.sroa.0976.01101, i64 32
+  %.not1081 = icmp eq ptr %420, %381
+  br i1 %.not1081, label %._crit_edge1106, label %.lr.ph1105
 
 _ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617.thread: ; preds = %.lr.ph.i612
-  %421 = getelementptr inbounds i8, ptr %.sroa.0977.01102, i64 32
-  %.not10821153 = icmp eq ptr %421, %381
-  br i1 %.not10821153, label %._crit_edge1107.thread, label %.lr.ph1106.outer
+  %421 = getelementptr inbounds i8, ptr %.sroa.0976.01101, i64 32
+  %.not10811152 = icmp eq ptr %421, %381
+  br i1 %.not10811152, label %._crit_edge1106.thread, label %.lr.ph1105.outer
 
-._crit_edge1107:                                  ; preds = %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617
-  br i1 %.03691104.ph, label %._crit_edge1107.thread, label %.critedge1134
+._crit_edge1106:                                  ; preds = %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617
+  br i1 %.03691103.ph, label %._crit_edge1106.thread, label %.critedge1133
 
-._crit_edge1107.thread:                           ; preds = %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617.thread, %._crit_edge1107
+._crit_edge1106.thread:                           ; preds = %_ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElementESaIS3_EE.exit617.thread, %._crit_edge1106
   %422 = getelementptr inbounds i8, ptr %408, i64 8
   %423 = load ptr, ptr %422, align 8
   %424 = load ptr, ptr %408, align 8
   %425 = icmp eq ptr %423, %424
   br i1 %425, label %_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit622, label %426
 
-426:                                              ; preds = %._crit_edge1107.thread
+426:                                              ; preds = %._crit_edge1106.thread
   %427 = load i32, ptr %424, align 8
   %428 = icmp eq i32 %427, 1
   br i1 %428, label %_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit622, label %429
@@ -21004,28 +20977,28 @@ _ZN7jsonnet8internal14FixIndentation11hasNewLinesERKSt6vectorINS0_13FodderElemen
   %433 = add i32 %432, %430
   br label %_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit622
 
-_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit622: ; preds = %._crit_edge1107.thread, %426, %429
-  %.sroa.3.0.i618 = phi i32 [ %433, %429 ], [ %406, %426 ], [ %406, %._crit_edge1107.thread ]
+_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit622: ; preds = %._crit_edge1106.thread, %426, %429
+  %.sroa.3.0.i618 = phi i32 [ %433, %429 ], [ %406, %426 ], [ %406, %._crit_edge1106.thread ]
   %.sroa.3.0.insert.ext.i619 = zext i32 %.sroa.3.0.i618 to i64
   %.sroa.0.0.insert.insert.i621 = mul nuw i64 %.sroa.3.0.insert.ext.i619, 4294967297
   br label %451
 
-.critedge1134:                                    ; preds = %.thread, %399, %._crit_edge1107
-  %434 = phi i32 [ %398, %.thread ], [ %405, %399 ], [ %406, %._crit_edge1107 ]
-  %435 = phi ptr [ %394, %.thread ], [ %401, %399 ], [ %407, %._crit_edge1107 ]
-  %436 = phi ptr [ %393, %.thread ], [ %400, %399 ], [ %408, %._crit_edge1107 ]
+.critedge1133:                                    ; preds = %.thread, %399, %._crit_edge1106
+  %434 = phi i32 [ %398, %.thread ], [ %405, %399 ], [ %406, %._crit_edge1106 ]
+  %435 = phi ptr [ %394, %.thread ], [ %401, %399 ], [ %407, %._crit_edge1106 ]
+  %436 = phi ptr [ %393, %.thread ], [ %400, %399 ], [ %408, %._crit_edge1106 ]
   %437 = getelementptr inbounds i8, ptr %436, i64 8
   %438 = load ptr, ptr %437, align 8
   %439 = load ptr, ptr %436, align 8
   %440 = icmp eq ptr %438, %439
   br i1 %440, label %444, label %441
 
-441:                                              ; preds = %.critedge1134
+441:                                              ; preds = %.critedge1133
   %442 = load i32, ptr %439, align 8
   %443 = icmp eq i32 %442, 1
   br i1 %443, label %444, label %446
 
-444:                                              ; preds = %441, %.critedge1134
+444:                                              ; preds = %441, %.critedge1133
   %445 = load i32, ptr %2, align 4
   br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit629
 
@@ -21049,16 +21022,16 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %452 = phi ptr [ %435, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit629 ], [ %407, %_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit622 ]
   %storemerge458 = phi i64 [ %.sroa.0.0.insert.insert.i628, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit629 ], [ %.sroa.0.0.insert.insert.i621, %_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit622 ]
   store i64 %storemerge458, ptr %8, align 8
-  br i1 %.not457, label %._crit_edge1114, label %.lr.ph1113
+  br i1 %.not457, label %._crit_edge1113, label %.lr.ph1112
 
-.lr.ph1113:                                       ; preds = %451
+.lr.ph1112:                                       ; preds = %451
   %453 = getelementptr inbounds i8, ptr %8, i64 4
   br label %454
 
-454:                                              ; preds = %.lr.ph1113, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit662
-  %.23731111 = phi i1 [ true, %.lr.ph1113 ], [ false, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit662 ]
-  %.sroa.0973.01110 = phi ptr [ %382, %.lr.ph1113 ], [ %489, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit662 ]
-  br i1 %.23731111, label %458, label %455
+454:                                              ; preds = %.lr.ph1112, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit661
+  %.23731110 = phi i1 [ true, %.lr.ph1112 ], [ false, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit661 ]
+  %.sroa.0972.01109 = phi ptr [ %382, %.lr.ph1112 ], [ %489, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit661 ]
+  br i1 %.23731110, label %458, label %455
 
 455:                                              ; preds = %454
   %456 = load i32, ptr %376, align 4
@@ -21067,19 +21040,19 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   br label %458
 
 458:                                              ; preds = %455, %454
-  %459 = load ptr, ptr %.sroa.0973.01110, align 8
+  %459 = load ptr, ptr %.sroa.0972.01109, align 8
   %460 = load i8, ptr %452, align 4
   %461 = trunc i8 %460 to i1
-  %not..2373 = xor i1 %.23731111, true
+  %not..2373 = xor i1 %.23731110, true
   %462 = select i1 %not..2373, i1 true, i1 %461
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %459, ptr noundef nonnull align 4 dereferenceable(8) %8, i1 noundef zeroext %462)
-  %463 = getelementptr inbounds i8, ptr %.sroa.0973.01110, i64 8
+  %463 = getelementptr inbounds i8, ptr %.sroa.0972.01109, i64 8
   %464 = load i32, ptr %453, align 4
   %465 = load ptr, ptr %463, align 8
-  %466 = getelementptr inbounds i8, ptr %.sroa.0973.01110, i64 16
+  %466 = getelementptr inbounds i8, ptr %.sroa.0972.01109, i64 16
   %467 = load ptr, ptr %466, align 8
   %.not2527.i.i630 = icmp eq ptr %465, %467
-  br i1 %.not2527.i.i630, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit662, label %.lr.ph33.i.i638
+  br i1 %.not2527.i.i630, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit661, label %.lr.ph33.i.i638
 
 .lr.ph33.i.i638:                                  ; preds = %458, %470
   %.sroa.018.031.i.i640 = phi ptr [ %471, %470 ], [ %465, %458 ]
@@ -21094,32 +21067,32 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 470:                                              ; preds = %.sink.split.i.i642, %.lr.ph33.i.i638
   %471 = getelementptr inbounds i8, ptr %.sroa.018.031.i.i640, i64 40
-  %.not26.i.i645 = icmp eq ptr %471, %467
-  br i1 %.not26.i.i645, label %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i646, label %.lr.ph33.i.i638
+  %.not26.i.i644 = icmp eq ptr %471, %467
+  br i1 %.not26.i.i644, label %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i645, label %.lr.ph33.i.i638
 
-_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i646: ; preds = %470
-  %.val.pre.i647 = load ptr, ptr %463, align 8
-  %.val6.pre.i648 = load ptr, ptr %466, align 8
-  %.not4.i.i649 = icmp eq ptr %.val.pre.i647, %.val6.pre.i648
-  br i1 %.not4.i.i649, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit662, label %.lr.ph.i7.i651
+_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i645: ; preds = %470
+  %.val.pre.i646 = load ptr, ptr %463, align 8
+  %.val6.pre.i647 = load ptr, ptr %466, align 8
+  %.not4.i.i648 = icmp eq ptr %.val.pre.i646, %.val6.pre.i647
+  br i1 %.not4.i.i648, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit661, label %.lr.ph.i7.i650
 
-.lr.ph.i7.i651:                                   ; preds = %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i646, %487
-  %.06.i.i652 = phi i1 [ %.1.i.i657, %487 ], [ false, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i646 ]
-  %.sroa.01.05.i.i653 = phi ptr [ %488, %487 ], [ %.val.pre.i647, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i646 ]
-  %472 = load i32, ptr %.sroa.01.05.i.i653, align 8
+.lr.ph.i7.i650:                                   ; preds = %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i645, %487
+  %.06.i.i651 = phi i1 [ %.1.i.i656, %487 ], [ false, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i645 ]
+  %.sroa.01.05.i.i652 = phi ptr [ %488, %487 ], [ %.val.pre.i646, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i645 ]
+  %472 = load i32, ptr %.sroa.01.05.i.i652, align 8
   switch i32 %472, label %487 [
     i32 2, label %473
     i32 0, label %473
     i32 1, label %476
   ]
 
-473:                                              ; preds = %.lr.ph.i7.i651, %.lr.ph.i7.i651
-  %474 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i653, i64 8
+473:                                              ; preds = %.lr.ph.i7.i650, %.lr.ph.i7.i650
+  %474 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i652, i64 8
   %475 = load i32, ptr %474, align 8
-  br label %.sink.split.i8.i654
+  br label %.sink.split.i8.i653
 
-476:                                              ; preds = %.lr.ph.i7.i651
-  br i1 %.06.i.i652, label %477, label %480
+476:                                              ; preds = %.lr.ph.i7.i650
+  br i1 %.06.i.i651, label %477, label %480
 
 477:                                              ; preds = %476
   %478 = load i32, ptr %376, align 4
@@ -21128,44 +21101,44 @@ _ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementE
   br label %480
 
 480:                                              ; preds = %477, %476
-  %481 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i653, i64 16
+  %481 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i652, i64 16
   %482 = load ptr, ptr %481, align 8
   %483 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %482) #24
   %484 = load i32, ptr %376, align 4
   %485 = trunc i64 %483 to i32
   %486 = add i32 %484, %485
-  br label %.sink.split.i8.i654
+  br label %.sink.split.i8.i653
 
-.sink.split.i8.i654:                              ; preds = %480, %473
-  %.sink.i.i655 = phi i32 [ %475, %473 ], [ %486, %480 ]
-  %.1.ph.i.i656 = phi i1 [ false, %473 ], [ true, %480 ]
-  store i32 %.sink.i.i655, ptr %376, align 4
+.sink.split.i8.i653:                              ; preds = %480, %473
+  %.sink.i.i654 = phi i32 [ %475, %473 ], [ %486, %480 ]
+  %.1.ph.i.i655 = phi i1 [ false, %473 ], [ true, %480 ]
+  store i32 %.sink.i.i654, ptr %376, align 4
   br label %487
 
-487:                                              ; preds = %.sink.split.i8.i654, %.lr.ph.i7.i651
-  %.1.i.i657 = phi i1 [ %.06.i.i652, %.lr.ph.i7.i651 ], [ %.1.ph.i.i656, %.sink.split.i8.i654 ]
-  %488 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i653, i64 40
-  %.not.i9.i658 = icmp eq ptr %488, %.val6.pre.i648
-  br i1 %.not.i9.i658, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit662, label %.lr.ph.i7.i651
+487:                                              ; preds = %.sink.split.i8.i653, %.lr.ph.i7.i650
+  %.1.i.i656 = phi i1 [ %.06.i.i651, %.lr.ph.i7.i650 ], [ %.1.ph.i.i655, %.sink.split.i8.i653 ]
+  %488 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i652, i64 40
+  %.not.i9.i657 = icmp eq ptr %488, %.val6.pre.i647
+  br i1 %.not.i9.i657, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit661, label %.lr.ph.i7.i650
 
-_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit662: ; preds = %487, %458, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i646
-  %489 = getelementptr inbounds i8, ptr %.sroa.0973.01110, i64 32
-  %.not1083 = icmp eq ptr %489, %381
-  br i1 %.not1083, label %._crit_edge1114, label %454
+_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit661: ; preds = %487, %458, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i645
+  %489 = getelementptr inbounds i8, ptr %.sroa.0972.01109, i64 32
+  %.not1082 = icmp eq ptr %489, %381
+  br i1 %.not1082, label %._crit_edge1113, label %454
 
-._crit_edge1114:                                  ; preds = %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit662, %451
+._crit_edge1113:                                  ; preds = %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit661, %451
   %490 = getelementptr inbounds i8, ptr %374, i64 152
   %491 = load i8, ptr %490, align 8
   %492 = trunc i8 %491 to i1
   br i1 %492, label %493, label %496
 
-493:                                              ; preds = %._crit_edge1114
+493:                                              ; preds = %._crit_edge1113
   %494 = load i32, ptr %376, align 4
   %495 = add i32 %494, 1
   store i32 %495, ptr %376, align 4
   br label %496
 
-496:                                              ; preds = %493, %._crit_edge1114
+496:                                              ; preds = %493, %._crit_edge1113
   %497 = getelementptr inbounds i8, ptr %374, i64 160
   %498 = load ptr, ptr %380, align 8
   %499 = load ptr, ptr %379, align 8
@@ -21178,68 +21151,68 @@ _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_E
   %506 = load ptr, ptr %497, align 8
   %507 = getelementptr inbounds i8, ptr %374, i64 168
   %508 = load ptr, ptr %507, align 8
-  %.not2527.i.i663 = icmp eq ptr %506, %508
-  br i1 %.not2527.i.i663, label %._crit_edge.i.i, label %.lr.ph.i.i664
+  %.not2527.i.i662 = icmp eq ptr %506, %508
+  br i1 %.not2527.i.i662, label %._crit_edge.i.i, label %.lr.ph.i.i663
 
-.lr.ph.i.i664:                                    ; preds = %496, %.lr.ph.i.i664
-  %.029.i.i665 = phi i32 [ %spec.select.i.i668, %.lr.ph.i.i664 ], [ 0, %496 ]
-  %.sroa.022.028.i.i666 = phi ptr [ %511, %.lr.ph.i.i664 ], [ %506, %496 ]
-  %509 = load i32, ptr %.sroa.022.028.i.i666, align 8
-  %.not17.i.i667 = icmp ne i32 %509, 1
-  %510 = zext i1 %.not17.i.i667 to i32
-  %spec.select.i.i668 = add i32 %.029.i.i665, %510
-  %511 = getelementptr inbounds i8, ptr %.sroa.022.028.i.i666, i64 40
-  %.not25.i.i669 = icmp eq ptr %511, %508
-  br i1 %.not25.i.i669, label %.lr.ph33.i.i671, label %.lr.ph.i.i664
+.lr.ph.i.i663:                                    ; preds = %496, %.lr.ph.i.i663
+  %.029.i.i664 = phi i32 [ %spec.select.i.i667, %.lr.ph.i.i663 ], [ 0, %496 ]
+  %.sroa.022.028.i.i665 = phi ptr [ %511, %.lr.ph.i.i663 ], [ %506, %496 ]
+  %509 = load i32, ptr %.sroa.022.028.i.i665, align 8
+  %.not17.i.i666 = icmp ne i32 %509, 1
+  %510 = zext i1 %.not17.i.i666 to i32
+  %spec.select.i.i667 = add i32 %.029.i.i664, %510
+  %511 = getelementptr inbounds i8, ptr %.sroa.022.028.i.i665, i64 40
+  %.not25.i.i668 = icmp eq ptr %511, %508
+  br i1 %.not25.i.i668, label %.lr.ph33.i.i670, label %.lr.ph.i.i663
 
-.lr.ph33.i.i671:                                  ; preds = %.lr.ph.i.i664, %516
-  %.01532.i.i672 = phi i32 [ %.116.i.i677, %516 ], [ 0, %.lr.ph.i.i664 ]
-  %.sroa.018.031.i.i673 = phi ptr [ %517, %516 ], [ %506, %.lr.ph.i.i664 ]
-  %512 = load i32, ptr %.sroa.018.031.i.i673, align 8
-  %.not.i.i674 = icmp eq i32 %512, 1
-  br i1 %.not.i.i674, label %516, label %.sink.split.i.i675
+.lr.ph33.i.i670:                                  ; preds = %.lr.ph.i.i663, %516
+  %.01532.i.i671 = phi i32 [ %.116.i.i676, %516 ], [ 0, %.lr.ph.i.i663 ]
+  %.sroa.018.031.i.i672 = phi ptr [ %517, %516 ], [ %506, %.lr.ph.i.i663 ]
+  %512 = load i32, ptr %.sroa.018.031.i.i672, align 8
+  %.not.i.i673 = icmp eq i32 %512, 1
+  br i1 %.not.i.i673, label %516, label %.sink.split.i.i674
 
-.sink.split.i.i675:                               ; preds = %.lr.ph33.i.i671
-  %513 = add i32 %.01532.i.i672, 1
-  %514 = icmp ult i32 %513, %spec.select.i.i668
-  %515 = getelementptr inbounds i8, ptr %.sroa.018.031.i.i673, i64 8
-  %..i.i676 = select i1 %514, i32 %504, i32 %505
-  store i32 %..i.i676, ptr %515, align 8
+.sink.split.i.i674:                               ; preds = %.lr.ph33.i.i670
+  %513 = add i32 %.01532.i.i671, 1
+  %514 = icmp ult i32 %513, %spec.select.i.i667
+  %515 = getelementptr inbounds i8, ptr %.sroa.018.031.i.i672, i64 8
+  %..i.i675 = select i1 %514, i32 %504, i32 %505
+  store i32 %..i.i675, ptr %515, align 8
   br label %516
 
-516:                                              ; preds = %.sink.split.i.i675, %.lr.ph33.i.i671
-  %.116.i.i677 = phi i32 [ %.01532.i.i672, %.lr.ph33.i.i671 ], [ %513, %.sink.split.i.i675 ]
-  %517 = getelementptr inbounds i8, ptr %.sroa.018.031.i.i673, i64 40
-  %.not26.i.i678 = icmp eq ptr %517, %508
-  br i1 %.not26.i.i678, label %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i679, label %.lr.ph33.i.i671
+516:                                              ; preds = %.sink.split.i.i674, %.lr.ph33.i.i670
+  %.116.i.i676 = phi i32 [ %.01532.i.i671, %.lr.ph33.i.i670 ], [ %513, %.sink.split.i.i674 ]
+  %517 = getelementptr inbounds i8, ptr %.sroa.018.031.i.i672, i64 40
+  %.not26.i.i677 = icmp eq ptr %517, %508
+  br i1 %.not26.i.i677, label %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i678, label %.lr.ph33.i.i670
 
-_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i679: ; preds = %516
-  %.val.pre.i680 = load ptr, ptr %497, align 8
-  %.val6.pre.i681 = load ptr, ptr %507, align 8
-  %.not4.i.i682 = icmp eq ptr %.val.pre.i680, %.val6.pre.i681
-  br i1 %.not4.i.i682, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i683
+_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i678: ; preds = %516
+  %.val.pre.i679 = load ptr, ptr %497, align 8
+  %.val6.pre.i680 = load ptr, ptr %507, align 8
+  %.not4.i.i681 = icmp eq ptr %.val.pre.i679, %.val6.pre.i680
+  br i1 %.not4.i.i681, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i682
 
-.lr.ph.preheader.i.i683:                          ; preds = %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i679
+.lr.ph.preheader.i.i682:                          ; preds = %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i678
   %518 = zext i1 %500 to i8
-  br label %.lr.ph.i7.i684
+  br label %.lr.ph.i7.i683
 
-.lr.ph.i7.i684:                                   ; preds = %535, %.lr.ph.preheader.i.i683
-  %.06.i.i685 = phi i8 [ %.1.i.i690, %535 ], [ %518, %.lr.ph.preheader.i.i683 ]
-  %.sroa.01.05.i.i686 = phi ptr [ %536, %535 ], [ %.val.pre.i680, %.lr.ph.preheader.i.i683 ]
-  %519 = load i32, ptr %.sroa.01.05.i.i686, align 8
+.lr.ph.i7.i683:                                   ; preds = %535, %.lr.ph.preheader.i.i682
+  %.06.i.i684 = phi i8 [ %.1.i.i689, %535 ], [ %518, %.lr.ph.preheader.i.i682 ]
+  %.sroa.01.05.i.i685 = phi ptr [ %536, %535 ], [ %.val.pre.i679, %.lr.ph.preheader.i.i682 ]
+  %519 = load i32, ptr %.sroa.01.05.i.i685, align 8
   switch i32 %519, label %535 [
     i32 2, label %520
     i32 0, label %520
     i32 1, label %523
   ]
 
-520:                                              ; preds = %.lr.ph.i7.i684, %.lr.ph.i7.i684
-  %521 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i686, i64 8
+520:                                              ; preds = %.lr.ph.i7.i683, %.lr.ph.i7.i683
+  %521 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i685, i64 8
   %522 = load i32, ptr %521, align 8
-  br label %.sink.split.i8.i687
+  br label %.sink.split.i8.i686
 
-523:                                              ; preds = %.lr.ph.i7.i684
-  %524 = trunc nuw i8 %.06.i.i685 to i1
+523:                                              ; preds = %.lr.ph.i7.i683
+  %524 = trunc nuw i8 %.06.i.i684 to i1
   br i1 %524, label %525, label %528
 
 525:                                              ; preds = %523
@@ -21249,46 +21222,46 @@ _ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementE
   br label %528
 
 528:                                              ; preds = %525, %523
-  %529 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i686, i64 16
+  %529 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i685, i64 16
   %530 = load ptr, ptr %529, align 8
   %531 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %530) #24
   %532 = load i32, ptr %376, align 4
   %533 = trunc i64 %531 to i32
   %534 = add i32 %532, %533
-  br label %.sink.split.i8.i687
+  br label %.sink.split.i8.i686
 
-.sink.split.i8.i687:                              ; preds = %528, %520
-  %.sink.i.i688 = phi i32 [ %522, %520 ], [ %534, %528 ]
-  %.1.ph.i.i689 = phi i8 [ 0, %520 ], [ 1, %528 ]
-  store i32 %.sink.i.i688, ptr %376, align 4
+.sink.split.i8.i686:                              ; preds = %528, %520
+  %.sink.i.i687 = phi i32 [ %522, %520 ], [ %534, %528 ]
+  %.1.ph.i.i688 = phi i8 [ 0, %520 ], [ 1, %528 ]
+  store i32 %.sink.i.i687, ptr %376, align 4
   br label %535
 
-535:                                              ; preds = %.sink.split.i8.i687, %.lr.ph.i7.i684
-  %.1.i.i690 = phi i8 [ %.06.i.i685, %.lr.ph.i7.i684 ], [ %.1.ph.i.i689, %.sink.split.i8.i687 ]
-  %536 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i686, i64 40
-  %.not.i9.i691 = icmp eq ptr %536, %.val6.pre.i681
-  br i1 %.not.i9.i691, label %._crit_edge.loopexit.i.i692, label %.lr.ph.i7.i684
+535:                                              ; preds = %.sink.split.i8.i686, %.lr.ph.i7.i683
+  %.1.i.i689 = phi i8 [ %.06.i.i684, %.lr.ph.i7.i683 ], [ %.1.ph.i.i688, %.sink.split.i8.i686 ]
+  %536 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i685, i64 40
+  %.not.i9.i690 = icmp eq ptr %536, %.val6.pre.i680
+  br i1 %.not.i9.i690, label %._crit_edge.loopexit.i.i691, label %.lr.ph.i7.i683
 
-._crit_edge.loopexit.i.i692:                      ; preds = %535
-  %537 = trunc nuw i8 %.1.i.i690 to i1
+._crit_edge.loopexit.i.i691:                      ; preds = %535
+  %537 = trunc nuw i8 %.1.i.i689 to i1
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %496, %._crit_edge.loopexit.i.i692, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i679
-  %.0.lcssa.i.i693 = phi i1 [ %500, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i679 ], [ %537, %._crit_edge.loopexit.i.i692 ], [ %500, %496 ]
-  %538 = select i1 %502, i1 %.0.lcssa.i.i693, i1 false
-  %.pre1137 = load i32, ptr %376, align 4
-  br i1 %538, label %539, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit695
+._crit_edge.i.i:                                  ; preds = %496, %._crit_edge.loopexit.i.i691, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i678
+  %.0.lcssa.i.i692 = phi i1 [ %500, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i678 ], [ %537, %._crit_edge.loopexit.i.i691 ], [ %500, %496 ]
+  %538 = select i1 %502, i1 %.0.lcssa.i.i692, i1 false
+  %.pre1136 = load i32, ptr %376, align 4
+  br i1 %538, label %539, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit694
 
 539:                                              ; preds = %._crit_edge.i.i
-  %540 = add i32 %.pre1137, 1
+  %540 = add i32 %.pre1136, 1
   store i32 %540, ptr %376, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit695
+  br label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit694
 
-_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit695: ; preds = %._crit_edge.i.i, %539
-  %541 = phi i32 [ %.pre1137, %._crit_edge.i.i ], [ %540, %539 ]
+_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit694: ; preds = %._crit_edge.i.i, %539
+  %541 = phi i32 [ %.pre1136, %._crit_edge.i.i ], [ %540, %539 ]
   %542 = add i32 %541, 1
   store i32 %542, ptr %376, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 543:                                              ; preds = %373
   %544 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal18ArrayComprehensionE, i64 0) #24
@@ -21303,53 +21276,53 @@ _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_E
   %549 = getelementptr inbounds i8, ptr %544, i64 128
   %550 = load ptr, ptr %549, align 8
   %551 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef %550)
-  %.not7.i.i696 = icmp eq ptr %551, null
-  br i1 %.not7.i.i696, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit701, label %.lr.ph.i.i697
+  %.not7.i.i695 = icmp eq ptr %551, null
+  br i1 %.not7.i.i695, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit700, label %.lr.ph.i.i696
 
-.lr.ph.i.i697:                                    ; preds = %545, %.lr.ph.i.i697
-  %.08.i.i698 = phi ptr [ %552, %.lr.ph.i.i697 ], [ %551, %545 ]
-  %552 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef nonnull %.08.i.i698)
-  %.not.i.i699 = icmp eq ptr %552, null
-  br i1 %.not.i.i699, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit701, label %.lr.ph.i.i697, !llvm.loop !4
+.lr.ph.i.i696:                                    ; preds = %545, %.lr.ph.i.i696
+  %.08.i.i697 = phi ptr [ %552, %.lr.ph.i.i696 ], [ %551, %545 ]
+  %552 = tail call fastcc noundef ptr @_ZN7jsonnet8internalL14left_recursiveEPNS0_3ASTE(ptr noundef nonnull %.08.i.i697)
+  %.not.i.i698 = icmp eq ptr %552, null
+  br i1 %.not.i.i698, label %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit700, label %.lr.ph.i.i696, !llvm.loop !4
 
-_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit701: ; preds = %.lr.ph.i.i697, %545
-  %.06.lcssa.i.i700 = phi ptr [ %550, %545 ], [ %.08.i.i698, %.lr.ph.i.i697 ]
-  %553 = getelementptr inbounds i8, ptr %.06.lcssa.i.i700, i64 80
+_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit700: ; preds = %.lr.ph.i.i696, %545
+  %.06.lcssa.i.i699 = phi ptr [ %550, %545 ], [ %.08.i.i697, %.lr.ph.i.i696 ]
+  %553 = getelementptr inbounds i8, ptr %.06.lcssa.i.i699, i64 80
   %554 = getelementptr inbounds i8, ptr %0, i64 20
   %555 = load i8, ptr %554, align 4
   %556 = and i8 %555, 1
   %557 = zext nneg i8 %556 to i32
   %558 = add i32 %548, %557
-  %559 = getelementptr inbounds i8, ptr %.06.lcssa.i.i700, i64 88
+  %559 = getelementptr inbounds i8, ptr %.06.lcssa.i.i699, i64 88
   %560 = load ptr, ptr %559, align 8
   %561 = load ptr, ptr %553, align 8
   %562 = icmp eq ptr %560, %561
   br i1 %562, label %566, label %563
 
-563:                                              ; preds = %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit701
+563:                                              ; preds = %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit700
   %564 = load i32, ptr %561, align 8
   %565 = icmp eq i32 %564, 1
   br i1 %565, label %566, label %568
 
-566:                                              ; preds = %563, %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit701
+566:                                              ; preds = %563, %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit700
   %567 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit708
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit707
 
 568:                                              ; preds = %563
   %569 = load i32, ptr %2, align 4
   %570 = getelementptr inbounds i8, ptr %0, i64 12
   %571 = load i32, ptr %570, align 4
   %572 = add i32 %571, %569
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit708
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit707
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit708: ; preds = %566, %568
-  %.sroa.3.0.i702 = phi i32 [ %558, %566 ], [ %572, %568 ]
-  %.sroa.0.0.i703 = phi i32 [ %567, %566 ], [ %572, %568 ]
-  %.sroa.3.0.insert.ext.i704 = zext i32 %.sroa.3.0.i702 to i64
-  %.sroa.3.0.insert.shift.i705 = shl nuw i64 %.sroa.3.0.insert.ext.i704, 32
-  %.sroa.0.0.insert.ext.i706 = zext i32 %.sroa.0.0.i703 to i64
-  %.sroa.0.0.insert.insert.i707 = or disjoint i64 %.sroa.3.0.insert.shift.i705, %.sroa.0.0.insert.ext.i706
-  store i64 %.sroa.0.0.insert.insert.i707, ptr %9, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit707: ; preds = %566, %568
+  %.sroa.3.0.i701 = phi i32 [ %558, %566 ], [ %572, %568 ]
+  %.sroa.0.0.i702 = phi i32 [ %567, %566 ], [ %572, %568 ]
+  %.sroa.3.0.insert.ext.i703 = zext i32 %.sroa.3.0.i701 to i64
+  %.sroa.3.0.insert.shift.i704 = shl nuw i64 %.sroa.3.0.insert.ext.i703, 32
+  %.sroa.0.0.insert.ext.i705 = zext i32 %.sroa.0.0.i702 to i64
+  %.sroa.0.0.insert.insert.i706 = or disjoint i64 %.sroa.3.0.insert.shift.i704, %.sroa.0.0.insert.ext.i705
+  store i64 %.sroa.0.0.insert.insert.i706, ptr %9, align 8
   %573 = trunc i8 %555 to i1
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %550, ptr noundef nonnull align 4 dereferenceable(8) %9, i1 noundef zeroext %573)
   %574 = getelementptr inbounds i8, ptr %544, i64 136
@@ -21358,48 +21331,48 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %577 = load ptr, ptr %574, align 8
   %578 = getelementptr inbounds i8, ptr %544, i64 144
   %579 = load ptr, ptr %578, align 8
-  %.not2527.i.i.i709 = icmp eq ptr %577, %579
-  br i1 %.not2527.i.i.i709, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit732, label %.lr.ph33.i.i.i710
+  %.not2527.i.i.i708 = icmp eq ptr %577, %579
+  br i1 %.not2527.i.i.i708, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit731, label %.lr.ph33.i.i.i709
 
-.lr.ph33.i.i.i710:                                ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit708, %582
-  %.sroa.018.031.i.i.i711 = phi ptr [ %583, %582 ], [ %577, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit708 ]
-  %580 = load i32, ptr %.sroa.018.031.i.i.i711, align 8
-  %.not.i.i.i712 = icmp eq i32 %580, 1
-  br i1 %.not.i.i.i712, label %582, label %.sink.split.i.i.i713
+.lr.ph33.i.i.i709:                                ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit707, %582
+  %.sroa.018.031.i.i.i710 = phi ptr [ %583, %582 ], [ %577, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit707 ]
+  %580 = load i32, ptr %.sroa.018.031.i.i.i710, align 8
+  %.not.i.i.i711 = icmp eq i32 %580, 1
+  br i1 %.not.i.i.i711, label %582, label %.sink.split.i.i.i712
 
-.sink.split.i.i.i713:                             ; preds = %.lr.ph33.i.i.i710
-  %581 = getelementptr inbounds i8, ptr %.sroa.018.031.i.i.i711, i64 8
+.sink.split.i.i.i712:                             ; preds = %.lr.ph33.i.i.i709
+  %581 = getelementptr inbounds i8, ptr %.sroa.018.031.i.i.i710, i64 8
   store i32 %576, ptr %581, align 8
   br label %582
 
-582:                                              ; preds = %.sink.split.i.i.i713, %.lr.ph33.i.i.i710
-  %583 = getelementptr inbounds i8, ptr %.sroa.018.031.i.i.i711, i64 40
-  %.not26.i.i.i714 = icmp eq ptr %583, %579
-  br i1 %.not26.i.i.i714, label %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i715, label %.lr.ph33.i.i.i710
+582:                                              ; preds = %.sink.split.i.i.i712, %.lr.ph33.i.i.i709
+  %583 = getelementptr inbounds i8, ptr %.sroa.018.031.i.i.i710, i64 40
+  %.not26.i.i.i713 = icmp eq ptr %583, %579
+  br i1 %.not26.i.i.i713, label %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i714, label %.lr.ph33.i.i.i709
 
-_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i715: ; preds = %582
-  %.val.pre.i.i716 = load ptr, ptr %574, align 8
-  %.val6.pre.i.i717 = load ptr, ptr %578, align 8
-  %.not4.i.i.i718 = icmp eq ptr %.val.pre.i.i716, %.val6.pre.i.i717
-  br i1 %.not4.i.i.i718, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit732, label %.lr.ph.i7.i.i720
+_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i714: ; preds = %582
+  %.val.pre.i.i715 = load ptr, ptr %574, align 8
+  %.val6.pre.i.i716 = load ptr, ptr %578, align 8
+  %.not4.i.i.i717 = icmp eq ptr %.val.pre.i.i715, %.val6.pre.i.i716
+  br i1 %.not4.i.i.i717, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit731, label %.lr.ph.i7.i.i719
 
-.lr.ph.i7.i.i720:                                 ; preds = %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i715, %599
-  %.06.i.i.i721 = phi i1 [ %.1.i.i.i726, %599 ], [ false, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i715 ]
-  %.sroa.01.05.i.i.i722 = phi ptr [ %600, %599 ], [ %.val.pre.i.i716, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i715 ]
-  %584 = load i32, ptr %.sroa.01.05.i.i.i722, align 8
+.lr.ph.i7.i.i719:                                 ; preds = %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i714, %599
+  %.06.i.i.i720 = phi i1 [ %.1.i.i.i725, %599 ], [ false, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i714 ]
+  %.sroa.01.05.i.i.i721 = phi ptr [ %600, %599 ], [ %.val.pre.i.i715, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i714 ]
+  %584 = load i32, ptr %.sroa.01.05.i.i.i721, align 8
   switch i32 %584, label %599 [
     i32 2, label %585
     i32 0, label %585
     i32 1, label %588
   ]
 
-585:                                              ; preds = %.lr.ph.i7.i.i720, %.lr.ph.i7.i.i720
-  %586 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i.i722, i64 8
+585:                                              ; preds = %.lr.ph.i7.i.i719, %.lr.ph.i7.i.i719
+  %586 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i.i721, i64 8
   %587 = load i32, ptr %586, align 8
-  br label %.sink.split.i8.i.i723
+  br label %.sink.split.i8.i.i722
 
-588:                                              ; preds = %.lr.ph.i7.i.i720
-  br i1 %.06.i.i.i721, label %589, label %592
+588:                                              ; preds = %.lr.ph.i7.i.i719
+  br i1 %.06.i.i.i720, label %589, label %592
 
 589:                                              ; preds = %588
   %590 = load i32, ptr %546, align 4
@@ -21408,39 +21381,39 @@ _ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementE
   br label %592
 
 592:                                              ; preds = %589, %588
-  %593 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i.i722, i64 16
+  %593 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i.i721, i64 16
   %594 = load ptr, ptr %593, align 8
   %595 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %594) #24
   %596 = load i32, ptr %546, align 4
   %597 = trunc i64 %595 to i32
   %598 = add i32 %596, %597
-  br label %.sink.split.i8.i.i723
+  br label %.sink.split.i8.i.i722
 
-.sink.split.i8.i.i723:                            ; preds = %592, %585
-  %.sink.i.i.i724 = phi i32 [ %587, %585 ], [ %598, %592 ]
-  %.1.ph.i.i.i725 = phi i1 [ false, %585 ], [ true, %592 ]
-  store i32 %.sink.i.i.i724, ptr %546, align 4
+.sink.split.i8.i.i722:                            ; preds = %592, %585
+  %.sink.i.i.i723 = phi i32 [ %587, %585 ], [ %598, %592 ]
+  %.1.ph.i.i.i724 = phi i1 [ false, %585 ], [ true, %592 ]
+  store i32 %.sink.i.i.i723, ptr %546, align 4
   br label %599
 
-599:                                              ; preds = %.sink.split.i8.i.i723, %.lr.ph.i7.i.i720
-  %.1.i.i.i726 = phi i1 [ %.06.i.i.i721, %.lr.ph.i7.i.i720 ], [ %.1.ph.i.i.i725, %.sink.split.i8.i.i723 ]
-  %600 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i.i722, i64 40
-  %.not.i9.i.i727 = icmp eq ptr %600, %.val6.pre.i.i717
-  br i1 %.not.i9.i.i727, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit732, label %.lr.ph.i7.i.i720
+599:                                              ; preds = %.sink.split.i8.i.i722, %.lr.ph.i7.i.i719
+  %.1.i.i.i725 = phi i1 [ %.06.i.i.i720, %.lr.ph.i7.i.i719 ], [ %.1.ph.i.i.i724, %.sink.split.i8.i.i722 ]
+  %600 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i.i721, i64 40
+  %.not.i9.i.i726 = icmp eq ptr %600, %.val6.pre.i.i716
+  br i1 %.not.i9.i.i726, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit731, label %.lr.ph.i7.i.i719
 
-_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit732: ; preds = %599, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit708, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i715
+_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit731: ; preds = %599, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit707, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i.i714
   %601 = getelementptr inbounds i8, ptr %544, i64 160
   %602 = load i8, ptr %601, align 8
   %603 = trunc i8 %602 to i1
   br i1 %603, label %604, label %607
 
-604:                                              ; preds = %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit732
+604:                                              ; preds = %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit731
   %605 = load i32, ptr %546, align 4
   %606 = add i32 %605, 1
   store i32 %606, ptr %546, align 4
   br label %607
 
-607:                                              ; preds = %604, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit732
+607:                                              ; preds = %604, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit731
   %608 = getelementptr inbounds i8, ptr %544, i64 168
   call void @_ZN7jsonnet8internal14FixIndentation5specsERSt6vectorINS0_17ComprehensionSpecESaIS3_EERKNS1_6IndentE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %608, ptr noundef nonnull align 4 dereferenceable(8) %9)
   %609 = getelementptr inbounds i8, ptr %544, i64 192
@@ -21451,64 +21424,64 @@ _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_E
   %614 = load ptr, ptr %609, align 8
   %615 = getelementptr inbounds i8, ptr %544, i64 200
   %616 = load ptr, ptr %615, align 8
-  %.not2527.i.i733 = icmp eq ptr %614, %616
-  br i1 %.not2527.i.i733, label %._crit_edge.i.i763, label %.lr.ph.i.i734
+  %.not2527.i.i732 = icmp eq ptr %614, %616
+  br i1 %.not2527.i.i732, label %._crit_edge.i.i762, label %.lr.ph.i.i733
 
-.lr.ph.i.i734:                                    ; preds = %607, %.lr.ph.i.i734
-  %.029.i.i735 = phi i32 [ %spec.select.i.i738, %.lr.ph.i.i734 ], [ 0, %607 ]
-  %.sroa.022.028.i.i736 = phi ptr [ %619, %.lr.ph.i.i734 ], [ %614, %607 ]
-  %617 = load i32, ptr %.sroa.022.028.i.i736, align 8
-  %.not17.i.i737 = icmp ne i32 %617, 1
-  %618 = zext i1 %.not17.i.i737 to i32
-  %spec.select.i.i738 = add i32 %.029.i.i735, %618
-  %619 = getelementptr inbounds i8, ptr %.sroa.022.028.i.i736, i64 40
-  %.not25.i.i739 = icmp eq ptr %619, %616
-  br i1 %.not25.i.i739, label %.lr.ph33.i.i741, label %.lr.ph.i.i734
+.lr.ph.i.i733:                                    ; preds = %607, %.lr.ph.i.i733
+  %.029.i.i734 = phi i32 [ %spec.select.i.i737, %.lr.ph.i.i733 ], [ 0, %607 ]
+  %.sroa.022.028.i.i735 = phi ptr [ %619, %.lr.ph.i.i733 ], [ %614, %607 ]
+  %617 = load i32, ptr %.sroa.022.028.i.i735, align 8
+  %.not17.i.i736 = icmp ne i32 %617, 1
+  %618 = zext i1 %.not17.i.i736 to i32
+  %spec.select.i.i737 = add i32 %.029.i.i734, %618
+  %619 = getelementptr inbounds i8, ptr %.sroa.022.028.i.i735, i64 40
+  %.not25.i.i738 = icmp eq ptr %619, %616
+  br i1 %.not25.i.i738, label %.lr.ph33.i.i740, label %.lr.ph.i.i733
 
-.lr.ph33.i.i741:                                  ; preds = %.lr.ph.i.i734, %624
-  %.01532.i.i742 = phi i32 [ %.116.i.i747, %624 ], [ 0, %.lr.ph.i.i734 ]
-  %.sroa.018.031.i.i743 = phi ptr [ %625, %624 ], [ %614, %.lr.ph.i.i734 ]
-  %620 = load i32, ptr %.sroa.018.031.i.i743, align 8
-  %.not.i.i744 = icmp eq i32 %620, 1
-  br i1 %.not.i.i744, label %624, label %.sink.split.i.i745
+.lr.ph33.i.i740:                                  ; preds = %.lr.ph.i.i733, %624
+  %.01532.i.i741 = phi i32 [ %.116.i.i746, %624 ], [ 0, %.lr.ph.i.i733 ]
+  %.sroa.018.031.i.i742 = phi ptr [ %625, %624 ], [ %614, %.lr.ph.i.i733 ]
+  %620 = load i32, ptr %.sroa.018.031.i.i742, align 8
+  %.not.i.i743 = icmp eq i32 %620, 1
+  br i1 %.not.i.i743, label %624, label %.sink.split.i.i744
 
-.sink.split.i.i745:                               ; preds = %.lr.ph33.i.i741
-  %621 = add i32 %.01532.i.i742, 1
-  %622 = icmp ult i32 %621, %spec.select.i.i738
-  %623 = getelementptr inbounds i8, ptr %.sroa.018.031.i.i743, i64 8
-  %..i.i746 = select i1 %622, i32 %612, i32 %613
-  store i32 %..i.i746, ptr %623, align 8
+.sink.split.i.i744:                               ; preds = %.lr.ph33.i.i740
+  %621 = add i32 %.01532.i.i741, 1
+  %622 = icmp ult i32 %621, %spec.select.i.i737
+  %623 = getelementptr inbounds i8, ptr %.sroa.018.031.i.i742, i64 8
+  %..i.i745 = select i1 %622, i32 %612, i32 %613
+  store i32 %..i.i745, ptr %623, align 8
   br label %624
 
-624:                                              ; preds = %.sink.split.i.i745, %.lr.ph33.i.i741
-  %.116.i.i747 = phi i32 [ %.01532.i.i742, %.lr.ph33.i.i741 ], [ %621, %.sink.split.i.i745 ]
-  %625 = getelementptr inbounds i8, ptr %.sroa.018.031.i.i743, i64 40
-  %.not26.i.i748 = icmp eq ptr %625, %616
-  br i1 %.not26.i.i748, label %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i749, label %.lr.ph33.i.i741
+624:                                              ; preds = %.sink.split.i.i744, %.lr.ph33.i.i740
+  %.116.i.i746 = phi i32 [ %.01532.i.i741, %.lr.ph33.i.i740 ], [ %621, %.sink.split.i.i744 ]
+  %625 = getelementptr inbounds i8, ptr %.sroa.018.031.i.i742, i64 40
+  %.not26.i.i747 = icmp eq ptr %625, %616
+  br i1 %.not26.i.i747, label %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i748, label %.lr.ph33.i.i740
 
-_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i749: ; preds = %624
-  %.val.pre.i750 = load ptr, ptr %609, align 8
-  %.val6.pre.i751 = load ptr, ptr %615, align 8
-  %.not4.i.i752 = icmp eq ptr %.val.pre.i750, %.val6.pre.i751
-  br i1 %.not4.i.i752, label %._crit_edge.i.i763, label %.lr.ph.i7.i754
+_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i748: ; preds = %624
+  %.val.pre.i749 = load ptr, ptr %609, align 8
+  %.val6.pre.i750 = load ptr, ptr %615, align 8
+  %.not4.i.i751 = icmp eq ptr %.val.pre.i749, %.val6.pre.i750
+  br i1 %.not4.i.i751, label %._crit_edge.i.i762, label %.lr.ph.i7.i753
 
-.lr.ph.i7.i754:                                   ; preds = %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i749, %642
-  %.06.i.i755 = phi i8 [ %.1.i.i760, %642 ], [ 1, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i749 ]
-  %.sroa.01.05.i.i756 = phi ptr [ %643, %642 ], [ %.val.pre.i750, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i749 ]
-  %626 = load i32, ptr %.sroa.01.05.i.i756, align 8
+.lr.ph.i7.i753:                                   ; preds = %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i748, %642
+  %.06.i.i754 = phi i8 [ %.1.i.i759, %642 ], [ 1, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i748 ]
+  %.sroa.01.05.i.i755 = phi ptr [ %643, %642 ], [ %.val.pre.i749, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i748 ]
+  %626 = load i32, ptr %.sroa.01.05.i.i755, align 8
   switch i32 %626, label %642 [
     i32 2, label %627
     i32 0, label %627
     i32 1, label %630
   ]
 
-627:                                              ; preds = %.lr.ph.i7.i754, %.lr.ph.i7.i754
-  %628 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i756, i64 8
+627:                                              ; preds = %.lr.ph.i7.i753, %.lr.ph.i7.i753
+  %628 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i755, i64 8
   %629 = load i32, ptr %628, align 8
-  br label %.sink.split.i8.i757
+  br label %.sink.split.i8.i756
 
-630:                                              ; preds = %.lr.ph.i7.i754
-  %631 = trunc nuw i8 %.06.i.i755 to i1
+630:                                              ; preds = %.lr.ph.i7.i753
+  %631 = trunc nuw i8 %.06.i.i754 to i1
   br i1 %631, label %632, label %635
 
 632:                                              ; preds = %630
@@ -21518,46 +21491,46 @@ _ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementE
   br label %635
 
 635:                                              ; preds = %632, %630
-  %636 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i756, i64 16
+  %636 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i755, i64 16
   %637 = load ptr, ptr %636, align 8
   %638 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %637) #24
   %639 = load i32, ptr %546, align 4
   %640 = trunc i64 %638 to i32
   %641 = add i32 %639, %640
-  br label %.sink.split.i8.i757
+  br label %.sink.split.i8.i756
 
-.sink.split.i8.i757:                              ; preds = %635, %627
-  %.sink.i.i758 = phi i32 [ %629, %627 ], [ %641, %635 ]
-  %.1.ph.i.i759 = phi i8 [ 0, %627 ], [ 1, %635 ]
-  store i32 %.sink.i.i758, ptr %546, align 4
+.sink.split.i8.i756:                              ; preds = %635, %627
+  %.sink.i.i757 = phi i32 [ %629, %627 ], [ %641, %635 ]
+  %.1.ph.i.i758 = phi i8 [ 0, %627 ], [ 1, %635 ]
+  store i32 %.sink.i.i757, ptr %546, align 4
   br label %642
 
-642:                                              ; preds = %.sink.split.i8.i757, %.lr.ph.i7.i754
-  %.1.i.i760 = phi i8 [ %.06.i.i755, %.lr.ph.i7.i754 ], [ %.1.ph.i.i759, %.sink.split.i8.i757 ]
-  %643 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i756, i64 40
-  %.not.i9.i761 = icmp eq ptr %643, %.val6.pre.i751
-  br i1 %.not.i9.i761, label %._crit_edge.loopexit.i.i762, label %.lr.ph.i7.i754
+642:                                              ; preds = %.sink.split.i8.i756, %.lr.ph.i7.i753
+  %.1.i.i759 = phi i8 [ %.06.i.i754, %.lr.ph.i7.i753 ], [ %.1.ph.i.i758, %.sink.split.i8.i756 ]
+  %643 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i755, i64 40
+  %.not.i9.i760 = icmp eq ptr %643, %.val6.pre.i750
+  br i1 %.not.i9.i760, label %._crit_edge.loopexit.i.i761, label %.lr.ph.i7.i753
 
-._crit_edge.loopexit.i.i762:                      ; preds = %642
-  %644 = trunc nuw i8 %.1.i.i760 to i1
-  br label %._crit_edge.i.i763
+._crit_edge.loopexit.i.i761:                      ; preds = %642
+  %644 = trunc nuw i8 %.1.i.i759 to i1
+  br label %._crit_edge.i.i762
 
-._crit_edge.i.i763:                               ; preds = %607, %._crit_edge.loopexit.i.i762, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i749
-  %.0.lcssa.i.i764 = phi i1 [ true, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i749 ], [ %644, %._crit_edge.loopexit.i.i762 ], [ true, %607 ]
-  %645 = select i1 %611, i1 %.0.lcssa.i.i764, i1 false
-  %.pre1138 = load i32, ptr %546, align 4
-  br i1 %645, label %646, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit766
+._crit_edge.i.i762:                               ; preds = %607, %._crit_edge.loopexit.i.i761, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i748
+  %.0.lcssa.i.i763 = phi i1 [ true, %_ZN7jsonnet8internal14FixIndentation10setIndentsERSt6vectorINS0_13FodderElementESaIS3_EEjj.exit.i748 ], [ %644, %._crit_edge.loopexit.i.i761 ], [ true, %607 ]
+  %645 = select i1 %611, i1 %.0.lcssa.i.i763, i1 false
+  %.pre1137 = load i32, ptr %546, align 4
+  br i1 %645, label %646, label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit765
 
-646:                                              ; preds = %._crit_edge.i.i763
-  %647 = add i32 %.pre1138, 1
+646:                                              ; preds = %._crit_edge.i.i762
+  %647 = add i32 %.pre1137, 1
   store i32 %647, ptr %546, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit766
+  br label %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit765
 
-_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit766: ; preds = %._crit_edge.i.i763, %646
-  %648 = phi i32 [ %.pre1138, %._crit_edge.i.i763 ], [ %647, %646 ]
+_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit765: ; preds = %._crit_edge.i.i762, %646
+  %648 = phi i32 [ %.pre1137, %._crit_edge.i.i762 ], [ %647, %646 ]
   %649 = add i32 %648, 1
   store i32 %649, ptr %546, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 650:                                              ; preds = %543
   %651 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6AssertE, i64 0) #24
@@ -21586,30 +21559,30 @@ _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_E
 
 667:                                              ; preds = %664, %652
   %668 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit773
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit772
 
 669:                                              ; preds = %664
   %670 = load i32, ptr %2, align 4
   %671 = getelementptr inbounds i8, ptr %0, i64 12
   %672 = load i32, ptr %671, align 4
   %673 = add i32 %672, %670
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit773
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit772
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit773: ; preds = %667, %669
-  %.sroa.3.0.i767 = phi i32 [ %659, %667 ], [ %673, %669 ]
-  %.sroa.0.0.i768 = phi i32 [ %668, %667 ], [ %673, %669 ]
-  %.sroa.3.0.insert.ext.i769 = zext i32 %.sroa.3.0.i767 to i64
-  %.sroa.3.0.insert.shift.i770 = shl nuw i64 %.sroa.3.0.insert.ext.i769, 32
-  %.sroa.0.0.insert.ext.i771 = zext i32 %.sroa.0.0.i768 to i64
-  %.sroa.0.0.insert.insert.i772 = or disjoint i64 %.sroa.3.0.insert.shift.i770, %.sroa.0.0.insert.ext.i771
-  store i64 %.sroa.0.0.insert.insert.i772, ptr %10, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit772: ; preds = %667, %669
+  %.sroa.3.0.i766 = phi i32 [ %659, %667 ], [ %673, %669 ]
+  %.sroa.0.0.i767 = phi i32 [ %668, %667 ], [ %673, %669 ]
+  %.sroa.3.0.insert.ext.i768 = zext i32 %.sroa.3.0.i766 to i64
+  %.sroa.3.0.insert.shift.i769 = shl nuw i64 %.sroa.3.0.insert.ext.i768, 32
+  %.sroa.0.0.insert.ext.i770 = zext i32 %.sroa.0.0.i767 to i64
+  %.sroa.0.0.insert.insert.i771 = or disjoint i64 %.sroa.3.0.insert.shift.i769, %.sroa.0.0.insert.ext.i770
+  store i64 %.sroa.0.0.insert.insert.i771, ptr %10, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %657, ptr noundef nonnull align 4 dereferenceable(8) %10, i1 noundef zeroext true)
   %674 = getelementptr inbounds i8, ptr %651, i64 160
   %675 = load ptr, ptr %674, align 8
   %.not456 = icmp eq ptr %675, null
   br i1 %.not456, label %683, label %676
 
-676:                                              ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit773
+676:                                              ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit772
   %677 = getelementptr inbounds i8, ptr %651, i64 136
   %678 = getelementptr inbounds i8, ptr %10, i64 4
   %679 = load i32, ptr %678, align 4
@@ -21621,7 +21594,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %682, ptr noundef nonnull align 4 dereferenceable(8) %10, i1 noundef zeroext true)
   br label %683
 
-683:                                              ; preds = %676, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit773
+683:                                              ; preds = %676, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit772
   %684 = getelementptr inbounds i8, ptr %651, i64 168
   %685 = getelementptr inbounds i8, ptr %10, i64 4
   %686 = load i32, ptr %685, align 4
@@ -21632,7 +21605,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %689 = getelementptr inbounds i8, ptr %651, i64 192
   %690 = load ptr, ptr %689, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %690, ptr noundef nonnull align 4 dereferenceable(8) %2, i1 noundef zeroext true)
-  br label %common.ret1182
+  br label %common.ret1181
 
 691:                                              ; preds = %650
   %692 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6BinaryE, i64 0) #24
@@ -21647,42 +21620,42 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %698 = load ptr, ptr %697, align 8
   %699 = getelementptr inbounds i8, ptr %692, i64 144
   %700 = load ptr, ptr %699, align 8
-  %.not11.i774 = icmp eq ptr %698, %700
-  br i1 %.not11.i774, label %.loopexit1090, label %.lr.ph.i775
+  %.not11.i773 = icmp eq ptr %698, %700
+  br i1 %.not11.i773, label %.loopexit1089, label %.lr.ph.i774
 
-701:                                              ; preds = %.lr.ph.i775
-  %702 = getelementptr inbounds i8, ptr %.sroa.05.08.i776, i64 40
-  %.not12.i779 = icmp eq ptr %702, %700
-  br i1 %.not12.i779, label %.loopexit1090, label %.lr.ph.i775
+701:                                              ; preds = %.lr.ph.i774
+  %702 = getelementptr inbounds i8, ptr %.sroa.05.08.i775, i64 40
+  %.not12.i778 = icmp eq ptr %702, %700
+  br i1 %.not12.i778, label %.loopexit1089, label %.lr.ph.i774
 
-.lr.ph.i775:                                      ; preds = %693, %701
-  %.sroa.05.08.i776 = phi ptr [ %702, %701 ], [ %698, %693 ]
-  %703 = load i32, ptr %.sroa.05.08.i776, align 8
-  %.not.not.i777 = icmp eq i32 %703, 1
-  br i1 %.not.not.i777, label %701, label %.loopexit
+.lr.ph.i774:                                      ; preds = %693, %701
+  %.sroa.05.08.i775 = phi ptr [ %702, %701 ], [ %698, %693 ]
+  %703 = load i32, ptr %.sroa.05.08.i775, align 8
+  %.not.not.i776 = icmp eq i32 %703, 1
+  br i1 %.not.not.i776, label %701, label %.loopexit
 
-.loopexit1090:                                    ; preds = %701, %693
+.loopexit1089:                                    ; preds = %701, %693
   %704 = getelementptr inbounds i8, ptr %692, i64 168
   %705 = load ptr, ptr %704, align 8
   %706 = tail call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE(ptr noundef %705)
   %707 = load ptr, ptr %706, align 8
   %708 = getelementptr inbounds i8, ptr %706, i64 8
   %709 = load ptr, ptr %708, align 8
-  %.not11.i781 = icmp eq ptr %707, %709
-  br i1 %.not11.i781, label %.loopexit1088, label %.lr.ph.i782
+  %.not11.i780 = icmp eq ptr %707, %709
+  br i1 %.not11.i780, label %.loopexit1087, label %.lr.ph.i781
 
-710:                                              ; preds = %.lr.ph.i782
-  %711 = getelementptr inbounds i8, ptr %.sroa.05.08.i783, i64 40
-  %.not12.i786 = icmp eq ptr %711, %709
-  br i1 %.not12.i786, label %.loopexit1088, label %.lr.ph.i782
+710:                                              ; preds = %.lr.ph.i781
+  %711 = getelementptr inbounds i8, ptr %.sroa.05.08.i782, i64 40
+  %.not12.i785 = icmp eq ptr %711, %709
+  br i1 %.not12.i785, label %.loopexit1087, label %.lr.ph.i781
 
-.lr.ph.i782:                                      ; preds = %.loopexit1090, %710
-  %.sroa.05.08.i783 = phi ptr [ %711, %710 ], [ %707, %.loopexit1090 ]
-  %712 = load i32, ptr %.sroa.05.08.i783, align 8
-  %.not.not.i784 = icmp eq i32 %712, 1
-  br i1 %.not.not.i784, label %710, label %.loopexit
+.lr.ph.i781:                                      ; preds = %.loopexit1089, %710
+  %.sroa.05.08.i782 = phi ptr [ %711, %710 ], [ %707, %.loopexit1089 ]
+  %712 = load i32, ptr %.sroa.05.08.i782, align 8
+  %.not.not.i783 = icmp eq i32 %712, 1
+  br i1 %.not.not.i783, label %710, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i775, %.lr.ph.i782
+.loopexit:                                        ; preds = %.lr.ph.i774, %.lr.ph.i781
   %713 = getelementptr inbounds i8, ptr %0, i64 28
   %714 = load i32, ptr %713, align 4
   %715 = zext i1 %3 to i32
@@ -21700,12 +21673,12 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 724:                                              ; preds = %721
   %725 = load i64, ptr %2, align 4
-  %.sroa.0.0.extract.trunc.i788 = trunc i64 %725 to i32
-  %.sroa.3.0.extract.shift.i789 = lshr i64 %725, 32
-  %.sroa.3.0.extract.trunc.i790 = trunc nuw i64 %.sroa.3.0.extract.shift.i789 to i32
+  %.sroa.0.0.extract.trunc.i787 = trunc i64 %725 to i32
+  %.sroa.3.0.extract.shift.i788 = lshr i64 %725, 32
+  %.sroa.3.0.extract.trunc.i789 = trunc nuw i64 %.sroa.3.0.extract.shift.i788 to i32
   br label %_ZN7jsonnet8internal14FixIndentation11alignStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit
 
-.loopexit1088:                                    ; preds = %710, %.loopexit1090
+.loopexit1087:                                    ; preds = %710, %.loopexit1089
   %726 = getelementptr inbounds i8, ptr %0, i64 28
   %727 = load i32, ptr %726, align 4
   %728 = zext i1 %3 to i32
@@ -21716,31 +21689,31 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %733 = icmp eq ptr %731, %732
   br i1 %733, label %737, label %734
 
-734:                                              ; preds = %.loopexit1088
+734:                                              ; preds = %.loopexit1087
   %735 = load i32, ptr %732, align 8
   %736 = icmp eq i32 %735, 1
   br i1 %736, label %737, label %739
 
-737:                                              ; preds = %734, %.loopexit1088
+737:                                              ; preds = %734, %.loopexit1087
   %738 = load i32, ptr %2, align 4
   br label %_ZN7jsonnet8internal14FixIndentation11alignStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit
 
 739:                                              ; preds = %734
   %740 = load i64, ptr %2, align 4
-  %.sroa.0.0.extract.trunc.i797 = trunc i64 %740 to i32
-  %.sroa.3.0.extract.shift.i798 = lshr i64 %740, 32
-  %.sroa.3.0.extract.trunc.i799 = trunc nuw i64 %.sroa.3.0.extract.shift.i798 to i32
+  %.sroa.0.0.extract.trunc.i796 = trunc i64 %740 to i32
+  %.sroa.3.0.extract.shift.i797 = lshr i64 %740, 32
+  %.sroa.3.0.extract.trunc.i798 = trunc nuw i64 %.sroa.3.0.extract.shift.i797 to i32
   br label %_ZN7jsonnet8internal14FixIndentation11alignStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit
 
 _ZN7jsonnet8internal14FixIndentation11alignStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit: ; preds = %739, %737, %724, %721, %.loopexit
-  %.sroa.3.0.i800.sink = phi i32 [ %.sroa.3.0.extract.trunc.i790, %724 ], [ %716, %721 ], [ %716, %.loopexit ], [ %729, %737 ], [ %.sroa.3.0.extract.trunc.i799, %739 ]
-  %.sroa.0.0.i801.sink = phi i32 [ %.sroa.0.0.extract.trunc.i788, %724 ], [ %716, %721 ], [ %716, %.loopexit ], [ %738, %737 ], [ %.sroa.0.0.extract.trunc.i797, %739 ]
+  %.sroa.3.0.i799.sink = phi i32 [ %.sroa.3.0.extract.trunc.i789, %724 ], [ %716, %721 ], [ %716, %.loopexit ], [ %729, %737 ], [ %.sroa.3.0.extract.trunc.i798, %739 ]
+  %.sroa.0.0.i800.sink = phi i32 [ %.sroa.0.0.extract.trunc.i787, %724 ], [ %716, %721 ], [ %716, %.loopexit ], [ %738, %737 ], [ %.sroa.0.0.extract.trunc.i796, %739 ]
   %741 = phi ptr [ %713, %724 ], [ %713, %721 ], [ %713, %.loopexit ], [ %726, %737 ], [ %726, %739 ]
-  %.sroa.3.0.insert.ext.i802 = zext i32 %.sroa.3.0.i800.sink to i64
-  %.sroa.3.0.insert.shift.i803 = shl nuw i64 %.sroa.3.0.insert.ext.i802, 32
-  %.sroa.0.0.insert.ext.i804 = zext i32 %.sroa.0.0.i801.sink to i64
-  %.sroa.0.0.insert.insert.i805 = or disjoint i64 %.sroa.3.0.insert.shift.i803, %.sroa.0.0.insert.ext.i804
-  store i64 %.sroa.0.0.insert.insert.i805, ptr %11, align 8
+  %.sroa.3.0.insert.ext.i801 = zext i32 %.sroa.3.0.i799.sink to i64
+  %.sroa.3.0.insert.shift.i802 = shl nuw i64 %.sroa.3.0.insert.ext.i801, 32
+  %.sroa.0.0.insert.ext.i803 = zext i32 %.sroa.0.0.i800.sink to i64
+  %.sroa.0.0.insert.insert.i804 = or disjoint i64 %.sroa.3.0.insert.shift.i802, %.sroa.0.0.insert.ext.i803
+  store i64 %.sroa.0.0.insert.insert.i804, ptr %11, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %695, ptr noundef nonnull align 4 dereferenceable(8) %11, i1 noundef zeroext %3)
   %742 = getelementptr inbounds i8, ptr %11, i64 4
   %743 = load i32, ptr %742, align 4
@@ -21757,7 +21730,7 @@ _ZN7jsonnet8internal14FixIndentation11alignStrongERKSt6vectorINS0_13FodderElemen
   %750 = getelementptr inbounds i8, ptr %692, i64 168
   %751 = load ptr, ptr %750, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %751, ptr noundef nonnull align 4 dereferenceable(8) %11, i1 noundef zeroext true)
-  br label %common.ret1182
+  br label %common.ret1181
 
 752:                                              ; preds = %691
   %753 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal15BuiltinFunctionE, i64 0) #24
@@ -21776,7 +21749,7 @@ _ZN7jsonnet8internal14FixIndentation11alignStrongERKSt6vectorINS0_13FodderElemen
   %762 = add i32 %761, 8
   %763 = add i32 %762, %760
   store i32 %763, ptr %755, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 764:                                              ; preds = %752
   %765 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal11ConditionalE, i64 0) #24
@@ -21805,23 +21778,23 @@ _ZN7jsonnet8internal14FixIndentation11alignStrongERKSt6vectorINS0_13FodderElemen
 
 781:                                              ; preds = %778, %766
   %782 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit813
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit812
 
 783:                                              ; preds = %778
   %784 = load i32, ptr %2, align 4
   %785 = getelementptr inbounds i8, ptr %0, i64 12
   %786 = load i32, ptr %785, align 4
   %787 = add i32 %786, %784
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit813
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit812
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit813: ; preds = %781, %783
-  %.sroa.3.0.i807 = phi i32 [ %773, %781 ], [ %787, %783 ]
-  %.sroa.0.0.i808 = phi i32 [ %782, %781 ], [ %787, %783 ]
-  %.sroa.3.0.insert.ext.i809 = zext i32 %.sroa.3.0.i807 to i64
-  %.sroa.3.0.insert.shift.i810 = shl nuw i64 %.sroa.3.0.insert.ext.i809, 32
-  %.sroa.0.0.insert.ext.i811 = zext i32 %.sroa.0.0.i808 to i64
-  %.sroa.0.0.insert.insert.i812 = or disjoint i64 %.sroa.3.0.insert.shift.i810, %.sroa.0.0.insert.ext.i811
-  store i64 %.sroa.0.0.insert.insert.i812, ptr %13, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit812: ; preds = %781, %783
+  %.sroa.3.0.i806 = phi i32 [ %773, %781 ], [ %787, %783 ]
+  %.sroa.0.0.i807 = phi i32 [ %782, %781 ], [ %787, %783 ]
+  %.sroa.3.0.insert.ext.i808 = zext i32 %.sroa.3.0.i806 to i64
+  %.sroa.3.0.insert.shift.i809 = shl nuw i64 %.sroa.3.0.insert.ext.i808, 32
+  %.sroa.0.0.insert.ext.i810 = zext i32 %.sroa.0.0.i807 to i64
+  %.sroa.0.0.insert.insert.i811 = or disjoint i64 %.sroa.3.0.insert.shift.i809, %.sroa.0.0.insert.ext.i810
+  store i64 %.sroa.0.0.insert.insert.i811, ptr %13, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %771, ptr noundef nonnull align 4 dereferenceable(8) %13, i1 noundef zeroext true)
   %788 = getelementptr inbounds i8, ptr %765, i64 136
   %789 = load i32, ptr %2, align 4
@@ -21839,37 +21812,37 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %799 = icmp eq ptr %797, %798
   br i1 %799, label %803, label %800
 
-800:                                              ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit813
+800:                                              ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit812
   %801 = load i32, ptr %798, align 8
   %802 = icmp eq i32 %801, 1
   br i1 %802, label %803, label %805
 
-803:                                              ; preds = %800, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit813
+803:                                              ; preds = %800, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit812
   %804 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit820
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit819
 
 805:                                              ; preds = %800
   %806 = load i32, ptr %2, align 4
   %807 = getelementptr inbounds i8, ptr %0, i64 12
   %808 = load i32, ptr %807, align 4
   %809 = add i32 %808, %806
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit820
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit819
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit820: ; preds = %803, %805
-  %.sroa.3.0.i814 = phi i32 [ %795, %803 ], [ %809, %805 ]
-  %.sroa.0.0.i815 = phi i32 [ %804, %803 ], [ %809, %805 ]
-  %.sroa.3.0.insert.ext.i816 = zext i32 %.sroa.3.0.i814 to i64
-  %.sroa.3.0.insert.shift.i817 = shl nuw i64 %.sroa.3.0.insert.ext.i816, 32
-  %.sroa.0.0.insert.ext.i818 = zext i32 %.sroa.0.0.i815 to i64
-  %.sroa.0.0.insert.insert.i819 = or disjoint i64 %.sroa.3.0.insert.shift.i817, %.sroa.0.0.insert.ext.i818
-  store i64 %.sroa.0.0.insert.insert.i819, ptr %14, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit819: ; preds = %803, %805
+  %.sroa.3.0.i813 = phi i32 [ %795, %803 ], [ %809, %805 ]
+  %.sroa.0.0.i814 = phi i32 [ %804, %803 ], [ %809, %805 ]
+  %.sroa.3.0.insert.ext.i815 = zext i32 %.sroa.3.0.i813 to i64
+  %.sroa.3.0.insert.shift.i816 = shl nuw i64 %.sroa.3.0.insert.ext.i815, 32
+  %.sroa.0.0.insert.ext.i817 = zext i32 %.sroa.0.0.i814 to i64
+  %.sroa.0.0.insert.insert.i818 = or disjoint i64 %.sroa.3.0.insert.shift.i816, %.sroa.0.0.insert.ext.i817
+  store i64 %.sroa.0.0.insert.insert.i818, ptr %14, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %793, ptr noundef nonnull align 4 dereferenceable(8) %14, i1 noundef zeroext true)
   %810 = getelementptr inbounds i8, ptr %765, i64 192
   %811 = load ptr, ptr %810, align 8
   %.not454 = icmp eq ptr %811, null
-  br i1 %.not454, label %common.ret1182, label %812
+  br i1 %.not454, label %common.ret1181, label %812
 
-812:                                              ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit820
+812:                                              ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit819
   %813 = getelementptr inbounds i8, ptr %765, i64 168
   %814 = load i32, ptr %2, align 4
   call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %813, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %814)
@@ -21892,25 +21865,25 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 827:                                              ; preds = %824, %812
   %828 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit827
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit826
 
 829:                                              ; preds = %824
   %830 = load i32, ptr %2, align 4
   %831 = getelementptr inbounds i8, ptr %0, i64 12
   %832 = load i32, ptr %831, align 4
   %833 = add i32 %832, %830
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit827
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit826
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit827: ; preds = %827, %829
-  %.sroa.3.0.i821 = phi i32 [ %819, %827 ], [ %833, %829 ]
-  %.sroa.0.0.i822 = phi i32 [ %828, %827 ], [ %833, %829 ]
-  %.sroa.3.0.insert.ext.i823 = zext i32 %.sroa.3.0.i821 to i64
-  %.sroa.3.0.insert.shift.i824 = shl nuw i64 %.sroa.3.0.insert.ext.i823, 32
-  %.sroa.0.0.insert.ext.i825 = zext i32 %.sroa.0.0.i822 to i64
-  %.sroa.0.0.insert.insert.i826 = or disjoint i64 %.sroa.3.0.insert.shift.i824, %.sroa.0.0.insert.ext.i825
-  store i64 %.sroa.0.0.insert.insert.i826, ptr %15, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit826: ; preds = %827, %829
+  %.sroa.3.0.i820 = phi i32 [ %819, %827 ], [ %833, %829 ]
+  %.sroa.0.0.i821 = phi i32 [ %828, %827 ], [ %833, %829 ]
+  %.sroa.3.0.insert.ext.i822 = zext i32 %.sroa.3.0.i820 to i64
+  %.sroa.3.0.insert.shift.i823 = shl nuw i64 %.sroa.3.0.insert.ext.i822, 32
+  %.sroa.0.0.insert.ext.i824 = zext i32 %.sroa.0.0.i821 to i64
+  %.sroa.0.0.insert.insert.i825 = or disjoint i64 %.sroa.3.0.insert.shift.i823, %.sroa.0.0.insert.ext.i824
+  store i64 %.sroa.0.0.insert.insert.i825, ptr %15, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %817, ptr noundef nonnull align 4 dereferenceable(8) %15, i1 noundef zeroext true)
-  br label %common.ret1182
+  br label %common.ret1181
 
 834:                                              ; preds = %764
   %835 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6DollarE, i64 0) #24
@@ -21922,7 +21895,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %838 = load i32, ptr %837, align 4
   %839 = add i32 %838, 1
   store i32 %839, ptr %837, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 840:                                              ; preds = %834
   %841 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5ErrorE, i64 0) #24
@@ -21951,25 +21924,25 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 857:                                              ; preds = %854, %842
   %858 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit834
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit833
 
 859:                                              ; preds = %854
   %860 = load i32, ptr %2, align 4
   %861 = getelementptr inbounds i8, ptr %0, i64 12
   %862 = load i32, ptr %861, align 4
   %863 = add i32 %862, %860
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit834
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit833
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit834: ; preds = %857, %859
-  %.sroa.3.0.i828 = phi i32 [ %849, %857 ], [ %863, %859 ]
-  %.sroa.0.0.i829 = phi i32 [ %858, %857 ], [ %863, %859 ]
-  %.sroa.3.0.insert.ext.i830 = zext i32 %.sroa.3.0.i828 to i64
-  %.sroa.3.0.insert.shift.i831 = shl nuw i64 %.sroa.3.0.insert.ext.i830, 32
-  %.sroa.0.0.insert.ext.i832 = zext i32 %.sroa.0.0.i829 to i64
-  %.sroa.0.0.insert.insert.i833 = or disjoint i64 %.sroa.3.0.insert.shift.i831, %.sroa.0.0.insert.ext.i832
-  store i64 %.sroa.0.0.insert.insert.i833, ptr %16, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit833: ; preds = %857, %859
+  %.sroa.3.0.i827 = phi i32 [ %849, %857 ], [ %863, %859 ]
+  %.sroa.0.0.i828 = phi i32 [ %858, %857 ], [ %863, %859 ]
+  %.sroa.3.0.insert.ext.i829 = zext i32 %.sroa.3.0.i827 to i64
+  %.sroa.3.0.insert.shift.i830 = shl nuw i64 %.sroa.3.0.insert.ext.i829, 32
+  %.sroa.0.0.insert.ext.i831 = zext i32 %.sroa.0.0.i828 to i64
+  %.sroa.0.0.insert.insert.i832 = or disjoint i64 %.sroa.3.0.insert.shift.i830, %.sroa.0.0.insert.ext.i831
+  store i64 %.sroa.0.0.insert.insert.i832, ptr %16, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %847, ptr noundef nonnull align 4 dereferenceable(8) %16, i1 noundef zeroext true)
-  br label %common.ret1182
+  br label %common.ret1181
 
 864:                                              ; preds = %840
   %865 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal8FunctionE, i64 0) #24
@@ -22006,25 +21979,25 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 888:                                              ; preds = %885, %866
   %889 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit841
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit840
 
 890:                                              ; preds = %885
   %891 = load i32, ptr %2, align 4
   %892 = getelementptr inbounds i8, ptr %0, i64 12
   %893 = load i32, ptr %892, align 4
   %894 = add i32 %893, %891
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit841
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit840
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit841: ; preds = %888, %890
-  %.sroa.3.0.i835 = phi i32 [ %880, %888 ], [ %894, %890 ]
-  %.sroa.0.0.i836 = phi i32 [ %889, %888 ], [ %894, %890 ]
-  %.sroa.3.0.insert.ext.i837 = zext i32 %.sroa.3.0.i835 to i64
-  %.sroa.3.0.insert.shift.i838 = shl nuw i64 %.sroa.3.0.insert.ext.i837, 32
-  %.sroa.0.0.insert.ext.i839 = zext i32 %.sroa.0.0.i836 to i64
-  %.sroa.0.0.insert.insert.i840 = or disjoint i64 %.sroa.3.0.insert.shift.i838, %.sroa.0.0.insert.ext.i839
-  store i64 %.sroa.0.0.insert.insert.i840, ptr %17, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit840: ; preds = %888, %890
+  %.sroa.3.0.i834 = phi i32 [ %880, %888 ], [ %894, %890 ]
+  %.sroa.0.0.i835 = phi i32 [ %889, %888 ], [ %894, %890 ]
+  %.sroa.3.0.insert.ext.i836 = zext i32 %.sroa.3.0.i834 to i64
+  %.sroa.3.0.insert.shift.i837 = shl nuw i64 %.sroa.3.0.insert.ext.i836, 32
+  %.sroa.0.0.insert.ext.i838 = zext i32 %.sroa.0.0.i835 to i64
+  %.sroa.0.0.insert.insert.i839 = or disjoint i64 %.sroa.3.0.insert.shift.i837, %.sroa.0.0.insert.ext.i838
+  store i64 %.sroa.0.0.insert.insert.i839, ptr %17, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %877, ptr noundef nonnull align 4 dereferenceable(8) %17, i1 noundef zeroext true)
-  br label %common.ret1182
+  br label %common.ret1181
 
 895:                                              ; preds = %864
   %896 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6ImportE, i64 0) #24
@@ -22053,25 +22026,25 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 912:                                              ; preds = %909, %897
   %913 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit848
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit847
 
 914:                                              ; preds = %909
   %915 = load i32, ptr %2, align 4
   %916 = getelementptr inbounds i8, ptr %0, i64 12
   %917 = load i32, ptr %916, align 4
   %918 = add i32 %917, %915
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit848
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit847
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit848: ; preds = %912, %914
-  %.sroa.3.0.i842 = phi i32 [ %904, %912 ], [ %918, %914 ]
-  %.sroa.0.0.i843 = phi i32 [ %913, %912 ], [ %918, %914 ]
-  %.sroa.3.0.insert.ext.i844 = zext i32 %.sroa.3.0.i842 to i64
-  %.sroa.3.0.insert.shift.i845 = shl nuw i64 %.sroa.3.0.insert.ext.i844, 32
-  %.sroa.0.0.insert.ext.i846 = zext i32 %.sroa.0.0.i843 to i64
-  %.sroa.0.0.insert.insert.i847 = or disjoint i64 %.sroa.3.0.insert.shift.i845, %.sroa.0.0.insert.ext.i846
-  store i64 %.sroa.0.0.insert.insert.i847, ptr %18, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit847: ; preds = %912, %914
+  %.sroa.3.0.i841 = phi i32 [ %904, %912 ], [ %918, %914 ]
+  %.sroa.0.0.i842 = phi i32 [ %913, %912 ], [ %918, %914 ]
+  %.sroa.3.0.insert.ext.i843 = zext i32 %.sroa.3.0.i841 to i64
+  %.sroa.3.0.insert.shift.i844 = shl nuw i64 %.sroa.3.0.insert.ext.i843, 32
+  %.sroa.0.0.insert.ext.i845 = zext i32 %.sroa.0.0.i842 to i64
+  %.sroa.0.0.insert.insert.i846 = or disjoint i64 %.sroa.3.0.insert.shift.i844, %.sroa.0.0.insert.ext.i845
+  store i64 %.sroa.0.0.insert.insert.i846, ptr %18, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %902, ptr noundef nonnull align 4 dereferenceable(8) %18, i1 noundef zeroext true)
-  br label %common.ret1182
+  br label %common.ret1181
 
 919:                                              ; preds = %895
   %920 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal9ImportstrE, i64 0) #24
@@ -22100,25 +22073,25 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 936:                                              ; preds = %933, %921
   %937 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit855
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit854
 
 938:                                              ; preds = %933
   %939 = load i32, ptr %2, align 4
   %940 = getelementptr inbounds i8, ptr %0, i64 12
   %941 = load i32, ptr %940, align 4
   %942 = add i32 %941, %939
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit855
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit854
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit855: ; preds = %936, %938
-  %.sroa.3.0.i849 = phi i32 [ %928, %936 ], [ %942, %938 ]
-  %.sroa.0.0.i850 = phi i32 [ %937, %936 ], [ %942, %938 ]
-  %.sroa.3.0.insert.ext.i851 = zext i32 %.sroa.3.0.i849 to i64
-  %.sroa.3.0.insert.shift.i852 = shl nuw i64 %.sroa.3.0.insert.ext.i851, 32
-  %.sroa.0.0.insert.ext.i853 = zext i32 %.sroa.0.0.i850 to i64
-  %.sroa.0.0.insert.insert.i854 = or disjoint i64 %.sroa.3.0.insert.shift.i852, %.sroa.0.0.insert.ext.i853
-  store i64 %.sroa.0.0.insert.insert.i854, ptr %19, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit854: ; preds = %936, %938
+  %.sroa.3.0.i848 = phi i32 [ %928, %936 ], [ %942, %938 ]
+  %.sroa.0.0.i849 = phi i32 [ %937, %936 ], [ %942, %938 ]
+  %.sroa.3.0.insert.ext.i850 = zext i32 %.sroa.3.0.i848 to i64
+  %.sroa.3.0.insert.shift.i851 = shl nuw i64 %.sroa.3.0.insert.ext.i850, 32
+  %.sroa.0.0.insert.ext.i852 = zext i32 %.sroa.0.0.i849 to i64
+  %.sroa.0.0.insert.insert.i853 = or disjoint i64 %.sroa.3.0.insert.shift.i851, %.sroa.0.0.insert.ext.i852
+  store i64 %.sroa.0.0.insert.insert.i853, ptr %19, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %926, ptr noundef nonnull align 4 dereferenceable(8) %19, i1 noundef zeroext true)
-  br label %common.ret1182
+  br label %common.ret1181
 
 943:                                              ; preds = %919
   %944 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal9ImportbinE, i64 0) #24
@@ -22147,32 +22120,32 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 960:                                              ; preds = %957, %945
   %961 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit862
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit861
 
 962:                                              ; preds = %957
   %963 = load i32, ptr %2, align 4
   %964 = getelementptr inbounds i8, ptr %0, i64 12
   %965 = load i32, ptr %964, align 4
   %966 = add i32 %965, %963
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit862
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit861
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit862: ; preds = %960, %962
-  %.sroa.3.0.i856 = phi i32 [ %952, %960 ], [ %966, %962 ]
-  %.sroa.0.0.i857 = phi i32 [ %961, %960 ], [ %966, %962 ]
-  %.sroa.3.0.insert.ext.i858 = zext i32 %.sroa.3.0.i856 to i64
-  %.sroa.3.0.insert.shift.i859 = shl nuw i64 %.sroa.3.0.insert.ext.i858, 32
-  %.sroa.0.0.insert.ext.i860 = zext i32 %.sroa.0.0.i857 to i64
-  %.sroa.0.0.insert.insert.i861 = or disjoint i64 %.sroa.3.0.insert.shift.i859, %.sroa.0.0.insert.ext.i860
-  store i64 %.sroa.0.0.insert.insert.i861, ptr %20, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit861: ; preds = %960, %962
+  %.sroa.3.0.i855 = phi i32 [ %952, %960 ], [ %966, %962 ]
+  %.sroa.0.0.i856 = phi i32 [ %961, %960 ], [ %966, %962 ]
+  %.sroa.3.0.insert.ext.i857 = zext i32 %.sroa.3.0.i855 to i64
+  %.sroa.3.0.insert.shift.i858 = shl nuw i64 %.sroa.3.0.insert.ext.i857, 32
+  %.sroa.0.0.insert.ext.i859 = zext i32 %.sroa.0.0.i856 to i64
+  %.sroa.0.0.insert.insert.i860 = or disjoint i64 %.sroa.3.0.insert.shift.i858, %.sroa.0.0.insert.ext.i859
+  store i64 %.sroa.0.0.insert.insert.i860, ptr %20, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %950, ptr noundef nonnull align 4 dereferenceable(8) %20, i1 noundef zeroext true)
-  br label %common.ret1182
+  br label %common.ret1181
 
 967:                                              ; preds = %943
   %968 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal7InSuperE, i64 0) #24
   %.not428 = icmp eq ptr %968, null
   br i1 %.not428, label %981, label %969
 
-common.ret1182:                                   ; preds = %1249, %_ZN7jsonnet8internal14FixIndentation5alignERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit598, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit766, %_ZN7jsonnet8internal14FixIndentation11alignStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit827, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit820, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit834, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit848, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit862, %1144, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit869, %1230, %1260, %1279, %1252, %1369, %1465, %_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit937, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit951, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit944, %1622, %.critedge464, %1625, %1530, %._crit_edge1133, %1315, %1240, %._crit_edge1119, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit855, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit841, %836, %754, %683, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit695, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit582, %1295, %1307, %1477, %969
+common.ret1181:                                   ; preds = %1249, %_ZN7jsonnet8internal14FixIndentation5alignERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit598, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit765, %_ZN7jsonnet8internal14FixIndentation11alignStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit826, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit819, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit833, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit847, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit861, %1144, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit868, %1230, %1260, %1279, %1252, %1369, %1465, %_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit936, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit950, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit943, %1622, %.critedge464, %1625, %1530, %._crit_edge1132, %1315, %1240, %._crit_edge1118, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit854, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit840, %836, %754, %683, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit694, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj.exit, %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit582, %1295, %1307, %1477, %969
   ret void
 
 969:                                              ; preds = %967
@@ -22192,7 +22165,7 @@ common.ret1182:                                   ; preds = %1249, %_ZN7jsonnet8
   %979 = load i32, ptr %974, align 4
   %980 = add i32 %979, 5
   store i32 %980, ptr %974, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 981:                                              ; preds = %967
   %982 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5IndexE, i64 0) #24
@@ -22219,25 +22192,25 @@ common.ret1182:                                   ; preds = %1249, %_ZN7jsonnet8
   %995 = load ptr, ptr %994, align 8
   %996 = load ptr, ptr %991, align 8
   %997 = icmp eq ptr %995, %996
-  br i1 %997, label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit869, label %998
+  br i1 %997, label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit868, label %998
 
 998:                                              ; preds = %990
   %999 = load i32, ptr %996, align 8
   %1000 = icmp eq i32 %999, 1
-  br i1 %1000, label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit869, label %1001
+  br i1 %1000, label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit868, label %1001
 
 1001:                                             ; preds = %998
   %1002 = load i32, ptr %2, align 4
   %1003 = getelementptr inbounds i8, ptr %0, i64 12
   %1004 = load i32, ptr %1003, align 4
   %1005 = add i32 %1004, %1002
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit869
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit868
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit869: ; preds = %990, %998, %1001
-  %.sroa.3.0.i863 = phi i32 [ %1005, %1001 ], [ %993, %998 ], [ %993, %990 ]
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit868: ; preds = %990, %998, %1001
+  %.sroa.3.0.i862 = phi i32 [ %1005, %1001 ], [ %993, %998 ], [ %993, %990 ]
   %1006 = add i32 %993, 1
   store i32 %1006, ptr %992, align 4
-  tail call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %991, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %.sroa.3.0.i863)
+  tail call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %991, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %.sroa.3.0.i862)
   %1007 = load ptr, ptr %988, align 8
   %1008 = getelementptr inbounds i8, ptr %1007, i64 8
   %1009 = load i64, ptr %1008, align 8
@@ -22245,7 +22218,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1011 = trunc i64 %1009 to i32
   %1012 = add i32 %1010, %1011
   store i32 %1012, ptr %992, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 1013:                                             ; preds = %983
   %1014 = getelementptr inbounds i8, ptr %0, i64 28
@@ -22281,27 +22254,27 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 1033:                                             ; preds = %1030, %1024
   %1034 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit876
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit875
 
 1035:                                             ; preds = %1030
   %1036 = load i32, ptr %2, align 4
   %1037 = getelementptr inbounds i8, ptr %0, i64 12
   %1038 = load i32, ptr %1037, align 4
   %1039 = add i32 %1038, %1036
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit876
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit875
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit876: ; preds = %1033, %1035
-  %.sroa.3.0.i870 = phi i32 [ %1016, %1033 ], [ %1039, %1035 ]
-  %.sroa.0.0.i871 = phi i32 [ %1034, %1033 ], [ %1039, %1035 ]
-  %.sroa.3.0.insert.ext.i872 = zext i32 %.sroa.3.0.i870 to i64
-  %.sroa.3.0.insert.shift.i873 = shl nuw i64 %.sroa.3.0.insert.ext.i872, 32
-  %.sroa.0.0.insert.ext.i874 = zext i32 %.sroa.0.0.i871 to i64
-  %.sroa.0.0.insert.insert.i875 = or disjoint i64 %.sroa.3.0.insert.shift.i873, %.sroa.0.0.insert.ext.i874
-  store i64 %.sroa.0.0.insert.insert.i875, ptr %21, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit875: ; preds = %1033, %1035
+  %.sroa.3.0.i869 = phi i32 [ %1016, %1033 ], [ %1039, %1035 ]
+  %.sroa.0.0.i870 = phi i32 [ %1034, %1033 ], [ %1039, %1035 ]
+  %.sroa.3.0.insert.ext.i871 = zext i32 %.sroa.3.0.i869 to i64
+  %.sroa.3.0.insert.shift.i872 = shl nuw i64 %.sroa.3.0.insert.ext.i871, 32
+  %.sroa.0.0.insert.ext.i873 = zext i32 %.sroa.0.0.i870 to i64
+  %.sroa.0.0.insert.insert.i874 = or disjoint i64 %.sroa.3.0.insert.shift.i872, %.sroa.0.0.insert.ext.i873
+  store i64 %.sroa.0.0.insert.insert.i874, ptr %21, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1023, ptr noundef nonnull align 4 dereferenceable(8) %21, i1 noundef zeroext false)
   br label %1040
 
-1040:                                             ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit876, %1020
+1040:                                             ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit875, %1020
   %1041 = getelementptr inbounds i8, ptr %982, i64 200
   %1042 = load ptr, ptr %1041, align 8
   %.not452 = icmp eq ptr %1042, null
@@ -22323,24 +22296,24 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 1053:                                             ; preds = %1050, %1043
   %1054 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit883
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit882
 
 1055:                                             ; preds = %1050
   %1056 = load i32, ptr %2, align 4
   %1057 = getelementptr inbounds i8, ptr %0, i64 12
   %1058 = load i32, ptr %1057, align 4
   %1059 = add i32 %1058, %1056
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit883
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit882
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit883: ; preds = %1053, %1055
-  %.sroa.3.0.i877 = phi i32 [ %1045, %1053 ], [ %1059, %1055 ]
-  %.sroa.0.0.i878 = phi i32 [ %1054, %1053 ], [ %1059, %1055 ]
-  %.sroa.3.0.insert.ext.i879 = zext i32 %.sroa.3.0.i877 to i64
-  %.sroa.3.0.insert.shift.i880 = shl nuw i64 %.sroa.3.0.insert.ext.i879, 32
-  %.sroa.0.0.insert.ext.i881 = zext i32 %.sroa.0.0.i878 to i64
-  %.sroa.0.0.insert.insert.i882 = or disjoint i64 %.sroa.3.0.insert.shift.i880, %.sroa.0.0.insert.ext.i881
-  store i64 %.sroa.0.0.insert.insert.i882, ptr %21, align 8
-  call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1044, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %.sroa.3.0.i877)
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit882: ; preds = %1053, %1055
+  %.sroa.3.0.i876 = phi i32 [ %1045, %1053 ], [ %1059, %1055 ]
+  %.sroa.0.0.i877 = phi i32 [ %1054, %1053 ], [ %1059, %1055 ]
+  %.sroa.3.0.insert.ext.i878 = zext i32 %.sroa.3.0.i876 to i64
+  %.sroa.3.0.insert.shift.i879 = shl nuw i64 %.sroa.3.0.insert.ext.i878, 32
+  %.sroa.0.0.insert.ext.i880 = zext i32 %.sroa.0.0.i877 to i64
+  %.sroa.0.0.insert.insert.i881 = or disjoint i64 %.sroa.3.0.insert.shift.i879, %.sroa.0.0.insert.ext.i880
+  store i64 %.sroa.0.0.insert.insert.i881, ptr %21, align 8
+  call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1044, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %.sroa.3.0.i876)
   %1060 = load i32, ptr %1014, align 4
   %1061 = add i32 %1060, 1
   store i32 %1061, ptr %1014, align 4
@@ -22348,7 +22321,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1062, ptr noundef nonnull align 4 dereferenceable(8) %21, i1 noundef zeroext false)
   br label %1063
 
-1063:                                             ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit883, %1040
+1063:                                             ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit882, %1040
   %1064 = getelementptr inbounds i8, ptr %982, i64 232
   %1065 = load ptr, ptr %1064, align 8
   %.not453 = icmp eq ptr %1065, null
@@ -22375,30 +22348,30 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 1079:                                             ; preds = %1076, %1069
   %1080 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit890
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit889
 
 1081:                                             ; preds = %1076
   %1082 = load i32, ptr %2, align 4
   %1083 = getelementptr inbounds i8, ptr %0, i64 12
   %1084 = load i32, ptr %1083, align 4
   %1085 = add i32 %1084, %1082
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit890
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit889
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit890: ; preds = %1079, %1081
-  %.sroa.3.0.i884 = phi i32 [ %1071, %1079 ], [ %1085, %1081 ]
-  %.sroa.0.0.i885 = phi i32 [ %1080, %1079 ], [ %1085, %1081 ]
-  %.sroa.3.0.insert.ext.i886 = zext i32 %.sroa.3.0.i884 to i64
-  %.sroa.3.0.insert.shift.i887 = shl nuw i64 %.sroa.3.0.insert.ext.i886, 32
-  %.sroa.0.0.insert.ext.i888 = zext i32 %.sroa.0.0.i885 to i64
-  %.sroa.0.0.insert.insert.i889 = or disjoint i64 %.sroa.3.0.insert.shift.i887, %.sroa.0.0.insert.ext.i888
-  store i64 %.sroa.0.0.insert.insert.i889, ptr %21, align 8
-  call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1070, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %.sroa.3.0.i884)
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit889: ; preds = %1079, %1081
+  %.sroa.3.0.i883 = phi i32 [ %1071, %1079 ], [ %1085, %1081 ]
+  %.sroa.0.0.i884 = phi i32 [ %1080, %1079 ], [ %1085, %1081 ]
+  %.sroa.3.0.insert.ext.i885 = zext i32 %.sroa.3.0.i883 to i64
+  %.sroa.3.0.insert.shift.i886 = shl nuw i64 %.sroa.3.0.insert.ext.i885, 32
+  %.sroa.0.0.insert.ext.i887 = zext i32 %.sroa.0.0.i884 to i64
+  %.sroa.0.0.insert.insert.i888 = or disjoint i64 %.sroa.3.0.insert.shift.i886, %.sroa.0.0.insert.ext.i887
+  store i64 %.sroa.0.0.insert.insert.i888, ptr %21, align 8
+  call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1070, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %.sroa.3.0.i883)
   %1086 = load i32, ptr %1014, align 4
   %1087 = add i32 %1086, 1
   store i32 %1087, ptr %1014, align 4
   br label %1088
 
-1088:                                             ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit890, %1066
+1088:                                             ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit889, %1066
   %1089 = getelementptr inbounds i8, ptr %982, i64 208
   %1090 = load i32, ptr %1021, align 4
   call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1089, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %1090)
@@ -22440,24 +22413,24 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 1113:                                             ; preds = %1110, %1103
   %1114 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit897
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit896
 
 1115:                                             ; preds = %1110
   %1116 = load i32, ptr %2, align 4
   %1117 = getelementptr inbounds i8, ptr %0, i64 12
   %1118 = load i32, ptr %1117, align 4
   %1119 = add i32 %1118, %1116
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit897
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit896
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit897: ; preds = %1113, %1115
-  %.sroa.3.0.i891 = phi i32 [ %1105, %1113 ], [ %1119, %1115 ]
-  %.sroa.0.0.i892 = phi i32 [ %1114, %1113 ], [ %1119, %1115 ]
-  %.sroa.3.0.insert.ext.i893 = zext i32 %.sroa.3.0.i891 to i64
-  %.sroa.3.0.insert.shift.i894 = shl nuw i64 %.sroa.3.0.insert.ext.i893, 32
-  %.sroa.0.0.insert.ext.i895 = zext i32 %.sroa.0.0.i892 to i64
-  %.sroa.0.0.insert.insert.i896 = or disjoint i64 %.sroa.3.0.insert.shift.i894, %.sroa.0.0.insert.ext.i895
-  store i64 %.sroa.0.0.insert.insert.i896, ptr %21, align 8
-  call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1104, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %.sroa.3.0.i891)
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit896: ; preds = %1113, %1115
+  %.sroa.3.0.i890 = phi i32 [ %1105, %1113 ], [ %1119, %1115 ]
+  %.sroa.0.0.i891 = phi i32 [ %1114, %1113 ], [ %1119, %1115 ]
+  %.sroa.3.0.insert.ext.i892 = zext i32 %.sroa.3.0.i890 to i64
+  %.sroa.3.0.insert.shift.i893 = shl nuw i64 %.sroa.3.0.insert.ext.i892, 32
+  %.sroa.0.0.insert.ext.i894 = zext i32 %.sroa.0.0.i891 to i64
+  %.sroa.0.0.insert.insert.i895 = or disjoint i64 %.sroa.3.0.insert.shift.i893, %.sroa.0.0.insert.ext.i894
+  store i64 %.sroa.0.0.insert.insert.i895, ptr %21, align 8
+  call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1104, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %.sroa.3.0.i890)
   %1120 = load i32, ptr %1014, align 4
   %1121 = add i32 %1120, 1
   store i32 %1121, ptr %1014, align 4
@@ -22480,23 +22453,23 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 1133:                                             ; preds = %1130, %1122
   %1134 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit904
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit903
 
 1135:                                             ; preds = %1130
   %1136 = load i32, ptr %2, align 4
   %1137 = getelementptr inbounds i8, ptr %0, i64 12
   %1138 = load i32, ptr %1137, align 4
   %1139 = add i32 %1138, %1136
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit904
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit903
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit904: ; preds = %1133, %1135
-  %.sroa.3.0.i898 = phi i32 [ %1016, %1133 ], [ %1139, %1135 ]
-  %.sroa.0.0.i899 = phi i32 [ %1134, %1133 ], [ %1139, %1135 ]
-  %.sroa.3.0.insert.ext.i900 = zext i32 %.sroa.3.0.i898 to i64
-  %.sroa.3.0.insert.shift.i901 = shl nuw i64 %.sroa.3.0.insert.ext.i900, 32
-  %.sroa.0.0.insert.ext.i902 = zext i32 %.sroa.0.0.i899 to i64
-  %.sroa.0.0.insert.insert.i903 = or disjoint i64 %.sroa.3.0.insert.shift.i901, %.sroa.0.0.insert.ext.i902
-  store i64 %.sroa.0.0.insert.insert.i903, ptr %22, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit903: ; preds = %1133, %1135
+  %.sroa.3.0.i897 = phi i32 [ %1016, %1133 ], [ %1139, %1135 ]
+  %.sroa.0.0.i898 = phi i32 [ %1134, %1133 ], [ %1139, %1135 ]
+  %.sroa.3.0.insert.ext.i899 = zext i32 %.sroa.3.0.i897 to i64
+  %.sroa.3.0.insert.shift.i900 = shl nuw i64 %.sroa.3.0.insert.ext.i899, 32
+  %.sroa.0.0.insert.ext.i901 = zext i32 %.sroa.0.0.i898 to i64
+  %.sroa.0.0.insert.insert.i902 = or disjoint i64 %.sroa.3.0.insert.shift.i900, %.sroa.0.0.insert.ext.i901
+  store i64 %.sroa.0.0.insert.insert.i902, ptr %22, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1124, ptr noundef nonnull align 4 dereferenceable(8) %22, i1 noundef zeroext false)
   %1140 = getelementptr inbounds i8, ptr %982, i64 240
   %1141 = getelementptr inbounds i8, ptr %22, i64 4
@@ -22505,11 +22478,11 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1140, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %1142, i32 noundef %1143)
   br label %1144
 
-1144:                                             ; preds = %1094, %1097, %1100, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit897, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit904
+1144:                                             ; preds = %1094, %1097, %1100, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit896, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit903
   %1145 = load i32, ptr %1014, align 4
   %1146 = add i32 %1145, 1
   store i32 %1146, ptr %1014, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 1147:                                             ; preds = %981
   %1148 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5LocalE, i64 0) #24
@@ -22537,38 +22510,38 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 1163:                                             ; preds = %1160, %1149
   %1164 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit911
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit910
 
 1165:                                             ; preds = %1160
   %1166 = load i32, ptr %2, align 4
   %1167 = getelementptr inbounds i8, ptr %0, i64 12
   %1168 = load i32, ptr %1167, align 4
   %1169 = add i32 %1168, %1166
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit911
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit910
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit911: ; preds = %1163, %1165
-  %.sroa.3.0.i905 = phi i32 [ %1155, %1163 ], [ %1169, %1165 ]
-  %.sroa.0.0.i906 = phi i32 [ %1164, %1163 ], [ %1169, %1165 ]
-  %.sroa.3.0.insert.ext.i907 = zext i32 %.sroa.3.0.i905 to i64
-  %.sroa.3.0.insert.shift.i908 = shl nuw i64 %.sroa.3.0.insert.ext.i907, 32
-  %.sroa.0.0.insert.ext.i909 = zext i32 %.sroa.0.0.i906 to i64
-  %.sroa.0.0.insert.insert.i910 = or disjoint i64 %.sroa.3.0.insert.shift.i908, %.sroa.0.0.insert.ext.i909
-  store i64 %.sroa.0.0.insert.insert.i910, ptr %23, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit910: ; preds = %1163, %1165
+  %.sroa.3.0.i904 = phi i32 [ %1155, %1163 ], [ %1169, %1165 ]
+  %.sroa.0.0.i905 = phi i32 [ %1164, %1163 ], [ %1169, %1165 ]
+  %.sroa.3.0.insert.ext.i906 = zext i32 %.sroa.3.0.i904 to i64
+  %.sroa.3.0.insert.shift.i907 = shl nuw i64 %.sroa.3.0.insert.ext.i906, 32
+  %.sroa.0.0.insert.ext.i908 = zext i32 %.sroa.0.0.i905 to i64
+  %.sroa.0.0.insert.insert.i909 = or disjoint i64 %.sroa.3.0.insert.shift.i907, %.sroa.0.0.insert.ext.i908
+  store i64 %.sroa.0.0.insert.insert.i909, ptr %23, align 8
   %1170 = getelementptr inbounds i8, ptr %1148, i64 136
   %1171 = load ptr, ptr %1170, align 8
-  %.not10841115 = icmp eq ptr %1154, %1171
-  br i1 %.not10841115, label %._crit_edge1119, label %.lr.ph1118
+  %.not10831114 = icmp eq ptr %1154, %1171
+  br i1 %.not10831114, label %._crit_edge1118, label %.lr.ph1117
 
-.lr.ph1118:                                       ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit911
+.lr.ph1117:                                       ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit910
   %1172 = getelementptr inbounds i8, ptr %23, i64 4
   %1173 = getelementptr inbounds i8, ptr %0, i64 12
   %1174 = getelementptr inbounds i8, ptr %24, i64 4
   br label %1175
 
-1175:                                             ; preds = %.lr.ph1118, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit918
-  %.03741117 = phi i1 [ true, %.lr.ph1118 ], [ false, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit918 ]
-  %.sroa.0969.01116 = phi ptr [ %1154, %.lr.ph1118 ], [ %1223, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit918 ]
-  br i1 %.03741117, label %1179, label %1176
+1175:                                             ; preds = %.lr.ph1117, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit917
+  %.03741116 = phi i1 [ true, %.lr.ph1117 ], [ false, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit917 ]
+  %.sroa.0968.01115 = phi ptr [ %1154, %.lr.ph1117 ], [ %1223, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit917 ]
+  br i1 %.03741116, label %1179, label %1176
 
 1176:                                             ; preds = %1175
   %1177 = load i32, ptr %1150, align 4
@@ -22578,8 +22551,8 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 1179:                                             ; preds = %1176, %1175
   %1180 = load i32, ptr %1172, align 4
-  call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0969.01116, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %1180)
-  %1181 = getelementptr inbounds i8, ptr %.sroa.0969.01116, i64 24
+  call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0968.01115, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %1180)
+  %1181 = getelementptr inbounds i8, ptr %.sroa.0968.01115, i64 24
   %1182 = load ptr, ptr %1181, align 8
   %1183 = getelementptr inbounds i8, ptr %1182, i64 8
   %1184 = load i64, ptr %1183, align 8
@@ -22587,29 +22560,29 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1186 = trunc i64 %1184 to i32
   %1187 = add i32 %1185, %1186
   store i32 %1187, ptr %1150, align 4
-  %1188 = getelementptr inbounds i8, ptr %.sroa.0969.01116, i64 64
+  %1188 = getelementptr inbounds i8, ptr %.sroa.0968.01115, i64 64
   %1189 = load i8, ptr %1188, align 8
   %1190 = trunc i8 %1189 to i1
   br i1 %1190, label %1191, label %1198
 
 1191:                                             ; preds = %1179
-  %1192 = getelementptr inbounds i8, ptr %.sroa.0969.01116, i64 72
-  %1193 = getelementptr inbounds i8, ptr %.sroa.0969.01116, i64 96
-  %1194 = getelementptr inbounds i8, ptr %.sroa.0969.01116, i64 120
+  %1192 = getelementptr inbounds i8, ptr %.sroa.0968.01115, i64 72
+  %1193 = getelementptr inbounds i8, ptr %.sroa.0968.01115, i64 96
+  %1194 = getelementptr inbounds i8, ptr %.sroa.0968.01115, i64 120
   %1195 = load i8, ptr %1194, align 8
   %1196 = trunc i8 %1195 to i1
-  %1197 = getelementptr inbounds i8, ptr %.sroa.0969.01116, i64 128
+  %1197 = getelementptr inbounds i8, ptr %.sroa.0968.01115, i64 128
   call void @_ZN7jsonnet8internal14FixIndentation6paramsERSt6vectorINS0_13FodderElementESaIS3_EERS2_INS0_8ArgParamESaIS7_EEbS6_RKNS1_6IndentE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1192, ptr noundef nonnull align 8 dereferenceable(24) %1193, i1 noundef zeroext %1196, ptr noundef nonnull align 8 dereferenceable(24) %1197, ptr noundef nonnull align 4 dereferenceable(8) %23)
   br label %1198
 
 1198:                                             ; preds = %1191, %1179
-  %1199 = getelementptr inbounds i8, ptr %.sroa.0969.01116, i64 32
+  %1199 = getelementptr inbounds i8, ptr %.sroa.0968.01115, i64 32
   %1200 = load i32, ptr %1172, align 4
   call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1199, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %1200)
   %1201 = load i32, ptr %1150, align 4
   %1202 = add i32 %1201, 1
   store i32 %1202, ptr %1150, align 4
-  %1203 = getelementptr inbounds i8, ptr %.sroa.0969.01116, i64 56
+  %1203 = getelementptr inbounds i8, ptr %.sroa.0968.01115, i64 56
   %1204 = load ptr, ptr %1203, align 8
   %1205 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE(ptr noundef %1204)
   %1206 = add i32 %1201, 2
@@ -22626,43 +22599,43 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 1214:                                             ; preds = %1211, %1198
   %1215 = load i32, ptr %23, align 8
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit918
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit917
 
 1216:                                             ; preds = %1211
   %1217 = load i32, ptr %23, align 8
   %1218 = load i32, ptr %1173, align 4
   %1219 = add i32 %1218, %1217
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit918
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit917
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit918: ; preds = %1214, %1216
-  %.sroa.3.0.i912 = phi i32 [ %1206, %1214 ], [ %1219, %1216 ]
-  %.sroa.0.0.i913 = phi i32 [ %1215, %1214 ], [ %1219, %1216 ]
-  %.sroa.3.0.insert.ext.i914 = zext i32 %.sroa.3.0.i912 to i64
-  %.sroa.3.0.insert.shift.i915 = shl nuw i64 %.sroa.3.0.insert.ext.i914, 32
-  %.sroa.0.0.insert.ext.i916 = zext i32 %.sroa.0.0.i913 to i64
-  %.sroa.0.0.insert.insert.i917 = or disjoint i64 %.sroa.3.0.insert.shift.i915, %.sroa.0.0.insert.ext.i916
-  store i64 %.sroa.0.0.insert.insert.i917, ptr %24, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit917: ; preds = %1214, %1216
+  %.sroa.3.0.i911 = phi i32 [ %1206, %1214 ], [ %1219, %1216 ]
+  %.sroa.0.0.i912 = phi i32 [ %1215, %1214 ], [ %1219, %1216 ]
+  %.sroa.3.0.insert.ext.i913 = zext i32 %.sroa.3.0.i911 to i64
+  %.sroa.3.0.insert.shift.i914 = shl nuw i64 %.sroa.3.0.insert.ext.i913, 32
+  %.sroa.0.0.insert.ext.i915 = zext i32 %.sroa.0.0.i912 to i64
+  %.sroa.0.0.insert.insert.i916 = or disjoint i64 %.sroa.3.0.insert.shift.i914, %.sroa.0.0.insert.ext.i915
+  store i64 %.sroa.0.0.insert.insert.i916, ptr %24, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1204, ptr noundef nonnull align 4 dereferenceable(8) %24, i1 noundef zeroext true)
-  %1220 = getelementptr inbounds i8, ptr %.sroa.0969.01116, i64 152
+  %1220 = getelementptr inbounds i8, ptr %.sroa.0968.01115, i64 152
   %1221 = load i32, ptr %1174, align 4
   %1222 = load i32, ptr %2, align 4
   call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbjj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1220, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %1221, i32 noundef %1222)
-  %1223 = getelementptr inbounds i8, ptr %.sroa.0969.01116, i64 176
-  %.not1084 = icmp eq ptr %1223, %1171
-  br i1 %.not1084, label %._crit_edge1119.loopexit, label %1175
+  %1223 = getelementptr inbounds i8, ptr %.sroa.0968.01115, i64 176
+  %.not1083 = icmp eq ptr %1223, %1171
+  br i1 %.not1083, label %._crit_edge1118.loopexit, label %1175
 
-._crit_edge1119.loopexit:                         ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit918
-  %.pre1139 = load i32, ptr %1150, align 4
-  br label %._crit_edge1119
+._crit_edge1118.loopexit:                         ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit917
+  %.pre1138 = load i32, ptr %1150, align 4
+  br label %._crit_edge1118
 
-._crit_edge1119:                                  ; preds = %._crit_edge1119.loopexit, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit911
-  %1224 = phi i32 [ %.pre1139, %._crit_edge1119.loopexit ], [ %1152, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit911 ]
+._crit_edge1118:                                  ; preds = %._crit_edge1118.loopexit, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit910
+  %1224 = phi i32 [ %.pre1138, %._crit_edge1118.loopexit ], [ %1152, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit910 ]
   %1225 = add i32 %1224, 1
   store i32 %1225, ptr %1150, align 4
   %1226 = getelementptr inbounds i8, ptr %1148, i64 152
   %1227 = load ptr, ptr %1226, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1227, ptr noundef nonnull align 4 dereferenceable(8) %2, i1 noundef zeroext true)
-  br label %common.ret1182
+  br label %common.ret1181
 
 1228:                                             ; preds = %1147
   %1229 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal14LiteralBooleanE, i64 0) #24
@@ -22678,7 +22651,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1236 = load i32, ptr %1235, align 4
   %1237 = add i32 %1234, %1236
   store i32 %1237, ptr %1235, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 1238:                                             ; preds = %1228
   %1239 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal13LiteralNumberE, i64 0) #24
@@ -22693,7 +22666,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1245 = trunc i64 %1242 to i32
   %1246 = add i32 %1244, %1245
   store i32 %1246, ptr %1243, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 1247:                                             ; preds = %1238
   %1248 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal13LiteralStringE, i64 0) #24
@@ -22703,7 +22676,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 1249:                                             ; preds = %1247
   %1250 = getelementptr inbounds i8, ptr %1248, i64 160
   %1251 = load i32, ptr %1250, align 8
-  switch i32 %1251, label %common.ret1182 [
+  switch i32 %1251, label %common.ret1181 [
     i32 1, label %1252
     i32 0, label %1260
     i32 2, label %1268
@@ -22720,7 +22693,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1258 = add i32 %1257, 2
   %1259 = add i32 %1258, %1256
   store i32 %1259, ptr %1255, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 1260:                                             ; preds = %1249
   %1261 = getelementptr inbounds i8, ptr %1248, i64 136
@@ -22731,7 +22704,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1266 = add i32 %1265, 2
   %1267 = add i32 %1266, %1264
   store i32 %1267, ptr %1263, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 1268:                                             ; preds = %1249
   %1269 = load i32, ptr %2, align 4
@@ -22763,7 +22736,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1283 = getelementptr inbounds i8, ptr %0, i64 28
   %1284 = add i32 %1282, 3
   store i32 %1284, ptr %1283, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 1285:                                             ; preds = %1268
   %1286 = landingpad { ptr, i32 }
@@ -22785,11 +22758,11 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   br label %1295
 
 1295:                                             ; preds = %1298, %1289
-  %storemerge4481122 = phi i32 [ %1292, %1289 ], [ %1299, %1298 ]
+  %storemerge4481121 = phi i32 [ %1292, %1289 ], [ %1299, %1298 ]
   %.0377 = phi ptr [ %1294, %1289 ], [ %1300, %1298 ]
   %1296 = load i32, ptr %.0377, align 4
   switch i32 %1296, label %1297 [
-    i32 0, label %common.ret1182
+    i32 0, label %common.ret1181
     i32 39, label %1298
   ]
 
@@ -22798,10 +22771,10 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 1298:                                             ; preds = %1295, %1297
   %.sink = phi i32 [ 1, %1297 ], [ 2, %1295 ]
-  %1299 = add i32 %storemerge4481122, %.sink
+  %1299 = add i32 %storemerge4481121, %.sink
   store i32 %1299, ptr %1290, align 4
   %1300 = getelementptr inbounds i8, ptr %.0377, i64 4
-  br label %1295, !llvm.loop !162
+  br label %1295, !llvm.loop !161
 
 1301:                                             ; preds = %1249
   %1302 = getelementptr inbounds i8, ptr %0, i64 28
@@ -22813,11 +22786,11 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   br label %1307
 
 1307:                                             ; preds = %1310, %1301
-  %storemerge1120 = phi i32 [ %1304, %1301 ], [ %1311, %1310 ]
+  %storemerge1119 = phi i32 [ %1304, %1301 ], [ %1311, %1310 ]
   %.0378 = phi ptr [ %1306, %1301 ], [ %1312, %1310 ]
   %1308 = load i32, ptr %.0378, align 4
   switch i32 %1308, label %1309 [
-    i32 0, label %common.ret1182
+    i32 0, label %common.ret1181
     i32 34, label %1310
   ]
 
@@ -22825,11 +22798,11 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   br label %1310
 
 1310:                                             ; preds = %1307, %1309
-  %.sink1162 = phi i32 [ 1, %1309 ], [ 2, %1307 ]
-  %1311 = add i32 %storemerge1120, %.sink1162
+  %.sink1161 = phi i32 [ 1, %1309 ], [ 2, %1307 ]
+  %1311 = add i32 %storemerge1119, %.sink1161
   store i32 %1311, ptr %1302, align 4
   %1312 = getelementptr inbounds i8, ptr %.0378, i64 4
-  br label %1307, !llvm.loop !163
+  br label %1307, !llvm.loop !162
 
 1313:                                             ; preds = %1247
   %1314 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal11LiteralNullE, i64 0) #24
@@ -22841,7 +22814,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1317 = load i32, ptr %1316, align 4
   %1318 = add i32 %1317, 4
   store i32 %1318, ptr %1316, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 1319:                                             ; preds = %1313
   %1320 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6ObjectE, i64 0) #24
@@ -22899,23 +22872,23 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 1355:                                             ; preds = %1352, %1341
   %1356 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit925
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit924
 
 1357:                                             ; preds = %1352
   %1358 = load i32, ptr %2, align 4
   %1359 = getelementptr inbounds i8, ptr %0, i64 12
   %1360 = load i32, ptr %1359, align 4
   %1361 = add i32 %1360, %1358
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit925
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit924
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit925: ; preds = %1355, %1357
-  %.sroa.3.0.i919 = phi i32 [ %1347, %1355 ], [ %1361, %1357 ]
-  %.sroa.0.0.i920 = phi i32 [ %1356, %1355 ], [ %1361, %1357 ]
-  %.sroa.3.0.insert.ext.i921 = zext i32 %.sroa.3.0.i919 to i64
-  %.sroa.3.0.insert.shift.i922 = shl nuw i64 %.sroa.3.0.insert.ext.i921, 32
-  %.sroa.0.0.insert.ext.i923 = zext i32 %.sroa.0.0.i920 to i64
-  %.sroa.0.0.insert.insert.i924 = or disjoint i64 %.sroa.3.0.insert.shift.i922, %.sroa.0.0.insert.ext.i923
-  store i64 %.sroa.0.0.insert.insert.i924, ptr %29, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit924: ; preds = %1355, %1357
+  %.sroa.3.0.i918 = phi i32 [ %1347, %1355 ], [ %1361, %1357 ]
+  %.sroa.0.0.i919 = phi i32 [ %1356, %1355 ], [ %1361, %1357 ]
+  %.sroa.3.0.insert.ext.i920 = zext i32 %.sroa.3.0.i918 to i64
+  %.sroa.3.0.insert.shift.i921 = shl nuw i64 %.sroa.3.0.insert.ext.i920, 32
+  %.sroa.0.0.insert.ext.i922 = zext i32 %.sroa.0.0.i919 to i64
+  %.sroa.0.0.insert.insert.i923 = or disjoint i64 %.sroa.3.0.insert.shift.i921, %.sroa.0.0.insert.ext.i922
+  store i64 %.sroa.0.0.insert.insert.i923, ptr %29, align 8
   %1362 = trunc i8 %1344 to i1
   call void @_ZN7jsonnet8internal14FixIndentation6fieldsERSt6vectorINS0_11ObjectFieldESaIS3_EERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1325, ptr noundef nonnull align 4 dereferenceable(8) %29, i1 noundef zeroext %1362)
   %1363 = getelementptr inbounds i8, ptr %1320, i64 152
@@ -22923,13 +22896,13 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1365 = trunc i8 %1364 to i1
   br i1 %1365, label %1366, label %1369
 
-1366:                                             ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit925
+1366:                                             ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit924
   %1367 = load i32, ptr %1322, align 4
   %1368 = add i32 %1367, 1
   store i32 %1368, ptr %1322, align 4
   br label %1369
 
-1369:                                             ; preds = %1366, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit925
+1369:                                             ; preds = %1366, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit924
   %1370 = getelementptr inbounds i8, ptr %1320, i64 160
   %1371 = load ptr, ptr %1326, align 8
   %1372 = load ptr, ptr %1325, align 8
@@ -22943,7 +22916,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1379 = load i32, ptr %1322, align 4
   %1380 = add i32 %1379, 1
   store i32 %1380, ptr %1322, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 1381:                                             ; preds = %1319
   %1382 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal15DesugaredObjectE, i64 0) #24
@@ -22956,14 +22929,14 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1386 = add i32 %1385, 1
   store i32 %1386, ptr %1384, align 4
   %1387 = getelementptr inbounds i8, ptr %1382, i64 128
-  %.sroa.0965.01123 = load ptr, ptr %1387, align 8
-  %.not10851124 = icmp eq ptr %.sroa.0965.01123, %1387
-  br i1 %.not10851124, label %._crit_edge1128, label %.lr.ph1127
+  %.sroa.0964.01122 = load ptr, ptr %1387, align 8
+  %.not10841123 = icmp eq ptr %.sroa.0964.01122, %1387
+  br i1 %.not10841123, label %._crit_edge1127, label %.lr.ph1126
 
-.lr.ph1127:                                       ; preds = %1383, %.lr.ph1127
-  %1388 = phi i32 [ %1393, %.lr.ph1127 ], [ %1386, %1383 ]
-  %.sroa.0965.01125 = phi ptr [ %.sroa.0965.0, %.lr.ph1127 ], [ %.sroa.0965.01123, %1383 ]
-  %1389 = getelementptr inbounds i8, ptr %.sroa.0965.01125, i64 16
+.lr.ph1126:                                       ; preds = %1383, %.lr.ph1126
+  %1388 = phi i32 [ %1393, %.lr.ph1126 ], [ %1386, %1383 ]
+  %.sroa.0964.01124 = phi ptr [ %.sroa.0964.0, %.lr.ph1126 ], [ %.sroa.0964.01122, %1383 ]
+  %1389 = getelementptr inbounds i8, ptr %.sroa.0964.01124, i64 16
   %1390 = load ptr, ptr %1389, align 8
   %1391 = add i32 %1388, 6
   store i32 %1391, ptr %1384, align 4
@@ -22971,35 +22944,35 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1392 = load i32, ptr %1384, align 4
   %1393 = add i32 %1392, 1
   store i32 %1393, ptr %1384, align 4
-  %.sroa.0965.0 = load ptr, ptr %.sroa.0965.01125, align 8
-  %.not1085 = icmp eq ptr %.sroa.0965.0, %1387
-  br i1 %.not1085, label %._crit_edge1128, label %.lr.ph1127
+  %.sroa.0964.0 = load ptr, ptr %.sroa.0964.01124, align 8
+  %.not1084 = icmp eq ptr %.sroa.0964.0, %1387
+  br i1 %.not1084, label %._crit_edge1127, label %.lr.ph1126
 
-._crit_edge1128:                                  ; preds = %.lr.ph1127, %1383
-  %1394 = phi i32 [ %1386, %1383 ], [ %1393, %.lr.ph1127 ]
+._crit_edge1127:                                  ; preds = %.lr.ph1126, %1383
+  %1394 = phi i32 [ %1386, %1383 ], [ %1393, %.lr.ph1126 ]
   %1395 = getelementptr inbounds i8, ptr %1382, i64 152
   %1396 = load ptr, ptr %1395, align 8
   %1397 = getelementptr inbounds i8, ptr %1382, i64 160
   %1398 = load ptr, ptr %1397, align 8
-  %.not10861129 = icmp eq ptr %1396, %1398
-  br i1 %.not10861129, label %._crit_edge1133, label %.lr.ph1132
+  %.not10851128 = icmp eq ptr %1396, %1398
+  br i1 %.not10851128, label %._crit_edge1132, label %.lr.ph1131
 
-.lr.ph1132:                                       ; preds = %._crit_edge1128, %1409
-  %.sroa.0961.01130 = phi ptr [ %1412, %1409 ], [ %1396, %._crit_edge1128 ]
+.lr.ph1131:                                       ; preds = %._crit_edge1127, %1409
+  %.sroa.0960.01129 = phi ptr [ %1412, %1409 ], [ %1396, %._crit_edge1127 ]
   %1399 = load i32, ptr %1384, align 4
   %1400 = add i32 %1399, 1
   store i32 %1400, ptr %1384, align 4
-  %1401 = getelementptr inbounds i8, ptr %.sroa.0961.01130, i64 8
+  %1401 = getelementptr inbounds i8, ptr %.sroa.0960.01129, i64 8
   %1402 = load ptr, ptr %1401, align 8
   tail call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1402, ptr noundef nonnull align 4 dereferenceable(8) %2, i1 noundef zeroext false)
   %1403 = load i32, ptr %1384, align 4
   %1404 = add i32 %1403, 1
   store i32 %1404, ptr %1384, align 4
-  %1405 = load i32, ptr %.sroa.0961.01130, align 8
+  %1405 = load i32, ptr %.sroa.0960.01129, align 8
   %1406 = icmp ult i32 %1405, 3
   br i1 %1406, label %switch.lookup, label %1409
 
-switch.lookup:                                    ; preds = %.lr.ph1132
+switch.lookup:                                    ; preds = %.lr.ph1131
   %1407 = zext nneg i32 %1405 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb, i64 0, i64 %1407
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -23007,23 +22980,23 @@ switch.lookup:                                    ; preds = %.lr.ph1132
   store i32 %1408, ptr %1384, align 4
   br label %1409
 
-1409:                                             ; preds = %.lr.ph1132, %switch.lookup
-  %1410 = getelementptr inbounds i8, ptr %.sroa.0961.01130, i64 16
+1409:                                             ; preds = %.lr.ph1131, %switch.lookup
+  %1410 = getelementptr inbounds i8, ptr %.sroa.0960.01129, i64 16
   %1411 = load ptr, ptr %1410, align 8
   tail call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1411, ptr noundef nonnull align 4 dereferenceable(8) %2, i1 noundef zeroext true)
-  %1412 = getelementptr inbounds i8, ptr %.sroa.0961.01130, i64 24
-  %.not1086 = icmp eq ptr %1412, %1398
-  br i1 %.not1086, label %._crit_edge1133.loopexit, label %.lr.ph1132
+  %1412 = getelementptr inbounds i8, ptr %.sroa.0960.01129, i64 24
+  %.not1085 = icmp eq ptr %1412, %1398
+  br i1 %.not1085, label %._crit_edge1132.loopexit, label %.lr.ph1131
 
-._crit_edge1133.loopexit:                         ; preds = %1409
-  %.pre1140 = load i32, ptr %1384, align 4
-  br label %._crit_edge1133
+._crit_edge1132.loopexit:                         ; preds = %1409
+  %.pre1139 = load i32, ptr %1384, align 4
+  br label %._crit_edge1132
 
-._crit_edge1133:                                  ; preds = %._crit_edge1133.loopexit, %._crit_edge1128
-  %1413 = phi i32 [ %.pre1140, %._crit_edge1133.loopexit ], [ %1394, %._crit_edge1128 ]
+._crit_edge1132:                                  ; preds = %._crit_edge1132.loopexit, %._crit_edge1127
+  %1413 = phi i32 [ %.pre1139, %._crit_edge1132.loopexit ], [ %1394, %._crit_edge1127 ]
   %1414 = add i32 %1413, 1
   store i32 %1414, ptr %1384, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 1415:                                             ; preds = %1381
   %1416 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal19ObjectComprehensionE, i64 0) #24
@@ -23081,23 +23054,23 @@ switch.lookup:                                    ; preds = %.lr.ph1132
 
 1451:                                             ; preds = %1448, %1437
   %1452 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit932
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit931
 
 1453:                                             ; preds = %1448
   %1454 = load i32, ptr %2, align 4
   %1455 = getelementptr inbounds i8, ptr %0, i64 12
   %1456 = load i32, ptr %1455, align 4
   %1457 = add i32 %1456, %1454
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit932
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit931
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit932: ; preds = %1451, %1453
-  %.sroa.3.0.i926 = phi i32 [ %1443, %1451 ], [ %1457, %1453 ]
-  %.sroa.0.0.i927 = phi i32 [ %1452, %1451 ], [ %1457, %1453 ]
-  %.sroa.3.0.insert.ext.i928 = zext i32 %.sroa.3.0.i926 to i64
-  %.sroa.3.0.insert.shift.i929 = shl nuw i64 %.sroa.3.0.insert.ext.i928, 32
-  %.sroa.0.0.insert.ext.i930 = zext i32 %.sroa.0.0.i927 to i64
-  %.sroa.0.0.insert.insert.i931 = or disjoint i64 %.sroa.3.0.insert.shift.i929, %.sroa.0.0.insert.ext.i930
-  store i64 %.sroa.0.0.insert.insert.i931, ptr %30, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit931: ; preds = %1451, %1453
+  %.sroa.3.0.i925 = phi i32 [ %1443, %1451 ], [ %1457, %1453 ]
+  %.sroa.0.0.i926 = phi i32 [ %1452, %1451 ], [ %1457, %1453 ]
+  %.sroa.3.0.insert.ext.i927 = zext i32 %.sroa.3.0.i925 to i64
+  %.sroa.3.0.insert.shift.i928 = shl nuw i64 %.sroa.3.0.insert.ext.i927, 32
+  %.sroa.0.0.insert.ext.i929 = zext i32 %.sroa.0.0.i926 to i64
+  %.sroa.0.0.insert.insert.i930 = or disjoint i64 %.sroa.3.0.insert.shift.i928, %.sroa.0.0.insert.ext.i929
+  store i64 %.sroa.0.0.insert.insert.i930, ptr %30, align 8
   %1458 = trunc i8 %1440 to i1
   call void @_ZN7jsonnet8internal14FixIndentation6fieldsERSt6vectorINS0_11ObjectFieldESaIS3_EERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1421, ptr noundef nonnull align 4 dereferenceable(8) %30, i1 noundef zeroext %1458)
   %1459 = getelementptr inbounds i8, ptr %1416, i64 152
@@ -23105,13 +23078,13 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1461 = trunc i8 %1460 to i1
   br i1 %1461, label %1462, label %1465
 
-1462:                                             ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit932
+1462:                                             ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit931
   %1463 = load i32, ptr %1418, align 4
   %1464 = add i32 %1463, 1
   store i32 %1464, ptr %1418, align 4
   br label %1465
 
-1465:                                             ; preds = %1462, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit932
+1465:                                             ; preds = %1462, %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit931
   %1466 = getelementptr inbounds i8, ptr %1416, i64 160
   call void @_ZN7jsonnet8internal14FixIndentation5specsERSt6vectorINS0_17ComprehensionSpecESaIS3_EERKNS1_6IndentE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1466, ptr noundef nonnull align 4 dereferenceable(8) %30)
   %1467 = getelementptr inbounds i8, ptr %1416, i64 184
@@ -23124,7 +23097,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1473 = load i32, ptr %1418, align 4
   %1474 = add i32 %1473, 1
   store i32 %1474, ptr %1418, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 1475:                                             ; preds = %1415
   %1476 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal25ObjectComprehensionSimpleE, i64 0) #24
@@ -23162,7 +23135,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1498 = load i32, ptr %1478, align 4
   %1499 = add i32 %1498, 1
   store i32 %1499, ptr %1478, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 1500:                                             ; preds = %1475
   %1501 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6ParensE, i64 0) #24
@@ -23181,25 +23154,25 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1510 = load ptr, ptr %1509, align 8
   %1511 = load ptr, ptr %1508, align 8
   %1512 = icmp eq ptr %1510, %1511
-  br i1 %1512, label %_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit937, label %1513
+  br i1 %1512, label %_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit936, label %1513
 
 1513:                                             ; preds = %1502
   %1514 = load i32, ptr %1511, align 8
   %1515 = icmp eq i32 %1514, 1
-  br i1 %1515, label %_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit937, label %1516
+  br i1 %1515, label %_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit936, label %1516
 
 1516:                                             ; preds = %1513
   %1517 = load i32, ptr %2, align 4
   %1518 = getelementptr inbounds i8, ptr %0, i64 12
   %1519 = load i32, ptr %1518, align 4
   %1520 = add i32 %1519, %1517
-  br label %_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit937
+  br label %_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit936
 
-_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit937: ; preds = %1502, %1513, %1516
-  %.sroa.3.0.i933 = phi i32 [ %1520, %1516 ], [ %1505, %1513 ], [ %1505, %1502 ]
-  %.sroa.3.0.insert.ext.i934 = zext i32 %.sroa.3.0.i933 to i64
-  %.sroa.0.0.insert.insert.i936 = mul nuw i64 %.sroa.3.0.insert.ext.i934, 4294967297
-  store i64 %.sroa.0.0.insert.insert.i936, ptr %31, align 8
+_ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit936: ; preds = %1502, %1513, %1516
+  %.sroa.3.0.i932 = phi i32 [ %1520, %1516 ], [ %1505, %1513 ], [ %1505, %1502 ]
+  %.sroa.3.0.insert.ext.i933 = zext i32 %.sroa.3.0.i932 to i64
+  %.sroa.0.0.insert.insert.i935 = mul nuw i64 %.sroa.3.0.insert.ext.i933, 4294967297
+  store i64 %.sroa.0.0.insert.insert.i935, ptr %31, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1507, ptr noundef nonnull align 4 dereferenceable(8) %31, i1 noundef zeroext false)
   %1521 = getelementptr inbounds i8, ptr %1501, i64 136
   %1522 = getelementptr inbounds i8, ptr %31, i64 4
@@ -23209,7 +23182,7 @@ _ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderEl
   %1525 = load i32, ptr %1503, align 4
   %1526 = add i32 %1525, 1
   store i32 %1526, ptr %1503, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 1527:                                             ; preds = %1500
   %1528 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal4SelfE, i64 0) #24
@@ -23221,7 +23194,7 @@ _ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderEl
   %1532 = load i32, ptr %1531, align 4
   %1533 = add i32 %1532, 4
   store i32 %1533, ptr %1531, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 .critedge462:                                     ; preds = %1527
   %1534 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal10SuperIndexE, i64 0) #24
@@ -23250,23 +23223,23 @@ _ZN7jsonnet8internal14FixIndentation15newIndentStrongERKSt6vectorINS0_13FodderEl
   %1548 = load ptr, ptr %1547, align 8
   %1549 = load ptr, ptr %1546, align 8
   %1550 = icmp eq ptr %1548, %1549
-  br i1 %1550, label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit944, label %1551
+  br i1 %1550, label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit943, label %1551
 
 1551:                                             ; preds = %1545
   %1552 = load i32, ptr %1549, align 8
   %1553 = icmp eq i32 %1552, 1
-  br i1 %1553, label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit944, label %1554
+  br i1 %1553, label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit943, label %1554
 
 1554:                                             ; preds = %1551
   %1555 = load i32, ptr %2, align 4
   %1556 = getelementptr inbounds i8, ptr %0, i64 12
   %1557 = load i32, ptr %1556, align 4
   %1558 = add i32 %1557, %1555
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit944
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit943
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit944: ; preds = %1545, %1551, %1554
-  %.sroa.3.0.i938 = phi i32 [ %1558, %1554 ], [ %1544, %1551 ], [ %1544, %1545 ]
-  tail call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1546, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %.sroa.3.0.i938)
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit943: ; preds = %1545, %1551, %1554
+  %.sroa.3.0.i937 = phi i32 [ %1558, %1554 ], [ %1544, %1551 ], [ %1544, %1545 ]
+  tail call void @_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1546, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %.sroa.3.0.i937)
   %1559 = load ptr, ptr %1541, align 8
   %1560 = getelementptr inbounds i8, ptr %1559, i64 8
   %1561 = load i64, ptr %1560, align 8
@@ -23274,7 +23247,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1563 = trunc i64 %1561 to i32
   %1564 = add i32 %1562, %1563
   store i32 %1564, ptr %1536, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 1565:                                             ; preds = %1535
   %1566 = getelementptr inbounds i8, ptr %1534, i64 152
@@ -23293,23 +23266,23 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 1576:                                             ; preds = %1573, %1565
   %1577 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit951
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit950
 
 1578:                                             ; preds = %1573
   %1579 = load i32, ptr %2, align 4
   %1580 = getelementptr inbounds i8, ptr %0, i64 12
   %1581 = load i32, ptr %1580, align 4
   %1582 = add i32 %1581, %1579
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit951
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit950
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit951: ; preds = %1576, %1578
-  %.sroa.3.0.i945 = phi i32 [ %1544, %1576 ], [ %1582, %1578 ]
-  %.sroa.0.0.i946 = phi i32 [ %1577, %1576 ], [ %1582, %1578 ]
-  %.sroa.3.0.insert.ext.i947 = zext i32 %.sroa.3.0.i945 to i64
-  %.sroa.3.0.insert.shift.i948 = shl nuw i64 %.sroa.3.0.insert.ext.i947, 32
-  %.sroa.0.0.insert.ext.i949 = zext i32 %.sroa.0.0.i946 to i64
-  %.sroa.0.0.insert.insert.i950 = or disjoint i64 %.sroa.3.0.insert.shift.i948, %.sroa.0.0.insert.ext.i949
-  store i64 %.sroa.0.0.insert.insert.i950, ptr %32, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit950: ; preds = %1576, %1578
+  %.sroa.3.0.i944 = phi i32 [ %1544, %1576 ], [ %1582, %1578 ]
+  %.sroa.0.0.i945 = phi i32 [ %1577, %1576 ], [ %1582, %1578 ]
+  %.sroa.3.0.insert.ext.i946 = zext i32 %.sroa.3.0.i944 to i64
+  %.sroa.3.0.insert.shift.i947 = shl nuw i64 %.sroa.3.0.insert.ext.i946, 32
+  %.sroa.0.0.insert.ext.i948 = zext i32 %.sroa.0.0.i945 to i64
+  %.sroa.0.0.insert.insert.i949 = or disjoint i64 %.sroa.3.0.insert.shift.i947, %.sroa.0.0.insert.ext.i948
+  store i64 %.sroa.0.0.insert.insert.i949, ptr %32, align 8
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1567, ptr noundef nonnull align 4 dereferenceable(8) %32, i1 noundef zeroext false)
   %1583 = getelementptr inbounds i8, ptr %1534, i64 160
   %1584 = getelementptr inbounds i8, ptr %32, i64 4
@@ -23319,7 +23292,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1587 = load i32, ptr %1536, align 4
   %1588 = add i32 %1587, 1
   store i32 %1588, ptr %1536, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
 1589:                                             ; preds = %.critedge462
   %1590 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal5UnaryE, i64 0) #24
@@ -23354,44 +23327,44 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 1610:                                             ; preds = %1607, %1591
   %1611 = load i32, ptr %2, align 4
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit958
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit957
 
 1612:                                             ; preds = %1607
   %1613 = load i32, ptr %2, align 4
   %1614 = getelementptr inbounds i8, ptr %0, i64 12
   %1615 = load i32, ptr %1614, align 4
   %1616 = add i32 %1615, %1613
-  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit958
+  br label %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit957
 
-_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit958: ; preds = %1610, %1612
-  %.sroa.3.0.i952 = phi i32 [ %1602, %1610 ], [ %1616, %1612 ]
-  %.sroa.0.0.i953 = phi i32 [ %1611, %1610 ], [ %1616, %1612 ]
-  %.sroa.3.0.insert.ext.i954 = zext i32 %.sroa.3.0.i952 to i64
-  %.sroa.3.0.insert.shift.i955 = shl nuw i64 %.sroa.3.0.insert.ext.i954, 32
-  %.sroa.0.0.insert.ext.i956 = zext i32 %.sroa.0.0.i953 to i64
-  %.sroa.0.0.insert.insert.i957 = or disjoint i64 %.sroa.3.0.insert.shift.i955, %.sroa.0.0.insert.ext.i956
-  store i64 %.sroa.0.0.insert.insert.i957, ptr %34, align 8
+_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit957: ; preds = %1610, %1612
+  %.sroa.3.0.i951 = phi i32 [ %1602, %1610 ], [ %1616, %1612 ]
+  %.sroa.0.0.i952 = phi i32 [ %1611, %1610 ], [ %1616, %1612 ]
+  %.sroa.3.0.insert.ext.i953 = zext i32 %.sroa.3.0.i951 to i64
+  %.sroa.3.0.insert.shift.i954 = shl nuw i64 %.sroa.3.0.insert.ext.i953, 32
+  %.sroa.0.0.insert.ext.i955 = zext i32 %.sroa.0.0.i952 to i64
+  %.sroa.0.0.insert.insert.i956 = or disjoint i64 %.sroa.3.0.insert.shift.i954, %.sroa.0.0.insert.ext.i955
+  store i64 %.sroa.0.0.insert.insert.i956, ptr %34, align 8
   %1617 = call fastcc noundef ptr @_ZN7jsonnet8internalL19left_recursive_deepEPNS0_3ASTE(ptr noundef %1600)
   %1618 = icmp eq ptr %1617, null
   br i1 %1618, label %.critedge464, label %1619
 
-1619:                                             ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit958
+1619:                                             ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit957
   %1620 = call ptr @__dynamic_cast(ptr nonnull %1617, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal6DollarE, i64 0) #24
   %1621 = icmp eq ptr %1620, null
   br i1 %1621, label %.critedge464, label %1622
 
 1622:                                             ; preds = %1619
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1600, ptr noundef nonnull align 4 dereferenceable(8) %34, i1 noundef zeroext true)
-  br label %common.ret1182
+  br label %common.ret1181
 
-.critedge464:                                     ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit958, %1619
+.critedge464:                                     ; preds = %_ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementESaIS3_EERKNS1_6IndentEj.exit957, %1619
   call void @_ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1600, ptr noundef nonnull align 4 dereferenceable(8) %34, i1 noundef zeroext false)
-  br label %common.ret1182
+  br label %common.ret1181
 
 1623:                                             ; preds = %1589
   %1624 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal3VarE, i64 0) #24
   %.not443 = icmp eq ptr %1624, null
-  br i1 %.not443, label %.thread1078, label %1625
+  br i1 %.not443, label %.thread1077, label %1625
 
 1625:                                             ; preds = %1623
   %1626 = getelementptr inbounds i8, ptr %1624, i64 128
@@ -23403,9 +23376,9 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   %1632 = trunc i64 %1629 to i32
   %1633 = add i32 %1631, %1632
   store i32 %1633, ptr %1630, align 4
-  br label %common.ret1182
+  br label %common.ret1181
 
-.thread1078:                                      ; preds = %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit, %1623
+.thread1077:                                      ; preds = %_ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_EEbbj.exit, %1623
   %1634 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.36)
   %1635 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %1634, ptr noundef %1)
   %1636 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %1635, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -23413,9 +23386,9 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
   unreachable
 
 1637:                                             ; preds = %1287, %1285
-  %.sink1165 = phi ptr [ %28, %1287 ], [ %26, %1285 ]
+  %.sink1164 = phi ptr [ %28, %1287 ], [ %26, %1285 ]
   %.pn = phi { ptr, i32 } [ %1288, %1287 ], [ %1286, %1285 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1165) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1164) #24
   resume { ptr, i32 } %.pn
 }
 
@@ -26571,9 +26544,9 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
-  %.val.i = load ptr, ptr %1, align 8, !noalias !164
+  %.val.i = load ptr, ptr %1, align 8, !noalias !163
   %3 = getelementptr inbounds i8, ptr %1, i64 8
-  %.val3.i = load i64, ptr %3, align 8, !noalias !164
+  %.val3.i = load i64, ptr %3, align 8, !noalias !163
   %4 = getelementptr inbounds i32, ptr %.val.i, i64 %.val3.i
   %.not4.i.i = icmp eq i64 %.val3.i, 0
   br i1 %.not4.i.i, label %_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE.exit, label %.lr.ph.i.i
@@ -26629,9 +26602,9 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser12unparseSpecsERKSt6vecto
   %16 = getelementptr inbounds i8, ptr %.sroa.018.022, i64 56
   %17 = load ptr, ptr %16, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
-  %.val.i.i = load ptr, ptr %17, align 8, !noalias !167
+  %.val.i.i = load ptr, ptr %17, align 8, !noalias !166
   %18 = getelementptr inbounds i8, ptr %17, i64 8
-  %.val3.i.i = load i64, ptr %18, align 8, !noalias !167
+  %.val3.i.i = load i64, ptr %18, align 8, !noalias !166
   %19 = getelementptr inbounds i32, ptr %.val.i.i, i64 %.val3.i.i
   %.not4.i.i.i = icmp eq i64 %.val3.i.i, 0
   br i1 %.not4.i.i.i, label %_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE.exit, label %.lr.ph.i.i.i
@@ -26803,9 +26776,9 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser13unparseParamsERKSt6vect
   %20 = getelementptr inbounds i8, ptr %.sroa.022.027, i64 24
   %21 = load ptr, ptr %20, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
-  %.val.i.i = load ptr, ptr %21, align 8, !noalias !172
+  %.val.i.i = load ptr, ptr %21, align 8, !noalias !171
   %22 = getelementptr inbounds i8, ptr %21, i64 8
-  %.val3.i.i = load i64, ptr %22, align 8, !noalias !172
+  %.val3.i.i = load i64, ptr %22, align 8, !noalias !171
   %23 = getelementptr inbounds i32, ptr %.val.i.i, i64 %.val3.i.i
   %.not4.i.i.i = icmp eq i64 %.val3.i.i, 0
   br i1 %.not4.i.i.i, label %_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE.exit, label %.lr.ph.i.i.i
@@ -27007,9 +26980,9 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser13unparseFieldsERKSt6vect
   %23 = getelementptr inbounds i8, ptr %.sroa.077.082, i64 120
   %24 = load ptr, ptr %23, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
-  %.val.i.i = load ptr, ptr %24, align 8, !noalias !177
+  %.val.i.i = load ptr, ptr %24, align 8, !noalias !176
   %25 = getelementptr inbounds i8, ptr %24, i64 8
-  %.val3.i.i = load i64, ptr %25, align 8, !noalias !177
+  %.val3.i.i = load i64, ptr %25, align 8, !noalias !176
   %26 = getelementptr inbounds i32, ptr %.val.i.i, i64 %.val3.i.i
   %.not4.i.i.i = icmp eq i64 %.val3.i.i, 0
   br i1 %.not4.i.i.i, label %_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE.exit, label %.lr.ph.i.i.i
@@ -27162,9 +27135,9 @@ _ZN7jsonnet8internal8Unparser18unparseFieldParamsERKNS0_11ObjectFieldE.exit: ; p
   %96 = getelementptr inbounds i8, ptr %.sroa.077.082, i64 120
   %97 = load ptr, ptr %96, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
-  %.val.i.i51 = load ptr, ptr %97, align 8, !noalias !182
+  %.val.i.i51 = load ptr, ptr %97, align 8, !noalias !181
   %98 = getelementptr inbounds i8, ptr %97, i64 8
-  %.val3.i.i52 = load i64, ptr %98, align 8, !noalias !182
+  %.val3.i.i52 = load i64, ptr %98, align 8, !noalias !181
   %99 = getelementptr inbounds i32, ptr %.val.i.i51, i64 %.val3.i.i52
   %.not4.i.i.i53 = icmp eq i64 %.val3.i.i52, 0
   br i1 %.not4.i.i.i53, label %_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE.exit58, label %.lr.ph.i.i.i54
@@ -27427,7 +27400,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEESt4pairIKS5_PKN7jsonnet8internal10IdentifierEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #25
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !187
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !186
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEESt4pairIKS5_PKN7jsonnet8internal10IdentifierEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit, %2
   ret void
@@ -27497,7 +27470,7 @@ _ZN7jsonnet8internal13FodderElementaSEOS1_.exit.i.i.i.i.i: ; preds = %24, %_ZSt8
   %26 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %27 = add nsw i64 %.012.i.i.i.i.i, -1
   %28 = icmp sgt i64 %.012.i.i.i.i.i, 1
-  br i1 %28, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit, !llvm.loop !188
+  br i1 %28, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit, !llvm.loop !187
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit: ; preds = %_ZN7jsonnet8internal13FodderElementaSEOS1_.exit.i.i.i.i.i
   %.pre = load ptr, ptr %4, align 8
@@ -29354,7 +29327,7 @@ attributes #28 = { noreturn }
 !42 = distinct !{!42, !"_ZN7jsonnet8internal11SortImports10sortingKeyB5cxx11EPNS0_6ImportE"}
 !43 = distinct !{!43, !5}
 !44 = distinct !{!44, !5}
-!45 = !{i64 0, i64 65}
+!45 = distinct !{!45, !5}
 !46 = distinct !{!46, !5}
 !47 = distinct !{!47, !5}
 !48 = distinct !{!48, !5}
@@ -29362,57 +29335,57 @@ attributes #28 = { noreturn }
 !50 = distinct !{!50, !5}
 !51 = distinct !{!51, !5}
 !52 = distinct !{!52, !5}
-!53 = distinct !{!53, !5}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!56 = distinct !{!56, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
-!57 = !{!58}
-!58 = distinct !{!58, !56, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!59 = !{!55, !58}
-!60 = distinct !{!60, !5}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!63 = distinct !{!63, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
-!64 = !{!65}
-!65 = distinct !{!65, !63, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!66 = !{!62, !65}
-!67 = distinct !{!67, !5}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!70 = distinct !{!70, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
-!71 = !{!72}
-!72 = distinct !{!72, !70, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!73 = !{!69, !72}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!76 = distinct !{!76, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
-!77 = !{!78}
-!78 = distinct !{!78, !76, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!79 = !{!75, !78}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!82 = distinct !{!82, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
-!83 = !{!84}
-!84 = distinct !{!84, !82, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!85 = !{!81, !84}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!88 = distinct !{!88, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
-!89 = !{!90}
-!90 = distinct !{!90, !88, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!91 = !{!87, !90}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!94 = distinct !{!94, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
-!95 = !{!96}
-!96 = distinct !{!96, !94, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!97 = !{!93, !96}
-!98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!100 = distinct !{!100, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
-!101 = !{!102}
-!102 = distinct !{!102, !100, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!103 = !{!99, !102}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!55 = distinct !{!55, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
+!56 = !{!57}
+!57 = distinct !{!57, !55, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!58 = !{!54, !57}
+!59 = distinct !{!59, !5}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!62 = distinct !{!62, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
+!63 = !{!64}
+!64 = distinct !{!64, !62, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!65 = !{!61, !64}
+!66 = distinct !{!66, !5}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!69 = distinct !{!69, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
+!70 = !{!71}
+!71 = distinct !{!71, !69, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!72 = !{!68, !71}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!75 = distinct !{!75, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
+!76 = !{!77}
+!77 = distinct !{!77, !75, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!78 = !{!74, !77}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!81 = distinct !{!81, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
+!82 = !{!83}
+!83 = distinct !{!83, !81, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!84 = !{!80, !83}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!87 = distinct !{!87, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
+!88 = !{!89}
+!89 = distinct !{!89, !87, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!90 = !{!86, !89}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!93 = distinct !{!93, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
+!94 = !{!95}
+!95 = distinct !{!95, !93, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!96 = !{!92, !95}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!99 = distinct !{!99, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
+!100 = !{!101}
+!101 = distinct !{!101, !99, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!102 = !{!98, !101}
+!103 = distinct !{!103, !5}
 !104 = distinct !{!104, !5}
 !105 = distinct !{!105, !5}
 !106 = distinct !{!106, !5}
@@ -29441,60 +29414,59 @@ attributes #28 = { noreturn }
 !129 = distinct !{!129, !5}
 !130 = distinct !{!130, !5}
 !131 = distinct !{!131, !5}
-!132 = distinct !{!132, !5}
-!133 = !{!134}
-!134 = distinct !{!134, !135, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!135 = distinct !{!135, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
-!136 = !{!137}
-!137 = distinct !{!137, !135, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!138 = !{!134, !137}
-!139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!141 = distinct !{!141, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
-!142 = !{!143}
-!143 = distinct !{!143, !141, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!144 = !{!140, !143}
-!145 = !{!146}
-!146 = distinct !{!146, !147, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!147 = distinct !{!147, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
-!148 = !{!149}
-!149 = distinct !{!149, !147, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!150 = !{!146, !149}
-!151 = !{!152}
-!152 = distinct !{!152, !153, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!153 = distinct !{!153, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
-!154 = !{!155}
-!155 = distinct !{!155, !153, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!156 = !{!152, !155}
-!157 = !{!158}
-!158 = distinct !{!158, !159, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE: argument 0"}
-!159 = distinct !{!159, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE"}
+!132 = !{!133}
+!133 = distinct !{!133, !134, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!134 = distinct !{!134, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
+!135 = !{!136}
+!136 = distinct !{!136, !134, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!137 = !{!133, !136}
+!138 = !{!139}
+!139 = distinct !{!139, !140, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!140 = distinct !{!140, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
+!141 = !{!142}
+!142 = distinct !{!142, !140, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!143 = !{!139, !142}
+!144 = !{!145}
+!145 = distinct !{!145, !146, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!146 = distinct !{!146, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
+!147 = !{!148}
+!148 = distinct !{!148, !146, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!149 = !{!145, !148}
+!150 = !{!151}
+!151 = distinct !{!151, !152, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!152 = distinct !{!152, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_"}
+!153 = !{!154}
+!154 = distinct !{!154, !152, !"_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!155 = !{!151, !154}
+!156 = !{!157}
+!157 = distinct !{!157, !158, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE: argument 0"}
+!158 = distinct !{!158, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE"}
+!159 = distinct !{!159, !5}
 !160 = distinct !{!160, !5}
 !161 = distinct !{!161, !5}
 !162 = distinct !{!162, !5}
-!163 = distinct !{!163, !5}
-!164 = !{!165}
-!165 = distinct !{!165, !166, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE: argument 0"}
-!166 = distinct !{!166, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE"}
-!167 = !{!168, !170}
-!168 = distinct !{!168, !169, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE: argument 0"}
-!169 = distinct !{!169, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE"}
-!170 = distinct !{!170, !171, !"_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE: argument 0"}
-!171 = distinct !{!171, !"_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE"}
-!172 = !{!173, !175}
-!173 = distinct !{!173, !174, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE: argument 0"}
-!174 = distinct !{!174, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE"}
-!175 = distinct !{!175, !176, !"_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE: argument 0"}
-!176 = distinct !{!176, !"_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE"}
-!177 = !{!178, !180}
-!178 = distinct !{!178, !179, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE: argument 0"}
-!179 = distinct !{!179, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE"}
-!180 = distinct !{!180, !181, !"_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE: argument 0"}
-!181 = distinct !{!181, !"_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE"}
-!182 = !{!183, !185}
-!183 = distinct !{!183, !184, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE: argument 0"}
-!184 = distinct !{!184, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE"}
-!185 = distinct !{!185, !186, !"_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE: argument 0"}
-!186 = distinct !{!186, !"_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE"}
+!163 = !{!164}
+!164 = distinct !{!164, !165, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE: argument 0"}
+!165 = distinct !{!165, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE"}
+!166 = !{!167, !169}
+!167 = distinct !{!167, !168, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE: argument 0"}
+!168 = distinct !{!168, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE"}
+!169 = distinct !{!169, !170, !"_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE: argument 0"}
+!170 = distinct !{!170, !"_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE"}
+!171 = !{!172, !174}
+!172 = distinct !{!172, !173, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE: argument 0"}
+!173 = distinct !{!173, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE"}
+!174 = distinct !{!174, !175, !"_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE: argument 0"}
+!175 = distinct !{!175, !"_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE"}
+!176 = !{!177, !179}
+!177 = distinct !{!177, !178, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE: argument 0"}
+!178 = distinct !{!178, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE"}
+!179 = distinct !{!179, !180, !"_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE: argument 0"}
+!180 = distinct !{!180, !"_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE"}
+!181 = !{!182, !184}
+!182 = distinct !{!182, !183, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE: argument 0"}
+!183 = distinct !{!183, !"_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE"}
+!184 = distinct !{!184, !185, !"_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE: argument 0"}
+!185 = distinct !{!185, !"_ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE"}
+!186 = distinct !{!186, !5}
 !187 = distinct !{!187, !5}
-!188 = distinct !{!188, !5}

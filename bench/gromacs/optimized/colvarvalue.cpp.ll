@@ -1326,7 +1326,7 @@ _ZN12colvarmodule8vector1dIdED2Ev.exit:           ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN11colvarvalue14num_dimensionsENS_4TypeE(i32 noundef %0) local_unnamed_addr #8 align 2 {
+define noundef range(i64 0, 5) i64 @_ZN11colvarvalue14num_dimensionsENS_4TypeE(i32 noundef %0) local_unnamed_addr #8 align 2 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 6
   br i1 %2, label %switch.lookup, label %4
@@ -1962,7 +1962,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN11colvarvalue6num_dfENS_4TypeE(i32 noundef %0) local_unnamed_addr #8 align 2 {
+define noundef range(i64 0, 4) i64 @_ZN11colvarvalue6num_dfENS_4TypeE(i32 noundef %0) local_unnamed_addr #8 align 2 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 6
   br i1 %2, label %switch.lookup, label %4
@@ -3808,7 +3808,7 @@ define void @_ZNK11colvarvalue8undef_opEv(ptr nocapture noundef nonnull readonly
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11colvarvalue8set_onesEd(ptr nocapture noundef nonnull align 8 dereferenceable(168) %0, double noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load i32, ptr %0, align 8
-  switch i32 %3, label %29 [
+  switch i32 %3, label %28 [
     i32 1, label %8
     i32 2, label %10
     i32 3, label %10
@@ -3842,35 +3842,31 @@ define void @_ZN11colvarvalue8set_onesEd(ptr nocapture noundef nonnull align 8 d
 
 14:                                               ; preds = %2, %2
   %15 = getelementptr inbounds i8, ptr %0, i64 40
-  store double %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
-  store double %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
-  store double %1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
-  store double %1, ptr %18, align 8
+  %16 = insertelement <4 x double> poison, double %1, i64 0
+  %17 = shufflevector <4 x double> %16, <4 x double> poison, <4 x i32> zeroinitializer
+  store <4 x double> %17, ptr %15, align 8
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %19 = phi ptr [ %23, %.lr.ph ], [ %7, %.preheader ]
-  %.012 = phi i64 [ %21, %.lr.ph ], [ 0, %.preheader ]
-  %20 = getelementptr inbounds double, ptr %19, i64 %.012
-  store double %1, ptr %20, align 8
-  %21 = add nuw i64 %.012, 1
-  %22 = load ptr, ptr %5, align 8
-  %23 = load ptr, ptr %4, align 8
+  %18 = phi ptr [ %22, %.lr.ph ], [ %7, %.preheader ]
+  %.012 = phi i64 [ %20, %.lr.ph ], [ 0, %.preheader ]
+  %19 = getelementptr inbounds double, ptr %18, i64 %.012
+  store double %1, ptr %19, align 8
+  %20 = add nuw i64 %.012, 1
+  %21 = load ptr, ptr %5, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = ptrtoint ptr %21 to i64
   %24 = ptrtoint ptr %22 to i64
-  %25 = ptrtoint ptr %23 to i64
-  %26 = sub i64 %24, %25
-  %27 = ashr exact i64 %26, 3
-  %28 = icmp ult i64 %21, %27
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  %25 = sub i64 %23, %24
+  %26 = ashr exact i64 %25, 3
+  %27 = icmp ult i64 %20, %26
+  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
-29:                                               ; preds = %2
+28:                                               ; preds = %2
   tail call void @_ZNK11colvarvalue8undef_opEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader, %29, %14, %10, %8
+.loopexit:                                        ; preds = %.lr.ph, %.preheader, %28, %14, %10, %8
   ret void
 }
 

@@ -1094,13 +1094,13 @@ declare void @cairo_region_destroy(ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @distort_transform(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noalias nocapture noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @distort_transform(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noalias nocapture noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = tail call fastcc i32 @_distort_xtransform(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 1), !range !85
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_distort_xtransform(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noalias nocapture noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_distort_xtransform(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noalias nocapture noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca %struct._cairo_rectangle_int, align 16
   %7 = alloca %struct.dt_iop_roi_t, align 16
   %8 = alloca ptr, align 8
@@ -1397,7 +1397,7 @@ define internal fastcc noundef i32 @_distort_xtransform(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @distort_backtransform(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noalias nocapture noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @distort_backtransform(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noalias nocapture noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = tail call fastcc i32 @_distort_xtransform(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 0), !range !85
   ret i32 %5
 }
@@ -5182,7 +5182,7 @@ define internal noundef i32 @btn_make_radio_callback(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #6 {
+define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #6 {
   %7 = alloca float, align 4
   %8 = alloca float, align 4
   %9 = alloca [2 x float], align 4
@@ -5761,7 +5761,7 @@ declare float @cargf(<2 x float> noundef) local_unnamed_addr #13
 declare void @dt_conf_set_float(ptr noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @scrolled(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #6 {
+define noundef range(i32 0, 2) i32 @scrolled(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #6 {
   %6 = alloca float, align 4
   %7 = alloca float, align 4
   %8 = alloca float, align 4
@@ -5970,7 +5970,7 @@ declare float @dt_masks_change_size(i32 noundef, float noundef, float noundef, f
 declare float @dt_masks_change_rotation(i32 noundef, float noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @button_pressed(ptr noundef %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7) local_unnamed_addr #6 {
+define noundef range(i32 0, 2) i32 @button_pressed(ptr noundef %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7) local_unnamed_addr #6 {
   %9 = alloca float, align 4
   %10 = alloca float, align 4
   %11 = alloca [2 x float], align 4
@@ -6168,7 +6168,7 @@ define noundef i32 @button_pressed(ptr noundef %0, float noundef %1, float nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @button_released(ptr noundef %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #6 {
+define noundef range(i32 0, 3) i32 @button_released(ptr noundef %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #6 {
   %7 = alloca [10 x i8], align 1
   %8 = alloca float, align 4
   %9 = alloca float, align 4
@@ -8425,7 +8425,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #20 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !183
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
@@ -8776,12 +8776,12 @@ define internal fastcc ptr @interpolate_paths(ptr nocapture noundef readonly %0)
   br label %2
 
 2:                                                ; preds = %.loopexit18, %1
-  %3 = phi i64 [ 0, %1 ], [ %470, %.loopexit18 ]
-  %4 = phi ptr [ null, %1 ], [ %469, %.loopexit18 ]
+  %3 = phi i64 [ 0, %1 ], [ %471, %.loopexit18 ]
+  %4 = phi ptr [ null, %1 ], [ %470, %.loopexit18 ]
   %5 = getelementptr inbounds [100 x %struct.dt_liquify_path_data_t], ptr %0, i64 0, i64 %3
   %6 = load i32, ptr %5, align 4, !tbaa !116
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %472, label %8
+  br i1 %7, label %473, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %5, i64 20
@@ -9185,11 +9185,11 @@ define internal fastcc ptr @interpolate_paths(ptr nocapture noundef readonly %0)
   %353 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %340
   br label %354
 
-354:                                              ; preds = %444, %345
-  %355 = phi ptr [ %4, %345 ], [ %466, %444 ]
-  %356 = phi float [ 0.000000e+00, %345 ], [ %465, %444 ]
-  %357 = phi i32 [ 1, %345 ], [ %391, %444 ]
-  %358 = phi float [ 0.000000e+00, %345 ], [ %390, %444 ]
+354:                                              ; preds = %445, %345
+  %355 = phi ptr [ %4, %345 ], [ %467, %445 ]
+  %356 = phi float [ 0.000000e+00, %345 ], [ %466, %445 ]
+  %357 = phi i32 [ 1, %345 ], [ %391, %445 ]
+  %358 = phi float [ 0.000000e+00, %345 ], [ %390, %445 ]
   %359 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #31
   %360 = fmul reassoc nsz arcp contract afn float %356, %353
   %361 = icmp sgt i32 %357, 99
@@ -9263,85 +9263,87 @@ define internal fastcc ptr @interpolate_paths(ptr nocapture noundef readonly %0)
   %414 = fadd reassoc nsz arcp contract afn float %406, %413
   %415 = fadd reassoc nsz arcp contract afn float %414, %412
   %416 = getelementptr inbounds i8, ptr %359, i64 16
-  %417 = insertelement <2 x float> %392, float %415, i64 0
-  store <2 x float> %417, ptr %416, align 4
-  %418 = load <2 x float>, ptr %351, align 4
-  %419 = fsub reassoc nsz arcp contract afn <2 x float> %418, %404
-  %420 = load <2 x float>, ptr %352, align 4
-  %421 = fsub reassoc nsz arcp contract afn <2 x float> %420, %408
-  %422 = tail call reassoc nsz arcp contract afn float @cargf(<2 x float> noundef %419) #30
-  %423 = tail call reassoc nsz arcp contract afn float @cargf(<2 x float> noundef %421) #30
-  %424 = fcmp reassoc nsz arcp contract afn ogt float %422, 0.000000e+00
-  %425 = fcmp reassoc nsz arcp contract afn olt float %423, 0xBFF921FB60000000
-  %426 = select i1 %424, i1 %425, i1 false
-  br i1 %426, label %431, label %427
+  %417 = getelementptr inbounds i8, ptr %359, i64 20
+  store float %415, ptr %416, align 4
+  %418 = extractelement <2 x float> %392, i64 1
+  store float %418, ptr %417, align 4
+  %419 = load <2 x float>, ptr %351, align 4
+  %420 = fsub reassoc nsz arcp contract afn <2 x float> %419, %404
+  %421 = load <2 x float>, ptr %352, align 4
+  %422 = fsub reassoc nsz arcp contract afn <2 x float> %421, %408
+  %423 = tail call reassoc nsz arcp contract afn float @cargf(<2 x float> noundef %420) #30
+  %424 = tail call reassoc nsz arcp contract afn float @cargf(<2 x float> noundef %422) #30
+  %425 = fcmp reassoc nsz arcp contract afn ogt float %423, 0.000000e+00
+  %426 = fcmp reassoc nsz arcp contract afn olt float %424, 0xBFF921FB60000000
+  %427 = select i1 %425, i1 %426, i1 false
+  br i1 %427, label %432, label %428
 
-427:                                              ; preds = %389
-  %428 = fcmp reassoc nsz arcp contract afn olt float %422, 0xBFF921FB60000000
-  %429 = fcmp reassoc nsz arcp contract afn ogt float %423, 0.000000e+00
-  %430 = select i1 %428, i1 %429, i1 false
-  br i1 %430, label %431, label %440
+428:                                              ; preds = %389
+  %429 = fcmp reassoc nsz arcp contract afn olt float %423, 0xBFF921FB60000000
+  %430 = fcmp reassoc nsz arcp contract afn ogt float %424, 0.000000e+00
+  %431 = select i1 %429, i1 %430, i1 false
+  br i1 %431, label %432, label %441
 
-431:                                              ; preds = %427, %389
-  %432 = phi float [ 0x400921FB60000000, %389 ], [ 0xC00921FB60000000, %427 ]
-  %433 = phi float [ 0xC00921FB60000000, %389 ], [ 0x400921FB60000000, %427 ]
-  %434 = fsub reassoc nsz arcp contract afn float %432, %422
-  %435 = fsub reassoc nsz arcp contract afn float %423, %433
-  %436 = fadd reassoc nsz arcp contract afn float %435, %434
-  %437 = fmul reassoc nsz arcp contract afn float %436, %360
-  %438 = fsub reassoc nsz arcp contract afn float 0x400921FB60000000, %434
-  %439 = fadd reassoc nsz arcp contract afn float %438, %437
-  br label %444
+432:                                              ; preds = %428, %389
+  %433 = phi float [ 0x400921FB60000000, %389 ], [ 0xC00921FB60000000, %428 ]
+  %434 = phi float [ 0xC00921FB60000000, %389 ], [ 0x400921FB60000000, %428 ]
+  %435 = fsub reassoc nsz arcp contract afn float %433, %423
+  %436 = fsub reassoc nsz arcp contract afn float %424, %434
+  %437 = fadd reassoc nsz arcp contract afn float %436, %435
+  %438 = fmul reassoc nsz arcp contract afn float %437, %360
+  %439 = fsub reassoc nsz arcp contract afn float 0x400921FB60000000, %435
+  %440 = fadd reassoc nsz arcp contract afn float %439, %438
+  br label %445
 
-440:                                              ; preds = %427
-  %441 = fsub reassoc nsz arcp contract afn float %423, %422
-  %442 = fmul reassoc nsz arcp contract afn float %441, %360
-  %443 = fadd reassoc nsz arcp contract afn float %442, %422
-  br label %444
+441:                                              ; preds = %428
+  %442 = fsub reassoc nsz arcp contract afn float %424, %423
+  %443 = fmul reassoc nsz arcp contract afn float %442, %360
+  %444 = fadd reassoc nsz arcp contract afn float %443, %423
+  br label %445
 
-444:                                              ; preds = %440, %431
-  %445 = phi reassoc nsz arcp contract afn float [ %439, %431 ], [ %443, %440 ]
-  %446 = tail call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %421) #30
-  %447 = tail call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %419) #30
-  %448 = fsub reassoc nsz arcp contract afn float %446, %447
-  %449 = fmul reassoc nsz arcp contract afn float %448, %360
-  %450 = fadd reassoc nsz arcp contract afn float %449, %447
-  %451 = fmul reassoc nsz arcp contract afn float %445, 0.000000e+00
-  %452 = insertelement <2 x float> poison, float %451, i64 0
-  %453 = insertelement <2 x float> %452, float %445, i64 1
-  %454 = tail call reassoc nsz arcp contract afn <2 x float> @cexpf(<2 x float> noundef %453) #30
-  %455 = getelementptr inbounds i8, ptr %359, i64 8
-  %456 = insertelement <2 x float> poison, float %450, i64 0
-  %457 = shufflevector <2 x float> %456, <2 x float> poison, <2 x i32> zeroinitializer
-  %458 = fmul reassoc nsz arcp contract afn <2 x float> %457, %454
-  %459 = fadd reassoc nsz arcp contract afn <2 x float> %458, %392
-  store <2 x float> %459, ptr %455, align 4
+445:                                              ; preds = %441, %432
+  %446 = phi reassoc nsz arcp contract afn float [ %440, %432 ], [ %444, %441 ]
+  %447 = tail call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %422) #30
+  %448 = tail call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %420) #30
+  %449 = fsub reassoc nsz arcp contract afn float %447, %448
+  %450 = fmul reassoc nsz arcp contract afn float %449, %360
+  %451 = fadd reassoc nsz arcp contract afn float %450, %448
+  %452 = fmul reassoc nsz arcp contract afn float %446, 0.000000e+00
+  %453 = insertelement <2 x float> poison, float %452, i64 0
+  %454 = insertelement <2 x float> %453, float %446, i64 1
+  %455 = tail call reassoc nsz arcp contract afn <2 x float> @cexpf(<2 x float> noundef %454) #30
+  %456 = getelementptr inbounds i8, ptr %359, i64 8
+  %457 = insertelement <2 x float> poison, float %451, i64 0
+  %458 = shufflevector <2 x float> %457, <2 x float> poison, <2 x i32> zeroinitializer
+  %459 = fmul reassoc nsz arcp contract afn <2 x float> %458, %455
+  %460 = fadd reassoc nsz arcp contract afn <2 x float> %459, %392
+  store <2 x float> %460, ptr %456, align 4
   store <2 x float> %392, ptr %359, align 4
-  %460 = getelementptr inbounds i8, ptr %359, i64 36
-  store i32 2, ptr %460, align 4, !tbaa !69
-  %461 = insertelement <2 x float> %392, float %415, i64 0
-  %462 = fsub reassoc nsz arcp contract afn <2 x float> %461, %392
-  %463 = tail call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %462) #30
-  %464 = fmul reassoc nsz arcp contract afn float %463, 0x3FB99999A0000000
-  %465 = fadd reassoc nsz arcp contract afn float %464, %356
-  %466 = tail call ptr @g_list_append(ptr noundef %355, ptr noundef nonnull %359) #29
-  %467 = fcmp reassoc nsz arcp contract afn olt float %465, %340
-  br i1 %467, label %354, label %.loopexit19
+  %461 = getelementptr inbounds i8, ptr %359, i64 36
+  store i32 2, ptr %461, align 4, !tbaa !69
+  %462 = insertelement <2 x float> %392, float %415, i64 0
+  %463 = fsub reassoc nsz arcp contract afn <2 x float> %462, %392
+  %464 = tail call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %463) #30
+  %465 = fmul reassoc nsz arcp contract afn float %464, 0x3FB99999A0000000
+  %466 = fadd reassoc nsz arcp contract afn float %465, %356
+  %467 = tail call ptr @g_list_append(ptr noundef %355, ptr noundef nonnull %359) #29
+  %468 = fcmp reassoc nsz arcp contract afn olt float %466, %340
+  br i1 %468, label %354, label %.loopexit19
 
-.loopexit19:                                      ; preds = %444, %343
-  %468 = phi ptr [ %4, %343 ], [ %466, %444 ]
+.loopexit19:                                      ; preds = %445, %343
+  %469 = phi ptr [ %4, %343 ], [ %467, %445 ]
   tail call void @free(ptr noundef nonnull %126) #29
   br label %.loopexit18
 
 .loopexit18:                                      ; preds = %101, %.loopexit19, %26, %18, %15, %11
-  %469 = phi ptr [ %4, %18 ], [ %468, %.loopexit19 ], [ %4, %11 ], [ %17, %15 ], [ %4, %26 ], [ %123, %101 ]
-  %470 = add nuw nsw i64 %3, 1
-  %471 = icmp eq i64 %470, 100
-  br i1 %471, label %472, label %2
+  %470 = phi ptr [ %4, %18 ], [ %469, %.loopexit19 ], [ %4, %11 ], [ %17, %15 ], [ %4, %26 ], [ %123, %101 ]
+  %471 = add nuw nsw i64 %3, 1
+  %472 = icmp eq i64 %471, 100
+  br i1 %472, label %473, label %2
 
-472:                                              ; preds = %.loopexit18, %2
-  %473 = phi ptr [ %4, %2 ], [ %469, %.loopexit18 ]
-  ret ptr %473
+473:                                              ; preds = %.loopexit18, %2
+  %474 = phi ptr [ %4, %2 ], [ %470, %.loopexit18 ]
+  ret ptr %474
 }
 
 declare void @g_slist_free(ptr noundef) local_unnamed_addr #3

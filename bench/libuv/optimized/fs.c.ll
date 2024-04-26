@@ -156,10 +156,6 @@ entry:
   %st_mtim19.i.i294 = getelementptr inbounds i8, ptr %w, i64 -112
   %st_ctim.i.i297 = getelementptr inbounds i8, ptr %pbuf.i261, i64 104
   %st_ctim26.i.i298 = getelementptr inbounds i8, ptr %w, i64 -96
-  %tv_nsec29.i.i299 = getelementptr inbounds i8, ptr %pbuf.i261, i64 112
-  %tv_nsec31.i.i300 = getelementptr inbounds i8, ptr %w, i64 -88
-  %st_birthtim.i.i301 = getelementptr inbounds i8, ptr %w, i64 -80
-  %tv_nsec38.i.i302 = getelementptr inbounds i8, ptr %w, i64 -72
   %st_flags.i.i303 = getelementptr inbounds i8, ptr %w, i64 -144
   %flags.i244 = getelementptr inbounds i8, ptr %w, i64 -52
   %len2.i = getelementptr inbounds i8, ptr %w, i64 48
@@ -178,7 +174,6 @@ entry:
   %st_atim.i.i150 = getelementptr inbounds i8, ptr %pbuf.i122, i64 72
   %st_mtim.i.i154 = getelementptr inbounds i8, ptr %pbuf.i122, i64 88
   %st_ctim.i.i158 = getelementptr inbounds i8, ptr %pbuf.i122, i64 104
-  %tv_nsec29.i.i160 = getelementptr inbounds i8, ptr %pbuf.i122, i64 112
   %tmp.sroa.2.0.arrayidx.sroa_idx.i100 = getelementptr inbounds i8, ptr %ts.i84, i64 8
   %arrayidx1.i101 = getelementptr inbounds i8, ptr %ts.i84, i64 16
   %tmp2.sroa.2.0.arrayidx1.sroa_idx.i117 = getelementptr inbounds i8, ptr %ts.i84, i64 24
@@ -195,7 +190,6 @@ entry:
   %st_atim.i.i = getelementptr inbounds i8, ptr %pbuf.i, i64 72
   %st_mtim.i.i = getelementptr inbounds i8, ptr %pbuf.i, i64 88
   %st_ctim.i.i = getelementptr inbounds i8, ptr %pbuf.i, i64 104
-  %tv_nsec29.i.i = getelementptr inbounds i8, ptr %pbuf.i, i64 112
   %uid31 = getelementptr inbounds i8, ptr %w, i64 -24
   %gid32 = getelementptr inbounds i8, ptr %w, i64 -20
   %type.i415 = getelementptr inbounds i8, ptr %fs_req.i, i64 8
@@ -414,7 +408,7 @@ if.then52.i:                                      ; preds = %if.end47.i
   br i1 %cmp55.not.i, label %if.end58.i, label %out.i
 
 if.end58.i:                                       ; preds = %if.then52.i
-  %call59.i = call fastcc i32 @uv__is_cifs_or_smb(i32 noundef %conv.i412), !range !4
+  %call59.i = call fastcc i32 @uv__is_cifs_or_smb(i32 noundef %conv.i412)
   %tobool60.not.i = icmp eq i32 %call59.i, 0
   br i1 %tobool60.not.i, label %out.i.thread, label %if.end63.i
 
@@ -623,12 +617,9 @@ if.then3.i:                                       ; preds = %if.end.i78
   store <2 x i64> %57, ptr %st_atim13.i.i290, align 8
   %58 = load <2 x i64>, ptr %st_mtim.i.i, align 8
   store <2 x i64> %58, ptr %st_mtim19.i.i294, align 8
-  %59 = load i64, ptr %st_ctim.i.i, align 8
-  store i64 %59, ptr %st_ctim26.i.i298, align 8
-  %60 = load i64, ptr %tv_nsec29.i.i, align 8
-  store i64 %60, ptr %tv_nsec31.i.i300, align 8
-  store i64 %59, ptr %st_birthtim.i.i301, align 8
-  store i64 %60, ptr %tv_nsec38.i.i302, align 8
+  %59 = load <2 x i64>, ptr %st_ctim.i.i, align 8
+  %60 = shufflevector <2 x i64> %59, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  store <4 x i64> %60, ptr %st_ctim26.i.i298, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %st_flags.i.i303, i8 0, i64 16, i1 false)
   br label %uv__fs_fstat.exit
 
@@ -800,12 +791,9 @@ if.then3.i128:                                    ; preds = %if.end.i124
   store <2 x i64> %81, ptr %st_atim13.i.i290, align 8
   %82 = load <2 x i64>, ptr %st_mtim.i.i154, align 8
   store <2 x i64> %82, ptr %st_mtim19.i.i294, align 8
-  %83 = load i64, ptr %st_ctim.i.i158, align 8
-  store i64 %83, ptr %st_ctim26.i.i298, align 8
-  %84 = load i64, ptr %tv_nsec29.i.i160, align 8
-  store i64 %84, ptr %tv_nsec31.i.i300, align 8
-  store i64 %83, ptr %st_birthtim.i.i301, align 8
-  store i64 %84, ptr %tv_nsec38.i.i302, align 8
+  %83 = load <2 x i64>, ptr %st_ctim.i.i158, align 8
+  %84 = shufflevector <2 x i64> %83, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  store <4 x i64> %84, ptr %st_ctim26.i.i298, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %st_flags.i.i303, i8 0, i64 16, i1 false)
   br label %uv__fs_lstat.exit
 
@@ -1559,12 +1547,9 @@ if.then3.i267:                                    ; preds = %if.end.i263
   store <2 x i64> %169, ptr %st_atim13.i.i290, align 8
   %170 = load <2 x i64>, ptr %st_mtim.i.i293, align 8
   store <2 x i64> %170, ptr %st_mtim19.i.i294, align 8
-  %171 = load i64, ptr %st_ctim.i.i297, align 8
-  store i64 %171, ptr %st_ctim26.i.i298, align 8
-  %172 = load i64, ptr %tv_nsec29.i.i299, align 8
-  store i64 %172, ptr %tv_nsec31.i.i300, align 8
-  store i64 %171, ptr %st_birthtim.i.i301, align 8
-  store i64 %172, ptr %tv_nsec38.i.i302, align 8
+  %171 = load <2 x i64>, ptr %st_ctim.i.i297, align 8
+  %172 = shufflevector <2 x i64> %171, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  store <4 x i64> %172, ptr %st_ctim26.i.i298, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %st_flags.i.i303, i8 0, i64 16, i1 false)
   br label %uv__fs_stat.exit
 
@@ -4182,7 +4167,7 @@ declare void @abort() local_unnamed_addr #8
 declare i32 @uv__close_nocancel(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @uv__is_cifs_or_smb(i32 noundef %fd) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uv__is_cifs_or_smb(i32 noundef %fd) unnamed_addr #0 {
 entry:
   %s = alloca %struct.statfs, align 8
   %call = call i32 @fstatfs64(i32 noundef %fd, ptr noundef nonnull %s) #16
@@ -4284,7 +4269,7 @@ declare i64 @preadv64(i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_
 declare i32 @scandir64(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @uv__fs_scandir_filter(ptr nocapture noundef readonly %dent) #10 {
+define internal range(i32 0, 2) i32 @uv__fs_scandir_filter(ptr nocapture noundef readonly %dent) #10 {
 entry:
   %d_name = getelementptr inbounds i8, ptr %dent, i64 19
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name, ptr noundef nonnull dereferenceable(2) @.str.2) #18
@@ -4406,4 +4391,3 @@ attributes #19 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

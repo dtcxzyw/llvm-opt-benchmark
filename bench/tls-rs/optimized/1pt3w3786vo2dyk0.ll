@@ -16643,7 +16643,7 @@ define hidden void @_ZN6rustls4msgs9handshake23HandshakeMessagePayload12read_ver
   %.sroa.4210.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %.sroa.4210.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(21) %.sroa.4210, i64 21, i1 false)
   store i64 -9223372036854775787, ptr %0, align 8
-  br label %230
+  br label %232
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds i8, ptr %42, i64 %37
@@ -16690,7 +16690,7 @@ define hidden void @_ZN6rustls4msgs9handshake23HandshakeMessagePayload12read_ver
   %.sroa.4222.sroa.2.0..sroa.4222.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 3, ptr %.sroa.4222.sroa.2.0..sroa.4222.0..sroa_idx.sroa_idx, align 8
   store i64 -9223372036854775787, ptr %0, align 8
-  br label %230
+  br label %232
 
 70:                                               ; preds = %64
   %71 = getelementptr inbounds i8, ptr %42, i64 %41
@@ -17437,7 +17437,7 @@ _ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368: ; preds = %70
 
 225:                                              ; preds = %128, %72
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
-  br label %230
+  br label %232
 
 .thread.i:                                        ; preds = %116
   store i64 %.sroa.0.0, ptr %6, align 8
@@ -17511,7 +17511,11 @@ _ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368: ; preds = %70
   %.sroa.67.sroa.9.0..sroa.67.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %6, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.67.sroa.9.0..sroa.67.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.67.sroa.9, i64 16, i1 false)
   %.sroa.67547.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 104
-  store <2 x i16> %119, ptr %.sroa.67547.0..sroa_idx, align 8
+  %228 = extractelement <2 x i16> %119, i64 0
+  store i16 %228, ptr %.sroa.67547.0..sroa_idx, align 8
+  %.sroa.68.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 106
+  %229 = extractelement <2 x i16> %119, i64 1
+  store i16 %229, ptr %.sroa.68.0..sroa_idx, align 2
   %.sroa.69.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 108
   store i32 %.sroa.69.sroa.0.0, ptr %.sroa.69.0..sroa_idx, align 4
   %.sroa.69.sroa.8.0..sroa.69.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %6, i64 112
@@ -17520,8 +17524,8 @@ _ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368: ; preds = %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.70.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.70, i64 32, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !4204)
   call void @llvm.experimental.noalias.scope.decl(metadata !4208)
-  %228 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 14, ptr %228, align 8, !alias.scope !4209, !noalias !4208
+  %230 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 14, ptr %230, align 8, !alias.scope !4209, !noalias !4208
   %.sroa.5406.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @anon.b829d69e4dfa1ad4f2781c144a746ff0.71, ptr %.sroa.5406.0..sroa_idx, align 8, !alias.scope !4209, !noalias !4208
   %.sroa.6407.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -17536,14 +17540,14 @@ _ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368: ; preds = %70
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.70)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %25)
-  br label %229
+  br label %231
 
-229:                                              ; preds = %230, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc76705df893bf414E.exit"
+231:                                              ; preds = %232, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc76705df893bf414E.exit"
   ret void
 
-230:                                              ; preds = %225, %68, %48
+232:                                              ; preds = %225, %68, %48
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %25)
-  br label %229
+  br label %231
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -19698,7 +19702,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #9
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.15934541666227088301(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #22 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.15934541666227088301(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #22 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

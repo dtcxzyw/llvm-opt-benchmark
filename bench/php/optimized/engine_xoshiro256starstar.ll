@@ -48,49 +48,18 @@ define void @php_random_xoshiro256starstar_seed256(ptr nocapture noundef writeon
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @php_random_xoshiro256starstar_seed64(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = add i64 %1, -7046029254386353131
-  %4 = lshr i64 %3, 30
-  %5 = xor i64 %4, %3
-  %6 = mul i64 %5, -4658895280553007687
-  %7 = lshr i64 %6, 27
-  %8 = xor i64 %7, %6
-  %9 = mul i64 %8, -7723592293110705685
-  %10 = lshr i64 %9, 31
-  %11 = xor i64 %10, %9
-  %12 = add i64 %1, 4354685564936845354
-  %13 = lshr i64 %12, 30
-  %14 = xor i64 %13, %12
-  %15 = mul i64 %14, -4658895280553007687
-  %16 = lshr i64 %15, 27
-  %17 = xor i64 %16, %15
-  %18 = mul i64 %17, -7723592293110705685
-  %19 = lshr i64 %18, 31
-  %20 = xor i64 %19, %18
-  %21 = add i64 %1, -2691343689449507777
-  %22 = lshr i64 %21, 30
-  %23 = xor i64 %22, %21
-  %24 = mul i64 %23, -4658895280553007687
-  %25 = lshr i64 %24, 27
-  %26 = xor i64 %25, %24
-  %27 = mul i64 %26, -7723592293110705685
-  %28 = lshr i64 %27, 31
-  %29 = xor i64 %28, %27
-  %30 = add i64 %1, 8709371129873690708
-  %31 = lshr i64 %30, 30
-  %32 = xor i64 %31, %30
-  %33 = mul i64 %32, -4658895280553007687
-  %34 = lshr i64 %33, 27
-  %35 = xor i64 %34, %33
-  %36 = mul i64 %35, -7723592293110705685
-  %37 = lshr i64 %36, 31
-  %38 = xor i64 %37, %36
-  store i64 %11, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %20, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %29, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %38, ptr %41, align 8
+  %3 = insertelement <4 x i64> poison, i64 %1, i64 0
+  %4 = shufflevector <4 x i64> %3, <4 x i64> poison, <4 x i32> zeroinitializer
+  %5 = add <4 x i64> %4, <i64 -7046029254386353131, i64 4354685564936845354, i64 -2691343689449507777, i64 8709371129873690708>
+  %6 = lshr <4 x i64> %5, <i64 30, i64 30, i64 30, i64 30>
+  %7 = xor <4 x i64> %6, %5
+  %8 = mul <4 x i64> %7, <i64 -4658895280553007687, i64 -4658895280553007687, i64 -4658895280553007687, i64 -4658895280553007687>
+  %9 = lshr <4 x i64> %8, <i64 27, i64 27, i64 27, i64 27>
+  %10 = xor <4 x i64> %9, %8
+  %11 = mul <4 x i64> %10, <i64 -7723592293110705685, i64 -7723592293110705685, i64 -7723592293110705685, i64 -7723592293110705685>
+  %12 = lshr <4 x i64> %11, <i64 31, i64 31, i64 31, i64 31>
+  %13 = xor <4 x i64> %12, %11
+  store <4 x i64> %13, ptr %0, align 8
   ret void
 }
 

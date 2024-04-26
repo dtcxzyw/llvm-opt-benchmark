@@ -15,7 +15,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_buf_init2(ptr nocapture noundef %buf, i64 noundef %initial, ptr noundef %mem) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_buf_init2(ptr nocapture noundef %buf, i64 noundef %initial, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %buf, i8 0, i64 40, i1 false)
   %end.i = getelementptr inbounds i8, ptr %buf, i64 8
@@ -59,7 +59,7 @@ nghttp2_buf_reserve.exit:                         ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_buf_reserve(ptr nocapture noundef %buf, i64 noundef %new_cap, ptr noundef %mem) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_buf_reserve(ptr nocapture noundef %buf, i64 noundef %new_cap, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   %end = getelementptr inbounds i8, ptr %buf, i64 8
   %0 = load ptr, ptr %end, align 8
@@ -166,21 +166,21 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_bufs_init(ptr nocapture noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, ptr noundef %mem) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_init(ptr nocapture noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call noundef i32 @nghttp2_bufs_init3(ptr noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %max_chunk, i64 noundef 0, ptr noundef %mem), !range !4
+  %call.i = tail call i32 @nghttp2_bufs_init3(ptr noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %max_chunk, i64 noundef 0, ptr noundef %mem)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_bufs_init2(ptr nocapture noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %offset, ptr noundef %mem) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_init2(ptr nocapture noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %offset, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @nghttp2_bufs_init3(ptr noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %max_chunk, i64 noundef %offset, ptr noundef %mem), !range !4
+  %call = tail call i32 @nghttp2_bufs_init3(ptr noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %max_chunk, i64 noundef %offset, ptr noundef %mem)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_bufs_init3(ptr nocapture noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %chunk_keep, i64 noundef %offset, ptr noundef %mem) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_init3(ptr nocapture noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %chunk_keep, i64 noundef %offset, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   %0 = add i64 %chunk_keep, -1
   %or.cond = icmp uge i64 %0, %max_chunk
@@ -268,7 +268,7 @@ return:                                           ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_bufs_realloc(ptr nocapture noundef %bufs, i64 noundef %chunk_length) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_realloc(ptr nocapture noundef %bufs, i64 noundef %chunk_length) local_unnamed_addr #1 {
 entry:
   %offset = getelementptr inbounds i8, ptr %bufs, i64 56
   %0 = load i64, ptr %offset, align 8
@@ -339,7 +339,7 @@ for.body.i:                                       ; preds = %if.end.i16, %for.bo
   store ptr null, ptr %buf.i.i, align 8
   tail call void @nghttp2_mem_free(ptr noundef %8, ptr noundef nonnull %chain.07.i) #9
   %tobool.not.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i, label %nghttp2_bufs_free.exit, label %for.body.i, !llvm.loop !5
+  br i1 %tobool.not.i, label %nghttp2_bufs_free.exit, label %for.body.i, !llvm.loop !4
 
 nghttp2_bufs_free.exit:                           ; preds = %for.body.i, %if.end.i16
   store ptr %call.i, ptr %bufs, align 8
@@ -392,7 +392,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store ptr null, ptr %buf.i, align 8
   tail call void @nghttp2_mem_free(ptr noundef %2, ptr noundef nonnull %chain.07) #9
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body, %if.end
   store ptr null, ptr %bufs, align 8
@@ -403,7 +403,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_bufs_wrap_init(ptr nocapture noundef writeonly %bufs, ptr noundef %begin, i64 noundef %len, ptr noundef %mem) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_wrap_init(ptr nocapture noundef writeonly %bufs, ptr noundef %begin, i64 noundef %len, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @nghttp2_mem_malloc(ptr noundef %mem, i64 noundef 48) #9
   %cmp = icmp eq ptr %call, null
@@ -455,7 +455,7 @@ return:                                           ; preds = %entry, %nghttp2_buf
 declare ptr @nghttp2_mem_malloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_bufs_wrap_init2(ptr nocapture noundef writeonly %bufs, ptr nocapture noundef readonly %vec, i64 noundef %veclen, ptr noundef %mem) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_wrap_init2(ptr nocapture noundef writeonly %bufs, ptr nocapture noundef readonly %vec, i64 noundef %veclen, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   %head_chain = alloca ptr, align 8
   %cmp = icmp eq i64 %veclen, 0
@@ -492,19 +492,16 @@ for.body:                                         ; preds = %if.end, %nghttp2_bu
   %0 = load ptr, ptr %arrayidx6, align 8
   %len = getelementptr inbounds i8, ptr %arrayidx6, i64 8
   %1 = load i64, ptr %len, align 8
-  %end.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  store ptr %0, ptr %end.i, align 8
   %mark.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
   store ptr %0, ptr %mark.i, align 8
-  %last.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
-  store ptr %0, ptr %last.i, align 8
-  %pos.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  store ptr %0, ptr %pos.i, align 8
-  store ptr %0, ptr %buf, align 8
+  %2 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %3 = shufflevector <4 x ptr> %2, <4 x ptr> poison, <4 x i32> zeroinitializer
+  store <4 x ptr> %3, ptr %buf, align 8
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %nghttp2_buf_wrap_init.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
+  %end.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %1
   store ptr %add.ptr.i, ptr %end.i, align 8
   br label %nghttp2_buf_wrap_init.exit
@@ -513,7 +510,7 @@ nghttp2_buf_wrap_init.exit:                       ; preds = %for.body, %if.then.
   store ptr %arrayidx, ptr %dst_chain.029, align 8
   %inc = add nuw i64 %i.028, 1
   %exitcond.not = icmp eq i64 %inc, %veclen
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %nghttp2_buf_wrap_init.exit
   %mem9 = getelementptr inbounds i8, ptr %bufs, i64 16
@@ -586,7 +583,7 @@ if.else:                                          ; preds = %for.body
   store ptr %ci.08, ptr %cur, align 8
   %ci.0 = load ptr, ptr %ci.08, align 8
   %tobool.not = icmp eq ptr %ci.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %if.else, %for.body, %entry
   ret void
@@ -612,7 +609,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add = sub i64 %sub.ptr.sub, %sub.ptr.rhs.cast
   %ci.0 = load ptr, ptr %ci.08, align 8
   %tobool.not = icmp eq ptr %ci.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %entry
   %len.0.lcssa = phi i64 [ 0, %entry ], [ %add, %for.body ]
@@ -620,7 +617,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_bufs_add(ptr nocapture noundef %bufs, ptr noundef %data, i64 noundef %len) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_add(ptr nocapture noundef %bufs, ptr noundef %data, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %cur = getelementptr inbounds i8, ptr %bufs, i64 8
   %tobool.not35 = icmp eq i64 %len, 0
@@ -641,9 +638,9 @@ while.cond:                                       ; preds = %while.cond.preheade
   br i1 %cmp7, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %while.cond
-  %call = tail call fastcc i32 @bufs_alloc_chain(ptr noundef nonnull %bufs), !range !4
+  %call = tail call fastcc i32 @bufs_alloc_chain(ptr noundef nonnull %bufs)
   %cmp8.not = icmp eq i32 %call, 0
-  br i1 %cmp8.not, label %while.cond, label %return.split, !llvm.loop !10
+  br i1 %cmp8.not, label %while.cond, label %return.split, !llvm.loop !9
 
 if.end10:                                         ; preds = %while.cond
   %last.le = getelementptr inbounds i8, ptr %0, i64 32
@@ -656,7 +653,7 @@ if.end10:                                         ; preds = %while.cond
   %add.ptr = getelementptr inbounds i8, ptr %p.0.ph37, i64 %sub.ptr.sub.len.addr.0
   %sub = sub i64 %len.addr.0.ph36, %sub.ptr.sub.len.addr.0
   %tobool.not = icmp eq i64 %sub, 0
-  br i1 %tobool.not, label %return.split, label %while.cond.preheader, !llvm.loop !10
+  br i1 %tobool.not, label %return.split, label %while.cond.preheader, !llvm.loop !9
 
 return.split:                                     ; preds = %if.end10, %if.then, %entry
   %retval.0.split = phi i32 [ 0, %entry ], [ %call, %if.then ], [ 0, %if.end10 ]
@@ -664,7 +661,7 @@ return.split:                                     ; preds = %if.end10, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @bufs_alloc_chain(ptr nocapture noundef %bufs) unnamed_addr #1 {
+define internal fastcc range(i32 -901, 1) i32 @bufs_alloc_chain(ptr nocapture noundef %bufs) unnamed_addr #1 {
 entry:
   %cur = getelementptr inbounds i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur, align 8
@@ -764,7 +761,7 @@ return:                                           ; preds = %if.then3.i, %if.end
 declare ptr @nghttp2_cpymem(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_bufs_addb(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
+define hidden i32 @nghttp2_bufs_addb(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
 entry:
   %cur.i = getelementptr inbounds i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur.i, align 8
@@ -776,7 +773,7 @@ entry:
   br i1 %cmp.not.i, label %bufs_ensure_addb.exit, label %if.end
 
 bufs_ensure_addb.exit:                            ; preds = %entry
-  %call.i = tail call fastcc i32 @bufs_alloc_chain(ptr noundef nonnull %bufs), !range !4
+  %call.i = tail call fastcc i32 @bufs_alloc_chain(ptr noundef nonnull %bufs)
   %cmp.not = icmp eq i32 %call.i, 0
   br i1 %cmp.not, label %bufs_ensure_addb.exit.if.end_crit_edge, label %return
 
@@ -801,7 +798,7 @@ return:                                           ; preds = %bufs_ensure_addb.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_bufs_addb_hold(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
+define hidden i32 @nghttp2_bufs_addb_hold(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
 entry:
   %cur.i = getelementptr inbounds i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur.i, align 8
@@ -813,7 +810,7 @@ entry:
   br i1 %cmp.not.i, label %bufs_ensure_addb.exit, label %if.end
 
 bufs_ensure_addb.exit:                            ; preds = %entry
-  %call.i = tail call fastcc i32 @bufs_alloc_chain(ptr noundef nonnull %bufs), !range !4
+  %call.i = tail call fastcc i32 @bufs_alloc_chain(ptr noundef nonnull %bufs)
   %cmp.not = icmp eq i32 %call.i, 0
   br i1 %cmp.not, label %bufs_ensure_addb.exit.if.end_crit_edge, label %return
 
@@ -834,7 +831,7 @@ return:                                           ; preds = %bufs_ensure_addb.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_bufs_orb(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
+define hidden i32 @nghttp2_bufs_orb(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
 entry:
   %cur.i = getelementptr inbounds i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur.i, align 8
@@ -846,7 +843,7 @@ entry:
   br i1 %cmp.not.i, label %bufs_ensure_addb.exit, label %if.end
 
 bufs_ensure_addb.exit:                            ; preds = %entry
-  %call.i = tail call fastcc i32 @bufs_alloc_chain(ptr noundef nonnull %bufs), !range !4
+  %call.i = tail call fastcc i32 @bufs_alloc_chain(ptr noundef nonnull %bufs)
   %cmp.not = icmp eq i32 %call.i, 0
   br i1 %cmp.not, label %bufs_ensure_addb.exit.if.end_crit_edge, label %return
 
@@ -873,7 +870,7 @@ return:                                           ; preds = %bufs_ensure_addb.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_bufs_orb_hold(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
+define hidden i32 @nghttp2_bufs_orb_hold(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
 entry:
   %cur.i = getelementptr inbounds i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur.i, align 8
@@ -885,7 +882,7 @@ entry:
   br i1 %cmp.not.i, label %bufs_ensure_addb.exit, label %if.end
 
 bufs_ensure_addb.exit:                            ; preds = %entry
-  %call.i = tail call fastcc i32 @bufs_alloc_chain(ptr noundef nonnull %bufs), !range !4
+  %call.i = tail call fastcc i32 @bufs_alloc_chain(ptr noundef nonnull %bufs)
   %cmp.not = icmp eq i32 %call.i, 0
   br i1 %cmp.not, label %bufs_ensure_addb.exit.if.end_crit_edge, label %return
 
@@ -927,7 +924,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add = sub i64 %sub.ptr.sub, %sub.ptr.rhs.cast
   %chain.0 = load ptr, ptr %chain.020, align 8
   %tobool.not = icmp eq ptr %chain.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body
   %cmp = icmp eq i64 %add, 0
@@ -958,7 +955,7 @@ for.body9:                                        ; preds = %for.cond7.preheader
   %call18 = tail call ptr @nghttp2_cpymem(ptr noundef %resbuf.sroa.4.023, ptr noundef %3, i64 noundef %sub.ptr.sub17) #9
   %chain.1 = load ptr, ptr %chain.124, align 8
   %tobool8.not = icmp eq ptr %chain.1, null
-  br i1 %tobool8.not, label %for.end22, label %for.body9, !llvm.loop !12
+  br i1 %tobool8.not, label %for.end22, label %for.body9, !llvm.loop !11
 
 for.end22:                                        ; preds = %for.body9, %for.cond7.preheader
   store ptr %call, ptr %out, align 8
@@ -989,7 +986,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %add.i = sub i64 %sub.ptr.sub.i, %sub.ptr.rhs.cast.i
   %ci.0.i = load ptr, ptr %ci.08.i, align 8
   %tobool.not.i = icmp eq ptr %ci.0.i, null
-  br i1 %tobool.not.i, label %nghttp2_buf_wrap_init.exit, label %for.body.i, !llvm.loop !9
+  br i1 %tobool.not.i, label %nghttp2_buf_wrap_init.exit, label %for.body.i, !llvm.loop !8
 
 nghttp2_buf_wrap_init.exit:                       ; preds = %for.body.i
   br i1 %tobool.not6.i, label %for.end, label %for.body
@@ -1007,7 +1004,7 @@ for.body:                                         ; preds = %nghttp2_buf_wrap_in
   %call4 = tail call ptr @nghttp2_cpymem(ptr noundef %resbuf.sroa.4.015, ptr noundef %2, i64 noundef %sub.ptr.sub) #9
   %chain.0 = load ptr, ptr %chain.016, align 8
   %tobool.not = icmp eq ptr %chain.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %entry, %nghttp2_buf_wrap_init.exit
   %len.0.lcssa.i1218 = phi i64 [ %add.i, %nghttp2_buf_wrap_init.exit ], [ 0, %entry ], [ %add.i, %for.body ]
@@ -1046,7 +1043,7 @@ for.body:                                         ; preds = %for.cond
   store ptr %add.ptr4, ptr %last.i, align 8
   %dec = add i64 %k.0, -1
   %cmp = icmp eq i64 %dec, 0
-  br i1 %cmp, label %if.then6, label %for.cond, !llvm.loop !14
+  br i1 %cmp, label %if.then6, label %for.cond, !llvm.loop !13
 
 if.then6:                                         ; preds = %for.body
   %4 = load ptr, ptr %ci.0, align 8
@@ -1068,7 +1065,7 @@ for.body11:                                       ; preds = %for.body11.lr.ph, %
   store ptr null, ptr %buf.i, align 8
   tail call void @nghttp2_mem_free(ptr noundef %6, ptr noundef nonnull %ci.122) #9
   %tobool10.not = icmp eq ptr %5, null
-  br i1 %tobool10.not, label %for.end13, label %for.body11, !llvm.loop !15
+  br i1 %tobool10.not, label %for.end13, label %for.body11, !llvm.loop !14
 
 for.end13:                                        ; preds = %for.body11, %if.then6
   %8 = load i64, ptr %chunk_keep, align 8
@@ -1084,14 +1081,14 @@ if.end15:                                         ; preds = %for.cond, %for.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_bufs_advance(ptr nocapture noundef %bufs) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_advance(ptr nocapture noundef %bufs) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc i32 @bufs_alloc_chain(ptr noundef %bufs), !range !4
+  %call = tail call fastcc i32 @bufs_alloc_chain(ptr noundef %bufs)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @nghttp2_bufs_next_present(ptr nocapture noundef readonly %bufs) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @nghttp2_bufs_next_present(ptr nocapture noundef readonly %bufs) local_unnamed_addr #6 {
 entry:
   %cur = getelementptr inbounds i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur, align 8
@@ -1139,15 +1136,14 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -901, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}

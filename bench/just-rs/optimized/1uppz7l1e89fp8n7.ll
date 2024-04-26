@@ -4209,17 +4209,10 @@ define hidden void @"_ZN7similar4text17TextDiff$LT$T$GT$12iter_changes17h9405462
   store <2 x i64> %13, ptr %12, align 8, !alias.scope !982, !noalias !990
   store <2 x i64> %15, ptr %14, align 8, !alias.scope !982, !noalias !990
   %16 = getelementptr inbounds i8, ptr %0, i64 64
-  %17 = extractelement <2 x i64> %13, i64 0
-  store i64 %17, ptr %16, align 8, !alias.scope !982, !noalias !990
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
-  %19 = extractelement <2 x i64> %15, i64 0
-  store i64 %19, ptr %18, align 8, !alias.scope !982, !noalias !990
-  %20 = getelementptr inbounds i8, ptr %0, i64 80
-  store i64 %17, ptr %20, align 8, !alias.scope !982, !noalias !990
-  %21 = getelementptr inbounds i8, ptr %0, i64 88
-  store i64 %19, ptr %21, align 8, !alias.scope !982, !noalias !990
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
-  store i8 %7, ptr %22, align 8, !alias.scope !982, !noalias !990
+  %17 = shufflevector <2 x i64> %13, <2 x i64> %15, <4 x i32> <i32 0, i32 2, i32 0, i32 2>
+  store <4 x i64> %17, ptr %16, align 8, !alias.scope !982, !noalias !990
+  %18 = getelementptr inbounds i8, ptr %0, i64 96
+  store i8 %7, ptr %18, align 8, !alias.scope !982, !noalias !990
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret void
 }

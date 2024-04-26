@@ -2644,7 +2644,7 @@ if.then.i43:                                      ; preds = %init.end.i
   br label %_ZL23ShowExampleAppDocumentsPb.exit
 
 common.resume:                                    ; preds = %lpad21.i, %lpad.i115, %lpad.i50, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i ], [ %86, %lpad.i50 ], [ %349, %lpad.i115 ], [ %lpad.phi.i, %lpad21.i ]
+  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i ], [ %86, %lpad.i50 ], [ %344, %lpad.i115 ], [ %lpad.phi.i, %lpad21.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %init.i
@@ -3499,11 +3499,12 @@ if.then6.i:                                       ; preds = %if.then4.i56
   %arrayinit.element146.i = getelementptr inbounds i8, ptr %cp4.i, i64 8
   %arrayinit.element149.i = getelementptr inbounds i8, ptr %cp4.i, i64 16
   %arrayinit.element156.i = getelementptr inbounds i8, ptr %cp4.i, i64 24
+  %y.i267.i = getelementptr inbounds i8, ptr %cp4.i, i64 28
   %110 = insertelement <2 x float> poison, float %add63.i, i64 0
   br label %for.body.i95
 
 for.body.i95:                                     ; preds = %for.body.i95, %if.then6.i
-  %111 = phi float [ %105, %if.then6.i ], [ %196, %for.body.i95 ]
+  %111 = phi float [ %105, %if.then6.i ], [ %191, %for.body.i95 ]
   %y64.07.i = phi float [ %add66.i, %if.then6.i ], [ %add166.i, %for.body.i95 ]
   %cmp68.i = phi i1 [ true, %if.then6.i ], [ false, %for.body.i95 ]
   %112 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9thickness, align 4
@@ -3647,173 +3648,171 @@ for.body.i95:                                     ; preds = %for.body.i95, %if.t
   %add144.i = fadd float %add134.i, %add143.i
   store float %add144.i, ptr %cp4.i, align 16
   store float %y64.07.i, ptr %y.i264.i, align 4
+  %add150.i = fadd float %182, %add144.i
   %neg152.i = fneg float %182
+  %add153.i = fadd float %y64.07.i, %182
   %183 = insertelement <4 x float> poison, float %182, i64 0
   %184 = insertelement <4 x float> %183, float %neg152.i, i64 1
   %185 = shufflevector <4 x float> %184, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %186 = insertelement <4 x float> poison, float %add144.i, i64 0
   %187 = insertelement <4 x float> %186, float %y64.07.i, i64 1
-  %188 = insertelement <2 x float> poison, float %182, i64 0
-  %189 = shufflevector <2 x float> %188, <2 x float> poison, <2 x i32> zeroinitializer
-  %190 = insertelement <2 x float> poison, float %add144.i, i64 0
-  %191 = insertelement <2 x float> %190, float %y64.07.i, i64 1
-  %192 = fadd <2 x float> %189, %191
-  %193 = shufflevector <2 x float> %192, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %194 = shufflevector <4 x float> %187, <4 x float> %193, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %195 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %185, <4 x float> <float 0x3FF4CCCCC0000000, float 0x3FD3333340000000, float 0x3FF4CCCCC0000000, float 0x3FD3333340000000>, <4 x float> %194)
-  store <4 x float> %195, ptr %arrayinit.element146.i, align 8
-  store <2 x float> %192, ptr %arrayinit.element156.i, align 8
+  %188 = insertelement <4 x float> %187, float %add150.i, i64 2
+  %189 = insertelement <4 x float> %188, float %add153.i, i64 3
+  %190 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %185, <4 x float> <float 0x3FF4CCCCC0000000, float 0x3FD3333340000000, float 0x3FF4CCCCC0000000, float 0x3FD3333340000000>, <4 x float> %189)
+  store <4 x float> %190, ptr %arrayinit.element146.i, align 8
+  store float %add150.i, ptr %arrayinit.element156.i, align 8
+  store float %add153.i, ptr %y.i267.i, align 4
   call void @_ZN10ImDrawList14AddBezierCubicERK6ImVec2S2_S2_S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %call8.i86, ptr noundef nonnull align 4 dereferenceable(8) %cp4.i, ptr noundef nonnull align 4 dereferenceable(8) %arrayinit.element146.i, ptr noundef nonnull align 4 dereferenceable(8) %arrayinit.element149.i, ptr noundef nonnull align 4 dereferenceable(8) %arrayinit.element156.i, i32 noundef %call.i.i93, float noundef %cond72.i, i32 noundef %cond60.i)
-  %196 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
-  %add165.i = fadd float %196, 1.000000e+01
+  %191 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
+  %add165.i = fadd float %191, 1.000000e+01
   %add166.i = fadd float %y64.07.i, %add165.i
   br i1 %cmp68.i, label %for.body.i95, label %for.end.i96, !llvm.loop !12
 
 for.end.i96:                                      ; preds = %for.body.i95
-  %197 = insertelement <2 x float> poison, float %196, i64 0
-  %198 = shufflevector <2 x float> %197, <2 x float> poison, <2 x i32> zeroinitializer
-  %199 = insertelement <2 x float> %110, float %add166.i, i64 1
-  %200 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %198, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %199)
-  store <2 x float> %200, ptr %ref.tmp167.i, align 8
-  %mul170.i = fmul float %196, 5.000000e-01
-  %201 = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE10ngon_sides, align 4
-  call void @_ZN10ImDrawList13AddNgonFilledERK6ImVec2fji(ptr noundef nonnull align 8 dereferenceable(196) %call8.i86, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp167.i, float noundef %mul170.i, i32 noundef %call.i.i93, i32 noundef %201)
-  %202 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
-  %add171.i = fadd float %202, 1.000000e+01
+  %192 = insertelement <2 x float> poison, float %191, i64 0
+  %193 = shufflevector <2 x float> %192, <2 x float> poison, <2 x i32> zeroinitializer
+  %194 = insertelement <2 x float> %110, float %add166.i, i64 1
+  %195 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %193, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %194)
+  store <2 x float> %195, ptr %ref.tmp167.i, align 8
+  %mul170.i = fmul float %191, 5.000000e-01
+  %196 = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE10ngon_sides, align 4
+  call void @_ZN10ImDrawList13AddNgonFilledERK6ImVec2fji(ptr noundef nonnull align 8 dereferenceable(196) %call8.i86, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp167.i, float noundef %mul170.i, i32 noundef %call.i.i93, i32 noundef %196)
+  %197 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
+  %add171.i = fadd float %197, 1.000000e+01
   %add172.i = fadd float %add63.i, %add171.i
-  %203 = insertelement <2 x float> poison, float %202, i64 0
-  %204 = shufflevector <2 x float> %203, <2 x float> poison, <2 x i32> zeroinitializer
-  %205 = insertelement <2 x float> poison, float %add172.i, i64 0
-  %206 = insertelement <2 x float> %205, float %add166.i, i64 1
-  %207 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %204, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %206)
-  store <2 x float> %207, ptr %ref.tmp173.i, align 8
-  %mul176.i = fmul float %202, 5.000000e-01
+  %198 = insertelement <2 x float> poison, float %197, i64 0
+  %199 = shufflevector <2 x float> %198, <2 x float> poison, <2 x i32> zeroinitializer
+  %200 = insertelement <2 x float> poison, float %add172.i, i64 0
+  %201 = insertelement <2 x float> %200, float %add166.i, i64 1
+  %202 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %199, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %201)
+  store <2 x float> %202, ptr %ref.tmp173.i, align 8
+  %mul176.i = fmul float %197, 5.000000e-01
   call void @_ZN10ImDrawList15AddCircleFilledERK6ImVec2fji(ptr noundef nonnull align 8 dereferenceable(196) %call8.i86, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp173.i, float noundef %mul176.i, i32 noundef %call.i.i93, i32 noundef %cond.i94)
-  %208 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
-  %add177.i = fadd float %208, 1.000000e+01
+  %203 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
+  %add177.i = fadd float %203, 1.000000e+01
   %add178.i = fadd float %add172.i, %add177.i
-  %209 = insertelement <2 x float> poison, float %208, i64 0
-  %210 = shufflevector <2 x float> %209, <2 x float> poison, <2 x i32> zeroinitializer
-  %211 = insertelement <2 x float> poison, float %add178.i, i64 0
-  %212 = insertelement <2 x float> %211, float %add166.i, i64 1
-  %213 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %210, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %212)
-  store <2 x float> %213, ptr %ref.tmp179.i, align 8
-  %mul182.i = fmul float %208, 5.000000e-01
-  %mul183.i97 = fmul float %208, 0x3FD3333340000000
+  %204 = insertelement <2 x float> poison, float %203, i64 0
+  %205 = shufflevector <2 x float> %204, <2 x float> poison, <2 x i32> zeroinitializer
+  %206 = insertelement <2 x float> poison, float %add178.i, i64 0
+  %207 = insertelement <2 x float> %206, float %add166.i, i64 1
+  %208 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %205, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %207)
+  store <2 x float> %208, ptr %ref.tmp179.i, align 8
+  %mul182.i = fmul float %203, 5.000000e-01
+  %mul183.i97 = fmul float %203, 0x3FD3333340000000
   call void @_ZN10ImDrawList16AddEllipseFilledERK6ImVec2ffjfi(ptr noundef nonnull align 8 dereferenceable(196) %call8.i86, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp179.i, float noundef %mul182.i, float noundef %mul183.i97, i32 noundef %call.i.i93, float noundef 0xBFD3333340000000, i32 noundef %cond.i94)
-  %214 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
-  %add184.i = fadd float %214, 1.000000e+01
+  %209 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
+  %add184.i = fadd float %209, 1.000000e+01
   %add185.i = fadd float %add178.i, %add184.i
   store float %add185.i, ptr %ref.tmp186.i, align 4
   %y.i271.i = getelementptr inbounds i8, ptr %ref.tmp186.i, i64 4
   store float %add166.i, ptr %y.i271.i, align 4
-  %215 = insertelement <2 x float> poison, float %214, i64 0
-  %216 = shufflevector <2 x float> %215, <2 x float> poison, <2 x i32> zeroinitializer
-  %217 = insertelement <2 x float> poison, float %add185.i, i64 0
-  %218 = insertelement <2 x float> %217, float %add166.i, i64 1
-  %219 = fadd <2 x float> %216, %218
-  store <2 x float> %219, ptr %ref.tmp187.i, align 8
+  %210 = insertelement <2 x float> poison, float %209, i64 0
+  %211 = shufflevector <2 x float> %210, <2 x float> poison, <2 x i32> zeroinitializer
+  %212 = insertelement <2 x float> poison, float %add185.i, i64 0
+  %213 = insertelement <2 x float> %212, float %add166.i, i64 1
+  %214 = fadd <2 x float> %211, %213
+  store <2 x float> %214, ptr %ref.tmp187.i, align 8
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %call8.i86, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp186.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp187.i, i32 noundef %call.i.i93, float noundef 0.000000e+00, i32 noundef 0)
-  %220 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
-  %add190.i = fadd float %220, 1.000000e+01
+  %215 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
+  %add190.i = fadd float %215, 1.000000e+01
   %add191.i = fadd float %add185.i, %add190.i
   store float %add191.i, ptr %ref.tmp192.i, align 4
   %y.i273.i = getelementptr inbounds i8, ptr %ref.tmp192.i, i64 4
   store float %add166.i, ptr %y.i273.i, align 4
-  %221 = insertelement <2 x float> poison, float %220, i64 0
-  %222 = shufflevector <2 x float> %221, <2 x float> poison, <2 x i32> zeroinitializer
-  %223 = insertelement <2 x float> poison, float %add191.i, i64 0
-  %224 = insertelement <2 x float> %223, float %add166.i, i64 1
-  %225 = fadd <2 x float> %222, %224
-  store <2 x float> %225, ptr %ref.tmp193.i, align 8
+  %216 = insertelement <2 x float> poison, float %215, i64 0
+  %217 = shufflevector <2 x float> %216, <2 x float> poison, <2 x i32> zeroinitializer
+  %218 = insertelement <2 x float> poison, float %add191.i, i64 0
+  %219 = insertelement <2 x float> %218, float %add166.i, i64 1
+  %220 = fadd <2 x float> %217, %219
+  store <2 x float> %220, ptr %ref.tmp193.i, align 8
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %call8.i86, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp192.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp193.i, i32 noundef %call.i.i93, float noundef 1.000000e+01, i32 noundef 0)
-  %226 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
-  %add196.i = fadd float %226, 1.000000e+01
+  %221 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
+  %add196.i = fadd float %221, 1.000000e+01
   %add197.i = fadd float %add191.i, %add196.i
   store float %add197.i, ptr %ref.tmp198.i, align 4
   %y.i275.i = getelementptr inbounds i8, ptr %ref.tmp198.i, i64 4
   store float %add166.i, ptr %y.i275.i, align 4
-  %227 = insertelement <2 x float> poison, float %226, i64 0
-  %228 = shufflevector <2 x float> %227, <2 x float> poison, <2 x i32> zeroinitializer
-  %229 = insertelement <2 x float> poison, float %add197.i, i64 0
-  %230 = insertelement <2 x float> %229, float %add166.i, i64 1
-  %231 = fadd <2 x float> %228, %230
-  store <2 x float> %231, ptr %ref.tmp199.i, align 8
+  %222 = insertelement <2 x float> poison, float %221, i64 0
+  %223 = shufflevector <2 x float> %222, <2 x float> poison, <2 x i32> zeroinitializer
+  %224 = insertelement <2 x float> poison, float %add197.i, i64 0
+  %225 = insertelement <2 x float> %224, float %add166.i, i64 1
+  %226 = fadd <2 x float> %223, %225
+  store <2 x float> %226, ptr %ref.tmp199.i, align 8
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %call8.i86, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp198.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp199.i, i32 noundef %call.i.i93, float noundef 1.000000e+01, i32 noundef 144)
-  %232 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
+  %227 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
   %y.i277.i = getelementptr inbounds i8, ptr %ref.tmp204.i, i64 4
   store float %add166.i, ptr %y.i277.i, align 4
   %y.i278.i = getelementptr inbounds i8, ptr %ref.tmp206.i, i64 4
-  %233 = insertelement <2 x float> <float 1.000000e+01, float poison>, float %add166.i, i64 1
-  %234 = insertelement <2 x float> poison, float %232, i64 0
-  %235 = shufflevector <2 x float> %234, <2 x float> poison, <2 x i32> zeroinitializer
-  %236 = fadd <2 x float> %233, %235
-  %237 = insertelement <2 x float> <float poison, float -5.000000e-01>, float %add197.i, i64 0
-  %238 = fadd <2 x float> %236, %237
-  %239 = extractelement <2 x float> %238, i64 0
-  %240 = call float @llvm.fmuladd.f32(float %232, float 5.000000e-01, float %239)
-  store float %240, ptr %ref.tmp204.i, align 4
-  %add207.i = fadd float %232, %239
+  %228 = insertelement <2 x float> <float 1.000000e+01, float poison>, float %add166.i, i64 1
+  %229 = insertelement <2 x float> poison, float %227, i64 0
+  %230 = shufflevector <2 x float> %229, <2 x float> poison, <2 x i32> zeroinitializer
+  %231 = fadd <2 x float> %228, %230
+  %232 = insertelement <2 x float> <float poison, float -5.000000e-01>, float %add197.i, i64 0
+  %233 = fadd <2 x float> %231, %232
+  %234 = extractelement <2 x float> %233, i64 0
+  %235 = call float @llvm.fmuladd.f32(float %227, float 5.000000e-01, float %234)
+  store float %235, ptr %ref.tmp204.i, align 4
+  %add207.i = fadd float %227, %234
   store float %add207.i, ptr %ref.tmp206.i, align 4
-  %241 = extractelement <2 x float> %238, i64 1
-  store float %241, ptr %y.i278.i, align 4
-  store <2 x float> %238, ptr %ref.tmp210.i, align 8
+  %236 = extractelement <2 x float> %233, i64 1
+  store float %236, ptr %y.i278.i, align 4
+  store <2 x float> %233, ptr %ref.tmp210.i, align 8
   call void @_ZN10ImDrawList17AddTriangleFilledERK6ImVec2S2_S2_j(ptr noundef nonnull align 8 dereferenceable(196) %call8.i86, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp204.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp206.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp210.i, i32 noundef %call.i.i93)
-  %242 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
-  %add213.i = fadd float %242, 1.000000e+01
-  %add214.i = fadd float %239, %add213.i
+  %237 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
+  %add213.i = fadd float %237, 1.000000e+01
+  %add214.i = fadd float %234, %add213.i
   store float %add214.i, ptr %ref.tmp215.i, align 4
   %y.i280.i = getelementptr inbounds i8, ptr %ref.tmp215.i, i64 4
   store float %add166.i, ptr %y.i280.i, align 4
-  %243 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9thickness, align 4
-  %244 = insertelement <2 x float> poison, float %242, i64 0
-  %245 = insertelement <2 x float> %244, float %add166.i, i64 1
-  %246 = insertelement <2 x float> poison, float %add214.i, i64 0
-  %247 = insertelement <2 x float> %246, float %243, i64 1
-  %248 = fadd <2 x float> %245, %247
-  store <2 x float> %248, ptr %ref.tmp216.i, align 8
+  %238 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9thickness, align 4
+  %239 = insertelement <2 x float> poison, float %237, i64 0
+  %240 = insertelement <2 x float> %239, float %add166.i, i64 1
+  %241 = insertelement <2 x float> poison, float %add214.i, i64 0
+  %242 = insertelement <2 x float> %241, float %238, i64 1
+  %243 = fadd <2 x float> %240, %242
+  store <2 x float> %243, ptr %ref.tmp216.i, align 8
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %call8.i86, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp215.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp216.i, i32 noundef %call.i.i93, float noundef 0.000000e+00, i32 noundef 0)
-  %249 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
-  %add219.i = fadd float %249, 1.000000e+01
+  %244 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
+  %add219.i = fadd float %244, 1.000000e+01
   %add220.i = fadd float %add214.i, %add219.i
   store float %add220.i, ptr %ref.tmp221.i, align 4
   %y.i282.i = getelementptr inbounds i8, ptr %ref.tmp221.i, i64 4
   store float %add166.i, ptr %y.i282.i, align 4
-  %250 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9thickness, align 4
-  %251 = insertelement <2 x float> poison, float %add220.i, i64 0
-  %252 = insertelement <2 x float> %251, float %add166.i, i64 1
-  %253 = insertelement <2 x float> poison, float %250, i64 0
-  %254 = insertelement <2 x float> %253, float %249, i64 1
-  %255 = fadd <2 x float> %252, %254
-  store <2 x float> %255, ptr %ref.tmp222.i, align 8
+  %245 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9thickness, align 4
+  %246 = insertelement <2 x float> poison, float %add220.i, i64 0
+  %247 = insertelement <2 x float> %246, float %add166.i, i64 1
+  %248 = insertelement <2 x float> poison, float %245, i64 0
+  %249 = insertelement <2 x float> %248, float %244, i64 1
+  %250 = fadd <2 x float> %247, %249
+  store <2 x float> %250, ptr %ref.tmp222.i, align 8
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %call8.i86, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp221.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp222.i, i32 noundef %call.i.i93, float noundef 0.000000e+00, i32 noundef 0)
   %add225.i = fadd float %add220.i, 2.000000e+01
   store float %add225.i, ptr %ref.tmp226.i, align 4
   %y.i284.i = getelementptr inbounds i8, ptr %ref.tmp226.i, i64 4
   store float %add166.i, ptr %y.i284.i, align 4
-  %256 = insertelement <2 x float> poison, float %add225.i, i64 0
-  %257 = insertelement <2 x float> %256, float %add166.i, i64 1
-  %258 = fadd <2 x float> %257, <float 1.000000e+00, float 1.000000e+00>
-  store <2 x float> %258, ptr %ref.tmp227.i, align 8
+  %251 = insertelement <2 x float> poison, float %add225.i, i64 0
+  %252 = insertelement <2 x float> %251, float %add166.i, i64 1
+  %253 = fadd <2 x float> %252, <float 1.000000e+00, float 1.000000e+00>
+  store <2 x float> %253, ptr %ref.tmp227.i, align 8
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %call8.i86, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp226.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp227.i, i32 noundef %call.i.i93, float noundef 0.000000e+00, i32 noundef 0)
-  %259 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
-  %add230.i = fadd float %add225.i, %259
+  %254 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
+  %add230.i = fadd float %add225.i, %254
   store float %add230.i, ptr %ref.tmp231.i, align 4
   %y.i286.i = getelementptr inbounds i8, ptr %ref.tmp231.i, i64 4
   store float %add166.i, ptr %y.i286.i, align 4
-  %260 = insertelement <2 x float> poison, float %259, i64 0
-  %261 = shufflevector <2 x float> %260, <2 x float> poison, <2 x i32> zeroinitializer
-  %262 = insertelement <2 x float> poison, float %add230.i, i64 0
-  %263 = insertelement <2 x float> %262, float %add166.i, i64 1
-  %264 = fadd <2 x float> %261, %263
-  store <2 x float> %264, ptr %ref.tmp232.i, align 8
+  %255 = insertelement <2 x float> poison, float %254, i64 0
+  %256 = shufflevector <2 x float> %255, <2 x float> poison, <2 x i32> zeroinitializer
+  %257 = insertelement <2 x float> poison, float %add230.i, i64 0
+  %258 = insertelement <2 x float> %257, float %add166.i, i64 1
+  %259 = fadd <2 x float> %256, %258
+  store <2 x float> %259, ptr %ref.tmp232.i, align 8
   call void @_ZN10ImDrawList23AddRectFilledMultiColorERK6ImVec2S2_jjjj(ptr noundef nonnull align 8 dereferenceable(196) %call8.i86, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp231.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp232.i, i32 noundef -16777216, i32 noundef -16776961, i32 noundef -16711681, i32 noundef -16711936)
-  %265 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
-  %add236.i = fadd float %265, 1.000000e+01
-  %266 = insertelement <2 x float> poison, float %add236.i, i64 0
-  %267 = shufflevector <2 x float> %266, <2 x float> poison, <2 x i32> zeroinitializer
-  %268 = fmul <2 x float> %267, <float 0x4026666660000000, float 3.000000e+00>
-  store <2 x float> %268, ptr %ref.tmp235.i, align 8
+  %260 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE2sz, align 4
+  %add236.i = fadd float %260, 1.000000e+01
+  %261 = insertelement <2 x float> poison, float %add236.i, i64 0
+  %262 = shufflevector <2 x float> %261, <2 x float> poison, <2 x i32> zeroinitializer
+  %263 = fmul <2 x float> %262, <float 0x4026666660000000, float 3.000000e+00>
+  store <2 x float> %263, ptr %ref.tmp235.i, align 8
   call void @_ZN5ImGui5DummyERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp235.i)
   call void @_ZN5ImGui12PopItemWidthEv()
   call void @_ZN5ImGui10EndTabItemEv()
@@ -3824,18 +3823,18 @@ if.end240.i:                                      ; preds = %for.end.i96, %if.th
   br i1 %call241.i, label %if.then242.i, label %if.end400.i
 
 if.then242.i:                                     ; preds = %if.end240.i
-  %269 = load atomic i8, ptr @_ZGVZL29ShowExampleAppCustomRenderingPbE6points acquire, align 8
-  %guard.uninitialized.i59 = icmp eq i8 %269, 0
+  %264 = load atomic i8, ptr @_ZGVZL29ShowExampleAppCustomRenderingPbE6points acquire, align 8
+  %guard.uninitialized.i59 = icmp eq i8 %264, 0
   br i1 %guard.uninitialized.i59, label %init.check.i83, label %init.end.i60, !prof !4
 
 init.check.i83:                                   ; preds = %if.then242.i
-  %270 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL29ShowExampleAppCustomRenderingPbE6points) #29
-  %tobool243.not.i = icmp eq i32 %270, 0
+  %265 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL29ShowExampleAppCustomRenderingPbE6points) #29
+  %tobool243.not.i = icmp eq i32 %265, 0
   br i1 %tobool243.not.i, label %init.end.i60, label %init.i84
 
 init.i84:                                         ; preds = %init.check.i83
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZL29ShowExampleAppCustomRenderingPbE6points, i8 0, i64 16, i1 false)
-  %271 = call i32 @__cxa_atexit(ptr nonnull @_ZN8ImVectorI6ImVec2ED2Ev, ptr nonnull @_ZZL29ShowExampleAppCustomRenderingPbE6points, ptr nonnull @__dso_handle) #29
+  %266 = call i32 @__cxa_atexit(ptr nonnull @_ZN8ImVectorI6ImVec2ED2Ev, ptr nonnull @_ZZL29ShowExampleAppCustomRenderingPbE6points, ptr nonnull @__dso_handle) #29
   call void @__cxa_guard_release(ptr nonnull @_ZGVZL29ShowExampleAppCustomRenderingPbE6points) #29
   br label %init.end.i60
 
@@ -3847,9 +3846,9 @@ init.end.i60:                                     ; preds = %init.i84, %init.che
   store <2 x float> %call246.i, ptr %canvas_p0.i, align 8
   %call247.i = call <2 x float> @_ZN5ImGui21GetContentRegionAvailEv()
   store <2 x float> %call247.i, ptr %canvas_sz.i, align 8
-  %272 = extractelement <2 x float> %call247.i, i64 0
-  %cmp249.i = fcmp olt float %272, 5.000000e+01
-  %273 = extractelement <2 x float> %call247.i, i64 1
+  %267 = extractelement <2 x float> %call247.i, i64 0
+  %cmp249.i = fcmp olt float %267, 5.000000e+01
+  %268 = extractelement <2 x float> %call247.i, i64 1
   br i1 %cmp249.i, label %if.then250.i, label %if.end252.i
 
 if.then250.i:                                     ; preds = %init.end.i60
@@ -3857,9 +3856,9 @@ if.then250.i:                                     ; preds = %init.end.i60
   br label %if.end252.i
 
 if.end252.i:                                      ; preds = %if.then250.i, %init.end.i60
-  %274 = phi float [ 5.000000e+01, %if.then250.i ], [ %272, %init.end.i60 ]
+  %269 = phi float [ 5.000000e+01, %if.then250.i ], [ %267, %init.end.i60 ]
   %y253.i = getelementptr inbounds i8, ptr %canvas_sz.i, i64 4
-  %cmp254.i = fcmp olt float %273, 5.000000e+01
+  %cmp254.i = fcmp olt float %268, 5.000000e+01
   br i1 %cmp254.i, label %if.then255.i, label %if.end257.i
 
 if.then255.i:                                     ; preds = %if.end252.i
@@ -3867,14 +3866,14 @@ if.then255.i:                                     ; preds = %if.end252.i
   br label %if.end257.i
 
 if.end257.i:                                      ; preds = %if.then255.i, %if.end252.i
-  %275 = phi float [ 5.000000e+01, %if.then255.i ], [ %273, %if.end252.i ]
+  %270 = phi float [ 5.000000e+01, %if.then255.i ], [ %268, %if.end252.i ]
   %y261.i = getelementptr inbounds i8, ptr %canvas_p0.i, i64 4
   %y.i289.i = getelementptr inbounds i8, ptr %canvas_p1.i, i64 4
-  %276 = load <2 x float>, ptr %canvas_p0.i, align 8
-  %277 = insertelement <2 x float> poison, float %274, i64 0
-  %278 = insertelement <2 x float> %277, float %275, i64 1
-  %279 = fadd <2 x float> %278, %276
-  store <2 x float> %279, ptr %canvas_p1.i, align 8
+  %271 = load <2 x float>, ptr %canvas_p0.i, align 8
+  %272 = insertelement <2 x float> poison, float %269, i64 0
+  %273 = insertelement <2 x float> %272, float %270, i64 1
+  %274 = fadd <2 x float> %273, %271
+  store <2 x float> %274, ptr %canvas_p1.i, align 8
   %call264.i = call noundef nonnull align 8 dereferenceable(14568) ptr @_ZN5ImGui5GetIOEv()
   %call266.i = call noundef ptr @_ZN5ImGui17GetWindowDrawListEv()
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %call266.i, ptr noundef nonnull align 4 dereferenceable(8) %canvas_p0.i, ptr noundef nonnull align 4 dereferenceable(8) %canvas_p1.i, i32 noundef -13487566, float noundef 0.000000e+00, i32 noundef 0)
@@ -3882,16 +3881,16 @@ if.end257.i:                                      ; preds = %if.then255.i, %if.e
   %call267.i = call noundef zeroext i1 @_ZN5ImGui15InvisibleButtonEPKcRK6ImVec2i(ptr noundef nonnull @.str.1902, ptr noundef nonnull align 4 dereferenceable(8) %canvas_sz.i, i32 noundef 3)
   %call268.i = call noundef zeroext i1 @_ZN5ImGui13IsItemHoveredEi(i32 noundef 0)
   %call270.i = call noundef zeroext i1 @_ZN5ImGui12IsItemActiveEv()
-  %280 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9scrolling.0, align 4
-  %281 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9scrolling.1, align 4
-  %282 = load <2 x float>, ptr %canvas_p0.i, align 8
-  %283 = insertelement <2 x float> poison, float %280, i64 0
-  %284 = insertelement <2 x float> %283, float %281, i64 1
-  %285 = fadd <2 x float> %282, %284
+  %275 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9scrolling.0, align 4
+  %276 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9scrolling.1, align 4
+  %277 = load <2 x float>, ptr %canvas_p0.i, align 8
+  %278 = insertelement <2 x float> poison, float %275, i64 0
+  %279 = insertelement <2 x float> %278, float %276, i64 1
+  %280 = fadd <2 x float> %277, %279
   %MousePos.i = getelementptr inbounds i8, ptr %call264.i, i64 3648
-  %286 = load <2 x float>, ptr %MousePos.i, align 8
-  %287 = fsub <2 x float> %286, %285
-  store <2 x float> %287, ptr %mouse_pos_in_canvas.i, align 8
+  %281 = load <2 x float>, ptr %MousePos.i, align 8
+  %282 = fsub <2 x float> %281, %280
+  store <2 x float> %282, ptr %mouse_pos_in_canvas.i, align 8
   br i1 %call268.i, label %land.lhs.true.i82, label %if.end288.i
 
 land.lhs.true.i82:                                ; preds = %if.end257.i
@@ -3913,13 +3912,13 @@ if.end288.i:                                      ; preds = %land.lhs.true285.i,
   br i1 %.b236239.pr.i, label %if.then290.i, label %if.end295.i
 
 if.then290.i:                                     ; preds = %if.end288.i, %if.then287.i, %land.lhs.true.i82
-  %288 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
-  %289 = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, align 8
-  %290 = sext i32 %289 to i64
-  %291 = getelementptr %struct.ImVec2, ptr %288, i64 %290
-  %arrayidx.i.i81 = getelementptr i8, ptr %291, i64 -8
-  %292 = load i64, ptr %mouse_pos_in_canvas.i, align 8
-  store i64 %292, ptr %arrayidx.i.i81, align 4
+  %283 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
+  %284 = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, align 8
+  %285 = sext i32 %284 to i64
+  %286 = getelementptr %struct.ImVec2, ptr %283, i64 %285
+  %arrayidx.i.i81 = getelementptr i8, ptr %286, i64 -8
+  %287 = load i64, ptr %mouse_pos_in_canvas.i, align 8
+  store i64 %287, ptr %arrayidx.i.i81, align 4
   %call292.i = call noundef zeroext i1 @_ZN5ImGui11IsMouseDownEi(i32 noundef 0)
   br i1 %call292.i, label %if.end295.i, label %if.then293.i
 
@@ -3931,29 +3930,29 @@ if.end295.i:                                      ; preds = %if.then293.i, %if.t
   br i1 %call270.i, label %land.lhs.true299.i, label %if.end307.i
 
 land.lhs.true299.i:                               ; preds = %if.end295.i
-  %293 = load i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE23opt_enable_context_menu, align 1
-  %tobool296.i = trunc i8 %293 to i1
+  %288 = load i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE23opt_enable_context_menu, align 1
+  %tobool296.i = trunc i8 %288 to i1
   %cond297.i = select i1 %tobool296.i, float -1.000000e+00, float 0.000000e+00
   %call300.i = call noundef zeroext i1 @_ZN5ImGui15IsMouseDraggingEif(i32 noundef 1, float noundef %cond297.i)
   br i1 %call300.i, label %if.then301.i, label %if.end307.i
 
 if.then301.i:                                     ; preds = %land.lhs.true299.i
   %MouseDelta.i = getelementptr inbounds i8, ptr %call264.i, i64 224
-  %294 = load float, ptr %MouseDelta.i, align 8
-  %295 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9scrolling.0, align 4
-  %add303.i = fadd float %294, %295
+  %289 = load float, ptr %MouseDelta.i, align 8
+  %290 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9scrolling.0, align 4
+  %add303.i = fadd float %289, %290
   store float %add303.i, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9scrolling.0, align 4
   %y305.i = getelementptr inbounds i8, ptr %call264.i, i64 228
-  %296 = load float, ptr %y305.i, align 4
-  %297 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9scrolling.1, align 4
-  %add306.i = fadd float %296, %297
+  %291 = load float, ptr %y305.i, align 4
+  %292 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9scrolling.1, align 4
+  %add306.i = fadd float %291, %292
   store float %add306.i, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9scrolling.1, align 4
   br label %if.end307.i
 
 if.end307.i:                                      ; preds = %if.then301.i, %land.lhs.true299.i, %if.end295.i
   %call308.i = call <2 x float> @_ZN5ImGui17GetMouseDragDeltaEif(i32 noundef 1, float noundef -1.000000e+00)
-  %298 = load i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE23opt_enable_context_menu, align 1
-  %tobool309.i = trunc i8 %298 to i1
+  %293 = load i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE23opt_enable_context_menu, align 1
+  %tobool309.i = trunc i8 %293 to i1
   %drag_delta.sroa.0.0.vec.extract.i = extractelement <2 x float> %call308.i, i64 0
   %cmp312.i = fcmp oeq float %drag_delta.sroa.0.0.vec.extract.i, 0.000000e+00
   %or.cond.i61 = select i1 %tobool309.i, i1 %cmp312.i, i1 false
@@ -3977,17 +3976,17 @@ if.then319.i:                                     ; preds = %if.end317.i
 
 if.then321.i:                                     ; preds = %if.then319.i
   %sub323.i = add nsw i32 %.pre.i64, -2
-  %299 = load i32, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 1), align 4
-  %cmp.i.i66 = icmp slt i32 %299, %sub323.i
+  %294 = load i32, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 1), align 4
+  %cmp.i.i66 = icmp slt i32 %294, %sub323.i
   br i1 %cmp.i.i66, label %if.then.i.i67, label %_ZN8ImVectorI6ImVec2E6resizeEi.exit.i
 
 if.then.i.i67:                                    ; preds = %if.then321.i
-  %tobool.not.i.i.i68 = icmp eq i32 %299, 0
+  %tobool.not.i.i.i68 = icmp eq i32 %294, 0
   br i1 %tobool.not.i.i.i68, label %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i, label %cond.true.i.i.i69
 
 cond.true.i.i.i69:                                ; preds = %if.then.i.i67
-  %div.i.i.i70 = sdiv i32 %299, 2
-  %add.i.i.i71 = add nsw i32 %div.i.i.i70, %299
+  %div.i.i.i70 = sdiv i32 %294, 2
+  %add.i.i.i71 = add nsw i32 %div.i.i.i70, %294
   br label %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i
 
 _ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i: ; preds = %cond.true.i.i.i69, %if.then.i.i67
@@ -3996,17 +3995,17 @@ _ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i: ; preds = %cond.true.i.i.i69,
   %conv.i.i.i74 = sext i32 %cond7.i.i.i73 to i64
   %mul.i.i.i75 = shl nsw i64 %conv.i.i.i74, 3
   %call.i.i.i76 = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i.i75)
-  %300 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
-  %tobool.not.i4.i.i = icmp eq ptr %300, null
+  %295 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
+  %tobool.not.i4.i.i = icmp eq ptr %295, null
   br i1 %tobool.not.i4.i.i, label %if.end7.i.i.i80, label %if.then2.i.i.i77
 
 if.then2.i.i.i77:                                 ; preds = %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i
-  %301 = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, align 8
-  %conv4.i.i.i78 = sext i32 %301 to i64
+  %296 = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, align 8
+  %conv4.i.i.i78 = sext i32 %296 to i64
   %mul5.i.i.i79 = shl nsw i64 %conv4.i.i.i78, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i.i76, ptr nonnull align 4 %300, i64 %mul5.i.i.i79, i1 false)
-  %302 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
-  call void @_ZN5ImGui7MemFreeEPv(ptr noundef %302)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i.i76, ptr nonnull align 4 %295, i64 %mul5.i.i.i79, i1 false)
+  %297 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
+  call void @_ZN5ImGui7MemFreeEPv(ptr noundef %297)
   br label %if.end7.i.i.i80
 
 if.end7.i.i.i80:                                  ; preds = %if.then2.i.i.i77, %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i
@@ -4019,26 +4018,26 @@ _ZN8ImVectorI6ImVec2E6resizeEi.exit.i:            ; preds = %if.end7.i.i.i80, %i
   br label %if.end324.i
 
 if.end324.i:                                      ; preds = %_ZN8ImVectorI6ImVec2E6resizeEi.exit.i, %if.then319.i
-  %303 = phi i32 [ %sub323.i, %_ZN8ImVectorI6ImVec2E6resizeEi.exit.i ], [ %.pre.i64, %if.then319.i ]
+  %298 = phi i32 [ %sub323.i, %_ZN8ImVectorI6ImVec2E6resizeEi.exit.i ], [ %.pre.i64, %if.then319.i ]
   store i1 false, ptr @_ZZL29ShowExampleAppCustomRenderingPbE11adding_line, align 1
-  %cmp325.i = icmp sgt i32 %303, 0
+  %cmp325.i = icmp sgt i32 %298, 0
   %call326.i = call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_bb(ptr noundef nonnull @.str.1904, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext %cmp325.i)
   %.pre16.i = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, align 8
   br i1 %call326.i, label %if.then327.i, label %if.end330.i
 
 if.then327.i:                                     ; preds = %if.end324.i
   %sub329.i = add nsw i32 %.pre16.i, -2
-  %304 = load i32, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 1), align 4
-  %cmp.i292.i = icmp slt i32 %304, %sub329.i
+  %299 = load i32, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 1), align 4
+  %cmp.i292.i = icmp slt i32 %299, %sub329.i
   br i1 %cmp.i292.i, label %if.then.i293.i, label %_ZN8ImVectorI6ImVec2E6resizeEi.exit309.i
 
 if.then.i293.i:                                   ; preds = %if.then327.i
-  %tobool.not.i.i294.i = icmp eq i32 %304, 0
+  %tobool.not.i.i294.i = icmp eq i32 %299, 0
   br i1 %tobool.not.i.i294.i, label %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i298.i, label %cond.true.i.i295.i
 
 cond.true.i.i295.i:                               ; preds = %if.then.i293.i
-  %div.i.i296.i = sdiv i32 %304, 2
-  %add.i.i297.i = add nsw i32 %div.i.i296.i, %304
+  %div.i.i296.i = sdiv i32 %299, 2
+  %add.i.i297.i = add nsw i32 %div.i.i296.i, %299
   br label %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i298.i
 
 _ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i298.i: ; preds = %cond.true.i.i295.i, %if.then.i293.i
@@ -4047,17 +4046,17 @@ _ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i298.i: ; preds = %cond.true.i.i29
   %conv.i.i301.i = sext i32 %cond7.i.i300.i to i64
   %mul.i.i302.i = shl nsw i64 %conv.i.i301.i, 3
   %call.i.i303.i = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i302.i)
-  %305 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
-  %tobool.not.i4.i304.i = icmp eq ptr %305, null
+  %300 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
+  %tobool.not.i4.i304.i = icmp eq ptr %300, null
   br i1 %tobool.not.i4.i304.i, label %if.end7.i.i308.i, label %if.then2.i.i305.i
 
 if.then2.i.i305.i:                                ; preds = %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i298.i
-  %306 = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, align 8
-  %conv4.i.i306.i = sext i32 %306 to i64
+  %301 = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, align 8
+  %conv4.i.i306.i = sext i32 %301 to i64
   %mul5.i.i307.i = shl nsw i64 %conv4.i.i306.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i303.i, ptr nonnull align 4 %305, i64 %mul5.i.i307.i, i1 false)
-  %307 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
-  call void @_ZN5ImGui7MemFreeEPv(ptr noundef %307)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i303.i, ptr nonnull align 4 %300, i64 %mul5.i.i307.i, i1 false)
+  %302 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
+  call void @_ZN5ImGui7MemFreeEPv(ptr noundef %302)
   br label %if.end7.i.i308.i
 
 if.end7.i.i308.i:                                 ; preds = %if.then2.i.i305.i, %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i298.i
@@ -4070,20 +4069,20 @@ _ZN8ImVectorI6ImVec2E6resizeEi.exit309.i:         ; preds = %if.end7.i.i308.i, %
   br label %if.end330.i
 
 if.end330.i:                                      ; preds = %_ZN8ImVectorI6ImVec2E6resizeEi.exit309.i, %if.end324.i
-  %308 = phi i32 [ %sub329.i, %_ZN8ImVectorI6ImVec2E6resizeEi.exit309.i ], [ %.pre16.i, %if.end324.i ]
-  %cmp331.i = icmp sgt i32 %308, 0
+  %303 = phi i32 [ %sub329.i, %_ZN8ImVectorI6ImVec2E6resizeEi.exit309.i ], [ %.pre16.i, %if.end324.i ]
+  %cmp331.i = icmp sgt i32 %303, 0
   %call332.i = call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_bb(ptr noundef nonnull @.str.1905, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext %cmp331.i)
   br i1 %call332.i, label %if.then333.i, label %if.end334.i
 
 if.then333.i:                                     ; preds = %if.end330.i
-  %309 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
-  %tobool.not.i.i65 = icmp eq ptr %309, null
+  %304 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
+  %tobool.not.i.i65 = icmp eq ptr %304, null
   br i1 %tobool.not.i.i65, label %if.end334.i, label %if.then.i310.i
 
 if.then.i310.i:                                   ; preds = %if.then333.i
   store i32 0, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 1), align 4
   store i32 0, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, align 8
-  call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %309)
+  call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %304)
   store ptr null, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
   br label %if.end334.i
 
@@ -4093,15 +4092,15 @@ if.end334.i:                                      ; preds = %if.then.i310.i, %if
 
 if.end335.i:                                      ; preds = %if.end334.i, %if.end317.i
   call void @_ZN10ImDrawList12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 8 dereferenceable(196) %call266.i, ptr noundef nonnull align 4 dereferenceable(8) %canvas_p0.i, ptr noundef nonnull align 4 dereferenceable(8) %canvas_p1.i, i1 noundef zeroext true)
-  %310 = load i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE15opt_enable_grid, align 1
-  %tobool336.i = trunc i8 %310 to i1
+  %305 = load i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE15opt_enable_grid, align 1
+  %tobool336.i = trunc i8 %305 to i1
   br i1 %tobool336.i, label %if.then337.i, label %if.end372.i
 
 if.then337.i:                                     ; preds = %if.end335.i
-  %311 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9scrolling.0, align 4
-  %call339.i = call float @fmodf(float noundef %311, float noundef 6.400000e+01) #29
-  %312 = load float, ptr %canvas_sz.i, align 8
-  %cmp3428.i = fcmp olt float %call339.i, %312
+  %306 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9scrolling.0, align 4
+  %call339.i = call float @fmodf(float noundef %306, float noundef 6.400000e+01) #29
+  %307 = load float, ptr %canvas_sz.i, align 8
+  %cmp3428.i = fcmp olt float %call339.i, %307
   br i1 %cmp3428.i, label %for.body343.lr.ph.i, label %for.end354.i
 
 for.body343.lr.ph.i:                              ; preds = %if.then337.i
@@ -4111,25 +4110,25 @@ for.body343.lr.ph.i:                              ; preds = %if.then337.i
 
 for.body343.i:                                    ; preds = %for.body343.i, %for.body343.lr.ph.i
   %x338.09.i = phi float [ %call339.i, %for.body343.lr.ph.i ], [ %add353.i, %for.body343.i ]
-  %313 = load float, ptr %canvas_p0.i, align 8
-  %add346.i = fadd float %x338.09.i, %313
-  %314 = load float, ptr %y261.i, align 4
+  %308 = load float, ptr %canvas_p0.i, align 8
+  %add346.i = fadd float %x338.09.i, %308
+  %309 = load float, ptr %y261.i, align 4
   store float %add346.i, ptr %ref.tmp344.i, align 4
-  store float %314, ptr %y.i311.i, align 4
-  %315 = load float, ptr %y.i289.i, align 4
+  store float %309, ptr %y.i311.i, align 4
+  %310 = load float, ptr %y.i289.i, align 4
   store float %add346.i, ptr %ref.tmp348.i, align 4
-  store float %315, ptr %y.i312.i, align 4
+  store float %310, ptr %y.i312.i, align 4
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %call266.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp344.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp348.i, i32 noundef 684247240, float noundef 1.000000e+00)
   %add353.i = fadd float %x338.09.i, 6.400000e+01
-  %316 = load float, ptr %canvas_sz.i, align 8
-  %cmp342.i = fcmp olt float %add353.i, %316
+  %311 = load float, ptr %canvas_sz.i, align 8
+  %cmp342.i = fcmp olt float %add353.i, %311
   br i1 %cmp342.i, label %for.body343.i, label %for.end354.i, !llvm.loop !13
 
 for.end354.i:                                     ; preds = %for.body343.i, %if.then337.i
-  %317 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9scrolling.1, align 4
-  %call356.i = call float @fmodf(float noundef %317, float noundef 6.400000e+01) #29
-  %318 = load float, ptr %y253.i, align 4
-  %cmp35910.i = fcmp olt float %call356.i, %318
+  %312 = load float, ptr @_ZZL29ShowExampleAppCustomRenderingPbE9scrolling.1, align 4
+  %call356.i = call float @fmodf(float noundef %312, float noundef 6.400000e+01) #29
+  %313 = load float, ptr %y253.i, align 4
+  %cmp35910.i = fcmp olt float %call356.i, %313
   br i1 %cmp35910.i, label %for.body360.lr.ph.i, label %if.end372.i
 
 for.body360.lr.ph.i:                              ; preds = %for.end354.i
@@ -4139,42 +4138,42 @@ for.body360.lr.ph.i:                              ; preds = %for.end354.i
 
 for.body360.i:                                    ; preds = %for.body360.i, %for.body360.lr.ph.i
   %y355.011.i = phi float [ %call356.i, %for.body360.lr.ph.i ], [ %add370.i, %for.body360.i ]
-  %319 = load float, ptr %canvas_p0.i, align 8
-  %320 = load float, ptr %y261.i, align 4
-  %add364.i = fadd float %y355.011.i, %320
-  store float %319, ptr %ref.tmp361.i, align 4
+  %314 = load float, ptr %canvas_p0.i, align 8
+  %315 = load float, ptr %y261.i, align 4
+  %add364.i = fadd float %y355.011.i, %315
+  store float %314, ptr %ref.tmp361.i, align 4
   store float %add364.i, ptr %y.i313.i, align 4
-  %321 = load float, ptr %canvas_p1.i, align 8
-  store float %321, ptr %ref.tmp365.i, align 4
+  %316 = load float, ptr %canvas_p1.i, align 8
+  store float %316, ptr %ref.tmp365.i, align 4
   store float %add364.i, ptr %y.i314.i, align 4
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %call266.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp361.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp365.i, i32 noundef 684247240, float noundef 1.000000e+00)
   %add370.i = fadd float %y355.011.i, 6.400000e+01
-  %322 = load float, ptr %y253.i, align 4
-  %cmp359.i = fcmp olt float %add370.i, %322
+  %317 = load float, ptr %y253.i, align 4
+  %cmp359.i = fcmp olt float %add370.i, %317
   br i1 %cmp359.i, label %for.body360.i, label %if.end372.i, !llvm.loop !14
 
 if.end372.i:                                      ; preds = %for.body360.i, %for.end354.i, %if.end335.i
-  %323 = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, align 8
-  %cmp37512.i = icmp sgt i32 %323, 0
+  %318 = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, align 8
+  %cmp37512.i = icmp sgt i32 %318, 0
   br i1 %cmp37512.i, label %for.body376.i, label %for.end399.i
 
 for.body376.i:                                    ; preds = %if.end372.i, %for.body376.i
   %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %for.body376.i ], [ 0, %if.end372.i ]
-  %324 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
-  %arrayidx.i315.i = getelementptr inbounds %struct.ImVec2, ptr %324, i64 %indvars.iv.i62
-  %325 = load <2 x float>, ptr %arrayidx.i315.i, align 4
-  %326 = fadd <2 x float> %285, %325
-  store <2 x float> %326, ptr %ref.tmp377.i, align 8
-  %327 = or disjoint i64 %indvars.iv.i62, 1
-  %arrayidx.i320.i = getelementptr inbounds %struct.ImVec2, ptr %324, i64 %327
-  %328 = load <2 x float>, ptr %arrayidx.i320.i, align 4
-  %329 = fadd <2 x float> %285, %328
-  store <2 x float> %329, ptr %ref.tmp386.i, align 8
+  %319 = load ptr, ptr getelementptr inbounds (%struct.ImVector.10, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, i64 0, i32 2), align 8
+  %arrayidx.i315.i = getelementptr inbounds %struct.ImVec2, ptr %319, i64 %indvars.iv.i62
+  %320 = load <2 x float>, ptr %arrayidx.i315.i, align 4
+  %321 = fadd <2 x float> %280, %320
+  store <2 x float> %321, ptr %ref.tmp377.i, align 8
+  %322 = or disjoint i64 %indvars.iv.i62, 1
+  %arrayidx.i320.i = getelementptr inbounds %struct.ImVec2, ptr %319, i64 %322
+  %323 = load <2 x float>, ptr %arrayidx.i320.i, align 4
+  %324 = fadd <2 x float> %280, %323
+  store <2 x float> %324, ptr %ref.tmp386.i, align 8
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %call266.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp377.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp386.i, i32 noundef -16711681, float noundef 2.000000e+00)
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 2
-  %330 = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, align 8
-  %331 = trunc nuw i64 %indvars.iv.next.i63 to i32
-  %cmp375.i = icmp sgt i32 %330, %331
+  %325 = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, align 8
+  %326 = trunc nuw i64 %indvars.iv.next.i63 to i32
+  %cmp375.i = icmp sgt i32 %325, %326
   br i1 %cmp375.i, label %for.body376.i, label %for.end399.i, !llvm.loop !15
 
 for.end399.i:                                     ; preds = %for.body376.i, %if.end372.i
@@ -4221,28 +4220,28 @@ if.then.i327.i:                                   ; preds = %_ZL10HelpMarkerPKc.
 _ZL10HelpMarkerPKc.exit330.i:                     ; preds = %if.then.i327.i, %_ZL10HelpMarkerPKc.exit.i
   %call405.i = call <2 x float> @_ZN5ImGui12GetWindowPosEv()
   %call406.i = call <2 x float> @_ZN5ImGui13GetWindowSizeEv()
-  %332 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %call406.i, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %call405.i)
-  store <2 x float> %332, ptr %window_center.i, align 8
-  %333 = load i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE7draw_bg, align 1
-  %tobool413.i = trunc i8 %333 to i1
+  %327 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %call406.i, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %call405.i)
+  store <2 x float> %327, ptr %window_center.i, align 8
+  %328 = load i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE7draw_bg, align 1
+  %tobool413.i = trunc i8 %328 to i1
   br i1 %tobool413.i, label %if.then414.i, label %if.end418.i
 
 if.then414.i:                                     ; preds = %_ZL10HelpMarkerPKc.exit330.i
   %call415.i = call noundef ptr @_ZN5ImGui21GetBackgroundDrawListEv()
-  %334 = extractelement <2 x float> %call406.i, i64 0
-  %mul417.i = fmul float %334, 0x3FE3333340000000
+  %329 = extractelement <2 x float> %call406.i, i64 0
+  %mul417.i = fmul float %329, 0x3FE3333340000000
   call void @_ZN10ImDrawList9AddCircleERK6ImVec2fjif(ptr noundef nonnull align 8 dereferenceable(196) %call415.i, ptr noundef nonnull align 4 dereferenceable(8) %window_center.i, float noundef %mul417.i, i32 noundef -939523841, i32 noundef 0, float noundef 1.400000e+01)
   br label %if.end418.i
 
 if.end418.i:                                      ; preds = %if.then414.i, %_ZL10HelpMarkerPKc.exit330.i
-  %335 = load i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE7draw_fg, align 1
-  %tobool419.i = trunc i8 %335 to i1
+  %330 = load i8, ptr @_ZZL29ShowExampleAppCustomRenderingPbE7draw_fg, align 1
+  %tobool419.i = trunc i8 %330 to i1
   br i1 %tobool419.i, label %if.then420.i, label %if.end424.i
 
 if.then420.i:                                     ; preds = %if.end418.i
   %call421.i = call noundef ptr @_ZN5ImGui21GetForegroundDrawListEv()
-  %336 = extractelement <2 x float> %call406.i, i64 1
-  %mul423.i = fmul float %336, 0x3FE3333340000000
+  %331 = extractelement <2 x float> %call406.i, i64 1
+  %mul423.i = fmul float %331, 0x3FE3333340000000
   call void @_ZN10ImDrawList9AddCircleERK6ImVec2fjif(ptr noundef nonnull align 8 dereferenceable(196) %call421.i, ptr noundef nonnull align 4 dereferenceable(8) %window_center.i, float noundef %mul423.i, i32 noundef -939458816, i32 noundef 0, float noundef 1.000000e+01)
   br label %if.end424.i
 
@@ -4260,13 +4259,13 @@ if.then427.i:                                     ; preds = %if.end425.i
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1913)
   %call431.i = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
   store <2 x float> %call431.i, ptr %ref.tmp432.i, align 8
-  %337 = fadd <2 x float> %call431.i, <float 5.000000e+01, float 5.000000e+01>
-  store <2 x float> %337, ptr %ref.tmp435.i, align 8
+  %332 = fadd <2 x float> %call431.i, <float 5.000000e+01, float 5.000000e+01>
+  store <2 x float> %332, ptr %ref.tmp435.i, align 8
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %call429.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp432.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp435.i, i32 noundef -65536, float noundef 0.000000e+00, i32 noundef 0)
-  %338 = fadd <2 x float> %call431.i, <float 2.500000e+01, float 2.500000e+01>
-  store <2 x float> %338, ptr %ref.tmp440.i, align 8
-  %339 = fadd <2 x float> %call431.i, <float 7.500000e+01, float 7.500000e+01>
-  store <2 x float> %339, ptr %ref.tmp445.i, align 8
+  %333 = fadd <2 x float> %call431.i, <float 2.500000e+01, float 2.500000e+01>
+  store <2 x float> %333, ptr %ref.tmp440.i, align 8
+  %334 = fadd <2 x float> %call431.i, <float 7.500000e+01, float 7.500000e+01>
+  store <2 x float> %334, ptr %ref.tmp445.i, align 8
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %call429.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp440.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp445.i, i32 noundef -16776961, float noundef 0.000000e+00, i32 noundef 0)
   store <2 x float> <float 7.500000e+01, float 7.500000e+01>, ptr %ref.tmp450.i, align 8
   call void @_ZN5ImGui5DummyERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp450.i)
@@ -4278,14 +4277,14 @@ if.then427.i:                                     ; preds = %if.end425.i
   call void @_ZN18ImDrawListSplitter5SplitEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %_Splitter.i.i, ptr noundef nonnull %call429.i, i32 noundef 2)
   call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %_Splitter.i.i, ptr noundef nonnull %call429.i, i32 noundef 1)
   store <2 x float> %call452.i, ptr %ref.tmp453.i, align 8
-  %340 = fadd <2 x float> %call452.i, <float 5.000000e+01, float 5.000000e+01>
-  store <2 x float> %340, ptr %ref.tmp456.i, align 8
+  %335 = fadd <2 x float> %call452.i, <float 5.000000e+01, float 5.000000e+01>
+  store <2 x float> %335, ptr %ref.tmp456.i, align 8
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %call429.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp453.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp456.i, i32 noundef -65536, float noundef 0.000000e+00, i32 noundef 0)
   call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %_Splitter.i.i, ptr noundef nonnull %call429.i, i32 noundef 0)
-  %341 = fadd <2 x float> %call452.i, <float 2.500000e+01, float 2.500000e+01>
-  store <2 x float> %341, ptr %ref.tmp461.i, align 8
-  %342 = fadd <2 x float> %call452.i, <float 7.500000e+01, float 7.500000e+01>
-  store <2 x float> %342, ptr %ref.tmp466.i, align 8
+  %336 = fadd <2 x float> %call452.i, <float 2.500000e+01, float 2.500000e+01>
+  store <2 x float> %336, ptr %ref.tmp461.i, align 8
+  %337 = fadd <2 x float> %call452.i, <float 7.500000e+01, float 7.500000e+01>
+  store <2 x float> %337, ptr %ref.tmp466.i, align 8
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %call429.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp461.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp466.i, i32 noundef -16776961, float noundef 0.000000e+00, i32 noundef 0)
   call void @_ZN18ImDrawListSplitter5MergeEP10ImDrawList(ptr noundef nonnull align 8 dereferenceable(24) %_Splitter.i.i, ptr noundef nonnull %call429.i)
   store <2 x float> <float 7.500000e+01, float 7.500000e+01>, ptr %ref.tmp471.i, align 8
@@ -4371,19 +4370,19 @@ _ZL29ShowExampleAppCustomRenderingPb.exit:        ; preds = %do.end.i, %if.end47
   br label %if.end9
 
 if.end9:                                          ; preds = %_ZL29ShowExampleAppCustomRenderingPb.exit, %if.end6
-  %343 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE12show_app_log, align 1
-  %tobool10 = trunc i8 %343 to i1
+  %338 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE12show_app_log, align 1
+  %tobool10 = trunc i8 %338 to i1
   br i1 %tobool10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i98)
-  %344 = load atomic i8, ptr @_ZGVZL17ShowExampleAppLogPbE3log acquire, align 8
-  %guard.uninitialized.i99 = icmp eq i8 %344, 0
+  %339 = load atomic i8, ptr @_ZGVZL17ShowExampleAppLogPbE3log acquire, align 8
+  %guard.uninitialized.i99 = icmp eq i8 %339, 0
   br i1 %guard.uninitialized.i99, label %init.check.i112, label %init.end.i100, !prof !4
 
 init.check.i112:                                  ; preds = %if.then11
-  %345 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL17ShowExampleAppLogPbE3log) #29
-  %tobool.not.i113 = icmp eq i32 %345, 0
+  %340 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL17ShowExampleAppLogPbE3log) #29
+  %tobool.not.i113 = icmp eq i32 %340, 0
   br i1 %tobool.not.i113, label %init.end.i100, label %init.i114
 
 init.i114:                                        ; preds = %init.check.i112
@@ -4391,7 +4390,7 @@ init.i114:                                        ; preds = %init.check.i112
           to label %invoke.cont.i116 unwind label %lpad.i115
 
 invoke.cont.i116:                                 ; preds = %init.i114
-  %346 = call i32 @__cxa_atexit(ptr nonnull @_ZN13ExampleAppLogD2Ev, ptr nonnull @_ZZL17ShowExampleAppLogPbE3log, ptr nonnull @__dso_handle) #29
+  %341 = call i32 @__cxa_atexit(ptr nonnull @_ZN13ExampleAppLogD2Ev, ptr nonnull @_ZZL17ShowExampleAppLogPbE3log, ptr nonnull @__dso_handle) #29
   call void @__cxa_guard_release(ptr nonnull @_ZGVZL17ShowExampleAppLogPbE3log) #29
   br label %init.end.i100
 
@@ -4399,17 +4398,17 @@ init.end.i100:                                    ; preds = %invoke.cont.i116, %
   store <2 x float> <float 5.000000e+02, float 4.000000e+02>, ptr %ref.tmp.i98, align 8
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i98, i32 noundef 4)
   %call.i102 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.1785, ptr noundef nonnull @_ZZN5ImGui14ShowDemoWindowEPbE12show_app_log, i32 noundef 0)
-  %347 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp.not.i103 = icmp eq ptr %347, null
+  %342 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp.not.i103 = icmp eq ptr %342, null
   br i1 %cmp.not.i103, label %do.end.i105, label %if.then.i104
 
 if.then.i104:                                     ; preds = %init.end.i100
-  %348 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %347(ptr noundef nonnull @.str.3, i32 noundef 7409, ptr noundef nonnull @.str.1786, ptr noundef %348)
+  %343 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %342(ptr noundef nonnull @.str.3, i32 noundef 7409, ptr noundef nonnull @.str.1786, ptr noundef %343)
   br label %do.end.i105
 
 lpad.i115:                                        ; preds = %init.i114
-  %349 = landingpad { ptr, i32 }
+  %344 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZL17ShowExampleAppLogPbE3log) #29
   br label %common.resume
@@ -4423,21 +4422,21 @@ for.body.preheader.i:                             ; preds = %do.end.i105
   br label %for.body.i108
 
 for.body.i108:                                    ; preds = %for.body.i108, %for.body.preheader.i
-  %350 = phi i32 [ %inc.i, %for.body.i108 ], [ %.pre.i107, %for.body.preheader.i ]
+  %345 = phi i32 [ %inc.i, %for.body.i108 ], [ %.pre.i107, %for.body.preheader.i ]
   %n.01.i = phi i32 [ %inc9.i, %for.body.i108 ], [ 0, %for.body.preheader.i ]
-  %rem.i = srem i32 %350, 3
+  %rem.i = srem i32 %345, 3
   %idxprom.i = sext i32 %rem.i to i64
   %arrayidx.i = getelementptr inbounds [3 x ptr], ptr @__const._ZL17ShowExampleAppLogPb.categories, i64 0, i64 %idxprom.i
-  %351 = load ptr, ptr %arrayidx.i, align 8
-  %rem4.i = srem i32 %350, 7
+  %346 = load ptr, ptr %arrayidx.i, align 8
+  %rem4.i = srem i32 %345, 7
   %idxprom5.i = sext i32 %rem4.i to i64
   %arrayidx6.i = getelementptr inbounds [7 x ptr], ptr @__const._ZL17ShowExampleAppLogPb.words, i64 0, i64 %idxprom5.i
-  %352 = load ptr, ptr %arrayidx6.i, align 8
+  %347 = load ptr, ptr %arrayidx6.i, align 8
   %call7.i109 = call noundef i32 @_ZN5ImGui13GetFrameCountEv()
   %call8.i110 = call noundef double @_ZN5ImGui7GetTimeEv()
-  call void (ptr, ptr, ...) @_ZN13ExampleAppLog6AddLogEPKcz(ptr noundef nonnull align 8 dereferenceable(313) @_ZZL17ShowExampleAppLogPbE3log, ptr noundef nonnull @.str.1798, i32 noundef %call7.i109, ptr noundef %351, double noundef %call8.i110, ptr noundef %352)
-  %353 = load i32, ptr @_ZZL17ShowExampleAppLogPbE7counter, align 4
-  %inc.i = add nsw i32 %353, 1
+  call void (ptr, ptr, ...) @_ZN13ExampleAppLog6AddLogEPKcz(ptr noundef nonnull align 8 dereferenceable(313) @_ZZL17ShowExampleAppLogPbE3log, ptr noundef nonnull @.str.1798, i32 noundef %call7.i109, ptr noundef %346, double noundef %call8.i110, ptr noundef %347)
+  %348 = load i32, ptr @_ZZL17ShowExampleAppLogPbE7counter, align 4
+  %inc.i = add nsw i32 %348, 1
   store i32 %inc.i, ptr @_ZZL17ShowExampleAppLogPbE7counter, align 4
   %inc9.i = add nuw nsw i32 %n.01.i, 1
   %exitcond.not.i111 = icmp eq i32 %inc9.i, 5
@@ -4450,8 +4449,8 @@ _ZL17ShowExampleAppLogPb.exit:                    ; preds = %for.body.i108, %do.
   br label %if.end12
 
 if.end12:                                         ; preds = %_ZL17ShowExampleAppLogPb.exit, %if.end9
-  %354 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE15show_app_layout, align 1
-  %tobool13 = trunc i8 %354 to i1
+  %349 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE15show_app_layout, align 1
+  %tobool13 = trunc i8 %349 to i1
   br i1 %tobool13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end12
@@ -4468,13 +4467,13 @@ if.then14:                                        ; preds = %if.end12
   br i1 %call.i119, label %do.body.i120, label %_ZL20ShowExampleAppLayoutPb.exit
 
 do.body.i120:                                     ; preds = %if.then14
-  %355 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp.not.i121 = icmp eq ptr %355, null
+  %350 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp.not.i121 = icmp eq ptr %350, null
   br i1 %cmp.not.i121, label %do.end.i123, label %if.then1.i122
 
 if.then1.i122:                                    ; preds = %do.body.i120
-  %356 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %355(ptr noundef nonnull @.str.3, i32 noundef 7440, ptr noundef nonnull @.str.1801, ptr noundef %356)
+  %351 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %350(ptr noundef nonnull @.str.3, i32 noundef 7440, ptr noundef nonnull @.str.1801, ptr noundef %351)
   br label %do.end.i123
 
 do.end.i123:                                      ; preds = %if.then1.i122, %do.body.i120
@@ -4509,8 +4508,8 @@ if.end10.i:                                       ; preds = %if.end9.i, %do.end.
 for.body.i125:                                    ; preds = %for.inc.i, %if.end10.i
   %i.01.i = phi i32 [ 0, %if.end10.i ], [ %inc.i127, %for.inc.i ]
   %call14.i126 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %label.i, ptr noundef nonnull dereferenceable(1) @.str.1804, i32 noundef %i.01.i) #29
-  %357 = load i32, ptr @_ZZL20ShowExampleAppLayoutPbE8selected, align 4
-  %cmp16.i = icmp eq i32 %357, %i.01.i
+  %352 = load i32, ptr @_ZZL20ShowExampleAppLayoutPbE8selected, align 4
+  %cmp16.i = icmp eq i32 %352, %i.01.i
   store <2 x float> zeroinitializer, ptr %ref.tmp17.i, align 8
   %call18.i = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %label.i, i1 noundef zeroext %cmp16.i, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp17.i)
   br i1 %call18.i, label %if.then19.i, label %for.inc.i
@@ -4534,8 +4533,8 @@ for.end.i129:                                     ; preds = %for.inc.i
   %y.i8.i = getelementptr inbounds i8, ptr %ref.tmp21.i, i64 4
   store float %fneg.i, ptr %y.i8.i, align 4
   %call23.i = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1805, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp21.i, i32 noundef 0, i32 noundef 0)
-  %358 = load i32, ptr @_ZZL20ShowExampleAppLayoutPbE8selected, align 4
-  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1806, i32 noundef %358)
+  %353 = load i32, ptr @_ZZL20ShowExampleAppLayoutPbE8selected, align 4
+  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1806, i32 noundef %353)
   call void @_ZN5ImGui9SeparatorEv()
   %call24.i = call noundef zeroext i1 @_ZN5ImGui11BeginTabBarEPKci(ptr noundef nonnull @.str.1807, i32 noundef 0)
   br i1 %call24.i, label %if.then25.i, label %if.end32.i
@@ -4584,8 +4583,8 @@ _ZL20ShowExampleAppLayoutPb.exit:                 ; preds = %if.then14, %if.end3
   br label %if.end15
 
 if.end15:                                         ; preds = %_ZL20ShowExampleAppLayoutPb.exit, %if.end12
-  %359 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE24show_app_property_editor, align 1
-  %tobool16 = trunc i8 %359 to i1
+  %354 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE24show_app_property_editor, align 1
+  %tobool16 = trunc i8 %354 to i1
   br i1 %tobool16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %if.end15
@@ -4598,13 +4597,13 @@ if.then17:                                        ; preds = %if.end15
   br i1 %call.i137, label %do.body.i138, label %_ZL28ShowExampleAppPropertyEditorPb.exit
 
 do.body.i138:                                     ; preds = %if.then17
-  %360 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp.not.i139 = icmp eq ptr %360, null
+  %355 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp.not.i139 = icmp eq ptr %355, null
   br i1 %cmp.not.i139, label %do.end.i141, label %if.then1.i140
 
 if.then1.i140:                                    ; preds = %do.body.i138
-  %361 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %360(ptr noundef nonnull @.str.3, i32 noundef 7559, ptr noundef nonnull @.str.1812, ptr noundef %361)
+  %356 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %355(ptr noundef nonnull @.str.3, i32 noundef 7559, ptr noundef nonnull @.str.1812, ptr noundef %356)
   br label %do.end.i141
 
 do.end.i141:                                      ; preds = %if.then1.i140, %do.body.i138
@@ -4658,8 +4657,8 @@ _ZL28ShowExampleAppPropertyEditorPb.exit:         ; preds = %if.then17, %if.end8
   br label %if.end18
 
 if.end18:                                         ; preds = %_ZL28ShowExampleAppPropertyEditorPb.exit, %if.end15
-  %362 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE23show_app_simple_overlay, align 1
-  %tobool19 = trunc i8 %362 to i1
+  %357 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE23show_app_simple_overlay, align 1
+  %tobool19 = trunc i8 %357 to i1
   br i1 %tobool19, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.end18
@@ -4668,43 +4667,43 @@ if.then20:                                        ; preds = %if.end18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i154)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp30.i)
   %call.i155 = call noundef nonnull align 8 dereferenceable(14568) ptr @_ZN5ImGui5GetIOEv()
-  %363 = load i32, ptr @_ZZL27ShowExampleAppSimpleOverlayPbE8location, align 4
-  %cmp.i = icmp sgt i32 %363, -1
+  %358 = load i32, ptr @_ZZL27ShowExampleAppSimpleOverlayPbE8location, align 4
+  %cmp.i = icmp sgt i32 %358, -1
   br i1 %cmp.i, label %if.then.i170, label %if.else.i156
 
 if.then.i170:                                     ; preds = %if.then20
   %call1.i171 = call noundef ptr @_ZN5ImGui15GetMainViewportEv()
   %WorkPos.i = getelementptr inbounds i8, ptr %call1.i171, i64 20
   %WorkSize.i = getelementptr inbounds i8, ptr %call1.i171, i64 28
-  %364 = load i32, ptr @_ZZL27ShowExampleAppSimpleOverlayPbE8location, align 4
-  %365 = load <2 x float>, ptr %WorkPos.i, align 4
-  %366 = load <2 x float>, ptr %WorkSize.i, align 4
-  %367 = insertelement <2 x i32> poison, i32 %364, i64 0
-  %368 = shufflevector <2 x i32> %367, <2 x i32> poison, <2 x i32> zeroinitializer
-  %369 = and <2 x i32> %368, <i32 1, i32 2>
-  %370 = icmp eq <2 x i32> %369, zeroinitializer
-  %371 = fadd <2 x float> %365, %366
-  %372 = fadd <2 x float> %371, <float -1.000000e+01, float -1.000000e+01>
-  %373 = fadd <2 x float> %365, <float 1.000000e+01, float 1.000000e+01>
-  %374 = select <2 x i1> %370, <2 x float> %373, <2 x float> %372
-  store <2 x float> %374, ptr %window_pos.i, align 8
-  %375 = select <2 x i1> %370, <2 x float> zeroinitializer, <2 x float> <float 1.000000e+00, float 1.000000e+00>
-  store <2 x float> %375, ptr %window_pos_pivot.i, align 8
+  %359 = load i32, ptr @_ZZL27ShowExampleAppSimpleOverlayPbE8location, align 4
+  %360 = load <2 x float>, ptr %WorkPos.i, align 4
+  %361 = load <2 x float>, ptr %WorkSize.i, align 4
+  %362 = insertelement <2 x i32> poison, i32 %359, i64 0
+  %363 = shufflevector <2 x i32> %362, <2 x i32> poison, <2 x i32> zeroinitializer
+  %364 = and <2 x i32> %363, <i32 1, i32 2>
+  %365 = icmp eq <2 x i32> %364, zeroinitializer
+  %366 = fadd <2 x float> %360, %361
+  %367 = fadd <2 x float> %366, <float -1.000000e+01, float -1.000000e+01>
+  %368 = fadd <2 x float> %360, <float 1.000000e+01, float 1.000000e+01>
+  %369 = select <2 x i1> %365, <2 x float> %368, <2 x float> %367
+  store <2 x float> %369, ptr %window_pos.i, align 8
+  %370 = select <2 x i1> %365, <2 x float> zeroinitializer, <2 x float> <float 1.000000e+00, float 1.000000e+00>
+  store <2 x float> %370, ptr %window_pos_pivot.i, align 8
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %window_pos.i, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %window_pos_pivot.i)
   br label %if.end32.i157
 
 if.else.i156:                                     ; preds = %if.then20
-  %cmp26.i = icmp eq i32 %363, -2
+  %cmp26.i = icmp eq i32 %358, -2
   br i1 %cmp26.i, label %if.then27.i168, label %if.end32.i157
 
 if.then27.i168:                                   ; preds = %if.else.i156
   %call28.i169 = call noundef ptr @_ZN5ImGui15GetMainViewportEv()
   %Pos.i.i = getelementptr inbounds i8, ptr %call28.i169, i64 4
   %Size.i.i = getelementptr inbounds i8, ptr %call28.i169, i64 12
-  %376 = load <2 x float>, ptr %Pos.i.i, align 4
-  %377 = load <2 x float>, ptr %Size.i.i, align 4
-  %378 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %377, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %376)
-  store <2 x float> %378, ptr %ref.tmp.i154, align 8
+  %371 = load <2 x float>, ptr %Pos.i.i, align 4
+  %372 = load <2 x float>, ptr %Size.i.i, align 4
+  %373 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %372, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %371)
+  store <2 x float> %373, ptr %ref.tmp.i154, align 8
   store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %ref.tmp30.i, align 8
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i154, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp30.i)
   br label %if.end32.i157
@@ -4716,13 +4715,13 @@ if.end32.i157:                                    ; preds = %if.then27.i168, %if
   br i1 %call33.i158, label %do.body.i159, label %_ZL27ShowExampleAppSimpleOverlayPb.exit
 
 do.body.i159:                                     ; preds = %if.end32.i157
-  %379 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp35.not.i = icmp eq ptr %379, null
+  %374 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp35.not.i = icmp eq ptr %374, null
   br i1 %cmp35.not.i, label %do.end.i160, label %if.then36.i
 
 if.then36.i:                                      ; preds = %do.body.i159
-  %380 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %379(ptr noundef nonnull @.str.3, i32 noundef 7803, ptr noundef nonnull @.str.1857, ptr noundef %380)
+  %375 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %374(ptr noundef nonnull @.str.3, i32 noundef 7803, ptr noundef nonnull @.str.1857, ptr noundef %375)
   br label %do.end.i160
 
 do.end.i160:                                      ; preds = %if.then36.i, %do.body.i159
@@ -4733,11 +4732,11 @@ do.end.i160:                                      ; preds = %if.then36.i, %do.bo
 
 if.then39.i:                                      ; preds = %do.end.i160
   %MousePos.i167 = getelementptr inbounds i8, ptr %call.i155, i64 3648
-  %381 = load float, ptr %MousePos.i167, align 8
-  %conv.i = fpext float %381 to double
+  %376 = load float, ptr %MousePos.i167, align 8
+  %conv.i = fpext float %376 to double
   %y42.i = getelementptr inbounds i8, ptr %call.i155, i64 3652
-  %382 = load float, ptr %y42.i, align 4
-  %conv43.i = fpext float %382 to double
+  %377 = load float, ptr %y42.i, align 4
+  %conv43.i = fpext float %377 to double
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1859, double noundef %conv.i, double noundef %conv43.i)
   br label %if.end45.i
 
@@ -4750,14 +4749,14 @@ if.end45.i:                                       ; preds = %if.else44.i, %if.th
   br i1 %call46.i, label %if.then47.i, label %_ZL27ShowExampleAppSimpleOverlayPb.exit
 
 if.then47.i:                                      ; preds = %if.end45.i
-  %383 = load i32, ptr @_ZZL27ShowExampleAppSimpleOverlayPbE8location, align 4
-  %cmp48.i = icmp eq i32 %383, -1
+  %378 = load i32, ptr @_ZZL27ShowExampleAppSimpleOverlayPbE8location, align 4
+  %cmp48.i = icmp eq i32 %378, -1
   %call49.i = call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_bb(ptr noundef nonnull @.str.386, ptr noundef null, i1 noundef zeroext %cmp48.i, i1 noundef zeroext true)
   br i1 %call49.i, label %if.then50.i, label %if.then47.if.end51_crit_edge.i
 
 if.then47.if.end51_crit_edge.i:                   ; preds = %if.then47.i
   %.pre.i162 = load i32, ptr @_ZZL27ShowExampleAppSimpleOverlayPbE8location, align 4
-  %384 = icmp eq i32 %.pre.i162, -2
+  %379 = icmp eq i32 %.pre.i162, -2
   br label %if.end51.i
 
 if.then50.i:                                      ; preds = %if.then47.i
@@ -4765,13 +4764,13 @@ if.then50.i:                                      ; preds = %if.then47.i
   br label %if.end51.i
 
 if.end51.i:                                       ; preds = %if.then50.i, %if.then47.if.end51_crit_edge.i
-  %cmp52.i = phi i1 [ %384, %if.then47.if.end51_crit_edge.i ], [ false, %if.then50.i ]
+  %cmp52.i = phi i1 [ %379, %if.then47.if.end51_crit_edge.i ], [ false, %if.then50.i ]
   %call53.i163 = call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_bb(ptr noundef nonnull @.str.1088, ptr noundef null, i1 noundef zeroext %cmp52.i, i1 noundef zeroext true)
   br i1 %call53.i163, label %if.then54.i, label %if.end51.if.end55_crit_edge.i
 
 if.end51.if.end55_crit_edge.i:                    ; preds = %if.end51.i
   %.pre1.i = load i32, ptr @_ZZL27ShowExampleAppSimpleOverlayPbE8location, align 4
-  %385 = icmp eq i32 %.pre1.i, 0
+  %380 = icmp eq i32 %.pre1.i, 0
   br label %if.end55.i
 
 if.then54.i:                                      ; preds = %if.end51.i
@@ -4779,13 +4778,13 @@ if.then54.i:                                      ; preds = %if.end51.i
   br label %if.end55.i
 
 if.end55.i:                                       ; preds = %if.then54.i, %if.end51.if.end55_crit_edge.i
-  %cmp56.i = phi i1 [ %385, %if.end51.if.end55_crit_edge.i ], [ false, %if.then54.i ]
+  %cmp56.i = phi i1 [ %380, %if.end51.if.end55_crit_edge.i ], [ false, %if.then54.i ]
   %call57.i = call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_bb(ptr noundef nonnull @.str.1861, ptr noundef null, i1 noundef zeroext %cmp56.i, i1 noundef zeroext true)
   br i1 %call57.i, label %if.then58.i, label %if.end55.if.end59_crit_edge.i
 
 if.end55.if.end59_crit_edge.i:                    ; preds = %if.end55.i
   %.pre2.i = load i32, ptr @_ZZL27ShowExampleAppSimpleOverlayPbE8location, align 4
-  %386 = icmp eq i32 %.pre2.i, 1
+  %381 = icmp eq i32 %.pre2.i, 1
   br label %if.end59.i
 
 if.then58.i:                                      ; preds = %if.end55.i
@@ -4793,13 +4792,13 @@ if.then58.i:                                      ; preds = %if.end55.i
   br label %if.end59.i
 
 if.end59.i:                                       ; preds = %if.then58.i, %if.end55.if.end59_crit_edge.i
-  %cmp60.i = phi i1 [ %386, %if.end55.if.end59_crit_edge.i ], [ false, %if.then58.i ]
+  %cmp60.i = phi i1 [ %381, %if.end55.if.end59_crit_edge.i ], [ false, %if.then58.i ]
   %call61.i = call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_bb(ptr noundef nonnull @.str.1862, ptr noundef null, i1 noundef zeroext %cmp60.i, i1 noundef zeroext true)
   br i1 %call61.i, label %if.then62.i, label %if.end59.if.end63_crit_edge.i
 
 if.end59.if.end63_crit_edge.i:                    ; preds = %if.end59.i
   %.pre3.i = load i32, ptr @_ZZL27ShowExampleAppSimpleOverlayPbE8location, align 4
-  %387 = icmp eq i32 %.pre3.i, 2
+  %382 = icmp eq i32 %.pre3.i, 2
   br label %if.end63.i
 
 if.then62.i:                                      ; preds = %if.end59.i
@@ -4807,13 +4806,13 @@ if.then62.i:                                      ; preds = %if.end59.i
   br label %if.end63.i
 
 if.end63.i:                                       ; preds = %if.then62.i, %if.end59.if.end63_crit_edge.i
-  %cmp64.i = phi i1 [ %387, %if.end59.if.end63_crit_edge.i ], [ false, %if.then62.i ]
+  %cmp64.i = phi i1 [ %382, %if.end59.if.end63_crit_edge.i ], [ false, %if.then62.i ]
   %call65.i = call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_bb(ptr noundef nonnull @.str.1863, ptr noundef null, i1 noundef zeroext %cmp64.i, i1 noundef zeroext true)
   br i1 %call65.i, label %if.then66.i, label %if.end63.if.end67_crit_edge.i
 
 if.end63.if.end67_crit_edge.i:                    ; preds = %if.end63.i
   %.pre4.i = load i32, ptr @_ZZL27ShowExampleAppSimpleOverlayPbE8location, align 4
-  %388 = icmp eq i32 %.pre4.i, 3
+  %383 = icmp eq i32 %.pre4.i, 3
   br label %if.end67.i
 
 if.then66.i:                                      ; preds = %if.end63.i
@@ -4821,7 +4820,7 @@ if.then66.i:                                      ; preds = %if.end63.i
   br label %if.end67.i
 
 if.end67.i:                                       ; preds = %if.then66.i, %if.end63.if.end67_crit_edge.i
-  %cmp68.i164 = phi i1 [ %388, %if.end63.if.end67_crit_edge.i ], [ false, %if.then66.i ]
+  %cmp68.i164 = phi i1 [ %383, %if.end63.if.end67_crit_edge.i ], [ false, %if.then66.i ]
   %call69.i = call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_bb(ptr noundef nonnull @.str.1864, ptr noundef null, i1 noundef zeroext %cmp68.i164, i1 noundef zeroext true)
   br i1 %call69.i, label %if.then70.i, label %land.lhs.true.i165
 
@@ -4850,8 +4849,8 @@ _ZL27ShowExampleAppSimpleOverlayPb.exit:          ; preds = %if.end32.i157, %if.
   br label %if.end21
 
 if.end21:                                         ; preds = %_ZL27ShowExampleAppSimpleOverlayPb.exit, %if.end18
-  %389 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE20show_app_auto_resize, align 1
-  %tobool22 = trunc i8 %389 to i1
+  %384 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE20show_app_auto_resize, align 1
+  %tobool22 = trunc i8 %384 to i1
   br i1 %tobool22, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %if.end21
@@ -4859,20 +4858,20 @@ if.then23:                                        ; preds = %if.end21
   br i1 %call.i179, label %do.body.i180, label %_ZL24ShowExampleAppAutoResizePb.exit
 
 do.body.i180:                                     ; preds = %if.then23
-  %390 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp.not.i181 = icmp eq ptr %390, null
+  %385 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp.not.i181 = icmp eq ptr %385, null
   br i1 %cmp.not.i181, label %do.end.i183, label %if.then1.i182
 
 if.then1.i182:                                    ; preds = %do.body.i180
-  %391 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %390(ptr noundef nonnull @.str.3, i32 noundef 7657, ptr noundef nonnull @.str.1831, ptr noundef %391)
+  %386 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %385(ptr noundef nonnull @.str.3, i32 noundef 7657, ptr noundef nonnull @.str.1831, ptr noundef %386)
   br label %do.end.i183
 
 do.end.i183:                                      ; preds = %if.then1.i182, %do.body.i180
   call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef nonnull @.str.1832, ptr noundef null)
   %call3.i184 = call noundef zeroext i1 @_ZN5ImGui9SliderIntEPKcPiiiS1_i(ptr noundef nonnull @.str.1833, ptr noundef nonnull @_ZZL24ShowExampleAppAutoResizePbE5lines, i32 noundef 1, i32 noundef 20, ptr noundef nonnull @.str.295, i32 noundef 0)
-  %392 = load i32, ptr @_ZZL24ShowExampleAppAutoResizePbE5lines, align 4
-  %cmp41.i = icmp sgt i32 %392, 0
+  %387 = load i32, ptr @_ZZL24ShowExampleAppAutoResizePbE5lines, align 4
+  %cmp41.i = icmp sgt i32 %387, 0
   br i1 %cmp41.i, label %for.body.i185, label %_ZL24ShowExampleAppAutoResizePb.exit
 
 for.body.i185:                                    ; preds = %do.end.i183, %for.body.i185
@@ -4880,8 +4879,8 @@ for.body.i185:                                    ; preds = %do.end.i183, %for.b
   %mul.i186 = shl nsw i32 %i.02.i, 2
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1834, i32 noundef %mul.i186, ptr noundef nonnull @.str.224, i32 noundef %i.02.i)
   %inc.i187 = add nuw nsw i32 %i.02.i, 1
-  %393 = load i32, ptr @_ZZL24ShowExampleAppAutoResizePbE5lines, align 4
-  %cmp4.i = icmp slt i32 %inc.i187, %393
+  %388 = load i32, ptr @_ZZL24ShowExampleAppAutoResizePbE5lines, align 4
+  %cmp4.i = icmp slt i32 %inc.i187, %388
   br i1 %cmp4.i, label %for.body.i185, label %_ZL24ShowExampleAppAutoResizePb.exit, !llvm.loop !19
 
 _ZL24ShowExampleAppAutoResizePb.exit:             ; preds = %for.body.i185, %if.then23, %do.end.i183
@@ -4889,8 +4888,8 @@ _ZL24ShowExampleAppAutoResizePb.exit:             ; preds = %for.body.i185, %if.
   br label %if.end24
 
 if.end24:                                         ; preds = %_ZL24ShowExampleAppAutoResizePb.exit, %if.end21
-  %394 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE27show_app_constrained_resize, align 1
-  %tobool25 = trunc i8 %394 to i1
+  %389 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE27show_app_constrained_resize, align 1
+  %tobool25 = trunc i8 %389 to i1
   br i1 %tobool25, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end24
@@ -4928,8 +4927,8 @@ if.then26:                                        ; preds = %if.end24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %test_desc.i, ptr noundef nonnull align 16 dereferenceable(72) @__const._ZL31ShowExampleAppConstrainedResizePb.test_desc, i64 72, i1 false)
   store float 0x3FFC71C720000000, ptr %aspect_ratio.i, align 4
   store float 1.000000e+02, ptr %fixed_step.i, align 4
-  %395 = load i32, ptr @_ZZL31ShowExampleAppConstrainedResizePbE4type, align 4
-  %cmp.i192 = icmp eq i32 %395, 0
+  %390 = load i32, ptr @_ZZL31ShowExampleAppConstrainedResizePbE4type, align 4
+  %cmp.i192 = icmp eq i32 %390, 0
   br i1 %cmp.i192, label %if.then.i225, label %if.end.i193
 
 if.then.i225:                                     ; preds = %if.then26
@@ -4940,8 +4939,8 @@ if.then.i225:                                     ; preds = %if.then26
   br label %if.end.i193
 
 if.end.i193:                                      ; preds = %if.then.i225, %if.then26
-  %396 = phi i32 [ %.pr.i, %if.then.i225 ], [ %395, %if.then26 ]
-  %cmp2.i = icmp eq i32 %396, 1
+  %391 = phi i32 [ %.pr.i, %if.then.i225 ], [ %390, %if.then26 ]
+  %cmp2.i = icmp eq i32 %391, 1
   br i1 %cmp2.i, label %if.then3.i222, label %if.end6.i
 
 if.then3.i222:                                    ; preds = %if.end.i193
@@ -4952,8 +4951,8 @@ if.then3.i222:                                    ; preds = %if.end.i193
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then3.i222, %if.end.i193
-  %397 = phi i32 [ %.pre.i224, %if.then3.i222 ], [ %396, %if.end.i193 ]
-  %cmp7.i = icmp eq i32 %397, 2
+  %392 = phi i32 [ %.pre.i224, %if.then3.i222 ], [ %391, %if.end.i193 ]
+  %cmp7.i = icmp eq i32 %392, 2
   br i1 %cmp7.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.end6.i
@@ -4964,8 +4963,8 @@ if.then8.i:                                       ; preds = %if.end6.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then8.i, %if.end6.i
-  %398 = phi i32 [ %.pr1.i, %if.then8.i ], [ %397, %if.end6.i ]
-  %cmp12.i = icmp eq i32 %398, 3
+  %393 = phi i32 [ %.pr1.i, %if.then8.i ], [ %392, %if.end6.i ]
+  %cmp12.i = icmp eq i32 %393, 3
   br i1 %cmp12.i, label %if.then13.i, label %if.end16.i
 
 if.then13.i:                                      ; preds = %if.end11.i
@@ -4976,8 +4975,8 @@ if.then13.i:                                      ; preds = %if.end11.i
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then13.i, %if.end11.i
-  %399 = phi i32 [ %.pre6.i, %if.then13.i ], [ %398, %if.end11.i ]
-  %cmp17.i = icmp eq i32 %399, 4
+  %394 = phi i32 [ %.pre6.i, %if.then13.i ], [ %393, %if.end11.i ]
+  %cmp17.i = icmp eq i32 %394, 4
   br i1 %cmp17.i, label %if.then18.i, label %if.end21.i
 
 if.then18.i:                                      ; preds = %if.end16.i
@@ -4988,8 +4987,8 @@ if.then18.i:                                      ; preds = %if.end16.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then18.i, %if.end16.i
-  %400 = phi i32 [ %.pr2.i, %if.then18.i ], [ %399, %if.end16.i ]
-  %cmp22.i = icmp eq i32 %400, 5
+  %395 = phi i32 [ %.pr2.i, %if.then18.i ], [ %394, %if.end16.i ]
+  %cmp22.i = icmp eq i32 %395, 5
   br i1 %cmp22.i, label %if.then23.i, label %if.end26.i194
 
 if.then23.i:                                      ; preds = %if.end21.i
@@ -5000,8 +4999,8 @@ if.then23.i:                                      ; preds = %if.end21.i
   br label %if.end26.i194
 
 if.end26.i194:                                    ; preds = %if.then23.i, %if.end21.i
-  %401 = phi i32 [ %.pre7.i, %if.then23.i ], [ %400, %if.end21.i ]
-  %cmp27.i195 = icmp eq i32 %401, 6
+  %396 = phi i32 [ %.pre7.i, %if.then23.i ], [ %395, %if.end21.i ]
+  %cmp27.i195 = icmp eq i32 %396, 6
   br i1 %cmp27.i195, label %if.then28.i, label %if.end31.i196
 
 if.then28.i:                                      ; preds = %if.end26.i194
@@ -5012,8 +5011,8 @@ if.then28.i:                                      ; preds = %if.end26.i194
   br label %if.end31.i196
 
 if.end31.i196:                                    ; preds = %if.then28.i, %if.end26.i194
-  %402 = phi i32 [ %.pr3.i, %if.then28.i ], [ %401, %if.end26.i194 ]
-  %cmp32.i = icmp eq i32 %402, 7
+  %397 = phi i32 [ %.pr3.i, %if.then28.i ], [ %396, %if.end26.i194 ]
+  %cmp32.i = icmp eq i32 %397, 7
   br i1 %cmp32.i, label %if.then33.i, label %if.end36.i
 
 if.then33.i:                                      ; preds = %if.end31.i196
@@ -5024,8 +5023,8 @@ if.then33.i:                                      ; preds = %if.end31.i196
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.then33.i, %if.end31.i196
-  %403 = phi i32 [ %.pre8.i, %if.then33.i ], [ %402, %if.end31.i196 ]
-  %cmp37.i = icmp eq i32 %403, 8
+  %398 = phi i32 [ %.pre8.i, %if.then33.i ], [ %397, %if.end31.i196 ]
+  %cmp37.i = icmp eq i32 %398, 8
   br i1 %cmp37.i, label %if.then38.i, label %if.end41.i
 
 if.then38.i:                                      ; preds = %if.end36.i
@@ -5035,8 +5034,8 @@ if.then38.i:                                      ; preds = %if.end36.i
   br label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.then38.i, %if.end36.i
-  %404 = load i8, ptr @_ZZL31ShowExampleAppConstrainedResizePbE14window_padding, align 1
-  %tobool.i = trunc i8 %404 to i1
+  %399 = load i8, ptr @_ZZL31ShowExampleAppConstrainedResizePbE14window_padding, align 1
+  %tobool.i = trunc i8 %399 to i1
   br i1 %tobool.i, label %if.end44.i, label %if.then42.i
 
 if.then42.i:                                      ; preds = %if.end41.i
@@ -5045,12 +5044,12 @@ if.then42.i:                                      ; preds = %if.end41.i
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.then42.i, %if.end41.i
-  %405 = load i8, ptr @_ZZL31ShowExampleAppConstrainedResizePbE11auto_resize, align 1
-  %tobool45.i = trunc i8 %405 to i1
+  %400 = load i8, ptr @_ZZL31ShowExampleAppConstrainedResizePbE11auto_resize, align 1
+  %tobool45.i = trunc i8 %400 to i1
   %cond.i197 = select i1 %tobool45.i, i32 64, i32 0
   %call.i198 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.1844, ptr noundef nonnull @_ZZN5ImGui14ShowDemoWindowEPbE27show_app_constrained_resize, i32 noundef %cond.i197)
-  %406 = load i8, ptr @_ZZL31ShowExampleAppConstrainedResizePbE14window_padding, align 1
-  %tobool46.i = trunc i8 %406 to i1
+  %401 = load i8, ptr @_ZZL31ShowExampleAppConstrainedResizePbE14window_padding, align 1
+  %tobool46.i = trunc i8 %401 to i1
   br i1 %tobool46.i, label %if.end48.i200, label %if.then47.i199
 
 if.then47.i199:                                   ; preds = %if.end44.i
@@ -5061,20 +5060,20 @@ if.end48.i200:                                    ; preds = %if.then47.i199, %if
   br i1 %call.i198, label %do.body.i201, label %_ZL31ShowExampleAppConstrainedResizePb.exit
 
 do.body.i201:                                     ; preds = %if.end48.i200
-  %407 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp51.not.i = icmp eq ptr %407, null
+  %402 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp51.not.i = icmp eq ptr %402, null
   br i1 %cmp51.not.i, label %do.end.i202, label %if.then52.i
 
 if.then52.i:                                      ; preds = %do.body.i201
-  %408 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %407(ptr noundef nonnull @.str.3, i32 noundef 7740, ptr noundef nonnull @.str.1845, ptr noundef %408)
+  %403 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %402(ptr noundef nonnull @.str.3, i32 noundef 7740, ptr noundef nonnull @.str.1845, ptr noundef %403)
   br label %do.end.i202
 
 do.end.i202:                                      ; preds = %if.then52.i, %do.body.i201
   %call54.i = call noundef nonnull align 8 dereferenceable(14568) ptr @_ZN5ImGui5GetIOEv()
   %KeyShift.i = getelementptr inbounds i8, ptr %call54.i, i64 3677
-  %409 = load i8, ptr %KeyShift.i, align 1
-  %tobool55.i203 = trunc i8 %409 to i1
+  %404 = load i8, ptr %KeyShift.i, align 1
+  %tobool55.i203 = trunc i8 %404 to i1
   br i1 %tobool55.i203, label %if.then56.i210, label %if.else.i204
 
 if.then56.i210:                                   ; preds = %do.end.i202
@@ -5083,14 +5082,14 @@ if.then56.i210:                                   ; preds = %do.end.i202
   %call58.i = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
   store <4 x float> <float 5.000000e-01, float 0x3FC99999A0000000, float 5.000000e-01, float 1.000000e+00>, ptr %ref.tmp59.i, align 16
   %call60.i212 = call noundef zeroext i1 @_ZN5ImGui11ColorButtonEPKcRK6ImVec4iRK6ImVec2(ptr noundef nonnull @.str.1846, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp59.i, i32 noundef 576, ptr noundef nonnull align 4 dereferenceable(8) %avail_size.i)
-  %410 = fadd <2 x float> %call58.i, <float 1.000000e+01, float 1.000000e+01>
-  store <2 x float> %410, ptr %ref.tmp61.i, align 8
+  %405 = fadd <2 x float> %call58.i, <float 1.000000e+01, float 1.000000e+01>
+  store <2 x float> %405, ptr %ref.tmp61.i, align 8
   call void @_ZN5ImGui18SetCursorScreenPosERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp61.i)
-  %411 = load float, ptr %avail_size.i, align 8
-  %conv.i214 = fpext float %411 to double
+  %406 = load float, ptr %avail_size.i, align 8
+  %conv.i214 = fpext float %406 to double
   %y64.i = getelementptr inbounds i8, ptr %avail_size.i, i64 4
-  %412 = load float, ptr %y64.i, align 4
-  %conv65.i = fpext float %412 to double
+  %407 = load float, ptr %y64.i, align 4
+  %conv65.i = fpext float %407 to double
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1847, double noundef %conv.i214, double noundef %conv65.i)
   br label %_ZL31ShowExampleAppConstrainedResizePb.exit
 
@@ -5138,8 +5137,8 @@ if.end80.i:                                       ; preds = %if.then78.i, %if.en
   %call85.i = call noundef zeroext i1 @_ZN5ImGui7DragIntEPKcPifiiS1_i(ptr noundef nonnull @.str.618, ptr noundef nonnull @_ZZL31ShowExampleAppConstrainedResizePbE13display_lines, float noundef 0x3FC99999A0000000, i32 noundef 1, i32 noundef 100, ptr noundef nonnull @.str.295, i32 noundef 0)
   %call86.i = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1853, ptr noundef nonnull @_ZZL31ShowExampleAppConstrainedResizePbE11auto_resize)
   %call87.i = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.1854, ptr noundef nonnull @_ZZL31ShowExampleAppConstrainedResizePbE14window_padding)
-  %413 = load i32, ptr @_ZZL31ShowExampleAppConstrainedResizePbE13display_lines, align 4
-  %cmp884.i = icmp sgt i32 %413, 0
+  %408 = load i32, ptr @_ZZL31ShowExampleAppConstrainedResizePbE13display_lines, align 4
+  %cmp884.i = icmp sgt i32 %408, 0
   br i1 %cmp884.i, label %for.body.i207, label %_ZL31ShowExampleAppConstrainedResizePb.exit
 
 for.body.i207:                                    ; preds = %if.end80.i, %for.body.i207
@@ -5147,8 +5146,8 @@ for.body.i207:                                    ; preds = %if.end80.i, %for.bo
   %mul89.i208 = shl nsw i32 %i.05.i, 2
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1855, i32 noundef %mul89.i208, ptr noundef nonnull @.str.224)
   %inc.i209 = add nuw nsw i32 %i.05.i, 1
-  %414 = load i32, ptr @_ZZL31ShowExampleAppConstrainedResizePbE13display_lines, align 4
-  %cmp88.i = icmp slt i32 %inc.i209, %414
+  %409 = load i32, ptr @_ZZL31ShowExampleAppConstrainedResizePbE13display_lines, align 4
+  %cmp88.i = icmp slt i32 %inc.i209, %409
   br i1 %cmp88.i, label %for.body.i207, label %_ZL31ShowExampleAppConstrainedResizePb.exit, !llvm.loop !20
 
 _ZL31ShowExampleAppConstrainedResizePb.exit:      ; preds = %for.body.i207, %if.end48.i200, %if.then56.i210, %if.end80.i
@@ -5187,27 +5186,27 @@ _ZL31ShowExampleAppConstrainedResizePb.exit:      ; preds = %for.body.i207, %if.
   br label %if.end27
 
 if.end27:                                         ; preds = %_ZL31ShowExampleAppConstrainedResizePb.exit, %if.end24
-  %415 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE19show_app_fullscreen, align 1
-  %tobool28 = trunc i8 %415 to i1
+  %410 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE19show_app_fullscreen, align 1
+  %tobool28 = trunc i8 %410 to i1
   br i1 %tobool28, label %if.then29, label %if.end30
 
 if.then29:                                        ; preds = %if.end27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i228)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp14.i229)
   %call.i230 = call noundef ptr @_ZN5ImGui15GetMainViewportEv()
-  %416 = load i8, ptr @_ZZL24ShowExampleAppFullscreenPbE13use_work_area, align 1
-  %tobool.i231 = trunc i8 %416 to i1
+  %411 = load i8, ptr @_ZZL24ShowExampleAppFullscreenPbE13use_work_area, align 1
+  %tobool.i231 = trunc i8 %411 to i1
   %cond-lvalue.v.i = select i1 %tobool.i231, i64 20, i64 4
   %cond-lvalue.i = getelementptr inbounds i8, ptr %call.i230, i64 %cond-lvalue.v.i
   store <2 x float> zeroinitializer, ptr %ref.tmp.i228, align 8
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i228)
-  %417 = load i8, ptr @_ZZL24ShowExampleAppFullscreenPbE13use_work_area, align 1
-  %tobool1.i = trunc i8 %417 to i1
+  %412 = load i8, ptr @_ZZL24ShowExampleAppFullscreenPbE13use_work_area, align 1
+  %tobool1.i = trunc i8 %412 to i1
   %cond-lvalue5.v.i = select i1 %tobool1.i, i64 28, i64 12
   %cond-lvalue5.i = getelementptr inbounds i8, ptr %call.i230, i64 %cond-lvalue5.v.i
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue5.i, i32 noundef 0)
-  %418 = load i32, ptr @_ZZL24ShowExampleAppFullscreenPbE5flags, align 4
-  %call6.i233 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.1865, ptr noundef nonnull @_ZZN5ImGui14ShowDemoWindowEPbE19show_app_fullscreen, i32 noundef %418)
+  %413 = load i32, ptr @_ZZL24ShowExampleAppFullscreenPbE5flags, align 4
+  %call6.i233 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.1865, ptr noundef nonnull @_ZZN5ImGui14ShowDemoWindowEPbE19show_app_fullscreen, i32 noundef %413)
   br i1 %call6.i233, label %if.then.i234, label %_ZL24ShowExampleAppFullscreenPb.exit
 
 if.then.i234:                                     ; preds = %if.then29
@@ -5249,8 +5248,8 @@ _ZL24ShowExampleAppFullscreenPb.exit:             ; preds = %if.then29, %_ZL10He
   br label %if.end30
 
 if.end30:                                         ; preds = %_ZL24ShowExampleAppFullscreenPb.exit, %if.end27
-  %419 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE18show_app_long_text, align 1
-  %tobool31 = trunc i8 %419 to i1
+  %414 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE18show_app_long_text, align 1
+  %tobool31 = trunc i8 %414 to i1
   br i1 %tobool31, label %if.then32, label %if.end33
 
 if.then32:                                        ; preds = %if.end30
@@ -5267,51 +5266,51 @@ if.then32:                                        ; preds = %if.end30
   br i1 %call.i255, label %do.body.i256, label %_ZL22ShowExampleAppLongTextPb.exit
 
 do.body.i256:                                     ; preds = %if.then32
-  %420 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp.not.i257 = icmp eq ptr %420, null
+  %415 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp.not.i257 = icmp eq ptr %415, null
   br i1 %cmp.not.i257, label %do.end.i259, label %if.then1.i258
 
 if.then1.i258:                                    ; preds = %do.body.i256
-  %421 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %420(ptr noundef nonnull @.str.3, i32 noundef 7595, ptr noundef nonnull @.str.1822, ptr noundef %421)
+  %416 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %415(ptr noundef nonnull @.str.3, i32 noundef 7595, ptr noundef nonnull @.str.1822, ptr noundef %416)
   br label %do.end.i259
 
 do.end.i259:                                      ; preds = %if.then1.i258, %do.body.i256
-  %422 = load atomic i8, ptr @_ZGVZL22ShowExampleAppLongTextPbE3log acquire, align 8
-  %guard.uninitialized.i260 = icmp eq i8 %422, 0
+  %417 = load atomic i8, ptr @_ZGVZL22ShowExampleAppLongTextPbE3log acquire, align 8
+  %guard.uninitialized.i260 = icmp eq i8 %417, 0
   br i1 %guard.uninitialized.i260, label %init.check.i282, label %init.end.i261, !prof !4
 
 init.check.i282:                                  ; preds = %do.end.i259
-  %423 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL22ShowExampleAppLongTextPbE3log) #29
-  %tobool.not.i283 = icmp eq i32 %423, 0
+  %418 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL22ShowExampleAppLongTextPbE3log) #29
+  %tobool.not.i283 = icmp eq i32 %418, 0
   br i1 %tobool.not.i283, label %init.end.i261, label %invoke.cont.i284
 
 invoke.cont.i284:                                 ; preds = %init.check.i282
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZL22ShowExampleAppLongTextPbE3log, i8 0, i64 16, i1 false)
-  %424 = call i32 @__cxa_atexit(ptr nonnull @_ZN15ImGuiTextBufferD2Ev, ptr nonnull @_ZZL22ShowExampleAppLongTextPbE3log, ptr nonnull @__dso_handle) #29
+  %419 = call i32 @__cxa_atexit(ptr nonnull @_ZN15ImGuiTextBufferD2Ev, ptr nonnull @_ZZL22ShowExampleAppLongTextPbE3log, ptr nonnull @__dso_handle) #29
   call void @__cxa_guard_release(ptr nonnull @_ZGVZL22ShowExampleAppLongTextPbE3log) #29
   br label %init.end.i261
 
 init.end.i261:                                    ; preds = %invoke.cont.i284, %init.check.i282, %do.end.i259
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1823)
   %call3.i262 = call noundef zeroext i1 @_ZN5ImGui5ComboEPKcPiS1_i(ptr noundef nonnull @.str.1824, ptr noundef nonnull @_ZZL22ShowExampleAppLongTextPbE9test_type, ptr noundef nonnull @.str.1825, i32 noundef -1)
-  %425 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE5lines, align 4
-  %426 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE3log, align 8
-  %spec.select.i.i = call noundef i32 @llvm.usub.sat.i32(i32 %426, i32 1)
-  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1826, i32 noundef %425, i32 noundef %spec.select.i.i)
+  %420 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE5lines, align 4
+  %421 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE3log, align 8
+  %spec.select.i.i = call noundef i32 @llvm.usub.sat.i32(i32 %421, i32 1)
+  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1826, i32 noundef %420, i32 noundef %spec.select.i.i)
   store <2 x float> zeroinitializer, ptr %ref.tmp5.i249, align 8
   %call6.i264 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.1770, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp5.i249)
   br i1 %call6.i264, label %if.then7.i280, label %if.end8.i265
 
 if.then7.i280:                                    ; preds = %init.end.i261
-  %427 = load ptr, ptr getelementptr inbounds (%struct.ImGuiTextBuffer, ptr @_ZZL22ShowExampleAppLongTextPbE3log, i64 0, i32 0, i32 2), align 8
-  %tobool.not.i.i.i281 = icmp eq ptr %427, null
+  %422 = load ptr, ptr getelementptr inbounds (%struct.ImGuiTextBuffer, ptr @_ZZL22ShowExampleAppLongTextPbE3log, i64 0, i32 0, i32 2), align 8
+  %tobool.not.i.i.i281 = icmp eq ptr %422, null
   br i1 %tobool.not.i.i.i281, label %_ZN15ImGuiTextBuffer5clearEv.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then7.i280
   store i32 0, ptr getelementptr inbounds (%struct.ImGuiTextBuffer, ptr @_ZZL22ShowExampleAppLongTextPbE3log, i64 0, i32 0, i32 1), align 4
   store i32 0, ptr @_ZZL22ShowExampleAppLongTextPbE3log, align 8
-  call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %427)
+  call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %422)
   store ptr null, ptr getelementptr inbounds (%struct.ImGuiTextBuffer, ptr @_ZZL22ShowExampleAppLongTextPbE3log, i64 0, i32 0, i32 2), align 8
   br label %_ZN15ImGuiTextBuffer5clearEv.exit.i
 
@@ -5327,37 +5326,37 @@ if.end8.i265:                                     ; preds = %_ZN15ImGuiTextBuffe
 
 for.body.i275:                                    ; preds = %if.end8.i265, %for.body.i275
   %i.04.i = phi i32 [ %inc.i277, %for.body.i275 ], [ 0, %if.end8.i265 ]
-  %428 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE5lines, align 4
-  %add.i276 = add nsw i32 %428, %i.04.i
+  %423 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE5lines, align 4
+  %add.i276 = add nsw i32 %423, %i.04.i
   call void (ptr, ptr, ...) @_ZN15ImGuiTextBuffer7appendfEPKcz(ptr noundef nonnull align 8 dereferenceable(16) @_ZZL22ShowExampleAppLongTextPbE3log, ptr noundef nonnull @.str.1828, i32 noundef %add.i276)
   %inc.i277 = add nuw nsw i32 %i.04.i, 1
   %exitcond.not.i278 = icmp eq i32 %inc.i277, 1000
   br i1 %exitcond.not.i278, label %for.end.i279, label %for.body.i275, !llvm.loop !21
 
 for.end.i279:                                     ; preds = %for.body.i275
-  %429 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE5lines, align 4
-  %add13.i = add nsw i32 %429, 1000
+  %424 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE5lines, align 4
+  %add13.i = add nsw i32 %424, 1000
   store i32 %add13.i, ptr @_ZZL22ShowExampleAppLongTextPbE5lines, align 4
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %for.end.i279, %if.end8.i265
   store <2 x float> zeroinitializer, ptr %ref.tmp15.i251, align 8
   %call16.i269 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.12, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15.i251, i32 noundef 0, i32 noundef 0)
-  %430 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE9test_type, align 4
-  switch i32 %430, label %sw.epilog.i [
+  %425 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE9test_type, align 4
+  switch i32 %425, label %sw.epilog.i [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb19.i
     i32 2, label %sw.bb34.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end14.i
-  %431 = load ptr, ptr getelementptr inbounds (%struct.ImGuiTextBuffer, ptr @_ZZL22ShowExampleAppLongTextPbE3log, i64 0, i32 0, i32 2), align 8
-  %tobool.not.i.i274 = icmp eq ptr %431, null
-  %spec.select.i11.i = select i1 %tobool.not.i.i274, ptr @_ZN15ImGuiTextBuffer11EmptyStringE, ptr %431
-  %432 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE3log, align 8
-  %433 = sext i32 %432 to i64
-  %434 = getelementptr i8, ptr %431, i64 %433
-  %arrayidx.i.i.i = getelementptr i8, ptr %434, i64 -1
+  %426 = load ptr, ptr getelementptr inbounds (%struct.ImGuiTextBuffer, ptr @_ZZL22ShowExampleAppLongTextPbE3log, i64 0, i32 0, i32 2), align 8
+  %tobool.not.i.i274 = icmp eq ptr %426, null
+  %spec.select.i11.i = select i1 %tobool.not.i.i274, ptr @_ZN15ImGuiTextBuffer11EmptyStringE, ptr %426
+  %427 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE3log, align 8
+  %428 = sext i32 %427 to i64
+  %429 = getelementptr i8, ptr %426, i64 %428
+  %arrayidx.i.i.i = getelementptr i8, ptr %429, i64 -1
   %cond.i.i = select i1 %tobool.not.i.i274, ptr @_ZN15ImGuiTextBuffer11EmptyStringE, ptr %arrayidx.i.i.i
   call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef nonnull %spec.select.i11.i, ptr noundef %cond.i.i)
   br label %sw.epilog.i
@@ -5366,8 +5365,8 @@ sw.bb19.i:                                        ; preds = %if.end14.i
   store <2 x float> zeroinitializer, ptr %ref.tmp20.i252, align 8
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 14, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp20.i252)
   call void @_ZN16ImGuiListClipperC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %clipper.i)
-  %435 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE5lines, align 4
-  invoke void @_ZN16ImGuiListClipper5BeginEif(ptr noundef nonnull align 8 dereferenceable(40) %clipper.i, i32 noundef %435, float noundef -1.000000e+00)
+  %430 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE5lines, align 4
+  invoke void @_ZN16ImGuiListClipper5BeginEif(ptr noundef nonnull align 8 dereferenceable(40) %clipper.i, i32 noundef %430, float noundef -1.000000e+00)
           to label %while.cond.preheader.i unwind label %lpad21.loopexit.split-lp.loopexit.split-lp.i
 
 while.cond.preheader.i:                           ; preds = %sw.bb19.i
@@ -5386,20 +5385,20 @@ invoke.cont23.i:                                  ; preds = %while.cond.i
   br i1 %call24.i272, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %invoke.cont23.i
-  %436 = load i32, ptr %DisplayStart.i, align 8
-  %437 = load i32, ptr %DisplayEnd.i, align 4
-  %cmp277.i = icmp slt i32 %436, %437
+  %431 = load i32, ptr %DisplayStart.i, align 8
+  %432 = load i32, ptr %DisplayEnd.i, align 4
+  %cmp277.i = icmp slt i32 %431, %432
   br i1 %cmp277.i, label %for.body28.i, label %while.cond.loopexit.i
 
 for.body28.i:                                     ; preds = %while.body.i, %for.inc30.i
-  %i25.08.i = phi i32 [ %inc31.i, %for.inc30.i ], [ %436, %while.body.i ]
+  %i25.08.i = phi i32 [ %inc31.i, %for.inc30.i ], [ %431, %while.body.i ]
   invoke void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1829, i32 noundef %i25.08.i)
           to label %for.inc30.i unwind label %lpad21.loopexit.i
 
 for.inc30.i:                                      ; preds = %for.body28.i
   %inc31.i = add nsw i32 %i25.08.i, 1
-  %438 = load i32, ptr %DisplayEnd.i, align 4
-  %cmp27.i273 = icmp slt i32 %inc31.i, %438
+  %433 = load i32, ptr %DisplayEnd.i, align 4
+  %cmp27.i273 = icmp slt i32 %inc31.i, %433
   br i1 %cmp27.i273, label %for.body28.i, label %while.cond.loopexit.i, !llvm.loop !23
 
 lpad21.loopexit.i:                                ; preds = %for.body28.i
@@ -5433,16 +5432,16 @@ invoke.cont33.i:                                  ; preds = %while.end.i
 sw.bb34.i:                                        ; preds = %if.end14.i
   store <2 x float> zeroinitializer, ptr %ref.tmp35.i253, align 8
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 14, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp35.i253)
-  %439 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE5lines, align 4
-  %cmp385.i = icmp sgt i32 %439, 0
+  %434 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE5lines, align 4
+  %cmp385.i = icmp sgt i32 %434, 0
   br i1 %cmp385.i, label %for.body39.i, label %for.end42.i
 
 for.body39.i:                                     ; preds = %sw.bb34.i, %for.body39.i
   %i36.06.i = phi i32 [ %inc41.i, %for.body39.i ], [ 0, %sw.bb34.i ]
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1829, i32 noundef %i36.06.i)
   %inc41.i = add nuw nsw i32 %i36.06.i, 1
-  %440 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE5lines, align 4
-  %cmp38.i = icmp slt i32 %inc41.i, %440
+  %435 = load i32, ptr @_ZZL22ShowExampleAppLongTextPbE5lines, align 4
+  %cmp38.i = icmp slt i32 %inc41.i, %435
   br i1 %cmp38.i, label %for.body39.i, label %for.end42.i, !llvm.loop !24
 
 for.end42.i:                                      ; preds = %for.body39.i, %sw.bb34.i
@@ -5465,8 +5464,8 @@ _ZL22ShowExampleAppLongTextPb.exit:               ; preds = %if.then32, %sw.epil
   br label %if.end33
 
 if.end33:                                         ; preds = %_ZL22ShowExampleAppLongTextPb.exit, %if.end30
-  %441 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE22show_app_window_titles, align 1
-  %tobool34 = trunc i8 %441 to i1
+  %436 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE22show_app_window_titles, align 1
+  %tobool34 = trunc i8 %436 to i1
   br i1 %tobool34, label %if.then35, label %if.end36
 
 if.then35:                                        ; preds = %if.end33
@@ -5479,28 +5478,28 @@ if.then35:                                        ; preds = %if.end33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp20.i289)
   %call.i290 = call noundef ptr @_ZN5ImGui15GetMainViewportEv()
   %Pos.i = getelementptr inbounds i8, ptr %call.i290, i64 4
-  %442 = load <2 x float>, ptr %Pos.i, align 4
-  %443 = fadd <2 x float> %442, <float 1.000000e+02, float 1.000000e+02>
-  store <2 x float> %443, ptr %ref.tmp.i285, align 8
+  %437 = load <2 x float>, ptr %Pos.i, align 4
+  %438 = fadd <2 x float> %437, <float 1.000000e+02, float 1.000000e+02>
+  store <2 x float> %438, ptr %ref.tmp.i285, align 8
   store <2 x float> zeroinitializer, ptr %ref.tmp2.i, align 8
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i285, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp2.i)
   %call3.i294 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.1874, ptr noundef null, i32 noundef 0)
-  %444 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp.not.i295 = icmp eq ptr %444, null
+  %439 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp.not.i295 = icmp eq ptr %439, null
   br i1 %cmp.not.i295, label %_ZL26ShowExampleAppWindowTitlesPb.exit, label %if.then.i296
 
 if.then.i296:                                     ; preds = %if.then35
-  %445 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %444(ptr noundef nonnull @.str.3, i32 noundef 7879, ptr noundef nonnull @.str.1875, ptr noundef %445)
+  %440 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %439(ptr noundef nonnull @.str.3, i32 noundef 7879, ptr noundef nonnull @.str.1875, ptr noundef %440)
   br label %_ZL26ShowExampleAppWindowTitlesPb.exit
 
 _ZL26ShowExampleAppWindowTitlesPb.exit:           ; preds = %if.then35, %if.then.i296
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1876)
   call void @_ZN5ImGui3EndEv()
-  %446 = extractelement <2 x float> %442, i64 1
-  %add8.i = fadd float %446, 2.000000e+02
-  %447 = extractelement <2 x float> %443, i64 0
-  store float %447, ptr %ref.tmp4.i286, align 4
+  %441 = extractelement <2 x float> %437, i64 1
+  %add8.i = fadd float %441, 2.000000e+02
+  %442 = extractelement <2 x float> %438, i64 0
+  store float %442, ptr %ref.tmp4.i286, align 4
   %y.i6.i298 = getelementptr inbounds i8, ptr %ref.tmp4.i286, i64 4
   store float %add8.i, ptr %y.i6.i298, align 4
   store <2 x float> zeroinitializer, ptr %ref.tmp9.i287, align 8
@@ -5514,12 +5513,12 @@ _ZL26ShowExampleAppWindowTitlesPb.exit:           ; preds = %if.then35, %if.then
   %and.i304 = and i32 %conv.i303, 3
   %idxprom.i305 = zext nneg i32 %and.i304 to i64
   %arrayidx.i306 = getelementptr inbounds [5 x i8], ptr @.str.1880, i64 0, i64 %idxprom.i305
-  %448 = load i8, ptr %arrayidx.i306, align 1
-  %conv12.i = sext i8 %448 to i32
+  %443 = load i8, ptr %arrayidx.i306, align 1
+  %conv12.i = sext i8 %443 to i32
   %call13.i = call noundef i32 @_ZN5ImGui13GetFrameCountEv()
   %call14.i307 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buf.i, ptr noundef nonnull dereferenceable(1) @.str.1879, i32 noundef %conv12.i, i32 noundef %call13.i) #29
-  %add19.i = fadd float %446, 3.000000e+02
-  store float %447, ptr %ref.tmp15.i288, align 4
+  %add19.i = fadd float %441, 3.000000e+02
+  store float %442, ptr %ref.tmp15.i288, align 4
   %y.i8.i308 = getelementptr inbounds i8, ptr %ref.tmp15.i288, i64 4
   store float %add19.i, ptr %y.i8.i308, align 4
   store <2 x float> zeroinitializer, ptr %ref.tmp20.i289, align 8
@@ -5537,8 +5536,8 @@ _ZL26ShowExampleAppWindowTitlesPb.exit:           ; preds = %if.then35, %if.then
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZL26ShowExampleAppWindowTitlesPb.exit, %if.end33
-  %449 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE17show_tool_metrics, align 1
-  %tobool37 = trunc i8 %449 to i1
+  %444 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE17show_tool_metrics, align 1
+  %tobool37 = trunc i8 %444 to i1
   br i1 %tobool37, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %if.end36
@@ -5546,8 +5545,8 @@ if.then38:                                        ; preds = %if.end36
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then38, %if.end36
-  %450 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE19show_tool_debug_log, align 1
-  %tobool40 = trunc i8 %450 to i1
+  %445 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE19show_tool_debug_log, align 1
+  %tobool40 = trunc i8 %445 to i1
   br i1 %tobool40, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %if.end39
@@ -5555,8 +5554,8 @@ if.then41:                                        ; preds = %if.end39
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then41, %if.end39
-  %451 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE23show_tool_id_stack_tool, align 1
-  %tobool43 = trunc i8 %451 to i1
+  %446 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE23show_tool_id_stack_tool, align 1
+  %tobool43 = trunc i8 %446 to i1
   br i1 %tobool43, label %if.then44, label %if.end45
 
 if.then44:                                        ; preds = %if.end42
@@ -5564,8 +5563,8 @@ if.then44:                                        ; preds = %if.end42
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then44, %if.end42
-  %452 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE22show_tool_style_editor, align 1
-  %tobool46 = trunc i8 %452 to i1
+  %447 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE22show_tool_style_editor, align 1
+  %tobool46 = trunc i8 %447 to i1
   br i1 %tobool46, label %if.then47, label %if.end48
 
 if.then47:                                        ; preds = %if.end45
@@ -5575,8 +5574,8 @@ if.then47:                                        ; preds = %if.end45
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then47, %if.end45
-  %453 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE15show_tool_about, align 1
-  %tobool49 = trunc i8 %453 to i1
+  %448 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE15show_tool_about, align 1
+  %tobool49 = trunc i8 %448 to i1
   br i1 %tobool49, label %if.then50, label %if.end51
 
 if.then50:                                        ; preds = %if.end48
@@ -5584,53 +5583,53 @@ if.then50:                                        ; preds = %if.end48
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then50, %if.end48
-  %454 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE11no_titlebar, align 1
-  %455 = and i8 %454, 1
-  %spec.select = zext nneg i8 %455 to i32
-  %456 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE12no_scrollbar, align 1
-  %tobool55 = trunc i8 %456 to i1
+  %449 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE11no_titlebar, align 1
+  %450 = and i8 %449, 1
+  %spec.select = zext nneg i8 %450 to i32
+  %451 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE12no_scrollbar, align 1
+  %tobool55 = trunc i8 %451 to i1
   %or57 = or disjoint i32 %spec.select, 8
   %window_flags.1 = select i1 %tobool55, i32 %or57, i32 %spec.select
-  %457 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE7no_menu, align 1
-  %tobool59 = trunc i8 %457 to i1
+  %452 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE7no_menu, align 1
+  %tobool59 = trunc i8 %452 to i1
   %or61 = or disjoint i32 %window_flags.1, 1024
   %window_flags.2 = select i1 %tobool59, i32 %window_flags.1, i32 %or61
-  %458 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE7no_move, align 1
-  %tobool63 = trunc i8 %458 to i1
+  %453 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE7no_move, align 1
+  %tobool63 = trunc i8 %453 to i1
   %or65 = or i32 %window_flags.2, 4
   %window_flags.3 = select i1 %tobool63, i32 %or65, i32 %window_flags.2
-  %459 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE9no_resize, align 1
-  %tobool67 = trunc i8 %459 to i1
+  %454 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE9no_resize, align 1
+  %tobool67 = trunc i8 %454 to i1
   %or69 = or i32 %window_flags.3, 2
   %window_flags.4 = select i1 %tobool67, i32 %or69, i32 %window_flags.3
-  %460 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE11no_collapse, align 1
-  %tobool71 = trunc i8 %460 to i1
+  %455 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE11no_collapse, align 1
+  %tobool71 = trunc i8 %455 to i1
   %or73 = or i32 %window_flags.4, 32
   %window_flags.5 = select i1 %tobool71, i32 %or73, i32 %window_flags.4
-  %461 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE6no_nav, align 1
-  %tobool75 = trunc i8 %461 to i1
+  %456 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE6no_nav, align 1
+  %tobool75 = trunc i8 %456 to i1
   %or77 = or i32 %window_flags.5, 196608
   %window_flags.6 = select i1 %tobool75, i32 %or77, i32 %window_flags.5
-  %462 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE13no_background, align 1
-  %tobool79 = trunc i8 %462 to i1
+  %457 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE13no_background, align 1
+  %tobool79 = trunc i8 %457 to i1
   %or81 = or i32 %window_flags.6, 128
   %window_flags.7 = select i1 %tobool79, i32 %or81, i32 %window_flags.6
-  %463 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE17no_bring_to_front, align 1
-  %tobool83 = trunc i8 %463 to i1
+  %458 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE17no_bring_to_front, align 1
+  %tobool83 = trunc i8 %458 to i1
   %or85 = or i32 %window_flags.7, 8192
   %window_flags.8 = select i1 %tobool83, i32 %or85, i32 %window_flags.7
-  %464 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE16unsaved_document, align 1
-  %tobool87 = trunc i8 %464 to i1
+  %459 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE16unsaved_document, align 1
+  %tobool87 = trunc i8 %459 to i1
   %or89 = or i32 %window_flags.8, 262144
   %window_flags.9 = select i1 %tobool87, i32 %or89, i32 %window_flags.8
-  %465 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE8no_close, align 1
-  %tobool91 = trunc i8 %465 to i1
+  %460 = load i8, ptr @_ZZN5ImGui14ShowDemoWindowEPbE8no_close, align 1
+  %tobool91 = trunc i8 %460 to i1
   %p_open.addr.0 = select i1 %tobool91, ptr null, ptr %p_open
   %call94 = call noundef ptr @_ZN5ImGui15GetMainViewportEv()
   %WorkPos = getelementptr inbounds i8, ptr %call94, i64 20
-  %466 = load <2 x float>, ptr %WorkPos, align 4
-  %467 = fadd <2 x float> %466, <float 6.500000e+02, float 2.000000e+01>
-  store <2 x float> %467, ptr %ref.tmp, align 8
+  %461 = load <2 x float>, ptr %WorkPos, align 4
+  %462 = fadd <2 x float> %461, <float 6.500000e+02, float 2.000000e+01>
+  store <2 x float> %462, ptr %ref.tmp, align 8
   store <2 x float> zeroinitializer, ptr %ref.tmp97, align 8
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp97)
   store <2 x float> <float 5.500000e+02, float 6.800000e+02>, ptr %ref.tmp98, align 8
@@ -5650,13 +5649,13 @@ if.then104:                                       ; preds = %if.end101
   br i1 %call105, label %do.body, label %if.end109
 
 do.body:                                          ; preds = %if.then104
-  %468 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp.not = icmp eq ptr %468, null
+  %463 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp.not = icmp eq ptr %463, null
   br i1 %cmp.not, label %do.end, label %if.then107
 
 if.then107:                                       ; preds = %do.body
-  %469 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %468(ptr noundef nonnull @.str.3, i32 noundef 363, ptr noundef nonnull @.str.4, ptr noundef %469)
+  %464 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %463(ptr noundef nonnull @.str.3, i32 noundef 363, ptr noundef nonnull @.str.4, ptr noundef %464)
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then107
@@ -5669,13 +5668,13 @@ if.end109:                                        ; preds = %do.end, %if.then104
   br i1 %call110, label %do.body112, label %if.end130
 
 do.body112:                                       ; preds = %if.end109
-  %470 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp113.not = icmp eq ptr %470, null
+  %465 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp113.not = icmp eq ptr %465, null
   br i1 %cmp113.not, label %do.end116, label %if.then114
 
 if.then114:                                       ; preds = %do.body112
-  %471 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %470(ptr noundef nonnull @.str.3, i32 noundef 369, ptr noundef nonnull @.str.6, ptr noundef %471)
+  %466 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %465(ptr noundef nonnull @.str.3, i32 noundef 369, ptr noundef nonnull @.str.6, ptr noundef %466)
   br label %do.end116
 
 do.end116:                                        ; preds = %do.body112, %if.then114
@@ -5702,13 +5701,13 @@ if.end130:                                        ; preds = %do.end116, %if.end1
   br i1 %call131, label %do.body133, label %if.end143
 
 do.body133:                                       ; preds = %if.end130
-  %472 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp134.not = icmp eq ptr %472, null
+  %467 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp134.not = icmp eq ptr %467, null
   br i1 %cmp134.not, label %do.end137, label %if.then135
 
 if.then135:                                       ; preds = %do.body133
-  %473 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %472(ptr noundef nonnull @.str.3, i32 noundef 393, ptr noundef nonnull @.str.23, ptr noundef %473)
+  %468 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %467(ptr noundef nonnull @.str.3, i32 noundef 393, ptr noundef nonnull @.str.23, ptr noundef %468)
   br label %do.end137
 
 do.end137:                                        ; preds = %do.body133, %if.then135
@@ -5727,13 +5726,13 @@ if.end143:                                        ; preds = %do.end137, %if.end1
 if.end144:                                        ; preds = %if.end143, %if.end101
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 19002)
   call void @_ZN5ImGui7SpacingEv()
-  %474 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp146.not = icmp eq ptr %474, null
+  %469 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp146.not = icmp eq ptr %469, null
   br i1 %cmp146.not, label %do.end149, label %if.then147
 
 if.then147:                                       ; preds = %if.end144
-  %475 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %474(ptr noundef nonnull @.str.3, i32 noundef 412, ptr noundef nonnull @.str.31, ptr noundef %475)
+  %470 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %469(ptr noundef nonnull @.str.3, i32 noundef 412, ptr noundef nonnull @.str.31, ptr noundef %470)
   br label %do.end149
 
 do.end149:                                        ; preds = %if.end144, %if.then147
@@ -5757,13 +5756,13 @@ if.then151:                                       ; preds = %do.end149
   br label %do.body153
 
 do.body153:                                       ; preds = %do.end149, %if.then151
-  %476 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp154.not = icmp eq ptr %476, null
+  %471 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp154.not = icmp eq ptr %471, null
   br i1 %cmp154.not, label %do.end157, label %if.then155
 
 if.then155:                                       ; preds = %do.body153
-  %477 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %476(ptr noundef nonnull @.str.3, i32 noundef 433, ptr noundef nonnull @.str.44, ptr noundef %477)
+  %472 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %471(ptr noundef nonnull @.str.3, i32 noundef 433, ptr noundef nonnull @.str.44, ptr noundef %472)
   br label %do.end157
 
 do.end157:                                        ; preds = %do.body153, %if.then155
@@ -5826,8 +5825,8 @@ if.then.i326:                                     ; preds = %_ZL10HelpMarkerPKc.
 
 _ZL10HelpMarkerPKc.exit329:                       ; preds = %_ZL10HelpMarkerPKc.exit323, %if.then.i326
   %call169 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.53, ptr noundef nonnull %call160, i32 noundef 16)
-  %478 = load i32, ptr %call160, align 8
-  %and = and i32 %478, 16
+  %473 = load i32, ptr %call160, align 8
+  %and = and i32 %473, 16
   %tobool171.not = icmp eq i32 %and, 0
   br i1 %tobool171.not, label %if.end183, label %if.then172
 
@@ -5848,8 +5847,8 @@ if.end177:                                        ; preds = %if.then176, %if.the
   br i1 %call178, label %if.then179, label %if.end183
 
 if.then179:                                       ; preds = %if.end177
-  %479 = load i32, ptr %call160, align 8
-  %and181 = and i32 %479, -17
+  %474 = load i32, ptr %call160, align 8
+  %and181 = and i32 %474, -17
   store i32 %and181, ptr %call160, align 8
   br label %if.end183
 
@@ -6054,13 +6053,13 @@ _ZL10HelpMarkerPKc.exit395:                       ; preds = %_ZL10HelpMarkerPKc.
   br label %do.body199
 
 do.body199:                                       ; preds = %if.then159, %_ZL10HelpMarkerPKc.exit395
-  %480 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp200.not = icmp eq ptr %480, null
+  %475 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp200.not = icmp eq ptr %475, null
   br i1 %cmp200.not, label %do.end203, label %if.then201
 
 if.then201:                                       ; preds = %do.body199
-  %481 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %480(ptr noundef nonnull @.str.3, i32 noundef 495, ptr noundef nonnull @.str.82, ptr noundef %481)
+  %476 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %475(ptr noundef nonnull @.str.3, i32 noundef 495, ptr noundef nonnull @.str.82, ptr noundef %476)
   br label %do.end203
 
 do.end203:                                        ; preds = %do.body199, %if.then201
@@ -6094,13 +6093,13 @@ _ZL10HelpMarkerPKc.exit401:                       ; preds = %if.then205, %if.the
   br label %do.body214
 
 do.body214:                                       ; preds = %do.end203, %_ZL10HelpMarkerPKc.exit401
-  %482 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp215.not = icmp eq ptr %482, null
+  %477 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp215.not = icmp eq ptr %477, null
   br i1 %cmp215.not, label %do.end218, label %if.then216
 
 if.then216:                                       ; preds = %do.body214
-  %483 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %482(ptr noundef nonnull @.str.3, i32 noundef 513, ptr noundef nonnull @.str.89, ptr noundef %483)
+  %478 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %477(ptr noundef nonnull @.str.3, i32 noundef 513, ptr noundef nonnull @.str.89, ptr noundef %478)
   br label %do.end218
 
 do.end218:                                        ; preds = %do.body214, %if.then216
@@ -6128,13 +6127,13 @@ _ZL10HelpMarkerPKc.exit407:                       ; preds = %if.then220, %if.the
   br label %do.body222
 
 do.body222:                                       ; preds = %do.end218, %_ZL10HelpMarkerPKc.exit407
-  %484 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp223.not = icmp eq ptr %484, null
+  %479 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp223.not = icmp eq ptr %479, null
   br i1 %cmp223.not, label %do.end226, label %if.then224
 
 if.then224:                                       ; preds = %do.body222
-  %485 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %484(ptr noundef nonnull @.str.3, i32 noundef 522, ptr noundef nonnull @.str.92, ptr noundef %485)
+  %480 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %479(ptr noundef nonnull @.str.3, i32 noundef 522, ptr noundef nonnull @.str.92, ptr noundef %480)
   br label %do.end226
 
 do.end226:                                        ; preds = %do.body222, %if.then224
@@ -6186,13 +6185,13 @@ if.end232:                                        ; preds = %if.then231, %_ZL10H
   br label %do.body235
 
 do.body235:                                       ; preds = %do.end157, %if.end232, %do.end226
-  %486 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp236.not = icmp eq ptr %486, null
+  %481 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp236.not = icmp eq ptr %481, null
   br i1 %cmp236.not, label %do.end239, label %if.then237
 
 if.then237:                                       ; preds = %do.body235
-  %487 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %486(ptr noundef nonnull @.str.3, i32 noundef 542, ptr noundef nonnull @.str.98, ptr noundef %487)
+  %482 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %481(ptr noundef nonnull @.str.3, i32 noundef 542, ptr noundef nonnull @.str.98, ptr noundef %482)
   br label %do.end239
 
 do.end239:                                        ; preds = %do.body235, %if.then237
@@ -6259,13 +6258,13 @@ if.end268:                                        ; preds = %if.then241, %if.the
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %unused_open.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp206.i428)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp211.i)
-  %488 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp.not.i429 = icmp eq ptr %488, null
+  %483 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp.not.i429 = icmp eq ptr %483, null
   br i1 %cmp.not.i429, label %do.end.i431, label %if.then.i430
 
 if.then.i430:                                     ; preds = %if.end268
-  %489 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %488(ptr noundef nonnull @.str.3, i32 noundef 3566, ptr noundef nonnull @.str.1151, ptr noundef %489)
+  %484 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %483(ptr noundef nonnull @.str.3, i32 noundef 3566, ptr noundef nonnull @.str.1151, ptr noundef %484)
   br label %do.end.i431
 
 do.end.i431:                                      ; preds = %if.then.i430, %if.end268
@@ -6273,13 +6272,13 @@ do.end.i431:                                      ; preds = %if.then.i430, %if.e
   br i1 %call.i432, label %do.body3.i, label %_ZL20ShowDemoWindowPopupsv.exit
 
 do.body3.i:                                       ; preds = %do.end.i431
-  %490 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp4.not.i = icmp eq ptr %490, null
+  %485 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp4.not.i = icmp eq ptr %485, null
   br i1 %cmp4.not.i, label %do.end7.i, label %if.then5.i433
 
 if.then5.i433:                                    ; preds = %do.body3.i
-  %491 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %490(ptr noundef nonnull @.str.3, i32 noundef 3588, ptr noundef nonnull @.str.1153, ptr noundef %491)
+  %486 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %485(ptr noundef nonnull @.str.3, i32 noundef 3588, ptr noundef nonnull @.str.1153, ptr noundef %486)
   br label %do.end7.i
 
 do.end7.i:                                        ; preds = %if.then5.i433, %do.body3.i
@@ -6298,18 +6297,18 @@ if.then11.i490:                                   ; preds = %if.then9.i
 
 if.end12.i:                                       ; preds = %if.then11.i490, %if.then9.i
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  %492 = load i32, ptr @_ZZL20ShowDemoWindowPopupsvE13selected_fish, align 4
-  %cmp13.i = icmp eq i32 %492, -1
+  %487 = load i32, ptr @_ZZL20ShowDemoWindowPopupsvE13selected_fish, align 4
+  %cmp13.i = icmp eq i32 %487, -1
   br i1 %cmp13.i, label %cond.end.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end12.i
-  %idxprom.i458 = sext i32 %492 to i64
+  %idxprom.i458 = sext i32 %487 to i64
   %arrayidx.i459 = getelementptr inbounds [5 x ptr], ptr @__const._ZL20ShowDemoWindowPopupsv.names, i64 0, i64 %idxprom.i458
-  %493 = load ptr, ptr %arrayidx.i459, align 8
+  %488 = load ptr, ptr %arrayidx.i459, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.end12.i
-  %cond.i460 = phi ptr [ %493, %cond.false.i ], [ @.str.1162, %if.end12.i ]
+  %cond.i460 = phi ptr [ %488, %cond.false.i ], [ @.str.1162, %if.end12.i ]
   call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef %cond.i460, ptr noundef null)
   %call14.i461 = call noundef zeroext i1 @_ZN5ImGui10BeginPopupEPKci(ptr noundef nonnull @.str.1161, i32 noundef 0)
   br i1 %call14.i461, label %if.then15.i, label %if.end23.i
@@ -6321,14 +6320,14 @@ if.then15.i:                                      ; preds = %cond.end.i
 for.body.i482:                                    ; preds = %for.inc.i485, %if.then15.i
   %indvars.iv.i483 = phi i64 [ 0, %if.then15.i ], [ %indvars.iv.next.i486, %for.inc.i485 ]
   %arrayidx18.i = getelementptr inbounds [5 x ptr], ptr @__const._ZL20ShowDemoWindowPopupsv.names, i64 0, i64 %indvars.iv.i483
-  %494 = load ptr, ptr %arrayidx18.i, align 8
+  %489 = load ptr, ptr %arrayidx18.i, align 8
   store <2 x float> zeroinitializer, ptr %ref.tmp19.i423, align 8
-  %call20.i484 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef %494, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp19.i423)
+  %call20.i484 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef %489, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp19.i423)
   br i1 %call20.i484, label %if.then21.i489, label %for.inc.i485
 
 if.then21.i489:                                   ; preds = %for.body.i482
-  %495 = trunc nuw nsw i64 %indvars.iv.i483 to i32
-  store i32 %495, ptr @_ZZL20ShowDemoWindowPopupsvE13selected_fish, align 4
+  %490 = trunc nuw nsw i64 %indvars.iv.i483 to i32
+  store i32 %490, ptr @_ZZL20ShowDemoWindowPopupsvE13selected_fish, align 4
   br label %for.inc.i485
 
 for.inc.i485:                                     ; preds = %if.then21.i489, %for.body.i482
@@ -6356,9 +6355,9 @@ if.end27.i:                                       ; preds = %if.then26.i, %if.en
 for.body33.i:                                     ; preds = %if.end27.i, %for.body33.i
   %indvars.iv59.i = phi i64 [ %indvars.iv.next60.i, %for.body33.i ], [ 0, %if.end27.i ]
   %arrayidx35.i = getelementptr inbounds [5 x ptr], ptr @__const._ZL20ShowDemoWindowPopupsv.names, i64 0, i64 %indvars.iv59.i
-  %496 = load ptr, ptr %arrayidx35.i, align 8
+  %491 = load ptr, ptr %arrayidx35.i, align 8
   %arrayidx37.i = getelementptr inbounds [5 x i8], ptr @_ZZL20ShowDemoWindowPopupsvE7toggles, i64 0, i64 %indvars.iv59.i
-  %call38.i471 = call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_Pbb(ptr noundef %496, ptr noundef nonnull @.str.224, ptr noundef nonnull %arrayidx37.i, i1 noundef zeroext true)
+  %call38.i471 = call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_Pbb(ptr noundef %491, ptr noundef nonnull @.str.224, ptr noundef nonnull %arrayidx37.i, i1 noundef zeroext true)
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond62.not.i = icmp eq i64 %indvars.iv.next60.i, 5
   br i1 %exitcond62.not.i, label %for.end41.i, label %for.body33.i, !llvm.loop !26
@@ -6391,9 +6390,9 @@ if.end49.i475:                                    ; preds = %if.then48.i, %if.en
 for.body55.i:                                     ; preds = %if.end49.i475, %for.body55.i
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %for.body55.i ], [ 0, %if.end49.i475 ]
   %arrayidx57.i = getelementptr inbounds [5 x ptr], ptr @__const._ZL20ShowDemoWindowPopupsv.names, i64 0, i64 %indvars.iv63.i
-  %497 = load ptr, ptr %arrayidx57.i, align 8
+  %492 = load ptr, ptr %arrayidx57.i, align 8
   %arrayidx59.i = getelementptr inbounds [5 x i8], ptr @_ZZL20ShowDemoWindowPopupsvE7toggles, i64 0, i64 %indvars.iv63.i
-  %call60.i477 = call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_Pbb(ptr noundef %497, ptr noundef nonnull @.str.224, ptr noundef nonnull %arrayidx59.i, i1 noundef zeroext true)
+  %call60.i477 = call noundef zeroext i1 @_ZN5ImGui8MenuItemEPKcS1_Pbb(ptr noundef %492, ptr noundef nonnull @.str.224, ptr noundef nonnull %arrayidx59.i, i1 noundef zeroext true)
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, 5
   br i1 %exitcond66.not.i, label %for.end63.i, label %for.body55.i, !llvm.loop !27
@@ -6484,13 +6483,13 @@ if.end95.i:                                       ; preds = %if.end92.i, %if.end
   br label %do.body97.i
 
 do.body97.i:                                      ; preds = %if.end95.i, %do.end7.i
-  %498 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp98.not.i = icmp eq ptr %498, null
+  %493 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp98.not.i = icmp eq ptr %493, null
   br i1 %cmp98.not.i, label %do.end101.i, label %if.then99.i
 
 if.then99.i:                                      ; preds = %do.body97.i
-  %499 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %498(ptr noundef nonnull @.str.3, i32 noundef 3681, ptr noundef nonnull @.str.1179, ptr noundef %499)
+  %494 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %493(ptr noundef nonnull @.str.3, i32 noundef 3681, ptr noundef nonnull @.str.1179, ptr noundef %494)
   br label %do.end101.i
 
 do.end101.i:                                      ; preds = %if.then99.i, %do.body97.i
@@ -6517,17 +6516,17 @@ _ZL10HelpMarkerPKc.exit.i448:                     ; preds = %if.then.i.i453, %if
 for.body107.i:                                    ; preds = %if.end123.i, %_ZL10HelpMarkerPKc.exit.i448
   %indvars.iv67.i = phi i64 [ 0, %_ZL10HelpMarkerPKc.exit.i448 ], [ %indvars.iv.next68.i, %if.end123.i ]
   %arrayidx109.i = getelementptr inbounds [5 x ptr], ptr @__const._ZL20ShowDemoWindowPopupsv.names.1187, i64 0, i64 %indvars.iv67.i
-  %500 = load ptr, ptr %arrayidx109.i, align 8
-  %501 = load i32, ptr @_ZZL20ShowDemoWindowPopupsvE8selected, align 4
-  %502 = zext i32 %501 to i64
-  %cmp110.i = icmp eq i64 %indvars.iv67.i, %502
+  %495 = load ptr, ptr %arrayidx109.i, align 8
+  %496 = load i32, ptr @_ZZL20ShowDemoWindowPopupsvE8selected, align 4
+  %497 = zext i32 %496 to i64
+  %cmp110.i = icmp eq i64 %indvars.iv67.i, %497
   store <2 x float> zeroinitializer, ptr %ref.tmp111.i, align 8
-  %call112.i = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef %500, i1 noundef zeroext %cmp110.i, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp111.i)
+  %call112.i = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef %495, i1 noundef zeroext %cmp110.i, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp111.i)
   br i1 %call112.i, label %if.then113.i, label %if.end114.i
 
 if.then113.i:                                     ; preds = %for.body107.i
-  %503 = trunc nuw nsw i64 %indvars.iv67.i to i32
-  store i32 %503, ptr @_ZZL20ShowDemoWindowPopupsvE8selected, align 4
+  %498 = trunc nuw nsw i64 %indvars.iv67.i to i32
+  store i32 %498, ptr @_ZZL20ShowDemoWindowPopupsvE8selected, align 4
   br label %if.end114.i
 
 if.end114.i:                                      ; preds = %if.then113.i, %for.body107.i
@@ -6535,9 +6534,9 @@ if.end114.i:                                      ; preds = %if.then113.i, %for.
   br i1 %call115.i, label %if.then116.i, label %if.end123.i
 
 if.then116.i:                                     ; preds = %if.end114.i
-  %504 = trunc nuw nsw i64 %indvars.iv67.i to i32
-  store i32 %504, ptr @_ZZL20ShowDemoWindowPopupsvE8selected, align 4
-  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1188, ptr noundef %500)
+  %499 = trunc nuw nsw i64 %indvars.iv67.i to i32
+  store i32 %499, ptr @_ZZL20ShowDemoWindowPopupsvE8selected, align 4
+  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1188, ptr noundef %495)
   store <2 x float> zeroinitializer, ptr %ref.tmp119.i, align 8
   %call120.i = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.910, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp119.i)
   br i1 %call120.i, label %if.then121.i, label %if.end122.i
@@ -6571,8 +6570,8 @@ if.then.i30.i:                                    ; preds = %for.end126.i
   br label %_ZL10HelpMarkerPKc.exit33.i
 
 _ZL10HelpMarkerPKc.exit33.i:                      ; preds = %if.then.i30.i, %for.end126.i
-  %505 = load float, ptr @_ZZL20ShowDemoWindowPopupsvE5value, align 4
-  %conv.i451 = fpext float %505 to double
+  %500 = load float, ptr @_ZZL20ShowDemoWindowPopupsvE5value, align 4
+  %conv.i451 = fpext float %500 to double
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1191, double noundef %conv.i451)
   %call127.i = call noundef zeroext i1 @_ZN5ImGui21BeginPopupContextItemEPKci(ptr noundef nonnull @.str.1192, i32 noundef 1)
   br i1 %call127.i, label %if.then128.i, label %if.end138.i
@@ -6655,13 +6654,13 @@ if.end154.i:                                      ; preds = %if.end153.i, %_ZL10
   br label %do.body156.i
 
 do.body156.i:                                     ; preds = %if.end154.i, %do.end101.i
-  %506 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp157.not.i = icmp eq ptr %506, null
+  %501 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp157.not.i = icmp eq ptr %501, null
   br i1 %cmp157.not.i, label %do.end160.i, label %if.then158.i435
 
 if.then158.i435:                                  ; preds = %do.body156.i
-  %507 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %506(ptr noundef nonnull @.str.3, i32 noundef 3768, ptr noundef nonnull @.str.1203, ptr noundef %507)
+  %502 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %501(ptr noundef nonnull @.str.3, i32 noundef 3768, ptr noundef nonnull @.str.1203, ptr noundef %502)
   br label %do.end160.i
 
 do.end160.i:                                      ; preds = %if.then158.i435, %do.body156.i
@@ -6682,10 +6681,10 @@ if.end166.i:                                      ; preds = %if.then165.i, %if.t
   %call167.i = call noundef ptr @_ZN5ImGui15GetMainViewportEv()
   %Pos.i.i436 = getelementptr inbounds i8, ptr %call167.i, i64 4
   %Size.i.i437 = getelementptr inbounds i8, ptr %call167.i, i64 12
-  %508 = load <2 x float>, ptr %Pos.i.i436, align 4
-  %509 = load <2 x float>, ptr %Size.i.i437, align 4
-  %510 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %509, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %508)
-  store <2 x float> %510, ptr %center.i, align 8
+  %503 = load <2 x float>, ptr %Pos.i.i436, align 4
+  %504 = load <2 x float>, ptr %Size.i.i437, align 4
+  %505 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %504, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %503)
+  store <2 x float> %505, ptr %center.i, align 8
   store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %ref.tmp169.i, align 8
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %center.i, i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp169.i)
   %call170.i = call noundef zeroext i1 @_ZN5ImGui15BeginPopupModalEPKcPbi(ptr noundef nonnull @.str.1207, ptr noundef null, i32 noundef 64)
@@ -6800,13 +6799,13 @@ if.end215.i:                                      ; preds = %if.end214.i444, %if
   br label %do.body217.i
 
 do.body217.i:                                     ; preds = %if.end215.i, %do.end160.i
-  %511 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp218.not.i = icmp eq ptr %511, null
+  %506 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp218.not.i = icmp eq ptr %506, null
   br i1 %cmp218.not.i, label %do.end221.i, label %if.then219.i
 
 if.then219.i:                                     ; preds = %do.body217.i
-  %512 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %511(ptr noundef nonnull @.str.3, i32 noundef 3844, ptr noundef nonnull @.str.1220, ptr noundef %512)
+  %507 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %506(ptr noundef nonnull @.str.3, i32 noundef 3844, ptr noundef nonnull @.str.1220, ptr noundef %507)
   br label %do.end221.i
 
 do.end221.i:                                      ; preds = %if.then219.i, %do.body217.i
@@ -6869,13 +6868,13 @@ _ZL20ShowDemoWindowPopupsv.exit:                  ; preds = %do.end.i431, %do.en
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp202.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp206.i495)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp234.i)
-  %513 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp.not.i496 = icmp eq ptr %513, null
+  %508 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp.not.i496 = icmp eq ptr %508, null
   br i1 %cmp.not.i496, label %do.end.i498, label %if.then.i497
 
 if.then.i497:                                     ; preds = %_ZL20ShowDemoWindowPopupsv.exit
-  %514 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %513(ptr noundef nonnull @.str.3, i32 noundef 6072, ptr noundef nonnull @.str.1635, ptr noundef %514)
+  %509 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %508(ptr noundef nonnull @.str.3, i32 noundef 6072, ptr noundef nonnull @.str.1635, ptr noundef %509)
   br label %do.end.i498
 
 do.end.i498:                                      ; preds = %if.then.i497, %_ZL20ShowDemoWindowPopupsv.exit
@@ -6884,13 +6883,13 @@ do.end.i498:                                      ; preds = %if.then.i497, %_ZL2
 
 if.then1.i500:                                    ; preds = %do.end.i498
   %call2.i501 = call noundef nonnull align 8 dereferenceable(14568) ptr @_ZN5ImGui5GetIOEv()
-  %515 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp4.not.i502 = icmp eq ptr %515, null
+  %510 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp4.not.i502 = icmp eq ptr %510, null
   br i1 %cmp4.not.i502, label %do.end7.i504, label %if.then5.i503
 
 if.then5.i503:                                    ; preds = %if.then1.i500
-  %516 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %515(ptr noundef nonnull @.str.3, i32 noundef 6078, ptr noundef nonnull @.str.1636, ptr noundef %516)
+  %511 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %510(ptr noundef nonnull @.str.3, i32 noundef 6078, ptr noundef nonnull @.str.1636, ptr noundef %511)
   br label %do.end7.i504
 
 do.end7.i504:                                     ; preds = %if.then5.i503, %if.then1.i500
@@ -6918,11 +6917,11 @@ _ZL10HelpMarkerPKc.exit.i541:                     ; preds = %if.then.i.i568, %if
 
 if.then11.i564:                                   ; preds = %_ZL10HelpMarkerPKc.exit.i541
   %MousePos.i565 = getelementptr inbounds i8, ptr %call2.i501, i64 3648
-  %517 = load float, ptr %MousePos.i565, align 8
-  %conv.i566 = fpext float %517 to double
+  %512 = load float, ptr %MousePos.i565, align 8
+  %conv.i566 = fpext float %512 to double
   %y.i567 = getelementptr inbounds i8, ptr %call2.i501, i64 3652
-  %518 = load float, ptr %y.i567, align 4
-  %conv13.i = fpext float %518 to double
+  %513 = load float, ptr %y.i567, align 4
+  %conv13.i = fpext float %513 to double
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1638, double noundef %conv.i566, double noundef %conv13.i)
   br label %if.end14.i544
 
@@ -6932,11 +6931,11 @@ if.else.i543:                                     ; preds = %_ZL10HelpMarkerPKc.
 
 if.end14.i544:                                    ; preds = %if.else.i543, %if.then11.i564
   %MouseDelta.i545 = getelementptr inbounds i8, ptr %call2.i501, i64 224
-  %519 = load float, ptr %MouseDelta.i545, align 8
-  %conv16.i = fpext float %519 to double
+  %514 = load float, ptr %MouseDelta.i545, align 8
+  %conv16.i = fpext float %514 to double
   %y18.i = getelementptr inbounds i8, ptr %call2.i501, i64 228
-  %520 = load float, ptr %y18.i, align 4
-  %conv19.i = fpext float %520 to double
+  %515 = load float, ptr %y18.i, align 4
+  %conv19.i = fpext float %515 to double
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1640, double noundef %conv16.i, double noundef %conv19.i)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1641)
   %MouseDownDuration.i = getelementptr inbounds i8, ptr %call2.i501, i64 14480
@@ -6944,16 +6943,16 @@ if.end14.i544:                                    ; preds = %if.else.i543, %if.t
 
 for.body.i546:                                    ; preds = %for.inc.i548, %if.end14.i544
   %indvars.iv.i547 = phi i64 [ 0, %if.end14.i544 ], [ %indvars.iv.next.i549, %for.inc.i548 ]
-  %521 = trunc nuw nsw i64 %indvars.iv.i547 to i32
-  %call21.i = call noundef zeroext i1 @_ZN5ImGui11IsMouseDownEi(i32 noundef %521)
+  %516 = trunc nuw nsw i64 %indvars.iv.i547 to i32
+  %call21.i = call noundef zeroext i1 @_ZN5ImGui11IsMouseDownEi(i32 noundef %516)
   br i1 %call21.i, label %if.then22.i, label %for.inc.i548
 
 if.then22.i:                                      ; preds = %for.body.i546
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %arrayidx.i563 = getelementptr inbounds [5 x float], ptr %MouseDownDuration.i, i64 0, i64 %indvars.iv.i547
-  %522 = load float, ptr %arrayidx.i563, align 4
-  %conv23.i = fpext float %522 to double
-  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1642, i32 noundef %521, double noundef %conv23.i)
+  %517 = load float, ptr %arrayidx.i563, align 4
+  %conv23.i = fpext float %517 to double
+  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1642, i32 noundef %516, double noundef %conv23.i)
   br label %for.inc.i548
 
 for.inc.i548:                                     ; preds = %if.then22.i, %for.body.i546
@@ -6963,8 +6962,8 @@ for.inc.i548:                                     ; preds = %if.then22.i, %for.b
 
 for.end.i551:                                     ; preds = %for.inc.i548
   %MouseWheel.i = getelementptr inbounds i8, ptr %call2.i501, i64 3664
-  %523 = load float, ptr %MouseWheel.i, align 8
-  %conv25.i = fpext float %523 to double
+  %518 = load float, ptr %MouseWheel.i, align 8
+  %conv25.i = fpext float %518 to double
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1643, double noundef %conv25.i)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1644)
   br label %for.body28.i552
@@ -6978,20 +6977,20 @@ _ZZL20ShowDemoWindowInputsvEN5funcs18IsLegacyNativeDupeE8ImGuiKey.exit.i: ; pred
   %call.i64.i = call noundef nonnull align 8 dereferenceable(14568) ptr @_ZN5ImGui5GetIOEv()
   %KeyMap.i.i = getelementptr inbounds i8, ptr %call.i64.i, i64 232
   %arrayidx.i.i562 = getelementptr inbounds [666 x i32], ptr %KeyMap.i.i, i64 0, i64 %indvars.iv108.i
-  %524 = load i32, ptr %arrayidx.i.i562, align 4
-  %cmp1.i.not.i = icmp eq i32 %524, -1
+  %519 = load i32, ptr %arrayidx.i.i562, align 4
+  %cmp1.i.not.i = icmp eq i32 %519, -1
   br i1 %cmp1.i.not.i, label %lor.lhs.false.i, label %for.inc35.i
 
 lor.lhs.false.i:                                  ; preds = %_ZZL20ShowDemoWindowInputsvEN5funcs18IsLegacyNativeDupeE8ImGuiKey.exit.i, %for.body28.i552
-  %525 = trunc nuw nsw i64 %indvars.iv108.i to i32
-  %call30.i554 = call noundef zeroext i1 @_ZN5ImGui9IsKeyDownE8ImGuiKey(i32 noundef %525)
+  %520 = trunc nuw nsw i64 %indvars.iv108.i to i32
+  %call30.i554 = call noundef zeroext i1 @_ZN5ImGui9IsKeyDownE8ImGuiKey(i32 noundef %520)
   br i1 %call30.i554, label %if.end32.i559, label %for.inc35.i
 
 if.end32.i559:                                    ; preds = %lor.lhs.false.i
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   %cond.i560 = select i1 %cmp.i.i553, ptr @.str.1645, ptr @.str.1646
-  %call34.i561 = call noundef ptr @_ZN5ImGui10GetKeyNameE8ImGuiKey(i32 noundef %525)
-  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull %cond.i560, ptr noundef %call34.i561, i32 noundef %525)
+  %call34.i561 = call noundef ptr @_ZN5ImGui10GetKeyNameE8ImGuiKey(i32 noundef %520)
+  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull %cond.i560, ptr noundef %call34.i561, i32 noundef %520)
   br label %for.inc35.i
 
 for.inc35.i:                                      ; preds = %if.end32.i559, %lor.lhs.false.i, %_ZZL20ShowDemoWindowInputsvEN5funcs18IsLegacyNativeDupeE8ImGuiKey.exit.i
@@ -7001,26 +7000,26 @@ for.inc35.i:                                      ; preds = %if.end32.i559, %lor
 
 for.end36.i:                                      ; preds = %for.inc35.i
   %KeyCtrl.i = getelementptr inbounds i8, ptr %call2.i501, i64 3676
-  %526 = load i8, ptr %KeyCtrl.i, align 4
-  %tobool.i555 = trunc i8 %526 to i1
+  %521 = load i8, ptr %KeyCtrl.i, align 4
+  %tobool.i555 = trunc i8 %521 to i1
   %cond37.i = select i1 %tobool.i555, ptr @.str.1648, ptr @.str.224
   %KeyShift.i556 = getelementptr inbounds i8, ptr %call2.i501, i64 3677
-  %527 = load i8, ptr %KeyShift.i556, align 1
-  %tobool38.i = trunc i8 %527 to i1
+  %522 = load i8, ptr %KeyShift.i556, align 1
+  %tobool38.i = trunc i8 %522 to i1
   %cond39.i = select i1 %tobool38.i, ptr @.str.1649, ptr @.str.224
   %KeyAlt.i = getelementptr inbounds i8, ptr %call2.i501, i64 3678
-  %528 = load i8, ptr %KeyAlt.i, align 2
-  %tobool40.i = trunc i8 %528 to i1
+  %523 = load i8, ptr %KeyAlt.i, align 2
+  %tobool40.i = trunc i8 %523 to i1
   %cond41.i = select i1 %tobool40.i, ptr @.str.1650, ptr @.str.224
   %KeySuper.i = getelementptr inbounds i8, ptr %call2.i501, i64 3679
-  %529 = load i8, ptr %KeySuper.i, align 1
-  %tobool42.i = trunc i8 %529 to i1
+  %524 = load i8, ptr %KeySuper.i, align 1
+  %tobool42.i = trunc i8 %524 to i1
   %cond43.i = select i1 %tobool42.i, ptr @.str.1651, ptr @.str.224
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1647, ptr noundef nonnull %cond37.i, ptr noundef nonnull %cond39.i, ptr noundef nonnull %cond41.i, ptr noundef nonnull %cond43.i)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1652)
   %InputQueueCharacters.i = getelementptr inbounds i8, ptr %call2.i501, i64 14552
-  %530 = load i32, ptr %InputQueueCharacters.i, align 8
-  %cmp46103.i = icmp sgt i32 %530, 0
+  %525 = load i32, ptr %InputQueueCharacters.i, align 8
+  %cmp46103.i = icmp sgt i32 %525, 0
   br i1 %cmp46103.i, label %for.body47.lr.ph.i, label %for.end60.i
 
 for.body47.lr.ph.i:                               ; preds = %for.end36.i
@@ -7029,21 +7028,21 @@ for.body47.lr.ph.i:                               ; preds = %for.end36.i
 
 for.body47.i:                                     ; preds = %for.body47.i, %for.body47.lr.ph.i
   %indvars.iv112.i = phi i64 [ 0, %for.body47.lr.ph.i ], [ %indvars.iv.next113.i, %for.body47.i ]
-  %531 = load ptr, ptr %Data.i.i, align 8
-  %arrayidx.i66.i557 = getelementptr inbounds i16, ptr %531, i64 %indvars.iv112.i
-  %532 = load i16, ptr %arrayidx.i66.i557, align 2
+  %526 = load ptr, ptr %Data.i.i, align 8
+  %arrayidx.i66.i557 = getelementptr inbounds i16, ptr %526, i64 %indvars.iv112.i
+  %527 = load i16, ptr %arrayidx.i66.i557, align 2
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-  %conv50.i = zext i16 %532 to i32
-  %533 = add i16 %532, -33
-  %or.cond.i558 = icmp ult i16 %533, 223
+  %conv50.i = zext i16 %527 to i32
+  %528 = add i16 %527, -33
+  %or.cond.i558 = icmp ult i16 %528, 223
   %sext.i = shl i32 %conv50.i, 24
-  %534 = ashr exact i32 %sext.i, 24
-  %conv56.i = select i1 %or.cond.i558, i32 %534, i32 63
+  %529 = ashr exact i32 %sext.i, 24
+  %conv56.i = select i1 %or.cond.i558, i32 %529, i32 63
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1653, i32 noundef %conv56.i, i32 noundef %conv50.i)
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
-  %535 = load i32, ptr %InputQueueCharacters.i, align 8
-  %536 = sext i32 %535 to i64
-  %cmp46.i = icmp slt i64 %indvars.iv.next113.i, %536
+  %530 = load i32, ptr %InputQueueCharacters.i, align 8
+  %531 = sext i32 %530 to i64
+  %cmp46.i = icmp slt i64 %indvars.iv.next113.i, %531
   br i1 %cmp46.i, label %for.body47.i, label %for.end60.i, !llvm.loop !31
 
 for.end60.i:                                      ; preds = %for.body47.i, %for.end36.i
@@ -7051,13 +7050,13 @@ for.end60.i:                                      ; preds = %for.body47.i, %for.
   br label %do.body62.i
 
 do.body62.i:                                      ; preds = %for.end60.i, %do.end7.i504
-  %537 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp63.not.i = icmp eq ptr %537, null
+  %532 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp63.not.i = icmp eq ptr %532, null
   br i1 %cmp63.not.i, label %do.end66.i, label %if.then64.i506
 
 if.then64.i506:                                   ; preds = %do.body62.i
-  %538 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %537(ptr noundef nonnull @.str.3, i32 noundef 6112, ptr noundef nonnull @.str.1654, ptr noundef %538)
+  %533 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %532(ptr noundef nonnull @.str.3, i32 noundef 6112, ptr noundef nonnull @.str.1654, ptr noundef %533)
   br label %do.end66.i
 
 do.end66.i:                                       ; preds = %if.then64.i506, %do.body62.i
@@ -7081,46 +7080,46 @@ if.then.i68.i:                                    ; preds = %if.then68.i525
 
 _ZL10HelpMarkerPKc.exit71.i:                      ; preds = %if.then.i68.i, %if.then68.i525
   %WantCaptureMouse.i = getelementptr inbounds i8, ptr %call2.i501, i64 194
-  %539 = load i8, ptr %WantCaptureMouse.i, align 2
-  %540 = and i8 %539, 1
-  %conv70.i = zext nneg i8 %540 to i32
+  %534 = load i8, ptr %WantCaptureMouse.i, align 2
+  %535 = and i8 %534, 1
+  %conv70.i = zext nneg i8 %535 to i32
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1657, i32 noundef %conv70.i)
   %WantCaptureMouseUnlessPopupClose.i = getelementptr inbounds i8, ptr %call2.i501, i64 14340
-  %541 = load i8, ptr %WantCaptureMouseUnlessPopupClose.i, align 4
-  %542 = and i8 %541, 1
-  %conv72.i = zext nneg i8 %542 to i32
+  %536 = load i8, ptr %WantCaptureMouseUnlessPopupClose.i, align 4
+  %537 = and i8 %536, 1
+  %conv72.i = zext nneg i8 %537 to i32
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1658, i32 noundef %conv72.i)
   %WantCaptureKeyboard.i = getelementptr inbounds i8, ptr %call2.i501, i64 195
-  %543 = load i8, ptr %WantCaptureKeyboard.i, align 1
-  %544 = and i8 %543, 1
-  %conv74.i = zext nneg i8 %544 to i32
+  %538 = load i8, ptr %WantCaptureKeyboard.i, align 1
+  %539 = and i8 %538, 1
+  %conv74.i = zext nneg i8 %539 to i32
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1659, i32 noundef %conv74.i)
   %WantTextInput.i = getelementptr inbounds i8, ptr %call2.i501, i64 196
-  %545 = load i8, ptr %WantTextInput.i, align 4
-  %546 = and i8 %545, 1
-  %conv76.i = zext nneg i8 %546 to i32
+  %540 = load i8, ptr %WantTextInput.i, align 4
+  %541 = and i8 %540, 1
+  %conv76.i = zext nneg i8 %541 to i32
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1660, i32 noundef %conv76.i)
   %WantSetMousePos.i = getelementptr inbounds i8, ptr %call2.i501, i64 197
-  %547 = load i8, ptr %WantSetMousePos.i, align 1
-  %548 = and i8 %547, 1
-  %conv78.i = zext nneg i8 %548 to i32
+  %542 = load i8, ptr %WantSetMousePos.i, align 1
+  %543 = and i8 %542, 1
+  %conv78.i = zext nneg i8 %543 to i32
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1661, i32 noundef %conv78.i)
   %NavActive.i = getelementptr inbounds i8, ptr %call2.i501, i64 199
-  %549 = load i8, ptr %NavActive.i, align 1
-  %550 = and i8 %549, 1
-  %conv80.i = zext nneg i8 %550 to i32
+  %544 = load i8, ptr %NavActive.i, align 1
+  %545 = and i8 %544, 1
+  %conv80.i = zext nneg i8 %545 to i32
   %NavVisible.i = getelementptr inbounds i8, ptr %call2.i501, i64 200
-  %551 = load i8, ptr %NavVisible.i, align 8
-  %552 = and i8 %551, 1
-  %conv82.i = zext nneg i8 %552 to i32
+  %546 = load i8, ptr %NavVisible.i, align 8
+  %547 = and i8 %546, 1
+  %conv82.i = zext nneg i8 %547 to i32
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1662, i32 noundef %conv80.i, i32 noundef %conv82.i)
-  %553 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp84.not.i = icmp eq ptr %553, null
+  %548 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp84.not.i = icmp eq ptr %548, null
   br i1 %cmp84.not.i, label %do.end87.i, label %if.then85.i
 
 if.then85.i:                                      ; preds = %_ZL10HelpMarkerPKc.exit71.i
-  %554 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %553(ptr noundef nonnull @.str.3, i32 noundef 6130, ptr noundef nonnull @.str.1663, ptr noundef %554)
+  %549 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %548(ptr noundef nonnull @.str.3, i32 noundef 6130, ptr noundef nonnull @.str.1663, ptr noundef %549)
   br label %do.end87.i
 
 do.end87.i:                                       ; preds = %if.then85.i, %_ZL10HelpMarkerPKc.exit71.i
@@ -7145,44 +7144,44 @@ _ZL10HelpMarkerPKc.exit76.i:                      ; preds = %if.then.i73.i, %if.
   %call90.i528 = call noundef float @_ZN5ImGui11GetFontSizeEv()
   %mul.i529 = fmul float %call90.i528, 1.500000e+01
   call void @_ZN5ImGui16SetNextItemWidthEf(float noundef %mul.i529)
-  %555 = load i32, ptr @_ZZL20ShowDemoWindowInputsvE22capture_override_mouse, align 4
-  %add91.i530 = add nsw i32 %555, 1
+  %550 = load i32, ptr @_ZZL20ShowDemoWindowInputsvE22capture_override_mouse, align 4
+  %add91.i530 = add nsw i32 %550, 1
   %idxprom92.i = sext i32 %add91.i530 to i64
   %arrayidx93.i = getelementptr inbounds [3 x ptr], ptr @__const._ZL20ShowDemoWindowInputsv.capture_override_desc, i64 0, i64 %idxprom92.i
-  %556 = load ptr, ptr %arrayidx93.i, align 8
-  %call94.i531 = call noundef zeroext i1 @_ZN5ImGui9SliderIntEPKcPiiiS1_i(ptr noundef nonnull @.str.1668, ptr noundef nonnull @_ZZL20ShowDemoWindowInputsvE22capture_override_mouse, i32 noundef -1, i32 noundef 1, ptr noundef %556, i32 noundef 16)
+  %551 = load ptr, ptr %arrayidx93.i, align 8
+  %call94.i531 = call noundef zeroext i1 @_ZN5ImGui9SliderIntEPKcPiiiS1_i(ptr noundef nonnull @.str.1668, ptr noundef nonnull @_ZZL20ShowDemoWindowInputsvE22capture_override_mouse, i32 noundef -1, i32 noundef 1, ptr noundef %551, i32 noundef 16)
   %call95.i = call noundef float @_ZN5ImGui11GetFontSizeEv()
   %mul96.i = fmul float %call95.i, 1.500000e+01
   call void @_ZN5ImGui16SetNextItemWidthEf(float noundef %mul96.i)
-  %557 = load i32, ptr @_ZZL20ShowDemoWindowInputsvE25capture_override_keyboard, align 4
-  %add97.i532 = add nsw i32 %557, 1
+  %552 = load i32, ptr @_ZZL20ShowDemoWindowInputsvE25capture_override_keyboard, align 4
+  %add97.i532 = add nsw i32 %552, 1
   %idxprom98.i = sext i32 %add97.i532 to i64
   %arrayidx99.i = getelementptr inbounds [3 x ptr], ptr @__const._ZL20ShowDemoWindowInputsv.capture_override_desc, i64 0, i64 %idxprom98.i
-  %558 = load ptr, ptr %arrayidx99.i, align 8
-  %call100.i = call noundef zeroext i1 @_ZN5ImGui9SliderIntEPKcPiiiS1_i(ptr noundef nonnull @.str.1669, ptr noundef nonnull @_ZZL20ShowDemoWindowInputsvE25capture_override_keyboard, i32 noundef -1, i32 noundef 1, ptr noundef %558, i32 noundef 16)
+  %553 = load ptr, ptr %arrayidx99.i, align 8
+  %call100.i = call noundef zeroext i1 @_ZN5ImGui9SliderIntEPKcPiiiS1_i(ptr noundef nonnull @.str.1669, ptr noundef nonnull @_ZZL20ShowDemoWindowInputsvE25capture_override_keyboard, i32 noundef -1, i32 noundef 1, ptr noundef %553, i32 noundef 16)
   store <4 x float> <float 0x3FE6666660000000, float 0x3FB99999A0000000, float 0x3FE6666660000000, float 1.000000e+00>, ptr %ref.tmp.i491, align 16
   store <2 x float> <float 1.280000e+02, float 9.600000e+01>, ptr %ref.tmp101.i, align 8
   %call102.i536 = call noundef zeroext i1 @_ZN5ImGui11ColorButtonEPKcRK6ImVec4iRK6ImVec2(ptr noundef nonnull @.str.1670, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.i491, i32 noundef 576, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp101.i)
   %call103.i = call noundef zeroext i1 @_ZN5ImGui13IsItemHoveredEi(i32 noundef 0)
-  %559 = load i32, ptr @_ZZL20ShowDemoWindowInputsvE22capture_override_mouse, align 4
-  %cmp105.i = icmp ne i32 %559, -1
+  %554 = load i32, ptr @_ZZL20ShowDemoWindowInputsvE22capture_override_mouse, align 4
+  %cmp105.i = icmp ne i32 %554, -1
   %or.cond1.i537 = select i1 %call103.i, i1 %cmp105.i, i1 false
   br i1 %or.cond1.i537, label %if.then106.i, label %if.end108.i
 
 if.then106.i:                                     ; preds = %_ZL10HelpMarkerPKc.exit76.i
-  %cmp107.i = icmp eq i32 %559, 1
+  %cmp107.i = icmp eq i32 %554, 1
   call void @_ZN5ImGui28SetNextFrameWantCaptureMouseEb(i1 noundef zeroext %cmp107.i)
   br label %if.end108.i
 
 if.end108.i:                                      ; preds = %if.then106.i, %_ZL10HelpMarkerPKc.exit76.i
   %call109.i = call noundef zeroext i1 @_ZN5ImGui13IsItemHoveredEi(i32 noundef 0)
-  %560 = load i32, ptr @_ZZL20ShowDemoWindowInputsvE25capture_override_keyboard, align 4
-  %cmp111.i = icmp ne i32 %560, -1
+  %555 = load i32, ptr @_ZZL20ShowDemoWindowInputsvE25capture_override_keyboard, align 4
+  %cmp111.i = icmp ne i32 %555, -1
   %or.cond2.i = select i1 %call109.i, i1 %cmp111.i, i1 false
   br i1 %or.cond2.i, label %if.then112.i, label %if.end114.i538
 
 if.then112.i:                                     ; preds = %if.end108.i
-  %cmp113.i = icmp eq i32 %560, 1
+  %cmp113.i = icmp eq i32 %555, 1
   call void @_ZN5ImGui31SetNextFrameWantCaptureKeyboardEb(i1 noundef zeroext %cmp113.i)
   br label %if.end114.i538
 
@@ -7195,13 +7194,13 @@ if.end115.i:                                      ; preds = %if.end114.i538, %do
   br label %do.body117.i
 
 do.body117.i:                                     ; preds = %if.end115.i, %do.end66.i
-  %561 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp118.not.i = icmp eq ptr %561, null
+  %556 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp118.not.i = icmp eq ptr %556, null
   br i1 %cmp118.not.i, label %do.end121.i, label %if.then119.i
 
 if.then119.i:                                     ; preds = %do.body117.i
-  %562 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %561(ptr noundef nonnull @.str.3, i32 noundef 6156, ptr noundef nonnull @.str.1671, ptr noundef %562)
+  %557 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %556(ptr noundef nonnull @.str.3, i32 noundef 6156, ptr noundef nonnull @.str.1671, ptr noundef %557)
   br label %do.end121.i
 
 do.end121.i:                                      ; preds = %if.then119.i, %do.body117.i
@@ -7212,8 +7211,8 @@ if.then123.i:                                     ; preds = %do.end121.i
   %call124.i = call noundef i32 @_ZN5ImGui14GetMouseCursorEv()
   %idxprom125.i = sext i32 %call124.i to i64
   %arrayidx126.i = getelementptr inbounds [9 x ptr], ptr @__const._ZL20ShowDemoWindowInputsv.mouse_cursors_names, i64 0, i64 %idxprom125.i
-  %563 = load ptr, ptr %arrayidx126.i, align 8
-  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1682, i32 noundef %call124.i, ptr noundef %563)
+  %558 = load ptr, ptr %arrayidx126.i, align 8
+  call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1682, i32 noundef %call124.i, ptr noundef %558)
   call void @_ZN5ImGui13BeginDisabledEb(i1 noundef zeroext true)
   %BackendFlags.i = getelementptr inbounds i8, ptr %call2.i501, i64 4
   %call127.i522 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.86, ptr noundef nonnull %BackendFlags.i, i32 noundef 2)
@@ -7239,9 +7238,9 @@ _ZL10HelpMarkerPKc.exit82.i:                      ; preds = %if.then.i79.i, %if.
 for.body131.i:                                    ; preds = %for.inc141.i, %_ZL10HelpMarkerPKc.exit82.i
   %indvars.iv115.i = phi i64 [ 0, %_ZL10HelpMarkerPKc.exit82.i ], [ %indvars.iv.next116.i, %for.inc141.i ]
   %arrayidx133.i = getelementptr inbounds [9 x ptr], ptr @__const._ZL20ShowDemoWindowInputsv.mouse_cursors_names, i64 0, i64 %indvars.iv115.i
-  %564 = load ptr, ptr %arrayidx133.i, align 8
-  %565 = trunc nuw nsw i64 %indvars.iv115.i to i32
-  %call134.i523 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %label.i492, ptr noundef nonnull dereferenceable(1) @.str.1685, i32 noundef %565, ptr noundef %564) #29
+  %559 = load ptr, ptr %arrayidx133.i, align 8
+  %560 = trunc nuw nsw i64 %indvars.iv115.i to i32
+  %call134.i523 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %label.i492, ptr noundef nonnull dereferenceable(1) @.str.1685, i32 noundef %560, ptr noundef %559) #29
   call void @_ZN5ImGui6BulletEv()
   store <2 x float> zeroinitializer, ptr %ref.tmp136.i, align 8
   %call137.i524 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %label.i492, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp136.i)
@@ -7249,7 +7248,7 @@ for.body131.i:                                    ; preds = %for.inc141.i, %_ZL1
   br i1 %call138.i, label %if.then139.i, label %for.inc141.i
 
 if.then139.i:                                     ; preds = %for.body131.i
-  call void @_ZN5ImGui14SetMouseCursorEi(i32 noundef %565)
+  call void @_ZN5ImGui14SetMouseCursorEi(i32 noundef %560)
   br label %for.inc141.i
 
 for.inc141.i:                                     ; preds = %if.then139.i, %for.body131.i
@@ -7262,13 +7261,13 @@ for.end143.i:                                     ; preds = %for.inc141.i
   br label %do.body145.i
 
 do.body145.i:                                     ; preds = %for.end143.i, %do.end121.i
-  %566 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp146.not.i = icmp eq ptr %566, null
+  %561 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp146.not.i = icmp eq ptr %561, null
   br i1 %cmp146.not.i, label %do.end149.i, label %if.then147.i
 
 if.then147.i:                                     ; preds = %do.body145.i
-  %567 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %566(ptr noundef nonnull @.str.3, i32 noundef 6184, ptr noundef nonnull @.str.1686, ptr noundef %567)
+  %562 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %561(ptr noundef nonnull @.str.3, i32 noundef 6184, ptr noundef nonnull @.str.1686, ptr noundef %562)
   br label %do.end149.i
 
 do.end149.i:                                      ; preds = %if.then147.i, %do.body145.i
@@ -7303,13 +7302,13 @@ _ZL10HelpMarkerPKc.exit88.i:                      ; preds = %if.then.i85.i, %if.
   br label %do.body158.i
 
 do.body158.i:                                     ; preds = %_ZL10HelpMarkerPKc.exit88.i, %do.end149.i
-  %568 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp159.not.i = icmp eq ptr %568, null
+  %563 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp159.not.i = icmp eq ptr %563, null
   br i1 %cmp159.not.i, label %do.end162.i, label %if.then160.i
 
 if.then160.i:                                     ; preds = %do.body158.i
-  %569 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %568(ptr noundef nonnull @.str.3, i32 noundef 6200, ptr noundef nonnull @.str.1695, ptr noundef %569)
+  %564 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %563(ptr noundef nonnull @.str.3, i32 noundef 6200, ptr noundef nonnull @.str.1695, ptr noundef %564)
   br label %do.end162.i
 
 do.end162.i:                                      ; preds = %if.then160.i, %do.body158.i
@@ -7410,13 +7409,13 @@ if.end212.i:                                      ; preds = %if.then211.i, %if.e
   br label %do.body215.i
 
 do.body215.i:                                     ; preds = %if.end212.i, %do.end162.i
-  %570 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
-  %cmp216.not.i = icmp eq ptr %570, null
+  %565 = load ptr, ptr @GImGuiDemoMarkerCallback, align 8
+  %cmp216.not.i = icmp eq ptr %565, null
   br i1 %cmp216.not.i, label %do.end219.i, label %if.then217.i
 
 if.then217.i:                                     ; preds = %do.body215.i
-  %571 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
-  call void %570(ptr noundef nonnull @.str.3, i32 noundef 6242, ptr noundef nonnull @.str.1708, ptr noundef %571)
+  %566 = load ptr, ptr @GImGuiDemoMarkerCallbackUserData, align 8
+  call void %565(ptr noundef nonnull @.str.3, i32 noundef 6242, ptr noundef nonnull @.str.1708, ptr noundef %566)
   br label %do.end219.i
 
 do.end219.i:                                      ; preds = %if.then217.i, %do.body215.i
@@ -22159,7 +22158,7 @@ if.end18:                                         ; preds = %if.end18.sink.split
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZZL21ShowDemoWindowWidgetsvEN11TextFilters18FilterImGuiLettersEP26ImGuiInputTextCallbackData(ptr nocapture noundef readonly %data) #12 align 2 {
+define internal noundef range(i32 0, 2) i32 @_ZZL21ShowDemoWindowWidgetsvEN11TextFilters18FilterImGuiLettersEP26ImGuiInputTextCallbackData(ptr nocapture noundef readonly %data) #12 align 2 {
 entry:
   %EventChar = getelementptr inbounds i8, ptr %data, i64 24
   %0 = load i16, ptr %EventChar, align 8

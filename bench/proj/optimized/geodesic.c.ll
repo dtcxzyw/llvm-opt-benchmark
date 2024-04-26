@@ -3799,38 +3799,30 @@ define void @geod_polygon_init(ptr nocapture noundef writeonly %0, i32 noundef %
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %4, ptr %5, align 8
   %6 = load double, ptr @NaN, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %6, ptr %7, align 8
-  store double %6, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  store double %6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %6, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 0, ptr %12, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
+  %7 = insertelement <4 x double> poison, double %6, i64 0
+  %8 = shufflevector <4 x double> %7, <4 x double> poison, <4 x i32> zeroinitializer
+  store <4 x double> %8, ptr %0, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 0, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 0, ptr %11, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define void @geod_polygon_clear(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   %2 = load double, ptr @NaN, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %2, ptr %3, align 8
-  store double %2, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  store double %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 0, ptr %8, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
+  %3 = insertelement <4 x double> poison, double %2, i64 0
+  %4 = shufflevector <4 x double> %3, <4 x double> poison, <4 x i32> zeroinitializer
+  store <4 x double> %4, ptr %0, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 0, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 0, ptr %7, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   ret void
 }
 
@@ -5003,7 +4995,7 @@ areareduceB.exit:                                 ; preds = %118, %120, %123, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @geod_polygon_testedge(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #3 {
+define range(i32 2, 1) i32 @geod_polygon_testedge(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #3 {
   %9 = alloca double, align 8
   %10 = alloca double, align 8
   %11 = alloca double, align 8
@@ -5237,21 +5229,17 @@ define void @geod_polygonarea(ptr nocapture noundef readonly %0, ptr nocapture n
   %8 = getelementptr inbounds i8, ptr %7, i64 64
   store i32 0, ptr %8, align 8
   %9 = load double, ptr @NaN, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
-  store double %9, ptr %10, align 8
-  store double %9, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
-  store double %9, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
-  store double %9, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
-  %14 = getelementptr inbounds i8, ptr %7, i64 68
-  store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %7, i64 72
-  store i32 0, ptr %15, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
-  %16 = icmp sgt i32 %3, 0
-  br i1 %16, label %.lr.ph.preheader, label %._crit_edge
+  %10 = insertelement <4 x double> poison, double %9, i64 0
+  %11 = shufflevector <4 x double> %10, <4 x double> poison, <4 x i32> zeroinitializer
+  store <4 x double> %11, ptr %7, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds i8, ptr %7, i64 68
+  store i32 0, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %7, i64 72
+  store i32 0, ptr %14, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
+  %15 = icmp sgt i32 %3, 0
+  br i1 %15, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %6
   %wide.trip.count = zext nneg i32 %3 to i64
@@ -5259,17 +5247,17 @@ define void @geod_polygonarea(ptr nocapture noundef readonly %0, ptr nocapture n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %17 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
-  %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
-  %20 = load double, ptr %19, align 8
-  call void @geod_polygon_addpoint(ptr noundef %0, ptr noundef nonnull %7, double noundef %18, double noundef %20)
+  %16 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %17 = load double, ptr %16, align 8
+  %18 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %19 = load double, ptr %18, align 8
+  call void @geod_polygon_addpoint(ptr noundef %0, ptr noundef nonnull %7, double noundef %17, double noundef %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
-  %21 = call i32 @geod_polygon_compute(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1, ptr noundef %4, ptr noundef %5)
+  %20 = call i32 @geod_polygon_compute(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1, ptr noundef %4, ptr noundef %5)
   ret void
 }
 
